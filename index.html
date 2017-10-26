@@ -123,8 +123,10 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     <script>
         let p={};
         let coms=['monitor','dropdown','taginput','dragdrop','hour','calendar','time','dialog','uploader','popover','pagination','gtip','color','popmenu','slider','form','loading','checkbox','popconfirm','tree','table','number','suggest','dragsort','runner','progress','effect','copy','dragselect','linkage'];
+        let url=location.protocol+'//'+location.hostname+location.pathname;
+        url=url.replace(/index\.html$/,'');
         for(let c of coms){
-            p[`mx-${c}`]=location.protocol+'//'+location.hostname+`/magix-components/src/mx-${c}`;
+            p[`mx-${c}`]=url+`src/mx-${c}`;
         }
         seajs.config({
             paths:p
