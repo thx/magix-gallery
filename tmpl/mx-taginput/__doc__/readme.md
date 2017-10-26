@@ -2,7 +2,7 @@
 
 ### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-taginput/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-taginput/index" target="_blank">在线示例</a>
 ```
 <div mx-view="app/gallery/mx-taginput/index"
     view-list="<%@ list %>"

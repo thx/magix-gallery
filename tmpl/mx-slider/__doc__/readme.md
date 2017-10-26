@@ -7,7 +7,7 @@
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-slider/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-slider/index" target="_blank">在线示例</a>
 
 ```html
 <mx-view path="app/gallery/mx-slider/index"
@@ -56,7 +56,7 @@
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-slider/range" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-slider/range" target="_blank">在线示例</a>
 
 ```html
 <div path="mx-slider/range"

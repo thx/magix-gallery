@@ -2,7 +2,7 @@
 
 ### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-popover/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-popover/index" target="_blank">在线示例</a>
 ```html
 <button class="btn" mx-view="app/gallery/mx-popover/index"
     view-content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容">提示右</button>

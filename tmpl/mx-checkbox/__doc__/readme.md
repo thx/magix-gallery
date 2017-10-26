@@ -4,7 +4,7 @@
 ### checkbox联动
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-checkbox/linkage" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-checkbox/linkage" target="_blank">在线示例</a>
 
 ### API
 
@@ -28,7 +28,7 @@
 ### checkbox保存状态
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-checkbox/storestate" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-checkbox/storestate" target="_blank">在线示例</a>
 
 ### API
 

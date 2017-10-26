@@ -2,7 +2,7 @@
 
 ### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-popconfirm/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-popconfirm/index" target="_blank">在线示例</a>
 ```html
 <a href="#" mx-enter="del({id:<%=i%>})" mx-view="app/gallery/mx-popconfirm/index">删除</a>
 ```

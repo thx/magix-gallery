@@ -2,7 +2,7 @@
 
 ### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-pagination/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-pagination/index" target="_blank">在线示例</a>
 ```html
 <div mx-view="mx-pagination/index"
     view-total="2000"

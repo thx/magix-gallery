@@ -7,7 +7,7 @@
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-hour/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-hour/index" target="_blank">在线示例</a>
 ```
 <div mx-view="app/gallery/mx-hour/index" view-range="00001111011"></div>
 ```
@@ -44,7 +44,7 @@
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-hour/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-hour/index" target="_blank">在线示例</a>
 ```
 <div mx-view="app/gallery/mx-hour/day" view-hours="00001111011"></div>
 ```
@@ -72,7 +72,7 @@
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-hour/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-hour/index" target="_blank">在线示例</a>
 ```
 <div mx-view="mx-hour/week" view-days="<%@['','001111','','','00000000111111001']%>"></div>
 ```

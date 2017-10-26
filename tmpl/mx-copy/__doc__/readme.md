@@ -5,7 +5,7 @@
 #### 使用
 
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-copy/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-copy/index" target="_blank">在线示例</a>
 
 ```html
 <div id="text_<%=viewId%>">这里是要复制的<span style="font-weight:bold">内容</span>的节点</div>

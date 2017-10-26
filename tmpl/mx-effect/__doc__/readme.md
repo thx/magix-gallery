@@ -3,7 +3,7 @@
 
 ### count
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-effect/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-effect/index" target="_blank">在线示例</a>
 ```html
 <input value="20" class="input" mx-view="mx-effect/count" view-to="<%@toNumber%>">
 <div mx-view="mx-effect/count" view-to="<%@toNumber%>" view-duration="2000" view-fixed="2" style="font-size: 30px;line-height: 50px;letter-spacing: 2px;">20.00</div>
@@ -52,7 +52,7 @@ module.exports = Magix.View.extend({
 
 ### dance
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-effect/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-effect/index" target="_blank">在线示例</a>
 ```html
 <mx-effect-dance value="<%=content%>" duration="<%=duration%>" dance="<%=dance%>"  />
 ```

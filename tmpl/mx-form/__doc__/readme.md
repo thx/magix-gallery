@@ -3,7 +3,7 @@
 
 ### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-form/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-form/index" target="_blank">在线示例</a>
 
 ### API
 

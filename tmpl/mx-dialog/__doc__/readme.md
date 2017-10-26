@@ -7,7 +7,7 @@
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-dialog/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-dialog/index" target="_blank">在线示例</a>
 ```js
 let Magix = require('magix');
 let Dialog = require('app/gallery/mx-dialog/index');
@@ -41,7 +41,7 @@ module.exports = Magix.View.extend({
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-dialog/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-dialog/index" target="_blank">在线示例</a>
 ```js
 let Magix = require('magix');
 let Dialog = require('app/gallery/mx-dialog/index');
@@ -78,7 +78,7 @@ module.exports = Magix.View.extend({
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-dialog/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-dialog/index" target="_blank">在线示例</a>
 ```js
 let Magix = require('magix');
 let Dialog = require('app/gallery/mx-dialog/index');

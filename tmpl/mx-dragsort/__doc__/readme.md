@@ -2,7 +2,7 @@
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-dragsort/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-dragsort/index" target="_blank">在线示例</a>
 ```html
 <ul mx-view="app/gallery/mx-dragsort/index" class="hor fl" view-horizonal="true" view-vertical="false">
     <li ds-draggable="false"><span>move</span>123</li>

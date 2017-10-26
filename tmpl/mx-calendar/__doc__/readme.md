@@ -7,7 +7,7 @@
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-calendar/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-calendar/index" target="_blank">在线示例</a>
 ```
 <mx-view path="app/gallery/mx-calendar/index"/>
 ```
@@ -50,7 +50,7 @@
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-calendar/datepicker" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-calendar/datepicker" target="_blank">在线示例</a>
 ```
 <mx-view tag="input" path="app/gallery/mx-calendar/datepicker" class="input"/>
 ```
@@ -84,7 +84,7 @@
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-calendar/rangepicker" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-calendar/rangepicker" target="_blank">在线示例</a>
 ```
 <mx-view tag="input" path="app/gallery/mx-calendar/rangepicker" class="input"/>
 ```

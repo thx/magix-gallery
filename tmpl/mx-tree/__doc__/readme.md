@@ -5,7 +5,7 @@
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-tree/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-tree/index" target="_blank">在线示例</a>
 ```html
 <div mx-view="mx-tree/index"
     view-list="<%@list%>"

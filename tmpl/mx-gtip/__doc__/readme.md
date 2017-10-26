@@ -2,7 +2,7 @@
 
 ### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-gtip/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-gtip/index" target="_blank">在线示例</a>
 ```js
 let Magix = require('magix');
 let GTip = require('app/gallery/mx-gtip/index');

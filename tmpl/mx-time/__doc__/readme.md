@@ -7,7 +7,7 @@
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-time/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-time/index" target="_blank">在线示例</a>
 ```html
 <div mx-view="mx-time/index"
     view-time="00:12:13"
@@ -51,7 +51,7 @@ module.exports = Magix.View.extend({
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-time/picker" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-time/picker" target="_blank">在线示例</a>
 ```html
 <input mx-view="app/gallery/mx-time/picker"
     value="18:26:00"

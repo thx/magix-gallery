@@ -5,7 +5,7 @@
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-popmenu/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-popmenu/index" target="_blank">在线示例</a>
 ```html
 <button type="button" class="btn btn-brand" mx-view="app/gallery/mx-popmenu/index" view-related="#menu_<%=viewId%>">显示更多菜单</button>
 <ul class="none menu" id="menu_<%=viewId%>">

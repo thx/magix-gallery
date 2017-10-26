@@ -7,7 +7,7 @@
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-color/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-color/index" target="_blank">在线示例</a>
 ```html
 <mx-view path="app/gallery/mx-color/index"/>
 ```
@@ -33,7 +33,7 @@
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-color/picker" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-color/picker" target="_blank">在线示例</a>
 ```html
 <mx-view tag="input" path="app/gallery/mx-color/picker" class="input" />
 ```

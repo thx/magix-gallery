@@ -2,7 +2,7 @@
 
 #### 使用
 
-<a href="https://magix-components.github.io/magix-components/#!/mx-dragselect/index" target="_blank">在线示例</a>
+<a href="https://thx.github.io/magix-gallery/#!/mx-dragselect/index" target="_blank">在线示例</a>
 ```html
 <ul mx-view="mx-dragselect/index" class="hor fl" mx-change="show()" mx-dragbegin="begin()" mx-dragfinish="end()" view-selector="li[select!=false]">
     <li>123</li>
