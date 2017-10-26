@@ -1,0 +1,42 @@
+<h2>mx-popmenu</h2>
+<div class="pt20 clearfix">
+    <button type="button" class="btn btn-brand" mx-view="mx-popmenu/index" view-related="#menu_<%=viewId%>">显示更多菜单</button>
+    <ul class="none menu" id="menu_<%=viewId%>">
+        <li class="menu-item" mx-click="hide()">示例菜单1</li>
+        <li class="menu-item" mx-click="hide()">示例菜单2</li>
+        <li class="menu-item" mx-click="hide()">示例菜单3</li>
+        <li class="menu-item" mx-click="hide()">示例菜单4</li>
+        <li class="menu-item" mx-click="hide()">示例菜单5</li>
+        <li class="menu-item" mx-click="hide()">示例菜单6</li>
+    </ul>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;button type="button" class="btn btn-brand" mx-view="app/gallery/mx-popmenu/index" view-related="#menu_&lt;%=viewId%&gt;"&gt;显示更多菜单&lt;/button&gt;
+    &lt;ul class="none menu" id="menu_&lt;%=viewId%&gt;"&gt;
+        &lt;li class="menu-item" mx-click="hide()"&gt;示例菜单1&lt;/li&gt;
+        &lt;li class="menu-item" mx-click="hide()"&gt;示例菜单2&lt;/li&gt;
+        &lt;li class="menu-item" mx-click="hide()"&gt;示例菜单3&lt;/li&gt;
+        &lt;li class="menu-item" mx-click="hide()"&gt;示例菜单4&lt;/li&gt;
+        &lt;li class="menu-item" mx-click="hide()"&gt;示例菜单5&lt;/li&gt;
+        &lt;li class="menu-item" mx-click="hide()"&gt;示例菜单6&lt;/li&gt;
+    &lt;/ul&gt;</pre>
+<div class="pt10">Javascript Code:</div>
+    <pre>
+let Magix = require('magix');
+let $ = require('$');
+Magix.applyStyle('@index.css');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    render() {
+        let me = this;
+        me.updater.digest({
+            viewId: me.id
+        });
+    },
+    'hide&lt;click&gt;' () {
+        $('#' + this.id + ' button').invokeView('hide');
+    }
+});</pre>
+</div>

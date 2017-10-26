@@ -1,0 +1,125 @@
+@import "../mx-style/_vars";
+.owner{
+    height: @input-height;
+    padding:0 9px;
+    position: relative;
+    border:solid 1px @color-border;
+    border-radius: @border-radius;
+    width: @input-width;
+    line-height: @input-height;
+}
+.owner:hover{
+    border-color: @color-border-hover;
+}
+
+.notallowed{
+    cursor: not-allowed;
+    background-color: @color-disabled;
+}
+.notallowed:hover{
+    border-color: @color-border;
+}
+
+.placeholder{
+    color:@placeholder-color;
+    user-select:none;
+}
+.dashboard{
+    position: absolute;
+    border: 1px solid @color-border;
+    font-size: @font-size;
+    max-height: 260px;
+    overflow: auto;
+    list-style: none;
+    border-radius: @border-radius;
+    background-color: #fff;
+    z-index: 10;
+    padding:3px 0;
+    line-height: @line-height;
+    left:-1px;
+    right:-1px;
+}
+.tabs{
+    border-bottom: 1px solid #e6e6e6;
+    margin: 0 10px;
+    padding-bottom: 3px;
+}
+.tab{
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 12px;
+
+    height:@menu-item-height;
+    line-height:@menu-item-height;
+    border-radius: @border-radius;
+}
+.tab:hover,
+.tab:focus,
+.tab:active{
+    color:@color-primary;
+    background-color: @color-hover;
+}
+.main-panel{
+    margin: 0 10px;
+    padding-top:3px;
+}
+
+.panel-item{
+    width:32%;
+    float: left;
+    margin:0 0 2px 2px;
+    color: @color-secondary;
+    display: block;
+    cursor: pointer;
+    padding: 0 12px;
+    height:@menu-item-height;
+    line-height:@menu-item-height;
+    border-radius: @border-radius;
+}
+.panel-item:hover,
+.panel-item:focus,
+.panel-item:active{
+    color:@color-primary;
+    background-color: @color-hover;
+}
+.texts{
+    margin-left:-1px;
+}
+.text{
+    float: left;
+    height: @input-height - 8;
+    line-height: @input-height - 8;
+    padding: 0 1px 0;
+    max-width:31%;
+    overflow: hidden;
+    margin-top: 3px;
+}
+
+.text-cnt{
+    cursor: pointer;
+    border-radius: @border-radius;
+}
+
+.text-cnt:hover,
+.text-cnt:focus,
+.text-cnt:active{
+    color:@color-primary;
+    background-color: @color-hover;
+}
+.notallowed .texts{
+    cursor: not-allowed;
+}
+.notallowed .text-cnt:hover,
+.notallowed .text-cnt:focus,
+.notallowed .text-cnt:active{
+    background-color: transparent;
+    cursor: not-allowed;
+}
+
+.active,
+.active:hover,
+.active:active,
+.active:focus{
+    color: #fff;
+    background-color: @color-brand;
+}

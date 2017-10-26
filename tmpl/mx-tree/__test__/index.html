@@ -1,0 +1,44 @@
+<h2>mx-tree</h2>
+<div class="pt20 clearfix">
+    <div mx-view="mx-tree/index"
+        view-list="<%@list%>"
+    ></div>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;div mx-view="mx-tree/index"
+    view-list="&lt;%@list%&gt;"
+&gt;&lt;/div&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    render() {
+        let me = this;
+        me.updater.digest({
+            list: [{
+                id: 0,
+                pId: '',
+                text: 'abc'
+            }, {
+                id: '0-0',
+                pId: '',
+                text: 'abc-abc'
+            }, {
+                id: 1,
+                pId: 0,
+                text: 'def'
+            }, {
+                id: 2,
+                pId: 1,
+                text: 'aaa'
+            }, {
+                id: 3,
+                pId: 2,
+                text: 'bbb'
+            }]
+        });
+    }
+});</pre>
+</div>

@@ -1,0 +1,52 @@
+<div
+    class="dropdown-toggle"
+    mx-click="@{toggle}()"
+    title="<%=selectedText%>"
+>
+    <span class="dropdown-toggle-label<%if(selected===''){%> dropdown-toggle-label-ph<%}%>"><%=selectedText%></span>
+    <span class="mc-iconfont arrow">&#xe692;</span>
+</div>
+
+<div class="dropdown-menu-wrapper">
+    <%if(rList){%>
+        <%if(searchbox){%>
+        <div class="searchbox">
+            <label class="searchbox-wrapper">
+                <span class="mc-iconfont search-icon">&#xe608;</span>
+                <input type="text"
+                    placeholder="搜索关键词"
+                    mx-keyup="@{search}()"
+                    mx-paste="@{search}()"
+                    mx-change="@{stop}()"
+                    mx-focusin="@{stop}()"
+                    mx-focusout="@{stop}()"
+                    class="input  search-input"  />
+            </label>
+        </div>
+        <%}%>
+        <ul class="dropdown-menu" id="list_<%=viewId%>">
+            <%let text,value%>
+            <%for(let item of list){%>
+                <%if(textKey&&valueKey){%>
+                    <%text=item[textKey];value=item[valueKey]%>
+                <%}else{%>
+                    <%text=item;value=item;%>
+                <%}%>
+                <%if(item&&item.group){%>
+                    <li class="dropdown-header ellipsis" title="<%=item[textKey]%>">
+                        <%=item[textKey]%>
+                    </li>
+                <%}else{%>
+                    <li title="<%=text%>" class="dropdown-item">
+                        <%let equal=(value+'')===(selected+'')%>
+                        <a href="#"
+                            class="item-link ellipsis<%if(equal){%> active<%}%>"
+                            mx-click="@{select}({item:'<%@item%>'})">
+                            <%=text%>
+                        </a>
+                    </li>
+                <%}%>
+            <%}%>
+        </ul>
+    <%}%>
+</div>

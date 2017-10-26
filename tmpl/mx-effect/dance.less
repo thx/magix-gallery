@@ -1,0 +1,162 @@
+.c{
+    display:inline-block;
+    opacity:0;
+    white-space:pre-wrap;
+}
+.d1{
+    animation:a1 .4s ease-out forwards;
+}
+@keyframes a1{
+    0%{
+        opacity:0;
+        transform:translate(0,-20px);
+    }
+    100%{
+        opacity:1;
+        transform:translate(0,0);
+    }
+}
+
+.d2{
+    animation:a2 .5s ease-out forwards;
+}
+@keyframes a2{
+    0%{
+        opacity:0;
+        transform:translate(-25px,0);
+    }
+    100%{
+        opacity:1;
+        transform:translate(0,0);
+    }
+}
+
+.d3{
+    animation:a3 .5s ease-out forwards;
+}
+
+@keyframes a3{
+    0%{
+        opacity:0;
+        transform:rotate(135deg);
+    }
+    100%{
+        opacity:1;
+        transform:rotate(0deg);
+    }
+}
+
+.d4{
+    animation:a4 .5s ease-out forwards;
+}
+@keyframes a4{
+    0%{
+        opacity:0;
+        transform:rotateX(-180deg);
+    }
+    100%{
+        opacity:1;
+        transform:rotateX(0deg);
+    }
+}
+
+.d5{
+    animation:a5 .5s ease-out forwards;
+}
+@keyframes a5{
+    0%{
+        opacity:0;
+        transform:rotateY(-180deg);
+    }
+    
+    100%{
+        opacity:1;
+        transform:rotateY(0deg);
+    }
+}
+
+.d6{
+    animation:a6 .5s ease-out forwards;
+}
+@keyframes a6{
+    0%{
+        opacity:0;
+        transform:scale(1.5,1.5);
+    }
+    100%{
+        opacity:1;
+        transform:scale(1,1);
+    }
+}
+
+.d7{
+    animation:a7 .5s ease-out forwards;
+}
+@keyframes a7{
+    0%{
+        opacity:0;
+        transform:scale(0.3,0.3);
+    }
+    
+    100%{
+        opacity:1;
+        transform:scale(1,1);
+    }
+}
+
+.d8{
+    animation:a8 .5s ease-out forwards;
+}
+@keyframes a8{
+    0%{
+        opacity:0;
+    }
+    50%{
+        opacity: 0.5;
+        transform:translate(-5px,-20px);
+    }
+    100%{
+        opacity:1;
+        transform:translate(0px,0px);
+    }
+}
+
+
+.d9{
+    animation:a9 .9s ease-out forwards;
+}
+@keyframes a9{
+    0%{
+        opacity:0;
+        transform:rotateX(0deg);
+        transform-origin:0 0;
+    }
+    to{
+        opacity:1;
+        transform:rotateX(360deg);
+        transform-origin:0 0;
+    }
+}
+
+
+
+.d10:nth-child(even){
+    animation:a1 .5s ease-out forwards;
+}
+.d10:nth-child(odd){
+    animation:a11 .5s ease-out forwards;
+}
+@keyframes a11{
+    0%{
+        opacity:0;
+        transform:translate(0,20px);
+    }
+    100%{
+        opacity:1;
+        transform:translate(0,0);
+    }
+}
+
+.d11{
+    animation:a11 .4s ease-out forwards;
+}

@@ -1,0 +1,35 @@
+@import "../mx-style/_vars";
+.bar{
+    left:-1000px;
+    top:0;
+    background:@color-brand;
+    position: absolute;
+}
+.pointer{
+    width:26px;
+    height:26px;
+    position: absolute;
+}
+.ok{
+    background: #479B47
+}
+.bad{
+    background: #E94F4F
+}
+.pointer:after{
+    font-size: @font-size + 6;
+    line-height: 26px;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+}
+.ok:after{
+    content:'✓';
+}
+.bad:after{
+    content: '✗';
+}

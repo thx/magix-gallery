@@ -1,0 +1,27 @@
+@import "../mx-style/_vars";
+.group{
+    width:ceil((4 * @font-size) +  2);
+    float: left;
+    overflow: hidden;
+}
+.ipt{
+    font-size: @font-size + 16;
+    height: 40 + (@font-size - 12) * 5;
+    text-align: center;
+    margin-bottom: @font-size - 4;
+}
+.o-btn{
+    width:2 * @font-size;
+    height: 2 * @font-size;
+    padding: 0;
+}
+.spliter{
+    font-size: 27px;
+    float: left;
+    line-height: @input-height;
+    margin-top:floor(((40 + (@font-size - 12) * 5) - @input-height ) / 2 - 1);
+    font-weight: bolder;
+    display: inline-block;
+    width:30px;
+    text-align: center;
+}

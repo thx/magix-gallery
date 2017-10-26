@@ -1,0 +1,47 @@
+<div class="ipt unselectable" mx-click="@{focus}()" id="ipt_<%=viewId%>">
+    <%if(!items.length&&placeholder){%>
+    <div class="placeholder"><%=placeholder%></div>
+    <%}%>
+    <%if(items.length){%>
+    <%for(var i=0;i<items.length;i++){%>
+    <%var one=items[i];%>
+    <div class="item" mx-contextmenu="prevent()">
+        <div class="item-name ellipsis"><%=textKey?one[textKey]:one%></div>
+        <div class="item-delete" mx-click="@{delete}({idx:<%!i%>})">
+            x
+        </div>
+    </div>
+    <%}%>
+    <%}else{%>
+    <div class="item ghost" mx-click="stop()">
+        <div class="item-delete" mx-click="@{delete}({idx:<%!i%>})">
+            x
+        </div>
+    </div>
+    <%}%>
+    <input
+        mx-keydown="@{check}()"
+        mx-keyup="@{check}()"
+        mx-input="@{check}()"
+        mx-paste="@{check}()"
+        mx-pick="@{add}()"
+        mx-change="@{stop}()"
+        mx-focusin="@{stop}()"
+        mx-focusout="@{stop}()"
+        mx-showlist="@{toggleList}()"
+        mx-hidelist="@{toggleList}()"
+        <%if(!disabled){%>
+        mx-view="@./suggest"
+        view-list="<%@list%>"
+        view-text-key="<%@textKey%>"
+        view-value-key="<%@valueKey%>"
+        view-relate-ids="ipt_<%=viewId%>"
+        view-offset-left="-11"
+        view-width="<%=width%>"
+        view-scroll-top="<%@scrollTop%>"
+        <%}else{%>
+        disabled
+        <%}%>
+        class="trigger"
+        autocomplete="off"/>
+</div>

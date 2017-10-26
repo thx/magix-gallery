@@ -1,0 +1,69 @@
+<%if(inDialog){%>
+    <div class="dialog-header">加载view测试</div>
+    <div class="dialog-body">
+<%}%>
+<h2>mx-dialog</h2>
+<h3>内置alert与confirm</h3>
+<div class="pt20 clearfix">
+    <button type="button" class="btn btn-brand mr20" mx-click="alert()">alert</button>
+    <button type="button" class="btn btn-brand mr20" mx-click="confirm()">confirm</button>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;button type="button" class="btn btn-brand mr20" mx-click="alert()"&gt;alert&lt;/button&gt;
+&lt;button type="button" class="btn btn-brand mr20" mx-click="confirm()"&gt;confirm&lt;/button&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+let Dialog = require('app/gallery/mx-dialog/index');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    mixins: [Dialog],
+    render() {
+        let me = this;
+        me.updater.digest();
+    },
+    'alert&lt;click&gt;' () {
+        this.alert('xxx', () => {
+            console.log('确定被点击');
+        });
+    },
+    'confirm&lt;click&gt;' () {
+        this.confirm('xxx', () => {
+            console.log('确定被点击');
+        }, () => {
+            console.log('取消被点击');
+        });
+    }
+});</pre>
+</div>
+
+<h3 class="mt30">加载普通view</h3>
+<div class="pt20 clearfix">
+    <button type="button" class="btn btn-brand mr20" mx-click="view()">view</button>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;button type="button" class="btn btn-brand mr20" mx-click="view()"&gt;view&lt;/button&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+let Dialog = require('app/gallery/mx-dialog/index');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    mixins: [Dialog],
+    render() {
+        let me = this;
+        me.updater.digest();
+    },
+    'view&lt;click&gt;' () {
+        this.mxDialog('path/to/view', {
+            width: 900
+        });
+    }
+});</pre>
+</div>
+<%if(inDialog){%>
+</div>
+<div class="dialog-footer">dialog footer</div>
+<%}%>

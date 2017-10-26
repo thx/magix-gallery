@@ -1,0 +1,43 @@
+@import "../mx-style/_vars";
+
+.suggest{
+    position: absolute;
+    border: 1px solid @color-border;
+    font-size: @font-size;
+    max-height: 260px;
+    overflow: auto;
+    list-style: none;
+    border-radius: @border-radius;
+    background-color: #fff;
+    display: none;
+    z-index: 10;
+    padding:3px 0;
+    line-height: @line-height;
+}
+.item {
+  padding: 0 4px;
+  cursor: pointer;
+  margin: 2px 0;
+}
+
+.item-link{
+    color: @color-secondary;
+    display: block;
+    width: 100%;
+    padding: 0 6px;
+    height:@menu-item-height;
+    line-height:@menu-item-height;
+    border-radius: @border-radius;
+}
+
+.item-link:hover,.item-link:focus,.item-link:active{
+    color:@color-primary;
+    background-color: @color-hover;
+}
+.active{
+    color: @color-primary;
+    background-color: @color-hover;
+    border-radius: @border-radius;
+    text-decoration: none;
+    outline: 0;
+}

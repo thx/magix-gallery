@@ -1,0 +1,137 @@
+@import "../mx-style/_vars";
+
+
+.dropdown{
+    position: relative;
+    width: @input-width;
+    background-color: #fff;
+    border:solid 1px @color-border;
+    border-radius: @border-radius;
+    display: inline-block;
+    vertical-align: middle;
+    height: @input-height;
+}
+
+.dropdown:hover{
+    border-color: @color-border-hover;
+}
+.dropdown-toggle{
+    color: @color-primary;
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    user-select:none;
+    padding: 0 30px 0 12px;
+}
+
+.notallowed{
+    cursor: not-allowed;
+    background-color: @color-disabled;
+}
+.notallowed:hover{
+    border-color: @color-border;
+}
+.notallowed .dropdown-toggle{
+    cursor: not-allowed;
+}
+.arrow{
+    position: absolute;
+    right: 0;
+    top: (@input-height - 28)/2;
+    font-size: 28px;
+    color: @color-border-hover;
+    transition: transform 0.3s,top 0.3s;
+}
+.open .arrow{
+    transform:rotate(180deg);
+    top:0;
+}
+
+.open,
+.open:hover{
+    border-color: @color-brand;
+}
+.dropdown-toggle-label{
+    height: @input-height - 2;
+    line-height: @input-height - 2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+
+.dropdown-toggle-label-ph{
+    color: @placeholder-color;
+}
+
+.dropdown-menu-wrapper{
+    position: absolute;
+    top: 100%;
+    left: -1px;
+    right: -1px;
+    margin-top: 5px;
+    border-radius: @border-radius;
+    z-index: 300;
+    border: 1px solid @color-border;
+    background-color: #fff;
+    display: none;
+    user-select:none;
+}
+.open .dropdown-menu-wrapper{
+    display: block;
+}
+.dropdown-menu{
+    overflow: auto;
+    max-height: 196px;
+    padding-bottom: 3px;
+    padding-top: 5px;
+}
+.searchbox{
+    display: block;
+    width: 100%;
+    padding:9px 9px 4px 9px;
+}
+.searchbox-wrapper {
+  padding: 0;
+  width: 100%;
+}
+.search-icon{
+    color:#ccc;
+    position: absolute;
+    left: 15px;
+    top: 16px;
+}
+.search-input{
+    padding-left: 28px;
+    height: 28px;
+    line-height: 28px;
+    width: 100%;
+}
+.dropdown-header{
+    padding: 5px;
+    color: #999;
+    display: block;
+    cursor: default;
+}
+.dropdown-item {
+  padding: 0 4px;
+  margin:2px 0;
+}
+.item-link{
+    color: @color-secondary;
+    display: block;
+    width: 100%;
+    padding: 0 12px;
+    height:@menu-item-height;
+    line-height:@menu-item-height;
+    border-radius: @border-radius;
+}
+.item-link:hover,.item-link:focus,.item-link:active{
+    color:@color-primary;
+    background-color: @color-hover;
+}
+.active,.active:hover,.active:active,.active:focus{
+    color: #fff;
+    background-color: @color-brand;
+}

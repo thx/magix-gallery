@@ -1,0 +1,42 @@
+<h2>mx-gtip</h2>
+<div class="pt20 clearfix">
+    <button class="btn fl" mx-click="rt()">右上角提示</button>
+    <button class="btn fl ml10" mx-click="rb()">右下角提示</button>
+    <button class="btn fl ml10" mx-click="lt();">左上角提示</button>
+    <button class="btn fl ml10" mx-click="lb();">左下角提示</button>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;button class="btn fl" mx-click="rt()"&gt;右上角提示&lt;/button&gt;
+    &lt;button class="btn fl ml10" mx-click="rb()"&gt;右下角提示&lt;/button&gt;
+    &lt;button class="btn fl ml10" mx-click="lt();"&gt;左上角提示&lt;/button&gt;
+    &lt;button class="btn fl ml10" mx-click="lb();"&gt;左下角提示&lt;/button&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>
+let Magix = require('magix');
+let GTip = require('app/gallery/mx-gtip/index');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    mixins: [GTip],
+    render() {
+        let me = this;
+        me.updater.digest();
+    },
+    'rt&lt;click&gt;' () {
+        this.gtipRT('右上角，消息内容' + Date.now());
+    },
+    'rb&lt;click&gt;' () {
+        this.gtipRB('右下角，消息内容' + Date.now());
+    },
+    'lt&lt;click&gt;' () {
+        this.gtipLT('左上角，消息内容' + Date.now());
+    },
+    'lb&lt;click&gt;' () {
+        this.gtipLB('左下角，消息内容' + Date.now());
+    },
+    'rtt&lt;click&gt;' (e) {
+        this.gtipRT('右上角，消息内容' + Date.now(), e.params.s * 1000);
+    }
+});</pre>
+</div>

@@ -1,0 +1,85 @@
+<h2>mx-pagination</h2>
+<h3>完整模式</h3>
+<div class="pt20 clearfix">
+    <mx-pagination
+        total="2000"
+        step="3"
+        page="<%=page%>"
+        class="fl"/>
+        <button class="btn" mx-click="test()">test</button>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-pagination
+    total="2000"
+    step="3"
+    page="2"
+    class="fl"/&gt;</pre>
+</div>
+
+<h3 class="mt30">简单模式</h3>
+<div class="pt20 clearfix">
+    <mx-pagination
+        total="2000"
+        step="5"
+        simplify="true"
+        page="15"/>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-pagination
+    total="2000"
+    step="5"
+    simplify="true"
+    page="15"/&gt;</pre>
+</div>
+
+<h3 class="mt30">迷你模式</h3>
+<div class="pt20 clearfix">
+    <mx-pagination
+        total="2000"
+        step="5"
+        mini="true"
+        page="10"/>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-pagination
+    total="2000"
+    step="5"
+    mini="true"
+    page="10"/&gt;</pre>
+</div>
+
+<h3 class="mt30">监听change事件</h3>
+<div class="pt20 clearfix">
+    <mx-pagination
+    total="2000"
+    step="5"
+    page="10"
+    mx-change="show()"/>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-pagination
+    total="2000"
+    step="5"
+    page="10"
+    mx-change="show()"/&gt;</pre>
+<div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    render() {
+        let me = this;
+        me.updater.digest();
+    },
+    'show&lt;change&gt;' (e) {
+        console.log(e.page, e.size);
+    }
+});</pre>
+</div>

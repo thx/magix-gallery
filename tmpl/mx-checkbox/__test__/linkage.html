@@ -1,0 +1,68 @@
+<h2>mx-checkbox</h2>
+<div class="pt20 clearfix">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th><input type="checkbox" class="checkbox" linkage="example1" /></th>
+                <%for(var i=0;i<5;i++){%>
+                <th>示例字段<%=i%></th>
+                <%}%>
+            </tr>
+        </thead>
+        <tbody>
+            <%for(var i=0;i<10;i++){%>
+            <tr>
+                <td><input type="checkbox" class="checkbox" linkage-parent="example1" value="ex1_<%=i%>" /></td>
+                <%for(var j=0;j<5;j++){%>
+                <td>示例字段内容<%=j%></td>
+                <%}%>
+            </tr>
+            <%}%>
+        </tbody>
+    </table>
+    <div class="clearfix">
+        <button class="fr mt5 btn btn-brand" mx-click="showEx1()">显示选中的checkbox</button>
+    </div>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;table class="table table-striped"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&lt;input type="checkbox" class="checkbox" linkage="example1" /&gt;&lt;/th&gt;
+            &lt;%for(var i=0;i&lt;5;i++){%&gt;
+            &lt;th&gt;示例字段&lt;%=i%&gt;&lt;/th&gt;
+            &lt;%}%&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;%for(var i=0;i&lt;10;i++){%&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;input type="checkbox" class="checkbox" linkage-parent="example1" value="ex1_&lt;%=i%&gt;" /&gt;&lt;/td&gt;
+            &lt;%for(var j=0;j&lt;5;j++){%&gt;
+            &lt;td&gt;示例字段内容&lt;%=j%&gt;&lt;/td&gt;
+            &lt;%}%&gt;
+        &lt;/tr&gt;
+        &lt;%}%&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="clearfix"&gt;
+    &lt;button class="fr mt5 btn btn-brand" mx-click="showEx1()"&gt;显示示例1选中的checkbox&lt;/button&gt;
+&lt;/div&gt;</pre>
+<div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+let Linkage = require('app/gallery/mx-checkbox/linkage');
+let GTip = require('app/gallery/mx-gtip/index');
+module.exports = Magix.View.extend({
+    tmpl: '@linkage.html',
+    mixins: [Linkage, GTip],
+    render() {
+        let me = this;
+        me.updater.digest();
+    },
+    'showEx1&lt;click&gt;' () {
+        this.gtipRT(this.getSelectedIds('example1'));
+    }
+});</pre>
+</div>

@@ -1,0 +1,40 @@
+@import "../mx-style/_vars";
+
+.pager{
+    color: @color-third;
+}
+.fz0{
+    font-size: 0;
+}
+.fz{
+    font-size: @font-size;
+}
+.num-item{
+    margin: 0 3px;
+    text-decoration: none;
+    border-radius: @border-radius;
+    text-align: center;
+    min-width: @font-size * 2 + @font-size / 2;
+    height: @font-size * 2 ;
+    line-height: @font-size * 2;
+    display: block;
+    font-size: @font-size;
+}
+
+.icon{
+    font-size: @font-size - 2;
+    top:-1px;
+}
+.active .num-item{
+    color: #fff;
+    background-color: @color-brand;
+}
+.notallowed .num-item,
+.notallowed .num-item:hover{
+    color:@color-third;
+    background: transparent;
+    cursor: not-allowed;
+}
+.rotate180{
+    transform:scaleX(-1);
+}

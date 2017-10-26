@@ -1,0 +1,3 @@
+<input class="ipt" mx-focusin="@{active}()" mx-focusout="@{deactive}()" value="<%=value%>" mx-change="@{num.check}()" mx-keydown="@{press.check}()"<%if(disabled){%> disabled<%}%> autocomplete="off">
+<span class="up arrow unselectable" mx-click="@{num.change}({i:true})" mx-mousedown="@{fast.start}({i:true})" mx-contextmenu="@{prevent}()"></span>
+<span class="down arrow unselectable" mx-click="@{num.change}()" mx-mousedown="@{fast.start}()" mx-contextmenu="@{prevent}()"></span>

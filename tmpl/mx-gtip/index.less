@@ -1,0 +1,21 @@
+@import "../mx-style/_vars";
+.gtip{
+    border:solid 1px @color-border;
+    background-color: #fff;
+    padding:8px 20px;
+    position: fixed;
+    z-index: 450;
+    border-radius: @border-radius;
+    width: 300px;
+    height:65px;
+    overflow: hidden;
+    word-break: break-all;
+    transition: all 0.3s;
+    opacity: 0;
+}
+.fadein{
+    opacity: 1;
+}
+.fadeout{
+    opacity: 0;
+}

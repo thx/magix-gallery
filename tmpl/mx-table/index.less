@@ -1,0 +1,32 @@
+@import "../mx-style/_vars";
+.wrapper{
+    width: 100%;
+    overflow: auto;
+    border:1px solid @color-border;
+    position: relative;
+}
+.owner thead{
+    background-color: #fff;
+}
+.left,.right{
+    position: absolute;
+    top:1px;
+    background-color: #fff;
+    width: auto;
+    z-index: 1;
+}
+.table-no-border{
+    border:none;
+}
+.left{
+    left:1px;
+}
+.right{
+    right:1px;
+}
+.left-active,.left-active thead{
+    box-shadow: 6px 0 6px -4px rgba(0,0,0,.2);
+}
+.right-active,.right-active thead{
+    box-shadow: -6px 0 6px -4px rgba(0,0,0,.2);
+}

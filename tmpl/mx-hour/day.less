@@ -1,0 +1,42 @@
+@import "../mx-style/_vars";
+.days{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+.hours{
+    height: 50px;
+    background-color: #fafafa;
+    color: @color-secondary;
+}
+.range{
+    position: relative;
+}
+.item{
+    display: inline-block;
+    position: absolute;
+    margin-top: -15px;
+    width: 32px;
+    height: 18px;
+}
+.item-0{
+    left:8px;
+}
+.item-6{
+    left:24%;
+}
+.item-12{
+    left:47.5%;
+}
+.item-18{
+    left:71%;
+}
+.item-24{
+    left:94%;
+}
+.day{
+    border-top: 1px solid @color-border;
+}
+.day:first-child{
+    border-top: none;
+}

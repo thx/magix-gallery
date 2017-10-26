@@ -1,0 +1,228 @@
+<h2>mx-table</h2>
+<h3>固定表头</h3>
+<div class="pt20 clearfix">
+    <mx-view path="mx-table/sticky">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" class="checkbox" linkage="example1" /></th>
+                    <%for(var i=0;i<5;i++){%>
+                    <th>示例字段<%=i%></th>
+                    <%}%>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(var i=0;i<10;i++){%>
+                <tr>
+                    <td><input type="checkbox" class="checkbox" linkage-parent="example1" value="ex1_<%=i%>" /></td>
+                    <%for(var j=0;j<5;j++){%>
+                    <td>示例字段内容<%=j%></td>
+                    <%}%>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+    </mx-view>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view path="app/gallery/mx-table/sticky"&gt;
+    &lt;table class="table table-striped"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;&lt;input type="checkbox" class="checkbox" linkage="example1" /&gt;&lt;/th&gt;
+                &lt;%for(var i=0;i&lt;5;i++){%&gt;
+                &lt;th&gt;示例字段&lt;%=i%&gt;&lt;/th&gt;
+                &lt;%}%&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;%for(var i=0;i&lt;10;i++){%&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;input type="checkbox" class="checkbox" linkage-parent="example1" value="ex1_&lt;%=i%&gt;" /&gt;&lt;/td&gt;
+                &lt;%for(var j=0;j&lt;5;j++){%&gt;
+                &lt;td&gt;示例字段内容&lt;%=j%&gt;&lt;/td&gt;
+                &lt;%}%&gt;
+            &lt;/tr&gt;
+            &lt;%}%&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-view&gt;</pre>
+</div>
+<h3 class="mt30">固定列</h3>
+<div class="pt20 clearfix">
+    <mx-table rwd-range="2,-1">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width:50px"><input type="checkbox" class="checkbox" linkage="example2" /></th>
+                    <%for(var i=0;i<25;i++){%>
+                    <th style="width:200px">示例字段<%=i%></th>
+                    <%}%>
+                    <th style="width:100px">操作</th>
+                    <th style="width:100px">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(var i=0;i<10;i++){%>
+                <tr>
+                    <td style="width:50px"><input type="checkbox" class="checkbox" linkage-parent="example2" value="ex1_<%=i%>" /></td>
+                    <%for(var j=0;j<25;j++){%>
+                    <td style="width:200px">示例字段内容<%=j%></td>
+                    <%}%>
+                    <td style="width:100px">
+                        <a href="#">删除</a><br />
+                        <a href="#">报告</a><br />
+                        <%if(i%3){%>
+                        <a href="#">代码</a><br />
+                        <a href="#">备注</a><br />
+                        <a href="#">更多</a><br />
+                        <%}%>
+                    </td>
+                    <td style="width:200px">adf</td>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+    </mx-table>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-table rwd-range="2,-1"&gt;
+    &lt;table class="table table-striped"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th style="width:50px"&gt;&lt;input type="checkbox" class="checkbox" linkage="example2" /&gt;&lt;/th&gt;
+                &lt;%for(var i=0;i&lt;25;i++){%&gt;
+                &lt;th style="width:200px"&gt;示例字段&lt;%=i%&gt;&lt;/th&gt;
+                &lt;%}%&gt;
+                &lt;th style="width:100px"&gt;操作&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;%for(var i=0;i&lt;10;i++){%&gt;
+            &lt;tr&gt;
+                &lt;td style="width:50px"&gt;&lt;input type="checkbox" class="checkbox" linkage-parent="example2" value="ex1_&lt;%=i%&gt;" /&gt;&lt;/td&gt;
+                &lt;%for(var j=0;j&lt;25;j++){%&gt;
+                &lt;td style="width:200px"&gt;示例字段内容&lt;%=j%&gt;&lt;/td&gt;
+                &lt;%}%&gt;
+                &lt;td style="width:100px"&gt;
+                    &lt;a href="#"&gt;删除&lt;/a&gt;&lt;br /&gt;
+                    &lt;a href="#"&gt;报告&lt;/a&gt;&lt;br /&gt;
+                    &lt;%if(i%3){%&gt;
+                    &lt;a href="#"&gt;代码&lt;/a&gt;&lt;br /&gt;
+                    &lt;a href="#"&gt;备注&lt;/a&gt;&lt;br /&gt;
+                    &lt;a href="#"&gt;更多&lt;/a&gt;&lt;br /&gt;
+                    &lt;%}%&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;%}%&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-table&gt;</pre>
+</div>
+<h3 class="mt30">固定列和表头</h3>
+<div class="pt20 clearfix">
+    <mx-view path="mx-table/index" rwd-range="2,-2" sticky="true">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width:50px"><input type="checkbox" class="checkbox" linkage="example3" /></th>
+                    <%for(var i=0;i<25;i++){%>
+                    <th style="width:200px">示例字段<%=i%></th>
+                    <%}%>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(var i=0;i<10;i++){%>
+                <tr>
+                    <td style="width:50px"><input type="checkbox" class="checkbox" linkage-parent="example3" value="ex1_<%=i%>" /></td>
+                    <%for(var j=0;j<25;j++){%>
+                    <td style="width:200px">示例字段内容<%=j%></td>
+                    <%}%>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+    </mx-view>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view path="app/gallery/mx-table/index" rwd-range="2,-2" sticky="true"&gt;
+    &lt;table class="table table-striped"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th style="width:50px"&gt;&lt;input type="checkbox" class="checkbox" linkage="example3" /&gt;&lt;/th&gt;
+                &lt;%for(var i=0;i&lt;25;i++){%&gt;
+                &lt;th style="width:200px"&gt;示例字段&lt;%=i%&gt;&lt;/th&gt;
+                &lt;%}%&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;%for(var i=0;i&lt;10;i++){%&gt;
+            &lt;tr&gt;
+                &lt;td style="width:50px"&gt;&lt;input type="checkbox" class="checkbox" linkage-parent="example3" value="ex1_&lt;%=i%&gt;" /&gt;&lt;/td&gt;
+                &lt;%for(var j=0;j&lt;25;j++){%&gt;
+                &lt;td style="width:200px"&gt;示例字段内容&lt;%=j%&gt;&lt;/td&gt;
+                &lt;%}%&gt;
+            &lt;/tr&gt;
+            &lt;%}%&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-view&gt;</pre>
+</div>
+
+<h3 class="mt30">旧版</h3>
+<div class="pt20 clearfix">
+    <mx-table.rwd rwd-range="2,-2">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width:50px"><input type="checkbox" class="checkbox" linkage="example4" /></th>
+                    <%for(var i=0;i<25;i++){%>
+                    <th style="width:200px">示例字段<%=i%></th>
+                    <%}%>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(var i=0;i<10;i++){%>
+                <tr>
+                    <td><input type="checkbox" class="checkbox" linkage-parent="example4" value="ex1_<%=i%>" /></td>
+                    <%for(var j=0;j<25;j++){%>
+                    <td>示例字段内容<%=j%></td>
+                    <%}%>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+    </mx-table.rwd>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view path="app/gallery/mx-table/rwd"&gt;
+    &lt;table class="table table-striped"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th style="width:50px"&gt;&lt;input type="checkbox" class="checkbox" linkage="example4" /&gt;&lt;/th&gt;
+                &lt;%for(var i=0;i&lt;25;i++){%&gt;
+                &lt;th style="width:200px"&gt;示例字段&lt;%=i%&gt;&lt;/th&gt;
+                &lt;%}%&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;%for(var i=0;i&lt;10;i++){%&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;input type="checkbox" class="checkbox" linkage-parent="example4" value="ex1_&lt;%=i%&gt;" /&gt;&lt;/td&gt;
+                &lt;%for(var j=0;j&lt;25;j++){%&gt;
+                &lt;td&gt;示例字段内容&lt;%=j%&gt;&lt;/td&gt;
+                &lt;%}%&gt;
+            &lt;/tr&gt;
+            &lt;%}%&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-view&gt;</pre>
+</div>

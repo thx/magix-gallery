@@ -1,0 +1,96 @@
+@import "../mx-style/_vars";
+
+@size:floor((@font-size - 2) / 3);
+
+.as-input{
+    cursor: default;
+    line-height: @input-height;
+    display: inline-block;
+    min-width: @input-height;
+}
+.rail{
+    background:@color-bg;
+    position: relative;
+    display: inline-block;
+    border-radius: @size / 2;
+}
+.hor{
+    height:@size;
+    top:-@size;
+}
+.ver{
+    width: @size;
+    left:(@size / 2) + 2;
+}
+.tracker{
+    background:@color-brand;
+    position: absolute;
+    border-radius: @size / 2;
+    left:0;
+}
+.hor-tracker{
+    height:@size;
+    top:0;
+}
+.ver-tracker{
+    width:@size;
+    bottom:0;
+}
+.indicator{
+    border-radius:50%;
+    width:3 * @size;
+    height:3 * @size;
+    position: absolute;
+    background: #fff;
+    border:solid 2px @color-brand
+}
+.hor-idctor{
+    top:-@size;
+}
+.ver-idctor{
+    left:-@size;
+}
+.pointer-label,
+.scale-left,
+.scale-right,
+.ver-scale-top,
+.ver-scale-bottom{
+    position: absolute;
+    font-size:@font-size / 2 + 2;
+    pointer-events: none;
+    line-height: normal;
+}
+.hor-pl{
+    top:-(@font-size / 2 + 2 + 3 * @size / 2 );
+}
+.ver-pl{
+    left:2 * @size + 2;
+}
+.ver-scale-bottom{
+    bottom:0;
+    left:2 * @size + 2;
+}
+.ver-scale-top{
+    left:2 * @size + 2;
+    top:0;
+}
+.scale-left{
+    left:0;
+    top:@font-size / 2 + 1;
+}
+.scale-right{
+    right:0;
+    top:@font-size / 2 + 1;
+}
+.notallowed{
+    cursor: not-allowed;
+}
+.notallowed .rail{
+    background-color: @color-disabled;
+}
+.notallowed .tracker{
+    background-color: @color-bg;
+}
+.notallowed .indicator{
+    border-color: @color-bg;
+}

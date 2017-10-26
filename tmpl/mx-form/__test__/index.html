@@ -1,0 +1,294 @@
+<h2>mx-form</h2>
+<h3>示例表单</h3>
+<div class="pt20 clearfix">
+    <div style="width:600px;border:solid 1px #ccc;border-radius: 5px;padding: 25px 0;">
+        <div class="form-item clearfix">
+            <label class="form-label form-required">活动名称：</label>
+            <div class="form-content"><input class="input" placeholder="请填写活动名称" value="<%:name{required:true,blength:[20,50]}%>" mx-focusin="@{abc}()" /></div>
+        </div>
+
+        <div class="form-item clearfix">
+            <label class="form-label">色彩：</label>
+            <div class="form-content"><input mx-view="mx-color/picker" class="input" /></div>
+        </div>
+
+
+        <div class="form-item">
+            <label class="form-label form-required">标签：</label>
+            <div class="form-content">
+                <mx-view path="mx-taginput/index"
+                    list="<%@list%>"
+                    placeholder="请选择标签"
+                    selected="<%:tags{required:true}%>"
+                ></mx-view>
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label class="form-label form-required">活动时间：</label>
+            <div class="form-content">
+                <mx-view path="mx-dropdown/index"
+                    searchbox="true"
+                    empty-text="请选择日期"
+                    selected="<%:day{required:true}%>" style="width:180px;">
+                    <item value="mon">周一</item>
+                    <item value="wed">周三</item>
+                    <item value="thu">周四</item>
+                    <item value="fri">周五</item>
+                    <item value="sat">周六</item>
+                </mx-view>
+                <span class="ib ml5 mr5">
+                -</span>
+                <input class="input" style="width:145px" placeholder="请选择时间" value="<%:time{required:true}%>" mx-view="mx-time/picker" />
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">checkbox：</label>
+            <div class="form-content">
+                <label class="mr10 disabled">
+                    <mx-input type="checkbox" name="cb" value="c1" class="checkbox" <%:checkbox%> disabled checked />c1
+                </label>
+                <label class="mr10">
+                    <mx-input type="checkbox" name="cb" value="c2" class="checkbox" <%:checkbox%> />c2
+                </label>
+                <label class="mr10">
+                    <input type="checkbox" <%:checkbox%> name="cb" value="c3" class="switch" disabled />c3
+                </label>
+                <label class="mr10">
+                    <mx-input type="checkbox" <%:checkbox%> name="cb" value="c4" class="switch"  />c4
+                </label>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">radio：</label>
+            <div class="form-content">
+                <label class="mr10 disabled">
+                    <mx-input checked disabled type="radio" <%:radio%> value="r1" class="radio" name="magix" />r1
+                </label>
+                <label class="mr10">
+                    <input type="radio" <%:radio%> value="r2" class="radio" name="magix" />r2
+                </label>
+                <label class="mr10">
+                    <input type="radio" <%:radio%> value="r3" class="radio" name="magix" />r3
+                </label>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">日期：</label>
+            <div class="form-content">
+                <input mx-view="mx-calendar/datepicker" class="input" placeholder="请选择开始日期" value="<%:dateStart%>" style="width:162px;">
+                <span class="ib ml5 mr5">
+                -</span>
+                <input mx-view="mx-calendar/datepicker" class="input" placeholder="请选择结束日期" value="<%:dateEnd%>" style="width:162px;">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">范围：</label>
+            <div class="form-content">
+                <mx-slider
+                    max="200"
+                    min="20"
+                    value="<%:range%>"
+                    step="0.2"/>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">数字：</label>
+            <div class="form-content">
+                <mx-number/>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">范围：</label>
+            <div class="form-content">
+                <div mx-view="mx-slider/range"
+                    view-max="500"
+                    view-min="200"
+                    view-value="<%:range1%>"
+                    view-step="10"
+                ></div>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">进度条：</label>
+            <div class="form-content">
+                <mx-progress value="0.35"/>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">封面：</label>
+            <div class="form-content">
+                <button
+                    class="btn btn-brand"
+                    mx-view="mx-uploader/index"
+                    view-action="./"
+                    view-name="file1"
+                    view-multiple="true"
+                >上传文件</button>
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label class="form-label">备注：</label>
+            <div class="form-content">
+                <textarea class="textarea" rows="8"><%:mark{maxLength:10}%></textarea>
+            </div>
+        </div>
+        <mx-view path="@./sub" name-x1="<%:name_x1{from:'nameX1'}%>" <%:de{from:'name_sub1'}%>></mx-view>
+        <div class="form-footer">
+            <button class="btn btn-brand" mx-click="isValid()">isValid</button>
+            <button class="btn btn-brand ml10" mx-click="getData()">getData</button>
+        </div>
+    </div>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;div class="form-item clearfix"&gt;
+    &lt;label class="form-label form-required"&gt;活动名称：&lt;/label&gt;
+    &lt;div class="form-content"&gt;&lt;input class="input" placeholder="请填写活动名称" value="&lt;%:name{required:true,blength:[20,50]}%&gt;" /&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="form-item clearfix"&gt;
+    &lt;label class="form-label"&gt;色彩：&lt;/label&gt;
+    &lt;div class="form-content"&gt;&lt;input mx-view="app/gallery/mx-color/picker" class="input" /&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="form-item"&gt;
+    &lt;label class="form-label form-required"&gt;活动时间：&lt;/label&gt;
+    &lt;div class="form-content"&gt;
+        &lt;mx-view path="app/gallery/mx-dropdown/index"
+            searchbox="true"
+            empty-text="请选择日期"
+            selected="&lt;%:day{required:true}%&gt;" style="width:180px;"&gt;
+            &lt;item value="mon"&gt;周一&lt;/item&gt;
+            &lt;item value="wed"&gt;周三&lt;/item&gt;
+            &lt;item value="thu"&gt;周四&lt;/item&gt;
+            &lt;item value="fri"&gt;周五&lt;/item&gt;
+            &lt;item value="sat"&gt;周六&lt;/item&gt;
+        &lt;/mx-view&gt;
+        &lt;span class="ib ml5 mr5"&gt;-&lt;/span&gt;
+        &lt;input class="input" style="width:145px" placeholder="请选择时间" value="&lt;%:time{required:true}%&gt;" mx-view="app/gallery/mx-time/picker" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="form-item"&gt;
+    &lt;label class="form-label form-required"&gt;标签：&lt;/label&gt;
+    &lt;div class="form-content"&gt;
+        &lt;mx-view path="app/gallery/mx-taginput/index"
+            list="&lt;%@list%&gt;"
+            placeholder="请选择标签"
+            selected="&lt;%:tags{required:true}%&gt;"
+        &gt;&lt;/mx-view&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-item"&gt;
+    &lt;label class="form-label"&gt;checkbox：&lt;/label&gt;
+    &lt;div class="form-content"&gt;
+        &lt;label class="mr10"&gt;
+            &lt;mx-input type="checkbox" &lt;%:checkbox%&gt; name="cb" value="c1" class="checkbox" /&gt;c1
+        &lt;/label&gt;
+        &lt;label class="mr10"&gt;
+            &lt;mx-input type="checkbox" &lt;%:checkbox%&gt; name="cb" value="c2" class="checkbox" /&gt;c2
+        &lt;/label&gt;
+        &lt;label class="mr10"&gt;
+            &lt;mx-input type="checkbox" &lt;%:checkbox%&gt; name="cb" value="c3" class="checkbox" /&gt;c3
+        &lt;/label&gt;
+        &lt;label class="mr10"&gt;
+            &lt;mx-input type="checkbox" &lt;%:checkbox%&gt; name="cb" value="c4" class="checkbox" /&gt;c4
+        &lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-item"&gt;
+    &lt;label class="form-label"&gt;radio：&lt;/label&gt;
+    &lt;div class="form-content"&gt;
+        &lt;label class="mr10"&gt;
+            &lt;mx-input type="radio" &lt;%:radio%&gt; value="r1" class="radio" name="magix" /&gt;r1
+        &lt;/label&gt;
+        &lt;label class="mr10"&gt;
+            &lt;mx-input type="radio" &lt;%:radio%&gt; value="r2" class="radio" name="magix" /&gt;r2
+        &lt;/label&gt;
+        &lt;label class="mr10"&gt;
+            &lt;mx-input type="radio" &lt;%:radio%&gt; value="r3" class="radio" name="magix" /&gt;r3
+        &lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-item"&gt;
+    &lt;label class="form-label"&gt;日期：&lt;/label&gt;
+    &lt;div class="form-content"&gt;
+        &lt;input mx-view="app/gallery/mx-calendar/datepicker" class="input" placeholder="请选择开始日期" value="&lt;%:dateStart%&gt;" style="width:162px;"&gt;
+        &lt;span class="ib ml5 mr5"&gt;-&lt;/span&gt;
+        &lt;input mx-view="app/gallery/mx-calendar/datepicker" class="input" placeholder="请选择结束日期" value="&lt;%:dateEnd%&gt;" style="width:162px;"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-item"&gt;
+    &lt;label class="form-label"&gt;范围：&lt;/label&gt;
+    &lt;div class="form-content"&gt;
+        &lt;mx-view mx-view="app/gallery/mx-slider/index"
+            max="200"
+            min="0"
+            value="&lt;%:range%&gt;"
+            step="0.2"
+        &gt;&lt;/mx-view&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-item"&gt;
+    &lt;label class="form-label"&gt;范围：&lt;/label&gt;
+    &lt;div class="form-content"&gt;
+        &lt;mx-view mx-view="app/gallery/mx-slider/range"
+            max="500"
+            min="200"
+            value="&lt;%:range1%&gt;"
+            step="10"
+        &gt;&lt;/mx-view&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-item"&gt;
+    &lt;label class="form-label"&gt;封面：&lt;/label&gt;
+    &lt;div class="form-content"&gt;
+        &lt;mx-view
+            tag="button"
+            class="btn btn-brand"
+            path="app/gallery/mx-uploader/index"
+            action="./"
+            view-name="file1"
+            multiple="true"
+        &gt;上传文件&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="form-item"&gt;
+    &lt;label class="form-label"&gt;备注：&lt;/label&gt;
+    &lt;div class="form-content"&gt;
+        &lt;textarea class="textarea" rows="8"&gt;&lt;%:mark{maxLength:10}%&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-footer"&gt;
+    &lt;button class="btn btn-brand" mx-click="isValid()"&gt;isValid&lt;/button&gt;
+    &lt;button class="btn btn-brand ml10" mx-click="getData()"&gt;getData&lt;/button&gt;
+&lt;/div&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+let Form = require('app/gallery/mx-form/index');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    mixins: [Form],
+    render() {
+        let me = this;
+        me.updater.digest({
+            checkbox: [],
+            range: 0,
+            range1: [230, 300],
+            list: [111111111111111, 222222222222222, 333333333333, 44444444444444]
+        });
+    },
+    'isValid&lt;click&gt;' () {
+        console.log(this.isValid());
+    },
+    'getData&lt;click&gt;' () {
+        let src = this.updater.get();
+        let data = this.fromKeys(src, 'name,day,time,tags,checkbox,radio,dateStart,dateEnd,range,range1,mark');
+        console.log(data);
+    }
+});</pre>
+</div>

@@ -1,0 +1,46 @@
+@import "_vars";
+
+// Box sizing
+.box-sizing(@boxmodel) {
+    box-sizing: @boxmodel;
+}
+
+html {
+  .box-sizing(border-box);
+}
+* {
+  .box-sizing(inherit);
+}
+*:before,
+*:after {
+  .box-sizing(inherit);
+}
+
+input:focus,
+textarea:focus,
+a:focus,
+button:focus{
+  outline: none;
+  resize:none;
+}
+a {
+    color: @color-brand;
+    text-decoration: none;
+    &:hover, &:focus {
+        color: @color-brand-hover;
+    }
+    &:hover, &:focus, &:active, &:visited {
+        outline: 0;
+        text-decoration: none;
+    }
+}
+label{
+    cursor: default;
+    display: inline-block;
+    max-width: 100%;
+    font-weight: 400;
+}
+
+[mx-view] item{
+    display: none;
+}

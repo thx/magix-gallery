@@ -1,0 +1,7 @@
+<div class="rail<%if(vertical){%> ver<%}else{%> hor<%}%>" mx-contextmenu="@{prevent}()" style="<%if(vertical){%>height:<%=height%><%}else{%>width:<%=width%><%}%>px">
+    <div class="tracker<%if(vertical){%> ver-tracker<%}else{%> hor-tracker<%}%>"></div>
+    <div class="indicator<%if(vertical){%> ver-idctor<%}else{%> hor-idctor<%}%>" mx-mousedown="@{drag}()"></div>
+    <div class="pointer-label<%if(vertical){%> ver-pl<%}else{%> hor-pl<%}%>"></div>
+    <div class="<%if(vertical){%>ver-scale-bottom<%}else{%>scale-left<%}%>"><%=min%></div>
+    <div class="<%if(vertical){%>ver-scale-top<%}else{%>scale-right<%}%>"><%=max%></div>
+</div>

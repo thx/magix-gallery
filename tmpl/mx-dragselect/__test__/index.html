@@ -1,0 +1,113 @@
+<h2>mx-dragselect</h2>
+<h3>默认示例</h3>
+<div class="pt20 clearfix">
+    <ul mx-view="mx-dragselect/index" class="hor fl" mx-change="show()" mx-dragbegin="begin()" mx-dragfinish="end()">
+        <li>123</li>
+        <li>456</li>
+        <li>123</li>
+        <li>456</li>
+        <li>123</li>
+        <li>456</li>
+        <li>123</li>
+        <li>456</li>
+    </ul>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>
+&lt;ul mx-view="mx-dragselect/index" class="hor fl" mx-change="show()" mx-dragbegin="begin()" mx-dragfinish="end()"&gt;
+    &lt;li&gt;123&lt;/li&gt;
+    &lt;li&gt;456&lt;/li&gt;
+    &lt;li&gt;123&lt;/li&gt;
+    &lt;li&gt;456&lt;/li&gt;
+    &lt;li&gt;123&lt;/li&gt;
+    &lt;li&gt;456&lt;/li&gt;
+    &lt;li&gt;123&lt;/li&gt;
+    &lt;li&gt;456&lt;/li&gt;
+&lt;/ul&gt;</pre>
+<div class="pt10">Javascript Code:</div>
+    <pre>
+let Magix = require('magix');
+let $ = require('$');
+Magix.applyStyle('@index.less');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    render() {
+        let me = this;
+        me.updater.digest();
+        me.$selected = {};
+    },
+    'show&lt;change&gt;'(e) {
+        let node = e.node;
+        let me = this;
+        if (!node.id) node.id = Magix.guid('mx_');
+        if (e.action == 'add') {
+            if (me.$selected[node.id]) {
+                $(node).css({
+                    opacity: 1
+                });
+                delete me.$selected[node.id];
+
+                me.$temp[node.id] = 1;
+            } else {
+                $(node).css({
+                    opacity: 0.1
+                });
+                me.$selected[node.id] = node;
+                delete me.$temp[node.id];
+            }
+        } else if (e.action == 'remove') {
+            if (me.$temp[node.id]) {
+                $(node).css({
+                    opacity: 0.1
+                });
+                me.$selected[node.id] = node;
+                delete me.$temp[node.id];
+            } else {
+                $(node).css({
+                    opacity: 1
+                });
+                delete me.$selected[node.id];
+                me.$temp[node.id] = 1;
+            }
+        }
+        console.log(me.$selected);
+    },
+    'begin&lt;dragbegin&gt;'() {
+        this.$temp = {};
+    },
+    'end&lt;dragfinish&gt;'() {
+        delete this.$temp;
+    }
+});
+    </pre>
+</div>
+
+<h3 class="mt30">部分不能选择</h3>
+<div class="pt20 clearfix">
+    <ul mx-view="mx-dragselect/index" class="hor fl" mx-change="show()" mx-dragbegin="begin()" mx-dragfinish="end()" view-selector="li[select!=false]" test="@$hor">
+        <li>123</li>
+        <li>456</li>
+        <li>123</li>
+        <li>456</li>
+        <li>123</li>
+        <li>456</li>
+        <li select="false">123</li>
+        <li select="false">456</li>
+    </ul>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;ul mx-view="mx-dragselect/index" class="hor fl" mx-change="show()" mx-dragbegin="begin()" mx-dragfinish="end()" view-selector="li[select!=false]"&gt;
+        &lt;li&gt;123&lt;/li&gt;
+        &lt;li&gt;456&lt;/li&gt;
+        &lt;li&gt;123&lt;/li&gt;
+        &lt;li&gt;456&lt;/li&gt;
+        &lt;li&gt;123&lt;/li&gt;
+        &lt;li&gt;456&lt;/li&gt;
+        &lt;li select="false"&gt;123&lt;/li&gt;
+        &lt;li select="false"&gt;456&lt;/li&gt;
+    &lt;/ul&gt;</pre>
+</div>

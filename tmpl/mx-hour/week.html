@@ -1,0 +1,55 @@
+<div class="dialog" id="dlg_<%=viewId%>">
+    <div class="body">
+        <% for ( var i = 0; i < days.length; i++ ) { %>
+        <label class="d-label<%if(i==currentClone){%> disabled<%}%>"><input class="mr10" type="checkbox" value="<%=i%>"<%if(i==currentClone){%> disabled<%}%> />周<%=days.charAt(i)%></label>
+        <% } %>
+    </div>
+    <div>
+        <button type="button" class="btn btn-brand" mx-click="@{apply}()">确认</button>
+        <button type="button" mx-click="@{closeDlg}()" class="btn ml5">取消</button>
+    </div>
+</div>
+<div class="shortcuts">
+    <label class="mr50">
+        <input class="mr5" type="radio" mx-click="@{shortcuts.processor}({type:0})" name="st-<%=viewId%>"<%if(allDays){%> checked<%}%> />
+        全日程投放
+    </label>
+    <label class="mr50">
+        <input class="mr5" type="radio" mx-click="@{shortcuts.processor}({type:1})" name="st-<%=viewId%>"<%if(weekdays){%> checked<%}%> />
+        工作日（周一至周五）投放
+    </label>
+    <label>
+        <input class="mr5" type="radio" mx-click="@{shortcuts.processor}({type:2})" name="st-<%=viewId%>"<%if(weekends){%> checked<%}%> />
+        休息日（周六、周日）投放
+    </label>
+</div>
+<table class="days">
+    <thead>
+        <tr class="hours">
+            <td width="160" class="pl30">时间段</td>
+            <td class="range">
+                <span class="item item-0">0:00</span>
+                <span class="item item-6">6:00</span>
+                <span class="item item-12">12:00</span>
+                <span class="item item-18">18:00</span>
+                <span class="item item-24">24:00</span>
+            </td>
+            <td width="160" align="center">操作</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% for ( var i = 0; i < days.length; i++ ) { %>
+        <tr class="day">
+            <td class="label" mx-click="toggle({day:<%=i%>})">
+                周<%=days.charAt(i)%>
+            </td>
+            <td id="hours_<%=viewId%>_<%=i%>" mx-view="@./index" mx-change="@{hour}({day:<%=i%>})"></td>
+            <td align="center">
+                <div class="operation">
+                    <a mx-click="@{copy}({day:<%=i%>})" href="#">复制到</a>
+                </div>
+            </td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>

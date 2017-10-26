@@ -1,0 +1,34 @@
+
+<h2>mx-copy</h2>
+<div class="pt20 clearfix">
+    <div id="text_<%=viewId%>">这里是要复制的<span style="font-weight:bold">内容</span>的节点</div>
+    <mx-copy copy-node="text_<%=viewId%>" tag="button" type="button" class="btn btn-brand mr20" mx-success="done()" mx-error="bad()">复制</mx-copy>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>
+&lt;div id="text_&lt;%=viewId%&gt;"&gt;这里是要复制的&lt;span style="font-weight:bold"&gt;内容&lt;/span&gt;的节点&lt;/div&gt;
+&lt;mx-copy copy-node="text_&lt;%=viewId%&gt;" tag="button" type="button" class="btn btn-brand mr20" mx-success="done()" mx-error="bad()"&gt;复制&lt;/mx-copy&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+<pre>
+let Magix = require('magix');
+let GTip = require('app/gallery/mx-gtip/index');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    mixins: [GTip],
+    render() {
+        let me = this;
+        me.updater.digest({
+            viewId: me.id
+        });
+    },
+    'done&lt;success&gt;'() {
+        this.gtipRT('复制成功～');
+    },
+    'bad&lt;error&gt;'() {
+        this.gtipRT('复制失败～');
+    }
+});    
+</pre>
+</div>

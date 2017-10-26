@@ -1,0 +1,12 @@
+<ul class="suggest unselectable" style="width:<%=width%>px;" mx-mouseout="@{out}()" mx-mousemove="@{move}()" mx-contextmenu="@{prevent}()">
+    <%if(rList){%>
+    <%for(var i=0,one;i<list.length;i++){%>
+    <%one=list[i]%>
+    <li class="item">
+        <a href="#" class="item-link" data-idx="<%!i%>" mx-click="@{pick}({item:'<%@one%>'})" id="sg_<%!viewId%>_<%!i%>">
+            <%=textKey?one[textKey]:one%>
+        </a>
+    </li>
+    <%}%>
+    <%}%>
+</ul>

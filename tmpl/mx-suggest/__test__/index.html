@@ -1,0 +1,192 @@
+<h2>mx-suggest</h2>
+<h3>默认情形</h3>
+<div class="pt20 clearfix">
+    <mx-view
+        path="mx-suggest/index"
+        tag="input"
+        class="input"
+        list="<%@list%>" style="width:200px;" />
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view
+    path="app/gallery/mx-suggest/index"
+    tag="input"
+    class="input"
+    list="&lt;%@list%&gt;"/&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>
+let Magix = require('magix');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    render() {
+        let me = this;
+        me.updater.digest({
+            list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+        });
+    }
+});</pre>
+</div>
+
+<h3 class="mt30">对象列表</h3>
+<div class="pt20 clearfix">
+    <mx-view
+        path="mx-suggest/index"
+        tag="input"
+        class="input"
+        list="<%@list1%>"
+        text-key="text"
+        value-key="id"/>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view
+    path="app/gallery/mx-suggest/index"
+    tag="input"
+    class="input"
+    list="&lt;%@list1%&gt;"
+    text-key="text"
+    value-key="id"/&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>
+let Magix = require('magix');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    render() {
+        let me = this;
+        me.updater.digest({
+            list1: [{
+                text: 'abc1',
+                id: 1
+            }, {
+                text: 'abc2',
+                id: 2
+            }, {
+                text: 'abc3',
+                id: 3
+            }, {
+                text: 'abc4',
+                id: 4
+            }, {
+                text: 'abc5',
+                id: 5
+            }, {
+                text: 'abc6',
+                id: 6
+            }, {
+                text: 'abc7',
+                id: 7
+            }, {
+                text: 'abc8',
+                id: 8
+            }, {
+                text: 'abc9',
+                id: 9
+            }, {
+                text: 'abc0',
+                id: 0
+            }]
+        });
+    }
+});</pre>
+</div>
+
+<h3 class="mt30">响应事件</h3>
+<div class="pt20 clearfix">
+    <mx-view
+        path="mx-suggest/index"
+        tag="input"
+        class="input"
+        list="<%@list%>"
+        mx-pick="showPick()"
+        mx-showlist="showList()"
+        mx-hidelist="hideList()"/>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view
+    path="app/gallery/mx-suggest/index"
+    tag="input"
+    class="input"
+    list="&lt;%@list%&gt;"
+    mx-pick="showPick()"
+    mx-showlist="showList()"
+    mx-hidelist="hideList()"/&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+let GTip = require('app/gallery/mx-gtip/index');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    mixins: [GTip],
+    render() {
+        let me = this;
+        me.updater.digest({
+            list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+        });
+    },
+    'showPick&lt;pick&gt;' (e) {
+        this.gtipRT('选中：' + e.item);
+    },
+    'showList&lt;showlist&gt;' () {
+        this.gtipRT('列表展示');
+    },
+    'hideList&lt;hidelist&gt;' () {
+        this.gtipRT('列表关闭');
+    }
+});</pre>
+</div>
+<h3 class="mt30">更新列表</h3>
+<div class="pt20 clearfix">
+    <mx-view
+        path="mx-suggest/index"
+        tag="input"
+        class="input"
+        list="<%@list2%>"
+        mx-input="updateList()"/>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view
+    path="mx-suggest/index"
+    tag="input"
+    class="input"
+    list="&lt;%@list2%&gt;"
+    mx-input="updateList()"/&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+let $ = require('$');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    render() {
+        let me = this;
+        me.updater.digest({
+            list2: []
+        });
+    },
+    'updateList&lt;input&gt;' (e) {
+        let target = $(e.eventTarget);
+        let list = ['163.com', 'qq.com', '126.com', 'sina.com'];
+        let v = $.trim(target.val());
+        let newList = [];
+        if (v) {
+            if (v.indexOf('@') == -1) {
+                for (let a of list) {
+                    newList.push(v + '@' + a);
+                }
+            } else {
+                let parts = v.split('@');
+                for (let a of list) {
+                    if (a.indexOf(parts[1]) >= 0) {
+                        newList.push(parts[0] + '@' + a);
+                    }
+                }
+            }
+        }
+        target.invokeView('update', [newList]);
+    }
+});</pre>
+</div>

@@ -1,0 +1,76 @@
+@import "../mx-style/_vars";
+.wrapper{
+    padding:0;
+    position: relative;
+}
+.ipt{
+    width:100%;
+    border:none;
+    height:100%;
+    padding: 6px 9px;
+    background-color: transparent;
+    color: @color-primary;
+    display: block;
+}
+.up,.down{
+    width:25px;
+    height: 50%;
+    position: absolute;
+    right: 1px;
+    border:2px solid #fff;
+    border-radius: @border-radius;
+    cursor: pointer;
+}
+.up:hover,
+.down:hover{
+    background-color: @color-hover;
+}
+.up{
+    top:1px;
+}
+.down{
+    bottom: 1px;
+}
+
+.arrow:after{
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-left: 5px solid rgba(0, 0, 0, 0);
+    border-right: 5px solid rgba(0, 0, 0, 0);
+    content: '';
+    display: block;
+    margin: auto;
+}
+
+.down:after{
+    border-top: 5px solid @color-border-hover;
+}
+.up:after{
+    border-bottom: 5px solid @color-border-hover;
+}
+.notallowed{
+    background-color: @color-disabled;
+}
+.notallowed:hover{
+    border-color:@color-border;
+}
+.notallowed .up,
+.notallowed .down{
+    cursor: not-allowed;
+    border-color: transparent;
+}
+.notallowed .up:hover,
+.notallowed .down:hover{
+    background-color: transparent;
+}
+.notallowed .up:hover:after{
+    border-bottom-color: @color-border-hover;
+}
+.notallowed .down:hover:after{
+    border-top-color: @color-border-hover;
+}

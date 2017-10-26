@@ -1,0 +1,83 @@
+@import "../mx-style/_vars";
+
+.owner{
+    height: auto;
+    min-height: @input-height;
+    padding:1px 7px;
+    position: relative;
+    border:solid 1px @color-border;
+    border-radius: @border-radius;
+    width: @input-width;
+    line-height: 1;
+}
+.owner:hover{
+    border-color: @color-border-hover;
+}
+
+.notallowed{
+    cursor: not-allowed;
+    background-color: @color-disabled;
+}
+.notallowed:hover{
+    border-color: @color-border;
+}
+.ipt{
+    height: auto;
+    cursor: text;
+}
+.placeholder{
+    position: absolute;
+    left:9px;
+    top:(@input-height - 2 - @font-size)/2;
+    color:@placeholder-color;
+    user-select:none;
+}
+.item{
+    position: relative;
+    display: inline-block;
+    margin: 1px;
+    cursor: pointer;
+    background-color: #eee;
+    border-radius: @border-radius;
+}
+.ghost{
+    width:1px;
+    visibility: hidden;
+}
+.item-name{
+    float: left;
+    border-right: 1px solid #fff;
+    height: @input-height - 8;
+    line-height: @input-height - 8;
+    padding: 0 4px;
+    max-width:200px;
+    overflow: hidden;
+}
+.item-delete{
+    width: 20px;
+    font-weight: bolder;
+    text-align: center;
+    color: #999;
+    display: inline-block;
+    height: @input-height - 8;
+    line-height: @input-height - 8;
+    padding: 0 4px;
+}
+.trigger{
+    border: none;
+    outline: none;
+    height: @input-height - 8;
+    line-height: @input-height - 8;
+    padding: 0;
+    width:20px;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+}
+
+.notallowed .ipt,
+.notallowed .trigger,
+.notallowed .item-name,
+.notallowed .item-delete{
+    cursor: not-allowed;
+}

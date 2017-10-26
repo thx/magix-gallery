@@ -1,0 +1,275 @@
+<h2>mx-dragsort</h2>
+<h3>默认示例</h3>
+<div class="pt20 clearfix">
+    <ul mx-view="mx-dragsort/index" class="left fl" view-selector="span">
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+    </ul>
+    <div class="fr">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" class="checkbox" linkage="example1" /></th>
+                    <%for(var i=0;i<5;i++){%>
+                    <th>示例字段<%=i%></th>
+                    <%}%>
+                </tr>
+            </thead>
+            <tbody mx-view="mx-dragsort/index">
+                <%for(var i=0;i<10;i++){%>
+                <tr>
+                    <td><input type="checkbox" class="checkbox" linkage-parent="example1" value="ex1_<%=i%>" /></td>
+                    <%for(var j=0;j<5;j++){%>
+                    <td><%=i%>示例字段内容<%=j%></td>
+                    <%}%>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;ul mx-view="app/gallery/mx-dragsort/index" class="left fl" view-selector="span"&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="fr"&gt;
+    &lt;table class="table table-striped"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;&lt;input type="checkbox" class="checkbox" linkage="example1" /&gt;&lt;/th&gt;
+                &lt;%for(var i=0;i&lt;5;i++){%&gt;
+                &lt;th&gt;示例字段&lt;%=i%&gt;&lt;/th&gt;
+                &lt;%}%&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody mx-view="app/gallery/mx-dragsort/index"&gt;
+            &lt;%for(var i=0;i&lt;10;i++){%&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;input type="checkbox" class="checkbox" linkage-parent="example1" value="ex1_&lt;%=i%&gt;" /&gt;&lt;/td&gt;
+                &lt;%for(var j=0;j&lt;5;j++){%&gt;
+                &lt;td&gt;&lt;%=i%&gt;示例字段内容&lt;%=j%&gt;&lt;/td&gt;
+                &lt;%}%&gt;
+            &lt;/tr&gt;
+            &lt;%}%&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;</pre>
+</div>
+
+<h3 class="mt30">水平拖动</h3>
+<div class="pt20 clearfix">
+    <ul mx-view="mx-dragsort/index" class="hor fl" view-horizonal="true" view-vertical="false">
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+    </ul>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;ul mx-view="app/gallery/mx-dragsort/index" class="hor fl" view-horizonal="true" view-vertical="false"&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+&lt;/ul&gt;</pre>
+</div>
+
+
+<h3 class="mt30">四个方向</h3>
+<div class="pt20 clearfix">
+    <ul mx-view="mx-dragsort/index" class="hor fl" view-horizonal="true" view-vertical="true">
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+    </ul>
+</div>
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;ul mx-view="app/gallery/mx-dragsort/index" class="hor fl" view-horizonal="true" view-vertical="true"&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+&lt;/ul&gt;</pre>
+</div>
+
+<h3 class="mt30">滚动容器和窗口</h3>
+<h4>拖动的容器节点如果可以滚动，则会自动滚动，如果拖动靠近窗口，则会自动滚动窗口</h4>
+<div class="pt20 clearfix">
+    <ul mx-view="mx-dragsort/index" class="left left1 fl scrollable" view-selector="span">
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+    </ul>
+</div>
+
+<h3 class="mt30">跨容器拖动</h3>
+<div class="pt20 clearfix">
+    <ul mx-view="mx-dragsort/index" class="left left1 fl scrollable" view-drops="_def" view-selector="span" id="_abc">
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+    </ul>
+    <ul mx-view="mx-dragsort/index" class="left left1 fl scrollable ml30" id="_def" view-selector="span" view-drops="_abc">
+    </ul>
+</div>
+
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;ul mx-view="app/gallery/mx-dragsort/index" class="left left1 fl scrollable" view-drops="_def" view-selector="span" id="_abc"&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul mx-view="mx-dragsort/index" class="left left1 fl scrollable ml30" id="_def" view-selector="span" view-drops="_abc"&gt;
+&lt;/ul&gt;</pre>
+</div>
+
+
+
+<h3 class="mt30">拖出容器删除</h3>
+<div class="pt20 clearfix">
+    <ul mx-view="mx-dragsort/index" class="left left1 fl scrollable" mx-enterzone="stop()" mx-leavezone="ok()" mx-dragfinish="del()" view-sort="false">
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+    </ul>
+</div>
+
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;ul mx-view="app/gallery/mx-dragsort/index" class="left left1 fl scrollable" mx-enterzone="stop()" mx-leavezone="ok()" mx-dragfinish="del()" view-sort="false"&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+&lt;/ul&gt;</pre>
+<div class="pt10">Javascript Code:</div>
+<pre>let Magix = require('magix');
+Magix.applyStyle('@index.less');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    render() {
+        let me = this;
+        me.updater.digest();
+    },
+    'stop&lt;enterzone&gt;'(e) {
+        e.changePointer(false);
+    },
+    'ok&lt;leavezone&gt;'(e) {
+        e.changePointer(true);
+    },
+    'del&lt;dragfinish&gt;'(e) {
+        if (e.moved && e.outZone) {//moved and outside zone
+            $(e.dragNode).slideUp();
+            setTimeout(() => {
+                e.dragZone.removeChild(e.dragNode);
+            }, 500);
+        }
+    }
+});</pre>
+</div>
+
+
+<h3 class="mt30">部分不能拖动及排序</h3>
+<div class="pt20 clearfix">
+    <ul mx-view="mx-dragsort/index" class="hor fl" view-horizonal="true" view-vertical="false">
+        <li ds-draggable="false"><span>move</span>123</li>
+        <li ds-draggable="false"><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li><span>move</span>456</li>
+        <li><span>move</span>123</li>
+        <li ds-draggable="false"><span>move</span>456</li>
+    </ul>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;ul mx-view="app/gallery/mx-dragsort/index" class="hor fl" view-horizonal="true" view-vertical="false"&gt;
+    &lt;li ds-draggable="false"&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li ds-draggable="false"&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
+    &lt;li ds-draggable="false"&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
+&lt;/ul&gt;</pre>
+</div>
+
+<h3 class="mt30">drag and drop</h3>
+<div class="pt20 clearfix">
+    <ul class="hor fl">
+        <li ds-draggable="false"><span>move</span>123</li>
+        <li ds-draggable="false"><span>move</span>456</li>
+        <li draggable="true" mx-dragstart="start()"><span>move</span>123</li>
+        <li draggable="true" mx-dragstart="start()"><span>move</span>456</li>
+        <li draggable="true" mx-dragstart="start()"><span>move</span>123</li>
+        <li draggable="true" mx-dragstart="start()"><span>move</span>456</li>
+        <li draggable="true" mx-dragstart="start()"><span>move</span>123</li>
+        <li ds-draggable="false"><span>move</span>456</li>
+    </ul>
+    <div style="width:300px;height:300px;border:solid 1px #ccc" mx-drop="drop()" mx-dragenter="enter()" mx-dragleave="leave()">drop here</div>
+</div>

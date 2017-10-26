@@ -1,0 +1,36 @@
+<div
+    class="unselectable <%if(texts.length){%>texts clearfix<%}else{%>placeholder<%}%>"
+    mx-click="@{show}()">
+    <%if(texts.length){%>
+        <%for(let i=0;i<texts.length;i++){%>
+            <div
+                class="text ellipsis text-cnt"
+                title="<%=texts[i]%>"
+                mx-click="@{activeTab}({i:<%!i%>})"
+            ><%=texts[i]%></div>
+            <%if(i<texts.length-1){%>
+                <div class="text"><%=splitter%></div>
+            <%}%>
+        <%}%>
+    <%}else{%>
+        <%=placeholder%>
+    <%}%>
+</div>
+<div class="unselectable none dashboard" id="db_<%=viewId%>">
+    <div class="tabs">
+        <%for(let i=0;i<headers.length;i++){%>
+            <%var h=headers[i]%>
+            <span title="<%=h%>" class="tab<%if(i==active){%> active<%}%>"<%if(i!==active){%> mx-click="@{activeTab}({i:<%!i%>})"<%}%>><%=h%></span>
+        <%}%>
+    </div>
+    <div class="main-panel">
+        <%if(list&&list.length){%>
+            <%let current=selected[active]%>
+            <ul>
+            <%for(let one of list){%>
+                <li class="panel-item ellipsis<%if((one[valueKey]+'')==(current+'')){%> active<%}%>" title="<%=one[textKey]%>" mx-click="@{select}({o:<%@one%>})"><%=one[textKey]%></li>
+            <%}%>
+            </ul>
+        <%}%>
+    </div>
+</div>

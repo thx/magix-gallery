@@ -1,0 +1,24 @@
+.menu{
+    box-shadow: 0 3px 3px #eee;
+    list-style: none;
+    margin: 0;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    position: relative;
+    background-color: #fff;
+}
+.menu-item {
+    color: #666;
+    display: block;
+    padding: 0 7px;
+    margin: 6px 10px;
+    height: 26px;
+    line-height: 26px;
+    border-radius: 4px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.menu-item:hover {
+    color: #fff;
+    background-color: #8383eb;
+}

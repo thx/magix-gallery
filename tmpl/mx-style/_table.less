@@ -1,0 +1,38 @@
+@import "_vars";
+
+/*
+* 表格
+* @ name:        table.css V1.0.0
+* @ author:      一丝
+* @ update:      2014-1-8 19:34:24;
+*/
+.table{
+    width:100%;
+    border:solid 1px @color-border;
+}
+/**
+* 只显示水平边框
+* .table
+*/
+.table th{
+  border: 0 none;
+  border-bottom: 2px solid @color-border;
+  font-weight: bold;
+}
+
+.table td{
+  border: 0 none;
+  border-top: 1px solid @color-border;
+}
+
+/**
+* 隔行换色
+* .table-striped
+*/
+.table-striped tbody tr:nth-child(odd) td {
+  background-color: rgba(0,0,0,.05);
+}
+
+.table tfoot td{
+    padding: 0;
+}

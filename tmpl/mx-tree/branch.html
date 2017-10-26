@@ -1,0 +1,23 @@
+<ul>
+    <%for(var i=0,br;i<list.length;i++){%>
+        <%br=list[i]%>
+        <li class="li<%if(!i&&fromTop){%> top-li-first<%}%><%if(i==list.length-1){%> li-last<%}%>">
+            <div class="icon<%if(br.children){%> cp<%}%>"<%if(br.children){%> mx-click="@{toggle}({id:'<%=br[valueKey]%>'})"<%}%>>
+                <%if(br.children){%><span class="ricon">+</span><%}%>
+            </div>
+            <div class="name">
+                <label class="p0">
+                    <input class="mr10 checkbox" type="checkbox" mx-change="@{check}()" value="<%=br[valueKey]%>" />
+                    <%=br[textKey]%>
+                </label>
+            </div>
+            <%if(br.children){%>
+                <div mx-view="@./branch"
+                    view-text-key="<%=textKey%>"
+                    vuew-value-key="<%=valueKey%>"
+                    view-list="<%@br.children%>"
+                    id="<%=id%>_<%=br[valueKey]%>" class="indent none"></div>
+            <%}%>
+        </li>
+    <%}%>
+</ul>

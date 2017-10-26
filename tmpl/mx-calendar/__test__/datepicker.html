@@ -1,0 +1,185 @@
+<h2>mx-calendar</h2>
+<h3>默认情形</h3>
+<div class="pt20 clearfix">
+    <mx-view tag="input" path="mx-calendar/datepicker" class="input" placeholder="请选择日期"/>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view tag="input" path="app/gallerymx-calendar/datepicker" class="input" placeholder="请选择日期"/&gt;</pre>
+</div>
+<h3 class="mt30">默认选中某天</h3>
+<div class="pt20 clearfix">
+    <mx-view tag="input" class="input" placeholder="请选择日期"
+    path="mx-calendar/datepicker"
+    selected="2018-01-01"/>
+</div>
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view tag="input" class="input" placeholder="请选择日期"
+    path="app/gallery/mx-calendar/datepicker"
+    selected="2018-01-01"&gt;</pre>
+</div>
+
+<h3 class="mt30">从input中读取日期</h3>
+<div class="pt20 clearfix">
+    <mx-view tag="input" class="input" placeholder="请选择日期"
+    value="2018-03-02"
+    path="mx-calendar/datepicker"/>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view tag="input" class="input" placeholder="请选择日期"
+    value="2018-03-02"
+    path="app/gallery/mx-calendar/datepicker"&gt;</pre>
+</div>
+<h3 class="mt30">设置可选择的范围</h3>
+<div class="pt20 clearfix">
+    <mx-view tag="input" path="mx-calendar/datepicker"
+        min="2017-08-05"
+        max="2017-08-22"
+        value="2017-08-12"
+        class="input" />
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view tag="input" path="app/gallery/mx-calendar/datepicker"
+    min="2017-08-05"
+    max="2017-08-22"
+    value="2017-08-12"
+    class="input"/&gt;</pre>
+</div>
+
+<h3 class="mt30">设置周二为一周的开始</h3>
+<div class="pt20 clearfix">
+    <mx-view tag="input"
+        path="mx-calendar/datepicker"
+        week-start="<%@ 2 %>"
+        class="input"/>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view tag="input" path="app/gallery/mx-calendar/datepicker"
+    week-start="&lt;%@ 2 %&gt;"
+    class="input"/&gt;</pre>
+</div>
+
+<h3 class="mt30">右下对齐</h3>
+<div class="pt20 clearfix">
+    <mx-view tag="input" path="mx-calendar/datepicker"
+        align="right"
+        class="input"/>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view tag="input" path="app/gallery/mx-calendar/datepicker"
+    align="right"
+    class="input"/&gt;</pre>
+</div>
+<h3 class="mt30">右上对齐</h3>
+<div class="pt20 clearfix">
+    <mx-view tag="input" path="mx-calendar/datepicker"
+        align="right"
+        placement="top"
+        class="input"/>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view tag="input" path="app/gallery/mx-calendar/datepicker"
+    align="right"
+    placement="top"
+    class="input"/&gt;</pre>
+</div>
+<h3 class="mt30">带时分秒</h3>
+<div class="pt20 clearfix">
+    <mx-view tag="input" path="mx-calendar/datepicker"
+        time-type="all"
+        class="input"/>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view tag="input" path="app/gallery/mx-calendar/datepicker"
+    time-type="all"
+    class="input"/&gt;</pre>
+</div>
+
+<h3 class="mt30">带时分秒的选中</h3>
+<div class="pt20 clearfix">
+    <mx-view tag="input" path="mx-calendar/datepicker"
+        time-type="all"
+        value="2018-08-08 18:08:20"
+        class="input"/>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view tag="input" path="app/gallery/mx-calendar/datepicker"
+    time-type="all"
+    value="2018-08-08 18:08:20"
+    class="input"/&gt;</pre>
+</div>
+
+
+<h3 class="mt30">带时分秒,只能选择小时</h3>
+<div class="pt20 clearfix">
+    <mx-view tag="input" path="mx-calendar/datepicker"
+        time-type="hour"
+        value="2018-08-08 18:08:20"
+        class="input"/>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view tag="input" path="app/gallery/mx-calendar/datepicker"
+    time-type="hour"
+    value="2018-08-08 18:08:20"
+    class="input"/&gt;</pre>
+</div>
+
+<h3 class="mt30">change事件</h3>
+<div class="pt20 clearfix">
+    <mx-view tag="input" path="mx-calendar/datepicker"
+        time-type="all"
+        selected="2018-08-08 18:08:20"
+        mx-change="showDatetime()"
+        class="input"/>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-view tag="input" path="app/gallery/mx-calendar/datepicker"
+    time-type="all"
+    selected="2018-08-08 18:08:20"
+    mx-change="showDatetime()"
+    class="input"/&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+let GTip = require('mx-gtip/index');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    mixins: [GTip],
+    render() {
+        let me = this;
+        me.updater.digest();
+    },
+    'showDatetime&lt;change&gt;' (e) {
+        this.gtipRT('日期：' + e.date + '，时间：' + e.time);
+    }
+});</pre>
+</div>
+
+<h3 class="mt30">只选择年月</h3>
+<div class="pt20 clearfix">
+    <mx-calendar.datepicker class="input" date-type="year,month" selected="2010-02" />
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-calendar.datepicker class="input" date-type="year,month" selected="2010-02" /&gt;</pre>
+</div>

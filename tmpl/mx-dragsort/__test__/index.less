@@ -1,0 +1,40 @@
+.left{
+    width:300px;
+    cursor: default;
+}
+.left li{
+    line-height: 30px;
+    padding:10px;
+}
+.left li:nth-child(odd){
+    background-color: rgba(172, 236, 182, 0.5)
+}
+.left span{
+    cursor: move;
+    margin-right: 10px;
+    display: inline-block;
+    height: 100%;
+}
+.left1{
+    background: #F8F6F6;
+    cursor: default;
+    height:120px;
+    overflow: auto;
+    width: 500px;
+}
+.hor{
+    width:100%;
+    cursor: default;
+}
+.hor li{
+    width:100px;
+    height: 60px;
+    text-align: center;
+    float: left;
+    line-height: 60px;
+    background:  #F8F6F6;
+    border-right: 1px solid #fff;
+}
+.hor li[ds-draggable="false"]{
+    background: #ccc;
+}

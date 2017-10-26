@@ -1,0 +1,20 @@
+//该样式本应属于dialog组件，但因对话框内容要引用dialog-header 等样式，单独放在dialog组件中使用不方便，因此全局处理
+//
+@import "./_vars";
+
+.dialog-header {
+    padding: 15px 40px;
+    border-bottom: 1px solid @color-border;
+    color: @color-primary;
+    margin: 0;
+    line-height: 1.42857143;
+}
+
+.dialog-body {
+    padding: 18px 40px;
+}
+.dialog-footer {
+    padding: 15px 40px;
+    text-align: left;
+    border-top: 1px solid @color-border;
+}

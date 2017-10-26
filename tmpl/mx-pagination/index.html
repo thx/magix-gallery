@@ -1,0 +1,51 @@
+<div class="clearfix pager">
+    <%if(!simplify&&!mini){%>
+    <span>
+        当前第 <b><%for(let i=startSpace;i--;){%>&nbsp;&nbsp;<%}%><%= offsetStart %> - <%= offsetEnd %><%for(let i=endSpace;i--;){%>&nbsp;&nbsp;<%}%></b> 条，共 <b><%= total %></b> 条，每页展现
+    </span>
+    <mx-dropdown
+        style="width:70px"
+        class="ml10 mr10"
+        list="<%@sizes%>"
+        selected="<%@size%>"
+        mx-change="@{changeSize}()"/>
+    <span>条</span>
+    <%}%>
+    <ul class="clearfix ib fz0">
+        <li class="ib<%if(page==1){%> notallowed<%}%>">
+            <a class="num-item mc-iconfont icon" href="#"<%if(page>1){%> mx-click="@{toPage}({page:<%=page-1%>})"<%}else{%> mx-click="@{prevent}()"<%}%> title="&lt;">&#xe61e;
+            </a>
+        </li>
+        <%if(mini){%>
+        <li class="ib fz"><%for(let i=pageSpace;i--;){%>&nbsp;&nbsp;<%}%><%=page%> / <%=pages%>
+        </li>
+        <%}else{%>
+        <%if(start>1){%>
+        <li class="ib">
+            <a class="num-item" href="#" mx-click="@{toPage}({page:1})" title="1">1</a>
+        </li>
+        <%}%>
+        <%if(start>2){%>
+        <li class="notallowed ib"><a class="num-item" href="#" mx-click="@{prevent}()" title="...">...</a></li>
+        <%}%>
+        <%for(var i=start;i<=end;i++){%>
+        <li class="ib<%if(i==page){%> active<%}%>">
+            <a class="num-item" href="#" mx-click="@{toPage}({page:<%=i%>})" title="<%=i%>"><%=i%></a>
+        </li>
+        <%}%>
+        <%if(end+2<=pages){%>
+        <li class="ib notallowed">
+            <a class="num-item" href="#" mx-click="@{prevent}()" title="...">...</a>
+        </li>
+        <%}%>
+        <%if(end<pages){%>
+        <li class="ib">
+            <a class="num-item" href="#" mx-click="@{toPage}({page:<%=pages%>})" title="<%=pages%>"><%=pages%></a>
+        </li>
+        <%}%>
+        <%}%>
+        <li class="ib<%if(page==pages){%> notallowed<%}%>">
+            <a class="num-item mc-iconfont icon rotate180" href="#"<%if(page<pages){%> mx-click="@{toPage}({page:<%=page+1%>})"<%}else{%> mx-click="@{prevent}()"<%}%> title="&gt;">&#xe61e;</a>
+        </li>
+    </ul>
+</div>

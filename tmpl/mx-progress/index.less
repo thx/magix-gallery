@@ -1,0 +1,44 @@
+@import "../mx-style/_vars";
+
+@height:floor((@font-size - 2) / 3);
+
+.as-input{
+    height: @input-height;
+    cursor: default;
+    line-height: @input-height;
+    display: inline-block;
+}
+.rail{
+    height:@height;
+    background:@color-bg;
+    position: relative;
+    display: inline-block;
+    border-radius: @height / 2;
+    top:-(@height / 2);
+}
+.tracker{
+    height:@height;
+    background:@color-brand;
+    position: absolute;
+    left:0;
+    top:0;
+    border-radius: @height / 2;
+    transition: all 0.15s;
+}
+.pointer-label{
+    position: absolute;
+    font-size:@font-size / 2 + 2;
+    pointer-events: none;
+    top:-(@font-size / 2 + 2 + 3 * @height / 2 );
+    transition: all 0.15s;
+    line-height: normal;
+}
+.notallowed{
+    cursor: not-allowed;
+}
+.notallowed .rail{
+    background-color: @color-disabled;
+}
+.notallowed .tracker{
+    background-color: @color-bg;
+}

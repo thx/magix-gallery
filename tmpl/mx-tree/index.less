@@ -1,0 +1,66 @@
+@import "../mx-style/_vars";
+
+.indent{
+    padding-left:15px;
+}
+.li{
+    line-height:22px;
+    padding:0 4px;
+    position: relative;
+    border-left:solid 1px @color-border;
+}
+.li:before{
+    content :'';
+    position: absolute;
+    border-top:solid 1px @color-border;
+    width:12px;
+    left: 0;
+    top: 10px;
+}
+.icon{
+    width:@font-size;
+    height:@font-size;
+    float:left;
+    text-align: center;
+    font-weight:800;
+    margin-left:-11px;
+    margin-top: -2px;
+    position: relative;
+    z-index: 2;
+}
+.ricon{
+    display: inline-block;
+    background-color: #fff;
+    width: @font-size - 4;
+    height: @font-size - 4;
+    line-height: ceil((@font-size - 3) /2);
+    border: solid 1px @color-border;
+    font-size: @font-size - 3;
+}
+.name{
+    margin-left: 10px;
+}
+.p0{
+    padding:0;
+}
+.li-last{
+    border-left-color:transparent;
+}
+.li-last:after{
+    content:'';
+    border-left: solid 1px @color-border;
+    position: absolute;
+    left: -1px;
+    top: -2px;
+    width: 1px;
+    height: 13px;
+}
+.top-li-first:after{
+    position: absolute;
+    content: '';
+    height: 13px;
+    width: 1px;
+    border-left: solid 1px #fff;
+    top: -3px;
+    left: -1px;
+}

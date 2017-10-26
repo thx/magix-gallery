@@ -1,0 +1,23 @@
+<div class="wrapper<%if(showTime){%> time<%}%> unselectable" mx-contextmenu="@{prevent}()">
+    <%if(quickDates.length){%>
+    <div class="shortcuts-wrapper">
+        <div class="mb10">快捷日期</div>
+        <div class="clearfix">
+            <%for(var i=0;i<quickDates.length;i++){%>
+                <%var key=quickDates[i],info=quickDatesMap[key]%>
+                <span class="st ellipsis<%if(dates.quickDateKey==key){%> selected<%}%>" mx-click="@{date.picked}({quick:true,key:'<%=key%>'})" title="<%=info?info.text:key%>"><%=info?info.text:key%></span>
+            <%}%>
+        </div>
+    </div>
+    <%}%>
+    <div class="range">
+        <div class="mb10">日期范围</div>
+        <div class="clearfix">
+            <input readonly class="ipt" data-hidden="<%=dates.startStr%>" value="<%=dates.startStr%>" mx-click="@{show.date.picker}({first:true})" id="start_<%=id%>" mx-change="@{sync.date}()" />-<input readonly class="ipt" data-hidden="<%=dates.endStr%>" value="<%=dates.endStr%>" mx-click="@{show.date.picker}()" id="end_<%=id%>" mx-change="@{sync.date}()" />
+        </div>
+    </div>
+    <div class="footer clearfix">
+        <button mx-click="@{date.picked}()" type="button" class="btn btn-brand">确定</button>
+        <button mx-click="@{cancel}()" type="button" class="btn ml5">取消</button>
+    </div>
+</div>

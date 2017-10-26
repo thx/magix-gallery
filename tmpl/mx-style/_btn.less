@@ -1,0 +1,43 @@
+@import "_vars";
+
+.btn {
+  display: inline-block;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  background-color: @color-bg;
+  white-space: nowrap;
+  padding: (@input-height - @font-size)/2 14px;
+  font-size: @font-size;
+  line-height: 1;
+  border: 0;
+  color: @color-primary;
+  border-radius: @border-radius;
+  user-select: none;
+}
+.btn:focus, {
+  outline: none;
+}
+.btn:hover{
+  background-color: @color-bg-hover;
+  color: @color-primary;
+}
+.btn-brand{
+    background-color: @color-brand;
+    color:#fff;
+}
+.btn-brand:hover,
+.btn-brand:focus {
+    background-color: @color-brand-hover;
+    color: #fff;
+}
+.btn[disabled]{
+    background-color: @color-disabled;
+}
+.btn[disabled]:hover{
+    border-color:@color-border;
+}
+
+

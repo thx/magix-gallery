@@ -1,0 +1,41 @@
+@import "./_vars";
+
+.loading {
+    padding: 150px 0;
+    margin: 0 auto;
+    width: 150px;
+    text-align: center;
+    line-height: 0;
+
+    &:before,
+    &:after {
+        content: "";
+    };
+}
+
+.loading-anim,
+.loading:after,
+.loading:before {
+    width: 14px;
+    height: 14px;
+    background-color: @color-bg;
+    border-radius: 100%;
+    display: inline-block;
+    animation: sk-bouncedelay 1s infinite ease-in-out both;
+}
+
+.loading:before {
+        animation-delay: -0.32s;
+}
+.loading-anim {
+    margin: 0 10px;
+        animation-delay: -0.16s;
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+  } 40% {
+    transform: scale(1.0);
+  }
+}

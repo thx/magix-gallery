@@ -1,0 +1,83 @@
+@import "../mx-style/_vars";
+.mr50{
+    margin-right: 50px;
+}
+.shortcuts{
+    height: 60px;
+    line-height: 60px;
+    vertical-align: middle;
+    color: @color-primary;
+    padding-left: 30px;
+}
+.days{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+.hours{
+    background-color: #fafafa;
+    color: @color-secondary;
+}
+.range{
+    position: relative;
+}
+.item{
+    display: inline-block;
+    position: absolute;
+    margin-top: -15px;
+    width: 32px;
+    height: 18px;
+}
+.item-0{
+    left:8px;
+}
+.item-6{
+    left:24%;
+}
+.item-12{
+    left:47.5%;
+}
+.item-18{
+    left:71%;
+}
+.item-24{
+    left:94%;
+}
+.day{
+    border-top: 1px solid @color-border;
+}
+.day:first-child{
+    border-top: none;
+}
+.label{
+    vertical-align: middle;
+    cursor: default;
+    padding: 0 10px 0 30px;
+}
+.operation{
+    visibility: hidden;
+}
+.day:hover .operation{
+    visibility: visible;
+}
+.dialog{
+    position: absolute;
+    display: none;
+    background-color: #fff;
+    border: 1px solid @color-border;
+    border-radius: @border-radius;
+    padding: 10px;
+    margin-top: 10px;
+    z-index: 10;
+}
+.body{
+    margin-bottom: 10px;
+    width:300px;
+    border-bottom:1px solid @color-border;
+}
+.d-label{
+    margin:0 25px 10px 0;
+}
+.opshow{
+    visibility: visible;
+}

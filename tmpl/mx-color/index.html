@@ -1,0 +1,22 @@
+<div id="shortcuts_<%=id%>">
+    <ul class="shortcuts">
+        <%for(var i=0;i<shortcuts.length;i++){%>
+        <li class="shortcuts-item" id="sc_<%=shortcuts[i]%>_<%=id%>" style="background:#<%=shortcuts[i]%>" mx-click="@{shortcuts.picked}({color:'#<%=shortcuts[i]%>'})"></li>
+        <%}%>
+    </ul>
+</div>
+<div class="body">
+    <div class="cpicker-wrapper">
+        <div class="cpicker" id="cpicker_<%=id%>" mx-click="@{color.zone.clicked}()"></div>
+        <div class="cpicker-indicator" id="ph_<%=id%>" mx-mousedown="@{picker.drag}()"></div>
+    </div>
+    <div class="slide-wrapper">
+        <div class="slide" id="slide_<%=id%>" mx-click="@{slide.clicked}()"></div>
+        <div class="slide-indicator" mx-mousedown="@{slide.drag}();" id="sh_<%=id%>"></div>
+    </div>
+</div>
+<div class="foot">
+    <span class="bgcolor" id="bgcolor_<%=id%>"></span>
+    <input class="input color-value" readonly id="val_<%=id%>" />
+    <button class="btn btn-brand" type="button" mx-click="@{enter}();">确定</button>
+</div>

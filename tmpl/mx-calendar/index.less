@@ -1,0 +1,123 @@
+@import "../mx-style/_vars";
+@cwidth:(2 * @font-size + 7) * 7;
+@cheight:(6 * (2 * @font-size + 6))+ 20 + 62;
+
+.wrapper{
+    background-color: #fff;
+    display: inline-block;
+    border: 1px solid @color-border;
+    padding: 0;
+    border-radius: @border-radius;
+    overflow-y: hidden;
+    z-index: 10;
+    color: @color-primary;
+    text-align: center;
+    position: relative;
+}
+.gray{
+    color: #777;
+}
+.header{
+    height: 32px;
+    line-height: 32px;
+    padding: 1px;
+}
+/*
+    comment;
+*/
+.minus,
+.plus {
+    color: #CCC;
+    display: inline-block;
+    padding: 6px 7px;
+    line-height: 100%;
+    vertical-align: top;
+    cursor: pointer;
+}
+.minus:hover, .minus:focus,
+.plus:hover, .plus:focus {
+    color: @color-brand;
+}
+.title {
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: @border-radius;
+    line-height: 1;
+}
+.title:hover{
+    background-color: #EEE;
+}
+.body{
+    width: @cwidth;
+}
+.weeks{
+    color: @color-primary;
+    background-color: #FAFAFA;
+    padding: 0 10px;
+}
+.days{
+    padding: 10px;
+}
+.y-panel,
+.m-panel{
+    padding:1px 0;
+    position: absolute;
+    top:-100%;
+    left:0;
+    right:0;
+    transition:top 0.15s;
+    background-color: #fff;
+}
+.ym-show{
+    top:0;
+}
+.ym{
+    height: floor((@cheight - 32 - 4 * 4) / 4);
+    margin: 2px;
+    float: left;
+    width: floor((@cwidth - 2 * 6) / 3);
+    cursor: pointer;
+    line-height: floor((@cheight - 32 - 4 * 4) / 4);
+    border-radius: @border-radius;
+    font-size:@font-size + 2;
+}
+.ym:hover,
+.day:hover{
+    background: @color-hover;
+}
+.week,
+.day{
+    width:2 * @font-size;
+    height: 2 * @font-size;
+    line-height: 2 * @font-size;
+    margin: 3px 2px;
+    float: left;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.selected,.selected:hover{
+    color:#fff;
+    background-color: @color-brand;
+}
+.notallowed,.notallowed:hover{
+    color:#eee;
+    cursor:not-allowed;
+    background: #fff;
+}
+
+.time{
+    padding: 5px;
+    border-top:1px solid @color-border;
+}
+
+.footer{
+    border-top: 1px solid @color-border;
+    margin: 10px;
+    padding: 10px 0 0 0;
+    text-align: left;
+}
+
+.rotate180{
+    transform:scaleX(-1);
+}
