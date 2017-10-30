@@ -1,5 +1,5 @@
 /*
-ver:1.3.1
+ver:1.3.4
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -96,6 +96,7 @@ module.exports = Magix.View.extend({
         }
     },
     '@{take}<change>'(e) {
+        console.log('take time', e.time);
         this['@{time}'] = e.time;
     },
     '@{hide}<click>'(e) {

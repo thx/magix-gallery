@@ -1,127 +1,1 @@
-/*
-    generate by magix-combine@3.7.0: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd
- */
-define('mx-pagination/index',["magix","$","mx-dropdown/index"],function(require,exports,module){
-/*Magix,$*/
-require("mx-dropdown/index");
-/*
-ver:1.3.1
-*/
-/*
-    author:xinglie.lkf@alibaba-inc.com
- */
-var Magix = require('magix');
-var $ = require('$');
-var DefaultSizes = [10, 20, 30, 40, 50, 100];
-Magix.applyStyle("w",".eb{color:#999}.ec{font-size:0}.ed,.ee{font-size:14px}.ee{margin:0 3px;text-decoration:none;border-radius:4px;text-align:center;min-width:35px;height:28px;line-height:28px;display:block}.ef{font-size:12px;top:-1px}.eg .ee{color:#fff;background-color:#6363e6}.eh .ee,.eh .ee:hover{color:#999;background:transparent;cursor:not-allowed}.ei{-webkit-transform:scaleX(-1);transform:scaleX(-1)}");
-module.exports = Magix.View.extend({
-    tmpl: {"html":"<div mx-guid=\"g0\u001f\" class=\"ag eb\">1\u001d</div>","subs":[{"keys":["simplify","mini"],"path":"div[mx-guid=\"g0\u001f\"]","tmpl":"<%if(!$$.simplify&&!$$.mini){%><span>当前第<b mx-guid=\"g1\u001f\">2\u001d</b>条，共<b mx-guid=\"g2\u001f\">3\u001d</b>条，每页展现</span><div mx-guid=\"g3\u001f\" style=\"width:70px\" class=\"t h\" mx-change=\"\u001f\u001e_cQ()\" mx-view=\"mx-dropdown/index?list=<%@$$.sizes%>&selected=<%@$$.size%>\"></div><span>条</span><%}%><ul mx-guid=\"g4\u001f\" class=\"ag aa ec\">5\u001d</ul>","s":"1\u001d"},{"keys":["startSpace","offsetStart","offsetEnd","endSpace"],"path":"b[mx-guid=\"g1\u001f\"]","tmpl":"<%for(var a=$$.startSpace;a--;){%>&nbsp;&nbsp;<%}%><%=$$.offsetStart%> - <%=$$.offsetEnd%><%for(var b=$$.endSpace;b--;){%>&nbsp;&nbsp;<%}%>","s":"2\u001d"},{"keys":["total"],"path":"b[mx-guid=\"g2\u001f\"]","tmpl":"<%=$$.total%>","s":"3\u001d"},{"keys":["sizes","size"],"path":"div[mx-guid=\"g3\u001f\"]","pKeys":["simplify","mini"],"attr":"mx-view=\"mx-dropdown/index?list=<%@$$.sizes%>&selected=<%@$$.size%>\"","attrs":[{"n":"mx-view","v":1}]},{"keys":["start","end","page","pages"],"path":"ul[mx-guid=\"g4\u001f\"]","pKeys":["simplify","mini"],"tmpl":"<li class=\"aa<%if($$.page==1){%> eh<%}%>\"><a class=\"ee _ ef\" href=\"#\" <%if($$.page>1){%> mx-click=\"\u001f\u001e_cP({page:<%=$$.page-1%>})\" <%}else{%> mx-click=\"\u001f\u001e_D()\" <%}%> title=\"&lt;\">&#xe61e;</a></li><%if($$.mini){%><li mx-guid=\"g7\u001f\" class=\"aa ed\">8\u001d</li><%}else{if($$.start>1){%><li class=\"aa\"><a class=\"ee\" href=\"#\" mx-click=\"\u001f\u001e_cP({page:1})\" title=\"1\">1</a></li><%}if($$.start>2){%><li class=\"eh aa\"><a class=\"ee\" href=\"#\" mx-click=\"\u001f\u001e_D()\" title=\"...\">...</a></li><%}for(var d=$$.start;d<=$$.end;d++){%><li class=\"aa<%if(d==$$.page){%> eg<%}%>\"><a class=\"ee\" href=\"#\" mx-click=\"\u001f\u001e_cP({page:<%=d%>})\" title=\"<%=d%>\"><%=d%></a></li><%}if($$.end+2<=$$.pages){%><li class=\"aa eh\"><a class=\"ee\" href=\"#\" mx-click=\"\u001f\u001e_D()\" title=\"...\">...</a></li><%}if($$.end<$$.pages){%><li class=\"aa\"><a mx-guid=\"g8\u001f\" class=\"ee\" href=\"#\" mx-click=\"\u001f\u001e_cP({page:<%=$$.pages%>})\" title=\"<%=$$.pages%>\">9\u001d</a></li><%}}%><li class=\"aa<%if($$.page==$$.pages){%> eh<%}%>\"><a class=\"ee _ ef ei\" href=\"#\" <%if($$.page<$$.pages){%> mx-click=\"\u001f\u001e_cP({page:<%=$$.page+1%>})\" <%}else{%> mx-click=\"\u001f\u001e_D()\" <%}%> title=\"&gt;\">&#xe61e;</a></li>","s":"5\u001d"},{"keys":["pageSpace"],"path":"li[mx-guid=\"g7\u001f\"]","pKeys":["simplify","mini","start","end","page","pages"],"tmpl":"<%for(var c=$$.pageSpace;c--;){%>&nbsp;&nbsp;<%}%><%=$$.page%> / <%=$$.pages%>","s":"8\u001d"},{"keys":["pages"],"path":"a[mx-guid=\"g8\u001f\"]","tmpl":"<%=$$.pages%>","s":"9\u001d","attr":"mx-click=\"\u001f\u001e_cP({page:<%=$$.pages%>})\" title=\"<%=$$.pages%>\"","attrs":[{"n":"mx-click"},{"n":"title","p":1}]}]},
-    init: function (extra) {
-        var me = this;
-        me.updater.set({
-            sizes: DefaultSizes
-        });
-        me.assign(extra);
-    },
-    assign: function (ops) {
-        var me = this;
-        var total = (ops.total | 0) || 0;
-        var size = ops.size || 20;
-        var page = ops.page || 1;
-        me.updater.set({
-            step: ops.step || 7,
-            simplify: (ops.simplify + '') === 'true',
-            mini: (ops.mini + '') === 'true',
-            page: page,
-            total: total,
-            size: size
-        });
-        return true;
-    },
-    render: function () {
-        var me = this;
-        var info = me['_cO']();
-        me.updater.digest(info);
-    },
-    '_cO': function () {
-        var me = this;
-        var data = me.updater.get();
-        var page = data.page | 0;
-        var pages = Math.ceil((data.total || 1) / data.size);
-        if (page > pages)
-            page = pages;
-        var step = data.step | 0;
-        var middle = step / 2 | 0;
-        var start = Math.max(1, page - middle);
-        var end = Math.min(pages, start + step - 1);
-        start = Math.max(1, end - step + 1);
-        var offset;
-        if (start <= 2) {
-            offset = 3 - start;
-            if (end + offset < pages) {
-                end += offset;
-            }
-        }
-        if (end + 2 > pages) {
-            offset = 2 - (pages - end);
-            if ((start - offset) > 1) {
-                start -= offset;
-            }
-        }
-        if (start == 3) {
-            start -= 1;
-        }
-        if (end + 2 == pages) {
-            end += 1;
-        }
-        var offsetStart = (page - 1) * data.size + 1;
-        var offsetEnd = Math.min(data.total, page * data.size);
-        return {
-            pages: pages,
-            offsetStart: offsetStart,
-            offsetEnd: offsetEnd,
-            startSpace: (data.total + '').length - (offsetStart + '').length,
-            endSpace: (data.total + '').length - (offsetEnd + '').length,
-            pageSpace: (pages + '').length - (page + '').length,
-            page: page,
-            start: start,
-            end: end
-        };
-    },
-    '_u': function () {
-        var me = this;
-        var node = $('#' + me.id);
-        var data = me.updater.get();
-        node.trigger({
-            type: 'change',
-            page: data.page,
-            size: data.size
-        });
-    },
-    '_cP<click>': function (e) {
-        e.preventDefault();
-        var me = this;
-        me.updater.set({
-            page: e.params.page
-        });
-        me.render();
-        me['_u']();
-    },
-    '_cQ<change>': function (e) {
-        e.stopPropagation();
-        var me = this;
-        me.updater.set({
-            page: 1,
-            size: e.item
-        });
-        me.render();
-        me['_u']();
-    },
-    '_D<click>': function (e) {
-        e.preventDefault();
-    }
-});
-
-});
+define("mx-pagination/index",["magix","$","mx-dropdown/index"],function(e,a,t){e("mx-dropdown/index");var i=e("magix"),s=e("$"),p=[10,20,30,40,50,100];i.applyStyle("z",".em{color:#999}.en{font-size:0}.eo,.ep{font-size:14px}.ep{margin:0 3px;text-decoration:none;border-radius:4px;text-align:center;min-width:35px;height:28px;line-height:28px;display:block}.eq{font-size:12px;top:-1px}.er .ep{color:#fff;background-color:#6363e6}.es .ep,.es .ep:hover{color:#999;background:transparent;cursor:not-allowed}.et{-webkit-transform:scaleX(-1);transform:scaleX(-1)}"),t.exports=i.View.extend({tmpl:{html:'<div mx-guid="g0" class="ag em">1</div>',subs:[{keys:["simplify","mini"],path:'div[mx-guid="g0"]',tmpl:'<%if(!$$.simplify&&!$$.mini){%><span>当前第<b mx-guid="g1">2</b>条，共<b mx-guid="g2">3</b>条，每页展现</span><div mx-guid="g3" style="width:70px" class="t h" mx-change="__dv()" mx-view="mx-dropdown/index?list=<%@$$.sizes%>&selected=<%@$$.size%>"></div><span>条</span><%}%><ul mx-guid="g4" class="ag aa en">5</ul>',s:"1"},{keys:["startSpace","offsetStart","offsetEnd","endSpace"],path:'b[mx-guid="g1"]',tmpl:"<%for(var a=$$.startSpace;a--;){%>&nbsp;&nbsp;<%}%><%=$$.offsetStart%> - <%=$$.offsetEnd%><%for(var b=$$.endSpace;b--;){%>&nbsp;&nbsp;<%}%>",s:"2"},{keys:["total"],path:'b[mx-guid="g2"]',tmpl:"<%=$$.total%>",s:"3"},{keys:["sizes","size"],path:'div[mx-guid="g3"]',pKeys:["simplify","mini"],attr:'mx-view="mx-dropdown/index?list=<%@$$.sizes%>&selected=<%@$$.size%>"',attrs:[{n:"mx-view",v:1}]},{keys:["start","end","page","pages"],path:'ul[mx-guid="g4"]',pKeys:["simplify","mini"],tmpl:'<li class="aa<%if($$.page==1){%> es<%}%>"><a class="ep _ eq" href="#" <%if($$.page>1){%> mx-click="__du({page:<%=$$.page-1%>})" <%}else{%> mx-click="__D()" <%}%> title="&lt;">&#xe61e;</a></li><%if($$.mini){%><li mx-guid="g7" class="aa eo">8</li><%}else{if($$.start>1){%><li class="aa"><a class="ep" href="#" mx-click="__du({page:1})" title="1">1</a></li><%}if($$.start>2){%><li class="es aa"><a class="ep" href="#" mx-click="__D()" title="...">...</a></li><%}for(var d=$$.start;d<=$$.end;d++){%><li class="aa<%if(d==$$.page){%> er<%}%>"><a class="ep" href="#" mx-click="__du({page:<%=d%>})" title="<%=d%>"><%=d%></a></li><%}if($$.end+2<=$$.pages){%><li class="aa es"><a class="ep" href="#" mx-click="__D()" title="...">...</a></li><%}if($$.end<$$.pages){%><li class="aa"><a mx-guid="g8" class="ep" href="#" mx-click="__du({page:<%=$$.pages%>})" title="<%=$$.pages%>">9</a></li><%}}%><li class="aa<%if($$.page==$$.pages){%> es<%}%>"><a class="ep _ eq et" href="#" <%if($$.page<$$.pages){%> mx-click="__du({page:<%=$$.page+1%>})" <%}else{%> mx-click="__D()" <%}%> title="&gt;">&#xe61e;</a></li>',s:"5"},{keys:["pageSpace"],path:'li[mx-guid="g7"]',pKeys:["simplify","mini","start","end","page","pages"],tmpl:"<%for(var c=$$.pageSpace;c--;){%>&nbsp;&nbsp;<%}%><%=$$.page%> / <%=$$.pages%>",s:"8"},{keys:["pages"],path:'a[mx-guid="g8"]',tmpl:"<%=$$.pages%>",s:"9",attr:'mx-click="__du({page:<%=$$.pages%>})" title="<%=$$.pages%>"',attrs:[{n:"mx-click"},{n:"title",p:1}]}]},init:function(e){var a=this;a.updater.set({sizes:p}),a.assign(e)},assign:function(e){var a=this,t=0|e.total||0,i=e.size||20,s=e.page||1;return a.updater.set({step:e.step||7,simplify:e.simplify+""=="true",mini:e.mini+""=="true",page:s,total:t,size:i}),!0},render:function(){var e=this,a=e.__dt();e.updater.digest(a)},__dt:function(){var e=this.updater.get(),a=0|e.page,t=Math.ceil((e.total||1)/e.size);a>t&&(a=t);var i,s=0|e.step,p=s/2|0,l=Math.max(1,a-p),n=Math.min(t,l+s-1);(l=Math.max(1,n-s+1))<=2&&n+(i=3-l)<t&&(n+=i),n+2>t&&l-(i=2-(t-n))>1&&(l-=i),3==l&&(l-=1),n+2==t&&(n+=1);var g=(a-1)*e.size+1,r=Math.min(e.total,a*e.size);return{pages:t,offsetStart:g,offsetEnd:r,startSpace:(e.total+"").length-(g+"").length,endSpace:(e.total+"").length-(r+"").length,pageSpace:(t+"").length-(a+"").length,page:a,start:l,end:n}},__u:function(){var e=this,a=s("#"+e.id),t=e.updater.get();a.trigger({type:"change",page:t.page,size:t.size})},"__du<click>":function(e){e.preventDefault();var a=this;a.updater.set({page:e.params.page}),a.render(),a.__u()},"__dv<change>":function(e){e.stopPropagation();var a=this;a.updater.set({page:1,size:e.item}),a.render(),a.__u()},"__D<click>":function(e){e.preventDefault()}})});

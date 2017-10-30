@@ -1,5 +1,5 @@
 /*
-ver:1.3.1
+ver:1.3.4
 */
 let Magix = require('magix');
 let Runner = require('./index');

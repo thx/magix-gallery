@@ -1,5 +1,5 @@
 /*
-ver:1.3.1
+ver:1.3.4
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -49,6 +49,7 @@ module.exports = Magix.View.extend({
 '@../mx-copy/__test__/index.js';
 '@../mx-dragselect/__test__/index.js';
 '@../mx-dragsort/__test__/index.js';
+'@../mx-day/__test__/index.js';
 '@../mx-dialog/__test__/index.js';
 '@../mx-dropdown/__test__/index.js';
 '@../mx-effect/__test__/index.js';
@@ -57,8 +58,9 @@ module.exports = Magix.View.extend({
 '@../mx-form/__test__/sub1.js';
 '@../mx-gtip/__test__/index.js';
 '@../mx-linkage/__test__/index.js';
-'@../mx-hour/__test__/index.js';
 '@../mx-loading/__test__/mask.js';
+'@../mx-menu/__test__/index.js';
+'@../mx-hour/__test__/index.js';
 '@../mx-number/__test__/index.js';
 '@../mx-pagination/__test__/index.js';
 '@../mx-popconfirm/__test__/index.js';

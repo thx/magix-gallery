@@ -1,0 +1,20 @@
+<div style="width:<%=width%>px;<%if(isChild||contextMenu){%>position:absolute;left:-1000000px<%}%>" mx-mouseover="@{over}();"
+    class="container<%if(isChild){%> away<%}%>"
+    mx-contextmenu="@{prevent}()">
+    <ul class="items unselectable">
+        <%for(var i=0,one;i<list.length;i++){%>
+        <%one=list[i]%>
+        <li class="ellipsis items-li"
+            mx-mouseover="@{hover}({id:'<%=one[valueKey]%>'})"
+            mx-mouseout="@{hover}({id:'<%=one[valueKey]%>'});
+            "<%if(!one.children){%> mx-click="@{select}({id:'<%=one[valueKey]%>'})"<%}%> 
+            title="<%=one[textKey]%>"
+            id="<%=viewId%>_<%=one[valueKey]%>">
+            <%=one[textKey]%>
+            <%if(one.children){%>
+                <span class="fr mc-iconfont more">&#xe61e;</span>
+            <%}%>
+        </li>
+        <%}%>
+    </ul>
+</div>

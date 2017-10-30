@@ -1,5 +1,5 @@
 /*
-ver:1.3.1
+ver:1.3.4
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -17,9 +17,9 @@ let parseTime = time => {
         throw new Error('bad time:' + time);
     }
     return {
-        hour: parseInt(ts[0], 10) || 0,
-        minute: parseInt(ts[1], 10) || 0,
-        second: parseInt(ts[2], 10) || 0
+        '@{hour}': parseInt(ts[0], 10) || 0,
+        '@{minute}': parseInt(ts[1], 10) || 0,
+        '@{second}': parseInt(ts[2], 10) || 0
     };
 };
 let parseType = type => {
@@ -27,14 +27,19 @@ let parseType = type => {
         type = 'all';
     }
     let enables = {
-        hour: true,
-        minute: true,
-        second: true
+        '@{hour}': true,
+        '@{minute}': true,
+        '@{second}': true
+    };
+    let keysMap = {
+        hour: '@{hour}',
+        minute: '@{minute}',
+        second: '@{second}'
     };
     if (type != 'all') {
-        for (let p in enables) {
+        for (let p in keysMap) {
             if (type.indexOf(p) === -1) {
-                delete enables[p];
+                delete enables[keysMap[p]];
             }
         }
     }
@@ -73,7 +78,7 @@ module.exports = Magix.View.extend({
     '@{change.time.by.type}'(type, increase) {
         let me = this;
         let time = me.updater.get('time');
-        let max = type == 'hour' ? 23 : 59;
+        let max = type == '@{hour}' ? 23 : 59;
         if (increase) {
             time[type]++;
         } else {
@@ -87,28 +92,30 @@ module.exports = Magix.View.extend({
         me.updater.digest({
             time
         });
-        me['@{fire.event}']();
     },
     '@{fire.event}'() {
-        let node = $('#' + this.id);
-        let time = this.updater.get('time');
+        let me = this;
+        let node = $('#' + me.id);
+        let time = me.updater.get('time');
         node.trigger({
             type: 'change',
-            time: format(time.hour) + ':' + format(time.minute) + ':' + format(time.second)
+            time: format(time['@{hour}']) + ':' + format(time['@{minute}']) + ':' + format(time['@{second}'])
         });
     },
     '@{change}<click>'(e) {
         let me = this;
         if (!me['@{fast.change.start}']) {
             let params = e.params;
-            this['@{change.time.by.type}'](params.type, params.inc);
+            me['@{change.time.by.type}'](params.type, params.inc);
+            me['@{fire.event}']();
         }
     },
     '@{set}<change>'(e) {
         e.stopPropagation();
         let type = e.params.type;
-        let max = type == 'hour' ? 23 : 59;
-        let value = e.eventTarget.value;
+        let max = type == '@{hour}' ? 23 : 59;
+        let target = e.eventTarget;
+        let value = target.value;
         let v = parseInt(value, 10);
         let time = this.updater.get('time');
         if (v || v === 0) {
@@ -121,10 +128,10 @@ module.exports = Magix.View.extend({
                 });
                 this['@{fire.event}']();
             } else {
-                e.eventTarget.value = format(v);
+                target.value = format(v);
             }
         } else {
-            e.eventTarget.value = format(time[type]);
+            target.value = format(time[type]);
         }
     },
     '@{fast.start}<mousedown>'(e) {
@@ -134,14 +141,28 @@ module.exports = Magix.View.extend({
             me['@{interval.timer}'] = setInterval(me.wrapAsync(() => {
                 me['@{fast.change.start}'] = true;
                 me['@{change.time.by.type}'](params.type, params.inc);
-            }), 80);
+            }), 50);
         }), 300);
+    },
+    '@{press.check}<keydown>'(e) {
+        if (e.keyCode == 38 || e.keyCode == 40) {
+            e.preventDefault();
+            let me = this;
+            me['@{change.time.by.type}'](e.params.type, e.keyCode == 38);
+            clearTimeout(me['@{event.dealy.timer}']);
+            me['@{event.dealy.timer}'] = setTimeout(me.wrapAsync(() => {
+                me['@{fire.event}']();
+            }), 100);
+        }
     },
     '$doc<mouseup>'() {
         let me = this;
         clearTimeout(me['@{long.tap.timer}']);
         clearInterval(me['@{interval.timer}']);
         setTimeout(me.wrapAsync(() => {
+            if (me['@{fast.change.start}']) {
+                me['@{fire.event}']();
+            }
             delete me['@{fast.change.start}'];
         }), 0);
     }

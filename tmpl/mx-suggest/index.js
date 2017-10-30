@@ -1,5 +1,5 @@
 /*
-ver:1.3.1
+ver:1.3.4
 */
 /*
     author: xinglie.lkf@ alibaba - inc.com
@@ -141,7 +141,7 @@ module.exports = Magix.View.extend({
             me['@{relate.node}'].css({
                 display: 'block',
                 left: offset.left + me.$offsetLeft,
-                top: offset.top + me['@{owner.node}'].outerHeight() + 10
+                top: offset.top + me['@{owner.node}'].outerHeight() + 5
             });
             me['@{owner.node}'].trigger('showlist');
         }

@@ -1,0 +1,35 @@
+<h2>mx-day</h2>
+<h3>展示</h3>
+<div class="pt20 clearfix">
+    <mx-day
+        years="<%@years%>"
+        selected-year="2002"
+        selected-days="0011,,0011,1100"
+        style="width:800px"
+    ></mx-day>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-day
+    years="&lt;%@years%&gt;"
+    selected-year="2002"
+    selected-days="0011,,0011,1100"
+    style="width:800px"
+&gt;&lt;/mx-day&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    render() {
+        let me = this;
+        let years = [];
+        for (let i = 1996; i &lt; 2020; i++) {
+            years.push(i);
+        }
+        me.updater.digest({
+            years
+        });
+    }
+});</pre>
+</div>

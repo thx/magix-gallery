@@ -1,0 +1,37 @@
+@import "../mx-style/_vars";
+.container{
+  transition:margin-left 0.25s;
+}
+
+.items{
+    background-color: #fff;
+    border:solid 1px @color-border;
+    border-radius: @border-radius;
+    cursor: default;
+    padding: 4px 0;
+}
+
+.items-li{
+    height:@menu-item-height;
+    line-height:@menu-item-height;
+    cursor: default;
+    border-radius: @border-radius;
+    padding: 0 12px;
+    margin: 0 4px;
+}
+.over{
+    color: #fff;
+    background-color: @color-brand;
+}
+.toright{
+  margin-left:10px;
+}
+.toleft{
+  margin-left:-10px;
+}
+.more{
+    font-size: 12px;
+    transform:scaleX(-1);
+    top:25%;
+    color:@color-border;
+}

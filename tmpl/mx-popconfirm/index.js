@@ -1,5 +1,5 @@
 /*
-ver:1.3.1
+ver:1.3.4
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -72,18 +72,18 @@ module.exports = Magix.View.extend({
             switch (me['@{pos.placement}']) {
                 case 'top':
                     left = offset.left - (rWidth - width) / 2;
-                    top = offset.top - rHeight - 10;
+                    top = offset.top - rHeight - 5;
                     break;
                 case 'right':
-                    left = offset.left + width + 10;
+                    left = offset.left + width + 5;
                     top = offset.top - (rHeight - height) / 2;
                     break;
                 case 'bottom':
                     left = offset.left - (rWidth - width) / 2;
-                    top = offset.top + height + 10;
+                    top = offset.top + height + 5;
                     break;
                 case 'left':
-                    left = offset.left - rWidth - 10;
+                    left = offset.left - rWidth - 5;
                     top = offset.top - (rHeight - height) / 2;
                     break;
             }

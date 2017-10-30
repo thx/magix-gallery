@@ -1,5 +1,5 @@
 /*
-ver:1.3.1
+ver:1.3.4
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -111,7 +111,13 @@ module.exports = Magix.View.extend({
         if (v || v === 0) {
             me.val(v);
         }
-        target.value = me['@{value}'].toFixed(me['@{tail.length}']);
+        v = me['@{value}'];
+        if (v || v === 0) {
+            v = v.toFixed(me['@{tail.length}']);
+        } else {
+            v = '';
+        }
+        target.value = v;
     },
     '@{active}<focusin>'() {
         this['@{simulator.active}']();
@@ -132,21 +138,23 @@ module.exports = Magix.View.extend({
     '@{num.change}<click>'(e) {
         let me = this;
         if (!me['@{disabled}'] && !me['@{fast.change.start}']) {
-            me['@{num.change}'](e.params.i,e.shiftKey);
+            me['@{num.change}'](e.params.i, e.shiftKey);
             me['@{cursor.show}']();
         }
     },
     '@{fast.start}<mousedown>'(e) {
         let me = this;
-        me['@{ui.keep.active}'] = true;
-        me['@{simulator.active}']();
-        me['@{long.tap.timer}'] = setTimeout(me.wrapAsync(() => {
-            me['@{interval.timer}'] = setInterval(me.wrapAsync(() => {
-                me['@{fast.change.start}'] = true;
-                me['@{num.change}'](e.params.i);
-                me['@{cursor.show}']();
-            }), 80);
-        }), 300);
+        if (!me['@{disabled}']) {
+            me['@{ui.keep.active}'] = true;
+            me['@{simulator.active}']();
+            me['@{long.tap.timer}'] = setTimeout(me.wrapAsync(() => {
+                me['@{interval.timer}'] = setInterval(me.wrapAsync(() => {
+                    me['@{fast.change.start}'] = true;
+                    me['@{num.change}'](e.params.i);
+                    me['@{cursor.show}']();
+                }), 50);
+            }), 300);
+        }
     },
     '@{press.check}<keydown>'(e) {
         if (e.keyCode == 38 || e.keyCode == 40) {

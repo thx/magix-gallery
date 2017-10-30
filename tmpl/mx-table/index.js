@@ -1,5 +1,5 @@
 /*
-ver:1.3.1
+ver:1.3.4
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -16,46 +16,28 @@ module.exports = Magix.View.extend({
         me['@{sticky}'] = (extra.sticky + '') === 'true';
     },
     '@{table.insert}'(className, start, end, ths, trs, id) {
-        let table = $('<table id="' + id + '" class="' + className + '"><thead></thead><tbody></tbody></table>');
-        let thead = table.find('thead');
-        let tbody = table.find('tbody');
-        let tr = $('<tr/>');
-        for (let i = start; i < end; i++) {
-            let th = ths.eq(i);
-            $('<th fake="true"/>').css({
-                height: th.outerHeight(),
-                width: th.outerWidth()
-            }).insertBefore(th);
-            tr.append(th);
-        }
-        thead.append(tr);
-        for (let i = 0; i < trs.length; i++) {
-            tr = $('<tr/>');
-            let tds = trs.eq(i).find('td');
-            for (let i = start; i < end; i++) {
-                let td = tds.eq(i);
-                $('<td fake="true"/>').css({
-                    height: td.outerHeight(),
-                    width: td.outerWidth()
-                }).insertBefore(td);
-                tr.append(td);
-            }
-            tbody.append(tr);
-        }
+        let table = $('<table id="' + id + '" class="' + className + '"><thead><tr></tr></thead><tbody></tbody></table>');
+        this['@{table.sync.state}'](table, start, end, ths, trs);
         return table;
     },
     '@{table.sync.state}'(table, start, end, ths, trs) {
-        let theadThs = table.find('thead>tr>th');
+        let theadTr = table.find('thead>tr');
+        let theadThs = theadTr.find('th');
         let tbody = table.find('tbody');
         let tbodyTrs = tbody.find('tr');
         for (let i = start; i < end; i++) {
             let th = ths.eq(i);
+            let insert = i >= theadThs.length;
             if (th.attr('fake') !== 'true') {
                 $('<th fake="true"/>').css({
                     height: th.outerHeight(),
                     width: th.outerWidth()
                 }).insertBefore(th);
-                theadThs.eq(i - start).replaceWith(th);
+                if (insert) {
+                    theadTr.append(th);
+                } else {
+                    theadThs.eq(i - start).replaceWith(th);
+                }
             }
         }
         for (let i = 0; i < trs.length; i++) {

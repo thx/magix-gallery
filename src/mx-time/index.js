@@ -1,165 +1,1 @@
-/*
-    generate by magix-combine@3.7.0: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd
- */
-define('mx-time/index',["magix","$"],function(require,exports,module){
-/*Magix,$*/
-
-/*
-ver:1.3.1
-*/
-/*
-    author:xinglie.lkf@alibaba-inc.com
- */
-var Magix = require('magix');
-var $ = require('$');
-Magix.applyStyle("G",".fn{width:58px;float:left;overflow:hidden}.fo{font-size:30px;height:50px;text-align:center;margin-bottom:10px}.fp{width:28px;height:28px;padding:0}.fq{font-size:27px;float:left;line-height:32px;margin-top:8px;font-weight:bolder;display:inline-block;width:30px;text-align:center}");
-var parseTime = function (time) {
-    if (!time) {
-        var d = new Date();
-        time = d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
-    }
-    var ts = time.split(':');
-    if (ts.length != 3) {
-        throw new Error('bad time:' + time);
-    }
-    return {
-        hour: parseInt(ts[0], 10) || 0,
-        minute: parseInt(ts[1], 10) || 0,
-        second: parseInt(ts[2], 10) || 0
-    };
-};
-var parseType = function (type) {
-    if (!type) {
-        type = 'all';
-    }
-    var enables = {
-        hour: true,
-        minute: true,
-        second: true
-    };
-    if (type != 'all') {
-        for (var p in enables) {
-            if (type.indexOf(p) === -1) {
-                delete enables[p];
-            }
-        }
-    }
-    return enables;
-};
-var format = function (t) {
-    if (t < 10)
-        return '0' + t;
-    return t;
-};
-module.exports = Magix.View.extend({
-    tmpl: {"html":"<div class=\"fn\"><input mx-guid=\"g0\u001f\" class=\"an fo\" value=\"<%=$$.format($$.time.hour)%>\" <%if($$.types.hour){%> mx-change=\"\u001f\u001e_eW({type:'hour'})\" <%}else{%> disabled<%}%> maxlength=\"2\"><button mx-guid=\"g1\u001f\" type=\"button\" class=\"al fp Z\" <%if($$.types.hour){%> mx-click=\"\u001f\u001e_eV({type:'hour'})\" mx-mousedown=\"\u001f\u001e_cM({type:'hour'})\" <%}else{%> disabled<%}%> tabindex=\"-1\"><i class=\"_\">&#xe6df;</i></button><button mx-guid=\"g2\u001f\" type=\"button\" class=\"al fp a_\" <%if($$.types.hour){%> mx-click=\"\u001f\u001e_eV({type:'hour',inc:true})\" mx-mousedown=\"\u001f\u001e_cM({type:'hour',inc:true})\" <%}else{%> disabled<%}%> tabindex=\"-1\"><i class=\"_\">&#xe661;</i></button></div><span class=\"fq\">:</span><div class=\"fn\"><input mx-guid=\"g3\u001f\" class=\"an fo\" value=\"<%=$$.format($$.time.minute)%>\" <%if($$.types.minute){%> mx-change=\"\u001f\u001e_eW({type:'minute'})\" <%}else{%> disabled<%}%> maxlength=\"2\"><button mx-guid=\"g4\u001f\" type=\"button\" class=\"al fp Z\" <%if($$.types.minute){%> mx-click=\"\u001f\u001e_eV({type:'minute'})\" mx-mousedown=\"\u001f\u001e_cM({type:'minute'})\" <%}else{%> disabled<%}%> tabindex=\"-1\"><i class=\"_\">&#xe6df;</i></button><button mx-guid=\"g5\u001f\" type=\"button\" class=\"al fp a_\" <%if($$.types.minute){%> mx-click=\"\u001f\u001e_eV({type:'minute',inc:true})\" mx-mousedown=\"\u001f\u001e_cM({type:'minute',inc:true})\" <%}else{%> disabled<%}%> tabindex=\"-1\"><i class=\"_\">&#xe661;</i></button></div><span class=\"fq\">:</span><div class=\"fn\"><input mx-guid=\"g6\u001f\" class=\"an fo\" value=\"<%=$$.format($$.time.second)%>\" <%if($$.types.second){%> mx-change=\"\u001f\u001e_eW({type:'second'})\" <%}else{%> disabled<%}%> maxlength=\"2\"><button mx-guid=\"g7\u001f\" type=\"button\" class=\"al fp Z\" <%if($$.types.second){%> mx-click=\"\u001f\u001e_eV({type:'second'})\" mx-mousedown=\"\u001f\u001e_cM({type:'second'})\" <%}else{%> disabled<%}%> tabindex=\"-1\"><i class=\"_\">&#xe6df;</i></button><button mx-guid=\"g8\u001f\" type=\"button\" class=\"al fp a_\" <%if($$.types.second){%> mx-click=\"\u001f\u001e_eV({type:'second',inc:true})\" mx-mousedown=\"\u001f\u001e_cM({type:'second',inc:true})\" <%}else{%> disabled<%}%> tabindex=\"-1\"><i class=\"_\">&#xe661;</i></button></div>","subs":[{"keys":["time","types"],"path":"input[mx-guid=\"g0\u001f\"]","attr":"value=\"<%=$$.format($$.time.hour)%>\" <%if($$.types.hour){%> mx-change=\"\u001f\u001e_eW({type:'hour'})\" <%}else{%> disabled<%}%>","attrs":[{"n":"value","q":1,"p":1},{"n":"mx-change"},{"n":"disabled","b":1,"p":1}]},{"keys":["types"],"path":"button[mx-guid=\"g1\u001f\"]","attr":"<%if($$.types.hour){%> mx-click=\"\u001f\u001e_eV({type:'hour'})\" mx-mousedown=\"\u001f\u001e_cM({type:'hour'})\" <%}else{%> disabled<%}%>","attrs":[{"n":"mx-click"},{"n":"mx-mousedown"},{"n":"disabled","b":1,"p":1}]},{"keys":["types"],"path":"button[mx-guid=\"g2\u001f\"]","attr":"<%if($$.types.hour){%> mx-click=\"\u001f\u001e_eV({type:'hour',inc:true})\" mx-mousedown=\"\u001f\u001e_cM({type:'hour',inc:true})\" <%}else{%> disabled<%}%>","attrs":[{"n":"mx-click"},{"n":"mx-mousedown"},{"n":"disabled","b":1,"p":1}]},{"keys":["time","types"],"path":"input[mx-guid=\"g3\u001f\"]","attr":"value=\"<%=$$.format($$.time.minute)%>\" <%if($$.types.minute){%> mx-change=\"\u001f\u001e_eW({type:'minute'})\" <%}else{%> disabled<%}%>","attrs":[{"n":"value","q":1,"p":1},{"n":"mx-change"},{"n":"disabled","b":1,"p":1}]},{"keys":["types"],"path":"button[mx-guid=\"g4\u001f\"]","attr":"<%if($$.types.minute){%> mx-click=\"\u001f\u001e_eV({type:'minute'})\" mx-mousedown=\"\u001f\u001e_cM({type:'minute'})\" <%}else{%> disabled<%}%>","attrs":[{"n":"mx-click"},{"n":"mx-mousedown"},{"n":"disabled","b":1,"p":1}]},{"keys":["types"],"path":"button[mx-guid=\"g5\u001f\"]","attr":"<%if($$.types.minute){%> mx-click=\"\u001f\u001e_eV({type:'minute',inc:true})\" mx-mousedown=\"\u001f\u001e_cM({type:'minute',inc:true})\" <%}else{%> disabled<%}%>","attrs":[{"n":"mx-click"},{"n":"mx-mousedown"},{"n":"disabled","b":1,"p":1}]},{"keys":["time","types"],"path":"input[mx-guid=\"g6\u001f\"]","attr":"value=\"<%=$$.format($$.time.second)%>\" <%if($$.types.second){%> mx-change=\"\u001f\u001e_eW({type:'second'})\" <%}else{%> disabled<%}%>","attrs":[{"n":"value","q":1,"p":1},{"n":"mx-change"},{"n":"disabled","b":1,"p":1}]},{"keys":["types"],"path":"button[mx-guid=\"g7\u001f\"]","attr":"<%if($$.types.second){%> mx-click=\"\u001f\u001e_eV({type:'second'})\" mx-mousedown=\"\u001f\u001e_cM({type:'second'})\" <%}else{%> disabled<%}%>","attrs":[{"n":"mx-click"},{"n":"mx-mousedown"},{"n":"disabled","b":1,"p":1}]},{"keys":["types"],"path":"button[mx-guid=\"g8\u001f\"]","attr":"<%if($$.types.second){%> mx-click=\"\u001f\u001e_eV({type:'second',inc:true})\" mx-mousedown=\"\u001f\u001e_cM({type:'second',inc:true})\" <%}else{%> disabled<%}%>","attrs":[{"n":"mx-click"},{"n":"mx-mousedown"},{"n":"disabled","b":1,"p":1}]}]},
-    init: function (extra) {
-        var me = this;
-        var time = parseTime(extra.time);
-        var types = parseType(extra.type);
-        me.updater.set({
-            format: format,
-            time: time,
-            types: types
-        });
-    },
-    render: function () {
-        var me = this;
-        me.updater.digest();
-    },
-    val: function (v) {
-        var updater = this.updater;
-        if (v) {
-            var time = parseTime(v);
-            updater.digest({
-                time: time
-            });
-        }
-        return updater.get('time');
-    },
-    '_eU': function (type, increase) {
-        var me = this;
-        var time = me.updater.get('time');
-        var max = type == 'hour' ? 23 : 59;
-        if (increase) {
-            time[type]++;
-        }
-        else {
-            time[type]--;
-        }
-        if (time[type] > max) {
-            time[type] = 0;
-        }
-        else if (time[type] < 0) {
-            time[type] = max;
-        }
-        me.updater.digest({
-            time: time
-        });
-        me['_u']();
-    },
-    '_u': function () {
-        var node = $('#' + this.id);
-        var time = this.updater.get('time');
-        node.trigger({
-            type: 'change',
-            time: format(time.hour) + ':' + format(time.minute) + ':' + format(time.second)
-        });
-    },
-    '_eV<click>': function (e) {
-        var me = this;
-        if (!me['_cJ']) {
-            var params = e.params;
-            this['_eU'](params.type, params.inc);
-        }
-    },
-    '_eW<change>': function (e) {
-        e.stopPropagation();
-        var type = e.params.type;
-        var max = type == 'hour' ? 23 : 59;
-        var value = e.eventTarget.value;
-        var v = parseInt(value, 10);
-        var time = this.updater.get('time');
-        if (v || v === 0) {
-            if (v < 0)
-                v = 0;
-            else if (v > max)
-                v = max;
-            if (v !== time[type]) {
-                time[type] = v;
-                this.updater.digest({
-                    time: time
-                });
-                this['_u']();
-            }
-            else {
-                e.eventTarget.value = format(v);
-            }
-        }
-        else {
-            e.eventTarget.value = format(time[type]);
-        }
-    },
-    '_cM<mousedown>': function (e) {
-        var me = this;
-        var params = e.params;
-        me['_cK'] = setTimeout(me.wrapAsync(function () {
-            me['_cL'] = setInterval(me.wrapAsync(function () {
-                me['_cJ'] = true;
-                me['_eU'](params.type, params.inc);
-            }), 80);
-        }), 300);
-    },
-    '$doc<mouseup>': function () {
-        var me = this;
-        clearTimeout(me['_cK']);
-        clearInterval(me['_cL']);
-        setTimeout(me.wrapAsync(function () {
-            delete me['_cJ'];
-        }), 0);
-    }
-});
-
-});
+define("mx-time/index",["magix","$"],function(e,t,_){var i=e("magix"),s=e("$");i.applyStyle("J",".fy{width:58px;float:left;overflow:hidden}.fz{font-size:30px;height:50px;text-align:center;margin-bottom:10px}.fA{width:28px;height:28px;padding:0}.fB{font-size:27px;float:left;line-height:32px;margin-top:8px;font-weight:bolder;display:inline-block;width:30px;text-align:center}");var n=function(e){if(!e){var t=new Date;e=t.getHours()+":"+t.getMinutes()+":"+t.getSeconds()}var _=e.split(":");if(3!=_.length)throw new Error("bad time:"+e);return{__cm:parseInt(_[0],10)||0,__fy:parseInt(_[1],10)||0,__fz:parseInt(_[2],10)||0}},a=function(e){e||(e="all");var t={__cm:!0,__fy:!0,__fz:!0},_={hour:"__cm",minute:"__fy",second:"__fz"};if("all"!=e)for(var i in _)-1===e.indexOf(i)&&delete t[_[i]];return t},d=function(e){return e<10?"0"+e:e};_.exports=i.View.extend({tmpl:{html:'<div class="fy"><input mx-guid="g0" class="an fz" value="<%=$$.format($$.time[\'__cm\'])%>" <%if($$.types[\'__cm\']){%> mx-change="__fC({type:\'__cm\'})" <%}else{%> disabled<%}%> maxlength="2" mx-keydown="__ds({type:\'__cm\'})" autocomplete="off"><button mx-guid="g1" type="button" class="al fA Z" <%if($$.types[\'__cm\']){%> mx-click="__fB({type:\'__cm\'})" mx-mousedown="__dr({type:\'__cm\'})" <%}else{%> disabled<%}%> tabindex="-1"><i class="_">&#xe6df;</i></button><button mx-guid="g2" type="button" class="al fA a_" <%if($$.types[\'__cm\']){%> mx-click="__fB({type:\'__cm\',inc:1})" mx-mousedown="__dr({type:\'__cm\',inc:1})" <%}else{%> disabled<%}%> tabindex="-1"><i class="_">&#xe661;</i></button></div><span class="fB">:</span><div class="fy"><input mx-guid="g3" class="an fz" value="<%=$$.format($$.time[\'__fy\'])%>" <%if($$.types[\'__fy\']){%> mx-change="__fC({type:\'__fy\'})" <%}else{%> disabled<%}%> maxlength="2" mx-keydown="__ds({type:\'__fy\'})" autocomplete="off"><button mx-guid="g4" type="button" class="al fA Z" <%if($$.types[\'__fy\']){%> mx-click="__fB({type:\'__fy\'})" mx-mousedown="__dr({type:\'__fy\'})" <%}else{%> disabled<%}%> tabindex="-1"><i class="_">&#xe6df;</i></button><button mx-guid="g5" type="button" class="al fA a_" <%if($$.types[\'__fy\']){%> mx-click="__fB({type:\'__fy\',inc:1})" mx-mousedown="__dr({type:\'__fy\',inc:1})" <%}else{%> disabled<%}%> tabindex="-1"><i class="_">&#xe661;</i></button></div><span class="fB">:</span><div class="fy"><input mx-guid="g6" class="an fz" value="<%=$$.format($$.time[\'__fz\'])%>" <%if($$.types[\'__fz\']){%> mx-change="__fC({type:\'__fz\'})" <%}else{%> disabled<%}%> maxlength="2" mx-keydown="__ds({type:\'__fz\'})" autocomplete="off"><button mx-guid="g7" type="button" class="al fA Z" <%if($$.types[\'__fz\']){%> mx-click="__fB({type:\'__fz\'})" mx-mousedown="__dr({type:\'__fz\'})" <%}else{%> disabled<%}%> tabindex="-1"><i class="_">&#xe6df;</i></button><button mx-guid="g8" type="button" class="al fA a_" <%if($$.types[\'__fz\']){%> mx-click="__fB({type:\'__fz\',inc:1})" mx-mousedown="__dr({type:\'__fz\',inc:1})" <%}else{%> disabled<%}%> tabindex="-1"><i class="_">&#xe661;</i></button></div>',subs:[{keys:["time","types"],path:'input[mx-guid="g0"]',attr:"value=\"<%=$$.format($$.time['__cm'])%>\" <%if($$.types['__cm']){%> mx-change=\"__fC({type:'__cm'})\" <%}else{%> disabled<%}%>",attrs:[{n:"value",q:1,p:1},{n:"mx-change"},{n:"disabled",b:1,p:1}]},{keys:["types"],path:'button[mx-guid="g1"]',attr:"<%if($$.types['__cm']){%> mx-click=\"__fB({type:'__cm'})\" mx-mousedown=\"__dr({type:'__cm'})\" <%}else{%> disabled<%}%>",attrs:[{n:"mx-click"},{n:"mx-mousedown"},{n:"disabled",b:1,p:1}]},{keys:["types"],path:'button[mx-guid="g2"]',attr:"<%if($$.types['__cm']){%> mx-click=\"__fB({type:'__cm',inc:1})\" mx-mousedown=\"__dr({type:'__cm',inc:1})\" <%}else{%> disabled<%}%>",attrs:[{n:"mx-click"},{n:"mx-mousedown"},{n:"disabled",b:1,p:1}]},{keys:["time","types"],path:'input[mx-guid="g3"]',attr:"value=\"<%=$$.format($$.time['__fy'])%>\" <%if($$.types['__fy']){%> mx-change=\"__fC({type:'__fy'})\" <%}else{%> disabled<%}%>",attrs:[{n:"value",q:1,p:1},{n:"mx-change"},{n:"disabled",b:1,p:1}]},{keys:["types"],path:'button[mx-guid="g4"]',attr:"<%if($$.types['__fy']){%> mx-click=\"__fB({type:'__fy'})\" mx-mousedown=\"__dr({type:'__fy'})\" <%}else{%> disabled<%}%>",attrs:[{n:"mx-click"},{n:"mx-mousedown"},{n:"disabled",b:1,p:1}]},{keys:["types"],path:'button[mx-guid="g5"]',attr:"<%if($$.types['__fy']){%> mx-click=\"__fB({type:'__fy',inc:1})\" mx-mousedown=\"__dr({type:'__fy',inc:1})\" <%}else{%> disabled<%}%>",attrs:[{n:"mx-click"},{n:"mx-mousedown"},{n:"disabled",b:1,p:1}]},{keys:["time","types"],path:'input[mx-guid="g6"]',attr:"value=\"<%=$$.format($$.time['__fz'])%>\" <%if($$.types['__fz']){%> mx-change=\"__fC({type:'__fz'})\" <%}else{%> disabled<%}%>",attrs:[{n:"value",q:1,p:1},{n:"mx-change"},{n:"disabled",b:1,p:1}]},{keys:["types"],path:'button[mx-guid="g7"]',attr:"<%if($$.types['__fz']){%> mx-click=\"__fB({type:'__fz'})\" mx-mousedown=\"__dr({type:'__fz'})\" <%}else{%> disabled<%}%>",attrs:[{n:"mx-click"},{n:"mx-mousedown"},{n:"disabled",b:1,p:1}]},{keys:["types"],path:'button[mx-guid="g8"]',attr:"<%if($$.types['__fz']){%> mx-click=\"__fB({type:'__fz',inc:1})\" mx-mousedown=\"__dr({type:'__fz',inc:1})\" <%}else{%> disabled<%}%>",attrs:[{n:"mx-click"},{n:"mx-mousedown"},{n:"disabled",b:1,p:1}]}]},init:function(e){var t=this,_=n(e.time),i=a(e.type);t.updater.set({format:d,time:_,types:i})},render:function(){this.updater.digest()},val:function(e){var t=this.updater;if(e){var _=n(e);t.digest({time:_})}return t.get("time")},__fA:function(e,t){var _=this,i=_.updater.get("time"),s="__cm"==e?23:59;t?i[e]++:i[e]--,i[e]>s?i[e]=0:i[e]<0&&(i[e]=s),_.updater.digest({time:i})},__u:function(){var e=this,t=s("#"+e.id),_=e.updater.get("time");t.trigger({type:"change",time:d(_.__cm)+":"+d(_.__fy)+":"+d(_.__fz)})},"__fB<click>":function(e){var t=this;if(!t.__do){var _=e.params;t.__fA(_.type,_.inc),t.__u()}},"__fC<change>":function(e){e.stopPropagation();var t=e.params.type,_="__cm"==t?23:59,i=e.eventTarget,s=i.value,n=parseInt(s,10),a=this.updater.get("time");n||0===n?(n<0?n=0:n>_&&(n=_),n!==a[t]?(a[t]=n,this.updater.digest({time:a}),this.__u()):i.value=d(n)):i.value=d(a[t])},"__dr<mousedown>":function(e){var t=this,_=e.params;t.__dp=setTimeout(t.wrapAsync(function(){t.__dq=setInterval(t.wrapAsync(function(){t.__do=!0,t.__fA(_.type,_.inc)}),50)}),300)},"__ds<keydown>":function(e){if(38==e.keyCode||40==e.keyCode){e.preventDefault();var t=this;t.__fA(e.params.type,38==e.keyCode),clearTimeout(t.__fD),t.__fD=setTimeout(t.wrapAsync(function(){t.__u()}),100)}},"$doc<mouseup>":function(){var e=this;clearTimeout(e.__dp),clearInterval(e.__dq),setTimeout(e.wrapAsync(function(){e.__do&&e.__u(),delete e.__do}),0)}})});

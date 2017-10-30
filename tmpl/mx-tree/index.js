@@ -1,13 +1,11 @@
 /*
-ver:1.3.1
+ver:1.3.4
 */
 /*
     author:xinglie.lkf@taobao.com
  */
 let Magix = require('magix');
 let ListToTree = (list, id, pId) => {
-    id = id || 'id';
-    pId = pId || 'pId';
     let map = {},
         listMap = {},
         rootList = [];
@@ -35,16 +33,18 @@ Magix.applyStyle('@index.less');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
     init(extra) {
-        this.$extra = extra;
+        this['@{extra}'] = extra;
     },
     render: function () {
         let me = this;
-        let ops = me.$extra;
-        let info = ListToTree(ops.list, ops.valueKey, ops.parentKey);
+        let ops = me['@{extra}'];
+        let valueKey = ops.valueKey || 'id';
+        let parentKey = ops.parentKey || 'pId';
+        let info = ListToTree(ops.list, valueKey, parentKey);
         me.updater.digest({
             id: me.id,
-            valueKey: ops.valueKey || 'id',
-            parentKey: ops.parentKey || 'pId',
+            valueKey: valueKey,
+            parentKey: parentKey,
             textKey: ops.textKey || 'text',
             list: info.list
         });

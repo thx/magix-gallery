@@ -1,0 +1,40 @@
+<table>
+    <thead>
+        <tr>
+            <th class="reset">周期设置</th>
+            <th colspan="31">
+                <%for(let i=0;i<weeks.length;i++){%>
+                    <label class="mr20"><input mx-change="@{sync.by.week}({key:'<%=weeks[i].key%>'})" id="<%=viewId%>_<%=weeks[i].key%>" type="checkbox" class="checkbox" />每周<%=weeks[i].day%></label>
+                <%}%>
+            </th>
+        </tr>
+        <tr>
+            <th class="reset">
+                <mx-dropdown
+                    list="<%@years%>"
+                    selected="<%=selectedYear%>"
+                    mx-change="@{change.year}()"
+                    style="width:80px" class="mr5 ml5" />
+            </th>
+            <%for(let i=0;i<31;i++){%>
+            <th class="reset" style="width:<%=width%>px"><%=('0'+(i+1)).slice(-2)%></th>
+            <%}%>
+        </tr>
+    </thead>
+    <tbody>
+        <%for(let i=0;i<12;i++){%>
+            <tr>
+                <td class="reset"><%=('0'+(i+1)).slice(-2)%></td>
+                <td class="reset" colspan="31">
+                    <mx-day.month
+                        year="<%=selectedYear%>"
+                        month="<%=i%>"
+                        width="<%=width%>"
+                        selected="<%=days[i]%>"
+                        mx-change="@{take.days}({m:<%!i%>})"
+                        mx-sync="@{take.days}({m:<%!i%>})" />
+                </td>
+            </tr>
+        <%}%>
+    </tbody>
+</table>
