@@ -1,29 +1,10 @@
 ## 分页组件
 
-### 使用
-
-<a href="https://thx.github.io/magix-gallery/#!/mx-pagination/index" target="_blank">在线示例</a>
-```html
-<div mx-view="mx-pagination/index"
-    view-total="2000"
-    view-step="5"
-    view-page="15"  mx-change="show()" class="fl">
+<div style="position:relative" id="mx_1">
+    <iframe src="http://localhost/magix-gallery/test.html#!/mx-pagination/index?inline=true&id=mx_1" frameborder="no" style="width:100%;height:200px;" scrolling="no"></iframe>
+    <div style="position:absolute;width:100%;height:200px;background-color:#f9f9f9;text-align:center;line-height:200px;font-size:32px;top:0;right:0;left:0;bottom:0">示例加载中...</div>
 </div>
-```
-
-```js
-let Magix = require('magix');
-module.exports = Magix.View.extend({
-    tmpl: '@index.html',
-    render() {
-        let me = this;
-        me.updater.digest();
-    },
-    'show<change>' (e) {
-        console.log(e.page, e.size);
-    }
-});
-```
+<a href="https://thx.github.io/magix-gallery/#!/mx-pagination/index" target="_blank">新窗口查看示例</a>
 
 ### API
 

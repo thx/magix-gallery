@@ -1,5 +1,5 @@
 /*
-ver:1.3.4
+ver:1.3.5
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -33,7 +33,7 @@ let GetDaysStr = (str, days) => {
     str = str || '';
     str = str.slice(0, days);
     for (let i = 0; i < days; i++) {
-        if (str.length < i) {
+        if (str.length <= i) {
             str += '0';
         }
     }
@@ -62,8 +62,15 @@ module.exports = Magix.View.extend({
         me['@{year}'] = ops.year;
         me['@{month}'] = ops.month;
         me['@{selected}'] = GetDaysStr(ops.selected, days);
-        me['@{width}'] = ops.width;
         return true;
+    },
+    '@{update.selected}'(selected) {
+        let me = this;
+        if (selected) {
+            let days = me['@{days}'];
+            me['@{selected}'] = GetDaysStr(selected, days);
+            me.render();
+        }
     },
     '@{week.shortcuts}'(week, enable) {
         let me = this;
@@ -83,17 +90,15 @@ module.exports = Magix.View.extend({
     },
     render(ignore) {
         let me = this;
-        me.$u.digest({
-            width: me['@{width}'],
+        me.updater.digest({
             days: me['@{days}'],
             selected: me['@{selected}']
         });
-
         me['@{drag.selected}'] = GetDragInfo(me['@{selected}']);
         me['@{owner.node}'].trigger({
             type: 'sync',
             ignoreSync: ignore,
-            value: me['@{selected}']
+            days: me['@{selected}']
         });
     },
     '@{get.disabled.week}'() {
@@ -104,7 +109,7 @@ module.exports = Magix.View.extend({
         let days = me['@{days}'];
         let dis = {};
         for (let i = 1; i <= days; i++) {
-            if (selected.charAt(i - 1) === '0') {
+            if (selected.charAt(i - 1) != '1') {
                 let date = new Date(year, month, i);
                 let key = WeeksToKey[date.getDay()];
                 dis[key] = 1;
@@ -116,34 +121,36 @@ module.exports = Magix.View.extend({
         e.stopPropagation();
         let node = $(e.node);
         let me = this;
+        let data = me.updater.get();
         let day = node.data('day');
         let dragSelected = me['@{drag.selected}'];
+        let dragTemp = me['@{drag.temp}'];
         if (e.action == 'add') {
             if (dragSelected[day]) {
                 node.removeClass('@month.less:active');
                 delete dragSelected[day];
                 if (e.mode == 'drag') {
-                    me['@{drag.temp}'][day] = 1;
+                    dragTemp[day] = 1;
                 }
             } else {
                 node.addClass('@month.less:active');
                 dragSelected[day] = 1;
                 if (e.mode == 'drag') {
-                    delete me['@{drag.temp}'][day];
+                    delete dragTemp[day];
                 }
             }
         } else if (e.action == 'remove') {
-            if (me['@{drag.temp}'][day]) {
+            if (dragTemp[day]) {
                 node.addClass('@month.less:active');
                 dragSelected[day] = 1;
                 if (e.mode == 'drag') {
-                    delete me['@{drag.temp}'][day];
+                    delete dragTemp[day];
                 }
             } else {
                 node.removeClass('@month.less:active');
                 delete dragSelected[day];
                 if (e.mode == 'drag') {
-                    me['@{drag.temp}'][day] = 1;
+                    dragTemp[day] = 1;
                 }
             }
         }
@@ -156,20 +163,29 @@ module.exports = Magix.View.extend({
                 s += '1';
             }
         }
-        me['@{selected}'] = s;
-        me['@{owner.node}'].trigger({
-            type: 'change',
-            value: s
-        });
+        data.selected = me['@{selected}'] = s;
+        if (e.mode == 'click') {
+            me['@{owner.node}'].trigger({
+                type: 'change',
+                days: s
+            });
+        }
     },
     '@{begin}<dragbegin>'(e) {
         e.stopPropagation();
-        this['@{drag.temp}'] = {};
+        let me = this;
+        me['@{start.value.temp}'] = me['@{selected}'];
+        me['@{drag.temp}'] = {};
     },
     '@{end}<dragfinish>'(e) {
         e.stopPropagation();
-        delete this['@{drag.temp}'];
+        let me = this;
+        if (me['@{selected}'] != me['@{start.value.temp}']) {
+            me['@{owner.node}'].trigger({
+                type: 'change',
+                days: me['@{selected}']
+            });
+        }
+        delete me['@{drag.temp}'];
     }
-}, {
-        Weeks
-    });
+});

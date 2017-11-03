@@ -16,7 +16,7 @@
             <thead>
                 <tr>
                     <th><input type="checkbox" class="checkbox" linkage="example1" /></th>
-                    <%for(var i=0;i<5;i++){%>
+                    <%for(var i=0;i<3;i++){%>
                     <th>示例字段<%=i%></th>
                     <%}%>
                 </tr>
@@ -25,7 +25,7 @@
                 <%for(var i=0;i<10;i++){%>
                 <tr>
                     <td><input type="checkbox" class="checkbox" linkage-parent="example1" value="ex1_<%=i%>" /></td>
-                    <%for(var j=0;j<5;j++){%>
+                    <%for(var j=0;j<3;j++){%>
                     <td><%=i%>示例字段内容<%=j%></td>
                     <%}%>
                 </tr>
@@ -257,19 +257,4 @@ module.exports = Magix.View.extend({
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
     &lt;li ds-draggable="false"&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
 &lt;/ul&gt;</pre>
-</div>
-
-<h3 class="mt30">drag and drop</h3>
-<div class="pt20 clearfix">
-    <ul class="hor fl">
-        <li ds-draggable="false"><span>move</span>123</li>
-        <li ds-draggable="false"><span>move</span>456</li>
-        <li draggable="true" mx-dragstart="start()"><span>move</span>123</li>
-        <li draggable="true" mx-dragstart="start()"><span>move</span>456</li>
-        <li draggable="true" mx-dragstart="start()"><span>move</span>123</li>
-        <li draggable="true" mx-dragstart="start()"><span>move</span>456</li>
-        <li draggable="true" mx-dragstart="start()"><span>move</span>123</li>
-        <li ds-draggable="false"><span>move</span>456</li>
-    </ul>
-    <div style="width:300px;height:300px;border:solid 1px #ccc" mx-drop="drop()" mx-dragenter="enter()" mx-dragleave="leave()">drop here</div>
 </div>

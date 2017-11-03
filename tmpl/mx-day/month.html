@@ -1,13 +1,14 @@
-<table>
+<table class="wp100">
     <tbody>
-        <tr mx-view="mx-dragselect/index"
-            view-selector="td[enable=true]"
+        <mx-dragselect
+            tag="tr"
+            selector="td[enable=true]"
             mx-change="@{show}()"
             mx-dragbegin="@{begin}()"
             mx-dragfinish="@{end}()">
-            <%for(let i=0;i<31;i++){%>
-                <td data-day="<%=i%>" enable="<%=i<days?true:false%>" class="day<%if(selected.charAt(i)==='1'){%> active<%}%><%if(i==30){%> no-right<%}%>" style="width:<%=width%>px"><%=i+1%></td>
-            <%}%>
-        </tr>
+        <%for(let i=0;i<31;i++){%>
+            <td data-day="<%=i%>" enable="<%=i<days?true:false%>" class="day<%if(selected.charAt(i)==='1'){%> active<%}%><%if(i==30){%> no-right<%}%>"><span class="opacity-hide"><%=('0'+(i+1)).slice(-2)%></span></td>
+        <%}%>
+        </mx-dragselect>
     </tbody>
 </table>

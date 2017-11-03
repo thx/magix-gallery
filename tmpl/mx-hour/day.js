@@ -1,5 +1,5 @@
 /*
-ver:1.3.4
+ver:1.3.5
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -13,6 +13,7 @@ module.exports = Magix.View.extend({
     init(extra) {
         let me = this;
         me['@{hours}'] = extra.hours;
+        me['@{owner.node}'] = $('#' + me.id);
     },
     render() {
         let me = this;
@@ -29,9 +30,13 @@ module.exports = Magix.View.extend({
         }
         return me['@{hours}'];
     },
-    '@{hour}<change>' (e) {
+    '@{hour}<change>'(e) {
         let me = this;
         e.stopPropagation();
-        me['@{hours}'] = e.hours;
+        me['@{hours}'] = e.range;
+        me['@{owner.node}'].val(e.range).trigger({
+            type: 'change',
+            hours: e.range
+        });
     }
 });

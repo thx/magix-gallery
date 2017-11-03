@@ -67,11 +67,11 @@
             <tbody>
                 <%for(var i=0;i<10;i++){%>
                 <tr>
-                    <td style="width:50px"><input type="checkbox" class="checkbox" linkage-parent="example2" value="ex1_<%=i%>" /></td>
+                    <td><input type="checkbox" class="checkbox" linkage-parent="example2" value="ex1_<%=i%>" /></td>
                     <%for(var j=0;j<25;j++){%>
-                    <td style="width:200px">示例字段内容示例字段内容示例字段内容示例字段内容示例字段内容示例字段内容<%=j%></td>
+                    <td>示例字段内容示例字段内容示例字段内容示例字段内容示例字段内容示例字段内容<%=j%></td>
                     <%}%>
-                    <td style="width:100px">
+                    <td>
                         <a href="#">删除</a><br />
                         <a href="#">报告</a><br />
                         <%if(i%3){%>
@@ -80,7 +80,7 @@
                         <a href="#">更多</a><br />
                         <%}%>
                     </td>
-                    <td style="width:200px">adf</td>
+                    <td>adf</td>
                 </tr>
                 <%}%>
             </tbody>
@@ -104,11 +104,11 @@
         &lt;tbody&gt;
             &lt;%for(var i=0;i&lt;10;i++){%&gt;
             &lt;tr&gt;
-                &lt;td style="width:50px"&gt;&lt;input type="checkbox" class="checkbox" linkage-parent="example2" value="ex1_&lt;%=i%&gt;" /&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;input type="checkbox" class="checkbox" linkage-parent="example2" value="ex1_&lt;%=i%&gt;" /&gt;&lt;/td&gt;
                 &lt;%for(var j=0;j&lt;25;j++){%&gt;
-                &lt;td style="width:200px"&gt;示例字段内容&lt;%=j%&gt;&lt;/td&gt;
+                &lt;td&gt;示例字段内容&lt;%=j%&gt;&lt;/td&gt;
                 &lt;%}%&gt;
-                &lt;td style="width:100px"&gt;
+                &lt;td&gt;
                     &lt;a href="#"&gt;删除&lt;/a&gt;&lt;br /&gt;
                     &lt;a href="#"&gt;报告&lt;/a&gt;&lt;br /&gt;
                     &lt;%if(i%3){%&gt;
@@ -125,7 +125,7 @@
 </div>
 <h3 class="mt30">固定列和表头</h3>
 <div class="pt20 clearfix">
-    <mx-view path="mx-table/index" rwd-range="2,-2" sticky="true">
+    <mx-view path="mx-table/index" rwd-range="2,-2" sticky="true" row-hover-class="@$(row-hover)">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -138,9 +138,9 @@
             <tbody>
                 <%for(var i=0;i<10;i++){%>
                 <tr>
-                    <td style="width:50px"><input type="checkbox" class="checkbox" linkage-parent="example3" value="ex1_<%=i%>" /></td>
+                    <td><input type="checkbox" class="checkbox" linkage-parent="example3" value="ex1_<%=i%>" /></td>
                     <%for(var j=0;j<25;j++){%>
-                    <td style="width:200px">示例字段内容<%=j%></td>
+                    <td>示例字段内容<%=j%></td>
                     <%}%>
                 </tr>
                 <%}%>
@@ -164,9 +164,9 @@
         &lt;tbody&gt;
             &lt;%for(var i=0;i&lt;10;i++){%&gt;
             &lt;tr&gt;
-                &lt;td style="width:50px"&gt;&lt;input type="checkbox" class="checkbox" linkage-parent="example3" value="ex1_&lt;%=i%&gt;" /&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;input type="checkbox" class="checkbox" linkage-parent="example3" value="ex1_&lt;%=i%&gt;" /&gt;&lt;/td&gt;
                 &lt;%for(var j=0;j&lt;25;j++){%&gt;
-                &lt;td style="width:200px"&gt;示例字段内容&lt;%=j%&gt;&lt;/td&gt;
+                &lt;td&gt;示例字段内容&lt;%=j%&gt;&lt;/td&gt;
                 &lt;%}%&gt;
             &lt;/tr&gt;
             &lt;%}%&gt;

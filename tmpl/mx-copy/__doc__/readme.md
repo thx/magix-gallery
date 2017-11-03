@@ -2,37 +2,11 @@
 
 > 该组件引入了第三方 https://zenorocha.github.io/clipboard.js 代码
 
-#### 使用
-
-
-<a href="https://thx.github.io/magix-gallery/#!/mx-copy/index" target="_blank">在线示例</a>
-
-```html
-<div id="text_<%=viewId%>">这里是要复制的<span style="font-weight:bold">内容</span>的节点</div>
-<mx-copy copy-node="text_<%=viewId%>" tag="button" type="button" class="btn btn-brand mr20" mx-success="done()" mx-error="bad()">复制</mx-copy>
-```
-
-
-```js
-let Magix = require('magix');
-let GTip = require('app/gallery/mx-gtip/index');
-module.exports = Magix.View.extend({
-    tmpl: '@index.html',
-    mixins: [GTip],
-    render() {
-        let me = this;
-        me.updater.digest({
-            viewId: me.id
-        });
-    },
-    'done<success>'() {
-        this.gtipRT('复制成功～');
-    },
-    'bad<error>'() {
-        this.gtipRT('复制失败～');
-    }
-});
-```
+<div style="position:relative" id="mx_1">
+    <iframe src="http://localhost/magix-gallery/test.html#!/mx-copy/index?inline=true&id=mx_1" frameborder="no" style="width:100%;height:200px;" scrolling="no"></iframe>
+    <div style="position:absolute;width:100%;height:200px;background-color:#f9f9f9;text-align:center;line-height:200px;font-size:32px;top:0;right:0;left:0;bottom:0">示例加载中...</div>
+</div>
+<a href="https://thx.github.io/magix-gallery/#!/mx-copy/index" target="_blank">新窗口查看示例</a>
 
 ### API
 

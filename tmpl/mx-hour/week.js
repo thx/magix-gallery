@@ -1,5 +1,5 @@
 /*
-ver:1.3.4
+ver:1.3.5
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -15,6 +15,8 @@ let None = '000000000000000000000000';
 let ImproveDays = (days) => {
     let start = 0;
     let end = 7;
+    days = (days + '').split(',');
+    days = days.slice(start, end);
     while (start < end) {
         days[start] = Core.improve(days[start]);
         start++;
@@ -27,6 +29,7 @@ module.exports = Magix.View.extend({
         let me = this;
         me['@{days}'] = ImproveDays(extra.days || [None, None, None, None, None, None, None]);
         Monitor['@{setup}']();
+        me['@{owner.node}'] = $('#' + me.id);
         me.on('destroy', () => {
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
@@ -114,8 +117,17 @@ module.exports = Magix.View.extend({
             }
         }
     },
-    '@{shortcuts.processor}<click>'(e) {
+    '@{fire.event}'() {
         let me = this;
+        let days = me['@{days}'];
+        me['@{owner.node}'].val(days).trigger({
+            type: 'change',
+            days
+        });
+    },
+    '@{shortcuts.processor}<change>'(e) {
+        let me = this;
+        e.stopPropagation();
         switch (e.params.type) {
             case 0:
                 me['@{days}'] = [All, All, All, All, All, All, All];
@@ -129,6 +141,7 @@ module.exports = Magix.View.extend({
         }
         me['@{sync.shortcuts}']();
         me['@{sync.ui}']();
+        me['@{fire.event}']();
     },
     '@{hour}<change>'(e) {
         e.stopPropagation();
@@ -138,6 +151,7 @@ module.exports = Magix.View.extend({
         me['@{change.delay.timer}'] = setTimeout(me.wrapAsync(() => {
             me['@{sync.shortcuts}']();
         }), 100);
+        me['@{fire.event}']();
     },
     '@{toggle}<click>'(e) {
         let day = e.params.day;
@@ -151,6 +165,7 @@ module.exports = Magix.View.extend({
                 vf.invoke('val', [me['@{days}'][day] = None]);
             }
             me['@{sync.shortcuts}']();
+            me['@{fire.event}']();
         }
     },
     '@{copy}<click>'(e) {

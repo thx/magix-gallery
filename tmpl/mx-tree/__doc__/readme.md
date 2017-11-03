@@ -2,48 +2,12 @@
 
 > 该组件仅基础功能，需要二次开发
 
+<div style="position:relative" id="mx_1">
+    <iframe src="http://localhost/magix-gallery/test.html#!/mx-tree/index?inline=true&id=mx_1" frameborder="no" style="width:100%;height:200px;" scrolling="no"></iframe>
+    <div style="position:absolute;width:100%;height:200px;background-color:#f9f9f9;text-align:center;line-height:200px;font-size:32px;top:0;right:0;left:0;bottom:0">示例加载中...</div>
+</div>
 
-#### 使用
-
-<a href="https://thx.github.io/magix-gallery/#!/mx-tree/index" target="_blank">在线示例</a>
-```html
-<div mx-view="mx-tree/index"
-    view-list="<%@list%>"
-></div>
-```
-
-```js
-let Magix = require('magix');
-module.exports = Magix.View.extend({
-    tmpl: '@index.html',
-    render() {
-        let me = this;
-        me.updater.digest({
-            list: [{
-                id: 0,
-                pId: '',
-                text: 'abc'
-            }, {
-                id: '0-0',
-                pId: '',
-                text: 'abc-abc'
-            }, {
-                id: 1,
-                pId: 0,
-                text: 'def'
-            }, {
-                id: 2,
-                pId: 1,
-                text: 'aaa'
-            }, {
-                id: 3,
-                pId: 2,
-                text: 'bbb'
-            }]
-        });
-    }
-});
-```
+<a href="https://thx.github.io/magix-gallery/#!/mx-tree/index" target="_blank">新窗口查看示例</a>
 
 ### API
 

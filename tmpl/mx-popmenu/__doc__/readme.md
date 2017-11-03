@@ -3,38 +3,12 @@
 > 该组件仅控制行为，不提供html代码。
 
 
-#### 使用
+<div style="position:relative" id="mx_1">
+    <iframe src="http://localhost/magix-gallery/test.html#!/mx-popmenu/index?inline=true&id=mx_1" frameborder="no" style="width:100%;height:200px;" scrolling="no"></iframe>
+    <div style="position:absolute;width:100%;height:200px;background-color:#f9f9f9;text-align:center;line-height:200px;font-size:32px;top:0;right:0;left:0;bottom:0">示例加载中...</div>
+</div>
 
-<a href="https://thx.github.io/magix-gallery/#!/mx-popmenu/index" target="_blank">在线示例</a>
-```html
-<button type="button" class="btn btn-brand" mx-view="app/gallery/mx-popmenu/index" view-related="#menu_<%=viewId%>">显示更多菜单</button>
-<ul class="none menu" id="menu_<%=viewId%>">
-    <li class="menu-item" mx-click="hide()">示例菜单1</li>
-    <li class="menu-item" mx-click="hide()">示例菜单2</li>
-    <li class="menu-item" mx-click="hide()">示例菜单3</li>
-    <li class="menu-item" mx-click="hide()">示例菜单4</li>
-    <li class="menu-item" mx-click="hide()">示例菜单5</li>
-    <li class="menu-item" mx-click="hide()">示例菜单6</li>
-</ul>
-```
-
-```js
-let Magix = require('magix');
-let $ = require('$');
-Magix.applyStyle('@index.css');
-module.exports = Magix.View.extend({
-    tmpl: '@index.html',
-    render() {
-        let me = this;
-        me.updater.digest({
-            viewId: me.id
-        });
-    },
-    'hide<click>' () {
-        $('#' + this.id + ' button').invokeView('@{hide}');
-    }
-});
-```
+<a href="https://thx.github.io/magix-gallery/#!/mx-popmenu/index" target="_blank">新窗口查看示例</a>
 
 ### API
 

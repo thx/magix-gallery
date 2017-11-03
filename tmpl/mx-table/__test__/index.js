@@ -1,11 +1,12 @@
 /*
-ver:1.3.4
+ver:1.3.5
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
  */
 let Magix = require('magix');
 let Linkage = require('../../mx-checkbox/linkage');
+Magix.applyStyle('@index.less');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
     mixins: [Linkage],

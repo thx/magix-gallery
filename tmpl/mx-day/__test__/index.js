@@ -1,5 +1,5 @@
 /*
-ver:1.3.4
+ver:1.3.5
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -16,5 +16,8 @@ module.exports = Magix.View.extend({
         me.updater.digest({
             years
         });
+    },
+    'showDays<change>'(e){
+        console.log(e.days);
     }
 });

@@ -1,5 +1,5 @@
 /*
-ver:1.3.4
+ver:1.3.5
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -15,7 +15,7 @@ module.exports = Magix.View.extend({
             viewId: me.id
         });
     },
-    'hide<click>' () {
+    'hide<click>'() {
         $('#' + this.id + ' button').invokeView('@{hide}');
     }
 });

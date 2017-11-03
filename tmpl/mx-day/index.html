@@ -1,8 +1,8 @@
-<table>
+<table class="wp100">
     <thead>
         <tr>
-            <th class="reset">周期设置</th>
-            <th colspan="31">
+            <th class="reset" width="120">周期设置</th>
+            <th class="reset cycle" colspan="31">
                 <%for(let i=0;i<weeks.length;i++){%>
                     <label class="mr20"><input mx-change="@{sync.by.week}({key:'<%=weeks[i].key%>'})" id="<%=viewId%>_<%=weeks[i].key%>" type="checkbox" class="checkbox" />每周<%=weeks[i].day%></label>
                 <%}%>
@@ -14,26 +14,35 @@
                     list="<%@years%>"
                     selected="<%=selectedYear%>"
                     mx-change="@{change.year}()"
-                    style="width:80px" class="mr5 ml5" />
+                    style="width:100px" class="mr5 ml5" />
             </th>
-            <%for(let i=0;i<31;i++){%>
-            <th class="reset" style="width:<%=width%>px"><%=('0'+(i+1)).slice(-2)%></th>
-            <%}%>
+            <th colspan="31" class="reset">
+                <table class="wp100">
+                    <tbody>
+                        <tr>
+                            <%for(let i=0;i<31;i++){%>
+                                <td class="reset no-border<%if(i<30){%> right-border<%}%>"><%=('0'+i).slice(-2)%></td>
+                            <%}%>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
         </tr>
     </thead>
     <tbody>
         <%for(let i=0;i<12;i++){%>
             <tr>
-                <td class="reset"><%=('0'+(i+1)).slice(-2)%></td>
-                <td class="reset" colspan="31">
-                    <mx-day.month
-                        year="<%=selectedYear%>"
-                        month="<%=i%>"
-                        width="<%=width%>"
-                        selected="<%=days[i]%>"
-                        mx-change="@{take.days}({m:<%!i%>})"
-                        mx-sync="@{take.days}({m:<%!i%>})" />
-                </td>
+                <td class="reset cp" mx-click="@{toggle}({m:<%!i%>})"><%=('0'+(i+1)).slice(-2)%></td>
+                <mx-day.month
+                    tag="td"
+                    class="reset"
+                    colspan="31"
+                    id="months_<%=i%>_<%=viewId%>"
+                    year="<%=selectedYear%>"
+                    month="<%=i%>"
+                    selected="<%=days[i]%>"
+                    mx-change="@{take.days}({m:<%!i%>})"
+                    mx-sync="@{take.days}({m:<%!i%>})" />
             </tr>
         <%}%>
     </tbody>

@@ -1,5 +1,5 @@
 /*
-ver:1.3.4
+ver:1.3.5
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -80,7 +80,7 @@ module.exports = Magix.View.extend({
     },
     render() {
         let me = this;
-        me.$u.digest({
+        me.updater.digest({
             viewId: me.id,
             contextMenu: me['@{context.menu}'],
             isChild: me['@{parent.node}'],

@@ -7,16 +7,25 @@
             </div>
             <div class="name">
                 <label class="p0">
-                    <input class="mr10 checkbox" type="checkbox" mx-change="@{check}()" value="<%=br[valueKey]%>" />
-                    <%=br[textKey]%>
+                    <input
+                        class="checkbox b-cb fl"
+                        type="checkbox"
+                        mx-change="@{check}()"
+                        id="cb_<%=id%>_<%=br[valueKey]%>"
+                        value="<%=br[valueKey]%>"
+                        name="<%=id%>" />
+                    <span class="ib b-text fl">
+                        <%=br[textKey]%>
+                    </span>
                 </label>
             </div>
             <%if(br.children){%>
-                <div mx-view="@./branch"
-                    view-text-key="<%=textKey%>"
-                    vuew-value-key="<%=valueKey%>"
-                    view-list="<%@br.children%>"
-                    id="<%=id%>_<%=br[valueKey]%>" class="indent none"></div>
+                <mx-tree.branch
+                    text-key="<%=textKey%>"
+                    value-key="<%=valueKey%>"
+                    list="<%@br.children%>"
+                    id="<%=id%>_<%=br[valueKey]%>"
+                    class="indent none"/>
             <%}%>
         </li>
     <%}%>

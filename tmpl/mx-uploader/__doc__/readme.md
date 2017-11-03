@@ -1,40 +1,10 @@
 ## 上传组件
 
-### 使用
-
-<a href="https://thx.github.io/magix-gallery/#!/mx-uploader/index" target="_blank">在线示例</a>
-```html
-<mx-view
-    class="btn btn-brand"
-    path="app/gallery/mx-uploader/index"
-    action="./"
-    name="file1"
-    multiple="true"
-    mx-error="showError()"
-    mx-success="showSuccess()"
-    mx-progress="showProgress()"
->上传文件</mx-view>
-```
-
-```js
-let Magix = require('magix');
-module.exports = Magix.View.extend({
-    tmpl: '@index.html',
-    render() {
-        let me = this;
-        me.updater.digest();
-    },
-    'showError<error>' (e) {
-        console.log(e.error);
-    },
-    'showSuccess<success>' (e) {
-        console.log(e.response);
-    },
-    'showProgress<progress>' (e) {
-        console.log(e.percent);
-    }
-});
-```
+<div style="position:relative" id="mx_1">
+    <iframe src="http://localhost/magix-gallery/test.html#!/mx-uploader/index?inline=true&id=mx_1" frameborder="no" style="width:100%;height:200px;" scrolling="no"></iframe>
+    <div style="position:absolute;width:100%;height:200px;background-color:#f9f9f9;text-align:center;line-height:200px;font-size:32px;top:0;right:0;left:0;bottom:0">示例加载中...</div>
+</div>
+<a href="https://thx.github.io/magix-gallery/#!/mx-uploader/index" target="_blank">新窗口查看示例</a>
 
 ### API
 

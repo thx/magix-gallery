@@ -1,5 +1,5 @@
 /*
-ver:1.3.4
+ver:1.3.5
 */
 let $ = require('$');
 let Magix = require('magix');
@@ -304,7 +304,7 @@ module.exports = {
             updater.$form = {};
         }
         let form = updater.$form;
-        let keys = updater.$keys;
+        let keys = updater.$keys || updater.$k;
         let ctrls = params.c ? params.c.slice() : [params];
         let refresh = false;
         let valid = true;

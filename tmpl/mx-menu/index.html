@@ -1,5 +1,5 @@
 <div style="width:<%=width%>px;<%if(isChild||contextMenu){%>position:absolute;left:-1000000px<%}%>" mx-mouseover="@{over}();"
-    class="container<%if(isChild){%> away<%}%>"
+    class="container"
     mx-contextmenu="@{prevent}()">
     <ul class="items unselectable">
         <%for(var i=0,one;i<list.length;i++){%>

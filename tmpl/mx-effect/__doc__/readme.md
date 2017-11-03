@@ -2,39 +2,12 @@
 > 该组件提供css无法完成的动画效果
 
 ### count
+<div style="position:relative" id="mx_1">
+    <iframe src="http://localhost/magix-gallery/test.html#!/mx-effect/count?inline=true&id=mx_1" frameborder="no" style="width:100%;height:200px;" scrolling="no"></iframe>
+    <div style="position:absolute;width:100%;height:200px;background-color:#f9f9f9;text-align:center;line-height:200px;font-size:32px;top:0;right:0;left:0;bottom:0">示例加载中...</div>
+</div>
 
-<a href="https://thx.github.io/magix-gallery/#!/mx-effect/index" target="_blank">在线示例</a>
-```html
-<input value="20" class="input" mx-view="mx-effect/count" view-to="<%@toNumber%>">
-<div mx-view="mx-effect/count" view-to="<%@toNumber%>" view-duration="2000" view-fixed="2" style="font-size: 30px;line-height: 50px;letter-spacing: 2px;">20.00</div>
-<button class="btn btn-brand ml5" type="button" mx-click="changeNumber({i:true})">increase number</button>
-<button class="btn btn-brand ml5" type="button" mx-click="changeNumber()">decrease number</button>
-```
-
-```js
-let Magix = require('magix');
-module.exports = Magix.View.extend({
-    tmpl: '@index.html',
-    render() {
-        let me = this;
-        me.updater.digest({
-            toNumber: 20
-        });
-    },
-    'changeNumber<click>'(e) {
-        let me = this;
-        let to = me.updater.get('toNumber');
-        let diff = 300;
-        if (!e.params.i) {
-            diff = -diff;
-        }
-        me.updater.digest({
-            toNumber: to + diff
-        });
-    }
-});
-```
-
+<a href="https://thx.github.io/magix-gallery/#!/mx-effect/count" target="_blank">新窗口查看示例</a>
 
 ### API
 
@@ -52,26 +25,11 @@ module.exports = Magix.View.extend({
 
 ### dance
 
-<a href="https://thx.github.io/magix-gallery/#!/mx-effect/index" target="_blank">在线示例</a>
-```html
-<mx-effect-dance value="<%=content%>" duration="<%=duration%>" dance="<%=dance%>"  />
-```
-
-```js
-let Magix = require('magix');
-module.exports = Magix.View.extend({
-    tmpl: '@index.html',
-    render() {
-        let me = this;
-        me.updater.digest({
-            content: '你从远处聆听我，我的声音却无法触及你。',
-            dance: 'd1',
-            duration: '60'
-        });
-    }
-});
-```
-
+<div style="position:relative" id="mx_2">
+    <iframe src="http://localhost/magix-gallery/test.html#!/mx-effect/dance?inline=true&id=mx_2" frameborder="no" style="width:100%;height:200px;" scrolling="no"></iframe>
+    <div style="position:absolute;width:100%;height:200px;background-color:#f9f9f9;text-align:center;line-height:200px;font-size:32px;top:0;right:0;left:0;bottom:0">示例加载中...</div>
+</div>
+<a href="https://thx.github.io/magix-gallery/#!/mx-effect/dance" target="_blank">新窗口查看示例</a>
 
 ### API
 

@@ -1,5 +1,5 @@
 /*
-ver:1.3.4
+ver:1.3.5
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -9,7 +9,7 @@ let $ = require('$');
 module.exports = Magix.View.extend({
     init(extra) {
         let me = this;
-        me['@{layout.header.height}'] = 50;
+        me['@{layout.header.height}'] = $('#header').height() || 50;
         let dialog = $('#' + me.id).parents('@../mx-dialog/index.less:scroll-cnt');
         let inmain = $('#inmain');
         if (!dialog.length && !inmain.length) {//不存在

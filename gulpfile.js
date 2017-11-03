@@ -8,7 +8,7 @@ let uglify = require('gulp-uglify');
 let ts = require('typescript');
 combineTool.config({
     //debug: true,
-    cssSelectorPrefix: '',
+    cssSelectorPrefix: '_',
     tmplAddViewsToDependencies: true,
     tmplMultiBindEvents: true,
     mxGalleriesRoot: '',

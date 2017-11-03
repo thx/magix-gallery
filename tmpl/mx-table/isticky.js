@@ -1,19 +1,17 @@
 /*
-ver:1.3.4
+ver:1.3.5
 */
 let Magix = require('magix');
 let $ = require('$');
-let WidthReg = /width\s*:\s*(\d+)px/;
 module.exports = Magix.View.extend({
     init() {
         let me = this;
-        me['@{layout.header.height}'] = 50;
+        me['@{layout.header.height}'] = $('#header').height() || 50;
         let inmain = $('#inmain');
         if (!inmain.length) {
             inmain = $(window);
             me['@{layout.header.height}'] = 0;
         }
-
         let watchInmainScroll = () => {
             me['@{sync.pos}'](inmain);
         };
@@ -27,19 +25,15 @@ module.exports = Magix.View.extend({
         let me = this;
         let owner = $('#' + me.id);
         let thead = owner.find('thead');
-        let body = owner.find('tbody>tr').eq(0);
         let ghostId = 'ph_' + me.id;
         let ghost = $('#' + ghostId);
-        let bodyTds = body.find('td');
-        if (bodyTds.length) {
-            if (!ghost.length) {
-                ghost = $('<caption />').insertBefore(thead).attr('id', ghostId);
-            }
-            thead.css({
-                position: 'absolute',
-                zIndex: 1
-            });
+        if (!ghost.length) {
+            ghost = $('<caption />').insertBefore(thead).attr('id', ghostId);
         }
+        thead.css({
+            position: 'absolute',
+            zIndex: 1
+        });
         me['@{ghost.node}'] = ghost;
         me['@{owner.node}'] = owner;
         me['@{thead.node}'] = thead;
@@ -48,7 +42,6 @@ module.exports = Magix.View.extend({
         let me = this;
         let now = $.now();
         if (!me['@{ctrl.last.info}'] || me['@{ctrl.last.info}'] + 3000 < now) {
-            //console.log('cal');
             me['@{ctrl.last.info}'] = now;
             let owner = me['@{owner.node}'];
             let top1, height;

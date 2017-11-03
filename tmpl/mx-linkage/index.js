@@ -1,5 +1,5 @@
 /*
-ver:1.3.4
+ver:1.3.5
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -59,7 +59,7 @@ module.exports = Magix.View.extend({
         selected = selected ? (selected + '').split(',') : [];
         me['@{selected}'] = selected;
         me['@{ui.disabled}'] = (ops.disabled + '') === 'true';
-        me.$u.set({
+        me.updater.set({
             splitter: ops.splitter || '/',
             textKey,
             valueKey,
@@ -69,7 +69,7 @@ module.exports = Magix.View.extend({
     },
     render() {
         let me = this;
-        me.$u.digest({
+        me.updater.digest({
             placeholder: me['@{placeholder}'],
             headers: me['@{headers}'],
             viewId: me.id,
@@ -88,7 +88,7 @@ module.exports = Magix.View.extend({
         let texts = [];
         let info = me['@{list.info}'];
         let selected = me['@{selected}'];
-        let textKey = me.$u.get('textKey');
+        let textKey = me.updater.get('textKey');
         for (let s of selected) {
             texts.push(info.map[s][textKey]);
         }
@@ -107,7 +107,7 @@ module.exports = Magix.View.extend({
     },
     '@{active.to.tab}'(tab) {
         let me = this;
-        me.$u.digest({
+        me.updater.digest({
             active: me['@{active.tab}'] = tab,
             list: me['@{get.active.list}'](),
             selected: me['@{selected}']
@@ -139,7 +139,7 @@ module.exports = Magix.View.extend({
     },
     '@{fillText}'() {
         let me = this;
-        me.$u.digest({
+        me.updater.digest({
             placeholder: me['@{placeholder}'],
             texts: me['@{get.text}']()
         });
@@ -159,7 +159,7 @@ module.exports = Magix.View.extend({
         let currentTab = me['@{active.tab}'];
         let headers = me['@{headers}'];
         let selected = me['@{selected}'];
-        let valueKey = me.$u.get('valueKey');
+        let valueKey = me.updater.get('valueKey');
         let one = e.params.o;
         let itemId = one[valueKey];
         selected = selected.slice(0, currentTab);

@@ -1,5 +1,5 @@
 /*
-ver:1.3.4
+ver:1.3.5
 */
 let Magix = require('magix');
 let StorageService = {},
@@ -8,6 +8,7 @@ let StorageService = {},
     StorageLink,
     StorageData = {};
 Backend = 'localStorage';
+
 
 let UpdateStorage = () => {
     let updateTime = (+new Date()).toString();

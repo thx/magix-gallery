@@ -4,88 +4,11 @@
 
 
 ### 单选下拉框
-
-#### 使用
-
-<a href="https://thx.github.io/magix-gallery/#!/mx-dropdown/index" target="_blank">在线示例</a>
-
-```html
-<mx-view path="app/gallery/mx-dropdown/index"
-    searchbox="true"
-    empty-text="请选择日期"
-    mx-change="showWeek()"
-    class="fl" style="width:150px;">
-    <item value="mon">周一</item>
-    <item value="wed">周三</item>
-    <item value="thu">周四</item>
-    <item value="fri">周五</item>
-    <item value="sat">周六</item>
-</mx-view>
-```
-
-或
-
-```html
-<mx-view path="app/gallery/mx-dropdown/index"
-    searchbox="true"
-    empty-text="请选择用户"
-    text-key="name"
-    value-key="id"
-    selected="<%@ userSelected %>"
-    list="<%@ userList %>"
-    mx-change="showUser()"
-    class="fl" style="width:200px;">
-</mx-view>
-```
-
-```js
-let Magix = require('magix');
-let GTip = require('app/gallery/mx-gtip/index');
-module.exports = Magix.View.extend({
-    tmpl: '@index.html',
-    mixins: [GTip],
-    render() {
-        let me = this;
-        me.updater.digest({
-            userList: [{
-                name: 'xinglie',
-                id: 58782
-            }, {
-                name: 'xinglie1',
-                id: 587821
-            }, {
-                name: 'xinglie2',
-                id: 587822
-            }, {
-                name: 'xinglie3',
-                id: 587823
-            }, {
-                name: 'xinglie4',
-                id: 587824
-            }, {
-                name: 'xinglie5',
-                id: 587825
-            }, {
-                name: 'xinglie6',
-                id: 587826
-            }, {
-                name: 'xinglie7',
-                id: 587827
-            }, {
-                name: 'xinglie8',
-                id: 587828
-            }, {
-                name: 'xinglie9',
-                id: 587829
-            }],
-            userSelected: 587828
-        });
-    },
-    'showUser<change>' (e) {
-        this.gtipRB('name:' + e.text + ',id:' + e.value);
-    }
-});
-```
+<div style="position:relative" id="mx_1">
+    <iframe src="http://localhost/magix-gallery/test.html#!/mx-dropdown/index?inline=true&id=mx_1" frameborder="no" style="width:100%;height:200px;" scrolling="no"></iframe>
+    <div style="position:absolute;width:100%;height:200px;background-color:#f9f9f9;text-align:center;line-height:200px;font-size:32px;top:0;right:0;left:0;bottom:0">示例加载中...</div>
+</div>
+<a href="https://thx.github.io/magix-gallery/#!/mx-dropdown/index" target="_blank">新窗口查看示例</a>
 
 ### API
 
@@ -114,87 +37,11 @@ module.exports = Magix.View.extend({
 
 ### 多选下拉框
 
-#### 使用
-
-<a href="https://thx.github.io/magix-gallery/#!/mx-dropdown/index" target="_blank">在线示例</a>
-
-```html
-<mx-view path="app/gallery/mx-dropdown/multiple"
-    searchbox="true"
-    empty-text="请选择日期"
-    mx-change="showWeeks()"
-    class="fl" style="width:150px;">
-    <item value="mon">周一</item>
-    <item value="wed">周三</item>
-    <item value="thu">周四</item>
-    <item value="fri">周五</item>
-    <item value="sat">周六</item>
-</mx-view>
-```
-
-或
-
-```html
-<mx-view path="app/gallery/mx-dropdown/multiple"
-    searchbox="true"
-    empty-text="请选择用户"
-    text-key="name"
-    value-key="id"
-    selected="<%@ usersSelected %>"
-    list="<%@ userList %>"
-    mx-change="showUsers()"
-    class="fl" style="width:200px;">
-</mx-view>
-```
-
-```js
-let Magix = require('magix');
-let GTip = require('app/gallery/mx-gtip/index');
-module.exports = Magix.View.extend({
-    tmpl: '@index.html',
-    mixins: [GTip],
-    render() {
-        let me = this;
-        me.updater.digest({
-            userList: [{
-                name: 'xinglie',
-                id: 58782
-            }, {
-                name: 'xinglie1',
-                id: 587821
-            }, {
-                name: 'xinglie2',
-                id: 587822
-            }, {
-                name: 'xinglie3',
-                id: 587823
-            }, {
-                name: 'xinglie4',
-                id: 587824
-            }, {
-                name: 'xinglie5',
-                id: 587825
-            }, {
-                name: 'xinglie6',
-                id: 587826
-            }, {
-                name: 'xinglie7',
-                id: 587827
-            }, {
-                name: 'xinglie8',
-                id: 587828
-            }, {
-                name: 'xinglie9',
-                id: 587829
-            }],
-            usersSelected: [587828,587829]
-        });
-    },
-    'showUsers<change>' (e) {
-        this.gtipRB('user ids:' + e.values);
-    }
-});
-```
+<div style="position:relative" id="mx_2">
+    <iframe src="http://localhost/magix-gallery/test.html#!/mx-dropdown/multiple?inline=true&id=mx_2" frameborder="no" style="width:100%;height:200px;" scrolling="no"></iframe>
+    <div style="position:absolute;width:100%;height:200px;background-color:#f9f9f9;text-align:center;line-height:200px;font-size:32px;top:0;right:0;left:0;bottom:0">示例加载中...</div>
+</div>
+<a href="https://thx.github.io/magix-gallery/#!/mx-dropdown/multiple" target="_blank">新窗口查看示例</a>
 
 ### API
 

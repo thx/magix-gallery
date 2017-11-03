@@ -1,5 +1,5 @@
 /*
-ver:1.3.4
+ver:1.3.5
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -57,14 +57,12 @@ module.exports = Magix.View.extend({
     },
     render() {
         let me = this;
-        let node = me['@{owner.node}'];
-        me.$u.digest({
+        me.updater.digest({
             viewId: me.id,
             weeks: Weeks,
             years: me['@{years}'],
             selectedYear: me['@{selectedYear}'],
-            days: me['@{selectedDays}'],
-            width: Math.floor((node.width() - 90) / 31)
+            days: me['@{selectedDays}']
         });
     },
     '@{sync.weeks}'() {
@@ -87,30 +85,58 @@ module.exports = Magix.View.extend({
     },
     '@{change.year}<change>'(e) {
         e.stopPropagation();
-        this.$u.digest({
+        let me = this;
+        let days = me['@{selectedDays}'];
+        let last = days[1];
+        me.updater.digest({
             selectedYear: e.value
+        });
+        if (last != days[1]) {
+            me['@{fire.event}']();
+        }
+    },
+    '@{fire.event}'() {
+        let me = this;
+        me['@{owner.node}'].trigger({
+            type: 'change',
+            days: me['@{selectedDays}']
         });
     },
     '@{sync.by.week}<change>'(e) {
         let me = this;
+        e.stopPropagation();
         let nodes = me['@{owner.node}'].find('[mx-view*="mx-day/month"]');
         nodes.each((i, n) => {
-            n.vframe.invoke('@{week.shortcuts}', [e.params.key, e.eventTarget.checked]);
+            let vf = n.vframe;
+            if (vf) {
+                vf.invoke('@{week.shortcuts}', [e.params.key, e.eventTarget.checked]);
+            }
         });
+        me['@{fire.event}']();
     },
     '@{take.days}<change,sync>'(e) {
         e.stopPropagation();
         let me = this;
         let days = me['@{selectedDays}'];
-        days[e.params.m] = e.value;
-        if (e.params.m == 11 || e.type == 'change') {
-            if (!e.ignoreSync) {
+        let m = e.params.m;
+        days[m] = e.days;
+        if (!e.ignoreSync) {
+            clearTimeout(me['@{sync.timer}']);
+            me['@{sync.timer}'] = setTimeout(() => {
                 me['@{sync.weeks}']();
-            }
-            me['@{owner.node}'].trigger({
-                type: 'change',
-                days: days
-            });
+            }, 20);
         }
+        if (e.type == 'change') {
+            me['@{fire.event}']();
+        }
+    },
+    '@{toggle}<click>'(e) {
+        let me = this;
+        let m = e.params.m;
+        let node = $('#months_' + m + '_' + me.id);
+        let days = me['@{selectedDays}'][m];
+        days = new Array(days.length + 1).join(days.indexOf('0') > -1 ? '1' : 0);
+        node.invokeView('@{update.selected}', [days]);
+        me['@{fire.event}']();
     }
 });

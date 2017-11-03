@@ -32,6 +32,6 @@
         </li>
     </ul>
 </div> -->
-<div class="main" mx-view="<%=view%>">
+<div class="<%if(inline){%>inline<%}else{%>main<%}%>" mx-view="<%=view%>">
     <mx-loading/>
 </div>

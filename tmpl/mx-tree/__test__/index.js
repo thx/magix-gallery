@@ -1,5 +1,5 @@
 /*
-ver:1.3.4
+ver:1.3.5
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -30,6 +30,18 @@ module.exports = Magix.View.extend({
                 id: 3,
                 pId: 2,
                 text: 'bbb'
+            }, {
+                id: 4,
+                pId: 2,
+                text: 'bbb'
+            }, {
+                id: 5,
+                pId: 1,
+                text: 'aaa'
+            }, {
+                id: 6,
+                pId: 1,
+                text: 'aaa'
             }]
         });
     }

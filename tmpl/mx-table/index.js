@@ -1,5 +1,5 @@
 /*
-ver:1.3.4
+ver:1.3.5
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -14,6 +14,10 @@ module.exports = Magix.View.extend({
         let range = extra.rwdRange;
         me['@{rwd.range}'] = ((range || [2, -1]) + '').split(',');
         me['@{sticky}'] = (extra.sticky + '') === 'true';
+        let node = $('#' + me.id);
+        me['@{owner.node}'] = node;
+        me['@{main.table}'] = node.find('table');
+        me['@{hover.class}'] = extra.rowHoverClass;
     },
     '@{table.insert}'(className, start, end, ths, trs, id) {
         let table = $('<table id="' + id + '" class="' + className + '"><thead><tr></tr></thead><tbody></tbody></table>');
@@ -21,13 +25,13 @@ module.exports = Magix.View.extend({
         return table;
     },
     '@{table.sync.state}'(table, start, end, ths, trs) {
-        let theadTr = table.find('thead>tr');
+        let theadTr = table.find('thead>tr:first');
         let theadThs = theadTr.find('th');
         let tbody = table.find('tbody');
         let tbodyTrs = tbody.find('tr');
         for (let i = start; i < end; i++) {
             let th = ths.eq(i);
-            let insert = i >= theadThs.length;
+            let insert = (i - start) >= theadThs.length;
             if (th.attr('fake') !== 'true') {
                 $('<th fake="true"/>').css({
                     height: th.outerHeight(),
@@ -42,9 +46,9 @@ module.exports = Magix.View.extend({
         }
         for (let i = 0; i < trs.length; i++) {
             let tds = trs.eq(i).find('td');
-            let insert = i >= tbodyTrs.length;
+            let insertTr = i >= tbodyTrs.length;
             let tr;
-            if (insert) {
+            if (insertTr) {
                 tr = $('<tr/>');
             } else {
                 tr = tbodyTrs.eq(i);
@@ -52,19 +56,28 @@ module.exports = Magix.View.extend({
             let trTds = tr.find('td');
             for (let i = start; i < end; i++) {
                 let td = tds.eq(i);
+                let th = ths.eq(i);
+                let insertTd = (i - start) >= trTds.length;
                 if (td.attr('fake') !== 'true') {
                     $('<td fake="true"/>').css({
                         height: td.outerHeight(),
                         width: td.outerWidth()
                     }).insertBefore(td);
-                    if (insert) {
+                    let style = th.attr('style');
+                    let m = style.match(WidthReg);
+                    if (m) {
+                        td.css({
+                            width: parseInt(m[1])
+                        });
+                    }
+                    if (insertTd) {
                         tr.append(td);
                     } else {
                         trTds.eq(i - start).replaceWith(td);
                     }
                 }
             }
-            if (insert) {
+            if (insertTr) {
                 tbody.append(tr);
             }
         }
@@ -74,11 +87,14 @@ module.exports = Magix.View.extend({
     },
     '@{table.sync.width}'(table, ths, layoutWidth) {
         let width = 0;
+        let thWds = [];
         for (let i = ths.length; i--;) {
             let style = ths.eq(i).attr('style');
             let m = style.match(WidthReg);
             if (m) {
-                width += parseInt(m[1]);
+                m = parseInt(m[1]);
+                thWds.push(m);
+                width += m;
             }
         }
         if (width > layoutWidth) {
@@ -88,65 +104,41 @@ module.exports = Magix.View.extend({
             table.find('thead').css({
                 width
             });
-            return false;
         } else {
+            thWds = thWds.reverse();
+            for (let i = ths.length, tw = 0; i--;) {
+                let w = Math.round((thWds[i] / width) * layoutWidth);
+                if (!i) w = layoutWidth - tw;
+                else tw += w;
+                ths.eq(i).css({
+                    width: w
+                });
+            }
             table.css({
-                width: 'inherit'
+                width: layoutWidth
             });
             table.find('thead').css({
-                width: 'inherit'
+                width: layoutWidth
             });
-            return true;
         }
     },
-    '@{table.main.split}'() {
-        let me = this;
-        let node = $('#' + me.id);
-        let table = me['@{table.temp}'] || node.find('table');
-        let ths = me['@{table.temp.ths}'] || table.find('thead>tr>th');
-        let end = 0;
-        delete me['@{table.temp}'];
-        delete me['@{table.temp.ths}'];
-        if (!node.hasClass('@index.less:wrapper')) {
-            node.wrap('<div class="@scoped.style:pr @index.less:owner"></div>');
-            node.addClass('@index.less:wrapper');
-            me['@{scroll.node}'] = node;
-            node.on('scroll', () => {
-                me['@{sync.state}']();
-            });
-            me.on('destroy', () => {
-                node.off('scroll');
-            });
-            table.addClass('@index.less:table-no-border');
-            let tfoot = table.find('tfoot');
-            if (tfoot.length) {
-                $('<table class="@scoped.style:table"></table>')
-                    .append(tfoot)
-                    .insertAfter(node);
+    '@{copy.main.table.thead.width.to.tbody}'(table, ths) {
+        let bodyFirstTrTds = table.find('tbody>tr:first>td');
+        if (bodyFirstTrTds.length == ths.length) {
+            for (let i = ths.length; i--;) {
+                let th = ths.eq(i);
+                let td = bodyFirstTrTds.eq(i);
+                let style = th.attr('style');
+                let m = style.match(WidthReg);
+                if (m) {
+                    td.css({
+                        width: m[1]
+                    });
+                }
             }
-            end = me['@{table.sync.width}'](table, ths, node.width());
-            me['@{table.ths.count}'] = ths.length;
-        } else if (me['@{table.ths.count}'] != ths.length) {
-            end = me['@{table.sync.width}'](table, ths, node.width());
-            me['@{table.ths.count}'] = ths.length;
         }
-        if (end) {
-            let t = me['@{table.right}'];
-            if (t) {
-                t.remove();
-                delete me['@{table.right}'];
-            }
-            t = me['@{table.left}'];
-            if (t) {
-                t.remove();
-                delete me['@{table.left}'];
-            }
-            return;
-        }
-        let r = me['@{rwd.range}'];
-        let left = +r[0];
-        let right = +r[1];
-        let trs = node.find('tbody>tr');
+    },
+    '@{sync.cell.height}'(ths, trs) {
         for (let i = ths.length; i--;) {
             let th = ths.eq(i);
             if (th.attr('fake') !== 'true') {
@@ -167,28 +159,88 @@ module.exports = Magix.View.extend({
                 height: td.outerHeight()
             });
         }
+    },
+    '@{sync.sticky.table.width}'(table) {
+        let width = 0;
+        let ths = table.find('thead>tr>th');
+        for (let i = ths.length; i--;) {
+            let style = ths.eq(i).attr('style');
+            let m = style.match(WidthReg);
+            if (m) {
+                m = parseInt(m[1]);
+                width += m;
+            }
+        }
+        table.css({
+            width
+        });
+        table.find('thead').css({
+            width
+        });
+    },
+    '@{sync.left.sticky.table}'(left, ths, trs, table, node) {
+        let me = this;
         if (me['@{table.left}']) {
             me['@{table.sync.state}'](me['@{table.left}'], 0, left, ths, trs);
+            me['@{sync.sticky.table.width}'](me['@{table.left}']);
         } else if (left) {
             let id = 't_' + me.id + '_left';
             let t = me['@{table.insert}'](table.attr('class') + ' @index.less:left', 0, left, ths, trs, id);
             t.insertAfter(node);
             me['@{table.left}'] = t;
+            me['@{sync.sticky.table.width}'](t);
             if (me['@{sticky}']) {
                 me.owner.mountVframe(id, '@./isticky');
             }
         }
+    },
+    '@{sync.right.sticky.table}'(right, ths, trs, table, node) {
+        let me = this;
         if (me['@{table.right}']) {
             me['@{table.sync.state}'](me['@{table.right}'], right + ths.length, ths.length, ths, trs);
+            me['@{sync.sticky.table.width}'](me['@{table.right}']);
         } else if (right) {
             let id = 't_' + me.id + '_right';
             let t = me['@{table.insert}'](table.attr('class') + ' @index.less:right', right + ths.length, ths.length, ths, trs, id);
             t.insertAfter(node);
             me['@{table.right}'] = t;
+            me['@{sync.sticky.table.width}'](t);
             if (me['@{sticky}']) {
                 me.owner.mountVframe(id, '@./isticky');
             }
         }
+    },
+    '@{main.table.split}'() {
+        let me = this;
+        let node = me['@{owner.node}'];
+        let table = me['@{main.table}'];
+        let ths = me['@{table.temp.ths}'] || table.find('thead>tr:first>th');
+        delete me['@{table.temp.ths}'];
+        if (!node.hasClass('@index.less:wrapper')) {
+            node.wrap('<div class="@scoped.style:pr @index.less:owner"></div>');
+            node.addClass('@index.less:wrapper');
+            me['@{scroll.node}'] = node;
+            node.on('scroll', () => {
+                me['@{sync.state}']();
+            });
+            me.on('destroy', () => {
+                node.off('scroll');
+            });
+            table.addClass('@index.less:table-no-border');
+            let tfoot = table.find('tfoot');
+            if (tfoot.length) {
+                $('<table class="@scoped.style:table"></table>')
+                    .append(tfoot)
+                    .insertAfter(node);
+            }
+        }
+        me['@{table.sync.width}'](table, ths, node.width());
+        me['@{copy.main.table.thead.width.to.tbody}'](table, ths);
+        let r = me['@{rwd.range}'];
+        let trs = table.find('tbody>tr');
+        me['@{sync.cell.height}'](ths, trs);
+        me['@{sync.left.sticky.table}'](+r[0], ths, trs, table, node);
+        me['@{sync.right.sticky.table}'](+r[1], ths, trs, table, node);
         if (me['@{sticky}'] && !me['@{setup.main.sticky}']) {
             me['@{setup.main.sticky}'] = 1;
             let id = table.attr('id');
@@ -233,24 +285,52 @@ module.exports = Magix.View.extend({
     },
     render() {
         let me = this;
-        me['@{table.main.split}']();
+        me['@{main.table.split}']();
         me['@{sync.state}']();
     },
     '$doc<htmlchanged>'(e) {
         let me = this;
         if (e.vId == me.owner.pId) {
-            let node = $('#' + me.id);
-            let table = node.find('table');
-            let ths = table.find('thead>tr>th');
-            let tds = table.find('tbody>tr').first().find('td');
-            if (ths.length == tds.length) {
-                me['@{table.temp}'] = table;
+            let table = me['@{main.table}'];
+            let ths = table.find('thead>tr:first>th');
+            let tds = table.find('tbody>tr:first>td');
+            if (ths.length == tds.length || !tds.length) {
                 me['@{table.temp.ths}'] = ths;
                 me.render();
             }
         }
     },
+    '$tbody>tr<mouseover,mouseout>'(e) {
+        let me = this;
+        let hoverClass = me['@{hover.class}'];
+        if (hoverClass) {
+            let target = e.eventTarget;
+            let flag = !Magix.inside(e.relatedTarget, target);
+            if (flag) {
+                let trs = $(target).parents('tbody').find('tr');
+                let index = trs.index(target);
+                trs = me['@{main.table}'].find('tbody>tr');
+                let action = e.type == 'mouseover' ? 'addClass' : 'removeClass';
+                trs.eq(index)[action](hoverClass);
+                let table = me['@{table.left}'];
+                if (table) {
+                    trs = table.find('tbody>tr');
+                    trs.eq(index)[action](hoverClass);
+                }
+                table = me['@{table.right}'];
+                if (table) {
+                    trs = table.find('tbody>tr');
+                    trs.eq(index)[action](hoverClass);
+                }
+            }
+        }
+    },
     '$win<resize>'() {
+        let me = this;
+        let node = me['@{owner.node}'];
+        let table = me['@{main.table}'];
+        let ths = table.find('thead>tr:first>th');
+        this['@{table.sync.width}'](table, ths, node.width());
         this['@{sync.state}']();
     }
 });

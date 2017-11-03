@@ -1,18 +1,11 @@
-<table class="days">
+<table class="wp100">
     <thead>
-        <tr class="hours">
-            <td class="range">
-                <span class="item item-0">0:00</span>
-                <span class="item item-6">6:00</span>
-                <span class="item item-12">12:00</span>
-                <span class="item item-18">18:00</span>
-                <span class="item item-24">24:00</span>
-            </td>
+        <tr>
+            <%for(let i=0;i<24;i++){%>
+                <th class="reset"><%=('0'+i).slice(-2)%></th>
+            <%}%>
         </tr>
     </thead>
-    <tbody>
-        <tr class="day">
-            <td id="range_<%=viewId%>" mx-view="@./index" mx-change="@{hour}()"></td>
-        </tr>
+    <tbody id="range_<%=viewId%>" mx-view="@./index" mx-change="@{hour}()">
     </tbody>
 </table>

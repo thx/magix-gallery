@@ -1,19 +1,9 @@
-<div class="hours">
-    <% for ( var ii = 0; ii < 24; ii++ ) { %>
-    <div class="hour<%if(ii%6===0){%> milestone<%}%>" mx-mousedown="@{start}()" mx-mouseover="@{over}()">
-        <div class="line"></div>
-        <div class="duration"></div>
-        <div class="start">
-            <div class="arrow"></div>
-            <span><%= ii %>:00</span>
-        </div>
-        <div class="end">
-            <div class="arrow"></div>
-            <span><%= ii+1 %>:00</span>
-        </div>
-    </div>
-    <% } %>
-    <div class="hour milestone">
-        <div class="line"></div>
-    </div>
-</div>
+<mx-dragselect
+    tag="tr"
+    mx-change="@{show}()"
+    mx-dragbegin="@{begin}()"
+    mx-dragfinish="@{end}()">
+    <%for(var ii=0;ii<24;ii++){%>
+        <td class="hour<%if(border=='no'){%> no-border<%if(ii<23){%> right-border<%}%><%}%>" data-hour="<%!ii%>"><span class="opacity-hide"><%!('0'+ii).slice(-2)%></span></td>
+    <%}%>
+</mx-dragselect>

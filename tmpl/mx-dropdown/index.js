@@ -1,5 +1,5 @@
 /*
-ver:1.3.4
+ver:1.3.5
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -8,9 +8,9 @@ let Magix = require('magix');
 let $ = require('$');
 let Monitor = require('../mx-monitor/index');
 Magix.applyStyle('@index.less');
-let AssignIf = (view, key, ops, src) => {
-    if (!view[key] || ops) {
-        let v = ops || '';
+let AssignIf = (view, key, ops, cfg, src) => {
+    if (!view[key] || Magix.has(ops, cfg)) {
+        let v = ops[cfg] || '';
         if (!src) {
             v += '';
         }
@@ -37,11 +37,11 @@ module.exports = Magix.View.extend({
     },
     assign(ops) {
         let me = this;
-        AssignIf(me, '@{list}', ops.list, true);
-        let selected = AssignIf(me, '@{selected}', ops.selected);
-        let textKey = AssignIf(me, '@{textKey}', ops.textKey);
-        let valueKey = AssignIf(me, '@{valueKey}', ops.valueKey);
-        let emptyText = AssignIf(me, '@{emptyText}', ops.emptyText);
+        AssignIf(me, '@{list}', ops, 'list', 1);
+        let selected = AssignIf(me, '@{selected}', ops, 'selected');
+        let textKey = AssignIf(me, '@{textKey}', ops, 'textKey');
+        let valueKey = AssignIf(me, '@{valueKey}', ops, 'valueKey');
+        let emptyText = AssignIf(me, '@{emptyText}', ops, 'emptyText');
         me['@{ui.searchbox}'] = (ops.searchbox + '') === 'true';
         me['@{ui.disabled}'] = (ops.disabled + '') === 'true';
         if (!me['@{list}']) {

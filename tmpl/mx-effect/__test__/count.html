@@ -1,0 +1,39 @@
+<h2>mx-effect count</h2>
+<div class="pt20 clearfix">
+    <input class="input" mx-view="mx-effect/count" view-to="<%=toNumber%>">
+    <div mx-view="mx-effect/count" view-to="<%@toNumber%>" view-duration="2000" view-fixed="2" style="font-size: 30px;line-height: 50px;letter-spacing: 2px;"></div>
+    <button class="btn btn-brand ml5" type="button" mx-click="changeNumber({i:true})">increase number</button>
+    <button class="btn btn-brand ml5" type="button" mx-click="changeNumber()">decrease number</button>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>
+&lt;input class="input" mx-view="mx-effect/count" view-to="&lt;%@toNumber%&gt;"&gt;
+&lt;div mx-view="mx-effect/count" view-to="&lt;%@toNumber%&gt;" view-duration="2000" view-fixed="2" style="font-size: 30px;line-height: 50px;letter-spacing: 2px;"&gt;&lt;/div&gt;
+&lt;button class="btn btn-brand ml5" type="button" mx-click="changeNumber({i:true})"&gt;increase number&lt;/button&gt;
+&lt;button class="btn btn-brand ml5" type="button" mx-click="changeNumber()"&gt;decrease number&lt;/button&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>
+let Magix = require('magix');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    render() {
+        let me = this;
+        me.updater.digest({
+            toNumber: 20
+        });
+    },
+    'changeNumber&lt;click&gt;'(e) {
+        let me = this;
+        let to = me.updater.get('toNumber');
+        let diff = 300;
+        if (!e.params.i) {
+            diff = -diff;
+        }
+        me.updater.digest({
+            toNumber: to + diff
+        });
+    }
+});</pre>
+</div>
