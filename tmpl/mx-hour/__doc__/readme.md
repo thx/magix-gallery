@@ -3,7 +3,7 @@
 > 该组件包含“天范围内的小时选取，周范围内的小时选取”两个子组件
 
 <div style="position:relative" id="mx_1">
-    <iframe src="http://localhost/magix-gallery/test.html#!/mx-hour/day?inline=true&id=mx_1" frameborder="no" style="width:100%;height:200px;" scrolling="no"></iframe>
+    <iframe src="https://thx.github.io/magix-gallery/?#!/mx-hour/day?inline=true&id=mx_1" frameborder="no" style="width:100%;height:200px;" scrolling="no"></iframe>
     <div style="position:absolute;width:100%;height:200px;background-color:#f9f9f9;text-align:center;line-height:200px;font-size:32px;top:0;right:0;left:0;bottom:0">示例加载中...</div>
 </div>
 <a href="https://thx.github.io/magix-gallery/#!/mx-hour/day" target="_blank">新窗口查看示例</a>
@@ -36,7 +36,7 @@
 
 
 <div style="position:relative" id="mx_2">
-    <iframe src="http://localhost/magix-gallery/test.html#!/mx-hour/week?inline=true&id=mx_2" frameborder="no" style="width:100%;height:200px;" scrolling="no"></iframe>
+    <iframe src="https://thx.github.io/magix-gallery/?#!/mx-hour/week?inline=true&id=mx_2" frameborder="no" style="width:100%;height:200px;" scrolling="no"></iframe>
     <div style="position:absolute;width:100%;height:200px;background-color:#f9f9f9;text-align:center;line-height:200px;font-size:32px;top:0;right:0;left:0;bottom:0">示例加载中...</div>
 </div>
 <a href="https://thx.github.io/magix-gallery/#!/mx-hour/week" target="_blank">新窗口查看示例</a>
