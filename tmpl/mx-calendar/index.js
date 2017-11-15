@@ -1,5 +1,5 @@
 /*
-ver:1.3.5
+ver:1.3.6
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -205,6 +205,7 @@ module.exports = Magix.View.extend({
             types,
             timeType,
             timeValue,
+            hasBtn: ops.hasBtn,
             dateValue: DateFormat(selected, ops.formatter),
             max,
             min,
@@ -349,7 +350,7 @@ module.exports = Magix.View.extend({
         let me = this;
         let data = me.updater.get();
         if (data.types.day) {
-            if (data.timeType) {
+            if (data.timeType && data.hasBtn) {
                 if (fromBtn) {
                     $('#' + me.id).trigger({
                         type: 'change',

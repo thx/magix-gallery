@@ -21,7 +21,7 @@
                     <tbody>
                         <tr>
                             <%for(let i=0;i<31;i++){%>
-                                <td class="reset no-border<%if(i<30){%> right-border<%}%>"><%=('0'+i).slice(-2)%></td>
+                                <td class="reset no-border<%if(i<30){%> right-border<%}%>"><%=('0'+(i+1)).slice(-2)%></td>
                             <%}%>
                         </tr>
                     </tbody>

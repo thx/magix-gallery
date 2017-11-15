@@ -2,4 +2,4 @@
 > npm install magix-gallery
 
 ## 简介
-magix gallery
+magix gallery 是与 [Magix](https://github.com/thx/magix)配套的组件库，该库只存放pc端组件

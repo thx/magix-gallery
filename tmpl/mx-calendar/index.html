@@ -23,10 +23,12 @@
         </div>
         <%if(timeType){%>
         <mx-time time="<%=timeValue%>" type="<%=timeType%>" class="clearfix time" mx-change="@{setTime}()"/>
-        <div class="footer">
-            <button class="btn btn-brand" mx-click="@{hide}({enter:true})">确定</button>
-            <button class="btn ml5" mx-click="@{hide}()">取消</button>
-        </div>
+            <%if(hasBtn){%>
+            <div class="footer">
+                <button type="button" class="btn btn-brand" mx-click="@{hide}({enter:true})">确定</button>
+                <button type="button" class="btn ml5" mx-click="@{hide}()">取消</button>
+            </div>
+        <%}%>
         <%}%>
     </div>
     <%}%>

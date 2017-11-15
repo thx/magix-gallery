@@ -1,5 +1,5 @@
 /*
-ver:1.3.5
+ver:1.3.6
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -13,6 +13,7 @@ require('./index');
 module.exports = Magix.View.extend({
     init(extra) {
         let me = this;
+        extra.hasBtn = 1;
         me['@{extra}'] = extra;
         Monitor['@{setup}']();
         let oNode = $('#' + me.id);

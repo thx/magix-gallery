@@ -1,5 +1,5 @@
 /*
-ver:1.3.5
+ver:1.3.6
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -12,12 +12,12 @@ module.exports = Magix.View.extend({
     init(extra) {
         let me = this;
         me['@{range}'] = extra.range;
-        me['@{border}'] = extra.border;
+        me['@{noBorder}'] = extra.border == 'no';
     },
     render() {
         let me = this;
         me.updater.digest({
-            border: me['@{border}']
+            noBorder: me['@{noBorder}']
         });
         let ownerNode = $('#' + me.id);
         me['@{owner.node}'] = ownerNode;

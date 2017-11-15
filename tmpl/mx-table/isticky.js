@@ -1,7 +1,7 @@
 /*
-ver:1.3.5
+ver:1.3.6
 */
-let Magix = require('magix');
+import { debug } from 'util';let Magix = require('magix');
 let $ = require('$');
 module.exports = Magix.View.extend({
     init() {
@@ -88,12 +88,15 @@ module.exports = Magix.View.extend({
         let me = this;
         let top = node.scrollTop();
         let info = me['@{get.pos.info}']();
+        let pi = me['@{pos.info}'];
         if (top > info.min && top < info.max) {
+            me['@{pos.info}'] = 's';
             me['@{thead.node}'].css({
                 top: top - info.min,
                 marginTop: 'auto'
             });
-        } else {
+        } else if (pi != 'i') {
+            me['@{pos.info}'] = 'i';
             me['@{thead.node}'].css({
                 marginTop: -me['@{thead.height}'],
                 position: 'absolute',

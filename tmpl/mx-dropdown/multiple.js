@@ -1,5 +1,5 @@
 /*
-ver:1.3.5
+ver:1.3.6
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -76,12 +76,13 @@ module.exports = Magix.View.extend({
             } else {
                 if (!map[emptyText]) {
                     list.unshift(emptyText);
-                    map[emptyText] = emptyText;
+                    map[''] = emptyText;
                 }
             }
         }
         me['@{selected}'] = selected;
         me['@{list.map}'] = map;
+        me.updater.set({ list });
         return true;
     },
     '@{inside}'(node) {
@@ -154,7 +155,7 @@ module.exports = Magix.View.extend({
             if (textKey) {
                 text.push(entity[textKey]);
             } else {
-                text.push(entity);
+                text.push(key || entity);
             }
         }
         return text;
@@ -179,9 +180,9 @@ module.exports = Magix.View.extend({
             }
         }
         me.updater.digest({
-            list,
             textKey,
             valueKey,
+            emptyText: me['@{emptyText}'],
             searchbox: me['@{ui.searchbox}'],
             phLabel: selected === '',
             selected: me['@{selected}'] = selected,
@@ -266,7 +267,7 @@ module.exports = Magix.View.extend({
             selected = item[valueKey];
         }
         let keys = [''];
-        if (selectedText != me['@{emptyText}'] || selected) {
+        if (selected) {
             keys = data.selected.split(',');
         }
         let idx = $.inArray('', keys);
@@ -294,5 +295,60 @@ module.exports = Magix.View.extend({
     },
     '@{hide}<click>'(e) {
         this['@{hide}'](e.params.enter);
+    },
+    '@{checkAll}<click>'() {
+        let me = this;
+        let selected = me['@{selected}'];
+        let list = me['@{list}'];
+        let valueKey = me['@{valueKey}'];
+        let updater = me.updater;
+        if (!Magix.has(me, '@{bakSelected}')) {
+            me['@{bakSelected}'] = selected;
+        }
+        if (selected) {
+            selected = '';
+        } else {
+            selected = '';
+            for (let i = me['@{emptyText}'] ? 1 : 0, e; i < list.length; i++) {
+                e = list[i];
+                if (valueKey) {
+                    if (!e.group) {
+                        selected += e[valueKey] + ',';
+                    }
+                } else {
+                    selected += e + ',';
+                }
+            }
+            selected = selected.slice(0, -1);
+        }
+        updater.digest({
+            selected: me['@{selected}'] = selected
+        });
+    },
+    '@{invertCheck}<click>'() {
+        let me = this;
+        let selected = me['@{selected}'];
+        let list = me['@{list}'];
+        let valueKey = me['@{valueKey}'];
+        let updater = me.updater;
+        if (!Magix.has(me, '@{bakSelected}')) {
+            me['@{bakSelected}'] = selected;
+        }
+        let oldSelected = selected.split(',');
+        selected = '';
+        for (let i = me['@{emptyText}'] ? 1 : 0, e; i < list.length; i++) {
+            e = list[i];
+            if (valueKey) {
+                if (!e.group && $.inArray(e[valueKey] + '', oldSelected) == -1) {
+                    selected += e[valueKey] + ',';
+                }
+            } else if ($.inArray(e + '', oldSelected) == -1) {
+                selected += e + ',';
+            }
+        }
+        selected = selected.slice(0, -1);
+        updater.digest({
+            selected: me['@{selected}'] = selected
+        });
     }
 });

@@ -13,7 +13,7 @@
     <%}%>
     <ul class="clearfix ib fz0">
         <li class="ib<%if(page==1){%> notallowed<%}%>">
-            <a class="num-item mc-iconfont icon" href="#"<%if(page>1){%> mx-click="@{toPage}({page:<%=page-1%>})"<%}else{%> mx-click="@{prevent}()"<%}%> title="&lt;">&#xe61e;
+            <a class="num-item mc-iconfont icon" href="#" mx-click="<%if(page>1){%>@{toPage}({page:<%=page-1%>})<%}else{%>@{prevent}()<%}%>" title="&lt;">&#xe61e;
             </a>
         </li>
         <%if(mini){%>
@@ -45,7 +45,7 @@
         <%}%>
         <%}%>
         <li class="ib<%if(page==pages){%> notallowed<%}%>">
-            <a class="num-item mc-iconfont icon rotate180" href="#"<%if(page<pages){%> mx-click="@{toPage}({page:<%=page+1%>})"<%}else{%> mx-click="@{prevent}()"<%}%> title="&gt;">&#xe61e;</a>
+            <a class="num-item mc-iconfont icon rotate180" href="#" mx-click="<%if(page<pages){%>@{toPage}({page:<%=page+1%>})<%}else{%>@{prevent}()<%}%>" title="&gt;">&#xe61e;</a>
         </li>
     </ul>
 </div>

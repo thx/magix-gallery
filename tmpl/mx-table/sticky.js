@@ -1,5 +1,5 @@
 /*
-ver:1.3.5
+ver:1.3.6
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -47,11 +47,11 @@ module.exports = Magix.View.extend({
         let bodyTds = body.find('td');
         if (bodyTds.length && bodyTds.length == fieldTds.length) {
             if (!ghost.length) {
-                ghost = $('<caption />').css({
-                    border: 'solid 1px ' + owner.css('border-color')
-                }).insertBefore(thead).attr('id', ghostId);
+                ghost = $('<caption />').insertBefore(thead).attr('id', ghostId);
             }
             thead.css({
+                marginLeft: -1,
+                border: '1px solid '+owner.css('border-top-color'),
                 position: 'absolute',
                 background: '#fff',
                 zIndex: me['@{ui.zIndex}'] || 1
@@ -88,6 +88,7 @@ module.exports = Magix.View.extend({
             if (tfoot.length) {
                 tfh = tfoot.height();
             }
+            console.log(top1,height,tfh,me['@{thead.height}']);
             return (me['@{temp.info}'] = {
                 min: top1,
                 max: top1 + height - me['@{thead.height}'] - tfh

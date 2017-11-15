@@ -4,6 +4,6 @@
     mx-dragbegin="@{begin}()"
     mx-dragfinish="@{end}()">
     <%for(var ii=0;ii<24;ii++){%>
-        <td class="hour<%if(border=='no'){%> no-border<%if(ii<23){%> right-border<%}%><%}%>" data-hour="<%!ii%>"><span class="opacity-hide"><%!('0'+ii).slice(-2)%></span></td>
+        <td class="hour<%if(noBorder){%> no-border<%if(ii<23){%> right-border<%}%><%}%>" data-hour="<%!ii%>"><span class="opacity-hide"><%!('0'+ii).slice(-2)%></span></td>
     <%}%>
 </mx-dragselect>

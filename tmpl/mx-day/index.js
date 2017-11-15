@@ -1,5 +1,5 @@
 /*
-ver:1.3.5
+ver:1.3.6
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -87,11 +87,14 @@ module.exports = Magix.View.extend({
         e.stopPropagation();
         let me = this;
         let days = me['@{selectedDays}'];
-        let last = days[1];
+        let last = days.join(',');
+        days = GetDays('');
         me.updater.digest({
+            days,
             selectedYear: e.value
         });
-        if (last != days[1]) {
+        let newValue = me['@{selectedDays}'].join(',');
+        if (last != newValue) {
             me['@{fire.event}']();
         }
     },

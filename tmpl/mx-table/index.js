@@ -1,5 +1,5 @@
 /*
-ver:1.3.5
+ver:1.3.6
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -16,7 +16,7 @@ module.exports = Magix.View.extend({
         me['@{sticky}'] = (extra.sticky + '') === 'true';
         let node = $('#' + me.id);
         me['@{owner.node}'] = node;
-        me['@{main.table}'] = node.find('table');
+        me['@{table.main}'] = node.find('table');
         me['@{hover.class}'] = extra.rowHoverClass;
     },
     '@{table.insert}'(className, start, end, ths, trs, id) {
@@ -90,11 +90,13 @@ module.exports = Magix.View.extend({
         let thWds = [];
         for (let i = ths.length; i--;) {
             let style = ths.eq(i).attr('style');
-            let m = style.match(WidthReg);
-            if (m) {
-                m = parseInt(m[1]);
-                thWds.push(m);
-                width += m;
+            if (style) {
+                let m = style.match(WidthReg);
+                if (m) {
+                    m = parseInt(m[1]);
+                    thWds.push(m);
+                    width += m;
+                }
             }
         }
         if (width > layoutWidth) {
@@ -122,7 +124,7 @@ module.exports = Magix.View.extend({
             });
         }
     },
-    '@{copy.main.table.thead.width.to.tbody}'(table, ths) {
+    '@{copy.table.main.thead.width.to.tbody}'(table, ths) {
         let bodyFirstTrTds = table.find('tbody>tr:first>td');
         if (bodyFirstTrTds.length == ths.length) {
             for (let i = ths.length; i--;) {
@@ -213,7 +215,7 @@ module.exports = Magix.View.extend({
     '@{main.table.split}'() {
         let me = this;
         let node = me['@{owner.node}'];
-        let table = me['@{main.table}'];
+        let table = me['@{table.main}'];
         let ths = me['@{table.temp.ths}'] || table.find('thead>tr:first>th');
         delete me['@{table.temp.ths}'];
         if (!node.hasClass('@index.less:wrapper')) {
@@ -235,7 +237,7 @@ module.exports = Magix.View.extend({
             }
         }
         me['@{table.sync.width}'](table, ths, node.width());
-        me['@{copy.main.table.thead.width.to.tbody}'](table, ths);
+        me['@{copy.table.main.thead.width.to.tbody}'](table, ths);
         let r = me['@{rwd.range}'];
         let trs = table.find('tbody>tr');
         me['@{sync.cell.height}'](ths, trs);
@@ -291,7 +293,7 @@ module.exports = Magix.View.extend({
     '$doc<htmlchanged>'(e) {
         let me = this;
         if (e.vId == me.owner.pId) {
-            let table = me['@{main.table}'];
+            let table = me['@{table.main}'];
             let ths = table.find('thead>tr:first>th');
             let tds = table.find('tbody>tr:first>td');
             if (ths.length == tds.length || !tds.length) {
@@ -309,7 +311,7 @@ module.exports = Magix.View.extend({
             if (flag) {
                 let trs = $(target).parents('tbody').find('tr');
                 let index = trs.index(target);
-                trs = me['@{main.table}'].find('tbody>tr');
+                trs = me['@{table.main}'].find('tbody>tr');
                 let action = e.type == 'mouseover' ? 'addClass' : 'removeClass';
                 trs.eq(index)[action](hoverClass);
                 let table = me['@{table.left}'];
@@ -328,7 +330,7 @@ module.exports = Magix.View.extend({
     '$win<resize>'() {
         let me = this;
         let node = me['@{owner.node}'];
-        let table = me['@{main.table}'];
+        let table = me['@{table.main}'];
         let ths = table.find('thead>tr:first>th');
         this['@{table.sync.width}'](table, ths, node.width());
         this['@{sync.state}']();

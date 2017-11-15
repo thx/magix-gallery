@@ -37,6 +37,9 @@
                     <%}else{%>
                         <%text=item;value=item;%>
                     <%}%>
+                    <%if(emptyText===value&&i===0){%>
+                        <%value='';item='';%>
+                    <%}%>
                     <%let equal=inArray(value+'',keys)>-1%>
                     <%if(value===''){%>
                         <li title="<%=text%>" class="dropdown-item">
@@ -71,9 +74,15 @@
                 <%}%>
             <%}%>
         </ul>
-        <div class="footer">
-            <button class="btn btn-brand" mx-click="@{hide}({enter:true})">确定</button>
-            <button class="btn ml5" mx-click="@{hide}()">取消</button>
+        <div class="footer clearfix">
+            <div class="fl">
+                <button type="button" class="btn btn-brand" mx-click="@{hide}({enter:true})">确定</button>
+                <button type="button" class="btn ml5" mx-click="@{hide}()">取消</button>
+            </div>
+            <div class="fl ml10 splitter pl10">
+                <button type="button" class="btn" mx-click="@{checkAll}()">全选/不选</button>
+                <button type="button" class="btn ml5" mx-click="@{invertCheck}()">反选</button>
+            </div>
         </div>
     <%}%>
 </div>
