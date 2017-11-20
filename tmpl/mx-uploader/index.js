@@ -1,5 +1,5 @@
 /*
-ver:1.3.6
+ver:1.3.7
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -129,7 +129,7 @@ module.exports = Magix.View.extend({
         } else {
             Transport = Iframe;
         }
-        me.capture('transport', new Transport());
+        me.capture('@{transport}', new Transport());
     },
     render() {
         let me = this;
@@ -147,15 +147,16 @@ module.exports = Magix.View.extend({
     '@{upload}<change>'(e) {
         let me = this;
         let node = $('#' + me.id);
+        let files = e.eventTarget.files;
         let event = $.Event('start', {
-            files: e.eventTarget.files
+            files
         });
         node.trigger(event);
         if (event.isDefaultPrevented()) {
             me.render();
             return;
         }
-        let transport = me.capture('transport');
+        let transport = me.capture('@{transport}');
         transport['@{send.request}'](e.target, me.updater, (err, response) => {
             if (err) {
                 node.trigger({
@@ -165,13 +166,14 @@ module.exports = Magix.View.extend({
             } else {
                 node.trigger({
                     type: 'success',
-                    response: response
+                    files,
+                    response
                 });
             }
         }, percent => {
             node.trigger({
                 type: 'progress',
-                percent: percent
+                percent
             });
         });
         me.render();

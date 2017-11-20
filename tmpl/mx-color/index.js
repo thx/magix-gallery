@@ -1,5 +1,5 @@
 /*
-ver:1.3.6
+ver:1.3.7
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -7,23 +7,12 @@ ver:1.3.6
 let Magix = require('magix');
 let $ = require('$');
 let DD = require('../mx-dragdrop/index');
-let pickerIndicator = 6 / 2;
+let pickerIndicator = 8 / 2;
 let pickerZone = 196;
-let slider = 16 / 2;
-Magix.applyStyle('@index.css');
-let GraphicsType = (window.SVGAngle || document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#BasicStructure', '1.1') ? 'SVG' : 'VML');
-let RenderSVG = (picker, slide) => {
-    slide.append('@index-svg-slide.html');
-    picker.append('@index-svg-picker.html');
-};
-let RenderVML = (picker, slide) => {
-    if (!document.namespaces.mxv) {
-        document.namespaces.add('mxv', 'urn:schemas-microsoft-com:vml', '#default#VML');
-    }
-    slide.html('@index-vml-slide.html');
-    picker.html('@index-vml-picker.html');
-};
-let CSSNames = 'names@index.css[selected,cnt]';
+let slider = 4 / 2;
+let alphaWidth = 224;
+Magix.applyStyle('@index.less');
+let CSSNames = 'names@index.less[selected,cnt]';
 let ShortCuts = ['d81e06', 'f4ea2a', '1afa29', '1296db', '13227a', 'd4237a', 'ffffff', 'e6e6e6', 'dbdbdb', 'cdcdcd', 'bfbfbf', '8a8a8a', '707070', '515151', '2c2c2c', '000000', 'ea986c', 'eeb174', 'f3ca7e', 'f9f28b', 'c8db8c', 'aad08f', '87c38f', '83c6c2', '7dc5eb', '87a7d6', '8992c8', 'a686ba', 'bd8cbb', 'be8dbd', 'e89abe', 'e8989a', 'e16632', 'e98f36', 'efb336', 'f6ef37', 'afcd51', '7cba59', '36ab60', '1baba8', '17ace3', '3f81c1', '4f68b0', '594d9c', '82529d', 'a4579d', 'db649b', 'dd6572', 'd84e06', 'e0620d', 'ea9518', 'f4ea2a', '8cbb1a', '2ba515', '0e932e', '0c9890', '1295db', '0061b2', '0061b0', '004198', '122179', '88147f', 'd3227b', 'd6204b'];
 let HSV2RGB = (h, s, v) => {
     let R, G, B, X, C;
@@ -66,10 +55,12 @@ let RGB2HSV = (r, g, b) => {
     };
 };
 module.exports = Magix.View.extend({
-    tmpl: '@index.html:const[id,shortcuts]',
+    tmpl: '@index.html:const[id,shortcuts,alpha,btns]',
     init(extra) {
         let me = this;
         me['@{color}'] = extra.color || '#ffffff';
+        me['@{show.alpha}'] = (extra.showAlpha + '') === 'true';
+        me['@{show.btns}'] = (extra.showBtns + '') === 'true';
         me['@{hsv.info}'] = {
             h: 0,
             s: 1,
@@ -81,18 +72,13 @@ module.exports = Magix.View.extend({
         let me = this;
         me.updater.digest({
             id: me.id,
+            alpha: me['@{show.alpha}'],
+            btns: me['@{show.btns}'],
             shortcuts: ShortCuts
         });
-        let slideNode = $('#slide_' + me.id);
-        let pickerNode = $('#cpicker_' + me.id);
-        if (GraphicsType == 'SVG') {
-            RenderSVG(pickerNode, slideNode);
-        } else {
-            RenderVML(pickerNode, slideNode);
-        }
-        me.setColor(me['@{color}']);
+        me['@{setColor}'](me['@{color}']);
     },
-    setHSV(hsv, ignoreSyncUI) {
+    '@{setHSV}'(hsv, ignoreSyncUI) {
         let me = this;
         let selfHSV = me['@{hsv.info}'];
         selfHSV.h = hsv.h % 360;
@@ -103,8 +89,8 @@ module.exports = Magix.View.extend({
         let cpickerNode = $('#cpicker_' + me.id);
         let colorZone = HSV2RGB(hsv.h, 1, 1);
         cpickerNode.css('background', colorZone.hex);
-        $('#bgcolor_' + me.id).css('background', hex);
-        $('#val_' + me.id).val(hex);
+        me['@{hex.color}'] = hex;
+        me['@{sync.color}']();
         if (!ignoreSyncUI) {
             $('#shortcuts_' + me.id + ' li').removeClass(CSSNames.selected);
             let top = Math.round(selfHSV.h * pickerZone / 360 - slider);
@@ -120,20 +106,28 @@ module.exports = Magix.View.extend({
         }
         $('#sc_' + hex.substr(1, 6) + '_' + me.id).addClass(CSSNames.selected);
     },
-    setColor(hex) {
+    '@{setColor}'(hex) {
         let me = this;
         let r = parseInt(hex.substr(1, 2), 16);
         let g = parseInt(hex.substr(3, 2), 16);
         let b = parseInt(hex.substr(5, 2), 16);
+        let a = parseInt(hex.substr(7, 2), 16);
+        if (isNaN(a)) {
+            a = 255;
+        }
+        me['@{hex.alpha}'] = ('0' + a.toString(16)).slice(-2);
         let hsv = RGB2HSV(r, g, b);
-        me.setHSV(hsv);
+        me['@{setHSV}'](hsv);
+        if (me['@{show.alpha}']) {
+            me['@{setAlpha}'](a);
+        }
     },
-    '@{slide.drag}<mousedown>' (e) {
+    '@{slide.drag}<mousedown>'(e) {
         let me = this;
         let current = $(e.eventTarget);
         let startY = parseInt(current.css('top'), 10);
         let pos = e;
-        DD.begin(e.eventTarget, (event) => {
+        DD.begin(e.eventTarget, event => {
             let offsetY = event.pageY - pos.pageY;
             offsetY += startY;
             if (offsetY <= -slider) offsetY = -slider;
@@ -142,14 +136,16 @@ module.exports = Magix.View.extend({
                 top: offsetY
             });
             let h = (offsetY + slider) / pickerZone * 360;
-            me.setHSV({
+            me['@{setHSV}']({
                 h: h,
                 s: me['@{hsv.info}'].s,
                 v: me['@{hsv.info}'].v
             }, true);
+        }, () => {
+            me['@{fire.event}']();
         });
     },
-    '@{picker.drag}<mousedown>' (e) {
+    '@{picker.drag}<mousedown>'(e) {
         let me = this;
         let current = $(e.eventTarget);
         let startX = parseInt(current.css('left'), 10);
@@ -172,47 +168,107 @@ module.exports = Magix.View.extend({
             });
             let s = (offsetX + pickerIndicator) / pickerZone;
             let v = (pickerZone - (offsetY + pickerIndicator)) / pickerZone;
-            me.setHSV({
+            me['@{setHSV}']({
                 h: me['@{hsv.info}'].h,
                 s: s,
                 v: v
             });
+        }, () => {
+            me['@{fire.event}']();
         });
     },
-    '@{slide.clicked}<click>' (e) {
+    '@{setAlpha}'(a) {
+        a /= 255;
+        a *= alphaWidth;
+        a -= slider;
+        $('#ai_' + this.id).css({
+            left: a
+        });
+    },
+    '@{sync.color}'() {
+        let me = this;
+        let hex = me['@{hex.color}'];
+        $('#at_' + me.id).css({
+            background: 'linear-gradient(to right, ' + hex + '00 0%,' + hex + ' 100%)'
+        });
+        if (me['@{show.alpha}']) {
+            hex += me['@{hex.alpha}'];
+        }
+        $('#bgcolor_' + me.id).css('background', hex);
+        $('#val_' + me.id).val(hex);
+    },
+    '@{alpha.drag}<mousedown>'(e) {
+        let current = $(e.eventTarget);
+        let startX = parseInt(current.css('left'), 10);
+        let pos = e;
+        let me = this;
+        DD.begin(e.eventTarget, (event) => {
+            let offsetX = event.pageX - pos.pageX;
+            offsetX += startX;
+            if (offsetX <= -slider) offsetX = -slider;
+            else if (offsetX >= (alphaWidth - slider)) offsetX = alphaWidth - slider;
+            current.css({
+                left: offsetX
+            });
+            let a = Math.round((offsetX + slider) / alphaWidth * 255);
+            me['@{hex.alpha}'] = ('0' + a.toString(16)).slice(-2);
+            me['@{sync.color}']();
+        }, () => {
+            me['@{fire.event}']();
+        });
+    },
+    '@{alpha.clicked}<click>'(e) {
+        let me = this,
+            offset = $(e.eventTarget).offset(),
+            left = e.pageX - offset.left,
+            a = left / alphaWidth * 255;
+        me['@{hex.alpha}'] = ('0' + a.toString(16)).slice(-2);
+        me['@{setAlpha}'](a);
+        me['@{sync.color}']();
+        me['@{fire.event}']();
+    },
+    '@{slide.clicked}<click>'(e) {
         let me = this,
             offset = $(e.eventTarget).offset(),
             top = e.pageY - offset.top,
             h = top / pickerZone * 360;
-        me.setHSV({
+        me['@{setHSV}']({
             h: h,
             s: me['@{hsv.info}'].s,
             v: me['@{hsv.info}'].v
         });
+        me['@{fire.event}']();
     },
-    '@{color.zone.clicked}<click>' (e) {
+    '@{color.zone.clicked}<click>'(e) {
         let me = this,
             offset = $(e.eventTarget).offset(),
             left = e.pageX - offset.left,
             top = e.pageY - offset.top,
             s = left / pickerZone,
             v = (pickerZone - top) / pickerZone;
-        me.setHSV({
+        me['@{setHSV}']({
             h: me['@{hsv.info}'].h,
             s: s,
             v: v
         });
+        me['@{fire.event}']();
     },
-    '@{shortcuts.picked}<click>' (e) {
-        this.setColor(e.params.color);
+    '@{shortcuts.picked}<click>'(e) {
+        this['@{setColor}'](e.params.color);
         $(e.eventTarget).addClass(CSSNames.selected);
+        this['@{fire.event}']();
     },
-    '@{enter}<click>' () {
+    '@{fire.event}'(fromBtn) {
         let me = this;
-        let ipt = $('#val_' + me.id);
-        $('#' + me.id).trigger({
-            type: 'change',
-            color: ipt.val()
-        });
+        if (!me['@{show.btns}'] || fromBtn) {
+            let ipt = $('#val_' + me.id);
+            $('#' + me.id).trigger({
+                type: 'change',
+                color: ipt.val()
+            });
+        }
+    },
+    '@{enter}<click>'() {
+        this['@{fire.event}'](1);
     }
 });

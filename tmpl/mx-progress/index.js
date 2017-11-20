@@ -1,5 +1,5 @@
 /*
-ver:1.3.6
+ver:1.3.7
 */
 /*
     author:xinglie.lkf@taobao.com

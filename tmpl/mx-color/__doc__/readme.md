@@ -17,6 +17,8 @@
 | 参数 | 说明 | 类型 | 默认值 |
 | -------- | -------- | -------- | -------- |
 | color    | #ffffff格式的颜色 | string | #ffffff |
+| showAlpha | 是否显示透明度 | boolean | false |
+
 
 
 #### event

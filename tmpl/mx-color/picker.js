@@ -1,5 +1,5 @@
 /*
-ver:1.3.6
+ver:1.3.7
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -15,6 +15,7 @@ module.exports = Magix.View.extend({
         me['@{color}'] = extra.color;
         me['@{pos.placement}'] = extra.placement;
         me['@{pos.align}'] = extra.align;
+        me['@{show.alpha}'] = extra.showAlpha;
         Monitor['@{setup}']();
         let ownerNode = $('#' + me.id);
         let click = () => {
@@ -49,6 +50,8 @@ module.exports = Magix.View.extend({
             if (!me['@{core.rendered}']) {
                 me['@{core.rendered}'] = true;
                 me.owner.mountVframe('cpcnt_' + me.id, '@./index', {
+                    showBtns: true,
+                    showAlpha: me['@{show.alpha}'],
                     color: me['@{color}']
                 });
             }

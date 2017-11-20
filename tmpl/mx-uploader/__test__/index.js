@@ -1,5 +1,5 @@
 /*
-ver:1.3.6
+ver:1.3.7
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -22,7 +22,10 @@ module.exports = Magix.View.extend({
     },
     'showProgress<progress>'(e) {
         this.updater.digest({
-            percent:e.percent
+            percent: e.percent
         });
+    },
+    'showStart<start>'(e) {
+        console.log(e);
     }
 });

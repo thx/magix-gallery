@@ -1,5 +1,5 @@
 /*
-ver:1.3.6
+ver:1.3.7
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -7,14 +7,30 @@ ver:1.3.6
 let Magix = require('magix');
 let $ = require('$');
 Magix.applyStyle('@index.less');
-let GetDays = days => {
-    days = days || '';
-    days = days.split(',');
-    if (days.length > 12) {
-        days = days.slice(0, 12);
+let GetDays = (year, days) => {
+    let ds = days[year];
+    if (!ds) {
+        ds = [];
+        for (let i = 12; i--;) {
+            ds[i] = '';
+        }
+        days[year] = ds;
     }
-    for (let i = 0; i < 12; i++) {
-        if (!days[i]) days[i] = '';
+    return ds;
+};
+let FormatYearDays = days => {
+    days = days || {};
+    for (let d in days) {
+        let ds = days[d];
+        ds = ds || '';
+        ds = (ds + '').split(',');
+        if (ds.length > 12) {
+            ds = ds.slice(0, 12);
+        }
+        for (let i = 0; i < 12; i++) {
+            if (!ds[i]) ds[i] = '';
+        }
+        days[d] = ds;
     }
     return days;
 };
@@ -52,17 +68,19 @@ module.exports = Magix.View.extend({
         let me = this;
         me['@{years}'] = ops.years;
         me['@{selectedYear}'] = ops.selectedYear || ops.years[0];
-        me['@{selectedDays}'] = GetDays(ops.selectedDays);
+        me['@{selectedDays}'] = FormatYearDays(ops.selectedDays);
         return true;
     },
     render() {
         let me = this;
+        let sYear = me['@{selectedYear}'];
+        let days = GetDays(sYear, me['@{selectedDays}']);
         me.updater.digest({
             viewId: me.id,
             weeks: Weeks,
             years: me['@{years}'],
-            selectedYear: me['@{selectedYear}'],
-            days: me['@{selectedDays}']
+            selectedYear: sYear,
+            days
         });
     },
     '@{sync.weeks}'() {
@@ -86,17 +104,11 @@ module.exports = Magix.View.extend({
     '@{change.year}<change>'(e) {
         e.stopPropagation();
         let me = this;
-        let days = me['@{selectedDays}'];
-        let last = days.join(',');
-        days = GetDays('');
+        let days = GetDays(e.value, me['@{selectedDays}']);
         me.updater.digest({
             days,
-            selectedYear: e.value
+            selectedYear: me['@{selectedYear}'] = e.value
         });
-        let newValue = me['@{selectedDays}'].join(',');
-        if (last != newValue) {
-            me['@{fire.event}']();
-        }
     },
     '@{fire.event}'() {
         let me = this;
@@ -120,7 +132,7 @@ module.exports = Magix.View.extend({
     '@{take.days}<change,sync>'(e) {
         e.stopPropagation();
         let me = this;
-        let days = me['@{selectedDays}'];
+        let days = GetDays(me['@{selectedYear}'], me['@{selectedDays}']);
         let m = e.params.m;
         days[m] = e.days;
         if (!e.ignoreSync) {
@@ -137,7 +149,7 @@ module.exports = Magix.View.extend({
         let me = this;
         let m = e.params.m;
         let node = $('#months_' + m + '_' + me.id);
-        let days = me['@{selectedDays}'][m];
+        let days = GetDays(me['@{selectedYear}'], me['@{selectedDays}'])[m];
         days = new Array(days.length + 1).join(days.indexOf('0') > -1 ? '1' : 0);
         node.invokeView('@{update.selected}', [days]);
         me['@{fire.event}']();

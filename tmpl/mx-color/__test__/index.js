@@ -1,5 +1,5 @@
 /*
-ver:1.3.6
+ver:1.3.7
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -10,5 +10,8 @@ module.exports = Magix.View.extend({
     render() {
         let me = this;
         me.updater.digest();
+    },
+    'test<change>'(e) {
+        console.log(e.color);
     }
 });

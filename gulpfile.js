@@ -7,7 +7,7 @@ let pkg = require('./package.json');
 let uglify = require('gulp-uglify');
 let ts = require('typescript');
 combineTool.config({
-    //debug: true,
+    debug: true,
     cssSelectorPrefix: '_',
     tmplAddViewsToDependencies: true,
     tmplMultiBindEvents: true,
