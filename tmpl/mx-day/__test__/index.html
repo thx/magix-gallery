@@ -4,7 +4,7 @@
     <mx-day
         years="<%@years%>"
         selected-year="2002"
-        selected-days="<%@{'2012':'0011,,0011,1100'}%>"
+        selected-days="<%@days%>"
         style="width:800px"
         mx-change="showDays()"
     ></mx-day>
@@ -15,7 +15,7 @@
     <pre>&lt;mx-day
     years="&lt;%@years%&gt;"
     selected-year="2002"
-    selected-days="&lt;%@{'2012':'0011,,0011,1100'}%&gt;"
+    selected-days="&lt;%@days%&gt;"
     style="width:800px"/&gt;</pre>
     <div class="pt10">Javascript Code:</div>
     <pre>let Magix = require('magix');
@@ -28,6 +28,7 @@ module.exports = Magix.View.extend({
             years.push(i);
         }
         me.updater.digest({
+            days:{'2012':'0011,,0011,1100'},
             years
         });
     }

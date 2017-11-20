@@ -14,10 +14,11 @@ module.exports = Magix.View.extend({
             years.push(i);
         }
         me.updater.digest({
+            days: { '2012': '0011,,0011,1100' },
             years
         });
     },
-    'showDays<change>'(e){
+    'showDays<change>'(e) {
         console.log(e.days);
     }
 });
