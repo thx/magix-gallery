@@ -1,15 +1,1 @@
-/*
-    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define('mx-slider/style',["magix"],(require,exports,module)=>{
-/*Magix*/
-
-/*
-ver:1.3.8
-*/
-let Magix = require('magix');
-Magix.applyStyle("__mx-slider_style_",".__mx-slider_style_-as-input {\n  outline: 0;\n  cursor: default;\n  line-height: 32px;\n  display: inline-block;\n  min-width: 32px;\n}\n.__mx-slider_style_-rail {\n  background: #eaeaea;\n  position: relative;\n  display: inline-block;\n  border-radius: 2px;\n}\n.__mx-slider_style_-hor {\n  height: 4px;\n  top: -4px;\n}\n.__mx-slider_style_-ver {\n  width: 4px;\n  left: 4px;\n}\n.__mx-slider_style_-tracker {\n  background: #f96447;\n  position: absolute;\n  border-radius: 2px;\n  left: 0;\n}\n.__mx-slider_style_-hor-tracker {\n  height: 4px;\n  top: 0;\n}\n.__mx-slider_style_-ver-tracker {\n  width: 4px;\n  bottom: 0;\n}\n.__mx-slider_style_-indicator {\n  outline: 0;\n  border-radius: 50%;\n  width: 12px;\n  height: 12px;\n  position: absolute;\n  background: #fff;\n  border: solid 2px #f96447;\n}\n.__mx-slider_style_-hor-idctor {\n  top: -4px;\n}\n.__mx-slider_style_-ver-idctor {\n  left: -4px;\n}\n.__mx-slider_style_-pointer-label,\n.__mx-slider_style_-scale-left,\n.__mx-slider_style_-scale-right,\n.__mx-slider_style_-ver-scale-top,\n.__mx-slider_style_-ver-scale-bottom {\n  position: absolute;\n  font-size: 9px;\n  pointer-events: none;\n  line-height: normal;\n}\n.__mx-slider_style_-hor-pl {\n  top: -15px;\n}\n.__mx-slider_style_-ver-pl {\n  left: 10px;\n}\n.__mx-slider_style_-ver-scale-bottom {\n  bottom: 0;\n  left: 10px;\n}\n.__mx-slider_style_-ver-scale-top {\n  left: 10px;\n  top: 0;\n}\n.__mx-slider_style_-scale-left {\n  left: 0;\n  top: 8px;\n}\n.__mx-slider_style_-scale-right {\n  right: 0;\n  top: 8px;\n}\n.__mx-slider_style_-notallowed {\n  cursor: not-allowed;\n}\n.__mx-slider_style_-notallowed .__mx-slider_style_-rail {\n  background-color: #fbfbfb;\n}\n.__mx-slider_style_-notallowed .__mx-slider_style_-tracker {\n  background-color: #eaeaea;\n}\n.__mx-slider_style_-notallowed .__mx-slider_style_-indicator {\n  border-color: #eaeaea;\n}\n");
-
-});
+define("mx-slider/style",["magix"],(e,o,t)=>{e("magix").applyStyle("_F","._ew{outline:0;cursor:default;line-height:32px;min-width:32px}._ew,._ex{display:inline-block}._ex{background:#eaeaea;position:relative;border-radius:2px}._ey{height:4px;top:-4px}._ez{width:4px;left:4px}._eA{background:#f96447;position:absolute;border-radius:2px;left:0}._eB{height:4px;top:0}._eC{width:4px;bottom:0}._eD{outline:0;border-radius:50%;width:12px;height:12px;position:absolute;background:#fff;border:2px solid #f96447}._eE{top:-4px}._eF{left:-4px}._eG,._eH,._eI,._eJ,._eK{position:absolute;font-size:9px;pointer-events:none;line-height:normal}._eL{top:-15px}._eM{left:10px}._eJ{bottom:0;left:10px}._eK{left:10px;top:0}._eH{left:0;top:8px}._eI{right:0;top:8px}._eN{cursor:not-allowed}._eN ._ex{background-color:#fbfbfb}._eN ._eA{background-color:#eaeaea}._eN ._eD{border-color:#eaeaea}")});
