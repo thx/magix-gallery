@@ -1,5 +1,5 @@
 /*
-ver:1.3.7
+ver:1.3.8
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -35,10 +35,12 @@ module.exports = Magix.View.extend({
                 me['@{sync.left}'](v);
                 me['@{start}'] = v;
                 me['@{fire.event}']();
+                Magix.node('left_' + me.id).focus();
             } else {
                 me['@{sync.right}'](v);
                 me['@{end}'] = v;
                 me['@{fire.event}']();
+                Magix.node('right_' + me.id).focus();
             }
         };
         oNode.on('click', click);
@@ -253,9 +255,16 @@ module.exports = Magix.View.extend({
             end: +me['@{end}']
         });
     },
+    '@{check.and.fire}'(start, end) {
+        let me = this;
+        if (start != me['@{start}'] ||
+            end != me['@{end}']) {
+            me['@{start}'] = start;
+            me['@{end}'] = end;
+            me['@{fire.event}']();
+        }
+    },
     '@{drag}<mousedown>'(e) {
-        e.stopPropagation();
-        e.preventDefault();
         let me = this;
         if (me['@{disabled}']) return;
         let current = $(e.eventTarget);
@@ -270,6 +279,7 @@ module.exports = Magix.View.extend({
         let currentValue = parseInt(current.css(me['@{vertical}'] ? 'bottom' : 'left'), 10);
         let dragStartValue = me['@{start}'];
         let dragEndValue = me['@{end}'];
+        me['@{dragging}'] = 1;
         DD.begin(e.eventTarget, (ex) => {
             DD.clear();
             let newValue = -1;
@@ -290,11 +300,13 @@ module.exports = Magix.View.extend({
                         dragStartValue = me['@{sync.left}'](start);
                     }
                     dragEndValue = me['@{sync.right}'](v);
+                    Magix.node('right_' + me.id).focus();
                 } else {
                     if (me['@{start}'] != dragEndValue) {
                         dragEndValue = me['@{sync.right}'](start);
                     }
                     dragStartValue = me['@{sync.left}'](v);
+                    Magix.node('left_' + me.id).focus();
                 }
             } else {
                 let end = +me['@{end}'];
@@ -303,24 +315,69 @@ module.exports = Magix.View.extend({
                         dragEndValue = me['@{sync.right}'](end);
                     }
                     dragStartValue = me['@{sync.left}'](v);
+                    Magix.node('left_' + me.id).focus();
                 } else {
                     if (me['@{end}'] != dragStartValue) {
                         dragStartValue = me['@{sync.left}'](end);
                     }
                     dragEndValue = me['@{sync.right}'](v);
+                    Magix.node('right_' + me.id).focus();
                 }
             }
         }, () => {
-            if (dragStartValue != me['@{start}'] || me['@{end}'] != dragEndValue) {
-                me['@{start}'] = dragStartValue;
-                me['@{end}'] = dragEndValue;
-                me['@{fire.event}']();
-            }
+            me['@{check.and.fire}'](dragStartValue, dragEndValue);
             me['@{temp.hold.event}'] = true;
             setTimeout(me.wrapAsync(() => {
                 delete me['@{temp.hold.event}'];
             }), 20);
+            delete me['@{dragging}'];
         });
+    },
+    '@{move.by.keyboard}<keydown>'(e) {
+        let me = this,
+            step = me['@{step}'],
+            move;
+        if (me['@{dragging}']) return;
+        if (e.keyCode == 37 || e.keyCode == 40) {//decrement
+            e.preventDefault();
+            step = -step;
+            move = true;
+        } else if (e.keyCode == 39 || e.keyCode == 38) {//increment
+            e.preventDefault();
+            move = true;
+        }
+        if (move) {
+            let srcStartValue = me['@{start}'];
+            let startValue = +srcStartValue;
+            let srcEndValue = me['@{end}'];
+            let endValue = +srcEndValue;
+            let { start } = e.params;
+            if (start) {
+                startValue += step;
+            } else {
+                endValue += step;
+            }
+            if (startValue > endValue) {
+                if (start) {
+                    Magix.node('right_' + me.id).focus();
+                } else {
+                    Magix.node('left_' + me.id).focus();
+                }
+                if (endValue != +srcStartValue) {
+                    srcStartValue = me['@{sync.left}'](endValue);
+                }
+                if (startValue != +srcEndValue) {
+                    srcEndValue = me['@{sync.right}'](startValue);
+                }
+            } else {
+                if (start) {
+                    srcStartValue = me['@{sync.left}'](startValue);
+                } else {
+                    srcEndValue = me['@{sync.right}'](endValue);
+                }
+            }
+            me['@{check.and.fire}'](srcStartValue, srcEndValue);
+        }
     },
     '@{prevent}<contextmenu>'(e) {
         e.preventDefault();

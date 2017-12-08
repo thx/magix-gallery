@@ -1,5 +1,5 @@
 /*
-ver:1.3.7
+ver:1.3.8
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -23,7 +23,16 @@ module.exports = Magix.View.extend({
     init(extra) {
         let me = this;
         Monitor['@{setup}']();
+        let node = $('#' + me.id);
+        me['@{owner.node}'] = node;
+        node.addClass('@multiple.less:dropdown');
+        node.on('keydown', e => {
+            if (e.keyCode == 13) {//enter
+                me['@{toggle}<click>']();
+            }
+        });
         me.on('destroy', () => {
+            node.off('keydown');
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
         });
@@ -31,9 +40,6 @@ module.exports = Magix.View.extend({
             viewId: me.id,
             inArray: $.inArray
         });
-        let node = $('#' + me.id);
-        me['@{owner.node}'] = node;
-        node.addClass('@multiple.less:dropdown');
         me.assign(extra);
     },
     assign(ops) {
@@ -92,7 +98,7 @@ module.exports = Magix.View.extend({
     render() {
         let me = this;
         let node = me['@{owner.node}'];
-        node[me['@{disabled}'] ? 'addClass' : 'removeClass']('@multiple.less:notallowed');
+        node[me['@{disabled}'] ? 'addClass' : 'removeClass']('@multiple.less:notallowed').prop('tabindex', me['@{ui.disabled}'] ? -1 : 0);
         me['@{updateSelected}'](me['@{selected}']);
     },
     '@{hide}'(ignoreBak) {
@@ -250,7 +256,6 @@ module.exports = Magix.View.extend({
         }), 300);
     },
     '@{select}<click>'(e) {
-        e.preventDefault();
         let me = this;
         let item = e.params.item;
         let updater = me.updater;

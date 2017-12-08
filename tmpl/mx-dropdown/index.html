@@ -39,11 +39,11 @@
                 <%}else{%>
                     <li title="<%=text%>" class="dropdown-item">
                         <%let equal=(value+'')===(selected+'')%>
-                        <a href="#"
+                        <span
                             class="item-link ellipsis<%if(equal){%> active<%}%>"
                             mx-click="@{select}({item:'<%@item%>'})">
                             <%=text%>
-                        </a>
+                        </span>
                     </li>
                 <%}%>
             <%}%>

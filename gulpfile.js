@@ -4,10 +4,11 @@ let watch = require('gulp-watch');
 let del = require('del');
 let fs = require('fs');
 let pkg = require('./package.json');
-let uglify = require('gulp-uglify');
+let uglify = require('gulp-uglify-es').default;
 let ts = require('typescript');
 combineTool.config({
     debug: true,
+    loaderType: 'cmd_es',
     cssSelectorPrefix: '_',
     tmplAddViewsToDependencies: true,
     tmplMultiBindEvents: true,
@@ -33,7 +34,7 @@ combineTool.config({
         var str = ts.transpileModule(content, {
             compilerOptions: {
                 lib: ['es7'],
-                target: 'es3',
+                target: 'es6',
                 module: ts.ModuleKind.None
             }
         });

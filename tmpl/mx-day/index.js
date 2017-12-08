@@ -1,5 +1,5 @@
 /*
-ver:1.3.7
+ver:1.3.8
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -112,9 +112,10 @@ module.exports = Magix.View.extend({
     },
     '@{fire.event}'() {
         let me = this;
-        me['@{owner.node}'].trigger({
+        let days = me['@{selectedDays}']
+        me['@{owner.node}'].val(days).trigger({
             type: 'change',
-            days: me['@{selectedDays}']
+            days
         });
     },
     '@{sync.by.week}<change>'(e) {

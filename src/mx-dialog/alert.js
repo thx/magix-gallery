@@ -1,1 +1,41 @@
-define("mx-dialog/alert",["magix"],function(a,i,_){var t=a("magix");_.exports=t.View.extend({tmpl:{html:'<div class="_aE"><h4><%=$$.title%></h4></div><div class="_aF" style="word-break:break-all"><%=$$.body%></div><div class="_aG"><a mx-click="__am();" class="_an _ao">确定</a></div>',subs:[]},init:function(a){var i=this;i.__aK=a.dialog,i.__aL=a.body,i.__aM=a.title||"提示",i.__aN=a.enterCallback},render:function(){var a=this;a.updater.digest({body:a.__aL,title:a.__aM})},"__am<click>":function(){var a=this;a.__aK.close(),a.__aN&&t.toTry(a.__aN)}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-dialog/alert',["magix"],(require,exports,module)=>{
+/*Magix*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@taobao.com
+ */
+let Magix = require('magix');
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<div class=\"__mx-style_index_-dialog-header\"><h4><%=$$.title%></h4></div><div class=\"__mx-style_index_-dialog-body\" style=\"word-break:break-all\"><%=$$.body%></div><div class=\"__mx-style_index_-dialog-footer\"><button mx-click=\"\u001f\u001e@{enter}();\" class=\"__mx-style_index_-btn __mx-style_index_-btn-brand\" type=\"button\">确定</button></div>","subs":[],"file":"mx-dialog/alert.html"},
+    init(extra) {
+        let me = this;
+        me['@{dialog}'] = extra.dialog;
+        me['@{string.body}'] = extra.body;
+        me['@{string.title}'] = extra.title || '提示';
+        me['@{fn.enter.callback}'] = extra.enterCallback;
+    },
+    render() {
+        let me = this;
+        me.updater.digest({
+            body: me['@{string.body}'],
+            title: me['@{string.title}']
+        });
+    },
+    '@{enter}<click>'() {
+        let me = this;
+        me['@{dialog}'].close();
+        if (me['@{fn.enter.callback}']) {
+            Magix.toTry(me['@{fn.enter.callback}']);
+        }
+    }
+});
+
+});

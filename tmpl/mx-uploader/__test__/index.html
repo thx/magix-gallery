@@ -1,6 +1,6 @@
 <h2>mx-uploader</h2>
 <div class="pt20 clearfix">
-    <mx-view
+    <mx-uploader
         class="btn btn-brand fl"
         path="mx-uploader/index"
         action="./index.html"
@@ -10,22 +10,21 @@
         mx-error="showError()"
         mx-success="showSuccess()"
         mx-progress="showProgress()"
-    >上传文件</mx-view>
+    >上传文件</mx-uploader>
     <mx-progress value="<%=percent%>" fixed="2" class="fl ml20" />
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-view
+    <pre>&lt;mx-uploader
     class="btn btn-brand fl"
-    path="mx-uploader/index"
     action="./index.html"
     name="file1"
     multiple="true"
     mx-error="showError()"
     mx-success="showSuccess()"
     mx-progress="showProgress()"
-&gt;上传文件&lt;/mx-view&gt;
+&gt;上传文件&lt;/mx-uploader&gt;
 &lt;mx-progress value="&lt;%=percent%&gt;" fixed="2" class="fl ml20" /&gt;</pre>
     <div class="pt10">Javascript Code:</div>
     <pre>let Magix = require('magix');

@@ -1,18 +1,17 @@
 <h2>mx-taginput</h2>
 <h3>默认情形</h3>
 <div class="pt20 clearfix">
-    <div mx-view="mx-taginput/index"
-        view-list="<%@list%>"
-        view-placeholder="请选择分类"
-        class="fl"
-    ></div>
+    <mx-taginput
+        list="<%@list%>"
+        placeholder="请选择分类"
+        class="fl"/>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;div mx-view="app/gallery/mx-taginput/index"
-    view-list="&lt;%@ list %&gt;"
-    view-placeholder="请选择分类"
+    <pre>&lt;mx-taginput
+    list="&lt;%@ list %&gt;"
+    placeholder="请选择分类"
 &gt;&lt;/div&gt;</pre>
     <div class="pt10">Javascript Code:</div>
     <pre>let Magix = require('magix');
@@ -29,21 +28,19 @@ module.exports = Magix.View.extend({
 </div>
 <h3 class="mt30">默认选中</h3>
 <div class="pt20 clearfix">
-    <div mx-view="mx-taginput/index"
-        view-list="<%@list%>"
-        view-selected="<%@selected%>"
-        view-placeholder="请选择分类"
-        class="fl"
-    ></div>
+    <mx-taginput
+        list="<%@list%>"
+        selected="<%@selected%>"
+        placeholder="请选择分类"
+        class="fl"/>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;div mx-view="app/gallery/mx-taginput/index"
-    view-list="&lt;%@ list %&gt;"
-    view-selected="&lt;%@ selected %&gt;"
-    view-placeholder="请选择分类"
-&gt;&lt;/div&gt;</pre>
+    <pre>&lt;mx-taginput
+    list="&lt;%@ list %&gt;"
+    selected="&lt;%@ selected %&gt;"
+    placeholder="请选择分类"/&gt;</pre>
     <div class="pt10">Javascript Code:</div>
     <pre>let Magix = require('magix');
 Magix.applyStyle('@index.css');
@@ -60,23 +57,21 @@ module.exports = Magix.View.extend({
 </div>
 <h3 class="mt30">禁用</h3>
 <div class="pt20 clearfix">
-    <div mx-view="mx-taginput/index"
-        view-list="<%@list%>"
-        view-selected="<%@selected%>"
-        view-placeholder="请选择分类"
-        view-disabled="true"
-        class="fl"
-    ></div>
+    <mx-taginput
+        list="<%@list%>"
+        selected="<%@selected%>"
+        placeholder="请选择分类"
+        disabled="true"
+        class="fl"/>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;div mx-view="app/gallery/mx-taginput/index"
-    view-list="&lt;%@ list %&gt;"
-    view-selected="&lt;%@ selected %&gt;"
-    view-placeholder="请选择分类"
-    view-disabled="true"
-&gt;&lt;/div&gt;</pre>
+    <pre>&lt;mx-taginput
+    list="&lt;%@ list %&gt;"
+    selected="&lt;%@ selected %&gt;"
+    placeholder="请选择分类"
+    disabled="true"/&gt;</pre>
     <div class="pt10">Javascript Code:</div>
     <pre>let Magix = require('magix');
 Magix.applyStyle('@index.css');
@@ -94,25 +89,23 @@ module.exports = Magix.View.extend({
 
 <h3 class="mt30">数据列表为对象</h3>
 <div class="pt20 clearfix">
-    <div mx-view="mx-taginput/index"
-        view-list="<%@ userList %>"
-        view-selected="<%@ userSelected %>"
-        view-placeholder="请选择用户"
-        view-text-key="name"
-        view-value-key="id"
-        class="fl"
-    ></div>
+    <mx-taginput
+        list="<%@ userList %>"
+        selected="<%@ userSelected %>"
+        placeholder="请选择用户"
+        text-key="name"
+        value-key="id"
+        class="fl"/>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;div mx-view="app/gallery/mx-taginput/index"
-    view-list="&lt;%@ userList %&gt;"
-    view-selected="&lt;%@ userSelected %&gt;"
-    view-placeholder="请选择用户"
-    view-text-key="name"
-    view-value-key="id"
-&gt;&lt;/div&gt;</pre>
+    <pre>&lt;mx-taginput
+    list="&lt;%@ userList %&gt;"
+    selected="&lt;%@ userSelected %&gt;"
+    placeholder="请选择用户"
+    text-key="name"
+    value-key="id"/&gt;</pre>
     <div class="pt10">Javascript Code:</div>
     <pre>let Magix = require('magix');
 Magix.applyStyle('@index.css');
@@ -159,27 +152,25 @@ module.exports = Magix.View.extend({
 </div>
 <h3 class="mt30">change事件</h3>
 <div class="pt20 clearfix">
-    <div mx-view="mx-taginput/index"
-        view-list="<%@ userList %>"
-        view-selected="<%@ userSelected %>"
-        view-placeholder="请选择用户"
-        view-text-key="name"
-        view-value-key="id"
+    <mx-taginput
+        list="<%@ userList %>"
+        selected="<%@ userSelected %>"
+        placeholder="请选择用户"
+        text-key="name"
+        value-key="id"
         mx-change="showUserIds()"
-        class="fl"
-    ></div>
+        class="fl"/>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;div mx-view="app/gallery/mx-taginput/index"
-    view-list="&lt;%@ userList %&gt;"
-    view-selected="&lt;%@ userSelected %&gt;"
-    view-placeholder="请选择用户"
-    view-text-key="name"
-    view-value-key="id"
-    mx-change="showUserIds()"
-&gt;&lt;/div&gt;</pre>
+    <pre>&lt;mx-taginput
+    list="&lt;%@ userList %&gt;"
+    selected="&lt;%@ userSelected %&gt;"
+    placeholder="请选择用户"
+    text-key="name"
+    value-key="id"
+    mx-change="showUserIds()"/&gt;</pre>
     <div class="pt10">Javascript Code:</div>
     <pre>let Magix = require('magix');
 let GTip = require('mx-gtip/index');

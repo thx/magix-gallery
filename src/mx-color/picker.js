@@ -1,1 +1,111 @@
-define("mx-color/picker",["magix","$","../mx-monitor/index","./index"],function(_,i,t){var o=_("magix"),e=_("$"),n=_("../mx-monitor/index");_("./index"),t.exports=o.View.extend({init:function(_){var i=this;i.__W=_.color,i.__I=_.placement,i.__J=_.align,i.__X=_.showAlpha,n.__d();var t=e("#"+i.id),o=function(){i.__e()};i.on("destroy",function(){n.__f(i),n.__g(),e("#cpcnt_"+i.id).remove(),t.off("click",o)}),t.on("click",o),i.__h=t,t.prop("autocomplete","off")},__i:function(_){var i=this;return o.inside(_,i.id)||o.inside(_,"cpcnt_"+i.id)},render:function(){var _=this,i="cpcnt_"+_.id;_.__W=_.__W||_.__h.val(),e(_.wrapEvent('<div style="position:absolute;display:none;z-index:10" mx-change="__an()"></div>')).attr("id",i).insertAfter(_.__h)},__e:function(){var _=this;if(!_.__j){var i=e("#cpcnt_"+_.id),t=_.__h;_.__j=!0,_.__l||(_.__l=!0,_.owner.mountVframe("cpcnt_"+_.id,"mx-color/index",{showBtns:!0,showAlpha:_.__X,color:_.__W})),n.__k(_),i.show();var o=t.offset(),r=void 0,c=void 0;switch(_.__I){case"top":c=o.top-i.outerHeight()-5;break;default:c=o.top+t.outerHeight()+5}switch(_.__J){case"right":r=o.left+t.outerWidth()-i.outerWidth();break;default:r=o.left}i.offset({left:r,top:c})}},__a:function(){var _=this;if(_.__j){var i=e("#cpcnt_"+_.id);_.__j=!1,i.hide(),n.__f(_)}},"__an<change>":function(_){var i=this;_.stopPropagation(),i.__h.val(_.color).trigger({type:"change",color:_.color}),i.__a()}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-color/picker',["magix","$","../mx-monitor/index","./index"],(require,exports,module)=>{
+/*Magix,$,Monitor*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+let Magix = require('magix');
+let $ = require('$');
+let Monitor = require('../mx-monitor/index');
+let Wrapper = "<div style=\"position:absolute;display:none;z-index:10\" mx-change=\"\u001f\u001e@{color.picked}()\"></div>";
+require('./index');
+module.exports = Magix.View.extend({
+    init(extra) {
+        let me = this;
+        me['@{color}'] = extra.color;
+        me['@{pos.placement}'] = extra.placement;
+        me['@{pos.align}'] = extra.align;
+        me['@{show.alpha}'] = extra.showAlpha;
+        Monitor['@{setup}']();
+        let ownerNode = $('#' + me.id);
+        let click = () => {
+            me['@{show}']();
+        };
+        me.on('destroy', () => {
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+            $('#cpcnt_' + me.id).remove();
+            ownerNode.off('click', click);
+        });
+        ownerNode.on('click', click);
+        me['@{owner.node}'] = ownerNode;
+        ownerNode.prop('autocomplete', 'off');
+    },
+    '@{inside}'(node) {
+        let me = this;
+        return Magix.inside(node, me.id) || Magix.inside(node, 'cpcnt_' + me.id);
+    },
+    render() {
+        let me = this;
+        let id = 'cpcnt_' + me.id;
+        me['@{color}'] = me['@{color}'] || me['@{owner.node}'].val();
+        $(me.wrapEvent(Wrapper)).attr('id', id).insertAfter(me['@{owner.node}']);
+    },
+    '@{show}'() {
+        let me = this;
+        if (!me['@{ui.show}']) {
+            let node = $('#cpcnt_' + me.id), ref = me['@{owner.node}'];
+            me['@{ui.show}'] = true;
+            if (!me['@{core.rendered}']) {
+                me['@{core.rendered}'] = true;
+                me.owner.mountVframe('cpcnt_' + me.id, 'mx-color/index', {
+                    showBtns: true,
+                    showAlpha: me['@{show.alpha}'],
+                    color: me['@{color}']
+                });
+            }
+            Monitor['@{add}'](me);
+            node.show();
+            let offset = ref.offset();
+            let left, top;
+            switch (me['@{pos.placement}']) {
+                case 'top':
+                    top = offset.top - node.outerHeight() - 5;
+                    break;
+                default:
+                    top = offset.top + ref.outerHeight() + 5;
+                    break;
+            }
+            switch (me['@{pos.align}']) {
+                case 'right':
+                    left = offset.left + ref.outerWidth() - node.outerWidth();
+                    break;
+                default:
+                    left = offset.left;
+                    break;
+            }
+            node.offset({
+                left: left,
+                top: top
+            });
+        }
+    },
+    '@{hide}'() {
+        let me = this;
+        if (me['@{ui.show}']) {
+            let node = $('#cpcnt_' + me.id);
+            me['@{ui.show}'] = false;
+            node.hide();
+            Monitor['@{remove}'](me);
+        }
+    },
+    '@{color.picked}<change>'(e) {
+        let me = this;
+        e.stopPropagation();
+        me['@{owner.node}'].val(e.color).trigger({
+            type: 'change',
+            color: e.color
+        });
+        me['@{hide}']();
+    }
+});
+
+});

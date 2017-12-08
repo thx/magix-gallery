@@ -1,1 +1,279 @@
-define("mx-dropdown/index",["magix","$","../mx-monitor/index"],function(e,t,i){var s=e("magix"),a=e("$"),_=e("../mx-monitor/index");s.applyStyle("_o","._cl{position:relative;width:340px;background-color:#fff;border:1px solid #e6e6e6;border-radius:4px;display:inline-block;vertical-align:middle;height:32px}._cl:hover{border-color:#ccc}._cm{color:#333;position:relative;width:100%;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;padding:0 30px 0 12px}._cn{cursor:not-allowed;background-color:#fbfbfb}._cn:hover{border-color:#e6e6e6}._cn ._cm{cursor:not-allowed}._co{position:absolute;right:0;top:2px;font-size:28px;color:#ccc;-webkit-transition:top .3s,-webkit-transform .3s;transition:top .3s,-webkit-transform .3s;transition:transform .3s,top .3s;transition:transform .3s,top .3s,-webkit-transform .3s}._cp ._co{-webkit-transform:rotate(180deg);transform:rotate(180deg);top:0}._cp,._cp:hover{border-color:#6363e6}._cq{height:30px;line-height:30px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}._cr{color:#999}._cs{position:absolute;top:100%;left:-1px;right:-1px;margin-top:5px;border-radius:4px;z-index:300;border:1px solid #e6e6e6;background-color:#fff;display:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}._cp ._cs{display:block}._ct{overflow:auto;max-height:196px;padding:4px 0}._cu{display:block;width:100%;padding:9px 9px 4px}._cv{padding:0;width:100%}._cw{color:#ccc;position:absolute;left:15px;top:16px}._cx{padding-left:28px;height:28px;line-height:28px;width:100%}._cy{padding:5px;color:#999;display:block;cursor:default}._cz{padding:0 4px;margin:2px 0}._cA{color:#666;display:block;width:100%;padding:0 12px;height:29px;line-height:29px;border-radius:4px}._cA:hover{color:#333;background-color:#f0f0f0}._cB,._cB:active,._cB:focus,._cB:hover{color:#fff;background-color:#6363e6}");var o=function(e,t,i,a,_){if(!e[t]||s.has(i,a)){var o=i[a]||"";_||(o+=""),e[t]=o}return e[t]};i.exports=s.View.extend({tmpl:{html:'<div mx-guid="g0" class="_cm" mx-click="__aA()" title="<%=$$.selectedText%>"><span mx-guid="g1" class="_cq<%if($$.selected===\'\'){%> _cr<%}%>">2</span><span class="__ _co">&#xe692;</span></div><div mx-guid="g2" class="_cs">3</div>',subs:[{keys:["selectedText"],path:'div[mx-guid="g0"]',attr:'title="<%=$$.selectedText%>"',attrs:[{n:"title",p:1}]},{keys:["selected","selectedText"],path:'span[mx-guid="g1"]',tmpl:"<%=$$.selectedText%>",s:"2",attr:"class=\"_cq<%if($$.selected===''){%> _cr<%}%>\"",attrs:[{n:"class",p:1,f:"className"}],mask:"21"},{keys:["rList","searchbox"],path:'div[mx-guid="g2"]',tmpl:'<%if($$.rList){if($$.searchbox){%><div class="_cu"><label class="_cv"><span class="__ _cw">&#xe608;</span><input placeholder="搜索关键词" mx-keyup="__bZ()" mx-paste="__bZ()" mx-change="__ca()" mx-focusin="__ca()" mx-focusout="__ca()" class="_ap _cx"></label></div><%}%><ul mx-guid="g3" class="_ct" id="list_<%=$$.viewId%>">4</ul><%}%>',s:"3"},{keys:["list","textKey","valueKey","selected"],path:'ul[mx-guid="g3"]',pKeys:["rList","searchbox"],tmpl:'<%var a=void 0,b=void 0;for(var c=0,d=$$.list;c<d.length;c++){var e=d[c];if($$.textKey&&$$.valueKey){a=e[$$.textKey];b=e[$$.valueKey];}else{a=e;b=e;}if(e&&e.group){%><li class="_cy _al" title="<%=e[$$.textKey]%>"><%=e[$$.textKey]%></li><%}else{%><li title="<%=a%>" class="_cz"><%var f=(b+\'\')===($$.selected+\'\')%><a href="#" class="_cA _al<%if(f){%> _cB<%}%>" mx-click="__c_({item:\'<%@e%>\'})"><%=a%></a></li><%}}%>',s:"4"}]},init:function(e){var t=this;_.__d(),t.on("destroy",function(){_.__f(t),_.__g()}),t.updater.set({viewId:t.id});var i=a("#"+t.id);i.addClass("_cl"),t.__h=i,t.assign(e)},assign:function(e){var t=this;o(t,"__bO",e,"list",1);var i=o(t,"__aE",e,"selected"),_=o(t,"__bP",e,"textKey"),c=o(t,"__bQ",e,"valueKey"),r=o(t,"__bR",e,"emptyText");if(t.__bS=e.searchbox+""=="true",t.__bT=e.disabled+""=="true",!t.__bO){var l,n=[];t.__h.children().each(function(e,t){t=a(t),l="true"==t.attr("group"),n.push({group:l,text:t.text(),value:l?s.guid():t.attr("value")})}),_=t.__bP="text",c=t.__bQ="value",t.__bO=n}var d=t.__bO,p=s.toMap(d,c);if(r)if(_&&c){if(!p[""]){var u={};u[_]=r,u[c]="",d.unshift(u),p[""]=u}}else p[r]||(d.unshift(r),p[r]=r);return i||!r||_||c||(i=r),i&&p[i]||(i=p[i]||d[0],_&&c&&(i=i[c])),t.__aE=i,t.__bU=_&&c?p[i][_]:i,!0},__i:function(e){return s.inside(e,this.id)},render:function(){var e=this;e.__h[e.__bT?"addClass":"removeClass"]("_cn"),e.__bV(!0)},__a:function(){var e=this;e.__h.hasClass("_cp")&&(e.__h.removeClass("_cp").trigger("focusout"),_.__f(e))},__e:function(){var e=this;if(!e.__h.hasClass("_cp")){e.updater.get("rList")||e.updater.digest({rList:!0}),e.__h.addClass("_cp").trigger("focusin");var t=a("#list_"+e.id),i=t.find("._cB").position(),s=t.height(),o=t.prop("scrollTop");if(i.top<0||i.top>s){var c=i.top-s+o+s/2;t.prop("scrollTop",c)}_.__k(e)}},__bV:function(e){var t=this,i=t.__aE;t.updater.digest({textKey:t.__bP,valueKey:t.__bQ,selected:i,searchbox:t.__bS,selectedText:t.__bU,list:t.__bO.slice()}),t.__h.val(i),e||t.__u(i)},__bX:function(e,t){var i=this;clearTimeout(i.__bW);var s=i.__bO,a=[],_=0,o=s.length,c=i.__bP,r=i.__bQ;if(e){var l=function(){if(_<o){for(var n=Math.min(_+400,o),d=_,p=void 0,u=void 0,x=void 0;d<n;d++)u=p=s[d],x=p,c&&r&&(u=p[c],x=p[r]),((u+"").indexOf(e)>=0||(x+"").indexOf(e)>=0)&&a.push(p);_=n,i.__bW=setTimeout(i.wrapAsync(l),20)}else t(a)};l()}else t(s)},__u:function(e,t){var i=this,s=i.updater,_=i.__bQ,o=i.__bP,c=i.__aE,r=e,l=e;if(o&&_&&(l=e[o],r=e[_]),!t||c!==r){s.set({selected:i.__aE=r});var n=a.Event("change",{item:e,keys:{text:o,value:_},value:_?e[_]:e,text:o?e[o]:e});i.__h.val(_?e[_]:e).trigger(n),n.isDefaultPrevented()?s.set({selected:c}):s.digest({selected:r,selectedText:l})}},"__aA<click>":function(){var e=this,t=e.__h;t.hasClass("_cp")?e.__a():t.hasClass("_cn")||e.__e()},"__bZ<keyup,paste>":function(e){var t=this;e.stopPropagation(),clearTimeout(t.__bY);var i=a.trim(e.eventTarget.value);t.__bY=setTimeout(t.wrapAsync(function(){i!=t.$lVal&&t.__bX(t.$lVal=i,function(e){t.updater.digest({list:e})})}),300)},"__c_<click>":function(e){e.preventDefault(),e.stopPropagation();var t=this;t.__u(e.params.item,!0),t.__a()},"__ca<change,focusin,focusout>":function(e){e.stopPropagation()}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-dropdown/index',["magix","$","../mx-monitor/index"],(require,exports,module)=>{
+/*Magix,$,Monitor*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+let Magix = require('magix');
+let $ = require('$');
+let Monitor = require('../mx-monitor/index');
+Magix.applyStyle("__mx-dropdown_index_",".__mx-dropdown_index_-dropdown {\n  outline: 0;\n  position: relative;\n  width: 340px;\n  background-color: #fff;\n  border: solid 1px #e6e6e6;\n  border-radius: 4px;\n  display: inline-block;\n  vertical-align: middle;\n  height: 32px;\n}\n.__mx-dropdown_index_-dropdown:hover {\n  border-color: #ccc;\n}\n.__mx-dropdown_index_-dropdown-toggle {\n  color: #333;\n  position: relative;\n  width: 100%;\n  cursor: pointer;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  padding: 0 30px 0 12px;\n}\n.__mx-dropdown_index_-notallowed {\n  cursor: not-allowed;\n  background-color: #fbfbfb;\n}\n.__mx-dropdown_index_-notallowed:hover {\n  border-color: #e6e6e6;\n}\n.__mx-dropdown_index_-notallowed .__mx-dropdown_index_-dropdown-toggle {\n  cursor: not-allowed;\n}\n.__mx-dropdown_index_-arrow {\n  position: absolute;\n  right: 0;\n  top: 2px;\n  font-size: 28px;\n  color: #ccc;\n  -webkit-transition: top 0.3s,-webkit-transform 0.3s;\n  transition: top 0.3s,-webkit-transform 0.3s;\n  transition: transform 0.3s,top 0.3s;\n  transition: transform 0.3s,top 0.3s,-webkit-transform 0.3s;\n}\n.__mx-dropdown_index_-open .__mx-dropdown_index_-arrow {\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n  top: 0;\n}\n.__mx-dropdown_index_-open,\n.__mx-dropdown_index_-open:hover,\n.__mx-dropdown_index_-dropdown:focus {\n  border-color: #f96447;\n}\n.__mx-dropdown_index_-dropdown-toggle-label {\n  height: 30px;\n  line-height: 30px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: block;\n}\n.__mx-dropdown_index_-dropdown-toggle-label-ph {\n  color: #999;\n}\n.__mx-dropdown_index_-dropdown-menu-wrapper {\n  position: absolute;\n  top: 100%;\n  left: -1px;\n  right: -1px;\n  margin-top: 5px;\n  border-radius: 4px;\n  z-index: 300;\n  border: 1px solid #e6e6e6;\n  background-color: #fff;\n  display: none;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.__mx-dropdown_index_-open .__mx-dropdown_index_-dropdown-menu-wrapper {\n  display: block;\n}\n.__mx-dropdown_index_-dropdown-menu {\n  overflow: auto;\n  max-height: 196px;\n  padding: 4px 0;\n}\n.__mx-dropdown_index_-searchbox {\n  display: block;\n  width: 100%;\n  padding: 9px 9px 4px 9px;\n}\n.__mx-dropdown_index_-searchbox-wrapper {\n  padding: 0;\n  width: 100%;\n}\n.__mx-dropdown_index_-search-icon {\n  color: #ccc;\n  position: absolute;\n  left: 15px;\n  top: 16px;\n}\n.__mx-dropdown_index_-search-input {\n  padding-left: 28px;\n  height: 28px;\n  line-height: 28px;\n  width: 100%;\n}\n.__mx-dropdown_index_-dropdown-header {\n  padding: 5px;\n  color: #999;\n  display: block;\n  cursor: default;\n}\n.__mx-dropdown_index_-dropdown-item {\n  padding: 0 4px;\n  margin: 2px 0;\n}\n.__mx-dropdown_index_-item-link {\n  cursor: pointer;\n  color: #666;\n  display: block;\n  width: 100%;\n  padding: 0 12px;\n  height: 29px;\n  line-height: 29px;\n  border-radius: 4px;\n}\n.__mx-dropdown_index_-item-link:hover {\n  color: #333;\n  background-color: #f0f0f0;\n}\n.__mx-dropdown_index_-active,\n.__mx-dropdown_index_-active:hover,\n.__mx-dropdown_index_-active:active,\n.__mx-dropdown_index_-active:focus {\n  color: #fff;\n  background-color: #f96447;\n}\n");
+let AssignIf = (view, key, ops, cfg, src) => {
+    if (!view[key] || Magix.has(ops, cfg)) {
+        let v = ops[cfg] || '';
+        if (!src) {
+            v += '';
+        }
+        view[key] = v;
+    }
+    return view[key];
+};
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<div mx-guid=\"g0\u001f\" class=\"__mx-dropdown_index_-dropdown-toggle\" mx-click=\"\u001f\u001e@{toggle}()\" title=\"<%=$$.selectedText%>\"><span mx-guid=\"g1\u001f\" class=\"__mx-dropdown_index_-dropdown-toggle-label<%if($$.selected===''){%> __mx-dropdown_index_-dropdown-toggle-label-ph<%}%>\">2\u001d</span><span class=\"__mx-style_index_-mc-iconfont __mx-dropdown_index_-arrow\">&#xe692;</span></div><div mx-guid=\"g2\u001f\" class=\"__mx-dropdown_index_-dropdown-menu-wrapper\">3\u001d</div>","subs":[{"keys":["selectedText"],"path":"div[mx-guid=\"g0\u001f\"]","attr":"title=\"<%=$$.selectedText%>\"","attrs":[{"n":"title","p":1}]},{"keys":["selected","selectedText"],"path":"span[mx-guid=\"g1\u001f\"]","tmpl":"<%=$$.selectedText%>","s":"2\u001d","attr":"class=\"__mx-dropdown_index_-dropdown-toggle-label<%if($$.selected===''){%> __mx-dropdown_index_-dropdown-toggle-label-ph<%}%>\"","attrs":[{"n":"class","p":1,"f":"className"}],"mask":"21"},{"keys":["rList","searchbox"],"path":"div[mx-guid=\"g2\u001f\"]","tmpl":"<%if($$.rList){%> <%if($$.searchbox){%><div class=\"__mx-dropdown_index_-searchbox\"><label class=\"__mx-dropdown_index_-searchbox-wrapper\"><span class=\"__mx-style_index_-mc-iconfont __mx-dropdown_index_-search-icon\">&#xe608;</span><input placeholder=\"搜索关键词\" mx-keyup=\"\u001f\u001e@{search}()\" mx-paste=\"\u001f\u001e@{search}()\" mx-change=\"\u001f\u001e@{stop}()\" mx-focusin=\"\u001f\u001e@{stop}()\" mx-focusout=\"\u001f\u001e@{stop}()\" class=\"__mx-style_index_-input __mx-dropdown_index_-search-input\"></label></div><%}%><ul mx-guid=\"g3\u001f\" class=\"__mx-dropdown_index_-dropdown-menu\" id=\"list_<%=$$.viewId%>\">4\u001d</ul><%}%>","s":"3\u001d"},{"keys":["list","textKey","valueKey","selected"],"path":"ul[mx-guid=\"g3\u001f\"]","pKeys":["rList","searchbox"],"tmpl":"<%var text=void 0,value=void 0%> <%for(var _i=0,list_1=$$.list;_i<list_1.length;_i++){var item=list_1[_i];%> <%if($$.textKey&&$$.valueKey){%> <%text=item[$$.textKey];value=item[$$.valueKey]%> <%}else{%> <%text=item;value=item;%> <%}%> <%if(item&&item.group){%><li class=\"__mx-dropdown_index_-dropdown-header __mx-style_index_-ellipsis\" title=\"<%=item[$$.textKey]%>\"><%=item[$$.textKey]%></li><%}else{%><li title=\"<%=text%>\" class=\"__mx-dropdown_index_-dropdown-item\"><%var equal=(value+'')===($$.selected+'')%><span class=\"__mx-dropdown_index_-item-link __mx-style_index_-ellipsis<%if(equal){%> __mx-dropdown_index_-active<%}%>\" mx-click=\"\u001f\u001e@{select}({item:'<%@item%>'})\"><%=text%></span></li><%}%> <%}%>","s":"4\u001d"}],"file":"mx-dropdown/index.html"},
+    init(extra) {
+        let me = this;
+        Monitor['@{setup}']();
+        let node = $('#' + me.id);
+        node.addClass('__mx-dropdown_index_-dropdown');
+        node.on('keydown', e => {
+            if (e.keyCode == 13) {
+                me['@{toggle}<click>']();
+            } /*else if (e.keyCode == 40) {//down arrow
+                e.preventDefault();
+            } else if (e.keyCode == 38) {//up arrow
+                e.preventDefault();
+            }*/
+        });
+        me.on('destroy', () => {
+            node.off('keydown');
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+        });
+        me.updater.set({
+            viewId: me.id
+        });
+        me['@{owner.node}'] = node;
+        me.assign(extra);
+    },
+    assign(ops) {
+        let me = this;
+        AssignIf(me, '@{list}', ops, 'list', 1);
+        let selected = AssignIf(me, '@{selected}', ops, 'selected');
+        let textKey = AssignIf(me, '@{textKey}', ops, 'textKey');
+        let valueKey = AssignIf(me, '@{valueKey}', ops, 'valueKey');
+        let emptyText = AssignIf(me, '@{emptyText}', ops, 'emptyText');
+        me['@{ui.searchbox}'] = (ops.searchbox + '') === 'true';
+        me['@{ui.disabled}'] = (ops.disabled + '') === 'true';
+        if (!me['@{list}']) {
+            let node = me['@{owner.node}'];
+            let list = [];
+            let group;
+            node.children().each((idx, item) => {
+                item = $(item);
+                group = item.attr('group') == 'true';
+                list.push({
+                    group: group,
+                    text: item.text(),
+                    value: group ? Magix.guid() : item.attr('value')
+                });
+            });
+            textKey = me['@{textKey}'] = 'text';
+            valueKey = me['@{valueKey}'] = 'value';
+            me['@{list}'] = list;
+        }
+        let list = me['@{list}'];
+        let map = Magix.toMap(list, valueKey);
+        if (emptyText) {
+            if (textKey && valueKey) {
+                if (!map['']) {
+                    let temp = {};
+                    temp[textKey] = emptyText;
+                    temp[valueKey] = '';
+                    list.unshift(temp);
+                    map[''] = temp;
+                }
+            }
+            else {
+                if (!map[emptyText]) {
+                    list.unshift(emptyText);
+                    map[emptyText] = emptyText;
+                }
+            }
+        }
+        if (!selected && emptyText && !(textKey || valueKey)) {
+            selected = emptyText;
+        }
+        if (!selected || !map[selected]) {
+            selected = map[selected] || list[0];
+            if (textKey && valueKey) {
+                selected = selected[valueKey];
+            }
+        }
+        me['@{selected}'] = selected;
+        me['@{selected.text}'] = textKey && valueKey ? map[selected][textKey] : selected;
+        return true;
+    },
+    '@{inside}'(node) {
+        return Magix.inside(node, this.id);
+    },
+    render() {
+        let me = this;
+        let node = me['@{owner.node}'];
+        node[me['@{ui.disabled}'] ? 'addClass' : 'removeClass']('__mx-dropdown_index_-notallowed').prop('tabindex', me['@{ui.disabled}'] ? -1 : 0);
+        me['@{ui.update}'](true);
+    },
+    '@{hide}'() {
+        let me = this;
+        if (me['@{owner.node}'].hasClass('__mx-dropdown_index_-open')) {
+            me['@{owner.node}'].removeClass('__mx-dropdown_index_-open').trigger('focusout');
+            Monitor['@{remove}'](me);
+        }
+    },
+    '@{show}'() {
+        let me = this;
+        if (!me['@{owner.node}'].hasClass('__mx-dropdown_index_-open')) {
+            let r = me.updater.get('rList');
+            if (!r) {
+                me.updater.digest({
+                    rList: true
+                });
+            }
+            me['@{owner.node}'].addClass('__mx-dropdown_index_-open').trigger('focusin');
+            let listNode = $('#list_' + me.id);
+            let active = listNode.find('.__mx-dropdown_index_-active');
+            let pos = active.position();
+            let height = listNode.height();
+            let stop = listNode.prop('scrollTop');
+            if (pos.top < 0 || pos.top > height) {
+                let top = pos.top - height + stop + height / 2;
+                listNode.prop('scrollTop', top);
+            }
+            Monitor['@{add}'](me);
+        }
+    },
+    '@{ui.update}'(ignoreFireEvent) {
+        let me = this;
+        let selected = me['@{selected}'];
+        me.updater.digest({
+            textKey: me['@{textKey}'],
+            valueKey: me['@{valueKey}'],
+            selected,
+            searchbox: me['@{ui.searchbox}'],
+            selectedText: me['@{selected.text}'],
+            list: me['@{list}'].slice()
+        });
+        me['@{owner.node}'].val(selected);
+        if (!ignoreFireEvent) {
+            me['@{fire.event}'](selected);
+        }
+    },
+    '@{fn.search}'(val, callback) {
+        let me = this;
+        clearTimeout(me['@{search.timer}']);
+        let srcList = me['@{list}'];
+        let newList = [];
+        let index = 0;
+        let max = srcList.length;
+        let textKey = me['@{textKey}'];
+        let valueKey = me['@{valueKey}'];
+        if (!val) {
+            callback(srcList);
+            return;
+        }
+        let go = () => {
+            if (index < max) {
+                let end = Math.min(index + 400, max);
+                for (let i = index, li, text, value; i < end; i++) {
+                    li = srcList[i];
+                    text = li;
+                    value = li;
+                    if (textKey && valueKey) {
+                        text = li[textKey];
+                        value = li[valueKey];
+                    }
+                    if ((text + '').indexOf(val) >= 0 || (value + '').indexOf(val) >= 0) {
+                        newList.push(li);
+                    }
+                }
+                index = end;
+                me['@{search.timer}'] = setTimeout(me.wrapAsync(go), 20);
+            }
+            else {
+                callback(newList);
+            }
+        };
+        go();
+    },
+    '@{fire.event}'(item, compare) {
+        let me = this;
+        let updater = me.updater;
+        let valueKey = me['@{valueKey}'];
+        let textKey = me['@{textKey}'];
+        let lastSelected = me['@{selected}'];
+        let selected = item;
+        let selectedText = item;
+        if (textKey && valueKey) {
+            selectedText = item[textKey];
+            selected = item[valueKey];
+        }
+        if (!compare || lastSelected !== selected) {
+            updater.set({
+                selected: me['@{selected}'] = selected
+            });
+            let event = $.Event('change', {
+                item: item,
+                keys: {
+                    text: textKey,
+                    value: valueKey
+                },
+                value: valueKey ? item[valueKey] : item,
+                text: textKey ? item[textKey] : item
+            });
+            me['@{owner.node}'].val(valueKey ? item[valueKey] : item).trigger(event);
+            if (!event.isDefaultPrevented()) {
+                updater.digest({
+                    selected: selected,
+                    selectedText: selectedText
+                });
+            }
+            else {
+                updater.set({
+                    selected: lastSelected
+                });
+            }
+        }
+    },
+    '@{toggle}<click>'() {
+        let me = this;
+        let node = me['@{owner.node}'];
+        if (node.hasClass('__mx-dropdown_index_-open')) {
+            me['@{hide}']();
+        }
+        else if (!node.hasClass('__mx-dropdown_index_-notallowed')) {
+            me['@{show}']();
+        }
+    },
+    '@{search}<keyup,paste>'(e) {
+        let me = this;
+        e.stopPropagation();
+        clearTimeout(me['@{search.delay.timer}']);
+        let val = $.trim(e.eventTarget.value);
+        me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(() => {
+            if (val != me.$lVal) {
+                me['@{fn.search}'](me.$lVal = val, list => {
+                    me.updater.digest({
+                        list
+                    });
+                });
+            }
+        }), 300);
+    },
+    '@{select}<click>'(e) {
+        let me = this;
+        me['@{fire.event}'](e.params.item, true);
+        me['@{hide}']();
+    },
+    '@{stop}<change,focusin,focusout>'(e) {
+        e.stopPropagation();
+    }
+});
+
+});

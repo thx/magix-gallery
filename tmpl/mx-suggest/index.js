@@ -1,5 +1,5 @@
 /*
-ver:1.3.7
+ver:1.3.8
 */
 /*
     author: xinglie.lkf@ alibaba - inc.com
@@ -19,6 +19,7 @@ module.exports = Magix.View.extend({
             Monitor['@{teardown}']();
             me['@{owner.node}'].off('keyup paste input', me['@{fn.watch}'])
                 .off('focus', me['@{fn.show}']);
+            $('#suggest_' + me.id).remove();
         });
         me.updater.set({
             viewId: me.id,
@@ -51,7 +52,7 @@ module.exports = Magix.View.extend({
         let me = this;
         let oNode = $('#' + me.id);
         me['@{owner.node}'] = oNode;
-        oNode.on('focus', me['@{fn.show}'] = $.proxy(me.show, me))
+        oNode.on('focus', me['@{fn.show}'] = $.proxy(me['@{show}'], me))
             .on('keyup paste input', me['@{fn.watch}'] = $.proxy(me['@{filter}'], me));
         let id = 'suggest_' + me.id;
         $('<div />').attr('id', id).insertAfter(oNode);

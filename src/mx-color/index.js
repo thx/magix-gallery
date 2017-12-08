@@ -1,1 +1,269 @@
-define("mx-color/index",["magix","$","../mx-dragdrop/index"],function(t,a,s){var i=t("magix"),o=t("$"),e=t("../mx-dragdrop/index");i.applyStyle("_i",'._bu{padding:10px;background-color:#fff;display:inline-block;border:1px solid #ccc;border-radius:5px;overflow-y:hidden}._bv{width:225px;zoom:1}._bv:after,._bv:before{display:table;content:""}._bv:after{clear:both}._bw{border:1px solid #000;float:left;width:15px;height:15px;margin:-1px 0 0 -1px;position:relative}._bx:before{content:" ";position:absolute;left:2px;top:2px;border:2px solid #e8e8e8;border-style:inset;width:9px;height:9px}._by{margin:10px 0;height:200px}._bz{position:relative;float:left}._bA{width:196px;height:196px}._bB{position:absolute;width:8px;height:8px;-webkit-box-shadow:0 0 0 1.5px #fff,inset 0 0 1px 1px rgba(0,0,0,.3),0 0 1px 2px rgba(0,0,0,.4);box-shadow:0 0 0 1.5px #fff,inset 0 0 1px 1px rgba(0,0,0,.3),0 0 1px 2px rgba(0,0,0,.4);border-radius:50%;cursor:default}._bC{position:relative;float:left;margin-left:10px}._bD{width:18px;height:196px}._bE{position:absolute;left:2px;top:-2px;height:4px;width:14px;-webkit-box-shadow:0 0 0 1.5px #fff,inset 0 0 1px 1px rgba(0,0,0,.3),0 0 1px 2px rgba(0,0,0,.4);box-shadow:0 0 0 1.5px #fff,inset 0 0 1px 1px rgba(0,0,0,.3),0 0 1px 2px rgba(0,0,0,.4);background:#fff;cursor:default}._bF{height:25px}._bG{width:104px;margin-right:5px;vertical-align:middle}._bH{width:50px;border-radius:4px;height:32px;display:inline-block;margin-right:10px;vertical-align:middle;border:1px solid #ddd}._bI{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAGUlEQVQYV2M4gwH+YwCGIasIUwhT25BVBADtzYNYrHvv4gAAAABJRU5ErkJggg==);width:224px;height:12px;margin-bottom:10px}._bJ{height:100%}._bK{position:absolute;left:-2px;top:2px;height:8px;width:4px;-webkit-box-shadow:0 0 0 1.5px #fff,inset 0 0 1px 1px rgba(0,0,0,.3),0 0 1px 2px rgba(0,0,0,.4);box-shadow:0 0 0 1.5px #fff,inset 0 0 1px 1px rgba(0,0,0,.3),0 0 1px 2px rgba(0,0,0,.4);background:#fff;cursor:default}');var r={selected:"_bx",cnt:"_bu"},d=["d81e06","f4ea2a","1afa29","1296db","13227a","d4237a","ffffff","e6e6e6","dbdbdb","cdcdcd","bfbfbf","8a8a8a","707070","515151","2c2c2c","000000","ea986c","eeb174","f3ca7e","f9f28b","c8db8c","aad08f","87c38f","83c6c2","7dc5eb","87a7d6","8992c8","a686ba","bd8cbb","be8dbd","e89abe","e8989a","e16632","e98f36","efb336","f6ef37","afcd51","7cba59","36ab60","1baba8","17ace3","3f81c1","4f68b0","594d9c","82529d","a4579d","db649b","dd6572","d84e06","e0620d","ea9518","f4ea2a","8cbb1a","2ba515","0e932e","0c9890","1295db","0061b2","0061b0","004198","122179","88147f","d3227b","d6204b"],p=function(t,a,s){var i,o,e,r,d;t=t%360/60,i=o=e=s-(d=s*a);var p=255*(i+=[d,r=d*(1-Math.abs(t%2-1)),0,0,r,d][t=~~t]),_=255*(o+=[r,d,d,r,0,0][t]),c=255*(e+=[0,0,r,d,d,r][t]);return{r:p,g:_,b:c,hex:"#"+(16777216|c|_<<8|p<<16).toString(16).slice(1)}},_=function(t,a,s){t/=255,a/=255,s/=255;var i,o,e,r;return e=Math.max(t,a,s),r=e-Math.min(t,a,s),i=0===r?null:e==t?(a-s)/r+(a<s?6:0):e==a?(s-t)/r+2:(t-a)/r+4,i=i%6*60,o=0===r?0:r/e,{h:i,s:o,v:e}};s.exports=i.View.extend({tmpl:{html:'<div id="shortcuts_<%=$$.id%>"><ul class="_bv"><%for(var a=0;a<$$.shortcuts.length;a++){%><li class="_bw" id="sc_<%=$$.shortcuts[a]%>_<%=$$.id%>" style="background:#<%=$$.shortcuts[a]%>" mx-click="__al({color:\'#<%=$eq($$.shortcuts[a])%>\'})"></li><%}%></ul></div><div class="_by"><div class="_bz"><div class="_bA" id="cpicker_<%=$$.id%>" mx-click="__ak()"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%"><defs><lineargradient id="gb_<%=$$.id%>" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#000000" stop-opacity="1"></stop><stop offset="100%" stop-color="#CC9A81" stop-opacity="0"></stop></lineargradient><lineargradient id="gw_<%=$$.id%>" x1="0%" y1="100%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"></stop><stop offset="100%" stop-color="#CC9A81" stop-opacity="0"></stop></lineargradient></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#gw_<%=$$.id%>)"></rect><rect x="0" y="0" width="100%" height="100%" fill="url(#gb_<%=$$.id%>)"></rect></svg></div><div class="_bB" id="ph_<%=$$.id%>" mx-mousedown="__ag()"></div></div><div class="_bC"><div class="_bD" mx-click="__aj()"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%"><defs><linearGradient id="ghsv_<%=$$.id%>" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#FF0000" stop-opacity="1"></stop><stop offset="13%" stop-color="#FF00FF" stop-opacity="1"></stop><stop offset="25%" stop-color="#8000FF" stop-opacity="1"></stop><stop offset="38%" stop-color="#0040FF" stop-opacity="1"></stop><stop offset="50%" stop-color="#00FFFF" stop-opacity="1"></stop><stop offset="63%" stop-color="#00FF40" stop-opacity="1"></stop><stop offset="75%" stop-color="#0BED00" stop-opacity="1"></stop><stop offset="88%" stop-color="#FFFF00" stop-opacity="1"></stop><stop offset="100%" stop-color="#FF0000" stop-opacity="1"></stop></linearGradient></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#ghsv_<%=$$.id%>)"></rect></svg></div><div class="_bE" mx-mousedown="__af();" id="sh_<%=$$.id%>"></div></div></div><%if($$.alpha){%><div class="_bI _ag"><div class="_bJ _ag" id="at_<%=$$.id%>" mx-click="__ai()"></div><div class="_bK" id="ai_<%=$$.id%>" mx-mousedown="__ah()"></div></div><%}%><div class="_bF"><span class="_bH" id="bgcolor_<%=$$.id%>"></span><input class="_ap _bG" readonly="readonly" id="val_<%=$$.id%>"><%if($$.btns){%><button class="_an _ao" type="button" mx-click="__am();">确定</button><%}%></div>',subs:[]},init:function(t){var a=this;a.__W=t.color||"#ffffff",a.__X=t.showAlpha+""=="true",a.__Y=t.showBtns+""=="true",a.__Z={h:0,s:1,v:1},o("#"+a.id).addClass(r.cnt)},render:function(){var t=this;t.updater.digest({id:t.id,alpha:t.__X,btns:t.__Y,shortcuts:d}),t.__a_(t.__W)},__ac:function(t,a){var s=this,i=s.__Z;i.h=t.h%360,i.s=t.s,i.v=t.v;var e=p(t.h,t.s,t.v).hex,d=o("#cpicker_"+s.id),_=p(t.h,1,1);if(d.css("background",_.hex),s.__aa=e,s.__ab(),!a){o("#shortcuts_"+s.id+" li").removeClass(r.selected);var c=Math.round(196*i.h/360-2);o("#sh_"+s.id).css({top:c}),c=Math.round(196*(1-i.v)-4);var n=Math.round(196*i.s-4);o("#ph_"+s.id).css({left:n,top:c})}o("#sc_"+e.substr(1,6)+"_"+s.id).addClass(r.selected)},__a_:function(t){var a=this,s=parseInt(t.substr(1,2),16),i=parseInt(t.substr(3,2),16),o=parseInt(t.substr(5,2),16),e=parseInt(t.substr(7,2),16);isNaN(e)&&(e=255),a.__ad=("0"+e.toString(16)).slice(-2);var r=_(s,i,o);a.__ac(r),a.__X&&a.__ae(e)},"__af<mousedown>":function(t){var a=this,s=o(t.eventTarget),i=parseInt(s.css("top"),10),r=t;e.begin(t.eventTarget,function(t){var o=t.pageY-r.pageY;(o+=i)<=-2?o=-2:o>=194&&(o=194),s.css({top:o});var e=(o+2)/196*360;a.__ac({h:e,s:a.__Z.s,v:a.__Z.v},!0)},function(){a.__u()})},"__ag<mousedown>":function(t){var a=this,s=o(t.eventTarget),i=parseInt(s.css("left"),10),r=parseInt(s.css("top"),10),d=t;e.begin(t.eventTarget,function(t){var o=t.pageY-d.pageY,e=t.pageX-d.pageX;(o+=r)<=-4?o=-4:o>=192&&(o=192),(e+=i)<=-4?e=-4:e>=192&&(e=192),s.css({top:o,left:e});var p=(e+4)/196,_=(196-(o+4))/196;a.__ac({h:a.__Z.h,s:p,v:_})},function(){a.__u()})},__ae:function(t){t/=255,t*=224,t-=2,o("#ai_"+this.id).css({left:t})},__ab:function(){var t=this,a=t.__aa;o("#at_"+t.id).css({background:"linear-gradient(to right, "+a+"00 0%,"+a+" 100%)"}),t.__X&&(a+=t.__ad),o("#bgcolor_"+t.id).css("background",a),o("#val_"+t.id).val(a)},"__ah<mousedown>":function(t){var a=o(t.eventTarget),s=parseInt(a.css("left"),10),i=t,r=this;e.begin(t.eventTarget,function(t){var o=t.pageX-i.pageX;(o+=s)<=-2?o=-2:o>=222&&(o=222),a.css({left:o});var e=Math.round((o+2)/224*255);r.__ad=("0"+e.toString(16)).slice(-2),r.__ab()},function(){r.__u()})},"__ai<click>":function(t){var a=this,s=o(t.eventTarget).offset(),i=(t.pageX-s.left)/224*255;a.__ad=("0"+i.toString(16)).slice(-2),a.__ae(i),a.__ab(),a.__u()},"__aj<click>":function(t){var a=this,s=o(t.eventTarget).offset(),i=(t.pageY-s.top)/196*360;a.__ac({h:i,s:a.__Z.s,v:a.__Z.v}),a.__u()},"__ak<click>":function(t){var a=this,s=o(t.eventTarget).offset(),i=(t.pageX-s.left)/196,e=(196-(t.pageY-s.top))/196;a.__ac({h:a.__Z.h,s:i,v:e}),a.__u()},"__al<click>":function(t){this.__a_(t.params.color),o(t.eventTarget).addClass(r.selected),this.__u()},__u:function(t){var a=this;if(!a.__Y||t){var s=o("#val_"+a.id);o("#"+a.id).trigger({type:"change",color:s.val()})}},"__am<click>":function(){this.__u(1)}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-color/index',["magix","$","../mx-dragdrop/index"],(require,exports,module)=>{
+/*Magix,$,DD*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@taobao.com
+ */
+let Magix = require('magix');
+let $ = require('$');
+let DD = require('../mx-dragdrop/index');
+let pickerIndicator = 8 / 2;
+let pickerZone = 196;
+let slider = 4 / 2;
+let alphaWidth = 224;
+Magix.applyStyle("__mx-color_index_",".__mx-color_index_-cnt {\n  padding: 10px;\n  background-color: #fff;\n  display: inline-block;\n  border: 1px solid #CCC;\n  border-radius: 5px;\n  overflow-y: hidden;\n}\n.__mx-color_index_-shortcuts {\n  width: 225px;\n}\n.__mx-color_index_-shortcuts {\n  *zoom: 1;\n}\n.__mx-color_index_-shortcuts:before,\n.__mx-color_index_-shortcuts:after {\n  display: table;\n  content: \"\";\n}\n.__mx-color_index_-shortcuts:after {\n  clear: both;\n}\n.__mx-color_index_-shortcuts-item {\n  border: 1px solid #000;\n  float: left;\n  width: 15px;\n  height: 15px;\n  margin: -1px 0px 0 -1px;\n  position: relative;\n}\n.__mx-color_index_-selected:before {\n  content: ' ';\n  position: absolute;\n  left: 2px;\n  top: 2px;\n  border: solid 2px #e8e8e8;\n  border-style: inset;\n  width: 9px;\n  height: 9px;\n}\n.__mx-color_index_-body {\n  margin: 10px 0;\n  height: 200px;\n}\n.__mx-color_index_-cpicker-wrapper {\n  position: relative;\n  float: left;\n}\n.__mx-color_index_-cpicker {\n  width: 196px;\n  height: 196px;\n}\n.__mx-color_index_-cpicker-indicator {\n  position: absolute;\n  width: 8px;\n  height: 8px;\n  -webkit-box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);\n          box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);\n  border-radius: 50%;\n  cursor: default;\n}\n.__mx-color_index_-slide-wrapper {\n  position: relative;\n  float: left;\n  margin-left: 10px;\n}\n.__mx-color_index_-slide {\n  width: 18px;\n  height: 196px;\n}\n.__mx-color_index_-slide-indicator {\n  position: absolute;\n  left: 2px;\n  top: -2px;\n  height: 4px;\n  width: 14px;\n  -webkit-box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);\n          box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);\n  background: #fff;\n  cursor: default;\n}\n.__mx-color_index_-foot {\n  height: 25px;\n}\n.__mx-color_index_-color-value {\n  width: 104px;\n  margin-right: 5px;\n  vertical-align: middle;\n}\n.__mx-color_index_-bgcolor {\n  width: 50px;\n  border-radius: 4px;\n  height: 32px;\n  display: inline-block;\n  margin-right: 10px;\n  vertical-align: middle;\n  border: 1px solid #ddd;\n}\n.__mx-color_index_-alpha {\n  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAGUlEQVQYV2M4gwH+YwCGIasIUwhT25BVBADtzYNYrHvv4gAAAABJRU5ErkJggg==);\n  width: 224px;\n  height: 12px;\n  margin-bottom: 10px;\n}\n.__mx-color_index_-alpha-tracker {\n  height: 100%;\n}\n.__mx-color_index_-alpha-indicator {\n  position: absolute;\n  left: -2px;\n  top: 2px;\n  height: 8px;\n  width: 4px;\n  -webkit-box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);\n          box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);\n  background: #fff;\n  cursor: default;\n}\n");
+let CSSNames = {"selected":"__mx-color_index_-selected","cnt":"__mx-color_index_-cnt"};
+let ShortCuts = ['d81e06', 'f4ea2a', '1afa29', '1296db', '13227a', 'd4237a', 'ffffff', 'e6e6e6', 'dbdbdb', 'cdcdcd', 'bfbfbf', '8a8a8a', '707070', '515151', '2c2c2c', '000000', 'ea986c', 'eeb174', 'f3ca7e', 'f9f28b', 'c8db8c', 'aad08f', '87c38f', '83c6c2', '7dc5eb', '87a7d6', '8992c8', 'a686ba', 'bd8cbb', 'be8dbd', 'e89abe', 'e8989a', 'e16632', 'e98f36', 'efb336', 'f6ef37', 'afcd51', '7cba59', '36ab60', '1baba8', '17ace3', '3f81c1', '4f68b0', '594d9c', '82529d', 'a4579d', 'db649b', 'dd6572', 'd84e06', 'e0620d', 'ea9518', 'f4ea2a', '8cbb1a', '2ba515', '0e932e', '0c9890', '1295db', '0061b2', '0061b0', '004198', '122179', '88147f', 'd3227b', 'd6204b'];
+let HSV2RGB = (h, s, v) => {
+    let R, G, B, X, C;
+    h = (h % 360) / 60;
+    C = v * s;
+    X = C * (1 - Math.abs(h % 2 - 1));
+    R = G = B = v - C;
+    h = ~~h;
+    R += [C, X, 0, 0, X, C][h];
+    G += [X, C, C, X, 0, 0][h];
+    B += [0, 0, X, C, C, X][h];
+    let r = R * 255, g = G * 255, b = B * 255;
+    return {
+        r: r,
+        g: g,
+        b: b,
+        hex: '#' + (16777216 | b | (g << 8) | (r << 16)).toString(16).slice(1)
+    };
+};
+let RGB2HSV = (r, g, b) => {
+    //if (r > 0 || g > 0 || b > 0) {
+    r /= 255;
+    g /= 255;
+    b /= 255;
+    //}
+    let H, S, V, C;
+    V = Math.max(r, g, b);
+    C = V - Math.min(r, g, b);
+    H = (C === 0 ? null : V == r ? (g - b) / C + (g < b ? 6 : 0) : V == g ? (b - r) / C + 2 : (r - g) / C + 4);
+    H = (H % 6) * 60;
+    S = C === 0 ? 0 : C / V;
+    return {
+        h: H,
+        s: S,
+        v: V
+    };
+};
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<div id=\"shortcuts_<%=$$.id%>\"><ul class=\"__mx-color_index_-shortcuts\"><%for(var i=0;i<$$.shortcuts.length;i++){%><li class=\"__mx-color_index_-shortcuts-item\" id=\"sc_<%=$$.shortcuts[i]%>_<%=$$.id%>\" style=\"background:#<%=$$.shortcuts[i]%>\" mx-click=\"\u001f\u001e@{shortcuts.picked}({color:'#<%=$eq($$.shortcuts[i])%>'})\"></li><%}%></ul></div><div class=\"__mx-color_index_-body\"><div class=\"__mx-color_index_-cpicker-wrapper\"><div class=\"__mx-color_index_-cpicker\" id=\"cpicker_<%=$$.id%>\" mx-mousedown=\"\u001f\u001e@{color.zone.drag}()\"><svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"100%\" height=\"100%\"><defs><lineargradient id=\"gb_<%=$$.id%>\" x1=\"0%\" y1=\"100%\" x2=\"0%\" y2=\"0%\"><stop offset=\"0%\" stop-color=\"#000000\" stop-opacity=\"1\"></stop><stop offset=\"100%\" stop-color=\"#CC9A81\" stop-opacity=\"0\"></stop></lineargradient><lineargradient id=\"gw_<%=$$.id%>\" x1=\"0%\" y1=\"100%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#FFFFFF\" stop-opacity=\"1\"></stop><stop offset=\"100%\" stop-color=\"#CC9A81\" stop-opacity=\"0\"></stop></lineargradient></defs><rect x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" fill=\"url(#gw_<%=$$.id%>)\"></rect><rect x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" fill=\"url(#gb_<%=$$.id%>)\"></rect></svg><div class=\"__mx-color_index_-cpicker-indicator\" id=\"ph_<%=$$.id%>\"></div></div></div><div class=\"__mx-color_index_-slide-wrapper\"><div class=\"__mx-color_index_-slide\" mx-mousedown=\"\u001f\u001e@{slide.drag}()\"><svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"100%\" height=\"100%\"><defs><linearGradient id=\"ghsv_<%=$$.id%>\" x1=\"0%\" y1=\"100%\" x2=\"0%\" y2=\"0%\"><stop offset=\"0%\" stop-color=\"#FF0000\" stop-opacity=\"1\"></stop><stop offset=\"13%\" stop-color=\"#FF00FF\" stop-opacity=\"1\"></stop><stop offset=\"25%\" stop-color=\"#8000FF\" stop-opacity=\"1\"></stop><stop offset=\"38%\" stop-color=\"#0040FF\" stop-opacity=\"1\"></stop><stop offset=\"50%\" stop-color=\"#00FFFF\" stop-opacity=\"1\"></stop><stop offset=\"63%\" stop-color=\"#00FF40\" stop-opacity=\"1\"></stop><stop offset=\"75%\" stop-color=\"#0BED00\" stop-opacity=\"1\"></stop><stop offset=\"88%\" stop-color=\"#FFFF00\" stop-opacity=\"1\"></stop><stop offset=\"100%\" stop-color=\"#FF0000\" stop-opacity=\"1\"></stop></linearGradient></defs><rect x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" fill=\"url(#ghsv_<%=$$.id%>)\"></rect></svg><div class=\"__mx-color_index_-slide-indicator\" id=\"sh_<%=$$.id%>\"></div></div></div></div><%if($$.alpha){%><div class=\"__mx-color_index_-alpha __mx-style_index_-pr\"><div class=\"__mx-color_index_-alpha-tracker __mx-style_index_-pr\" id=\"at_<%=$$.id%>\" mx-mousedown=\"\u001f\u001e@{alpha.drag}()\"><div class=\"__mx-color_index_-alpha-indicator\" id=\"ai_<%=$$.id%>\"></div></div></div><%}%><div class=\"__mx-color_index_-foot\"><span class=\"__mx-color_index_-bgcolor\" id=\"bgcolor_<%=$$.id%>\"></span><input class=\"__mx-style_index_-input __mx-color_index_-color-value\" readonly=\"readonly\" id=\"val_<%=$$.id%>\"><%if($$.btns){%><button class=\"__mx-style_index_-btn __mx-style_index_-btn-brand\" type=\"button\" mx-click=\"\u001f\u001e@{enter}();\">确定</button><%}%></div>","subs":[],"file":"mx-color/index.html"},
+    init(extra) {
+        let me = this;
+        me['@{color}'] = extra.color || '#ffffff';
+        me['@{show.alpha}'] = (extra.showAlpha + '') === 'true';
+        me['@{show.btns}'] = (extra.showBtns + '') === 'true';
+        me['@{hsv.info}'] = {
+            h: 0,
+            s: 1,
+            v: 1
+        };
+        $('#' + me.id).addClass(CSSNames.cnt);
+    },
+    render() {
+        let me = this;
+        me.updater.digest({
+            id: me.id,
+            alpha: me['@{show.alpha}'],
+            btns: me['@{show.btns}'],
+            shortcuts: ShortCuts
+        });
+        me['@{setColor}'](me['@{color}']);
+    },
+    '@{setHSV}'(hsv, ignoreSyncUI) {
+        let me = this;
+        let selfHSV = me['@{hsv.info}'];
+        selfHSV.h = hsv.h % 360;
+        selfHSV.s = hsv.s;
+        selfHSV.v = hsv.v;
+        let rgb = HSV2RGB(hsv.h, hsv.s, hsv.v);
+        let hex = rgb.hex;
+        let cpickerNode = $('#cpicker_' + me.id);
+        let colorZone = HSV2RGB(hsv.h, 1, 1);
+        cpickerNode.css('background', colorZone.hex);
+        me['@{hex.color}'] = hex;
+        me['@{sync.color}']();
+        if (!ignoreSyncUI) {
+            $('#shortcuts_' + me.id + ' li').removeClass(CSSNames.selected);
+            let top = Math.round(selfHSV.h * pickerZone / 360 - slider);
+            $('#sh_' + me.id).css({
+                top: top
+            });
+            top = Math.round((1 - selfHSV.v) * pickerZone - pickerIndicator);
+            let left = Math.round(selfHSV.s * pickerZone - pickerIndicator);
+            $('#ph_' + me.id).css({
+                left: left,
+                top: top
+            });
+        }
+        $('#sc_' + hex.substr(1, 6) + '_' + me.id).addClass(CSSNames.selected);
+    },
+    '@{setColor}'(hex) {
+        let me = this;
+        let r = parseInt(hex.substr(1, 2), 16);
+        let g = parseInt(hex.substr(3, 2), 16);
+        let b = parseInt(hex.substr(5, 2), 16);
+        let a = parseInt(hex.substr(7, 2), 16);
+        if (isNaN(a)) {
+            a = 255;
+        }
+        me['@{hex.alpha}'] = ('0' + a.toString(16)).slice(-2);
+        let hsv = RGB2HSV(r, g, b);
+        me['@{setHSV}'](hsv);
+        if (me['@{show.alpha}']) {
+            me['@{setAlpha}'](a);
+        }
+    },
+    '@{slide.drag}<mousedown>'(e) {
+        let me = this;
+        let current = $(e.eventTarget);
+        let indicator = $('#sh_' + me.id);
+        let pos = e;
+        let offset = current.offset(), top = e.pageY - offset.top, h = top / pickerZone * 360;
+        me['@{setHSV}']({
+            h: h,
+            s: me['@{hsv.info}'].s,
+            v: me['@{hsv.info}'].v
+        });
+        let startY = parseInt(indicator.css('top'), 10);
+        DD.begin(e.eventTarget, event => {
+            let offsetY = event.pageY - pos.pageY;
+            offsetY += startY;
+            if (offsetY <= -slider)
+                offsetY = -slider;
+            else if (offsetY >= (pickerZone - slider))
+                offsetY = pickerZone - slider;
+            indicator.css({
+                top: offsetY
+            });
+            let h = (offsetY + slider) / pickerZone * 360;
+            me['@{setHSV}']({
+                h: h,
+                s: me['@{hsv.info}'].s,
+                v: me['@{hsv.info}'].v
+            }, true);
+        }, () => {
+            me['@{fire.event}']();
+        });
+    },
+    '@{color.zone.drag}<mousedown>'(e) {
+        let me = this, offset = $(e.eventTarget).offset(), left = e.pageX - offset.left, top = e.pageY - offset.top, s = left / pickerZone, v = (pickerZone - top) / pickerZone;
+        me['@{setHSV}']({
+            h: me['@{hsv.info}'].h,
+            s: s,
+            v: v
+        });
+        let current = $('#ph_' + me.id);
+        let startX = parseInt(current.css('left'), 10);
+        let startY = parseInt(current.css('top'), 10);
+        let pos = e;
+        DD.begin(e.eventTarget, (event) => {
+            let offsetY = event.pageY - pos.pageY;
+            let offsetX = event.pageX - pos.pageX;
+            offsetY += startY;
+            if (offsetY <= -pickerIndicator)
+                offsetY = -pickerIndicator;
+            else if (offsetY >= (pickerZone - pickerIndicator))
+                offsetY = pickerZone - pickerIndicator;
+            offsetX += startX;
+            if (offsetX <= -pickerIndicator)
+                offsetX = -pickerIndicator;
+            else if (offsetX >= (pickerZone - pickerIndicator))
+                offsetX = pickerZone - pickerIndicator;
+            current.css({
+                top: offsetY,
+                left: offsetX
+            });
+            let s = (offsetX + pickerIndicator) / pickerZone;
+            let v = (pickerZone - (offsetY + pickerIndicator)) / pickerZone;
+            me['@{setHSV}']({
+                h: me['@{hsv.info}'].h,
+                s: s,
+                v: v
+            });
+        }, () => {
+            me['@{fire.event}']();
+        });
+    },
+    '@{setAlpha}'(a) {
+        a /= 255;
+        a *= alphaWidth;
+        a -= slider;
+        $('#ai_' + this.id).css({
+            left: a
+        });
+    },
+    '@{sync.color}'() {
+        let me = this;
+        let hex = me['@{hex.color}'];
+        $('#at_' + me.id).css({
+            background: 'linear-gradient(to right, ' + hex + '00 0%,' + hex + ' 100%)'
+        });
+        if (me['@{show.alpha}']) {
+            hex += me['@{hex.alpha}'];
+        }
+        $('#bgcolor_' + me.id).css('background', hex);
+        $('#val_' + me.id).val(hex);
+    },
+    '@{alpha.drag}<mousedown>'(e) {
+        let current = $(e.eventTarget);
+        let pos = e;
+        let me = this;
+        let indicator = $('#ai_' + me.id);
+        let offset = current.offset(), left = e.pageX - offset.left, a = (left / alphaWidth * 255) | 0;
+        me['@{hex.alpha}'] = ('0' + a.toString(16)).slice(-2);
+        me['@{setAlpha}'](a);
+        me['@{sync.color}']();
+        let startX = parseInt(indicator.css('left'), 10);
+        DD.begin(e.eventTarget, (event) => {
+            let offsetX = event.pageX - pos.pageX;
+            offsetX += startX;
+            if (offsetX <= -slider)
+                offsetX = -slider;
+            else if (offsetX >= (alphaWidth - slider))
+                offsetX = alphaWidth - slider;
+            indicator.css({
+                left: offsetX
+            });
+            let a = Math.round((offsetX + slider) / alphaWidth * 255);
+            me['@{hex.alpha}'] = ('0' + a.toString(16)).slice(-2);
+            me['@{sync.color}']();
+        }, () => {
+            me['@{fire.event}']();
+        });
+    },
+    '@{shortcuts.picked}<click>'(e) {
+        this['@{setColor}'](e.params.color);
+        $(e.eventTarget).addClass(CSSNames.selected);
+        this['@{fire.event}']();
+    },
+    '@{fire.event}'(fromBtn) {
+        let me = this;
+        if (!me['@{show.btns}'] || fromBtn) {
+            let c = $('#val_' + me.id).val();
+            if (c != me['@{color}']) {
+                $('#' + me.id).trigger({
+                    type: 'change',
+                    color: me['@{color}'] = c
+                });
+            }
+        }
+    },
+    '@{enter}<click>'() {
+        this['@{fire.event}'](1);
+    }
+});
+
+});

@@ -43,11 +43,11 @@
                     <%let equal=inArray(value+'',keys)>-1%>
                     <%if(value===''){%>
                         <li title="<%=text%>" class="dropdown-item">
-                            <a href="#"
+                            <span
                                 class="item-link ellipsis <%if(equal){%> active<%}%>"
                                 mx-click="@{select}({item:'<%@item%>'})">
                                 <%=text%>
-                            </a>
+                            </span>
                         </li>
                     <%}else{%>
                     <li class="dropdown-item clearfix">
@@ -65,7 +65,7 @@
                                 <%}%>
                                 <%let equal=inArray(value+'',keys)>-1%>
                                 <li class="s-item">
-                                    <a href="#" class="s-item-link ellipsis<%if(equal){%> active<%}%>" mx-click="@{select}({item:'<%@item%>'})"><%=text%></a>
+                                    <span class="s-item-link ellipsis<%if(equal){%> active<%}%>" mx-click="@{select}({item:'<%@item%>'})"><%=text%></span>
                                 </li>
                             <%}%>
                         </ul>

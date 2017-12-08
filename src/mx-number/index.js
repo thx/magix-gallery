@@ -1,1 +1,209 @@
-define("mx-number/index",["magix","$"],function(_,e,t){var a=_("magix"),o=_("$");a.applyStyle("_z",'._dY{padding:0;position:relative}._dZ{width:100%;border:none;height:100%;padding:6px 9px;background-color:transparent;color:#333;display:block}._e_,._ea{width:25px;height:50%;position:absolute;right:1px;border:2px solid #fff;border-radius:4px;cursor:pointer}._e_:hover,._ea:hover{background-color:#f0f0f0}._ea{top:1px}._e_{bottom:1px}._eb:after{width:0;height:0;position:absolute;top:0;right:0;bottom:0;left:0;border-left:5px solid transparent;border-right:5px solid transparent;content:"";display:block;margin:auto}._e_:after{border-top:5px solid #ccc}._ea:after{border-bottom:5px solid #ccc}._ec{background-color:#fbfbfb}._ec:hover{border-color:#e6e6e6}._ec ._e_,._ec ._ea{cursor:not-allowed;border-color:transparent}._ec ._e_:hover,._ec ._ea:hover{background-color:transparent}._ec ._ea:hover:after{border-bottom-color:#ccc}._ec ._e_:hover:after{border-top-color:#ccc}'),t.exports=a.View.extend({tmpl:{html:'<input mx-guid="g0" class="_dZ" mx-focusin="__dy()" mx-focusout="__dA()" value="<%=$$.value%>" mx-change="__dx()" mx-keydown="__dF()" <%if($$.disabled){%> disabled<%}%> autocomplete="off"><span class="_ea _eb _aj" mx-click="__du({i:true})" mx-mousedown="__dE({i:true})" mx-contextmenu="__D()"></span><span class="_e_ _eb _aj" mx-click="__du()" mx-mousedown="__dE()" mx-contextmenu="__D()"></span>',subs:[{keys:["value","disabled"],path:'input[mx-guid="g0"]',attr:'value="<%=$$.value%>" mx-change="__dx()" mx-keydown="__dF()" <%if($$.disabled){%> disabled<%}%>',attrs:[{n:"value",q:1,p:1},{n:"mx-change"},{n:"mx-keydown"},{n:"disabled",b:1,p:1}]}]},init:function(_){var e=this;e.assign(_);var t=o("#"+e.id);t.addClass("_ap _dY"),e.__h=t},assign:function(_){var e=this;e.__cp=+_.value||"",e.__dq=+_.step||1,e.__cb=_.disabled+""=="true",e.__F=a.has(_,"max")?+_.max:Number.MAX_VALUE,e.__E=a.has(_,"min")?+_.min:-Number.MAX_VALUE,e.__dr=+_.ratio||10;var t=e.__dq+"",o=t.indexOf(".");return o=o>=0?t.slice(o+1).length:0,e.__ds=o,!0},render:function(){var _=this;_.__h[_.__cb?"addClass":"removeClass"]("_ec"),_.updater.digest({value:_.__cp,disabled:_.__cb}),_.__dt=_.__h.find("input")},val:function(_){var e=this;if((_=+_)||0===_){var t=e.__F,a=e.__E,o=e.__dq;_>t?_=t:_<a&&(_=a),_!==e.__cp&&(_=(_=Math.round(_/o)*o).toFixed(e.__ds),e.__dt.val(_),_=+_,e.__h.prop("value",e.__cp=_).trigger({type:"input",value:_}))}return e.__cp},__du:function(_,e){var t=this,a=t.__cp;""===a&&(a=0);var o=t.__dq,r=a;e&&(o*=t.__dr),_?r+=o:r-=o,t.val(r)},__dv:function(){var _=this.__dt[0];_&&(_.focus(),_.selectionStart=_.selectionEnd=_.value.length)},__dw:function(){var _=this;_.__h.addClass("_ar"),a.has(_,"__cg")||(_.__cg=_.__cp)},"__dx<change>":function(_){_.stopPropagation();var e=_.eventTarget,t=e.value,a=this;if(""===t)return e.value=a.__cp="",void a.__h.prop("value","");var o=parseFloat(t);(o||0===o)&&a.val(o),o=(o=a.__cp)||0===o?o.toFixed(a.__ds):"",e.value=o},"__dy<focusin>":function(){this.__dw()},"__dA<focusout>":function(){var _=this;_.__dz||(_.__h.removeClass("_ar"),_.__cg!=_.__cp&&_.__h.trigger({type:"change",value:_.__cp}),delete _.__cg)},"__du<click>":function(_){var e=this;e.__cb||e.__dB||(e.__du(_.params.i,_.shiftKey),e.__dv())},"__dE<mousedown>":function(_){var e=this;e.__cb||(e.__dz=!0,e.__dw(),e.__dC=setTimeout(e.wrapAsync(function(){e.__dD=setInterval(e.wrapAsync(function(){e.__dB=!0,e.__du(_.params.i),e.__dv()}),50)}),300))},"__dF<keydown>":function(_){if(38==_.keyCode||40==_.keyCode){_.preventDefault();var e=this;if(!e.__cb){var t=_.eventTarget.value;if(""===t)e.__cp="";else{var a=parseFloat(t);(a||0===a)&&a!=e.__cp&&(e.__cp=a)}e.__du(38==_.keyCode,_.shiftKey)}}},"__D<contextmenu>":function(_){_.preventDefault()},"$doc<mouseup>":function(){var _=this;clearTimeout(_.__dC),clearInterval(_.__dD),delete _.__dz,setTimeout(_.wrapAsync(function(){delete _.__dB}),0)}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-number/index',["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+let Magix = require('magix');
+let $ = require('$');
+Magix.applyStyle("__mx-number_index_",".__mx-number_index_-wrapper {\n  padding: 0;\n  position: relative;\n}\n.__mx-number_index_-ipt {\n  width: 100%;\n  border: none;\n  height: 100%;\n  padding: 6px 9px;\n  background-color: transparent;\n  color: #333;\n  display: block;\n}\n.__mx-number_index_-up,\n.__mx-number_index_-down {\n  width: 25px;\n  height: 50%;\n  position: absolute;\n  right: 1px;\n  border: 2px solid #fff;\n  border-radius: 4px;\n  cursor: pointer;\n}\n.__mx-number_index_-up:hover,\n.__mx-number_index_-down:hover {\n  background-color: #f0f0f0;\n}\n.__mx-number_index_-up {\n  top: 1px;\n}\n.__mx-number_index_-down {\n  bottom: 1px;\n}\n.__mx-number_index_-arrow:after {\n  width: 0;\n  height: 0;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-left: 5px solid rgba(0, 0, 0, 0);\n  border-right: 5px solid rgba(0, 0, 0, 0);\n  content: '';\n  display: block;\n  margin: auto;\n}\n.__mx-number_index_-down:after {\n  border-top: 5px solid #ccc;\n}\n.__mx-number_index_-up:after {\n  border-bottom: 5px solid #ccc;\n}\n.__mx-number_index_-notallowed {\n  background-color: #fbfbfb;\n}\n.__mx-number_index_-notallowed:hover {\n  border-color: #e6e6e6;\n}\n.__mx-number_index_-notallowed .__mx-number_index_-up,\n.__mx-number_index_-notallowed .__mx-number_index_-down {\n  cursor: not-allowed;\n  border-color: transparent;\n}\n.__mx-number_index_-notallowed .__mx-number_index_-up:hover,\n.__mx-number_index_-notallowed .__mx-number_index_-down:hover {\n  background-color: transparent;\n}\n.__mx-number_index_-notallowed .__mx-number_index_-up:hover:after {\n  border-bottom-color: #ccc;\n}\n.__mx-number_index_-notallowed .__mx-number_index_-down:hover:after {\n  border-top-color: #ccc;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<input mx-guid=\"g0\u001f\" class=\"__mx-number_index_-ipt\" mx-focusin=\"\u001f\u001e@{active}()\" mx-focusout=\"\u001f\u001e@{deactive}()\" value=\"<%=$$.value%>\" mx-change=\"\u001f\u001e@{num.check}()\" mx-keydown=\"\u001f\u001e@{press.check}()\" <%if($$.disabled){%> disabled<%}%> autocomplete=\"off\"><span class=\"__mx-number_index_-up __mx-number_index_-arrow __mx-style_index_-unselectable\" mx-click=\"\u001f\u001e@{num.change}({i:true})\" mx-mousedown=\"\u001f\u001e@{fast.start}({i:true})\" mx-contextmenu=\"\u001f\u001e@{prevent}()\"></span><span class=\"__mx-number_index_-down __mx-number_index_-arrow __mx-style_index_-unselectable\" mx-click=\"\u001f\u001e@{num.change}()\" mx-mousedown=\"\u001f\u001e@{fast.start}()\" mx-contextmenu=\"\u001f\u001e@{prevent}()\"></span>","subs":[{"keys":["value","disabled"],"path":"input[mx-guid=\"g0\u001f\"]","attr":"value=\"<%=$$.value%>\" mx-change=\"\u001f\u001e@{num.check}()\" mx-keydown=\"\u001f\u001e@{press.check}()\" <%if($$.disabled){%> disabled<%}%>","attrs":[{"n":"value","q":1,"p":1},{"n":"mx-change"},{"n":"mx-keydown"},{"n":"disabled","b":1,"p":1}]}],"file":"mx-number/index.html"},
+    init(extra) {
+        let me = this;
+        me.assign(extra);
+        let node = $('#' + me.id);
+        node.addClass('__mx-style_index_-input __mx-number_index_-wrapper');
+        me['@{owner.node}'] = node;
+    },
+    assign(ops) {
+        let me = this;
+        me['@{value}'] = +ops.value || '';
+        me['@{step}'] = +ops.step || 1;
+        me['@{disabled}'] = (ops.disabled + '') === 'true';
+        me['@{max}'] = Magix.has(ops, 'max') ? +ops.max : Number.MAX_VALUE;
+        me['@{min}'] = Magix.has(ops, 'min') ? +ops.min : -Number.MAX_VALUE;
+        me['@{ratio}'] = +ops.ratio || 10;
+        let s = me['@{step}'] + '';
+        let i = s.indexOf('.');
+        if (i >= 0) {
+            i = s.slice(i + 1).length;
+        }
+        else {
+            i = 0;
+        }
+        me['@{tail.length}'] = i;
+        return true;
+    },
+    render() {
+        let me = this;
+        me['@{owner.node}'][me['@{disabled}'] ? 'addClass' : 'removeClass']('__mx-number_index_-notallowed');
+        me.updater.digest({
+            value: me['@{value}'],
+            disabled: me['@{disabled}']
+        });
+        me['@{ctrl.input}'] = me['@{owner.node}'].find('input');
+    },
+    val(v) {
+        v = +v;
+        let me = this;
+        if (v || v === 0) {
+            let max = me['@{max}'];
+            let min = me['@{min}'];
+            let step = me['@{step}'];
+            if (v > max) {
+                v = max;
+            }
+            else if (v < min) {
+                v = min;
+            }
+            if (v !== me['@{value}']) {
+                v = Math.round(v / step) * step;
+                v = v.toFixed(me['@{tail.length}']);
+                me['@{ctrl.input}'].val(v);
+                v = +v;
+                me['@{owner.node}'].prop('value', me['@{value}'] = v).trigger({
+                    type: 'input',
+                    value: v
+                });
+            }
+        }
+        return me['@{value}'];
+    },
+    '@{num.change}'(increase, enlarge) {
+        let me = this;
+        let value = me['@{value}'];
+        if (value === '')
+            value = 0; //for init
+        let step = me['@{step}'];
+        let c = value;
+        if (enlarge)
+            step *= me['@{ratio}'];
+        if (increase) {
+            c += step;
+        }
+        else {
+            c -= step;
+        }
+        me.val(c);
+    },
+    '@{cursor.show}'() {
+        let me = this;
+        let ipt = me['@{ctrl.input}'][0];
+        if (ipt) {
+            ipt.focus();
+            ipt.selectionStart = ipt.selectionEnd = ipt.value.length;
+        }
+    },
+    '@{simulator.active}'() {
+        let me = this;
+        me['@{owner.node}'].addClass('__mx-style_index_-input-focus');
+        if (!Magix.has(me, '@{last.value}')) {
+            me['@{last.value}'] = me['@{value}'];
+        }
+    },
+    '@{num.check}<change>'(e) {
+        e.stopPropagation();
+        let target = e.eventTarget;
+        let value = target.value;
+        let me = this;
+        if (value === '') {
+            target.value = me['@{value}'] = '';
+            me['@{owner.node}'].prop('value', '');
+            return;
+        }
+        let v = parseFloat(value);
+        if (v || v === 0) {
+            me.val(v);
+        }
+        v = me['@{value}'];
+        if (v || v === 0) {
+            v = v.toFixed(me['@{tail.length}']);
+        }
+        else {
+            v = '';
+        }
+        target.value = v;
+    },
+    '@{active}<focusin>'() {
+        this['@{simulator.active}']();
+    },
+    '@{deactive}<focusout>'() {
+        let me = this;
+        if (!me['@{ui.keep.active}']) {
+            me['@{owner.node}'].removeClass('__mx-style_index_-input-focus');
+            if (me['@{last.value}'] != me['@{value}']) {
+                me['@{owner.node}'].trigger({
+                    type: 'change',
+                    value: me['@{value}']
+                });
+            }
+            delete me['@{last.value}'];
+        }
+    },
+    '@{num.change}<click>'(e) {
+        let me = this;
+        if (!me['@{disabled}'] && !me['@{fast.change.start}']) {
+            me['@{num.change}'](e.params.i, e.shiftKey);
+            me['@{cursor.show}']();
+        }
+    },
+    '@{fast.start}<mousedown>'(e) {
+        let me = this;
+        if (!me['@{disabled}']) {
+            me['@{ui.keep.active}'] = true;
+            me['@{simulator.active}']();
+            me['@{long.tap.timer}'] = setTimeout(me.wrapAsync(() => {
+                me['@{interval.timer}'] = setInterval(me.wrapAsync(() => {
+                    me['@{fast.change.start}'] = true;
+                    me['@{num.change}'](e.params.i);
+                    me['@{cursor.show}']();
+                }), 50);
+            }), 300);
+        }
+    },
+    '@{press.check}<keydown>'(e) {
+        if (e.keyCode == 38 || e.keyCode == 40) {
+            e.preventDefault();
+            let me = this;
+            if (!me['@{disabled}']) {
+                let target = e.eventTarget;
+                let value = target.value;
+                if (value === '') {
+                    me['@{value}'] = '';
+                }
+                else {
+                    let v = parseFloat(value);
+                    if (v || v === 0) {
+                        if (v != me['@{value}']) {
+                            me['@{value}'] = v;
+                        }
+                    }
+                }
+                me['@{num.change}'](e.keyCode == 38, e.shiftKey);
+            }
+        }
+    },
+    '@{prevent}<contextmenu>'(e) {
+        e.preventDefault();
+    },
+    '$doc<mouseup>'() {
+        let me = this;
+        clearTimeout(me['@{long.tap.timer}']);
+        clearInterval(me['@{interval.timer}']);
+        delete me['@{ui.keep.active}'];
+        setTimeout(me.wrapAsync(() => {
+            delete me['@{fast.change.start}'];
+        }), 0);
+    }
+});
+
+});

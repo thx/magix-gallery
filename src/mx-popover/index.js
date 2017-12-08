@@ -1,1 +1,160 @@
-define("mx-popover/index",["magix","$"],function(e,t,_){var o=e("magix"),i=e("$");o.applyStyle("_C","._eo{border-radius:4px;padding:0;-webkit-box-shadow:0 6px 8px rgba(51,51,51,.08);box-shadow:0 6px 8px rgba(51,51,51,.08);position:absolute;border:1px solid rgba(0,0,0,.1);display:none;max-width:276px;background-color:#fff}._ep{line-height:22px;padding:9px 14px}");var d;_.exports=o.View.extend({tmpl:{html:'<div class="_ep"><%!$$.content%></div>',subs:[]},init:function(e){var t=this;t.__I=e.placement||"right",t.__J=e.align,t.__dJ=e.content||"",t.__d_=0|e.width,t.on("destroy",function(){t.__h.off("mouseenter mouseleave"),t.__dN&&t.__dN.off("mouseenter mouseleave").remove()})},render:function(){var e=this;e.endUpdate();var t=i("#"+e.id);e.__h=t,t.hover(function(){e.__dO(),e.__dP=setTimeout(e.wrapAsync(function(){e.__e()}),100)},function(){clearTimeout(e.__dP),e.__a()})},__dO:function(){var e=this;if(!e.__dN){var t="popover_"+e.id;e.__h.after('<div class="_eo" id="'+t+'" />'),e.updater.to(t),e.updater.digest({content:e.__dJ}),e.__dN=i("#"+t),e.__d_&&e.__dN.css({"max-width":e.__d_,width:e.__d_}),e.__dN.hover(function(){clearTimeout(e.__dP)},function(){e.__a()})}},content:function(e){var t=this;if(!e)return t.__dJ;t.__dN?(t.__dJ=e,t.updater.digest({content:e})):t.__dJ=e},__e:function(){var e=this;d&&d!=e&&d.__dQ(),d=e,clearTimeout(e.__dP);var t=e.__dN,_=e.__h,o=_.offset(),i=_.outerWidth(),a=_.outerHeight();t.css({display:"block"});var n,r,s=t.outerWidth(),c=t.outerHeight();switch(e.__I){case"top":n=o.left-(s-i)/2,r=o.top-c-10;break;case"right":n=o.left+i+10,r=o.top-(c-a)/2;break;case"bottom":n=o.left-(s-i)/2,r=o.top+a+10;break;case"left":n=o.left-s-10,r=o.top-(c-a)/2}switch(e.__J){case"top":r=o.top;break;case"left":n=o.left;break;case"right":n=o.left-s+i;break;case"bottom":r=o.top-c+a}t.offset({left:n,top:r})},__a:function(){var e=this;clearTimeout(e.__dP),e.__dP=setTimeout(e.wrapAsync(function(){e.__dN.css({display:"none"})}),50)},__dQ:function(){var e=this;clearTimeout(e.__dP),e.__dN.css({display:"none"})}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-popover/index',["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+let Magix = require('magix');
+let $ = require('$');
+Magix.applyStyle("__mx-popover_index_",".__mx-popover_index_-popover {\n  border-radius: 4px;\n  padding: 0;\n  -webkit-box-shadow: 0 6px 8px rgba(51, 51, 51, 0.08);\n          box-shadow: 0 6px 8px rgba(51, 51, 51, 0.08);\n  position: absolute;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  display: none;\n  max-width: 276px;\n  background-color: #fff;\n}\n.__mx-popover_index_-popover-content {\n  line-height: 22px;\n  padding: 9px 14px;\n}\n");
+let Active;
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<div class=\"__mx-popover_index_-popover-content\"><%!$$.content%></div>","subs":[],"file":"mx-popover/index.html"},
+    init(extra) {
+        let me = this;
+        me['@{pos.placement}'] = extra.placement || 'right';
+        me['@{pos.align}'] = extra.align;
+        me['@{content}'] = extra.content || '';
+        me['@{width}'] = extra.width | 0;
+        me.on('destroy', () => {
+            me['@{owner.node}'].off('mouseenter mouseleave');
+            if (me['@{relate.node}']) {
+                me['@{relate.node}'].off('mouseenter mouseleave').remove();
+            }
+        });
+    },
+    render() {
+        let me = this;
+        me.endUpdate();
+        let node = $('#' + me.id);
+        me['@{owner.node}'] = node;
+        node.hover(() => {
+            me['@{parepare}']();
+            me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
+                me['@{show}'](); //等待内容显示
+            }), 100);
+        }, () => {
+            clearTimeout(me['@{dealy.show.timer}']);
+            me['@{hide}']();
+        });
+    },
+    '@{parepare}'() {
+        let me = this;
+        if (!me['@{relate.node}']) {
+            let id = 'popover_' + me.id;
+            me['@{owner.node}'].after('<div class="__mx-popover_index_-popover" id="' + id + '" />');
+            me.updater.to(id);
+            me.updater.digest({
+                content: me['@{content}']
+            });
+            me['@{relate.node}'] = $('#' + id);
+            if (me['@{width}']) {
+                me['@{relate.node}'].css({
+                    'max-width': me['@{width}'],
+                    width: me['@{width}']
+                });
+            }
+            me['@{relate.node}'].hover(() => {
+                clearTimeout(me['@{dealy.show.timer}']);
+            }, () => {
+                me['@{hide}']();
+            });
+        }
+    },
+    content(body) {
+        let me = this;
+        if (!body) {
+            return me['@{content}'];
+        }
+        if (!me['@{relate.node}']) {
+            me['@{content}'] = body;
+        }
+        else {
+            me['@{content}'] = body;
+            me.updater.digest({
+                content: body
+            });
+        }
+    },
+    '@{show}'() {
+        let me = this;
+        if (Active && Active != me) {
+            Active['@{immediatelyHide}']();
+        }
+        Active = me;
+        clearTimeout(me['@{dealy.show.timer}']);
+        let rNode = me['@{relate.node}'];
+        let oNode = me['@{owner.node}'];
+        let offset = oNode.offset();
+        let width = oNode.outerWidth();
+        let height = oNode.outerHeight();
+        rNode.css({
+            display: 'block'
+        });
+        let rWidth = rNode.outerWidth();
+        let rHeight = rNode.outerHeight();
+        let left, top;
+        switch (me['@{pos.placement}']) {
+            case 'top':
+                left = offset.left - (rWidth - width) / 2;
+                top = offset.top - rHeight - 10;
+                break;
+            case 'right':
+                left = offset.left + width + 10;
+                top = offset.top - (rHeight - height) / 2;
+                break;
+            case 'bottom':
+                left = offset.left - (rWidth - width) / 2;
+                top = offset.top + height + 10;
+                break;
+            case 'left':
+                left = offset.left - rWidth - 10;
+                top = offset.top - (rHeight - height) / 2;
+                break;
+        }
+        switch (me['@{pos.align}']) {
+            case 'top':
+                top = offset.top;
+                break;
+            case 'left':
+                left = offset.left;
+                break;
+            case 'right':
+                left = offset.left - rWidth + width;
+                break;
+            case 'bottom':
+                top = offset.top - rHeight + height;
+                break;
+        }
+        rNode.offset({
+            left: left,
+            top: top
+        });
+    },
+    '@{hide}'() {
+        let me = this;
+        clearTimeout(me['@{dealy.show.timer}']);
+        me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
+            me['@{relate.node}'].css({
+                display: 'none'
+            });
+        }), 50);
+    },
+    '@{immediatelyHide}'() {
+        let me = this;
+        clearTimeout(me['@{dealy.show.timer}']);
+        me['@{relate.node}'].css({
+            display: 'none'
+        });
+    }
+});
+
+});

@@ -1,7 +1,7 @@
 /*
-ver:1.3.7
+ver:1.3.8
 */
-/*
+import { on } from 'cluster';/*
     author:xinglie.lkf@taobao.com
  */
 'ref@./style.less';
@@ -16,7 +16,7 @@ module.exports = Magix.View.extend({
         let oNode = $('#' + me.id);
         oNode.addClass('@style.less:as-input');
         me.assign(extra);
-        let click = (e) => {
+        let click = e => {
             if (me['@{temp.hold.event}'] || me['@{disabled}']) return;
             let offset = oNode.offset();
             let vars = me['@{get.ui.vars}']();
@@ -30,9 +30,25 @@ module.exports = Magix.View.extend({
             let v = me['@{get.fixed.value}'](p);
             me.val(v);
         };
+        let keydown = e => {
+            if (me['@{dragging}']) return;
+            if (e.keyCode == 37 || e.keyCode == 40) {
+                e.preventDefault();
+                let v = +me['@{value}'];
+                v -= me['@{step}'];
+                me.val(v);
+            } else if (e.keyCode == 39 || e.keyCode == 38) {
+                e.preventDefault();
+                let v = +me['@{value}'];
+                v += me['@{step}'];
+                me.val(v);
+            }
+        };
         oNode.on('click', click);
+        oNode.on('keydown', keydown);
         me.on('destroy', () => {
             oNode.off('click', click);
+            oNode.off('keydown', keydown);
         });
         me['@{owner.node}'] = oNode;
     },
@@ -65,7 +81,7 @@ module.exports = Magix.View.extend({
             height: me['@{height}'],
             vertical: me['@{vertical}']
         });
-        me['@{owner.node}'][me['@{disabled}'] ? 'addClass' : 'removeClass']('@style.less:notallowed');
+        me['@{owner.node}'][me['@{disabled}'] ? 'addClass' : 'removeClass']('@style.less:notallowed').prop('tabindex', me['@{disabled}'] ? -1 : 0);
         me.val(me['@{value}']);
     },
     '@{get.ui.vars}'() {
@@ -167,8 +183,6 @@ module.exports = Magix.View.extend({
         });
     },
     '@{drag}<mousedown>'(e) {
-        e.stopPropagation();
-        e.preventDefault();
         let me = this;
         if (me['@{disabled}']) return;
         let current = $(e.eventTarget);
@@ -182,6 +196,7 @@ module.exports = Magix.View.extend({
         }
         let currentValue = parseInt(current.css(me['@{vertical}'] ? 'bottom' : 'left'), 10);
         let dragValue = me['@{value}'];
+        me['@{dragging}'] = 1;
         DD.begin(e.eventTarget, (ex) => {
             DD.clear();
             let newValue = -1;
@@ -203,6 +218,7 @@ module.exports = Magix.View.extend({
             setTimeout(me.wrapAsync(() => {
                 delete me['@{temp.hold.event}'];
             }), 20);
+            delete me['@{dragging}'];
         });
     },
     '@{prevent}<contextmenu>'(e) {

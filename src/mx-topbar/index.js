@@ -1,1 +1,79 @@
-define("mx-topbar/index",["magix","$"],function(a,t,e){var n=a("magix"),r=a("$");n.applyStyle("_M","._fw{position:fixed;z-index:400;height:2px;left:0;top:0;right:0;background-color:#d45414;-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0);-webkit-transition:all .3s ease;transition:all .3s ease}");var o,i,d=n.guid("mx_topbar_"),s=n.Vframe,f=100,l={__e:function(){clearTimeout(o),r("#"+d).length||(r("body").append('<div class="_fw" id="'+d+'"></div>'),i=setInterval(l.__gb,300))},__gc:function(){var a=r("#"+d);a.length&&(f>15?f-=3+5*Math.random():f>4&&(f-=1+Math.random()),a.css({transform:"translate3d(-"+f+"%,0px,0px)"}))},__a:function(){clearInterval(i);var a=r("#"+d);a.length&&(a.css({transform:"translate3d(0,0px,0px)"}),o=setTimeout(function(){f=100,a.remove()},400))}},_=n.config("rootId"),c=s.get(_),m=function(a){a.on("alter",l.__e),a.on("created",l.__a)};if(c)m(c);else{l.__e();var g=function(a){a.vframe.id==_&&(s.off("add",g),m(a.vframe))};s.on("add",g)}});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-topbar/index',["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+let Magix = require('magix');
+let $ = require('$');
+Magix.applyStyle("__mx-topbar_index_",".__mx-topbar_index_-bar {\n  position: fixed;\n  z-index: 400;\n  height: 2px;\n  left: 0;\n  top: 0;\n  right: 0;\n  background-color: #5665EB;\n  -webkit-transform: translate3d(-100%, 0px, 0px);\n          transform: translate3d(-100%, 0px, 0px);\n  -webkit-transition: all 300ms ease;\n  transition: all 300ms ease;\n}\n");
+let barId = Magix.guid('mx_topbar_');
+let Vframe = Magix.Vframe;
+let timer, interval;
+let percent = 100;
+let Topbar = {
+    '@{show}'() {
+        clearTimeout(timer);
+        let bar = $('#' + barId);
+        if (!bar.length) {
+            $('body').append(`<div class="__mx-topbar_index_-bar" id="${barId}"></div>`);
+            interval = setInterval(Topbar['@{progress}'], 300);
+        }
+    },
+    '@{porgress}'() {
+        let bar = $('#' + barId);
+        if (bar.length) {
+            if (percent > 15) {
+                percent -= (3 + Math.random() * 5);
+            }
+            else if (percent > 4) {
+                percent -= (1 + Math.random());
+            }
+            bar.css({
+                transform: `translate3d(-${percent}%,0px,0px)`
+            });
+        }
+    },
+    '@{hide}'() {
+        clearInterval(interval);
+        let bar = $('#' + barId);
+        if (bar.length) {
+            bar.css({
+                transform: `translate3d(0,0px,0px)`
+            });
+            timer = setTimeout(() => {
+                percent = 100;
+                bar.remove();
+            }, 400);
+        }
+    }
+};
+let rootId = Magix.config('rootId');
+let rootVf = Vframe.get(rootId);
+let resume = vf => {
+    vf.on('alter', Topbar['@{show}']);
+    vf.on('created', Topbar['@{hide}']);
+};
+if (rootVf) {
+    resume(rootVf);
+}
+else {
+    Topbar['@{show}'](); //未准备好的情况下
+    let watch = e => {
+        if (e.vframe.id == rootId) {
+            Vframe.off('add', watch);
+            resume(e.vframe);
+        }
+    };
+    Vframe.on('add', watch);
+}
+
+});

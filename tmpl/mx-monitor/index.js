@@ -1,5 +1,5 @@
 /*
-ver:1.3.7
+ver:1.3.8
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -16,7 +16,7 @@ let Watcher = (e) => {
             Instances.splice(i, 1);
         } else {
             let view = info['@{view}'];
-            if (e.type != 'mousedown' || !view['@{inside}'](e.target)) {
+            if (e.type == 'resize' || !view['@{inside}'](e.target)) {
                 view['@{hide}']();
             }
         }
@@ -41,7 +41,7 @@ module.exports = {
     '@{remove}': Remove,
     '@{setup}'() {
         if (!ICounter) {
-            Doc.on('mousedown', Watcher);
+            Doc.on('mousedown keyup', Watcher);
             Win.on('resize', Watcher);
         }
         ICounter++;
@@ -50,7 +50,7 @@ module.exports = {
         if (ICounter > 0) {
             ICounter--;
             if (!ICounter) {
-                Doc.off('mousedown', Watcher);
+                Doc.off('mousedown keyup', Watcher);
                 Win.off('resize', Watcher);
             }
         }

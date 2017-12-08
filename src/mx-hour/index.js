@@ -1,1 +1,148 @@
-define("mx-hour/index",["magix","$","mx-dragselect/index"],function(a,e,d){a("mx-dragselect/index");var r=a("magix");r.applyStyle("_u","._do{padding:0;height:38.4px;overflow:hidden;cursor:default;min-width:1px}._dp{opacity:0}._dq{background-color:#8282e6}._dr{border:none}._ds{border-right:1px solid #e6e6e6}");var _=a("$");d.exports=r.View.extend({tmpl:{html:'<tr mx-guid="g0" mx-change="__e()" mx-dragbegin="__aI()" mx-dragfinish="__aJ()" mx-view="mx-dragselect/index">1</tr>',subs:[{keys:["noBorder"],path:'tr[mx-guid="g0"]',tmpl:'<%for(var a=0;a<24;a++){%><td class="_do<%if($$.noBorder){%> _dr<%if(a<23){%> _ds<%}}%>" data-hour="<%!a%>"><span class="_dp"><%!(\'0\'+a).slice(-2)%></span></td><%}%>',s:"1"}]},init:function(a){var e=this;e.__cA=a.range,e.__cB="no"==a.border},render:function(){var a=this;a.updater.digest({noBorder:a.__cB});var e=_("#"+a.id);a.__h=e,a.__cy=e.find("._do"),a.__cA&&a.val(a.__cA)},val:function(a){var e=this,d=e.__cy;if(a||""===a){var r={};d.each(function(e,d){d=_(d),"1"==a.charAt(e)?(r[e]=1,d.addClass("_dq")):d.removeClass("_dq")}),e.__aF=r}else a=[],d.each(function(e,d){d=_(d),e<24&&a.push(d.hasClass("_dq")?1:0)}),a=a.join("");return a},__u:function(){var a=this,e=a.__aH,d=a.val();e!=d&&a.__h.trigger({type:"change",range:d})},"__e<change,click>":function(a){a.stopPropagation();var e=_(a.node),d=this,r=e.data("hour"),i=d.__aF,o=d.__aG;"add"==a.action?i[r]?(e.removeClass("_dq"),delete i[r],"drag"==a.mode&&(o[r]=1)):(e.addClass("_dq"),i[r]=1,"drag"==a.mode&&delete o[r]):"remove"==a.action&&(o[r]?(e.addClass("_dq"),i[r]=1,"drag"==a.mode&&delete o[r]):(e.removeClass("_dq"),delete i[r],"drag"==a.mode&&(o[r]=1))),"click"==a.mode&&d.__u()},"__aI<dragbegin>":function(a){a.stopPropagation();var e=this;e.__aH=e.val(),e.__aG={}},"__aJ<dragfinish>":function(a){a.stopPropagation();var e=this;e.__u(),delete e.__aG}},{improve:function(a){a||(a="");for(var e=0;e<24;)a.charAt(e)||(a+="0"),e++;return a}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-hour/index',["magix","$","mx-dragselect/index"],(require,exports,module)=>{
+/*Magix,$*/
+require("mx-dragselect/index");
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+let Magix = require('magix');
+Magix.applyStyle("__mx-hour_index_",".__mx-hour_index_-hour {\n  padding: 0;\n  height: 38.4px;\n  overflow: hidden;\n  cursor: default;\n  min-width: 1px;\n}\n.__mx-hour_index_-opacity-hide {\n  opacity: 0;\n}\n.__mx-hour_index_-active {\n  background-color: #f37b63;\n}\n.__mx-hour_index_-no-border {\n  border: none;\n}\n.__mx-hour_index_-right-border {\n  border-right: solid 1px #e6e6e6;\n}\n");
+let $ = require('$');
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<tr mx-guid=\"g0\u001f\" mx-change=\"\u001f\u001e@{show}()\" mx-dragbegin=\"\u001f\u001e@{begin}()\" mx-dragfinish=\"\u001f\u001e@{end}()\" mx-view=\"mx-dragselect/index\">1\u001d</tr>","subs":[{"keys":["noBorder"],"path":"tr[mx-guid=\"g0\u001f\"]","tmpl":"<%for(var ii=0;ii<24;ii++){%><td class=\"__mx-hour_index_-hour<%if($$.noBorder){%> __mx-hour_index_-no-border<%if(ii<23){%> __mx-hour_index_-right-border<%}%><%}%>\" data-hour=\"<%!ii%>\"><span class=\"__mx-hour_index_-opacity-hide\"><%!('0'+ii).slice(-2)%></span></td><%}%>","s":"1\u001d"}],"file":"mx-hour/index.html"},
+    init(extra) {
+        let me = this;
+        me['@{range}'] = extra.range;
+        me['@{noBorder}'] = extra.border == 'no';
+    },
+    render() {
+        let me = this;
+        me.updater.digest({
+            noBorder: me['@{noBorder}']
+        });
+        let ownerNode = $('#' + me.id);
+        me['@{owner.node}'] = ownerNode;
+        me['@{hours}'] = ownerNode.find('.__mx-hour_index_-hour');
+        if (me['@{range}']) {
+            me.val(me['@{range}']);
+        }
+    },
+    val(str) {
+        let me = this;
+        let hours = me['@{hours}'];
+        if (str || str === '') {
+            let dragSelected = {};
+            hours.each((idx, item) => {
+                item = $(item);
+                if (str.charAt(idx) == '1') {
+                    dragSelected[idx] = 1;
+                    item.addClass('__mx-hour_index_-active');
+                }
+                else {
+                    item.removeClass('__mx-hour_index_-active');
+                }
+            });
+            me['@{drag.selected}'] = dragSelected;
+        }
+        else {
+            str = [];
+            hours.each((idx, item) => {
+                item = $(item);
+                if (idx < 24)
+                    str.push(item.hasClass('__mx-hour_index_-active') ? 1 : 0);
+            });
+            str = str.join('');
+        }
+        return str;
+    },
+    '@{fire.event}'() {
+        let me = this;
+        let startValue = me['@{start.value.temp}'];
+        let current = me.val();
+        if (startValue != current) {
+            me['@{owner.node}'].val(current).trigger({
+                type: 'change',
+                range: current
+            });
+        }
+    },
+    '@{show}<change,click>'(e) {
+        e.stopPropagation();
+        let node = $(e.node);
+        let me = this;
+        let hour = node.data('hour');
+        let dragSelected = me['@{drag.selected}'];
+        let dragTemp = me['@{drag.temp}'];
+        if (e.action == 'add') {
+            if (dragSelected[hour]) {
+                node.removeClass('__mx-hour_index_-active');
+                delete dragSelected[hour];
+                if (e.mode == 'drag') {
+                    dragTemp[hour] = 1;
+                }
+            }
+            else {
+                node.addClass('__mx-hour_index_-active');
+                dragSelected[hour] = 1;
+                if (e.mode == 'drag') {
+                    delete dragTemp[hour];
+                }
+            }
+        }
+        else if (e.action == 'remove') {
+            if (dragTemp[hour]) {
+                node.addClass('__mx-hour_index_-active');
+                dragSelected[hour] = 1;
+                if (e.mode == 'drag') {
+                    delete dragTemp[hour];
+                }
+            }
+            else {
+                node.removeClass('__mx-hour_index_-active');
+                delete dragSelected[hour];
+                if (e.mode == 'drag') {
+                    dragTemp[hour] = 1;
+                }
+            }
+        }
+        if (e.mode == 'click') {
+            me['@{fire.event}']();
+        }
+    },
+    '@{begin}<dragbegin>'(e) {
+        e.stopPropagation();
+        let me = this;
+        me['@{start.value.temp}'] = me.val();
+        me['@{drag.temp}'] = {};
+    },
+    '@{end}<dragfinish>'(e) {
+        e.stopPropagation();
+        let me = this;
+        me['@{fire.event}']();
+        delete me['@{drag.temp}'];
+    }
+}, {
+    improve(str) {
+        if (!str) {
+            str = '';
+        }
+        let start = 0;
+        let end = 24;
+        while (start < end) {
+            if (!str.charAt(start)) {
+                str += '0';
+            }
+            start++;
+        }
+        return str;
+    }
+});
+
+});

@@ -1,1 +1,69 @@
-define("mx-monitor/index",["$"],function(o,n,e){var _=o("$"),i=0,d=[],f=_(document),t=_(window),r=function(o){for(var n=d.length;n--;){var e=d[n];if(e.__do)d.splice(n,1);else{var _=e.__dp;"mousedown"==o.type&&_.__i(o.target)||_.__a()}}},u=function(o){var n=d[o.id];n&&(n.__do=!0),delete d[o.id]};e.exports={__k:function(o){u(o);var n={__dp:o};d.push(n),d[o.id]=n},__f:u,__d:function(){i||(f.on("mousedown",r),t.on("resize",r)),i++},__g:function(){i>0&&(--i||(f.off("mousedown",r),t.off("resize",r)))}}});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-monitor/index',["$"],(require,exports,module)=>{
+/*$*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@taobao.com
+ */
+let $ = require('$');
+let ICounter = 0;
+let Instances = [];
+let Doc = $(document);
+let Win = $(window);
+let Watcher = (e) => {
+    for (let i = Instances.length; i--;) {
+        let info = Instances[i];
+        if (info['@{destroyed}']) {
+            Instances.splice(i, 1);
+        }
+        else {
+            let view = info['@{view}'];
+            if (e.type == 'resize' || !view['@{inside}'](e.target)) {
+                view['@{hide}']();
+            }
+        }
+    }
+};
+let Remove = view => {
+    let info = Instances[view.id];
+    if (info) {
+        info['@{destroyed}'] = true;
+    }
+    delete Instances[view.id];
+};
+module.exports = {
+    '@{add}'(view) {
+        Remove(view);
+        let info = {
+            '@{view}': view
+        };
+        Instances.push(info);
+        Instances[view.id] = info;
+    },
+    '@{remove}': Remove,
+    '@{setup}'() {
+        if (!ICounter) {
+            Doc.on('mousedown keyup', Watcher);
+            Win.on('resize', Watcher);
+        }
+        ICounter++;
+    },
+    '@{teardown}'() {
+        if (ICounter > 0) {
+            ICounter--;
+            if (!ICounter) {
+                Doc.off('mousedown keyup', Watcher);
+                Win.off('resize', Watcher);
+            }
+        }
+    }
+};
+
+});

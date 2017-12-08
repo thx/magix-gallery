@@ -1,1 +1,170 @@
-define("mx-day/index",["magix","$","mx-dropdown/index","./month"],function(e,a,t){e("mx-dropdown/index"),e("./month");var _=e("magix"),s=e("$");_.applyStyle("_j","._bL{padding:0;height:38.4px}._bM{border:none}._bN{border-right:1px solid #e6e6e6}");var r=function(e,a){var t=a[e];if(!t){t=[];for(var _=12;_--;)t[_]="";a[e]=t}return t},i=function(e){e=e||{};for(var a in e){var t=e[a];(t=((t=t||"")+"").split(",")).length>12&&(t=t.slice(0,12));for(var _=0;_<12;_++)t[_]||(t[_]="");e[a]=t}return e},d=[{key:"MON",day:"一"},{key:"TUE",day:"二"},{key:"WED",day:"三"},{key:"THU",day:"四"},{key:"FRI",day:"五"},{key:"SAT",day:"六"},{key:"SUN",day:"日"}];t.exports=_.View.extend({tmpl:{html:'<table class="_W"><thead><tr><th class="_bL _a_" width="120">周期设置</th><th mx-guid="g0" class="_bL _Z" colspan="31">1</th></tr><tr><th class="_bL _a_"><div mx-guid="g1" mx-change="__av()" style="width:100px" class="_g _s" mx-view="mx-dropdown/index?list=<%@$$.years%>&selected=<%!$eu($$.selectedYear)%>"></div></th><th colspan="31" class="_bL"><table class="_W _X"><tbody><tr><%for(var b=0;b<31;b++){%><td class="_bL _a_ _bM<%if(b<30){%> _bN<%}%>"><%=(\'0\'+(b+1)).slice(-2)%></td><%}%></tr></tbody></table></th></tr></thead><tbody mx-guid="g3">4</tbody></table>',subs:[{keys:["weeks","viewId"],path:'th[mx-guid="g0"]',tmpl:'<%for(var a=0;a<$$.weeks.length;a++){%><label class="_h _t"><input mx-change="__ax({key:\'<%=$eq($$.weeks[a].key)%>\'})" id="<%=$$.viewId%>_<%=$$.weeks[a].key%>" type="checkbox" class="_as">每周<%=$$.weeks[a].day%></label><%}%>',s:"1"},{keys:["years","selectedYear"],path:'div[mx-guid="g1"]',attr:'mx-view="mx-dropdown/index?list=<%@$$.years%>&selected=<%!$eu($$.selectedYear)%>"',attrs:[{n:"mx-view",v:1}]},{keys:["viewId","selectedYear","days"],path:'tbody[mx-guid="g3"]',tmpl:'<%for(var c=0;c<12;c++){%><tr><td class="_bL _ad _a_" mx-click="__aA({m:<%!c%>})"><%=(\'0\'+(c+1)).slice(-2)%></td><td class="_bL" colspan="31" id="months_<%=c%>_<%=$$.viewId%>" mx-change="__az({m:<%!c%>})" mx-sync="__az({m:<%!c%>})" mx-view="mx-day/month?year=<%!$eu($$.selectedYear)%>&month=<%!$eu(c)%>&selected=<%!$eu($$.days[c])%>"></td></tr><%}%>',s:"4"}]},init:function(e){var a=this;a.assign(e);var t=s("#"+a.id);a.__h=t},assign:function(e){var a=this;return a.__aq=e.years,a.__ar=e.selectedYear||e.years[0],a.__as=i(e.selectedDays),!0},render:function(){var e=this,a=e.__ar,t=r(a,e.__as);e.updater.digest({viewId:e.id,weeks:d,years:e.__aq,selectedYear:a,days:t})},__au:function(){for(var e={},a=d.length;a--;)e[d[a].key]=1;var t=this;t.__h.find('[mx-view*="mx-day/month"]').each(function(a,t){for(var _=t.vframe.invoke("__at"),s=_.length;s--;)delete e[_[s]]});for(a=d.length;a--;){var _=d[a].key;s("#"+t.id+"_"+_).prop("checked",!!e[_])}},"__av<change>":function(e){e.stopPropagation();var a=this,t=r(e.value,a.__as);a.updater.digest({days:t,selectedYear:a.__ar=e.value})},__u:function(){var e=this;e.__h.trigger({type:"change",days:e.__as})},"__ax<change>":function(e){var a=this;e.stopPropagation(),a.__h.find('[mx-view*="mx-day/month"]').each(function(a,t){var _=t.vframe;_&&_.invoke("__aw",[e.params.key,e.eventTarget.checked])}),a.__u()},"__az<change,sync>":function(e){e.stopPropagation();var a=this;r(a.__ar,a.__as)[e.params.m]=e.days,e.ignoreSync||(clearTimeout(a.__ay),a.__ay=setTimeout(function(){a.__au()},20)),"change"==e.type&&a.__u()},"__aA<click>":function(e){var a=this,t=e.params.m,_=s("#months_"+t+"_"+a.id),i=r(a.__ar,a.__as)[t];i=new Array(i.length+1).join(i.indexOf("0")>-1?"1":0),_.invokeView("__p",[i]),a.__u()}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-day/index',["magix","$","mx-dropdown/index","./month"],(require,exports,module)=>{
+/*Magix,$*/
+require("mx-dropdown/index");
+require("./month");
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+let Magix = require('magix');
+let $ = require('$');
+Magix.applyStyle("__mx-day_index_",".__mx-day_index_-reset {\n  padding: 0;\n  height: 38.4px;\n}\n.__mx-day_index_-no-border {\n  border: none;\n}\n.__mx-day_index_-right-border {\n  border-right: solid 1px #e6e6e6;\n}\n");
+let GetDays = (year, days) => {
+    let ds = days[year];
+    if (!ds) {
+        ds = [];
+        for (let i = 12; i--;) {
+            ds[i] = '';
+        }
+        days[year] = ds;
+    }
+    return ds;
+};
+let FormatYearDays = days => {
+    days = days || {};
+    for (let d in days) {
+        let ds = days[d];
+        ds = ds || '';
+        ds = (ds + '').split(',');
+        if (ds.length > 12) {
+            ds = ds.slice(0, 12);
+        }
+        for (let i = 0; i < 12; i++) {
+            if (!ds[i])
+                ds[i] = '';
+        }
+        days[d] = ds;
+    }
+    return days;
+};
+let Weeks = [{
+        key: 'MON',
+        day: '一'
+    }, {
+        key: 'TUE',
+        day: '二'
+    }, {
+        key: 'WED',
+        day: '三'
+    }, {
+        key: 'THU',
+        day: '四'
+    }, {
+        key: 'FRI',
+        day: '五'
+    }, {
+        key: 'SAT',
+        day: '六'
+    }, {
+        key: 'SUN',
+        day: '日'
+    }];
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<table class=\"__mx-style_index_-wp100\"><thead><tr><th class=\"__mx-day_index_-reset __mx-style_index_-tc\" width=\"120\">周期设置</th><th mx-guid=\"g0\u001f\" class=\"__mx-day_index_-reset __mx-style_index_-tl\" colspan=\"31\">1\u001d</th></tr><tr><th class=\"__mx-day_index_-reset __mx-style_index_-tc\"><div mx-guid=\"g1\u001f\" mx-change=\"\u001f\u001e@{change.year}()\" style=\"width:100px\" class=\"__mx-style_index_-mr5 __mx-style_index_-ml5\" mx-view=\"mx-dropdown/index?list=<%@$$.years%>&selected=<%!$eu($$.selectedYear)%>\"></div></th><th colspan=\"31\" class=\"__mx-day_index_-reset\"><table class=\"__mx-style_index_-wp100 __mx-style_index_-hp100\"><tbody><tr><%for(var i=0;i<31;i++){%><td class=\"__mx-day_index_-reset __mx-style_index_-tc __mx-day_index_-no-border<%if(i<30){%> __mx-day_index_-right-border<%}%>\"><%=('0'+(i+1)).slice(-2)%></td><%}%></tr></tbody></table></th></tr></thead><tbody mx-guid=\"g3\u001f\">4\u001d</tbody></table>","subs":[{"keys":["weeks","viewId"],"path":"th[mx-guid=\"g0\u001f\"]","tmpl":"<%for(var i=0;i<$$.weeks.length;i++){%><label class=\"__mx-style_index_-mr10 __mx-style_index_-ml10\"><input mx-change=\"\u001f\u001e@{sync.by.week}({key:'<%=$eq($$.weeks[i].key)%>'})\" id=\"<%=$$.viewId%>_<%=$$.weeks[i].key%>\" type=\"checkbox\" class=\"__mx-style_index_-checkbox\">每周<%=$$.weeks[i].day%></label><%}%>","s":"1\u001d"},{"keys":["years","selectedYear"],"path":"div[mx-guid=\"g1\u001f\"]","attr":"mx-view=\"mx-dropdown/index?list=<%@$$.years%>&selected=<%!$eu($$.selectedYear)%>\"","attrs":[{"n":"mx-view","v":1}]},{"keys":["viewId","selectedYear","days"],"path":"tbody[mx-guid=\"g3\u001f\"]","tmpl":"<%for(var i=0;i<12;i++){%><tr><td class=\"__mx-day_index_-reset __mx-style_index_-cp __mx-style_index_-tc\" mx-click=\"\u001f\u001e@{toggle}({m:<%!i%>})\"><%=('0'+(i+1)).slice(-2)%></td><td class=\"__mx-day_index_-reset\" colspan=\"31\" id=\"months_<%=i%>_<%=$$.viewId%>\" mx-change=\"\u001f\u001e@{take.days}({m:<%!i%>})\" mx-sync=\"\u001f\u001e@{take.days}({m:<%!i%>})\" mx-view=\"mx-day/month?year=<%!$eu($$.selectedYear)%>&month=<%!$eu(i)%>&selected=<%!$eu($$.days[i])%>\"></td></tr><%}%>","s":"4\u001d"}],"file":"mx-day/index.html"},
+    init(extra) {
+        let me = this;
+        me.assign(extra);
+        let node = $('#' + me.id);
+        me['@{owner.node}'] = node;
+    },
+    assign(ops) {
+        let me = this;
+        me['@{years}'] = ops.years;
+        me['@{selectedYear}'] = ops.selectedYear || ops.years[0];
+        me['@{selectedDays}'] = FormatYearDays(ops.selectedDays);
+        return true;
+    },
+    render() {
+        let me = this;
+        let sYear = me['@{selectedYear}'];
+        let days = GetDays(sYear, me['@{selectedDays}']);
+        me.updater.digest({
+            viewId: me.id,
+            weeks: Weeks,
+            years: me['@{years}'],
+            selectedYear: sYear,
+            days
+        });
+    },
+    '@{sync.weeks}'() {
+        let enables = {};
+        for (let i = Weeks.length; i--;) {
+            enables[Weeks[i].key] = 1;
+        }
+        let me = this;
+        let nodes = me['@{owner.node}'].find('[mx-view*="mx-day/month"]');
+        nodes.each((i, n) => {
+            let disabled = n.vframe.invoke('@{get.disabled.week}');
+            for (let i = disabled.length; i--;) {
+                delete enables[disabled[i]];
+            }
+        });
+        for (let i = Weeks.length; i--;) {
+            let key = Weeks[i].key;
+            $('#' + me.id + '_' + key).prop('checked', !!enables[key]);
+        }
+    },
+    '@{change.year}<change>'(e) {
+        e.stopPropagation();
+        let me = this;
+        let days = GetDays(e.value, me['@{selectedDays}']);
+        me.updater.digest({
+            days,
+            selectedYear: me['@{selectedYear}'] = e.value
+        });
+    },
+    '@{fire.event}'() {
+        let me = this;
+        let days = me['@{selectedDays}'];
+        me['@{owner.node}'].val(days).trigger({
+            type: 'change',
+            days
+        });
+    },
+    '@{sync.by.week}<change>'(e) {
+        let me = this;
+        e.stopPropagation();
+        let nodes = me['@{owner.node}'].find('[mx-view*="mx-day/month"]');
+        nodes.each((i, n) => {
+            let vf = n.vframe;
+            if (vf) {
+                vf.invoke('@{week.shortcuts}', [e.params.key, e.eventTarget.checked]);
+            }
+        });
+        me['@{fire.event}']();
+    },
+    '@{take.days}<change,sync>'(e) {
+        e.stopPropagation();
+        let me = this;
+        let days = GetDays(me['@{selectedYear}'], me['@{selectedDays}']);
+        let m = e.params.m;
+        days[m] = e.days;
+        if (!e.ignoreSync) {
+            clearTimeout(me['@{sync.timer}']);
+            me['@{sync.timer}'] = setTimeout(() => {
+                me['@{sync.weeks}']();
+            }, 20);
+        }
+        if (e.type == 'change') {
+            me['@{fire.event}']();
+        }
+    },
+    '@{toggle}<click>'(e) {
+        let me = this;
+        let m = e.params.m;
+        let node = $('#months_' + m + '_' + me.id);
+        let days = GetDays(me['@{selectedYear}'], me['@{selectedDays}'])[m];
+        days = new Array(days.length + 1).join(days.indexOf('0') > -1 ? '1' : 0);
+        node.invokeView('@{update.selected}', [days]);
+        me['@{fire.event}']();
+    }
+});
+
+});

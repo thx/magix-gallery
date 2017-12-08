@@ -1,5 +1,5 @@
 /*
-ver:1.3.7
+ver:1.3.8
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -57,7 +57,7 @@ module.exports = Magix.View.extend({
         let startValue = me['@{start.value.temp}'];
         let current = me.val();
         if (startValue != current) {
-            me['@{owner.node}'].trigger({
+            me['@{owner.node}'].val(current).trigger({
                 type: 'change',
                 range: current
             });

@@ -1,1 +1,49 @@
-define("mx-dialog/confirm",["magix"],function(a,_,i){var l=a("magix");i.exports=l.View.extend({tmpl:{html:'<div class="_aE"><h4><%=$$.title%></h4></div><div class="_aF" style="word-break:break-all"><%=$$.body%></div><div class="_aG"><a mx-click="__am()" class="_an _ao _h">确定</a><a mx-click="__Q()" class="_an">取消</a></div>',subs:[]},init:function(a){var _=this;_.__aK=a.dialog,_.__aL=a.body,_.__aM=a.title||"提示",_.__aN=a.enterCallback,_.__aO=a.cancelCallback},render:function(){var a=this;a.updater.digest({body:a.__aL,title:a.__aM})},"__am<click>":function(){var a=this;a.__aK.close(),a.__aN&&l.toTry(a.__aN)},"__Q<click>":function(){var a=this;a.__aK.close(),a.__aO&&l.toTry(a.__aO)}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-dialog/confirm',["magix"],(require,exports,module)=>{
+/*Magix*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@taobao.com
+ */
+var Magix = require('magix');
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<div class=\"__mx-style_index_-dialog-header\"><h4><%=$$.title%></h4></div><div class=\"__mx-style_index_-dialog-body\" style=\"word-break:break-all\"><%=$$.body%></div><div class=\"__mx-style_index_-dialog-footer\"><button type=\"button\" mx-click=\"\u001f\u001e@{enter}()\" class=\"__mx-style_index_-btn __mx-style_index_-btn-brand __mx-style_index_-mr10\">确定</button><button type=\"button\" mx-click=\"\u001f\u001e@{cancel}()\" class=\"__mx-style_index_-btn\">取消</button></div>","subs":[],"file":"mx-dialog/confirm.html"},
+    init(extra) {
+        var me = this;
+        me['@{dialog}'] = extra.dialog;
+        me['@{string.body}'] = extra.body;
+        me['@{string.title}'] = extra.title || '提示';
+        me['@{fn.enter.callback}'] = extra.enterCallback;
+        me['@{fn.calcel.callback}'] = extra.cancelCallback;
+    },
+    render() {
+        var me = this;
+        me.updater.digest({
+            body: me['@{string.body}'],
+            title: me['@{string.title}']
+        });
+    },
+    '@{enter}<click>'() {
+        var me = this;
+        me['@{dialog}'].close();
+        if (me['@{fn.enter.callback}']) {
+            Magix.toTry(me['@{fn.enter.callback}']);
+        }
+    },
+    '@{cancel}<click>'() {
+        var me = this;
+        me['@{dialog}'].close();
+        if (me['@{fn.calcel.callback}']) {
+            Magix.toTry(me['@{fn.calcel.callback}']);
+        }
+    }
+});
+
+});

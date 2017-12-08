@@ -1,97 +1,89 @@
-<h2>mx-slider</h2>
+<h2>mx-slider.range</h2>
 <h3>默认情形</h3>
 <div class="pt20 clearfix">
-    <mx-view path="mx-slider/range"
+    <mx-slider.range
         max="200"
         min="100"
         value="30,150"
         step="0.05"
-        class="fl"
-    ></mx-view>
+        class="fl"/>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-view path="mx-slider/range"
+    <pre>&lt;mx-slider.range
     max="200"
     min="100"
     value="30,150"
     step="0.05"
-    class="fl"
-&gt;&lt;/mx-view&gt;</pre>
+    class="fl"/&gt;</pre>
 </div>
 
 
 <h3 class="mt30">垂直</h3>
 <div class="pt20 clearfix">
-    <mx-view path="mx-slider/range"
+    <mx-slider.range
         max="200"
         min="100"
         value="30,150"
         step="0.05"
         vertical="<%=vertical%>"
-        class="fl"
-    ></mx-view>
+        class="fl"/>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-view path="mx-slider/range"
+    <pre>&lt;mx-slider.range
     max="200"
     min="100"
     value="30,150"
     step="0.05"
     vertical="true"
-    class="fl"
-&gt;&lt;/mx-view&gt;</pre>
+    class="fl"/&gt;</pre>
 </div>
 
 <h3 class="mt30">禁用</h3>
 <div class="pt20 clearfix">
-    <mx-view path="mx-slider/range"
+    <mx-slider.range
         max="200"
         min="100"
         value="30,150"
         step="0.05"
         disabled="true"
-        class="fl"
-    ></mx-view>
+        class="fl"/>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-view path="mx-slider/range"
+    <pre>&lt;mx-slider.range
     max="200"
     min="100"
     value="30,150"
     step="0.05"
     disabled="true"
-    class="fl"
-&gt;&lt;/mx-view&gt;</pre>
+    class="fl"/&gt;</pre>
 </div>
 
 <h3 class="mt30">响应change事件</h3>
 <div class="pt20 clearfix">
-    <mx-view path="mx-slider/range"
+    <mx-slider.range
         max="500"
         min="200"
         value="210,350"
         step="10"
         mx-change="showValue()"
-        class="fl"
-    ></mx-view>
+        class="fl"/>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-view path="mx-slider/range"
+    <pre>&lt;mx-slider.range
     max="500"
     min="200"
     value="210,350"
     step="10"
     mx-change="showValue()"
-    class="fl"
-&gt;&lt;/mx-view&gt;</pre>
+    class="fl"/&gt;</pre>
     <div class="pt10">Javascript Code:</div>
     <pre>let Magix = require('magix');
 let GTip = require('app/gallery/mx-gtip/index');

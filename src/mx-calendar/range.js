@@ -1,1 +1,295 @@
-define("mx-calendar/range",["magix","$","./index"],function(t,e,a){var i=t("magix"),d=t("$"),n=t("./index"),r=n.parse,s=n.format;i.applyStyle("_h","._bm{border:1px solid #e6e6e6;padding:10px 0;border-radius:4px;background-color:#fff;width:265px}._bn{padding:0 10px}._bo{height:24px;line-height:24px;border-radius:4px;margin:0 10px 10px 0;width:70px;float:left;text-align:center;display:inline-block;cursor:pointer}._bo:hover{background:#e6e6e6}._bp,._bp:hover{color:#fff;background:#6363e6}._bq{padding:0 10px;margin-bottom:15px}._br{background-color:#f0f0f0;border:0;height:24px;width:117px;text-align:center;display:inline-block;color:#333;border-radius:4px;padding:6px 9px;cursor:text}._bs{border-top:1px solid #e6e6e6;margin-left:10px;padding-top:10px;width:92%}._bt{width:330px}._bt ._br{width:150px}");var _=function(t,e){e||(e=new Date);var a=new Date(e.getTime()+864e5*t);return a=a.getFullYear()+"/"+(a.getMonth()+1)+"/"+a.getDate(),new Date(a)},c=function(t){return(t=new Date(t)).setHours(23),t.setMinutes(59),t.setSeconds(59),t},o=function(t){return(t=new Date(t)).setHours(0),t.setMinutes(0),t.setSeconds(0),t},u=_(0),p=_(-1),l=function(t){var e=_(-7),a=t-e.getDay();return{start:_(a,e),end:c(_(a+6,e))}},g=l(0),m=l(1),h=function(){var t=new Date(u.getFullYear(),u.getMonth()-1,1),e=t.getFullYear(),a=t.getMonth(),i=32-new Date(e,a,32).getDate();return{start:t,end:c(new Date(e,a,i))}}();h.text="上月",g.text="上周（周日至周六）",m.text="上周（周一至周日）";for(var x={today:{text:"今天",start:u,end:c(u)},yesterday:{text:"昨天",start:p,end:c(p)},preMonth:h,preWeekSun:g,preWeekMon:m,passedThisMonth:{text:"本月",start:_(1-u.getDate()),end:c(p)},lastestThisMonth:{text:"本月",start:_(1-u.getDate()),end:c(u)}},v=[2,6,13,14,29,89],f=0,k=void 0,b=void 0;f<v.length;f++)x["passed"+(b=(k=v[f])+1)]={text:"过去"+b+"天",start:_(-b),end:c(p)},x["lastest"+b]={text:"最近"+b+"天",start:_(-k),end:c(u)};var $=["preMonth","preWeekMon","preWeekSun","passedThisMonth","lastestThisMonth"],D=i.View.extend({tmpl:{html:'<div mx-guid="g0" class="_bm<%if($$.showTime){%> _bt<%}%> _aj" mx-contextmenu="__D()">1</div>',subs:[{keys:["showTime","quickDates"],path:'div[mx-guid="g0"]',tmpl:'<%if($$.quickDates.length){%><div class="_bn"><div class="_n">快捷日期</div><div mx-guid="g1" class="_ai">2</div></div><%}%><div class="_bq"><div class="_n">日期范围</div><div class="_ai"><input mx-guid="g2" readonly="readonly" class="_br" data-hidden="<%=$$.dates.startStr%>" value="<%=$$.dates.startStr%>" mx-click="__P({first:true})" id="start_<%=$$.id%>" mx-change="__O()">-<input mx-guid="g3" readonly="readonly" class="_br" data-hidden="<%=$$.dates.endStr%>" value="<%=$$.dates.endStr%>" mx-click="__P()" id="end_<%=$$.id%>" mx-change="__O()"></div></div><div class="_bs _ai"><button mx-click="__n()" type="button" class="_an _ao">确定</button><button mx-click="__Q()" type="button" class="_an _s">取消</button></div>',s:"1",attr:'class="_bm<%if($$.showTime){%> _bt<%}%> _aj"',attrs:[{n:"class",p:1,f:"className"}],mask:"21"},{keys:["quickDates","quickDatesMap","dates"],path:'div[mx-guid="g1"]',tmpl:'<%for(var a=0;a<$$.quickDates.length;a++){var b=$$.quickDates[a],c=$$.quickDatesMap[b]%><span class="_bo _al<%if($$.dates.quickDateKey==b){%> _bp<%}%>" mx-click="__n({quick:true,key:\'<%=$eq(b)%>\'})" title="<%=c?c.text:b%>"><%=c?c.text:b%></span><%}%>',s:"2"},{keys:["dates","id"],path:'input[mx-guid="g2"]',attr:'data-hidden="<%=$$.dates.startStr%>" value="<%=$$.dates.startStr%>" mx-click="__P({first:true})" id="start_<%=$$.id%>"',attrs:[{n:"data-hidden"},{n:"value",q:1,p:1},{n:"mx-click"},{n:"id",p:1}]},{keys:["dates","id"],path:'input[mx-guid="g3"]',attr:'data-hidden="<%=$$.dates.endStr%>" value="<%=$$.dates.endStr%>" mx-click="__P()" id="end_<%=$$.id%>"',attrs:[{n:"data-hidden"},{n:"value",q:1,p:1},{n:"mx-click"},{n:"id",p:1}]}]},init:function(t){var e=this;e.__E=t.min,e.__F=t.max,e.__G=t.dates,e.__H=t.quickDates||[],e.__I=t.placement,e.__J=t.align,e.__K=t.timeType,e.__L=t.dateType,e.__M=t.formatter},__i:function(t){var e=this,a=i.inside(t,e.id);if(!a)for(var d=e.owner.children(),n=d.length-1;n>=0;n--){var r=i.Vframe.get(d[n]);if(r&&(a=r.invoke("inside",t)),a)break}return a},render:function(){var t=this;t.updater.digest({id:t.id,showTime:t.__K,quickDatesMap:x,quickDates:t.__H,dates:t.__G}),t.__h=d("#"+t.id)},__N:function(){var t=this;t.updater.digest({dates:t.__G})},"__O<change>":function(t){var e=this;t.stopPropagation(),d(t.eventTarget).data("hidden",t.date+(t.time?" "+t.time:""));var a=d("#start_"+e.id).data("hidden"),i=d("#end_"+e.id).data("hidden"),n=e.updater.get("dates"),s=r(a,n.formatter);r(i,n.formatter).getTime()<s.getTime()&&(i=a,d("#end_"+e.id).data("hidden",i)),n=D.getDescription(a,i,e.__H,e.__M),e.updater.digest({dates:n})},"__P<click>":function(t){var e=this,a=t.eventTarget,i=t.params,n={max:e.__F,min:e.__E,timeType:e.__K,dateType:e.__L,selected:a.value,placement:e.__I,align:e.__J};i.first||(n.min=o(d("#start_"+e.id).data("hidden"))),a.vframe?a.vframe.invoke("update",n):e.owner.mountVframe(a.id,"mx-calendar/datepicker",n).invoke("__e")},"__n<click>":function(t){var e,a,i,n,r=this,_=t.params,c=r.updater,o=c.get("dates");if(_.quick){o.quickDateKey=_.key;var u=x[_.key];e=u.start,a=u.end,i=s(e,o.formatter),n=s(a,o.formatter),d("#start_"+r.id).data("hidden",i),d("#end_"+r.id).data("hidden",n),o.startStr=i,o.endStr=n,o.start=e,o.end=a,o.quickDateText=u.text,c.digest({dates:o})}else i=d("#start_"+r.id).data("hidden"),n=d("#end_"+r.id).data("hidden"),o=D.getDescription(i,n,r.__H,r.__M),c.digest({dates:o});r.__h.trigger({type:"change",dates:r.__G=o})},"__Q<click>":function(){var t=this;t.__h.trigger("cancel"),t.__N()},"__D<contextmenu>":function(t){t.preventDefault()}},{getSupportQuickDates:function(){return x},getDescription:function(t,e,a,d){t=r(t),e=r(e);var n,_={startStr:s(t,d),endStr:s(e,d),formatter:d},c=u.getTime(),o=p.getTime(),l=t.getTime(),g=e.getTime();if(l==g)c==g?n="today":o==g&&(n="yesterday");else{var m=(g-l)/864e5+1;o==g?x[n="passed"+m]||(n=0):c==g&&(x[n="lastest"+m]||(n=0))}if(!n)for(var h=$.length-1;h>-1;h--){var v=$[h],f=x[v];if(g==f.end.getTime()&&l==f.start.getTime()){n=v;break}}return n&&a&&(i.toMap(a)[n]||(n=0)),n&&(_.quickDateText=x[n].text,_.quickDateKey=n),_}});a.exports=D});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-calendar/range',["magix","$","./index"],(require,exports,module)=>{
+/*Magix,$,Calendar*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@taobao.com
+ */
+let Magix = require('magix');
+let $ = require('$');
+let Calendar = require('./index');
+let DateParse = Calendar.parse;
+let DateFormat = Calendar.format;
+Magix.applyStyle("__mx-calendar_range_",".__mx-calendar_range_-wrapper {\n  border: 1px solid #e6e6e6;\n  padding: 10px 0;\n  border-radius: 4px;\n  background-color: #fff;\n  width: 265px;\n}\n.__mx-calendar_range_-shortcuts-wrapper {\n  padding: 0 10px;\n}\n.__mx-calendar_range_-st {\n  height: 24px;\n  line-height: 24px;\n  border-radius: 4px;\n  margin: 0 10px 10px 0;\n  width: 70px;\n  float: left;\n  text-align: center;\n  display: inline-block;\n  cursor: pointer;\n}\n.__mx-calendar_range_-st:hover {\n  background: #e6e6e6;\n}\n.__mx-calendar_range_-selected,\n.__mx-calendar_range_-selected:hover {\n  color: #fff;\n  background: #f96447;\n}\n.__mx-calendar_range_-range {\n  padding: 0 10px;\n  margin-bottom: 15px;\n}\n.__mx-calendar_range_-ipt {\n  background-color: #f0f0f0;\n  border: 0;\n  height: 24px;\n  width: 117px;\n  text-align: center;\n  display: inline-block;\n  color: #333;\n  border-radius: 4px;\n  padding: 6px 9px;\n  cursor: text;\n}\n.__mx-calendar_range_-footer {\n  border-top: 1px solid #e6e6e6;\n  margin-left: 10px;\n  padding-top: 10px;\n  width: 92%;\n}\n.__mx-calendar_range_-time {\n  width: 330px;\n}\n.__mx-calendar_range_-time .__mx-calendar_range_-ipt {\n  width: 150px;\n}\n");
+let DayMillisecond = 86400000, GetOffsetDate = (offset, date) => {
+    if (!date) {
+        date = new Date();
+    }
+    let uom = new Date(date.getTime() + offset * DayMillisecond);
+    uom = uom.getFullYear() + '/' + (uom.getMonth() + 1) + '/' + uom.getDate();
+    return new Date(uom);
+}, SetEnd = d => {
+    d = new Date(d);
+    d.setHours(23);
+    d.setMinutes(59);
+    d.setSeconds(59);
+    return d;
+}, SetStart = d => {
+    d = new Date(d);
+    d.setHours(0);
+    d.setMinutes(0);
+    d.setSeconds(0);
+    return d;
+}, Today = GetOffsetDate(0), Yesterday = GetOffsetDate(-1), GetLastMonth = () => {
+    let start = new Date(Today.getFullYear(), Today.getMonth() - 1, 1), startYear = start.getFullYear(), startMonth = start.getMonth(), lastDay = 32 - new Date(startYear, startMonth, 32).getDate();
+    return {
+        start: start,
+        end: SetEnd(new Date(startYear, startMonth, lastDay))
+    };
+}, GetLastWeek = (start) => {
+    let temp = GetOffsetDate(-7), offset = start - temp.getDay();
+    return {
+        start: GetOffsetDate(offset, temp),
+        end: SetEnd(GetOffsetDate(offset + 6, temp))
+    };
+}, LastWeekSun = GetLastWeek(0), LastWeekMon = GetLastWeek(1), LastMonth = GetLastMonth();
+LastMonth.text = '上月';
+LastWeekSun.text = '上周（周日至周六）';
+LastWeekMon.text = '上周（周一至周日）';
+let QuickDates = {
+    today: {
+        text: '今天',
+        start: Today,
+        end: SetEnd(Today)
+    },
+    yesterday: {
+        text: '昨天',
+        start: Yesterday,
+        end: SetEnd(Yesterday)
+    },
+    preMonth: LastMonth,
+    preWeekSun: LastWeekSun,
+    preWeekMon: LastWeekMon,
+    passedThisMonth: {
+        text: '本月',
+        start: GetOffsetDate(-Today.getDate() + 1),
+        end: SetEnd(Yesterday)
+    },
+    lastestThisMonth: {
+        text: '本月',
+        start: GetOffsetDate(-Today.getDate() + 1),
+        end: SetEnd(Today)
+    }
+};
+let TempDates = [2, 6, 13, 14, 29, 89];
+for (let i = 0, date, dateSucc; i < TempDates.length; i++) {
+    date = TempDates[i];
+    dateSucc = date + 1;
+    QuickDates['passed' + dateSucc] = {
+        text: '过去' + dateSucc + '天',
+        start: GetOffsetDate(-dateSucc),
+        end: SetEnd(Yesterday)
+    };
+    QuickDates['lastest' + dateSucc] = {
+        text: '最近' + dateSucc + '天',
+        start: GetOffsetDate(-date),
+        end: SetEnd(Today)
+    };
+}
+let QueryQuickDateKeys = [
+    'preMonth',
+    'preWeekMon',
+    'preWeekSun',
+    'passedThisMonth',
+    'lastestThisMonth'
+];
+let RangeDate = Magix.View.extend({
+    tmpl: {"html":"<div mx-guid=\"g0\u001f\" class=\"__mx-calendar_range_-wrapper<%if($$.showTime){%> __mx-calendar_range_-time<%}%> __mx-style_index_-unselectable\" mx-contextmenu=\"\u001f\u001e@{prevent}()\">1\u001d</div>","subs":[{"keys":["showTime","quickDates"],"path":"div[mx-guid=\"g0\u001f\"]","tmpl":"<%if($$.quickDates.length){%><div class=\"__mx-calendar_range_-shortcuts-wrapper\"><div class=\"__mx-style_index_-mb10\">快捷日期</div><div mx-guid=\"g1\u001f\" class=\"__mx-style_index_-clearfix\">2\u001d</div></div><%}%><div class=\"__mx-calendar_range_-range\"><div class=\"__mx-style_index_-mb10\">日期范围</div><div class=\"__mx-style_index_-clearfix\"><input mx-guid=\"g2\u001f\" readonly=\"readonly\" class=\"__mx-calendar_range_-ipt\" data-hidden=\"<%=$$.dates.startStr%>\" value=\"<%=$$.dates.startStr%>\" mx-click=\"\u001f\u001e@{show.date.picker}({first:true})\" id=\"start_<%=$$.id%>\" mx-change=\"\u001f\u001e@{sync.date}()\">-<input mx-guid=\"g3\u001f\" readonly=\"readonly\" class=\"__mx-calendar_range_-ipt\" data-hidden=\"<%=$$.dates.endStr%>\" value=\"<%=$$.dates.endStr%>\" mx-click=\"\u001f\u001e@{show.date.picker}()\" id=\"end_<%=$$.id%>\" mx-change=\"\u001f\u001e@{sync.date}()\"></div></div><div class=\"__mx-calendar_range_-footer __mx-style_index_-clearfix\"><button mx-click=\"\u001f\u001e@{date.picked}()\" type=\"button\" class=\"__mx-style_index_-btn __mx-style_index_-btn-brand\">确定</button><button mx-click=\"\u001f\u001e@{cancel}()\" type=\"button\" class=\"__mx-style_index_-btn __mx-style_index_-ml5\">取消</button></div>","s":"1\u001d","attr":"class=\"__mx-calendar_range_-wrapper<%if($$.showTime){%> __mx-calendar_range_-time<%}%> __mx-style_index_-unselectable\"","attrs":[{"n":"class","p":1,"f":"className"}],"mask":"21"},{"keys":["quickDates","quickDatesMap","dates"],"path":"div[mx-guid=\"g1\u001f\"]","tmpl":"<%for(var i=0;i<$$.quickDates.length;i++){%> <%var key=$$.quickDates[i],info=$$.quickDatesMap[key]%><span class=\"__mx-calendar_range_-st __mx-style_index_-ellipsis<%if($$.dates.quickDateKey==key){%> __mx-calendar_range_-selected<%}%>\" mx-click=\"\u001f\u001e@{date.picked}({quick:true,key:'<%=$eq(key)%>'})\" title=\"<%=info?info.text:key%>\"><%=info?info.text:key%></span><%}%>","s":"2\u001d"},{"keys":["dates","id"],"path":"input[mx-guid=\"g2\u001f\"]","attr":"data-hidden=\"<%=$$.dates.startStr%>\" value=\"<%=$$.dates.startStr%>\" mx-click=\"\u001f\u001e@{show.date.picker}({first:true})\" id=\"start_<%=$$.id%>\"","attrs":[{"n":"data-hidden"},{"n":"value","q":1,"p":1},{"n":"mx-click"},{"n":"id","p":1}]},{"keys":["dates","id"],"path":"input[mx-guid=\"g3\u001f\"]","attr":"data-hidden=\"<%=$$.dates.endStr%>\" value=\"<%=$$.dates.endStr%>\" mx-click=\"\u001f\u001e@{show.date.picker}()\" id=\"end_<%=$$.id%>\"","attrs":[{"n":"data-hidden"},{"n":"value","q":1,"p":1},{"n":"mx-click"},{"n":"id","p":1}]}],"file":"mx-calendar/range.html"},
+    init(ops) {
+        let me = this;
+        me['@{min}'] = ops.min;
+        me['@{max}'] = ops.max;
+        me['@{dates}'] = ops.dates;
+        me['@{dates.quick}'] = ops.quickDates || [];
+        me['@{pos.placement}'] = ops.placement;
+        me['@{pos.align}'] = ops.align;
+        me['@{time.type}'] = ops.timeType;
+        me['@{date.type}'] = ops.dateType;
+        me['@{datetime.formatter}'] = ops.formatter;
+    },
+    '@{inside}'(node) {
+        let me = this;
+        let inView = Magix.inside(node, me.id);
+        if (!inView) {
+            let children = me.owner.children();
+            for (let i = children.length - 1; i >= 0; i--) {
+                let child = Magix.Vframe.get(children[i]);
+                if (child) {
+                    inView = child.invoke('inside', node);
+                }
+                if (inView)
+                    break;
+            }
+        }
+        return inView;
+    },
+    render() {
+        let me = this;
+        me.updater.digest({
+            id: me.id,
+            showTime: me['@{time.type}'],
+            quickDatesMap: QuickDates,
+            quickDates: me['@{dates.quick}'],
+            dates: me['@{dates}']
+        });
+        me['@{owner.node}'] = $('#' + me.id);
+    },
+    '@{restore}'() {
+        let me = this;
+        me.updater.digest({
+            dates: me['@{dates}']
+        });
+    },
+    '@{sync.date}<change>'(e) {
+        let me = this;
+        e.stopPropagation();
+        $(e.eventTarget).data('hidden', e.date + (e.time ? ' ' + e.time : ''));
+        let start = $('#start_' + me.id).data('hidden');
+        let end = $('#end_' + me.id).data('hidden');
+        let dates = me.updater.get('dates');
+        let startTime = DateParse(start, dates.formatter);
+        let endTime = DateParse(end, dates.formatter);
+        if (endTime.getTime() < startTime.getTime()) {
+            end = start;
+            $('#end_' + me.id).data('hidden', end);
+        }
+        dates = RangeDate.getDescription(start, end, me['@{dates.quick}'], me['@{datetime.formatter}']);
+        me.updater.digest({
+            dates: dates
+        });
+    },
+    '@{show.date.picker}<click>'(e) {
+        let me = this, node = e.eventTarget, params = e.params;
+        let dparams = {
+            max: me['@{max}'],
+            min: me['@{min}'],
+            timeType: me['@{time.type}'],
+            dateType: me['@{date.type}'],
+            selected: node.value,
+            placement: me['@{pos.placement}'],
+            align: me['@{pos.align}']
+        };
+        if (!params.first) {
+            dparams.min = SetStart($('#start_' + me.id).data('hidden'));
+        }
+        if (node.vframe) {
+            node.vframe.invoke('update', dparams);
+        }
+        else {
+            me.owner.mountVframe(node.id, 'mx-calendar/datepicker', dparams).invoke('@{show}');
+        }
+    },
+    '@{date.picked}<click>'(e) {
+        let me = this;
+        let params = e.params;
+        let data = me.updater;
+        let dates = data.get('dates'), start, end, startStr, endStr;
+        if (params.quick) {
+            dates.quickDateKey = params.key;
+            let info = QuickDates[params.key];
+            start = info.start;
+            end = info.end;
+            startStr = DateFormat(start, dates.formatter);
+            endStr = DateFormat(end, dates.formatter);
+            $('#start_' + me.id).data('hidden', startStr);
+            $('#end_' + me.id).data('hidden', endStr);
+            dates.startStr = startStr;
+            dates.endStr = endStr;
+            dates.start = start;
+            dates.end = end;
+            dates.quickDateText = info.text;
+            data.digest({
+                dates: dates
+            });
+        }
+        else {
+            startStr = $('#start_' + me.id).data('hidden');
+            endStr = $('#end_' + me.id).data('hidden');
+            dates = RangeDate.getDescription(startStr, endStr, me['@{dates.quick}'], me['@{datetime.formatter}']);
+            data.digest({
+                dates: dates
+            });
+        }
+        me['@{owner.node}'].trigger({
+            type: 'change',
+            dates: me['@{dates}'] = dates
+        });
+    },
+    '@{cancel}<click>'() {
+        let me = this;
+        me['@{owner.node}'].trigger('cancel');
+        me['@{restore}']();
+    },
+    '@{prevent}<contextmenu>'(e) {
+        e.preventDefault();
+    }
+}, {
+    getSupportQuickDates() {
+        return QuickDates;
+    },
+    getDescription(start, end, translateQuickdatesKeys, formatter) {
+        start = DateParse(start);
+        end = DateParse(end);
+        let result = {
+            startStr: DateFormat(start, formatter),
+            endStr: DateFormat(end, formatter),
+            formatter: formatter
+        };
+        let quickDateKey, todayMillisecond = Today.getTime(), yesterdayMillisecond = Yesterday.getTime(), startMillisecond = start.getTime(), endMillisecond = end.getTime();
+        if (startMillisecond == endMillisecond) {
+            if (todayMillisecond == endMillisecond) {
+                quickDateKey = 'today';
+            }
+            else if (yesterdayMillisecond == endMillisecond) {
+                quickDateKey = 'yesterday';
+            }
+        }
+        else {
+            let mapped;
+            let days = (endMillisecond - startMillisecond) / DayMillisecond + 1;
+            if (yesterdayMillisecond == endMillisecond) {
+                mapped = QuickDates[quickDateKey = 'passed' + days];
+                if (!mapped) {
+                    quickDateKey = 0;
+                }
+            }
+            else if (todayMillisecond == endMillisecond) {
+                mapped = QuickDates[quickDateKey = 'lastest' + days];
+                if (!mapped) {
+                    quickDateKey = 0;
+                }
+            }
+        }
+        if (!quickDateKey) {
+            for (let i = QueryQuickDateKeys.length - 1; i > -1; i--) {
+                let param = QueryQuickDateKeys[i];
+                let info = QuickDates[param];
+                if (endMillisecond == info.end.getTime() &&
+                    startMillisecond == info.start.getTime()) {
+                    quickDateKey = param;
+                    break;
+                }
+            }
+        }
+        if (quickDateKey && translateQuickdatesKeys) {
+            if (!Magix.toMap(translateQuickdatesKeys)[quickDateKey]) {
+                quickDateKey = 0;
+            }
+        }
+        if (quickDateKey) {
+            result.quickDateText = QuickDates[quickDateKey].text;
+            result.quickDateKey = quickDateKey;
+        }
+        return result;
+    }
+});
+module.exports = RangeDate;
+
+});

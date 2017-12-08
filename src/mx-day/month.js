@@ -1,1 +1,204 @@
-define("mx-day/month",["magix","$","mx-dragselect/index"],function(a,e,_){a("mx-dragselect/index");var t=a("magix");t.applyStyle("_k","._bO{padding:0;height:38.4px;overflow:hidden;cursor:default;border:none;border-right:1px solid #e6e6e6}._bP{border-right:none}._bQ{background-color:#8282e6}._bR{opacity:0}._bS{cursor:not-allowed;background-color:#fbfbfb}");var r=a("$"),n={MON:1,TUE:2,WED:3,THU:4,FRI:5,SAT:6,SUN:0},d={1:"MON",2:"TUE",3:"WED",4:"THU",5:"FRI",6:"SAT",0:"SUN"},i=function(a,e){return 32-new Date(a,e,32).getDate()},s=function(a,e){a=(a=a||"").slice(0,e);for(var _=0;_<e;_++)a.length<=_&&(a+="0");return a},o=function(a){for(var e={},_=a.length;_--;)"1"===a.charAt(_)&&(e[_]=1);return e};_.exports=t.View.extend({tmpl:{html:'<table class="_W _X"><tbody><tr mx-guid="g0" mx-change="__e()" mx-dragbegin="__aI()" mx-dragfinish="__aJ()" mx-view="mx-dragselect/index?selector=td%5Benable%3Dtrue%5D">1</tr></tbody></table>',subs:[{keys:["days","selected"],path:'tr[mx-guid="g0"]',tmpl:'<%for(var a=0;a<31;a++){%><td data-day="<%=a%>" enable="<%=a<$$.days?true:false%>" class="_bO<%if($$.selected.charAt(a)===\'1\'){%> _bQ<%}if(a==30){%> _bP<%}if(a>=$$.days){%> _bS<%}%>"><span class="_bR"><%=(\'0\'+(a+1)).slice(-2)%></span></td><%}%>',s:"1"}]},init:function(a){var e=this;e.assign(a),e.__h=r("#"+e.id)},assign:function(a){var e=this,_=i(a.year,a.month);return e.__aB=_,e.__aC=a.year,e.__aD=a.month,e.__aE=s(a.selected,_),!0},__p:function(a){var e=this;if(a){var _=e.__aB;e.__aE=s(a,_),e.render()}},__aw:function(a,e){for(var _=this,t=_.__aE,r=_.__aC,d=_.__aD,i=_.__aB,s=n[a],o=1;o<=i;o++)new Date(r,d,o).getDay()===s&&(t=t.slice(0,o-1)+(e?"1":"0")+t.slice(o));_.__aE=t,_.render(!0)},render:function(a){var e=this;e.updater.digest({days:e.__aB,selected:e.__aE}),e.__aF=o(e.__aE),e.__h.trigger({type:"sync",ignoreSync:a,days:e.__aE})},__at:function(){for(var a=this,e=a.__aE,_=a.__aC,r=a.__aD,n=a.__aB,i={},s=1;s<=n;s++)if("1"!=e.charAt(s-1)){var o=new Date(_,r,s);i[d[o.getDay()]]=1}return t.keys(i)},"__e<change,click>":function(a){a.stopPropagation();var e=r(a.node),_=this,n=_.updater.get(),d=e.data("day"),i=_.__aF,s=_.__aG;"add"==a.action?i[d]?(e.removeClass("_bQ"),delete i[d],"drag"==a.mode&&(s[d]=1)):(e.addClass("_bQ"),i[d]=1,"drag"==a.mode&&delete s[d]):"remove"==a.action&&(s[d]?(e.addClass("_bQ"),i[d]=1,"drag"==a.mode&&delete s[d]):(e.removeClass("_bQ"),delete i[d],"drag"==a.mode&&(s[d]=1)));for(var o=_.__aB,c="",g=0;g<o;g++)t.has(i,g)?c+="1":c+="0";n.selected=_.__aE=c,"click"==a.mode&&_.__h.trigger({type:"change",days:c})},"__aI<dragbegin>":function(a){a.stopPropagation();var e=this;e.__aH=e.__aE,e.__aG={}},"__aJ<dragfinish>":function(a){a.stopPropagation();var e=this;e.__aE!=e.__aH&&e.__h.trigger({type:"change",days:e.__aE}),delete e.__aG}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-day/month',["magix","$","mx-dragselect/index"],(require,exports,module)=>{
+/*Magix,$*/
+require("mx-dragselect/index");
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+let Magix = require('magix');
+Magix.applyStyle("__mx-day_month_",".__mx-day_month_-day {\n  padding: 0;\n  height: 38.4px;\n  overflow: hidden;\n  cursor: default;\n  border: none;\n  border-right: solid 1px #e6e6e6;\n}\n.__mx-day_month_-no-right {\n  border-right: none;\n}\n.__mx-day_month_-active {\n  background-color: #f37b63;\n}\n.__mx-day_month_-opacity-hide {\n  opacity: 0;\n}\n.__mx-day_month_-notallowed {\n  cursor: not-allowed;\n  background-color: #fbfbfb;\n}\n");
+let $ = require('$');
+let Weeks = {
+    MON: 1,
+    TUE: 2,
+    WED: 3,
+    THU: 4,
+    FRI: 5,
+    SAT: 6,
+    SUN: 0
+};
+let WeeksToKey = {
+    1: 'MON',
+    2: 'TUE',
+    3: 'WED',
+    4: 'THU',
+    5: 'FRI',
+    6: 'SAT',
+    0: 'SUN'
+};
+let GetNumOfDays = (year, month) => {
+    return 32 - new Date(year, month, 32).getDate();
+};
+let GetDaysStr = (str, days) => {
+    str = str || '';
+    str = str.slice(0, days);
+    for (let i = 0; i < days; i++) {
+        if (str.length <= i) {
+            str += '0';
+        }
+    }
+    return str;
+};
+let GetDragInfo = str => {
+    let info = {};
+    for (let i = str.length; i--;) {
+        if (str.charAt(i) === '1') {
+            info[i] = 1;
+        }
+    }
+    return info;
+};
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<table class=\"__mx-style_index_-wp100 __mx-style_index_-hp100\"><tbody><tr mx-guid=\"g0\u001f\" mx-change=\"\u001f\u001e@{show}()\" mx-dragbegin=\"\u001f\u001e@{begin}()\" mx-dragfinish=\"\u001f\u001e@{end}()\" mx-view=\"mx-dragselect/index?selector=td%5Benable%3Dtrue%5D\">1\u001d</tr></tbody></table>","subs":[{"keys":["days","selected"],"path":"tr[mx-guid=\"g0\u001f\"]","tmpl":"<%for(var i=0;i<31;i++){%><td data-day=\"<%=i%>\" enable=\"<%=i<$$.days?true:false%>\" class=\"__mx-day_month_-day<%if($$.selected.charAt(i)==='1'){%> __mx-day_month_-active<%}%><%if(i==30){%> __mx-day_month_-no-right<%}%><%if(i>=$$.days){%> __mx-day_month_-notallowed<%}%>\"><span class=\"__mx-day_month_-opacity-hide\"><%=('0'+(i+1)).slice(-2)%></span></td><%}%>","s":"1\u001d"}],"file":"mx-day/month.html"},
+    init(extra) {
+        let me = this;
+        me.assign(extra);
+        me['@{owner.node}'] = $('#' + me.id);
+    },
+    assign(ops) {
+        let me = this;
+        let days = GetNumOfDays(ops.year, ops.month);
+        me['@{days}'] = days;
+        me['@{year}'] = ops.year;
+        me['@{month}'] = ops.month;
+        me['@{selected}'] = GetDaysStr(ops.selected, days);
+        return true;
+    },
+    '@{update.selected}'(selected) {
+        let me = this;
+        if (selected) {
+            let days = me['@{days}'];
+            me['@{selected}'] = GetDaysStr(selected, days);
+            me.render();
+        }
+    },
+    '@{week.shortcuts}'(week, enable) {
+        let me = this;
+        let selected = me['@{selected}'];
+        let year = me['@{year}'];
+        let month = me['@{month}'];
+        let days = me['@{days}'];
+        let flag = Weeks[week];
+        for (let i = 1; i <= days; i++) {
+            let date = new Date(year, month, i);
+            if (date.getDay() === flag) {
+                selected = selected.slice(0, i - 1) + (enable ? '1' : '0') + selected.slice(i);
+            }
+        }
+        me['@{selected}'] = selected;
+        me.render(true);
+    },
+    render(ignore) {
+        let me = this;
+        me.updater.digest({
+            days: me['@{days}'],
+            selected: me['@{selected}']
+        });
+        me['@{drag.selected}'] = GetDragInfo(me['@{selected}']);
+        me['@{owner.node}'].trigger({
+            type: 'sync',
+            ignoreSync: ignore,
+            days: me['@{selected}']
+        });
+    },
+    '@{get.disabled.week}'() {
+        let me = this;
+        let selected = me['@{selected}'];
+        let year = me['@{year}'];
+        let month = me['@{month}'];
+        let days = me['@{days}'];
+        let dis = {};
+        for (let i = 1; i <= days; i++) {
+            if (selected.charAt(i - 1) != '1') {
+                let date = new Date(year, month, i);
+                let key = WeeksToKey[date.getDay()];
+                dis[key] = 1;
+            }
+        }
+        return Magix.keys(dis);
+    },
+    '@{show}<change,click>'(e) {
+        e.stopPropagation();
+        let node = $(e.node);
+        let me = this;
+        let data = me.updater.get();
+        let day = node.data('day');
+        let dragSelected = me['@{drag.selected}'];
+        let dragTemp = me['@{drag.temp}'];
+        if (e.action == 'add') {
+            if (dragSelected[day]) {
+                node.removeClass('__mx-day_month_-active');
+                delete dragSelected[day];
+                if (e.mode == 'drag') {
+                    dragTemp[day] = 1;
+                }
+            }
+            else {
+                node.addClass('__mx-day_month_-active');
+                dragSelected[day] = 1;
+                if (e.mode == 'drag') {
+                    delete dragTemp[day];
+                }
+            }
+        }
+        else if (e.action == 'remove') {
+            if (dragTemp[day]) {
+                node.addClass('__mx-day_month_-active');
+                dragSelected[day] = 1;
+                if (e.mode == 'drag') {
+                    delete dragTemp[day];
+                }
+            }
+            else {
+                node.removeClass('__mx-day_month_-active');
+                delete dragSelected[day];
+                if (e.mode == 'drag') {
+                    dragTemp[day] = 1;
+                }
+            }
+        }
+        let days = me['@{days}'];
+        let s = '';
+        for (let i = 0; i < days; i++) {
+            if (!Magix.has(dragSelected, i)) {
+                s += '0';
+            }
+            else {
+                s += '1';
+            }
+        }
+        data.selected = me['@{selected}'] = s;
+        if (e.mode == 'click') {
+            me['@{owner.node}'].trigger({
+                type: 'change',
+                days: s
+            });
+        }
+    },
+    '@{begin}<dragbegin>'(e) {
+        e.stopPropagation();
+        let me = this;
+        me['@{start.value.temp}'] = me['@{selected}'];
+        me['@{drag.temp}'] = {};
+    },
+    '@{end}<dragfinish>'(e) {
+        e.stopPropagation();
+        let me = this;
+        if (me['@{selected}'] != me['@{start.value.temp}']) {
+            me['@{owner.node}'].trigger({
+                type: 'change',
+                days: me['@{selected}']
+            });
+        }
+        delete me['@{drag.temp}'];
+    }
+});
+
+});

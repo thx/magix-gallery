@@ -1,1 +1,197 @@
-define("mx-uploader/index",["magix","$","../mx-runner/index"],function(e,t,n){var r=e("magix"),i=e("$"),o=e("../mx-runner/index");r.applyStyle("_O","._fH{position:relative;overflow:hidden}._fI{left:0;top:0;bottom:0;right:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:100px;filter:alpha(opacity=0)}._fJ,._fI{position:absolute}._fJ{left:-999999px}");var a=r.Base.extend({destroy:function(){this.__do=1}}),p=a.extend({__gf:function(e,t,n,a){var p=e.form,f=this,d=r.guid("up");p||(i("body").append('<div id="'+d+'_temp" class="_fJ"><form target="'+d+'"></form></div>'),(p=i("#"+d+"_temp").find("form")).append(e),p=p[0]);var c=0,s=2e3;if(e.files){s=0;for(var l=0;l<e.files.length;l++)s+=e.files[l].size;(s/=1e3)<2e3&&(s=2e3)}var u=1e3/s,m=function(){c<1&&(a(c),c+=u+20*Math.random()*u)};o.__bj(100,m),i('<iframe name="'+d+'" id="'+d+'" style="display:none;"></iframe>').insertAfter(p).on("load",function(e){if(o.__bk(m),!f.__do){a(1);var t=e.target,r=i(t.contentWindow.document.body);r.find("script").remove();var p=i.trim(r.text());i(t).remove(),i("#"+d+"_temp").remove();try{n(null,new Function("return "+p)())}catch(e){n(e)}}}).on("error",function(e){o.__bk(m),f.__do||(i("#"+d+"_temp").remove(),n(e))}),p.target=d,p.action=t.get("action"),p.method="POST",p.enctype="multipart/form-data",p.submit()}}),f=a.extend({__gf:function(e,t,n,r){for(var i=new FormData,o=this,a=e.files,p=0;p<a.length;p++)i.append(t.get("name"),a[p]);var f=new XMLHttpRequest;f.open("post",t.get("action"),!0),f.onload=function(){if(!o.__do)try{n(null,new Function("return "+f.responseText)())}catch(e){n(e)}},f.onerror=function(e){o.__do||(e.message="network error",n(e))},f.upload.onprogress=function(e){r(e.lengthComputable?e.loaded/e.total:0)},f.send(i)}});n.exports=r.View.extend({init:function(e){var t=this;t.updater.set({name:e.name||"file",action:e.action||"",multiple:e.multiple,accept:e.accept});var n;n=window.FormData?f:p,t.capture("__gg",new n)},render:function(){var e=this,t="file_"+e.id,n=i("#"+t);n.length&&n.remove();var r=e.updater.get();i("#"+e.id).append(e.wrapEvent('<input id="'+t+'" type="file" class="_fI" mx-change="__gh()" name="'+r.name+'" />')).addClass("_fH"),n=i("#"+t),r.multiple&&n.attr("multiple","multiple"),r.accept&&n.prop("accept",r.accept)},"__gh<change>":function(e){var t=this,n=i("#"+t.id),r=e.eventTarget.files,o=i.Event("start",{files:r});n.trigger(o),o.isDefaultPrevented()?t.render():(t.capture("__gg").__gf(e.target,t.updater,function(e,t){e?n.trigger({type:"error",error:e}):n.trigger({type:"success",files:r,response:t})},function(e){n.trigger({type:"progress",percent:e})}),t.render())}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-uploader/index',["magix","$","../mx-runner/index"],(require,exports,module)=>{
+/*Magix,$,Runner*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@taobao.com
+ */
+let Magix = require('magix');
+let $ = require('$');
+let Runner = require('../mx-runner/index');
+Magix.applyStyle("__mx-uploader_index_",".__mx-uploader_index_-pro{\n    position: relative;\n    overflow: hidden;\n}\n.__mx-uploader_index_-file{\n    position: absolute;\n    left:0;\n    top:0;\n    bottom: 0;\n    right: 0;\n    width: 100%;\n    height: 100%;\n    opacity: 0;\n    cursor: pointer;\n    font-size:100px;\n    filter: alpha(opacity=0);\n}\n.__mx-uploader_index_-cnt{\n    position: absolute;\n    left:-999999px;\n}");
+let Uploader = Magix.Base.extend({
+    destroy() {
+        let me = this;
+        me['@{destroyed}'] = 1;
+    }
+});
+let Iframe = Uploader.extend({
+    '@{send.request}'(input, data, callback, progress) {
+        let form = input.form;
+        let me = this;
+        let id = Magix.guid('up');
+        if (!form) {
+            $('body').append('<div id="' + id + '_temp" class="__mx-uploader_index_-cnt"><form target="' + id + '"></form></div>');
+            let cnt = $('#' + id + '_temp');
+            form = cnt.find('form');
+            form.append(input);
+            form = form[0];
+        }
+        let p = 0;
+        let total = 2000;
+        if (input.files) {
+            total = 0;
+            for (let i = 0; i < input.files.length; i++) {
+                total += input.files[i].size;
+            }
+            total /= 1000;
+            if (total < 2000) {
+                total = 2000;
+            }
+        }
+        let base = 1000 / total;
+        let prgs = () => {
+            if (p < 1) {
+                progress(p);
+                p += base + Math.random() * 20 * base;
+            }
+        };
+        Runner['@{task.add}'](100, prgs);
+        $('<iframe name="' + id + '" id="' + id + '" style="display:none;"></iframe>').insertAfter(form).on('load', e => {
+            Runner['@{task.remove}'](prgs);
+            if (!me['@{destroyed}']) {
+                progress(1);
+                let iframe = e.target;
+                let $body = $(iframe.contentWindow.document.body);
+                $body.find('script').remove();
+                let response = $.trim($body.text());
+                $(iframe).remove();
+                $('#' + id + '_temp').remove();
+                try {
+                    /*jshint evil:true*/
+                    callback(null, new Function('return ' + response)());
+                }
+                catch (ex) {
+                    callback(ex);
+                }
+            }
+        }).on('error', e => {
+            Runner['@{task.remove}'](prgs);
+            if (!me['@{destroyed}']) {
+                $('#' + id + '_temp').remove();
+                callback(e);
+            }
+        });
+        form.target = id;
+        form.action = data.get('action');
+        form.method = 'POST';
+        form.enctype = 'multipart/form-data';
+        form.submit();
+    }
+});
+let XHR = Uploader.extend({
+    '@{send.request}'(input, data, callback, progress) {
+        let fd = new FormData();
+        let me = this;
+        let files = input.files;
+        for (let i = 0; i < files.length; i++) {
+            fd.append(data.get('name'), files[i]);
+        }
+        let xhr = new XMLHttpRequest();
+        xhr.open('post', data.get('action'), true);
+        xhr.onload = () => {
+            if (!me['@{destroyed}']) {
+                try {
+                    /*jshint evil:true*/
+                    callback(null, new Function('return ' + xhr.responseText)());
+                }
+                catch (ex) {
+                    callback(ex);
+                }
+            }
+        };
+        xhr.onerror = e => {
+            if (!me['@{destroyed}']) {
+                e.message = 'network error';
+                callback(e);
+            }
+        };
+        xhr.upload.onprogress = e => {
+            if (e.lengthComputable) {
+                progress(e.loaded / e.total);
+            }
+            else {
+                progress(0);
+            }
+        };
+        xhr.send(fd);
+    }
+});
+module.exports = Magix.View.extend({
+    init(extra) {
+        let me = this;
+        me.updater.set({
+            name: extra.name || 'file',
+            action: extra.action || '',
+            multiple: extra.multiple,
+            accept: extra.accept
+        });
+        let Transport;
+        if (window.FormData) {
+            Transport = XHR;
+        }
+        else {
+            Transport = Iframe;
+        }
+        me.capture('@{transport}', new Transport());
+    },
+    render() {
+        let me = this;
+        let nodeId = 'file_' + me.id;
+        let node = $('#' + nodeId);
+        if (node.length) {
+            node.remove();
+        }
+        let data = me.updater.get();
+        $('#' + me.id).append(me.wrapEvent('<input id="' + nodeId + '" type="file" class="__mx-uploader_index_-file" mx-change="\x1f\x1e@{upload}()" name="' + data.name + '" />')).addClass('__mx-uploader_index_-pro');
+        node = $('#' + nodeId);
+        if (data.multiple)
+            node.attr('multiple', 'multiple');
+        if (data.accept)
+            node.prop('accept', data.accept);
+    },
+    '@{upload}<change>'(e) {
+        let me = this;
+        let node = $('#' + me.id);
+        let files = e.eventTarget.files;
+        let event = $.Event('start', {
+            files
+        });
+        node.trigger(event);
+        if (event.isDefaultPrevented()) {
+            me.render();
+            return;
+        }
+        let transport = me.capture('@{transport}');
+        transport['@{send.request}'](e.target, me.updater, (err, response) => {
+            if (err) {
+                node.trigger({
+                    type: 'error',
+                    error: err
+                });
+            }
+            else {
+                node.trigger({
+                    type: 'success',
+                    files,
+                    response
+                });
+            }
+        }, percent => {
+            node.trigger({
+                type: 'progress',
+                percent
+            });
+        });
+        me.render();
+    }
+});
+
+});

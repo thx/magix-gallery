@@ -1,1 +1,465 @@
-define("mx-form/index",["$","magix"],function(e,t,r){var n=e("$"),i=e("magix");i.applyStyle("_r","._di,._di:hover{border-color:#a62a22!important}._dj{display:none;position:absolute;white-space:nowrap;word-wrap:normal;pointer-events:none;color:#666;font-size:10px;top:1px;line-height:1}");var a=function(e){return e.replace(/[^\x00-\xff]/g,"xl").length},o={required:function(e,t){return!t||n.trim(e)},number:function(e,t){return!(e=n.trim(e))||!t||e.indexOf(".")==e.lastIndexOf(".")&&/^-?[\d\.]+$/.test(e)},length:function(e,t){return!(e.length<t[0]||e.length>t[1])},blength:function(e,t){var r=a(e);return!(r<t[0]||r>t[1])},minLength:function(e,t){return!((e=n.trim(e))&&e.length<t)},maxLength:function(e,t){return!((e=n.trim(e))&&e.length>t)},range:function(e,t){return e=parseFloat(e),!isNaN(e)&&!(e<t[0]||e>t[1])},equalto:function(e,t){return n(t).val()==e},pattern:function(e,t){return!(e=n.trim(e))||new RegExp(t).test(e)},max:function(e,t){return!(+e>+t)},min:function(e,t){return!(+e<+t)}},f={required:function(){return"必填"},number:function(){return"数字"},length:function(e,t){return e[0]+"-"+e[1]+"个字之间,当前:"+t.length},blength:function(e,t){return e[0]+"-"+e[1]+"个字符之间,当前:"+a(t)},range:function(e){return e[0]+"-"+e[1]+"之间的数字"},equalto:function(e){return"与"+e+"同样的内容"},pattern:function(){return"格式有误"},minLength:function(e){return"最小长度:"+e},maxLength:function(e){return"最大长度:"+e},max:function(e){return"不能大于 "+e},min:function(e){return"不能小于 "+e}},u=function(e,t){var r,n,a=!0;for(var f in e)if(i.has(e,f)){var u=o[f];if(u&&!(a=u(t,n=e[f]))){r=f;break}}return{f:a,v:n,a:t,r:r}},s=function(e,t,r,a){var o=n('[mx-ssid="'+e+'"]');if(o.length)return o.addClass("_di"),o.each(function(e,o){var u=(o=n(o)).attr("id");u||(u=i.guid(),o.attr("id",u));var s=u+"_msg",c=n("#"+s);if(!c.length){var l=o.parent();"static"==l.css("position")&&l.addClass("_ag"),o.after('<div class="_dj" id="'+s+'"/>'),c=n("#"+s)}c.html(f[t](r,a)).show();var d=o.outerWidth()-3,p=c.width(),v=o.position();c.css({top:v.top+2,left:v.left+d-p})}),!0},c=function(e){var t=n('[mx-ssid="'+e+'"]');t.removeClass("_di"),t.each(function(e,t){var r=(t=n(t)).attr("id")+"_msg";n("#"+r).hide()})},l=function(e,t){var r=e.params;if(r.m){var n=t[r.m+""+e.type];n&&(e.params=r.a,n.call(t,e))}};r.exports={fromKeys:function(e,t){t=(t+"").split(",");for(var r,n={},a=0;a<t.length;a++)n[r=t[a]]=i.has(e,r)?e[r]:"";return n},isValid:function(e){var t=this,r=!0,a=t.owner.children(),o=!1;e||(e=[],o=!0);for(l=0;l<a.length;l++)!1===i.Vframe.get(a[l]).invoke("isValid",[e])&&(r=!1);n("#"+t.id+' [mx-ssid^="'+t.id+'"]').each(function(e,t){n(t).trigger({type:"change",from:"faker"})});var f=t.updater.$form;if(f){var u=i.keys(f);u.length&&(e.push(u[0]),r=!1)}if(o){for(var s=1e20,c=void 0,l=e.length,d=void 0,p=void 0;l--;)(d=n('[mx-ssid="'+e[l]+'"]')).length&&(p=d.offset()).top<s&&(c=d[0],s=p.top);c&&(c.scrollIntoViewIfNeeded?c.scrollIntoViewIfNeeded():c.scrollIntoView&&c.scrollIntoView())}return r},triggerParent:function(e){n("#"+this.id).trigger({type:"change",from:"subview",values:e})},"__b<focusin>":function(e){e.stopPropagation();var t=n(e.eventTarget);c(t.attr("mx-ssid")),l(e,this)},"__b<focusout>":function(e){e.stopPropagation(),n(e.eventTarget).trigger({type:"change",from:"faker"}),l(e,this)},"__b<change>":function(e){var t=this,r=n(e.eventTarget),i=r.prop("_lt"),a=Date.now();if(!(i&&a-i<10||(r.prop("_lt",a),e.viewId&&e.viewId!=t.id))){e.viewId=t.id;var o="faker"==e.from||"subview"==e.from;e.stopPropagation();var f=e.params,d=t.updater;d.$form||(d.$form={});var p=d.$form,v=d.$keys||d.$k,m=f.c?f.c.slice():[f],h=!1,g=!0;n("#"+t.id).removeAttr("mx-ssid");for(var x=!1;m.length;){for(var _=m.shift(),w=_.p.split("."),b=_.f||{},y=w.pop(),k=void 0,I=void 0,$=void 0,V=d.get();V&&w.length;)k=w.shift(),$||($=k),V=V[k];if($=$||y,"subview"==e.from)I=e.values[b.from||y];else if("checkbox"==r.prop("type")){var P=V[y],F=r.prop("checked");if(!0===P||!1===P)I=F;else if(I=r.val(),b.number&&(I=parseFloat(I)),n.isArray(P)){var O=r.prop("name");if(O)!function(e,t,r){n('input[name="'+e+'"]:checked').each(function(e,n){var i=n.value;r.number&&(i=parseFloat(i)),-1===t.indexOf(i)&&t.push(i)})}(O,P=[],b);else{I=r.val(),b.number&&(I=parseFloat(I));var T=P.indexOf(I);F?-1===T&&P.push(I):T>-1&&P.splice(T,1)}I=P}else n.isPlainObject(P)?(F?P[I]=I:delete P[I],I=P):I=F?I:""}else I=r.val(),b.number&&(I=parseFloat(I));if(V&&V[y]!==I&&(V[y]=I,b.refresh&&(h=!0),!h&&b.silent||(v[$]=1),x=!0),g){var q=u(b,I),L=r.attr("mx-ssid");q.f?(delete p[L],c(L)):(p[L]=q,g=!1,s(L,q.r,q.v,q.a))}}g&&h&&d.digest(),x&&t.triggerParent(d.get()),o||l(e,t)}},"$doc<htmlchanged>":function(e){var t=this,r=t.updater.$form;e.vId==t.id&&(clearTimeout(t.__cu),t.__cu=setTimeout(t.wrapAsync(function(){if(r)for(var e in r){var t=r[e];s(e,t.r,t.v,t.a)||delete r[e]}}),0))}}});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-form/index',["$","magix"],(require,exports,module)=>{
+/*$,Magix*/
+
+/*
+ver:1.3.8
+*/
+let $ = require('$');
+let Magix = require('magix');
+Magix.applyStyle("__mx-form_index_",".__mx-form_index_-fail,\n.__mx-form_index_-fail:hover {\n  border-color: #a62a22 !important;\n}\n.__mx-form_index_-msg {\n  display: none;\n  position: absolute;\n  white-space: nowrap;\n  word-wrap: normal;\n  pointer-events: none;\n  color: #666;\n  font-size: 10px;\n  top: 1px;\n  line-height: 1;\n}\n");
+let ByteLen = (str) => {
+    return str.replace(/[^\x00-\xff]/g, 'xl').length;
+};
+let Rules = {
+    required(val, rule) {
+        if (rule) {
+            return $.trim(val);
+        }
+        return true;
+    },
+    number(val, rule) {
+        val = $.trim(val);
+        if (val && rule) {
+            if (val.indexOf('.') != val.lastIndexOf('.')) {
+                return false;
+            }
+            return /^-?[\d\.]+$/.test(val);
+        }
+        return true;
+    },
+    length(val, rule) {
+        if (val.length < rule[0] || val.length > rule[1]) {
+            return false;
+        }
+        return true;
+    },
+    blength(val, rule) {
+        let len = ByteLen(val);
+        if (len < rule[0] || len > rule[1]) {
+            return false;
+        }
+        return true;
+    },
+    minLength(val, rule) {
+        val = $.trim(val);
+        if (val && val.length < rule) {
+            return false;
+        }
+        return true;
+    },
+    maxLength(val, rule) {
+        val = $.trim(val);
+        if (val && val.length > rule) {
+            return false;
+        }
+        return true;
+    },
+    range(val, rule) {
+        val = parseFloat(val);
+        if (isNaN(val)) {
+            return false;
+        }
+        if (val < rule[0] || val > rule[1]) {
+            return false;
+        }
+        return true;
+    },
+    equalto(val, rule) {
+        let to = $(rule).val();
+        return to == val;
+    },
+    pattern(val, rule) {
+        val = $.trim(val);
+        if (val) {
+            let reg = new RegExp(rule);
+            return reg.test(val);
+        }
+        return true;
+    },
+    max(val, rule) {
+        if (+val > +rule) {
+            return false;
+        }
+        return true;
+    },
+    min(val, rule) {
+        if (+val < +rule) {
+            return false;
+        }
+        return true;
+    }
+};
+let Msgs = {
+    required() {
+        return '必填';
+    },
+    number() {
+        return '数字';
+    },
+    length(rule, value) {
+        return rule[0] + '-' + rule[1] + '个字之间,当前:' + value.length;
+    },
+    blength(rule, value) {
+        return rule[0] + '-' + rule[1] + '个字符之间,当前:' + ByteLen(value);
+    },
+    range(rule) {
+        return rule[0] + '-' + rule[1] + '之间的数字';
+    },
+    equalto(rule) {
+        return '与' + rule + '同样的内容';
+    },
+    pattern() {
+        return '格式有误';
+    },
+    minLength(rule) {
+        return '最小长度:' + rule;
+    },
+    maxLength(rule) {
+        return '最大长度:' + rule;
+    },
+    max(rule) {
+        return '不能大于 ' + rule;
+    },
+    min(rule) {
+        return '不能小于 ' + rule;
+    }
+};
+let isValid = (actions, val) => {
+    let f = true, r, v;
+    for (let a in actions) {
+        if (Magix.has(actions, a)) {
+            let rule = Rules[a];
+            if (rule) {
+                f = rule(val, v = actions[a]);
+                if (!f) {
+                    r = a;
+                    break;
+                }
+            }
+        }
+    }
+    return {
+        f,
+        v,
+        a: val,
+        r
+    };
+};
+let showError = (ssId, key, rule, value) => {
+    let node = $('[mx-ssid="' + ssId + '"]');
+    if (!node.length)
+        return;
+    node.addClass('__mx-form_index_-fail');
+    node.each((i, n) => {
+        n = $(n);
+        let id = n.attr('id');
+        if (!id) {
+            id = Magix.guid();
+            n.attr('id', id);
+        }
+        let msgId = id + '_msg';
+        let msgNode = $('#' + msgId);
+        if (!msgNode.length) {
+            let prt = n.parent();
+            let pos = prt.css('position');
+            if (pos == 'static') {
+                prt.addClass('__mx-style_index_-pr');
+            }
+            n.after('<div class="__mx-form_index_-msg" id="' + msgId + '"/>');
+            msgNode = $('#' + msgId);
+        }
+        msgNode.html(Msgs[key](rule, value)).show();
+        let width = n.outerWidth() - 3;
+        let mWidth = msgNode.width();
+        let pos = n.position();
+        msgNode.css({
+            top: pos.top + 2,
+            left: pos.left + width - mWidth
+        });
+    });
+    return true;
+};
+let hideError = ssId => {
+    let node = $('[mx-ssid="' + ssId + '"]');
+    node.removeClass('__mx-form_index_-fail');
+    node.each((i, n) => {
+        n = $(n);
+        let msgId = n.attr('id') + '_msg';
+        $('#' + msgId).hide();
+    });
+};
+let callUserEvent = (e, view) => {
+    let params = e.params;
+    if (params.m) {
+        let userEventName = params.m + '\x1e' + e.type;
+        let userEventFN = view[userEventName];
+        if (userEventFN) {
+            e.params = params.a;
+            userEventFN.call(view, e);
+        }
+    }
+};
+module.exports = {
+    fromKeys(data, keys) {
+        keys = (keys + '').split(',');
+        let r = {};
+        for (let i = 0, key; i < keys.length; i++) {
+            key = keys[i];
+            r[key] = Magix.has(data, key) ? data[key] : '';
+        }
+        return r;
+    },
+    isValid(ref) {
+        let me = this;
+        let result = true;
+        let children = me.owner.children();
+        let topLevel = false;
+        if (!ref) {
+            ref = [];
+            topLevel = true;
+        }
+        for (let i = 0; i < children.length; i++) {
+            let vf = Magix.Vframe.get(children[i]);
+            let r = vf.invoke('isValid', [ref]);
+            if (r === false) {
+                result = false;
+            }
+        }
+        let elements = $('#' + me.id + ' [mx-ssid^="' + me.id + '"]');
+        elements.each((i, e) => {
+            $(e).trigger({
+                type: 'change',
+                from: 'faker'
+            });
+        });
+        let form = me.updater.$form;
+        if (form) {
+            let keys = Magix.keys(form);
+            if (keys.length) {
+                ref.push(keys[0]);
+                result = false;
+            }
+        }
+        if (topLevel) {
+            let minTop = 1e20, node;
+            for (let i = ref.length, n, f; i--;) {
+                n = $('[mx-ssid="' + ref[i] + '"]');
+                if (n.length) {
+                    f = n.offset();
+                    if (f.top < minTop) {
+                        node = n[0];
+                        minTop = f.top;
+                    }
+                }
+            }
+            if (node) {
+                if (node.scrollIntoViewIfNeeded) {
+                    node.scrollIntoViewIfNeeded();
+                }
+                else if (node.scrollIntoView) {
+                    node.scrollIntoView();
+                }
+            }
+        }
+        return result;
+    },
+    triggerParent(values) {
+        let rootNode = $('#' + this.id);
+        rootNode.trigger({
+            type: 'change',
+            from: 'subview',
+            values
+        });
+    },
+    '@{sync.value.from.ui}<focusin>'(e) {
+        e.stopPropagation();
+        let node = $(e.eventTarget);
+        hideError(node.attr('mx-ssid'));
+        callUserEvent(e, this);
+    },
+    '@{sync.value.from.ui}<focusout>'(e) {
+        e.stopPropagation(); //停掉冒泡，防止父view的监听
+        let node = $(e.eventTarget);
+        node.trigger({
+            type: 'change',
+            from: 'faker'
+        });
+        callUserEvent(e, this);
+    },
+    '@{sync.value.from.ui}<change>'(e) {
+        let me = this, node = $(e.eventTarget);
+        let last = node.prop('_lt');
+        let now = Date.now();
+        if (last && (now - last) < 10)
+            return;
+        node.prop('_lt', now);
+        if (e.viewId) {
+            if (e.viewId != me.id)
+                return;
+        }
+        e.viewId = me.id;
+        let faker = e.from == 'faker' || e.from == 'subview';
+        //if (faker) {
+        e.stopPropagation(); //模拟的直接停掉
+        //}
+        let params = e.params;
+        let updater = me.updater;
+        if (!updater.$form) {
+            updater.$form = {};
+        }
+        let form = updater.$form;
+        let keys = updater.$keys || updater.$k;
+        let ctrls = params.c ? params.c.slice() : [params];
+        let refresh = false;
+        let valid = true;
+        let rootNode = $('#' + me.id);
+        rootNode.removeAttr('mx-ssid');
+        let notify = false;
+        let addCheckbox = (name, src, actions) => {
+            $('input[name="' + name + '"]:checked').each(function (idx, item) {
+                let value = item.value;
+                if (actions.number) {
+                    value = parseFloat(value);
+                }
+                idx = src.indexOf(value);
+                if (idx === -1) {
+                    src.push(value);
+                }
+            });
+        };
+        while (ctrls.length) {
+            let ctrl = ctrls.shift();
+            let ps = ctrl.p.split('.');
+            let actions = ctrl.f || {};
+            let key = ps.pop(), temp, value, rootKey;
+            let object = updater.get();
+            while (object && ps.length) {
+                temp = ps.shift();
+                if (!rootKey)
+                    rootKey = temp; //解决设置数据后，再调用updater.digest()不刷新的问题
+                object = object[temp];
+            }
+            rootKey = rootKey || key;
+            if (e.from == 'subview') {
+                value = e.values[actions.from || key];
+            }
+            else if (node.prop('type') == 'checkbox') {
+                let src = object[key];
+                let checked = node.prop('checked');
+                if (src === true || src === false) {
+                    value = checked;
+                }
+                else {
+                    value = node.val();
+                    if (actions.number) {
+                        value = parseFloat(value);
+                    }
+                    if ($.isArray(src)) {
+                        let checkboxName = node.prop('name');
+                        if (checkboxName) {
+                            src = [];
+                            addCheckbox(checkboxName, src, actions);
+                        }
+                        else {
+                            value = node.val();
+                            if (actions.number) {
+                                value = parseFloat(value);
+                            }
+                            let idx = src.indexOf(value);
+                            if (checked) {
+                                if (idx === -1) {
+                                    src.push(value);
+                                }
+                            }
+                            else {
+                                if (idx > -1) {
+                                    src.splice(idx, 1);
+                                }
+                            }
+                        }
+                        value = src;
+                    }
+                    else if ($.isPlainObject(src)) {
+                        if (checked) {
+                            src[value] = value;
+                        }
+                        else {
+                            delete src[value];
+                        }
+                        value = src;
+                    }
+                    else {
+                        value = checked ? value : '';
+                    }
+                }
+            }
+            else {
+                value = node.val();
+                if (actions.number) {
+                    value = parseFloat(value);
+                }
+            }
+            if (object) {
+                if (object[key] !== value) {
+                    object[key] = value;
+                    if (actions.refresh) {
+                        refresh = true;
+                    }
+                    if (refresh || !actions.silent) {
+                        keys[rootKey] = 1; //标记改变;
+                    }
+                    notify = true;
+                }
+            }
+            else {
+                console.warn('can not set by path:', ctrl.p);
+            }
+            if (valid) {
+                let v = isValid(actions, value);
+                let ssId = node.attr('mx-ssid');
+                if (v.f) {
+                    delete form[ssId];
+                    hideError(ssId);
+                }
+                else {
+                    form[ssId] = v;
+                    valid = false;
+                    showError(ssId, v.r, v.v, v.a);
+                }
+            }
+        }
+        if (valid && refresh) {
+            updater.digest();
+        }
+        if (notify) {
+            me.triggerParent(updater.get());
+        }
+        if (!faker) {
+            callUserEvent(e, me);
+        }
+    },
+    '$doc<htmlchanged>'(e) {
+        let me = this;
+        let form = me.updater.$form;
+        if (e.vId == me.id) {
+            clearTimeout(me['@{change.delay.timer}']);
+            me['@{change.delay.timer}'] = setTimeout(me.wrapAsync(() => {
+                if (form) {
+                    for (let f in form) {
+                        let v = form[f];
+                        if (!showError(f, v.r, v.v, v.a)) {
+                            delete form[f];
+                        }
+                    }
+                }
+            }), 0);
+        }
+    }
+};
+
+});

@@ -2,6 +2,7 @@
 
 
 .dropdown{
+    outline: 0;
     position: relative;
     width: @input-width;
     background-color: #fff;
@@ -48,7 +49,8 @@
 }
 
 .open,
-.open:hover{
+.open:hover,
+.dropdown:focus{
     border-color: @color-brand;
 }
 .dropdown-toggle-label{
@@ -118,6 +120,7 @@
   margin:2px 0;
 }
 .item-link{
+    cursor: pointer;
     color: @color-secondary;
     display: block;
     width: 100%;
@@ -130,7 +133,10 @@
     color:@color-primary;
     background-color: @color-hover;
 }
-.active,.active:hover,.active:active,.active:focus{
+.active,
+.active:hover,
+.active:active,
+.active:focus{
     color: #fff;
     background-color: @color-brand;
 }

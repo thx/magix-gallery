@@ -1,6 +1,6 @@
 {
   "name": "magix-gallery",
-  "version": "1.3.7",
+  "version": "1.3.8",
   "description": "magix组件",
   "main": "index.js",
   "repository": {
@@ -23,7 +23,7 @@
     "autoprefixer": "^7.1.5",
     "del": "3.0.0",
     "gulp": "3.9.1",
-    "gulp-uglify": "^3.0.0",
+    "gulp-uglify-es": "^0.1.4",
     "gulp-watch": "4.3.11",
     "jquery": "3.2.1",
     "magix": "3.5.2",

@@ -1,1 +1,277 @@
-define("mx-dragselect/index",["magix","../mx-dragdrop/index","../mx-runner/index","$"],function(_,e,t){var i=_("magix"),a=_("../mx-dragdrop/index"),n=_("../mx-runner/index"),h=_("$");i.applyStyle("_m","._cg{left:-1000px;top:0;background:#d45414;position:absolute;opacity:.3;border:1px solid #7c2c0a}");var d=i.guid("area_"),r=h(window),o=h(document),g={__aS:function(){var _=h("#"+d);_.length||(_=h('<div id="'+d+'" class="_cg" />').appendTo("body"))},__aT:function(_,e,t,i){h("#"+d).css({left:_,top:e,width:t,height:i})},__aJ:function(){h("#"+d).css({left:-1e5})}},c=function(_,e){var t=_.width/2,i=_.height/2,a=e.width/2,n=e.height/2,h={x:_.x+t,y:_.y+i},d={x:e.x+a,y:e.y+n};return Math.abs(d.x-h.x)<=t+a&&Math.abs(d.y-h.y)<=i+n};t.exports=i.View.extend({init:function(_){var e=this,t=h("#"+e.id);t.on("mousedown",function(_){_.preventDefault(),e.__aU(_)}),t.on("click",function(_){if(!e.__aV){var i=e.__aW(_.target);i&&t.trigger({type:"change",action:"add",mode:"click",node:i})}delete e.__aV}),e.on("destroy",function(){t.off("mousedown click")}),e.__aX=_.selector,e.__h=t},__aW:function(_){for(var e=this,t=null,i=e.__h[0];i!=_;){if(_.parentNode==i){t=_;break}_=_.parentNode}return t&&e.__aX&&(h.find.matchesSelector(t,e.__aX)||(t=null)),t},__aY:function(){for(var _=this,e=[],t=0,i=0,a=_.__aX?_.__h.find(_.__aX):_.__h.children();i<a.length;i++){var n=a[i],d=h(n),r=d.offset();e.push({id:t++,c:n,x:r.left,y:r.top,width:d.width(),height:d.height()})}return e},__bc:function(_){var e=this,t={x:_.pageX,y:_.pageY},i=e.__aZ;t.x<i.x?t.x=i.x:t.x>i.x+i.width&&(t.x=i.x+i.width),t.y<i.y?t.y=i.y:t.y>i.y+i.height&&(t.y=i.y+i.height);var a=e.__b_,n=Math.min(t.x,a.x),h=Math.min(t.y,a.y),d=Math.abs(t.x-a.x),r=Math.abs(t.y-a.y);g.__aT(n,h,d,r);for(var o=e.__ba,b={x:n,y:h,width:d,height:r},f=e.__bb,x=0,l=o;x<l.length;x++){var s=l[x];c(b,s)?1!==f[s.id]&&(f[s.id]=1,e.__h.trigger({type:"change",action:"add",mode:"drag",node:s.c})):1===f[s.id]&&(delete f[s.id],e.__h.trigger({type:"change",action:"remove",mode:"drag",node:s.c}))}},__aU:function(_){if(1===_.which){var e=this;e.__b_={x:_.pageX,y:_.pageY};var t=e.__h,i=t.offset();e.__aZ={x:i.left,y:i.top,width:t.width(),height:t.height()},e.__bb={},g.__aS(),t.trigger("dragbegin"),a.begin(_.target,function(_){e.__bd(_)},function(_){e.__be(_)})}},__bd:function(_){var e=this;if(!e.__aV){var t=e.__b_;(Math.abs(_.pageX-t.x)>5||Math.abs(_.pageY-t.y)>5)&&(e.__aV=!0)}e.__aV&&(e.__ba||(e.__ba=e.__aY()),e.__bf=_,e.__bg(),e.__bc(_))},__be:function(){var _=this;_.__bh(),g.__aJ(),delete _.__bf,delete _.__b_,delete _.__aZ,delete _.__ba,delete _.__bb,_.__h.trigger("dragfinish")},__bg:function(){var _=this;_.__bi||(_.__bi=function(){var e=0,t=0,i=_.__bf,a=r.scrollTop(),n=r.height(),h=o.height(),d=o.width(),g=r.width(),c=r.scrollLeft();i.pageX-c<20&&c>0?e=-Math.min(7,c):c+g-i.pageX<20&&c+g<d&&(e=Math.min(7,d-g-c)),i.pageY-a<20&&a>0?t=-Math.min(7,a):a+n-i.pageY<20&&a+n<h&&(t=Math.min(7,h-n-a)),(e||t)&&(i.pageX+=e,i.pageY+=t,_.__bc(i),window.scrollBy(e,t))},n.__bj(30,_.__bi))},__bh:function(){var _=this;_.__bi&&(n.__bk(_.__bi),delete _.__bi)}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-dragselect/index',["magix","../mx-dragdrop/index","../mx-runner/index","$"],(require,exports,module)=>{
+/*Magix,DD,Runner,$*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+let Magix = require('magix');
+let DD = require('../mx-dragdrop/index');
+let Runner = require('../mx-runner/index');
+let $ = require('$');
+Magix.applyStyle("__mx-dragselect_index_",".__mx-dragselect_index_-area {\n  left: -1000px;\n  top: 0;\n  background: #5665EB;\n  position: absolute;\n  opacity: 0.3;\n  border: solid 1px #4D4FA8;\n}\n");
+let AreaId = Magix.guid('area_');
+let Win = $(window);
+let Doc = $(document);
+let SCROLL_OFFSET = 20;
+let SCROLL_STEP = 7;
+let SCROLL_INTERVAL = 30;
+let UI = {
+    '@{start}'() {
+        let node = $('#' + AreaId);
+        if (!node.length) {
+            node = $('<div id="' + AreaId + '" class="__mx-dragselect_index_-area" />').appendTo('body');
+        }
+    },
+    '@{update}'(x, y, width, height) {
+        let node = $('#' + AreaId);
+        node.css({
+            left: x,
+            top: y,
+            width,
+            height
+        });
+    },
+    '@{end}'() {
+        let node = $('#' + AreaId);
+        node.css({
+            left: -1e5
+        });
+    }
+};
+let rectIntersect = (rect1, rect2) => {
+    let half1Width = rect1.width / 2, half1Height = rect1.height / 2, half2Width = rect2.width / 2, half2Height = rect2.height / 2, cen1 = {
+        x: rect1.x + half1Width,
+        y: rect1.y + half1Height
+    }, cen2 = {
+        x: rect2.x + half2Width,
+        y: rect2.y + half2Height
+    };
+    return Math.abs(cen2.x - cen1.x) <= half1Width + half2Width &&
+        Math.abs(cen2.y - cen1.y) <= half1Height + half2Height;
+};
+module.exports = Magix.View.extend({
+    init(extra) {
+        let me = this;
+        let oNode = $('#' + me.id);
+        oNode.on('mousedown', e => {
+            e.preventDefault();
+            me['@{drag.start}'](e);
+        });
+        oNode.on('click', e => {
+            if (!me['@{has.moved}']) {
+                let node = me['@{findDirectChild}'](e.target);
+                if (node) {
+                    oNode.trigger({
+                        type: 'change',
+                        action: 'add',
+                        mode: 'click',
+                        node
+                    });
+                }
+            }
+            delete me['@{has.moved}'];
+        });
+        me.on('destroy', () => {
+            oNode.off('mousedown click');
+        });
+        me['@{sub.selector}'] = extra.selector;
+        me['@{owner.node}'] = oNode;
+    },
+    '@{findDirectChild}'(node) {
+        let me = this, result = null, zone = me['@{owner.node}'][0];
+        while (zone != node) {
+            if (node.parentNode == zone) {
+                result = node;
+                break;
+            }
+            else {
+                node = node.parentNode;
+            }
+        }
+        if (result && me['@{sub.selector}']) {
+            if (!$.find.matchesSelector(result, me['@{sub.selector}'])) {
+                result = null;
+            }
+        }
+        return result;
+    },
+    '@{collectRects}'() {
+        let me = this;
+        let children = me['@{sub.selector}'] ? me['@{owner.node}'].find(me['@{sub.selector}']) : me['@{owner.node}'].children();
+        let rects = [], count = 0;
+        for (let c of children) {
+            let $c = $(c);
+            let offset = $c.offset();
+            rects.push({
+                id: count++,
+                c: c,
+                x: offset.left,
+                y: offset.top,
+                width: $c.width(),
+                height: $c.height()
+            });
+        }
+        return rects;
+    },
+    '@{area.change}'(e) {
+        let me = this;
+        let newPos = {
+            x: e.pageX,
+            y: e.pageY
+        };
+        let range = me['@{drag.range}'];
+        if (newPos.x < range.x) {
+            newPos.x = range.x;
+        }
+        else if (newPos.x > range.x + range.width) {
+            newPos.x = range.x + range.width;
+        }
+        if (newPos.y < range.y) {
+            newPos.y = range.y;
+        }
+        else if (newPos.y > range.y + range.height) {
+            newPos.y = range.y + range.height;
+        }
+        let oldPos = me['@{drag.info}'];
+        let x = Math.min(newPos.x, oldPos.x);
+        let y = Math.min(newPos.y, oldPos.y);
+        let width = Math.abs(newPos.x - oldPos.x);
+        let height = Math.abs(newPos.y - oldPos.y);
+        UI['@{update}'](x, y, width, height);
+        let rects = me['@{sub.nodes.rect}'];
+        let area = {
+            x, y, width, height
+        };
+        let map = me['@{temp.map}'];
+        for (let rect of rects) {
+            if (rectIntersect(area, rect)) {
+                if (map[rect.id] !== 1) {
+                    map[rect.id] = 1;
+                    me['@{owner.node}'].trigger({
+                        type: 'change',
+                        action: 'add',
+                        mode: 'drag',
+                        node: rect.c
+                    });
+                }
+            }
+            else if (map[rect.id] === 1) {
+                delete map[rect.id];
+                me['@{owner.node}'].trigger({
+                    type: 'change',
+                    action: 'remove',
+                    mode: 'drag',
+                    node: rect.c
+                });
+            }
+        }
+    },
+    '@{drag.start}'(e) {
+        if (e.which === 1) {
+            let me = this;
+            me['@{drag.info}'] = {
+                x: e.pageX,
+                y: e.pageY
+            };
+            let node = me['@{owner.node}'];
+            let offset = node.offset();
+            me['@{drag.range}'] = {
+                x: offset.left,
+                y: offset.top,
+                width: node.width(),
+                height: node.height()
+            };
+            me['@{temp.map}'] = {};
+            UI['@{start}']();
+            node.trigger('dragbegin');
+            DD.begin(e.target, e => {
+                me['@{drag.move}'](e);
+            }, e => {
+                me['@{drag.end}'](e);
+            });
+        }
+    },
+    '@{drag.move}'(e) {
+        let me = this;
+        if (!me['@{has.moved}']) {
+            let last = me['@{drag.info}'];
+            if (Math.abs(e.pageX - last.x) > 5 || Math.abs(e.pageY - last.y) > 5) {
+                me['@{has.moved}'] = true;
+            }
+        }
+        if (me['@{has.moved}']) {
+            if (!me['@{sub.nodes.rect}']) {
+                me['@{sub.nodes.rect}'] = me['@{collectRects}']();
+            }
+            me['@{move.event}'] = e;
+            me['@{start.win.scroll}']();
+            me['@{area.change}'](e);
+        }
+    },
+    '@{drag.end}'() {
+        let me = this;
+        me['@{stop.win.scroll}']();
+        UI['@{end}']();
+        delete me['@{move.event}'];
+        delete me['@{drag.info}'];
+        delete me['@{drag.range}'];
+        delete me['@{sub.nodes.rect}'];
+        delete me['@{temp.map}'];
+        //delete me['@{has.moved}'];
+        me['@{owner.node}'].trigger('dragfinish');
+    },
+    '@{start.win.scroll}'() {
+        let me = this;
+        if (!me['@{fn.win.scroll}']) {
+            me['@{fn.win.scroll}'] = () => {
+                let tx = 0, ty = 0, e = me['@{move.event}'];
+                let scrollTop = Win.scrollTop();
+                let winHeight = Win.height();
+                let maxHeight = Doc.height();
+                let maxWidth = Doc.width();
+                let winWidth = Win.width();
+                let scrollLeft = Win.scrollLeft();
+                if (e.pageX - scrollLeft < SCROLL_OFFSET &&
+                    scrollLeft > 0) {
+                    tx = -Math.min(SCROLL_STEP, scrollLeft);
+                }
+                else if (scrollLeft + winWidth - e.pageX < SCROLL_OFFSET &&
+                    scrollLeft + winWidth < maxWidth) {
+                    tx = Math.min(SCROLL_STEP, maxWidth - winWidth - scrollLeft);
+                }
+                if (e.pageY - scrollTop < SCROLL_OFFSET &&
+                    scrollTop > 0) {
+                    ty = -Math.min(SCROLL_STEP, scrollTop);
+                }
+                else if (scrollTop + winHeight - e.pageY < SCROLL_OFFSET &&
+                    scrollTop + winHeight < maxHeight) {
+                    ty = Math.min(SCROLL_STEP, maxHeight - winHeight - scrollTop);
+                }
+                if (tx || ty) {
+                    e.pageX += tx;
+                    e.pageY += ty;
+                    me['@{area.change}'](e);
+                    window.scrollBy(tx, ty);
+                }
+            };
+            Runner['@{task.add}'](SCROLL_INTERVAL, me['@{fn.win.scroll}']);
+        }
+    },
+    '@{stop.win.scroll}'() {
+        let me = this;
+        if (me['@{fn.win.scroll}']) {
+            Runner['@{task.remove}'](me['@{fn.win.scroll}']);
+            delete me['@{fn.win.scroll}'];
+        }
+    }
+});
+
+});

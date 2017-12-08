@@ -1,18 +1,14 @@
 <h2>mx-suggest</h2>
 <h3>默认情形</h3>
 <div class="pt20 clearfix">
-    <mx-view
-        path="mx-suggest/index"
-        tag="input"
+    <mx-suggest
         class="input"
         list="<%@list%>" style="width:200px;" />
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-view
-    path="app/gallery/mx-suggest/index"
-    tag="input"
+    <pre>&lt;mx-suggest
     class="input"
     list="&lt;%@list%&gt;"/&gt;</pre>
     <div class="pt10">Javascript Code:</div>
@@ -31,9 +27,7 @@ module.exports = Magix.View.extend({
 
 <h3 class="mt30">对象列表</h3>
 <div class="pt20 clearfix">
-    <mx-view
-        path="mx-suggest/index"
-        tag="input"
+    <mx-suggest
         class="input"
         list="<%@list1%>"
         text-key="text"
@@ -42,9 +36,7 @@ module.exports = Magix.View.extend({
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-view
-    path="app/gallery/mx-suggest/index"
-    tag="input"
+    <pre>&lt;mx-suggest
     class="input"
     list="&lt;%@list1%&gt;"
     text-key="text"
@@ -95,9 +87,7 @@ module.exports = Magix.View.extend({
 
 <h3 class="mt30">响应事件</h3>
 <div class="pt20 clearfix">
-    <mx-view
-        path="mx-suggest/index"
-        tag="input"
+    <mx-suggest
         class="input"
         list="<%@list%>"
         mx-pick="showPick()"
@@ -107,9 +97,7 @@ module.exports = Magix.View.extend({
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-view
-    path="app/gallery/mx-suggest/index"
-    tag="input"
+    <pre>&lt;mx-suggest
     class="input"
     list="&lt;%@list%&gt;"
     mx-pick="showPick()"
@@ -140,9 +128,7 @@ module.exports = Magix.View.extend({
 </div>
 <h3 class="mt30">更新列表</h3>
 <div class="pt20 clearfix">
-    <mx-view
-        path="mx-suggest/index"
-        tag="input"
+    <mx-suggest
         class="input"
         list="<%@list2%>"
         mx-input="updateList()"/>

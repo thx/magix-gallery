@@ -1,1 +1,88 @@
-define("mx-popmenu/index",["magix","$","../mx-monitor/index"],function(_,i,t){var e=_("magix"),o=_("$"),n=_("../mx-monitor/index");t.exports=e.View.extend({init:function(_){var i=this;i.__I=_.placement,i.__J=_.align,n.__d();var t=o("#"+i.id),e=function(_){_.preventDefault(),i.__e()};i.on("destroy",function(){n.__f(i),n.__g(),t.off("click",e)}),t.on("click",e),i.__h=t,i.__dN=o(_.related),i.__dN.css({position:"absolute"})},__i:function(_){var i=this;return e.inside(_,i.id)||e.inside(_,i.__dN[0])},__e:function(){var _=this;if(!_.__j){var i=_.__dN,t=_.__h;_.__j=!0,n.__k(_),i.show();var e=t.offset(),o=void 0,d=void 0;switch(_.__I){case"top":d=e.top-i.outerHeight()-5;break;default:d=e.top+t.outerHeight()+5}switch(_.__J){case"right":o=e.left+t.outerWidth()-i.outerWidth();break;default:o=e.left}i.offset({left:o,top:d})}},__a:function(){var _=this;if(_.__j){var i=_.__dN;_.__j=!1,i.hide(),n.__f(_)}}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-popmenu/index',["magix","$","../mx-monitor/index"],(require,exports,module)=>{
+/*Magix,$,Monitor*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+let Magix = require('magix');
+let $ = require('$');
+let Monitor = require('../mx-monitor/index');
+module.exports = Magix.View.extend({
+    init(extra) {
+        let me = this;
+        me['@{pos.placement}'] = extra.placement;
+        me['@{pos.align}'] = extra.align;
+        Monitor['@{setup}']();
+        let ownerNode = $('#' + me.id);
+        let click = (e) => {
+            e.preventDefault();
+            me['@{show}']();
+        };
+        me.on('destroy', () => {
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+            ownerNode.off('click', click);
+        });
+        ownerNode.on('click', click);
+        me['@{owner.node}'] = ownerNode;
+        me['@{relate.node}'] = $(extra.related);
+        me['@{relate.node}'].css({
+            position: 'absolute'
+        });
+    },
+    '@{inside}'(node) {
+        let me = this;
+        return Magix.inside(node, me.id) ||
+            Magix.inside(node, me['@{relate.node}'][0]);
+    },
+    '@{show}'() {
+        let me = this;
+        if (!me['@{ui.show}']) {
+            let node = me['@{relate.node}'], ref = me['@{owner.node}'];
+            me['@{ui.show}'] = true;
+            Monitor['@{add}'](me);
+            node.show();
+            let offset = ref.offset();
+            let left, top;
+            switch (me['@{pos.placement}']) {
+                case 'top':
+                    top = offset.top - node.outerHeight() - 5;
+                    break;
+                default:
+                    top = offset.top + ref.outerHeight() + 5;
+                    break;
+            }
+            switch (me['@{pos.align}']) {
+                case 'right':
+                    left = offset.left + ref.outerWidth() - node.outerWidth();
+                    break;
+                default:
+                    left = offset.left;
+                    break;
+            }
+            node.offset({
+                left: left,
+                top: top
+            });
+        }
+    },
+    '@{hide}'() {
+        let me = this;
+        if (me['@{ui.show}']) {
+            let node = me['@{relate.node}'];
+            me['@{ui.show}'] = false;
+            node.hide();
+            Monitor['@{remove}'](me);
+        }
+    }
+});
+
+});

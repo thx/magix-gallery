@@ -1,5 +1,5 @@
 /*
-ver:1.3.7
+ver:1.3.8
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -125,14 +125,23 @@ module.exports = Magix.View.extend({
     '@{slide.drag}<mousedown>'(e) {
         let me = this;
         let current = $(e.eventTarget);
-        let startY = parseInt(current.css('top'), 10);
+        let indicator = $('#sh_' + me.id);
         let pos = e;
+        let offset = current.offset(),
+            top = e.pageY - offset.top,
+            h = top / pickerZone * 360;
+        me['@{setHSV}']({
+            h: h,
+            s: me['@{hsv.info}'].s,
+            v: me['@{hsv.info}'].v
+        });
+        let startY = parseInt(indicator.css('top'), 10);
         DD.begin(e.eventTarget, event => {
             let offsetY = event.pageY - pos.pageY;
             offsetY += startY;
             if (offsetY <= -slider) offsetY = -slider;
             else if (offsetY >= (pickerZone - slider)) offsetY = pickerZone - slider;
-            current.css({
+            indicator.css({
                 top: offsetY
             });
             let h = (offsetY + slider) / pickerZone * 360;
@@ -145,9 +154,19 @@ module.exports = Magix.View.extend({
             me['@{fire.event}']();
         });
     },
-    '@{picker.drag}<mousedown>'(e) {
-        let me = this;
-        let current = $(e.eventTarget);
+    '@{color.zone.drag}<mousedown>'(e) {
+        let me = this,
+            offset = $(e.eventTarget).offset(),
+            left = e.pageX - offset.left,
+            top = e.pageY - offset.top,
+            s = left / pickerZone,
+            v = (pickerZone - top) / pickerZone;
+        me['@{setHSV}']({
+            h: me['@{hsv.info}'].h,
+            s: s,
+            v: v
+        });
+        let current = $('#ph_' + me.id);
         let startX = parseInt(current.css('left'), 10);
         let startY = parseInt(current.css('top'), 10);
         let pos = e;
@@ -199,15 +218,22 @@ module.exports = Magix.View.extend({
     },
     '@{alpha.drag}<mousedown>'(e) {
         let current = $(e.eventTarget);
-        let startX = parseInt(current.css('left'), 10);
         let pos = e;
         let me = this;
+        let indicator = $('#ai_' + me.id);
+        let offset = current.offset(),
+            left = e.pageX - offset.left,
+            a = (left / alphaWidth * 255) | 0;
+        me['@{hex.alpha}'] = ('0' + a.toString(16)).slice(-2);
+        me['@{setAlpha}'](a);
+        me['@{sync.color}']();
+        let startX = parseInt(indicator.css('left'), 10);
         DD.begin(e.eventTarget, (event) => {
             let offsetX = event.pageX - pos.pageX;
             offsetX += startX;
             if (offsetX <= -slider) offsetX = -slider;
             else if (offsetX >= (alphaWidth - slider)) offsetX = alphaWidth - slider;
-            current.css({
+            indicator.css({
                 left: offsetX
             });
             let a = Math.round((offsetX + slider) / alphaWidth * 255);
@@ -217,42 +243,6 @@ module.exports = Magix.View.extend({
             me['@{fire.event}']();
         });
     },
-    '@{alpha.clicked}<click>'(e) {
-        let me = this,
-            offset = $(e.eventTarget).offset(),
-            left = e.pageX - offset.left,
-            a = left / alphaWidth * 255;
-        me['@{hex.alpha}'] = ('0' + a.toString(16)).slice(-2);
-        me['@{setAlpha}'](a);
-        me['@{sync.color}']();
-        me['@{fire.event}']();
-    },
-    '@{slide.clicked}<click>'(e) {
-        let me = this,
-            offset = $(e.eventTarget).offset(),
-            top = e.pageY - offset.top,
-            h = top / pickerZone * 360;
-        me['@{setHSV}']({
-            h: h,
-            s: me['@{hsv.info}'].s,
-            v: me['@{hsv.info}'].v
-        });
-        me['@{fire.event}']();
-    },
-    '@{color.zone.clicked}<click>'(e) {
-        let me = this,
-            offset = $(e.eventTarget).offset(),
-            left = e.pageX - offset.left,
-            top = e.pageY - offset.top,
-            s = left / pickerZone,
-            v = (pickerZone - top) / pickerZone;
-        me['@{setHSV}']({
-            h: me['@{hsv.info}'].h,
-            s: s,
-            v: v
-        });
-        me['@{fire.event}']();
-    },
     '@{shortcuts.picked}<click>'(e) {
         this['@{setColor}'](e.params.color);
         $(e.eventTarget).addClass(CSSNames.selected);
@@ -261,11 +251,13 @@ module.exports = Magix.View.extend({
     '@{fire.event}'(fromBtn) {
         let me = this;
         if (!me['@{show.btns}'] || fromBtn) {
-            let ipt = $('#val_' + me.id);
-            $('#' + me.id).trigger({
-                type: 'change',
-                color: ipt.val()
-            });
+            let c = $('#val_' + me.id).val();
+            if (c != me['@{color}']) {
+                $('#' + me.id).trigger({
+                    type: 'change',
+                    color: me['@{color}'] = c
+                });
+            }
         }
     },
     '@{enter}<click>'() {

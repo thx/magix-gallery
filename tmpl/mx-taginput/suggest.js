@@ -1,5 +1,5 @@
 /*
-ver:1.3.7
+ver:1.3.8
 */
 /*
     author: xinglie.lkf@ alibaba - inc.com
@@ -21,6 +21,7 @@ module.exports = Magix.View.extend({
             Monitor['@{teardown}']();
             me['@{owner.node}'].off('keyup paste input', me['@{fn.watch}'])
                 .off('focus', me['@{fn.show}']);
+            $('#suggest_' + me.id).remove();
         });
         me.updater.set({
             viewId: me.id,

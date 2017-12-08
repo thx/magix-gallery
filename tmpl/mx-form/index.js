@@ -1,5 +1,5 @@
 /*
-ver:1.3.7
+ver:1.3.8
 */
 let $ = require('$');
 let Magix = require('magix');
@@ -199,8 +199,8 @@ let callUserEvent = (e, view) => {
 module.exports = {
     fromKeys(data, keys) {
         keys = (keys + '').split(',');
-        var r = {};
-        for (var i = 0, key; i < keys.length; i++) {
+        let r = {};
+        for (let i = 0, key; i < keys.length; i++) {
             key = keys[i];
             r[key] = Magix.has(data, key) ? data[key] : '';
         }

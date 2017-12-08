@@ -1,1 +1,76 @@
-define("mx-progress/index",["magix","$"],function(e,t,i){var _=e("magix"),s=e("$");_.applyStyle("_D","._eq{height:32px;cursor:default;line-height:32px;display:inline-block}._er{background:#eaeaea;position:relative;display:inline-block;top:-2px}._er,._es{height:4px;border-radius:2px}._es{background:#6363e6;left:0;top:0}._et,._es{position:absolute;-webkit-transition:all .15s;transition:all .15s}._et{font-size:9px;pointer-events:none;top:-15px;line-height:normal}._eu{cursor:not-allowed}._eu ._er{background-color:#fbfbfb}._eu ._es{background-color:#eaeaea}"),i.exports=_.View.extend({tmpl:{html:'<div mx-guid="g0" class="_er" mx-contextmenu="__D()" style="width:<%=$$.width%>px"><div class="_es"></div><div class="_et"></div></div>',subs:[{keys:["width"],path:'div[mx-guid="g0"]',attr:'style="width:<%=$$.width%>px"',attrs:[{n:"style"}]}]},init:function(e){var t=this;t.__h=s("#"+t.id),t.__h.addClass("_eq"),t.assign(e)},assign:function(e){var t=this;return t.__d_=+e.width||340,t.__cb=e.disabled+""=="true",t.__cp=+e.value||0,t.__dR=+e.fixed||0,!0},render:function(){var e=this;e.updater.digest({width:e.__d_}),e.__h[e.__cb?"addClass":"removeClass"]("_eu"),e.val(e.__cp)},val:function(e){var t=this,i=+e;if(i||0===i){i<0?i=0:i>1&&(i=1);var _=t.__h.find("._er").width(),s=_*i;t.__h.find("._es").width(s);var n=t.__h.find("._et"),a=(100*i).toFixed(t.__dR)+"%";n.html(a);var d=n.width();(s-=d/2)<0?s=0:s>_-d&&(s=_-d),n.css({left:s}),t.__cp=i}return t.__cp},"__D<contextmenu>":function(e){e.preventDefault()}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-progress/index',["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@taobao.com
+ */
+let Magix = require('magix');
+let $ = require('$');
+Magix.applyStyle("__mx-progress_index_",".__mx-progress_index_-as-input {\n  height: 32px;\n  cursor: default;\n  line-height: 32px;\n  display: inline-block;\n}\n.__mx-progress_index_-rail {\n  height: 4px;\n  background: #eaeaea;\n  position: relative;\n  display: inline-block;\n  border-radius: 2px;\n  top: -2px;\n}\n.__mx-progress_index_-tracker {\n  height: 4px;\n  background: #f96447;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 2px;\n  -webkit-transition: all 0.15s;\n  transition: all 0.15s;\n}\n.__mx-progress_index_-pointer-label {\n  position: absolute;\n  font-size: 9px;\n  pointer-events: none;\n  top: -15px;\n  -webkit-transition: all 0.15s;\n  transition: all 0.15s;\n  line-height: normal;\n}\n.__mx-progress_index_-notallowed {\n  cursor: not-allowed;\n}\n.__mx-progress_index_-notallowed .__mx-progress_index_-rail {\n  background-color: #fbfbfb;\n}\n.__mx-progress_index_-notallowed .__mx-progress_index_-tracker {\n  background-color: #eaeaea;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<div mx-guid=\"g0\u001f\" class=\"__mx-progress_index_-rail\" mx-contextmenu=\"\u001f\u001e@{prevent}()\" style=\"width:<%=$$.width%>px\"><div class=\"__mx-progress_index_-tracker\"></div><div class=\"__mx-progress_index_-pointer-label\"></div></div>","subs":[{"keys":["width"],"path":"div[mx-guid=\"g0\u001f\"]","attr":"style=\"width:<%=$$.width%>px\"","attrs":[{"n":"style"}]}],"file":"mx-progress/index.html"},
+    init(extra) {
+        let me = this;
+        me['@{owner.node}'] = $('#' + me.id);
+        me['@{owner.node}'].addClass('__mx-progress_index_-as-input');
+        me.assign(extra);
+    },
+    assign(ops) {
+        let me = this;
+        me['@{width}'] = +ops.width || 340;
+        me['@{disabled}'] = (ops.disabled + '') === 'true';
+        me['@{value}'] = +ops.value || 0;
+        me['@{fixed}'] = +ops.fixed || 0;
+        return true;
+    },
+    render() {
+        let me = this;
+        me.updater.digest({
+            width: me['@{width}']
+        });
+        me['@{owner.node}'][me['@{disabled}'] ? 'addClass' : 'removeClass']('__mx-progress_index_-notallowed');
+        me.val(me['@{value}']);
+    },
+    val(v) {
+        let me = this;
+        let nv = +v;
+        if (nv || nv === 0) {
+            if (nv < 0)
+                nv = 0;
+            else if (nv > 1)
+                nv = 1;
+            let rail = me['@{owner.node}'].find('.__mx-progress_index_-rail');
+            let rWidth = rail.width();
+            let left = rWidth * nv;
+            let tracker = me['@{owner.node}'].find('.__mx-progress_index_-tracker');
+            tracker.width(left);
+            let indicator = me['@{owner.node}'].find('.__mx-progress_index_-pointer-label');
+            let text = (nv * 100).toFixed(me['@{fixed}']) + '%';
+            indicator.html(text);
+            let w = indicator.width();
+            left -= w / 2;
+            if (left < 0)
+                left = 0;
+            else if (left > (rWidth - w))
+                left = rWidth - w;
+            indicator.css({
+                left
+            });
+            me['@{value}'] = nv;
+        }
+        return me['@{value}'];
+    },
+    '@{prevent}<contextmenu>'(e) {
+        e.preventDefault();
+    }
+});
+
+});

@@ -1,6 +1,7 @@
 @import "_vars";
 
 .btn {
+  outline: none;
   display: inline-block;
   font-weight: normal;
   text-align: center;
@@ -17,10 +18,8 @@
   border-radius: @border-radius;
   user-select: none;
 }
-.btn:focus, {
-  outline: none;
-}
-.btn:hover{
+.btn:hover,
+.btn:focus{
   background-color: @color-bg-hover;
   color: @color-primary;
 }

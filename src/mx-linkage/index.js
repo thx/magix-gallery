@@ -1,1 +1,194 @@
-define("mx-linkage/index",["magix","$","../mx-monitor/index"],function(e,t,i){var _=e("magix"),d=e("$"),r=e("../mx-monitor/index");_.applyStyle("_w","._dD{height:32px;padding:0 9px;position:relative;border:1px solid #e6e6e6;border-radius:4px;width:340px;line-height:32px}._dD:hover{border-color:#ccc}._dE{cursor:not-allowed;background-color:#fbfbfb}._dE:hover{border-color:#e6e6e6}._dF{color:#999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}._dG{position:absolute;border:1px solid #e6e6e6;font-size:14px;max-height:260px;overflow:auto;list-style:none;border-radius:4px;background-color:#fff;z-index:10;padding:3px 0;line-height:1.8;left:-1px;right:-1px}._dH{border-bottom:1px solid #e6e6e6;margin:0 10px;padding-bottom:3px}._dI{cursor:pointer;display:inline-block;padding:0 12px;height:29px;line-height:29px;border-radius:4px}._dI:active,._dI:focus,._dI:hover{color:#333;background-color:#f0f0f0}._dJ{margin:0 10px;padding-top:3px}._dK{width:32%;float:left;margin:0 0 2px 2px;color:#666;display:block;cursor:pointer;padding:0 12px;height:29px;line-height:29px;border-radius:4px}._dK:active,._dK:focus,._dK:hover{color:#333;background-color:#f0f0f0}._dL{margin-left:-1px}._dM{float:left;height:24px;line-height:24px;padding:0 1px;max-width:31%;overflow:hidden;margin-top:3px}._dN{cursor:pointer;border-radius:4px}._dN:active,._dN:focus,._dN:hover{color:#333;background-color:#f0f0f0}._dE ._dL{cursor:not-allowed}._dE ._dN:active,._dE ._dN:focus,._dE ._dN:hover{background-color:transparent;cursor:not-allowed}._dO,._dO:active,._dO:focus,._dO:hover{color:#fff;background-color:#6363e6}");var a=function(e,t,i){t=t||"id",i=i||"pId";for(var d={},r={},a=[],s=0,c=e.length;s<c;s++){var l=_.mix({},e[s]);d[l[t]]=l,r[l[t]]&&(l.children=r[l[t]]),_.has(l,i)&&""!==l[i]?d[l[i]]?(d[l[i]].children||(d[l[i]].children=[])).push(l):r[l[i]]?r[l[i]].push(l):r[l[i]]=[l]:a.push(l)}return{list:a,map:d}};i.exports=_.View.extend({tmpl:{html:'<div mx-guid="g0" class="_aj <%if($$.texts.length){%>_dL _ai<%}else{%>_dF<%}%>" mx-click="__e()">1</div><div class="_aj _ah _dG" id="db_<%=$$.viewId%>"><div mx-guid="g2" class="_dH">3</div><div mx-guid="g3" class="_dJ">4</div></div>',subs:[{keys:["texts","placeholder"],path:'div[mx-guid="g0"]',tmpl:'<%if($$.texts.length){for(var a=0;a<$$.texts.length;a++){%><div class="_dM _al _dN" title="<%=$$.texts[a]%>" mx-click="__cT({i:<%!a%>})"><%=$$.texts[a]%></div><%if(a<$$.texts.length-1){%><div mx-guid="g1" class="_dM">2</div><%}}}else{%> <%=$$.placeholder%> <%}%>',s:"1",attr:'class="_aj <%if($$.texts.length){%>_dL _ai<%}else{%>_dF<%}%>"',attrs:[{n:"class",p:1,f:"className"}],mask:"31"},{keys:["splitter"],path:'div[mx-guid="g1"]',pKeys:["texts","placeholder"],tmpl:"<%=$$.splitter%>",s:"2"},{keys:["headers","active"],path:'div[mx-guid="g2"]',tmpl:'<%for(var b=0;b<$$.headers.length;b++){var c=$$.headers[b]%><span title="<%=c%>" class="_dI<%if(b==$$.active){%> _dO<%}%>" <%if(b!==$$.active){%> mx-click="__cT({i:<%!b%>})" <%}%>><%=c%></span><%}%>',s:"3"},{keys:["list","selected","active","valueKey","textKey"],path:'div[mx-guid="g3"]',tmpl:"<%if($$.list&&$$.list.length){var d=$$.selected[$$.active]%><ul><%for(var e=0,f=$$.list;e<f.length;e++){var g=f[e];%><li class=\"_dK _al<%if((g[$$.valueKey]+'')==(d+'')){%> _dO<%}%>\" title=\"<%=g[$$.textKey]%>\" mx-click=\"__c_({o:'<%@g%>'})\"><%=g[$$.textKey]%></li><%}%></ul><%}%>",s:"4"}]},init:function(e){var t=this;t.assign(e),r.__d(),t.on("destroy",function(){r.__f(t),r.__g()})},assign:function(e){var t=this;t.__cJ=e.placeholder;var i=e.valueKey||"id",d=e.parentKey||"pId",r=e.parentKey||"text",s=a(e.list,i,d);t.__cK=s,t.__cL=e.headers,t.__cM=0;var c=_.has(e,"selected")?e.selected:"";return c=c?(c+"").split(","):[],t.__aE=c,t.__bT=e.disabled+""=="true",t.updater.set({splitter:e.splitter||"/",textKey:r,valueKey:i,selected:c}),!0},render:function(){var e=this;e.updater.digest({placeholder:e.__cJ,headers:e.__cL,viewId:e.id,texts:e.__cN(),active:e.__cM,list:e.__cO()});var t=d("#"+e.id);t.addClass("_dD"),t[e.__bT?"addClass":"removeClass"]("_dE"),e.__h=t,e.__cP=d("#db_"+e.id)},__cN:function(){for(var e=this,t=[],i=e.__cK,_=e.__aE,d=e.updater.get("textKey"),r=0,a=_;r<a.length;r++){var s=a[r];t.push(i.map[s][d])}return t},__cO:function(){var e=this,t=e.__cK,i=e.__aE,_=e.__cM;if(0===_)return t.list;var d=i[_-1];return d?t.map[d].children:null},__cQ:function(e){var t=this;t.updater.digest({active:t.__cM=e,list:t.__cO(),selected:t.__aE})},__i:function(e){return _.inside(e,this.id)},__a:function(){var e=this;e.__j&&(e.__j=!1,r.__f(e),e.__cP.hide(),e.__cQ(0))},__e:function(){var e=this;if(!e.__j){e.__j=!0,r.__k(e);var t=e.__h.position();e.__cP.show().css({left:t.left+e.__cR,top:e.__h.outerHeight()+5})}},__cS:function(){var e=this;e.updater.digest({placeholder:e.__cJ,texts:e.__cN()})},"__e<click>":function(){var e=this;e.__h.hasClass("_dE")||e.__e()},"__cT<click>":function(e){this.__cQ(e.params.i)},"__c_<click>":function(e){var t=this,i=t.__cM,_=t.__cL,d=t.__aE,r=t.updater.get("valueKey"),a=e.params.o[r];(d=d.slice(0,i)).push(a),i++;var s=t.__cK;t.__aE=d,i<_.length&&s.map[a].children?t.__cQ(i):(t.__cS(),t.__a(),t.__h.trigger({type:"change",selected:d}))}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-linkage/index',["magix","$","../mx-monitor/index"],(require,exports,module)=>{
+/*Magix,$,Monitor*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+let Magix = require('magix');
+let $ = require('$');
+let Monitor = require('../mx-monitor/index');
+Magix.applyStyle("__mx-linkage_index_",".__mx-linkage_index_-owner {\n  height: 32px;\n  padding: 0 9px;\n  position: relative;\n  border: solid 1px #e6e6e6;\n  border-radius: 4px;\n  width: 340px;\n  line-height: 32px;\n}\n.__mx-linkage_index_-owner:hover {\n  border-color: #ccc;\n}\n.__mx-linkage_index_-notallowed {\n  cursor: not-allowed;\n  background-color: #fbfbfb;\n}\n.__mx-linkage_index_-notallowed:hover {\n  border-color: #e6e6e6;\n}\n.__mx-linkage_index_-placeholder {\n  color: #999;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.__mx-linkage_index_-dashboard {\n  position: absolute;\n  border: 1px solid #e6e6e6;\n  font-size: 14px;\n  max-height: 260px;\n  overflow: auto;\n  list-style: none;\n  border-radius: 4px;\n  background-color: #fff;\n  z-index: 10;\n  padding: 3px 0;\n  line-height: 1.8;\n  left: -1px;\n  right: -1px;\n}\n.__mx-linkage_index_-tabs {\n  border-bottom: 1px solid #e6e6e6;\n  margin: 0 10px;\n  padding-bottom: 3px;\n}\n.__mx-linkage_index_-tab {\n  cursor: pointer;\n  display: inline-block;\n  padding: 0 12px;\n  height: 29px;\n  line-height: 29px;\n  border-radius: 4px;\n}\n.__mx-linkage_index_-tab:hover,\n.__mx-linkage_index_-tab:focus,\n.__mx-linkage_index_-tab:active {\n  color: #333;\n  background-color: #f0f0f0;\n}\n.__mx-linkage_index_-main-panel {\n  margin: 0 10px;\n  padding-top: 3px;\n}\n.__mx-linkage_index_-panel-item {\n  width: 32%;\n  float: left;\n  margin: 0 0 2px 2px;\n  color: #666;\n  display: block;\n  cursor: pointer;\n  padding: 0 12px;\n  height: 29px;\n  line-height: 29px;\n  border-radius: 4px;\n}\n.__mx-linkage_index_-panel-item:hover,\n.__mx-linkage_index_-panel-item:focus,\n.__mx-linkage_index_-panel-item:active {\n  color: #333;\n  background-color: #f0f0f0;\n}\n.__mx-linkage_index_-texts {\n  margin-left: -1px;\n}\n.__mx-linkage_index_-text {\n  float: left;\n  height: 24px;\n  line-height: 24px;\n  padding: 0 1px 0;\n  max-width: 31%;\n  overflow: hidden;\n  margin-top: 3px;\n}\n.__mx-linkage_index_-text-cnt {\n  cursor: pointer;\n  border-radius: 4px;\n}\n.__mx-linkage_index_-text-cnt:hover,\n.__mx-linkage_index_-text-cnt:focus,\n.__mx-linkage_index_-text-cnt:active {\n  color: #333;\n  background-color: #f0f0f0;\n}\n.__mx-linkage_index_-notallowed .__mx-linkage_index_-texts {\n  cursor: not-allowed;\n}\n.__mx-linkage_index_-notallowed .__mx-linkage_index_-text-cnt:hover,\n.__mx-linkage_index_-notallowed .__mx-linkage_index_-text-cnt:focus,\n.__mx-linkage_index_-notallowed .__mx-linkage_index_-text-cnt:active {\n  background-color: transparent;\n  cursor: not-allowed;\n}\n.__mx-linkage_index_-active,\n.__mx-linkage_index_-active:hover,\n.__mx-linkage_index_-active:active,\n.__mx-linkage_index_-active:focus {\n  color: #fff;\n  background-color: #f96447;\n}\n");
+let ListToTree = (list, id, pId) => {
+    id = id || 'id';
+    pId = pId || 'pId';
+    let map = {}, listMap = {}, rootList = [];
+    for (let i = 0, max = list.length; i < max; i++) {
+        let one = Magix.mix({}, list[i]);
+        map[one[id]] = one;
+        if (listMap[one[id]]) {
+            one.children = listMap[one[id]];
+        }
+        if (Magix.has(one, pId) && one[pId] !== '') {
+            if (map[one[pId]]) {
+                let c = map[one[pId]].children || (map[one[pId]].children = []);
+                c.push(one);
+            }
+            else {
+                if (!listMap[one[pId]])
+                    listMap[one[pId]] = [one];
+                else
+                    listMap[one[pId]].push(one);
+            }
+        }
+        else {
+            rootList.push(one);
+        }
+    }
+    return { list: rootList, map };
+};
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<div mx-guid=\"g0\u001f\" class=\"__mx-style_index_-unselectable <%if($$.texts.length){%>__mx-linkage_index_-texts __mx-style_index_-clearfix<%}else{%>__mx-linkage_index_-placeholder<%}%>\" mx-click=\"\u001f\u001e@{show}()\">1\u001d</div><div class=\"__mx-style_index_-unselectable __mx-style_index_-none __mx-linkage_index_-dashboard\" id=\"db_<%=$$.viewId%>\"><div mx-guid=\"g2\u001f\" class=\"__mx-linkage_index_-tabs\">3\u001d</div><div mx-guid=\"g3\u001f\" class=\"__mx-linkage_index_-main-panel\">4\u001d</div></div>","subs":[{"keys":["texts","placeholder"],"path":"div[mx-guid=\"g0\u001f\"]","tmpl":"<%if($$.texts.length){%> <%for(var i=0;i<$$.texts.length;i++){%><div class=\"__mx-linkage_index_-text __mx-style_index_-ellipsis __mx-linkage_index_-text-cnt\" title=\"<%=$$.texts[i]%>\" mx-click=\"\u001f\u001e@{activeTab}({i:<%!i%>})\"><%=$$.texts[i]%></div><%if(i<$$.texts.length-1){%><div mx-guid=\"g1\u001f\" class=\"__mx-linkage_index_-text\">2\u001d</div><%}%> <%}%> <%}else{%> <%=$$.placeholder%> <%}%>","s":"1\u001d","attr":"class=\"__mx-style_index_-unselectable <%if($$.texts.length){%>__mx-linkage_index_-texts __mx-style_index_-clearfix<%}else{%>__mx-linkage_index_-placeholder<%}%>\"","attrs":[{"n":"class","p":1,"f":"className"}],"mask":"31"},{"keys":["splitter"],"path":"div[mx-guid=\"g1\u001f\"]","pKeys":["texts","placeholder"],"tmpl":"<%=$$.splitter%>","s":"2\u001d"},{"keys":["headers","active"],"path":"div[mx-guid=\"g2\u001f\"]","tmpl":"<%for(var i=0;i<$$.headers.length;i++){%> <%var h=$$.headers[i]%><span title=\"<%=h%>\" class=\"__mx-linkage_index_-tab<%if(i==$$.active){%> __mx-linkage_index_-active<%}%>\" <%if(i!==$$.active){%> mx-click=\"\u001f\u001e@{activeTab}({i:<%!i%>})\" <%}%>><%=h%></span><%}%>","s":"3\u001d"},{"keys":["list","selected","active","valueKey","textKey"],"path":"div[mx-guid=\"g3\u001f\"]","tmpl":"<%if($$.list&&$$.list.length){%> <%var current=$$.selected[$$.active]%><ul><%for(var _i=0,list_1=$$.list;_i<list_1.length;_i++){var one=list_1[_i];%><li class=\"__mx-linkage_index_-panel-item __mx-style_index_-ellipsis<%if((one[$$.valueKey]+'')==(current+'')){%> __mx-linkage_index_-active<%}%>\" title=\"<%=one[$$.textKey]%>\" mx-click=\"\u001f\u001e@{select}({o:'<%@one%>'})\"><%=one[$$.textKey]%></li><%}%></ul><%}%>","s":"4\u001d"}],"file":"mx-linkage/index.html"},
+    init(extra) {
+        let me = this;
+        me.assign(extra);
+        Monitor['@{setup}']();
+        me.on('destroy', () => {
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+        });
+    },
+    assign(ops) {
+        let me = this;
+        me['@{placeholder}'] = ops.placeholder;
+        let valueKey = ops.valueKey || 'id';
+        let parentKey = ops.parentKey || 'pId';
+        let textKey = ops.parentKey || 'text';
+        let info = ListToTree(ops.list, valueKey, parentKey);
+        me['@{list.info}'] = info;
+        me['@{headers}'] = ops.headers;
+        me['@{active.tab}'] = 0;
+        let selected = Magix.has(ops, 'selected') ? ops.selected : '';
+        selected = selected ? (selected + '').split(',') : [];
+        me['@{selected}'] = selected;
+        me['@{ui.disabled}'] = (ops.disabled + '') === 'true';
+        me.updater.set({
+            splitter: ops.splitter || '/',
+            textKey,
+            valueKey,
+            selected
+        });
+        return true;
+    },
+    render() {
+        let me = this;
+        me.updater.digest({
+            placeholder: me['@{placeholder}'],
+            headers: me['@{headers}'],
+            viewId: me.id,
+            texts: me['@{get.text}'](),
+            active: me['@{active.tab}'],
+            list: me['@{get.active.list}']()
+        });
+        let ownerNode = $('#' + me.id);
+        ownerNode.addClass('__mx-linkage_index_-owner');
+        ownerNode[me['@{ui.disabled}'] ? 'addClass' : 'removeClass']('__mx-linkage_index_-notallowed');
+        me['@{owner.node}'] = ownerNode;
+        me['@{related.node}'] = $('#db_' + me.id);
+    },
+    '@{get.text}'() {
+        let me = this;
+        let texts = [];
+        let info = me['@{list.info}'];
+        let selected = me['@{selected}'];
+        let textKey = me.updater.get('textKey');
+        for (let s of selected) {
+            texts.push(info.map[s][textKey]);
+        }
+        return texts;
+    },
+    '@{get.active.list}'() {
+        let me = this;
+        let info = me['@{list.info}'];
+        let selected = me['@{selected}'];
+        let currentTab = me['@{active.tab}'];
+        if (currentTab === 0) {
+            return info.list;
+        }
+        let id = selected[currentTab - 1];
+        return id ? info.map[id].children : null;
+    },
+    '@{active.to.tab}'(tab) {
+        let me = this;
+        me.updater.digest({
+            active: me['@{active.tab}'] = tab,
+            list: me['@{get.active.list}'](),
+            selected: me['@{selected}']
+        });
+    },
+    '@{inside}'(node) {
+        return Magix.inside(node, this.id);
+    },
+    '@{hide}'() {
+        let me = this;
+        if (me['@{ui.show}']) {
+            me['@{ui.show}'] = false;
+            Monitor['@{remove}'](me);
+            me['@{related.node}'].hide();
+            me['@{active.to.tab}'](0);
+        }
+    },
+    '@{show}'() {
+        let me = this;
+        if (!me['@{ui.show}']) {
+            me['@{ui.show}'] = true;
+            Monitor['@{add}'](me);
+            let offset = me['@{owner.node}'].position();
+            me['@{related.node}'].show().css({
+                left: offset.left + me['@{offset.left}'],
+                top: me['@{owner.node}'].outerHeight() + 5
+            });
+        }
+    },
+    '@{fillText}'() {
+        let me = this;
+        me.updater.digest({
+            placeholder: me['@{placeholder}'],
+            texts: me['@{get.text}']()
+        });
+    },
+    '@{show}<click>'() {
+        let me = this;
+        let node = me['@{owner.node}'];
+        if (!node.hasClass('__mx-linkage_index_-notallowed')) {
+            me['@{show}']();
+        }
+    },
+    '@{activeTab}<click>'(e) {
+        this['@{active.to.tab}'](e.params.i);
+    },
+    '@{select}<click>'(e) {
+        let me = this;
+        let currentTab = me['@{active.tab}'];
+        let headers = me['@{headers}'];
+        let selected = me['@{selected}'];
+        let valueKey = me.updater.get('valueKey');
+        let one = e.params.o;
+        let itemId = one[valueKey];
+        selected = selected.slice(0, currentTab);
+        selected.push(itemId);
+        currentTab++;
+        let info = me['@{list.info}'];
+        me['@{selected}'] = selected;
+        if (currentTab < headers.length && info.map[itemId].children) {
+            me['@{active.to.tab}'](currentTab);
+        }
+        else {
+            me['@{fillText}']();
+            me['@{hide}']();
+            me['@{owner.node}'].trigger({
+                type: 'change',
+                selected: selected
+            });
+        }
+    }
+});
+
+});

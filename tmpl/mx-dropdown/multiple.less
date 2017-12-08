@@ -1,7 +1,6 @@
 @import "../mx-style/_vars";
-
-
 .dropdown{
+    outline: 0;
     position: relative;
     width: @input-width;
     background-color: #fff;
@@ -46,7 +45,8 @@
     top:0;
 }
 .open,
-.open:hover{
+.open:hover,
+.dropdown:focus{
     border-color: @color-brand;
 }
 .dropdown-toggle-label{
@@ -115,6 +115,7 @@
   padding: 3px 4px;
 }
 .item-link{
+    cursor: pointer;
     color: @color-secondary;
     display: block;
     width: 100%;
@@ -131,6 +132,7 @@
     margin-bottom:2px;
 }
 .s-item-link{
+    cursor: pointer;
     color: @color-secondary;
     display: block;
     padding: 0 12px;

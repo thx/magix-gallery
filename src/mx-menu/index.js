@@ -1,1 +1,326 @@
-define("mx-menu/index",["magix","$","../mx-monitor/index"],function(e,_,t){var i=e("magix"),d=e("$"),n=e("../mx-monitor/index"),r=i.Vframe;i.applyStyle("_y","._dR{-webkit-transition:margin-left .25s;transition:margin-left .25s}._dS{background-color:#fff;border:1px solid #e6e6e6;border-radius:4px;cursor:default;padding:4px 0}._dT{height:29px;line-height:29px;cursor:default;border-radius:4px;padding:0 12px;margin:0 4px}._dU{color:#fff;background-color:#6363e6}._dV{margin-left:10px}._dW{margin-left:-10px}._dX{font-size:12px;-webkit-transform:scaleX(-1);transform:scaleX(-1);top:25%;color:#e6e6e6}");var a=null,s={left:"_dW",right:"_dV"},o=function(e,_,t){for(var d={},n={},r=[],a=0,s=e.length;a<s;a++){var o=i.mix({},e[a]);d[o[_]]=o,n[o[_]]&&(o.children=n[o[_]]),i.has(o,t)&&""!==o[t]?d[o[t]]?(d[o[t]].children||(d[o[t]].children=[])).push(o):n[o[t]]?n[o[t]].push(o):n[o[t]]=[o]:r.push(o)}return{list:r,map:d}};t.exports=i.View.extend({tmpl:{html:'<div mx-guid="g0" style="width:<%=$$.width%>px;<%if($$.isChild||$$.contextMenu){%>position:absolute;left:-1000000px<%}%>" mx-mouseover="__dn();" class="_dR" mx-contextmenu="__D()"><ul mx-guid="g1" class="_dS _aj">2</ul></div>',subs:[{keys:["width","isChild","contextMenu"],path:'div[mx-guid="g0"]',attr:'style="width:<%=$$.width%>px;<%if($$.isChild||$$.contextMenu){%>position:absolute;left:-1000000px<%}%>"',attrs:[{n:"style"}]},{keys:["list","valueKey","textKey","viewId"],path:'ul[mx-guid="g1"]',tmpl:'<%for(var a=0,b;a<$$.list.length;a++){b=$$.list[a]%><li class="_al _dT" mx-mouseover="__dm({id:\'<%=$eq(b[$$.valueKey])%>\'})" mx-mouseout="__dm({id:\'<%=$eq(b[$$.valueKey])%>\'});\n            " <%if(!b.children){%> mx-click="__c_({id:\'<%=$eq(b[$$.valueKey])%>\'})" <%}%> title="<%=b[$$.textKey]%>" id="<%=$$.viewId%>_<%=b[$$.valueKey]%>"><%=b[$$.textKey]%> <%if(b.children){%><span class="_ab __ _dX">&#xe61e;</span><%}%></li><%}%>',s:"2"}]},init:function(e){var _=this;_.assign(e),_.__cW=e.__cW,_.__cX=e.__cX,_.__cY=e.picked,_.__cZ||(n.__d(),_.on("destroy",function(){n.__f(_),n.__g()}))},assign:function(e){var _=this,t=e.width||340,i=e.valueKey||"id",d=e.parentKey||"pId",n=e.textKey||"text",r=e.__cZ;if(r)_.__cc=e.__cc,_.__bO=e.list;else{var a=o(e.list,i,d);_.__cc=a.map,_.__bO=a.list}return _.__cZ=r,_.__d_=t,_.__da=i,_.__db=d,_.__dc=n,_.__dd=e.pId,_.__de=e.__de,!0},render:function(){var e=this;e.updater.digest({viewId:e.id,contextMenu:e.__cW,isChild:e.__cZ,list:e.__bO,width:e.__d_,valueKey:e.__da,textKey:e.__dc}),e.__cW&&e.__e(e.__cX)},__i:function(e){var _=this,t=i.inside(e,_.id);if(!t)for(var d=_.owner.children(),n=d.length;n--;){var a=r.get(d[n]);if(a&&(t=a.invoke("__i",e)))break}return t},__e:function(e,_){var t=this;if(!t.__j){t.__j=1;var i=d("#"+t.id+" div"),r=d(document),o=-1,c=-1,l="right",u=i.outerWidth(),f=i.outerHeight(),m=0,v=0;if(_){var h=_.offset();m=_.outerWidth(),v=_.outerHeight(),o=h.left+m,c=h.top}else o=e.pageX,c=e.pageY;o+u>r.width()&&(l="left",(o=o-u-m)<0&&(o=0)),c+f>r.height()&&(c-=f,(c+=v)<0&&(c=0)),_&&("right"==l?o-=10:o+=10);var p=t.__de||t;a!=p&&(a=p),t.__cZ?i.css({left:o,top:c}).addClass(s[l]):i.css({left:o,top:c}),p.__df||(p.__df=1,n.__k(t))}},__a:function(){for(var e=this,_=e.owner.children(),t=_.length-1;t>=0;t--){var i=r.get(_[t]);i&&i.invoke("__a")}if(e.__j){e.__j=!1;var a=d("#"+e.id+" div");e.__cZ?(a.removeClass(s.left).removeClass(s.right),a.css({left:-1e5}),e.__cZ.removeClass("_dU")):(e.__cW&&a.css({left:-1e4}),delete e.__df,n.__f(e))}},__dh:function(e){clearTimeout(this["__dg"+e])},__dj:function(e,_,t){var i=this;i["__di"+_]=setTimeout(i.wrapAsync(function(){var n=i.id+"_menu_"+_,a=r.get(n);a||(d("body").append('<div id="'+n+'" />'),a=i.owner.mountVframe(n,"mx-menu/index",{__cZ:d("#"+i.id+"_"+_),width:i.__d_,valueKey:i.__da,textKey:i.__dc,parentKey:i.__db,list:t,pId:_,__de:i.__de||i,__cc:i.__cc})),a.invoke("__e",[null,e],!0)}),250)},__dk:function(e){var _=this,t=_.id+"_menu_"+e,i=r.get(t);i&&(_["__dg"+e]=setTimeout(_.wrapAsync(function(){i.invoke("__a")}),50))},"__dm<mouseover,mouseout>":function(e){var _=this;if(!i.inside(e.relatedTarget,e.eventTarget)){var t=d(e.eventTarget);t["mouseout"==e.type?"removeClass":"addClass"]("_dU");var n=e.params.id;if(_.__dk(_.__dl),"mouseover"==e.type){var r=_.__cc[n].children;r&&(_.__dh(n),_.__dj(t,n,r),_.__dl=n)}else clearTimeout(_["__di"+n])}},"__dn<mouseover>":function(e){var _=this;!i.inside(e.relatedTarget,e.eventTarget)&&(_.__cZ||a==_||a&&a.__a(),_.__cZ&&(d(_.__cZ).addClass("_dU"),_.owner.parent().invoke("__dh",[_.__dd])))},"__c_<click>":function(e){var _=this,t=_.__de||_,i=d("#"+t.id),n={type:"pick",item:_.__cc[e.params.id]};i.trigger(n),t.__a();var r=_.__cY;r&&r(n.item)},"__D<contextmenu>":function(e){e.preventDefault()}},{show:function(e,_,t){var n=_.eventTarget;n.id||(n.id=i.guid());var r="ctx_"+n.id,a=i.Vframe.get(r);a?a.invoke("__e",[_],!0):(d("body").append('<div id="'+r+'" />'),t=t||{},i.mix(t,{__cW:1,__cX:_}),a=e.owner.mountVframe(r,"mx-menu/index",t))}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-menu/index',["magix","$","../mx-monitor/index"],(require,exports,module)=>{
+/*Magix,$,Monitor*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+let Magix = require('magix');
+let $ = require('$');
+let Monitor = require('../mx-monitor/index');
+let Vframe = Magix.Vframe;
+Magix.applyStyle("__mx-menu_index_",".__mx-menu_index_-container {\n  -webkit-transition: margin-left 0.25s;\n  transition: margin-left 0.25s;\n}\n.__mx-menu_index_-items {\n  background-color: #fff;\n  border: solid 1px #e6e6e6;\n  border-radius: 4px;\n  cursor: default;\n  padding: 4px 0;\n}\n.__mx-menu_index_-items-li {\n  height: 29px;\n  line-height: 29px;\n  cursor: default;\n  border-radius: 4px;\n  padding: 0 12px;\n  margin: 0 4px;\n}\n.__mx-menu_index_-over {\n  color: #fff;\n  background-color: #f96447;\n}\n.__mx-menu_index_-toright {\n  margin-left: 10px;\n}\n.__mx-menu_index_-toleft {\n  margin-left: -10px;\n}\n.__mx-menu_index_-more {\n  font-size: 12px;\n  -webkit-transform: scaleX(-1);\n          transform: scaleX(-1);\n  top: 25%;\n  color: #e6e6e6;\n}\n");
+let ActiveInstance = null;
+let CSSNames = {
+    left: '__mx-menu_index_-toleft',
+    right: '__mx-menu_index_-toright'
+};
+let ListToTree = (list, id, pId) => {
+    let map = {}, listMap = {}, rootList = [];
+    for (let i = 0, max = list.length; i < max; i++) {
+        let one = Magix.mix({}, list[i]);
+        map[one[id]] = one;
+        if (listMap[one[id]]) {
+            one.children = listMap[one[id]];
+        }
+        if (Magix.has(one, pId) && one[pId] !== '') {
+            if (map[one[pId]]) {
+                let c = map[one[pId]].children || (map[one[pId]].children = []);
+                c.push(one);
+            }
+            else {
+                if (!listMap[one[pId]])
+                    listMap[one[pId]] = [one];
+                else
+                    listMap[one[pId]].push(one);
+            }
+        }
+        else {
+            rootList.push(one);
+        }
+    }
+    return { list: rootList, map };
+};
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<div mx-guid=\"g0\u001f\" style=\"width:<%=$$.width%>px;<%if($$.isChild||$$.contextMenu){%>position:absolute;left:-1000000px<%}%>\" mx-mouseover=\"\u001f\u001e@{over}();\" class=\"__mx-menu_index_-container\" mx-contextmenu=\"\u001f\u001e@{prevent}()\"><ul mx-guid=\"g1\u001f\" class=\"__mx-menu_index_-items __mx-style_index_-unselectable\">2\u001d</ul></div>","subs":[{"keys":["width","isChild","contextMenu"],"path":"div[mx-guid=\"g0\u001f\"]","attr":"style=\"width:<%=$$.width%>px;<%if($$.isChild||$$.contextMenu){%>position:absolute;left:-1000000px<%}%>\"","attrs":[{"n":"style"}]},{"keys":["list","valueKey","textKey","viewId"],"path":"ul[mx-guid=\"g1\u001f\"]","tmpl":"<%for(var i=0,one;i<$$.list.length;i++){%> <%one=$$.list[i]%><li class=\"__mx-style_index_-ellipsis __mx-menu_index_-items-li\" mx-mouseover=\"\u001f\u001e@{hover}({id:'<%=$eq(one[$$.valueKey])%>'})\" mx-mouseout=\"\u001f\u001e@{hover}({id:'<%=$eq(one[$$.valueKey])%>'});\n            \" <%if(!one.children){%> mx-click=\"\u001f\u001e@{select}({id:'<%=$eq(one[$$.valueKey])%>'})\" <%}%> title=\"<%=one[$$.textKey]%>\" id=\"<%=$$.viewId%>_<%=one[$$.valueKey]%>\"><%=one[$$.textKey]%> <%if(one.children){%><span class=\"__mx-style_index_-fr __mx-style_index_-mc-iconfont __mx-menu_index_-more\">&#xe61e;</span><%}%></li><%}%>","s":"2\u001d"}],"file":"mx-menu/index.html"},
+    init(extra) {
+        let me = this;
+        me.assign(extra);
+        me['@{context.menu}'] = extra['@{context.menu}'];
+        me['@{context.event}'] = extra['@{context.event}'];
+        me['@{fn.picked}'] = extra.picked;
+        if (!me['@{parent.node}']) {
+            Monitor['@{setup}']();
+            me.on('destroy', () => {
+                Monitor['@{remove}'](me);
+                Monitor['@{teardown}']();
+            });
+        }
+    },
+    assign(ops) {
+        let me = this;
+        let width = ops.width || 340;
+        let valueKey = ops.valueKey || 'id';
+        let parentKey = ops.parentKey || 'pId';
+        let textKey = ops.textKey || 'text';
+        let parentNode = ops['@{parent.node}'];
+        if (!parentNode) {
+            let temp = ListToTree(ops.list, valueKey, parentKey);
+            me['@{list.map}'] = temp.map;
+            me['@{list}'] = temp.list;
+        }
+        else {
+            me['@{list.map}'] = ops['@{list.map}'];
+            me['@{list}'] = ops.list;
+        }
+        me['@{parent.node}'] = parentNode;
+        me['@{width}'] = width;
+        me['@{value.key}'] = valueKey;
+        me['@{parent.key}'] = parentKey;
+        me['@{text.key}'] = textKey;
+        me['@{parent.id}'] = ops.pId;
+        me['@{root.panel}'] = ops['@{root.panel}'];
+        return true;
+    },
+    render() {
+        let me = this;
+        me.updater.digest({
+            viewId: me.id,
+            contextMenu: me['@{context.menu}'],
+            isChild: me['@{parent.node}'],
+            list: me['@{list}'],
+            width: me['@{width}'],
+            valueKey: me['@{value.key}'],
+            textKey: me['@{text.key}']
+        });
+        if (me['@{context.menu}']) {
+            me['@{show}'](me['@{context.event}']);
+        }
+    },
+    '@{inside}'(node) {
+        let me = this;
+        let inside = Magix.inside(node, me.id);
+        if (!inside) {
+            let children = me.owner.children();
+            for (let i = children.length; i--;) {
+                let child = Vframe.get(children[i]);
+                if (child) {
+                    inside = child.invoke('@{inside}', node);
+                    if (inside)
+                        break;
+                }
+            }
+        }
+        return inside;
+    },
+    '@{show}'(e, refNode) {
+        let me = this;
+        if (!me['@{ui.show}']) {
+            me['@{ui.show}'] = 1;
+            let node = $('#' + me.id + ' div');
+            let doc = $(document);
+            let left = -1, top = -1, dock = 'right';
+            let width = node.outerWidth();
+            let height = node.outerHeight(), refWidth = 0, refHeight = 0;
+            if (refNode) {
+                let offset = refNode.offset();
+                refWidth = refNode.outerWidth();
+                refHeight = refNode.outerHeight();
+                left = offset.left + refWidth;
+                top = offset.top;
+            }
+            else {
+                left = e.pageX;
+                top = e.pageY;
+            }
+            if ((left + width) > doc.width()) {
+                left = left - width - refWidth;
+                dock = 'left';
+                if (left < 0)
+                    left = 0;
+            }
+            if ((top + height) > doc.height()) {
+                top -= height;
+                top += refHeight;
+                if (top < 0)
+                    top = 0;
+            }
+            if (refNode) {
+                if (dock == 'right') {
+                    left -= 10;
+                }
+                else {
+                    left += 10;
+                }
+            }
+            let root = me['@{root.panel}'] || me;
+            if (ActiveInstance != root)
+                ActiveInstance = root;
+            if (me['@{parent.node}']) {
+                node.css({
+                    left: left,
+                    top: top
+                }).addClass(CSSNames[dock]);
+            }
+            else {
+                node.css({
+                    left: left,
+                    top: top
+                });
+            }
+            if (!root['@{monitor.added}']) {
+                root['@{monitor.added}'] = 1;
+                Monitor['@{add}'](me);
+            }
+        }
+    },
+    '@{hide}'() {
+        let me = this;
+        let children = me.owner.children();
+        for (let i = children.length - 1; i >= 0; i--) {
+            let child = Vframe.get(children[i]);
+            if (child)
+                child.invoke('@{hide}');
+        }
+        if (me['@{ui.show}']) {
+            me['@{ui.show}'] = false;
+            let node = $('#' + me.id + ' div');
+            if (me['@{parent.node}']) {
+                node.removeClass(CSSNames.left).removeClass(CSSNames.right);
+                node.css({
+                    left: -100000
+                });
+                me['@{parent.node}'].removeClass('__mx-menu_index_-over');
+            }
+            else {
+                if (me['@{context.menu}']) {
+                    node.css({
+                        left: -10000
+                    });
+                }
+                delete me['@{monitor.added}'];
+                Monitor['@{remove}'](me);
+            }
+        }
+    },
+    '@{stop.hide.child}'(id) {
+        clearTimeout(this['@{timer.}' + id]);
+    },
+    '@{show.child}'(node, id, children) {
+        let me = this;
+        me['@{stimer.}' + id] = setTimeout(me.wrapAsync(() => {
+            let nid = me.id + '_menu_' + id;
+            let vf = Vframe.get(nid);
+            if (!vf) {
+                $('body').append('<div id="' + nid + '" />');
+                vf = me.owner.mountVframe(nid, 'mx-menu/index', {
+                    '@{parent.node}': $('#' + me.id + '_' + id),
+                    width: me['@{width}'],
+                    valueKey: me['@{value.key}'],
+                    textKey: me['@{text.key}'],
+                    parentKey: me['@{parent.key}'],
+                    list: children,
+                    pId: id,
+                    '@{root.panel}': me['@{root.panel}'] || me,
+                    '@{list.map}': me['@{list.map}']
+                });
+            }
+            vf.invoke('@{show}', [null, node], true);
+        }), 250);
+    },
+    '@{hide.child}'(id) {
+        let me = this;
+        let nid = me.id + '_menu_' + id;
+        let vf = Vframe.get(nid);
+        if (vf) {
+            me['@{timer.}' + id] = setTimeout(me.wrapAsync(() => {
+                vf.invoke('@{hide}');
+            }), 50);
+        }
+    },
+    '@{hover}<mouseover,mouseout>'(e) {
+        let me = this;
+        let flag = !Magix.inside(e.relatedTarget, e.eventTarget);
+        if (flag) {
+            let node = $(e.eventTarget);
+            node[e.type == 'mouseout' ? 'removeClass' : 'addClass']('__mx-menu_index_-over');
+            let id = e.params.id;
+            me['@{hide.child}'](me['@{last.id}']);
+            if (e.type == 'mouseover') {
+                let map = me['@{list.map}'];
+                let children = map[id].children;
+                if (children) {
+                    me['@{stop.hide.child}'](id);
+                    me['@{show.child}'](node, id, children);
+                    me['@{last.id}'] = id;
+                }
+            }
+            else {
+                clearTimeout(me['@{stimer.}' + id]);
+            }
+        }
+    },
+    '@{over}<mouseover>'(e) {
+        let me = this;
+        let flag = !Magix.inside(e.relatedTarget, e.eventTarget);
+        if (flag) {
+            if (!me['@{parent.node}'] && ActiveInstance != me) {
+                if (ActiveInstance) {
+                    ActiveInstance['@{hide}']();
+                }
+            }
+            if (me['@{parent.node}']) {
+                $(me['@{parent.node}']).addClass('__mx-menu_index_-over');
+                me.owner.parent().invoke('@{stop.hide.child}', [me['@{parent.id}']]);
+            }
+        }
+    },
+    '@{select}<click>'(e) {
+        let me = this;
+        let root = me['@{root.panel}'] || me;
+        let node = $('#' + root.id);
+        let data = {
+            type: 'pick',
+            item: me['@{list.map}'][e.params.id]
+        };
+        node.trigger(data);
+        root['@{hide}']();
+        let fn = me['@{fn.picked}'];
+        if (fn) {
+            fn(data.item);
+        }
+    },
+    '@{prevent}<contextmenu>'(e) {
+        e.preventDefault();
+    }
+}, {
+    show(view, e, ops) {
+        let node = e.eventTarget;
+        if (!node.id) {
+            node.id = Magix.guid();
+        }
+        let id = 'ctx_' + node.id;
+        let vf = Magix.Vframe.get(id);
+        if (vf) {
+            vf.invoke('@{show}', [e], true);
+        }
+        else {
+            $('body').append('<div id="' + id + '" />');
+            ops = ops || {};
+            Magix.mix(ops, {
+                '@{context.menu}': 1,
+                '@{context.event}': e
+            });
+            vf = view.owner.mountVframe(id, 'mx-menu/index', ops);
+        }
+    }
+});
+
+});

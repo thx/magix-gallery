@@ -1,5 +1,5 @@
 /*
-ver:1.3.7
+ver:1.3.8
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -94,9 +94,7 @@ module.exports = Magix.View.extend({
     '@{toPage}<click>'(e) {
         e.preventDefault();
         let me = this;
-        me.updater.set({
-            page: e.params.page
-        });
+        me.updater.set(e.params);
         me.render();
         me['@{fire.event}']();
     },

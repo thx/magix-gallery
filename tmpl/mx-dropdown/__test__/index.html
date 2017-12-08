@@ -11,7 +11,7 @@
         <item value="fri">周五</item>
         <item value="sat">周六</item>
     </mx-dropdown><button mx-click="test()" class="btn ml5 btn-brand">toggle searchbox</button>
-    <mx-view path="mx-dropdown/index"
+    <mx-dropdown
         searchbox="true"
         empty-text="请选择日期"
         mx-change="showWeek()"
@@ -22,8 +22,8 @@
         <item value="thu">周四</item>
         <item value="fri">周五</item>
         <item value="sat">周六</item>
-    </mx-view>
-    <mx-view path="mx-dropdown/index"
+    </mx-dropdown>
+    <mx-dropdown
         searchbox="true"
         empty-text="请选择日期"
         mx-change="showWeek()"
@@ -33,13 +33,12 @@
         <item value="thu">周四</item>
         <item value="fri">周五</item>
         <item value="sat">周六</item>
-    </mx-view>
+    </mx-dropdown>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-view
-    path="app/gallery/mx-dropdown/index"
+    <pre>&lt;mx-dropdown
     searchbox="true"
     empty-text="请选择日期"
     mx-change="showWeek()"
@@ -49,7 +48,7 @@
     &lt;item value="thu"&gt;周四&lt;/item&gt;
     &lt;item value="fri"&gt;周五&lt;/item&gt;
     &lt;item value="sat"&gt;周六&lt;/item&gt;
-&lt;/mx-view&gt;</pre>
+&lt;/mx-dropdown&gt;</pre>
     <div class="pt10">Javascript Code:</div>
     <pre>let Magix = require('magix');
 let GTip = require('app/gallery/mx-gtip/index');
@@ -68,7 +67,7 @@ module.exports = Magix.View.extend({
 
 <h3 class="mt30">单选带分组</h3>
 <div class="pt20 clearfix">
-    <mx-view path="mx-dropdown/index"
+    <mx-dropdown
         searchbox="true"
         empty-text="请选择日期"
         mx-change="showWeek()"
@@ -85,13 +84,12 @@ module.exports = Magix.View.extend({
         <item value="next-thu">下周四</item>
         <item value="next-fri">下周五</item>
         <item value="next-sat">下周六</item>
-    </mx-view>
+    </mx-dropdown>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-view
-    path="app/gallery/mx-dropdown/index"
+    <pre>&lt;mx-dropdown
     searchbox="true"
     empty-text="请选择日期"
     mx-change="showWeek()"
@@ -108,7 +106,7 @@ module.exports = Magix.View.extend({
     &lt;item value="next-thu"&gt;下周四&lt;/item&gt;
     &lt;item value="next-fri"&gt;下周五&lt;/item&gt;
     &lt;item value="next-sat"&gt;下周六&lt;/item&gt;
-&lt;/mx-view&gt;</pre>
+&lt;/mx-dropdown&gt;</pre>
     <div class="pt10">Javascript Code:</div>
     <pre>let Magix = require('magix');
 let GTip = require('app/gallery/mx-gtip/index');
@@ -127,8 +125,7 @@ module.exports = Magix.View.extend({
 
 <h3 class="mt30">动态数据并设置选中</h3>
 <div class="pt20 clearfix">
-    <mx-view
-        path="mx-dropdown/index"
+    <mx-dropdown
         searchbox="true"
         empty-text="请选择用户"
         text-key="name"
@@ -137,13 +134,12 @@ module.exports = Magix.View.extend({
         list="<%@ userList %>"
         mx-change="showUser()"
         class="fl" style="width:200px;">
-    </mx-view>
+    </mx-dropdown>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre lang="html">&lt;mx-view
-    path="app/gallery/mx-dropdown/index"
+    <pre lang="html">&lt;mx-dropdown
     searchbox="true"
     empty-text="请选择用户"
     text-key="name"
@@ -152,7 +148,7 @@ module.exports = Magix.View.extend({
     list="&lt;%@ userList %&gt;"
     mx-change="showUser()"
     class="fl" style="width:200px;"&gt;
-&lt;/mx-view&gt;</pre>
+&lt;/mx-dropdown&gt;</pre>
     <div class="pt10">Javascript Code:</div>
     <pre>let Magix = require('magix');
 let GTip = require('app/gallery/mx-gtip/index');

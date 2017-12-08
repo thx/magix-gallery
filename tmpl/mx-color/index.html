@@ -7,7 +7,7 @@
 </div>
 <div class="body">
     <div class="cpicker-wrapper">
-        <div class="cpicker" id="cpicker_<%=id%>" mx-click="@{color.zone.clicked}()">
+        <div class="cpicker" id="cpicker_<%=id%>" mx-mousedown="@{color.zone.drag}()">
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%">
                 <defs>
                     <lineargradient id="gb_<%=id%>" x1="0%" y1="100%" x2="0%" y2="0%">
@@ -22,11 +22,11 @@
                 <rect x="0" y="0" width="100%" height="100%" fill="url(#gw_<%=id%>)"></rect>
                 <rect x="0" y="0" width="100%" height="100%" fill="url(#gb_<%=id%>)"></rect>
             </svg>
+            <div class="cpicker-indicator" id="ph_<%=id%>"></div>
         </div>
-        <div class="cpicker-indicator" id="ph_<%=id%>" mx-mousedown="@{picker.drag}()"></div>
     </div>
     <div class="slide-wrapper">
-        <div class="slide" mx-click="@{slide.clicked}()">
+        <div class="slide" mx-mousedown="@{slide.drag}()">
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%">
                 <defs>
                     <linearGradient id="ghsv_<%=id%>" x1="0%" y1="100%" x2="0%" y2="0%">
@@ -43,14 +43,15 @@
                 </defs>
                 <rect x="0" y="0" width="100%" height="100%" fill="url(#ghsv_<%=id%>)"></rect>
             </svg>
+            <div class="slide-indicator" id="sh_<%=id%>"></div>
         </div>
-        <div class="slide-indicator" mx-mousedown="@{slide.drag}();" id="sh_<%=id%>"></div>
     </div>
 </div>
 <%if(alpha){%>
 <div class="alpha pr">
-    <div class="alpha-tracker pr" id="at_<%=id%>" mx-click="@{alpha.clicked}()"></div>
-    <div class="alpha-indicator" id="ai_<%=id%>" mx-mousedown="@{alpha.drag}()"></div>
+    <div class="alpha-tracker pr" id="at_<%=id%>" mx-mousedown="@{alpha.drag}()">
+        <div class="alpha-indicator" id="ai_<%=id%>"></div>
+    </div>
 </div>
 <%}%>
 <div class="foot">

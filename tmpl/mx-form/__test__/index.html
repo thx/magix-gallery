@@ -16,18 +16,18 @@
         <div class="form-item">
             <label class="form-label form-required">标签：</label>
             <div class="form-content">
-                <mx-view path="mx-taginput/index"
+                <mx-vframe src="mx-taginput/index"
                     list="<%@list%>"
                     placeholder="请选择标签"
                     selected="<%:tags{required:true}%>"
-                ></mx-view>
+                ></mx-vframe>
             </div>
         </div>
 
         <div class="form-item">
             <label class="form-label form-required">活动时间：</label>
             <div class="form-content">
-                <mx-view path="mx-dropdown/index"
+                <mx-vframe src="mx-dropdown/index"
                     searchbox="true"
                     empty-text="请选择日期"
                     selected="<%:day{required:true}%>" style="width:180px;">
@@ -36,7 +36,7 @@
                     <item value="thu">周四</item>
                     <item value="fri">周五</item>
                     <item value="sat">周六</item>
-                </mx-view>
+                </mx-vframe>
                 <span class="ib ml5 mr5">
                 -</span>
                 <input class="input" style="width:145px" placeholder="请选择时间" value="<%:time{required:true}%>" mx-view="mx-time/picker" />
@@ -134,7 +134,7 @@
                 <textarea class="textarea" rows="8"><%:mark{maxLength:10}%></textarea>
             </div>
         </div>
-        <mx-view path="@./sub" name-x1="<%:name_x1{from:'nameX1'}%>" <%:de{from:'name_sub1'}%>></mx-view>
+        <mx-vframe src="@./sub" name-x1="<%:name_x1{from:'nameX1'}%>" <%:de{from:'name_sub1'}%>></mx-vframe>
         <div class="form-footer">
             <button class="btn btn-brand" mx-click="isValid()">isValid</button>
             <button class="btn btn-brand ml10" mx-click="getData()">getData</button>
@@ -157,7 +157,7 @@
 &lt;div class="form-item"&gt;
     &lt;label class="form-label form-required"&gt;活动时间：&lt;/label&gt;
     &lt;div class="form-content"&gt;
-        &lt;mx-view path="app/gallery/mx-dropdown/index"
+        &lt;mx-vframe src="app/gallery/mx-dropdown/index"
             searchbox="true"
             empty-text="请选择日期"
             selected="&lt;%:day{required:true}%&gt;" style="width:180px;"&gt;
@@ -166,7 +166,7 @@
             &lt;item value="thu"&gt;周四&lt;/item&gt;
             &lt;item value="fri"&gt;周五&lt;/item&gt;
             &lt;item value="sat"&gt;周六&lt;/item&gt;
-        &lt;/mx-view&gt;
+        &lt;/mx-vframe&gt;
         &lt;span class="ib ml5 mr5"&gt;-&lt;/span&gt;
         &lt;input class="input" style="width:145px" placeholder="请选择时间" value="&lt;%:time{required:true}%&gt;" mx-view="app/gallery/mx-time/picker" /&gt;
     &lt;/div&gt;
@@ -175,11 +175,11 @@
 &lt;div class="form-item"&gt;
     &lt;label class="form-label form-required"&gt;标签：&lt;/label&gt;
     &lt;div class="form-content"&gt;
-        &lt;mx-view path="app/gallery/mx-taginput/index"
+        &lt;mx-vframe src="app/gallery/mx-taginput/index"
             list="&lt;%@list%&gt;"
             placeholder="请选择标签"
             selected="&lt;%:tags{required:true}%&gt;"
-        &gt;&lt;/mx-view&gt;
+        &gt;&lt;/mx-vframe&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="form-item"&gt;
@@ -224,32 +224,32 @@
 &lt;div class="form-item"&gt;
     &lt;label class="form-label"&gt;范围：&lt;/label&gt;
     &lt;div class="form-content"&gt;
-        &lt;mx-view mx-view="app/gallery/mx-slider/index"
+        &lt;mx-vframe mx-view="app/gallery/mx-slider/index"
             max="200"
             min="0"
             value="&lt;%:range%&gt;"
             step="0.2"
-        &gt;&lt;/mx-view&gt;
+        &gt;&lt;/mx-vframe&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="form-item"&gt;
     &lt;label class="form-label"&gt;范围：&lt;/label&gt;
     &lt;div class="form-content"&gt;
-        &lt;mx-view mx-view="app/gallery/mx-slider/range"
+        &lt;mx-vframe mx-view="app/gallery/mx-slider/range"
             max="500"
             min="200"
             value="&lt;%:range1%&gt;"
             step="10"
-        &gt;&lt;/mx-view&gt;
+        &gt;&lt;/mx-vframe&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="form-item"&gt;
     &lt;label class="form-label"&gt;封面：&lt;/label&gt;
     &lt;div class="form-content"&gt;
-        &lt;mx-view
+        &lt;mx-vframe
             tag="button"
             class="btn btn-brand"
-            path="app/gallery/mx-uploader/index"
+            src="app/gallery/mx-uploader/index"
             action="./"
             view-name="file1"
             multiple="true"

@@ -1,1 +1,180 @@
-define("mx-calendar/rangepicker",["magix","$","../mx-monitor/index","./index","./range"],function(_,t,e){var i=_("magix"),a=_("$"),n=_("../mx-monitor/index"),r=_("./index"),o=_("./range"),d=["today","yesterday","passed7","lastestThisMonth","preMonth","lastest15"],s=i.View.extend({init:function(_){var t=this,e=_.start,i=_.end,s=_.timeType,c=_.formatter||"YYYY-MM-dd"+(s?" hh:mm:ss":""),f=r.format(new Date,c);t.__M=c,t.__R=!0,t.__K=s,t.__L=_.dateType,e||(t.__R=!1,e=f),i||(t.__R=!1,i=f),t.__S="false"!=_.shortcuts,t.__F=_.max,t.__E=_.min,t.__I=_.placement,t.__J=_.align,t.__H=t.__S?d:[],t.__G=o.getDescription(e,i,t.__H,c),n.__d();var h=a("#"+t.id),p=function(){t.__e()};t.on("destroy",function(){n.__f(t),n.__g(),a("#rpcnt_"+t.id).remove(),h.off("click",p)}),h.on("click",p),t.__h=h,h.prop("autocomplete","off")},__i:function(_){var t=this,e=i.inside(_,t.id)||i.inside(_,"rpcnt_"+t.id);if(!e)for(var a=t.owner.children(),n=a.length-1;n>=0;n--){var r=i.Vframe.get(a[n]);if(r&&(e=r.invoke("__i",_)),e)break}return e},__T:function(){var _=this,t=_.__G;t.quickDateText?_.__h.val(t.quickDateText):_.__h.val(t.startStr+"至"+t.endStr)},render:function(){var _=this,t="rpcnt_"+_.id;a(_.wrapEvent('<div mx-change="__U()" mx-cancel="__a()" style="position:absolute;display:none;z-index:10"></div>')).attr("id",t).insertAfter(_.__h),_.__R&&_.__T()},__e:function(){var _=this;if(!_.__j){var t=a("#rpcnt_"+_.id),e=_.__h;_.__j=!0,_.__l||(_.__l=!0,_.owner.mountVframe("rpcnt_"+_.id,"mx-calendar/range",{min:_.__E,max:_.__F,timeType:_.__K,dateType:_.__L,formatter:_.__M,dates:_.__G,quickDates:_.__H,placement:_.__I,align:_.__J})),n.__k(_),t.show();var i=e.offset(),r=void 0,o=void 0;switch(_.__I){case"top":o=i.top-t.outerHeight()-5;break;default:o=i.top+e.outerHeight()+5}switch(_.__J){case"right":r=i.left+e.outerWidth()-t.outerWidth();break;default:r=i.left}t.offset({left:r,top:o})}},__a:function(_){var t=this;if(t.__j){var e=a("#rpcnt_"+t.id);t.__j=!1,e.hide(),n.__f(t),_||e.invokeView("__N")}},"__U<change>":function(_){var t=this;_.stopPropagation(),t.__G=_.dates,t.__T(),t.__a(!0),t.__h.trigger({type:"change",dates:_.dates})},"__a<cancel>":function(_){_.stopPropagation(),this.__a()}});e.exports=s});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-calendar/rangepicker',["magix","$","../mx-monitor/index","./index","./range"],(require,exports,module)=>{
+/*Magix,$,Monitor,Calendar,RangeDate*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@taobao.com
+ */
+let Magix = require('magix');
+let $ = require('$');
+let Monitor = require('../mx-monitor/index');
+let Calendar = require('./index');
+let RangeDate = require('./range');
+let Wrapper = "<div mx-change=\"\u001f\u001e@{range.picked}()\" mx-cancel=\"\u001f\u001e@{hide}()\" style=\"position:absolute;display:none;z-index:10\"></div>";
+let DefaultQuickDateKeys = [
+    'today',
+    'yesterday',
+    'passed7',
+    'lastestThisMonth',
+    'preMonth',
+    'lastest15'
+];
+let Rangepicker = Magix.View.extend({
+    init(extra) {
+        let me = this;
+        let start = extra.start;
+        let end = extra.end;
+        let timeType = extra.timeType;
+        let formatter = extra.formatter || ('YYYY-MM-dd' + (timeType ? ' hh:mm:ss' : ''));
+        let today = Calendar.format(new Date(), formatter);
+        me['@{datetime.formatter}'] = formatter;
+        me['@{auto.fillback}'] = true;
+        me['@{time.type}'] = timeType;
+        me['@{date.type}'] = extra.dateType;
+        if (!start) {
+            me['@{auto.fillback}'] = false;
+            start = today;
+        }
+        if (!end) {
+            me['@{auto.fillback}'] = false;
+            end = today;
+        }
+        me['@{shortcuts.show}'] = extra.shortcuts != 'false';
+        me['@{max}'] = extra.max;
+        me['@{min}'] = extra.min;
+        me['@{pos.placement}'] = extra.placement;
+        me['@{pos.align}'] = extra.align;
+        me['@{dates.quick}'] = me['@{shortcuts.show}'] ? DefaultQuickDateKeys : [];
+        me['@{dates}'] = RangeDate.getDescription(start, end, me['@{dates.quick}'], formatter);
+        Monitor['@{setup}']();
+        let oNode = $('#' + me.id);
+        let click = () => {
+            me['@{show}']();
+        };
+        me.on('destroy', () => {
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+            $('#rpcnt_' + me.id).remove();
+            oNode.off('click', click);
+        });
+        oNode.on('click', click);
+        me['@{owner.node}'] = oNode;
+        oNode.prop('autocomplete', 'off');
+    },
+    '@{inside}'(node) {
+        let me = this;
+        let inView = Magix.inside(node, me.id) || Magix.inside(node, 'rpcnt_' + me.id);
+        if (!inView) {
+            let children = me.owner.children();
+            for (let i = children.length - 1; i >= 0; i--) {
+                let child = Magix.Vframe.get(children[i]);
+                if (child) {
+                    inView = child.invoke('@{inside}', node);
+                }
+                if (inView)
+                    break;
+            }
+        }
+        return inView;
+    },
+    '@{fill.to.node}'() {
+        let me = this;
+        let dates = me['@{dates}'];
+        if (dates.quickDateText) {
+            me['@{owner.node}'].val(dates.quickDateText);
+        }
+        else {
+            me['@{owner.node}'].val(dates.startStr + '至' + dates.endStr);
+        }
+    },
+    render() {
+        let me = this;
+        let id = 'rpcnt_' + me.id;
+        $(me.wrapEvent(Wrapper)).attr('id', id).insertAfter(me['@{owner.node}']);
+        if (me['@{auto.fillback}']) {
+            me['@{fill.to.node}']();
+        }
+    },
+    '@{show}'() {
+        let me = this;
+        if (!me['@{ui.show}']) {
+            let node = $('#rpcnt_' + me.id), ref = me['@{owner.node}'];
+            me['@{ui.show}'] = true;
+            if (!me['@{core.rendered}']) {
+                me['@{core.rendered}'] = true;
+                me.owner.mountVframe('rpcnt_' + me.id, 'mx-calendar/range', {
+                    min: me['@{min}'],
+                    max: me['@{max}'],
+                    timeType: me['@{time.type}'],
+                    dateType: me['@{date.type}'],
+                    formatter: me['@{datetime.formatter}'],
+                    dates: me['@{dates}'],
+                    quickDates: me['@{dates.quick}'],
+                    placement: me['@{pos.placement}'],
+                    align: me['@{pos.align}']
+                });
+            }
+            Monitor['@{add}'](me);
+            node.show();
+            let offset = ref.offset();
+            let left, top;
+            switch (me['@{pos.placement}']) {
+                case 'top':
+                    top = offset.top - node.outerHeight() - 5;
+                    break;
+                default:
+                    top = offset.top + ref.outerHeight() + 5;
+                    break;
+            }
+            switch (me['@{pos.align}']) {
+                case 'right':
+                    left = offset.left + ref.outerWidth() - node.outerWidth();
+                    break;
+                default:
+                    left = offset.left;
+                    break;
+            }
+            node.offset({
+                left: left,
+                top: top
+            });
+        }
+    },
+    '@{hide}'(ignore) {
+        let me = this;
+        if (me['@{ui.show}']) {
+            let node = $('#rpcnt_' + me.id);
+            me['@{ui.show}'] = false;
+            node.hide();
+            Monitor['@{remove}'](me);
+            if (!ignore) {
+                node.invokeView('@{restore}');
+            }
+        }
+    },
+    '@{range.picked}<change>'(e) {
+        let me = this;
+        e.stopPropagation();
+        me['@{dates}'] = e.dates;
+        me['@{fill.to.node}']();
+        me['@{hide}'](true);
+        me['@{owner.node}'].trigger({
+            type: 'change',
+            dates: e.dates
+        });
+    },
+    '@{hide}<cancel>'(e) {
+        e.stopPropagation();
+        this['@{hide}']();
+    }
+});
+module.exports = Rangepicker;
+
+});

@@ -1,1 +1,97 @@
-define("mx-checkbox/storestate",["$","magix"],function(e,t,n){var a=e("$"),r=e("magix");n.exports={ctor:function(){var e=this;e.__V={},e.on("rendered",function(t){var n=e.__V;a("#"+t.id+" input[linkage-parent]").each(function(e,t){var r=a(t).attr("linkage-parent"),i=n[r];i&&1==i[t.value]?t.checked=!0:t.checked=!1})})},getStoreState:function(e){var t,n=this.__V,a=[];if(e)(t=n[e])&&(a=r.keys(t));else for(var i in n)(t=n[i])&&(a=a.concat(r.keys(t)));return a},"$input[linkage-parent]<change>":function(e){var t=this,n=a(e.eventTarget),r=n.val(),i=n.attr("linkage-parent");if(r){var c=t.__V[i];c||(c=t.__V[i]={}),n.prop("checked")?c[r]=1:delete c[r]}},"$input[linkage]<change>":function(e){var t=this,n=a(e.eventTarget).attr("linkage"),r=t.__V[n];r||(r=t.__V[n]={}),a("#"+t.id+" input[type=checkbox]").each(function(t,i){var c=(i=a(i)).attr("linkage-parent"),o=i.val();o&&c==n&&(e.target.checked?r[o]=1:delete r[o])})}}});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-checkbox/storestate',["$","magix"],(require,exports,module)=>{
+/*$,Magix*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+let $ = require('$');
+let Magix = require('magix');
+module.exports = {
+    ctor() {
+        let me = this;
+        me['@{state.store}'] = {};
+        me.on('rendered', (e) => {
+            let state = me['@{state.store}'];
+            let ipts = $('#' + e.id + ' input[linkage-parent]');
+            ipts.each((idx, item) => {
+                let linkName = $(item).attr('linkage-parent');
+                let object = state[linkName];
+                if (object && object[item.value] == 1) {
+                    item.checked = true;
+                }
+                else {
+                    item.checked = false;
+                }
+            });
+        });
+    },
+    getStoreState(key) {
+        let store = this['@{state.store}'];
+        let keys = [];
+        let value;
+        if (key) {
+            value = store[key];
+            if (value) {
+                keys = Magix.keys(value);
+            }
+        }
+        else {
+            for (let p in store) {
+                value = store[p];
+                if (value) {
+                    keys = keys.concat(Magix.keys(value));
+                }
+            }
+        }
+        return keys;
+    },
+    '$input[linkage-parent]<change>'(e) {
+        let me = this;
+        let node = $(e.eventTarget);
+        let value = node.val();
+        let linkName = node.attr('linkage-parent');
+        if (value) {
+            let object = me['@{state.store}'][linkName];
+            if (!object) {
+                object = me['@{state.store}'][linkName] = {};
+            }
+            if (node.prop('checked')) {
+                object[value] = 1;
+            }
+            else {
+                delete object[value];
+            }
+        }
+    },
+    '$input[linkage]<change>'(e) {
+        let me = this;
+        let linkName = $(e.eventTarget).attr('linkage');
+        let object = me['@{state.store}'][linkName];
+        if (!object) {
+            object = me['@{state.store}'][linkName] = {};
+        }
+        $('#' + me.id + ' input[type=checkbox]').each((index, input) => {
+            input = $(input);
+            let tempName = input.attr('linkage-parent');
+            let value = input.val();
+            if (value && tempName == linkName) {
+                if (e.target.checked) {
+                    object[value] = 1;
+                }
+                else {
+                    delete object[value];
+                }
+            }
+        });
+    }
+};
+
+});

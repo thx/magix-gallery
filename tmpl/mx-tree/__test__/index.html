@@ -1,15 +1,11 @@
 <h2>mx-tree</h2>
 <div class="pt20 clearfix" style="margin-left:30px;">
-    <div mx-view="mx-tree/index"
-        view-list="<%@list%>"
-    ></div>
+    <mx-tree list="<%@list%>"/>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;div mx-view="mx-tree/index"
-    view-list="&lt;%@list%&gt;"
-&gt;&lt;/div&gt;</pre>
+    <pre>&lt;mx-tree list="&lt;%@list%&gt;"/&gt;</pre>
     <div class="pt10">Javascript Code:</div>
     <pre>let Magix = require('magix');
 module.exports = Magix.View.extend({

@@ -1,17 +1,14 @@
 <h2>mx-time</h2>
 <div class="pt20 clearfix">
-    <div mx-view="mx-time/index"
-        view-time="00:12:13"
-        view-types="minute,second" mx-change="test()"
-    ></div>
+    <mx-time time="00:12:13" type="minute,second" mx-change="test()"/>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;div mx-view="mx-time/index"
-    view-time="00:12:13"
-    view-types="minute,second" mx-change="test()"
-&gt;&lt;/div&gt;</pre>
+    <pre>&lt;mx-time
+    time="00:12:13"
+    type="minute,second"
+    mx-change="test()"/&gt;</pre>
     <div class="pt10">Javascript Code:</div>
     <pre>let Magix = require('magix');
 module.exports = Magix.View.extend({

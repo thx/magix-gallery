@@ -1,1 +1,125 @@
-define("mx-calendar/datepicker",["magix","$","../mx-monitor/index","./index"],function(t,e,i){var _=t("magix"),n=t("$"),a=_.Vframe,d=t("../mx-monitor/index");t("./index"),i.exports=_.View.extend({init:function(t){var e=this;t.hasBtn=1,e.__c=t,d.__d();var i=n("#"+e.id),_=function(){e.__e()};e.on("destroy",function(){d.__f(e),d.__g(),n("#dpcnt_"+e.id).remove(),i.off("click",_)}),i.on("click",_),e.__h=i,i.prop("autocomplete","off")},__i:function(t){var e=this;return _.inside(t,e.id)||_.inside(t,"dpcnt_"+e.id)},update:function(t){var e=this;a.get("dpcnt_"+e.id).invoke("update",[t])},render:function(){var t=this,e="dpcnt_"+t.id;n(t.wrapEvent('<div style="position:absolute;display:none;z-index:10;left:-10000px" mx-change="__n()" mx-cancel="__a()"></div>')).attr("id",e).insertAfter(t.__h),t.__c.selected||(t.__c.selected=t.__h.val())},__e:function(){var t=this;if(!t.__j){var e=n("#dpcnt_"+t.id),i=t.__h;t.__j=!0,d.__k(t),t.__l||(t.__l=!0,t.owner.mountVframe("dpcnt_"+t.id,"mx-calendar/index",t.__c)),e.show();var _=i.offset(),a=void 0,o=void 0;switch(t.__c.placement){case"top":o=_.top-e.outerHeight()-5;break;default:o=_.top+i.outerHeight()+5}switch(t.__c.align){case"right":a=_.left+i.outerWidth()-e.outerWidth();break;default:a=_.left}e.offset({left:a,top:o})}},__a:function(){var t=this;if(t.__j){var e=n("#dpcnt_"+t.id),i=e.prop("vframe");i&&i.invoke("__m"),t.__j=!1,e.hide(),d.__f(t)}},"__n<change>":function(t){var e=this;t.stopPropagation();var i=t.date;t.time&&(i+=" "+t.time),e.__h.val(i).trigger({type:"change",date:t.date,time:t.time}),e.__a()},"__a<cancel>":function(){this.__a()}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-calendar/datepicker',["magix","$","../mx-monitor/index","./index"],(require,exports,module)=>{
+/*Magix,$,Monitor*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+let Magix = require('magix');
+let $ = require('$');
+let Vframe = Magix.Vframe;
+let Monitor = require('../mx-monitor/index');
+let Wrapper = "<div style=\"position:absolute;display:none;z-index:10;left:-10000px\" mx-change=\"\u001f\u001e@{date.picked}()\" mx-cancel=\"\u001f\u001e@{hide}()\"></div>";
+require('./index');
+module.exports = Magix.View.extend({
+    init(extra) {
+        let me = this;
+        extra.hasBtn = 1;
+        me['@{extra}'] = extra;
+        Monitor['@{setup}']();
+        let oNode = $('#' + me.id);
+        let click = () => {
+            me['@{show}']();
+        };
+        me.on('destroy', () => {
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+            $('#dpcnt_' + me.id).remove();
+            oNode.off('click', click);
+        });
+        oNode.on('click', click);
+        me['@{owner.node}'] = oNode;
+        oNode.prop('autocomplete', 'off');
+    },
+    '@{inside}'(node) {
+        let me = this;
+        return Magix.inside(node, me.id) || Magix.inside(node, 'dpcnt_' + me.id);
+    },
+    update(options) {
+        let me = this;
+        let vf = Vframe.get('dpcnt_' + me.id);
+        vf.invoke('update', [options]);
+    },
+    render() {
+        let me = this;
+        let id = 'dpcnt_' + me.id;
+        $(me.wrapEvent(Wrapper)).attr('id', id).insertAfter(me['@{owner.node}']);
+        if (!me['@{extra}'].selected) {
+            me['@{extra}'].selected = me['@{owner.node}'].val();
+        }
+    },
+    '@{show}'() {
+        let me = this;
+        if (!me['@{ui.show}']) {
+            let node = $('#dpcnt_' + me.id), ref = me['@{owner.node}'];
+            me['@{ui.show}'] = true;
+            Monitor['@{add}'](me);
+            if (!me['@{core.rendered}']) {
+                me['@{core.rendered}'] = true;
+                me.owner.mountVframe('dpcnt_' + me.id, 'mx-calendar/index', me['@{extra}']);
+            }
+            node.show();
+            let offset = ref.offset();
+            let left, top;
+            switch (me['@{extra}'].placement) {
+                case 'top':
+                    top = offset.top - node.outerHeight() - 5;
+                    break;
+                default:
+                    top = offset.top + ref.outerHeight() + 5;
+                    break;
+            }
+            switch (me['@{extra}'].align) {
+                case 'right':
+                    left = offset.left + ref.outerWidth() - node.outerWidth();
+                    break;
+                default:
+                    left = offset.left;
+                    break;
+            }
+            node.offset({
+                left: left,
+                top: top
+            });
+        }
+    },
+    '@{hide}'() {
+        let me = this;
+        if (me['@{ui.show}']) {
+            let node = $('#dpcnt_' + me.id);
+            let vf = node.prop('vframe');
+            if (vf) {
+                vf.invoke('@{toDefaultPanel}');
+            }
+            me['@{ui.show}'] = false;
+            node.hide();
+            Monitor['@{remove}'](me);
+        }
+    },
+    '@{date.picked}<change>'(e) {
+        let me = this;
+        e.stopPropagation();
+        let val = e.date;
+        if (e.time) {
+            val += ' ' + e.time;
+        }
+        me['@{owner.node}'].val(val).trigger({
+            type: 'change',
+            date: e.date,
+            time: e.time
+        });
+        me['@{hide}']();
+    },
+    '@{hide}<cancel>'() {
+        this['@{hide}']();
+    }
+});
+
+});

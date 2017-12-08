@@ -1,5 +1,5 @@
 /*
-ver:1.3.7
+ver:1.3.8
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -193,14 +193,14 @@ module.exports = Magix.View.extend({
             ops.selected = new Date();
         }
         let types = ParseEnablePanels(ops.dateType);
-        let weekStart = ops.weekStart || 0;
+        let weekStart = ops.weekStart | 0;
         let selected = DateParse(ops.selected);
         let me = this;
         let data = me.updater;
         let max = DateParse(ops.max);
         let min = DateParse(ops.min);
         let timeType = ops.timeType;
-        let timeValue = selected.getHours() + ':' + selected.getMinutes() + ':' + selected.getSeconds();
+        let timeValue = DateFormat(selected, 'hh:mm:ss');
         data.set({
             types,
             timeType,

@@ -1,1 +1,114 @@
-define("mx-checkbox/linkage",["$","magix"],function(n,e,t){var i=n("$"),a=n("magix"),r=function(n){var e={};return(n=i(n)).find("input[linkage-parent]").each(function(n,t){var a=i(t).attr("linkage-parent");e[a]=1}),n.find("input[linkage]").each(function(n,t){var a=i(t).attr("linkage");e[a]=1}),a.keys(e)},c=function(n,e,t){var i=n.find("input[linkage="+t+"]"),a=n.find("input[linkage-parent="+t+"]"),r=!1,c=!1,u=i[0]==e,o=e&&e.checked;a.each(function(n,e){u&&(e.checked=o),e.checked?r=!0:c=!0}),i.prop("indeterminate",!1),r&&!c?i.prop("checked",!0):c&&!r?i.prop("checked",!1):r&&i.prop("indeterminate",!0)},u=function(n,e){n=i(n);var t=r(n);if(t.length)for(var a=0,u=t;a<u.length;a++){var o=u[a];c(n,e,o)}};t.exports={ctor:function(){var n=this;n.on("rendered",function(){u("#"+n.id)})},getSelectedIds:function(n){var e=[];return i("#"+this.id+" input:checked").each(function(t,a){var r=a.value,c=i(a).attr("linkage-parent");c&&r&&(!n||n&&n==c)&&e.push(a.value)}),e},"$input[linkage-parent]<change>":function(n){u("#"+this.id,n.eventTarget)},"$input[linkage]<change>":function(n){u("#"+this.id,n.eventTarget)}}});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-checkbox/linkage',["$","magix"],(require,exports,module)=>{
+/*$,Magix*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+let $ = require('$');
+let Magix = require('magix');
+let FindNames = (node) => {
+    node = $(node);
+    let subs = node.find('input[linkage-parent]');
+    let names = {};
+    subs.each((idx, item) => {
+        let name = $(item).attr('linkage-parent');
+        names[name] = 1;
+    });
+    node.find('input[linkage]').each((idx, item) => {
+        let name = $(item).attr('linkage');
+        names[name] = 1;
+    });
+    return Magix.keys(names);
+};
+let SyncState = (node, checkbox, name) => {
+    let all = node.find('input[linkage=' + name + ']');
+    let subs = node.find('input[linkage-parent=' + name + ']');
+    let indeterminate = false;
+    let noneChecked = false;
+    let toggle = all[0] == checkbox;
+    let checked = checkbox && checkbox.checked;
+    subs.each((index, item) => {
+        if (toggle) {
+            item.checked = checked;
+        }
+        if (item.checked) {
+            indeterminate = true;
+        }
+        else {
+            noneChecked = true;
+        }
+    });
+    all.prop('indeterminate', false);
+    if (indeterminate && !noneChecked) {
+        all.prop('checked', true);
+    }
+    else if (noneChecked && !indeterminate) {
+        all.prop('checked', false);
+    }
+    else if (indeterminate) {
+        all.prop('indeterminate', true);
+    }
+};
+let ApplyTableCheckbox = (node, checkbox) => {
+    node = $(node);
+    let names = FindNames(node);
+    if (names.length) {
+        for (let name of names) {
+            SyncState(node, checkbox, name);
+        }
+    }
+};
+module.exports = {
+    ctor() {
+        let me = this;
+        me.on('rendered', () => {
+            ApplyTableCheckbox('#' + me.id);
+        });
+        if (DEBUG) {
+            let mixins = me.mixins;
+            let linkageBeforeState = false;
+            let findLinkage = false;
+            for (let m of mixins) {
+                if (m.getSelectedIds) {
+                    findLinkage = true;
+                }
+                else if (m.getStoreState) {
+                    if (findLinkage) {
+                        linkageBeforeState = true;
+                    }
+                }
+            }
+            if (linkageBeforeState) {
+                console.error('put `app/gallery/mx-checkbox/storestate` before `app/gallery/mx-checkbox/linkage`');
+            }
+        }
+    },
+    getSelectedIds(name) {
+        let ids = [];
+        $('#' + this.id + ' input:checked').each((idx, input) => {
+            let value = input.value;
+            let node = $(input);
+            let pName = node.attr('linkage-parent');
+            if (pName && value && (!name || (name && name == pName))) {
+                ids.push(input.value);
+            }
+        });
+        return ids;
+    },
+    '$input[linkage-parent]<change>'(e) {
+        ApplyTableCheckbox('#' + this.id, e.eventTarget);
+    },
+    '$input[linkage]<change>'(e) {
+        ApplyTableCheckbox('#' + this.id, e.eventTarget);
+    }
+};
+
+});

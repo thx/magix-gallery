@@ -1,5 +1,5 @@
 /*
-ver:1.3.7
+ver:1.3.8
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -34,6 +34,7 @@ module.exports = Magix.View.extend({
         });
     },
     render() {
+        window.scrollTo(0, 0);
         let me = this;
         let loc = Magix.Router.parse();
         let view = loc.path;

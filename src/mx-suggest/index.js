@@ -1,1 +1,245 @@
-define("mx-suggest/index",["magix","$","../mx-monitor/index"],function(e,_,t){var i=e("magix"),r=e("$"),a=e("../mx-monitor/index");i.applyStyle("_F","._eN{position:absolute;border:1px solid #e6e6e6;font-size:14px;max-height:260px;overflow:auto;list-style:none;border-radius:4px;background-color:#fff;display:none;z-index:10;padding:3px 0;line-height:1.8}._eO{padding:0 4px;cursor:pointer;margin:2px 0}._eP{color:#666;display:block;width:100%;padding:0 6px;height:29px;line-height:29px;border-radius:4px}._eQ,._eP:active,._eP:focus,._eP:hover{color:#333;background-color:#f0f0f0}._eQ{border-radius:4px;text-decoration:none;outline:0}"),t.exports=i.View.extend({tmpl:{html:'<ul mx-guid="g0" class="_eN _aj" style="width:<%=$$.width%>px" mx-mouseout="__eB()" mx-mousemove="__eC()" mx-contextmenu="__ca()">1</ul>',subs:[{keys:["width","rList","list","textKey","viewId"],path:'ul[mx-guid="g0"]',tmpl:'<%if($$.rList){for(var a=0,b;a<$$.list.length;a++){b=$$.list[a]%><li class="_eO" title="<%=$$.textKey?b[$$.textKey]:b%>"><a href="#" class="_eP _al" data-idx="<%!a%>" mx-click="__eA({item:\'<%@b%>\'})" id="sg_<%!$$.viewId%>_<%!a%>"><%=$$.textKey?b[$$.textKey]:b%></a></li><%}}%>',s:"1",attr:'style="width:<%=$$.width%>px"',attrs:[{n:"style"}],mask:"21111"}]},init:function(e){var _=this;_.__eq=e.list||[],a.__d(),_.on("destroy",function(){a.__f(_),a.__g(),_.__h.off("keyup paste input",_.__er).off("focus",_.__es)}),_.updater.set({viewId:_.id,textKey:e.textKey,valueKey:e.valueKey}),_.__et=-1},__i:function(e){return i.inside(e,this.id)||i.inside(e,"suggest_"+this.id)},update:function(e,_){var t=this;_||(t.__eq=e),t.__et=-1,t.updater.digest({list:t.__eu=e}),t.__dN&&(e&&e.length?t.__dN.addClass("_eN"):t.__dN.removeClass("_eN"))},render:function(){var e=this,_=r("#"+e.id);e.__h=_,_.on("focus",e.__es=r.proxy(e.show,e)).on("keyup paste input",e.__er=r.proxy(e.__ev,e));var t="suggest_"+e.id;r("<div />").attr("id",t).insertAfter(_),e.updater.to(t),e.updater.set({width:_.outerWidth()}),e.update(e.__eq),e.__dN=r("#"+t+" ul"),e.__eq&&e.__eq.length||e.__dN.removeClass("_eN")},__ev:function(e){var _=this;_.__j||_.__e();var t=_.__eu;if(40==e.keyCode)_.__ew(),_.__et++,_.__et>=t.length&&(_.__et=0),_.__ex();else if(38==e.keyCode)_.__ew(),_.__et--,_.__et<0&&(_.__et=t.length-1),_.__ex();else if(13==e.keyCode){if(_.__et>-1&&_.__et<_.__eu.length){var i=_.__eu[_.__et];_.__h.trigger({type:"pick",item:i});var a=_.updater.get("textKey");a&&(i=i[a]),_.__h.val(i).trigger("change"),_.__ev({target:_.__h[0]}),_.__ew(),_.__et=-1,_.__a()}}else{var s=r.trim(e.target.value);if(s!=_.__ey)if(_.__ey=s,s){for(var o=[],d=_.__eq.slice(),n=_.updater.get("textKey"),l=0,u=void 0;l<d.length;l++)u=d[l],((n?u[n]:u)+"").indexOf(s)>=0&&o.push(u);_.update(o,!0)}else _.update(_.__eq,!0)}},__e:function(){var e=this,_=e.updater;if(!e.__j){e.__j=!0,_.get("rList")||_.digest({rList:!0}),a.__k(e);var t=e.__h.position();e.__dN.css({display:"block",left:t.left+e.$offsetLeft,top:t.top+e.__h.outerHeight()+5}),e.__h.trigger("showlist")}},__ew:function(){var e=this;r("#sg_"+e.id+"_"+e.__et).removeClass("_eQ")},__ex:function(e){var _=this,t=r("#sg_"+_.id+"_"+_.__et);if(t.addClass("_eQ"),!e&&t.length){_.__ez=1;var i=t.outerHeight(),a=(_.__et+1)*i,s=_.__dN,o=s.height(),d=s.prop("scrollTop"),n=Math.ceil(o/i);a<d+i?s.prop("scrollTop",a-i):a>d+o&&s.prop("scrollTop",(_.__et+2-n)*i)}},__a:function(){var e=this;e.__j&&(e.__j=!1,a.__f(e),e.__dN.hide(),e.__h.trigger("hidelist"))},"__eA<click>":function(e){e.preventDefault();var _=this,t=e.params.item;_.__h.trigger({type:"pick",item:t});var i=_.updater.get("textKey");i&&(t=t[i]),_.__h.val(t).trigger("change"),_.__ev({target:_.__h[0]}),_.__a()},"__eB<mouseout>":function(e){if(!i.inside(e.relatedTarget,e.eventTarget)){var _=this;_.__ew(),_.__et=-1}},"__eC<mousemove>":function(e){var _=this;if(_.__ez)delete _.__ez;else{var t=r(e.target);if(t.is("li")){var i=t.data("idx");i!=_.__et&&(_.__ew(),_.__et=i,_.__ex(!0))}}},"__ca<contextmenu>":function(e){e.preventDefault()}})});
+/*
+    generate by magix-combine@3.7.4: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define('mx-suggest/index',["magix","$","../mx-monitor/index"],(require,exports,module)=>{
+/*Magix,$,Monitor*/
+
+/*
+ver:1.3.8
+*/
+/*
+    author: xinglie.lkf@ alibaba - inc.com
+ */
+let Magix = require('magix');
+let $ = require('$');
+let Monitor = require('../mx-monitor/index');
+Magix.applyStyle("__mx-suggest_index_",".__mx-suggest_index_-suggest {\n  position: absolute;\n  border: 1px solid #e6e6e6;\n  font-size: 14px;\n  max-height: 260px;\n  overflow: auto;\n  list-style: none;\n  border-radius: 4px;\n  background-color: #fff;\n  display: none;\n  z-index: 10;\n  padding: 3px 0;\n  line-height: 1.8;\n}\n.__mx-suggest_index_-item {\n  padding: 0 4px;\n  cursor: pointer;\n  margin: 2px 0;\n}\n.__mx-suggest_index_-item-link {\n  color: #666;\n  display: block;\n  width: 100%;\n  padding: 0 6px;\n  height: 29px;\n  line-height: 29px;\n  border-radius: 4px;\n}\n.__mx-suggest_index_-item-link:hover,\n.__mx-suggest_index_-item-link:focus,\n.__mx-suggest_index_-item-link:active {\n  color: #333;\n  background-color: #f0f0f0;\n}\n.__mx-suggest_index_-active {\n  color: #333;\n  background-color: #f0f0f0;\n  border-radius: 4px;\n  text-decoration: none;\n  outline: 0;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<ul mx-guid=\"g0\u001f\" class=\"__mx-suggest_index_-suggest __mx-style_index_-unselectable\" style=\"width:<%=$$.width%>px\" mx-mouseout=\"\u001f\u001e@{out}()\" mx-mousemove=\"\u001f\u001e@{move}()\" mx-contextmenu=\"\u001f\u001e@{stop}()\">1\u001d</ul>","subs":[{"keys":["width","rList","list","textKey","viewId"],"path":"ul[mx-guid=\"g0\u001f\"]","tmpl":"<%if($$.rList){%> <%for(var i=0,one;i<$$.list.length;i++){%> <%one=$$.list[i]%><li class=\"__mx-suggest_index_-item\" title=\"<%=$$.textKey?one[$$.textKey]:one%>\"><a href=\"#\" class=\"__mx-suggest_index_-item-link __mx-style_index_-ellipsis\" data-idx=\"<%!i%>\" mx-click=\"\u001f\u001e@{pick}({item:'<%@one%>'})\" id=\"sg_<%!$$.viewId%>_<%!i%>\"><%=$$.textKey?one[$$.textKey]:one%></a></li><%}%> <%}%>","s":"1\u001d","attr":"style=\"width:<%=$$.width%>px\"","attrs":[{"n":"style"}],"mask":"21111"}],"file":"mx-suggest/index.html"},
+    init(extra) {
+        let me = this;
+        me['@{data.list}'] = extra.list || [];
+        Monitor['@{setup}']();
+        me.on('destroy', function () {
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+            me['@{owner.node}'].off('keyup paste input', me['@{fn.watch}'])
+                .off('focus', me['@{fn.show}']);
+            $('#suggest_' + me.id).remove();
+        });
+        me.updater.set({
+            viewId: me.id,
+            textKey: extra.textKey,
+            valueKey: extra.valueKey
+        });
+        me['@{ui.select.index}'] = -1;
+    },
+    '@{inside}'(node) {
+        return Magix.inside(node, this.id) || Magix.inside(node, 'suggest_' + this.id);
+    },
+    update(list, ignore) {
+        let me = this;
+        if (!ignore) {
+            me['@{data.list}'] = list;
+        }
+        me['@{ui.select.index}'] = -1;
+        me.updater.digest({
+            list: me['@{data.source.list}'] = list
+        });
+        if (me['@{relate.node}']) {
+            if (!list || !list.length) {
+                me['@{relate.node}'].removeClass('__mx-suggest_index_-suggest');
+            }
+            else {
+                me['@{relate.node}'].addClass('__mx-suggest_index_-suggest');
+            }
+        }
+    },
+    render() {
+        let me = this;
+        let oNode = $('#' + me.id);
+        me['@{owner.node}'] = oNode;
+        oNode.on('focus', me['@{fn.show}'] = $.proxy(me['@{show}'], me))
+            .on('keyup paste input', me['@{fn.watch}'] = $.proxy(me['@{filter}'], me));
+        let id = 'suggest_' + me.id;
+        $('<div />').attr('id', id).insertAfter(oNode);
+        me.updater.to(id);
+        me.updater.set({
+            width: oNode.outerWidth()
+        });
+        me.update(me['@{data.list}']);
+        me['@{relate.node}'] = $('#' + id + ' ul');
+        if (!me['@{data.list}'] || !me['@{data.list}'].length) {
+            me['@{relate.node}'].removeClass('__mx-suggest_index_-suggest');
+        }
+    },
+    '@{filter}'(e) {
+        let me = this;
+        if (!me['@{ui.show}'])
+            me['@{show}']();
+        let slist = me['@{data.source.list}'];
+        if (e.keyCode == 40) {
+            me['@{normal}']();
+            me['@{ui.select.index}']++;
+            if (me['@{ui.select.index}'] >= slist.length) {
+                me['@{ui.select.index}'] = 0;
+            }
+            me['@{highlight}']();
+        }
+        else if (e.keyCode == 38) {
+            me['@{normal}']();
+            me['@{ui.select.index}']--;
+            if (me['@{ui.select.index}'] < 0) {
+                me['@{ui.select.index}'] = slist.length - 1;
+            }
+            me['@{highlight}']();
+        }
+        else if (e.keyCode == 13) {
+            if (me['@{ui.select.index}'] > -1 && me['@{ui.select.index}'] < me['@{data.source.list}'].length) {
+                let item = me['@{data.source.list}'][me['@{ui.select.index}']];
+                me['@{owner.node}'].trigger({
+                    type: 'pick',
+                    item: item
+                });
+                let textKey = me.updater.get('textKey');
+                if (textKey) {
+                    item = item[textKey];
+                }
+                me['@{owner.node}'].val(item).trigger('change');
+                me['@{filter}']({
+                    target: me['@{owner.node}'][0]
+                });
+                me['@{normal}']();
+                me['@{ui.select.index}'] = -1;
+                me['@{hide}']();
+            }
+        }
+        else {
+            let val = $.trim(e.target.value);
+            if (val != me['@{temp.value}']) {
+                me['@{temp.value}'] = val;
+                if (val) {
+                    let arr = [];
+                    let list = me['@{data.list}'].slice();
+                    let key = me.updater.get('textKey');
+                    let text;
+                    for (let i = 0, one; i < list.length; i++) {
+                        one = list[i];
+                        text = key ? one[key] : one;
+                        if ((text + '').indexOf(val) >= 0) {
+                            arr.push(one);
+                        }
+                    }
+                    me.update(arr, true);
+                }
+                else {
+                    me.update(me['@{data.list}'], true);
+                }
+            }
+        }
+    },
+    '@{show}'() {
+        let me = this;
+        let updater = me.updater;
+        if (!me['@{ui.show}']) {
+            me['@{ui.show}'] = true;
+            let rList = updater.get('rList');
+            if (!rList) {
+                updater.digest({
+                    rList: true
+                });
+            }
+            Monitor['@{add}'](me);
+            let offset = me['@{owner.node}'].position();
+            me['@{relate.node}'].css({
+                display: 'block',
+                left: offset.left + me.$offsetLeft,
+                top: offset.top + me['@{owner.node}'].outerHeight() + 5
+            });
+            me['@{owner.node}'].trigger('showlist');
+        }
+    },
+    '@{normal}'() {
+        let me = this;
+        let node = $('#sg_' + me.id + '_' + me['@{ui.select.index}']);
+        node.removeClass('__mx-suggest_index_-active');
+    },
+    '@{highlight}'(ignore) {
+        let me = this;
+        let node = $('#sg_' + me.id + '_' + me['@{ui.select.index}']);
+        node.addClass('__mx-suggest_index_-active');
+        if (!ignore && node.length) {
+            me['@{temp.ignore}'] = 1; //如果是上下按键引起的滚动，则在move时忽略
+            let height = node.outerHeight();
+            let scrolled = (me['@{ui.select.index}'] + 1) * height;
+            let rNode = me['@{relate.node}'];
+            let vHeight = rNode.height();
+            let sTop = rNode.prop('scrollTop');
+            let items = Math.ceil(vHeight / height);
+            if (scrolled < sTop + height) {
+                rNode.prop('scrollTop', scrolled - height);
+            }
+            else if (scrolled > sTop + vHeight) {
+                rNode.prop('scrollTop', (me['@{ui.select.index}'] + 2 - items) * height);
+            }
+        }
+    },
+    '@{hide}'() {
+        let me = this;
+        if (me['@{ui.show}']) {
+            me['@{ui.show}'] = false;
+            Monitor['@{remove}'](me);
+            me['@{relate.node}'].hide();
+            me['@{owner.node}'].trigger('hidelist');
+        }
+    },
+    '@{pick}<click>'(e) {
+        e.preventDefault();
+        let me = this;
+        let item = e.params.item;
+        me['@{owner.node}'].trigger({
+            type: 'pick',
+            item: item
+        });
+        let textKey = me.updater.get('textKey');
+        if (textKey) {
+            item = item[textKey];
+        }
+        me['@{owner.node}'].val(item).trigger('change');
+        me['@{filter}']({
+            target: me['@{owner.node}'][0]
+        });
+        me['@{hide}']();
+    },
+    '@{out}<mouseout>'(e) {
+        let flag = !Magix.inside(e.relatedTarget, e.eventTarget);
+        if (flag) {
+            let me = this;
+            me['@{normal}']();
+            me['@{ui.select.index}'] = -1;
+        }
+    },
+    '@{move}<mousemove>'(e) {
+        let me = this;
+        if (me['@{temp.ignore}']) {
+            delete me['@{temp.ignore}'];
+            return;
+        }
+        let target = $(e.target);
+        if (target.is('li')) {
+            let idx = target.data('idx');
+            if (idx != me['@{ui.select.index}']) {
+                me['@{normal}']();
+                me['@{ui.select.index}'] = idx;
+                me['@{highlight}'](true);
+            }
+        }
+    },
+    '@{stop}<contextmenu>'(e) {
+        e.preventDefault();
+    }
+});
+
+});

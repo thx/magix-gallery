@@ -1,5 +1,5 @@
 /*
-ver:1.3.7
+ver:1.3.8
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -23,15 +23,25 @@ module.exports = Magix.View.extend({
     init(extra) {
         let me = this;
         Monitor['@{setup}']();
+        let node = $('#' + me.id);
+        node.addClass('@index.less:dropdown');
+        node.on('keydown', e => {
+            if (e.keyCode == 13) {//enter
+                me['@{toggle}<click>']();
+            } /*else if (e.keyCode == 40) {//down arrow
+                e.preventDefault();
+            } else if (e.keyCode == 38) {//up arrow
+                e.preventDefault();
+            }*/
+        });
         me.on('destroy', () => {
+            node.off('keydown');
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
         });
         me.updater.set({
             viewId: me.id
         });
-        let node = $('#' + me.id);
-        node.addClass('@index.less:dropdown');
         me['@{owner.node}'] = node;
         me.assign(extra);
     },
@@ -98,7 +108,7 @@ module.exports = Magix.View.extend({
     render() {
         let me = this;
         let node = me['@{owner.node}'];
-        node[me['@{ui.disabled}'] ? 'addClass' : 'removeClass']('@index.less:notallowed');
+        node[me['@{ui.disabled}'] ? 'addClass' : 'removeClass']('@index.less:notallowed').prop('tabindex', me['@{ui.disabled}'] ? -1 : 0);
         me['@{ui.update}'](true);
     },
     '@{hide}'() {
@@ -245,8 +255,6 @@ module.exports = Magix.View.extend({
         }), 300);
     },
     '@{select}<click>'(e) {
-        e.preventDefault();
-        e.stopPropagation();
         let me = this;
         me['@{fire.event}'](e.params.item, true);
         me['@{hide}']();

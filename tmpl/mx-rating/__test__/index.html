@@ -1,0 +1,105 @@
+<h2>mx-rating</h2>
+<h3>默认情形</h3>
+<div class="pt20 clearfix">
+    <mx-rating />
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-rating /&gt;</pre>
+</div>
+
+
+<h3 class="mt30">设置星星个数</h3>
+<div class="pt20 clearfix">
+    <mx-rating number="10" value="6" />
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-rating number="10" value="6" /&gt;</pre>
+</div>
+
+
+
+<h3 class="mt30">只读</h3>
+<div class="pt20 clearfix">
+    <mx-rating number="10" readonly="true" value="6" />
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;mx-rating number="10" readonly="true" value="6" /&gt;</pre>
+</div>
+
+<h3 class="mt30">响应事件</h3>
+<div class="pt20 clearfix">
+    <button
+        type="button"
+        class="btn btn-brand mr10 fl"
+        mx-click="clear()">清除评分</button>
+    <mx-rating
+        value="<%=ratingValue%>"
+        mx-change="showValue()"
+        mx-itemover="over()"
+        mx-itemout="out()"
+        class="fl mr10" />
+    <span><%=ratingMsg%></span>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;button
+    type="button"
+    class="btn btn-brand mr10 fl"
+    mx-click="clear()"&gt;清除评分&lt;/button&gt;
+&lt;mx-rating
+    value="&lt;%=ratingValue%&gt;"
+    mx-change="showValue()"
+    mx-itemover="over()"
+    mx-itemout="out()"
+    class="fl mr10" /&gt;
+&lt;span&gt;&lt;%=ratingMsg%&gt;&lt;/span&gt;</pre>
+<div>Javascipt Code:</div>
+<pre>
+let Magix = require('magix');
+let $ = require('$');
+let GTip = require('mx-gtip/index');
+let Tips = ['非常不好', '很不好', '一般般', '很好', '非常好'];
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    mixins: [GTip],
+    render() {
+        let me = this;
+        me.updater.digest({
+            ratingMsg: '',
+            ratingValue: 0
+        });
+    },
+    'over&lt;itemover&gt;'(e) {
+        let tip = Tips[e.value - 1];
+        this.updater.digest({
+            ratingMsg: tip
+        });
+    },
+    'out&lt;itemout&gt;'(e) {
+        let tip = Tips[e.value - 1] || '';
+        this.updater.digest({
+            ratingMsg: tip
+        });
+    },
+    'showValue&lt;change&gt;'(e) {
+        this.gtipRT('当前值：' + e.value);
+        this.updater.set({
+            ratingValue: e.value
+        });
+    },
+    'clear&lt;click&gt;'() {
+        this.updater.digest({
+            ratingMsg: '',
+            ratingValue: 0
+        });
+    }
+});
+</pre>
+</div>

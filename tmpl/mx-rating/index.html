@@ -1,0 +1,3 @@
+<%for(let i=0;i<number;i++){%>
+    <i class="mc-iconfont star<%if(i<value){%> active<%}%><%if(!readonly){%> cp<%}%>" mx-mouseover="@{hover}({i:<%!i%>})" mx-mouseout="@{hover}()" mx-click="@{setValue}({i:<%!i%>})">&#xe60f;</i>
+<%}%>
