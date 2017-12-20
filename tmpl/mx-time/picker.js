@@ -1,5 +1,5 @@
 /*
-ver:1.3.8
+ver:1.3.9
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -8,6 +8,10 @@ let Magix = require('magix');
 let $ = require('$');
 let Monitor = require('../mx-monitor/index');
 Magix.applyStyle('@picker.less');
+let format = t => {
+    if (t < 10) return '0' + t;
+    return t;
+};
 module.exports = Magix.View.extend({
     tmpl: '@picker.html',
     init(extra) {
@@ -29,7 +33,9 @@ module.exports = Magix.View.extend({
         let time = oNode.val();
         if (!time) {
             let d = new Date();
-            time = d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+            time = format(d.getHours()) + ':' +
+                format(d.getMinutes()) + ':' +
+                format(d.getSeconds());
         }
         extra.time = time;
         me['@{time}'] = time;
@@ -96,7 +102,6 @@ module.exports = Magix.View.extend({
         }
     },
     '@{take}<change>'(e) {
-        console.log('take time', e.time);
         this['@{time}'] = e.time;
     },
     '@{hide}<click>'(e) {

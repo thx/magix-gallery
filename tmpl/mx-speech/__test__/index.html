@@ -1,0 +1,13 @@
+<h2>mx-speech</h2>
+<div class="pt20">
+    <textarea class="textarea mb20" style="width:90%;height:200px;">
+        <%:examples[lang]%>
+    </textarea>
+    <br />
+    <mx-dropdown
+        selected="<%:lang({refresh:true})%>">
+        <item value="zh-cn">中文</item>
+        <item value="en">英文</item>
+    </mx-dropdown>
+    <button type="button" class="btn btn-brand ml20" mx-click="speak()">朗读</button>
+</div>

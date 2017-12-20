@@ -1,5 +1,5 @@
 /*
-ver:1.3.8
+ver:1.3.9
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -51,6 +51,13 @@ module.exports = Magix.View.extend({
             me.on('destroy', () => {
                 Monitor['@{remove}'](me);
                 Monitor['@{teardown}']();
+                if (me['@{context.menu}']) {
+                    $('#' + me.id).remove();
+                }
+            });
+        } else {
+            me.on('destroy', () => {
+                $('#' + me.id).remove();
             });
         }
     },
@@ -98,8 +105,8 @@ module.exports = Magix.View.extend({
         let inside = Magix.inside(node, me.id);
         if (!inside) {
             let children = me.owner.children();
-            for (let i = children.length; i--;) {
-                let child = Vframe.get(children[i]);
+            for (let c of children) {
+                let child = Vframe.get(c);
                 if (child) {
                     inside = child.invoke('@{inside}', node);
                     if (inside) break;
@@ -163,7 +170,7 @@ module.exports = Magix.View.extend({
             }
             if (!root['@{monitor.added}']) {
                 root['@{monitor.added}'] = 1;
-                Monitor['@{add}'](me);
+                Monitor['@{add}'](root);
             }
         }
     },

@@ -1,5 +1,5 @@
 /*
-ver:1.3.8
+ver:1.3.9
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -21,13 +21,18 @@ module.exports = Magix.View.extend({
         let click = () => {
             me['@{show}']();
         };
+        let change = e => {
+            if (!e.color) {
+                e.stopPropagation();
+            }
+        };
         me.on('destroy', () => {
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
             $('#cpcnt_' + me.id).remove();
-            ownerNode.off('click', click);
+            ownerNode.off('click', click).off('change', change);
         });
-        ownerNode.on('click', click);
+        ownerNode.on('click', click).on('change', change);
         me['@{owner.node}'] = ownerNode;
         ownerNode.prop('autocomplete', 'off');
     },

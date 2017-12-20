@@ -20,8 +20,8 @@
                 <table class="wp100 hp100">
                     <tbody>
                         <tr>
-                            <%for(let i=0;i<31;i++){%>
-                                <td class="reset tc no-border<%if(i<30){%> right-border<%}%>"><%=('0'+(i+1)).slice(-2)%></td>
+                            <%for(let i=1;i<32;i++){%>
+                                <td class="reset tc no-border<%if(i<30){%> right-border<%}%>"><%=('0'+i).slice(-2)%></td>
                             <%}%>
                         </tr>
                     </tbody>

@@ -1,5 +1,5 @@
 /*
-ver:1.3.8
+ver:1.3.9
 */
 let $ = require('$');
 let Magix = require('magix');
@@ -286,13 +286,7 @@ module.exports = {
     '@{sync.value.from.ui}<change>'(e) {
         let me = this,
             node = $(e.eventTarget);
-        let last = node.prop('_lt');
-        let now = Date.now();
-        if (last && (now - last) < 10) return;
-        node.prop('_lt', now);
-        if (e.viewId) {
-            if (e.viewId != me.id) return;
-        }
+        if (e.viewId && e.viewId != me.id) return;
         e.viewId = me.id;
         let faker = e.from == 'faker' || e.from == 'subview';
         //if (faker) {

@@ -1,5 +1,5 @@
 /*
-ver:1.3.8
+ver:1.3.9
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -17,7 +17,7 @@ module.exports = Magix.View.extend({
     },
     assign(ops) {
         let me = this;
-        me['@{new.value}'] = +ops.to;
+        me['@{new.value}'] = +ops.value;
         me['@{duration}'] = +ops.duration || 500;
         me['@{number.fixed}'] = +ops.fixed || 0;
         me['@{fx}']['@{stop}']();

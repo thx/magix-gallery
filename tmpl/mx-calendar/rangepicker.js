@@ -1,5 +1,5 @@
 /*
-ver:1.3.8
+ver:1.3.9
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -50,13 +50,18 @@ let Rangepicker = Magix.View.extend({
         let click = () => {
             me['@{show}']();
         };
+        let change = e => {
+            if (!e.dates) {
+                e.stopPropagation();
+            }
+        };
         me.on('destroy', () => {
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
             $('#rpcnt_' + me.id).remove();
-            oNode.off('click', click);
+            oNode.off('click', click).off('change', change);
         });
-        oNode.on('click', click);
+        oNode.on('click', click).on('change', change);
         me['@{owner.node}'] = oNode;
         oNode.prop('autocomplete', 'off');
     },
@@ -81,7 +86,7 @@ let Rangepicker = Magix.View.extend({
         if (dates.quickDateText) {
             me['@{owner.node}'].val(dates.quickDateText);
         } else {
-            me['@{owner.node}'].val(dates.startStr + '至' + dates.endStr);
+            me['@{owner.node}'].val(dates.startStr + ' ~ ' + dates.endStr);
         }
     },
     render() {

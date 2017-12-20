@@ -101,12 +101,11 @@
         <div class="form-item">
             <label class="form-label">范围：</label>
             <div class="form-content">
-                <div mx-view="mx-slider/range"
-                    view-max="500"
-                    view-min="200"
-                    view-value="<%:range1%>"
-                    view-step="10"
-                ></div>
+                <mx-slider.range
+                    max="500"
+                    min="200"
+                    value="<%:range1%>"
+                    step="10"/>
             </div>
         </div>
         <div class="form-item">
@@ -251,7 +250,7 @@
             class="btn btn-brand"
             src="app/gallery/mx-uploader/index"
             action="./"
-            view-name="file1"
+            name="file1"
             multiple="true"
         &gt;上传文件&lt;/button&gt;
     &lt;/div&gt;

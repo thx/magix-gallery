@@ -2,14 +2,14 @@
 <h2>mx-effect dance</h2>
 <div class="pt20 clearfix">
     <mx-effect.dance value="<%=content%>" duration="<%=duration%>" dance="<%=dance%>"  />
-    <mx-dropdown empty-text="单字效果间隔时间" style="width:180px" selected="<%:duration{refresh:true}%>">
+    <mx-dropdown empty-text="单字效果间隔时间" style="width:180px" selected="<%:duration({refresh:true})%>">
         <item value="10">10ms</item>
         <item value="30">30ms</item>
         <item value="60">60ms</item>
         <item value="90">90ms</item>
         <item value="120">120ms</item>
     </mx-dropdown>
-    <mx-dropdown empty-text="动画效果" style="width:180px" class="ml10" selected="<%:dance{refresh:true}%>">
+    <mx-dropdown empty-text="动画效果" style="width:180px" class="ml10" selected="<%:dance({refresh:true})%>">
         <item value="d1">效果一</item>
         <item value="d2">效果二</item>
         <item value="d3">效果三</item>
@@ -28,14 +28,14 @@
     <div>HTML Code:</div>
     <pre>
 &lt;mx-effect.dance value="&lt;%=content%&gt;" duration="&lt;%=duration%&gt;" dance="&lt;%=dance%&gt;"  /&gt;
-&lt;mx-dropdown empty-text="单字效果间隔时间" style="width:180px" selected="&lt;%:duration{refresh:true}%&gt;"&gt;
+&lt;mx-dropdown empty-text="单字效果间隔时间" style="width:180px" selected="&lt;%:duration({refresh:true})%&gt;"&gt;
     &lt;item value="10"&gt;10ms&lt;/item&gt;
     &lt;item value="30"&gt;30ms&lt;/item&gt;
     &lt;item value="60"&gt;60ms&lt;/item&gt;
     &lt;item value="90"&gt;90ms&lt;/item&gt;
     &lt;item value="120"&gt;120ms&lt;/item&gt;
 &lt;/mx-dropdown&gt;
-&lt;mx-dropdown empty-text="动画效果" style="width:180px" class="ml10" selected="&lt;%:dance{refresh:true}%&gt;"&gt;
+&lt;mx-dropdown empty-text="动画效果" style="width:180px" class="ml10" selected="&lt;%:dance({refresh:true})%&gt;"&gt;
     &lt;item value="d1"&gt;效果一&lt;/item&gt;
     &lt;item value="d2"&gt;效果二&lt;/item&gt;
     &lt;item value="d3"&gt;效果三&lt;/item&gt;

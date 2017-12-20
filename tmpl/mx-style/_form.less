@@ -1,9 +1,17 @@
+/* @dependent: ./index.less */
 @import "_vars";
 
 ::placeholder {
     color: @placeholder-color;
 }
-.input,.textarea{
+
+::selection{
+    background-color:@color-brand-selection;
+}
+
+.input,
+.textarea{
+    caret-color: @color-brand;
     display: inline-block;
     height: @input-height;
     padding: 6px 9px;

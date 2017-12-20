@@ -1,5 +1,5 @@
 /*
-ver:1.3.8
+ver:1.3.9
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -107,7 +107,7 @@ module.exports = Magix.View.extend({
             me['@{owner.node}'].prop('value', '');
             return;
         }
-        let v = parseFloat(value);
+        let v = Number(value);
         if (v || v === 0) {
             me.val(v);
         }
@@ -166,7 +166,7 @@ module.exports = Magix.View.extend({
                 if (value === '') {
                     me['@{value}'] = '';
                 } else {
-                    let v = parseFloat(value);
+                    let v = Number(value);
                     if (v || v === 0) {
                         if (v != me['@{value}']) {
                             me['@{value}'] = v;

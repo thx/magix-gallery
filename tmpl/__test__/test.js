@@ -1,5 +1,5 @@
 /*
-ver:1.3.8
+ver:1.3.9
 */
 let Magix = require('magix');
 Magix.applyStyle('@test.css');
@@ -15,20 +15,33 @@ let S = {
     }
 };
 module.exports = Magix.View.extend({
-    tmpl: '@test.html',
+    tmpl: '@test.html:art',
     //mixins: [Magix.State.clean('go')],
     init() {
         this.observeState('go');
         S.queryUser();
     },
     render() {
-        let me = this;
-        let s = Magix.State.get();
-        if (s.go) {
-            console.log(s);
-            me.updater.digest();
-        }
-        S.queryUser();
-        // S.invoke('query', ['a', 'b']);
+        this.updater.digest();
+        let a = () => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve('ok');
+                }, 2000);
+            });
+        };
+        let b = () => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve('ok1');
+                }, 2000);
+            });
+        };
+        a().then(this.wrapAsync(r => {
+            console.log(r);
+            return b();
+        })).then(this.wrapAsync(r => {
+            console.log('r', r);
+        }));
     }
 });

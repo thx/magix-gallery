@@ -1,0 +1,36 @@
+
+<h2>mx-effect scroll</h2>
+<div class="pt20 clearfix">
+    <mx-effect.scroll value="<%@value%>" />
+    <button type="button" mx-click="update()" class="btn btn-brand ml20">update</button>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>
+&lt;mx-effect.scroll value="&lt;%@value%>" /&gt;
+&lt;button type="button" mx-click="update()" class="btn btn-brand ml20"&gt;update&lt;/button&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>
+let Magix = require('magix');
+module.exports = Magix.View.extend({
+    tmpl: '@scroll.html',
+    render() {
+        this.updater.digest({
+            value: 100
+        });
+        setInterval(() => {
+            let v = (Math.random() * 20) + this.updater.get('value');
+            this.updater.digest({
+                value: v
+            });
+        }, 1000);
+    },
+    'update&lt;click&gt;'() {
+        this.updater.digest({
+            value: this.updater.get('value') - 20
+        });
+    }
+}); 
+    </pre>
+</div>

@@ -22,7 +22,7 @@ combineTool.config({
         var str = ts.transpileModule(content, {
             compilerOptions: {
                 lib: ['es7'],
-                target: 'es3',
+                target: 'es5',
                 module: ts.ModuleKind.None
             }
         });
@@ -34,7 +34,7 @@ combineTool.config({
         var str = ts.transpileModule(content, {
             compilerOptions: {
                 lib: ['es7'],
-                target: 'es6',
+                target: 'es5',
                 module: ts.ModuleKind.None
             }
         });

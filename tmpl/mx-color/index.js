@@ -1,5 +1,5 @@
 /*
-ver:1.3.8
+ver:1.3.9
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -7,10 +7,6 @@ ver:1.3.8
 let Magix = require('magix');
 let $ = require('$');
 let DD = require('../mx-dragdrop/index');
-let pickerIndicator = 8 / 2;
-let pickerZone = 196;
-let slider = 4 / 2;
-let alphaWidth = 224;
 Magix.applyStyle('@index.less');
 let CSSNames = 'names@index.less[selected,cnt]';
 let ShortCuts = ['d81e06', 'f4ea2a', '1afa29', '1296db', '13227a', 'd4237a', 'ffffff', 'e6e6e6', 'dbdbdb', 'cdcdcd', 'bfbfbf', '8a8a8a', '707070', '515151', '2c2c2c', '000000', 'ea986c', 'eeb174', 'f3ca7e', 'f9f28b', 'c8db8c', 'aad08f', '87c38f', '83c6c2', '7dc5eb', '87a7d6', '8992c8', 'a686ba', 'bd8cbb', 'be8dbd', 'e89abe', 'e8989a', 'e16632', 'e98f36', 'efb336', 'f6ef37', 'afcd51', '7cba59', '36ab60', '1baba8', '17ace3', '3f81c1', '4f68b0', '594d9c', '82529d', 'a4579d', 'db649b', 'dd6572', 'd84e06', 'e0620d', 'ea9518', 'f4ea2a', '8cbb1a', '2ba515', '0e932e', '0c9890', '1295db', '0061b2', '0061b0', '004198', '122179', '88147f', 'd3227b', 'd6204b'];
@@ -86,20 +82,23 @@ module.exports = Magix.View.extend({
         selfHSV.v = hsv.v;
         let rgb = HSV2RGB(hsv.h, hsv.s, hsv.v);
         let hex = rgb.hex;
-        let cpickerNode = $('#cpicker_' + me.id);
+        let cpickerNode = $('#cz_' + me.id);
+        let pickerZone = cpickerNode.width();
         let colorZone = HSV2RGB(hsv.h, 1, 1);
         cpickerNode.css('background', colorZone.hex);
         me['@{hex.color}'] = hex;
         me['@{sync.color}']();
         if (!ignoreSyncUI) {
-            $('#shortcuts_' + me.id + ' li').removeClass(CSSNames.selected);
+            $('#scs_' + me.id + ' li').removeClass(CSSNames.selected);
+            let slider = $('#si_' + me.id).height() / 2;
             let top = Math.round(selfHSV.h * pickerZone / 360 - slider);
-            $('#sh_' + me.id).css({
+            let pickerIndicator = $('#ci_' + me.id).width() / 2;
+            $('#si_' + me.id).css({
                 top: top
             });
             top = Math.round((1 - selfHSV.v) * pickerZone - pickerIndicator);
             let left = Math.round(selfHSV.s * pickerZone - pickerIndicator);
-            $('#ph_' + me.id).css({
+            $('#ci_' + me.id).css({
                 left: left,
                 top: top
             });
@@ -125,8 +124,10 @@ module.exports = Magix.View.extend({
     '@{slide.drag}<mousedown>'(e) {
         let me = this;
         let current = $(e.eventTarget);
-        let indicator = $('#sh_' + me.id);
+        let indicator = $('#si_' + me.id);
         let pos = e;
+        let pickerZone = $('#cz_' + me.id).width();
+        let slider = $('#si_' + me.id).height() / 2;
         let offset = current.offset(),
             top = e.pageY - offset.top,
             h = top / pickerZone * 360;
@@ -156,6 +157,8 @@ module.exports = Magix.View.extend({
     },
     '@{color.zone.drag}<mousedown>'(e) {
         let me = this,
+            pickerZone = $('#cz_' + me.id).width(),
+            pickerIndicator = $('#ci_' + me.id).width() / 2,
             offset = $(e.eventTarget).offset(),
             left = e.pageX - offset.left,
             top = e.pageY - offset.top,
@@ -166,7 +169,7 @@ module.exports = Magix.View.extend({
             s: s,
             v: v
         });
-        let current = $('#ph_' + me.id);
+        let current = $('#ci_' + me.id);
         let startX = parseInt(current.css('left'), 10);
         let startY = parseInt(current.css('top'), 10);
         let pos = e;
@@ -197,10 +200,13 @@ module.exports = Magix.View.extend({
         });
     },
     '@{setAlpha}'(a) {
+        let me = this;
+        let alphaWidth = $('#at_' + me.id).width();
+        let slider = $('#si_' + me.id).height() / 2;
         a /= 255;
         a *= alphaWidth;
         a -= slider;
-        $('#ai_' + this.id).css({
+        $('#ai_' + me.id).css({
             left: a
         });
     },
@@ -213,14 +219,16 @@ module.exports = Magix.View.extend({
         if (me['@{show.alpha}']) {
             hex += me['@{hex.alpha}'];
         }
-        $('#bgcolor_' + me.id).css('background', hex);
-        $('#val_' + me.id).val(hex);
+        $('#bc_' + me.id).css('background', hex);
+        $('#v_' + me.id).val(hex);
     },
     '@{alpha.drag}<mousedown>'(e) {
         let current = $(e.eventTarget);
         let pos = e;
         let me = this;
         let indicator = $('#ai_' + me.id);
+        let alphaWidth = $('#at_' + me.id).width();
+        let slider = $('#si_' + me.id).height() / 2;
         let offset = current.offset(),
             left = e.pageX - offset.left,
             a = (left / alphaWidth * 255) | 0;
@@ -251,7 +259,7 @@ module.exports = Magix.View.extend({
     '@{fire.event}'(fromBtn) {
         let me = this;
         if (!me['@{show.btns}'] || fromBtn) {
-            let c = $('#val_' + me.id).val();
+            let c = $('#v_' + me.id).val();
             if (c != me['@{color}']) {
                 $('#' + me.id).trigger({
                     type: 'change',

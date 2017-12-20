@@ -1,5 +1,5 @@
 /*
-ver:1.3.8
+ver:1.3.9
 */
 import { on } from 'cluster';/*
     author:xinglie.lkf@taobao.com

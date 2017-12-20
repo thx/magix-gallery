@@ -1,9 +1,9 @@
 /*
-ver:1.3.8
+ver:1.3.9
 */
-//#uncheck[jsThis]
+//#uncheck=jsThis,jsService,jsLoop
 //#snippet;
-//#exclude(define,before);
+//#exclude=define,before;
 /*!
  * clipboard.js v1.7.1
  * https://zenorocha.github.io/clipboard.js
