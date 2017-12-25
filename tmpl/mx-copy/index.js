@@ -1,5 +1,5 @@
 /*
-ver:1.3.9
+ver:1.3.10
 */
 'top@./vendor/clipboard.js';
 /*

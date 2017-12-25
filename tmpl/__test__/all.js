@@ -1,5 +1,5 @@
 /*
-ver:1.3.9
+ver:1.3.10
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -67,7 +67,6 @@ module.exports = Magix.View.extend({
 '@../mx-dialog/__test__/index.js';
 '@../mx-dropdown/__test__/index.js';
 '@../mx-dropdown/__test__/multiple.js';
-'@../mx-editor/__test__/index.js';
 '@../mx-effect/__test__/count.js';
 '@../mx-effect/__test__/dance.js';
 '@../mx-effect/__test__/scroll.js';

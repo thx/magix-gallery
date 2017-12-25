@@ -12,7 +12,9 @@ combineTool.config({
     cssSelectorPrefix: '_',
     tmplAddViewsToDependencies: true,
     tmplMultiBindEvents: true,
-    mxGalleriesRoot: '',
+    galleries: {
+        mxRoot: ''
+    },
     revisableStringSplitter: '',
     //cssSourceMap: true,
     scopedCss: [
