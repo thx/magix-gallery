@@ -1,5 +1,5 @@
 /*
-ver:1.3.10
+ver:2.0.0
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -109,7 +109,7 @@ module.exports = Magix.View.extend({
                         suspend = 0;
                     }
                 };
-                vf.invoke('@{notify.main.view.unload}', e);
+                vf.invoke('@{notify.main.view.unload}', [e]);
                 if (!suspend && !e.p) {
                     resume();
                 }

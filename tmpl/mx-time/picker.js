@@ -1,5 +1,5 @@
 /*
-ver:1.3.10
+ver:2.0.0
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -62,7 +62,6 @@ module.exports = Magix.View.extend({
                 ref = me['@{owner.node}'];
             me['@{ui.shown}'] = true;
             Monitor['@{add}'](me);
-            node.show();
             let offset = ref.offset();
             let left, top;
             let data = me.updater.get();
@@ -93,7 +92,10 @@ module.exports = Magix.View.extend({
         if (me['@{ui.shown}']) {
             let node = $('#wrapper_' + me.id);
             me['@{ui.shown}'] = false;
-            node.hide();
+            node.css({
+                left: -1e4,
+                top: -1e4
+            });
             Monitor['@{remove}'](me);
             if (me['@{time}'] != me['@{time.bak}']) {
                 me['@{time}'] = me['@{time.bak}'];

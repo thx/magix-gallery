@@ -1,5 +1,5 @@
 /*
-ver:1.3.10
+ver:2.0.0
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -63,7 +63,6 @@ module.exports = Magix.View.extend({
                 me['@{core.rendered}'] = true;
                 me.owner.mountVframe('dpcnt_' + me.id, '@./index', me['@{extra}']);
             }
-            node.show();
             let offset = ref.offset();
             let left, top;
             switch (me['@{extra}'].placement) {
@@ -97,7 +96,10 @@ module.exports = Magix.View.extend({
                 vf.invoke('@{toDefaultPanel}');
             }
             me['@{ui.show}'] = false;
-            node.hide();
+            node.css({
+                left: -1e4,
+                top: -1e4
+            });
             Monitor['@{remove}'](me);
         }
     },

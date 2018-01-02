@@ -1,5 +1,5 @@
 /*
-ver:1.3.10
+ver:2.0.0
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -73,7 +73,7 @@ let Rangepicker = Magix.View.extend({
             for (let i = children.length - 1; i >= 0; i--) {
                 let child = Magix.Vframe.get(children[i]);
                 if (child) {
-                    inView = child.invoke('@{inside}', node);
+                    inView = child.invoke('@{inside}', [node]);
                 }
                 if (inView) break;
             }
@@ -118,7 +118,6 @@ let Rangepicker = Magix.View.extend({
                 });
             }
             Monitor['@{add}'](me);
-            node.show();
             let offset = ref.offset();
             let left, top;
             switch (me['@{pos.placement}']) {
@@ -148,7 +147,10 @@ let Rangepicker = Magix.View.extend({
         if (me['@{ui.show}']) {
             let node = $('#rpcnt_' + me.id);
             me['@{ui.show}'] = false;
-            node.hide();
+            node.css({
+                left: -1e4,
+                top: -1e4
+            });
             Monitor['@{remove}'](me);
             if (!ignore) {
                 node.invokeView('@{restore}');

@@ -1,5 +1,5 @@
 /*
-ver:1.3.10
+ver:2.0.0
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -128,7 +128,7 @@ let RangeDate = Magix.View.extend({
             for (let i = children.length - 1; i >= 0; i--) {
                 let child = Magix.Vframe.get(children[i]);
                 if (child) {
-                    inView = child.invoke('inside', node);
+                    inView = child.invoke('inside', [node]);
                 }
                 if (inView) break;
             }
@@ -187,7 +187,7 @@ let RangeDate = Magix.View.extend({
             dparams.min = SetStart($('#start_' + me.id).data('hidden'));
         }
         if (node.vframe) {
-            node.vframe.invoke('update', dparams);
+            node.vframe.invoke('update', [dparams]);
         } else {
             me.owner.mountVframe(node.id, '@./datepicker', dparams).invoke('@{show}');
         }
@@ -244,6 +244,8 @@ let RangeDate = Magix.View.extend({
             start = DateParse(start);
             end = DateParse(end);
             let result = {
+                start,
+                end,
                 startStr: DateFormat(start, formatter),
                 endStr: DateFormat(end, formatter),
                 formatter: formatter

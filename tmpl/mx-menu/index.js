@@ -1,5 +1,5 @@
 /*
-ver:1.3.10
+ver:2.0.0
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -108,7 +108,7 @@ module.exports = Magix.View.extend({
             for (let c of children) {
                 let child = Vframe.get(c);
                 if (child) {
-                    inside = child.invoke('@{inside}', node);
+                    inside = child.invoke('@{inside}', [node]);
                     if (inside) break;
                 }
             }
@@ -299,7 +299,7 @@ module.exports = Magix.View.extend({
             let id = 'ctx_' + node.id;
             let vf = Magix.Vframe.get(id);
             if (vf) {
-                vf.invoke('@{show}', [e], true);
+                vf.invoke('@{show}', [e]);
             } else {
                 $('body').append('<div id="' + id + '" />');
                 ops = ops || {};
