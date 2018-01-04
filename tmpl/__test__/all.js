@@ -1,5 +1,5 @@
 /*
-ver:2.0.0
+ver:2.0.1
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -55,6 +55,7 @@ module.exports = Magix.View.extend({
 '@../mx-calendar/__test__/index.js';
 '@../mx-calendar/__test__/datepicker.js';
 '@../mx-calendar/__test__/rangepicker.js';
+'@../mx-carousel/__test__/index.js';
 '@../mx-checkbox/__test__/linkage.js';
 '@../mx-checkbox/__test__/storestate.js';
 '@../mx-color/__test__/index.js';
@@ -70,6 +71,7 @@ module.exports = Magix.View.extend({
 '@../mx-effect/__test__/count.js';
 '@../mx-effect/__test__/dance.js';
 '@../mx-effect/__test__/scroll.js';
+'@../mx-footer/__test__/index.js';
 '@../mx-form/__test__/index.js';
 '@../mx-form/__test__/sub.js';
 '@../mx-form/__test__/sub1.js';
@@ -85,6 +87,7 @@ module.exports = Magix.View.extend({
 '@../mx-popmenu/__test__/index.js';
 '@../mx-popover/__test__/index.js';
 '@../mx-progress/__test__/index.js';
+'@../mx-sitenav/__test__/index.js';
 '@../mx-slider/__test__/index.js';
 '@../mx-slider/__test__/range.js';
 '@../mx-speech/__test__/index.js';

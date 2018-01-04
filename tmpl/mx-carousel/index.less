@@ -1,0 +1,62 @@
+@import "../mx-style/_vars";
+.carousel{
+    width:100%;
+    position: relative;
+    overflow: hidden;
+}
+.dots{
+    position: absolute;
+    bottom: 12px;
+    height: 5px;
+    width: 100%;
+    text-align: center;
+}
+.v-dots{
+    position: absolute;
+    right: 12px;
+    width:5px;
+    top:50%;
+    transform: translateY(-50%);
+}
+.dot-cnt{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 2px;
+}
+.v-dot-cnt{
+    display: inline-block;
+    vertical-align: top;
+    margin: 2px 0;
+}
+.dot{
+    cursor: pointer;
+    background: #fff;
+    opacity: 0.3;
+    display: block;
+    width: 20px;
+    height: 5px;
+    border-radius: 1px;
+    transition: all .5s;
+}
+.v-dot{
+    cursor: pointer;
+    background: #fff;
+    opacity: 0.3;
+    display: block;
+    height: 20px;
+    width: 5px;
+    border-radius: 1px;
+    transition: all .5s;
+}
+.v-dot:hover,
+.dot:hover{
+    opacity: 0.75;
+}
+.active{
+    opacity: 1;
+    width:28px;
+}
+.v-active{
+    opacity: 1;
+    height:28px;
+}

@@ -1,5 +1,5 @@
 /*
-ver:2.0.0
+ver:2.0.1
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -40,6 +40,10 @@ let Iframe = Uploader.extend({
         }
         let base = 1000 / total;
         let prgs = () => {
+            if (me['@{destroyed}']) {
+                Runner['@{task.remove}'](prgs);
+                return;
+            }
             if (p < 1) {
                 progress(p);
                 p += base + Math.random() * 20 * base;

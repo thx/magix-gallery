@@ -1,5 +1,5 @@
 /*
-ver:2.0.0
+ver:2.0.1
 */
 let Magix = require('magix');
 let $ = require('$');

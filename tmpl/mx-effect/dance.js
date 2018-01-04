@@ -1,5 +1,5 @@
 /*
-ver:2.0.0
+ver:2.0.1
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -15,6 +15,9 @@ module.exports = Magix.View.extend({
         let node = $('#' + me.id);
         me['@{owner.node}'] = node;
         me.assign(extra);
+        me.on('destroy', () => {
+            me['@{stop}']();
+        });
     },
     assign(ops) {
         let me = this;

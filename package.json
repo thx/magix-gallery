@@ -1,6 +1,6 @@
 {
   "name": "magix-gallery",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "magix组件",
   "main": "index.js",
   "repository": {
@@ -24,7 +24,6 @@
     "gulp": "3.9.1",
     "gulp-uglify-es": "^0.1.9",
     "gulp-watch": "4.3.11",
-    "magix": "^3.7.0",
     "seajs": "3.0.2",
     "typescript": "^2.6.2"
   }
