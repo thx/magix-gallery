@@ -1,5 +1,5 @@
 /*
-ver:2.0.1
+ver:2.0.3
 */
 import { debug } from 'util';let Magix = require('magix');
 let $ = require('$');

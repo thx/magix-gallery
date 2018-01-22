@@ -1,3 +1,6 @@
+## 2.0.3
+1. 修正版本号重新发布
+
 ## 2.0.2
 1. 修正`mx-sitenav`文档
 2. `dropdown`选项使用`mx-dropdown.item`标签

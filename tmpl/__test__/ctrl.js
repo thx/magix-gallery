@@ -1,4 +1,6 @@
-
+/*
+ver:2.0.3
+*/
 let Magix = require('magix');
 let $ = require('$');
 module.exports = Magix.View.extend({

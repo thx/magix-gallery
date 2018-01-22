@@ -1,5 +1,5 @@
 /*
-ver:2.0.1
+ver:2.0.3
 */
 let Magix = require('magix');
 module.exports = Magix.View.extend({
