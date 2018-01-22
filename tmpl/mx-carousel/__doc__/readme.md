@@ -18,3 +18,5 @@
 | dots     | 是否显示缩略点 | boolean | true |
 | interval | 播放暂停间隔，单位毫秒 | number | 3000 |
 | vertical | 上下播放 | boolean | false |
+| timing | transition-timing-function | string | ease-in-out |
+| duration | 动画持续时间 | string | 0.5s |

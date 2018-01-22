@@ -1,5 +1,5 @@
 <div class="wrapper" id="wrapper_<%=viewId%>">
-    <div mx-view="@./index" view-time="<%=time%>" view-type="<%=types%>" id="time_<%=viewId%>" class="time clearfix" mx-change="@{take}()"></div>
+    <div mx-view="@./index" view-time="<%=time%>" view-types="<%=types%>" id="time_<%=viewId%>" class="time clearfix" mx-change="@{take}()"></div>
     <div class="footer">
         <button type="button" class="btn btn-brand" mx-click="@{hide}({enter:true})">确定</button>
         <button type="button" class="btn ml5" mx-click="@{hide}()">取消</button>

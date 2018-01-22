@@ -7,11 +7,12 @@ let pkg = require('./package.json');
 let uglify = require('gulp-uglify-es').default;
 let ts = require('typescript');
 combineTool.config({
-    debug: true,
+    //debug: true,
     loaderType: 'cmd_es',
     cssSelectorPrefix: '_',
     tmplAddViewsToDependencies: true,
     tmplMultiBindEvents: true,
+    magixUpdaterIncreasement: true,
     galleries: {
         mxRoot: ''
     },
@@ -50,6 +51,10 @@ gulp.task('cleanSrc', () => {
 });
 
 gulp.task('combine', ['cleanSrc'], () => {
+    // combineTool.processFile('./tmpl/mx-calendar/index.js').catch((ex) => {
+    //     console.log(ex);
+    // });
+    // return;
     return combineTool.combine().then(() => {
         console.log('complete');
     }).catch(ex => {

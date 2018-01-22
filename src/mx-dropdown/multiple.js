@@ -1,1 +1,382 @@
-define("mx-dropdown/multiple",["magix","$","../mx-monitor/index"],(t,e,i)=>{var s=t("magix"),c=t("$"),_=t("../mx-monitor/index");s.applyStyle("_q",'._cI{outline:0;position:relative;width:340px;background-color:#fff;border:1px solid #e6e6e6;border-radius:4px;display:inline-block;vertical-align:middle;height:32px}._cI:hover{border-color:#ccc}._cJ{color:#333;position:relative;width:100%;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;padding:0 30px 0 12px;border-radius:3px}._cK{cursor:not-allowed;background-color:#fbfbfb}._cK:hover{border-color:#e6e6e6}._cK ._cJ{cursor:not-allowed}._cL{position:absolute;right:0;top:2px;font-size:28px;color:#ccc;-webkit-transition:top .3s,-webkit-transform .3s;transition:top .3s,-webkit-transform .3s;transition:transform .3s,top .3s;transition:transform .3s,top .3s,-webkit-transform .3s}._cM ._cL{-webkit-transform:rotate(180deg);transform:rotate(180deg);top:0}._cI[tabindex="0"]:focus,._cM,._cM:hover{border-color:#f96447}._cN{height:30px;line-height:30px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}._cO{color:#999}._cP{position:absolute;top:100%;left:-1px;width:350px;margin-top:5px;border-radius:4px;z-index:300;border:1px solid #e6e6e6;background-color:#fff;display:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}._cM ._cP{display:block}._cQ{overflow:auto;max-height:192px;padding:4px 0}._cR{display:block;width:100%;padding:9px 9px 4px}._cS{padding:0;width:100%}._cT{color:#ccc;position:absolute;left:15px;top:18px}._cU{padding-left:28px;width:100%;height:28px;line-height:28px}._cV{padding:5px;color:#999;display:block;cursor:default}._cW{padding:3px 4px}._cX{cursor:pointer;color:#666;display:block;width:100%;padding:0 6px;height:26px;line-height:26px;border-radius:4px}._cY{width:32%;float:left;margin-left:2px;margin-bottom:2px}._cZ{cursor:pointer;color:#666;display:block;padding:0 12px;height:29px;line-height:29px;border-radius:4px}._cX:hover,._cZ:hover{color:#333;background-color:#f0f0f0}._d_,._d_:active,._d_:focus,._d_:hover{color:#fff;background-color:#f96447}._da{border-top:1px solid #e6e6e6;margin:0 10px;padding:10px 0}._db{border-left:1px solid #e6e6e6}');var a=function(t,e,i,c,_){if(!t[e]||s.has(i,c)){var a=i[c]||"";_||(a+=""),t[e]=a}return t[e]};i.exports=s.View.extend({tmpl:{html:'<div mx-guid="g0" class="_cJ" mx-click="__aQ()" title="<%=$$.selectedText%>"><span mx-guid="g1" class="_cN<%if($$.phLabel){%> _cO<%}%>">2</span><span class="__ _cL">&#xe692;</span></div><div mx-guid="g2" class="_cP">3</div>',subs:[{keys:["selectedText"],path:'div[mx-guid="g0"]',attr:'title="<%=$$.selectedText%>"',attrs:[{n:"title",p:1}]},{keys:["phLabel","selectedText"],path:'span[mx-guid="g1"]',tmpl:"<%=$$.selectedText%>",s:"2",attr:'class="_cN<%if($$.phLabel){%> _cO<%}%>"',attrs:[{n:"class",p:1,f:"className"}],mask:"21"},{keys:["rList","searchbox"],path:'div[mx-guid="g2"]',tmpl:'<%if($$.rList){if($$.searchbox){%><div class="_cR"><label class="_cS"><span class="__ _cT">&#xe608;</span><input mx-keyup="__cl()" mx-paste="__cl()" mx-change="__am()" mx-focusin="__am()" mx-focusout="__am()" placeholder="搜索关键词" class="_ap _cU"></label></div><%}%><ul mx-guid="g3" class="_cQ" id="list_<%=$$.viewId%>">4</ul><div class="_da _ai"><div class="_aa"><button type="button" class="_an _ao" mx-click="__a({enter:true})">确定</button><button type="button" class="_an _s" mx-click="__a()">取消</button></div><div class="_aa _t _db _R"><button type="button" class="_an" mx-click="__ct()">全选/不选</button><button type="button" class="_an _s" mx-click="__cu()">反选</button></div></div><%}%>',s:"3"},{keys:["selected","list","textKey","valueKey","emptyText"],path:'ul[mx-guid="g3"]',pKeys:["rList","searchbox"],tmpl:'<%var _=$$.selected.split(\',\'),a=void 0,b=void 0;for(var c=0;c<$$.list.length;c++){var d=$$.list[c];if(d&&d.group){%><li class="_cV _al" title="<%=d[$$.textKey]%>"><%=d[$$.textKey]%></li><%}else{if($$.textKey&&$$.valueKey){a=d[$$.textKey];b=d[$$.valueKey];}else{a=d;b=d;}if($$.emptyText===b&&c===0){b=\'\';d=\'\';}var e=$$.inArray(b+\'\',_)>-1;if(b===\'\'){%><li title="<%=a%>" class="_cW"><span class="_cX _al <%if(e){%> _d_<%}%>" mx-click="__cm({item:\'<%@d%>\'})"><%=a%></span></li><%}else{%><li class="_cW _ai"><ul><%for(;c<$$.list.length;c++){d=$$.list[c];if(d&&d.group){c--;break;}if($$.textKey&&$$.valueKey){a=d[$$.textKey];b=d[$$.valueKey];}else{a=d;b=d;}var f=$$.inArray(b+\'\',_)>-1%><li class="_cY"><span class="_cZ _al<%if(f){%> _d_<%}%>" mx-click="__cm({item:\'<%@d%>\'})"><%=a%></span></li><%}%></ul></li><%}}}%>',s:"4"}]},init:function(t){var e=this;_.__d();var i=c("#"+e.id);e.__h=i,i.addClass("_cI"),i.on("keydown",function(t){13==t.keyCode&&e["__aQ<click>"]()}),e.on("destroy",function(){i.off("keydown"),_.__f(e),_.__g()}),e.updater.set({viewId:e.id,inArray:c.inArray}),e.assign(t)},assign:function(t){a(this,"__ca",t,"list",1);var e=a(this,"__aU",t,"selected"),i=a(this,"__cb",t,"textKey"),_=a(this,"__cc",t,"valueKey"),o=a(this,"__cd",t,"emptyText");if(this.__ce=t.searchbox+""=="true",this.__cn=t.disabled+""=="true",!this.__ca){var r,l=[];this.__h.children().each(function(t,e){e=c(e),r="true"==e.attr("group"),l.push({group:r,text:e.text(),value:r?s.guid():e.attr("value")})}),i=this.__cb="text",_=this.__cc="value",this.__ca=l}var n=this.__ca,d=s.toMap(n,_);if(o)if(i&&_){if(!d[""]){var p={};p[i]=o,p[_]="",n.unshift(p),d[""]=p}}else d[o]||(n.unshift(o),d[""]=o);return this.__aU=e,this.__co=d,this.updater.set({list:n}),!0},__i:function(t){return s.inside(t,this.id)},render:function(){this.__h[this.__cn?"addClass":"removeClass"]("_cK").prop("tabindex",this.__cf?-1:0),this.__cp(this.__aU)},__a:function(t){if(this.__h.hasClass("_cM")){var e=this.updater.get();if(s.has(this,"__cq")){var i=t&&e.selected!==this.__cq;t?this.__cp(e.selected):this.__cp(this.__cq),i&&this.__h.val(e.selected).trigger({type:"change",keys:{text:e.textKey,value:e.valueKey},values:(e.selected+"").split(",")}),delete this.__cq}this.__h.removeClass("_cM").trigger("focusout"),_.__f(this)}},__e:function(){if(!this.__h.hasClass("_cM")){this.updater.get("rList")||this.updater.digest({rList:!0}),this.__h.addClass("_cM").trigger("focusin");var t=c("#list_"+this.id),e=t.find("._d_").position();if(e){var i=t.height(),s=t.prop("scrollTop");if(e.top<0||e.top>i){var a=e.top-i+s+i/2;t.prop("scrollTop",a)}}_.__k(this)}},__cr:function(t,e){for(var i=this.__co,s=[],c=0,_=t;c<_.length;c++){var a=_[c],o=i[a]||{};e?s.push(o[e]):s.push(a||o)}return s},__cp:function(t){t=t||"",t+="";var e=this.__cb||"",i=this.__cc||"",s=t.split(","),c="",_=this.__ca;s.length?c=this.__cr(s,e):(t=_[0],c=_[0],e&&i&&(c=(t=t[i])[e])),this.updater.digest({textKey:e,valueKey:i,emptyText:this.__cd,searchbox:this.__ce,phLabel:""===t,selected:this.__aU=t,selectedText:c}),this.__h.val(t)},__cj:function(t,e){var i=this;clearTimeout(i.__ci);var s=i.__ca,c=[],_=0,a=s.length,o=i.__cb,r=i.__cc;if(t){var l=function(){if(_<a){for(var n=Math.min(_+400,a),d=_,p=void 0,h=void 0,u=void 0;d<n;d++)h=p=s[d],u=p,o&&r&&(h=p[o],u=p[r]),((h+"").indexOf(t)>=0||(u+"").indexOf(t)>=0)&&c.push(p);_=n,i.__ci=setTimeout(i.wrapAsync(l),20)}else e(c)};l()}else e(s)},"__aQ<click>":function(){var t=this.__h;t.hasClass("_cM")?this.__a():t.hasClass("_cK")||this.__e()},"__cl<keyup,paste>":function(t){var e=this;clearTimeout(e.__ck);var i=c.trim(t.eventTarget.value);e.__ck=setTimeout(e.wrapAsync(function(){i!=e.__cs&&e.__cj(e.__cs=i,function(t){e.updater.digest({list:t})})}),300)},"__cm<click>":function(t){var e=t.params.item,i=this.updater,_=i.get();s.has(this,"__cq")||(this.__cq=_.selected);var a=this.__cc,o=this.__cb,r=e;o&&a&&(e[o],r=e[a]);var l=[""];r&&(l=_.selected.split(","));var n=c.inArray("",l);n>-1&&l.splice(n,1),-1==(n=c.inArray(r+"",l))?l.push(r):l.splice(n,1),l.length||_.emptyText&&(l=[""]),r=l.join(","),i.digest({selected:this.__aU=r})},"__am<change,focusin,focusout>":function(t){t.stopPropagation()},"__a<click>":function(t){this.__a(t.params.enter)},"__ct<click>":function(){var t=this.__aU,e=this.__ca,i=this.__cc,c=this.updater;if(s.has(this,"__cq")||(this.__cq=t),t)t="";else{t="";for(var _=this.__cd?1:0,a=void 0;_<e.length;_++)a=e[_],i?a.group||(t+=a[i]+","):t+=a+",";t=t.slice(0,-1)}c.digest({selected:this.__aU=t})},"__cu<click>":function(){var t=this.__aU,e=this.__ca,i=this.__cc,_=this.updater;s.has(this,"__cq")||(this.__cq=t);var a=t.split(",");t="";for(var o=this.__cd?1:0,r=void 0;o<e.length;o++)r=e[o],i?r.group||-1!=c.inArray(r[i]+"",a)||(t+=r[i]+","):-1==c.inArray(r+"",a)&&(t+=r+",");t=t.slice(0,-1),_.digest({selected:this.__aU=t})}})});
+/*
+    generate by magix-combine@3.8.3: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-dropdown/multiple",["magix","$","../mx-monitor/index"],(require,exports,module)=>{
+/*Magix,$,Monitor*/
+
+/*
+ver:2.0.1
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+var Monitor = require("../mx-monitor/index");
+Magix.applyStyle("_r","._cO{outline:0;position:relative;width:340px;background-color:#fff;border:1px solid #e6e6e6;border-radius:4px;display:inline-block;vertical-align:middle;height:32px}._cO:hover{border-color:#ccc}._cP{color:#333;position:relative;width:100%;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;padding:0 30px 0 12px;border-radius:3px}._cQ{cursor:not-allowed;background-color:#fbfbfb}._cQ:hover{border-color:#e6e6e6}._cQ ._cP{cursor:not-allowed}._cR{position:absolute;right:0;top:2px;font-size:28px;color:#ccc;-webkit-transition:top .3s,-webkit-transform .3s;transition:top .3s,-webkit-transform .3s;transition:transform .3s,top .3s;transition:transform .3s,top .3s,-webkit-transform .3s}._cS ._cR{-webkit-transform:rotate(180deg);transform:rotate(180deg);top:0}._cO[tabindex=\"0\"]:focus,._cS,._cS:hover{border-color:#f96447}._cT{height:30px;line-height:30px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}._cU{color:#999}._cV{position:absolute;top:100%;left:-1px;width:350px;margin-top:5px;border-radius:4px;z-index:300;border:1px solid #e6e6e6;background-color:#fff;display:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}._cS ._cV{display:block}._cW{overflow:auto;max-height:192px;padding:4px 0}._cX{display:block;width:100%;padding:9px 9px 4px}._cY{padding:0;width:100%}._cZ{color:#ccc;position:absolute;left:15px;top:18px}._d_{padding-left:28px;width:100%;height:28px;line-height:28px}._da{padding:5px;color:#999;display:block;cursor:default}._db{padding:3px 4px}._dc{cursor:pointer;color:#666;display:block;width:100%;padding:0 6px;height:26px;line-height:26px;border-radius:4px}._dd{width:32%;float:left;margin-left:2px;margin-bottom:2px}._de{cursor:pointer;color:#666;display:block;padding:0 12px;height:29px;line-height:29px;border-radius:4px}._dc:hover,._de:hover{color:#333;background-color:#f0f0f0}._df,._df:active,._df:focus,._df:hover{color:#fff;background-color:#f96447}._dg{border-top:1px solid #e6e6e6;margin:0 10px;padding:10px 0}._dh{border-left:1px solid #e6e6e6}");
+var AssignIf = function (view, key, ops, cfg, src) {
+    if (!view[key] || Magix.has(ops, cfg)) {
+        var v = ops[cfg] || '';
+        if (!src) {
+            v += '';
+        }
+        view[key] = v;
+    }
+    return view[key];
+};
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<div class=\"_cP\" mx-click=\"\u001f\u001e__aW()\" title=\"<%=$$.selectedText%>\"><span class=\"_cT<%if($$.phLabel){%> _cU<%}%>\"><%=$$.selectedText%></span><span class=\"__ _cR\">&#xe692;</span></div><div class=\"_cV\"><%if($$.rList){if($$.searchbox){%><div class=\"_cX\"><label class=\"_cY\"><span class=\"__ _cZ\">&#xe608;</span><input mx-keyup=\"\u001f\u001e__ct()\" mx-paste=\"\u001f\u001e__ct()\" mx-change=\"\u001f\u001e__as()\" mx-focusin=\"\u001f\u001e__as()\" mx-focusout=\"\u001f\u001e__as()\" placeholder=\"搜索关键词\" class=\"_ap _d_\" value=\"<%=$$.keyword%>\"></label></div><%}%><ul class=\"_cW\" id=\"list_<%=$$.viewId%>\"><%var _=$$.selected.split(','),a=void 0,b=void 0;for(var c=0;c<$$.list.length;c++){var d=$$.list[c];if(d&&d.group){%><li class=\"_da _al\" title=\"<%=d[$$.textKey]%>\"><%=d[$$.textKey]%></li><%}else{if($$.textKey&&$$.valueKey){a=d[$$.textKey];b=d[$$.valueKey];}else{a=d;b=d;}if($$.emptyText===b&&c===0){b='';d='';}var e=$$.inArray(b+'',_)>-1;if(b===''){%><li title=\"<%=a%>\" class=\"_db\"><span class=\"_dc _al <%if(e){%> _df<%}%>\" mx-click=\"\u001f\u001e__cu({item:'<%@d%>'})\"><%=a%></span></li><%}else{%><li class=\"_db _ai\"><ul><%for(;c<$$.list.length;c++){d=$$.list[c];if(d&&d.group){c--;break;}if($$.textKey&&$$.valueKey){a=d[$$.textKey];b=d[$$.valueKey];}else{a=d;b=d;}var f=$$.inArray(b+'',_)>-1%><li class=\"_dd\"><span class=\"_de _al<%if(f){%> _df<%}%>\" mx-click=\"\u001f\u001e__cu({item:'<%@d%>'})\"><%=a%></span></li><%}%></ul></li><%}}}%></ul><div class=\"_dg _ai\"><div class=\"_aa\"><button type=\"button\" class=\"_an _ao\" mx-click=\"\u001f\u001e__a({enter:true})\">确定</button><button type=\"button\" class=\"_an _s\" mx-click=\"\u001f\u001e__a()\">取消</button></div><div class=\"_aa _t _dh _R\"><button type=\"button\" class=\"_an\" mx-click=\"\u001f\u001e__cB()\">全选/不选</button><button type=\"button\" class=\"_an _s\" mx-click=\"\u001f\u001e__cC()\">反选</button></div></div><%}%></div>"},
+    init: function (extra) {
+        var me = this;
+        Monitor['__d']();
+        var node = $('#' + me.id);
+        me['__i'] = node;
+        node.addClass('_cO');
+        node.on('keydown', function (e) {
+            if (e.keyCode == 13) {
+                me['__aW<click>']();
+            }
+        });
+        me.on('destroy', function () {
+            node.off('keydown');
+            Monitor['__g'](me);
+            Monitor['__h']();
+        });
+        me.updater.set({
+            viewId: me.id,
+            inArray: $.inArray
+        });
+        me['__cg'] = !extra.list;
+        me.assign(extra, { node: node });
+    },
+    assign: function (ops, _a) {
+        var node = _a.node;
+        var me = this;
+        AssignIf(me, '__ch', ops, 'list', 1);
+        var selected = AssignIf(me, '__b_', ops, 'selected');
+        var textKey = AssignIf(me, '__ci', ops, 'textKey');
+        var valueKey = AssignIf(me, '__cj', ops, 'valueKey');
+        var emptyText = AssignIf(me, '__ck', ops, 'emptyText');
+        me['__cl'] = (ops.searchbox + '') === 'true';
+        me['__cv'] = (ops.disabled + '') === 'true';
+        if (me['__cg']) {
+            node = $(node);
+            var list_1 = [];
+            var group_1;
+            node.children().each(function (idx, item) {
+                item = $(item);
+                group_1 = item.attr('group') == 'true';
+                list_1.push({
+                    group: group_1,
+                    text: item.text(),
+                    value: group_1 ? Magix.guid() : item.attr('value')
+                });
+            });
+            textKey = me['__ci'] = 'text';
+            valueKey = me['__cj'] = 'value';
+            me['__ch'] = list_1;
+        }
+        var list = me['__ch'];
+        var map = Magix.toMap(list, valueKey);
+        if (emptyText) {
+            if (textKey && valueKey) {
+                if (!map['']) {
+                    var temp = {};
+                    temp[textKey] = emptyText;
+                    temp[valueKey] = '';
+                    list.unshift(temp);
+                    map[''] = temp;
+                }
+            }
+            else {
+                if (!map[emptyText]) {
+                    list.unshift(emptyText);
+                    map[''] = emptyText;
+                }
+            }
+        }
+        me['__b_'] = selected;
+        me['__cw'] = map;
+        me.updater.set({ list: list });
+        return true;
+    },
+    '__j': function (node) {
+        var me = this;
+        return Magix.inside(node, me.id);
+    },
+    render: function () {
+        var me = this;
+        var node = me['__i'];
+        node[me['__cv'] ? 'addClass' : 'removeClass']('_cQ').prop('tabindex', me['__cm'] ? -1 : 0);
+        me['__cx'](me['__b_']);
+    },
+    '__a': function (ignoreBak) {
+        var me = this;
+        if (me['__i'].hasClass('_cS')) {
+            var data = me.updater.get();
+            me['__i'].removeClass('_cS').trigger('focusout');
+            Monitor['__g'](me);
+            if (Magix.has(me, '__cy')) {
+                var fired = ignoreBak && data.selected !== me['__cy'];
+                if (ignoreBak) {
+                    me['__cx'](data.selected);
+                }
+                else {
+                    me['__cx'](me['__cy']);
+                }
+                delete me['__cy'];
+                if (fired) {
+                    me['__i'].val(data.selected).trigger({
+                        type: 'change',
+                        keys: {
+                            text: data.textKey,
+                            value: data.valueKey
+                        },
+                        values: (data.selected + '').split(',')
+                    });
+                }
+            }
+        }
+    },
+    '__f': function () {
+        var me = this;
+        if (!me['__i'].hasClass('_cS')) {
+            var r = me.updater.get('rList');
+            if (!r) {
+                me.updater.digest({
+                    rList: true
+                });
+            }
+            me['__i'].addClass('_cS').trigger('focusin');
+            var listNode = $('#list_' + me.id);
+            var active = listNode.find('._df');
+            var pos = active.position();
+            if (pos) {
+                var height = listNode.height();
+                var stop = listNode.prop('scrollTop');
+                if (pos.top < 0 || pos.top > height) {
+                    var top = pos.top - height + stop + height / 2;
+                    listNode.prop('scrollTop', top);
+                }
+            }
+            Monitor['__l'](me);
+        }
+    },
+    '__cz': function (keys, textKey) {
+        var me = this;
+        var map = me['__cw'];
+        var text = [];
+        for (var _i = 0, keys_1 = keys; _i < keys_1.length; _i++) {
+            var key = keys_1[_i];
+            var entity = map[key] || {};
+            if (textKey) {
+                text.push(entity[textKey]);
+            }
+            else {
+                text.push(key || entity);
+            }
+        }
+        return text;
+    },
+    '__cx': function (selected) {
+        var me = this;
+        selected = selected || '';
+        selected += '';
+        var textKey = me['__ci'] || '';
+        var valueKey = me['__cj'] || '';
+        var parts = selected.split(',');
+        var selectedText = '';
+        var list = me['__ch'];
+        if (parts.length) {
+            selectedText = me['__cz'](parts, textKey);
+        }
+        else {
+            selected = list[0];
+            selectedText = list[0];
+            if (textKey && valueKey) {
+                selected = selected[valueKey];
+                selectedText = selected[textKey];
+            }
+        }
+        me.updater.digest({
+            textKey: textKey,
+            valueKey: valueKey,
+            emptyText: me['__ck'],
+            searchbox: me['__cl'],
+            phLabel: selected === '',
+            selected: me['__b_'] = selected,
+            selectedText: selectedText
+        });
+        me['__i'].val(selected);
+    },
+    '__cq': function (val, callback) {
+        var me = this;
+        clearTimeout(me['__cp']);
+        var srcList = me['__ch'];
+        var newList = [];
+        var index = 0;
+        var max = srcList.length;
+        var textKey = me['__ci'];
+        var valueKey = me['__cj'];
+        if (!val) {
+            callback(srcList);
+            return;
+        }
+        var go = function () {
+            if (index < max) {
+                var end = Math.min(index + 400, max);
+                for (var i = index, li = void 0, text = void 0, value = void 0; i < end; i++) {
+                    li = srcList[i];
+                    text = li;
+                    value = li;
+                    if (textKey && valueKey) {
+                        text = li[textKey];
+                        value = li[valueKey];
+                    }
+                    if ((text + '').indexOf(val) >= 0 || (value + '').indexOf(val) >= 0) {
+                        newList.push(li);
+                    }
+                }
+                index = end;
+                me['__cp'] = setTimeout(me.wrapAsync(go), 20);
+            }
+            else {
+                callback(newList);
+            }
+        };
+        go();
+    },
+    '__aW<click>': function () {
+        var me = this;
+        var node = me['__i'];
+        if (node.hasClass('_cS')) {
+            me['__a']();
+        }
+        else if (!node.hasClass('_cQ')) {
+            me['__f']();
+        }
+    },
+    '__ct<keyup,paste>': function (e) {
+        var me = this;
+        clearTimeout(me['__cr']);
+        var val = $.trim(e.eventTarget.value);
+        me['__cr'] = setTimeout(me.wrapAsync(function () {
+            if (val != me['__cA']) {
+                me['__cq'](me['__cA'] = val, function (list) {
+                    me.updater.digest({
+                        list: list
+                    });
+                });
+            }
+        }), 300);
+    },
+    '__cu<click>': function (e) {
+        var me = this;
+        var item = e.params.item;
+        var updater = me.updater;
+        var data = updater.get();
+        if (!Magix.has(me, '__cy')) {
+            me['__cy'] = data.selected;
+        }
+        var valueKey = me['__cj'];
+        var textKey = me['__ci'];
+        var selected = item;
+        var selectedText = item;
+        if (textKey && valueKey) {
+            selectedText = item[textKey];
+            selected = item[valueKey];
+        }
+        var keys = [''];
+        if (selected) {
+            keys = data.selected.split(',');
+        }
+        var idx = $.inArray('', keys);
+        if (idx > -1) {
+            keys.splice(idx, 1);
+        }
+        idx = $.inArray(selected + '', keys);
+        if (idx == -1) {
+            keys.push(selected);
+        }
+        else {
+            keys.splice(idx, 1);
+        }
+        if (!keys.length) {
+            if (data.emptyText) {
+                keys = [''];
+            }
+        }
+        selected = keys.join(',');
+        updater.digest({
+            selected: me['__b_'] = selected
+        });
+    },
+    '__as<change,focusin,focusout>': function (e) {
+        e.stopPropagation();
+    },
+    '__a<click>': function (e) {
+        this['__a'](e.params.enter);
+    },
+    '__cB<click>': function () {
+        var me = this;
+        var selected = me['__b_'];
+        var list = me['__ch'];
+        var valueKey = me['__cj'];
+        var updater = me.updater;
+        if (!Magix.has(me, '__cy')) {
+            me['__cy'] = selected;
+        }
+        if (selected) {
+            selected = '';
+        }
+        else {
+            selected = '';
+            for (var i = me['__ck'] ? 1 : 0, e = void 0; i < list.length; i++) {
+                e = list[i];
+                if (valueKey) {
+                    if (!e.group) {
+                        selected += e[valueKey] + ',';
+                    }
+                }
+                else {
+                    selected += e + ',';
+                }
+            }
+            selected = selected.slice(0, -1);
+        }
+        updater.digest({
+            selected: me['__b_'] = selected
+        });
+    },
+    '__cC<click>': function () {
+        var me = this;
+        var selected = me['__b_'];
+        var list = me['__ch'];
+        var valueKey = me['__cj'];
+        var updater = me.updater;
+        if (!Magix.has(me, '__cy')) {
+            me['__cy'] = selected;
+        }
+        var oldSelected = selected.split(',');
+        selected = '';
+        for (var i = me['__ck'] ? 1 : 0, e = void 0; i < list.length; i++) {
+            e = list[i];
+            if (valueKey) {
+                if (!e.group && $.inArray(e[valueKey] + '', oldSelected) == -1) {
+                    selected += e[valueKey] + ',';
+                }
+            }
+            else if ($.inArray(e + '', oldSelected) == -1) {
+                selected += e + ',';
+            }
+        }
+        selected = selected.slice(0, -1);
+        updater.digest({
+            selected: me['__b_'] = selected
+        });
+    }
+});
+
+});

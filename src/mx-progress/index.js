@@ -1,1 +1,75 @@
-define("mx-progress/index",["magix","$"],(i,t,e)=>{var s=i("magix"),_=i("$");s.applyStyle("_F","._ey{height:32px;cursor:default;line-height:32px;display:inline-block}._ez{background:#eaeaea;position:relative;display:inline-block;top:-2px}._ez,._eA{height:4px;border-radius:2px}._eA{background:#f96447;left:0;top:0}._eB,._eA{position:absolute;-webkit-transition:all .15s;transition:all .15s}._eB{font-size:9px;pointer-events:none;top:-15px;line-height:normal}._eC{cursor:not-allowed}._eC ._ez{background-color:#fbfbfb}._eC ._eA{background-color:#eaeaea}"),e.exports=s.View.extend({tmpl:{html:'<div mx-guid="g0" class="_ez" mx-contextmenu="__D()" style="width:<%=$$.width%>px"><div class="_eA"></div><div class="_eB"></div></div>',subs:[{keys:["width"],path:'div[mx-guid="g0"]',attr:'style="width:<%=$$.width%>px"',attrs:[{n:"style"}]}]},init:function(i){this.__h=_("#"+this.id),this.__h.addClass("_ey"),this.assign(i)},assign:function(i){return this.__dn=+i.width||340,this.__cn=i.disabled+""=="true",this.__cB=+i.value||0,this.__ed=+i.fixed||0,!0},render:function(){this.updater.digest({width:this.__dn}),this.__h[this.__cn?"addClass":"removeClass"]("_eC"),this.val(this.__cB)},val:function(i){var t=+i;if(t||0===t){t<0?t=0:t>1&&(t=1);var e=this.__h.find("._ez").width(),s=e*t;this.__h.find("._eA").width(s);var _=this.__h.find("._eB"),n=(100*t).toFixed(this.__ed)+"%";_.html(n);var d=_.width();(s-=d/2)<0?s=0:s>e-d&&(s=e-d),_.css({left:s}),this.__cB=t}return this.__cB},"__D<contextmenu>":function(i){i.preventDefault()}})});
+/*
+    generate by magix-combine@3.8.3: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-progress/index",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/*
+ver:2.0.1
+*/
+/*
+    author:xinglie.lkf@taobao.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("_F","._ex{height:32px;cursor:default;line-height:32px;display:inline-block}._ey{background:#eaeaea;position:relative;display:inline-block;top:-2px}._ey,._ez{height:4px;border-radius:2px}._ez{background:#f96447;left:0;top:0}._eA,._ez{position:absolute;-webkit-transition:all .15s;transition:all .15s}._eA{font-size:9px;pointer-events:none;top:-15px;line-height:normal}._eB{cursor:not-allowed}._eB ._ey{background-color:#fbfbfb}._eB ._ez{background-color:#eaeaea}");
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<div class=\"_ey\" mx-contextmenu=\"\u001f\u001e__E()\" style=\"width:<%=$$.width%>px\"><div class=\"_ez\"></div><div class=\"_eA\"></div></div>"},
+    init: function (extra) {
+        var me = this;
+        me['__i'] = $('#' + me.id).addClass('_ex');
+        me.assign(extra);
+    },
+    assign: function (ops) {
+        var me = this;
+        me['__dt'] = +ops.width || 340;
+        me['__cv'] = (ops.disabled + '') === 'true';
+        me['__cJ'] = +ops.value || 0;
+        me['__eh'] = +ops.fixed || 0;
+        return true;
+    },
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            width: me['__dt']
+        });
+        me['__i'][me['__cv'] ? 'addClass' : 'removeClass']('_eB');
+        me.val(me['__cJ']);
+    },
+    val: function (v) {
+        var me = this;
+        var nv = +v;
+        if (nv || nv === 0) {
+            if (nv < 0)
+                nv = 0;
+            else if (nv > 1)
+                nv = 1;
+            var rail = me['__i'].find('._ey');
+            var rWidth = rail.width();
+            var left = rWidth * nv;
+            var tracker = me['__i'].find('._ez');
+            tracker.width(left);
+            var indicator = me['__i'].find('._eA');
+            var text = (nv * 100).toFixed(me['__eh']) + '%';
+            indicator.html(text);
+            var w = indicator.width();
+            left -= w / 2;
+            if (left < 0)
+                left = 0;
+            else if (left > (rWidth - w))
+                left = rWidth - w;
+            indicator.css({
+                left: left
+            });
+            me['__cJ'] = nv;
+        }
+        return me['__cJ'];
+    },
+    '__E<contextmenu>': function (e) {
+        e.preventDefault();
+    }
+});
+
+});

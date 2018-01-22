@@ -18,19 +18,21 @@ module.exports = Magix.View.extend({
         let me = this;
         Monitor['@{setup}']();
         let oNode = $('#' + me.id);
+        me['@{relate.node}'] = oNode;
+        oNode = oNode.prev('input');
+        oNode.prop('vframe', me.owner);
         let click = () => {
             me['@{show}']();
         };
         me.on('destroy', () => {
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
-            $('#tcnt_' + me.id).remove();
             oNode.off('click', click);
         });
         oNode.on('click', click);
         me['@{owner.node}'] = oNode;
         oNode.prop('autocomplete', 'off');
-        let time = oNode.val();
+        let time = oNode.val().trim();
         if (!time) {
             let d = new Date();
             time = format(d.getHours()) + ':' +
@@ -44,22 +46,22 @@ module.exports = Magix.View.extend({
     },
     '@{inside}'(node) {
         let me = this;
-        return Magix.inside(node, me.id) || Magix.inside(node, 'tcnt_' + me.id);
+        return Magix.inside(node, me.id) ||
+            Magix.inside(node, 'temp_' + me.id) ||
+            Magix.inside(node, this['@{owner.node}'][0]);
     },
     render() {
         let me = this;
-        $(`<div id="tcnt_${me.id}"/>`).insertAfter(me['@{owner.node}']);
-        let updater = me.updater;
-        updater.to('tcnt_' + me.id);
-        updater.digest({
+        me.updater.digest({
             viewId: me.id
         });
     },
     '@{show}'() {
         let me = this;
         if (!me['@{ui.shown}']) {
-            let node = $('#wrapper_' + me.id),
+            let node = me['@{relate.node}'],
                 ref = me['@{owner.node}'];
+            node.show();
             me['@{ui.shown}'] = true;
             Monitor['@{add}'](me);
             let offset = ref.offset();
@@ -85,17 +87,19 @@ module.exports = Magix.View.extend({
                 left: left,
                 top: top
             });
+            let v = me['@{owner.node}'].val().trim();
+            if (v && me['@{time}'] != v) {
+                me['@{time}'] = v;
+                me['@{time.bak}'] = v;
+                $('#time_' + me.id).invokeView('val', [v]);
+            }
         }
     },
     '@{hide}'() {
         let me = this;
         if (me['@{ui.shown}']) {
-            let node = $('#wrapper_' + me.id);
             me['@{ui.shown}'] = false;
-            node.css({
-                left: -1e4,
-                top: -1e4
-            });
+            me['@{relate.node}'].hide();
             Monitor['@{remove}'](me);
             if (me['@{time}'] != me['@{time.bak}']) {
                 me['@{time}'] = me['@{time.bak}'];
@@ -110,8 +114,10 @@ module.exports = Magix.View.extend({
         let me = this;
         if (e.params.enter) {
             me['@{time.bak}'] = me['@{time}'];
-            me['@{owner.node}'].val(me['@{time}']).trigger('change');
         }
         me['@{hide}']();
+        if (e.params.enter) {
+            me['@{owner.node}'].val(me['@{time}']).trigger('change');
+        }
     }
 });

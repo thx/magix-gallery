@@ -46,6 +46,7 @@ module.exports = Magix.View.extend({
         oNode.on('click', click);
         me.on('destroy', () => {
             oNode.off('click', click);
+            DD.end();
         });
         me['@{owner.node}'] = oNode;
     },

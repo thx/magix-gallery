@@ -40,9 +40,10 @@ module.exports = Magix.View.extend({
             viewId: me.id,
             inArray: $.inArray
         });
-        me.assign(extra);
+        me['@{data.from.node}'] = !extra.list;
+        me.assign(extra, { node });
     },
-    assign(ops) {
+    assign(ops, { node }) {
         let me = this;
         AssignIf(me, '@{list}', ops, 'list', 1);
         let selected = AssignIf(me, '@{selected}', ops, 'selected');
@@ -51,8 +52,8 @@ module.exports = Magix.View.extend({
         let emptyText = AssignIf(me, '@{emptyText}', ops, 'emptyText');
         me['@{ui.searchbox}'] = (ops.searchbox + '') === 'true';
         me['@{disabled}'] = (ops.disabled + '') === 'true';
-        if (!me['@{list}']) {
-            let node = me['@{owner.node}'];
+        if (me['@{data.from.node}']) {
+            node = $(node);
             let list = [];
             let group;
             node.children().each((idx, item) => {
@@ -105,6 +106,8 @@ module.exports = Magix.View.extend({
         let me = this;
         if (me['@{owner.node}'].hasClass('@multiple.less:open')) {
             let data = me.updater.get();
+            me['@{owner.node}'].removeClass('@multiple.less:open').trigger('focusout');
+            Monitor['@{remove}'](me);
             if (Magix.has(me, '@{bakSelected}')) {
                 let fired = ignoreBak && data.selected !== me['@{bakSelected}'];
                 if (ignoreBak) {
@@ -112,6 +115,7 @@ module.exports = Magix.View.extend({
                 } else {
                     me['@{updateSelected}'](me['@{bakSelected}']);
                 }
+                delete me['@{bakSelected}'];
                 if (fired) {
                     me['@{owner.node}'].val(data.selected).trigger({
                         type: 'change',
@@ -122,10 +126,7 @@ module.exports = Magix.View.extend({
                         values: (data.selected + '').split(',')
                     });
                 }
-                delete me['@{bakSelected}'];
             }
-            me['@{owner.node}'].removeClass('@multiple.less:open').trigger('focusout');
-            Monitor['@{remove}'](me);
         }
     },
     '@{show}'() {

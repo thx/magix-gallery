@@ -1,4 +1,42 @@
-{{if good.name=='abcd\''}}
-    good
-{{/if}}
-
+<div>
+    <!-- <mx-carousel style="width:400px;height:80px;background-color:#ccc">
+        {{each list as index}}
+        <mx-carousel.panel>
+            index
+        </mx-carousel.panel>
+        {{/each}}
+    </mx-carousel> -->
+    <!-- 
+    <input class="input" value="{{if list.length<3}}less than 3{{else}}great than 3{{/if}}" />
+    <input type="checkbox" class="checkbox" {{if list.length<3}} checked{{/if}} />
+    <mx-progress value="{{=list.length<5?0.3:0.6}}"/>
+    <mx-dropdown>
+        {{each list as i}}
+        <mx-dropdown.item value="{{=i}}">item{{=i}}</mx-dropdown.item>
+        {{/each}}
+    </mx-dropdown>
+    <table>
+        {{for(let i=0;i<list.length;i++)}}
+        <tr id="{{=vId}}_{{=list[i]}}">
+            <td>
+                {{=i}}=>{{=list[i]}}:<mx-time.picker value="10:00:00" class="input" id="input_{{=list[i]}}" types="hour{{if i==3}},minute{{/if}}" />
+                <button type="button" mx-click="remove({i:{{=i}}})">remove</button>
+            </td>
+        </tr>
+        {{/for}}
+    </table>
+    <div id="vf_1_{{=vId}}"></div> -->
+    <div anim="true" style="background:red;" mx-view="./ctrl">
+        <mx-pagination total="100" page="{{=list.length}}"/>
+    </div>
+</div>
+<div>
+    {{for(let i=0;i<10;i++)}}
+    <div style="float:left;margin:4px;padding:2px;border:solid 6px {{if active==i}}red{{else}}green{{/if}}">
+        <img src="http://iph.href.lu/80x40"/>
+    </div>
+    {{/for}}
+</div>
+<button type="button" class="btn btn-brand" mx-click="increase()">increase</button>
+<button type="button" class="btn btn-brand ml20" mx-click="decrease()">decrease</button>
+<button type="button" class="btn btn-brand ml20" mx-click="start()">start</button>

@@ -1,1 +1,204 @@
-define("mx-day/month",["magix","$","mx-dragselect/index"],(e,t,a)=>{e("mx-dragselect/index");var _=e("magix");_.applyStyle("_l","._bU{padding:0;height:38.4px;overflow:hidden;cursor:default;border:none;border-right:1px solid #e6e6e6}._bV{border-right:none}._bW{background-color:#f37b63}._bX{opacity:0}._bY{cursor:not-allowed;background-color:#fbfbfb}");var i=e("$"),s={MON:1,TUE:2,WED:3,THU:4,FRI:5,SAT:6,SUN:0},r={1:"MON",2:"TUE",3:"WED",4:"THU",5:"FRI",6:"SAT",0:"SUN"},d=function(e,t){e=(e=e||"").slice(0,t);for(var a=0;a<t;a++)e.length<=a&&(e+="0");return e};a.exports=_.View.extend({tmpl:{html:'<table class="_W _X"><tbody><tr mx-guid="g0" mx-change="__e()" mx-dragbegin="__aY()" mx-dragfinish="__aZ()" mx-view="mx-dragselect/index?selector=td%5Benable%3Dtrue%5D">1</tr></tbody></table>',subs:[{keys:["days","selected"],path:'tr[mx-guid="g0"]',tmpl:'<%for(var _=0;_<31;_++){%><td data-day="<%=_%>" enable="<%=_<$$.days?true:false%>" class="_bU<%if($$.selected.charAt(_)===\'1\'){%> _bW<%}if(_==30){%> _bV<%}if(_>=$$.days){%> _bY<%}%>"><span class="_bX"><%=(\'0\'+(_+1)).slice(-2)%></span></td><%}%>',s:"1"}]},init:function(e){this.assign(e),this.__h=i("#"+this.id)},assign:function(e){var t,a,_=(t=e.year,a=e.month,32-new Date(t,a,32).getDate());return this.__aR=_,this.__aS=e.year,this.__aT=e.month,this.__aU=d(e.selected,_),!0},__p:function(e){if(e){var t=this.__aR;this.__aU=d(e,t),this.render()}},__aM:function(e,t){for(var a=this.__aU,_=this.__aS,i=this.__aT,r=this.__aR,d=s[e],n=1;n<=r;n++){new Date(_,i,n).getDay()===d&&(a=a.slice(0,n-1)+(t?"1":"0")+a.slice(n))}this.__aU=a,this.render(!0)},render:function(e){this.updater.digest({days:this.__aR,selected:this.__aU}),this.__aV=function(e){for(var t={},a=e.length;a--;)"1"===e.charAt(a)&&(t[a]=1);return t}(this.__aU),this.__h.trigger({type:"sync",ignoreSync:e,days:this.__aU})},__aJ:function(){for(var e=this.__aU,t=this.__aS,a=this.__aT,i=this.__aR,s={},d=1;d<=i;d++)if("1"!=e.charAt(d-1)){var n=new Date(t,a,d);s[r[n.getDay()]]=1}return _.keys(s)},"__e<change,click>":function(e){e.stopPropagation();var t=i(e.node),a=this.updater.get(),s=t.data("day"),r=this.__aV,d=this.__aW;"add"==e.action?r[s]?(t.removeClass("_bW"),delete r[s],"drag"==e.mode&&(d[s]=1)):(t.addClass("_bW"),r[s]=1,"drag"==e.mode&&delete d[s]):"remove"==e.action&&(d[s]?(t.addClass("_bW"),r[s]=1,"drag"==e.mode&&delete d[s]):(t.removeClass("_bW"),delete r[s],"drag"==e.mode&&(d[s]=1)));for(var n=this.__aR,h="",o=0;o<n;o++)_.has(r,o)?h+="1":h+="0";a.selected=this.__aU=h,"click"==e.mode&&this.__h.trigger({type:"change",days:h})},"__aY<dragbegin>":function(e){e.stopPropagation();this.__aX=this.__aU,this.__aW={}},"__aZ<dragfinish>":function(e){e.stopPropagation();this.__aU!=this.__aX&&this.__h.trigger({type:"change",days:this.__aU}),delete this.__aW}})});
+/*
+    generate by magix-combine@3.8.3: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-day/month",["magix","$","mx-dragselect/index"],(require,exports,module)=>{
+/*Magix,$*/
+require("mx-dragselect/index");
+/*
+ver:2.0.1
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+Magix.applyStyle("_m","._c_{padding:0;height:38.4px;overflow:hidden;cursor:default;border:none;border-right:1px solid #e6e6e6}._ca{border-right:none}._cb{background-color:#f37b63}._cc{opacity:0}._cd{cursor:not-allowed;background-color:#fbfbfb}");
+var $ = require("$");
+var Weeks = {
+    MON: 1,
+    TUE: 2,
+    WED: 3,
+    THU: 4,
+    FRI: 5,
+    SAT: 6,
+    SUN: 0
+};
+var WeeksToKey = {
+    1: 'MON',
+    2: 'TUE',
+    3: 'WED',
+    4: 'THU',
+    5: 'FRI',
+    6: 'SAT',
+    0: 'SUN'
+};
+var GetNumOfDays = function (year, month) {
+    return 32 - new Date(year, month, 32).getDate();
+};
+var GetDaysStr = function (str, days) {
+    str = str || '';
+    str = str.slice(0, days);
+    for (var i = 0; i < days; i++) {
+        if (str.length <= i) {
+            str += '0';
+        }
+    }
+    return str;
+};
+var GetDragInfo = function (str) {
+    var info = {};
+    for (var i = str.length; i--;) {
+        if (str.charAt(i) === '1') {
+            info[i] = 1;
+        }
+    }
+    return info;
+};
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<table class=\"_W _X\"><tbody><tr mx-change=\"\u001f\u001e__f()\" mx-dragbegin=\"\u001f\u001e__bd()\" mx-dragfinish=\"\u001f\u001e__be()\" mx-view=\"mx-dragselect/index?selector=td%5Benable%3Dtrue%5D\"><%for(var _=0;_<31;_++){%><td data-day=\"<%=_%>\" enable=\"<%=_<$$.days?true:false%>\" class=\"_c_<%if($$.selected.charAt(_)==='1'){%> _cb<%}if(_==30){%> _ca<%}if(_>=$$.days){%> _cd<%}%>\"><span class=\"_cc\"><%=('0'+(_+1)).slice(-2)%></span></td><%}%></tr></tbody></table>"},
+    init: function (extra) {
+        var me = this;
+        me.assign(extra);
+        me['__i'] = $('#' + me.id);
+    },
+    assign: function (ops) {
+        var me = this;
+        var days = GetNumOfDays(ops.year, ops.month);
+        me['__aX'] = days;
+        me['__aY'] = ops.year;
+        me['__aZ'] = ops.month;
+        me['__b_'] = GetDaysStr(ops.selected, days);
+        return true;
+    },
+    '__q': function (selected) {
+        var me = this;
+        if (selected) {
+            var days = me['__aX'];
+            me['__b_'] = GetDaysStr(selected, days);
+            me.render();
+        }
+    },
+    '__aS': function (week, enable) {
+        var me = this;
+        var selected = me['__b_'];
+        var year = me['__aY'];
+        var month = me['__aZ'];
+        var days = me['__aX'];
+        var flag = Weeks[week];
+        for (var i = 1; i <= days; i++) {
+            var date = new Date(year, month, i);
+            if (date.getDay() === flag) {
+                selected = selected.slice(0, i - 1) + (enable ? '1' : '0') + selected.slice(i);
+            }
+        }
+        me['__b_'] = selected;
+        me.render(true);
+    },
+    render: function (ignore) {
+        var me = this;
+        me.updater.digest({
+            days: me['__aX'],
+            selected: me['__b_']
+        });
+        me['__ba'] = GetDragInfo(me['__b_']);
+        me['__i'].trigger({
+            type: 'sync',
+            ignoreSync: ignore,
+            days: me['__b_']
+        });
+    },
+    '__aP': function () {
+        var me = this;
+        var selected = me['__b_'];
+        var year = me['__aY'];
+        var month = me['__aZ'];
+        var days = me['__aX'];
+        var dis = {};
+        for (var i = 1; i <= days; i++) {
+            if (selected.charAt(i - 1) != '1') {
+                var date = new Date(year, month, i);
+                var key = WeeksToKey[date.getDay()];
+                dis[key] = 1;
+            }
+        }
+        return Magix.keys(dis);
+    },
+    '__f<change,click>': function (e) {
+        e.stopPropagation();
+        var node = $(e.node);
+        var me = this;
+        var data = me.updater.get();
+        var day = node.data('day');
+        var dragSelected = me['__ba'];
+        var dragTemp = me['__bb'];
+        if (e.action == 'add') {
+            if (dragSelected[day]) {
+                node.removeClass('_cb');
+                delete dragSelected[day];
+                if (e.mode == 'drag') {
+                    dragTemp[day] = 1;
+                }
+            }
+            else {
+                node.addClass('_cb');
+                dragSelected[day] = 1;
+                if (e.mode == 'drag') {
+                    delete dragTemp[day];
+                }
+            }
+        }
+        else if (e.action == 'remove') {
+            if (dragTemp[day]) {
+                node.addClass('_cb');
+                dragSelected[day] = 1;
+                if (e.mode == 'drag') {
+                    delete dragTemp[day];
+                }
+            }
+            else {
+                node.removeClass('_cb');
+                delete dragSelected[day];
+                if (e.mode == 'drag') {
+                    dragTemp[day] = 1;
+                }
+            }
+        }
+        var days = me['__aX'];
+        var s = '';
+        for (var i = 0; i < days; i++) {
+            if (!Magix.has(dragSelected, i)) {
+                s += '0';
+            }
+            else {
+                s += '1';
+            }
+        }
+        data.selected = me['__b_'] = s;
+        if (e.mode == 'click') {
+            me['__i'].trigger({
+                type: 'change',
+                days: s
+            });
+        }
+    },
+    '__bd<dragbegin>': function (e) {
+        e.stopPropagation();
+        var me = this;
+        me['__bc'] = me['__b_'];
+        me['__bb'] = {};
+    },
+    '__be<dragfinish>': function (e) {
+        e.stopPropagation();
+        var me = this;
+        if (me['__b_'] != me['__bc']) {
+            me['__i'].trigger({
+                type: 'change',
+                days: me['__b_']
+            });
+        }
+        delete me['__bb'];
+    }
+});
+
+});

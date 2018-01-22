@@ -1,1 +1,26 @@
-define("mx-form/__test__/sub1",["magix","../index"],(e,a,i)=>{var s=e("magix"),t=e("../index");i.exports=s.View.extend({tmpl:{html:'<div class="_av _ai"><label class="_aw _ax">活动名称：</label><div class="_ay"><input mx-guid="g0" mx-ssid="0" class="_ap" placeholder="请填写活动名称" value="<%=$$.name%>" mx-change="__b({c:[{p:\'name\',f:{required:true,blength:[20,50]}}]})" mx-focusout="__b()" mx-focusin="__b()"></div></div>',subs:[{keys:["name"],path:'input[mx-guid="g0"]',attr:'value="<%=$$.name%>"',attrs:[{n:"value",q:1,p:1}]}]},mixins:[t],render:function(){this.updater.digest()}})});
+/*
+    generate by magix-combine@3.8.3: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-form/__test__/sub1",["magix","../index"],(require,exports,module)=>{
+/*Magix,Form*/
+
+/*
+ver:2.0.1
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+var Form = require("../index");
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<div class=\"_av _ai\"><label class=\"_aw _ax\">活动名称：</label><div class=\"_ay\"><input mx-ssid=\"\u001f0\" class=\"_ap\" placeholder=\"请填写活动名称\" value=\"<%=$$.name%>\" mx-change=\"\u001f\u001e__b({c:[{p:'name',f:{required:true,blength:[20,50]}}]})\" mx-focusout=\"\u001f\u001e__b()\" mx-focusin=\"\u001f\u001e__b()\"></div></div>"},
+    mixins: [Form],
+    render: function () {
+        var me = this;
+        me.updater.digest();
+    }
+});
+
+});

@@ -20,7 +20,14 @@ module.exports = {
             }
         });
         me.on('rendered', () => {
-            me['@{ui.rendered}'] = true;
+            me['@{ui.rendered}'] = 1;
+            me.hideLoading();
+        });
+        me.on('domready', () => {
+            me['@{ui.rendered}'] = 1;
+            me.hideLoading();
+        });
+        me.on('destroy', () => {
             me.hideLoading();
         });
         //Doc.on('ajaxSend', () => {

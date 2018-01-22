@@ -2,9 +2,7 @@
 <div class="scroll-cnt" style="z-index:<%=zIndex%>;">
     <div class="dialog anim-body" data-spm-protocol="i" id="body_<%=viewId%>" style="left:<%=left%>px;top:<%=top%>px;width:<%=width%>px;">
         <input id="focus_<%=viewId%>" class="focus" />
-        <button type="button" mx-click="@{close}()" class="dialog-close <%= closable ? '' : 'none' %>">
-            <span class="mc-iconfont iconfont-ext">&#xe67f;</span>
-        </button>
+        <span class="mc-iconfont iconfont-ext dialog-close <%= closable ? '' : 'none' %>" mx-click="@{close}()">&#xe67f;</span>
         <div class="dialog-content dialog-content-ext" id="cnt_<%=viewId%>">
             <div class="loading loading-ext"><span class="loading-anim"></span></div>
         </div>

@@ -5,11 +5,11 @@
         searchbox="<%@searchbox%>"
         empty-text="请选择日期"
         mx-change="showWeek()" style="width:150px;">
-        <item value="mon">周一</item>
-        <item value="wed">周三</item>
-        <item value="thu">周四</item>
-        <item value="fri">周五</item>
-        <item value="sat">周六</item>
+        <mx-dropdown.item value="mon">周一</mx-dropdown.item>
+        <mx-dropdown.item value="wed">周三</mx-dropdown.item>
+        <mx-dropdown.item value="thu">周四</mx-dropdown.item>
+        <mx-dropdown.item value="fri">周五</mx-dropdown.item>
+        <mx-dropdown.item value="sat">周六</mx-dropdown.item>
     </mx-dropdown><button mx-click="test()" class="btn ml5 btn-brand">toggle searchbox</button>
     <mx-dropdown
         searchbox="true"
@@ -17,40 +17,40 @@
         mx-change="showWeek()"
         disabled="true"
         class="ml20" style="width:150px;border-radius: 4px 0 0 4px;">
-        <item value="mon">周一</item>
-        <item value="wed">周三</item>
-        <item value="thu">周四</item>
-        <item value="fri">周五</item>
-        <item value="sat">周六</item>
+        <mx-dropdown.item value="mon">周一</mx-dropdown.item>
+        <mx-dropdown.item value="wed">周三</mx-dropdown.item>
+        <mx-dropdown.item value="thu">周四</mx-dropdown.item>
+        <mx-dropdown.item value="fri">周五</mx-dropdown.item>
+        <mx-dropdown.item value="sat">周六</mx-dropdown.item>
     </mx-dropdown>
     <mx-dropdown
         searchbox="true"
         empty-text="请选择日期"
         mx-change="showWeek()"
         style="width:150px;margin-left:-1px; border-radius: 0 4px 4px 0">
-        <item value="mon">周一</item>
-        <item value="wed">周三</item>
-        <item value="thu">周四</item>
-        <item value="fri">周五</item>
-        <item value="sat">周六</item>
+        <mx-dropdown.item value="mon">周一</mx-dropdown.item>
+        <mx-dropdown.item value="wed">周三</mx-dropdown.item>
+        <mx-dropdown.item value="thu">周四</mx-dropdown.item>
+        <mx-dropdown.item value="fri">周五</mx-dropdown.item>
+        <mx-dropdown.item value="sat">周六</mx-dropdown.item>
     </mx-dropdown>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-dropdown
+    <pre mx-view="__test__/hl">&lt;mx-dropdown
     searchbox="true"
     empty-text="请选择日期"
     mx-change="showWeek()"
     class="fl" style="width:150px;"&gt;
-    &lt;item value="mon"&gt;周一&lt;/item&gt;
-    &lt;item value="wed"&gt;周三&lt;/item&gt;
-    &lt;item value="thu"&gt;周四&lt;/item&gt;
-    &lt;item value="fri"&gt;周五&lt;/item&gt;
-    &lt;item value="sat"&gt;周六&lt;/item&gt;
+    &lt;mx-dropdown.item value="mon"&gt;周一&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="wed"&gt;周三&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="thu"&gt;周四&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="fri"&gt;周五&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="sat"&gt;周六&lt;/mx-dropdown.item&gt;
 &lt;/mx-dropdown&gt;</pre>
     <div class="pt10">Javascript Code:</div>
-    <pre>let Magix = require('magix');
+    <pre mx-view="__test__/hl">let Magix = require('magix');
 let GTip = require('app/gallery/mx-gtip/index');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -72,43 +72,43 @@ module.exports = Magix.View.extend({
         empty-text="请选择日期"
         mx-change="showWeek()"
         class="fl" style="width:150px;">
-        <item group="true">本周日期</item>
-        <item value="mon">周一</item>
-        <item value="wed">周三</item>
-        <item value="thu">周四</item>
-        <item value="fri">周五</item>
-        <item value="sat">周六</item>
-        <item group="true">下周日期</item>
-        <item value="next-mon">下周一</item>
-        <item value="next-wed">下周三</item>
-        <item value="next-thu">下周四</item>
-        <item value="next-fri">下周五</item>
-        <item value="next-sat">下周六</item>
+        <mx-dropdown.item group="true">本周日期</mx-dropdown.item>
+        <mx-dropdown.item value="mon">周一</mx-dropdown.item>
+        <mx-dropdown.item value="wed">周三</mx-dropdown.item>
+        <mx-dropdown.item value="thu">周四</mx-dropdown.item>
+        <mx-dropdown.item value="fri">周五</mx-dropdown.item>
+        <mx-dropdown.item value="sat">周六</mx-dropdown.item>
+        <mx-dropdown.item group="true">下周日期</mx-dropdown.item>
+        <mx-dropdown.item value="next-mon">下周一</mx-dropdown.item>
+        <mx-dropdown.item value="next-wed">下周三</mx-dropdown.item>
+        <mx-dropdown.item value="next-thu">下周四</mx-dropdown.item>
+        <mx-dropdown.item value="next-fri">下周五</mx-dropdown.item>
+        <mx-dropdown.item value="next-sat">下周六</mx-dropdown.item>
     </mx-dropdown>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-dropdown
+    <pre mx-view="__test__/hl">&lt;mx-dropdown
     searchbox="true"
     empty-text="请选择日期"
     mx-change="showWeek()"
     class="fl" style="width:150px;"&gt;
-    &lt;item group="true"&gt;本周日期&lt;/item&gt;
-    &lt;item value="mon"&gt;周一&lt;/item&gt;
-    &lt;item value="wed"&gt;周三&lt;/item&gt;
-    &lt;item value="thu"&gt;周四&lt;/item&gt;
-    &lt;item value="fri"&gt;周五&lt;/item&gt;
-    &lt;item value="sat"&gt;周六&lt;/item&gt;
-    &lt;item group="true"&gt;下周日期&lt;/item&gt;
-    &lt;item value="next-mon"&gt;下周一&lt;/item&gt;
-    &lt;item value="next-wed"&gt;下周三&lt;/item&gt;
-    &lt;item value="next-thu"&gt;下周四&lt;/item&gt;
-    &lt;item value="next-fri"&gt;下周五&lt;/item&gt;
-    &lt;item value="next-sat"&gt;下周六&lt;/item&gt;
+    &lt;mx-dropdown.item group="true"&gt;本周日期&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="mon"&gt;周一&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="wed"&gt;周三&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="thu"&gt;周四&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="fri"&gt;周五&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="sat"&gt;周六&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item group="true"&gt;下周日期&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="next-mon"&gt;下周一&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="next-wed"&gt;下周三&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="next-thu"&gt;下周四&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="next-fri"&gt;下周五&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="next-sat"&gt;下周六&lt;/mx-dropdown.item&gt;
 &lt;/mx-dropdown&gt;</pre>
     <div class="pt10">Javascript Code:</div>
-    <pre>let Magix = require('magix');
+    <pre mx-view="__test__/hl">let Magix = require('magix');
 let GTip = require('app/gallery/mx-gtip/index');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -139,7 +139,7 @@ module.exports = Magix.View.extend({
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre lang="html">&lt;mx-dropdown
+    <pre lang="html" mx-view="__test__/hl">&lt;mx-dropdown
     searchbox="true"
     empty-text="请选择用户"
     text-key="name"
@@ -150,7 +150,7 @@ module.exports = Magix.View.extend({
     class="fl" style="width:200px;"&gt;
 &lt;/mx-dropdown&gt;</pre>
     <div class="pt10">Javascript Code:</div>
-    <pre>let Magix = require('magix');
+    <pre mx-view="__test__/hl">let Magix = require('magix');
 let GTip = require('app/gallery/mx-gtip/index');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',

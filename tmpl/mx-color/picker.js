@@ -7,17 +7,20 @@ ver:2.0.1
 let Magix = require('magix');
 let $ = require('$');
 let Monitor = require('../mx-monitor/index');
-let Wrapper = '@picker.html';
 require('./index');
 module.exports = Magix.View.extend({
+    tmpl: '@picker.html',
     init(extra) {
         let me = this;
-        me['@{color}'] = extra.color;
         me['@{pos.placement}'] = extra.placement;
         me['@{pos.align}'] = extra.align;
         me['@{show.alpha}'] = extra.showAlpha;
         Monitor['@{setup}']();
-        let ownerNode = $('#' + me.id);
+        let oNode = $('#' + me.id);
+        me['@{color}'] = extra.color || oNode.val();
+        me['@{relate.node}'] = oNode;
+        oNode = oNode.prev('input');
+        oNode.prop('vframe', me.owner);
         let click = () => {
             me['@{show}']();
         };
@@ -29,29 +32,31 @@ module.exports = Magix.View.extend({
         me.on('destroy', () => {
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
-            $('#cpcnt_' + me.id).remove();
-            ownerNode.off('click', click).off('change', change);
+            oNode.off('click', click).off('change', change);
         });
-        ownerNode.on('click', click).on('change', change);
-        me['@{owner.node}'] = ownerNode;
-        ownerNode.prop('autocomplete', 'off');
+        oNode.on('click', click).on('change', change);
+        me['@{owner.node}'] = oNode;
+        oNode.prop('autocomplete', 'off');
     },
     '@{inside}'(node) {
         let me = this;
-        return Magix.inside(node, me.id) || Magix.inside(node, 'cpcnt_' + me.id);
+        return Magix.inside(node, me.id) ||
+            Magix.inside(node, 'temp_' + me.id) ||
+            Magix.inside(node, me['@{owner.node}'][0]);
     },
     render() {
         let me = this;
-        let id = 'cpcnt_' + me.id;
-        me['@{color}'] = me['@{color}'] || me['@{owner.node}'].val();
-        $(me.wrapEvent(Wrapper)).attr('id', id).insertAfter(me['@{owner.node}']);
+        me.updater.digest({
+            viewId: me.id
+        });
     },
     '@{show}'() {
         let me = this;
         if (!me['@{ui.show}']) {
-            let node = $('#cpcnt_' + me.id),
+            let node = me['@{relate.node}'],
                 ref = me['@{owner.node}'];
             me['@{ui.show}'] = true;
+            node.show();
             if (!me['@{core.rendered}']) {
                 me['@{core.rendered}'] = true;
                 me.owner.mountVframe('cpcnt_' + me.id, '@./index', {
@@ -88,22 +93,18 @@ module.exports = Magix.View.extend({
     '@{hide}'() {
         let me = this;
         if (me['@{ui.show}']) {
-            let node = $('#cpcnt_' + me.id);
+            me['@{relate.node}'].hide();
             me['@{ui.show}'] = false;
-            node.css({
-                left: -1e4,
-                top: -1e4
-            });
             Monitor['@{remove}'](me);
         }
     },
     '@{color.picked}<change>'(e) {
         let me = this;
         e.stopPropagation();
+        me['@{hide}']();
         me['@{owner.node}'].val(e.color).trigger({
             type: 'change',
             color: e.color
         });
-        me['@{hide}']();
     }
 });

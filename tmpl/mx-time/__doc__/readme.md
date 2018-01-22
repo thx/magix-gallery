@@ -17,7 +17,7 @@
 | 参数 | 说明 | 类型 | 默认值 |
 | -------- | -------- | -------- | -------- |
 | time    | hh:mm:ss格式的时间 | string | 当前时间 |
-| type     | 可操作的类型 | string | 只能从"all,hour,minute,second"中选择，可多选   |
+| types     | 可操作的类型 | string | 只能从"all,hour,minute,second"中选择，可多选   |
 
 
 #### event
@@ -44,7 +44,7 @@
 | 参数 | 说明 | 类型 | 默认值 |
 | -------- | -------- | -------- | -------- |
 | time    | hh:mm:ss格式的时间 | string | 当前时间 |
-| type     | 可操作的类型 | string | 只能从"all,hour,minute,second"中选择，可多选   |
+| types     | 可操作的类型 | string | 只能从"all,hour,minute,second"中选择，可多选   |
 | placement | 弹出框在目标的方位，仅top与bottom | string | bottom |
 | align | 弹出框与目标的对齐方式，仅left与right | string | left |
 

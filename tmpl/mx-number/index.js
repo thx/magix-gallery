@@ -13,12 +13,13 @@ module.exports = Magix.View.extend({
         let me = this;
         me.assign(extra);
         let node = $('#' + me.id);
-        node.addClass('@scoped.style:input @index.less:wrapper');
         me['@{owner.node}'] = node;
     },
     assign(ops) {
         let me = this;
-        me['@{value}'] = +ops.value || '';
+        let v = +ops.value;
+        if (!v && v !== 0) v = '';
+        me['@{value}'] = v;
         me['@{step}'] = +ops.step || 1;
         me['@{disabled}'] = (ops.disabled + '') === 'true';
         me['@{max}'] = Magix.has(ops, 'max') ? +ops.max : Number.MAX_VALUE;

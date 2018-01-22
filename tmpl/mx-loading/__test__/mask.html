@@ -18,13 +18,13 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>
+    <pre mx-view="__test__/hl">
 &lt;p class="mt10 mb10"&gt;
     第&lt;%=count%&gt;次渲染页面
 &lt;/p&gt;
 &lt;button mx-click="refresh()" class="btn btn-brand mt10"&gt;点此按钮2s后重新渲染当前view&lt;/button&gt;</pre>
 <div class="pt10">Javascript Code:</div>
-    <pre>let Magix = require('magix');
+    <pre mx-view="__test__/hl">let Magix = require('magix');
 let MLoading = require('app/gallery/loading/mask');
 module.exports = Magix.View.extend({
     tmpl: '@mask.html',

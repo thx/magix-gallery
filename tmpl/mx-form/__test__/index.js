@@ -25,7 +25,7 @@ module.exports = Magix.View.extend({
             }, {
                 name: 'e'
             }],
-            checkbox: [],
+            checkbox: ["c1"],
             range: 2,
             range1: [230, 300],
             list: [111111111111111, 222222222222222, 333333333333, 44444444444444]

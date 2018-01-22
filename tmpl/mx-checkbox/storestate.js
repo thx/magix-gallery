@@ -10,9 +10,9 @@ module.exports = {
     ctor() {
         let me = this;
         me['@{state.store}'] = {};
-        me.on('rendered', (e) => {
+        let ready = e => {
             let state = me['@{state.store}'];
-            let ipts = $('#' + e.id + ' input[linkage-parent]');
+            let ipts = $('#' + (e.id || me.id) + ' input[linkage-parent]');
             ipts.each((idx, item) => {
                 let linkName = $(item).attr('linkage-parent');
                 let object = state[linkName];
@@ -22,7 +22,9 @@ module.exports = {
                     item.checked = false;
                 }
             });
-        });
+        };
+        me.on('rendered', ready);
+        me.on('domready', ready);
     },
     getStoreState(key) {
         let store = this['@{state.store}'];
@@ -43,7 +45,7 @@ module.exports = {
         }
         return keys;
     },
-    '$input[linkage-parent]<change>' (e) {
+    '$input[linkage-parent]<change>'(e) {
         let me = this;
         let node = $(e.eventTarget);
         let value = node.val();
@@ -60,7 +62,7 @@ module.exports = {
             }
         }
     },
-    '$input[linkage]<change>' (e) {
+    '$input[linkage]<change>'(e) {
         let me = this;
         let linkName = $(e.eventTarget).attr('linkage');
         let object = me['@{state.store}'][linkName];

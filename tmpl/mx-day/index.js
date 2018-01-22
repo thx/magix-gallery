@@ -66,6 +66,9 @@ module.exports = Magix.View.extend({
     },
     assign(ops) {
         let me = this;
+        if (!ops.years) {
+            ops.years = [new Date().getFullYear()];
+        }
         me['@{years}'] = ops.years;
         me['@{selectedYear}'] = ops.selectedYear || ops.years[0];
         me['@{selectedDays}'] = FormatYearDays(ops.selectedDays);

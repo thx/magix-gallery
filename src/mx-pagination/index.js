@@ -1,1 +1,125 @@
-define("mx-pagination/index",["magix","$","mx-dropdown/index"],(e,a,t)=>{e("mx-dropdown/index");var i=e("magix"),s=e("$"),p=[10,20,30,40,50,100];i.applyStyle("_C","._el{color:#999}._em{font-size:0}._en,._eo{font-size:14px}._eo{margin:0 3px;text-decoration:none;border-radius:4px;text-align:center;min-width:35px;height:28px;line-height:28px;display:block}._ep{font-size:12px;top:-1px}._eq ._eo{color:#fff;background-color:#f96447}._er ._eo,._er ._eo:hover{color:#999;background:transparent;cursor:not-allowed}._es{-webkit-transform:scaleX(-1);transform:scaleX(-1)}"),t.exports=i.View.extend({tmpl:{html:'<div mx-guid="g0" class="_ai _el">1</div>',subs:[{keys:["simplify","mini"],path:'div[mx-guid="g0"]',tmpl:'<%if(!$$.simplify&&!$$.mini){%><span>当前第<b mx-guid="g1">2</b>条，共<b mx-guid="g2">3</b>条，每页展现</span><div mx-guid="g3" style="width:70px" class="_t _h" mx-change="__dV()" mx-view="mx-dropdown/index?list=<%@$$.sizes%>&selected=<%@$$.size%>"></div><span>条</span><%}%><ul mx-guid="g4" class="_ai _ac _em">5</ul>',s:"1"},{keys:["startSpace","offsetStart","offsetEnd","endSpace"],path:'b[mx-guid="g1"]',tmpl:"<%for(var _=$$.startSpace;_--;){%>&nbsp;&nbsp;<%}%><%=$$.offsetStart%> - <%=$$.offsetEnd%><%for(var a=$$.endSpace;a--;){%>&nbsp;&nbsp;<%}%>",s:"2"},{keys:["total"],path:'b[mx-guid="g2"]',tmpl:"<%=$$.total%>",s:"3"},{keys:["sizes","size"],path:'div[mx-guid="g3"]',pKeys:["simplify","mini"],attr:'mx-view="mx-dropdown/index?list=<%@$$.sizes%>&selected=<%@$$.size%>"',attrs:[{n:"mx-view",v:1}]},{keys:["start","end","page","pages"],path:'ul[mx-guid="g4"]',pKeys:["simplify","mini"],tmpl:'<li class="_ac<%if($$.page==1){%> _er<%}%>"><a class="_eo __ _ep" href="#" mx-click="<%if($$.page>1){%>__dU({page:<%=$$.page-1%>})<%}else{%>__D()<%}%>" title="&lt;">&#xe61e;</a></li><%if($$.mini){%><li mx-guid="g7" class="_ac _en">8</li><%}else{if($$.start>1){%><li class="_ac"><a class="_eo" href="#" mx-click="__dU({page:1})" title="1">1</a></li><%}if($$.start>2){%><li class="_er _ac"><a class="_eo" href="#" mx-click="__D()" title="...">...</a></li><%}for(var c=$$.start;c<=$$.end;c++){%><li class="_ac<%if(c==$$.page){%> _eq<%}%>"><a class="_eo" href="#" mx-click="__dU({page:<%=c%>})" title="<%=c%>"><%=c%></a></li><%}if($$.end+2<=$$.pages){%><li class="_ac _er"><a class="_eo" href="#" mx-click="__D()" title="...">...</a></li><%}if($$.end<$$.pages){%><li class="_ac"><a mx-guid="g8" class="_eo" href="#" mx-click="__dU({page:<%=$$.pages%>})" title="<%=$$.pages%>">9</a></li><%}}%><li class="_ac<%if($$.page==$$.pages){%> _er<%}%>"><a class="_eo __ _ep _es" href="#" mx-click="<%if($$.page<$$.pages){%>__dU({page:<%=$$.page+1%>})<%}else{%>__D()<%}%>" title="&gt;">&#xe61e;</a></li>',s:"5"},{keys:["pageSpace"],path:'li[mx-guid="g7"]',pKeys:["simplify","mini","start","end","page","pages"],tmpl:"<%for(var b=$$.pageSpace;b--;){%>&nbsp;&nbsp;<%}%><%=$$.page%> / <%=$$.pages%>",s:"8"},{keys:["pages"],path:'a[mx-guid="g8"]',tmpl:"<%=$$.pages%>",s:"9",attr:'mx-click="__dU({page:<%=$$.pages%>})" title="<%=$$.pages%>"',attrs:[{n:"mx-click"},{n:"title",p:1}]}]},init:function(e){this.updater.set({sizes:p}),this.assign(e)},assign:function(e){var a=0|e.total||0,t=e.size||20,i=e.page||1;return this.updater.set({step:e.step||7,simplify:e.simplify+""=="true",mini:e.mini+""=="true",page:i,total:a,size:t}),!0},render:function(){var e=this.__dT();this.updater.digest(e)},__dT:function(){var e=this.updater.get(),a=0|e.page,t=Math.ceil((e.total||1)/e.size);a>t&&(a=t);var i,s=0|e.step,p=s/2|0,l=Math.max(1,a-p),n=Math.min(t,l+s-1);(l=Math.max(1,n-s+1))<=2&&n+(i=3-l)<t&&(n+=i),n+2>t&&l-(i=2-(t-n))>1&&(l-=i),3==l&&(l-=1),n+2==t&&(n+=1);var g=(a-1)*e.size+1,r=Math.min(e.total,a*e.size);return{pages:t,offsetStart:g,offsetEnd:r,startSpace:(e.total+"").length-(g+"").length,endSpace:(e.total+"").length-(r+"").length,pageSpace:(t+"").length-(a+"").length,page:a,start:l,end:n}},__u:function(){var e=s("#"+this.id),a=this.updater.get();e.trigger({type:"change",page:a.page,size:a.size})},"__dU<click>":function(e){e.preventDefault();this.updater.set(e.params),this.render(),this.__u()},"__dV<change>":function(e){e.stopPropagation();this.updater.set({page:1,size:e.item}),this.render(),this.__u()},"__D<click>":function(e){e.preventDefault()}})});
+/*
+    generate by magix-combine@3.8.3: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-pagination/index",["magix","$","mx-dropdown/index"],(require,exports,module)=>{
+/*Magix,$*/
+require("mx-dropdown/index");
+/*
+ver:2.0.1
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+var DefaultSizes = [10, 20, 30, 40, 50, 100];
+Magix.applyStyle("_C","._el{color:#999}._em{font-size:0}._en,._eo{font-size:14px}._eo{margin:0 3px;text-decoration:none;border-radius:4px;text-align:center;min-width:35px;height:28px;line-height:28px;display:block}._ep{font-size:12px;top:-1px}._eq ._eo{color:#fff;background-color:#f96447}._er ._eo,._er ._eo:hover{color:#999;background:transparent;cursor:not-allowed}._es{-webkit-transform:scaleX(-1);transform:scaleX(-1)}");
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<div class=\"_ai _el\"><%if(!$$.simplify&&!$$.mini){%><span>当前第<b><%for(var _=$$.startSpace;_--;){%>&nbsp;&nbsp;<%}%><%=$$.offsetStart%> - <%=$$.offsetEnd%><%for(var a=$$.endSpace;a--;){%>&nbsp;&nbsp;<%}%></b>条，共<b><%=$$.total%></b>条，每页展现</span><div style=\"width:70px\" class=\"_t _h\" mx-change=\"\u001f\u001e__ea()\" mx-view=\"mx-dropdown/index?list=<%@$$.sizes%>&selected=<%@$$.size%>\"></div><span>条</span><%}%><ul class=\"_ai _ac _em\"><li class=\"_ac<%if($$.page==1){%> _er<%}%>\"><a class=\"_eo __ _ep\" href=\"#\" mx-click=\"\u001f\u001e<%if($$.page>1){%>__e_({page:<%=$$.page-1%>})<%}else{%>__E()<%}%>\" title=\"&lt;\">&#xe61e;</a></li><%if($$.mini){%><li class=\"_ac _en\"><%for(var b=$$.pageSpace;b--;){%>&nbsp;&nbsp;<%}%><%=$$.page%> / <%=$$.pages%></li><%}else{if($$.start>1){%><li class=\"_ac\"><a class=\"_eo\" href=\"#\" mx-click=\"\u001f\u001e__e_({page:1})\" title=\"1\">1</a></li><%}if($$.start>2){%><li class=\"_er _ac\"><a class=\"_eo\" href=\"#\" mx-click=\"\u001f\u001e__E()\" title=\"...\">...</a></li><%}for(var c=$$.start;c<=$$.end;c++){%><li class=\"_ac<%if(c==$$.page){%> _eq<%}%>\"><a class=\"_eo\" href=\"#\" mx-click=\"\u001f\u001e__e_({page:<%=c%>})\" title=\"<%=c%>\"><%=c%></a></li><%}if($$.end+2<=$$.pages){%><li class=\"_ac _er\"><a class=\"_eo\" href=\"#\" mx-click=\"\u001f\u001e__E()\" title=\"...\">...</a></li><%}if($$.end<$$.pages){%><li class=\"_ac\"><a class=\"_eo\" href=\"#\" mx-click=\"\u001f\u001e__e_({page:<%=$$.pages%>})\" title=\"<%=$$.pages%>\"><%=$$.pages%></a></li><%}}%><li class=\"_ac<%if($$.page==$$.pages){%> _er<%}%>\"><a class=\"_eo __ _ep _es\" href=\"#\" mx-click=\"\u001f\u001e<%if($$.page<$$.pages){%>__e_({page:<%=$$.page+1%>})<%}else{%>__E()<%}%>\" title=\"&gt;\">&#xe61e;</a></li></ul></div>"},
+    init: function (extra) {
+        var me = this;
+        me.updater.set({
+            sizes: DefaultSizes
+        });
+        me.assign(extra);
+    },
+    assign: function (ops) {
+        var me = this;
+        var total = (ops.total | 0) || 0;
+        var size = ops.size || 20;
+        var page = ops.page || 1;
+        me.updater.set({
+            step: ops.step || 7,
+            simplify: (ops.simplify + '') === 'true',
+            mini: (ops.mini + '') === 'true',
+            page: page,
+            total: total,
+            size: size
+        });
+        return true;
+    },
+    render: function () {
+        var me = this;
+        var info = me['__dZ']();
+        me.updater.digest(info);
+    },
+    '__dZ': function () {
+        var me = this;
+        var data = me.updater.get();
+        var page = data.page | 0;
+        var pages = Math.ceil((data.total || 1) / data.size);
+        if (page > pages)
+            page = pages;
+        var step = data.step | 0;
+        var middle = step / 2 | 0;
+        var start = Math.max(1, page - middle);
+        var end = Math.min(pages, start + step - 1);
+        start = Math.max(1, end - step + 1);
+        var offset;
+        if (start <= 2) {
+            offset = 3 - start;
+            if (end + offset < pages) {
+                end += offset;
+            }
+        }
+        if (end + 2 > pages) {
+            offset = 2 - (pages - end);
+            if ((start - offset) > 1) {
+                start -= offset;
+            }
+        }
+        if (start == 3) {
+            start -= 1;
+        }
+        if (end + 2 == pages) {
+            end += 1;
+        }
+        var offsetStart = (page - 1) * data.size + 1;
+        var offsetEnd = Math.min(data.total, page * data.size);
+        return {
+            pages: pages,
+            offsetStart: offsetStart,
+            offsetEnd: offsetEnd,
+            startSpace: (data.total + '').length - (offsetStart + '').length,
+            endSpace: (data.total + '').length - (offsetEnd + '').length,
+            pageSpace: (pages + '').length - (page + '').length,
+            page: page,
+            start: start,
+            end: end
+        };
+    },
+    '__v': function () {
+        var me = this;
+        var node = $('#' + me.id);
+        var data = me.updater.get();
+        node.trigger({
+            type: 'change',
+            page: data.page,
+            size: data.size
+        });
+    },
+    '__e_<click>': function (e) {
+        e.preventDefault();
+        var me = this;
+        me.updater.set(e.params);
+        me.render();
+        me['__v']();
+    },
+    '__ea<change>': function (e) {
+        e.stopPropagation();
+        var me = this;
+        me.updater.set({
+            page: 1,
+            size: e.item
+        });
+        me.render();
+        me['__v']();
+    },
+    '__E<click>': function (e) {
+        e.preventDefault();
+    }
+});
+
+});

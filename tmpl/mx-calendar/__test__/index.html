@@ -6,7 +6,7 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-calendar /&gt;</pre>
+    <pre mx-view="__test__/hl">&lt;mx-calendar /&gt;</pre>
 </div>
 <h3 class="mt30">默认选中某天</h3>
 <div class="pt20 clearfix">
@@ -16,7 +16,7 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-calendar
+    <pre mx-view="__test__/hl">&lt;mx-calendar
     selected="2018-01-01"/&gt;</pre>
 </div>
 <h3 class="mt30">设置可选择的范围</h3>
@@ -29,7 +29,7 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-calendar
+    <pre mx-view="__test__/hl">&lt;mx-calendar
     min="2017-08-05"
     max="2017-08-22"
     selected="2017-08-12"/&gt;</pre>
@@ -43,7 +43,7 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-calendar
+    <pre mx-view="__test__/hl">&lt;mx-calendar
     week-start="2"/&gt;</pre>
 </div>
 <h3 class="mt30">带时分秒</h3>
@@ -54,7 +54,7 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-calendar
+    <pre mx-view="__test__/hl">&lt;mx-calendar
     time-type="all"&gt;</pre>
 </div>
 
@@ -67,7 +67,7 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-calendar
+    <pre mx-view="__test__/hl">&lt;mx-calendar
     time-type="all"
     selected="2018-08-08 18:08:20"/&gt;</pre>
 </div>
@@ -81,7 +81,7 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-calendar
+    <pre mx-view="__test__/hl">&lt;mx-calendar
     time-type="hour,minute"/&gt;</pre>
 </div>
 
@@ -95,12 +95,12 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-calendar
+    <pre mx-view="__test__/hl">&lt;mx-calendar
     time-type="all"
     selected="2018-08-08 18:08:20"
     mx-change="showDatetime()"/&gt;</pre>
     <div class="pt10">Javascript Code:</div>
-    <pre>let Magix = require('magix');
+    <pre mx-view="__test__/hl">let Magix = require('magix');
 let GTip = require('mx-gtip/index');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',

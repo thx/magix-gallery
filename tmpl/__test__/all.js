@@ -15,12 +15,12 @@ module.exports = Magix.View.extend({
             path: true
         });
         this.owner.on('created', () => {
-            $('pre').each((i, it) => {
-                if (!it.rendered) {
-                    it.rendered = true;
-                    hljs.highlightBlock(it);
-                }
-            });
+            // $('pre').each((i, it) => {
+            //     if (!it.rendered) {
+            //         it.rendered = true;
+            //         hljs.highlightBlock(it);
+            //     }
+            // });
             let loc = Magix.Router.parse();
             if (loc.get('inline')) {
                 $('h2').remove();
@@ -51,6 +51,7 @@ module.exports = Magix.View.extend({
         });
     }
 });
+'@./hl.js';
 '@./list.js';
 '@../mx-calendar/__test__/index.js';
 '@../mx-calendar/__test__/datepicker.js';

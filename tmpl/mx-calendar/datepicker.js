@@ -8,15 +8,18 @@ let Magix = require('magix');
 let $ = require('$');
 let Vframe = Magix.Vframe;
 let Monitor = require('../mx-monitor/index');
-let Wrapper = '@datepicker.html';
 require('./index');
 module.exports = Magix.View.extend({
+    tmpl: '@datepicker.html',
     init(extra) {
         let me = this;
         extra.hasBtn = 1;
         me['@{extra}'] = extra;
         Monitor['@{setup}']();
         let oNode = $('#' + me.id);
+        me['@{relate.node}'] = oNode;
+        oNode = oNode.prev('input');
+        oNode.prop('vframe', me.owner);
         let click = () => {
             me['@{show}']();
         };
@@ -28,7 +31,6 @@ module.exports = Magix.View.extend({
         me.on('destroy', () => {
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
-            $('#dpcnt_' + me.id).remove();
             oNode.off('click', click).off('change', change);
         });
         oNode.on('click', click).on('change', change);
@@ -37,7 +39,8 @@ module.exports = Magix.View.extend({
     },
     '@{inside}'(node) {
         let me = this;
-        return Magix.inside(node, me.id) || Magix.inside(node, 'dpcnt_' + me.id);
+        return Magix.inside(node, me.id) ||
+            Magix.inside(node, me['@{owner.node}'][0]);
     },
     update(options) {
         let me = this;
@@ -46,8 +49,9 @@ module.exports = Magix.View.extend({
     },
     render() {
         let me = this;
-        let id = 'dpcnt_' + me.id;
-        $(me.wrapEvent(Wrapper)).attr('id', id).insertAfter(me['@{owner.node}']);
+        me.updater.digest({
+            viewId: me.id
+        });
         if (!me['@{extra}'].selected) {
             me['@{extra}'].selected = me['@{owner.node}'].val();
         }
@@ -55,9 +59,10 @@ module.exports = Magix.View.extend({
     '@{show}'() {
         let me = this;
         if (!me['@{ui.show}']) {
-            let node = $('#dpcnt_' + me.id),
+            let node = me['@{relate.node}'],
                 ref = me['@{owner.node}'];
             me['@{ui.show}'] = true;
+            node.show();
             Monitor['@{add}'](me);
             if (!me['@{core.rendered}']) {
                 me['@{core.rendered}'] = true;
@@ -96,10 +101,7 @@ module.exports = Magix.View.extend({
                 vf.invoke('@{toDefaultPanel}');
             }
             me['@{ui.show}'] = false;
-            node.css({
-                left: -1e4,
-                top: -1e4
-            });
+            me['@{relate.node}'].hide();
             Monitor['@{remove}'](me);
         }
     },

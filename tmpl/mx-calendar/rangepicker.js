@@ -9,7 +9,6 @@ let $ = require('$');
 let Monitor = require('../mx-monitor/index');
 let Calendar = require('./index');
 let RangeDate = require('./range');
-let Wrapper = '@rangepicker.html';
 let DefaultQuickDateKeys = [
     'today',
     'yesterday',
@@ -19,6 +18,7 @@ let DefaultQuickDateKeys = [
     'lastest15'
 ];
 let Rangepicker = Magix.View.extend({
+    tmpl: '@rangepicker.html',
     init(extra) {
         let me = this;
         let start = extra.start;
@@ -47,6 +47,9 @@ let Rangepicker = Magix.View.extend({
         me['@{dates}'] = RangeDate.getDescription(start, end, me['@{dates.quick}'], formatter);
         Monitor['@{setup}']();
         let oNode = $('#' + me.id);
+        me['@{relate.node}'] = oNode;
+        oNode = oNode.prev('input');
+        oNode.prop('vframe', me.owner);
         let click = () => {
             me['@{show}']();
         };
@@ -58,7 +61,6 @@ let Rangepicker = Magix.View.extend({
         me.on('destroy', () => {
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
-            $('#rpcnt_' + me.id).remove();
             oNode.off('click', click).off('change', change);
         });
         oNode.on('click', click).on('change', change);
@@ -67,7 +69,8 @@ let Rangepicker = Magix.View.extend({
     },
     '@{inside}'(node) {
         let me = this;
-        let inView = Magix.inside(node, me.id) || Magix.inside(node, 'rpcnt_' + me.id);
+        let inView = Magix.inside(node, me.id) ||
+            Magix.inside(node, me['@{owner.node}'][0]);
         if (!inView) {
             let children = me.owner.children();
             for (let i = children.length - 1; i >= 0; i--) {
@@ -91,8 +94,9 @@ let Rangepicker = Magix.View.extend({
     },
     render() {
         let me = this;
-        let id = 'rpcnt_' + me.id;
-        $(me.wrapEvent(Wrapper)).attr('id', id).insertAfter(me['@{owner.node}']);
+        me.updater.digest({
+            viewId: me.id
+        });
         if (me['@{auto.fillback}']) {
             me['@{fill.to.node}']();
         }
@@ -100,8 +104,9 @@ let Rangepicker = Magix.View.extend({
     '@{show}'() {
         let me = this;
         if (!me['@{ui.show}']) {
-            let node = $('#rpcnt_' + me.id),
+            let node = me['@{relate.node}'],
                 ref = me['@{owner.node}'];
+            node.show();
             me['@{ui.show}'] = true;
             if (!me['@{core.rendered}']) {
                 me['@{core.rendered}'] = true;
@@ -145,12 +150,9 @@ let Rangepicker = Magix.View.extend({
     '@{hide}'(ignore) {
         let me = this;
         if (me['@{ui.show}']) {
+            me['@{relate.node}'].hide();
             let node = $('#rpcnt_' + me.id);
             me['@{ui.show}'] = false;
-            node.css({
-                left: -1e4,
-                top: -1e4
-            });
             Monitor['@{remove}'](me);
             if (!ignore) {
                 node.invokeView('@{restore}');

@@ -1,11 +1,11 @@
-<div class="hp100" style="<%if(sv){%>height:<%=h*dn%><%}else{%>width:<%=w*dn%><%}%>px;transform:translate3d(<%if(sv){%>0,-<%=an*h%>px<%}else{%>-<%=an*w%>px,0<%}%>,0);<%if(!im){%>transition:transform 0.5s<%}%>" mx-mouseover="@{stop}()" mx-mouseout="@{start}()">
-
+<div class="hp100" mx-mouseover="@{stop}()" mx-mouseout="@{start}()">
+    <%!html%>
 </div>
 <%if(sd){%>
 <ul class="<%if(sv){%>v-dots<%}else{%>dots<%}%>" mx-mouseover="@{stop}()" mx-mouseout="@{start}()">
     <%for(let i=0;i<dn;i++){%>
         <li class="<%if(sv){%>v-dot-cnt<%}else{%>dot-cnt<%}%>">
-            <i class="<%if(sv){%>v-dot<%}else{%>dot<%}%><%if(i==an){%> <%if(sv){%>v-active<%}else{%>active<%}%><%}%>" mx-click="@{active}({idx:<%!i%>})"></i>
+            <i class="<%if(sv){%>v-dot<%}else{%>dot<%}%>" mx-click="@{active}({idx:<%!i%>})"></i>
         </li>
     <%}%>
 </ul>

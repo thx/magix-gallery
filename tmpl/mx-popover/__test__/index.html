@@ -1,61 +1,125 @@
 <h2>mx-popover</h2>
 <div class="clearfix" style="margin:100px;">
-    <button class="btn" mx-view="mx-popover/index"
-        view-content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容">提示右</button>
-    <button class="btn ml10" mx-view="mx-popover/index"
-        view-content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
-        view-placement="top">提示上</button>
-    <button class="btn ml10" mx-view="mx-popover/index"
-        view-content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
-        view-placement="bottom">提示下</button>
-    <button class="btn ml10" mx-view="mx-popover/index"
-        view-content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
-        view-placement="left">提示左</button>
-    <button class="btn ml10" mx-view="mx-popover/index"
-        view-content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
-        view-placement="left"
-        view-align="top">提示左顶部对齐</button>
-    <button class="btn ml10" mx-view="mx-popover/index"
-        view-content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
-        view-placement="right"
-        view-align="top">提示右顶部对齐</button>
-    <button class="btn ml10" mx-view="mx-popover/index"
-        view-content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
-        view-placement="top"
-        view-align="left">提示上左对齐</button>
-    <button class="btn ml10" mx-view="mx-popover/index"
-        view-content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
-        view-placement="top"
-        view-align="right">提示上右对齐</button>
+    <mx-popover
+        tag="button"
+        class="btn"
+        content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容">
+        提示右
+    </mx-popover>
+    <mx-popover
+        tag="button"
+        class="btn ml10"
+        content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
+        placement="top">
+        提示上
+    </mx-popover>
+    <mx-popover
+        tag="button"
+        class="btn ml10"
+        content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
+        placement="bottom">
+        提示下
+    </mx-popover>
+    <mx-popover
+        tag="button"
+        class="btn ml10"
+        content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
+        placement="left">
+        提示左
+    </mx-popover>
+    <mx-popover
+        tag="button"
+        class="btn ml10"
+        content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
+        placement="left"
+        align="top">
+        提示左,顶部对齐
+    </mx-popover>
+    <mx-popover
+        tag="button"
+        class="btn ml10"
+        content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
+        placement="right"
+        align="top">
+        提示右,顶部对齐
+    </mx-popover>
+    <mx-popover
+        tag="button"
+        class="btn ml10"
+        content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
+        placement="top"
+        align="left">
+        提示上,左对齐
+    </mx-popover>
+    <mx-popover
+        tag="button"
+        class="btn ml10"
+        content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
+        placement="top"
+        align="right">
+        提示上,右对齐
+    </mx-popover>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;button class="btn" mx-view="app/gallery/mx-popover/index"
-    view-content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"&gt;提示右&lt;/button&gt;
-&lt;button class="btn ml10" mx-view="app/gallery/mx-popover/index"
-    view-content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
-    view-placement="top"&gt;提示上&lt;/button&gt;
-&lt;button class="btn ml10" mx-view="app/gallery/mx-popover/index"
-    view-content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
-    view-placement="bottom"&gt;提示下&lt;/button&gt;
-&lt;button class="btn ml10" mx-view="app/gallery/mx-popover/index"
-    view-content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
-    view-placement="left"&gt;提示左&lt;/button&gt;
-&lt;button class="btn ml10" mx-view="app/gallery/mx-popover/index"
-    view-content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
-    view-placement="left"
-    view-align="top"&gt;提示左顶部对齐&lt;/button&gt;
-&lt;button class="btn ml10" mx-view="app/gallery/mx-popover/index"
-    view-content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
-    view-placement="right"
-    view-align="top"&gt;提示右顶部对齐&lt;/button&gt;
-&lt;button class="btn ml10" mx-view="app/gallery/mx-popover/index"
-    view-content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
-    view-placement="top"
-    view-align="left"&gt;提示上左对齐&lt;/button&gt;
-&lt;button class="btn ml10" mx-view="app/gallery/mx-popover/index"
-    view-content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
-    view-placement="top"
-    view-align="right"&gt;提示上右对齐&lt;/button&gt;</pre>
+    <pre mx-view="__test__/hl">&lt;mx-popover
+    tag="button"
+    class="btn"
+    content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"&gt;
+    提示右
+&lt;/mx-popover&gt;
+&lt;mx-popover
+    tag="button"
+    class="btn ml10"
+    content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
+    placement="top"&gt;
+    提示上
+&lt;/mx-popover&gt;
+&lt;mx-popover
+    tag="button"
+    class="btn ml10"
+    content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
+    placement="bottom"&gt;
+    提示下
+&lt;/mx-popover&gt;
+&lt;mx-popover
+    tag="button"
+    class="btn ml10"
+    content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
+    placement="left"&gt;
+    提示左
+&lt;/mx-popover&gt;
+&lt;mx-popover
+    tag="button"
+    class="btn ml10"
+    content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
+    placement="left"
+    align="top"&gt;
+    提示左,顶部对齐
+&lt;/mx-popover&gt;
+&lt;mx-popover
+    tag="button"
+    class="btn ml10"
+    content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
+    placement="right"
+    align="top"&gt;
+    提示右,顶部对齐
+&lt;/mx-popover&gt;
+&lt;mx-popover
+    tag="button"
+    class="btn ml10"
+    content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
+    placement="top"
+    align="left"&gt;
+    提示上,左对齐
+&lt;/mx-popover&gt;
+&lt;mx-popover
+    tag="button"
+    class="btn ml10"
+    content="提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容"
+    placement="top"
+    align="right"&gt;
+    提示上,右对齐
+&lt;/mx-popover&gt;</pre>
 </div>

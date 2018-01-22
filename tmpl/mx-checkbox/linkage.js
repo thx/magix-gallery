@@ -62,6 +62,9 @@ module.exports = {
         me.on('rendered', () => {
             ApplyTableCheckbox('#' + me.id);
         });
+        me.on('domready', () => {
+            ApplyTableCheckbox('#' + me.id);
+        });
         if (DEBUG) {
             let mixins = me.mixins;
             let linkageBeforeState = false;

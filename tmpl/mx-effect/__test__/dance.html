@@ -3,54 +3,54 @@
 <div class="pt20 clearfix">
     <mx-effect.dance value="<%=content%>" duration="<%=duration%>" dance="<%=dance%>"  />
     <mx-dropdown empty-text="单字效果间隔时间" style="width:180px" selected="<%:duration({refresh:true})%>">
-        <item value="10">10ms</item>
-        <item value="30">30ms</item>
-        <item value="60">60ms</item>
-        <item value="90">90ms</item>
-        <item value="120">120ms</item>
+        <mx-dropdown.item value="10">10ms</mx-dropdown.item>
+        <mx-dropdown.item value="30">30ms</mx-dropdown.item>
+        <mx-dropdown.item value="60">60ms</mx-dropdown.item>
+        <mx-dropdown.item value="90">90ms</mx-dropdown.item>
+        <mx-dropdown.item value="120">120ms</mx-dropdown.item>
     </mx-dropdown>
     <mx-dropdown empty-text="动画效果" style="width:180px" class="ml10" selected="<%:dance({refresh:true})%>">
-        <item value="d1">效果一</item>
-        <item value="d2">效果二</item>
-        <item value="d3">效果三</item>
-        <item value="d4">效果四</item>
-        <item value="d5">效果五</item>
-        <item value="d6">效果六</item>
-        <item value="d7">效果七</item>
-        <item value="d8">效果八</item>
-        <item value="d9">效果九</item>
-        <item value="d10">效果十</item>
-        <item value="d11">效果十一</item>
+        <mx-dropdown.item value="d1">效果一</mx-dropdown.item>
+        <mx-dropdown.item value="d2">效果二</mx-dropdown.item>
+        <mx-dropdown.item value="d3">效果三</mx-dropdown.item>
+        <mx-dropdown.item value="d4">效果四</mx-dropdown.item>
+        <mx-dropdown.item value="d5">效果五</mx-dropdown.item>
+        <mx-dropdown.item value="d6">效果六</mx-dropdown.item>
+        <mx-dropdown.item value="d7">效果七</mx-dropdown.item>
+        <mx-dropdown.item value="d8">效果八</mx-dropdown.item>
+        <mx-dropdown.item value="d9">效果九</mx-dropdown.item>
+        <mx-dropdown.item value="d10">效果十</mx-dropdown.item>
+        <mx-dropdown.item value="d11">效果十一</mx-dropdown.item>
     </mx-dropdown>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>
+    <pre mx-view="__test__/hl">
 &lt;mx-effect.dance value="&lt;%=content%&gt;" duration="&lt;%=duration%&gt;" dance="&lt;%=dance%&gt;"  /&gt;
 &lt;mx-dropdown empty-text="单字效果间隔时间" style="width:180px" selected="&lt;%:duration({refresh:true})%&gt;"&gt;
-    &lt;item value="10"&gt;10ms&lt;/item&gt;
-    &lt;item value="30"&gt;30ms&lt;/item&gt;
-    &lt;item value="60"&gt;60ms&lt;/item&gt;
-    &lt;item value="90"&gt;90ms&lt;/item&gt;
-    &lt;item value="120"&gt;120ms&lt;/item&gt;
+    &lt;mx-dropdown.item value="10"&gt;10ms&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="30"&gt;30ms&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="60"&gt;60ms&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="90"&gt;90ms&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="120"&gt;120ms&lt;/mx-dropdown.item&gt;
 &lt;/mx-dropdown&gt;
 &lt;mx-dropdown empty-text="动画效果" style="width:180px" class="ml10" selected="&lt;%:dance({refresh:true})%&gt;"&gt;
-    &lt;item value="d1"&gt;效果一&lt;/item&gt;
-    &lt;item value="d2"&gt;效果二&lt;/item&gt;
-    &lt;item value="d3"&gt;效果三&lt;/item&gt;
-    &lt;item value="d4"&gt;效果四&lt;/item&gt;
-    &lt;item value="d5"&gt;效果五&lt;/item&gt;
-    &lt;item value="d6"&gt;效果六&lt;/item&gt;
-    &lt;item value="d7"&gt;效果七&lt;/item&gt;
-    &lt;item value="d8"&gt;效果八&lt;/item&gt;
-    &lt;item value="d9"&gt;效果九&lt;/item&gt;
-    &lt;item value="d10"&gt;效果十&lt;/item&gt;
-    &lt;item value="d11"&gt;效果十一&lt;/item&gt;
+    &lt;mx-dropdown.item value="d1"&gt;效果一&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="d2"&gt;效果二&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="d3"&gt;效果三&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="d4"&gt;效果四&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="d5"&gt;效果五&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="d6"&gt;效果六&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="d7"&gt;效果七&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="d8"&gt;效果八&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="d9"&gt;效果九&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="d10"&gt;效果十&lt;/mx-dropdown.item&gt;
+    &lt;mx-dropdown.item value="d11"&gt;效果十一&lt;/mx-dropdown.item&gt;
 &lt;/mx-dropdown&gt;
     </pre>
     <div class="pt10">Javascript Code:</div>
-    <pre>
+    <pre mx-view="__test__/hl">
 let Magix = require('magix');
 let Form = require('app/gallery/mx-form/index');
 module.exports = Magix.View.extend({

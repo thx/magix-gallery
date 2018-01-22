@@ -22,7 +22,7 @@
             </div>
         </div>
         <%if(timeType){%>
-        <mx-time time="<%=timeValue%>" type="<%=timeType%>" class="clearfix time" mx-change="@{setTime}()"/>
+        <mx-time time="<%=timeValue%>" types="<%=timeType%>" class="clearfix time" mx-change="@{setTime}()"/>
             <%if(hasBtn){%>
             <div class="footer">
                 <button type="button" class="btn btn-brand" mx-click="@{hide}({enter:true})">确定</button>
@@ -34,7 +34,7 @@
     <%}%>
 
     <%if(types.month){%>
-    <div id="months_<%=id%>" class="clearfix<%if(types.day){%> m-panel<%}%>">
+    <div class="clearfix<%if(types.day){%> m-panel<%}%><%if(showMonth){%> ym-show<%}%>">
         <div class="header">
             <span class="mc-iconfont minus fl" mx-click="@{changeYear}()">&#xe61e;</span>
             <h4 mx-click="@{showYears}()" class="title"><%=year%></h4>
@@ -49,7 +49,7 @@
     </div>
     <%}%>
     <%if(types.year){%>
-    <div id="years_<%=id%>" class="clearfix<%if(types.day||types.month){%> y-panel<%}%>">
+    <div class="clearfix<%if(types.day||types.month){%> y-panel<%}%><%if(showYear){%> ym-show<%}%>">
         <div class="header">
             <span class="mc-iconfont minus fl" mx-click="@{changeYear}({range:true})">&#xe61e;</span>
             <h4 class="title"><%=startYear%>-<%=endYear%></h4>

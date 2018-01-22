@@ -44,6 +44,9 @@ module.exports = Magix.View.extend({
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
         });
+        let ownerNode = $('#' + me.id);
+        ownerNode.addClass('@index.less:owner');
+        me['@{owner.node}'] = ownerNode;
     },
     assign(ops) {
         let me = this;
@@ -77,11 +80,7 @@ module.exports = Magix.View.extend({
             active: me['@{active.tab}'],
             list: me['@{get.active.list}']()
         });
-        let ownerNode = $('#' + me.id);
-        ownerNode.addClass('@index.less:owner');
-        ownerNode[me['@{ui.disabled}'] ? 'addClass' : 'removeClass']('@index.less:notallowed');
-        me['@{owner.node}'] = ownerNode;
-        me['@{related.node}'] = $('#db_' + me.id);
+        me['@{owner.node}'][me['@{ui.disabled}'] ? 'addClass' : 'removeClass']('@index.less:notallowed');
     },
     '@{get.text}'() {
         let me = this;
@@ -121,8 +120,10 @@ module.exports = Magix.View.extend({
         if (me['@{ui.show}']) {
             me['@{ui.show}'] = false;
             Monitor['@{remove}'](me);
-            me['@{related.node}'].hide();
             me['@{active.to.tab}'](0);
+            me.updater.digest({
+                show: false
+            });
         }
     },
     '@{show}'() {
@@ -130,9 +131,8 @@ module.exports = Magix.View.extend({
         if (!me['@{ui.show}']) {
             me['@{ui.show}'] = true;
             Monitor['@{add}'](me);
-            let offset = me['@{owner.node}'].position();
-            me['@{related.node}'].show().css({
-                left: offset.left + me['@{offset.left}'],
+            me.updater.digest({
+                show: true,
                 top: me['@{owner.node}'].outerHeight() + 5
             });
         }

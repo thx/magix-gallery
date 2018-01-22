@@ -11,8 +11,7 @@ module.exports = Magix.View.extend({
     tmpl: '@index.html',
     init(extra) {
         let me = this;
-        me['@{owner.node}'] = $('#' + me.id);
-        me['@{owner.node}'].addClass('@index.less:as-input');
+        me['@{owner.node}'] = $('#' + me.id).addClass('@index.less:as-input');
         me.assign(extra);
     },
     assign(ops) {

@@ -1,1 +1,164 @@
-define("mx-storage/index",["magix"],(e,t,a)=>{var i,_,r,n=e("magix"),o={},c=!1,s={};_="localStorage";var d=function(){var e=(+new Date).toString(),t=JSON.stringify(s);o.__eH=t,o.__eI=e,"__eJ"==_&&(r.setAttribute("__eI",e),r.setAttribute("__eH",t),r.save("__eK"))},l=n.mix({set:function(e,t){s[e]=t,d()},get:function(e){return s[e]},del:function(e){delete s[e],d()}},n.Event);if(_ in window)try{localStorage.setItem(_,n.guid()),c=!0,localStorage.removeItem(_)}catch(e){}if(c)o=localStorage,i=o.__eI;else if((_="globalStorage")in window)try{var g=window[_];o="localhost"==location.hostname?g.__eL:g[location.hostname],i=o.__eI}catch(e){}else if((r=document.createElement("link")).addBehavior){r.style.behavior="url(#default#userData)",document.getElementsByTagName("head")[0].appendChild(r);try{r.load("__eK")}catch(e){r.setAttribute("__eK","{}"),r.save("__eK"),r.load("__eK")}var f="{}";try{f=r.getAttribute("__eK"),i=r.getAttribute("__eI")}catch(e){}_="__eJ",o.__eH=f}var u=function(){var e;clearTimeout(u.timer),u.timer=setTimeout(function(){if("__eJ"==_){r.load("__eK");try{e=r.getAttribute("__eI")}catch(e){}}else e=o.__eI;if(e&&e!=i){i=e;var t=void 0,a="{}";if("__eJ"==_){r.load("__eK");try{a=r.getAttribute("__eK")}catch(e){}o.__eH=a}t=JSON.parse(o.__eH);for(var c={},d=0,g=n.keys(s).concat(n.keys(t));d<g.length;d++){var f=g[d];if(1!==c[f]){c[f]=1;var u=JSON.stringify(s[f]);JSON.stringify(t[f])!=u&&l.fire("change",{key:f,from:s[f],to:t[f]})}}s=t}},25)};if("addEventListener"in window&&window.addEventListener("pageshow",function(e){e.persisted&&u()},!1),"__eJ"==_?setInterval(u,1e3):"addEventListener"in window?window.addEventListener("storage",u,!1):document.attachEvent("onstorage",u),o.__eH)try{s=JSON.parse(o.__eH)}catch(e){o.__eH="{}"}else o.__eH="{}";a.exports=l});
+/*
+    generate by magix-combine@3.8.3: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-storage/index",["magix"],(require,exports,module)=>{
+/*Magix*/
+
+/*
+ver:2.0.1
+*/
+var Magix = require("magix");
+var StorageService = {}, StorageUpdateTime, Backend, Test = false, StorageLink, StorageData = {};
+Backend = 'localStorage';
+var UpdateStorage = function () {
+    var updateTime = (+new Date()).toString();
+    var dataString = JSON.stringify(StorageData);
+    StorageService['__eL'] = dataString;
+    StorageService['__eM'] = updateTime;
+    if ('__eN' == Backend) {
+        StorageLink.setAttribute('__eM', updateTime);
+        StorageLink.setAttribute('__eL', dataString);
+        StorageLink.save('__eO');
+    }
+};
+var StorageAPI = Magix.mix({
+    set: function (key, value) {
+        StorageData[key] = value;
+        UpdateStorage();
+    },
+    get: function (key) {
+        return StorageData[key];
+    },
+    del: function (key) {
+        delete StorageData[key];
+        UpdateStorage();
+    }
+}, Magix.Event);
+if (Backend in window) {
+    try {
+        localStorage.setItem(Backend, Magix.guid());
+        Test = true;
+        localStorage.removeItem(Backend);
+    }
+    catch (ignore) { }
+}
+if (Test) {
+    StorageService = localStorage;
+    StorageUpdateTime = StorageService['__eM'];
+}
+else {
+    Backend = 'globalStorage';
+    if (Backend in window) {
+        try {
+            var globalStorage = window[Backend];
+            StorageService = 'localhost' == location.hostname ? globalStorage['__eP'] : globalStorage[location.hostname];
+            StorageUpdateTime = StorageService['__eM'];
+        }
+        catch (n) { }
+    }
+    else {
+        StorageLink = document.createElement('link');
+        if (StorageLink.addBehavior) {
+            StorageLink.style.behavior = 'url(#default#userData)';
+            document.getElementsByTagName('head')[0].appendChild(StorageLink);
+            try {
+                StorageLink.load('__eO');
+            }
+            catch (i) {
+                StorageLink.setAttribute('__eO', '{}');
+                StorageLink.save('__eO');
+                StorageLink.load('__eO');
+            }
+            var data = '{}';
+            try {
+                data = StorageLink.getAttribute('__eO');
+                StorageUpdateTime = StorageLink.getAttribute('__eM');
+            }
+            catch (g) { }
+            Backend = '__eN';
+            StorageService['__eL'] = data;
+        }
+    }
+}
+var CheckedChange = function () {
+    var currentUpdate;
+    clearTimeout(CheckedChange.timer);
+    CheckedChange.timer = setTimeout(function () {
+        if ('__eN' == Backend) {
+            StorageLink.load('__eO');
+            try {
+                currentUpdate = StorageLink.getAttribute('__eM');
+            }
+            catch (t) { }
+        }
+        else {
+            currentUpdate = StorageService['__eM'];
+        }
+        if (currentUpdate) {
+            if (currentUpdate != StorageUpdateTime) {
+                StorageUpdateTime = currentUpdate;
+                var newData = void 0, dataString = '{}';
+                if ('__eN' == Backend) {
+                    StorageLink.load('__eO');
+                    try {
+                        dataString = StorageLink.getAttribute('__eO');
+                    }
+                    catch (t) { }
+                    StorageService['__eL'] = dataString;
+                }
+                newData = JSON.parse(StorageService['__eL']);
+                var keys = Magix.keys(StorageData).concat(Magix.keys(newData)), locker = {};
+                for (var _i = 0, keys_1 = keys; _i < keys_1.length; _i++) {
+                    var key = keys_1[_i];
+                    if (locker[key] !== 1) {
+                        locker[key] = 1;
+                        var value1 = JSON.stringify(StorageData[key]);
+                        var value2 = JSON.stringify(newData[key]);
+                        if (value2 != value1) {
+                            StorageAPI.fire('change', {
+                                key: key,
+                                from: StorageData[key],
+                                to: newData[key]
+                            });
+                        }
+                    }
+                }
+                StorageData = newData;
+            }
+        }
+    }, 25);
+};
+if ('addEventListener' in window) {
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted) {
+            CheckedChange();
+        }
+    }, false);
+}
+if (Backend == '__eN') {
+    setInterval(CheckedChange, 1000);
+}
+else {
+    if ('addEventListener' in window) {
+        window.addEventListener('storage', CheckedChange, false);
+    }
+    else {
+        document.attachEvent('onstorage', CheckedChange);
+    }
+}
+if (StorageService['__eL']) {
+    try {
+        StorageData = JSON.parse(StorageService['__eL']);
+    }
+    catch (e) {
+        StorageService['__eL'] = '{}';
+    }
+}
+else {
+    StorageService['__eL'] = '{}';
+}
+module.exports = StorageAPI;
+
+});

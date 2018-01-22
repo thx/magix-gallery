@@ -8,11 +8,11 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-suggest
+    <pre mx-view="__test__/hl">&lt;mx-suggest
     class="input"
     list="&lt;%@list%&gt;"/&gt;</pre>
     <div class="pt10">Javascript Code:</div>
-    <pre>
+    <pre mx-view="__test__/hl">
 let Magix = require('magix');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -36,13 +36,13 @@ module.exports = Magix.View.extend({
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-suggest
+    <pre mx-view="__test__/hl">&lt;mx-suggest
     class="input"
     list="&lt;%@list1%&gt;"
     text-key="text"
     value-key="id"/&gt;</pre>
     <div class="pt10">Javascript Code:</div>
-    <pre>
+    <pre mx-view="__test__/hl">
 let Magix = require('magix');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -97,14 +97,14 @@ module.exports = Magix.View.extend({
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-suggest
+    <pre mx-view="__test__/hl">&lt;mx-suggest
     class="input"
     list="&lt;%@list%&gt;"
     mx-pick="showPick()"
     mx-showlist="showList()"
     mx-hidelist="hideList()"/&gt;</pre>
     <div class="pt10">Javascript Code:</div>
-    <pre>let Magix = require('magix');
+    <pre mx-view="__test__/hl">let Magix = require('magix');
 let GTip = require('app/gallery/mx-gtip/index');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -136,12 +136,12 @@ module.exports = Magix.View.extend({
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-suggest
+    <pre mx-view="__test__/hl">&lt;mx-suggest
     class="input"
     list="&lt;%@list2%&gt;"
     mx-input="updateList()"/&gt;</pre>
     <div class="pt10">Javascript Code:</div>
-    <pre>let Magix = require('magix');
+    <pre mx-view="__test__/hl">let Magix = require('magix');
 let $ = require('$');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',

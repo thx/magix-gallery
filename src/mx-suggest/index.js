@@ -1,1 +1,238 @@
-define("mx-suggest/index",["magix","$","../mx-monitor/index"],(e,t,_)=>{var i=e("magix"),s=e("$"),h=e("../mx-monitor/index");i.applyStyle("_I","._eX{position:absolute;border:1px solid #e6e6e6;font-size:14px;max-height:260px;overflow:auto;list-style:none;border-radius:4px;background-color:#fff;display:none;z-index:10;padding:3px 0;line-height:1.8}._eY{padding:0 4px;cursor:pointer;margin:2px 0}._eZ{color:#666;display:block;width:100%;padding:0 6px;height:29px;line-height:29px;border-radius:4px}._f_,._eZ:active,._eZ:focus,._eZ:hover{color:#333;background-color:#f0f0f0}._f_{border-radius:4px;text-decoration:none;outline:0}"),_.exports=i.View.extend({tmpl:{html:'<ul mx-guid="g0" class="_eX _aj" style="width:<%=$$.width%>px;" mx-mouseout="__eX()" mx-mousemove="__eY()" mx-contextmenu="__am()">1</ul>',subs:[{keys:["width","rList","list","textKey","viewId"],path:'ul[mx-guid="g0"]',tmpl:'<%if($$.rList){for(var _=0,a;_<$$.list.length;_++){a=$$.list[_]%><li class="_eY" title="<%=$$.textKey?a[$$.textKey]:a%>"><a href="#" class="_eZ _al" data-idx="<%=_%>" mx-click="__eW({item:\'<%@a%>\'})" id="sg_<%=$$.viewId%>_<%=_%>"><%=$$.textKey?a[$$.textKey]:a%></a></li><%}}%>',s:"1",attr:'style="width:<%=$$.width%>px;"',attrs:[{n:"style"}],mask:"21111"}]},init:function(e){var t=this;t.__eM=e.list||[],h.__d(),t.on("destroy",function(){h.__f(t),h.__g(),t.__h.off("keyup paste input",t.__eN).off("focus",t.__eO),s("#suggest_"+t.id).remove()}),t.updater.set({viewId:t.id,textKey:e.textKey,valueKey:e.valueKey}),t.__eP=-1},__i:function(e){return i.inside(e,this.id)||i.inside(e,"suggest_"+this.id)},update:function(e,t){t||(this.__eM=e),this.__eP=-1,this.updater.digest({list:this.__eQ=e}),this.__e_&&(e&&e.length?this.__e_.addClass("_eX"):this.__e_.removeClass("_eX"))},render:function(){var e=s("#"+this.id);this.__h=e,e.on("focus",this.__eO=s.proxy(this.__e,this)).on("keyup paste input",this.__eN=s.proxy(this.__eR,this));var t="suggest_"+this.id;s("<div />").attr("id",t).insertAfter(e),this.updater.to(t),this.updater.set({width:e.outerWidth()}),this.update(this.__eM),this.__e_=s("#"+t+" ul"),this.__eM&&this.__eM.length||this.__e_.removeClass("_eX")},__eR:function(e){this.__j||this.__e();var t=this.__eQ;if(40==e.keyCode)this.__eS(),this.__eP++,this.__eP>=t.length&&(this.__eP=0),this.__eT();else if(38==e.keyCode)this.__eS(),this.__eP--,this.__eP<0&&(this.__eP=t.length-1),this.__eT();else if(13==e.keyCode){if(this.__eP>-1&&this.__eP<this.__eQ.length){var _=this.__eQ[this.__eP];this.__h.trigger({type:"pick",item:_});var i=this.updater.get("textKey");i&&(_=_[i]),this.__h.val(_).trigger("change"),this.__eR({target:this.__h[0]}),this.__eS(),this.__eP=-1,this.__a()}}else{var h=s.trim(e.target.value);if(h!=this.__eU)if(this.__eU=h,h){for(var r=[],a=this.__eM.slice(),o=this.updater.get("textKey"),d=0,n=void 0;d<a.length;d++)n=a[d],((o?n[o]:n)+"").indexOf(h)>=0&&r.push(n);this.update(r,!0)}else this.update(this.__eM,!0)}},__e:function(){var e=this.updater;if(!this.__j){this.__j=!0;e.get("rList")||e.digest({rList:!0}),h.__k(this);var t=this.__h.position();this.__e_.css({display:"block",left:t.left+this.$offsetLeft,top:t.top+this.__h.outerHeight()+5}),this.__h.trigger("showlist")}},__eS:function(){s("#sg_"+this.id+"_"+this.__eP).removeClass("_f_")},__eT:function(e){var t=s("#sg_"+this.id+"_"+this.__eP);if(t.addClass("_f_"),!e&&t.length){this.__eV=1;var _=t.outerHeight(),i=(this.__eP+1)*_,h=this.__e_,r=h.height(),a=h.prop("scrollTop"),o=Math.ceil(r/_);i<a+_?h.prop("scrollTop",i-_):i>a+r&&h.prop("scrollTop",(this.__eP+2-o)*_)}},__a:function(){this.__j&&(this.__j=!1,h.__f(this),this.__e_.hide(),this.__h.trigger("hidelist"))},"__eW<click>":function(e){e.preventDefault();var t=e.params.item;this.__h.trigger({type:"pick",item:t});var _=this.updater.get("textKey");_&&(t=t[_]),this.__h.val(t).trigger("change"),this.__eR({target:this.__h[0]}),this.__a()},"__eX<mouseout>":function(e){if(!i.inside(e.relatedTarget,e.eventTarget)){this.__eS(),this.__eP=-1}},"__eY<mousemove>":function(e){if(this.__eV)delete this.__eV;else{var t=s(e.target);if(t.is("li")){var _=t.data("idx");_!=this.__eP&&(this.__eS(),this.__eP=_,this.__eT(!0))}}},"__am<contextmenu>":function(e){e.preventDefault()}})});
+/*
+    generate by magix-combine@3.8.3: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-suggest/index",["magix","$","../mx-monitor/index"],(require,exports,module)=>{
+/*Magix,$,Monitor*/
+
+/*
+ver:2.0.1
+*/
+/*
+    author: xinglie.lkf@ alibaba - inc.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+var Monitor = require("../mx-monitor/index");
+Magix.applyStyle("_I","._eW{border:1px solid #e6e6e6;font-size:14px;max-height:260px;overflow:auto;list-style:none;border-radius:4px;background-color:#fff;z-index:10;padding:3px 0;line-height:1.8;position:relative}._eX{padding:0 4px;cursor:pointer;margin:2px 0}._eY{color:#666;display:block;width:100%;padding:0 6px;height:29px;line-height:29px;border-radius:4px}._eZ,._eY:active,._eY:focus,._eY:hover{color:#333;background-color:#f0f0f0}._eZ{border-radius:4px;text-decoration:none;outline:0}");
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<ul class=\"<%if($$.rList&&$$.list.length){%>_eW <%}%>_aj\" style=\"width:<%=$$.width%>px;\" mx-mouseout=\"\u001f\u001e__eg()\" mx-mousemove=\"\u001f\u001e__fc()\" mx-contextmenu=\"\u001f\u001e__as()\"><%if($$.rList){for(var _=0,a;_<$$.list.length;_++){a=$$.list[_]%><li class=\"_eX\" title=\"<%=$$.textKey?a[$$.textKey]:a%>\"><a href=\"#\" class=\"_eY _al\" data-idx=\"<%=_%>\" mx-click=\"\u001f\u001e__fb({item:'<%@a%>'})\" id=\"sg_<%=$$.viewId%>_<%=_%>\"><%=$$.textKey?a[$$.textKey]:a%></a></li><%}}%></ul>"},
+    init: function (extra) {
+        var me = this;
+        me['__eQ'] = extra.list || [];
+        Monitor['__d']();
+        me.on('destroy', function () {
+            Monitor['__g'](me);
+            Monitor['__h']();
+            me['__i'].off('keyup paste input', me['__eR'])
+                .off('focus', me['__eS']);
+        });
+        me.updater.set({
+            viewId: me.id,
+            textKey: extra.textKey,
+            valueKey: extra.valueKey
+        });
+        me['__eT'] = -1;
+    },
+    '__j': function (node) {
+        return Magix.inside(node, this.id) ||
+            Magix.inside(node, this['__i'][0]);
+    },
+    update: function (list, ignore) {
+        var me = this;
+        clearTimeout(me['__eU']);
+        me['__eU'] = setTimeout(me.wrapAsync(function () {
+            if (!ignore) {
+                me['__eQ'] = list;
+            }
+            me['__eT'] = -1;
+            me.updater.digest({
+                list: me['__eV'] = list
+            });
+        }), 20);
+    },
+    render: function () {
+        var me = this;
+        var oNode = $('#' + me.id);
+        var id = me.id;
+        oNode = oNode.prev('input');
+        me['__i'] = oNode;
+        oNode.on('focus', me['__eS'] = $.proxy(me['__f'], me))
+            .on('keyup paste input', me['__eR'] = $.proxy(me['__eW'], me));
+        oNode.prop('vframe', me.owner);
+        me.updater.set({
+            width: oNode.outerWidth()
+        });
+        me.update(me['__eQ']);
+        me['__e'] = $('#' + id);
+        me['__eX'] = $('#' + id + ' ul');
+    },
+    '__eW': function (e) {
+        var me = this;
+        if (!me['__k'])
+            me['__f']();
+        var slist = me['__eV'];
+        if (e.keyCode == 40) {
+            me['__eY']();
+            me['__eT']++;
+            if (me['__eT'] >= slist.length) {
+                me['__eT'] = 0;
+            }
+            me['__eZ']();
+        }
+        else if (e.keyCode == 38) {
+            me['__eY']();
+            me['__eT']--;
+            if (me['__eT'] < 0) {
+                me['__eT'] = slist.length - 1;
+            }
+            me['__eZ']();
+        }
+        else if (e.keyCode == 13) {
+            if (me['__eT'] > -1 && me['__eT'] < me['__eV'].length) {
+                var item = me['__eV'][me['__eT']];
+                me['__i'].trigger({
+                    type: 'pick',
+                    item: item
+                });
+                var textKey = me.updater.get('textKey');
+                if (textKey) {
+                    item = item[textKey];
+                }
+                me['__i'].val(item).trigger('change');
+                me['__eW']({
+                    target: me['__i'][0]
+                });
+                me['__eY']();
+                me['__eT'] = -1;
+                me['__a']();
+            }
+        }
+        else {
+            var val = $.trim(e.target.value);
+            if (val != me['__f_']) {
+                me['__f_'] = val;
+                if (val) {
+                    var arr = [];
+                    var list = me['__eQ'].slice();
+                    var key = me.updater.get('textKey');
+                    var text = void 0;
+                    for (var i = 0, one = void 0; i < list.length; i++) {
+                        one = list[i];
+                        text = key ? one[key] : one;
+                        if ((text + '').indexOf(val) >= 0) {
+                            arr.push(one);
+                        }
+                    }
+                    me.update(arr, true);
+                }
+                else {
+                    me.update(me['__eQ'], true);
+                }
+            }
+        }
+    },
+    '__f': function () {
+        var me = this;
+        var updater = me.updater;
+        if (!me['__k']) {
+            me['__k'] = true;
+            var rList = updater.get('rList');
+            if (!rList) {
+                updater.digest({
+                    rList: true
+                });
+            }
+            Monitor['__l'](me);
+            var offset = me['__i'].position();
+            me['__e'].css({
+                display: 'block',
+                left: offset.left,
+                top: offset.top + me['__i'].outerHeight() + 5
+            });
+            me['__i'].trigger('showlist');
+        }
+    },
+    '__eY': function () {
+        var me = this;
+        var node = $('#sg_' + me.id + '_' + me['__eT']);
+        node.removeClass('_eZ');
+    },
+    '__eZ': function (ignore) {
+        var me = this;
+        var node = $('#sg_' + me.id + '_' + me['__eT']);
+        node.addClass('_eZ');
+        if (!ignore && node.length) {
+            me['__fa'] = 1; //如果是上下按键引起的滚动，则在move时忽略
+            var height = node.outerHeight();
+            var scrolled = (me['__eT'] + 1) * height;
+            var rNode = me['__eX'];
+            var vHeight = rNode.height();
+            var sTop = rNode.prop('scrollTop');
+            var items = Math.ceil(vHeight / height);
+            if (scrolled < sTop + height) {
+                rNode.prop('scrollTop', scrolled - height);
+            }
+            else if (scrolled > sTop + vHeight) {
+                rNode.prop('scrollTop', (me['__eT'] + 2 - items) * height);
+            }
+        }
+    },
+    '__a': function () {
+        var me = this;
+        if (me['__k']) {
+            me['__k'] = false;
+            Monitor['__g'](me);
+            me['__e'].hide();
+            me['__i'].trigger('hidelist');
+        }
+    },
+    '__fb<click>': function (e) {
+        e.preventDefault();
+        var me = this;
+        var item = e.params.item;
+        me['__i'].trigger({
+            type: 'pick',
+            item: item
+        });
+        var textKey = me.updater.get('textKey');
+        if (textKey) {
+            item = item[textKey];
+        }
+        me['__i'].val(item).trigger('change');
+        me['__eW']({
+            target: me['__i'][0]
+        });
+        me['__a']();
+    },
+    '__eg<mouseout>': function (e) {
+        var flag = !Magix.inside(e.relatedTarget, e.eventTarget);
+        if (flag) {
+            var me = this;
+            me['__eY']();
+            me['__eT'] = -1;
+        }
+    },
+    '__fc<mousemove>': function (e) {
+        var me = this;
+        if (me['__fa']) {
+            delete me['__fa'];
+            return;
+        }
+        var target = $(e.target);
+        if (target.is('li')) {
+            var idx = target.data('idx');
+            if (idx != me['__eT']) {
+                me['__eY']();
+                me['__eT'] = idx;
+                me['__eZ'](true);
+            }
+        }
+    },
+    '__as<contextmenu>': function (e) {
+        e.preventDefault();
+    }
+});
+
+});

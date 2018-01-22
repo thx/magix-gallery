@@ -1,1 +1,80 @@
-define("mx-rating/index",["magix","$"],(e,_,i)=>{var t=e("magix"),r=e("$");t.applyStyle("_G","._eD{color:#999;font-size:20px;padding:0 1px}._eE{color:#f96447}"),i.exports=t.View.extend({tmpl:{html:"1",subs:[{keys:["number","value","readonly"],path:"#",tmpl:'<%for(var _=0;_<$$.number;_++){%><i class="__ _eD<%if(_<$$.value){%> _eE<%}if(!$$.readonly){%> _ad<%}%>" mx-mouseover="__dA({i:<%!_%>})" mx-mouseout="__dA()" mx-click="__eh({i:<%!_%>})">&#xe60f;</i><%}%>',s:"1"}]},init:function(e){this.__h=r("#"+this.id),this.assign(e)},assign:function(e){return this.__ee=0|e.number||5,this.__cB=0|e.value||0,this.__ef=e.readonly+""=="true",!0},render:function(){this.updater.digest({readonly:this.__ef,value:this.__cB,number:this.__ee})},"__dA<mouseover,mouseout>":function(e){var _=this;_.__ef||(clearTimeout(_.__eg),_.__eg=setTimeout(_.wrapAsync(function(){var i=e.params.i+1;_.updater.digest({value:"mouseout"==e.type?_.__cB:i}),"mouseover"==e.type?_.__h.trigger({type:"itemover",value:i}):_.__h.trigger({type:"itemout",value:_.__cB})}),0))},"__eh<click>":function(e){if(!this.__ef){var _=this.__cB,i=e.params.i+1;i!=_&&(this.__cB=i,this.__h.prop({value:i}).trigger({type:"change",value:i}))}}})});
+/*
+    generate by magix-combine@3.8.3: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-rating/index",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/*
+ver:2.0.1
+*/
+/*
+    author: xinglie.lkf@ alibaba - inc.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("_G","._eC{color:#999;font-size:20px;padding:0 1px}._eD{color:#f96447}");
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<%for(var _=0;_<$$.number;_++){%><i class=\"__ _eC<%if(_<$$.value){%> _eD<%}if(!$$.readonly){%> _ad<%}%>\" mx-mouseover=\"\u001f\u001e__dG({i:<%!_%>})\" mx-mouseout=\"\u001f\u001e__dG()\" mx-click=\"\u001f\u001e__el({i:<%!_%>})\">&#xe60f;</i><%}%>"},
+    init: function (extra) {
+        var me = this;
+        me['__i'] = $('#' + me.id);
+        me.assign(extra);
+    },
+    assign: function (ops) {
+        var me = this;
+        me['__ei'] = ops.number | 0 || 5;
+        me['__cJ'] = ops.value | 0 || 0;
+        me['__ej'] = (ops.readonly + '') === 'true';
+        return true;
+    },
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            readonly: me['__ej'],
+            value: me['__cJ'],
+            number: me['__ei']
+        });
+    },
+    '__dG<mouseover,mouseout>': function (e) {
+        var me = this;
+        if (me['__ej'])
+            return;
+        clearTimeout(me['__ek']);
+        me['__ek'] = setTimeout(me.wrapAsync(function () {
+            var value = e.params.i + 1;
+            me.updater.digest({
+                value: e.type == 'mouseout' ? me['__cJ'] : value
+            });
+            if (e.type == 'mouseover') {
+                me['__i'].trigger({
+                    type: 'itemover',
+                    value: value
+                });
+            }
+            else {
+                me['__i'].trigger({
+                    type: 'itemout',
+                    value: me['__cJ']
+                });
+            }
+        }), 0);
+    },
+    '__el<click>': function (e) {
+        var me = this;
+        if (me['__ej'])
+            return;
+        var last = me['__cJ'];
+        var value = e.params.i + 1;
+        if (value != last) {
+            me['__cJ'] = value;
+            me['__i'].prop({ value: value }).trigger({
+                type: 'change',
+                value: value
+            });
+        }
+    }
+});
+
+});

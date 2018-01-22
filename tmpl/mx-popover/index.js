@@ -10,7 +10,7 @@ let $ = require('$');
 Magix.applyStyle('@index.less');
 let Active;
 module.exports = Magix.View.extend({
-    tmpl: '@index.html:updateby[]',
+    tmpl: '@index.html',
     init(extra) {
         let me = this;
         me['@{pos.placement}'] = extra.placement || 'right';
@@ -19,18 +19,11 @@ module.exports = Magix.View.extend({
         me['@{width}'] = extra.width | 0;
         me.on('destroy', () => {
             me['@{owner.node}'].off('mouseenter mouseleave');
-            if (me['@{relate.node}']) {
-                me['@{relate.node}'].off('mouseenter mouseleave').remove();
-            }
         });
-    },
-    render() {
-        let me = this;
-        me.endUpdate();
-        let node = $('#' + me.id);
-        me['@{owner.node}'] = node;
-        node.hover(() => {
-            me['@{parepare}']();
+        let oNode = $('#' + me.id);
+        me['@{relate.node}'] = oNode;
+        me['@{owner.node}'] = oNode = oNode.prev();
+        oNode.hover(() => {
             me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
                 me['@{show}'](); //等待内容显示
             }), 100);
@@ -39,28 +32,13 @@ module.exports = Magix.View.extend({
             me['@{hide}']();
         });
     },
-    '@{parepare}'() {
+    render() {
         let me = this;
-        if (!me['@{relate.node}']) {
-            let id = 'popover_' + me.id;
-            me['@{owner.node}'].after('<div class="@index.less:popover" id="' + id + '" />');
-            me.updater.to(id);
-            me.updater.digest({
-                content: me['@{content}']
-            });
-            me['@{relate.node}'] = $('#' + id);
-            if (me['@{width}']) {
-                me['@{relate.node}'].css({
-                    'max-width': me['@{width}'],
-                    width: me['@{width}']
-                });
-            }
-            me['@{relate.node}'].hover(() => {
-                clearTimeout(me['@{dealy.show.timer}']);
-            }, () => {
-                me['@{hide}']();
-            });
-        }
+        me.updater.digest({
+            vId: me.id,
+            content: me['@{content}'],
+            width: me['@{width}'] || 276
+        });
     },
     content(body) {
         let me = this;
@@ -127,24 +105,29 @@ module.exports = Magix.View.extend({
                 break;
         }
         rNode.offset({
-            left: left,
-            top: top
+            left,
+            top
         });
     },
     '@{hide}'() {
         let me = this;
         clearTimeout(me['@{dealy.show.timer}']);
         me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
-            me['@{relate.node}'].css({
-                display: 'none'
-            });
+            me['@{relate.node}'].hide();
         }), 50);
     },
     '@{immediatelyHide}'() {
         let me = this;
         clearTimeout(me['@{dealy.show.timer}']);
-        me['@{relate.node}'].css({
-            display: 'none'
-        });
+        me['@{relate.node}'].hide();
+    },
+    '@{over}<mouseover>'() {
+        clearTimeout(this['@{dealy.show.timer}']);
+    },
+    '@{out}<mouseout>'(e) {
+        let flag = !Magix.inside(e.relatedTarget, e.eventTarget);
+        if (flag) {
+            this['@{hide}']();
+        }
     }
 });

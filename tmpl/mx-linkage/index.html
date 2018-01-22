@@ -16,7 +16,7 @@
         <%=placeholder%>
     <%}%>
 </div>
-<div class="unselectable none dashboard" id="db_<%=viewId%>">
+<div class="unselectable dashboard<%if(!show){%> none<%}%>" style="<%if(show){%>left:<%=left%>px;top:<%=top%>px;<%}%>">
     <div class="tabs">
         <%for(let i=0;i<headers.length;i++){%>
             <%var h=headers[i]%>

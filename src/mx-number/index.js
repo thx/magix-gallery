@@ -1,1 +1,211 @@
-define("mx-number/index",["magix","$"],(_,e,t)=>{var i=_("magix"),s=_("$");i.applyStyle("_B",'._ef{padding:0;position:relative}._eg{width:100%;border:none;height:100%;padding:6px 9px;background-color:transparent;color:#333;display:block}._eh,._ei{width:25px;height:50%;position:absolute;right:1px;border:2px solid #fff;border-radius:4px;cursor:pointer}._eh:hover,._ei:hover{background-color:#f0f0f0}._ei{top:1px}._eh{bottom:1px}._ej:after{width:0;height:0;position:absolute;top:0;right:0;bottom:0;left:0;border-left:5px solid transparent;border-right:5px solid transparent;content:"";display:block;margin:auto}._eh:after{border-top:5px solid #ccc}._ei:after{border-bottom:5px solid #ccc}._ek{background-color:#fbfbfb}._ek:hover{border-color:#e6e6e6}._ek ._eh,._ek ._ei{cursor:not-allowed;border-color:transparent}._ek ._eh:hover,._ek ._ei:hover{background-color:transparent}._ek ._ei:hover:after{border-bottom-color:#ccc}._ek ._eh:hover:after{border-top-color:#ccc}'),t.exports=i.View.extend({tmpl:{html:'<input mx-guid="g0" class="_eg" mx-focusin="__ai()" mx-focusout="__dN()" value="<%=$$.value%>" mx-change="__dL()" mx-keydown="__dS()" <%if($$.disabled){%> disabled<%}%> autocomplete="off"><span class="_ei _ej _aj" mx-click="__dI({i:true})" mx-mousedown="__dR({i:true})" mx-contextmenu="__D()"></span><span class="_eh _ej _aj" mx-click="__dI()" mx-mousedown="__dR()" mx-contextmenu="__D()"></span>',subs:[{keys:["value","disabled"],path:'input[mx-guid="g0"]',attr:'value="<%=$$.value%>" mx-change="__dL()" mx-keydown="__dS()" <%if($$.disabled){%> disabled<%}%>',attrs:[{n:"value",q:1,p:1},{n:"mx-change"},{n:"mx-keydown"},{n:"disabled",b:1,p:1}]}]},init:function(_){this.assign(_);var e=s("#"+this.id);e.addClass("_ap _ef"),this.__h=e},assign:function(_){this.__cB=+_.value||"",this.__dE=+_.step||1,this.__cn=_.disabled+""=="true",this.__F=i.has(_,"max")?+_.max:Number.MAX_VALUE,this.__E=i.has(_,"min")?+_.min:-Number.MAX_VALUE,this.__dF=+_.ratio||10;var e=this.__dE+"",t=e.indexOf(".");return t=t>=0?e.slice(t+1).length:0,this.__dG=t,!0},render:function(){this.__h[this.__cn?"addClass":"removeClass"]("_ek"),this.updater.digest({value:this.__cB,disabled:this.__cn}),this.__dH=this.__h.find("input")},val:function(_){if((_=+_)||0===_){var e=this.__F,t=this.__E,i=this.__dE;_>e?_=e:_<t&&(_=t),_!==this.__cB&&(_=(_=Math.round(_/i)*i).toFixed(this.__dG),this.__dH.val(_),_=+_,this.__h.prop("value",this.__cB=_).trigger({type:"input",value:_}))}return this.__cB},__dI:function(_,e){var t=this.__cB;""===t&&(t=0);var i=this.__dE,s=t;e&&(i*=this.__dF),_?s+=i:s-=i,this.val(s)},__dJ:function(){var _=this.__dH[0];_&&(_.focus(),_.selectionStart=_.selectionEnd=_.value.length)},__dK:function(){this.__h.addClass("_ar"),i.has(this,"__cs")||(this.__cs=this.__cB)},"__dL<change>":function(_){_.stopPropagation();var e=_.eventTarget,t=e.value;if(""===t)return e.value=this.__cB="",void this.__h.prop("value","");var i=Number(t);(i||0===i)&&this.val(i),i=(i=this.__cB)||0===i?i.toFixed(this.__dG):"",e.value=i},"__ai<focusin>":function(){this.__dK()},"__dN<focusout>":function(){this.__dM||(this.__h.removeClass("_ar"),this.__cs!=this.__cB&&this.__h.trigger({type:"change",value:this.__cB}),delete this.__cs)},"__dI<click>":function(_){this.__cn||this.__dO||(this.__dI(_.params.i,_.shiftKey),this.__dJ())},"__dR<mousedown>":function(_){var e=this;e.__cn||(e.__dM=!0,e.__dK(),e.__dP=setTimeout(e.wrapAsync(function(){e.__dQ=setInterval(e.wrapAsync(function(){e.__dO=!0,e.__dI(_.params.i),e.__dJ()}),50)}),300))},"__dS<keydown>":function(_){if(38==_.keyCode||40==_.keyCode){_.preventDefault();if(!this.__cn){var e=_.eventTarget.value;if(""===e)this.__cB="";else{var t=Number(e);(t||0===t)&&t!=this.__cB&&(this.__cB=t)}this.__dI(38==_.keyCode,_.shiftKey)}}},"__D<contextmenu>":function(_){_.preventDefault()},"$doc<mouseup>":function(){var _=this;clearTimeout(_.__dP),clearInterval(_.__dQ),delete _.__dM,setTimeout(_.wrapAsync(function(){delete _.__dO}),0)}})});
+/*
+    generate by magix-combine@3.8.3: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-number/index",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/*
+ver:2.0.1
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("_g","._aS{padding:0;position:relative}._aT{width:100%;border:none;height:100%;background-color:transparent;color:#333;display:block}._aU,._aV{width:25px;height:50%;position:absolute;right:1px;border:2px solid #fff;border-radius:4px;cursor:pointer}._aU:hover,._aV:hover{background-color:#f0f0f0}._aV{top:1px}._aU{bottom:1px}._aW:after{width:0;height:0;position:absolute;top:0;right:0;bottom:0;left:0;border-left:5px solid transparent;border-right:5px solid transparent;content:\"\";display:block;margin:auto}._aU:after{border-top:5px solid #ccc}._aV:after{border-bottom:5px solid #ccc}._aX{background-color:#fbfbfb}._aX:hover{border-color:#e6e6e6}._aX ._aU,._aX ._aV{cursor:not-allowed;border-color:transparent}._aX ._aU:hover,._aX ._aV:hover{background-color:transparent}._aX ._aV:hover:after{border-bottom-color:#ccc}._aX ._aU:hover:after{border-top-color:#ccc}");
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<input class=\"_aT\" mx-focusin=\"\u001f\u001e__ao()\" mx-focusout=\"\u001f\u001e__dT()\" value=\"<%=$$.value%>\" mx-change=\"\u001f\u001e__dR()\" mx-keydown=\"\u001f\u001e__dY()\" <%if($$.disabled){%> disabled<%}%> autocomplete=\"off\"><span class=\"_aV _aW _aj\" mx-click=\"\u001f\u001e__dO({i:true})\" mx-mousedown=\"\u001f\u001e__dX({i:true})\" mx-contextmenu=\"\u001f\u001e__E()\"></span><span class=\"_aU _aW _aj\" mx-click=\"\u001f\u001e__dO()\" mx-mousedown=\"\u001f\u001e__dX()\" mx-contextmenu=\"\u001f\u001e__E()\"></span>"},
+    init: function (extra) {
+        var me = this;
+        me.assign(extra);
+        var node = $('#' + me.id);
+        me['__i'] = node;
+    },
+    assign: function (ops) {
+        var me = this;
+        var v = +ops.value;
+        if (!v && v !== 0)
+            v = '';
+        me['__cJ'] = v;
+        me['__dK'] = +ops.step || 1;
+        me['__cv'] = (ops.disabled + '') === 'true';
+        me['__G'] = Magix.has(ops, 'max') ? +ops.max : Number.MAX_VALUE;
+        me['__F'] = Magix.has(ops, 'min') ? +ops.min : -Number.MAX_VALUE;
+        me['__dL'] = +ops.ratio || 10;
+        var s = me['__dK'] + '';
+        var i = s.indexOf('.');
+        if (i >= 0) {
+            i = s.slice(i + 1).length;
+        }
+        else {
+            i = 0;
+        }
+        me['__dM'] = i;
+        return true;
+    },
+    render: function () {
+        var me = this;
+        me['__i'][me['__cv'] ? 'addClass' : 'removeClass']('_aX');
+        me.updater.digest({
+            value: me['__cJ'],
+            disabled: me['__cv']
+        });
+        me['__dN'] = me['__i'].find('input');
+    },
+    val: function (v) {
+        v = +v;
+        var me = this;
+        if (v || v === 0) {
+            var max = me['__G'];
+            var min = me['__F'];
+            var step = me['__dK'];
+            if (v > max) {
+                v = max;
+            }
+            else if (v < min) {
+                v = min;
+            }
+            if (v !== me['__cJ']) {
+                v = Math.round(v / step) * step;
+                v = v.toFixed(me['__dM']);
+                me['__dN'].val(v);
+                v = +v;
+                me['__i'].prop('value', me['__cJ'] = v).trigger({
+                    type: 'input',
+                    value: v
+                });
+            }
+        }
+        return me['__cJ'];
+    },
+    '__dO': function (increase, enlarge) {
+        var me = this;
+        var value = me['__cJ'];
+        if (value === '')
+            value = 0; //for init
+        var step = me['__dK'];
+        var c = value;
+        if (enlarge)
+            step *= me['__dL'];
+        if (increase) {
+            c += step;
+        }
+        else {
+            c -= step;
+        }
+        me.val(c);
+    },
+    '__dP': function () {
+        var me = this;
+        var ipt = me['__dN'][0];
+        if (ipt) {
+            ipt.focus();
+            ipt.selectionStart = ipt.selectionEnd = ipt.value.length;
+        }
+    },
+    '__dQ': function () {
+        var me = this;
+        me['__i'].addClass('_ar');
+        if (!Magix.has(me, '__cA')) {
+            me['__cA'] = me['__cJ'];
+        }
+    },
+    '__dR<change>': function (e) {
+        e.stopPropagation();
+        var target = e.eventTarget;
+        var value = target.value;
+        var me = this;
+        if (value === '') {
+            target.value = me['__cJ'] = '';
+            me['__i'].prop('value', '');
+            return;
+        }
+        var v = Number(value);
+        if (v || v === 0) {
+            me.val(v);
+        }
+        v = me['__cJ'];
+        if (v || v === 0) {
+            v = v.toFixed(me['__dM']);
+        }
+        else {
+            v = '';
+        }
+        target.value = v;
+    },
+    '__ao<focusin>': function () {
+        this['__dQ']();
+    },
+    '__dT<focusout>': function () {
+        var me = this;
+        if (!me['__dS']) {
+            me['__i'].removeClass('_ar');
+            if (me['__cA'] != me['__cJ']) {
+                me['__i'].trigger({
+                    type: 'change',
+                    value: me['__cJ']
+                });
+            }
+            delete me['__cA'];
+        }
+    },
+    '__dO<click>': function (e) {
+        var me = this;
+        if (!me['__cv'] && !me['__dU']) {
+            me['__dO'](e.params.i, e.shiftKey);
+            me['__dP']();
+        }
+    },
+    '__dX<mousedown>': function (e) {
+        var me = this;
+        if (!me['__cv']) {
+            me['__dS'] = true;
+            me['__dQ']();
+            me['__dV'] = setTimeout(me.wrapAsync(function () {
+                me['__dW'] = setInterval(me.wrapAsync(function () {
+                    me['__dU'] = true;
+                    me['__dO'](e.params.i);
+                    me['__dP']();
+                }), 50);
+            }), 300);
+        }
+    },
+    '__dY<keydown>': function (e) {
+        if (e.keyCode == 38 || e.keyCode == 40) {
+            e.preventDefault();
+            var me = this;
+            if (!me['__cv']) {
+                var target = e.eventTarget;
+                var value = target.value;
+                if (value === '') {
+                    me['__cJ'] = '';
+                }
+                else {
+                    var v = Number(value);
+                    if (v || v === 0) {
+                        if (v != me['__cJ']) {
+                            me['__cJ'] = v;
+                        }
+                    }
+                }
+                me['__dO'](e.keyCode == 38, e.shiftKey);
+            }
+        }
+    },
+    '__E<contextmenu>': function (e) {
+        e.preventDefault();
+    },
+    '$doc<mouseup>': function () {
+        var me = this;
+        clearTimeout(me['__dV']);
+        clearInterval(me['__dW']);
+        delete me['__dS'];
+        setTimeout(me.wrapAsync(function () {
+            delete me['__dU'];
+        }), 0);
+    }
+});
+
+});

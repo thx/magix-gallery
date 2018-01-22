@@ -43,9 +43,10 @@ module.exports = Magix.View.extend({
             viewId: me.id
         });
         me['@{owner.node}'] = node;
-        me.assign(extra);
+        me['@{data.from.node}'] = !extra.list;
+        me.assign(extra, { node });
     },
-    assign(ops) {
+    assign(ops, { node }) {
         let me = this;
         AssignIf(me, '@{list}', ops, 'list', 1);
         let selected = AssignIf(me, '@{selected}', ops, 'selected');
@@ -54,8 +55,8 @@ module.exports = Magix.View.extend({
         let emptyText = AssignIf(me, '@{emptyText}', ops, 'emptyText');
         me['@{ui.searchbox}'] = (ops.searchbox + '') === 'true';
         me['@{ui.disabled}'] = (ops.disabled + '') === 'true';
-        if (!me['@{list}']) {
-            let node = me['@{owner.node}'];
+        if (me['@{data.from.node}']) {
+            node = $(node);
             let list = [];
             let group;
             node.children().each((idx, item) => {
@@ -217,7 +218,6 @@ module.exports = Magix.View.extend({
                 value: valueKey ? item[valueKey] : item,
                 text: textKey ? item[textKey] : item
             });
-            me['@{owner.node}'].val(valueKey ? item[valueKey] : item).trigger(event);
             if (!event.isDefaultPrevented()) {
                 updater.digest({
                     selected: selected,
@@ -228,6 +228,7 @@ module.exports = Magix.View.extend({
                     selected: lastSelected
                 });
             }
+            me['@{owner.node}'].val(valueKey ? item[valueKey] : item).trigger(event);
         }
     },
     '@{toggle}<click>'() {
@@ -245,8 +246,8 @@ module.exports = Magix.View.extend({
         clearTimeout(me['@{search.delay.timer}']);
         let val = $.trim(e.eventTarget.value);
         me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(() => {
-            if (val != me.$lVal) {
-                me['@{fn.search}'](me.$lVal = val, list => {
+            if (val != me['@{last.search.value}']) {
+                me['@{fn.search}'](me['@{last.search.value}'] = val, list => {
                     me.updater.digest({
                         list
                     });

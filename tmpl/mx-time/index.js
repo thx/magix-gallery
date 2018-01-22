@@ -54,7 +54,7 @@ module.exports = Magix.View.extend({
     init(extra) {
         let me = this;
         let time = parseTime(extra.time);
-        let types = parseType(extra.type);
+        let types = parseType(extra.types);
         me.updater.set({
             format,
             time,

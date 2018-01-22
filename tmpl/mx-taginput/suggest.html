@@ -1,4 +1,4 @@
-<ul class="suggest unselectable" style="width:<%=width%>px;" mx-mouseout="@{out}()" mx-mousemove="@{move}()" mx-contextmenu="@{prevent}()">
+<ul class="<%if(rList&&list.length){%>suggest <%}%>unselectable" style="width:<%=width%>px;" mx-mouseout="@{out}()" mx-mousemove="@{move}()" mx-contextmenu="@{prevent}()">
     <%if(rList){%>
     <%for(var i=0,one;i<list.length;i++){%>
     <%one=list[i]%>

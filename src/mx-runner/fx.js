@@ -1,1 +1,95 @@
-define("mx-runner/fx",["magix","./index"],(_,e,t)=>{var i=_("magix"),n=_("./index"),r=function(_){return _},s=Date.now||function(){return(new Date).getTime()},o=i.Base.extend({ctor:function(_,e){var t=this;t.__ei&&!e||(e=e||r,t.__ei=function(_,i){return _+(i-_)*e(t.__ej/t.__ek)}),t.__el=[],t.__em=_},__cA:function(_,e){this.__dC||(this.__el.push({__en:_,__eo:e}),this.__ep||this.__eq())},__eq:function(){var _=this,e=_.__el.shift();e?(_.__ek=e.__en,_.__er=e.__eo,_.__es=s(),_.__ep||n.__ad(_.__em,_.__ep=function(e){_.__ej=Date.now()-_.__es,_.__ej>_.__ek&&(_.__ej=_.__ek,e=1);try{_.__er(_.__ei)}catch(_){e=_}e&&_.__eq()})):_.__am()},__am:function(){this.__ep&&(n.__af(this.__ep),delete this.__ep,this.fire("stop"))},destroy:function(){this.__am(),this.__el=[],this.__dC=1}});t.exports={__cw:function(){var _=new o;return this.capture(i.guid("__cv"),_),_}}});
+/*
+    generate by magix-combine@3.8.3: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-runner/fx",["magix","./index"],(require,exports,module)=>{
+/*Magix,Runner*/
+
+/*
+ver:2.0.1
+*/
+var Magix = require("magix");
+var Runner = require("./index");
+var DALG = function (t) { return t; };
+var Now = Date.now || (function () {
+    return new Date().getTime();
+});
+var FX = Magix.Base.extend({
+    ctor: function (interval, alg) {
+        var me = this;
+        if (!me['__em'] || alg) {
+            alg = alg || DALG;
+            me['__em'] = function (from, to) {
+                return (from + (to - from) * alg(me['__en'] / me['__eo']));
+            };
+        }
+        me['__ep'] = [];
+        me['__eq'] = interval;
+    },
+    '__cI': function (time, callback) {
+        var me = this;
+        if (!me['__dI']) {
+            me['__ep'].push({
+                '__er': time,
+                '__es': callback
+            });
+            if (!me['__et']) {
+                me['__eu']();
+            }
+        }
+    },
+    '__eu': function () {
+        var me = this;
+        var item = me['__ep'].shift();
+        if (item) {
+            me['__eo'] = item['__er'];
+            me['__ev'] = item['__es'];
+            me['__ew'] = Now();
+            if (!me['__et']) {
+                Runner['__ag'](me['__eq'], me['__et'] = function (end) {
+                    me['__en'] = Date.now() - me['__ew'];
+                    if (me['__en'] > me['__eo']) {
+                        me['__en'] = me['__eo'];
+                        end = 1;
+                    }
+                    try {
+                        me['__ev'](me['__em']);
+                    }
+                    catch (e) {
+                        end = e;
+                    }
+                    if (end) {
+                        me['__eu']();
+                    }
+                });
+            }
+        }
+        else {
+            me['__as']();
+        }
+    },
+    '__as': function () {
+        var me = this;
+        if (me['__et']) {
+            Runner['__ai'](me['__et']);
+            delete me['__et'];
+            me.fire('stop');
+        }
+    },
+    destroy: function () {
+        var me = this;
+        me['__as']();
+        me['__ep'] = [];
+        me['__dI'] = 1;
+    }
+});
+module.exports = {
+    '__cE': function () {
+        var fx = new FX();
+        this.capture(Magix.guid('__cD'), fx);
+        return fx;
+    }
+};
+
+});

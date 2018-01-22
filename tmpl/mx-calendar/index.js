@@ -161,31 +161,28 @@ module.exports = Magix.View.extend({
     },
     '@{toDefaultPanel}'() {
         let me = this;
-        $('#years_' + me.id).removeClass('@index.less:ym-show');
-        $('#months_' + me.id).removeClass('@index.less:ym-show');
         let updater = me.updater;
+        updater.set({
+            showYear: 0,
+            showMonth: 0
+        });
         let data = updater.get();
         if (data.timeType) {
-            let digest = false;
             if (me['@{date.value.bak}']) {
                 me['@{update.selected}'](me['@{date.value.bak}']);
                 me['@{update.years}']();
                 me['@{update.months}']();
                 me['@{update.days}']();
-                digest = true;
                 delete me['@{date.value.bak}'];
             }
             if (me['@{time.value.bak}']) {
                 updater.set({
                     timeValue: me['@{time.value.bak}']
                 });
-                digest = true;
                 delete me['@{time.value.bak}'];
             }
-            if (digest) {
-                updater.digest();
-            }
         }
+        updater.digest();
     },
     update(ops) {
         ops = ops || {};
@@ -203,6 +200,8 @@ module.exports = Magix.View.extend({
         let timeValue = DateFormat(selected, 'hh:mm:ss');
         data.set({
             types,
+            showYear: 0,
+            showMonth: 0,
             timeType,
             timeValue,
             hasBtn: ops.hasBtn,
@@ -417,12 +416,16 @@ module.exports = Magix.View.extend({
     },
     '@{showMonths}<click>'() {
         let me = this;
-        $('#months_' + me.id).addClass('@index.less:ym-show');
+        me.updater.set({
+            showMonth: 1
+        });
         me['@{update.months}'](true);
     },
     '@{showYears}<click>'() {
         let me = this;
-        $('#years_' + me.id).addClass('@index.less:ym-show');
+        me.updater.set({
+            showYear: 1
+        });
         me['@{update.years}'](true);
     },
     '@{pickYear}<click>'(e) {
@@ -433,9 +436,9 @@ module.exports = Magix.View.extend({
         let types = data.types;
         if (types.day || types.month) {
             me.updater.set({
+                showYear: 0,
                 year: +year
             });
-            $('#years_' + me.id).removeClass('@index.less:ym-show');
             if (types.month) {
                 me['@{update.months}'](true);
             } else {
@@ -454,9 +457,9 @@ module.exports = Magix.View.extend({
         let data = updater.get();
         if (data.types.day) {
             updater.set({
+                showMonth: 0,
                 month: +month
             });
-            $('#months_' + me.id).removeClass('@index.less:ym-show');
             me['@{update.days}'](true);
         } else {
             me['@{update.selected}'](data.year + '-' + month + '-01');
@@ -466,23 +469,21 @@ module.exports = Magix.View.extend({
     },
     '@{choose}<click>'(e) {
         let me = this;
-        $('#days_' + me.id + ' span').removeClass('@index.less:selected');
-        $(e.eventTarget).addClass('@index.less:selected');
         let data = me.updater;
         let month = data.get('month');
         let turnMonth = e.params.toMonth != month;
         me['@{update.selected}'](e.params.date);
+        if (!me['@{date.value.bak}']) {
+            me['@{date.value.bak}'] = data.get('dateValue');
+        }
         if (turnMonth) {
             me['@{update.years}']();
             me['@{update.months}']();
-            me['@{update.days}'](true);
-        }
-        if (!me['@{date.value.bak}']) {
-            me['@{date.value.bak}'] = data.get('dateValue');
         }
         data.set({
             dateValue: e.params.date
         });
+        me['@{update.days}'](true);
         me['@{fire.event}']();
     },
     '@{setTime}<change>'(e) {
@@ -494,6 +495,7 @@ module.exports = Magix.View.extend({
         me.updater.set({
             timeValue: e.time
         });
+        me['@{update.days}'](true);
         me['@{fire.event}']();
     },
     '@{hide}<click>'(e) {

@@ -48,16 +48,16 @@ module.exports = Magix.View.extend({
             list2: []
         });
     },
-    'showPick<pick>' (e) {
+    'showPick<pick>'(e) {
         this.gtipRT('选中：' + e.item);
     },
-    'showList<showlist>' () {
+    'showList<showlist>'() {
         this.gtipRT('列表展示');
     },
-    'hideList<hidelist>' () {
+    'hideList<hidelist>'() {
         this.gtipRT('列表关闭');
     },
-    'updateList<input>' (e) {
+    'updateList<input>'(e) {
         let target = $(e.eventTarget);
         let list = ['163.com', 'qq.com', '126.com', 'sina.com'];
         let v = $.trim(target.val());
@@ -76,6 +76,10 @@ module.exports = Magix.View.extend({
                 }
             }
         }
-        target.invokeView('update', [newList]);
+        if (e.vframe) {
+            e.vframe.invoke('update', [newList]);
+        } else {
+            target.invokeView('update', [newList]);
+        }
     }
 });

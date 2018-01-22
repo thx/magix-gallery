@@ -1,1 +1,35 @@
-define("mx-pagination/__test__/index",["magix","../index"],(i,e,t)=>{i("../index");var a=i("magix");t.exports=a.View.extend({tmpl:{html:'<h2>mx-pagination</h2><h3>完整模式</h3><div class="_B _ai"><div mx-guid="g0" class="_aa" mx-view="mx-pagination/index?total=2000&step=3&page=<%!$eu($$.page)%>"></div><button class="_an" mx-click="test()">test</button></div><div class="_B"><div>HTML Code:</div><pre>&lt;mx-pagination\n    total="2000"\n    step="3"\n    page="2"\n    class="fl"/&gt;</pre></div><h3 class="_f">简单模式</h3><div class="_B _ai"><div mx-view="mx-pagination/index?total=2000&step=5&simplify=true&page=15"></div></div><div class="_B"><div>HTML Code:</div><pre>&lt;mx-pagination\n    total="2000"\n    step="5"\n    simplify="true"\n    page="15"/&gt;</pre></div><h3 class="_f">迷你模式</h3><div class="_B _ai"><div mx-view="mx-pagination/index?total=2000&step=5&mini=true&page=10"></div></div><div class="_B"><div>HTML Code:</div><pre>&lt;mx-pagination\n    total="2000"\n    step="5"\n    mini="true"\n    page="10"/&gt;</pre></div><h3 class="_f">监听change事件</h3><div class="_B _ai"><div mx-change="show()" mx-view="mx-pagination/index?total=2000&step=5&page=10"></div></div><div class="_B"><div>HTML Code:</div><pre>&lt;mx-pagination\n    total="2000"\n    step="5"\n    page="10"\n    mx-change="show()"/&gt;</pre><div class="_z">Javascript Code:</div><pre>let Magix = require(\'magix\');\nmodule.exports = Magix.View.extend({\n    tmpl: \'@index.html\',\n    render() {\n        let me = this;\n        me.updater.digest();\n    },\n    \'show&lt;change&gt;\' (e) {\n        console.log(e.page, e.size);\n    }\n});</pre></div>',subs:[{keys:["page"],path:'div[mx-guid="g0"]',attr:'mx-view="mx-pagination/index?total=2000&step=3&page=<%!$eu($$.page)%>"',attrs:[{n:"mx-view",v:1}]}]},render:function(){this.updater.digest({page:1})},"show<change>":function(i){},"test<click>":function(i){var e=this.updater.get("page");this.updater.digest({page:e+1})}})});
+/*
+    generate by magix-combine@3.8.3: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-pagination/__test__/index",["magix","../index"],(require,exports,module)=>{
+/*Magix*/
+require("../index");
+/*
+ver:2.0.1
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<h2>mx-pagination</h2><h3>完整模式</h3><div class=\"_B _ai\"><div class=\"_aa\" mx-view=\"mx-pagination/index?total=2000&step=3&page=<%!$eu($$.page)%>\"></div><button class=\"_an\" mx-click=\"\u001f\u001etest()\">test</button></div>"},
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            page: 1
+        });
+    },
+    'show<change>': function (e) {
+        console.log(e.page, e.size);
+    },
+    'test<click>': function (e) {
+        var page = this.updater.get('page');
+        this.updater.digest({
+            page: page + 1
+        });
+    }
+});
+
+});

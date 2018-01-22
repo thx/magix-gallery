@@ -1,14 +1,15 @@
 <h2>mx-time.picker</h2>
 <div class="pt20 clearfix">
     <mx-time.picker
-        value="18:26:00"
+        value="{{=time}}"
         class="input"
         types="hour,minute" />
+    <button mx-click="update()">update</button>
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-time.picker
+    <pre mx-view="__test__/hl">&lt;mx-time.picker
     value="18:26:00"
     class="input"
     types="hour,minute" /&gt;</pre>

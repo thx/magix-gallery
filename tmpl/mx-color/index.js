@@ -63,6 +63,7 @@ module.exports = Magix.View.extend({
             v: 1
         };
         $('#' + me.id).addClass(CSSNames.cnt);
+        me.on('destroy', DD.end);
     },
     render() {
         let me = this;

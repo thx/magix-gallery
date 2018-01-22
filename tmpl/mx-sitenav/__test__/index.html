@@ -1,15 +1,15 @@
 <h2>mx-sitenav</h2>
 <div class="pt20 clearfix">
-    <mx-sitenav mode="<%=mode%>" />
+    <mx-sitenav mode="<%=mode%>" style="height:50px;" />
 </div>
 
 <div class="pt20">
     <div>HTML Code:</div>
     <%if(mode=='simple'){%>
-    <pre>
-&lt;mx-sitenav mode="simple" /&gt;</pre>
+    <pre mx-view="__test__/hl">
+&lt;mx-sitenav mode="simple" style="height:50px;" /&gt;</pre>
 <%}else{%>
-<pre>
-&lt;mx-sitenav /&gt;</pre>
+<pre mx-view="__test__/hl">
+&lt;mx-sitenav style="height:50px;" /&gt;</pre>
 <%}%>
 </div>

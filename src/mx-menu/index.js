@@ -1,1 +1,335 @@
-define("mx-menu/index",["magix","$","../mx-monitor/index"],(e,t,i)=>{var _=e("magix"),d=e("$"),s=e("../mx-monitor/index"),n=_.Vframe;_.applyStyle("_A","._dZ{-webkit-transition:margin-left .25s;transition:margin-left .25s}._e_{background-color:#fff;border:1px solid #e6e6e6;border-radius:4px;cursor:default;padding:4px 0}._ea{height:29px;line-height:29px;cursor:default;border-radius:4px;padding:0 12px;margin:0 4px}._eb{color:#fff;background-color:#f96447}._ec{margin-left:10px}._ed{margin-left:-10px}._ee{font-size:12px;-webkit-transform:scaleX(-1);transform:scaleX(-1);top:25%;color:#e6e6e6}");var a=null,r={left:"_ed",right:"_ec"};i.exports=_.View.extend({tmpl:{html:'<div mx-guid="g0" style="width:<%=$$.width%>px;<%if($$.isChild||$$.contextMenu){%>position:absolute;left:-10000px;top:-10000px<%}%>" mx-mouseover="__dB();" class="_dZ" mx-contextmenu="__D()"><ul mx-guid="g1" class="_e_ _aj">2</ul></div>',subs:[{keys:["width","isChild","contextMenu"],path:'div[mx-guid="g0"]',attr:'style="width:<%=$$.width%>px;<%if($$.isChild||$$.contextMenu){%>position:absolute;left:-10000px;top:-10000px<%}%>"',attrs:[{n:"style"}]},{keys:["list","valueKey","textKey","viewId"],path:'ul[mx-guid="g1"]',tmpl:'<%for(var _=0,a;_<$$.list.length;_++){a=$$.list[_]%><li class="_al _ea" mx-mouseover="__dA({id:\'<%=$eq(a[$$.valueKey])%>\'})" mx-mouseout="__dA({id:\'<%=$eq(a[$$.valueKey])%>\'});\n            " <%if(!a.children){%> mx-click="__cm({id:\'<%=$eq(a[$$.valueKey])%>\'})" <%}%> title="<%=a[$$.textKey]%>" id="<%=$$.viewId%>_<%=a[$$.valueKey]%>"><%=a[$$.textKey]%> <%if(a.children){%><span class="_ab __ _ee">&#xe61e;</span><%}%></li><%}%>',s:"2"}]},init:function(e){var t=this;t.assign(e),t.__dj=e.__dj,t.__dk=e.__dk,t.__dl=e.picked,t.__dm?t.on("destroy",function(){d("#"+t.id).remove()}):(s.__d(),t.on("destroy",function(){s.__f(t),s.__g(),t.__dj&&d("#"+t.id).remove()}))},assign:function(e){var t=e.width||340,i=e.valueKey||"id",d=e.parentKey||"pId",s=e.textKey||"text",n=e.__dm;if(n)this.__co=e.__co,this.__ca=e.list;else{var a=function(e,t,i){for(var d={},s={},n=[],a=0,r=e.length;a<r;a++){var o=_.mix({},e[a]);d[o[t]]=o,s[o[t]]&&(o.children=s[o[t]]),_.has(o,i)&&""!==o[i]?d[o[i]]?(d[o[i]].children||(d[o[i]].children=[])).push(o):s[o[i]]?s[o[i]].push(o):s[o[i]]=[o]:n.push(o)}return{list:n,map:d}}(e.list,i,d);this.__co=a.map,this.__ca=a.list}return this.__dm=n,this.__dn=t,this.__do=i,this.__dp=d,this.__dq=s,this.__dr=e.pId,this.__ds=e.__ds,!0},render:function(){this.updater.digest({viewId:this.id,contextMenu:this.__dj,isChild:this.__dm,list:this.__ca,width:this.__dn,valueKey:this.__do,textKey:this.__dq}),this.__dj&&this.__e(this.__dk)},__i:function(e){var t=_.inside(e,this.id);if(!t)for(var i=0,d=this.owner.children();i<d.length;i++){var s=d[i],a=n.get(s);if(a&&(t=a.invoke("__i",[e])))break}return t},__e:function(e,t){if(!this.__j){this.__j=1;var i=d("#"+this.id+" div"),_=d(document),n=-1,o=-1,h="right",l=i.outerWidth(),u=i.outerHeight(),m=0,c=0;if(t){var f=t.offset();m=t.outerWidth(),c=t.outerHeight(),n=f.left+m,o=f.top}else n=e.pageX,o=e.pageY;n+l>_.width()&&(h="left",(n=n-l-m)<0&&(n=0)),o+u>_.height()&&(o-=u,(o+=c)<0&&(o=0)),t&&("right"==h?n-=10:n+=10);var v=this.__ds||this;a!=v&&(a=v),this.__dm?i.css({left:n,top:o}).addClass(r[h]):i.css({left:n,top:o}),v.__dt||(v.__dt=1,s.__k(v))}},__a:function(){for(var e=this.owner.children(),t=e.length-1;t>=0;t--){var i=n.get(e[t]);i&&i.invoke("__a")}if(this.__j){this.__j=!1;var _=d("#"+this.id+" div");this.__dm?(_.removeClass(r.left).removeClass(r.right),_.css({left:-1e5}),this.__dm.removeClass("_eb")):(this.__dj&&_.css({left:-1e4}),delete this.__dt,s.__f(this))}},__dv:function(e){clearTimeout(this["__du"+e])},__dx:function(e,t,i){var _=this;_["__dw"+t]=setTimeout(_.wrapAsync(function(){var s=_.id+"_menu_"+t,a=n.get(s);a||(d("body").append('<div id="'+s+'" />'),a=_.owner.mountVframe(s,"mx-menu/index",{__dm:d("#"+_.id+"_"+t),width:_.__dn,valueKey:_.__do,textKey:_.__dq,parentKey:_.__dp,list:i,pId:t,__ds:_.__ds||_,__co:_.__co})),a.invoke("__e",[null,e],!0)}),250)},__dy:function(e){var t=this.id+"_menu_"+e,i=n.get(t);i&&(this["__du"+e]=setTimeout(this.wrapAsync(function(){i.invoke("__a")}),50))},"__dA<mouseover,mouseout>":function(e){if(!_.inside(e.relatedTarget,e.eventTarget)){var t=d(e.eventTarget);t["mouseout"==e.type?"removeClass":"addClass"]("_eb");var i=e.params.id;if(this.__dy(this.__dz),"mouseover"==e.type){var s=this.__co[i].children;s&&(this.__dv(i),this.__dx(t,i,s),this.__dz=i)}else clearTimeout(this["__dw"+i])}},"__dB<mouseover>":function(e){!_.inside(e.relatedTarget,e.eventTarget)&&(this.__dm||a==this||a&&a.__a(),this.__dm&&(d(this.__dm).addClass("_eb"),this.owner.parent().invoke("__dv",[this.__dr])))},"__cm<click>":function(e){var t=this.__ds||this,i=d("#"+t.id),_={type:"pick",item:this.__co[e.params.id]};i.trigger(_),t.__a();var s=this.__dl;s&&s(_.item)},"__D<contextmenu>":function(e){e.preventDefault()}},{show:function(e,t,i){var s=t.eventTarget;s.id||(s.id=_.guid());var n="ctx_"+s.id,a=_.Vframe.get(n);a?a.invoke("__e",[t]):(d("body").append('<div id="'+n+'" />'),i=i||{},_.mix(i,{__dj:1,__dk:t}),a=e.owner.mountVframe(n,"mx-menu/index",i))}})});
+/*
+    generate by magix-combine@3.8.3: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-menu/index",["magix","$","../mx-monitor/index"],(require,exports,module)=>{
+/*Magix,$,Monitor*/
+
+/*
+ver:2.0.1
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+var Monitor = require("../mx-monitor/index");
+var Vframe = Magix.Vframe;
+Magix.applyStyle("_B","._ee{-webkit-transition:margin-left .25s;transition:margin-left .25s}._ef{background-color:#fff;border:1px solid #e6e6e6;border-radius:4px;cursor:default;padding:4px 0}._eg{height:29px;line-height:29px;cursor:default;border-radius:4px;padding:0 12px;margin:0 4px}._eh{color:#fff;background-color:#f96447}._ei{margin-left:10px}._ej{margin-left:-10px}._ek{font-size:12px;-webkit-transform:scaleX(-1);transform:scaleX(-1);top:25%;color:#e6e6e6}");
+var ActiveInstance = null;
+var CSSNames = {
+    left: '_ej',
+    right: '_ei'
+};
+var ListToTree = function (list, id, pId) {
+    var map = {}, listMap = {}, rootList = [];
+    for (var i = 0, max = list.length; i < max; i++) {
+        var one = Magix.mix({}, list[i]);
+        map[one[id]] = one;
+        if (listMap[one[id]]) {
+            one.children = listMap[one[id]];
+        }
+        if (Magix.has(one, pId) && one[pId] !== '') {
+            if (map[one[pId]]) {
+                var c = map[one[pId]].children || (map[one[pId]].children = []);
+                c.push(one);
+            }
+            else {
+                if (!listMap[one[pId]])
+                    listMap[one[pId]] = [one];
+                else
+                    listMap[one[pId]].push(one);
+            }
+        }
+        else {
+            rootList.push(one);
+        }
+    }
+    return { list: rootList, map: map };
+};
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<div style=\"width:<%=$$.width%>px;<%if($$.isChild||$$.contextMenu){%>position:absolute;left:-10000px;top:-10000px<%}%>\" mx-mouseover=\"\u001f\u001e__dH();\" class=\"_ee\" mx-contextmenu=\"\u001f\u001e__E()\"><ul class=\"_ef _aj\"><%for(var _=0,a;_<$$.list.length;_++){a=$$.list[_]%><li class=\"_al _eg\" mx-mouseover=\"\u001f\u001e__dG({id:'<%=$eq(a[$$.valueKey])%>'})\" mx-mouseout=\"\u001f\u001e__dG({id:'<%=$eq(a[$$.valueKey])%>'});\n            \" <%if(!a.children){%> mx-click=\"\u001f\u001e__cu({id:'<%=$eq(a[$$.valueKey])%>'})\" <%}%> title=\"<%=a[$$.textKey]%>\" id=\"<%=$$.viewId%>_<%=a[$$.valueKey]%>\"><%=a[$$.textKey]%> <%if(a.children){%><span class=\"_ab __ _ek\">&#xe61e;</span><%}%></li><%}%></ul></div>"},
+    init: function (extra) {
+        var me = this;
+        me.assign(extra);
+        me['__dp'] = extra['__dp'];
+        me['__dq'] = extra['__dq'];
+        me['__dr'] = extra.picked;
+        if (!me['__ds']) {
+            Monitor['__d']();
+            me.on('destroy', function () {
+                Monitor['__g'](me);
+                Monitor['__h']();
+                if (me['__dp']) {
+                    $('#' + me.id).remove();
+                }
+            });
+        }
+        else {
+            me.on('destroy', function () {
+                $('#' + me.id).remove();
+            });
+        }
+    },
+    assign: function (ops) {
+        var me = this;
+        var width = ops.width || 340;
+        var valueKey = ops.valueKey || 'id';
+        var parentKey = ops.parentKey || 'pId';
+        var textKey = ops.textKey || 'text';
+        var parentNode = ops['__ds'];
+        if (!parentNode) {
+            var temp = ListToTree(ops.list, valueKey, parentKey);
+            me['__cw'] = temp.map;
+            me['__ch'] = temp.list;
+        }
+        else {
+            me['__cw'] = ops['__cw'];
+            me['__ch'] = ops.list;
+        }
+        me['__ds'] = parentNode;
+        me['__dt'] = width;
+        me['__du'] = valueKey;
+        me['__dv'] = parentKey;
+        me['__dw'] = textKey;
+        me['__dx'] = ops.pId;
+        me['__dy'] = ops['__dy'];
+        return true;
+    },
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            viewId: me.id,
+            contextMenu: me['__dp'],
+            isChild: me['__ds'],
+            list: me['__ch'],
+            width: me['__dt'],
+            valueKey: me['__du'],
+            textKey: me['__dw']
+        });
+        if (me['__dp']) {
+            me['__f'](me['__dq']);
+        }
+    },
+    '__j': function (node) {
+        var me = this;
+        var inside = Magix.inside(node, me.id);
+        if (!inside) {
+            var children = me.owner.children();
+            for (var _i = 0, children_1 = children; _i < children_1.length; _i++) {
+                var c = children_1[_i];
+                var child = Vframe.get(c);
+                if (child) {
+                    inside = child.invoke('__j', [node]);
+                    if (inside)
+                        break;
+                }
+            }
+        }
+        return inside;
+    },
+    '__f': function (e, refNode) {
+        var me = this;
+        if (!me['__k']) {
+            me['__k'] = 1;
+            var node = $('#' + me.id + ' div');
+            var doc = $(document);
+            var left = -1, top = -1, dock = 'right';
+            var width = node.outerWidth();
+            var height = node.outerHeight(), refWidth = 0, refHeight = 0;
+            if (refNode) {
+                var offset = refNode.offset();
+                refWidth = refNode.outerWidth();
+                refHeight = refNode.outerHeight();
+                left = offset.left + refWidth;
+                top = offset.top;
+            }
+            else {
+                left = e.pageX;
+                top = e.pageY;
+            }
+            if ((left + width) > doc.width()) {
+                left = left - width - refWidth;
+                dock = 'left';
+                if (left < 0)
+                    left = 0;
+            }
+            if ((top + height) > doc.height()) {
+                top -= height;
+                top += refHeight;
+                if (top < 0)
+                    top = 0;
+            }
+            if (refNode) {
+                if (dock == 'right') {
+                    left -= 10;
+                }
+                else {
+                    left += 10;
+                }
+            }
+            var root = me['__dy'] || me;
+            if (ActiveInstance != root)
+                ActiveInstance = root;
+            if (me['__ds']) {
+                node.css({
+                    left: left,
+                    top: top
+                }).addClass(CSSNames[dock]);
+            }
+            else {
+                node.css({
+                    left: left,
+                    top: top
+                });
+            }
+            if (!root['__dz']) {
+                root['__dz'] = 1;
+                Monitor['__l'](root);
+            }
+        }
+    },
+    '__a': function () {
+        var me = this;
+        var children = me.owner.children();
+        for (var i = children.length - 1; i >= 0; i--) {
+            var child = Vframe.get(children[i]);
+            if (child)
+                child.invoke('__a');
+        }
+        if (me['__k']) {
+            me['__k'] = false;
+            var node = $('#' + me.id + ' div');
+            if (me['__ds']) {
+                node.removeClass(CSSNames.left).removeClass(CSSNames.right);
+                node.css({
+                    left: -100000
+                });
+                me['__ds'].removeClass('_eh');
+            }
+            else {
+                if (me['__dp']) {
+                    node.css({
+                        left: -10000
+                    });
+                }
+                delete me['__dz'];
+                Monitor['__g'](me);
+            }
+        }
+    },
+    '__dB': function (id) {
+        clearTimeout(this['__dA' + id]);
+    },
+    '__dD': function (node, id, children) {
+        var me = this;
+        me['__dC' + id] = setTimeout(me.wrapAsync(function () {
+            var nid = me.id + '_menu_' + id;
+            var vf = Vframe.get(nid);
+            if (!vf) {
+                $('body').append('<div id="' + nid + '" />');
+                vf = me.owner.mountVframe(nid, 'mx-menu/index', {
+                    '__ds': $('#' + me.id + '_' + id),
+                    width: me['__dt'],
+                    valueKey: me['__du'],
+                    textKey: me['__dw'],
+                    parentKey: me['__dv'],
+                    list: children,
+                    pId: id,
+                    '__dy': me['__dy'] || me,
+                    '__cw': me['__cw']
+                });
+            }
+            vf.invoke('__f', [null, node], true);
+        }), 250);
+    },
+    '__dE': function (id) {
+        var me = this;
+        var nid = me.id + '_menu_' + id;
+        var vf = Vframe.get(nid);
+        if (vf) {
+            me['__dA' + id] = setTimeout(me.wrapAsync(function () {
+                vf.invoke('__a');
+            }), 50);
+        }
+    },
+    '__dG<mouseover,mouseout>': function (e) {
+        var me = this;
+        var flag = !Magix.inside(e.relatedTarget, e.eventTarget);
+        if (flag) {
+            var node = $(e.eventTarget);
+            node[e.type == 'mouseout' ? 'removeClass' : 'addClass']('_eh');
+            var id = e.params.id;
+            me['__dE'](me['__dF']);
+            if (e.type == 'mouseover') {
+                var map = me['__cw'];
+                var children = map[id].children;
+                if (children) {
+                    me['__dB'](id);
+                    me['__dD'](node, id, children);
+                    me['__dF'] = id;
+                }
+            }
+            else {
+                clearTimeout(me['__dC' + id]);
+            }
+        }
+    },
+    '__dH<mouseover>': function (e) {
+        var me = this;
+        var flag = !Magix.inside(e.relatedTarget, e.eventTarget);
+        if (flag) {
+            if (!me['__ds'] && ActiveInstance != me) {
+                if (ActiveInstance) {
+                    ActiveInstance['__a']();
+                }
+            }
+            if (me['__ds']) {
+                $(me['__ds']).addClass('_eh');
+                me.owner.parent().invoke('__dB', [me['__dx']]);
+            }
+        }
+    },
+    '__cu<click>': function (e) {
+        var me = this;
+        var root = me['__dy'] || me;
+        var node = $('#' + root.id);
+        var data = {
+            type: 'pick',
+            item: me['__cw'][e.params.id]
+        };
+        node.trigger(data);
+        root['__a']();
+        var fn = me['__dr'];
+        if (fn) {
+            fn(data.item);
+        }
+    },
+    '__E<contextmenu>': function (e) {
+        e.preventDefault();
+    }
+}, {
+    show: function (view, e, ops) {
+        var node = e.eventTarget;
+        if (!node.id) {
+            node.id = Magix.guid();
+        }
+        var id = 'ctx_' + node.id;
+        var vf = Magix.Vframe.get(id);
+        if (vf) {
+            vf.invoke('__f', [e]);
+        }
+        else {
+            $('body').append('<div id="' + id + '" />');
+            ops = ops || {};
+            Magix.mix(ops, {
+                '__dp': 1,
+                '__dq': e
+            });
+            vf = view.owner.mountVframe(id, 'mx-menu/index', ops);
+        }
+    }
+});
+
+});

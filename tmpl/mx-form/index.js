@@ -391,6 +391,7 @@ module.exports = {
                     }
                     if (refresh || !actions.silent) {//如果刷新或未标记沉默更新
                         keys[rootKey] = 1; //标记改变;
+                        updater.$c = 1;
                     }
                     notify = true;
                 }

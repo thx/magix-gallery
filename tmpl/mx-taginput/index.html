@@ -30,18 +30,20 @@
         mx-focusout="@{stop}()"
         mx-showlist="@{toggleList}()"
         mx-hidelist="@{toggleList}()"
-        <%if(!disabled){%>
-        mx-view="@./suggest"
-        view-list="<%@list%>"
-        view-text-key="<%@textKey%>"
-        view-value-key="<%@valueKey%>"
-        view-relate-ids="ipt_<%=viewId%>"
-        view-offset-left="-11"
-        view-width="<%=width%>"
-        view-scroll-top="<%@scrollTop%>"
-        <%}else{%>
+        <%if(disabled){%>
         disabled
         <%}%>
         class="trigger"
         autocomplete="off"/>
+    <%if(!disabled){%>
+    <mx-vframe src="./suggest"
+        class="pa none"
+        list="<%@list%>"
+        text-key="<%@textKey%>"
+        value-key="<%@valueKey%>"
+        relate-ids="ipt_<%=viewId%>"
+        offset-left="-11"
+        width="<%=width%>"
+        scroll-top="<%@scrollTop%>"/>
+    <%}%>
 </div>

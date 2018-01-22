@@ -17,7 +17,9 @@
                 <%for(var j=0;j<5;j++){%>
                 <td>示例字段内容<%=j%></td>
                 <%}%>
-                <td><a href="#" mx-enter="del({id:<%=i%>})" mx-view="mx-popconfirm/index" view-content="确认删除？">删除</a></td>
+                <td>
+                    <mx-popconfirm content="确认删除？" mx-enter="del({id:<%=i%>})" class="cp">删除</mx-popconfirm>
+                </td>
             </tr>
             <%}%>
         </tbody>
@@ -26,7 +28,7 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;table class="table table-striped"&gt;
+    <pre mx-view="__test__/hl">&lt;table class="table table-striped"&gt;
     &lt;thead&gt;
         &lt;tr&gt;
             &lt;th&gt;&lt;input type="checkbox" class="checkbox" linkage="example1" /&gt;&lt;/th&gt;
@@ -43,13 +45,13 @@
             &lt;%for(var j=0;j&lt;5;j++){%&gt;
             &lt;td&gt;示例字段内容&lt;%=j%&gt;&lt;/td&gt;
             &lt;%}%&gt;
-            &lt;td&gt;&lt;a href="#" mx-enter="del({id:&lt;%=i%&gt;})" mx-view="mx-popconfirm/index" view-content="确认删除？"&gt;删除&lt;/a&gt;&lt;/td&gt;
+            &lt;mx-popconfirm content="确认删除？" mx-enter="del({id:&lt;%=i%&gt;})" class="cp"&gt;删除&lt;/mx-popconfirm&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;%}%&gt;
     &lt;/tbody&gt;
 &lt;/table&gt;</pre>
 <div class="pt10">Javascript Code:</div>
-    <pre>let Magix = require('magix');
+    <pre mx-view="__test__/hl">let Magix = require('magix');
 let Linkage = require('../../mx-checkbox/linkage');
 let GTip = require('../../mx-gtip/index');
 module.exports = Magix.View.extend({

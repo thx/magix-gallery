@@ -15,7 +15,7 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>
+    <pre mx-view="__test__/hl">
 &lt;ul mx-view="mx-dragselect/index" class="hor fl" mx-change="show()" mx-dragbegin="begin()" mx-dragfinish="end()"&gt;
     &lt;li&gt;123&lt;/li&gt;
     &lt;li&gt;456&lt;/li&gt;
@@ -27,7 +27,7 @@
     &lt;li&gt;456&lt;/li&gt;
 &lt;/ul&gt;</pre>
 <div class="pt10">Javascript Code:</div>
-    <pre>
+    <pre mx-view="__test__/hl">
 let Magix = require('magix');
 let $ = require('$');
 Magix.applyStyle('@index.less');
@@ -100,7 +100,7 @@ module.exports = Magix.View.extend({
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;ul mx-view="mx-dragselect/index" class="hor fl" mx-change="show()" mx-dragbegin="begin()" mx-dragfinish="end()" view-selector="li[select!=false]"&gt;
+    <pre mx-view="__test__/hl">&lt;ul mx-view="mx-dragselect/index" class="hor fl" mx-change="show()" mx-dragbegin="begin()" mx-dragfinish="end()" view-selector="li[select!=false]"&gt;
         &lt;li&gt;123&lt;/li&gt;
         &lt;li&gt;456&lt;/li&gt;
         &lt;li&gt;123&lt;/li&gt;

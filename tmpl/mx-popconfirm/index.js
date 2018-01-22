@@ -9,7 +9,7 @@ let $ = require('$');
 Magix.applyStyle('@index.less');
 let Monitor = require('../mx-monitor/index');
 module.exports = Magix.View.extend({
-    tmpl: '@index.html:updateby[]',
+    tmpl: '@index.html',
     init(extra) {
         let me = this;
         me['@{pos.placement}'] = extra.placement || 'left';
@@ -23,35 +23,26 @@ module.exports = Magix.View.extend({
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
         });
-    },
-    '@{inside}'(node) {
-        let me = this;
-        return Magix.inside(node, me.id) || Magix.inside(node, 'popcfm_' + me.id);
-    },
-    render() {
-        let me = this;
-        me.endUpdate();
-        let node = $('#' + me.id);
-        me['@{owner.node}'] = node;
-        node.on('click', e => {
+        let oNode = $('#' + me.id);
+        me['@{relate.node}'] = oNode;
+        me['@{owner.node}'] = oNode = oNode.prev();
+        me['@{owner.node}'].on('click', e => {
             e.preventDefault();
-            me['@{prepare}']();
             me['@{show}']();
         });
     },
-    '@{prepare}'() {
+    '@{inside}'(node) {
         let me = this;
-        if (!me['@{relate.node}']) {
-            let id = 'popcfm_' + me.id;
-            me['@{owner.node}'].after('<div class="@index.less:popover" id="' + id + '" />');
-            me.updater.to(id);
-            me.updater.digest({
-                content: me['@{content}'],
-                enterText: me['@{text.enter}'],
-                cancelText: me['@{text.cancel}']
-            });
-            me['@{relate.node}'] = $('#' + id);
-        }
+        return Magix.inside(node, me.id) ||
+            Magix.inside(node, me['@{owner.node}'][0]);
+    },
+    render() {
+        let me = this;
+        me.updater.digest({
+            content: me['@{content}'],
+            enterText: me['@{text.enter}'],
+            cancelText: me['@{text.cancel}']
+        });
     },
     '@{show}'() {
         let me = this;
@@ -112,9 +103,7 @@ module.exports = Magix.View.extend({
         if (me['@{ui.show}']) {
             delete me['@{ui.show}'];
             Monitor['@{remove}'](me);
-            me['@{relate.node}'].css({
-                display: 'none'
-            });
+            me['@{relate.node}'].hide();
         }
     },
     '@{enter}<click>'() {

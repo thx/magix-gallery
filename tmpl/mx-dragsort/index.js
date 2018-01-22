@@ -39,7 +39,7 @@ let UI = {
         }
     },
     '@{drag.end}'(info) {
-        if (info.child) {
+        if (info && info.child) {
             $(info.child).css({
                 opacity: 1
             });
@@ -144,6 +144,7 @@ module.exports = Magix.View.extend({
         });
         me.on('destroy', () => {
             oNode.off('mousedown');
+            DD.end();
         });
         me['@{owner.node}'] = oNode;
         let zones = [oNode.get(0)];

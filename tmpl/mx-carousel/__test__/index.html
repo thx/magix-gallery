@@ -19,10 +19,9 @@
         </mx-carousel.panel>
     </mx-carousel>
 </div>
-
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-carousel style="height:200px;background-color:#f96447;color:white"&gt;
+    <pre mx-view="__test__/hl">&lt;mx-carousel style="height:200px;background-color:#f96447;color:white"&gt;
     &lt;mx-carousel.panel style="text-align:center;line-height:200px"&gt;
         &lt;h1&gt;1&lt;/h1&gt;
     &lt;/mx-carousel.panel&gt;
@@ -41,7 +40,7 @@
 &lt;/mx-carousel&gt;</pre>
 </div>
 
-<h3 class="mt20">自动播放并默认选中第二帧</h3>
+<h3 class="mt20">初始显示第二帧并自动播放</h3>
 <div class="pt20 clearfix">
     <mx-carousel style="height:200px;background-color:#2e6859;color:white;width:500px;"　active="1" autoplay="true">
         <mx-carousel.panel style="text-align:center;line-height:200px">
@@ -64,7 +63,7 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-carousel style="height:200px;background-color:#2e6859;color:white;width:500px;"　active="1" autoplay="true"&gt;
+    <pre mx-view="__test__/hl">&lt;mx-carousel style="height:200px;background-color:#2e6859;color:white;width:500px;"　active="1" autoplay="true"&gt;
     &lt;mx-carousel.panel style="text-align:center;line-height:200px"&gt;
         &lt;h1&gt;1&lt;/h1&gt;
     &lt;/mx-carousel.panel&gt;
@@ -85,7 +84,12 @@
 
 <h3 class="mt20">不显示缩略点</h3>
 <div class="pt20 clearfix">
-    <mx-carousel style="height:200px;background-color:#f96447;color:white;width:500px;"　dots="false" autoplay="true">
+    <mx-carousel
+        style="height:200px;background-color:#f96447;color:white;width:500px;"
+        dots="false"
+        autoplay="true"
+        timing="cubic-bezier(.57,-0.81,.22,1.76)"
+        duration="1s">
         <mx-carousel.panel style="text-align:center;line-height:200px">
             <h1>1</h1>
         </mx-carousel.panel>
@@ -106,7 +110,12 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-carousel style="height:200px;background-color:#f96447;color:white;width:500px;"　dots="false" autoplay="true"&gt;
+    <pre mx-view="__test__/hl">&lt;mx-carousel
+        style="height:200px;background-color:#f96447;color:white;width:500px;"
+        dots="false"
+        autoplay="true"
+        timing="cubic-bezier(.57,-0.81,.22,1.76)"
+        duration="1s"&gt;
     &lt;mx-carousel.panel style="text-align:center;line-height:200px"&gt;
         &lt;h1&gt;1&lt;/h1&gt;
     &lt;/mx-carousel.panel&gt;
@@ -148,7 +157,7 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;mx-carousel style="height:200px;background-color:#f96447;color:white;width:500px;" vertical="true" autoplay="true"&gt;
+    <pre mx-view="__test__/hl">&lt;mx-carousel style="height:200px;background-color:#f96447;color:white;width:500px;" vertical="true" autoplay="true"&gt;
     &lt;mx-carousel.panel style="text-align:center;line-height:200px"&gt;
         &lt;h1&gt;1&lt;/h1&gt;
     &lt;/mx-carousel.panel&gt;

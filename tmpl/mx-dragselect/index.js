@@ -79,6 +79,7 @@ module.exports = Magix.View.extend({
         });
         me.on('destroy', () => {
             oNode.off('mousedown click');
+            DD.end();
         });
         me['@{sub.selector}'] = extra.selector;
         me['@{owner.node}'] = oNode;

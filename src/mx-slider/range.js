@@ -1,1 +1,422 @@
-define("mx-slider/range",["magix","$","../mx-dragdrop/index","./style"],(e,t,_)=>{var i=e("magix"),s=e("$"),a=e("../mx-dragdrop/index");e("./style"),_.exports=i.View.extend({tmpl:{html:'<div mx-guid="g0" class="_eG<%if($$.vertical){%> _eI<%}else{%> _eH<%}%>" mx-contextmenu="__D()" style="<%if($$.vertical){%>height:<%=$$.height%><%}else{%>width:<%=$$.width%><%}%>px"><div mx-guid="g1" class="_eJ<%if($$.vertical){%> _eL<%}else{%> _eK<%}%>"></div><div mx-guid="g2" tabindex="0" mx-keydown="__eF({start:true})" class="_eM<%if($$.vertical){%> _eO<%}else{%> _eN<%}%>" mx-mousedown="__eB({start:true})" id="left_<%=$$.viewId%>"></div><div mx-guid="g3" class="_eP<%if($$.vertical){%> _eV<%}else{%> _eU<%}%>" id="leftl_<%=$$.viewId%>"></div><div mx-guid="g4" tabindex="0" mx-keydown="__eF()" class="_eM<%if($$.vertical){%> _eO<%}else{%> _eN<%}%>" mx-mousedown="__eB({end:true})" id="right_<%=$$.viewId%>"></div><div mx-guid="g5" class="_eP<%if($$.vertical){%> _eV<%}else{%> _eU<%}%>" id="rightl_<%=$$.viewId%>"></div><div mx-guid="g6" class="<%if($$.vertical){%>_eS<%}else{%>_eQ<%}%>">7</div><div mx-guid="g7" class="<%if($$.vertical){%>_eT<%}else{%>_eR<%}%>">8</div></div>',subs:[{keys:["vertical","height","width"],path:'div[mx-guid="g0"]',attr:'class="_eG<%if($$.vertical){%> _eI<%}else{%> _eH<%}%>" mx-contextmenu="__D()" style="<%if($$.vertical){%>height:<%=$$.height%><%}else{%>width:<%=$$.width%><%}%>px"',attrs:[{n:"class",p:1,f:"className"},{n:"mx-contextmenu"},{n:"style"}]},{keys:["vertical"],path:'div[mx-guid="g1"]',attr:'class="_eJ<%if($$.vertical){%> _eL<%}else{%> _eK<%}%>"',attrs:[{n:"class",p:1,f:"className"}]},{keys:["vertical","viewId"],path:'div[mx-guid="g2"]',attr:'class="_eM<%if($$.vertical){%> _eO<%}else{%> _eN<%}%>" mx-mousedown="__eB({start:true})" id="left_<%=$$.viewId%>"',attrs:[{n:"class",p:1,f:"className"},{n:"mx-mousedown"},{n:"id",p:1}]},{keys:["vertical","viewId"],path:'div[mx-guid="g3"]',attr:'class="_eP<%if($$.vertical){%> _eV<%}else{%> _eU<%}%>" id="leftl_<%=$$.viewId%>"',attrs:[{n:"class",p:1,f:"className"},{n:"id",p:1}]},{keys:["vertical","viewId"],path:'div[mx-guid="g4"]',attr:'class="_eM<%if($$.vertical){%> _eO<%}else{%> _eN<%}%>" mx-mousedown="__eB({end:true})" id="right_<%=$$.viewId%>"',attrs:[{n:"class",p:1,f:"className"},{n:"mx-mousedown"},{n:"id",p:1}]},{keys:["vertical","viewId"],path:'div[mx-guid="g5"]',attr:'class="_eP<%if($$.vertical){%> _eV<%}else{%> _eU<%}%>" id="rightl_<%=$$.viewId%>"',attrs:[{n:"class",p:1,f:"className"},{n:"id",p:1}]},{keys:["vertical","min"],path:'div[mx-guid="g6"]',tmpl:"<%=$$.min%>",s:"7",attr:'class="<%if($$.vertical){%>_eS<%}else{%>_eQ<%}%>"',attrs:[{n:"class",p:1,f:"className"}],mask:"21"},{keys:["vertical","max"],path:'div[mx-guid="g7"]',tmpl:"<%=$$.max%>",s:"8",attr:'class="<%if($$.vertical){%>_eT<%}else{%>_eR<%}%>"',attrs:[{n:"class",p:1,f:"className"}],mask:"21"}]},init:function(e){var t=this,_=s("#"+t.id);_.addClass("_eF"),t.assign(e);var a=function(e){if(!t.__ev&&!t.__cn){var s=_.offset(),a=t.__ew(),h=((t.__ex?a.rMax-e.pageY+s.top:e.pageX-s.left)-a.half)/a.max,r=t.__ey(h),d=+t.__ak,l=+t.__aZ;Math.abs(d-r)<Math.abs(l-r)?(t.__eC(r),t.__ak=r,t.__u(),i.node("left_"+t.id).focus()):(t.__eD(r),t.__aZ=r,t.__u(),i.node("right_"+t.id).focus())}};_.on("click",a),t.on("destroy",function(){_.off("click",a)}),t.__h=_},assign:function(e){this.__dn=+e.width||340,this.__eA=+e.height||340,this.__E=+e.min||0,this.__F=+e.max||100,this.__dE=+e.step||1,this.__cn=e.disabled+""=="true",this.__ex=e.vertical+""=="true";var t=this.__dE+"",_=t.indexOf(".");_=_>=0?t.slice(_+1).length:0,this.__dG=_;var i=e.value;return i?(i=(i+"").split(","),this.__ak=+i[0]||0,this.__aZ=+i[1]||0):(this.__ak=0,this.__aZ=0),!0},render:function(){this.updater.digest({min:this.__E.toFixed(this.__dG),max:this.__F.toFixed(this.__dG),viewId:this.id,height:this.__eA,width:this.__dn,vertical:this.__ex}),this.__h[this.__cn?"addClass":"removeClass"]("_eW"),this.val([this.__ak,this.__aZ])},__ew:function(){var e=this.__h.find("._eG"),t=this.__h.find("._eJ"),_=s("#left_"+this.id),i=s("#right_"+this.id),a=this.__ex?e.height():e.width(),h=_.outerWidth()/2,r=a-2*h;return{rail:e,iLeftL:s("#leftl_"+this.id),iRightL:s("#rightl_"+this.id),tracker:t,iLeft:_,iRight:i,left:parseInt(_.css(this.__ex?"bottom":"left"),10),right:parseInt(i.css(this.__ex?"bottom":"left"),10),rMax:a,max:r,half:h}},__eC:function(e){e=+e;var t=this.__F,_=this.__E;e>t?e=t:e<_&&(e=_);var i=(e-_)/(t-_),s=this.__ew(),a=i*s.max;this.__ex?s.iLeft.css({bottom:a}):s.iLeft.css({left:a}),e=this.__ey(i);var h=s.iLeftL;h.html(e);var r=a+s.half;if(this.__ex){r-=d=h.height()/2,h.css({bottom:r}),s.tracker.css({bottom:a+s.half}).height(s.right-a)}else{var d;r<(d=h.width()/2)?r=0:r+d>s.rMax?r=s.rMax-2*d:r-=d,h.css({left:r}),s.tracker.css({left:a+s.half}).width(s.right-a)}return e},__eD:function(e){e=+e;var t=this.__F,_=this.__E;e>t?e=t:e<_&&(e=_);var i=(e-_)/(t-_),s=this.__ew(),a=i*s.max;this.__ex?s.iRight.css({bottom:a}):s.iRight.css({left:a}),e=this.__ey(i);var h=s.iRightL;h.html(e);var r=a+s.half;if(this.__ex){r-=d=h.height()/2,h.css({bottom:r}),s.tracker.height(a-s.left)}else{var d;r<(d=h.width()/2)?r=0:r+d>s.rMax?r=s.rMax-2*d:r-=d,h.css({left:r}),s.tracker.width(a-s.left)}return e},val:function(e){if(e){var t=(e+"").split(","),_=+t[0]||0,i=+t[1]||0;_>i&&(_=(s=[i,_])[0],i=s[1]),this.__h.prop("value",[_,i]),_=this.__eC(_),i=this.__eD(i),this.__ak==_&&this.__aZ==i||(this.__ak=_,this.__aZ=i,this.__u())}return[+this.__ak,+this.__aZ];var s},__ey:function(e){var t,_=this.__F,i=this.__E,s=this.__dE;return 0===e?t=i:1===e?t=_:(t=i+(_-i)*e,t=Math.round(t/s)*s),t=t.toFixed(this.__dG)},__u:function(){var e=[+this.__ak,+this.__aZ];this.__h.prop("value",e).trigger({type:"change",value:e,start:+this.__ak,end:+this.__aZ})},__eE:function(e,t){e==this.__ak&&t==this.__aZ||(this.__ak=e,this.__aZ=t,this.__u())},"__eB<mousedown>":function(e){var t=this;if(!t.__cn){var _=s(e.eventTarget),h=_.outerWidth(),r=-1;r=t.__ex?_.parent().height()-h:_.parent().width()-h;var d=parseInt(_.css(t.__ex?"bottom":"left"),10),l=t.__ak,n=t.__aZ;t.__ez=1,a.begin(e.eventTarget,function(_){a.clear();var s=-1;(s=t.__ex?d+e.pageY-_.pageY:d+_.pageX-e.pageX)<0?s=0:s>r&&(s=r);var h=s/r,c=t.__ey(h),v=+c;if(e.params.end){var f=+t.__ak;v>=f?(t.__ak!=l&&(l=t.__eC(f)),n=t.__eD(c),i.node("right_"+t.id).focus()):(t.__ak!=n&&(n=t.__eD(f)),l=t.__eC(c),i.node("left_"+t.id).focus())}else{var o=+t.__aZ;v<=o?(t.__aZ!=n&&(n=t.__eD(o)),l=t.__eC(c),i.node("left_"+t.id).focus()):(t.__aZ!=l&&(l=t.__eC(o)),n=t.__eD(c),i.node("right_"+t.id).focus())}},function(){t.__eE(l,n),t.__ev=!0,setTimeout(t.wrapAsync(function(){delete t.__ev}),20),delete t.__ez})}},"__eF<keydown>":function(e){var t,_=this.__dE;if(!this.__ez&&(37==e.keyCode||40==e.keyCode?(e.preventDefault(),_=-_,t=!0):39!=e.keyCode&&38!=e.keyCode||(e.preventDefault(),t=!0),t)){var s=this.__ak,a=+s,h=this.__aZ,r=+h,d=e.params.start;d?a+=_:r+=_,a>r?(d?i.node("right_"+this.id).focus():i.node("left_"+this.id).focus(),r!=+s&&(s=this.__eC(r)),a!=+h&&(h=this.__eD(a))):d?s=this.__eC(a):h=this.__eD(r),this.__eE(s,h)}},"__D<contextmenu>":function(e){e.preventDefault()}})});
+/*
+    generate by magix-combine@3.8.3: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-slider/range",["magix","$","../mx-dragdrop/index","./style"],(require,exports,module)=>{
+/*Magix,$,DD*/
+
+/*
+ver:2.0.1
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+
+var Magix = require("magix");
+var $ = require("$");
+var DD = require("../mx-dragdrop/index");
+require("./style");
+module.exports = Magix.View.extend({
+    tmpl: {"html":"<div class=\"_eF<%if($$.vertical){%> _eH<%}else{%> _eG<%}%>\" mx-contextmenu=\"\u001f\u001e__E()\" style=\"<%if($$.vertical){%>height:<%=$$.height%><%}else{%>width:<%=$$.width%><%}%>px\"><div class=\"_eI<%if($$.vertical){%> _eK<%}else{%> _eJ<%}%>\"></div><div tabindex=\"0\" mx-keydown=\"\u001f\u001e__eJ({start:true})\" class=\"_eL<%if($$.vertical){%> _eN<%}else{%> _eM<%}%>\" mx-mousedown=\"\u001f\u001e__eF({start:true})\" id=\"left_<%=$$.viewId%>\"></div><div class=\"_eO<%if($$.vertical){%> _eU<%}else{%> _eT<%}%>\" id=\"leftl_<%=$$.viewId%>\"></div><div tabindex=\"0\" mx-keydown=\"\u001f\u001e__eJ()\" class=\"_eL<%if($$.vertical){%> _eN<%}else{%> _eM<%}%>\" mx-mousedown=\"\u001f\u001e__eF({end:true})\" id=\"right_<%=$$.viewId%>\"></div><div class=\"_eO<%if($$.vertical){%> _eU<%}else{%> _eT<%}%>\" id=\"rightl_<%=$$.viewId%>\"></div><div class=\"<%if($$.vertical){%>_eR<%}else{%>_eP<%}%>\"><%=$$.min%></div><div class=\"<%if($$.vertical){%>_eS<%}else{%>_eQ<%}%>\"><%=$$.max%></div></div>"},
+    init: function (extra) {
+        var me = this;
+        var oNode = $('#' + me.id);
+        oNode.addClass('_eE');
+        me.assign(extra);
+        var click = function (e) {
+            if (me['__ez'] || me['__cv'])
+                return;
+            var offset = oNode.offset();
+            var vars = me['__eA']();
+            var pos = -1;
+            if (me['__eB']) {
+                pos = vars.rMax - e.pageY + offset.top;
+            }
+            else {
+                pos = e.pageX - offset.left;
+            }
+            var p = (pos - vars.half) / vars.max;
+            var v = me['__eC'](p);
+            var start = +me['__aq'];
+            var end = +me['__be'];
+            var syncLeft = Math.abs(start - v) < Math.abs(end - v);
+            if (syncLeft) {
+                me['__eG'](v);
+                me['__aq'] = v;
+                me['__v']();
+                Magix.node('left_' + me.id).focus();
+            }
+            else {
+                me['__eH'](v);
+                me['__be'] = v;
+                me['__v']();
+                Magix.node('right_' + me.id).focus();
+            }
+        };
+        oNode.on('click', click);
+        me.on('destroy', function () {
+            oNode.off('click', click);
+            DD.end();
+        });
+        me['__i'] = oNode;
+    },
+    assign: function (ops) {
+        var me = this;
+        me['__dt'] = +ops.width || 340;
+        me['__eE'] = +ops.height || 340;
+        me['__F'] = +ops.min || 0;
+        me['__G'] = +ops.max || 100;
+        me['__dK'] = +ops.step || 1;
+        me['__cv'] = (ops.disabled + '') === 'true';
+        me['__eB'] = (ops.vertical + '') === 'true';
+        var s = me['__dK'] + '';
+        var i = s.indexOf('.');
+        if (i >= 0) {
+            i = s.slice(i + 1).length;
+        }
+        else {
+            i = 0;
+        }
+        me['__dM'] = i;
+        var value = ops.value;
+        if (value) {
+            value = (value + '').split(',');
+            me['__aq'] = +value[0] || 0;
+            me['__be'] = +value[1] || 0;
+        }
+        else {
+            me['__aq'] = 0;
+            me['__be'] = 0;
+        }
+        return true;
+    },
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            min: me['__F'].toFixed(me['__dM']),
+            max: me['__G'].toFixed(me['__dM']),
+            viewId: me.id,
+            height: me['__eE'],
+            width: me['__dt'],
+            vertical: me['__eB']
+        });
+        me['__i'][me['__cv'] ? 'addClass' : 'removeClass']('_eV');
+        me.val([me['__aq'], me['__be']]);
+    },
+    '__eA': function () {
+        var me = this;
+        var rail = me['__i'].find('._eF');
+        var tracker = me['__i'].find('._eI');
+        var iLeft = $('#left_' + me.id);
+        var iRight = $('#right_' + me.id);
+        var rMax = me['__eB'] ? rail.height() : rail.width();
+        var half = iLeft.outerWidth() / 2;
+        var max = rMax - half * 2;
+        return {
+            rail: rail,
+            iLeftL: $('#leftl_' + me.id),
+            iRightL: $('#rightl_' + me.id),
+            tracker: tracker,
+            iLeft: iLeft,
+            iRight: iRight,
+            left: parseInt(iLeft.css(me['__eB'] ? 'bottom' : 'left'), 10),
+            right: parseInt(iRight.css(me['__eB'] ? 'bottom' : 'left'), 10),
+            rMax: rMax,
+            max: max,
+            half: half
+        };
+    },
+    '__eG': function (v) {
+        var me = this;
+        v = +v;
+        var max = me['__G'], min = me['__F'];
+        if (v > max)
+            v = max;
+        else if (v < min)
+            v = min;
+        var leftPercent = (v - min) / (max - min);
+        var vars = me['__eA']();
+        var pos = leftPercent * vars.max;
+        if (me['__eB']) {
+            vars.iLeft.css({
+                bottom: pos
+            });
+        }
+        else {
+            vars.iLeft.css({
+                left: pos
+            });
+        }
+        v = me['__eC'](leftPercent);
+        var node = vars.iLeftL;
+        node.html(v);
+        var l = pos + vars.half;
+        if (me['__eB']) {
+            var pHalf = node.height() / 2;
+            l -= pHalf;
+            node.css({
+                bottom: l
+            });
+            vars.tracker.css({
+                bottom: pos + vars.half
+            }).height(vars.right - pos);
+        }
+        else {
+            var pHalf = node.width() / 2;
+            if (l < pHalf) {
+                l = 0;
+            }
+            else if (l + pHalf > vars.rMax) {
+                l = vars.rMax - 2 * pHalf;
+            }
+            else {
+                l -= pHalf;
+            }
+            node.css({
+                left: l
+            });
+            vars.tracker.css({
+                left: pos + vars.half
+            }).width(vars.right - pos);
+        }
+        return v;
+    },
+    '__eH': function (v) {
+        var me = this;
+        v = +v;
+        var max = me['__G'], min = me['__F'];
+        if (v > max)
+            v = max;
+        else if (v < min)
+            v = min;
+        var rightPercent = (v - min) / (max - min);
+        var vars = me['__eA']();
+        var pos = rightPercent * vars.max;
+        if (me['__eB']) {
+            vars.iRight.css({
+                bottom: pos
+            });
+        }
+        else {
+            vars.iRight.css({
+                left: pos
+            });
+        }
+        v = me['__eC'](rightPercent);
+        var node = vars.iRightL;
+        node.html(v);
+        var l = pos + vars.half;
+        if (me['__eB']) {
+            var pHalf = node.height() / 2;
+            l -= pHalf;
+            node.css({
+                bottom: l
+            });
+            vars.tracker.height(pos - vars.left);
+        }
+        else {
+            var pHalf = node.width() / 2;
+            if (l < pHalf) {
+                l = 0;
+            }
+            else if (l + pHalf > vars.rMax) {
+                l = vars.rMax - 2 * pHalf;
+            }
+            else {
+                l -= pHalf;
+            }
+            node.css({
+                left: l
+            });
+            vars.tracker.width(pos - vars.left);
+        }
+        return v;
+    },
+    val: function (v) {
+        var me = this;
+        if (v) {
+            var av = (v + '').split(',');
+            var start = +av[0] || 0;
+            var end = +av[1] || 0;
+            if (start > end) {
+                _a = [end, start], start = _a[0], end = _a[1];
+            }
+            me['__i'].prop('value', [start, end]);
+            start = me['__eG'](start);
+            end = me['__eH'](end);
+            if (me['__aq'] != start || me['__be'] != end) {
+                me['__aq'] = start;
+                me['__be'] = end;
+                me['__v']();
+            }
+        }
+        return [+me['__aq'], +me['__be']];
+        var _a;
+    },
+    '__eC': function (p) {
+        var me = this;
+        var max = me['__G'], min = me['__F'], step = me['__dK'], v;
+        if (p === 0)
+            v = min;
+        else if (p === 1)
+            v = max;
+        else {
+            v = min + (max - min) * p;
+            v = Math.round(v / step) * step;
+        }
+        v = v.toFixed(me['__dM']);
+        return v;
+    },
+    '__v': function () {
+        var me = this;
+        var value = [+me['__aq'], +me['__be']];
+        this['__i'].prop('value', value).trigger({
+            type: 'change',
+            value: value,
+            start: +me['__aq'],
+            end: +me['__be']
+        });
+    },
+    '__eI': function (start, end) {
+        var me = this;
+        if (start != me['__aq'] ||
+            end != me['__be']) {
+            me['__aq'] = start;
+            me['__be'] = end;
+            me['__v']();
+        }
+    },
+    '__eF<mousedown>': function (e) {
+        var me = this;
+        if (me['__cv'])
+            return;
+        var current = $(e.eventTarget);
+        var size = current.outerWidth();
+        var min = 0; //最小
+        var max = -1;
+        if (me['__eB']) {
+            max = current.parent().height() - size;
+        }
+        else {
+            max = current.parent().width() - size;
+        }
+        var currentValue = parseInt(current.css(me['__eB'] ? 'bottom' : 'left'), 10);
+        var dragStartValue = me['__aq'];
+        var dragEndValue = me['__be'];
+        me['__eD'] = 1;
+        DD.begin(e.eventTarget, function (ex) {
+            DD.clear();
+            var newValue = -1;
+            if (me['__eB']) {
+                newValue = currentValue + e.pageY - ex.pageY;
+            }
+            else {
+                newValue = currentValue + ex.pageX - e.pageX;
+            }
+            if (newValue < min)
+                newValue = min;
+            else if (newValue > max)
+                newValue = max;
+            var p = newValue / max;
+            var v = me['__eC'](p);
+            var nv = +v;
+            if (e.params.end) {
+                var start = +me['__aq'];
+                if (nv >= start) {
+                    if (me['__aq'] != dragStartValue) {
+                        dragStartValue = me['__eG'](start);
+                    }
+                    dragEndValue = me['__eH'](v);
+                    Magix.node('right_' + me.id).focus();
+                }
+                else {
+                    if (me['__aq'] != dragEndValue) {
+                        dragEndValue = me['__eH'](start);
+                    }
+                    dragStartValue = me['__eG'](v);
+                    Magix.node('left_' + me.id).focus();
+                }
+            }
+            else {
+                var end = +me['__be'];
+                if (nv <= end) {
+                    if (me['__be'] != dragEndValue) {
+                        dragEndValue = me['__eH'](end);
+                    }
+                    dragStartValue = me['__eG'](v);
+                    Magix.node('left_' + me.id).focus();
+                }
+                else {
+                    if (me['__be'] != dragStartValue) {
+                        dragStartValue = me['__eG'](end);
+                    }
+                    dragEndValue = me['__eH'](v);
+                    Magix.node('right_' + me.id).focus();
+                }
+            }
+        }, function () {
+            me['__eI'](dragStartValue, dragEndValue);
+            me['__ez'] = true;
+            setTimeout(me.wrapAsync(function () {
+                delete me['__ez'];
+            }), 20);
+            delete me['__eD'];
+        });
+    },
+    '__eJ<keydown>': function (e) {
+        var me = this, step = me['__dK'], move;
+        if (me['__eD'])
+            return;
+        if (e.keyCode == 37 || e.keyCode == 40) {
+            e.preventDefault();
+            step = -step;
+            move = true;
+        }
+        else if (e.keyCode == 39 || e.keyCode == 38) {
+            e.preventDefault();
+            move = true;
+        }
+        if (move) {
+            var srcStartValue = me['__aq'];
+            var startValue = +srcStartValue;
+            var srcEndValue = me['__be'];
+            var endValue = +srcEndValue;
+            var start = e.params.start;
+            if (start) {
+                startValue += step;
+            }
+            else {
+                endValue += step;
+            }
+            if (startValue > endValue) {
+                if (start) {
+                    Magix.node('right_' + me.id).focus();
+                }
+                else {
+                    Magix.node('left_' + me.id).focus();
+                }
+                if (endValue != +srcStartValue) {
+                    srcStartValue = me['__eG'](endValue);
+                }
+                if (startValue != +srcEndValue) {
+                    srcEndValue = me['__eH'](startValue);
+                }
+            }
+            else {
+                if (start) {
+                    srcStartValue = me['__eG'](startValue);
+                }
+                else {
+                    srcEndValue = me['__eH'](endValue);
+                }
+            }
+            me['__eI'](srcStartValue, srcEndValue);
+        }
+    },
+    '__E<contextmenu>': function (e) {
+        e.preventDefault();
+    }
+});
+
+});

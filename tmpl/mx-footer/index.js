@@ -35,7 +35,7 @@ module.exports = Magix.View.extend({
             jsonp: 'callback',
             cache: true,
             success: me.wrapAsync((resp) => {
-                me.setHTML(me.id, Mustache.render(resp.html, {
+                $('#' + me.id).html(Mustache.render(resp.html, {
                     simple: simple,
                     alimama: alimama,
                     taobao: taobao,

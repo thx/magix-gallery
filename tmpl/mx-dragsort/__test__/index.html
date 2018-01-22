@@ -37,7 +37,7 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;ul mx-view="app/gallery/mx-dragsort/index" class="left fl" view-selector="span"&gt;
+    <pre mx-view="__test__/hl">&lt;ul mx-view="app/gallery/mx-dragsort/index" class="left fl" view-selector="span"&gt;
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
@@ -87,7 +87,7 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;ul mx-view="app/gallery/mx-dragsort/index" class="hor fl" view-horizonal="true" view-vertical="false"&gt;
+    <pre mx-view="__test__/hl">&lt;ul mx-view="app/gallery/mx-dragsort/index" class="hor fl" view-horizonal="true" view-vertical="false"&gt;
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
@@ -115,7 +115,7 @@
 </div>
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;ul mx-view="app/gallery/mx-dragsort/index" class="hor fl" view-horizonal="true" view-vertical="true"&gt;
+    <pre mx-view="__test__/hl">&lt;ul mx-view="app/gallery/mx-dragsort/index" class="hor fl" view-horizonal="true" view-vertical="true"&gt;
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
@@ -161,7 +161,7 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;ul mx-view="app/gallery/mx-dragsort/index" class="left left1 fl scrollable" view-drops="_def" view-selector="span" id="_abc"&gt;
+    <pre mx-view="__test__/hl">&lt;ul mx-view="app/gallery/mx-dragsort/index" class="left left1 fl scrollable" view-drops="_def" view-selector="span" id="_abc"&gt;
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
@@ -194,7 +194,7 @@
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;ul mx-view="app/gallery/mx-dragsort/index" class="left left1 fl scrollable" mx-enterzone="stop()" mx-leavezone="ok()" mx-dragfinish="del()" view-sort="false"&gt;
+    <pre mx-view="__test__/hl">&lt;ul mx-view="app/gallery/mx-dragsort/index" class="left left1 fl scrollable" mx-enterzone="stop()" mx-leavezone="ok()" mx-dragfinish="del()" view-sort="false"&gt;
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
@@ -205,7 +205,7 @@
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
 &lt;/ul&gt;</pre>
 <div class="pt10">Javascript Code:</div>
-<pre>let Magix = require('magix');
+<pre mx-view="__test__/hl">let Magix = require('magix');
 Magix.applyStyle('@index.less');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -247,7 +247,7 @@ module.exports = Magix.View.extend({
 
 <div class="pt20">
     <div>HTML Code:</div>
-    <pre>&lt;ul mx-view="app/gallery/mx-dragsort/index" class="hor fl" view-horizonal="true" view-vertical="false"&gt;
+    <pre mx-view="__test__/hl">&lt;ul mx-view="app/gallery/mx-dragsort/index" class="hor fl" view-horizonal="true" view-vertical="false"&gt;
     &lt;li ds-draggable="false"&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;
     &lt;li ds-draggable="false"&gt;&lt;span&gt;move&lt;/span&gt;456&lt;/li&gt;
     &lt;li&gt;&lt;span&gt;move&lt;/span&gt;123&lt;/li&gt;

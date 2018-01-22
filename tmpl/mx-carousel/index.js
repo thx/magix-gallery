@@ -17,6 +17,8 @@ module.exports = Magix.View.extend({
         me['@{auto.play}'] = (extra.autoplay + '') === 'true';
         me['@{show.dots}'] = (extra.dots + '') !== 'false';
         me['@{show.vertical}'] = (extra.vertical + '') === 'true';
+        me['@{show.timing}'] = extra.timing || 'ease-in-out';
+        me['@{show.duration}'] = extra.duration || '.5s';
         me.on('destroy', () => {
             me['@{stop.auto.play}']();
         });
@@ -44,35 +46,50 @@ module.exports = Magix.View.extend({
     '@{to.panel}'(panel, immediate) {
         let me = this;
         me['@{panel.current}'] = panel;
-        me.updater.digest({
-            an: panel,
-            w: me['@{width.current}'],
-            h: me['@{height.current}'],
-            im: immediate
-        });
+        let data = me.updater.get();
+        let style = {
+            transform: `translate3d(${data.sv ? `0,-${panel * me['@{height.current}']}px` : `-${panel * me['@{width.current}']}px,0`},0)`,
+            transition: `transform ${me['@{show.duration}']} ${me['@{show.timing}']}`
+        };
+        if (immediate) {
+            delete style.transition;
+        }
+        me['@{panels.cnt}'].css(style);
+        let active = data.sv ? '@index.less:v-active' : '@index.less:active';
+        me['@{dots.node}'].removeClass(active).eq(panel).addClass(active);
+    },
+    '@{update.stage.size}'() {
+        let me = this;
+        let node = me['@{owner.node}'];
+        let w = node.width();
+        let h = node.height();
+        let data = me.updater.get();
+        me['@{width.current}'] = w;
+        me['@{height.current}'] = h;
+        me['@{panels.node}'].width(w).height(h);
+        if (data.sv) {
+            me['@{panels.cnt}'].height(me['@{panels.node}'].length * h);
+        } else {
+            me['@{panels.cnt}'].width(me['@{panels.node}'].length * w);
+        }
     },
     render() {
         let me = this;
         let node = $('#' + me.id);
         me['@{owner.node}'] = node;
-        let children = node.children();
-        let w = node.width();
-        let h = node.height();
-        me['@{width.current}'] = w;
-        me['@{height.current}'] = h;
         node.addClass('@index.less:carousel');
         me.updater.digest({
-            dn: children.length,
-            w,
-            h,
-            im: 1,
+            dn: node.children().length,
+            html: node.html(),
             sv: me['@{show.vertical}'],
-            sd: me['@{show.dots}'],
-            an: me['@{panel.current}']
+            sd: me['@{show.dots}']
         });
-        let panelsCnt = node.find('.@scoped.style:hp100');
-        panelsCnt.append(children);
-        me['@{panels.node}'] = panelsCnt.find('.@scoped.style:hp100').removeClass('@scoped.style:none').width(w).height(h);
+        let panelsCnt = node.find('>.@scoped.style:hp100');
+        let dots = node.find(me['@{show.vertical}'] ? '.@index.less:v-dot' : '.@index.less:dot');
+        me['@{dots.node}'] = dots;
+        me['@{panels.cnt}'] = panelsCnt;
+        me['@{panels.node}'] = panelsCnt.find('.@scoped.style:hp100').removeClass('@scoped.style:none');
+        me['@{update.stage.size}']();
         me['@{to.panel}'](me['@{panel.current}'], 1);
         if (me['@{auto.play}']) {
             me['@{start.auto.play}']();
@@ -96,12 +113,7 @@ module.exports = Magix.View.extend({
     },
     '$win<resize>'() {
         let me = this;
-        let node = me['@{owner.node}'];
-        let w = node.width();
-        let h = node.height();
-        me['@{width.current}'] = w;
-        me['@{height.current}'] = h;
-        me['@{panels.node}'].width(w).height(h);
+        me['@{update.stage.size}']();
         me['@{to.panel}'](me['@{panel.current}'], 1);
     }
 });

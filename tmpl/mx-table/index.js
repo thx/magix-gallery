@@ -188,7 +188,7 @@ module.exports = Magix.View.extend({
         } else if (left) {
             let id = 't_' + me.id + '_left';
             let t = me['@{table.insert}'](table.attr('class') + ' @index.less:left', 0, left, ths, trs, id);
-            t.insertAfter(node);
+            t.appendTo(node);
             me['@{table.left}'] = t;
             me['@{sync.sticky.table.width}'](t);
             if (me['@{sticky}']) {
@@ -204,7 +204,7 @@ module.exports = Magix.View.extend({
         } else if (right) {
             let id = 't_' + me.id + '_right';
             let t = me['@{table.insert}'](table.attr('class') + ' @index.less:right', right + ths.length, ths.length, ths, trs, id);
-            t.insertAfter(node);
+            t.appendTo(node);
             me['@{table.right}'] = t;
             me['@{sync.sticky.table.width}'](t);
             if (me['@{sticky}']) {
@@ -218,22 +218,23 @@ module.exports = Magix.View.extend({
         let table = me['@{table.main}'];
         let ths = me['@{table.temp.ths}'] || table.find('thead>tr:first>th');
         delete me['@{table.temp.ths}'];
-        if (!node.hasClass('@index.less:wrapper')) {
-            node.wrap('<div class="@scoped.style:pr @index.less:owner"></div>');
-            node.addClass('@index.less:wrapper');
-            me['@{scroll.node}'] = node;
-            node.on('scroll', () => {
+        if (!node.hasClass('@index.less:owner')) {
+            let sNode = node.wrapInner('<div class="@index.less:wrapper"></div>').children().first();
+            node.addClass('@scoped.style:pr @index.less:owner');
+            me['@{scroll.node}'] = sNode;
+            sNode.on('scroll', () => {
+                node.prop('sl', sNode.prop('scrollLeft'));
                 me['@{sync.state}']();
             });
             me.on('destroy', () => {
-                node.off('scroll');
+                sNode.off('scroll');
             });
             table.addClass('@index.less:table-no-border');
             let tfoot = table.find('tfoot');
             if (tfoot.length) {
                 $('<table class="@scoped.style:table"></table>')
                     .append(tfoot)
-                    .insertAfter(node);
+                    .appendTo(node);
             }
         }
         me['@{table.sync.width}'](table, ths, node.width());
@@ -256,6 +257,11 @@ module.exports = Magix.View.extend({
         let me = this;
         let scroll = me['@{scroll.node}'];
         if (!scroll) return;
+        let node = me['@{owner.node}'];
+        let sLeft = node.prop('sl');
+        if (sLeft) {
+            scroll.prop('scrollLeft', sLeft);
+        }
         let leftTable = me['@{table.left}'];
         let rightTable = me['@{table.right}'];
         if (scroll.prop('clientWidth') < scroll.prop('scrollWidth')) {

@@ -1,3 +1,9 @@
+## 2.0.2
+1. 修正`mx-sitenav`文档
+2. `dropdown`选项使用`mx-dropdown.item`标签
+3. 修正`view`销毁时，要调用`DD.stop()`方法
+4. 兼容`dom diff`的渲染方式
+
 ## 2.0.1
 1. 添加轮播组件
 2. 修正`view`销毁时，从`runner`中移除执行的回调

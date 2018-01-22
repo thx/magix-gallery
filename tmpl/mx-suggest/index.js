@@ -19,7 +19,6 @@ module.exports = Magix.View.extend({
             Monitor['@{teardown}']();
             me['@{owner.node}'].off('keyup paste input', me['@{fn.watch}'])
                 .off('focus', me['@{fn.show}']);
-            $('#suggest_' + me.id).remove();
         });
         me.updater.set({
             viewId: me.id,
@@ -29,42 +28,37 @@ module.exports = Magix.View.extend({
         me['@{ui.select.index}'] = -1;
     },
     '@{inside}'(node) {
-        return Magix.inside(node, this.id) || Magix.inside(node, 'suggest_' + this.id);
+        return Magix.inside(node, this.id) ||
+            Magix.inside(node, this['@{owner.node}'][0]);
     },
     update(list, ignore) {
         let me = this;
-        if (!ignore) {
-            me['@{data.list}'] = list;
-        }
-        me['@{ui.select.index}'] = -1;
-        me.updater.digest({
-            list: me['@{data.source.list}'] = list
-        });
-        if (me['@{relate.node}']) {
-            if (!list || !list.length) {
-                me['@{relate.node}'].removeClass('@index.less:suggest');
-            } else {
-                me['@{relate.node}'].addClass('@index.less:suggest');
+        clearTimeout(me['@{delay.updater.timer}']);
+        me['@{delay.updater.timer}'] = setTimeout(me.wrapAsync(() => {
+            if (!ignore) {
+                me['@{data.list}'] = list;
             }
-        }
+            me['@{ui.select.index}'] = -1;
+            me.updater.digest({
+                list: me['@{data.source.list}'] = list
+            });
+        }), 20);
     },
     render() {
         let me = this;
         let oNode = $('#' + me.id);
+        let id = me.id;
+        oNode = oNode.prev('input');
         me['@{owner.node}'] = oNode;
         oNode.on('focus', me['@{fn.show}'] = $.proxy(me['@{show}'], me))
             .on('keyup paste input', me['@{fn.watch}'] = $.proxy(me['@{filter}'], me));
-        let id = 'suggest_' + me.id;
-        $('<div />').attr('id', id).insertAfter(oNode);
-        me.updater.to(id);
+        oNode.prop('vframe', me.owner);
         me.updater.set({
             width: oNode.outerWidth()
         });
         me.update(me['@{data.list}']);
-        me['@{relate.node}'] = $('#' + id + ' ul');
-        if (!me['@{data.list}'] || !me['@{data.list}'].length) {
-            me['@{relate.node}'].removeClass('@index.less:suggest');
-        }
+        me['@{relate.node}'] = $('#' + id);
+        me['@{relate.list.node}'] = $('#' + id + ' ul');
     },
     '@{filter}'(e) {
         let me = this;
@@ -141,7 +135,7 @@ module.exports = Magix.View.extend({
             let offset = me['@{owner.node}'].position();
             me['@{relate.node}'].css({
                 display: 'block',
-                left: offset.left + me.$offsetLeft,
+                left: offset.left,
                 top: offset.top + me['@{owner.node}'].outerHeight() + 5
             });
             me['@{owner.node}'].trigger('showlist');
@@ -160,7 +154,7 @@ module.exports = Magix.View.extend({
             me['@{temp.ignore}'] = 1; //如果是上下按键引起的滚动，则在move时忽略
             let height = node.outerHeight();
             let scrolled = (me['@{ui.select.index}'] + 1) * height;
-            let rNode = me['@{relate.node}'];
+            let rNode = me['@{relate.list.node}'];
             let vHeight = rNode.height();
             let sTop = rNode.prop('scrollTop');
             let items = Math.ceil(vHeight / height);

@@ -1,1 +1,567 @@
-define("mx-dragsort/index",["magix","../mx-dragdrop/index","../mx-runner/index","$"],(_,t,e)=>{var i=_("magix"),h=_("../mx-dragdrop/index"),o=_("../mx-runner/index"),n=_("$");i.applyStyle("_o",'._cn{left:-1000px;top:0;background:#f96447}._cn,._co{position:absolute}._co{width:26px;height:26px}._cp{background:#479b47}._cq{background:#e94f4f}._co:after{font-size:20px;line-height:26px;color:#fff;position:absolute;left:0;right:0;top:0;bottom:0;text-align:center}._cp:after{content:"✓"}._cq:after{content:"✗"}');var s=i.guid("dbar_"),b=i.guid("pt_"),d=n(window),r=n(document),l={__by:function(){n("#"+s).length||n('<div class="_cn" id="'+s+'"/>').appendTo("body")},__bi:function(_){_.child&&(n(_.child).css({opacity:.4}),this.__by())},__bt:function(_){_.child&&n(_.child).css({opacity:1}),this.__bz(),this.__bA()},__bz:function(){n("#"+s).css({left:-1e5})},__bB:function(_,t){var e=n("#"+s),i=!1;2&_.anchor&&(2&t?(e.css({height:2,width:_.bound.width,top:_.bound.y-1,left:_.bound.x}),i=!0):8&t&&(e.css({height:2,width:_.bound.width,top:_.bound.y+_.bound.height-1,left:_.bound.x}),i=!0)),!i&&1&_.anchor&&(1&t?e.css({height:_.bound.height,width:2,top:_.bound.y,left:_.bound.x-1}):4&t&&e.css({height:_.bound.height,width:2,top:_.bound.y,left:_.bound.x+_.bound.width-1}))},__bD:function(_){_.atPlace&&_.child!=_.hover?(3==_.anchor?_.__bC&&this.__bB(_,_.side):_.__bD&&this.__bB(_,_.position),this.__bE(!0)):(this.__bz(),this.__bE())},__bF:function(_){var t=n("#"+b);t.length||(t=n('<div class="_co" id="'+b+'"/>')).appendTo("body");var e=Math.max(0,Math.min(_.pageX+10,r.width()-t.width())),i=Math.max(0,Math.min(_.pageY+18,r.height()-t.height()));t.css({left:e,top:i,display:"block"})},__bE:function(_){var t=n("#"+b);_?t.removeClass("_cq").addClass("_cp"):t.addClass("_cq").removeClass("_cp")},__bA:function(){n("#"+b).hide()}};e.exports=i.View.extend({init:function(_){var t=this,e=n("#"+t.id);e.on("mousedown",_.selector,function(_){_.preventDefault(),t.__bi(_)}),t.on("destroy",function(){e.off("mousedown")}),t.__h=e;var h=[e.get(0)];_.drops&&(h=h.concat(_.drops.split(","))),t.__bG=h;var o=_.horizonal+""=="true",s=_.vertical+""=="true";o||s||(s=!0);var b=0;o&&(b|=1),s&&(b|=2),t.__bH=b;var d=!0;i.has(_,"sort")&&(d=_.sort+""=="true"),t.__bI=d},__bJ:function(_){for(var t=0,e=this.__bG;t<e.length;t++){var h=e[t];if(i.inside(_,h))return i.node(h)}return null},__bk:function(_,t){var e=null;if(t||(t=this.__bJ(_)),!this.__bI&&this.__bK)return{child:this.__bK,zone:t};for(;t!=_;){if(_.parentNode==t){e=_;break}_=_.parentNode}return!t||t.firstChild||e||(e=t),e&&"false"===e.getAttribute("ds-draggable")&&(e=null),{child:e,zone:t}},__bM:function(_,t){var e=0,i=0,h=-1,o=-1,n=-1,s=-1,b=!1;if(t.pageX>=_.x&&t.pageX<=_.x+_.width&&t.pageY>=_.y&&t.pageY<=_.y+_.height&&(e|=t.pageX<=_.x+_.width/2?1:4,h=t.pageX-_.x,n=_.x+_.width-t.pageX,e|=t.pageY<=_.y+_.height/2?2:8,o=t.pageY-_.y,s=_.y+_.height-t.pageY,b=!0),b){var d=Math.min(h,o,n,s);d>-1&&(d==h?i=1:d==o?i=2:d==n?i=4:d==s&&(i=8))}var r=this.__bL;return r&&r.zone===r.hover&&(e=2,i=1),{position:e,atPlace:b,side:i}},__bi:function(_){if(1===_.which){var t=this,e=t.__bk(_.target);e.child&&(t.__bK=e.child,t.__bN=e.zone,t.__h.trigger({type:"dragbegin",dragNode:e.child,dragZone:e.zone}),l.__bi(e),h.begin(e.zone,function(_){t.__bs(_)},function(_){t.__bt(_)}))}},__bQ:function(_,t,e){var i=this.__bM(_,t),h=i.side!=this.__bO,o=i.position!=this.__bP;(h||o)&&(this.__bO=i.side,this.__bP=i.position,e.__bC=h,e.__bD=o,e.side=i.side,e.position=i.position,e.atPlace=i.atPlace,e.anchor=this.__bH,l.__bD(e))},__bs:function(_){var t=h.fromPoint(_.clientX,_.clientY);if(l.__bF(_),this.__bu=_,this.__bj=!0,this.__bR(),this.__bv(),this.__bS||this.__bT||!t)return delete this.__bU,delete this.__bO,void delete this.__bP;if(this.__bU!=t){if(t.id===s)return;this.__bU=t,delete this.__bO;var e=this.__bJ(t);if(e){e!=this.__bV&&(this.__bV=e,this.__h.trigger({type:"enterzone",zone:e,changePointer:l.__bE}));var o=this.__bk(t,e);if(!o.child)return;var b=n(o.child),d=b.offset(),r={x:d.left,y:d.top,width:b.outerWidth(),height:b.outerHeight()};d=(b=n(o.zone)).offset(),this.__bW={x:d.left,y:d.top,scrollX:b.prop("scrollLeft"),scrollY:b.prop("scrollTop"),maxWidth:b.prop("scrollWidth"),maxHeight:b.prop("scrollHeight"),width:b.width(),height:b.height()},this.__bQ(this.__bX=r,_,this.__bL={child:this.__bK,bound:r,zone:o.zone,hover:o.child})}else this.__bV&&(this.__h.trigger({type:"leavezone",zone:this.__bV,changePointer:l.__bE}),delete this.__bV)}else this.__bX&&i.inside(t,this.__bL.zone)?this.__bQ(this.__bX,_,this.__bL):(delete this.__bO,delete this.__bP,this.__bI&&(l.__bz(),l.__bE()))},__bt:function(){this.__bY(),this.__bw(),l.__bt({child:this.__bK});var _=this.__bP,t=this.__bO,e=this.__bj,i=this.__bL,h=this.__bK;if(e&&(_||t)){var o=i.zone,n=this.__bH,s=3===n?t:_;if(1&n&&1&s||2&s&&2&n)i.hover==o?o.appendChild(h):o.insertBefore(h,i.hover);else if(8&s&&2&n||4&s&&1&n){for(var b=i.hover.nextSibling;b&&1!=b.nodeType;)b=b.nextSibling;o.insertBefore(h,b),b||(o.scrollTop=o.scrollHeight)}}i&&this.__h.trigger({type:"dragfinish",moved:e,dragNode:h,dragZone:this.__bN,dropNode:i.hover,dropZone:i.zone,outZone:!this.__bV}),delete this.__bK,delete this.__bN,delete this.__bU,delete this.__bL,delete this.__bX,delete this.__bP,delete this.__bO,delete this.__bu,delete this.__bT,delete this.__bV,delete this.__bW,delete this.__bS,delete this.__bj},__bR:function(){var _=this;_.__bZ||(_.__bZ=function(){var t=_.__bW;if(t){var e=_.__bL.zone,i=0,h=0,o=_.__bu;o.pageX>t.x&&o.pageY>t.y&&o.pageX<t.x+t.width&&o.pageY<t.y+t.height?(o.pageX-t.x<20&&t.scrollX>0?i=-Math.min(7,t.scrollX):t.x+t.width-o.pageX<20&&t.scrollX+t.width<t.maxWidth&&(i=Math.min(7,t.maxWidth-t.scrollX-t.width)),o.pageY-t.y<20&&t.scrollY>0?h=-Math.min(7,t.scrollY):t.y+t.height-o.pageY<20&&t.scrollY+t.height<t.maxHeight&&(h=Math.min(7,t.maxHeight-t.scrollY-t.height)),i||h?(_.__bS=!0,_.__c_=!0,e.scrollTop+=h,e.scrollLeft+=i,t.scrollX+=i,t.scrollY+=h,delete _.__bj,l.__bz(),l.__bE()):(delete _.__bS,delete _.__c_)):(delete _.__bS,delete _.__c_)}},o.__ad(30,_.__bZ))},__bv:function(){var _=this;_.__bx||(_.__bx=function(){if(!_.__c_){var t=0,e=0,i=_.__bu,h=d.scrollTop(),o=d.height(),n=r.height(),s=r.width(),b=d.width(),a=d.scrollLeft();i.pageX-a<20&&a>0?t=-Math.min(7,a):a+b-i.pageX<20&&a+b<s&&(t=Math.min(7,s-b-a)),i.pageY-h<20&&h>0?e=-Math.min(7,h):h+o-i.pageY<20&&h+o<n&&(e=Math.min(7,n-o-h)),t||e?(_.__bT=!0,i.pageX+=t,i.pageY+=e,window.scrollBy(t,e),delete _.__bj,l.__bz(),l.__bF(i),l.__bE()):delete _.__bT}},o.__ad(30,_.__bx))},__bY:function(){this.__bZ&&(o.__af(this.__bZ),delete this.__bZ,delete this.__c_)},__bw:function(){this.__bx&&(o.__af(this.__bx),delete this.__bx)}})});
+/*
+    generate by magix-combine@3.8.3: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-dragsort/index",["magix","../mx-dragdrop/index","../mx-runner/index","$"],(require,exports,module)=>{
+/*Magix,DD,Runner,$*/
+
+/*
+ver:2.0.1
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+var DD = require("../mx-dragdrop/index");
+var Runner = require("../mx-runner/index");
+var $ = require("$");
+Magix.applyStyle("_p","._ct{left:-1000px;top:0;background:#f96447}._ct,._cu{position:absolute}._cu{width:26px;height:26px}._cv{background:#479b47}._cw{background:#e94f4f}._cu:after{font-size:20px;line-height:26px;color:#fff;position:absolute;left:0;right:0;top:0;bottom:0;text-align:center}._cv:after{content:\"✓\"}._cw:after{content:\"✗\"}");
+var BarId = Magix.guid('dbar_');
+var PointerId = Magix.guid('pt_');
+var Win = $(window);
+var Doc = $(document);
+var LEFT = 1;
+var TOP = 2;
+var RIGHT = 4;
+var BOTTOM = 8;
+var SCROLL_OFFSET = 20;
+var SCROLL_STEP = 7;
+var SCROLL_INTERVAL = 30;
+var HORIZONAL = 1;
+var VERTICAL = 2;
+var HANDV = HORIZONAL | VERTICAL;
+var UI = {
+    '__bE': function () {
+        var node = $('#' + BarId);
+        if (!node.length) {
+            $('<div class="_ct" id="' + BarId + '"/>').appendTo('body');
+        }
+    },
+    '__bo': function (info) {
+        if (info.child) {
+            $(info.child).css({
+                opacity: 0.4
+            });
+            this['__bE']();
+        }
+    },
+    '__bz': function (info) {
+        if (info && info.child) {
+            $(info.child).css({
+                opacity: 1
+            });
+        }
+        this['__bF']();
+        this['__bG']();
+    },
+    '__bF': function () {
+        $('#' + BarId).css({
+            left: -1e5
+        });
+    },
+    '__bH': function (info, v) {
+        var node = $('#' + BarId);
+        var hasFound = false;
+        if (info.anchor & VERTICAL) {
+            if (v & TOP) {
+                node.css({
+                    height: 2,
+                    width: info.bound.width,
+                    top: info.bound.y - 1,
+                    left: info.bound.x
+                });
+                hasFound = true;
+            }
+            else if (v & BOTTOM) {
+                node.css({
+                    height: 2,
+                    width: info.bound.width,
+                    top: info.bound.y + info.bound.height - 1,
+                    left: info.bound.x
+                });
+                hasFound = true;
+            }
+        }
+        if (!hasFound && info.anchor & HORIZONAL) {
+            if (v & LEFT) {
+                node.css({
+                    height: info.bound.height,
+                    width: 2,
+                    top: info.bound.y,
+                    left: info.bound.x - 1
+                });
+            }
+            else if (v & RIGHT) {
+                node.css({
+                    height: info.bound.height,
+                    width: 2,
+                    top: info.bound.y,
+                    left: info.bound.x + info.bound.width - 1
+                });
+            }
+        }
+    },
+    '__bJ': function (info) {
+        var me = this;
+        if (info.atPlace && info.child != info.hover) {
+            if (info.anchor == HANDV) {
+                if (info['__bI']) {
+                    me['__bH'](info, info.side);
+                }
+            }
+            else if (info['__bJ']) {
+                me['__bH'](info, info.position);
+            }
+            me['__bK'](true);
+        }
+        else {
+            me['__bF']();
+            me['__bK']();
+        }
+    },
+    '__bL': function (e) {
+        var node = $('#' + PointerId);
+        if (!node.length) {
+            node = $('<div class="_cu" id="' + PointerId + '"/>');
+            node.appendTo('body');
+        }
+        var x = Math.max(0, Math.min(e.pageX + 10, Doc.width() - node.width()));
+        var y = Math.max(0, Math.min(e.pageY + 18, Doc.height() - node.height()));
+        node.css({
+            left: x,
+            top: y,
+            display: 'block'
+        });
+    },
+    '__bK': function (state) {
+        var node = $('#' + PointerId);
+        if (state) {
+            node.removeClass('_cw').addClass('_cv');
+        }
+        else {
+            node.addClass('_cw').removeClass('_cv');
+        }
+    },
+    '__bG': function () {
+        $('#' + PointerId).hide();
+    }
+};
+module.exports = Magix.View.extend({
+    init: function (extra) {
+        var me = this;
+        var oNode = $('#' + me.id);
+        oNode.on('mousedown', extra.selector, function (e) {
+            e.preventDefault();
+            me['__bo'](e);
+        });
+        me.on('destroy', function () {
+            oNode.off('mousedown');
+            DD.end();
+        });
+        me['__i'] = oNode;
+        var zones = [oNode.get(0)];
+        if (extra.drops) {
+            zones = zones.concat(extra.drops.split(','));
+        }
+        me['__bM'] = zones;
+        var hor = (extra.horizonal + '') === 'true';
+        var ver = (extra.vertical + '') === 'true';
+        if (!hor && !ver) {
+            ver = true;
+        }
+        var anchor = 0;
+        if (hor) {
+            anchor |= HORIZONAL;
+        }
+        if (ver) {
+            anchor |= VERTICAL;
+        }
+        me['__bN'] = anchor;
+        var sort = true;
+        if (Magix.has(extra, 'sort')) {
+            sort = (extra.sort + '') === 'true';
+        }
+        me['__bO'] = sort;
+    },
+    '__bP': function (node) {
+        var me = this;
+        var zones = me['__bM'];
+        for (var _i = 0, zones_1 = zones; _i < zones_1.length; _i++) {
+            var zone = zones_1[_i];
+            if (Magix.inside(node, zone)) {
+                return Magix.node(zone);
+            }
+        }
+        return null;
+    },
+    '__bq': function (node, zone) {
+        var me = this, result = null;
+        if (!zone) {
+            zone = me['__bP'](node);
+        }
+        if (!me['__bO'] && me['__bQ']) {
+            return {
+                child: me['__bQ'],
+                zone: zone
+            };
+        }
+        while (zone != node) {
+            if (node.parentNode == zone) {
+                result = node;
+                break;
+            }
+            else {
+                node = node.parentNode;
+            }
+        }
+        if (zone && !zone.firstChild && !result) {
+            result = zone;
+        }
+        if (result) {
+            if (result.getAttribute('ds-draggable') === 'false') {
+                result = null;
+            }
+        }
+        return {
+            child: result,
+            zone: zone
+        };
+    },
+    '__bS': function (nb, evt) {
+        var position = 0, side = 0, toLeft = -1, toTop = -1, toRight = -1, toBottom = -1, hasNearest = false;
+        if (evt.pageX >= nb.x &&
+            evt.pageX <= nb.x + nb.width &&
+            evt.pageY >= nb.y &&
+            evt.pageY <= nb.y + nb.height) {
+            position = position | ((evt.pageX <= nb.x + nb.width / 2) ? LEFT : RIGHT);
+            toLeft = evt.pageX - nb.x;
+            toRight = nb.x + nb.width - evt.pageX;
+            position = position | ((evt.pageY <= nb.y + nb.height / 2) ? TOP : BOTTOM);
+            toTop = evt.pageY - nb.y;
+            toBottom = nb.y + nb.height - evt.pageY;
+            hasNearest = true;
+        }
+        if (hasNearest) {
+            var temp = Math.min(toLeft, toTop, toRight, toBottom);
+            if (temp > -1) {
+                if (temp == toLeft) {
+                    side = LEFT;
+                }
+                else if (temp == toTop) {
+                    side = TOP;
+                }
+                else if (temp == toRight) {
+                    side = RIGHT;
+                }
+                else if (temp == toBottom) {
+                    side = BOTTOM;
+                }
+            }
+        }
+        var me = this;
+        var info = me['__bR'];
+        if (info) {
+            if (info.zone === info.hover) {
+                position = TOP;
+                side = LEFT;
+            }
+        }
+        return {
+            position: position,
+            atPlace: hasNearest,
+            side: side
+        };
+    },
+    '__bo': function (e) {
+        if (e.which === 1) {
+            var me_1 = this;
+            var info = me_1['__bq'](e.target);
+            if (info.child) {
+                me_1['__bQ'] = info.child;
+                me_1['__bT'] = info.zone;
+                me_1['__i'].trigger({
+                    type: 'dragbegin',
+                    dragNode: info.child,
+                    dragZone: info.zone
+                });
+                UI['__bo'](info);
+                DD.begin(info.zone, function (e) {
+                    me_1['__by'](e);
+                }, function (e) {
+                    me_1['__bz'](e);
+                });
+            }
+        }
+    },
+    '__bW': function (bound, e, info) {
+        var me = this;
+        var p = me['__bS'](bound, e);
+        var sideChanage = p.side != me['__bU'], positionChange = p.position != me['__bV'];
+        if (sideChanage || positionChange) {
+            me['__bU'] = p.side;
+            me['__bV'] = p.position;
+            info['__bI'] = sideChanage;
+            info['__bJ'] = positionChange;
+            info.side = p.side;
+            info.position = p.position;
+            info.atPlace = p.atPlace;
+            info.anchor = me['__bN'];
+            UI['__bJ'](info);
+        }
+    },
+    '__by': function (e) {
+        var current = DD.fromPoint(e.clientX, e.clientY);
+        var me = this;
+        UI['__bL'](e);
+        me['__bA'] = e;
+        me['__bp'] = true;
+        me['__bX']();
+        me['__bB']();
+        if (me['__bY'] || me['__bZ'] || !current) {
+            delete me['__c_'];
+            delete me['__bU'];
+            delete me['__bV'];
+            return;
+        }
+        if (me['__c_'] != current) {
+            if (current.id === BarId)
+                return; //
+            me['__c_'] = current;
+            delete me['__bU'];
+            var zone = me['__bP'](current);
+            if (zone) {
+                if (zone != me['__ca']) {
+                    me['__ca'] = zone;
+                    me['__i'].trigger({
+                        type: 'enterzone',
+                        zone: zone,
+                        changePointer: UI['__bK']
+                    });
+                }
+                var info = me['__bq'](current, zone);
+                if (!info.child)
+                    return;
+                var n = $(info.child);
+                var offset = n.offset();
+                var bound = {
+                    x: offset.left,
+                    y: offset.top,
+                    width: n.outerWidth(),
+                    height: n.outerHeight()
+                };
+                n = $(info.zone);
+                offset = n.offset();
+                me['__cb'] = {
+                    x: offset.left,
+                    y: offset.top,
+                    scrollX: n.prop('scrollLeft'),
+                    scrollY: n.prop('scrollTop'),
+                    maxWidth: n.prop('scrollWidth'),
+                    maxHeight: n.prop('scrollHeight'),
+                    width: n.width(),
+                    height: n.height()
+                };
+                me['__bW'](me['__cc'] = bound, e, me['__bR'] = {
+                    child: me['__bQ'],
+                    bound: bound,
+                    zone: info.zone,
+                    hover: info.child
+                });
+            }
+            else if (me['__ca']) {
+                me['__i'].trigger({
+                    type: 'leavezone',
+                    zone: me['__ca'],
+                    changePointer: UI['__bK']
+                });
+                delete me['__ca'];
+            }
+        }
+        else if (me['__cc'] &&
+            Magix.inside(current, me['__bR'].zone)) {
+            me['__bW'](me['__cc'], e, me['__bR']);
+        }
+        else {
+            delete me['__bU'];
+            delete me['__bV'];
+            if (me['__bO']) {
+                UI['__bF']();
+                UI['__bK']();
+            }
+        }
+    },
+    '__bz': function () {
+        var me = this;
+        me['__cd']();
+        me['__bC']();
+        UI['__bz']({
+            child: me['__bQ']
+        });
+        var position = me['__bV'], side = me['__bU'], move = me['__bp'], info = me['__bR'], dragNode = me['__bQ'];
+        if (move) {
+            if (position || side) {
+                var zone = info.zone;
+                var a = me['__bN'];
+                var v = a === HANDV ? side : position;
+                if (((a & HORIZONAL) && (LEFT & v)) || ((TOP & v) && (a & VERTICAL))) {
+                    if (info.hover == zone) {
+                        zone.appendChild(dragNode);
+                    }
+                    else {
+                        zone.insertBefore(dragNode, info.hover);
+                    }
+                }
+                else if (((BOTTOM & v) && (a & VERTICAL)) ||
+                    ((RIGHT & v) && (a & HORIZONAL))) {
+                    var next = info.hover.nextSibling;
+                    while (next && next.nodeType != 1) {
+                        next = next.nextSibling;
+                    }
+                    zone.insertBefore(dragNode, next);
+                    if (!next) {
+                        zone.scrollTop = zone.scrollHeight;
+                    }
+                }
+            }
+        }
+        if (info) {
+            me['__i'].trigger({
+                type: 'dragfinish',
+                moved: move,
+                dragNode: dragNode,
+                dragZone: me['__bT'],
+                dropNode: info.hover,
+                dropZone: info.zone,
+                outZone: !me['__ca']
+            });
+        }
+        delete me['__bQ'];
+        delete me['__bT'];
+        delete me['__c_'];
+        delete me['__bR'];
+        delete me['__cc'];
+        delete me['__bV'];
+        delete me['__bU'];
+        delete me['__bA'];
+        delete me['__bZ'];
+        delete me['__ca'];
+        delete me['__cb'];
+        delete me['__bY'];
+        delete me['__bp'];
+    },
+    '__bX': function () {
+        var me = this;
+        if (!me['__ce']) {
+            me['__ce'] = function () {
+                var zoneBound = me['__cb'];
+                if (zoneBound) {
+                    var zone = me['__bR'].zone;
+                    var tx = 0, ty = 0, e = me['__bA'];
+                    if (e.pageX > zoneBound.x &&
+                        e.pageY > zoneBound.y &&
+                        e.pageX < zoneBound.x + zoneBound.width &&
+                        e.pageY < zoneBound.y + zoneBound.height) {
+                        if (e.pageX - zoneBound.x < SCROLL_OFFSET && zoneBound.scrollX > 0) {
+                            tx = -Math.min(SCROLL_STEP, zoneBound.scrollX);
+                        }
+                        else if (zoneBound.x + zoneBound.width - e.pageX < SCROLL_OFFSET &&
+                            zoneBound.scrollX + zoneBound.width < zoneBound.maxWidth) {
+                            tx = Math.min(SCROLL_STEP, zoneBound.maxWidth - zoneBound.scrollX - zoneBound.width);
+                        }
+                        if (e.pageY - zoneBound.y < SCROLL_OFFSET && zoneBound.scrollY > 0) {
+                            ty = -Math.min(SCROLL_STEP, zoneBound.scrollY);
+                        }
+                        else if (zoneBound.y + zoneBound.height - e.pageY < SCROLL_OFFSET &&
+                            zoneBound.scrollY + zoneBound.height < zoneBound.maxHeight) {
+                            ty = Math.min(SCROLL_STEP, zoneBound.maxHeight - zoneBound.scrollY - zoneBound.height);
+                        }
+                        if (tx || ty) {
+                            me['__bY'] = true;
+                            me['__cf'] = true;
+                            zone.scrollTop += ty;
+                            zone.scrollLeft += tx;
+                            zoneBound.scrollX += tx;
+                            zoneBound.scrollY += ty;
+                            delete me['__bp'];
+                            UI['__bF']();
+                            UI['__bK']();
+                        }
+                        else {
+                            delete me['__bY'];
+                            delete me['__cf'];
+                        }
+                    }
+                    else {
+                        delete me['__bY'];
+                        delete me['__cf'];
+                    }
+                }
+            };
+            Runner['__ag'](SCROLL_INTERVAL, me['__ce']);
+        }
+    },
+    '__bB': function () {
+        var me = this;
+        if (!me['__bD']) {
+            me['__bD'] = function () {
+                if (me['__cf'])
+                    return;
+                var tx = 0, ty = 0, e = me['__bA'];
+                var scrollTop = Win.scrollTop();
+                var winHeight = Win.height();
+                var maxHeight = Doc.height();
+                var maxWidth = Doc.width();
+                var winWidth = Win.width();
+                var scrollLeft = Win.scrollLeft();
+                if (e.pageX - scrollLeft < SCROLL_OFFSET &&
+                    scrollLeft > 0) {
+                    tx = -Math.min(SCROLL_STEP, scrollLeft);
+                }
+                else if (scrollLeft + winWidth - e.pageX < SCROLL_OFFSET &&
+                    scrollLeft + winWidth < maxWidth) {
+                    tx = Math.min(SCROLL_STEP, maxWidth - winWidth - scrollLeft);
+                }
+                if (e.pageY - scrollTop < SCROLL_OFFSET &&
+                    scrollTop > 0) {
+                    ty = -Math.min(SCROLL_STEP, scrollTop);
+                }
+                else if (scrollTop + winHeight - e.pageY < SCROLL_OFFSET &&
+                    scrollTop + winHeight < maxHeight) {
+                    ty = Math.min(SCROLL_STEP, maxHeight - winHeight - scrollTop);
+                }
+                if (tx || ty) {
+                    me['__bZ'] = true;
+                    e.pageX += tx;
+                    e.pageY += ty;
+                    window.scrollBy(tx, ty);
+                    delete me['__bp'];
+                    UI['__bF']();
+                    UI['__bL'](e);
+                    UI['__bK']();
+                }
+                else {
+                    delete me['__bZ'];
+                }
+            };
+            Runner['__ag'](SCROLL_INTERVAL, me['__bD']);
+        }
+    },
+    '__cd': function () {
+        var me = this;
+        if (me['__ce']) {
+            Runner['__ai'](me['__ce']);
+            delete me['__ce'];
+            delete me['__cf'];
+        }
+    },
+    '__bC': function () {
+        var me = this;
+        if (me['__bD']) {
+            Runner['__ai'](me['__bD']);
+            delete me['__bD'];
+        }
+    }
+});
+
+});

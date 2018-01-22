@@ -13,32 +13,15 @@
 
 .dialog-close {
     position: absolute;
-    appearance: none;
-    padding: 0;
-    margin: 13px 15px 0 0;
     cursor: pointer;
-    background: transparent;
-    border:0;
-
-    float: right;
-    font-size: 21px;
-    font-weight: bold;
-    line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
-    filter: alpha(opacity=20);
     opacity: .2;
+    z-index: 1;
 
-    z-index: 1041;
     top: 16px;
     right: 10px;
-    margin: 0;
 
-    &:hover, &:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-        filter: alpha(opacity=50);
+    &:hover,
+    &:focus {
         opacity: .5;
     }
 }
@@ -54,10 +37,8 @@
     left: 0;
     bottom: 0;
     background-color: #000;
-    filter: alpha(opacity=50);
     opacity: .5;
     display: none;
-    z-index: 1039;
 }
 
 .blur{

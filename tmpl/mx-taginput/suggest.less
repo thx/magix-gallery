@@ -1,7 +1,6 @@
 @import "../mx-style/_vars";
 
 .suggest{
-    position: absolute;
     border: 1px solid @color-border;
     font-size: @font-size;
     max-height: 260px;
@@ -9,10 +8,10 @@
     list-style: none;
     border-radius: @border-radius;
     background-color: #fff;
-    display: none;
-    z-index: 10;
     padding:3px 0;
     line-height: @line-height;
+    position: relative;
+    z-index: 1;
 }
 .item {
   padding: 0 4px;

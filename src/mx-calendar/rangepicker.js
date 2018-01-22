@@ -1,1 +1,189 @@
-define("mx-calendar/rangepicker",["magix","$","../mx-monitor/index","./index","./range"],(t,_,i)=>{var e=t("magix"),n=t("$"),a=t("../mx-monitor/index"),s=t("./index"),r=t("./range"),h=["today","yesterday","passed7","lastestThisMonth","preMonth","lastest15"],o=e.View.extend({init:function(t){var _=this,i=t.start,e=t.end,o=t.timeType,c=t.formatter||"YYYY-MM-dd"+(o?" hh:mm:ss":""),d=s.format(new Date,c);_.__M=c,_.__R=!0,_.__K=o,_.__L=t.dateType,i||(_.__R=!1,i=d),e||(_.__R=!1,e=d),_.__S="false"!=t.shortcuts,_.__F=t.max,_.__E=t.min,_.__I=t.placement,_.__J=t.align,_.__H=_.__S?h:[],_.__G=r.getDescription(i,e,_.__H,c),a.__d();var f=n("#"+_.id),p=function(){_.__e()},l=function(t){t.dates||t.stopPropagation()};_.on("destroy",function(){a.__f(_),a.__g(),n("#rpcnt_"+_.id).remove(),f.off("click",p).off("change",l)}),f.on("click",p).on("change",l),_.__h=f,f.prop("autocomplete","off")},__i:function(t){var _=e.inside(t,this.id)||e.inside(t,"rpcnt_"+this.id);if(!_)for(var i=this.owner.children(),n=i.length-1;n>=0;n--){var a=e.Vframe.get(i[n]);if(a&&(_=a.invoke("__i",[t])),_)break}return _},__T:function(){var t=this.__G;t.quickDateText?this.__h.val(t.quickDateText):this.__h.val(t.startStr+" ~ "+t.endStr)},render:function(){var t="rpcnt_"+this.id;n(this.wrapEvent('<div mx-change="__U()" mx-cancel="__a()" style="position:absolute;left:-10000px;top:-10000px;z-index:10"></div>')).attr("id",t).insertAfter(this.__h),this.__R&&this.__T()},__e:function(){if(!this.__j){var t=n("#rpcnt_"+this.id),_=this.__h;this.__j=!0,this.__l||(this.__l=!0,this.owner.mountVframe("rpcnt_"+this.id,"mx-calendar/range",{min:this.__E,max:this.__F,timeType:this.__K,dateType:this.__L,formatter:this.__M,dates:this.__G,quickDates:this.__H,placement:this.__I,align:this.__J})),a.__k(this);var i=_.offset(),e=void 0,s=void 0;switch(this.__I){case"top":s=i.top-t.outerHeight()-5;break;default:s=i.top+_.outerHeight()+5}switch(this.__J){case"right":e=i.left+_.outerWidth()-t.outerWidth();break;default:e=i.left}t.offset({left:e,top:s})}},__a:function(t){if(this.__j){var _=n("#rpcnt_"+this.id);this.__j=!1,_.css({left:-1e4,top:-1e4}),a.__f(this),t||_.invokeView("__N")}},"__U<change>":function(t){t.stopPropagation(),this.__G=t.dates,this.__T(),this.__a(!0),this.__h.trigger({type:"change",dates:t.dates})},"__a<cancel>":function(t){t.stopPropagation(),this.__a()}});i.exports=o});
+/*
+    generate by magix-combine@3.8.3: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-calendar/rangepicker",["magix","$","../mx-monitor/index","./index","./range"],(require,exports,module)=>{
+/*Magix,$,Monitor,Calendar,RangeDate*/
+
+/*
+ver:2.0.1
+*/
+/*
+    author:xinglie.lkf@taobao.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+var Monitor = require("../mx-monitor/index");
+var Calendar = require("./index");
+var RangeDate = require("./range");
+var DefaultQuickDateKeys = [
+    'today',
+    'yesterday',
+    'passed7',
+    'lastestThisMonth',
+    'preMonth',
+    'lastest15'
+];
+var Rangepicker = Magix.View.extend({
+    tmpl: {"html":"<div mx-change=\"\u001f\u001e__V()\" mx-cancel=\"\u001f\u001e__a()\" id=\"rpcnt_<%=$$.viewId%>\"></div>"},
+    init: function (extra) {
+        var me = this;
+        var start = extra.start;
+        var end = extra.end;
+        var timeType = extra.timeType;
+        var formatter = extra.formatter || ('YYYY-MM-dd' + (timeType ? ' hh:mm:ss' : ''));
+        var today = Calendar.format(new Date(), formatter);
+        me['__N'] = formatter;
+        me['__S'] = true;
+        me['__L'] = timeType;
+        me['__M'] = extra.dateType;
+        if (!start) {
+            me['__S'] = false;
+            start = today;
+        }
+        if (!end) {
+            me['__S'] = false;
+            end = today;
+        }
+        me['__T'] = extra.shortcuts != 'false';
+        me['__G'] = extra.max;
+        me['__F'] = extra.min;
+        me['__J'] = extra.placement;
+        me['__K'] = extra.align;
+        me['__I'] = me['__T'] ? DefaultQuickDateKeys : [];
+        me['__H'] = RangeDate.getDescription(start, end, me['__I'], formatter);
+        Monitor['__d']();
+        var oNode = $('#' + me.id);
+        me['__e'] = oNode;
+        oNode = oNode.prev('input');
+        oNode.prop('vframe', me.owner);
+        var click = function () {
+            me['__f']();
+        };
+        var change = function (e) {
+            if (!e.dates) {
+                e.stopPropagation();
+            }
+        };
+        me.on('destroy', function () {
+            Monitor['__g'](me);
+            Monitor['__h']();
+            oNode.off('click', click).off('change', change);
+        });
+        oNode.on('click', click).on('change', change);
+        me['__i'] = oNode;
+        oNode.prop('autocomplete', 'off');
+    },
+    '__j': function (node) {
+        var me = this;
+        var inView = Magix.inside(node, me.id) ||
+            Magix.inside(node, me['__i'][0]);
+        if (!inView) {
+            var children = me.owner.children();
+            for (var i = children.length - 1; i >= 0; i--) {
+                var child = Magix.Vframe.get(children[i]);
+                if (child) {
+                    inView = child.invoke('__j', [node]);
+                }
+                if (inView)
+                    break;
+            }
+        }
+        return inView;
+    },
+    '__U': function () {
+        var me = this;
+        var dates = me['__H'];
+        if (dates.quickDateText) {
+            me['__i'].val(dates.quickDateText);
+        }
+        else {
+            me['__i'].val(dates.startStr + ' ~ ' + dates.endStr);
+        }
+    },
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            viewId: me.id
+        });
+        if (me['__S']) {
+            me['__U']();
+        }
+    },
+    '__f': function () {
+        var me = this;
+        if (!me['__k']) {
+            var node = me['__e'], ref = me['__i'];
+            node.show();
+            me['__k'] = true;
+            if (!me['__m']) {
+                me['__m'] = true;
+                me.owner.mountVframe('rpcnt_' + me.id, 'mx-calendar/range', {
+                    min: me['__F'],
+                    max: me['__G'],
+                    timeType: me['__L'],
+                    dateType: me['__M'],
+                    formatter: me['__N'],
+                    dates: me['__H'],
+                    quickDates: me['__I'],
+                    placement: me['__J'],
+                    align: me['__K']
+                });
+            }
+            Monitor['__l'](me);
+            var offset = ref.offset();
+            var left = void 0, top = void 0;
+            switch (me['__J']) {
+                case 'top':
+                    top = offset.top - node.outerHeight() - 5;
+                    break;
+                default:
+                    top = offset.top + ref.outerHeight() + 5;
+                    break;
+            }
+            switch (me['__K']) {
+                case 'right':
+                    left = offset.left + ref.outerWidth() - node.outerWidth();
+                    break;
+                default:
+                    left = offset.left;
+                    break;
+            }
+            node.offset({
+                left: left,
+                top: top
+            });
+        }
+    },
+    '__a': function (ignore) {
+        var me = this;
+        if (me['__k']) {
+            me['__e'].hide();
+            var node = $('#rpcnt_' + me.id);
+            me['__k'] = false;
+            Monitor['__g'](me);
+            if (!ignore) {
+                node.invokeView('__O');
+            }
+        }
+    },
+    '__V<change>': function (e) {
+        var me = this;
+        e.stopPropagation();
+        me['__H'] = e.dates;
+        me['__U']();
+        me['__a'](true);
+        me['__i'].trigger({
+            type: 'change',
+            dates: e.dates
+        });
+    },
+    '__a<cancel>': function (e) {
+        e.stopPropagation();
+        this['__a']();
+    }
+});
+module.exports = Rangepicker;
+
+});
