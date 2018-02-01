@@ -1,5 +1,5 @@
 /*
-ver:2.0.3
+ver:2.0.4
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -8,16 +8,6 @@ let Magix = require('magix');
 let $ = require('$');
 let Monitor = require('../mx-monitor/index');
 Magix.applyStyle('@multiple.less');
-let AssignIf = (view, key, ops, cfg, src) => {
-    if (!view[key] || Magix.has(ops, cfg)) {
-        let v = ops[cfg] || '';
-        if (!src) {
-            v += '';
-        }
-        view[key] = v;
-    }
-    return view[key];
-};
 module.exports = Magix.View.extend({
     tmpl: '@multiple.html:const[viewId]',
     init(extra) {
@@ -43,20 +33,20 @@ module.exports = Magix.View.extend({
         me['@{data.from.node}'] = !extra.list;
         me.assign(extra, { node });
     },
-    assign(ops, { node }) {
+    assign(ops, { node, inner }) {
         let me = this;
-        AssignIf(me, '@{list}', ops, 'list', 1);
-        let selected = AssignIf(me, '@{selected}', ops, 'selected');
-        let textKey = AssignIf(me, '@{textKey}', ops, 'textKey');
-        let valueKey = AssignIf(me, '@{valueKey}', ops, 'valueKey');
-        let emptyText = AssignIf(me, '@{emptyText}', ops, 'emptyText');
+        me['@{list}'] = ops.list;
+        let selected = me['@{selected}'] = ops.selected;
+        let textKey = me['@{textKey}'] = ops.textKey || '';
+        let valueKey = me['@{valueKey}'] = ops.valueKey || '';
+        let emptyText = me['@{emptyText}'] = ops.emptyText || '';
         me['@{ui.searchbox}'] = (ops.searchbox + '') === 'true';
         me['@{disabled}'] = (ops.disabled + '') === 'true';
         if (me['@{data.from.node}']) {
-            node = $(node);
+            node = inner ? $(inner) : $(node).children();
             let list = [];
             let group;
-            node.children().each((idx, item) => {
+            node.each((idx, item) => {
                 item = $(item);
                 group = item.attr('group') == 'true';
                 list.push({
@@ -246,6 +236,7 @@ module.exports = Magix.View.extend({
         let me = this;
         clearTimeout(me['@{search.delay.timer}']);
         let val = $.trim(e.eventTarget.value);
+        me.updater.set({ keyword: val });
         me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(() => {
             if (val != me['@{last.value}']) {
                 me['@{fn.search}'](me['@{last.value}'] = val, (list) => {

@@ -1,5 +1,5 @@
 /*
-ver:2.0.3
+ver:2.0.4
 */
 /*!
  * mustache.js - Logic-less {{mustache}} templates with JavaScript

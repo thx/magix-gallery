@@ -26,16 +26,28 @@
         {{/for}}
     </table>
     <div id="vf_1_{{=vId}}"></div> -->
-    <div anim="true" style="background:red;" mx-view="./ctrl">
+    <!-- <div anim="true" style="background:red;" mx-view="./ctrl">
         <mx-pagination total="100" page="{{=list.length}}"/>
-    </div>
+    </div> -->
 </div>
 <div>
-    {{for(let i=0;i<10;i++)}}
-    <div style="float:left;margin:4px;padding:2px;border:solid 6px {{if active==i}}red{{else}}green{{/if}}">
-        <img src="http://iph.href.lu/80x40"/>
+    <input type="checkbox" {{if list.length<7}} checked {{/if}} />
+    {{if list.length<6}}
+    <div></div>
+    {{/if}}
+    <div id="abc">
+        <mx-progress value="{{=list.length/10}}"/>
     </div>
-    {{/for}}
+    {{if list.length>7}}
+    abc
+    {{/if}}
+    <div id="def">good</div>
+    <div id="efg">best</div>
+    <mx-carousel style="width:800px;height:50px;background:#ccc;" active="{{=list.length-2}}">
+        {{each list as item}}
+        <mx-carousel.panel>{{=item}}</mx-carousel.panel>
+        {{/each}}
+    </mx-carousel>
 </div>
 <button type="button" class="btn btn-brand" mx-click="increase()">increase</button>
 <button type="button" class="btn btn-brand ml20" mx-click="decrease()">decrease</button>

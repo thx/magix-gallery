@@ -1,5 +1,5 @@
 /*
-ver:2.0.3
+ver:2.0.4
 */
 let Magix = require('magix');
 let Mustache = require('../mx-mustache/index');

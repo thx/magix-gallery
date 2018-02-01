@@ -1,5 +1,5 @@
 /*
-ver:2.0.3
+ver:2.0.4
 */
 import { on } from 'cluster';/*
     author:xinglie.lkf@taobao.com
@@ -11,6 +11,7 @@ require('./style');
 let DD = require('../mx-dragdrop/index');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
+    mixins: [DD],
     init(extra) {
         let me = this;
         let oNode = $('#' + me.id);
@@ -49,7 +50,6 @@ module.exports = Magix.View.extend({
         me.on('destroy', () => {
             oNode.off('click', click);
             oNode.off('keydown', keydown);
-            DD.end();
         });
         me['@{owner.node}'] = oNode;
     },
@@ -198,7 +198,7 @@ module.exports = Magix.View.extend({
         let currentValue = parseInt(current.css(me['@{vertical}'] ? 'bottom' : 'left'), 10);
         let dragValue = me['@{value}'];
         me['@{dragging}'] = 1;
-        DD.begin(e.eventTarget, (ex) => {
+        me.dragdrop(e.eventTarget, (ex) => {
             DD.clear();
             let newValue = -1;
             if (me['@{vertical}']) {

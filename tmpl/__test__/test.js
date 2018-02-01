@@ -1,5 +1,5 @@
 /*
-ver:2.0.3
+ver:2.0.4
 */
 let Magix = require('magix');
 Magix.applyStyle('@test.css');
@@ -25,9 +25,15 @@ module.exports = Magix.View.extend({
     },
     render() {
         this.updater.digest({
-            list: [1, 2],
+            list: [1, 2, 3, 4, 5],
             Math
         });
+        // let abc = 20;
+        // setInterval(() => {
+        //     this.updater.digest({
+        //         value: abc++
+        //     });
+        // }, 1500);
         let a = () => {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
@@ -35,23 +41,11 @@ module.exports = Magix.View.extend({
                 }, 2000);
             });
         };
-        let b = () => {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    resolve('@../mx-number/index.less:wrapper');
-                }, 2000);
-            });
-        };
-        a().then(this.wrapAsync(r => {
-            console.log(r);
-            return b();
-        })).then(this.wrapAsync(r => {
-            console.log('r', r);
-        }));
     },
     'increase<click>'() {
         let list = this.updater.get('list');
         list.push(Magix.guid());
+        console.log('enter');
         this.updater.digest({
             list
         });
@@ -75,5 +69,17 @@ module.exports = Magix.View.extend({
                 active
             });
         }, 150);
+    },
+    '@{test}<input>'(e) {
+        let value = e.eventTarget.value;
+       // e.preventDefault();
+        //setTimeout(() => {
+            this.updater.digest({
+                value: value
+            });
+        //}, 150);
+    },
+    '$doc<mousedown,mouseup>'(){
+        console.log(document.activeElement);
     }
 });

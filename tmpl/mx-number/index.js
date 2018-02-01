@@ -1,5 +1,5 @@
 /*
-ver:2.0.3
+ver:2.0.4
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -57,7 +57,7 @@ module.exports = Magix.View.extend({
                 v = min;
             }
             if (v !== me['@{value}']) {
-                v = Math.round(v / step) * step;
+                v = step < 1 ? Math.round(v / step) * step : v;
                 v = v.toFixed(me['@{tail.length}']);
                 me['@{ctrl.input}'].val(v);
                 v = +v;

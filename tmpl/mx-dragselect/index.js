@@ -1,5 +1,5 @@
 /*
-ver:2.0.3
+ver:2.0.4
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -56,6 +56,7 @@ let rectIntersect = (rect1, rect2) => {
         Math.abs(cen2.y - cen1.y) <= half1Height + half2Height;
 };
 module.exports = Magix.View.extend({
+    mixins:[DD],
     init(extra) {
         let me = this;
         let oNode = $('#' + me.id);
@@ -79,7 +80,6 @@ module.exports = Magix.View.extend({
         });
         me.on('destroy', () => {
             oNode.off('mousedown click');
-            DD.end();
         });
         me['@{sub.selector}'] = extra.selector;
         me['@{owner.node}'] = oNode;
@@ -189,7 +189,7 @@ module.exports = Magix.View.extend({
             me['@{temp.map}'] = {};
             UI['@{start}']();
             node.trigger('dragbegin');
-            DD.begin(e.target, e => {
+            me.dragdrop(e.target, e => {
                 me['@{drag.move}'](e);
             }, e => {
                 me['@{drag.end}'](e);

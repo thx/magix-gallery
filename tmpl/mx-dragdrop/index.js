@@ -1,5 +1,5 @@
 /*
-ver:2.0.3
+ver:2.0.4
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -16,64 +16,76 @@ let ClearSelection = (t) => {
         else t = null;
     }
 };
-let DragObject;
 let DragPrevent = (e) => {
     e.preventDefault();
-};
-let DragMove = (event) => {
-    if (DragObject.iMove) {
-        DragObject.move(event);
-    }
 };
 let DragMoveEvent = 'mousemove touchmove';
 let DragEndEvent = 'mouseup touchend';
 let DragPreventEvent = 'keydown mousewheel DOMMouseScroll';
-let DragStop = (e) => {
-    if (DragObject) {
-        Doc.off(DragMoveEvent, DragMove)
-            .off(DragEndEvent, DragStop)
-            .off(DragPreventEvent, DragPrevent);
-        Win.off('blur', DragStop);
-        let node = DragObject.node;
-        $(node).off('losecapture', DragStop);
-        if (node.setCapture) node.releaseCapture();
-        if (DragObject.iStop) {
-            DragObject.stop(e);
-        }
-        DragObject = null;
-    }
-};
 
 module.exports = {
-    begin(node, moveCallback, endCallback) {
-        DragStop();
+    ctor() {
+        let me = this;
+        me.on('destroy', () => {
+            me['@{dd&drag.end}']();
+        });
+    },
+    '@{dd&drag.end}'(e) {
+        let me = this;
+        let info = me['@{dd&drag.object}'];
+        if (info) {
+            delete me['@{dd&drag.object}'];
+            Doc.off(DragMoveEvent, me['@{dd&move.proxy}'])
+                .off(DragEndEvent, me['@{dd&stop.proxy}'])
+                .off(DragPreventEvent, DragPrevent);
+            Win.off('blur', me['@{dd&stop.proxy}']);
+            let node = info['@{dd&node}'];
+            let stop = info['@{dd&stop}'];
+            let iStop = info['@{dd&stop.is.function}'];
+            $(node).off('losecapture', me['@{dd&stop.proxy}']);
+            if (node.setCapture) node.releaseCapture();
+            if (iStop) {
+                stop(e);
+            }
+        }
+    },
+    dragdrop(node, moveCallback, endCallback) {
+        let me = this;
+        me['@{dd&drag.end}']();
         if (node) {
             ClearSelection();
             if (node.setCapture) {
                 node.setCapture();
             }
-            DragObject = {
-                move: moveCallback,
-                stop: endCallback,
-                node: node,
-                iMove: $.isFunction(moveCallback),
-                iStop: $.isFunction(endCallback)
+            me['@{dd&drag.object}'] = {
+                '@{dd&stop}': endCallback,
+                '@{dd&node}': node,
+                '@{dd&stop.is.function}': $.isFunction(endCallback)
             };
-            Doc.on(DragMoveEvent, DragMove)
-                .on(DragEndEvent, DragStop)
+            let moveIsFunction = $.isFunction(moveCallback);
+            me['@{dd&stop.proxy}'] = e => {
+                me['@{dd&drag.end}'](e);
+            };
+            me['@{dd&move.proxy}'] = e => {
+                if (moveIsFunction) {
+                    moveCallback(e);
+                }
+            };
+            Doc.on(DragMoveEvent, me['@{dd&move.proxy}'])
+                .on(DragEndEvent, me['@{dd&stop.proxy}'])
                 .on(DragPreventEvent, DragPrevent);
-            Win.on('blur', DragStop);
-            $(node).on('losecapture', DragStop);
+            Win.on('blur', me['@{dd&stop.proxy}']);
+            $(node).on('losecapture', me['@{dd&stop.proxy}']);
         }
     },
     fromPoint(x, y) {
         let node = null;
         if (document.elementFromPoint) {
-            if (!DragPrevent.$fixed && IsW3C) {
-                DragPrevent.$fixed = true;
-                DragPrevent.$add = document.elementFromPoint(-1, -1) !== null;
+            if (!DragPrevent['@{dd&fixed}'] && IsW3C) {
+                DragPrevent['@{dd&fixed}'] = true;
+                DragPrevent['@{dd&add.scroll}'] = document.elementFromPoint(-1, -1) !== null;
             }
-            if (DragPrevent.$add) {
+            if (DragPrevent['@{dd&add.scroll}']) {
                 x += Win.scrollLeft();
                 y += Win.scrollTop();
             }
@@ -82,6 +94,5 @@ module.exports = {
         }
         return node;
     },
-    clear: ClearSelection,
-    end: DragStop
+    clear: ClearSelection
 };

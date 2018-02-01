@@ -1,5 +1,5 @@
 /*
-ver:2.0.3
+ver:2.0.4
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -17,10 +17,10 @@ module.exports = Magix.View.extend({
         me['@{show.alpha}'] = extra.showAlpha;
         Monitor['@{setup}']();
         let oNode = $('#' + me.id);
-        me['@{color}'] = extra.color || oNode.val();
         me['@{relate.node}'] = oNode;
         oNode = oNode.prev('input');
         oNode.prop('vframe', me.owner);
+        me['@{color}'] = extra.color || oNode.val();
         let click = () => {
             me['@{show}']();
         };
@@ -41,7 +41,6 @@ module.exports = Magix.View.extend({
     '@{inside}'(node) {
         let me = this;
         return Magix.inside(node, me.id) ||
-            Magix.inside(node, 'temp_' + me.id) ||
             Magix.inside(node, me['@{owner.node}'][0]);
     },
     render() {

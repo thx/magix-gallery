@@ -1,5 +1,5 @@
 /*
-ver:2.0.3
+ver:2.0.4
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -135,6 +135,7 @@ let UI = {
     }
 };
 module.exports = Magix.View.extend({
+    mixins: [DD],
     init(extra) {
         let me = this;
         let oNode = $('#' + me.id);
@@ -144,7 +145,6 @@ module.exports = Magix.View.extend({
         });
         me.on('destroy', () => {
             oNode.off('mousedown');
-            DD.end();
         });
         me['@{owner.node}'] = oNode;
         let zones = [oNode.get(0)];
@@ -275,7 +275,7 @@ module.exports = Magix.View.extend({
                     dragZone: info.zone
                 });
                 UI['@{drag.start}'](info);
-                DD.begin(info.zone, e => {
+                me.dragdrop(info.zone, e => {
                     me['@{drag.move}'](e);
                 }, e => {
                     me['@{drag.end}'](e);

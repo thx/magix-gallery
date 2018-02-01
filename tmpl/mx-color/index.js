@@ -1,5 +1,5 @@
 /*
-ver:2.0.3
+ver:2.0.4
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -51,7 +51,8 @@ let RGB2HSV = (r, g, b) => {
     };
 };
 module.exports = Magix.View.extend({
-    tmpl: '@index.html:const[id,shortcuts,alpha,btns]',
+    mixins: [DD],
+    tmpl: '@index.html',
     init(extra) {
         let me = this;
         me['@{color}'] = extra.color || '#ffffff';
@@ -63,7 +64,6 @@ module.exports = Magix.View.extend({
             v: 1
         };
         $('#' + me.id).addClass(CSSNames.cnt);
-        me.on('destroy', DD.end);
     },
     render() {
         let me = this;
@@ -138,7 +138,7 @@ module.exports = Magix.View.extend({
             v: me['@{hsv.info}'].v
         });
         let startY = parseInt(indicator.css('top'), 10);
-        DD.begin(e.eventTarget, event => {
+        me.dragdrop(e.eventTarget, event => {
             let offsetY = event.pageY - pos.pageY;
             offsetY += startY;
             if (offsetY <= -slider) offsetY = -slider;
