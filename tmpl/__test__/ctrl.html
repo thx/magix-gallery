@@ -1,0 +1,16 @@
+<input {{if value=='0'}}value="{{=value}}"{{/if}} class="input" mx-input="@{change}()" />
+{{=value}}
+<textarea a="{{=value}}">{{=value}}</textarea>
+<input type="checkbox" class="switch" {{if value!='0'}}checked{{/if}} />
+<table><tbody><tr><td>{{=Math.random()}}</td></tr></tbody></table>
+<video {{if value=='0'}} controls {{/if}}></video>
+{{if value=='0'}}
+abc
+{{else}}
+<div>good</div>
+{{/if}}
+<select {{if value=='0'}} disabled{{/if}}>
+    <option>adf</option>
+    <option{{if value=='0'}} selected{{/if}}>ex</option>
+</select>
+<table><tbody><tr><td>adf{{=value}}</td></tr></tbody></table>

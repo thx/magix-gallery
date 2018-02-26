@@ -1,17 +1,35 @@
 /*
-ver:2.0.4
+ver:2.0.5
 */
 let Magix = require('magix');
 let $ = require('$');
 module.exports = Magix.View.extend({
-    init() {
-        this.$left = 200;
-        this.$node = $('#' + this.id);
+    tmpl: '@ctrl.html',
+    ctor(extra) {
+        console.log(extra);
     },
-    assign(data, ops) {
-        console.log(data, ops);
-        this.$node.css({
-            left: this.$left += 20
+    init(extra) {
+        this.updater.snapshot();
+        this.assign(extra);
+    },
+    assign(data) {
+        let me = this;
+        let altered = me.updater.altered();
+        me.updater.set(data);
+        if (!altered) altered = me.updater.altered();
+        if (altered) {
+            me.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render() {
+        console.log('render');
+        this.updater.digest();
+    },
+    '@{change}<input>'(e) {
+        this.updater.digest({
+            value: e.eventTarget.value
         });
     }
 });

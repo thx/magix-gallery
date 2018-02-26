@@ -1,5 +1,5 @@
 /*
-ver:2.0.4
+ver:2.0.5
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -15,7 +15,6 @@ module.exports = Magix.View.extend({
         Monitor['@{setup}']();
         let node = $('#' + me.id);
         me['@{owner.node}'] = node;
-        node.addClass('@multiple.less:dropdown');
         node.on('keydown', e => {
             if (e.keyCode == 13) {//enter
                 me['@{toggle}<click>']();
@@ -89,6 +88,7 @@ module.exports = Magix.View.extend({
     render() {
         let me = this;
         let node = me['@{owner.node}'];
+        node.addClass('@multiple.less:dropdown');
         node[me['@{disabled}'] ? 'addClass' : 'removeClass']('@multiple.less:notallowed').prop('tabindex', me['@{ui.disabled}'] ? -1 : 0);
         me['@{updateSelected}'](me['@{selected}']);
     },

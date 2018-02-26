@@ -1,5 +1,5 @@
 /*
-ver:2.0.4
+ver:2.0.5
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -82,8 +82,8 @@ module.exports = Magix.View.extend({
         let me = this;
         if (days) {
             me['@{days}'] = ImproveDays(days);
-            me['@{sync.ui}']();
             me['@{sync.shortcuts}']();
+            me['@{sync.ui}']();
         }
         return me['@{days}'];
     },

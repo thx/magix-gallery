@@ -1,5 +1,5 @@
 /*
-ver:2.0.4
+ver:2.0.5
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -52,8 +52,8 @@ module.exports = Magix.View.extend({
     tmpl: '@month.html',
     init(extra) {
         let me = this;
-        me.assign(extra);
         me['@{owner.node}'] = $('#' + me.id);
+        me.assign(extra);
     },
     assign(ops) {
         let me = this;
@@ -62,6 +62,7 @@ module.exports = Magix.View.extend({
         me['@{year}'] = ops.year;
         me['@{month}'] = ops.month;
         me['@{selected}'] = GetDaysStr(ops.selected, days);
+        me['@{owner.node}'].find('td').removeClass('@month.less:active');
         return true;
     },
     '@{update.selected}'(selected) {

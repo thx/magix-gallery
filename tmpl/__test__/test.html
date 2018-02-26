@@ -31,23 +31,7 @@
     </div> -->
 </div>
 <div>
-    <input type="checkbox" {{if list.length<7}} checked {{/if}} />
-    {{if list.length<6}}
-    <div></div>
-    {{/if}}
-    <div id="abc">
-        <mx-progress value="{{=list.length/10}}"/>
-    </div>
-    {{if list.length>7}}
-    abc
-    {{/if}}
-    <div id="def">good</div>
-    <div id="efg">best</div>
-    <mx-carousel style="width:800px;height:50px;background:#ccc;" active="{{=list.length-2}}">
-        {{each list as item}}
-        <mx-carousel.panel>{{=item}}</mx-carousel.panel>
-        {{/each}}
-    </mx-carousel>
+    <mx-vframe src="./ctrl" value="{{@list.length%3?1:0}}"/>
 </div>
 <button type="button" class="btn btn-brand" mx-click="increase()">increase</button>
 <button type="button" class="btn btn-brand ml20" mx-click="decrease()">decrease</button>

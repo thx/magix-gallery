@@ -1,5 +1,5 @@
 /*
-ver:2.0.4
+ver:2.0.5
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -174,7 +174,7 @@ module.exports = Magix.View.extend({
         let startX = parseInt(current.css('left'), 10);
         let startY = parseInt(current.css('top'), 10);
         let pos = e;
-        DD.begin(e.eventTarget, (event) => {
+        me.dragdrop(e.eventTarget, (event) => {
             let offsetY = event.pageY - pos.pageY;
             let offsetX = event.pageX - pos.pageX;
             offsetY += startY;
@@ -237,7 +237,7 @@ module.exports = Magix.View.extend({
         me['@{setAlpha}'](a);
         me['@{sync.color}']();
         let startX = parseInt(indicator.css('left'), 10);
-        DD.begin(e.eventTarget, (event) => {
+        me.dragdrop(e.eventTarget, (event) => {
             let offsetX = event.pageX - pos.pageX;
             offsetX += startX;
             if (offsetX <= -slider) offsetX = -slider;

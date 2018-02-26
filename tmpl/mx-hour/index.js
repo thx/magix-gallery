@@ -1,5 +1,5 @@
 /*
-ver:2.0.4
+ver:2.0.5
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -13,6 +13,9 @@ module.exports = Magix.View.extend({
         let me = this;
         me['@{range}'] = extra.range;
         me['@{noBorder}'] = extra.border == 'no';
+    },
+    assign() {
+        return false;
     },
     render() {
         let me = this;
