@@ -1,5 +1,5 @@
 /*
-ver:2.0.5
+ver:2.0.6
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -109,10 +109,12 @@ let XHR = Uploader.extend({
             }
         };
         xhr.upload.onprogress = e => {
-            if (e.lengthComputable) {
-                progress(e.loaded / e.total);
-            } else {
-                progress(0);
+            if (!me['@{destroyed}']) {
+                if (e.lengthComputable) {
+                    progress(e.loaded / e.total);
+                } else {
+                    progress(0);
+                }
             }
         };
         xhr.send(fd);
@@ -143,7 +145,7 @@ module.exports = Magix.View.extend({
             node.remove();
         }
         let data = me.updater.get();
-        $('#' + me.id).append(me.wrapEvent('<input id="' + nodeId + '" type="file" class="@index.css:file" mx-change="\x1f\x1e@{upload}()" name="' + data.name + '" />')).addClass('@index.css:pro');
+        $('#' + me.id).append('<input id="' + nodeId + '" type="file" class="@index.css:file" mx-change=' + me.id + '\x1e@{upload}()" name="' + data.name + '" />').addClass('@index.css:pro');
         node = $('#' + nodeId);
         if (data.multiple) node.attr('multiple', 'multiple');
         if (data.accept) node.prop('accept', data.accept);

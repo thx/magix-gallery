@@ -1,5 +1,5 @@
 /*
-ver:2.0.5
+ver:2.0.6
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -262,7 +262,7 @@ module.exports = Magix.View.extend({
         let flag = !Magix.inside(e.relatedTarget, e.eventTarget);
         if (flag) {
             if (!me['@{parent.node}'] && ActiveInstance != me) {
-                if (ActiveInstance) {
+                if (ActiveInstance && ActiveInstance.owner) {
                     ActiveInstance['@{hide}']();
                 }
             }
@@ -282,7 +282,7 @@ module.exports = Magix.View.extend({
         };
         node.trigger(data);
         root['@{hide}']();
-        let fn = me['@{fn.picked}'];
+        let fn = root['@{fn.picked}'];
         if (fn) {
             fn(data.item);
         }

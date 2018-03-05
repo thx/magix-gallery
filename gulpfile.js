@@ -9,7 +9,7 @@ let ts = require('typescript');
 combineTool.config({
     debug: true,
     loaderType: 'cmd_es',
-    cssSelectorPrefix: '_',
+    projectName: '_',
     tmplAddViewsToDependencies: true,
     tmplMultiBindEvents: true,
     magixUpdaterIncrement: true,

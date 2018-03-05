@@ -30,9 +30,11 @@
         <mx-pagination total="100" page="{{=list.length}}"/>
     </div> -->
 </div>
-<div>
-    <mx-vframe src="./ctrl" value="{{@list.length%3?1:0}}"/>
-</div>
+{{if list.length<6}}
+<div name="a" test="b">{{=list.length}}</div>
+{{else}}
+<div name="a" test="b">{{=2*list.length}}</div>
+{{/if}}
 <button type="button" class="btn btn-brand" mx-click="increase()">increase</button>
 <button type="button" class="btn btn-brand ml20" mx-click="decrease()">decrease</button>
 <button type="button" class="btn btn-brand ml20" mx-click="start()">start</button>

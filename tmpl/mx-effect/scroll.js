@@ -1,5 +1,5 @@
 /*
-ver:2.0.5
+ver:2.0.6
 */
 let Magix = require('magix');
 let $ = require('$');
@@ -11,8 +11,9 @@ module.exports = Magix.View.extend({
         me['@{owner.node}'] = $('#' + me.id);
         me.assign(extra);
     },
-    assign(ops) {
+    assign(ops, ctrl) {
         let me = this;
+        if (ctrl) ctrl.deep = 0;
         me['@{value}'] = ops.value;
         return true;
     },

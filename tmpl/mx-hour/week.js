@@ -1,5 +1,5 @@
 /*
-ver:2.0.5
+ver:2.0.6
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -172,11 +172,13 @@ module.exports = Magix.View.extend({
         e.preventDefault();
         let me = this;
         let ref = $(e.eventTarget);
-        me['@{ref.node}'] = ref;
-        me['@{show}']();
-        me.updater.digest({
-            currentClone: e.params.day
-        });
+        if (!me['@{ui.show}']) {
+            me.updater.digest({
+                currentClone: e.params.day
+            });
+            me['@{ref.node}'] = ref;
+            me['@{show}']();
+        }
     },
     '@{closeDlg}<click>'() {
         this['@{hide}']();

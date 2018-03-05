@@ -1,5 +1,5 @@
 /*
-ver:2.0.5
+ver:2.0.6
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -72,7 +72,8 @@ module.exports = Magix.View.extend({
         let me = this,
             ctrl;
         if (!me['@{ui.ctrl.arrow}']) {
-            ctrl = $(me.wrapEvent(html)).insertBefore(me['@{table}']);
+            let t = $.isFunction(html) ? html(0,me.id) : html;
+            ctrl = $(t).insertBefore(me['@{table}']);
             me['@{ui.ctrl.arrow}'] = ctrl;
         }
         ctrl = me['@{ui.ctrl.arrow}'];

@@ -1,5 +1,5 @@
 /*
-ver:2.0.5
+ver:2.0.6
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -45,6 +45,7 @@ module.exports = Magix.View.extend({
     update(options) {
         let me = this;
         let vf = Vframe.get('dpcnt_' + me.id);
+        options.hasBtn = 1;
         vf.invoke('update', [options]);
     },
     render() {

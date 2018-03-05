@@ -1,5 +1,5 @@
 /*
-ver:2.0.5
+ver:2.0.6
 */
 let $ = require('$');
 let Magix = require('magix');
@@ -390,7 +390,7 @@ module.exports = {
                         refresh = true;
                     }
                     if (refresh || !actions.silent) {//如果刷新或未标记沉默更新
-                        keys[rootKey] = 1; //标记改变;
+                        if (keys) keys[rootKey] = 1; //标记改变;
                         updater.$c = 1;
                     }
                     notify = true;

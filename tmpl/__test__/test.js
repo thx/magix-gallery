@@ -1,5 +1,5 @@
 /*
-ver:2.0.5
+ver:2.0.6
 */
 let Magix = require('magix');
 Magix.applyStyle('@test.css');
@@ -41,6 +41,7 @@ module.exports = Magix.View.extend({
                 }, 2000);
             });
         };
+        console.log(this.updater);
     },
     'increase<click>'() {
         let list = this.updater.get('list');
@@ -51,7 +52,10 @@ module.exports = Magix.View.extend({
         });
     },
     'decrease<click>'() {
-        this.owner.mountVframe('vf_1_' + this.id, '@./test');
+        let list = this.updater.get('list');
+        list.pop();
+        this.updater.digest();
+        //this.owner.mountVframe('vf_1_' + this.id, '@./test');
     },
     'remove<click>'(e) {
         let list = this.updater.get('list');
@@ -81,5 +85,11 @@ module.exports = Magix.View.extend({
     },
     '$doc<mousedown,mouseup>'(){
         console.log(document.activeElement);
+    },
+    '@{show}<click>' (e) {
+        let that = this;
+        that.updater.set({
+            editing: true
+        }).digest()
     }
 });

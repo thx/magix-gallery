@@ -1,5 +1,5 @@
 /*
-ver:2.0.5
+ver:2.0.6
 */
 /*
     author: xinglie.lkf@ alibaba - inc.com
@@ -54,14 +54,11 @@ module.exports = Magix.View.extend({
     '@{setValue}<click>'(e) {
         let me = this;
         if (me['@{readonly}']) return;
-        let last = me['@{value}'];
         let value = e.params.i + 1;
-        if (value != last) {
-            me['@{value}'] = value;
-            me['@{owner.node}'].prop({ value }).trigger({
-                type: 'change',
-                value
-            });
-        }
+        me['@{value}'] = value;
+        me['@{owner.node}'].prop({ value }).trigger({
+            type: 'change',
+            value
+        });
     }
 });

@@ -1,5 +1,5 @@
 /*
-ver:2.0.5
+ver:2.0.6
 */
 /*
     author:xinglie.lkf@alibaba-inc.com
@@ -52,14 +52,22 @@ let format = t => {
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
     init(extra) {
+        this.updater.snapshot();
+        this.assign(extra);
+    },
+    assign(data) {
         let me = this;
-        let time = parseTime(extra.time);
-        let types = parseType(extra.types);
+        let altered = me.updater.altered();
+        let time = parseTime(data.time);
+        let types = parseType(data.types);
         me.updater.set({
             format,
             time,
             types
         });
+        if (!altered) altered = me.updater.altered();
+        if (altered) me.updater.snapshot();
+        return altered;
     },
     render() {
         let me = this;

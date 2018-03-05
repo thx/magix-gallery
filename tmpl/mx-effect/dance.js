@@ -1,5 +1,5 @@
 /*
-ver:2.0.5
+ver:2.0.6
 */
 /*
     author:xinglie.lkf@taobao.com
@@ -19,8 +19,9 @@ module.exports = Magix.View.extend({
             me['@{stop}']();
         });
     },
-    assign(ops) {
+    assign(ops, ctrl) {
         let me = this;
+        if (ctrl) ctrl.deep = 0;
         me['@{value}'] = ops.value;
         me['@{dance.effect}'] = ops.dance || 'd1';
         me['@{duration}'] = +ops.duration || 60;
