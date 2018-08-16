@@ -1,0 +1,42 @@
+@import "../mx-style/_vars";
+@switch-width: 40px;
+@switch-height: 18px;
+
+[mx-view*="mx-switch/index"]{
+    display: inline-block;
+}
+.switch {
+    display: inline-block;
+    position: relative;
+    width: @switch-width;
+    height: @switch-height;
+    border-radius: @switch-height / 2;
+    background-color: @color-border;
+    cursor: pointer;
+
+    .switch-icon {
+        opacity: .95;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: @switch-height;
+        height: @switch-height;
+        border-radius: 50%;
+        background-color: #ccc;
+        transition: left @duration;
+        -moz-transition: left @duration;
+        -webkit-transition: left @duration;
+        -o-transition: left @duration;
+    }
+
+    &.on {
+        background-color: @color-brand-light;
+
+        .switch-icon {
+            left: @switch-width - @switch-height;
+            background-color: @color-brand;
+        }
+
+    }
+
+}

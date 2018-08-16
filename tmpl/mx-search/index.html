@@ -1,0 +1,18 @@
+<div class="search-box {{if (align=='right')}} search-box-right {{else}} search-box-left {{/if}}">
+    <i class="mc-iconfont search-icon">&#xe651;</i>
+    <input type="text" class="input search-input" placeholder="{{=placeholder}}"
+        value="{{=searchValue}}" 
+        mx-keyup="@{search}()"
+        mx-paste="@{search}()"
+        mx-focusin="@{search}()"
+        mx-focusout="@{stop}()"
+        mx-change="@{stop}()"/>
+
+    <ul class="search-menu {{if ((list.length > 1) && searchValue && show)}} open {{/if}}">
+        {{each list as item}}
+        <li class="search-item {{if (searchKey == item.value)}} active {{/if}}" mx-click="@{select}({item:'{{@item}}'})">
+            搜索含有“{{=searchValue}}”的{{=item.text}}
+        </li>
+        {{/each}}
+    </ul>
+</div>

@@ -1,0 +1,10 @@
+<div class="box {{= disabled ? 'disabled' : ''}}">
+    {{each list as item}}
+    <a href="javascript:;" {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} class="box-item {{= (item.value == selected) ? 'selected' : ''}}">
+        {{=item.text}}
+        {{if item.tag}}
+        <span class="tag">{{=item.tag}}</span>
+        {{/if}}
+    </a>
+    {{/each}}
+</div>

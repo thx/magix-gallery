@@ -1,0 +1,19 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-popover class="btn"
+            content="第一行&lt;br/&gt;第二行"
+            placement="bottom">内容包含html</mx-popover>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">内容包含html，标签需要转义</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-popover class="btn"
+    content="第一行&amp;lt;br/&amp;gt;第二行"
+    placement="bottom"&gt;内容包含html&lt;/mx-popover&gt;</pre>
+    </div>
+</div>

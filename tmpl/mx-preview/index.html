@@ -1,0 +1,43 @@
+<div class="outer" style="width: {{=maxWidth}}px; height: {{=maxHeight}}px;"
+    mx-mouseover="preview()"
+    mx-mouseout="hide()">
+    <div class="inner" style="height: {{=maxHeight}}px;">
+        {{if clickUrl}}
+        <a href="{{=clickUrl}}" target="_blank" rel="noopener noreferrer">
+        {{/if}}
+            <!-- 2：图片，11：直播（封面图），23：套图（大图+小图） -->
+            {{if format==2 || format==11 || format==23}}
+                <img class="img" src="{{=url}}"/>
+            {{/if}}
+
+            <!-- 5：文字链 ，3：flash，9：flash-->
+            {{if format==5 || format==3 || format==9}}
+                <div class="text" style="max-width: {{=maxWidth}}px;">{{=url}}</div>
+            {{/if}}
+        
+            <!-- 视频 -->
+            {{if format==4}}
+                <video src="{{=url}}" class="video">
+                    <i class="mc-iconfont icon">&#xe78d;</i>
+                </video>
+            {{/if}}
+
+            <!-- html模板 -->
+            {{if format==10}}
+                <div style="width: {{=frameWidth}}px; height: {{=frameHeight}}px; overflow: hidden">
+                    <iframe src="{{=url}}" class="iframe"
+                        style="transform:scale({{=scale}})"
+                        width="{{=width}}" 
+                        height="{{=height}}" 
+                        frameborder="0"
+                        scrolling="no" 
+                        marginheight="0" 
+                        marginwidth="0" 
+                        border="0"></iframe>
+                </div>
+            {{/if}}
+        {{if clickUrl}}
+        </a>
+        {{/if}}
+    </div>
+</div>

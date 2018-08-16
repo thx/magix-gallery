@@ -1,0 +1,17 @@
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend({
+    tmpl: '@second.html',
+    init(extra){
+        let content = extra.content || '标题';
+        let tip = extra.tip || '';
+        this.updater.set({
+            content,
+            tip
+        })
+    },
+    render() {
+        this.updater.digest();
+    }
+});

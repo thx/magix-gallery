@@ -1,0 +1,27 @@
+{{if type == 'border'}}
+<div class="border clearfix">
+    {{each list as item}}
+    <a mx-mouseover="@{over}({value:'{{=item.value}}'})" mx-mouseout="@{out}()"  class="border-item {{= (item.value == selected) ? 'selected' : ''}}" mx-click="@{select}({item:'{{@item}}'})" href="javascript:;" id="{{=viewId}}_{{=item.value}}">
+        {{=item.text}}
+        {{if item.tag}}
+        <span class="tag">
+            <span class="tag-arrow"></span>
+            <span class="tag-name">{{=item.tag}}</span>
+        </span>
+        {{/if}}
+    </a>
+    {{/each}}
+    <span class="underline" style="left: {{=left}}px; width: {{=width}}px;"></span>
+</div>
+{{else}}
+<div class="box {{= disabled ? 'disabled' : ''}}">
+    {{each list as item}}
+    <a href="javascript:;" {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} class="box-item {{= (item.value == selected) ? 'selected' : ''}}">
+        {{=item.text}}
+        {{if item.tag}}
+        <span class="tag">{{=item.tag}}</span>
+        {{/if}}
+    </a>
+    {{/each}}
+</div>
+{{/if}}

@@ -1,0 +1,76 @@
+@import "../mx-style/_vars";
+
+.dialog-backdrop,
+.dialog-wrapper{
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity @duration, top @duration;
+}
+.dialog-backdrop {
+    opacity: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .4);
+
+    &.backdrop-out{
+        opacity: 1;
+    }
+}
+.dialog-wrapper{
+    opacity: 0;
+    top: -50px;
+    overflow-y: auto;
+
+    &.wrapper-out{
+        opacity: 1;
+        top: 0;
+    }
+}
+
+.dialog {
+    position: absolute;
+
+    .dialog-content {
+        position: relative;
+        background-color: #fff;
+        border-radius: @border-radius;
+        word-break: break-all;
+        .shadow();
+
+        .loading-ext {
+            padding: 80px 0;
+        }
+
+    }
+
+    .dialog-close {
+        position: absolute;
+        top: 18px;
+        right: 20px;
+        width: 26px;
+        height: 26px;
+        z-index: 2;
+        border-radius: 50%;
+        background: transparent;
+        color: #ccc;
+        text-align: center;
+
+        .iconfont-ext {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 26px;
+        }
+
+        &:hover, &:focus {
+            background-color: #999;
+            color: #fff;
+        }
+
+    }
+
+}
+
+.modal {
+    overflow-y: hidden;
+}

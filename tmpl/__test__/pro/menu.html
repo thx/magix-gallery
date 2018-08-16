@@ -1,0 +1,32 @@
+<pre class="tip-content mb40">// 关于如何配置menu.js中Menus字段
+// 导航上可见的菜单配置
+let Menus = [{
+    has: true,  // 头部菜单权限，必填，不需控制权限给true即可
+    id: 'basic', // 唯一标识，如果有定制的打标需求等，可自定义，默认为Magix.guid()
+    name: '一级标题',  // 头部菜单文案，必填
+    path: '/develop/innav',  // 点击头部菜单的访问路径，必填
+    custom: true, // 自定义页面结构，padding为0，深底色背景，需要的时候配置custom: true即可
+    subs: [{  // 二三级菜单分组，可选
+        name: '二级标题',  // 二级分组标题，没有可不配置，可选
+        thirds: [{
+            has: true,  // 三级菜单权限，权限由三级往上汇总，无权限的剔除，必填，不需控制权限给true即可
+            id: 'innav', // 三级菜单唯一标识，如果有定制的打标需求等，可自定义，默认为Magix.guid()
+            name: '三级标题', // 三级菜单标题，必填
+            path: '/develop/innav',  // 三级菜单访问路径，必填
+            icon: '&#38;&#35;xe786;' // 三级菜单iconfont值，没有可不配置
+        }]
+    }],
+    leftView: '/develop/custom-side' // 该导航侧边栏对应的是一个自定义的view，暂时subs与leftView互斥
+}]
+</pre>
+<mx-title.second content="使用示例"/>
+<div class="clearfix mb20">
+    <div class="half">
+        <div mx-view="@./menu1"></div>
+        <div mx-view="@./menu3"></div>
+    </div>
+    <div class="half">
+        <div mx-view="@./menu2"></div>
+        <div mx-view="@./menu4"></div>
+    </div>
+</div>

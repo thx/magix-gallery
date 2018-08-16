@@ -1,0 +1,74 @@
+Todo
+<!-- 
+<div class="mb20 fontsize-14">深色背景上的样式定制（外部改变组件样式）：</div>
+<div class="clearfix mb20 dark-bg outer">
+    <mx-dropdown class="w200" 
+        searchbox="false" 
+        list="[1,2,3]">
+    </mx-dropdown>
+</div>
+<div class="mb10 fontsize-14 clearfix">
+    <div class="fl w300">Code:</div>
+    <div class="fl">CSS Code:</div>
+</div>
+<div class="tip-content clearfix">
+    <div class="fl w280">
+        <pre>&lt;div class="outer"&gt;
+    &lt;mx-dropdown class="w200" 
+        searchbox="false" 
+        list="[1,2,3]"&gt;
+    &lt;/mx-dropdown&gt;
+&lt;/div&gt;</pre>
+    </div>
+    <div class="fl">
+        <pre>
+@dark-color-border: rgba(255, 255, 255, .1);
+@dark-color-border-hover: rgba(255, 255, 255, .2);
+@dark-color-border-focus: rgba(255, 255, 255, .4);
+@dark-font-color: #b3b3b3;
+
+.outer {
+    [ref="@../../../gallery/mx-dropdown/index.less:dropdown-toggle"] {
+        color: #999;
+    }
+
+    [ref="@../../../gallery/mx-dropdown/index.less:dropdown-menu-wrapper"] {
+        background-color: #ccc;
+        font-size: 12px;
+    }
+
+    [ref="@../../../gallery/mx-dropdown/index.less:item-link"] {
+        &amp;:hover {
+            background-color: #b3b3b3;
+        }
+
+        &amp;[ref="@../../../gallery/mx-dropdown/index.less:active"] {
+            &amp;:hover {
+                color: #fff;
+                background-color: @color-brand;
+            }
+
+        }
+
+    }
+
+    [mx-view*="/mx-dropdown/"] {
+        background-color: transparent;
+        border-color: @dark-color-border;
+
+        &amp;:hover {
+            border-color: @dark-color-border-hover;
+
+            [ref="@../../../gallery/mx-dropdown/index.less:dropdown-toggle"] {
+                color: @dark-font-color;
+            }
+
+        }
+
+    }
+
+}
+</pre>
+    </div>
+</div> -->
+

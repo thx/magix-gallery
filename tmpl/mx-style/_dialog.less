@@ -1,0 +1,24 @@
+/* @dependent: ./index.less */
+//该样式本应属于dialog组件，但因对话框内容要引用dialog-header 等样式，单独放在dialog组件中使用不方便，因此全局处理
+@import "./_vars";
+
+.dialog-header {
+    padding: 18px 36px;
+    border-bottom: 1px solid @color-border;
+    color: @color-primary;
+
+    .header-name {
+        font-size: 16px;
+    }
+
+}
+
+.dialog-body {
+    padding: 18px 36px;
+}
+
+.dialog-footer {
+    padding: 16px 36px;
+    text-align: left;
+    border-top: 1px solid @color-border;
+}

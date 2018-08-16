@@ -1,0 +1,95 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-uploader class="btn btn-brand mr10"
+            action="/creative/upload.action" 
+            method="POST"
+            name="images"
+            multiple="true"
+            accept="image/jpeg,image/png,image/jpg"
+            mx-error="uploadError()"
+            mx-success="uploadSuccess()">
+            多个上传</mx-uploader>
+
+        <mx-uploader class="btn btn-brand mr10"
+            action="/creative/uploadImages.action" 
+            method="POST"
+            name="images"
+            accept="image/jpeg,image/png,image/jpg"
+            mx-error="uploadError()"
+            mx-success="uploadSuccess()">
+            单个上传</mx-uploader>
+
+        <mx-uploader class="btn btn-brand btn-disabled"
+            action="/creative/uploadImages.action" 
+            method="POST"
+            name="images"
+            disabled="true"
+            accept="image/jpeg,image/png,image/jpg"
+            mx-error="uploadError()"
+            mx-success="uploadSuccess()">
+            禁用上传</mx-uploader>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-uploader class="btn btn-brand mr10"
+    action="/creative/upload.action" 
+    method="POST"
+    name="images"
+    multiple="true"
+    accept="image/jpeg,image/png,image/jpg"
+    mx-error="uploadError()"
+    mx-success="uploadSuccess()"&gt;
+    多个上传&lt;/mx-uploader&gt;
+
+&lt;mx-uploader class="btn btn-brand mr10"
+    action="/creative/uploadImages.action" 
+    method="POST"
+    name="images"
+    accept="image/jpeg,image/png,image/jpg"
+    mx-error="uploadError()"
+    mx-success="uploadSuccess()"&gt;
+    单个上传&lt;/mx-uploader&gt;
+
+&lt;mx-uploader class="btn btn-brand btn-disabled"
+    action="/creative/uploadImages.action" 
+    method="POST"
+    name="images"
+    disabled="true"
+    accept="image/jpeg,image/png,image/jpg"
+    mx-error="uploadError()"
+    mx-success="uploadSuccess()"&gt;
+    禁用上传&lt;/mx-uploader&gt;</pre>
+        </div>
+        <div class="eg-desc half">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'uploadSuccess&lt;success&gt;'(e) &#123;
+        // e.response
+    &#125;,
+    'uploadError&lt;error&gt;'(e) &#123;
+        // e.error
+    &#125;
+&#125;);</pre>
+        </div>
+    </div>
+</div>

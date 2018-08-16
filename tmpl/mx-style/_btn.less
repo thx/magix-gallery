@@ -1,0 +1,87 @@
+/* @dependent: ./index.less */
+
+@import "_vars";
+.btn {
+    display: inline-block;
+    height: @input-height;
+    margin-bottom: 0;
+    padding: 0 12px;
+    color: #333;
+    font-size: @font-size;
+    font-weight: normal;
+    line-height: @input-height;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: @color-border;
+    border-radius: @border-radius;
+    border: 0 none;
+    outline: none;
+    background-image: none;
+    transition: all @duration ease-out;
+
+    &:hover,
+    &.hover,
+    &:active {
+        background-color: #ccc;
+        color: #333;
+    }
+    &.btn-small {
+        height: @input-small-height;
+        line-height: @input-small-height;
+    }
+    &.btn-brand when (@btn-brand = @btn-brand-gradient) {
+        color: @color-brand-text;
+        background-color: @btn-brand;
+        &:hover,
+        &.hover,
+        &:active {
+            color: @color-brand-text-hover;
+            background-color: @color-brand-hover;
+        }
+    }
+    &.btn-brand when not (@btn-brand = @btn-brand-gradient) {
+        color: @color-brand-text;
+        background-color: @btn-brand;
+        background-image: linear-gradient(to right, @btn-brand, @btn-brand-gradient);
+        background-image: -webkit-linear-gradient(left, @btn-brand, @btn-brand-gradient);
+        background-image: -o-linear-gradient(right, @btn-brand, @btn-brand-gradient);
+        background-image: -moz-linear-gradient(right, @btn-brand, @btn-brand-gradient);
+        &:hover,
+        &.hover,
+        &:active {
+            color: @color-brand-text-hover;
+            background-color: @color-brand-hover;
+            background-image: linear-gradient(to right, @btn-brand-hover, @btn-brand-gradient-hover);
+            background-image: -webkit-linear-gradient(left, @btn-brand-hover, @btn-brand-gradient-hover);
+            background-image: -o-linear-gradient(right, @btn-brand-hover, @btn-brand-gradient-hover);
+            background-image: -moz-linear-gradient(right, @btn-brand-hover, @btn-brand-gradient-hover);
+        }
+    }
+    &.btn-white {
+        background-color: #fff;
+        &:hover,
+        &.hover,
+        &:active {
+            background-color: @color-bg;
+        }
+    }
+    &[disabled],
+    &.btn-disabled,
+    &.btn-disabled:hover,
+    &.btn-disabled.hover,
+    &.btn-disabled:focus,
+    &.btn-disabled:active,
+    &.btn-disabled:visited {
+        cursor: not-allowed;
+        background-color: @color-border;
+        color: #bbb;
+    }
+}

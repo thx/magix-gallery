@@ -1,0 +1,81 @@
+@import "../mx-style/_vars";
+
+.custom{
+    #alimama-footer{
+        text-align: center;
+    }
+    &.white {
+        #alimama-footer{
+            a, span{
+                color: #fff;
+            }
+        }
+    }
+}
+.products {
+    position: relative;
+    max-width: 100%;
+    margin-bottom: 20px;
+    padding-left: 220px;
+    padding-right: 220px;
+    text-align: center;
+    .logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        img {
+            width: 110px;
+        }
+        .mama-icon {
+            display: block;
+            width: 110px;
+            margin-top: 5px;
+            font-size: 36px;
+            color: #666;
+        }
+    }
+    .qrcode {
+        position: absolute;
+        top: 0;
+        right: 0;
+        line-height: 22px;
+        img {
+            width: 92px;
+            margin-bottom: 10px;
+        }
+    }
+    dl {
+        float: left;
+        font-size: 16px;
+        line-height: 32px;
+        dt {
+            margin-bottom: 16px;
+            opacity: .5;
+        }
+    }
+
+    &.white {
+        .logo {
+            .mama-icon {
+                color: #fff;
+            }
+        }
+        dl {
+            dt {
+                color: #fff;
+            }
+            dd {
+                a {
+                    color: #fff;
+                    &:hover {
+                        color: @color-brand;
+                    }
+                }
+            }
+        }
+        .qrcode {
+            color: #fff;
+        }
+    }
+}
+

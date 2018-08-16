@@ -1,0 +1,25 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-popover class="mc-iconfont color-9"
+            tag="i" 
+            content="用&nbsp;i&nbsp;标签生成，宽度400，文字居中对齐"
+            width="400"
+            align-text="center"
+            placement="bottom">&#xe629;</mx-popover>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">自定义tag显示 + 自定义宽度 + 自定义文字对齐方式</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-popover class="mc-iconfont color-9"
+    tag="i"
+    content="用 i 标签生成，宽度400，文字居中对齐"
+    width="400"
+    align-text="center"
+    placement="bottom"&gt;&amp;#xe629;&lt;/mx-popover&gt;</pre>
+    </div>
+</div>

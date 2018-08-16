@@ -1,0 +1,19 @@
+{{if (list && list.length)}}
+<ul class="suggest unselectable" 
+    style="width: {{=width}}px;" 
+    mx-mouseout="@{out}()" 
+    mx-mousemove="@{move}()" 
+    mx-contextmenu="@{prevent}()">
+    {{each list as one idx}}
+    <li class="item">
+        <a href="javascript:;" class="item-link" 
+            data-idx="{{=idx}}" 
+            mx-click="@{pick}({item:'{{@one}}'})" id="sg_{{=viewId}}_{{=idx}}">
+            {{=one.text}}
+        </a>
+    </li>
+    {{/each}}
+</ul>
+{{else}}
+<div class="suggest text-center color-9" style="width: {{=width}}px;">无匹配选项</div>
+{{/if}}

@@ -1,0 +1,63 @@
+@import "../mx-style/_vars";
+
+[mx-view*="mx-table/index"] {
+    position: relative;
+
+    .wrapper, .scrollbar {
+        //为了滚动不占位置
+        position: absolute;
+        left: 0;
+        right: 0;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    .wrapper {
+        top: 0;
+        z-index: 1;
+
+        &::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: transparent;
+        }
+
+    }
+
+    .scrollbar {
+        display: none;
+        z-index: 2;
+
+        .bar {
+            height: 10px;
+        }
+
+        &::-webkit-scrollbar {
+            width: 14px;
+            height: 14px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: @color-brand-light;
+            border-radius: 7px;
+        }
+
+    }
+
+    .left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        background-color: #fff;
+        width: auto;
+    }
+
+    .left-shadow {
+        box-shadow: 3px 0 4px rgba(0, 0, 0, .06);
+    }
+
+}

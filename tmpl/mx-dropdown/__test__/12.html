@@ -1,0 +1,35 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">hover展开下拉选项</div>
+        </div>
+        <mx-dropdown class="w200" 
+            trigger-type="hover"
+            list="{{@[{
+                value: 1,
+                text: 'hover展开1'
+            },{
+                value: 2,
+                text: 'hover展开2'
+            }]}}"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">hover展开下拉选项</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-dropdown class="w200" 
+    trigger-type="hover"
+    list="&#123;&#123;@[&#123;
+        value: 1,
+        text: 'hover展开1'
+    &#125;,&#123;
+        value: 2,
+        text: 'hover展开2'
+    &#125;]&#125;&#125;"/&gt;</pre>
+    </div>
+</div>

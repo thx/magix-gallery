@@ -1,0 +1,34 @@
+@import "../mx-style/_vars";
+@group-height: 40px;
+.group {
+    float: left;
+    overflow: hidden;
+
+    .ipt {
+        width: (2 * @font-size) * 2 + 4px;
+        height: @group-height;
+        font-size: @font-size + 12;
+        text-align: center;
+    }
+
+    .o-btn{
+        width: 2 * @font-size;
+        height: 2 * @font-size;
+        line-height: 2 * @font-size;
+        padding: 0;
+    }
+    .o-icon{
+        line-height: 2 * @font-size;
+    }
+
+}
+
+.spliter {
+    float: left;
+    width: 2 * @font-size;
+    font-size: 24px;
+    height: @group-height;
+    line-height: @group-height;
+    font-weight: bolder;
+    text-align: center;
+}

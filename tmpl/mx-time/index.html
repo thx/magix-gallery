@@ -1,0 +1,43 @@
+<div class="clearfix">
+    <div class="group">
+        <div class="mb5">
+            <input class="input ipt" value="<%=format(time['@{hour}'])%>"<%if(types['@{hour}']){%> mx-change="@{set}({type:'@{hour}'})"<%}else{%> disabled<%}%> maxlength="2" mx-keydown="@{press.check}({type:'@{hour}'})" autocomplete="off" />
+        </div>
+        <div class="clearfix">
+            <button type="button" class="btn o-btn fl"<%if(types['@{hour}']){%> mx-click="@{change}({type:'@{hour}'})" mx-mousedown="@{fast.start}({type:'@{hour}'})"<%}else{%> disabled<%}%> tabindex="-1">
+                <i class="mc-iconfont o-icon">&#xe6df;</i>
+            </button>
+            <button type="button" class="btn o-btn fr"<%if(types['@{hour}']){%> mx-click="@{change}({type:'@{hour}',inc:1})" mx-mousedown="@{fast.start}({type:'@{hour}',inc:1})"<%}else{%> disabled<%}%> tabindex="-1">
+                <i class="mc-iconfont o-icon">&#xe661;</i>
+            </button>
+        </div>
+    </div>
+    <div class="spliter">:</div>
+    <div class="group">
+        <div class="mb5">
+            <input class="input ipt" value="<%=format(time['@{minute}'])%>"<%if(types['@{minute}']){%> mx-change="@{set}({type:'@{minute}'})"<%}else{%> disabled<%}%> maxlength="2" mx-keydown="@{press.check}({type:'@{minute}'})" autocomplete="off" />
+        </div>
+        <div class="clearfix">
+            <button type="button" class="btn o-btn fl"<%if(types['@{minute}']){%> mx-click="@{change}({type:'@{minute}'})" mx-mousedown="@{fast.start}({type:'@{minute}'})"<%}else{%> disabled<%}%> tabindex="-1">
+                <i class="mc-iconfont o-icon">&#xe6df;</i>
+            </button>
+            <button type="button" class="btn o-btn fr"<%if(types['@{minute}']){%> mx-click="@{change}({type:'@{minute}',inc:1})" mx-mousedown="@{fast.start}({type:'@{minute}',inc:1})"<%}else{%> disabled<%}%> tabindex="-1">
+                <i class="mc-iconfont o-icon">&#xe661;</i>
+            </button>
+        </div>
+    </div>
+    <div class="spliter">:</div>
+    <div class="group">
+        <div class="mb5">
+            <input class="input ipt" value="<%=format(time['@{second}'])%>"<%if(types['@{second}']){%> mx-change="@{set}({type:'@{second}'})"<%}else{%> disabled<%}%> maxlength="2" mx-keydown="@{press.check}({type:'@{second}'})" autocomplete="off" />
+        </div>
+        <div class="clearfix">
+            <button type="button" class="btn o-btn fl"<%if(types['@{second}']){%> mx-click="@{change}({type:'@{second}'})" mx-mousedown="@{fast.start}({type:'@{second}'})"<%}else{%> disabled<%}%> tabindex="-1">
+                <i class="mc-iconfont o-icon">&#xe6df;</i>
+            </button>
+            <button type="button" class="btn o-btn fr"<%if(types['@{second}']){%> mx-click="@{change}({type:'@{second}',inc:1})" mx-mousedown="@{fast.start}({type:'@{second}',inc:1})"<%}else{%> disabled<%}%> tabindex="-1">
+                <i class="mc-iconfont o-icon">&#xe661;</i>
+            </button>
+        </div>
+    </div>
+</div>

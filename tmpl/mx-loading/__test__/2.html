@@ -1,0 +1,33 @@
+<div class="example">
+    <div class="eg-content">
+        <a href="javascript:;" mx-click="show()" class="btn btn-brand mr20">打开</a>   
+        <a href="javascript:;" mx-click="hide()" class="btn">关闭</a>  
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Loading = require('@../index'); //loading组件
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'show&lt;click&gt;'(e){
+        // showLoading(closeMask)
+        // closeMask不需要禁止操作
+        Loading.showLoading(true);
+    },
+    'hide&lt;click&gt;'(e){
+        Loading.hideLoading();
+    }
+&#125;);</pre>
+    </div>
+</div>

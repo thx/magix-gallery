@@ -1,0 +1,79 @@
+<div class="clearfix pager">
+    <%if(!simplify&&!mini){%>
+    <div class="infos">
+        <span><%! tipOffset%></span>
+        <span><%! tipTotal%>，</span>
+        <span><%! tipPer%></span>
+        <%if(sizesChange){%>
+        <mx-dropdown class="ml10 mr10 pager-dropdown"
+            list="<%@sizes%>"
+            selected="<%@size%>"
+            mx-change="@{changeSize}()"/>
+        <%}else{%>
+        <b>&nbsp;<%= size%>&nbsp;</b>
+        <%}%>
+        <span><%! tipUnit%></span>
+    </div>
+    <%}%>
+
+    <%if(!jump){%>
+    <!-- 快捷翻页     -->
+    <div class="quick">
+        <span class="mr5">向第</span>
+        <input type="text" class="input input-small quick-input mr5"
+            value="{{=next}}" id="{{=viewId}}_jump_input"
+            mx-change="@{stop}()"
+            mx-focusin="@{stop}()"
+            mx-focusout="@{stop}()"/>
+        <span class="mr10">页</span>
+        <a href="javascript:;" class="btn btn-small" mx-click="@{jump}()">跳转</a>
+    </div>
+    <%}%>
+
+    <ul class="clearfix num-items">
+        <!-- 上翻页 -->
+        <li class="num-item">
+            <a class="mc-iconfont num-item-icon <%if(page==1){%>notallowed<%}%>" href="#" mx-click="<%if(page>1){%>@{toPage}({page:<%=page-1%>})<%}else{%>@{prevent}()<%}%>">&#xe61e;
+            </a>
+        </li>
+        <!-- 上翻页 -->
+
+        <%if(mini){%>
+            <li class="num-item"><%=page%> / <%=pages%></li>
+        <%}else{%>
+            <%if(start>1){%>
+            <li class="num-item">
+                <a class="num-item-inner" href="#" mx-click="@{toPage}({page:1})">1</a>
+            </li>
+            <%}%>
+            <%if(start>2){%>
+            <li class="num-item">
+                <a class="num-item-inner notallowed" href="#" mx-click="@{prevent}()">...</a>
+            </li>
+            <%}%>
+            <%for(var i=start;i<=end;i++){%>
+            <li class="num-item">
+                <a class="num-item-inner <%if(i==page){%>active<%}%>" href="#" mx-click="@{toPage}({page:<%=i%>})"><%=i%></a>
+            </li>
+            <%}%>
+            <%if(end+2<=pages){%>
+            <li class="num-item">
+                <a class="num-item-inner notallowed" href="#" mx-click="@{prevent}()">...</a>
+            </li>
+            <%}%>
+            <%if(end<pages){%>
+            <li class="num-item">
+                <a class="num-item-inner" href="#" mx-click="@{toPage}({page:<%=pages%>})"><%=pages%></a>
+            </li>
+            <%}%>
+        <%}%>
+
+        <!-- 下翻页 -->
+        <li class="num-item">
+            <a class="mc-iconfont num-item-icon rotate180 <%if(page==pages){%>notallowed<%}%>" href="#" mx-click="<%if(page<pages){%>@{toPage}({page:<%=page+1%>})<%}else{%>@{prevent}()<%}%>">&#xe61e;</a>
+        </li>
+        <!-- 下翻页 -->
+
+        <li class="num-item ml10"><%! tipTotal%></li>
+    </ul>
+</div>

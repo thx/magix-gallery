@@ -1,0 +1,65 @@
+<div class="example">
+    <div class="eg-content">
+        <a href="javascript:;" mx-click="showGroup()" 
+            class="btn btn-brand">内容分组显示的浮层</a>   
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;a href="javascript:;" mx-click="showGroup()" 
+    class="btn btn-brand"&gt;内容分组显示的浮层&lt;/a&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Dialog = require('@../index'); //mixins dialog
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Dialog],
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'showGroup&lt;click&gt;'(e) &#123;
+        let list = [];
+        for (let index = 0; index &lt; 10; index++) &#123;
+            list.push(&#123;
+                text: '测试' + index,
+                content: '内容' + index
+            &#125;)
+        &#125;
+        // this.mxDialogGroup(viewOptions, dialogOptions)：
+        // viewOptions
+        //     list：传入的对象数组，如[&#123;text:'测试',content:'内容'&#125;]
+        //     contentView：中间区域自定义view，会把当前选中对象完整传入
+        //     textKey：右侧文案字段，默认text
+        // dialogOptions 扩展浮层样式
+        //     width： 宽度，默认800
+        //     height： 高度，默认500
+        //     mask：是否有遮罩，默认true
+        //     modal：是否允许滚动
+        //     ......
+        this.mxDialogGroup(&#123;
+            list,
+            contentView: '@./content'
+        &#125;, &#123;
+            width: 600,
+            height: 400,
+            modal: true
+        &#125;);
+    &#125;
+&#125;);</pre>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+@import "../mx-style/_vars";
+.loading-overwite {
+    padding: 10px;
+}
+
+.mask-loading {
+    display: none;
+    position: fixed;
+    z-index: 999999;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: @border-radius;
+}
+
+.mask-loading-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999998;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}

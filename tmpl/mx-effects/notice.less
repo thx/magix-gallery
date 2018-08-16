@@ -1,0 +1,59 @@
+@import "../mx-style/_vars";
+
+.notice{
+    padding: 10px;
+    background-color: @color-bg;
+    color: #999;
+    line-height: 18px;
+
+    .inner{
+        position: relative;
+        padding-left: 20px;
+        .icon{
+            position: absolute;
+            top: -2px;
+            left: 0;
+            height: 18px;
+            line-height: 18px;
+        }
+    }
+    &.border{
+        border-width: 1px;
+        border-style: solid;
+        border-color: @color-border;
+        border-radius: 4px;
+    }
+
+    &.error{
+        color: @color-red;
+        background-color: tint(@color-red, 85%);
+
+        .icon{
+            color: @color-red;
+        }
+
+        &.border{
+            border-color: @color-red;
+        }
+    }
+    &.warn{
+        color: @color-warn;
+        background-color: tint(@color-warn, 90%);
+
+        .icon{
+            color: @color-warn;
+        }
+
+        &.border{
+            border-color: @color-warn;
+        }
+    }
+
+    &.highlight{
+        color: #333;
+        
+        .icon{
+            color: @color-brand;
+        }
+    }
+}

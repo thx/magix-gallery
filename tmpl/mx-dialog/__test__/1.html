@@ -1,0 +1,71 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="color-9 mb20">
+            <i class="mc-iconfont displacement-2 mr5">&#xe6ac;</i>
+            提示浮层，默认无mask，宽度320，居中显示
+        </div>
+        <div>
+            <a href="javascript:;" mx-click="alert1()" 
+                class="btn btn-brand">默认alert</a>
+            
+            <a href="javascript:;" mx-click="alert2()" 
+                class="btn btn-brand ml20">自定义alert样式</a>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;a href="javascript:;" mx-click="alert1()" 
+    class="btn btn-brand"&gt;默认alert&lt;/a&gt;
+
+&lt;a href="javascript:;" mx-click="alert2()" 
+    class="btn btn-brand ml20"&gt;自定义alert样式&lt;/a&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Dialog = require('@../index'); //mixins dialog
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Dialog],
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'alert1&lt;click&gt;'(e) &#123;
+        this.alert('系统异常', '测试内容');
+    &#125;,
+    'alert2&lt;click&gt;'(e) &#123;
+        let that = this;
+        // alert(title, content, enterCallback, dialogOptions)
+        //     title： 标题
+        //     content： 内容
+        //     enterCallback：确认回调
+        //     dialogOptions： 浮层样式覆盖
+        //         width： 宽度
+        //         height： 高度
+        //         modal：是否允许滚动
+        //         mask：是否有遮罩
+        //         ......
+        that.alert('系统异常', '测试内容', () => &#123;
+            console.log('点击确认后响应')
+        &#125;, &#123;
+            width: 400,
+            mask: true
+        &#125;);
+    &#125;
+&#125;);</pre>
+    </div>
+</div>

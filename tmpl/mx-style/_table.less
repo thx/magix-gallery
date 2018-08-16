@@ -1,0 +1,190 @@
+/* @dependent: ./index.less */
+@import '_vars';
+
+.table {
+    width: 100%;
+
+    thead {
+        background-color: @color-bg;
+
+        tr {
+            th {
+                height: 60px;
+                padding: 0 8px;
+                color: #999;
+                border: none;
+
+                &:first-child {
+                    padding-left: 15px;
+                }
+
+                &:last-child {
+                    padding-right: 15px;
+                }
+
+                &.field-group {
+                    height: 40px;
+                    padding: 6px 10px 0;
+
+                    .group-name {
+                        line-height: 28px;
+                        padding-bottom: 6px;
+                        border-bottom: 1px solid @table-color-border;
+                    }
+
+                }
+
+                &.field-item {
+                    height: 40px;
+                    padding: 0 10px;
+                }
+
+            }
+
+        }
+
+    }
+
+    tbody {
+        background-color: #fff;
+
+        tr {
+            td {
+                padding: 20px 8px;
+                color: #333;
+                border-top: none;
+                border-bottom: 1px solid @table-color-border;
+                transition: background-color @duration ease-out;
+
+                &:first-child {
+                    padding-left: 15px;
+                }
+
+                &:last-child {
+                    padding-right: 15px;
+                }
+
+                &.sub-mask {
+                    background-color: #fff;
+                    border-right: 1px solid @color-brand-light;
+                    border-bottom: 0 none;
+                }
+
+                &.sub-mask-last {
+                    border-bottom: 1px solid @table-color-border;
+                }
+
+                .operations {
+                    opacity: 0;
+                    transition: opacity @duration ease-out;
+                }
+
+            }
+
+            &:last-child, &.last-tr {
+                td {
+                    border-bottom: 0 none;
+                }
+
+            }
+
+            &:hover, &.hover-tr {
+                td {
+                    background-color: @color-brand-opacity;
+
+                    &.sub-mask {
+                        background-color: #fff;
+                    }
+
+                    .operations {
+                        opacity: 1;
+                    }
+
+                }
+
+            }
+
+            &.empty-tr {
+                &, &:hover, &.hover-tr, &.hover-tr:hover {
+                    td {
+                        height: 200px;
+                        text-align: center;
+                        color: #999;
+                        background-color: @color-bg;
+
+                        .no-data {
+                            font-size: 60px;
+                            color: #ccc;
+                        }
+
+                    }
+
+                }
+
+            }
+
+            /* 操作行在下方展示 */
+            &.next-operation-tr-open {
+                td {
+                    border-bottom: 0 none;
+                }
+
+            }
+
+            &.operation-tr {
+                display: none;
+
+                td {
+                    padding: 8px 20px;
+                    background-color: @table-operation-color-bg;
+
+                    &.sub-mask {
+                        background-color: #fff;
+                    }
+
+                }
+
+                &.operation-tr-open {
+                    display: table-row;
+                }
+
+            }
+
+            &.thead {
+                &, &:hover, &.hover-tr {
+                    background-color: @color-bg;
+
+                    td {
+                        height: 60px;
+                        padding: 0 8px;
+                        color: #999;
+                        border-bottom: 0 none;
+                        background-color: transparent;
+
+                        &.sub-mask {
+                            background-color: #fff;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    tfoot {
+        tr {
+            td {
+                padding: 15px;
+                background-color: @color-bg;
+                border: none;
+            }
+
+        }
+
+    }
+
+}

@@ -1,0 +1,37 @@
+<div class="ipt unselectable clearfix" mx-click="@{focus}()" id="ipt_{{=viewId}}">
+    {{if(!items.length&&placeholder)}}
+    <span class="placeholder">{{=placeholder}}</span>
+    {{/if}}
+
+    {{if(items.length)}}
+        {{each items as one idx}}
+            <span class="item clearfix" mx-contextmenu="prevent()">
+                {{=one.text}}
+                <i class="mc-iconfont item-delete" mx-click="@{delete}({idx:{{=idx}}})">&#xe603;</i>
+            </span>
+        {{/each}}
+    {{/if}}
+    
+    <input class="trigger" autocomplete="off"
+        mx-keydown="@{check}()"
+        mx-keyup="@{check}()"
+        mx-input="@{check}()"
+        mx-paste="@{check}()"
+        mx-pick="@{add}()"
+        mx-change="@{stop}()"
+        mx-focusin="@{stop}()"
+        mx-focusout="@{stop}()"
+        mx-showlist="@{toggleList}()"
+        mx-hidelist="@{toggleList}()"
+        {{if disabled}} disabled="true" {{/if}} />
+        
+    {{if(!disabled && suggest && suggest.length)}}
+    <mx-vframe src="./suggest"
+        class="suggest-wrapper"
+        list="{{@suggest}}"
+        relate-ids="ipt_{{=viewId}}"
+        offset-left="-7"
+        width="{{=width}}"
+        scroll-top="{{@scrollTop}}"/>
+    {{/if}}
+</div>

@@ -1,0 +1,448 @@
+/* @dependent: ./index.less */
+/* 常用字号 */
+.fontsize-loop(@n, @i:12) when (@i <= @n) {
+    .fontsize-@{i}{
+        font-size: unit(@i, px);
+    }
+
+    .fontsize-loop(@n, (@i + 2));
+}
+.fontsize-loop(40);
+
+/* 常用字号 */
+.line-height-loop(@n, @i:14) when (@i <= @n) {
+    .lh@{i}{
+        line-height: unit(@i, px);
+    }
+
+    .line-height-loop(@n, (@i + 2));
+}
+.line-height-loop(36);
+
+.width-loop(@n, @i:60) when (@i <= @n) {
+    .w@{i}{
+        width: unit(@i, px);
+    }
+
+    .width-loop(@n, (@i + 10));
+}
+.width-loop(500);
+
+.height-loop(@n, @i:50) when (@i <= @n) {
+    .h@{i}{
+        height: unit(@i, px);
+    }
+
+    .height-loop(@n, (@i + 10));
+}
+.height-loop(320);
+
+.min-width-loop(@n, @i:10) when (@i <= @n) {
+    .min-width-@{i}{
+        min-width: unit(@i, px);
+    }
+
+    .min-width-loop(@n, (@i + 10));
+}
+.min-width-loop(100);
+
+.max-width-loop(@n, @i:100) when (@i <= @n) {
+    .max-width-@{i}{
+        max-width: unit(@i, px);
+    }
+
+    .max-width-loop(@n, (@i + 100));
+}
+.max-width-loop(1000);
+
+/*常用间距*/
+.margin-loop(@n, @i:5) when (@i <= @n) {
+    .mt@{i}{
+        margin-top: unit(@i, px);
+    }
+
+    .mr@{i}{
+        margin-right: unit(@i, px);
+    }
+
+    .mb@{i}{
+        margin-bottom: unit(@i, px);
+    }
+
+    .ml@{i}{
+        margin-left: unit(@i, px);
+    }
+
+    .margin-loop(@n, (@i + 5));
+}
+.margin-loop(100);
+
+/*常用间距*/
+.padding-loop(@n, @i:5) when (@i <= @n) {
+    .pt@{i}{
+        padding-top: unit(@i, px);
+    }
+
+    .pr@{i}{
+        padding-right: unit(@i, px);
+    }
+
+    .pb@{i}{
+        padding-bottom: unit(@i, px);
+    }
+
+    .pl@{i}{
+        padding-left: unit(@i, px);
+    }
+
+    .pa@{i}{
+        padding: unit(@i, px);
+    }
+
+    .padding-loop(@n, (@i + 5));
+}
+.padding-loop(100);
+
+.text-center, .tc {
+    text-align: center;
+}
+
+.text-right, .tr {
+    text-align: right;
+}
+
+.text-left, .tl {
+    text-align: left;
+}
+
+.clearfix {
+    &:before, &:after {
+        display: table;
+        content: "";
+    }
+
+    &:after {
+        clear: both;
+    }
+
+}
+
+.unselectable {
+    user-select: none;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.word-break{
+    word-break: break-all;
+}
+
+.font-tahoma {
+    font-family: "Tahoma";
+}
+
+.color-c {
+    color: #ccc;
+}
+.color-3 {
+    color: #333;
+}
+.color-6 {
+    color: #666;
+}
+
+.color-9 {
+    color: #999;
+}
+
+.color-f {
+    color: #fff;
+}
+
+.color-brand {
+    color: @color-brand;
+}
+
+.color-h-brand{
+    &:hover{
+        color: @color-brand;
+    }
+}
+
+.color-brand-vs {
+    color: @color-brand-vs;
+}
+
+.color-error {
+    color: @color-red;
+}
+
+.color-red{
+    color: @color-red;
+}
+
+.color-green{
+    color: @color-green;
+}
+
+.color-warn {
+    color: @color-warn;
+}
+
+.bb-e6{
+    border-bottom: 1px solid @color-border;
+}
+
+.bg{
+    background-color: @color-bg;
+}
+
+.radius{
+    border-radius: @border-radius;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.cursor-move {
+    cursor: move;
+}
+
+.cursor-not-allow{
+    cursor: not-allowed;
+}
+
+.pa {
+    position: absolute;
+}
+
+.pr {
+    position: relative;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ib, .inline-block {
+    display: inline-block;
+}
+
+.none, .hide {
+    display: none;
+}
+
+.opacity0 {
+    opacity: 0;
+}
+
+.rotate180 {
+    transform: scaleX(-1);
+}
+
+/* 小位移 */
+.displacement-loop(@n, @i:1) when (@i <= @n) {
+    .displacement-@{i}{
+        position: relative;
+        top: unit(@i, px);
+    }
+
+    .displacement-loop(@n, (@i + 1));
+}
+.displacement-loop(3);
+
+
+/** 
+ * <div class="search-box">
+ *      <i class="iconfont search-icon">&#xe651;</i>
+ *      <input type="text" class="input search-input"/>
+ * </div>
+ */
+.search-box{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    
+    .search-icon{
+        position: absolute;
+        top: 0;
+        left: 1px;
+        width: @input-height;
+        height: @input-height;
+        line-height: @input-height;
+        text-align: center;
+        color: #999;
+        font-size: 18px;
+    }
+
+    .search-input{
+        width: 100%;
+        padding-left: @input-height;
+    }
+}
+
+.scroll-y{
+    overflow-y: auto;
+}
+.scroll-x{
+    overflow-x: auto;
+}
+.hidden-y{
+    overflow-y: hidden;
+}
+.hidden-x{
+    overflow-x: hidden;
+}
+
+.empty-white,
+.empty-area{
+    height: 200px;
+    padding-top: 40px;
+    text-align: center;
+    color: #999;
+    .no-data {
+        height: 80px;
+        line-height: 80px;
+        font-size: 60px;
+        color: #ccc;
+    }
+
+}
+
+.empty-area{
+    background-color: @color-bg;
+}
+
+.tip-content, .notice-content, .error-content {
+    padding: 10px 20px;
+}
+
+.error-content {
+    background-color: tint(@color-red, 80%);
+    color: @color-red;
+    text-align: center;
+}
+
+.notice-content {
+    background-color: tint(@color-warn, 90%);
+    color: @color-orange;
+    text-align: center;
+}
+
+.tip-content {
+    position: relative;
+    background-color: @color-bg;
+    color: #999;
+    line-height: 18px;
+
+    .tip-icon {
+        position: absolute;
+        top: 12px;
+        left: 10px;
+        color: #ccc;
+    }
+
+    &.has-icon {
+        padding-left: 30px;
+    }
+
+    &.has-border {
+        border-radius: @border-radius;
+        border: 1px solid @color-border;
+    }
+
+    &.has-highlight {
+        color: #333;
+
+        .tip-icon {
+            color: @color-brand;
+        }
+
+    }
+
+    &.in-dialog {
+        padding-left: 54px;
+        padding-right: 40px;
+
+        .tip-icon {
+            left: 34px;
+        }
+
+    }
+
+}
+
+/*实心打标icon*/
+.brand-solid-icon, .grey-solid-icon {
+    display: inline-block;
+    min-width: 38px;
+    height: 19px;
+    padding: 0 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    line-height: 18px;
+    font-weight: bold;
+}
+
+/*品牌色实心打标icon*/
+.brand-solid-icon {
+    background-color: @color-brand;
+}
+
+/*灰色实心打标icon*/
+.grey-solid-icon {
+    background-color: #ccc;
+}
+
+/*空心打标*/
+.grey-hollow-icon, .brand-hollow-icon {
+    display: inline-block;
+    height: 22px;
+    padding: 0 6px;
+    border-radius: 10px;
+    font-size: 12px;
+    transform: scale(0.84);
+    text-align: center;
+    font-weight: bold;
+    line-height: 19px;
+}
+
+/*品牌色空心打标*/
+.brand-hollow-icon {
+    border: 1px solid @color-brand;
+    color: @color-brand;
+
+    &:hover {
+        color: @color-brand;
+    }
+
+}
+
+/*灰色空心打标*/
+.grey-hollow-icon {
+    border: 1px solid #999;
+    color: #999;
+
+    &:hover {
+        color: #999;
+    }
+
+}
+
+

@@ -1,0 +1,45 @@
+
+<div class="all">
+    <div class="left {{if fixed}} fixed {{/if}}" style="height: {{=minHeight}}px;">
+        {{each list as item}}
+            {{if item.name}}
+            <span class="title {{if item.expand}} expand {{/if}}" 
+                mx-click="toggle({index:{{=item.index}}})">
+                {{!item.name}}
+                <i class="mc-iconfont title-icon">&#xe692;</i>
+            </span>
+            {{/if}}
+            {{each item.subs as sub}}
+            <a class="nav {{if (sub.path == path)}} cur {{/if}} {{if item.name}} sub {{/if}} {{if item.expand}} expand {{/if}}"
+                href="#!{{=sub.path}}">
+                <i class="mc-iconfont sub-icon">{{!sub.icon}}</i>
+                {{!sub.name}}
+            </a>
+            {{/each}}
+        {{/each}}
+    </div>
+    <div class="main">
+        <div class="content">
+            <mx-title content="{{=cur.name}}"
+                {{if cur.tip}} tip="{{@cur.tip}}" {{/if}} />
+                
+            <mx-vframe src="{{=view}}">
+                <mx-loading/>
+            </mx-vframe>
+        </div>
+        <div class="contexts clearfix">
+            {{if prev.path}}
+            <a href="#!{{=prev.path}}" class="prev link-brand">
+                <i class="mc-iconfont context-icon">&#xe63a;</i>
+                上一篇：{{!prev.name}}
+            </a>
+            {{/if}}
+            {{if next.path}}
+            <a href="#!{{=next.path}}" class="next link-brand">
+                <i class="mc-iconfont context-icon">&#xe63a;</i>
+                下一篇：{{!next.name}}
+            </a>
+            {{/if}}
+        </div>
+    </div>
+</div>

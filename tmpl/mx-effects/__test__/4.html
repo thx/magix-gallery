@@ -1,0 +1,30 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-effects.notice type="error" content="错误提示" class="mb20"/>
+        <mx-effects.notice type="error" content="错误居中提示" text-align="center" class="mb20"/>
+        <mx-effects.notice type="error" border="true" text-align="center" content="带边框的错误居中提示" class="mb20"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-effects.notice 
+    type="error"
+    content="错误提示"/&gt;
+
+&lt;mx-effects.notice 
+    type="error"
+    content="错误居中提示" 
+    text-align="center"/&gt;
+
+&lt;mx-effects.notice 
+    type="error"
+    content="带边框的错误居中提示"
+    border="true"
+    text-align="center"/&gt;</pre>
+    </div>
+</div>

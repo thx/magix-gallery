@@ -1,0 +1,68 @@
+let Magix = require('magix');
+let Base = require('__test__/example');
+let $ = require('$');
+
+module.exports = Base.extend({
+    tmpl: '@index.html',
+    render() {
+        let options = [{
+            key: 'total',
+            desc: '总数',
+            type: 'number'
+        }, {
+            key: 'page',
+            desc: '当前第几页',
+            type: 'number',
+            def: 1
+        }, {
+            key: 'size',
+            desc: '每页多少条',
+            type: 'number',
+            def: 40
+        }, {
+            key: 'sizes',
+            desc: '可选分页数',
+            type: 'array',
+            def: '[10,20,30,40]'
+        }, {
+            key: 'jump',
+            desc: '是否有快捷跳转',
+            type: 'boolean',
+            def: 'true'
+        }, {
+            key: 'simplify',
+            desc: '只有翻页器，没有汇总数据版本',
+            type: 'boolean',
+            def: 'false'
+        }, {
+            key: 'sizes-change',
+            desc: '是否可切换分页数',
+            type: 'boolean',
+            def: 'true'
+        }, {
+            key: 'mini',
+            desc: '顺序翻页版本',
+            type: 'boolean',
+            def: 'false'
+        }, {
+            key: 'step',
+            desc: '页码过多时，中间显示多少条页码',
+            type: 'number',
+            def: '5'
+        }]
+
+        this.updater.digest({
+            options,
+            page: 1,
+            size: 40
+        });
+    },
+    'change<change>' (e) {
+        // e.page 当前第几页
+        // e.size 每页多少条
+        this.updater.digest({
+            page: e.page,
+            size: e.size
+        })
+    }
+});

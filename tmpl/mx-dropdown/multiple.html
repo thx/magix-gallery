@@ -1,0 +1,67 @@
+<div class="dropdown-toggle {{if expand}} open {{/if}}">
+    <span class="dropdown-toggle-label {{if (selected==='')}} dropdown-toggle-label-ph {{/if}}">{{=selectedText}}</span>
+    <span class="mc-iconfont arrow">&#xe692;</span>
+</div>
+<div class="dropdown-menu-wrapper {{if expand}} open {{/if}} {{if over}} dropdown-menu-group {{/if}}">
+{{if rList}}
+    {{if searchbox}}
+    <div class="search-wrapper">
+        <div class="search-box">
+            <i class="mc-iconfont search-icon">&#xe651;</i>
+            <input type="text" class="input search-input" 
+                placeholder="{{=text.search}}"
+                mx-keyup="@{search}()"
+                mx-paste="@{search}()"
+                mx-change="@{stop}()"
+                mx-focusin="@{stop}()"
+                mx-focusout="@{stop}()"
+                value="{{=keyword}}"/>
+        </div>
+    </div>
+    {{/if}}
+    {{if !needAll}}
+    <div class="oper-wrapper">
+        <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:true})" data-spm-click="{{=spm}}">{{=text.select}}</a>
+        <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:false})" data-spm-click="{{=spm}}">{{=text.unselect}}</a>
+    </div>
+    {{/if}}
+    <div class="dropdown-menu" id="list_{{=viewId}}" style="max-height:{{=height}}px;">
+        {{each groups as group groupIndex}}
+            {{if (group.text && !group.hide)}}
+                {{if group.all}}
+                    <div title="{{=group.text}}" class="dropdown-item dropdown-header-item">
+                        <label for="{{=viewId}}_{{=group.value}}" class="item-link ellipsis">
+                            <input type="checkbox" class="checkbox" 
+                                {{if group.checked}} checked="true" {{/if}}
+                                id="{{=viewId}}_{{=group.value}}"
+                                mx-change="@{selectGroup}({groupIndex:'{{=groupIndex}}'})" 
+                                data-spm-click="{{=spm}}"/>{{=group.text}}
+                        </label>
+                    </div>
+                {{else}}
+                    <div class="dropdown-header ellipsis" title="{{=group.text}}">{{=group.text}}</div>
+                {{/if}}
+            {{/if}}
+            <div class="clearfix group-wrapper">
+                {{each group.list as item}}
+                    {{if !item.hide}}
+                    <div title="{{=item.text}}" class="dropdown-item">
+                        <label for="{{=viewId}}_{{=item.value}}" class="item-link ellipsis">
+                            <input type="checkbox" class="checkbox" 
+                                {{if item.checked}} checked="true" {{/if}}
+                                id="{{=viewId}}_{{=item.value}}"
+                                mx-change="@{select}({groupIndex:'{{=groupIndex}}',value:'{{=item.value}}'})" 
+                                data-spm-click="{{=spm}}"/>{{=item.text}}
+                        </label>
+                    </div>
+                    {{/if}}
+                {{/each}}
+            </div>
+        {{/each}}
+    </div>
+    <div class="footer-wrapper">
+        <button type="button" class="btn btn-small btn-brand mr10" mx-click="@{submit}({enter:true})">{{=text.submit}}</button>
+        <button type="button" class="btn btn-small" mx-click="@{hide}()">{{=text.cancel}}</button>
+    </div>
+{{/if}}
+</div>

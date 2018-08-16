@@ -1,0 +1,60 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="color-9 mb20">
+            <i class="mc-iconfont displacement-2 mr5">&#xe6ac;</i>
+            将dialog的方法mixins到view上
+        </div>
+        <div>
+            <a href="javascript:;" mx-click="open()" 
+                class="btn btn-brand">可打开多个浮层</a>   
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;a href="javascript:;" mx-click="open()" 
+    class="btn btn-brand"&gt;可打开多个浮层&lt;/a&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Dialog = require('@../index'); //mixins dialog
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Dialog],
+    render() {
+        this.updater.digest();
+    },
+    'open&lt;click&gt;'(e) &#123;
+        //  viewPath：dialog view路径
+        //  viewOptions：传入dialog的数据，挂载当前dialog实体
+        //  dialogOptions：样式覆盖
+        //      width： 宽度
+        //      height： 高度
+        //      modal：是否允许滚动
+        //      mask：是否有遮罩
+        //      ......
+        this.mxDialog('@./multi', &#123;
+            number: 1
+        &#125;, &#123;
+            width: 800,
+            height: 270,
+            modal: true
+        &#125;);
+    &#125;
+&#125;);</pre>
+    </div>
+</div>

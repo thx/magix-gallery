@@ -1,0 +1,157 @@
+@import '../mx-style/_vars';
+@size: 4px;
+@rail-input-width: 64px;
+
+[mx-view*="mx-slider/index"],
+[mx-view*="mx-slider/range"] {
+    position: relative;
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+
+    .rail-input {
+        position: absolute;
+        top: 0;
+        right: -(@rail-input-width + 10px);
+        width: @rail-input-width;
+    }
+
+    &[mx-disabled] {
+        cursor: not-allowed;
+
+        .rail-wrapper {
+            .rail {
+                .tracker {
+                    background-color: #ccc;
+                }
+
+                .indicator {
+                    background-color: #ccc;
+
+                    &:before {
+                        background-color: #ccc;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+.rail-wrapper {
+    line-height: 28px;
+
+    .rail {
+        display: inline-block;
+        position: relative;
+        border-radius: 2px;
+        background: #f0f0f0;
+
+        .tracker {
+            position: absolute;
+            border-radius: 2px;
+            left: 0;
+            background-color: lighten(@color-brand, 25%);
+
+            &.hor-tracker {
+                height: @size;
+                top: 0;
+            }
+
+            &.ver-tracker {
+                width: @size;
+                bottom: 0;
+            }
+
+        }
+
+        .indicator {
+            position: absolute;
+            width: @size * 2;
+            height: @size * 2;
+            border-radius: 50%;
+            background-color: @color-brand;
+            outline: 0;
+
+            &:before {
+                content: ' ';
+                position: absolute;
+                top: -@size;
+                left: -@size;
+                width: @size * 4;
+                height: @size * 4;
+                border-radius: 50%;
+                background-color: @color-brand;
+                opacity: .3;
+            }
+
+            &.hor-idctor {
+                top: -(@size / 2);
+            }
+
+            &.ver-idctor {
+                left: -(@size / 2);
+            }
+
+        }
+
+        .pointer-label {
+            position: absolute;
+            font-size: @font-size;
+            pointer-events: none;
+            line-height: normal;
+
+            &.hor-pl {
+                top: -((@size * 4) - (@size / 2) + @size + 5px);
+            }
+
+            &.ver-pl {
+                right: 2 * @size + @size / 2 + 2;
+            }
+
+        }
+
+        .scale-left, .scale-right, .ver-scale-top, .ver-scale-bottom {
+            position: absolute;
+            font-size: @font-size;
+            pointer-events: none;
+            line-height: normal;
+        }
+
+        .scale-left {
+            left: 0;
+            top: @size + 5px;
+        }
+
+        .scale-right {
+            right: 0;
+            top: @size + 5px;
+        }
+
+        .ver-scale-bottom {
+            bottom: 0;
+            left: 2 * @size + @size / 2 + 2;
+        }
+
+        .ver-scale-top {
+            top: 0;
+            left: 2 * @size + @size / 2 + 2;
+        }
+
+        &.hor {
+            height: @size;
+            top: -(@size / 2);
+        }
+
+        &.ver {
+            width: @size;
+            left: @size * 2;
+        }
+
+    }
+
+}

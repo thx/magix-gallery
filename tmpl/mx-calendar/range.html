@@ -1,0 +1,58 @@
+<div class="wrapper {{if timeType}} time {{/if}} {{if inlay}} inlay {{/if}}" mx-contextmenu="@{prevent}()">
+    <div class="range">
+        <div class="title clearfix">
+            <span class="fl">{{=title}}：</span>
+            {{if vsEnable}}
+            <mx-switch state="{{=vs}}" class="fr" mx-change="@{vs.toggle}()"></mx-switch>
+            {{/if}}
+        </div>
+        <div class="clearfix pr">
+            <div class="range-input range-input-left">
+                {{if startDisabled}}
+                <div class="range-disabled">{{=dates.startStr}}</div>
+                {{else}}
+                <!-- 结束时间禁止操作的时候限制最大可选为直接时间endDisabled -->
+                <mx-calendar.datepicker {{if vs}} class="vs1" {{/if}} 
+                    max="{{=(endDisabled?dates.endStr:max)}}" 
+                    min="{{=min}}" 
+                    time-type="{{=timeType}}"  
+                    date-type="{{=dateType}}" 
+                    selected="{{=dates.startStr}}" 
+                    mx-change="@{sync.date}({trigger:'start'})" />
+                {{/if}}
+            </div>
+            <div class="range-gap">-</div>
+            <div class="range-input range-input-right">
+                {{if ((!vs&&vsSingle) || endDisabled)}}
+                <div class="range-disabled">{{=dates.endStr}}</div>
+                {{else}}
+                <!-- 不对比的时候，限制结束时间最小值为(开始时间或最小日期中的较大值) -->
+                <mx-calendar.datepicker {{if vs}} class="vs2" {{/if}}
+                    min="{{=(!vs?endMinFn(dates.startStr,min):min)}}"
+                    max="{{=max}}" 
+                    time-type="{{=timeType}}"  
+                    date-type="{{=dateType}}" 
+                    align="{{=align}}" 
+                    selected="{{=dates.endStr}}" 
+                    mx-change="@{sync.date}({trigger:'end'})" />
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    {{if(quickInfos.length&&!vs&&!vsSingle)}}
+    <div class="shortcuts {{if quickInfos.length > 7}}shortcuts-small{{/if}}">
+        <div class="title">{{=quickTip}}：</div>
+        <div class="clearfix">
+            {{each quickInfos as info}}
+            <span class="st {{if (dates.quickDateKey==info.key)}}selected{{/if}}" 
+                mx-click="@{date.picked}({quick:true,quickInfo:'{{@info}}'})" 
+                title="{{=info.text}}">{{=info.text}}</span>
+            {{/each}}
+        </div>
+    </div>
+    {{/if}}
+    <div class="footer clearfix">
+        <button mx-click="@{date.picked}()" type="button" class="btn btn-small btn-brand mr10">{{=submitText}}</button>
+        <button mx-click="@{cancel}()" type="button" class="btn btn-small">{{=cancelText}}</button>
+    </div>
+</div>

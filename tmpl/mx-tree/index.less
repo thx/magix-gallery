@@ -1,0 +1,64 @@
+@import "../mx-style/_vars";
+.name {
+    position: relative;
+    height: 32px;
+    line-height: 20px;
+    padding-bottom: 12px;
+    background-color: #fff;
+    overflow: hidden;
+    transition: height 0.2s;
+
+    .icon {
+        float: left;
+        height: 20px;
+        margin-right: 5px;
+        line-height: 20px;
+        color: #ccc;
+        transition: color @duration;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+    .oper{
+        cursor: pointer;
+        font-size: 14px;
+        &:hover {
+            color: #666;
+        }
+    }
+}
+
+.close {
+    .name {
+        height: 0;
+        padding-bottom: 0;
+    }
+}
+
+.li {
+    position: relative;
+}
+
+.indent {
+    padding-left: 20px;
+}
+
+.line {
+    position: relative;
+    .li {
+        position: relative;
+        &:after {
+            content: '';
+            position: absolute;
+            top: 22px;
+            left: 7px;
+            bottom: 2px;
+            width: 1px;
+            background-color: @color-border;
+        }
+        &:last-child {
+            &:after {
+                content: none;
+            }
+        }
+    }
+}

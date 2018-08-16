@@ -1,0 +1,56 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">侧边不分组，配置subs，无leftView</div>
+        </div>
+        <div class="menu">
+            <div class="header clearfix">
+                <div class="logo">LOGO</div>
+                <div class="name">一级标题</div>
+            </div>
+            <div class="clearfix">
+                <div class="navs">
+                    <div>
+                        <a href="javascript:;" class="nav-third third-on">三级1</a>
+                    </div>
+                    <div>
+                        <a href="javascript:;" class="nav-third">三级2</a>
+                    </div>
+                    <div>
+                        <a href="javascript:;" class="nav-third">三级3</a>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">配置Menus</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+let Menus = [&#123;
+    has: true,
+    name: '一级标题',
+    path: '/develop/chart1',
+    subs: [&#123;
+        thirds: [&#123;
+            has: true,
+            name: '三级1',
+            path: '/develop/chart1'
+        &#125;, &#123;
+            has: true,
+            name: '三级2',
+            path: '/develop/chart2'
+        &#125;, &#123;
+            has: true,
+            name: '三级3',
+            path: '/develop/chart3'
+        &#125;]
+    &#125;]
+&#125;]</pre>
+    </div>
+</div>

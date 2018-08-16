@@ -1,0 +1,31 @@
+@import '../mx-style/_vars';
+
+html .error,
+html .error:hover,
+html .error:focus {
+    border-color: @color-red;
+}
+
+.error-msg {
+    display: none;
+    position: absolute;
+    white-space: nowrap;
+    word-wrap: normal;
+    pointer-events: none;
+    color: @color-red;
+    font-size: @font-size;
+}
+
+.warn, .warn:hover, .warn:focus {
+    border-color: @color-warn;
+}
+
+.warn-msg {
+    display: none;
+    position: absolute;
+    white-space: nowrap;
+    word-wrap: normal;
+    pointer-events: none;
+    color: @color-warn;
+    font-size: @font-size;
+}

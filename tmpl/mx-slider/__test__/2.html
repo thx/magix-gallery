@@ -1,0 +1,36 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb40">
+            <mx-slider
+                max="200"
+                min="100"
+                step="1"/>
+        </div>
+        <div class="mb20">
+            <mx-slider
+                max="200"
+                min="100"
+                value="130"
+                step="0.5"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">step决定滑轴刻度</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-slider
+    max="200"
+    min="100"
+    step="1"/&gt;
+
+&lt;mx-slider
+    max="200"
+    min="100"
+    value="130"
+    step="0.5"/&gt;</pre>
+    </div>
+</div>

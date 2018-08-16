@@ -1,0 +1,39 @@
+<div class="example">
+    <div class="eg-content">
+        <label class="mr30">
+            <input type="radio" value="1" name="magix" checked="true"/>
+            选中
+        </label>
+        <label class="mr30">
+            <input type="radio" value="2" name="magix" />
+            未选中
+        </label>
+        <label class="mr30">
+            <input type="radio" value="3" name="magix" disabled="true" />
+            未选中禁止选择
+        </label>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">Radio</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;label class="mr30"&gt;
+    &lt;input type="radio" value="1" name="magix" checked="true"/&gt;
+    选中
+&lt;/label&gt;
+
+&lt;label class="mr30"&gt;
+    &lt;input type="radio" value="2" name="magix" /&gt;
+    未选中
+&lt;/label&gt;
+
+&lt;label class="mr30"&gt;
+    &lt;input type="radio" value="3" name="magix" disabled="true" /&gt;
+    未选中禁止选择
+&lt;/label&gt;</pre>
+    </div>
+</div>

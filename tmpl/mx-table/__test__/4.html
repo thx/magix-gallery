@@ -1,0 +1,125 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9 lh22">该示例：</div>
+            <div class="fl lh22">
+                <div>分栏会根据屏幕可视范围控制是否需要显示分栏，宽段配置在th上</div>
+                <div>模拟滚动条一直在可视范围内，windows下鼠标无法左右滚动，可直接操作模拟滚动条滚动</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <a href="javascript:;" mx-click="change()" class="btn btn-brand">切换宽度</a>
+        </div>
+        <div class="mb40" style="width: {{=width}}%;">
+            <mx-table sticky="true">
+                <!-- 固定列，在table上配置left="true" -->
+                <table class="table" left="true">
+                    <thead>
+                        <tr>
+                            {{for(let i=0;i<4;i++)}}
+                            <th width="120">固定字段{{=i}}</th>
+                            {{/for}}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{for(let j=0;j<10;j++)}}
+                        <tr class="{{= (j==9) ? 'last-tr' : ''}}">
+                            {{for(let i=0;i<4;i++)}}
+                            <td>固定内容{{=i}}</td>
+                            {{/for}}
+                        </tr>
+                        <tr class="operation-tr">
+                            <td colspan="4">
+                                <a href="javascript:;" class="btn btn-small mr10">操作</a>
+                                <a href="javascript:;" class="btn btn-small">操作</a>
+                            </td>
+                        </tr>
+                        {{/for}}
+                    </tbody>
+                </table>
+                <!-- 滚动列，在table上直接配置center="true" -->
+                <table class="table" center="true">
+                    <thead>
+                        <tr>
+                            {{for(let i=0;i<4;i++)}}
+                            <th width="120">滚动{{=i}}</th>
+                            {{/for}}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{for(let j=0;j<10;j++)}}
+                        <tr class="{{= (j==9) ? 'last-tr' : ''}}">
+                            {{for(let i=0;i<4;i++)}}
+                            <td>滚动内容{{=i}}</td>
+                            {{/for}}
+                        </tr>
+                        <!-- 有操作项该行不可少 -->
+                        <tr class="operation-tr">
+                            <td colspan="4"></td>
+                        </tr>
+                        {{/for}}
+                    </tbody>
+                </table>
+            </mx-table>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-table sticky="true"&gt;
+    &lt;!-- 固定列，在table上配置left="true" --&gt;
+    &lt;table class="table" left="true"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;4;i++)&#125;&#125;
+                &lt;th width="120"&gt;固定字段&#123;&#123;=i&#125;&#125;&lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;10;j++)&#125;&#125;
+            &lt;tr class="&#123;&#123;= (j==9) ? 'last-tr' : ''&#125;&#125;"&gt;
+                &#123;&#123;for(let i=0;i&lt;4;i++)&#125;&#125;
+                &lt;td&gt;固定内容&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &lt;tr class="operation-tr"&gt;
+                &lt;td colspan="4"&gt;
+                    &lt;a href="javascript:;" class="btn btn-small mr10"&gt;操作&lt;/a&gt;
+                    &lt;a href="javascript:;" class="btn btn-small"&gt;操作&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;!-- 滚动列，在table上直接配置center="true" --&gt;
+    &lt;table class="table" center="true"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;4;i++)&#125;&#125;
+                &lt;th width="120"&gt;滚动&#123;&#123;=i&#125;&#125;&lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;10;j++)&#125;&#125;
+            &lt;tr class="&#123;&#123;= (j==9) ? 'last-tr' : ''&#125;&#125;"&gt;
+                &#123;&#123;for(let i=0;i&lt;4;i++)&#125;&#125;
+                &lt;td&gt;滚动内容&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &lt;!-- 有操作项该行不可少 --&gt;
+            &lt;tr class="operation-tr"&gt;
+                &lt;td colspan="4"&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-table&gt;</pre>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-tree id="{{=viewId}}_tree"
+            need-expand="true"
+            read-only="true"
+            has-line="true"
+            list="{{@list}}"></mx-tree>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">只读 + 可展开收起 + 默认展开 + 有连接线</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"
+    need-expand="true"
+    read-only="true"
+    has-line="true"
+    list="&#123;&#123;@list&#125;&#125;"&gt;&lt;/mx-tree&gt;</pre>
+    </div>
+</div>

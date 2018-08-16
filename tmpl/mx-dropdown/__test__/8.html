@@ -1,0 +1,86 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="color-9 mb20 clearfix">
+            <div class="fl">
+                <i class="mc-iconfont displacement-2 mr5">&#xe6ac;</i>
+            </div>
+            <div class="fl lh22">
+                <div>选中项传入支持传入数组或者逗号分隔</div>
+                <div>以下两个下拉框选中项保持一致</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <mx-dropdown.multiple class="w200"
+                list="{{@list}}"
+                selected="{{@selectedArr}}"
+                mx-change="select()"/>
+        </div>
+        <div class="mb20">
+            <mx-dropdown.multiple class="w200"
+                list="{{@list}}"
+                selected="{{@selectedStr}}"
+                mx-change="select()"/>
+        </div>
+        <div>
+            <span class="color-9">当前选中值：</span>
+            <span>{{=selectedArr}}</span>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-dropdown.multiple class="w200"
+    list="&#123;&#123;@list&#125;&#125;"
+    selected="&#123;&#123;@selectedArr&#125;&#125;"
+    mx-change="select()"/&gt;
+
+&lt;mx-dropdown.multiple class="w200"
+    list="&#123;&#123;@list&#125;&#125;"
+    selected="&#123;&#123;@selectedStr&#125;&#125;"
+    mx-change="select()"/&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [];
+        for (let index = 0; index &lt; 6; index++) &#123;
+            list.push(&#123;
+                text: '多选' + (index + 1),
+                value: index + 1
+            &#125;)
+        &#125;
+        this.updater.digest(&#123;
+            list,
+            selectedArr: [1, 2, 3],
+            selectedStr: '1,2,3'
+        &#125;);
+    &#125;,
+    
+    'select&lt;change&gt;'(e) &#123;
+        // e.values [array] 当前选中值
+        // e.texts [array] 当前选中文案
+        let values = e.values;
+        this.updater.digest(&#123;
+            selectedArr: values,
+            selectedStr: values.join(',')
+        &#125;);
+    &#125;
+&#125;);</pre>
+    </div>
+</div>

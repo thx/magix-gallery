@@ -1,0 +1,16 @@
+<div class="input rangepicker-input" id="input_{{=viewId}}"
+    mx-click="@{toggle}()"
+    mx-change="@{stop}()">
+    <div class="result">
+        {{if dateInfo.prefix}}
+        <span class="result-prefix">{{=dateInfo.prefix}}：</span>
+        {{/if}}
+        {{=dateInfo.selected}}
+    </div>        
+</div>
+<div class="rangepicker-wrapper {{if show}}open{{/if}}" id="dpcnt_{{=viewId}}" 
+    style="left: {{=left}}px; top: {{=top}}px;"
+    mx-view="@./index?configs={{@dateInfo}}"
+    mx-change="@{date.picked}()" 
+    mx-cancel="@{hide}()"></div>
+

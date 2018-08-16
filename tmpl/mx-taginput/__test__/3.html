@@ -1,0 +1,25 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-taginput class="mb20"
+            list="{{@['test1','test2','test3','test4']}}"
+            selected="test1,test2"/>
+        
+        <mx-taginput 
+            list="{{@['test1','test2','test3','test4']}}"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">简单list</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-taginput 
+    list="&#123;&#123;@['test1','test2','test3','test4']&#125;&#125;"
+    selected="test1,test2"/&gt;
+
+&lt;mx-taginput 
+    list="&#123;&#123;@['test1','test2','test3','test4']&#125;&#125;"/&gt;</pre>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <div class="mb5">根据可选范围对默认值进行修正</div>
+            <div class="mb5">1. 未配置默认选中项且有min时，默认取min和今天中的较大值</div>
+            <div>2. 未配置默认选中项且有max时，默认取max和今天中的较小值</div>
+        </div>
+        <div class="mb20">
+            <mx-calendar.datepicker class="w200"
+                min="{{=yesterday}}"/>
+        </div>
+        <div class="mb20">
+            <mx-calendar.datepicker class="w200"
+                min="{{=tomorrow}}"/>
+        </div>
+        <div class="mb20">
+            <mx-calendar.datepicker class="w200"
+                max="{{=yesterday}}"/>
+        </div>
+        <mx-calendar.datepicker class="w200"
+            max="{{=tomorrow}}"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-calendar.datepicker class="w200"
+    min="&#123;&#123;=yesterday&#125;&#125;"/&gt;
+
+&lt;mx-calendar.datepicker class="w200"
+    min="&#123;&#123;=tomorrow&#125;&#125;"/&gt;
+
+&lt;mx-calendar.datepicker class="w200"
+    max="&#123;&#123;=yesterday&#125;&#125;"/&gt;
+
+&lt;mx-calendar.datepicker class="w200"
+    max="&#123;&#123;=tomorrow&#125;&#125;"/&gt;</pre>
+    </div>
+</div>

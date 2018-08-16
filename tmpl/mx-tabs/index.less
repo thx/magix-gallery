@@ -1,0 +1,140 @@
+@import "../mx-style/_vars";
+
+[mx-view*="mx-tabs/box"]{
+    display: inline-block;
+}
+.tag {
+    display: inline-block;
+    height: 18px;
+    padding-left: 4px;
+    padding-right: 4px;
+    line-height: 16px;
+    border-radius: @border-radius;
+    background-color: @color-brand;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.border {
+    position: relative;
+    border-bottom: 1px solid @color-border;
+
+    .border-item {
+        position: relative;
+        float: left;
+        font-size: 16px;
+        padding: 10px 25px 20px 25px;
+        transition: color @duration ease-out;
+        color: #999;
+
+        &:hover {
+            color: #333;
+        }
+
+        &.selected {
+            color: @color-brand;
+        }
+
+        .tag {
+            position: absolute;
+            top: -4px;
+            left: 100%;
+            margin-left: -26px;
+
+            .tag-name {
+                display: inline-block;
+                transform: scale(.92);
+            }
+
+            .tag-arrow {
+                position: absolute;
+                left: 4px;
+                top: 18px;
+                width: 0;
+                height: 0;
+                border-width: 3px;
+                border-style: solid;
+                border-color: @color-brand #ffffff #ffffff  @color-brand;
+            }
+
+        }
+
+    }
+
+    .underline {
+        position: absolute;
+        width: 0;
+        height: 0;
+        bottom: 0;
+        border-bottom: 1px solid @color-brand;
+        transition: width @duration cubic-bezier(0.645, 0.045, 0.355, 1), left @duration cubic-bezier(0.645, 0.045, 0.355, 1)
+    }
+
+}
+
+.box {
+    display: inline-block;
+    height: @input-height;
+    border: 1px solid @color-border;
+    border-radius: @border-radius;
+    background-color: #fff;
+
+    .box-item {
+        display: inline-block;
+        height: @input-height - 2;
+        line-height: @input-height - 2;
+        color: #999;
+        cursor: pointer;
+        text-align: center;
+        padding: 0 12px;
+        transition: color @duration ease-out, background-color @duration ease-out;
+
+        &:first-child {
+            border-top-left-radius: @border-radius;
+            border-bottom-left-radius: @border-radius;
+        }
+
+        &:last-child {
+            border-top-right-radius: @border-radius;
+            border-bottom-right-radius: @border-radius;
+        }
+
+        &:hover {
+            color: #333;
+        }
+
+        &.selected {
+            color: @color-brand;
+            background-color: @color-brand-opacity;
+        }
+
+        .tag {
+            transform: scale(.9);
+        }
+
+    }
+
+    &.disabled {
+        .box-item {
+            cursor: not-allowed;
+
+            &:hover {
+                color: #999;
+            }
+
+            &.selected {
+                color: #999;
+                background-color: #eee;
+            }
+
+            .tag {
+                background-color: #ccc;
+            }
+
+        }
+
+    }
+
+}

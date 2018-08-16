@@ -1,0 +1,25 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="pt20 pb20">
+            <mx-slider
+                max="200"
+                min="100"
+                value="50"
+                step="0.5"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">根据可选范围对value进行修正</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-slider
+    max="200"
+    min="100"
+    value="50"
+    step="0.5"/&gt;</pre>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend({
+    tmpl: '@range.html',
+    render() {
+        let options = [{
+            key: 'min',
+            desc: '区间最小值，保留小数位同step',
+            type: 'number',
+            def: 0
+        }, {
+            key: 'max',
+            desc: '区间最大值，保留小数位同step',
+            type: 'number',
+            def: 100
+        }, {
+            key: 'step',
+            desc: '步长，滑动时变化的刻度',
+            type: 'number',
+            def: 1
+        }, {
+            key: 'value',
+            desc: '逗号分隔最小值和最大值',
+            type: 'string',
+            def: '取0,50%'
+        }, {
+            key: 'need-input',
+            desc: '是否需要输入框，横向时才有，width不包含输入框宽度',
+            type: 'boolean',
+            def: 'false'
+        }, {
+            key: 'width',
+            desc: '滑块宽度',
+            type: 'number',
+            def: 280
+        }, {
+            key: 'vertical',
+            desc: '是否垂直',
+            type: 'boolean',
+            def: 'border'
+        }, {
+            key: 'height',
+            desc: '滑块高度，vertical=true时可设置',
+            type: 'number',
+            def: 280
+        }, {
+            key: 'mx-disabled',
+            desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-slider mx-disabled/&gt;',
+            type: '',
+            def: ''
+        }]
+
+        this.updater.digest({
+            options
+        });
+    }
+});

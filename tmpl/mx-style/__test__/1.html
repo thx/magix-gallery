@@ -1,0 +1,34 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <a href="javascript:;" class="btn btn-brand mr20">品牌色按钮</a>
+            <a href="javascript:;" class="btn mr20">普通按钮</a>
+            <a href="javascript:;" class="btn btn-disabled">按钮禁用</a>
+        </div>
+        <div class="mb20">
+            <a href="javascript:;" class="btn btn-small btn-brand mr20">小号品牌色按钮</a>
+            <a href="javascript:;" class="btn btn-small mr20">小号普通按钮</a>
+            <a href="javascript:;" class="btn btn-small btn-disabled">小号按钮禁用</a>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">按钮</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;a href="javascript:;" class="btn btn-brand">品牌色按钮&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn"&gt;普通按钮&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn btn-disabled"&gt;按钮禁用&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn btn-small btn-brand"&gt;小号品牌色按钮&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn btn-small"&gt;小号普通按钮&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn btn-small btn-disabled"&gt;小号按钮禁用&lt;/a&gt;</pre>
+    </div>
+</div>

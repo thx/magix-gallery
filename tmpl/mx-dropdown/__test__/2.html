@@ -1,0 +1,69 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <mx-dropdown class="w200" 
+                searchbox="true" 
+                empty-text="请选择类型" 
+                selected="{{=selectedValue}}"
+                list="{{@list}}"
+                mx-change="select()"></mx-dropdown>
+        </div>
+        <div>
+            <span class="color-9">当前选中名：</span>
+            <span class="mr20">{{=selectedText}}</span>
+            <span class="color-9">当前选中值：</span>
+            <span>{{=selectedValue}}</span>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-dropdown class="w200" 
+    searchbox="true" 
+    empty-text="请选择类型" 
+    selected="&#123;&#123;=selectedValue&#125;&#125;"
+    list="&#123;&#123;@list&#125;&#125;"
+    mx-change="select()"&gt;
+&lt;/mx-dropdown&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [&#123;
+            value: '1',
+            text: '单选带搜索框1'
+        &#125;, &#123;
+            value: '2',
+            text: '单选带搜索框2'
+        &#125;];
+        this.updater.digest(&#123;
+            list: list,
+            selectedValue: list[1].value
+        &#125;);
+    &#125;,
+    'select&lt;change&gt;' (e) &#123;
+        // e.value 当前选中值
+        // e.text 当前选中文案
+        this.updater.digest(&#123;
+            selectedValue: e.value
+        &#125;);
+    &#125;
+&#125;);</pre>
+    </div>
+</div>

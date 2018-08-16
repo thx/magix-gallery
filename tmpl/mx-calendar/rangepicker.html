@@ -1,0 +1,20 @@
+<div class="input rangepicker-input" id="input_{{=viewId}}"
+    mx-click="@{toggle}()"
+    mx-change="@{stop}()">
+    <div class="result {{if rangeInfo.vs}} vs {{/if}}">
+    {{if result.endStr}}
+        <span class="co co-left">{{=result.startStr}}</span>
+        <span class="center">{{=result.centetTip}}</span>
+        <span class="co co-right">{{=result.endStr}}</span>
+    {{else}}
+        {{=result.startStr}}
+    {{/if}}
+    </div>        
+</div>
+
+<div class="rangepicker-wrapper {{if show}}open{{/if}}" id="rpcnt_{{=viewId}}" 
+    style="left:{{=left}}px;top:{{=top}}px;"
+    mx-view="@./range?configs={{@rangeInfo}}"
+    mx-change="@{range.picked}()" 
+    mx-cancel="@{hide}()"></div>
+

@@ -1,0 +1,79 @@
+@import "../mx-style/_vars";
+
+.pager {
+    color: #999;
+
+    .infos{
+        float: left;
+        line-height: @input-small-height;
+        .pager-dropdown {
+            min-width: 66px;
+            height: @input-small-height;
+            line-height: @input-small-height - 2;
+        }
+    }
+
+    .num-items {
+        float: right;
+        .num-item {
+            float: left;
+            line-height: @input-small-height;
+
+            .num-item-inner, .num-item-icon {
+                display: block;
+                min-width: @input-small-height;
+                height: @input-small-height;
+                margin: 0 2px;
+                font-size: @font-size;
+                border-radius: @border-radius;
+                text-align: center;
+                color: #999;
+            }
+
+            .num-item-inner {
+                &:hover {
+                    color: #666;
+                    background-color: #eee;
+                }
+
+                &.active {
+                    color: #fff;
+                    background-color: @color-brand;
+                }
+
+                &.notallowed {
+                    background: transparent;
+                    cursor: not-allowed;
+                }
+
+            }
+
+            .num-item-icon {
+                line-height: @input-small-height + 2;
+
+                &:hover {
+                    color: #666;
+                }
+
+                &.notallowed {
+                    color: #e6e6e6;
+                    background: transparent;
+                    cursor: not-allowed;
+                }
+
+            }
+
+        }
+
+    }
+
+    .quick{
+        float: right;
+        margin-left: 15px;
+        .quick-input{
+            width: 40px;
+            text-align: center;
+        }
+    }
+
+}

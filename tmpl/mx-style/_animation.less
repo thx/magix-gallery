@@ -1,0 +1,133 @@
+@import '_vars';
+
+/**
+   css3注意点小计
+    - animation-fill-mode 动画结束停在最后一帧
+    - translate(-30%, 0) 百分比是相对于元素自己的宽高，margin-left:-30%; 是相对于父容器的宽高
+    - transition、animation动画不能设置display:none;
+    - :after, :before等伪元素目前不支持嵌套，未来会支持 [还有多重伪元素 div::before(3) { content: ”; }];
+      - :after.content 用法
+        { content: url(@imgsrc) }  - 加载指定资源图片
+        { content: attr(data-src) } - 读取当前节点上的自定义属性值
+        { content: content:"选项" counter(sectioncounter) "： ";
+          counter-increment: sectioncounter;
+        } - 自动计数器 【参考资料：http://dev.opera.com/articles/view/automatic-numbering-with-css-counters/】
+
+    - box-sizing: [content-box | padding-box | border-box];
+      - 全局设置：
+        html {
+          box-sizing: border-box;
+        }
+        *, *:before, *:after {
+          box-sizing: inherit;
+        }
+        // 宽度包含了border以及padding，这在容器设置了100%百分比宽度时又设置了padding时很有用
+ */
+
+/**
+* 渐显下拉动画
+*/
+@keyframes fade-in-down {
+    0% {
+        transform: translate(0, -20%);
+        -ms-transform: translate(0, -20%);
+        -moz-transform: translate(0, -20%);
+        -webkit-transform: translate(0, -20%);
+        -o-transform: translate(0, -20%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -moz-transform: translate(0, 0);
+        -webkit-transform: translate(0, 0);
+        -o-transform: translate(0, 0);
+        opacity: 1;
+    }
+
+}
+
+@-webkit-keyframes fade-in-down {
+    0% {
+        transform: translate(0, -20%);
+        -ms-transform: translate(0, -20%);
+        -moz-transform: translate(0, -20%);
+        -webkit-transform: translate(0, -20%);
+        -o-transform: translate(0, -20%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -moz-transform: translate(0, 0);
+        -webkit-transform: translate(0, 0);
+        -o-transform: translate(0, 0);
+        opacity: 1;
+    }
+
+}
+
+@-moz-keyframes fade-in-down {
+    0% {
+        transform: translate(0, -20%);
+        -ms-transform: translate(0, -20%);
+        -moz-transform: translate(0, -20%);
+        -webkit-transform: translate(0, -20%);
+        -o-transform: translate(0, -20%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -moz-transform: translate(0, 0);
+        -webkit-transform: translate(0, 0);
+        -o-transform: translate(0, 0);
+        opacity: 1;
+    }
+
+}
+
+@-ms-keyframes fade-in-down {
+    0% {
+        transform: translate(0, -20%);
+        -ms-transform: translate(0, -20%);
+        -moz-transform: translate(0, -20%);
+        -webkit-transform: translate(0, -20%);
+        -o-transform: translate(0, -20%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -moz-transform: translate(0, 0);
+        -webkit-transform: translate(0, 0);
+        -o-transform: translate(0, 0);
+        opacity: 1;
+    }
+
+}
+
+@-o-keyframes fade-in-down {
+    0% {
+        transform: translate(0, -20%);
+        -ms-transform: translate(0, -20%);
+        -moz-transform: translate(0, -20%);
+        -webkit-transform: translate(0, -20%);
+        -o-transform: translate(0, -20%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -moz-transform: translate(0, 0);
+        -webkit-transform: translate(0, 0);
+        -o-transform: translate(0, 0);
+        opacity: 1;
+    }
+
+}

@@ -1,0 +1,28 @@
+{{if len > 0}}
+<div class="products {{if dark}} white {{/if}}" style="width: {{=width}}px;">
+    <div class="logo">
+        <img src="https://img.alicdn.com/tfs/TB1_j6sn0cnBKNjSZR0XXcFqFXa-182-185.png">
+        <i class="mc-iconfont mama-icon">&#xe601;</i>
+    </div>
+    <div class="clearfix">
+        {{each products as p}}
+        <dl style="width: {{=(100 / len)}}%;">
+            <dt>{{=p.title}}</dt>
+            {{each p.thirds as t}}
+            <dd>
+                <a href="{{=t.link}}" target="_blank" rel="noopener noreferrer">{{=t.name}}</a>
+            </dd>
+            {{/each}}
+        </dl>
+        {{/each}}
+    </div>
+    <div class="qrcode">
+        <img src="//gw.alicdn.com/tfs/TB1C2cNrv1TBuNjy0FjXXajyXXa-300-300.png">
+        <div>打开淘宝扫一扫</div>
+        <div>下载阿里妈妈APP</div>
+    </div>
+</div>
+{{/if}}
+<div class="custom {{if dark}} white {{/if}}">
+    {{!footerHtml}}
+</div>

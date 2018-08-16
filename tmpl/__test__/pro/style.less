@@ -1,0 +1,41 @@
+@import '../../mx-style/_vars';
+@dark-color-border: rgba(255, 255, 255, .1);
+@dark-color-border-hover: rgba(255, 255, 255, .2);
+@dark-color-border-focus: rgba(255, 255, 255, .4);
+@dark-font-color: #b3b3b3;
+.outer {
+    [ref="@../mx-dropdown/index.less:dropdown-toggle"] {
+        color: #999;
+    }
+    [ref="@../mx-dropdown/index.less:dropdown-menu-wrapper"] {
+        background-color: #ccc;
+        font-size: 12px;
+    }
+    [ref="@../mx-dropdown/index.less:item-link"] {
+        &:hover {
+            background-color: #b3b3b3;
+        }
+        &[ref="@../mx-dropdown/index.less:active"] {
+            &:hover {
+                color: #fff;
+                background-color: @color-brand;
+            }
+        }
+    }
+    [mx-view*="mx-dropdown/index"],
+    [mx-view*="mx-dropdown/multiple"] {
+        background-color: transparent;
+        border-color: @dark-color-border;
+        &:hover {
+            border-color: @dark-color-border-hover;
+            [ref="@../mx-dropdown/index.less:dropdown-toggle"] {
+                color: @dark-font-color;
+            }
+        }
+    }
+}
+
+.dark-bg {
+    padding: 20px;
+    background-color: #3d414d;
+}

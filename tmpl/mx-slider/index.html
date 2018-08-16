@@ -1,0 +1,17 @@
+<div class="rail-wrapper">
+    <span class="rail <%if(vertical){%> ver <%} else {%> hor <%}%>" 
+        mx-contextmenu="@{prevent}()" 
+        style="<%if(vertical){%>height:<%=height%><%}else{%>width:<%=width%><%}%>px">
+        <span class="tracker <%if(vertical){%> ver-tracker <%}else{%> hor-tracker <%}%>"></span>
+        <span class="indicator <%if(vertical){%> ver-idctor <%}else{%> hor-idctor <%}%>" 
+            mx-mousedown="@{drag}()"></span>
+        <span class="pointer-label <%if(vertical){%> ver-pl <%}else{%> hor-pl <%}%>"></span>
+        <span class="<%if(vertical){%> ver-scale-bottom <%}else{%> scale-left <%}%>"><%=min%></span>
+        <span class="<%if(vertical){%> ver-scale-top <%}else{%> scale-right<%}%>"><%=max%></span>
+    </span>
+</div>
+<%if(needInput){%>
+<input type="text" class="input input-small rail-input" id="<%=viewId%>_input"
+    mx-keyup="@{enter}()"
+    mx-focusout="@{out}()"/>
+<%}%>

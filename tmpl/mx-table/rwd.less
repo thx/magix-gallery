@@ -1,0 +1,23 @@
+@import "../mx-style/_vars";
+@rwd-width: 12px;
+
+.wrap {
+    width: @rwd-width * 2;
+
+    .arrow {
+        width: @rwd-width;
+        background-color: #ccc;
+        color: #fff;
+        cursor: pointer;
+
+        &:hover {
+            background-color: @color-brand;
+        }
+
+    }
+
+}
+
+.end {
+    padding-right: 40px;
+}

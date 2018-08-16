@@ -1,0 +1,159 @@
+@import "../mx-style/_vars";
+@cwidth: (2 * @font-size + 8) * 7;
+@cheight: (6 * (2 * @font-size + 6))+ 20 + 62;
+
+.wrapper {
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    padding: 0;
+    background-color: #fff;
+    border-radius: @border-radius;
+    overflow-y: hidden;
+    color: @color-primary;
+    text-align: center;
+    .shadow();
+
+    .header {
+        padding: 2px 4px;
+
+        .minus {
+            float: left;
+        }
+
+        .plus {
+            float: right;
+            transform: scaleX(-1);
+        }
+
+        .minus, .plus {
+            line-height: 28px;
+            font-size: 14px;
+            color: #ccc;
+            cursor: pointer;
+
+            &:hover {
+                color: @color-brand;
+            }
+
+        }
+
+        .title {
+            display: inline-block;
+            height: 28px;
+            line-height: 28px;
+            padding: 0 10px;
+            cursor: pointer;
+            border-radius: @border-radius;
+            color: #666;
+
+            &:hover {
+                background-color: #eee;
+            }
+
+        }
+
+    }
+
+    .body {
+        width: @cwidth;
+
+        .weeks {
+            color: @color-primary;
+            background-color: @color-bg;
+            padding: 0 10px;
+            color: @color-secondary;
+        }
+
+        .days {
+            padding: 10px;
+        }
+
+        .week, .day {
+            float: left;
+            height: 2 * @font-size;
+            line-height: 2 * @font-size;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .week{
+            width: 2 * @font-size + 4px;
+            margin: 3px 0;
+        }
+
+        .day{
+            width: 2 * @font-size;
+            margin: 3px 2px;
+        }
+
+        .day:hover {
+            background-color: @color-hover;
+        }
+
+        .gray {
+            color: @color-third;
+        }
+
+        .today, .today:hover {
+            background-color: @color-brand-opacity;
+        }
+
+        .notallowed, .notallowed:hover {
+            color: @color-disabled;
+            cursor: not-allowed;
+            background: #fff;
+        }
+
+        .selected, .selected:hover {
+            color: #fff;
+            background-color: @color-brand;
+        }
+
+    }
+
+    .time {
+        padding-top: 10px;
+        padding-left: 10px;
+        border-top: 1px solid @color-border;
+    }
+
+    .footer {
+        margin: 10px;
+        padding: 10px 0 0 0;
+        border-top: 1px solid @color-border;
+        text-align: left;
+    }
+
+}
+
+.y-panel, .m-panel {
+    padding: 1px 0;
+    position: absolute;
+    top: -100%;
+    left: 0;
+    right: 0;
+    transition: top 0.15s;
+    background-color: #fff;
+}
+
+.ym-show {
+    top: 0;
+}
+
+.ym {
+    float: left;
+    width: floor((@cwidth - 10 * 6) / 3);
+    height: floor((@cheight - 32 - 10 * 8) / 4);
+    margin: 10px;
+    line-height: floor((@cheight - 32 - 10 * 8) / 4);
+    border-radius: @border-radius;
+    font-size: @font-size + 2;
+    cursor: pointer;
+
+    &:hover {
+        background-color: @color-hover;
+    }
+
+}
