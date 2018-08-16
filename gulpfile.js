@@ -8,6 +8,7 @@ let uglify = require('gulp-uglify-es').default;
 let ts = require('typescript');
 combineTool.config({
     debug: true,
+    srcFolder: 'build/src',
     loaderType: 'cmd_es',
     projectName: '_',
     tmplAddViewsToDependencies: true,
@@ -82,7 +83,7 @@ combineTool.config({
 });
 
 gulp.task('cleanSrc', () => {
-    return del('./src');
+    return del('./build/src');
 });
 
 gulp.task('combine', ['cleanSrc'], () => {
@@ -91,10 +92,6 @@ gulp.task('combine', ['cleanSrc'], () => {
     }).catch(ex => {
         console.log('gulpfile:', ex);
     });
-});
-
-gulp.task('one', ['cleanSrc'], () => {
-    combineTool.processFile('./tmpl/mx-form/__test__/index.js');
 });
 
 gulp.task('watch', ['combine'], () => {
@@ -126,7 +123,7 @@ gulp.task('turnOffDebug', () => {
 });
 
 gulp.task('compress', ['turnOffDebug', 'combine', 'ver'], () => {
-    return gulp.src('./src/**/*.js')
+    return gulp.src('./build/src/**/*.js')
         .pipe(uglify({
             compress: {
                 drop_console: true,
@@ -136,17 +133,5 @@ gulp.task('compress', ['turnOffDebug', 'combine', 'ver'], () => {
                 }
             }
         }))
-        .pipe(gulp.dest('./src/'));
-});
-gulp.task('release', ['compress'], () => {
-    let cs = fs.readFileSync('./src/__test__/all.js').toString();
-    let index = fs.readFileSync('./index.html').toString();
-    cs = cs.replace(/\$/g, '$$$$');
-    index = index.replace(/<script id="test">[\s\S]*?<\/script>/, '<script id="test">' + cs + '</script>');
-
-    // 更新目录内容
-    let catalogue = fs.readFileSync('./test.js').toString();
-    catalogue = catalogue.replace(/\$/g, '$$$$');
-    index = index.replace(/<script id="catalogue">[\s\S]*?<\/script>/, '<script id="catalogue">' + catalogue + '</script>');
-    fs.writeFileSync('./index.html', index);
+        .pipe(gulp.dest('./build/src/'));
 });

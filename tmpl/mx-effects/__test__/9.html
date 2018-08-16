@@ -1,0 +1,70 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="pl60 mb20">
+            <a href="javascript:;" mx-click="add()" class="btn btn-brand">进度 +10</a>
+        </div>
+        <mx-effects.progress class="ml60 mt30"
+            num="{{=num1}}" 
+            color="#ffb400"/>
+        <mx-effects.progress class="ml60 mt30"
+            num="{{=num2}}" 
+            text-placement="right"
+            color="rgb(81, 163, 0)"/>
+        <mx-effects.progress class="ml60 mt30 mb40"
+            num="{{=num3}}" 
+            text-placement="bottom"
+            color="rgba(77, 127, 255, 0.3)"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-effects.progress class="ml60 mt30"
+    num="&#123;&#123;=num1&#125;&#125;" 
+    color="#ffb400"/&gt;
+
+&lt;mx-effects.progress class="ml60 mt30"
+    num="&#123;&#123;=num2&#125;&#125;" 
+    text-placement="right"
+    color="rgb(81, 163, 0)"/&gt;
+
+&lt;mx-effects.progress class="ml60 mt30 mb40"
+    num="&#123;&#123;=num3&#125;&#125;" 
+    text-placement="bottom"
+    color="rgba(77, 127, 255, 0.3)"/&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            num1: 20,
+            num2: 40.3,
+            num3: 60.89
+        &#125;);
+    &#125;,
+    'add&lt;click&gt;'(e)&#123;
+        let data = this.updater.get();
+        this.updater.digest(&#123;
+            num1: data.num1 + 10,
+            num2: data.num2 + 10,
+            num3: data.num3 + 10
+        &#125;);
+    &#125;
+&#125;);</pre>
+    </div>
+</div>

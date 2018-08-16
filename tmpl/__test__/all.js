@@ -75,7 +75,7 @@ module.exports = Magix.View.extend({
                 path: '/form/index',
                 icon: '&#xe731;'
             }, {
-                name: 'mixins版（附加功能）',
+                name: 'mixins版（view附加属性）',
                 path: '/form/mixins',
                 icon: '&#xe64e;'
             }]
@@ -246,10 +246,6 @@ module.exports = Magix.View.extend({
                 path: '/preview/index',
                 icon: '&#xe755;'
             }, {
-                name: '标题',
-                path: '/title/index',
-                icon: '&#xe786;'
-            }, {
                 name: '轮播',
                 path: '/carousel/index',
                 icon: '&#xe78b;'
@@ -292,6 +288,10 @@ module.exports = Magix.View.extend({
                 name: '基础',
                 path: '/style/index',
                 icon: '&#xe62c;'
+            }, {
+                name: '标题',
+                path: '/title/index',
+                icon: '&#xe786;'
             }, {
                 name: '打标',
                 path: '/effects/icon',
