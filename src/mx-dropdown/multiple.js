@@ -264,9 +264,9 @@ module.exports = Magix.View.extend({
             $art = 'each group.list as item';
             ;
             $p += '';
-            $expr = '<%for(var $art_iwwywr$art_i=0,$art_objtmihcdbkdi$art_obj=group.list;$art_iwwywr$art_i<$art_objtmihcdbkdi$art_obj.length;$art_iwwywr$art_i++){var item=$art_objtmihcdbkdi$art_obj[$art_iwwywr$art_i]%>';
-            for (var $art_iwwywr$art_i = 0, $art_objtmihcdbkdi$art_obj = group.list; $art_iwwywr$art_i < $art_objtmihcdbkdi$art_obj.length; $art_iwwywr$art_i++) {
-                var item = $art_objtmihcdbkdi$art_obj[$art_iwwywr$art_i];
+            $expr = '<%for(var $art_igcpptqcgv$art_i=0,$art_objaakcjnb$art_obj=group.list;$art_igcpptqcgv$art_i<$art_objaakcjnb$art_obj.length;$art_igcpptqcgv$art_i++){var item=$art_objaakcjnb$art_obj[$art_igcpptqcgv$art_i]%>';
+            for (var $art_igcpptqcgv$art_i = 0, $art_objaakcjnb$art_obj = group.list; $art_igcpptqcgv$art_i < $art_objaakcjnb$art_obj.length; $art_igcpptqcgv$art_i++) {
+                var item = $art_objaakcjnb$art_obj[$art_igcpptqcgv$art_i];
                 $p += ' ';
                 $line = 47;
                 $art = 'if !item.hide';

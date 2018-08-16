@@ -16,19 +16,19 @@ var Formater = 'YYYY-MM-DD';
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, selected = $$.selected, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryI:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryI:a" class="_zs_gallery___test___base_-eg-content"><div class="w200" mx-view="mx-calendar/datepicker?timeType=hour&selected=';
+    $p += '<div mxa="_zs_galleryJ:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryJ:a" class="_zs_gallery___test___base_-eg-content"><div class="w200" mx-view="mx-calendar/datepicker?timeType=hour&selected=';
     $line = 5;
     $art = '=selected';
     ;
-    $p += '' + ($expr = '<%!$eu(selected)%>', $eu(selected)) + '"></div></div><div mxa="_zs_galleryI:b" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryI:_" class="_zs_gallery___test___base_-eg-title">可选择小时，分秒不可选</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%!$eu(selected)%>', $eu(selected)) + '"></div></div><div mxa="_zs_galleryJ:b" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryJ:_" class="_zs_gallery___test___base_-eg-title">可选择小时，分秒不可选</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 9;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryI:c" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryJ:c" class="_zs_gallery___test___base_-desc-tip">';
     $line = 11;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryI:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryJ:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 14;
     $art = '=viewId';
     ;

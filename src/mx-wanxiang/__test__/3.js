@@ -16,19 +16,19 @@ module.exports = Base.extend({
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
     if ($$ref[k = $g + f] === v)
         return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycJ:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_gallerycJ:a" class="_zs_gallery___test___base_-eg-content"><div class="w300" mx-view="mx-search/index?list=';
+    $p += '<div mxa="_zs_gallerycI:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_gallerycI:a" class="_zs_gallery___test___base_-eg-content"><div class="w300" mx-view="mx-search/index?list=';
     $line = 4;
     $art = '@[{\n                text: \'宝贝\',\n                value: \'itemId\'\n            }, {\n                text: \'单元\',\n                value: \'adgroupId\'\n            }]';
     ;
-    $p += '' + ($expr = '<%@[{text:\'宝贝\',value:\'itemId\'},{text:\'单元\',value:\'adgroupId\'}]%>', $i([{ text: '宝贝', value: 'itemId' }, { text: '单元', value: 'adgroupId' }])) + '&searchKey=adgroupId&searchValue=%E8%B6%85%E5%87%BA%E5%8F%B3%E5%AF%B9%E9%BD%90%EF%BC%8C%E6%90%9C%E7%B4%A2%E6%A1%86%E5%9C%A8%E9%A1%B5%E9%9D%A2%E5%8F%B3%E8%BE%B9%E7%BC%98%E6%97%B6%E9%80%82%E7%94%A8&align=right"></div></div><div mxa="_zs_gallerycJ:b" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerycJ:_" class="_zs_gallery___test___base_-eg-title">内容超出右对齐</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%@[{text:\'宝贝\',value:\'itemId\'},{text:\'单元\',value:\'adgroupId\'}]%>', $i([{ text: '宝贝', value: 'itemId' }, { text: '单元', value: 'adgroupId' }])) + '&searchKey=adgroupId&searchValue=%E8%B6%85%E5%87%BA%E5%8F%B3%E5%AF%B9%E9%BD%90%EF%BC%8C%E6%90%9C%E7%B4%A2%E6%A1%86%E5%9C%A8%E9%A1%B5%E9%9D%A2%E5%8F%B3%E8%BE%B9%E7%BC%98%E6%97%B6%E9%80%82%E7%94%A8&align=right"></div></div><div mxa="_zs_gallerycI:b" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerycI:_" class="_zs_gallery___test___base_-eg-title">内容超出右对齐</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 17;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycJ:c" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycI:c" class="_zs_gallery___test___base_-desc-tip">';
     $line = 19;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycJ:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycI:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 22;
     $art = '=viewId';
     ;

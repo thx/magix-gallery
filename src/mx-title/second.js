@@ -11,7 +11,7 @@ var $ = require("$");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, content = $$.content, tip = $$.tip; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycw:_" class="page-header"><span mxa="_zs_gallerycw:a" class="second-header">';
+    $p += '<div mxa="_zs_gallerycv:_" class="page-header"><span mxa="_zs_gallerycv:a" class="second-header">';
     $line = 2;
     $art = '!content';
     ;
@@ -23,7 +23,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if(tip){%>';
     if (tip) {
         ;
-        $p += '<span mxa="_zs_gallerycw:b" class="page-tip">';
+        $p += '<span mxa="_zs_gallerycv:b" class="page-tip">';
         $line = 4;
         $art = '!tip';
         ;

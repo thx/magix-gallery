@@ -15,7 +15,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '= _zs_gallery_mx-switch_index_-on ? \'on\' : \'\'';
     ;
-    $p += '' + ($expr = '<%=on?\'_zs_gallery_mx-switch_index_-on\':\'\'%>', $e(on ? '_zs_gallery_mx-switch_index_-on' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_galleryb(:_" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
+    $p += '' + ($expr = '<%=on?\'_zs_gallery_mx-switch_index_-on\':\'\'%>', $e(on ? '_zs_gallery_mx-switch_index_-on' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_galleryb^:_" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

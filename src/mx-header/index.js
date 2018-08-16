@@ -51,9 +51,9 @@ module.exports = Magix.View.extend({
         $art = 'each item.seconds as second';
         ;
         $p += '';
-        $expr = '<%for(var $art_iovhllf$art_i=0,$art_objrimeddfn$art_obj=item.seconds;$art_iovhllf$art_i<$art_objrimeddfn$art_obj.length;$art_iovhllf$art_i++){var second=$art_objrimeddfn$art_obj[$art_iovhllf$art_i]%>';
-        for (var $art_iovhllf$art_i = 0, $art_objrimeddfn$art_obj = item.seconds; $art_iovhllf$art_i < $art_objrimeddfn$art_obj.length; $art_iovhllf$art_i++) {
-            var second = $art_objrimeddfn$art_obj[$art_iovhllf$art_i];
+        $expr = '<%for(var $art_icldmcpeoo$art_i=0,$art_objwotmnsjw$art_obj=item.seconds;$art_icldmcpeoo$art_i<$art_objwotmnsjw$art_obj.length;$art_icldmcpeoo$art_i++){var second=$art_objwotmnsjw$art_obj[$art_icldmcpeoo$art_i]%>';
+        for (var $art_icldmcpeoo$art_i = 0, $art_objwotmnsjw$art_obj = item.seconds; $art_icldmcpeoo$art_i < $art_objwotmnsjw$art_obj.length; $art_icldmcpeoo$art_i++) {
+            var second = $art_objwotmnsjw$art_obj[$art_icldmcpeoo$art_i];
             $p += '<dl>';
             $line = 15;
             $art = 'if second.title';
@@ -79,9 +79,9 @@ module.exports = Magix.View.extend({
             $art = 'each second.thirds as third';
             ;
             $p += '';
-            $expr = '<%for(var $art_ihcuevn$art_i=0,$art_objdwgvyvaf$art_obj=second.thirds;$art_ihcuevn$art_i<$art_objdwgvyvaf$art_obj.length;$art_ihcuevn$art_i++){var third=$art_objdwgvyvaf$art_obj[$art_ihcuevn$art_i]%>';
-            for (var $art_ihcuevn$art_i = 0, $art_objdwgvyvaf$art_obj = second.thirds; $art_ihcuevn$art_i < $art_objdwgvyvaf$art_obj.length; $art_ihcuevn$art_i++) {
-                var third = $art_objdwgvyvaf$art_obj[$art_ihcuevn$art_i];
+            $expr = '<%for(var $art_itjzxmdhm$art_i=0,$art_objnjiayzeoqg$art_obj=second.thirds;$art_itjzxmdhm$art_i<$art_objnjiayzeoqg$art_obj.length;$art_itjzxmdhm$art_i++){var third=$art_objnjiayzeoqg$art_obj[$art_itjzxmdhm$art_i]%>';
+            for (var $art_itjzxmdhm$art_i = 0, $art_objnjiayzeoqg$art_obj = second.thirds; $art_itjzxmdhm$art_i < $art_objnjiayzeoqg$art_obj.length; $art_itjzxmdhm$art_i++) {
+                var third = $art_objnjiayzeoqg$art_obj[$art_itjzxmdhm$art_i];
                 $p += '<dd><a href="';
                 $line = 19;
                 $art = '=third.link';
@@ -163,9 +163,9 @@ module.exports = Magix.View.extend({
     $art = 'each navs as nav';
     ;
     $p += '';
-    $expr = '<%for(var $art_izdpndhni$art_i=0;$art_izdpndhni$art_i<navs.length;$art_izdpndhni$art_i++){var nav=navs[$art_izdpndhni$art_i]%>';
-    for (var $art_izdpndhni$art_i = 0; $art_izdpndhni$art_i < navs.length; $art_izdpndhni$art_i++) {
-        var nav = navs[$art_izdpndhni$art_i];
+    $expr = '<%for(var $art_itkuawobsqs$art_i=0;$art_itkuawobsqs$art_i<navs.length;$art_itkuawobsqs$art_i++){var nav=navs[$art_itkuawobsqs$art_i]%>';
+    for (var $art_itkuawobsqs$art_i = 0; $art_itkuawobsqs$art_i < navs.length; $art_itkuawobsqs$art_i++) {
+        var nav = navs[$art_itkuawobsqs$art_i];
         $p += '<a class="mr40 ';
         $line = 34;
         $art = 'if (cur == nav.value)';

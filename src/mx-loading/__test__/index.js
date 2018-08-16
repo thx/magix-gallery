@@ -13,7 +13,7 @@ var $ = require("$");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerya&:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerya&:a" class="clearfix mb20"><div class="_zs_gallery___test___base_-half"><div mx-view="mx-loading/__test__/1"></div></div><div class="_zs_gallery___test___base_-half"><div mx-view="mx-loading/__test__/2"></div></div></div>';
+    $p += '<div mxs="_zs_gallerya^:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerya^:a" class="clearfix mb20"><div class="_zs_gallery___test___base_-half"><div mx-view="mx-loading/__test__/1"></div></div><div class="_zs_gallery___test___base_-half"><div mx-view="mx-loading/__test__/2"></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

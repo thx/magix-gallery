@@ -17,7 +17,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=height';
     ;
-    $p += '' + ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_gallery5:_" class="_zs_gallery_mx-carousel_index_-inner" mx-mouseover="' + $viewId + '@{stop}()" mx-mouseout="' + $viewId + '@{start}()">';
+    $p += '' + ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_gallery4:_" class="_zs_gallery_mx-carousel_index_-inner" mx-mouseover="' + $viewId + '@{stop}()" mx-mouseout="' + $viewId + '@{start}()">';
     $line = 5;
     $art = '!content';
     ;
@@ -62,7 +62,7 @@ module.exports = Magix.View.extend({
         $expr = '<%for(var i=0;i<len;i+=1){%>';
         for (var i = 0; i < len; i += 1) {
             ;
-            $p += '<li mxa="_zs_gallery5:a" class="_zs_gallery_mx-carousel_index_-dot-cnt"><i class="_zs_gallery_mx-carousel_index_-dot" mx-click="' + $viewId + '@{active}({idx:';
+            $p += '<li mxa="_zs_gallery4:a" class="_zs_gallery_mx-carousel_index_-dot-cnt"><i class="_zs_gallery_mx-carousel_index_-dot" mx-click="' + $viewId + '@{active}({idx:';
             $line = 13;
             $art = '=i';
             ;

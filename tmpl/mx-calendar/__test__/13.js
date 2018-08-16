@@ -6,10 +6,6 @@ let $ = require('$');
 module.exports = Base.extend({
     tmpl: '@13.html',
     render() {
-        this.updater.digest({
-            min: '2018-08-17',
-            start: '2018-08-10',
-            end: '2018-08-14'
-        });
+        this.updater.digest();
     }
 });
