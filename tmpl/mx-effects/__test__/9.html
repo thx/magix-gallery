@@ -1,19 +1,25 @@
 <div class="example">
     <div class="eg-content">
-        <div class="pl60 mb20">
+        <div class="pl40 mb20">
             <a href="javascript:;" mx-click="add()" class="btn btn-brand">进度 +10</a>
         </div>
-        <mx-effects.progress class="ml60 mt30"
-            num="{{=num1}}" 
-            color="#ffb400"/>
-        <mx-effects.progress class="ml60 mt30"
-            num="{{=num2}}" 
-            text-placement="right"
-            color="rgb(81, 163, 0)"/>
-        <mx-effects.progress class="ml60 mt30 mb40"
-            num="{{=num3}}" 
-            text-placement="bottom"
-            color="rgba(77, 127, 255, 0.3)"/>
+        <div  class="ml40 mt20">
+            <mx-effects.progress
+                num="{{=num1}}" 
+                color="#ffb400"/>
+        </div>
+        <div  class="ml40 mt20">
+            <mx-effects.progress
+                num="{{=num2}}" 
+                text-placement="right"
+                color="rgb(81, 163, 0)"/>
+        </div>
+        <div  class="ml40 mt20 mb40">
+            <mx-effects.progress
+                num="{{=num3}}" 
+                text-placement="bottom"
+                color="rgba(77, 127, 255, 0.3)"/>
+        </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -23,16 +29,16 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-effects.progress class="ml60 mt30"
+&lt;mx-effects.progress
     num="&#123;&#123;=num1&#125;&#125;" 
     color="#ffb400"/&gt;
 
-&lt;mx-effects.progress class="ml60 mt30"
+&lt;mx-effects.progress
     num="&#123;&#123;=num2&#125;&#125;" 
     text-placement="right"
     color="rgb(81, 163, 0)"/&gt;
 
-&lt;mx-effects.progress class="ml60 mt30 mb40"
+&lt;mx-effects.progress
     num="&#123;&#123;=num3&#125;&#125;" 
     text-placement="bottom"
     color="rgba(77, 127, 255, 0.3)"/&gt;</pre>

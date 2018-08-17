@@ -1,3 +1,5 @@
+import { parse } from 'path';
+
 let Magix = require('magix');
 let $ = require('$');
 Magix.applyStyle('@progress.less');
@@ -18,6 +20,7 @@ module.exports = Magix.View.extend({
         let that = this;
         let altered = that.updater.altered();
 
+        let type = e.type || 'line';
         let placement = (e.textPlacement || 'top');
         let color = e.color || '';
         let num = +e.num || 0;
@@ -41,11 +44,19 @@ module.exports = Magix.View.extend({
             num = 100;
         }
 
+        let degree = 0;
+        if(type == 'degree'){
+            // 刻度取整
+            degree = parseInt(num / 10);
+        }
+
         that.updater.set({
             placement,
             num: num.toFixed(i) + '%',
             cName: ClassNames[placement],
-            color
+            color,
+            type,
+            degree
         });
 
         if (!altered) {

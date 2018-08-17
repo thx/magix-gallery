@@ -1,50 +1,74 @@
 let Magix = require('magix');
+let Form = require('@../index');
+let Validator = require('@../validator');
 let Base = require('__test__/example');
 let $ = require('$');
+Magix.applyStyle('@1.less');
 
 module.exports = Base.extend({
     tmpl: '@1.html',
+    mixins: [Form, Validator],
     render() {
-        let list = [{
-            value: 1,
-            text: '模块1',
-            tag: 'New'
-        }, {
-            value: 2,
-            text: '模块2'
-        }, {
-            value: 3,
-            text: '模块3',
-            tag: '内容上新'
-        }];
+        let that = this;
+        let list = [];
+        for (var i = 0; i < 3; i++) {
+            list.push({
+                name: Magix.guid('name-'),
+                link: Magix.guid('link-'),
+                value: Magix.guid('value-')
+            })
+        }
 
-
-        this.updater.digest({
+        let tip = '请填写1-300之间的整数';
+        that.updater.digest({
+            viewId: that.id,
             list,
-            selected: list[1].value
+            batRules: {
+                posint: true,
+                min: [1, tip],
+                max: [300, tip]
+            },
+            rules: {
+                warn: {
+                    min: [50, '低于50可能影响效果，建议提高']
+                },
+                required: [true, tip],
+                posint: true,
+                min: [1, tip],
+                max: [300, tip]
+            }
         });
     },
-    'changeData<click>' (e) {
-        let list = [{
-            value: 4,
-            text: '新模块1',
-            tag: 'New'
-        }, {
-            value: 5,
-            text: '新模块2'
-        }];
-        let selected = list[0].value;
-        this.updater.digest({
-            list,
-            selected
-        })
-    },
+    'batch<focusout,click>'(e) {
+        let that = this;
 
-    'changeTab<change>' (e) {
-        // e.value 当前选中的key值
-        // e.text 当前选中的文案
-        this.updater.digest({
-            selected: e.value
+        // 校验批量的按钮是否符合规则
+        // 符合规则再往下走
+        let check = that.isValid({
+            element: '#' + that.id + '_batch_input'
         })
+
+        if (!check) {
+            return;
+        }
+
+        let data = that.updater.get();
+        let remain = that.fromKeys(data, 'batchDiscount');
+        let batchDiscount = remain.batchDiscount;
+        if (!batchDiscount) {
+            return;
+        }
+
+        let list = that.updater.get('list');
+        list.forEach(item => {
+            item.discount = batchDiscount;
+        })
+        that.updater.digest({
+            list
+        })
+
+        // 可能批量校验的规则和单个的不一致
+        // 此处调用isValid校验整个view
+        that.isValid();
     }
 });

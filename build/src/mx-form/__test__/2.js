@@ -3,36 +3,69 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-form/__test__/2",["magix","__test__/example","$","mx-tabs/index","mx-copy/index","__test__/hl"],(require,exports,module)=>{
-/*Magix,Base,$*/
-require("mx-tabs/index");
+define("mx-form/__test__/2",["magix","__test__/example","mx-form/index","mx-form/validator","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,Form,Validator,$*/
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
+var Form = require("mx-form/index");
+var Validator = require("mx-form/validator");
 var $ = require("$");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
     if ($$ref[k = $g + f] === v)
-        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryaX:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryaX:a" class="_zs_gallery___test___base_-eg-content"><div mx-view="mx-tabs/index?list=';
+        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, name = $$.name, rules = $$.rules, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerya2:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_gallerya2:a" class="_zs_gallery___test___base_-eg-content"><div mxv mxa="_zs_gallerya2:b" class="mb20"><input mxe="' + $viewId + '_0" mxc="[';
     $line = 4;
-    $art = '@[{\n                id: 1,\n                name: \'模块1\'\n            }, {\n                id: 2,\n                name: \'模块2\'\n            }]';
+    $art = ':name{required:true}';
     ;
-    $p += '' + ($expr = '<%@[{id:1,name:\'模块1\'},{id:2,name:\'模块2\'}]%>', $i([{ id: 1, name: '模块1' }, { id: 2, name: '模块2' }])) + '&valueKey=id&textKey=name"></div></div><div mxa="_zs_galleryaX:b" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryaX:_" class="_zs_gallery___test___base_-eg-title">自定义&nbsp;text-key&nbsp;和&nbsp;value-key</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 16;
+    $p += '{p:\'name\',f:{required:true}}]" class="input mr60" placeholder="必填项" value="';
+    $line = 4;
+    $art = ':name{required:true}';
+    ;
+    $p += '' + ($expr = '<%=name%>', $e(name)) + '"/> <input mxe="' + $viewId + '_1" mxc="[';
+    $line = 5;
+    $art = ':name&rules';
+    ;
+    $p += '{p:\'name\',f:\'' + ($expr = '<%@rules%>', $i(rules)) + '\'}]" class="input mr60" placeholder="必填项" value="';
+    $line = 5;
+    $art = ':name&rules';
+    ;
+    $p += '' + ($expr = '<%=name%>', $e(name)) + '"/> <input mxe="' + $viewId + '_2" mxc="[';
+    $line = 6;
+    $art = ':name{placement:\'left\',required:true}';
+    ;
+    $p += '{p:\'name\',f:{placement:\'left\',required:true}}]" class="input mr60" placeholder="必填项，提示在左侧" value="';
+    $line = 6;
+    $art = ':name{placement:\'left\',required:true}';
+    ;
+    $p += '' + ($expr = '<%=name%>', $e(name)) + '"/></div></div><div mxa="_zs_gallerya2:c" class="clearfix"><div mxa="_zs_gallerya2:d" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half"><div mxs="_zs_gallerya2:_" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 12;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaX:c" class="_zs_gallery___test___base_-desc-tip">';
-    $line = 18;
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya2:e" class="_zs_gallery___test___base_-desc-tip">';
+    $line = 14;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaX:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 21;
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya2:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 17;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-tabs \n    list="&#123;&#123;@[&#123;\n        id: 1,\n        name: \'模块1\'\n    &#125;, &#123;\n        id: 2,\n        name: \'模块2\'\n    &#125;]&#125;&#125;" \n    value-key="id"\n    text-key="name"&gt;&lt;/mx-tabs&gt;</pre></div></div>';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;input class="input" placeholder="必填项" \n    value="&#123;&#123;:name&#123;required:true&#125;&#125;&#125;"/&gt;\n    \n&lt;input class="input" placeholder="必填项" \n    value="&#123;&#123;:name&rules&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="必填项，提示在左侧" \n    value="&#123;&#123;:name&#123;placement:\'left\',required:true&#125;&#125;&#125;"/&gt;</pre></div><div mxa="_zs_gallerya2:f" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half _zs_gallery___test___base_-half-right"><div mxs="_zs_gallerya2:b" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 29;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya2:g" class="_zs_gallery___test___base_-desc-tip">';
+    $line = 31;
+    $art = '!text2';
+    ;
+    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya2:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 34;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Form = require(\'@../index\');\nlet Validator = require(\'@../validator\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [Form, Validator],\n    render() &#123;\n        this.updater.digest(&#123;\n            rules: &#123;\n                required:true\n            &#125;\n        &#125;);\n    &#125;\n&#125;);</pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -42,8 +75,13 @@ catch (ex) {
     msg += $expr + '\r\n\tat file:mx-form/__test__/2.html';
     throw msg;
 } return $p; },
+    mixins: [Form, Validator],
     render: function () {
-        this.updater.digest();
+        this.updater.digest({
+            rules: {
+                required: true
+            }
+        });
     }
 });
 

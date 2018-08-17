@@ -300,9 +300,8 @@ module.exports = {
         let min = rule[0],
             max = rule[1],
             current = val.length;
-
         return {
-            valid: val && (current <= min) && (current >= max),
+            valid: val && (current >= min) && (current <= max),
             tip: tip.replace('${min}', min).replace('${max}', max).replace('${current}', current)
         };
     },

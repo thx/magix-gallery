@@ -13,7 +13,7 @@ module.exports = Magix.View.extend({
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
     if ($$ref[k = $g + f] === v)
         return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, list = $$.list, curIndex = $$.curIndex, hoverIndex = $$.hoverIndex, textKey = $$.textKey, height = $$.height, contentView = $$.contentView; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallery):_" class="_zs_gallery_mx-dialog_group_-help"><div mxa="_zs_gallery):a" class="_zs_gallery_mx-dialog_group_-help-navs">';
+    $p += '<div mxv mxa="_zs_gallery{:_" class="_zs_gallery_mx-dialog_group_-help"><div mxa="_zs_gallery{:a" class="_zs_gallery_mx-dialog_group_-help-navs">';
     $line = 3;
     $art = 'each list as item index';
     ;

@@ -3,56 +3,106 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-form/__test__/1",["magix","__test__/example","$","mx-tabs/index","mx-copy/index","__test__/hl"],(require,exports,module)=>{
-/*Magix,Base,$*/
-require("mx-tabs/index");
+define("mx-form/__test__/1",["magix","mx-form/index","mx-form/validator","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Form,Validator,Base,$*/
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
+var Form = require("mx-form/index");
+var Validator = require("mx-form/validator");
 var Base = require("__test__/example");
 var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-form___test___1_","/* @dependent: ./index.less */\n._zs_gallery_mx-form___test___1_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-form___test___1_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-form___test___1_-table-wrapper {\n  margin-bottom: 20px;\n  border: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-form___test___1_-fixed-head tr._zs_gallery_mx-form___test___1_-batch-oper th {\n  height: 68px;\n  background-color: #fff;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-form___test___1_-fixed-head tr._zs_gallery_mx-form___test___1_-batch-oper th ._zs_gallery_mx-form___test___1_-batch-input {\n  position: relative;\n}\n._zs_gallery_mx-form___test___1_-fixed-head tr._zs_gallery_mx-form___test___1_-batch-oper th ._zs_gallery_mx-form___test___1_-batch-input ._zs_gallery_mx-form___test___1_-batch-input-text {\n  position: absolute;\n  top: 0;\n  left: -80px;\n  width: 70px;\n  height: 28px;\n  line-height: 28px;\n  text-align: right;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
     if ($$ref[k = $g + f] === v)
-        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, list = $$.list, selected = $$.selected, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryaW:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_galleryaW:a" class="_zs_gallery___test___base_-eg-content"><div mxv="list" mx-change="' + $viewId + 'changeTab()" mx-view="mx-tabs/index?list=';
-    $line = 4;
-    $art = '@list';
+        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, viewId = $$.viewId, batchDiscount = $$.batchDiscount, batRules = $$.batRules, list = $$.list, rules = $$.rules, text1 = $$.text1, text3 = $$.text3, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryaY:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_galleryaY:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryaY:_" class="clearfix mb20 lh22"><div class="fl color-9">以下示例：</div><div class="fl"><div>填写1-300的整数，小于50给警告提示</div><div>双向绑定可以用&传递完整对象&#123;&#123;:value&rules&#125;&#125;，rules：object</div></div></div><div mxv mxa="_zs_galleryaY:b" class="_zs_gallery_mx-form___test___1_-table-wrapper"><table mxv mxa="_zs_galleryaY:c" class="table"><thead mxv mxa="_zs_galleryaY:d" class="_zs_gallery_mx-form___test___1_-fixed-head"><tr mxs="_zs_galleryaY:a"><th>name</th><th width="200">出价</th><th width="200">link</th><th width="200">value</th></tr><tr mxv mxa="_zs_galleryaY:e" class="_zs_gallery_mx-form___test___1_-batch-oper"><th mxs="_zs_galleryaY:b"></th><th mxv mxa="_zs_galleryaY:f" colspan="4"><div mxv mxa="_zs_galleryaY:g" class="_zs_gallery_mx-form___test___1_-batch-input"><span mxs="_zs_galleryaY:c" class="_zs_gallery_mx-form___test___1_-batch-input-text">批量出价</span><input mxe="' + $viewId + '_0" mxc="[';
+    $line = 26;
+    $art = ':batchDiscount&batRules';
     ;
-    $p += '' + ($expr = '<%@list%>', $i(list)) + '&selected=';
-    $line = 5;
-    $art = '=selected';
-    ;
-    $p += '' + ($expr = '<%!$eu(selected)%>', $eu(selected)) + '"></div><div mxa="_zs_galleryaW:b" class="mt20"><a mxs="_zs_galleryaW:_" href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'changeData()">改变数据</a><span mxs="_zs_galleryaW:a" class="ml20 color-9">当前选中：</span><span>';
-    $line = 10;
-    $art = '=selected';
-    ;
-    $p += '' + ($expr = '<%=selected%>', $e(selected)) + '</span></div></div><div mxa="_zs_galleryaW:c" class="clearfix"><div mxa="_zs_galleryaW:d" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half"><div mxs="_zs_galleryaW:b" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 16;
+    $p += '{p:\'batchDiscount\',f:\'' + ($expr = '<%@batRules%>', $i(batRules)) + '\'}]" class="input input-small w80" id="';
+    $line = 25;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaW:e" class="_zs_gallery___test___base_-desc-tip">';
-    $line = 18;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_batch_input" value="';
+    $line = 26;
+    $art = ':batchDiscount&batRules';
+    ;
+    $p += '' + ($expr = '<%=batchDiscount%>', $e(batchDiscount)) + '" mx-focusout="' + $viewId + 'batch()"/><a mxs="_zs_galleryaY:d" href="javascript:;" class="btn btn-small ml10" mx-click="' + $viewId + 'batch()">应用</a></div></th></tr></thead><tbody mxv>';
+    $line = 34;
+    $art = 'each list as item index';
+    ;
+    $p += '';
+    $expr = '<%for(var index=0;index<list.length;index++){var item=list[index]%>';
+    for (var index = 0; index < list.length; index++) {
+        var item = list[index];
+        $p += '<tr mxv><td>';
+        $line = 36;
+        $art = '=item.name';
+        ;
+        $p += '' + ($expr = '<%=item.name%>', $e(item.name)) + '</td><td mxv><input mxe="' + $viewId + '_1_' + ($expr = '<%=index%>', $e(index)) + '" mxc="[';
+        $line = 39;
+        $art = ':item.discount&rules';
+        ;
+        $p += '{p:\'list.' + ($expr = '<%=index%>', $e(index)) + '.discount\',f:\'' + ($expr = '<%@rules%>', $i(rules)) + '\'}]" class="input input-small w80" value="';
+        $line = 39;
+        $art = ':item.discount&rules';
+        ;
+        $p += '' + ($expr = '<%=item.discount%>', $e(item.discount)) + '"/></td><td>';
+        $line = 41;
+        $art = '=item.link';
+        ;
+        $p += '' + ($expr = '<%=item.link%>', $e(item.link)) + '</td><td>';
+        $line = 42;
+        $art = '=item.value';
+        ;
+        $p += '' + ($expr = '<%=item.value%>', $e(item.value)) + '</td></tr>';
+        $line = 44;
+        $art = '/each';
+        ;
+        $p += '';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</tbody></table></div></div><div mxa="_zs_galleryaY:h" class="clearfix"><div mxa="_zs_galleryaY:i" class="_zs_gallery___test___base_-half"><div mxa="_zs_galleryaY:j" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryaY:e" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 53;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaY:k" class="_zs_gallery___test___base_-desc-tip">';
+    $line = 55;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaW:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 21;
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaY:f" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 58;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-tabs \n    list="&#123;&#123;@list&#125;&#125;" \n    selected="&#123;&#123;=selected&#125;&#125;"\n    mx-change="changeTab()"&gt;&lt;/mx-tabs&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand" \n    mx-click="changeData()"&gt;改变数据&lt;/a&gt;</pre></div><div mxa="_zs_galleryaW:f" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half _zs_gallery___test___base_-half-right"><div mxs="_zs_galleryaW:d" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 32;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;table class="table"&gt;\n    &lt;thead class="fixed-head"&gt;\n        &lt;tr&gt;\n            &lt;th&gt;name&lt;/th&gt;\n            &lt;th width="200"&gt;出价&lt;/th&gt;\n            &lt;th width="200"&gt;link&lt;/th&gt;\n            &lt;th width="200"&gt;value&lt;/th&gt;\n        &lt;/tr&gt;\n        &lt;tr class="batch-oper"&gt;\n            &lt;th&gt;&lt;/th&gt;\n            &lt;th colspan="4"&gt;\n                &lt;div class="batch-input"&gt;\n                    &lt;span class="batch-input-text"&gt;批量出价&lt;/span&gt;\n                    &lt;input type="text" class="input input-small w80"\n                        id="&#123;&#123;=viewId&#125;&#125;_batch_input" \n                        value="&#123;&#123;:batchDiscount&batRules&#125;&#125;"\n                        mx-focusout="batch()"/&gt;\n                    &lt;a href="javascript:;" class="btn btn-small ml10" mx-click="batch()"&gt;应用&lt;/a&gt;\n                &lt;/div&gt;\n            &lt;/th&gt;\n        &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n        &#123;&#123;each list as item index&#125;&#125;\n            &lt;tr&gt;\n                &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;\n                &lt;td&gt;\n                    &lt;input type="text" class="input input-small w80"\n                        value="&#123;&#123;:item.discount&rules&#125;&#125;"/&gt;\n                &lt;/td&gt;\n                &lt;td&gt;&#123;&#123;=item.link&#125;&#125;&lt;/td&gt;\n                &lt;td&gt;&#123;&#123;=item.value&#125;&#125;&lt;/td&gt;\n            &lt;/tr&gt;\n        &#123;&#123;/each&#125;&#125;\n    &lt;/tbody&gt;\n&lt;/table&gt;</pre></div><div mxa="_zs_galleryaY:l" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryaY:g" class="_zs_gallery___test___base_-eg-title">CSS</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=';
+    $line = 98;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryaW:g" class="_zs_gallery___test___base_-desc-tip">';
-    $line = 34;
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_galleryaY:m" class="_zs_gallery___test___base_-desc-tip">';
+    $line = 100;
+    $art = '!text3';
+    ;
+    $p += '' + ($expr = '<%!text3%>', $n(text3)) + '</span><i mxs="_zs_galleryaY:f" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 103;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_3">\n@import \'../../mx-style/_vars\';\n\n.fixed-head &#123;\n    tr.batch-oper &#123;\n        th &#123;\n            height: 68px;\n            background-color: #fff;\n            border-bottom: 1px solid @color-border;\n\n            .batch-input &#123;\n                position: relative;\n\n                .batch-input-text &#123;\n                    position: absolute;\n                    top: 0;\n                    left: -80px;\n                    width: 70px;\n                    height: 28px;\n                    line-height: 28px;\n                    text-align: right;\n                &#125;\n            &#125;\n        &#125;\n    &#125;\n&#125;</pre></div></div><div mxa="_zs_galleryaY:n" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half _zs_gallery___test___base_-half-right"><div mxs="_zs_galleryaY:h" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 133;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryaY:o" class="_zs_gallery___test___base_-desc-tip">';
+    $line = 135;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryaW:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 37;
+    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryaY:f" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 138;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let list = [&#123;\n            value: 1,\n            text: \'模块1\',\n            tag: \'New\'\n        &#125;, &#123;\n            value: 2,\n            text: \'模块2\'\n        &#125;, &#123;\n            value: 3,\n            text: \'模块3\',\n            tag: \'内容上新\'\n        &#125;];\n\n        this.updater.digest(&#123;\n            list,\n            selected: list[1].value\n        &#125;);\n    &#125;,\n    \'changeData&lt;click&gt;\' (e) &#123;\n        let list = [&#123;\n            value: 4,\n            text: \'新模块1\',\n            tag: \'New\'\n        &#125;, &#123;\n            value: 5,\n            text: \'新模块2\'\n        &#125;];\n        let selected = list[0].value;\n        this.updater.digest(&#123;\n            list,\n            selected\n        &#125;)\n    &#125;,\n    \'changeTab&lt;change&gt;\' (e) &#123;\n        // e.value 当前选中的key值\n        // e.text 当前选中的文案\n        this.updater.digest(&#123;\n            selected: e.value\n        &#125;)\n    &#125;\n&#125;);</pre></div></div></div>';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Form = require(\'@../index\');\nlet Validator = require(\'@../validator\');\nlet $ = require(\'$\');\nMagix.applyStyle(\'@index.less\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [Form, Validator],\n    render() &#123;\n        let that = this;\n        let list = [];\n        for (var i = 0; i &lt; 3; i++) &#123;\n            list.push(&#123;\n                name: Magix.guid(\'name-\'),\n                link: Magix.guid(\'link-\'),\n                value: Magix.guid(\'value-\')\n            &#125;)\n        &#125;\n\n        let tip = \'请填写1-300之间的整数\';\n        that.updater.digest(&#123;\n            viewId: that.id,\n            list,\n            batRules: &#123;\n                posint: true,\n                min: [1, tip],\n                max: [300, tip]\n            &#125;,\n            rules: &#123;\n                warn: &#123;\n                    min: [50, \'低于50可能影响效果，建议提高\']\n                &#125;,\n                required: [true, tip],\n                posint: true,\n                min: [1, tip],\n                max: [300, tip]\n            &#125;\n        &#125;);\n    &#125;,\n    \'batch&lt;focusout,click&gt;\'(e) &#123;\n        let that = this;\n\n        // 校验批量的按钮是否符合规则\n        // 符合规则再往下走\n        let check = that.isValid(&#123;\n            element: \'#\' + that.id + \'_batch_input\'\n        &#125;)\n\n        if (!check) &#123;\n            return;\n        &#125;\n\n        let data = that.updater.get();\n        let remain = that.fromKeys(data, \'batchDiscount\');\n        let batchDiscount = remain.batchDiscount;\n        if (!batchDiscount) &#123;\n            return;\n        &#125;\n\n        let list = that.updater.get(\'list\');\n        list.forEach(item =&gt; &#123;\n            item.discount = batchDiscount;\n        &#125;)\n        that.updater.digest(&#123;\n            list\n        &#125;)\n\n        // 可能批量校验的规则和单个的不一致\n        // 此处调用isValid校验整个view\n        that.isValid();\n    &#125;\n&#125;);</pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -62,45 +112,63 @@ catch (ex) {
     msg += $expr + '\r\n\tat file:mx-form/__test__/1.html';
     throw msg;
 } return $p; },
+    mixins: [Form, Validator],
     render: function () {
-        var list = [{
-                value: 1,
-                text: '模块1',
-                tag: 'New'
-            }, {
-                value: 2,
-                text: '模块2'
-            }, {
-                value: 3,
-                text: '模块3',
-                tag: '内容上新'
-            }];
-        this.updater.digest({
+        var that = this;
+        var list = [];
+        for (var i = 0; i < 3; i++) {
+            list.push({
+                name: Magix.guid('name-'),
+                link: Magix.guid('link-'),
+                value: Magix.guid('value-')
+            });
+        }
+        var tip = '请填写1-300之间的整数';
+        that.updater.digest({
+            viewId: that.id,
             list: list,
-            selected: list[1].value
+            batRules: {
+                posint: true,
+                min: [1, tip],
+                max: [300, tip]
+            },
+            rules: {
+                warn: {
+                    min: [50, '低于50可能影响效果，建议提高']
+                },
+                required: [true, tip],
+                posint: true,
+                min: [1, tip],
+                max: [300, tip]
+            }
         });
     },
-    'changeData<click>': function (e) {
-        var list = [{
-                value: 4,
-                text: '新模块1',
-                tag: 'New'
-            }, {
-                value: 5,
-                text: '新模块2'
-            }];
-        var selected = list[0].value;
-        this.updater.digest({
-            list: list,
-            selected: selected
+    'batch<focusout,click>': function (e) {
+        var that = this;
+        // 校验批量的按钮是否符合规则
+        // 符合规则再往下走
+        var check = that.isValid({
+            element: '#' + that.id + '_batch_input'
         });
-    },
-    'changeTab<change>': function (e) {
-        // e.value 当前选中的key值
-        // e.text 当前选中的文案
-        this.updater.digest({
-            selected: e.value
+        if (!check) {
+            return;
+        }
+        var data = that.updater.get();
+        var remain = that.fromKeys(data, 'batchDiscount');
+        var batchDiscount = remain.batchDiscount;
+        if (!batchDiscount) {
+            return;
+        }
+        var list = that.updater.get('list');
+        list.forEach(function (item) {
+            item.discount = batchDiscount;
         });
+        that.updater.digest({
+            list: list
+        });
+        // 可能批量校验的规则和单个的不一致
+        // 此处调用isValid校验整个view
+        that.isValid();
     }
 });
 

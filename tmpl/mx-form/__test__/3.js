@@ -1,30 +1,13 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
+let Form = require('@../index');
+let Validator = require('@../validator');
 let $ = require('$');
 
 module.exports = Base.extend({
     tmpl: '@3.html',
+    mixins: [Form, Validator],
     render() {
-        let list = [{
-            value: 1,
-            text: '模块1',
-            tag: 'New'
-        }, {
-            value: 2,
-            text: '模块2'
-        }];
-
-        this.updater.digest({
-            list,
-            selected: list[0].value
-        });
-    },
-
-    'changeTab<change>' (e) {
-        // e.value 当前选中的key值
-        // e.text 当前选中的文案
-        this.updater.digest({
-            selected: e.value
-        })
+        this.updater.digest();
     }
 });

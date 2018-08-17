@@ -17,7 +17,7 @@ var DefaultSize = 280;
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, vertical = $$.vertical, height = $$.height, width = $$.width, min = $$.min, max = $$.max, needInput = $$.needInput, viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryb9:_" class="_zs_gallery_mx-slider_style_-rail-wrapper"><span class="_zs_gallery_mx-slider_style_-rail ';
+    $p += '<div mxa="_zs_galleryb2:_" class="_zs_gallery_mx-slider_style_-rail-wrapper"><span class="_zs_gallery_mx-slider_style_-rail ';
     $expr = '<%if(vertical){%>';
     if (vertical) {
         ;

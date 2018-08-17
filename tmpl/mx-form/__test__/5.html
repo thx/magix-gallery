@@ -1,33 +1,23 @@
 <div class="example">
     <div class="eg-content">
-        <mx-tabs.box
-            list="{{@[{
-                name: '模块1',
-                id: 1
-            },{
-                name: '模块2',
-                id: 2
-            }]}}"
-            value-key="id"
-            text-key="name"/>
+        <div class="mb20">
+            <input class="input mr60" placeholder="4到8个字之间" value="{{:number{length:[4, 8]}}}"/>
+            <input class="input mr60" placeholder="最少2个字" value="{{:number{minlength:2}}}"/>
+            <input class="input mr60" placeholder="最多3个字" value="{{:number{maxlength:3}}}"/>
+        </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">自定义&nbsp;text-key&nbsp;和&nbsp;value-key</div>
+        <div class="eg-title">字个数</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-tabs.box
-    list="&#123;&#123;@[&#123;
-        name: '模块1',
-        id: 1
-    &#125;,&#123;
-        name: '模块2',
-        id: 2
-    &#125;]&#125;&#125;"
-    value-key="id"
-    text-key="name"/&gt;</pre>
+&lt;input class="input" placeholder="4到8个字之间" value="&#123;&#123;:number&#123;length:[4, 8]&#125;&#125;&#125;"/&gt;
+
+&lt;input class="input" placeholder="最少2个字" value="&#123;&#123;:number&#123;minlength:2&#125;&#125;&#125;"/&gt;
+
+&lt;input class="input" placeholder="最多3个字" value="&#123;&#123;:number&#123;maxlength:3&#125;&#125;&#125;"/&gt;</pre>
     </div>
 </div>

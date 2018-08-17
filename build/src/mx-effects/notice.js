@@ -31,7 +31,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=styles';
     ;
-    $p += '' + ($expr = '<%=styles%>', $e(styles)) + '"><span mxa="_zs_galleryaG:_" class="_zs_gallery_mx-effects_notice_-inner"><i mxs="_zs_galleryaG:_" class="mc-iconfont _zs_gallery_mx-effects_notice_-icon">&#xe6ad;</i>';
+    $p += '' + ($expr = '<%=styles%>', $e(styles)) + '"><span mxa="_zs_galleryaH:_" class="_zs_gallery_mx-effects_notice_-inner"><i mxs="_zs_galleryaH:_" class="mc-iconfont _zs_gallery_mx-effects_notice_-icon">&#xe6ad;</i>';
     $line = 3;
     $art = '=content';
     ;

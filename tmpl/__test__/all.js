@@ -12,6 +12,11 @@ module.exports = Magix.View.extend({
         });
 
         let list = [{
+            subs: [{
+                name: '更新记录',
+                path: '/all/update'
+            }]
+        }, {
             name: '脚手架',
             subs: [{
                 name: '快速上手',
@@ -69,7 +74,7 @@ module.exports = Magix.View.extend({
                 icon: '&#xe62c;'
             }]
         }, {
-            name: '表单',
+            name: '表单校验与双向绑定',
             subs: [{
                 name: '配置版（模板组件内）',
                 path: '/form/index',
@@ -203,7 +208,15 @@ module.exports = Magix.View.extend({
                 name: '滑块选择范围',
                 path: '/slider/range',
                 icon: '&#xe664;'
-            }]
+            }, {
+                name: '指标默认配置及选择排序',
+                path: '/indics/index',
+                icon: '&#xe731;'
+            }, {
+                name: '切换操作项',
+                path: '/opers/index',
+                icon: '&#xe61a;'
+            }, ]
         }, {
             name: '提示反馈',
             subs: [{
@@ -251,38 +264,6 @@ module.exports = Magix.View.extend({
                 icon: '&#xe78b;'
             }]
         }, {
-            name: '业务组件',
-            subs: [{
-                name: '选择地域',
-                path: '/area/index',
-                icon: '&#xe663;'
-            }, {
-                name: '时段折扣',
-                path: '/duration/index',
-                icon: '&#xe67c;'
-            }, {
-                name: '时段选择',
-                path: '/hour/index',
-                icon: '&#xe67c;'
-            }, {
-                name: '指标默认配置及选择排序',
-                path: '/indics/index',
-                icon: '&#xe731;'
-            }, {
-                name: '切换操作项',
-                path: '/opers/index',
-                icon: '&#xe61a;'
-            }, {
-                name: '阿里妈妈通用吊底',
-                path: '/footer/index',
-                icon: '&#xe617;'
-            }, {
-                name: '阿里妈妈站点吊头',
-                tip: '产品+学习与支持<a target="_blank" class="link-brand" href="//alp.alibaba-inc.com/#!/page/jsonp-editor/index?id=1375248">配置地址</a>',
-                path: '/header/index',
-                icon: '&#xe780;'
-            }]
-        }, {
             name: '样式',
             subs: [{
                 name: '基础',
@@ -306,6 +287,7 @@ module.exports = Magix.View.extend({
                 icon: '&#xe646;'
             }, {
                 name: '进度条',
+                tip: '条型，刻度型',
                 path: '/effects/progress',
                 icon: '&#xe6e4;'
             }, {
@@ -318,12 +300,28 @@ module.exports = Magix.View.extend({
                 icon: '&#xe685;'
             }]
         }, {
+            name: '业务组件',
             subs: [{
-                name: '国际化',
-                path: '/medusa/index'
+                name: '选择地域',
+                path: '/area/index',
+                icon: '&#xe663;'
             }, {
-                name: '更新记录',
-                path: '/all/update'
+                name: '时段折扣',
+                path: '/duration/index',
+                icon: '&#xe67c;'
+            }, {
+                name: '时段选择',
+                path: '/hour/index',
+                icon: '&#xe67c;'
+            }, {
+                name: '阿里妈妈站点吊头',
+                tip: '产品+学习与支持<a target="_blank" class="link-brand" href="//alp.alibaba-inc.com/#!/page/jsonp-editor/index?id=1375248">配置地址</a>',
+                path: '/header/index',
+                icon: '&#xe780;'
+            }, {
+                name: '阿里妈妈通用吊底',
+                path: '/footer/index',
+                icon: '&#xe617;'
             }]
         }]
         let all = [];

@@ -1,7 +1,5 @@
 let Magix = require('magix');
 let $ = require('$');
-let CopyText = '复制代码';
-Magix.applyStyle('@custom.less');
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -57,19 +55,7 @@ module.exports = Magix.View.extend({
             def: ''
         }]
         that.updater.digest({
-            viewId: that.id,
-            options,
-            text1: CopyText,
-            text2: CopyText,
-            text3: CopyText,
-            text4: CopyText,
-            text5: CopyText,
-            text6: CopyText,
-            text7: CopyText,
-            text8: CopyText,
-            text9: CopyText,
-            text10: CopyText,
-            text11: CopyText
+            options
         });
     }
 });

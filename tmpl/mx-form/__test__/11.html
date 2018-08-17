@@ -1,0 +1,62 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9 mr20">checkbox至少选择一个：</span>
+            {{each checkboxes as c}}
+            <label class="mr30">
+                <input type="checkbox" name="cb" value="{{=c}}" class="checkbox" 
+                    {{if(selected.indexOf(c)>-1)}} checked="true" {{/if}}
+                    {{:selected{required:[true,'必选']}}} />
+                {{=c}}
+            </label>
+            {{/each}}
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;div class="mb20"&gt;
+    &#123;&#123;each checkboxes as c&#125;&#125;
+    &lt;label class="mr30"&gt;
+        &lt;input type="checkbox" class="checkbox" 
+            name="cb" 
+            value="&#123;&#123;=c&#125;&#125;" 
+            &#123;&#123;if(selected.indexOf(c)&gt;-1)&#125;&#125; checked="true" &#123;&#123;/if&#125;&#125;
+            &#123;&#123;:selected&#123;required:[true,'必选']&#125;&#125;&#125; /&gt;
+        &#123;&#123;=c&#125;&#125;
+    &lt;/label&gt;
+    &#123;&#123;/each&#125;&#125;
+&lt;/div&gt;</pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Form = require('@../index');
+let Validator = require('@../validator');
+let $ = require('$');
+
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    mixins: [Form, Validator],
+    render() {
+        this.updater.digest({
+            selected: ['checkbox1'],
+            checkboxes: ['checkbox1', 'checkbox2', 'checkbox3']
+        });
+    }
+});</pre>
+        </div>
+    </div>
+</div>

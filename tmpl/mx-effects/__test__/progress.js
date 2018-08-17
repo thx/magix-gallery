@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@progress.html',
     render() {
         let options = [{
+            key: 'type',
+            desc: [
+                '进度条类型',
+                'line：条型',
+                'degree：刻度型'
+            ].join('<br>'),
+            type: 'string',
+            def: 'line'
+        }, {
             key: 'num',
             desc: '当前进度，0 ~ 100之间的数字，传入几位小数展示几位小数，最多保留两位小数',
             type: 'number',
