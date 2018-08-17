@@ -16,7 +16,7 @@ module.exports = Base.extend({
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
     if ($$ref[k = $g + f] === v)
         return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, searchKey = $$.searchKey, searchValue = $$.searchValue, list = $$.list, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryac:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_galleryac:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryac:_" class="mb10 clearfix"><div class="color-9 fl lh22">以下示例：</div><div class="fl lh22"><div>回车默认搜索第一个</div><div>默认placeholder=list.map(item => {return item.text;})</div><div>事件处理</div></div></div><div mxa="_zs_galleryac:b" class="mb20"><span mxs="_zs_galleryac:a" class="color-9">当前搜索：</span><span>';
+    $p += '<div mxv mxa="_zs_galleryaf:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_galleryaf:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryaf:_" class="mb10 clearfix"><div class="color-9 fl lh22">以下示例：</div><div class="fl lh22"><div>回车默认搜索第一个</div><div>默认placeholder=list.map(item => {return item.text;})</div><div>事件处理</div></div></div><div mxa="_zs_galleryaf:b" class="mb20"><span mxs="_zs_galleryaf:a" class="color-9">当前搜索：</span><span>';
     $line = 13;
     $art = '=searchKey';
     ;
@@ -36,27 +36,27 @@ module.exports = Base.extend({
     $line = 19;
     $art = '=searchValue';
     ;
-    $p += '' + ($expr = '<%!$eu(searchValue)%>', $eu(searchValue)) + '"></div></div></div><div mxa="_zs_galleryac:c" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryac:b" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%!$eu(searchValue)%>', $eu(searchValue)) + '"></div></div></div><div mxa="_zs_galleryaf:c" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryaf:b" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 25;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryac:d" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaf:d" class="_zs_gallery___test___base_-desc-tip">';
     $line = 27;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryac:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaf:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 30;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-search class="w200"\n    list="&#123;&#123;@list&#125;&#125;" \n    search-key="&#123;&#123;=searchKey&#125;&#125;"\n    search-value="&#123;&#123;=searchValue&#125;&#125;"\n    mx-search="change()"&gt;&lt;/mx-search&gt;</pre></div><div mxa="_zs_galleryac:e" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryac:d" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-search class="w200"\n    list="&#123;&#123;@list&#125;&#125;" \n    search-key="&#123;&#123;=searchKey&#125;&#125;"\n    search-value="&#123;&#123;=searchValue&#125;&#125;"\n    mx-search="change()"&gt;&lt;/mx-search&gt;</pre></div><div mxa="_zs_galleryaf:e" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryaf:d" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 39;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryac:f" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryaf:f" class="_zs_gallery___test___base_-desc-tip">';
     $line = 41;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryac:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryaf:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 44;
     $art = '=viewId';
     ;

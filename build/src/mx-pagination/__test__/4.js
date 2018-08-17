@@ -14,19 +14,19 @@ var $ = require("$");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybd:_" class="_zs_gallery___test___base_-example"><div mxs="_zs_gallerybd:_" class="_zs_gallery___test___base_-eg-content"><div mx-view="mx-pagination/index?jump=false&simplify=true&total=100&size=40&page=2"></div></div><div mxa="_zs_gallerybd:a" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerybd:a" class="_zs_gallery___test___base_-eg-title">只有翻页器，没有汇总数据</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 12;
+    $p += '<div mxa="_zs_gallerybf:_" class="_zs_gallery___test___base_-example"><div mxs="_zs_gallerybf:g" class="_zs_gallery___test___base_-eg-content"><div class="text-center"><div mx-view="mx-pagination/index?jump=false&simplify=true&hideTotal=true&total=100&size=40&page=2"></div></div></div><div mxa="_zs_gallerybf:d" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerybf:f" class="_zs_gallery___test___base_-eg-title">只有翻页器，没有汇总数据，可自行控制位置</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 15;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybd:b" class="_zs_gallery___test___base_-desc-tip">';
-    $line = 14;
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybf:e" class="_zs_gallery___test___base_-desc-tip">';
+    $line = 17;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybd:b" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 17;
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybf:b" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 20;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-pagination \n    jump="false"\n    simplify="true"\n    total="100" \n    size="40" \n    page="2"/&gt;</pre></div></div>';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="text-center"&gt;\n    &lt;mx-pagination \n        simplify="true"\n        jump="false"\n        hide-total="true"\n        total="100" \n        size="40" \n        page="2"/&gt;\n&lt;/div&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -31,15 +31,9 @@ module.exports = Magix.View.extend({
                 path: '/all/pro/style',
                 icon: '&#xe698;'
             }, {
-                name: '菜单配置（导航可见）',
-                tip: '入口在导航上的页面，可以为头部一级，或者为侧边二级或者三级，为了处理方便侧边可点都是三级',
+                name: '菜单配置',
                 path: '/all/pro/menu',
                 icon: '&#xe65e;'
-            }, {
-                name: '菜单配置（自定义）',
-                tip: '入口在不在导航上，从具体的某个页面点击进入，可能需要映射到导航的某个位置上',
-                path: '/all/pro/menu-custom',
-                icon: '&#xe731;'
             }, {
                 name: '前后端权限约定',
                 path: '/all/pro/permission',

@@ -30,7 +30,7 @@
     </div>
     <%}%>
 
-    <ul class="clearfix num-items">
+    <ul class="clearfix num-items" <%if(!hideTotal){%> style="float: right;" <%}%> >
         <!-- 上翻页 -->
         <li class="num-item">
             <a class="mc-iconfont num-item-icon <%if(page==1){%>notallowed<%}%>" href="#" mx-click="<%if(page>1){%>@{toPage}({page:<%=page-1%>})<%}else{%>@{prevent}()<%}%>">&#xe61e;
@@ -73,7 +73,9 @@
             <a class="mc-iconfont num-item-icon rotate180 <%if(page==pages){%>notallowed<%}%>" href="#" mx-click="<%if(page<pages){%>@{toPage}({page:<%=page+1%>})<%}else{%>@{prevent}()<%}%>">&#xe61e;</a>
         </li>
         <!-- 下翻页 -->
-
+        
+        <%if(!hideTotal){%>
         <li class="num-item ml10"><%! tipTotal%></li>
+        <%}%>
     </ul>
 </div>

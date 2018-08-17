@@ -1,25 +1,17 @@
-<pre class="tip-content mb40 mr20">// 关于如何配置menu.js中Menus字段
-// 导航上可见的菜单配置
-let Menus = [{
-    has: true,  // 头部菜单权限，必填，不需控制权限给true即可
-    id: 'basic', // 唯一标识，如果有定制的打标需求等，可自定义，默认为Magix.guid()
-    name: '一级标题',  // 头部菜单文案，必填
-    path: '/develop/innav',  // 点击头部菜单的访问路径，必填
-    custom: true, // 自定义页面结构，padding为0，深底色背景，需要的时候配置custom: true即可
-    subs: [{  // 二三级菜单分组，可选
-        name: '二级标题',  // 二级分组标题，没有可不配置，可选
-        thirds: [{
-            has: true,  // 三级菜单权限，权限由三级往上汇总，无权限的剔除，必填，不需控制权限给true即可
-            id: 'innav', // 三级菜单唯一标识，如果有定制的打标需求等，可自定义，默认为Magix.guid()
-            name: '三级标题', // 三级菜单标题，必填
-            path: '/develop/innav',  // 三级菜单访问路径，必填
-            icon: '&#38;&#35;xe786;' // 三级菜单iconfont值，没有可不配置
-        }]
-    }],
-    leftView: '/develop/custom-side' // 该导航侧边栏对应的是一个自定义的view，暂时subs与leftView互斥
-}]
-</pre>
-<mx-title.second content="使用示例"/>
+<div class="fixed-links">
+    <div class="mb10">
+        <a href="javascript:;" class="link-brand" mx-click="to({key:'menu'})">查看导航可见菜单配置</a>
+    </div>
+    <div>
+        <a href="javascript:;" class="link-brand" mx-click="to({key:'custom'})">查看自定义菜单配置</a>
+    </div>
+</div>
+
+
+<mx-title.second id="{{=viewId}}_menu"
+    content="导航可见菜单配置" 
+    tip="入口在导航上的页面，可以为头部一级，或者为侧边二级或者三级，为了处理方便侧边可点都是三级"/>
+<div mx-view="@./menu-desc" class="mb20"></div>
 <div class="clearfix mb20">
     <div class="half">
         <div mx-view="@./menu1"></div>
@@ -31,3 +23,18 @@ let Menus = [{
         <div mx-view="@./menu4"></div>
     </div>
 </div>
+
+<mx-title.second id="{{=viewId}}_custom"
+    content="自定义菜单配置" 
+    tip="入口在不在导航上，从具体的某个页面点击进入，可能需要映射到导航的某个位置上"/>
+<div mx-view="@./menu-custom-desc" class="mb20"></div>
+<!-- <div class="clearfix mb20">
+    <div class="half">
+        <div mx-view="@./menu-custom1"></div>
+        <div mx-view="@./menu-custom3"></div>
+    </div>
+    <div class="half">
+        <div mx-view="@./menu-custom2"></div>
+        <div mx-view="@./menu-custom4"></div>
+    </div>
+</div>  -->

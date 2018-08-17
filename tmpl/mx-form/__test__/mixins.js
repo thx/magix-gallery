@@ -8,7 +8,8 @@ module.exports = Magix.View.extend({
         });
     },
     'to<click>'(e) {
-        let node = $('#' + this.id + '_rules');
+        let key = e.params.key;
+        let node = $('#' + this.id + '_' + key);
         $(window).scrollTop(node.offset().top);
     }
 });

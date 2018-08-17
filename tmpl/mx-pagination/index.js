@@ -37,6 +37,7 @@ module.exports = Magix.View.extend({
             step: ops.step || 5, //页码过多时，中间显示多少条页码
             simplify: (ops.simplify + '') === 'true',
             mini: (ops.mini + '') === 'true',
+            hideTotal: (ops.hideTotal + '') === 'true', //是否隐藏总计
             jump: (ops.jump + '') === 'false', //是否有快捷跳转
             page: ops.page || 1, //当前第几页
             total: (ops.total | 0) || 0, //总数
