@@ -71,7 +71,7 @@ seajs.use('magix', function (Magix) {
     Magix.boot({
         rootId: 'app',
         defaultView: '__test__/all',
-        defaultPath: '/dropdown/index',
+        defaultPath: '/form/mixins',
         routes
     });
 });

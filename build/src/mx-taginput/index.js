@@ -26,7 +26,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if(!items.length&&placeholder){%>';
     if (!items.length && placeholder) {
         ;
-        $p += '<span mxa="_zs_gallerycl:_" class="_zs_gallery_mx-taginput_index_-placeholder">';
+        $p += '<span mxa="_zs_galleryck:_" class="_zs_gallery_mx-taginput_index_-placeholder">';
         $line = 3;
         $art = '=placeholder';
         ;
@@ -54,7 +54,7 @@ module.exports = Magix.View.extend({
         $expr = '<%for(var idx=0;idx<items.length;idx++){var one=items[idx]%>';
         for (var idx = 0; idx < items.length; idx++) {
             var one = items[idx];
-            $p += '<span mxa="_zs_gallerycl:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
+            $p += '<span mxa="_zs_galleryck:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
             $line = 9;
             $art = '=one.text';
             ;

@@ -14,7 +14,7 @@ var $ = require("$");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybh:_" class="_zs_gallery___test___base_-example"><div mxs="_zs_gallerybh:_" class="_zs_gallery___test___base_-eg-content"><i class="mc-iconfont color-9" mx-view="mx-popconfirm/index?content=%E7%94%A8%C2%A0i%C2%A0%E6%A0%87%E7%AD%BE%E7%94%9F%E6%88%90%EF%BC%8C%E5%AE%BD%E5%BA%A6400%EF%BC%8C%E6%96%87%E5%AD%97%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90&width=400&alignText=center&placement=bottom">&#xe629;</i></div><div mxa="_zs_gallerybh:a" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerybh:a" class="_zs_gallery___test___base_-eg-title">自定义tag显示 + 自定义宽度 + 自定义文字对齐方式</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerybh:_" class="_zs_gallery___test___base_-example"><div mxs="_zs_gallerybh:_" class="_zs_gallery___test___base_-eg-content"><span mx-view="mx-popconfirm/index?content=%E7%A1%AE%E8%AE%A4%E5%88%A0%E9%99%A4%E5%90%97%EF%BC%9F&width=260&alignText=center"><a href="javascript:;" class="link-brand">删除</a></span></div><div mxa="_zs_gallerybh:a" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerybh:a" class="_zs_gallery___test___base_-eg-title">自定义宽度 + 文字居中对齐</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 12;
     $art = '=viewId';
     ;
@@ -26,7 +26,7 @@ module.exports = Base.extend({
     $line = 17;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-popconfirm class="mc-iconfont color-9"\n    tag="i"\n    content="用 i 标签生成，宽度400，文字居中对齐"\n    width="400"\n    align-text="center"\n    placement="bottom"&gt;&amp;#xe629;&lt;/mx-popconfirm&gt;</pre></div></div>';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-popconfirm \n    content="确认删除吗？"\n    width="260"\n    align-text="center"&gt;\n    &lt;a href="javascript:;" class="link-brand"&gt;删除&lt;/a&gt;\n&lt;/mx-popconfirm&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -37,9 +37,9 @@ module.exports = Magix.View.extend({
     $art = 'each supportQuickDates as item';
     ;
     $p += '';
-    $expr = '<%for(var $art_iwdyylcqi$art_i=0;$art_iwdyylcqi$art_i<supportQuickDates.length;$art_iwdyylcqi$art_i++){var item=supportQuickDates[$art_iwdyylcqi$art_i]%>';
-    for (var $art_iwdyylcqi$art_i = 0; $art_iwdyylcqi$art_i < supportQuickDates.length; $art_iwdyylcqi$art_i++) {
-        var item = supportQuickDates[$art_iwdyylcqi$art_i];
+    $expr = '<%for(var $art_iygevfhg$art_i=0;$art_iygevfhg$art_i<supportQuickDates.length;$art_iygevfhg$art_i++){var item=supportQuickDates[$art_iygevfhg$art_i]%>';
+    for (var $art_iygevfhg$art_i = 0; $art_iygevfhg$art_i < supportQuickDates.length; $art_iygevfhg$art_i++) {
+        var item = supportQuickDates[$art_iygevfhg$art_i];
         $p += '<tr><td>';
         $line = 33;
         $art = '=item.key';

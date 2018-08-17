@@ -226,6 +226,7 @@ module.exports = Magix.View.extend({
                 icon: '&#xe654;'
             }, {
                 name: 'popconfirm气泡确认框',
+                tip: '点击出确认浮层',
                 path: '/popconfirm/index',
                 icon: '&#xe7ff;'
             }, {

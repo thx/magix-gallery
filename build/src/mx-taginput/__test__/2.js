@@ -16,19 +16,19 @@ module.exports = Base.extend({
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
     if ($$ref[k = $g + f] === v)
         return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerych:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_gallerych:a" class="_zs_gallery___test___base_-eg-content"><div mx-view="mx-taginput/index?list=';
+    $p += '<div mxa="_zs_gallerycg:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_gallerycg:a" class="_zs_gallery___test___base_-eg-content"><div mx-view="mx-taginput/index?list=';
     $line = 4;
     $art = '@[{\n                name: \'test1\',\n                id: 1\n            }, {\n                name: \'test2\',\n                id: 2\n            }, {\n                name: \'test3\',\n                id: 3\n            }]';
     ;
-    $p += '' + ($expr = '<%@[{name:\'test1\',id:1},{name:\'test2\',id:2},{name:\'test3\',id:3}]%>', $i([{ name: 'test1', id: 1 }, { name: 'test2', id: 2 }, { name: 'test3', id: 3 }])) + '&selected=1&textKey=name&valueKey=id"></div></div><div mxa="_zs_gallerych:b" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerych:_" class="_zs_gallery___test___base_-eg-title">自定义&nbsp;list-text=&nbsp;和&nbsp;list-value</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%@[{name:\'test1\',id:1},{name:\'test2\',id:2},{name:\'test3\',id:3}]%>', $i([{ name: 'test1', id: 1 }, { name: 'test2', id: 2 }, { name: 'test3', id: 3 }])) + '&selected=1&textKey=name&valueKey=id"></div></div><div mxa="_zs_gallerycg:b" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerycg:_" class="_zs_gallery___test___base_-eg-title">自定义&nbsp;list-text=&nbsp;和&nbsp;list-value</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 20;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerych:c" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycg:c" class="_zs_gallery___test___base_-desc-tip">';
     $line = 22;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerych:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycg:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 25;
     $art = '=viewId';
     ;

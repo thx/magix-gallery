@@ -41,9 +41,9 @@ module.exports = Magix.View.extend({
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for(var $art_iewfb$art_i=0;$art_iewfb$art_i<list.length;$art_iewfb$art_i++){var item=list[$art_iewfb$art_i]%>';
-    for (var $art_iewfb$art_i = 0; $art_iewfb$art_i < list.length; $art_iewfb$art_i++) {
-        var item = list[$art_iewfb$art_i];
+    $expr = '<%for(var $art_iqjsyuw$art_i=0;$art_iqjsyuw$art_i<list.length;$art_iqjsyuw$art_i++){var item=list[$art_iqjsyuw$art_i]%>';
+    for (var $art_iqjsyuw$art_i = 0; $art_iqjsyuw$art_i < list.length; $art_iqjsyuw$art_i++) {
+        var item = list[$art_iqjsyuw$art_i];
         $p += ' ';
         $line = 5;
         $art = 'if item.name';
@@ -89,9 +89,9 @@ module.exports = Magix.View.extend({
         $art = 'each item.subs as sub';
         ;
         $p += '';
-        $expr = '<%for(var $art_ioxxbvvo$art_i=0,$art_objuriwfbuv$art_obj=item.subs;$art_ioxxbvvo$art_i<$art_objuriwfbuv$art_obj.length;$art_ioxxbvvo$art_i++){var sub=$art_objuriwfbuv$art_obj[$art_ioxxbvvo$art_i]%>';
-        for (var $art_ioxxbvvo$art_i = 0, $art_objuriwfbuv$art_obj = item.subs; $art_ioxxbvvo$art_i < $art_objuriwfbuv$art_obj.length; $art_ioxxbvvo$art_i++) {
-            var sub = $art_objuriwfbuv$art_obj[$art_ioxxbvvo$art_i];
+        $expr = '<%for(var $art_ihxlacvz$art_i=0,$art_objdkrwenquw$art_obj=item.subs;$art_ihxlacvz$art_i<$art_objdkrwenquw$art_obj.length;$art_ihxlacvz$art_i++){var sub=$art_objdkrwenquw$art_obj[$art_ihxlacvz$art_i]%>';
+        for (var $art_ihxlacvz$art_i = 0, $art_objdkrwenquw$art_obj = item.subs; $art_ihxlacvz$art_i < $art_objdkrwenquw$art_obj.length; $art_ihxlacvz$art_i++) {
+            var sub = $art_objdkrwenquw$art_obj[$art_ihxlacvz$art_i];
             $p += '<a class="_zs_gallery___test___all_-nav ';
             $line = 13;
             $art = 'if (sub.path == path)';
@@ -473,6 +473,7 @@ catch (ex) {
                         icon: '&#xe654;'
                     }, {
                         name: 'popconfirm气泡确认框',
+                        tip: '点击出确认浮层',
                         path: '/popconfirm/index',
                         icon: '&#xe7ff;'
                     }, {

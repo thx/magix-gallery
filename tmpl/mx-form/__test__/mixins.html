@@ -1,9 +1,16 @@
-<mx-title.second content="完整应用场景示例"/>
+<div class="clearfix">
+    <mx-title.second content="双向绑定 + 校验完整示例" class="fl"/>
+    <div class="fl" style="margin-top: 8px;">
+        <span class="color-9">（</span>
+        <a href="javascript:;" class="link-brand" mx-click="to()">查看所有支持的校验项</a>
+        <span class="color-9">）</span>
+    </div>
+</div>
 <div class="clearfix mb20">
     <div mx-view="@./1"></div>
 </div>
 
-<mx-title.second content="检验项示例"/>
+<mx-title.second content="检验项示例" id="{{=viewId}}_rules"/>
 <div class="clearfix mb20">
     <div mx-view="@./2"></div>
     <div mx-view="@./10"></div>
@@ -11,6 +18,7 @@
     <div mx-view="@./12"></div>
     <div mx-view="@./13"></div>
     <div mx-view="@./9"></div>
+    <div mx-view="@./14"></div>
     <div mx-view="@./3"></div>
     <div mx-view="@./4"></div>
     <div mx-view="@./5"></div>
