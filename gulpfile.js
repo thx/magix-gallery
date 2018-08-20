@@ -170,31 +170,31 @@ let  spawnCommand = (command, args, options) => {
 
 gulp.task('test', async () => {
     //先更新远程分支数据 
-    await spawnCommand('git', ['pull']);
+    // await spawnCommand('git', ['pull']);
 
-    // 替换index的版本号为最新
+    // // 替换index的版本号为最新
     let ver = pkg.version;
-    let index = fs.readFileSync('./index.html').toString();
-    index = index.replace(/(?<=zs_gallery\/).*?(?=\/)/g, ver);
-    fs.writeFileSync('./index.html', index);
+    // let index = fs.readFileSync('./index.html').toString();
+    // index = index.replace(/(?<=zs_gallery\/).*?(?=\/)/g, ver);
+    // fs.writeFileSync('./index.html', index);
 
-    await spawnCommand('git', ['add', '.']);
-    await spawnCommand('git', ['commit', '-m', 'start update version']);
+    // await spawnCommand('git', ['add', '.']);
+    // await spawnCommand('git', ['commit', '-m', 'start update version']);
 
     // tag发布版本
-    // let dailyVer = 'daily/' + ver,
-    //     publishVer = 'publish/' + ver;
+    let dailyVer = 'daily/' + ver,
+        publishVer = 'publish/' + ver;
     // await spawnCommand('git', ['checkout', '-b', dailyVer]);
     // await spawnCommand('git', ['push', 'origin', dailyVer]);
     // await spawnCommand('git', ['tag', publishVer]);
     // await spawnCommand('git', ['push', 'origin', publishVer]);
 
     // // 提交master
-    // await spawnCommand('git', ['checkout', 'master']);
-    // await spawnCommand('git', ['pull']);
-    // await spawnCommand('git', ['add', '.']);
-    // await spawnCommand('git', ['commit', '-m', 'finish update version']);
-    // await spawnCommand('git', ['push', 'origin', 'master']);
+    await spawnCommand('git', ['checkout', 'master']);
+    await spawnCommand('git', ['pull']);
+    await spawnCommand('git', ['add', '.']);
+    await spawnCommand('git', ['commit', '-m', 'finish update version']);
+    await spawnCommand('git', ['push', 'origin', 'master']);
 })
 
 gulp.task('release', ['compress'], () => {
