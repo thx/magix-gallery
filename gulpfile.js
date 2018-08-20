@@ -109,16 +109,6 @@ gulp.task('watch', ['combine'], () => {
     });
 });
 
-gulp.task('ver', () => {
-    combineTool.walk('./tmpl', file => {
-        if (/\.js$/.test(file)) {
-            let c = combineTool.readFile(file);
-            c = c.replace(/\s*\/\*\s+ver:\d+\.\d+\.\d+\s+\*\/\s*/g, '');
-            // c = `/*\r\nver:${pkg.version}\r\n*/\r\n${c}`;
-            combineTool.writeFile(file, c);
-        }
-    });
-});
 gulp.task('turnOffDebug', () => {
     combineTool.config({
         debug: false
@@ -182,25 +172,29 @@ gulp.task('test', async () => {
     //先更新远程分支数据 
     await spawnCommand('git', ['pull']);
 
-    //从本地分支里找出daily/0.0.x这种类型的分支里最大的分支号
-    let branchs = await execCommandReturn('git branch -a');
-    branchs = branchs.split('\n');
+    // 替换index的版本号为最新
+    let ver = pkg.version;
+    let index = fs.readFileSync('./index.html').toString();
+    index = index.replace(/(?<=zs_gallery\/).*?(?=\/)/g, ver);
+    fs.writeFileSync('./index.html', index);
 
-    const branchVersions = []
-    branchs.forEach((branch) => {
-        branch = branch.trim()
-        const branchExec = /.*\/0\.0\.(\d+)/.exec(branch)
-        if (branchExec) {
-            branchVersions.push(branchExec[1])
-        }
-    })
+    await spawnCommand('git', ['add', '.']);
+    await spawnCommand('git', ['commit', '-m', 'start update version']);
 
-    //最大的分支号
-    const maxVersion = branchVersions.length ? Math.max.apply(null, branchVersions) : 0;
-    const newDaily = `daily/0.0.${maxVersion + 1}`;
-    
-    await spawnCommand('git', ['checkout', '-b', newDaily]);
-    await spawnCommand('git', ['push', 'origin', newDaily]);
+    // tag发布版本
+    // let dailyVer = 'daily/' + ver,
+    //     publishVer = 'publish/' + ver;
+    // await spawnCommand('git', ['checkout', '-b', dailyVer]);
+    // await spawnCommand('git', ['push', 'origin', dailyVer]);
+    // await spawnCommand('git', ['tag', publishVer]);
+    // await spawnCommand('git', ['push', 'origin', publishVer]);
+
+    // // 提交master
+    // await spawnCommand('git', ['checkout', 'master']);
+    // await spawnCommand('git', ['pull']);
+    // await spawnCommand('git', ['add', '.']);
+    // await spawnCommand('git', ['commit', '-m', 'finish update version']);
+    // await spawnCommand('git', ['push', 'origin', 'master']);
 })
 
 gulp.task('release', ['compress'], () => {
