@@ -17,7 +17,7 @@ module.exports = Base.extend({
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
     if ($$ref[k = $g + f] === v)
         return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, id = $$.id, name = $$.name, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerya#:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_gallerya#:a" class="_zs_gallery___test___base_-eg-content"><div mxv mxa="_zs_gallerya#:b" class="clearfix"><input class="input mr20 mb20" placeholder="节点1" id="';
+    $p += '<div mxv mxa="_zs_gallerya$:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_gallerya$:a" class="_zs_gallery___test___base_-eg-content"><div mxv mxa="_zs_gallerya$:b" class="clearfix"><input class="input mr20 mb20" placeholder="节点1" id="';
     $line = 4;
     $art = '=id';
     ;
@@ -37,27 +37,27 @@ module.exports = Base.extend({
     $line = 6;
     $art = ':name{equalto:[id,\'自定义提示\']}';
     ;
-    $p += '' + ($expr = '<%=name%>', $e(name)) + '"/></div></div><div mxa="_zs_gallerya#:c" class="clearfix"><div mxa="_zs_gallerya#:d" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half"><div mxs="_zs_gallerya#:c" class="_zs_gallery___test___base_-eg-title">与某个节点的结果保持一致</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=name%>', $e(name)) + '"/></div></div><div mxa="_zs_gallerya$:c" class="clearfix"><div mxa="_zs_gallerya$:d" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half"><div mxs="_zs_gallerya$:_" class="_zs_gallery___test___base_-eg-title">与某个节点的结果保持一致</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 12;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya#:e" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya$:e" class="_zs_gallery___test___base_-desc-tip">';
     $line = 14;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya#:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya$:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 17;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;input class="input" placeholder="节点1" \n    id="&#123;&#123;=id&#125;&#125;"/&gt;\n\n&lt;!-- 双向绑定支持绑定动态参数，如下绑定动态id --&gt;\n&lt;input class="input" placeholder="同节点1" \n    value="&#123;&#123;:name&#123;equalto:id&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="同节点1，自定义提示" \n    value="&#123;&#123;:name&#123;equalto:[id,\'自定义提示\']&#125;&#125;&#125;"/&gt;</pre></div><div mxa="_zs_gallerya#:f" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half _zs_gallery___test___base_-half-right"><div mxs="_zs_gallerya#:b" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;input class="input" placeholder="节点1" \n    id="&#123;&#123;=id&#125;&#125;"/&gt;\n\n&lt;!-- 双向绑定支持绑定动态参数，如下绑定动态id --&gt;\n&lt;input class="input" placeholder="同节点1" \n    value="&#123;&#123;:name&#123;equalto:id&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="同节点1，自定义提示" \n    value="&#123;&#123;:name&#123;equalto:[id,\'自定义提示\']&#125;&#125;&#125;"/&gt;</pre></div><div mxa="_zs_gallerya$:f" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half _zs_gallery___test___base_-half-right"><div mxs="_zs_gallerya$:b" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 30;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya#:g" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya$:g" class="_zs_gallery___test___base_-desc-tip">';
     $line = 32;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya#:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya$:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 35;
     $art = '=viewId';
     ;

@@ -39,7 +39,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><i mxs="_zs_gallerybR:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+    $p += '"><i mxs="_zs_gallerybU:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
     $line = 3;
     $art = '=placeholder';
     ;
@@ -68,9 +68,9 @@ module.exports = Magix.View.extend({
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for(var $art_ielxhlfrr$art_i=0;$art_ielxhlfrr$art_i<list.length;$art_ielxhlfrr$art_i++){var item=list[$art_ielxhlfrr$art_i]%>';
-    for (var $art_ielxhlfrr$art_i = 0; $art_ielxhlfrr$art_i < list.length; $art_ielxhlfrr$art_i++) {
-        var item = list[$art_ielxhlfrr$art_i];
+    $expr = '<%for(var $art_igrpgvw$art_i=0;$art_igrpgvw$art_i<list.length;$art_igrpgvw$art_i++){var item=list[$art_igrpgvw$art_i]%>';
+    for (var $art_igrpgvw$art_i = 0; $art_igrpgvw$art_i < list.length; $art_igrpgvw$art_i++) {
+        var item = list[$art_igrpgvw$art_i];
         $p += '<li class="_zs_gallery_mx-search_index_-search-item ';
         $line = 13;
         $art = 'if (searchKey == item.value)';

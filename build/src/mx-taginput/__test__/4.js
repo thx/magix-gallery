@@ -16,19 +16,19 @@ module.exports = Base.extend({
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
     if ($$ref[k = $g + f] === v)
         return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryck:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryck:a" class="_zs_gallery___test___base_-eg-content"><div class="mb20" mx-disabled mx-view="mx-taginput/index?list=';
+    $p += '<div mxa="_zs_gallerycn:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_gallerycn:a" class="_zs_gallery___test___base_-eg-content"><div class="mb20" mx-disabled mx-view="mx-taginput/index?list=';
     $line = 5;
     $art = '@[\'test1\',\'test2\',\'test3\',\'test4\']';
     ;
-    $p += '' + ($expr = '<%@[\'test1\',\'test2\',\'test3\',\'test4\']%>', $i(['test1', 'test2', 'test3', 'test4'])) + '&selected=test1%2Ctest2"></div></div><div mxa="_zs_galleryck:b" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryck:_" class="_zs_gallery___test___base_-eg-title">禁止操作</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%@[\'test1\',\'test2\',\'test3\',\'test4\']%>', $i(['test1', 'test2', 'test3', 'test4'])) + '&selected=test1%2Ctest2"></div></div><div mxa="_zs_gallerycn:b" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerycn:_" class="_zs_gallery___test___base_-eg-title">禁止操作</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 10;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryck:c" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycn:c" class="_zs_gallery___test___base_-desc-tip">';
     $line = 12;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryck:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycn:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 15;
     $art = '=viewId';
     ;

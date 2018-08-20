@@ -14,15 +14,15 @@ Magix.applyStyle("_zs_gallery___test___pro_menu_","/* @dependent: ./index.less *
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryq:_" class="_zs_gallery___test___base_-example"><div mxs="_zs_galleryq:_" class="_zs_gallery___test___base_-eg-content"><div class="clearfix mb20"><div class="fl color-9">以下示例：</div><div class="fl">侧边是一个自定义页面，配置leftView，无subs</div></div><div class="_zs_gallery___test___pro_menu_-menu"><div class="_zs_gallery___test___pro_menu_-header clearfix"><div class="_zs_gallery___test___pro_menu_-logo">LOGO</div><div class="_zs_gallery___test___pro_menu_-name">一级标题</div></div><div class="clearfix"><div class="_zs_gallery___test___pro_menu_-navs"><img src="//img.alicdn.com/tfs/TB1A_l1oBsmBKNjSZFsXXaXSVXa-210-153.png"></div></div></div></div><div mxa="_zs_galleryq:a" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryq:a" class="_zs_gallery___test___base_-eg-title">配置Menus</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_galleryt:_" class="_zs_gallery___test___base_-example"><div mxs="_zs_galleryt:_" class="_zs_gallery___test___base_-eg-content"><div class="clearfix mb20"><div class="fl color-9">以下示例：</div><div class="fl">侧边是一个自定义页面，配置leftView，无subs</div></div><div class="_zs_gallery___test___pro_menu_-menu"><div class="_zs_gallery___test___pro_menu_-header clearfix"><div class="_zs_gallery___test___pro_menu_-logo">LOGO</div><div class="_zs_gallery___test___pro_menu_-name">一级标题</div></div><div class="clearfix"><div class="_zs_gallery___test___pro_menu_-navs"><img src="//img.alicdn.com/tfs/TB1A_l1oBsmBKNjSZFsXXaXSVXa-210-153.png"></div></div></div></div><div mxa="_zs_galleryt:a" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryt:a" class="_zs_gallery___test___base_-eg-title">配置Menus</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 21;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryq:b" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryt:b" class="_zs_gallery___test___base_-desc-tip">';
     $line = 23;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryq:b" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryt:b" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 26;
     $art = '=viewId';
     ;

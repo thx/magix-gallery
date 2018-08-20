@@ -24,22 +24,22 @@ module.exports = Magix.View.extend({
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
     if ($$ref[k = $g + f] === v)
         return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, options = $$.options, viewId = $$.viewId, supportQuickDates = $$.supportQuickDates; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryW:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryW:a" class="clearfix mb20"><div class="_zs_gallery___test___base_-half"><div mx-view="mx-calendar/__test__/6"></div><div mx-view="mx-calendar/__test__/12"></div></div><div class="_zs_gallery___test___base_-half"><div mx-view="mx-calendar/__test__/7"></div><div mx-view="mx-calendar/__test__/8"></div><div mx-view="mx-calendar/__test__/9"></div><div mx-view="mx-calendar/__test__/10"></div><div mx-view="mx-calendar/__test__/11"></div><div mx-view="mx-calendar/__test__/13"></div></div></div><div mxs="_zs_galleryW:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += '<div mxs="_zs_galleryZ:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryZ:a" class="clearfix mb20"><div class="_zs_gallery___test___base_-half"><div mx-view="mx-calendar/__test__/6"></div><div mx-view="mx-calendar/__test__/12"></div></div><div class="_zs_gallery___test___base_-half"><div mx-view="mx-calendar/__test__/7"></div><div mx-view="mx-calendar/__test__/8"></div><div mx-view="mx-calendar/__test__/9"></div><div mx-view="mx-calendar/__test__/10"></div><div mx-view="mx-calendar/__test__/11"></div><div mx-view="mx-calendar/__test__/13"></div></div></div><div mxs="_zs_galleryZ:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 18;
     $art = '@options';
     ;
-    $p += '' + ($expr = '<%@options%>', $i(options)) + '" class="mb40"></div><div mxs="_zs_galleryW:c" mx-view="mx-title/second?content=%E5%BF%AB%E6%8D%B7%E6%97%A5%E6%9C%9F%E5%A4%87%E9%80%89%E9%A1%B9"></div><div class="pr20 mb40" id="';
+    $p += '' + ($expr = '<%@options%>', $i(options)) + '" class="mb40"></div><div mxs="_zs_galleryZ:c" mx-view="mx-title/second?content=%E5%BF%AB%E6%8D%B7%E6%97%A5%E6%9C%9F%E5%A4%87%E9%80%89%E9%A1%B9"></div><div class="pr20 mb40" id="';
     $line = 21;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_quick"><table mxa="_zs_galleryW:_" class="table _zs_gallery___test___base_-desc-table"><thead mxs="_zs_galleryW:d"><tr><th width="100">配置key值</th><th width="100">显示文案</th><th width="200">描述</th></tr></thead><tbody>';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_quick"><table mxa="_zs_galleryZ:_" class="table _zs_gallery___test___base_-desc-table"><thead mxs="_zs_galleryZ:d"><tr><th width="100">配置key值</th><th width="100">显示文案</th><th width="200">描述</th></tr></thead><tbody>';
     $line = 31;
     $art = 'each supportQuickDates as item';
     ;
     $p += '';
-    $expr = '<%for(var $art_ifgesdduiq$art_i=0;$art_ifgesdduiq$art_i<supportQuickDates.length;$art_ifgesdduiq$art_i++){var item=supportQuickDates[$art_ifgesdduiq$art_i]%>';
-    for (var $art_ifgesdduiq$art_i = 0; $art_ifgesdduiq$art_i < supportQuickDates.length; $art_ifgesdduiq$art_i++) {
-        var item = supportQuickDates[$art_ifgesdduiq$art_i];
+    $expr = '<%for(var $art_izduciqqu$art_i=0;$art_izduciqqu$art_i<supportQuickDates.length;$art_izduciqqu$art_i++){var item=supportQuickDates[$art_izduciqqu$art_i]%>';
+    for (var $art_izduciqqu$art_i = 0; $art_izduciqqu$art_i < supportQuickDates.length; $art_izduciqqu$art_i++) {
+        var item = supportQuickDates[$art_izduciqqu$art_i];
         $p += '<tr><td>';
         $line = 33;
         $art = '=item.key';
@@ -60,7 +60,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</tbody></table></div><div mxs="_zs_galleryW:e" mx-view="mx-calendar/__test__/implement"></div>';
+    $p += '</tbody></table></div><div mxs="_zs_galleryZ:e" mx-view="mx-calendar/__test__/implement"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

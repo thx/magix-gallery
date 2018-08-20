@@ -22,11 +22,11 @@ module.exports = Base.extend({
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
     if ($$ref[k = $g + f] === v)
         return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, page = $$.page, size = $$.size, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerybg:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerybg:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_gallerybg:a" class="_zs_gallery___test___base_-eg-content clearfix"><div mxa="_zs_gallerybg:b" class="mb20"><span mxs="_zs_gallerybg:a" class="color-9">当前页数：</span><span mxa="_zs_gallerybg:c" class="mr20">';
+    $p += '<div mxs="_zs_gallerybj:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerybj:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_gallerybj:a" class="_zs_gallery___test___base_-eg-content clearfix"><div mxa="_zs_gallerybj:b" class="mb20"><span mxs="_zs_gallerybj:a" class="color-9">当前页数：</span><span mxa="_zs_gallerybj:c" class="mr20">';
     $line = 6;
     $art = '=page';
     ;
-    $p += '' + ($expr = '<%=page%>', $e(page)) + '</span><span mxs="_zs_gallerybg:b" class="color-9">每页展示：</span><span>';
+    $p += '' + ($expr = '<%=page%>', $e(page)) + '</span><span mxs="_zs_gallerybj:b" class="color-9">每页展示：</span><span>';
     $line = 8;
     $art = '=size';
     ;
@@ -42,31 +42,31 @@ module.exports = Base.extend({
     $line = 15;
     $art = '=page';
     ;
-    $p += '' + ($expr = '<%!$eu(page)%>', $eu(page)) + '"></div></div><div mxa="_zs_gallerybg:d" class="clearfix"><div mxa="_zs_gallerybg:e" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half"><div mxs="_zs_gallerybg:c" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%!$eu(page)%>', $eu(page)) + '"></div></div><div mxa="_zs_gallerybj:d" class="clearfix"><div mxa="_zs_gallerybj:e" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half"><div mxs="_zs_gallerybj:c" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 22;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybg:f" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybj:f" class="_zs_gallery___test___base_-desc-tip">';
     $line = 24;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybg:d" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybj:d" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 27;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-pagination\n    total="600" \n    sizes="&#123;&#123;@[20,40,50]&#125;&#125;"\n    step="6"\n    size="&#123;&#123;=size&#125;&#125;" \n    page="&#123;&#123;=page&#125;&#125;"\n    mx-change="change()"&gt;\n&lt;/mx-pagination&gt;</pre></div><div mxa="_zs_gallerybg:g" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half _zs_gallery___test___base_-half-right"><div mxs="_zs_gallerybg:e" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-pagination\n    total="600" \n    sizes="&#123;&#123;@[20,40,50]&#125;&#125;"\n    step="6"\n    size="&#123;&#123;=size&#125;&#125;" \n    page="&#123;&#123;=page&#125;&#125;"\n    mx-change="change()"&gt;\n&lt;/mx-pagination&gt;</pre></div><div mxa="_zs_gallerybj:g" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half _zs_gallery___test___base_-half-right"><div mxs="_zs_gallerybj:e" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 39;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerybg:h" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerybj:h" class="_zs_gallery___test___base_-desc-tip">';
     $line = 41;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerybg:d" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerybj:d" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 44;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            page: 1,\n            size: 40\n        &#125;);\n    &#125;,\n    \'change&lt;change&gt;\' (e) &#123;\n        // e.page 当前第几页\n        // e.size 每页多少条\n        this.updater.digest(&#123;\n            page: e.page,\n            size: e.size\n        &#125;)\n    &#125;\n&#125;);</pre></div></div></div><div mxs="_zs_gallerybg:f" mx-view="mx-pagination/__test__/1"></div><div mxs="_zs_gallerybg:g" class="clearfix mb20"><div class="_zs_gallery___test___base_-half"><div mx-view="mx-pagination/__test__/2"></div><div mx-view="mx-pagination/__test__/4"></div></div><div class="_zs_gallery___test___base_-half"><div mx-view="mx-pagination/__test__/3"></div></div></div><div mxs="_zs_gallerybg:h" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            page: 1,\n            size: 40\n        &#125;);\n    &#125;,\n    \'change&lt;change&gt;\' (e) &#123;\n        // e.page 当前第几页\n        // e.size 每页多少条\n        this.updater.digest(&#123;\n            page: e.page,\n            size: e.size\n        &#125;)\n    &#125;\n&#125;);</pre></div></div></div><div mxs="_zs_gallerybj:f" mx-view="mx-pagination/__test__/1"></div><div mxs="_zs_gallerybj:g" class="clearfix mb20"><div class="_zs_gallery___test___base_-half"><div mx-view="mx-pagination/__test__/2"></div><div mx-view="mx-pagination/__test__/4"></div></div><div class="_zs_gallery___test___base_-half"><div mx-view="mx-pagination/__test__/3"></div></div></div><div mxs="_zs_gallerybj:h" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 80;
     $art = '@options';
     ;

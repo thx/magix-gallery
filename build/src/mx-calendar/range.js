@@ -57,7 +57,7 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '" mx-contextmenu="' + $viewId + '@{prevent}()"><div mxa="_zs_galleryZ:_" class="_zs_gallery_mx-calendar_range_-range"><div mxa="_zs_galleryZ:a" class="_zs_gallery_mx-calendar_range_-title clearfix"><span mxa="_zs_galleryZ:b" class="fl">';
+    $p += '" mx-contextmenu="' + $viewId + '@{prevent}()"><div mxa="_zs_gallery2:_" class="_zs_gallery_mx-calendar_range_-range"><div mxa="_zs_gallery2:a" class="_zs_gallery_mx-calendar_range_-title clearfix"><span mxa="_zs_gallery2:b" class="fl">';
     $line = 4;
     $art = '=title';
     ;
@@ -81,7 +81,7 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxa="_zs_galleryZ:c" class="clearfix pr"><div mxa="_zs_galleryZ:d" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-left">';
+    $p += '</div><div mxa="_zs_gallery2:c" class="clearfix pr"><div mxa="_zs_gallery2:d" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-left">';
     $line = 11;
     $art = 'if startDisabled';
     ;
@@ -89,7 +89,7 @@ var RangeDate = Magix.View.extend({
     $expr = '<%if(startDisabled){%>';
     if (startDisabled) {
         ;
-        $p += '<div mxa="_zs_galleryZ:e" class="_zs_gallery_mx-calendar_range_-range-disabled">';
+        $p += '<div mxa="_zs_gallery2:e" class="_zs_gallery_mx-calendar_range_-range-disabled">';
         $line = 12;
         $art = '=dates.startStr';
         ;
@@ -146,7 +146,7 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxs="_zs_galleryZ:_" class="_zs_gallery_mx-calendar_range_-range-gap">-</div><div mxa="_zs_galleryZ:f" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-right">';
+    $p += '</div><div mxs="_zs_gallery2:_" class="_zs_gallery_mx-calendar_range_-range-gap">-</div><div mxa="_zs_gallery2:f" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-right">';
     $line = 26;
     $art = 'if ((!vs&&vsSingle) || endDisabled)';
     ;
@@ -154,7 +154,7 @@ var RangeDate = Magix.View.extend({
     $expr = '<%if((!vs&&vsSingle)||endDisabled){%>';
     if ((!vs && vsSingle) || endDisabled) {
         ;
-        $p += '<div mxa="_zs_galleryZ:g" class="_zs_gallery_mx-calendar_range_-range-disabled">';
+        $p += '<div mxa="_zs_gallery2:g" class="_zs_gallery_mx-calendar_range_-range-disabled">';
         $line = 27;
         $art = '=dates.endStr';
         ;
@@ -239,18 +239,18 @@ var RangeDate = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '"><div mxa="_zs_galleryZ:h" class="_zs_gallery_mx-calendar_range_-title">';
+        $p += '"><div mxa="_zs_gallery2:h" class="_zs_gallery_mx-calendar_range_-title">';
         $line = 44;
         $art = '=quickTip';
         ;
-        $p += '' + ($expr = '<%=quickTip%>', $e(quickTip)) + '：</div><div mxa="_zs_galleryZ:i" class="clearfix">';
+        $p += '' + ($expr = '<%=quickTip%>', $e(quickTip)) + '：</div><div mxa="_zs_gallery2:i" class="clearfix">';
         $line = 46;
         $art = 'each quickInfos as info';
         ;
         $p += '';
-        $expr = '<%for(var $art_igznusaokhu$art_i=0;$art_igznusaokhu$art_i<quickInfos.length;$art_igznusaokhu$art_i++){var info=quickInfos[$art_igznusaokhu$art_i]%>';
-        for (var $art_igznusaokhu$art_i = 0; $art_igznusaokhu$art_i < quickInfos.length; $art_igznusaokhu$art_i++) {
-            var info = quickInfos[$art_igznusaokhu$art_i];
+        $expr = '<%for(var $art_icjfcmjaue$art_i=0;$art_icjfcmjaue$art_i<quickInfos.length;$art_icjfcmjaue$art_i++){var info=quickInfos[$art_icjfcmjaue$art_i]%>';
+        for (var $art_icjfcmjaue$art_i = 0; $art_icjfcmjaue$art_i < quickInfos.length; $art_icjfcmjaue$art_i++) {
+            var info = quickInfos[$art_icjfcmjaue$art_i];
             $p += '<span class="_zs_gallery_mx-calendar_range_-st ';
             $line = 47;
             $art = 'if (dates.quickDateKey==info.key)';
@@ -295,11 +295,11 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<div mxa="_zs_galleryZ:j" class="_zs_gallery_mx-calendar_range_-footer clearfix"><button mxa="_zs_galleryZ:k" mx-click="' + $viewId + '@{date.picked}()" type="button" class="btn btn-small btn-brand mr10">';
+    $p += '<div mxa="_zs_gallery2:j" class="_zs_gallery_mx-calendar_range_-footer clearfix"><button mxa="_zs_gallery2:k" mx-click="' + $viewId + '@{date.picked}()" type="button" class="btn btn-small btn-brand mr10">';
     $line = 55;
     $art = '=submitText';
     ;
-    $p += '' + ($expr = '<%=submitText%>', $e(submitText)) + '</button><button mxa="_zs_galleryZ:l" mx-click="' + $viewId + '@{cancel}()" type="button" class="btn btn-small">';
+    $p += '' + ($expr = '<%=submitText%>', $e(submitText)) + '</button><button mxa="_zs_gallery2:l" mx-click="' + $viewId + '@{cancel}()" type="button" class="btn btn-small">';
     $line = 56;
     $art = '=cancelText';
     ;

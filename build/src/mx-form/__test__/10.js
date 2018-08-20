@@ -55,11 +55,11 @@ module.exports = Base.extend({
     $line = 8;
     $art = ':currency{currency:true}';
     ;
-    $p += '' + ($expr = '<%=currency%>', $e(currency)) + '"/></div></div><div mxa="_zs_galleryaZ:g" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryaZ:b" class="_zs_gallery___test___base_-eg-title">常用校验</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=currency%>', $e(currency)) + '"/></div></div><div mxa="_zs_galleryaZ:c" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryaZ:_" class="_zs_gallery___test___base_-eg-title">常用校验</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 13;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaZ:h" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaZ:d" class="_zs_gallery___test___base_-desc-tip">';
     $line = 15;
     $art = '!text1';
     ;

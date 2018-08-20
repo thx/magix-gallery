@@ -15,15 +15,15 @@ var $ = require("$");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, yesterday = $$.yesterday, tomorrow = $$.tomorrow, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryO:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryO:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryO:_" class="mb20"><div class="mb5">根据可选范围对默认值进行修正</div><div class="mb5">1. 未配置默认选中项且有min时，默认取min和今天中的较大值</div><div>2. 未配置默认选中项且有max时，默认取max和今天中的较小值</div></div><div mxa="_zs_galleryO:b" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?min=';
+    $p += '<div mxa="_zs_galleryR:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryR:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryR:_" class="mb20"><div class="mb5">根据可选范围对默认值进行修正</div><div class="mb5">1. 未配置默认选中项且有min时，默认取min和今天中的较大值</div><div>2. 未配置默认选中项且有max时，默认取max和今天中的较小值</div></div><div mxa="_zs_galleryR:b" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?min=';
     $line = 10;
     $art = '=yesterday';
     ;
-    $p += '' + ($expr = '<%!$eu(yesterday)%>', $eu(yesterday)) + '"></div></div><div mxa="_zs_galleryO:c" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?min=';
+    $p += '' + ($expr = '<%!$eu(yesterday)%>', $eu(yesterday)) + '"></div></div><div mxa="_zs_galleryR:c" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?min=';
     $line = 14;
     $art = '=tomorrow';
     ;
-    $p += '' + ($expr = '<%!$eu(tomorrow)%>', $eu(tomorrow)) + '"></div></div><div mxa="_zs_galleryO:d" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?max=';
+    $p += '' + ($expr = '<%!$eu(tomorrow)%>', $eu(tomorrow)) + '"></div></div><div mxa="_zs_galleryR:d" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?max=';
     $line = 18;
     $art = '=yesterday';
     ;
@@ -31,15 +31,15 @@ module.exports = Base.extend({
     $line = 21;
     $art = '=tomorrow';
     ;
-    $p += '' + ($expr = '<%!$eu(tomorrow)%>', $eu(tomorrow)) + '"></div></div><div mxa="_zs_galleryO:e" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryO:a" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%!$eu(tomorrow)%>', $eu(tomorrow)) + '"></div></div><div mxa="_zs_galleryR:e" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryR:a" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 25;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryO:f" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryR:f" class="_zs_gallery___test___base_-desc-tip">';
     $line = 27;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryO:b" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryR:b" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 30;
     $art = '=viewId';
     ;

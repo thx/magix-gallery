@@ -41,9 +41,9 @@ module.exports = Magix.View.extend({
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for(var $art_ibioyppwyij$art_i=0;$art_ibioyppwyij$art_i<list.length;$art_ibioyppwyij$art_i++){var item=list[$art_ibioyppwyij$art_i]%>';
-    for (var $art_ibioyppwyij$art_i = 0; $art_ibioyppwyij$art_i < list.length; $art_ibioyppwyij$art_i++) {
-        var item = list[$art_ibioyppwyij$art_i];
+    $expr = '<%for(var $art_irqjxulzg$art_i=0;$art_irqjxulzg$art_i<list.length;$art_irqjxulzg$art_i++){var item=list[$art_irqjxulzg$art_i]%>';
+    for (var $art_irqjxulzg$art_i = 0; $art_irqjxulzg$art_i < list.length; $art_irqjxulzg$art_i++) {
+        var item = list[$art_irqjxulzg$art_i];
         $p += ' ';
         $line = 5;
         $art = 'if item.name';
@@ -89,9 +89,9 @@ module.exports = Magix.View.extend({
         $art = 'each item.subs as sub';
         ;
         $p += '';
-        $expr = '<%for(var $art_iifaeygjp$art_i=0,$art_objrfxztjkdy$art_obj=item.subs;$art_iifaeygjp$art_i<$art_objrfxztjkdy$art_obj.length;$art_iifaeygjp$art_i++){var sub=$art_objrfxztjkdy$art_obj[$art_iifaeygjp$art_i]%>';
-        for (var $art_iifaeygjp$art_i = 0, $art_objrfxztjkdy$art_obj = item.subs; $art_iifaeygjp$art_i < $art_objrfxztjkdy$art_obj.length; $art_iifaeygjp$art_i++) {
-            var sub = $art_objrfxztjkdy$art_obj[$art_iifaeygjp$art_i];
+        $expr = '<%for(var $art_ibtlpghdb$art_i=0,$art_objtadlbean$art_obj=item.subs;$art_ibtlpghdb$art_i<$art_objtadlbean$art_obj.length;$art_ibtlpghdb$art_i++){var sub=$art_objtadlbean$art_obj[$art_ibtlpghdb$art_i]%>';
+        for (var $art_ibtlpghdb$art_i = 0, $art_objtadlbean$art_obj = item.subs; $art_ibtlpghdb$art_i < $art_objtadlbean$art_obj.length; $art_ibtlpghdb$art_i++) {
+            var sub = $art_objtadlbean$art_obj[$art_ibtlpghdb$art_i];
             $p += '<a class="_zs_gallery___test___all_-nav ';
             $line = 13;
             $art = 'if (sub.path == path)';
@@ -328,10 +328,6 @@ catch (ex) {
             }, {
                 name: '表格',
                 subs: [{
-                        name: '功能说明',
-                        path: '/table/desc',
-                        icon: '&#xe64f;'
-                    }, {
                         name: '左右分栏',
                         path: '/table/index1',
                         icon: '&#xe693;'

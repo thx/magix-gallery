@@ -149,6 +149,7 @@ module.exports = Magix.View.extend({
             watchInmainScroll();
             if(me['@{scroll.left.back}']){
                 mainWrapper[0].scrollLeft = me['@{scroll.left.back}'];
+                scrollbar[0].scrollLeft = me['@{scroll.left.back}'];
             }
         }else{
             me['@{need.scroll}'] = false;

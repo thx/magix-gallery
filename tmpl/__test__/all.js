@@ -81,10 +81,6 @@ module.exports = Magix.View.extend({
         }, {
             name: '表格',
             subs: [{
-                name: '功能说明',
-                path: '/table/desc',
-                icon: '&#xe64f;'
-            }, {
                 name: '左右分栏',
                 path: '/table/index1',
                 icon: '&#xe693;'
