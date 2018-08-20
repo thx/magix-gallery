@@ -203,10 +203,16 @@ module.exports = Magix.View.extend({
                 path: '/indics/index',
                 icon: '&#xe731;'
             }, {
-                name: '切换操作项',
-                path: '/opers/index',
+                name: 'icon状态切换与显示',
+                tip: '结合iconfont使用，用icon缩略显示当前状态属性',
+                path: '/status/index',
                 icon: '&#xe61a;'
-            }, ]
+            }, {
+                name: 'dropdown状态切换与显示',
+                tip: '结合iconfont使用，展现样式同dropdown',
+                path: '/status/dropdown',
+                icon: '&#xe7a4;'
+            }]
         }, {
             name: '提示反馈',
             subs: [{

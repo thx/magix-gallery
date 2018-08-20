@@ -16,19 +16,19 @@ module.exports = Base.extend({
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
     if ($$ref[k = $g + f] === v)
         return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryad:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryad:a" class="_zs_gallery___test___base_-eg-content"><div class="w200" mx-view="mx-dropdown/multiple?list=';
+    $p += '<div mxa="_zs_gallerya_:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_gallerya_:a" class="_zs_gallery___test___base_-eg-content"><div class="w200" mx-view="mx-dropdown/multiple?list=';
     $line = 4;
     $art = '@[{id:1,name:\'选项1\'},{id:2,name:\'选项2\'}]';
     ;
-    $p += '' + ($expr = '<%@[{id:1,name:\'选项1\'},{id:2,name:\'选项2\'}]%>', $i([{ id: 1, name: '选项1' }, { id: 2, name: '选项2' }])) + '&textKey=name&valueKey=id"></div></div><div mxa="_zs_galleryad:b" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryad:_" class="_zs_gallery___test___base_-eg-title">自定义&nbsp;text-key&nbsp;和&nbsp;value-key</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%@[{id:1,name:\'选项1\'},{id:2,name:\'选项2\'}]%>', $i([{ id: 1, name: '选项1' }, { id: 2, name: '选项2' }])) + '&textKey=name&valueKey=id"></div></div><div mxa="_zs_gallerya_:b" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerya_:_" class="_zs_gallery___test___base_-eg-title">自定义&nbsp;text-key&nbsp;和&nbsp;value-key</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 10;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryad:c" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya_:c" class="_zs_gallery___test___base_-desc-tip">';
     $line = 12;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryad:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya_:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 15;
     $art = '=viewId';
     ;

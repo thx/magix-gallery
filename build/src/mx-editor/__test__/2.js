@@ -16,11 +16,11 @@ module.exports = Base.extend({
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
     if ($$ref[k = $g + f] === v)
         return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, content = $$.content, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryan:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryan:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryan:_" class="mb10 clearfix"><div class="color-9 fl lh22">以下示例：</div><div class="fl lh22"><div>纯文案编辑</div><div>输入框小尺寸 + 自定义宽度</div></div></div><div mxa="_zs_galleryan:b" class="mb20"><span mxs="_zs_galleryan:a" class="color-9">当前内容：</span><span>';
+    $p += '<div mxa="_zs_galleryai:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryai:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryai:_" class="mb10 clearfix"><div class="color-9 fl lh22">以下示例：</div><div class="fl lh22"><div>纯文案编辑</div><div>输入框小尺寸 + 自定义宽度</div></div></div><div mxa="_zs_galleryai:b" class="mb20"><span mxs="_zs_galleryai:a" class="color-9">当前内容：</span><span>';
     $line = 12;
     $art = '=content';
     ;
-    $p += '' + ($expr = '<%=content%>', $e(content)) + '（要求必填且不小于200）</span></div><div mxa="_zs_galleryan:c" class="mb20"><div mx-view="mx-editor/index?width=200&small=true&content=';
+    $p += '' + ($expr = '<%=content%>', $e(content)) + '（要求必填且不小于200）</span></div><div mxa="_zs_galleryai:c" class="mb20"><div mx-view="mx-editor/index?width=200&small=true&content=';
     $line = 18;
     $art = '=content';
     ;
@@ -28,15 +28,15 @@ module.exports = Base.extend({
     $line = 19;
     $art = '@{\n                    required: true,\n                    min: [200, \'不小于200\']\n                }';
     ;
-    $p += '' + ($expr = '<%@{required:true,min:[200,\'不小于200\']}%>', $i({ required: true, min: [200, '不小于200'] })) + '"></div></div></div><div mxa="_zs_galleryan:d" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryan:b" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%@{required:true,min:[200,\'不小于200\']}%>', $i({ required: true, min: [200, '不小于200'] })) + '"></div></div></div><div mxa="_zs_galleryai:d" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryai:b" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 27;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryan:e" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryai:e" class="_zs_gallery___test___base_-desc-tip">';
     $line = 29;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryan:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryai:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 32;
     $art = '=viewId';
     ;

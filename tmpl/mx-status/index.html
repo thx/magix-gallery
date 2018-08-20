@@ -1,0 +1,35 @@
+<!-- icon类型 -->
+<div class="status" mx-mouseout="out()">
+    <div class="status-handle-icon"
+        mx-mouseover="over()">
+        <span class="status-icon" style="color: {{=cur.color}};">{{!cur.icon}}</span>
+        {{if !readonly}}
+        <i class="status-arrow"></i>
+        {{/if}}
+    </div>
+    
+    {{if show}}
+        <!-- 操作或者提示区域 -->
+        {{if readonly}}
+        <ul class="status-info">
+            <li class="status-desc">
+                <span class="status-icon" style="color: {{=cur.color}};">{{!cur.icon}}</span>
+                <span class="status-name">{{=cur.text}}</span>
+            </li>
+            {{if cur.tip}}
+            <li class="status-tip">{{=cur.tip}}</li>
+            {{/if}}
+        </ul>
+        {{else}}
+        <ul class="status-info">
+            {{each list as item}}
+            <li class="status-oper clearfix {{if (item.value == cur.value)}} status-oper-cur {{/if}}" mx-click="select({item:'{{@item}}'})">
+                <span class="status-icon" style="color: {{=item.color}};">{{!item.icon}}</span>
+                <span class="status-name">{{=item.text}}</span>
+                <i class="mc-iconfont oper-icon">&#xe65d;</i>
+            </li>
+            {{/each}}
+        </ul>
+        {{/if}}
+    {{/if}}
+</div>

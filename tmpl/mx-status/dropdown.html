@@ -1,0 +1,21 @@
+<!-- dropdown类型 -->
+<div class="status" mx-mouseout="out()">
+    <div class="status-handle-dd"
+        mx-mouseover="over()">
+        <span class="input status-input {{if readonly}} cursor-not-allow {{/if}}" style="color: {{=cur.color}};">{{=cur.text}}</span>
+        <i class="mc-iconfont status-arrow">&#xe692;</i>
+    </div>
+    
+    <!-- 操作或者提示区域 -->
+    {{if show && !readonly}}
+    <ul class="status-info status-info-dd">
+        {{each list as item}}
+        <li class="status-oper clearfix {{if (item.value == cur.value)}} status-oper-cur {{/if}}" mx-click="select({item:'{{@item}}'})">
+            <span class="status-icon" style="color: {{=item.color}};">{{!item.icon}}</span>
+            <span class="status-name">{{=item.text}}</span>
+            <i class="mc-iconfont oper-icon">&#xe65d;</i>
+        </li>
+        {{/each}}
+    </ul>
+    {{/if}}
+</div>

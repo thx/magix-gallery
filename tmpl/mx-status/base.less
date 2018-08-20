@@ -1,0 +1,112 @@
+@import "../mx-style/_vars";
+@status-line-height: 25px;
+[mx-view*="mx-status/index"],
+[mx-view*="mx-status/dropdown"] {
+    display: inline-block;
+}
+
+.status {
+    position: relative;
+    .status-icon>* {
+        font-size: 20px;
+        line-height: 25px;
+    }
+    .status-info {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        z-index: 10;
+        box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);
+        background-color: #fff;
+        border: 0 none;
+        border-radius: @border-radius;
+        text-align: left;
+        word-wrap: break-word;
+        overflow: hidden;
+        .status-icon {
+            float: left;
+        }
+        .status-name {
+            float: left;
+            margin-left: 8px;
+        }
+        .status-oper {
+            width: 140px;
+            height: @status-line-height + 20px;
+            line-height: @status-line-height;
+            padding: 10px;
+            cursor: pointer;
+            .oper-icon {
+                display: none;
+                float: right;
+                color: #999;
+                font-weight: bold;
+                font-size: 18px;
+                line-height: @status-line-height;
+            }
+            &:hover {
+                background-color: #fafafa;
+            }
+            &.status-oper-cur {
+                cursor: default;
+                .oper-icon {
+                    display: block;
+                }
+            }
+        }
+        .status-desc {
+            width: 140px;
+            height: @status-line-height + 20px;
+            line-height: @status-line-height;
+            padding: 10px;
+        }
+        .status-tip {
+            width: 200px;
+            font-size: 12px;
+            padding: 0 10px 10px 10px;
+            line-height: 18px;
+        }
+        &.status-info-dd {
+            top: 0;
+            left: 0;
+        }
+    }
+    .status-handle-icon {
+        position: relative;
+        width: 36px;
+        height: 25px;
+        line-height: 25px;
+        .status-arrow {
+            position: absolute;
+            top: (@status-line-height - 4px) / 2;
+            left: @status-line-height + 6px;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            overflow: hidden;
+            border-style: solid;
+            border-width: 3px 3px 0 3px;
+            border-color: #999 transparent transparent transparent;
+        }
+    }
+    .status-handle-dd {
+        position: relative;
+        width: 110px;
+        .status-input {
+            width: 100%;
+        }
+        .status-arrow {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 28px;
+            height: 28px;
+            margin-top: -14px;
+            line-height: 28px;
+            text-align: center;
+            color: #ccc;
+            font-size: 20px;
+        }
+    }
+}

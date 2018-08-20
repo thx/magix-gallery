@@ -14,35 +14,35 @@ var $ = require("$");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, cur = $$.cur, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybV:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_gallerybV:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_gallerybV:_" class="mb10 clearfix"><div class="color-9 fl lh22">以下示例：</div><div class="fl lh22"><div>包含输入框</div><div>输入框与滑动轴联动</div><div>step几位小数，其他数值同step保持一致</div></div></div><div mxa="_zs_gallerybV:b" class="mb20"><span mxs="_zs_gallerybV:a" class="color-9">当前值：</span><span>';
+    $p += '<div mxa="_zs_gallerybM:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_gallerybM:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_gallerybM:_" class="mb10 clearfix"><div class="color-9 fl lh22">以下示例：</div><div class="fl lh22"><div>包含输入框</div><div>输入框与滑动轴联动</div><div>step几位小数，其他数值同step保持一致</div></div></div><div mxa="_zs_gallerybM:b" class="mb20"><span mxs="_zs_gallerybM:a" class="color-9">当前值：</span><span>';
     $line = 13;
     $art = '=cur';
     ;
-    $p += '' + ($expr = '<%=cur%>', $e(cur)) + '</span></div><div mxa="_zs_gallerybV:c" class="pt20 pb20"><div mx-change="' + $viewId + 'showValue()" mx-view="mx-slider/index?width=160&needInput=true&max=200&min=100&value=';
+    $p += '' + ($expr = '<%=cur%>', $e(cur)) + '</span></div><div mxa="_zs_gallerybM:c" class="pt20 pb20"><div mx-change="' + $viewId + 'showValue()" mx-view="mx-slider/index?width=160&needInput=true&max=200&min=100&value=';
     $line = 21;
     $art = '=cur';
     ;
-    $p += '' + ($expr = '<%!$eu(cur)%>', $eu(cur)) + '&step=0.05"></div></div></div><div mxa="_zs_gallerybV:d" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerybV:b" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%!$eu(cur)%>', $eu(cur)) + '&step=0.05"></div></div></div><div mxa="_zs_gallerybM:d" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerybM:b" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 28;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybV:e" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybM:e" class="_zs_gallery___test___base_-desc-tip">';
     $line = 30;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybV:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybM:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 33;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-slider\n    width="160"\n    need-input="true"\n    max="200"\n    min="100"\n    value="&#123;&#123;=cur&#125;&#125;"\n    step="0.05"\n    mx-change="showValue()"/&gt;</pre></div><div mxa="_zs_gallerybV:f" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerybV:d" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-slider\n    width="160"\n    need-input="true"\n    max="200"\n    min="100"\n    value="&#123;&#123;=cur&#125;&#125;"\n    step="0.05"\n    mx-change="showValue()"/&gt;</pre></div><div mxa="_zs_gallerybM:f" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerybM:d" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 45;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerybV:g" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerybM:g" class="_zs_gallery___test___base_-desc-tip">';
     $line = 47;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerybV:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerybM:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 50;
     $art = '=viewId';
     ;

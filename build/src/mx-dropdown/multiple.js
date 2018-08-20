@@ -50,7 +50,7 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = '=selectedText';
     ;
-    $p += '' + ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryah:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ';
+    $p += '' + ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryae:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ';
     $line = 5;
     $art = 'if expand';
     ;
@@ -98,7 +98,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if(searchbox){%>';
         if (searchbox) {
             ;
-            $p += '<div mxv mxa="_zs_galleryah:_" class="_zs_gallery_mx-dropdown_index_-search-wrapper"><div mxv mxa="_zs_galleryah:a" class="search-box"><i mxs="_zs_galleryah:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+            $p += '<div mxv mxa="_zs_galleryae:_" class="_zs_gallery_mx-dropdown_index_-search-wrapper"><div mxv mxa="_zs_galleryae:a" class="search-box"><i mxs="_zs_galleryae:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
             $line = 12;
             $art = '=text.search';
             ;
@@ -122,7 +122,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if(!needAll){%>';
         if (!needAll) {
             ;
-            $p += '<div mxa="_zs_galleryah:b" class="_zs_gallery_mx-dropdown_index_-oper-wrapper"><a class="_zs_gallery_mx-dropdown_index_-oper" href="javascript:;" mx-click="' + $viewId + '@{checkAll}({checked:true})" data-spm-click="';
+            $p += '<div mxa="_zs_galleryae:b" class="_zs_gallery_mx-dropdown_index_-oper-wrapper"><a class="_zs_gallery_mx-dropdown_index_-oper" href="javascript:;" mx-click="' + $viewId + '@{checkAll}({checked:true})" data-spm-click="';
             $line = 24;
             $art = '=spm';
             ;
@@ -259,14 +259,14 @@ module.exports = Magix.View.extend({
                 $expr = '<%}%>';
             }
             ;
-            $p += '<div mxv mxa="_zs_galleryah:c" class="clearfix _zs_gallery_mx-dropdown_index_-group-wrapper">';
+            $p += '<div mxv mxa="_zs_galleryae:c" class="clearfix _zs_gallery_mx-dropdown_index_-group-wrapper">';
             $line = 46;
             $art = 'each group.list as item';
             ;
             $p += '';
-            $expr = '<%for(var $art_iwfzabmscy$art_i=0,$art_objdddzsffz$art_obj=group.list;$art_iwfzabmscy$art_i<$art_objdddzsffz$art_obj.length;$art_iwfzabmscy$art_i++){var item=$art_objdddzsffz$art_obj[$art_iwfzabmscy$art_i]%>';
-            for (var $art_iwfzabmscy$art_i = 0, $art_objdddzsffz$art_obj = group.list; $art_iwfzabmscy$art_i < $art_objdddzsffz$art_obj.length; $art_iwfzabmscy$art_i++) {
-                var item = $art_objdddzsffz$art_obj[$art_iwfzabmscy$art_i];
+            $expr = '<%for(var $art_ijvclzhne$art_i=0,$art_objhuuftmvs$art_obj=group.list;$art_ijvclzhne$art_i<$art_objhuuftmvs$art_obj.length;$art_ijvclzhne$art_i++){var item=$art_objhuuftmvs$art_obj[$art_ijvclzhne$art_i]%>';
+            for (var $art_ijvclzhne$art_i = 0, $art_objhuuftmvs$art_obj = group.list; $art_ijvclzhne$art_i < $art_objhuuftmvs$art_obj.length; $art_ijvclzhne$art_i++) {
+                var item = $art_objhuuftmvs$art_obj[$art_ijvclzhne$art_i];
                 $p += ' ';
                 $line = 47;
                 $art = 'if !item.hide';
@@ -351,11 +351,11 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxa="_zs_galleryah:d" class="_zs_gallery_mx-dropdown_index_-footer-wrapper"><button mxa="_zs_galleryah:e" type="button" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}({enter:true})">';
+        $p += '</div><div mxa="_zs_galleryae:d" class="_zs_gallery_mx-dropdown_index_-footer-wrapper"><button mxa="_zs_galleryae:e" type="button" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}({enter:true})">';
         $line = 63;
         $art = '=text.submit';
         ;
-        $p += '' + ($expr = '<%=text.submit%>', $e(text.submit)) + '</button><button mxa="_zs_galleryah:f" type="button" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
+        $p += '' + ($expr = '<%=text.submit%>', $e(text.submit)) + '</button><button mxa="_zs_galleryae:f" type="button" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
         $line = 64;
         $art = '=text.cancel';
         ;

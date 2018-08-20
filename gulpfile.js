@@ -138,3 +138,73 @@ gulp.task('compress', ['turnOffDebug', 'combine', 'ver'], () => {
         }))
         .pipe(gulp.dest('./build/src/'));
 });
+
+
+const { exec, execSync, spawn, spawnSync } = require('child_process');
+let  spawnCommand = (command, args, options) => {
+    //默认stdio: inherit可传入自定义options
+    const _options = {
+        stdio: 'inherit',
+        shell: process.platform === 'win32' //win下需要设置shell为true
+    }
+ 
+    Object.assign(_options, options)
+ 
+    return new Promise((resolve, reject) => {
+        const sp = spawn(command, args, _options)
+ 
+        sp.on('close', code => {
+            resolve()
+        })
+ 
+        sp.on('error', err => {
+            console.log(err)
+        })
+    })
+ };
+ 
+ let execCommandReturn = (command) => {
+     return new Promise((resolve, reject) => {
+         const child = exec(command, {
+             maxBuffer: 20000 * 1024
+         })
+         child.stdout.on('data', data => {
+             resolve(data)
+         })
+ 
+         child.on('close', () => {
+             resolve()
+         })
+     })
+};
+
+gulp.task('test', async () => {
+    //先更新远程分支数据 
+    await spawnCommand('git', ['pull']);
+
+    //从本地分支里找出daily/0.0.x这种类型的分支里最大的分支号
+    let branchs = await execCommandReturn('git branch -a');
+    branchs = branchs.split('\n');
+
+    const branchVersions = []
+    branchs.forEach((branch) => {
+        branch = branch.trim()
+        const branchExec = /.*\/0\.0\.(\d+)/.exec(branch)
+        if (branchExec) {
+            branchVersions.push(branchExec[1])
+        }
+    })
+
+    //最大的分支号
+    const maxVersion = branchVersions.length ? Math.max.apply(null, branchVersions) : 0;
+    const newDaily = `daily/0.0.${maxVersion + 1}`;
+    
+    await spawnCommand('git', ['checkout', '-b', newDaily]);
+    await spawnCommand('git', ['push', 'origin', newDaily]);
+})
+
+gulp.task('release', ['compress'], () => {
+    let index = fs.readFileSync('./index.html').toString();
+    index = index.replace(/(?<=zs_gallery\/).*?(?=\/)/g, pkg.version);
+    fs.writeFileSync('./index.html', index);
+});

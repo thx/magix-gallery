@@ -15,7 +15,7 @@ var $ = require("$");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, bool = $$.bool, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerya%:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_gallerya%:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_gallerya%:_" class="mb20"><span class="color-9">以下示例：</span>配置refresh:true，数据改变的时候，刷新view</div><div mxv mxa="_zs_gallerya%:b" class="clearfix mb20"><label mxv mxa="_zs_gallerya%:c" class="fl mr20 lh32"><input mxe="' + $viewId + '_0" mxc="[';
+    $p += '<div mxv mxa="_zs_gallerya#:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_gallerya#:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_gallerya#:_" class="mb20"><span class="color-9">以下示例：</span>配置refresh:true，数据改变的时候，刷新view</div><div mxv mxa="_zs_gallerya#:b" class="clearfix mb20"><label mxv mxa="_zs_gallerya#:c" class="fl mr20 lh32"><input mxe="' + $viewId + '_0" mxc="[';
     $line = 10;
     $art = ':bool{refresh:true}';
     ;
@@ -43,7 +43,7 @@ module.exports = Base.extend({
     $expr = '<%if(bool){%>';
     if (bool) {
         ;
-        $p += '<input mxs="_zs_gallerya%:a" class="fl input"/>';
+        $p += '<input mxs="_zs_gallerya#:a" class="fl input"/>';
         $line = 15;
         $art = '/if';
         ;
@@ -51,27 +51,27 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div><div mxa="_zs_gallerya%:d" class="clearfix"><div mxa="_zs_gallerya%:e" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half"><div mxs="_zs_gallerya%:b" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</div></div><div mxa="_zs_gallerya#:d" class="clearfix"><div mxa="_zs_gallerya#:e" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half"><div mxs="_zs_gallerya#:b" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 21;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya%:f" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya#:f" class="_zs_gallery___test___base_-desc-tip">';
     $line = 23;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya%:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya#:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 26;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="clearfix"&gt;\n    &lt;label class="fl mr20 lh32"&gt;\n        &lt;input type="checkbox" name="bool" class="checkbox"\n            &#123;&#123;:bool&#123;refresh:true&#125;&#125;&#125;  \n            &#123;&#123;if bool&#125;&#125; checked="true" &#123;&#123;/if&#125;&#125;/&gt;\n            切换控制input的显示与隐藏\n    &lt;/label&gt;\n    &#123;&#123;if bool&#125;&#125;\n    &lt;input type="text" class="fl input"/&gt;\n    &#123;&#123;/if&#125;&#125; \n&lt;/div&gt;</pre></div><div mxa="_zs_gallerya%:g" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half _zs_gallery___test___base_-half-right"><div mxs="_zs_gallerya%:d" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="clearfix"&gt;\n    &lt;label class="fl mr20 lh32"&gt;\n        &lt;input type="checkbox" name="bool" class="checkbox"\n            &#123;&#123;:bool&#123;refresh:true&#125;&#125;&#125;  \n            &#123;&#123;if bool&#125;&#125; checked="true" &#123;&#123;/if&#125;&#125;/&gt;\n            切换控制input的显示与隐藏\n    &lt;/label&gt;\n    &#123;&#123;if bool&#125;&#125;\n    &lt;input type="text" class="fl input"/&gt;\n    &#123;&#123;/if&#125;&#125; \n&lt;/div&gt;</pre></div><div mxa="_zs_gallerya#:g" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half _zs_gallery___test___base_-half-right"><div mxs="_zs_gallerya#:d" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 41;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya%:h" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya#:h" class="_zs_gallery___test___base_-desc-tip">';
     $line = 43;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya%:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya#:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 46;
     $art = '=viewId';
     ;

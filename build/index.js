@@ -46,7 +46,7 @@ let coms = [
     'hour',
     'main',
     'indics',
-    'opers',
+    'status',
     'monitor',
     'medusa',
     'area',

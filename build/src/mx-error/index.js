@@ -11,7 +11,7 @@ Magix.applyStyle("_zs_gallery_mx-error_index_","/* @dependent: ./index.less */\n
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryaN:_" class="_zs_gallery_mx-error_index_-error"><div><i class="mc-iconfont _zs_gallery_mx-error_index_-error-icon">&#xe6c7;</i></div><div class="_zs_gallery_mx-error_index_-info">抱歉，您查看的页面不存在或无权限查看当前页面</div><div><a href="#!" class="btn btn-brand _zs_gallery_mx-error_index_-home-btn">回到首页</a><a href="javascript:;" class="btn _zs_gallery_mx-error_index_-back-btn" mx-click="' + $viewId + 'back()">返回上一页</a></div></div>';
+    $p += '<div mxs="_zs_galleryaK:_" class="_zs_gallery_mx-error_index_-error"><div><i class="mc-iconfont _zs_gallery_mx-error_index_-error-icon">&#xe6c7;</i></div><div class="_zs_gallery_mx-error_index_-info">抱歉，您查看的页面不存在或无权限查看当前页面</div><div><a href="#!" class="btn btn-brand _zs_gallery_mx-error_index_-home-btn">回到首页</a><a href="javascript:;" class="btn _zs_gallery_mx-error_index_-back-btn" mx-click="' + $viewId + 'back()">返回上一页</a></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

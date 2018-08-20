@@ -15,7 +15,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=(white ? \'empty-white\' : \'empty-area\')';
     ;
-    $p += '' + ($expr = '<%=(white?\'empty-white\':\'empty-area\')%>', $e((white ? 'empty-white' : 'empty-area'))) + '"><i mxs="_zs_galleryaH:_" class="mc-iconfont no-data">&#xe685;</i><p mxa="_zs_galleryaH:_" class="mt10">';
+    $p += '' + ($expr = '<%=(white?\'empty-white\':\'empty-area\')%>', $e((white ? 'empty-white' : 'empty-area'))) + '"><i mxs="_zs_galleryaD:_" class="mc-iconfont no-data">&#xe685;</i><p mxa="_zs_galleryaD:_" class="mt10">';
     $line = 3;
     $art = '=content';
     ;
