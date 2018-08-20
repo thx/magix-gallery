@@ -1,17 +1,15 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <input class="input mr60" placeholder="url链接" value="{{:url{url:true}}}"/>
-            <input class="input mr60" placeholder="只英文" value="{{:english{english:true}}}"/>
-            <input class="input mr60" placeholder="只中文" value="{{:chinese{chinese:true}}}"/>
-        </div>
-        <div class="mb20">
-            <input class="input mr60" placeholder="电话号码" value="{{:mobile{mobile:true}}}"/>
-            <input class="input mr60" placeholder="金额" value="{{:currency{currency:true}}}"/>
+        <div class="clearfix">
+            <input class="input mr20 mb20" placeholder="url链接" value="{{:url{url:true}}}"/>
+            <input class="input mr20 mb20" placeholder="只英文" value="{{:english{english:true}}}"/>
+            <input class="input mr20 mb20" placeholder="只中文" value="{{:chinese{chinese:true}}}"/>
+            <input class="input mr20 mb20" placeholder="电话号码" value="{{:mobile{mobile:true}}}"/>
+            <input class="input mr20 mb20" placeholder="金额" value="{{:currency{currency:true}}}"/>
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">字个数</div>
+        <div class="eg-title">常用校验</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>

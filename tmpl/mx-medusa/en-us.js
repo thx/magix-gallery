@@ -46,6 +46,7 @@ module.exports = {
     "form.check.currency": "Please enter the amount, accurate to two decimal places",
     "form.check.english": "Please enter the English",
     "form.check.equal": "Equal to ${rule}",
+    "form.check.unequal": "Unequal to ${rule}",
     "form.check.int": "Please enter an integer",
     "form.check.mobile": "Please enter the correct phone number",
     "form.check.negint": "Please enter a negative integer",

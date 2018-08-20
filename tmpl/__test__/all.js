@@ -39,6 +39,10 @@ module.exports = Magix.View.extend({
                 path: '/all/pro/permission',
                 icon: '&#xe6d1;'
             }, {
+                name: '跨平台加载view的约定',
+                path: '/all/pro/cross',
+                icon: '&#xe6b6;'
+            }, {
                 name: 'rap接口管理',
                 path: '/all/pro/rap',
                 icon: '&#xe60b;'
@@ -46,10 +50,6 @@ module.exports = Magix.View.extend({
                 name: 'chartpark图表',
                 path: '/all/pro/chartpark',
                 icon: '&#xe670;'
-            }, {
-                name: '跨平台加载view的约定',
-                path: '/all/pro/cross',
-                icon: '&#xe6b6;'
             }, {
                 name: '淘宝登陆框接入',
                 path: '/all/pro/login',
@@ -297,6 +297,15 @@ module.exports = Magix.View.extend({
         }, {
             name: '业务组件',
             subs: [{
+                name: '阿里妈妈站点吊头',
+                tip: '产品+学习与支持<a target="_blank" class="link-brand" href="//alp.alibaba-inc.com/#!/page/jsonp-editor/index?id=1375248">配置地址</a>',
+                path: '/header/index',
+                icon: '&#xe780;'
+            }, {
+                name: '阿里妈妈通用吊底',
+                path: '/footer/index',
+                icon: '&#xe617;'
+            }, {
                 name: '选择地域',
                 path: '/area/index',
                 icon: '&#xe663;'
@@ -308,15 +317,6 @@ module.exports = Magix.View.extend({
                 name: '时段选择',
                 path: '/hour/index',
                 icon: '&#xe67c;'
-            }, {
-                name: '阿里妈妈站点吊头',
-                tip: '产品+学习与支持<a target="_blank" class="link-brand" href="//alp.alibaba-inc.com/#!/page/jsonp-editor/index?id=1375248">配置地址</a>',
-                path: '/header/index',
-                icon: '&#xe780;'
-            }, {
-                name: '阿里妈妈通用吊底',
-                path: '/footer/index',
-                icon: '&#xe617;'
             }]
         }]
         let all = [];

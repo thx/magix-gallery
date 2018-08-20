@@ -1,4 +1,5 @@
 let Magix = require('magix');
+let Vframe = Magix.Vframe;
 let Base = require('__test__/example');
 let $ = require('$');
 
@@ -6,24 +7,22 @@ module.exports = Base.extend({
     tmpl: '@1.html',
     render() {
         this.updater.digest({
-            list: [{
-                text: '计划',
-                value: 'campaignId'
-            }, {
-                text: '单元',
-                value: 'adgroupId'
-            }],
-            searchKey: 'adgroupId',
-            searchValue: '12'
+            viewId: this.id,
+            ok: true,
+            result: '00:00-12:00:60,12:00-24:00:250;00:00-24:00:240;00:00-24:00:100;00:00-24:00:220;00:00-24:00:100;00:00-24:00:100;00:00-24:00:100'
         });
     },
-    'change<search>' (e) {
-        e.preventDefault();
-        // e.searchKey 搜索对应的key值
-        // e.searchValue input文本框输入的对应的内容
+    'get<click>'(event) {
+        let vf = Vframe.get(this.id + '_duration');
+        let result = vf.invoke('submit');
+
+        // ok：
+        //      false 未选择任何时段
+        //      true 已选择时段
+        // result.val 当前选中值，ok = true时
         this.updater.digest({
-            searchKey: e.searchKey,
-            searchValue: e.searchValue
+            ok: result.ok,
+            result: result.val
         })
     }
 });

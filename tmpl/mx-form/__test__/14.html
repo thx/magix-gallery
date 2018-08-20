@@ -7,7 +7,7 @@
         </div>
         <div>
             {{each list as item}}
-            <input class="input mr40 mb20 w120" placeholder="请填写" 
+            <input class="input mr20 mb20 w120" placeholder="请填写" 
                 value="{{:item.value{required:true,blength:[2,4]}}}"/>
             {{/each}}
         </div>
@@ -25,7 +25,7 @@
     mx-click="add()"&gt;+ 再加一条&lt;/a&gt;
 
 &#123;&#123;each list as item&#125;&#125;
-&lt;input class="input mr40" placeholder="请填写" 
+&lt;input class="input mr20" placeholder="请填写" 
     value="&#123;&#123;:item.value&#123;required:true,blength:[2,4]&#125;&#125;&#125;"/&gt;
 &#123;&#123;/each&#125;&#125;</pre>
         </div>

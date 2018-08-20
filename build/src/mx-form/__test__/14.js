@@ -20,14 +20,14 @@ module.exports = Base.extend({
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for(var $art_iqlkrlcu$art_i=0;$art_iqlkrlcu$art_i<list.length;$art_iqlkrlcu$art_i++){var item=list[$art_iqlkrlcu$art_i]%>';
-    for (var $art_iqlkrlcu$art_i = 0; $art_iqlkrlcu$art_i < list.length; $art_iqlkrlcu$art_i++) {
-        var item = list[$art_iqlkrlcu$art_i];
-        $p += '<input mxe="' + $viewId + '_0_' + ($expr = '<%=$art_iqlkrlcu$art_i%>', $e($art_iqlkrlcu$art_i)) + '" mxc="[';
+    $expr = '<%for(var $art_iceywsmt$art_i=0;$art_iceywsmt$art_i<list.length;$art_iceywsmt$art_i++){var item=list[$art_iceywsmt$art_i]%>';
+    for (var $art_iceywsmt$art_i = 0; $art_iceywsmt$art_i < list.length; $art_iceywsmt$art_i++) {
+        var item = list[$art_iceywsmt$art_i];
+        $p += '<input mxe="' + $viewId + '_0_' + ($expr = '<%=$art_iceywsmt$art_i%>', $e($art_iceywsmt$art_i)) + '" mxc="[';
         $line = 11;
         $art = ':item.value{required:true,blength:[2,4]}';
         ;
-        $p += '{p:\'list.' + ($expr = '<%=$art_iqlkrlcu$art_i%>', $e($art_iqlkrlcu$art_i)) + '.value\',f:{required:true,blength:[2,4]}}]" class="input mr40 mb20 w120" placeholder="请填写" value="';
+        $p += '{p:\'list.' + ($expr = '<%=$art_iceywsmt$art_i%>', $e($art_iceywsmt$art_i)) + '.value\',f:{required:true,blength:[2,4]}}]" class="input mr20 mb20 w120" placeholder="请填写" value="';
         $line = 11;
         $art = ':item.value{required:true,blength:[2,4]}';
         ;
@@ -51,7 +51,7 @@ module.exports = Base.extend({
     $line = 23;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;"class="link-brand"\n    mx-click="add()"&gt;+ 再加一条&lt;/a&gt;\n\n&#123;&#123;each list as item&#125;&#125;\n&lt;input class="input mr40" placeholder="请填写" \n    value="&#123;&#123;:item.value&#123;required:true,blength:[2,4]&#125;&#125;&#125;"/&gt;\n&#123;&#123;/each&#125;&#125;</pre></div><div mxa="_zs_gallerya3:e" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half _zs_gallery___test___base_-half-right"><div mxs="_zs_gallerya3:c" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;"class="link-brand"\n    mx-click="add()"&gt;+ 再加一条&lt;/a&gt;\n\n&#123;&#123;each list as item&#125;&#125;\n&lt;input class="input mr20" placeholder="请填写" \n    value="&#123;&#123;:item.value&#123;required:true,blength:[2,4]&#125;&#125;&#125;"/&gt;\n&#123;&#123;/each&#125;&#125;</pre></div><div mxa="_zs_gallerya3:e" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half _zs_gallery___test___base_-half-right"><div mxs="_zs_gallerya3:c" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 34;
     $art = '=viewId';
     ;

@@ -31,6 +31,7 @@ module.exports = Magix.View.extend({
         let boxLength = rowNum * columnNum;
 
         that.updater.set({
+            viewId: that.id,
             timeDiscount,
             weeks: ['一', '二', '三', '四', '五', '六', '日'],
             ranges: ['00:00 - 06:00', '06:00 - 12:00', '12:00 - 18:00', '18:00 - 24:00'],
@@ -155,6 +156,10 @@ module.exports = Magix.View.extend({
         let boxZones = that.updater.get('boxZones');
         boxZones[index].bg = background;
         boxZones[index].discount = discount;
+
+        that.updater.set({
+            boxZones
+        })
     },
 
     /**
@@ -490,7 +495,6 @@ module.exports = Magix.View.extend({
         let that = this;
         let updater = that.updater;
         let boxLength = updater.get('boxLength');
-
         for (let i = 0; i < boxLength; i++) {
             that.setBoxDiscount(i, 0);
         }

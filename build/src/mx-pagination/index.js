@@ -61,7 +61,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '><li mxa="_zs_gallerybi:d" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon ';
+    $p += '><li mxa="_zs_gallerybi:c" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon ';
     $expr = '<%if(page==1){%>';
     if (page == 1) {
         ;
@@ -86,7 +86,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if(mini){%>';
     if (mini) {
         ;
-        $p += '<li mxa="_zs_gallerybi:e" class="_zs_gallery_mx-pagination_index_-num-item">' + ($expr = '<%=page%>', $e(page)) + ' / ' + ($expr = '<%=pages%>', $e(pages)) + '</li>';
+        $p += '<li mxa="_zs_gallerybi:d" class="_zs_gallery_mx-pagination_index_-num-item">' + ($expr = '<%=page%>', $e(page)) + ' / ' + ($expr = '<%=pages%>', $e(pages)) + '</li>';
         $expr = '<%}else{%>';
     }
     else {
@@ -111,7 +111,7 @@ module.exports = Magix.View.extend({
         $expr = '<%for(var i=start;i<=end;i++){%>';
         for (var i = start; i <= end; i++) {
             ;
-            $p += '<li mxa="_zs_gallerybi:f" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner ';
+            $p += '<li mxa="_zs_gallerybi:e" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner ';
             $expr = '<%if(i==page){%>';
             if (i == page) {
                 ;
@@ -135,7 +135,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if(end<pages){%>';
         if (end < pages) {
             ;
-            $p += '<li mxa="_zs_gallerybi:g" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner" href="#" mx-click="' + $viewId + '@{toPage}({page:' + ($expr = '<%=pages%>', $e(pages)) + '})">' + ($expr = '<%=pages%>', $e(pages)) + '</a></li>';
+            $p += '<li mxa="_zs_gallerybi:f" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner" href="#" mx-click="' + $viewId + '@{toPage}({page:' + ($expr = '<%=pages%>', $e(pages)) + '})">' + ($expr = '<%=pages%>', $e(pages)) + '</a></li>';
             $expr = '<%}%>';
         }
         ;
@@ -143,7 +143,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<li mxa="_zs_gallerybi:h" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon rotate180 ';
+    $p += '<li mxa="_zs_gallerybi:g" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon rotate180 ';
     $expr = '<%if(page==pages){%>';
     if (page == pages) {
         ;
@@ -168,7 +168,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if(!hideTotal){%>';
     if (!hideTotal) {
         ;
-        $p += '<li mxa="_zs_gallerybi:i" class="_zs_gallery_mx-pagination_index_-num-item ml10">' + ($expr = '<%!tipTotal%>', $n(tipTotal)) + '</li>';
+        $p += '<li mxa="_zs_gallerybi:h" class="_zs_gallery_mx-pagination_index_-num-item ml10">' + ($expr = '<%!tipTotal%>', $n(tipTotal)) + '</li>';
         $expr = '<%}%>';
     }
     ;

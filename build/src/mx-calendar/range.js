@@ -248,9 +248,9 @@ var RangeDate = Magix.View.extend({
         $art = 'each quickInfos as info';
         ;
         $p += '';
-        $expr = '<%for(var $art_imgnjfdot$art_i=0;$art_imgnjfdot$art_i<quickInfos.length;$art_imgnjfdot$art_i++){var info=quickInfos[$art_imgnjfdot$art_i]%>';
-        for (var $art_imgnjfdot$art_i = 0; $art_imgnjfdot$art_i < quickInfos.length; $art_imgnjfdot$art_i++) {
-            var info = quickInfos[$art_imgnjfdot$art_i];
+        $expr = '<%for(var $art_igznusaokhu$art_i=0;$art_igznusaokhu$art_i<quickInfos.length;$art_igznusaokhu$art_i++){var info=quickInfos[$art_igznusaokhu$art_i]%>';
+        for (var $art_igznusaokhu$art_i = 0; $art_igznusaokhu$art_i < quickInfos.length; $art_igznusaokhu$art_i++) {
+            var info = quickInfos[$art_igznusaokhu$art_i];
             $p += '<span class="_zs_gallery_mx-calendar_range_-st ';
             $line = 47;
             $art = 'if (dates.quickDateKey==info.key)';

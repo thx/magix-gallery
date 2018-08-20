@@ -1,14 +1,14 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <input class="input mr60" placeholder="数字" value="{{:number{number:true}}}"/>
-            <input class="input mr60" placeholder="整数" value="{{:int{int:true}}}"/>
-            <input class="input mr60" placeholder="正整数" value="{{:posint{posint:[true,'自定义提示输入正整数']}}}"/>
-            <input class="input mr60" placeholder="负整数" value="{{:negint{negint:[true,'自定义提示输入负整数']}}}"/>
+        <div class="clearfix">
+            <input class="input mr20 mb20" placeholder="数字" value="{{:number{number:true}}}"/>
+            <input class="input mr20 mb20" placeholder="整数" value="{{:int{int:true}}}"/>
+            <input class="input mr20 mb20" placeholder="正整数" value="{{:posint{posint:[true,'自定义提示输入正整数']}}}"/>
+            <input class="input mr20 mb20" placeholder="负整数" value="{{:negint{negint:[true,'自定义提示输入负整数']}}}"/>
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
+        <div class="eg-title">整数</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>

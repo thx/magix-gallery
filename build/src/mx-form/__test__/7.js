@@ -15,11 +15,11 @@ var $ = require("$");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, number = $$.number, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerya9:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_gallerya9:a" class="_zs_gallery___test___base_-eg-content"><div mxv mxa="_zs_gallerya9:b" class="mb20"><input mxe="' + $viewId + '_0" mxc="[';
+    $p += '<div mxv mxa="_zs_gallerya9:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_gallerya9:a" class="_zs_gallery___test___base_-eg-content"><div mxv mxa="_zs_gallerya9:b" class="clearfix"><input mxe="' + $viewId + '_0" mxc="[';
     $line = 4;
     $art = ':number{range:[4, 8]}';
     ;
-    $p += '{p:\'number\',f:{range:[4, 8]}}]" class="input mr60" placeholder="4到8之间的数字" value="';
+    $p += '{p:\'number\',f:{range:[4, 8]}}]" class="input mr20 mb20" placeholder="4到8之间的数字" value="';
     $line = 4;
     $art = ':number{range:[4, 8]}';
     ;
@@ -27,7 +27,7 @@ module.exports = Base.extend({
     $line = 5;
     $art = ':number{min:20}';
     ;
-    $p += '{p:\'number\',f:{min:20}}]" class="input mr60" placeholder="数字不能小于20" value="';
+    $p += '{p:\'number\',f:{min:20}}]" class="input mr20 mb20" placeholder="数字不能小于20" value="';
     $line = 5;
     $art = ':number{min:20}';
     ;
@@ -35,7 +35,7 @@ module.exports = Base.extend({
     $line = 6;
     $art = ':number{max:30}';
     ;
-    $p += '{p:\'number\',f:{max:30}}]" class="input mr60" placeholder="数字不能大于30" value="';
+    $p += '{p:\'number\',f:{max:30}}]" class="input mr20 mb20" placeholder="数字不能大于30" value="';
     $line = 6;
     $art = ':number{max:30}';
     ;

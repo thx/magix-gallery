@@ -235,9 +235,9 @@ module.exports = Magix.View.extend({
     $art = 'each weeks as week';
     ;
     $p += '';
-    $expr = '<%for(var $art_imtgteyezb$art_i=0;$art_imtgteyezb$art_i<weeks.length;$art_imtgteyezb$art_i++){var week=weeks[$art_imtgteyezb$art_i]%>';
-    for (var $art_imtgteyezb$art_i = 0; $art_imtgteyezb$art_i < weeks.length; $art_imtgteyezb$art_i++) {
-        var week = weeks[$art_imtgteyezb$art_i];
+    $expr = '<%for(var $art_imtqhgpol$art_i=0;$art_imtqhgpol$art_i<weeks.length;$art_imtqhgpol$art_i++){var week=weeks[$art_imtqhgpol$art_i]%>';
+    for (var $art_imtqhgpol$art_i = 0; $art_imtqhgpol$art_i < weeks.length; $art_imtqhgpol$art_i++) {
+        var week = weeks[$art_imtqhgpol$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-week-item" style="height: ';
         $line = 71;
         $art = '=boxHeight';
@@ -267,9 +267,9 @@ module.exports = Magix.View.extend({
     $art = 'each ranges as range';
     ;
     $p += '';
-    $expr = '<%for(var $art_iqwodkzpsh$art_i=0;$art_iqwodkzpsh$art_i<ranges.length;$art_iqwodkzpsh$art_i++){var range=ranges[$art_iqwodkzpsh$art_i]%>';
-    for (var $art_iqwodkzpsh$art_i = 0; $art_iqwodkzpsh$art_i < ranges.length; $art_iqwodkzpsh$art_i++) {
-        var range = ranges[$art_iqwodkzpsh$art_i];
+    $expr = '<%for(var $art_ihzyvlvvql$art_i=0;$art_ihzyvlvvql$art_i<ranges.length;$art_ihzyvlvvql$art_i++){var range=ranges[$art_ihzyvlvvql$art_i]%>';
+    for (var $art_ihzyvlvvql$art_i = 0; $art_ihzyvlvvql$art_i < ranges.length; $art_ihzyvlvvql$art_i++) {
+        var range = ranges[$art_ihzyvlvvql$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-range-item" style="width: ';
         $line = 77;
         $art = '=(boxWidth*(rowNum/4))';
@@ -331,9 +331,9 @@ module.exports = Magix.View.extend({
     $art = 'each boxZones as zone';
     ;
     $p += '';
-    $expr = '<%for(var $art_ijuqscwb$art_i=0;$art_ijuqscwb$art_i<boxZones.length;$art_ijuqscwb$art_i++){var zone=boxZones[$art_ijuqscwb$art_i]%>';
-    for (var $art_ijuqscwb$art_i = 0; $art_ijuqscwb$art_i < boxZones.length; $art_ijuqscwb$art_i++) {
-        var zone = boxZones[$art_ijuqscwb$art_i];
+    $expr = '<%for(var $art_ikunmmjd$art_i=0;$art_ikunmmjd$art_i<boxZones.length;$art_ikunmmjd$art_i++){var zone=boxZones[$art_ikunmmjd$art_i]%>';
+    for (var $art_ikunmmjd$art_i = 0; $art_ikunmmjd$art_i < boxZones.length; $art_ikunmmjd$art_i++) {
+        var zone = boxZones[$art_ikunmmjd$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-box fl" style="width: ';
         $line = 88;
         $art = '=boxWidth';
@@ -388,6 +388,7 @@ catch (ex) {
         var rowNum = gap * multiple, boxWidth = maxWidth / (25 * multiple);
         var boxLength = rowNum * columnNum;
         that.updater.set({
+            viewId: that.id,
             timeDiscount: timeDiscount,
             weeks: ['一', '二', '三', '四', '五', '六', '日'],
             ranges: ['00:00 - 06:00', '06:00 - 12:00', '12:00 - 18:00', '18:00 - 24:00'],
@@ -499,6 +500,9 @@ catch (ex) {
         var boxZones = that.updater.get('boxZones');
         boxZones[index].bg = background;
         boxZones[index].discount = discount;
+        that.updater.set({
+            boxZones: boxZones
+        });
     },
     /**
      * 时段选择

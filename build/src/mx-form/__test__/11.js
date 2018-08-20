@@ -20,9 +20,9 @@ module.exports = Base.extend({
     $art = 'each checkboxes as c';
     ;
     $p += '';
-    $expr = '<%for(var $art_ibsndxn$art_i=0;$art_ibsndxn$art_i<checkboxes.length;$art_ibsndxn$art_i++){var c=checkboxes[$art_ibsndxn$art_i]%>';
-    for (var $art_ibsndxn$art_i = 0; $art_ibsndxn$art_i < checkboxes.length; $art_ibsndxn$art_i++) {
-        var c = checkboxes[$art_ibsndxn$art_i];
+    $expr = '<%for(var $art_idsiqgop$art_i=0;$art_idsiqgop$art_i<checkboxes.length;$art_idsiqgop$art_i++){var c=checkboxes[$art_idsiqgop$art_i]%>';
+    for (var $art_idsiqgop$art_i = 0; $art_idsiqgop$art_i < checkboxes.length; $art_idsiqgop$art_i++) {
+        var c = checkboxes[$art_idsiqgop$art_i];
         $p += '<label mxv mxa="_zs_gallerya0:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 9;
         $art = ':selected{required:[true,\'必选\']}';

@@ -409,9 +409,39 @@ module.exports = {
             tip = tip.replace('${rule}', rule);
         }
 
-        let to = equalVal = $('#' + id).val();
+        let to = $('#' + id).val();
         return {
             valid: (to == val),
+            tip
+        };
+    },
+
+    unequalto(val, rule) {
+        let tip = I18n['form.check.unequal'];
+
+        // 支持多个id逗号分隔
+        let ids;
+        if ($.isArray(rule)) {
+            // [ids, 自定义提示]
+            ids = rule[0];
+            if (rule[1]) {
+                tip = rule[1];
+            }
+        } else {
+            ids = rule;
+        }
+
+        let equalIds = [];
+        ids = ids.split(',');
+        ids.forEach(id => {
+            if($('#' + id).val() == val){
+                equalIds.push(id);
+            }
+        })
+
+        tip = tip.replace('${rule}', equalIds.join(','));
+        return {
+            valid: (equalIds.length == 0),
             tip
         };
     },

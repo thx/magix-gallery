@@ -393,9 +393,36 @@ module.exports = {
             id = rule;
             tip = tip.replace('${rule}', rule);
         }
-        var to = equalVal = $('#' + id).val();
+        var to = $('#' + id).val();
         return {
             valid: (to == val),
+            tip: tip
+        };
+    },
+    unequalto: function (val, rule) {
+        var tip = I18n['form.check.unequal'];
+        // 支持多个id逗号分隔
+        var ids;
+        if ($.isArray(rule)) {
+            // [ids, 自定义提示]
+            ids = rule[0];
+            if (rule[1]) {
+                tip = rule[1];
+            }
+        }
+        else {
+            ids = rule;
+        }
+        var equalIds = [];
+        ids = ids.split(',');
+        ids.forEach(function (id) {
+            if ($('#' + id).val() == val) {
+                equalIds.push(id);
+            }
+        });
+        tip = tip.replace('${rule}', equalIds.join(','));
+        return {
+            valid: (equalIds.length == 0),
             tip: tip
         };
     },

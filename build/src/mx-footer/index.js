@@ -3,11 +3,11 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-footer/index",["magix","../mx-mustache/index","$"],(require,exports,module)=>{
+define("mx-footer/index",["magix","mx-mustache/index","$"],(require,exports,module)=>{
 /*Magix,Mustache,$*/
 
 var Magix = require("magix");
-var Mustache = require("../mx-mustache/index");
+var Mustache = require("mx-mustache/index");
 var $ = require("$");
 Magix.applyStyle("_zs_gallery_mx-footer_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-footer_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-footer_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-footer_index_-custom #alimama-footer {\n  text-align: center;\n}\n._zs_gallery_mx-footer_index_-custom._zs_gallery_mx-footer_index_-white #alimama-footer a,\n._zs_gallery_mx-footer_index_-custom._zs_gallery_mx-footer_index_-white #alimama-footer span {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products {\n  position: relative;\n  max-width: 100%;\n  margin-bottom: 20px;\n  padding-left: 220px;\n  padding-right: 220px;\n  text-align: center;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo img {\n  width: 110px;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo ._zs_gallery_mx-footer_index_-mama-icon {\n  display: block;\n  width: 110px;\n  margin-top: 5px;\n  font-size: 36px;\n  color: #666;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-qrcode {\n  position: absolute;\n  top: 0;\n  right: 0;\n  line-height: 22px;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-qrcode img {\n  width: 92px;\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-footer_index_-products dl {\n  float: left;\n  font-size: 16px;\n  line-height: 32px;\n}\n._zs_gallery_mx-footer_index_-products dl dt {\n  margin-bottom: 16px;\n  opacity: .5;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-logo ._zs_gallery_mx-footer_index_-mama-icon {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dt {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dd a {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dd a:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-qrcode {\n  color: #fff;\n}\n");
 module.exports = Magix.View.extend({
@@ -46,9 +46,9 @@ module.exports = Magix.View.extend({
         $art = 'each products as p';
         ;
         $p += '';
-        $expr = '<%for(var $art_irhmdtpyyg$art_i=0;$art_irhmdtpyyg$art_i<products.length;$art_irhmdtpyyg$art_i++){var p=products[$art_irhmdtpyyg$art_i]%>';
-        for (var $art_irhmdtpyyg$art_i = 0; $art_irhmdtpyyg$art_i < products.length; $art_irhmdtpyyg$art_i++) {
-            var p = products[$art_irhmdtpyyg$art_i];
+        $expr = '<%for(var $art_icxtyyl$art_i=0;$art_icxtyyl$art_i<products.length;$art_icxtyyl$art_i++){var p=products[$art_icxtyyl$art_i]%>';
+        for (var $art_icxtyyl$art_i = 0; $art_icxtyyl$art_i < products.length; $art_icxtyyl$art_i++) {
+            var p = products[$art_icxtyyl$art_i];
             $p += '<dl style="width: ';
             $line = 9;
             $art = '=(100 / len)';
@@ -62,9 +62,9 @@ module.exports = Magix.View.extend({
             $art = 'each p.thirds as t';
             ;
             $p += '';
-            $expr = '<%for(var $art_iafbcvbs$art_i=0,$art_objocmshq$art_obj=p.thirds;$art_iafbcvbs$art_i<$art_objocmshq$art_obj.length;$art_iafbcvbs$art_i++){var t=$art_objocmshq$art_obj[$art_iafbcvbs$art_i]%>';
-            for (var $art_iafbcvbs$art_i = 0, $art_objocmshq$art_obj = p.thirds; $art_iafbcvbs$art_i < $art_objocmshq$art_obj.length; $art_iafbcvbs$art_i++) {
-                var t = $art_objocmshq$art_obj[$art_iafbcvbs$art_i];
+            $expr = '<%for(var $art_inkvdvxt$art_i=0,$art_objodchgxgc$art_obj=p.thirds;$art_inkvdvxt$art_i<$art_objodchgxgc$art_obj.length;$art_inkvdvxt$art_i++){var t=$art_objodchgxgc$art_obj[$art_inkvdvxt$art_i]%>';
+            for (var $art_inkvdvxt$art_i = 0, $art_objodchgxgc$art_obj = p.thirds; $art_inkvdvxt$art_i < $art_objodchgxgc$art_obj.length; $art_inkvdvxt$art_i++) {
+                var t = $art_objodchgxgc$art_obj[$art_inkvdvxt$art_i];
                 $p += '<dd><a href="';
                 $line = 13;
                 $art = '=t.link';
