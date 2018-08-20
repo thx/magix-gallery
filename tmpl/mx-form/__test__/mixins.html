@@ -1,20 +1,21 @@
-<div class="fixed-links">
-    <div class="mb10">
-        <a href="javascript:;" class="link-brand" mx-click="to({key:'demo'})">查看完整示例</a>
-    </div>
-    <div class="mb10">
-        <a href="javascript:;" class="link-brand" mx-click="to({key:'rules'})">查看校验项详细示例</a>
-    </div>
-    <div class="mb10">
-        <a href="javascript:;" class="link-brand" mx-click="to({key:'api'})">查看校验项API</a>
-    </div>
-    <div>
-        <a href="javascript:;" class="link-brand" mx-click="to({key:'method'})">查看方法定义</a>
-    </div>
-</div>
+<div mx-view="__test__/subs?list={{@[{
+    name: '查看完整示例',
+    key: viewId + '_demo'
+}, {
+    name: '查看校验项详细示例',
+    key: viewId + '_rules'
+}, {
+    name: '查看校验项API',
+    key: viewId + '_api'
+}, {
+    name: '查看方法定义',
+    key: viewId + '_method'
+}]}}"></div>
+
 
 <mx-title.second content="双向绑定 + 校验完整示例" id="{{=viewId}}_demo"/>
 <div class="clearfix mb20">
+    <!-- <div mx-view="@./17"></div> -->
     <div mx-view="@./1"></div>
 </div>
 

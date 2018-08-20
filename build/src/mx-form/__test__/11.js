@@ -20,39 +20,23 @@ module.exports = Base.extend({
     $art = 'each checkboxes as c';
     ;
     $p += '';
-    $expr = '<%for(var $art_ibepaeadqri$art_i=0;$art_ibepaeadqri$art_i<checkboxes.length;$art_ibepaeadqri$art_i++){var c=checkboxes[$art_ibepaeadqri$art_i]%>';
-    for (var $art_ibepaeadqri$art_i = 0; $art_ibepaeadqri$art_i < checkboxes.length; $art_ibepaeadqri$art_i++) {
-        var c = checkboxes[$art_ibepaeadqri$art_i];
+    $expr = '<%for(var $art_igkkagvs$art_i=0;$art_igkkagvs$art_i<checkboxes.length;$art_igkkagvs$art_i++){var c=checkboxes[$art_igkkagvs$art_i]%>';
+    for (var $art_igkkagvs$art_i = 0; $art_igkkagvs$art_i < checkboxes.length; $art_igkkagvs$art_i++) {
+        var c = checkboxes[$art_igkkagvs$art_i];
         $p += '<label mxv mxa="_zs_galleryaX:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
-        $line = 9;
+        $line = 8;
         $art = ':selected{required:[true,\'必选\']}';
         ;
         $p += '{p:\'selected\',f:{required:[true,\'必选\']}}]" type="checkbox" name="cb" value="';
         $line = 7;
         $art = '=c';
         ;
-        $p += '' + ($expr = '<%=c%>', $e(c)) + '" class="checkbox" ';
-        $line = 8;
-        $art = 'if (selected.indexOf(c)>-1)';
-        ;
-        $p += '';
-        $expr = '<%if(selected.indexOf(c)>-1){%>';
-        if (selected.indexOf(c) > -1) {
-            ;
-            $p += ' checked="true" ';
-            $line = 8;
-            $art = '/if';
-            ;
-            $p += '';
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '/>';
-        $line = 10;
+        $p += '' + ($expr = '<%=c%>', $e(c)) + '" class="checkbox"/>';
+        $line = 9;
         $art = '=c';
         ;
         $p += '' + ($expr = '<%=c%>', $e(c)) + '</label>';
-        $line = 12;
+        $line = 11;
         $art = '/each';
         ;
         $p += '';
@@ -60,27 +44,27 @@ module.exports = Base.extend({
     }
     ;
     $p += '</div></div><div mxa="_zs_galleryaX:d" class="clearfix"><div mxa="_zs_galleryaX:e" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half"><div mxs="_zs_galleryaX:a" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 18;
+    $line = 17;
     $art = '=viewId';
     ;
     $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaX:f" class="_zs_gallery___test___base_-desc-tip">';
-    $line = 20;
+    $line = 19;
     $art = '!text1';
     ;
     $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaX:b" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 23;
+    $line = 22;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="mb20"&gt;\n    &#123;&#123;each checkboxes as c&#125;&#125;\n    &lt;label class="mr30"&gt;\n        &lt;input type="checkbox" class="checkbox" \n            name="cb" \n            value="&#123;&#123;=c&#125;&#125;" \n            &#123;&#123;if(selected.indexOf(c)&gt;-1)&#125;&#125; checked="true" &#123;&#123;/if&#125;&#125;\n            &#123;&#123;:selected&#123;required:[true,\'必选\']&#125;&#125;&#125; /&gt;\n        &#123;&#123;=c&#125;&#125;\n    &lt;/label&gt;\n    &#123;&#123;/each&#125;&#125;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryaX:g" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half _zs_gallery___test___base_-half-right"><div mxs="_zs_galleryaX:c" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 39;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="mb20"&gt;\n    &#123;&#123;each checkboxes as c&#125;&#125;\n    &lt;label class="mr30"&gt;\n        &lt;input type="checkbox" class="checkbox" \n            name="cb" \n            value="&#123;&#123;=c&#125;&#125;" \n            &#123;&#123;:selected&#123;required:[true,\'必选\']&#125;&#125;&#125; /&gt;\n        &#123;&#123;=c&#125;&#125;\n    &lt;/label&gt;\n    &#123;&#123;/each&#125;&#125;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryaX:g" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half _zs_gallery___test___base_-half-right"><div mxs="_zs_galleryaX:c" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 37;
     $art = '=viewId';
     ;
     $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryaX:h" class="_zs_gallery___test___base_-desc-tip">';
-    $line = 41;
+    $line = 39;
     $art = '!text2';
     ;
     $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryaX:b" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 44;
+    $line = 42;
     $art = '=viewId';
     ;
     $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Form = require(\'@../index\');\nlet Validator = require(\'@../validator\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend({\n    tmpl: \'@index.html\',\n    mixins: [Form, Validator],\n    render() {\n        this.updater.digest({\n            selected: [\'checkbox1\'],\n            checkboxes: [\'checkbox1\', \'checkbox2\', \'checkbox3\']\n        });\n    }\n});</pre></div></div></div>';

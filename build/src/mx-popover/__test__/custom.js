@@ -11,19 +11,19 @@ Magix.applyStyle("_zs_gallery_mx-popover___test___custom_","/* @dependent: ./ind
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, list = $$.list; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybv:_" class="_zs_gallery_mx-popover___test___custom_-custom"><div mxs="_zs_gallerybv:_" class="_zs_gallery_mx-popover___test___custom_-custom-title">标题标题</div><div mxa="_zs_gallerybv:a" class="clearfix">';
+    $p += '<div mxa="_zs_galleryby:_" class="_zs_gallery_mx-popover___test___custom_-custom"><div mxs="_zs_galleryby:_" class="_zs_gallery_mx-popover___test___custom_-custom-title">标题标题</div><div mxa="_zs_galleryby:a" class="clearfix">';
     $line = 5;
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for(var $art_ilwgxtcop$art_i=0;$art_ilwgxtcop$art_i<list.length;$art_ilwgxtcop$art_i++){var item=list[$art_ilwgxtcop$art_i]%>';
-    for (var $art_ilwgxtcop$art_i = 0; $art_ilwgxtcop$art_i < list.length; $art_ilwgxtcop$art_i++) {
-        var item = list[$art_ilwgxtcop$art_i];
-        $p += '<div mxa="_zs_gallerybv:b" class="_zs_gallery_mx-popover___test___custom_-custom-item"><div mxa="_zs_gallerybv:c" class="mb5 color-9">';
+    $expr = '<%for(var $art_ipfkierdd$art_i=0;$art_ipfkierdd$art_i<list.length;$art_ipfkierdd$art_i++){var item=list[$art_ipfkierdd$art_i]%>';
+    for (var $art_ipfkierdd$art_i = 0; $art_ipfkierdd$art_i < list.length; $art_ipfkierdd$art_i++) {
+        var item = list[$art_ipfkierdd$art_i];
+        $p += '<div mxa="_zs_galleryby:b" class="_zs_gallery_mx-popover___test___custom_-custom-item"><div mxa="_zs_galleryby:c" class="mb5 color-9">';
         $line = 7;
         $art = '=item.name';
         ;
-        $p += '' + ($expr = '<%=item.name%>', $e(item.name)) + '</div><div mxs="_zs_gallerybv:a">-</div></div>';
+        $p += '' + ($expr = '<%=item.name%>', $e(item.name)) + '</div><div mxs="_zs_galleryby:a">-</div></div>';
         $line = 10;
         $art = '/each';
         ;

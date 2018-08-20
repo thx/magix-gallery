@@ -14,19 +14,19 @@ var $ = require("$");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, searchValue = $$.searchValue, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycP:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_gallerycP:a" class="_zs_gallery___test___base_-eg-content"><div mxa="_zs_gallerycP:b" class="mb20"><span mxs="_zs_gallerycP:_" class="color-9">回车搜索：</span><span>campaignId = ';
+    $p += '<div mxa="_zs_gallerycR:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_gallerycR:a" class="_zs_gallery___test___base_-eg-content"><div mxa="_zs_gallerycR:b" class="mb20"><span mxs="_zs_gallerycR:_" class="color-9">回车搜索：</span><span>campaignId = ';
     $line = 6;
     $art = '=searchValue';
     ;
-    $p += '' + ($expr = '<%=searchValue%>', $e(searchValue)) + '</span></div><div mxs="_zs_gallerycP:a" class="w200" mx-search="' + $viewId + 'change()" mx-view="mx-search/index?searchKey=campaignId&placeholder=%E6%90%9C%E7%B4%A2%E8%AE%A1%E5%88%92"></div></div><div mxa="_zs_gallerycP:c" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerycP:b" class="_zs_gallery___test___base_-eg-title">内容超出右对齐</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=searchValue%>', $e(searchValue)) + '</span></div><div mxs="_zs_gallerycR:a" class="w200" mx-search="' + $viewId + 'change()" mx-view="mx-search/index?searchKey=campaignId&placeholder=%E6%90%9C%E7%B4%A2%E8%AE%A1%E5%88%92"></div></div><div mxa="_zs_gallerycR:c" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerycR:b" class="_zs_gallery___test___base_-eg-title">内容超出右对齐</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 15;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycP:d" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycR:d" class="_zs_gallery___test___base_-desc-tip">';
     $line = 17;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycP:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycR:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 20;
     $art = '=viewId';
     ;

@@ -5,7 +5,6 @@
             {{each checkboxes as c}}
             <label class="mr30">
                 <input type="checkbox" name="cb" value="{{=c}}" class="checkbox" 
-                    {{if(selected.indexOf(c)>-1)}} checked="true" {{/if}}
                     {{:selected{required:[true,'必选']}}} />
                 {{=c}}
             </label>
@@ -27,7 +26,6 @@
         &lt;input type="checkbox" class="checkbox" 
             name="cb" 
             value="&#123;&#123;=c&#125;&#125;" 
-            &#123;&#123;if(selected.indexOf(c)&gt;-1)&#125;&#125; checked="true" &#123;&#123;/if&#125;&#125;
             &#123;&#123;:selected&#123;required:[true,'必选']&#125;&#125;&#125; /&gt;
         &#123;&#123;=c&#125;&#125;
     &lt;/label&gt;

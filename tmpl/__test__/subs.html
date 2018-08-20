@@ -1,0 +1,7 @@
+<div class="fixed-links">
+    {{each list as item}}
+    <div class="fixed-link">
+        <a href="javascript:;" class="link-brand" mx-click="to({key:'{{=item.key}}'})">{{=item.name}}</a>
+    </div>
+    {{/each}}
+</div>

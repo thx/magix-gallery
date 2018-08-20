@@ -1,4 +1,18 @@
-<mx-title.second content="使用示例"/>
+<div mx-view="__test__/subs?list={{@[{
+    name: '使用示例',
+    key: viewId + '_demo'
+}, {
+    name: 'API',
+    key: viewId + '_api'
+}, {
+    name: '快捷日期备选项',
+    key: viewId + '_quick'
+}, {
+    name: '关于实现方案',
+    key: viewId + '_implement'
+}]}}"></div>
+
+<mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
 <div class="clearfix mb20">
     <div class="half">
         <div mx-view="@./6"></div>
@@ -14,10 +28,10 @@
     </div>
 </div>
 
-<mx-title.second content="API"/>
+<mx-title.second content="API" id="{{=viewId}}_api"/>
 <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
 
-<mx-title.second content="快捷日期备选项"/>
+<mx-title.second content="快捷日期备选项" id="{{=viewId}}_quick"/>
 <div class="pr20 mb40" id="{{=viewId}}_quick">
     <table class="table desc-table">
         <thead>
@@ -39,4 +53,4 @@
     </table>
 </div>
 
-<div mx-view="@./implement"></div>
+<div mx-view="@./implement" id="{{=viewId}}_implement"></div>

@@ -15,7 +15,7 @@ var $ = require("$");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, number = $$.number, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerya8:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_gallerya8:a" class="_zs_gallery___test___base_-eg-content"><div mxv mxa="_zs_gallerya8:b" class="clearfix"><input mxe="' + $viewId + '_0" mxc="[';
+    $p += '<div mxv mxa="_zs_gallerya#:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_gallerya#:a" class="_zs_gallery___test___base_-eg-content"><div mxv mxa="_zs_gallerya#:b" class="clearfix"><input mxe="' + $viewId + '_0" mxc="[';
     $line = 4;
     $art = ':number{range:[4, 8]}';
     ;
@@ -39,15 +39,15 @@ module.exports = Base.extend({
     $line = 6;
     $art = ':number{max:30}';
     ;
-    $p += '' + ($expr = '<%=number%>', $e(number)) + '"/></div></div><div mxa="_zs_gallerya8:c" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerya8:_" class="_zs_gallery___test___base_-eg-title">数字范围</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=number%>', $e(number)) + '"/></div></div><div mxa="_zs_gallerya#:c" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerya#:_" class="_zs_gallery___test___base_-eg-title">数字范围</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 11;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya8:d" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya#:d" class="_zs_gallery___test___base_-desc-tip">';
     $line = 13;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya8:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya#:a" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 16;
     $art = '=viewId';
     ;

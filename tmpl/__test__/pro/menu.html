@@ -1,12 +1,10 @@
-<div class="fixed-links">
-    <div class="mb10">
-        <a href="javascript:;" class="link-brand" mx-click="to({key:'menu'})">查看导航可见菜单配置</a>
-    </div>
-    <div>
-        <a href="javascript:;" class="link-brand" mx-click="to({key:'custom'})">查看自定义菜单配置</a>
-    </div>
-</div>
-
+<div mx-view="__test__/subs?list={{@[{
+    name: '查看导航可见菜单配置',
+    key: viewId + '_menu'
+}, {
+    name: '查看自定义菜单配置',
+    key: viewId + '_custom'
+}]}}"></div>
 
 <mx-title.second id="{{=viewId}}_menu"
     content="导航可见菜单配置" 

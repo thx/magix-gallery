@@ -5,7 +5,6 @@
             {{each radioes as r}}
             <label class="mr30">
                 <input type="radio" value="{{=r}}" class="radio" name="magix" 
-                    {{if(radio==r)}} checked="true" {{/if}}
                     {{:selected}} />
                 {{=r}}
             </label>
@@ -27,7 +26,6 @@
         &lt;input type="radio" class="radio" 
             name="magix" 
             value="&#123;&#123;=r&#125;&#125;" 
-            &#123;&#123;if(radio==r)&#125;&#125; checked="true" &#123;&#123;/if&#125;&#125;
             &#123;&#123;:selected&#125;&#125; /&gt;
         &#123;&#123;=r&#125;&#125;
     &lt;/label&gt;

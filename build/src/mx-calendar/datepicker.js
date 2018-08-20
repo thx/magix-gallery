@@ -21,7 +21,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '" mx-click="' + $viewId + '@{toggle}()" mx-change="' + $viewId + '@{stop}()"><div mxa="_zs_gallery0:_" class="_zs_gallery_mx-calendar_rangepicker_-result">';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '" mx-click="' + $viewId + '@{toggle}()" mx-change="' + $viewId + '@{stop}()"><div mxa="_zs_gallery3:_" class="_zs_gallery_mx-calendar_rangepicker_-result">';
     $line = 5;
     $art = 'if dateInfo.prefix';
     ;
@@ -29,7 +29,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if(dateInfo.prefix){%>';
     if (dateInfo.prefix) {
         ;
-        $p += '<span mxa="_zs_gallery0:a" class="_zs_gallery_mx-calendar_rangepicker_-result-prefix">';
+        $p += '<span mxa="_zs_gallery3:a" class="_zs_gallery_mx-calendar_rangepicker_-result-prefix">';
         $line = 6;
         $art = '=dateInfo.prefix';
         ;
