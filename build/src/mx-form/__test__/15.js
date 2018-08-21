@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -14,10 +14,22 @@ var Form = require("mx-form/index");
 var Validator = require("mx-form/validator");
 var $ = require("$");
 module.exports = Base.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
-    if ($$ref[k = $g + f] === v)
-        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, list = $$.list, tags = $$.tags, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', list = $$.list, tags = $$.tags, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_gallerya6:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_gallerya6:a" class="_zs_gallery___test___base_-eg-content"><div mxv mxa="_zs_gallerya6:b" class="mb20 clearfix"><span mxs="_zs_gallerya6:_" class="color-9 mr20 fl lh32">taginput必选：</span><div mxv="list,tags" mxe="' + $viewId + '_0" mxc="[';
     $line = 8;
     $art = ':tags{required:true}';
@@ -26,11 +38,11 @@ module.exports = Base.extend({
     $line = 6;
     $art = '@list';
     ;
-    $p += '' + ($expr = '<%@list%>', $i(list)) + '&placeholder=%E8%AF%B7%E9%80%89%E6%8B%A9%E6%A0%87%E7%AD%BE&selected=';
+    $p += '' + ($expr = '<%@list%>', $i($$ref, list)) + '&placeholder=%E8%AF%B7%E9%80%89%E6%8B%A9%E6%A0%87%E7%AD%BE&selected=';
     $line = 8;
     $art = ':tags{required:true}';
     ;
-    $p += '' + ($expr = '<%@tags%>', $i(tags)) + '"></div></div></div><div mxa="_zs_gallerya6:c" class="clearfix"><div mxa="_zs_gallerya6:d" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half"><div mxs="_zs_gallerya6:a" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%@tags%>', $i($$ref, tags)) + '"></div></div></div><div mxa="_zs_gallerya6:c" class="clearfix"><div mxa="_zs_gallerya6:d" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half"><div mxs="_zs_gallerya6:a" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 14;
     $art = '=viewId';
     ;

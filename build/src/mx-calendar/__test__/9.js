@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -13,15 +13,27 @@ var Base = require("__test__/example");
 var Moment = require("moment");
 var $ = require("$");
 module.exports = Base.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
-    if ($$ref[k = $g + f] === v)
-        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
     $p += '<div mxa="_zs_galleryW:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryW:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryW:_" class="mb10 clearfix"><div class="color-9 fl lh22">以下示例：</div><div class="fl lh22"><div>不对比</div><div>快捷方式包含不限和动态计算的</div></div></div><div class="w200" mx-view="mx-calendar/rangepicker?start=2018-04-03&end=%E4%B8%8D%E9%99%90&shortkeys=';
     $line = 13;
     $art = '@[\n                \'dynamicStart15\',\n                \'dynamicStart30\',\n                \'dynamicStart60\',\n                \'dynamicStart90\',\n                \'dynamicEndThisMonth\',\n                \'dynamicEndNextMonth\',\n                \'forever\'\n            ]';
     ;
-    $p += '' + ($expr = '<%@[\'dynamicStart15\',\'dynamicStart30\',\'dynamicStart60\',\'dynamicStart90\',\'dynamicEndThisMonth\',\'dynamicEndNextMonth\',\'forever\']%>', $i(['dynamicStart15', 'dynamicStart30', 'dynamicStart60', 'dynamicStart90', 'dynamicEndThisMonth', 'dynamicEndNextMonth', 'forever'])) + '"></div></div><div mxa="_zs_galleryW:b" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryW:a" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%@[        \'dynamicStart15\',        \'dynamicStart30\',        \'dynamicStart60\',        \'dynamicStart90\',        \'dynamicEndThisMonth\',        \'dynamicEndNextMonth\',        \'forever\'    ]%>', $i($$ref, ['dynamicStart15', 'dynamicStart30', 'dynamicStart60', 'dynamicStart90', 'dynamicEndThisMonth', 'dynamicEndNextMonth', 'forever'])) + '"></div></div><div mxa="_zs_galleryW:b" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryW:a" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 25;
     $art = '=viewId';
     ;

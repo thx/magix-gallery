@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -11,16 +11,28 @@ var $ = require("$");
 var Monitor = require("../mx-monitor/index");
 Magix.applyStyle("_zs_gallery_mx-taginput_suggest_","/* @dependent: ./index.less */\n._zs_gallery_mx-taginput_suggest_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-taginput_suggest_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-taginput_suggest_-suggest {\n  position: relative;\n  z-index: 1;\n  max-height: 260px;\n  padding: 10px;\n  font-size: 12px;\n  border-radius: 4px;\n  border: 1px solid #e6e6e6;\n  overflow: auto;\n  list-style: none;\n  background-color: #fff;\n  line-height: 1.5;\n}\n._zs_gallery_mx-taginput_suggest_-suggest ._zs_gallery_mx-taginput_suggest_-item {\n  cursor: pointer;\n}\n._zs_gallery_mx-taginput_suggest_-suggest ._zs_gallery_mx-taginput_suggest_-item ._zs_gallery_mx-taginput_suggest_-item-link {\n  display: block;\n  width: 100%;\n  padding: 0 10px;\n  height: 32px;\n  color: #666;\n  line-height: 32px;\n  border-radius: 4px;\n}\n._zs_gallery_mx-taginput_suggest_-suggest ._zs_gallery_mx-taginput_suggest_-item ._zs_gallery_mx-taginput_suggest_-item-link:hover,\n._zs_gallery_mx-taginput_suggest_-suggest ._zs_gallery_mx-taginput_suggest_-item ._zs_gallery_mx-taginput_suggest_-item-link:focus,\n._zs_gallery_mx-taginput_suggest_-suggest ._zs_gallery_mx-taginput_suggest_-item ._zs_gallery_mx-taginput_suggest_-item-link:active {\n  color: #333;\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-taginput_suggest_-suggest ._zs_gallery_mx-taginput_suggest_-item:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery_mx-taginput_suggest_-suggest ._zs_gallery_mx-taginput_suggest_-active {\n  color: #333;\n  background-color: #f0f0f0;\n  border-radius: 4px;\n  text-decoration: none;\n  outline: 0;\n}\n");
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
-    if ($$ref[k = $g + f] === v)
-        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, list = $$.list, width = $$.width, viewId = $$.viewId; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', list = $$.list, width = $$.width, viewId = $$.viewId; var $expr, $art, $line; try {
     $p += '';
     $line = 1;
     $art = 'if (list && list.length)';
     ;
     $p += '';
-    $expr = '<%if(list&&list.length){%>';
+    $expr = '<%if (list && list.length) {%>';
     if (list && list.length) {
         ;
         $p += '<ul class="_zs_gallery_mx-taginput_suggest_-suggest unselectable" style="width: ';
@@ -32,8 +44,8 @@ module.exports = Magix.View.extend({
         $art = 'each list as one idx';
         ;
         $p += '';
-        $expr = '<%for(var idx=0;idx<list.length;idx++){var one=list[idx]%>';
-        for (var idx = 0; idx < list.length; idx++) {
+        $expr = '<%for (var idx = 0, $art_cpejjpjuq$art_c = list.length; idx < $art_cpejjpjuq$art_c; idx++) {        var one = list[idx]%>';
+        for (var idx = 0, $art_cpejjpjuq$art_c = list.length; idx < $art_cpejjpjuq$art_c; idx++) {
             var one = list[idx];
             $p += '<li mxa="_zs_gallerycD:_" class="_zs_gallery_mx-taginput_suggest_-item"><a href="javascript:;" class="_zs_gallery_mx-taginput_suggest_-item-link" data-idx="';
             $line = 10;
@@ -43,7 +55,7 @@ module.exports = Magix.View.extend({
             $line = 11;
             $art = '@one';
             ;
-            $p += '' + ($expr = '<%@one%>', $i(one)) + '\'})" id="sg_';
+            $p += '' + ($expr = '<%@one%>', $i($$ref, one)) + '\'})" id="sg_';
             $line = 11;
             $art = '=viewId';
             ;
@@ -68,7 +80,7 @@ module.exports = Magix.View.extend({
         $art = 'else';
         ;
         $p += '';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;

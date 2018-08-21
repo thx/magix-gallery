@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -11,14 +11,24 @@ var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
 module.exports = Base.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
     $p += '<div mxa="_zs_galleryb`:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryb`:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryb`:_" class="mb20 clearfix lh22"><span class="color-9">普通表格：</span><span>加class="table"，样式与组件一致，没有默认选中逻辑</span></div><div mxa="_zs_galleryb`:b" class="mb20"><table mxa="_zs_galleryb`:c" class="table"><thead><tr>';
     $line = 11;
     $art = 'for (let i=0;i<5;i++)';
     ;
     $p += '';
-    $expr = '<%for(var i=0;i<5;i++){%>';
+    $expr = '<%for (var i = 0; i < 5; i++) {%>';
     for (var i = 0; i < 5; i++) {
         ;
         $p += '<th>示例字段';
@@ -38,7 +48,7 @@ module.exports = Base.extend({
     $art = 'for (let j=0;j<3;j++)';
     ;
     $p += '';
-    $expr = '<%for(var j=0;j<3;j++){%>';
+    $expr = '<%for (var j = 0; j < 3; j++) {%>';
     for (var j = 0; j < 3; j++) {
         ;
         $p += '<tr>';
@@ -46,7 +56,7 @@ module.exports = Base.extend({
         $art = 'for (let i=0;i<5;i++)';
         ;
         $p += '';
-        $expr = '<%for(var i=0;i<5;i++){%>';
+        $expr = '<%for (var i = 0; i < 5; i++) {%>';
         for (var i = 0; i < 5; i++) {
             ;
             $p += '<td>示例字段';

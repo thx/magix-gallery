@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -12,20 +12,32 @@ var DefaultSizes = [10, 20, 30, 40];
 var I18n = require("../mx-medusa/util");
 Magix.applyStyle("_zs_gallery_mx-pagination_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-pagination_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-pagination_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-pagination_index_-pager {\n  color: #999;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-infos {\n  float: left;\n  line-height: 26px;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-infos ._zs_gallery_mx-pagination_index_-pager-dropdown {\n  min-width: 66px;\n  height: 26px;\n  line-height: 24px;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items {\n  display: inline-block;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item {\n  float: left;\n  line-height: 26px;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item ._zs_gallery_mx-pagination_index_-num-item-inner,\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item ._zs_gallery_mx-pagination_index_-num-item-icon {\n  display: block;\n  min-width: 26px;\n  height: 26px;\n  margin: 0 2px;\n  font-size: 12px;\n  border-radius: 4px;\n  text-align: center;\n  color: #999;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item ._zs_gallery_mx-pagination_index_-num-item-inner:hover {\n  color: #666;\n  background-color: #eee;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item ._zs_gallery_mx-pagination_index_-num-item-inner._zs_gallery_mx-pagination_index_-active {\n  color: #fff;\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item ._zs_gallery_mx-pagination_index_-num-item-inner._zs_gallery_mx-pagination_index_-notallowed {\n  background: transparent;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item ._zs_gallery_mx-pagination_index_-num-item-icon {\n  line-height: 28px;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item ._zs_gallery_mx-pagination_index_-num-item-icon:hover {\n  color: #666;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item ._zs_gallery_mx-pagination_index_-num-item-icon._zs_gallery_mx-pagination_index_-notallowed {\n  color: #e6e6e6;\n  background: transparent;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-quick {\n  float: right;\n  margin-left: 15px;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-quick ._zs_gallery_mx-pagination_index_-quick-input {\n  width: 40px;\n  text-align: center;\n}\n");
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
-    if ($$ref[k = $g + f] === v)
-        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, simplify = $$.simplify, mini = $$.mini, tipOffset = $$.tipOffset, tipTotal = $$.tipTotal, tipPer = $$.tipPer, sizesChange = $$.sizesChange, sizes = $$.sizes, size = $$.size, tipUnit = $$.tipUnit, jump = $$.jump, next = $$.next, viewId = $$.viewId, hideTotal = $$.hideTotal, page = $$.page, pages = $$.pages, start = $$.start, end = $$.end; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerybk:_" class="clearfix _zs_gallery_mx-pagination_index_-pager">';
-    $expr = '<%if(!simplify&&!mini){%>';
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', simplify = $$.simplify, mini = $$.mini, tipOffset = $$.tipOffset, tipTotal = $$.tipTotal, tipPer = $$.tipPer, sizesChange = $$.sizesChange, sizes = $$.sizes, size = $$.size, tipUnit = $$.tipUnit, jump = $$.jump, next = $$.next, viewId = $$.viewId, hideTotal = $$.hideTotal, page = $$.page, pages = $$.pages, start = $$.start, end = $$.end; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerybj:_" class="clearfix _zs_gallery_mx-pagination_index_-pager">';
+    $expr = '<%if (!simplify && !mini) {%>';
     if (!simplify && !mini) {
         ;
-        $p += '<div mxv mxa="_zs_gallerybk:a" class="_zs_gallery_mx-pagination_index_-infos"><span>' + ($expr = '<%!tipOffset%>', $n(tipOffset)) + '</span><span>' + ($expr = '<%!tipTotal%>', $n(tipTotal)) + '，</span><span>' + ($expr = '<%!tipPer%>', $n(tipPer)) + '</span>';
-        $expr = '<%if(sizesChange){%>';
+        $p += '<div mxv mxa="_zs_gallerybj:a" class="_zs_gallery_mx-pagination_index_-infos"><span>' + ($expr = '<%!tipOffset%>', $n(tipOffset)) + '</span><span>' + ($expr = '<%!tipTotal%>', $n(tipTotal)) + '，</span><span>' + ($expr = '<%!tipPer%>', $n(tipPer)) + '</span>';
+        $expr = '<%if (sizesChange) {%>';
         if (sizesChange) {
             ;
-            $p += '<div mxv="sizes,size" class="ml10 mr10 _zs_gallery_mx-pagination_index_-pager-dropdown" mx-change="' + $viewId + '@{changeSize}()" mx-view="mx-dropdown/index?list=' + ($expr = '<%@sizes%>', $i(sizes)) + '&selected=' + ($expr = '<%@size%>', $i(size)) + '"></div>';
-            $expr = '<%}else{%>';
+            $p += '<div mxv="sizes,size" class="ml10 mr10 _zs_gallery_mx-pagination_index_-pager-dropdown" mx-change="' + $viewId + '@{changeSize}()" mx-view="mx-dropdown/index?list=' + ($expr = '<%@sizes%>', $i($$ref, sizes)) + '&selected=' + ($expr = '<%@size%>', $i($$ref, size)) + '"></div>';
+            $expr = '<%}    else {%>';
         }
         else {
             ;
@@ -38,10 +50,10 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += ' ';
-    $expr = '<%if(!jump){%>';
+    $expr = '<%if (!jump) {%>';
     if (!jump) {
         ;
-        $p += '<div mxv mxa="_zs_gallerybk:b" class="_zs_gallery_mx-pagination_index_-quick"><span mxs="_zs_gallerybk:_" class="mr5">向第</span><input class="input input-small _zs_gallery_mx-pagination_index_-quick-input mr5" value="';
+        $p += '<div mxv mxa="_zs_gallerybj:b" class="_zs_gallery_mx-pagination_index_-quick"><span mxs="_zs_gallerybj:_" class="mr5">向第</span><input class="input input-small _zs_gallery_mx-pagination_index_-quick-input mr5" value="';
         $line = 24;
         $art = '=next';
         ;
@@ -49,20 +61,20 @@ module.exports = Magix.View.extend({
         $line = 24;
         $art = '=viewId';
         ;
-        $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_jump_input" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()"/><span mxs="_zs_gallerybk:a" class="mr10">页</span><a mxs="_zs_gallerybk:b" href="javascript:;" class="btn btn-small" mx-click="' + $viewId + '@{jump}()">跳转</a></div>';
+        $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_jump_input" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()"/><span mxs="_zs_gallerybj:a" class="mr10">页</span><a mxs="_zs_gallerybj:b" href="javascript:;" class="btn btn-small" mx-click="' + $viewId + '@{jump}()">跳转</a></div>';
         $expr = '<%}%>';
     }
     ;
     $p += '<ul class="clearfix _zs_gallery_mx-pagination_index_-num-items" ';
-    $expr = '<%if(!hideTotal){%>';
+    $expr = '<%if (!hideTotal) {%>';
     if (!hideTotal) {
         ;
         $p += ' style="float: right;" ';
         $expr = '<%}%>';
     }
     ;
-    $p += '><li mxa="_zs_gallerybk:c" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon ';
-    $expr = '<%if(page==1){%>';
+    $p += '><li mxa="_zs_gallerybj:c" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon ';
+    $expr = '<%if (page == 1) {%>';
     if (page == 1) {
         ;
         $p += '_zs_gallery_mx-pagination_index_-notallowed';
@@ -70,11 +82,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += '" href="#" mx-click="' + $viewId + '';
-    $expr = '<%if(page>1){%>';
+    $expr = '<%if (page > 1) {%>';
     if (page > 1) {
         ;
-        $p += '@{toPage}({page:' + ($expr = '<%=page-1%>', $e(page - 1)) + '})';
-        $expr = '<%}else{%>';
+        $p += '@{toPage}({page:' + ($expr = '<%=page - 1%>', $e(page - 1)) + '})';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -83,36 +95,36 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += '">&#xe61e;</a></li>';
-    $expr = '<%if(mini){%>';
+    $expr = '<%if (mini) {%>';
     if (mini) {
         ;
-        $p += '<li mxa="_zs_gallerybk:d" class="_zs_gallery_mx-pagination_index_-num-item">' + ($expr = '<%=page%>', $e(page)) + ' / ' + ($expr = '<%=pages%>', $e(pages)) + '</li>';
-        $expr = '<%}else{%>';
+        $p += '<li mxa="_zs_gallerybj:d" class="_zs_gallery_mx-pagination_index_-num-item">' + ($expr = '<%=page%>', $e(page)) + ' / ' + ($expr = '<%=pages%>', $e(pages)) + '</li>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
         $p += ' ';
-        $expr = '<%if(start>1){%>';
+        $expr = '<%if (start > 1) {%>';
         if (start > 1) {
             ;
-            $p += '<li mxs="_zs_gallerybk:c" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner" href="#" mx-click="' + $viewId + '@{toPage}({page:1})">1</a></li>';
+            $p += '<li mxs="_zs_gallerybj:c" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner" href="#" mx-click="' + $viewId + '@{toPage}({page:1})">1</a></li>';
             $expr = '<%}%>';
         }
         ;
         $p += ' ';
-        $expr = '<%if(start>2){%>';
+        $expr = '<%if (start > 2) {%>';
         if (start > 2) {
             ;
-            $p += '<li mxs="_zs_gallerybk:d" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner _zs_gallery_mx-pagination_index_-notallowed" href="#" mx-click="' + $viewId + '@{prevent}()">...</a></li>';
+            $p += '<li mxs="_zs_gallerybj:d" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner _zs_gallery_mx-pagination_index_-notallowed" href="#" mx-click="' + $viewId + '@{prevent}()">...</a></li>';
             $expr = '<%}%>';
         }
         ;
         $p += ' ';
-        $expr = '<%for(var i=start;i<=end;i++){%>';
+        $expr = '<%for (var i = start; i <= end; i++) {%>';
         for (var i = start; i <= end; i++) {
             ;
-            $p += '<li mxa="_zs_gallerybk:e" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner ';
-            $expr = '<%if(i==page){%>';
+            $p += '<li mxa="_zs_gallerybj:e" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner ';
+            $expr = '<%if (i == page) {%>';
             if (i == page) {
                 ;
                 $p += '_zs_gallery_mx-pagination_index_-active';
@@ -124,18 +136,18 @@ module.exports = Magix.View.extend({
         }
         ;
         $p += ' ';
-        $expr = '<%if(end+2<=pages){%>';
+        $expr = '<%if (end + 2 <= pages) {%>';
         if (end + 2 <= pages) {
             ;
-            $p += '<li mxs="_zs_gallerybk:d" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner _zs_gallery_mx-pagination_index_-notallowed" href="#" mx-click="' + $viewId + '@{prevent}()">...</a></li>';
+            $p += '<li mxs="_zs_gallerybj:d" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner _zs_gallery_mx-pagination_index_-notallowed" href="#" mx-click="' + $viewId + '@{prevent}()">...</a></li>';
             $expr = '<%}%>';
         }
         ;
         $p += ' ';
-        $expr = '<%if(end<pages){%>';
+        $expr = '<%if (end < pages) {%>';
         if (end < pages) {
             ;
-            $p += '<li mxa="_zs_gallerybk:f" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner" href="#" mx-click="' + $viewId + '@{toPage}({page:' + ($expr = '<%=pages%>', $e(pages)) + '})">' + ($expr = '<%=pages%>', $e(pages)) + '</a></li>';
+            $p += '<li mxa="_zs_gallerybj:f" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner" href="#" mx-click="' + $viewId + '@{toPage}({page:' + ($expr = '<%=pages%>', $e(pages)) + '})">' + ($expr = '<%=pages%>', $e(pages)) + '</a></li>';
             $expr = '<%}%>';
         }
         ;
@@ -143,8 +155,8 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<li mxa="_zs_gallerybk:g" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon rotate180 ';
-    $expr = '<%if(page==pages){%>';
+    $p += '<li mxa="_zs_gallerybj:g" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon rotate180 ';
+    $expr = '<%if (page == pages) {%>';
     if (page == pages) {
         ;
         $p += '_zs_gallery_mx-pagination_index_-notallowed';
@@ -152,11 +164,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += '" href="#" mx-click="' + $viewId + '';
-    $expr = '<%if(page<pages){%>';
+    $expr = '<%if (page < pages) {%>';
     if (page < pages) {
         ;
-        $p += '@{toPage}({page:' + ($expr = '<%=page+1%>', $e(page + 1)) + '})';
-        $expr = '<%}else{%>';
+        $p += '@{toPage}({page:' + ($expr = '<%=page + 1%>', $e(page + 1)) + '})';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -165,10 +177,10 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += '">&#xe61e;</a></li>';
-    $expr = '<%if(!hideTotal){%>';
+    $expr = '<%if (!hideTotal) {%>';
     if (!hideTotal) {
         ;
-        $p += '<li mxa="_zs_gallerybk:h" class="_zs_gallery_mx-pagination_index_-num-item ml10">' + ($expr = '<%!tipTotal%>', $n(tipTotal)) + '</li>';
+        $p += '<li mxa="_zs_gallerybj:h" class="_zs_gallery_mx-pagination_index_-num-item ml10">' + ($expr = '<%!tipTotal%>', $n(tipTotal)) + '</li>';
         $expr = '<%}%>';
     }
     ;
@@ -251,7 +263,7 @@ catch (ex) {
         var end = Math.min(pages, start + step - 1);
         start = Math.max(1, end - step + 1);
         var offset;
-        if (start <= 2) {
+        if (start <= 2) { //=2 +1  =1  +2
             offset = 3 - start;
             if (end + offset < pages) {
                 end += offset;

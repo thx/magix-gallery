@@ -1,60 +1,61 @@
 @import "../mx-style/_vars";
-
-.notice{
+.notice {
     padding: 10px;
-    background-color: @color-bg;
-    color: #999;
     line-height: 18px;
-
-    .inner{
+    .inner {
         position: relative;
         padding-left: 20px;
-        .icon{
+        .icon {
             position: absolute;
             top: -2px;
             left: 0;
             height: 18px;
             line-height: 18px;
-            color: #ccc;
         }
     }
-    &.border{
+    &.border {
         border-width: 1px;
         border-style: solid;
-        border-color: @color-border;
         border-radius: 4px;
     }
-
-    &.error{
+    &.common {
+        color: #999;
+        background-color: @color-bg;
+        .icon {
+            color: #ccc;
+        }
+        &.border{
+            border-color: @color-border;
+        }
+    }
+    &.error {
         color: @color-red;
         background-color: tint(@color-red, 85%);
-
-        .icon{
+        .icon {
             color: @color-red;
         }
-
-        &.border{
+        &.border {
             border-color: @color-red;
         }
     }
-    &.warn{
+    &.warn {
         color: @color-warn;
         background-color: tint(@color-warn, 90%);
-
-        .icon{
+        .icon {
             color: @color-warn;
         }
-
-        &.border{
+        &.border {
             border-color: @color-warn;
         }
     }
-
-    &.highlight{
+    &.highlight {
         color: #333;
-        
-        .icon{
+        background-color: @color-bg;
+        .icon {
             color: @color-brand;
+        }
+        &.border{
+            border-color: @color-border;
         }
     }
 }

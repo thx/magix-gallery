@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -14,26 +14,38 @@ var Magix = require("magix");
 var Base = require("mx-tabs/base");
 Magix.applyStyle("_zs_gallery_mx-tabs_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-tabs_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-tabs_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-tabs/box\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-tabs_index_-tag {\n  display: inline-block;\n  height: 18px;\n  padding-left: 4px;\n  padding-right: 4px;\n  line-height: 16px;\n  border-radius: 4px;\n  background-color: #4d7fff;\n  color: #fff;\n  font-size: 12px;\n  font-weight: bold;\n  white-space: nowrap;\n}\n._zs_gallery_mx-tabs_index_-border {\n  position: relative;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item {\n  position: relative;\n  float: left;\n  font-size: 16px;\n  padding: 10px 25px 20px 25px;\n  transition: color 0.25s ease-out;\n  color: #999;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item._zs_gallery_mx-tabs_index_-selected {\n  color: #4d7fff;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag {\n  position: absolute;\n  top: -4px;\n  left: 100%;\n  margin-left: -26px;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag ._zs_gallery_mx-tabs_index_-tag-name {\n  display: inline-block;\n  -webkit-transform: scale(0.92);\n          transform: scale(0.92);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag ._zs_gallery_mx-tabs_index_-tag-arrow {\n  position: absolute;\n  left: 4px;\n  top: 18px;\n  width: 0;\n  height: 0;\n  border-width: 3px;\n  border-style: solid;\n  border-color: #4d7fff #ffffff #ffffff #4d7fff;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-underline {\n  position: absolute;\n  width: 0;\n  height: 0;\n  bottom: 0;\n  border-bottom: 1px solid #4d7fff;\n  transition: width 0.25s cubic-bezier(0.645, 0.045, 0.355, 1), left 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);\n}\n._zs_gallery_mx-tabs_index_-box {\n  display: inline-block;\n  height: 32px;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  background-color: #fff;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item {\n  display: inline-block;\n  height: 30px;\n  line-height: 30px;\n  color: #999;\n  cursor: pointer;\n  text-align: center;\n  padding: 0 12px;\n  transition: color 0.25s ease-out, background-color 0.25s ease-out;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:first-child {\n  border-top-left-radius: 4px;\n  border-bottom-left-radius: 4px;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:last-child {\n  border-top-right-radius: 4px;\n  border-bottom-right-radius: 4px;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #4d7fff;\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item ._zs_gallery_mx-tabs_index_-tag {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-disabled ._zs_gallery_mx-tabs_index_-box-item {\n  cursor: not-allowed;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-disabled ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #999;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-disabled ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #999;\n  background-color: #eee;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-disabled ._zs_gallery_mx-tabs_index_-box-item ._zs_gallery_mx-tabs_index_-tag {\n  background-color: #ccc;\n}\n");
 module.exports = Base.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
-    if ($$ref[k = $g + f] === v)
-        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, type = $$.type, list = $$.list, selected = $$.selected, viewId = $$.viewId, left = $$.left, width = $$.width, disabled = $$.disabled; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', type = $$.type, list = $$.list, selected = $$.selected, viewId = $$.viewId, left = $$.left, width = $$.width, disabled = $$.disabled; var $expr, $art, $line; try {
     $p += '';
     $line = 1;
     $art = 'if type == \'border\'';
     ;
     $p += '';
-    $expr = '<%if(type==\'border\'){%>';
+    $expr = '<%if (type == \'border\') {%>';
     if (type == 'border') {
         ;
-        $p += '<div mxa="_zs_gallerycy:_" class="_zs_gallery_mx-tabs_index_-border clearfix">';
+        $p += '<div mxa="_zs_gallerycw:_" class="_zs_gallery_mx-tabs_index_-border clearfix">';
         $line = 3;
         $art = 'each list as item';
         ;
         $p += '';
-        $expr = '<%for(var $art_ivjwhur$art_i=0;$art_ivjwhur$art_i<list.length;$art_ivjwhur$art_i++){var item=list[$art_ivjwhur$art_i]%>';
-        for (var $art_ivjwhur$art_i = 0; $art_ivjwhur$art_i < list.length; $art_ivjwhur$art_i++) {
-            var item = list[$art_ivjwhur$art_i];
+        $expr = '<%for (var $art_idyeuljjwm$art_i = 0, $art_ctqasxobfzgn$art_c = list.length; $art_idyeuljjwm$art_i < $art_ctqasxobfzgn$art_c; $art_idyeuljjwm$art_i++) {        var item = list[$art_idyeuljjwm$art_i]%>';
+        for (var $art_idyeuljjwm$art_i = 0, $art_ctqasxobfzgn$art_c = list.length; $art_idyeuljjwm$art_i < $art_ctqasxobfzgn$art_c; $art_idyeuljjwm$art_i++) {
+            var item = list[$art_idyeuljjwm$art_i];
             $p += '<a mx-mouseover="' + $viewId + '@{over}({value:\'';
             $line = 4;
             $art = '=item.value';
@@ -42,11 +54,11 @@ module.exports = Base.extend({
             $line = 4;
             $art = '= (item.value == selected) ? \'selected\' : \'\'';
             ;
-            $p += '' + ($expr = '<%=(item.value==selected)?\'_zs_gallery_mx-tabs_index_-selected\':\'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '" mx-click="' + $viewId + '@{select}({item:\'';
+            $p += '' + ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '" mx-click="' + $viewId + '@{select}({item:\'';
             $line = 4;
             $art = '@item';
             ;
-            $p += '' + ($expr = '<%@item%>', $i(item)) + '\'})" href="javascript:;" id="';
+            $p += '' + ($expr = '<%@item%>', $i($$ref, item)) + '\'})" href="javascript:;" id="';
             $line = 4;
             $art = '=viewId';
             ;
@@ -63,10 +75,10 @@ module.exports = Base.extend({
             $art = 'if item.tag';
             ;
             $p += '';
-            $expr = '<%if(item.tag){%>';
+            $expr = '<%if (item.tag) {%>';
             if (item.tag) {
                 ;
-                $p += '<span mxa="_zs_gallerycy:a" class="_zs_gallery_mx-tabs_index_-tag"><span mxs="_zs_gallerycy:_" class="_zs_gallery_mx-tabs_index_-tag-arrow"></span><span mxa="_zs_gallerycy:b" class="_zs_gallery_mx-tabs_index_-tag-name">';
+                $p += '<span mxa="_zs_gallerycw:a" class="_zs_gallery_mx-tabs_index_-tag"><span mxs="_zs_gallerycw:_" class="_zs_gallery_mx-tabs_index_-tag-arrow"></span><span mxa="_zs_gallerycw:b" class="_zs_gallery_mx-tabs_index_-tag-name">';
                 $line = 9;
                 $art = '=item.tag';
                 ;
@@ -99,7 +111,7 @@ module.exports = Base.extend({
         $art = 'else';
         ;
         $p += '';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -107,27 +119,27 @@ module.exports = Base.extend({
         $line = 17;
         $art = '= _zs_gallery_mx-tabs_index_-disabled ? \'disabled\' : \'\'';
         ;
-        $p += '' + ($expr = '<%=disabled?\'_zs_gallery_mx-tabs_index_-disabled\':\'\'%>', $e(disabled ? '_zs_gallery_mx-tabs_index_-disabled' : '')) + '">';
+        $p += '' + ($expr = '<%=disabled ? \'_zs_gallery_mx-tabs_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-tabs_index_-disabled' : '')) + '">';
         $line = 18;
         $art = 'each list as item';
         ;
         $p += '';
-        $expr = '<%for(var $art_ikzawd$art_i=0;$art_ikzawd$art_i<list.length;$art_ikzawd$art_i++){var item=list[$art_ikzawd$art_i]%>';
-        for (var $art_ikzawd$art_i = 0; $art_ikzawd$art_i < list.length; $art_ikzawd$art_i++) {
-            var item = list[$art_ikzawd$art_i];
+        $expr = '<%for (var $art_izirgqzrcgi$art_i = 0, $art_ciorosees$art_c = list.length; $art_izirgqzrcgi$art_i < $art_ciorosees$art_c; $art_izirgqzrcgi$art_i++) {        var item = list[$art_izirgqzrcgi$art_i]%>';
+        for (var $art_izirgqzrcgi$art_i = 0, $art_ciorosees$art_c = list.length; $art_izirgqzrcgi$art_i < $art_ciorosees$art_c; $art_izirgqzrcgi$art_i++) {
+            var item = list[$art_izirgqzrcgi$art_i];
             $p += '<a href="javascript:;" ';
             $line = 19;
             $art = 'if !disabled';
             ;
             $p += '';
-            $expr = '<%if(!disabled){%>';
+            $expr = '<%if (!disabled) {%>';
             if (!disabled) {
                 ;
                 $p += ' mx-click="' + $viewId + '@{select}({item:\'';
                 $line = 19;
                 $art = '@item';
                 ;
-                $p += '' + ($expr = '<%@item%>', $i(item)) + '\'})" ';
+                $p += '' + ($expr = '<%@item%>', $i($$ref, item)) + '\'})" ';
                 $line = 19;
                 $art = '/if';
                 ;
@@ -139,7 +151,7 @@ module.exports = Base.extend({
             $line = 19;
             $art = '= (item.value == selected) ? \'selected\' : \'\'';
             ;
-            $p += '' + ($expr = '<%=(item.value==selected)?\'_zs_gallery_mx-tabs_index_-selected\':\'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '">';
+            $p += '' + ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '">';
             $line = 20;
             $art = '=item.text';
             ;
@@ -148,10 +160,10 @@ module.exports = Base.extend({
             $art = 'if item.tag';
             ;
             $p += '';
-            $expr = '<%if(item.tag){%>';
+            $expr = '<%if (item.tag) {%>';
             if (item.tag) {
                 ;
-                $p += '<span mxa="_zs_gallerycy:c" class="_zs_gallery_mx-tabs_index_-tag">';
+                $p += '<span mxa="_zs_gallerycw:c" class="_zs_gallery_mx-tabs_index_-tag">';
                 $line = 22;
                 $art = '=item.tag';
                 ;

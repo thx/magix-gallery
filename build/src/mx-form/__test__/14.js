@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -13,21 +13,31 @@ var Form = require("mx-form/index");
 var Validator = require("mx-form/validator");
 var $ = require("$");
 module.exports = Base.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, list = $$.list, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', list = $$.list, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_gallerya5:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_gallerya5:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_gallerya5:_" class="mb20"><span class="color-9 mr20">动态添加（要求2 ~ 4个字符）：</span><a href="javascript:;" class="link-brand" mx-click="' + $viewId + 'add()">+ 再加一条</a></div><div mxv>';
     $line = 9;
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for(var $art_ijshpstno$art_i=0;$art_ijshpstno$art_i<list.length;$art_ijshpstno$art_i++){var item=list[$art_ijshpstno$art_i]%>';
-    for (var $art_ijshpstno$art_i = 0; $art_ijshpstno$art_i < list.length; $art_ijshpstno$art_i++) {
-        var item = list[$art_ijshpstno$art_i];
-        $p += '<input mxe="' + $viewId + '_0_' + ($expr = '<%=$art_ijshpstno$art_i%>', $e($art_ijshpstno$art_i)) + '" mxc="[';
+    $expr = '<%for (var $art_imtmotrb$art_i = 0, $art_cgmleypw$art_c = list.length; $art_imtmotrb$art_i < $art_cgmleypw$art_c; $art_imtmotrb$art_i++) {    var item = list[$art_imtmotrb$art_i]%>';
+    for (var $art_imtmotrb$art_i = 0, $art_cgmleypw$art_c = list.length; $art_imtmotrb$art_i < $art_cgmleypw$art_c; $art_imtmotrb$art_i++) {
+        var item = list[$art_imtmotrb$art_i];
+        $p += '<input mxe="' + $viewId + '_0_' + ($expr = '<%=$art_imtmotrb$art_i%>', $e($art_imtmotrb$art_i)) + '" mxc="[';
         $line = 11;
         $art = ':item.value{required:true,blength:[2,4]}';
         ;
-        $p += '{p:\'list.' + ($expr = '<%=$art_ijshpstno$art_i%>', $e($art_ijshpstno$art_i)) + '.value\',f:{required:true,blength:[2,4]}}]" class="input mr20 mb20 w120" placeholder="请填写" value="';
+        $p += '{p:\'list.' + ($expr = '<%=$art_imtmotrb$art_i%>', $e($art_imtmotrb$art_i)) + '.value\',f:{required:true,blength:[2,4]}}]" class="input mr20 mb20 w120" placeholder="请填写" value="';
         $line = 11;
         $art = ':item.value{required:true,blength:[2,4]}';
         ;

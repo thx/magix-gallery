@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -21,16 +21,28 @@ var ForeverStr = Util.foreverStr;
 var I18n = require("../mx-medusa/util");
 Magix.applyStyle("_zs_gallery_mx-calendar_range_","/* @dependent: ./index.less */\n._zs_gallery_mx-calendar_range_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-calendar_range_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-calendar_range_-wrapper {\n  position: relative;\n  z-index: 10;\n  min-width: 280px;\n  width: 100%;\n  padding: 10px;\n  border-radius: 4px;\n  background-color: #fff;\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-title {\n  margin-bottom: 10px;\n  color: #999;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range {\n  position: relative;\n  margin-bottom: 15px;\n  line-height: 24px;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input {\n  float: left;\n  width: 50%;\n  min-width: 110px;\n  text-align: center;\n  cursor: text;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-range-disabled,\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_rangepicker_-rangepicker-input {\n  height: 24px;\n  padding: 0;\n  line-height: 24px;\n  border-radius: 4px;\n  background-color: #f0f0f0;\n  border: 0;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_rangepicker_-result {\n  color: #333;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-vs1 ._zs_gallery_mx-calendar_rangepicker_-result {\n  color: #4d7fff;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-vs2 ._zs_gallery_mx-calendar_rangepicker_-result {\n  color: #14c9ce;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-range-disabled {\n  cursor: not-allowed;\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n  color: #ccc;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input-left {\n  padding-right: 9px;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input-right {\n  padding-left: 9px;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-gap {\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 18px;\n  height: 24px;\n  margin-left: -9px;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st {\n  float: left;\n  width: 44%;\n  height: 24px;\n  margin-right: 6%;\n  margin-bottom: 10px;\n  padding: 0 10px;\n  line-height: 24px;\n  border-radius: 4px;\n  cursor: pointer;\n  overflow: hidden;\n  white-space: nowrap;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st:hover {\n  background: #f0f0f0;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st._zs_gallery_mx-calendar_range_-selected,\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st._zs_gallery_mx-calendar_range_-selected:hover {\n  color: #fff;\n  background: #4d7fff;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts._zs_gallery_mx-calendar_range_-shortcuts-small ._zs_gallery_mx-calendar_range_-st {\n  width: 32%;\n  margin-right: 1%;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-footer {\n  padding-top: 10px;\n  border-top: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-calendar_range_-wrapper._zs_gallery_mx-calendar_range_-time {\n  min-width: 320px;\n}\n._zs_gallery_mx-calendar_range_-wrapper._zs_gallery_mx-calendar_range_-time ._zs_gallery_mx-calendar_range_-range-input {\n  min-width: 140px;\n}\n._zs_gallery_mx-calendar_range_-wrapper._zs_gallery_mx-calendar_range_-inlay {\n  border: 0 none;\n}\n");
 var RangeDate = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
-    if ($$ref[k = $g + f] === v)
-        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, timeType = $$.timeType, inlay = $$.inlay, title = $$.title, vsEnable = $$.vsEnable, vs = $$.vs, startDisabled = $$.startDisabled, dates = $$.dates, endDisabled = $$.endDisabled, max = $$.max, min = $$.min, dateType = $$.dateType, vsSingle = $$.vsSingle, endMinFn = $$.endMinFn, align = $$.align, quickInfos = $$.quickInfos, quickTip = $$.quickTip, submitText = $$.submitText, cancelText = $$.cancelText; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', timeType = $$.timeType, inlay = $$.inlay, title = $$.title, vsEnable = $$.vsEnable, vs = $$.vs, startDisabled = $$.startDisabled, dates = $$.dates, endDisabled = $$.endDisabled, max = $$.max, min = $$.min, dateType = $$.dateType, vsSingle = $$.vsSingle, endMinFn = $$.endMinFn, align = $$.align, quickInfos = $$.quickInfos, quickTip = $$.quickTip, submitText = $$.submitText, cancelText = $$.cancelText; var $expr, $art, $line; try {
     $p += '<div class="_zs_gallery_mx-calendar_range_-wrapper ';
     $line = 1;
     $art = 'if timeType';
     ;
     $p += '';
-    $expr = '<%if(timeType){%>';
+    $expr = '<%if (timeType) {%>';
     if (timeType) {
         ;
         $p += ' _zs_gallery_mx-calendar_range_-time ';
@@ -46,7 +58,7 @@ var RangeDate = Magix.View.extend({
     $art = 'if inlay';
     ;
     $p += '';
-    $expr = '<%if(inlay){%>';
+    $expr = '<%if (inlay) {%>';
     if (inlay) {
         ;
         $p += ' _zs_gallery_mx-calendar_range_-inlay ';
@@ -57,7 +69,7 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '" mx-contextmenu="' + $viewId + '@{prevent}()"><div mxa="_zs_gallery2:_" class="_zs_gallery_mx-calendar_range_-range"><div mxa="_zs_gallery2:a" class="_zs_gallery_mx-calendar_range_-title clearfix"><span mxa="_zs_gallery2:b" class="fl">';
+    $p += '" mx-contextmenu="' + $viewId + '@{prevent}()"><div mxa="_zs_gallery3:_" class="_zs_gallery_mx-calendar_range_-range"><div mxa="_zs_gallery3:a" class="_zs_gallery_mx-calendar_range_-title clearfix"><span mxa="_zs_gallery3:b" class="fl">';
     $line = 4;
     $art = '=title';
     ;
@@ -66,7 +78,7 @@ var RangeDate = Magix.View.extend({
     $art = 'if vsEnable';
     ;
     $p += '';
-    $expr = '<%if(vsEnable){%>';
+    $expr = '<%if (vsEnable) {%>';
     if (vsEnable) {
         ;
         $p += '<span class="fr" mx-change="' + $viewId + '@{vs.toggle}()" mx-view="mx-switch/index?state=';
@@ -81,15 +93,15 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxa="_zs_gallery2:c" class="clearfix pr"><div mxa="_zs_gallery2:d" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-left">';
+    $p += '</div><div mxa="_zs_gallery3:c" class="clearfix pr"><div mxa="_zs_gallery3:d" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-left">';
     $line = 11;
     $art = 'if startDisabled';
     ;
     $p += '';
-    $expr = '<%if(startDisabled){%>';
+    $expr = '<%if (startDisabled) {%>';
     if (startDisabled) {
         ;
-        $p += '<div mxa="_zs_gallery2:e" class="_zs_gallery_mx-calendar_range_-range-disabled">';
+        $p += '<div mxa="_zs_gallery3:e" class="_zs_gallery_mx-calendar_range_-range-disabled">';
         $line = 12;
         $art = '=dates.startStr';
         ;
@@ -98,7 +110,7 @@ var RangeDate = Magix.View.extend({
         $art = 'else';
         ;
         $p += '';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -107,7 +119,7 @@ var RangeDate = Magix.View.extend({
         $art = 'if vs';
         ;
         $p += '';
-        $expr = '<%if(vs){%>';
+        $expr = '<%if (vs) {%>';
         if (vs) {
             ;
             $p += ' class="_zs_gallery_mx-calendar_range_-vs1" ';
@@ -122,7 +134,7 @@ var RangeDate = Magix.View.extend({
         $line = 16;
         $art = '=(endDisabled?dates.endStr:max)';
         ;
-        $p += '' + ($expr = '<%!$eu((endDisabled?dates.endStr:max))%>', $eu((endDisabled ? dates.endStr : max))) + '&min=';
+        $p += '' + ($expr = '<%!$eu((endDisabled ? dates.endStr : max))%>', $eu((endDisabled ? dates.endStr : max))) + '&min=';
         $line = 17;
         $art = '=min';
         ;
@@ -146,15 +158,15 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxs="_zs_gallery2:_" class="_zs_gallery_mx-calendar_range_-range-gap">-</div><div mxa="_zs_gallery2:f" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-right">';
+    $p += '</div><div mxs="_zs_gallery3:_" class="_zs_gallery_mx-calendar_range_-range-gap">-</div><div mxa="_zs_gallery3:f" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-right">';
     $line = 26;
     $art = 'if ((!vs&&vsSingle) || endDisabled)';
     ;
     $p += '';
-    $expr = '<%if((!vs&&vsSingle)||endDisabled){%>';
+    $expr = '<%if ((!vs && vsSingle) || endDisabled) {%>';
     if ((!vs && vsSingle) || endDisabled) {
         ;
-        $p += '<div mxa="_zs_gallery2:g" class="_zs_gallery_mx-calendar_range_-range-disabled">';
+        $p += '<div mxa="_zs_gallery3:g" class="_zs_gallery_mx-calendar_range_-range-disabled">';
         $line = 27;
         $art = '=dates.endStr';
         ;
@@ -163,7 +175,7 @@ var RangeDate = Magix.View.extend({
         $art = 'else';
         ;
         $p += '';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -172,7 +184,7 @@ var RangeDate = Magix.View.extend({
         $art = 'if vs';
         ;
         $p += '';
-        $expr = '<%if(vs){%>';
+        $expr = '<%if (vs) {%>';
         if (vs) {
             ;
             $p += ' class="_zs_gallery_mx-calendar_range_-vs2" ';
@@ -187,7 +199,7 @@ var RangeDate = Magix.View.extend({
         $line = 31;
         $art = '=(!vs?endMinFn(dates.startStr,min):min)';
         ;
-        $p += '' + ($expr = '<%!$eu((!vs?endMinFn(dates.startStr,min):min))%>', $eu((!vs ? endMinFn(dates.startStr, min) : min))) + '&max=';
+        $p += '' + ($expr = '<%!$eu((!vs ? endMinFn(dates.startStr, min) : min))%>', $eu((!vs ? endMinFn(dates.startStr, min) : min))) + '&max=';
         $line = 32;
         $art = '=max';
         ;
@@ -220,7 +232,7 @@ var RangeDate = Magix.View.extend({
     $art = 'if (quickInfos.length&&!vs&&!vsSingle)';
     ;
     $p += '';
-    $expr = '<%if(quickInfos.length&&!vs&&!vsSingle){%>';
+    $expr = '<%if (quickInfos.length && !vs && !vsSingle) {%>';
     if (quickInfos.length && !vs && !vsSingle) {
         ;
         $p += '<div class="_zs_gallery_mx-calendar_range_-shortcuts ';
@@ -228,7 +240,7 @@ var RangeDate = Magix.View.extend({
         $art = 'if quickInfos.length > 7';
         ;
         $p += '';
-        $expr = '<%if(quickInfos.length>7){%>';
+        $expr = '<%if (quickInfos.length > 7) {%>';
         if (quickInfos.length > 7) {
             ;
             $p += '_zs_gallery_mx-calendar_range_-shortcuts-small';
@@ -239,24 +251,24 @@ var RangeDate = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '"><div mxa="_zs_gallery2:h" class="_zs_gallery_mx-calendar_range_-title">';
+        $p += '"><div mxa="_zs_gallery3:h" class="_zs_gallery_mx-calendar_range_-title">';
         $line = 44;
         $art = '=quickTip';
         ;
-        $p += '' + ($expr = '<%=quickTip%>', $e(quickTip)) + '：</div><div mxa="_zs_gallery2:i" class="clearfix">';
+        $p += '' + ($expr = '<%=quickTip%>', $e(quickTip)) + '：</div><div mxa="_zs_gallery3:i" class="clearfix">';
         $line = 46;
         $art = 'each quickInfos as info';
         ;
         $p += '';
-        $expr = '<%for(var $art_idrstknnil$art_i=0;$art_idrstknnil$art_i<quickInfos.length;$art_idrstknnil$art_i++){var info=quickInfos[$art_idrstknnil$art_i]%>';
-        for (var $art_idrstknnil$art_i = 0; $art_idrstknnil$art_i < quickInfos.length; $art_idrstknnil$art_i++) {
-            var info = quickInfos[$art_idrstknnil$art_i];
+        $expr = '<%for (var $art_irllfcryeqp$art_i = 0, $art_crroqst$art_c = quickInfos.length; $art_irllfcryeqp$art_i < $art_crroqst$art_c; $art_irllfcryeqp$art_i++) {        var info = quickInfos[$art_irllfcryeqp$art_i]%>';
+        for (var $art_irllfcryeqp$art_i = 0, $art_crroqst$art_c = quickInfos.length; $art_irllfcryeqp$art_i < $art_crroqst$art_c; $art_irllfcryeqp$art_i++) {
+            var info = quickInfos[$art_irllfcryeqp$art_i];
             $p += '<span class="_zs_gallery_mx-calendar_range_-st ';
             $line = 47;
             $art = 'if (dates.quickDateKey==info.key)';
             ;
             $p += '';
-            $expr = '<%if(dates.quickDateKey==info.key){%>';
+            $expr = '<%if (dates.quickDateKey == info.key) {%>';
             if (dates.quickDateKey == info.key) {
                 ;
                 $p += '_zs_gallery_mx-calendar_range_-selected';
@@ -271,7 +283,7 @@ var RangeDate = Magix.View.extend({
             $line = 48;
             $art = '@info';
             ;
-            $p += '' + ($expr = '<%@info%>', $i(info)) + '\'})" title="';
+            $p += '' + ($expr = '<%@info%>', $i($$ref, info)) + '\'})" title="';
             $line = 49;
             $art = '=info.text';
             ;
@@ -295,11 +307,11 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<div mxa="_zs_gallery2:j" class="_zs_gallery_mx-calendar_range_-footer clearfix"><button mxa="_zs_gallery2:k" mx-click="' + $viewId + '@{date.picked}()" type="button" class="btn btn-small btn-brand mr10">';
+    $p += '<div mxa="_zs_gallery3:j" class="_zs_gallery_mx-calendar_range_-footer clearfix"><button mxa="_zs_gallery3:k" mx-click="' + $viewId + '@{date.picked}()" type="button" class="btn btn-small btn-brand mr10">';
     $line = 55;
     $art = '=submitText';
     ;
-    $p += '' + ($expr = '<%=submitText%>', $e(submitText)) + '</button><button mxa="_zs_gallery2:l" mx-click="' + $viewId + '@{cancel}()" type="button" class="btn btn-small">';
+    $p += '' + ($expr = '<%=submitText%>', $e(submitText)) + '</button><button mxa="_zs_gallery3:l" mx-click="' + $viewId + '@{cancel}()" type="button" class="btn btn-small">';
     $line = 56;
     $art = '=cancelText';
     ;

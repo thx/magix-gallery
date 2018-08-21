@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -14,16 +14,28 @@ var Moment = require("moment");
 var $ = require("$");
 var Formater = 'YYYY-MM-DD';
 module.exports = Base.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
-    if ($$ref[k = $g + f] === v)
-        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, vs = $$.vs, start = $$.start, end = $$.end, vsenable = $$.vsenable, keys = $$.keys, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', vs = $$.vs, start = $$.start, end = $$.end, vsenable = $$.vsenable, keys = $$.keys, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_galleryT:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_galleryT:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryT:_" class="mb10 clearfix"><div class="color-9 fl lh22">以下示例：</div><div class="fl lh22"><div>日历面板右对齐（结束日期）</div><div>自定义快捷日期，快捷日期会根据可选范围进行修正</div><div>可对比，关闭对比选择时间段</div><div>事件处理</div></div></div><div mxa="_zs_galleryT:b" class="mb20"><span mxs="_zs_galleryT:a" class="color-9">当前结果：</span>';
     $line = 14;
     $art = 'if vs';
     ;
     $p += '';
-    $expr = '<%if(vs){%>';
+    $expr = '<%if (vs) {%>';
     if (vs) {
         ;
         $p += '<span mxa="_zs_galleryT:c" class="color-brand mr5">';
@@ -39,7 +51,7 @@ module.exports = Base.extend({
         $art = 'else';
         ;
         $p += '';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -79,7 +91,7 @@ module.exports = Base.extend({
     $line = 32;
     $art = '@keys';
     ;
-    $p += '' + ($expr = '<%@keys%>', $i(keys)) + '"></div></div><div mxs="_zs_galleryT:d" class="fl"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'changeShortkeys()">改变快捷方式</a></div></div></div><div mxa="_zs_galleryT:h" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryT:e" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%@keys%>', $i($$ref, keys)) + '"></div></div><div mxs="_zs_galleryT:d" class="fl"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'changeShortkeys()">改变快捷方式</a></div></div></div><div mxa="_zs_galleryT:h" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryT:e" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 42;
     $art = '=viewId';
     ;

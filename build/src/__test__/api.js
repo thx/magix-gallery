@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -9,16 +9,26 @@ define("__test__/api",["magix","$"],(require,exports,module)=>{
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallery_:_" class="pr20"><table mxa="_zs_gallery_:a" class="table _zs_gallery___test___base_-desc-table"><thead mxs="_zs_gallery_:_"><tr><th width="100">可配参数</th><th width="200">说明</th><th width="100">类型</th><th width="120">默认值</th></tr></thead><tbody>';
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerya:_" class="pr20"><table mxa="_zs_gallerya:a" class="table _zs_gallery___test___base_-desc-table"><thead mxs="_zs_gallerya:_"><tr><th width="100">可配参数</th><th width="200">说明</th><th width="100">类型</th><th width="120">默认值</th></tr></thead><tbody>';
     $line = 12;
     $art = 'each options as option';
     ;
     $p += '';
-    $expr = '<%for(var $art_irpzddmfiel$art_i=0;$art_irpzddmfiel$art_i<options.length;$art_irpzddmfiel$art_i++){var option=options[$art_irpzddmfiel$art_i]%>';
-    for (var $art_irpzddmfiel$art_i = 0; $art_irpzddmfiel$art_i < options.length; $art_irpzddmfiel$art_i++) {
-        var option = options[$art_irpzddmfiel$art_i];
+    $expr = '<%for (var $art_imeduofbtr$art_i = 0, $art_czsqmsdpd$art_c = options.length; $art_imeduofbtr$art_i < $art_czsqmsdpd$art_c; $art_imeduofbtr$art_i++) {    var option = options[$art_imeduofbtr$art_i]%>';
+    for (var $art_imeduofbtr$art_i = 0, $art_czsqmsdpd$art_c = options.length; $art_imeduofbtr$art_i < $art_czsqmsdpd$art_c; $art_imeduofbtr$art_i++) {
+        var option = options[$art_imeduofbtr$art_i];
         $p += '<tr><td>';
         $line = 14;
         $art = '=option.key';
@@ -31,7 +41,7 @@ module.exports = Magix.View.extend({
         $line = 16;
         $art = '!option.type';
         ;
-        $p += '' + ($expr = '<%!option.type%>', $n(option.type)) + '</td><td mxa="_zs_gallery_:b" class="word-break">';
+        $p += '' + ($expr = '<%!option.type%>', $n(option.type)) + '</td><td mxa="_zs_gallerya:b" class="word-break">';
         $line = 17;
         $art = '!option.def';
         ;

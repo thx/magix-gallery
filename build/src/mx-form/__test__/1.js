@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -14,15 +14,27 @@ var Base = require("__test__/example");
 var $ = require("$");
 Magix.applyStyle("_zs_gallery_mx-form___test___1_","/* @dependent: ./index.less */\n._zs_gallery_mx-form___test___1_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-form___test___1_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-form___test___1_-table-wrapper {\n  margin-bottom: 20px;\n  border: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-form___test___1_-fixed-head tr._zs_gallery_mx-form___test___1_-batch-oper th {\n  height: 68px;\n  background-color: #fff;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-form___test___1_-fixed-head tr._zs_gallery_mx-form___test___1_-batch-oper th ._zs_gallery_mx-form___test___1_-batch-input {\n  position: relative;\n}\n._zs_gallery_mx-form___test___1_-fixed-head tr._zs_gallery_mx-form___test___1_-batch-oper th ._zs_gallery_mx-form___test___1_-batch-input ._zs_gallery_mx-form___test___1_-batch-input-text {\n  position: absolute;\n  top: 0;\n  left: -80px;\n  width: 70px;\n  height: 28px;\n  line-height: 28px;\n  text-align: right;\n}\n");
 module.exports = Base.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
-    if ($$ref[k = $g + f] === v)
-        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, viewId = $$.viewId, batchDiscount = $$.batchDiscount, batRules = $$.batRules, list = $$.list, rules = $$.rules, text1 = $$.text1, text3 = $$.text3, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerya1:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_gallerya1:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_gallerya1:_" class="clearfix mb20 lh22"><div class="fl color-9">以下示例：</div><div class="fl"><div>填写1-300的整数，小于50给警告提示</div><div>双向绑定可以用&传递完整对象&#123;&#123;:value&rules&#125;&#125;，rules：object</div></div></div><div mxv mxa="_zs_gallerya1:b" class="_zs_gallery_mx-form___test___1_-table-wrapper"><table mxv mxa="_zs_gallerya1:c" class="table"><thead mxv mxa="_zs_gallerya1:d" class="_zs_gallery_mx-form___test___1_-fixed-head"><tr mxs="_zs_gallerya1:a"><th>name</th><th width="200">出价</th><th width="200">link</th><th width="200">value</th></tr><tr mxv mxa="_zs_gallerya1:e" class="_zs_gallery_mx-form___test___1_-batch-oper"><th mxs="_zs_gallerya1:b"></th><th mxv mxa="_zs_gallerya1:f" colspan="4"><div mxv mxa="_zs_gallerya1:g" class="_zs_gallery_mx-form___test___1_-batch-input"><span mxs="_zs_gallerya1:c" class="_zs_gallery_mx-form___test___1_-batch-input-text">批量出价</span><input mxe="' + $viewId + '_0" mxc="[';
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, batchDiscount = $$.batchDiscount, batRules = $$.batRules, list = $$.list, rules = $$.rules, text1 = $$.text1, text3 = $$.text3, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerya0:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_gallerya0:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_gallerya0:_" class="clearfix mb20 lh22"><div class="fl color-9">以下示例：</div><div class="fl"><div>填写1-300的整数，小于50给警告提示</div><div>双向绑定可以用&传递完整对象&#123;&#123;:value&rules&#125;&#125;，rules：object</div></div></div><div mxv mxa="_zs_gallerya0:b" class="_zs_gallery_mx-form___test___1_-table-wrapper"><table mxv mxa="_zs_gallerya0:c" class="table"><thead mxv mxa="_zs_gallerya0:d" class="_zs_gallery_mx-form___test___1_-fixed-head"><tr mxs="_zs_gallerya0:a"><th>name</th><th width="200">出价</th><th width="200">link</th><th width="200">value</th></tr><tr mxv mxa="_zs_gallerya0:e" class="_zs_gallery_mx-form___test___1_-batch-oper"><th mxs="_zs_gallerya0:b"></th><th mxv mxa="_zs_gallerya0:f" colspan="4"><div mxv mxa="_zs_gallerya0:g" class="_zs_gallery_mx-form___test___1_-batch-input"><span mxs="_zs_gallerya0:c" class="_zs_gallery_mx-form___test___1_-batch-input-text">批量出价</span><input mxe="' + $viewId + '_0" mxc="[';
     $line = 26;
     $art = ':batchDiscount&batRules';
     ;
-    $p += '{p:\'batchDiscount\',f:\'' + ($expr = '<%@batRules%>', $i(batRules)) + '\'}]" class="input input-small w80" id="';
+    $p += '{p:\'batchDiscount\',f:\'' + ($expr = '<%@ batRules%>', $i($$ref, batRules)) + '\'}]" class="input input-small w80" id="';
     $line = 25;
     $art = '=viewId';
     ;
@@ -30,13 +42,13 @@ module.exports = Base.extend({
     $line = 26;
     $art = ':batchDiscount&batRules';
     ;
-    $p += '' + ($expr = '<%=batchDiscount%>', $e(batchDiscount)) + '" mx-focusout="' + $viewId + 'batch()"/><a mxs="_zs_gallerya1:d" href="javascript:;" class="btn btn-small ml10" mx-click="' + $viewId + 'batch()">应用</a></div></th></tr></thead><tbody mxv>';
+    $p += '' + ($expr = '<%=batchDiscount%>', $e(batchDiscount)) + '" mx-focusout="' + $viewId + 'batch()"/><a mxs="_zs_gallerya0:d" href="javascript:;" class="btn btn-small ml10" mx-click="' + $viewId + 'batch()">应用</a></div></th></tr></thead><tbody mxv>';
     $line = 34;
     $art = 'each list as item index';
     ;
     $p += '';
-    $expr = '<%for(var index=0;index<list.length;index++){var item=list[index]%>';
-    for (var index = 0; index < list.length; index++) {
+    $expr = '<%for (var index = 0, $art_cfpjawalc$art_c = list.length; index < $art_cfpjawalc$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cfpjawalc$art_c = list.length; index < $art_cfpjawalc$art_c; index++) {
         var item = list[index];
         $p += '<tr mxv><td>';
         $line = 36;
@@ -46,7 +58,7 @@ module.exports = Base.extend({
         $line = 39;
         $art = ':item.discount&rules';
         ;
-        $p += '{p:\'list.' + ($expr = '<%=index%>', $e(index)) + '.discount\',f:\'' + ($expr = '<%@rules%>', $i(rules)) + '\'}]" class="input input-small w80" value="';
+        $p += '{p:\'list.' + ($expr = '<%=index%>', $e(index)) + '.discount\',f:\'' + ($expr = '<%@ rules%>', $i($$ref, rules)) + '\'}]" class="input input-small w80" value="';
         $line = 39;
         $art = ':item.discount&rules';
         ;
@@ -66,39 +78,39 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</tbody></table></div></div><div mxa="_zs_gallerya1:h" class="clearfix"><div mxa="_zs_gallerya1:i" class="_zs_gallery___test___base_-half"><div mxa="_zs_gallerya1:j" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerya1:e" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</tbody></table></div></div><div mxa="_zs_gallerya0:h" class="clearfix"><div mxa="_zs_gallerya0:i" class="_zs_gallery___test___base_-half"><div mxa="_zs_gallerya0:j" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerya0:e" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 53;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya1:k" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya0:k" class="_zs_gallery___test___base_-desc-tip">';
     $line = 55;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya1:f" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya0:f" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 58;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;table class="table"&gt;\n    &lt;thead class="fixed-head"&gt;\n        &lt;tr&gt;\n            &lt;th&gt;name&lt;/th&gt;\n            &lt;th width="200"&gt;出价&lt;/th&gt;\n            &lt;th width="200"&gt;link&lt;/th&gt;\n            &lt;th width="200"&gt;value&lt;/th&gt;\n        &lt;/tr&gt;\n        &lt;tr class="batch-oper"&gt;\n            &lt;th&gt;&lt;/th&gt;\n            &lt;th colspan="4"&gt;\n                &lt;div class="batch-input"&gt;\n                    &lt;span class="batch-input-text"&gt;批量出价&lt;/span&gt;\n                    &lt;input type="text" class="input input-small w80"\n                        id="&#123;&#123;=viewId&#125;&#125;_batch_input" \n                        value="&#123;&#123;:batchDiscount&batRules&#125;&#125;"\n                        mx-focusout="batch()"/&gt;\n                    &lt;a href="javascript:;" class="btn btn-small ml10" mx-click="batch()"&gt;应用&lt;/a&gt;\n                &lt;/div&gt;\n            &lt;/th&gt;\n        &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n        &#123;&#123;each list as item index&#125;&#125;\n            &lt;tr&gt;\n                &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;\n                &lt;td&gt;\n                    &lt;input type="text" class="input input-small w80"\n                        value="&#123;&#123;:item.discount&rules&#125;&#125;"/&gt;\n                &lt;/td&gt;\n                &lt;td&gt;&#123;&#123;=item.link&#125;&#125;&lt;/td&gt;\n                &lt;td&gt;&#123;&#123;=item.value&#125;&#125;&lt;/td&gt;\n            &lt;/tr&gt;\n        &#123;&#123;/each&#125;&#125;\n    &lt;/tbody&gt;\n&lt;/table&gt;</pre></div><div mxa="_zs_gallerya1:l" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerya1:g" class="_zs_gallery___test___base_-eg-title">CSS</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;table class="table"&gt;\n    &lt;thead class="fixed-head"&gt;\n        &lt;tr&gt;\n            &lt;th&gt;name&lt;/th&gt;\n            &lt;th width="200"&gt;出价&lt;/th&gt;\n            &lt;th width="200"&gt;link&lt;/th&gt;\n            &lt;th width="200"&gt;value&lt;/th&gt;\n        &lt;/tr&gt;\n        &lt;tr class="batch-oper"&gt;\n            &lt;th&gt;&lt;/th&gt;\n            &lt;th colspan="4"&gt;\n                &lt;div class="batch-input"&gt;\n                    &lt;span class="batch-input-text"&gt;批量出价&lt;/span&gt;\n                    &lt;input type="text" class="input input-small w80"\n                        id="&#123;&#123;=viewId&#125;&#125;_batch_input" \n                        value="&#123;&#123;:batchDiscount&batRules&#125;&#125;"\n                        mx-focusout="batch()"/&gt;\n                    &lt;a href="javascript:;" class="btn btn-small ml10" mx-click="batch()"&gt;应用&lt;/a&gt;\n                &lt;/div&gt;\n            &lt;/th&gt;\n        &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n        &#123;&#123;each list as item index&#125;&#125;\n            &lt;tr&gt;\n                &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;\n                &lt;td&gt;\n                    &lt;input type="text" class="input input-small w80"\n                        value="&#123;&#123;:item.discount&rules&#125;&#125;"/&gt;\n                &lt;/td&gt;\n                &lt;td&gt;&#123;&#123;=item.link&#125;&#125;&lt;/td&gt;\n                &lt;td&gt;&#123;&#123;=item.value&#125;&#125;&lt;/td&gt;\n            &lt;/tr&gt;\n        &#123;&#123;/each&#125;&#125;\n    &lt;/tbody&gt;\n&lt;/table&gt;</pre></div><div mxa="_zs_gallerya0:l" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerya0:g" class="_zs_gallery___test___base_-eg-title">CSS</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=';
     $line = 98;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_gallerya1:m" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_gallerya0:m" class="_zs_gallery___test___base_-desc-tip">';
     $line = 100;
     $art = '!text3';
     ;
-    $p += '' + ($expr = '<%!text3%>', $n(text3)) + '</span><i mxs="_zs_gallerya1:f" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text3%>', $n(text3)) + '</span><i mxs="_zs_gallerya0:f" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 103;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_3">\n@import \'../../mx-style/_vars\';\n\n.fixed-head &#123;\n    tr.batch-oper &#123;\n        th &#123;\n            height: 68px;\n            background-color: #fff;\n            border-bottom: 1px solid @color-border;\n\n            .batch-input &#123;\n                position: relative;\n\n                .batch-input-text &#123;\n                    position: absolute;\n                    top: 0;\n                    left: -80px;\n                    width: 70px;\n                    height: 28px;\n                    line-height: 28px;\n                    text-align: right;\n                &#125;\n            &#125;\n        &#125;\n    &#125;\n&#125;</pre></div></div><div mxa="_zs_gallerya1:n" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half _zs_gallery___test___base_-half-right"><div mxs="_zs_gallerya1:h" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_3">\n@import \'../../mx-style/_vars\';\n\n.fixed-head &#123;\n    tr.batch-oper &#123;\n        th &#123;\n            height: 68px;\n            background-color: #fff;\n            border-bottom: 1px solid @color-border;\n\n            .batch-input &#123;\n                position: relative;\n\n                .batch-input-text &#123;\n                    position: absolute;\n                    top: 0;\n                    left: -80px;\n                    width: 70px;\n                    height: 28px;\n                    line-height: 28px;\n                    text-align: right;\n                &#125;\n            &#125;\n        &#125;\n    &#125;\n&#125;</pre></div></div><div mxa="_zs_gallerya0:n" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half _zs_gallery___test___base_-half-right"><div mxs="_zs_gallerya0:h" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 133;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya1:o" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya0:o" class="_zs_gallery___test___base_-desc-tip">';
     $line = 135;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya1:f" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya0:f" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 138;
     $art = '=viewId';
     ;

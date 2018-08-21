@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -18,14 +18,24 @@ var ClassNames = {
     bottom: '_zs_gallery_mx-effects_progress_-num-bottom'
 };
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, type = $$.type, num = $$.num, color = $$.color, cName = $$.cName, placement = $$.placement, degree = $$.degree; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', type = $$.type, num = $$.num, color = $$.color, cName = $$.cName, placement = $$.placement, degree = $$.degree; var $expr, $art, $line; try {
     $p += '';
     $line = 1;
     $art = 'if (type == \'line\')';
     ;
     $p += '';
-    $expr = '<%if(type==\'line\'){%>';
+    $expr = '<%if (type == \'line\') {%>';
     if (type == 'line') {
         ;
         $p += '<div mxa="_zs_galleryaK:_" class="_zs_gallery_mx-effects_progress_-line"><div class="_zs_gallery_mx-effects_progress_-on" style="width: ';
@@ -37,7 +47,7 @@ module.exports = Magix.View.extend({
         $art = 'if color';
         ;
         $p += '';
-        $expr = '<%if(color){%>';
+        $expr = '<%if (color) {%>';
         if (color) {
             ;
             $p += ' background-color: ';
@@ -61,7 +71,7 @@ module.exports = Magix.View.extend({
         $art = 'if (placement == \'top\' || placement == \'bottom\')';
         ;
         $p += '';
-        $expr = '<%if(placement==\'top\'||placement==\'bottom\'){%>';
+        $expr = '<%if (placement == \'top\' || placement == \'bottom\') {%>';
         if (placement == 'top' || placement == 'bottom') {
             ;
             $p += ' style="left: ';
@@ -93,7 +103,7 @@ module.exports = Magix.View.extend({
     $art = 'if (type == \'degree\')';
     ;
     $p += '';
-    $expr = '<%if(type==\'degree\'){%>';
+    $expr = '<%if (type == \'degree\') {%>';
     if (type == 'degree') {
         ;
         $p += '<div mxa="_zs_galleryaK:a" class="_zs_gallery_mx-effects_progress_-degree-bg">';
@@ -101,7 +111,7 @@ module.exports = Magix.View.extend({
         $art = 'for (let i=0;i<10;i+=1)';
         ;
         $p += '';
-        $expr = '<%for(var i=0;i<10;i+=1){%>';
+        $expr = '<%for (var i = 0; i < 10; i += 1) {%>';
         for (var i = 0; i < 10; i += 1) {
             ;
             $p += '<span mxs="_zs_galleryaK:_" class="_zs_gallery_mx-effects_progress_-degree"></span>';
@@ -117,19 +127,19 @@ module.exports = Magix.View.extend({
         $art = 'for (let i=0;i<degree;i+=1)';
         ;
         $p += '';
-        $expr = '<%for(var i=0;i<degree;i+=1){%>';
+        $expr = '<%for (var i = 0; i < degree; i += 1) {%>';
         for (var i = 0; i < degree; i += 1) {
             ;
             $p += '<span class="_zs_gallery_mx-effects_progress_-degree" style="opacity: ';
             $line = 16;
             $art = '=(i / 10 + 0.08)';
             ;
-            $p += '' + ($expr = '<%=(i/10+0.08)%>', $e((i / 10 + 0.08))) + '; ';
+            $p += '' + ($expr = '<%=(i / 10 + 0.08)%>', $e((i / 10 + 0.08))) + '; ';
             $line = 16;
             $art = 'if color';
             ;
             $p += '';
-            $expr = '<%if(color){%>';
+            $expr = '<%if (color) {%>';
             if (color) {
                 ;
                 $p += ' background-color: ';

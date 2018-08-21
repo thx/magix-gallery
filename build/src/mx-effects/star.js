@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -10,22 +10,32 @@ var Magix = require("magix");
 var $ = require("$");
 Magix.applyStyle("_zs_gallery_mx-effects_star_","/* @dependent: ./index.less */\n._zs_gallery_mx-effects_star_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-effects_star_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-effects/star\"] {\n  position: relative;\n  display: inline-block;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star > * {\n  display: inline-block;\n  width: 24px;\n  height: 24px;\n  line-height: 24px;\n  text-align: center;\n  font-size: 20px;\n  color: inherit;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-bg {\n  color: #f0f0f0;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 24px;\n  overflow: hidden;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on ._zs_gallery_mx-effects_star_-star-inner {\n  width: 120px;\n  height: 24px;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on ._zs_gallery_mx-effects_star_-star-inner._zs_gallery_mx-effects_star_-star-brand {\n  color: #4d7fff;\n}\n");
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, icon = $$.icon, width = $$.width, color = $$.color; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryaM:_" class="_zs_gallery_mx-effects_star_-star-bg">';
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', icon = $$.icon, width = $$.width, color = $$.color; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryaL:_" class="_zs_gallery_mx-effects_star_-star-bg">';
     $line = 2;
     $art = 'for (let i=0;i<5;i+=1)';
     ;
     $p += '';
-    $expr = '<%for(var i=0;i<5;i+=1){%>';
+    $expr = '<%for (var i = 0; i < 5; i += 1) {%>';
     for (var i = 0; i < 5; i += 1) {
         ;
-        $p += '<span mxa="_zs_galleryaM:a" class="_zs_gallery_mx-effects_star_-star">';
+        $p += '<span mxa="_zs_galleryaL:a" class="_zs_gallery_mx-effects_star_-star">';
         $line = 4;
         $art = 'if icon';
         ;
         $p += '';
-        $expr = '<%if(icon){%>';
+        $expr = '<%if (icon) {%>';
         if (icon) {
             ;
             $p += ' ';
@@ -37,11 +47,11 @@ module.exports = Magix.View.extend({
             $art = 'else';
             ;
             $p += '';
-            $expr = '<%}else{%>';
+            $expr = '<%}    else {%>';
         }
         else {
             ;
-            $p += '<i mxs="_zs_galleryaM:_" class="mc-iconfont">&#xe60f;</i>';
+            $p += '<i mxs="_zs_galleryaL:_" class="mc-iconfont">&#xe60f;</i>';
             $line = 8;
             $art = '/if';
             ;
@@ -66,7 +76,7 @@ module.exports = Magix.View.extend({
     $art = 'if !color';
     ;
     $p += '';
-    $expr = '<%if(!color){%>';
+    $expr = '<%if (!color) {%>';
     if (!color) {
         ;
         $p += ' _zs_gallery_mx-effects_star_-star-brand ';
@@ -82,7 +92,7 @@ module.exports = Magix.View.extend({
     $art = 'for (let i=0;i<5;i+=1)';
     ;
     $p += '';
-    $expr = '<%for(var i=0;i<5;i+=1){%>';
+    $expr = '<%for (var i = 0; i < 5; i += 1) {%>';
     for (var i = 0; i < 5; i += 1) {
         ;
         $p += '<span class="_zs_gallery_mx-effects_star_-star" ';
@@ -90,7 +100,7 @@ module.exports = Magix.View.extend({
         $art = 'if color';
         ;
         $p += '';
-        $expr = '<%if(color){%>';
+        $expr = '<%if (color) {%>';
         if (color) {
             ;
             $p += ' style="color: ';
@@ -110,7 +120,7 @@ module.exports = Magix.View.extend({
         $art = 'if icon';
         ;
         $p += '';
-        $expr = '<%if(icon){%>';
+        $expr = '<%if (icon) {%>';
         if (icon) {
             ;
             $p += ' ';
@@ -122,11 +132,11 @@ module.exports = Magix.View.extend({
             $art = 'else';
             ;
             $p += '';
-            $expr = '<%}else{%>';
+            $expr = '<%}    else {%>';
         }
         else {
             ;
-            $p += '<i mxs="_zs_galleryaM:_" class="mc-iconfont">&#xe60f;</i>';
+            $p += '<i mxs="_zs_galleryaL:_" class="mc-iconfont">&#xe60f;</i>';
             $line = 20;
             $art = '/if';
             ;

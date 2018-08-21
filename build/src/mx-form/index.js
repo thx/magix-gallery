@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -162,7 +162,7 @@ module.exports = {
                     if (actions.refresh) {
                         refresh = true;
                     }
-                    if (refresh || !actions.silent) {
+                    if (refresh || !actions.silent) { //如果刷新或未标记沉默更新
                         if (keys) {
                             keys[rootKey] = 1; //标记改变;
                         }

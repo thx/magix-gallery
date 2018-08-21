@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -25,15 +25,27 @@ require("./8");
 require("./15");
 var Magix = require("magix");
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
-    if ($$ref[k = $g + f] === v)
-        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, viewId = $$.viewId; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
     $p += '<div mx-view="__test__/subs?list=';
     $line = 1;
     $art = '@[{\n    name: \'查看完整示例\',\n    key: viewId + \'_demo\'\n}, {\n    name: \'查看校验项详细示例\',\n    key: viewId + \'_rules\'\n}, {\n    name: \'查看校验项API\',\n    key: viewId + \'_api\'\n}, {\n    name: \'查看方法定义\',\n    key: viewId + \'_method\'\n}]';
     ;
-    $p += '' + ($expr = '<%@[{name:\'查看完整示例\',key:viewId+\'_demo\'},{name:\'查看校验项详细示例\',key:viewId+\'_rules\'},{name:\'查看校验项API\',key:viewId+\'_api\'},{name:\'查看方法定义\',key:viewId+\'_method\'}]%>', $i([{ name: '查看完整示例', key: viewId + '_demo' }, { name: '查看校验项详细示例', key: viewId + '_rules' }, { name: '查看校验项API', key: viewId + '_api' }, { name: '查看方法定义', key: viewId + '_method' }])) + '"></div><div id="';
+    $p += '' + ($expr = '<%@[{            name: \'查看完整示例\',            key: viewId + \'_demo\'        }, {            name: \'查看校验项详细示例\',            key: viewId + \'_rules\'        }, {            name: \'查看校验项API\',            key: viewId + \'_api\'        }, {            name: \'查看方法定义\',            key: viewId + \'_method\'        }]%>', $i($$ref, [{ name: '查看完整示例', key: viewId + '_demo' }, { name: '查看校验项详细示例', key: viewId + '_rules' }, { name: '查看校验项API', key: viewId + '_api' }, { name: '查看方法定义', key: viewId + '_method' }])) + '"></div><div id="';
     $line = 16;
     $art = '=viewId';
     ;

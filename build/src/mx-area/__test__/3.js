@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -13,10 +13,22 @@ var Base = require("__test__/example");
 var $ = require("$");
 Magix.applyStyle("_zs_gallery_mx-area___test___index_","/* @dependent: ./index.less */\n._zs_gallery_mx-area___test___index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-area___test___index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-area___test___index_-area-wrapper1,\n._zs_gallery_mx-area___test___index_-area-wrapper2 {\n  padding: 20px 20px 0;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper1 {\n  width: 740px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper2 {\n  width: 600px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper3 {\n  width: 740px;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  padding: 20px 0;\n}\n");
 module.exports = Base.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
-    if ($$ref[k = $g + f] === v)
-        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, viewId = $$.viewId, types = $$.types, selected = $$.selected, arrs = $$.arrs, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, types = $$.types, selected = $$.selected, arrs = $$.arrs, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_galleryG:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_galleryG:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryG:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl"><div>自定义省份城市数据，example[{id,name,cities:[{id,name}]}]</div><div>平铺展示所有分组</div><div>可以选择城市</div><div>每个省份和城市都有各自的id，若选择了省份，则获取选中值时只有省份的id（不包含该省份下所有城市id）</div><div>宽度由容器宽度决定，自适应</div></div></div><div mxv mxa="_zs_galleryG:b" class="clearfix mb20"><div mxv mxa="_zs_galleryG:c" class="_zs_gallery_mx-area___test___index_-area-wrapper1 fl mr20"><div mxv="types,selected" id="';
     $line = 15;
     $art = '=viewId';
@@ -25,18 +37,18 @@ module.exports = Base.extend({
     $line = 17;
     $art = '@types';
     ;
-    $p += '' + ($expr = '<%@types%>', $i(types)) + '&selected=';
+    $p += '' + ($expr = '<%@types%>', $i($$ref, types)) + '&selected=';
     $line = 18;
     $art = '@selected';
     ;
-    $p += '' + ($expr = '<%@selected%>', $i(selected)) + '"></div></div><div mxa="_zs_galleryG:d" class="fl"><div mxs="_zs_galleryG:a" class="mb10"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'get()">获取选中值</a></div><div mxa="_zs_galleryG:e" class="clearfix lh22"><div mxs="_zs_galleryG:b" class="fl color-9">当前选中值：</div><div mxa="_zs_galleryG:f" class="fl">';
+    $p += '' + ($expr = '<%@selected%>', $i($$ref, selected)) + '"></div></div><div mxa="_zs_galleryG:d" class="fl"><div mxs="_zs_galleryG:a" class="mb10"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'get()">获取选中值</a></div><div mxa="_zs_galleryG:e" class="clearfix lh22"><div mxs="_zs_galleryG:b" class="fl color-9">当前选中值：</div><div mxa="_zs_galleryG:f" class="fl">';
     $line = 25;
     $art = 'each arrs as item';
     ;
     $p += '';
-    $expr = '<%for(var $art_ielwfmvai$art_i=0;$art_ielwfmvai$art_i<arrs.length;$art_ielwfmvai$art_i++){var item=arrs[$art_ielwfmvai$art_i]%>';
-    for (var $art_ielwfmvai$art_i = 0; $art_ielwfmvai$art_i < arrs.length; $art_ielwfmvai$art_i++) {
-        var item = arrs[$art_ielwfmvai$art_i];
+    $expr = '<%for (var $art_isksiwamo$art_i = 0, $art_csqagqka$art_c = arrs.length; $art_isksiwamo$art_i < $art_csqagqka$art_c; $art_isksiwamo$art_i++) {    var item = arrs[$art_isksiwamo$art_i]%>';
+    for (var $art_isksiwamo$art_i = 0, $art_csqagqka$art_c = arrs.length; $art_isksiwamo$art_i < $art_csqagqka$art_c; $art_isksiwamo$art_i++) {
+        var item = arrs[$art_isksiwamo$art_i];
         $p += '<div>';
         $line = 26;
         $art = '=item.name';

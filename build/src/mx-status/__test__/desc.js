@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -9,16 +9,26 @@ require("mx-title/second");
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, options = $$.options; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
     $p += '<div mxs="_zs_galleryb$:_" mx-view="mx-title/second?content=API"></div><div mxa="_zs_galleryb$:_" class="pr20"><table mxa="_zs_galleryb$:a" class="table _zs_gallery___test___base_-desc-table"><thead mxs="_zs_galleryb$:a"><tr><th width="100">可配参数</th><th width="200">说明</th><th width="100">类型</th><th width="120">默认值</th></tr></thead><tbody><tr mxs="_zs_galleryb$:b"><td>list</td><td><div>可选状态列表：</div><pre>\n[&#123;\n    value: \'状态值\',\n    text: \'状态文案\',\n    icon: \'iconfont图标，如&lt;i class="mc-iconfont"&gt;&#38;&#35;xe67f;&lt;/i&gt;\',\n    color: \'图标显示颜色\',\n    tip: \'状态提示文案\'\n&#125;]\n                    </pre><div>当可选列表只有一个时也显示为只读状态</div></td><td>array</td><td class="word-break">[]</td></tr>';
     $line = 31;
     $art = 'each options as option';
     ;
     $p += '';
-    $expr = '<%for(var $art_iulcfbav$art_i=0;$art_iulcfbav$art_i<options.length;$art_iulcfbav$art_i++){var option=options[$art_iulcfbav$art_i]%>';
-    for (var $art_iulcfbav$art_i = 0; $art_iulcfbav$art_i < options.length; $art_iulcfbav$art_i++) {
-        var option = options[$art_iulcfbav$art_i];
+    $expr = '<%for (var $art_ihxbfaegd$art_i = 0, $art_csuhke$art_c = options.length; $art_ihxbfaegd$art_i < $art_csuhke$art_c; $art_ihxbfaegd$art_i++) {    var option = options[$art_ihxbfaegd$art_i]%>';
+    for (var $art_ihxbfaegd$art_i = 0, $art_csuhke$art_c = options.length; $art_ihxbfaegd$art_i < $art_csuhke$art_c; $art_ihxbfaegd$art_i++) {
+        var option = options[$art_ihxbfaegd$art_i];
         $p += '<tr><td>';
         $line = 33;
         $art = '=option.key';

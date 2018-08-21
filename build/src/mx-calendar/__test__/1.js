@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -14,13 +14,23 @@ var Moment = require("moment");
 var $ = require("$");
 var Formater = 'YYYY-MM-DD';
 module.exports = Base.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, selected = $$.selected, min = $$.min, max = $$.max, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryJ:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryJ:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryJ:_" class="mb20"><span class="color-9">以下示例：</span><span>限制最大最小值 + 右对齐 + 提示文案前缀 + 事件处理</span></div><div mxa="_zs_galleryJ:b" class="mb20"><span mxs="_zs_galleryJ:a" class="color-9">当前日期：</span><span>';
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', selected = $$.selected, min = $$.min, max = $$.max, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryK:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryK:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryK:_" class="mb20"><span class="color-9">以下示例：</span><span>限制最大最小值 + 右对齐 + 提示文案前缀 + 事件处理</span></div><div mxa="_zs_galleryK:b" class="mb20"><span mxs="_zs_galleryK:a" class="color-9">当前日期：</span><span>';
     $line = 9;
     $art = '=selected';
     ;
-    $p += '' + ($expr = '<%=selected%>', $e(selected)) + '</span></div><div mxa="_zs_galleryJ:c" class="clearfix"><div class="w200 fl" mx-change="' + $viewId + 'select()" mx-view="mx-calendar/datepicker?min=';
+    $p += '' + ($expr = '<%=selected%>', $e(selected)) + '</span></div><div mxa="_zs_galleryK:c" class="clearfix"><div class="w200 fl" mx-change="' + $viewId + 'select()" mx-view="mx-calendar/datepicker?min=';
     $line = 13;
     $art = '=min';
     ;
@@ -32,27 +42,27 @@ module.exports = Base.extend({
     $line = 17;
     $art = '=selected';
     ;
-    $p += '' + ($expr = '<%!$eu(selected)%>', $eu(selected)) + '"></div><a mxs="_zs_galleryJ:b" href="javascript:;" class="btn btn-brand ml20 fl" mx-click="' + $viewId + 'changeDate()">修改时间</a></div></div><div mxa="_zs_galleryJ:d" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryJ:c" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%!$eu(selected)%>', $eu(selected)) + '"></div><a mxs="_zs_galleryK:b" href="javascript:;" class="btn btn-brand ml20 fl" mx-click="' + $viewId + 'changeDate()">修改时间</a></div></div><div mxa="_zs_galleryK:d" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryK:c" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 24;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryJ:e" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryK:e" class="_zs_gallery___test___base_-desc-tip">';
     $line = 26;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryJ:d" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryK:d" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 29;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.datepicker class="w200" \n    min="&#123;&#123;=min&#125;&#125;"\n    max="&#123;&#123;=max&#125;&#125;"\n    align="right"\n    prefix="截止至"\n    selected="&#123;&#123;=selected&#125;&#125;"\n    mx-change="select()"/&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand ml20" mx-click="changeDate()"&gt;修改时间&lt;/a&gt;</pre></div><div mxa="_zs_galleryJ:f" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryJ:e" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.datepicker class="w200" \n    min="&#123;&#123;=min&#125;&#125;"\n    max="&#123;&#123;=max&#125;&#125;"\n    align="right"\n    prefix="截止至"\n    selected="&#123;&#123;=selected&#125;&#125;"\n    mx-change="select()"/&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand ml20" mx-click="changeDate()"&gt;修改时间&lt;/a&gt;</pre></div><div mxa="_zs_galleryK:f" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryK:e" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 42;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryJ:g" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryK:g" class="_zs_gallery___test___base_-desc-tip">';
     $line = 44;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryJ:d" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryK:d" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 47;
     $art = '=viewId';
     ;

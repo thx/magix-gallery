@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -10,15 +10,27 @@ require("./desc");
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
-    if ($$ref[k = $g + f] === v)
-        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, selected = $$.selected, selected2 = $$.selected2, selected3 = $$.selected3, options = $$.options; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', selected = $$.selected, selected2 = $$.selected2, selected3 = $$.selected3, options = $$.options; var $expr, $art, $line; try {
     $p += 'Todo<div mxs="_zs_gallerya~:_" class="page-header clearfix"><span class="first-header">报表指标选择与排序</span></div><div mxs="_zs_gallerya~:a" class="tip-content has-icon has-border mb20"><i class="iconfont tip-icon">&#xe6ad;</i><div>保存用户自定义配置 ，切换默认排序</div><div>涉及各bp保存配置的接口和报表指标配置，暂不提取为组件，作为通用模块提取出来；</div></div><div mxs="_zs_gallerya~:b" class="page-header clearfix"><div class="second-header">1. 限制指标选择上限10 + 指标可排序</div></div><div mxv mxa="_zs_gallerya~:_" class="clearfix mb20"><div mxv="selected" class="fl" mx-view="mx-indics/report/setting?pageKey=crabIndex&selected=';
     $line = 24;
     $art = '@selected';
     ;
-    $p += '' + ($expr = '<%@selected%>', $i(selected)) + '&limit=10&sortable=true" mx-change="' + $viewId + 'changeFields()"></div><div mxa="_zs_gallerya~:a" class="fl ml20 lh32">当前选中的指标：';
+    $p += '' + ($expr = '<%@selected%>', $i($$ref, selected)) + '&limit=10&sortable=true" mx-change="' + $viewId + 'changeFields()"></div><div mxa="_zs_gallerya~:a" class="fl ml20 lh32">当前选中的指标：';
     $line = 25;
     $art = '=selected';
     ;
@@ -26,7 +38,7 @@ module.exports = Magix.View.extend({
     $line = 47;
     $art = '@selected2';
     ;
-    $p += '' + ($expr = '<%@selected2%>', $i(selected2)) + '&sortable=true" mx-change="' + $viewId + 'changeFields2()"></div><div mxa="_zs_gallerya~:c" class="fl ml20 lh32">当前选中的指标：';
+    $p += '' + ($expr = '<%@selected2%>', $i($$ref, selected2)) + '&sortable=true" mx-change="' + $viewId + 'changeFields2()"></div><div mxa="_zs_gallerya~:c" class="fl ml20 lh32">当前选中的指标：';
     $line = 48;
     $art = '=selected2';
     ;
@@ -34,11 +46,11 @@ module.exports = Magix.View.extend({
     $line = 59;
     $art = '@selected3';
     ;
-    $p += '' + ($expr = '<%@selected3%>', $i(selected3)) + '"></div></div><div mxs="_zs_gallerya~:c" class="mb10 fontsize-14">Code:</div><div mxs="_zs_gallerya~:h" class="tip-content mb40"><pre>&lt;div mx-view="@../report/setting?selected=&#123;&#123;@selected3&#125;&#125;"&gt;&lt;/div&gt;</pre></div><div mxv="options" mx-view="mx-indics/__test__/desc?options=';
+    $p += '' + ($expr = '<%@selected3%>', $i($$ref, selected3)) + '"></div></div><div mxs="_zs_gallerya~:c" class="mb10 fontsize-14">Code:</div><div mxs="_zs_gallerya~:h" class="tip-content mb40"><pre>&lt;div mx-view="@../report/setting?selected=&#123;&#123;@selected3&#125;&#125;"&gt;&lt;/div&gt;</pre></div><div mxv="options" mx-view="mx-indics/__test__/desc?options=';
     $line = 66;
     $art = '@options';
     ;
-    $p += '' + ($expr = '<%@options%>', $i(options)) + '"></div>';
+    $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

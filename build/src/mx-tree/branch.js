@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -11,24 +11,36 @@ var $ = require("$");
 var Vframe = Magix.Vframe;
 Magix.applyStyle("_zs_gallery_mx-tree_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-tree_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-tree_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-tree_index_-name {\n  position: relative;\n  height: 32px;\n  line-height: 20px;\n  padding-bottom: 12px;\n  background-color: #fff;\n  overflow: hidden;\n  transition: height 0.2s;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-icon {\n  float: left;\n  height: 20px;\n  margin-right: 5px;\n  line-height: 20px;\n  color: #ccc;\n  transition: color 0.25s;\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper {\n  cursor: pointer;\n  font-size: 14px;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper:hover {\n  color: #666;\n}\n._zs_gallery_mx-tree_index_-close ._zs_gallery_mx-tree_index_-name {\n  height: 0;\n  padding-bottom: 0;\n}\n._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-indent {\n  padding-left: 20px;\n}\n._zs_gallery_mx-tree_index_-line {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:after {\n  content: '';\n  position: absolute;\n  top: 22px;\n  left: 7px;\n  bottom: 2px;\n  width: 1px;\n  background-color: #e6e6e6;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:last-child:after {\n  content: none;\n}\n");
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
-    if ($$ref[k = $g + f] === v)
-        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, list = $$.list, needExpand = $$.needExpand, readOnly = $$.readOnly, viewId = $$.viewId, valueKey = $$.valueKey, textKey = $$.textKey, fromTop = $$.fromTop; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', list = $$.list, needExpand = $$.needExpand, readOnly = $$.readOnly, viewId = $$.viewId, valueKey = $$.valueKey, textKey = $$.textKey, fromTop = $$.fromTop; var $expr, $art, $line; try {
     $p += '';
     $line = 1;
     $art = 'each list as item index';
     ;
     $p += '';
-    $expr = '<%for(var index=0;index<list.length;index++){var item=list[index]%>';
-    for (var index = 0; index < list.length; index++) {
+    $expr = '<%for (var index = 0, $art_ceorlphks$art_c = list.length; index < $art_ceorlphks$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_ceorlphks$art_c = list.length; index < $art_ceorlphks$art_c; index++) {
         var item = list[index];
-        $p += '<div mxv mxa="_zs_gallerycQ:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_gallerycQ:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
+        $p += '<div mxv mxa="_zs_gallerycP:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_gallerycP:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
         $line = 4;
         $art = 'if needExpand';
         ;
         $p += '';
-        $expr = '<%if(needExpand){%>';
+        $expr = '<%if (needExpand) {%>';
         if (needExpand) {
             ;
             $p += ' ';
@@ -36,7 +48,7 @@ module.exports = Magix.View.extend({
             $art = 'if (item.children && (item.children.length > 0))';
             ;
             $p += '';
-            $expr = '<%if(item.children&&(item.children.length>0)){%>';
+            $expr = '<%if (item.children && (item.children.length > 0)) {%>';
             if (item.children && (item.children.length > 0)) {
                 ;
                 $p += '<i class="mc-iconfont _zs_gallery_mx-tree_index_-icon _zs_gallery_mx-tree_index_-oper" mx-click="' + $viewId + '@{toggle}({index:';
@@ -48,7 +60,7 @@ module.exports = Magix.View.extend({
                 $art = 'if item.close';
                 ;
                 $p += '';
-                $expr = '<%if(item.close){%>';
+                $expr = '<%if (item.close) {%>';
                 if (item.close) {
                     ;
                     $p += ' &#xe65b; ';
@@ -56,7 +68,7 @@ module.exports = Magix.View.extend({
                     $art = 'else';
                     ;
                     $p += '';
-                    $expr = '<%}else{%>';
+                    $expr = '<%}            else {%>';
                 }
                 else {
                     ;
@@ -73,7 +85,7 @@ module.exports = Magix.View.extend({
                 $art = 'else';
                 ;
                 $p += '';
-                $expr = '<%}else{%>';
+                $expr = '<%}        else {%>';
             }
             else {
                 ;
@@ -82,10 +94,10 @@ module.exports = Magix.View.extend({
                 $art = 'if readOnly';
                 ;
                 $p += '';
-                $expr = '<%if(readOnly){%>';
+                $expr = '<%if (readOnly) {%>';
                 if (readOnly) {
                     ;
-                    $p += '<i mxs="_zs_gallerycQ:_" class="mc-iconfont _zs_gallery_mx-tree_index_-icon empty">&#xe732;</i>';
+                    $p += '<i mxs="_zs_gallerycP:_" class="mc-iconfont _zs_gallery_mx-tree_index_-icon empty">&#xe732;</i>';
                     $line = 17;
                     $art = '/if';
                     ;
@@ -109,12 +121,12 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '<label mxv mxa="_zs_gallerycQ:b" class="fl">';
+        $p += '<label mxv mxa="_zs_gallerycP:b" class="fl">';
         $line = 21;
         $art = 'if !readOnly';
         ;
         $p += '';
-        $expr = '<%if(!readOnly){%>';
+        $expr = '<%if (!readOnly) {%>';
         if (!readOnly) {
             ;
             $p += '<input class="checkbox cb" type="checkbox" id="cb_';
@@ -154,7 +166,7 @@ module.exports = Magix.View.extend({
         $art = 'if (item.children && (item.children.length > 0))';
         ;
         $p += '';
-        $expr = '<%if(item.children&&(item.children.length>0)){%>';
+        $expr = '<%if (item.children && (item.children.length > 0)) {%>';
         if (item.children && (item.children.length > 0)) {
             ;
             $p += '<div mxv="readOnly,needExpand,list" id="';
@@ -170,7 +182,7 @@ module.exports = Magix.View.extend({
             $art = 'if item.close';
             ;
             $p += '';
-            $expr = '<%if(item.close){%>';
+            $expr = '<%if (item.close) {%>';
             if (item.close) {
                 ;
                 $p += ' _zs_gallery_mx-tree_index_-close ';
@@ -186,7 +198,7 @@ module.exports = Magix.View.extend({
             $art = 'if !item.isAll';
             ;
             $p += '';
-            $expr = '<%if(!item.isAll){%>';
+            $expr = '<%if (!item.isAll) {%>';
             if (!item.isAll) {
                 ;
                 $p += ' _zs_gallery_mx-tree_index_-indent ';
@@ -202,7 +214,7 @@ module.exports = Magix.View.extend({
             $art = 'if fromTop';
             ;
             $p += '';
-            $expr = '<%if(fromTop){%>';
+            $expr = '<%if (fromTop) {%>';
             if (fromTop) {
                 ;
                 $p += ' top ';
@@ -225,15 +237,15 @@ module.exports = Magix.View.extend({
             $line = 37;
             $art = '@readOnly';
             ;
-            $p += '' + ($expr = '<%@readOnly%>', $i(readOnly)) + '&needExpand=';
+            $p += '' + ($expr = '<%@readOnly%>', $i($$ref, readOnly)) + '&needExpand=';
             $line = 38;
             $art = '@needExpand';
             ;
-            $p += '' + ($expr = '<%@needExpand%>', $i(needExpand)) + '&list=';
+            $p += '' + ($expr = '<%@needExpand%>', $i($$ref, needExpand)) + '&list=';
             $line = 39;
             $art = '@item.children';
             ;
-            $p += '' + ($expr = '<%@item.children%>', $i(item.children)) + '"></div>';
+            $p += '' + ($expr = '<%@item.children%>', $i($$ref, item.children)) + '"></div>';
             $line = 42;
             $art = '/if';
             ;

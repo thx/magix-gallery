@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -16,16 +16,28 @@ var Validator = require("mx-form/validator");
 Magix.applyStyle("_zs_gallery_mx-editor_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-editor_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-editor_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-editor_index_-editor ._zs_gallery_mx-editor_index_-editor-input {\n  display: none;\n}\n._zs_gallery_mx-editor_index_-editor ._zs_gallery_mx-editor_index_-editor-content {\n  display: inline-block;\n  word-break: break-all;\n}\n._zs_gallery_mx-editor_index_-editor ._zs_gallery_mx-editor_index_-editor-content ._zs_gallery_mx-editor_index_-editor-oper {\n  opacity: 0;\n  position: relative;\n  top: 2px;\n  left: 2px;\n  color: #ccc;\n  cursor: pointer;\n}\n._zs_gallery_mx-editor_index_-editor ._zs_gallery_mx-editor_index_-editor-content:hover ._zs_gallery_mx-editor_index_-editor-oper {\n  opacity: 1;\n}\n._zs_gallery_mx-editor_index_-editor._zs_gallery_mx-editor_index_-editor-on ._zs_gallery_mx-editor_index_-editor-input {\n  display: inline-block;\n}\n._zs_gallery_mx-editor_index_-editor._zs_gallery_mx-editor_index_-editor-on ._zs_gallery_mx-editor_index_-editor-content {\n  display: none;\n}\n");
 var Placeholder = '${content}';
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
-    if ($$ref[k = $g + f] === v)
-        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, editing = $$.editing, small = $$.small, width = $$.width, viewId = $$.viewId, content = $$.content, rules = $$.rules, dis = $$.dis; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', editing = $$.editing, small = $$.small, width = $$.width, viewId = $$.viewId, content = $$.content, rules = $$.rules, dis = $$.dis; var $expr, $art, $line; try {
     $p += '<div mxv class="_zs_gallery_mx-editor_index_-editor ';
     $line = 1;
     $art = 'if editing';
     ;
     $p += '';
-    $expr = '<%if(editing){%>';
+    $expr = '<%if (editing) {%>';
     if (editing) {
         ;
         $p += ' _zs_gallery_mx-editor_index_-editor-on ';
@@ -40,12 +52,12 @@ module.exports = Magix.View.extend({
     $line = 7;
     $art = ':content&rules';
     ;
-    $p += '{p:\'content\',f:\'' + ($expr = '<%@rules%>', $i(rules)) + '\'}]" class="input ';
+    $p += '{p:\'content\',f:\'' + ($expr = '<%@ rules%>', $i($$ref, rules)) + '\'}]" class="input ';
     $line = 3;
     $art = 'if small';
     ;
     $p += '';
-    $expr = '<%if(small){%>';
+    $expr = '<%if (small) {%>';
     if (small) {
         ;
         $p += ' input-small ';
@@ -68,11 +80,11 @@ module.exports = Magix.View.extend({
     $line = 6;
     $art = '=content';
     ;
-    $p += '' + ($expr = '<%=content%>', $e(content)) + '" mx-keyup="' + $viewId + '@{out}()" mx-focusout="' + $viewId + '@{out}()"/><div mxa="_zs_galleryap:_" class="_zs_gallery_mx-editor_index_-editor-content">';
+    $p += '' + ($expr = '<%=content%>', $e(content)) + '" mx-keyup="' + $viewId + '@{out}()" mx-focusout="' + $viewId + '@{out}()"/><div mxa="_zs_galleryan:_" class="_zs_gallery_mx-editor_index_-editor-content">';
     $line = 11;
     $art = '!dis';
     ;
-    $p += '' + ($expr = '<%!dis%>', $n(dis)) + '<i mxs="_zs_galleryap:_" class="mc-iconfont operations _zs_gallery_mx-editor_index_-editor-oper" mx-click="' + $viewId + '@{show}()">&#xe698;</i></div></div>';
+    $p += '' + ($expr = '<%!dis%>', $n(dis)) + '<i mxs="_zs_galleryan:_" class="mc-iconfont operations _zs_gallery_mx-editor_index_-editor-oper" mx-click="' + $viewId + '@{show}()">&#xe698;</i></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

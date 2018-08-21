@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -19,8 +19,18 @@ var Data = require("mx-duration/data");
 var WidthLimit = 780;
 Magix.applyStyle("_zs_gallery_mx-duration_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-duration_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-duration_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-duration_index_-circle {\n  display: inline-block;\n  width: 10px;\n  height: 10px;\n  margin-right: 3px;\n  border-radius: 50%;\n}\n._zs_gallery_mx-duration_index_-duration {\n  box-sizing: border-box;\n  border-radius: 4px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  cursor: default;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-week {\n  border-top: 1px solid #e6e6e6;\n  border-right: 1px solid #e6e6e6;\n  border-left: 1px solid #e6e6e6;\n  border-top-left-radius: 4px;\n  border-bottom-left-radius: 4px;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-week ._zs_gallery_mx-duration_index_-week-item {\n  color: #999;\n  text-align: center;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-week ._zs_gallery_mx-duration_index_-week-item:first-child {\n  border-top-left-radius: 4px;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-week ._zs_gallery_mx-duration_index_-week-item:last-child {\n  border-bottom-left-radius: 4px;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-range {\n  background-color: #fafafa;\n  border-top: 1px solid #e6e6e6;\n  border-bottom: 1px solid #e6e6e6;\n  border-top-right-radius: 4px;\n  text-align: center;\n  color: #999;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-range ._zs_gallery_mx-duration_index_-range-item {\n  float: left;\n  border-right: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-range ._zs_gallery_mx-duration_index_-range-item:last-child {\n  border-top-right-radius: 4px;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-time {\n  background-color: #fafafa;\n  text-align: center;\n  color: #999;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-time ._zs_gallery_mx-duration_index_-time-item {\n  float: left;\n  border-right: 1px solid #e6e6e6;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-boxzone ._zs_gallery_mx-duration_index_-box {\n  background: #fff;\n  border-right: 1px solid #e6e6e6;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-boxzone ._zs_gallery_mx-duration_index_-box:last-child {\n  border-bottom-right-radius: 4px;\n}\n._zs_gallery_mx-duration_index_-duration-wrapper {\n  position: relative;\n}\n._zs_gallery_mx-duration_index_-duration-wrapper ._zs_gallery_mx-duration_index_-discount-mask {\n  position: absolute;\n  z-index: 100;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  cursor: default;\n  border: 1px solid #4d7fff;\n  background: rgba(75, 138, 251, 0.2);\n}\n._zs_gallery_mx-duration_index_-duration-wrapper ._zs_gallery_mx-duration_index_-discount-hover {\n  position: absolute;\n  z-index: 100;\n  width: 140px;\n  padding: 20px;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n  border-radius: 4px;\n  background: #fff;\n  filter: alpha(opacity=80);\n  opacity: 0.8;\n}\n._zs_gallery_mx-duration_index_-duration-wrapper ._zs_gallery_mx-duration_index_-discount-setting {\n  position: absolute;\n  z-index: 100;\n  width: 260px;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n  border-radius: 4px;\n  background: #fff;\n}\n._zs_gallery_mx-duration_index_-duration-wrapper ._zs_gallery_mx-duration_index_-discount-setting ._zs_gallery_mx-duration_index_-setting-content {\n  padding: 20px 20px 10px 20px;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-duration_index_-duration-wrapper ._zs_gallery_mx-duration_index_-discount-setting ._zs_gallery_mx-duration_index_-setting-footer {\n  padding: 10px 20px;\n}\n");
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, maxWidth = $$.maxWidth, hoverInfo = $$.hoverInfo, maskInfo = $$.maskInfo, settingInfo = $$.settingInfo, viewId = $$.viewId, boxWidth = $$.boxWidth, multiple = $$.multiple, headerHeight = $$.headerHeight, weeks = $$.weeks, boxHeight = $$.boxHeight, rowNum = $$.rowNum, ranges = $$.ranges, boxZones = $$.boxZones; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', maxWidth = $$.maxWidth, hoverInfo = $$.hoverInfo, maskInfo = $$.maskInfo, settingInfo = $$.settingInfo, viewId = $$.viewId, boxWidth = $$.boxWidth, multiple = $$.multiple, headerHeight = $$.headerHeight, weeks = $$.weeks, boxHeight = $$.boxHeight, rowNum = $$.rowNum, ranges = $$.ranges, boxZones = $$.boxZones; var $expr, $art, $line; try {
     $p += '<div mxv style="width: ';
     $line = 1;
     $art = '=maxWidth';
@@ -30,7 +40,7 @@ module.exports = Magix.View.extend({
     $art = 'if hoverInfo.show';
     ;
     $p += '';
-    $expr = '<%if(hoverInfo.show){%>';
+    $expr = '<%if (hoverInfo.show) {%>';
     if (hoverInfo.show) {
         ;
         $p += '<div style="top: ';
@@ -41,11 +51,11 @@ module.exports = Magix.View.extend({
         $line = 4;
         $art = '=hoverInfo.left';
         ;
-        $p += '' + ($expr = '<%=hoverInfo.left%>', $e(hoverInfo.left)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-hover"><div mxa="_zs_galleryaj:_" class="mb5">';
+        $p += '' + ($expr = '<%=hoverInfo.left%>', $e(hoverInfo.left)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-hover"><div mxa="_zs_galleryai:_" class="mb5">';
         $line = 6;
         $art = '=hoverInfo.week';
         ;
-        $p += '' + ($expr = '<%=hoverInfo.week%>', $e(hoverInfo.week)) + '</div><div mxa="_zs_galleryaj:a" class="mb5"><strong>';
+        $p += '' + ($expr = '<%=hoverInfo.week%>', $e(hoverInfo.week)) + '</div><div mxa="_zs_galleryai:a" class="mb5"><strong>';
         $line = 7;
         $art = '=hoverInfo.time';
         ;
@@ -66,7 +76,7 @@ module.exports = Magix.View.extend({
     $art = 'if maskInfo.show';
     ;
     $p += '';
-    $expr = '<%if(maskInfo.show){%>';
+    $expr = '<%if (maskInfo.show) {%>';
     if (maskInfo.show) {
         ;
         $p += '<div style="top: ';
@@ -98,7 +108,7 @@ module.exports = Magix.View.extend({
     $art = 'if settingInfo.show';
     ;
     $p += '';
-    $expr = '<%if(settingInfo.show){%>';
+    $expr = '<%if (settingInfo.show) {%>';
     if (settingInfo.show) {
         ;
         $p += '<div mxv style="top: ';
@@ -109,20 +119,20 @@ module.exports = Magix.View.extend({
         $line = 20;
         $art = '=settingInfo.left';
         ;
-        $p += '' + ($expr = '<%=settingInfo.left%>', $e(settingInfo.left)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-setting"><div mxv mxa="_zs_galleryaj:b" class="_zs_gallery_mx-duration_index_-setting-content"><div mxa="_zs_galleryaj:c" class="mb20"><span>';
+        $p += '' + ($expr = '<%=settingInfo.left%>', $e(settingInfo.left)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-setting"><div mxv mxa="_zs_galleryai:b" class="_zs_gallery_mx-duration_index_-setting-content"><div mxa="_zs_galleryai:c" class="mb20"><span>';
         $line = 24;
         $art = '=settingInfo.week';
         ;
-        $p += '' + ($expr = '<%=settingInfo.week%>', $e(settingInfo.week)) + '</span>：<strong mxa="_zs_galleryaj:d" class="ml5">';
+        $p += '' + ($expr = '<%=settingInfo.week%>', $e(settingInfo.week)) + '</span>：<strong mxa="_zs_galleryai:d" class="ml5">';
         $line = 25;
         $art = '=settingInfo.time';
         ;
-        $p += '' + ($expr = '<%=settingInfo.time%>', $e(settingInfo.time)) + '</strong></div><div mxv mxa="_zs_galleryaj:e" class="mb5"><label mxv><input type="radio" class="radio" name="settingType" value="1" mx-change="' + $viewId + 'changeSettingType({type:1})" ';
+        $p += '' + ($expr = '<%=settingInfo.time%>', $e(settingInfo.time)) + '</strong></div><div mxv mxa="_zs_galleryai:e" class="mb5"><label mxv><input type="radio" class="radio" name="settingType" value="1" mx-change="' + $viewId + 'changeSettingType({type:1})" ';
         $line = 31;
         $art = 'if settingInfo.type == 1';
         ;
         $p += '';
-        $expr = '<%if(settingInfo.type==1){%>';
+        $expr = '<%if (settingInfo.type == 1) {%>';
         if (settingInfo.type == 1) {
             ;
             $p += ' checked="true" ';
@@ -138,7 +148,7 @@ module.exports = Magix.View.extend({
         $art = 'if settingInfo.type == 1';
         ;
         $p += '';
-        $expr = '<%if(settingInfo.type==1){%>';
+        $expr = '<%if (settingInfo.type == 1) {%>';
         if (settingInfo.type == 1) {
             ;
             $p += '<input mxe="' + $viewId + '_0" mxc="[';
@@ -154,7 +164,7 @@ module.exports = Magix.View.extend({
             $art = 'else';
             ;
             $p += '';
-            $expr = '<%}else{%>';
+            $expr = '<%}    else {%>';
         }
         else {
             ;
@@ -170,12 +180,12 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '<span mxs="_zs_galleryaj:_" class="ml5">%</span></div><div mxv mxa="_zs_galleryaj:f" class="mb10"><label mxv><input type="radio" name="settingType" class="radio" value="2" mx-change="' + $viewId + 'changeSettingType({type:2})" ';
+        $p += '<span mxs="_zs_galleryai:_" class="ml5">%</span></div><div mxv mxa="_zs_galleryai:f" class="mb10"><label mxv><input type="radio" name="settingType" class="radio" value="2" mx-change="' + $viewId + 'changeSettingType({type:2})" ';
         $line = 48;
         $art = 'if settingInfo.type == 2';
         ;
         $p += '';
-        $expr = '<%if(settingInfo.type==2){%>';
+        $expr = '<%if (settingInfo.type == 2) {%>';
         if (settingInfo.type == 2) {
             ;
             $p += ' checked="true" ';
@@ -186,12 +196,12 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '/>无折扣</label></div><div mxv mxa="_zs_galleryaj:g" class="mb10"><label mxv><input type="radio" name="settingType" class="radio" value="3" mx-change="' + $viewId + 'changeSettingType({type:3})" ';
+        $p += '/>无折扣</label></div><div mxv mxa="_zs_galleryai:g" class="mb10"><label mxv><input type="radio" name="settingType" class="radio" value="3" mx-change="' + $viewId + 'changeSettingType({type:3})" ';
         $line = 55;
         $art = 'if settingInfo.type == 3';
         ;
         $p += '';
-        $expr = '<%if(settingInfo.type==3){%>';
+        $expr = '<%if (settingInfo.type == 3) {%>';
         if (settingInfo.type == 3) {
             ;
             $p += ' checked="true" ';
@@ -202,7 +212,7 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '/>不投放</label></div></div><div mxs="_zs_galleryaj:a" class="_zs_gallery_mx-duration_index_-setting-footer"><a class="btn btn-brand mr10 w60" href="javascript:;" mx-click="' + $viewId + 'submitSetting()">确定</a><a class="btn w60" href="javascript:;" mx-click="' + $viewId + 'cancelSetting()">取消</a></div></div>';
+        $p += '/>不投放</label></div></div><div mxs="_zs_galleryai:a" class="_zs_gallery_mx-duration_index_-setting-footer"><a class="btn btn-brand mr10 w60" href="javascript:;" mx-click="' + $viewId + 'submitSetting()">确定</a><a class="btn w60" href="javascript:;" mx-click="' + $viewId + 'cancelSetting()">取消</a></div></div>';
         $line = 64;
         $art = '/if';
         ;
@@ -222,11 +232,11 @@ module.exports = Magix.View.extend({
     $line = 68;
     $art = '=(boxWidth*multiple)';
     ;
-    $p += '' + ($expr = '<%=(boxWidth*multiple)%>', $e((boxWidth * multiple))) + 'px;"><li class="_zs_gallery_mx-duration_index_-week-item" style="height: ';
+    $p += '' + ($expr = '<%=(boxWidth * multiple)%>', $e((boxWidth * multiple))) + 'px;"><li class="_zs_gallery_mx-duration_index_-week-item" style="height: ';
     $line = 69;
     $art = '=headerHeight+1';
     ;
-    $p += '' + ($expr = '<%=headerHeight+1%>', $e(headerHeight + 1)) + 'px; line-height: ';
+    $p += '' + ($expr = '<%=headerHeight + 1%>', $e(headerHeight + 1)) + 'px; line-height: ';
     $line = 69;
     $art = '=headerHeight';
     ;
@@ -235,9 +245,9 @@ module.exports = Magix.View.extend({
     $art = 'each weeks as week';
     ;
     $p += '';
-    $expr = '<%for(var $art_iubyqiuqo$art_i=0;$art_iubyqiuqo$art_i<weeks.length;$art_iubyqiuqo$art_i++){var week=weeks[$art_iubyqiuqo$art_i]%>';
-    for (var $art_iubyqiuqo$art_i = 0; $art_iubyqiuqo$art_i < weeks.length; $art_iubyqiuqo$art_i++) {
-        var week = weeks[$art_iubyqiuqo$art_i];
+    $expr = '<%for (var $art_inodapwptjp$art_i = 0, $art_cdfaerep$art_c = weeks.length; $art_inodapwptjp$art_i < $art_cdfaerep$art_c; $art_inodapwptjp$art_i++) {    var week = weeks[$art_inodapwptjp$art_i]%>';
+    for (var $art_inodapwptjp$art_i = 0, $art_cdfaerep$art_c = weeks.length; $art_inodapwptjp$art_i < $art_cdfaerep$art_c; $art_inodapwptjp$art_i++) {
+        var week = weeks[$art_inodapwptjp$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-week-item" style="height: ';
         $line = 71;
         $art = '=boxHeight';
@@ -262,27 +272,27 @@ module.exports = Magix.View.extend({
     $line = 74;
     $art = '=boxWidth*rowNum';
     ;
-    $p += '' + ($expr = '<%=boxWidth*rowNum%>', $e(boxWidth * rowNum)) + 'px;"><ul mxa="_zs_galleryaj:h" class="_zs_gallery_mx-duration_index_-range clearfix">';
+    $p += '' + ($expr = '<%=boxWidth * rowNum%>', $e(boxWidth * rowNum)) + 'px;"><ul mxa="_zs_galleryai:h" class="_zs_gallery_mx-duration_index_-range clearfix">';
     $line = 76;
     $art = 'each ranges as range';
     ;
     $p += '';
-    $expr = '<%for(var $art_iypvwkrgk$art_i=0;$art_iypvwkrgk$art_i<ranges.length;$art_iypvwkrgk$art_i++){var range=ranges[$art_iypvwkrgk$art_i]%>';
-    for (var $art_iypvwkrgk$art_i = 0; $art_iypvwkrgk$art_i < ranges.length; $art_iypvwkrgk$art_i++) {
-        var range = ranges[$art_iypvwkrgk$art_i];
+    $expr = '<%for (var $art_imvubxwkh$art_i = 0, $art_czefzubd$art_c = ranges.length; $art_imvubxwkh$art_i < $art_czefzubd$art_c; $art_imvubxwkh$art_i++) {    var range = ranges[$art_imvubxwkh$art_i]%>';
+    for (var $art_imvubxwkh$art_i = 0, $art_czefzubd$art_c = ranges.length; $art_imvubxwkh$art_i < $art_czefzubd$art_c; $art_imvubxwkh$art_i++) {
+        var range = ranges[$art_imvubxwkh$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-range-item" style="width: ';
         $line = 77;
         $art = '=(boxWidth*(rowNum/4))';
         ;
-        $p += '' + ($expr = '<%=(boxWidth*(rowNum/4))%>', $e((boxWidth * (rowNum / 4)))) + 'px; height: ';
+        $p += '' + ($expr = '<%=(boxWidth * (rowNum / 4))%>', $e((boxWidth * (rowNum / 4)))) + 'px; height: ';
         $line = 77;
         $art = '=headerHeight/2';
         ;
-        $p += '' + ($expr = '<%=headerHeight/2%>', $e(headerHeight / 2)) + 'px; line-height: ';
+        $p += '' + ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px; line-height: ';
         $line = 77;
         $art = '=headerHeight/2';
         ;
-        $p += '' + ($expr = '<%=headerHeight/2%>', $e(headerHeight / 2)) + 'px;">';
+        $p += '' + ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px;">';
         $line = 77;
         $art = '=range';
         ;
@@ -294,27 +304,27 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</ul><ul mxa="_zs_galleryaj:i" class="_zs_gallery_mx-duration_index_-time clearfix">';
+    $p += '</ul><ul mxa="_zs_galleryai:i" class="_zs_gallery_mx-duration_index_-time clearfix">';
     $line = 81;
     $art = 'for (let i=0;i<24;i+=1)';
     ;
     $p += '';
-    $expr = '<%for(var i=0;i<24;i+=1){%>';
+    $expr = '<%for (var i = 0; i < 24; i += 1) {%>';
     for (var i = 0; i < 24; i += 1) {
         ;
         $p += '<li class="_zs_gallery_mx-duration_index_-time-item" style="width: ';
         $line = 82;
         $art = '=(boxWidth*multiple)';
         ;
-        $p += '' + ($expr = '<%=(boxWidth*multiple)%>', $e((boxWidth * multiple))) + 'px; height: ';
+        $p += '' + ($expr = '<%=(boxWidth * multiple)%>', $e((boxWidth * multiple))) + 'px; height: ';
         $line = 82;
         $art = '=headerHeight/2';
         ;
-        $p += '' + ($expr = '<%=headerHeight/2%>', $e(headerHeight / 2)) + 'px; line-height: ';
+        $p += '' + ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px; line-height: ';
         $line = 82;
         $art = '=headerHeight/2';
         ;
-        $p += '' + ($expr = '<%=headerHeight/2%>', $e(headerHeight / 2)) + 'px;">';
+        $p += '' + ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px;">';
         $line = 82;
         $art = '=i';
         ;
@@ -326,14 +336,14 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</ul><ul mxa="_zs_galleryaj:j" class="_zs_gallery_mx-duration_index_-boxzone clearfix">';
+    $p += '</ul><ul mxa="_zs_galleryai:j" class="_zs_gallery_mx-duration_index_-boxzone clearfix">';
     $line = 86;
     $art = 'each boxZones as zone';
     ;
     $p += '';
-    $expr = '<%for(var $art_ilbhcr$art_i=0;$art_ilbhcr$art_i<boxZones.length;$art_ilbhcr$art_i++){var zone=boxZones[$art_ilbhcr$art_i]%>';
-    for (var $art_ilbhcr$art_i = 0; $art_ilbhcr$art_i < boxZones.length; $art_ilbhcr$art_i++) {
-        var zone = boxZones[$art_ilbhcr$art_i];
+    $expr = '<%for (var $art_ihhnrzipvsb$art_i = 0, $art_cdeehfddroc$art_c = boxZones.length; $art_ihhnrzipvsb$art_i < $art_cdeehfddroc$art_c; $art_ihhnrzipvsb$art_i++) {    var zone = boxZones[$art_ihhnrzipvsb$art_i]%>';
+    for (var $art_ihhnrzipvsb$art_i = 0, $art_cdeehfddroc$art_c = boxZones.length; $art_ihhnrzipvsb$art_i < $art_cdeehfddroc$art_c; $art_ihhnrzipvsb$art_i++) {
+        var zone = boxZones[$art_ihhnrzipvsb$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-box fl" style="width: ';
         $line = 88;
         $art = '=boxWidth';
@@ -366,7 +376,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</ul></div></div><div mxs="_zs_galleryaj:b" class="mt20 clearfix"><a class="btn mr10 fl" href="javascript:;" mx-click="' + $viewId + 'clear()">清空</a><a class="btn mr10 fl" href="javascript:;" mx-click="' + $viewId + 'reset()">重置</a><span class="fr lh32 color-c"><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(97,199,242,0.7)"></span><span class="font-tahoma bold color-c mr15">30-100%</span><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(77,166,255,0.7)"></span><span class="font-tahoma bold color-c mr15">100-200%</span><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(134,115,230,0.7)"></span><span class="font-tahoma bold color-c mr15">200-250%</span><i class="mc-iconfont displacement-2">&#xe705;</i><span class="mr10">可以拖拽鼠标选择投放时段</span></span></div></div>';
+    $p += '</ul></div></div><div mxs="_zs_galleryai:b" class="mt20 clearfix"><a class="btn mr10 fl" href="javascript:;" mx-click="' + $viewId + 'clear()">清空</a><a class="btn mr10 fl" href="javascript:;" mx-click="' + $viewId + 'reset()">重置</a><span class="fr lh32 color-c"><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(97,199,242,0.7)"></span><span class="font-tahoma bold color-c mr15">30-100%</span><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(77,166,255,0.7)"></span><span class="font-tahoma bold color-c mr15">100-200%</span><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(134,115,230,0.7)"></span><span class="font-tahoma bold color-c mr15">200-250%</span><i class="mc-iconfont displacement-2">&#xe705;</i><span class="mr10">可以拖拽鼠标选择投放时段</span></span></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -464,7 +474,7 @@ catch (ex) {
         for (var i = 0, aLen = arr.length; i < aLen; i++) {
             var list = arr[i].split(','); // ,分隔一天内时段的内容
             for (var j = 0, lLen = list.length; j < lLen; j++) {
-                if (list[j] == '0') {
+                if (list[j] == '0') { // 该日下全部不投放
                     continue;
                 }
                 var darray = list[j].match(/(\d{2}):(\d{2})-(\d{2}):(\d{2}):(\d+)/);
@@ -615,15 +625,15 @@ catch (ex) {
         var discount = 0;
         var valid = true;
         switch (+settingInfo.type) {
-            case 1://自定义
+            case 1: //自定义
                 valid = that.isValid();
                 var result = that.fromKeys(src, 'settingInfo');
                 discount = result.settingInfo.discount;
                 break;
-            case 2://无折扣
+            case 2: //无折扣
                 discount = 100;
                 break;
-            case 3://不投放
+            case 3: //不投放
                 discount = 0;
                 break;
         }

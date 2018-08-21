@@ -3,6 +3,7 @@ let $ = require('$');
 Magix.applyStyle('@notice.less');
 
 let ClassNames = {
+    common: '@notice.less:common',
     error: '@notice.less:error',
     warn: '@notice.less:warn',
     highlight: '@notice.less:highlight',
@@ -17,13 +18,14 @@ module.exports = Magix.View.extend({
         let textAlign = extra.textAlign || 'left';
 
         let classNames = [ClassNames.notice];
+
         // 如果用户自定义了色值以自定义色值为准
         let color = extra.color,
             rgba,
             styles = [],
             border = (extra.border + '' === 'true'),
             icon  = !(extra.icon + '' === 'false'),
-            type = extra.type;
+            type = extra.type || 'common';
 
         if (border) {
             classNames.push(ClassNames.border);

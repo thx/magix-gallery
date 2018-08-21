@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -12,8 +12,18 @@ var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
 module.exports = Base.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, selected = $$.selected, first = $$.first, second = $$.second, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', selected = $$.selected, first = $$.first, second = $$.second, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
     $p += '<div mxa="_zs_gallery+:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_gallery+:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_gallery+:_" class="color-9 mb20 clearfix"><div class="fl"><i class="mc-iconfont displacement-2 mr5">&#xe6ac;</i></div><div class="fl lh22"><div>带分组的只能用mx-dropdown.item节点实现</div><div>不需要全选功能，配置need-all="false"</div><div>组上面需要全选功能在mx-dropdown.item上配置all="true"</div></div></div><div mxa="_zs_gallery+:b" class="clearfix"><div class="w200 fl" mx-view="mx-dropdown/multiple?needAll=false&searchbox=true&name=%E6%95%B0%E5%AD%97&emptyText=%E8%AF%B7%E9%80%89%E6%8B%A9%E6%95%B0%E5%AD%97&selected=';
     $line = 19;
     $art = '=selected';
@@ -23,9 +33,9 @@ module.exports = Base.extend({
     $art = 'each first as i';
     ;
     $p += '';
-    $expr = '<%for(var $art_ihgsfhra$art_i=0;$art_ihgsfhra$art_i<first.length;$art_ihgsfhra$art_i++){var i=first[$art_ihgsfhra$art_i]%>';
-    for (var $art_ihgsfhra$art_i = 0; $art_ihgsfhra$art_i < first.length; $art_ihgsfhra$art_i++) {
-        var i = first[$art_ihgsfhra$art_i];
+    $expr = '<%for (var $art_ikxojzbpn$art_i = 0, $art_cfalsuhl$art_c = first.length; $art_ikxojzbpn$art_i < $art_cfalsuhl$art_c; $art_ikxojzbpn$art_i++) {    var i = first[$art_ikxojzbpn$art_i]%>';
+    for (var $art_ikxojzbpn$art_i = 0, $art_cfalsuhl$art_c = first.length; $art_ikxojzbpn$art_i < $art_cfalsuhl$art_c; $art_ikxojzbpn$art_i++) {
+        var i = first[$art_ikxojzbpn$art_i];
         $p += '<i value="';
         $line = 22;
         $art = '=i';
@@ -47,9 +57,9 @@ module.exports = Base.extend({
     $art = 'each second as i';
     ;
     $p += '';
-    $expr = '<%for(var $art_ihbnutj$art_i=0;$art_ihbnutj$art_i<second.length;$art_ihbnutj$art_i++){var i=second[$art_ihbnutj$art_i]%>';
-    for (var $art_ihbnutj$art_i = 0; $art_ihbnutj$art_i < second.length; $art_ihbnutj$art_i++) {
-        var i = second[$art_ihbnutj$art_i];
+    $expr = '<%for (var $art_ixoterkv$art_i = 0, $art_cpbiiopsyg$art_c = second.length; $art_ixoterkv$art_i < $art_cpbiiopsyg$art_c; $art_ixoterkv$art_i++) {    var i = second[$art_ixoterkv$art_i]%>';
+    for (var $art_ixoterkv$art_i = 0, $art_cpbiiopsyg$art_c = second.length; $art_ixoterkv$art_i < $art_cpbiiopsyg$art_c; $art_ixoterkv$art_i++) {
+        var i = second[$art_ixoterkv$art_i];
         $p += '<i value="';
         $line = 26;
         $art = '=i';

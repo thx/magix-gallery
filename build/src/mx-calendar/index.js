@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -86,18 +86,28 @@ var YearDisabled = function (year, start, end) {
     return flag;
 };
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, types = $$.types, id = $$.id, year = $$.year, month = $$.month, weekText = $$.weekText, days = $$.days, timeType = $$.timeType, timeValue = $$.timeValue, hasBtn = $$.hasBtn, showMonth = $$.showMonth, months = $$.months, showYear = $$.showYear, startYear = $$.startYear, endYear = $$.endYear, years = $$.years; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallery1:_" class="_zs_gallery_mx-calendar_index_-wrapper unselectable" mx-contextmenu="' + $viewId + '@{prevent}()">';
-    $expr = '<%if(types.day){%>';
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', types = $$.types, id = $$.id, year = $$.year, month = $$.month, weekText = $$.weekText, days = $$.days, timeType = $$.timeType, timeValue = $$.timeValue, hasBtn = $$.hasBtn, showMonth = $$.showMonth, months = $$.months, showYear = $$.showYear, startYear = $$.startYear, endYear = $$.endYear, years = $$.years; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallery2:_" class="_zs_gallery_mx-calendar_index_-wrapper unselectable" mx-contextmenu="' + $viewId + '@{prevent}()">';
+    $expr = '<%if (types.day) {%>';
     if (types.day) {
         ;
-        $p += '<div id="days_' + ($expr = '<%=id%>', $e(id)) + '" class="clearfix"><div mxa="_zs_gallery1:a" class="_zs_gallery_mx-calendar_index_-header"><span mxs="_zs_gallery1:_" class="mc-iconfont _zs_gallery_mx-calendar_index_-minus fl" mx-click="' + $viewId + '@{changeMonth}()">&#xe61e;</span><span class="_zs_gallery_mx-calendar_index_-title" mx-click="' + $viewId + '';
-        $expr = '<%if(types.month){%>';
+        $p += '<div id="days_' + ($expr = '<%=id%>', $e(id)) + '" class="clearfix"><div mxa="_zs_gallery2:a" class="_zs_gallery_mx-calendar_index_-header"><span mxs="_zs_gallery2:_" class="mc-iconfont _zs_gallery_mx-calendar_index_-minus fl" mx-click="' + $viewId + '@{changeMonth}()">&#xe61e;</span><span class="_zs_gallery_mx-calendar_index_-title" mx-click="' + $viewId + '';
+        $expr = '<%if (types.month) {%>';
         if (types.month) {
             ;
             $p += '@{showMonths}';
-            $expr = '<%}else{%>';
+            $expr = '<%}    else {%>';
         }
         else {
             ;
@@ -105,27 +115,27 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '()">' + ($expr = '<%=year%>', $e(year)) + '-' + ($expr = '<%=(\'0\'+month).slice(-2)%>', $e(('0' + month).slice(-2))) + '</span><span mxs="_zs_gallery1:a" class="mc-iconfont _zs_gallery_mx-calendar_index_-plus fr" mx-click="' + $viewId + '@{changeMonth}({next:true})">&#xe61e;</span></div><div mxa="_zs_gallery1:b" class="_zs_gallery_mx-calendar_index_-body"><div mxa="_zs_gallery1:c" class="_zs_gallery_mx-calendar_index_-weeks clearfix">';
-        $expr = '<%for(var i=0;i<weekText.length;i++){%>';
+        $p += '()">' + ($expr = '<%=year%>', $e(year)) + '-' + ($expr = '<%=(\'0\' + month).slice(-2)%>', $e(('0' + month).slice(-2))) + '</span><span mxs="_zs_gallery2:a" class="mc-iconfont _zs_gallery_mx-calendar_index_-plus fr" mx-click="' + $viewId + '@{changeMonth}({next:true})">&#xe61e;</span></div><div mxa="_zs_gallery2:b" class="_zs_gallery_mx-calendar_index_-body"><div mxa="_zs_gallery2:c" class="_zs_gallery_mx-calendar_index_-weeks clearfix">';
+        $expr = '<%for (var i = 0; i < weekText.length; i++) {%>';
         for (var i = 0; i < weekText.length; i++) {
             ;
-            $p += '<span mxa="_zs_gallery1:d" class="_zs_gallery_mx-calendar_index_-week">' + ($expr = '<%=weekText[i]%>', $e(weekText[i])) + '</span>';
+            $p += '<span mxa="_zs_gallery2:d" class="_zs_gallery_mx-calendar_index_-week">' + ($expr = '<%=weekText[i]%>', $e(weekText[i])) + '</span>';
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxa="_zs_gallery1:e" class="_zs_gallery_mx-calendar_index_-days clearfix">';
-        $expr = '<%for(var i=0;i<days.length;i++){%>';
+        $p += '</div><div mxa="_zs_gallery2:e" class="_zs_gallery_mx-calendar_index_-days clearfix">';
+        $expr = '<%for (var i = 0; i < days.length; i++) {%>';
         for (var i = 0; i < days.length; i++) {
             ;
             $p += ' ';
-            $expr = '<%var tds=days[i]%>';
+            $expr = '<%var tds = days[i]%>';
             var tds = days[i];
             $p += ' ';
-            $expr = '<%for(var j=0;j<tds.length;j++){%>';
+            $expr = '<%for (var j = 0; j < tds.length; j++) {%>';
             for (var j = 0; j < tds.length; j++) {
                 ;
                 $p += '<span class="_zs_gallery_mx-calendar_index_-day';
-                $expr = '<%if(tds[j].today){%>';
+                $expr = '<%if (tds[j].today) {%>';
                 if (tds[j].today) {
                     ;
                     $p += ' _zs_gallery_mx-calendar_index_-today';
@@ -133,7 +143,7 @@ module.exports = Magix.View.extend({
                 }
                 ;
                 $p += '';
-                $expr = '<%if(tds[j].otherMonth){%>';
+                $expr = '<%if (tds[j].otherMonth) {%>';
                 if (tds[j].otherMonth) {
                     ;
                     $p += ' _zs_gallery_mx-calendar_index_-gray';
@@ -141,7 +151,7 @@ module.exports = Magix.View.extend({
                 }
                 ;
                 $p += '';
-                $expr = '<%if(tds[j].disabled){%>';
+                $expr = '<%if (tds[j].disabled) {%>';
                 if (tds[j].disabled) {
                     ;
                     $p += ' _zs_gallery_mx-calendar_index_-notallowed';
@@ -149,7 +159,7 @@ module.exports = Magix.View.extend({
                 }
                 ;
                 $p += '';
-                $expr = '<%if(tds[j].selected){%>';
+                $expr = '<%if (tds[j].selected) {%>';
                 if (tds[j].selected) {
                     ;
                     $p += ' _zs_gallery_mx-calendar_index_-selected';
@@ -157,7 +167,7 @@ module.exports = Magix.View.extend({
                 }
                 ;
                 $p += '" ';
-                $expr = '<%if(!tds[j].disabled){%>';
+                $expr = '<%if (!tds[j].disabled) {%>';
                 if (!tds[j].disabled) {
                     ;
                     $p += ' mx-click="' + $viewId + '@{choose}({toMonth:' + ($expr = '<%=tds[j].month%>', $e(tds[j].month)) + ',date:\'' + ($expr = '<%=$eq(tds[j].full)%>', $e($eq(tds[j].full))) + '\'})" ';
@@ -173,14 +183,14 @@ module.exports = Magix.View.extend({
         }
         ;
         $p += '</div></div>';
-        $expr = '<%if(timeType){%>';
+        $expr = '<%if (timeType) {%>';
         if (timeType) {
             ;
             $p += '<div class="clearfix _zs_gallery_mx-calendar_index_-time" mx-change="' + $viewId + '@{setTime}()" mx-view="mx-time/index?time=' + ($expr = '<%!$eu(timeValue)%>', $eu(timeValue)) + '&types=' + ($expr = '<%!$eu(timeType)%>', $eu(timeType)) + '"></div>';
-            $expr = '<%if(hasBtn){%>';
+            $expr = '<%if (hasBtn) {%>';
             if (hasBtn) {
                 ;
-                $p += '<div mxs="_zs_gallery1:b" class="_zs_gallery_mx-calendar_index_-footer"><button type="button" class="btn btn-small btn-brand" mx-click="' + $viewId + '@{hide}({enter:true})">确定</button><button type="button" class="btn btn-small ml10" mx-click="' + $viewId + '@{hide}()">取消</button></div>';
+                $p += '<div mxs="_zs_gallery2:b" class="_zs_gallery_mx-calendar_index_-footer"><button type="button" class="btn btn-small btn-brand" mx-click="' + $viewId + '@{hide}({enter:true})">确定</button><button type="button" class="btn btn-small ml10" mx-click="' + $viewId + '@{hide}()">取消</button></div>';
                 $expr = '<%}%>';
             }
             ;
@@ -193,11 +203,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += ' ';
-    $expr = '<%if(types.month){%>';
+    $expr = '<%if (types.month) {%>';
     if (types.month) {
         ;
         $p += '<div class="clearfix';
-        $expr = '<%if(types.day){%>';
+        $expr = '<%if (types.day) {%>';
         if (types.day) {
             ;
             $p += ' _zs_gallery_mx-calendar_index_-m-panel';
@@ -205,22 +215,22 @@ module.exports = Magix.View.extend({
         }
         ;
         $p += '';
-        $expr = '<%if(showMonth){%>';
+        $expr = '<%if (showMonth) {%>';
         if (showMonth) {
             ;
             $p += ' _zs_gallery_mx-calendar_index_-ym-show';
             $expr = '<%}%>';
         }
         ;
-        $p += '"><div mxa="_zs_gallery1:f" class="_zs_gallery_mx-calendar_index_-header"><span mxs="_zs_gallery1:c" class="mc-iconfont _zs_gallery_mx-calendar_index_-minus fl" mx-click="' + $viewId + '@{changeYear}()">&#xe61e;</span><span mxa="_zs_gallery1:g" class="_zs_gallery_mx-calendar_index_-title" mx-click="' + $viewId + '@{showYears}()">' + ($expr = '<%=year%>', $e(year)) + '</span><span mxs="_zs_gallery1:d" class="mc-iconfont _zs_gallery_mx-calendar_index_-plus fr" mx-click="' + $viewId + '@{changeYear}({next:true})">&#xe61e;</span></div><div mxa="_zs_gallery1:h" class="_zs_gallery_mx-calendar_index_-body clearfix">';
-        $expr = '<%for(var i=0,m;i<months.length;i++){%>';
+        $p += '"><div mxa="_zs_gallery2:f" class="_zs_gallery_mx-calendar_index_-header"><span mxs="_zs_gallery2:c" class="mc-iconfont _zs_gallery_mx-calendar_index_-minus fl" mx-click="' + $viewId + '@{changeYear}()">&#xe61e;</span><span mxa="_zs_gallery2:g" class="_zs_gallery_mx-calendar_index_-title" mx-click="' + $viewId + '@{showYears}()">' + ($expr = '<%=year%>', $e(year)) + '</span><span mxs="_zs_gallery2:d" class="mc-iconfont _zs_gallery_mx-calendar_index_-plus fr" mx-click="' + $viewId + '@{changeYear}({next:true})">&#xe61e;</span></div><div mxa="_zs_gallery2:h" class="_zs_gallery_mx-calendar_index_-body clearfix">';
+        $expr = '<%for (var i = 0, m; i < months.length; i++) {%>';
         for (var i = 0, m; i < months.length; i++) {
             ;
             $p += ' ';
-            $expr = '<%m=months[i]%>';
+            $expr = '<%m = months[i]%>';
             m = months[i];
             $p += '<span class="_zs_gallery_mx-calendar_index_-ym';
-            $expr = '<%if(m.disabled){%>';
+            $expr = '<%if (m.disabled) {%>';
             if (m.disabled) {
                 ;
                 $p += ' _zs_gallery_mx-calendar_index_-notallowed';
@@ -228,7 +238,7 @@ module.exports = Magix.View.extend({
             }
             ;
             $p += '';
-            $expr = '<%if(m.selected){%>';
+            $expr = '<%if (m.selected) {%>';
             if (m.selected) {
                 ;
                 $p += ' _zs_gallery_mx-calendar_index_-selected';
@@ -236,7 +246,7 @@ module.exports = Magix.View.extend({
             }
             ;
             $p += '" ';
-            $expr = '<%if(!m.disabled){%>';
+            $expr = '<%if (!m.disabled) {%>';
             if (!m.disabled) {
                 ;
                 $p += ' mx-click="' + $viewId + '@{pickMonth}({month:\'' + ($expr = '<%=$eq(m.month)%>', $e($eq(m.month))) + '\'})" ';
@@ -252,11 +262,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += ' ';
-    $expr = '<%if(types.year){%>';
+    $expr = '<%if (types.year) {%>';
     if (types.year) {
         ;
         $p += '<div class="clearfix';
-        $expr = '<%if(types.day||types.month){%>';
+        $expr = '<%if (types.day || types.month) {%>';
         if (types.day || types.month) {
             ;
             $p += ' _zs_gallery_mx-calendar_index_-y-panel';
@@ -264,22 +274,22 @@ module.exports = Magix.View.extend({
         }
         ;
         $p += '';
-        $expr = '<%if(showYear){%>';
+        $expr = '<%if (showYear) {%>';
         if (showYear) {
             ;
             $p += ' _zs_gallery_mx-calendar_index_-ym-show';
             $expr = '<%}%>';
         }
         ;
-        $p += '"><div mxa="_zs_gallery1:i" class="_zs_gallery_mx-calendar_index_-header"><span mxs="_zs_gallery1:e" class="mc-iconfont _zs_gallery_mx-calendar_index_-minus fl" mx-click="' + $viewId + '@{changeYear}({range:true})">&#xe61e;</span><span mxa="_zs_gallery1:j" class="_zs_gallery_mx-calendar_index_-title">' + ($expr = '<%=startYear%>', $e(startYear)) + '-' + ($expr = '<%=endYear%>', $e(endYear)) + '</span><span mxs="_zs_gallery1:f" class="mc-iconfont _zs_gallery_mx-calendar_index_-plus fr" mx-click="' + $viewId + '@{changeYear}({range:true,next:true})">&#xe61e;</span></div><div mxa="_zs_gallery1:k" class="_zs_gallery_mx-calendar_index_-body clearfix">';
-        $expr = '<%for(var i=0,y;i<years.length;i++){%>';
+        $p += '"><div mxa="_zs_gallery2:i" class="_zs_gallery_mx-calendar_index_-header"><span mxs="_zs_gallery2:e" class="mc-iconfont _zs_gallery_mx-calendar_index_-minus fl" mx-click="' + $viewId + '@{changeYear}({range:true})">&#xe61e;</span><span mxa="_zs_gallery2:j" class="_zs_gallery_mx-calendar_index_-title">' + ($expr = '<%=startYear%>', $e(startYear)) + '-' + ($expr = '<%=endYear%>', $e(endYear)) + '</span><span mxs="_zs_gallery2:f" class="mc-iconfont _zs_gallery_mx-calendar_index_-plus fr" mx-click="' + $viewId + '@{changeYear}({range:true,next:true})">&#xe61e;</span></div><div mxa="_zs_gallery2:k" class="_zs_gallery_mx-calendar_index_-body clearfix">';
+        $expr = '<%for (var i = 0, y; i < years.length; i++) {%>';
         for (var i = 0, y; i < years.length; i++) {
             ;
             $p += ' ';
-            $expr = '<%y=years[i]%>';
+            $expr = '<%y = years[i]%>';
             y = years[i];
             $p += '<span class="_zs_gallery_mx-calendar_index_-ym';
-            $expr = '<%if(y.selected){%>';
+            $expr = '<%if (y.selected) {%>';
             if (y.selected) {
                 ;
                 $p += ' _zs_gallery_mx-calendar_index_-selected';
@@ -287,7 +297,7 @@ module.exports = Magix.View.extend({
             }
             ;
             $p += '';
-            $expr = '<%if(y.disabled){%>';
+            $expr = '<%if (y.disabled) {%>';
             if (y.disabled) {
                 ;
                 $p += ' _zs_gallery_mx-calendar_index_-notallowed';
@@ -295,7 +305,7 @@ module.exports = Magix.View.extend({
             }
             ;
             $p += '" ';
-            $expr = '<%if(!y.disabled){%>';
+            $expr = '<%if (!y.disabled) {%>';
             if (!y.disabled) {
                 ;
                 $p += ' mx-click="' + $viewId + '@{pickYear}({year:\'' + ($expr = '<%=$eq(y.year)%>', $e($eq(y.year))) + '\'})" ';

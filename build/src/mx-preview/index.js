@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -14,8 +14,18 @@ var $ = require("$");
 Magix.applyStyle("_zs_gallery_mx-preview_index_","[mx-view*=\"mx-preview/index\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-preview_index_-outer {\n  display: table;\n  text-align: center;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner {\n  display: table-cell;\n  vertical-align: middle;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-img,\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-video {\n  max-width: 100%;\n  max-height: 100%;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-text {\n  white-space: nowrap;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-icon {\n  font-size: 20px;\n  color: #999;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-iframe {\n  -webkit-transform-origin: left top;\n          transform-origin: left top;\n}\n._zs_gallery_mx-preview_index_-pic-preview {\n  display: none;\n  position: absolute;\n  z-index: 99999;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border-collapse: separate;\n  background-color: #fff;\n  padding: 10px;\n}\n._zs_gallery_mx-preview_index_-pic-preview ._zs_gallery_mx-preview_index_-preview-inner {\n  display: block;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n}\n");
 var Active; //优化大量预览
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, maxWidth = $$.maxWidth, maxHeight = $$.maxHeight, clickUrl = $$.clickUrl, format = $$.format, url = $$.url, frameWidth = $$.frameWidth, frameHeight = $$.frameHeight, scale = $$.scale, width = $$.width, height = $$.height; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', maxWidth = $$.maxWidth, maxHeight = $$.maxHeight, clickUrl = $$.clickUrl, format = $$.format, url = $$.url, frameWidth = $$.frameWidth, frameHeight = $$.frameHeight, scale = $$.scale, width = $$.width, height = $$.height; var $expr, $art, $line; try {
     $p += '<div class="_zs_gallery_mx-preview_index_-outer" style="width: ';
     $line = 1;
     $art = '=maxWidth';
@@ -33,7 +43,7 @@ module.exports = Magix.View.extend({
     $art = 'if clickUrl';
     ;
     $p += '';
-    $expr = '<%if(clickUrl){%>';
+    $expr = '<%if (clickUrl) {%>';
     if (clickUrl) {
         ;
         $p += '<a href="';
@@ -53,7 +63,7 @@ module.exports = Magix.View.extend({
     $art = 'if format==2 || format==11 || format==23';
     ;
     $p += '';
-    $expr = '<%if(format==2||format==11||format==23){%>';
+    $expr = '<%if (format == 2 || format == 11 || format == 23) {%>';
     if (format == 2 || format == 11 || format == 23) {
         ;
         $p += '<img class="_zs_gallery_mx-preview_index_-img" src="';
@@ -73,7 +83,7 @@ module.exports = Magix.View.extend({
     $art = 'if format==5 || format==3 || format==9';
     ;
     $p += '';
-    $expr = '<%if(format==5||format==3||format==9){%>';
+    $expr = '<%if (format == 5 || format == 3 || format == 9) {%>';
     if (format == 5 || format == 3 || format == 9) {
         ;
         $p += '<div class="_zs_gallery_mx-preview_index_-text" style="max-width: ';
@@ -97,7 +107,7 @@ module.exports = Magix.View.extend({
     $art = 'if format==4';
     ;
     $p += '';
-    $expr = '<%if(format==4){%>';
+    $expr = '<%if (format == 4) {%>';
     if (format == 4) {
         ;
         $p += '<video src="';
@@ -117,7 +127,7 @@ module.exports = Magix.View.extend({
     $art = 'if format==10';
     ;
     $p += '';
-    $expr = '<%if(format==10){%>';
+    $expr = '<%if (format == 10) {%>';
     if (format == 10) {
         ;
         $p += '<div style="width: ';
@@ -157,7 +167,7 @@ module.exports = Magix.View.extend({
     $art = 'if clickUrl';
     ;
     $p += '';
-    $expr = '<%if(clickUrl){%>';
+    $expr = '<%if (clickUrl) {%>';
     if (clickUrl) {
         ;
         $p += '</a>';
@@ -273,23 +283,23 @@ catch (ex) {
                 var inner = '';
                 switch (+format_1) {
                     case 2: // 图片
-                    case 11://直播，显示为封面图
+                    case 11: //直播，显示为封面图
                         inner = $("<img src=\"" + url_1 + "\" class=\"_zs_gallery_mx-preview_index_-preview-inner\"/>");
                         break;
-                    case 4:// 视频
+                    case 4: // 视频
                         inner = $("<video src=\"" + url_1 + "\" class=\"_zs_gallery_mx-preview_index_-preview-inner\"\n                            controls=\"controls\" autoplay=\"autoplay\">\n                            <i class=\"mc-iconfont icon\">&#xe78d;</i>\n                        </video>");
                         break;
-                    case 5:// 文字链
+                    case 5: // 文字链
                         inner = $("<div class=\"_zs_gallery_mx-preview_index_-preview-inner\"></div>");
                         // 纯文案展示
                         inner[0].innerText = url_1;
                         break;
-                    case 10:// 创意模板
+                    case 10: // 创意模板
                         var originWidth = +data_1.width, originHeight = +data_1.height;
                         var scale = (width_1 - 20) / originWidth;
                         inner = $("<div class=\"_zs_gallery_mx-preview_index_-preview-inner\">\n                            <iframe src=\"" + url_1 + "\"\n                                style=\"transform: scale(" + scale + "); transform-origin: left top;\"\n                                width=\"" + originWidth + "\" \n                                height=\"" + originHeight + "\"\n                                frameborder=\"0\" \n                                scrolling=\"no\" \n                                marginheight=\"0\" \n                                marginwidth=\"0\" \n                                border=\"0\"></iframe>\n                        </div>");
                         break;
-                    case 23:// 套图 
+                    case 23: // 套图 
                         inner = $("<div class=\"clearfix\">\n                            <img src=\"" + url_1 + "\" class=\"fl mr10\"/>    \n                            <img src=\"" + datuUrl_1 + "\" class=\"fl\"/>\n                        </div>");
                         break;
                 }

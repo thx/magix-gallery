@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -12,26 +12,36 @@ var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
 module.exports = Base.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
     $p += '<div mxa="_zs_galleryc_:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryc_:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryc_:_" class="mb20"><span class="color-9">该示例：</span>吸顶 + 表头分组</div><div mxa="_zs_galleryc_:b" mx-view="mx-table/index?sticky=true"><div><table mxa="_zs_galleryc_:c" class="table"><thead mxs="_zs_galleryc_:a"><tr><th rowspan="2">单个1</th><th rowspan="2">单个2</th><th class="field-group" colspan="2"><div class="group-name">组1</div></th><th class="field-group" colspan="3"><div class="group-name">组2</div></th></tr><tr><th class="field-item">组1-1</th><th class="field-item">组1-2</th><th class="field-item">组2-1</th><th class="field-item">组2-2</th><th class="field-item">组2-3</th></tr></thead><tbody>';
     $line = 30;
     $art = 'for (let j=0;j<3;j++)';
     ;
     $p += '';
-    $expr = '<%for(var j=0;j<3;j++){%>';
+    $expr = '<%for (var j = 0; j < 3; j++) {%>';
     for (var j = 0; j < 3; j++) {
         ;
         $p += '<tr class="';
         $line = 31;
         $art = '= (j==2) ? \'last-tr\' : \'\'';
         ;
-        $p += '' + ($expr = '<%=(j==2)?\'last-tr\':\'\'%>', $e((j == 2) ? 'last-tr' : '')) + '">';
+        $p += '' + ($expr = '<%=(j == 2) ? \'last-tr\' : \'\'%>', $e((j == 2) ? 'last-tr' : '')) + '">';
         $line = 32;
         $art = 'for (let i=0;i<7;i++)';
         ;
         $p += '';
-        $expr = '<%for(var i=0;i<7;i++){%>';
+        $expr = '<%for (var i = 0; i < 7; i++) {%>';
         for (var i = 0; i < 7; i++) {
             ;
             $p += '<td>';

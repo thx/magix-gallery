@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -10,17 +10,27 @@ var Magix = require("magix");
 var $ = require("$");
 Magix.applyStyle("_zs_gallery___test___subs_","/* @dependent: ./index.less */\n._zs_gallery___test___subs_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery___test___subs_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___subs_-fixed-links {\n  position: fixed;\n  top: 20px;\n  right: 30px;\n  z-index: 100;\n  padding: 10px;\n  box-shadow: 0px 0px 4px rgba(51, 51, 51, 0.08);\n  background-color: #fff;\n}\n._zs_gallery___test___subs_-fixed-links ._zs_gallery___test___subs_-fixed-link {\n  margin-bottom: 10px;\n}\n._zs_gallery___test___subs_-fixed-links ._zs_gallery___test___subs_-fixed-link:last-child {\n  margin-bottom: 0;\n}\n");
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, list = $$.list; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryD:_" class="_zs_gallery___test___subs_-fixed-links">';
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', list = $$.list; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryC:_" class="_zs_gallery___test___subs_-fixed-links">';
     $line = 2;
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for(var $art_iaovaq$art_i=0;$art_iaovaq$art_i<list.length;$art_iaovaq$art_i++){var item=list[$art_iaovaq$art_i]%>';
-    for (var $art_iaovaq$art_i = 0; $art_iaovaq$art_i < list.length; $art_iaovaq$art_i++) {
-        var item = list[$art_iaovaq$art_i];
-        $p += '<div mxa="_zs_galleryD:a" class="_zs_gallery___test___subs_-fixed-link"><a href="javascript:;" class="link-brand" mx-click="' + $viewId + 'to({key:\'';
+    $expr = '<%for (var $art_idskxqmb$art_i = 0, $art_cymjkplwbse$art_c = list.length; $art_idskxqmb$art_i < $art_cymjkplwbse$art_c; $art_idskxqmb$art_i++) {    var item = list[$art_idskxqmb$art_i]%>';
+    for (var $art_idskxqmb$art_i = 0, $art_cymjkplwbse$art_c = list.length; $art_idskxqmb$art_i < $art_cymjkplwbse$art_c; $art_idskxqmb$art_i++) {
+        var item = list[$art_idskxqmb$art_i];
+        $p += '<div mxa="_zs_galleryC:a" class="_zs_gallery___test___subs_-fixed-link"><a href="javascript:;" class="link-brand" mx-click="' + $viewId + 'to({key:\'';
         $line = 4;
         $art = '=item.key';
         ;

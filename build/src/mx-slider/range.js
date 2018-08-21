@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -13,14 +13,24 @@ var DD = require("../mx-dragdrop/index");
 Magix.applyStyle("_zs_gallery_mx-slider_style_","/* @dependent: ./index.less */\n._zs_gallery_mx-slider_style_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-slider_style_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-slider/index\"],\n[mx-view*=\"mx-slider/range\"] {\n  position: relative;\n  display: inline-block;\n  outline: 0;\n  cursor: pointer;\n}\n[mx-view*=\"mx-slider/index\"] ._zs_gallery_mx-slider_style_-rail-input,\n[mx-view*=\"mx-slider/range\"] ._zs_gallery_mx-slider_style_-rail-input {\n  position: absolute;\n  top: 0;\n  right: -74px;\n  width: 64px;\n}\n[mx-view*=\"mx-slider/index\"][mx-disabled],\n[mx-view*=\"mx-slider/range\"][mx-disabled] {\n  cursor: not-allowed;\n}\n[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-tracker,\n[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-tracker {\n  background-color: #ccc;\n}\n[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator,\n[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator {\n  background-color: #ccc;\n}\n[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator:before,\n[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator:before {\n  background-color: #ccc;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper {\n  line-height: 28px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail {\n  display: inline-block;\n  position: relative;\n  border-radius: 2px;\n  background: #f0f0f0;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-tracker {\n  position: absolute;\n  border-radius: 2px;\n  left: 0;\n  background-color: #cddbff;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-tracker._zs_gallery_mx-slider_style_-hor-tracker {\n  height: 4px;\n  top: 0;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-tracker._zs_gallery_mx-slider_style_-ver-tracker {\n  width: 4px;\n  bottom: 0;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator {\n  position: absolute;\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background-color: #4d7fff;\n  outline: 0;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator:before {\n  content: ' ';\n  position: absolute;\n  top: -4px;\n  left: -4px;\n  width: 16px;\n  height: 16px;\n  border-radius: 50%;\n  background-color: #4d7fff;\n  opacity: .3;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator._zs_gallery_mx-slider_style_-hor-idctor {\n  top: -2px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator._zs_gallery_mx-slider_style_-ver-idctor {\n  left: -2px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-pointer-label {\n  position: absolute;\n  font-size: 12px;\n  pointer-events: none;\n  line-height: normal;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-pointer-label._zs_gallery_mx-slider_style_-hor-pl {\n  top: -23px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-pointer-label._zs_gallery_mx-slider_style_-ver-pl {\n  right: 12px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-scale-left,\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-scale-right,\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-ver-scale-top,\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-ver-scale-bottom {\n  position: absolute;\n  font-size: 12px;\n  pointer-events: none;\n  line-height: normal;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-scale-left {\n  left: 0;\n  top: 9px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-scale-right {\n  right: 0;\n  top: 9px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-ver-scale-bottom {\n  bottom: 0;\n  left: 12px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-ver-scale-top {\n  top: 0;\n  left: 12px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail._zs_gallery_mx-slider_style_-hor {\n  height: 4px;\n  top: -2px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail._zs_gallery_mx-slider_style_-ver {\n  width: 4px;\n  left: 8px;\n}\n");
 var DefaultSize = 280;
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, vertical = $$.vertical, height = $$.height, width = $$.width, viewId = $$.viewId, min = $$.min, max = $$.max; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryb8:_" class="_zs_gallery_mx-slider_style_-rail-wrapper"><span class="_zs_gallery_mx-slider_style_-rail';
-    $expr = '<%if(vertical){%>';
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', vertical = $$.vertical, height = $$.height, width = $$.width, viewId = $$.viewId, min = $$.min, max = $$.max; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryb6:_" class="_zs_gallery_mx-slider_style_-rail-wrapper"><span class="_zs_gallery_mx-slider_style_-rail';
+    $expr = '<%if (vertical) {%>';
     if (vertical) {
         ;
         $p += ' _zs_gallery_mx-slider_style_-ver';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -29,11 +39,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += '" mx-contextmenu="' + $viewId + '@{prevent}()" style="';
-    $expr = '<%if(vertical){%>';
+    $expr = '<%if (vertical) {%>';
     if (vertical) {
         ;
         $p += 'height:' + ($expr = '<%=height%>', $e(height)) + '';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -42,11 +52,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += 'px"><span class="_zs_gallery_mx-slider_style_-tracker';
-    $expr = '<%if(vertical){%>';
+    $expr = '<%if (vertical) {%>';
     if (vertical) {
         ;
         $p += ' _zs_gallery_mx-slider_style_-ver-tracker';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -55,11 +65,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += '"></span><span tabindex="0" mx-keydown="' + $viewId + '@{move.by.keyboard}({start:true})" class="_zs_gallery_mx-slider_style_-indicator';
-    $expr = '<%if(vertical){%>';
+    $expr = '<%if (vertical) {%>';
     if (vertical) {
         ;
         $p += ' _zs_gallery_mx-slider_style_-ver-idctor';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -68,11 +78,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += '" mx-mousedown="' + $viewId + '@{drag}({start:true})" id="left_' + ($expr = '<%=viewId%>', $e(viewId)) + '"></span><span class="_zs_gallery_mx-slider_style_-pointer-label';
-    $expr = '<%if(vertical){%>';
+    $expr = '<%if (vertical) {%>';
     if (vertical) {
         ;
         $p += ' _zs_gallery_mx-slider_style_-ver-pl';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -81,11 +91,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += '" id="leftl_' + ($expr = '<%=viewId%>', $e(viewId)) + '"></span><span tabindex="0" mx-keydown="' + $viewId + '@{move.by.keyboard}()" class="_zs_gallery_mx-slider_style_-indicator';
-    $expr = '<%if(vertical){%>';
+    $expr = '<%if (vertical) {%>';
     if (vertical) {
         ;
         $p += ' _zs_gallery_mx-slider_style_-ver-idctor';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -94,11 +104,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += '" mx-mousedown="' + $viewId + '@{drag}({end:true})" id="right_' + ($expr = '<%=viewId%>', $e(viewId)) + '"></span><span class="_zs_gallery_mx-slider_style_-pointer-label';
-    $expr = '<%if(vertical){%>';
+    $expr = '<%if (vertical) {%>';
     if (vertical) {
         ;
         $p += ' _zs_gallery_mx-slider_style_-ver-pl';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -107,11 +117,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += '" id="rightl_' + ($expr = '<%=viewId%>', $e(viewId)) + '"></span><span class="';
-    $expr = '<%if(vertical){%>';
+    $expr = '<%if (vertical) {%>';
     if (vertical) {
         ;
         $p += '_zs_gallery_mx-slider_style_-ver-scale-bottom';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -120,11 +130,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += '">' + ($expr = '<%=min%>', $e(min)) + '</span><span class="';
-    $expr = '<%if(vertical){%>';
+    $expr = '<%if (vertical) {%>';
     if (vertical) {
         ;
         $p += '_zs_gallery_mx-slider_style_-ver-scale-top';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -373,6 +383,7 @@ catch (ex) {
         return v;
     },
     val: function (v) {
+        var _a;
         var me = this;
         if (v) {
             var av = (v + '').split(',');
@@ -391,7 +402,6 @@ catch (ex) {
             }
         }
         return [+me['@{start}'], +me['@{end}']];
-        var _a;
     },
     '@{get.fixed.value}': function (p) {
         var me = this;
@@ -508,12 +518,12 @@ catch (ex) {
         var me = this, step = me['@{step}'], move;
         if (me['@{dragging}'])
             return;
-        if (e.keyCode == 37 || e.keyCode == 40) {
+        if (e.keyCode == 37 || e.keyCode == 40) { //decrement
             e.preventDefault();
             step = -step;
             move = true;
         }
-        else if (e.keyCode == 39 || e.keyCode == 38) {
+        else if (e.keyCode == 39 || e.keyCode == 38) { //increment
             e.preventDefault();
             move = true;
         }

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -21,15 +21,27 @@ var Magix = require("magix");
 var $ = require("$");
 var I18n = require("mx-medusa/util");
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
-    if ($$ref[k = $g + f] === v)
-        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, viewId = $$.viewId, options = $$.options, supportQuickDates = $$.supportQuickDates; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, supportQuickDates = $$.supportQuickDates; var $expr, $art, $line; try {
     $p += '<div mx-view="__test__/subs?list=';
     $line = 1;
     $art = '@[{\n    name: \'使用示例\',\n    key: viewId + \'_demo\'\n}, {\n    name: \'API\',\n    key: viewId + \'_api\'\n}, {\n    name: \'快捷日期备选项\',\n    key: viewId + \'_quick\'\n}, {\n    name: \'关于实现方案\',\n    key: viewId + \'_implement\'\n}]';
     ;
-    $p += '' + ($expr = '<%@[{name:\'使用示例\',key:viewId+\'_demo\'},{name:\'API\',key:viewId+\'_api\'},{name:\'快捷日期备选项\',key:viewId+\'_quick\'},{name:\'关于实现方案\',key:viewId+\'_implement\'}]%>', $i([{ name: '使用示例', key: viewId + '_demo' }, { name: 'API', key: viewId + '_api' }, { name: '快捷日期备选项', key: viewId + '_quick' }, { name: '关于实现方案', key: viewId + '_implement' }])) + '"></div><div id="';
+    $p += '' + ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\'        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'快捷日期备选项\',            key: viewId + \'_quick\'        }, {            name: \'关于实现方案\',            key: viewId + \'_implement\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo' }, { name: 'API', key: viewId + '_api' }, { name: '快捷日期备选项', key: viewId + '_quick' }, { name: '关于实现方案', key: viewId + '_implement' }])) + '"></div><div id="';
     $line = 15;
     $art = '=viewId';
     ;
@@ -41,7 +53,7 @@ module.exports = Magix.View.extend({
     $line = 32;
     $art = '@options';
     ;
-    $p += '' + ($expr = '<%@options%>', $i(options)) + '" class="mb40"></div><div id="';
+    $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
     $line = 34;
     $art = '=viewId';
     ;
@@ -54,9 +66,9 @@ module.exports = Magix.View.extend({
     $art = 'each supportQuickDates as item';
     ;
     $p += '';
-    $expr = '<%for(var $art_iawzqvyzeia$art_i=0;$art_iawzqvyzeia$art_i<supportQuickDates.length;$art_iawzqvyzeia$art_i++){var item=supportQuickDates[$art_iawzqvyzeia$art_i]%>';
-    for (var $art_iawzqvyzeia$art_i = 0; $art_iawzqvyzeia$art_i < supportQuickDates.length; $art_iawzqvyzeia$art_i++) {
-        var item = supportQuickDates[$art_iawzqvyzeia$art_i];
+    $expr = '<%for (var $art_iwfftm$art_i = 0, $art_cetsszzcvq$art_c = supportQuickDates.length; $art_iwfftm$art_i < $art_cetsszzcvq$art_c; $art_iwfftm$art_i++) {    var item = supportQuickDates[$art_iwfftm$art_i]%>';
+    for (var $art_iwfftm$art_i = 0, $art_cetsszzcvq$art_c = supportQuickDates.length; $art_iwfftm$art_i < $art_cetsszzcvq$art_c; $art_iwfftm$art_i++) {
+        var item = supportQuickDates[$art_iwfftm$art_i];
         $p += '<tr><td>';
         $line = 47;
         $art = '=item.key';

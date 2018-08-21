@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -9,21 +9,31 @@ define("mx-popover/__test__/custom",["magix"],(require,exports,module)=>{
 var Magix = require("magix");
 Magix.applyStyle("_zs_gallery_mx-popover___test___custom_","/* @dependent: ./index.less */\n._zs_gallery_mx-popover___test___custom_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-popover___test___custom_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-popover___test___custom_-custom {\n  border-radius: 4px;\n}\n._zs_gallery_mx-popover___test___custom_-custom ._zs_gallery_mx-popover___test___custom_-custom-title {\n  padding: 10px;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-popover___test___custom_-custom ._zs_gallery_mx-popover___test___custom_-custom-item {\n  float: left;\n  width: 33.3%;\n  padding: 10px;\n}\n");
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, list = $$.list; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybD:_" class="_zs_gallery_mx-popover___test___custom_-custom"><div mxs="_zs_gallerybD:_" class="_zs_gallery_mx-popover___test___custom_-custom-title">标题标题</div><div mxa="_zs_gallerybD:a" class="clearfix">';
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', list = $$.list; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerybB:_" class="_zs_gallery_mx-popover___test___custom_-custom"><div mxs="_zs_gallerybB:_" class="_zs_gallery_mx-popover___test___custom_-custom-title">标题标题</div><div mxa="_zs_gallerybB:a" class="clearfix">';
     $line = 5;
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for(var $art_iprnxeyrk$art_i=0;$art_iprnxeyrk$art_i<list.length;$art_iprnxeyrk$art_i++){var item=list[$art_iprnxeyrk$art_i]%>';
-    for (var $art_iprnxeyrk$art_i = 0; $art_iprnxeyrk$art_i < list.length; $art_iprnxeyrk$art_i++) {
-        var item = list[$art_iprnxeyrk$art_i];
-        $p += '<div mxa="_zs_gallerybD:b" class="_zs_gallery_mx-popover___test___custom_-custom-item"><div mxa="_zs_gallerybD:c" class="mb5 color-9">';
+    $expr = '<%for (var $art_ioheampdq$art_i = 0, $art_cdjacigr$art_c = list.length; $art_ioheampdq$art_i < $art_cdjacigr$art_c; $art_ioheampdq$art_i++) {    var item = list[$art_ioheampdq$art_i]%>';
+    for (var $art_ioheampdq$art_i = 0, $art_cdjacigr$art_c = list.length; $art_ioheampdq$art_i < $art_cdjacigr$art_c; $art_ioheampdq$art_i++) {
+        var item = list[$art_ioheampdq$art_i];
+        $p += '<div mxa="_zs_gallerybB:b" class="_zs_gallery_mx-popover___test___custom_-custom-item"><div mxa="_zs_gallerybB:c" class="mb5 color-9">';
         $line = 7;
         $art = '=item.name';
         ;
-        $p += '' + ($expr = '<%=item.name%>', $e(item.name)) + '</div><div mxs="_zs_gallerybD:a">-</div></div>';
+        $p += '' + ($expr = '<%=item.name%>', $e(item.name)) + '</div><div mxs="_zs_gallerybB:a">-</div></div>';
         $line = 10;
         $art = '/each';
         ;

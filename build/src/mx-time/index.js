@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -53,14 +53,24 @@ var format = function (t) {
     return t;
 };
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, format = $$.format, time = $$.time, types = $$.types; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', format = $$.format, time = $$.time, types = $$.types; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_gallerycE:_" class="clearfix"><div mxv mxa="_zs_gallerycE:a" class="_zs_gallery_mx-time_index_-group"><div mxv mxa="_zs_gallerycE:b" class="mb5"><input class="input _zs_gallery_mx-time_index_-ipt" value="' + ($expr = '<%=format(time[\'@{hour}\'])%>', $e(format(time['@{hour}']))) + '" ';
-    $expr = '<%if(types[\'@{hour}\']){%>';
+    $expr = '<%if (types[\'@{hour}\']) {%>';
     if (types['@{hour}']) {
         ;
         $p += ' mx-change="' + $viewId + '@{set}({type:\'@{hour}\'})" ';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -69,11 +79,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += ' maxlength="2" mx-keydown="' + $viewId + '@{press.check}({type:\'@{hour}\'})" autocomplete="off"/></div><div mxa="_zs_gallerycE:c" class="clearfix"><button type="button" class="btn _zs_gallery_mx-time_index_-o-btn fl" ';
-    $expr = '<%if(types[\'@{hour}\']){%>';
+    $expr = '<%if (types[\'@{hour}\']) {%>';
     if (types['@{hour}']) {
         ;
         $p += ' mx-click="' + $viewId + '@{change}({type:\'@{hour}\'})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{hour}\'})" ';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -82,11 +92,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += ' tabindex="-1"><i mxs="_zs_gallerycE:_" class="mc-iconfont _zs_gallery_mx-time_index_-o-icon">&#xe6df;</i></button><button type="button" class="btn _zs_gallery_mx-time_index_-o-btn fr" ';
-    $expr = '<%if(types[\'@{hour}\']){%>';
+    $expr = '<%if (types[\'@{hour}\']) {%>';
     if (types['@{hour}']) {
         ;
         $p += ' mx-click="' + $viewId + '@{change}({type:\'@{hour}\',inc:1})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{hour}\',inc:1})" ';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -95,11 +105,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += ' tabindex="-1"><i mxs="_zs_gallerycE:a" class="mc-iconfont _zs_gallery_mx-time_index_-o-icon">&#xe661;</i></button></div></div><div mxs="_zs_gallerycE:b" class="_zs_gallery_mx-time_index_-spliter">:</div><div mxv mxa="_zs_gallerycE:d" class="_zs_gallery_mx-time_index_-group"><div mxv mxa="_zs_gallerycE:e" class="mb5"><input class="input _zs_gallery_mx-time_index_-ipt" value="' + ($expr = '<%=format(time[\'@{minute}\'])%>', $e(format(time['@{minute}']))) + '" ';
-    $expr = '<%if(types[\'@{minute}\']){%>';
+    $expr = '<%if (types[\'@{minute}\']) {%>';
     if (types['@{minute}']) {
         ;
         $p += ' mx-change="' + $viewId + '@{set}({type:\'@{minute}\'})" ';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -108,11 +118,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += ' maxlength="2" mx-keydown="' + $viewId + '@{press.check}({type:\'@{minute}\'})" autocomplete="off"/></div><div mxa="_zs_gallerycE:f" class="clearfix"><button type="button" class="btn _zs_gallery_mx-time_index_-o-btn fl" ';
-    $expr = '<%if(types[\'@{minute}\']){%>';
+    $expr = '<%if (types[\'@{minute}\']) {%>';
     if (types['@{minute}']) {
         ;
         $p += ' mx-click="' + $viewId + '@{change}({type:\'@{minute}\'})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{minute}\'})" ';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -121,11 +131,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += ' tabindex="-1"><i mxs="_zs_gallerycE:_" class="mc-iconfont _zs_gallery_mx-time_index_-o-icon">&#xe6df;</i></button><button type="button" class="btn _zs_gallery_mx-time_index_-o-btn fr" ';
-    $expr = '<%if(types[\'@{minute}\']){%>';
+    $expr = '<%if (types[\'@{minute}\']) {%>';
     if (types['@{minute}']) {
         ;
         $p += ' mx-click="' + $viewId + '@{change}({type:\'@{minute}\',inc:1})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{minute}\',inc:1})" ';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -134,11 +144,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += ' tabindex="-1"><i mxs="_zs_gallerycE:a" class="mc-iconfont _zs_gallery_mx-time_index_-o-icon">&#xe661;</i></button></div></div><div mxs="_zs_gallerycE:b" class="_zs_gallery_mx-time_index_-spliter">:</div><div mxv mxa="_zs_gallerycE:g" class="_zs_gallery_mx-time_index_-group"><div mxv mxa="_zs_gallerycE:h" class="mb5"><input class="input _zs_gallery_mx-time_index_-ipt" value="' + ($expr = '<%=format(time[\'@{second}\'])%>', $e(format(time['@{second}']))) + '" ';
-    $expr = '<%if(types[\'@{second}\']){%>';
+    $expr = '<%if (types[\'@{second}\']) {%>';
     if (types['@{second}']) {
         ;
         $p += ' mx-change="' + $viewId + '@{set}({type:\'@{second}\'})" ';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -147,11 +157,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += ' maxlength="2" mx-keydown="' + $viewId + '@{press.check}({type:\'@{second}\'})" autocomplete="off"/></div><div mxa="_zs_gallerycE:i" class="clearfix"><button type="button" class="btn _zs_gallery_mx-time_index_-o-btn fl" ';
-    $expr = '<%if(types[\'@{second}\']){%>';
+    $expr = '<%if (types[\'@{second}\']) {%>';
     if (types['@{second}']) {
         ;
         $p += ' mx-click="' + $viewId + '@{change}({type:\'@{second}\'})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{second}\'})" ';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;
@@ -160,11 +170,11 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += ' tabindex="-1"><i mxs="_zs_gallerycE:_" class="mc-iconfont _zs_gallery_mx-time_index_-o-icon">&#xe6df;</i></button><button type="button" class="btn _zs_gallery_mx-time_index_-o-btn fr" ';
-    $expr = '<%if(types[\'@{second}\']){%>';
+    $expr = '<%if (types[\'@{second}\']) {%>';
     if (types['@{second}']) {
         ;
         $p += ' mx-click="' + $viewId + '@{change}({type:\'@{second}\',inc:1})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{second}\',inc:1})" ';
-        $expr = '<%}else{%>';
+        $expr = '<%}else {%>';
     }
     else {
         ;

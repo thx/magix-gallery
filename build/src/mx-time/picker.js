@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -16,9 +16,19 @@ var format = function (t) {
     return t;
 };
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, viewId = $$.viewId, time = $$.time, types = $$.types; var $expr, $art, $line; try {
-    $p += '<div class="_zs_gallery_mx-time_picker_-wrapper" id="wrapper_' + ($expr = '<%=viewId%>', $e(viewId)) + '"><div mx-view="mx-time/index?time=' + ($expr = '<%!$eu(time)%>', $eu(time)) + '&types=' + ($expr = '<%!$eu(types)%>', $eu(types)) + '" id="time_' + ($expr = '<%=viewId%>', $e(viewId)) + '" class="_zs_gallery_mx-time_picker_-time clearfix" mx-change="' + $viewId + '@{take}()"></div><div mxs="_zs_gallerycH:_" class="_zs_gallery_mx-time_picker_-footer"><button type="button" class="btn btn-brand" mx-click="' + $viewId + '@{hide}({enter:true})">确定</button><button type="button" class="btn ml5" mx-click="' + $viewId + '@{hide}()">取消</button></div></div>';
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, time = $$.time, types = $$.types; var $expr, $art, $line; try {
+    $p += '<div class="_zs_gallery_mx-time_picker_-wrapper" id="wrapper_' + ($expr = '<%=viewId%>', $e(viewId)) + '"><div mx-view="mx-time/index?time=' + ($expr = '<%!$eu(time)%>', $eu(time)) + '&types=' + ($expr = '<%!$eu(types)%>', $eu(types)) + '" id="time_' + ($expr = '<%=viewId%>', $e(viewId)) + '" class="_zs_gallery_mx-time_picker_-time clearfix" mx-change="' + $viewId + '@{take}()"></div><div mxs="_zs_gallerycF:_" class="_zs_gallery_mx-time_picker_-footer"><button type="button" class="btn btn-brand" mx-click="' + $viewId + '@{hide}({enter:true})">确定</button><button type="button" class="btn ml5" mx-click="' + $viewId + '@{hide}()">取消</button></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

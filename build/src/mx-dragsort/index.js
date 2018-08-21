@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -413,7 +413,7 @@ module.exports = Magix.View.extend({
                         next = next.nextSibling;
                     }
                     zone.insertBefore(dragNode, next);
-                    if (!next) {
+                    if (!next) { //如果是最后一个，则滚动
                         zone.scrollTop = zone.scrollHeight;
                     }
                 }

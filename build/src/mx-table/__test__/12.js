@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -14,16 +14,26 @@ var Base = require("__test__/example");
 var $ = require("$");
 var Sub = require("mx-table/sub");
 module.exports = Base.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, list = $$.list, count = $$.count, page = $$.page, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', list = $$.list, count = $$.count, page = $$.page, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
     $p += '<div mxa="_zs_galleryb~:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryb~:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryb~:_" class="mb20 clearfix lh22"><div class="fl color-9">以下示例：</div><div class="fl"><div>trigger上配置sub-toggle，以sub-toggle作为主键，请保证sub-toggle唯一（包括翻页的情况下）</div><div>被展开项配置sub-toggle-parent指向对应的sub-toggle</div><div>数组操作（改值或翻页等）digest数据之后，保持原先的展开逻辑</div><div>可配置默认展开某一行data-expand</div><div>包含完成的翻页和数据改动示例</div><div>默认展开name2</div></div></div><div mxa="_zs_galleryb~:b" class="mb20"><div mxa="_zs_galleryb~:c" mx-view="mx-table/index"><div><table mxa="_zs_galleryb~:d" class="table"><thead mxs="_zs_galleryb~:a"><tr><th width="40"></th><th width="200">name</th><th width="200">link</th><th width="200">value</th><th width="200">test</th></tr></thead><tbody>';
     $line = 27;
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for(var $art_igfvxvodgm$art_i=0;$art_igfvxvodgm$art_i<list.length;$art_igfvxvodgm$art_i++){var item=list[$art_igfvxvodgm$art_i]%>';
-    for (var $art_igfvxvodgm$art_i = 0; $art_igfvxvodgm$art_i < list.length; $art_igfvxvodgm$art_i++) {
-        var item = list[$art_igfvxvodgm$art_i];
+    $expr = '<%for (var $art_itnrwpni$art_i = 0, $art_caidnajfi$art_c = list.length; $art_itnrwpni$art_i < $art_caidnajfi$art_c; $art_itnrwpni$art_i++) {    var item = list[$art_itnrwpni$art_i]%>';
+    for (var $art_itnrwpni$art_i = 0, $art_caidnajfi$art_c = list.length; $art_itnrwpni$art_i < $art_caidnajfi$art_c; $art_itnrwpni$art_i++) {
+        var item = list[$art_itnrwpni$art_i];
         $p += '<tr><td><span sub-toggle="toggle_';
         $line = 31;
         $art = '=item.id';
@@ -57,9 +67,9 @@ module.exports = Base.extend({
         $art = 'each item.subs as sub subIndex';
         ;
         $p += '';
-        $expr = '<%for(var subIndex=0,$art_objnqbqnhlv$art_obj=item.subs;subIndex<$art_objnqbqnhlv$art_obj.length;subIndex++){var sub=$art_objnqbqnhlv$art_obj[subIndex]%>';
-        for (var subIndex = 0, $art_objnqbqnhlv$art_obj = item.subs; subIndex < $art_objnqbqnhlv$art_obj.length; subIndex++) {
-            var sub = $art_objnqbqnhlv$art_obj[subIndex];
+        $expr = '<%for (var subIndex = 0, $art_objwyybcqqm$art_obj = item.subs, $art_clnbonozzk$art_c = $art_objwyybcqqm$art_obj.length; subIndex < $art_clnbonozzk$art_c; subIndex++) {        var sub = $art_objwyybcqqm$art_obj[subIndex]%>';
+        for (var subIndex = 0, $art_objwyybcqqm$art_obj = item.subs, $art_clnbonozzk$art_c = $art_objwyybcqqm$art_obj.length; subIndex < $art_clnbonozzk$art_c; subIndex++) {
+            var sub = $art_objwyybcqqm$art_obj[subIndex];
             $p += '<tr class="hide" sub-toggle-parent="toggle_';
             $line = 47;
             $art = '=item.id';
@@ -69,7 +79,7 @@ module.exports = Base.extend({
             $art = 'if item.subs.length==subIndex+1';
             ;
             $p += '';
-            $expr = '<%if(item.subs.length==subIndex+1){%>';
+            $expr = '<%if (item.subs.length == subIndex + 1) {%>';
             if (item.subs.length == subIndex + 1) {
                 ;
                 $p += ' sub-mask-last ';
@@ -105,7 +115,7 @@ module.exports = Base.extend({
             $art = 'if item.subs.length==subIndex+1';
             ;
             $p += '';
-            $expr = '<%if(item.subs.length==subIndex+1){%>';
+            $expr = '<%if (item.subs.length == subIndex + 1) {%>';
             if (item.subs.length == subIndex + 1) {
                 ;
                 $p += ' sub-mask-last ';

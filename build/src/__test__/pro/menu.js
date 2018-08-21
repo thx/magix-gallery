@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -17,15 +17,27 @@ require("./menu-custom-desc");
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
-    if ($$ref[k = $g + f] === v)
-        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, viewId = $$.viewId; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
     $p += '<div mx-view="__test__/subs?list=';
     $line = 1;
     $art = '@[{\n    name: \'查看导航可见菜单配置\',\n    key: viewId + \'_menu\'\n}, {\n    name: \'查看自定义菜单配置\',\n    key: viewId + \'_custom\'\n}]';
     ;
-    $p += '' + ($expr = '<%@[{name:\'查看导航可见菜单配置\',key:viewId+\'_menu\'},{name:\'查看自定义菜单配置\',key:viewId+\'_custom\'}]%>', $i([{ name: '查看导航可见菜单配置', key: viewId + '_menu' }, { name: '查看自定义菜单配置', key: viewId + '_custom' }])) + '"></div><div id="';
+    $p += '' + ($expr = '<%@[{            name: \'查看导航可见菜单配置\',            key: viewId + \'_menu\'        }, {            name: \'查看自定义菜单配置\',            key: viewId + \'_custom\'        }]%>', $i($$ref, [{ name: '查看导航可见菜单配置', key: viewId + '_menu' }, { name: '查看自定义菜单配置', key: viewId + '_custom' }])) + '"></div><div id="';
     $line = 9;
     $art = '=viewId';
     ;

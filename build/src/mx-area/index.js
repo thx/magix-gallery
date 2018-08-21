@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.10: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -19,14 +19,24 @@ var Magix = require("magix");
 var Data = require("mx-area/data");
 Magix.applyStyle("_zs_gallery_mx-area_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-area_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-area_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-area_index_-area-search-box,\n._zs_gallery_mx-area_index_-tab-search-box {\n  display: block;\n  width: 300px;\n  margin-bottom: 12px;\n}\n._zs_gallery_mx-area_index_-tab-search-box {\n  margin-left: 20px;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province {\n  position: relative;\n  float: left;\n  width: 16%;\n  height: 46px;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-name {\n  padding: 5px;\n  border-radius: 4px;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-name._zs_gallery_mx-area_index_-highlight {\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-province-label {\n  float: left;\n  line-height: 46px;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-province-expand {\n  position: absolute;\n  top: 15px;\n  left: 88px;\n  width: 20px;\n  height: 20px;\n  line-height: 20px;\n  font-size: 20px;\n  color: #ccc;\n  cursor: pointer;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-cities {\n  position: absolute;\n  top: 46px;\n  left: -72px;\n  z-index: 3;\n  width: 240px;\n  padding: 10px;\n  border-radius: 4px;\n  background-color: #fff;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-cities ._zs_gallery_mx-area_index_-city {\n  float: left;\n  width: 48%;\n  height: 32px;\n  margin-right: 2%;\n  line-height: 32px;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n._zs_gallery_mx-area_index_-all {\n  height: 46px;\n  line-height: 46px;\n}\n._zs_gallery_mx-area_index_-area {\n  position: relative;\n  padding-left: 25px;\n}\n._zs_gallery_mx-area_index_-area ._zs_gallery_mx-area_index_-area-name {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 25px;\n  height: 100%;\n  line-height: 46px;\n  font-size: 14px;\n  color: #999;\n  font-weight: bold;\n  font-family: \"Tahoma\";\n}\n._zs_gallery_mx-area_index_-half {\n  float: left;\n  width: 50%;\n}\n._zs_gallery_mx-area_index_-half ._zs_gallery_mx-area_index_-province {\n  width: 33%;\n}\n._zs_gallery_mx-area_index_-tabs {\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab {\n  float: left;\n  margin-bottom: -1px;\n  padding-left: 20px;\n  border-bottom: 1px solid transparent;\n  cursor: pointer;\n}\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab ._zs_gallery_mx-area_index_-tab-check,\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab ._zs_gallery_mx-area_index_-tab-text {\n  float: left;\n  height: 46px;\n  line-height: 46px;\n}\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab ._zs_gallery_mx-area_index_-tab-text {\n  padding-left: 5px;\n  padding-right: 25px;\n}\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab:hover {\n  color: #4d7fff;\n  transition: color 0.25s;\n}\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab._zs_gallery_mx-area_index_-cur {\n  color: #4d7fff;\n  border-bottom: 1px solid #4d7fff;\n}\n");
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, isTab = $$.isTab, placeholder = $$.placeholder, types = $$.types, curTab = $$.curTab, viewId = $$.viewId, showProvinceId = $$.showProvinceId; var $expr, $art, $line; try {
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', isTab = $$.isTab, placeholder = $$.placeholder, types = $$.types, curTab = $$.curTab, viewId = $$.viewId, showProvinceId = $$.showProvinceId; var $expr, $art, $line; try {
     $p += '<div mxv class="search-box _zs_gallery_mx-area_index_-area-search-box ';
     $line = 1;
     $art = 'if isTab';
     ;
     $p += '';
-    $expr = '<%if(isTab){%>';
+    $expr = '<%if (isTab) {%>';
     if (isTab) {
         ;
         $p += ' _zs_gallery_mx-area_index_-tab-search-box ';
@@ -37,7 +47,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><i mxs="_zs_galleryL:_" class="mc-iconfont search-icon">&#xe651;</i><input mx-keyup="' + $viewId + '@{search}()" class="input search-input" placeholder="';
+    $p += '"><i mxs="_zs_galleryJ:_" class="mc-iconfont search-icon">&#xe651;</i><input mx-keyup="' + $viewId + '@{search}()" class="input search-input" placeholder="';
     $line = 3;
     $art = '=placeholder';
     ;
@@ -46,23 +56,23 @@ module.exports = Magix.View.extend({
     $art = 'if isTab';
     ;
     $p += '';
-    $expr = '<%if(isTab){%>';
+    $expr = '<%if (isTab) {%>';
     if (isTab) {
         ;
-        $p += '<div mxv mxa="_zs_galleryL:_" class="_zs_gallery_mx-area_index_-tabs clearfix">';
+        $p += '<div mxv mxa="_zs_galleryJ:_" class="_zs_gallery_mx-area_index_-tabs clearfix">';
         $line = 7;
         $art = 'each types as type typeIndex';
         ;
         $p += '';
-        $expr = '<%for(var typeIndex=0;typeIndex<types.length;typeIndex++){var type=types[typeIndex]%>';
-        for (var typeIndex = 0; typeIndex < types.length; typeIndex++) {
+        $expr = '<%for (var typeIndex = 0, $art_crectxov$art_c = types.length; typeIndex < $art_crectxov$art_c; typeIndex++) {        var type = types[typeIndex]%>';
+        for (var typeIndex = 0, $art_crectxov$art_c = types.length; typeIndex < $art_crectxov$art_c; typeIndex++) {
             var type = types[typeIndex];
             $p += '<div mxv class="_zs_gallery_mx-area_index_-tab ';
             $line = 8;
             $art = 'if (type.id == curTab)';
             ;
             $p += '';
-            $expr = '<%if(type.id==curTab){%>';
+            $expr = '<%if (type.id == curTab) {%>';
             if (type.id == curTab) {
                 ;
                 $p += ' _zs_gallery_mx-area_index_-cur ';
@@ -73,7 +83,7 @@ module.exports = Magix.View.extend({
                 $expr = '<%}%>';
             }
             ;
-            $p += ' clearfix"><div mxv mxa="_zs_galleryL:a" class="_zs_gallery_mx-area_index_-tab-check"><input type="checkbox" mx-change="' + $viewId + '@{changeAll}({typeIndex:';
+            $p += ' clearfix"><div mxv mxa="_zs_galleryJ:a" class="_zs_gallery_mx-area_index_-tab-check"><input type="checkbox" mx-change="' + $viewId + '@{changeAll}({typeIndex:';
             $line = 11;
             $art = '=typeIndex';
             ;
@@ -82,7 +92,7 @@ module.exports = Magix.View.extend({
             $art = 'if type.checked';
             ;
             $p += '';
-            $expr = '<%if(type.checked){%>';
+            $expr = '<%if (type.checked) {%>';
             if (type.checked) {
                 ;
                 $p += ' checked="true" ';
@@ -122,15 +132,15 @@ module.exports = Magix.View.extend({
     $art = 'each types as type typeIndex';
     ;
     $p += '';
-    $expr = '<%for(var typeIndex=0;typeIndex<types.length;typeIndex++){var type=types[typeIndex]%>';
-    for (var typeIndex = 0; typeIndex < types.length; typeIndex++) {
+    $expr = '<%for (var typeIndex = 0, $art_chmfrweqctu$art_c = types.length; typeIndex < $art_chmfrweqctu$art_c; typeIndex++) {    var type = types[typeIndex]%>';
+    for (var typeIndex = 0, $art_chmfrweqctu$art_c = types.length; typeIndex < $art_chmfrweqctu$art_c; typeIndex++) {
         var type = types[typeIndex];
         $p += '<div mxv class="';
         $line = 22;
         $art = 'if isTab';
         ;
         $p += '';
-        $expr = '<%if(isTab){%>';
+        $expr = '<%if (isTab) {%>';
         if (isTab) {
             ;
             $p += ' pl20 ';
@@ -138,7 +148,7 @@ module.exports = Magix.View.extend({
             $art = 'if (type.id != curTab)';
             ;
             $p += '';
-            $expr = '<%if(type.id!=curTab){%>';
+            $expr = '<%if (type.id != curTab) {%>';
             if (type.id != curTab) {
                 ;
                 $p += ' hide ';
@@ -154,7 +164,7 @@ module.exports = Magix.View.extend({
             $art = 'else';
             ;
             $p += '';
-            $expr = '<%}else{%>';
+            $expr = '<%}    else {%>';
         }
         else {
             ;
@@ -171,10 +181,10 @@ module.exports = Magix.View.extend({
         $art = 'if !isTab';
         ;
         $p += '';
-        $expr = '<%if(!isTab){%>';
+        $expr = '<%if (!isTab) {%>';
         if (!isTab) {
             ;
-            $p += '<div mxv mxa="_zs_galleryL:b" class="_zs_gallery_mx-area_index_-all"><label mxv for="';
+            $p += '<div mxv mxa="_zs_galleryJ:b" class="_zs_gallery_mx-area_index_-all"><label mxv for="';
             $line = 25;
             $art = '=viewId';
             ;
@@ -199,7 +209,7 @@ module.exports = Magix.View.extend({
             $art = 'if type.checked';
             ;
             $p += '';
-            $expr = '<%if(type.checked){%>';
+            $expr = '<%if (type.checked) {%>';
             if (type.checked) {
                 ;
                 $p += ' checked="true" ';
@@ -210,7 +220,7 @@ module.exports = Magix.View.extend({
                 $expr = '<%}%>';
             }
             ;
-            $p += '/><span mxa="_zs_galleryL:c" class="ml5">全选 - ';
+            $p += '/><span mxa="_zs_galleryJ:c" class="ml5">全选 - ';
             $line = 27;
             $art = '=type.name';
             ;
@@ -222,20 +232,20 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '<div mxv mxa="_zs_galleryL:d" class="clearfix">';
+        $p += '<div mxv mxa="_zs_galleryJ:d" class="clearfix">';
         $line = 32;
         $art = 'each type.groups as group groupIndex';
         ;
         $p += '';
-        $expr = '<%for(var groupIndex=0,$art_objuqleoxkb$art_obj=type.groups;groupIndex<$art_objuqleoxkb$art_obj.length;groupIndex++){var group=$art_objuqleoxkb$art_obj[groupIndex]%>';
-        for (var groupIndex = 0, $art_objuqleoxkb$art_obj = type.groups; groupIndex < $art_objuqleoxkb$art_obj.length; groupIndex++) {
-            var group = $art_objuqleoxkb$art_obj[groupIndex];
+        $expr = '<%for (var groupIndex = 0, $art_objzzxkoozzp$art_obj = type.groups, $art_cpqituqdv$art_c = $art_objzzxkoozzp$art_obj.length; groupIndex < $art_cpqituqdv$art_c; groupIndex++) {        var group = $art_objzzxkoozzp$art_obj[groupIndex]%>';
+        for (var groupIndex = 0, $art_objzzxkoozzp$art_obj = type.groups, $art_cpqituqdv$art_c = $art_objzzxkoozzp$art_obj.length; groupIndex < $art_cpqituqdv$art_c; groupIndex++) {
+            var group = $art_objzzxkoozzp$art_obj[groupIndex];
             $p += '<div mxv ';
             $line = 33;
             $art = 'if type.half';
             ;
             $p += '';
-            $expr = '<%if(type.half){%>';
+            $expr = '<%if (type.half) {%>';
             if (type.half) {
                 ;
                 $p += ' class="_zs_gallery_mx-area_index_-half" ';
@@ -251,18 +261,18 @@ module.exports = Magix.View.extend({
             $art = 'each group as area areaIndex';
             ;
             $p += '';
-            $expr = '<%for(var areaIndex=0;areaIndex<group.length;areaIndex++){var area=group[areaIndex]%>';
-            for (var areaIndex = 0; areaIndex < group.length; areaIndex++) {
+            $expr = '<%for (var areaIndex = 0, $art_chzgfcqeiy$art_c = group.length; areaIndex < $art_chzgfcqeiy$art_c; areaIndex++) {            var area = group[areaIndex]%>';
+            for (var areaIndex = 0, $art_chzgfcqeiy$art_c = group.length; areaIndex < $art_chzgfcqeiy$art_c; areaIndex++) {
                 var area = group[areaIndex];
                 $p += ' ';
                 $line = 35;
                 $art = 'if area.name';
                 ;
                 $p += '';
-                $expr = '<%if(area.name){%>';
+                $expr = '<%if (area.name) {%>';
                 if (area.name) {
                     ;
-                    $p += '<div mxv mxa="_zs_galleryL:e" class="_zs_gallery_mx-area_index_-area"><div mxa="_zs_galleryL:f" class="_zs_gallery_mx-area_index_-area-name">';
+                    $p += '<div mxv mxa="_zs_galleryJ:e" class="_zs_gallery_mx-area_index_-area"><div mxa="_zs_galleryJ:f" class="_zs_gallery_mx-area_index_-area-name">';
                     $line = 37;
                     $art = '=area.name';
                     ;
@@ -274,14 +284,14 @@ module.exports = Magix.View.extend({
                     $expr = '<%}%>';
                 }
                 ;
-                $p += '<div mxv mxa="_zs_galleryL:g" class="_zs_gallery_mx-area_index_-provinces clearfix">';
+                $p += '<div mxv mxa="_zs_galleryJ:g" class="_zs_gallery_mx-area_index_-provinces clearfix">';
                 $line = 40;
                 $art = 'each area.provinces as province';
                 ;
                 $p += '';
-                $expr = '<%for(var $art_iempxsphe$art_i=0,$art_objkrylsgimq$art_obj=area.provinces;$art_iempxsphe$art_i<$art_objkrylsgimq$art_obj.length;$art_iempxsphe$art_i++){var province=$art_objkrylsgimq$art_obj[$art_iempxsphe$art_i]%>';
-                for (var $art_iempxsphe$art_i = 0, $art_objkrylsgimq$art_obj = area.provinces; $art_iempxsphe$art_i < $art_objkrylsgimq$art_obj.length; $art_iempxsphe$art_i++) {
-                    var province = $art_objkrylsgimq$art_obj[$art_iempxsphe$art_i];
+                $expr = '<%for (var $art_ipyxzmnlkn$art_i = 0, $art_objcplyye$art_obj = area.provinces, $art_cxrxplfzzj$art_c = $art_objcplyye$art_obj.length; $art_ipyxzmnlkn$art_i < $art_cxrxplfzzj$art_c; $art_ipyxzmnlkn$art_i++) {                var province = $art_objcplyye$art_obj[$art_ipyxzmnlkn$art_i]%>';
+                for (var $art_ipyxzmnlkn$art_i = 0, $art_objcplyye$art_obj = area.provinces, $art_cxrxplfzzj$art_c = $art_objcplyye$art_obj.length; $art_ipyxzmnlkn$art_i < $art_cxrxplfzzj$art_c; $art_ipyxzmnlkn$art_i++) {
+                    var province = $art_objcplyye$art_obj[$art_ipyxzmnlkn$art_i];
                     $p += '<div mxv class="_zs_gallery_mx-area_index_-province clearfix" id="';
                     $line = 41;
                     $art = '=viewId';
@@ -319,7 +329,7 @@ module.exports = Magix.View.extend({
                     $art = 'if province.checked';
                     ;
                     $p += '';
-                    $expr = '<%if(province.checked){%>';
+                    $expr = '<%if (province.checked) {%>';
                     if (province.checked) {
                         ;
                         $p += ' checked="true" ';
@@ -335,7 +345,7 @@ module.exports = Magix.View.extend({
                     $art = 'if province.highlight';
                     ;
                     $p += '';
-                    $expr = '<%if(province.highlight){%>';
+                    $expr = '<%if (province.highlight) {%>';
                     if (province.highlight) {
                         ;
                         $p += ' _zs_gallery_mx-area_index_-highlight ';
@@ -355,10 +365,10 @@ module.exports = Magix.View.extend({
                     $art = 'if province.hasCity && (province.count > 0)';
                     ;
                     $p += '';
-                    $expr = '<%if(province.hasCity&&(province.count>0)){%>';
+                    $expr = '<%if (province.hasCity && (province.count > 0)) {%>';
                     if (province.hasCity && (province.count > 0)) {
                         ;
-                        $p += '<span mxa="_zs_galleryL:h" class="bold font-tahoma">(';
+                        $p += '<span mxa="_zs_galleryJ:h" class="bold font-tahoma">(';
                         $line = 46;
                         $art = '=province.count';
                         ;
@@ -375,7 +385,7 @@ module.exports = Magix.View.extend({
                     $art = 'if province.hasCity';
                     ;
                     $p += '';
-                    $expr = '<%if(province.hasCity){%>';
+                    $expr = '<%if (province.hasCity) {%>';
                     if (province.hasCity) {
                         ;
                         $p += '<i class="mc-iconfont _zs_gallery_mx-area_index_-province-expand" mx-click="' + $viewId + '@{showCity}({province:';
@@ -394,14 +404,14 @@ module.exports = Magix.View.extend({
                     $line = 52;
                     $art = '=(province.hasCity && (province.id == showProvinceId)) ? \'block\' : \'none\'';
                     ;
-                    $p += '' + ($expr = '<%=(province.hasCity&&(province.id==showProvinceId))?\'block\':\'none\'%>', $e((province.hasCity && (province.id == showProvinceId)) ? 'block' : 'none')) + ';" class="_zs_gallery_mx-area_index_-cities clearfix">';
+                    $p += '' + ($expr = '<%=(province.hasCity && (province.id == showProvinceId)) ? \'block\' : \'none\'%>', $e((province.hasCity && (province.id == showProvinceId)) ? 'block' : 'none')) + ';" class="_zs_gallery_mx-area_index_-cities clearfix">';
                     $line = 53;
                     $art = 'each province.cities as city';
                     ;
                     $p += '';
-                    $expr = '<%for(var $art_iuwwwerj$art_i=0,$art_objgsfcswhi$art_obj=province.cities;$art_iuwwwerj$art_i<$art_objgsfcswhi$art_obj.length;$art_iuwwwerj$art_i++){var city=$art_objgsfcswhi$art_obj[$art_iuwwwerj$art_i]%>';
-                    for (var $art_iuwwwerj$art_i = 0, $art_objgsfcswhi$art_obj = province.cities; $art_iuwwwerj$art_i < $art_objgsfcswhi$art_obj.length; $art_iuwwwerj$art_i++) {
-                        var city = $art_objgsfcswhi$art_obj[$art_iuwwwerj$art_i];
+                    $expr = '<%for (var $art_ivsuamh$art_i = 0, $art_objmlmhpfmpg$art_obj = province.cities, $art_cmospppi$art_c = $art_objmlmhpfmpg$art_obj.length; $art_ivsuamh$art_i < $art_cmospppi$art_c; $art_ivsuamh$art_i++) {                    var city = $art_objmlmhpfmpg$art_obj[$art_ivsuamh$art_i]%>';
+                    for (var $art_ivsuamh$art_i = 0, $art_objmlmhpfmpg$art_obj = province.cities, $art_cmospppi$art_c = $art_objmlmhpfmpg$art_obj.length; $art_ivsuamh$art_i < $art_cmospppi$art_c; $art_ivsuamh$art_i++) {
+                        var city = $art_objmlmhpfmpg$art_obj[$art_ivsuamh$art_i];
                         $p += '<label mxv for="';
                         $line = 54;
                         $art = '=viewId';
@@ -435,7 +445,7 @@ module.exports = Magix.View.extend({
                         $art = 'if city.checked';
                         ;
                         $p += '';
-                        $expr = '<%if(city.checked){%>';
+                        $expr = '<%if (city.checked) {%>';
                         if (city.checked) {
                             ;
                             $p += ' checked="true" ';
@@ -451,7 +461,7 @@ module.exports = Magix.View.extend({
                         $art = 'if city.highlight';
                         ;
                         $p += '';
-                        $expr = '<%if(city.highlight){%>';
+                        $expr = '<%if (city.highlight) {%>';
                         if (city.highlight) {
                             ;
                             $p += ' _zs_gallery_mx-area_index_-highlight ';
@@ -487,7 +497,7 @@ module.exports = Magix.View.extend({
                 $art = 'if area.name';
                 ;
                 $p += '';
-                $expr = '<%if(area.name){%>';
+                $expr = '<%if (area.name) {%>';
                 if (area.name) {
                     ;
                     $p += '</div>';
