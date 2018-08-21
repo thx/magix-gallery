@@ -14,7 +14,7 @@ var $ = require("$");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryb~:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryb~:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryb~:_" class="mb20"><span class="color-9">该示例：</span>吸顶 + 表头分组</div><div mxa="_zs_galleryb~:b" mx-view="mx-table/index?sticky=true"><div><table mxa="_zs_galleryb~:c" class="table"><thead mxs="_zs_galleryb~:a"><tr><th rowspan="2">单个1</th><th rowspan="2">单个2</th><th class="field-group" colspan="2"><div class="group-name">组1</div></th><th class="field-group" colspan="3"><div class="group-name">组2</div></th></tr><tr><th class="field-item">组1-1</th><th class="field-item">组1-2</th><th class="field-item">组2-1</th><th class="field-item">组2-2</th><th class="field-item">组2-3</th></tr></thead><tbody>';
+    $p += '<div mxa="_zs_galleryc_:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryc_:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryc_:_" class="mb20"><span class="color-9">该示例：</span>吸顶 + 表头分组</div><div mxa="_zs_galleryc_:b" mx-view="mx-table/index?sticky=true"><div><table mxa="_zs_galleryc_:c" class="table"><thead mxs="_zs_galleryc_:a"><tr><th rowspan="2">单个1</th><th rowspan="2">单个2</th><th class="field-group" colspan="2"><div class="group-name">组1</div></th><th class="field-group" colspan="3"><div class="group-name">组2</div></th></tr><tr><th class="field-item">组1-1</th><th class="field-item">组1-2</th><th class="field-item">组2-1</th><th class="field-item">组2-2</th><th class="field-item">组2-3</th></tr></thead><tbody>';
     $line = 30;
     $art = 'for (let j=0;j<3;j++)';
     ;
@@ -54,15 +54,15 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</tbody></table></div></div></div><div mxa="_zs_galleryb~:d" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryb~:b" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</tbody></table></div></div></div><div mxa="_zs_galleryc_:d" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryc_:b" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 43;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryb~:e" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryc_:e" class="_zs_gallery___test___base_-desc-tip">';
     $line = 45;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryb~:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryc_:c" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 48;
     $art = '=viewId';
     ;

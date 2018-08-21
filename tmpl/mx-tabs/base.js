@@ -31,7 +31,7 @@ module.exports = Magix.View.extend({
             }
         })
 
-        let selected = data.selected || list[0].value;
+        let selected = data.selected || (list[0] || {})['value'];
         that['@{data.list}'] = list;
         that['@{data.selected}'] = selected;
 

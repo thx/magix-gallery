@@ -21,27 +21,32 @@ module.exports = {
             trigger.each(function (idx, item) {
                 var toggleName = $(item).attr('sub-toggle');
                 // 默认状态
-                var expand = (/^true$/i).test($(item).data('expand'));
+                var expand = (/^true$/i).test($(item).attr('data-expand'));
                 if (expand && !state[toggleName]) {
                     state[toggleName] = {
                         expand: true
                     };
                 }
                 var object = state[toggleName];
-                if (object && object.expand) {
-                    // 收起
-                    $(item).html('<i class="mc-iconfont color-brand cursor-pointer">&#xe653;</i>');
-                    context.find('[sub-toggle-parent=' + toggleName + ']').removeClass('hide');
-                }
-                else {
-                    // 展开
-                    $(item).html('<i class="mc-iconfont color-9 cursor-pointer">&#xe652;</i>');
-                    context.find('[sub-toggle-parent=' + toggleName + ']').addClass('hide');
-                }
+                me.sync((object && object.expand), item, toggleName);
             });
         };
         me.on('rendered', ready);
         me.on('domready', ready);
+    },
+    sync: function (expand, item, toggleName) {
+        var me = this;
+        var context = $('#' + me.id);
+        if (expand) {
+            // 收起
+            $(item).html('<i class="mc-iconfont color-brand cursor-pointer">&#xe653;</i>');
+            context.find('[sub-toggle-parent=' + toggleName + ']').removeClass('hide');
+        }
+        else {
+            // 展开
+            $(item).html('<i class="mc-iconfont color-9 color-h-3 cursor-pointer">&#xe652;</i>');
+            context.find('[sub-toggle-parent=' + toggleName + ']').addClass('hide');
+        }
     },
     '$[sub-toggle]<click>': function (e) {
         var me = this;
@@ -53,16 +58,7 @@ module.exports = {
             object = me['@{sub.toggle.store}'][toggleName] = {};
         }
         object.expand = !object.expand;
-        if (object.expand) {
-            // 收起
-            item.html('<i class="mc-iconfont color-brand cursor-pointer">&#xe653;</i>');
-            context.find('[sub-toggle-parent=' + toggleName + ']').removeClass('hide');
-        }
-        else {
-            // 展开
-            item.html('<i class="mc-iconfont color-9 cursor-pointer">&#xe652;</i>');
-            context.find('[sub-toggle-parent=' + toggleName + ']').addClass('hide');
-        }
+        me.sync(object.expand, item, toggleName);
         $(document).trigger('tableresize');
     }
 };

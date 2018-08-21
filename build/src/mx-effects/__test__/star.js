@@ -3,15 +3,25 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/__test__/star",["magix","$"],(require,exports,module)=>{
+define("mx-effects/__test__/star",["magix","$","mx-title/second","./11","./12","./13","__test__/api"],(require,exports,module)=>{
 /*Magix,$*/
-
+require("mx-title/second");
+require("./11");
+require("./12");
+require("./13");
+require("__test__/api");
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }; var $expr, $art, $line; try {
-    $p += 'Todo';
+    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, $i = function (v, k, f) { for (f = $$ref[$g]; --f;)
+    if ($$ref[k = $g + f] === v)
+        return k; $$ref[k = $g + $$ref[$g]++] = v; return k; }, options = $$.options; var $expr, $art, $line; try {
+    $p += '<div mxs="_zs_galleryaG:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryaG:a" class="clearfix mb20"><div class="_zs_gallery___test___base_-half"><div mx-view="mx-effects/__test__/11"></div></div><div class="_zs_gallery___test___base_-half"><div mx-view="mx-effects/__test__/12"></div><div mx-view="mx-effects/__test__/13"></div></div></div><div mxs="_zs_galleryaG:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $line = 14;
+    $art = '@options';
+    ;
+    $p += '' + ($expr = '<%@options%>', $i(options)) + '"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -23,10 +33,15 @@ catch (ex) {
 } return $p; },
     render: function () {
         var options = [{
-                key: 'mode',
-                desc: '页脚类型，简单版（simple）还是复杂版本',
-                type: 'string',
+                key: 'num',
+                desc: '当前评分，0， 0.5， 1， 1.5 ... 4， 4.5， 5，超出范围会进行修正',
+                type: 'number',
                 def: ''
+            }, {
+                key: 'color',
+                desc: '自定义颜色，#4d7fff 或者 rgb(77, 127, 255)',
+                type: 'string',
+                def: '品牌色'
             }];
         this.updater.digest({
             options: options

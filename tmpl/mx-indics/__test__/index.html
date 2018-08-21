@@ -7,3 +7,61 @@ Todo
 
 <mx-title.second content="API"/>
 <div mx-view="__test__/api?options={{@options}}"></div> -->
+
+<div class="page-header clearfix">
+    <span class="first-header">报表指标选择与排序</span>
+</div>
+<div class="tip-content has-icon has-border mb20">
+    <i class="iconfont tip-icon">&#xe6ad;</i>
+    <div>保存用户自定义配置 ，切换默认排序</div>
+    <div>涉及各bp保存配置的接口和报表指标配置，暂不提取为组件，作为通用模块提取出来；</div>
+</div>
+
+<div class="page-header clearfix">
+    <div class="second-header">1. 限制指标选择上限10 + 指标可排序</div>
+</div>
+<div class="clearfix mb20">
+    <div class="fl" mx-view="@../report/setting?pageKey=crabIndex&selected={{@selected}}&limit=10&sortable=true" mx-change="changeFields()"></div>
+    <div class="fl ml20 lh32">当前选中的指标：{{=selected}}</div>
+</div>
+<div class="mb10 fontsize-14">Code:</div>
+<div class="tip-content mb40">
+    <div class="mb20">
+        <pre>&lt;div mx-view="@../report/setting?pageKey=crabIndex&selected=&#123;&#123;@selected&#125;&#125;&limit=10&sortable=true" mx-change="changeFields()"&gt;&lt;/div&gt;</pre>
+    </div>
+    <div>
+        <pre>'changeFields&lt;change&gt;' (event) {
+    let selected = event.selected;
+    // selected 选择指标数组
+    this.updater.set({
+        selected: selected
+    }).digest();
+}</pre>
+    </div>
+</div>
+
+<div class="page-header clearfix">
+    <div class="second-header">2. 不限制指标选择个数 + 指标排序</div>
+</div>
+<div class="clearfix mb20">
+    <div class="fl" mx-view="@../report/setting?selected={{@selected2}}&sortable=true" mx-change="changeFields2()"></div>
+    <div class="fl ml20 lh32">当前选中的指标：{{=selected2}}</div>
+</div>
+<div class="mb10 fontsize-14">Code:</div>
+<div class="tip-content mb40">
+    <pre>&lt;div mx-view="@../report/setting?selected=&#123;&#123;@selected2&#125;&#125;&sortable=true"&gt;&lt;/div&gt;</pre>
+</div>
+
+<div class="page-header clearfix">
+    <div class="second-header">3. 不限制指标选择个数 + 无指标排序</div>
+</div>
+<div class="mb20">
+    <div mx-view="@../report/setting?selected={{@selected3}}"></div>
+</div>
+<div class="mb10 fontsize-14">Code:</div>
+<div class="tip-content mb40">
+    <pre>&lt;div mx-view="@../report/setting?selected=&#123;&#123;@selected3&#125;&#125;"&gt;&lt;/div&gt;</pre>
+</div>
+
+<div mx-view="@./desc?options={{@options}}"></div>
+    

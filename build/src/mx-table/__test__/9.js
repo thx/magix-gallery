@@ -14,7 +14,7 @@ var $ = require("$");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
     $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryb;:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_galleryb;:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_galleryb;:_" class="mb20 clearfix lh22"><div class="color-9 fl">以下示例：</div><div class="fl"><div>默认4列一页</div><div>默认开头固定2列，结尾固定1列</div></div></div><div mxa="_zs_galleryb;:b" class="mb20"><div mxa="_zs_galleryb;:c" mx-view="mx-table/rwd"><table mxa="_zs_galleryb;:d" class="table"><thead><tr>';
+    $p += '<div mxa="_zs_gallerycb:_" class="_zs_gallery___test___base_-example"><div mxa="_zs_gallerycb:a" class="_zs_gallery___test___base_-eg-content"><div mxs="_zs_gallerycb:_" class="mb20 clearfix lh22"><div class="color-9 fl">以下示例：</div><div class="fl"><div>默认4列一页</div><div>默认开头固定2列，结尾固定1列</div></div></div><div mxa="_zs_gallerycb:b" class="mb20"><div mxa="_zs_gallerycb:c" mx-view="mx-table/rwd"><table mxa="_zs_gallerycb:d" class="table"><thead><tr>';
     $line = 15;
     $art = 'for (let i=0;i<14;i++)';
     ;
@@ -22,7 +22,7 @@ module.exports = Base.extend({
     $expr = '<%for(var i=0;i<14;i++){%>';
     for (var i = 0; i < 14; i++) {
         ;
-        $p += '<th mxa="_zs_galleryb;:e" width="200">示例字段';
+        $p += '<th mxa="_zs_gallerycb:e" width="200">示例字段';
         $line = 16;
         $art = '=i';
         ;
@@ -70,15 +70,15 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</tbody></table></div></div></div><div mxa="_zs_galleryb;:f" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryb;:a" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</tbody></table></div></div></div><div mxa="_zs_gallerycb:f" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallerycb:a" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 35;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryb;:g" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycb:g" class="_zs_gallery___test___base_-desc-tip">';
     $line = 37;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryb;:b" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycb:b" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 40;
     $art = '=viewId';
     ;

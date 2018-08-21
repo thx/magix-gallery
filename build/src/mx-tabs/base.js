@@ -36,7 +36,7 @@ module.exports = Magix.View.extend({
                 tag: item.tag
             };
         });
-        var selected = data.selected || list[0].value;
+        var selected = data.selected || (list[0] || {})['value'];
         that['@{data.list}'] = list;
         that['@{data.selected}'] = selected;
         // 展示类型：

@@ -22,6 +22,7 @@ module.exports = Magix.View.extend({
             rgba,
             styles = [],
             border = (extra.border + '' === 'true'),
+            icon  = !(extra.icon + '' === 'false'),
             type = extra.type;
 
         if (border) {
@@ -47,7 +48,8 @@ module.exports = Magix.View.extend({
             classNames: classNames.join(' '),
             textAlign,
             color,
-            styles: styles.join(';')
+            styles: styles.join(';'),
+            icon
         })
     },
     render() {

@@ -35,7 +35,7 @@ module.exports = Magix.View.extend({
         $expr = '<%for(var idx=0;idx<list.length;idx++){var one=list[idx]%>';
         for (var idx = 0; idx < list.length; idx++) {
             var one = list[idx];
-            $p += '<li mxa="_zs_gallerycx:_" class="_zs_gallery_mx-taginput_suggest_-item"><a href="javascript:;" class="_zs_gallery_mx-taginput_suggest_-item-link" data-idx="';
+            $p += '<li mxa="_zs_gallerycD:_" class="_zs_gallery_mx-taginput_suggest_-item"><a href="javascript:;" class="_zs_gallery_mx-taginput_suggest_-item-link" data-idx="';
             $line = 10;
             $art = '=idx';
             ;

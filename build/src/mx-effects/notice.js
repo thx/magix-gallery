@@ -18,7 +18,7 @@ var ClassNames = {
 };
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref) { if (!$$ref)
-    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, classNames = $$.classNames, textAlign = $$.textAlign, styles = $$.styles, content = $$.content; var $expr, $art, $line; try {
+    $$ref = $$; var $g = '', $_temp, $p = '', $em = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er = /[&<>"'`]/g, $n = function (v) { return '' + (v == null ? '' : v); }, $ef = function (m) { return "&" + $em[m] + ";"; }, $e = function (v) { return $n(v).replace($er, $ef); }, $um = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf = function (m) { return $um[m]; }, $uq = /[!')(*]/g, $eu = function (v) { return encodeURIComponent($n(v)).replace($uq, $uf); }, $qr = /[\\'"]/g, $eq = function (v) { return $n(v).replace($qr, '\\$&'); }, classNames = $$.classNames, textAlign = $$.textAlign, styles = $$.styles, icon = $$.icon, content = $$.content; var $expr, $art, $line; try {
     $p += '<div class="';
     $line = 1;
     $art = '=classNames';
@@ -31,11 +31,40 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=styles';
     ;
-    $p += '' + ($expr = '<%=styles%>', $e(styles)) + '"><span mxa="_zs_galleryaG:_" class="_zs_gallery_mx-effects_notice_-inner"><i mxs="_zs_galleryaG:_" class="mc-iconfont _zs_gallery_mx-effects_notice_-icon">&#xe6ad;</i>';
-    $line = 3;
-    $art = '!content';
+    $p += '' + ($expr = '<%=styles%>', $e(styles)) + '">';
+    $line = 2;
+    $art = 'if icon';
     ;
-    $p += '' + ($expr = '<%!content%>', $n(content)) + '</span></div>';
+    $p += '';
+    $expr = '<%if(icon){%>';
+    if (icon) {
+        ;
+        $p += '<span mxa="_zs_galleryaJ:_" class="_zs_gallery_mx-effects_notice_-inner"><i mxs="_zs_galleryaJ:_" class="mc-iconfont _zs_gallery_mx-effects_notice_-icon">&#xe6ad;</i>';
+        $line = 5;
+        $art = '!content';
+        ;
+        $p += '' + ($expr = '<%!content%>', $n(content)) + '</span>';
+        $line = 7;
+        $art = 'else';
+        ;
+        $p += '';
+        $expr = '<%}else{%>';
+    }
+    else {
+        ;
+        $p += ' ';
+        $line = 8;
+        $art = '!content';
+        ;
+        $p += '' + ($expr = '<%!content%>', $n(content)) + ' ';
+        $line = 9;
+        $art = '/if';
+        ;
+        $p += '';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -50,7 +79,7 @@ catch (ex) {
         var textAlign = extra.textAlign || 'left';
         var classNames = [ClassNames.notice];
         // 如果用户自定义了色值以自定义色值为准
-        var color = extra.color, rgba, styles = [], border = (extra.border + '' === 'true'), type = extra.type;
+        var color = extra.color, rgba, styles = [], border = (extra.border + '' === 'true'), icon = !(extra.icon + '' === 'false'), type = extra.type;
         if (border) {
             classNames.push(ClassNames.border);
         }
@@ -72,7 +101,8 @@ catch (ex) {
             classNames: classNames.join(' '),
             textAlign: textAlign,
             color: color,
-            styles: styles.join(';')
+            styles: styles.join(';'),
+            icon: icon
         });
     },
     render: function () {

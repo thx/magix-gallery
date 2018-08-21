@@ -19,17 +19,18 @@ module.exports = Magix.View.extend({
         }, {
             name: '脚手架',
             subs: [{
-                name: '快速上手',
+                name: '10分钟快速上手',
                 path: '/all/pro/init',
                 icon: '&#xe6ea;'
+            }, {
+                name: '跨项目渲染magix view',
+                tip: '云雀文档地址<a rel="noopener noreferrer" href="https://lark.alipay.com/chongzhi.ldq/ez0zq4/luqazk" target="_blank" class="color-brand">https://lark.alipay.com/chongzhi.ldq/ez0zq4/luqazk</a>',
+                path: '/all/pro/cross',
+                icon: '&#xe6b6;'
             }, {
                 name: '定制主题',
                 path: '/all/pro/theme',
                 icon: '&#xeb6e;'
-            }, {
-                name: '外部改变组件样式',
-                path: '/all/pro/style',
-                icon: '&#xe698;'
             }, {
                 name: '菜单配置',
                 path: '/all/pro/menu',
@@ -38,10 +39,6 @@ module.exports = Magix.View.extend({
                 name: '前后端权限约定',
                 path: '/all/pro/permission',
                 icon: '&#xe6d1;'
-            }, {
-                name: '跨平台加载view的约定',
-                path: '/all/pro/cross',
-                icon: '&#xe6b6;'
             }, {
                 name: 'rap接口管理',
                 path: '/all/pro/rap',
@@ -52,8 +49,13 @@ module.exports = Magix.View.extend({
                 icon: '&#xe670;'
             }, {
                 name: '淘宝登陆框接入',
+                tip: '接入文档<a rel="noopener noreferrer" href="https://lark.alipay.com/up/login-doc/xvgy82" target="_blank" class="link-brand">https://lark.alipay.com/up/login-doc/xvgy82</a>',
                 path: '/all/pro/login',
                 icon: '&#xe609;'
+            }, {
+                name: '外部改变组件样式',
+                path: '/all/pro/style',
+                icon: '&#xe698;'
             }, {
                 name: '页面监听参数变化回到顶部',
                 path: '/all/pro/top',

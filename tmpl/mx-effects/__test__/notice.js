@@ -29,6 +29,11 @@ module.exports = Magix.View.extend({
             desc: '自定义颜色，背景色要计算透明度，请用hex格式色号，配置了color的时候忽略type的配置',
             type: 'hex格式色号',
             def: ''
+        }, {
+            key: 'icon',
+            desc: '是否有警告icon',
+            type: 'boolean',
+            def: 'true'
         }]
 
         this.updater.digest({

@@ -23,7 +23,7 @@ module.exports = Magix.View.extend({
     $expr = '<%for(var index=0;index<list.length;index++){var item=list[index]%>';
     for (var index = 0; index < list.length; index++) {
         var item = list[index];
-        $p += '<div mxv mxa="_zs_gallerycJ:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_gallerycJ:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
+        $p += '<div mxv mxa="_zs_gallerycQ:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_gallerycQ:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
         $line = 4;
         $art = 'if needExpand';
         ;
@@ -85,7 +85,7 @@ module.exports = Magix.View.extend({
                 $expr = '<%if(readOnly){%>';
                 if (readOnly) {
                     ;
-                    $p += '<i mxs="_zs_gallerycJ:_" class="mc-iconfont _zs_gallery_mx-tree_index_-icon empty">&#xe732;</i>';
+                    $p += '<i mxs="_zs_gallerycQ:_" class="mc-iconfont _zs_gallery_mx-tree_index_-icon empty">&#xe732;</i>';
                     $line = 17;
                     $art = '/if';
                     ;
@@ -109,7 +109,7 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '<label mxv mxa="_zs_gallerycJ:b" class="fl">';
+        $p += '<label mxv mxa="_zs_gallerycQ:b" class="fl">';
         $line = 21;
         $art = 'if !readOnly';
         ;

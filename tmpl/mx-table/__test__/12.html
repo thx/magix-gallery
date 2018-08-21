@@ -1,0 +1,223 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix lh22">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>trigger上配置sub-toggle，以sub-toggle作为主键，请保证sub-toggle唯一（包括翻页的情况下）</div>
+                <div>被展开项配置sub-toggle-parent指向对应的sub-toggle</div>
+                <div>数组操作（改值或翻页等）digest数据之后，保持原先的展开逻辑</div>
+                <div>可配置默认展开某一行data-expand</div>
+                <div>包含完成的翻页和数据改动示例</div>
+                <div>默认展开name2</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <mx-table>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th width="40"></th>
+                            <th width="200">name</th>
+                            <th width="200">link</th>
+                            <th width="200">value</th>
+                            <th width="200">test</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{each list as item}}
+                            <tr>
+                                <td>
+                                    <!-- data-expand="是否需要默认展开" sub-toggle="展开icon的id" -->
+                                    <span sub-toggle="toggle_{{=item.id}}" 
+                                        data-expand="{{=item.expand}}"></span>
+                                </td>
+                                <td>{{=item.name}}</td>
+                                <td>{{=item.link}}</td>
+                                <td>{{=item.value}}</td>
+                                <td>{{=item.test}}</td>
+                            </tr>
+                            <tr class="operation-tr">  
+                                <td colspan="5">
+                                    <a href="javascript:;" class="btn btn-small mr10" mx-click="change({id:{{=item.id}}})">改变数据后digest</a>
+                                </td>
+                            </tr>
+                            {{each item.subs as sub subIndex}}
+                            <!-- sub-toggle-parent="指向控制的sub-toggle" -->
+                            <tr class="hide"
+                                sub-toggle-parent="toggle_{{=item.id}}">
+                                <!-- td个数保持一致，占位符+className sub-mask -->
+                                <td class="sub-mask {{if item.subs.length==subIndex+1}} sub-mask-last {{/if}} "></td>
+                                <td>{{=sub.name}}</td>
+                                <td>{{=sub.link}}</td>
+                                <td>{{=sub.value}}</td>
+                                <td>{{=sub.test}}</td>
+                            </tr>
+                            <tr class="hide operation-tr"
+                                sub-toggle-parent="toggle_{{=item.id}}">
+                                <!-- td个数保持一致，占位符+className sub-mask -->
+                                <td class="sub-mask {{if item.subs.length==subIndex+1}} sub-mask-last {{/if}} "></td>
+                                <td colspan="4">
+                                    <a href="javascript:;" class="btn btn-small mr10">操作</a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        {{/each}}
+                    </tbody>
+                </table>
+            </mx-table>
+            <div class="table-pager-wrapper mb20">
+                <mx-pagination 
+                    total="{{=count}}" 
+                    size="5" 
+                    page="{{=page}}"
+                    mx-change="changePager()">
+                </mx-pagination>
+            </div>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <div id="{{=viewId}}_text_1">
+            <pre mx-view="__test__/hl">
+&lt;mx-table&gt;
+    &lt;table class="table"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th width="40"&gt;&lt;/th&gt;
+                &lt;th width="200"&gt;name&lt;/th&gt;
+                &lt;th width="200"&gt;link&lt;/th&gt;
+                &lt;th width="200"&gt;value&lt;/th&gt;
+                &lt;th width="200"&gt;test&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;each list as item&#125;&#125;
+                &lt;tr&gt;
+                    &lt;td&gt;
+                        &lt;!-- data-expand="是否需要默认展开" sub-toggle="展开icon的id" --&gt;</pre><pre class="color-brand">
+                        &lt;span sub-toggle="toggle_&#123;&#123;=item.id&#125;&#125;" data-expand="&#123;&#123;=item.expand&#125;&#125;"&gt;&lt;/span&gt; </pre><pre>
+                    &lt;/td&gt;
+                    &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;
+                    &lt;td&gt;&#123;&#123;=item.link&#125;&#125;&lt;/td&gt;
+                    &lt;td&gt;&#123;&#123;=item.value&#125;&#125;&lt;/td&gt;
+                    &lt;td&gt;&#123;&#123;=item.test&#125;&#125;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr class="operation-tr"&gt;  
+                    &lt;td colspan="5"&gt;
+                        &lt;a href="javascript:;" class="btn btn-small mr10" mx-click="change(&#123;id:&#123;&#123;=item.id&#125;&#125;&#125;)"&gt;改变数据后digest&lt;/a&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &#123;&#123;each item.subs as sub subIndex&#125;&#125;
+                &lt;!-- sub-toggle-parent="指向控制的sub-toggle" --&gt;</pre><pre class="color-brand">
+                &lt;tr class="hide" sub-toggle-parent="toggle_&#123;&#123;=item.id&#125;&#125;"&gt;</pre><pre>
+                    &lt;!-- td个数保持一致，占位符+className sub-mask --&gt;
+                    &lt;td class="sub-mask &#123;&#123;if item.subs.length==subIndex+1&#125;&#125; sub-mask-last &#123;&#123;/if&#125;&#125; "&gt;&lt;/td&gt;
+                    &lt;td&gt;&#123;&#123;=sub.name&#125;&#125;&lt;/td&gt;
+                    &lt;td&gt;&#123;&#123;=sub.link&#125;&#125;&lt;/td&gt;
+                    &lt;td&gt;&#123;&#123;=sub.value&#125;&#125;&lt;/td&gt;
+                    &lt;td&gt;&#123;&#123;=sub.test&#125;&#125;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr class="hide operation-tr"
+                    sub-toggle-parent="toggle_&#123;&#123;=item.id&#125;&#125;"&gt;
+                    &lt;!-- td个数保持一致，占位符+className sub-mask --&gt;
+                    &lt;td class="sub-mask &#123;&#123;if item.subs.length==subIndex+1&#125;&#125; sub-mask-last &#123;&#123;/if&#125;&#125; "&gt;&lt;/td&gt;
+                    &lt;td colspan="4"&gt;
+                        &lt;a href="javascript:;" class="btn btn-small mr10"&gt;操作&lt;/a&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &#123;&#123;/each&#125;&#125;
+            &#123;&#123;/each&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-table&gt;
+&lt;div class="table-pager-wrapper"&gt;
+    &lt;mx-pagination 
+        total="&#123;&#123;=count&#125;&#125;" 
+        size="5" 
+        page="&#123;&#123;=page&#125;&#125;"
+        mx-change="changePager()"/&gt;
+&lt;/div&gt;</pre>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Base = require('__test__/example');
+let $ = require('$');
+let Sub = require('@../sub');
+
+module.exports = Base.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Sub],
+    render() &#123;
+        let that = this;
+        let allList = [];
+        for (var i = 0; i &lt; 15; i++) &#123;
+            allList.push(&#123;
+                id: i,
+                expand: (i == 2),
+                name: 'name' + i,
+                link: 'link' + i,
+                value: 'value' + i,
+                test: 'test' + i,
+                subs: [&#123;
+                    name: 'subname1',
+                    link: 'sublink1',
+                    value: 'subvalue1',
+                    test: 'subtest1',
+                &#125;, &#123;
+                    name: 'subname2',
+                    link: 'sublink2',
+                    value: 'subvalue2',
+                    test: 'subtest2',
+                &#125;]
+            &#125;)
+        &#125;
+
+        that.updater.digest(&#123;
+            count: allList.length,
+            page: 1,
+            allList,
+            list: allList.slice(0, 5)
+        &#125;);
+    &#125;,
+    'change&lt;click&gt;' (e) &#123;
+        let id = e.params.id;
+        let list = this.updater.get('list');
+        for (let index = 0; index &lt; list.length; index++) &#123;
+            if(list[index].id == id)&#123;
+                list[index].name = Magix.guid('测试数据变化');
+                break;
+            &#125;
+        &#125;
+        
+        this.updater.digest(&#123;
+            list
+        &#125;)
+    &#125;,
+    'changePager&lt;change&gt;' (e) &#123;
+        // e.page 当前第几页
+        // e.size 每页多少条
+        let that = this;
+        let page = e.page;
+        let allList = that.updater.get('allList');
+        let list = allList.slice((page - 1) * 5, page * 5);
+        that.updater.digest(&#123;
+            list,
+            page
+        &#125;)
+    &#125;
+&#125;);</pre>
+    </div>
+</div>
