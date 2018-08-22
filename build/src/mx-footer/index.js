@@ -56,9 +56,9 @@ module.exports = Magix.View.extend({
         $art = 'each products as p';
         ;
         $p += '';
-        $expr = '<%for (var $art_iboyms$art_i = 0, $art_ccapvotok$art_c = products.length; $art_iboyms$art_i < $art_ccapvotok$art_c; $art_iboyms$art_i++) {        var p = products[$art_iboyms$art_i]%>';
-        for (var $art_iboyms$art_i = 0, $art_ccapvotok$art_c = products.length; $art_iboyms$art_i < $art_ccapvotok$art_c; $art_iboyms$art_i++) {
-            var p = products[$art_iboyms$art_i];
+        $expr = '<%for (var $art_ikeitfynyxg$art_i = 0, $art_cetuelutj$art_c = products.length; $art_ikeitfynyxg$art_i < $art_cetuelutj$art_c; $art_ikeitfynyxg$art_i++) {        var p = products[$art_ikeitfynyxg$art_i]%>';
+        for (var $art_ikeitfynyxg$art_i = 0, $art_cetuelutj$art_c = products.length; $art_ikeitfynyxg$art_i < $art_cetuelutj$art_c; $art_ikeitfynyxg$art_i++) {
+            var p = products[$art_ikeitfynyxg$art_i];
             $p += '<dl style="width: ';
             $line = 9;
             $art = '=(100 / len)';
@@ -72,9 +72,9 @@ module.exports = Magix.View.extend({
             $art = 'each p.thirds as t';
             ;
             $p += '';
-            $expr = '<%for (var $art_ijlgfyphf$art_i = 0, $art_objezfwebmps$art_obj = p.thirds, $art_cfuzjbqfc$art_c = $art_objezfwebmps$art_obj.length; $art_ijlgfyphf$art_i < $art_cfuzjbqfc$art_c; $art_ijlgfyphf$art_i++) {            var t = $art_objezfwebmps$art_obj[$art_ijlgfyphf$art_i]%>';
-            for (var $art_ijlgfyphf$art_i = 0, $art_objezfwebmps$art_obj = p.thirds, $art_cfuzjbqfc$art_c = $art_objezfwebmps$art_obj.length; $art_ijlgfyphf$art_i < $art_cfuzjbqfc$art_c; $art_ijlgfyphf$art_i++) {
-                var t = $art_objezfwebmps$art_obj[$art_ijlgfyphf$art_i];
+            $expr = '<%for (var $art_ixhrfrsjzb$art_i = 0, $art_objurfcfk$art_obj = p.thirds, $art_czidjezvuh$art_c = $art_objurfcfk$art_obj.length; $art_ixhrfrsjzb$art_i < $art_czidjezvuh$art_c; $art_ixhrfrsjzb$art_i++) {            var t = $art_objurfcfk$art_obj[$art_ixhrfrsjzb$art_i]%>';
+            for (var $art_ixhrfrsjzb$art_i = 0, $art_objurfcfk$art_obj = p.thirds, $art_czidjezvuh$art_c = $art_objurfcfk$art_obj.length; $art_ixhrfrsjzb$art_i < $art_czidjezvuh$art_c; $art_ixhrfrsjzb$art_i++) {
+                var t = $art_objurfcfk$art_obj[$art_ixhrfrsjzb$art_i];
                 $p += '<dd><a href="';
                 $line = 13;
                 $art = '=t.link';
@@ -191,7 +191,7 @@ catch (ex) {
     getFooter: function (info) {
         return new Promise(function (resolve) {
             $.ajax({
-                url: '//mos.m.taobao.com/union/jsonp/footer',
+                url: '//mo.m.taobao.com/union/jsonp/footer',
                 dataType: 'jsonp',
                 jsonp: 'callback',
                 cache: true,

@@ -5,12 +5,13 @@
             <div class="fl">
                 <div>删除完之后有空状态</div>
                 <div>表头二级分组 + 分栏 + 吸顶 + 宽度配置在th上</div>
+                <div>渲染表格涉及的数据都绑定到组件上 &lt;mx-table sticky="true" list="&#123;&#123;@list&#125;&#125;" groups="&#123;&#123;@groups&#125;&#125;"&gt;&lt;/mx-table&gt; </div>
             </div>
         </div>
         <div class="mb20">
             {{if(list.length > 0)}}
             <!-- 渲染表格涉及的数据请都挂在到mx-table上 -->
-            <mx-table sticky="true" list="{{@list}}" groups="@groups">
+            <mx-table sticky="true" list="{{@list}}" groups="{{@groups}}">
                 <!-- 固定的表格 -->
                 <table class="table" left="true" width="500">
                     <thead>
@@ -144,7 +145,7 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &#123;&#123;if(list.length &gt; 0)&#125;&#125;
 &lt;!-- 渲染表格涉及的数据请都挂在到mx-table上 --&gt;
-&lt;mx-table sticky="true" list="&#123;&#123;@list&#125;&#125;" groups="@groups"&gt;
+&lt;mx-table sticky="true" list="&#123;&#123;@list&#125;&#125;" groups="&#123;&#123;@groups&#125;&#125;"&gt;
     &lt;!-- 固定的表格 --&gt;
     &lt;table class="table" left="true" width="500"&gt;
         &lt;thead&gt;
@@ -161,11 +162,7 @@
                     &lt;td&gt;  
                         &lt;a href="javascript:;" class="link-brand"
                             mx-click="toggle(&#123;index:&#123;&#123;=index&#125;&#125;&#125;)"&gt;
-                            &#123;&#123;if item.expand&#125;&#125;
-                                收起
-                            &#123;&#123;else&#125;&#125;
-                                展开
-                            &#123;&#123;/if&#125;&#125;
+                            &#123;&#123;if item.expand&#125;&#125;收起&#123;&#123;else&#125;&#125;展开&#123;&#123;/if&#125;&#125;
                         &lt;/a&gt;
                     &lt;/td&gt;
                     &lt;td&gt;&#123;&#123;=item.fixed1&#125;&#125;&lt;/td&gt;

@@ -59,7 +59,7 @@ module.exports = Magix.View.extend({
     getFooter(info) {
         return new Promise((resolve) => {
             $.ajax({
-                url: '//mos.m.taobao.com/union/jsonp/footer',
+                url: '//mo.m.taobao.com/union/jsonp/footer',
                 dataType: 'jsonp',
                 jsonp: 'callback',
                 cache: true,

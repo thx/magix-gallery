@@ -42,10 +42,10 @@
                             <label class="province-label" for="{{=viewId}}_province_{{=province.id}}">
                                 <input mx-change="@{changeOne}({typeIndex:{{=typeIndex}},province:{{=province.id}}})" type="checkbox" id="{{=viewId}}_province_{{=province.id}}" {{if province.checked}} checked="true" {{/if}} />
                                 <span class="name {{if province.highlight}} highlight {{/if}}">{{=province.name}}</span>
-                                {{if province.hasCity && (province.count > 0)}}
-                                <span class="bold font-tahoma">({{=province.count}})</span>
-                                {{/if}}
                             </label>
+                            {{if province.hasCity && (province.count > 0)}}
+                            <span class="province-count">({{=province.count}})</span>
+                            {{/if}}
                             {{if province.hasCity}}
                             <i class="mc-iconfont province-expand" mx-click="@{showCity}({province:{{=province.id}}})">&#xe692;</i>
                             {{/if}}

@@ -25,7 +25,7 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', navs = $$.navs, cur = $$.cur, navText = $$.navText; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', navs = $$.navs, cur = $$.cur, curText = $$.curText; var $expr, $art, $line; try {
     $p += '<div mxv="navs" mx-navchange="' + $viewId + 'change()" mx-view="mx-header/index?navs=';
     $line = 2;
     $art = '@navs';
@@ -53,9 +53,9 @@ module.exports = Magix.View.extend({
         ;
         $p += ' 当前导航：';
         $line = 11;
-        $art = '=navText';
+        $art = '=curText';
         ;
-        $p += '' + ($expr = '<%=navText%>', $e(navText)) + '（';
+        $p += '' + ($expr = '<%=curText%>', $e(curText)) + '（';
         $line = 11;
         $art = '=cur';
         ;

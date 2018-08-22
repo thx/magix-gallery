@@ -23,12 +23,18 @@
             border-radius: @border-radius;
             transition: all @duration;
             &.highlight {
-                background-color: @color-brand-opacity;
+                background-color: @color-brand-light;
             }
         }
         .province-label {
             float: left;
             line-height: @area-height;
+        }
+        .province-count{
+            float: left;
+            font-weight: bold;
+            font-family: "Tahoma";
+            line-height: @area-height - 2;
         }
         .province-expand {
             position: absolute;
