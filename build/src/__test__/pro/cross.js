@@ -3,10 +3,9 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("__test__/pro/cross",["magix","$","mx-effects/notice","mx-title/second"],(require,exports,module)=>{
+define("__test__/pro/cross",["magix","$"],(require,exports,module)=>{
 /*Magix,$*/
-require("mx-effects/notice");
-require("mx-title/second");
+
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
@@ -21,12 +20,8 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', content = $$.content; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryd:_" class="pr20"><div class="mb20" mx-view="mx-effects/notice?content=';
-    $line = 3;
-    $art = '=content';
-    ;
-    $p += '' + ($expr = '<%!$eu(content)%>', $eu(content)) + '&border=true&icon=false"></div><div mxs="_zs_galleryd:_" mx-view="mx-title/second?content=%E7%9B%AE%E5%BD%95%E7%BA%A6%E5%AE%9A"></div><div mxs="_zs_galleryd:a" class="mb40" mx-view="mx-effects/notice?content=%E7%9B%AE%E5%BD%95%E7%BA%A6%E5%AE%9A&border=true&icon=false"></div><div mxs="_zs_galleryd:b" mx-view="mx-title/second?content=%E6%8E%A5%E5%8F%A3%E5%AF%B9%E6%8E%A5"></div></div>';
+} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
+    $p += 'Todo';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

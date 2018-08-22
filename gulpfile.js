@@ -16,7 +16,7 @@ combineTool.config({
     magixUpdaterIncrement: true,
     galleries: {
         mxRoot: '',
-        mxMap: {
+        mxMap: {  //配置到 https://github.com/thx/magix-combine-tool-config/blob/master/index.js
             'mx-popover': {
                 tag: 'span'
             },

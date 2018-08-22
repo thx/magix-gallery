@@ -12,6 +12,11 @@ module.exports = Magix.View.extend({
         });
 
         let list = [{
+            subs: [{
+                name: '更新记录',
+                path: '/all/update'
+            }]
+        }, {
             name: '脚手架',
             subs: [{
                 name: '10分钟快速上手',
@@ -85,6 +90,10 @@ module.exports = Magix.View.extend({
                 name: '表头分组 + 子表格',
                 path: '/table/index2',
                 icon: '&#xe770;'
+            }, {
+                name: '自定义吸顶容器',
+                path: '/table/index11',
+                icon: '&#xe7b6;'
             }, {
                 name: '操作项在下方',
                 path: '/table/index3',
@@ -317,11 +326,6 @@ module.exports = Magix.View.extend({
                 name: '时段选择',
                 path: '/hour/index',
                 icon: '&#xe67c;'
-            }]
-        }, {
-            subs: [{
-                name: '更新记录',
-                path: '/all/update'
             }]
         }]
         let all = [];

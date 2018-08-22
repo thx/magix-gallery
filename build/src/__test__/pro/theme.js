@@ -22,7 +22,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryA:_" class="clearfix _zs_gallery___test___pro_theme_-img-wrapper"><img class="fl" src="//img.alicdn.com/tfs/TB1Nzu9q8nTBKNjSZPfXXbf1XXa-407-496.jpg"/> <img class="fr" src="//img.alicdn.com/tfs/TB19VueqWAoBKNjSZSyXXaHAVXa-379-496.jpg"/></div>';
+    $p += 'Todo';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

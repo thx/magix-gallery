@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryar:_" class="_zs_gallery___test___base_-example"><div mxs="_zs_galleryar:_" class="_zs_gallery___test___base_-eg-content"><div class="mb10"><div mx-view="mx-effects/star?num=2.5&color=%23ffb400"></div></div><div class="mb10"><div mx-view="mx-effects/star?num=4&color=rgb%2881%2C%20163%2C%200%29"></div></div></div><div mxa="_zs_galleryar:a" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryar:c" class="_zs_gallery___test___base_-eg-title">自定义颜色</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_galleryar:_" class="_zs_gallery___test___base_-example"><div mxs="_zs_galleryar:_" class="_zs_gallery___test___base_-eg-content"><div class="mb10"><div mx-view="mx-effects/star?num=2.5&color=%23ffb400"></div></div><div class="mb10"><div mx-view="mx-effects/star?num=4&color=rgb%2881%2C%20163%2C%200%29"></div></div></div><div mxa="_zs_galleryar:a" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_galleryar:a" class="_zs_gallery___test___base_-eg-title">自定义颜色</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 14;
     $art = '=viewId';
     ;
