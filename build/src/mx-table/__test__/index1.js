@@ -3,12 +3,11 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-table/__test__/index1",["magix","$","mx-title/second","./4","./5","__test__/api"],(require,exports,module)=>{
+define("mx-table/__test__/index1",["magix","$","mx-title/second","./4","./5"],(require,exports,module)=>{
 /*Magix,$*/
 require("mx-title/second");
 require("./4");
 require("./5");
-require("__test__/api");
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
@@ -23,16 +22,8 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} if (!$i) {
-    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
-        if (ref[k = $g + f] === v)
-            return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerycb:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerycb:a" class="clearfix mb20"><div mx-view="mx-table/__test__/4"></div><div mx-view="mx-table/__test__/5"></div></div><div mxs="_zs_gallerycb:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 8;
-    $art = '@options';
-    ;
-    $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '"></div>';
+} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
+    $p += '<div mxs="_zs_gallerycb:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerycb:c" mx-view="mx-table/__test__/4"></div><div mxs="_zs_gallerycb:d" mx-view="mx-table/__test__/5"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -43,20 +34,7 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
-        var options = [{
-                key: 'sticky',
-                desc: '是否需要表头吸顶功能',
-                type: 'boolean',
-                def: 'false'
-            }, {
-                key: 'scroll-wrapper',
-                desc: '自定义滚动节点id',
-                type: 'string',
-                def: 'window'
-            }];
-        this.updater.digest({
-            options: options
-        });
+        this.updater.digest({});
     }
 });
 

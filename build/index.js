@@ -29,6 +29,7 @@ let coms = [
     'pagination',
     'calendar',
     'mustache',
+    'checkbox',
     'tree',
     'runner',
     'time',

@@ -52,7 +52,7 @@ module.exports = {
             if (!object) {
                 object = me['@{state.store}'][linkName] = {};
             }
-            if (node.prop('checked')) {
+            if (!node[0].disabled && node[0].checked) {
                 object[value] = 1;
             } else {
                 delete object[value];
@@ -70,11 +70,15 @@ module.exports = {
             input = $(input);
             let tempName = input.attr('linkage-parent');
             let value = input.val();
-            if (value && tempName == linkName) {
-                if (e.target.checked) {
-                    object[value] = 1;
-                } else {
+            if (value && (tempName == linkName)) {
+                if(input[0].disabled){
                     delete object[value];
+                }else{
+                    if (e.target.checked) {
+                        object[value] = 1;
+                    } else {
+                        delete object[value];
+                    }
                 }
             }
         });

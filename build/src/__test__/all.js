@@ -53,9 +53,9 @@ module.exports = Magix.View.extend({
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for (var $art_iqauvsr$art_i = 0, $art_cpodhrekteo$art_c = list.length; $art_iqauvsr$art_i < $art_cpodhrekteo$art_c; $art_iqauvsr$art_i++) {    var item = list[$art_iqauvsr$art_i]%>';
-    for (var $art_iqauvsr$art_i = 0, $art_cpodhrekteo$art_c = list.length; $art_iqauvsr$art_i < $art_cpodhrekteo$art_c; $art_iqauvsr$art_i++) {
-        var item = list[$art_iqauvsr$art_i];
+    $expr = '<%for (var $art_iphucyyisg$art_i = 0, $art_cyioesdauwq$art_c = list.length; $art_iphucyyisg$art_i < $art_cyioesdauwq$art_c; $art_iphucyyisg$art_i++) {    var item = list[$art_iphucyyisg$art_i]%>';
+    for (var $art_iphucyyisg$art_i = 0, $art_cyioesdauwq$art_c = list.length; $art_iphucyyisg$art_i < $art_cyioesdauwq$art_c; $art_iphucyyisg$art_i++) {
+        var item = list[$art_iphucyyisg$art_i];
         $p += ' ';
         $line = 5;
         $art = 'if item.name';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
         $art = 'each item.subs as sub';
         ;
         $p += '';
-        $expr = '<%for (var $art_igafihjm$art_i = 0, $art_objckmjytn$art_obj = item.subs, $art_ckyulbmbz$art_c = $art_objckmjytn$art_obj.length; $art_igafihjm$art_i < $art_ckyulbmbz$art_c; $art_igafihjm$art_i++) {        var sub = $art_objckmjytn$art_obj[$art_igafihjm$art_i]%>';
-        for (var $art_igafihjm$art_i = 0, $art_objckmjytn$art_obj = item.subs, $art_ckyulbmbz$art_c = $art_objckmjytn$art_obj.length; $art_igafihjm$art_i < $art_ckyulbmbz$art_c; $art_igafihjm$art_i++) {
-            var sub = $art_objckmjytn$art_obj[$art_igafihjm$art_i];
+        $expr = '<%for (var $art_ihouwjbm$art_i = 0, $art_objxsqychfb$art_obj = item.subs, $art_cuiuxwjzpk$art_c = $art_objxsqychfb$art_obj.length; $art_ihouwjbm$art_i < $art_cuiuxwjzpk$art_c; $art_ihouwjbm$art_i++) {        var sub = $art_objxsqychfb$art_obj[$art_ihouwjbm$art_i]%>';
+        for (var $art_ihouwjbm$art_i = 0, $art_objxsqychfb$art_obj = item.subs, $art_cuiuxwjzpk$art_c = $art_objxsqychfb$art_obj.length; $art_ihouwjbm$art_i < $art_cuiuxwjzpk$art_c; $art_ihouwjbm$art_i++) {
+            var sub = $art_objxsqychfb$art_obj[$art_ihouwjbm$art_i];
             $p += '<a class="_zs_gallery___test___all_-nav ';
             $line = 13;
             $art = 'if (sub.path == path)';
@@ -340,8 +340,12 @@ catch (ex) {
                         icon: '&#xe64e;'
                     }]
             }, {
-                name: '表格',
+                name: '表格（mixins）',
                 subs: [{
+                        name: '说明及注意点',
+                        path: '/table/desc',
+                        icon: '&#xe64f;'
+                    }, {
                         name: '左右分栏',
                         path: '/table/index1',
                         icon: '&#xe693;'
@@ -370,11 +374,11 @@ catch (ex) {
                         path: '/table/index5',
                         icon: '&#xe655;'
                     }, {
-                        name: 'mixins展开子表格',
+                        name: '展开子表格',
                         path: '/table/index6',
                         icon: '&#xeb73;'
                     }, {
-                        name: 'mixins选中操作行',
+                        name: 'checkbox选中操作行',
                         path: '/table/index7',
                         icon: '&#xe695;'
                     }, {

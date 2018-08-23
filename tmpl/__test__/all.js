@@ -81,8 +81,12 @@ module.exports = Magix.View.extend({
                 icon: '&#xe64e;'
             }]
         }, {
-            name: '表格',
+            name: '表格（mixins）',
             subs: [{
+                name: '说明及注意点',
+                path: '/table/desc',
+                icon: '&#xe64f;'
+            }, {
                 name: '左右分栏',
                 path: '/table/index1',
                 icon: '&#xe693;'
@@ -111,11 +115,11 @@ module.exports = Magix.View.extend({
                 path: '/table/index5',
                 icon: '&#xe655;'
             }, {
-                name: 'mixins展开子表格',
+                name: '展开子表格',
                 path: '/table/index6',
                 icon: '&#xeb73;'
             }, {
-                name: 'mixins选中操作行',
+                name: 'checkbox选中操作行',
                 path: '/table/index7',
                 icon: '&#xe695;'
             }, {

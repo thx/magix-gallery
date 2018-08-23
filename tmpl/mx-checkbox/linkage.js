@@ -104,10 +104,10 @@ module.exports = {
         });
         return ids;
     },
-    '$input[linkage-parent]<change>' (e) {
+    '$input[linkage-parent]<change>'(e) {
         ApplyTableCheckbox('#' + this.id, e.eventTarget);
     },
-    '$input[linkage]<change>' (e) {
+    '$input[linkage]<change>'(e) {
         ApplyTableCheckbox('#' + this.id, e.eventTarget);
     }
 };
