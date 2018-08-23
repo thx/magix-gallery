@@ -59,7 +59,7 @@ module.exports = Magix.View.extend({
 
     '@{notify.main.view.unload}'(e) {
         let vf = Magix.Vframe.get('cnt_' + this.id);
-        vf.invoke('fire', ['unload', e]);
+        vf && vf.invoke('fire', ['unload', e]);
     },
 
     '@{close}<click>'() {
