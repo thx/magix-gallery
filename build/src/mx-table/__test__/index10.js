@@ -27,11 +27,11 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerycf:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerycf:a" class="mb20 clearfix"><div mx-view="mx-table/__test__/8"></div></div><div mxv mxa="_zs_gallerycf:_" class="mb40"><div mxs="_zs_gallerycf:b" mx-view="mx-title/second?content=%E8%B7%AF%E7%94%B1%E5%8F%82%E6%95%B0"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += '<div mxs="_zs_galleryck:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryck:a" class="mb20 clearfix"><div mx-view="mx-table/__test__/8"></div></div><div mxv mxa="_zs_galleryck:_" class="mb40"><div mxs="_zs_galleryck:b" mx-view="mx-title/second?content=%E8%B7%AF%E7%94%B1%E5%8F%82%E6%95%B0"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 8;
     $art = '@options';
     ;
-    $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '"></div></div><div mxs="_zs_gallerycf:c" mx-view="mx-title/second?content=Methods"></div><div mxs="_zs_gallerycf:d" class="pr20"><table class="table _zs_gallery___test___base_-desc-table"><thead><tr><th width="100">方法名</th><th width="200">说明</th></tr></thead><tbody><tr><td>sort</td><td>mixin中实现本页排序，如果从接口获取排序则忽略此方法</td></tr></tbody></table></div>';
+    $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '"></div></div><div mxs="_zs_galleryck:c" mx-view="mx-title/second?content=Methods"></div><div mxs="_zs_galleryck:d" class="pr20"><table class="table _zs_gallery___test___base_-desc-table"><thead><tr><th width="100">方法名</th><th width="200">说明</th></tr></thead><tbody><tr><td>sort</td><td>mixin中实现本页排序，如果从接口获取排序则忽略此方法</td></tr></tbody></table></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

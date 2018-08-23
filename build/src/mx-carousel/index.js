@@ -138,7 +138,7 @@ catch (ex) {
         that['@{dots.node}'] = node.find('._zs_gallery_mx-carousel_index_-dot');
         var panelsCnt = node.find('._zs_gallery_mx-carousel_index_-inner');
         that['@{panels.cnt}'] = panelsCnt;
-        that['@{panels.node}'] = panelsCnt.find('.carousel-panel');
+        that['@{panels.node}'] = panelsCnt.find('[data-carousel="true"]');
         that['@{update.stage.size}']();
         that['@{to.panel}'](data.active, 1);
         if (data.autoplay) {
@@ -157,6 +157,7 @@ catch (ex) {
                     var panelNode = $(panelNodes[index]);
                     if (data.vertical) {
                         panelNode.css({
+                            position: 'absolute',
                             top: h * index,
                             left: 0,
                             width: w,
@@ -165,6 +166,7 @@ catch (ex) {
                     }
                     else {
                         panelNode.css({
+                            position: 'absolute',
                             top: 0,
                             left: w * index,
                             width: w,
@@ -177,6 +179,7 @@ catch (ex) {
                 for (var index = 0; index < panelNodes.length; index++) {
                     var panelNode = $(panelNodes[index]);
                     panelNode.css({
+                        position: 'absolute',
                         opacity: 0,
                         top: 0,
                         left: 0,

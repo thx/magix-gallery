@@ -1,0 +1,24 @@
+<mx-title.second content="使用示例"/>
+<div mx-view="@./1"></div>
+
+<mx-title.second content="API"/>
+<div class="pr20">
+    <table class="table desc-table">
+        <thead>
+            <tr>
+                <th width="100">可配参数</th>
+                <th width="200">说明</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{each options as option}}
+            <tr>
+                <td>{{=option.key}}</td>
+                <td>{{!option.desc}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+

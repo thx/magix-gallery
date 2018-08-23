@@ -45,8 +45,7 @@ module.exports = Magix.View.extend({
         that['@{dots.node}'] = node.find('.@index.less:dot');
         let panelsCnt = node.find('.@index.less:inner');
         that['@{panels.cnt}'] = panelsCnt;
-        that['@{panels.node}'] = panelsCnt.find('.carousel-panel');
-
+        that['@{panels.node}'] = panelsCnt.find('[data-carousel="true"]');
         that['@{update.stage.size}']();
         that['@{to.panel}'](data.active, 1);
         if (data.autoplay) {
@@ -70,6 +69,7 @@ module.exports = Magix.View.extend({
 
                     if (data.vertical) {
                         panelNode.css({
+                            position: 'absolute',
                             top: h * index,
                             left: 0,
                             width: w,
@@ -77,6 +77,7 @@ module.exports = Magix.View.extend({
                         })
                     } else {
                         panelNode.css({
+                            position: 'absolute',
                             top: 0,
                             left: w * index,
                             width: w,
@@ -89,6 +90,7 @@ module.exports = Magix.View.extend({
                 for (let index = 0; index < panelNodes.length; index++) {
                     let panelNode = $(panelNodes[index]);
                     panelNode.css({
+                        position: 'absolute',
                         opacity: 0,
                         top: 0,
                         left: 0,

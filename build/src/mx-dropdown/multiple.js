@@ -60,7 +60,7 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = '=selectedText';
     ;
-    $p += '' + ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryae:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ';
+    $p += '' + ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryaj:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ';
     $line = 5;
     $art = 'if expand';
     ;
@@ -108,7 +108,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (searchbox) {%>';
         if (searchbox) {
             ;
-            $p += '<div mxv mxa="_zs_galleryae:_" class="_zs_gallery_mx-dropdown_index_-search-wrapper"><div mxv mxa="_zs_galleryae:a" class="search-box"><i mxs="_zs_galleryae:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+            $p += '<div mxv mxa="_zs_galleryaj:_" class="_zs_gallery_mx-dropdown_index_-search-wrapper"><div mxv mxa="_zs_galleryaj:a" class="search-box"><i mxs="_zs_galleryaj:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
             $line = 12;
             $art = '=text.search';
             ;
@@ -132,7 +132,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (!needAll) {%>';
         if (!needAll) {
             ;
-            $p += '<div mxa="_zs_galleryae:b" class="_zs_gallery_mx-dropdown_index_-oper-wrapper"><a class="_zs_gallery_mx-dropdown_index_-oper" href="javascript:;" mx-click="' + $viewId + '@{checkAll}({checked:true})" data-spm-click="';
+            $p += '<div mxa="_zs_galleryaj:b" class="_zs_gallery_mx-dropdown_index_-oper-wrapper"><a class="_zs_gallery_mx-dropdown_index_-oper" href="javascript:;" mx-click="' + $viewId + '@{checkAll}({checked:true})" data-spm-click="';
             $line = 24;
             $art = '=spm';
             ;
@@ -169,8 +169,8 @@ module.exports = Magix.View.extend({
         $art = 'each groups as group groupIndex';
         ;
         $p += '';
-        $expr = '<%for (var groupIndex = 0, $art_cdaylp$art_c = groups.length; groupIndex < $art_cdaylp$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
-        for (var groupIndex = 0, $art_cdaylp$art_c = groups.length; groupIndex < $art_cdaylp$art_c; groupIndex++) {
+        $expr = '<%for (var groupIndex = 0, $art_chhdxixz$art_c = groups.length; groupIndex < $art_chhdxixz$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
+        for (var groupIndex = 0, $art_chhdxixz$art_c = groups.length; groupIndex < $art_chhdxixz$art_c; groupIndex++) {
             var group = groups[groupIndex];
             $p += ' ';
             $line = 30;
@@ -269,14 +269,14 @@ module.exports = Magix.View.extend({
                 $expr = '<%}%>';
             }
             ;
-            $p += '<div mxv mxa="_zs_galleryae:c" class="clearfix _zs_gallery_mx-dropdown_index_-group-wrapper">';
+            $p += '<div mxv mxa="_zs_galleryaj:c" class="clearfix _zs_gallery_mx-dropdown_index_-group-wrapper">';
             $line = 46;
             $art = 'each group.list as item';
             ;
             $p += '';
-            $expr = '<%for (var $art_ioqvzpmn$art_i = 0, $art_objezfuveras$art_obj = group.list, $art_cydhlqotkh$art_c = $art_objezfuveras$art_obj.length; $art_ioqvzpmn$art_i < $art_cydhlqotkh$art_c; $art_ioqvzpmn$art_i++) {            var item = $art_objezfuveras$art_obj[$art_ioqvzpmn$art_i]%>';
-            for (var $art_ioqvzpmn$art_i = 0, $art_objezfuveras$art_obj = group.list, $art_cydhlqotkh$art_c = $art_objezfuveras$art_obj.length; $art_ioqvzpmn$art_i < $art_cydhlqotkh$art_c; $art_ioqvzpmn$art_i++) {
-                var item = $art_objezfuveras$art_obj[$art_ioqvzpmn$art_i];
+            $expr = '<%for (var $art_iemfsgp$art_i = 0, $art_objqbwgune$art_obj = group.list, $art_cmemcdin$art_c = $art_objqbwgune$art_obj.length; $art_iemfsgp$art_i < $art_cmemcdin$art_c; $art_iemfsgp$art_i++) {            var item = $art_objqbwgune$art_obj[$art_iemfsgp$art_i]%>';
+            for (var $art_iemfsgp$art_i = 0, $art_objqbwgune$art_obj = group.list, $art_cmemcdin$art_c = $art_objqbwgune$art_obj.length; $art_iemfsgp$art_i < $art_cmemcdin$art_c; $art_iemfsgp$art_i++) {
+                var item = $art_objqbwgune$art_obj[$art_iemfsgp$art_i];
                 $p += ' ';
                 $line = 47;
                 $art = 'if !item.hide';
@@ -361,11 +361,11 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxa="_zs_galleryae:d" class="_zs_gallery_mx-dropdown_index_-footer-wrapper"><button mxa="_zs_galleryae:e" type="button" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}({enter:true})">';
+        $p += '</div><div mxa="_zs_galleryaj:d" class="_zs_gallery_mx-dropdown_index_-footer-wrapper"><button mxa="_zs_galleryaj:e" type="button" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}({enter:true})">';
         $line = 63;
         $art = '=text.submit';
         ;
-        $p += '' + ($expr = '<%=text.submit%>', $e(text.submit)) + '</button><button mxa="_zs_galleryae:f" type="button" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
+        $p += '' + ($expr = '<%=text.submit%>', $e(text.submit)) + '</button><button mxa="_zs_galleryaj:f" type="button" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
         $line = 64;
         $art = '=text.cancel';
         ;

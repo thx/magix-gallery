@@ -278,6 +278,11 @@ module.exports = Magix.View.extend({
                 path: '/style/index',
                 icon: '&#xe62c;'
             }, {
+                name: 'checkbox',
+                tip: '包装indeterminate状态，无需操作dom',
+                path: '/checkbox/index',
+                icon: '&#xe63f;'
+            }, {
                 name: '标题',
                 path: '/title/index',
                 icon: '&#xe786;'

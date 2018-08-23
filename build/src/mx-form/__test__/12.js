@@ -25,15 +25,15 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', radioes = $$.radioes, selected = $$.selected, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerya3:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_gallerya3:a" class="_zs_gallery___test___base_-eg-content"><div mxv mxa="_zs_gallerya3:b" class="mb20"><span mxs="_zs_gallerya3:_" class="color-9 mr20">radio：</span>';
+    $p += '<div mxv mxa="_zs_gallerya8:_" class="_zs_gallery___test___base_-example"><div mxv mxa="_zs_gallerya8:a" class="_zs_gallery___test___base_-eg-content"><div mxv mxa="_zs_gallerya8:b" class="mb20"><span mxs="_zs_gallerya8:_" class="color-9 mr20">radio：</span>';
     $line = 5;
     $art = 'each radioes as r';
     ;
     $p += '';
-    $expr = '<%for (var $art_ipvdozrkj$art_i = 0, $art_cvyobweqaf$art_c = radioes.length; $art_ipvdozrkj$art_i < $art_cvyobweqaf$art_c; $art_ipvdozrkj$art_i++) {    var r = radioes[$art_ipvdozrkj$art_i]%>';
-    for (var $art_ipvdozrkj$art_i = 0, $art_cvyobweqaf$art_c = radioes.length; $art_ipvdozrkj$art_i < $art_cvyobweqaf$art_c; $art_ipvdozrkj$art_i++) {
-        var r = radioes[$art_ipvdozrkj$art_i];
-        $p += '<label mxv mxa="_zs_gallerya3:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
+    $expr = '<%for (var $art_ixpynhmlni$art_i = 0, $art_cgbzogv$art_c = radioes.length; $art_ixpynhmlni$art_i < $art_cgbzogv$art_c; $art_ixpynhmlni$art_i++) {    var r = radioes[$art_ixpynhmlni$art_i]%>';
+    for (var $art_ixpynhmlni$art_i = 0, $art_cgbzogv$art_c = radioes.length; $art_ixpynhmlni$art_i < $art_cgbzogv$art_c; $art_ixpynhmlni$art_i++) {
+        var r = radioes[$art_ixpynhmlni$art_i];
+        $p += '<label mxv mxa="_zs_gallerya8:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 8;
         $art = ':selected';
         ;
@@ -53,27 +53,27 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div><div mxa="_zs_gallerya3:d" class="clearfix"><div mxa="_zs_gallerya3:e" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half"><div mxs="_zs_gallerya3:a" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</div></div><div mxa="_zs_gallerya8:d" class="clearfix"><div mxa="_zs_gallerya8:e" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half"><div mxs="_zs_gallerya8:a" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 17;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya3:f" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya8:f" class="_zs_gallery___test___base_-desc-tip">';
     $line = 19;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya3:b" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya8:b" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 22;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="mb20"&gt;\n    &#123;&#123;each radioes as r&#125;&#125;\n    &lt;label class="mr30"&gt;\n        &lt;input type="radio" class="radio" \n            name="magix" \n            value="&#123;&#123;=r&#125;&#125;" \n            &#123;&#123;:selected&#125;&#125; /&gt;\n        &#123;&#123;=r&#125;&#125;\n    &lt;/label&gt;\n    &#123;&#123;/each&#125;&#125;\n&lt;/div&gt;</pre></div><div mxa="_zs_gallerya3:g" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half _zs_gallery___test___base_-half-right"><div mxs="_zs_gallerya3:c" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="mb20"&gt;\n    &#123;&#123;each radioes as r&#125;&#125;\n    &lt;label class="mr30"&gt;\n        &lt;input type="radio" class="radio" \n            name="magix" \n            value="&#123;&#123;=r&#125;&#125;" \n            &#123;&#123;:selected&#125;&#125; /&gt;\n        &#123;&#123;=r&#125;&#125;\n    &lt;/label&gt;\n    &#123;&#123;/each&#125;&#125;\n&lt;/div&gt;</pre></div><div mxa="_zs_gallerya8:g" class="_zs_gallery___test___base_-eg-desc _zs_gallery___test___base_-half _zs_gallery___test___base_-half-right"><div mxs="_zs_gallerya8:c" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 37;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya3:h" class="_zs_gallery___test___base_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya8:h" class="_zs_gallery___test___base_-desc-tip">';
     $line = 39;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya3:b" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya8:b" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 42;
     $art = '=viewId';
     ;
