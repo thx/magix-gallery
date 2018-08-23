@@ -95,7 +95,7 @@ catch (ex) {
     },
     '@{notify.main.view.unload}': function (e) {
         var vf = Magix.Vframe.get('cnt_' + this.id);
-        vf.invoke('fire', ['unload', e]);
+        vf && vf.invoke('fire', ['unload', e]);
     },
     '@{close}<click>': function () {
         $('#' + this.id).trigger('dlg_close');

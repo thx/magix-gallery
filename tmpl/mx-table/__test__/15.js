@@ -13,7 +13,6 @@ module.exports = Base.extend({
         for (var i = 0; i < 20; i++) {
             allList.push({
                 id: i,
-                disabled: (i % 2 == 0),
                 content1: i + '_列1',
                 content2: i + '_列2',
                 content3: i + '_列3'
@@ -44,7 +43,7 @@ module.exports = Base.extend({
             page
         })
     },
-    'get<click>' (e) {
+    'get<change>' (e) {
         let selected = this.getStoreState('example');
         this.updater.digest({
             selected: selected
