@@ -21,8 +21,24 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', title = $$.title, content = $$.content, enterText = $$.enterText; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallery):_" class="dialog-body"><div mxa="_zs_gallery):a" class="_zs_gallery_mx-dialog_alert_-alert-header">' + ($expr = '<%=title%>', $e(title)) + '</div><div mxa="_zs_gallery):b" class="word-break">' + ($expr = '<%!content%>', $n(content)) + '</div></div><div mxa="_zs_gallery):c" class="dialog-footer"><a mxa="_zs_gallery):d" href="javascript:;" class="btn btn-brand min-width-60" mx-click="' + $viewId + '@{enter}();">' + ($expr = '<%=enterText%>', $e(enterText)) + '</a></div>';
+} ; var $g = '', $_temp, $p = '', title = $$.title, content = $$.content, hasBtns = $$.hasBtns, enterText = $$.enterText; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallery):_" class="dialog-body"><div mxa="_zs_gallery):a" class="_zs_gallery_mx-dialog_alert_-alert-header">' + ($expr = '<%=title%>', $e(title)) + '</div><div mxa="_zs_gallery):b" class="word-break">' + ($expr = '<%!content%>', $n(content)) + '</div></div>';
+    $line = 5;
+    $art = 'if hasBtns';
+    ;
+    $p += '';
+    $expr = '<%if (hasBtns) {%>';
+    if (hasBtns) {
+        ;
+        $p += '<div mxa="_zs_gallery):c" class="dialog-footer"><a mxa="_zs_gallery):d" href="javascript:;" class="btn btn-small btn-brand min-width-50" mx-click="' + $viewId + '@{enter}();">' + ($expr = '<%=enterText%>', $e(enterText)) + '</a></div>';
+        $line = 9;
+        $art = '/if';
+        ;
+        $p += '';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -39,13 +55,15 @@ catch (ex) {
         me['@{string.title}'] = extra.title || I18n['dialog.tip'];
         me['@{string.enter}'] = I18n['dialog.submit'];
         me['@{fn.enter.callback}'] = extra.enterCallback;
+        me['@{ui.btns}'] = extra.hasBtns;
     },
     render: function () {
         var me = this;
         me.updater.digest({
             content: me['@{string.content}'],
             title: me['@{string.title}'],
-            enterText: me['@{string.enter}']
+            enterText: me['@{string.enter}'],
+            hasBtns: me['@{ui.btns}']
         });
     },
     '@{enter}<click>': function () {

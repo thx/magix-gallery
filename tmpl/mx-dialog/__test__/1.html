@@ -10,6 +10,9 @@
             
             <a href="javascript:;" mx-click="alert2()" 
                 class="btn btn-brand ml20">自定义alert样式</a>
+            
+            <a href="javascript:;" mx-click="alert3()" 
+                class="btn btn-brand ml20">无关闭按钮</a>
         </div>
     </div>
     <div class="eg-desc">
@@ -24,7 +27,10 @@
     class="btn btn-brand"&gt;默认alert&lt;/a&gt;
 
 &lt;a href="javascript:;" mx-click="alert2()" 
-    class="btn btn-brand ml20"&gt;自定义alert样式&lt;/a&gt;</pre>
+    class="btn btn-brand"&gt;自定义alert样式&lt;/a&gt;
+
+&lt;a href="javascript:;" mx-click="alert3()" 
+    class="btn btn-brand"&gt;无关闭按钮&lt;/a&gt;</pre>
     </div>
     <div class="eg-desc">
         <div class="eg-title">JS Code</div>
@@ -58,6 +64,7 @@ module.exports = Magix.View.extend(&#123;
         //         height： 高度
         //         modal：是否允许滚动
         //         mask：是否有遮罩
+        //         btns：是否有按钮，默认true
         //         ......
         that.alert('系统异常', '测试内容', () => &#123;
             console.log('点击确认后响应')
@@ -65,6 +72,22 @@ module.exports = Magix.View.extend(&#123;
             width: 400,
             mask: true
         &#125;);
+    &#125;,
+    'alert3&lt;click&gt;'(e) &#123;
+        let dialog = this.alert(
+            '系统异常', 
+            '无关闭按钮，2秒后自动关闭', 
+            null, 
+            &#123;
+                width: 400,
+                mask: true,
+                btns: false
+            &#125;
+        );
+        
+        setTimeout(() =&gt; &#123;
+            dialog.close();
+        &#125;, 2000);
     &#125;
 &#125;);</pre>
     </div>

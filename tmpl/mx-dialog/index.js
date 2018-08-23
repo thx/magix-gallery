@@ -151,15 +151,19 @@ module.exports = Magix.View.extend({
     },
 
     alert(title, content, enterCallback, dialogOptions) {
-        this.mxDialog('@./alert', {
-            title: title,
-            content: content,
-            enterCallback: enterCallback
+        dialogOptions = dialogOptions || {};
+        let hasBtns = ((dialogOptions.btns + '') !== 'false');
+
+        return this.mxDialog('@./alert', {
+            title,
+            content,
+            enterCallback,
+            hasBtns
         }, Magix.mix({
             width: 320,
             closable: false,
             mask: false
-        }, (dialogOptions || {})))
+        }, dialogOptions))
     },
 
     confirm(viewOptions, dialogOptions) {
@@ -176,7 +180,7 @@ module.exports = Magix.View.extend({
         //          modal：是否允许滚动
         //          mask：是否有遮罩
         //          ......
-        this.mxDialog('@./confirm', viewOptions, Magix.mix({
+        return this.mxDialog('@./confirm', viewOptions, Magix.mix({
             width: 320,
             closable: false,
             mask: false
@@ -196,7 +200,7 @@ module.exports = Magix.View.extend({
         //          mask：是否有遮罩
         //          ......
         viewOptions.height = dialogOptions.height || 500;
-        this.mxDialog('@./group', viewOptions, Magix.mix({
+        return this.mxDialog('@./group', viewOptions, Magix.mix({
             width: 800,
             closable: true,
             mask: true

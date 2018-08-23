@@ -2,6 +2,8 @@
     <div class="alert-header"><%=title%></div>
     <div class="word-break"><%!content%></div>
 </div>
+{{if hasBtns}}
 <div class="dialog-footer">
-    <a href="javascript:;" class="btn btn-brand min-width-60" mx-click="@{enter}();"><%=enterText%></a>
+    <a href="javascript:;" class="btn btn-small btn-brand min-width-50" mx-click="@{enter}();"><%=enterText%></a>
 </div>
+{{/if}}

@@ -23,6 +23,7 @@ module.exports = Base.extend({
         //         height： 高度
         //         modal：是否允许滚动
         //         mask：是否有遮罩
+        //         btns：是否有按钮
         //         ......
         that.alert('系统异常', '测试内容', () => {
             console.log('点击确认后响应')
@@ -30,5 +31,16 @@ module.exports = Base.extend({
             width: 400,
             mask: true
         });
+    },
+    'alert3<click>'(e) {
+        let dialog = this.alert('系统异常', '无关闭按钮，2秒后自动关闭', null, {
+            width: 400,
+            mask: true,
+            btns: false
+        });
+        
+        setTimeout(() => {
+            dialog.close();
+        }, 2000);
     }
 });

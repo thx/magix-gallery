@@ -24,31 +24,31 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallery@:_" class="_zs_gallery___test___base_-example"><div mxs="_zs_gallery@:_" class="_zs_gallery___test___base_-eg-content"><div class="color-9 mb20"><i class="mc-iconfont displacement-2 mr5">&#xe6ac;</i>提示浮层，默认无mask，宽度320，居中显示</div><div><a href="javascript:;" mx-click="' + $viewId + 'alert1()" class="btn btn-brand">默认alert</a><a href="javascript:;" mx-click="' + $viewId + 'alert2()" class="btn btn-brand ml20">自定义alert样式</a></div></div><div mxa="_zs_gallery@:a" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallery@:a" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 17;
+    $p += '<div mxa="_zs_gallery@:_" class="_zs_gallery___test___base_-example"><div mxs="_zs_gallery@:g" class="_zs_gallery___test___base_-eg-content"><div class="color-9 mb20"><i class="mc-iconfont displacement-2 mr5">&#xe6ac;</i>提示浮层，默认无mask，宽度320，居中显示</div><div><a href="javascript:;" mx-click="' + $viewId + 'alert1()" class="btn btn-brand">默认alert</a><a href="javascript:;" mx-click="' + $viewId + 'alert2()" class="btn btn-brand ml20">自定义alert样式</a><a href="javascript:;" mx-click="' + $viewId + 'alert3()" class="btn btn-brand ml20">无关闭按钮</a></div></div><div mxa="_zs_gallery@:e" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallery@:a" class="_zs_gallery___test___base_-eg-title">HTML Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 20;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery@:b" class="_zs_gallery___test___base_-desc-tip">';
-    $line = 19;
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery@:f" class="_zs_gallery___test___base_-desc-tip">';
+    $line = 22;
     $art = '!text1';
     ;
     $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery@:b" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 22;
+    $line = 25;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" mx-click="alert1()" \n    class="btn btn-brand"&gt;默认alert&lt;/a&gt;\n\n&lt;a href="javascript:;" mx-click="alert2()" \n    class="btn btn-brand ml20"&gt;自定义alert样式&lt;/a&gt;</pre></div><div mxa="_zs_gallery@:c" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallery@:c" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 31;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" mx-click="alert1()" \n    class="btn btn-brand"&gt;默认alert&lt;/a&gt;\n\n&lt;a href="javascript:;" mx-click="alert2()" \n    class="btn btn-brand"&gt;自定义alert样式&lt;/a&gt;\n\n&lt;a href="javascript:;" mx-click="alert3()" \n    class="btn btn-brand"&gt;无关闭按钮&lt;/a&gt;</pre></div><div mxa="_zs_gallery@:g" class="_zs_gallery___test___base_-eg-desc"><div mxs="_zs_gallery@:c" class="_zs_gallery___test___base_-eg-title">JS Code</div><div class="_zs_gallery___test___base_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 37;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery@:d" class="_zs_gallery___test___base_-desc-tip">';
-    $line = 33;
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery@:h" class="_zs_gallery___test___base_-desc-tip">';
+    $line = 39;
     $art = '!text2';
     ;
     $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallery@:b" class="mc-iconfont _zs_gallery___test___base_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 36;
+    $line = 42;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Dialog = require(\'@../index\'); //mixins dialog\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [Dialog],\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    \'alert1&lt;click&gt;\'(e) &#123;\n        this.alert(\'系统异常\', \'测试内容\');\n    &#125;,\n    \'alert2&lt;click&gt;\'(e) &#123;\n        let that = this;\n        // alert(title, content, enterCallback, dialogOptions)\n        //     title： 标题\n        //     content： 内容\n        //     enterCallback：确认回调\n        //     dialogOptions： 浮层样式覆盖\n        //         width： 宽度\n        //         height： 高度\n        //         modal：是否允许滚动\n        //         mask：是否有遮罩\n        //         ......\n        that.alert(\'系统异常\', \'测试内容\', () => &#123;\n            console.log(\'点击确认后响应\')\n        &#125;, &#123;\n            width: 400,\n            mask: true\n        &#125;);\n    &#125;\n&#125;);</pre></div></div>';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Dialog = require(\'@../index\'); //mixins dialog\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [Dialog],\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    \'alert1&lt;click&gt;\'(e) &#123;\n        this.alert(\'系统异常\', \'测试内容\');\n    &#125;,\n    \'alert2&lt;click&gt;\'(e) &#123;\n        let that = this;\n        // alert(title, content, enterCallback, dialogOptions)\n        //     title： 标题\n        //     content： 内容\n        //     enterCallback：确认回调\n        //     dialogOptions： 浮层样式覆盖\n        //         width： 宽度\n        //         height： 高度\n        //         modal：是否允许滚动\n        //         mask：是否有遮罩\n        //         btns：是否有按钮，默认true\n        //         ......\n        that.alert(\'系统异常\', \'测试内容\', () => &#123;\n            console.log(\'点击确认后响应\')\n        &#125;, &#123;\n            width: 400,\n            mask: true\n        &#125;);\n    &#125;,\n    \'alert3&lt;click&gt;\'(e) &#123;\n        let dialog = this.alert(\n            \'系统异常\', \n            \'无关闭按钮，2秒后自动关闭\', \n            null, \n            &#123;\n                width: 400,\n                mask: true,\n                btns: false\n            &#125;\n        );\n        \n        setTimeout(() =&gt; &#123;\n            dialog.close();\n        &#125;, 2000);\n    &#125;\n&#125;);</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -76,6 +76,7 @@ catch (ex) {
         //         height： 高度
         //         modal：是否允许滚动
         //         mask：是否有遮罩
+        //         btns：是否有按钮
         //         ......
         that.alert('系统异常', '测试内容', function () {
             console.log('点击确认后响应');
@@ -83,6 +84,16 @@ catch (ex) {
             width: 400,
             mask: true
         });
+    },
+    'alert3<click>': function (e) {
+        var dialog = this.alert('系统异常', '无关闭按钮，2秒后自动关闭', null, {
+            width: 400,
+            mask: true,
+            btns: false
+        });
+        setTimeout(function () {
+            dialog.close();
+        }, 2000);
     }
 });
 

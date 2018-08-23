@@ -169,15 +169,18 @@ catch (ex) {
         });
     },
     alert: function (title, content, enterCallback, dialogOptions) {
-        this.mxDialog('mx-dialog/alert', {
+        dialogOptions = dialogOptions || {};
+        var hasBtns = ((dialogOptions.btns + '') !== 'false');
+        return this.mxDialog('mx-dialog/alert', {
             title: title,
             content: content,
-            enterCallback: enterCallback
+            enterCallback: enterCallback,
+            hasBtns: hasBtns
         }, Magix.mix({
             width: 320,
             closable: false,
             mask: false
-        }, (dialogOptions || {})));
+        }, dialogOptions));
     },
     confirm: function (viewOptions, dialogOptions) {
         // this.confirm(viewOptions, dialogOptions);
@@ -193,7 +196,7 @@ catch (ex) {
         //          modal：是否允许滚动
         //          mask：是否有遮罩
         //          ......
-        this.mxDialog('mx-dialog/confirm', viewOptions, Magix.mix({
+        return this.mxDialog('mx-dialog/confirm', viewOptions, Magix.mix({
             width: 320,
             closable: false,
             mask: false
@@ -212,7 +215,7 @@ catch (ex) {
         //          mask：是否有遮罩
         //          ......
         viewOptions.height = dialogOptions.height || 500;
-        this.mxDialog('mx-dialog/group', viewOptions, Magix.mix({
+        return this.mxDialog('mx-dialog/group', viewOptions, Magix.mix({
             width: 800,
             closable: true,
             mask: true

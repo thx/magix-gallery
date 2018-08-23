@@ -11,6 +11,7 @@ module.exports = Magix.View.extend({
         me['@{string.title}'] = extra.title || I18n['dialog.tip'];
         me['@{string.enter}'] = I18n['dialog.submit'];
         me['@{fn.enter.callback}'] = extra.enterCallback;
+        me['@{ui.btns}'] = extra.hasBtns;
     },
     render() {
         let me = this;
@@ -18,6 +19,7 @@ module.exports = Magix.View.extend({
             content: me['@{string.content}'],
             title: me['@{string.title}'],
             enterText: me['@{string.enter}'],
+            hasBtns: me['@{ui.btns}']
         });
     },
     '@{enter}<click>' () {
