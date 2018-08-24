@@ -26,9 +26,9 @@ module.exports = Magix.View.extend({
     $art = 'each options as option';
     ;
     $p += '';
-    $expr = '<%for (var $art_ijxvkzuwms$art_i = 0, $art_czttintiol$art_c = options.length; $art_ijxvkzuwms$art_i < $art_czttintiol$art_c; $art_ijxvkzuwms$art_i++) {    var option = options[$art_ijxvkzuwms$art_i]%>';
-    for (var $art_ijxvkzuwms$art_i = 0, $art_czttintiol$art_c = options.length; $art_ijxvkzuwms$art_i < $art_czttintiol$art_c; $art_ijxvkzuwms$art_i++) {
-        var option = options[$art_ijxvkzuwms$art_i];
+    $expr = '<%for (var $art_imwazqkoe$art_i = 0, $art_cbqovsojd$art_c = options.length; $art_imwazqkoe$art_i < $art_cbqovsojd$art_c; $art_imwazqkoe$art_i++) {    var option = options[$art_imwazqkoe$art_i]%>';
+    for (var $art_imwazqkoe$art_i = 0, $art_cbqovsojd$art_c = options.length; $art_imwazqkoe$art_i < $art_cbqovsojd$art_c; $art_imwazqkoe$art_i++) {
+        var option = options[$art_imwazqkoe$art_i];
         $p += '<tr><td>';
         $line = 14;
         $art = '=option.key';
@@ -71,7 +71,7 @@ catch (ex) {
     },
     'to<click>': function (e) {
         var node = $('#' + e.params.id);
-        $(window).scrollTop(node.offset().top - 52);
+        $(window).scrollTop(node.offset().top);
     }
 });
 

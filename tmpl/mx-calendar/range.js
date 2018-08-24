@@ -78,7 +78,6 @@ let RangeDate = Magix.View.extend({
                 return curMin
             }
         }
-
         that.updater.set(ops);
     },
     render() {

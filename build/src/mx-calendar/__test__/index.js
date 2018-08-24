@@ -3,7 +3,7 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-calendar/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./2","./3","./4","./5","__test__/api","./implement"],(require,exports,module)=>{
+define("mx-calendar/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./2","./3","./4","./14","./5","__test__/api","./implement"],(require,exports,module)=>{
 /*Magix,$*/
 require("__test__/subs");
 require("mx-title/second");
@@ -11,6 +11,7 @@ require("./1");
 require("./2");
 require("./3");
 require("./4");
+require("./14");
 require("./5");
 require("__test__/api");
 require("./implement");
@@ -41,16 +42,16 @@ module.exports = Magix.View.extend({
     $line = 12;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryY:_" class="clearfix mb20"><div class="_zs_gallery___test___base_-half"><div mx-view="mx-calendar/__test__/1"></div><div mx-view="mx-calendar/__test__/2"></div></div><div class="_zs_gallery___test___base_-half"><div mx-view="mx-calendar/__test__/3"></div><div mx-view="mx-calendar/__test__/4"></div><div mx-view="mx-calendar/__test__/5"></div></div></div><div id="';
-    $line = 25;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryY:b" class="clearfix mb20"><div class="_zs_gallery___test___base_-half"><div mx-view="mx-calendar/__test__/1"></div><div mx-view="mx-calendar/__test__/2"></div></div><div class="_zs_gallery___test___base_-half"><div mx-view="mx-calendar/__test__/3"></div><div mx-view="mx-calendar/__test__/4"></div><div mx-view="mx-calendar/__test__/14"></div><div mx-view="mx-calendar/__test__/5"></div></div></div><div id="';
+    $line = 26;
     $art = '=viewId';
     ;
     $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 26;
+    $line = 27;
     $art = '@options';
     ;
     $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div mx-view="mx-calendar/__test__/implement" id="';
-    $line = 28;
+    $line = 29;
     $art = '=viewId';
     ;
     $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_implement"></div>';
@@ -93,6 +94,11 @@ catch (ex) {
                 desc: '提示文案前缀，展示为prefix：YYYY-MM-DD',
                 type: 'string',
                 def: ''
+            }, {
+                key: 'disabled-weeks',
+                desc: '限制周几不可选，[0, 1, 2, 3, 4, 5, 6]的子集',
+                type: 'array',
+                def: '[]'
             }, {
                 key: 'week-start',
                 desc: '从周几开，0-6，0表示周日',

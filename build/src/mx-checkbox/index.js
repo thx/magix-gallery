@@ -11,7 +11,8 @@ var $ = require("$");
 module.exports = Magix.View.extend({
     render: function () {
         var node = $('#' + this.id);
-        node.attr('type', 'checkbox');
+        // 在_config中配置
+        // node.attr('type', 'checkbox');
         ['checked', 'disabled', 'indeterminate'].forEach(function (key) {
             if (typeof (node.attr('mx-' + key)) == 'undefined') {
                 node.prop(key, false);

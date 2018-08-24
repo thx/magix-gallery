@@ -71,6 +71,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: 'left'
         }, {
+            key: 'disabled-weeks',
+            desc: '限制周几不可选，[0, 1, 2, 3, 4, 5, 6]的子集',
+            type: 'array',
+            def: '[]'
+        }, {
             key: 'week-start',
             desc: '从周几开，0-6，0表示周日',
             type: 'number',

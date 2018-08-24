@@ -48,6 +48,7 @@ module.exports = {
     "dropdown.all.custom": "All",
     "dropdown.all.default": "All",
     "dropdown.search": "Search",
+    "dropdown.empty.text": "Choose please",
     "form.char": "characters",
     "form.char.between": "Between ${min} to ${max} characters, current: ${current} characters",
     "form.check.chinese": "Please enter the Chinese",

@@ -123,7 +123,8 @@ let Rangepicker = Magix.View.extend({
             vsSingle,
             startDisabled,
             endDisabled,
-            dates
+            dates,
+            disabledWeeks: extra.disabledWeeks || []
         }
 
         that.updater.set({

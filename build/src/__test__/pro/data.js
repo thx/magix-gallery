@@ -3,17 +3,12 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-form/__test__/17",["magix","__test__/example","mx-form/index","mx-form/validator","$","moment"],(require,exports,module)=>{
-/*Magix,Base,Form,Validator,$,Moment*/
+define("__test__/pro/data",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
 
 var Magix = require("magix");
-var Base = require("__test__/example");
-var Form = require("mx-form/index");
-var Validator = require("mx-form/validator");
 var $ = require("$");
-var Moment = require("moment");
-var Formater = 'YYYY-MM-DD';
-module.exports = Base.extend({
+module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
     var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
@@ -26,32 +21,18 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerya#:k" class="_zs_gallery___test___base_-example"><div class="_zs_gallery___test___base_-eg-content">Todo</div></div>';
+    $p += 'Todo';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
     if ($art)
         msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
     msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-form/__test__/17.html';
+    msg += $expr + '\r\n\tat file:__test__/pro/data.html';
     throw msg;
 } return $p; },
-    mixins: [Form, Validator],
     render: function () {
-        this.updater.digest({
-            viewId: this.id,
-            checkboxes: ['checkbox1', 'checkbox2', 'checkbox3'],
-            radioes: ['radio1', 'radio2', 'radio3'],
-            selected: {
-                "switch": true,
-                radio: 'radio2',
-                checkboxes: ['checkbox1'],
-                vsenable: true,
-                vs: true,
-                start: Moment().subtract(1, 'days').format(Formater),
-                end: Moment().add(1, 'days').format(Formater)
-            }
-        });
+        this.updater.digest();
     }
 });
 

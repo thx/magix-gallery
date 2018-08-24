@@ -48,7 +48,12 @@ var GetWeekText = function (weekStart) {
     }
     return a;
 };
-var DateDisabled = function (current, start, end) {
+var DateDisabled = function (current, start, end, disabledWeeks) {
+    // disabledWeeks 不可选择周几
+    var day = current.getDay();
+    if (disabledWeeks.indexOf(day) > -1) {
+        return true;
+    }
     var ts = current.getTime(), flag;
     if (start) {
         flag = ts < start.getTime();
@@ -355,6 +360,9 @@ catch (ex) {
         var types = ParseEnablePanels(ops.dateType);
         var weekStart = ops.weekStart | 0;
         var timeType = ops.timeType;
+        var disabledWeeks = (ops.disabledWeeks || []).map(function (w) {
+            return +w;
+        });
         me.updater.set({
             types: types,
             showYear: 0,
@@ -367,7 +375,8 @@ catch (ex) {
             min: min,
             id: me.id,
             weekStart: weekStart,
-            weekText: GetWeekText(weekStart)
+            weekText: GetWeekText(weekStart),
+            disabledWeeks: disabledWeeks
         });
         // 不限的情况特殊处理，不设置选中值
         me['@{update.selected}'](selected, forever);
@@ -460,6 +469,7 @@ catch (ex) {
         var trs = [];
         var data = me.updater;
         var weekStart = data.get('weekStart');
+        var disabledWeeks = data.get('disabledWeeks');
         var year = data.get('year');
         var month = data.get('month');
         var startOffset = (7 - weekStart + new Date(year, month - 1, 1).getDay()) % 7;
@@ -479,7 +489,7 @@ catch (ex) {
                 full: DateFormat(date),
                 day: day,
                 otherMonth: true,
-                disabled: DateDisabled(date, min, max)
+                disabled: DateDisabled(date, min, max, disabledWeeks)
             });
         }
         for (i = 1; i <= days; i++) {
@@ -491,7 +501,7 @@ catch (ex) {
                 day: i,
                 month: month,
                 full: formatDay,
-                disabled: DateDisabled(date, min, max)
+                disabled: DateDisabled(date, min, max, disabledWeeks)
             });
             if (((i + startOffset) % 7) === 0) {
                 trs.push(tds);
@@ -508,7 +518,7 @@ catch (ex) {
                 day: day,
                 otherMonth: true,
                 full: DateFormat(date),
-                disabled: DateDisabled(date, min, max)
+                disabled: DateDisabled(date, min, max, disabledWeeks)
             });
             if ((i + 1) % 7 === 0) {
                 trs.push(tds);

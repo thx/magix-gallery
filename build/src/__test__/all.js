@@ -53,9 +53,9 @@ module.exports = Magix.View.extend({
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for (var $art_idykic$art_i = 0, $art_ctawxyts$art_c = list.length; $art_idykic$art_i < $art_ctawxyts$art_c; $art_idykic$art_i++) {    var item = list[$art_idykic$art_i]%>';
-    for (var $art_idykic$art_i = 0, $art_ctawxyts$art_c = list.length; $art_idykic$art_i < $art_ctawxyts$art_c; $art_idykic$art_i++) {
-        var item = list[$art_idykic$art_i];
+    $expr = '<%for (var $art_izpqwrljx$art_i = 0, $art_cwetvgaq$art_c = list.length; $art_izpqwrljx$art_i < $art_cwetvgaq$art_c; $art_izpqwrljx$art_i++) {    var item = list[$art_izpqwrljx$art_i]%>';
+    for (var $art_izpqwrljx$art_i = 0, $art_cwetvgaq$art_c = list.length; $art_izpqwrljx$art_i < $art_cwetvgaq$art_c; $art_izpqwrljx$art_i++) {
+        var item = list[$art_izpqwrljx$art_i];
         $p += ' ';
         $line = 5;
         $art = 'if item.name';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
         $art = 'each item.subs as sub';
         ;
         $p += '';
-        $expr = '<%for (var $art_ioaxdzgnm$art_i = 0, $art_objihawzrzyi$art_obj = item.subs, $art_cadniaihm$art_c = $art_objihawzrzyi$art_obj.length; $art_ioaxdzgnm$art_i < $art_cadniaihm$art_c; $art_ioaxdzgnm$art_i++) {        var sub = $art_objihawzrzyi$art_obj[$art_ioaxdzgnm$art_i]%>';
-        for (var $art_ioaxdzgnm$art_i = 0, $art_objihawzrzyi$art_obj = item.subs, $art_cadniaihm$art_c = $art_objihawzrzyi$art_obj.length; $art_ioaxdzgnm$art_i < $art_cadniaihm$art_c; $art_ioaxdzgnm$art_i++) {
-            var sub = $art_objihawzrzyi$art_obj[$art_ioaxdzgnm$art_i];
+        $expr = '<%for (var $art_iuzhsmacpn$art_i = 0, $art_objbuksxxkkk$art_obj = item.subs, $art_clttkdpfd$art_c = $art_objbuksxxkkk$art_obj.length; $art_iuzhsmacpn$art_i < $art_clttkdpfd$art_c; $art_iuzhsmacpn$art_i++) {        var sub = $art_objbuksxxkkk$art_obj[$art_iuzhsmacpn$art_i]%>';
+        for (var $art_iuzhsmacpn$art_i = 0, $art_objbuksxxkkk$art_obj = item.subs, $art_clttkdpfd$art_c = $art_objbuksxxkkk$art_obj.length; $art_iuzhsmacpn$art_i < $art_clttkdpfd$art_c; $art_iuzhsmacpn$art_i++) {
+            var sub = $art_objbuksxxkkk$art_obj[$art_iuzhsmacpn$art_i];
             $p += '<a class="_zs_gallery___test___all_-nav ';
             $line = 13;
             $art = 'if (sub.path == path)';
@@ -333,15 +333,15 @@ catch (ex) {
                         icon: '&#xe62c;'
                     }]
             }, {
-                name: '表单校验与双向绑定',
+                name: '表单校验与双向绑定（mixins）',
                 subs: [{
-                        name: '配置版（模板组件内）',
-                        path: '/form/index',
-                        icon: '&#xe731;'
-                    }, {
-                        name: 'mixins版（view附加属性）',
+                        name: '支持的校验项',
                         path: '/form/mixins',
                         icon: '&#xe64e;'
+                    }, {
+                        name: '双向绑定 + 校验使用场景示例',
+                        path: '/form/index',
+                        icon: '&#xe731;'
                     }]
             }, {
                 name: '表格（mixins）',

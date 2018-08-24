@@ -3,11 +3,13 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-form/__test__/index",["magix","$"],(require,exports,module)=>{
-/*Magix,$*/
-
+define("mx-form/__test__/index",["magix","__test__/subs","mx-title/second","./17","./1"],(require,exports,module)=>{
+/*Magix*/
+require("__test__/subs");
+require("mx-title/second");
+require("./17");
+require("./1");
 var Magix = require("magix");
-var $ = require("$");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -20,8 +22,28 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += 'Todo';
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
+    $p += '<div mx-view="__test__/subs?list=';
+    $line = 1;
+    $art = '@[{\n    name: \'查看方法定义\',\n    key: viewId + \'_method\'\n}, {\n    name: \'查看完整表单应用示例\',\n    key: viewId + \'_demo\'\n}, {\n    name: \'查看警告场景示例\',\n    key: viewId + \'_warn\'\n}]';
+    ;
+    $p += '' + ($expr = '<%@[{            name: \'查看方法定义\',            key: viewId + \'_method\'        }, {            name: \'查看完整表单应用示例\',            key: viewId + \'_demo\'        }, {            name: \'查看警告场景示例\',            key: viewId + \'_warn\'        }]%>', $i($$ref, [{ name: '查看方法定义', key: viewId + '_method' }, { name: '查看完整表单应用示例', key: viewId + '_demo' }, { name: '查看警告场景示例', key: viewId + '_warn' }])) + '"></div><div id="';
+    $line = 12;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_method" mx-view="mx-title/second?content=Methods"></div><div mxs="_zs_gallerya):e" class="pr20 mb40"><table class="table _zs_gallery___test___base_-desc-table"><thead><tr><th width="100">方法名</th><th width="200">说明</th></tr></thead><tbody><tr><td>isValid(configs: object)</td><td><pre>this.isValid(&#123;\n    // 单独校验某个节点，可以传入dom节点，或者#id，.class，直接传入字符串默认为id\n    // 1. 默认null，整个view校验\n    // 2. 传入element的时候\n    //    2.1 如果element本身有校验，则只校验该节点\n    //    2.2 如果element本身无校验，则找该节点下所有的校验项去校验\n    element: null,\n\n    // 校验有错误的情况下是否要滚动到错误节点，默认true\n    scrollIntoView: true, \n\n    //是否调用子view校验，children.isValid，默认true\n    checkSubs: true \n&#125;)\n</pre></td></tr></tbody></table></div><div id="';
+    $line = 44;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E5%AE%8C%E6%95%B4%E8%A1%A8%E5%8D%95%E5%BA%94%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerya):d" class="clearfix mb20"><div mx-view="mx-form/__test__/17"></div></div><div id="';
+    $line = 49;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_warn" mx-view="mx-title/second?content=warn%E8%AD%A6%E5%91%8A%E5%9C%BA%E6%99%AF%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerya):_" class="clearfix mb20"><div mx-view="mx-form/__test__/1"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -32,41 +54,9 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
-        var options = [{
-                key: 'list',
-                desc: '对象数组，如[{value:1,text:"选项1"}]',
-                type: 'array'
-            }, {
-                key: 'selected',
-                desc: '当前选中值',
-                type: 'string',
-                def: '不传默认取list第一个'
-            }, {
-                key: 'text-key',
-                desc: '渲染text时读取的key',
-                type: 'string',
-                def: 'text'
-            }, {
-                key: 'value-key',
-                desc: '渲染value时读取的key',
-                type: 'string',
-                def: 'value'
-            }, {
-                key: 'tag',
-                desc: '打标内容',
-                type: 'string',
-                def: ''
-            }];
         this.updater.digest({
-            options: options
+            viewId: this.id
         });
-    },
-    'changeTab<change>': function (e) {
-        // e.value 当前选中的key值
-        // e.text 当前选中的文案
-        this.updater.set({
-            selectedId: e.value
-        }).digest();
     }
 });
 

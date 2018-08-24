@@ -47,7 +47,13 @@ let GetWeekText = (weekStart) => {
     return a;
 };
 
-let DateDisabled = (current, start, end) => {
+let DateDisabled = (current, start, end, disabledWeeks) => {
+    // disabledWeeks 不可选择周几
+    let day = current.getDay();
+    if(disabledWeeks.indexOf(day) > -1){
+        return true;
+    }
+
     let ts = current.getTime(),
         flag;
     if (start) {
@@ -118,6 +124,10 @@ module.exports = Magix.View.extend({
         let types = ParseEnablePanels(ops.dateType);
         let weekStart = ops.weekStart | 0;
         let timeType = ops.timeType;
+
+        let disabledWeeks = (ops.disabledWeeks || []).map(w => {
+            return +w;
+        });
         me.updater.set({
             types,
             showYear: 0,
@@ -130,7 +140,8 @@ module.exports = Magix.View.extend({
             min,
             id: me.id,
             weekStart,
-            weekText: GetWeekText(weekStart)
+            weekText: GetWeekText(weekStart),
+            disabledWeeks
         });
 
         // 不限的情况特殊处理，不设置选中值
@@ -231,6 +242,8 @@ module.exports = Magix.View.extend({
         let trs = [];
         let data = me.updater;
         let weekStart = data.get('weekStart');
+        let disabledWeeks = data.get('disabledWeeks');
+
         let year = data.get('year');
         let month = data.get('month');
         let startOffset = (7 - weekStart + new Date(year, month - 1, 1).getDay()) % 7;
@@ -251,7 +264,7 @@ module.exports = Magix.View.extend({
                 full: DateFormat(date),
                 day: day,
                 otherMonth: true,
-                disabled: DateDisabled(date, min, max)
+                disabled: DateDisabled(date, min, max, disabledWeeks)
             });
         }
         for (i = 1; i <= days; i++) {
@@ -263,7 +276,7 @@ module.exports = Magix.View.extend({
                 day: i,
                 month: month,
                 full: formatDay,
-                disabled: DateDisabled(date, min, max)
+                disabled: DateDisabled(date, min, max, disabledWeeks)
             });
             if (((i + startOffset) % 7) === 0) {
                 trs.push(tds);
@@ -280,7 +293,7 @@ module.exports = Magix.View.extend({
                 day: day,
                 otherMonth: true,
                 full: DateFormat(date),
-                disabled: DateDisabled(date, min, max)
+                disabled: DateDisabled(date, min, max, disabledWeeks)
             });
             if ((i + 1) % 7 === 0) {
                 trs.push(tds);

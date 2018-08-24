@@ -169,8 +169,8 @@ module.exports = Magix.View.extend({
         $art = 'each groups as group groupIndex';
         ;
         $p += '';
-        $expr = '<%for (var groupIndex = 0, $art_cspleitbr$art_c = groups.length; groupIndex < $art_cspleitbr$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
-        for (var groupIndex = 0, $art_cspleitbr$art_c = groups.length; groupIndex < $art_cspleitbr$art_c; groupIndex++) {
+        $expr = '<%for (var groupIndex = 0, $art_cjoabnwbqc$art_c = groups.length; groupIndex < $art_cjoabnwbqc$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
+        for (var groupIndex = 0, $art_cjoabnwbqc$art_c = groups.length; groupIndex < $art_cjoabnwbqc$art_c; groupIndex++) {
             var group = groups[groupIndex];
             $p += ' ';
             $line = 30;
@@ -274,9 +274,9 @@ module.exports = Magix.View.extend({
             $art = 'each group.list as item';
             ;
             $p += '';
-            $expr = '<%for (var $art_iusqwbdifp$art_i = 0, $art_objtvpdmrph$art_obj = group.list, $art_cgrfordnbp$art_c = $art_objtvpdmrph$art_obj.length; $art_iusqwbdifp$art_i < $art_cgrfordnbp$art_c; $art_iusqwbdifp$art_i++) {            var item = $art_objtvpdmrph$art_obj[$art_iusqwbdifp$art_i]%>';
-            for (var $art_iusqwbdifp$art_i = 0, $art_objtvpdmrph$art_obj = group.list, $art_cgrfordnbp$art_c = $art_objtvpdmrph$art_obj.length; $art_iusqwbdifp$art_i < $art_cgrfordnbp$art_c; $art_iusqwbdifp$art_i++) {
-                var item = $art_objtvpdmrph$art_obj[$art_iusqwbdifp$art_i];
+            $expr = '<%for (var $art_iqdqxjfvhh$art_i = 0, $art_objktthuro$art_obj = group.list, $art_cgyrqbtm$art_c = $art_objktthuro$art_obj.length; $art_iqdqxjfvhh$art_i < $art_cgyrqbtm$art_c; $art_iqdqxjfvhh$art_i++) {            var item = $art_objktthuro$art_obj[$art_iqdqxjfvhh$art_i]%>';
+            for (var $art_iqdqxjfvhh$art_i = 0, $art_objktthuro$art_obj = group.list, $art_cgyrqbtm$art_c = $art_objktthuro$art_obj.length; $art_iqdqxjfvhh$art_i < $art_cgyrqbtm$art_c; $art_iqdqxjfvhh$art_i++) {
+                var item = $art_objktthuro$art_obj[$art_iqdqxjfvhh$art_i];
                 $p += ' ';
                 $line = 47;
                 $art = 'if !item.hide';
@@ -404,7 +404,7 @@ catch (ex) {
         // trigger方式，click，hover，默认click
         me['@{trigger.type}'] = ops.triggerType || 'click';
         var expand = false;
-        var emptyText = ops.emptyText || '请选择';
+        var emptyText = ops.emptyText || I18n['dropdown.empty.text'];
         var allText = ops.name || '';
         var needAll = (ops.needAll + '') === 'false'; //禁用全选功能
         var searchbox = (ops.searchbox + '') === 'true';

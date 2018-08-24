@@ -232,7 +232,8 @@ catch (ex) {
             vsSingle: vsSingle,
             startDisabled: startDisabled,
             endDisabled: endDisabled,
-            dates: dates
+            dates: dates,
+            disabledWeeks: extra.disabledWeeks || []
         };
         that.updater.set({
             viewId: that.id,

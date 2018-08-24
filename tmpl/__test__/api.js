@@ -11,6 +11,6 @@ module.exports = Magix.View.extend({
     },
     'to<click>'(e) {
         let node  = $('#' + e.params.id);
-        $(window).scrollTop(node.offset().top - 52);
+        $(window).scrollTop(node.offset().top);
     }
 });

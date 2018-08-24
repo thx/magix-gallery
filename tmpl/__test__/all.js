@@ -74,15 +74,15 @@ module.exports = Magix.View.extend({
                 icon: '&#xe62c;'
             }]
         }, {
-            name: '表单校验与双向绑定',
+            name: '表单校验与双向绑定（mixins）',
             subs: [{
-                name: '配置版（模板组件内）',
-                path: '/form/index',
-                icon: '&#xe731;'
-            }, {
-                name: 'mixins版（view附加属性）',
+                name: '支持的校验项',
                 path: '/form/mixins',
                 icon: '&#xe64e;'
+            }, {
+                name: '双向绑定 + 校验使用场景示例',
+                path: '/form/index',
+                icon: '&#xe731;'
             }]
         }, {
             name: '表格（mixins）',

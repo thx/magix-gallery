@@ -350,6 +350,10 @@ module.exports = Magix.View.extend({
         var me = this;
         var hoverClass = me['@{hover.class}'];
         var trs = me['@{table.main}'].find('tbody>tr');
+        if (trs.length == 0) {
+            // 表格被清空了
+            return;
+        }
         var action = action + 'Class';
         var operationTrClass = 'operation-tr', operationTrOpenClass = 'operation-tr-open', operationNextTrOpenClass = 'next-operation-tr-open';
         var tr = trs.eq(index);

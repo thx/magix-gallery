@@ -15,7 +15,6 @@ module.exports = Magix.View.extend({
             Monitor['@{remove}'](that);
             Monitor['@{teardown}']();
         });
-
         that['@{extra}'] = $.extend(true, {}, extra);
     },
 

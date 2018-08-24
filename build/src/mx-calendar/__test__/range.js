@@ -3,7 +3,7 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-calendar/__test__/range",["magix","$","mx-medusa/util","__test__/subs","mx-title/second","./6","./12","./7","./8","./9","./10","./11","./13","__test__/api","./implement"],(require,exports,module)=>{
+define("mx-calendar/__test__/range",["magix","$","mx-medusa/util","__test__/subs","mx-title/second","./6","./12","./7","./8","./9","./10","./11","./13","./15","__test__/api","./implement"],(require,exports,module)=>{
 /*Magix,$,I18n*/
 require("__test__/subs");
 require("mx-title/second");
@@ -15,6 +15,7 @@ require("./9");
 require("./10");
 require("./11");
 require("./13");
+require("./15");
 require("__test__/api");
 require("./implement");
 var Magix = require("magix");
@@ -45,44 +46,40 @@ module.exports = Magix.View.extend({
     $line = 15;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallery0:_" class="clearfix mb20"><div class="_zs_gallery___test___base_-half"><div mx-view="mx-calendar/__test__/6"></div><div mx-view="mx-calendar/__test__/12"></div></div><div class="_zs_gallery___test___base_-half"><div mx-view="mx-calendar/__test__/7"></div><div mx-view="mx-calendar/__test__/8"></div><div mx-view="mx-calendar/__test__/9"></div><div mx-view="mx-calendar/__test__/10"></div><div mx-view="mx-calendar/__test__/11"></div><div mx-view="mx-calendar/__test__/13"></div></div></div><div id="';
-    $line = 31;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallery0:b" class="clearfix mb20"><div class="_zs_gallery___test___base_-half"><div mx-view="mx-calendar/__test__/6"></div><div mx-view="mx-calendar/__test__/12"></div></div><div class="_zs_gallery___test___base_-half"><div mx-view="mx-calendar/__test__/7"></div><div mx-view="mx-calendar/__test__/8"></div><div mx-view="mx-calendar/__test__/9"></div><div mx-view="mx-calendar/__test__/10"></div><div mx-view="mx-calendar/__test__/11"></div><div mx-view="mx-calendar/__test__/13"></div><div mx-view="mx-calendar/__test__/15"></div></div></div><div id="';
+    $line = 32;
     $art = '=viewId';
     ;
     $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 32;
+    $line = 33;
     $art = '@options';
     ;
     $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
-    $line = 34;
-    $art = '=viewId';
-    ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_quick" mx-view="mx-title/second?content=%E5%BF%AB%E6%8D%B7%E6%97%A5%E6%9C%9F%E5%A4%87%E9%80%89%E9%A1%B9"></div><div class="pr20 mb40" id="';
     $line = 35;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_quick"><table mxa="_zs_gallery0:_" class="table _zs_gallery___test___base_-desc-table"><thead mxs="_zs_gallery0:a"><tr><th width="100">配置key值</th><th width="100">显示文案</th><th width="200">描述</th></tr></thead><tbody>';
-    $line = 45;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_quick" mx-view="mx-title/second?content=%E5%BF%AB%E6%8D%B7%E6%97%A5%E6%9C%9F%E5%A4%87%E9%80%89%E9%A1%B9"></div><div mxa="_zs_gallery0:_" class="pr20 mb40"><table mxa="_zs_gallery0:b" class="table _zs_gallery___test___base_-desc-table"><thead mxs="_zs_gallery0:a"><tr><th width="100">配置key值</th><th width="100">显示文案</th><th width="200">描述</th></tr></thead><tbody>';
+    $line = 46;
     $art = 'each supportQuickDates as item';
     ;
     $p += '';
-    $expr = '<%for (var $art_iuvcawd$art_i = 0, $art_coagcbxln$art_c = supportQuickDates.length; $art_iuvcawd$art_i < $art_coagcbxln$art_c; $art_iuvcawd$art_i++) {    var item = supportQuickDates[$art_iuvcawd$art_i]%>';
-    for (var $art_iuvcawd$art_i = 0, $art_coagcbxln$art_c = supportQuickDates.length; $art_iuvcawd$art_i < $art_coagcbxln$art_c; $art_iuvcawd$art_i++) {
-        var item = supportQuickDates[$art_iuvcawd$art_i];
+    $expr = '<%for (var $art_iytndcwhqs$art_i = 0, $art_copgszzyn$art_c = supportQuickDates.length; $art_iytndcwhqs$art_i < $art_copgszzyn$art_c; $art_iytndcwhqs$art_i++) {    var item = supportQuickDates[$art_iytndcwhqs$art_i]%>';
+    for (var $art_iytndcwhqs$art_i = 0, $art_copgszzyn$art_c = supportQuickDates.length; $art_iytndcwhqs$art_i < $art_copgszzyn$art_c; $art_iytndcwhqs$art_i++) {
+        var item = supportQuickDates[$art_iytndcwhqs$art_i];
         $p += '<tr><td>';
-        $line = 47;
+        $line = 48;
         $art = '=item.key';
         ;
         $p += '' + ($expr = '<%=item.key%>', $e(item.key)) + '</td><td>';
-        $line = 48;
+        $line = 49;
         $art = '=item.text';
         ;
         $p += '' + ($expr = '<%=item.text%>', $e(item.text)) + '</td><td>';
-        $line = 49;
+        $line = 50;
         $art = '=item.tip';
         ;
         $p += '' + ($expr = '<%=item.tip%>', $e(item.tip)) + '</td></tr>';
-        $line = 51;
+        $line = 52;
         $art = '/each';
         ;
         $p += '';
@@ -90,7 +87,7 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += '</tbody></table></div><div mx-view="mx-calendar/__test__/implement" id="';
-    $line = 56;
+    $line = 57;
     $art = '=viewId';
     ;
     $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_implement"></div>';
@@ -169,6 +166,11 @@ catch (ex) {
                 desc: '日历与目标的对齐方式，left，right',
                 type: 'string',
                 def: 'left'
+            }, {
+                key: 'disabled-weeks',
+                desc: '限制周几不可选，[0, 1, 2, 3, 4, 5, 6]的子集',
+                type: 'array',
+                def: '[]'
             }, {
                 key: 'week-start',
                 desc: '从周几开，0-6，0表示周日',

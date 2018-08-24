@@ -1,6 +1,7 @@
 //#gallery-config
 module.exports = {
     'mx-checkbox': {
-        tag: 'input'
+        tag: 'input',
+        type: 'checkbox'
     }
 }
