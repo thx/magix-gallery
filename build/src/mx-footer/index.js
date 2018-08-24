@@ -51,14 +51,14 @@ module.exports = Magix.View.extend({
         $line = 2;
         $art = '=width';
         ;
-        $p += '' + ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_gallerya4:_" class="_zs_gallery_mx-footer_index_-logo"><img src="https://img.alicdn.com/tfs/TB1_j6sn0cnBKNjSZR0XXcFqFXa-182-185.png"><i class="mc-iconfont _zs_gallery_mx-footer_index_-mama-icon">&#xe601;</i></div><div mxa="_zs_gallerya4:_" class="clearfix">';
+        $p += '' + ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_gallerya1:_" class="_zs_gallery_mx-footer_index_-logo"><img src="https://img.alicdn.com/tfs/TB1_j6sn0cnBKNjSZR0XXcFqFXa-182-185.png"><i class="mc-iconfont _zs_gallery_mx-footer_index_-mama-icon">&#xe601;</i></div><div mxa="_zs_gallerya1:_" class="clearfix">';
         $line = 8;
         $art = 'each products as p';
         ;
         $p += '';
-        $expr = '<%for (var $art_iaqpmultwb$art_i = 0, $art_cttcftpd$art_c = products.length; $art_iaqpmultwb$art_i < $art_cttcftpd$art_c; $art_iaqpmultwb$art_i++) {        var p = products[$art_iaqpmultwb$art_i]%>';
-        for (var $art_iaqpmultwb$art_i = 0, $art_cttcftpd$art_c = products.length; $art_iaqpmultwb$art_i < $art_cttcftpd$art_c; $art_iaqpmultwb$art_i++) {
-            var p = products[$art_iaqpmultwb$art_i];
+        $expr = '<%for (var $art_iwnuwsk$art_i = 0, $art_cmyglvfxqk$art_c = products.length; $art_iwnuwsk$art_i < $art_cmyglvfxqk$art_c; $art_iwnuwsk$art_i++) {        var p = products[$art_iwnuwsk$art_i]%>';
+        for (var $art_iwnuwsk$art_i = 0, $art_cmyglvfxqk$art_c = products.length; $art_iwnuwsk$art_i < $art_cmyglvfxqk$art_c; $art_iwnuwsk$art_i++) {
+            var p = products[$art_iwnuwsk$art_i];
             $p += '<dl style="width: ';
             $line = 9;
             $art = '=(100 / len)';
@@ -72,9 +72,9 @@ module.exports = Magix.View.extend({
             $art = 'each p.thirds as t';
             ;
             $p += '';
-            $expr = '<%for (var $art_itgidyic$art_i = 0, $art_objzgppio$art_obj = p.thirds, $art_cemxjjordd$art_c = $art_objzgppio$art_obj.length; $art_itgidyic$art_i < $art_cemxjjordd$art_c; $art_itgidyic$art_i++) {            var t = $art_objzgppio$art_obj[$art_itgidyic$art_i]%>';
-            for (var $art_itgidyic$art_i = 0, $art_objzgppio$art_obj = p.thirds, $art_cemxjjordd$art_c = $art_objzgppio$art_obj.length; $art_itgidyic$art_i < $art_cemxjjordd$art_c; $art_itgidyic$art_i++) {
-                var t = $art_objzgppio$art_obj[$art_itgidyic$art_i];
+            $expr = '<%for (var $art_iohioenlvmo$art_i = 0, $art_objukbxsqf$art_obj = p.thirds, $art_cwakodoirh$art_c = $art_objukbxsqf$art_obj.length; $art_iohioenlvmo$art_i < $art_cwakodoirh$art_c; $art_iohioenlvmo$art_i++) {            var t = $art_objukbxsqf$art_obj[$art_iohioenlvmo$art_i]%>';
+            for (var $art_iohioenlvmo$art_i = 0, $art_objukbxsqf$art_obj = p.thirds, $art_cwakodoirh$art_c = $art_objukbxsqf$art_obj.length; $art_iohioenlvmo$art_i < $art_cwakodoirh$art_c; $art_iohioenlvmo$art_i++) {
+                var t = $art_objukbxsqf$art_obj[$art_iohioenlvmo$art_i];
                 $p += '<dd><a href="';
                 $line = 13;
                 $art = '=t.link';
@@ -99,7 +99,7 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxs="_zs_gallerya4:a" class="_zs_gallery_mx-footer_index_-qrcode"><img src="//gw.alicdn.com/tfs/TB1C2cNrv1TBuNjy0FjXXajyXXa-300-300.png"><div>打开淘宝扫一扫</div><div>下载阿里妈妈APP</div></div></div>';
+        $p += '</div><div mxs="_zs_gallerya1:a" class="_zs_gallery_mx-footer_index_-qrcode"><img src="//gw.alicdn.com/tfs/TB1C2cNrv1TBuNjy0FjXXajyXXa-300-300.png"><div>打开淘宝扫一扫</div><div>下载阿里妈妈APP</div></div></div>';
         $line = 25;
         $art = '/if';
         ;
@@ -191,7 +191,7 @@ catch (ex) {
     getFooter: function (info) {
         return new Promise(function (resolve) {
             $.ajax({
-                url: '//mo.m.taobao.com/union/jsonp/footer',
+                url: '//mos.m.taobao.com/union/jsonp/footer',
                 dataType: 'jsonp',
                 jsonp: 'callback',
                 cache: true,
@@ -207,7 +207,7 @@ catch (ex) {
     getProducts: function () {
         return new Promise(function (resolve) {
             $.ajax({
-                url: '//mo.m.taobao.com/zuanshi/jsonp_201805231426009',
+                url: '//mos.m.taobao.com/zuanshi/jsonp_201805231426009',
                 dataType: 'jsonp',
                 jsonp: 'callback',
                 cache: true,

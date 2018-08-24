@@ -57,7 +57,7 @@ module.exports = Magix.View.extend({
         let data = that.updater.get();
 
         $.ajax({
-            url: '//mo.m.taobao.com/zuanshi/jsonp_201805231426009',
+            url: '//mos.m.taobao.com/zuanshi/jsonp_201805231426009',
             dataType: 'jsonp',
             jsonp: 'callback',
             cache: true,

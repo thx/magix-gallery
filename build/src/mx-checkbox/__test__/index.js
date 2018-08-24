@@ -22,14 +22,14 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallery^:l" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallery^:n" mx-view="mx-checkbox/__test__/1"></div><div mxs="_zs_gallery^:o" mx-view="mx-title/second?content=API"></div><div mxa="_zs_gallery^:_" class="pr20"><table mxa="_zs_gallery^:a" class="table _zs_gallery___test___base_-desc-table"><thead mxs="_zs_gallery^:p"><tr><th width="100">可配参数</th><th width="200">说明</th></tr></thead><tbody>';
+    $p += '<div mxs="_zs_gallery@:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallery@:a" mx-view="mx-checkbox/__test__/1"></div><div mxs="_zs_gallery@:b" mx-view="mx-title/second?content=API"></div><div mxa="_zs_gallery@:_" class="pr20"><table mxa="_zs_gallery@:a" class="table _zs_gallery___test___base_-desc-table"><thead mxs="_zs_gallery@:c"><tr><th width="100">可配参数</th><th width="200">说明</th></tr></thead><tbody>';
     $line = 14;
     $art = 'each options as option';
     ;
     $p += '';
-    $expr = '<%for (var $art_ilgvceyj$art_i = 0, $art_cgrjloeivtu$art_c = options.length; $art_ilgvceyj$art_i < $art_cgrjloeivtu$art_c; $art_ilgvceyj$art_i++) {    var option = options[$art_ilgvceyj$art_i]%>';
-    for (var $art_ilgvceyj$art_i = 0, $art_cgrjloeivtu$art_c = options.length; $art_ilgvceyj$art_i < $art_cgrjloeivtu$art_c; $art_ilgvceyj$art_i++) {
-        var option = options[$art_ilgvceyj$art_i];
+    $expr = '<%for (var $art_iucnaipw$art_i = 0, $art_cwidhzh$art_c = options.length; $art_iucnaipw$art_i < $art_cwidhzh$art_c; $art_iucnaipw$art_i++) {    var option = options[$art_iucnaipw$art_i]%>';
+    for (var $art_iucnaipw$art_i = 0, $art_cwidhzh$art_c = options.length; $art_iucnaipw$art_i < $art_cwidhzh$art_c; $art_iucnaipw$art_i++) {
+        var option = options[$art_iucnaipw$art_i];
         $p += '<tr><td>';
         $line = 16;
         $art = '=option.key';

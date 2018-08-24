@@ -48,6 +48,10 @@ module.exports = Magix.View.extend({
                 path: '/all/pro/chartpark',
                 icon: '&#xe670;'
             }, {
+                name: '数据小站接入',
+                path: '/all/pro/data',
+                icon: '&#xe7be;'
+            }, {
                 name: '淘宝登陆框接入',
                 tip: '接入文档<a rel="noopener noreferrer" href="https://lark.alipay.com/up/login-doc/xvgy82" target="_blank" class="link-brand">https://lark.alipay.com/up/login-doc/xvgy82</a>',
                 path: '/all/pro/login',

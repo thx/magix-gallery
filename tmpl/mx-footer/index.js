@@ -59,7 +59,7 @@ module.exports = Magix.View.extend({
     getFooter(info) {
         return new Promise((resolve) => {
             $.ajax({
-                url: '//mo.m.taobao.com/union/jsonp/footer',
+                url: '//mos.m.taobao.com/union/jsonp/footer',
                 dataType: 'jsonp',
                 jsonp: 'callback',
                 cache: true,
@@ -76,7 +76,7 @@ module.exports = Magix.View.extend({
     getProducts() {
         return new Promise((resolve) => {
             $.ajax({
-                url: '//mo.m.taobao.com/zuanshi/jsonp_201805231426009',
+                url: '//mos.m.taobao.com/zuanshi/jsonp_201805231426009',
                 dataType: 'jsonp',
                 jsonp: 'callback',
                 cache: true,
