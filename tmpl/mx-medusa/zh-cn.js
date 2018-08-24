@@ -40,6 +40,7 @@ module.exports = {
     "dropdown.all.custom": "全部",
     "dropdown.all.default": "全选",
     "dropdown.search": "搜索关键词",
+    "dropdown.empty.text": "请选择",
     "form.char": "个字符",
     "form.char.between": "${min} ~ ${max} 个字符之间，当前：${current}",
     "form.check.chinese": "请输入中文",

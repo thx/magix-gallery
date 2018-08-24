@@ -32,8 +32,8 @@ module.exports = Magix.View.extend({
     $art = 'each list as item index';
     ;
     $p += '';
-    $expr = '<%for (var index = 0, $art_cuzdeojxl$art_c = list.length; index < $art_cuzdeojxl$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cuzdeojxl$art_c = list.length; index < $art_cuzdeojxl$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_ciwgdryc$art_c = list.length; index < $art_ciwgdryc$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_ciwgdryc$art_c = list.length; index < $art_ciwgdryc$art_c; index++) {
         var item = list[index];
         $p += '<div mxv mxa="_zs_gallerycU:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_gallerycU:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
         $line = 4;
