@@ -21,14 +21,14 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya:_" class="pr20"><table mxa="_zs_gallerya:a" class="table _zs_gallery___test___base_-desc-table"><thead mxs="_zs_gallerya:_"><tr><th width="100">可配参数</th><th width="200">说明</th><th width="100">类型</th><th width="120">默认值</th></tr></thead><tbody>';
+    $p += '<div mxa="_zs_gallery_:_" class="pr20"><table mxa="_zs_gallery_:a" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_gallery_:_"><tr><th width="100">可配参数</th><th width="200">说明</th><th width="100">类型</th><th width="120">默认值</th></tr></thead><tbody>';
     $line = 12;
     $art = 'each options as option';
     ;
     $p += '';
-    $expr = '<%for (var $art_imwazqkoe$art_i = 0, $art_cbqovsojd$art_c = options.length; $art_imwazqkoe$art_i < $art_cbqovsojd$art_c; $art_imwazqkoe$art_i++) {    var option = options[$art_imwazqkoe$art_i]%>';
-    for (var $art_imwazqkoe$art_i = 0, $art_cbqovsojd$art_c = options.length; $art_imwazqkoe$art_i < $art_cbqovsojd$art_c; $art_imwazqkoe$art_i++) {
-        var option = options[$art_imwazqkoe$art_i];
+    $expr = '<%for (var $art_ivpbikq$art_i = 0, $art_cgqoladkcp$art_c = options.length; $art_ivpbikq$art_i < $art_cgqoladkcp$art_c; $art_ivpbikq$art_i++) {    var option = options[$art_ivpbikq$art_i]%>';
+    for (var $art_ivpbikq$art_i = 0, $art_cgqoladkcp$art_c = options.length; $art_ivpbikq$art_i < $art_cgqoladkcp$art_c; $art_ivpbikq$art_i++) {
+        var option = options[$art_ivpbikq$art_i];
         $p += '<tr><td>';
         $line = 14;
         $art = '=option.key';
@@ -41,7 +41,7 @@ module.exports = Magix.View.extend({
         $line = 16;
         $art = '!option.type';
         ;
-        $p += '' + ($expr = '<%!option.type%>', $n(option.type)) + '</td><td mxa="_zs_gallerya:b" class="word-break">';
+        $p += '' + ($expr = '<%!option.type%>', $n(option.type)) + '</td><td mxa="_zs_gallery_:b" class="word-break">';
         $line = 17;
         $art = '!option.def';
         ;

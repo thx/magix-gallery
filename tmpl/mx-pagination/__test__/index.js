@@ -52,6 +52,7 @@ module.exports = Base.extend({
         }]
 
         this.updater.digest({
+            viewId: this.id,
             options,
             page: 1,
             size: 40

@@ -1,7 +1,14 @@
-<div class="fixed-links">
+<div class="content-subs {{if fixed}} subs-fixed {{/if}} ">
     {{each list as item}}
-    <div class="fixed-link">
-        <a href="javascript:;" class="link-brand" mx-click="to({key:'{{=item.key}}'})">{{=item.name}}</a>
-    </div>
+        <div class="sub-link">
+            <a href="javascript:;" mx-click="to({key:'{{=item.key}}'})">{{=item.name}}</a>
+        </div>
+        {{if (item.subs && item.subs.length)}}
+            {{each item.subs as sub}}
+            <div class="sub-link pl10">
+                <a href="javascript:;" mx-click="to({key:'{{=sub.key}}'})">{{=sub.name}}</a>
+            </div>
+            {{/each}}
+        {{/if}}
     {{/each}}
 </div>

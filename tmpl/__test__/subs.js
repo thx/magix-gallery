@@ -17,5 +17,27 @@ module.exports = Magix.View.extend({
         let key = e.params.key;
         let node = $('#' + key);
         $(window).scrollTop(node.offset().top);
+    },
+    '$win<scroll>'(e) {
+        let that = this;
+
+        let mainNode = $('#' + that.id);
+        let scrollTop = $(window).scrollTop();
+        let mainTop = mainNode.offset().top;
+        if (scrollTop >= mainTop) {
+            if (that.updater.get('fixed')) {
+                return;
+            }
+            that.updater.digest({
+                fixed: true
+            })
+        } else {
+            if (!that.updater.get('fixed')) {
+                return;
+            }
+            that.updater.digest({
+                fixed: false
+            })
+        }
     }
 });

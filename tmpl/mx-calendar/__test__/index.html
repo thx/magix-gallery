@@ -1,29 +1,45 @@
-<div mx-view="__test__/subs?list={{@[{
-    name: '使用示例',
-    key: viewId + '_demo'
-}, {
-    name: 'API',
-    key: viewId + '_api'
-}, {
-    name: '关于实现方案',
-    key: viewId + '_implement'
-}]}}"></div>
-
-<mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
-<div class="clearfix mb20">
-    <div class="half">
-        <div mx-view="@./1"></div>
-        <div mx-view="@./2"></div>
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo',
+        subs: [{
+            name: '提示前缀',
+            key: viewId + '_demo1'
+        },{
+            name: '可选择时分秒',
+            key: viewId + '_demo4'
+        },{
+            name: '限制部分不可选',
+            key: viewId + '_demo14'
+        },{
+            name: '只选择月份',
+            key: viewId + '_demo16'
+        }]
+    }, {
+        name: 'API',
+        key: viewId + '_api'
+    }, {
+        name: '关于实现方案',
+        key: viewId + '_implement'
+    }]}}"></div>
+    
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <div class="clearfix mb20">
+        <div class="half">
+            <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+            <div mx-view="@./2"></div>
+            <div mx-view="@./16" id="{{=viewId}}_demo16"></div>
+        </div>
+        <div class="half">
+            <div mx-view="@./3"></div>
+            <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
+            <div mx-view="@./14" id="{{=viewId}}_demo14"></div>
+            <div mx-view="@./5"></div>
+        </div>
     </div>
-    <div class="half">
-        <div mx-view="@./3"></div>
-        <div mx-view="@./4"></div>
-        <div mx-view="@./14"></div>
-        <div mx-view="@./5"></div>
-    </div>
+    
+    <mx-title.second content="API" id="{{=viewId}}_api"/>
+    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
+    
+    <div mx-view="@./implement" id="{{=viewId}}_implement"></div>
 </div>
-
-<mx-title.second content="API" id="{{=viewId}}_api"/>
-<div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
-
-<div mx-view="@./implement" id="{{=viewId}}_implement"></div>

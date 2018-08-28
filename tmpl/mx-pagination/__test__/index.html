@@ -1,80 +1,97 @@
-<mx-title.second content="使用示例"/>
-<div class="example">
-    <div class="eg-content clearfix">
-        <div class="mb20">
-            <span class="color-9">当前页数：</span>
-            <span class="mr20">{{=page}}</span>
-            <span class="color-9">每页展示：</span>
-            <span>{{=size}}</span>
-        </div>
-        <mx-pagination
-            total="600" 
-            sizes="{{@[20,40,50]}}"
-            step="6"
-            size="{{=size}}" 
-            page="{{=page}}"
-            mx-change="change()">
-        </mx-pagination>
-    </div>
-    <div class="clearfix">
-        <div class="eg-desc half">
-            <div class="eg-title">HTML Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-                mx-success="done({id:1})">
-                <span class="desc-tip">{{!text1}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-pagination
-    total="600" 
-    sizes="&#123;&#123;@[20,40,50]&#125;&#125;"
-    step="6"
-    size="&#123;&#123;=size&#125;&#125;" 
-    page="&#123;&#123;=page&#125;&#125;"
-    mx-change="change()"&gt;
-&lt;/mx-pagination&gt;</pre>
-        </div>
-        <div class="eg-desc half half-right">
-            <div class="eg-title">JS Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-                mx-success="done({id:2})">
-                <span class="desc-tip">{{!text2}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
-let Magix = require('magix');
-let $ = require('$');
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo',
+        subs: [{
+            name: '完整示例',
+            key: viewId + '_demo1'
+        },{
+            name: '精简版',
+            key: viewId + '_demo2'
+        }]
+    }, {
+        name: 'API',
+        key: viewId + '_api'
+    }]}}"></div>
 
-module.exports = Magix.View.extend(&#123;
-    tmpl: '@index.html',
-    render() &#123;
-        this.updater.digest(&#123;
-            page: 1,
-            size: 40
-        &#125;);
-    &#125;,
-    'change&lt;change&gt;' (e) &#123;
-        // e.page 当前第几页
-        // e.size 每页多少条
-        this.updater.digest(&#123;
-            page: e.page,
-            size: e.size
-        &#125;)
-    &#125;
-&#125;);</pre>
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <div class="example" id="{{=viewId}}_demo1">
+        <div class="eg-content clearfix">
+            <div class="mb20">
+                <span class="color-9">当前页数：</span>
+                <span class="mr20">{{=page}}</span>
+                <span class="color-9">每页展示：</span>
+                <span>{{=size}}</span>
+            </div>
+            <mx-pagination
+                total="600" 
+                sizes="{{@[20,40,50]}}"
+                step="6"
+                size="{{=size}}" 
+                page="{{=page}}"
+                mx-change="change()">
+            </mx-pagination>
+        </div>
+        <div class="clearfix">
+            <div class="eg-desc half">
+                <div class="eg-title">HTML Code</div>
+                <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                    mx-success="done({id:1})">
+                    <span class="desc-tip">{{!text1}}</span>
+                    <i class="mc-iconfont desc-icon">&#xe610;</i>
+                </mx-copy>
+                <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+    &lt;mx-pagination
+        total="600" 
+        sizes="&#123;&#123;@[20,40,50]&#125;&#125;"
+        step="6"
+        size="&#123;&#123;=size&#125;&#125;" 
+        page="&#123;&#123;=page&#125;&#125;"
+        mx-change="change()"&gt;
+    &lt;/mx-pagination&gt;</pre>
+            </div>
+            <div class="eg-desc half half-right">
+                <div class="eg-title">JS Code</div>
+                <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                    mx-success="done({id:2})">
+                    <span class="desc-tip">{{!text2}}</span>
+                    <i class="mc-iconfont desc-icon">&#xe610;</i>
+                </mx-copy>
+                <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+    let Magix = require('magix');
+    let $ = require('$');
+    
+    module.exports = Magix.View.extend(&#123;
+        tmpl: '@index.html',
+        render() &#123;
+            this.updater.digest(&#123;
+                page: 1,
+                size: 40
+            &#125;);
+        &#125;,
+        'change&lt;change&gt;' (e) &#123;
+            // e.page 当前第几页
+            // e.size 每页多少条
+            this.updater.digest(&#123;
+                page: e.page,
+                size: e.size
+            &#125;)
+        &#125;
+    &#125;);</pre>
+            </div>
         </div>
     </div>
-</div>
-<div mx-view="@./1"></div>
-<div class="clearfix mb20">
-    <div class="half">
-        <div mx-view="@./2"></div>
-        <div mx-view="@./4"></div>
+    <div mx-view="@./1"></div>
+    <div class="clearfix mb20" id="{{=viewId}}_demo2">
+        <div class="half">
+            <div mx-view="@./2"></div>
+            <div mx-view="@./4"></div>
+        </div>
+        <div class="half">
+            <div mx-view="@./3"></div>
+        </div>
     </div>
-    <div class="half">
-        <div mx-view="@./3"></div>
-    </div>
+    
+    <mx-title.second content="API" id="{{=viewId}}_api"/>
+    <div mx-view="__test__/api?options={{@options}}"></div>
 </div>
-
-<mx-title.second content="API"/>
-<div mx-view="__test__/api?options={{@options}}"></div>

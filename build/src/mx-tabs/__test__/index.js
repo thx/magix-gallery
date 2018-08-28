@@ -28,8 +28,16 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerycz:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerycz:a" mx-view="mx-tabs/__test__/1"></div><div mxs="_zs_gallerycz:b" class="clearfix mb20"><div class="_zs_gallery___test___base_-half"><div mx-view="mx-tabs/__test__/2"></div></div><div class="_zs_gallery___test___base_-half"><div mx-view="mx-tabs/__test__/4"></div></div></div><div mxs="_zs_gallerycz:c" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
+    $p += '<div id="';
+    $line = 1;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerycE:_" mx-view="mx-tabs/__test__/1"></div><div mxs="_zs_gallerycE:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-tabs/__test__/2"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-tabs/__test__/4"></div></div></div><div id="';
+    $line = 12;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 13;
     $art = '@options';
     ;
@@ -70,6 +78,7 @@ catch (ex) {
                 def: ''
             }];
         this.updater.digest({
+            viewId: this.id,
             options: options
         });
     },

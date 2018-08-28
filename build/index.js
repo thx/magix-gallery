@@ -2,7 +2,6 @@ define('$', function () {
     //magix中对DOM类库的依赖使用的是$做为标识，这里我们进行适配
     return jQuery;
 });
-
 // let url = location.origin + location.pathname;
 // url = url.replace(/index\.html$/, '');
 // url += 'build/src/';
@@ -71,7 +70,7 @@ let routes = {
 seajs.use('magix', function (Magix) {
     Magix.boot({
         rootId: 'app',
-        defaultView: '__test__/all',
+        defaultView: '__test__/base',
         defaultPath: '/form/mixins',
         routes
     });

@@ -1,27 +1,40 @@
-<mx-title.second content="使用示例"/>
-<div class="mb20 clearfix">
-    <div mx-view="@./8"></div>
-</div>
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo'
+    }, {
+        name: '路由参数',
+        key: viewId + '_router'
+    }, {
+        name: 'methods',
+        key: viewId + '_method'
+    }]}}"></div>
 
-<div class="mb40">
-    <mx-title.second content="路由参数"/>
-    <div mx-view="__test__/api?options={{@options}}"></div>
-</div>
-
-<mx-title.second content="Methods"/>
-<div class="pr20">
-    <table class="table desc-table">
-        <thead>
-            <tr>
-                <th width="100">方法名</th>
-                <th width="200">说明</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>sort</td>
-                <td>mixin中实现本页排序，如果从接口获取排序则忽略此方法</td>
-            </tr>
-        </tbody>
-    </table>
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <div class="mb20 clearfix">
+        <div mx-view="@./8"></div>
+    </div>
+    
+    <div class="mb40" id="{{=viewId}}_router">
+        <mx-title.second content="路由参数"/>
+        <div mx-view="__test__/api?options={{@options}}"></div>
+    </div>
+    
+    <mx-title.second content="Methods" id="{{=viewId}}_method"/>
+    <div class="pr20">
+        <table class="table desc-table">
+            <thead>
+                <tr>
+                    <th width="100">方法名</th>
+                    <th width="200">说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>sort</td>
+                    <td>mixin中实现本页排序，如果从接口获取排序则忽略此方法</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

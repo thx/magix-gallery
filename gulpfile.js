@@ -19,6 +19,9 @@ combineTool.config({
     galleries: {
         mxRoot: '',
         mxMap: {  //配置到 https://github.com/thx/magix-combine-tool-config/blob/master/index.js
+            'mx-carousel.panel'(tag) {
+                return `<div ${tag.attrs} data-carousel="true">${tag.content}</div>`;
+            },
             'mx-popover': {
                 tag: 'span'
             },
@@ -41,8 +44,11 @@ combineTool.config({
     revisableStringSplitter: '',
     //cssSourceMap: true,
     cssSelectorPrefix: '_zs_gallery',
+    globalCss: [
+        './tmpl/mx-style/index.less'
+    ],
     scopedCss: [
-        './tmpl/__test__/base.less'
+        './tmpl/__test__/layout.less'
     ],
     compileTmplCommand(content) {
         var str = ts.transpileModule(content, {

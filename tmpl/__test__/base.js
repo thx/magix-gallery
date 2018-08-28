@@ -1,11 +1,11 @@
 let Magix = require('magix');
 let $ = require('$');
-Magix.applyStyle('global@../mx-style/index.less');
+Magix.applyStyle('@global.style');
 Magix.applyStyle('@scoped.style');
-Magix.applyStyle('@all.less');
+Magix.applyStyle('@base.less');
 
 module.exports = Magix.View.extend({
-    tmpl: '@all.html',
+    tmpl: '@base.html',
     init() {
         this.observeLocation({
             path: true
@@ -17,7 +17,7 @@ module.exports = Magix.View.extend({
                 path: '/all/update'
             }]
         }, {
-            name: '脚手架',
+            name: '脚手架（组件应用场景）',
             subs: [{
                 name: '10分钟快速上手',
                 path: '/all/pro/init',
@@ -61,6 +61,10 @@ module.exports = Magix.View.extend({
                 path: '/all/pro/style',
                 icon: '&#xe698;'
             }, {
+                name: 'magix-combine子模板预处理',
+                path: '/all/pro/combine',
+                icon: '&#xe612;'
+            }, {
                 name: '页面监听参数变化回到顶部',
                 path: '/all/pro/top',
                 icon: '&#xe62d;'
@@ -74,13 +78,13 @@ module.exports = Magix.View.extend({
                 icon: '&#xe62c;'
             }]
         }, {
-            name: '表单校验与双向绑定（mixins）',
+            name: '表单（mixins）',
             subs: [{
                 name: '支持的校验项',
                 path: '/form/mixins',
                 icon: '&#xe64e;'
             }, {
-                name: '双向绑定 + 校验使用场景示例',
+                name: '双向绑定 + 校验使用场景',
                 path: '/form/index',
                 icon: '&#xe731;'
             }]
@@ -341,6 +345,7 @@ module.exports = Magix.View.extend({
                 icon: '&#xe67c;'
             }]
         }]
+
         let all = [];
         list.forEach((item, index) => {
             // 默认全部展开
@@ -349,8 +354,8 @@ module.exports = Magix.View.extend({
             all = all.concat(item.subs);
         })
         this.updater.set({
-            list,
-            all
+            all,
+            list
         })
     },
     render() {
@@ -377,7 +382,7 @@ module.exports = Magix.View.extend({
             item.subs.forEach(sub => {
                 if (sub.path == path) {
                     item.expand = true;
-                    if(item.name){
+                    if (item.name) {
                         curNames.push(item.name);
                     }
                 }
@@ -411,7 +416,7 @@ module.exports = Magix.View.extend({
         });
 
         // 当前选中项滚动到可视范围之内
-        let curNode = $('#' + that.id + ' .@all.less:nav.@all.less:cur');
+        let curNode = $('#' + that.id + ' .@base.less:nav.@base.less:cur');
         if (curNode && curNode.length) {
             if (curNode[0].scrollIntoViewIfNeeded) {
                 curNode[0].scrollIntoViewIfNeeded();
@@ -432,7 +437,7 @@ module.exports = Magix.View.extend({
         let that = this;
 
         let mainNode = $('#' + that.id);
-        let bodyNode = mainNode.find('.@all.less:main');
+        let bodyNode = mainNode.find('.@base.less:main');
         let scrollTop = $(window).scrollTop();
         let bodyTop = bodyNode.offset().top;
         if (scrollTop > bodyTop) {

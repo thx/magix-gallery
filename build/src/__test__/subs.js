@@ -8,7 +8,7 @@ define("__test__/subs",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery___test___subs_","/* @dependent: ./index.less */\n._zs_gallery___test___subs_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery___test___subs_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___subs_-fixed-links {\n  position: fixed;\n  top: 20px;\n  right: 30px;\n  z-index: 100;\n  padding: 10px;\n  box-shadow: 0px 0px 4px rgba(51, 51, 51, 0.08);\n  background-color: #fff;\n}\n._zs_gallery___test___subs_-fixed-links ._zs_gallery___test___subs_-fixed-link {\n  margin-bottom: 10px;\n}\n._zs_gallery___test___subs_-fixed-links ._zs_gallery___test___subs_-fixed-link:last-child {\n  margin-bottom: 0;\n}\n");
+Magix.applyStyle("_zs_gallery___test___subs_","/* @dependent: ./index.less */\n._zs_gallery___test___subs_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery___test___subs_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___subs_-content-subs {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 120px;\n  padding: 10px 0 10px 10px;\n  border-left: 1px solid #e6e6e6;\n}\n._zs_gallery___test___subs_-content-subs ._zs_gallery___test___subs_-sub-link {\n  margin-bottom: 6px;\n}\n._zs_gallery___test___subs_-content-subs ._zs_gallery___test___subs_-sub-link:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery___test___subs_-content-subs._zs_gallery___test___subs_-subs-fixed {\n  position: fixed;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -21,16 +21,32 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', list = $$.list; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryC:_" class="_zs_gallery___test___subs_-fixed-links">';
+} ; var $g = '', $_temp, $p = '', fixed = $$.fixed, list = $$.list; var $expr, $art, $line; try {
+    $p += '<div class="_zs_gallery___test___subs_-content-subs ';
+    $line = 1;
+    $art = 'if fixed';
+    ;
+    $p += '';
+    $expr = '<%if (fixed) {%>';
+    if (fixed) {
+        ;
+        $p += ' _zs_gallery___test___subs_-subs-fixed ';
+        $line = 1;
+        $art = '/if';
+        ;
+        $p += '';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '">';
     $line = 2;
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for (var $art_iplktzlpf$art_i = 0, $art_cqqdvkhozr$art_c = list.length; $art_iplktzlpf$art_i < $art_cqqdvkhozr$art_c; $art_iplktzlpf$art_i++) {    var item = list[$art_iplktzlpf$art_i]%>';
-    for (var $art_iplktzlpf$art_i = 0, $art_cqqdvkhozr$art_c = list.length; $art_iplktzlpf$art_i < $art_cqqdvkhozr$art_c; $art_iplktzlpf$art_i++) {
-        var item = list[$art_iplktzlpf$art_i];
-        $p += '<div mxa="_zs_galleryC:a" class="_zs_gallery___test___subs_-fixed-link"><a href="javascript:;" class="link-brand" mx-click="' + $viewId + 'to({key:\'';
+    $expr = '<%for (var $art_ifkmuosp$art_i = 0, $art_cmbkpohdykp$art_c = list.length; $art_ifkmuosp$art_i < $art_cmbkpohdykp$art_c; $art_ifkmuosp$art_i++) {    var item = list[$art_ifkmuosp$art_i]%>';
+    for (var $art_ifkmuosp$art_i = 0, $art_cmbkpohdykp$art_c = list.length; $art_ifkmuosp$art_i < $art_cmbkpohdykp$art_c; $art_ifkmuosp$art_i++) {
+        var item = list[$art_ifkmuosp$art_i];
+        $p += '<div mxa="_zs_galleryE:_" class="_zs_gallery___test___subs_-sub-link"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'';
         $line = 4;
         $art = '=item.key';
         ;
@@ -40,6 +56,46 @@ module.exports = Magix.View.extend({
         ;
         $p += '' + ($expr = '<%=item.name%>', $e(item.name)) + '</a></div>';
         $line = 6;
+        $art = 'if (item.subs && item.subs.length)';
+        ;
+        $p += '';
+        $expr = '<%if (item.subs && item.subs.length) {%>';
+        if (item.subs && item.subs.length) {
+            ;
+            $p += ' ';
+            $line = 7;
+            $art = 'each item.subs as sub';
+            ;
+            $p += '';
+            $expr = '<%for (var $art_ikyistkgrf$art_i = 0, $art_objaraqwtsy$art_obj = item.subs, $art_catjicoxifc$art_c = $art_objaraqwtsy$art_obj.length; $art_ikyistkgrf$art_i < $art_catjicoxifc$art_c; $art_ikyistkgrf$art_i++) {            var sub = $art_objaraqwtsy$art_obj[$art_ikyistkgrf$art_i]%>';
+            for (var $art_ikyistkgrf$art_i = 0, $art_objaraqwtsy$art_obj = item.subs, $art_catjicoxifc$art_c = $art_objaraqwtsy$art_obj.length; $art_ikyistkgrf$art_i < $art_catjicoxifc$art_c; $art_ikyistkgrf$art_i++) {
+                var sub = $art_objaraqwtsy$art_obj[$art_ikyistkgrf$art_i];
+                $p += '<div mxa="_zs_galleryE:a" class="_zs_gallery___test___subs_-sub-link pl10"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'';
+                $line = 9;
+                $art = '=sub.key';
+                ;
+                $p += '' + ($expr = '<%=$eq(sub.key)%>', $e($eq(sub.key))) + '\'})">';
+                $line = 9;
+                $art = '=sub.name';
+                ;
+                $p += '' + ($expr = '<%=sub.name%>', $e(sub.name)) + '</a></div>';
+                $line = 11;
+                $art = '/each';
+                ;
+                $p += '';
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 12;
+            $art = '/if';
+            ;
+            $p += '';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 13;
         $art = '/each';
         ;
         $p += '';
@@ -69,6 +125,28 @@ catch (ex) {
         var key = e.params.key;
         var node = $('#' + key);
         $(window).scrollTop(node.offset().top);
+    },
+    '$win<scroll>': function (e) {
+        var that = this;
+        var mainNode = $('#' + that.id);
+        var scrollTop = $(window).scrollTop();
+        var mainTop = mainNode.offset().top;
+        if (scrollTop >= mainTop) {
+            if (that.updater.get('fixed')) {
+                return;
+            }
+            that.updater.digest({
+                fixed: true
+            });
+        }
+        else {
+            if (!that.updater.get('fixed')) {
+                return;
+            }
+            that.updater.digest({
+                fixed: false
+            });
+        }
     }
 });
 

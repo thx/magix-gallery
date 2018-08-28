@@ -32,18 +32,18 @@ module.exports = Magix.View.extend({
         });
         that['@{owner.node}'] = $('#' + that.id);
     },
-    '@{inside}' (node) {
+    '@{inside}'(node) {
         let that = this;
         return Magix.inside(node, that.id) || Magix.inside(node, that['@{owner.node}'][0]);
     },
 
-    '@{stop}<change,focusin,focusout>' (e) {
+    '@{stop}<change,focusin,focusout>'(e) {
         if (!e.dates) {
             e.stopPropagation();
         }
     },
 
-    '@{toggle}<click>' (e) {
+    '@{toggle}<click>'(e) {
         e.preventDefault();
         let show = this.updater.get('show');
         if (show) {
@@ -53,7 +53,7 @@ module.exports = Magix.View.extend({
         }
     },
 
-    '@{show}' () {
+    '@{show}'() {
         let that = this;
         let show = that.updater.get('show');
         if (!show) {
@@ -79,7 +79,7 @@ module.exports = Magix.View.extend({
             Monitor['@{add}'](that);
         }
     },
-    '@{hide}' () {
+    '@{hide}'() {
         let that = this;
         let show = that.updater.get('show');
         if (show) {
@@ -91,12 +91,12 @@ module.exports = Magix.View.extend({
         }
     },
 
-    '@{date.picked}<change>' (e) {
+    '@{date.picked}<change>'(e) {
         let that = this;
         e.stopPropagation();
 
         let dateInfo = that.updater.get('dateInfo');
-        dateInfo.selected  =e.date + (e.time ? ' ' + e.time : '');
+        dateInfo.selected = e.date + (e.time ? ' ' + e.time : '');
         that.updater.digest({
             dateInfo: dateInfo
         })
@@ -109,7 +109,7 @@ module.exports = Magix.View.extend({
             time: e.time
         });
     },
-    '@{hide}<cancel>' () {
+    '@{hide}<cancel>'() {
         this['@{hide}']();
     }
 });

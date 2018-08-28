@@ -1,0 +1,126 @@
+@import '../mx-style/_vars';
+
+.third1{
+    float: left;
+    width: 34%;
+}
+.third2{
+    float: left;
+    width: 66%;
+}
+.half{
+    float: left;
+    width: 50%;
+}
+.half-right{
+    border-left: 1px solid @color-border;
+}
+.half-left{
+    border-right: 1px solid @color-border;
+}
+.example{
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border: 1px solid @color-border;
+    border-radius: @border-radius;
+
+    .eg-title{
+        position: absolute;
+        top: -14px;
+        left: 10px;
+        height: 28px;
+        padding: 0 10px;
+        line-height: 28px;
+        background-color: #fff;
+        color: #999;
+    }
+    .eg-content{
+        position: relative;
+        padding: 20px 20px 25px 20px;
+    }
+    .eg-desc{
+        position: relative;
+        padding: 25px 20px;
+        border-top: 1px solid @color-border;
+
+        .desc-oper{
+            opacity: 0;
+            position: absolute;
+            top: 6px;
+            right: 0;
+            z-index: 10;
+            transition: opacity @duration;
+
+            .desc-icon{
+                width: 36px;
+                height: 22px;
+                line-height: 22px;
+                font-size: 20px;
+                color: #999;
+                text-align: center;
+                cursor: pointer;
+            }
+            .desc-tip{
+                display: none;
+                position: absolute;
+                top: -34px;
+                left: -30px;
+                width: 86px;
+                height: 30px;
+                color: #fff;
+                text-align: center;
+                background-color: rgba(33, 33, 33, .72);
+                border-radius: @border-radius;
+                line-height: 30px;
+
+                .desc-tip-icon{
+                    float: left;
+                    margin-left: 5px;
+                    height: 30px;
+                    color: @color-green;
+                    line-height: 30px;
+                }
+            }
+
+            &:hover{
+                .desc-tip{
+                    display: block;
+                }
+            }
+        }
+
+        &:hover{
+            .desc-oper{
+                opacity: 1;
+            }
+        }
+
+        &.top-none{
+            border-top: 0 none;
+        }
+    }
+}
+
+
+
+.desc-table {
+    border: 1px solid @color-border;
+
+    tbody {
+        tr {
+            td {
+                background-color: #fff;
+            }
+
+            &:hover {
+                td {
+                    background-color: #fff;
+                }
+
+            }
+
+        }
+
+    }
+
+}
