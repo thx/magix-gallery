@@ -4,6 +4,17 @@
             mx-click="show()">点击显示加载中，loading中禁止页面操作，3秒后自动关闭</a>
     </div>
     <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;a href="javascript:;" class="link-brand"
+    mx-click="show()"&gt;点击显示加载中，loading中禁止页面操作，3秒后自动关闭&lt;/a&gt;</pre>
+    </div>
+    <div class="eg-desc">
         <div class="eg-title">JS Code</div>
         <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
             mx-success="done({id:2})">
@@ -12,19 +23,21 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Loading = require('@../index'); //loading组件
+let Loading = require('@../../mx-loading/index');
 let $ = require('$');
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
+    mixins: [Loading],
     render() &#123;
         this.updater.digest();
     &#125;,
     'show&lt;click&gt;'(e)&#123;
-        Loading.showLoading();
+        let that = this;
+        that.showLoading();
 
-        setTimeout(() => &#123;
-            Loading.hideLoading();
+        setTimeout(() =&gt; &#123;
+            that.hideLoading();
         &#125;, 3000);
     &#125;
 &#125;);</pre>

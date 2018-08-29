@@ -21,7 +21,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', content = $$.content, tip = $$.tip; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycS:_" class="page-header"><span mxa="_zs_gallerycS:a" class="first-header">';
+    $p += '<div mxa="_zs_gallerycU:_" class="page-header"><span mxa="_zs_gallerycU:a" class="first-header">';
     $line = 2;
     $art = '!content';
     ;
@@ -33,7 +33,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (tip) {%>';
     if (tip) {
         ;
-        $p += '<span mxa="_zs_gallerycS:b" class="page-tip">';
+        $p += '<span mxa="_zs_gallerycU:b" class="page-tip">';
         $line = 4;
         $art = '!tip';
         ;

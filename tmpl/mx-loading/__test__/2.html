@@ -4,6 +4,20 @@
         <a href="javascript:;" mx-click="hide()" class="btn">关闭</a>  
     </div>
     <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;a href="javascript:;" class="btn btn-brand mr20"
+    mx-click="show()" &gt;打开&lt;/a&gt; 
+
+&lt;a href="javascript:;" class="btn"
+    mx-click="hide()" &gt;关闭&lt;/a&gt;</pre>
+    </div>
+    <div class="eg-desc">
         <div class="eg-title">JS Code</div>
         <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
             mx-success="done({id:2})">
@@ -12,22 +26,23 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Loading = require('@../index'); //loading组件
+let Loading = require('@../../mx-loading/index'); //loading组件
 let $ = require('$');
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
+    mixins: [Loading],
     render() &#123;
         this.updater.digest();
     &#125;,
-    'show&lt;click&gt;'(e){
+    'show&lt;click&gt;'(e)&#123;
         // showLoading(closeMask)
         // closeMask不需要禁止操作
-        Loading.showLoading(true);
-    },
-    'hide&lt;click&gt;'(e){
-        Loading.hideLoading();
-    }
+        this.showLoading(true);
+    &#125;,
+    'hide&lt;click&gt;'(e)&#123;
+        this.hideLoading();
+    &#125;
 &#125;);</pre>
     </div>
 </div>

@@ -3,13 +3,12 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-loading/index",["$","magix"],(require,exports,module)=>{
-/*$,Magix*/
+define("mx-loading/index",["$","magix","./base"],(require,exports,module)=>{
+/*$,Magix,Base*/
 
 var $ = require("$");
 var Magix = require("magix");
-Magix.applyStyle("_zs_gallery_mx-loading_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-loading_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-loading_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-loading_index_-loading-overwite {\n  padding: 10px;\n}\n._zs_gallery_mx-loading_index_-mask-loading {\n  display: none;\n  position: fixed;\n  z-index: 999999;\n  background-color: rgba(0, 0, 0, 0.5);\n  border-radius: 4px;\n}\n._zs_gallery_mx-loading_index_-mask-loading-backdrop {\n  display: none;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 999998;\n  width: 100%;\n  height: 100%;\n  background: transparent;\n}\n");
-var MaskId = 'm_loading';
+Magix.applyStyle("_zs_gallery_mx-loading_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-loading_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-loading_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-loading_index_-loading-overwite {\n  padding: 10px;\n}\n._zs_gallery_mx-loading_index_-mask-loading {\n  display: none;\n  position: fixed;\n  z-index: 999999;\n  background-color: rgba(0, 0, 0, 0.5);\n  border-radius: 4px;\n}\n._zs_gallery_mx-loading_index_-mask-loading-backdrop {\n  display: none;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 999998;\n  width: 100%;\n  height: 100%;\n  background: transparent;\n}\n._zs_gallery_mx-loading_index_-full-loading {\n  display: none;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 999999;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n}\n._zs_gallery_mx-loading_index_-full-loading ._zs_gallery_mx-loading_index_-loading-overwite {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 160px;\n  height: 36px;\n  margin-top: -18px;\n  margin-left: -80px;\n}\n");
 var Width = 150;
 var Height = 36;
 var Tmpl = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
@@ -36,7 +35,7 @@ var Tmpl = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $line = 1;
     $art = '=height';
     ;
-    $p += '' + ($expr = '<%=height%>', $e(height)) + 'px;"><div mxs="_zs_gallerybe:_" class="loading _zs_gallery_mx-loading_index_-loading-overwite"><span class="loading-anim"></span></div></div>';
+    $p += '' + ($expr = '<%=height%>', $e(height)) + 'px;"><div mxs="_zs_gallerybf:_" class="loading _zs_gallery_mx-loading_index_-loading-overwite"><span class="loading-anim"></span></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -46,46 +45,30 @@ catch (ex) {
     msg += $expr + '\r\n\tat file:mx-loading/index.html';
     throw msg;
 } return $p; };
-var Win = $(window);
-module.exports = {
-    ctor: function () {
-        var me = this;
-        me.on('rendercall', function () {
-            if (me['@{ui.rendered}']) {
-                me.showLoading();
-            }
-        });
-        me.on('rendered', function () {
-            me['@{ui.rendered}'] = 1;
-            me.hideLoading();
-        });
-        me.on('domready', function () {
-            me['@{ui.rendered}'] = 1;
-            me.hideLoading();
-        });
-        me.on('destroy', function () {
-            me.hideLoading();
-        });
-    },
+var Base = require("./base");
+module.exports = Magix.mix({
     '@{loading.build}': function () {
         var me = this;
-        var node = $('#' + MaskId);
+        var maskId = me.id + '_loading';
+        var node = $('#' + maskId);
         if (!node.length) {
             var tmpl = $.isFunction(Tmpl) ? Tmpl({
-                id: MaskId,
+                id: maskId,
                 width: Width + 'px',
                 height: Height + 'px'
             }, me.id) : Tmpl;
             $(document.body).append(tmpl);
-            node = $('#' + MaskId);
+            node = $('#' + maskId);
         }
         return node;
     },
     showLoading: function (closeMask) {
         var me = this;
+        var maskId = me.id + '_loading';
         var node = me['@{loading.build}']();
-        var left = ((Win.width() - Width) / 2) | 0;
-        var top = ((Win.height() - Height) / 2) | 0;
+        var win = $(window);
+        var left = ((win.width() - Width) / 2) | 0;
+        var top = ((win.height() - Height) / 2) | 0;
         node.css({
             left: left,
             top: top,
@@ -93,29 +76,16 @@ module.exports = {
         });
         // 是否禁止选择
         if (!closeMask) {
-            var backNode = $('#' + MaskId + '_mask');
+            var backNode = $('#' + maskId + '_mask');
             if (!backNode.length) {
-                $(document.body).append('<div id="' + MaskId + '_mask" class="_zs_gallery_mx-loading_index_-mask-loading-backdrop"></div>');
-                backNode = $('#' + MaskId + '_mask');
+                $(document.body).append('<div id="' + maskId + '_mask" class="_zs_gallery_mx-loading_index_-mask-loading-backdrop"></div>');
+                backNode = $('#' + maskId + '_mask');
             }
             backNode.css({
                 display: 'block'
             });
         }
-    },
-    hideLoading: function () {
-        var me = this;
-        var node = me['@{loading.build}']();
-        node.css({
-            display: 'none'
-        });
-        var backNode = $('#' + MaskId + '_mask');
-        if (backNode.length > 0) {
-            backNode.css({
-                display: 'none'
-            });
-        }
     }
-};
+}, Base);
 
 });

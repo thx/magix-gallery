@@ -1,52 +1,34 @@
 let $ = require('$');
 let Magix = require('magix');
 Magix.applyStyle('@index.less');
-let MaskId = 'm_loading';
 let Width = 150;
 let Height = 36;
 let Tmpl = '@index.html';
-let Win = $(window);
 
-
-module.exports = {
-    ctor() {
-        let me = this;
-        me.on('rendercall', () => {
-            if (me['@{ui.rendered}']) {
-                me.showLoading();
-            }
-        });
-        me.on('rendered', () => {
-            me['@{ui.rendered}'] = 1;
-            me.hideLoading();
-        });
-        me.on('domready', () => {
-            me['@{ui.rendered}'] = 1;
-            me.hideLoading();
-        });
-        me.on('destroy', () => {
-            me.hideLoading();
-        });
-    },
+let Base = require('./base');
+module.exports = Magix.mix({
     '@{loading.build}'() {
         let me = this;
-        let node = $('#' + MaskId);
+        let maskId = me.id + '_loading';
+        let node = $('#' + maskId);
         if (!node.length) {
             let tmpl = $.isFunction(Tmpl) ? Tmpl({
-                id: MaskId,
+                id: maskId,
                 width: Width + 'px',
                 height: Height + 'px'
             }, me.id) : Tmpl;
             $(document.body).append(tmpl);
-            node = $('#' + MaskId);
+            node = $('#' + maskId);
         }
         return node;
     },
     showLoading(closeMask) {
         let me = this;
+        let maskId = me.id + '_loading';
         let node = me['@{loading.build}']();
-        let left = ((Win.width() - Width) / 2) | 0;
-        let top = ((Win.height() - Height) / 2) | 0;
+        let win = $(window);
+        let left = ((win.width() - Width) / 2) | 0;
+        let top = ((win.height() - Height) / 2) | 0;
         node.css({
             left: left,
             top: top,
@@ -55,28 +37,14 @@ module.exports = {
 
         // 是否禁止选择
         if(!closeMask){
-            let backNode = $('#' + MaskId + '_mask');
+            let backNode = $('#' + maskId + '_mask');
             if(!backNode.length){
-                $(document.body).append('<div id="' + MaskId + '_mask" class="@index.less:mask-loading-backdrop"></div>');
-                backNode = $('#' + MaskId + '_mask');
+                $(document.body).append('<div id="' + maskId + '_mask" class="@index.less:mask-loading-backdrop"></div>');
+                backNode = $('#' + maskId + '_mask');
             }
             backNode.css({
                 display: 'block'
             });
         }
-    },
-    hideLoading() {
-        let me = this;
-        let node = me['@{loading.build}']();
-        node.css({
-            display: 'none'
-        });
-
-        let backNode = $('#' + MaskId + '_mask');
-        if(backNode.length > 0){
-            backNode.css({
-                display: 'none'
-            });
-        }
     }
-};
+}, Base)
