@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -38,7 +38,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, supportQuickDates = $$.supportQuickDates; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallery5:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_gallery7:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'对比+时间段\',\n            key: viewId + \'_demo6\'\n        },{\n            name: \'对比+单天\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'选择时分秒\',\n            key: viewId + \'_demo8\'\n        },{\n            name: \'自定义trigger\',\n            key: viewId + \'_demo12\'\n        },{\n            name: \'动态快捷日期\',\n            key: viewId + \'_demo9\'\n        },{\n            name: \'禁选开始或结束\',\n            key: viewId + \'_demo11\'\n        },{\n            name: \'部分不可选\',\n            key: viewId + \'_demo15\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'快捷日期备选项\',\n        key: viewId + \'_quick\'\n    }, {\n        name: \'关于实现方案\',\n        key: viewId + \'_implement\'\n    }]';
     ;
@@ -46,7 +46,7 @@ module.exports = Magix.View.extend({
     $line = 38;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallery5:a" class="clearfix mb20"><div mxa="_zs_gallery5:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/6" id="';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallery7:a" class="clearfix mb20"><div mxa="_zs_gallery7:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/6" id="';
     $line = 41;
     $art = '=viewId';
     ;
@@ -54,7 +54,7 @@ module.exports = Magix.View.extend({
     $line = 42;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo12"></div></div><div mxa="_zs_gallery5:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/7" id="';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo12"></div></div><div mxa="_zs_gallery7:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/7" id="';
     $line = 45;
     $art = '=viewId';
     ;
@@ -66,11 +66,11 @@ module.exports = Magix.View.extend({
     $line = 47;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div><div mxs="_zs_gallery5:_" mx-view="mx-calendar/__test__/10"></div><div mx-view="mx-calendar/__test__/11" id="';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div><div mxs="_zs_gallery7:_" mx-view="mx-calendar/__test__/10"></div><div mx-view="mx-calendar/__test__/11" id="';
     $line = 49;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo11"></div><div mxs="_zs_gallery5:a" mx-view="mx-calendar/__test__/13"></div><div mx-view="mx-calendar/__test__/15" id="';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo11"></div><div mxs="_zs_gallery7:a" mx-view="mx-calendar/__test__/13"></div><div mx-view="mx-calendar/__test__/15" id="';
     $line = 51;
     $art = '=viewId';
     ;
@@ -86,14 +86,14 @@ module.exports = Magix.View.extend({
     $line = 58;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_quick" mx-view="mx-title/second?content=%E5%BF%AB%E6%8D%B7%E6%97%A5%E6%9C%9F%E5%A4%87%E9%80%89%E9%A1%B9"></div><div mxa="_zs_gallery5:d" class="pr20 mb40"><table mxa="_zs_gallery5:e" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_gallery5:b"><tr><th width="100">配置key值</th><th width="100">显示文案</th><th width="200">描述</th></tr></thead><tbody>';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_quick" mx-view="mx-title/second?content=%E5%BF%AB%E6%8D%B7%E6%97%A5%E6%9C%9F%E5%A4%87%E9%80%89%E9%A1%B9"></div><div mxa="_zs_gallery7:d" class="pr20 mb40"><table mxa="_zs_gallery7:e" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_gallery7:b"><tr><th width="100">配置key值</th><th width="100">显示文案</th><th width="200">描述</th></tr></thead><tbody>';
     $line = 69;
     $art = 'each supportQuickDates as item';
     ;
     $p += '';
-    $expr = '<%for (var $art_ixjewi$art_i = 0, $art_cmzzrwrxm$art_c = supportQuickDates.length; $art_ixjewi$art_i < $art_cmzzrwrxm$art_c; $art_ixjewi$art_i++) {    var item = supportQuickDates[$art_ixjewi$art_i]%>';
-    for (var $art_ixjewi$art_i = 0, $art_cmzzrwrxm$art_c = supportQuickDates.length; $art_ixjewi$art_i < $art_cmzzrwrxm$art_c; $art_ixjewi$art_i++) {
-        var item = supportQuickDates[$art_ixjewi$art_i];
+    $expr = '<%for (var $art_ihjvhlcvqlq$art_i = 0, $art_cuurbtps$art_c = supportQuickDates.length; $art_ihjvhlcvqlq$art_i < $art_cuurbtps$art_c; $art_ihjvhlcvqlq$art_i++) {    var item = supportQuickDates[$art_ihjvhlcvqlq$art_i]%>';
+    for (var $art_ihjvhlcvqlq$art_i = 0, $art_cuurbtps$art_c = supportQuickDates.length; $art_ihjvhlcvqlq$art_i < $art_cuurbtps$art_c; $art_ihjvhlcvqlq$art_i++) {
+        var item = supportQuickDates[$art_ihjvhlcvqlq$art_i];
         $p += '<tr><td>';
         $line = 71;
         $art = '=item.key';

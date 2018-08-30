@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -28,7 +28,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, time = $$.time, types = $$.types; var $expr, $art, $line; try {
-    $p += '<div class="_zs_gallery_mx-time_picker_-wrapper" id="wrapper_' + ($expr = '<%=viewId%>', $e(viewId)) + '"><div mx-view="mx-time/index?time=' + ($expr = '<%!$eu(time)%>', $eu(time)) + '&types=' + ($expr = '<%!$eu(types)%>', $eu(types)) + '" id="time_' + ($expr = '<%=viewId%>', $e(viewId)) + '" class="_zs_gallery_mx-time_picker_-time clearfix" mx-change="' + $viewId + '@{take}()"></div><div mxs="_zs_gallerycR:_" class="_zs_gallery_mx-time_picker_-footer"><button type="button" class="btn btn-brand" mx-click="' + $viewId + '@{hide}({enter:true})">确定</button><button type="button" class="btn ml5" mx-click="' + $viewId + '@{hide}()">取消</button></div></div>';
+    $p += '<div class="_zs_gallery_mx-time_picker_-wrapper" id="wrapper_' + ($expr = '<%=viewId%>', $e(viewId)) + '"><div mx-view="mx-time/index?time=' + ($expr = '<%!$eu(time)%>', $eu(time)) + '&types=' + ($expr = '<%!$eu(types)%>', $eu(types)) + '" id="time_' + ($expr = '<%=viewId%>', $e(viewId)) + '" class="_zs_gallery_mx-time_picker_-time clearfix" mx-change="' + $viewId + '@{take}()"></div><div mxs="_zs_gallerycT:_" class="_zs_gallery_mx-time_picker_-footer"><button type="button" class="btn btn-brand" mx-click="' + $viewId + '@{hide}({enter:true})">确定</button><button type="button" class="btn ml5" mx-click="' + $viewId + '@{hide}()">取消</button></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

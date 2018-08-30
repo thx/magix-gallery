@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -9,7 +9,7 @@ define("mx-carousel/index",["magix","$","../mx-runner/index"],(require,exports,m
 var Magix = require("magix");
 var $ = require("$");
 var Runner = require("../mx-runner/index");
-Magix.applyStyle("_zs_gallery_mx-carousel_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-carousel_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-carousel_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-carousel_index_-carousel {\n  position: relative;\n  width: 100%;\n  overflow: hidden;\n}\n._zs_gallery_mx-carousel_index_-carousel ._zs_gallery_mx-carousel_index_-inner {\n  position: relative;\n  z-index: 3;\n}\n._zs_gallery_mx-carousel_index_-dot-cnt {\n  display: inline-block;\n  vertical-align: top;\n}\n._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot {\n  cursor: pointer;\n  background: #fff;\n  opacity: 0.5;\n  display: block;\n  border-radius: 1px;\n  transition: all .5s;\n}\n._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot:hover {\n  opacity: 0.8;\n}\n._zs_gallery_mx-carousel_index_-dots {\n  position: absolute;\n  left: 0;\n  bottom: 12px;\n  z-index: 4;\n  height: 5px;\n  width: 100%;\n  text-align: center;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot-cnt {\n  margin: 0 2px;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot {\n  width: 20px;\n  height: 5px;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  opacity: 1;\n  width: 28px;\n}\n._zs_gallery_mx-carousel_index_-v-dots {\n  position: absolute;\n  top: 50%;\n  right: 12px;\n  z-index: 4;\n  width: 5px;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot-cnt {\n  margin: 2px 0;\n}\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot {\n  width: 5px;\n  height: 20px;\n}\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  opacity: 1;\n  height: 28px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-carousel_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-carousel_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-carousel_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-carousel_index_-carousel {\n  position: relative;\n  width: 100%;\n  overflow: hidden;\n}\n._zs_gallery_mx-carousel_index_-carousel ._zs_gallery_mx-carousel_index_-inner {\n  position: relative;\n  z-index: 3;\n}\n._zs_gallery_mx-carousel_index_-dot-cnt {\n  display: inline-block;\n  vertical-align: top;\n}\n._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot {\n  cursor: pointer;\n  background: #fff;\n  opacity: 0.5;\n  display: block;\n  border-radius: 1px;\n  transition: all 0.5s;\n}\n._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot:hover {\n  opacity: 0.8;\n}\n._zs_gallery_mx-carousel_index_-dots {\n  position: absolute;\n  left: 0;\n  bottom: 12px;\n  z-index: 4;\n  height: 5px;\n  width: 100%;\n  text-align: center;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot-cnt {\n  margin: 0 2px;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot {\n  width: 20px;\n  height: 5px;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  opacity: 1;\n  width: 28px;\n}\n._zs_gallery_mx-carousel_index_-v-dots {\n  position: absolute;\n  top: 50%;\n  right: 12px;\n  z-index: 4;\n  width: 5px;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot-cnt {\n  margin: 2px 0;\n}\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot {\n  width: 5px;\n  height: 20px;\n}\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  opacity: 1;\n  height: 28px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -27,7 +27,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=height';
     ;
-    $p += '' + ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_gallery^:_" class="_zs_gallery_mx-carousel_index_-inner" mx-mouseover="' + $viewId + '@{stop}()" mx-mouseout="' + $viewId + '@{start}()">';
+    $p += '' + ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_gallery*:_" class="_zs_gallery_mx-carousel_index_-inner" mx-mouseover="' + $viewId + '@{stop}()" mx-mouseout="' + $viewId + '@{start}()">';
     $line = 5;
     $art = '!content';
     ;
@@ -72,7 +72,7 @@ module.exports = Magix.View.extend({
         $expr = '<%for (var i = 0; i < len; i += 1) {%>';
         for (var i = 0; i < len; i += 1) {
             ;
-            $p += '<li mxa="_zs_gallery^:a" class="_zs_gallery_mx-carousel_index_-dot-cnt"><i class="_zs_gallery_mx-carousel_index_-dot" mx-click="' + $viewId + '@{active}({idx:';
+            $p += '<li mxa="_zs_gallery*:a" class="_zs_gallery_mx-carousel_index_-dot-cnt"><i class="_zs_gallery_mx-carousel_index_-dot" mx-click="' + $viewId + '@{active}({idx:';
             $line = 13;
             $art = '=i';
             ;

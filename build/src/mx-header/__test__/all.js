@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -34,7 +34,7 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = '=cur';
     ;
-    $p += '' + ($expr = '<%!$eu(cur)%>', $eu(cur)) + '&logo=%2F%2Fgw.alicdn.com%2Ftfs%2FTB1Uhbvh_vI8KJjSspjXXcgjXXa-534-98.png"></div><div mxa="_zs_gallerya?:_" class="_zs_gallery_mx-header___test___index_-content"><div mxa="_zs_gallerya?:a" class="_zs_gallery_mx-header___test___index_-inner">';
+    $p += '' + ($expr = '<%!$eu(cur)%>', $eu(cur)) + '&logo=%2F%2Fgw.alicdn.com%2Ftfs%2FTB1Uhbvh_vI8KJjSspjXXcgjXXa-534-98.png"></div><div mxa="_zs_gallerya~:_" class="_zs_gallery_mx-header___test___index_-content"><div mxa="_zs_gallerya~:a" class="_zs_gallery_mx-header___test___index_-inner">';
     $line = 8;
     $art = 'if !cur';
     ;

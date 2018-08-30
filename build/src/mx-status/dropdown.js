@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -26,7 +26,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', readonly = $$.readonly, cur = $$.cur, show = $$.show, list = $$.list; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryb]:_" class="_zs_gallery_mx-status_base_-status" mx-mouseout="' + $viewId + 'out()"><div mxa="_zs_galleryb]:a" class="_zs_gallery_mx-status_base_-status-handle-dd" mx-mouseover="' + $viewId + 'over()"><span class="input _zs_gallery_mx-status_base_-status-input ';
+    $p += '<div mxa="_zs_galleryb\\:_" class="_zs_gallery_mx-status_base_-status" mx-mouseout="' + $viewId + 'out()"><div mxa="_zs_galleryb\\:a" class="_zs_gallery_mx-status_base_-status-handle-dd" mx-mouseover="' + $viewId + 'over()"><span class="input _zs_gallery_mx-status_base_-status-input ';
     $line = 5;
     $art = 'if readonly';
     ;
@@ -50,7 +50,7 @@ module.exports = Base.extend({
     $line = 5;
     $art = '=cur.text';
     ;
-    $p += '' + ($expr = '<%=cur.text%>', $e(cur.text)) + '</span><i mxs="_zs_galleryb]:_" class="mc-iconfont _zs_gallery_mx-status_base_-status-arrow">&#xe692;</i></div>';
+    $p += '' + ($expr = '<%=cur.text%>', $e(cur.text)) + '</span><i mxs="_zs_galleryb\\:_" class="mc-iconfont _zs_gallery_mx-status_base_-status-arrow">&#xe692;</i></div>';
     $line = 10;
     $art = 'if show && !readonly';
     ;
@@ -58,14 +58,14 @@ module.exports = Base.extend({
     $expr = '<%if (show && !readonly) {%>';
     if (show && !readonly) {
         ;
-        $p += '<ul mxa="_zs_galleryb]:b" class="_zs_gallery_mx-status_base_-status-info _zs_gallery_mx-status_base_-status-info-dd">';
+        $p += '<ul mxa="_zs_galleryb\\:b" class="_zs_gallery_mx-status_base_-status-info _zs_gallery_mx-status_base_-status-info-dd">';
         $line = 12;
         $art = 'each list as item';
         ;
         $p += '';
-        $expr = '<%for (var $art_iledilvrsjl$art_i = 0, $art_ckuxvsuqb$art_c = list.length; $art_iledilvrsjl$art_i < $art_ckuxvsuqb$art_c; $art_iledilvrsjl$art_i++) {        var item = list[$art_iledilvrsjl$art_i]%>';
-        for (var $art_iledilvrsjl$art_i = 0, $art_ckuxvsuqb$art_c = list.length; $art_iledilvrsjl$art_i < $art_ckuxvsuqb$art_c; $art_iledilvrsjl$art_i++) {
-            var item = list[$art_iledilvrsjl$art_i];
+        $expr = '<%for (var $art_iduarcezpb$art_i = 0, $art_cjjxly$art_c = list.length; $art_iduarcezpb$art_i < $art_cjjxly$art_c; $art_iduarcezpb$art_i++) {        var item = list[$art_iduarcezpb$art_i]%>';
+        for (var $art_iduarcezpb$art_i = 0, $art_cjjxly$art_c = list.length; $art_iduarcezpb$art_i < $art_cjjxly$art_c; $art_iduarcezpb$art_i++) {
+            var item = list[$art_iduarcezpb$art_i];
             $p += '<li class="_zs_gallery_mx-status_base_-status-oper clearfix ';
             $line = 13;
             $art = 'if (item.value == cur.value)';
@@ -94,11 +94,11 @@ module.exports = Base.extend({
             $line = 14;
             $art = '!item.icon';
             ;
-            $p += '' + ($expr = '<%!item.icon%>', $n(item.icon)) + '</span><span mxa="_zs_galleryb]:c" class="_zs_gallery_mx-status_base_-status-name">';
+            $p += '' + ($expr = '<%!item.icon%>', $n(item.icon)) + '</span><span mxa="_zs_galleryb\\:c" class="_zs_gallery_mx-status_base_-status-name">';
             $line = 15;
             $art = '=item.text';
             ;
-            $p += '' + ($expr = '<%=item.text%>', $e(item.text)) + '</span><i mxs="_zs_galleryb]:a" class="mc-iconfont _zs_gallery_mx-status_base_-oper-icon">&#xe65d;</i></li>';
+            $p += '' + ($expr = '<%=item.text%>', $e(item.text)) + '</span><i mxs="_zs_galleryb\\:a" class="mc-iconfont _zs_gallery_mx-status_base_-oper-icon">&#xe65d;</i></li>';
             $line = 18;
             $art = '/each';
             ;

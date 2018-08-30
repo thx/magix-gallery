@@ -1,24 +1,28 @@
-<mx-title.second content="使用示例"/>
-<div mx-view="@./1"></div>
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo'
+    }, {
+        name: 'API',
+        key: viewId + '_api'
+    }, {
+        name: '_config说明',
+        key: viewId + '_config'
+    }]}}"></div>
+    
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <div class="clearfix mb20">
+        <div class="half">
+            <div mx-view="@./1"></div>
+        </div>
+        <div class="half">
+            <div mx-view="@./2"></div>
+        </div>
+    </div>
+    
+    <mx-title.second content="API" id="{{=viewId}}_api"/>
+    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
 
-<mx-title.second content="API"/>
-<div class="pr20">
-    <table class="table desc-table">
-        <thead>
-            <tr>
-                <th width="100">可配参数</th>
-                <th width="200">说明</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{each options as option}}
-            <tr>
-                <td>{{=option.key}}</td>
-                <td>{{!option.desc}}</td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
+    <mx-title.second content="关于配置文件 _config 的说明" id="{{=viewId}}_config"/>
+    <div mx-view="@./desc" class="mb40 pr20"></div>
 </div>
-
-

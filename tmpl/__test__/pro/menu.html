@@ -1,38 +1,56 @@
-<div mx-view="__test__/subs?list={{@[{
-    name: '查看导航可见菜单配置',
-    key: viewId + '_menu'
-}, {
-    name: '查看自定义菜单配置',
-    key: viewId + '_custom'
-}]}}"></div>
-
-<mx-title.second id="{{=viewId}}_menu"
-    content="导航可见菜单配置" 
-    tip="入口在导航上的页面，可以为头部一级，或者为侧边二级或者三级，为了处理方便侧边可点都是三级"/>
-<div mx-view="@./menu-desc" class="mb20"></div>
-<div class="clearfix mb20">
-    <div class="half">
-        <div mx-view="@./menu1"></div>
-        <div mx-view="@./menu3"></div>
-        <div mx-view="@./menu5"></div>
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '导航可见菜单',
+        key: viewId + '_menu',
+        subs: [{
+            name: '侧边二级',
+            key: viewId + '_menu1',
+        },{
+            name: '侧边三级',
+            key: viewId + '_menu2',
+        },{
+            name: '自定义侧边',
+            key: viewId + '_menu3',
+        },{
+            name: '无侧边深底',
+            key: viewId + '_menu4',
+        },{
+            name: '无侧边白底',
+            key: viewId + '_menu5',
+        }]
+    }, {
+        name: '自定义菜单',
+        key: viewId + '_custom'
+    }]}}"></div>
+    
+    <mx-title.second id="{{=viewId}}_menu"
+        content="导航可见菜单配置" 
+        tip="入口在导航上的页面，可以为头部一级，或者为侧边二级或者三级，为了处理方便侧边可点都是三级"/>
+    <div mx-view="@./menu-desc" class="mb20"></div>
+    <div class="clearfix mb20">
+        <div class="half">
+            <div mx-view="@./menu1" id="{{=viewId}}_menu1"></div>
+            <div mx-view="@./menu3" id="{{=viewId}}_menu3"></div>
+            <div mx-view="@./menu5" id="{{=viewId}}_menu5"></div>
+        </div>
+        <div class="half">
+            <div mx-view="@./menu2" id="{{=viewId}}_menu2"></div>
+            <div mx-view="@./menu4" id="{{=viewId}}_menu4"></div>
+        </div>
     </div>
-    <div class="half">
-        <div mx-view="@./menu2"></div>
-        <div mx-view="@./menu4"></div>
-    </div>
+    
+    <mx-title.second id="{{=viewId}}_custom"
+        content="自定义菜单配置" 
+        tip="入口在不在导航上，从具体的某个页面点击进入，可能需要映射到导航的某个位置上"/>
+    <div mx-view="@./menu-custom-desc" class="mb20"></div>
+    <!-- <div class="clearfix mb20">
+        <div class="half">
+            <div mx-view="@./menu-custom1"></div>
+            <div mx-view="@./menu-custom3"></div>
+        </div>
+        <div class="half">
+            <div mx-view="@./menu-custom2"></div>
+            <div mx-view="@./menu-custom4"></div>
+        </div>
+    </div>  -->
 </div>
-
-<mx-title.second id="{{=viewId}}_custom"
-    content="自定义菜单配置" 
-    tip="入口在不在导航上，从具体的某个页面点击进入，可能需要映射到导航的某个位置上"/>
-<div mx-view="@./menu-custom-desc" class="mb20"></div>
-<!-- <div class="clearfix mb20">
-    <div class="half">
-        <div mx-view="@./menu-custom1"></div>
-        <div mx-view="@./menu-custom3"></div>
-    </div>
-    <div class="half">
-        <div mx-view="@./menu-custom2"></div>
-        <div mx-view="@./menu-custom4"></div>
-    </div>
-</div>  -->

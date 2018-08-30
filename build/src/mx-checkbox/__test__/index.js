@@ -1,12 +1,16 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-checkbox/__test__/index",["magix","$","mx-title/second","./1"],(require,exports,module)=>{
+define("mx-checkbox/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./2","__test__/api","./desc"],(require,exports,module)=>{
 /*Magix,$*/
+require("__test__/subs");
 require("mx-title/second");
 require("./1");
+require("./2");
+require("__test__/api");
+require("./desc");
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
@@ -21,32 +25,32 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallery*:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallery*:a" mx-view="mx-checkbox/__test__/1"></div><div mxs="_zs_gallery*:b" mx-view="mx-title/second?content=API"></div><div mxa="_zs_gallery*:_" class="pr20"><table mxa="_zs_gallery*:a" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_gallery*:c"><tr><th width="100">可配参数</th><th width="200">说明</th></tr></thead><tbody>';
-    $line = 14;
-    $art = 'each options as option';
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallery):g" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $line = 2;
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\'\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'_config说明\',\n        key: viewId + \'_config\'\n    }]';
     ;
-    $p += '';
-    $expr = '<%for (var $art_iywzgii$art_i = 0, $art_chhqaepvwyw$art_c = options.length; $art_iywzgii$art_i < $art_chhqaepvwyw$art_c; $art_iywzgii$art_i++) {    var option = options[$art_iywzgii$art_i]%>';
-    for (var $art_iywzgii$art_i = 0, $art_chhqaepvwyw$art_c = options.length; $art_iywzgii$art_i < $art_chhqaepvwyw$art_c; $art_iywzgii$art_i++) {
-        var option = options[$art_iywzgii$art_i];
-        $p += '<tr><td>';
-        $line = 16;
-        $art = '=option.key';
-        ;
-        $p += '' + ($expr = '<%=option.key%>', $e(option.key)) + '</td><td>';
-        $line = 17;
-        $art = '!option.desc';
-        ;
-        $p += '' + ($expr = '<%!option.desc%>', $n(option.desc)) + '</td></tr>';
-        $line = 19;
-        $art = '/each';
-        ;
-        $p += '';
-        $expr = '<%}%>';
-    }
+    $p += '' + ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\'        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'_config说明\',            key: viewId + \'_config\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo' }, { name: 'API', key: viewId + '_api' }, { name: '_config说明', key: viewId + '_config' }])) + '"></div><div id="';
+    $line = 13;
+    $art = '=viewId';
     ;
-    $p += '</tbody></table></div>';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallery):d" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-checkbox/__test__/1"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-checkbox/__test__/2"></div></div></div><div id="';
+    $line = 23;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $line = 24;
+    $art = '@options';
+    ;
+    $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
+    $line = 26;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_config" mx-view="mx-title/second?content=%E5%85%B3%E4%BA%8E%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20_config%20%E7%9A%84%E8%AF%B4%E6%98%8E"></div><div mxs="_zs_gallery):k" mx-view="mx-checkbox/__test__/desc" class="mb40 pr20"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -58,15 +62,22 @@ catch (ex) {
 } return $p; },
     render: function () {
         this.updater.digest({
+            viewId: this.id,
             options: [{
-                    key: 'mx-checked',
-                    desc: '是否选中，&lt;mx-checkbox mx-checked/&gt;'
+                    key: 'view-checked',
+                    desc: '是否选中',
+                    type: 'boolean',
+                    def: 'false'
                 }, {
-                    key: 'mx-disabled',
-                    desc: '是否禁用，&lt;mx-checkbox mx-disabled/&gt;'
+                    key: 'view-disabled',
+                    desc: '是否禁用',
+                    type: 'boolean',
+                    def: 'false'
                 }, {
-                    key: 'mx-indeterminate',
-                    desc: '是否部分选中，&lt;mx-checkbox mx-indeterminate/&gt;'
+                    key: 'view-indeterminate',
+                    desc: '是否部分选中',
+                    type: 'boolean',
+                    def: 'false'
                 }]
         });
     }

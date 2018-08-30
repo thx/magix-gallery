@@ -1,5 +1,3 @@
-
-
 /*!
  * clipboard.js v1.7.1
  * https://zenorocha.github.io/clipboard.js
@@ -791,7 +789,7 @@
     },{"./clipboard-action":7,"good-listener":4,"tiny-emitter":6}]},{},[8])(8)
     });
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */

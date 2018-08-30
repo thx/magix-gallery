@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -26,7 +26,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerya^:_" class="_zs_gallery___test___layout_-example"><div class="_zs_gallery___test___layout_-eg-content">Todo</div></div>';
+    $p += '<div mxs="_zs_gallerya*:_" class="_zs_gallery___test___layout_-example"><div class="_zs_gallery___test___layout_-eg-content">Todo</div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

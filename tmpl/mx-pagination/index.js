@@ -105,10 +105,12 @@ module.exports = Magix.View.extend({
             offsetStart = offsetEnd = 0;
         }
 
-        let tipOffset = I18n['pager.offset'].replace('${min}', `<b>${offsetStart}</b>`).replace('${max}', `<b>${offsetEnd}</b>`);
-        let tipTotal = I18n['pager.total'].replace('${total}', `<b>${total}</b>`);
-        let tipPer = I18n['pager.per.page'];
-        let tipUnit = I18n['pager.unit'];
+        let tipOffset = I18n['pager.offset'].replace('${min}', `<b>${offsetStart}</b>`).replace('${max}', `<b>${offsetEnd}</b>`),
+            tipTotal = I18n['pager.total'].replace('${total}', `<b>${total}</b>`),
+            tipPer = I18n['pager.per.page'],
+            tipUnit = I18n['pager.unit'],
+            tipJumpTo = I18n['pager.jump.to'],
+            tipJumpUnit = I18n['pager.jump.unit'];
 
         // 跳转，下一页
         let next = page + 1;
@@ -126,7 +128,9 @@ module.exports = Magix.View.extend({
             tipOffset,
             tipTotal,
             tipPer,
-            tipUnit
+            tipUnit,
+            tipJumpTo,
+            tipJumpUnit
         };
     },
     '@{fire.event}'() {

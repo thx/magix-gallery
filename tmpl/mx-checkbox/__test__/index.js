@@ -5,15 +5,22 @@ module.exports = Magix.View.extend({
     tmpl: '@index.html',
     render() {
         this.updater.digest({
+            viewId: this.id,
             options: [{
-                key: 'mx-checked',
-                desc: '是否选中，&lt;mx-checkbox mx-checked/&gt;'
+                key: 'view-checked',
+                desc: '是否选中',
+                type: 'boolean',
+                def: 'false'
             },{
-                key: 'mx-disabled',
-                desc: '是否禁用，&lt;mx-checkbox mx-disabled/&gt;'
+                key: 'view-disabled',
+                desc: '是否禁用',
+                type: 'boolean',
+                def: 'false'
             },{
-                key: 'mx-indeterminate',
-                desc: '是否部分选中，&lt;mx-checkbox mx-indeterminate/&gt;'
+                key: 'view-indeterminate',
+                desc: '是否部分选中',
+                type: 'boolean',
+                def: 'false'
             }]
         });
     }

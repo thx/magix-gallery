@@ -1,0 +1,65 @@
+<div class="example">
+    <div class="eg-content">
+        <a href="javascript:;" mx-click="outerChange()" class="btn btn-brand mr20">切换状态</a>
+        <label class="mr20">
+            <mx-checkbox name="test" value="2" 
+                view-checked="{{=checked}}" 
+                view-disabled="{{=disabled}}"
+                mx-change="innerChange()"/>
+            动态切换状态
+        </label>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;a href="javascript:;" mx-click="outerChange()" class="btn btn-brand mr20"&gt;切换状态&lt;/a&gt;
+
+&lt;label class="mr20"&gt;
+    &lt;mx-checkbox name="test" value="2" 
+        view-checked="&#123;&#123;=checked&#125;&#125;" 
+        view-disabled="&#123;&#123;=disabled&#125;&#125;"
+        mx-change="innerChange()"/&gt;
+    动态切换状态
+&lt;/label&gt;
+</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            disabled: true,
+            checked: true
+        &#125;);
+    &#125;,
+    'outerChange&lt;click&gt;'() &#123;
+        let disabled = this.updater.get('disabled'),
+            checked = this.updater.get('checked');
+        this.updater.digest(&#123;
+            disabled: !disabled,
+            checked: !checked
+        &#125;);
+    &#125;,
+    'innerChange&lt;change&gt;'(e)&#123;
+        this.updater.digest(&#123;
+            checked: e.target.checked
+        &#125;)
+    &#125;
+&#125;);</pre>
+    </div>
+</div>

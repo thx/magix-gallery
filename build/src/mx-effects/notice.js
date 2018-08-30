@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -50,7 +50,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (icon) {%>';
     if (icon) {
         ;
-        $p += '<span mxa="_zs_galleryaQ:_" class="_zs_gallery_mx-effects_notice_-inner"><i mxs="_zs_galleryaQ:_" class="mc-iconfont _zs_gallery_mx-effects_notice_-icon">&#xe6ad;</i>';
+        $p += '<span mxa="_zs_galleryaS:_" class="_zs_gallery_mx-effects_notice_-inner"><i mxs="_zs_galleryaS:_" class="mc-iconfont _zs_gallery_mx-effects_notice_-icon">&#xe6ad;</i>';
         $line = 5;
         $art = '!content';
         ;

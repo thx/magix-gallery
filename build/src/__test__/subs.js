@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -43,10 +43,10 @@ module.exports = Magix.View.extend({
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for (var $art_ivjkxpurrg$art_i = 0, $art_cejdpyhrpwk$art_c = list.length; $art_ivjkxpurrg$art_i < $art_cejdpyhrpwk$art_c; $art_ivjkxpurrg$art_i++) {    var item = list[$art_ivjkxpurrg$art_i]%>';
-    for (var $art_ivjkxpurrg$art_i = 0, $art_cejdpyhrpwk$art_c = list.length; $art_ivjkxpurrg$art_i < $art_cejdpyhrpwk$art_c; $art_ivjkxpurrg$art_i++) {
-        var item = list[$art_ivjkxpurrg$art_i];
-        $p += '<div mxa="_zs_galleryE:_" class="_zs_gallery___test___subs_-sub-link"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'';
+    $expr = '<%for (var $art_idsjhoab$art_i = 0, $art_czopcfko$art_c = list.length; $art_idsjhoab$art_i < $art_czopcfko$art_c; $art_idsjhoab$art_i++) {    var item = list[$art_idsjhoab$art_i]%>';
+    for (var $art_idsjhoab$art_i = 0, $art_czopcfko$art_c = list.length; $art_idsjhoab$art_i < $art_czopcfko$art_c; $art_idsjhoab$art_i++) {
+        var item = list[$art_idsjhoab$art_i];
+        $p += '<div mxa="_zs_galleryG:_" class="_zs_gallery___test___subs_-sub-link"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'';
         $line = 4;
         $art = '=item.key';
         ;
@@ -67,10 +67,10 @@ module.exports = Magix.View.extend({
             $art = 'each item.subs as sub';
             ;
             $p += '';
-            $expr = '<%for (var $art_iaargdta$art_i = 0, $art_objziosiuwb$art_obj = item.subs, $art_cmhvdbf$art_c = $art_objziosiuwb$art_obj.length; $art_iaargdta$art_i < $art_cmhvdbf$art_c; $art_iaargdta$art_i++) {            var sub = $art_objziosiuwb$art_obj[$art_iaargdta$art_i]%>';
-            for (var $art_iaargdta$art_i = 0, $art_objziosiuwb$art_obj = item.subs, $art_cmhvdbf$art_c = $art_objziosiuwb$art_obj.length; $art_iaargdta$art_i < $art_cmhvdbf$art_c; $art_iaargdta$art_i++) {
-                var sub = $art_objziosiuwb$art_obj[$art_iaargdta$art_i];
-                $p += '<div mxa="_zs_galleryE:a" class="_zs_gallery___test___subs_-sub-link pl10"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'';
+            $expr = '<%for (var $art_ikvwvgrpj$art_i = 0, $art_objgoaanqaet$art_obj = item.subs, $art_cbxonobvwev$art_c = $art_objgoaanqaet$art_obj.length; $art_ikvwvgrpj$art_i < $art_cbxonobvwev$art_c; $art_ikvwvgrpj$art_i++) {            var sub = $art_objgoaanqaet$art_obj[$art_ikvwvgrpj$art_i]%>';
+            for (var $art_ikvwvgrpj$art_i = 0, $art_objgoaanqaet$art_obj = item.subs, $art_cbxonobvwev$art_c = $art_objgoaanqaet$art_obj.length; $art_ikvwvgrpj$art_i < $art_cbxonobvwev$art_c; $art_ikvwvgrpj$art_i++) {
+                var sub = $art_objgoaanqaet$art_obj[$art_ikvwvgrpj$art_i];
+                $p += '<div mxa="_zs_galleryG:a" class="_zs_gallery___test___subs_-sub-link pl10"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'';
                 $line = 9;
                 $art = '=sub.key';
                 ;

@@ -45,6 +45,7 @@ module.exports = Magix.View.extend({
                 icon: '&#xe60b;'
             }, {
                 name: 'chartpark图表',
+                tip: '接口人 @浩添 @释剑',
                 path: '/all/pro/chartpark',
                 icon: '&#xe670;'
             }, {
@@ -60,10 +61,6 @@ module.exports = Magix.View.extend({
                 name: '外部改变组件样式',
                 path: '/all/pro/style',
                 icon: '&#xe698;'
-            }, {
-                name: 'magix-combine子模板预处理',
-                path: '/all/pro/combine',
-                icon: '&#xe612;'
             }, {
                 name: '页面监听参数变化回到顶部',
                 path: '/all/pro/top',

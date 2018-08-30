@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -29,19 +29,19 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryO:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryO:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryO:_" class="mb20"><div class="mb5">禁止选择开始日期或者结束日期</div><div class="mb5">1. 开始日期禁止，结束日期最小可选为开始日期；快捷操作只支持根据开始日期动态计算的；</div><div>2. 结束日期禁止，开始日期最大可选为结束日期；快捷操作都禁止；</div></div><div mxa="_zs_galleryO:b" class="mb20"><div class="w200" mx-view="mx-calendar/rangepicker?shortkeys=';
+    $p += '<div mxa="_zs_galleryQ:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryQ:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryQ:_" class="mb20"><div class="mb5">禁止选择开始日期或者结束日期</div><div class="mb5">1. 开始日期禁止，结束日期最小可选为开始日期；快捷操作只支持根据开始日期动态计算的；</div><div>2. 结束日期禁止，开始日期最大可选为结束日期；快捷操作都禁止；</div></div><div mxa="_zs_galleryQ:b" class="mb20"><div class="w200" mx-view="mx-calendar/rangepicker?shortkeys=';
     $line = 10;
     $art = '@[\'passed10\', \'dynamicStart15\', \'forever\']';
     ;
-    $p += '' + ($expr = '<%@[\'passed10\', \'dynamicStart15\', \'forever\']%>', $i($$ref, ['passed10', 'dynamicStart15', 'forever'])) + '&startDisabled=true"></div></div><div mxs="_zs_galleryO:a" class="w200" mx-view="mx-calendar/rangepicker?endDisabled=true"></div></div><div mxa="_zs_galleryO:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryO:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%@[\'passed10\', \'dynamicStart15\', \'forever\']%>', $i($$ref, ['passed10', 'dynamicStart15', 'forever'])) + '&startDisabled=true"></div></div><div mxs="_zs_galleryQ:a" class="w200" mx-view="mx-calendar/rangepicker?endDisabled=true"></div></div><div mxa="_zs_galleryQ:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryQ:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 18;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryO:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryQ:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 20;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryO:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryQ:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 23;
     $art = '=viewId';
     ;

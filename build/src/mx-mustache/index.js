@@ -1,8 +1,7 @@
 /*!
  * mustache.js - Logic-less {{mustache}} templates with JavaScript
  * http://github.com/janl/mustache.js
- */
-/*global define: false Mustache: true*/
+ *//*global define: false Mustache: true*/
 
 (function defineMustache(global, factory) {
   if (typeof exports === 'object' && exports && typeof exports.nodeName !== 'string') {
@@ -635,7 +634,7 @@
   return mustache;
 }));
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */

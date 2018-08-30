@@ -19,13 +19,13 @@
     <%if(!jump){%>
     <!-- 快捷翻页     -->
     <div class="quick">
-        <span class="mr5">向第</span>
+        <span class="mr5"><%= tipJumpTo%></span>
         <input type="text" class="input input-small quick-input mr5"
             value="{{=next}}" id="{{=viewId}}_jump_input"
             mx-change="@{stop}()"
             mx-focusin="@{stop}()"
             mx-focusout="@{stop}()"/>
-        <span class="mr10">页</span>
+        <span class="mr10"><%= tipJumpUnit%></span>
         <a href="javascript:;" class="btn btn-small" mx-click="@{jump}()">跳转</a>
     </div>
     <%}%>

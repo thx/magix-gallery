@@ -68,6 +68,8 @@ module.exports = {
     "pager.per.page": "",
     "pager.total": "${total} items",
     "pager.unit": "items per page",
+    "pager.jump.to": "jump to page",
+    "pager.jump.unit": "",
     "dialog.tip": "Tip",
     "dialog.cancel": "Cancel",
     "dialog.submit": "Submit",

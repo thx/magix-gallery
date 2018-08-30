@@ -1,29 +1,28 @@
 <div class="example">
     <div class="eg-content">
-        <label class="mr20">
+        <label class="mr20 mb20">
             <mx-checkbox name="test" value="1"
-                mx-checked/>
+                view-checked="true"/>
             选中状态
         </label>
-        <label class="mr20">
+        <label class="mr20 mb20">
             <mx-checkbox name="test" value="2" 
-                mx-checked 
-                mx-disabled/>
+                view-checked="true" 
+                view-disabled="true"/>
             选中禁选状态
         </label>
-
-        <label class="mr20">
+        <label class="mr20 mb20">
             <mx-checkbox name="test" value="3"
-                mx-disabled/>
+                view-disabled="true"/>
             禁止选择
         </label>
-        <label class="mr20">
+        <label class="mr20 mb20">
             <mx-checkbox name="test" value="4"/>
             普通checkbox
         </label>
-        <label class="mr20">
+        <label class="mr20 mb20">
             <mx-checkbox name="test" value="5"
-                mx-indeterminate/>
+                view-indeterminate="true"/>
             indeterminate
         </label>
     </div>
@@ -35,24 +34,34 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;label class="mr20"&gt;
-    &lt;mx-checkbox name="test" value="1" mx-checked/&gt;选中状态
+&lt;label class="mr20 mb20"&gt;
+    &lt;mx-checkbox name="test" value="1"
+        view-checked="true"/&gt;
+    选中状态
 &lt;/label&gt;
 
-&lt;label class="mr20"&gt;
-    &lt;mx-checkbox name="test" value="2" mx-checked mx-disabled/&gt;选中禁选状态
+&lt;label class="mr20 mb20"&gt;
+    &lt;mx-checkbox name="test" value="2" 
+        view-checked="true" 
+        view-disabled="true"/&gt;
+    选中禁选状态
 &lt;/label&gt;
 
-&lt;label class="mr20"&gt;
-    &lt;mx-checkbox name="test" value="3" mx-disabled/&gt;禁止选择
+&lt;label class="mr20 mb20"&gt;
+    &lt;mx-checkbox name="test" value="3"
+        view-disabled="true"/&gt;
+    禁止选择
 &lt;/label&gt;
 
-&lt;label class="mr20"&gt;
-    &lt;mx-checkbox name="test" value="4"/&gt;普通checkbox
+&lt;label class="mr20 mb20"&gt;
+    &lt;mx-checkbox name="test" value="4"/&gt;
+    普通checkbox
 &lt;/label&gt;
 
-&lt;label class="mr20"&gt;
-    &lt;mx-checkbox name="test" value="5" mx-indeterminate/&gt;indeterminate
+&lt;label class="mr20 mb20"&gt;
+    &lt;mx-checkbox name="test" value="5"
+        view-indeterminate="true"/&gt;
+    indeterminate
 &lt;/label&gt;</pre>
     </div>
 </div>

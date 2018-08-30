@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -56,7 +56,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += ' ' + ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryak:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ';
+    $p += ' ' + ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryam:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ';
     $expr = '<%if (expand) {%>';
     if (expand) {
         ;
@@ -72,7 +72,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (searchbox) {%>';
         if (searchbox) {
             ;
-            $p += '<div mxv mxa="_zs_galleryak:_" class="_zs_gallery_mx-dropdown_index_-search-wrapper"><div mxv mxa="_zs_galleryak:a" class="search-box"><i mxs="_zs_galleryak:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="' + ($expr = '<%=searchText%>', $e(searchText)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
+            $p += '<div mxv mxa="_zs_galleryam:_" class="_zs_gallery_mx-dropdown_index_-search-wrapper"><div mxv mxa="_zs_galleryam:a" class="search-box"><i mxs="_zs_galleryam:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="' + ($expr = '<%=searchText%>', $e(searchText)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
             $expr = '<%}%>';
         }
         ;

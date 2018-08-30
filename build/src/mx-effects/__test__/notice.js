@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -31,7 +31,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryaL:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryaL:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/3"></div><div mx-view="mx-effects/__test__/4"></div><div mx-view="mx-effects/__test__/7"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/5"></div><div mx-view="mx-effects/__test__/6"></div></div></div><div mxs="_zs_galleryaL:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += '<div mxs="_zs_galleryaN:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryaN:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/3"></div><div mx-view="mx-effects/__test__/4"></div><div mx-view="mx-effects/__test__/7"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/5"></div><div mx-view="mx-effects/__test__/6"></div></div></div><div mxs="_zs_galleryaN:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 15;
     $art = '@options';
     ;

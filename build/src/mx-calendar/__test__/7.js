@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -26,7 +26,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', vs = $$.vs, start = $$.start, end = $$.end, max = $$.max, min = $$.min, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryZ:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryZ:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryZ:_" class="mb20"><span class="color-9">以下示例：</span><span>可对比，关闭对比选择单天</span></div><div mxa="_zs_galleryZ:b" class="mb20"><span mxs="_zs_galleryZ:a" class="color-9">当前结果：</span>';
+    $p += '<div mxa="_zs_gallery1:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallery1:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallery1:_" class="mb20"><span class="color-9">以下示例：</span><span>可对比，关闭对比选择单天</span></div><div mxa="_zs_gallery1:b" class="mb20"><span mxs="_zs_gallery1:a" class="color-9">当前结果：</span>';
     $line = 9;
     $art = 'if vs';
     ;
@@ -34,11 +34,11 @@ module.exports = Base.extend({
     $expr = '<%if (vs) {%>';
     if (vs) {
         ;
-        $p += '<span mxa="_zs_galleryZ:c" class="color-brand mr5">';
+        $p += '<span mxa="_zs_gallery1:c" class="color-brand mr5">';
         $line = 10;
         $art = '=start';
         ;
-        $p += '' + ($expr = '<%=start%>', $e(start)) + '</span><span mxs="_zs_galleryZ:b" class="mr5">对比</span><span mxa="_zs_galleryZ:d" class="color-brand-vs">';
+        $p += '' + ($expr = '<%=start%>', $e(start)) + '</span><span mxs="_zs_gallery1:b" class="mr5">对比</span><span mxa="_zs_gallery1:d" class="color-brand-vs">';
         $line = 12;
         $art = '=end';
         ;
@@ -51,7 +51,7 @@ module.exports = Base.extend({
     }
     else {
         ;
-        $p += '<span mxa="_zs_galleryZ:e" class="mr5">';
+        $p += '<span mxa="_zs_gallery1:e" class="mr5">';
         $line = 14;
         $art = '=start';
         ;
@@ -83,27 +83,27 @@ module.exports = Base.extend({
     $line = 24;
     $art = '=min';
     ;
-    $p += '' + ($expr = '<%!$eu(min)%>', $eu(min)) + '"></div></div><div mxa="_zs_galleryZ:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryZ:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%!$eu(min)%>', $eu(min)) + '"></div></div><div mxa="_zs_gallery1:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery1:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 29;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryZ:g" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery1:g" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 31;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryZ:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery1:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 34;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.rangepicker class="w220"\n    vsenable="true"\n    vs="&#123;&#123;=vs&#125;&#125;"\n    single="true"\n    start="&#123;&#123;=start&#125;&#125;"\n    end="&#123;&#123;=end&#125;&#125;"\n    max="&#123;&#123;=max&#125;&#125;"\n    min="&#123;&#123;=min&#125;&#125;"\n    mx-change="changeInfo()"/&gt;</pre></div><div mxa="_zs_galleryZ:h" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryZ:e" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.rangepicker class="w220"\n    vsenable="true"\n    vs="&#123;&#123;=vs&#125;&#125;"\n    single="true"\n    start="&#123;&#123;=start&#125;&#125;"\n    end="&#123;&#123;=end&#125;&#125;"\n    max="&#123;&#123;=max&#125;&#125;"\n    min="&#123;&#123;=min&#125;&#125;"\n    mx-change="changeInfo()"/&gt;</pre></div><div mxa="_zs_gallery1:h" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery1:e" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 47;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryZ:i" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery1:i" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 49;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryZ:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallery1:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 52;
     $art = '=viewId';
     ;

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -27,7 +27,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', selected = $$.selected, list = $$.list, total = $$.total, size = $$.size, page = $$.page, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerycc:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerycc:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerycc:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl"><div>mixins[mx-checkbox/storestate]和[mx-checkbox/linkage]</div><div>部分禁止选择，翻页保存选中值</div><div>需要的时候调用this.getStoreState获取选中值</div></div></div><div mxa="_zs_gallerycc:b" class="mb20"><a mxs="_zs_gallerycc:a" href="javascript:;" mx-click="' + $viewId + 'get()" class="btn btn-brand mr20">获取选中值</a>';
+    $p += '<div mxv mxa="_zs_galleryce:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryce:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryce:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl"><div>mixins[mx-checkbox/storestate]和[mx-checkbox/linkage]</div><div>部分禁止选择，翻页保存选中值</div><div>需要的时候调用this.getStoreState获取选中值</div></div></div><div mxa="_zs_galleryce:b" class="mb20"><a mxs="_zs_galleryce:a" href="javascript:;" mx-click="' + $viewId + 'get()" class="btn btn-brand mr20">获取选中值</a>';
     $line = 13;
     $art = 'if (selected.length > 0)';
     ;
@@ -35,7 +35,7 @@ module.exports = Base.extend({
     $expr = '<%if (selected.length > 0) {%>';
     if (selected.length > 0) {
         ;
-        $p += '<span mxs="_zs_gallerycc:b" class="color-9">当前选中：</span>';
+        $p += '<span mxs="_zs_galleryce:b" class="color-9">当前选中：</span>';
         $line = 14;
         $art = '=selected';
         ;
@@ -47,13 +47,13 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxv mxa="_zs_gallerycc:c" mx-view="mx-table/index?sticky=true"><div mxv><table mxv mxa="_zs_gallerycc:d" class="table"><thead mxv><tr mxv><th mxv mxa="_zs_gallerycc:e" width="50"><input mxs="_zs_gallerycc:c" type="checkbox" class="checkbox" linkage="example"/></th><th mxs="_zs_gallerycc:d" width="200">列1</th><th mxs="_zs_gallerycc:e" width="200">列2</th><th mxs="_zs_gallerycc:f" width="200">列3</th></tr></thead><tbody mxv>';
+    $p += '</div><div mxv mxa="_zs_galleryce:c" mx-view="mx-table/index?sticky=true"><div mxv><table mxv mxa="_zs_galleryce:d" class="table"><thead mxv><tr mxv><th mxv mxa="_zs_galleryce:e" width="50"><input mxs="_zs_galleryce:c" type="checkbox" class="checkbox" linkage="example"/></th><th mxs="_zs_galleryce:d" width="200">列1</th><th mxs="_zs_galleryce:e" width="200">列2</th><th mxs="_zs_galleryce:f" width="200">列3</th></tr></thead><tbody mxv>';
     $line = 30;
     $art = 'each list as item index';
     ;
     $p += '';
-    $expr = '<%for (var index = 0, $art_cswmpmmcz$art_c = list.length; index < $art_cswmpmmcz$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cswmpmmcz$art_c = list.length; index < $art_cswmpmmcz$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cyimllag$art_c = list.length; index < $art_cyimllag$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cyimllag$art_c = list.length; index < $art_cyimllag$art_c; index++) {
         var item = list[index];
         $p += '<tr mxv class="';
         $line = 31;
@@ -99,7 +99,7 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</tbody></table></div></div><div mxa="_zs_gallerycc:f" class="table-pager-wrapper"><div mx-change="' + $viewId + 'changePager()" mx-view="mx-pagination/index?total=';
+    $p += '</tbody></table></div></div><div mxa="_zs_galleryce:f" class="table-pager-wrapper"><div mx-change="' + $viewId + 'changePager()" mx-view="mx-pagination/index?total=';
     $line = 48;
     $art = '=total';
     ;
@@ -111,27 +111,27 @@ module.exports = Base.extend({
     $line = 50;
     $art = '=page';
     ;
-    $p += '' + ($expr = '<%!$eu(page)%>', $eu(page)) + '"></div></div></div><div mxa="_zs_gallerycc:g" class="clearfix"><div mxa="_zs_gallerycc:h" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_gallerycc:g" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%!$eu(page)%>', $eu(page)) + '"></div></div></div><div mxa="_zs_galleryce:g" class="clearfix"><div mxa="_zs_galleryce:h" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_galleryce:g" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 57;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycc:i" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryce:i" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 59;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycc:h" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryce:h" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 62;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="mb20"&gt;\n    &lt;a href="javascript:;" mx-click="get()" class="btn btn-brand mr20"&gt;获取选中值&lt;/a&gt;\n    &#123;&#123;if (selected.length &gt; 0)&#125;&#125;\n    &lt;span class="color-9"&gt;当前选中：&lt;/span&gt;&#123;&#123;=selected&#125;&#125;\n    &#123;&#123;/if&#125;&#125;\n&lt;/div&gt;\n&lt;mx-table sticky="true"&gt;\n    &lt;table class="table"&gt;\n        &lt;thead&gt;\n            &lt;tr&gt;\n                &lt;th width="50"&gt;\n                    &lt;input type="checkbox" class="checkbox" linkage="example" /&gt;\n                &lt;/th&gt;\n                &lt;th width="200"&gt;列1&lt;/th&gt;\n                &lt;th width="200"&gt;列2&lt;/th&gt;\n                &lt;th width="200"&gt;列3&lt;/th&gt;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;each list as item index&#125;&#125;\n            &lt;tr class="&#123;&#123;= (index+1==list.length) ? \'last-tr\' : \'\'&#125;&#125;"&gt;\n                &lt;td&gt;\n                    &lt;input type="checkbox" class="checkbox" \n                        linkage-parent="example" \n                        value="&#123;&#123;=item.id&#125;&#125;" \n                        &#123;&#123;if item.disabled&#125;&#125; disabled="true" &#123;&#123;/if&#125;&#125;/&gt;\n                &lt;/td&gt;\n                &lt;td&gt;&#123;&#123;=item.content1&#125;&#125;&lt;/td&gt;\n                &lt;td&gt;&#123;&#123;=item.content2&#125;&#125;&lt;/td&gt;\n                &lt;td&gt;&#123;&#123;=item.content3&#125;&#125;&lt;/td&gt;\n            &lt;/tr&gt;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n&lt;/mx-table&gt;\n&lt;div class="table-pager-wrapper"&gt;\n    &lt;mx-pagination \n        total="&#123;&#123;=total&#125;&#125;" \n        size="&#123;&#123;=size&#125;&#125;" \n        page="&#123;&#123;=page&#125;&#125;"\n        mx-change="changePager()"/&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_gallerycc:j" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerycc:i" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="mb20"&gt;\n    &lt;a href="javascript:;" mx-click="get()" class="btn btn-brand mr20"&gt;获取选中值&lt;/a&gt;\n    &#123;&#123;if (selected.length &gt; 0)&#125;&#125;\n    &lt;span class="color-9"&gt;当前选中：&lt;/span&gt;&#123;&#123;=selected&#125;&#125;\n    &#123;&#123;/if&#125;&#125;\n&lt;/div&gt;\n&lt;mx-table sticky="true"&gt;\n    &lt;table class="table"&gt;\n        &lt;thead&gt;\n            &lt;tr&gt;\n                &lt;th width="50"&gt;\n                    &lt;input type="checkbox" class="checkbox" linkage="example" /&gt;\n                &lt;/th&gt;\n                &lt;th width="200"&gt;列1&lt;/th&gt;\n                &lt;th width="200"&gt;列2&lt;/th&gt;\n                &lt;th width="200"&gt;列3&lt;/th&gt;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;each list as item index&#125;&#125;\n            &lt;tr class="&#123;&#123;= (index+1==list.length) ? \'last-tr\' : \'\'&#125;&#125;"&gt;\n                &lt;td&gt;\n                    &lt;input type="checkbox" class="checkbox" \n                        linkage-parent="example" \n                        value="&#123;&#123;=item.id&#125;&#125;" \n                        &#123;&#123;if item.disabled&#125;&#125; disabled="true" &#123;&#123;/if&#125;&#125;/&gt;\n                &lt;/td&gt;\n                &lt;td&gt;&#123;&#123;=item.content1&#125;&#125;&lt;/td&gt;\n                &lt;td&gt;&#123;&#123;=item.content2&#125;&#125;&lt;/td&gt;\n                &lt;td&gt;&#123;&#123;=item.content3&#125;&#125;&lt;/td&gt;\n            &lt;/tr&gt;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n&lt;/mx-table&gt;\n&lt;div class="table-pager-wrapper"&gt;\n    &lt;mx-pagination \n        total="&#123;&#123;=total&#125;&#125;" \n        size="&#123;&#123;=size&#125;&#125;" \n        page="&#123;&#123;=page&#125;&#125;"\n        mx-change="changePager()"/&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryce:j" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryce:i" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 108;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerycc:k" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryce:k" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 110;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerycc:h" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryce:h" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 113;
     $art = '=viewId';
     ;

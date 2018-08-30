@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -114,7 +114,7 @@ module.exports = Magix.View.extend({
         $line = 20;
         $art = '=url';
         ;
-        $p += '' + ($expr = '<%=url%>', $e(url)) + '" class="_zs_gallery_mx-preview_index_-video"><i mxs="_zs_gallerybU:_" class="mc-iconfont _zs_gallery_mx-preview_index_-icon">&#xe78d;</i></video>';
+        $p += '' + ($expr = '<%=url%>', $e(url)) + '" class="_zs_gallery_mx-preview_index_-video"><i mxs="_zs_gallerybW:_" class="mc-iconfont _zs_gallery_mx-preview_index_-icon">&#xe78d;</i></video>';
         $line = 23;
         $art = '/if';
         ;

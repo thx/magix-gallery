@@ -68,6 +68,8 @@ module.exports = {
     "pager.per.page": "每页展示",
     "pager.total": "共 ${total} 条",
     "pager.unit": "条",
+    "pager.jump.to": "向第",
+    "pager.jump.unit": "页",
     "dialog.tip": "提示",
     "dialog.cancel": "取消",
     "dialog.submit": "确定",

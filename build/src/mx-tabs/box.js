@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -38,9 +38,9 @@ module.exports = Base.extend({
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for (var $art_iviozjdhuc$art_i = 0, $art_cznfwktmz$art_c = list.length; $art_iviozjdhuc$art_i < $art_cznfwktmz$art_c; $art_iviozjdhuc$art_i++) {    var item = list[$art_iviozjdhuc$art_i]%>';
-    for (var $art_iviozjdhuc$art_i = 0, $art_cznfwktmz$art_c = list.length; $art_iviozjdhuc$art_i < $art_cznfwktmz$art_c; $art_iviozjdhuc$art_i++) {
-        var item = list[$art_iviozjdhuc$art_i];
+    $expr = '<%for (var $art_icwheqc$art_i = 0, $art_cbaclozvh$art_c = list.length; $art_icwheqc$art_i < $art_cbaclozvh$art_c; $art_icwheqc$art_i++) {    var item = list[$art_icwheqc$art_i]%>';
+    for (var $art_icwheqc$art_i = 0, $art_cbaclozvh$art_c = list.length; $art_icwheqc$art_i < $art_cbaclozvh$art_c; $art_icwheqc$art_i++) {
+        var item = list[$art_icwheqc$art_i];
         $p += '<a href="javascript:;" ';
         $line = 3;
         $art = 'if !disabled';
@@ -77,7 +77,7 @@ module.exports = Base.extend({
         $expr = '<%if (item.tag) {%>';
         if (item.tag) {
             ;
-            $p += '<span mxa="_zs_gallerycH:_" class="_zs_gallery_mx-tabs_index_-tag">';
+            $p += '<span mxa="_zs_gallerycJ:_" class="_zs_gallery_mx-tabs_index_-tag">';
             $line = 6;
             $art = '=item.tag';
             ;

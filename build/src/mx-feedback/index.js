@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -24,7 +24,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '" class="color-brand"><i mxs="_zs_gallerya0:_" class="mc-iconfont ml20">&#xe7ff;</i>';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '" class="color-brand"><i mxs="_zs_gallerya2:_" class="mc-iconfont ml20">&#xe7ff;</i>';
     $line = 2;
     $art = '=content';
     ;

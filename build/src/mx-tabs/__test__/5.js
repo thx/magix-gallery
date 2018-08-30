@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -28,19 +28,19 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycD:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerycD:a" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-tabs/box?list=';
+    $p += '<div mxa="_zs_gallerycF:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerycF:a" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-tabs/box?list=';
     $line = 4;
     $art = '@[{\n                name: \'模块1\',\n                id: 1\n            },{\n                name: \'模块2\',\n                id: 2\n            }]';
     ;
-    $p += '' + ($expr = '<%@[{            name: \'模块1\',            id: 1        }, {            name: \'模块2\',            id: 2        }]%>', $i($$ref, [{ name: '模块1', id: 1 }, { name: '模块2', id: 2 }])) + '&valueKey=id&textKey=name"></div></div><div mxa="_zs_gallerycD:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycD:_" class="_zs_gallery___test___layout_-eg-title">自定义&nbsp;text-key&nbsp;和&nbsp;value-key</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%@[{            name: \'模块1\',            id: 1        }, {            name: \'模块2\',            id: 2        }]%>', $i($$ref, [{ name: '模块1', id: 1 }, { name: '模块2', id: 2 }])) + '&valueKey=id&textKey=name"></div></div><div mxa="_zs_gallerycF:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycF:_" class="_zs_gallery___test___layout_-eg-title">自定义&nbsp;text-key&nbsp;和&nbsp;value-key</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 16;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycD:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycF:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 18;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycD:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycF:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 21;
     $art = '=viewId';
     ;

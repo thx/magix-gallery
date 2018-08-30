@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -9,7 +9,7 @@ define("mx-footer/index",["magix","mx-mustache/index","$"],(require,exports,modu
 var Magix = require("magix");
 var Mustache = require("mx-mustache/index");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-footer_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-footer_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-footer_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-footer_index_-custom #alimama-footer {\n  text-align: center;\n}\n._zs_gallery_mx-footer_index_-custom._zs_gallery_mx-footer_index_-white #alimama-footer a,\n._zs_gallery_mx-footer_index_-custom._zs_gallery_mx-footer_index_-white #alimama-footer span {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products {\n  position: relative;\n  max-width: 100%;\n  margin-bottom: 20px;\n  padding-left: 220px;\n  padding-right: 220px;\n  text-align: center;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo img {\n  width: 110px;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo ._zs_gallery_mx-footer_index_-mama-icon {\n  display: block;\n  width: 110px;\n  margin-top: 5px;\n  font-size: 36px;\n  color: #666;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-qrcode {\n  position: absolute;\n  top: 0;\n  right: 0;\n  line-height: 22px;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-qrcode img {\n  width: 92px;\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-footer_index_-products dl {\n  float: left;\n  font-size: 16px;\n  line-height: 32px;\n}\n._zs_gallery_mx-footer_index_-products dl dt {\n  margin-bottom: 16px;\n  opacity: .5;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-logo ._zs_gallery_mx-footer_index_-mama-icon {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dt {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dd a {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dd a:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-qrcode {\n  color: #fff;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-footer_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-footer_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-footer_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-footer_index_-custom #alimama-footer {\n  text-align: center;\n}\n._zs_gallery_mx-footer_index_-custom._zs_gallery_mx-footer_index_-white #alimama-footer a,\n._zs_gallery_mx-footer_index_-custom._zs_gallery_mx-footer_index_-white #alimama-footer span {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products {\n  position: relative;\n  max-width: 100%;\n  margin-bottom: 20px;\n  padding-left: 220px;\n  padding-right: 220px;\n  text-align: center;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo img {\n  width: 110px;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo ._zs_gallery_mx-footer_index_-mama-icon {\n  display: block;\n  width: 110px;\n  margin-top: 5px;\n  font-size: 36px;\n  color: #666;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-qrcode {\n  position: absolute;\n  top: 0;\n  right: 0;\n  line-height: 22px;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-qrcode img {\n  width: 92px;\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-footer_index_-products dl {\n  float: left;\n  font-size: 16px;\n  line-height: 32px;\n}\n._zs_gallery_mx-footer_index_-products dl dt {\n  margin-bottom: 16px;\n  opacity: 0.5;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-logo ._zs_gallery_mx-footer_index_-mama-icon {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dt {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dd a {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dd a:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-qrcode {\n  color: #fff;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -51,14 +51,14 @@ module.exports = Magix.View.extend({
         $line = 2;
         $art = '=width';
         ;
-        $p += '' + ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_gallerya6:_" class="_zs_gallery_mx-footer_index_-logo"><img src="https://img.alicdn.com/tfs/TB1_j6sn0cnBKNjSZR0XXcFqFXa-182-185.png"><i class="mc-iconfont _zs_gallery_mx-footer_index_-mama-icon">&#xe601;</i></div><div mxa="_zs_gallerya6:_" class="clearfix">';
+        $p += '' + ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_gallerya8:_" class="_zs_gallery_mx-footer_index_-logo"><img src="https://img.alicdn.com/tfs/TB1_j6sn0cnBKNjSZR0XXcFqFXa-182-185.png"><i class="mc-iconfont _zs_gallery_mx-footer_index_-mama-icon">&#xe601;</i></div><div mxa="_zs_gallerya8:_" class="clearfix">';
         $line = 8;
         $art = 'each products as p';
         ;
         $p += '';
-        $expr = '<%for (var $art_ifdzkjruyh$art_i = 0, $art_cgwthgjaek$art_c = products.length; $art_ifdzkjruyh$art_i < $art_cgwthgjaek$art_c; $art_ifdzkjruyh$art_i++) {        var p = products[$art_ifdzkjruyh$art_i]%>';
-        for (var $art_ifdzkjruyh$art_i = 0, $art_cgwthgjaek$art_c = products.length; $art_ifdzkjruyh$art_i < $art_cgwthgjaek$art_c; $art_ifdzkjruyh$art_i++) {
-            var p = products[$art_ifdzkjruyh$art_i];
+        $expr = '<%for (var $art_iuhlbjide$art_i = 0, $art_cyuvsqvxbhs$art_c = products.length; $art_iuhlbjide$art_i < $art_cyuvsqvxbhs$art_c; $art_iuhlbjide$art_i++) {        var p = products[$art_iuhlbjide$art_i]%>';
+        for (var $art_iuhlbjide$art_i = 0, $art_cyuvsqvxbhs$art_c = products.length; $art_iuhlbjide$art_i < $art_cyuvsqvxbhs$art_c; $art_iuhlbjide$art_i++) {
+            var p = products[$art_iuhlbjide$art_i];
             $p += '<dl style="width: ';
             $line = 9;
             $art = '=(100 / len)';
@@ -72,9 +72,9 @@ module.exports = Magix.View.extend({
             $art = 'each p.thirds as t';
             ;
             $p += '';
-            $expr = '<%for (var $art_iqkisiimsfp$art_i = 0, $art_objmrohdvuwc$art_obj = p.thirds, $art_cdjdjdmw$art_c = $art_objmrohdvuwc$art_obj.length; $art_iqkisiimsfp$art_i < $art_cdjdjdmw$art_c; $art_iqkisiimsfp$art_i++) {            var t = $art_objmrohdvuwc$art_obj[$art_iqkisiimsfp$art_i]%>';
-            for (var $art_iqkisiimsfp$art_i = 0, $art_objmrohdvuwc$art_obj = p.thirds, $art_cdjdjdmw$art_c = $art_objmrohdvuwc$art_obj.length; $art_iqkisiimsfp$art_i < $art_cdjdjdmw$art_c; $art_iqkisiimsfp$art_i++) {
-                var t = $art_objmrohdvuwc$art_obj[$art_iqkisiimsfp$art_i];
+            $expr = '<%for (var $art_iuhfwgu$art_i = 0, $art_objtgdmpexm$art_obj = p.thirds, $art_codtvhvg$art_c = $art_objtgdmpexm$art_obj.length; $art_iuhfwgu$art_i < $art_codtvhvg$art_c; $art_iuhfwgu$art_i++) {            var t = $art_objtgdmpexm$art_obj[$art_iuhfwgu$art_i]%>';
+            for (var $art_iuhfwgu$art_i = 0, $art_objtgdmpexm$art_obj = p.thirds, $art_codtvhvg$art_c = $art_objtgdmpexm$art_obj.length; $art_iuhfwgu$art_i < $art_codtvhvg$art_c; $art_iuhfwgu$art_i++) {
+                var t = $art_objtgdmpexm$art_obj[$art_iuhfwgu$art_i];
                 $p += '<dd><a href="';
                 $line = 13;
                 $art = '=t.link';
@@ -99,7 +99,7 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxs="_zs_gallerya6:a" class="_zs_gallery_mx-footer_index_-qrcode"><img src="//gw.alicdn.com/tfs/TB1C2cNrv1TBuNjy0FjXXajyXXa-300-300.png"><div>打开淘宝扫一扫</div><div>下载阿里妈妈APP</div></div></div>';
+        $p += '</div><div mxs="_zs_gallerya8:a" class="_zs_gallery_mx-footer_index_-qrcode"><img src="//gw.alicdn.com/tfs/TB1C2cNrv1TBuNjy0FjXXajyXXa-300-300.png"><div>打开淘宝扫一扫</div><div>下载阿里妈妈APP</div></div></div>';
         $line = 25;
         $art = '/if';
         ;

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -21,7 +21,7 @@ var html = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerycy:_" class="pa _zs_gallery_mx-table_rwd_-wrap unselectable"><div class="_zs_gallery_mx-table_rwd_-arrow fl" mx-click="' + $viewId + '@{toPrev}()"><i class="mc-iconfont fontsize-12">&#xe61e;</i></div><div class="_zs_gallery_mx-table_rwd_-arrow fr" mx-click="' + $viewId + '@{toNext}()"><i class="mc-iconfont fontsize-12 rotate180">&#xe61e;</i></div></div>';
+    $p += '<div mxs="_zs_gallerycA:_" class="pa _zs_gallery_mx-table_rwd_-wrap unselectable"><div class="_zs_gallery_mx-table_rwd_-arrow fl" mx-click="' + $viewId + '@{toPrev}()"><i class="mc-iconfont fontsize-12">&#xe61e;</i></div><div class="_zs_gallery_mx-table_rwd_-arrow fr" mx-click="' + $viewId + '@{toNext}()"><i class="mc-iconfont fontsize-12 rotate180">&#xe61e;</i></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -44,10 +44,10 @@ module.exports = Magix.View.extend({
         $art = 'each list as one idx';
         ;
         $p += '';
-        $expr = '<%for (var idx = 0, $art_cwelhcxxj$art_c = list.length; idx < $art_cwelhcxxj$art_c; idx++) {        var one = list[idx]%>';
-        for (var idx = 0, $art_cwelhcxxj$art_c = list.length; idx < $art_cwelhcxxj$art_c; idx++) {
+        $expr = '<%for (var idx = 0, $art_cwjbzn$art_c = list.length; idx < $art_cwjbzn$art_c; idx++) {        var one = list[idx]%>';
+        for (var idx = 0, $art_cwjbzn$art_c = list.length; idx < $art_cwjbzn$art_c; idx++) {
             var one = list[idx];
-            $p += '<li mxa="_zs_gallerycP:_" class="_zs_gallery_mx-taginput_suggest_-item"><a href="javascript:;" class="_zs_gallery_mx-taginput_suggest_-item-link" data-idx="';
+            $p += '<li mxa="_zs_gallerycR:_" class="_zs_gallery_mx-taginput_suggest_-item"><a href="javascript:;" class="_zs_gallery_mx-taginput_suggest_-item-link" data-idx="';
             $line = 10;
             $art = '=idx';
             ;

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.16: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -33,7 +33,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerycG:_" mx-view="mx-tabs/__test__/1"></div><div mxs="_zs_gallerycG:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-tabs/__test__/2"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-tabs/__test__/4"></div></div></div><div id="';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerycI:_" mx-view="mx-tabs/__test__/1"></div><div mxs="_zs_gallerycI:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-tabs/__test__/2"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-tabs/__test__/4"></div></div></div><div id="';
     $line = 12;
     $art = '=viewId';
     ;
