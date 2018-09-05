@@ -30,7 +30,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryQ:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryQ:a" class="clearfix mb20"><div mx-view="mx-area/__test__/1"></div><div mx-view="mx-area/__test__/2"></div><div mx-view="mx-area/__test__/3"></div><div mx-view="mx-area/__test__/4"></div></div><div mxs="_zs_galleryQ:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += '<div mxs="_zs_galleryR:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryR:a" class="clearfix mb20"><div mx-view="mx-area/__test__/1"></div><div mx-view="mx-area/__test__/2"></div><div mx-view="mx-area/__test__/3"></div><div mx-view="mx-area/__test__/4"></div></div><div mxs="_zs_galleryR:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 10;
     $art = '@options';
     ;

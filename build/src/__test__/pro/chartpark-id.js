@@ -3,13 +3,15 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("__test__/pro/chartpark-id",["magix","$"],(require,exports,module)=>{
-/*Magix,$*/
-
+define("__test__/pro/chartpark-id",["magix","$","../example","./chartpark/demo","mx-copy/index","../hl"],(require,exports,module)=>{
+/*Magix,$,Base*/
+require("./chartpark/demo");
+require("mx-copy/index");
+require("../hl");
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery___test___pro_chartpark_","/* @dependent: ./index.less */\n._zs_gallery___test___pro_chartpark_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery___test___pro_chartpark_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_chartpark_-chart-img {\n  width: 100%;\n  margin-bottom: 20px;\n}\n._zs_gallery___test___pro_chartpark_-chart-img:last-child {\n  margin-bottom: 0;\n}\n");
-module.exports = Magix.View.extend({
+var Base = require("../example");
+module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
     var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
@@ -21,8 +23,28 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryd:_" class="_zs_gallery___test___layout_-example"><div class="_zs_gallery___test___layout_-eg-content">Todo</div></div>';
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', chartData = $$.chartData, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryd:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryd:a" class="_zs_gallery___test___layout_-eg-content"><div mxv="chartData" mx-view="__test__/pro/chartpark/demo?chartId=4&data=';
+    $line = 3;
+    $art = '@chartData';
+    ;
+    $p += '' + ($expr = '<%@chartData%>', $i($$ref, chartData)) + '" style="height: 250px;"></div></div><div mxa="_zs_galleryd:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 7;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryd:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 9;
+    $art = '!text1';
+    ;
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryd:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 12;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;lg-chart style="height: 250px;" chart-id="1" data="&#123;&#123;@chartData&#125;&#125;"&gt;&lt;/lg-chart&gt;\n</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -33,8 +55,16 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
+        var chartData = [
+            ['time', 'click', 'ppc'],
+            ['2017-03-21', 10, 23],
+            ['2017-03-22', 20, 65],
+            ['2017-03-23', 40, 45],
+            ['2017-03-24', 18, 123],
+            ['2017-03-25', 32, 32]
+        ];
         this.updater.digest({
-            viewId: this.id
+            chartData: chartData
         });
     }
 });

@@ -1,26 +1,8 @@
 <div class="example">
     <div class="eg-content">
-        Todo
-        <!-- <div class="mb20">
-            <span class="color-9">以下示例：</span>
-            <span>限制最大最小值 + 右对齐 + 提示文案前缀 + 事件处理</span>
-        </div>
-        <div class="mb20">
-            <span class="color-9">当前日期：</span>
-            <span>{{=selected}}</span>
-        </div>
-        <div class="clearfix">
-            <mx-calendar.datepicker class="w200 fl" 
-                min="{{=min}}"
-                max="{{=max}}"
-                align="right"
-                prefix="截止至"
-                selected="{{=selected}}"
-                mx-change="select()"/>
-            <a href="javascript:;" class="btn btn-brand ml20 fl" mx-click="changeDate()">修改时间</a>
-        </div> -->
+        <div mx-view="./chartpark/demo?chartId=4&data={{@chartData}}" style="height: 250px;" ></div>
     </div>
-    <!-- <div class="eg-desc">
+    <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
@@ -28,53 +10,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-calendar.datepicker class="w200" 
-    min="&#123;&#123;=min&#125;&#125;"
-    max="&#123;&#123;=max&#125;&#125;"
-    align="right"
-    prefix="截止至"
-    selected="&#123;&#123;=selected&#125;&#125;"
-    mx-change="select()"/&gt;
-
-&lt;a href="javascript:;" class="btn btn-brand ml20" mx-click="changeDate()"&gt;修改时间&lt;/a&gt;</pre>
+&lt;lg-chart style="height: 250px;" chart-id="1" data="&#123;&#123;@chartData&#125;&#125;"&gt;&lt;/lg-chart&gt;
+</pre>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
-let Magix = require('magix');
-let Moment = require('moment');
-let $ = require('$');
-let Formater = 'YYYY-MM-DD';
-
-module.exports = Magix.View.extend(&#123;
-    tmpl: '@index.html',
-    render() &#123;
-        let formater = 'YYYY-MM-DD';
-        this.updater.digest(&#123;
-            max: Moment().add(12, 'days').format(Formater),
-            min: Moment().subtract(12, 'days').format(Formater),
-            selected: Moment().add(2, 'days').format(Formater)
-        &#125;);
-    &#125;,
-
-    'changeDate&lt;click&gt;'(event)&#123;
-        this.updater.digest(&#123;
-            selected: Moment().format(Formater)
-        &#125;)
-    &#125;,
-    
-    'select&lt;change&gt;' (event) &#123;
-        // event.date 当前选择日期
-        // event.time 时分秒
-        this.updater.digest(&#123;
-            selected: event.date
-        &#125;)
-    &#125;
-&#125;);</pre>
-    </div> -->
 </div>

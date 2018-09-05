@@ -43,14 +43,14 @@ module.exports = Magix.View.extend({
                 path: '/all/pro/local',
                 icon: '&#xe648;'
             }, {
-                name: 'rap接口管理',
-                path: '/all/pro/rap',
-                icon: '&#xe60b;'
-            }, {
                 name: 'chartpark图表',
                 tip: '接口人 @浩添 @释剑',
                 path: '/all/pro/chartpark',
                 icon: '&#xe670;'
+            }, {
+                name: 'rap接口管理',
+                path: '/all/pro/rap',
+                icon: '&#xe60b;'
             }, {
                 name: '数据小站接入',
                 path: '/all/pro/data',

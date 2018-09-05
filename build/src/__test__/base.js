@@ -53,9 +53,9 @@ module.exports = Magix.View.extend({
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for (var $art_isrlswvtue$art_i = 0, $art_catrztvdwwp$art_c = list.length; $art_isrlswvtue$art_i < $art_catrztvdwwp$art_c; $art_isrlswvtue$art_i++) {    var item = list[$art_isrlswvtue$art_i]%>';
-    for (var $art_isrlswvtue$art_i = 0, $art_catrztvdwwp$art_c = list.length; $art_isrlswvtue$art_i < $art_catrztvdwwp$art_c; $art_isrlswvtue$art_i++) {
-        var item = list[$art_isrlswvtue$art_i];
+    $expr = '<%for (var $art_iouikdqex$art_i = 0, $art_cxwebyro$art_c = list.length; $art_iouikdqex$art_i < $art_cxwebyro$art_c; $art_iouikdqex$art_i++) {    var item = list[$art_iouikdqex$art_i]%>';
+    for (var $art_iouikdqex$art_i = 0, $art_cxwebyro$art_c = list.length; $art_iouikdqex$art_i < $art_cxwebyro$art_c; $art_iouikdqex$art_i++) {
+        var item = list[$art_iouikdqex$art_i];
         $p += ' ';
         $line = 5;
         $art = 'if item.name';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
         $art = 'each item.subs as sub';
         ;
         $p += '';
-        $expr = '<%for (var $art_ipchmdmcta$art_i = 0, $art_objboachb$art_obj = item.subs, $art_cbbzozjju$art_c = $art_objboachb$art_obj.length; $art_ipchmdmcta$art_i < $art_cbbzozjju$art_c; $art_ipchmdmcta$art_i++) {        var sub = $art_objboachb$art_obj[$art_ipchmdmcta$art_i]%>';
-        for (var $art_ipchmdmcta$art_i = 0, $art_objboachb$art_obj = item.subs, $art_cbbzozjju$art_c = $art_objboachb$art_obj.length; $art_ipchmdmcta$art_i < $art_cbbzozjju$art_c; $art_ipchmdmcta$art_i++) {
-            var sub = $art_objboachb$art_obj[$art_ipchmdmcta$art_i];
+        $expr = '<%for (var $art_iejmfma$art_i = 0, $art_objantyvajat$art_obj = item.subs, $art_ckohvss$art_c = $art_objantyvajat$art_obj.length; $art_iejmfma$art_i < $art_ckohvss$art_c; $art_iejmfma$art_i++) {        var sub = $art_objantyvajat$art_obj[$art_iejmfma$art_i]%>';
+        for (var $art_iejmfma$art_i = 0, $art_objantyvajat$art_obj = item.subs, $art_ckohvss$art_c = $art_objantyvajat$art_obj.length; $art_iejmfma$art_i < $art_ckohvss$art_c; $art_iejmfma$art_i++) {
+            var sub = $art_objantyvajat$art_obj[$art_iejmfma$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 13;
             $art = 'if (sub.path == path)';
@@ -302,14 +302,14 @@ catch (ex) {
                         path: '/all/pro/local',
                         icon: '&#xe648;'
                     }, {
-                        name: 'rap接口管理',
-                        path: '/all/pro/rap',
-                        icon: '&#xe60b;'
-                    }, {
                         name: 'chartpark图表',
                         tip: '接口人 @浩添 @释剑',
                         path: '/all/pro/chartpark',
                         icon: '&#xe670;'
+                    }, {
+                        name: 'rap接口管理',
+                        path: '/all/pro/rap',
+                        icon: '&#xe60b;'
                     }, {
                         name: '数据小站接入',
                         path: '/all/pro/data',

@@ -1,4 +1,4 @@
-<mx-effects.notice class="mb40 mr20"
+<mx-effects.notice class="mb20 mr20"
     type="highlight" 
     content="借助chartpark平台来管理项目中所需图表，实现前端与设计师的完美协作；设计师来把控图表样式，而前端只需要关心数据渲染。&lt;a class='link-brand' href='https://chartpark.alibaba-inc.com/#!/help/index?pn=start' target='_blank'&gt;了解更多关于chartpark&lt;/a&gt;"
     border="true"/>
@@ -52,30 +52,34 @@
     </div>
 
     <mx-title.second id="{{=viewId}}_lg"
-        content="脚手架中图表作为本地组件lg-chart"/>
+        content="本地组件lg-chart"
+        tip="脚手架中图表作为本地组件，请使用标签 lg-chart 创建图表"/>
+    <div class="mb40" mx-view="__test__/api?options={{@options}}"></div>
     
     <mx-title.second id="{{=viewId}}_demo_id"
-        content="直接使用chart-id"/>
+        content="直接使用chart-id"
+        tip="当chartpark的配置已经满足需求的时候，可直接使用 chart-id 渲染图表"/>
     <div class="mb40">
         <div class="mb20">1. 获取chart-id</div>
         <div class="pr20">
             <img class="chart-img" src="https://img.alicdn.com/tfs/TB13ZEFuiAnBKNjSZFvXXaTKXXa-2878-1552.jpg" />
         </div>
     </div>
-    <div class="mbclearfix mb40">
+    <div class="clearfix mb40">
         <div class="mb20">2. 使用</div>
         <div mx-view="@./chartpark-id"></div>
     </div>
 
     <mx-title.second id="{{=viewId}}_demo_custom"
-        content="自定义chart-option"/>
+        content="自定义chart-option"
+        tip="通过 chart-id 获取基础配置，再进行扩展定制"/>
     <div class="mb40">
         <div class="mb20">1. 获取chart-id</div>
         <div class="pr20">
             <img class="chart-img" src="https://img.alicdn.com/tfs/TB13ZEFuiAnBKNjSZFvXXaTKXXa-2878-1552.jpg" />
         </div>
     </div>
-    <div class="mbclearfix mb40">
+    <div class="clearfix mb40">
         <div class="mb20">2. 使用</div>
         <div mx-view="@./chartpark-custom"></div>
     </div>
