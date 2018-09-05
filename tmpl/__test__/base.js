@@ -35,6 +35,14 @@ module.exports = Magix.View.extend({
                 path: '/all/pro/permission',
                 icon: '&#xe6d1;'
             }, {
+                name: '跨项目渲染magix view',
+                path: '/all/pro/cross',
+                icon: '&#xe6b6;'
+            }, {
+                name: '本地组件',
+                path: '/all/pro/local',
+                icon: '&#xe648;'
+            }, {
                 name: 'rap接口管理',
                 path: '/all/pro/rap',
                 icon: '&#xe60b;'
@@ -52,10 +60,6 @@ module.exports = Magix.View.extend({
                 tip: '接入文档<a rel="noopener noreferrer" href="https://lark.alipay.com/up/login-doc/xvgy82" target="_blank" class="link-brand">https://lark.alipay.com/up/login-doc/xvgy82</a>',
                 path: '/all/pro/login',
                 icon: '&#xe609;'
-            }, {
-                name: '跨项目渲染magix view',
-                path: '/all/pro/cross',
-                icon: '&#xe6b6;'
             }, {
                 name: '页面监听参数变化回到顶部',
                 path: '/all/pro/top',

@@ -34,7 +34,7 @@ module.exports = Magix.View.extend({
                 text: item[textKey],
                 value: item[valueKey],
                 tag: item.tag,
-                tip: item.tip
+                tips: item.tips
             };
         });
         var selected = data.selected || (list[0] || {})['value'];

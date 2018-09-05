@@ -54,7 +54,7 @@ catch (ex) {
     render: function () {
         var options = [{
                 key: 'list',
-                desc: '对象数组，如[{value:1,text:"选项1",tag:"打标标签",tip:"提示信息"}]',
+                desc: '对象数组，如[{value:1,text:"选项1",tag:"打标标签",tips:"提示信息"}]',
                 type: 'array'
             }, {
                 key: 'selected',

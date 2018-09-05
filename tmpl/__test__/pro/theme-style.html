@@ -1,78 +1,59 @@
-Todo
-<!-- <mx-effects.notice class="mb20"
-    content="建议不要直接修改组件，防止版本更新的时候被覆盖，可在项目内覆盖组件样式。"
-    border="true"/> -->
-    
-<!-- 
-<div class="mb20 fontsize-14">深色背景上的样式定制（外部改变组件样式）：</div>
-<div class="clearfix mb20 dark-bg outer">
-    <mx-dropdown class="w200" 
-        searchbox="false" 
-        list="[1,2,3]">
-    </mx-dropdown>
-</div>
-<div class="mb10 fontsize-14 clearfix">
-    <div class="fl w300">Code:</div>
-    <div class="fl">CSS Code:</div>
-</div>
-<div class="tip-content clearfix">
-    <div class="fl w280">
-        <pre>&lt;div class="outer"&gt;
-    &lt;mx-dropdown class="w200" 
-        searchbox="false" 
-        list="[1,2,3]"&gt;
-    &lt;/mx-dropdown&gt;
+<mx-effects.notice class="mb20 mr20"
+    content="magix3会对给class加前缀，支持用[ref='@path:className']覆盖样式。但是强烈建议不要直接修改组件，防止版本更新的时候被覆盖，当业务逻辑比较定制的时候，建议写本地组件。&lt;br/&gt;&lt;a href='#!/all/pro/local' class='link-brand ml20'&gt;查看如何开发本地组件&lt;/a&gt;"
+    border="true"
+    type="highlight" />
+
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix">
+            <div class="fl color-9 mr40">以开关组件示例如何覆盖组件样式</div>
+            <div class="fl mr60">
+                <div class="mb10">组件本身展示为：</div>
+                <mx-switch state="true"/>
+            </div>
+            <div class="fl mr60 outer">
+                <div class="mb10">自定义开关样式：</div>
+                <mx-switch state="true"/>   
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;div class="outer"&gt;
+    &lt;mx-switch state="true"/&gt;   
 &lt;/div&gt;</pre>
-    </div>
-    <div class="fl">
-        <pre>
-@dark-color-border: rgba(255, 255, 255, .1);
-@dark-color-border-hover: rgba(255, 255, 255, .2);
-@dark-color-border-focus: rgba(255, 255, 255, .4);
-@dark-font-color: #b3b3b3;
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">CSS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+.outer&#123;
+    [ref="@../../mx-switch/index.less:switch"] &#123;
+        height: 8px;
+        border-radius: 4px;
+        
+        &[ref="@../../mx-switch/index.less:on"] &#123;
+            background-color: tint(#14c9ce, 78%);
 
-.outer {
-    [ref="@../../../gallery/mx-dropdown/index.less:dropdown-toggle"] {
-        color: #999;
-    }
-
-    [ref="@../../../gallery/mx-dropdown/index.less:dropdown-menu-wrapper"] {
-        background-color: #ccc;
-        font-size: 12px;
-    }
-
-    [ref="@../../../gallery/mx-dropdown/index.less:item-link"] {
-        &amp;:hover {
-            background-color: #b3b3b3;
-        }
-
-        &amp;[ref="@../../../gallery/mx-dropdown/index.less:active"] {
-            &amp;:hover {
-                color: #fff;
-                background-color: @color-brand;
-            }
-
-        }
-
-    }
-
-    [mx-view*="/mx-dropdown/"] {
-        background-color: transparent;
-        border-color: @dark-color-border;
-
-        &amp;:hover {
-            border-color: @dark-color-border-hover;
-
-            [ref="@../../../gallery/mx-dropdown/index.less:dropdown-toggle"] {
-                color: @dark-font-color;
-            }
-
-        }
-
-    }
-
-}
+            [ref="@../../mx-switch/index.less:switch-icon"] &#123;
+                background-color: #14c9ce;
+            &#125;
+    
+        &#125;
+    &#125;
+&#125;
 </pre>
+        </div>
     </div>
-</div> -->
-
+</div>

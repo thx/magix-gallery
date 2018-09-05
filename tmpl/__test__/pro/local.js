@@ -2,10 +2,8 @@ let Magix = require('magix');
 let $ = require('$');
 
 module.exports = Magix.View.extend({
-    tmpl: '@theme.html',
+    tmpl: '@local.html',
     render() {
-        this.updater.digest({
-            viewId: this.id
-        });
+        this.updater.digest();
     }
 });

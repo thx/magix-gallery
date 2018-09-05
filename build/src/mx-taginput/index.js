@@ -63,8 +63,8 @@ module.exports = Magix.View.extend({
         $art = 'each items as one idx';
         ;
         $p += '';
-        $expr = '<%for (var idx = 0, $art_cgzoyvns$art_c = items.length; idx < $art_cgzoyvns$art_c; idx++) {        var one = items[idx]%>';
-        for (var idx = 0, $art_cgzoyvns$art_c = items.length; idx < $art_cgzoyvns$art_c; idx++) {
+        $expr = '<%for (var idx = 0, $art_chmbjygss$art_c = items.length; idx < $art_chmbjygss$art_c; idx++) {        var one = items[idx]%>';
+        for (var idx = 0, $art_chmbjygss$art_c = items.length; idx < $art_chmbjygss$art_c; idx++) {
             var one = items[idx];
             $p += '<span mxa="_zs_gallerycW:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
             $line = 9;

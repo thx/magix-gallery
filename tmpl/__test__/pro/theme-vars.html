@@ -1,17 +1,16 @@
-<pre class="tip-content has-border">
-/* @dependent: ./index.less */
-
+<div class="mb10 mr20">在本地项目 project/src/project/assets/vars_override.less 文件中覆盖可配置参数，可配置参数如下所示：</div>
+<pre class="tip-content has-border mr20">
 // 品牌色
-@color-brand: #4d7fff;
-@color-brand-hover: shade(@color-brand, 8%);
-@color-brand-vs: #14c9ce;
+@color-brand: #4d7fff;   //品牌色
+@color-brand-hover: shade(@color-brand, 8%); //品牌色hover时色值
+@color-brand-vs: #14c9ce;   //品牌色对比色
+@color-brand-text: #ffffff;     //品牌色上文案色值
+@color-brand-text-hover: #ffffff;     //hover时品牌色上文案色值
 @color-brand-light : tint(@color-brand, 78%);
 @color-brand-opacity: tint(@color-brand, 95%);
-@color-brand-text: #ffffff;
-@color-brand-text-hover: #ffffff;
 
 //边框
-@color-border: #e6e6e6;
+@color-border: #e6e6e6;  
 @color-border-hover: #ccc;
 @border-radius: 4px;
 
@@ -19,7 +18,7 @@
 @table-color-border: #ebebeb;
 @table-operation-color-bg: tint(@color-brand, 88%);
 
-// 品牌按钮颜色，支持渐变
+// 品牌按钮颜色，支持渐变，若不需要渐变，@btn-brand = @btn-brand-gradient 即可
 @btn-border-radius: @border-radius;
 @btn-brand: @color-brand;
 @btn-brand-gradient: @color-brand;
@@ -50,15 +49,7 @@
 //输入或下拉框高度 
 @input-height: 32px;
 @input-small-height: 26px;
-@duration: 0.25s;
-.shadow {
-    box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);
-    border: 1px solid #eee;
-}
-.mask {
-    background-color: rgba(33, 33, 33, .72);
-}
 
-//请保持这里的import处于代码的最下方
-@import '../../assets/vars_override.less';
+//动画时长
+@duration: 0.25s;
 </pre>

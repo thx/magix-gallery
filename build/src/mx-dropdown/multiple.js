@@ -169,8 +169,8 @@ module.exports = Magix.View.extend({
         $art = 'each groups as group groupIndex';
         ;
         $p += '';
-        $expr = '<%for (var groupIndex = 0, $art_cbgfpvktr$art_c = groups.length; groupIndex < $art_cbgfpvktr$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
-        for (var groupIndex = 0, $art_cbgfpvktr$art_c = groups.length; groupIndex < $art_cbgfpvktr$art_c; groupIndex++) {
+        $expr = '<%for (var groupIndex = 0, $art_cfogtsrj$art_c = groups.length; groupIndex < $art_cfogtsrj$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
+        for (var groupIndex = 0, $art_cfogtsrj$art_c = groups.length; groupIndex < $art_cfogtsrj$art_c; groupIndex++) {
             var group = groups[groupIndex];
             $p += ' ';
             $line = 30;
@@ -274,9 +274,9 @@ module.exports = Magix.View.extend({
             $art = 'each group.list as item';
             ;
             $p += '';
-            $expr = '<%for (var $art_isbdqiet$art_i = 0, $art_objgyggocxms$art_obj = group.list, $art_cmvgzowa$art_c = $art_objgyggocxms$art_obj.length; $art_isbdqiet$art_i < $art_cmvgzowa$art_c; $art_isbdqiet$art_i++) {            var item = $art_objgyggocxms$art_obj[$art_isbdqiet$art_i]%>';
-            for (var $art_isbdqiet$art_i = 0, $art_objgyggocxms$art_obj = group.list, $art_cmvgzowa$art_c = $art_objgyggocxms$art_obj.length; $art_isbdqiet$art_i < $art_cmvgzowa$art_c; $art_isbdqiet$art_i++) {
-                var item = $art_objgyggocxms$art_obj[$art_isbdqiet$art_i];
+            $expr = '<%for (var $art_iclibgmnium$art_i = 0, $art_objifyaprdem$art_obj = group.list, $art_chuufhm$art_c = $art_objifyaprdem$art_obj.length; $art_iclibgmnium$art_i < $art_chuufhm$art_c; $art_iclibgmnium$art_i++) {            var item = $art_objifyaprdem$art_obj[$art_iclibgmnium$art_i]%>';
+            for (var $art_iclibgmnium$art_i = 0, $art_objifyaprdem$art_obj = group.list, $art_chuufhm$art_c = $art_objifyaprdem$art_obj.length; $art_iclibgmnium$art_i < $art_chuufhm$art_c; $art_iclibgmnium$art_i++) {
+                var item = $art_objifyaprdem$art_obj[$art_iclibgmnium$art_i];
                 $p += ' ';
                 $line = 47;
                 $art = 'if !item.hide';

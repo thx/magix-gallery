@@ -31,9 +31,9 @@ module.exports = Magix.View.extend({
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
     $p += '<div mxa="_zs_galleryI:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'不同主题示例\',\n        key: viewId + \'_demo\'\n    }, {\n        name: \'变量配置\',\n        key: viewId + \'_vars\'\n    }, {\n        name: \'样式覆盖\',\n        key: viewId + \'_style\'\n    }]';
+    $art = '@[{\n        name: \'不同主题示例\',\n        key: viewId + \'_demo\'\n    }, {\n        name: \'变量配置\',\n        key: viewId + \'_vars\'\n    }, {\n        name: \'样式覆盖\',\n        key: viewId + \'_override\'\n    }]';
     ;
-    $p += '' + ($expr = '<%@[{            name: \'不同主题示例\',            key: viewId + \'_demo\'        }, {            name: \'变量配置\',            key: viewId + \'_vars\'        }, {            name: \'样式覆盖\',            key: viewId + \'_style\'        }]%>', $i($$ref, [{ name: '不同主题示例', key: viewId + '_demo' }, { name: '变量配置', key: viewId + '_vars' }, { name: '样式覆盖', key: viewId + '_style' }])) + '"></div><div id="';
+    $p += '' + ($expr = '<%@[{            name: \'不同主题示例\',            key: viewId + \'_demo\'        }, {            name: \'变量配置\',            key: viewId + \'_vars\'        }, {            name: \'样式覆盖\',            key: viewId + \'_override\'        }]%>', $i($$ref, [{ name: '不同主题示例', key: viewId + '_demo' }, { name: '变量配置', key: viewId + '_vars' }, { name: '样式覆盖', key: viewId + '_override' }])) + '"></div><div id="';
     $line = 13;
     $art = '=viewId';
     ;
@@ -45,7 +45,7 @@ module.exports = Magix.View.extend({
     $line = 21;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_custom" mx-view="mx-title/second?content=%E7%9B%B4%E6%8E%A5%E8%A6%86%E7%9B%96%E7%BB%84%E4%BB%B6%E6%A0%B7%E5%BC%8F"></div><div mxs="_zs_galleryI:b" mx-view="__test__/pro/theme-style" class="mb40"></div></div>';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_override" mx-view="mx-title/second?content=%E7%9B%B4%E6%8E%A5%E8%A6%86%E7%9B%96%E7%BB%84%E4%BB%B6%E6%A0%B7%E5%BC%8F"></div><div mxs="_zs_galleryI:b" mx-view="__test__/pro/theme-style" class="mb40"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -56,7 +56,9 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
-        this.updater.digest();
+        this.updater.digest({
+            viewId: this.id
+        });
     }
 });
 

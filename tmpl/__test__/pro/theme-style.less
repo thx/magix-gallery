@@ -1,0 +1,17 @@
+@import '../../mx-style/_vars';
+
+.outer{
+    [ref="@../../mx-switch/index.less:switch"] {
+        height: 8px;
+        border-radius: 4px;
+        
+        &[ref="@../../mx-switch/index.less:on"] {
+            background-color: tint(#14c9ce, 78%);
+
+            [ref="@../../mx-switch/index.less:switch-icon"] {
+                background-color: #14c9ce;
+            }
+    
+        }
+    }
+}

@@ -7,7 +7,7 @@
         key: viewId + '_vars'
     }, {
         name: '样式覆盖',
-        key: viewId + '_style'
+        key: viewId + '_override'
     }]}}"></div>
     
     <mx-title.second id="{{=viewId}}_demo"
@@ -18,7 +18,7 @@
         content="修改组件透出的可配置变量" />
     <div mx-view="@./theme-vars" class="mb40"></div>
     
-    <mx-title.second id="{{=viewId}}_custom"
+    <mx-title.second id="{{=viewId}}_override"
         content="直接覆盖组件样式" />
     <div mx-view="@./theme-style" class="mb40"></div>
 </div>
