@@ -3,16 +3,16 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-tabs/index",["magix","mx-tabs/base"],(require,exports,module)=>{
+define("mx-tabs/index",["magix","mx-tabs/base","mx-popover/index"],(require,exports,module)=>{
 /*Magix,Base*/
-
+require("mx-popover/index");
 /**
  * 底边线tab切换
  * 兼容老的写法，type还是可配置，建议直接使用mx-tabs.box
  */
 var Magix = require("magix");
 var Base = require("mx-tabs/base");
-Magix.applyStyle("_zs_gallery_mx-tabs_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-tabs_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-tabs_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-tabs/box\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-tabs_index_-tag {\n  display: inline-block;\n  height: 18px;\n  padding-left: 4px;\n  padding-right: 4px;\n  line-height: 16px;\n  border-radius: 4px;\n  background-color: #4d7fff;\n  color: #fff;\n  font-size: 12px;\n  font-weight: bold;\n  white-space: nowrap;\n}\n._zs_gallery_mx-tabs_index_-border {\n  position: relative;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item {\n  position: relative;\n  float: left;\n  font-size: 16px;\n  padding: 10px 25px 20px 25px;\n  transition: color 0.25s ease-out;\n  color: #999;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item._zs_gallery_mx-tabs_index_-selected {\n  color: #4d7fff;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag {\n  position: absolute;\n  top: -4px;\n  left: 100%;\n  margin-left: -26px;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag ._zs_gallery_mx-tabs_index_-tag-name {\n  display: inline-block;\n  -webkit-transform: scale(0.92);\n          transform: scale(0.92);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag ._zs_gallery_mx-tabs_index_-tag-arrow {\n  position: absolute;\n  left: 4px;\n  top: 18px;\n  width: 0;\n  height: 0;\n  border-width: 3px;\n  border-style: solid;\n  border-color: #4d7fff #ffffff #ffffff #4d7fff;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-underline {\n  position: absolute;\n  width: 0;\n  height: 0;\n  bottom: 0;\n  border-bottom: 1px solid #4d7fff;\n  transition: width 0.25s cubic-bezier(0.645, 0.045, 0.355, 1), left 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);\n}\n._zs_gallery_mx-tabs_index_-box {\n  display: inline-block;\n  height: 32px;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  background-color: #fff;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item {\n  display: inline-block;\n  height: 30px;\n  line-height: 30px;\n  color: #999;\n  cursor: pointer;\n  text-align: center;\n  padding: 0 12px;\n  transition: color 0.25s ease-out, background-color 0.25s ease-out;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:first-child {\n  border-top-left-radius: 4px;\n  border-bottom-left-radius: 4px;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:last-child {\n  border-top-right-radius: 4px;\n  border-bottom-right-radius: 4px;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #4d7fff;\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item ._zs_gallery_mx-tabs_index_-tag {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-disabled ._zs_gallery_mx-tabs_index_-box-item {\n  cursor: not-allowed;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-disabled ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #999;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-disabled ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #999;\n  background-color: #eee;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-disabled ._zs_gallery_mx-tabs_index_-box-item ._zs_gallery_mx-tabs_index_-tag {\n  background-color: #ccc;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-tabs_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-tabs_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-tabs_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-tabs/box\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-tabs_index_-tag {\n  display: inline-block;\n  height: 18px;\n  padding-left: 4px;\n  padding-right: 4px;\n  line-height: 16px;\n  border-radius: 4px;\n  background-color: #4d7fff;\n  color: #fff;\n  font-size: 12px;\n  font-weight: bold;\n  white-space: nowrap;\n}\n._zs_gallery_mx-tabs_index_-border {\n  position: relative;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item {\n  position: relative;\n  float: left;\n  font-size: 16px;\n  padding: 10px 25px 20px 25px;\n  transition: color 0.25s ease-out;\n  color: #999;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item._zs_gallery_mx-tabs_index_-selected {\n  color: #4d7fff;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag {\n  position: absolute;\n  top: -4px;\n  left: 100%;\n  margin-left: -26px;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag ._zs_gallery_mx-tabs_index_-tag-name {\n  display: inline-block;\n  -webkit-transform: scale(0.92);\n          transform: scale(0.92);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag ._zs_gallery_mx-tabs_index_-tag-arrow {\n  position: absolute;\n  left: 4px;\n  top: 18px;\n  width: 0;\n  height: 0;\n  border-width: 3px;\n  border-style: solid;\n  border-color: #4d7fff #ffffff #ffffff #4d7fff;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-underline {\n  position: absolute;\n  width: 0;\n  height: 0;\n  bottom: 0;\n  border-bottom: 1px solid #4d7fff;\n  transition: width 0.25s cubic-bezier(0.645, 0.045, 0.355, 1), left 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);\n}\n._zs_gallery_mx-tabs_index_-box {\n  display: inline-block;\n  height: 32px;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  background-color: #fff;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-tip {\n  position: relative;\n  top: 1px;\n  font-size: 14px;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item {\n  display: inline-block;\n  height: 30px;\n  line-height: 30px;\n  color: #999;\n  cursor: pointer;\n  text-align: center;\n  padding: 0 12px;\n  transition: color 0.25s ease-out, background-color 0.25s ease-out;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:first-child {\n  border-top-left-radius: 4px;\n  border-bottom-left-radius: 4px;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:last-child {\n  border-top-right-radius: 4px;\n  border-bottom-right-radius: 4px;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #4d7fff;\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item ._zs_gallery_mx-tabs_index_-tag {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-disabled ._zs_gallery_mx-tabs_index_-box-item {\n  cursor: not-allowed;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-disabled ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #999;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-disabled ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #999;\n  background-color: #eee;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-disabled ._zs_gallery_mx-tabs_index_-box-item ._zs_gallery_mx-tabs_index_-tag {\n  background-color: #ccc;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -38,14 +38,14 @@ module.exports = Base.extend({
     $expr = '<%if (type == \'border\') {%>';
     if (type == 'border') {
         ;
-        $p += '<div mxa="_zs_gallerycK:_" class="_zs_gallery_mx-tabs_index_-border clearfix">';
+        $p += '<div mxa="_zs_gallerycQ:_" class="_zs_gallery_mx-tabs_index_-border clearfix">';
         $line = 3;
         $art = 'each list as item';
         ;
         $p += '';
-        $expr = '<%for (var $art_iwawexajmi$art_i = 0, $art_cuexxlti$art_c = list.length; $art_iwawexajmi$art_i < $art_cuexxlti$art_c; $art_iwawexajmi$art_i++) {        var item = list[$art_iwawexajmi$art_i]%>';
-        for (var $art_iwawexajmi$art_i = 0, $art_cuexxlti$art_c = list.length; $art_iwawexajmi$art_i < $art_cuexxlti$art_c; $art_iwawexajmi$art_i++) {
-            var item = list[$art_iwawexajmi$art_i];
+        $expr = '<%for (var $art_icbtcgorp$art_i = 0, $art_cjdniaa$art_c = list.length; $art_icbtcgorp$art_i < $art_cjdniaa$art_c; $art_icbtcgorp$art_i++) {        var item = list[$art_icbtcgorp$art_i]%>';
+        for (var $art_icbtcgorp$art_i = 0, $art_cjdniaa$art_c = list.length; $art_icbtcgorp$art_i < $art_cjdniaa$art_c; $art_icbtcgorp$art_i++) {
+            var item = list[$art_icbtcgorp$art_i];
             $p += '<a mx-mouseover="' + $viewId + '@{over}({value:\'';
             $line = 4;
             $art = '=item.value';
@@ -78,7 +78,7 @@ module.exports = Base.extend({
             $expr = '<%if (item.tag) {%>';
             if (item.tag) {
                 ;
-                $p += '<span mxa="_zs_gallerycK:a" class="_zs_gallery_mx-tabs_index_-tag"><span mxs="_zs_gallerycK:_" class="_zs_gallery_mx-tabs_index_-tag-arrow"></span><span mxa="_zs_gallerycK:b" class="_zs_gallery_mx-tabs_index_-tag-name">';
+                $p += '<span mxa="_zs_gallerycQ:a" class="_zs_gallery_mx-tabs_index_-tag"><span mxs="_zs_gallerycQ:_" class="_zs_gallery_mx-tabs_index_-tag-arrow"></span><span mxa="_zs_gallerycQ:b" class="_zs_gallery_mx-tabs_index_-tag-name">';
                 $line = 9;
                 $art = '=item.tag';
                 ;
@@ -90,8 +90,28 @@ module.exports = Base.extend({
                 $expr = '<%}%>';
             }
             ;
+            $p += ' ';
+            $line = 12;
+            $art = 'if item.tip';
+            ;
+            $p += '';
+            $expr = '<%if (item.tip) {%>';
+            if (item.tip) {
+                ;
+                $p += '<i class="mc-iconfont color-9" mx-view="mx-popover/index?content=';
+                $line = 15;
+                $art = '=item.tip';
+                ;
+                $p += '' + ($expr = '<%!$eu(item.tip)%>', $eu(item.tip)) + '">&#xe629;</i>';
+                $line = 16;
+                $art = '/if';
+                ;
+                $p += '';
+                $expr = '<%}%>';
+            }
+            ;
             $p += '</a>';
-            $line = 13;
+            $line = 18;
             $art = '/each';
             ;
             $p += '';
@@ -99,15 +119,15 @@ module.exports = Base.extend({
         }
         ;
         $p += '<span class="_zs_gallery_mx-tabs_index_-underline" style="left: ';
-        $line = 14;
+        $line = 19;
         $art = '=left';
         ;
         $p += '' + ($expr = '<%=left%>', $e(left)) + 'px; width: ';
-        $line = 14;
+        $line = 19;
         $art = '=width';
         ;
         $p += '' + ($expr = '<%=width%>', $e(width)) + 'px;"></span></div>';
-        $line = 16;
+        $line = 21;
         $art = 'else';
         ;
         $p += '';
@@ -116,19 +136,19 @@ module.exports = Base.extend({
     else {
         ;
         $p += '<div class="_zs_gallery_mx-tabs_index_-box ';
-        $line = 17;
+        $line = 22;
         $art = '= _zs_gallery_mx-tabs_index_-disabled ? \'disabled\' : \'\'';
         ;
         $p += '' + ($expr = '<%=disabled ? \'_zs_gallery_mx-tabs_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-tabs_index_-disabled' : '')) + '">';
-        $line = 18;
+        $line = 23;
         $art = 'each list as item';
         ;
         $p += '';
-        $expr = '<%for (var $art_iuvenjsqlyu$art_i = 0, $art_cpkymv$art_c = list.length; $art_iuvenjsqlyu$art_i < $art_cpkymv$art_c; $art_iuvenjsqlyu$art_i++) {        var item = list[$art_iuvenjsqlyu$art_i]%>';
-        for (var $art_iuvenjsqlyu$art_i = 0, $art_cpkymv$art_c = list.length; $art_iuvenjsqlyu$art_i < $art_cpkymv$art_c; $art_iuvenjsqlyu$art_i++) {
-            var item = list[$art_iuvenjsqlyu$art_i];
+        $expr = '<%for (var $art_ixtgmuaps$art_i = 0, $art_cificvcsme$art_c = list.length; $art_ixtgmuaps$art_i < $art_cificvcsme$art_c; $art_ixtgmuaps$art_i++) {        var item = list[$art_ixtgmuaps$art_i]%>';
+        for (var $art_ixtgmuaps$art_i = 0, $art_cificvcsme$art_c = list.length; $art_ixtgmuaps$art_i < $art_cificvcsme$art_c; $art_ixtgmuaps$art_i++) {
+            var item = list[$art_ixtgmuaps$art_i];
             $p += '<a href="javascript:;" ';
-            $line = 19;
+            $line = 24;
             $art = 'if !disabled';
             ;
             $p += '';
@@ -136,11 +156,11 @@ module.exports = Base.extend({
             if (!disabled) {
                 ;
                 $p += ' mx-click="' + $viewId + '@{select}({item:\'';
-                $line = 19;
+                $line = 24;
                 $art = '@item';
                 ;
                 $p += '' + ($expr = '<%@item%>', $i($$ref, item)) + '\'})" ';
-                $line = 19;
+                $line = 24;
                 $art = '/if';
                 ;
                 $p += '';
@@ -148,27 +168,27 @@ module.exports = Base.extend({
             }
             ;
             $p += ' class="_zs_gallery_mx-tabs_index_-box-item ';
-            $line = 19;
+            $line = 24;
             $art = '= (item.value == selected) ? \'selected\' : \'\'';
             ;
             $p += '' + ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '">';
-            $line = 20;
+            $line = 25;
             $art = '=item.text';
             ;
             $p += '' + ($expr = '<%=item.text%>', $e(item.text)) + ' ';
-            $line = 21;
+            $line = 26;
             $art = 'if item.tag';
             ;
             $p += '';
             $expr = '<%if (item.tag) {%>';
             if (item.tag) {
                 ;
-                $p += '<span mxa="_zs_gallerycK:c" class="_zs_gallery_mx-tabs_index_-tag">';
-                $line = 22;
+                $p += '<span mxa="_zs_gallerycQ:c" class="_zs_gallery_mx-tabs_index_-tag">';
+                $line = 27;
                 $art = '=item.tag';
                 ;
                 $p += '' + ($expr = '<%=item.tag%>', $e(item.tag)) + '</span>';
-                $line = 23;
+                $line = 28;
                 $art = '/if';
                 ;
                 $p += '';
@@ -176,7 +196,7 @@ module.exports = Base.extend({
             }
             ;
             $p += '</a>';
-            $line = 25;
+            $line = 30;
             $art = '/each';
             ;
             $p += '';
@@ -184,7 +204,7 @@ module.exports = Base.extend({
         }
         ;
         $p += '</div>';
-        $line = 27;
+        $line = 32;
         $art = '/if';
         ;
         $p += '';

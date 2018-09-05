@@ -1,0 +1,81 @@
+<form class="form demo1">
+    <div class="form-item">
+        <div class="form-label">checkbox</div>
+        <div class="form-content">
+            {{each checkboxes as c}}
+            <label class="mr30">
+                <input type="checkbox" class="checkbox" 
+                    name="cb" 
+                    value="{{=c}}" 
+                    {{:selected.checkboxes}} />
+                {{=c}}
+            </label>
+            {{/each}}
+        </div>
+    </div>
+    <div class="form-item">
+        <div class="form-label">radio</div>
+        <div class="form-content">
+            {{each radioes as r}}
+            <label class="mr30">
+                <input type="radio" class="radio" 
+                    name="magix" 
+                    value="{{=r}}" 
+                    {{:selected.radio}} />
+                {{=r}}
+            </label>
+            {{/each}}
+        </div>
+    </div>
+    <div class="form-item">
+        <div class="form-label">dropdown</div>
+        <div class="form-content">
+            <mx-dropdown class="w220"
+                empty-text="请选择"
+                selected="{{:selected.day}}">
+                <mx-dropdown.item value="1">1</mx-dropdown.item>
+                <mx-dropdown.item value="2">2</mx-dropdown.item>
+            </mx-dropdown>
+        </div>
+    </div>
+    <div class="form-item">
+        <div class="form-label">输入框</div>
+        <div class="form-content">
+            <input class="input w220" placeholder="必填项" 
+                value="{{:selected.name}}"/>
+            <a href="https://thx.github.io/magix/" target="_blank" class="ml20 link-brand">跳转链接</a>
+        </div>
+    </div>
+    <div class="form-item">
+        <div class="form-label">日历</div>
+        <div class="form-content">
+            <mx-calendar.rangepicker class="w220"
+                align="right"
+                vsenable="{{@selected.vsenable}}"
+                vs="{{@selected.vs}}"
+                start="{{=selected.start}}"
+                end="{{=selected.end}}"/>
+        </div>
+    </div>
+    <div class="form-item">
+        <div class="form-label">开关</div>
+        <div class="form-content">
+            <mx-switch class="mr20" style="margin-top: 7px;"
+                state="{{:selected.switch}}"/>
+        </div>
+    </div>
+    <div class="form-item">
+        <div class="form-label">滑块</div>
+        <div class="form-content">
+            <mx-slider
+                width="220"
+                max="200"
+                min="100"
+                step="1"/>
+        </div>
+    </div>
+    <div class="form-item">
+        <a href="javascript:;" class="btn w80 btn-brand mr20">确认</a>
+        <a href="javascript:;" class="btn w80">取消</a>
+    </div>
+</form>

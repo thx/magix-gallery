@@ -33,13 +33,14 @@ module.exports = Magix.View.extend({
             return {
                 text: item[textKey],
                 value: item[valueKey],
-                tag: item.tag
+                tag: item.tag,
+                tip: item.tip
             };
         });
         var selected = data.selected || (list[0] || {})['value'];
         that['@{data.list}'] = list;
         that['@{data.selected}'] = selected;
-        // 展示类型：
+        // 展示类型：（兼容老的写法，不建议配置）
         //     border
         //     box
         that['@{display.type}'] = data.type || 'border';

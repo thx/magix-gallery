@@ -44,10 +44,10 @@ module.exports = Magix.View.extend({
         $art = 'each list as one idx';
         ;
         $p += '';
-        $expr = '<%for (var idx = 0, $art_cwjbzn$art_c = list.length; idx < $art_cwjbzn$art_c; idx++) {        var one = list[idx]%>';
-        for (var idx = 0, $art_cwjbzn$art_c = list.length; idx < $art_cwjbzn$art_c; idx++) {
+        $expr = '<%for (var idx = 0, $art_cakfmbzk$art_c = list.length; idx < $art_cakfmbzk$art_c; idx++) {        var one = list[idx]%>';
+        for (var idx = 0, $art_cakfmbzk$art_c = list.length; idx < $art_cakfmbzk$art_c; idx++) {
             var one = list[idx];
-            $p += '<li mxa="_zs_gallerycR:_" class="_zs_gallery_mx-taginput_suggest_-item"><a href="javascript:;" class="_zs_gallery_mx-taginput_suggest_-item-link" data-idx="';
+            $p += '<li mxa="_zs_gallerycX:_" class="_zs_gallery_mx-taginput_suggest_-item"><a href="javascript:;" class="_zs_gallery_mx-taginput_suggest_-item-link" data-idx="';
             $line = 10;
             $art = '=idx';
             ;

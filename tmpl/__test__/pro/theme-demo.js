@@ -1,9 +1,10 @@
 let Magix = require('magix');
 let $ = require('$');
-Magix.applyStyle('@style.less');
+Magix.applyStyle('@theme-demo.less');
+
 
 module.exports = Magix.View.extend({
-    tmpl: '@style.html',
+    tmpl: '@theme-demo.html',
     render() {
         this.updater.digest();
     }

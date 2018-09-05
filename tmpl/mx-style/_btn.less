@@ -38,17 +38,17 @@
         line-height: @input-small-height;
     }
     &.btn-brand when (@btn-brand = @btn-brand-gradient) {
-        color: @color-brand-text;
+        color: @btn-brand-text;
         background-color: @btn-brand;
         &:hover,
         &.hover,
         &:active {
-            color: @color-brand-text-hover;
+            color: @btn-brand-text-hover;
             background-color: @color-brand-hover;
         }
     }
     &.btn-brand when not (@btn-brand = @btn-brand-gradient) {
-        color: @color-brand-text;
+        color: @btn-brand-text;
         background-color: @btn-brand;
         background-image: linear-gradient(to right, @btn-brand, @btn-brand-gradient);
         background-image: -webkit-linear-gradient(left, @btn-brand, @btn-brand-gradient);
@@ -57,7 +57,7 @@
         &:hover,
         &.hover,
         &:active {
-            color: @color-brand-text-hover;
+            color: @btn-brand-text-hover;
             background-color: @color-brand-hover;
             background-image: linear-gradient(to right, @btn-brand-hover, @btn-brand-gradient-hover);
             background-image: -webkit-linear-gradient(left, @btn-brand-hover, @btn-brand-gradient-hover);

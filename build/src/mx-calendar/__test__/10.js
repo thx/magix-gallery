@@ -29,19 +29,19 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryP:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryP:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryP:_" class="mb20"><div class="mb5">组件会对可选范围进行修正</div><div class="mb5">1. 结束日期的最大可选范围是开始日期</div><div>2. 快捷日期会根据最大最小值范围进行修正（不限除外）</div></div><div class="w220" mx-view="mx-calendar/rangepicker?min=2018-07-27&max=2018-08-03&start=2018-07-29&end=2018-08-02&shortkeys=';
+    $p += '<div mxa="_zs_galleryT:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryT:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryT:_" class="mb20"><div class="mb5">组件会对可选范围进行修正</div><div class="mb5">1. 结束日期的最大可选范围是开始日期</div><div>2. 快捷日期会根据最大最小值范围进行修正（不限除外）</div></div><div class="w220" mx-view="mx-calendar/rangepicker?min=2018-07-27&max=2018-08-03&start=2018-07-29&end=2018-08-02&shortkeys=';
     $line = 13;
     $art = '@[\'passed10\', \'dynamicStart15\', \'forever\']';
     ;
-    $p += '' + ($expr = '<%@[\'passed10\', \'dynamicStart15\', \'forever\']%>', $i($$ref, ['passed10', 'dynamicStart15', 'forever'])) + '"></div></div><div mxa="_zs_galleryP:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryP:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%@[\'passed10\', \'dynamicStart15\', \'forever\']%>', $i($$ref, ['passed10', 'dynamicStart15', 'forever'])) + '"></div></div><div mxa="_zs_galleryT:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryT:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 17;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryP:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryT:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 19;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryP:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryT:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 22;
     $art = '=viewId';
     ;

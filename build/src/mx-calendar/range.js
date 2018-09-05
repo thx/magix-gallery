@@ -19,7 +19,7 @@ var GetDefaultDate = Util.getDefaultDate;
 var GetQuickInfos = Util.getQuickInfos;
 var ForeverStr = Util.foreverStr;
 var I18n = require("../mx-medusa/util");
-Magix.applyStyle("_zs_gallery_mx-calendar_range_","/* @dependent: ./index.less */\n._zs_gallery_mx-calendar_range_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-calendar_range_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-calendar_range_-wrapper {\n  position: relative;\n  z-index: 10;\n  min-width: 280px;\n  width: 100%;\n  padding: 10px;\n  border-radius: 4px;\n  background-color: #fff;\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-title {\n  margin-bottom: 10px;\n  color: #999;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range {\n  position: relative;\n  margin-bottom: 15px;\n  line-height: 24px;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input {\n  float: left;\n  width: 50%;\n  min-width: 110px;\n  text-align: center;\n  cursor: text;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-range-disabled,\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_rangepicker_-rangepicker-input {\n  height: 24px;\n  padding: 0;\n  line-height: 24px;\n  border-radius: 4px;\n  background-color: #f0f0f0;\n  border: 0;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_rangepicker_-result {\n  color: #333;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-vs1 ._zs_gallery_mx-calendar_rangepicker_-result {\n  color: #4d7fff;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-vs2 ._zs_gallery_mx-calendar_rangepicker_-result {\n  color: #14c9ce;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-range-disabled {\n  cursor: not-allowed;\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n  color: #ccc;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input-left {\n  padding-right: 9px;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input-right {\n  padding-left: 9px;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-gap {\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 18px;\n  height: 24px;\n  margin-left: -9px;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st {\n  float: left;\n  width: 44%;\n  height: 24px;\n  margin-right: 6%;\n  margin-bottom: 10px;\n  padding: 0 10px;\n  line-height: 24px;\n  border-radius: 4px;\n  cursor: pointer;\n  overflow: hidden;\n  white-space: nowrap;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st:hover {\n  background: #f0f0f0;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st._zs_gallery_mx-calendar_range_-selected,\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st._zs_gallery_mx-calendar_range_-selected:hover {\n  color: #fff;\n  background: #4d7fff;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts._zs_gallery_mx-calendar_range_-shortcuts-small ._zs_gallery_mx-calendar_range_-st {\n  width: 32%;\n  margin-right: 1%;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-footer {\n  padding-top: 10px;\n  border-top: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-calendar_range_-wrapper._zs_gallery_mx-calendar_range_-time {\n  min-width: 320px;\n}\n._zs_gallery_mx-calendar_range_-wrapper._zs_gallery_mx-calendar_range_-time ._zs_gallery_mx-calendar_range_-range-input {\n  min-width: 140px;\n}\n._zs_gallery_mx-calendar_range_-wrapper._zs_gallery_mx-calendar_range_-inlay {\n  border: 0 none;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-calendar_range_","/* @dependent: ./index.less */\n._zs_gallery_mx-calendar_range_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-calendar_range_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-calendar_range_-wrapper {\n  position: relative;\n  z-index: 10;\n  min-width: 280px;\n  width: 100%;\n  padding: 10px;\n  border-radius: 4px;\n  background-color: #fff;\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-title {\n  margin-bottom: 10px;\n  color: #999;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range {\n  position: relative;\n  margin-bottom: 15px;\n  line-height: 24px;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input {\n  float: left;\n  width: 50%;\n  min-width: 110px;\n  text-align: center;\n  cursor: text;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-range-disabled,\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_rangepicker_-rangepicker-input {\n  height: 24px;\n  padding: 0;\n  line-height: 24px;\n  border-radius: 4px;\n  background-color: #f0f0f0;\n  border: 0;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_rangepicker_-result {\n  color: #333;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-vs1 ._zs_gallery_mx-calendar_rangepicker_-result {\n  color: #4d7fff;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-vs2 ._zs_gallery_mx-calendar_rangepicker_-result {\n  color: #14c9ce;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-range-disabled {\n  cursor: not-allowed;\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n  color: #ccc;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input-left {\n  padding-right: 9px;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input-right {\n  padding-left: 9px;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-gap {\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 18px;\n  height: 24px;\n  margin-left: -9px;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st {\n  float: left;\n  width: 44%;\n  height: 24px;\n  margin-right: 6%;\n  margin-bottom: 10px;\n  padding: 0 10px;\n  line-height: 24px;\n  border-radius: 4px;\n  cursor: pointer;\n  overflow: hidden;\n  white-space: nowrap;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st:hover {\n  background: #f0f0f0;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st._zs_gallery_mx-calendar_range_-selected,\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st._zs_gallery_mx-calendar_range_-selected:hover {\n  color: #fff;\n  background: #4d7fff;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts._zs_gallery_mx-calendar_range_-shortcuts-small ._zs_gallery_mx-calendar_range_-st {\n  width: 32%;\n  margin-right: 1%;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-footer {\n  padding-top: 10px;\n  border-top: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-calendar_range_-wrapper._zs_gallery_mx-calendar_range_-time {\n  min-width: 320px;\n}\n._zs_gallery_mx-calendar_range_-wrapper._zs_gallery_mx-calendar_range_-time ._zs_gallery_mx-calendar_range_-range-input {\n  min-width: 140px;\n}\n._zs_gallery_mx-calendar_range_-wrapper._zs_gallery_mx-calendar_range_-inlay {\n  border: 0 none;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range-btn {\n  color: #ffffff;\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range-btn:hover,\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range-btn._zs_gallery_mx-calendar_range_-hover,\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range-btn:active {\n  color: #ffffff;\n  background-color: #4776ed;\n}\n");
 var RangeDate = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -69,7 +69,7 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '" mx-contextmenu="' + $viewId + '@{prevent}()"><div mxv mxa="_zs_gallery#:_" class="_zs_gallery_mx-calendar_range_-range"><div mxa="_zs_gallery#:a" class="_zs_gallery_mx-calendar_range_-title clearfix"><span mxa="_zs_gallery#:b" class="fl">';
+    $p += '" mx-contextmenu="' + $viewId + '@{prevent}()"><div mxv mxa="_zs_gallery%:_" class="_zs_gallery_mx-calendar_range_-range"><div mxa="_zs_gallery%:a" class="_zs_gallery_mx-calendar_range_-title clearfix"><span mxa="_zs_gallery%:b" class="fl">';
     $line = 4;
     $art = '=title';
     ;
@@ -93,7 +93,7 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxv mxa="_zs_gallery#:c" class="clearfix pr"><div mxv mxa="_zs_gallery#:d" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-left">';
+    $p += '</div><div mxv mxa="_zs_gallery%:c" class="clearfix pr"><div mxv mxa="_zs_gallery%:d" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-left">';
     $line = 11;
     $art = 'if startDisabled';
     ;
@@ -101,7 +101,7 @@ var RangeDate = Magix.View.extend({
     $expr = '<%if (startDisabled) {%>';
     if (startDisabled) {
         ;
-        $p += '<div mxa="_zs_gallery#:e" class="_zs_gallery_mx-calendar_range_-range-disabled">';
+        $p += '<div mxa="_zs_gallery%:e" class="_zs_gallery_mx-calendar_range_-range-disabled">';
         $line = 12;
         $art = '=dates.startStr';
         ;
@@ -162,7 +162,7 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxs="_zs_gallery#:_" class="_zs_gallery_mx-calendar_range_-range-gap">-</div><div mxv mxa="_zs_gallery#:f" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-right">';
+    $p += '</div><div mxs="_zs_gallery%:_" class="_zs_gallery_mx-calendar_range_-range-gap">-</div><div mxv mxa="_zs_gallery%:f" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-right">';
     $line = 27;
     $art = 'if ((!vs&&vsSingle) || endDisabled)';
     ;
@@ -170,7 +170,7 @@ var RangeDate = Magix.View.extend({
     $expr = '<%if ((!vs && vsSingle) || endDisabled) {%>';
     if ((!vs && vsSingle) || endDisabled) {
         ;
-        $p += '<div mxa="_zs_gallery#:g" class="_zs_gallery_mx-calendar_range_-range-disabled">';
+        $p += '<div mxa="_zs_gallery%:g" class="_zs_gallery_mx-calendar_range_-range-disabled">';
         $line = 28;
         $art = '=dates.endStr';
         ;
@@ -259,18 +259,18 @@ var RangeDate = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '"><div mxa="_zs_gallery#:h" class="_zs_gallery_mx-calendar_range_-title">';
+        $p += '"><div mxa="_zs_gallery%:h" class="_zs_gallery_mx-calendar_range_-title">';
         $line = 46;
         $art = '=quickTip';
         ;
-        $p += '' + ($expr = '<%=quickTip%>', $e(quickTip)) + '：</div><div mxa="_zs_gallery#:i" class="clearfix">';
+        $p += '' + ($expr = '<%=quickTip%>', $e(quickTip)) + '：</div><div mxa="_zs_gallery%:i" class="clearfix">';
         $line = 48;
         $art = 'each quickInfos as info';
         ;
         $p += '';
-        $expr = '<%for (var $art_iwswmcuwqab$art_i = 0, $art_cxesdbzfbe$art_c = quickInfos.length; $art_iwswmcuwqab$art_i < $art_cxesdbzfbe$art_c; $art_iwswmcuwqab$art_i++) {        var info = quickInfos[$art_iwswmcuwqab$art_i]%>';
-        for (var $art_iwswmcuwqab$art_i = 0, $art_cxesdbzfbe$art_c = quickInfos.length; $art_iwswmcuwqab$art_i < $art_cxesdbzfbe$art_c; $art_iwswmcuwqab$art_i++) {
-            var info = quickInfos[$art_iwswmcuwqab$art_i];
+        $expr = '<%for (var $art_iitwosyu$art_i = 0, $art_czfmgc$art_c = quickInfos.length; $art_iitwosyu$art_i < $art_czfmgc$art_c; $art_iitwosyu$art_i++) {        var info = quickInfos[$art_iitwosyu$art_i]%>';
+        for (var $art_iitwosyu$art_i = 0, $art_czfmgc$art_c = quickInfos.length; $art_iitwosyu$art_i < $art_czfmgc$art_c; $art_iitwosyu$art_i++) {
+            var info = quickInfos[$art_iitwosyu$art_i];
             $p += '<span class="_zs_gallery_mx-calendar_range_-st ';
             $line = 49;
             $art = 'if (dates.quickDateKey==info.key)';
@@ -315,11 +315,11 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<div mxa="_zs_gallery#:j" class="_zs_gallery_mx-calendar_range_-footer clearfix"><button mxa="_zs_gallery#:k" mx-click="' + $viewId + '@{date.picked}()" type="button" class="btn btn-small btn-brand mr10">';
+    $p += '<div mxa="_zs_gallery%:j" class="_zs_gallery_mx-calendar_range_-footer clearfix"><button mxa="_zs_gallery%:k" mx-click="' + $viewId + '@{date.picked}()" type="button" class="btn btn-small _zs_gallery_mx-calendar_range_-range-btn mr10">';
     $line = 57;
     $art = '=submitText';
     ;
-    $p += '' + ($expr = '<%=submitText%>', $e(submitText)) + '</button><button mxa="_zs_gallery#:l" mx-click="' + $viewId + '@{cancel}()" type="button" class="btn btn-small">';
+    $p += '' + ($expr = '<%=submitText%>', $e(submitText)) + '</button><button mxa="_zs_gallery%:l" mx-click="' + $viewId + '@{cancel}()" type="button" class="btn btn-small">';
     $line = 58;
     $art = '=cancelText';
     ;

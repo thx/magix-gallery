@@ -25,15 +25,15 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', yesterday = $$.yesterday, tomorrow = $$.tomorrow, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryZ:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryZ:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryZ:_" class="mb20"><div class="mb5">根据可选范围对默认值进行修正</div><div class="mb5">1. 未配置默认选中项且有min时，默认取min和今天中的较大值</div><div>2. 未配置默认选中项且有max时，默认取max和今天中的较小值</div></div><div mxa="_zs_galleryZ:b" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?min=';
+    $p += '<div mxa="_zs_gallery3:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallery3:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallery3:_" class="mb20"><div class="mb5">根据可选范围对默认值进行修正</div><div class="mb5">1. 未配置默认选中项且有min时，默认取min和今天中的较大值</div><div>2. 未配置默认选中项且有max时，默认取max和今天中的较小值</div></div><div mxa="_zs_gallery3:b" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?min=';
     $line = 10;
     $art = '=yesterday';
     ;
-    $p += '' + ($expr = '<%!$eu(yesterday)%>', $eu(yesterday)) + '"></div></div><div mxa="_zs_galleryZ:c" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?min=';
+    $p += '' + ($expr = '<%!$eu(yesterday)%>', $eu(yesterday)) + '"></div></div><div mxa="_zs_gallery3:c" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?min=';
     $line = 14;
     $art = '=tomorrow';
     ;
-    $p += '' + ($expr = '<%!$eu(tomorrow)%>', $eu(tomorrow)) + '"></div></div><div mxa="_zs_galleryZ:d" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?max=';
+    $p += '' + ($expr = '<%!$eu(tomorrow)%>', $eu(tomorrow)) + '"></div></div><div mxa="_zs_gallery3:d" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?max=';
     $line = 18;
     $art = '=yesterday';
     ;
@@ -41,15 +41,15 @@ module.exports = Base.extend({
     $line = 21;
     $art = '=tomorrow';
     ;
-    $p += '' + ($expr = '<%!$eu(tomorrow)%>', $eu(tomorrow)) + '"></div></div><div mxa="_zs_galleryZ:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryZ:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%!$eu(tomorrow)%>', $eu(tomorrow)) + '"></div></div><div mxa="_zs_gallery3:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery3:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 25;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryZ:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery3:f" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 27;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryZ:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery3:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 30;
     $art = '=viewId';
     ;

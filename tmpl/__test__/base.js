@@ -23,12 +23,7 @@ module.exports = Magix.View.extend({
                 path: '/all/pro/init',
                 icon: '&#xe6ea;'
             }, {
-                name: '跨项目渲染magix view',
-                tip: '云雀文档地址<a rel="noopener noreferrer" href="https://lark.alipay.com/chongzhi.ldq/ez0zq4/luqazk" target="_blank" class="color-brand">https://lark.alipay.com/chongzhi.ldq/ez0zq4/luqazk</a>',
-                path: '/all/pro/cross',
-                icon: '&#xe6b6;'
-            }, {
-                name: '定制主题',
+                name: '定制主题 + 覆盖组件样式',
                 path: '/all/pro/theme',
                 icon: '&#xeb6e;'
             }, {
@@ -58,9 +53,9 @@ module.exports = Magix.View.extend({
                 path: '/all/pro/login',
                 icon: '&#xe609;'
             }, {
-                name: '外部改变组件样式',
-                path: '/all/pro/style',
-                icon: '&#xe698;'
+                name: '跨项目渲染magix view',
+                path: '/all/pro/cross',
+                icon: '&#xe6b6;'
             }, {
                 name: '页面监听参数变化回到顶部',
                 path: '/all/pro/top',
@@ -250,6 +245,14 @@ module.exports = Magix.View.extend({
                 tip: '404找不到页面',
                 path: '/error/index',
                 icon: '&#xe611;'
+            }, {
+                name: '旺旺唤起',
+                path: '/wangwang/index',
+                icon: '&#xe75c;'
+            }, {
+                name: '钉钉唤起',
+                path: '/dingding/index',
+                icon: '&#xe677;'
             }, {
                 name: 'feedback接入',
                 path: '/feedback/index',

@@ -1,5 +1,24 @@
-Todo
-<!-- <div class="clearfix img-wrapper">
-    <img class="fl" src="//img.alicdn.com/tfs/TB1Nzu9q8nTBKNjSZPfXXbf1XXa-407-496.jpg" />
-    <img class="fr" src="//img.alicdn.com/tfs/TB19VueqWAoBKNjSZSyXXaHAVXa-379-496.jpg" />
-</div> -->
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '不同主题示例',
+        key: viewId + '_demo'
+    }, {
+        name: '变量配置',
+        key: viewId + '_vars'
+    }, {
+        name: '样式覆盖',
+        key: viewId + '_style'
+    }]}}"></div>
+    
+    <mx-title.second id="{{=viewId}}_demo"
+        content="不同主题示例" />
+    <div mx-view="@./theme-demo" class="mb40"></div>
+
+    <mx-title.second id="{{=viewId}}_vars"
+        content="修改组件透出的可配置变量" />
+    <div mx-view="@./theme-vars" class="mb40"></div>
+    
+    <mx-title.second id="{{=viewId}}_custom"
+        content="直接覆盖组件样式" />
+    <div mx-view="@./theme-style" class="mb40"></div>
+</div>

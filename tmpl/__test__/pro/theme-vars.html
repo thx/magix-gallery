@@ -1,0 +1,64 @@
+<pre class="tip-content has-border">
+/* @dependent: ./index.less */
+
+// 品牌色
+@color-brand: #4d7fff;
+@color-brand-hover: shade(@color-brand, 8%);
+@color-brand-vs: #14c9ce;
+@color-brand-light : tint(@color-brand, 78%);
+@color-brand-opacity: tint(@color-brand, 95%);
+@color-brand-text: #ffffff;
+@color-brand-text-hover: #ffffff;
+
+//边框
+@color-border: #e6e6e6;
+@color-border-hover: #ccc;
+@border-radius: 4px;
+
+// 表格相关色值
+@table-color-border: #ebebeb;
+@table-operation-color-bg: tint(@color-brand, 88%);
+
+// 品牌按钮颜色，支持渐变
+@btn-border-radius: @border-radius;
+@btn-brand: @color-brand;
+@btn-brand-gradient: @color-brand;
+@btn-brand-hover: @color-brand-hover;
+@btn-brand-gradient-hover: @color-brand-hover;
+@btn-brand-text: @color-brand-text;
+@btn-brand-text-hover: @color-brand-text-hover;
+
+//字体相关参数
+@line-height: 1.5;
+@font-size: 12px;
+
+// 提示颜色
+@color-primary: #333;
+@color-secondary: #666;
+@color-third: #999;
+@color-hover: #f0f0f0;
+@color-warn: #ffb400;
+@color-red: #a40100;
+@color-orange: #ff5500;
+@color-green: #51a300;
+@color-disabled: #eee;
+
+//背景色
+@color-bg: #fafafa;
+@color-bg-hover: #ccc;
+
+//输入或下拉框高度 
+@input-height: 32px;
+@input-small-height: 26px;
+@duration: 0.25s;
+.shadow {
+    box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);
+    border: 1px solid #eee;
+}
+.mask {
+    background-color: rgba(33, 33, 33, .72);
+}
+
+//请保持这里的import处于代码的最下方
+@import '../../assets/vars_override.less';
+</pre>

@@ -22,7 +22,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', icon = $$.icon, width = $$.width, color = $$.color; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryaU:_" class="_zs_gallery_mx-effects_star_-star-bg">';
+    $p += '<div mxa="_zs_gallerya0:_" class="_zs_gallery_mx-effects_star_-star-bg">';
     $line = 2;
     $art = 'for (let i=0;i<5;i+=1)';
     ;
@@ -30,7 +30,7 @@ module.exports = Magix.View.extend({
     $expr = '<%for (var i = 0; i < 5; i += 1) {%>';
     for (var i = 0; i < 5; i += 1) {
         ;
-        $p += '<span mxa="_zs_galleryaU:a" class="_zs_gallery_mx-effects_star_-star">';
+        $p += '<span mxa="_zs_gallerya0:a" class="_zs_gallery_mx-effects_star_-star">';
         $line = 4;
         $art = 'if icon';
         ;
@@ -51,7 +51,7 @@ module.exports = Magix.View.extend({
         }
         else {
             ;
-            $p += '<i mxs="_zs_galleryaU:_" class="mc-iconfont">&#xe60f;</i>';
+            $p += '<i mxs="_zs_gallerya0:_" class="mc-iconfont">&#xe60f;</i>';
             $line = 8;
             $art = '/if';
             ;
@@ -136,7 +136,7 @@ module.exports = Magix.View.extend({
         }
         else {
             ;
-            $p += '<i mxs="_zs_galleryaU:_" class="mc-iconfont">&#xe60f;</i>';
+            $p += '<i mxs="_zs_gallerya0:_" class="mc-iconfont">&#xe60f;</i>';
             $line = 20;
             $art = '/if';
             ;
