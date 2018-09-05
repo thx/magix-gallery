@@ -27,7 +27,8 @@ module.exports = Magix.View.extend({
             return {
                 text: item[textKey],
                 value: item[valueKey],
-                tag: item.tag
+                tag: item.tag,
+                tips: item.tips
             }
         })
 

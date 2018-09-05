@@ -9,6 +9,15 @@
             <span class="tag-name">{{=item.tag}}</span>
         </span>
         {{/if}}
+
+        {{if item.tips}}
+        <mx-popover class="mc-iconfont color-9"
+            tag="i"
+            content="{{=item.tips}}"
+            width="250"
+            placement="bottom">&#xe629;
+        </mx-popover>
+        {{/if}}
     </a>
     {{/each}}
     <span class="underline" style="left: {{=left}}px; width: {{=width}}px;"></span>
