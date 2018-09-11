@@ -32,7 +32,7 @@ module.exports = Base.extend({
     $line = 3;
     $art = '@chartData';
     ;
-    $p += '' + ($expr = '<%@chartData%>', $i($$ref, chartData)) + '" style="height: 250px;"></div></div><div mxa="_zs_galleryd:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%@chartData%>', $i($$ref, chartData)) + '" style="height: 250px;"></div></div><div mxa="_zs_galleryd:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd:_" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 7;
     $art = '=viewId';
     ;
@@ -40,7 +40,7 @@ module.exports = Base.extend({
     $line = 9;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryd:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryd:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 12;
     $art = '=viewId';
     ;

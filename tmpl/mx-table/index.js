@@ -196,10 +196,10 @@ module.exports = Magix.View.extend({
         let me = this;
         let wrapFn = (table) => {
             let trs = table.find('tbody>tr');
-            let firstTrs = table.find('tbody>tr:first-child>td');
+            let firstTds = table.find('tbody>tr:first-child>td');
             let widthArr = [];
-            for (let i = 0; i < firstTrs.length; i++) {
-                let td = firstTrs.eq(i); 
+            for (let i = 0; i < firstTds.length; i++) {
+                let td = firstTds.eq(i); 
                 let colspan = +td.attr('colspan') || 1;
                 let width = td.outerWidth();
                 for(let j = 0; j < colspan; j++){
@@ -223,20 +223,49 @@ module.exports = Magix.View.extend({
                 }
             }
 
-
             let headTrs = table.find('thead>tr');
-            for(let i = 0; i < headTrs.length; i++){
-                let ths = $(headTrs[i]).find('th');
-                let gap = 0;
-                for(let j = 0; j < ths.length; j++){
-                    let th = ths.eq(j); 
-                    let colspan = +th.attr('colspan') || 1;
-                    let width = 0;
-                    for(let k = 0; k < colspan; k++){
-                        width += widthArr[k + gap];
+            if(len > 0){
+                // 有tbody的时候
+                // 根据table的宽度计算
+                for(let i = 0; i < headTrs.length; i++){
+                    let ths = $(headTrs[i]).find('th');
+                    let gap = 0;
+                    for(let j = 0; j < ths.length; j++){
+                        let th = ths.eq(j); 
+                        let colspan = +th.attr('colspan') || 1;
+                        let width = 0;
+                        for(let k = 0; k < colspan; k++){
+                            width += widthArr[k + gap];
+                        }
+                        th.css('width', width);
+                        gap = gap + colspan;
                     }
-                    th.css('width', width);
-                    gap = gap + colspan;
+                }
+            }else{
+                // 没有tbody的时候，设置自己本身的宽度
+                let firstThs = table.find('thead>tr:first-child>th');
+                let thWidthArr = [];
+                for (let i = 0; i < firstThs.length; i++) {
+                    let td = firstThs.eq(i); 
+                    let colspan = +td.attr('colspan') || 1;
+                    let width = td.outerWidth();
+                    for(let j = 0; j < colspan; j++){
+                        thWidthArr.push(width / colspan);
+                    }
+                }
+                for(let i = 0; i < headTrs.length; i++){
+                    let ths = $(headTrs[i]).find('th');
+                    let gap = 0;
+                    for(let j = 0; j < ths.length; j++){
+                        let th = ths.eq(j); 
+                        let colspan = +th.attr('colspan') || 1;
+                        let width = 0;
+                        for(let k = 0; k < colspan; k++){
+                            width += thWidthArr[k + gap];
+                        }
+                        th.css('width', width);
+                        gap = gap + colspan;
+                    }
                 }
             }
         }

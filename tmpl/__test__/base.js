@@ -258,10 +258,6 @@ module.exports = Magix.View.extend({
                 path: '/dingding/index',
                 icon: '&#xe677;'
             }, {
-                name: 'feedback接入',
-                path: '/feedback/index',
-                icon: '&#xe613;'
-            }, {
                 name: '万象客服问答',
                 path: '/wanxiang/index',
                 icon: '&#xe767;'

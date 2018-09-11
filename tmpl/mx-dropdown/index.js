@@ -224,7 +224,11 @@ module.exports = Magix.View.extend({
                         text = li[textKey];
                         value = li[valueKey];
                     }
-                    if ((text + '').indexOf(val) >= 0 || (value + '').indexOf(val) >= 0) {
+
+                    // text不区分大小写匹配
+                    let lowVal = (val + '').toLocaleLowerCase(),
+                        lowText = (text + '').toLocaleLowerCase();
+                    if ((lowText).indexOf(lowVal) >= 0 || (value + '').indexOf(val) >= 0) {
                         newList.push(li);
                     }
                 }

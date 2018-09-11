@@ -28,19 +28,19 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryag:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryag:a" class="_zs_gallery___test___layout_-eg-content"><div class="w200" mx-view="mx-dropdown/multiple?triggerType=hover&list=';
+    $p += '<div mxa="_zs_galleryai:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryai:a" class="_zs_gallery___test___layout_-eg-content"><div class="w200" mx-view="mx-dropdown/multiple?triggerType=hover&list=';
     $line = 5;
     $art = '@[{\n                value: 1,\n                text: \'hover展开1\'\n            },{\n                value: 2,\n                text: \'hover展开2\'\n            }]';
     ;
-    $p += '' + ($expr = '<%@[{            value: 1,            text: \'hover展开1\'        }, {            value: 2,            text: \'hover展开2\'        }]%>', $i($$ref, [{ value: 1, text: 'hover展开1' }, { value: 2, text: 'hover展开2' }])) + '"></div></div><div mxa="_zs_galleryag:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryag:_" class="_zs_gallery___test___layout_-eg-title">hover展开下拉选项</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%@[{            value: 1,            text: \'hover展开1\'        }, {            value: 2,            text: \'hover展开2\'        }]%>', $i($$ref, [{ value: 1, text: 'hover展开1' }, { value: 2, text: 'hover展开2' }])) + '"></div></div><div mxa="_zs_galleryai:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryai:_" class="_zs_gallery___test___layout_-eg-title">hover展开下拉选项</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 15;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryag:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryai:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 17;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryag:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryai:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 20;
     $art = '=viewId';
     ;

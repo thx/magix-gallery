@@ -6,11 +6,14 @@ module.exports = Base.extend({
     tmpl: '@2.html',
     render() {
         let list = [{
-            value: '1',
-            text: '单选带搜索框1'
+            value: 1,
+            text: '测试Logo'
         }, {
-            value: '2',
-            text: '单选带搜索框2'
+            value: 2,
+            text: 'logo'
+        }, {
+            value: 3,
+            text: '123456'
         }];
         let item = list[1];
         this.updater.digest({

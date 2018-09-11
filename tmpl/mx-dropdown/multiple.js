@@ -310,10 +310,12 @@ module.exports = Magix.View.extend({
             return;
         }
 
+        let lowVal = (val + '').toLocaleLowerCase();
         groups.forEach(group => {
             let allHide = true;
             group.list.forEach(item => {
-                item.hide = ((item.text || '').indexOf(val + '') < 0);
+                let lowText = (item.text + '').toLocaleLowerCase();
+                item.hide = (lowText.indexOf(lowVal) < 0);
                 allHide = allHide && item.hide;
             })
             group.hide = allHide;

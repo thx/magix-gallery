@@ -53,9 +53,9 @@ module.exports = Magix.View.extend({
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for (var $art_iouikdqex$art_i = 0, $art_cxwebyro$art_c = list.length; $art_iouikdqex$art_i < $art_cxwebyro$art_c; $art_iouikdqex$art_i++) {    var item = list[$art_iouikdqex$art_i]%>';
-    for (var $art_iouikdqex$art_i = 0, $art_cxwebyro$art_c = list.length; $art_iouikdqex$art_i < $art_cxwebyro$art_c; $art_iouikdqex$art_i++) {
-        var item = list[$art_iouikdqex$art_i];
+    $expr = '<%for (var $art_iybfahpb$art_i = 0, $art_clxxayvum$art_c = list.length; $art_iybfahpb$art_i < $art_clxxayvum$art_c; $art_iybfahpb$art_i++) {    var item = list[$art_iybfahpb$art_i]%>';
+    for (var $art_iybfahpb$art_i = 0, $art_clxxayvum$art_c = list.length; $art_iybfahpb$art_i < $art_clxxayvum$art_c; $art_iybfahpb$art_i++) {
+        var item = list[$art_iybfahpb$art_i];
         $p += ' ';
         $line = 5;
         $art = 'if item.name';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
         $art = 'each item.subs as sub';
         ;
         $p += '';
-        $expr = '<%for (var $art_iejmfma$art_i = 0, $art_objantyvajat$art_obj = item.subs, $art_ckohvss$art_c = $art_objantyvajat$art_obj.length; $art_iejmfma$art_i < $art_ckohvss$art_c; $art_iejmfma$art_i++) {        var sub = $art_objantyvajat$art_obj[$art_iejmfma$art_i]%>';
-        for (var $art_iejmfma$art_i = 0, $art_objantyvajat$art_obj = item.subs, $art_ckohvss$art_c = $art_objantyvajat$art_obj.length; $art_iejmfma$art_i < $art_ckohvss$art_c; $art_iejmfma$art_i++) {
-            var sub = $art_objantyvajat$art_obj[$art_iejmfma$art_i];
+        $expr = '<%for (var $art_iuiasvwzbun$art_i = 0, $art_objlwwafpq$art_obj = item.subs, $art_cpbpfstdd$art_c = $art_objlwwafpq$art_obj.length; $art_iuiasvwzbun$art_i < $art_cpbpfstdd$art_c; $art_iuiasvwzbun$art_i++) {        var sub = $art_objlwwafpq$art_obj[$art_iuiasvwzbun$art_i]%>';
+        for (var $art_iuiasvwzbun$art_i = 0, $art_objlwwafpq$art_obj = item.subs, $art_cpbpfstdd$art_c = $art_objlwwafpq$art_obj.length; $art_iuiasvwzbun$art_i < $art_cpbpfstdd$art_c; $art_iuiasvwzbun$art_i++) {
+            var sub = $art_objlwwafpq$art_obj[$art_iuiasvwzbun$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 13;
             $art = 'if (sub.path == path)';
@@ -516,10 +516,6 @@ catch (ex) {
                         name: '钉钉唤起',
                         path: '/dingding/index',
                         icon: '&#xe677;'
-                    }, {
-                        name: 'feedback接入',
-                        path: '/feedback/index',
-                        icon: '&#xe613;'
                     }, {
                         name: '万象客服问答',
                         path: '/wanxiang/index',

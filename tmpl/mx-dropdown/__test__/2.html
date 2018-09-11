@@ -3,7 +3,6 @@
         <div class="mb20">
             <mx-dropdown class="w200" 
                 searchbox="true" 
-                empty-text="请选择类型" 
                 selected="{{=selectedValue}}"
                 list="{{@list}}"
                 mx-change="select()"></mx-dropdown>
@@ -16,7 +15,7 @@
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
+        <div class="eg-title">搜索不区分大小写</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
@@ -46,11 +45,14 @@ module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
         let list = [&#123;
-            value: '1',
-            text: '单选带搜索框1'
+            value: 1,
+            text: '测试Logo'
         &#125;, &#123;
-            value: '2',
-            text: '单选带搜索框2'
+            value: 2,
+            text: 'logo'
+        &#125;, &#123;
+            value: 3,
+            text: '123456'
         &#125;];
         this.updater.digest(&#123;
             list: list,
