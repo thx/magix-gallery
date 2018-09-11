@@ -1,5 +1,6 @@
 let Magix = require('magix');
 let $ = require('$');
+let Util = require('@./util');
 Magix.applyStyle('@notice.less');
 
 let ClassNames = {
@@ -35,7 +36,7 @@ module.exports = Magix.View.extend({
                 classNames.push(ClassNames[type]);
             }
         } else {
-            let result = this.hexToRgb(color);
+            let result = Util.hexToRgb(color);
             rgba = `rgba(${result.r}, ${result.g}, ${result.b}, 0.2)`;
             styles.push(
                 'color:' + color,
@@ -56,22 +57,5 @@ module.exports = Magix.View.extend({
     },
     render() {
         this.updater.digest();
-    },
-
-    hexToRgb(hex) {
-        if (!hex) {
-            return null;
-        }
-        var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-        hex = hex.replace(shorthandRegex, function (m, r, g, b) {
-            return r + r + g + g + b + b;
-        });
-
-        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-        return result ? {
-            r: parseInt(result[1], 16),
-            g: parseInt(result[2], 16),
-            b: parseInt(result[3], 16)
-        } : null;
     }
 });

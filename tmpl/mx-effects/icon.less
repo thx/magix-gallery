@@ -1,0 +1,58 @@
+@import "../mx-style/_vars";
+
+@solid-height: 20px;
+/*实心打标icon*/
+.solid-icon{
+    display: inline-block;
+    height: @solid-height;
+    padding: 0 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    line-height: @solid-height;
+    font-weight: bold;
+
+    &.common{
+        background-color: #ccc;
+    }
+    &.error{
+        background-color: @color-red;
+    }
+    &.warn{
+        background-color: @color-warn;
+    }
+    &.highlight{
+        background-color: @color-brand;
+    }
+}
+
+@hollow-height: 18px;
+/*空心打标*/
+.hollow-icon{
+    display: inline-block;
+    height: @hollow-height;
+    padding: 0 6px;
+    border-radius: @hollow-height / 2;
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+    line-height: @hollow-height - 2;
+
+    &.common{
+        border: 1px solid #ccc;
+        color: #999;
+    }
+    &.error{
+        border: 1px solid @color-red;
+        color: @color-red;
+    }
+    &.warn{
+        border: 1px solid @color-warn;
+        color: @color-warn;
+    }
+    &.highlight{
+        border: 1px solid @color-brand;
+        color: @color-brand;
+    }
+}

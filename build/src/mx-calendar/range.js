@@ -268,9 +268,9 @@ var RangeDate = Magix.View.extend({
         $art = 'each quickInfos as info';
         ;
         $p += '';
-        $expr = '<%for (var $art_ivqrxfjl$art_i = 0, $art_cnheybfykk$art_c = quickInfos.length; $art_ivqrxfjl$art_i < $art_cnheybfykk$art_c; $art_ivqrxfjl$art_i++) {        var info = quickInfos[$art_ivqrxfjl$art_i]%>';
-        for (var $art_ivqrxfjl$art_i = 0, $art_cnheybfykk$art_c = quickInfos.length; $art_ivqrxfjl$art_i < $art_cnheybfykk$art_c; $art_ivqrxfjl$art_i++) {
-            var info = quickInfos[$art_ivqrxfjl$art_i];
+        $expr = '<%for (var $art_ihweqcanir$art_i = 0, $art_cmjnayky$art_c = quickInfos.length; $art_ihweqcanir$art_i < $art_cmjnayky$art_c; $art_ihweqcanir$art_i++) {        var info = quickInfos[$art_ihweqcanir$art_i]%>';
+        for (var $art_ihweqcanir$art_i = 0, $art_cmjnayky$art_c = quickInfos.length; $art_ihweqcanir$art_i < $art_cmjnayky$art_c; $art_ihweqcanir$art_i++) {
+            var info = quickInfos[$art_ihweqcanir$art_i];
             $p += '<span class="_zs_gallery_mx-calendar_range_-st ';
             $line = 49;
             $art = 'if (dates.quickDateKey==info.key)';

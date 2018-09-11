@@ -21,14 +21,14 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryb\\:_" mx-view="mx-title/second?content=API"></div><div mxa="_zs_galleryb\\:_" class="pr20"><table mxa="_zs_galleryb\\:a" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_galleryb\\:a"><tr><th width="100">可配参数</th><th width="200">说明</th><th width="100">类型</th><th width="120">默认值</th></tr></thead><tbody><tr mxs="_zs_galleryb\\:b"><td>list</td><td><div>可选状态列表：</div><pre>\n[&#123;\n    value: \'状态值\',\n    text: \'状态文案\',\n    icon: \'iconfont图标，如&lt;i class="mc-iconfont"&gt;&#38;&#35;xe67f;&lt;/i&gt;\',\n    color: \'图标显示颜色\',\n    tip: \'状态提示文案\'\n&#125;]\n                    </pre><div>当可选列表只有一个时也显示为只读状态</div></td><td>array</td><td class="word-break">[]</td></tr>';
+    $p += '<div mxs="_zs_galleryb~:_" mx-view="mx-title/second?content=API"></div><div mxa="_zs_galleryb~:_" class="pr20"><table mxa="_zs_galleryb~:a" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_galleryb~:a"><tr><th width="100">可配参数</th><th width="200">说明</th><th width="100">类型</th><th width="120">默认值</th></tr></thead><tbody><tr mxs="_zs_galleryb~:b"><td>list</td><td><div>可选状态列表：</div><pre>\n[&#123;\n    value: \'状态值\',\n    text: \'状态文案\',\n    icon: \'iconfont图标，如&lt;i class="mc-iconfont"&gt;&#38;&#35;xe67f;&lt;/i&gt;\',\n    color: \'图标显示颜色\',\n    tip: \'状态提示文案\'\n&#125;]\n                    </pre><div>当可选列表只有一个时也显示为只读状态</div></td><td>array</td><td class="word-break">[]</td></tr>';
     $line = 31;
     $art = 'each options as option';
     ;
     $p += '';
-    $expr = '<%for (var $art_iocnlfyhg$art_i = 0, $art_caegbpg$art_c = options.length; $art_iocnlfyhg$art_i < $art_caegbpg$art_c; $art_iocnlfyhg$art_i++) {    var option = options[$art_iocnlfyhg$art_i]%>';
-    for (var $art_iocnlfyhg$art_i = 0, $art_caegbpg$art_c = options.length; $art_iocnlfyhg$art_i < $art_caegbpg$art_c; $art_iocnlfyhg$art_i++) {
-        var option = options[$art_iocnlfyhg$art_i];
+    $expr = '<%for (var $art_ifbybmplejq$art_i = 0, $art_crnumyklk$art_c = options.length; $art_ifbybmplejq$art_i < $art_crnumyklk$art_c; $art_ifbybmplejq$art_i++) {    var option = options[$art_ifbybmplejq$art_i]%>';
+    for (var $art_ifbybmplejq$art_i = 0, $art_crnumyklk$art_c = options.length; $art_ifbybmplejq$art_i < $art_crnumyklk$art_c; $art_ifbybmplejq$art_i++) {
+        var option = options[$art_ifbybmplejq$art_i];
         $p += '<tr><td>';
         $line = 33;
         $art = '=option.key';
@@ -41,7 +41,7 @@ module.exports = Magix.View.extend({
         $line = 35;
         $art = '!option.type';
         ;
-        $p += '' + ($expr = '<%!option.type%>', $n(option.type)) + '</td><td mxa="_zs_galleryb\\:b" class="word-break">';
+        $p += '' + ($expr = '<%!option.type%>', $n(option.type)) + '</td><td mxa="_zs_galleryb~:b" class="word-break">';
         $line = 36;
         $art = '!option.def';
         ;

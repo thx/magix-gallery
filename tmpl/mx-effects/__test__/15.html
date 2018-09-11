@@ -1,0 +1,24 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-effects.icon mode="hollow" class="mr10" content="测试"/>
+        <mx-effects.icon mode="hollow" class="mr10" type="error" content="测试"/>
+        <mx-effects.icon mode="hollow" class="mr10" type="warn" content="测试"/>
+        <mx-effects.icon mode="hollow"  class="mr10" type="highlight" content="测试"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">空心打标</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-effects.icon mode="hollow" content="测试"/&gt;
+
+&lt;mx-effects.icon mode="hollow" type="error" content="测试"/&gt;
+
+&lt;mx-effects.icon mode="hollow" type="warn" content="测试"/&gt;
+
+&lt;mx-effects.icon mode="hollow" type="highlight" content="测试"/&gt;</pre>
+    </div>
+</div>

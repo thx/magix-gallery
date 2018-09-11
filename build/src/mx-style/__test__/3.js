@@ -23,15 +23,15 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryb;:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryb;:a" class="_zs_gallery___test___layout_-eg-content"><label mxv mxa="_zs_galleryb;:b" class="mr30"><input mxs="_zs_galleryb;:_" type="checkbox" name="cb" value="1" checked="true"/> 选中</label><label mxv mxa="_zs_galleryb;:c" class="mr30"><input mxs="_zs_galleryb;:a" type="checkbox" name="cb" value="2" checked="true" disabled="true"/> 选中禁止选择</label><label mxv mxa="_zs_galleryb;:d" class="mr30"><input mxs="_zs_galleryb;:b" type="checkbox" name="cb" value="3"/> 未选中</label><label mxv mxa="_zs_galleryb;:e" class="mr30"><input mxs="_zs_galleryb;:c" type="checkbox" name="cb" value="4" disabled="true"/> 未选中禁止选择</label></div><div mxa="_zs_galleryb;:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryb;:d" class="_zs_gallery___test___layout_-eg-title">Checkbox</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxv mxa="_zs_galleryca:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryca:a" class="_zs_gallery___test___layout_-eg-content"><label mxv mxa="_zs_galleryca:b" class="mr30"><input mxs="_zs_galleryca:_" type="checkbox" name="cb" value="1" checked="true"/> 选中</label><label mxv mxa="_zs_galleryca:c" class="mr30"><input mxs="_zs_galleryca:a" type="checkbox" name="cb" value="2" checked="true" disabled="true"/> 选中禁止选择</label><label mxv mxa="_zs_galleryca:d" class="mr30"><input mxs="_zs_galleryca:b" type="checkbox" name="cb" value="3"/> 未选中</label><label mxv mxa="_zs_galleryca:e" class="mr30"><input mxs="_zs_galleryca:c" type="checkbox" name="cb" value="4" disabled="true"/> 未选中禁止选择</label></div><div mxa="_zs_galleryca:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryca:d" class="_zs_gallery___test___layout_-eg-title">Checkbox</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 22;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryb;:g" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryca:g" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 24;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryb;:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryca:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 27;
     $art = '=viewId';
     ;

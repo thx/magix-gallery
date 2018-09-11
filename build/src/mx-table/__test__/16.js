@@ -21,7 +21,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', line = $$.line; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycj:_" mx-view="mx-table/index?sticky=true"><div><table mxa="_zs_gallerycj:a" class="table" left="true"><thead><tr>';
+    $p += '<div mxa="_zs_galleryco:_" mx-view="mx-table/index?sticky=true"><div><table mxa="_zs_galleryco:a" class="table" left="true"><thead><tr>';
     $line = 6;
     $art = 'for (let i=0;i<4;i++)';
     ;
@@ -29,7 +29,7 @@ module.exports = Magix.View.extend({
     $expr = '<%for (var i = 0; i < 4; i++) {%>';
     for (var i = 0; i < 4; i++) {
         ;
-        $p += '<th mxa="_zs_gallerycj:b" width="120">固定字段';
+        $p += '<th mxa="_zs_galleryco:b" width="120">固定字段';
         $line = 7;
         $art = '=i';
         ;
@@ -77,7 +77,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</tbody></table></div><div><table mxa="_zs_gallerycj:c" class="table" center="true"><thead><tr>';
+    $p += '</tbody></table></div><div><table mxa="_zs_galleryco:c" class="table" center="true"><thead><tr>';
     $line = 25;
     $art = 'for (let i=0;i<10;i++)';
     ;
@@ -137,7 +137,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</tbody></table></div></div><div mxa="_zs_gallerycj:d" mx-view="mx-table/index?sticky=true"><div><table mxa="_zs_gallerycj:e" class="table" left="true" width="500"><thead><tr>';
+    $p += '</tbody></table></div></div><div mxa="_zs_galleryco:d" mx-view="mx-table/index?sticky=true"><div><table mxa="_zs_galleryco:e" class="table" left="true" width="500"><thead><tr>';
     $line = 47;
     $art = 'for (let i=0;i<4;i++)';
     ;
@@ -145,7 +145,7 @@ module.exports = Magix.View.extend({
     $expr = '<%for (var i = 0; i < 4; i++) {%>';
     for (var i = 0; i < 4; i++) {
         ;
-        $p += '<th mxa="_zs_gallerycj:f" width="120">固定字段';
+        $p += '<th mxa="_zs_galleryco:f" width="120">固定字段';
         $line = 48;
         $art = '=i';
         ;
@@ -193,7 +193,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</tbody></table></div><div><table mxa="_zs_gallerycj:g" class="table" center="true" width="1000"><thead><tr>';
+    $p += '</tbody></table></div><div><table mxa="_zs_galleryco:g" class="table" center="true" width="1000"><thead><tr>';
     $line = 66;
     $art = 'for (let i=0;i<10;i++)';
     ;

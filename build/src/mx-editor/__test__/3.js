@@ -29,19 +29,19 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryaD:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryaD:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryaD:_" class="mb10 color-9">在表格中使用：</div><div mxs="_zs_galleryaD:a" class="mb20">表格的规范是选中行的操作按钮才会显示</div><div mxa="_zs_galleryaD:b" mx-view="mx-table/index" class="mb20"><div><table mxa="_zs_galleryaD:c" class="table"><thead mxs="_zs_galleryaD:b"><tr><th width="200">序号</th><th width="200">组件</th></tr></thead><tbody><tr mxs="_zs_galleryaD:c"><td>1、无校验规则</td><td><div mx-view="mx-editor/index?width=80&content=300&small=true"></div></td></tr><tr><td mxs="_zs_galleryaD:d">2、不能小于200</td><td><div mx-view="mx-editor/index?width=80&content=300&rules=';
+    $p += '<div mxa="_zs_galleryaE:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryaE:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryaE:_" class="mb10 color-9">在表格中使用：</div><div mxs="_zs_galleryaE:a" class="mb20">表格的规范是选中行的操作按钮才会显示</div><div mxa="_zs_galleryaE:b" mx-view="mx-table/index" class="mb20"><div><table mxa="_zs_galleryaE:c" class="table"><thead mxs="_zs_galleryaE:b"><tr><th width="200">序号</th><th width="200">组件</th></tr></thead><tbody><tr mxs="_zs_galleryaE:c"><td>1、无校验规则</td><td><div mx-view="mx-editor/index?width=80&content=300&small=true"></div></td></tr><tr><td mxs="_zs_galleryaE:d">2、不能小于200</td><td><div mx-view="mx-editor/index?width=80&content=300&rules=';
     $line = 29;
     $art = '@{min:[200,\'不能小于200\']}';
     ;
-    $p += '' + ($expr = '<%@{ min: [200, \'不能小于200\'] }%>', $i($$ref, { min: [200, '不能小于200'] })) + '&small=true"></div></td></tr></tbody></table></div></div></div><div mxa="_zs_galleryaD:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryaD:e" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%@{ min: [200, \'不能小于200\'] }%>', $i($$ref, { min: [200, '不能小于200'] })) + '&small=true"></div></td></tr></tbody></table></div></div></div><div mxa="_zs_galleryaE:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryaE:e" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 39;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaD:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaE:e" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 41;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaD:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaE:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 44;
     $art = '=viewId';
     ;
