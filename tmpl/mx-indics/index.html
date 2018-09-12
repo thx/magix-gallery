@@ -1,7 +1,7 @@
-<!-- <a href="javascript:;" class="input setting-btn mr10" mx-click="show()">
-    <i class="iconfont displacement-2">&#xe731;</i>
+<a href="javascript:;" class="input setting-btn setting-show-btn" mx-click="show()">
+    <i class="mc-iconfont setting-show-icon">&#xe731;</i>
 </a>
-<a href="javascript:;" class="input setting-btn" mx-click="toggleDefault({isDefault:{{=isDefault}}})">
-    {{=isDefault?'默认数据':'自定义数据'}}
-    <i class="iconfont setting-switch-icon">&#xe658;</i>
-</a> -->
+<a href="javascript:;" class="input setting-btn setting-switch-btn" mx-click="toggleDefault()">
+    {{=map[type]['label']}}
+    <i class="mc-iconfont setting-switch-icon">&#xe692;</i>
+</a>

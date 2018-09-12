@@ -1,15 +1,122 @@
 <div class="example">
     <div class="eg-content">
-        <mx-footer/>
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>限制指标选择上限4 + 指标可排序</div>
+                <div>选择指标超过上限的时候，未选择指标禁止选择</div>
+                <div>切换为默认指标选择def=true的配置，切换自定义显示用户的自定义配置</div>
+                <div>初次进行自定义配置时显示指标为默认指标</div>
+            </div>
+        </div>
+        <div>
+            <mx-indics 
+                fields="{{@fields}}" 
+                defaults="{{@defaults}}"
+                custom="{{=custom}}"
+                customs="{{@customs}}"
+                sortable="true" 
+                limit="4"
+                mx-change="change()"/>
+            
+            <span class="ml20 color-9">当前选中</span>
+            {{if custom}}
+                <span>自定义指标：</span>
+                {{each customs as key}}
+                <span class="ml10">{{=map[key]}}（{{=key}}）</span>
+                {{/each}}
+            {{else}}
+                <span>默认指标：</span>
+                {{each defaults as key}}
+                <span class="ml10">{{=map[key]}}（{{=key}}）</span>
+                {{/each}}
+            {{/if}}
+        </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-footer/&gt;</pre>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-indics 
+    fields="&#123;&#123;@fields&#125;&#125;" 
+    defaults="&#123;&#123;@defaults&#125;&#125;"
+    custom="&#123;&#123;=custom&#125;&#125;"
+    customs="&#123;&#123;@customs&#125;&#125;"
+    sortable="true" 
+    limit="4"
+    mx-change="change()"/&gt;
+
+&lt;span class="ml20 color-9"&gt;当前选中&lt;/span&gt;
+&#123;&#123;if custom&#125;&#125;
+    &lt;span&gt;自定义指标：&lt;/span&gt;
+    &#123;&#123;each customs as key&#125;&#125;
+    &lt;span class="ml10"&gt;&#123;&#123;=map[key]&#125;&#125;（&#123;&#123;=key&#125;&#125;）&lt;/span&gt;
+    &#123;&#123;/each&#125;&#125;
+&#123;&#123;else&#125;&#125;
+    &lt;span&gt;默认指标：&lt;/span&gt;
+    &#123;&#123;each defaults as key&#125;&#125;
+    &lt;span class="ml10"&gt;&#123;&#123;=map[key]&#125;&#125;（&#123;&#123;=key&#125;&#125;）&lt;/span&gt;
+    &#123;&#123;/each&#125;&#125;
+&#123;&#123;/if&#125;&#125;</pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let fields = [&#123;
+            text: '消耗', value: 'cost', tip: '提示文案'
+        &#125;, &#123;
+            text: '展现量', value: 'impression'
+        &#125;, &#123;
+            text: '点击量', value: 'click', 
+        &#125;, &#123;
+            text: '点击率', value: 'ctr'
+        &#125;, &#123;
+            text: '平均点击单价', value: 'cpc'
+        &#125;, &#123;
+            text: '点击转化率', value: 'coverage'
+        &#125;, &#123;
+            text: '成交笔数', value: 'transaction'
+        &#125;]
+
+        let map = &#123;&#125;;
+        fields.forEach(item =&gt; &#123;
+            map[item.value] = item.text;
+        &#125;)
+        
+        this.updater.digest(&#123;
+            fields,
+            custom: false, //当前是为默认数据
+            defaults: ['cost', 'impression', 'click'],
+            customs: [],
+            map
+        &#125;);
+    &#125;,
+    'change&lt;change&gt;'(e)&#123;
+        // defaults：默认指标
+        // custom：true or false，是否为自定义指标
+        // customs：用户自定义的指标
+        this.updater.digest(&#123;
+            custom: e.custom,
+            customs: e.customs
+        &#125;);
+    &#125;
+&#125;);</pre>
+        </div>
     </div>
 </div>

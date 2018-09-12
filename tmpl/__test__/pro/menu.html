@@ -20,7 +20,20 @@
         }]
     }, {
         name: '自定义菜单',
-        key: viewId + '_custom'
+        key: viewId + '_custom',
+        subs: [{
+            name: '映射三级',
+            key: viewId + '_custom3',
+        },{
+            name: '一级+自定义侧边',
+            key: viewId + '_custom5',
+        },{
+            name: '一级+无侧边',
+            key: viewId + '_custom2',
+        },{
+            name: '自定义容器',
+            key: viewId + '_custom4',
+        }]
     }]}}"></div>
     
     <mx-title.second id="{{=viewId}}_menu"
@@ -31,10 +44,10 @@
         <div class="half">
             <div mx-view="@./menu1" id="{{=viewId}}_menu1"></div>
             <div mx-view="@./menu3" id="{{=viewId}}_menu3"></div>
-            <div mx-view="@./menu5" id="{{=viewId}}_menu5"></div>
         </div>
         <div class="half">
             <div mx-view="@./menu2" id="{{=viewId}}_menu2"></div>
+            <div mx-view="@./menu5" id="{{=viewId}}_menu5"></div>
             <div mx-view="@./menu4" id="{{=viewId}}_menu4"></div>
         </div>
     </div>
@@ -43,14 +56,9 @@
         content="自定义菜单配置" 
         tip="入口在不在导航上，从具体的某个页面点击进入，可能需要映射到导航的某个位置上"/>
     <div mx-view="@./menu-custom-desc" class="mb20"></div>
-    <!-- <div class="clearfix mb20">
-        <div class="half">
-            <div mx-view="@./menu-custom1"></div>
-            <div mx-view="@./menu-custom3"></div>
-        </div>
-        <div class="half">
-            <div mx-view="@./menu-custom2"></div>
-            <div mx-view="@./menu-custom4"></div>
-        </div>
-    </div>  -->
+    <div mx-view="@./menu-custom1?parentId={{=viewId}}" class="mb20"></div>
+    <div mx-view="@./menu-custom3" id="{{=viewId}}_custom3"></div>
+    <div mx-view="@./menu-custom5" id="{{=viewId}}_custom5"></div>
+    <div mx-view="@./menu-custom2" id="{{=viewId}}_custom2"></div>
+    <div mx-view="@./menu-custom4" id="{{=viewId}}_custom4"></div>
 </div>

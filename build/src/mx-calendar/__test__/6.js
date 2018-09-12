@@ -30,7 +30,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', vs = $$.vs, start = $$.start, end = $$.end, vsenable = $$.vsenable, keys = $$.keys, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallery7:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallery7:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallery7:_" class="mb10 clearfix"><div class="color-9 fl lh22">以下示例：</div><div class="fl lh22"><div>日历面板右对齐（结束日期）</div><div>自定义快捷日期，快捷日期会根据可选范围进行修正</div><div>可对比，关闭对比选择时间段</div><div>事件处理</div></div></div><div mxa="_zs_gallery7:b" class="mb20"><span mxs="_zs_gallery7:a" class="color-9">当前结果：</span>';
+    $p += '<div mxv mxa="_zs_gallery8:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallery8:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallery8:_" class="mb10 clearfix"><div class="color-9 fl lh22">以下示例：</div><div class="fl lh22"><div>日历面板右对齐（结束日期）</div><div>自定义快捷日期，快捷日期会根据可选范围进行修正</div><div>可对比，关闭对比选择时间段</div><div>事件处理</div></div></div><div mxa="_zs_gallery8:b" class="mb20"><span mxs="_zs_gallery8:a" class="color-9">当前结果：</span>';
     $line = 14;
     $art = 'if vs';
     ;
@@ -38,11 +38,11 @@ module.exports = Base.extend({
     $expr = '<%if (vs) {%>';
     if (vs) {
         ;
-        $p += '<span mxa="_zs_gallery7:c" class="color-brand mr5">';
+        $p += '<span mxa="_zs_gallery8:c" class="color-brand mr5">';
         $line = 15;
         $art = '=start';
         ;
-        $p += '' + ($expr = '<%=start%>', $e(start)) + '</span><span mxs="_zs_gallery7:b" class="mr5">对比</span><span mxa="_zs_gallery7:d" class="color-brand-vs">';
+        $p += '' + ($expr = '<%=start%>', $e(start)) + '</span><span mxs="_zs_gallery8:b" class="mr5">对比</span><span mxa="_zs_gallery8:d" class="color-brand-vs">';
         $line = 17;
         $art = '=end';
         ;
@@ -55,11 +55,11 @@ module.exports = Base.extend({
     }
     else {
         ;
-        $p += '<span mxa="_zs_gallery7:e" class="mr5">';
+        $p += '<span mxa="_zs_gallery8:e" class="mr5">';
         $line = 19;
         $art = '=start';
         ;
-        $p += '' + ($expr = '<%=start%>', $e(start)) + '</span><span mxs="_zs_gallery7:c" class="mr5">至</span><span>';
+        $p += '' + ($expr = '<%=start%>', $e(start)) + '</span><span mxs="_zs_gallery8:c" class="mr5">至</span><span>';
         $line = 21;
         $art = '=end';
         ;
@@ -71,7 +71,7 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxv mxa="_zs_gallery7:f" class="clearfix"><div mxv mxa="_zs_gallery7:g" class="fl mr10"><div mxv="keys" class="w220" mx-change="' + $viewId + 'changeInfo()" mx-view="mx-calendar/rangepicker?align=right&vsenable=';
+    $p += '</div><div mxv mxa="_zs_gallery8:f" class="clearfix"><div mxv mxa="_zs_gallery8:g" class="fl mr10"><div mxv="keys" class="w220" mx-change="' + $viewId + 'changeInfo()" mx-view="mx-calendar/rangepicker?align=right&vsenable=';
     $line = 28;
     $art = '=vsenable';
     ;
@@ -91,27 +91,27 @@ module.exports = Base.extend({
     $line = 32;
     $art = '@keys';
     ;
-    $p += '' + ($expr = '<%@keys%>', $i($$ref, keys)) + '"></div></div><div mxs="_zs_gallery7:d" class="fl"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'changeShortkeys()">改变快捷方式</a></div></div></div><div mxa="_zs_gallery7:h" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery7:e" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%@keys%>', $i($$ref, keys)) + '"></div></div><div mxs="_zs_gallery8:d" class="fl"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'changeShortkeys()">改变快捷方式</a></div></div></div><div mxa="_zs_gallery8:h" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery8:e" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 42;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery7:i" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery8:i" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 44;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery7:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery8:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 47;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.rangepicker class="w220"\n    align="right"\n    vsenable="&#123;&#123;=vsenable&#125;&#125;"\n    vs="&#123;&#123;=vs&#125;&#125;"\n    start="&#123;&#123;=start&#125;&#125;"\n    end="&#123;&#123;=end&#125;&#125;"\n    shortkeys="&#123;&#123;@keys&#125;&#125;"\n    mx-change="changeInfo()"/&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand" \n    mx-click="changeShortkeys()"&gt;改变快捷方式&lt;/a&gt;</pre></div><div mxa="_zs_gallery7:j" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery7:g" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.rangepicker class="w220"\n    align="right"\n    vsenable="&#123;&#123;=vsenable&#125;&#125;"\n    vs="&#123;&#123;=vs&#125;&#125;"\n    start="&#123;&#123;=start&#125;&#125;"\n    end="&#123;&#123;=end&#125;&#125;"\n    shortkeys="&#123;&#123;@keys&#125;&#125;"\n    mx-change="changeInfo()"/&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand" \n    mx-click="changeShortkeys()"&gt;改变快捷方式&lt;/a&gt;</pre></div><div mxa="_zs_gallery8:j" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery8:g" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 62;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery7:k" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery8:k" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 64;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallery7:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallery8:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 67;
     $art = '=viewId';
     ;

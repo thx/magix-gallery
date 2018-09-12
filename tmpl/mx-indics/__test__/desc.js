@@ -2,10 +2,8 @@ let Magix = require('magix');
 let $ = require('$');
 
 module.exports = Magix.View.extend({
-    tmpl: '@16.html',
+    tmpl: '@desc.html',
     render() {
-        this.updater.digest({
-            line: 2
-        });
+        this.updater.digest();
     }
 });

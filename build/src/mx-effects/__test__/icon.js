@@ -29,7 +29,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryaZ:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryaZ:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/14"></div><div mx-view="mx-effects/__test__/15"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/16"></div></div></div><div mxs="_zs_galleryaZ:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += '<div mxs="_zs_gallerya0:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerya0:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/14"></div><div mx-view="mx-effects/__test__/15"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/16"></div></div></div><div mxs="_zs_gallerya0:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 13;
     $art = '@options';
     ;
@@ -46,8 +46,23 @@ catch (ex) {
     render: function () {
         var options = [{
                 key: 'mode',
-                desc: '页脚类型，简单版（simple）还是复杂版本',
+                desc: 'icon类型，可选实心打标（solid），空心打标（hollow）',
                 type: 'string',
+                def: 'solid'
+            }, {
+                key: 'type',
+                desc: [
+                    '展示类型',
+                    'error：红色错误类型提示',
+                    'warn：黄色警告类型提示',
+                    'highlight：品牌色图标强调提示'
+                ].join('<br>'),
+                type: 'string',
+                def: '默认灰色提示'
+            }, {
+                key: 'color',
+                desc: '自定义颜色',
+                type: 'hex格式色号',
                 def: ''
             }];
         this.updater.digest({

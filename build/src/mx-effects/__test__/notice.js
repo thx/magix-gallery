@@ -3,14 +3,14 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/__test__/notice",["magix","$","mx-title/second","./3","./4","./7","./5","./6","__test__/api"],(require,exports,module)=>{
+define("mx-effects/__test__/notice",["magix","$","mx-title/second","./3","./4","./5","./6","./7","__test__/api"],(require,exports,module)=>{
 /*Magix,$*/
 require("mx-title/second");
 require("./3");
 require("./4");
-require("./7");
 require("./5");
 require("./6");
+require("./7");
 require("__test__/api");
 var Magix = require("magix");
 var $ = require("$");
@@ -31,7 +31,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerya0:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerya0:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/3"></div><div mx-view="mx-effects/__test__/4"></div><div mx-view="mx-effects/__test__/7"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/5"></div><div mx-view="mx-effects/__test__/6"></div></div></div><div mxs="_zs_gallerya0:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += '<div mxs="_zs_gallerya1:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerya1:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/3"></div><div mx-view="mx-effects/__test__/4"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/5"></div><div mx-view="mx-effects/__test__/6"></div><div mx-view="mx-effects/__test__/7"></div></div></div><div mxs="_zs_gallerya1:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 15;
     $art = '@options';
     ;

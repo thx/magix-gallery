@@ -1,12 +1,12 @@
-<!-- <div class="header {{if sortable}}sortable{{/if}}">
+<div class="header {{if sortable}}sortable{{/if}}">
     <div class="left">
         <span class="fontsize-16">选择数据字段</span>
         {{if (limit > 0)}}
-        <span class="color-9 font-tahoma bold ml10">{{=selected.length}} / {{=limit}}</span>
+        <span class="color-9 font-tahoma bold ml10">{{=selectedItems.length}} / {{=limit}}</span>
         {{/if}}
         {{if !sortable}}
         <a href="javascript:;" class="link-brand fr" mx-click="clear()">
-            <i class="iconfont displacement-2">&#xe72e;</i>清空
+            <i class="mc-iconfont displacement-2">&#xe72e;</i>清空
         </a>
         {{/if}}
     </div>
@@ -22,12 +22,17 @@
         <div class="line clearfix">
             {{each group as field}}
             <div class="item">
-                <label {{if ((limit > 0) && (selected.length >= limit) && !field.checked)}} class="cursor-not-allow" {{/if}}>
-                    <input type="checkbox" name="field" value="{{=field.key}}" class="checkbox" 
+                <label {{if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)}} class="cursor-not-allow" {{/if}}>
+                    <input type="checkbox" name="field" value="{{=field.value}}" class="checkbox" 
                         {{if field.checked}} checked="true" {{/if}} 
-                        {{if ((limit > 0) && (selected.length >= limit) && !field.checked)}} disabled="true" {{/if}} 
-                        mx-change="toggle({key:'{{=field.key}}',label:'{{=field.label}}'})"/>{{=field.label}}
+                        {{if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)}} disabled="true" {{/if}} 
+                        mx-change="toggle({value:'{{=field.value}}',text:'{{=field.text}}'})"/>{{=field.text}}
                 </label>
+                {{if field.tip}}
+                <mx-popover class="mc-iconfont field-tip"
+                    tag="i"
+                    content="{{=field.tip}}">&#xe629;</mx-popover>
+                {{/if}}
             </div>
             {{/each}}
         </div>
@@ -37,11 +42,11 @@
     <div class="right">
         <div class="drag-oper">
             <span class="color-9 mr10">可拖动排序</span>
-            <a href="javascript:;" class="link-brand" mx-click="clear()"><i class="iconfont displacement-2">&#xe72e;</i>清空</a>
+            <a href="javascript:;" class="link-brand" mx-click="clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a>
         </div>
-        <div class="drag-wrapper" mx-view="@../../../gallery/mx-dragsort/index" mx-dragfinish="drag()">
-            {{each selected as s}}
-            <div class="drag" data-key="{{=s.key}}" data-label="{{=s.label}}">{{=s.label}}</div>
+        <div class="drag-wrapper" mx-view="@../mx-dragsort/index" mx-dragfinish="drag()">
+            {{each selectedItems as s}}
+            <div class="drag" data-value="{{=s.value}}" data-text="{{=s.text}}">{{=s.text}}</div>
             {{/each}}
         </div>
     </div>
@@ -51,6 +56,6 @@
     <a href="javascript:;" class="min-width-60 btn btn-brand mr10" mx-click="submit()">确定</a>
     <a href="javascript:;" class="min-width-60 btn mr10" mx-click="cancel()">取消</a>
     {{if error}}
-    <span class="color-error"><i class="iconfont displacement-2 mr5">&#xe6ad;</i> 请至少选择一个指标</span>
+    <span class="color-error"><i class="mc-iconfont displacement-2 mr5">&#xe6ad;</i> 请至少选择一个指标</span>
     {{/if}}
-</div> -->
+</div>

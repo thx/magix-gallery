@@ -1,0 +1,55 @@
+<div class="pr20">
+    <table class="table desc-table">
+        <thead>
+            <tr>
+                <th width="100">可配参数</th>
+                <th width="200">说明</th>
+                <th width="100">类型</th>
+                <th width="120">默认值</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>fields</td>
+                <td><pre>
+指标数组，格式如下：[{
+    text: '指标文案',
+    value: '跟后台交互的指标value值',
+    tip: '指标提示文案'
+}]</pre></td>
+                <td>array</td>
+                <td class="word-break"></td>
+            </tr>
+            <tr>
+                <td>defaults</td>
+                <td>默认指标value值的数组，必填</td>
+                <td>array</td>
+                <td class="word-break"></td>
+            </tr>
+            <tr>
+                <td>custom</td>
+                <td>当前指标类型，false（默认指标），true（自定义指标）</td>
+                <td>boolean</td>
+                <td class="word-break">false</td>
+            </tr>
+            <tr>
+                <td>customs</td>
+                <td>自定义指标value值的数组，例如["cost"]</td>
+                <td>array</td>
+                <td class="word-break"></td>
+            </tr>
+            <tr>
+                <td>limit</td>
+                <td>指标选中上限，不传不限制选择个数</td>
+                <td>number</td>
+                <td class="word-break"></td>
+            </tr>
+            <tr>
+                <td>sortable</td>
+                <td>是否需要排序</td>
+                <td>boolean</td>
+                <td class="word-break">false</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

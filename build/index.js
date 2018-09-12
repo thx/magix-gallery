@@ -22,6 +22,7 @@ let coms = [
     'dialog',
     'error',
     'dropdown',
+    'dragsort',
     'switch',
     'search',
     'carousel',

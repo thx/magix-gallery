@@ -1,146 +1,150 @@
-// let Magix = require('magix');
-// let View = require('zs_scaffold/view')
-// let Fields = require('@./fields');
-// Magix.applyStyle('@index.less');
+let Magix = require('magix');
+Magix.applyStyle('@index.less');
 
-// module.exports = View.extend({
-//     tmpl: '@dialog.html',
-//     init(e) {
-//         let fields = Fields.getAllFields();
-//         let selectedKeys = e.selected || [];
-//         let selected = [];
+module.exports = Magix.View.extend({
+    tmpl: '@dialog.html',
+    init(e) {
+        let selected = e.selected || [],
+            fields = e.fields || [],
+            selectedItems = [];
 
-//         selectedKeys.forEach(selectedKey => {
-//             for (var i = 0; i < fields.length; i++) {
-//                 let field = fields[i];
-//                 if (field.key == selectedKey) {
-//                     field.checked = true;
-//                     selected.push({
-//                         key: field.key,
-//                         label: field.label
-//                     })
-//                     break;
-//                 }
-//             }
-//         })
+        selected.forEach(value => {
+            for (var i = 0; i < fields.length; i++) {
+                let field = fields[i];
+                if (field.value == value) {
+                    field.checked = true;
+                    selectedItems.push({
+                        value: field.value,
+                        text: field.text
+                    })
+                    break;
+                }
+            }
+        })
 
-//         let groups = [],
-//             gap = 3;
-//         let num = Math.ceil(fields.length / gap);
-//         for (var i = 0; i < num; i++) {
-//             groups.push(fields.slice(i * gap, (i + 1) * gap));
-//         }
+        // 分组，一行三个
+        let groups = [],
+            gap = 3;
+        let num = Math.ceil(fields.length / gap);
+        for (var i = 0; i < num; i++) {
+            groups.push(fields.slice(i * gap, (i + 1) * gap));
+        }
+        this.updater.set({
+            fields: fields,
+            groups: groups,
+            selectedItems: selectedItems,
+            limit: e.limit,
+            sortable: e.sortable
+        })
+        this.viewOptions = e;
+    },
+    render() {
+        this.updater.digest({});
+    },
+    'toggle<change>': function(e) {
+        let that = this;
+        let checked = e.target.checked;
+        let value = e.params.value,
+            text = e.params.text;
+        let updater = that.updater;
 
-//         this.updater.set({
-//             fields: fields,
-//             groups: groups,
-//             selected: selected,
-//             limit: (e.limit || 0),
-//             sortable: e.sortable || false
-//         })
-//         this.viewOptions = e;
-//     },
-//     render() {
-//         this.updater.digest({});
-//     },
-//     'toggle<change>': function(e) {
-//         let that = this;
-//         let checked = e.target.checked;
-//         let key = e.params.key,
-//             label = e.params.label;
+        let fields = updater.get('fields');
+        for (var i = 0; i < fields.length; i++) {
+            if (fields[i].value == value) {
+                fields[i].checked = checked;
+                break;
+            }
+        }
 
-//         let updater = that.updater;
+        let selectedItems = updater.get('selectedItems'),
+            sortable = updater.get('sortable');
+        if (checked) {
+            if(sortable){
+                // 可排序的时候在最后添加
+                selectedItems.push({
+                    value: value,
+                    text: text
+                })
+            }else{
+                // 不可选择时按照列表顺序
+                selectedItems = fields.filter(item => {
+                    return item.checked;
+                })
+            }
+        } else {
+            for (var i = 0; i < selectedItems.length; i++) {
+                if (selectedItems[i].value == value) {
+                    selectedItems.splice(i, 1);
+                    break;
+                }
+            }
+        }
 
-//         let fields = updater.get('fields');
-//         for (var i = 0; i < fields.length; i++) {
-//             if (fields[i].key == key) {
-//                 fields[i].checked = checked;
-//                 break;
-//             }
-//         }
+        updater.digest({
+            fields,
+            selectedItems
+        });
+    },
+    'drag<dragfinish>' (e) {
+        // 重排序之后的
+        let selectedItems = [];
+        let drags = $('#' + this.id + ' .@index.less:drag');
+        for (var i = 0, len = drags.length; i < len; i++) {
+            let drag = $(drags[i]);
+            selectedItems.push({
+                value: drag.data('value'),
+                text: drag.data('text')
+            })
+        }
+        this.updater.digest({
+            selectedItems
+        });
+    },
 
-//         let selected = updater.get('selected');
-//         if (checked) {
-//             selected.push({
-//                 key: key,
-//                 label: label
-//             })
-//         } else {
-//             for (var i = 0; i < selected.length; i++) {
-//                 if (selected[i].key == key) {
-//                     selected.splice(i, 1);
-//                     break;
-//                 }
-//             }
-//         }
+    'clear<click>' () {
+        let that = this;
+        let updater = that.updater;
 
-//         updater.digest({
-//             fields: fields,
-//             selected: selected
-//         });
-//     },
-//     'drag<dragfinish>' (e) {
-//         // 重排序之后的
-//         let selected = [];
-//         let drags = $('#' + this.id + ' .@setting.less:drag');
-//         for (var i = 0, len = drags.length; i < len; i++) {
-//             let drag = $(drags[i]);
-//             selected.push({
-//                 key: drag.data('key'),
-//                 label: drag.data('label')
-//             })
-//         }
-//         this.updater.digest({
-//             selected: selected
-//         });
-//     },
-//     'clear<click>' () {
-//         let that = this;
-//         let updater = that.updater;
+        let fields = updater.get('fields');
+        fields.forEach(field => {
+            field.checked = false;
+        })
 
-//         let fields = updater.get('fields');
-//         fields.forEach(field => {
-//             field.checked = false;
-//         })
+        updater.digest({
+            fields: fields,
+            selectedItems: []
+        });
+    },
 
-//         updater.digest({
-//             fields: fields,
-//             selected: []
-//         });
-//     },
+    'submit<click>' (event) {
+        event.preventDefault();
+        let selectedItems = this.updater.get('selectedItems');
+        if (selectedItems.length == 0) {
+            this.updater.digest({
+                error: true
+            })
+            return;
+        }
 
-//     'submit<click>' (event) {
-//         event.preventDefault();
-//         let selected = this.updater.get('selected');
-//         if (selected.length == 0) {
-//             this.updater.digest({
-//                 error: true
-//             })
-//             return;
-//         }
+        let selected = selectedItems.map(item => {
+            return item.value;
+        })
 
-//         let selectedKeys = selected.map(item => {
-//             return item.key;
-//         })
+        let viewOptions = this.viewOptions;
+        if (viewOptions.dialog) {
+            viewOptions.dialog.close();
+        }
 
-//         let viewOptions = this.viewOptions;
-//         if (viewOptions.dialog) {
-//             viewOptions.dialog.close();
-//         }
+        if (viewOptions.callback) {
+            Magix.toTry(viewOptions.callback(selected));
+        }
 
-//         if (viewOptions.pageKey) {
-//             Fields.setMemberConfig(viewOptions.pageKey, selectedKeys);
-//         }
-//         if (viewOptions.callback) {
-//             Magix.toTry(viewOptions.callback(selectedKeys));
-//         }
-
-//     },
-//     'cancel<click>' (event) {
-//         event.preventDefault();
-//         let viewOptions = this.viewOptions;
-//         if (viewOptions.dialog) {
-//             viewOptions.dialog.close();
-//         }
-//     }
-// });
+    },
+    'cancel<click>' (event) {
+        event.preventDefault();
+        let viewOptions = this.viewOptions;
+        if (viewOptions.dialog) {
+            viewOptions.dialog.close();
+        }
+    }
+});

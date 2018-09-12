@@ -35,20 +35,53 @@
 let Menus = [&#123;
     has: true,
     name: '一级标题',
-    path: '/develop/chart1',
+    path: '/develop/example1',
     subs: [&#123;
         thirds: [&#123;
             has: true,
             name: '三级1',
-            path: '/develop/chart1'
+            path: '/develop/example1'
         &#125;, &#123;
             has: true,
             name: '三级2',
-            path: '/develop/chart2'
+            path: '/develop/example2'
         &#125;, &#123;
             has: true,
             name: '三级3',
-            path: '/develop/chart3'
+            path: '/develop/example3'
+        &#125;]
+    &#125;]
+&#125;]</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">等价于以下配置方法</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Menus = [&#123;
+    has: true,
+    name: '一级标题',
+    path: '/develop/example1',
+    subs: [&#123;
+        thirds: [&#123;
+            has: true,
+            name: '三级1',
+            path: '/develop/example1'
+        &#125;]
+    &#125;, &#123;
+        thirds: [&#123;
+            has: true,
+            name: '三级2',
+            path: '/develop/example2'
+        &#125;]
+    &#125;, &#123;
+        thirds: [&#123;
+            has: true,
+            name: '三级3',
+            path: '/develop/example3'
         &#125;]
     &#125;]
 &#125;]</pre>

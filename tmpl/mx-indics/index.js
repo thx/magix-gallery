@@ -1,90 +1,130 @@
-// let Magix = require('magix');
-// let $ = require('$');
-// Magix.applyStyle('@index.less');
+let Magix = require('magix');
+let $ = require('$');
+let Dialog = require('@../mx-dialog/index'); //mixins dialog
+Magix.applyStyle('@index.less');
 
-// module.exports = Magix.View.extend({
-//     tmpl: '@index.html',
-//     init(e) {
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    mixins: [Dialog],
+    init(e) {
+        //初始化时保存一份当前数据的快照
+        this.updater.snapshot();
 
-//         this.updater.set({
-//             selectedKeys: e.selected,
-//             isDefault: this.isDefault(e.selected || [])
-//         })
+        this.assign(e);
+    },
+    assign(e) {
+        let that = this;
+        let altered = that.updater.altered();
 
-//         this.viewOptions = e;
-//     },
-//     render() {
-//         this.updater.digest();
-//     },
-//     isDefault(selectedKeys) {
-//         let defaults = Fields.getDefaults();
-//         let isDefault = (selectedKeys.length == defaults.length);
-//         if (isDefault) {
-//             isDefault = defaults.some(item => {
-//                 return $.inArray(item.key, selectedKeys) > -1;
-//             })
-//         }
-//         return isDefault;
-//     },
-//     'toggleDefault<click>' (e) {
-//         let that = this;
-//         let isDefault = e.params.isDefault;
-//         let pageKey = that.viewOptions.pageKey;
+        let fields = e.fields || [];
+        let customs = (e.customs || []).map(v => {
+            return '' + v;
+        });
+        let defaults = (e.defaults || []).map(v => {
+            return '' + v;
+        });
+        // 当自定义为空时，默认为defaults
+        if (customs.length == 0) {
+            customs = defaults;
+        }
 
-//         let selectedKeys = [];
-//         if (isDefault) {
-//             // 切换为自定义
-//             selectedKeys = Fields.getMemberConfig(pageKey);
-//         } else {
-//             // 切换为默认值
-//             selectedKeys = Fields.getDefaultKeys();
-//         }
-//         // 保存用户设置
-//         if (pageKey) {
-//             Fields.setMemberConfig(pageKey, selectedKeys);
-//         }
+        let limit = +e.limit || 0;
+        // 是否可排序
+        let sortable = (e.sortable + '' === 'true');
 
-//         $('#' + that.id).trigger({
-//             type: 'change',
-//             selected: selectedKeys
-//         });
+        // 1 默认
+        // 2 自定义
+        let type = (e.custom + '' === 'true') ? 2 : 1;
+        let map = {
+            1: {
+                label: '默认数据',
+                list: defaults
+            },
+            2: {
+                label: '自定义数据',
+                list: customs
+            }
+        }
 
-//         that.updater.set({
-//             selectedKeys: selectedKeys,
-//             isDefault: !isDefault
-//         }).digest();
-//     },
-//     'show<click>' (e) {
-//         e.preventDefault();
+        this.updater.set({
+            fields,
+            sortable,
+            limit,
+            map,
+            type
+        })
 
-//         let that = this;
-//         let selectedKeys = that.updater.get('selectedKeys');
-//         let viewOptions = this.viewOptions;
-//         let sortable = (/^true$/i).test(viewOptions.sortable);
-//         let gap = sortable ? 3 : 2;
-//         let dialogOptions = {
-//             width: 220 * gap,
-//             height: 612,
-//             closable: false,
-//             modal: true
-//         };
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            // 组件有更新，真个节点会全部需要重新初始化
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render() {
+        this.updater.digest();
+    },
 
-//         that.mxDialog('@../report/setting-dialog', {
-//             selected: selectedKeys,
-//             pageKey: viewOptions.pageKey,
-//             limit: viewOptions.limit || 0,
-//             sortable: sortable,
-//             callback: (newSelectedKeys) => {
-//                 that.updater.set({
-//                     selectedKeys: newSelectedKeys,
-//                     isDefault: that.isDefault(newSelectedKeys)
-//                 }).digest();
+    'toggleDefault<click>'(e) {
+        let that = this;
 
-//                 $('#' + that.id).trigger({
-//                     type: 'change',
-//                     selected: newSelectedKeys
-//                 });
-//             }
-//         }, dialogOptions);
-//     }
-// });
+        let type = that.updater.get('type');
+        if (type == 1) {
+            type = 2;
+        } else {
+            type = 1;
+        }
+        that.updater.digest({
+            type
+        });
+        that['@{fire}']();
+    },
+    '@{fire}'() {
+        let that = this;
+        let type = that.updater.get('type'),
+            map = that.updater.get('map');
+        $('#' + that.id).trigger({
+            type: 'change',
+            defaults: map[1].list,
+            custom: (type == 2), //是否为自定义指标
+            customs: map[2].list
+        });
+    },
+
+    /**
+     * 开浮层编辑了就是自定义数据了 
+     */
+    'show<click>'(e) {
+        e.preventDefault();
+
+        let that = this;
+        let updater = that.updater;
+        let sortable = updater.get('sortable');
+
+        let gap = sortable ? 3 : 2;
+        let dialogOptions = {
+            width: 220 * gap,
+            height: 612,
+            closable: false,
+            modal: true
+        };
+
+        let viewOptions = $.extend(true, {}, updater.get());
+        viewOptions.selected = viewOptions.map[viewOptions.type].list;
+        viewOptions.callback = (newSelected) => {
+            let map = updater.get('map');
+            let type = 2;
+            map[type]['list'] = newSelected;
+            that.updater.digest({
+                type,
+                map
+            });
+            that['@{fire}']();
+        };
+
+        that.mxDialog('@./dialog', viewOptions, dialogOptions);
+    }
+});

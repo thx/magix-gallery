@@ -3,9 +3,14 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-indics/__test__/index",["magix","$"],(require,exports,module)=>{
+define("mx-indics/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./2","./3","./desc"],(require,exports,module)=>{
 /*Magix,$*/
-
+require("__test__/subs");
+require("mx-title/second");
+require("./1");
+require("./2");
+require("./3");
+require("./desc");
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
@@ -20,8 +25,24 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += 'Todo';
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerybm:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $line = 2;
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'上限 + 排序\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'hover展开\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'带搜索框\',\n            key: viewId + \'_demo3\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
+    ;
+    $p += '' + ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'上限 + 排序\',                    key: viewId + \'_demo1\'                }, {                    name: \'hover展开\',                    key: viewId + \'_demo2\'                }, {                    name: \'带搜索框\',                    key: viewId + \'_demo3\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '上限 + 排序', key: viewId + '_demo1' }, { name: 'hover展开', key: viewId + '_demo2' }, { name: '带搜索框', key: viewId + '_demo3' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div mxs="_zs_gallerybm:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mx-view="mx-indics/__test__/1" id="';
+    $line = 20;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mxs="_zs_gallerybm:b" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-indics/__test__/2"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-indics/__test__/3"></div></div></div><div id="';
+    $line = 30;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxs="_zs_gallerybm:k" mx-view="mx-indics/__test__/desc"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -32,66 +53,10 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
-        var options = [{
-                key: 'mode',
-                desc: '页脚类型，简单版（simple）还是复杂版本',
-                type: 'string',
-                def: ''
-            }];
         this.updater.digest({
-            options: options
+            viewId: this.id
         });
     }
 });
-// let Magix = require('magix');
-// let View = require('zs_scaffold/view')
-// module.exports = View.extend({
-//     tmpl: '@sort.html',
-//     init() {
-//         let that = this;
-//     },
-//     render() {
-//         let that = this;
-//         let options = [{
-//             key: 'limit',
-//             desc: '指标选中上限，不传不限制选择个数',
-//             type: 'number',
-//             def: ''
-//         }, {
-//             key: 'sortable',
-//             desc: '是否需要排序',
-//             type: 'boolean',
-//             def: 'false'
-//         }, {
-//             key: 'selected',
-//             desc: '当前选中的指标key值的数组，["cost", "impression", "click"]',
-//             type: 'array'
-//         }, {
-//             key: 'pageKey',
-//             desc: '保存用户到memberConfig设置对应的key值，无需保存可不传',
-//             type: 'string',
-//             def: ''
-//         }]
-//         that.updater.digest({
-//             options,
-//             selected: ['cost', 'impression', 'click'],
-//             selected2: ['cost', 'impression', 'click'],
-//             selected3: ['cost', 'impression', 'click']
-//         });
-//     },
-//     'changeFields<change>'(event) {
-//         let selected = event.selected;
-//         // selected 选择指标数组
-//         this.updater.set({
-//             selected: selected
-//         }).digest();
-//     },
-//     'changeFields2<change>'(event) {
-//         let selected = event.selected;
-//         this.updater.set({
-//             selected2: selected
-//         }).digest();
-//     }
-// });
 
 });

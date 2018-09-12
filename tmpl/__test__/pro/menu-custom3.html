@@ -1,34 +1,44 @@
 <div class="example">
     <div class="eg-content">
-        <div class="clearfix mb20">
-            <div class="fl color-9">以下示例：</div>
-            <div class="fl">侧边是一个自定义页面，配置leftView，无subs</div>
-        </div>
         <div class="menu">
             <div class="header clearfix">
                 <div class="logo">LOGO</div>
                 <div class="name">一级标题</div>
             </div>
-            <div class="clearfix">
+            <div class="clearfix pr">
                 <div class="navs">
-                    <img src="//img.alicdn.com/tfs/TB1A_l1oBsmBKNjSZFsXXaXSVXa-210-153.png">
+                    <div>
+                        <a href="javascript:;" class="nav-third third-on">三级1</a>
+                    </div>
+                    <div>
+                        <a href="javascript:;" class="nav-third">三级2</a>
+                    </div>
+                    <div>
+                        <a href="javascript:;" class="nav-third">三级3</a>
+                    </div>  
+                </div>
+                <div class="inner">
+                    <div>view1：</div>
+                    <div>映射到三级1这个页面</div>
+                    <div>顶部和侧边导航显示与三级1完全一致</div>
                 </div>
             </div>
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">配置Menus</div>
+        <div class="eg-title">配置CustomPath</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-let Menus = [&#123;
+let CustomPath = [&#123;
     has: true,
-    name: '一级标题',
-    path: '/report/index',
-    leftView: '/report/side'  // 侧边导航加载的view
+    name: 'view1',
+    path: '/example/outside1',
+    mapThirdPath: '/develop/example1', //需要映射的页面路径
+    view: '@./views/default'
 &#125;]</pre>
     </div>
 </div>

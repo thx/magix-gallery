@@ -1,5 +1,9 @@
 @import "../mx-style/_vars";
 
+[mx-view*="mx-indics/index"]{
+    display: inline-block;
+}
+
 @setting-right-width: 32%;
 .header,
 .footer {
@@ -42,11 +46,20 @@
             .item {
                 float: left;
                 width: 33%;
+
+                .field-tip{
+                    position: relative;
+                    top: 1px;
+                    left: 4px;
+                    font-size: 14px;
+                    color: #ccc;
+                }
             }
         }
     }
     &.sortable {
         .left {
+            min-height: 316px;
             border-right: 1px solid @color-border;
         }
         .right {
@@ -84,17 +97,38 @@
 }
 
 .setting-btn {
-    color: @color-third;
-    &:hover,
-    &:focus,
-    &:active,
-    &:visited {
-        color: @color-secondary;
+    position: relative;
+    color: #999;
+
+    &:hover{
+        color: #666;
+        border-color: @color-border-hover;
+    }
+
+    &:focus{
         border-color: @color-border-hover;
     }
 }
 
-.setting-switch-icon {
-    margin-left: 4px;
-    font-size: 12px;
+.setting-show-btn{
+    margin-right: 10px;
+
+    .setting-show-icon{
+        position: relative;
+        top: 2px;
+    }
+}
+
+.setting-switch-btn{
+    padding-right: 20px;
+    .setting-switch-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: @input-height;
+        line-height: @input-height;
+        text-align: center;
+        font-size: 18px;
+    }
 }

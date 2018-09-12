@@ -1,32 +1,26 @@
 <div class="example">
     <div class="eg-content">
-        <div class="clearfix mb20">
-            <div class="fl color-9">以下示例：</div>
-            <div class="fl">无侧边，无padding，深底色，无leftView，无subs</div>
-        </div>
         <div class="menu">
-            <div class="header clearfix">
-                <div class="logo">LOGO</div>
-                <div class="name">一级标题</div>
-            </div>
-            <div class="clearfix">
-                <div class="empty"></div>
+            <div class="pl30 pt30 pr30 pb30">
+                <div>view4：</div>
+                <div>使用另外的容器文件，而不是default</div>
+                <div>该容器没有顶部导航</div>
             </div>
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">配置Menus</div>
+        <div class="eg-title">配置CustomPath</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-let Menus = [{
+let CustomPath = [&#123;
     has: true,
-    name: '一级标题',
-    path: '/report/index',
-    custom: true
-}]</pre>
+    name: 'view4',
+    path: '/example/empty',
+    view: '@./views/empty'
+&#125;]</pre>
     </div>
 </div>

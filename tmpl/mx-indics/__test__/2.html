@@ -1,6 +1,33 @@
 <div class="example">
     <div class="eg-content">
-        <mx-footer mode="simple"/>
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">不限制可选择个数 + 指标可排序</div>
+        </div>
+        <div class="mb20">
+            <mx-indics 
+                fields="{{@fields}}" 
+                defaults="{{@defaults}}"
+                custom="{{=custom}}"
+                customs="{{@customs}}"
+                sortable="true" 
+                mx-change="change()"/>
+        </div>
+        {{if custom}}
+            <div class="clearfix mb10 pr lh22" style="padding-left: 120px">
+                <span style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>自定义指标：</span>
+                {{each customs as key}}
+                <span class="fl mr10">{{=map[key]}}（{{=key}}）</span>
+                {{/each}}
+            </div>
+        {{else}}
+            <div class="clearfix mb10 pr lh22" style="padding-left: 110px">
+                <span style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>默认指标：</span>
+                {{each defaults as key}}
+                <span class="fl mr10">{{=map[key]}}（{{=key}}）</span>
+                {{/each}}
+            </div>
+        {{/if}}
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -10,6 +37,11 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-footer mode="simple"/&gt;</pre>
+&lt;mx-indics 
+    fields="&#123;&#123;@fields&#125;&#125;" 
+    defaults="&#123;&#123;@defaults&#125;&#125;"
+    custom="&#123;&#123;=custom&#125;&#125;"
+    customs="&#123;&#123;@customs&#125;&#125;"
+    sortable="true"/&gt;</pre>
     </div>
 </div>
