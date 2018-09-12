@@ -24,27 +24,27 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybq:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybq:_" class="_zs_gallery___test___layout_-eg-content"><a href="javascript:;" mx-click="' + $viewId + 'show()" class="btn btn-brand mr20">打开</a><a href="javascript:;" mx-click="' + $viewId + 'hide()" class="btn">关闭</a></div><div mxa="_zs_gallerybq:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybq:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerybr:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybr:_" class="_zs_gallery___test___layout_-eg-content"><a href="javascript:;" mx-click="' + $viewId + 'show()" class="btn btn-brand mr20">打开</a><a href="javascript:;" mx-click="' + $viewId + 'hide()" class="btn">关闭</a></div><div mxa="_zs_gallerybr:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybr:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 8;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybq:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybr:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 10;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybq:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybr:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 13;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" class="btn btn-brand mr20"\n    mx-click="show()" &gt;打开&lt;/a&gt; \n\n&lt;a href="javascript:;" class="btn"\n    mx-click="hide()" &gt;关闭&lt;/a&gt;</pre></div><div mxa="_zs_gallerybq:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybq:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" class="btn btn-brand mr20"\n    mx-click="show()" &gt;打开&lt;/a&gt; \n\n&lt;a href="javascript:;" class="btn"\n    mx-click="hide()" &gt;关闭&lt;/a&gt;</pre></div><div mxa="_zs_gallerybr:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybr:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 22;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerybq:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerybr:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 24;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerybq:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerybr:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 27;
     $art = '=viewId';
     ;

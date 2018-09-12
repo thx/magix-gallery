@@ -1,3 +1,8 @@
-<span class="switch {{= on ? 'on' : ''}}" mx-click="@{toggle}()">
+<span class="switch {{= on ? 'on' : ''}} {{= disabled ? 'disabled' : ''}}" mx-click="@{toggle}()">
     <span class="switch-icon"></span>
 </span>
+{{if (disabled && tip)}}
+<mx-popover class="reason"
+    tag="span"
+    content="{{=tip}}"></mx-popover>
+{{/if}}

@@ -3,11 +3,11 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-switch/index",["magix"],(require,exports,module)=>{
+define("mx-switch/index",["magix","mx-popover/index"],(require,exports,module)=>{
 /*Magix*/
-
+require("mx-popover/index");
 var Magix = require("magix");
-Magix.applyStyle("_zs_gallery_mx-switch_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-switch_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-switch_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-switch/index\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-switch_index_-switch {\n  display: inline-block;\n  position: relative;\n  width: 40px;\n  height: 18px;\n  border-radius: 9px;\n  background-color: #e6e6e6;\n  cursor: pointer;\n}\n._zs_gallery_mx-switch_index_-switch ._zs_gallery_mx-switch_index_-switch-icon {\n  opacity: 0.95;\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 18px;\n  height: 18px;\n  margin-top: -9px;\n  border-radius: 50%;\n  background-color: #ccc;\n  transition: left 0.25s;\n  -moz-transition: left 0.25s;\n  -webkit-transition: left 0.25s;\n  -o-transition: left 0.25s;\n}\n._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on {\n  background-color: #d8e3ff;\n}\n._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on ._zs_gallery_mx-switch_index_-switch-icon {\n  left: 22px;\n  background-color: #4d7fff;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-switch_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-switch_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-switch_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-switch/index\"] {\n  position: relative;\n  display: inline-block;\n}\n._zs_gallery_mx-switch_index_-switch {\n  display: inline-block;\n  position: relative;\n  width: 40px;\n  height: 18px;\n  border-radius: 9px;\n  background-color: #e6e6e6;\n  cursor: pointer;\n}\n._zs_gallery_mx-switch_index_-switch ._zs_gallery_mx-switch_index_-switch-icon {\n  opacity: 0.95;\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 18px;\n  height: 18px;\n  margin-top: -9px;\n  border-radius: 50%;\n  background-color: #ccc;\n  transition: left 0.25s;\n  -moz-transition: left 0.25s;\n  -webkit-transition: left 0.25s;\n  -o-transition: left 0.25s;\n}\n._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on {\n  background-color: #d8e3ff;\n}\n._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on ._zs_gallery_mx-switch_index_-switch-icon {\n  left: 22px;\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n._zs_gallery_mx-switch_index_-reason {\n  cursor: not-allowed;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -20,12 +20,36 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', on = $$.on; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', on = $$.on, disabled = $$.disabled, tip = $$.tip; var $expr, $art, $line; try {
     $p += '<span class="_zs_gallery_mx-switch_index_-switch ';
     $line = 1;
     $art = '= _zs_gallery_mx-switch_index_-on ? \'on\' : \'\'';
     ;
-    $p += '' + ($expr = '<%=on ? \'_zs_gallery_mx-switch_index_-on\' : \'\'%>', $e(on ? '_zs_gallery_mx-switch_index_-on' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_galleryck:_" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
+    $p += '' + ($expr = '<%=on ? \'_zs_gallery_mx-switch_index_-on\' : \'\'%>', $e(on ? '_zs_gallery_mx-switch_index_-on' : '')) + ' ';
+    $line = 1;
+    $art = '= _zs_gallery_mx-switch_index_-disabled ? \'disabled\' : \'\'';
+    ;
+    $p += '' + ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_gallerycl:_" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
+    $line = 4;
+    $art = 'if (disabled && tip)';
+    ;
+    $p += '';
+    $expr = '<%if (disabled && tip) {%>';
+    if (disabled && tip) {
+        ;
+        $p += '<span class="_zs_gallery_mx-switch_index_-reason" mx-view="mx-popover/index?content=';
+        $line = 7;
+        $art = '=tip';
+        ;
+        $p += '' + ($expr = '<%!$eu(tip)%>', $eu(tip)) + '"></span>';
+        $line = 8;
+        $art = '/if';
+        ;
+        $p += '';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -42,10 +66,11 @@ catch (ex) {
     assign: function (extra) {
         var that = this;
         var altered = that.updater.altered();
-        that['@{node.state}'] = (/^true$/i).test(extra.state) || false;
         that['@{owner.node}'] = $('#' + that.id);
         that.updater.set({
-            on: that['@{node.state}']
+            on: (extra.state + '' === 'true'),
+            disabled: (extra.disabled + '' === 'true'),
+            tip: extra.tip || ''
         });
         if (!altered) {
             altered = that.updater.altered();
@@ -61,11 +86,14 @@ catch (ex) {
     },
     '@{toggle}<click>': function (e) {
         var that = this;
-        var state = !that['@{node.state}'];
+        var updater = that.updater;
+        if (updater.get('disabled')) {
+            return;
+        }
+        var state = !updater.get('on');
         that.updater.set({
             on: state
         }).digest();
-        that['@{node.state}'] = state;
         var event = $.Event('change', {
             state: state
         });

@@ -21,19 +21,19 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', list = $$.list; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybW:_" class="_zs_gallery_mx-popover___test___custom_-custom"><div mxs="_zs_gallerybW:_" class="_zs_gallery_mx-popover___test___custom_-custom-title">标题标题</div><div mxa="_zs_gallerybW:a" class="clearfix">';
+    $p += '<div mxa="_zs_gallerybX:_" class="_zs_gallery_mx-popover___test___custom_-custom"><div mxs="_zs_gallerybX:_" class="_zs_gallery_mx-popover___test___custom_-custom-title">标题标题</div><div mxa="_zs_gallerybX:a" class="clearfix">';
     $line = 5;
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for (var $art_imfiuqp$art_i = 0, $art_cazefxivtku$art_c = list.length; $art_imfiuqp$art_i < $art_cazefxivtku$art_c; $art_imfiuqp$art_i++) {    var item = list[$art_imfiuqp$art_i]%>';
-    for (var $art_imfiuqp$art_i = 0, $art_cazefxivtku$art_c = list.length; $art_imfiuqp$art_i < $art_cazefxivtku$art_c; $art_imfiuqp$art_i++) {
-        var item = list[$art_imfiuqp$art_i];
-        $p += '<div mxa="_zs_gallerybW:b" class="_zs_gallery_mx-popover___test___custom_-custom-item"><div mxa="_zs_gallerybW:c" class="mb5 color-9">';
+    $expr = '<%for (var $art_ietdujwyk$art_i = 0, $art_cjpgbbvdga$art_c = list.length; $art_ietdujwyk$art_i < $art_cjpgbbvdga$art_c; $art_ietdujwyk$art_i++) {    var item = list[$art_ietdujwyk$art_i]%>';
+    for (var $art_ietdujwyk$art_i = 0, $art_cjpgbbvdga$art_c = list.length; $art_ietdujwyk$art_i < $art_cjpgbbvdga$art_c; $art_ietdujwyk$art_i++) {
+        var item = list[$art_ietdujwyk$art_i];
+        $p += '<div mxa="_zs_gallerybX:b" class="_zs_gallery_mx-popover___test___custom_-custom-item"><div mxa="_zs_gallerybX:c" class="mb5 color-9">';
         $line = 7;
         $art = '=item.name';
         ;
-        $p += '' + ($expr = '<%=item.name%>', $e(item.name)) + '</div><div mxs="_zs_gallerybW:a">-</div></div>';
+        $p += '' + ($expr = '<%=item.name%>', $e(item.name)) + '</div><div mxs="_zs_gallerybX:a">-</div></div>';
         $line = 10;
         $art = '/each';
         ;

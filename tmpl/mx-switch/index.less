@@ -3,6 +3,7 @@
 @switch-height: 18px;
 
 [mx-view*="mx-switch/index"]{
+    position: relative;
     display: inline-block;
 }
 .switch {
@@ -40,4 +41,18 @@
 
     }
 
+    &.disabled{
+        cursor: not-allowed;
+        opacity: .6;
+    }
+
+}
+
+.reason{
+    cursor: not-allowed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

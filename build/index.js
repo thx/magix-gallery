@@ -58,7 +58,11 @@ for (let c of coms) {
     p[`mx-${c}`] = url + `mx-${c}`;
 }
 seajs.config({
-    paths: p
+    paths: p,
+    alias: {
+        'moment': 'moment.js',
+        'scroll': 'scroll.js'
+    }
 });
 
 // 空view加载
@@ -68,7 +72,7 @@ let routes = {
     '/carousel/demo': '__test__/empty'
 };
 
-seajs.use('magix', function (Magix) {
+seajs.use(['magix', 'scroll'], (Magix, Scroll) => {
     Magix.boot({
         rootId: 'app',
         defaultView: '__test__/base',

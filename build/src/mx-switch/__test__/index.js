@@ -3,12 +3,13 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-switch/__test__/index",["magix","__test__/example","$","mx-title/second","../index","mx-copy/index","__test__/hl","__test__/api"],(require,exports,module)=>{
+define("mx-switch/__test__/index",["magix","__test__/example","$","__test__/subs","mx-title/second","./1","./2","./3","__test__/api"],(require,exports,module)=>{
 /*Magix,Base,$*/
+require("__test__/subs");
 require("mx-title/second");
-require("../index");
-require("mx-copy/index");
-require("__test__/hl");
+require("./1");
+require("./2");
+require("./3");
 require("__test__/api");
 var Magix = require("magix");
 var Base = require("__test__/example");
@@ -29,44 +30,36 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', state = $$.state, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerycj:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerycj:_" class="mb20 clearfix"><div mxa="_zs_gallerycj:a" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerycj:b" class="_zs_gallery___test___layout_-eg-content clearfix"><span class="fl mr20 mt5" mx-change="' + $viewId + 'toggle()" mx-view="mx-switch/index?state=';
-    $line = 6;
-    $art = '=state';
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryck:i" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $line = 2;
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'可用切换\',\n            key: viewId + \'_demo1\',\n        },{\n            name: \'已开禁用\',\n            key: viewId + \'_demo2\',\n        },{\n            name: \'禁用原因\',\n            key: viewId + \'_demo3\',\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
-    $p += '' + ($expr = '<%!$eu(state)%>', $eu(state)) + '"></span><a mxs="_zs_gallerycj:a" href="javascript:;" class="btn btn-brand fl mr20" mx-click="' + $viewId + 'change()">切换状态</a><span mxa="_zs_gallerycj:c" class="lh32 fl">当前状态：';
-    $line = 9;
-    $art = '=state';
-    ;
-    $p += '' + ($expr = '<%=state%>', $e(state)) + '</span></div><div mxa="_zs_gallerycj:d" class="clearfix"><div mxa="_zs_gallerycj:e" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_gallerycj:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 14;
+    $p += '' + ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'可用切换\',                    key: viewId + \'_demo1\'                }, {                    name: \'已开禁用\',                    key: viewId + \'_demo2\'                }, {                    name: \'禁用原因\',                    key: viewId + \'_demo3\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '可用切换', key: viewId + '_demo1' }, { name: '已开禁用', key: viewId + '_demo2' }, { name: '禁用原因', key: viewId + '_demo3' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
+    $line = 20;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycj:f" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 16;
-    $art = '!text1';
-    ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycj:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 19;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mx-view="mx-switch/__test__/1" id="';
+    $line = 21;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-switch class="mr20"\n    state="&#123;&#123;=state&#125;&#125;"\n    mx-change="toggle()"/&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand" \n    mx-click="change()"&gt;切换状态&lt;/a&gt;</pre></div><div mxa="_zs_gallerycj:g" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerycj:d" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 29;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mxa="_zs_galleryck:j" class="mb20 clearfix"><div mxa="_zs_galleryck:k" class="_zs_gallery___test___layout_-half"><div mx-view="mx-switch/__test__/2" id="';
+    $line = 24;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerycj:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div mxa="_zs_galleryck:d" class="_zs_gallery___test___layout_-half"><div mx-view="mx-switch/__test__/3" id="';
+    $line = 27;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div></div><div id="';
     $line = 31;
-    $art = '!text2';
-    ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerycj:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 34;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            state: true\n        &#125;);\n    &#125;,\n    \'toggle&lt;change&gt;\' (event) &#123;\n        // event.state 当前开还是关\n        // true 开，false关\n        this.updater.digest(&#123;\n            state: event.state\n        &#125;);\n    &#125;,\n    \'change&lt;click&gt;\'(event)&#123;\n        let state = this.updater.get(\'state\');\n        this.updater.digest(&#123;\n            state: !state\n        &#125;);\n    &#125;\n&#125;);</pre></div></div></div></div><div mxs="_zs_gallerycj:e" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 65;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $line = 32;
     $art = '@options';
     ;
-    $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '"></div>';
+    $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -82,22 +75,20 @@ catch (ex) {
                 desc: '当前状态是开还是关，默认关闭',
                 type: 'boolean',
                 def: 'false'
+            }, {
+                key: 'disabled',
+                desc: '是否禁止操作',
+                type: 'boolean',
+                def: 'false'
+            }, {
+                key: 'tip',
+                desc: '禁止操作时的补充说明',
+                type: 'string',
+                def: ''
             }];
         this.updater.digest({
             options: options,
-            state: true
-        });
-    },
-    'toggle<change>': function (event) {
-        // event.state 当前开还是关
-        this.updater.digest({
-            state: event.state
-        });
-    },
-    'change<click>': function (event) {
-        var state = this.updater.get('state');
-        this.updater.digest({
-            state: !state
+            viewId: this.id
         });
     }
 });

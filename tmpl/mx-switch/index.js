@@ -11,10 +11,11 @@ module.exports = Magix.View.extend({
         let that = this;
         let altered = that.updater.altered();
 
-        that['@{node.state}'] = (/^true$/i).test(extra.state) || false;
         that['@{owner.node}'] = $('#' + that.id);
         that.updater.set({
-            on: that['@{node.state}']
+            on: (extra.state + '' === 'true'),
+            disabled: (extra.disabled + '' === 'true'),
+            tip: extra.tip || ''
         });
         if (!altered) {
             altered = that.updater.altered();
@@ -31,11 +32,16 @@ module.exports = Magix.View.extend({
 
     '@{toggle}<click>' (e) {
         let that = this;
-        let state = !that['@{node.state}'];
+        let updater = that.updater;
+
+        if(updater.get('disabled')){
+            return;
+        }
+
+        let state = !updater.get('on');
         that.updater.set({
             on: state
         }).digest();
-        that['@{node.state}'] = state;
 
         let event = $.Event('change', {
             state: state

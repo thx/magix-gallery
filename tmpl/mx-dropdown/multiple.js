@@ -165,6 +165,7 @@ module.exports = Magix.View.extend({
 
         let triggerType = me['@{trigger.type}'];
         let triggerNode = $('#' + me.id + ' .@index.less:dropdown-toggle');
+        let menuWrapper = $('#' + me.id + ' .@index.less:dropdown-menu-wrapper');
         switch (triggerType){
             case 'click':
                 triggerNode.on('click', () => {
@@ -184,8 +185,7 @@ module.exports = Magix.View.extend({
                     me['@{delay.hide}']();
                 });
 
-                let wrapper = $('#' + me.id + ' .@index.less:dropdown-menu-wrapper');
-                wrapper.hover(() => {
+                menuWrapper.hover(() => {
                     clearTimeout(me['@{dealy.hide.timer}']);
                 }, () => {
                     me['@{delay.hide}']();
@@ -252,10 +252,31 @@ module.exports = Magix.View.extend({
             }
             me.updater.digest(d);
             me['@{owner.node}'].trigger('focusin');
+
+            // 对浮层位置进行修正
+            let menuWrapper = $('#' + me.id + ' .@index.less:dropdown-menu-wrapper');
+            let win = $(window);
+            let winWidth = win.width(),
+                menuOffset = me['@{owner.node}'].offset(),
+                menuWidth = menuWrapper.outerWidth();
+            let menuLeft;
+            if (menuOffset.left + menuWidth > winWidth) {
+                menuLeft = Math.min(
+                    (menuOffset.left + menuWidth - winWidth),
+                    menuOffset.left
+                )
+            }
+            if(menuLeft > 0){
+                menuWrapper.css({
+                    'left': (0 - menuLeft) + 'px'
+                });
+            }
+
             let listNode = $('#list_' + me.id);
             let active = listNode.find('.@index.less:active');
             let pos = active.position();
             if (pos) {
+                // 当前已选项在可是范围之内
                 let height = listNode.height();
                 let stop = listNode.prop('scrollTop');
                 if (pos.top < 0 || pos.top > height) {

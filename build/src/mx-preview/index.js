@@ -114,7 +114,7 @@ module.exports = Magix.View.extend({
         $line = 20;
         $art = '=url';
         ;
-        $p += '' + ($expr = '<%=url%>', $e(url)) + '" class="_zs_gallery_mx-preview_index_-video"><i mxs="_zs_galleryb8:_" class="mc-iconfont _zs_gallery_mx-preview_index_-icon">&#xe78d;</i></video>';
+        $p += '' + ($expr = '<%=url%>', $e(url)) + '" class="_zs_gallery_mx-preview_index_-video"><i mxs="_zs_galleryb9:_" class="mc-iconfont _zs_gallery_mx-preview_index_-icon">&#xe78d;</i></video>';
         $line = 23;
         $art = '/if';
         ;

@@ -169,8 +169,8 @@ module.exports = Magix.View.extend({
         $art = 'each groups as group groupIndex';
         ;
         $p += '';
-        $expr = '<%for (var groupIndex = 0, $art_czgzyjdij$art_c = groups.length; groupIndex < $art_czgzyjdij$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
-        for (var groupIndex = 0, $art_czgzyjdij$art_c = groups.length; groupIndex < $art_czgzyjdij$art_c; groupIndex++) {
+        $expr = '<%for (var groupIndex = 0, $art_csicthmlb$art_c = groups.length; groupIndex < $art_csicthmlb$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
+        for (var groupIndex = 0, $art_csicthmlb$art_c = groups.length; groupIndex < $art_csicthmlb$art_c; groupIndex++) {
             var group = groups[groupIndex];
             $p += ' ';
             $line = 30;
@@ -274,9 +274,9 @@ module.exports = Magix.View.extend({
             $art = 'each group.list as item';
             ;
             $p += '';
-            $expr = '<%for (var $art_ivkpvuph$art_i = 0, $art_objqnaebrpdp$art_obj = group.list, $art_cperpowbk$art_c = $art_objqnaebrpdp$art_obj.length; $art_ivkpvuph$art_i < $art_cperpowbk$art_c; $art_ivkpvuph$art_i++) {            var item = $art_objqnaebrpdp$art_obj[$art_ivkpvuph$art_i]%>';
-            for (var $art_ivkpvuph$art_i = 0, $art_objqnaebrpdp$art_obj = group.list, $art_cperpowbk$art_c = $art_objqnaebrpdp$art_obj.length; $art_ivkpvuph$art_i < $art_cperpowbk$art_c; $art_ivkpvuph$art_i++) {
-                var item = $art_objqnaebrpdp$art_obj[$art_ivkpvuph$art_i];
+            $expr = '<%for (var $art_ipoucilo$art_i = 0, $art_objgbfavzna$art_obj = group.list, $art_cgxqclsi$art_c = $art_objgbfavzna$art_obj.length; $art_ipoucilo$art_i < $art_cgxqclsi$art_c; $art_ipoucilo$art_i++) {            var item = $art_objgbfavzna$art_obj[$art_ipoucilo$art_i]%>';
+            for (var $art_ipoucilo$art_i = 0, $art_objgbfavzna$art_obj = group.list, $art_cgxqclsi$art_c = $art_objgbfavzna$art_obj.length; $art_ipoucilo$art_i < $art_cgxqclsi$art_c; $art_ipoucilo$art_i++) {
+                var item = $art_objgbfavzna$art_obj[$art_ipoucilo$art_i];
                 $p += ' ';
                 $line = 47;
                 $art = 'if !item.hide';
@@ -542,6 +542,7 @@ catch (ex) {
         me['@{val}']();
         var triggerType = me['@{trigger.type}'];
         var triggerNode = $('#' + me.id + ' ._zs_gallery_mx-dropdown_index_-dropdown-toggle');
+        var menuWrapper = $('#' + me.id + ' ._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper');
         switch (triggerType) {
             case 'click':
                 triggerNode.on('click', function () {
@@ -561,8 +562,7 @@ catch (ex) {
                 }, function () {
                     me['@{delay.hide}']();
                 });
-                var wrapper = $('#' + me.id + ' ._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper');
-                wrapper.hover(function () {
+                menuWrapper.hover(function () {
                     clearTimeout(me['@{dealy.hide.timer}']);
                 }, function () {
                     me['@{delay.hide}']();
@@ -626,10 +626,24 @@ catch (ex) {
             }
             me.updater.digest(d);
             me['@{owner.node}'].trigger('focusin');
+            // 对浮层位置进行修正
+            var menuWrapper = $('#' + me.id + ' ._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper');
+            var win = $(window);
+            var winWidth = win.width(), menuOffset = me['@{owner.node}'].offset(), menuWidth = menuWrapper.outerWidth();
+            var menuLeft = void 0;
+            if (menuOffset.left + menuWidth > winWidth) {
+                menuLeft = Math.min((menuOffset.left + menuWidth - winWidth), menuOffset.left);
+            }
+            if (menuLeft > 0) {
+                menuWrapper.css({
+                    'left': (0 - menuLeft) + 'px'
+                });
+            }
             var listNode = $('#list_' + me.id);
             var active = listNode.find('._zs_gallery_mx-dropdown_index_-active');
             var pos = active.position();
             if (pos) {
+                // 当前已选项在可是范围之内
                 var height = listNode.height();
                 var stop = listNode.prop('scrollTop');
                 if (pos.top < 0 || pos.top > height) {
