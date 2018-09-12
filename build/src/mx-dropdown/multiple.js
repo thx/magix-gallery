@@ -23,7 +23,7 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', expand = $$.expand, selected = $$.selected, selectedText = $$.selectedText, over = $$.over, rList = $$.rList, searchbox = $$.searchbox, text = $$.text, keyword = $$.keyword, needAll = $$.needAll, spm = $$.spm, viewId = $$.viewId, height = $$.height, groups = $$.groups; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', expand = $$.expand, selected = $$.selected, selectedText = $$.selectedText, over = $$.over, menuStyles = $$.menuStyles, rList = $$.rList, searchbox = $$.searchbox, text = $$.text, keyword = $$.keyword, needAll = $$.needAll, spm = $$.spm, viewId = $$.viewId, height = $$.height, groups = $$.groups; var $expr, $art, $line; try {
     $p += '<div class="_zs_gallery_mx-dropdown_index_-dropdown-toggle ';
     $line = 1;
     $art = 'if expand';
@@ -92,8 +92,28 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '">';
+    $p += '" ';
     $line = 6;
+    $art = 'if menuStyles';
+    ;
+    $p += '';
+    $expr = '<%if (menuStyles) {%>';
+    if (menuStyles) {
+        ;
+        $p += ' style="';
+        $line = 6;
+        $art = '=menuStyles';
+        ;
+        $p += '' + ($expr = '<%=menuStyles%>', $e(menuStyles)) + '" ';
+        $line = 6;
+        $art = '/if';
+        ;
+        $p += '';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '>';
+    $line = 7;
     $art = 'if rList';
     ;
     $p += '';
@@ -101,7 +121,7 @@ module.exports = Magix.View.extend({
     if (rList) {
         ;
         $p += ' ';
-        $line = 7;
+        $line = 8;
         $art = 'if searchbox';
         ;
         $p += '';
@@ -109,15 +129,15 @@ module.exports = Magix.View.extend({
         if (searchbox) {
             ;
             $p += '<div mxv mxa="_zs_galleryay:_" class="_zs_gallery_mx-dropdown_index_-search-wrapper"><div mxv mxa="_zs_galleryay:a" class="search-box"><i mxs="_zs_galleryay:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
-            $line = 12;
+            $line = 13;
             $art = '=text.search';
             ;
             $p += '' + ($expr = '<%=text.search%>', $e(text.search)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="';
-            $line = 18;
+            $line = 19;
             $art = '=keyword';
             ;
             $p += '' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
-            $line = 21;
+            $line = 22;
             $art = '/if';
             ;
             $p += '';
@@ -125,7 +145,7 @@ module.exports = Magix.View.extend({
         }
         ;
         $p += ' ';
-        $line = 22;
+        $line = 23;
         $art = 'if !needAll';
         ;
         $p += '';
@@ -133,23 +153,23 @@ module.exports = Magix.View.extend({
         if (!needAll) {
             ;
             $p += '<div mxa="_zs_galleryay:b" class="_zs_gallery_mx-dropdown_index_-oper-wrapper"><a class="_zs_gallery_mx-dropdown_index_-oper" href="javascript:;" mx-click="' + $viewId + '@{checkAll}({checked:true})" data-spm-click="';
-            $line = 24;
+            $line = 25;
             $art = '=spm';
             ;
             $p += '' + ($expr = '<%=spm%>', $e(spm)) + '">';
-            $line = 24;
+            $line = 25;
             $art = '=text.select';
             ;
             $p += '' + ($expr = '<%=text.select%>', $e(text.select)) + '</a><a class="_zs_gallery_mx-dropdown_index_-oper" href="javascript:;" mx-click="' + $viewId + '@{checkAll}({checked:false})" data-spm-click="';
-            $line = 25;
+            $line = 26;
             $art = '=spm';
             ;
             $p += '' + ($expr = '<%=spm%>', $e(spm)) + '">';
-            $line = 25;
+            $line = 26;
             $art = '=text.unselect';
             ;
             $p += '' + ($expr = '<%=text.unselect%>', $e(text.unselect)) + '</a></div>';
-            $line = 27;
+            $line = 28;
             $art = '/if';
             ;
             $p += '';
@@ -157,23 +177,23 @@ module.exports = Magix.View.extend({
         }
         ;
         $p += '<div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu" id="list_';
-        $line = 28;
+        $line = 29;
         $art = '=viewId';
         ;
         $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '" style="max-height:';
-        $line = 28;
+        $line = 29;
         $art = '=height';
         ;
         $p += '' + ($expr = '<%=height%>', $e(height)) + 'px;">';
-        $line = 29;
+        $line = 30;
         $art = 'each groups as group groupIndex';
         ;
         $p += '';
-        $expr = '<%for (var groupIndex = 0, $art_cgsyyrmjxx$art_c = groups.length; groupIndex < $art_cgsyyrmjxx$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
-        for (var groupIndex = 0, $art_cgsyyrmjxx$art_c = groups.length; groupIndex < $art_cgsyyrmjxx$art_c; groupIndex++) {
+        $expr = '<%for (var groupIndex = 0, $art_cmyplwp$art_c = groups.length; groupIndex < $art_cmyplwp$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
+        for (var groupIndex = 0, $art_cmyplwp$art_c = groups.length; groupIndex < $art_cmyplwp$art_c; groupIndex++) {
             var group = groups[groupIndex];
             $p += ' ';
-            $line = 30;
+            $line = 31;
             $art = 'if (group.text && !group.hide)';
             ;
             $p += '';
@@ -181,7 +201,7 @@ module.exports = Magix.View.extend({
             if (group.text && !group.hide) {
                 ;
                 $p += ' ';
-                $line = 31;
+                $line = 32;
                 $art = 'if group.all';
                 ;
                 $p += '';
@@ -189,19 +209,19 @@ module.exports = Magix.View.extend({
                 if (group.all) {
                     ;
                     $p += '<div mxv title="';
-                    $line = 32;
+                    $line = 33;
                     $art = '=group.text';
                     ;
                     $p += '' + ($expr = '<%=group.text%>', $e(group.text)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-item _zs_gallery_mx-dropdown_index_-dropdown-header-item"><label mxv for="';
-                    $line = 33;
+                    $line = 34;
                     $art = '=viewId';
                     ;
                     $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_';
-                    $line = 33;
+                    $line = 34;
                     $art = '=group.value';
                     ;
                     $p += '' + ($expr = '<%=group.value%>', $e(group.value)) + '" class="_zs_gallery_mx-dropdown_index_-item-link ellipsis"><input type="checkbox" class="checkbox" ';
-                    $line = 35;
+                    $line = 36;
                     $art = 'if group.checked';
                     ;
                     $p += '';
@@ -209,7 +229,7 @@ module.exports = Magix.View.extend({
                     if (group.checked) {
                         ;
                         $p += ' checked="true" ';
-                        $line = 35;
+                        $line = 36;
                         $art = '/if';
                         ;
                         $p += '';
@@ -217,27 +237,27 @@ module.exports = Magix.View.extend({
                     }
                     ;
                     $p += ' id="';
-                    $line = 36;
+                    $line = 37;
                     $art = '=viewId';
                     ;
                     $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_';
-                    $line = 36;
+                    $line = 37;
                     $art = '=group.value';
                     ;
                     $p += '' + ($expr = '<%=group.value%>', $e(group.value)) + '" mx-change="' + $viewId + '@{selectGroup}({groupIndex:\'';
-                    $line = 37;
+                    $line = 38;
                     $art = '=groupIndex';
                     ;
                     $p += '' + ($expr = '<%=$eq(groupIndex)%>', $e($eq(groupIndex))) + '\'})" data-spm-click="';
-                    $line = 38;
+                    $line = 39;
                     $art = '=spm';
                     ;
                     $p += '' + ($expr = '<%=spm%>', $e(spm)) + '"/>';
-                    $line = 38;
+                    $line = 39;
                     $art = '=group.text';
                     ;
                     $p += '' + ($expr = '<%=group.text%>', $e(group.text)) + '</label></div>';
-                    $line = 41;
+                    $line = 42;
                     $art = 'else';
                     ;
                     $p += '';
@@ -246,15 +266,15 @@ module.exports = Magix.View.extend({
                 else {
                     ;
                     $p += '<div class="_zs_gallery_mx-dropdown_index_-dropdown-header ellipsis" title="';
-                    $line = 42;
+                    $line = 43;
                     $art = '=group.text';
                     ;
                     $p += '' + ($expr = '<%=group.text%>', $e(group.text)) + '">';
-                    $line = 42;
+                    $line = 43;
                     $art = '=group.text';
                     ;
                     $p += '' + ($expr = '<%=group.text%>', $e(group.text)) + '</div>';
-                    $line = 43;
+                    $line = 44;
                     $art = '/if';
                     ;
                     $p += '';
@@ -262,7 +282,7 @@ module.exports = Magix.View.extend({
                 }
                 ;
                 $p += ' ';
-                $line = 44;
+                $line = 45;
                 $art = '/if';
                 ;
                 $p += '';
@@ -270,15 +290,15 @@ module.exports = Magix.View.extend({
             }
             ;
             $p += '<div mxv mxa="_zs_galleryay:c" class="clearfix _zs_gallery_mx-dropdown_index_-group-wrapper">';
-            $line = 46;
+            $line = 47;
             $art = 'each group.list as item';
             ;
             $p += '';
-            $expr = '<%for (var $art_iwzebl$art_i = 0, $art_objoifdgwbaz$art_obj = group.list, $art_czramcw$art_c = $art_objoifdgwbaz$art_obj.length; $art_iwzebl$art_i < $art_czramcw$art_c; $art_iwzebl$art_i++) {            var item = $art_objoifdgwbaz$art_obj[$art_iwzebl$art_i]%>';
-            for (var $art_iwzebl$art_i = 0, $art_objoifdgwbaz$art_obj = group.list, $art_czramcw$art_c = $art_objoifdgwbaz$art_obj.length; $art_iwzebl$art_i < $art_czramcw$art_c; $art_iwzebl$art_i++) {
-                var item = $art_objoifdgwbaz$art_obj[$art_iwzebl$art_i];
+            $expr = '<%for (var $art_iqvynhnrqf$art_i = 0, $art_objswjytsfpa$art_obj = group.list, $art_cpcawivyyo$art_c = $art_objswjytsfpa$art_obj.length; $art_iqvynhnrqf$art_i < $art_cpcawivyyo$art_c; $art_iqvynhnrqf$art_i++) {            var item = $art_objswjytsfpa$art_obj[$art_iqvynhnrqf$art_i]%>';
+            for (var $art_iqvynhnrqf$art_i = 0, $art_objswjytsfpa$art_obj = group.list, $art_cpcawivyyo$art_c = $art_objswjytsfpa$art_obj.length; $art_iqvynhnrqf$art_i < $art_cpcawivyyo$art_c; $art_iqvynhnrqf$art_i++) {
+                var item = $art_objswjytsfpa$art_obj[$art_iqvynhnrqf$art_i];
                 $p += ' ';
-                $line = 47;
+                $line = 48;
                 $art = 'if !item.hide';
                 ;
                 $p += '';
@@ -286,19 +306,19 @@ module.exports = Magix.View.extend({
                 if (!item.hide) {
                     ;
                     $p += '<div mxv title="';
-                    $line = 48;
+                    $line = 49;
                     $art = '=item.text';
                     ;
                     $p += '' + ($expr = '<%=item.text%>', $e(item.text)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-item"><label mxv for="';
-                    $line = 49;
+                    $line = 50;
                     $art = '=viewId';
                     ;
                     $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_';
-                    $line = 49;
+                    $line = 50;
                     $art = '=item.value';
                     ;
                     $p += '' + ($expr = '<%=item.value%>', $e(item.value)) + '" class="_zs_gallery_mx-dropdown_index_-item-link ellipsis"><input type="checkbox" class="checkbox" ';
-                    $line = 51;
+                    $line = 52;
                     $art = 'if item.checked';
                     ;
                     $p += '';
@@ -306,7 +326,7 @@ module.exports = Magix.View.extend({
                     if (item.checked) {
                         ;
                         $p += ' checked="true" ';
-                        $line = 51;
+                        $line = 52;
                         $art = '/if';
                         ;
                         $p += '';
@@ -314,31 +334,31 @@ module.exports = Magix.View.extend({
                     }
                     ;
                     $p += ' id="';
-                    $line = 52;
+                    $line = 53;
                     $art = '=viewId';
                     ;
                     $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_';
-                    $line = 52;
+                    $line = 53;
                     $art = '=item.value';
                     ;
                     $p += '' + ($expr = '<%=item.value%>', $e(item.value)) + '" mx-change="' + $viewId + '@{select}({groupIndex:\'';
-                    $line = 53;
+                    $line = 54;
                     $art = '=groupIndex';
                     ;
                     $p += '' + ($expr = '<%=$eq(groupIndex)%>', $e($eq(groupIndex))) + '\',value:\'';
-                    $line = 53;
+                    $line = 54;
                     $art = '=item.value';
                     ;
                     $p += '' + ($expr = '<%=$eq(item.value)%>', $e($eq(item.value))) + '\'})" data-spm-click="';
-                    $line = 54;
+                    $line = 55;
                     $art = '=spm';
                     ;
                     $p += '' + ($expr = '<%=spm%>', $e(spm)) + '"/>';
-                    $line = 54;
+                    $line = 55;
                     $art = '=item.text';
                     ;
                     $p += '' + ($expr = '<%=item.text%>', $e(item.text)) + '</label></div>';
-                    $line = 57;
+                    $line = 58;
                     $art = '/if';
                     ;
                     $p += '';
@@ -346,7 +366,7 @@ module.exports = Magix.View.extend({
                 }
                 ;
                 $p += ' ';
-                $line = 58;
+                $line = 59;
                 $art = '/each';
                 ;
                 $p += '';
@@ -354,7 +374,7 @@ module.exports = Magix.View.extend({
             }
             ;
             $p += '</div>';
-            $line = 60;
+            $line = 61;
             $art = '/each';
             ;
             $p += '';
@@ -362,15 +382,15 @@ module.exports = Magix.View.extend({
         }
         ;
         $p += '</div><div mxa="_zs_galleryay:d" class="_zs_gallery_mx-dropdown_index_-footer-wrapper"><button mxa="_zs_galleryay:e" type="button" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}({enter:true})">';
-        $line = 63;
+        $line = 64;
         $art = '=text.submit';
         ;
         $p += '' + ($expr = '<%=text.submit%>', $e(text.submit)) + '</button><button mxa="_zs_galleryay:f" type="button" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
-        $line = 64;
+        $line = 65;
         $art = '=text.cancel';
         ;
         $p += '' + ($expr = '<%=text.cancel%>', $e(text.cancel)) + '</button></div>';
-        $line = 66;
+        $line = 67;
         $art = '/if';
         ;
         $p += '';
@@ -624,8 +644,6 @@ catch (ex) {
             if (!r) {
                 d.rList = true;
             }
-            me.updater.digest(d);
-            me['@{owner.node}'].trigger('focusin');
             // 对浮层位置进行修正
             var menuWrapper = $('#' + me.id + ' ._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper');
             var win = $(window);
@@ -635,10 +653,10 @@ catch (ex) {
                 menuLeft = Math.min((menuOffset.left + menuWidth - winWidth), menuOffset.left);
             }
             if (menuLeft > 0) {
-                menuWrapper.css({
-                    'left': (0 - menuLeft) + 'px'
-                });
+                d.menuStyles = 'left:' + (0 - menuLeft) + 'px';
             }
+            me.updater.digest(d);
+            me['@{owner.node}'].trigger('focusin');
             var listNode = $('#list_' + me.id);
             var active = listNode.find('._zs_gallery_mx-dropdown_index_-active');
             var pos = active.position();

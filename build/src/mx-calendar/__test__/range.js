@@ -91,9 +91,9 @@ module.exports = Magix.View.extend({
     $art = 'each supportQuickDates as item';
     ;
     $p += '';
-    $expr = '<%for (var $art_isflywxnop$art_i = 0, $art_cuvsiuet$art_c = supportQuickDates.length; $art_isflywxnop$art_i < $art_cuvsiuet$art_c; $art_isflywxnop$art_i++) {    var item = supportQuickDates[$art_isflywxnop$art_i]%>';
-    for (var $art_isflywxnop$art_i = 0, $art_cuvsiuet$art_c = supportQuickDates.length; $art_isflywxnop$art_i < $art_cuvsiuet$art_c; $art_isflywxnop$art_i++) {
-        var item = supportQuickDates[$art_isflywxnop$art_i];
+    $expr = '<%for (var $art_icfmqofjxh$art_i = 0, $art_cvlerrtja$art_c = supportQuickDates.length; $art_icfmqofjxh$art_i < $art_cvlerrtja$art_c; $art_icfmqofjxh$art_i++) {    var item = supportQuickDates[$art_icfmqofjxh$art_i]%>';
+    for (var $art_icfmqofjxh$art_i = 0, $art_cvlerrtja$art_c = supportQuickDates.length; $art_icfmqofjxh$art_i < $art_cvlerrtja$art_c; $art_icfmqofjxh$art_i++) {
+        var item = supportQuickDates[$art_icfmqofjxh$art_i];
         $p += '<tr><td>';
         $line = 71;
         $art = '=item.key';

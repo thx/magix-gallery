@@ -250,8 +250,6 @@ module.exports = Magix.View.extend({
             if (!r) {
                 d.rList = true;
             }
-            me.updater.digest(d);
-            me['@{owner.node}'].trigger('focusin');
 
             // 对浮层位置进行修正
             let menuWrapper = $('#' + me.id + ' .@index.less:dropdown-menu-wrapper');
@@ -267,10 +265,11 @@ module.exports = Magix.View.extend({
                 )
             }
             if(menuLeft > 0){
-                menuWrapper.css({
-                    'left': (0 - menuLeft) + 'px'
-                });
+                d.menuStyles = 'left:' + (0 - menuLeft) + 'px';
             }
+
+            me.updater.digest(d);
+            me['@{owner.node}'].trigger('focusin');
 
             let listNode = $('#list_' + me.id);
             let active = listNode.find('.@index.less:active');
