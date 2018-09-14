@@ -47,15 +47,19 @@ module.exports = Magix.View.extend({
                 list = data.list
             }
             list = list.map((item) => {
+                let tpls = (item.tmpl || ('搜索含有“${content}”的' + item[listText])).split('${content}');
                 return {
+                    prefix: tpls[0],
+                    suffix: tpls[1],
                     text: item[listText],
                     value: item[listValue]
                 }
             })
             if (!that['@{dis.placeholder}']) {
-                that['@{dis.placeholder}'] = list.map(item => {
+                let ts = list.map(item => {
                     return item.text;
-                }).join('/')
+                });
+                that['@{dis.placeholder}'] = $.unique(ts) .join('/');
             }
         } else {
             if (!that['@{dis.placeholder}']) {

@@ -3,14 +3,14 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-style/__test__/index",["magix","$","mx-title/second","./1","./2","./5","./3","./4","./6"],(require,exports,module)=>{
+define("mx-style/__test__/index",["magix","$","mx-title/second","./3","./1","./5","./4","./2","./6"],(require,exports,module)=>{
 /*Magix,$*/
 require("mx-title/second");
-require("./1");
-require("./2");
-require("./5");
 require("./3");
+require("./1");
+require("./5");
 require("./4");
+require("./2");
 require("./6");
 var Magix = require("magix");
 var $ = require("$");
@@ -27,7 +27,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerycj:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerycj:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-style/__test__/1"></div><div mx-view="mx-style/__test__/2"></div><div mx-view="mx-style/__test__/5"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-style/__test__/3"></div><div mx-view="mx-style/__test__/4"></div><div mx-view="mx-style/__test__/6"></div></div></div>';
+    $p += '<div mxs="_zs_gallerycn:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerycn:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-style/__test__/3"></div><div mx-view="mx-style/__test__/1"></div><div mx-view="mx-style/__test__/5"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-style/__test__/4"></div><div mx-view="mx-style/__test__/2"></div><div mx-view="mx-style/__test__/6"></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

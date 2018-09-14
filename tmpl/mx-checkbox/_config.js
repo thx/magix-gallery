@@ -2,6 +2,7 @@
 module.exports = {
     'mx-checkbox': {
         tag: 'input',
-        type: 'checkbox'
+        type: 'checkbox',
+        _class: 'anim-checkbox'
     }
 }

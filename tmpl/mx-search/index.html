@@ -11,7 +11,7 @@
     <ul class="search-menu {{if ((list.length > 1) && searchValue && show)}} open {{/if}}">
         {{each list as item}}
         <li class="search-item {{if (searchKey == item.value)}} active {{/if}}" mx-click="@{select}({item:'{{@item}}'})">
-            搜索含有“{{=searchValue}}”的{{=item.text}}
+            {{=item.prefix}}{{=searchValue}}{{=item.suffix}}
         </li>
         {{/each}}
     </ul>

@@ -3,13 +3,14 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-search/__test__/index",["magix","$","mx-title/second","./1","./2","./3","./4","__test__/api"],(require,exports,module)=>{
+define("mx-search/__test__/index",["magix","$","mx-title/second","./1","./4","./5","./2","./3","__test__/api"],(require,exports,module)=>{
 /*Magix,$*/
 require("mx-title/second");
 require("./1");
+require("./4");
+require("./5");
 require("./2");
 require("./3");
-require("./4");
 require("__test__/api");
 var Magix = require("magix");
 var $ = require("$");
@@ -30,8 +31,8 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryb%:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryb%:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-search/__test__/1"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-search/__test__/2"></div><div mx-view="mx-search/__test__/3"></div><div mx-view="mx-search/__test__/4"></div></div></div><div mxs="_zs_galleryb%:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 14;
+    $p += '<div mxs="_zs_galleryb(:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryb(:e" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-search/__test__/1"></div><div mx-view="mx-search/__test__/4"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-search/__test__/5"></div><div mx-view="mx-search/__test__/2"></div><div mx-view="mx-search/__test__/3"></div></div></div><div mxs="_zs_galleryb(:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $line = 15;
     $art = '@options';
     ;
     $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '"></div>';
@@ -47,7 +48,7 @@ catch (ex) {
     render: function () {
         var options = [{
                 key: 'list',
-                desc: '可搜素类型列表，例如[{text:\'计划\',value:\'campaign\'}]',
+                desc: "\u53EF\u641C\u7D20\u7C7B\u578B\u5217\u8868\uFF0C\u4F8B\u5982<pre>[{\n    text: '\u6587\u6848',\n    value: '\u8DDF\u540E\u7AEF\u4EA4\u4E92\u5B57\u6BB5',\n    tmpl: '\u81EA\u5B9A\u4E49\u4E0B\u62C9\u5217\u8868\u6A21\u677F'\n}]\n\n\u5173\u4E8Etmpl\uFF1A\n\u9ED8\u8BA4\u4E3A = \u641C\u7D22\u542B\u6709\u201C$&#123;content&#125;\u201D\u7684$&#123;text&#125;\n\u81EA\u5B9A\u4E49\u65F6\u8F93\u5165\u5185\u5BB9\u4F4D\u7F6E\u4F7F\u7528\u5360\u4F4D\u7B26$&#123;content&#125;\n</pre>",
                 type: 'array',
                 def: ''
             }, {
@@ -77,7 +78,7 @@ catch (ex) {
                 def: 'left'
             }, {
                 key: 'placeholder',
-                desc: '提示文案',
+                desc: '空状态提示文案',
                 type: 'string',
                 def: '配置了placeholder，显示placeholder，否则<br>配置了list，默认显示list-text.join(\'/\')<br>单个类型搜索默认显示搜素'
             }];

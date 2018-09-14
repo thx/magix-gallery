@@ -35,15 +35,15 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', checkboxes = $$.checkboxes, selected = $$.selected, radioes = $$.radioes, tip = $$.tip, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerya,:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerya,:a" class="_zs_gallery___test___layout_-eg-content clearfix"><form mxv mxa="_zs_gallerya,:b" class="form mb20 fl w440"><div mxv mxa="_zs_gallerya,:c" class="form-item"><div mxs="_zs_gallerya,:_" class="form-label">checkbox</div><div mxv mxa="_zs_gallerya,:d" class="form-content">';
+    $p += '<div mxv mxa="_zs_gallerya?:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerya?:a" class="_zs_gallery___test___layout_-eg-content clearfix"><form mxv mxa="_zs_gallerya?:b" class="form mb20 fl w440"><div mxv mxa="_zs_gallerya?:c" class="form-item"><div mxs="_zs_gallerya?:_" class="form-label">checkbox</div><div mxv mxa="_zs_gallerya?:d" class="form-content">';
     $line = 7;
     $art = 'each checkboxes as c';
     ;
     $p += '';
-    $expr = '<%for (var $art_ikmign$art_i = 0, $art_cqedwebvyr$art_c = checkboxes.length; $art_ikmign$art_i < $art_cqedwebvyr$art_c; $art_ikmign$art_i++) {    var c = checkboxes[$art_ikmign$art_i]%>';
-    for (var $art_ikmign$art_i = 0, $art_cqedwebvyr$art_c = checkboxes.length; $art_ikmign$art_i < $art_cqedwebvyr$art_c; $art_ikmign$art_i++) {
-        var c = checkboxes[$art_ikmign$art_i];
-        $p += '<label mxv mxa="_zs_gallerya,:e" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
+    $expr = '<%for (var $art_igannqcvh$art_i = 0, $art_cxtzkzxi$art_c = checkboxes.length; $art_igannqcvh$art_i < $art_cxtzkzxi$art_c; $art_igannqcvh$art_i++) {    var c = checkboxes[$art_igannqcvh$art_i]%>';
+    for (var $art_igannqcvh$art_i = 0, $art_cxtzkzxi$art_c = checkboxes.length; $art_igannqcvh$art_i < $art_cxtzkzxi$art_c; $art_igannqcvh$art_i++) {
+        var c = checkboxes[$art_igannqcvh$art_i];
+        $p += '<label mxv mxa="_zs_gallerya?:e" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 12;
         $art = ':selected.checkboxes{refresh:true,required:[true,\'必选\']}';
         ;
@@ -63,15 +63,15 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div><div mxv mxa="_zs_gallerya,:f" class="form-item"><div mxs="_zs_gallerya,:a" class="form-label">radio</div><div mxv mxa="_zs_gallerya,:g" class="form-content">';
+    $p += '</div></div><div mxv mxa="_zs_gallerya?:f" class="form-item"><div mxs="_zs_gallerya?:a" class="form-label">radio</div><div mxv mxa="_zs_gallerya?:g" class="form-content">';
     $line = 21;
     $art = 'each radioes as r';
     ;
     $p += '';
-    $expr = '<%for (var $art_ikxqbezebr$art_i = 0, $art_cagpvyr$art_c = radioes.length; $art_ikxqbezebr$art_i < $art_cagpvyr$art_c; $art_ikxqbezebr$art_i++) {    var r = radioes[$art_ikxqbezebr$art_i]%>';
-    for (var $art_ikxqbezebr$art_i = 0, $art_cagpvyr$art_c = radioes.length; $art_ikxqbezebr$art_i < $art_cagpvyr$art_c; $art_ikxqbezebr$art_i++) {
-        var r = radioes[$art_ikxqbezebr$art_i];
-        $p += '<label mxv mxa="_zs_gallerya,:h" class="mr30"><input mxe="' + $viewId + '_1" mxc="[';
+    $expr = '<%for (var $art_izfhjudxki$art_i = 0, $art_cckqyr$art_c = radioes.length; $art_izfhjudxki$art_i < $art_cckqyr$art_c; $art_izfhjudxki$art_i++) {    var r = radioes[$art_izfhjudxki$art_i]%>';
+    for (var $art_izfhjudxki$art_i = 0, $art_cckqyr$art_c = radioes.length; $art_izfhjudxki$art_i < $art_cckqyr$art_c; $art_izfhjudxki$art_i++) {
+        var r = radioes[$art_izfhjudxki$art_i];
+        $p += '<label mxv mxa="_zs_gallerya?:h" class="mr30"><input mxe="' + $viewId + '_1" mxc="[';
         $line = 26;
         $art = ':selected.radio{refresh:true}';
         ;
@@ -91,7 +91,7 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div><div mxv mxa="_zs_gallerya,:i" class="form-item"><div mxs="_zs_gallerya,:b" class="form-label">下拉框单选</div><div mxv mxa="_zs_gallerya,:j" class="form-content"><div mxv="selected" mxe="' + $viewId + '_2" mxc="[';
+    $p += '</div></div><div mxv mxa="_zs_gallerya?:i" class="form-item"><div mxs="_zs_gallerya?:b" class="form-label">下拉框单选</div><div mxv mxa="_zs_gallerya?:j" class="form-content"><div mxv="selected" mxe="' + $viewId + '_2" mxc="[';
     $line = 37;
     $art = ':selected.single{refresh:true,required:[true,\'必选\']}';
     ;
@@ -103,7 +103,7 @@ module.exports = Base.extend({
     $line = 38;
     $art = '@[1,2,3]';
     ;
-    $p += '' + ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div></div><div mxv mxa="_zs_gallerya,:k" class="form-item"><div mxs="_zs_gallerya,:c" class="form-label">多选逗号分隔</div><div mxv mxa="_zs_gallerya,:l" class="form-content"><div mxv="selected" mxe="' + $viewId + '_3" mxc="[';
+    $p += '' + ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div></div><div mxv mxa="_zs_gallerya?:k" class="form-item"><div mxs="_zs_gallerya?:c" class="form-label">多选逗号分隔</div><div mxv mxa="_zs_gallerya?:l" class="form-content"><div mxv="selected" mxe="' + $viewId + '_3" mxc="[';
     $line = 46;
     $art = ':selected.multiComma{refresh:true,required:[true,\'必选\']}';
     ;
@@ -115,7 +115,7 @@ module.exports = Base.extend({
     $line = 47;
     $art = '@[1,2,3]';
     ;
-    $p += '' + ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div></div><div mxv mxa="_zs_gallerya,:m" class="form-item"><div mxs="_zs_gallerya,:d" class="form-label">多选数组</div><div mxv mxa="_zs_gallerya,:n" class="form-content"><div mxv="selected" mxe="' + $viewId + '_4" mxc="[';
+    $p += '' + ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div></div><div mxv mxa="_zs_gallerya?:m" class="form-item"><div mxs="_zs_gallerya?:d" class="form-label">多选数组</div><div mxv mxa="_zs_gallerya?:n" class="form-content"><div mxv="selected" mxe="' + $viewId + '_4" mxc="[';
     $line = 55;
     $art = ':selected.multiArr{refresh:true,required:[true,\'必选\']}';
     ;
@@ -127,7 +127,7 @@ module.exports = Base.extend({
     $line = 56;
     $art = '@[1,2,3]';
     ;
-    $p += '' + ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div></div><div mxv mxa="_zs_gallerya,:o" class="form-item"><div mxs="_zs_gallerya,:e" class="form-label">输入框</div><div mxv mxa="_zs_gallerya,:p" class="form-content"><input mxe="' + $viewId + '_5" mxc="[';
+    $p += '' + ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div></div><div mxv mxa="_zs_gallerya?:o" class="form-item"><div mxs="_zs_gallerya?:e" class="form-label">输入框</div><div mxv mxa="_zs_gallerya?:p" class="form-content"><input mxe="' + $viewId + '_5" mxc="[';
     $line = 63;
     $art = ':selected.str{refresh:true,required:true,pattern:\'^[a-zA-Z0-9_\\u4e00-\\u9fa5]+$\'}';
     ;
@@ -135,7 +135,7 @@ module.exports = Base.extend({
     $line = 63;
     $art = ':selected.str{refresh:true,required:true,pattern:\'^[a-zA-Z0-9_\\u4e00-\\u9fa5]+$\'}';
     ;
-    $p += '' + ($expr = '<%=selected.str%>', $e(selected.str)) + '"/></div></div><div mxv mxa="_zs_gallerya,:q" class="form-item"><div mxs="_zs_gallerya,:f" class="form-label">选择单个时间</div><div mxv mxa="_zs_gallerya,:r" class="form-content"><div mxv="selected" mxe="' + $viewId + '_6" mxc="[';
+    $p += '' + ($expr = '<%=selected.str%>', $e(selected.str)) + '"/></div></div><div mxv mxa="_zs_gallerya?:q" class="form-item"><div mxs="_zs_gallerya?:f" class="form-label">选择单个时间</div><div mxv mxa="_zs_gallerya?:r" class="form-content"><div mxv="selected" mxe="' + $viewId + '_6" mxc="[';
     $line = 70;
     $art = ':selected.date{refresh:true}';
     ;
@@ -143,7 +143,7 @@ module.exports = Base.extend({
     $line = 70;
     $art = ':selected.date{refresh:true}';
     ;
-    $p += '' + ($expr = '<%@selected.date%>', $i($$ref, selected.date)) + '"></div></div></div><div mxv mxa="_zs_gallerya,:s" class="form-item"><div mxs="_zs_gallerya,:g" class="form-label">选择时间段</div><div mxv mxa="_zs_gallerya,:t" class="form-content"><div mxv="selected" mxe="' + $viewId + '_7" mxc="[';
+    $p += '' + ($expr = '<%@selected.date%>', $i($$ref, selected.date)) + '"></div></div></div><div mxv mxa="_zs_gallerya?:s" class="form-item"><div mxs="_zs_gallerya?:g" class="form-label">选择时间段</div><div mxv mxa="_zs_gallerya?:t" class="form-content"><div mxv="selected" mxe="' + $viewId + '_7" mxc="[';
     $line = 78;
     $art = ':selected.vs{refresh:true}';
     ;
@@ -167,11 +167,11 @@ module.exports = Base.extend({
     $line = 80;
     $art = ':selected.end{refresh:true}';
     ;
-    $p += '' + ($expr = '<%@selected.end%>', $i($$ref, selected.end)) + '"></div></div></div><div mxv mxa="_zs_gallerya,:u" class="form-item"><div mxs="_zs_gallerya,:h" class="form-label">radio + 输入框</div><div mxv mxa="_zs_gallerya,:v" class="form-content clearfix"><label mxv mxa="_zs_gallerya,:w" class="mr30 fl"><input mxe="' + $viewId + '_8" mxc="[';
+    $p += '' + ($expr = '<%@selected.end%>', $i($$ref, selected.end)) + '"></div></div></div><div mxv mxa="_zs_gallerya?:u" class="form-item"><div mxs="_zs_gallerya?:h" class="form-label">radio + 输入框</div><div mxv mxa="_zs_gallerya?:v" class="form-content clearfix"><label mxv mxa="_zs_gallerya?:w" class="mr30 fl"><input mxe="' + $viewId + '_8" mxc="[';
     $line = 90;
     $art = ':selected.type{refresh:true}';
     ;
-    $p += '{p:\'selected.type\',f:{refresh:true}}]" type="radio" class="radio" name="type" value="def"/> 默认情况</label><label mxv mxa="_zs_gallerya,:x" class="mr10 fl"><input mxe="' + $viewId + '_9" mxc="[';
+    $p += '{p:\'selected.type\',f:{refresh:true}}]" type="radio" class="radio" name="type" value="def"/> 默认情况</label><label mxv mxa="_zs_gallerya?:x" class="mr10 fl"><input mxe="' + $viewId + '_9" mxc="[';
     $line = 97;
     $art = ':selected.type{refresh:true}';
     ;
@@ -199,7 +199,7 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div><div mxa="_zs_gallerya,:y" class="form-item"><a mxs="_zs_gallerya,:i" href="javascript:;" class="btn w80 btn-brand mr20" mx-click="' + $viewId + 'confirm()">确定</a><a mxs="_zs_gallerya,:j" href="javascript:;" class="btn w80">取消</a>';
+    $p += '</div></div><div mxa="_zs_gallerya?:y" class="form-item"><a mxs="_zs_gallerya?:i" href="javascript:;" class="btn w80 btn-brand mr20" mx-click="' + $viewId + 'confirm()">确定</a><a mxs="_zs_gallerya?:j" href="javascript:;" class="btn w80">取消</a>';
     $line = 111;
     $art = 'if tip';
     ;
@@ -207,7 +207,7 @@ module.exports = Base.extend({
     $expr = '<%if (tip) {%>';
     if (tip) {
         ;
-        $p += '<span mxa="_zs_gallerya,:z" class="ml10">';
+        $p += '<span mxa="_zs_gallerya?:z" class="ml10">';
         $line = 111;
         $art = '!tip';
         ;
@@ -219,39 +219,39 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></form><div mxa="_zs_gallerya,:A" class="fl"><div mxa="_zs_gallerya,:B" class="lh32 mb30"><span mxs="_zs_gallerya,:k" class="color-9">当前值：</span>[';
+    $p += '</div></form><div mxa="_zs_gallerya?:A" class="fl"><div mxa="_zs_gallerya?:B" class="lh32 mb30"><span mxs="_zs_gallerya?:k" class="color-9">当前值：</span>[';
     $line = 117;
     $art = '=selected.checkboxes';
     ;
-    $p += '' + ($expr = '<%=selected.checkboxes%>', $e(selected.checkboxes)) + ']</div><div mxa="_zs_gallerya,:C" class="lh32 mb30"><span mxs="_zs_gallerya,:k" class="color-9">当前值：</span>';
+    $p += '' + ($expr = '<%=selected.checkboxes%>', $e(selected.checkboxes)) + ']</div><div mxa="_zs_gallerya?:C" class="lh32 mb30"><span mxs="_zs_gallerya?:k" class="color-9">当前值：</span>';
     $line = 121;
     $art = '=selected.radio';
     ;
-    $p += '' + ($expr = '<%=selected.radio%>', $e(selected.radio)) + '</div><div mxa="_zs_gallerya,:D" class="lh32 mb30"><span mxs="_zs_gallerya,:k" class="color-9">当前值：</span>';
+    $p += '' + ($expr = '<%=selected.radio%>', $e(selected.radio)) + '</div><div mxa="_zs_gallerya?:D" class="lh32 mb30"><span mxs="_zs_gallerya?:k" class="color-9">当前值：</span>';
     $line = 125;
     $art = '=selected.single';
     ;
-    $p += '' + ($expr = '<%=selected.single%>', $e(selected.single)) + '</div><div mxa="_zs_gallerya,:E" class="lh32 mb30"><span mxs="_zs_gallerya,:k" class="color-9">当前值：</span>';
+    $p += '' + ($expr = '<%=selected.single%>', $e(selected.single)) + '</div><div mxa="_zs_gallerya?:E" class="lh32 mb30"><span mxs="_zs_gallerya?:k" class="color-9">当前值：</span>';
     $line = 129;
     $art = '=selected.multiComma';
     ;
-    $p += '' + ($expr = '<%=selected.multiComma%>', $e(selected.multiComma)) + '</div><div mxa="_zs_gallerya,:F" class="lh32 mb30"><span mxs="_zs_gallerya,:k" class="color-9">当前值：</span>[';
+    $p += '' + ($expr = '<%=selected.multiComma%>', $e(selected.multiComma)) + '</div><div mxa="_zs_gallerya?:F" class="lh32 mb30"><span mxs="_zs_gallerya?:k" class="color-9">当前值：</span>[';
     $line = 133;
     $art = '=selected.multiArr';
     ;
-    $p += '' + ($expr = '<%=selected.multiArr%>', $e(selected.multiArr)) + ']</div><div mxa="_zs_gallerya,:G" class="lh32 mb30"><span mxs="_zs_gallerya,:k" class="color-9">当前值：</span>';
+    $p += '' + ($expr = '<%=selected.multiArr%>', $e(selected.multiArr)) + ']</div><div mxa="_zs_gallerya?:G" class="lh32 mb30"><span mxs="_zs_gallerya?:k" class="color-9">当前值：</span>';
     $line = 137;
     $art = '=selected.str';
     ;
-    $p += '' + ($expr = '<%=selected.str%>', $e(selected.str)) + '</div><div mxa="_zs_gallerya,:H" class="lh32 mb30"><span mxs="_zs_gallerya,:k" class="color-9">当前值：</span>';
+    $p += '' + ($expr = '<%=selected.str%>', $e(selected.str)) + '</div><div mxa="_zs_gallerya?:H" class="lh32 mb30"><span mxs="_zs_gallerya?:k" class="color-9">当前值：</span>';
     $line = 141;
     $art = '=selected.date';
     ;
-    $p += '' + ($expr = '<%=selected.date%>', $e(selected.date)) + '</div><div mxa="_zs_gallerya,:I" class="lh32 mb30"><span mxs="_zs_gallerya,:k" class="color-9">当前值：</span><span mxa="_zs_gallerya,:J" class="mr5">对比（';
+    $p += '' + ($expr = '<%=selected.date%>', $e(selected.date)) + '</div><div mxa="_zs_gallerya?:I" class="lh32 mb30"><span mxs="_zs_gallerya?:k" class="color-9">当前值：</span><span mxa="_zs_gallerya?:J" class="mr5">对比（';
     $line = 145;
     $art = '=selected.vs';
     ;
-    $p += '' + ($expr = '<%=selected.vs%>', $e(selected.vs)) + '）</span><span mxa="_zs_gallerya,:K" class="mr5">开始时间（';
+    $p += '' + ($expr = '<%=selected.vs%>', $e(selected.vs)) + '）</span><span mxa="_zs_gallerya?:K" class="mr5">开始时间（';
     $line = 146;
     $art = '=selected.start';
     ;
@@ -259,7 +259,7 @@ module.exports = Base.extend({
     $line = 147;
     $art = '=selected.end';
     ;
-    $p += '' + ($expr = '<%=selected.end%>', $e(selected.end)) + '）</span></div><div mxa="_zs_gallerya,:L" class="lh32 mb30"><span mxs="_zs_gallerya,:k" class="color-9">当前值：</span><span mxa="_zs_gallerya,:M" class="mr5">类型（';
+    $p += '' + ($expr = '<%=selected.end%>', $e(selected.end)) + '）</span></div><div mxa="_zs_gallerya?:L" class="lh32 mb30"><span mxs="_zs_gallerya?:k" class="color-9">当前值：</span><span mxa="_zs_gallerya?:M" class="mr5">类型（';
     $line = 151;
     $art = '=selected.type';
     ;
@@ -267,27 +267,27 @@ module.exports = Base.extend({
     $line = 152;
     $art = '=selected.int';
     ;
-    $p += '' + ($expr = '<%=selected.int%>', $e(selected.int)) + '）</span></div></div></div><div mxa="_zs_gallerya,:N" class="clearfix"><div mxa="_zs_gallerya,:O" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-left"><div mxs="_zs_gallerya,:l" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=selected.int%>', $e(selected.int)) + '）</span></div></div></div><div mxa="_zs_gallerya?:N" class="clearfix"><div mxa="_zs_gallerya?:O" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-left"><div mxs="_zs_gallerya?:l" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 159;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya,:P" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya?:P" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 161;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya,:m" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya?:m" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 164;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;form class="form"&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;checkbox&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &#123;&#123;each checkboxes as c&#125;&#125;\n            &lt;label class="mr30"&gt;\n                &lt;input type="checkbox" class="checkbox" \n                    name="cb" \n                    value="&#123;&#123;=c&#125;&#125;" \n                    &#123;&#123;:selected.checkboxes&#123;required:[true,\'必选\']&#125;&#125;&#125; /&gt;\n                &#123;&#123;=c&#125;&#125;\n            &lt;/label&gt;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;radio&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &#123;&#123;each radioes as r&#125;&#125;\n            &lt;label class="mr30"&gt;\n                &lt;input type="radio" class="radio" \n                    name="magix" \n                    value="&#123;&#123;=r&#125;&#125;" \n                    &#123;&#123;:selected.radio&#125;&#125; /&gt;\n                &#123;&#123;=r&#125;&#125;\n            &lt;/label&gt;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;下拉框单选&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-dropdown class="w200"\n                empty-text="请选择"\n                selected="&#123;&#123;:selected.single&#123;required:[true,\'必选\']&#125;&#125;&#125;"\n                list="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;多选逗号分隔&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-dropdown.multiple class="w200 mr20"\n                empty-text="请选择"\n                selected="&#123;&#123;:selected.multiComma&#123;required:[true,\'必选\']&#125;&#125;&#125;"\n                list="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;多选数组&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-dropdown.multiple class="w200"\n                empty-text="请选择"\n                selected="&#123;&#123;:selected.multiArr&#123;required:[true,\'必选\']&#125;&#125;&#125;"\n                list="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;输入框&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;input class="input w200" placeholder="正则：汉字/字母/数字/下划线"         \n                value="&#123;&#123;:selected.str&#123;required:true,pattern:\'^[a-zA-Z0-9_\\u4e00-\\u9fa5]+$\'&#125;&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;选择单个时间&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-calendar.datepicker class="w200" \n                selected="&#123;&#123;:selected.date&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;选择时间段&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-calendar.rangepicker class="w200"\n                vsenable="true"\n                vs="&#123;&#123;:selected.vs&#125;&#125;"\n                start="&#123;&#123;:selected.start&#125;&#125;"\n                end="&#123;&#123;:selected.end&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;radio + 输入框&lt;/div&gt;\n        &lt;div class="form-content clearfix"&gt;\n            &lt;label class="mr30 fl"&gt;\n                &lt;input type="radio" class="radio" \n                    name="type" \n                    value="def" \n                    &#123;&#123;:selected.type&#123;refresh:true&#125;&#125;&#125; /&gt;\n                默认情况\n            &lt;/label&gt;\n            &lt;label class="mr10 fl"&gt;\n                &lt;input type="radio" class="radio" \n                    name="type" \n                    value="custom" \n                    &#123;&#123;:selected.type&#123;refresh:true&#125;&#125;&#125; /&gt;\n                自定义\n            &lt;/label&gt;\n            &#123;&#123;if (selected.type == \'custom\')&#125;&#125;\n            &lt;input class="input fl" placeholder="整数" \n                value="&#123;&#123;:selected.int&#123;required:true,int:true&#125;&#125;&#125;"/&gt;\n            &#123;&#123;/if&#125;&#125;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;a href="javascript:;" class="btn w80 btn-brand mr20"\n            mx-click="confirm()"&gt;确定&lt;/a&gt;\n        &lt;a href="javascript:;" class="btn w80"&gt;取消&lt;/a&gt;\n    &lt;/div&gt;\n&lt;/form&gt;</pre></div><div mxa="_zs_gallerya,:Q" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_gallerya,:n" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;form class="form"&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;checkbox&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &#123;&#123;each checkboxes as c&#125;&#125;\n            &lt;label class="mr30"&gt;\n                &lt;input type="checkbox" class="checkbox" \n                    name="cb" \n                    value="&#123;&#123;=c&#125;&#125;" \n                    &#123;&#123;:selected.checkboxes&#123;required:[true,\'必选\']&#125;&#125;&#125; /&gt;\n                &#123;&#123;=c&#125;&#125;\n            &lt;/label&gt;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;radio&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &#123;&#123;each radioes as r&#125;&#125;\n            &lt;label class="mr30"&gt;\n                &lt;input type="radio" class="radio" \n                    name="magix" \n                    value="&#123;&#123;=r&#125;&#125;" \n                    &#123;&#123;:selected.radio&#125;&#125; /&gt;\n                &#123;&#123;=r&#125;&#125;\n            &lt;/label&gt;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;下拉框单选&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-dropdown class="w200"\n                empty-text="请选择"\n                selected="&#123;&#123;:selected.single&#123;required:[true,\'必选\']&#125;&#125;&#125;"\n                list="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;多选逗号分隔&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-dropdown.multiple class="w200 mr20"\n                empty-text="请选择"\n                selected="&#123;&#123;:selected.multiComma&#123;required:[true,\'必选\']&#125;&#125;&#125;"\n                list="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;多选数组&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-dropdown.multiple class="w200"\n                empty-text="请选择"\n                selected="&#123;&#123;:selected.multiArr&#123;required:[true,\'必选\']&#125;&#125;&#125;"\n                list="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;输入框&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;input class="input w200" placeholder="正则：汉字/字母/数字/下划线"         \n                value="&#123;&#123;:selected.str&#123;required:true,pattern:\'^[a-zA-Z0-9_\\u4e00-\\u9fa5]+$\'&#125;&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;选择单个时间&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-calendar.datepicker class="w200" \n                selected="&#123;&#123;:selected.date&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;选择时间段&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-calendar.rangepicker class="w200"\n                vsenable="true"\n                vs="&#123;&#123;:selected.vs&#125;&#125;"\n                start="&#123;&#123;:selected.start&#125;&#125;"\n                end="&#123;&#123;:selected.end&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;radio + 输入框&lt;/div&gt;\n        &lt;div class="form-content clearfix"&gt;\n            &lt;label class="mr30 fl"&gt;\n                &lt;input type="radio" class="radio" \n                    name="type" \n                    value="def" \n                    &#123;&#123;:selected.type&#123;refresh:true&#125;&#125;&#125; /&gt;\n                默认情况\n            &lt;/label&gt;\n            &lt;label class="mr10 fl"&gt;\n                &lt;input type="radio" class="radio" \n                    name="type" \n                    value="custom" \n                    &#123;&#123;:selected.type&#123;refresh:true&#125;&#125;&#125; /&gt;\n                自定义\n            &lt;/label&gt;\n            &#123;&#123;if (selected.type == \'custom\')&#125;&#125;\n            &lt;input class="input fl" placeholder="整数" \n                value="&#123;&#123;:selected.int&#123;required:true,int:true&#125;&#125;&#125;"/&gt;\n            &#123;&#123;/if&#125;&#125;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;a href="javascript:;" class="btn w80 btn-brand mr20"\n            mx-click="confirm()"&gt;确定&lt;/a&gt;\n        &lt;a href="javascript:;" class="btn w80"&gt;取消&lt;/a&gt;\n    &lt;/div&gt;\n&lt;/form&gt;</pre></div><div mxa="_zs_gallerya?:Q" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_gallerya?:n" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 277;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya,:R" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya?:R" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 279;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya,:m" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya?:m" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 282;
     $art = '=viewId';
     ;

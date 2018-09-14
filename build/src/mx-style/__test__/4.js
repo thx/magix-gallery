@@ -23,19 +23,19 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerycg:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerycg:a" class="_zs_gallery___test___layout_-eg-content"><label mxv mxa="_zs_gallerycg:b" class="mr30"><input mxs="_zs_gallerycg:_" type="radio" value="1" name="magix" checked="true"/> 选中</label><label mxv mxa="_zs_gallerycg:c" class="mr30"><input mxs="_zs_gallerycg:a" type="radio" value="2" name="magix"/> 未选中</label><label mxv mxa="_zs_gallerycg:d" class="mr30"><input mxs="_zs_gallerycg:b" type="radio" value="3" name="magix" disabled="true"/> 未选中禁止选择</label></div><div mxa="_zs_gallerycg:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycg:c" class="_zs_gallery___test___layout_-eg-title">Radio</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 18;
+    $p += '<div mxv mxa="_zs_galleryck:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryck:a" class="_zs_gallery___test___layout_-eg-content"><div mxv mxa="_zs_galleryck:b" class="mb20"><span mxs="_zs_galleryck:_" class="color-9 mr10">动效：</span><label mxv mxa="_zs_galleryck:c" class="mr20"><input mxs="_zs_galleryck:a" type="radio" class="anim-radio" value="1" name="magix" checked="true"/> 选中</label><label mxv mxa="_zs_galleryck:d" class="mr20"><input mxs="_zs_galleryck:b" type="radio" class="anim-radio" value="2" name="magix"/> 未选中</label><label mxv mxa="_zs_galleryck:e" class="mr20"><input mxs="_zs_galleryck:c" type="radio" class="anim-radio" value="3" name="magix" disabled="true"/> 未选中禁止选择</label><label mxv><input mxs="_zs_galleryck:d" type="radio" class="anim-radio" value="3" name="magix2" checked="true" disabled="true"/> 选中禁止选择</label></div><div mxv><span mxs="_zs_galleryck:e" class="color-9 mr10">普通：</span><label mxv mxa="_zs_galleryck:f" class="mr20"><input mxs="_zs_galleryck:f" type="radio" value="1" name="magix3" checked="true"/> 选中</label><label mxv mxa="_zs_galleryck:g" class="mr20"><input mxs="_zs_galleryck:g" type="radio" value="2" name="magix3"/> 未选中</label><label mxv mxa="_zs_galleryck:h" class="mr20"><input mxs="_zs_galleryck:h" type="radio" value="3" name="magix3" disabled="true"/> 未选中禁止选择</label><label mxv><input mxs="_zs_galleryck:i" type="radio" value="3" name="magix4" checked="true" disabled="true"/> 选中禁止选择</label></div></div><div mxa="_zs_galleryck:i" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryck:j" class="_zs_gallery___test___layout_-eg-title">Radio</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 44;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycg:f" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 20;
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryck:j" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 46;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycg:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 23;
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryck:k" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 49;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;label class="mr30"&gt;\n    &lt;input type="radio" value="1" name="magix" checked="true"/&gt;\n    选中\n&lt;/label&gt;\n\n&lt;label class="mr30"&gt;\n    &lt;input type="radio" value="2" name="magix" /&gt;\n    未选中\n&lt;/label&gt;\n\n&lt;label class="mr30"&gt;\n    &lt;input type="radio" value="3" name="magix" disabled="true" /&gt;\n    未选中禁止选择\n&lt;/label&gt;</pre></div></div>';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;label class="mr20"&gt;\n    &lt;input type="radio" class="anim-radio"\n        value="1" name="magix" checked="true"/&gt;\n    动效加className（anim-radio）\n&lt;/label&gt;\n\n&lt;label class="mr20"&gt;\n    &lt;input type="radio"  \n        value="2" name="magix2" checked="true"/&gt;\n    普通无动效\n&lt;/label&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

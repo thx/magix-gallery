@@ -38,14 +38,14 @@ module.exports = Base.extend({
     $expr = '<%if (type == \'border\') {%>';
     if (type == 'border') {
         ;
-        $p += '<div mxa="_zs_galleryc0:_" class="_zs_gallery_mx-tabs_index_-border clearfix">';
+        $p += '<div mxa="_zs_galleryc4:_" class="_zs_gallery_mx-tabs_index_-border clearfix">';
         $line = 3;
         $art = 'each list as item';
         ;
         $p += '';
-        $expr = '<%for (var $art_ik$art_i = 0, $art_cccgrkdjcrt$art_c = list.length; $art_ik$art_i < $art_cccgrkdjcrt$art_c; $art_ik$art_i++) {        var item = list[$art_ik$art_i]%>';
-        for (var $art_ik$art_i = 0, $art_cccgrkdjcrt$art_c = list.length; $art_ik$art_i < $art_cccgrkdjcrt$art_c; $art_ik$art_i++) {
-            var item = list[$art_ik$art_i];
+        $expr = '<%for (var $art_iksqnyamkbo$art_i = 0, $art_cvdojajusc$art_c = list.length; $art_iksqnyamkbo$art_i < $art_cvdojajusc$art_c; $art_iksqnyamkbo$art_i++) {        var item = list[$art_iksqnyamkbo$art_i]%>';
+        for (var $art_iksqnyamkbo$art_i = 0, $art_cvdojajusc$art_c = list.length; $art_iksqnyamkbo$art_i < $art_cvdojajusc$art_c; $art_iksqnyamkbo$art_i++) {
+            var item = list[$art_iksqnyamkbo$art_i];
             $p += '<a mx-mouseover="' + $viewId + '@{over}({value:\'';
             $line = 4;
             $art = '=item.value';
@@ -78,7 +78,7 @@ module.exports = Base.extend({
             $expr = '<%if (item.tag) {%>';
             if (item.tag) {
                 ;
-                $p += '<span mxa="_zs_galleryc0:a" class="_zs_gallery_mx-tabs_index_-tag"><span mxs="_zs_galleryc0:_" class="_zs_gallery_mx-tabs_index_-tag-arrow"></span><span mxa="_zs_galleryc0:b" class="_zs_gallery_mx-tabs_index_-tag-name">';
+                $p += '<span mxa="_zs_galleryc4:a" class="_zs_gallery_mx-tabs_index_-tag"><span mxs="_zs_galleryc4:_" class="_zs_gallery_mx-tabs_index_-tag-arrow"></span><span mxa="_zs_galleryc4:b" class="_zs_gallery_mx-tabs_index_-tag-name">';
                 $line = 9;
                 $art = '=item.tag';
                 ;
@@ -144,9 +144,9 @@ module.exports = Base.extend({
         $art = 'each list as item';
         ;
         $p += '';
-        $expr = '<%for (var $art_ihpwiavx$art_i = 0, $art_chdbhbqtln$art_c = list.length; $art_ihpwiavx$art_i < $art_chdbhbqtln$art_c; $art_ihpwiavx$art_i++) {        var item = list[$art_ihpwiavx$art_i]%>';
-        for (var $art_ihpwiavx$art_i = 0, $art_chdbhbqtln$art_c = list.length; $art_ihpwiavx$art_i < $art_chdbhbqtln$art_c; $art_ihpwiavx$art_i++) {
-            var item = list[$art_ihpwiavx$art_i];
+        $expr = '<%for (var $art_imhureaim$art_i = 0, $art_cjghorc$art_c = list.length; $art_imhureaim$art_i < $art_cjghorc$art_c; $art_imhureaim$art_i++) {        var item = list[$art_imhureaim$art_i]%>';
+        for (var $art_imhureaim$art_i = 0, $art_cjghorc$art_c = list.length; $art_imhureaim$art_i < $art_cjghorc$art_c; $art_imhureaim$art_i++) {
+            var item = list[$art_imhureaim$art_i];
             $p += '<a href="javascript:;" ';
             $line = 24;
             $art = 'if !disabled';
@@ -183,7 +183,7 @@ module.exports = Base.extend({
             $expr = '<%if (item.tag) {%>';
             if (item.tag) {
                 ;
-                $p += '<span mxa="_zs_galleryc0:c" class="_zs_gallery_mx-tabs_index_-tag">';
+                $p += '<span mxa="_zs_galleryc4:c" class="_zs_gallery_mx-tabs_index_-tag">';
                 $line = 27;
                 $art = '=item.tag';
                 ;

@@ -51,7 +51,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><i mxs="_zs_galleryb^:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+    $p += '"><i mxs="_zs_galleryb):_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
     $line = 3;
     $art = '=placeholder';
     ;
@@ -80,9 +80,9 @@ module.exports = Magix.View.extend({
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for (var $art_issynqs$art_i = 0, $art_cepxvlnrhxr$art_c = list.length; $art_issynqs$art_i < $art_cepxvlnrhxr$art_c; $art_issynqs$art_i++) {    var item = list[$art_issynqs$art_i]%>';
-    for (var $art_issynqs$art_i = 0, $art_cepxvlnrhxr$art_c = list.length; $art_issynqs$art_i < $art_cepxvlnrhxr$art_c; $art_issynqs$art_i++) {
-        var item = list[$art_issynqs$art_i];
+    $expr = '<%for (var $art_ignzsfu$art_i = 0, $art_crzmdfag$art_c = list.length; $art_ignzsfu$art_i < $art_crzmdfag$art_c; $art_ignzsfu$art_i++) {    var item = list[$art_ignzsfu$art_i]%>';
+    for (var $art_ignzsfu$art_i = 0, $art_crzmdfag$art_c = list.length; $art_ignzsfu$art_i < $art_crzmdfag$art_c; $art_ignzsfu$art_i++) {
+        var item = list[$art_ignzsfu$art_i];
         $p += '<li class="_zs_gallery_mx-search_index_-search-item ';
         $line = 13;
         $art = 'if (searchKey == item.value)';
@@ -103,15 +103,19 @@ module.exports = Magix.View.extend({
         $line = 13;
         $art = '@item';
         ;
-        $p += '' + ($expr = '<%@item%>', $i($$ref, item)) + '\'})">搜索含有“';
+        $p += '' + ($expr = '<%@item%>', $i($$ref, item)) + '\'})">';
+        $line = 14;
+        $art = '=item.prefix';
+        ;
+        $p += '' + ($expr = '<%=item.prefix%>', $e(item.prefix)) + '';
         $line = 14;
         $art = '=searchValue';
         ;
-        $p += '' + ($expr = '<%=searchValue%>', $e(searchValue)) + '”的';
+        $p += '' + ($expr = '<%=searchValue%>', $e(searchValue)) + '';
         $line = 14;
-        $art = '=item.text';
+        $art = '=item.suffix';
         ;
-        $p += '' + ($expr = '<%=item.text%>', $e(item.text)) + '</li>';
+        $p += '' + ($expr = '<%=item.suffix%>', $e(item.suffix)) + '</li>';
         $line = 16;
         $art = '/each';
         ;
@@ -167,15 +171,19 @@ catch (ex) {
                 list = data.list;
             }
             list = list.map(function (item) {
+                var tpls = (item.tmpl || ('搜索含有“${content}”的' + item[listText_1])).split('${content}');
                 return {
+                    prefix: tpls[0],
+                    suffix: tpls[1],
                     text: item[listText_1],
                     value: item[listValue_1]
                 };
             });
             if (!that['@{dis.placeholder}']) {
-                that['@{dis.placeholder}'] = list.map(function (item) {
+                var ts = list.map(function (item) {
                     return item.text;
-                }).join('/');
+                });
+                that['@{dis.placeholder}'] = $.unique(ts).join('/');
             }
         }
         else {

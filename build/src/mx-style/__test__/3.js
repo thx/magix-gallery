@@ -23,19 +23,19 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerycf:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerycf:a" class="_zs_gallery___test___layout_-eg-content"><label mxv mxa="_zs_gallerycf:b" class="mr30"><input mxs="_zs_gallerycf:_" type="checkbox" name="cb" value="1" checked="true"/> 选中</label><label mxv mxa="_zs_gallerycf:c" class="mr30"><input mxs="_zs_gallerycf:a" type="checkbox" name="cb" value="2" checked="true" disabled="true"/> 选中禁止选择</label><label mxv mxa="_zs_gallerycf:d" class="mr30"><input mxs="_zs_gallerycf:b" type="checkbox" name="cb" value="3"/> 未选中</label><label mxv mxa="_zs_gallerycf:e" class="mr30"><input mxs="_zs_gallerycf:c" type="checkbox" name="cb" value="4" disabled="true"/> 未选中禁止选择</label></div><div mxa="_zs_gallerycf:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycf:d" class="_zs_gallery___test___layout_-eg-title">Checkbox</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 22;
+    $p += '<div mxv mxa="_zs_gallerycj:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerycj:a" class="_zs_gallery___test___layout_-eg-content"><div mxv mxa="_zs_gallerycj:b" class="mb20"><span mxs="_zs_gallerycj:_" class="color-9 mr10">动效：</span><label mxv mxa="_zs_gallerycj:c" class="mr20"><input mxs="_zs_gallerycj:a" type="checkbox" class="anim-checkbox" name="cb2" value="1" checked="true"/> 选中</label><label mxv mxa="_zs_gallerycj:d" class="mr20"><input mxs="_zs_gallerycj:b" type="checkbox" class="anim-checkbox" name="cb2" value="2" checked="true" disabled="true"/> 选中禁止选择</label><label mxv mxa="_zs_gallerycj:e" class="mr20"><input mxs="_zs_gallerycj:c" type="checkbox" class="anim-checkbox" name="cb2" value="3"/> 未选中</label><label mxv><input mxs="_zs_gallerycj:d" type="checkbox" class="anim-checkbox" name="cb2" value="4" disabled="true"/> 未选中禁止选择</label></div><div mxv><span mxs="_zs_gallerycj:e" class="color-9 mr10">普通：</span><label mxv mxa="_zs_gallerycj:f" class="mr20"><input mxs="_zs_gallerycj:f" type="checkbox" name="cb1" value="1" checked="true"/> 选中</label><label mxv mxa="_zs_gallerycj:g" class="mr20"><input mxs="_zs_gallerycj:g" type="checkbox" name="cb1" value="2" checked="true" disabled="true"/> 选中禁止选择</label><label mxv mxa="_zs_gallerycj:h" class="mr20"><input mxs="_zs_gallerycj:h" type="checkbox" name="cb1" value="3"/> 未选中</label><label mxv><input mxs="_zs_gallerycj:i" type="checkbox" name="cb1" value="4" disabled="true"/> 未选中禁止选择</label></div></div><div mxa="_zs_gallerycj:i" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycj:j" class="_zs_gallery___test___layout_-eg-title">Checkbox</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 44;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycf:g" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 24;
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycj:j" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 46;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycf:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 27;
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycj:k" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 49;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;label class="mr30"&gt;\n    &lt;input type="checkbox" name="cb" value="1" checked="true" /&gt;\n    选中\n&lt;/label&gt;\n\n&lt;label class="mr30"&gt;\n    &lt;input type="checkbox" name="cb" value="2" checked="true" disabled="true" /&gt;\n    选中禁止选择\n&lt;/label&gt;\n\n&lt;label class="mr30"&gt;\n    &lt;input type="checkbox" name="cb" value="3" /&gt;\n    未选中\n&lt;/label&gt;\n\n&lt;label class="mr30"&gt;\n    &lt;input type="checkbox" name="cb" value="4" disabled="true" /&gt;\n    未选中禁止选择\n&lt;/label&gt;</pre></div></div>';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;label class="mr20"&gt;\n    &lt;input type="checkbox" class="anim-checkbox" \n        name="cb2" value="2" checked="true" /&gt;\n    动效加className（anim-checkbox）\n&lt;/label&gt;\n\n&lt;label class="mr20"&gt;\n    &lt;input type="checkbox"\n        name="cb1" value="1" checked="true" /&gt;\n    普通无动效\n&lt;/label&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -80,9 +80,17 @@ module.exports = Magix.View.extend({
                 path: '/form/mixins',
                 icon: '&#xe64e;'
             }, {
-                name: '双向绑定 + 校验使用场景',
+                name: 'isValid',
+                path: '/form/valid',
+                icon: '&#xe621;'
+            }, {
+                name: '双向绑定 + 校验',
                 path: '/form/index',
-                icon: '&#xe731;'
+                icon: '&#xe60d;'
+            }, {
+                name: '警告类校验场景',
+                path: '/form/warn',
+                icon: '&#xe61f;'
             }]
         }, {
             name: '表格（mixins）',
@@ -282,7 +290,7 @@ module.exports = Magix.View.extend({
         }, {
             name: '样式',
             subs: [{
-                name: '基础',
+                name: '常用',
                 path: '/style/index',
                 icon: '&#xe62c;'
             }, {
