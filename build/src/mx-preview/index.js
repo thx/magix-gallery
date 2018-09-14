@@ -267,14 +267,18 @@ catch (ex) {
                 return;
             }
             var next_1 = function () {
-                // 对最大范围进行修正
+                // 对最大范围进行修正，不超过屏幕可视范围
                 var win = $(window);
-                var rangeWidth = win.width() - left_1;
+                var winWidth = win.width(), winHeight = win.height(), winScroll = win.scrollTop();
+                var rangeWidth = winWidth - left_1;
                 if (rangeWidth < width_1) {
                     height_1 = height_1 * (rangeWidth / width_1);
                     width_1 = rangeWidth;
                 }
-                var winHeight = win.height(), winScroll = win.scrollTop();
+                if (height_1 > winHeight) {
+                    width_1 = width_1 * winHeight / height_1;
+                    height_1 = winHeight;
+                }
                 if (winScroll + winHeight < top_1 + height_1) {
                     // 有部分不可见
                     var back = Math.min((top_1 + height_1 - winScroll - winHeight), top_1 - winScroll);

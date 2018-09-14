@@ -103,15 +103,21 @@ module.exports = Magix.View.extend({
             }
 
             let next = () => {
-                // 对最大范围进行修正
+                // 对最大范围进行修正，不超过屏幕可视范围
                 let win = $(window);
-                let rangeWidth = win.width() - left;
+                let winWidth = win.width(),
+                    winHeight = win.height(),
+                    winScroll = win.scrollTop();
+                let rangeWidth = winWidth - left;
                 if (rangeWidth < width) {
                     height = height * (rangeWidth / width);
                     width = rangeWidth;
                 }
-                let winHeight = win.height(),
-                    winScroll = win.scrollTop();
+                if(height > winHeight){
+                    width = width * winHeight / height;
+                    height = winHeight;
+                }
+
                 if (winScroll + winHeight < top + height) {
                     // 有部分不可见
                     let back = Math.min(

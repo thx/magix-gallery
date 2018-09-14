@@ -29,7 +29,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', contents = $$.contents, viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div class="mb20" mx-view="mx-effects/notice?border=true&icon=false&type=highlight&content=';
+    $p += '<div class="mb20 mr20" mx-view="mx-effects/notice?border=true&icon=false&type=highlight&content=';
     $line = 5;
     $art = '=contents';
     ;

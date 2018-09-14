@@ -101,7 +101,12 @@ module.exports = {
                 object = object[temp];
             }
             rootKey = rootKey || key;
-            if (node.prop('type') == 'checkbox') {
+            if (node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-calendar/rangepicker') > -1)) {
+                // 日历时间段组件
+                var pv = JSON.parse(node.val());
+                value = pv[ctrl.a];
+            }
+            else if (node.prop('type') == 'checkbox') {
                 var src = object[key];
                 var checked = node.prop('checked');
                 if (src === true || src === false) {

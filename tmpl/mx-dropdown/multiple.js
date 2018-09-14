@@ -103,7 +103,8 @@ module.exports = Magix.View.extend({
             map = {};
         let selected;
         if (!ops.selected) {
-            me['@{bak.type}'] = 'array';
+            // 默认情况下逗号分隔
+            // me['@{bak.type}'] = 'array';
             selected = [];
         } else {
             if ($.isArray(ops.selected)) {
@@ -382,7 +383,6 @@ module.exports = Magix.View.extend({
     },
     '@{select}<change>' (e) {
         e.stopPropagation();
-
         let me = this;
         let data = me.updater.get();
 
@@ -400,7 +400,6 @@ module.exports = Magix.View.extend({
             allChecked = allChecked && list[i].checked;
         }
         groups[groupIndex].checked = allChecked;
-
         me.updater.digest({
             groups
         });
@@ -433,7 +432,6 @@ module.exports = Magix.View.extend({
         let texts = selected.map(value => {
             return map[value].text;
         })
-
         // 确定的时候才更新
         me['@{owner.node}'].trigger({
             type: 'change',

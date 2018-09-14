@@ -112,9 +112,9 @@ module.exports = Base.extend({
             $art = 'each list as item';
             ;
             $p += '';
-            $expr = '<%for (var $art_ifjfjbkrqov$art_i = 0, $art_cxedvqffkc$art_c = list.length; $art_ifjfjbkrqov$art_i < $art_cxedvqffkc$art_c; $art_ifjfjbkrqov$art_i++) {            var item = list[$art_ifjfjbkrqov$art_i]%>';
-            for (var $art_ifjfjbkrqov$art_i = 0, $art_cxedvqffkc$art_c = list.length; $art_ifjfjbkrqov$art_i < $art_cxedvqffkc$art_c; $art_ifjfjbkrqov$art_i++) {
-                var item = list[$art_ifjfjbkrqov$art_i];
+            $expr = '<%for (var $art_icmmbhup$art_i = 0, $art_czlbyiu$art_c = list.length; $art_icmmbhup$art_i < $art_czlbyiu$art_c; $art_icmmbhup$art_i++) {            var item = list[$art_icmmbhup$art_i]%>';
+            for (var $art_icmmbhup$art_i = 0, $art_czlbyiu$art_c = list.length; $art_icmmbhup$art_i < $art_czlbyiu$art_c; $art_icmmbhup$art_i++) {
+                var item = list[$art_icmmbhup$art_i];
                 $p += '<li class="_zs_gallery_mx-status_base_-status-oper clearfix ';
                 $line = 26;
                 $art = 'if (item.value == cur.value)';

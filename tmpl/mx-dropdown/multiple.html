@@ -35,6 +35,7 @@
                             <input type="checkbox" class="checkbox" 
                                 {{if group.checked}} checked="true" {{/if}}
                                 id="{{=viewId}}_{{=group.value}}"
+                                mx-focusout="@{stop}()"
                                 mx-change="@{selectGroup}({groupIndex:'{{=groupIndex}}'})" 
                                 data-spm-click="{{=spm}}"/>{{=group.text}}
                         </label>
@@ -51,6 +52,7 @@
                             <input type="checkbox" class="checkbox" 
                                 {{if item.checked}} checked="true" {{/if}}
                                 id="{{=viewId}}_{{=item.value}}"
+                                mx-focusout="@{stop}()"
                                 mx-change="@{select}({groupIndex:'{{=groupIndex}}',value:'{{=item.value}}'})" 
                                 data-spm-click="{{=spm}}"/>{{=item.text}}
                         </label>

@@ -26,9 +26,9 @@ module.exports = Magix.View.extend({
     $art = 'each list as item';
     ;
     $p += '';
-    $expr = '<%for (var $art_ivhxxoxcmo$art_i = 0, $art_cegxighl$art_c = list.length; $art_ivhxxoxcmo$art_i < $art_cegxighl$art_c; $art_ivhxxoxcmo$art_i++) {    var item = list[$art_ivhxxoxcmo$art_i]%>';
-    for (var $art_ivhxxoxcmo$art_i = 0, $art_cegxighl$art_c = list.length; $art_ivhxxoxcmo$art_i < $art_cegxighl$art_c; $art_ivhxxoxcmo$art_i++) {
-        var item = list[$art_ivhxxoxcmo$art_i];
+    $expr = '<%for (var $art_ibxwtdqau$art_i = 0, $art_cjazxyze$art_c = list.length; $art_ibxwtdqau$art_i < $art_cjazxyze$art_c; $art_ibxwtdqau$art_i++) {    var item = list[$art_ibxwtdqau$art_i]%>';
+    for (var $art_ibxwtdqau$art_i = 0, $art_cjazxyze$art_c = list.length; $art_ibxwtdqau$art_i < $art_cjazxyze$art_c; $art_ibxwtdqau$art_i++) {
+        var item = list[$art_ibxwtdqau$art_i];
         $p += '<div mxa="_zs_gallerybX:b" class="_zs_gallery_mx-popover___test___custom_-custom-item"><div mxa="_zs_gallerybX:c" class="mb5 color-9">';
         $line = 7;
         $art = '=item.name';

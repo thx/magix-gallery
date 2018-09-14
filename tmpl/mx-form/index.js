@@ -63,7 +63,6 @@ module.exports = {
         let me = this,
             node = $(e.eventTarget);
         let mxe = node.attr('mxe');
-
         // 交给真正的处理元素，只处理本view的
         // 避免所有view都挂载isValid的时候触发所有校验
         if (!mxe || !mxe.startsWith(me.id)) {
@@ -96,7 +95,11 @@ module.exports = {
                 object = object[temp];
             }
             rootKey = rootKey || key;
-            if (node.prop('type') == 'checkbox') {
+            if(node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-calendar/rangepicker') > -1)){
+                // 日历时间段组件
+                let pv = JSON.parse(node.val());
+                value = pv[ctrl.a];
+            }else if (node.prop('type') == 'checkbox') {
                 let src = object[key];
                 let checked = node.prop('checked');
                 if (src === true || src === false) {

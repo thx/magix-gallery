@@ -230,7 +230,6 @@ module.exports = {
 
     check(node){
         let me = this;
-
         let updater = me.updater;
         let form = updater.$form || (updater.$form = {});
         let mxc = node.attr('mxc');

@@ -267,12 +267,17 @@ let Rangepicker = Magix.View.extend({
         that['@{hide}']();
 
         //支持多绑定
-        that['@{owner.node}'].trigger({
+        let result = JSON.stringify({
+            start: dates.startStr,
+            end: dates.endStr,
+            vs: vs
+        })
+        that['@{owner.node}'].val(result).trigger({
             type: 'change',
             start: dates.startStr,
             end: dates.endStr,
-            dates: dates,
-            vs: vs
+            vs: vs,
+            dates: dates
         });
     },
     '@{hide}<cancel>'(e) {

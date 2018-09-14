@@ -181,7 +181,7 @@ catch (ex) {
         });
         that['@{hide}']();
         // 通知外层数据更新
-        that['@{owner.node}'].trigger({
+        that['@{owner.node}'].val(dateInfo.selected).trigger({
             type: 'change',
             date: e.date,
             time: e.time

@@ -25,33 +25,33 @@
     boot.ts</pre>
     </div>
     <div class="fontsize-14">细节说明：</div>
-    <div class="lh22">1. boot.ts</div>
+    <div class="lh22 mb10">1. boot.ts</div>
     <div class="pl15 lh22 mb10">
-        <div>1.1 准备通用环境，如加载jquery,underscore,accouting等</div>
-        <div>1.2 应用自己品牌色的通用样式</div>
-        <div class="mb10">1.3 加载其它项目中的project/prepare.ts文件</div>
-        <mx-effects.notice 
+        <mx-effects.notice class="mb10"
             type="highlight" 
             border="true" 
             content="注意：请保持项目间的boot.ts加载的通用模块的一致性，基本上从mx init初始化项目之后，就不要再动boot.ts文件了，有自己特殊逻辑的东西请在各自的prepare.ts文件里加载"/>
+        <div>1.1 准备通用环境，如加载jquery,underscore,accouting等</div>
+        <div>1.2 应用自己品牌色的通用样式</div>
+        <div>1.3 加载其它项目中的project/prepare.ts文件</div>
     </div>
-    <div class="lh22">2. project/prepare.ts</div>
+    <div class="lh22 mb10">2. project/prepare.ts</div>
     <div class="pl15 lh22 mb10">
-        <div>2.1 异步加载用户信息、字典文件等</div>
-        <div>2.2 使用Magix.config方法把相关信息放到Magix.config({'prject.xx':'yy'})里，不挂载在window上，避免跨项目mount冲突</div>
-        <div class="mb10">2.3 导出返回值是promise的方法供外部调用</div>
-        <mx-effects.notice 
+        <mx-effects.notice class="mb10" 
             type="highlight" 
             border="true" 
             content="prepare.ts可以算做boot.ts的本地化扩展，各自项目的特殊的逻辑可以在这里定义"/>
+        <div>2.1 异步加载用户信息、字典文件等</div>
+        <div>2.2 使用Magix.config方法把相关信息放到Magix.config({'prject.xx':'yy'})里，不挂载在window上，避免跨项目mount冲突</div>
+        <div>2.3 导出返回值是promise的方法供外部调用</div>
     </div>
-    <div class="lh22">3. project/view.ts</div>
+    <div class="lh22 mb10">3. project/view.ts</div>
     <div class="pl15 lh22 mb10">
-        <div>3.1 项目中所有view的基类为该文件，而不再是原来的Magix.View</div>
-        <div class="mb10">3.2 该文件继承Magix.View，然后挂载项目中常用的方法等，如接口请求fetch、save等</div>
-        <mx-effects.notice 
+        <mx-effects.notice class="mb10"
             type="highlight" 
             border="true" 
             content="view.ts各自项目都保留一份，本质上是为了保持各自项目的一些特有非通用配置，比如 Magix.config('zs_scaffold.user') 等配置"/>
+        <div>3.1 项目中所有view的基类为该文件，而不再是原来的Magix.View</div>
+        <div>3.2 该文件继承Magix.View，然后挂载项目中常用的方法等，如接口请求fetch、save等</div>
     </div>
 </div>

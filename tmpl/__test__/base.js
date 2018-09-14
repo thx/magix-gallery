@@ -31,7 +31,7 @@ module.exports = Magix.View.extend({
                 path: '/all/pro/menu',
                 icon: '&#xe65e;'
             }, {
-                name: '前后端权限约定',
+                name: '前后端接口约定',
                 path: '/all/pro/permission',
                 icon: '&#xe6d1;'
             }, {
@@ -39,7 +39,7 @@ module.exports = Magix.View.extend({
                 path: '/all/pro/cross',
                 icon: '&#xe6b6;'
             }, {
-                name: '本地组件',
+                name: '关于本地组件的约定',
                 path: '/all/pro/local',
                 icon: '&#xe648;'
             }, {
