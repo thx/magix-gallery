@@ -38,9 +38,9 @@ module.exports = Base.extend({
     $art = 'each checkboxes as c';
     ;
     $p += '';
-    $expr = '<%for (var $art_iyogtpdsvn$art_i = 0, $art_cjanaq$art_c = checkboxes.length; $art_iyogtpdsvn$art_i < $art_cjanaq$art_c; $art_iyogtpdsvn$art_i++) {    var c = checkboxes[$art_iyogtpdsvn$art_i]%>';
-    for (var $art_iyogtpdsvn$art_i = 0, $art_cjanaq$art_c = checkboxes.length; $art_iyogtpdsvn$art_i < $art_cjanaq$art_c; $art_iyogtpdsvn$art_i++) {
-        var c = checkboxes[$art_iyogtpdsvn$art_i];
+    $expr = '<%for (var $art_ipashyjlof$art_i = 0, $art_cndzjkurqinh$art_c = checkboxes.length; $art_ipashyjlof$art_i < $art_cndzjkurqinh$art_c; $art_ipashyjlof$art_i++) {    var c = checkboxes[$art_ipashyjlof$art_i]%>';
+    for (var $art_ipashyjlof$art_i = 0, $art_cndzjkurqinh$art_c = checkboxes.length; $art_ipashyjlof$art_i < $art_cndzjkurqinh$art_c; $art_ipashyjlof$art_i++) {
+        var c = checkboxes[$art_ipashyjlof$art_i];
         $p += '<label mxv mxa="_zs_galleryI:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 10;
         $art = ':selected.checkboxes';
@@ -66,9 +66,9 @@ module.exports = Base.extend({
     $art = 'each radioes as r';
     ;
     $p += '';
-    $expr = '<%for (var $art_ioztcuzxmv$art_i = 0, $art_ctefotdvacxj$art_c = radioes.length; $art_ioztcuzxmv$art_i < $art_ctefotdvacxj$art_c; $art_ioztcuzxmv$art_i++) {    var r = radioes[$art_ioztcuzxmv$art_i]%>';
-    for (var $art_ioztcuzxmv$art_i = 0, $art_ctefotdvacxj$art_c = radioes.length; $art_ioztcuzxmv$art_i < $art_ctefotdvacxj$art_c; $art_ioztcuzxmv$art_i++) {
-        var r = radioes[$art_ioztcuzxmv$art_i];
+    $expr = '<%for (var $art_imgstcelntn$art_i = 0, $art_ceuyuildjwjs$art_c = radioes.length; $art_imgstcelntn$art_i < $art_ceuyuildjwjs$art_c; $art_imgstcelntn$art_i++) {    var r = radioes[$art_imgstcelntn$art_i]%>';
+    for (var $art_imgstcelntn$art_i = 0, $art_ceuyuildjwjs$art_c = radioes.length; $art_imgstcelntn$art_i < $art_ceuyuildjwjs$art_c; $art_imgstcelntn$art_i++) {
+        var r = radioes[$art_imgstcelntn$art_i];
         $p += '<label mxv mxa="_zs_galleryI:f" class="mr30"><input mxe="' + $viewId + '_1" mxc="[';
         $line = 24;
         $art = ':selected.radio';

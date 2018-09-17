@@ -63,7 +63,7 @@ module.exports = Magix.View.extend({
         let sourceId = sourceMap[path] || defaultSourceId 
 
         // 刷新万象知识库
-        let duration = 20;
+        let duration = 25;
         let timer = setTimeout(() => {
             clearTimeout(timer);
             if (window.AW && (sourceId !== oldSourceId)) {
