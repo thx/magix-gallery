@@ -21,8 +21,8 @@ module.exports = Magix.View.extend({
         }
         that.updater.set({
             bizCode,
-            sourceId: defaultSourceId,
-            defaultSourceId,
+            sourceId: defaultSourceId, //当前sourceId
+            defaultSourceId, // 默认sourceId
             bottom: +bottom,
             sourceMap: extra.sourceMap || {},
             awLoading: true
@@ -63,7 +63,7 @@ module.exports = Magix.View.extend({
         let sourceId = sourceMap[path] || defaultSourceId 
 
         // 刷新万象知识库
-        let duration = 25;
+        let duration = 20;
         let timer = setTimeout(() => {
             clearTimeout(timer);
             if (window.AW && (sourceId !== oldSourceId)) {
