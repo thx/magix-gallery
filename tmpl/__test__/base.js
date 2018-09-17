@@ -263,12 +263,12 @@ module.exports = Magix.View.extend({
                 path: '/error/index',
                 icon: '&#xe611;'
             }, {
-                name: '旺旺唤起',
+                name: '旺旺点灯',
                 path: '/wangwang/index',
                 icon: '&#xe75c;'
             }, {
                 name: '钉钉唤起',
-                path: '/dingding/index',
+                path: '/all/dingding',
                 icon: '&#xe677;'
             }, {
                 name: '万象客服问答',

@@ -21,7 +21,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryc::_" mx-view="mx-main/index"></div>';
+    $p += '<div mxs="_zs_gallerybE:_" mx-view="mx-main/index"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
