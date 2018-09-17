@@ -3,12 +3,13 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-carousel/__test__/index",["magix","mx-title/second","./2","./3","./1","__test__/api"],(require,exports,module)=>{
+define("mx-carousel/__test__/index",["magix","mx-title/second","./2","./3","./1","./4","__test__/api"],(require,exports,module)=>{
 /*Magix*/
 require("mx-title/second");
 require("./2");
 require("./3");
 require("./1");
+require("./4");
 require("__test__/api");
 var Magix = require("magix");
 module.exports = Magix.View.extend({
@@ -28,8 +29,8 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallery\\:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallery\\:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-carousel/__test__/2"></div><div mx-view="mx-carousel/__test__/3"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-carousel/__test__/1"></div></div></div><div mxs="_zs_gallery\\:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 14;
+    $p += '<div mxs="_zs_gallery,:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallery,:c" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-carousel/__test__/2"></div><div mx-view="mx-carousel/__test__/3"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-carousel/__test__/1"></div><div mx-view="mx-carousel/__test__/4"></div></div></div><div mxs="_zs_gallery,:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $line = 15;
     $art = '@options';
     ;
     $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div>';
@@ -100,6 +101,16 @@ catch (ex) {
                 desc: '动画持续时间',
                 type: 'string',
                 def: '0.5s'
+            }, {
+                key: 'prev-trigger',
+                desc: '自定义上一帧trigger的id',
+                type: 'string',
+                def: ''
+            }, {
+                key: 'next-trigger',
+                desc: '自定义下一帧trigger的id',
+                type: 'string',
+                def: ''
             }];
         this.updater.digest({
             options: options

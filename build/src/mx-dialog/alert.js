@@ -22,7 +22,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', title = $$.title, content = $$.content, hasBtns = $$.hasBtns, enterText = $$.enterText; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryac:_" class="dialog-body"><div mxa="_zs_galleryac:a" class="_zs_gallery_mx-dialog_alert_-alert-header">' + ($expr = '<%=title%>', $e(title)) + '</div><div mxa="_zs_galleryac:b" class="word-break">' + ($expr = '<%!content%>', $n(content)) + '</div></div>';
+    $p += '<div mxa="_zs_galleryad:_" class="dialog-body"><div mxa="_zs_galleryad:a" class="_zs_gallery_mx-dialog_alert_-alert-header">' + ($expr = '<%=title%>', $e(title)) + '</div><div mxa="_zs_galleryad:b" class="word-break">' + ($expr = '<%!content%>', $n(content)) + '</div></div>';
     $line = 5;
     $art = 'if hasBtns';
     ;
@@ -30,7 +30,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (hasBtns) {%>';
     if (hasBtns) {
         ;
-        $p += '<div mxa="_zs_galleryac:c" class="dialog-footer"><a mxa="_zs_galleryac:d" href="javascript:;" class="btn btn-small btn-brand min-width-50" mx-click="' + $viewId + '@{enter}();">' + ($expr = '<%=enterText%>', $e(enterText)) + '</a></div>';
+        $p += '<div mxa="_zs_galleryad:c" class="dialog-footer"><a mxa="_zs_galleryad:d" href="javascript:;" class="btn btn-small btn-brand min-width-50" mx-click="' + $viewId + '@{enter}();">' + ($expr = '<%=enterText%>', $e(enterText)) + '</a></div>';
         $line = 9;
         $art = '/if';
         ;

@@ -59,6 +59,16 @@ module.exports = Magix.View.extend({
             desc: '动画持续时间',
             type: 'string',
             def: '0.5s'
+        }, {
+            key: 'prev-trigger',
+            desc: '自定义上一帧trigger的id',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'next-trigger',
+            desc: '自定义下一帧trigger的id',
+            type: 'string',
+            def: ''
         }]
         this.updater.digest({
             options

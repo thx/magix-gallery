@@ -23,6 +23,18 @@ module.exports = Magix.View.extend({
             timing: extra.timing || 'ease-in-out', // transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n);
             duration: extra.duration || '.5s' // 动画持续时间
         })
+
+        if(extra.prevTrigger){
+            $('#' + extra.prevTrigger).on('click', () => {
+                that['@{trigger}'](-1);
+            })
+        }
+        if(extra.nextTrigger){
+            $('#' + extra.nextTrigger).on('click', () => {
+                that['@{trigger}'](1);
+            })
+        }
+
         that.on('destroy', () => {
             that['@{stop.auto.play}']();
 
@@ -175,6 +187,19 @@ module.exports = Magix.View.extend({
         if (that['@{play.task}']) {
             clearInterval(that['@{play.task}']);
         }
+    },
+
+    '@{trigger}'(offset) {
+        let active = this.updater.get('active'),
+            len = this.updater.get('len');
+        active = +active + offset;
+        if(active >= len){
+            active = 0;
+        }
+        if(active < 0){
+            active = (len - 1);
+        }
+        this['@{to.panel}'](active);
     },
 
     '@{active}<click>'(e) {

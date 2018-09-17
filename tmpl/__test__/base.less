@@ -132,3 +132,56 @@
     }
 }
 
+@fix-size: 36px;
+.fixes{
+    position: fixed;
+    right: 0;
+    bottom: 50px;
+    z-index: 20;
+    border-bottom: 1px solid @color-border;
+    .fix{
+        position: relative;
+        display: block;
+        width: @fix-size;
+        height: @fix-size;
+        .fix-tip,
+        .fix-icon{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: @fix-size;
+            line-height: @fix-size;
+            transition: all @duration;
+            background-color: #fff;
+        }
+        .fix-tip{
+            z-index: 21;
+            width: 70px;
+            color: #fff;
+            text-align: right;
+        }
+        .fix-icon{
+            z-index: 22;
+            width: @fix-size;
+            border-width: 1px 0 0 1px;
+            border-color: @color-border;
+            border-style: solid;
+            font-size: 22px;
+            color: #ccc;
+            text-align: center;
+        }
+
+        &:hover{
+            opacity: .95;
+            .fix-icon{
+                background-color: @color-brand;
+                border-color: @color-brand;
+                color: #fff;
+            }
+            .fix-tip{
+                background-color: @color-brand;
+                left: -70px;
+            }
+        }
+    }
+}

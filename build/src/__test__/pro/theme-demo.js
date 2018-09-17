@@ -23,7 +23,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryH:_" class="clearfix"><div class="_zs_gallery___test___pro_theme-demo_-demo-wrapper fl"><div mx-view="__test__/pro/theme-demo1" class="fl"></div><div mx-view="__test__/pro/theme-demo2" class="fr"></div></div></div>';
+    $p += '<div mxs="_zs_galleryI:_" class="clearfix"><div class="_zs_gallery___test___pro_theme-demo_-demo-wrapper fl"><div mx-view="__test__/pro/theme-demo1" class="fl"></div><div mx-view="__test__/pro/theme-demo2" class="fr"></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

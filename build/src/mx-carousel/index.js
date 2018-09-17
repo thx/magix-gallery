@@ -27,7 +27,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=height';
     ;
-    $p += '' + ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_gallery,:_" class="_zs_gallery_mx-carousel_index_-inner" mx-mouseover="' + $viewId + '@{stop}()" mx-mouseout="' + $viewId + '@{start}()">';
+    $p += '' + ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_gallery.:_" class="_zs_gallery_mx-carousel_index_-inner" mx-mouseover="' + $viewId + '@{stop}()" mx-mouseout="' + $viewId + '@{start}()">';
     $line = 5;
     $art = '!content';
     ;
@@ -72,7 +72,7 @@ module.exports = Magix.View.extend({
         $expr = '<%for (var i = 0; i < len; i += 1) {%>';
         for (var i = 0; i < len; i += 1) {
             ;
-            $p += '<li mxa="_zs_gallery,:a" class="_zs_gallery_mx-carousel_index_-dot-cnt"><i class="_zs_gallery_mx-carousel_index_-dot" mx-click="' + $viewId + '@{active}({idx:';
+            $p += '<li mxa="_zs_gallery.:a" class="_zs_gallery_mx-carousel_index_-dot-cnt"><i class="_zs_gallery_mx-carousel_index_-dot" mx-click="' + $viewId + '@{active}({idx:';
             $line = 13;
             $art = '=i';
             ;
@@ -119,6 +119,16 @@ catch (ex) {
             timing: extra.timing || 'ease-in-out',
             duration: extra.duration || '.5s' // 动画持续时间
         });
+        if (extra.prevTrigger) {
+            $('#' + extra.prevTrigger).on('click', function () {
+                that['@{trigger}'](-1);
+            });
+        }
+        if (extra.nextTrigger) {
+            $('#' + extra.nextTrigger).on('click', function () {
+                that['@{trigger}'](1);
+            });
+        }
         that.on('destroy', function () {
             that['@{stop.auto.play}']();
             if (that['@{over.timer}']) {
@@ -253,6 +263,17 @@ catch (ex) {
         if (that['@{play.task}']) {
             clearInterval(that['@{play.task}']);
         }
+    },
+    '@{trigger}': function (offset) {
+        var active = this.updater.get('active'), len = this.updater.get('len');
+        active = +active + offset;
+        if (active >= len) {
+            active = 0;
+        }
+        if (active < 0) {
+            active = (len - 1);
+        }
+        this['@{to.panel}'](active);
     },
     '@{active}<click>': function (e) {
         this['@{to.panel}'](e.params.idx);

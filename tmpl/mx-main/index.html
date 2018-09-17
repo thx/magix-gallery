@@ -1,1 +1,36 @@
 Todo
+<!-- <div class="main" style="min-height: {{=viewHeight}}px;">
+    <div class="main-nav">
+        {{each viewInfo.stepInfos as step stepIndex}}
+        <div class="main-step {{if step.current}} step-current {{/if}} {{if step.locked}} step-locked {{/if}}">
+            <div class="step-over">
+                <a href="javascript:;" {{if (viewInfo.curSubStepIndex == -1)}} class="step-link-on" {{/if}} {{if !step.locked}} mx-click="nav({stepIndex:{{=stepIndex+1}},subStepIndex:-1})" {{/if}}>
+                    <i class="iconfont step-over-icon">{{!step.icon}}</i>{{=step.label}}
+                </a>
+            </div>
+            {{if (step.expand && step.subs.length > 1)}}
+            <ul class="step-subs">
+                {{each step.subs as sub subStepIndex}}
+                <li class="step-sub">
+                    <span class="step-vertical"></span>
+                    <span class="step-horizontal"></span>
+                    <a href="javascript:;" {{if (viewInfo.curSubStepIndex == subStepIndex + 1)}} class="step-link-on" {{/if}} mx-click="nav({stepIndex:{{=stepIndex+1}},subStepIndex:{{=subStepIndex+1}}})" >{{=sub.label}}</a>
+                </li>
+                {{/each}}
+            </ul>
+            {{/if}}
+            {{if step.current}}
+            <div class="step-arrow-icon"><i class="iconfont">&#xe602;</i></div>
+            {{/if}}
+            {{if step.locked}}
+            <div class="step-locked-icon"><i class="iconfont">&#xe759;</i></div>
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
+    <div class="main-content">
+        <div class="content-title">{{=childInfo.curStepInfo.label}}</div>
+        <mx-vframe id="vf_main_content"/>
+        <!-- <mx-vframe src="@./{{=childInfo.curStepInfo.id}}/index?parentInfo={{@childInfo}}"/> -->
+    </div>
+</div> -->

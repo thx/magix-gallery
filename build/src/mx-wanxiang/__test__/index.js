@@ -27,7 +27,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryc/:_" mx-view="mx-title/second?content=%E5%BC%95%E5%85%A5%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE%E5%B7%A5%E4%BD%9C"></div><div mxs="_zs_galleryc/:a" class="mb40">详情参见<a href="https://yuque.antfin-inc.com/wanxiang/technology/description" target="_blank" rel="noopener noreferrer" class="color-brand">https://yuque.antfin-inc.com/wanxiang/technology/description</a></div><div mxs="_zs_galleryc/:b" mx-view="mx-title/second?content=%E5%BC%95%E5%85%A5%E6%9C%8D%E5%8A%A1%E7%AA%97"></div><div mxs="_zs_galleryc/:c" mx-view="mx-wanxiang/__test__/1" class="mb40"></div><div mxs="_zs_galleryc/:d" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += '<div mxs="_zs_galleryc;:_" mx-view="mx-title/second?content=%E5%BC%95%E5%85%A5%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE%E5%B7%A5%E4%BD%9C"></div><div mxs="_zs_galleryc;:a" class="mb40">详情参见<a href="https://yuque.antfin-inc.com/wanxiang/technology/description" target="_blank" rel="noopener noreferrer" class="color-brand">https://yuque.antfin-inc.com/wanxiang/technology/description</a></div><div mxs="_zs_galleryc;:b" mx-view="mx-title/second?content=%E5%BC%95%E5%85%A5%E6%9C%8D%E5%8A%A1%E7%AA%97"></div><div mxs="_zs_galleryc;:c" mx-view="mx-wanxiang/__test__/1" class="mb40"></div><div mxs="_zs_galleryc;:d" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 8;
     $art = '@options';
     ;

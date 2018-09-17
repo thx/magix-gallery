@@ -23,19 +23,19 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', parentId = $$.parentId; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerys:_" class="_zs_gallery___test___pro_menu_-menu mr20"><div mxs="_zs_gallerys:_" class="_zs_gallery___test___pro_menu_-header clearfix"><div class="_zs_gallery___test___pro_menu_-logo">LOGO</div><div class="_zs_gallery___test___pro_menu_-name">一级标题</div></div><div mxa="_zs_gallerys:a" class="clearfix pr"><div mxs="_zs_gallerys:a" class="_zs_gallery___test___pro_menu_-navs"><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third _zs_gallery___test___pro_menu_-third-on">三级1</a></div><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third">三级2</a></div><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third">三级3</a></div></div><div mxa="_zs_gallerys:b" class="_zs_gallery___test___pro_menu_-inner"><div mxs="_zs_gallerys:b" class="mb20">以下四种情况均为自定义页面，入口在导航上不可见，点击可查看配置：</div><div mxa="_zs_gallerys:c" class="mb20">1. 映射到三级1这个页面，顶部和侧边导航显示与三级1完全一致<a class="link-brand ml10" href="javascript:;" mx-click="' + $viewId + 'to({id:\'';
+    $p += '<div mxa="_zs_galleryt:_" class="_zs_gallery___test___pro_menu_-menu mr20"><div mxs="_zs_galleryt:_" class="_zs_gallery___test___pro_menu_-header clearfix"><div class="_zs_gallery___test___pro_menu_-logo">LOGO</div><div class="_zs_gallery___test___pro_menu_-name">一级标题</div></div><div mxa="_zs_galleryt:a" class="clearfix pr"><div mxs="_zs_galleryt:a" class="_zs_gallery___test___pro_menu_-navs"><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third _zs_gallery___test___pro_menu_-third-on">三级1</a></div><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third">三级2</a></div><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third">三级3</a></div></div><div mxa="_zs_galleryt:b" class="_zs_gallery___test___pro_menu_-inner"><div mxs="_zs_galleryt:b" class="mb20">以下四种情况均为自定义页面，入口在导航上不可见，点击可查看配置：</div><div mxa="_zs_galleryt:c" class="mb20">1. 映射到三级1这个页面，顶部和侧边导航显示与三级1完全一致<a class="link-brand ml10" href="javascript:;" mx-click="' + $viewId + 'to({id:\'';
     $line = 20;
     $art = '=parentId';
     ;
-    $p += '' + ($expr = '<%=$eq(parentId)%>', $e($eq(parentId))) + '_custom3\'})">查看配置</a></div><div mxa="_zs_gallerys:d" class="mb20">2. 映射到三级1这个页面，顶部显示与三级1完全一致，侧边内容自定义<a class="link-brand ml10" href="javascript:;" mx-click="' + $viewId + 'to({id:\'';
+    $p += '' + ($expr = '<%=$eq(parentId)%>', $e($eq(parentId))) + '_custom3\'})">查看配置</a></div><div mxa="_zs_galleryt:d" class="mb20">2. 映射到三级1这个页面，顶部显示与三级1完全一致，侧边内容自定义<a class="link-brand ml10" href="javascript:;" mx-click="' + $viewId + 'to({id:\'';
     $line = 21;
     $art = '=parentId';
     ;
-    $p += '' + ($expr = '<%=$eq(parentId)%>', $e($eq(parentId))) + '_custom5\'})">查看配置</a></div><div mxa="_zs_gallerys:e" class="mb20">3. 映射到三级1这个页面，顶部显示与三级1完全一致，无侧边<a class="link-brand ml10" href="javascript:;" mx-click="' + $viewId + 'to({id:\'';
+    $p += '' + ($expr = '<%=$eq(parentId)%>', $e($eq(parentId))) + '_custom5\'})">查看配置</a></div><div mxa="_zs_galleryt:e" class="mb20">3. 映射到三级1这个页面，顶部显示与三级1完全一致，无侧边<a class="link-brand ml10" href="javascript:;" mx-click="' + $viewId + 'to({id:\'';
     $line = 22;
     $art = '=parentId';
     ;
-    $p += '' + ($expr = '<%=$eq(parentId)%>', $e($eq(parentId))) + '_custom2\'})">查看配置</a></div><div mxa="_zs_gallerys:f" class="mb20">4. 使用另外的容器文件，而不是default<a class="link-brand ml10" href="javascript:;" mx-click="' + $viewId + 'to({id:\'';
+    $p += '' + ($expr = '<%=$eq(parentId)%>', $e($eq(parentId))) + '_custom2\'})">查看配置</a></div><div mxa="_zs_galleryt:f" class="mb20">4. 使用另外的容器文件，而不是default<a class="link-brand ml10" href="javascript:;" mx-click="' + $viewId + 'to({id:\'';
     $line = 23;
     $art = '=parentId';
     ;

@@ -35,8 +35,13 @@ module.exports = Magix.View.extend({
                 path: '/all/pro/permission',
                 icon: '&#xe6d1;'
             }, {
-                name: '跨项目渲染magix view',
+                name: 'magix3跨项目公用view',
                 path: '/all/pro/cross',
+                icon: '&#xe6b6;'
+            }, {
+                name: '新老项目iframe加载view',
+                tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/fe-three/rwznx0/yevuov" rel="noopener noreferrer" target="_blank">https://yuque.antfin-inc.com/fe-three/rwznx0/yevuov</a>',
+                path: '/all/pro/iframe',
                 icon: '&#xe6b6;'
             }, {
                 name: '关于本地组件的约定',
@@ -44,7 +49,7 @@ module.exports = Magix.View.extend({
                 icon: '&#xe648;'
             }, {
                 name: 'chartpark图表',
-                tip: '接口人 @浩添 @释剑',
+                tip: '接口人<a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=y8e7um3" class="ml5"><i class="mc-iconfont color-brand fontsize-18 displacement-2">&#xe677;</i>浩添</a><a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=ru4x0jq" class="ml5"><i class="mc-iconfont color-brand fontsize-18 displacement-2">&#xe677;</i>释剑</a>',
                 path: '/all/pro/chartpark',
                 icon: '&#xe670;'
             }, {

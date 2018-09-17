@@ -23,11 +23,11 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', map = $$.map, type = $$.type; var $expr, $art, $line; try {
-    $p += '<a mxs="_zs_gallerybt:_" href="javascript:;" class="input _zs_gallery_mx-indics_index_-setting-btn _zs_gallery_mx-indics_index_-setting-show-btn" mx-click="' + $viewId + 'show()"><i class="mc-iconfont _zs_gallery_mx-indics_index_-setting-show-icon">&#xe731;</i></a><a mxa="_zs_gallerybt:_" href="javascript:;" class="input _zs_gallery_mx-indics_index_-setting-btn _zs_gallery_mx-indics_index_-setting-switch-btn" mx-click="' + $viewId + 'toggleDefault()">';
+    $p += '<a mxs="_zs_gallerybu:_" href="javascript:;" class="input _zs_gallery_mx-indics_index_-setting-btn _zs_gallery_mx-indics_index_-setting-show-btn" mx-click="' + $viewId + 'show()"><i class="mc-iconfont _zs_gallery_mx-indics_index_-setting-show-icon">&#xe731;</i></a><a mxa="_zs_gallerybu:_" href="javascript:;" class="input _zs_gallery_mx-indics_index_-setting-btn _zs_gallery_mx-indics_index_-setting-switch-btn" mx-click="' + $viewId + 'toggleDefault()">';
     $line = 5;
     $art = '=map[type][\'label\']';
     ;
-    $p += '' + ($expr = '<%=map[type][\'label\']%>', $e(map[type]['label'])) + '<i mxs="_zs_gallerybt:a" class="mc-iconfont _zs_gallery_mx-indics_index_-setting-switch-icon">&#xe692;</i></a>';
+    $p += '' + ($expr = '<%=map[type][\'label\']%>', $e(map[type]['label'])) + '<i mxs="_zs_gallerybu:a" class="mc-iconfont _zs_gallery_mx-indics_index_-setting-switch-icon">&#xe692;</i></a>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
