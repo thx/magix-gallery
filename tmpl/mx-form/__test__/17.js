@@ -26,7 +26,8 @@ module.exports = Base.extend({
                 start: Moment().subtract(1, 'days').format(Formater), //时间段开始时间
                 end: Moment().add(1, 'days').format(Formater), //时间段结束时间
                 type: 'custom', //默认还是自定义（自定义带输入框）
-                int: 10
+                int: 10,
+                switch: true //开关
             }
         });
     },

@@ -2,8 +2,10 @@ let Magix = require('magix');
 let $ = require('$');
 
 module.exports = Magix.View.extend({
-    tmpl: '@desc.html',
+    tmpl: '@demo.html',
     render() {
-        this.updater.digest();
+        this.updater.digest({
+            path: 2
+        });
     }
 });

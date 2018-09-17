@@ -30,8 +30,8 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryc[:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryc[:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-tree/__test__/1"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-tree/__test__/2"></div><div mx-view="mx-tree/__test__/4"></div><div mx-view="mx-tree/__test__/3"></div></div></div><div mxs="_zs_galleryc[:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 14;
+    $p += '<div mxs="_zs_galleryc]:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryc]:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-tree/__test__/1"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-tree/__test__/2"></div><div mx-view="mx-tree/__test__/4"></div><div mx-view="mx-tree/__test__/3"></div></div></div><div mxs="_zs_galleryc]:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $line = 15;
     $art = '@options';
     ;
     $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '"></div>';
@@ -63,7 +63,7 @@ catch (ex) {
                 def: 'pValue'
             }, {
                 key: 'list',
-                desc: '页面展示数据列表，例如：<br>[{value: 1, pValue: \'\', text: \'计划1\'},{value: 11, pValue: 1, text: \'单元1-1\'}]',
+                desc: "<pre>\n\u9875\u9762\u5C55\u793A\u6570\u636E\u5217\u8868\uFF0C\u4F8B\u5982\uFF1A\n[{\n    value: 1,\n    pValue: '', //\u7236\u8282\u70B9value\u503C\uFF0C\u6839\u8282\u70B9\u65E0\n    text: '\u8BA1\u52121'\n}, {\n    value: 11,\n    pValue: 1,\n    text: '\u5355\u51431-1'\n}]\n</pre>",
                 type: 'array',
                 def: ''
             }, {

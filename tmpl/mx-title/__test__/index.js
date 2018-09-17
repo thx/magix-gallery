@@ -11,7 +11,7 @@ module.exports = Base.extend({
             type: 'string'
         }, {
             key: 'tip',
-            desc: '提示提示内容',
+            desc: '提示内容',
             type: 'string'
         }]
         this.updater.digest({

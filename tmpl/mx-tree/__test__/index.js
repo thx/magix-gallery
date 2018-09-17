@@ -23,7 +23,18 @@ module.exports = Magix.View.extend({
             def: 'pValue'
         }, {
             key: 'list',
-            desc: '页面展示数据列表，例如：<br>[{value: 1, pValue: \'\', text: \'计划1\'},{value: 11, pValue: 1, text: \'单元1-1\'}]',
+            desc: `<pre>
+页面展示数据列表，例如：
+[{
+    value: 1,
+    pValue: '', //父节点value值，根节点无
+    text: '计划1'
+}, {
+    value: 11,
+    pValue: 1,
+    text: '单元1-1'
+}]
+</pre>`,
             type: 'array',
             def: ''
         }, {

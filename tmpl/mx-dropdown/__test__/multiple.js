@@ -6,16 +6,16 @@ module.exports = Magix.View.extend({
     render() {
         let options = [{
             key: 'list',
-            desc: '列表数组，可为简单数组或[1,2,3]或对象数组，如[{id:1,text:"a"}]',
+            desc: '列表数组<br/>可为简单数组或[1,2,3]<br/>或对象数组，如[{id:1,text:"a"}]',
             type: 'array'
         }, {
             key: 'selected',
             desc: '当前选中值',
             type: 'string',
-            def: '选中值，支持：<br>1. 逗号分隔，如1,2,3，此时双向绑定返回值逗号分隔；<br>2. 数组[1,2,3]，此时双向绑定返回值为数组；<br>不传默认为空'
+            def: '选中值，支持：<br/>1. 逗号分隔，如1,2,3，此时双向绑定返回值逗号分隔；<br/>2. 数组[1,2,3]，此时双向绑定返回值为数组；<br/><br/>不传默认为空，返回默认为逗号分隔'
         }, {
             key: 'trigger-type',
-            desc: '浮层唤起方式，可选点击（click），鼠标悬浮展开（hover）',
+            desc: '浮层唤起方式，可选值：<br/>点击（click）<br/>鼠标悬浮展开（hover）',
             type: 'string',
             def: 'click'
         }, {

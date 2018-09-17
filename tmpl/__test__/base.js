@@ -90,7 +90,7 @@ module.exports = Magix.View.extend({
             }, {
                 name: '警告类校验场景',
                 path: '/form/warn',
-                icon: '&#xe61f;'
+                icon: '&#xe656;'
             }]
         }, {
             name: '表格（mixins）',
@@ -267,6 +267,7 @@ module.exports = Magix.View.extend({
                 icon: '&#xe677;'
             }, {
                 name: '万象客服问答',
+                tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/wanxiang/technology/description" target="_blank"  rel="noopener noreferrer">服务窗接入wiki文档</a>',
                 path: '/wanxiang/index',
                 icon: '&#xe767;'
             }]

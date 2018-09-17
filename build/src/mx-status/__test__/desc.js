@@ -3,9 +3,10 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-status/__test__/desc",["magix","$","mx-title/second"],(require,exports,module)=>{
+define("mx-status/__test__/desc",["magix","$","mx-title/second","__test__/api"],(require,exports,module)=>{
 /*Magix,$*/
 require("mx-title/second");
+require("__test__/api");
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
@@ -20,40 +21,16 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerycc:_" mx-view="mx-title/second?content=API"></div><div mxa="_zs_gallerycc:_" class="pr20"><table mxa="_zs_gallerycc:a" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_gallerycc:a"><tr><th width="100">可配参数</th><th width="200">说明</th><th width="100">类型</th><th width="120">默认值</th></tr></thead><tbody><tr mxs="_zs_gallerycc:b"><td>list</td><td><div>可选状态列表：</div><pre>\n[&#123;\n    value: \'状态值\',\n    text: \'状态文案\',\n    icon: \'iconfont图标，如&lt;i class="mc-iconfont"&gt;&#38;&#35;xe67f;&lt;/i&gt;\',\n    color: \'图标显示颜色\',\n    tip: \'状态提示文案\'\n&#125;]\n                    </pre><div>当可选列表只有一个时也显示为只读状态</div></td><td>array</td><td class="word-break">[]</td></tr>';
-    $line = 31;
-    $art = 'each options as option';
+    $p += '<div mxs="_zs_gallerycd:_" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $line = 2;
+    $art = '@options';
     ;
-    $p += '';
-    $expr = '<%for (var $art_ivxpnuphi$art_i = 0, $art_czutdagj$art_c = options.length; $art_ivxpnuphi$art_i < $art_czutdagj$art_c; $art_ivxpnuphi$art_i++) {    var option = options[$art_ivxpnuphi$art_i]%>';
-    for (var $art_ivxpnuphi$art_i = 0, $art_czutdagj$art_c = options.length; $art_ivxpnuphi$art_i < $art_czutdagj$art_c; $art_ivxpnuphi$art_i++) {
-        var option = options[$art_ivxpnuphi$art_i];
-        $p += '<tr><td>';
-        $line = 33;
-        $art = '=option.key';
-        ;
-        $p += '' + ($expr = '<%=option.key%>', $e(option.key)) + '</td><td>';
-        $line = 34;
-        $art = '!option.desc';
-        ;
-        $p += '' + ($expr = '<%!option.desc%>', $n(option.desc)) + '</td><td>';
-        $line = 35;
-        $art = '!option.type';
-        ;
-        $p += '' + ($expr = '<%!option.type%>', $n(option.type)) + '</td><td mxa="_zs_gallerycc:b" class="word-break">';
-        $line = 36;
-        $art = '!option.def';
-        ;
-        $p += '' + ($expr = '<%!option.def%>', $n(option.def)) + '</td></tr>';
-        $line = 38;
-        $art = '/each';
-        ;
-        $p += '';
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</tbody></table></div>';
+    $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -65,6 +42,11 @@ catch (ex) {
 } return $p; },
     render: function () {
         var options = [{
+                key: 'list',
+                desc: "<pre>\u53EF\u9009\u72B6\u6001\u5217\u8868\uFF1A\n[{\n    value: '\u72B6\u6001\u503C',\n    text: '\u72B6\u6001\u6587\u6848',\n    icon: 'iconfont\u56FE\u6807\uFF0C\u5982&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe67f;&lt;/i&gt;',\n    color: '\u56FE\u6807\u663E\u793A\u989C\u8272',\n    tip: '\u72B6\u6001\u63D0\u793A\u6587\u6848'\n}]\n        \n\u5F53\u53EF\u9009\u5217\u8868\u53EA\u6709\u4E00\u4E2A\u65F6\u4E5F\u663E\u793A\u4E3A\u53EA\u8BFB\u72B6\u6001</pre>",
+                type: 'array',
+                def: '[]'
+            }, {
                 key: 'selected',
                 desc: '当前选中值',
                 type: 'string',

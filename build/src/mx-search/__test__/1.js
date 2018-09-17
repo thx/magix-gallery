@@ -28,7 +28,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', searchKey = $$.searchKey, searchValue = $$.searchValue, list = $$.list, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryb%:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryb%:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryb%:e" class="mb10 clearfix"><div class="color-9 fl lh22">以下示例：</div><div class="fl lh22"><div>支持上下键切换选择项</div><div>未搜索状态下，回车默认搜索第一个</div><div>已搜索状态下，回车搜索当前选中项</div><div>默认placeholder=list.map(item => {return item.text;})，对item.text去重</div><div>事件处理</div></div></div><div mxa="_zs_galleryb%:b" class="mb20"><span mxs="_zs_galleryb%:a" class="color-9">当前搜索：</span>';
+    $p += '<div mxv mxa="_zs_galleryb%:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryb%:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryb%:_" class="mb10 clearfix"><div class="color-9 fl lh22">以下示例：</div><div class="fl lh22"><div>支持上下键切换选择项</div><div>未搜索状态下，回车默认搜索第一个</div><div>已搜索状态下，回车搜索当前选中项</div><div>默认placeholder=list.map(item => {return item.text;})，对item.text去重</div><div>事件处理</div></div></div><div mxa="_zs_galleryb%:b" class="mb20"><span mxs="_zs_galleryb%:a" class="color-9">当前搜索：</span>';
     $line = 15;
     $art = 'if searchKey';
     ;

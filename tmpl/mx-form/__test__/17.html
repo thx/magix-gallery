@@ -104,6 +104,13 @@
                 </div>
             </div>
             <div class="form-item">
+                <div class="form-label">开关</div>
+                <div class="form-content">
+                    <mx-switch class="mr20 mt5"
+                        state="{{:selected.switch{refresh:true}}}"/>
+                </div>
+            </div>
+            <div class="form-item">
                 <a href="javascript:;" class="btn w80 btn-brand mr20"
                     mx-click="confirm()">确定</a>
                 <a href="javascript:;" class="btn w80">取消</a>
@@ -150,6 +157,10 @@
                 <span class="color-9">当前值：</span>
                 <span class="mr5">类型（{{=selected.type}}）</span>
                 <span>输入框（{{=selected.int}}）</span>
+            </div>
+            <div class="lh32 mb30">
+                <span class="color-9">当前值：</span>
+                {{=selected.switch}}
             </div>
         </div>
     </div>

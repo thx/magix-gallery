@@ -1,18 +1,172 @@
-Todo
-<!-- <div class="pr20">
-    <mx-effects.notice class="mb20"
-        content="{{=content}}"
-        border="true"
-        icon="false"/>
-    
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: 'magix3方案',
+        key: viewId + '_magix',
+        subs: [{
+            name: '直接配置路径',
+            key: viewId + '_magix1',
+        }, {
+            name: '新建view mount',
+            key: viewId + '_magix2',
+        }]
+    }, {
+        name: 'iframe方案',
+        key: viewId + '_iframe'
+    }]}}"></div>
+
     <mx-title.second 
-        content="目录约定"/>
-    <mx-effects.notice class="mb40"
-        content="目录约定"
-        border="true"
-        icon="false"/>
+        content="magix3跨项目公用view" id="{{=viewId}}_magix"/>
+    <div class="pr20 mb40">
+        <div class="lh32 fontsize-14">1. 几个重点</div>
+        <div class="line"><span class="num">1.1</span>使用&nbsp;magix3&nbsp;提供的&nbsp;vframe&nbsp;功能，允许项目间类似&nbsp;iframe&nbsp;那样引用对方的view。该功能支持把复杂的项目拆分成n个子项目进行维护；</div>
+        <div class="line"><span class="num">1.2</span>子项目中的&nbsp;view&nbsp;被渲染在宿主项目时，使用<span class="color-brand">宿主项目</span>里的组件（project/gallery/）以及品牌色；</div>
+        <div class="line"><span class="num">1.3</span>子项目中界面显示所需要的相关颜色，会由&nbsp;/gallery/mx-style/&nbsp;统一提供，自己在&nbsp;view&nbsp;定制的样式请使用<span class="color-brand">&nbsp;css3&nbsp;</span>变量进行改造；</div>
+        <div class="line mb20"><span class="num">1.4</span>关于包名的约定，&nbsp;seajs&nbsp;或&nbsp;requirejs&nbsp;需要配置一个包名来使用某个目录下的js文件，指向不同目录下的包名不能同名。这要求我们在开发新项目时，<span class="color-brand">使用新项目的名称来做为包名</span>，不能再像以前那样使用统一的app名称；</div>
+        <div class="lh32 fontsize-14">2. 具体操作步骤</div>
+        <div class="line mb10"><span class="num">2.1</span>项目A（<a href="http://gitlab.alibaba-inc.com/mm/cross1" class="color-brand" target="_blank" rel="noopener noreferrer">git@gitlab.alibaba-inc.com:mm/cross1.git</a>）中有通用模块“页面1”和“页面2”</div>
+        <div class="pl20 mb10">
+            <iframe src="http://mo.m.taobao.com/page_201806071452566" class="iframe"
+                width="100%" 
+                height="680" 
+                frameborder="0"
+                scrolling="no" 
+                marginheight="0" 
+                marginwidth="0" 
+                border="0"></iframe>
+        </div>
+        <div class="line mb10">
+            <div class="num">2.2</div>
+            <div>跨项目mount的时候，子项目会使用宿主项目的组件和品牌色；</div>
+            <div>如果子模块有单独的样式，请使用&nbsp;css3&nbsp;变量（应用宿主项目中的变量定义，组件里mx-style/_group.less；本地覆盖assets/group_override.less）替代&nbsp;less&nbsp;变量；具体示例如下：</div>
+        </div>
+        <div class="pl20 mb10">
+            <div class="tip-content">
+                <pre class="inline">
+&lt;!-- group_override.less --&gt;
+:root&#123;
+    --color-brand: #4ca26f;
+    --color-brand-vs: #ffe066;
+&#125;
+        
+&lt;!-- 页面1的样式 --&gt;
+@import '../../../gallery/mx-style/_vars';
+
+.demo&#123;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: </pre><pre class="inline color-brand">var(--color-bg);</pre><pre>
+    border-radius: var(--border-radius);
+    .item&#123;
+        float: left;
+        width: 25%;
+        font-size: 14px;
+        line-height: 28px;
+        font-weight: bold;
+        .line1&#123;
+            color: var(--color-brand);
+        &#125;
+        .line2&#123;
+            color: var(--color-brand-vs);
+        &#125;
+    &#125;
+&#125;</pre>
+            </div>
+        </div>
+        <div class="line">
+            <div class="num">2.3</div>
+            <div>脚手架（<a href="http://gitlab.alibaba-inc.com/mm/zs_scaffold" class="color-brand" target="_blank" rel="noopener noreferrer">git@gitlab.alibaba-inc.com:mm/zs_scaffold.git</a>）作为宿主项目需要加载这两个模块</div>
+            <div>页面1：直接完整加载</div>
+            <div>页面2：其中只需要加载子模块2和子模块3</div>
+        </div>
+        <div class="line mb10"><span class="num">2.4</span>在宿主项目的&nbsp;boot.ts&nbsp;中加入子项目的包配置和prepare处理</div>
+        <div class="pl20 mb10">
+            <div class="tip-content">
+                <pre>seajs.config({
+    paths: {
+        //主项目配置好要加载的子项目的包名</pre><pre class="color-brand">
+        cross1: "//g.alicdn.com/mm/cross1/20180917.120657.043/cross1",</pre><pre>
+        [projectName]: src + '/' + projectName
+    }
+});
+
+seajs.use(['magix'], (Magix) => {
+    Magix.config({
+        //主项目需要配置子项目的接口的host</pre><pre class="color-brand">
+        'cross1.api.host': 'https://http://mo.m.taobao.com',</pre><pre>
+        projectName
+    })</pre><pre class="inline">
+
+    seajs.use([`${projectName}/prepare`, </pre><pre class="color-brand inline">'cross1/prepare'</pre><pre class="inline">], (Prepare, </pre><pre class="color-brand inline">CrossPrpare</pre><pre class="inline">) => {
+        Promise.all([Prepare(), </pre><pre class="color-brand inline">CrossPrpare()</pre><pre class="inline">]).then(() => {
+            // 其他处理
+        })
+    });
+})</pre>
+            </div>
+        </div>
+        <div class="line mb10" id="{{=viewId}}_magix1"><span class="num">2.5</span>模块直接加载或者只需传递一些固定参数的时候，直接在&nbsp;menu.ts&nbsp;中配置路径即可</div>
+        <div class="pl20 mb10">
+            <div class="tip-content">
+                <pre>let Menus = [{
+    has: true,
+    name: '导航菜单',
+    path: '/example/path1',
+    subs: [{
+        name: '跨项目加载view',
+        thirds: [{
+            has: true,
+            name: '直接配置路径',</pre><pre class="color-brand">
+            viewPath: 'cross1/views/pages', //页面所属项目路径，跨项目mount的时候需要配置
+            viewData: { //传入viewPath的参数
+                tip: 'zs_scaffold项目mount子项目'
+            },</pre><pre>
+            path: '/example/path1',
+            icon: '&#38;&#35;xe64f;'
+        }]
+    }]
+}]</pre>
+            </div>
+        </div>
+        <div class="line" id="{{=viewId}}_magix2"><span class="num">2.6</span>如果需要根据上下文进行一些前置参数计算，可在宿主项目中创建一个view进行逻辑处理，处理完手动mount子项目的view</div>
+        <div class="pl20 mb10">
+            <div class="lh32">menu.ts的配置：</div>
+            <div class="tip-content mb10">
+                <pre>let Menus = [{
+    has: true,
+    name: '导航菜单',
+    path: '/example/path1',
+    subs: [{
+        name: '跨项目加载view',
+        thirds: [{
+            has: true,
+            name: '新建view mount子页面',
+            path: '/example/third2',
+            icon: '&#38;&#35;xe64e;'
+        }]
+    }]
+}]</pre>
+            </div>
+            <div class="lh32">third2.html：</div>
+            <div class="tip-content">
+                    <pre>
+&lt;div mx-view="cross1/views/pages/example/path2?filters=&#123;&#123;@[1,2,3]&#125;&#125;"&gt;&lt;/div&gt;</pre>
+            </div>
+        </div>
+        <div class="line"><span class="num">2.7</span>脚手架（<a href="http://gitlab.alibaba-inc.com/mm/zs_scaffold" class="color-brand" target="_blank" rel="noopener noreferrer">git@gitlab.alibaba-inc.com:mm/zs_scaffold.git</a>）具体展现如下：</div>
+        <div class="pl20">
+            <iframe src="https://mo.m.taobao.com/page_201809162348244" class="iframe"
+                width="100%" 
+                height="680" 
+                frameborder="0"
+                scrolling="no" 
+                marginheight="0" 
+                marginwidth="0" 
+                border="0"></iframe>
+        </div>
+    </div>
     
-    <mx-title.second 
-        content="接口对接"/>
+    <mx-title.second id="{{=viewId}}_iframe"
+        content="iframe方案" 
+        tip="&lt;a class='color-brand' href='https://yuque.antfin-inc.com/fe-three/rwznx0/yevuov' rel='noopener noreferrer' target='_blank'&gt;https://yuque.antfin-inc.com/fe-three/rwznx0/yevuov&lt;/a&gt;"/>
 </div>
-     -->
+    

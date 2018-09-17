@@ -46,7 +46,7 @@ module.exports = Magix.View.extend({
         let event = $.Event('change', {
             state: state
         });
-        that['@{owner.node}'].trigger(event);
+        that['@{owner.node}'].val(state).trigger(event);
     }
 
 });

@@ -6,8 +6,14 @@ module.exports = Magix.View.extend({
     render() {
         let options = [{
             key: 'list',
-            desc: '对象数组，如[{value:1,text:"选项1",tag:"打标标签",tips:"提示信息"}]',
-            type: 'array'
+            desc: `<pre>
+对象数组，格式如下：
+[{
+    value:1,
+    text:"选项1",
+    tag:"打标标签",
+    tips:"提示信息"
+}]</pre>`,type: 'array'
         }, {
             key: 'selected',
             desc: '当前选中值',

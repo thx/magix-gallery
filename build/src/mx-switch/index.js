@@ -29,7 +29,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '= _zs_gallery_mx-switch_index_-disabled ? \'disabled\' : \'\'';
     ;
-    $p += '' + ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_gallerycs:_" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
+    $p += '' + ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_galleryct:_" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
     $line = 4;
     $art = 'if (disabled && tip)';
     ;
@@ -97,7 +97,7 @@ catch (ex) {
         var event = $.Event('change', {
             state: state
         });
-        that['@{owner.node}'].trigger(event);
+        that['@{owner.node}'].val(state).trigger(event);
     }
 });
 

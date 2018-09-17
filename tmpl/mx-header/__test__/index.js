@@ -11,7 +11,10 @@ module.exports = Magix.View.extend({
             def: 1184
         }, {
             key: 'navs',
-            desc: '导航数组[{text:"展示文案",value:"value值"}]',
+            desc: `导航数组<pre>[{
+    text:"展示文案",
+    value:"value值"
+}]</pre>`,
             type: 'array',
             def: ''
         }, {
