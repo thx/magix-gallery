@@ -56,7 +56,7 @@ module.exports = Magix.View.extend({
     $line = 31;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mxs="_zs_galleryb]:e" mx-view="mx-search/__test__/2"></div></div></div><div id="';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mxs="_zs_galleryb]:_" mx-view="mx-search/__test__/2"></div></div></div><div id="';
     $line = 36;
     $art = '=viewId';
     ;

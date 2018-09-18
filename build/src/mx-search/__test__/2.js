@@ -32,7 +32,7 @@ module.exports = Base.extend({
     $line = 4;
     $art = '@[{\n                name: \'计划\',\n                id: \'campaignId\'\n            }, {\n                name: \'单元\',\n                id: \'adgroupId\'\n            }]';
     ;
-    $p += '' + ($expr = '<%@[{            name: \'计划\',            id: \'campaignId\'        }, {            name: \'单元\',            id: \'adgroupId\'        }]%>', $i($$ref, [{ name: '计划', id: 'campaignId' }, { name: '单元', id: 'adgroupId' }])) + '&listText=name&listValue=id"></div></div><div mxa="_zs_galleryb):b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryb):b" class="_zs_gallery___test___layout_-eg-title">自定义&nbsp;list-text&nbsp;和&nbsp;list-value</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%@[{            name: \'计划\',            id: \'campaignId\'        }, {            name: \'单元\',            id: \'adgroupId\'        }]%>', $i($$ref, [{ name: '计划', id: 'campaignId' }, { name: '单元', id: 'adgroupId' }])) + '&listText=name&listValue=id"></div></div><div mxa="_zs_galleryb):b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryb):_" class="_zs_gallery___test___layout_-eg-title">自定义&nbsp;list-text&nbsp;和&nbsp;list-value</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 16;
     $art = '=viewId';
     ;

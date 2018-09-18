@@ -52,7 +52,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><i mxs="_zs_gallerydc:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+    $p += '"><i mxs="_zs_gallerycx:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
     $line = 3;
     $art = '=placeholder';
     ;
@@ -93,9 +93,9 @@ module.exports = Magix.View.extend({
         $art = 'each list as item';
         ;
         $p += '';
-        $expr = '<%for (var $art_idivevrvk$art_i = 0, $art_csfpuosq$art_c = list.length; $art_idivevrvk$art_i < $art_csfpuosq$art_c; $art_idivevrvk$art_i++) {        var item = list[$art_idivevrvk$art_i]%>';
-        for (var $art_idivevrvk$art_i = 0, $art_csfpuosq$art_c = list.length; $art_idivevrvk$art_i < $art_csfpuosq$art_c; $art_idivevrvk$art_i++) {
-            var item = list[$art_idivevrvk$art_i];
+        $expr = '<%for (var $art_ixhylfa$art_i = 0, $art_cbroeenm$art_c = list.length; $art_ixhylfa$art_i < $art_cbroeenm$art_c; $art_ixhylfa$art_i++) {        var item = list[$art_ixhylfa$art_i]%>';
+        for (var $art_ixhylfa$art_i = 0, $art_cbroeenm$art_c = list.length; $art_ixhylfa$art_i < $art_cbroeenm$art_c; $art_ixhylfa$art_i++) {
+            var item = list[$art_ixhylfa$art_i];
             $p += '<li class="_zs_gallery_mx-suggest_index_-suggest-item ';
             $line = 15;
             $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';
@@ -137,7 +137,7 @@ module.exports = Magix.View.extend({
     }
     else {
         ;
-        $p += '<li mxs="_zs_gallerydc:c" class="text-center color-9">无匹配选项</li>';
+        $p += '<li mxs="_zs_gallerycx:a" class="text-center color-9">无匹配选项</li>';
         $line = 22;
         $art = '/if';
         ;
@@ -179,7 +179,8 @@ catch (ex) {
         if (!placeholder) {
             placeholder = '搜索';
         }
-        var align = data.align || 'left';
+        that['key.value'] = data.listValue || 'value';
+        that['key.text'] = data.listText || 'text';
         // 多种类型搜索的时候
         var list = that['@{wrap}'](data.list);
         //当前选中的value值
@@ -203,7 +204,7 @@ catch (ex) {
             selectedValue: selectedValue,
             selectText: selectText,
             placeholder: placeholder,
-            align: align,
+            align: data.align || 'left',
             show: false
         });
         //如果数据没变化,则设置新的数据后再次检测
@@ -219,14 +220,15 @@ catch (ex) {
         return false;
     },
     '@{wrap}': function (origin) {
+        var listValue = this['key.value'], listText = this['key.text'];
         var list = [];
         if (origin && (origin.length > 0)) {
             if (typeof origin[0] === 'object') {
                 // 本身是个对象
                 list = origin.map(function (item) {
                     return {
-                        text: item.text,
-                        value: item.value
+                        value: item[listValue],
+                        text: item[listText]
                     };
                 });
             }
@@ -234,8 +236,8 @@ catch (ex) {
                 // 直接value列表
                 list = origin.map(function (value) {
                     return {
-                        text: value,
-                        value: value
+                        value: value,
+                        text: value
                     };
                 });
             }
@@ -341,7 +343,8 @@ catch (ex) {
         Monitor['@{add}'](that);
         if (!ignore) {
             that['@{owner.node}'].trigger({
-                type: 'showList'
+                type: 'show',
+                keyword: selectText
             });
         }
     },
@@ -364,10 +367,13 @@ catch (ex) {
     },
     '@{fire}': function () {
         var that = this;
-        var suggestValue = that.updater.get('suggestValue');
-        that['@{owner.node}'].val(suggestValue).trigger({
+        var selectedValue = that.updater.get('selectedValue'), selectText = that.updater.get('selectText');
+        that['@{owner.node}'].val(selectedValue).trigger({
             type: 'suggest',
-            selected: suggestValue
+            selected: {
+                value: selectedValue,
+                text: selectText
+            }
         });
     }
 });

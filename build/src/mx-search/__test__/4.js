@@ -28,7 +28,7 @@ module.exports = Base.extend({
     $line = 6;
     $art = '=searchValue';
     ;
-    $p += '' + ($expr = '<%=searchValue%>', $e(searchValue)) + '</span></div><div mxs="_zs_galleryb}:a" class="w200" mx-search="' + $viewId + 'change()" mx-view="mx-search/index?searchKey=campaignId&placeholder=%E6%90%9C%E7%B4%A2%E8%AE%A1%E5%88%92"></div></div><div mxa="_zs_galleryb}:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryb}:d" class="_zs_gallery___test___layout_-eg-title">单个搜索，封装事件</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=searchValue%>', $e(searchValue)) + '</span></div><div mxs="_zs_galleryb}:a" class="w200" mx-search="' + $viewId + 'change()" mx-view="mx-search/index?searchKey=campaignId&placeholder=%E6%90%9C%E7%B4%A2%E8%AE%A1%E5%88%92"></div></div><div mxa="_zs_galleryb}:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryb}:b" class="_zs_gallery___test___layout_-eg-title">单个搜索，封装事件</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 15;
     $art = '=viewId';
     ;

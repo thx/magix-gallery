@@ -28,23 +28,23 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydj:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerydj:c" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-suggest/index?list=';
+    $p += '<div mxa="_zs_gallerycv:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerycv:a" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-suggest/index?list=';
     $line = 4;
-    $art = '@[{\n                text: \'test1\',\n                value: 1\n            }, {\n                text: \'test12\',\n                value: 2\n            }, {\n                text: \'abc1\',\n                value: 3\n            }, {\n                text: \'abc2\',\n                value: 4\n            }]';
+    $art = '@[1,2,3,4]';
     ;
-    $p += '' + ($expr = '<%@[{            text: \'test1\',            value: 1        }, {            text: \'test12\',            value: 2        }, {            text: \'abc1\',            value: 3        }, {            text: \'abc2\',            value: 4        }]%>', $i($$ref, [{ text: 'test1', value: 1 }, { text: 'test12', value: 2 }, { text: 'abc1', value: 3 }, { text: 'abc2', value: 4 }])) + '"></div></div><div mxa="_zs_gallerydj:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydj:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 20;
+    $p += '' + ($expr = '<%@[1, 2, 3, 4]%>', $i($$ref, [1, 2, 3, 4])) + '"></div></div><div mxa="_zs_gallerycv:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycv:c" class="_zs_gallery___test___layout_-eg-title">简单数组</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 8;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydj:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 22;
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycv:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 10;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydj:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 25;
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycv:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 13;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-suggest \n    list="&#123;&#123;@[&#123;\n        text: \'test1\',\n        value: 1\n    &#125;, &#123;\n        text: \'test12\',\n        value: 2\n    &#125;, &#123;\n        text: \'abc1\',\n        value: 3\n    &#125;, &#123;\n        text: \'abc2\',\n        value: 4\n    &#125;]&#125;&#125;"/&gt;</pre></div></div>';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-suggest \n    list="&#123;&#123;@[1,2,3,4]&#125;&#125;"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

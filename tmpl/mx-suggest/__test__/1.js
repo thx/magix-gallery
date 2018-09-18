@@ -7,18 +7,18 @@ module.exports = Base.extend({
     render() {
         this.updater.digest();
     },
-    'updateList<showList>'(e) {
+    'update<show>'(e) {
         let id = this.id + '_test';
 
-        let list = [];
-        for (let index = 1; index < 5; index++) {
-            list.push({
-                text: index,
-                value: index
-            })
-        }
+        // 当前输入框输入的值
+        let keyword = e.keyword;
+
+        // 传入的list格式请保持和初始化格式保持一致
+        // 即假设原来传入[{id:'',name:''}]，此处传入格式依然为[{id:'',name:''}]
+        let list = ['prefix1', 'prefix2', 'prefix3'].map(text => {
+            return text + '_' + keyword;
+        })
+
         Vframe.get(id).invoke('update', [list]);
-        // 等同于
-        // Vframe.get(id).invoke('update', [[1,2,3,4]]);
     }
 });

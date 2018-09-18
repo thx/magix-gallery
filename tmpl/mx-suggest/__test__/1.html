@@ -6,7 +6,7 @@
         </div>
         <mx-suggest 
             id="{{=viewId}}_test"
-            mx-showList="updateList()"/>
+            mx-show="update()"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -18,7 +18,7 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-suggest 
     id="&#123;&#123;=viewId&#125;&#125;_test"
-    mx-showList="updateList()"/&gt;</pre>
+    mx-show="update()"/&gt;</pre>
     </div>
     <div class="eg-desc">
         <div class="eg-title">JS Code</div>
@@ -39,19 +39,19 @@ module.exports = Magix.View.extend(&#123;
             viewId: this.id
         &#125;);
     &#125;,
-    'updateList&lt;showList&gt;'(e) &#123;
+    'update&lt;show&gt;'(e) &#123;
         let id = this.id + '_test';
 
-        let list = [];
-        for (let index = 1; index &lt; 5; index++) &#123;
-            list.push(&#123;
-                text: index,
-                value: index
-            &#125;)
-        &#125;
+        // 当前输入框输入的值
+        let keyword = e.keyword;
+
+        // 传入的list格式请保持和初始化格式保持一致
+        // 即假设原来传入[&#123;id:'',name:''&#125;]，此处传入格式依然为[&#123;id:'',name:''&#125;]
+        let list = ['prefix1', 'prefix2', 'prefix3'].map(text =&gt; &#123;
+            return text + '_' + keyword;
+        &#125;)
+
         Vframe.get(id).invoke('update', [list]);
-        // 等同于
-        // Vframe.get(id).invoke('update', [[1,2,3,4]]);
     &#125;
 &#125;);</pre>
     </div>

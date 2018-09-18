@@ -3,7 +3,6 @@ let $ = require('$');
 Magix.applyStyle('@index.less');
 let Monitor = require('../mx-monitor/index');
 
-
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
     init: function (extra) {
@@ -30,7 +29,10 @@ module.exports = Magix.View.extend({
         if (!placeholder) {
             placeholder = '搜索';
         }
-        var align = data.align || 'left';
+
+        that['key.value'] = data.listValue || 'value';
+        that['key.text'] = data.listText || 'text';
+
         // 多种类型搜索的时候
         var list = that['@{wrap}'](data.list);
         //当前选中的value值
@@ -54,7 +56,7 @@ module.exports = Magix.View.extend({
             selectedValue: selectedValue,
             selectText: selectText,
             placeholder: placeholder,
-            align: align,
+            align: data.align || 'left',
             show: false
         });
         //如果数据没变化,则设置新的数据后再次检测
@@ -70,14 +72,16 @@ module.exports = Magix.View.extend({
         return false;
     },
     '@{wrap}': function (origin) {
+        let listValue = this['key.value'],
+            listText = this['key.text']
         var list = [];
         if (origin && (origin.length > 0)) {
             if (typeof origin[0] === 'object') {
                 // 本身是个对象
                 list = origin.map(function (item) {
                     return {
-                        text: item.text,
-                        value: item.value
+                        value: item[listValue],
+                        text: item[listText]
                     };
                 });
             }
@@ -85,8 +89,8 @@ module.exports = Magix.View.extend({
                 // 直接value列表
                 list = origin.map(function (value) {
                     return {
-                        text: value,
-                        value: value
+                        value: value,
+                        text: value
                     };
                 });
             }
@@ -192,7 +196,8 @@ module.exports = Magix.View.extend({
         Monitor['@{add}'](that);
         if (!ignore) {
             that['@{owner.node}'].trigger({
-                type: 'showList'
+                type: 'show',
+                keyword: selectText
             });
         }
     },
@@ -215,10 +220,14 @@ module.exports = Magix.View.extend({
     },
     '@{fire}': function () {
         var that = this;
-        var suggestValue = that.updater.get('suggestValue');
-        that['@{owner.node}'].val(suggestValue).trigger({
+        var selectedValue = that.updater.get('selectedValue'),
+            selectText = that.updater.get('selectText');
+        that['@{owner.node}'].val(selectedValue).trigger({
             type: 'suggest',
-            selected: suggestValue
+            selected: {
+                value: selectedValue,
+                text: selectText
+            }
         });
     }
 });

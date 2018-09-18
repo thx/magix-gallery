@@ -1,22 +1,10 @@
 <div class="example">
     <div class="eg-content">
         <mx-suggest 
-            list="{{@[{
-                text: 'test1',
-                value: 1
-            }, {
-                text: 'test12',
-                value: 2
-            }, {
-                text: 'abc1',
-                value: 3
-            }, {
-                text: 'abc2',
-                value: 4
-            }]}}"/>
+            list="{{@[1,2,3,4]}}"/>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
+        <div class="eg-title">简单数组</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
@@ -24,18 +12,6 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-suggest 
-    list="&#123;&#123;@[&#123;
-        text: 'test1',
-        value: 1
-    &#125;, &#123;
-        text: 'test12',
-        value: 2
-    &#125;, &#123;
-        text: 'abc1',
-        value: 3
-    &#125;, &#123;
-        text: 'abc2',
-        value: 4
-    &#125;]&#125;&#125;"/&gt;</pre>
+    list="&#123;&#123;@[1,2,3,4]&#125;&#125;"/&gt;</pre>
     </div>
 </div>
