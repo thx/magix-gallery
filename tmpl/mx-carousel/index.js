@@ -21,7 +21,8 @@ module.exports = Magix.View.extend({
             dots: (extra.dots + '') !== 'false', // 是否显示轮播点
             vertical: (extra.vertical + '') === 'true', // 是否是垂直方向
             timing: extra.timing || 'ease-in-out', // transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n);
-            duration: extra.duration || '.5s' // 动画持续时间
+            duration: extra.duration || '.5s', // 动画持续时间
+            dotClass: extra.dotClass || ''
         })
 
         if(extra.prevTrigger){

@@ -52,7 +52,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><i mxs="_zs_gallerycx:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+    $p += '"><i mxs="_zs_gallerycy:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
     $line = 3;
     $art = '=placeholder';
     ;
@@ -93,9 +93,9 @@ module.exports = Magix.View.extend({
         $art = 'each list as item';
         ;
         $p += '';
-        $expr = '<%for (var $art_ixhylfa$art_i = 0, $art_cbroeenm$art_c = list.length; $art_ixhylfa$art_i < $art_cbroeenm$art_c; $art_ixhylfa$art_i++) {        var item = list[$art_ixhylfa$art_i]%>';
-        for (var $art_ixhylfa$art_i = 0, $art_cbroeenm$art_c = list.length; $art_ixhylfa$art_i < $art_cbroeenm$art_c; $art_ixhylfa$art_i++) {
-            var item = list[$art_ixhylfa$art_i];
+        $expr = '<%for (var $art_ikftcslmc$art_i = 0, $art_cxviyrniq$art_c = list.length; $art_ikftcslmc$art_i < $art_cxviyrniq$art_c; $art_ikftcslmc$art_i++) {        var item = list[$art_ikftcslmc$art_i]%>';
+        for (var $art_ikftcslmc$art_i = 0, $art_cxviyrniq$art_c = list.length; $art_ikftcslmc$art_i < $art_cxviyrniq$art_c; $art_ikftcslmc$art_i++) {
+            var item = list[$art_ikftcslmc$art_i];
             $p += '<li class="_zs_gallery_mx-suggest_index_-suggest-item ';
             $line = 15;
             $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';
@@ -137,7 +137,7 @@ module.exports = Magix.View.extend({
     }
     else {
         ;
-        $p += '<li mxs="_zs_gallerycx:a" class="text-center color-9">无匹配选项</li>';
+        $p += '<li mxs="_zs_gallerycy:a" class="text-center color-9">无匹配选项</li>';
         $line = 22;
         $art = '/if';
         ;

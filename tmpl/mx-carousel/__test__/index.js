@@ -69,6 +69,11 @@ module.exports = Magix.View.extend({
             desc: '自定义下一帧trigger的id',
             type: 'string',
             def: ''
+        }, {
+            key: 'dot-class',
+            desc: '自定义轮播点样式',
+            type: 'string',
+            def: ''
         }]
         this.updater.digest({
             options

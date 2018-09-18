@@ -10,7 +10,7 @@
         mx-mouseout="@{start}()">
         {{for(let i=0;i<len;i+=1)}}
         <li class="dot-cnt">
-            <i class="dot" mx-click="@{active}({idx:{{=i}}})"></i>
+            <i class="dot {{=dotClass}}" mx-click="@{active}({idx:{{=i}}})"></i>
         </li>
         {{/for}}
     </ul>

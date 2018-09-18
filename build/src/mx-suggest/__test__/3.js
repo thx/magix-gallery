@@ -32,7 +32,7 @@ module.exports = Base.extend({
     $line = 4;
     $art = '@[1,2,3,4]';
     ;
-    $p += '' + ($expr = '<%@[1, 2, 3, 4]%>', $i($$ref, [1, 2, 3, 4])) + '"></div></div><div mxa="_zs_gallerycv:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycv:c" class="_zs_gallery___test___layout_-eg-title">简单数组</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%@[1, 2, 3, 4]%>', $i($$ref, [1, 2, 3, 4])) + '"></div></div><div mxa="_zs_gallerycv:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycv:_" class="_zs_gallery___test___layout_-eg-title">简单数组</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 8;
     $art = '=viewId';
     ;

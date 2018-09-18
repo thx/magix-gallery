@@ -7,7 +7,8 @@ module.exports = Base.extend({
     tmpl: '@4.html',
     render() {
         this.updater.digest({
-            viewId: this.id
+            viewId: this.id,
+            dotClass: '@4.less:dot'
         });
     }
 });
