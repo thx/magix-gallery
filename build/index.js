@@ -40,6 +40,7 @@ let coms = [
     'style',
     'slider',
     'dragdrop',
+    'suggest',
     'uploader',
     'footer',
     'duration',

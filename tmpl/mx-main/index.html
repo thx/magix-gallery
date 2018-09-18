@@ -1,35 +1,58 @@
-Todo
-<!-- <div class="main" style="min-height: {{=viewHeight}}px;">
+<div class="main" style="min-height: {{=viewHeight}}px;">
     <div class="main-nav">
-        {{each viewInfo.stepInfos as step stepIndex}}
+        {{each stepInfos as step}}
         <div class="main-step {{if step.current}} step-current {{/if}} {{if step.locked}} step-locked {{/if}}">
             <div class="step-over">
-                <a href="javascript:;" {{if (viewInfo.curSubStepIndex == -1)}} class="step-link-on" {{/if}} {{if !step.locked}} mx-click="nav({stepIndex:{{=stepIndex+1}},subStepIndex:-1})" {{/if}}>
-                    <i class="iconfont step-over-icon">{{!step.icon}}</i>{{=step.label}}
+                <a href="javascript:;" class="link step-over clearfix {{if (step.current && (curSubStepIndex == -1))}} link-on {{/if}} "
+                    {{if !step.locked}} mx-click="nav({stepIndex:{{=step.index}},subStepIndex:-1})" {{/if}}>
+                    {{if step.icon}}
+                    <span class="over-icon fl">{{!step.icon}}</span>
+                    {{/if}}
+                    <span class="fl">{{=step.label}}</span>
                 </a>
             </div>
             {{if (step.expand && step.subs.length > 1)}}
-            <ul class="step-subs">
-                {{each step.subs as sub subStepIndex}}
-                <li class="step-sub">
-                    <span class="step-vertical"></span>
-                    <span class="step-horizontal"></span>
-                    <a href="javascript:;" {{if (viewInfo.curSubStepIndex == subStepIndex + 1)}} class="step-link-on" {{/if}} mx-click="nav({stepIndex:{{=stepIndex+1}},subStepIndex:{{=subStepIndex+1}}})" >{{=sub.label}}</a>
-                </li>
+                {{each step.subs as sub}}
+                <div class="step-sub">
+                    <a href="javascript:;" class="link {{if (step.current && (curSubStepIndex == sub.index))}} link-on {{/if}}"
+                        mx-click="nav({stepIndex:{{=step.index}},subStepIndex:{{=sub.index}}})">
+                        {{=sub.label}}
+                    </a>
+                </div>
                 {{/each}}
-            </ul>
             {{/if}}
             {{if step.current}}
-            <div class="step-arrow-icon"><i class="iconfont">&#xe602;</i></div>
+            <i class="mc-iconfont arrow-icon">&#xe602;</i>
             {{/if}}
             {{if step.locked}}
-            <div class="step-locked-icon"><i class="iconfont">&#xe759;</i></div>
+            <i class="mc-iconfont locked-icon">&#xe759;</i>
             {{/if}}
         </div>
         {{/each}}
     </div>
     <div class="main-content">
-        <div class="content-title">{{=childInfo.curStepInfo.label}}</div>
-        <mx-vframe id="vf_main_content"/>
+        <div class="content-title">{{=curStepInfo.label}}</div>
+
+        <div class="content-body">
+            {{each curStepInfo.subs as sub}}
+            <div class="content-box">
+                <div class="box-title clearfix">
+                    {{if sub.icon}}
+                    <span class="title-icon">{{!sub.icon}}</span>
+                    {{/if}}
+                    <span class="title-label">{{=sub.label}}</span>
+                </div>
+                <div class="box-inner">
+                    123
+                </div>
+            </div>
+            {{/each}}
+            <div class="content-side"></div>
+        </div>
+
+        <div class="content-footer">
+            <a href="javascript:;" class="btn min-width-100 mr20">返回上一步</a>
+            <a href="javascript:;" class="btn min-width-100 btn-brand">下一步，上传创意</a>
+        </div>
     </div>
-</div> -->
+</div>

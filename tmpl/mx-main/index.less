@@ -1,9 +1,10 @@
 @import "../mx-style/_vars";
 
-@main-left-width: 180px;
+@main-left-width: 160px;
 @main-right-width: 260px;
 .main {
     position: relative;
+    background-color: #fafafa;
 
     .main-nav {
         position: absolute;
@@ -17,75 +18,62 @@
             position: relative;
             padding: 10px 0 10px 20px;
             border-bottom: 1px solid #f5f5f5;
-
-            a {
+            .link{
                 color: #666;
-
+    
                 &:hover {
                     color: @color-brand;
                 }
-
             }
 
             .step-over {
-                position: relative;
                 line-height: 30px;
 
-                a {
+                .over-icon>*{
                     position: relative;
-                    padding-left: 26px;
+                    top: 2px;
+                    margin-right: 4px;
+                    font-size: 18px;
+                    color: #999;
+                }
 
-                    .step-over-icon {
-                        position: absolute;
-                        top: 50%;
-                        left: 0;
-                        height: 18px;
-                        margin-top: -9px;
-                        font-size: 18px;
-                        color: #999;
-                    }
-
-                    &:hover {
-                        .step-over-icon {
-                            color: @color-brand;
-                        }
-
+                &:hover {
+                    .over-icon>* {
+                        color: @color-brand;
                     }
 
                 }
-
             }
 
-            .step-subs {
-                .step-sub {
-                    position: relative;
+            .step-sub {
+                position: relative;
+                height: 30px;
+                line-height: 30px;
+                padding-left: 26px;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 9px;
+                    width: 0;
                     height: 30px;
-                    line-height: 30px;
-                    padding-left: 26px;
+                    border-left: 1px solid #adadad;
+                }
 
-                    .step-vertical {
-                        position: absolute;
-                        top: 0;
-                        left: 9px;
-                        width: 0;
-                        height: 30px;
-                        border-left: 1px solid #adadad;
-                    }
+                &:after {
+                    content: '';    
+                    position: absolute;
+                    top: 15px;
+                    left: 10px;
+                    width: 6px;
+                    height: 0;
+                    border-top: 1px solid #adadad;
+                }
 
-                    .step-horizontal {
-                        position: absolute;
-                        top: 15px;
-                        left: 10px;
-                        width: 6px;
-                        height: 0;
-                        border-top: 1px solid #adadad;
-                    }
-
-                    &:last-child {
-                        .step-vertical {
-                            height: 16px;
-                        }
-
+                &:last-child {
+                    &:before {
+                        height: 16px;
                     }
 
                 }
@@ -95,16 +83,16 @@
             &.step-current {
                 background-color: @color-brand-opacity;
 
-                .step-link-on, .step-link-on:hover {
+                .link-on, .link-on:hover {
                     color: @color-brand;
 
-                    i {
+                    .over-icon>* {
                         color: @color-brand;
                     }
 
                 }
 
-                .step-arrow-icon {
+                .arrow-icon {
                     position: absolute;
                     top: 50%;
                     right: 8px;
@@ -117,27 +105,23 @@
             }
 
             &.step-locked {
-                a, a:hover {
+                .link, .link:hover {
                     color: #666;
                     cursor: not-allowed;
                 }
 
-                .step-over {
-                    &:hover {
-                        .step-over-icon {
-                            color: #999;
-                        }
-
+                .step-over:hover {
+                    .over-icon>* {
+                        color: #999;
                     }
-
                 }
 
-                .step-locked-icon {
+                .locked-icon {
                     position: absolute;
                     top: 50%;
                     right: 8px;
                     margin-top: -9px;
-                    font-size: 13px;
+                    font-size: 14px;
                     font-weight: bold;
                     color: #eee;
                 }
@@ -176,23 +160,29 @@
                 padding-left: 20px;
                 padding-right: @main-right-width + 20px;
 
-                .content-box-title {
-                    position: relative;
+                .box-title {
                     height: 46px;
-                    padding: 0 20px 0 46px;
+                    padding: 0 20px;
                     line-height: 42px;
                     background-color: @color-bg;
                     border: 1px solid @color-border;
                     border-radius: @border-radius;
 
-                    .box-title-icon {
-                        position: absolute;
-                        top: 0;
-                        left: 20px;
+                    .title-icon {
+                        float: left;
                         height: 44px;
                         line-height: 44px;
-                        color: #999;
-                        font-size: 20px;
+                        >*{
+                            position: relative;
+                            top: 2px;
+                            margin-right: 4px;
+                            color: #999;
+                            font-size: 20px;
+                        }
+                    }
+                    .title-label{
+                        float: left;
+                        font-size: 16px;
                     }
 
                     &.error-state {
@@ -200,7 +190,7 @@
                         border: 1px solid @color-red;
                         color: @color-red;
 
-                        .box-title-icon {
+                        .title-icon>* {
                             color: @color-red;
                         }
 
@@ -211,15 +201,14 @@
                         border: 1px solid @color-warn;
                         color: @color-warn;
 
-                        .box-title-icon {
+                        .title-icon>* {
                             color: @color-warn;
                         }
-
                     }
 
                 }
 
-                .content-box-inner {
+                .box-inner {
                     padding: 40px 20px 0 20px;
                 }
 
@@ -291,10 +280,6 @@
             padding: 40px 0;
         }
 
-    }
-
-    .main-empty-icon {
-        font-size: 38px;
     }
 
 }

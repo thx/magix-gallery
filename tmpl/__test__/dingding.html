@@ -1,1 +1,29 @@
-dingding
+<mx-title.second content="使用示例"/>
+<div class="mb40">
+    <div class="example">
+        <div class="eg-content">
+            <a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=t5z4z8s">
+                <i class="mc-iconfont color-brand displacement-2 fontsize-18">&#xe677;</i>
+                虞佳
+            </a>
+        </div>
+        <div class="eg-desc">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+&lt;a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=t5z4z8s"&gt;
+    &lt;i class="mc-iconfont color-brand"&gt;&#38;&#35;xe677;&lt;/i&gt;虞佳
+&lt;/a&gt;</pre>
+        </div>
+    </div>
+</div>
+
+<mx-title.second content="接入说明"/>
+<div class="mb10">链接格式为：dingtalk://dingtalkclient/action/sendmsg?dingtalk_id={id} ，将{id}替换为用户的钉钉号</div>
+<div class="mb10">关于目前如何获取钉钉号：</div>
+<img src="https://img.alicdn.com/tfs/TB1qp3UaNTpK1RjSZFKXXa2wXXa-942-1516.png" width="400"/>
+

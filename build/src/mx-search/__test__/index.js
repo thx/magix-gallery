@@ -3,14 +3,15 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-search/__test__/index",["magix","$","mx-title/second","./1","./4","./5","./2","./3","__test__/api"],(require,exports,module)=>{
+define("mx-search/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./4","./5","./3","./2","__test__/api"],(require,exports,module)=>{
 /*Magix,$*/
+require("__test__/subs");
 require("mx-title/second");
 require("./1");
 require("./4");
 require("./5");
-require("./2");
 require("./3");
+require("./2");
 require("__test__/api");
 var Magix = require("magix");
 var $ = require("$");
@@ -30,12 +31,40 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryb[:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryb[:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-search/__test__/1"></div><div mx-view="mx-search/__test__/4"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-search/__test__/5"></div><div mx-view="mx-search/__test__/2"></div><div mx-view="mx-search/__test__/3"></div></div></div><div mxs="_zs_galleryb[:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 15;
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryb]:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $line = 2;
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'多类型搜索\',\n            key: viewId + \'_demo1\'\n        }, {\n            name: \'自定义搜索文案\',\n            key: viewId + \'_demo5\'\n        }, {\n            name: \'右对齐\',\n            key: viewId + \'_demo3\'\n        }, {\n            name: \'单个搜索\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
+    ;
+    $p += '' + ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'多类型搜索\',                    key: viewId + \'_demo1\'                }, {                    name: \'自定义搜索文案\',                    key: viewId + \'_demo5\'                }, {                    name: \'右对齐\',                    key: viewId + \'_demo3\'                }, {                    name: \'单个搜索\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '多类型搜索', key: viewId + '_demo1' }, { name: '自定义搜索文案', key: viewId + '_demo5' }, { name: '右对齐', key: viewId + '_demo3' }, { name: '单个搜索', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
+    $line = 23;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryb]:a" class="clearfix mb20"><div mxa="_zs_galleryb]:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-search/__test__/1" id="';
+    $line = 26;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-search/__test__/4" id="';
+    $line = 27;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div mxa="_zs_galleryb]:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-search/__test__/5" id="';
+    $line = 30;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div><div mx-view="mx-search/__test__/3" id="';
+    $line = 31;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mxs="_zs_galleryb]:e" mx-view="mx-search/__test__/2"></div></div></div><div id="';
+    $line = 36;
+    $art = '=viewId';
+    ;
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $line = 37;
     $art = '@options';
     ;
-    $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '"></div>';
+    $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -83,6 +112,7 @@ catch (ex) {
                 def: '配置了placeholder，显示placeholder，否则<br>配置了list，默认显示list-text.join(\'/\')<br>单个类型搜索默认显示搜素'
             }];
         this.updater.digest({
+            viewId: this.id,
             options: options
         });
     }

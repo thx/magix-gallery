@@ -25,7 +25,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallery\\:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallery\\:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallery\\:_" class="mb20 clearfix"><div class="color-9 fl">以下示例：</div><div class="fl">自定义切换trigger</div></div><div mxa="_zs_gallery\\:b" class="clearfix mb10"><div mxa="_zs_gallery\\:c" class="_zs_gallery_mx-carousel___test___4_-wrapper"><div mx-view="mx-carousel/index?height=100&prevTrigger=';
+    $p += '<div mxa="_zs_gallery,:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallery,:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallery,:_" class="mb20 clearfix"><div class="color-9 fl">以下示例：</div><div class="fl">自定义切换trigger</div></div><div mxa="_zs_gallery,:b" class="clearfix mb10"><div mxa="_zs_gallery,:c" class="_zs_gallery_mx-carousel___test___4_-wrapper"><div mx-view="mx-carousel/index?height=100&prevTrigger=';
     $line = 10;
     $art = '=viewId';
     ;
@@ -33,7 +33,7 @@ module.exports = Base.extend({
     $line = 11;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_next"><div mxs="_zs_gallery\\:a" data-carousel="true"><div class="_zs_gallery_mx-carousel___test___4_-bg">1</div></div><div mxs="_zs_gallery\\:b" data-carousel="true"><div class="_zs_gallery_mx-carousel___test___4_-bg">2</div></div><div mxs="_zs_gallery\\:c" data-carousel="true"><div class="_zs_gallery_mx-carousel___test___4_-bg">3</div></div></div><i class="mc-iconfont _zs_gallery_mx-carousel___test___4_-arrow _zs_gallery_mx-carousel___test___4_-prev" id="';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_next"><div mxs="_zs_gallery,:a" data-carousel="true"><div class="_zs_gallery_mx-carousel___test___4_-bg">1</div></div><div mxs="_zs_gallery,:b" data-carousel="true"><div class="_zs_gallery_mx-carousel___test___4_-bg">2</div></div><div mxs="_zs_gallery,:c" data-carousel="true"><div class="_zs_gallery_mx-carousel___test___4_-bg">3</div></div></div><i class="mc-iconfont _zs_gallery_mx-carousel___test___4_-arrow _zs_gallery_mx-carousel___test___4_-prev" id="';
     $line = 22;
     $art = '=viewId';
     ;
@@ -41,15 +41,15 @@ module.exports = Base.extend({
     $line = 23;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_next">&#xe61e;</i></div></div></div><div mxa="_zs_gallery\\:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery\\:d" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_next">&#xe61e;</i></div></div></div><div mxa="_zs_gallery,:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery,:d" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 30;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery\\:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery,:e" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 32;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery\\:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery,:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 35;
     $art = '=viewId';
     ;

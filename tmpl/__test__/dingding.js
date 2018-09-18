@@ -1,9 +1,10 @@
 let Magix = require('magix');
+let Base = require('__test__/example');
 let $ = require('$');
 
-module.exports = Magix.View.extend({
-    tmpl: '@update.html',
+module.exports = Base.extend({
+    tmpl: '@dingding.html',
     render() {
-        this.updater.digest();
+        this.updater.digest({});
     }
 });

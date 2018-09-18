@@ -1,0 +1,24 @@
+<div class="search-box {{if (align=='right')}} suggest-box-right {{else}} suggest-box-left {{/if}}">
+    <i class="mc-iconfont search-icon">&#xe651;</i>
+    <input type="text" class="input search-input" placeholder="{{=placeholder}}"
+        id="{{=viewId}}_input"
+        value="{{=selectText}}" 
+        mx-keyup="@{suggest}()"
+        mx-paste="@{suggest}()"
+        mx-focusin="@{suggest}()"
+        mx-focusout="@{stop}()"
+        mx-change="@{stop}()"/>
+
+    <ul class="suggest-menu {{if show}} open {{/if}}">
+        {{if (list.length > 0)}}
+            {{each list as item}}
+            <li class="suggest-item {{if ((selectedValue + '') === (item.value + ''))}} active {{/if}}" 
+                mx-click="@{select}({item:'{{@item}}'})">
+                {{=item.text}}
+            </li>
+            {{/each}}
+        {{else}}
+        <li class="text-center color-9">无匹配选项</li>
+        {{/if}}
+    </ul>
+</div>

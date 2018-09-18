@@ -197,6 +197,10 @@ module.exports = Magix.View.extend({
                 path: '/search/index',
                 icon: '&#xe651;'
             }, {
+                name: '可选项提示',
+                path: '/suggest/index',
+                icon: '&#xe654;'
+            }, {
                 name: '开关',
                 path: '/switch/index',
                 icon: '&#xe72c;'
@@ -268,6 +272,7 @@ module.exports = Magix.View.extend({
                 icon: '&#xe75c;'
             }, {
                 name: '钉钉唤起',
+                tip: '<a class="color-brand" href="https://open-doc.dingtalk.com/docs/doc.htm?spm=a219a.7386797.0.0.WN76gC&treeId=176&articleId=106086&docType=1" target="_blank"  rel="noopener noreferrer">钉钉PC端统一跳转协议</a>',
                 path: '/all/dingding',
                 icon: '&#xe677;'
             }, {

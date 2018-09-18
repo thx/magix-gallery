@@ -7,95 +7,74 @@ define("mx-main/data",[],(require,exports,module)=>{
 /**/
 
 /**
- *  * step定义
- *      2：计划
- *      3：单元
- *      4：创意
- *      5：创建完成
- *  * subStep定义
- *      -1：不停留在具体的子view上
- *      >0：具体某一个子步骤
+ *  step定义：当前步骤
+ *
+ *  subStep定义
+ *     -1：不停留在具体的子view上
+ *     >0：具体某一个子步骤
  */
-var StepInfos = [{
-        id: 'campaign',
-        label: '设置计划',
-        icon: '&#xe64a;',
-        subsFn: function () {
-            return [{
-                    id: 'appeal',
-                    label: '营销场景'
-                }, {
-                    id: 'base',
-                    label: '基本信息'
-                }];
-        }
-    }, {
-        id: 'adgroup',
-        label: '设置单元',
-        icon: '&#xe6bb;',
-        subsFn: function (c) {
-            return [{
-                    id: 'item',
-                    label: '推广宝贝'
-                }, {
-                    id: 'price',
-                    label: '出价方式'
-                }, {
-                    id: 'target',
-                    label: '定向人群'
-                }, {
-                    id: 'adzone',
-                    label: '资源位'
-                }];
-        }
-    }, {
-        id: 'creative',
-        label: '添加创意',
-        icon: '&#xe64c;',
-        subsFn: function () {
-            return [];
-        }
-    }, {
-        id: 'complete',
-        label: '完成创建',
-        icon: '&#xe64d;',
-        subsFn: function () {
-            return [];
-        }
-    }];
-// 步骤id
-var IndexMap = {};
-StepInfos.forEach(function (stepInfo, stepIndex) {
-    IndexMap[stepInfo.id] = stepIndex + 1;
-});
 module.exports = {
-    indexMap: IndexMap,
     getSteps: function (info) {
-        var curStepIndex = info.curStepIndex, alreadyStep = info.alreadyStep, create = info.create, campaign = info.campaign;
-        var stepInfos = $.extend(true, [], StepInfos);
-        var len = stepInfos.length, adgroupStep = IndexMap.adgroup;
-        stepInfos.forEach(function (step, index) {
-            // 是否为当前步骤
-            var stepIndex = index + 1;
-            step.current = (stepIndex == curStepIndex);
-            // 该步骤是否上锁（是否可编辑）
-            // 主流程中
-            //      1. 已到步 + 已到步之前的不上锁
-            //      2. 最后一步时之前的都不可编辑，都上锁
-            // 
-            // 横向管理进入主流程新增单元（营销诉求和计划基本信息都不可修改）
-            //      第一步+第二步上锁
-            step.locked = (create == 2 && (stepIndex < adgroupStep)) || (stepIndex > alreadyStep) ||
-                ((alreadyStep >= len) && (stepIndex < len));
-            // 该步骤是否展开：已到步骤之前的都展开
-            step.expand = (alreadyStep >= stepIndex);
-            if (step.expand) {
-                step.subs = step.subsFn(campaign);
-            }
-            else {
-                step.subs = [];
-            }
+        var stepInfos = [{
+                label: '设置计划',
+                icon: '<i class="mc-iconfont">&#xe7b6;</i>',
+                subs: [{
+                        label: '营销场景',
+                        icon: '<i class="mc-iconfont">&#xe7be;</i>',
+                        view: 'mx-main/inner'
+                    }, {
+                        label: '基本信息',
+                        icon: '<i class="mc-iconfont">&#xe612;</i>',
+                        view: 'mx-main/inner'
+                    }]
+            }, {
+                label: '设置单元',
+                icon: '<i class="mc-iconfont">&#xe7b5;</i>',
+                subs: [{
+                        label: '推广宝贝',
+                        icon: '<i class="mc-iconfont">&#xe613;</i>',
+                        view: 'mx-main/inner'
+                    }, {
+                        label: '出价方式',
+                        icon: '<i class="mc-iconfont">&#xe731;</i>',
+                        view: 'mx-main/inner'
+                    }]
+            }, {
+                label: '添加创意',
+                icon: '<i class="mc-iconfont">&#xe64c;</i>',
+                subs: [{
+                        label: '创意内容',
+                        icon: '<i class="mc-iconfont">&#xe7be;</i>',
+                        view: 'mx-main/inner'
+                    }]
+            }, {
+                id: 'complete',
+                label: '完成创建',
+                icon: '<i class="mc-iconfont">&#xe613;</i>',
+                subs: [{
+                        label: '完成标题1',
+                        icon: '<i class="mc-iconfont">&#xe705;</i>',
+                        view: 'mx-main/inner'
+                    }, {
+                        label: '完成标题2',
+                        icon: '<i class="mc-iconfont">&#xe664;</i>',
+                        view: 'mx-main/inner'
+                    }, {
+                        label: '完成标题3',
+                        icon: '<i class="mc-iconfont">&#xe767;</i>',
+                        view: 'mx-main/inner'
+                    }]
+            }];
+        stepInfos.forEach(function (step, stepIndex) {
+            step.index = (stepIndex + 1);
+            step.subs.forEach(function (sub, subIndex) {
+                sub.index = (subIndex + 1);
+            });
         });
+        stepInfos[0].expand = true;
+        stepInfos[1].expand = true;
+        stepInfos[2].current = true;
+        stepInfos[3].locked = true;
         return stepInfos;
     }
 };
