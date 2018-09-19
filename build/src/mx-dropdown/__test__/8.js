@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -32,47 +32,47 @@ module.exports = Base.extend({
     $line = 14;
     $art = '@list';
     ;
-    $p += '' + ($expr = '<%@list%>', $i($$ref, list)) + '&selected=';
+    $p += ($expr = '<%@list%>', $i($$ref, list)) + '&selected=';
     $line = 15;
     $art = '@selectedArr';
     ;
-    $p += '' + ($expr = '<%@selectedArr%>', $i($$ref, selectedArr)) + '"></div></div><div mxv mxa="_zs_galleryax:c" class="mb20"><div mxv="list,selectedStr" class="w200" mx-change="' + $viewId + 'select()" mx-view="mx-dropdown/multiple?list=';
+    $p += ($expr = '<%@selectedArr%>', $i($$ref, selectedArr)) + '"></div></div><div mxv mxa="_zs_galleryax:c" class="mb20"><div mxv="list,selectedStr" class="w200" mx-change="' + $viewId + 'select()" mx-view="mx-dropdown/multiple?list=';
     $line = 20;
     $art = '@list';
     ;
-    $p += '' + ($expr = '<%@list%>', $i($$ref, list)) + '&selected=';
+    $p += ($expr = '<%@list%>', $i($$ref, list)) + '&selected=';
     $line = 21;
     $art = '@selectedStr';
     ;
-    $p += '' + ($expr = '<%@selectedStr%>', $i($$ref, selectedStr)) + '"></div></div><div><span mxs="_zs_galleryax:a" class="color-9">当前选中值：</span><span>';
+    $p += ($expr = '<%@selectedStr%>', $i($$ref, selectedStr)) + '"></div></div><div><span mxs="_zs_galleryax:a" class="color-9">当前选中值：</span><span>';
     $line = 26;
     $art = '=selectedArr';
     ;
-    $p += '' + ($expr = '<%=selectedArr%>', $e(selectedArr)) + '</span></div></div><div mxa="_zs_galleryax:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryax:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=selectedArr%>', $e(selectedArr)) + '</span></div></div><div mxa="_zs_galleryax:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryax:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 31;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryax:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryax:e" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 33;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryax:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryax:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 36;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown.multiple class="w200"\n    list="&#123;&#123;@list&#125;&#125;"\n    selected="&#123;&#123;@selectedArr&#125;&#125;"\n    mx-change="select()"/&gt;\n\n&lt;mx-dropdown.multiple class="w200"\n    list="&#123;&#123;@list&#125;&#125;"\n    selected="&#123;&#123;@selectedStr&#125;&#125;"\n    mx-change="select()"/&gt;</pre></div><div mxa="_zs_galleryax:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryax:d" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown.multiple class="w200"\n    list="&#123;&#123;@list&#125;&#125;"\n    selected="&#123;&#123;@selectedArr&#125;&#125;"\n    mx-change="select()"/&gt;\n\n&lt;mx-dropdown.multiple class="w200"\n    list="&#123;&#123;@list&#125;&#125;"\n    selected="&#123;&#123;@selectedStr&#125;&#125;"\n    mx-change="select()"/&gt;</pre></div><div mxa="_zs_galleryax:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryax:d" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 49;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryax:g" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryax:g" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 51;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryax:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryax:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 54;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let list = [];\n        for (let index = 0; index &lt; 6; index++) &#123;\n            list.push(&#123;\n                text: \'多选\' + (index + 1),\n                value: index + 1\n            &#125;)\n        &#125;\n        this.updater.digest(&#123;\n            list,\n            selectedArr: [1, 2, 3],\n            selectedStr: \'1,2,3\'\n        &#125;);\n    &#125;,\n    \n    \'select&lt;change&gt;\'(e) &#123;\n        // e.values [array] 当前选中值\n        // e.texts [array] 当前选中文案\n        let values = e.values;\n        this.updater.digest(&#123;\n            selectedArr: values,\n            selectedStr: values.join(\',\')\n        &#125;);\n    &#125;\n&#125;);</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let list = [];\n        for (let index = 0; index &lt; 6; index++) &#123;\n            list.push(&#123;\n                text: \'多选\' + (index + 1),\n                value: index + 1\n            &#125;)\n        &#125;\n        this.updater.digest(&#123;\n            list,\n            selectedArr: [1, 2, 3],\n            selectedStr: \'1,2,3\'\n        &#125;);\n    &#125;,\n    \n    \'select&lt;change&gt;\'(e) &#123;\n        // e.values [array] 当前选中值\n        // e.texts [array] 当前选中文案\n        let values = e.values;\n        this.updater.digest(&#123;\n            selectedArr: values,\n            selectedStr: values.join(\',\')\n        &#125;);\n    &#125;\n&#125;);</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

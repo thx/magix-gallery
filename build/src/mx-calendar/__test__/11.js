@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -33,19 +33,19 @@ module.exports = Base.extend({
     $line = 10;
     $art = '@[\'passed10\', \'dynamicStart15\', \'forever\']';
     ;
-    $p += '' + ($expr = '<%@[\'passed10\', \'dynamicStart15\', \'forever\']%>', $i($$ref, ['passed10', 'dynamicStart15', 'forever'])) + '&startDisabled=true"></div></div><div mxs="_zs_gallery1:a" class="w200" mx-view="mx-calendar/rangepicker?endDisabled=true"></div></div><div mxa="_zs_gallery1:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery1:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[\'passed10\', \'dynamicStart15\', \'forever\']%>', $i($$ref, ['passed10', 'dynamicStart15', 'forever'])) + '&startDisabled=true"></div></div><div mxs="_zs_gallery1:a" class="w200" mx-view="mx-calendar/rangepicker?endDisabled=true"></div></div><div mxa="_zs_gallery1:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery1:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 18;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery1:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery1:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 20;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery1:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery1:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 23;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;!-- 过滤了passed10 --&gt;\n&lt;mx-calendar.rangepicker class="w200"\n    shortkeys="&#123;&#123;@[\n        \'passed10\', \n        \'dynamicStart15\', \n        \'forever\'\n    ]&#125;&#125;"\n    start-disabled="true"/&gt;\n\n&lt;mx-calendar.rangepicker class="w200"\n    end-disabled="true"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;!-- 过滤了passed10 --&gt;\n&lt;mx-calendar.rangepicker class="w200"\n    shortkeys="&#123;&#123;@[\n        \'passed10\', \n        \'dynamicStart15\', \n        \'forever\'\n    ]&#125;&#125;"\n    start-disabled="true"/&gt;\n\n&lt;mx-calendar.rangepicker class="w200"\n    end-disabled="true"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

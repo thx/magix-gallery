@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -31,11 +31,11 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=view';
     ;
-    $p += '' + ($expr = '<%=view%>', $e(view)) + '"><div mxs="_zs_galleryS:_" class="loading"><span class="loading-anim"></span></div></div><div mx-view="mx-wanxiang/index?bizCode=PCMaMaAnyWhereWindow&defaultSourceId=432&sourceMap=';
+    $p += ($expr = '<%=view%>', $e(view)) + '"><div mxs="_zs_galleryS:_" class="loading"><span class="loading-anim"></span></div></div><div mx-view="mx-wanxiang/index?bizCode=PCMaMaAnyWhereWindow&defaultSourceId=432&sourceMap=';
     $line = 8;
     $art = '@{\n        \'/wanxiang/demo2\': 496\n    }';
     ;
-    $p += '' + ($expr = '<%@{        \'/wanxiang/demo2\': 496    }%>', $i($$ref, { '/wanxiang/demo2': 496 })) + '&bottom=50"></div>';
+    $p += ($expr = '<%@{        \'/wanxiang/demo2\': 496    }%>', $i($$ref, { '/wanxiang/demo2': 496 })) + '&bottom=50"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

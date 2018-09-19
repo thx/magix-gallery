@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -28,31 +28,31 @@ module.exports = Base.extend({
     $line = 5;
     $art = '=src';
     ;
-    $p += '' + ($expr = '<%=src%>', $e(src)) + '" frameborder="0" width="100%" height="340" allowtransparency="true" scrolling="no" marginheight="0" marginwidth="0" border="0"></iframe></div></div></div><div mxa="_zs_galleryp:d" class="clearfix"><div mxa="_zs_galleryp:e" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third1"><div mxs="_zs_galleryp:_" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=src%>', $e(src)) + '" frameborder="0" width="100%" height="340" allowtransparency="true" scrolling="no" marginheight="0" marginwidth="0" border="0"></iframe></div></div></div><div mxa="_zs_galleryp:d" class="clearfix"><div mxa="_zs_galleryp:e" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third1"><div mxs="_zs_galleryp:_" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 20;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryp:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryp:f" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 22;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryp:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryp:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 25;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;iframe src="&#123;&#123;=src&#125;&#125;" \n    frameborder="0" \n    width="100%" \n    height="400" \n    allowtransparency="true" \n    scrolling="no" \n    marginheight="0" \n    marginwidth="0" \n    border="0"&gt;&lt;/iframe&gt;</pre></div><div mxa="_zs_galleryp:g" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryp:b" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;iframe src="&#123;&#123;=src&#125;&#125;" \n    frameborder="0" \n    width="100%" \n    height="400" \n    allowtransparency="true" \n    scrolling="no" \n    marginheight="0" \n    marginwidth="0" \n    border="0"&gt;&lt;/iframe&gt;</pre></div><div mxa="_zs_galleryp:g" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryp:b" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 38;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryp:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryp:h" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 40;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryp:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryp:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 43;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        // 登陆成功回跳页面\n        let forward = window.location.origin + \'/indexbp.html\';\n        let params = [\n            \'redirectURL=\' + encodeURIComponent(forward),\n            \'style=mini\',\n            \'css_style=dingxiang\', //css_style为主站那边给定的样式约定值\n            \'full_redirect=true\',\n            \'newMini2=true\',\n            \'enup=0\',\n            \'qrlogin=1\',\n            \'keyLogin=true\'\n        ]\n        let taobaoHost = !!~window.location.host.indexOf(\'daily\') ? \'login.daily.taobao.net\' : \'login.taobao.com\';\n        let src = \'https://\' + taobaoHost + \'/member/login.jhtml?\' + params.join(\'&\');\n\n        this.updater.digest(&#123;\n            src\n        &#125;);\n\n    &#125;\n&#125;);</pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        // 登陆成功回跳页面\n        let forward = window.location.origin + \'/indexbp.html\';\n        let params = [\n            \'redirectURL=\' + encodeURIComponent(forward),\n            \'style=mini\',\n            \'css_style=dingxiang\', //css_style为主站那边给定的样式约定值\n            \'full_redirect=true\',\n            \'newMini2=true\',\n            \'enup=0\',\n            \'qrlogin=1\',\n            \'keyLogin=true\'\n        ]\n        let taobaoHost = !!~window.location.host.indexOf(\'daily\') ? \'login.daily.taobao.net\' : \'login.taobao.com\';\n        let src = \'https://\' + taobaoHost + \'/member/login.jhtml?\' + params.join(\'&\');\n\n        this.updater.digest(&#123;\n            src\n        &#125;);\n\n    &#125;\n&#125;);</pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -35,11 +35,10 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=maxWidth';
     ;
-    $p += '' + ($expr = '<%=maxWidth%>', $e(maxWidth)) + 'px;" class="_zs_gallery_mx-duration_index_-duration-wrapper">';
+    $p += ($expr = '<%=maxWidth%>', $e(maxWidth)) + 'px;" class="_zs_gallery_mx-duration_index_-duration-wrapper">';
     $line = 3;
     $art = 'if hoverInfo.show';
     ;
-    $p += '';
     $expr = '<%if (hoverInfo.show) {%>';
     if (hoverInfo.show) {
         ;
@@ -47,27 +46,26 @@ module.exports = Magix.View.extend({
         $line = 4;
         $art = '=hoverInfo.top';
         ;
-        $p += '' + ($expr = '<%=hoverInfo.top%>', $e(hoverInfo.top)) + 'px; left: ';
+        $p += ($expr = '<%=hoverInfo.top%>', $e(hoverInfo.top)) + 'px; left: ';
         $line = 4;
         $art = '=hoverInfo.left';
         ;
-        $p += '' + ($expr = '<%=hoverInfo.left%>', $e(hoverInfo.left)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-hover"><div mxa="_zs_galleryaG:_" class="mb5">';
+        $p += ($expr = '<%=hoverInfo.left%>', $e(hoverInfo.left)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-hover"><div mxa="_zs_galleryaG:_" class="mb5">';
         $line = 6;
         $art = '=hoverInfo.week';
         ;
-        $p += '' + ($expr = '<%=hoverInfo.week%>', $e(hoverInfo.week)) + '</div><div mxa="_zs_galleryaG:a" class="mb5"><strong>';
+        $p += ($expr = '<%=hoverInfo.week%>', $e(hoverInfo.week)) + '</div><div mxa="_zs_galleryaG:a" class="mb5"><strong>';
         $line = 7;
         $art = '=hoverInfo.time';
         ;
-        $p += '' + ($expr = '<%=hoverInfo.time%>', $e(hoverInfo.time)) + '</strong></div><div><strong>';
+        $p += ($expr = '<%=hoverInfo.time%>', $e(hoverInfo.time)) + '</strong></div><div><strong>';
         $line = 8;
         $art = '=hoverInfo.discount';
         ;
-        $p += '' + ($expr = '<%=hoverInfo.discount%>', $e(hoverInfo.discount)) + '</strong>%折扣</div></div>';
+        $p += ($expr = '<%=hoverInfo.discount%>', $e(hoverInfo.discount)) + '</strong>%折扣</div></div>';
         $line = 10;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -75,7 +73,6 @@ module.exports = Magix.View.extend({
     $line = 13;
     $art = 'if maskInfo.show';
     ;
-    $p += '';
     $expr = '<%if (maskInfo.show) {%>';
     if (maskInfo.show) {
         ;
@@ -83,23 +80,22 @@ module.exports = Magix.View.extend({
         $line = 14;
         $art = '=maskInfo.top';
         ;
-        $p += '' + ($expr = '<%=maskInfo.top%>', $e(maskInfo.top)) + 'px; left: ';
+        $p += ($expr = '<%=maskInfo.top%>', $e(maskInfo.top)) + 'px; left: ';
         $line = 14;
         $art = '=maskInfo.left';
         ;
-        $p += '' + ($expr = '<%=maskInfo.left%>', $e(maskInfo.left)) + 'px; height: ';
+        $p += ($expr = '<%=maskInfo.left%>', $e(maskInfo.left)) + 'px; height: ';
         $line = 14;
         $art = '=maskInfo.height';
         ;
-        $p += '' + ($expr = '<%=maskInfo.height%>', $e(maskInfo.height)) + 'px; width: ';
+        $p += ($expr = '<%=maskInfo.height%>', $e(maskInfo.height)) + 'px; width: ';
         $line = 14;
         $art = '=maskInfo.width';
         ;
-        $p += '' + ($expr = '<%=maskInfo.width%>', $e(maskInfo.width)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-mask"></div>';
+        $p += ($expr = '<%=maskInfo.width%>', $e(maskInfo.width)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-mask"></div>';
         $line = 16;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -107,7 +103,6 @@ module.exports = Magix.View.extend({
     $line = 19;
     $art = 'if settingInfo.show';
     ;
-    $p += '';
     $expr = '<%if (settingInfo.show) {%>';
     if (settingInfo.show) {
         ;
@@ -115,23 +110,22 @@ module.exports = Magix.View.extend({
         $line = 20;
         $art = '=settingInfo.top';
         ;
-        $p += '' + ($expr = '<%=settingInfo.top%>', $e(settingInfo.top)) + 'px; left: ';
+        $p += ($expr = '<%=settingInfo.top%>', $e(settingInfo.top)) + 'px; left: ';
         $line = 20;
         $art = '=settingInfo.left';
         ;
-        $p += '' + ($expr = '<%=settingInfo.left%>', $e(settingInfo.left)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-setting"><div mxv mxa="_zs_galleryaG:b" class="_zs_gallery_mx-duration_index_-setting-content"><div mxa="_zs_galleryaG:c" class="mb20"><span>';
+        $p += ($expr = '<%=settingInfo.left%>', $e(settingInfo.left)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-setting"><div mxv mxa="_zs_galleryaG:b" class="_zs_gallery_mx-duration_index_-setting-content"><div mxa="_zs_galleryaG:c" class="mb20"><span>';
         $line = 24;
         $art = '=settingInfo.week';
         ;
-        $p += '' + ($expr = '<%=settingInfo.week%>', $e(settingInfo.week)) + '</span>：<strong mxa="_zs_galleryaG:d" class="ml5">';
+        $p += ($expr = '<%=settingInfo.week%>', $e(settingInfo.week)) + '</span>：<strong mxa="_zs_galleryaG:d" class="ml5">';
         $line = 25;
         $art = '=settingInfo.time';
         ;
-        $p += '' + ($expr = '<%=settingInfo.time%>', $e(settingInfo.time)) + '</strong></div><div mxv mxa="_zs_galleryaG:e" class="mb5"><label mxv><input type="radio" class="radio" name="settingType" value="1" mx-change="' + $viewId + 'changeSettingType({type:1})" ';
+        $p += ($expr = '<%=settingInfo.time%>', $e(settingInfo.time)) + '</strong></div><div mxv mxa="_zs_galleryaG:e" class="mb5"><label mxv><input type="radio" class="radio" name="settingType" value="1" mx-change="' + $viewId + 'changeSettingType({type:1})" ';
         $line = 31;
         $art = 'if settingInfo.type == 1';
         ;
-        $p += '';
         $expr = '<%if (settingInfo.type == 1) {%>';
         if (settingInfo.type == 1) {
             ;
@@ -139,7 +133,6 @@ module.exports = Magix.View.extend({
             $line = 31;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -147,7 +140,6 @@ module.exports = Magix.View.extend({
         $line = 33;
         $art = 'if settingInfo.type == 1';
         ;
-        $p += '';
         $expr = '<%if (settingInfo.type == 1) {%>';
         if (settingInfo.type == 1) {
             ;
@@ -159,11 +151,10 @@ module.exports = Magix.View.extend({
             $line = 35;
             $art = '=settingInfo.discount';
             ;
-            $p += '' + ($expr = '<%=settingInfo.discount%>', $e(settingInfo.discount)) + '"/>';
+            $p += ($expr = '<%=settingInfo.discount%>', $e(settingInfo.discount)) + '"/>';
             $line = 37;
             $art = 'else';
             ;
-            $p += '';
             $expr = '<%}    else {%>';
         }
         else {
@@ -172,11 +163,10 @@ module.exports = Magix.View.extend({
             $line = 40;
             $art = '=settingInfo.discount';
             ;
-            $p += '' + ($expr = '<%=settingInfo.discount%>', $e(settingInfo.discount)) + '"/>';
+            $p += ($expr = '<%=settingInfo.discount%>', $e(settingInfo.discount)) + '"/>';
             $line = 41;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -184,7 +174,6 @@ module.exports = Magix.View.extend({
         $line = 48;
         $art = 'if settingInfo.type == 2';
         ;
-        $p += '';
         $expr = '<%if (settingInfo.type == 2) {%>';
         if (settingInfo.type == 2) {
             ;
@@ -192,7 +181,6 @@ module.exports = Magix.View.extend({
             $line = 48;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -200,7 +188,6 @@ module.exports = Magix.View.extend({
         $line = 55;
         $art = 'if settingInfo.type == 3';
         ;
-        $p += '';
         $expr = '<%if (settingInfo.type == 3) {%>';
         if (settingInfo.type == 3) {
             ;
@@ -208,7 +195,6 @@ module.exports = Magix.View.extend({
             $line = 55;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -216,7 +202,6 @@ module.exports = Magix.View.extend({
         $line = 64;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -224,47 +209,45 @@ module.exports = Magix.View.extend({
     $line = 66;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_duration" style="width: ';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_duration" style="width: ';
     $line = 67;
     $art = '=(maxWidth)';
     ;
-    $p += '' + ($expr = '<%=(maxWidth)%>', $e((maxWidth))) + 'px;"><ul class="_zs_gallery_mx-duration_index_-week fl" style="width: ';
+    $p += ($expr = '<%=(maxWidth)%>', $e((maxWidth))) + 'px;"><ul class="_zs_gallery_mx-duration_index_-week fl" style="width: ';
     $line = 68;
     $art = '=(boxWidth*multiple)';
     ;
-    $p += '' + ($expr = '<%=(boxWidth * multiple)%>', $e((boxWidth * multiple))) + 'px;"><li class="_zs_gallery_mx-duration_index_-week-item" style="height: ';
+    $p += ($expr = '<%=(boxWidth * multiple)%>', $e((boxWidth * multiple))) + 'px;"><li class="_zs_gallery_mx-duration_index_-week-item" style="height: ';
     $line = 69;
     $art = '=headerHeight+1';
     ;
-    $p += '' + ($expr = '<%=headerHeight + 1%>', $e(headerHeight + 1)) + 'px; line-height: ';
+    $p += ($expr = '<%=headerHeight + 1%>', $e(headerHeight + 1)) + 'px; line-height: ';
     $line = 69;
     $art = '=headerHeight';
     ;
-    $p += '' + ($expr = '<%=headerHeight%>', $e(headerHeight)) + 'px;">星期</li>';
+    $p += ($expr = '<%=headerHeight%>', $e(headerHeight)) + 'px;">星期</li>';
     $line = 70;
     $art = 'each weeks as week';
     ;
-    $p += '';
-    $expr = '<%for (var $art_ilxkvpvdwgf$art_i = 0, $art_csrariytkh$art_c = weeks.length; $art_ilxkvpvdwgf$art_i < $art_csrariytkh$art_c; $art_ilxkvpvdwgf$art_i++) {    var week = weeks[$art_ilxkvpvdwgf$art_i]%>';
-    for (var $art_ilxkvpvdwgf$art_i = 0, $art_csrariytkh$art_c = weeks.length; $art_ilxkvpvdwgf$art_i < $art_csrariytkh$art_c; $art_ilxkvpvdwgf$art_i++) {
-        var week = weeks[$art_ilxkvpvdwgf$art_i];
+    $expr = '<%for (var $art_ihfhcgtmlxl$art_i = 0, $art_cnhxhbx$art_c = weeks.length; $art_ihfhcgtmlxl$art_i < $art_cnhxhbx$art_c; $art_ihfhcgtmlxl$art_i++) {    var week = weeks[$art_ihfhcgtmlxl$art_i]%>';
+    for (var $art_ihfhcgtmlxl$art_i = 0, $art_cnhxhbx$art_c = weeks.length; $art_ihfhcgtmlxl$art_i < $art_cnhxhbx$art_c; $art_ihfhcgtmlxl$art_i++) {
+        var week = weeks[$art_ihfhcgtmlxl$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-week-item" style="height: ';
         $line = 71;
         $art = '=boxHeight';
         ;
-        $p += '' + ($expr = '<%=boxHeight%>', $e(boxHeight)) + 'px; line-height: ';
+        $p += ($expr = '<%=boxHeight%>', $e(boxHeight)) + 'px; line-height: ';
         $line = 71;
         $art = '=boxHeight';
         ;
-        $p += '' + ($expr = '<%=boxHeight%>', $e(boxHeight)) + 'px;">';
+        $p += ($expr = '<%=boxHeight%>', $e(boxHeight)) + 'px;">';
         $line = 71;
         $art = '=week';
         ;
-        $p += '' + ($expr = '<%=week%>', $e(week)) + '</li>';
+        $p += ($expr = '<%=week%>', $e(week)) + '</li>';
         $line = 72;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -272,35 +255,33 @@ module.exports = Magix.View.extend({
     $line = 74;
     $art = '=boxWidth*rowNum';
     ;
-    $p += '' + ($expr = '<%=boxWidth * rowNum%>', $e(boxWidth * rowNum)) + 'px;"><ul mxa="_zs_galleryaG:h" class="_zs_gallery_mx-duration_index_-range clearfix">';
+    $p += ($expr = '<%=boxWidth * rowNum%>', $e(boxWidth * rowNum)) + 'px;"><ul mxa="_zs_galleryaG:h" class="_zs_gallery_mx-duration_index_-range clearfix">';
     $line = 76;
     $art = 'each ranges as range';
     ;
-    $p += '';
-    $expr = '<%for (var $art_ijrwjw$art_i = 0, $art_casymtrvcnb$art_c = ranges.length; $art_ijrwjw$art_i < $art_casymtrvcnb$art_c; $art_ijrwjw$art_i++) {    var range = ranges[$art_ijrwjw$art_i]%>';
-    for (var $art_ijrwjw$art_i = 0, $art_casymtrvcnb$art_c = ranges.length; $art_ijrwjw$art_i < $art_casymtrvcnb$art_c; $art_ijrwjw$art_i++) {
-        var range = ranges[$art_ijrwjw$art_i];
+    $expr = '<%for (var $art_ieshrwffufs$art_i = 0, $art_cikmvflxjvmq$art_c = ranges.length; $art_ieshrwffufs$art_i < $art_cikmvflxjvmq$art_c; $art_ieshrwffufs$art_i++) {    var range = ranges[$art_ieshrwffufs$art_i]%>';
+    for (var $art_ieshrwffufs$art_i = 0, $art_cikmvflxjvmq$art_c = ranges.length; $art_ieshrwffufs$art_i < $art_cikmvflxjvmq$art_c; $art_ieshrwffufs$art_i++) {
+        var range = ranges[$art_ieshrwffufs$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-range-item" style="width: ';
         $line = 77;
         $art = '=(boxWidth*(rowNum/4))';
         ;
-        $p += '' + ($expr = '<%=(boxWidth * (rowNum / 4))%>', $e((boxWidth * (rowNum / 4)))) + 'px; height: ';
+        $p += ($expr = '<%=(boxWidth * (rowNum / 4))%>', $e((boxWidth * (rowNum / 4)))) + 'px; height: ';
         $line = 77;
         $art = '=headerHeight/2';
         ;
-        $p += '' + ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px; line-height: ';
+        $p += ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px; line-height: ';
         $line = 77;
         $art = '=headerHeight/2';
         ;
-        $p += '' + ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px;">';
+        $p += ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px;">';
         $line = 77;
         $art = '=range';
         ;
-        $p += '' + ($expr = '<%=range%>', $e(range)) + '</li>';
+        $p += ($expr = '<%=range%>', $e(range)) + '</li>';
         $line = 78;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -308,7 +289,6 @@ module.exports = Magix.View.extend({
     $line = 81;
     $art = 'for (let i=0;i<24;i+=1)';
     ;
-    $p += '';
     $expr = '<%for (var i = 0; i < 24; i += 1) {%>';
     for (var i = 0; i < 24; i += 1) {
         ;
@@ -316,23 +296,22 @@ module.exports = Magix.View.extend({
         $line = 82;
         $art = '=(boxWidth*multiple)';
         ;
-        $p += '' + ($expr = '<%=(boxWidth * multiple)%>', $e((boxWidth * multiple))) + 'px; height: ';
+        $p += ($expr = '<%=(boxWidth * multiple)%>', $e((boxWidth * multiple))) + 'px; height: ';
         $line = 82;
         $art = '=headerHeight/2';
         ;
-        $p += '' + ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px; line-height: ';
+        $p += ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px; line-height: ';
         $line = 82;
         $art = '=headerHeight/2';
         ;
-        $p += '' + ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px;">';
+        $p += ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px;">';
         $line = 82;
         $art = '=i';
         ;
-        $p += '' + ($expr = '<%=i%>', $e(i)) + '</li>';
+        $p += ($expr = '<%=i%>', $e(i)) + '</li>';
         $line = 83;
         $art = '/for';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -340,39 +319,37 @@ module.exports = Magix.View.extend({
     $line = 86;
     $art = 'each boxZones as zone';
     ;
-    $p += '';
-    $expr = '<%for (var $art_iwgwnpypn$art_i = 0, $art_cwriuwi$art_c = boxZones.length; $art_iwgwnpypn$art_i < $art_cwriuwi$art_c; $art_iwgwnpypn$art_i++) {    var zone = boxZones[$art_iwgwnpypn$art_i]%>';
-    for (var $art_iwgwnpypn$art_i = 0, $art_cwriuwi$art_c = boxZones.length; $art_iwgwnpypn$art_i < $art_cwriuwi$art_c; $art_iwgwnpypn$art_i++) {
-        var zone = boxZones[$art_iwgwnpypn$art_i];
+    $expr = '<%for (var $art_idrqnaxp$art_i = 0, $art_cedtvpm$art_c = boxZones.length; $art_idrqnaxp$art_i < $art_cedtvpm$art_c; $art_idrqnaxp$art_i++) {    var zone = boxZones[$art_idrqnaxp$art_i]%>';
+    for (var $art_idrqnaxp$art_i = 0, $art_cedtvpm$art_c = boxZones.length; $art_idrqnaxp$art_i < $art_cedtvpm$art_c; $art_idrqnaxp$art_i++) {
+        var zone = boxZones[$art_idrqnaxp$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-box fl" style="width: ';
         $line = 88;
         $art = '=boxWidth';
         ;
-        $p += '' + ($expr = '<%=boxWidth%>', $e(boxWidth)) + 'px; height: ';
+        $p += ($expr = '<%=boxWidth%>', $e(boxWidth)) + 'px; height: ';
         $line = 88;
         $art = '=boxHeight';
         ;
-        $p += '' + ($expr = '<%=boxHeight%>', $e(boxHeight)) + 'px; background-color: ';
+        $p += ($expr = '<%=boxHeight%>', $e(boxHeight)) + 'px; background-color: ';
         $line = 88;
         $art = '=zone.bg';
         ;
-        $p += '' + ($expr = '<%=zone.bg%>', $e(zone.bg)) + '" mx-click="' + $viewId + 'clickOutside({index:';
+        $p += ($expr = '<%=zone.bg%>', $e(zone.bg)) + '" mx-click="' + $viewId + 'clickOutside({index:';
         $line = 89;
         $art = '=zone.index';
         ;
-        $p += '' + ($expr = '<%=zone.index%>', $e(zone.index)) + '})" mx-mousedown="' + $viewId + 'select()" mx-mouseover="' + $viewId + 'showTip({index:';
+        $p += ($expr = '<%=zone.index%>', $e(zone.index)) + '})" mx-mousedown="' + $viewId + 'select()" mx-mouseover="' + $viewId + 'showTip({index:';
         $line = 91;
         $art = '=zone.index';
         ;
-        $p += '' + ($expr = '<%=zone.index%>', $e(zone.index)) + '})" mx-mouseout="' + $viewId + 'hideTip({index:';
+        $p += ($expr = '<%=zone.index%>', $e(zone.index)) + '})" mx-mouseout="' + $viewId + 'hideTip({index:';
         $line = 92;
         $art = '=zone.index';
         ;
-        $p += '' + ($expr = '<%=zone.index%>', $e(zone.index)) + '})"></li>';
+        $p += ($expr = '<%=zone.index%>', $e(zone.index)) + '})"></li>';
         $line = 93;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;

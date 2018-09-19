@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -32,23 +32,22 @@ module.exports = Base.extend({
     $line = 9;
     $art = '@fields';
     ;
-    $p += '' + ($expr = '<%@fields%>', $i($$ref, fields)) + '&defaults=';
+    $p += ($expr = '<%@fields%>', $i($$ref, fields)) + '&defaults=';
     $line = 10;
     $art = '@defaults';
     ;
-    $p += '' + ($expr = '<%@defaults%>', $i($$ref, defaults)) + '&custom=';
+    $p += ($expr = '<%@defaults%>', $i($$ref, defaults)) + '&custom=';
     $line = 11;
     $art = '=custom';
     ;
-    $p += '' + ($expr = '<%!$eu(custom)%>', $eu(custom)) + '&customs=';
+    $p += ($expr = '<%!$eu(custom)%>', $eu(custom)) + '&customs=';
     $line = 12;
     $art = '@customs';
     ;
-    $p += '' + ($expr = '<%@customs%>', $i($$ref, customs)) + '&sortable=true"></div></div>';
+    $p += ($expr = '<%@customs%>', $i($$ref, customs)) + '&sortable=true"></div></div>';
     $line = 16;
     $art = 'if custom';
     ;
-    $p += '';
     $expr = '<%if (custom) {%>';
     if (custom) {
         ;
@@ -56,23 +55,21 @@ module.exports = Base.extend({
         $line = 19;
         $art = 'each customs as key';
         ;
-        $p += '';
-        $expr = '<%for (var $art_icvrbvttqj$art_i = 0, $art_chqicsqpqbl$art_c = customs.length; $art_icvrbvttqj$art_i < $art_chqicsqpqbl$art_c; $art_icvrbvttqj$art_i++) {        var key = customs[$art_icvrbvttqj$art_i]%>';
-        for (var $art_icvrbvttqj$art_i = 0, $art_chqicsqpqbl$art_c = customs.length; $art_icvrbvttqj$art_i < $art_chqicsqpqbl$art_c; $art_icvrbvttqj$art_i++) {
-            var key = customs[$art_icvrbvttqj$art_i];
+        $expr = '<%for (var $art_izoneoglcf$art_i = 0, $art_cijkvyyhun$art_c = customs.length; $art_izoneoglcf$art_i < $art_cijkvyyhun$art_c; $art_izoneoglcf$art_i++) {        var key = customs[$art_izoneoglcf$art_i]%>';
+        for (var $art_izoneoglcf$art_i = 0, $art_cijkvyyhun$art_c = customs.length; $art_izoneoglcf$art_i < $art_cijkvyyhun$art_c; $art_izoneoglcf$art_i++) {
+            var key = customs[$art_izoneoglcf$art_i];
             $p += '<span mxa="_zs_gallerybs:d" class="fl mr10">';
             $line = 20;
             $art = '=map[key]';
             ;
-            $p += '' + ($expr = '<%=map[key]%>', $e(map[key])) + '（';
+            $p += ($expr = '<%=map[key]%>', $e(map[key])) + '（';
             $line = 20;
             $art = '=key';
             ;
-            $p += '' + ($expr = '<%=key%>', $e(key)) + '）</span>';
+            $p += ($expr = '<%=key%>', $e(key)) + '）</span>';
             $line = 21;
             $art = '/each';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -80,7 +77,6 @@ module.exports = Base.extend({
         $line = 23;
         $art = 'else';
         ;
-        $p += '';
         $expr = '<%}else {%>';
     }
     else {
@@ -89,23 +85,21 @@ module.exports = Base.extend({
         $line = 26;
         $art = 'each defaults as key';
         ;
-        $p += '';
-        $expr = '<%for (var $art_ipmpblcldk$art_i = 0, $art_cbtfxarrkf$art_c = defaults.length; $art_ipmpblcldk$art_i < $art_cbtfxarrkf$art_c; $art_ipmpblcldk$art_i++) {        var key = defaults[$art_ipmpblcldk$art_i]%>';
-        for (var $art_ipmpblcldk$art_i = 0, $art_cbtfxarrkf$art_c = defaults.length; $art_ipmpblcldk$art_i < $art_cbtfxarrkf$art_c; $art_ipmpblcldk$art_i++) {
-            var key = defaults[$art_ipmpblcldk$art_i];
+        $expr = '<%for (var $art_ihxrgzi$art_i = 0, $art_chkhodx$art_c = defaults.length; $art_ihxrgzi$art_i < $art_chkhodx$art_c; $art_ihxrgzi$art_i++) {        var key = defaults[$art_ihxrgzi$art_i]%>';
+        for (var $art_ihxrgzi$art_i = 0, $art_chkhodx$art_c = defaults.length; $art_ihxrgzi$art_i < $art_chkhodx$art_c; $art_ihxrgzi$art_i++) {
+            var key = defaults[$art_ihxrgzi$art_i];
             $p += '<span mxa="_zs_gallerybs:f" class="fl mr10">';
             $line = 27;
             $art = '=map[key]';
             ;
-            $p += '' + ($expr = '<%=map[key]%>', $e(map[key])) + '（';
+            $p += ($expr = '<%=map[key]%>', $e(map[key])) + '（';
             $line = 27;
             $art = '=key';
             ;
-            $p += '' + ($expr = '<%=key%>', $e(key)) + '）</span>';
+            $p += ($expr = '<%=key%>', $e(key)) + '）</span>';
             $line = 28;
             $art = '/each';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -113,7 +107,6 @@ module.exports = Base.extend({
         $line = 30;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -121,15 +114,15 @@ module.exports = Base.extend({
     $line = 34;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybs:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybs:h" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 36;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybs:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybs:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 39;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-indics \n    fields="&#123;&#123;@fields&#125;&#125;" \n    defaults="&#123;&#123;@defaults&#125;&#125;"\n    custom="&#123;&#123;=custom&#125;&#125;"\n    customs="&#123;&#123;@customs&#125;&#125;"\n    sortable="true"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-indics \n    fields="&#123;&#123;@fields&#125;&#125;" \n    defaults="&#123;&#123;@defaults&#125;&#125;"\n    custom="&#123;&#123;=custom&#125;&#125;"\n    customs="&#123;&#123;@customs&#125;&#125;"\n    sortable="true"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

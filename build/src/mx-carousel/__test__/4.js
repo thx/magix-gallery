@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -29,47 +29,47 @@ module.exports = Base.extend({
     $line = 13;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_prev&nextTrigger=';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_prev&nextTrigger=';
     $line = 14;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_next&dotClass=';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_next&dotClass=';
     $line = 15;
     $art = '=dotClass';
     ;
-    $p += '' + ($expr = '<%!$eu(dotClass)%>', $eu(dotClass)) + '"><div mxs="_zs_gallery,:a" class="clearfix" data-carousel="true"><div class="_zs_gallery_mx-carousel___test___4_-bg">1</div><div class="_zs_gallery_mx-carousel___test___4_-bg">2</div></div><div mxs="_zs_gallery,:b" class="clearfix" data-carousel="true"><div class="_zs_gallery_mx-carousel___test___4_-bg">3</div><div class="_zs_gallery_mx-carousel___test___4_-bg">4</div></div><div mxs="_zs_gallery,:c" class="clearfix" data-carousel="true"><div class="_zs_gallery_mx-carousel___test___4_-bg">5</div><div class="_zs_gallery_mx-carousel___test___4_-bg">6</div></div></div><i class="mc-iconfont _zs_gallery_mx-carousel___test___4_-arrow _zs_gallery_mx-carousel___test___4_-prev" id="';
+    $p += ($expr = '<%!$eu(dotClass)%>', $eu(dotClass)) + '"><div mxs="_zs_gallery,:a" class="clearfix" data-carousel="true"><div class="_zs_gallery_mx-carousel___test___4_-bg">1</div><div class="_zs_gallery_mx-carousel___test___4_-bg">2</div></div><div mxs="_zs_gallery,:b" class="clearfix" data-carousel="true"><div class="_zs_gallery_mx-carousel___test___4_-bg">3</div><div class="_zs_gallery_mx-carousel___test___4_-bg">4</div></div><div mxs="_zs_gallery,:c" class="clearfix" data-carousel="true"><div class="_zs_gallery_mx-carousel___test___4_-bg">5</div><div class="_zs_gallery_mx-carousel___test___4_-bg">6</div></div></div><i class="mc-iconfont _zs_gallery_mx-carousel___test___4_-arrow _zs_gallery_mx-carousel___test___4_-prev" id="';
     $line = 29;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_prev">&#xe61e;</i><i class="mc-iconfont _zs_gallery_mx-carousel___test___4_-arrow _zs_gallery_mx-carousel___test___4_-next" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_prev">&#xe61e;</i><i class="mc-iconfont _zs_gallery_mx-carousel___test___4_-arrow _zs_gallery_mx-carousel___test___4_-next" id="';
     $line = 30;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_next">&#xe61e;</i></div></div></div><div mxa="_zs_gallery,:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery,:d" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_next">&#xe61e;</i></div></div></div><div mxa="_zs_gallery,:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery,:d" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 36;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery,:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery,:e" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 38;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery,:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery,:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 41;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="wrapper"&gt;\n    &lt;mx-carousel height="100" \n        prev-trigger="&#123;&#123;=viewId&#125;&#125;_prev"\n        next-trigger="&#123;&#123;=viewId&#125;&#125;_next"\n        dot-class="&#123;&#123;=dotClass&#125;&#125;"&gt;\n        &lt;mx-carousel.panel class="clearfix"&gt;\n            &lt;div class="bg"&gt;1&lt;/div&gt;\n            &lt;div class="bg"&gt;2&lt;/div&gt;\n        &lt;/mx-carousel.panel&gt;\n        &lt;mx-carousel.panel class="clearfix"&gt;\n            &lt;div class="bg"&gt;3&lt;/div&gt;\n            &lt;div class="bg"&gt;4&lt;/div&gt;\n        &lt;/mx-carousel.panel&gt;\n        &lt;mx-carousel.panel class="clearfix"&gt;\n            &lt;div class="bg"&gt;5&lt;/div&gt;\n            &lt;div class="bg"&gt;6&lt;/div&gt;\n        &lt;/mx-carousel.panel&gt;\n    &lt;/mx-carousel&gt;\n    &lt;i class="mc-iconfont arrow prev" id="&#123;&#123;=viewId&#125;&#125;_prev"&gt;&#xe61e;&lt;/i&gt;\n    &lt;i class="mc-iconfont arrow next" id="&#123;&#123;=viewId&#125;&#125;_next"&gt;&#xe61e;&lt;/i&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_gallery,:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery,:f" class="_zs_gallery___test___layout_-eg-title">CSS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="wrapper"&gt;\n    &lt;mx-carousel height="100" \n        prev-trigger="&#123;&#123;=viewId&#125;&#125;_prev"\n        next-trigger="&#123;&#123;=viewId&#125;&#125;_next"\n        dot-class="&#123;&#123;=dotClass&#125;&#125;"&gt;\n        &lt;mx-carousel.panel class="clearfix"&gt;\n            &lt;div class="bg"&gt;1&lt;/div&gt;\n            &lt;div class="bg"&gt;2&lt;/div&gt;\n        &lt;/mx-carousel.panel&gt;\n        &lt;mx-carousel.panel class="clearfix"&gt;\n            &lt;div class="bg"&gt;3&lt;/div&gt;\n            &lt;div class="bg"&gt;4&lt;/div&gt;\n        &lt;/mx-carousel.panel&gt;\n        &lt;mx-carousel.panel class="clearfix"&gt;\n            &lt;div class="bg"&gt;5&lt;/div&gt;\n            &lt;div class="bg"&gt;6&lt;/div&gt;\n        &lt;/mx-carousel.panel&gt;\n    &lt;/mx-carousel&gt;\n    &lt;i class="mc-iconfont arrow prev" id="&#123;&#123;=viewId&#125;&#125;_prev"&gt;&#xe61e;&lt;/i&gt;\n    &lt;i class="mc-iconfont arrow next" id="&#123;&#123;=viewId&#125;&#125;_next"&gt;&#xe61e;&lt;/i&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_gallery,:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery,:f" class="_zs_gallery___test___layout_-eg-title">CSS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 66;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery,:g" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery,:g" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 68;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallery,:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallery,:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 71;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\n@import "../../mx-style/_vars";\n\n.wrapper&#123;\n    position: relative;\n    padding-left: 10%;\n    padding-right: 10%;\n\n    .arrow&#123;\n        position: absolute;\n        top: 20px;\n        width: 40px;\n        height: 40px;\n        text-align: center;\n        line-height: 40px;\n        font-size: 32px;\n        color: @color-brand;\n        opacity: .5;\n        transition: all @duration;\n        cursor: pointer;\n\n        &:hover&#123;\n            opacity: .8;\n        &#125;\n\n        &.prev&#123;\n            left: 0;\n        &#125;\n\n        &.next&#123;\n            right: 0;\n            transform: rotate(180deg);\n        &#125;\n    &#125;\n    .bg &#123;\n        float: left;\n        width: 40%;\n        height: 80px;\n        margin-right: 5%;\n        margin-left: 5%;\n        line-height: 80px;\n        background-repeat: no-repeat;\n        background-position: center top;\n        background-color: @color-brand;\n        color: #fff;\n        text-align: center;\n        font-size: 20px;\n        font-weight: bold;\n        border-radius: 6px;\n    &#125;\n\n    .dot&#123;\n        margin-top: 8px;\n        background-color: @color-brand;\n    &#125;\n&#125;\n\n</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\n@import "../../mx-style/_vars";\n\n.wrapper&#123;\n    position: relative;\n    padding-left: 10%;\n    padding-right: 10%;\n\n    .arrow&#123;\n        position: absolute;\n        top: 20px;\n        width: 40px;\n        height: 40px;\n        text-align: center;\n        line-height: 40px;\n        font-size: 32px;\n        color: @color-brand;\n        opacity: .5;\n        transition: all @duration;\n        cursor: pointer;\n\n        &:hover&#123;\n            opacity: .8;\n        &#125;\n\n        &.prev&#123;\n            left: 0;\n        &#125;\n\n        &.next&#123;\n            right: 0;\n            transform: rotate(180deg);\n        &#125;\n    &#125;\n    .bg &#123;\n        float: left;\n        width: 40%;\n        height: 80px;\n        margin-right: 5%;\n        margin-left: 5%;\n        line-height: 80px;\n        background-repeat: no-repeat;\n        background-position: center top;\n        background-color: @color-brand;\n        color: #fff;\n        text-align: center;\n        font-size: 20px;\n        font-weight: bold;\n        border-radius: 6px;\n    &#125;\n\n    .dot&#123;\n        margin-top: 8px;\n        background-color: @color-brand;\n    &#125;\n&#125;\n\n</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

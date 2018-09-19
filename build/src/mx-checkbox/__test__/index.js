@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -34,23 +34,23 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\'\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'_config说明\',\n        key: viewId + \'_config\'\n    }]';
     ;
-    $p += '' + ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\'        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'_config说明\',            key: viewId + \'_config\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo' }, { name: 'API', key: viewId + '_api' }, { name: '_config说明', key: viewId + '_config' }])) + '"></div><div id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\'        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'_config说明\',            key: viewId + \'_config\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo' }, { name: 'API', key: viewId + '_api' }, { name: '_config说明', key: viewId + '_config' }])) + '"></div><div id="';
     $line = 13;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallery::_" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-checkbox/__test__/1"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-checkbox/__test__/2"></div></div></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallery::_" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-checkbox/__test__/1"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-checkbox/__test__/2"></div></div></div><div id="';
     $line = 23;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 24;
     $art = '@options';
     ;
-    $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
     $line = 26;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_config" mx-view="mx-title/second?content=%E5%85%B3%E4%BA%8E%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20_config%20%E7%9A%84%E8%AF%B4%E6%98%8E"></div><div mxs="_zs_gallery::a" mx-view="mx-checkbox/__test__/desc" class="mb40 pr20"></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_config" mx-view="mx-title/second?content=%E5%85%B3%E4%BA%8E%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20_config%20%E7%9A%84%E8%AF%B4%E6%98%8E"></div><div mxs="_zs_gallery::a" mx-view="mx-checkbox/__test__/desc" class="mb40 pr20"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

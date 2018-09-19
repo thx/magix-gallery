@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -33,19 +33,19 @@ module.exports = Base.extend({
     $line = 13;
     $art = '@[2,3,4]';
     ;
-    $p += '' + ($expr = '<%@[2, 3, 4]%>', $i($$ref, [2, 3, 4])) + '"></div></div><div mxa="_zs_gallery4:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery4:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[2, 3, 4]%>', $i($$ref, [2, 3, 4])) + '"></div></div><div mxa="_zs_gallery4:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery4:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 17;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery4:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery4:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 19;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery4:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery4:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 22;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.datepicker class="w200" \n    min="2018-08-17"\n    max="2018-08-28"\n    selected="2018-08-20"\n    disabled-weeks="&#123;&#123;@[2,3,4]&#125;&#125;"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.datepicker class="w200" \n    min="2018-08-17"\n    max="2018-08-28"\n    selected="2018-08-20"\n    disabled-weeks="&#123;&#123;@[2,3,4]&#125;&#125;"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

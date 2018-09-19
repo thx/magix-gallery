@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -27,11 +27,9 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', list = $$.list, width = $$.width, viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '';
     $line = 1;
     $art = 'if (list && list.length)';
     ;
-    $p += '';
     $expr = '<%if (list && list.length) {%>';
     if (list && list.length) {
         ;
@@ -39,39 +37,37 @@ module.exports = Magix.View.extend({
         $line = 3;
         $art = '=width';
         ;
-        $p += '' + ($expr = '<%=width%>', $e(width)) + 'px;" mx-mouseout="' + $viewId + '@{out}()" mx-mousemove="' + $viewId + '@{move}()" mx-contextmenu="' + $viewId + '@{prevent}()">';
+        $p += ($expr = '<%=width%>', $e(width)) + 'px;" mx-mouseout="' + $viewId + '@{out}()" mx-mousemove="' + $viewId + '@{move}()" mx-contextmenu="' + $viewId + '@{prevent}()">';
         $line = 7;
         $art = 'each list as one idx';
         ;
-        $p += '';
-        $expr = '<%for (var idx = 0, $art_cjnfedhbxg$art_c = list.length; idx < $art_cjnfedhbxg$art_c; idx++) {        var one = list[idx]%>';
-        for (var idx = 0, $art_cjnfedhbxg$art_c = list.length; idx < $art_cjnfedhbxg$art_c; idx++) {
+        $expr = '<%for (var idx = 0, $art_chwrdptu$art_c = list.length; idx < $art_chwrdptu$art_c; idx++) {        var one = list[idx]%>';
+        for (var idx = 0, $art_chwrdptu$art_c = list.length; idx < $art_chwrdptu$art_c; idx++) {
             var one = list[idx];
-            $p += '<li mxa="_zs_galleryc[:_" class="_zs_gallery_mx-taginput_suggest_-item"><a href="javascript:;" class="_zs_gallery_mx-taginput_suggest_-item-link" data-idx="';
+            $p += '<li mxa="_zs_galleryc\\:_" class="_zs_gallery_mx-taginput_suggest_-item"><a href="javascript:;" class="_zs_gallery_mx-taginput_suggest_-item-link" data-idx="';
             $line = 10;
             $art = '=idx';
             ;
-            $p += '' + ($expr = '<%=idx%>', $e(idx)) + '" mx-click="' + $viewId + '@{pick}({item:\'';
+            $p += ($expr = '<%=idx%>', $e(idx)) + '" mx-click="' + $viewId + '@{pick}({item:\'';
             $line = 11;
             $art = '@one';
             ;
-            $p += '' + ($expr = '<%@one%>', $i($$ref, one)) + '\'})" id="sg_';
+            $p += ($expr = '<%@one%>', $i($$ref, one)) + '\'})" id="sg_';
             $line = 11;
             $art = '=viewId';
             ;
-            $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_';
+            $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
             $line = 11;
             $art = '=idx';
             ;
-            $p += '' + ($expr = '<%=idx%>', $e(idx)) + '">';
+            $p += ($expr = '<%=idx%>', $e(idx)) + '">';
             $line = 12;
             $art = '=one.text';
             ;
-            $p += '' + ($expr = '<%=one.text%>', $e(one.text)) + '</a></li>';
+            $p += ($expr = '<%=one.text%>', $e(one.text)) + '</a></li>';
             $line = 15;
             $art = '/each';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -79,7 +75,6 @@ module.exports = Magix.View.extend({
         $line = 17;
         $art = 'else';
         ;
-        $p += '';
         $expr = '<%}else {%>';
     }
     else {
@@ -88,15 +83,13 @@ module.exports = Magix.View.extend({
         $line = 18;
         $art = '=width';
         ;
-        $p += '' + ($expr = '<%=width%>', $e(width)) + 'px;">无匹配选项</div>';
+        $p += ($expr = '<%=width%>', $e(width)) + 'px;">无匹配选项</div>';
         $line = 19;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
-    $p += '';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

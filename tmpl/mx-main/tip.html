@@ -1,0 +1,11 @@
+{{if view}}
+    <!-- 自定义view优先级更高 -->
+    <mx-vframe src="{{=view}}">
+        <mx-loading/>
+    </mx-vframe>
+{{else}}
+    <div class="side-tip">
+        <i class="mc-iconfont side-light">&#xe654;</i>
+        <div class="side-content">{{!content}}</div>
+    </div>
+{{/if}}

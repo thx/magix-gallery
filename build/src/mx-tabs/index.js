@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -30,63 +30,58 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', type = $$.type, list = $$.list, selected = $$.selected, viewId = $$.viewId, left = $$.left, width = $$.width, disabled = $$.disabled; var $expr, $art, $line; try {
-    $p += '';
     $line = 1;
     $art = 'if type == \'border\'';
     ;
-    $p += '';
     $expr = '<%if (type == \'border\') {%>';
     if (type == 'border') {
         ;
-        $p += '<div mxa="_zs_galleryc^:_" class="_zs_gallery_mx-tabs_index_-border clearfix">';
+        $p += '<div mxa="_zs_galleryc(:_" class="_zs_gallery_mx-tabs_index_-border clearfix">';
         $line = 3;
         $art = 'each list as item';
         ;
-        $p += '';
-        $expr = '<%for (var $art_ivopugriwk$art_i = 0, $art_cwstdnkvixl$art_c = list.length; $art_ivopugriwk$art_i < $art_cwstdnkvixl$art_c; $art_ivopugriwk$art_i++) {        var item = list[$art_ivopugriwk$art_i]%>';
-        for (var $art_ivopugriwk$art_i = 0, $art_cwstdnkvixl$art_c = list.length; $art_ivopugriwk$art_i < $art_cwstdnkvixl$art_c; $art_ivopugriwk$art_i++) {
-            var item = list[$art_ivopugriwk$art_i];
+        $expr = '<%for (var $art_iijjkncv$art_i = 0, $art_cxbsxfrs$art_c = list.length; $art_iijjkncv$art_i < $art_cxbsxfrs$art_c; $art_iijjkncv$art_i++) {        var item = list[$art_iijjkncv$art_i]%>';
+        for (var $art_iijjkncv$art_i = 0, $art_cxbsxfrs$art_c = list.length; $art_iijjkncv$art_i < $art_cxbsxfrs$art_c; $art_iijjkncv$art_i++) {
+            var item = list[$art_iijjkncv$art_i];
             $p += '<a mx-mouseover="' + $viewId + '@{over}({value:\'';
             $line = 4;
             $art = '=item.value';
             ;
-            $p += '' + ($expr = '<%=$eq(item.value)%>', $e($eq(item.value))) + '\'})" mx-mouseout="' + $viewId + '@{out}()" class="_zs_gallery_mx-tabs_index_-border-item ';
+            $p += ($expr = '<%=$eq(item.value)%>', $e($eq(item.value))) + '\'})" mx-mouseout="' + $viewId + '@{out}()" class="_zs_gallery_mx-tabs_index_-border-item ';
             $line = 4;
             $art = '= (item.value == selected) ? \'selected\' : \'\'';
             ;
-            $p += '' + ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '" mx-click="' + $viewId + '@{select}({item:\'';
+            $p += ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '" mx-click="' + $viewId + '@{select}({item:\'';
             $line = 4;
             $art = '@item';
             ;
-            $p += '' + ($expr = '<%@item%>', $i($$ref, item)) + '\'})" href="javascript:;" id="';
+            $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})" href="javascript:;" id="';
             $line = 4;
             $art = '=viewId';
             ;
-            $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_';
+            $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
             $line = 4;
             $art = '=item.value';
             ;
-            $p += '' + ($expr = '<%=item.value%>', $e(item.value)) + '">';
+            $p += ($expr = '<%=item.value%>', $e(item.value)) + '">';
             $line = 5;
             $art = '=item.text';
             ;
-            $p += '' + ($expr = '<%=item.text%>', $e(item.text)) + ' ';
+            $p += ($expr = '<%=item.text%>', $e(item.text)) + ' ';
             $line = 6;
             $art = 'if item.tag';
             ;
-            $p += '';
             $expr = '<%if (item.tag) {%>';
             if (item.tag) {
                 ;
-                $p += '<span mxa="_zs_galleryc^:a" class="_zs_gallery_mx-tabs_index_-tag"><span mxs="_zs_galleryc^:_" class="_zs_gallery_mx-tabs_index_-tag-arrow"></span><span mxa="_zs_galleryc^:b" class="_zs_gallery_mx-tabs_index_-tag-name">';
+                $p += '<span mxa="_zs_galleryc(:a" class="_zs_gallery_mx-tabs_index_-tag"><span mxs="_zs_galleryc(:_" class="_zs_gallery_mx-tabs_index_-tag-arrow"></span><span mxa="_zs_galleryc(:b" class="_zs_gallery_mx-tabs_index_-tag-name">';
                 $line = 9;
                 $art = '=item.tag';
                 ;
-                $p += '' + ($expr = '<%=item.tag%>', $e(item.tag)) + '</span></span>';
+                $p += ($expr = '<%=item.tag%>', $e(item.tag)) + '</span></span>';
                 $line = 11;
                 $art = '/if';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -94,7 +89,6 @@ module.exports = Base.extend({
             $line = 12;
             $art = 'if item.tips';
             ;
-            $p += '';
             $expr = '<%if (item.tips) {%>';
             if (item.tips) {
                 ;
@@ -102,11 +96,10 @@ module.exports = Base.extend({
                 $line = 15;
                 $art = '=item.tips';
                 ;
-                $p += '' + ($expr = '<%!$eu(item.tips)%>', $eu(item.tips)) + '">&#xe629;</i>';
+                $p += ($expr = '<%!$eu(item.tips)%>', $eu(item.tips)) + '">&#xe629;</i>';
                 $line = 16;
                 $art = '/if';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -114,7 +107,6 @@ module.exports = Base.extend({
             $line = 18;
             $art = '/each';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -122,15 +114,14 @@ module.exports = Base.extend({
         $line = 19;
         $art = '=left';
         ;
-        $p += '' + ($expr = '<%=left%>', $e(left)) + 'px; width: ';
+        $p += ($expr = '<%=left%>', $e(left)) + 'px; width: ';
         $line = 19;
         $art = '=width';
         ;
-        $p += '' + ($expr = '<%=width%>', $e(width)) + 'px;"></span></div>';
+        $p += ($expr = '<%=width%>', $e(width)) + 'px;"></span></div>';
         $line = 21;
         $art = 'else';
         ;
-        $p += '';
         $expr = '<%}else {%>';
     }
     else {
@@ -139,19 +130,17 @@ module.exports = Base.extend({
         $line = 22;
         $art = '= _zs_gallery_mx-tabs_index_-disabled ? \'disabled\' : \'\'';
         ;
-        $p += '' + ($expr = '<%=disabled ? \'_zs_gallery_mx-tabs_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-tabs_index_-disabled' : '')) + '">';
+        $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-tabs_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-tabs_index_-disabled' : '')) + '">';
         $line = 23;
         $art = 'each list as item';
         ;
-        $p += '';
-        $expr = '<%for (var $art_ideupocgedo$art_i = 0, $art_ckvhwisr$art_c = list.length; $art_ideupocgedo$art_i < $art_ckvhwisr$art_c; $art_ideupocgedo$art_i++) {        var item = list[$art_ideupocgedo$art_i]%>';
-        for (var $art_ideupocgedo$art_i = 0, $art_ckvhwisr$art_c = list.length; $art_ideupocgedo$art_i < $art_ckvhwisr$art_c; $art_ideupocgedo$art_i++) {
-            var item = list[$art_ideupocgedo$art_i];
+        $expr = '<%for (var $art_igspdzmq$art_i = 0, $art_cjfcciaj$art_c = list.length; $art_igspdzmq$art_i < $art_cjfcciaj$art_c; $art_igspdzmq$art_i++) {        var item = list[$art_igspdzmq$art_i]%>';
+        for (var $art_igspdzmq$art_i = 0, $art_cjfcciaj$art_c = list.length; $art_igspdzmq$art_i < $art_cjfcciaj$art_c; $art_igspdzmq$art_i++) {
+            var item = list[$art_igspdzmq$art_i];
             $p += '<a href="javascript:;" ';
             $line = 24;
             $art = 'if !disabled';
             ;
-            $p += '';
             $expr = '<%if (!disabled) {%>';
             if (!disabled) {
                 ;
@@ -159,11 +148,10 @@ module.exports = Base.extend({
                 $line = 24;
                 $art = '@item';
                 ;
-                $p += '' + ($expr = '<%@item%>', $i($$ref, item)) + '\'})" ';
+                $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})" ';
                 $line = 24;
                 $art = '/if';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -171,27 +159,25 @@ module.exports = Base.extend({
             $line = 24;
             $art = '= (item.value == selected) ? \'selected\' : \'\'';
             ;
-            $p += '' + ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '">';
+            $p += ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '">';
             $line = 25;
             $art = '=item.text';
             ;
-            $p += '' + ($expr = '<%=item.text%>', $e(item.text)) + ' ';
+            $p += ($expr = '<%=item.text%>', $e(item.text)) + ' ';
             $line = 26;
             $art = 'if item.tag';
             ;
-            $p += '';
             $expr = '<%if (item.tag) {%>';
             if (item.tag) {
                 ;
-                $p += '<span mxa="_zs_galleryc^:c" class="_zs_gallery_mx-tabs_index_-tag">';
+                $p += '<span mxa="_zs_galleryc(:c" class="_zs_gallery_mx-tabs_index_-tag">';
                 $line = 27;
                 $art = '=item.tag';
                 ;
-                $p += '' + ($expr = '<%=item.tag%>', $e(item.tag)) + '</span>';
+                $p += ($expr = '<%=item.tag%>', $e(item.tag)) + '</span>';
                 $line = 28;
                 $art = '/if';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -199,7 +185,6 @@ module.exports = Base.extend({
             $line = 30;
             $art = '/each';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -207,11 +192,9 @@ module.exports = Base.extend({
         $line = 32;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
-    $p += '';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -38,19 +38,19 @@ module.exports = Base.extend({
     $line = 7;
     $art = ':day{required:true}';
     ;
-    $p += '' + ($expr = '<%@day%>', $i($$ref, day)) + '"><i mxs="_zs_gallerya?:a" value="1" class="none">1</i><i mxs="_zs_gallerya?:b" value="2" class="none">2</i></div></div></div><div mxa="_zs_gallerya?:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya?:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@day%>', $i($$ref, day)) + '"><i mxs="_zs_gallerya?:a" value="1" class="none">1</i><i mxs="_zs_gallerya?:b" value="2" class="none">2</i></div></div></div><div mxa="_zs_gallerya?:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya?:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 15;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya?:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya?:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 17;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya?:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya?:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 20;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown class="w200"\n    empty-text="请选择"\n    selected="&#123;&#123;:day&#123;required:true&#125;&#125;&#125;"&gt;\n    &lt;mx-dropdown.item value="1"&gt;1&lt;/mx-dropdown.item&gt;\n    &lt;mx-dropdown.item value="2"&gt;2&lt;/mx-dropdown.item&gt;\n&lt;/mx-dropdown&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown class="w200"\n    empty-text="请选择"\n    selected="&#123;&#123;:day&#123;required:true&#125;&#125;&#125;"&gt;\n    &lt;mx-dropdown.item value="1"&gt;1&lt;/mx-dropdown.item&gt;\n    &lt;mx-dropdown.item value="2"&gt;2&lt;/mx-dropdown.item&gt;\n&lt;/mx-dropdown&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

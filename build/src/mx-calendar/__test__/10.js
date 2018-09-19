@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -33,19 +33,19 @@ module.exports = Base.extend({
     $line = 13;
     $art = '@[\'passed10\', \'dynamicStart15\', \'forever\']';
     ;
-    $p += '' + ($expr = '<%@[\'passed10\', \'dynamicStart15\', \'forever\']%>', $i($$ref, ['passed10', 'dynamicStart15', 'forever'])) + '"></div></div><div mxa="_zs_gallery0:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery0:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[\'passed10\', \'dynamicStart15\', \'forever\']%>', $i($$ref, ['passed10', 'dynamicStart15', 'forever'])) + '"></div></div><div mxa="_zs_gallery0:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery0:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 17;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery0:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery0:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 19;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery0:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery0:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 22;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.rangepicker class="w220"\n    min="2018-07-27"\n    max="2018-08-03"\n    start="2018-07-29"\n    end="2018-08-02"\n    shortkeys="&#123;&#123;@[\n        \'passed10\', \n        \'dynamicStart15\', \n        \'forever\'\n    ]&#125;&#125;"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.rangepicker class="w220"\n    min="2018-07-27"\n    max="2018-08-03"\n    start="2018-07-29"\n    end="2018-08-02"\n    shortkeys="&#123;&#123;@[\n        \'passed10\', \n        \'dynamicStart15\', \n        \'forever\'\n    ]&#125;&#125;"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -27,15 +27,15 @@ var Tmpl = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $line = 1;
     $art = '=id';
     ;
-    $p += '' + ($expr = '<%=id%>', $e(id)) + '" class="_zs_gallery_mx-loading_index_-mask-loading" style="width: ';
+    $p += ($expr = '<%=id%>', $e(id)) + '" class="_zs_gallery_mx-loading_index_-mask-loading" style="width: ';
     $line = 1;
     $art = '=width';
     ;
-    $p += '' + ($expr = '<%=width%>', $e(width)) + 'px; height: ';
+    $p += ($expr = '<%=width%>', $e(width)) + 'px; height: ';
     $line = 1;
     $art = '=height';
     ;
-    $p += '' + ($expr = '<%=height%>', $e(height)) + 'px;"><div mxs="_zs_gallerybB:_" class="loading _zs_gallery_mx-loading_index_-loading-overwite"><span class="loading-anim"></span></div></div>';
+    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxs="_zs_gallerybB:_" class="loading _zs_gallery_mx-loading_index_-loading-overwite"><span class="loading-anim"></span></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

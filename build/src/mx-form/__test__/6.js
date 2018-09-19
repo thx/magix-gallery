@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -33,7 +33,7 @@ module.exports = Base.extend({
     $line = 4;
     $art = ':number{blength:[4, 8]}';
     ;
-    $p += '' + ($expr = '<%=number%>', $e(number)) + '"/> <input mxe="' + $viewId + '_1" mxc="[';
+    $p += ($expr = '<%=number%>', $e(number)) + '"/> <input mxe="' + $viewId + '_1" mxc="[';
     $line = 5;
     $art = ':number{bminlength:2}';
     ;
@@ -41,7 +41,7 @@ module.exports = Base.extend({
     $line = 5;
     $art = ':number{bminlength:2}';
     ;
-    $p += '' + ($expr = '<%=number%>', $e(number)) + '"/> <input mxe="' + $viewId + '_2" mxc="[';
+    $p += ($expr = '<%=number%>', $e(number)) + '"/> <input mxe="' + $viewId + '_2" mxc="[';
     $line = 6;
     $art = ':number{bmaxlength:3}';
     ;
@@ -49,19 +49,19 @@ module.exports = Base.extend({
     $line = 6;
     $art = ':number{bmaxlength:3}';
     ;
-    $p += '' + ($expr = '<%=number%>', $e(number)) + '"/></div></div><div mxa="_zs_galleryba:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryba:_" class="_zs_gallery___test___layout_-eg-title">字符个数（一个汉字两个字符）</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=number%>', $e(number)) + '"/></div></div><div mxa="_zs_galleryba:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryba:_" class="_zs_gallery___test___layout_-eg-title">字符个数（一个汉字两个字符）</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 11;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryba:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryba:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 13;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryba:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryba:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 16;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;input class="input" placeholder="4到8个字之间" value="&#123;&#123;:number&#123;length:[4, 8]&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="最少2个字" value="&#123;&#123;:number&#123;minlength:2&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="最多3个字" value="&#123;&#123;:number&#123;maxlength:3&#125;&#125;&#125;"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;input class="input" placeholder="4到8个字之间" value="&#123;&#123;:number&#123;length:[4, 8]&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="最少2个字" value="&#123;&#123;:number&#123;minlength:2&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="最多3个字" value="&#123;&#123;:number&#123;maxlength:3&#125;&#125;&#125;"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

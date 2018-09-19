@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -24,39 +24,39 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', state = $$.state, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycz:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerycz:a" class="_zs_gallery___test___layout_-eg-content clearfix"><span class="fl mr20 mt5" mx-change="' + $viewId + 'toggle()" mx-view="mx-switch/index?state=';
+    $p += '<div mxa="_zs_gallerycC:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerycC:a" class="_zs_gallery___test___layout_-eg-content clearfix"><span class="fl mr20 mt5" mx-change="' + $viewId + 'toggle()" mx-view="mx-switch/index?state=';
     $line = 4;
     $art = '=state';
     ;
-    $p += '' + ($expr = '<%!$eu(state)%>', $eu(state)) + '"></span><a mxs="_zs_gallerycz:_" href="javascript:;" class="btn btn-brand fl mr20" mx-click="' + $viewId + 'change()">切换状态</a><span mxa="_zs_gallerycz:b" class="lh32 fl">当前状态：';
+    $p += ($expr = '<%!$eu(state)%>', $eu(state)) + '"></span><a mxs="_zs_gallerycC:_" href="javascript:;" class="btn btn-brand fl mr20" mx-click="' + $viewId + 'change()">切换状态</a><span mxa="_zs_gallerycC:b" class="lh32 fl">当前状态：';
     $line = 7;
     $art = '=state';
     ;
-    $p += '' + ($expr = '<%=state%>', $e(state)) + '</span></div><div mxa="_zs_gallerycz:c" class="clearfix"><div mxa="_zs_gallerycz:d" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_gallerycz:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=state%>', $e(state)) + '</span></div><div mxa="_zs_gallerycC:c" class="clearfix"><div mxa="_zs_gallerycC:d" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_gallerycC:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 12;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycz:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycC:e" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 14;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycz:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycC:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 17;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-switch class="mr20"\n    state="&#123;&#123;=state&#125;&#125;"\n    mx-change="toggle()"/&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand" \n    mx-click="change()"&gt;切换状态&lt;/a&gt;</pre></div><div mxa="_zs_gallerycz:f" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerycz:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-switch class="mr20"\n    state="&#123;&#123;=state&#125;&#125;"\n    mx-change="toggle()"/&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand" \n    mx-click="change()"&gt;切换状态&lt;/a&gt;</pre></div><div mxa="_zs_gallerycC:f" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerycC:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 27;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerycz:g" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerycC:g" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 29;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerycz:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerycC:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 32;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\ntmpl: \'@index.html\',\nrender() &#123;\n    this.updater.digest(&#123;\n        state: true\n    &#125;);\n&#125;,\n\'toggle&lt;change&gt;\' (event) &#123;\n    // event.state 当前开还是关\n    // true 开，false关\n    this.updater.digest(&#123;\n        state: event.state\n    &#125;);\n&#125;,\n\'change&lt;click&gt;\'(event)&#123;\n    let state = this.updater.get(\'state\');\n    this.updater.digest(&#123;\n        state: !state\n    &#125;);\n&#125;\n&#125;);</pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\ntmpl: \'@index.html\',\nrender() &#123;\n    this.updater.digest(&#123;\n        state: true\n    &#125;);\n&#125;,\n\'toggle&lt;change&gt;\' (event) &#123;\n    // event.state 当前开还是关\n    // true 开，false关\n    this.updater.digest(&#123;\n        state: event.state\n    &#125;);\n&#125;,\n\'change&lt;click&gt;\'(event)&#123;\n    let state = this.updater.get(\'state\');\n    this.updater.digest(&#123;\n        state: !state\n    &#125;);\n&#125;\n&#125;);</pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

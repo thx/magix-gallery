@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -33,35 +33,33 @@ module.exports = Base.extend({
     $line = 15;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_area" mx-view="mx-area/index?city=true&type=tab&data=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_area" mx-view="mx-area/index?city=true&type=tab&data=';
     $line = 18;
     $art = '@types';
     ;
-    $p += '' + ($expr = '<%@types%>', $i($$ref, types)) + '&selected=';
+    $p += ($expr = '<%@types%>', $i($$ref, types)) + '&selected=';
     $line = 19;
     $art = '@selected';
     ;
-    $p += '' + ($expr = '<%@selected%>', $i($$ref, selected)) + '"></div></div><div mxa="_zs_galleryW:d" class="fl"><div mxs="_zs_galleryW:a" class="mb10"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'get()">获取选中值</a></div><div mxa="_zs_galleryW:e" class="clearfix lh22"><div mxs="_zs_galleryW:b" class="fl color-9">当前选中值：</div><div mxa="_zs_galleryW:f" class="fl">';
+    $p += ($expr = '<%@selected%>', $i($$ref, selected)) + '"></div></div><div mxa="_zs_galleryW:d" class="fl"><div mxs="_zs_galleryW:a" class="mb10"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'get()">获取选中值</a></div><div mxa="_zs_galleryW:e" class="clearfix lh22"><div mxs="_zs_galleryW:b" class="fl color-9">当前选中值：</div><div mxa="_zs_galleryW:f" class="fl">';
     $line = 26;
     $art = 'each arrs as item';
     ;
-    $p += '';
-    $expr = '<%for (var $art_isrrsgmgno$art_i = 0, $art_csotdfccc$art_c = arrs.length; $art_isrrsgmgno$art_i < $art_csotdfccc$art_c; $art_isrrsgmgno$art_i++) {    var item = arrs[$art_isrrsgmgno$art_i]%>';
-    for (var $art_isrrsgmgno$art_i = 0, $art_csotdfccc$art_c = arrs.length; $art_isrrsgmgno$art_i < $art_csotdfccc$art_c; $art_isrrsgmgno$art_i++) {
-        var item = arrs[$art_isrrsgmgno$art_i];
+    $expr = '<%for (var $art_ikdddx$art_i = 0, $art_coqovdgo$art_c = arrs.length; $art_ikdddx$art_i < $art_coqovdgo$art_c; $art_ikdddx$art_i++) {    var item = arrs[$art_ikdddx$art_i]%>';
+    for (var $art_ikdddx$art_i = 0, $art_coqovdgo$art_c = arrs.length; $art_ikdddx$art_i < $art_coqovdgo$art_c; $art_ikdddx$art_i++) {
+        var item = arrs[$art_ikdddx$art_i];
         $p += '<div>';
         $line = 27;
         $art = '=item.name';
         ;
-        $p += '' + ($expr = '<%=item.name%>', $e(item.name)) + '（';
+        $p += ($expr = '<%=item.name%>', $e(item.name)) + '（';
         $line = 27;
         $art = '=item.id';
         ;
-        $p += '' + ($expr = '<%=item.id%>', $e(item.id)) + '）</div>';
+        $p += ($expr = '<%=item.id%>', $e(item.id)) + '）</div>';
         $line = 28;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -69,15 +67,15 @@ module.exports = Base.extend({
     $line = 36;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryW:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryW:h" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 38;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryW:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryW:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 41;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\ncity="true" \ntype="tab"\ndata="&#123;&#123;@types&#125;&#125;"\nselected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\ncity="true" \ntype="tab"\ndata="&#123;&#123;@types&#125;&#125;"\nselected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -41,7 +41,6 @@ var RangeDate = Magix.View.extend({
     $line = 1;
     $art = 'if timeType';
     ;
-    $p += '';
     $expr = '<%if (timeType) {%>';
     if (timeType) {
         ;
@@ -49,7 +48,6 @@ var RangeDate = Magix.View.extend({
         $line = 1;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -57,7 +55,6 @@ var RangeDate = Magix.View.extend({
     $line = 1;
     $art = 'if inlay';
     ;
-    $p += '';
     $expr = '<%if (inlay) {%>';
     if (inlay) {
         ;
@@ -65,7 +62,6 @@ var RangeDate = Magix.View.extend({
         $line = 1;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -73,11 +69,10 @@ var RangeDate = Magix.View.extend({
     $line = 4;
     $art = '=title';
     ;
-    $p += '' + ($expr = '<%=title%>', $e(title)) + '：</span>';
+    $p += ($expr = '<%=title%>', $e(title)) + '：</span>';
     $line = 5;
     $art = 'if vsEnable';
     ;
-    $p += '';
     $expr = '<%if (vsEnable) {%>';
     if (vsEnable) {
         ;
@@ -85,11 +80,10 @@ var RangeDate = Magix.View.extend({
         $line = 6;
         $art = '=vs';
         ;
-        $p += '' + ($expr = '<%!$eu(vs)%>', $eu(vs)) + '"></span>';
+        $p += ($expr = '<%!$eu(vs)%>', $eu(vs)) + '"></span>';
         $line = 7;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -97,7 +91,6 @@ var RangeDate = Magix.View.extend({
     $line = 11;
     $art = 'if startDisabled';
     ;
-    $p += '';
     $expr = '<%if (startDisabled) {%>';
     if (startDisabled) {
         ;
@@ -105,11 +98,10 @@ var RangeDate = Magix.View.extend({
         $line = 12;
         $art = '=dates.startStr';
         ;
-        $p += '' + ($expr = '<%=dates.startStr%>', $e(dates.startStr)) + '</div>';
+        $p += ($expr = '<%=dates.startStr%>', $e(dates.startStr)) + '</div>';
         $line = 13;
         $art = 'else';
         ;
-        $p += '';
         $expr = '<%}else {%>';
     }
     else {
@@ -118,7 +110,6 @@ var RangeDate = Magix.View.extend({
         $line = 15;
         $art = 'if vs';
         ;
-        $p += '';
         $expr = '<%if (vs) {%>';
         if (vs) {
             ;
@@ -126,7 +117,6 @@ var RangeDate = Magix.View.extend({
             $line = 15;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -134,31 +124,30 @@ var RangeDate = Magix.View.extend({
         $line = 16;
         $art = '=min';
         ;
-        $p += '' + ($expr = '<%!$eu(min)%>', $eu(min)) + '&max=';
+        $p += ($expr = '<%!$eu(min)%>', $eu(min)) + '&max=';
         $line = 17;
         $art = '=(endDisabled?dates.endStr:max)';
         ;
-        $p += '' + ($expr = '<%!$eu((endDisabled ? dates.endStr : max))%>', $eu((endDisabled ? dates.endStr : max))) + '&disabledWeeks=';
+        $p += ($expr = '<%!$eu((endDisabled ? dates.endStr : max))%>', $eu((endDisabled ? dates.endStr : max))) + '&disabledWeeks=';
         $line = 18;
         $art = '@disabledWeeks';
         ;
-        $p += '' + ($expr = '<%@disabledWeeks%>', $i($$ref, disabledWeeks)) + '&timeType=';
+        $p += ($expr = '<%@disabledWeeks%>', $i($$ref, disabledWeeks)) + '&timeType=';
         $line = 19;
         $art = '=timeType';
         ;
-        $p += '' + ($expr = '<%!$eu(timeType)%>', $eu(timeType)) + '&dateType=';
+        $p += ($expr = '<%!$eu(timeType)%>', $eu(timeType)) + '&dateType=';
         $line = 20;
         $art = '=dateType';
         ;
-        $p += '' + ($expr = '<%!$eu(dateType)%>', $eu(dateType)) + '&selected=';
+        $p += ($expr = '<%!$eu(dateType)%>', $eu(dateType)) + '&selected=';
         $line = 21;
         $art = '=dates.startStr';
         ;
-        $p += '' + ($expr = '<%!$eu(dates.startStr)%>', $eu(dates.startStr)) + '"></div>';
+        $p += ($expr = '<%!$eu(dates.startStr)%>', $eu(dates.startStr)) + '"></div>';
         $line = 23;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -166,7 +155,6 @@ var RangeDate = Magix.View.extend({
     $line = 27;
     $art = 'if ((!vs&&vsSingle) || endDisabled)';
     ;
-    $p += '';
     $expr = '<%if ((!vs && vsSingle) || endDisabled) {%>';
     if ((!vs && vsSingle) || endDisabled) {
         ;
@@ -174,11 +162,10 @@ var RangeDate = Magix.View.extend({
         $line = 28;
         $art = '=dates.endStr';
         ;
-        $p += '' + ($expr = '<%=dates.endStr%>', $e(dates.endStr)) + '</div>';
+        $p += ($expr = '<%=dates.endStr%>', $e(dates.endStr)) + '</div>';
         $line = 29;
         $art = 'else';
         ;
-        $p += '';
         $expr = '<%}else {%>';
     }
     else {
@@ -187,7 +174,6 @@ var RangeDate = Magix.View.extend({
         $line = 31;
         $art = 'if vs';
         ;
-        $p += '';
         $expr = '<%if (vs) {%>';
         if (vs) {
             ;
@@ -195,7 +181,6 @@ var RangeDate = Magix.View.extend({
             $line = 31;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -203,35 +188,34 @@ var RangeDate = Magix.View.extend({
         $line = 32;
         $art = '=(!vs?endMinFn(dates.startStr,min):min)';
         ;
-        $p += '' + ($expr = '<%!$eu((!vs ? endMinFn(dates.startStr, min) : min))%>', $eu((!vs ? endMinFn(dates.startStr, min) : min))) + '&max=';
+        $p += ($expr = '<%!$eu((!vs ? endMinFn(dates.startStr, min) : min))%>', $eu((!vs ? endMinFn(dates.startStr, min) : min))) + '&max=';
         $line = 33;
         $art = '=max';
         ;
-        $p += '' + ($expr = '<%!$eu(max)%>', $eu(max)) + '&disabledWeeks=';
+        $p += ($expr = '<%!$eu(max)%>', $eu(max)) + '&disabledWeeks=';
         $line = 34;
         $art = '@disabledWeeks';
         ;
-        $p += '' + ($expr = '<%@disabledWeeks%>', $i($$ref, disabledWeeks)) + '&timeType=';
+        $p += ($expr = '<%@disabledWeeks%>', $i($$ref, disabledWeeks)) + '&timeType=';
         $line = 35;
         $art = '=timeType';
         ;
-        $p += '' + ($expr = '<%!$eu(timeType)%>', $eu(timeType)) + '&dateType=';
+        $p += ($expr = '<%!$eu(timeType)%>', $eu(timeType)) + '&dateType=';
         $line = 36;
         $art = '=dateType';
         ;
-        $p += '' + ($expr = '<%!$eu(dateType)%>', $eu(dateType)) + '&align=';
+        $p += ($expr = '<%!$eu(dateType)%>', $eu(dateType)) + '&align=';
         $line = 37;
         $art = '=align';
         ;
-        $p += '' + ($expr = '<%!$eu(align)%>', $eu(align)) + '&selected=';
+        $p += ($expr = '<%!$eu(align)%>', $eu(align)) + '&selected=';
         $line = 38;
         $art = '=dates.endStr';
         ;
-        $p += '' + ($expr = '<%!$eu(dates.endStr)%>', $eu(dates.endStr)) + '"></div>';
+        $p += ($expr = '<%!$eu(dates.endStr)%>', $eu(dates.endStr)) + '"></div>';
         $line = 40;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -239,7 +223,6 @@ var RangeDate = Magix.View.extend({
     $line = 44;
     $art = 'if (quickInfos.length&&!vs&&!vsSingle)';
     ;
-    $p += '';
     $expr = '<%if (quickInfos.length && !vs && !vsSingle) {%>';
     if (quickInfos.length && !vs && !vsSingle) {
         ;
@@ -247,7 +230,6 @@ var RangeDate = Magix.View.extend({
         $line = 45;
         $art = 'if quickInfos.length > 7';
         ;
-        $p += '';
         $expr = '<%if (quickInfos.length > 7) {%>';
         if (quickInfos.length > 7) {
             ;
@@ -255,7 +237,6 @@ var RangeDate = Magix.View.extend({
             $line = 45;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -263,19 +244,17 @@ var RangeDate = Magix.View.extend({
         $line = 46;
         $art = '=quickTip';
         ;
-        $p += '' + ($expr = '<%=quickTip%>', $e(quickTip)) + '：</div><div mxa="_zs_gallery}:i" class="clearfix">';
+        $p += ($expr = '<%=quickTip%>', $e(quickTip)) + '：</div><div mxa="_zs_gallery}:i" class="clearfix">';
         $line = 48;
         $art = 'each quickInfos as info';
         ;
-        $p += '';
-        $expr = '<%for (var $art_imqtgfdt$art_i = 0, $art_ctuwhfxbs$art_c = quickInfos.length; $art_imqtgfdt$art_i < $art_ctuwhfxbs$art_c; $art_imqtgfdt$art_i++) {        var info = quickInfos[$art_imqtgfdt$art_i]%>';
-        for (var $art_imqtgfdt$art_i = 0, $art_ctuwhfxbs$art_c = quickInfos.length; $art_imqtgfdt$art_i < $art_ctuwhfxbs$art_c; $art_imqtgfdt$art_i++) {
-            var info = quickInfos[$art_imqtgfdt$art_i];
+        $expr = '<%for (var $art_ipzidatkue$art_i = 0, $art_clayg$art_c = quickInfos.length; $art_ipzidatkue$art_i < $art_clayg$art_c; $art_ipzidatkue$art_i++) {        var info = quickInfos[$art_ipzidatkue$art_i]%>';
+        for (var $art_ipzidatkue$art_i = 0, $art_clayg$art_c = quickInfos.length; $art_ipzidatkue$art_i < $art_clayg$art_c; $art_ipzidatkue$art_i++) {
+            var info = quickInfos[$art_ipzidatkue$art_i];
             $p += '<span class="_zs_gallery_mx-calendar_range_-st ';
             $line = 49;
             $art = 'if (dates.quickDateKey==info.key)';
             ;
-            $p += '';
             $expr = '<%if (dates.quickDateKey == info.key) {%>';
             if (dates.quickDateKey == info.key) {
                 ;
@@ -283,7 +262,6 @@ var RangeDate = Magix.View.extend({
                 $line = 49;
                 $art = '/if';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -291,19 +269,18 @@ var RangeDate = Magix.View.extend({
             $line = 50;
             $art = '@info';
             ;
-            $p += '' + ($expr = '<%@info%>', $i($$ref, info)) + '\'})" title="';
+            $p += ($expr = '<%@info%>', $i($$ref, info)) + '\'})" title="';
             $line = 51;
             $art = '=info.text';
             ;
-            $p += '' + ($expr = '<%=info.text%>', $e(info.text)) + '">';
+            $p += ($expr = '<%=info.text%>', $e(info.text)) + '">';
             $line = 51;
             $art = '=info.text';
             ;
-            $p += '' + ($expr = '<%=info.text%>', $e(info.text)) + '</span>';
+            $p += ($expr = '<%=info.text%>', $e(info.text)) + '</span>';
             $line = 52;
             $art = '/each';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -311,7 +288,6 @@ var RangeDate = Magix.View.extend({
         $line = 55;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -319,11 +295,11 @@ var RangeDate = Magix.View.extend({
     $line = 57;
     $art = '=submitText';
     ;
-    $p += '' + ($expr = '<%=submitText%>', $e(submitText)) + '</button><button mxa="_zs_gallery}:l" mx-click="' + $viewId + '@{cancel}()" type="button" class="btn btn-small">';
+    $p += ($expr = '<%=submitText%>', $e(submitText)) + '</button><button mxa="_zs_gallery}:l" mx-click="' + $viewId + '@{cancel}()" type="button" class="btn btn-small">';
     $line = 58;
     $art = '=cancelText';
     ;
-    $p += '' + ($expr = '<%=cancelText%>', $e(cancelText)) + '</button></div></div>';
+    $p += ($expr = '<%=cancelText%>', $e(cancelText)) + '</button></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

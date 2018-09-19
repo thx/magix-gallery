@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -28,15 +28,15 @@ module.exports = Base.extend({
     $line = 14;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryav:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryav:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 16;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryav:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryav:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 19;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown class="w200"&gt;\n    &lt;mx-dropdown.item value="wed"&gt;\n        周三\n    &lt;/mx-dropdown.item&gt;\n    &lt;mx-dropdown.item value="thu"&gt;\n        周四\n    &lt;/mx-dropdown.item&gt;\n&lt;/mx-dropdown&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown class="w200"&gt;\n    &lt;mx-dropdown.item value="wed"&gt;\n        周三\n    &lt;/mx-dropdown.item&gt;\n    &lt;mx-dropdown.item value="thu"&gt;\n        周四\n    &lt;/mx-dropdown.item&gt;\n&lt;/mx-dropdown&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

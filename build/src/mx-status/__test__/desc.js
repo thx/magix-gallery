@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -26,11 +26,11 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerych:_" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += '<div mxs="_zs_galleryck:_" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 2;
     $art = '@options';
     ;
-    $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '"></div>';
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

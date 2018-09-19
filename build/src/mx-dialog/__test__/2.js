@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -28,27 +28,27 @@ module.exports = Base.extend({
     $line = 17;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya_:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya_:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 19;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya_:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya_:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 22;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" mx-click="confirm1()" \n    class="btn btn-brand"&gt;默认confirm&lt;/a&gt;\n\n&lt;a href="javascript:;" mx-click="confirm2()" \n    class="btn btn-brand ml20"&gt;自定义confirm样式&lt;/a&gt;</pre></div><div mxa="_zs_gallerya_:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya_:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" mx-click="confirm1()" \n    class="btn btn-brand"&gt;默认confirm&lt;/a&gt;\n\n&lt;a href="javascript:;" mx-click="confirm2()" \n    class="btn btn-brand ml20"&gt;自定义confirm样式&lt;/a&gt;</pre></div><div mxa="_zs_gallerya_:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya_:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 31;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya_:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya_:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 33;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya_:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya_:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 36;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Dialog = require(\'@../index\'); //mixins dialog\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [Dialog],\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    \'confirm1&lt;click&gt;\'(e) &#123;\n        this.confirm(&#123;\n            title: \'标题\',\n            content: \'测试内容\'\n        &#125;)\n    &#125;,\n    \'confirm2&lt;click&gt;\'(e) &#123;\n        // this.confirm(viewOptions, dialogOptions);\n        //      viewOptions 展示内容\n        //          title：标题\n        //          content：内容\n        //          enterText：自定义确定按钮文案，默认确定\n        //          cancelText：自定义取消按钮文案，默认取消\n        //          enterCallback：确定按钮响应事件\n        //          cancelCallback：取消按钮响应事件\n        //      dialogOptions 扩展浮层样式\n        //          width： 宽度\n        //          height： 高度\n        //          modal：是否允许滚动\n        //          mask：是否有遮罩\n        //          ......\n        this.confirm(&#123;\n            title: \'标题\',\n            content: \'测试内容\',\n            enterText: \'确认按钮文案\',\n            cancelText: \'取消按钮文案\',\n            enterCallback: () => &#123;\n                console.log(\'确定按钮响应事件\');\n            &#125;\n        &#125;, &#123;\n            width: 400,\n            mask: true\n        &#125;)\n    &#125;\n&#125;);</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Dialog = require(\'@../index\'); //mixins dialog\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [Dialog],\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    \'confirm1&lt;click&gt;\'(e) &#123;\n        this.confirm(&#123;\n            title: \'标题\',\n            content: \'测试内容\'\n        &#125;)\n    &#125;,\n    \'confirm2&lt;click&gt;\'(e) &#123;\n        // this.confirm(viewOptions, dialogOptions);\n        //      viewOptions 展示内容\n        //          title：标题\n        //          content：内容\n        //          enterText：自定义确定按钮文案，默认确定\n        //          cancelText：自定义取消按钮文案，默认取消\n        //          enterCallback：确定按钮响应事件\n        //          cancelCallback：取消按钮响应事件\n        //      dialogOptions 扩展浮层样式\n        //          width： 宽度\n        //          height： 高度\n        //          modal：是否允许滚动\n        //          mask：是否有遮罩\n        //          ......\n        this.confirm(&#123;\n            title: \'标题\',\n            content: \'测试内容\',\n            enterText: \'确认按钮文案\',\n            cancelText: \'取消按钮文案\',\n            enterCallback: () => &#123;\n                console.log(\'确定按钮响应事件\');\n            &#125;\n        &#125;, &#123;\n            width: 400,\n            mask: true\n        &#125;)\n    &#125;\n&#125;);</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -42,75 +42,73 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'对比+时间段\',\n            key: viewId + \'_demo6\'\n        },{\n            name: \'对比+单天\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'选择时分秒\',\n            key: viewId + \'_demo8\'\n        },{\n            name: \'自定义trigger\',\n            key: viewId + \'_demo12\'\n        },{\n            name: \'动态快捷日期\',\n            key: viewId + \'_demo9\'\n        },{\n            name: \'禁选开始或结束\',\n            key: viewId + \'_demo11\'\n        },{\n            name: \'部分不可选\',\n            key: viewId + \'_demo15\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'快捷日期备选项\',\n        key: viewId + \'_quick\'\n    }, {\n        name: \'关于实现方案\',\n        key: viewId + \'_implement\'\n    }]';
     ;
-    $p += '' + ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'对比+时间段\',                    key: viewId + \'_demo6\'                }, {                    name: \'对比+单天\',                    key: viewId + \'_demo7\'                }, {                    name: \'选择时分秒\',                    key: viewId + \'_demo8\'                }, {                    name: \'自定义trigger\',                    key: viewId + \'_demo12\'                }, {                    name: \'动态快捷日期\',                    key: viewId + \'_demo9\'                }, {                    name: \'禁选开始或结束\',                    key: viewId + \'_demo11\'                }, {                    name: \'部分不可选\',                    key: viewId + \'_demo15\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'快捷日期备选项\',            key: viewId + \'_quick\'        }, {            name: \'关于实现方案\',            key: viewId + \'_implement\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '对比+时间段', key: viewId + '_demo6' }, { name: '对比+单天', key: viewId + '_demo7' }, { name: '选择时分秒', key: viewId + '_demo8' }, { name: '自定义trigger', key: viewId + '_demo12' }, { name: '动态快捷日期', key: viewId + '_demo9' }, { name: '禁选开始或结束', key: viewId + '_demo11' }, { name: '部分不可选', key: viewId + '_demo15' }] }, { name: 'API', key: viewId + '_api' }, { name: '快捷日期备选项', key: viewId + '_quick' }, { name: '关于实现方案', key: viewId + '_implement' }])) + '"></div><div id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'对比+时间段\',                    key: viewId + \'_demo6\'                }, {                    name: \'对比+单天\',                    key: viewId + \'_demo7\'                }, {                    name: \'选择时分秒\',                    key: viewId + \'_demo8\'                }, {                    name: \'自定义trigger\',                    key: viewId + \'_demo12\'                }, {                    name: \'动态快捷日期\',                    key: viewId + \'_demo9\'                }, {                    name: \'禁选开始或结束\',                    key: viewId + \'_demo11\'                }, {                    name: \'部分不可选\',                    key: viewId + \'_demo15\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'快捷日期备选项\',            key: viewId + \'_quick\'        }, {            name: \'关于实现方案\',            key: viewId + \'_implement\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '对比+时间段', key: viewId + '_demo6' }, { name: '对比+单天', key: viewId + '_demo7' }, { name: '选择时分秒', key: viewId + '_demo8' }, { name: '自定义trigger', key: viewId + '_demo12' }, { name: '动态快捷日期', key: viewId + '_demo9' }, { name: '禁选开始或结束', key: viewId + '_demo11' }, { name: '部分不可选', key: viewId + '_demo15' }] }, { name: 'API', key: viewId + '_api' }, { name: '快捷日期备选项', key: viewId + '_quick' }, { name: '关于实现方案', key: viewId + '_implement' }])) + '"></div><div id="';
     $line = 38;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallery(:a" class="clearfix mb20"><div mxa="_zs_gallery(:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/6" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallery(:a" class="clearfix mb20"><div mxa="_zs_gallery(:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/6" id="';
     $line = 41;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div><div mx-view="mx-calendar/__test__/12" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div><div mx-view="mx-calendar/__test__/12" id="';
     $line = 42;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo12"></div></div><div mxa="_zs_gallery(:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/7" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo12"></div></div><div mxa="_zs_gallery(:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/7" id="';
     $line = 45;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div><div mx-view="mx-calendar/__test__/8" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div><div mx-view="mx-calendar/__test__/8" id="';
     $line = 46;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div><div mx-view="mx-calendar/__test__/9" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div><div mx-view="mx-calendar/__test__/9" id="';
     $line = 47;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div><div mxs="_zs_gallery(:_" mx-view="mx-calendar/__test__/10"></div><div mx-view="mx-calendar/__test__/11" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div><div mxs="_zs_gallery(:_" mx-view="mx-calendar/__test__/10"></div><div mx-view="mx-calendar/__test__/11" id="';
     $line = 49;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo11"></div><div mxs="_zs_gallery(:a" mx-view="mx-calendar/__test__/13"></div><div mx-view="mx-calendar/__test__/15" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo11"></div><div mxs="_zs_gallery(:a" mx-view="mx-calendar/__test__/13"></div><div mx-view="mx-calendar/__test__/15" id="';
     $line = 51;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo15"></div></div></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo15"></div></div></div><div id="';
     $line = 55;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 56;
     $art = '@options';
     ;
-    $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
     $line = 58;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_quick" mx-view="mx-title/second?content=%E5%BF%AB%E6%8D%B7%E6%97%A5%E6%9C%9F%E5%A4%87%E9%80%89%E9%A1%B9"></div><div mxa="_zs_gallery(:d" class="pr20 mb40"><table mxa="_zs_gallery(:e" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_gallery(:b"><tr><th width="100">配置key值</th><th width="100">显示文案</th><th width="200">描述</th></tr></thead><tbody>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_quick" mx-view="mx-title/second?content=%E5%BF%AB%E6%8D%B7%E6%97%A5%E6%9C%9F%E5%A4%87%E9%80%89%E9%A1%B9"></div><div mxa="_zs_gallery(:d" class="pr20 mb40"><table mxa="_zs_gallery(:e" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_gallery(:b"><tr><th width="100">配置key值</th><th width="100">显示文案</th><th width="200">描述</th></tr></thead><tbody>';
     $line = 69;
     $art = 'each supportQuickDates as item';
     ;
-    $p += '';
-    $expr = '<%for (var $art_iawqhny$art_i = 0, $art_cyyxdyclimj$art_c = supportQuickDates.length; $art_iawqhny$art_i < $art_cyyxdyclimj$art_c; $art_iawqhny$art_i++) {    var item = supportQuickDates[$art_iawqhny$art_i]%>';
-    for (var $art_iawqhny$art_i = 0, $art_cyyxdyclimj$art_c = supportQuickDates.length; $art_iawqhny$art_i < $art_cyyxdyclimj$art_c; $art_iawqhny$art_i++) {
-        var item = supportQuickDates[$art_iawqhny$art_i];
+    $expr = '<%for (var $art_ixhlyrgsdz$art_i = 0, $art_cvpmkwxhe$art_c = supportQuickDates.length; $art_ixhlyrgsdz$art_i < $art_cvpmkwxhe$art_c; $art_ixhlyrgsdz$art_i++) {    var item = supportQuickDates[$art_ixhlyrgsdz$art_i]%>';
+    for (var $art_ixhlyrgsdz$art_i = 0, $art_cvpmkwxhe$art_c = supportQuickDates.length; $art_ixhlyrgsdz$art_i < $art_cvpmkwxhe$art_c; $art_ixhlyrgsdz$art_i++) {
+        var item = supportQuickDates[$art_ixhlyrgsdz$art_i];
         $p += '<tr><td>';
         $line = 71;
         $art = '=item.key';
         ;
-        $p += '' + ($expr = '<%=item.key%>', $e(item.key)) + '</td><td>';
+        $p += ($expr = '<%=item.key%>', $e(item.key)) + '</td><td>';
         $line = 72;
         $art = '=item.text';
         ;
-        $p += '' + ($expr = '<%=item.text%>', $e(item.text)) + '</td><td>';
+        $p += ($expr = '<%=item.text%>', $e(item.text)) + '</td><td>';
         $line = 73;
         $art = '=item.tip';
         ;
-        $p += '' + ($expr = '<%=item.tip%>', $e(item.tip)) + '</td></tr>';
+        $p += ($expr = '<%=item.tip%>', $e(item.tip)) + '</td></tr>';
         $line = 75;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -118,7 +116,7 @@ module.exports = Magix.View.extend({
     $line = 80;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_implement"></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_implement"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

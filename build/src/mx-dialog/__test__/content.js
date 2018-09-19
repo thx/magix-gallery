@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -25,11 +25,11 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=text';
     ;
-    $p += '' + ($expr = '<%=text%>', $e(text)) + '</div><div mxa="_zs_galleryac:a" class="mb20">内容：';
+    $p += ($expr = '<%=text%>', $e(text)) + '</div><div mxa="_zs_galleryac:a" class="mb20">内容：';
     $line = 2;
     $art = '=content';
     ;
-    $p += '' + ($expr = '<%=content%>', $e(content)) + '</div><div mxs="_zs_galleryac:_"><a href="#!/popover/index" class="btn btn-brand">从当前页面跳走，自动销毁浮层</a></div>';
+    $p += ($expr = '<%=content%>', $e(content)) + '</div><div mxs="_zs_galleryac:_"><a href="#!/popover/index" class="btn btn-brand">从当前页面跳走，自动销毁浮层</a></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

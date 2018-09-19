@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -30,7 +30,6 @@ module.exports = Base.extend({
     $line = 9;
     $art = 'if vs';
     ;
-    $p += '';
     $expr = '<%if (vs) {%>';
     if (vs) {
         ;
@@ -38,15 +37,14 @@ module.exports = Base.extend({
         $line = 10;
         $art = '=start';
         ;
-        $p += '' + ($expr = '<%=start%>', $e(start)) + '</span><span mxs="_zs_gallery@:b" class="mr5">对比</span><span mxa="_zs_gallery@:d" class="color-brand-vs">';
+        $p += ($expr = '<%=start%>', $e(start)) + '</span><span mxs="_zs_gallery@:b" class="mr5">对比</span><span mxa="_zs_gallery@:d" class="color-brand-vs">';
         $line = 12;
         $art = '=end';
         ;
-        $p += '' + ($expr = '<%=end%>', $e(end)) + '</span>';
+        $p += ($expr = '<%=end%>', $e(end)) + '</span>';
         $line = 13;
         $art = 'else';
         ;
-        $p += '';
         $expr = '<%}else {%>';
     }
     else {
@@ -55,11 +53,10 @@ module.exports = Base.extend({
         $line = 14;
         $art = '=start';
         ;
-        $p += '' + ($expr = '<%=start%>', $e(start)) + '</span>';
+        $p += ($expr = '<%=start%>', $e(start)) + '</span>';
         $line = 15;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -67,47 +64,47 @@ module.exports = Base.extend({
     $line = 19;
     $art = '=vs';
     ;
-    $p += '' + ($expr = '<%!$eu(vs)%>', $eu(vs)) + '&single=true&start=';
+    $p += ($expr = '<%!$eu(vs)%>', $eu(vs)) + '&single=true&start=';
     $line = 21;
     $art = '=start';
     ;
-    $p += '' + ($expr = '<%!$eu(start)%>', $eu(start)) + '&end=';
+    $p += ($expr = '<%!$eu(start)%>', $eu(start)) + '&end=';
     $line = 22;
     $art = '=end';
     ;
-    $p += '' + ($expr = '<%!$eu(end)%>', $eu(end)) + '&max=';
+    $p += ($expr = '<%!$eu(end)%>', $eu(end)) + '&max=';
     $line = 23;
     $art = '=max';
     ;
-    $p += '' + ($expr = '<%!$eu(max)%>', $eu(max)) + '&min=';
+    $p += ($expr = '<%!$eu(max)%>', $eu(max)) + '&min=';
     $line = 24;
     $art = '=min';
     ;
-    $p += '' + ($expr = '<%!$eu(min)%>', $eu(min)) + '"></div></div><div mxa="_zs_gallery@:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery@:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%!$eu(min)%>', $eu(min)) + '"></div></div><div mxa="_zs_gallery@:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery@:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 29;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery@:g" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery@:g" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 31;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery@:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery@:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 34;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.rangepicker class="w220"\n    vsenable="true"\n    vs="&#123;&#123;=vs&#125;&#125;"\n    single="true"\n    start="&#123;&#123;=start&#125;&#125;"\n    end="&#123;&#123;=end&#125;&#125;"\n    max="&#123;&#123;=max&#125;&#125;"\n    min="&#123;&#123;=min&#125;&#125;"\n    mx-change="changeInfo()"/&gt;</pre></div><div mxa="_zs_gallery@:h" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery@:e" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.rangepicker class="w220"\n    vsenable="true"\n    vs="&#123;&#123;=vs&#125;&#125;"\n    single="true"\n    start="&#123;&#123;=start&#125;&#125;"\n    end="&#123;&#123;=end&#125;&#125;"\n    max="&#123;&#123;=max&#125;&#125;"\n    min="&#123;&#123;=min&#125;&#125;"\n    mx-change="changeInfo()"/&gt;</pre></div><div mxa="_zs_gallery@:h" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery@:e" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 47;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery@:i" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery@:i" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 49;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallery@:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallery@:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 52;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Moment = require(\'moment\');\nlet $ = require(\'$\');\nlet Formater = \'YYYY-MM-DD\';\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            vsenable: true,\n            vs: true,\n            start: Moment().subtract(1, \'days\').format(Formater),\n            end: Moment().add(1, \'days\').format(Formater),\n            min: Moment().subtract(12, \'days\').format(Formater),\n            max: Moment().add(12, \'days\').format(Formater)\n        &#125;);\n    &#125;,\n    \'changeInfo&lt;change&gt;\'(event) &#123;\n        let data = this.updater.get();\n        // event.dates.startStr：开始日期\n        // event.dates.endStr：结束日期，不限时未文案不限\n        // event.vs：是否对比\n        let dates = event.dates,\n            vs = event.vs;\n        this.updater.digest(&#123;\n            vs: vs,\n            start: dates.startStr,\n            end: dates.endStr\n        &#125;);\n    &#125;,\n&#125;);</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Moment = require(\'moment\');\nlet $ = require(\'$\');\nlet Formater = \'YYYY-MM-DD\';\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            vsenable: true,\n            vs: true,\n            start: Moment().subtract(1, \'days\').format(Formater),\n            end: Moment().add(1, \'days\').format(Formater),\n            min: Moment().subtract(12, \'days\').format(Formater),\n            max: Moment().add(12, \'days\').format(Formater)\n        &#125;);\n    &#125;,\n    \'changeInfo&lt;change&gt;\'(event) &#123;\n        let data = this.updater.get();\n        // event.dates.startStr：开始日期\n        // event.dates.endStr：结束日期，不限时未文案不限\n        // event.vs：是否对比\n        let dates = event.dates,\n            vs = event.vs;\n        this.updater.digest(&#123;\n            vs: vs,\n            start: dates.startStr,\n            end: dates.endStr\n        &#125;);\n    &#125;,\n&#125;);</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

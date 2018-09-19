@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -30,7 +30,6 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'if inlay.vs';
     ;
-    $p += '';
     $expr = '<%if (inlay.vs) {%>';
     if (inlay.vs) {
         ;
@@ -38,15 +37,14 @@ module.exports = Base.extend({
         $line = 6;
         $art = '=inlay.dates.startStr';
         ;
-        $p += '' + ($expr = '<%=inlay.dates.startStr%>', $e(inlay.dates.startStr)) + '</span><span mxs="_zs_gallery2:a" class="mr5">对比</span><span mxa="_zs_gallery2:d" class="color-brand-vs">';
+        $p += ($expr = '<%=inlay.dates.startStr%>', $e(inlay.dates.startStr)) + '</span><span mxs="_zs_gallery2:a" class="mr5">对比</span><span mxa="_zs_gallery2:d" class="color-brand-vs">';
         $line = 8;
         $art = '=inlay.dates.endStr';
         ;
-        $p += '' + ($expr = '<%=inlay.dates.endStr%>', $e(inlay.dates.endStr)) + '</span>';
+        $p += ($expr = '<%=inlay.dates.endStr%>', $e(inlay.dates.endStr)) + '</span>';
         $line = 9;
         $art = 'else';
         ;
-        $p += '';
         $expr = '<%}else {%>';
     }
     else {
@@ -55,15 +53,14 @@ module.exports = Base.extend({
         $line = 10;
         $art = '=inlay.dates.startStr';
         ;
-        $p += '' + ($expr = '<%=inlay.dates.startStr%>', $e(inlay.dates.startStr)) + '</span><span mxs="_zs_gallery2:b" class="mr5">至</span><span>';
+        $p += ($expr = '<%=inlay.dates.startStr%>', $e(inlay.dates.startStr)) + '</span><span mxs="_zs_gallery2:b" class="mr5">至</span><span>';
         $line = 12;
         $art = '=inlay.dates.endStr';
         ;
-        $p += '' + ($expr = '<%=inlay.dates.endStr%>', $e(inlay.dates.endStr)) + '</span>';
+        $p += ($expr = '<%=inlay.dates.endStr%>', $e(inlay.dates.endStr)) + '</span>';
         $line = 13;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -71,51 +68,51 @@ module.exports = Base.extend({
     $line = 22;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery2:g" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery2:g" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 24;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery2:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery2:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 27;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" class="btn btn-brand" \n    mx-click="show()"&gt;自定义trigger显示日历面板&lt;/a&gt;</pre></div><div mxa="_zs_gallery2:h" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery2:f" class="_zs_gallery___test___layout_-eg-title">Trigger JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" class="btn btn-brand" \n    mx-click="show()"&gt;自定义trigger显示日历面板&lt;/a&gt;</pre></div><div mxa="_zs_gallery2:h" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery2:f" class="_zs_gallery___test___layout_-eg-title">Trigger JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 33;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery2:i" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery2:i" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 35;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallery2:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallery2:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 38;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Dialog = require(\'@../../mx-dialog/index\');\nlet Moment = require(\'moment\');\nlet $ = require(\'$\');\nlet Formater = \'YYYY-MM-DD\';\n\nmodule.exports = Magix.View.extend({\n    tmpl: \'@index.html\',\n    mixins: [Dialog],\n    render() {\n        this.updater.digest(&#123;\n            inlay:&#123;\n                title: \'自定义标题\',\n                dates: &#123;\n                    startStr: Moment().format(Formater),\n                    endStr: Moment().add(2, \'days\').format(Formater)\n                &#125;,\n                vsEnable: true,\n                vs: true,\n                inlay: true,\n                quickDates: [\'passed5\', \'passed10\']\n            &#125;\n        &#125;);\n    &#125;,\n    \'show&lt;click&gt;\'(event)&#123;\n        let that = this;\n        let node = $(event.target);\n\n        let offset = node.offset();\n        let winScroll = $(window).scrollTop();\n        let top = offset.top + node.outerHeight() - winScroll + 10,\n            left = offset.left;\n\n        let inlay = that.updater.get(\'inlay\');\n        that.mxDialog(\'@./pannel\', &#123;\n            inlay: inlay,\n            submit: (newInlay) =>&#123;\n                that.updater.digest(&#123;\n                    inlay: newInlay\n                &#125;)\n            &#125;\n        &#125;, &#123;\n            width: 280,\n            top,\n            left,\n            mask: false,\n            closable: false\n        &#125;);\n    &#125;\n&#125;);</pre></div><div mxa="_zs_gallery2:j" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery2:g" class="_zs_gallery___test___layout_-eg-title">Pannel HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Dialog = require(\'@../../mx-dialog/index\');\nlet Moment = require(\'moment\');\nlet $ = require(\'$\');\nlet Formater = \'YYYY-MM-DD\';\n\nmodule.exports = Magix.View.extend({\n    tmpl: \'@index.html\',\n    mixins: [Dialog],\n    render() {\n        this.updater.digest(&#123;\n            inlay:&#123;\n                title: \'自定义标题\',\n                dates: &#123;\n                    startStr: Moment().format(Formater),\n                    endStr: Moment().add(2, \'days\').format(Formater)\n                &#125;,\n                vsEnable: true,\n                vs: true,\n                inlay: true,\n                quickDates: [\'passed5\', \'passed10\']\n            &#125;\n        &#125;);\n    &#125;,\n    \'show&lt;click&gt;\'(event)&#123;\n        let that = this;\n        let node = $(event.target);\n\n        let offset = node.offset();\n        let winScroll = $(window).scrollTop();\n        let top = offset.top + node.outerHeight() - winScroll + 10,\n            left = offset.left;\n\n        let inlay = that.updater.get(\'inlay\');\n        that.mxDialog(\'@./pannel\', &#123;\n            inlay: inlay,\n            submit: (newInlay) =>&#123;\n                that.updater.digest(&#123;\n                    inlay: newInlay\n                &#125;)\n            &#125;\n        &#125;, &#123;\n            width: 280,\n            top,\n            left,\n            mask: false,\n            closable: false\n        &#125;);\n    &#125;\n&#125;);</pre></div><div mxa="_zs_gallery2:j" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery2:g" class="_zs_gallery___test___layout_-eg-title">Pannel HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=';
     $line = 92;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_gallery2:k" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_gallery2:k" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 94;
     $art = '!text3';
     ;
-    $p += '' + ($expr = '<%!text3%>', $n(text3)) + '</span><i mxs="_zs_gallery2:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text3%>', $n(text3)) + '</span><i mxs="_zs_gallery2:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 97;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_3">\n&lt;mx-calendar.range \n    configs="&#123;&#123;@inlayConfig&#125;&#125;"\n    mx-change="submit()" \n    mx-cancel="hide()"/&gt;</pre></div><div mxa="_zs_gallery2:l" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery2:h" class="_zs_gallery___test___layout_-eg-title">Pannel JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:4})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_3">\n&lt;mx-calendar.range \n    configs="&#123;&#123;@inlayConfig&#125;&#125;"\n    mx-change="submit()" \n    mx-cancel="hide()"/&gt;</pre></div><div mxa="_zs_gallery2:l" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery2:h" class="_zs_gallery___test___layout_-eg-title">Pannel JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:4})" mx-view="mx-copy/index?copyNode=';
     $line = 105;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_4"><span mxa="_zs_gallery2:m" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_4"><span mxa="_zs_gallery2:m" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 107;
     $art = '!text4';
     ;
-    $p += '' + ($expr = '<%!text4%>', $n(text4)) + '</span><i mxs="_zs_gallery2:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text4%>', $n(text4)) + '</span><i mxs="_zs_gallery2:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 110;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_4">\nlet Magix = require(\'magix\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@pannel.html\',\n    init(e) &#123;\n        this.viewOptions = e;\n        this.updater.set(&#123;\n            inlayConfig: $.extend(true, &#123;&#125;, e.inlay)\n        &#125;)\n    &#125;,\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    \'submit&lt;change&gt;\'(e) &#123;\n        // e.dates\n        // e.vs\n        let inlayConfig = this.updater.get(\'inlayConfig\');\n        inlayConfig.dates = e.dates;\n        inlayConfig.vs = e.vs;\n        let viewOptions = this.viewOptions;\n        if(viewOptions.submit)&#123;\n            viewOptions.submit(inlayConfig);\n        &#125;\n        if (viewOptions.dialog) &#123;\n            viewOptions.dialog.close();\n        &#125;\n    &#125;,\n    \'hide&lt;cancel&gt;\'(e) &#123;\n        e.stopPropagation();\n        let viewOptions = this.viewOptions;\n        if (viewOptions.dialog) &#123;\n            viewOptions.dialog.close();\n        &#125;\n    &#125;\n&#125;);</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_4">\nlet Magix = require(\'magix\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@pannel.html\',\n    init(e) &#123;\n        this.viewOptions = e;\n        this.updater.set(&#123;\n            inlayConfig: $.extend(true, &#123;&#125;, e.inlay)\n        &#125;)\n    &#125;,\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    \'submit&lt;change&gt;\'(e) &#123;\n        // e.dates\n        // e.vs\n        let inlayConfig = this.updater.get(\'inlayConfig\');\n        inlayConfig.dates = e.dates;\n        inlayConfig.vs = e.vs;\n        let viewOptions = this.viewOptions;\n        if(viewOptions.submit)&#123;\n            viewOptions.submit(inlayConfig);\n        &#125;\n        if (viewOptions.dialog) &#123;\n            viewOptions.dialog.close();\n        &#125;\n    &#125;,\n    \'hide&lt;cancel&gt;\'(e) &#123;\n        e.stopPropagation();\n        let viewOptions = this.viewOptions;\n        if (viewOptions.dialog) &#123;\n            viewOptions.dialog.close();\n        &#125;\n    &#125;\n&#125;);</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

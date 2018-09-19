@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -27,15 +27,14 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=height';
     ;
-    $p += '' + ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_gallery`:_" class="_zs_gallery_mx-carousel_index_-inner" mx-mouseover="' + $viewId + '@{stop}()" mx-mouseout="' + $viewId + '@{start}()">';
+    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_gallery`:_" class="_zs_gallery_mx-carousel_index_-inner" mx-mouseover="' + $viewId + '@{stop}()" mx-mouseout="' + $viewId + '@{start}()">';
     $line = 5;
     $art = '!content';
     ;
-    $p += '' + ($expr = '<%!content%>', $n(content)) + '</div>';
+    $p += ($expr = '<%!content%>', $n(content)) + '</div>';
     $line = 7;
     $art = 'if dots';
     ;
-    $p += '';
     $expr = '<%if (dots) {%>';
     if (dots) {
         ;
@@ -43,7 +42,6 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'if vertical';
         ;
-        $p += '';
         $expr = '<%if (vertical) {%>';
         if (vertical) {
             ;
@@ -51,7 +49,6 @@ module.exports = Magix.View.extend({
             $line = 8;
             $art = 'else';
             ;
-            $p += '';
             $expr = '<%}    else {%>';
         }
         else {
@@ -60,7 +57,6 @@ module.exports = Magix.View.extend({
             $line = 8;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -68,7 +64,6 @@ module.exports = Magix.View.extend({
         $line = 11;
         $art = 'for (let i=0;i<len;i+=1)';
         ;
-        $p += '';
         $expr = '<%for (var i = 0; i < len; i += 1) {%>';
         for (var i = 0; i < len; i += 1) {
             ;
@@ -76,15 +71,14 @@ module.exports = Magix.View.extend({
             $line = 13;
             $art = '=dotClass';
             ;
-            $p += '' + ($expr = '<%=dotClass%>', $e(dotClass)) + '" mx-click="' + $viewId + '@{active}({idx:';
+            $p += ($expr = '<%=dotClass%>', $e(dotClass)) + '" mx-click="' + $viewId + '@{active}({idx:';
             $line = 13;
             $art = '=i';
             ;
-            $p += '' + ($expr = '<%=i%>', $e(i)) + '})"></i></li>';
+            $p += ($expr = '<%=i%>', $e(i)) + '})"></i></li>';
             $line = 15;
             $art = '/for';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -92,7 +86,6 @@ module.exports = Magix.View.extend({
         $line = 17;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;

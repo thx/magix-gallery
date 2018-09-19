@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -60,11 +60,10 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '" class="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" class="';
     $line = 2;
     $art = 'if hasLine';
     ;
-    $p += '';
     $expr = '<%if (hasLine) {%>';
     if (hasLine) {
         ;
@@ -72,7 +71,6 @@ module.exports = Magix.View.extend({
         $line = 2;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -80,27 +78,27 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = '@readOnly';
     ;
-    $p += '' + ($expr = '<%@readOnly%>', $i($$ref, readOnly)) + '&needExpand=';
+    $p += ($expr = '<%@readOnly%>', $i($$ref, readOnly)) + '&needExpand=';
     $line = 4;
     $art = '@needExpand';
     ;
-    $p += '' + ($expr = '<%@needExpand%>', $i($$ref, needExpand)) + '&textKey=';
+    $p += ($expr = '<%@needExpand%>', $i($$ref, needExpand)) + '&textKey=';
     $line = 5;
     $art = '=textKey';
     ;
-    $p += '' + ($expr = '<%!$eu(textKey)%>', $eu(textKey)) + '&valueKey=';
+    $p += ($expr = '<%!$eu(textKey)%>', $eu(textKey)) + '&valueKey=';
     $line = 6;
     $art = '=valueKey';
     ;
-    $p += '' + ($expr = '<%!$eu(valueKey)%>', $eu(valueKey)) + '&list=';
+    $p += ($expr = '<%!$eu(valueKey)%>', $eu(valueKey)) + '&list=';
     $line = 7;
     $art = '@list';
     ;
-    $p += '' + ($expr = '<%@list%>', $i($$ref, list)) + '&fromTop=';
+    $p += ($expr = '<%@list%>', $i($$ref, list)) + '&fromTop=';
     $line = 8;
     $art = '@true';
     ;
-    $p += '' + ($expr = '<%@true%>', $i($$ref, true)) + '"></div>';
+    $p += ($expr = '<%@true%>', $i($$ref, true)) + '"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

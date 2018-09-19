@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -8,7 +8,7 @@ define("mx-search/index",["magix","$","../mx-monitor/index"],(require,exports,mo
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-search_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-search_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-search_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n/**\n   css3注意点小计\n    - animation-fill-mode 动画结束停在最后一帧\n    - translate(-30%, 0) 百分比是相对于元素自己的宽高，margin-left:-30%; 是相对于父容器的宽高\n    - transition、animation动画不能设置display:none;\n    - :after, :before等伪元素目前不支持嵌套，未来会支持 [还有多重伪元素 div::before(3) { content: ”; }];\n      - :after.content 用法\n        { content:  }  - 加载指定资源图片\n        { content: attr(data-src) } - 读取当前节点上的自定义属性值\n        { content: content:\"选项\" counter(sectioncounter) \"： \";\n          counter-increment: sectioncounter;\n        } - 自动计数器 【参考资料：http://dev.opera.com/articles/view/automatic-numbering-with-css-counters/】\n\n    - box-sizing: [content-box | padding-box | border-box];\n      - 全局设置：\n        html {\n          box-sizing: border-box;\n        }\n        *, *:before, *:after {\n          box-sizing: inherit;\n        }\n        // 宽度包含了border以及padding，这在容器设置了100%百分比宽度时又设置了padding时很有用\n */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-search_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-search_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n._zs_gallery_mx-search_index_-search-box-right,\n._zs_gallery_mx-search_index_-search-box-left {\n  position: relative;\n  height: 32px;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu {\n  display: none;\n  position: absolute;\n  top: 100%;\n  min-width: 100%;\n  z-index: 99;\n  margin-top: 10px;\n  padding: 8px 10px;\n  border-radius: 4px;\n  background-color: #fff;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item {\n  margin: 2px 0;\n  padding: 0 10px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n  white-space: nowrap;\n  word-break: break-all;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item:hover,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item:hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active,\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:hover,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:hover,\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:active,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:active,\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:focus,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:focus {\n  color: #fff;\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu._zs_gallery_mx-search_index_-open,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu._zs_gallery_mx-search_index_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-search_index_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-search_index_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu {\n  right: 0;\n}\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu {\n  left: 0;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-search_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-search_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-search_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n/**\n   css3注意点小计\n    - animation-fill-mode 动画结束停在最后一帧\n    - translate(-30%, 0) 百分比是相对于元素自己的宽高，margin-left:-30%; 是相对于父容器的宽高\n    - transition、animation动画不能设置display:none;\n    - :after, :before等伪元素目前不支持嵌套，未来会支持 [还有多重伪元素 div::before(3) { content: ”; }];\n      - :after.content 用法\n        { content: url(@imgsrc) }  - 加载指定资源图片\n        { content: attr(data-src) } - 读取当前节点上的自定义属性值\n        { content: content:\"选项\" counter(sectioncounter) \"： \";\n          counter-increment: sectioncounter;\n        } - 自动计数器 【参考资料：http://dev.opera.com/articles/view/automatic-numbering-with-css-counters/】\n\n    - box-sizing: [content-box | padding-box | border-box];\n      - 全局设置：\n        html {\n          box-sizing: border-box;\n        }\n        *, *:before, *:after {\n          box-sizing: inherit;\n        }\n        // 宽度包含了border以及padding，这在容器设置了100%百分比宽度时又设置了padding时很有用\n */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-search_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-search_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n._zs_gallery_mx-search_index_-search-box-right,\n._zs_gallery_mx-search_index_-search-box-left {\n  position: relative;\n  height: 32px;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu {\n  display: none;\n  position: absolute;\n  top: 100%;\n  min-width: 100%;\n  z-index: 99;\n  margin-top: 10px;\n  padding: 8px 10px;\n  border-radius: 4px;\n  background-color: #fff;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item {\n  margin: 2px 0;\n  padding: 0 10px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n  white-space: nowrap;\n  word-break: break-all;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item:hover,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item:hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active,\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:hover,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:hover,\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:active,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:active,\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:focus,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:focus {\n  color: #fff;\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu._zs_gallery_mx-search_index_-open,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu._zs_gallery_mx-search_index_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-search_index_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-search_index_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu {\n  right: 0;\n}\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu {\n  left: 0;\n}\n");
 var Monitor = require("../mx-monitor/index");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
@@ -31,7 +31,6 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'if (align==\'right\')';
     ;
-    $p += '';
     $expr = '<%if (align == \'right\') {%>';
     if (align == 'right') {
         ;
@@ -39,7 +38,6 @@ module.exports = Magix.View.extend({
         $line = 1;
         $art = 'else';
         ;
-        $p += '';
         $expr = '<%}else {%>';
     }
     else {
@@ -48,23 +46,21 @@ module.exports = Magix.View.extend({
         $line = 1;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
-    $p += '"><i mxs="_zs_galleryb|:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+    $p += '"><i mxs="_zs_galleryb.:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
     $line = 3;
     $art = '=placeholder';
     ;
-    $p += '' + ($expr = '<%=placeholder%>', $e(placeholder)) + '" value="';
+    $p += ($expr = '<%=placeholder%>', $e(placeholder)) + '" value="';
     $line = 4;
     $art = '=searchValue';
     ;
-    $p += '' + ($expr = '<%=searchValue%>', $e(searchValue)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-focusin="' + $viewId + '@{search}()" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{stop}()"/><ul class="_zs_gallery_mx-search_index_-search-menu ';
+    $p += ($expr = '<%=searchValue%>', $e(searchValue)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-focusin="' + $viewId + '@{search}()" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{stop}()"/><ul class="_zs_gallery_mx-search_index_-search-menu ';
     $line = 11;
     $art = 'if ((list.length > 1) && searchValue && show)';
     ;
-    $p += '';
     $expr = '<%if ((list.length > 1) && searchValue && show) {%>';
     if ((list.length > 1) && searchValue && show) {
         ;
@@ -72,7 +68,6 @@ module.exports = Magix.View.extend({
         $line = 11;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -80,15 +75,13 @@ module.exports = Magix.View.extend({
     $line = 12;
     $art = 'each list as item';
     ;
-    $p += '';
-    $expr = '<%for (var $art_iwubosmeg$art_i = 0, $art_cytaqpa$art_c = list.length; $art_iwubosmeg$art_i < $art_cytaqpa$art_c; $art_iwubosmeg$art_i++) {    var item = list[$art_iwubosmeg$art_i]%>';
-    for (var $art_iwubosmeg$art_i = 0, $art_cytaqpa$art_c = list.length; $art_iwubosmeg$art_i < $art_cytaqpa$art_c; $art_iwubosmeg$art_i++) {
-        var item = list[$art_iwubosmeg$art_i];
+    $expr = '<%for (var $art_ilshsgyc$art_i = 0, $art_ckltaukvbg$art_c = list.length; $art_ilshsgyc$art_i < $art_ckltaukvbg$art_c; $art_ilshsgyc$art_i++) {    var item = list[$art_ilshsgyc$art_i]%>';
+    for (var $art_ilshsgyc$art_i = 0, $art_ckltaukvbg$art_c = list.length; $art_ilshsgyc$art_i < $art_ckltaukvbg$art_c; $art_ilshsgyc$art_i++) {
+        var item = list[$art_ilshsgyc$art_i];
         $p += '<li class="_zs_gallery_mx-search_index_-search-item ';
         $line = 13;
         $art = 'if (searchKey == item.value)';
         ;
-        $p += '';
         $expr = '<%if (searchKey == item.value) {%>';
         if (searchKey == item.value) {
             ;
@@ -96,7 +89,6 @@ module.exports = Magix.View.extend({
             $line = 13;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -104,23 +96,22 @@ module.exports = Magix.View.extend({
         $line = 13;
         $art = '@item';
         ;
-        $p += '' + ($expr = '<%@item%>', $i($$ref, item)) + '\'})">';
+        $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})">';
         $line = 14;
         $art = '=item.prefix';
         ;
-        $p += '' + ($expr = '<%=item.prefix%>', $e(item.prefix)) + '';
+        $p += ($expr = '<%=item.prefix%>', $e(item.prefix)) + '';
         $line = 14;
         $art = '=searchValue';
         ;
-        $p += '' + ($expr = '<%=searchValue%>', $e(searchValue)) + '';
+        $p += ($expr = '<%=searchValue%>', $e(searchValue)) + '';
         $line = 14;
         $art = '=item.suffix';
         ;
-        $p += '' + ($expr = '<%=item.suffix%>', $e(item.suffix)) + '</li>';
+        $p += ($expr = '<%=item.suffix%>', $e(item.suffix)) + '</li>';
         $line = 16;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -30,27 +30,25 @@ module.exports = Base.extend({
     $line = 3;
     $art = '=contents';
     ;
-    $p += '' + ($expr = '<%!$eu(contents)%>', $eu(contents)) + '"></div><div mxs="_zs_galleryP:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryP:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryP:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryP:a" class="clearfix mb20"><div class="fl color-9">以下示例：</div><div class="fl">翻页的时候返回顶部</div></div><table mxa="_zs_galleryP:b" class="table"><thead mxs="_zs_galleryP:b"><tr><th>name</th><th>text</th></tr></thead><tbody>';
+    $p += ($expr = '<%!$eu(contents)%>', $eu(contents)) + '"></div><div mxs="_zs_galleryP:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryP:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryP:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryP:a" class="clearfix mb20"><div class="fl color-9">以下示例：</div><div class="fl">翻页的时候返回顶部</div></div><table mxa="_zs_galleryP:b" class="table"><thead mxs="_zs_galleryP:b"><tr><th>name</th><th>text</th></tr></thead><tbody>';
     $line = 21;
     $art = 'each list as item';
     ;
-    $p += '';
-    $expr = '<%for (var $art_iiljwjni$art_i = 0, $art_cearxqnygt$art_c = list.length; $art_iiljwjni$art_i < $art_cearxqnygt$art_c; $art_iiljwjni$art_i++) {    var item = list[$art_iiljwjni$art_i]%>';
-    for (var $art_iiljwjni$art_i = 0, $art_cearxqnygt$art_c = list.length; $art_iiljwjni$art_i < $art_cearxqnygt$art_c; $art_iiljwjni$art_i++) {
-        var item = list[$art_iiljwjni$art_i];
+    $expr = '<%for (var $art_itdtgeom$art_i = 0, $art_cldjdsxrue$art_c = list.length; $art_itdtgeom$art_i < $art_cldjdsxrue$art_c; $art_itdtgeom$art_i++) {    var item = list[$art_itdtgeom$art_i]%>';
+    for (var $art_itdtgeom$art_i = 0, $art_cldjdsxrue$art_c = list.length; $art_itdtgeom$art_i < $art_cldjdsxrue$art_c; $art_itdtgeom$art_i++) {
+        var item = list[$art_itdtgeom$art_i];
         $p += '<tr><td>';
         $line = 23;
         $art = '=item.name';
         ;
-        $p += '' + ($expr = '<%=item.name%>', $e(item.name)) + '</td><td>';
+        $p += ($expr = '<%=item.name%>', $e(item.name)) + '</td><td>';
         $line = 24;
         $art = '=item.text';
         ;
-        $p += '' + ($expr = '<%=item.text%>', $e(item.text)) + '</td></tr>';
+        $p += ($expr = '<%=item.text%>', $e(item.text)) + '</td></tr>';
         $line = 26;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -58,39 +56,39 @@ module.exports = Base.extend({
     $line = 31;
     $art = '=count';
     ;
-    $p += '' + ($expr = '<%!$eu(count)%>', $eu(count)) + '&size=';
+    $p += ($expr = '<%!$eu(count)%>', $eu(count)) + '&size=';
     $line = 32;
     $art = '=pageSize';
     ;
-    $p += '' + ($expr = '<%!$eu(pageSize)%>', $eu(pageSize)) + '&page=';
+    $p += ($expr = '<%!$eu(pageSize)%>', $eu(pageSize)) + '&page=';
     $line = 33;
     $art = '=currentPage';
     ;
-    $p += '' + ($expr = '<%!$eu(currentPage)%>', $eu(currentPage)) + '"></div></div></div><div mxa="_zs_galleryP:d" class="clearfix"><div mxa="_zs_galleryP:e" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third1"><div mxs="_zs_galleryP:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%!$eu(currentPage)%>', $eu(currentPage)) + '"></div></div></div><div mxa="_zs_galleryP:d" class="clearfix"><div mxa="_zs_galleryP:e" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third1"><div mxs="_zs_galleryP:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 40;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryP:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryP:f" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 42;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryP:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryP:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 45;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;table class="table"&gt;\n    &lt;thead&gt;\n        &lt;tr&gt;\n            &lt;th&gt;name&lt;/th&gt;\n            &lt;th&gt;text&lt;/th&gt;\n        &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n        &#123;&#123;each list as item&#125;&#125;\n        &lt;tr&gt;\n            &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;\n            &lt;td&gt;&#123;&#123;=item.text&#125;&#125;&lt;/td&gt;\n        &lt;/tr&gt;\n        &#123;&#123;/each&#125;&#125;\n    &lt;/tbody&gt;\n&lt;/table&gt;\n&lt;div class="table-pager-wrapper"&gt;\n    &lt;mx-pagination \n        total="&#123;&#123;=count&#125;&#125;" \n        size="&#123;&#123;=pageSize&#125;&#125;" \n        page="&#123;&#123;=currentPage&#125;&#125;" \n        mx-change="changePager()" /&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryP:g" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryP:e" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;table class="table"&gt;\n    &lt;thead&gt;\n        &lt;tr&gt;\n            &lt;th&gt;name&lt;/th&gt;\n            &lt;th&gt;text&lt;/th&gt;\n        &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n        &#123;&#123;each list as item&#125;&#125;\n        &lt;tr&gt;\n            &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;\n            &lt;td&gt;&#123;&#123;=item.text&#125;&#125;&lt;/td&gt;\n        &lt;/tr&gt;\n        &#123;&#123;/each&#125;&#125;\n    &lt;/tbody&gt;\n&lt;/table&gt;\n&lt;div class="table-pager-wrapper"&gt;\n    &lt;mx-pagination \n        total="&#123;&#123;=count&#125;&#125;" \n        size="&#123;&#123;=pageSize&#125;&#125;" \n        page="&#123;&#123;=currentPage&#125;&#125;" \n        mx-change="changePager()" /&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryP:g" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryP:e" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 72;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryP:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryP:h" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 74;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryP:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryP:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 77;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Router = Magix.Router;\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    init() &#123;\n        let that = this;\n        that.observeLocation([\'currentPage\', \'pageSize\']);\n        that.scrollIfNeed(\'body\', [\'currentPage\', \'pageSize\']);\n\n        let list = [], count = 100;\n        for (let index = 0; index &lt; count; index++) &#123;\n            list.push(&#123;\n                name: \'name\' + (index + 1),\n                text: \'text\' + (index + 1)\n            &#125;)\n        &#125;\n\n        that.updater.set(&#123;\n            allList: list,\n            count: count\n        &#125;)\n    &#125;,\n    render() &#123;\n        let that = this;\n        let data = that.updater.get();\n        let locParams = Router.parse().params;\n        let allList = data.allList;\n        let currentPage = locParams.currentPage || 1,\n            pageSize = locParams.pageSize || 20;\n\n        let list = allList.slice((currentPage - 1) * pageSize, currentPage * pageSize);\n        that.updater.digest(&#123;\n            list,\n            currentPage,\n            pageSize\n        &#125;);\n    &#125;,\n    \'changePager&lt;change&gt;\'(e) &#123;\n        // e.page 当前第几页\n        // e.size 每页多少条\n        Router.to(&#123;\n            currentPage: e.page,\n            pageSize: e.size\n        &#125;)\n    &#125;\n&#125;);</pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Router = Magix.Router;\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    init() &#123;\n        let that = this;\n        that.observeLocation([\'currentPage\', \'pageSize\']);\n        that.scrollIfNeed(\'body\', [\'currentPage\', \'pageSize\']);\n\n        let list = [], count = 100;\n        for (let index = 0; index &lt; count; index++) &#123;\n            list.push(&#123;\n                name: \'name\' + (index + 1),\n                text: \'text\' + (index + 1)\n            &#125;)\n        &#125;\n\n        that.updater.set(&#123;\n            allList: list,\n            count: count\n        &#125;)\n    &#125;,\n    render() &#123;\n        let that = this;\n        let data = that.updater.get();\n        let locParams = Router.parse().params;\n        let allList = data.allList;\n        let currentPage = locParams.currentPage || 1,\n            pageSize = locParams.pageSize || 20;\n\n        let list = allList.slice((currentPage - 1) * pageSize, currentPage * pageSize);\n        that.updater.digest(&#123;\n            list,\n            currentPage,\n            pageSize\n        &#125;);\n    &#125;,\n    \'changePager&lt;change&gt;\'(e) &#123;\n        // e.page 当前第几页\n        // e.size 每页多少条\n        Router.to(&#123;\n            currentPage: e.page,\n            pageSize: e.size\n        &#125;)\n    &#125;\n&#125;);</pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

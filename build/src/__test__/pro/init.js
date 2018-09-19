@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -33,19 +33,19 @@ module.exports = Magix.View.extend({
     $line = 5;
     $art = '=contents';
     ;
-    $p += '' + ($expr = '<%!$eu(contents)%>', $eu(contents)) + '"></div><div mxa="_zs_gallerym:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += ($expr = '<%!$eu(contents)%>', $eu(contents)) + '"></div><div mxa="_zs_gallerym:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 8;
     $art = '@[{\n        name: \'创建步骤\',\n        key: viewId + \'_steps\'\n    }, {\n        name: \'目录结构说明\',\n        key: viewId + \'_dir\'\n    }]';
     ;
-    $p += '' + ($expr = '<%@[{            name: \'创建步骤\',            key: viewId + \'_steps\'        }, {            name: \'目录结构说明\',            key: viewId + \'_dir\'        }]%>', $i($$ref, [{ name: '创建步骤', key: viewId + '_steps' }, { name: '目录结构说明', key: viewId + '_dir' }])) + '"></div><div id="';
+    $p += ($expr = '<%@[{            name: \'创建步骤\',            key: viewId + \'_steps\'        }, {            name: \'目录结构说明\',            key: viewId + \'_dir\'        }]%>', $i($$ref, [{ name: '创建步骤', key: viewId + '_steps' }, { name: '目录结构说明', key: viewId + '_dir' }])) + '"></div><div id="';
     $line = 16;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_steps" mx-view="mx-title/second?content=%E5%88%9B%E5%BB%BA%E6%AD%A5%E9%AA%A4&tip=magix-cli%E5%B7%A5%E5%85%B7%3Ca%20rel%3D%27noopener%20noreferrer%27%20href%3D%27https%3A%2F%2Fthx.github.io%2Fmagix-cli-book%2F%23%2F%27%20target%3D%27_blank%27%20class%3D%27color-brand%27%3Ehttps%3A%2F%2Fthx.github.io%2Fmagix-cli-book%2F%23%2F%3C%2Fa%3E"></div><div mxs="_zs_gallerym:_" mx-view="__test__/pro/init-steps" class="pr20"></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_steps" mx-view="mx-title/second?content=%E5%88%9B%E5%BB%BA%E6%AD%A5%E9%AA%A4&tip=magix-cli%E5%B7%A5%E5%85%B7%3Ca%20rel%3D%27noopener%20noreferrer%27%20href%3D%27https%3A%2F%2Fthx.github.io%2Fmagix-cli-book%2F%23%2F%27%20target%3D%27_blank%27%20class%3D%27color-brand%27%3Ehttps%3A%2F%2Fthx.github.io%2Fmagix-cli-book%2F%23%2F%3C%2Fa%3E"></div><div mxs="_zs_gallerym:_" mx-view="__test__/pro/init-steps" class="pr20"></div><div id="';
     $line = 21;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_dir" mx-view="mx-title/second?content=%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E&tip=%E4%BA%91%E9%9B%80%E6%96%87%E6%A1%A3%E5%9C%B0%E5%9D%80%3Ca%20rel%3D%27noopener%20noreferrer%27%20href%3D%27https%3A%2F%2Flark.alipay.com%2Fchongzhi.ldq%2Fez0zq4%2Fluqazk%27%20target%3D%27_blank%27%20class%3D%27color-brand%27%3Ehttps%3A%2F%2Flark.alipay.com%2Fchongzhi.ldq%2Fez0zq4%2Fluqazk%3C%2Fa%3E"></div><div mxs="_zs_gallerym:a" mx-view="__test__/pro/init-dir"></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_dir" mx-view="mx-title/second?content=%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E&tip=%E4%BA%91%E9%9B%80%E6%96%87%E6%A1%A3%E5%9C%B0%E5%9D%80%3Ca%20rel%3D%27noopener%20noreferrer%27%20href%3D%27https%3A%2F%2Flark.alipay.com%2Fchongzhi.ldq%2Fez0zq4%2Fluqazk%27%20target%3D%27_blank%27%20class%3D%27color-brand%27%3Ehttps%3A%2F%2Flark.alipay.com%2Fchongzhi.ldq%2Fez0zq4%2Fluqazk%3C%2Fa%3E"></div><div mxs="_zs_gallerym:a" mx-view="__test__/pro/init-dir"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

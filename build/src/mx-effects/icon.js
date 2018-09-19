@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -34,15 +34,15 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=classNames';
     ;
-    $p += '' + ($expr = '<%=classNames%>', $e(classNames)) + '" style="';
+    $p += ($expr = '<%=classNames%>', $e(classNames)) + '" style="';
     $line = 1;
     $art = '=styles';
     ;
-    $p += '' + ($expr = '<%=styles%>', $e(styles)) + '">';
+    $p += ($expr = '<%=styles%>', $e(styles)) + '">';
     $line = 1;
     $art = '=content';
     ;
-    $p += '' + ($expr = '<%=content%>', $e(content)) + '</span>';
+    $p += ($expr = '<%=content%>', $e(content)) + '</span>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

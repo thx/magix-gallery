@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -28,27 +28,25 @@ module.exports = Base.extend({
     $line = 12;
     $art = '=selected';
     ;
-    $p += '' + ($expr = '<%!$eu(selected)%>', $eu(selected)) + '"><i mxs="_zs_galleryaj:a" group="true" class="none">第一组</i>';
+    $p += ($expr = '<%!$eu(selected)%>', $eu(selected)) + '"><i mxs="_zs_galleryaj:a" group="true" class="none">第一组</i>';
     $line = 14;
     $art = 'each first as i';
     ;
-    $p += '';
-    $expr = '<%for (var $art_ivbjgmqcf$art_i = 0, $art_cnvvoxph$art_c = first.length; $art_ivbjgmqcf$art_i < $art_cnvvoxph$art_c; $art_ivbjgmqcf$art_i++) {    var i = first[$art_ivbjgmqcf$art_i]%>';
-    for (var $art_ivbjgmqcf$art_i = 0, $art_cnvvoxph$art_c = first.length; $art_ivbjgmqcf$art_i < $art_cnvvoxph$art_c; $art_ivbjgmqcf$art_i++) {
-        var i = first[$art_ivbjgmqcf$art_i];
+    $expr = '<%for (var $art_ictvkllddgyd$art_i = 0, $art_cjeoekooys$art_c = first.length; $art_ictvkllddgyd$art_i < $art_cjeoekooys$art_c; $art_ictvkllddgyd$art_i++) {    var i = first[$art_ictvkllddgyd$art_i]%>';
+    for (var $art_ictvkllddgyd$art_i = 0, $art_cjeoekooys$art_c = first.length; $art_ictvkllddgyd$art_i < $art_cjeoekooys$art_c; $art_ictvkllddgyd$art_i++) {
+        var i = first[$art_ictvkllddgyd$art_i];
         $p += '<i value="';
         $line = 15;
         $art = '=i';
         ;
-        $p += '' + ($expr = '<%=i%>', $e(i)) + '" class="none">';
+        $p += ($expr = '<%=i%>', $e(i)) + '" class="none">';
         $line = 15;
         $art = '=i';
         ;
-        $p += '' + ($expr = '<%=i%>', $e(i)) + '</i>';
+        $p += ($expr = '<%=i%>', $e(i)) + '</i>';
         $line = 16;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -56,23 +54,21 @@ module.exports = Base.extend({
     $line = 18;
     $art = 'each second as i';
     ;
-    $p += '';
-    $expr = '<%for (var $art_igrdsaxdb$art_i = 0, $art_cykefhvrtp$art_c = second.length; $art_igrdsaxdb$art_i < $art_cykefhvrtp$art_c; $art_igrdsaxdb$art_i++) {    var i = second[$art_igrdsaxdb$art_i]%>';
-    for (var $art_igrdsaxdb$art_i = 0, $art_cykefhvrtp$art_c = second.length; $art_igrdsaxdb$art_i < $art_cykefhvrtp$art_c; $art_igrdsaxdb$art_i++) {
-        var i = second[$art_igrdsaxdb$art_i];
+    $expr = '<%for (var $art_imdxzrnm$art_i = 0, $art_ciwpcolsbg$art_c = second.length; $art_imdxzrnm$art_i < $art_ciwpcolsbg$art_c; $art_imdxzrnm$art_i++) {    var i = second[$art_imdxzrnm$art_i]%>';
+    for (var $art_imdxzrnm$art_i = 0, $art_ciwpcolsbg$art_c = second.length; $art_imdxzrnm$art_i < $art_ciwpcolsbg$art_c; $art_imdxzrnm$art_i++) {
+        var i = second[$art_imdxzrnm$art_i];
         $p += '<i value="';
         $line = 19;
         $art = '=i';
         ;
-        $p += '' + ($expr = '<%=i%>', $e(i)) + '" class="none">';
+        $p += ($expr = '<%=i%>', $e(i)) + '" class="none">';
         $line = 19;
         $art = '=i';
         ;
-        $p += '' + ($expr = '<%=i%>', $e(i)) + '</i>';
+        $p += ($expr = '<%=i%>', $e(i)) + '</i>';
         $line = 20;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -80,27 +76,27 @@ module.exports = Base.extend({
     $line = 27;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaj:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaj:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 29;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaj:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaj:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 32;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="clearfix"&gt;\n    &lt;mx-dropdown class="w200 mr20 fl"\n        selected="&#123;&#123;=selected&#125;&#125;"&gt;\n        &lt;mx-dropdown.item group="true"&gt;第一组&lt;/mx-dropdown.item&gt;\n        &#123;&#123;each first as i&#125;&#125;\n        &lt;mx-dropdown.item value="&#123;&#123;=i&#125;&#125;"&gt;&#123;&#123;=i&#125;&#125;&lt;/mx-dropdown.item&gt;\n        &#123;&#123;/each&#125;&#125;\n        &lt;mx-dropdown.item group="true"&gt;第二组&lt;/mx-dropdown.item&gt;\n        &#123;&#123;each second as i&#125;&#125;\n        &lt;mx-dropdown.item value="&#123;&#123;=i&#125;&#125;"&gt;&#123;&#123;=i&#125;&#125;&lt;/mx-dropdown.item&gt;\n        &#123;&#123;/each&#125;&#125;\n    &lt;/mx-dropdown&gt;\n    &lt;a class="btn btn-brand fl" href="javascript:;" \n        mx-click="changeData()"&gt;修改数据&lt;/a&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryaj:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryaj:f" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="clearfix"&gt;\n    &lt;mx-dropdown class="w200 mr20 fl"\n        selected="&#123;&#123;=selected&#125;&#125;"&gt;\n        &lt;mx-dropdown.item group="true"&gt;第一组&lt;/mx-dropdown.item&gt;\n        &#123;&#123;each first as i&#125;&#125;\n        &lt;mx-dropdown.item value="&#123;&#123;=i&#125;&#125;"&gt;&#123;&#123;=i&#125;&#125;&lt;/mx-dropdown.item&gt;\n        &#123;&#123;/each&#125;&#125;\n        &lt;mx-dropdown.item group="true"&gt;第二组&lt;/mx-dropdown.item&gt;\n        &#123;&#123;each second as i&#125;&#125;\n        &lt;mx-dropdown.item value="&#123;&#123;=i&#125;&#125;"&gt;&#123;&#123;=i&#125;&#125;&lt;/mx-dropdown.item&gt;\n        &#123;&#123;/each&#125;&#125;\n    &lt;/mx-dropdown&gt;\n    &lt;a class="btn btn-brand fl" href="javascript:;" \n        mx-click="changeData()"&gt;修改数据&lt;/a&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryaj:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryaj:f" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 51;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryaj:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryaj:f" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 53;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryaj:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryaj:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 56;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let that = this;\n\n        let first = [],\n            second = [];\n        for (var i = 0; i &lt; 2; i++) &#123;\n            first.push(\'1\' + i);\n            second.push(\'2\' + i);\n        &#125;\n        that.updater.digest(&#123;\n            first,\n            second,\n            selected: 11\n        &#125;);\n    &#125;,\n    \'changeData&lt;click&gt;\' (e) &#123;\n        let first = [],\n            second = [];\n        for (var i = 0; i &lt; 2; i++) &#123;\n            first.push(\'3\' + i);\n            second.push(\'4\' + i);\n        &#125;\n\n        this.updater.digest(&#123;\n            first,\n            second,\n            selected: 31\n        &#125;);\n    &#125;\n&#125;);</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let that = this;\n\n        let first = [],\n            second = [];\n        for (var i = 0; i &lt; 2; i++) &#123;\n            first.push(\'1\' + i);\n            second.push(\'2\' + i);\n        &#125;\n        that.updater.digest(&#123;\n            first,\n            second,\n            selected: 11\n        &#125;);\n    &#125;,\n    \'changeData&lt;click&gt;\' (e) &#123;\n        let first = [],\n            second = [];\n        for (var i = 0; i &lt; 2; i++) &#123;\n            first.push(\'3\' + i);\n            second.push(\'4\' + i);\n        &#125;\n\n        this.updater.digest(&#123;\n            first,\n            second,\n            selected: 31\n        &#125;);\n    &#125;\n&#125;);</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -36,7 +36,6 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'if editing';
     ;
-    $p += '';
     $expr = '<%if (editing) {%>';
     if (editing) {
         ;
@@ -44,7 +43,6 @@ module.exports = Magix.View.extend({
         $line = 1;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -56,7 +54,6 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = 'if small';
     ;
-    $p += '';
     $expr = '<%if (small) {%>';
     if (small) {
         ;
@@ -64,7 +61,6 @@ module.exports = Magix.View.extend({
         $line = 3;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -72,19 +68,19 @@ module.exports = Magix.View.extend({
     $line = 4;
     $art = '=width';
     ;
-    $p += '' + ($expr = '<%=width%>', $e(width)) + 'px;" id="';
+    $p += ($expr = '<%=width%>', $e(width)) + 'px;" id="';
     $line = 5;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_input" value="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_input" value="';
     $line = 6;
     $art = '=content';
     ;
-    $p += '' + ($expr = '<%=content%>', $e(content)) + '" mx-keyup="' + $viewId + '@{out}()" mx-focusout="' + $viewId + '@{out}()"/><div mxa="_zs_galleryaL:_" class="_zs_gallery_mx-editor_index_-editor-content">';
+    $p += ($expr = '<%=content%>', $e(content)) + '" mx-keyup="' + $viewId + '@{out}()" mx-focusout="' + $viewId + '@{out}()"/><div mxa="_zs_galleryaL:_" class="_zs_gallery_mx-editor_index_-editor-content">';
     $line = 11;
     $art = '!dis';
     ;
-    $p += '' + ($expr = '<%!dis%>', $n(dis)) + '<i mxs="_zs_galleryaL:_" class="mc-iconfont operations _zs_gallery_mx-editor_index_-editor-oper" mx-click="' + $viewId + '@{show}()">&#xe698;</i></div></div>';
+    $p += ($expr = '<%!dis%>', $n(dis)) + '<i mxs="_zs_galleryaL:_" class="mc-iconfont operations _zs_gallery_mx-editor_index_-editor-oper" mx-click="' + $viewId + '@{show}()">&#xe698;</i></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

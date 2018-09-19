@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -30,19 +30,18 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=maxWidth';
     ;
-    $p += '' + ($expr = '<%=maxWidth%>', $e(maxWidth)) + 'px; height: ';
+    $p += ($expr = '<%=maxWidth%>', $e(maxWidth)) + 'px; height: ';
     $line = 1;
     $art = '=maxHeight';
     ;
-    $p += '' + ($expr = '<%=maxHeight%>', $e(maxHeight)) + 'px;" mx-mouseover="' + $viewId + 'preview()" mx-mouseout="' + $viewId + 'hide()"><div class="_zs_gallery_mx-preview_index_-inner" style="height: ';
+    $p += ($expr = '<%=maxHeight%>', $e(maxHeight)) + 'px;" mx-mouseover="' + $viewId + 'preview()" mx-mouseout="' + $viewId + 'hide()"><div class="_zs_gallery_mx-preview_index_-inner" style="height: ';
     $line = 4;
     $art = '=maxHeight';
     ;
-    $p += '' + ($expr = '<%=maxHeight%>', $e(maxHeight)) + 'px;">';
+    $p += ($expr = '<%=maxHeight%>', $e(maxHeight)) + 'px;">';
     $line = 5;
     $art = 'if clickUrl';
     ;
-    $p += '';
     $expr = '<%if (clickUrl) {%>';
     if (clickUrl) {
         ;
@@ -50,11 +49,10 @@ module.exports = Magix.View.extend({
         $line = 6;
         $art = '=clickUrl';
         ;
-        $p += '' + ($expr = '<%=clickUrl%>', $e(clickUrl)) + '" target="_blank" rel="noopener noreferrer">';
+        $p += ($expr = '<%=clickUrl%>', $e(clickUrl)) + '" target="_blank" rel="noopener noreferrer">';
         $line = 7;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -62,7 +60,6 @@ module.exports = Magix.View.extend({
     $line = 9;
     $art = 'if format==2 || format==11 || format==23';
     ;
-    $p += '';
     $expr = '<%if (format == 2 || format == 11 || format == 23) {%>';
     if (format == 2 || format == 11 || format == 23) {
         ;
@@ -70,11 +67,10 @@ module.exports = Magix.View.extend({
         $line = 10;
         $art = '=url';
         ;
-        $p += '' + ($expr = '<%=url%>', $e(url)) + '"/>';
+        $p += ($expr = '<%=url%>', $e(url)) + '"/>';
         $line = 11;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -82,7 +78,6 @@ module.exports = Magix.View.extend({
     $line = 14;
     $art = 'if format==5 || format==3 || format==9';
     ;
-    $p += '';
     $expr = '<%if (format == 5 || format == 3 || format == 9) {%>';
     if (format == 5 || format == 3 || format == 9) {
         ;
@@ -90,15 +85,14 @@ module.exports = Magix.View.extend({
         $line = 15;
         $art = '=maxWidth';
         ;
-        $p += '' + ($expr = '<%=maxWidth%>', $e(maxWidth)) + 'px;">';
+        $p += ($expr = '<%=maxWidth%>', $e(maxWidth)) + 'px;">';
         $line = 15;
         $art = '=url';
         ;
-        $p += '' + ($expr = '<%=url%>', $e(url)) + '</div>';
+        $p += ($expr = '<%=url%>', $e(url)) + '</div>';
         $line = 16;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -106,7 +100,6 @@ module.exports = Magix.View.extend({
     $line = 19;
     $art = 'if format==4';
     ;
-    $p += '';
     $expr = '<%if (format == 4) {%>';
     if (format == 4) {
         ;
@@ -114,11 +107,10 @@ module.exports = Magix.View.extend({
         $line = 20;
         $art = '=url';
         ;
-        $p += '' + ($expr = '<%=url%>', $e(url)) + '" class="_zs_gallery_mx-preview_index_-video"><i mxs="_zs_galleryb*:_" class="mc-iconfont _zs_gallery_mx-preview_index_-icon">&#xe78d;</i></video>';
+        $p += ($expr = '<%=url%>', $e(url)) + '" class="_zs_gallery_mx-preview_index_-video"><i mxs="_zs_galleryb{:_" class="mc-iconfont _zs_gallery_mx-preview_index_-icon">&#xe78d;</i></video>';
         $line = 23;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -126,7 +118,6 @@ module.exports = Magix.View.extend({
     $line = 26;
     $art = 'if format==10';
     ;
-    $p += '';
     $expr = '<%if (format == 10) {%>';
     if (format == 10) {
         ;
@@ -134,31 +125,30 @@ module.exports = Magix.View.extend({
         $line = 27;
         $art = '=frameWidth';
         ;
-        $p += '' + ($expr = '<%=frameWidth%>', $e(frameWidth)) + 'px; height: ';
+        $p += ($expr = '<%=frameWidth%>', $e(frameWidth)) + 'px; height: ';
         $line = 27;
         $art = '=frameHeight';
         ;
-        $p += '' + ($expr = '<%=frameHeight%>', $e(frameHeight)) + 'px; overflow: hidden"><iframe src="';
+        $p += ($expr = '<%=frameHeight%>', $e(frameHeight)) + 'px; overflow: hidden"><iframe src="';
         $line = 28;
         $art = '=url';
         ;
-        $p += '' + ($expr = '<%=url%>', $e(url)) + '" class="_zs_gallery_mx-preview_index_-iframe" style="transform:scale(';
+        $p += ($expr = '<%=url%>', $e(url)) + '" class="_zs_gallery_mx-preview_index_-iframe" style="transform:scale(';
         $line = 29;
         $art = '=scale';
         ;
-        $p += '' + ($expr = '<%=scale%>', $e(scale)) + ')" width="';
+        $p += ($expr = '<%=scale%>', $e(scale)) + ')" width="';
         $line = 30;
         $art = '=width';
         ;
-        $p += '' + ($expr = '<%=width%>', $e(width)) + '" height="';
+        $p += ($expr = '<%=width%>', $e(width)) + '" height="';
         $line = 31;
         $art = '=height';
         ;
-        $p += '' + ($expr = '<%=height%>', $e(height)) + '" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" border="0"></iframe></div>';
+        $p += ($expr = '<%=height%>', $e(height)) + '" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" border="0"></iframe></div>';
         $line = 38;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -166,7 +156,6 @@ module.exports = Magix.View.extend({
     $line = 39;
     $art = 'if clickUrl';
     ;
-    $p += '';
     $expr = '<%if (clickUrl) {%>';
     if (clickUrl) {
         ;
@@ -174,7 +163,6 @@ module.exports = Magix.View.extend({
         $line = 41;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;

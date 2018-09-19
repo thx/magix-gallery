@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -35,19 +35,18 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=classNames';
     ;
-    $p += '' + ($expr = '<%=classNames%>', $e(classNames)) + '" style="text-align:';
+    $p += ($expr = '<%=classNames%>', $e(classNames)) + '" style="text-align:';
     $line = 1;
     $art = '=textAlign';
     ;
-    $p += '' + ($expr = '<%=textAlign%>', $e(textAlign)) + '; ';
+    $p += ($expr = '<%=textAlign%>', $e(textAlign)) + '; ';
     $line = 1;
     $art = '=styles';
     ;
-    $p += '' + ($expr = '<%=styles%>', $e(styles)) + '">';
+    $p += ($expr = '<%=styles%>', $e(styles)) + '">';
     $line = 2;
     $art = 'if icon';
     ;
-    $p += '';
     $expr = '<%if (icon) {%>';
     if (icon) {
         ;
@@ -55,11 +54,10 @@ module.exports = Magix.View.extend({
         $line = 5;
         $art = '!content';
         ;
-        $p += '' + ($expr = '<%!content%>', $n(content)) + '</div>';
+        $p += ($expr = '<%!content%>', $n(content)) + '</div>';
         $line = 7;
         $art = 'else';
         ;
-        $p += '';
         $expr = '<%}else {%>';
     }
     else {
@@ -68,11 +66,10 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = '!content';
         ;
-        $p += '' + ($expr = '<%!content%>', $n(content)) + ' ';
+        $p += ($expr = '<%!content%>', $n(content)) + ' ';
         $line = 9;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -40,39 +40,39 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'分组\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'hover展开\',\n            key: viewId + \'_demo12\'\n        },{\n            name: \'带搜索框\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'禁选\',\n            key: viewId + \'_demo5\'\n        },{\n            name: \'自定义key\',\n            key: viewId + \'_demo3\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
-    $p += '' + ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'分组\',                    key: viewId + \'_demo1\'                }, {                    name: \'hover展开\',                    key: viewId + \'_demo12\'                }, {                    name: \'带搜索框\',                    key: viewId + \'_demo2\'                }, {                    name: \'禁选\',                    key: viewId + \'_demo5\'                }, {                    name: \'自定义key\',                    key: viewId + \'_demo3\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '分组', key: viewId + '_demo1' }, { name: 'hover展开', key: viewId + '_demo12' }, { name: '带搜索框', key: viewId + '_demo2' }, { name: '禁选', key: viewId + '_demo5' }, { name: '自定义key', key: viewId + '_demo3' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'分组\',                    key: viewId + \'_demo1\'                }, {                    name: \'hover展开\',                    key: viewId + \'_demo12\'                }, {                    name: \'带搜索框\',                    key: viewId + \'_demo2\'                }, {                    name: \'禁选\',                    key: viewId + \'_demo5\'                }, {                    name: \'自定义key\',                    key: viewId + \'_demo3\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '分组', key: viewId + '_demo1' }, { name: 'hover展开', key: viewId + '_demo12' }, { name: '带搜索框', key: viewId + '_demo2' }, { name: '禁选', key: viewId + '_demo5' }, { name: '自定义key', key: viewId + '_demo3' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
     $line = 26;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryaz:a" class="clearfix mb20"><div mxa="_zs_galleryaz:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/1" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryaz:a" class="clearfix mb20"><div mxa="_zs_galleryaz:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/1" id="';
     $line = 29;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mxs="_zs_galleryaz:_" mx-view="mx-dropdown/__test__/14"></div><div mx-view="mx-dropdown/__test__/5" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mxs="_zs_galleryaz:_" mx-view="mx-dropdown/__test__/14"></div><div mx-view="mx-dropdown/__test__/5" id="';
     $line = 31;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div><div mx-view="mx-dropdown/__test__/3" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div><div mx-view="mx-dropdown/__test__/3" id="';
     $line = 32;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div mxa="_zs_galleryaz:c" class="_zs_gallery___test___layout_-half"><div mxs="_zs_galleryaz:a" mx-view="mx-dropdown/__test__/15"></div><div mx-view="mx-dropdown/__test__/12" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div mxa="_zs_galleryaz:c" class="_zs_gallery___test___layout_-half"><div mxs="_zs_galleryaz:a" mx-view="mx-dropdown/__test__/15"></div><div mx-view="mx-dropdown/__test__/12" id="';
     $line = 36;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo12"></div><div mx-view="mx-dropdown/__test__/2" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo12"></div><div mx-view="mx-dropdown/__test__/2" id="';
     $line = 37;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mxs="_zs_galleryaz:b" mx-view="mx-dropdown/__test__/4"></div><div mxs="_zs_galleryaz:c" mx-view="mx-dropdown/__test__/6"></div></div></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mxs="_zs_galleryaz:b" mx-view="mx-dropdown/__test__/4"></div><div mxs="_zs_galleryaz:c" mx-view="mx-dropdown/__test__/6"></div></div></div><div id="';
     $line = 43;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 44;
     $art = '@options';
     ;
-    $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '"></div></div>';
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

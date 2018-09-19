@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -147,7 +147,6 @@ module.exports = Magix.View.extend({
                     $expr = '<%}%>';
                 }
                 ;
-                $p += '';
                 $expr = '<%if (tds[j].otherMonth) {%>';
                 if (tds[j].otherMonth) {
                     ;
@@ -155,7 +154,6 @@ module.exports = Magix.View.extend({
                     $expr = '<%}%>';
                 }
                 ;
-                $p += '';
                 $expr = '<%if (tds[j].disabled) {%>';
                 if (tds[j].disabled) {
                     ;
@@ -163,7 +161,6 @@ module.exports = Magix.View.extend({
                     $expr = '<%}%>';
                 }
                 ;
-                $p += '';
                 $expr = '<%if (tds[j].selected) {%>';
                 if (tds[j].selected) {
                     ;
@@ -219,7 +216,6 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '';
         $expr = '<%if (showMonth) {%>';
         if (showMonth) {
             ;
@@ -242,7 +238,6 @@ module.exports = Magix.View.extend({
                 $expr = '<%}%>';
             }
             ;
-            $p += '';
             $expr = '<%if (m.selected) {%>';
             if (m.selected) {
                 ;
@@ -278,7 +273,6 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '';
         $expr = '<%if (showYear) {%>';
         if (showYear) {
             ;
@@ -301,7 +295,6 @@ module.exports = Magix.View.extend({
                 $expr = '<%}%>';
             }
             ;
-            $p += '';
             $expr = '<%if (y.disabled) {%>';
             if (y.disabled) {
                 ;

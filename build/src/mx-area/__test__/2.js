@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -33,27 +33,25 @@ module.exports = Base.extend({
     $line = 12;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_area" mx-view="mx-area/index?selected=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_area" mx-view="mx-area/index?selected=';
     $line = 13;
     $art = '@selected';
     ;
-    $p += '' + ($expr = '<%@selected%>', $i($$ref, selected)) + '"></div></div><div mxa="_zs_galleryU:d" class="fl"><div mxs="_zs_galleryU:a" class="mb10"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'get()">获取选中值</a></div><div mxa="_zs_galleryU:e" class="clearfix lh22"><div mxs="_zs_galleryU:b" class="fl color-9">当前选中值：</div><div mxa="_zs_galleryU:f" class="fl">';
+    $p += ($expr = '<%@selected%>', $i($$ref, selected)) + '"></div></div><div mxa="_zs_galleryU:d" class="fl"><div mxs="_zs_galleryU:a" class="mb10"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'get()">获取选中值</a></div><div mxa="_zs_galleryU:e" class="clearfix lh22"><div mxs="_zs_galleryU:b" class="fl color-9">当前选中值：</div><div mxa="_zs_galleryU:f" class="fl">';
     $line = 20;
     $art = 'each selected as item';
     ;
-    $p += '';
-    $expr = '<%for (var $art_ioljlgjmzy$art_i = 0, $art_ckobrxatv$art_c = selected.length; $art_ioljlgjmzy$art_i < $art_ckobrxatv$art_c; $art_ioljlgjmzy$art_i++) {    var item = selected[$art_ioljlgjmzy$art_i]%>';
-    for (var $art_ioljlgjmzy$art_i = 0, $art_ckobrxatv$art_c = selected.length; $art_ioljlgjmzy$art_i < $art_ckobrxatv$art_c; $art_ioljlgjmzy$art_i++) {
-        var item = selected[$art_ioljlgjmzy$art_i];
+    $expr = '<%for (var $art_ifhjxptfx$art_i = 0, $art_cuwbhbaprh$art_c = selected.length; $art_ifhjxptfx$art_i < $art_cuwbhbaprh$art_c; $art_ifhjxptfx$art_i++) {    var item = selected[$art_ifhjxptfx$art_i]%>';
+    for (var $art_ifhjxptfx$art_i = 0, $art_cuwbhbaprh$art_c = selected.length; $art_ifhjxptfx$art_i < $art_cuwbhbaprh$art_c; $art_ifhjxptfx$art_i++) {
+        var item = selected[$art_ifhjxptfx$art_i];
         $p += '<div>';
         $line = 21;
         $art = '=item';
         ;
-        $p += '' + ($expr = '<%=item%>', $e(item)) + '</div>';
+        $p += ($expr = '<%=item%>', $e(item)) + '</div>';
         $line = 22;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -61,27 +59,27 @@ module.exports = Base.extend({
     $line = 31;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryU:i" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryU:i" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 33;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryU:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryU:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 36;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\n    selected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div><div mxa="_zs_galleryU:j" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryU:e" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\n    selected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div><div mxa="_zs_galleryU:j" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryU:e" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 42;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryU:k" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryU:k" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 44;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryU:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryU:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 47;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            viewId: this.id,\n            selected: [1]\n        &#125;);\n    &#125;,\n    \'get&lt;click&gt;\' (event) &#123;\n        let id = this.id + \'_area\'\n        let selected = Magix.Vframe.get(id).invoke(\'val\');\n        this.updater.digest(&#123;\n            selected: selected\n        &#125;)\n    &#125;\n&#125;);</pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            viewId: this.id,\n            selected: [1]\n        &#125;);\n    &#125;,\n    \'get&lt;click&gt;\' (event) &#123;\n        let id = this.id + \'_area\'\n        let selected = Magix.Vframe.get(id).invoke(\'val\');\n        this.updater.digest(&#123;\n            selected: selected\n        &#125;)\n    &#125;\n&#125;);</pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

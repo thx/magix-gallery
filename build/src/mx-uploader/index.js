@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -26,11 +26,10 @@ var html = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $line = 1;
     $art = '=nodeId';
     ;
-    $p += '' + ($expr = '<%=nodeId%>', $e(nodeId)) + '" class="_zs_gallery_mx-uploader_index_-file" ';
+    $p += ($expr = '<%=nodeId%>', $e(nodeId)) + '" class="_zs_gallery_mx-uploader_index_-file" ';
     $line = 2;
     $art = 'if disabled';
     ;
-    $p += '';
     $expr = '<%if (disabled) {%>';
     if (disabled) {
         ;
@@ -38,7 +37,6 @@ var html = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
         $line = 2;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -46,7 +44,7 @@ var html = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $line = 3;
     $art = '=name';
     ;
-    $p += '' + ($expr = '<%=name%>', $e(name)) + '" mx-change="' + $viewId + '@{upload}()"/>';
+    $p += ($expr = '<%=name%>', $e(name)) + '" mx-change="' + $viewId + '@{upload}()"/>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -26,27 +26,25 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', cur = $$.cur, readonly = $$.readonly, show = $$.show, list = $$.list; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycl:_" class="_zs_gallery_mx-status_base_-status" mx-mouseout="' + $viewId + 'out()"><div mxa="_zs_gallerycl:a" class="_zs_gallery_mx-status_base_-status-handle-icon" mx-mouseover="' + $viewId + 'over()"><span class="_zs_gallery_mx-status_base_-status-icon" style="color: ';
+    $p += '<div mxa="_zs_galleryco:_" class="_zs_gallery_mx-status_base_-status" mx-mouseout="' + $viewId + 'out()"><div mxa="_zs_galleryco:a" class="_zs_gallery_mx-status_base_-status-handle-icon" mx-mouseover="' + $viewId + 'over()"><span class="_zs_gallery_mx-status_base_-status-icon" style="color: ';
     $line = 5;
     $art = '=cur.color';
     ;
-    $p += '' + ($expr = '<%=cur.color%>', $e(cur.color)) + ';">';
+    $p += ($expr = '<%=cur.color%>', $e(cur.color)) + ';">';
     $line = 5;
     $art = '!cur.icon';
     ;
-    $p += '' + ($expr = '<%!cur.icon%>', $n(cur.icon)) + '</span>';
+    $p += ($expr = '<%!cur.icon%>', $n(cur.icon)) + '</span>';
     $line = 6;
     $art = 'if !readonly';
     ;
-    $p += '';
     $expr = '<%if (!readonly) {%>';
     if (!readonly) {
         ;
-        $p += '<i mxs="_zs_gallerycl:_" class="_zs_gallery_mx-status_base_-status-arrow"></i>';
+        $p += '<i mxs="_zs_galleryco:_" class="_zs_gallery_mx-status_base_-status-arrow"></i>';
         $line = 8;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -54,7 +52,6 @@ module.exports = Base.extend({
     $line = 11;
     $art = 'if show';
     ;
-    $p += '';
     $expr = '<%if (show) {%>';
     if (show) {
         ;
@@ -62,39 +59,36 @@ module.exports = Base.extend({
         $line = 13;
         $art = 'if readonly';
         ;
-        $p += '';
         $expr = '<%if (readonly) {%>';
         if (readonly) {
             ;
-            $p += '<ul mxa="_zs_gallerycl:b" class="_zs_gallery_mx-status_base_-status-info"><li mxa="_zs_gallerycl:c" class="_zs_gallery_mx-status_base_-status-desc"><span class="_zs_gallery_mx-status_base_-status-icon" style="color: ';
+            $p += '<ul mxa="_zs_galleryco:b" class="_zs_gallery_mx-status_base_-status-info"><li mxa="_zs_galleryco:c" class="_zs_gallery_mx-status_base_-status-desc"><span class="_zs_gallery_mx-status_base_-status-icon" style="color: ';
             $line = 16;
             $art = '=cur.color';
             ;
-            $p += '' + ($expr = '<%=cur.color%>', $e(cur.color)) + ';">';
+            $p += ($expr = '<%=cur.color%>', $e(cur.color)) + ';">';
             $line = 16;
             $art = '!cur.icon';
             ;
-            $p += '' + ($expr = '<%!cur.icon%>', $n(cur.icon)) + '</span><span mxa="_zs_gallerycl:d" class="_zs_gallery_mx-status_base_-status-name">';
+            $p += ($expr = '<%!cur.icon%>', $n(cur.icon)) + '</span><span mxa="_zs_galleryco:d" class="_zs_gallery_mx-status_base_-status-name">';
             $line = 17;
             $art = '=cur.text';
             ;
-            $p += '' + ($expr = '<%=cur.text%>', $e(cur.text)) + '</span></li>';
+            $p += ($expr = '<%=cur.text%>', $e(cur.text)) + '</span></li>';
             $line = 19;
             $art = 'if cur.tip';
             ;
-            $p += '';
             $expr = '<%if (cur.tip) {%>';
             if (cur.tip) {
                 ;
-                $p += '<li mxa="_zs_gallerycl:e" class="_zs_gallery_mx-status_base_-status-tip">';
+                $p += '<li mxa="_zs_galleryco:e" class="_zs_gallery_mx-status_base_-status-tip">';
                 $line = 20;
                 $art = '=cur.tip';
                 ;
-                $p += '' + ($expr = '<%=cur.tip%>', $e(cur.tip)) + '</li>';
+                $p += ($expr = '<%=cur.tip%>', $e(cur.tip)) + '</li>';
                 $line = 21;
                 $art = '/if';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -102,24 +96,21 @@ module.exports = Base.extend({
             $line = 23;
             $art = 'else';
             ;
-            $p += '';
             $expr = '<%}    else {%>';
         }
         else {
             ;
-            $p += '<ul mxa="_zs_gallerycl:f" class="_zs_gallery_mx-status_base_-status-info">';
+            $p += '<ul mxa="_zs_galleryco:f" class="_zs_gallery_mx-status_base_-status-info">';
             $line = 25;
             $art = 'each list as item';
             ;
-            $p += '';
-            $expr = '<%for (var $art_ixwyufnipqe$art_i = 0, $art_cmjwjcop$art_c = list.length; $art_ixwyufnipqe$art_i < $art_cmjwjcop$art_c; $art_ixwyufnipqe$art_i++) {            var item = list[$art_ixwyufnipqe$art_i]%>';
-            for (var $art_ixwyufnipqe$art_i = 0, $art_cmjwjcop$art_c = list.length; $art_ixwyufnipqe$art_i < $art_cmjwjcop$art_c; $art_ixwyufnipqe$art_i++) {
-                var item = list[$art_ixwyufnipqe$art_i];
+            $expr = '<%for (var $art_iwebohh$art_i = 0, $art_cplympbbp$art_c = list.length; $art_iwebohh$art_i < $art_cplympbbp$art_c; $art_iwebohh$art_i++) {            var item = list[$art_iwebohh$art_i]%>';
+            for (var $art_iwebohh$art_i = 0, $art_cplympbbp$art_c = list.length; $art_iwebohh$art_i < $art_cplympbbp$art_c; $art_iwebohh$art_i++) {
+                var item = list[$art_iwebohh$art_i];
                 $p += '<li class="_zs_gallery_mx-status_base_-status-oper clearfix ';
                 $line = 26;
                 $art = 'if (item.value == cur.value)';
                 ;
-                $p += '';
                 $expr = '<%if (item.value == cur.value) {%>';
                 if (item.value == cur.value) {
                     ;
@@ -127,7 +118,6 @@ module.exports = Base.extend({
                     $line = 26;
                     $art = '/if';
                     ;
-                    $p += '';
                     $expr = '<%}%>';
                 }
                 ;
@@ -135,23 +125,22 @@ module.exports = Base.extend({
                 $line = 26;
                 $art = '@item';
                 ;
-                $p += '' + ($expr = '<%@item%>', $i($$ref, item)) + '\'})"><span class="_zs_gallery_mx-status_base_-status-icon" style="color: ';
+                $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})"><span class="_zs_gallery_mx-status_base_-status-icon" style="color: ';
                 $line = 27;
                 $art = '=item.color';
                 ;
-                $p += '' + ($expr = '<%=item.color%>', $e(item.color)) + ';">';
+                $p += ($expr = '<%=item.color%>', $e(item.color)) + ';">';
                 $line = 27;
                 $art = '!item.icon';
                 ;
-                $p += '' + ($expr = '<%!item.icon%>', $n(item.icon)) + '</span><span mxa="_zs_gallerycl:g" class="_zs_gallery_mx-status_base_-status-name">';
+                $p += ($expr = '<%!item.icon%>', $n(item.icon)) + '</span><span mxa="_zs_galleryco:g" class="_zs_gallery_mx-status_base_-status-name">';
                 $line = 28;
                 $art = '=item.text';
                 ;
-                $p += '' + ($expr = '<%=item.text%>', $e(item.text)) + '</span><i mxs="_zs_gallerycl:a" class="mc-iconfont _zs_gallery_mx-status_base_-oper-icon">&#xe65d;</i></li>';
+                $p += ($expr = '<%=item.text%>', $e(item.text)) + '</span><i mxs="_zs_galleryco:a" class="mc-iconfont _zs_gallery_mx-status_base_-oper-icon">&#xe65d;</i></li>';
                 $line = 31;
                 $art = '/each';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -159,7 +148,6 @@ module.exports = Base.extend({
             $line = 33;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -167,7 +155,6 @@ module.exports = Base.extend({
         $line = 34;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;

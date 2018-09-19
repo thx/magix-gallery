@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -28,27 +28,27 @@ module.exports = Base.extend({
     $line = 38;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryB:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryB:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 40;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryB:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryB:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 43;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\nlet Menus = [&#123;\n    has: true,\n    name: \'一级标题\',\n    path: \'/develop/example1\',\n    subs: [&#123;\n        thirds: [&#123;\n            has: true,\n            name: \'三级1\',\n            path: \'/develop/example1\',\n            icon: \'&#38;&#35;xe731;\'\n        &#125;, &#123;\n            has: true,\n            name: \'三级2\',\n            path: \'/develop/example2\',\n            icon: \'&#38;&#35;xe609;\'\n        &#125;, &#123;\n            has: true,\n            name: \'三级3\',\n            path: \'/develop/example3\',\n            icon: \'&#38;&#35;xe698;\'\n        &#125;]\n    &#125;]\n&#125;]</pre></div><div mxa="_zs_galleryB:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryB:c" class="_zs_gallery___test___layout_-eg-title">等价于以下配置方法</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\nlet Menus = [&#123;\n    has: true,\n    name: \'一级标题\',\n    path: \'/develop/example1\',\n    subs: [&#123;\n        thirds: [&#123;\n            has: true,\n            name: \'三级1\',\n            path: \'/develop/example1\',\n            icon: \'&#38;&#35;xe731;\'\n        &#125;, &#123;\n            has: true,\n            name: \'三级2\',\n            path: \'/develop/example2\',\n            icon: \'&#38;&#35;xe609;\'\n        &#125;, &#123;\n            has: true,\n            name: \'三级3\',\n            path: \'/develop/example3\',\n            icon: \'&#38;&#35;xe698;\'\n        &#125;]\n    &#125;]\n&#125;]</pre></div><div mxa="_zs_galleryB:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryB:c" class="_zs_gallery___test___layout_-eg-title">等价于以下配置方法</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 70;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryB:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryB:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 72;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryB:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryB:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 75;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Menus = [&#123;\n    has: true,\n    name: \'一级标题\',\n    path: \'/develop/example1\',\n    subs: [&#123;\n        thirds: [&#123;\n            has: true,\n            name: \'三级1\',\n            path: \'/develop/example1\'\n        &#125;]\n    &#125;, &#123;\n        thirds: [&#123;\n            has: true,\n            name: \'三级2\',\n            path: \'/develop/example2\'\n        &#125;]\n    &#125;, &#123;\n        thirds: [&#123;\n            has: true,\n            name: \'三级3\',\n            path: \'/develop/example3\'\n        &#125;]\n    &#125;]\n&#125;]</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Menus = [&#123;\n    has: true,\n    name: \'一级标题\',\n    path: \'/develop/example1\',\n    subs: [&#123;\n        thirds: [&#123;\n            has: true,\n            name: \'三级1\',\n            path: \'/develop/example1\'\n        &#125;]\n    &#125;, &#123;\n        thirds: [&#123;\n            has: true,\n            name: \'三级2\',\n            path: \'/develop/example2\'\n        &#125;]\n    &#125;, &#123;\n        thirds: [&#123;\n            has: true,\n            name: \'三级3\',\n            path: \'/develop/example3\'\n        &#125;]\n    &#125;]\n&#125;]</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

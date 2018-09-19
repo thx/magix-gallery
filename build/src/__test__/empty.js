@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -27,7 +27,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=view';
     ;
-    $p += '' + ($expr = '<%=view%>', $e(view)) + '"><div mxs="_zs_galleryc:_" class="loading"><span class="loading-anim"></span></div></div>';
+    $p += ($expr = '<%=view%>', $e(view)) + '"><div mxs="_zs_galleryc:_" class="loading"><span class="loading-anim"></span></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

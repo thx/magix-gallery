@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -27,7 +27,7 @@ module.exports = Magix.View.extend({
     $line = 5;
     $art = '=map[type][\'label\']';
     ;
-    $p += '' + ($expr = '<%=map[type][\'label\']%>', $e(map[type]['label'])) + '<i mxs="_zs_gallerybw:a" class="mc-iconfont _zs_gallery_mx-indics_index_-setting-switch-icon">&#xe692;</i></a>';
+    $p += ($expr = '<%=map[type][\'label\']%>', $e(map[type]['label'])) + '<i mxs="_zs_gallerybw:a" class="mc-iconfont _zs_gallery_mx-indics_index_-setting-switch-icon">&#xe692;</i></a>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

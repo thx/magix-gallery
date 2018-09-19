@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -32,19 +32,19 @@ module.exports = Base.extend({
     $line = 5;
     $art = '@[1,2,3]';
     ;
-    $p += '' + ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div><div mxs="_zs_galleryak:_" class="w200" mx-view="mx-dropdown/multiple"><i value="1" class="none">1</i><i value="2" class="none">2</i><i value="3" class="none">3</i></div></div><div mxa="_zs_galleryak:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryak:a" class="_zs_gallery___test___layout_-eg-title">显示文案和前后端传递值一致</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div><div mxs="_zs_galleryak:_" class="w200" mx-view="mx-dropdown/multiple"><i value="1" class="none">1</i><i value="2" class="none">2</i><i value="3" class="none">3</i></div></div><div mxa="_zs_galleryak:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryak:a" class="_zs_gallery___test___layout_-eg-title">显示文案和前后端传递值一致</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 16;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryak:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryak:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 18;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryak:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryak:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 21;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown.multiple class="w200"\n    list="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;\n\n&lt;mx-dropdown.multiple class="w200"&gt;\n    &lt;mx-dropdown.item value="1"&gt;1&lt;/mx-dropdown.item&gt;\n    &lt;mx-dropdown.item value="2"&gt;2&lt;/mx-dropdown.item&gt;\n    &lt;mx-dropdown.item value="3"&gt;3&lt;/mx-dropdown.item&gt;\n&lt;/mx-dropdown.multiple&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown.multiple class="w200"\n    list="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;\n\n&lt;mx-dropdown.multiple class="w200"&gt;\n    &lt;mx-dropdown.item value="1"&gt;1&lt;/mx-dropdown.item&gt;\n    &lt;mx-dropdown.item value="2"&gt;2&lt;/mx-dropdown.item&gt;\n    &lt;mx-dropdown.item value="3"&gt;3&lt;/mx-dropdown.item&gt;\n&lt;/mx-dropdown.multiple&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

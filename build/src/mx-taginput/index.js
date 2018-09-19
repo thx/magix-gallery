@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -30,23 +30,21 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '">';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '">';
     $line = 2;
     $art = 'if (!items.length&&placeholder)';
     ;
-    $p += '';
     $expr = '<%if (!items.length && placeholder) {%>';
     if (!items.length && placeholder) {
         ;
-        $p += '<span mxa="_zs_galleryc}:_" class="_zs_gallery_mx-taginput_index_-placeholder">';
+        $p += '<span mxa="_zs_galleryc|:_" class="_zs_gallery_mx-taginput_index_-placeholder">';
         $line = 3;
         $art = '=placeholder';
         ;
-        $p += '' + ($expr = '<%=placeholder%>', $e(placeholder)) + '</span>';
+        $p += ($expr = '<%=placeholder%>', $e(placeholder)) + '</span>';
         $line = 4;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -54,7 +52,6 @@ module.exports = Magix.View.extend({
     $line = 6;
     $art = 'if (items.length)';
     ;
-    $p += '';
     $expr = '<%if (items.length) {%>';
     if (items.length) {
         ;
@@ -62,23 +59,21 @@ module.exports = Magix.View.extend({
         $line = 7;
         $art = 'each items as one idx';
         ;
-        $p += '';
-        $expr = '<%for (var idx = 0, $art_cwglooyen$art_c = items.length; idx < $art_cwglooyen$art_c; idx++) {        var one = items[idx]%>';
-        for (var idx = 0, $art_cwglooyen$art_c = items.length; idx < $art_cwglooyen$art_c; idx++) {
+        $expr = '<%for (var idx = 0, $art_ctxoowfaul$art_c = items.length; idx < $art_ctxoowfaul$art_c; idx++) {        var one = items[idx]%>';
+        for (var idx = 0, $art_ctxoowfaul$art_c = items.length; idx < $art_ctxoowfaul$art_c; idx++) {
             var one = items[idx];
-            $p += '<span mxa="_zs_galleryc}:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
+            $p += '<span mxa="_zs_galleryc|:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
             $line = 9;
             $art = '=one.text';
             ;
-            $p += '' + ($expr = '<%=one.text%>', $e(one.text)) + '<i class="mc-iconfont _zs_gallery_mx-taginput_index_-item-delete" mx-click="' + $viewId + '@{delete}({idx:';
+            $p += ($expr = '<%=one.text%>', $e(one.text)) + '<i class="mc-iconfont _zs_gallery_mx-taginput_index_-item-delete" mx-click="' + $viewId + '@{delete}({idx:';
             $line = 10;
             $art = '=idx';
             ;
-            $p += '' + ($expr = '<%=idx%>', $e(idx)) + '})">&#xe603;</i></span>';
+            $p += ($expr = '<%=idx%>', $e(idx)) + '})">&#xe603;</i></span>';
             $line = 12;
             $art = '/each';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -86,7 +81,6 @@ module.exports = Magix.View.extend({
         $line = 13;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -94,7 +88,6 @@ module.exports = Magix.View.extend({
     $line = 26;
     $art = 'if disabled';
     ;
-    $p += '';
     $expr = '<%if (disabled) {%>';
     if (disabled) {
         ;
@@ -102,7 +95,6 @@ module.exports = Magix.View.extend({
         $line = 26;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -110,7 +102,6 @@ module.exports = Magix.View.extend({
     $line = 28;
     $art = 'if (!disabled && suggest && suggest.length)';
     ;
-    $p += '';
     $expr = '<%if (!disabled && suggest && suggest.length) {%>';
     if (!disabled && suggest && suggest.length) {
         ;
@@ -118,23 +109,22 @@ module.exports = Magix.View.extend({
         $line = 31;
         $art = '@suggest';
         ;
-        $p += '' + ($expr = '<%@suggest%>', $i($$ref, suggest)) + '&relateIds=ipt_';
+        $p += ($expr = '<%@suggest%>', $i($$ref, suggest)) + '&relateIds=ipt_';
         $line = 32;
         $art = '=viewId';
         ;
-        $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '&offsetLeft=-7&width=';
+        $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '&offsetLeft=-7&width=';
         $line = 34;
         $art = '=width';
         ;
-        $p += '' + ($expr = '<%!$eu(width)%>', $eu(width)) + '&scrollTop=';
+        $p += ($expr = '<%!$eu(width)%>', $eu(width)) + '&scrollTop=';
         $line = 35;
         $art = '@scrollTop';
         ;
-        $p += '' + ($expr = '<%@scrollTop%>', $i($$ref, scrollTop)) + '" class="_zs_gallery_mx-taginput_index_-suggest-wrapper"></div>';
+        $p += ($expr = '<%@scrollTop%>', $i($$ref, scrollTop)) + '" class="_zs_gallery_mx-taginput_index_-suggest-wrapper"></div>';
         $line = 36;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;

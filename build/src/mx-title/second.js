@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -21,27 +21,25 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', content = $$.content, tip = $$.tip; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc?:_" class="page-header"><span mxa="_zs_galleryc?:a" class="second-header">';
+    $p += '<div mxa="_zs_galleryc/:_" class="page-header"><span mxa="_zs_galleryc/:a" class="second-header">';
     $line = 2;
     $art = '!content';
     ;
-    $p += '' + ($expr = '<%!content%>', $n(content)) + '</span>';
+    $p += ($expr = '<%!content%>', $n(content)) + '</span>';
     $line = 3;
     $art = 'if tip';
     ;
-    $p += '';
     $expr = '<%if (tip) {%>';
     if (tip) {
         ;
-        $p += '<span mxa="_zs_galleryc?:b" class="page-tip">';
+        $p += '<span mxa="_zs_galleryc/:b" class="page-tip">';
         $line = 4;
         $art = '!tip';
         ;
-        $p += '' + ($expr = '<%!tip%>', $n(tip)) + '</span>';
+        $p += ($expr = '<%!tip%>', $n(tip)) + '</span>';
         $line = 5;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;

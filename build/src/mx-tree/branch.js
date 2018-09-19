@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -27,19 +27,16 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', list = $$.list, needExpand = $$.needExpand, readOnly = $$.readOnly, viewId = $$.viewId, valueKey = $$.valueKey, textKey = $$.textKey, fromTop = $$.fromTop; var $expr, $art, $line; try {
-    $p += '';
     $line = 1;
     $art = 'each list as item index';
     ;
-    $p += '';
-    $expr = '<%for (var index = 0, $art_cblfwfth$art_c = list.length; index < $art_cblfwfth$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cblfwfth$art_c = list.length; index < $art_cblfwfth$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cghwkszk$art_c = list.length; index < $art_cghwkszk$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cghwkszk$art_c = list.length; index < $art_cghwkszk$art_c; index++) {
         var item = list[index];
-        $p += '<div mxv mxa="_zs_galleryc-:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_galleryc-:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
+        $p += '<div mxv mxa="_zs_galleryda:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_galleryda:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
         $line = 4;
         $art = 'if needExpand';
         ;
-        $p += '';
         $expr = '<%if (needExpand) {%>';
         if (needExpand) {
             ;
@@ -47,7 +44,6 @@ module.exports = Magix.View.extend({
             $line = 5;
             $art = 'if (item.children && (item.children.length > 0))';
             ;
-            $p += '';
             $expr = '<%if (item.children && (item.children.length > 0)) {%>';
             if (item.children && (item.children.length > 0)) {
                 ;
@@ -55,11 +51,10 @@ module.exports = Magix.View.extend({
                 $line = 6;
                 $art = '=index';
                 ;
-                $p += '' + ($expr = '<%=index%>', $e(index)) + '})">';
+                $p += ($expr = '<%=index%>', $e(index)) + '})">';
                 $line = 7;
                 $art = 'if item.close';
                 ;
-                $p += '';
                 $expr = '<%if (item.close) {%>';
                 if (item.close) {
                     ;
@@ -67,7 +62,6 @@ module.exports = Magix.View.extend({
                     $line = 9;
                     $art = 'else';
                     ;
-                    $p += '';
                     $expr = '<%}            else {%>';
                 }
                 else {
@@ -76,7 +70,6 @@ module.exports = Magix.View.extend({
                     $line = 11;
                     $art = '/if';
                     ;
-                    $p += '';
                     $expr = '<%}%>';
                 }
                 ;
@@ -84,7 +77,6 @@ module.exports = Magix.View.extend({
                 $line = 13;
                 $art = 'else';
                 ;
-                $p += '';
                 $expr = '<%}        else {%>';
             }
             else {
@@ -93,15 +85,13 @@ module.exports = Magix.View.extend({
                 $line = 14;
                 $art = 'if readOnly';
                 ;
-                $p += '';
                 $expr = '<%if (readOnly) {%>';
                 if (readOnly) {
                     ;
-                    $p += '<i mxs="_zs_galleryc-:_" class="mc-iconfont _zs_gallery_mx-tree_index_-icon empty">&#xe732;</i>';
+                    $p += '<i mxs="_zs_galleryda:_" class="mc-iconfont _zs_gallery_mx-tree_index_-icon empty">&#xe732;</i>';
                     $line = 17;
                     $art = '/if';
                     ;
-                    $p += '';
                     $expr = '<%}%>';
                 }
                 ;
@@ -109,7 +99,6 @@ module.exports = Magix.View.extend({
                 $line = 18;
                 $art = '/if';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -117,15 +106,13 @@ module.exports = Magix.View.extend({
             $line = 19;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
-        $p += '<label mxv mxa="_zs_galleryc-:b" class="fl">';
+        $p += '<label mxv mxa="_zs_galleryda:b" class="fl">';
         $line = 21;
         $art = 'if !readOnly';
         ;
-        $p += '';
         $expr = '<%if (!readOnly) {%>';
         if (!readOnly) {
             ;
@@ -133,27 +120,26 @@ module.exports = Magix.View.extend({
             $line = 24;
             $art = '=viewId';
             ;
-            $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_';
+            $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
             $line = 24;
             $art = '=index';
             ;
-            $p += '' + ($expr = '<%=index%>', $e(index)) + '" value="';
+            $p += ($expr = '<%=index%>', $e(index)) + '" value="';
             $line = 25;
             $art = '=item[valueKey]';
             ;
-            $p += '' + ($expr = '<%=item[valueKey]%>', $e(item[valueKey])) + '" name="';
+            $p += ($expr = '<%=item[valueKey]%>', $e(item[valueKey])) + '" name="';
             $line = 26;
             $art = '=viewId';
             ;
-            $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '" mx-change="' + $viewId + '@{check}({index:';
+            $p += ($expr = '<%=viewId%>', $e(viewId)) + '" mx-change="' + $viewId + '@{check}({index:';
             $line = 27;
             $art = '=index';
             ;
-            $p += '' + ($expr = '<%=index%>', $e(index)) + '})"/>';
+            $p += ($expr = '<%=index%>', $e(index)) + '})"/>';
             $line = 28;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -161,11 +147,10 @@ module.exports = Magix.View.extend({
         $line = 30;
         $art = '=item[textKey]';
         ;
-        $p += '' + ($expr = '<%=item[textKey]%>', $e(item[textKey])) + '</label></div>';
+        $p += ($expr = '<%=item[textKey]%>', $e(item[textKey])) + '</label></div>';
         $line = 33;
         $art = 'if (item.children && (item.children.length > 0))';
         ;
-        $p += '';
         $expr = '<%if (item.children && (item.children.length > 0)) {%>';
         if (item.children && (item.children.length > 0)) {
             ;
@@ -173,15 +158,14 @@ module.exports = Magix.View.extend({
             $line = 40;
             $art = '=viewId';
             ;
-            $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_';
+            $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
             $line = 40;
             $art = '=index';
             ;
-            $p += '' + ($expr = '<%=index%>', $e(index)) + '" class="';
+            $p += ($expr = '<%=index%>', $e(index)) + '" class="';
             $line = 41;
             $art = 'if item.close';
             ;
-            $p += '';
             $expr = '<%if (item.close) {%>';
             if (item.close) {
                 ;
@@ -189,7 +173,6 @@ module.exports = Magix.View.extend({
                 $line = 41;
                 $art = '/if';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -197,7 +180,6 @@ module.exports = Magix.View.extend({
             $line = 41;
             $art = 'if !item.isAll';
             ;
-            $p += '';
             $expr = '<%if (!item.isAll) {%>';
             if (!item.isAll) {
                 ;
@@ -205,7 +187,6 @@ module.exports = Magix.View.extend({
                 $line = 41;
                 $art = '/if';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -213,7 +194,6 @@ module.exports = Magix.View.extend({
             $line = 41;
             $art = 'if fromTop';
             ;
-            $p += '';
             $expr = '<%if (fromTop) {%>';
             if (fromTop) {
                 ;
@@ -221,7 +201,6 @@ module.exports = Magix.View.extend({
                 $line = 41;
                 $art = '/if';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -229,27 +208,26 @@ module.exports = Magix.View.extend({
             $line = 35;
             $art = '=textKey';
             ;
-            $p += '' + ($expr = '<%!$eu(textKey)%>', $eu(textKey)) + '&valueKey=';
+            $p += ($expr = '<%!$eu(textKey)%>', $eu(textKey)) + '&valueKey=';
             $line = 36;
             $art = '=valueKey';
             ;
-            $p += '' + ($expr = '<%!$eu(valueKey)%>', $eu(valueKey)) + '&readOnly=';
+            $p += ($expr = '<%!$eu(valueKey)%>', $eu(valueKey)) + '&readOnly=';
             $line = 37;
             $art = '@readOnly';
             ;
-            $p += '' + ($expr = '<%@readOnly%>', $i($$ref, readOnly)) + '&needExpand=';
+            $p += ($expr = '<%@readOnly%>', $i($$ref, readOnly)) + '&needExpand=';
             $line = 38;
             $art = '@needExpand';
             ;
-            $p += '' + ($expr = '<%@needExpand%>', $i($$ref, needExpand)) + '&list=';
+            $p += ($expr = '<%@needExpand%>', $i($$ref, needExpand)) + '&list=';
             $line = 39;
             $art = '@item.children';
             ;
-            $p += '' + ($expr = '<%@item.children%>', $i($$ref, item.children)) + '"></div>';
+            $p += ($expr = '<%@item.children%>', $i($$ref, item.children)) + '"></div>';
             $line = 42;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -257,11 +235,9 @@ module.exports = Magix.View.extend({
         $line = 44;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
-    $p += '';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

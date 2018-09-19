@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -27,19 +27,19 @@ module.exports = Base.extend({
     $line = 20;
     $art = '=parentId';
     ;
-    $p += '' + ($expr = '<%=$eq(parentId)%>', $e($eq(parentId))) + '_custom3\'})">查看配置</a></div><div mxa="_zs_galleryu:d" class="mb20">2. 映射到三级1这个页面，顶部显示与三级1完全一致，侧边内容自定义<a class="link-brand ml10" href="javascript:;" mx-click="' + $viewId + 'to({id:\'';
+    $p += ($expr = '<%=$eq(parentId)%>', $e($eq(parentId))) + '_custom3\'})">查看配置</a></div><div mxa="_zs_galleryu:d" class="mb20">2. 映射到三级1这个页面，顶部显示与三级1完全一致，侧边内容自定义<a class="link-brand ml10" href="javascript:;" mx-click="' + $viewId + 'to({id:\'';
     $line = 21;
     $art = '=parentId';
     ;
-    $p += '' + ($expr = '<%=$eq(parentId)%>', $e($eq(parentId))) + '_custom5\'})">查看配置</a></div><div mxa="_zs_galleryu:e" class="mb20">3. 映射到三级1这个页面，顶部显示与三级1完全一致，无侧边<a class="link-brand ml10" href="javascript:;" mx-click="' + $viewId + 'to({id:\'';
+    $p += ($expr = '<%=$eq(parentId)%>', $e($eq(parentId))) + '_custom5\'})">查看配置</a></div><div mxa="_zs_galleryu:e" class="mb20">3. 映射到三级1这个页面，顶部显示与三级1完全一致，无侧边<a class="link-brand ml10" href="javascript:;" mx-click="' + $viewId + 'to({id:\'';
     $line = 22;
     $art = '=parentId';
     ;
-    $p += '' + ($expr = '<%=$eq(parentId)%>', $e($eq(parentId))) + '_custom2\'})">查看配置</a></div><div mxa="_zs_galleryu:f" class="mb20">4. 使用另外的容器文件，而不是default<a class="link-brand ml10" href="javascript:;" mx-click="' + $viewId + 'to({id:\'';
+    $p += ($expr = '<%=$eq(parentId)%>', $e($eq(parentId))) + '_custom2\'})">查看配置</a></div><div mxa="_zs_galleryu:f" class="mb20">4. 使用另外的容器文件，而不是default<a class="link-brand ml10" href="javascript:;" mx-click="' + $viewId + 'to({id:\'';
     $line = 23;
     $art = '=parentId';
     ;
-    $p += '' + ($expr = '<%=$eq(parentId)%>', $e($eq(parentId))) + '_custom4\'})">查看配置</a></div></div></div></div>';
+    $p += ($expr = '<%=$eq(parentId)%>', $e($eq(parentId))) + '_custom4\'})">查看配置</a></div></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

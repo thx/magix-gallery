@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -23,11 +23,9 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', len = $$.len, dark = $$.dark, width = $$.width, products = $$.products, footerHtml = $$.footerHtml; var $expr, $art, $line; try {
-    $p += '';
     $line = 1;
     $art = 'if len > 0';
     ;
-    $p += '';
     $expr = '<%if (len > 0) {%>';
     if (len > 0) {
         ;
@@ -35,7 +33,6 @@ module.exports = Magix.View.extend({
         $line = 2;
         $art = 'if dark';
         ;
-        $p += '';
         $expr = '<%if (dark) {%>';
         if (dark) {
             ;
@@ -43,7 +40,6 @@ module.exports = Magix.View.extend({
             $line = 2;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -51,43 +47,40 @@ module.exports = Magix.View.extend({
         $line = 2;
         $art = '=width';
         ;
-        $p += '' + ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_gallerya]:_" class="_zs_gallery_mx-footer_index_-logo"><img src="https://img.alicdn.com/tfs/TB1_j6sn0cnBKNjSZR0XXcFqFXa-182-185.png"><i class="mc-iconfont _zs_gallery_mx-footer_index_-mama-icon">&#xe601;</i></div><div mxa="_zs_gallerya]:_" class="clearfix">';
+        $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_gallerya]:_" class="_zs_gallery_mx-footer_index_-logo"><img src="https://img.alicdn.com/tfs/TB1_j6sn0cnBKNjSZR0XXcFqFXa-182-185.png"><i class="mc-iconfont _zs_gallery_mx-footer_index_-mama-icon">&#xe601;</i></div><div mxa="_zs_gallerya]:_" class="clearfix">';
         $line = 8;
         $art = 'each products as p';
         ;
-        $p += '';
-        $expr = '<%for (var $art_irsgoqir$art_i = 0, $art_cttgacuxqj$art_c = products.length; $art_irsgoqir$art_i < $art_cttgacuxqj$art_c; $art_irsgoqir$art_i++) {        var p = products[$art_irsgoqir$art_i]%>';
-        for (var $art_irsgoqir$art_i = 0, $art_cttgacuxqj$art_c = products.length; $art_irsgoqir$art_i < $art_cttgacuxqj$art_c; $art_irsgoqir$art_i++) {
-            var p = products[$art_irsgoqir$art_i];
+        $expr = '<%for (var $art_iwspaovur$art_i = 0, $art_cuwfqwlxm$art_c = products.length; $art_iwspaovur$art_i < $art_cuwfqwlxm$art_c; $art_iwspaovur$art_i++) {        var p = products[$art_iwspaovur$art_i]%>';
+        for (var $art_iwspaovur$art_i = 0, $art_cuwfqwlxm$art_c = products.length; $art_iwspaovur$art_i < $art_cuwfqwlxm$art_c; $art_iwspaovur$art_i++) {
+            var p = products[$art_iwspaovur$art_i];
             $p += '<dl style="width: ';
             $line = 9;
             $art = '=(100 / len)';
             ;
-            $p += '' + ($expr = '<%=(100 / len)%>', $e((100 / len))) + '%;"><dt>';
+            $p += ($expr = '<%=(100 / len)%>', $e((100 / len))) + '%;"><dt>';
             $line = 10;
             $art = '=p.title';
             ;
-            $p += '' + ($expr = '<%=p.title%>', $e(p.title)) + '</dt>';
+            $p += ($expr = '<%=p.title%>', $e(p.title)) + '</dt>';
             $line = 11;
             $art = 'each p.thirds as t';
             ;
-            $p += '';
-            $expr = '<%for (var $art_izqjkogh$art_i = 0, $art_objvqybcuago$art_obj = p.thirds, $art_cwxazltep$art_c = $art_objvqybcuago$art_obj.length; $art_izqjkogh$art_i < $art_cwxazltep$art_c; $art_izqjkogh$art_i++) {            var t = $art_objvqybcuago$art_obj[$art_izqjkogh$art_i]%>';
-            for (var $art_izqjkogh$art_i = 0, $art_objvqybcuago$art_obj = p.thirds, $art_cwxazltep$art_c = $art_objvqybcuago$art_obj.length; $art_izqjkogh$art_i < $art_cwxazltep$art_c; $art_izqjkogh$art_i++) {
-                var t = $art_objvqybcuago$art_obj[$art_izqjkogh$art_i];
+            $expr = '<%for (var $art_iwniejg$art_i = 0, $art_objfmzmchkuk$art_obj = p.thirds, $art_cfkhsnzf$art_c = $art_objfmzmchkuk$art_obj.length; $art_iwniejg$art_i < $art_cfkhsnzf$art_c; $art_iwniejg$art_i++) {            var t = $art_objfmzmchkuk$art_obj[$art_iwniejg$art_i]%>';
+            for (var $art_iwniejg$art_i = 0, $art_objfmzmchkuk$art_obj = p.thirds, $art_cfkhsnzf$art_c = $art_objfmzmchkuk$art_obj.length; $art_iwniejg$art_i < $art_cfkhsnzf$art_c; $art_iwniejg$art_i++) {
+                var t = $art_objfmzmchkuk$art_obj[$art_iwniejg$art_i];
                 $p += '<dd><a href="';
                 $line = 13;
                 $art = '=t.link';
                 ;
-                $p += '' + ($expr = '<%=t.link%>', $e(t.link)) + '" target="_blank" rel="noopener noreferrer">';
+                $p += ($expr = '<%=t.link%>', $e(t.link)) + '" target="_blank" rel="noopener noreferrer">';
                 $line = 13;
                 $art = '=t.name';
                 ;
-                $p += '' + ($expr = '<%=t.name%>', $e(t.name)) + '</a></dd>';
+                $p += ($expr = '<%=t.name%>', $e(t.name)) + '</a></dd>';
                 $line = 15;
                 $art = '/each';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -95,7 +88,6 @@ module.exports = Magix.View.extend({
             $line = 17;
             $art = '/each';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -103,7 +95,6 @@ module.exports = Magix.View.extend({
         $line = 25;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -111,7 +102,6 @@ module.exports = Magix.View.extend({
     $line = 26;
     $art = 'if dark';
     ;
-    $p += '';
     $expr = '<%if (dark) {%>';
     if (dark) {
         ;
@@ -119,7 +109,6 @@ module.exports = Magix.View.extend({
         $line = 26;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -127,7 +116,7 @@ module.exports = Magix.View.extend({
     $line = 27;
     $art = '!footerHtml';
     ;
-    $p += '' + ($expr = '<%!footerHtml%>', $n(footerHtml)) + '</div>';
+    $p += ($expr = '<%!footerHtml%>', $n(footerHtml)) + '</div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

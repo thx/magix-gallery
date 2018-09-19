@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -23,11 +23,10 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycG:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerycG:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerycG:_" class="mb20 clearfix lh22"><span class="color-9">普通表格：</span><span>加class="table"，样式与组件一致，没有默认选中逻辑</span></div><div mxa="_zs_gallerycG:b" class="mb20"><table mxa="_zs_gallerycG:c" class="table"><thead><tr>';
+    $p += '<div mxa="_zs_gallerycJ:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerycJ:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerycJ:_" class="mb20 clearfix lh22"><span class="color-9">普通表格：</span><span>加class="table"，样式与组件一致，没有默认选中逻辑</span></div><div mxa="_zs_gallerycJ:b" class="mb20"><table mxa="_zs_gallerycJ:c" class="table"><thead><tr>';
     $line = 11;
     $art = 'for (let i=0;i<5;i++)';
     ;
-    $p += '';
     $expr = '<%for (var i = 0; i < 5; i++) {%>';
     for (var i = 0; i < 5; i++) {
         ;
@@ -35,19 +34,17 @@ module.exports = Base.extend({
         $line = 12;
         $art = '=i';
         ;
-        $p += '' + ($expr = '<%=i%>', $e(i)) + '</th>';
+        $p += ($expr = '<%=i%>', $e(i)) + '</th>';
         $line = 13;
         $art = '/for';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
-    $p += '<th mxs="_zs_gallerycG:a">操作</th></tr></thead><tbody>';
+    $p += '<th mxs="_zs_gallerycJ:a">操作</th></tr></thead><tbody>';
     $line = 18;
     $art = 'for (let j=0;j<3;j++)';
     ;
-    $p += '';
     $expr = '<%for (var j = 0; j < 3; j++) {%>';
     for (var j = 0; j < 3; j++) {
         ;
@@ -55,7 +52,6 @@ module.exports = Base.extend({
         $line = 20;
         $art = 'for (let i=0;i<5;i++)';
         ;
-        $p += '';
         $expr = '<%for (var i = 0; i < 5; i++) {%>';
         for (var i = 0; i < 5; i++) {
             ;
@@ -63,35 +59,33 @@ module.exports = Base.extend({
             $line = 21;
             $art = '=i';
             ;
-            $p += '' + ($expr = '<%=i%>', $e(i)) + '</td>';
+            $p += ($expr = '<%=i%>', $e(i)) + '</td>';
             $line = 22;
             $art = '/for';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
-        $p += '<td mxs="_zs_gallerycG:b"><div class="operations"><a href="javascript:;" class="btn btn-small">操作</a></div></td></tr>';
+        $p += '<td mxs="_zs_gallerycJ:b"><div class="operations"><a href="javascript:;" class="btn btn-small">操作</a></div></td></tr>';
         $line = 29;
         $art = '/for';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
-    $p += '</tbody></table></div></div><div mxa="_zs_gallerycG:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycG:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</tbody></table></div></div><div mxa="_zs_gallerycJ:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycJ:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 36;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycG:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycJ:e" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 38;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycG:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycJ:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 41;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;table class="table"&gt;\n    &lt;thead&gt;\n        &lt;tr&gt;\n            &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;\n            &lt;th&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/th&gt;\n            &#123;&#123;/for&#125;&#125;\n            &lt;th&gt;操作&lt;/th&gt;\n        &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n        &#123;&#123;for(let j=0;j&lt;3;j++)&#125;&#125;\n        &lt;tr&gt;\n            &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;\n            &lt;td&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/td&gt;\n            &#123;&#123;/for&#125;&#125;\n            &lt;td&gt;\n                &lt;div class="operations"&gt;\n                    &lt;a href="javascript:;" class="btn btn-small"&gt;操作&lt;/a&gt;\n                &lt;/div&gt;\n            &lt;/td&gt;\n        &lt;/tr&gt;\n        &#123;&#123;/for&#125;&#125;\n    &lt;/tbody&gt;\n&lt;/table&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;table class="table"&gt;\n    &lt;thead&gt;\n        &lt;tr&gt;\n            &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;\n            &lt;th&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/th&gt;\n            &#123;&#123;/for&#125;&#125;\n            &lt;th&gt;操作&lt;/th&gt;\n        &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n        &#123;&#123;for(let j=0;j&lt;3;j++)&#125;&#125;\n        &lt;tr&gt;\n            &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;\n            &lt;td&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/td&gt;\n            &#123;&#123;/for&#125;&#125;\n            &lt;td&gt;\n                &lt;div class="operations"&gt;\n                    &lt;a href="javascript:;" class="btn btn-small"&gt;操作&lt;/a&gt;\n                &lt;/div&gt;\n            &lt;/td&gt;\n        &lt;/tr&gt;\n        &#123;&#123;/for&#125;&#125;\n    &lt;/tbody&gt;\n&lt;/table&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

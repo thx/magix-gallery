@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -29,31 +29,31 @@ module.exports = Base.extend({
     $line = 10;
     $art = '=yesterday';
     ;
-    $p += '' + ($expr = '<%!$eu(yesterday)%>', $eu(yesterday)) + '"></div></div><div mxa="_zs_gallery#:c" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?min=';
+    $p += ($expr = '<%!$eu(yesterday)%>', $eu(yesterday)) + '"></div></div><div mxa="_zs_gallery#:c" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?min=';
     $line = 14;
     $art = '=tomorrow';
     ;
-    $p += '' + ($expr = '<%!$eu(tomorrow)%>', $eu(tomorrow)) + '"></div></div><div mxa="_zs_gallery#:d" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?max=';
+    $p += ($expr = '<%!$eu(tomorrow)%>', $eu(tomorrow)) + '"></div></div><div mxa="_zs_gallery#:d" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?max=';
     $line = 18;
     $art = '=yesterday';
     ;
-    $p += '' + ($expr = '<%!$eu(yesterday)%>', $eu(yesterday)) + '"></div></div><div class="w200" mx-view="mx-calendar/datepicker?max=';
+    $p += ($expr = '<%!$eu(yesterday)%>', $eu(yesterday)) + '"></div></div><div class="w200" mx-view="mx-calendar/datepicker?max=';
     $line = 21;
     $art = '=tomorrow';
     ;
-    $p += '' + ($expr = '<%!$eu(tomorrow)%>', $eu(tomorrow)) + '"></div></div><div mxa="_zs_gallery#:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery#:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%!$eu(tomorrow)%>', $eu(tomorrow)) + '"></div></div><div mxa="_zs_gallery#:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery#:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 25;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery#:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery#:f" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 27;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery#:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery#:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 30;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.datepicker class="w200"\n    min="&#123;&#123;=yesterday&#125;&#125;"/&gt;\n\n&lt;mx-calendar.datepicker class="w200"\n    min="&#123;&#123;=tomorrow&#125;&#125;"/&gt;\n\n&lt;mx-calendar.datepicker class="w200"\n    max="&#123;&#123;=yesterday&#125;&#125;"/&gt;\n\n&lt;mx-calendar.datepicker class="w200"\n    max="&#123;&#123;=tomorrow&#125;&#125;"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.datepicker class="w200"\n    min="&#123;&#123;=yesterday&#125;&#125;"/&gt;\n\n&lt;mx-calendar.datepicker class="w200"\n    min="&#123;&#123;=tomorrow&#125;&#125;"/&gt;\n\n&lt;mx-calendar.datepicker class="w200"\n    max="&#123;&#123;=yesterday&#125;&#125;"/&gt;\n\n&lt;mx-calendar.datepicker class="w200"\n    max="&#123;&#123;=tomorrow&#125;&#125;"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

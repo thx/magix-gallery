@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -35,11 +35,9 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', closable = $$.closable, viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '';
     $line = 1;
     $art = 'if closable';
     ;
-    $p += '';
     $expr = '<%if (closable) {%>';
     if (closable) {
         ;
@@ -47,7 +45,6 @@ module.exports = Magix.View.extend({
         $line = 5;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;

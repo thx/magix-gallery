@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -33,35 +33,33 @@ module.exports = Base.extend({
     $line = 15;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_area" mx-view="mx-area/index?city=true&data=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_area" mx-view="mx-area/index?city=true&data=';
     $line = 17;
     $art = '@types';
     ;
-    $p += '' + ($expr = '<%@types%>', $i($$ref, types)) + '&selected=';
+    $p += ($expr = '<%@types%>', $i($$ref, types)) + '&selected=';
     $line = 18;
     $art = '@selected';
     ;
-    $p += '' + ($expr = '<%@selected%>', $i($$ref, selected)) + '"></div></div><div mxa="_zs_galleryV:d" class="fl"><div mxs="_zs_galleryV:a" class="mb10"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'get()">获取选中值</a></div><div mxa="_zs_galleryV:e" class="clearfix lh22"><div mxs="_zs_galleryV:b" class="fl color-9">当前选中值：</div><div mxa="_zs_galleryV:f" class="fl">';
+    $p += ($expr = '<%@selected%>', $i($$ref, selected)) + '"></div></div><div mxa="_zs_galleryV:d" class="fl"><div mxs="_zs_galleryV:a" class="mb10"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'get()">获取选中值</a></div><div mxa="_zs_galleryV:e" class="clearfix lh22"><div mxs="_zs_galleryV:b" class="fl color-9">当前选中值：</div><div mxa="_zs_galleryV:f" class="fl">';
     $line = 25;
     $art = 'each arrs as item';
     ;
-    $p += '';
-    $expr = '<%for (var $art_igmafisljj$art_i = 0, $art_cbwloxigv$art_c = arrs.length; $art_igmafisljj$art_i < $art_cbwloxigv$art_c; $art_igmafisljj$art_i++) {    var item = arrs[$art_igmafisljj$art_i]%>';
-    for (var $art_igmafisljj$art_i = 0, $art_cbwloxigv$art_c = arrs.length; $art_igmafisljj$art_i < $art_cbwloxigv$art_c; $art_igmafisljj$art_i++) {
-        var item = arrs[$art_igmafisljj$art_i];
+    $expr = '<%for (var $art_isbbfggpi$art_i = 0, $art_cqjuzebafp$art_c = arrs.length; $art_isbbfggpi$art_i < $art_cqjuzebafp$art_c; $art_isbbfggpi$art_i++) {    var item = arrs[$art_isbbfggpi$art_i]%>';
+    for (var $art_isbbfggpi$art_i = 0, $art_cqjuzebafp$art_c = arrs.length; $art_isbbfggpi$art_i < $art_cqjuzebafp$art_c; $art_isbbfggpi$art_i++) {
+        var item = arrs[$art_isbbfggpi$art_i];
         $p += '<div>';
         $line = 26;
         $art = '=item.name';
         ;
-        $p += '' + ($expr = '<%=item.name%>', $e(item.name)) + '（';
+        $p += ($expr = '<%=item.name%>', $e(item.name)) + '（';
         $line = 26;
         $art = '=item.id';
         ;
-        $p += '' + ($expr = '<%=item.id%>', $e(item.id)) + '）</div>';
+        $p += ($expr = '<%=item.id%>', $e(item.id)) + '）</div>';
         $line = 27;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -69,27 +67,27 @@ module.exports = Base.extend({
     $line = 36;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryV:i" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryV:i" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 38;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryV:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryV:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 41;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\n    city="true" \n    data="&#123;&#123;@types&#125;&#125;"\n    selected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div><div mxa="_zs_galleryV:j" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryV:e" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\n    city="true" \n    data="&#123;&#123;@types&#125;&#125;"\n    selected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div><div mxa="_zs_galleryV:j" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryV:e" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 49;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryV:k" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryV:k" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 51;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryV:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryV:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 54;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let types = [&#123;\n            "name": "组1",\n            "provinces": [&#123;\n                "id": 461,\n                "name": "天津"\n            &#125;, &#123;\n                "id": 508,\n                "name": "浙江",\n                "cities": [&#123;\n                    "id": 509,\n                    "name": "杭州"\n                &#125;, &#123;\n                    "id": 511,\n                    "name": "湖州"\n                &#125;, &#123;\n                    "id": 512,\n                    "name": "嘉兴"\n                &#125;]\n            &#125;]\n        &#125;, &#123;\n            "name": "组2",\n            "provinces": [&#123;\n                "id": 471,\n                "name": "新疆",\n                "cities": [&#123;\n                    "id": 472,\n                    "name": "阿克苏",\n                &#125;, &#123;\n                    "id": 473,\n                    "name": "阿勒泰",\n                &#125;]\n            &#125;, &#123;\n                "id": 577,\n                "name": "北京",\n            &#125;]\n        &#125;]\n\n        this.updater.digest(&#123;\n            viewId: this.id,\n            types,\n            selected: [509],\n            arrs: [&#123;\n                "id": 509,\n                "name": "杭州"\n            &#125;]\n        &#125;);\n    &#125;,\n    \'get&lt;click&gt;\' (event) &#123;\n        let id = this.id + \'_area\';\n        let vf = Magix.Vframe.get(id);\n\n        // 完整的选中信息\n        let arrs = vf.invoke(\'getSelected\');\n        // 选中的id值\n        let selected = vf.invoke(\'val\');\n        this.updater.digest(&#123;\n            selected,\n            arrs\n        &#125;)\n    &#125;\n&#125;);</pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let types = [&#123;\n            "name": "组1",\n            "provinces": [&#123;\n                "id": 461,\n                "name": "天津"\n            &#125;, &#123;\n                "id": 508,\n                "name": "浙江",\n                "cities": [&#123;\n                    "id": 509,\n                    "name": "杭州"\n                &#125;, &#123;\n                    "id": 511,\n                    "name": "湖州"\n                &#125;, &#123;\n                    "id": 512,\n                    "name": "嘉兴"\n                &#125;]\n            &#125;]\n        &#125;, &#123;\n            "name": "组2",\n            "provinces": [&#123;\n                "id": 471,\n                "name": "新疆",\n                "cities": [&#123;\n                    "id": 472,\n                    "name": "阿克苏",\n                &#125;, &#123;\n                    "id": 473,\n                    "name": "阿勒泰",\n                &#125;]\n            &#125;, &#123;\n                "id": 577,\n                "name": "北京",\n            &#125;]\n        &#125;]\n\n        this.updater.digest(&#123;\n            viewId: this.id,\n            types,\n            selected: [509],\n            arrs: [&#123;\n                "id": 509,\n                "name": "杭州"\n            &#125;]\n        &#125;);\n    &#125;,\n    \'get&lt;click&gt;\' (event) &#123;\n        let id = this.id + \'_area\';\n        let vf = Magix.Vframe.get(id);\n\n        // 完整的选中信息\n        let arrs = vf.invoke(\'getSelected\');\n        // 选中的id值\n        let selected = vf.invoke(\'val\');\n        this.updater.digest(&#123;\n            selected,\n            arrs\n        &#125;)\n    &#125;\n&#125;);</pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

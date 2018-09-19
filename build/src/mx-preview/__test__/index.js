@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -31,11 +31,11 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryb&:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B&tip=%E6%A0%B9%E6%8D%AE%E5%AE%9E%E9%99%85%E5%B0%BA%E5%AF%B8%E5%B1%95%E7%A4%BA%EF%BC%8C%E7%AD%89%E6%AF%94%E4%BE%8B%E7%BC%A9%E6%94%BE%EF%BC%8C%E4%B8%8D%E8%B6%85%E8%BF%87%E5%B1%8F%E5%B9%95%E5%8F%AF%E8%A7%86%E8%8C%83%E5%9B%B4"></div><div mxs="_zs_galleryb&:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-preview/__test__/1"></div><div mx-view="mx-preview/__test__/3"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-preview/__test__/2"></div><div mx-view="mx-preview/__test__/4"></div><div mx-view="mx-preview/__test__/5"></div></div></div><div mxs="_zs_galleryb&:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += '<div mxs="_zs_galleryb):_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B&tip=%E6%A0%B9%E6%8D%AE%E5%AE%9E%E9%99%85%E5%B0%BA%E5%AF%B8%E5%B1%95%E7%A4%BA%EF%BC%8C%E7%AD%89%E6%AF%94%E4%BE%8B%E7%BC%A9%E6%94%BE%EF%BC%8C%E4%B8%8D%E8%B6%85%E8%BF%87%E5%B1%8F%E5%B9%95%E5%8F%AF%E8%A7%86%E8%8C%83%E5%9B%B4"></div><div mxs="_zs_galleryb):a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-preview/__test__/1"></div><div mx-view="mx-preview/__test__/3"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-preview/__test__/2"></div><div mx-view="mx-preview/__test__/4"></div><div mx-view="mx-preview/__test__/5"></div></div></div><div mxs="_zs_galleryb):b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 16;
     $art = '@options';
     ;
-    $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '"></div>';
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

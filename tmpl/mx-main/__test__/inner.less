@@ -1,0 +1,53 @@
+@import "../../mx-style/_vars";
+
+.box-title {
+    height: 46px;
+    padding: 0 20px;
+    line-height: 42px;
+    background-color: @color-bg;
+    border: 1px solid @color-border;
+    border-radius: @border-radius;
+
+    .title-icon {
+        float: left;
+        height: 44px;
+        line-height: 44px;
+        >*{
+            position: relative;
+            top: 2px;
+            margin-right: 4px;
+            color: #999;
+            font-size: 20px;
+        }
+    }
+    .title-label{
+        float: left;
+        font-size: 16px;
+    }
+
+    &.error-state {
+        background-color: tint(@color-red, 90%);
+        border: 1px solid @color-red;
+        color: @color-red;
+
+        .title-icon>* {
+            color: @color-red;
+        }
+
+    }
+
+    &.warn-state {
+        background-color: tint(@color-warn, 90%);
+        border: 1px solid @color-warn;
+        color: @color-warn;
+
+        .title-icon>* {
+            color: @color-warn;
+        }
+    }
+
+}
+
+.box-inner {
+    padding: 40px 20px 0 20px;
+}

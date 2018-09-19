@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -11,7 +11,7 @@ var $ = require("$");
 var Monitor = require("../mx-monitor/index");
 var Util = require("mx-calendar/util");
 var GetDefaultDate = Util.getDefaultDate;
-Magix.applyStyle("_zs_gallery_mx-calendar_rangepicker_","/* @dependent: ./index.less */\n._zs_gallery_mx-calendar_rangepicker_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-calendar_rangepicker_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n/**\n   css3注意点小计\n    - animation-fill-mode 动画结束停在最后一帧\n    - translate(-30%, 0) 百分比是相对于元素自己的宽高，margin-left:-30%; 是相对于父容器的宽高\n    - transition、animation动画不能设置display:none;\n    - :after, :before等伪元素目前不支持嵌套，未来会支持 [还有多重伪元素 div::before(3) { content: ”; }];\n      - :after.content 用法\n        { content:  }  - 加载指定资源图片\n        { content: attr(data-src) } - 读取当前节点上的自定义属性值\n        { content: content:\"选项\" counter(sectioncounter) \"： \";\n          counter-increment: sectioncounter;\n        } - 自动计数器 【参考资料：http://dev.opera.com/articles/view/automatic-numbering-with-css-counters/】\n\n    - box-sizing: [content-box | padding-box | border-box];\n      - 全局设置：\n        html {\n          box-sizing: border-box;\n        }\n        *, *:before, *:after {\n          box-sizing: inherit;\n        }\n        // 宽度包含了border以及padding，这在容器设置了100%百分比宽度时又设置了padding时很有用\n */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-calendar_rangepicker_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-calendar_rangepicker_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n[mx-view*=\"mx-calendar/rangepicker\"],\n[mx-view*=\"mx-calendar/datepicker\"] {\n  position: relative;\n}\n[mx-view*=\"mx-calendar/rangepicker\"] ._zs_gallery_mx-calendar_rangepicker_-rangepicker-wrapper,\n[mx-view*=\"mx-calendar/datepicker\"] ._zs_gallery_mx-calendar_rangepicker_-rangepicker-wrapper {\n  display: none;\n  position: absolute;\n  z-index: 10;\n  min-width: 100%;\n}\n[mx-view*=\"mx-calendar/rangepicker\"] ._zs_gallery_mx-calendar_rangepicker_-rangepicker-wrapper._zs_gallery_mx-calendar_rangepicker_-open,\n[mx-view*=\"mx-calendar/datepicker\"] ._zs_gallery_mx-calendar_rangepicker_-rangepicker-wrapper._zs_gallery_mx-calendar_rangepicker_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-calendar_rangepicker_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-calendar_rangepicker_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n[mx-view*=\"mx-calendar/rangepicker\"] ._zs_gallery_mx-calendar_rangepicker_-rangepicker-input,\n[mx-view*=\"mx-calendar/datepicker\"] ._zs_gallery_mx-calendar_rangepicker_-rangepicker-input {\n  width: 100%;\n}\n._zs_gallery_mx-calendar_rangepicker_-result {\n  position: relative;\n  color: #999;\n}\n._zs_gallery_mx-calendar_rangepicker_-result ._zs_gallery_mx-calendar_rangepicker_-center {\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 36px;\n  height: 30px;\n  margin-left: -18px;\n  line-height: 30px;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_rangepicker_-result ._zs_gallery_mx-calendar_rangepicker_-co {\n  display: inline-block;\n  width: 50%;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_rangepicker_-result ._zs_gallery_mx-calendar_rangepicker_-co-left {\n  padding-right: 18px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result ._zs_gallery_mx-calendar_rangepicker_-co-right {\n  padding-left: 18px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result ._zs_gallery_mx-calendar_rangepicker_-result-prefix {\n  color: #999;\n  margin-right: 5px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result:hover {\n  color: #666;\n}\n._zs_gallery_mx-calendar_rangepicker_-result:hover ._zs_gallery_mx-calendar_rangepicker_-result-prefix {\n  color: #999;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-left {\n  color: #4d7fff;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-right {\n  color: #14c9ce;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-calendar_rangepicker_","/* @dependent: ./index.less */\n._zs_gallery_mx-calendar_rangepicker_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-calendar_rangepicker_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n/**\n   css3注意点小计\n    - animation-fill-mode 动画结束停在最后一帧\n    - translate(-30%, 0) 百分比是相对于元素自己的宽高，margin-left:-30%; 是相对于父容器的宽高\n    - transition、animation动画不能设置display:none;\n    - :after, :before等伪元素目前不支持嵌套，未来会支持 [还有多重伪元素 div::before(3) { content: ”; }];\n      - :after.content 用法\n        { content: url(@imgsrc) }  - 加载指定资源图片\n        { content: attr(data-src) } - 读取当前节点上的自定义属性值\n        { content: content:\"选项\" counter(sectioncounter) \"： \";\n          counter-increment: sectioncounter;\n        } - 自动计数器 【参考资料：http://dev.opera.com/articles/view/automatic-numbering-with-css-counters/】\n\n    - box-sizing: [content-box | padding-box | border-box];\n      - 全局设置：\n        html {\n          box-sizing: border-box;\n        }\n        *, *:before, *:after {\n          box-sizing: inherit;\n        }\n        // 宽度包含了border以及padding，这在容器设置了100%百分比宽度时又设置了padding时很有用\n */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-calendar_rangepicker_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-calendar_rangepicker_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n[mx-view*=\"mx-calendar/rangepicker\"],\n[mx-view*=\"mx-calendar/datepicker\"] {\n  position: relative;\n}\n[mx-view*=\"mx-calendar/rangepicker\"] ._zs_gallery_mx-calendar_rangepicker_-rangepicker-wrapper,\n[mx-view*=\"mx-calendar/datepicker\"] ._zs_gallery_mx-calendar_rangepicker_-rangepicker-wrapper {\n  display: none;\n  position: absolute;\n  z-index: 10;\n  min-width: 100%;\n}\n[mx-view*=\"mx-calendar/rangepicker\"] ._zs_gallery_mx-calendar_rangepicker_-rangepicker-wrapper._zs_gallery_mx-calendar_rangepicker_-open,\n[mx-view*=\"mx-calendar/datepicker\"] ._zs_gallery_mx-calendar_rangepicker_-rangepicker-wrapper._zs_gallery_mx-calendar_rangepicker_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-calendar_rangepicker_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-calendar_rangepicker_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n[mx-view*=\"mx-calendar/rangepicker\"] ._zs_gallery_mx-calendar_rangepicker_-rangepicker-input,\n[mx-view*=\"mx-calendar/datepicker\"] ._zs_gallery_mx-calendar_rangepicker_-rangepicker-input {\n  width: 100%;\n}\n._zs_gallery_mx-calendar_rangepicker_-result {\n  position: relative;\n  color: #999;\n}\n._zs_gallery_mx-calendar_rangepicker_-result ._zs_gallery_mx-calendar_rangepicker_-center {\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 36px;\n  height: 30px;\n  margin-left: -18px;\n  line-height: 30px;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_rangepicker_-result ._zs_gallery_mx-calendar_rangepicker_-co {\n  display: inline-block;\n  width: 50%;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_rangepicker_-result ._zs_gallery_mx-calendar_rangepicker_-co-left {\n  padding-right: 18px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result ._zs_gallery_mx-calendar_rangepicker_-co-right {\n  padding-left: 18px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result ._zs_gallery_mx-calendar_rangepicker_-result-prefix {\n  color: #999;\n  margin-right: 5px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result:hover {\n  color: #666;\n}\n._zs_gallery_mx-calendar_rangepicker_-result:hover ._zs_gallery_mx-calendar_rangepicker_-result-prefix {\n  color: #999;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-left {\n  color: #4d7fff;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-right {\n  color: #14c9ce;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -33,11 +33,10 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '" mx-click="' + $viewId + '@{toggle}()" mx-change="' + $viewId + '@{stop}()"><div mxa="_zs_gallery):_" class="_zs_gallery_mx-calendar_rangepicker_-result">';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" mx-click="' + $viewId + '@{toggle}()" mx-change="' + $viewId + '@{stop}()"><div mxa="_zs_gallery):_" class="_zs_gallery_mx-calendar_rangepicker_-result">';
     $line = 5;
     $art = 'if dateInfo.prefix';
     ;
-    $p += '';
     $expr = '<%if (dateInfo.prefix) {%>';
     if (dateInfo.prefix) {
         ;
@@ -45,11 +44,10 @@ module.exports = Magix.View.extend({
         $line = 6;
         $art = '=dateInfo.prefix';
         ;
-        $p += '' + ($expr = '<%=dateInfo.prefix%>', $e(dateInfo.prefix)) + '：</span>';
+        $p += ($expr = '<%=dateInfo.prefix%>', $e(dateInfo.prefix)) + '：</span>';
         $line = 7;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -57,11 +55,10 @@ module.exports = Magix.View.extend({
     $line = 8;
     $art = '=dateInfo.selected';
     ;
-    $p += '' + ($expr = '<%=dateInfo.selected%>', $e(dateInfo.selected)) + '</div></div><div mxv="dateInfo" class="_zs_gallery_mx-calendar_rangepicker_-rangepicker-wrapper ';
+    $p += ($expr = '<%=dateInfo.selected%>', $e(dateInfo.selected)) + '</div></div><div mxv="dateInfo" class="_zs_gallery_mx-calendar_rangepicker_-rangepicker-wrapper ';
     $line = 11;
     $art = 'if show';
     ;
-    $p += '';
     $expr = '<%if (show) {%>';
     if (show) {
         ;
@@ -69,7 +66,6 @@ module.exports = Magix.View.extend({
         $line = 11;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -77,19 +73,19 @@ module.exports = Magix.View.extend({
     $line = 11;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '" style="left: ';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" style="left: ';
     $line = 12;
     $art = '=left';
     ;
-    $p += '' + ($expr = '<%=left%>', $e(left)) + 'px; top: ';
+    $p += ($expr = '<%=left%>', $e(left)) + 'px; top: ';
     $line = 12;
     $art = '=top';
     ;
-    $p += '' + ($expr = '<%=top%>', $e(top)) + 'px;" mx-view="mx-calendar/index?configs=';
+    $p += ($expr = '<%=top%>', $e(top)) + 'px;" mx-view="mx-calendar/index?configs=';
     $line = 13;
     $art = '@dateInfo';
     ;
-    $p += '' + ($expr = '<%@dateInfo%>', $i($$ref, dateInfo)) + '" mx-change="' + $viewId + '@{date.picked}()" mx-cancel="' + $viewId + '@{hide}()"></div>';
+    $p += ($expr = '<%@dateInfo%>', $i($$ref, dateInfo)) + '" mx-change="' + $viewId + '@{date.picked}()" mx-cancel="' + $viewId + '@{hide}()"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

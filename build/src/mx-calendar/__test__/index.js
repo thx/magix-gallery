@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -39,39 +39,39 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'提示前缀\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'可选择时分秒\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'限制部分不可选\',\n            key: viewId + \'_demo14\'\n        },{\n            name: \'只选择月份\',\n            key: viewId + \'_demo16\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'关于实现方案\',\n        key: viewId + \'_implement\'\n    }]';
     ;
-    $p += '' + ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'提示前缀\',                    key: viewId + \'_demo1\'                }, {                    name: \'可选择时分秒\',                    key: viewId + \'_demo4\'                }, {                    name: \'限制部分不可选\',                    key: viewId + \'_demo14\'                }, {                    name: \'只选择月份\',                    key: viewId + \'_demo16\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'关于实现方案\',            key: viewId + \'_implement\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '提示前缀', key: viewId + '_demo1' }, { name: '可选择时分秒', key: viewId + '_demo4' }, { name: '限制部分不可选', key: viewId + '_demo14' }, { name: '只选择月份', key: viewId + '_demo16' }] }, { name: 'API', key: viewId + '_api' }, { name: '关于实现方案', key: viewId + '_implement' }])) + '"></div><div id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'提示前缀\',                    key: viewId + \'_demo1\'                }, {                    name: \'可选择时分秒\',                    key: viewId + \'_demo4\'                }, {                    name: \'限制部分不可选\',                    key: viewId + \'_demo14\'                }, {                    name: \'只选择月份\',                    key: viewId + \'_demo16\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'关于实现方案\',            key: viewId + \'_implement\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '提示前缀', key: viewId + '_demo1' }, { name: '可选择时分秒', key: viewId + '_demo4' }, { name: '限制部分不可选', key: viewId + '_demo14' }, { name: '只选择月份', key: viewId + '_demo16' }] }, { name: 'API', key: viewId + '_api' }, { name: '关于实现方案', key: viewId + '_implement' }])) + '"></div><div id="';
     $line = 26;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallery&:a" class="clearfix mb20"><div mxa="_zs_gallery&:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/1" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallery&:a" class="clearfix mb20"><div mxa="_zs_gallery&:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/1" id="';
     $line = 29;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mxs="_zs_gallery&:_" mx-view="mx-calendar/__test__/2"></div><div mx-view="mx-calendar/__test__/16" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mxs="_zs_gallery&:_" mx-view="mx-calendar/__test__/2"></div><div mx-view="mx-calendar/__test__/16" id="';
     $line = 31;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo16"></div></div><div mxa="_zs_gallery&:c" class="_zs_gallery___test___layout_-half"><div mxs="_zs_gallery&:a" mx-view="mx-calendar/__test__/3"></div><div mx-view="mx-calendar/__test__/4" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo16"></div></div><div mxa="_zs_gallery&:c" class="_zs_gallery___test___layout_-half"><div mxs="_zs_gallery&:a" mx-view="mx-calendar/__test__/3"></div><div mx-view="mx-calendar/__test__/4" id="';
     $line = 35;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-calendar/__test__/14" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-calendar/__test__/14" id="';
     $line = 36;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_demo14"></div><div mxs="_zs_gallery&:b" mx-view="mx-calendar/__test__/5"></div></div></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo14"></div><div mxs="_zs_gallery&:b" mx-view="mx-calendar/__test__/5"></div></div></div><div id="';
     $line = 41;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 42;
     $art = '@options';
     ;
-    $p += '' + ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div mx-view="mx-calendar/__test__/implement" id="';
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div mx-view="mx-calendar/__test__/implement" id="';
     $line = 44;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_implement"></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_implement"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

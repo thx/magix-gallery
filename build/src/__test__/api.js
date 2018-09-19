@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -25,31 +25,29 @@ module.exports = Magix.View.extend({
     $line = 12;
     $art = 'each options as option';
     ;
-    $p += '';
-    $expr = '<%for (var $art_izkrgrqbvk$art_i = 0, $art_cnyhhnwlc$art_c = options.length; $art_izkrgrqbvk$art_i < $art_cnyhhnwlc$art_c; $art_izkrgrqbvk$art_i++) {    var option = options[$art_izkrgrqbvk$art_i]%>';
-    for (var $art_izkrgrqbvk$art_i = 0, $art_cnyhhnwlc$art_c = options.length; $art_izkrgrqbvk$art_i < $art_cnyhhnwlc$art_c; $art_izkrgrqbvk$art_i++) {
-        var option = options[$art_izkrgrqbvk$art_i];
+    $expr = '<%for (var $art_iumlwrfwcj$art_i = 0, $art_cjeauqf$art_c = options.length; $art_iumlwrfwcj$art_i < $art_cjeauqf$art_c; $art_iumlwrfwcj$art_i++) {    var option = options[$art_iumlwrfwcj$art_i]%>';
+    for (var $art_iumlwrfwcj$art_i = 0, $art_cjeauqf$art_c = options.length; $art_iumlwrfwcj$art_i < $art_cjeauqf$art_c; $art_iumlwrfwcj$art_i++) {
+        var option = options[$art_iumlwrfwcj$art_i];
         $p += '<tr><td>';
         $line = 14;
         $art = '=option.key';
         ;
-        $p += '' + ($expr = '<%=option.key%>', $e(option.key)) + '</td><td>';
+        $p += ($expr = '<%=option.key%>', $e(option.key)) + '</td><td>';
         $line = 15;
         $art = '!option.desc';
         ;
-        $p += '' + ($expr = '<%!option.desc%>', $n(option.desc)) + '</td><td>';
+        $p += ($expr = '<%!option.desc%>', $n(option.desc)) + '</td><td>';
         $line = 16;
         $art = '!option.type';
         ;
-        $p += '' + ($expr = '<%!option.type%>', $n(option.type)) + '</td><td mxa="_zs_gallery_:b" class="word-break">';
+        $p += ($expr = '<%!option.type%>', $n(option.type)) + '</td><td mxa="_zs_gallery_:b" class="word-break">';
         $line = 17;
         $art = '!option.def';
         ;
-        $p += '' + ($expr = '<%!option.def%>', $n(option.def)) + '</td></tr>';
+        $p += ($expr = '<%!option.def%>', $n(option.def)) + '</td></tr>';
         $line = 19;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;

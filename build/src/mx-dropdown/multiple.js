@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -10,7 +10,7 @@ var Magix = require("magix");
 var $ = require("$");
 var Monitor = require("../mx-monitor/index");
 var I18n = require("../mx-medusa/util");
-Magix.applyStyle("_zs_gallery_mx-dropdown_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-dropdown_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-dropdown_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n/**\n   css3注意点小计\n    - animation-fill-mode 动画结束停在最后一帧\n    - translate(-30%, 0) 百分比是相对于元素自己的宽高，margin-left:-30%; 是相对于父容器的宽高\n    - transition、animation动画不能设置display:none;\n    - :after, :before等伪元素目前不支持嵌套，未来会支持 [还有多重伪元素 div::before(3) { content: ”; }];\n      - :after.content 用法\n        { content:  }  - 加载指定资源图片\n        { content: attr(data-src) } - 读取当前节点上的自定义属性值\n        { content: content:\"选项\" counter(sectioncounter) \"： \";\n          counter-increment: sectioncounter;\n        } - 自动计数器 【参考资料：http://dev.opera.com/articles/view/automatic-numbering-with-css-counters/】\n\n    - box-sizing: [content-box | padding-box | border-box];\n      - 全局设置：\n        html {\n          box-sizing: border-box;\n        }\n        *, *:before, *:after {\n          box-sizing: inherit;\n        }\n        // 宽度包含了border以及padding，这在容器设置了100%百分比宽度时又设置了padding时很有用\n */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-dropdown_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-dropdown_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n._zs_gallery_mx-dropdown_index_-dropdown-toggle {\n  position: relative;\n  width: 100%;\n  padding: 0 25px 0 10px;\n  color: #999;\n  cursor: pointer;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-dropdown-toggle-label {\n  display: block;\n  width: 100%;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-dropdown-toggle-label._zs_gallery_mx-dropdown_index_-dropdown-toggle-label-ph {\n  color: #999;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow {\n  position: absolute;\n  right: 0;\n  top: 50%;\n  width: 28px;\n  height: 28px;\n  font-size: 28px;\n  line-height: 28px;\n  margin-top: -14px;\n  color: #ccc;\n  transition: top 0.25s, -webkit-transform 0.25s;\n  transition: transform 0.25s, top 0.25s;\n  transition: transform 0.25s, top 0.25s, -webkit-transform 0.25s;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-toggle._zs_gallery_mx-dropdown_index_-open ._zs_gallery_mx-dropdown_index_-arrow {\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n._zs_gallery_mx-dropdown_index_-item-link {\n  display: block;\n  width: 100%;\n  padding: 0 8px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n}\n._zs_gallery_mx-dropdown_index_-item-link:hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-active,\n._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-active:hover,\n._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-active:active,\n._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-active:focus {\n  color: #fff;\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-header-item ._zs_gallery_mx-dropdown_index_-item-link:hover {\n  background-color: transparent;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper {\n  display: none;\n  position: absolute;\n  top: 100%;\n  left: 0;\n  z-index: 99;\n  min-width: 100%;\n  max-width: 200%;\n  margin-top: 10px;\n  border-radius: 4px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  background-color: #fff;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ._zs_gallery_mx-dropdown_index_-search-wrapper {\n  width: 100%;\n  padding: 10px 10px 0 10px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ._zs_gallery_mx-dropdown_index_-dropdown-menu {\n  padding: 8px 10px;\n  overflow: auto;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ._zs_gallery_mx-dropdown_index_-dropdown-menu ._zs_gallery_mx-dropdown_index_-dropdown-item {\n  padding: 2px 0;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ._zs_gallery_mx-dropdown_index_-dropdown-menu ._zs_gallery_mx-dropdown_index_-dropdown-header {\n  color: #999;\n  cursor: default;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper._zs_gallery_mx-dropdown_index_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-dropdown_index_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-dropdown_index_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group {\n  min-width: 600px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-search-wrapper {\n  width: 200px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-dropdown-menu ._zs_gallery_mx-dropdown_index_-group-wrapper {\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-dropdown-menu ._zs_gallery_mx-dropdown_index_-group-wrapper ._zs_gallery_mx-dropdown_index_-dropdown-item {\n  float: left;\n  width: 25%;\n}\n._zs_gallery_mx-dropdown_index_-dropdown,\n[mx-view*=\"mx-dropdown/index\"],\n[mx-view*=\"mx-dropdown/multiple\"] {\n  position: relative;\n  display: inline-block;\n  min-width: 100px;\n  height: 32px;\n  line-height: 30px;\n  vertical-align: middle;\n  border-color: #e6e6e6;\n  border-style: solid;\n  border-width: 1px;\n  border-radius: 4px;\n  background-color: #fff;\n  outline: 0;\n  transition: border-color 0.25s;\n}\n._zs_gallery_mx-dropdown_index_-dropdown:hover,\n[mx-view*=\"mx-dropdown/index\"]:hover,\n[mx-view*=\"mx-dropdown/multiple\"]:hover {\n  border-color: #ccc;\n}\n._zs_gallery_mx-dropdown_index_-dropdown:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/index\"]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/multiple\"]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle {\n  color: #666;\n}\n._zs_gallery_mx-dropdown_index_-dropdown[mx-disabled],\n[mx-view*=\"mx-dropdown/index\"][mx-disabled],\n[mx-view*=\"mx-dropdown/multiple\"][mx-disabled],\n._zs_gallery_mx-dropdown_index_-dropdown[mx-disabled]:hover,\n[mx-view*=\"mx-dropdown/index\"][mx-disabled]:hover,\n[mx-view*=\"mx-dropdown/multiple\"][mx-disabled]:hover {\n  border-color: #e6e6e6;\n  cursor: not-allowed;\n  background-color: #eee;\n}\n._zs_gallery_mx-dropdown_index_-dropdown[mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/index\"][mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/multiple\"][mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n._zs_gallery_mx-dropdown_index_-dropdown[mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/index\"][mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/multiple\"][mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle {\n  color: #999;\n}\n._zs_gallery_mx-dropdown_index_-dropdown[mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n[mx-view*=\"mx-dropdown/index\"][mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n[mx-view*=\"mx-dropdown/multiple\"][mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n._zs_gallery_mx-dropdown_index_-dropdown[mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n[mx-view*=\"mx-dropdown/index\"][mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n[mx-view*=\"mx-dropdown/multiple\"][mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow {\n  color: #ccc;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper {\n  padding: 10px 10px 0 10px;\n  line-height: 16px;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper ._zs_gallery_mx-dropdown_index_-oper {\n  padding-right: 20px;\n  color: #999;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper ._zs_gallery_mx-dropdown_index_-oper:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-dropdown_index_-footer-wrapper {\n  padding: 10px;\n  border-top: 1px solid #e6e6e6;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-dropdown_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-dropdown_index_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-dropdown_index_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n/**\n   css3注意点小计\n    - animation-fill-mode 动画结束停在最后一帧\n    - translate(-30%, 0) 百分比是相对于元素自己的宽高，margin-left:-30%; 是相对于父容器的宽高\n    - transition、animation动画不能设置display:none;\n    - :after, :before等伪元素目前不支持嵌套，未来会支持 [还有多重伪元素 div::before(3) { content: ”; }];\n      - :after.content 用法\n        { content: url(@imgsrc) }  - 加载指定资源图片\n        { content: attr(data-src) } - 读取当前节点上的自定义属性值\n        { content: content:\"选项\" counter(sectioncounter) \"： \";\n          counter-increment: sectioncounter;\n        } - 自动计数器 【参考资料：http://dev.opera.com/articles/view/automatic-numbering-with-css-counters/】\n\n    - box-sizing: [content-box | padding-box | border-box];\n      - 全局设置：\n        html {\n          box-sizing: border-box;\n        }\n        *, *:before, *:after {\n          box-sizing: inherit;\n        }\n        // 宽度包含了border以及padding，这在容器设置了100%百分比宽度时又设置了padding时很有用\n */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-dropdown_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-dropdown_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n._zs_gallery_mx-dropdown_index_-dropdown-toggle {\n  position: relative;\n  width: 100%;\n  padding: 0 25px 0 10px;\n  color: #999;\n  cursor: pointer;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-dropdown-toggle-label {\n  display: block;\n  width: 100%;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-dropdown-toggle-label._zs_gallery_mx-dropdown_index_-dropdown-toggle-label-ph {\n  color: #999;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow {\n  position: absolute;\n  right: 0;\n  top: 50%;\n  width: 28px;\n  height: 28px;\n  font-size: 28px;\n  line-height: 28px;\n  margin-top: -14px;\n  color: #ccc;\n  transition: top 0.25s, -webkit-transform 0.25s;\n  transition: transform 0.25s, top 0.25s;\n  transition: transform 0.25s, top 0.25s, -webkit-transform 0.25s;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-toggle._zs_gallery_mx-dropdown_index_-open ._zs_gallery_mx-dropdown_index_-arrow {\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n._zs_gallery_mx-dropdown_index_-item-link {\n  display: block;\n  width: 100%;\n  padding: 0 8px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n}\n._zs_gallery_mx-dropdown_index_-item-link:hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-active,\n._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-active:hover,\n._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-active:active,\n._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-active:focus {\n  color: #fff;\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-header-item ._zs_gallery_mx-dropdown_index_-item-link:hover {\n  background-color: transparent;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper {\n  display: none;\n  position: absolute;\n  top: 100%;\n  left: 0;\n  z-index: 99;\n  min-width: 100%;\n  max-width: 200%;\n  margin-top: 10px;\n  border-radius: 4px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  background-color: #fff;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ._zs_gallery_mx-dropdown_index_-search-wrapper {\n  width: 100%;\n  padding: 10px 10px 0 10px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ._zs_gallery_mx-dropdown_index_-dropdown-menu {\n  padding: 8px 10px;\n  overflow: auto;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ._zs_gallery_mx-dropdown_index_-dropdown-menu ._zs_gallery_mx-dropdown_index_-dropdown-item {\n  padding: 2px 0;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ._zs_gallery_mx-dropdown_index_-dropdown-menu ._zs_gallery_mx-dropdown_index_-dropdown-header {\n  color: #999;\n  cursor: default;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper._zs_gallery_mx-dropdown_index_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-dropdown_index_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-dropdown_index_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group {\n  min-width: 600px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-search-wrapper {\n  width: 200px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-dropdown-menu ._zs_gallery_mx-dropdown_index_-group-wrapper {\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-dropdown-menu ._zs_gallery_mx-dropdown_index_-group-wrapper ._zs_gallery_mx-dropdown_index_-dropdown-item {\n  float: left;\n  width: 25%;\n}\n._zs_gallery_mx-dropdown_index_-dropdown,\n[mx-view*=\"mx-dropdown/index\"],\n[mx-view*=\"mx-dropdown/multiple\"] {\n  position: relative;\n  display: inline-block;\n  min-width: 100px;\n  height: 32px;\n  line-height: 30px;\n  vertical-align: middle;\n  border-color: #e6e6e6;\n  border-style: solid;\n  border-width: 1px;\n  border-radius: 4px;\n  background-color: #fff;\n  outline: 0;\n  transition: border-color 0.25s;\n}\n._zs_gallery_mx-dropdown_index_-dropdown:hover,\n[mx-view*=\"mx-dropdown/index\"]:hover,\n[mx-view*=\"mx-dropdown/multiple\"]:hover {\n  border-color: #ccc;\n}\n._zs_gallery_mx-dropdown_index_-dropdown:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/index\"]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/multiple\"]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle {\n  color: #666;\n}\n._zs_gallery_mx-dropdown_index_-dropdown[mx-disabled],\n[mx-view*=\"mx-dropdown/index\"][mx-disabled],\n[mx-view*=\"mx-dropdown/multiple\"][mx-disabled],\n._zs_gallery_mx-dropdown_index_-dropdown[mx-disabled]:hover,\n[mx-view*=\"mx-dropdown/index\"][mx-disabled]:hover,\n[mx-view*=\"mx-dropdown/multiple\"][mx-disabled]:hover {\n  border-color: #e6e6e6;\n  cursor: not-allowed;\n  background-color: #eee;\n}\n._zs_gallery_mx-dropdown_index_-dropdown[mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/index\"][mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/multiple\"][mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n._zs_gallery_mx-dropdown_index_-dropdown[mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/index\"][mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/multiple\"][mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle {\n  color: #999;\n}\n._zs_gallery_mx-dropdown_index_-dropdown[mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n[mx-view*=\"mx-dropdown/index\"][mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n[mx-view*=\"mx-dropdown/multiple\"][mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n._zs_gallery_mx-dropdown_index_-dropdown[mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n[mx-view*=\"mx-dropdown/index\"][mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n[mx-view*=\"mx-dropdown/multiple\"][mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow {\n  color: #ccc;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper {\n  padding: 10px 10px 0 10px;\n  line-height: 16px;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper ._zs_gallery_mx-dropdown_index_-oper {\n  padding-right: 20px;\n  color: #999;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper ._zs_gallery_mx-dropdown_index_-oper:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-dropdown_index_-footer-wrapper {\n  padding: 10px;\n  border-top: 1px solid #e6e6e6;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -28,7 +28,6 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'if expand';
     ;
-    $p += '';
     $expr = '<%if (expand) {%>';
     if (expand) {
         ;
@@ -36,7 +35,6 @@ module.exports = Magix.View.extend({
         $line = 1;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -44,7 +42,6 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = 'if (selected===\'\')';
     ;
-    $p += '';
     $expr = '<%if (selected === \'\') {%>';
     if (selected === '') {
         ;
@@ -52,7 +49,6 @@ module.exports = Magix.View.extend({
         $line = 2;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -60,11 +56,10 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = '=selectedText';
     ;
-    $p += '' + ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryaC:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ';
+    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryaC:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ';
     $line = 5;
     $art = 'if expand';
     ;
-    $p += '';
     $expr = '<%if (expand) {%>';
     if (expand) {
         ;
@@ -72,7 +67,6 @@ module.exports = Magix.View.extend({
         $line = 5;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -80,7 +74,6 @@ module.exports = Magix.View.extend({
     $line = 5;
     $art = 'if over';
     ;
-    $p += '';
     $expr = '<%if (over) {%>';
     if (over) {
         ;
@@ -88,7 +81,6 @@ module.exports = Magix.View.extend({
         $line = 5;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -96,7 +88,6 @@ module.exports = Magix.View.extend({
     $line = 6;
     $art = 'if menuStyles';
     ;
-    $p += '';
     $expr = '<%if (menuStyles) {%>';
     if (menuStyles) {
         ;
@@ -104,11 +95,10 @@ module.exports = Magix.View.extend({
         $line = 6;
         $art = '=menuStyles';
         ;
-        $p += '' + ($expr = '<%=menuStyles%>', $e(menuStyles)) + '" ';
+        $p += ($expr = '<%=menuStyles%>', $e(menuStyles)) + '" ';
         $line = 6;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -116,7 +106,6 @@ module.exports = Magix.View.extend({
     $line = 7;
     $art = 'if rList';
     ;
-    $p += '';
     $expr = '<%if (rList) {%>';
     if (rList) {
         ;
@@ -124,7 +113,6 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'if searchbox';
         ;
-        $p += '';
         $expr = '<%if (searchbox) {%>';
         if (searchbox) {
             ;
@@ -132,15 +120,14 @@ module.exports = Magix.View.extend({
             $line = 13;
             $art = '=text.search';
             ;
-            $p += '' + ($expr = '<%=text.search%>', $e(text.search)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="';
+            $p += ($expr = '<%=text.search%>', $e(text.search)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="';
             $line = 19;
             $art = '=keyword';
             ;
-            $p += '' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
+            $p += ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
             $line = 22;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -148,7 +135,6 @@ module.exports = Magix.View.extend({
         $line = 23;
         $art = 'if !needAll';
         ;
-        $p += '';
         $expr = '<%if (!needAll) {%>';
         if (!needAll) {
             ;
@@ -156,23 +142,22 @@ module.exports = Magix.View.extend({
             $line = 25;
             $art = '=spm';
             ;
-            $p += '' + ($expr = '<%=spm%>', $e(spm)) + '">';
+            $p += ($expr = '<%=spm%>', $e(spm)) + '">';
             $line = 25;
             $art = '=text.select';
             ;
-            $p += '' + ($expr = '<%=text.select%>', $e(text.select)) + '</a><a class="_zs_gallery_mx-dropdown_index_-oper" href="javascript:;" mx-click="' + $viewId + '@{checkAll}({checked:false})" data-spm-click="';
+            $p += ($expr = '<%=text.select%>', $e(text.select)) + '</a><a class="_zs_gallery_mx-dropdown_index_-oper" href="javascript:;" mx-click="' + $viewId + '@{checkAll}({checked:false})" data-spm-click="';
             $line = 26;
             $art = '=spm';
             ;
-            $p += '' + ($expr = '<%=spm%>', $e(spm)) + '">';
+            $p += ($expr = '<%=spm%>', $e(spm)) + '">';
             $line = 26;
             $art = '=text.unselect';
             ;
-            $p += '' + ($expr = '<%=text.unselect%>', $e(text.unselect)) + '</a></div>';
+            $p += ($expr = '<%=text.unselect%>', $e(text.unselect)) + '</a></div>';
             $line = 28;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -180,23 +165,21 @@ module.exports = Magix.View.extend({
         $line = 29;
         $art = '=viewId';
         ;
-        $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '" style="max-height:';
+        $p += ($expr = '<%=viewId%>', $e(viewId)) + '" style="max-height:';
         $line = 29;
         $art = '=height';
         ;
-        $p += '' + ($expr = '<%=height%>', $e(height)) + 'px;">';
+        $p += ($expr = '<%=height%>', $e(height)) + 'px;">';
         $line = 30;
         $art = 'each groups as group groupIndex';
         ;
-        $p += '';
-        $expr = '<%for (var groupIndex = 0, $art_clzsxlw$art_c = groups.length; groupIndex < $art_clzsxlw$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
-        for (var groupIndex = 0, $art_clzsxlw$art_c = groups.length; groupIndex < $art_clzsxlw$art_c; groupIndex++) {
+        $expr = '<%for (var groupIndex = 0, $art_cjrphdaafl$art_c = groups.length; groupIndex < $art_cjrphdaafl$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
+        for (var groupIndex = 0, $art_cjrphdaafl$art_c = groups.length; groupIndex < $art_cjrphdaafl$art_c; groupIndex++) {
             var group = groups[groupIndex];
             $p += ' ';
             $line = 31;
             $art = 'if (group.text && !group.hide)';
             ;
-            $p += '';
             $expr = '<%if (group.text && !group.hide) {%>';
             if (group.text && !group.hide) {
                 ;
@@ -204,7 +187,6 @@ module.exports = Magix.View.extend({
                 $line = 32;
                 $art = 'if group.all';
                 ;
-                $p += '';
                 $expr = '<%if (group.all) {%>';
                 if (group.all) {
                     ;
@@ -212,19 +194,18 @@ module.exports = Magix.View.extend({
                     $line = 33;
                     $art = '=group.text';
                     ;
-                    $p += '' + ($expr = '<%=group.text%>', $e(group.text)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-item _zs_gallery_mx-dropdown_index_-dropdown-header-item"><label mxv for="';
+                    $p += ($expr = '<%=group.text%>', $e(group.text)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-item _zs_gallery_mx-dropdown_index_-dropdown-header-item"><label mxv for="';
                     $line = 34;
                     $art = '=viewId';
                     ;
-                    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_';
+                    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
                     $line = 34;
                     $art = '=group.value';
                     ;
-                    $p += '' + ($expr = '<%=group.value%>', $e(group.value)) + '" class="_zs_gallery_mx-dropdown_index_-item-link ellipsis"><input type="checkbox" class="checkbox" ';
+                    $p += ($expr = '<%=group.value%>', $e(group.value)) + '" class="_zs_gallery_mx-dropdown_index_-item-link ellipsis"><input type="checkbox" class="checkbox" ';
                     $line = 36;
                     $art = 'if group.checked';
                     ;
-                    $p += '';
                     $expr = '<%if (group.checked) {%>';
                     if (group.checked) {
                         ;
@@ -232,7 +213,6 @@ module.exports = Magix.View.extend({
                         $line = 36;
                         $art = '/if';
                         ;
-                        $p += '';
                         $expr = '<%}%>';
                     }
                     ;
@@ -240,27 +220,26 @@ module.exports = Magix.View.extend({
                     $line = 37;
                     $art = '=viewId';
                     ;
-                    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_';
+                    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
                     $line = 37;
                     $art = '=group.value';
                     ;
-                    $p += '' + ($expr = '<%=group.value%>', $e(group.value)) + '" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{selectGroup}({groupIndex:\'';
+                    $p += ($expr = '<%=group.value%>', $e(group.value)) + '" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{selectGroup}({groupIndex:\'';
                     $line = 39;
                     $art = '=groupIndex';
                     ;
-                    $p += '' + ($expr = '<%=$eq(groupIndex)%>', $e($eq(groupIndex))) + '\'})" data-spm-click="';
+                    $p += ($expr = '<%=$eq(groupIndex)%>', $e($eq(groupIndex))) + '\'})" data-spm-click="';
                     $line = 40;
                     $art = '=spm';
                     ;
-                    $p += '' + ($expr = '<%=spm%>', $e(spm)) + '"/>';
+                    $p += ($expr = '<%=spm%>', $e(spm)) + '"/>';
                     $line = 40;
                     $art = '=group.text';
                     ;
-                    $p += '' + ($expr = '<%=group.text%>', $e(group.text)) + '</label></div>';
+                    $p += ($expr = '<%=group.text%>', $e(group.text)) + '</label></div>';
                     $line = 43;
                     $art = 'else';
                     ;
-                    $p += '';
                     $expr = '<%}            else {%>';
                 }
                 else {
@@ -269,15 +248,14 @@ module.exports = Magix.View.extend({
                     $line = 44;
                     $art = '=group.text';
                     ;
-                    $p += '' + ($expr = '<%=group.text%>', $e(group.text)) + '">';
+                    $p += ($expr = '<%=group.text%>', $e(group.text)) + '">';
                     $line = 44;
                     $art = '=group.text';
                     ;
-                    $p += '' + ($expr = '<%=group.text%>', $e(group.text)) + '</div>';
+                    $p += ($expr = '<%=group.text%>', $e(group.text)) + '</div>';
                     $line = 45;
                     $art = '/if';
                     ;
-                    $p += '';
                     $expr = '<%}%>';
                 }
                 ;
@@ -285,7 +263,6 @@ module.exports = Magix.View.extend({
                 $line = 46;
                 $art = '/if';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -293,15 +270,13 @@ module.exports = Magix.View.extend({
             $line = 48;
             $art = 'each group.list as item';
             ;
-            $p += '';
-            $expr = '<%for (var $art_iawenyrjwq$art_i = 0, $art_objtorzn$art_obj = group.list, $art_ceyzwoeuw$art_c = $art_objtorzn$art_obj.length; $art_iawenyrjwq$art_i < $art_ceyzwoeuw$art_c; $art_iawenyrjwq$art_i++) {            var item = $art_objtorzn$art_obj[$art_iawenyrjwq$art_i]%>';
-            for (var $art_iawenyrjwq$art_i = 0, $art_objtorzn$art_obj = group.list, $art_ceyzwoeuw$art_c = $art_objtorzn$art_obj.length; $art_iawenyrjwq$art_i < $art_ceyzwoeuw$art_c; $art_iawenyrjwq$art_i++) {
-                var item = $art_objtorzn$art_obj[$art_iawenyrjwq$art_i];
+            $expr = '<%for (var $art_iwlglrsguf$art_i = 0, $art_objguugepx$art_obj = group.list, $art_chuswcctq$art_c = $art_objguugepx$art_obj.length; $art_iwlglrsguf$art_i < $art_chuswcctq$art_c; $art_iwlglrsguf$art_i++) {            var item = $art_objguugepx$art_obj[$art_iwlglrsguf$art_i]%>';
+            for (var $art_iwlglrsguf$art_i = 0, $art_objguugepx$art_obj = group.list, $art_chuswcctq$art_c = $art_objguugepx$art_obj.length; $art_iwlglrsguf$art_i < $art_chuswcctq$art_c; $art_iwlglrsguf$art_i++) {
+                var item = $art_objguugepx$art_obj[$art_iwlglrsguf$art_i];
                 $p += ' ';
                 $line = 49;
                 $art = 'if !item.hide';
                 ;
-                $p += '';
                 $expr = '<%if (!item.hide) {%>';
                 if (!item.hide) {
                     ;
@@ -309,19 +284,18 @@ module.exports = Magix.View.extend({
                     $line = 50;
                     $art = '=item.text';
                     ;
-                    $p += '' + ($expr = '<%=item.text%>', $e(item.text)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-item"><label mxv for="';
+                    $p += ($expr = '<%=item.text%>', $e(item.text)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-item"><label mxv for="';
                     $line = 51;
                     $art = '=viewId';
                     ;
-                    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_';
+                    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
                     $line = 51;
                     $art = '=item.value';
                     ;
-                    $p += '' + ($expr = '<%=item.value%>', $e(item.value)) + '" class="_zs_gallery_mx-dropdown_index_-item-link ellipsis"><input type="checkbox" class="checkbox" ';
+                    $p += ($expr = '<%=item.value%>', $e(item.value)) + '" class="_zs_gallery_mx-dropdown_index_-item-link ellipsis"><input type="checkbox" class="checkbox" ';
                     $line = 53;
                     $art = 'if item.checked';
                     ;
-                    $p += '';
                     $expr = '<%if (item.checked) {%>';
                     if (item.checked) {
                         ;
@@ -329,7 +303,6 @@ module.exports = Magix.View.extend({
                         $line = 53;
                         $art = '/if';
                         ;
-                        $p += '';
                         $expr = '<%}%>';
                     }
                     ;
@@ -337,31 +310,30 @@ module.exports = Magix.View.extend({
                     $line = 54;
                     $art = '=viewId';
                     ;
-                    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_';
+                    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
                     $line = 54;
                     $art = '=item.value';
                     ;
-                    $p += '' + ($expr = '<%=item.value%>', $e(item.value)) + '" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{select}({groupIndex:\'';
+                    $p += ($expr = '<%=item.value%>', $e(item.value)) + '" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{select}({groupIndex:\'';
                     $line = 56;
                     $art = '=groupIndex';
                     ;
-                    $p += '' + ($expr = '<%=$eq(groupIndex)%>', $e($eq(groupIndex))) + '\',value:\'';
+                    $p += ($expr = '<%=$eq(groupIndex)%>', $e($eq(groupIndex))) + '\',value:\'';
                     $line = 56;
                     $art = '=item.value';
                     ;
-                    $p += '' + ($expr = '<%=$eq(item.value)%>', $e($eq(item.value))) + '\'})" data-spm-click="';
+                    $p += ($expr = '<%=$eq(item.value)%>', $e($eq(item.value))) + '\'})" data-spm-click="';
                     $line = 57;
                     $art = '=spm';
                     ;
-                    $p += '' + ($expr = '<%=spm%>', $e(spm)) + '"/>';
+                    $p += ($expr = '<%=spm%>', $e(spm)) + '"/>';
                     $line = 57;
                     $art = '=item.text';
                     ;
-                    $p += '' + ($expr = '<%=item.text%>', $e(item.text)) + '</label></div>';
+                    $p += ($expr = '<%=item.text%>', $e(item.text)) + '</label></div>';
                     $line = 60;
                     $art = '/if';
                     ;
-                    $p += '';
                     $expr = '<%}%>';
                 }
                 ;
@@ -369,7 +341,6 @@ module.exports = Magix.View.extend({
                 $line = 61;
                 $art = '/each';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -377,7 +348,6 @@ module.exports = Magix.View.extend({
             $line = 63;
             $art = '/each';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -385,15 +355,14 @@ module.exports = Magix.View.extend({
         $line = 66;
         $art = '=text.submit';
         ;
-        $p += '' + ($expr = '<%=text.submit%>', $e(text.submit)) + '</button><button mxa="_zs_galleryaC:f" type="button" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
+        $p += ($expr = '<%=text.submit%>', $e(text.submit)) + '</button><button mxa="_zs_galleryaC:f" type="button" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
         $line = 67;
         $art = '=text.cancel';
         ;
-        $p += '' + ($expr = '<%=text.cancel%>', $e(text.cancel)) + '</button></div>';
+        $p += ($expr = '<%=text.cancel%>', $e(text.cancel)) + '</button></div>';
         $line = 69;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;

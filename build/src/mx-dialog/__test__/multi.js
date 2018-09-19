@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -25,11 +25,11 @@ module.exports = Magix.View.extend({
     $line = 4;
     $art = '=height';
     ;
-    $p += '' + ($expr = '<%=height%>', $e(height)) + 'px;"><span mxa="_zs_galleryae:_" class="mr40">浮层';
+    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><span mxa="_zs_galleryae:_" class="mr40">浮层';
     $line = 5;
     $art = '=number';
     ;
-    $p += '' + ($expr = '<%=number%>', $e(number)) + '</span><a mxs="_zs_galleryae:a" href="javascript:;" mx-click="' + $viewId + 'modal()" class="btn btn-brand">再开一个</a></div><div mxs="_zs_galleryae:b" class="dialog-footer"><a href="javascript:;" class="btn mr10" mx-click="' + $viewId + 'cancel()">取消</a></div>';
+    $p += ($expr = '<%=number%>', $e(number)) + '</span><a mxs="_zs_galleryae:a" href="javascript:;" mx-click="' + $viewId + 'modal()" class="btn btn-brand">再开一个</a></div><div mxs="_zs_galleryae:b" class="dialog-footer"><a href="javascript:;" class="btn mr10" mx-click="' + $viewId + 'cancel()">取消</a></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

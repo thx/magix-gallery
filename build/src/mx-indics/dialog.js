@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -26,7 +26,6 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'if sortable';
     ;
-    $p += '';
     $expr = '<%if (sortable) {%>';
     if (sortable) {
         ;
@@ -34,7 +33,6 @@ module.exports = Magix.View.extend({
         $line = 1;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -42,7 +40,6 @@ module.exports = Magix.View.extend({
     $line = 4;
     $art = 'if (limit > 0)';
     ;
-    $p += '';
     $expr = '<%if (limit > 0) {%>';
     if (limit > 0) {
         ;
@@ -50,15 +47,14 @@ module.exports = Magix.View.extend({
         $line = 5;
         $art = '=selectedItems.length';
         ;
-        $p += '' + ($expr = '<%=selectedItems.length%>', $e(selectedItems.length)) + ' / ';
+        $p += ($expr = '<%=selectedItems.length%>', $e(selectedItems.length)) + ' / ';
         $line = 5;
         $art = '=limit';
         ;
-        $p += '' + ($expr = '<%=limit%>', $e(limit)) + '</span>';
+        $p += ($expr = '<%=limit%>', $e(limit)) + '</span>';
         $line = 6;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -66,7 +62,6 @@ module.exports = Magix.View.extend({
     $line = 7;
     $art = 'if !sortable';
     ;
-    $p += '';
     $expr = '<%if (!sortable) {%>';
     if (!sortable) {
         ;
@@ -74,7 +69,6 @@ module.exports = Magix.View.extend({
         $line = 11;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -82,7 +76,6 @@ module.exports = Magix.View.extend({
     $line = 13;
     $art = 'if sortable';
     ;
-    $p += '';
     $expr = '<%if (sortable) {%>';
     if (sortable) {
         ;
@@ -90,7 +83,6 @@ module.exports = Magix.View.extend({
         $line = 17;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -98,7 +90,6 @@ module.exports = Magix.View.extend({
     $line = 19;
     $art = 'if sortable';
     ;
-    $p += '';
     $expr = '<%if (sortable) {%>';
     if (sortable) {
         ;
@@ -106,7 +97,6 @@ module.exports = Magix.View.extend({
         $line = 19;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -114,23 +104,20 @@ module.exports = Magix.View.extend({
     $line = 21;
     $art = 'each groups as group';
     ;
-    $p += '';
-    $expr = '<%for (var $art_isgjqzub$art_i = 0, $art_cbuhthj$art_c = groups.length; $art_isgjqzub$art_i < $art_cbuhthj$art_c; $art_isgjqzub$art_i++) {    var group = groups[$art_isgjqzub$art_i]%>';
-    for (var $art_isgjqzub$art_i = 0, $art_cbuhthj$art_c = groups.length; $art_isgjqzub$art_i < $art_cbuhthj$art_c; $art_isgjqzub$art_i++) {
-        var group = groups[$art_isgjqzub$art_i];
+    $expr = '<%for (var $art_igguiggfhn$art_i = 0, $art_ctttypdses$art_c = groups.length; $art_igguiggfhn$art_i < $art_ctttypdses$art_c; $art_igguiggfhn$art_i++) {    var group = groups[$art_igguiggfhn$art_i]%>';
+    for (var $art_igguiggfhn$art_i = 0, $art_ctttypdses$art_c = groups.length; $art_igguiggfhn$art_i < $art_ctttypdses$art_c; $art_igguiggfhn$art_i++) {
+        var group = groups[$art_igguiggfhn$art_i];
         $p += '<div mxv mxa="_zs_gallerybv:c" class="_zs_gallery_mx-indics_index_-line clearfix">';
         $line = 23;
         $art = 'each group as field';
         ;
-        $p += '';
-        $expr = '<%for (var $art_iwxfzdqe$art_i = 0, $art_cpzadvmsx$art_c = group.length; $art_iwxfzdqe$art_i < $art_cpzadvmsx$art_c; $art_iwxfzdqe$art_i++) {        var field = group[$art_iwxfzdqe$art_i]%>';
-        for (var $art_iwxfzdqe$art_i = 0, $art_cpzadvmsx$art_c = group.length; $art_iwxfzdqe$art_i < $art_cpzadvmsx$art_c; $art_iwxfzdqe$art_i++) {
-            var field = group[$art_iwxfzdqe$art_i];
+        $expr = '<%for (var $art_ifbqvjrl$art_i = 0, $art_cesitrk$art_c = group.length; $art_ifbqvjrl$art_i < $art_cesitrk$art_c; $art_ifbqvjrl$art_i++) {        var field = group[$art_ifbqvjrl$art_i]%>';
+        for (var $art_ifbqvjrl$art_i = 0, $art_cesitrk$art_c = group.length; $art_ifbqvjrl$art_i < $art_cesitrk$art_c; $art_ifbqvjrl$art_i++) {
+            var field = group[$art_ifbqvjrl$art_i];
             $p += '<div mxv mxa="_zs_gallerybv:d" class="_zs_gallery_mx-indics_index_-item"><label mxv ';
             $line = 25;
             $art = 'if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)';
             ;
-            $p += '';
             $expr = '<%if ((limit > 0) && (selectedItems.length >= limit) && !field.checked) {%>';
             if ((limit > 0) && (selectedItems.length >= limit) && !field.checked) {
                 ;
@@ -138,7 +125,6 @@ module.exports = Magix.View.extend({
                 $line = 25;
                 $art = '/if';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -146,11 +132,10 @@ module.exports = Magix.View.extend({
             $line = 26;
             $art = '=field.value';
             ;
-            $p += '' + ($expr = '<%=field.value%>', $e(field.value)) + '" class="checkbox" ';
+            $p += ($expr = '<%=field.value%>', $e(field.value)) + '" class="checkbox" ';
             $line = 27;
             $art = 'if field.checked';
             ;
-            $p += '';
             $expr = '<%if (field.checked) {%>';
             if (field.checked) {
                 ;
@@ -158,7 +143,6 @@ module.exports = Magix.View.extend({
                 $line = 27;
                 $art = '/if';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -166,7 +150,6 @@ module.exports = Magix.View.extend({
             $line = 28;
             $art = 'if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)';
             ;
-            $p += '';
             $expr = '<%if ((limit > 0) && (selectedItems.length >= limit) && !field.checked) {%>';
             if ((limit > 0) && (selectedItems.length >= limit) && !field.checked) {
                 ;
@@ -174,7 +157,6 @@ module.exports = Magix.View.extend({
                 $line = 28;
                 $art = '/if';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -182,19 +164,18 @@ module.exports = Magix.View.extend({
             $line = 29;
             $art = '=field.value';
             ;
-            $p += '' + ($expr = '<%=$eq(field.value)%>', $e($eq(field.value))) + '\',text:\'';
+            $p += ($expr = '<%=$eq(field.value)%>', $e($eq(field.value))) + '\',text:\'';
             $line = 29;
             $art = '=field.text';
             ;
-            $p += '' + ($expr = '<%=$eq(field.text)%>', $e($eq(field.text))) + '\'})"/>';
+            $p += ($expr = '<%=$eq(field.text)%>', $e($eq(field.text))) + '\'})"/>';
             $line = 29;
             $art = '=field.text';
             ;
-            $p += '' + ($expr = '<%=field.text%>', $e(field.text)) + '</label>';
+            $p += ($expr = '<%=field.text%>', $e(field.text)) + '</label>';
             $line = 31;
             $art = 'if field.tip';
             ;
-            $p += '';
             $expr = '<%if (field.tip) {%>';
             if (field.tip) {
                 ;
@@ -202,11 +183,10 @@ module.exports = Magix.View.extend({
                 $line = 34;
                 $art = '=field.tip';
                 ;
-                $p += '' + ($expr = '<%!$eu(field.tip)%>', $eu(field.tip)) + '">&#xe629;</i>';
+                $p += ($expr = '<%!$eu(field.tip)%>', $eu(field.tip)) + '">&#xe629;</i>';
                 $line = 35;
                 $art = '/if';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -214,7 +194,6 @@ module.exports = Magix.View.extend({
             $line = 37;
             $art = '/each';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -222,7 +201,6 @@ module.exports = Magix.View.extend({
         $line = 39;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -230,7 +208,6 @@ module.exports = Magix.View.extend({
     $line = 41;
     $art = 'if sortable';
     ;
-    $p += '';
     $expr = '<%if (sortable) {%>';
     if (sortable) {
         ;
@@ -238,27 +215,25 @@ module.exports = Magix.View.extend({
         $line = 48;
         $art = 'each selectedItems as s';
         ;
-        $p += '';
-        $expr = '<%for (var $art_iuthoosmb$art_i = 0, $art_cgtivvtsml$art_c = selectedItems.length; $art_iuthoosmb$art_i < $art_cgtivvtsml$art_c; $art_iuthoosmb$art_i++) {        var s = selectedItems[$art_iuthoosmb$art_i]%>';
-        for (var $art_iuthoosmb$art_i = 0, $art_cgtivvtsml$art_c = selectedItems.length; $art_iuthoosmb$art_i < $art_cgtivvtsml$art_c; $art_iuthoosmb$art_i++) {
-            var s = selectedItems[$art_iuthoosmb$art_i];
+        $expr = '<%for (var $art_irsbctje$art_i = 0, $art_cblyxtspn$art_c = selectedItems.length; $art_irsbctje$art_i < $art_cblyxtspn$art_c; $art_irsbctje$art_i++) {        var s = selectedItems[$art_irsbctje$art_i]%>';
+        for (var $art_irsbctje$art_i = 0, $art_cblyxtspn$art_c = selectedItems.length; $art_irsbctje$art_i < $art_cblyxtspn$art_c; $art_irsbctje$art_i++) {
+            var s = selectedItems[$art_irsbctje$art_i];
             $p += '<div class="_zs_gallery_mx-indics_index_-drag" data-value="';
             $line = 49;
             $art = '=s.value';
             ;
-            $p += '' + ($expr = '<%=s.value%>', $e(s.value)) + '" data-text="';
+            $p += ($expr = '<%=s.value%>', $e(s.value)) + '" data-text="';
             $line = 49;
             $art = '=s.text';
             ;
-            $p += '' + ($expr = '<%=s.text%>', $e(s.text)) + '">';
+            $p += ($expr = '<%=s.text%>', $e(s.text)) + '">';
             $line = 49;
             $art = '=s.text';
             ;
-            $p += '' + ($expr = '<%=s.text%>', $e(s.text)) + '</div>';
+            $p += ($expr = '<%=s.text%>', $e(s.text)) + '</div>';
             $line = 50;
             $art = '/each';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -266,7 +241,6 @@ module.exports = Magix.View.extend({
         $line = 53;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -274,7 +248,6 @@ module.exports = Magix.View.extend({
     $line = 58;
     $art = 'if error';
     ;
-    $p += '';
     $expr = '<%if (error) {%>';
     if (error) {
         ;
@@ -282,7 +255,6 @@ module.exports = Magix.View.extend({
         $line = 60;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;

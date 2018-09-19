@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -28,27 +28,27 @@ module.exports = Base.extend({
     $line = 20;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery+:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery+:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 22;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery+:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery+:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 25;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" mx-click="alert1()" \n    class="btn btn-brand"&gt;默认alert&lt;/a&gt;\n\n&lt;a href="javascript:;" mx-click="alert2()" \n    class="btn btn-brand"&gt;自定义alert样式&lt;/a&gt;\n\n&lt;a href="javascript:;" mx-click="alert3()" \n    class="btn btn-brand"&gt;无关闭按钮&lt;/a&gt;</pre></div><div mxa="_zs_gallery+:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery+:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" mx-click="alert1()" \n    class="btn btn-brand"&gt;默认alert&lt;/a&gt;\n\n&lt;a href="javascript:;" mx-click="alert2()" \n    class="btn btn-brand"&gt;自定义alert样式&lt;/a&gt;\n\n&lt;a href="javascript:;" mx-click="alert3()" \n    class="btn btn-brand"&gt;无关闭按钮&lt;/a&gt;</pre></div><div mxa="_zs_gallery+:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery+:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 37;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery+:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery+:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 39;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallery+:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallery+:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 42;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Dialog = require(\'@../index\'); //mixins dialog\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [Dialog],\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    \'alert1&lt;click&gt;\'(e) &#123;\n        this.alert(\'系统异常\', \'测试内容\');\n    &#125;,\n    \'alert2&lt;click&gt;\'(e) &#123;\n        let that = this;\n        // alert(title, content, enterCallback, dialogOptions)\n        //     title： 标题\n        //     content： 内容\n        //     enterCallback：确认回调\n        //     dialogOptions： 浮层样式覆盖\n        //         width： 宽度\n        //         height： 高度\n        //         modal：是否允许滚动\n        //         mask：是否有遮罩\n        //         btns：是否有按钮，默认true\n        //         ......\n        that.alert(\'系统异常\', \'测试内容\', () => &#123;\n            console.log(\'点击确认后响应\')\n        &#125;, &#123;\n            width: 400,\n            mask: true\n        &#125;);\n    &#125;,\n    \'alert3&lt;click&gt;\'(e) &#123;\n        let dialog = this.alert(\n            \'系统异常\', \n            \'无关闭按钮，2秒后自动关闭\', \n            null, \n            &#123;\n                width: 400,\n                mask: true,\n                btns: false\n            &#125;\n        );\n        \n        setTimeout(() =&gt; &#123;\n            dialog.close();\n        &#125;, 2000);\n    &#125;\n&#125;);</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Dialog = require(\'@../index\'); //mixins dialog\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [Dialog],\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    \'alert1&lt;click&gt;\'(e) &#123;\n        this.alert(\'系统异常\', \'测试内容\');\n    &#125;,\n    \'alert2&lt;click&gt;\'(e) &#123;\n        let that = this;\n        // alert(title, content, enterCallback, dialogOptions)\n        //     title： 标题\n        //     content： 内容\n        //     enterCallback：确认回调\n        //     dialogOptions： 浮层样式覆盖\n        //         width： 宽度\n        //         height： 高度\n        //         modal：是否允许滚动\n        //         mask：是否有遮罩\n        //         btns：是否有按钮，默认true\n        //         ......\n        that.alert(\'系统异常\', \'测试内容\', () => &#123;\n            console.log(\'点击确认后响应\')\n        &#125;, &#123;\n            width: 400,\n            mask: true\n        &#125;);\n    &#125;,\n    \'alert3&lt;click&gt;\'(e) &#123;\n        let dialog = this.alert(\n            \'系统异常\', \n            \'无关闭按钮，2秒后自动关闭\', \n            null, \n            &#123;\n                width: 400,\n                mask: true,\n                btns: false\n            &#125;\n        );\n        \n        setTimeout(() =&gt; &#123;\n            dialog.close();\n        &#125;, 2000);\n    &#125;\n&#125;);</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

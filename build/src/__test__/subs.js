@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -26,7 +26,6 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'if fixed';
     ;
-    $p += '';
     $expr = '<%if (fixed) {%>';
     if (fixed) {
         ;
@@ -34,7 +33,6 @@ module.exports = Magix.View.extend({
         $line = 1;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -42,23 +40,21 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = 'each list as item';
     ;
-    $p += '';
-    $expr = '<%for (var $art_itgvfocq$art_i = 0, $art_cccemxydzrc$art_c = list.length; $art_itgvfocq$art_i < $art_cccemxydzrc$art_c; $art_itgvfocq$art_i++) {    var item = list[$art_itgvfocq$art_i]%>';
-    for (var $art_itgvfocq$art_i = 0, $art_cccemxydzrc$art_c = list.length; $art_itgvfocq$art_i < $art_cccemxydzrc$art_c; $art_itgvfocq$art_i++) {
-        var item = list[$art_itgvfocq$art_i];
+    $expr = '<%for (var $art_ivjfbogrx$art_i = 0, $art_cvhpnpb$art_c = list.length; $art_ivjfbogrx$art_i < $art_cvhpnpb$art_c; $art_ivjfbogrx$art_i++) {    var item = list[$art_ivjfbogrx$art_i]%>';
+    for (var $art_ivjfbogrx$art_i = 0, $art_cvhpnpb$art_c = list.length; $art_ivjfbogrx$art_i < $art_cvhpnpb$art_c; $art_ivjfbogrx$art_i++) {
+        var item = list[$art_ivjfbogrx$art_i];
         $p += '<div mxa="_zs_galleryQ:_" class="_zs_gallery___test___subs_-sub-link"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'';
         $line = 4;
         $art = '=item.key';
         ;
-        $p += '' + ($expr = '<%=$eq(item.key)%>', $e($eq(item.key))) + '\'})">';
+        $p += ($expr = '<%=$eq(item.key)%>', $e($eq(item.key))) + '\'})">';
         $line = 4;
         $art = '=item.name';
         ;
-        $p += '' + ($expr = '<%=item.name%>', $e(item.name)) + '</a></div>';
+        $p += ($expr = '<%=item.name%>', $e(item.name)) + '</a></div>';
         $line = 6;
         $art = 'if (item.subs && item.subs.length)';
         ;
-        $p += '';
         $expr = '<%if (item.subs && item.subs.length) {%>';
         if (item.subs && item.subs.length) {
             ;
@@ -66,23 +62,21 @@ module.exports = Magix.View.extend({
             $line = 7;
             $art = 'each item.subs as sub';
             ;
-            $p += '';
-            $expr = '<%for (var $art_injhscghp$art_i = 0, $art_objhmhmdlarga$art_obj = item.subs, $art_cqlzmbvre$art_c = $art_objhmhmdlarga$art_obj.length; $art_injhscghp$art_i < $art_cqlzmbvre$art_c; $art_injhscghp$art_i++) {            var sub = $art_objhmhmdlarga$art_obj[$art_injhscghp$art_i]%>';
-            for (var $art_injhscghp$art_i = 0, $art_objhmhmdlarga$art_obj = item.subs, $art_cqlzmbvre$art_c = $art_objhmhmdlarga$art_obj.length; $art_injhscghp$art_i < $art_cqlzmbvre$art_c; $art_injhscghp$art_i++) {
-                var sub = $art_objhmhmdlarga$art_obj[$art_injhscghp$art_i];
+            $expr = '<%for (var $art_ipvznvxq$art_i = 0, $art_objkgstfygxfml$art_obj = item.subs, $art_cvuoynrai$art_c = $art_objkgstfygxfml$art_obj.length; $art_ipvznvxq$art_i < $art_cvuoynrai$art_c; $art_ipvznvxq$art_i++) {            var sub = $art_objkgstfygxfml$art_obj[$art_ipvznvxq$art_i]%>';
+            for (var $art_ipvznvxq$art_i = 0, $art_objkgstfygxfml$art_obj = item.subs, $art_cvuoynrai$art_c = $art_objkgstfygxfml$art_obj.length; $art_ipvznvxq$art_i < $art_cvuoynrai$art_c; $art_ipvznvxq$art_i++) {
+                var sub = $art_objkgstfygxfml$art_obj[$art_ipvznvxq$art_i];
                 $p += '<div mxa="_zs_galleryQ:a" class="_zs_gallery___test___subs_-sub-link pl10"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'';
                 $line = 9;
                 $art = '=sub.key';
                 ;
-                $p += '' + ($expr = '<%=$eq(sub.key)%>', $e($eq(sub.key))) + '\'})">';
+                $p += ($expr = '<%=$eq(sub.key)%>', $e($eq(sub.key))) + '\'})">';
                 $line = 9;
                 $art = '=sub.name';
                 ;
-                $p += '' + ($expr = '<%=sub.name%>', $e(sub.name)) + '</a></div>';
+                $p += ($expr = '<%=sub.name%>', $e(sub.name)) + '</a></div>';
                 $line = 11;
                 $art = '/each';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -90,7 +84,6 @@ module.exports = Magix.View.extend({
             $line = 12;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -98,7 +91,6 @@ module.exports = Magix.View.extend({
         $line = 13;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -29,10 +29,9 @@ module.exports = Base.extend({
     $line = 3;
     $art = 'each checkboxes as c';
     ;
-    $p += '';
-    $expr = '<%for (var $art_idiidjjk$art_i = 0, $art_cqnrsqkgv$art_c = checkboxes.length; $art_idiidjjk$art_i < $art_cqnrsqkgv$art_c; $art_idiidjjk$art_i++) {    var c = checkboxes[$art_idiidjjk$art_i]%>';
-    for (var $art_idiidjjk$art_i = 0, $art_cqnrsqkgv$art_c = checkboxes.length; $art_idiidjjk$art_i < $art_cqnrsqkgv$art_c; $art_idiidjjk$art_i++) {
-        var c = checkboxes[$art_idiidjjk$art_i];
+    $expr = '<%for (var $art_immjmcpdh$art_i = 0, $art_cvqovnoxf$art_c = checkboxes.length; $art_immjmcpdh$art_i < $art_cvqovnoxf$art_c; $art_immjmcpdh$art_i++) {    var c = checkboxes[$art_immjmcpdh$art_i]%>';
+    for (var $art_immjmcpdh$art_i = 0, $art_cvqovnoxf$art_c = checkboxes.length; $art_immjmcpdh$art_i < $art_cvqovnoxf$art_c; $art_immjmcpdh$art_i++) {
+        var c = checkboxes[$art_immjmcpdh$art_i];
         $p += '<label mxv mxa="_zs_galleryaU:b" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 8;
         $art = ':selected.checkboxes{refresh:true,required:[true,\'必选\']}';
@@ -41,15 +40,14 @@ module.exports = Base.extend({
         $line = 7;
         $art = '=c';
         ;
-        $p += '' + ($expr = '<%=c%>', $e(c)) + '"/>';
+        $p += ($expr = '<%=c%>', $e(c)) + '"/>';
         $line = 9;
         $art = '=c';
         ;
-        $p += '' + ($expr = '<%=c%>', $e(c)) + '</label>';
+        $p += ($expr = '<%=c%>', $e(c)) + '</label>';
         $line = 11;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -57,15 +55,15 @@ module.exports = Base.extend({
     $line = 15;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaU:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaU:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 17;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaU:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaU:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 20;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.icon \n    color="#51a300" \n    content="测试"/&gt;\n    \n&lt;mx-effects.icon \n    mode="hollow" \n    color="#51a300" \n    content="测试"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.icon \n    color="#51a300" \n    content="测试"/&gt;\n    \n&lt;mx-effects.icon \n    mode="hollow" \n    color="#51a300" \n    content="测试"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

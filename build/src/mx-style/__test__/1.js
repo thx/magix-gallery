@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -23,19 +23,19 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycm:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerycm:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb20"><a href="javascript:;" class="btn btn-brand mr20">品牌色按钮</a><a href="javascript:;" class="btn mr20">普通按钮</a><a href="javascript:;" class="btn btn-disabled">按钮禁用</a></div><div class="mb20"><a href="javascript:;" class="btn btn-small btn-brand mr20">小号品牌色按钮</a><a href="javascript:;" class="btn btn-small mr20">小号普通按钮</a><a href="javascript:;" class="btn btn-small btn-disabled">小号按钮禁用</a></div></div><div mxa="_zs_gallerycm:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycm:a" class="_zs_gallery___test___layout_-eg-title">按钮</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerycp:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerycp:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb20"><a href="javascript:;" class="btn btn-brand mr20">品牌色按钮</a><a href="javascript:;" class="btn mr20">普通按钮</a><a href="javascript:;" class="btn btn-disabled">按钮禁用</a></div><div class="mb20"><a href="javascript:;" class="btn btn-small btn-brand mr20">小号品牌色按钮</a><a href="javascript:;" class="btn btn-small mr20">小号普通按钮</a><a href="javascript:;" class="btn btn-small btn-disabled">小号按钮禁用</a></div></div><div mxa="_zs_gallerycp:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycp:a" class="_zs_gallery___test___layout_-eg-title">按钮</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 16;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycm:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycp:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 18;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycm:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycp:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 21;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" class="btn btn-brand">品牌色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn"&gt;普通按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-disabled"&gt;按钮禁用&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-small btn-brand"&gt;小号品牌色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-small"&gt;小号普通按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-small btn-disabled"&gt;小号按钮禁用&lt;/a&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" class="btn btn-brand">品牌色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn"&gt;普通按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-disabled"&gt;按钮禁用&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-small btn-brand"&gt;小号品牌色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-small"&gt;小号普通按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-small btn-disabled"&gt;小号按钮禁用&lt;/a&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

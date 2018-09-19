@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -30,15 +30,14 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = '@navs';
     ;
-    $p += '' + ($expr = '<%@navs%>', $i($$ref, navs)) + '&cur=';
+    $p += ($expr = '<%@navs%>', $i($$ref, navs)) + '&cur=';
     $line = 3;
     $art = '=cur';
     ;
-    $p += '' + ($expr = '<%!$eu(cur)%>', $eu(cur)) + '&logo=%2F%2Fgw.alicdn.com%2Ftfs%2FTB1Uhbvh_vI8KJjSspjXXcgjXXa-534-98.png"></div><div mxa="_zs_gallerybk:_" class="_zs_gallery_mx-header___test___index_-content"><div mxa="_zs_gallerybk:a" class="_zs_gallery_mx-header___test___index_-inner">';
+    $p += ($expr = '<%!$eu(cur)%>', $eu(cur)) + '&logo=%2F%2Fgw.alicdn.com%2Ftfs%2FTB1Uhbvh_vI8KJjSspjXXcgjXXa-534-98.png"></div><div mxa="_zs_gallerybk:_" class="_zs_gallery_mx-header___test___index_-content"><div mxa="_zs_gallerybk:a" class="_zs_gallery_mx-header___test___index_-inner">';
     $line = 8;
     $art = 'if !cur';
     ;
-    $p += '';
     $expr = '<%if (!cur) {%>';
     if (!cur) {
         ;
@@ -46,7 +45,6 @@ module.exports = Magix.View.extend({
         $line = 10;
         $art = 'else';
         ;
-        $p += '';
         $expr = '<%}else {%>';
     }
     else {
@@ -55,15 +53,14 @@ module.exports = Magix.View.extend({
         $line = 11;
         $art = '=curText';
         ;
-        $p += '' + ($expr = '<%=curText%>', $e(curText)) + '（';
+        $p += ($expr = '<%=curText%>', $e(curText)) + '（';
         $line = 11;
         $art = '=cur';
         ;
-        $p += '' + ($expr = '<%=cur%>', $e(cur)) + '） ';
+        $p += ($expr = '<%=cur%>', $e(cur)) + '） ';
         $line = 12;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;

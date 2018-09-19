@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -28,7 +28,7 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = '@inlayConfig';
     ;
-    $p += '' + ($expr = '<%@inlayConfig%>', $i($$ref, inlayConfig)) + '"></div>';
+    $p += ($expr = '<%@inlayConfig%>', $i($$ref, inlayConfig)) + '"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

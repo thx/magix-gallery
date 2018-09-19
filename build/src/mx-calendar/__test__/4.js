@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -29,23 +29,23 @@ module.exports = Base.extend({
     $line = 12;
     $art = '=today';
     ;
-    $p += '' + ($expr = '<%!$eu(today)%>', $eu(today)) + '%2018%3A08%3A20"></div></div><div class="w200" mx-view="mx-calendar/datepicker?timeType=hour%2Cminute%2Csecond&selected=';
+    $p += ($expr = '<%!$eu(today)%>', $eu(today)) + '%2018%3A08%3A20"></div></div><div class="w200" mx-view="mx-calendar/datepicker?timeType=hour%2Cminute%2Csecond&selected=';
     $line = 17;
     $art = '=today';
     ;
-    $p += '' + ($expr = '<%!$eu(today)%>', $eu(today)) + '%2018%3A08%3A20"></div></div><div mxa="_zs_gallery9:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery9:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%!$eu(today)%>', $eu(today)) + '%2018%3A08%3A20"></div></div><div mxa="_zs_gallery9:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery9:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 22;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery9:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery9:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 24;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery9:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery9:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 27;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.datepicker class="w200"\n    time-type="all"\n    selected="&#123;&#123;=today&#125;&#125; 18:08:20"/&gt;\n\n&lt;mx-calendar.datepicker class="w200"\n    time-type="hour,minute,second"\n    selected="&#123;&#123;=today&#125;&#125; 18:08:20"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.datepicker class="w200"\n    time-type="all"\n    selected="&#123;&#123;=today&#125;&#125; 18:08:20"/&gt;\n\n&lt;mx-calendar.datepicker class="w200"\n    time-type="hour,minute,second"\n    selected="&#123;&#123;=today&#125;&#125; 18:08:20"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

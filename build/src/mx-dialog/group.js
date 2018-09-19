@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -29,15 +29,13 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = 'each list as item index';
     ;
-    $p += '';
-    $expr = '<%for (var index = 0, $art_clzqpzfl$art_c = list.length; index < $art_clzqpzfl$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_clzqpzfl$art_c = list.length; index < $art_clzqpzfl$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cfpdpvqid$art_c = list.length; index < $art_cfpdpvqid$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cfpdpvqid$art_c = list.length; index < $art_cfpdpvqid$art_c; index++) {
         var item = list[index];
         $p += '<a href="javascript:;" class="_zs_gallery_mx-dialog_group_-help-nav ';
         $line = 5;
         $art = 'if index == curIndex';
         ;
-        $p += '';
         $expr = '<%if (index == curIndex) {%>';
         if (index == curIndex) {
             ;
@@ -45,7 +43,6 @@ module.exports = Magix.View.extend({
             $line = 5;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -53,7 +50,6 @@ module.exports = Magix.View.extend({
         $line = 5;
         $art = 'if index == hoverIndex';
         ;
-        $p += '';
         $expr = '<%if (index == hoverIndex) {%>';
         if (index == hoverIndex) {
             ;
@@ -61,7 +57,6 @@ module.exports = Magix.View.extend({
             $line = 5;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -69,19 +64,18 @@ module.exports = Magix.View.extend({
         $line = 6;
         $art = '=index';
         ;
-        $p += '' + ($expr = '<%=$eq(index)%>', $e($eq(index))) + '\'})" mx-mouseout="' + $viewId + 'out()" mx-click="' + $viewId + 'select({index:\'';
+        $p += ($expr = '<%=$eq(index)%>', $e($eq(index))) + '\'})" mx-mouseout="' + $viewId + 'out()" mx-click="' + $viewId + 'select({index:\'';
         $line = 8;
         $art = '=index';
         ;
-        $p += '' + ($expr = '<%=$eq(index)%>', $e($eq(index))) + '\'})">';
+        $p += ($expr = '<%=$eq(index)%>', $e($eq(index))) + '\'})">';
         $line = 8;
         $art = '=item[textKey]';
         ;
-        $p += '' + ($expr = '<%=item[textKey]%>', $e(item[textKey])) + '</a>';
+        $p += ($expr = '<%=item[textKey]%>', $e(item[textKey])) + '</a>';
         $line = 9;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -89,15 +83,15 @@ module.exports = Magix.View.extend({
     $line = 11;
     $art = '=height';
     ;
-    $p += '' + ($expr = '<%=height%>', $e(height)) + 'px;"><div mxv="list" mx-view="';
+    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxv="list" mx-view="';
     $line = 12;
     $art = '=contentView';
     ;
-    $p += '' + ($expr = '<%=contentView%>', $e(contentView)) + '?data=';
+    $p += ($expr = '<%=contentView%>', $e(contentView)) + '?data=';
     $line = 12;
     $art = '@list[curIndex]';
     ;
-    $p += '' + ($expr = '<%@list[curIndex]%>', $i($$ref, list[curIndex])) + '"></div></div></div>';
+    $p += ($expr = '<%@list[curIndex]%>', $i($$ref, list[curIndex])) + '"></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

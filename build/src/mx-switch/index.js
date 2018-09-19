@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -25,15 +25,14 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '= _zs_gallery_mx-switch_index_-on ? \'on\' : \'\'';
     ;
-    $p += '' + ($expr = '<%=on ? \'_zs_gallery_mx-switch_index_-on\' : \'\'%>', $e(on ? '_zs_gallery_mx-switch_index_-on' : '')) + ' ';
+    $p += ($expr = '<%=on ? \'_zs_gallery_mx-switch_index_-on\' : \'\'%>', $e(on ? '_zs_gallery_mx-switch_index_-on' : '')) + ' ';
     $line = 1;
     $art = '= _zs_gallery_mx-switch_index_-disabled ? \'disabled\' : \'\'';
     ;
-    $p += '' + ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_gallerycD:_" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
+    $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_gallerycG:_" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
     $line = 4;
     $art = 'if (disabled && tip)';
     ;
-    $p += '';
     $expr = '<%if (disabled && tip) {%>';
     if (disabled && tip) {
         ;
@@ -41,15 +40,13 @@ module.exports = Magix.View.extend({
         $line = 7;
         $art = '=tip';
         ;
-        $p += '' + ($expr = '<%!$eu(tip)%>', $eu(tip)) + '"></span>';
+        $p += ($expr = '<%!$eu(tip)%>', $eu(tip)) + '"></span>';
         $line = 8;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
-    $p += '';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

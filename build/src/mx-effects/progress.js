@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -30,11 +30,9 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', type = $$.type, num = $$.num, color = $$.color, cName = $$.cName, placement = $$.placement, degree = $$.degree; var $expr, $art, $line; try {
-    $p += '';
     $line = 1;
     $art = 'if (type == \'line\')';
     ;
-    $p += '';
     $expr = '<%if (type == \'line\') {%>';
     if (type == 'line') {
         ;
@@ -42,11 +40,10 @@ module.exports = Magix.View.extend({
         $line = 3;
         $art = '=num';
         ;
-        $p += '' + ($expr = '<%=num%>', $e(num)) + '; ';
+        $p += ($expr = '<%=num%>', $e(num)) + '; ';
         $line = 3;
         $art = 'if color';
         ;
-        $p += '';
         $expr = '<%if (color) {%>';
         if (color) {
             ;
@@ -54,11 +51,10 @@ module.exports = Magix.View.extend({
             $line = 3;
             $art = '=color';
             ;
-            $p += '' + ($expr = '<%=color%>', $e(color)) + '; ';
+            $p += ($expr = '<%=color%>', $e(color)) + '; ';
             $line = 3;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -66,11 +62,10 @@ module.exports = Magix.View.extend({
         $line = 4;
         $art = '=cName';
         ;
-        $p += '' + ($expr = '<%=cName%>', $e(cName)) + '" ';
+        $p += ($expr = '<%=cName%>', $e(cName)) + '" ';
         $line = 4;
         $art = 'if (placement == \'top\' || placement == \'bottom\')';
         ;
-        $p += '';
         $expr = '<%if (placement == \'top\' || placement == \'bottom\') {%>';
         if (placement == 'top' || placement == 'bottom') {
             ;
@@ -78,11 +73,10 @@ module.exports = Magix.View.extend({
             $line = 4;
             $art = '=num';
             ;
-            $p += '' + ($expr = '<%=num%>', $e(num)) + ';" ';
+            $p += ($expr = '<%=num%>', $e(num)) + ';" ';
             $line = 4;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -90,11 +84,10 @@ module.exports = Magix.View.extend({
         $line = 4;
         $art = '=num';
         ;
-        $p += '' + ($expr = '<%=num%>', $e(num)) + '</div></div>';
+        $p += ($expr = '<%=num%>', $e(num)) + '</div></div>';
         $line = 6;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -102,7 +95,6 @@ module.exports = Magix.View.extend({
     $line = 8;
     $art = 'if (type == \'degree\')';
     ;
-    $p += '';
     $expr = '<%if (type == \'degree\') {%>';
     if (type == 'degree') {
         ;
@@ -110,7 +102,6 @@ module.exports = Magix.View.extend({
         $line = 10;
         $art = 'for (let i=0;i<10;i+=1)';
         ;
-        $p += '';
         $expr = '<%for (var i = 0; i < 10; i += 1) {%>';
         for (var i = 0; i < 10; i += 1) {
             ;
@@ -118,7 +109,6 @@ module.exports = Magix.View.extend({
             $line = 12;
             $art = '/for';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -126,7 +116,6 @@ module.exports = Magix.View.extend({
         $line = 15;
         $art = 'for (let i=0;i<degree;i+=1)';
         ;
-        $p += '';
         $expr = '<%for (var i = 0; i < degree; i += 1) {%>';
         for (var i = 0; i < degree; i += 1) {
             ;
@@ -134,11 +123,10 @@ module.exports = Magix.View.extend({
             $line = 16;
             $art = '=(i / 10 + 0.08)';
             ;
-            $p += '' + ($expr = '<%=(i / 10 + 0.08)%>', $e((i / 10 + 0.08))) + '; ';
+            $p += ($expr = '<%=(i / 10 + 0.08)%>', $e((i / 10 + 0.08))) + '; ';
             $line = 16;
             $art = 'if color';
             ;
-            $p += '';
             $expr = '<%if (color) {%>';
             if (color) {
                 ;
@@ -146,11 +134,10 @@ module.exports = Magix.View.extend({
                 $line = 16;
                 $art = '=color';
                 ;
-                $p += '' + ($expr = '<%=color%>', $e(color)) + '; ';
+                $p += ($expr = '<%=color%>', $e(color)) + '; ';
                 $line = 16;
                 $art = '/if';
                 ;
-                $p += '';
                 $expr = '<%}%>';
             }
             ;
@@ -158,7 +145,6 @@ module.exports = Magix.View.extend({
             $line = 17;
             $art = '/for';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -166,11 +152,9 @@ module.exports = Magix.View.extend({
         $line = 19;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
-    $p += '';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

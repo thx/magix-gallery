@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -38,23 +38,22 @@ module.exports = Base.extend({
     $line = 25;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_batch_input" value="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_batch_input" value="';
     $line = 26;
     $art = ':batchDiscount&batRules';
     ;
-    $p += '' + ($expr = '<%=batchDiscount%>', $e(batchDiscount)) + '" mx-focusout="' + $viewId + 'batch()"/><a mxs="_zs_gallerya|:d" href="javascript:;" class="btn btn-small ml10" mx-click="' + $viewId + 'batch()">应用</a></div></th></tr></thead><tbody mxv>';
+    $p += ($expr = '<%=batchDiscount%>', $e(batchDiscount)) + '" mx-focusout="' + $viewId + 'batch()"/><a mxs="_zs_gallerya|:d" href="javascript:;" class="btn btn-small ml10" mx-click="' + $viewId + 'batch()">应用</a></div></th></tr></thead><tbody mxv>';
     $line = 34;
     $art = 'each list as item index';
     ;
-    $p += '';
-    $expr = '<%for (var index = 0, $art_cigvxrufn$art_c = list.length; index < $art_cigvxrufn$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cigvxrufn$art_c = list.length; index < $art_cigvxrufn$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cebeupyuop$art_c = list.length; index < $art_cebeupyuop$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cebeupyuop$art_c = list.length; index < $art_cebeupyuop$art_c; index++) {
         var item = list[index];
         $p += '<tr mxv><td>';
         $line = 36;
         $art = '=item.name';
         ;
-        $p += '' + ($expr = '<%=item.name%>', $e(item.name)) + '</td><td mxv><input mxe="' + $viewId + '_1_' + ($expr = '<%=index%>', $e(index)) + '" mxc="[';
+        $p += ($expr = '<%=item.name%>', $e(item.name)) + '</td><td mxv><input mxe="' + $viewId + '_1_' + ($expr = '<%=index%>', $e(index)) + '" mxc="[';
         $line = 39;
         $art = ':item.discount&rules';
         ;
@@ -62,19 +61,18 @@ module.exports = Base.extend({
         $line = 39;
         $art = ':item.discount&rules';
         ;
-        $p += '' + ($expr = '<%=item.discount%>', $e(item.discount)) + '"/></td><td>';
+        $p += ($expr = '<%=item.discount%>', $e(item.discount)) + '"/></td><td>';
         $line = 41;
         $art = '=item.link';
         ;
-        $p += '' + ($expr = '<%=item.link%>', $e(item.link)) + '</td><td>';
+        $p += ($expr = '<%=item.link%>', $e(item.link)) + '</td><td>';
         $line = 42;
         $art = '=item.value';
         ;
-        $p += '' + ($expr = '<%=item.value%>', $e(item.value)) + '</td></tr>';
+        $p += ($expr = '<%=item.value%>', $e(item.value)) + '</td></tr>';
         $line = 44;
         $art = '/each';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -82,39 +80,39 @@ module.exports = Base.extend({
     $line = 53;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya|:k" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya|:k" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 55;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya|:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya|:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 58;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;table class="table"&gt;\n    &lt;thead class="fixed-head"&gt;\n        &lt;tr&gt;\n            &lt;th&gt;name&lt;/th&gt;\n            &lt;th width="200"&gt;出价&lt;/th&gt;\n            &lt;th width="200"&gt;link&lt;/th&gt;\n            &lt;th width="200"&gt;value&lt;/th&gt;\n        &lt;/tr&gt;\n        &lt;tr class="batch-oper"&gt;\n            &lt;th&gt;&lt;/th&gt;\n            &lt;th colspan="4"&gt;\n                &lt;div class="batch-input"&gt;\n                    &lt;span class="batch-input-text"&gt;批量出价&lt;/span&gt;\n                    &lt;input type="text" class="input input-small w80"\n                        id="&#123;&#123;=viewId&#125;&#125;_batch_input" \n                        value="&#123;&#123;:batchDiscount&batRules&#125;&#125;"\n                        mx-focusout="batch()"/&gt;\n                    &lt;a href="javascript:;" class="btn btn-small ml10" mx-click="batch()"&gt;应用&lt;/a&gt;\n                &lt;/div&gt;\n            &lt;/th&gt;\n        &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n        &#123;&#123;each list as item index&#125;&#125;\n            &lt;tr&gt;\n                &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;\n                &lt;td&gt;\n                    &lt;input type="text" class="input input-small w80"\n                        value="&#123;&#123;:item.discount&rules&#125;&#125;"/&gt;\n                &lt;/td&gt;\n                &lt;td&gt;&#123;&#123;=item.link&#125;&#125;&lt;/td&gt;\n                &lt;td&gt;&#123;&#123;=item.value&#125;&#125;&lt;/td&gt;\n            &lt;/tr&gt;\n        &#123;&#123;/each&#125;&#125;\n    &lt;/tbody&gt;\n&lt;/table&gt;</pre></div><div mxa="_zs_gallerya|:l" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya|:g" class="_zs_gallery___test___layout_-eg-title">CSS</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;table class="table"&gt;\n    &lt;thead class="fixed-head"&gt;\n        &lt;tr&gt;\n            &lt;th&gt;name&lt;/th&gt;\n            &lt;th width="200"&gt;出价&lt;/th&gt;\n            &lt;th width="200"&gt;link&lt;/th&gt;\n            &lt;th width="200"&gt;value&lt;/th&gt;\n        &lt;/tr&gt;\n        &lt;tr class="batch-oper"&gt;\n            &lt;th&gt;&lt;/th&gt;\n            &lt;th colspan="4"&gt;\n                &lt;div class="batch-input"&gt;\n                    &lt;span class="batch-input-text"&gt;批量出价&lt;/span&gt;\n                    &lt;input type="text" class="input input-small w80"\n                        id="&#123;&#123;=viewId&#125;&#125;_batch_input" \n                        value="&#123;&#123;:batchDiscount&batRules&#125;&#125;"\n                        mx-focusout="batch()"/&gt;\n                    &lt;a href="javascript:;" class="btn btn-small ml10" mx-click="batch()"&gt;应用&lt;/a&gt;\n                &lt;/div&gt;\n            &lt;/th&gt;\n        &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n        &#123;&#123;each list as item index&#125;&#125;\n            &lt;tr&gt;\n                &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;\n                &lt;td&gt;\n                    &lt;input type="text" class="input input-small w80"\n                        value="&#123;&#123;:item.discount&rules&#125;&#125;"/&gt;\n                &lt;/td&gt;\n                &lt;td&gt;&#123;&#123;=item.link&#125;&#125;&lt;/td&gt;\n                &lt;td&gt;&#123;&#123;=item.value&#125;&#125;&lt;/td&gt;\n            &lt;/tr&gt;\n        &#123;&#123;/each&#125;&#125;\n    &lt;/tbody&gt;\n&lt;/table&gt;</pre></div><div mxa="_zs_gallerya|:l" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya|:g" class="_zs_gallery___test___layout_-eg-title">CSS</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=';
     $line = 98;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_gallerya|:m" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_gallerya|:m" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 100;
     $art = '!text3';
     ;
-    $p += '' + ($expr = '<%!text3%>', $n(text3)) + '</span><i mxs="_zs_gallerya|:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text3%>', $n(text3)) + '</span><i mxs="_zs_gallerya|:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 103;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_3">\n@import \'../../mx-style/_vars\';\n\n.fixed-head &#123;\n    tr.batch-oper &#123;\n        th &#123;\n            height: 68px;\n            background-color: #fff;\n            border-bottom: 1px solid @color-border;\n\n            .batch-input &#123;\n                position: relative;\n\n                .batch-input-text &#123;\n                    position: absolute;\n                    top: 0;\n                    left: -80px;\n                    width: 70px;\n                    height: 28px;\n                    line-height: 28px;\n                    text-align: right;\n                &#125;\n            &#125;\n        &#125;\n    &#125;\n&#125;</pre></div></div><div mxa="_zs_gallerya|:n" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerya|:h" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_3">\n@import \'../../mx-style/_vars\';\n\n.fixed-head &#123;\n    tr.batch-oper &#123;\n        th &#123;\n            height: 68px;\n            background-color: #fff;\n            border-bottom: 1px solid @color-border;\n\n            .batch-input &#123;\n                position: relative;\n\n                .batch-input-text &#123;\n                    position: absolute;\n                    top: 0;\n                    left: -80px;\n                    width: 70px;\n                    height: 28px;\n                    line-height: 28px;\n                    text-align: right;\n                &#125;\n            &#125;\n        &#125;\n    &#125;\n&#125;</pre></div></div><div mxa="_zs_gallerya|:n" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerya|:h" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 133;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya|:o" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya|:o" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 135;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya|:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya|:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 138;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Form = require(\'@../index\');\nlet Validator = require(\'@../validator\');\nlet $ = require(\'$\');\nMagix.applyStyle(\'@index.less\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [Form, Validator],\n    render() &#123;\n        let that = this;\n        let list = [];\n        for (var i = 0; i &lt; 3; i++) &#123;\n            list.push(&#123;\n                name: Magix.guid(\'name-\'),\n                link: Magix.guid(\'link-\'),\n                value: Magix.guid(\'value-\')\n            &#125;)\n        &#125;\n\n        let tip = \'请填写1-300之间的整数\';\n        that.updater.digest(&#123;\n            viewId: that.id,\n            list,\n            batRules: &#123;\n                posint: true,\n                min: [1, tip],\n                max: [300, tip]\n            &#125;,\n            rules: &#123;\n                warn: &#123;\n                    min: [50, \'低于50可能影响效果，建议提高\']\n                &#125;,\n                required: [true, tip],\n                posint: true,\n                min: [1, tip],\n                max: [300, tip]\n            &#125;\n        &#125;);\n    &#125;,\n    \'batch&lt;focusout,click&gt;\'(e) &#123;\n        let that = this;\n\n        // 校验批量的按钮是否符合规则\n        // 符合规则再往下走\n        let check = that.isValid(&#123;\n            element: \'#\' + that.id + \'_batch_input\'\n        &#125;)\n\n        if (!check) &#123;\n            return;\n        &#125;\n\n        let data = that.updater.get();\n        let remain = that.fromKeys(data, \'batchDiscount\');\n        let batchDiscount = remain.batchDiscount;\n        if (!batchDiscount) &#123;\n            return;\n        &#125;\n\n        let list = that.updater.get(\'list\');\n        list.forEach(item =&gt; &#123;\n            item.discount = batchDiscount;\n        &#125;)\n        that.updater.digest(&#123;\n            list\n        &#125;)\n\n        // 可能批量校验的规则和单个的不一致\n        // 此处调用isValid校验整个view\n        that.isValid();\n    &#125;\n&#125;);</pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Form = require(\'@../index\');\nlet Validator = require(\'@../validator\');\nlet $ = require(\'$\');\nMagix.applyStyle(\'@index.less\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [Form, Validator],\n    render() &#123;\n        let that = this;\n        let list = [];\n        for (var i = 0; i &lt; 3; i++) &#123;\n            list.push(&#123;\n                name: Magix.guid(\'name-\'),\n                link: Magix.guid(\'link-\'),\n                value: Magix.guid(\'value-\')\n            &#125;)\n        &#125;\n\n        let tip = \'请填写1-300之间的整数\';\n        that.updater.digest(&#123;\n            viewId: that.id,\n            list,\n            batRules: &#123;\n                posint: true,\n                min: [1, tip],\n                max: [300, tip]\n            &#125;,\n            rules: &#123;\n                warn: &#123;\n                    min: [50, \'低于50可能影响效果，建议提高\']\n                &#125;,\n                required: [true, tip],\n                posint: true,\n                min: [1, tip],\n                max: [300, tip]\n            &#125;\n        &#125;);\n    &#125;,\n    \'batch&lt;focusout,click&gt;\'(e) &#123;\n        let that = this;\n\n        // 校验批量的按钮是否符合规则\n        // 符合规则再往下走\n        let check = that.isValid(&#123;\n            element: \'#\' + that.id + \'_batch_input\'\n        &#125;)\n\n        if (!check) &#123;\n            return;\n        &#125;\n\n        let data = that.updater.get();\n        let remain = that.fromKeys(data, \'batchDiscount\');\n        let batchDiscount = remain.batchDiscount;\n        if (!batchDiscount) &#123;\n            return;\n        &#125;\n\n        let list = that.updater.get(\'list\');\n        list.forEach(item =&gt; &#123;\n            item.discount = batchDiscount;\n        &#125;)\n        that.updater.digest(&#123;\n            list\n        &#125;)\n\n        // 可能批量校验的规则和单个的不一致\n        // 此处调用isValid校验整个view\n        that.isValid();\n    &#125;\n&#125;);</pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

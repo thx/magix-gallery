@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -28,15 +28,15 @@ module.exports = Base.extend({
     $line = 31;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery~:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery~:h" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 33;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery~:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery~:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 36;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;label class="mr20 mb20"&gt;\n    &lt;mx-checkbox name="test" value="1"\n        view-checked="true"/&gt;\n    选中状态\n&lt;/label&gt;\n\n&lt;label class="mr20 mb20"&gt;\n    &lt;mx-checkbox name="test" value="2" \n        view-checked="true" \n        view-disabled="true"/&gt;\n    选中禁选状态\n&lt;/label&gt;\n\n&lt;label class="mr20 mb20"&gt;\n    &lt;mx-checkbox name="test" value="3"\n        view-disabled="true"/&gt;\n    禁止选择\n&lt;/label&gt;\n\n&lt;label class="mr20 mb20"&gt;\n    &lt;mx-checkbox name="test" value="4"/&gt;\n    普通checkbox\n&lt;/label&gt;\n\n&lt;label class="mr20 mb20"&gt;\n    &lt;mx-checkbox name="test" value="5"\n        view-indeterminate="true"/&gt;\n    indeterminate\n&lt;/label&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;label class="mr20 mb20"&gt;\n    &lt;mx-checkbox name="test" value="1"\n        view-checked="true"/&gt;\n    选中状态\n&lt;/label&gt;\n\n&lt;label class="mr20 mb20"&gt;\n    &lt;mx-checkbox name="test" value="2" \n        view-checked="true" \n        view-disabled="true"/&gt;\n    选中禁选状态\n&lt;/label&gt;\n\n&lt;label class="mr20 mb20"&gt;\n    &lt;mx-checkbox name="test" value="3"\n        view-disabled="true"/&gt;\n    禁止选择\n&lt;/label&gt;\n\n&lt;label class="mr20 mb20"&gt;\n    &lt;mx-checkbox name="test" value="4"/&gt;\n    普通checkbox\n&lt;/label&gt;\n\n&lt;label class="mr20 mb20"&gt;\n    &lt;mx-checkbox name="test" value="5"\n        view-indeterminate="true"/&gt;\n    indeterminate\n&lt;/label&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

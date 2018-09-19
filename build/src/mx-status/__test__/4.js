@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -28,47 +28,47 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', cur = $$.cur, list = $$.list, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryce:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryce:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_galleryce:b" class="mb20"><span mxs="_zs_galleryce:_"><span class="color-9">以下示例：</span>当前选中项排在第一个</span><span mxa="_zs_galleryce:c" class="ml40"><span mxs="_zs_galleryce:a" class="color-9">当前选中项：</span>';
+    $p += '<div mxv mxa="_zs_gallerych:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerych:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_gallerych:b" class="mb20"><span mxs="_zs_gallerych:_"><span class="color-9">以下示例：</span>当前选中项排在第一个</span><span mxa="_zs_gallerych:c" class="ml40"><span mxs="_zs_gallerych:a" class="color-9">当前选中项：</span>';
     $line = 10;
     $art = '=cur.text';
     ;
-    $p += '' + ($expr = '<%=cur.text%>', $e(cur.text)) + '（';
+    $p += ($expr = '<%=cur.text%>', $e(cur.text)) + '（';
     $line = 10;
     $art = '=cur.value';
     ;
-    $p += '' + ($expr = '<%=cur.value%>', $e(cur.value)) + '）</span></div><div mxv="list" mx-change="' + $viewId + 'change()" mx-view="mx-status/dropdown?list=';
+    $p += ($expr = '<%=cur.value%>', $e(cur.value)) + '）</span></div><div mxv="list" mx-change="' + $viewId + 'change()" mx-view="mx-status/dropdown?list=';
     $line = 14;
     $art = '@list';
     ;
-    $p += '' + ($expr = '<%@list%>', $i($$ref, list)) + '&selected=';
+    $p += ($expr = '<%@list%>', $i($$ref, list)) + '&selected=';
     $line = 15;
     $art = '=cur.value';
     ;
-    $p += '' + ($expr = '<%!$eu(cur.value)%>', $eu(cur.value)) + '"></div></div><div mxa="_zs_galleryce:d" class="clearfix"><div mxa="_zs_galleryce:e" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third1"><div mxs="_zs_galleryce:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%!$eu(cur.value)%>', $eu(cur.value)) + '"></div></div><div mxa="_zs_gallerych:d" class="clearfix"><div mxa="_zs_gallerych:e" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third1"><div mxs="_zs_gallerych:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 21;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryce:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerych:f" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 23;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryce:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerych:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 26;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-status.dropdown \n    list="&#123;&#123;@list&#125;&#125;" \n    selected="&#123;&#123;=cur.value&#125;&#125;"\n    mx-change="change()"/&gt;</pre></div><div mxa="_zs_galleryce:g" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryce:d" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-status.dropdown \n    list="&#123;&#123;@list&#125;&#125;" \n    selected="&#123;&#123;=cur.value&#125;&#125;"\n    mx-change="change()"/&gt;</pre></div><div mxa="_zs_gallerych:g" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerych:d" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 34;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryce:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerych:h" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 36;
     $art = '!text2';
     ;
-    $p += '' + ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryce:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerych:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 39;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let list = [&#123;\n            value: 0,\n            text: \'暂停投放\',\n            icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe67f;&lt;/i&gt;\',\n            color: \'#a40100\'\n        &#125;, &#123;\n            value: 1,\n            text: \'正在投放\',\n            icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe683;&lt;/i&gt;\',\n            color: \'#51a300\'\n        &#125;, &#123;\n            value: 9,\n            text: \'结束投放\',\n            icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe682;&lt;/i&gt;\',\n            color: \'#999999\'\n        &#125;]\n\n        this.updater.digest(&#123;\n            list,\n            cur: list[1]\n        &#125;);\n    &#125;,\n    \'change&lt;change&gt;\'(e)&#123;\n        // e.status 完整的对象\n        //      value\n        //      text\n        this.updater.digest(&#123;\n            cur: e.status\n        &#125;);\n    &#125;\n&#125;);</pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let list = [&#123;\n            value: 0,\n            text: \'暂停投放\',\n            icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe67f;&lt;/i&gt;\',\n            color: \'#a40100\'\n        &#125;, &#123;\n            value: 1,\n            text: \'正在投放\',\n            icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe683;&lt;/i&gt;\',\n            color: \'#51a300\'\n        &#125;, &#123;\n            value: 9,\n            text: \'结束投放\',\n            icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe682;&lt;/i&gt;\',\n            color: \'#999999\'\n        &#125;]\n\n        this.updater.digest(&#123;\n            list,\n            cur: list[1]\n        &#125;);\n    &#125;,\n    \'change&lt;change&gt;\'(e)&#123;\n        // e.status 完整的对象\n        //      value\n        //      text\n        this.updater.digest(&#123;\n            cur: e.status\n        &#125;);\n    &#125;\n&#125;);</pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -26,7 +26,6 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = 'for (let i=0;i<5;i+=1)';
     ;
-    $p += '';
     $expr = '<%for (var i = 0; i < 5; i += 1) {%>';
     for (var i = 0; i < 5; i += 1) {
         ;
@@ -34,7 +33,6 @@ module.exports = Magix.View.extend({
         $line = 4;
         $art = 'if icon';
         ;
-        $p += '';
         $expr = '<%if (icon) {%>';
         if (icon) {
             ;
@@ -42,11 +40,10 @@ module.exports = Magix.View.extend({
             $line = 5;
             $art = '!icon';
             ;
-            $p += '' + ($expr = '<%!icon%>', $n(icon)) + ' ';
+            $p += ($expr = '<%!icon%>', $n(icon)) + ' ';
             $line = 6;
             $art = 'else';
             ;
-            $p += '';
             $expr = '<%}    else {%>';
         }
         else {
@@ -55,7 +52,6 @@ module.exports = Magix.View.extend({
             $line = 8;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -63,7 +59,6 @@ module.exports = Magix.View.extend({
         $line = 10;
         $art = '/for';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -71,11 +66,10 @@ module.exports = Magix.View.extend({
     $line = 12;
     $art = '=width';
     ;
-    $p += '' + ($expr = '<%=width%>', $e(width)) + ';"><div class="_zs_gallery_mx-effects_star_-star-inner ';
+    $p += ($expr = '<%=width%>', $e(width)) + ';"><div class="_zs_gallery_mx-effects_star_-star-inner ';
     $line = 13;
     $art = 'if !color';
     ;
-    $p += '';
     $expr = '<%if (!color) {%>';
     if (!color) {
         ;
@@ -83,7 +77,6 @@ module.exports = Magix.View.extend({
         $line = 13;
         $art = '/if';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;
@@ -91,7 +84,6 @@ module.exports = Magix.View.extend({
     $line = 14;
     $art = 'for (let i=0;i<5;i+=1)';
     ;
-    $p += '';
     $expr = '<%for (var i = 0; i < 5; i += 1) {%>';
     for (var i = 0; i < 5; i += 1) {
         ;
@@ -99,7 +91,6 @@ module.exports = Magix.View.extend({
         $line = 15;
         $art = 'if color';
         ;
-        $p += '';
         $expr = '<%if (color) {%>';
         if (color) {
             ;
@@ -107,11 +98,10 @@ module.exports = Magix.View.extend({
             $line = 15;
             $art = '=color';
             ;
-            $p += '' + ($expr = '<%=color%>', $e(color)) + ';" ';
+            $p += ($expr = '<%=color%>', $e(color)) + ';" ';
             $line = 15;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -119,7 +109,6 @@ module.exports = Magix.View.extend({
         $line = 16;
         $art = 'if icon';
         ;
-        $p += '';
         $expr = '<%if (icon) {%>';
         if (icon) {
             ;
@@ -127,11 +116,10 @@ module.exports = Magix.View.extend({
             $line = 17;
             $art = '!icon';
             ;
-            $p += '' + ($expr = '<%!icon%>', $n(icon)) + ' ';
+            $p += ($expr = '<%!icon%>', $n(icon)) + ' ';
             $line = 18;
             $art = 'else';
             ;
-            $p += '';
             $expr = '<%}    else {%>';
         }
         else {
@@ -140,7 +128,6 @@ module.exports = Magix.View.extend({
             $line = 20;
             $art = '/if';
             ;
-            $p += '';
             $expr = '<%}%>';
         }
         ;
@@ -148,7 +135,6 @@ module.exports = Magix.View.extend({
         $line = 22;
         $art = '/for';
         ;
-        $p += '';
         $expr = '<%}%>';
     }
     ;

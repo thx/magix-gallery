@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.18: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -33,7 +33,7 @@ module.exports = Base.extend({
     $line = 4;
     $art = ':url{url:true}';
     ;
-    $p += '' + ($expr = '<%=url%>', $e(url)) + '"/> <input mxe="' + $viewId + '_1" mxc="[';
+    $p += ($expr = '<%=url%>', $e(url)) + '"/> <input mxe="' + $viewId + '_1" mxc="[';
     $line = 5;
     $art = ':english{english:true}';
     ;
@@ -41,7 +41,7 @@ module.exports = Base.extend({
     $line = 5;
     $art = ':english{english:true}';
     ;
-    $p += '' + ($expr = '<%=english%>', $e(english)) + '"/> <input mxe="' + $viewId + '_2" mxc="[';
+    $p += ($expr = '<%=english%>', $e(english)) + '"/> <input mxe="' + $viewId + '_2" mxc="[';
     $line = 6;
     $art = ':chinese{chinese:true}';
     ;
@@ -49,7 +49,7 @@ module.exports = Base.extend({
     $line = 6;
     $art = ':chinese{chinese:true}';
     ;
-    $p += '' + ($expr = '<%=chinese%>', $e(chinese)) + '"/> <input mxe="' + $viewId + '_3" mxc="[';
+    $p += ($expr = '<%=chinese%>', $e(chinese)) + '"/> <input mxe="' + $viewId + '_3" mxc="[';
     $line = 7;
     $art = ':mobile{mobile:true}';
     ;
@@ -57,7 +57,7 @@ module.exports = Base.extend({
     $line = 7;
     $art = ':mobile{mobile:true}';
     ;
-    $p += '' + ($expr = '<%=mobile%>', $e(mobile)) + '"/> <input mxe="' + $viewId + '_4" mxc="[';
+    $p += ($expr = '<%=mobile%>', $e(mobile)) + '"/> <input mxe="' + $viewId + '_4" mxc="[';
     $line = 8;
     $art = ':currency{currency:true}';
     ;
@@ -65,19 +65,19 @@ module.exports = Base.extend({
     $line = 8;
     $art = ':currency{currency:true}';
     ;
-    $p += '' + ($expr = '<%=currency%>', $e(currency)) + '"/></div></div><div mxa="_zs_gallerya\\:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya\\:_" class="_zs_gallery___test___layout_-eg-title">常用校验</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=currency%>', $e(currency)) + '"/></div></div><div mxa="_zs_gallerya\\:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya\\:_" class="_zs_gallery___test___layout_-eg-title">常用校验</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 13;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya\\:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya\\:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 15;
     $art = '!text1';
     ;
-    $p += '' + ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya\\:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya\\:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 18;
     $art = '=viewId';
     ;
-    $p += '' + ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;input class="input" placeholder="url链接" value="&#123;&#123;:url&#123;url:true&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="只英文" value="&#123;&#123;:english&#123;english:true&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="只中文" value="&#123;&#123;:chinese&#123;chinese:true&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="电话号码" value="&#123;&#123;:mobile&#123;mobile:true&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="金额" value="&#123;&#123;:currency&#123;currency:true&#125;&#125;&#125;"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;input class="input" placeholder="url链接" value="&#123;&#123;:url&#123;url:true&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="只英文" value="&#123;&#123;:english&#123;english:true&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="只中文" value="&#123;&#123;:chinese&#123;chinese:true&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="电话号码" value="&#123;&#123;:mobile&#123;mobile:true&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="金额" value="&#123;&#123;:currency&#123;currency:true&#125;&#125;&#125;"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
