@@ -47,9 +47,9 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_imyllzlagn$art_i = 0, $art_coqwzxeek$art_c = stepInfos.length; $art_imyllzlagn$art_i < $art_coqwzxeek$art_c; $art_imyllzlagn$art_i++) {    var step = stepInfos[$art_imyllzlagn$art_i]%>';
-    for (var $art_imyllzlagn$art_i = 0, $art_coqwzxeek$art_c = stepInfos.length; $art_imyllzlagn$art_i < $art_coqwzxeek$art_c; $art_imyllzlagn$art_i++) {
-        var step = stepInfos[$art_imyllzlagn$art_i];
+    $expr = '<%for (var $art_iogtmnl$art_i = 0, $art_cfcjyw$art_c = stepInfos.length; $art_iogtmnl$art_i < $art_cfcjyw$art_c; $art_iogtmnl$art_i++) {    var step = stepInfos[$art_iogtmnl$art_i]%>';
+    for (var $art_iogtmnl$art_i = 0, $art_cfcjyw$art_c = stepInfos.length; $art_iogtmnl$art_i < $art_cfcjyw$art_c; $art_iogtmnl$art_i++) {
+        var step = stepInfos[$art_iogtmnl$art_i];
         $p += '<div class="_zs_gallery_mx-main_index_-main-step ';
         $line = 4;
         $art = 'if step.current';
@@ -143,9 +143,9 @@ module.exports = Magix.View.extend({
             $line = 17;
             $art = 'each step.subs as sub';
             ;
-            $expr = '<%for (var $art_icwgaxbt$art_i = 0, $art_objckqqipqs$art_obj = step.subs, $art_cmjftatgc$art_c = $art_objckqqipqs$art_obj.length; $art_icwgaxbt$art_i < $art_cmjftatgc$art_c; $art_icwgaxbt$art_i++) {            var sub = $art_objckqqipqs$art_obj[$art_icwgaxbt$art_i]%>';
-            for (var $art_icwgaxbt$art_i = 0, $art_objckqqipqs$art_obj = step.subs, $art_cmjftatgc$art_c = $art_objckqqipqs$art_obj.length; $art_icwgaxbt$art_i < $art_cmjftatgc$art_c; $art_icwgaxbt$art_i++) {
-                var sub = $art_objckqqipqs$art_obj[$art_icwgaxbt$art_i];
+            $expr = '<%for (var $art_ipjpzdfb$art_i = 0, $art_objtwvytvm$art_obj = step.subs, $art_cmnbhhfp$art_c = $art_objtwvytvm$art_obj.length; $art_ipjpzdfb$art_i < $art_cmnbhhfp$art_c; $art_ipjpzdfb$art_i++) {            var sub = $art_objtwvytvm$art_obj[$art_ipjpzdfb$art_i]%>';
+            for (var $art_ipjpzdfb$art_i = 0, $art_objtwvytvm$art_obj = step.subs, $art_cmnbhhfp$art_c = $art_objtwvytvm$art_obj.length; $art_ipjpzdfb$art_i < $art_cmnbhhfp$art_c; $art_ipjpzdfb$art_i++) {
+                var sub = $art_objtwvytvm$art_obj[$art_ipjpzdfb$art_i];
                 $p += '<div mxa="_zs_gallerybJ:c" class="_zs_gallery_mx-main_index_-step-sub"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link ';
                 $line = 19;
                 $art = 'if (step.current && (curSubStepIndex == sub.index))';
@@ -237,9 +237,9 @@ module.exports = Magix.View.extend({
     $line = 41;
     $art = 'each curStepInfo.subs as sub';
     ;
-    $expr = '<%for (var $art_itxotvm$art_i = 0, $art_objhxlkfdc$art_obj = curStepInfo.subs, $art_cgqpieboszj$art_c = $art_objhxlkfdc$art_obj.length; $art_itxotvm$art_i < $art_cgqpieboszj$art_c; $art_itxotvm$art_i++) {    var sub = $art_objhxlkfdc$art_obj[$art_itxotvm$art_i]%>';
-    for (var $art_itxotvm$art_i = 0, $art_objhxlkfdc$art_obj = curStepInfo.subs, $art_cgqpieboszj$art_c = $art_objhxlkfdc$art_obj.length; $art_itxotvm$art_i < $art_cgqpieboszj$art_c; $art_itxotvm$art_i++) {
-        var sub = $art_objhxlkfdc$art_obj[$art_itxotvm$art_i];
+    $expr = '<%for (var $art_idtqxrfdvro$art_i = 0, $art_objzicprh$art_obj = curStepInfo.subs, $art_cvasigwintq$art_c = $art_objzicprh$art_obj.length; $art_idtqxrfdvro$art_i < $art_cvasigwintq$art_c; $art_idtqxrfdvro$art_i++) {    var sub = $art_objzicprh$art_obj[$art_idtqxrfdvro$art_i]%>';
+    for (var $art_idtqxrfdvro$art_i = 0, $art_objzicprh$art_obj = curStepInfo.subs, $art_cvasigwintq$art_c = $art_objzicprh$art_obj.length; $art_idtqxrfdvro$art_i < $art_cvasigwintq$art_c; $art_idtqxrfdvro$art_i++) {
+        var sub = $art_objzicprh$art_obj[$art_idtqxrfdvro$art_i];
         $p += '<div mxv class="_zs_gallery_mx-main_index_-content-box" style="padding-right: ';
         $line = 43;
         $art = '=(curStepInfo.rightWidth + 20)';
@@ -326,7 +326,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (curStepInfo.prevTip) {%>';
     if (curStepInfo.prevTip) {
         ;
-        $p += '<a mxa="_zs_gallerybJ:h" href="javascript:;" class="btn min-width-100 mr20" mx-click="' + $viewId + 'prev()">';
+        $p += '<a mxa="_zs_gallerybJ:g" href="javascript:;" class="btn min-width-100 mr20" mx-click="' + $viewId + 'prev()">';
         $line = 68;
         $art = '=curStepInfo.prevTip';
         ;
@@ -344,7 +344,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (curStepInfo.nextTip) {%>';
     if (curStepInfo.nextTip) {
         ;
-        $p += '<a mxa="_zs_gallerybJ:i" href="javascript:;" class="btn min-width-100 btn-brand" mx-click="' + $viewId + 'next()">';
+        $p += '<a mxa="_zs_gallerybJ:h" href="javascript:;" class="btn min-width-100 btn-brand" mx-click="' + $viewId + 'next()">';
         $line = 73;
         $art = '=curStepInfo.nextTip';
         ;
@@ -418,15 +418,17 @@ catch (ex) {
                 }
             }
             var prevTip = '';
-            if ((stepIndex > 1) && (!stepInfos[i - 1].locked)) {
+            if (!step.customTrigger && (stepIndex > 1) && (!stepInfos[i - 1].locked)) {
                 // 1. 第一步没有返回上一步
                 // 2. 上一步被锁定的情况下没有返回上一步
+                // 3. 自定义trigger的情况
                 prevTip = step.prevTip || defPrevTip;
             }
             step.prevTip = prevTip;
             var nextTip = '';
-            if (stepIndex < stepInfos.length) {
+            if (!step.customTrigger && (stepIndex < stepInfos.length)) {
                 // 1. 最后一步没有下一步
+                // 2. 自定义trigger的情况
                 nextTip = step.nextTip || defNextTip;
             }
             step.nextTip = nextTip;

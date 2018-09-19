@@ -72,16 +72,18 @@ module.exports = Magix.View.extend({
             }
 
             let prevTip = '';
-            if ((stepIndex > 1) && (!stepInfos[i - 1].locked)) {
+            if (!step.customTrigger && (stepIndex > 1) && (!stepInfos[i - 1].locked)) {
                 // 1. 第一步没有返回上一步
                 // 2. 上一步被锁定的情况下没有返回上一步
+                // 3. 自定义trigger的情况
                 prevTip = step.prevTip || defPrevTip;
             }
             step.prevTip = prevTip;
 
             let nextTip = '';
-            if (stepIndex < stepInfos.length) {
+            if (!step.customTrigger && (stepIndex < stepInfos.length)) {
                 // 1. 最后一步没有下一步
+                // 2. 自定义trigger的情况
                 nextTip = step.nextTip || defNextTip;
             }
             step.nextTip = nextTip;

@@ -45,6 +45,15 @@ catch (ex) {
 } return $p; },
     render: function () {
         var stepInfos = [{
+                label: '诉求信息',
+                icon: '<i class="mc-iconfont">&#xe7b6;</i>',
+                customTrigger: true,
+                subs: [{
+                        label: '诉求信息',
+                        icon: '<i class="mc-iconfont">&#xe7be;</i>',
+                        view: 'mx-main/__test__/inner'
+                    }]
+            }, {
                 label: '设置计划',
                 icon: '<i class="mc-iconfont">&#xe7b6;</i>',
                 nextTip: '下一步，设置单元',
@@ -102,9 +111,11 @@ catch (ex) {
                         view: 'mx-main/__test__/inner'
                     }]
             }];
-        stepInfos[0].locked = true;
-        stepInfos[2].current = true;
+        stepInfos[0].current = true;
+        stepInfos[1].locked = true;
+        stepInfos[2].locked = true;
         stepInfos[3].locked = true;
+        stepInfos[4].locked = true;
         this.updater.digest({
             stepInfos: stepInfos,
             childInfos: {}
