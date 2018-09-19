@@ -1,9 +1,9 @@
 <div class="main" style="min-height: {{=viewHeight}}px;">
     <div class="main-nav" style="width: {{=leftWidth}}px;">
         {{each stepInfos as step}}
-        <div class="main-step {{if step.current}} step-current {{/if}} {{if step.locked}} step-locked {{/if}}">
+        <div class="main-step {{if (step.index == curStepIndex)}} step-current {{/if}} {{if step.locked}} step-locked {{/if}}">
             <div class="step-over">
-                <a href="javascript:;" class="link step-over clearfix {{if (step.current && (curSubStepIndex == -1))}} link-on {{/if}} "
+                <a href="javascript:;" class="link step-over clearfix {{if ((step.index == curStepIndex) && (curSubStepIndex == -1))}} link-on {{/if}} "
                     data-sub="-1"
                     {{if !step.locked}} mx-click="nav({stepIndex:{{=step.index}}})" {{/if}}>
                     {{if step.icon}}
@@ -16,7 +16,7 @@
             <div>
                 {{each step.subs as sub}}
                 <div class="step-sub">
-                    <a href="javascript:;" class="link {{if (step.current && (curSubStepIndex == sub.index))}} link-on {{/if}}"
+                    <a href="javascript:;" class="link {{if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))}} link-on {{/if}}"
                         data-sub="{{=sub.index}}"    
                         mx-click="nav({stepIndex:{{=step.index}},subStepIndex:{{=sub.index}}})">
                         {{=sub.label}}
@@ -25,7 +25,7 @@
                 {{/each}}
             </div>
             {{/if}}
-            {{if step.current}}
+            {{if (step.index == curStepIndex)}}
             <i class="mc-iconfont arrow-icon">&#xe602;</i>
             {{/if}}
             {{if step.locked}}

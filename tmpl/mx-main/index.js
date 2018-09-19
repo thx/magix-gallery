@@ -1,3 +1,4 @@
+/*md5:4e2d5540dc3805e01f0dbd1de8a4fa73*/
 /**
  *  流程步骤组件：
  *  step定义：当前步骤，从1开始
@@ -14,11 +15,6 @@ Magix.applyStyle('@index.less');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
     init(extra) {
-        Router.to({
-            stepIndex: '',
-            subStepIndex: ''
-        })
-
         let that = this;
         that.updater.set({
             leftWidth: extra.leftWidth || 160,
@@ -60,9 +56,7 @@ module.exports = Magix.View.extend({
             step = that.wrapSide(step);
 
             // 锁定项不展开子列表
-            if(step.current){
-                curStepIndex = stepIndex;
-                
+            if(stepIndex == curStepIndex){
                 // 当前步骤展开子项目
                 step.locked = false;
 
@@ -234,7 +228,10 @@ module.exports = Magix.View.extend({
 
     'prev<click>'(e) {
         let curStepIndex = this.updater.get('curStepIndex');
-        this.nav((+curStepIndex - 1), -1);
+        Router.to({
+            stepIndex: (+curStepIndex - 1), 
+            subStepIndex: -1
+        });
     },
     'next<click>'(e) {
         let that = this;
@@ -266,12 +263,26 @@ module.exports = Magix.View.extend({
 
             if(ok){
                 errorNode.html('');
+                // 下一步
+                // if(curStepInfo.nextFn){
+                //     curStepInfo.nextFn(remain, (locParams, remainParams) => {
+                //         let curStepIndex = that.updater.get('curStepIndex'),
+                //             childInfos = that.updater.get('childInfos');
+                //         locParams.stepIndex = +curStepIndex + 1;
+                //         Router.to(locParams);
+                //         Magix.mix(childInfos, remainParams);
+                //     })
+                // }
+
                 let curStepIndex = that.updater.get('curStepIndex');
-                that.nav((+curStepIndex + 1), -1);
+                Router.to({
+                    stepIndex: (+curStepIndex + 1),
+                    subStepIndex: -1
+                })
                 $('#' + that.id).trigger({
                     type: 'next',
                     stepIndex: curStepIndex,
-                    childInfos: remain
+                    remain: remain
                 })
             }else{
                 errorNode.html(`
@@ -291,17 +302,9 @@ module.exports = Magix.View.extend({
         let params = e.params;
         let stepIndex = params.stepIndex,
             subStepIndex = params.subStepIndex || -1;
-        this.nav(stepIndex, subStepIndex);
-    },
-    nav(stepIndex, subStepIndex) {
-        let stepInfos = this.updater.get('stepInfos');
-        stepInfos.forEach(step => {
-            step.current = (step.index == stepIndex);
-        })
-
         Router.to({
-            stepIndex: stepIndex,
-            subStepIndex: subStepIndex
-        })
+            stepIndex, 
+            subStepIndex
+        });
     }
 });

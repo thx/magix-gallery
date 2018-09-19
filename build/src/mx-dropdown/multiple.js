@@ -173,8 +173,8 @@ module.exports = Magix.View.extend({
         $line = 30;
         $art = 'each groups as group groupIndex';
         ;
-        $expr = '<%for (var groupIndex = 0, $art_ccvacobpcbys$art_c = groups.length; groupIndex < $art_ccvacobpcbys$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
-        for (var groupIndex = 0, $art_ccvacobpcbys$art_c = groups.length; groupIndex < $art_ccvacobpcbys$art_c; groupIndex++) {
+        $expr = '<%for (var groupIndex = 0, $art_cpyvpgxehc$art_c = groups.length; groupIndex < $art_cpyvpgxehc$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
+        for (var groupIndex = 0, $art_cpyvpgxehc$art_c = groups.length; groupIndex < $art_cpyvpgxehc$art_c; groupIndex++) {
             var group = groups[groupIndex];
             $p += ' ';
             $line = 31;
@@ -270,9 +270,9 @@ module.exports = Magix.View.extend({
             $line = 48;
             $art = 'each group.list as item';
             ;
-            $expr = '<%for (var $art_ievzjbgxnh$art_i = 0, $art_objrybmgawxs$art_obj = group.list, $art_cjnjyhi$art_c = $art_objrybmgawxs$art_obj.length; $art_ievzjbgxnh$art_i < $art_cjnjyhi$art_c; $art_ievzjbgxnh$art_i++) {            var item = $art_objrybmgawxs$art_obj[$art_ievzjbgxnh$art_i]%>';
-            for (var $art_ievzjbgxnh$art_i = 0, $art_objrybmgawxs$art_obj = group.list, $art_cjnjyhi$art_c = $art_objrybmgawxs$art_obj.length; $art_ievzjbgxnh$art_i < $art_cjnjyhi$art_c; $art_ievzjbgxnh$art_i++) {
-                var item = $art_objrybmgawxs$art_obj[$art_ievzjbgxnh$art_i];
+            $expr = '<%for (var $art_ihwtozkq$art_i = 0, $art_objhplkskxq$art_obj = group.list, $art_cfpzpfyoll$art_c = $art_objhplkskxq$art_obj.length; $art_ihwtozkq$art_i < $art_cfpzpfyoll$art_c; $art_ihwtozkq$art_i++) {            var item = $art_objhplkskxq$art_obj[$art_ihwtozkq$art_i]%>';
+            for (var $art_ihwtozkq$art_i = 0, $art_objhplkskxq$art_obj = group.list, $art_cfpzpfyoll$art_c = $art_objhplkskxq$art_obj.length; $art_ihwtozkq$art_i < $art_cfpzpfyoll$art_c; $art_ihwtozkq$art_i++) {
+                var item = $art_objhplkskxq$art_obj[$art_ihwtozkq$art_i];
                 $p += ' ';
                 $line = 49;
                 $art = 'if !item.hide';
