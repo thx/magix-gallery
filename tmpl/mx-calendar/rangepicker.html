@@ -1,7 +1,7 @@
 <div class="input rangepicker-input" id="input_{{=viewId}}"
     mx-click="@{toggle}()"
     mx-change="@{stop}()">
-    <div class="result {{if rangeInfo.vs}} vs {{/if}}">
+    <div class="result {{=textAlign}} {{if rangeInfo.vs}} vs {{/if}}">
     {{if result.endStr}}
         <span class="co co-left">{{=result.startStr}}</span>
         <span class="center">{{=result.centetTip}}</span>

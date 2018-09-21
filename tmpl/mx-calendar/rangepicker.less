@@ -31,29 +31,36 @@
     position: relative;
     color: #999;
 
-    .center {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: @center-width * 2;
-        height: 30px;
-        margin-left: -@center-width;
-        line-height: 30px;
-        text-align: center;
+    &.result-left{
+        .center{
+            padding: 0 5px;
+        }
     }
-
-    .co {
-        display: inline-block;
-        width: 50%;
-        text-align: center;
-    }
-
-    .co-left {
-        padding-right: @center-width;
-    }
-
-    .co-right {
-        padding-left: @center-width;
+    &.result-center{
+        .center {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: @center-width * 2;
+            height: 30px;
+            margin-left: -@center-width;
+            line-height: 30px;
+            text-align: center;
+        }
+    
+        .co {
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+        }
+    
+        .co-left {
+            padding-right: @center-width;
+        }
+    
+        .co-right {
+            padding-left: @center-width;
+        }
     }
 
     .result-prefix{

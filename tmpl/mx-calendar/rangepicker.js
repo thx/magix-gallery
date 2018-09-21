@@ -32,6 +32,13 @@ let Rangepicker = Magix.View.extend({
         let that = this;
         let altered = that.updater.altered();
 
+        let centerClass = '@rangepicker.less:result-center';
+        let classes = {
+            left: '@rangepicker.less:result-left',
+            center: centerClass
+        }
+        let textAlign = classes[extra.textAlign || 'center'] || centerClass;
+
         // vsEnable 是否可对比，默认关闭
         // vs 对比初始状态 
         // vsSingle 可对比情况下，关闭对比时是选择时间段还是单天
@@ -109,7 +116,6 @@ let Rangepicker = Magix.View.extend({
             quickDateText,
             quickDateKey
         }
-
         let rangeInfo = {
             min,
             max,
@@ -129,7 +135,8 @@ let Rangepicker = Magix.View.extend({
 
         that.updater.set({
             viewId: that.id,
-            rangeInfo: rangeInfo
+            rangeInfo: rangeInfo,
+            textAlign            
         });
 
         if (!altered) {

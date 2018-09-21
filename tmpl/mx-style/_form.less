@@ -384,3 +384,20 @@ input[type="radio"],
         }
     }
 }
+
+.form-loop(@n, @i:4) when (@i <= @n) {
+    .form-@{i}{
+        .form-item {
+            padding-left: @font-size * @i;
+            .form-label {
+                width: @font-size * @i;
+            }
+        }
+        .form-footer {
+            margin-left: @font-size * @i;
+        }
+    }
+
+    .form-loop(@n, (@i + 2));
+}
+.form-loop(10);
