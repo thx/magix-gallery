@@ -171,7 +171,7 @@ module.exports = {
             //     type: 'change',
             //     from: 'faker'
             // });
-            me.check($(e));
+            me['@{check}']($(e));
             keys.push($(e).attr('mxe'));
         });
         // 缓存所有的错误，只提取type=error类型的
@@ -217,9 +217,9 @@ module.exports = {
         if (!mxe || !mxe.startsWith(me.id)) {
             return;
         }
-        me.check(node);
+        me['@{check}'](node);
     },
-    check: function (node) {
+    '@{check}': function (node) {
         var me = this;
         var updater = me.updater;
         var form = updater.$form || (updater.$form = {});

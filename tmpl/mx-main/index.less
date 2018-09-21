@@ -2,7 +2,7 @@
 
 .main {
     position: relative;
-    background-color: #fafafa;
+    background-color: @color-bg;
 
     .main-nav {
         position: absolute;
@@ -141,7 +141,6 @@
 
         .content-body {
             position: relative;
-            min-height: 400px;
             margin-left: 20px;
             margin-right: 20px;
             background-color: #fff;
@@ -153,6 +152,10 @@
                 padding-top: 20px;
                 padding-bottom: 20px;
                 padding-left: 20px;
+
+                &:last-child{
+                    padding-bottom: 40px;
+                }
             }
 
             .content-side {

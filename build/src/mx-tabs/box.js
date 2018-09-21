@@ -37,9 +37,9 @@ module.exports = Base.extend({
     $line = 2;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ihhvgmq$art_i = 0, $art_cqknidj$art_c = list.length; $art_ihhvgmq$art_i < $art_cqknidj$art_c; $art_ihhvgmq$art_i++) {    var item = list[$art_ihhvgmq$art_i]%>';
-    for (var $art_ihhvgmq$art_i = 0, $art_cqknidj$art_c = list.length; $art_ihhvgmq$art_i < $art_cqknidj$art_c; $art_ihhvgmq$art_i++) {
-        var item = list[$art_ihhvgmq$art_i];
+    $expr = '<%for (var $art_icekjitea$art_i = 0, $art_cksipfyqy$art_c = list.length; $art_icekjitea$art_i < $art_cksipfyqy$art_c; $art_icekjitea$art_i++) {    var item = list[$art_icekjitea$art_i]%>';
+    for (var $art_icekjitea$art_i = 0, $art_cksipfyqy$art_c = list.length; $art_icekjitea$art_i < $art_cksipfyqy$art_c; $art_icekjitea$art_i++) {
+        var item = list[$art_icekjitea$art_i];
         $p += '<a href="javascript:;" ';
         $line = 3;
         $art = 'if !disabled';

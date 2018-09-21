@@ -6,8 +6,6 @@
 define("mx-popover/index",["magix","$"],(require,exports,module)=>{
 /*Magix,$*/
 
-"use strict";
-exports.__esModule = true;
 var Magix = require("magix");
 var Vframe = Magix.Vframe;
 var $ = require("$");
@@ -250,6 +248,7 @@ catch (ex) {
     },
     '@{hide}': function () {
         var me = this;
+        clearTimeout(me['@{dealy.show.timer}']);
         clearTimeout(me['@{dealy.hide.timer}']);
         me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(function () {
             if (!me['@{pos.show}']) {

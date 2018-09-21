@@ -1,4 +1,3 @@
-/*md5:4e2d5540dc3805e01f0dbd1de8a4fa73*/
 /**
  *  流程步骤组件：
  *  step定义：当前步骤，从1开始
@@ -16,10 +15,16 @@ module.exports = Magix.View.extend({
     tmpl: '@index.html',
     init(extra) {
         let that = this;
+        let alreadyStep = extra.alreadyStep || 1,
+            stepInfos = extra.stepInfos || [];
+        stepInfos.forEach((step, i) => {
+            step.locked = (i + 1 > alreadyStep);
+        })
+
         that.updater.set({
             leftWidth: extra.leftWidth || 160,
             rightWidth: extra.rightWidth || 260,
-            stepInfos: extra.stepInfos || [], //所有的步骤信息
+            stepInfos, //所有的步骤信息
             childInfos: extra.childInfos || {}, // 向子view传递的数据
             viewId: that.id,
             viewHeight: $(window).height()
@@ -28,8 +33,15 @@ module.exports = Magix.View.extend({
         that.observeLocation(['stepIndex', 'subStepIndex']);
 
         that.owner.oncreated = () => {
-            // 所有子view加载完成后
-            that.subScroll();
+            if(!that.$init){
+                
+                // 每次重新render之后
+                // 所有子view加载完成后
+                that.subScroll();
+
+                // 子组件的mount不需要重新scroll
+                that.$init = 1;
+            }
         };
         that.ondestroy = () => {
             that.owner.off('created');
@@ -37,6 +49,10 @@ module.exports = Magix.View.extend({
     },
     render() {
         let that = this;
+        
+        // trigger oncreated，子组件的渲染不scroll
+        that.$init = null;
+
         let updater = that.updater;
         let stepInfos = updater.get('stepInfos');
 
@@ -264,26 +280,11 @@ module.exports = Magix.View.extend({
             if(ok){
                 errorNode.html('');
                 // 下一步
-                // if(curStepInfo.nextFn){
-                //     curStepInfo.nextFn(remain, (locParams, remainParams) => {
-                //         let curStepIndex = that.updater.get('curStepIndex'),
-                //             childInfos = that.updater.get('childInfos');
-                //         locParams.stepIndex = +curStepIndex + 1;
-                //         Router.to(locParams);
-                //         Magix.mix(childInfos, remainParams);
-                //     })
-                // }
-
-                let curStepIndex = that.updater.get('curStepIndex');
-                Router.to({
-                    stepIndex: (+curStepIndex + 1),
-                    subStepIndex: -1
-                })
-                $('#' + that.id).trigger({
-                    type: 'next',
-                    stepIndex: curStepIndex,
-                    remain: remain
-                })
+                if(curStepInfo.nextFn){
+                    curStepInfo.nextFn(remain, (remainParams, remainChildInfos) => {
+                        that.next(remainParams, remainChildInfos);
+                    });
+                }
             }else{
                 errorNode.html(`
                     <i class="mc-iconfont @index.less:error-icon">&#xe6ad;</i>
@@ -291,7 +292,6 @@ module.exports = Magix.View.extend({
                         <div>${m.label}：${m.msg}</div>
                     `).join('')}
                 `)
-
                 let subContent = $('#' + that.id + ' #sub_frame_' + msgs[0].id);
                 $(window).scrollTop(subContent.offset().top);
             }
@@ -306,5 +306,13 @@ module.exports = Magix.View.extend({
             stepIndex, 
             subStepIndex
         });
+    },
+    next(remainParams, remainChildInfos) {
+        let that = this;
+        let curStepIndex = that.updater.get('curStepIndex'),
+            childInfos = that.updater.get('childInfos');
+        remainParams.stepIndex = +curStepIndex + 1;
+        Router.to(remainParams);
+        Magix.mix(childInfos, remainChildInfos);
     }
 });

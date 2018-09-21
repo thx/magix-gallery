@@ -175,7 +175,7 @@ module.exports = {
             //     type: 'change',
             //     from: 'faker'
             // });
-            me.check($(e));
+            me['@{check}']($(e));
             keys.push($(e).attr('mxe'));
         });
 
@@ -225,10 +225,10 @@ module.exports = {
         if (!mxe || !mxe.startsWith(me.id)) {
             return;
         }
-        me.check(node);
+        me['@{check}'](node);
     },
 
-    check(node){
+    '@{check}'(node){
         let me = this;
         let updater = me.updater;
         let form = updater.$form || (updater.$form = {});

@@ -38,21 +38,23 @@
         <div class="content-title">{{=curStepInfo.label}}</div>
 
         <div class="content-body">
-            {{each curStepInfo.subs as sub}}
-                <div class="content-box"
-                    style="padding-right: {{=(curStepInfo.rightWidth + 20)}}px;">
-                    <mx-vframe src="{{=sub.view}}?info={{@sub}}&data={{@childInfo}}" 
-                        id="sub_frame_{{=sub.index}}">
-                        <mx-loading/>
-                    </mx-vframe>
-                    {{if sub.sideWrapper}}
-                    <mx-vframe src="{{=sub.sideWrapper}}?data={{@sub.sideData}}" class="content-side"
-                        style="width: {{=curStepInfo.rightWidth}}px;">
-                        <mx-loading/>
-                    </mx-vframe>
-                    {{/if}}
-                </div>
-            {{/each}}
+            <div>
+                {{each curStepInfo.subs as sub}}
+                    <div class="content-box"
+                        style="padding-right: {{=(curStepInfo.rightWidth + 20)}}px;">
+                        <mx-vframe src="{{=sub.view}}?info={{@sub}}&data={{@childInfos}}" 
+                            id="sub_frame_{{=sub.index}}">
+                            <mx-loading/>
+                        </mx-vframe>
+                        {{if sub.sideWrapper}}
+                        <mx-vframe src="{{=sub.sideWrapper}}?data={{@sub.sideData}}" class="content-side"
+                            style="width: {{=curStepInfo.rightWidth}}px;">
+                            <mx-loading/>
+                        </mx-vframe>
+                        {{/if}}
+                    </div>
+                {{/each}}
+            </div>
             {{if curStepInfo.sideWrapper}}
             <mx-vframe src="{{=curStepInfo.sideWrapper}}?data={{@curStepInfo.sideData}}" class="content-side"
                 style="width: {{=curStepInfo.rightWidth}}px;">
@@ -61,6 +63,7 @@
             {{/if}}
         </div>
 
+        {{if !curStepInfo.customTrigger}}
         <div class="content-footer">
             <div>
                 {{if curStepInfo.prevTip}}
@@ -75,5 +78,6 @@
             </div>
             <div id="{{=viewId}}_error" class="error-node"></div>
         </div>
+        {{/if}}
     </div>
 </div>

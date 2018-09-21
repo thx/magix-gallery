@@ -1,5 +1,3 @@
-import { wrap } from 'module';
-
 let Magix = require('magix');
 let Vframe = Magix.Vframe;
 let $ = require('$');
@@ -82,7 +80,6 @@ module.exports = Magix.View.extend({
         } else {
             wrapper = $(scrollWrapper);
         }
-
         wrapper.scroll(() => {
             if (me['@{pos.show}']) {
                 me['@{setPos}']();
@@ -240,6 +237,8 @@ module.exports = Magix.View.extend({
     },
     '@{hide}'() {
         let me = this;
+        
+        clearTimeout(me['@{dealy.show.timer}']);
         clearTimeout(me['@{dealy.hide.timer}']);
         me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(() => {
             if (!me['@{pos.show}']) {
