@@ -29,14 +29,14 @@ module.exports = Base.extend({
     $line = 9;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iocotjhl$art_i = 0, $art_clovqupaq$art_c = list.length; $art_iocotjhl$art_i < $art_clovqupaq$art_c; $art_iocotjhl$art_i++) {    var item = list[$art_iocotjhl$art_i]%>';
-    for (var $art_iocotjhl$art_i = 0, $art_clovqupaq$art_c = list.length; $art_iocotjhl$art_i < $art_clovqupaq$art_c; $art_iocotjhl$art_i++) {
-        var item = list[$art_iocotjhl$art_i];
-        $p += '<input mxe="' + $viewId + '_0_' + ($expr = '<%=$art_iocotjhl$art_i%>', $e($art_iocotjhl$art_i)) + '" mxc="[';
+    $expr = '<%for (var $art_iyxhouve$art_i = 0, $art_cqlqep$art_c = list.length; $art_iyxhouve$art_i < $art_cqlqep$art_c; $art_iyxhouve$art_i++) {    var item = list[$art_iyxhouve$art_i]%>';
+    for (var $art_iyxhouve$art_i = 0, $art_cqlqep$art_c = list.length; $art_iyxhouve$art_i < $art_cqlqep$art_c; $art_iyxhouve$art_i++) {
+        var item = list[$art_iyxhouve$art_i];
+        $p += '<input mxe="' + $viewId + '_0_' + ($expr = '<%=$art_iyxhouve$art_i%>', $e($art_iyxhouve$art_i)) + '" mxc="[';
         $line = 11;
         $art = ':item.value{required:true,blength:[2,4]}';
         ;
-        $p += '{p:\'list.' + ($expr = '<%=$art_iocotjhl$art_i%>', $e($art_iocotjhl$art_i)) + '.value\',f:{required:true,blength:[2,4]}}]" class="input mr20 mb20 w120" placeholder="请填写" value="';
+        $p += '{p:\'list.' + ($expr = '<%=$art_iyxhouve$art_i%>', $e($art_iyxhouve$art_i)) + '.value\',f:{required:true,blength:[2,4]}}]" class="input mr20 mb20 w120" placeholder="请填写" value="';
         $line = 11;
         $art = ':item.value{required:true,blength:[2,4]}';
         ;
