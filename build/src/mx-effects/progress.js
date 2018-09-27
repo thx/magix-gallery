@@ -36,7 +36,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (type == \'line\') {%>';
     if (type == 'line') {
         ;
-        $p += '<div mxa="_zs_gallerya%:_" class="_zs_gallery_mx-effects_progress_-line"><div class="_zs_gallery_mx-effects_progress_-on" style="width: ';
+        $p += '<div mxa="_zs_gallerya$:_" class="_zs_gallery_mx-effects_progress_-line"><div class="_zs_gallery_mx-effects_progress_-on" style="width: ';
         $line = 3;
         $art = '=num';
         ;
@@ -98,21 +98,21 @@ module.exports = Magix.View.extend({
     $expr = '<%if (type == \'degree\') {%>';
     if (type == 'degree') {
         ;
-        $p += '<div mxa="_zs_gallerya%:a" class="_zs_gallery_mx-effects_progress_-degree-bg">';
+        $p += '<div mxa="_zs_gallerya$:a" class="_zs_gallery_mx-effects_progress_-degree-bg">';
         $line = 10;
         $art = 'for (let i=0;i<10;i+=1)';
         ;
         $expr = '<%for (var i = 0; i < 10; i += 1) {%>';
         for (var i = 0; i < 10; i += 1) {
             ;
-            $p += '<span mxs="_zs_gallerya%:_" class="_zs_gallery_mx-effects_progress_-degree"></span>';
+            $p += '<span mxs="_zs_gallerya$:_" class="_zs_gallery_mx-effects_progress_-degree"></span>';
             $line = 12;
             $art = '/for';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxa="_zs_gallerya%:b" class="_zs_gallery_mx-effects_progress_-degree-on">';
+        $p += '</div><div mxa="_zs_gallerya$:b" class="_zs_gallery_mx-effects_progress_-degree-on">';
         $line = 15;
         $art = 'for (let i=0;i<degree;i+=1)';
         ;

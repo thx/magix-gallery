@@ -37,7 +37,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!items.length && placeholder) {%>';
     if (!items.length && placeholder) {
         ;
-        $p += '<span mxa="_zs_galleryc|:_" class="_zs_gallery_mx-taginput_index_-placeholder">';
+        $p += '<span mxa="_zs_galleryc]:_" class="_zs_gallery_mx-taginput_index_-placeholder">';
         $line = 3;
         $art = '=placeholder';
         ;
@@ -59,10 +59,10 @@ module.exports = Magix.View.extend({
         $line = 7;
         $art = 'each items as one idx';
         ;
-        $expr = '<%for (var idx = 0, $art_cqaqnvts$art_c = items.length; idx < $art_cqaqnvts$art_c; idx++) {        var one = items[idx]%>';
-        for (var idx = 0, $art_cqaqnvts$art_c = items.length; idx < $art_cqaqnvts$art_c; idx++) {
+        $expr = '<%for (var idx = 0, $art_cgksbxvmby$art_c = items.length; idx < $art_cgksbxvmby$art_c; idx++) {        var one = items[idx]%>';
+        for (var idx = 0, $art_cgksbxvmby$art_c = items.length; idx < $art_cgksbxvmby$art_c; idx++) {
             var one = items[idx];
-            $p += '<span mxa="_zs_galleryc|:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
+            $p += '<span mxa="_zs_galleryc]:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
             $line = 9;
             $art = '=one.text';
             ;

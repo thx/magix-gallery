@@ -1,18 +1,23 @@
 @import "../mx-style/_vars";
 
-@solid-height: 20px;
+.text{
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    transform: scale(.9);
+}
+
+@solid-height: 16px;
 /*实心打标icon*/
 .solid-icon{
     display: inline-block;
     height: @solid-height;
-    padding: 0 6px;
+    padding: 0 4px;
     border-radius: 4px;
-    font-size: 12px;
     color: #fff;
     text-align: center;
     line-height: @solid-height;
-    font-weight: bold;
-
+    
     &.common{
         background-color: #ccc;
     }
@@ -27,16 +32,14 @@
     }
 }
 
-@hollow-height: 18px;
+@hollow-height: 16px;
 /*空心打标*/
 .hollow-icon{
     display: inline-block;
     height: @hollow-height;
-    padding: 0 6px;
+    padding: 0 4px;
     border-radius: @hollow-height / 2;
-    font-size: 12px;
     text-align: center;
-    font-weight: bold;
     line-height: @hollow-height - 2;
 
     &.common{

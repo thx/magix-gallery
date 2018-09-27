@@ -22,14 +22,14 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', info = $$.info; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybH:_" class="_zs_gallery_mx-main___test___inner_-box-title clearfix">';
+    $p += '<div mxa="_zs_gallerybG:_" class="_zs_gallery_mx-main___test___inner_-box-title clearfix">';
     $line = 2;
     $art = 'if info.icon';
     ;
     $expr = '<%if (info.icon) {%>';
     if (info.icon) {
         ;
-        $p += '<span mxa="_zs_gallerybH:a" class="_zs_gallery_mx-main___test___inner_-title-icon">';
+        $p += '<span mxa="_zs_gallerybG:a" class="_zs_gallery_mx-main___test___inner_-title-icon">';
         $line = 3;
         $art = '!info.icon';
         ;
@@ -40,11 +40,11 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<span mxa="_zs_gallerybH:b" class="_zs_gallery_mx-main___test___inner_-title-label">';
+    $p += '<span mxa="_zs_gallerybG:b" class="_zs_gallery_mx-main___test___inner_-title-label">';
     $line = 5;
     $art = '=info.label';
     ;
-    $p += ($expr = '<%=info.label%>', $e(info.label)) + '</span></div><div mxs="_zs_gallerybH:_" class="_zs_gallery_mx-main___test___inner_-box-inner" style="height: 300px;">123</div>';
+    $p += ($expr = '<%=info.label%>', $e(info.label)) + '</span></div><div mxs="_zs_gallerybG:_" class="_zs_gallery_mx-main___test___inner_-box-inner" style="height: 300px;">123</div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
