@@ -3,9 +3,9 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/icon",["magix","$"],(require,exports,module)=>{
+define("mx-effects/icon",["magix","$","mx-popover/index"],(require,exports,module)=>{
 /*Magix,$*/
-
+require("mx-popover/index");
 var Magix = require("magix");
 var $ = require("$");
 Magix.applyStyle("_zs_gallery_mx-effects_icon_","/* @dependent: ./index.less */\n._zs_gallery_mx-effects_icon_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-effects_icon_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n/*实心打标icon*/\n._zs_gallery_mx-effects_icon_-solid-icon {\n  display: inline-block;\n  height: 20px;\n  padding: 0 6px;\n  border-radius: 4px;\n  font-size: 12px;\n  color: #fff;\n  text-align: center;\n  line-height: 20px;\n  font-weight: bold;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-common {\n  background-color: #ccc;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-error {\n  background-color: #a40100;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-warn {\n  background-color: #ffb400;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-highlight {\n  background-color: #4d7fff;\n}\n/*空心打标*/\n._zs_gallery_mx-effects_icon_-hollow-icon {\n  display: inline-block;\n  height: 18px;\n  padding: 0 6px;\n  border-radius: 9px;\n  font-size: 12px;\n  text-align: center;\n  font-weight: bold;\n  line-height: 16px;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-common {\n  border: 1px solid #ccc;\n  color: #999;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-error {\n  border: 1px solid #a40100;\n  color: #a40100;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-warn {\n  border: 1px solid #ffb400;\n  color: #ffb400;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-highlight {\n  border: 1px solid #4d7fff;\n  color: #4d7fff;\n}\n");
@@ -29,20 +29,56 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', classNames = $$.classNames, styles = $$.styles, content = $$.content; var $expr, $art, $line; try {
-    $p += '<span class="';
+} ; var $g = '', $_temp, $p = '', tip = $$.tip, classNames = $$.classNames, styles = $$.styles, content = $$.content; var $expr, $art, $line; try {
     $line = 1;
-    $art = '=classNames';
+    $art = 'if tip';
     ;
-    $p += ($expr = '<%=classNames%>', $e(classNames)) + '" style="';
-    $line = 1;
-    $art = '=styles';
+    $expr = '<%if (tip) {%>';
+    if (tip) {
+        ;
+        $p += '<span class="';
+        $line = 2;
+        $art = '=classNames';
+        ;
+        $p += ($expr = '<%=classNames%>', $e(classNames)) + '" style="';
+        $line = 2;
+        $art = '=styles';
+        ;
+        $p += ($expr = '<%=styles%>', $e(styles)) + '" mx-view="mx-popover/index?content=';
+        $line = 3;
+        $art = '=tip';
+        ;
+        $p += ($expr = '<%!$eu(tip)%>', $eu(tip)) + '">';
+        $line = 3;
+        $art = '=content';
+        ;
+        $p += ($expr = '<%=content%>', $e(content)) + '</span>';
+        $line = 4;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '<span class="';
+        $line = 5;
+        $art = '=classNames';
+        ;
+        $p += ($expr = '<%=classNames%>', $e(classNames)) + '" style="';
+        $line = 5;
+        $art = '=styles';
+        ;
+        $p += ($expr = '<%=styles%>', $e(styles)) + '">';
+        $line = 5;
+        $art = '=content';
+        ;
+        $p += ($expr = '<%=content%>', $e(content)) + '</span>';
+        $line = 6;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
     ;
-    $p += ($expr = '<%=styles%>', $e(styles)) + '">';
-    $line = 1;
-    $art = '=content';
-    ;
-    $p += ($expr = '<%=content%>', $e(content)) + '</span>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -76,7 +112,8 @@ catch (ex) {
         this.updater.set({
             content: extra.content || 'icon',
             classNames: classNames.join(' '),
-            styles: styles.join(';')
+            styles: styles.join(';'),
+            tip: extra.tip || ''
         });
     },
     render: function () {

@@ -69,6 +69,10 @@ module.exports = Magix.View.extend({
         stepInfos.forEach((step, i) => {
             let stepIndex = i + 1;
             step.index = stepIndex;
+            if((!step.subs || !step.subs.length) && step.subsFn){
+                step.subs = step.subsFn();
+            }
+            step.subs = step.subs || [];
             step = that.wrapSide(step);
 
             // 锁定项不展开子列表

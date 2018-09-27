@@ -24,6 +24,11 @@ module.exports = Magix.View.extend({
             desc: '自定义颜色',
             type: 'hex格式色号',
             def: ''
+        }, {
+            key: 'tip',
+            desc: 'hover提示信息',
+            type: 'string',
+            def: ''
         }]
 
         this.updater.digest({

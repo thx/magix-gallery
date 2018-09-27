@@ -1,1 +1,6 @@
+{{if tip}}
+<mx-popover class="{{=classNames}}" style="{{=styles}}"
+    content="{{=tip}}">{{=content}}</mx-popover>
+{{else}}
 <span class="{{=classNames}}" style="{{=styles}}">{{=content}}</span>
+{{/if}}

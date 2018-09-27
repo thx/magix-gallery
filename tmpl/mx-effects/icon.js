@@ -46,7 +46,8 @@ module.exports = Magix.View.extend({
         this.updater.set({
             content: extra.content || 'icon',
             classNames: classNames.join(' '),
-            styles: styles.join(';')
+            styles: styles.join(';'),
+            tip: extra.tip || ''
         })
     },
     render() {

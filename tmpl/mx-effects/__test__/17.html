@@ -1,30 +1,32 @@
 <div class="example">
     <div class="eg-content">
-        {{each checkboxes as c}}
-        <label class="mr30">
-            <input type="checkbox" class="anim-checkbox" 
-                name="cb" 
-                value="{{=c}}" 
-                {{:selected.checkboxes{refresh:true,required:[true,'必选']}}} />
-            {{=c}}
-        </label>
-        {{/each}}
+        <mx-effects.icon class="mr10" 
+            type="highlight" 
+            content="测试"
+            tip="提示信息"/>
+        <mx-effects.icon class="mr10" 
+            mode="hollow" 
+            type="highlight" 
+            content="测试"
+            tip="提示信息"/>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">自定义颜色</div>
+        <div class="eg-title">带提示的打标</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-effects.icon 
-    color="#51a300" 
-    content="测试"/&gt;
+&lt;mx-effects.icon
+    type="highlight" 
+    content="测试"
+    tip="提示信息"/&gt;
     
-&lt;mx-effects.icon 
+&lt;mx-effects.icon
     mode="hollow" 
-    color="#51a300" 
-    content="测试"/&gt;</pre>
+    type="highlight" 
+    content="测试"
+    tip="提示信息"/&gt;</pre>
     </div>
 </div>

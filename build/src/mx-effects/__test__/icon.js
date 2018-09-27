@@ -3,12 +3,13 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/__test__/icon",["magix","$","mx-title/second","./14","./15","./16","__test__/api"],(require,exports,module)=>{
+define("mx-effects/__test__/icon",["magix","$","mx-title/second","./14","./15","./16","./17","__test__/api"],(require,exports,module)=>{
 /*Magix,$*/
 require("mx-title/second");
 require("./14");
 require("./15");
 require("./16");
+require("./17");
 require("__test__/api");
 var Magix = require("magix");
 var $ = require("$");
@@ -29,8 +30,8 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerya6:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerya6:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/14"></div><div mx-view="mx-effects/__test__/15"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/16"></div></div></div><div mxs="_zs_gallerya6:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 13;
+    $p += '<div mxs="_zs_gallerya6:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerya6:c" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/14"></div><div mx-view="mx-effects/__test__/15"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/16"></div><div mx-view="mx-effects/__test__/17"></div></div></div><div mxs="_zs_gallerya6:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $line = 14;
     $art = '@options';
     ;
     $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div>';
@@ -63,6 +64,11 @@ catch (ex) {
                 key: 'color',
                 desc: '自定义颜色',
                 type: 'hex格式色号',
+                def: ''
+            }, {
+                key: 'tip',
+                desc: 'hover提示信息',
+                type: 'string',
                 def: ''
             }];
         this.updater.digest({

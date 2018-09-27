@@ -3,14 +3,13 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/__test__/17",["magix","__test__/example","mx-form/index","mx-form/validator","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
-/*Magix,Base,Form,Validator,$*/
+define("mx-effects/__test__/17",["magix","__test__/example","$","../icon","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("../icon");
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
-var Form = require("mx-form/index");
-var Validator = require("mx-form/validator");
 var $ = require("$");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
@@ -24,34 +23,8 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', checkboxes = $$.checkboxes, selected = $$.selected, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryaU:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryaU:a" class="_zs_gallery___test___layout_-eg-content">';
-    $line = 3;
-    $art = 'each checkboxes as c';
-    ;
-    $expr = '<%for (var $art_ivhujmnszr$art_i = 0, $art_cltfjw$art_c = checkboxes.length; $art_ivhujmnszr$art_i < $art_cltfjw$art_c; $art_ivhujmnszr$art_i++) {    var c = checkboxes[$art_ivhujmnszr$art_i]%>';
-    for (var $art_ivhujmnszr$art_i = 0, $art_cltfjw$art_c = checkboxes.length; $art_ivhujmnszr$art_i < $art_cltfjw$art_c; $art_ivhujmnszr$art_i++) {
-        var c = checkboxes[$art_ivhujmnszr$art_i];
-        $p += '<label mxv mxa="_zs_galleryaU:b" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
-        $line = 8;
-        $art = ':selected.checkboxes{refresh:true,required:[true,\'必选\']}';
-        ;
-        $p += '{p:\'selected.checkboxes\',f:{refresh:true,required:[true,\'必选\']}}]" type="checkbox" class="anim-checkbox" name="cb" value="';
-        $line = 7;
-        $art = '=c';
-        ;
-        $p += ($expr = '<%=c%>', $e(c)) + '"/>';
-        $line = 9;
-        $art = '=c';
-        ;
-        $p += ($expr = '<%=c%>', $e(c)) + '</label>';
-        $line = 11;
-        $art = '/each';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</div><div mxa="_zs_galleryaU:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryaU:_" class="_zs_gallery___test___layout_-eg-title">自定义颜色</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryaU:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryaU:f" class="_zs_gallery___test___layout_-eg-content"><span class="mr10" mx-view="mx-effects/icon?type=highlight&content=%E6%B5%8B%E8%AF%95&tip=%E6%8F%90%E7%A4%BA%E4%BF%A1%E6%81%AF"></span><span class="mr10" mx-view="mx-effects/icon?mode=hollow&type=highlight&content=%E6%B5%8B%E8%AF%95&tip=%E6%8F%90%E7%A4%BA%E4%BF%A1%E6%81%AF"></span></div><div mxa="_zs_galleryaU:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryaU:d" class="_zs_gallery___test___layout_-eg-title">带提示的打标</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 15;
     $art = '=viewId';
     ;
@@ -63,7 +36,7 @@ module.exports = Base.extend({
     $line = 20;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.icon \n    color="#51a300" \n    content="测试"/&gt;\n    \n&lt;mx-effects.icon \n    mode="hollow" \n    color="#51a300" \n    content="测试"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.icon\n    type="highlight" \n    content="测试"\n    tip="提示信息"/&gt;\n    \n&lt;mx-effects.icon\n    mode="hollow" \n    type="highlight" \n    content="测试"\n    tip="提示信息"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -73,14 +46,8 @@ catch (ex) {
     msg += $expr + '\r\n\tat file:mx-effects/__test__/17.html';
     throw msg;
 } return $p; },
-    mixins: [Form, Validator],
     render: function () {
-        this.updater.digest({
-            checkboxes: ['checkbox1', 'checkbox2', 'checkbox3'],
-            selected: {
-                checkboxes: ['checkbox1']
-            }
-        });
+        this.updater.digest();
     }
 });
 
