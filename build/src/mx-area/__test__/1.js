@@ -41,9 +41,9 @@ module.exports = Base.extend({
     $line = 22;
     $art = 'each selected as item';
     ;
-    $expr = '<%for (var $art_irbgeqy$art_i = 0, $art_cvxnupcmds$art_c = selected.length; $art_irbgeqy$art_i < $art_cvxnupcmds$art_c; $art_irbgeqy$art_i++) {    var item = selected[$art_irbgeqy$art_i]%>';
-    for (var $art_irbgeqy$art_i = 0, $art_cvxnupcmds$art_c = selected.length; $art_irbgeqy$art_i < $art_cvxnupcmds$art_c; $art_irbgeqy$art_i++) {
-        var item = selected[$art_irbgeqy$art_i];
+    $expr = '<%for (var $art_ixigkndo$art_i = 0, $art_cbsmsqavsh$art_c = selected.length; $art_ixigkndo$art_i < $art_cbsmsqavsh$art_c; $art_ixigkndo$art_i++) {    var item = selected[$art_ixigkndo$art_i]%>';
+    for (var $art_ixigkndo$art_i = 0, $art_cbsmsqavsh$art_c = selected.length; $art_ixigkndo$art_i < $art_cbsmsqavsh$art_c; $art_ixigkndo$art_i++) {
+        var item = selected[$art_ixigkndo$art_i];
         $p += '<div>';
         $line = 23;
         $art = '=item';

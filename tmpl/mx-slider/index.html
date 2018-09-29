@@ -12,6 +12,7 @@
 </div>
 <%if(needInput){%>
 <input type="text" class="input input-small rail-input" id="<%=viewId%>_input"
+    <%if(disabled){%> disabled="true" <%}%>
     mx-keyup="@{enter}()"
     mx-focusout="@{out}()"/>
 <%}%>

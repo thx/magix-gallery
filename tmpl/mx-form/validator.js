@@ -96,7 +96,7 @@ let showMsg = (type, ssId, checkInfo) => {
         // 提示信息
         msgNode.html(checkInfo.tip).show();
 
-        // 提示信息位置 bottom / left
+        // 提示信息位置 bottom / right
         let placement = checkInfo.placement || 'bottom';
 
         let width = n.outerWidth(),
@@ -104,7 +104,7 @@ let showMsg = (type, ssId, checkInfo) => {
             offset = n.offset(),
             pOffset = prt.offset();
         switch (placement) {
-            case 'left':
+            case 'right':
                 msgNode.css({
                     lineHeight: '32px',
                     top: (offset.top - pOffset.top),

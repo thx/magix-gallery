@@ -97,11 +97,11 @@ var showMsg = function (type, ssId, checkInfo) {
         }
         // 提示信息
         msgNode.html(checkInfo.tip).show();
-        // 提示信息位置 bottom / left
+        // 提示信息位置 bottom / right
         var placement = checkInfo.placement || 'bottom';
         var width = n.outerWidth(), height = n.outerHeight(), offset = n.offset(), pOffset = prt.offset();
         switch (placement) {
-            case 'left':
+            case 'right':
                 msgNode.css({
                     lineHeight: '32px',
                     top: (offset.top - pOffset.top),

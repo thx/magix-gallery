@@ -47,11 +47,11 @@ module.exports = Base.extend({
     ;
     $p += ($expr = '<%=name%>', $e(name)) + '"/> <input mxe="' + $viewId + '_2" mxc="[';
     $line = 7;
-    $art = ':name{placement:\'left\',required:true}';
+    $art = ':name{placement:\'right\',required:true}';
     ;
-    $p += '{p:\'name\',f:{placement:\'left\',required:true}}]" class="input mr20" placeholder="必填项，提示在左侧" value="';
+    $p += '{p:\'name\',f:{placement:\'right\',required:true}}]" class="input mr20" placeholder="必填项，提示在右侧" value="';
     $line = 7;
-    $art = ':name{placement:\'left\',required:true}';
+    $art = ':name{placement:\'right\',required:true}';
     ;
     $p += ($expr = '<%=name%>', $e(name)) + '"/></div></div><div mxa="_zs_gallerya;:c" class="clearfix"><div mxa="_zs_gallerya;:d" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_gallerya;:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 13;
@@ -65,7 +65,7 @@ module.exports = Base.extend({
     $line = 18;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;input class="input" placeholder="必填项" \n    value="&#123;&#123;:name&#123;required:true&#125;&#125;&#125;"/&gt;\n    \n&lt;input class="input" placeholder="必填项" \n    value="&#123;&#123;:name&rules&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="必填项，提示在左侧" \n    value="&#123;&#123;:name&#123;placement:\'left\',required:true&#125;&#125;&#125;"/&gt;</pre></div><div mxa="_zs_gallerya;:f" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerya;:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;input class="input" placeholder="必填项" \n    value="&#123;&#123;:name&#123;required:true&#125;&#125;&#125;"/&gt;\n    \n&lt;input class="input" placeholder="必填项" \n    value="&#123;&#123;:name&rules&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="必填项，提示在右侧" \n    value="&#123;&#123;:name&#123;placement:\'right\',required:true&#125;&#125;&#125;"/&gt;</pre></div><div mxa="_zs_gallerya;:f" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerya;:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 30;
     $art = '=viewId';
     ;

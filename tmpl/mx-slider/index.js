@@ -22,6 +22,7 @@ module.exports = Magix.View.extend({
         me['@{min}'] = +ops.min || 0;
         me['@{max}'] = +ops.max || 100;
         me['@{step}'] = +ops.step || 1;
+        me['@{tip}'] = ops.tip || '';
 
         let disabledNode = $('#' + me.id + '[mx-disabled]')
         me['@{disabled}'] = disabledNode && (disabledNode.length > 0);
@@ -56,7 +57,8 @@ module.exports = Magix.View.extend({
             width: me['@{width}'],
             height: me['@{height}'],
             vertical: me['@{vertical}'],
-            needInput: me['@{needInput}']
+            needInput: me['@{needInput}'],
+            disabled: me['@{disabled}']
         });
         me.val(me['@{value}']);
 
@@ -147,7 +149,7 @@ module.exports = Magix.View.extend({
             }
             v = me['@{get.fixed.value}'](p);
             let node = vars.pLabel;
-            node.html(v);
+            node.html(v + (me['@{tip}'] ? ('<span class="@style.less:unit">' + me['@{tip}'] + '</span>') : ''));
             if (vars.inputArea && vars.inputArea.length) {
                 vars.inputArea.val(v);
             }

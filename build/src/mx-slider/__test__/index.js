@@ -91,6 +91,11 @@ catch (ex) {
                 desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-slider mx-disabled/&gt;',
                 type: '',
                 def: ''
+            }, {
+                key: 'tip',
+                desc: '提示文案',
+                type: '',
+                def: ''
             }];
         this.updater.digest({
             options: options
