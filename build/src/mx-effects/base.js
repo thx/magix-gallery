@@ -9,11 +9,12 @@ define("mx-effects/base",["magix"],(require,exports,module)=>{
 var Magix = require("magix");
 module.exports = Magix.View.extend({
     render: function () {
+        this.updater.digest();
         // 纯样式展示类，异步渲染，避免影响性能
-        var that = this;
-        setTimeout(that.wrapAsync(function () {
-            that.updater.digest();
-        }), 0);
+        // let that = this;
+        // setTimeout(that.wrapAsync(() => {
+        //     that.updater.digest();
+        // }), 0);
     }
 });
 
