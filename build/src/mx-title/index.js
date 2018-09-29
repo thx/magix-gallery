@@ -21,7 +21,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', content = $$.content, tip = $$.tip; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc`:_" class="page-header"><span mxa="_zs_galleryc`:a" class="first-header">';
+    $p += '<div mxa="_zs_galleryc?:_" class="page-header"><span mxa="_zs_galleryc?:a" class="first-header">';
     $line = 2;
     $art = '!content';
     ;
@@ -32,7 +32,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (tip) {%>';
     if (tip) {
         ;
-        $p += '<span mxa="_zs_galleryc`:b" class="page-tip">';
+        $p += '<span mxa="_zs_galleryc?:b" class="page-tip">';
         $line = 4;
         $art = '!tip';
         ;
@@ -62,7 +62,11 @@ catch (ex) {
         });
     },
     render: function () {
-        this.updater.digest();
+        // 纯样式展示类，异步渲染，避免影响性能
+        var that = this;
+        setTimeout(that.wrapAsync(function () {
+            that.updater.digest();
+        }), 0);
     }
 });
 
