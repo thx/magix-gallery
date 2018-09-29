@@ -1,6 +1,5 @@
-import { parse } from 'path';
-
 let Magix = require('magix');
+let Base = require('./base');
 let $ = require('$');
 Magix.applyStyle('@progress.less');
 let ClassNames = {
@@ -10,7 +9,7 @@ let ClassNames = {
     bottom: '@progress.less:num-bottom'
 }
 
-module.exports = Magix.View.extend({
+module.exports = Base.extend({
     tmpl: '@progress.html',
     init(e) {
         this.updater.snapshot();
@@ -67,8 +66,5 @@ module.exports = Magix.View.extend({
             return true;
         }
         return false;
-    },
-    render() {
-        this.updater.digest();
     }
 });

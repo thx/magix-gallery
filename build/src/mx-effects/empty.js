@@ -3,12 +3,13 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/empty",["magix","$"],(require,exports,module)=>{
-/*Magix,$*/
+define("mx-effects/empty",["magix","./base","$"],(require,exports,module)=>{
+/*Magix,Base,$*/
 
 var Magix = require("magix");
+var Base = require("./base");
 var $ = require("$");
-module.exports = Magix.View.extend({
+module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
     var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
@@ -45,9 +46,6 @@ catch (ex) {
             white: white,
             content: e.content || '暂无内容'
         });
-    },
-    render: function () {
-        this.updater.digest();
     }
 });
 

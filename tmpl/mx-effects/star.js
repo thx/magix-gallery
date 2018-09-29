@@ -1,8 +1,9 @@
 let Magix = require('magix');
+let Base = require('./base');
 let $ = require('$');
 Magix.applyStyle('@star.less');
 
-module.exports = Magix.View.extend({
+module.exports = Base.extend({
     tmpl: '@star.html',
     init(e) {
         this.updater.snapshot();
@@ -48,8 +49,5 @@ module.exports = Magix.View.extend({
             return true;
         }
         return false;
-    },
-    render() {
-        this.updater.digest();
     }
 });

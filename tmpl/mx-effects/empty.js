@@ -1,7 +1,8 @@
 let Magix = require('magix');
+let Base = require('./base');
 let $ = require('$');
 
-module.exports = Magix.View.extend({
+module.exports = Base.extend({
     tmpl: '@empty.html',
     init(e){
         let white = (e.bg === 'white');
@@ -9,8 +10,5 @@ module.exports = Magix.View.extend({
             white,
             content: e.content || '暂无内容'
         });
-    },
-    render() {
-        this.updater.digest();
     }
 });
