@@ -292,42 +292,76 @@ module.exports = {
     },
     length: function (val, rule) {
         // 字个数
-        // length: 10
+        // length: [4,8]
+        var valid = true, tip = I18n['form.word.between'];
         val = $.trim(val);
-        var tip = I18n['form.word.between'];
-        var min = rule[0], max = rule[1], current = val.length;
+        if (val) {
+            var min = rule[0], max = rule[1], current = val.length;
+            valid = (current >= min) && (current <= max);
+            tip = tip.replace('${min}', min).replace('${max}', max).replace('${current}', current);
+        }
         return {
-            valid: val && (current >= min) && (current <= max),
-            tip: tip.replace('${min}', min).replace('${max}', max).replace('${current}', current)
+            valid: valid,
+            tip: tip
         };
     },
     minlength: function (val, rule) {
         // 最少字个数
         // minlength: 10
+        // minlength: [10, '自定义提示']
+        var valid = true, tip = [I18n['form.less'], rule, I18n['form.word']].join(' ');
         val = $.trim(val);
+        if (val) {
+            if ($.isArray(rule)) {
+                valid = (val.length >= rule[0]);
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            }
+            else {
+                valid = (val.length >= rule);
+            }
+        }
         return {
-            valid: val && (val.length >= rule),
-            tip: I18n['form.less'] + ' ' + rule + ' ' + I18n['form.word']
+            valid: valid,
+            tip: tip
         };
     },
     maxlength: function (val, rule) {
         // 最多字个数
         // maxlength: 10
+        // maxlength: [10, '自定义提示']
+        var valid = true, tip = [I18n['form.more'], rule, I18n['form.word']].join(' ');
         val = $.trim(val);
+        if (val) {
+            if ($.isArray(rule)) {
+                valid = (val.length <= rule[0]);
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            }
+            else {
+                valid = (val.length <= rule);
+            }
+        }
         return {
-            valid: val && (val.length <= rule),
-            tip: I18n['form.more'] + ' ' + rule + ' ' + I18n['form.word']
+            valid: valid,
+            tip: tip
         };
     },
     blength: function (val, rule) {
         // 字符长度：一个汉字两个字符
         // blength: [10, 20]
+        var valid = true, tip = I18n['form.char.between'];
         val = $.trim(val);
-        var tip = I18n['form.char.between'];
-        var min = rule[0], max = rule[1], current = ByteLen(val);
+        if (val) {
+            var min = rule[0], max = rule[1], current = ByteLen(val);
+            valid = (current >= min) && (current <= max);
+            tip = tip.replace('${min}', min).replace('${max}', max).replace('${current}', current);
+        }
         return {
-            valid: val && (current >= min) && (current <= max),
-            tip: tip.replace('${min}', min).replace('${max}', max).replace('${current}', current)
+            valid: valid,
+            tip: tip
         };
     },
     bminlength: function (val, rule) {

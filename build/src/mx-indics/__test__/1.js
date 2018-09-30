@@ -55,9 +55,9 @@ module.exports = Base.extend({
         $line = 25;
         $art = 'each customs as key';
         ;
-        $expr = '<%for (var $art_iitvjfvjdsj$art_i = 0, $art_cuxmdxvmf$art_c = customs.length; $art_iitvjfvjdsj$art_i < $art_cuxmdxvmf$art_c; $art_iitvjfvjdsj$art_i++) {        var key = customs[$art_iitvjfvjdsj$art_i]%>';
-        for (var $art_iitvjfvjdsj$art_i = 0, $art_cuxmdxvmf$art_c = customs.length; $art_iitvjfvjdsj$art_i < $art_cuxmdxvmf$art_c; $art_iitvjfvjdsj$art_i++) {
-            var key = customs[$art_iitvjfvjdsj$art_i];
+        $expr = '<%for (var $art_idjpvpzxr$art_i = 0, $art_cdrsqbbgxv$art_c = customs.length; $art_idjpvpzxr$art_i < $art_cdrsqbbgxv$art_c; $art_idjpvpzxr$art_i++) {        var key = customs[$art_idjpvpzxr$art_i]%>';
+        for (var $art_idjpvpzxr$art_i = 0, $art_cdrsqbbgxv$art_c = customs.length; $art_idjpvpzxr$art_i < $art_cdrsqbbgxv$art_c; $art_idjpvpzxr$art_i++) {
+            var key = customs[$art_idjpvpzxr$art_i];
             $p += '<span mxa="_zs_gallerybp:b" class="ml10">';
             $line = 26;
             $art = '=map[key]';
@@ -85,9 +85,9 @@ module.exports = Base.extend({
         $line = 30;
         $art = 'each defaults as key';
         ;
-        $expr = '<%for (var $art_ixagmep$art_i = 0, $art_ccgndqefp$art_c = defaults.length; $art_ixagmep$art_i < $art_ccgndqefp$art_c; $art_ixagmep$art_i++) {        var key = defaults[$art_ixagmep$art_i]%>';
-        for (var $art_ixagmep$art_i = 0, $art_ccgndqefp$art_c = defaults.length; $art_ixagmep$art_i < $art_ccgndqefp$art_c; $art_ixagmep$art_i++) {
-            var key = defaults[$art_ixagmep$art_i];
+        $expr = '<%for (var $art_igirfosjmpg$art_i = 0, $art_caqrbgsxym$art_c = defaults.length; $art_igirfosjmpg$art_i < $art_caqrbgsxym$art_c; $art_igirfosjmpg$art_i++) {        var key = defaults[$art_igirfosjmpg$art_i]%>';
+        for (var $art_igirfosjmpg$art_i = 0, $art_caqrbgsxym$art_c = defaults.length; $art_igirfosjmpg$art_i < $art_caqrbgsxym$art_c; $art_igirfosjmpg$art_i++) {
+            var key = defaults[$art_igirfosjmpg$art_i];
             $p += '<span mxa="_zs_gallerybp:c" class="ml10">';
             $line = 31;
             $art = '=map[key]';

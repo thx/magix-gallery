@@ -294,51 +294,90 @@ module.exports = {
 
     length(val, rule) {
         // 字个数
-        // length: 10
+        // length: [4,8]
+        let valid = true,
+            tip = I18n['form.word.between'];
+
         val = $.trim(val);
-        let tip = I18n['form.word.between'];
-        let min = rule[0],
-            max = rule[1],
-            current = val.length;
+        if (val) {
+            let min = rule[0],
+                max = rule[1],
+                current = val.length;
+            valid = (current >= min) && (current <= max);
+            tip = tip.replace('${min}', min).replace('${max}', max).replace('${current}', current);
+        }
+
         return {
-            valid: val && (current >= min) && (current <= max),
-            tip: tip.replace('${min}', min).replace('${max}', max).replace('${current}', current)
+            valid,
+            tip
         };
     },
 
     minlength(val, rule) {
         // 最少字个数
         // minlength: 10
+        // minlength: [10, '自定义提示']
+        let valid = true,
+            tip = [I18n['form.less'], rule, I18n['form.word']].join(' ');
         val = $.trim(val);
+        if (val) {
+            if ($.isArray(rule)) {
+                valid = (val.length >= rule[0]);
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            } else {
+                valid = (val.length >= rule);
+            }
+        }
         return {
-            valid: val && (val.length >= rule),
-            tip: I18n['form.less'] + ' ' + rule + ' ' + I18n['form.word']
+            valid,
+            tip
         };
     },
 
     maxlength(val, rule) {
         // 最多字个数
         // maxlength: 10
+        // maxlength: [10, '自定义提示']
+        let valid = true,
+            tip = [I18n['form.more'], rule, I18n['form.word']].join(' ');
+
         val = $.trim(val);
+        if (val) {
+            if ($.isArray(rule)) {
+                valid = (val.length <= rule[0]);
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            } else {
+                valid = (val.length <= rule);
+            }
+        }
         return {
-            valid: val && (val.length <= rule),
-            tip: I18n['form.more'] + ' ' + rule + ' ' + I18n['form.word']
+            valid,
+            tip
         };
     },
 
     blength(val, rule) {
         // 字符长度：一个汉字两个字符
         // blength: [10, 20]
+        let valid = true,
+            tip = I18n['form.char.between'];
+        
         val = $.trim(val);
-
-        let tip = I18n['form.char.between'];
-        let min = rule[0],
-            max = rule[1],
-            current = ByteLen(val);
+        if(val){
+            let min = rule[0],
+                max = rule[1],
+                current = ByteLen(val);
+            valid = (current >= min) && (current <= max);
+            tip = tip.replace('${min}', min).replace('${max}', max).replace('${current}', current);
+        }
 
         return {
-            valid: val && (current >= min) && (current <= max),
-            tip: tip.replace('${min}', min).replace('${max}', max).replace('${current}', current)
+            valid,
+            tip
         };
     },
     bminlength(val, rule) {
@@ -401,7 +440,7 @@ module.exports = {
             id = rule[0];
             if (rule[1]) {
                 tip = rule[1];
-            }else{
+            } else {
                 tip = tip.replace('${rule}', rule[0]);
             }
         } else {
@@ -434,7 +473,7 @@ module.exports = {
         let equalIds = [];
         ids = ids.split(',');
         ids.forEach(id => {
-            if($('#' + id).val() == val){
+            if ($('#' + id).val() == val) {
                 equalIds.push(id);
             }
         })

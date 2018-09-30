@@ -3,7 +3,7 @@
         <div class="clearfix">
             <input class="input mr20 mb20" placeholder="4到8个字之间" value="{{:number{length:[4, 8]}}}"/>
             <input class="input mr20 mb20" placeholder="最少2个字" value="{{:number{minlength:2}}}"/>
-            <input class="input mr20 mb20" placeholder="最多3个字" value="{{:number{maxlength:3}}}"/>
+            <input class="input mr20 mb20" placeholder="最多3个字" value="{{:number{maxlength:[3,'自定义提示，最多三个字']}}}"/>
         </div>
     </div>
     <div class="eg-desc">
@@ -18,6 +18,6 @@
 
 &lt;input class="input" placeholder="最少2个字" value="&#123;&#123;:number&#123;minlength:2&#125;&#125;&#125;"/&gt;
 
-&lt;input class="input" placeholder="最多3个字" value="&#123;&#123;:number&#123;maxlength:3&#125;&#125;&#125;"/&gt;</pre>
+&lt;input class="input" placeholder="最多3个字" value="&#123;&#123;:number&#123;maxlength:[3,'自定义提示，最多三个字']&#125;&#125;&#125;"/&gt;</pre>
     </div>
 </div>
