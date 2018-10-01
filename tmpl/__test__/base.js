@@ -210,6 +210,10 @@ module.exports = Magix.View.extend({
                 path: '/tree/index',
                 icon: '&#xe62b;'
             }, {
+                name: '二级单选',
+                path: '/secradio/index',
+                icon: '&#xe657;'
+            }, {
                 name: '标签选择',
                 path: '/taginput/index',
                 icon: '&#xe794;'

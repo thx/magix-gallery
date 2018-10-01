@@ -30,6 +30,7 @@ let coms = [
     'calendar',
     'mustache',
     'checkbox',
+    'secradio',
     'tree',
     'runner',
     'time',
