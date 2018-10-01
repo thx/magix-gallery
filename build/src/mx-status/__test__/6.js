@@ -28,19 +28,19 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycj:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerycj:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerycj:_" class="mb20 lh22 clearfix"><div class="fl color-9">以下示例：</div><div class="fl">有多个可选项，配置成只读，依然显示为只读</div></div><div mx-view="mx-status/dropdown?list=';
+    $p += '<div mxa="_zs_gallerycn:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerycn:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerycn:_" class="mb20 lh22 clearfix"><div class="fl color-9">以下示例：</div><div class="fl">有多个可选项，配置成只读，依然显示为只读</div></div><div mx-view="mx-status/dropdown?list=';
     $line = 8;
     $art = '@[{\n                value: 1,\n                text: \'正在投放\',\n                icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',\n                color: \'#51a300\'\n            }, {\n                value: 9,\n                text: \'结束投放\',\n                icon: \'<i class=\\"mc-iconfont\\">&#xe682;</i>\',\n                color: \'#999999\'\n            }]';
     ;
-    $p += ($expr = '<%@[{            value: 1,            text: \'正在投放\',            icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',            color: \'#51a300\'        }, {            value: 9,            text: \'结束投放\',            icon: \'<i class=\\"mc-iconfont\\">&#xe682;</i>\',            color: \'#999999\'        }]%>', $i($$ref, [{ value: 1, text: '正在投放', icon: '<i class=\"mc-iconfont\">&#xe683;</i>', color: '#51a300' }, { value: 9, text: '结束投放', icon: '<i class=\"mc-iconfont\">&#xe682;</i>', color: '#999999' }])) + '&selected=9&readonly=true"></div></div><div mxa="_zs_gallerycj:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycj:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[{            value: 1,            text: \'正在投放\',            icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',            color: \'#51a300\'        }, {            value: 9,            text: \'结束投放\',            icon: \'<i class=\\"mc-iconfont\\">&#xe682;</i>\',            color: \'#999999\'        }]%>', $i($$ref, [{ value: 1, text: '正在投放', icon: '<i class=\"mc-iconfont\">&#xe683;</i>', color: '#51a300' }, { value: 9, text: '结束投放', icon: '<i class=\"mc-iconfont\">&#xe682;</i>', color: '#999999' }])) + '&selected=9&readonly=true"></div></div><div mxa="_zs_gallerycn:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycn:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 24;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycj:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycn:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 26;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycj:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycn:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 29;
     $art = '=viewId';
     ;

@@ -47,6 +47,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: 'text'
         }, {
+            key: 'sub-key',
+            desc: '子节点list的key值',
+            type: 'string',
+            def: 'subs'
+        }, {
             key: 'prefix',
             desc: '子节点文案前缀',
             type: 'string',

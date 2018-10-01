@@ -2,10 +2,14 @@
     <div class="eg-content">
         <mx-secradio 
             list="{{@list}}"
-            need-expand="false"/>
+            need-expand="false"
+            sub-key="list"
+            parent-text-key="name"
+            text-key="name"
+            value-key="id"/>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">不需要展开收起功能</div>
+        <div class="eg-title">不需要展开收起功能 + 自定义key和value</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
@@ -14,6 +18,10 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-secradio 
     list="&#123;&#123;@list&#125;&#125;"
-    need-expand="false"/&gt;</pre>
+    need-expand="false"
+    sub-key="list"
+    parent-text-key="name"
+    text-key="name"
+    value-key="id"/&gt;</pre>
     </div>
 </div>

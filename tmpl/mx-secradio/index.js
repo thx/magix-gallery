@@ -21,14 +21,15 @@ module.exports = Magix.View.extend({
 
         let parentTextKey = extra.parentTextKey || 'text',
             textKey = extra.textKey || 'text',
-            valueKey = extra.valueKey || 'value';
+            valueKey = extra.valueKey || 'value',
+            subKey = extra.subKey || 'subs';
 
         let list = [];
         (extra.list || []).forEach(origin => {
             let item  = {
                 close: close,
                 text: origin[parentTextKey],
-                subs: origin.subs.map(sub => {
+                subs: origin[subKey].map(sub => {
                     return {
                         text: sub[textKey],
                         value: sub[valueKey]

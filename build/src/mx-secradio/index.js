@@ -27,7 +27,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (needExpand) {%>';
     if (needExpand) {
         ;
-        $p += '<div mxa="_zs_galleryb.:_" class="_zs_gallery_mx-secradio_index_-line _zs_gallery_mx-secradio_index_-all" mx-click="' + $viewId + '@{toggleAll}()">一键';
+        $p += '<div mxa="_zs_galleryb/:_" class="_zs_gallery_mx-secradio_index_-line _zs_gallery_mx-secradio_index_-all" mx-click="' + $viewId + '@{toggleAll}()">一键';
         $line = 3;
         $art = 'if close';
         ;
@@ -94,10 +94,10 @@ module.exports = Magix.View.extend({
     $line = 7;
     $art = 'each list as item itemIndex';
     ;
-    $expr = '<%for (var itemIndex = 0, $art_cgzlsfi$art_c = list.length; itemIndex < $art_cgzlsfi$art_c; itemIndex++) {    var item = list[itemIndex]%>';
-    for (var itemIndex = 0, $art_cgzlsfi$art_c = list.length; itemIndex < $art_cgzlsfi$art_c; itemIndex++) {
+    $expr = '<%for (var itemIndex = 0, $art_cfuxoguqmyq$art_c = list.length; itemIndex < $art_cfuxoguqmyq$art_c; itemIndex++) {    var item = list[itemIndex]%>';
+    for (var itemIndex = 0, $art_cfuxoguqmyq$art_c = list.length; itemIndex < $art_cfuxoguqmyq$art_c; itemIndex++) {
         var item = list[itemIndex];
-        $p += '<div mxa="_zs_galleryb.:b" class="_zs_gallery_mx-secradio_index_-line"><label mx-click="' + $viewId + '@{toggleOne}({index:';
+        $p += '<div mxa="_zs_galleryb/:a" class="_zs_gallery_mx-secradio_index_-line"><label mx-click="' + $viewId + '@{toggleOne}({index:';
         $line = 9;
         $art = '=itemIndex';
         ;
@@ -108,7 +108,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (needExpand) {%>';
         if (needExpand) {
             ;
-            $p += '<i mxa="_zs_galleryb.:d" class="mc-iconfont _zs_gallery_mx-secradio_index_-oper">';
+            $p += '<i mxa="_zs_galleryb/:b" class="mc-iconfont _zs_gallery_mx-secradio_index_-oper">';
             $line = 12;
             $art = 'if item.close';
             ;
@@ -163,9 +163,9 @@ module.exports = Magix.View.extend({
         $line = 21;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_irzkcucwqh$art_i = 0, $art_objhncsih$art_obj = item.subs, $art_ccstiaesd$art_c = $art_objhncsih$art_obj.length; $art_irzkcucwqh$art_i < $art_ccstiaesd$art_c; $art_irzkcucwqh$art_i++) {        var sub = $art_objhncsih$art_obj[$art_irzkcucwqh$art_i]%>';
-        for (var $art_irzkcucwqh$art_i = 0, $art_objhncsih$art_obj = item.subs, $art_ccstiaesd$art_c = $art_objhncsih$art_obj.length; $art_irzkcucwqh$art_i < $art_ccstiaesd$art_c; $art_irzkcucwqh$art_i++) {
-            var sub = $art_objhncsih$art_obj[$art_irzkcucwqh$art_i];
+        $expr = '<%for (var $art_ivsuxgjsi$art_i = 0, $art_objmlunicfkl$art_obj = item.subs, $art_ceedlhla$art_c = $art_objmlunicfkl$art_obj.length; $art_ivsuxgjsi$art_i < $art_ceedlhla$art_c; $art_ivsuxgjsi$art_i++) {        var sub = $art_objmlunicfkl$art_obj[$art_ivsuxgjsi$art_i]%>';
+        for (var $art_ivsuxgjsi$art_i = 0, $art_objmlunicfkl$art_obj = item.subs, $art_ceedlhla$art_c = $art_objmlunicfkl$art_obj.length; $art_ivsuxgjsi$art_i < $art_ceedlhla$art_c; $art_ivsuxgjsi$art_i++) {
+            var sub = $art_objmlunicfkl$art_obj[$art_ivsuxgjsi$art_i];
             $p += '<div mxv class="_zs_gallery_mx-secradio_index_-line _zs_gallery_mx-secradio_index_-sub ';
             $line = 22;
             $art = 'if item.close';
@@ -266,13 +266,13 @@ catch (ex) {
         if (!needExpand) {
             close = false;
         }
-        var parentTextKey = extra.parentTextKey || 'text', textKey = extra.textKey || 'text', valueKey = extra.valueKey || 'value';
+        var parentTextKey = extra.parentTextKey || 'text', textKey = extra.textKey || 'text', valueKey = extra.valueKey || 'value', subKey = extra.subKey || 'subs';
         var list = [];
         (extra.list || []).forEach(function (origin) {
             var item = {
                 close: close,
                 text: origin[parentTextKey],
-                subs: origin.subs.map(function (sub) {
+                subs: origin[subKey].map(function (sub) {
                     return {
                         text: sub[textKey],
                         value: sub[valueKey]
