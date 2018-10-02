@@ -32,7 +32,7 @@ module.exports = Base.extend({
     $line = 4;
     $art = '@list';
     ;
-    $p += ($expr = '<%@list%>', $i($$ref, list)) + '&needExpand=false&subKey=list&parentTextKey=name&textKey=name&valueKey=id"></div></div><div mxa="_zs_galleryb.:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryb.:b" class="_zs_gallery___test___layout_-eg-title">不需要展开收起功能 + 自定义key和value</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@list%>', $i($$ref, list)) + '&needExpand=false&subKey=list&parentTextKey=name&textKey=name&valueKey=id"></div></div><div mxa="_zs_galleryb.:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryb.:_" class="_zs_gallery___test___layout_-eg-title">不需要展开收起功能 + 自定义key和value</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 13;
     $art = '=viewId';
     ;

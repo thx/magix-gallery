@@ -173,8 +173,8 @@ module.exports = Magix.View.extend({
         $line = 30;
         $art = 'each groups as group groupIndex';
         ;
-        $expr = '<%for (var groupIndex = 0, $art_cqdwrjv$art_c = groups.length; groupIndex < $art_cqdwrjv$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
-        for (var groupIndex = 0, $art_cqdwrjv$art_c = groups.length; groupIndex < $art_cqdwrjv$art_c; groupIndex++) {
+        $expr = '<%for (var groupIndex = 0, $art_cyjnladm$art_c = groups.length; groupIndex < $art_cyjnladm$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
+        for (var groupIndex = 0, $art_cyjnladm$art_c = groups.length; groupIndex < $art_cyjnladm$art_c; groupIndex++) {
             var group = groups[groupIndex];
             $p += ' ';
             $line = 31;
@@ -270,9 +270,9 @@ module.exports = Magix.View.extend({
             $line = 48;
             $art = 'each group.list as item';
             ;
-            $expr = '<%for (var $art_isaanzxt$art_i = 0, $art_objotbissmq$art_obj = group.list, $art_cyvtqsdl$art_c = $art_objotbissmq$art_obj.length; $art_isaanzxt$art_i < $art_cyvtqsdl$art_c; $art_isaanzxt$art_i++) {            var item = $art_objotbissmq$art_obj[$art_isaanzxt$art_i]%>';
-            for (var $art_isaanzxt$art_i = 0, $art_objotbissmq$art_obj = group.list, $art_cyvtqsdl$art_c = $art_objotbissmq$art_obj.length; $art_isaanzxt$art_i < $art_cyvtqsdl$art_c; $art_isaanzxt$art_i++) {
-                var item = $art_objotbissmq$art_obj[$art_isaanzxt$art_i];
+            $expr = '<%for (var $art_ikjpyqtbil$art_i = 0, $art_objdhjzhehg$art_obj = group.list, $art_cjavjajypzr$art_c = $art_objdhjzhehg$art_obj.length; $art_ikjpyqtbil$art_i < $art_cjavjajypzr$art_c; $art_ikjpyqtbil$art_i++) {            var item = $art_objdhjzhehg$art_obj[$art_ikjpyqtbil$art_i]%>';
+            for (var $art_ikjpyqtbil$art_i = 0, $art_objdhjzhehg$art_obj = group.list, $art_cjavjajypzr$art_c = $art_objdhjzhehg$art_obj.length; $art_ikjpyqtbil$art_i < $art_cjavjajypzr$art_c; $art_ikjpyqtbil$art_i++) {
+                var item = $art_objdhjzhehg$art_obj[$art_ikjpyqtbil$art_i];
                 $p += ' ';
                 $line = 49;
                 $art = 'if !item.hide';

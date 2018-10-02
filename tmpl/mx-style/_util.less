@@ -55,6 +55,15 @@
 }
 .max-width-loop(1000);
 
+.max-height-loop(@n, @i:100) when (@i <= @n) {
+    .max-height-@{i}{
+        max-height: unit(@i, px);
+    }
+
+    .max-height-loop(@n, (@i + 100));
+}
+.max-height-loop(1000);
+
 /*常用间距*/
 .margin-loop(@n, @i:5) when (@i <= @n) {
     .mt@{i}{

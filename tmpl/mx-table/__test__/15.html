@@ -5,10 +5,7 @@
             实时反馈当前选中项
         </div>
         <div class="mb20">
-            <a href="javascript:;" mx-click="get()" class="btn btn-brand mr20">获取选中值</a>
-            {{if (selected.length > 0)}}
             <span class="color-9">当前选中：</span>{{=selected}}
-            {{/if}}
         </div>
         <mx-table sticky="true">
             <table class="table">
@@ -56,10 +53,7 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;div class="mb20"&gt;
-    &lt;a href="javascript:;" mx-click="get()" class="btn btn-brand mr20"&gt;获取选中值&lt;/a&gt;
-    &#123;&#123;if (selected.length &gt; 0)&#125;&#125;
     &lt;span class="color-9"&gt;当前选中：&lt;/span&gt;&#123;&#123;=selected&#125;&#125;
-    &#123;&#123;/if&#125;&#125;
 &lt;/div&gt;
 &lt;mx-table sticky="true"&gt;
     &lt;table class="table"&gt;
