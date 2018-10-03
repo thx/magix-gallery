@@ -123,6 +123,7 @@ let Rangepicker = Magix.View.extend({
             dateType,
             formatter,
             quickDates,
+            quickGap: extra.quickGap,
             align: extra.align,
             vsEnable,
             vs,

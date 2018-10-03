@@ -36,7 +36,7 @@ var RangeDate = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', timeType = $$.timeType, inlay = $$.inlay, title = $$.title, vsEnable = $$.vsEnable, vs = $$.vs, startDisabled = $$.startDisabled, dates = $$.dates, min = $$.min, endDisabled = $$.endDisabled, max = $$.max, disabledWeeks = $$.disabledWeeks, dateType = $$.dateType, vsSingle = $$.vsSingle, endMinFn = $$.endMinFn, align = $$.align, quickInfos = $$.quickInfos, quickTip = $$.quickTip, submitText = $$.submitText, cancelText = $$.cancelText; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', timeType = $$.timeType, inlay = $$.inlay, title = $$.title, vsEnable = $$.vsEnable, vs = $$.vs, startDisabled = $$.startDisabled, dates = $$.dates, min = $$.min, endDisabled = $$.endDisabled, max = $$.max, disabledWeeks = $$.disabledWeeks, dateType = $$.dateType, vsSingle = $$.vsSingle, endMinFn = $$.endMinFn, align = $$.align, quickInfos = $$.quickInfos, quickGap = $$.quickGap, quickTip = $$.quickTip, submitText = $$.submitText, cancelText = $$.cancelText; var $expr, $art, $line; try {
     $p += '<div mxv class="_zs_gallery_mx-calendar_range_-wrapper ';
     $line = 1;
     $art = 'if timeType';
@@ -228,10 +228,10 @@ var RangeDate = Magix.View.extend({
         ;
         $p += '<div class="_zs_gallery_mx-calendar_range_-shortcuts ';
         $line = 45;
-        $art = 'if quickInfos.length > 7';
+        $art = 'if quickInfos.length > quickGap';
         ;
-        $expr = '<%if (quickInfos.length > 7) {%>';
-        if (quickInfos.length > 7) {
+        $expr = '<%if (quickInfos.length > quickGap) {%>';
+        if (quickInfos.length > quickGap) {
             ;
             $p += '_zs_gallery_mx-calendar_range_-shortcuts-small';
             $line = 45;
@@ -248,9 +248,9 @@ var RangeDate = Magix.View.extend({
         $line = 48;
         $art = 'each quickInfos as info';
         ;
-        $expr = '<%for (var $art_itdkaswrdbh$art_i = 0, $art_cdqzfbsqyu$art_c = quickInfos.length; $art_itdkaswrdbh$art_i < $art_cdqzfbsqyu$art_c; $art_itdkaswrdbh$art_i++) {        var info = quickInfos[$art_itdkaswrdbh$art_i]%>';
-        for (var $art_itdkaswrdbh$art_i = 0, $art_cdqzfbsqyu$art_c = quickInfos.length; $art_itdkaswrdbh$art_i < $art_cdqzfbsqyu$art_c; $art_itdkaswrdbh$art_i++) {
-            var info = quickInfos[$art_itdkaswrdbh$art_i];
+        $expr = '<%for (var $art_iitcvebplo$art_i = 0, $art_cnbiacp$art_c = quickInfos.length; $art_iitcvebplo$art_i < $art_cnbiacp$art_c; $art_iitcvebplo$art_i++) {        var info = quickInfos[$art_iitcvebplo$art_i]%>';
+        for (var $art_iitcvebplo$art_i = 0, $art_cnbiacp$art_c = quickInfos.length; $art_iitcvebplo$art_i < $art_cnbiacp$art_c; $art_iitcvebplo$art_i++) {
+            var info = quickInfos[$art_iitcvebplo$art_i];
             $p += '<span class="_zs_gallery_mx-calendar_range_-st ';
             $line = 49;
             $art = 'if (dates.quickDateKey==info.key)';
@@ -346,6 +346,7 @@ catch (ex) {
             }
         }
         ops.quickInfos = quickInfos;
+        ops.quickGap = ops.quickGap || 7;
         ops.quickTip = I18n['calendar.quick'];
         ops.submitText = I18n['dialog.submit'];
         ops.cancelText = I18n['dialog.cancel'];

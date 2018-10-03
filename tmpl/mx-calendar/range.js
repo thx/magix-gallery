@@ -60,6 +60,7 @@ let RangeDate = Magix.View.extend({
             }
         }
         ops.quickInfos = quickInfos;
+        ops.quickGap = ops.quickGap || 7;
         ops.quickTip = I18n['calendar.quick'];
 
         ops.submitText = I18n['dialog.submit'];

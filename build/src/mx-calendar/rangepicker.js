@@ -229,6 +229,7 @@ catch (ex) {
             dateType: dateType,
             formatter: formatter,
             quickDates: quickDates,
+            quickGap: extra.quickGap,
             align: extra.align,
             vsEnable: vsEnable,
             vs: vs,

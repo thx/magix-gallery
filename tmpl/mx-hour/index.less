@@ -1,0 +1,183 @@
+@import "../mx-style/_vars";
+
+@hour-height: 36px;
+.opers{
+    padding-left: 1%;
+}
+.btn-clear{
+    width: 10%;
+}
+.period {
+    .hours {
+        padding-top: 40px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid @color-border;
+
+        .all, .hour {
+            float: left;
+            height: @hour-height;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        .all {
+            position: relative;
+            width: 10%;
+            margin-right: 3%;
+            margin-left: 1%;
+            border-radius: 4px;
+            color: #333;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+
+            .all-tip{
+                position: absolute;
+                top: -18px;
+                width: 100%;
+                height: 18px;
+                line-height: 18px;
+                right: 0;
+                text-align: center;
+                color: #999;
+            }
+
+            .all-btn{
+                width: 100%;
+                margin-top: 8px;
+                padding: 0;
+            }
+
+        }
+
+        .hour {
+            position: relative;
+            width: 3.5%;
+            color: #999;
+            line-height: 20px;
+            font-weight: bold;
+            font-family: "Tahoma";
+
+            &.hour-last {
+                width: 2%;
+            }
+
+            .hour-inner {
+                position: relative;
+                height: @hour-height;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: -16px;
+                    left: 0;
+                    width: 100%;
+                    height: 16px;
+                    background-color: transparent;
+                }
+
+            }
+
+            .hour-line {
+                position: absolute;
+                top: 13px;
+                left: 0;
+                width: 0;
+                height: 10px;
+                border-left: 1px solid @color-border;
+
+                .hour-info {
+                    position: absolute;
+                    top: -31px;
+                    left: 50%;
+                    width: 40px;
+                    margin-left: -20px;
+                    color: #ccc;
+                }
+
+            }
+
+            &.milestone {
+                .hour-line {
+                    height: 16px;
+                }
+
+            }
+
+            &.selected {
+                .hour-inner {
+                    background-color: @color-brand-opacity;
+
+                    &:before {
+                        background-color: @color-brand;
+                    }
+
+                }
+
+                .hour-line {
+                    border-left: 1px solid @color-brand-light;
+
+                    .hour-info {
+                        color: #fff;
+                    }
+
+                }
+
+            }
+
+            .line-start, .line-end {
+                position: absolute;
+                top: 0;
+                width: 0;
+                height: @hour-height;
+                border-left: 1px solid @color-brand;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: -3px;
+                    width: 0;
+                    height: 0;
+                    border-left: 4px solid transparent;
+                    border-right: 4px solid transparent;
+                    border-top: 4px solid @color-brand;
+                }
+
+                .line-info {
+                    position: absolute;
+                    top: -16px;
+                    left: -10px;
+                    width: 20px;
+                    height: 16px;
+                    background-color: @color-brand;
+                    color: #fff;
+                    text-align: center;
+                    line-height: 16px;
+                    border-radius: 2px;
+                }
+
+            }
+
+            .line-start {
+                left: 0;
+            }
+
+            .line-end {
+                right: -1px;
+            }
+
+        }
+
+    }
+
+}
+
+.opers-wrapper{
+    margin-right: 2%;
+    margin-left: 1%;
+    padding: 10px 0;
+    color: #999;
+}
