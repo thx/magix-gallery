@@ -27,48 +27,48 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', cur = $$.cur, list = $$.list, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryci:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryci:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_galleryci:b" class="mb20"><span mxs="_zs_galleryci:_"><span class="color-9">以下示例：</span>当前选中项排在第一个</span><span mxa="_zs_galleryci:c" class="ml40"><span mxs="_zs_galleryci:a" class="color-9">当前选中项：</span>';
-    $line = 10;
+} ; var $g = '', $_temp, $p = '', cur = $$.cur, opers = $$.opers, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryci:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryci:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryci:f" class="mb20 clearfix"><div class="fl color-9">以下示例：</div><div class="fl"><div>纯操作项，hover显示操作项</div><div>当前选中项排在第一个</div></div></div><div mxv><span mxa="_zs_galleryci:d" class="mr40"><span mxs="_zs_galleryci:a" class="color-9">当前选中项：</span>';
+    $line = 13;
     $art = '=cur.text';
     ;
     $p += ($expr = '<%=cur.text%>', $e(cur.text)) + '（';
-    $line = 10;
+    $line = 13;
     $art = '=cur.value';
     ;
-    $p += ($expr = '<%=cur.value%>', $e(cur.value)) + '）</span></div><div mxv="list" mx-change="' + $viewId + 'change()" mx-view="mx-status/index?list=';
-    $line = 14;
-    $art = '@list';
+    $p += ($expr = '<%=cur.value%>', $e(cur.value)) + '）</span><div mxv="opers" mx-change="' + $viewId + 'change()" mx-view="mx-status/index?opers=';
+    $line = 16;
+    $art = '@opers';
     ;
-    $p += ($expr = '<%@list%>', $i($$ref, list)) + '&selected=';
-    $line = 15;
+    $p += ($expr = '<%@opers%>', $i($$ref, opers)) + '&selected=';
+    $line = 17;
     $art = '=cur.value';
     ;
-    $p += ($expr = '<%!$eu(cur.value)%>', $eu(cur.value)) + '"></div></div><div mxa="_zs_galleryci:d" class="clearfix"><div mxa="_zs_galleryci:e" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third1"><div mxs="_zs_galleryci:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 21;
+    $p += ($expr = '<%!$eu(cur.value)%>', $eu(cur.value)) + '"></div></div></div><div mxa="_zs_galleryci:i" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryci:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 23;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryci:f" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 23;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryci:k" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 25;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryci:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 26;
+    $line = 28;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-status \n    list="&#123;&#123;@list&#125;&#125;" \n    selected="&#123;&#123;=cur.value&#125;&#125;"\n    mx-change="change()"/&gt;</pre></div><div mxa="_zs_galleryci:g" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryci:d" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 34;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryci:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-status \n    opers="&#123;&#123;@opers&#125;&#125;" \n    selected="&#123;&#123;=cur.value&#125;&#125;"\n    mx-change="change()"/&gt;</pre></div><div mxa="_zs_galleryci:l" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryci:d" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 36;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryci:m" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 38;
     $art = '!text2';
     ;
     $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryci:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 39;
+    $line = 41;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let list = [&#123;\n            value: 0,\n            text: \'暂停投放\',\n            icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe67f;&lt;/i&gt;\',\n            color: \'#a40100\'\n        &#125;, &#123;\n            value: 1,\n            text: \'正在投放\',\n            icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe683;&lt;/i&gt;\',\n            color: \'#51a300\'\n        &#125;, &#123;\n            value: 9,\n            text: \'结束投放\',\n            icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe682;&lt;/i&gt;\',\n            color: \'#999999\'\n        &#125;]\n\n        this.updater.digest(&#123;\n            list,\n            cur: list[1]\n        &#125;);\n    &#125;,\n    \'change&lt;change&gt;\'(e)&#123;\n        // e.status 完整的对象\n        //      value\n        //      text\n        this.updater.digest(&#123;\n            cur: e.status\n        &#125;);\n    &#125;\n&#125;);</pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let opers = [&#123;\n            value: 0,\n            text: \'暂停投放\',\n            icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe67f;&lt;/i&gt;\',\n            color: \'#a40100\'\n        &#125;, &#123;\n            value: 1,\n            text: \'正在投放\',\n            icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe683;&lt;/i&gt;\',\n            color: \'#51a300\'\n        &#125;, &#123;\n            value: 9,\n            text: \'结束投放\',\n            icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe682;&lt;/i&gt;\',\n            color: \'#999999\'\n        &#125;]\n\n        this.updater.digest(&#123;\n            opers,\n            cur: opers[1]\n        &#125;);\n    &#125;,\n    \'change&lt;change&gt;\'(e)&#123;\n        // e.status 完整的对象\n        //      value\n        //      text\n        this.updater.digest(&#123;\n            cur: e.status\n        &#125;);\n    &#125;\n&#125;);</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -79,7 +79,7 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
-        var list = [{
+        var opers = [{
                 value: 0,
                 text: '暂停投放',
                 icon: '<i class="mc-iconfont">&#xe67f;</i>',
@@ -96,8 +96,8 @@ catch (ex) {
                 color: '#999999'
             }];
         this.updater.digest({
-            list: list,
-            cur: list[1]
+            opers: opers,
+            cur: opers[1]
         });
     },
     'change<change>': function (e) {

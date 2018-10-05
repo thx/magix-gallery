@@ -5,7 +5,7 @@ let $ = require('$');
 module.exports = Base.extend({
     tmpl: '@1.html',
     render() {
-        let list = [{
+        let opers = [{
             value: 0,
             text: '暂停投放',
             icon: '<i class="mc-iconfont">&#xe67f;</i>',
@@ -23,8 +23,8 @@ module.exports = Base.extend({
         }]
 
         this.updater.digest({
-            list,
-            cur: list[1]
+            opers,
+            cur: opers[1]
         });
     },
     'change<change>'(e){

@@ -2,27 +2,34 @@ let Magix = require('magix');
 
 module.exports = Magix.View.extend({
     init(e) {
-        let list = e.list || [];
-        let selected = e.selected || list[0].value;
+        let opers = e.opers || [];
+        let selected = e.selected || (opers[0] || '').value;
 
         // 当前项在最前面
         let cur = {};
-        for (var i = 0; i < list.length; i++) {
-            if (list[i].value == selected) {
-                cur = list[i];
-                list.splice(i, 1);
-                break;
+        if(opers.length > 0){
+            for (var i = 0; i < opers.length; i++) {
+                if (opers[i].value == selected) {
+                    cur = opers[i];
+                    opers.splice(i, 1);
+                    break;
+                }
             }
+            opers.unshift(cur);
         }
-        list.unshift(cur);
 
-        // 只有一条数据时也是只读
-        let readonly = (e.readonly + '' === 'true') || (list.length == 1);
-
+        // 提示信息
+        let info = e.info || {};
+        let showInfo = false;
+        if(!$.isEmptyObject(info)){
+            showInfo = true;
+        }
+        
         this.updater.set({
-            list,
+            info,
+            opers,
             cur,
-            readonly,
+            showInfo,
             show: false
         })
     },

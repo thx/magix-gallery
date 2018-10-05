@@ -47,9 +47,9 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_ikukbghd$art_i = 0, $art_cvmgmhxyw$art_c = stepInfos.length; $art_ikukbghd$art_i < $art_cvmgmhxyw$art_c; $art_ikukbghd$art_i++) {    var step = stepInfos[$art_ikukbghd$art_i]%>';
-    for (var $art_ikukbghd$art_i = 0, $art_cvmgmhxyw$art_c = stepInfos.length; $art_ikukbghd$art_i < $art_cvmgmhxyw$art_c; $art_ikukbghd$art_i++) {
-        var step = stepInfos[$art_ikukbghd$art_i];
+    $expr = '<%for (var $art_izfcvoautubj$art_i = 0, $art_cphqgkblgp$art_c = stepInfos.length; $art_izfcvoautubj$art_i < $art_cphqgkblgp$art_c; $art_izfcvoautubj$art_i++) {    var step = stepInfos[$art_izfcvoautubj$art_i]%>';
+    for (var $art_izfcvoautubj$art_i = 0, $art_cphqgkblgp$art_c = stepInfos.length; $art_izfcvoautubj$art_i < $art_cphqgkblgp$art_c; $art_izfcvoautubj$art_i++) {
+        var step = stepInfos[$art_izfcvoautubj$art_i];
         $p += '<div class="_zs_gallery_mx-main_index_-main-step ';
         $line = 4;
         $art = 'if (step.index == curStepIndex)';
@@ -143,9 +143,9 @@ module.exports = Magix.View.extend({
             $line = 17;
             $art = 'each step.subs as sub';
             ;
-            $expr = '<%for (var $art_ibwerppd$art_i = 0, $art_objpqivhyy$art_obj = step.subs, $art_cvxcavazol$art_c = $art_objpqivhyy$art_obj.length; $art_ibwerppd$art_i < $art_cvxcavazol$art_c; $art_ibwerppd$art_i++) {            var sub = $art_objpqivhyy$art_obj[$art_ibwerppd$art_i]%>';
-            for (var $art_ibwerppd$art_i = 0, $art_objpqivhyy$art_obj = step.subs, $art_cvxcavazol$art_c = $art_objpqivhyy$art_obj.length; $art_ibwerppd$art_i < $art_cvxcavazol$art_c; $art_ibwerppd$art_i++) {
-                var sub = $art_objpqivhyy$art_obj[$art_ibwerppd$art_i];
+            $expr = '<%for (var $art_iscuzozte$art_i = 0, $art_objufqezml$art_obj = step.subs, $art_cnraswkjo$art_c = $art_objufqezml$art_obj.length; $art_iscuzozte$art_i < $art_cnraswkjo$art_c; $art_iscuzozte$art_i++) {            var sub = $art_objufqezml$art_obj[$art_iscuzozte$art_i]%>';
+            for (var $art_iscuzozte$art_i = 0, $art_objufqezml$art_obj = step.subs, $art_cnraswkjo$art_c = $art_objufqezml$art_obj.length; $art_iscuzozte$art_i < $art_cnraswkjo$art_c; $art_iscuzozte$art_i++) {
+                var sub = $art_objufqezml$art_obj[$art_iscuzozte$art_i];
                 $p += '<div mxa="_zs_gallerybH:c" class="_zs_gallery_mx-main_index_-step-sub"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link ';
                 $line = 19;
                 $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))';
@@ -237,9 +237,9 @@ module.exports = Magix.View.extend({
     $line = 42;
     $art = 'each curStepInfo.subs as sub';
     ;
-    $expr = '<%for (var $art_inmdpsp$art_i = 0, $art_objmqqvrpwxg$art_obj = curStepInfo.subs, $art_cbympfyzq$art_c = $art_objmqqvrpwxg$art_obj.length; $art_inmdpsp$art_i < $art_cbympfyzq$art_c; $art_inmdpsp$art_i++) {    var sub = $art_objmqqvrpwxg$art_obj[$art_inmdpsp$art_i]%>';
-    for (var $art_inmdpsp$art_i = 0, $art_objmqqvrpwxg$art_obj = curStepInfo.subs, $art_cbympfyzq$art_c = $art_objmqqvrpwxg$art_obj.length; $art_inmdpsp$art_i < $art_cbympfyzq$art_c; $art_inmdpsp$art_i++) {
-        var sub = $art_objmqqvrpwxg$art_obj[$art_inmdpsp$art_i];
+    $expr = '<%for (var $art_ikusovkhb$art_i = 0, $art_objyzrondd$art_obj = curStepInfo.subs, $art_cozlkakjm$art_c = $art_objyzrondd$art_obj.length; $art_ikusovkhb$art_i < $art_cozlkakjm$art_c; $art_ikusovkhb$art_i++) {    var sub = $art_objyzrondd$art_obj[$art_ikusovkhb$art_i]%>';
+    for (var $art_ikusovkhb$art_i = 0, $art_objyzrondd$art_obj = curStepInfo.subs, $art_cozlkakjm$art_c = $art_objyzrondd$art_obj.length; $art_ikusovkhb$art_i < $art_cozlkakjm$art_c; $art_ikusovkhb$art_i++) {
+        var sub = $art_objyzrondd$art_obj[$art_ikusovkhb$art_i];
         $p += '<div mxv class="_zs_gallery_mx-main_index_-content-box" style="padding-right: ';
         $line = 44;
         $art = '=(curStepInfo.rightWidth + 20)';

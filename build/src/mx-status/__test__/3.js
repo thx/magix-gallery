@@ -28,23 +28,27 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryck:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryck:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryck:_" class="mb20 lh22 clearfix"><div class="fl color-9">以下示例：</div><div class="fl"><div>有多个可选项，配置成只读，依然显示为只读</div><div>可配置额外的说明文案</div></div></div><div mx-view="mx-status/index?list=';
+    $p += '<div mxa="_zs_galleryck:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryck:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryck:c" class="mb20 lh22 clearfix"><div class="fl color-9">以下示例：</div><div class="fl"><div>额外的提示信息 + 可操作项</div><div>当有额外提示信息是，优先显示额外提示信息</div></div></div><div mx-view="mx-status/index?info=';
     $line = 11;
-    $art = '@[{\n                value: 1,\n                text: \'正在投放\',\n                icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',\n                tip: \'当前正在投放中\'\n                color: \'#51a300\'\n            }, {\n                value: 9,\n                text: \'结束投放\',\n                icon: \'<i class=\\"mc-iconfont\\">&#xe682;</i>\',\n                color: \'#999999\'\n            }]';
+    $art = '@{\n                value: -99,\n                text: \'故障\',\n                icon: \'<i class=\\"mc-iconfont\\">&#xe67f;</i>\',\n                color: \'#a40100\'\n            }';
     ;
-    $p += ($expr = '<%@[{            value: 1,            text: \'正在投放\',            icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',            tip: \'当前正在投放中\',            color: \'#51a300\'        }, {            value: 9,            text: \'结束投放\',            icon: \'<i class=\\"mc-iconfont\\">&#xe682;</i>\',            color: \'#999999\'        }]%>', $i($$ref, [{ value: 1, text: '正在投放', icon: '<i class=\"mc-iconfont\">&#xe683;</i>', tip: '当前正在投放中', color: '#51a300' }, { value: 9, text: '结束投放', icon: '<i class=\"mc-iconfont\">&#xe682;</i>', color: '#999999' }])) + '&selected=9&readonly=true"></div></div><div mxa="_zs_galleryck:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryck:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 28;
+    $p += ($expr = '<%@{        value: -99,        text: \'故障\',        icon: \'<i class=\\"mc-iconfont\\">&#xe67f;</i>\',        color: \'#a40100\'    }%>', $i($$ref, { value: -99, text: '故障', icon: '<i class=\"mc-iconfont\">&#xe67f;</i>', color: '#a40100' })) + '&opers=';
+    $line = 17;
+    $art = '@[{\n                value: 1,\n                text: \'正在投放\',\n                icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',\n                color: \'#51a300\'\n            }, {\n                value: 9,\n                text: \'结束投放\',\n                icon: \'<i class=\\"mc-iconfont\\">&#xe682;</i>\',\n                color: \'#999999\'\n            }]';
+    ;
+    $p += ($expr = '<%@[{            value: 1,            text: \'正在投放\',            icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',            color: \'#51a300\'        }, {            value: 9,            text: \'结束投放\',            icon: \'<i class=\\"mc-iconfont\\">&#xe682;</i>\',            color: \'#999999\'        }]%>', $i($$ref, [{ value: 1, text: '正在投放', icon: '<i class=\"mc-iconfont\">&#xe683;</i>', color: '#51a300' }, { value: 9, text: '结束投放', icon: '<i class=\"mc-iconfont\">&#xe682;</i>', color: '#999999' }])) + '&selected=9"></div></div><div mxa="_zs_galleryck:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryck:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 32;
     $art = '=viewId';
     ;
     $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryck:c" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 30;
+    $line = 34;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryck:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 33;
+    $line = 37;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-status \n    list="&#123;&#123;@[&#123;\n        value: 1,\n        text: \'正在投放\',\n        icon: \'&lt;i class=\\"mc-iconfont\\"&gt;&#38;&#35;xe683;&lt;/i&gt;\',\n        tip: \'当前正在投放中\'\n        color: \'#51a300\'\n    &#125;, &#123;\n        value: 9,\n        text: \'结束投放\',\n        icon: \'&lt;i class=\\"mc-iconfont\\"&gt;&#38;&#35;xe682;&lt;/i&gt;\',\n        color: \'#999999\'\n    &#125;]&#125;&#125;"\n    selected="9"\n    readonly="true"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-status \n    info="&#123;&#123;@&#123;\n        value: -99,\n        text: \'故障\',\n        icon: \'&lt;i class=\\"mc-iconfont\\"&gt;&#38;&#35;xe67f;&lt;/i&gt;\',\n        color: \'#a40100\'\n    &#125;&#125;&#125;"\n    opers="&#123;&#123;@[&#123;\n        value: 1,\n        text: \'正在投放\',\n        icon: \'&lt;i class=\\"mc-iconfont\\"&gt;&#38;&#35;xe683;&lt;/i&gt;\',\n        color: \'#51a300\'\n    &#125;, &#123;\n        value: 9,\n        text: \'结束投放\',\n        icon: \'&lt;i class=\\"mc-iconfont\\"&gt;&#38;&#35;xe682;&lt;/i&gt;\',\n        color: \'#999999\'\n    &#125;]&#125;&#125;"\n    selected="9"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

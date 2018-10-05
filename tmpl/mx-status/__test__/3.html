@@ -3,16 +3,21 @@
         <div class="mb20 lh22 clearfix">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>有多个可选项，配置成只读，依然显示为只读</div>
-                <div>可配置额外的说明文案</div>
+                <div>额外的提示信息 + 可操作项</div>
+                <div>当有额外提示信息是，优先显示额外提示信息</div>
             </div>
         </div>
         <mx-status 
-            list="{{@[{
+            info="{{@{
+                value: -99,
+                text: '故障',
+                icon: '<i class=\"mc-iconfont\">&#xe67f;</i>',
+                color: '#a40100'
+            }}}"
+            opers="{{@[{
                 value: 1,
                 text: '正在投放',
                 icon: '<i class=\"mc-iconfont\">&#xe683;</i>',
-                tip: '当前正在投放中'
                 color: '#51a300'
             }, {
                 value: 9,
@@ -20,8 +25,7 @@
                 icon: '<i class=\"mc-iconfont\">&#xe682;</i>',
                 color: '#999999'
             }]}}"
-            selected="9"
-            readonly="true"/>
+            selected="9"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -32,11 +36,16 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-status 
-    list="&#123;&#123;@[&#123;
+    info="&#123;&#123;@&#123;
+        value: -99,
+        text: '故障',
+        icon: '&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe67f;&lt;/i&gt;',
+        color: '#a40100'
+    &#125;&#125;&#125;"
+    opers="&#123;&#123;@[&#123;
         value: 1,
         text: '正在投放',
         icon: '&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe683;&lt;/i&gt;',
-        tip: '当前正在投放中'
         color: '#51a300'
     &#125;, &#123;
         value: 9,
@@ -44,7 +53,6 @@
         icon: '&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe682;&lt;/i&gt;',
         color: '#999999'
     &#125;]&#125;&#125;"
-    selected="9"
-    readonly="true"/&gt;</pre>
+    selected="9"/&gt;</pre>
     </div>
 </div>

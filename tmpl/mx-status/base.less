@@ -45,7 +45,7 @@
                 line-height: @status-line-height;
             }
             &:hover {
-                background-color: #fafafa;
+                background-color: @color-bg;
             }
             &.status-oper-cur {
                 cursor: default;
@@ -108,5 +108,10 @@
             color: #ccc;
             font-size: 20px;
         }
+    }
+
+    .status-line{
+        height: 0;
+        border-top: 1px solid @color-border;
     }
 }

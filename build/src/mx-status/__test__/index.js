@@ -3,12 +3,12 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-status/__test__/index",["magix","$","mx-title/second","./1","./2","./3","./desc"],(require,exports,module)=>{
+define("mx-status/__test__/index",["magix","$","mx-title/second","./1","./3","./2","./desc"],(require,exports,module)=>{
 /*Magix,$*/
 require("mx-title/second");
 require("./1");
-require("./2");
 require("./3");
+require("./2");
 require("./desc");
 var Magix = require("magix");
 var $ = require("$");
@@ -25,7 +25,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerycq:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerycq:a" class="clearfix mb20"><div mx-view="mx-status/__test__/1"></div><div class="clearfix"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-status/__test__/2"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-status/__test__/3"></div></div></div></div><div mxs="_zs_gallerycq:b" mx-view="mx-status/__test__/desc"></div>';
+    $p += '<div mxs="_zs_gallerycq:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerycq:e" class="clearfix mb20"><div class="clearfix"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-status/__test__/1"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-status/__test__/3"></div><div mx-view="mx-status/__test__/2"></div></div></div></div><div mxs="_zs_gallerycq:b" mx-view="mx-status/__test__/desc"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

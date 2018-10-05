@@ -42,20 +42,20 @@ catch (ex) {
 } return $p; },
     render: function () {
         var options = [{
-                key: 'list',
-                desc: "<pre>\u53EF\u9009\u72B6\u6001\u5217\u8868\uFF1A\n[{\n    value: '\u72B6\u6001\u503C',\n    text: '\u72B6\u6001\u6587\u6848',\n    icon: 'iconfont\u56FE\u6807\uFF0C\u5982&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe67f;&lt;/i&gt;',\n    color: '\u56FE\u6807\u663E\u793A\u989C\u8272',\n    tip: '\u72B6\u6001\u63D0\u793A\u6587\u6848'\n}]\n        \n\u5F53\u53EF\u9009\u5217\u8868\u53EA\u6709\u4E00\u4E2A\u65F6\u4E5F\u663E\u793A\u4E3A\u53EA\u8BFB\u72B6\u6001</pre>",
+                key: 'opers',
+                desc: "<pre>\u53EF\u9009\u64CD\u4F5C\u9879\u5217\u8868\uFF1A\n[{\n    value: '\u72B6\u6001\u503C',\n    text: '\u72B6\u6001\u6587\u6848',\n    icon: 'iconfont\u56FE\u6807\uFF0C\u5982&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe67f;&lt;/i&gt;',\n    color: '\u56FE\u6807\u663E\u793A\u989C\u8272'\n}]\n</pre>",
                 type: 'array',
                 def: '[]'
             }, {
                 key: 'selected',
-                desc: '当前选中值',
+                desc: '当前操作项选中值',
                 type: 'string',
-                def: 'list[0].value'
+                def: 'opers[0].value'
             }, {
-                key: 'readonly',
-                desc: '是否只读，状态显示',
-                type: 'boolean',
-                def: 'false'
+                key: 'info',
+                desc: "<pre>\u989D\u5916\u7684\u63D0\u793A\u4FE1\u606F\uFF1A\n{\n    value: '\u72B6\u6001\u503C',\n    text: '\u72B6\u6001\u6587\u6848',\n    icon: 'iconfont\u56FE\u6807\uFF0C\u5982&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe67f;&lt;/i&gt;',\n    color: '\u56FE\u6807\u663E\u793A\u989C\u8272',\n    tip: '\u63D0\u793A\u4FE1\u606F\u5185\u5BB9'\n}\n</pre>",
+                type: 'object',
+                def: '{}'
             }];
         this.updater.digest({
             options: options
