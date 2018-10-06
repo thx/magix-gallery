@@ -28,7 +28,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycm:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerycm:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerycm:c" class="mb20 lh22 clearfix"><div class="fl color-9">以下示例：</div><div class="fl">纯提示，无操作</div></div><div mx-view="mx-status/dropdown?info=';
+    $p += '<div mxa="_zs_gallerycm:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerycm:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerycm:_" class="mb20 lh22 clearfix"><div class="fl color-9">以下示例：</div><div class="fl">纯提示，无操作</div></div><div mx-view="mx-status/dropdown?info=';
     $line = 8;
     $art = '@{\n                value: 1,\n                text: \'正在投放\',\n                icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',\n                color: \'#51a300\'\n            }';
     ;

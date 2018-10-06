@@ -21,11 +21,11 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', path = $$.path; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydk:_" class="pt40 pl20"><div mxs="_zs_gallerydk:_" class="mb20">点击小象logo展开收起问答框</div><div mxa="_zs_gallerydk:a" class="mb20">当前：路径';
+    $p += '<div mxa="_zs_gallerydj:_" class="pt40 pl20"><div mxs="_zs_gallerydj:_" class="mb20">点击小象logo展开收起问答框</div><div mxa="_zs_gallerydj:a" class="mb20">当前：路径';
     $line = 3;
     $art = '=path';
     ;
-    $p += ($expr = '<%=path%>', $e(path)) + '</div><div mxs="_zs_gallerydk:a" class="mb20">路径1：<a class="color-brand" href="#!/wanxiang/demo1">跳转sourceId=432</a></div><div mxs="_zs_gallerydk:b" class="mb20">路径2：<a class="color-brand" href="#!/wanxiang/demo2">跳转sourceId=496</a>，跳转到该页面，问答列表刷新</div><div mxs="_zs_gallerydk:c" class="mb20">路径3：<a class="color-brand" href="#!/wanxiang/demo3">跳转sourceId=432</a></div></div>';
+    $p += ($expr = '<%=path%>', $e(path)) + '</div><div mxs="_zs_gallerydj:a" class="mb20">路径1：<a class="color-brand" href="#!/wanxiang/demo1">跳转sourceId=432</a></div><div mxs="_zs_gallerydj:b" class="mb20">路径2：<a class="color-brand" href="#!/wanxiang/demo2">跳转sourceId=496</a>，跳转到该页面，问答列表刷新</div><div mxs="_zs_gallerydj:c" class="mb20">路径3：<a class="color-brand" href="#!/wanxiang/demo3">跳转sourceId=432</a></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

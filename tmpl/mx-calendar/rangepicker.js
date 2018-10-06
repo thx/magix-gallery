@@ -140,6 +140,14 @@ let Rangepicker = Magix.View.extend({
             textAlign            
         });
 
+        // 双向绑定
+        that['@{owner.node}'] = $('#' + that.id);
+        that['@{owner.node}'].val(JSON.stringify({
+            start: dates.startStr,
+            end: dates.endStr,
+            vs: vs
+        }))
+
         if (!altered) {
             altered = that.updater.altered();
         }
@@ -152,9 +160,7 @@ let Rangepicker = Magix.View.extend({
     },
 
     render() {
-        let that = this;
-        that['@{fill.to.node}']();
-        that['@{owner.node}'] = $('#' + that.id);
+        this['@{fill.to.node}']();
     },
 
     '@{fill.to.node}'() {

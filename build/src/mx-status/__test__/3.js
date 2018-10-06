@@ -28,7 +28,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryck:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryck:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryck:c" class="mb20 lh22 clearfix"><div class="fl color-9">以下示例：</div><div class="fl"><div>额外的提示信息 + 可操作项</div><div>当有额外提示信息是，优先显示额外提示信息</div></div></div><div mx-view="mx-status/index?info=';
+    $p += '<div mxa="_zs_galleryck:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryck:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryck:_" class="mb20 lh22 clearfix"><div class="fl color-9">以下示例：</div><div class="fl"><div>额外的提示信息 + 可操作项</div><div>当有额外提示信息是，优先显示额外提示信息</div></div></div><div mx-view="mx-status/index?info=';
     $line = 11;
     $art = '@{\n                value: -99,\n                text: \'故障\',\n                icon: \'<i class=\\"mc-iconfont\\">&#xe67f;</i>\',\n                color: \'#a40100\'\n            }';
     ;
