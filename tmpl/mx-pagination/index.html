@@ -6,6 +6,7 @@
         <span><%! tipPer%></span>
         <%if(sizesChange){%>
         <mx-dropdown class="ml10 mr10 pager-dropdown"
+            placement="<%=sizesPlacement%>"
             list="<%@sizes%>"
             selected="<%@size%>"
             mx-change="@{changeSize}()"/>

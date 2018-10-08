@@ -3,6 +3,7 @@ let $ = require('$');
 let Monitor = require('../mx-monitor/index');
 let I18n = require('../mx-medusa/util');
 Magix.applyStyle('@index.less');
+
 module.exports = Magix.View.extend({
     tmpl: '@index.html:const[viewId]',
     init(ops) {
@@ -30,6 +31,13 @@ module.exports = Magix.View.extend({
         // 列表是否展开
         me['@{ui.expand}'] = false;
         me['@{ui.name}'] = ops.name || '';
+
+        let placementMap = {
+            top: '@index.less:top',
+            bottom: '@index.less:bottom'
+        }
+
+        me['@{ui.placement}'] = placementMap[ops.placement || 'bottom'];
 
         // trigger方式，click，hover，默认click
         me['@{trigger.type}'] = ops.triggerType || 'click';
@@ -193,7 +201,8 @@ module.exports = Magix.View.extend({
             expand: me['@{ui.expand}'],
             height: me['@{ui.height}'],
             spm: me['@{ui.spm}'],
-            name: me['@{ui.name}']
+            name: me['@{ui.name}'],
+            placementClass: me['@{ui.placement}']
         });
         me['@{owner.node}'].val(selected);
         if (!ignoreFireEvent) {

@@ -43,6 +43,7 @@ module.exports = Magix.View.extend({
             total: (ops.total | 0) || 0, //总数
             size: ops.size || 40, //当前分页数
             sizesChange: sizesChange, //是否可切换分页数
+            sizesPlacement: ops.sizesPlacement || 'bottom',
             sizes: sizes //可选分页数
         });
 

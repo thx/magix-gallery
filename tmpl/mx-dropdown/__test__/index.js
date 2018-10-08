@@ -53,6 +53,11 @@ module.exports = Magix.View.extend({
             desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-dropdown mx-disabled&gt;&lt;/mx-dropdown&gt;',
             type: '',
             def: ''
+        }, {
+            key: 'placement',
+            desc: '可选内容展示方向，bottom（下方），top（上方）',
+            type: 'string',
+            def: 'bottom'
         }]
         this.updater.digest({
             viewId: this.id,

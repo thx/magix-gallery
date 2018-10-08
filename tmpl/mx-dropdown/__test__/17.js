@@ -1,8 +1,9 @@
 let Magix = require('magix');
+let Base = require('__test__/example');
 let $ = require('$');
 
-module.exports = Magix.View.extend({
-    tmpl: '@permission.html',
+module.exports = Base.extend({
+    tmpl: '@17.html',
     render() {
         this.updater.digest();
     }

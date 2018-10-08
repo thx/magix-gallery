@@ -40,6 +40,11 @@ module.exports = Base.extend({
             type: 'boolean',
             def: 'true'
         }, {
+            key: 'sizes-placement',
+            desc: '分页选择框展示方向，bottom（下方），top（上方）',
+            type: 'string',
+            def: 'bottom'
+        }, {
             key: 'mini',
             desc: '顺序翻页版本',
             type: 'boolean',

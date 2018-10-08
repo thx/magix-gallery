@@ -77,12 +77,10 @@
 .dropdown-menu-wrapper {
     display: none;
     position: absolute;
-    top: 100%;
     left: 0;
     z-index: 99;
     min-width: 100%;
     max-width: 200%;
-    margin-top: 10px;
     border-radius: @border-radius;
     background-color: #fff;
     user-select: none;
@@ -109,10 +107,26 @@
 
     }
 
-    &.open {
-        display: block;
-        animation: fade-in-down @duration ease-out;
-        animation-fill-mode: forwards;
+    &.bottom{
+        top: 100%;
+        margin-top: 10px;
+
+        &.open {
+            display: block;
+            animation: fade-in-down @duration ease-out;
+            animation-fill-mode: forwards;
+        }
+    }
+
+    &.top{
+        bottom: 100%;
+        margin-bottom: 10px;
+
+        &.open {
+            display: block;
+            animation: fade-in-up @duration ease-out;
+            animation-fill-mode: forwards;
+        }
     }
 
 }

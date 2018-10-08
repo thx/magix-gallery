@@ -30,19 +30,11 @@
 @keyframes fade-in-down {
     0% {
         transform: translate(0, -20%);
-        -ms-transform: translate(0, -20%);
-        -moz-transform: translate(0, -20%);
-        -webkit-transform: translate(0, -20%);
-        -o-transform: translate(0, -20%);
         opacity: 0;
     }
 
     100% {
         transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
-        -moz-transform: translate(0, 0);
-        -webkit-transform: translate(0, 0);
-        -o-transform: translate(0, 0);
         opacity: 1;
     }
 
@@ -50,20 +42,12 @@
 
 @-webkit-keyframes fade-in-down {
     0% {
-        transform: translate(0, -20%);
-        -ms-transform: translate(0, -20%);
-        -moz-transform: translate(0, -20%);
         -webkit-transform: translate(0, -20%);
-        -o-transform: translate(0, -20%);
         opacity: 0;
     }
 
     100% {
-        transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
-        -moz-transform: translate(0, 0);
         -webkit-transform: translate(0, 0);
-        -o-transform: translate(0, 0);
         opacity: 1;
     }
 
@@ -71,20 +55,12 @@
 
 @-moz-keyframes fade-in-down {
     0% {
-        transform: translate(0, -20%);
-        -ms-transform: translate(0, -20%);
         -moz-transform: translate(0, -20%);
-        -webkit-transform: translate(0, -20%);
-        -o-transform: translate(0, -20%);
         opacity: 0;
     }
 
     100% {
-        transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
         -moz-transform: translate(0, 0);
-        -webkit-transform: translate(0, 0);
-        -o-transform: translate(0, 0);
         opacity: 1;
     }
 
@@ -92,20 +68,12 @@
 
 @-ms-keyframes fade-in-down {
     0% {
-        transform: translate(0, -20%);
         -ms-transform: translate(0, -20%);
-        -moz-transform: translate(0, -20%);
-        -webkit-transform: translate(0, -20%);
-        -o-transform: translate(0, -20%);
         opacity: 0;
     }
 
     100% {
-        transform: translate(0, 0);
         -ms-transform: translate(0, 0);
-        -moz-transform: translate(0, 0);
-        -webkit-transform: translate(0, 0);
-        -o-transform: translate(0, 0);
         opacity: 1;
     }
 
@@ -113,19 +81,80 @@
 
 @-o-keyframes fade-in-down {
     0% {
-        transform: translate(0, -20%);
-        -ms-transform: translate(0, -20%);
-        -moz-transform: translate(0, -20%);
-        -webkit-transform: translate(0, -20%);
         -o-transform: translate(0, -20%);
         opacity: 0;
     }
 
     100% {
+        -o-transform: translate(0, 0);
+        opacity: 1;
+    }
+
+}
+
+
+/**
+* 渐显上拉动画
+*/
+@keyframes fade-in-up {
+    0% {
+        transform: translate(0, 20%);
+        opacity: 0;
+    }
+
+    100% {
         transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
-        -moz-transform: translate(0, 0);
+        opacity: 1;
+    }
+
+}
+
+@-webkit-keyframes fade-in-up {
+    0% {
+        -webkit-transform: translate(0, 20%);
+        opacity: 0;
+    }
+
+    100% {
         -webkit-transform: translate(0, 0);
+        opacity: 1;
+    }
+
+}
+
+@-moz-keyframes fade-in-up {
+    0% {
+        -moz-transform: translate(0, 20%);
+        opacity: 0;
+    }
+
+    100% {
+        -moz-transform: translate(0, 0);
+        opacity: 1;
+    }
+
+}
+
+@-ms-keyframes fade-in-up {
+    0% {
+        -ms-transform: translate(0, 20%);
+        opacity: 0;
+    }
+
+    100% {
+        -ms-transform: translate(0, 0);
+        opacity: 1;
+    }
+
+}
+
+@-o-keyframes fade-in-up {
+    0% {
+        -o-transform: translate(0, 20%);
+        opacity: 0;
+    }
+
+    100% {
         -o-transform: translate(0, 0);
         opacity: 1;
     }

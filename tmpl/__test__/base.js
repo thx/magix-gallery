@@ -31,10 +31,6 @@ module.exports = Magix.View.extend({
                 path: '/all/pro/menu',
                 icon: '&#xe65e;'
             }, {
-                name: '前后端接口约定',
-                path: '/all/pro/permission',
-                icon: '&#xe6d1;'
-            }, {
                 name: 'magix3跨项目公用view',
                 path: '/all/pro/cross',
                 icon: '&#xe6b6;'
