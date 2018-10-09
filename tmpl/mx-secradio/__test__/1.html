@@ -3,6 +3,7 @@
         <div class="clearfix lh22">
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
+                <div>mx-change实时获取选中值</div>
                 <div>支持展开收起功能</div>
                 <div>父节点，子节点都有前缀</div>
             </div>
@@ -10,6 +11,7 @@
         <div class="mb15 lh22"><span class="color-9">当前选择：</span>{{=selected}}</div>
         <mx-secradio 
             list="{{@list}}"
+            selected="{{=selected}}"
             parent-prefix="计划"
             prefix="单元"
             mx-change="select()"/>
@@ -24,9 +26,10 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-secradio 
     list="&#123;&#123;@list&#125;&#125;"
+    selected="&#123;&#123;=selected&#125;&#125;"
     parent-prefix="计划"
     prefix="单元"
-    mx-change="select()"/>&gt;</pre>
+    mx-change="select()"/&gt;</pre>
     </div>
     <div class="eg-desc">
         <div class="eg-title">JS Code</div>
@@ -62,7 +65,8 @@ module.exports = Magix.View.extend(&#123;
             &#125;]
         &#125;]
         this.updater.digest(&#123;
-            list
+            list,
+            selected: 21
         &#125;);
     &#125;,
     'select&lt;change&gt;'(event)&#123;

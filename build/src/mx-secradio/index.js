@@ -27,7 +27,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (needExpand) {%>';
     if (needExpand) {
         ;
-        $p += '<div mxa="_zs_galleryb/:_" class="_zs_gallery_mx-secradio_index_-line _zs_gallery_mx-secradio_index_-all" mx-click="' + $viewId + '@{toggleAll}()">一键';
+        $p += '<div mxa="_zs_galleryb;:_" class="_zs_gallery_mx-secradio_index_-line _zs_gallery_mx-secradio_index_-all" mx-click="' + $viewId + '@{toggleAll}()">一键';
         $line = 3;
         $art = 'if close';
         ;
@@ -94,10 +94,10 @@ module.exports = Magix.View.extend({
     $line = 7;
     $art = 'each list as item itemIndex';
     ;
-    $expr = '<%for (var itemIndex = 0, $art_crgjbwykqp$art_c = list.length; itemIndex < $art_crgjbwykqp$art_c; itemIndex++) {    var item = list[itemIndex]%>';
-    for (var itemIndex = 0, $art_crgjbwykqp$art_c = list.length; itemIndex < $art_crgjbwykqp$art_c; itemIndex++) {
+    $expr = '<%for (var itemIndex = 0, $art_chsepsvaxu$art_c = list.length; itemIndex < $art_chsepsvaxu$art_c; itemIndex++) {    var item = list[itemIndex]%>';
+    for (var itemIndex = 0, $art_chsepsvaxu$art_c = list.length; itemIndex < $art_chsepsvaxu$art_c; itemIndex++) {
         var item = list[itemIndex];
-        $p += '<div mxa="_zs_galleryb/:a" class="_zs_gallery_mx-secradio_index_-line"><label mx-click="' + $viewId + '@{toggleOne}({index:';
+        $p += '<div mxa="_zs_galleryb;:a" class="_zs_gallery_mx-secradio_index_-line"><label mx-click="' + $viewId + '@{toggleOne}({index:';
         $line = 9;
         $art = '=itemIndex';
         ;
@@ -108,7 +108,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (needExpand) {%>';
         if (needExpand) {
             ;
-            $p += '<i mxa="_zs_galleryb/:b" class="mc-iconfont _zs_gallery_mx-secradio_index_-oper">';
+            $p += '<i mxa="_zs_galleryb;:b" class="mc-iconfont _zs_gallery_mx-secradio_index_-oper">';
             $line = 12;
             $art = 'if item.close';
             ;
@@ -163,9 +163,9 @@ module.exports = Magix.View.extend({
         $line = 21;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_ifviquj$art_i = 0, $art_objugspct$art_obj = item.subs, $art_cksumsomsr$art_c = $art_objugspct$art_obj.length; $art_ifviquj$art_i < $art_cksumsomsr$art_c; $art_ifviquj$art_i++) {        var sub = $art_objugspct$art_obj[$art_ifviquj$art_i]%>';
-        for (var $art_ifviquj$art_i = 0, $art_objugspct$art_obj = item.subs, $art_cksumsomsr$art_c = $art_objugspct$art_obj.length; $art_ifviquj$art_i < $art_cksumsomsr$art_c; $art_ifviquj$art_i++) {
-            var sub = $art_objugspct$art_obj[$art_ifviquj$art_i];
+        $expr = '<%for (var $art_icysaanspt$art_i = 0, $art_objmyrykcqc$art_obj = item.subs, $art_cvgykwxub$art_c = $art_objmyrykcqc$art_obj.length; $art_icysaanspt$art_i < $art_cvgykwxub$art_c; $art_icysaanspt$art_i++) {        var sub = $art_objmyrykcqc$art_obj[$art_icysaanspt$art_i]%>';
+        for (var $art_icysaanspt$art_i = 0, $art_objmyrykcqc$art_obj = item.subs, $art_cvgykwxub$art_c = $art_objmyrykcqc$art_obj.length; $art_icysaanspt$art_i < $art_cvgykwxub$art_c; $art_icysaanspt$art_i++) {
+            var sub = $art_objmyrykcqc$art_obj[$art_icysaanspt$art_i];
             $p += '<div mxv class="_zs_gallery_mx-secradio_index_-line _zs_gallery_mx-secradio_index_-sub ';
             $line = 22;
             $art = 'if item.close';
@@ -255,6 +255,7 @@ catch (ex) {
     init: function (extra) {
         //初始化时保存一份当前数据的快照
         this.updater.snapshot();
+        this.$map = {};
         this.assign(extra);
     },
     assign: function (extra) {
@@ -270,7 +271,6 @@ catch (ex) {
         var list = [];
         (extra.list || []).forEach(function (origin) {
             var item = {
-                close: close,
                 text: origin[parentTextKey],
                 subs: origin[subKey].map(function (sub) {
                     return {
@@ -279,12 +279,11 @@ catch (ex) {
                     };
                 })
             };
+            item.pValue = that['@{getPValue}'](item);
+            item.close = that.$map[item.pValue] || close;
             list.push(item);
         });
-        var selected = extra.selected;
-        if (!selected) {
-            selected = list[0].subs[0].value;
-        }
+        var selected = extra.selected || '';
         var parentPrefix = extra.parentPrefix || '', prefix = extra.prefix || '';
         var maxHeight = extra.maxHeight || '';
         that.updater.set({
@@ -309,28 +308,50 @@ catch (ex) {
     },
     render: function () {
         this.updater.digest();
+        var selected = this.updater.get('selected');
+        $('#' + this.id).val(selected);
+    },
+    '@{getPValue}': function (item) {
+        var subValues = item.subs.map(function (sub) {
+            return sub.value + '';
+        });
+        return subValues.sort().join('_');
     },
     '@{toggleAll}<click>': function (event) {
+        var that = this;
         var close = !this.updater.get('close');
         var list = this.updater.get('list');
         list.forEach(function (item) {
             item.close = close;
+            if (close) {
+                that.$map[item.pValue] = true;
+            }
+            else {
+                delete that.$map[item.pValue];
+            }
         });
-        this.updater.digest({
+        that.updater.digest({
             close: close,
             list: list
         });
     },
     '@{toggleOne}<click>': function (event) {
+        var that = this;
         var index = event.params.index;
         var close = true, list = this.updater.get('list');
         list.forEach(function (item, i) {
             if (index == i) {
                 item.close = !item.close;
+                if (item.close) {
+                    that.$map[item.pValue] = true;
+                }
+                else {
+                    delete that.$map[item.pValue];
+                }
             }
             close = close && item.close;
         });
-        this.updater.digest({
+        that.updater.digest({
             close: close,
             list: list
         });

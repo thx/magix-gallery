@@ -6,6 +6,7 @@ module.exports = Magix.View.extend({
         //初始化时保存一份当前数据的快照
         this.updater.snapshot();
 
+        this.$map = {};
         this.assign(extra);
     },
     assign(extra) {
@@ -27,7 +28,6 @@ module.exports = Magix.View.extend({
         let list = [];
         (extra.list || []).forEach(origin => {
             let item  = {
-                close: close,
                 text: origin[parentTextKey],
                 subs: origin[subKey].map(sub => {
                     return {
@@ -36,13 +36,13 @@ module.exports = Magix.View.extend({
                     }
                 })
             }
+            item.pValue = that['@{getPValue}'](item);
+            item.close = that.$map[item.pValue] || close;
+
             list.push(item);
         })
 
-        let selected = extra.selected;
-        if(!selected){
-            selected = list[0].subs[0].value;
-        }
+        let selected = extra.selected || '';
 
         let parentPrefix = extra.parentPrefix || '',
             prefix = extra.prefix || '';
@@ -70,29 +70,53 @@ module.exports = Magix.View.extend({
     },
     render: function () {
         this.updater.digest();
+        let selected = this.updater.get('selected');
+        $('#' + this.id).val(selected);
     },
+
+    '@{getPValue}'(item){
+        let subValues = item.subs.map(sub => {
+            return sub.value + '';
+        })
+        return subValues.sort().join('_');
+    },
+
     '@{toggleAll}<click>'(event) {
+        let that = this;
         let close = !this.updater.get('close');
         let list = this.updater.get('list');
+
         list.forEach(item => {
             item.close = close;
+
+            if(close){
+                that.$map[item.pValue] = true;
+            }else{
+                delete that.$map[item.pValue];
+            }
         })
-        this.updater.digest({
+        that.updater.digest({
             close,
             list
         })
     },
     '@{toggleOne}<click>'(event) {
+        let that = this;
         let index = event.params.index;
         let close = true,
             list = this.updater.get('list');
         list.forEach((item, i) => {
             if(index == i){
                 item.close = !item.close;
+                if(item.close){
+                    that.$map[item.pValue] = true;
+                }else{
+                    delete that.$map[item.pValue];
+                }
             }
             close = close && item.close;
         })
-        this.updater.digest({
+        that.updater.digest({
             close,
             list
         })

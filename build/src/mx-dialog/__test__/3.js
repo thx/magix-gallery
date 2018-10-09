@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya_:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerya_:i" class="_zs_gallery___test___layout_-eg-content"><div class="color-9 mb20"><i class="mc-iconfont displacement-2 mr5">&#xe6ac;</i>将dialog的方法mixins到view上</div><div><a href="javascript:;" mx-click="' + $viewId + 'open()" class="btn btn-brand mr20">可打开多个浮层</a><a href="javascript:;" class="btn btn-brand mr20">关闭所有浮层</a><a href="javascript:;" mx-click="' + $viewId + 'alert1()" class="btn btn-brand">mask=false的浮层，点击空白处自动关闭浮层</a></div></div><div mxa="_zs_gallerya_:i" class="clearfix"><div mxa="_zs_gallerya_:b" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_gallerya_:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerya_:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerya_:_" class="_zs_gallery___test___layout_-eg-content"><div class="color-9 mb20"><i class="mc-iconfont displacement-2 mr5">&#xe6ac;</i>将dialog的方法mixins到view上</div><div><a href="javascript:;" mx-click="' + $viewId + 'open()" class="btn btn-brand mr20">可打开多个浮层</a><a href="javascript:;" class="btn btn-brand mr20">关闭所有浮层</a><a href="javascript:;" mx-click="' + $viewId + 'alert1()" class="btn btn-brand">mask=false的浮层，点击空白处自动关闭浮层</a></div></div><div mxa="_zs_gallerya_:a" class="clearfix"><div mxa="_zs_gallerya_:b" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_gallerya_:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 21;
     $art = '=viewId';
     ;
@@ -40,7 +40,7 @@ module.exports = Base.extend({
     $line = 35;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya_:m" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya_:e" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 37;
     $art = '!text2';
     ;
