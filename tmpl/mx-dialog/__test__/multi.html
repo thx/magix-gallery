@@ -2,8 +2,13 @@
     <span class="fontsize-16">多个带modal的浮层</span>
 </div>
 <div class="dialog-body" style="height:{{=height}}px;">
-    <span class="mr40">浮层{{=number}}</span>
-    <a href="javascript:;" mx-click="modal()" class="btn btn-brand">再开一个</a>
+    <div class="mb20">浮层{{=number}}</div>
+    <div class="mb20">
+        <a href="javascript:;" mx-click="modal()" class="btn btn-brand">再开一个</a>
+    </div>
+    <div>
+        <a href="javascript:;" mx-click="closeAll()" class="btn btn-brand">关闭所有展开浮层</a>
+    </div>
 </div>
 <div class="dialog-footer">
     <a href="javascript:;" class="btn mr10" mx-click="cancel()">取消</a>

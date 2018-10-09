@@ -81,10 +81,23 @@ catch (ex) {
         var data = updater.get();
         updater.digest();
         setTimeout(me.wrapAsync(function () {
-            $('#wrapper_' + me.id).addClass('_zs_gallery_mx-dialog_index_-wrapper-out');
-            $('#mask_' + me.id).addClass('_zs_gallery_mx-dialog_index_-backdrop-out');
-            me.owner.mountVframe('cnt_' + me.id, data.view, data);
-            $('#wrapper_' + me.id).on('scroll', function () {
+            var wrapper = $('#wrapper_' + me.id);
+            var cntId = 'cnt_' + me.id;
+            wrapper.addClass('_zs_gallery_mx-dialog_index_-wrapper-out');
+            var mask = $('#mask_' + me.id);
+            if (mask.length > 0) {
+                mask.addClass('_zs_gallery_mx-dialog_index_-backdrop-out');
+            }
+            else {
+                // 没有mask的时候，点击空白处关闭浮层
+                wrapper.on('click', function (e) {
+                    if (!Magix.inside(e.target, cntId)) {
+                        $('#' + me.id).trigger('dlg_close');
+                    }
+                });
+            }
+            me.owner.mountVframe(cntId, data.view, data);
+            wrapper.on('scroll', function () {
                 // popover追加到body，滚动时通知节点改动定位
                 $(document).trigger('dialogScolll');
             });
@@ -269,6 +282,14 @@ catch (ex) {
                 closeCallback = fn;
             }
         };
+    },
+    mxCloseAllDialogs: function () {
+        CacheList.forEach(function (view) {
+            var dlg = $('#' + view.id);
+            if (dlg) {
+                dlg.trigger('dlg_close');
+            }
+        });
     }
 });
 

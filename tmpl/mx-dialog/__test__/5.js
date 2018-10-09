@@ -4,7 +4,7 @@ let Base = require('__test__/example');
 let $ = require('$');
 
 module.exports = Base.extend({
-    tmpl: '@3.html',
+    tmpl: '@5.html',
     mixins: [Dialog],
     render() {
         this.updater.digest();
@@ -24,16 +24,6 @@ module.exports = Base.extend({
             width: 800,
             height: 320,
             modal: true
-        });
-    },
-    'alert1<click>'(e){
-        let node = $(e.eventTarget);
-        let offset = node.offset();
-        let top = offset.top + node.outerHeight() - $(window).scrollTop() + 10;
-        let left = offset.left;
-        this.alert('mask=false的浮层', '点击空白处自动关闭浮层', null, {
-            top,
-            left
         });
     }
 });

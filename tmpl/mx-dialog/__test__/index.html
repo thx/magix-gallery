@@ -1,14 +1,86 @@
-<mx-title.second content="使用示例"/>
-<div class="clearfix mb20">
-    <div class="half">
-        <div mx-view="@./3"></div>
-        <div mx-view="@./2"></div>
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo',
+        subs: [{
+            name: 'mxDialog',
+            key: viewId + '_mxDialog'
+        },{
+            name: 'dialog本身',
+            key: viewId + '_self'
+        },{
+            name: '内容分组',
+            key: viewId + '_help'
+        },{
+            name: 'alert警告',
+            key: viewId + '_alert'
+        },{
+            name: 'confirm二次确认',
+            key: viewId + '_confirm'
+        }]
+    }, {
+        name: 'dialogOptions',
+        key: viewId + '_options'
+    }, {
+        name: 'Methods',
+        key: viewId + '_method'
+    }]}}"></div>
+    
+    <mx-title.second content="使用示例"/>
+    <div class="clearfix mb20">
+        <div mx-view="@./3" id="{{=viewId}}_mxDialog"></div>
+        <div class="half">
+            <div mx-view="@./5" id="{{=viewId}}_self"></div>
+            <div mx-view="@./2" id="{{=viewId}}_confirm"></div>
+        </div>
+        <div class="half">
+            <div mx-view="@./4" id="{{=viewId}}_help"></div>
+            <div mx-view="@./1" id="{{=viewId}}_alert"></div>
+        </div>
     </div>
-    <div class="half">
-        <div mx-view="@./1"></div>
-        <div mx-view="@./4"></div>
+    
+    <mx-title.second content="dialogOptions配置参数" id="{{=viewId}}_options"/>
+    <div class="mb40" mx-view="__test__/api?options={{@options}}"></div>
+
+    <mx-title.second content="Methods" id="{{=viewId}}_method"/>
+    <div class="pr20">
+        <table class="table desc-table">
+            <thead>
+                <tr>
+                    <th width="100">方法名</th>
+                    <th width="200">说明</th>
+                    <th width="400">预览</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>mxDialog</td>
+                    <td>自定义浮层</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>alert</td>
+                    <td>警告小浮层</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>confirm</td>
+                    <td>二次确认浮层</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>mxDialogGroup</td>
+                    <td>内容分组浮层</td>
+                    <td>
+                        <img class="w360" src="https://img.alicdn.com/tfs/TB1vxEOgAvoK1RjSZFwXXciCFXa-631-423.gif" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>mxCloseAllDialogs</td>
+                    <td>关闭当前所有展开的浮层</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
-
-<mx-title.second content="dialogOptions配置参数"/>
-<div mx-view="__test__/api?options={{@options}}"></div>

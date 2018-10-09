@@ -1,0 +1,56 @@
+<div class="example">
+    <div class="eg-content">
+        <a href="javascript:;" mx-click="open()" 
+            class="btn btn-brand">浮层本身获取dialog实例关闭</a>   
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;div class="dialog-header"&gt;
+    &lt;div class="fontsize-16"&gt;标题&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="dialog-content"&gt;
+    &lt;div&gt;内容&lt;/div&gt;
+    &lt;div&gt;
+        &lt;a href="javascript:;" mx-click="closeAll()" 
+            class="btn btn-brand"&gt;关闭当前所有浮层&lt;/a&gt;   
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="dialog-footer"&gt;
+    &lt;a href="javascript:;" class="btn" mx-click="cancel()"&gt;&lt;/a&gt; 
+&lt;/div&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    init(e) &#123;
+        this.viewOptions = e;
+    &#125;,
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'cancel&lt;click&gt;'(event) &#123;
+        event.preventDefault();
+        let viewOptions = this.viewOptions;
+        if (viewOptions.dialog) &#123;
+            viewOptions.dialog.close();
+        &#125;
+    &#125;
+&#125;);
+</pre>
+    </div>
+</div>

@@ -12,7 +12,7 @@ module.exports = Magix.View.extend({
         this.updater.digest({
             number: number,
             width: 800 - (number * 100),
-            height: 100 + (number * 40)
+            height: 140 + (number * 40)
         });
     },
     'cancel<click>'(event) {
@@ -33,5 +33,8 @@ module.exports = Magix.View.extend({
             height: height + 170,
             modal: true
         });
+    },
+    'closeAll<click>'(e){
+        this.mxCloseAllDialogs();
     }
 });

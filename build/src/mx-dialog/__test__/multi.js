@@ -25,11 +25,11 @@ module.exports = Magix.View.extend({
     $line = 4;
     $art = '=height';
     ;
-    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><span mxa="_zs_galleryad:_" class="mr40">浮层';
+    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_galleryad:_" class="mb20">浮层';
     $line = 5;
     $art = '=number';
     ;
-    $p += ($expr = '<%=number%>', $e(number)) + '</span><a mxs="_zs_galleryad:a" href="javascript:;" mx-click="' + $viewId + 'modal()" class="btn btn-brand">再开一个</a></div><div mxs="_zs_galleryad:b" class="dialog-footer"><a href="javascript:;" class="btn mr10" mx-click="' + $viewId + 'cancel()">取消</a></div>';
+    $p += ($expr = '<%=number%>', $e(number)) + '</div><div mxs="_zs_galleryad:c" class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'modal()" class="btn btn-brand">再开一个</a></div><div mxs="_zs_galleryad:e"><a href="javascript:;" mx-click="' + $viewId + 'closeAll()" class="btn btn-brand">关闭所有展开浮层</a></div></div><div mxs="_zs_galleryad:b" class="dialog-footer"><a href="javascript:;" class="btn mr10" mx-click="' + $viewId + 'cancel()">取消</a></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -48,7 +48,7 @@ catch (ex) {
         this.updater.digest({
             number: number,
             width: 800 - (number * 100),
-            height: 100 + (number * 40)
+            height: 140 + (number * 40)
         });
     },
     'cancel<click>': function (event) {
@@ -69,6 +69,9 @@ catch (ex) {
             height: height + 170,
             modal: true
         });
+    },
+    'closeAll<click>': function (e) {
+        this.mxCloseAllDialogs();
     }
 });
 

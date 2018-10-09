@@ -28,7 +28,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', fields = $$.fields, defaults = $$.defaults, custom = $$.custom, customs = $$.customs, map = $$.map, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerybp:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybp:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerybp:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl">不限制可选择个数 + 指标可排序</div></div><div mxv mxa="_zs_gallerybp:b" class="mb20"><div mxv="fields,defaults,customs" mx-change="' + $viewId + 'change()" mx-view="mx-indics/index?fields=';
+    $p += '<div mxv mxa="_zs_gallerybq:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybq:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerybq:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl">不限制可选择个数 + 指标可排序</div></div><div mxv mxa="_zs_gallerybq:b" class="mb20"><div mxv="fields,defaults,customs" mx-change="' + $viewId + 'change()" mx-view="mx-indics/index?fields=';
     $line = 9;
     $art = '@fields';
     ;
@@ -51,14 +51,14 @@ module.exports = Base.extend({
     $expr = '<%if (custom) {%>';
     if (custom) {
         ;
-        $p += '<div mxa="_zs_gallerybp:c" class="clearfix mb10 pr lh22" style="padding-left: 120px"><span mxs="_zs_gallerybp:a" style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>自定义指标：</span>';
+        $p += '<div mxa="_zs_gallerybq:c" class="clearfix mb10 pr lh22" style="padding-left: 120px"><span mxs="_zs_gallerybq:a" style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>自定义指标：</span>';
         $line = 19;
         $art = 'each customs as key';
         ;
-        $expr = '<%for (var $art_iapxppus$art_i = 0, $art_ckbtohxgm$art_c = customs.length; $art_iapxppus$art_i < $art_ckbtohxgm$art_c; $art_iapxppus$art_i++) {        var key = customs[$art_iapxppus$art_i]%>';
-        for (var $art_iapxppus$art_i = 0, $art_ckbtohxgm$art_c = customs.length; $art_iapxppus$art_i < $art_ckbtohxgm$art_c; $art_iapxppus$art_i++) {
-            var key = customs[$art_iapxppus$art_i];
-            $p += '<span mxa="_zs_gallerybp:d" class="fl mr10">';
+        $expr = '<%for (var $art_ilrmhikswu$art_i = 0, $art_cgdycvnmi$art_c = customs.length; $art_ilrmhikswu$art_i < $art_cgdycvnmi$art_c; $art_ilrmhikswu$art_i++) {        var key = customs[$art_ilrmhikswu$art_i]%>';
+        for (var $art_ilrmhikswu$art_i = 0, $art_cgdycvnmi$art_c = customs.length; $art_ilrmhikswu$art_i < $art_cgdycvnmi$art_c; $art_ilrmhikswu$art_i++) {
+            var key = customs[$art_ilrmhikswu$art_i];
+            $p += '<span mxa="_zs_gallerybq:d" class="fl mr10">';
             $line = 20;
             $art = '=map[key]';
             ;
@@ -81,14 +81,14 @@ module.exports = Base.extend({
     }
     else {
         ;
-        $p += '<div mxa="_zs_gallerybp:e" class="clearfix mb10 pr lh22" style="padding-left: 110px"><span mxs="_zs_gallerybp:b" style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>默认指标：</span>';
+        $p += '<div mxa="_zs_gallerybq:e" class="clearfix mb10 pr lh22" style="padding-left: 110px"><span mxs="_zs_gallerybq:b" style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>默认指标：</span>';
         $line = 26;
         $art = 'each defaults as key';
         ;
-        $expr = '<%for (var $art_ipakkufye$art_i = 0, $art_cgbclzzd$art_c = defaults.length; $art_ipakkufye$art_i < $art_cgbclzzd$art_c; $art_ipakkufye$art_i++) {        var key = defaults[$art_ipakkufye$art_i]%>';
-        for (var $art_ipakkufye$art_i = 0, $art_cgbclzzd$art_c = defaults.length; $art_ipakkufye$art_i < $art_cgbclzzd$art_c; $art_ipakkufye$art_i++) {
-            var key = defaults[$art_ipakkufye$art_i];
-            $p += '<span mxa="_zs_gallerybp:f" class="fl mr10">';
+        $expr = '<%for (var $art_iipzoncgq$art_i = 0, $art_crguodpea$art_c = defaults.length; $art_iipzoncgq$art_i < $art_crguodpea$art_c; $art_iipzoncgq$art_i++) {        var key = defaults[$art_iipzoncgq$art_i]%>';
+        for (var $art_iipzoncgq$art_i = 0, $art_crguodpea$art_c = defaults.length; $art_iipzoncgq$art_i < $art_crguodpea$art_c; $art_iipzoncgq$art_i++) {
+            var key = defaults[$art_iipzoncgq$art_i];
+            $p += '<span mxa="_zs_gallerybq:f" class="fl mr10">';
             $line = 27;
             $art = '=map[key]';
             ;
@@ -110,15 +110,15 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxa="_zs_gallerybp:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybp:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</div><div mxa="_zs_gallerybq:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybq:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 34;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybp:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybq:h" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 36;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybp:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybq:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 39;
     $art = '=viewId';
     ;

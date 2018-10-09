@@ -444,7 +444,7 @@ module.exports = Magix.View.extend({
             });
             mainHeader.css({
                 position: 'absolute',
-                zIndex: 99,
+                zIndex: 80,
                 top: top
             });
             if (leftHeader) {
@@ -453,7 +453,7 @@ module.exports = Magix.View.extend({
                 });
                 leftHeader.css({
                     position: 'absolute',
-                    zIndex: 99,
+                    zIndex: 80,
                     top: top
                 });
             }

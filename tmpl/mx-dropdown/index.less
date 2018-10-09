@@ -1,3 +1,4 @@
+/*md5:e33322d43826cc01fd5079540ab09358*/
 @import "../mx-style/_vars";
 @import "../mx-style/_animation";
 
@@ -5,7 +6,7 @@
     position: relative;
     width: 100%;
     padding: 0 25px 0 10px;
-    color: @color-third;
+    border-radius: @border-radius;
     cursor: pointer;
     user-select: none;
 
@@ -162,30 +163,31 @@
     height: @input-height;
     line-height: @input-height - 2;
     vertical-align: middle;
-    border-color: @color-border;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: @border-radius;
     background-color: #fff;
     outline: 0;
-    transition: border-color @duration;
 
+    .dropdown-toggle{
+        transition: all @duration;
+        border-width: 1px;
+        border-style: solid;
+        border-color: @color-border;
+        color: @color-third;
+    }
+    
     &:hover {
-        border-color: @color-border-hover;
-
         .dropdown-toggle {
+            border-color: @color-border-hover;
             color: @color-secondary;
         }
-
     }
 
     &[mx-disabled], &[mx-disabled]:hover{
-        border-color: @color-border;
         cursor: not-allowed;
-        background-color: @color-disabled;
-
+        
         .dropdown-toggle {
+            border-color: @color-border;
             color: @color-third;
+            background-color: @color-disabled;
 
             .arrow{
                 color: #ccc;
