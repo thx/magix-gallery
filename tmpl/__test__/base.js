@@ -193,7 +193,7 @@ module.exports = Magix.View.extend({
                 path: '/search/index',
                 icon: '&#xe651;'
             }, {
-                name: '可选项提示',
+                name: '可选项提示suggest',
                 path: '/suggest/index',
                 icon: '&#xe654;'
             }, {

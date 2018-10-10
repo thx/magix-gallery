@@ -175,7 +175,15 @@ module.exports = Magix.View.extend({
     update: function (list) {
         var that = this;
         that['@{list.bak}'] = that['@{wrap}'](list);
-        that['@{show}'](true);
+
+        // 不需要再过来，直接返回什么，展示什么
+        var selectText = $('#' + that.id + '_input').val();
+        that.updater.digest({
+            list: that['@{list.bak}'],
+            selectText: selectText,
+            show: true
+        });
+        Monitor['@{add}'](that);
     },
     '@{show}': function (ignore) {
         var that = this;
@@ -194,12 +202,10 @@ module.exports = Magix.View.extend({
             show: true
         });
         Monitor['@{add}'](that);
-        if (!ignore) {
-            that['@{owner.node}'].trigger({
-                type: 'show',
-                keyword: selectText
-            });
-        }
+        that['@{owner.node}'].trigger({
+            type: 'show',
+            keyword: selectText
+        });
     },
     '@{inside}': function (node) {
         return Magix.inside(node, this.id);

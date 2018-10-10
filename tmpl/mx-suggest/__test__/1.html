@@ -46,9 +46,10 @@ module.exports = Magix.View.extend(&#123;
         let keyword = e.keyword;
 
         // 传入的list格式请保持和初始化格式保持一致
-        // 即假设原来传入[&#123;id:'',name:''&#125;]，此处传入格式依然为[&#123;id:'',name:''&#125;]
-        let list = ['prefix1', 'prefix2', 'prefix3'].map(text =&gt; &#123;
-            return text + '_' + keyword;
+        // 即假设原来传入[&#123;id:'',name:''&#125;]
+        // 此处传入格式依然为[&#123;id:'',name:''&#125;]
+        let list = [1, 2, 3].map(text => &#123;
+            return Magix.guid('dynamic_');
         &#125;)
 
         Vframe.get(id).invoke('update', [list]);

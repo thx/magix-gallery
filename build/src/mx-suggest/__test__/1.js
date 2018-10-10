@@ -53,7 +53,7 @@ module.exports = Base.extend({
     $line = 30;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\nlet Vframe = Magix.Vframe;\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            viewId: this.id\n        &#125;);\n    &#125;,\n    \'update&lt;show&gt;\'(e) &#123;\n        let id = this.id + \'_test\';\n\n        // 当前输入框输入的值\n        let keyword = e.keyword;\n\n        // 传入的list格式请保持和初始化格式保持一致\n        // 即假设原来传入[&#123;id:\'\',name:\'\'&#125;]，此处传入格式依然为[&#123;id:\'\',name:\'\'&#125;]\n        let list = [\'prefix1\', \'prefix2\', \'prefix3\'].map(text =&gt; &#123;\n            return text + \'_\' + keyword;\n        &#125;)\n\n        Vframe.get(id).invoke(\'update\', [list]);\n    &#125;\n&#125;);</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\nlet Vframe = Magix.Vframe;\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            viewId: this.id\n        &#125;);\n    &#125;,\n    \'update&lt;show&gt;\'(e) &#123;\n        let id = this.id + \'_test\';\n\n        // 当前输入框输入的值\n        let keyword = e.keyword;\n\n        // 传入的list格式请保持和初始化格式保持一致\n        // 即假设原来传入[&#123;id:\'\',name:\'\'&#125;]\n        // 此处传入格式依然为[&#123;id:\'\',name:\'\'&#125;]\n        let list = [1, 2, 3].map(text => &#123;\n            return Magix.guid(\'dynamic_\');\n        &#125;)\n\n        Vframe.get(id).invoke(\'update\', [list]);\n    &#125;\n&#125;);</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -71,9 +71,10 @@ catch (ex) {
         // 当前输入框输入的值
         var keyword = e.keyword;
         // 传入的list格式请保持和初始化格式保持一致
-        // 即假设原来传入[{id:'',name:''}]，此处传入格式依然为[{id:'',name:''}]
-        var list = ['prefix1', 'prefix2', 'prefix3'].map(function (text) {
-            return text + '_' + keyword;
+        // 即假设原来传入[{id:'',name:''}]
+        // 此处传入格式依然为[{id:'',name:''}]
+        var list = [1, 2, 3].map(function (text) {
+            return Magix.guid('dynamic_');
         });
         Vframe.get(id).invoke('update', [list]);
     }
