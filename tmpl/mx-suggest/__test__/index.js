@@ -31,6 +31,14 @@ module.exports = Magix.View.extend({
             desc: '空状态提示文案',
             type: 'string',
             def: '搜素'
+        }, {
+            key: 'type',
+            desc: `<pre>搜索类型：
+1. all：text或者value中包含关键词的
+2. text：只有text中包含关键词的
+3. value：只有value中包含关键词的</pre>`,
+            type: 'string',
+            def: 'text'
         }]
 
         this.updater.digest({

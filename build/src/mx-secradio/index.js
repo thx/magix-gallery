@@ -94,8 +94,8 @@ module.exports = Magix.View.extend({
     $line = 7;
     $art = 'each list as item itemIndex';
     ;
-    $expr = '<%for (var itemIndex = 0, $art_cciejveblud$art_c = list.length; itemIndex < $art_cciejveblud$art_c; itemIndex++) {    var item = list[itemIndex]%>';
-    for (var itemIndex = 0, $art_cciejveblud$art_c = list.length; itemIndex < $art_cciejveblud$art_c; itemIndex++) {
+    $expr = '<%for (var itemIndex = 0, $art_chudykr$art_c = list.length; itemIndex < $art_chudykr$art_c; itemIndex++) {    var item = list[itemIndex]%>';
+    for (var itemIndex = 0, $art_chudykr$art_c = list.length; itemIndex < $art_chudykr$art_c; itemIndex++) {
         var item = list[itemIndex];
         $p += '<div mxa="_zs_galleryb;:a" class="_zs_gallery_mx-secradio_index_-line"><label mx-click="' + $viewId + '@{toggleOne}({index:';
         $line = 9;
@@ -163,9 +163,9 @@ module.exports = Magix.View.extend({
         $line = 21;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_iaughfo$art_i = 0, $art_objuffcclkavx$art_obj = item.subs, $art_cmyyernofg$art_c = $art_objuffcclkavx$art_obj.length; $art_iaughfo$art_i < $art_cmyyernofg$art_c; $art_iaughfo$art_i++) {        var sub = $art_objuffcclkavx$art_obj[$art_iaughfo$art_i]%>';
-        for (var $art_iaughfo$art_i = 0, $art_objuffcclkavx$art_obj = item.subs, $art_cmyyernofg$art_c = $art_objuffcclkavx$art_obj.length; $art_iaughfo$art_i < $art_cmyyernofg$art_c; $art_iaughfo$art_i++) {
-            var sub = $art_objuffcclkavx$art_obj[$art_iaughfo$art_i];
+        $expr = '<%for (var $art_iwglupmyfq$art_i = 0, $art_objyoydlxyerdm$art_obj = item.subs, $art_ctlwdssxrcq$art_c = $art_objyoydlxyerdm$art_obj.length; $art_iwglupmyfq$art_i < $art_ctlwdssxrcq$art_c; $art_iwglupmyfq$art_i++) {        var sub = $art_objyoydlxyerdm$art_obj[$art_iwglupmyfq$art_i]%>';
+        for (var $art_iwglupmyfq$art_i = 0, $art_objyoydlxyerdm$art_obj = item.subs, $art_ctlwdssxrcq$art_c = $art_objyoydlxyerdm$art_obj.length; $art_iwglupmyfq$art_i < $art_ctlwdssxrcq$art_c; $art_iwglupmyfq$art_i++) {
+            var sub = $art_objyoydlxyerdm$art_obj[$art_iwglupmyfq$art_i];
             $p += '<div mxv class="_zs_gallery_mx-secradio_index_-line _zs_gallery_mx-secradio_index_-sub ';
             $line = 22;
             $art = 'if item.close';

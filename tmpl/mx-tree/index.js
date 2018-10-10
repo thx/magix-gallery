@@ -111,5 +111,16 @@ module.exports = Magix.View.extend({
             }
         }
         loop(children);
-    }
+    },
+    getBottomItems() {
+        let me = this;
+
+        let bottomItems = [];
+        me.getBottom((vf) => {
+            let result = vf.invoke('getItems');
+            bottomItems = bottomItems.concat(result);
+        })
+
+        return bottomItems;
+    },
 });

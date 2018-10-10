@@ -3,10 +3,12 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-table/__test__/index11",["magix","$","mx-title/second","./13"],(require,exports,module)=>{
+define("mx-table/__test__/index11",["magix","$","__test__/subs","mx-title/second","./13","./16"],(require,exports,module)=>{
 /*Magix,$*/
+require("__test__/subs");
 require("mx-title/second");
 require("./13");
+require("./16");
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
@@ -21,8 +23,24 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryc3:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryc3:a" mx-view="mx-table/__test__/13"></div>';
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryc5:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $line = 2;
+    $art = '@[{\n        name: \'自定义吸顶容器\',\n        key: viewId + \'_1\'\n    }, {\n        name: \'相当于window吸顶\',\n        key: viewId + \'_2\'\n    }]';
+    ;
+    $p += ($expr = '<%@[{            name: \'自定义吸顶容器\',            key: viewId + \'_1\'        }, {            name: \'相当于window吸顶\',            key: viewId + \'_2\'        }]%>', $i($$ref, [{ name: '自定义吸顶容器', key: viewId + '_1' }, { name: '相当于window吸顶', key: viewId + '_2' }])) + '"></div><div mxs="_zs_galleryc5:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mx-view="mx-table/__test__/13" id="';
+    $line = 11;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_1"></div><div mx-view="mx-table/__test__/16" id="';
+    $line = 12;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_2"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -33,7 +51,9 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
-        this.updater.digest();
+        this.updater.digest({
+            viewId: this.id
+        });
     }
 });
 

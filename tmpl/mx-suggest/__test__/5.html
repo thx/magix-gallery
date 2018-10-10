@@ -1,0 +1,43 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-suggest 
+            list="{{@[{
+                text: 'test1',
+                value: 4
+            }, {
+                text: 'test2',
+                value: 3
+            }, {
+                text: 'test3',
+                value: 2
+            }, {
+                text: 'test4',
+                value: 1
+            }]}}"
+            type="all"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">同时在value和text中搜索关键词</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-suggest 
+    list="&#123;&#123;@[&#123;
+        value: 'test1',
+        text: 4
+    &#125;, &#123;
+        value: 'test12',
+        text: 3
+    &#125;, &#123;
+        value: 'abc1',
+        text: 2
+    &#125;, &#123;
+        value: 'abc2',
+        text: 1
+    &#125;]&#125;&#125;"
+    type="all"/&gt;</pre>
+    </div>
+</div>

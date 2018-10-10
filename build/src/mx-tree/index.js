@@ -186,6 +186,15 @@ catch (ex) {
             }
         };
         loop(children);
+    },
+    getBottomItems: function () {
+        var me = this;
+        var bottomItems = [];
+        me.getBottom(function (vf) {
+            var result = vf.invoke('getItems');
+            bottomItems = bottomItems.concat(result);
+        });
+        return bottomItems;
     }
 });
 

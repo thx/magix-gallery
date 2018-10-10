@@ -1,0 +1,96 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <a href="javascript:;" mx-click="get()" class="btn btn-brand">获取当前选中单元完整信息</a>
+        </div>
+        <div class="mb20 clearfix">
+            <div class="color-9 fl">选中单元：</div>
+            <div class="fl">
+                {{each selectedItems as item}}
+                <div>{{=item.text}}（{{=item.value}}）</div>
+                {{/each}}
+            </div>
+        </div>
+        <mx-tree id="{{=viewId}}_tree"
+            bottom-values="{{@selectedValues}}"
+            list="{{@list}}"
+            need-all="true"></mx-tree>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"
+    bottom-values="&#123;&#123;@selectedValues&#125;&#125;"
+    list="&#123;&#123;@list&#125;&#125;"
+    need-all="true"&gt;&lt;/mx-tree&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Vframe = Magix.Vframe;
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [&#123;
+            value: 1,
+            pValue: '',
+            text: '计划1'
+        &#125;, &#123;
+            value: 2,
+            pValue: '',
+            text: '计划2'
+        &#125;, &#123;
+            value: 11,
+            pValue: 1,
+            text: '单元1-1'
+        &#125;, &#123;
+            value: 12,
+            pValue: 1,
+            text: '单元1-2'
+        &#125;, &#123;
+            value: 21,
+            pValue: 2,
+            text: '单元2-1'
+        &#125;, &#123;
+            value: 22,
+            pValue: 2,
+            text: '单元2-2'
+        &#125;]
+
+        this.updater.digest(&#123;
+            viewId: this.id,
+            list,
+            selectedValues: [],
+            selectedItems: []
+        &#125;);
+    &#125;,
+    'get&lt;click&gt;'(event)&#123;
+        let that = this;
+
+        let tree = Vframe.get(that.id + '_tree');
+        let selectedItems = tree.invoke('getBottomItems');
+        let selectedValues = selectedItems.map(item =&gt; &#123;
+            return item.value;
+        &#125;)
+
+        this.updater.digest(&#123;
+            selectedValues,
+            selectedItems
+        &#125;)
+    &#125;
+&#125;);</pre>
+    </div>
+</div>

@@ -121,5 +121,21 @@ module.exports = Magix.View.extend({
             }
         });
         return result;
+    },
+    getItems() {
+        let me = this;
+        let list = me.updater.get('list'),
+            valueKey = me.updater.get('valueKey');
+
+        let map = Magix.toMap(list, valueKey);
+        let viewId = me.id;
+        let result = [];
+        let nodes = $('#' + viewId + ' input[name="' + viewId + '"]');
+        nodes.each((i, n) => {
+            if (n.checked) {
+                result.push(map[n.value])
+            }
+        });
+        return result;
     }
 });

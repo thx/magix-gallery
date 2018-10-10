@@ -35,11 +35,6 @@ module.exports = Magix.View.extend({
                 path: '/all/pro/cross',
                 icon: '&#xe6b6;'
             }, {
-                name: '新老项目iframe加载view',
-                tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/fe-three/rwznx0/yevuov" rel="noopener noreferrer" target="_blank">https://yuque.antfin-inc.com/fe-three/rwznx0/yevuov</a>',
-                path: '/all/pro/iframe',
-                icon: '&#xe6b6;'
-            }, {
                 name: '关于本地组件的约定',
                 path: '/all/pro/local',
                 icon: '&#xe648;'
@@ -48,10 +43,6 @@ module.exports = Magix.View.extend({
                 tip: '接口人<a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=y8e7um3" class="ml5"><i class="mc-iconfont color-brand fontsize-18 displacement-2">&#xe677;</i>浩添</a><a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=ru4x0jq" class="ml5"><i class="mc-iconfont color-brand fontsize-18 displacement-2">&#xe677;</i>释剑</a>',
                 path: '/all/pro/chartpark',
                 icon: '&#xe670;'
-            }, {
-                name: 'rap接口管理',
-                path: '/all/pro/rap',
-                icon: '&#xe60b;'
             }, {
                 name: '数据小站接入',
                 path: '/all/pro/data',
@@ -66,10 +57,6 @@ module.exports = Magix.View.extend({
                 path: '/all/pro/top',
                 icon: '&#xe62d;'
             }, {
-                name: '国际化',
-                path: '/all/pro/medusa',
-                icon: '&#xe620;'
-            }, {
                 name: '其他杂项',
                 path: '/all/pro/other',
                 icon: '&#xe62c;'
@@ -81,7 +68,7 @@ module.exports = Magix.View.extend({
                 path: '/form/mixins',
                 icon: '&#xe64e;'
             }, {
-                name: 'isValid',
+                name: 'view挂载isValid',
                 path: '/form/valid',
                 icon: '&#xe621;'
             }, {
@@ -96,11 +83,11 @@ module.exports = Magix.View.extend({
         }, {
             name: '表格（mixins）',
             subs: [{
-                name: '说明及注意点',
+                name: '表格使用说明及注意点',
                 path: '/table/desc',
                 icon: '&#xe64f;'
             }, {
-                name: '左右分栏',
+                name: '表格左右分栏',
                 path: '/table/index1',
                 icon: '&#xe693;'
             }, {
@@ -108,7 +95,7 @@ module.exports = Magix.View.extend({
                 path: '/table/index2',
                 icon: '&#xe770;'
             }, {
-                name: '自定义吸顶容器',
+                name: '表头吸顶',
                 path: '/table/index11',
                 icon: '&#xe7b6;'
             }, {
@@ -202,7 +189,7 @@ module.exports = Magix.View.extend({
                 icon: '&#xe72c;'
             }, {
                 name: '树状结构',
-                tip: '组件获取的选中值是最底层数据的value',
+                tip: '',
                 path: '/tree/index',
                 icon: '&#xe62b;'
             }, {
@@ -425,6 +412,7 @@ module.exports = Magix.View.extend({
             }
         }
         updater.digest({
+            all,
             list,
             cur,
             prev,
@@ -451,6 +439,9 @@ module.exports = Magix.View.extend({
         updater.digest({
             list
         })
+    },
+    'suggest<suggest>'(e){
+        Magix.Router.to(e.selected.value);
     },
     '$win<scroll>'(e) {
         let that = this;
