@@ -86,9 +86,9 @@ module.exports = Magix.View.extend({
         $line = 14;
         $art = 'each list as item';
         ;
-        $expr = '<%for (var $art_ifnbslfpx$art_i = 0, $art_cikgdrgmfxkp$art_c = list.length; $art_ifnbslfpx$art_i < $art_cikgdrgmfxkp$art_c; $art_ifnbslfpx$art_i++) {        var item = list[$art_ifnbslfpx$art_i]%>';
-        for (var $art_ifnbslfpx$art_i = 0, $art_cikgdrgmfxkp$art_c = list.length; $art_ifnbslfpx$art_i < $art_cikgdrgmfxkp$art_c; $art_ifnbslfpx$art_i++) {
-            var item = list[$art_ifnbslfpx$art_i];
+        $expr = '<%for (var $art_igfmwgaywi$art_i = 0, $art_cvhnjwfwqr$art_c = list.length; $art_igfmwgaywi$art_i < $art_cvhnjwfwqr$art_c; $art_igfmwgaywi$art_i++) {        var item = list[$art_igfmwgaywi$art_i]%>';
+        for (var $art_igfmwgaywi$art_i = 0, $art_cvhnjwfwqr$art_c = list.length; $art_igfmwgaywi$art_i < $art_cvhnjwfwqr$art_c; $art_igfmwgaywi$art_i++) {
+            var item = list[$art_igfmwgaywi$art_i];
             $p += '<li class="_zs_gallery_mx-suggest_index_-suggest-item ';
             $line = 15;
             $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';

@@ -1,17 +1,18 @@
 @import "../../mx-style/_vars";
 
+@box-title-height: 46px;
 .box-title {
-    height: 46px;
+    height: @box-title-height;
     padding: 0 20px;
-    line-height: 42px;
+    line-height: @box-title-height - 2;
     background-color: @color-bg;
     border: 1px solid @color-border;
     border-radius: @border-radius;
 
     .title-icon {
         float: left;
-        height: 44px;
-        line-height: 44px;
+        height: @box-title-height - 2;
+        line-height: @box-title-height - 2;
         >*{
             position: relative;
             top: 2px;

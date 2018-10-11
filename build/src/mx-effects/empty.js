@@ -28,9 +28,9 @@ module.exports = Base.extend({
     ;
     $p += ($expr = '<%=(white ? \'empty-white\' : \'empty-area\')%>', $e((white ? 'empty-white' : 'empty-area'))) + '"><i mxs="_zs_gallerya#:_" class="mc-iconfont no-data">&#xe685;</i><p mxa="_zs_gallerya#:_" class="mt10">';
     $line = 3;
-    $art = '=content';
+    $art = '!content';
     ;
-    $p += ($expr = '<%=content%>', $e(content)) + '</p></div>';
+    $p += ($expr = '<%!content%>', $n(content)) + '</p></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

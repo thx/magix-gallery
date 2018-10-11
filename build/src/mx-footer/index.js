@@ -51,9 +51,9 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each products as p';
         ;
-        $expr = '<%for (var $art_ihkrepcv$art_i = 0, $art_czdjozs$art_c = products.length; $art_ihkrepcv$art_i < $art_czdjozs$art_c; $art_ihkrepcv$art_i++) {        var p = products[$art_ihkrepcv$art_i]%>';
-        for (var $art_ihkrepcv$art_i = 0, $art_czdjozs$art_c = products.length; $art_ihkrepcv$art_i < $art_czdjozs$art_c; $art_ihkrepcv$art_i++) {
-            var p = products[$art_ihkrepcv$art_i];
+        $expr = '<%for (var $art_iqxidbc$art_i = 0, $art_cbbepdqy$art_c = products.length; $art_iqxidbc$art_i < $art_cbbepdqy$art_c; $art_iqxidbc$art_i++) {        var p = products[$art_iqxidbc$art_i]%>';
+        for (var $art_iqxidbc$art_i = 0, $art_cbbepdqy$art_c = products.length; $art_iqxidbc$art_i < $art_cbbepdqy$art_c; $art_iqxidbc$art_i++) {
+            var p = products[$art_iqxidbc$art_i];
             $p += '<dl style="width: ';
             $line = 9;
             $art = '=(100 / len)';
@@ -66,9 +66,9 @@ module.exports = Magix.View.extend({
             $line = 11;
             $art = 'each p.thirds as t';
             ;
-            $expr = '<%for (var $art_iyphec$art_i = 0, $art_objyubfutgg$art_obj = p.thirds, $art_ckhiiboqq$art_c = $art_objyubfutgg$art_obj.length; $art_iyphec$art_i < $art_ckhiiboqq$art_c; $art_iyphec$art_i++) {            var t = $art_objyubfutgg$art_obj[$art_iyphec$art_i]%>';
-            for (var $art_iyphec$art_i = 0, $art_objyubfutgg$art_obj = p.thirds, $art_ckhiiboqq$art_c = $art_objyubfutgg$art_obj.length; $art_iyphec$art_i < $art_ckhiiboqq$art_c; $art_iyphec$art_i++) {
-                var t = $art_objyubfutgg$art_obj[$art_iyphec$art_i];
+            $expr = '<%for (var $art_izdrigjad$art_i = 0, $art_objgvuxrzu$art_obj = p.thirds, $art_cctambsf$art_c = $art_objgvuxrzu$art_obj.length; $art_izdrigjad$art_i < $art_cctambsf$art_c; $art_izdrigjad$art_i++) {            var t = $art_objgvuxrzu$art_obj[$art_izdrigjad$art_i]%>';
+            for (var $art_izdrigjad$art_i = 0, $art_objgvuxrzu$art_obj = p.thirds, $art_cctambsf$art_c = $art_objgvuxrzu$art_obj.length; $art_izdrigjad$art_i < $art_cctambsf$art_c; $art_izdrigjad$art_i++) {
+                var t = $art_objgvuxrzu$art_obj[$art_izdrigjad$art_i];
                 $p += '<dd><a href="';
                 $line = 13;
                 $art = '=t.link';
