@@ -32,7 +32,8 @@ module.exports = {
                         if (src === true) {
                             e.prop('checked', src);
                         } else {
-                            let value = Util.fix(actions, e.val());
+                            let value = e.val();
+                            // let value = Util.fix(actions, e.val());
                             if ($.isArray(src)) {
                                 if (Util.indexOf(src, value) >= 0) {
                                     e.prop('checked', true);
@@ -105,14 +106,15 @@ module.exports = {
                 if (src === true || src === false) {
                     value = checked;
                 } else {
-                    value = Util.fix(actions, node.val());
+                    value = node.val();
+                    // value = Util.fix(actions, node.val());
                     if ($.isArray(src)) {
                         let checkboxName = node.prop('name');
                         if (checkboxName) {
                             src = [];
                             Util.addCheckbox(checkboxName, src, actions);
                         } else {
-                            value = Util.fix(actions, node.val());
+                            // value = Util.fix(actions, node.val());
                             let idx = Util.indexOf(src, value);
                             if (checked) {
                                 if (idx === -1) {
@@ -138,9 +140,12 @@ module.exports = {
                 }
             } else if (node.prop('type') == 'radio') {
                 let radioName = node.prop('name');
-                value = Util.fix(actions, $('input[name=' + radioName + ']:checked').val());
+
+                value = $('input[name=' + radioName + ']:checked').val();
+                // value = Util.fix(actions, $('input[name=' + radioName + ']:checked').val());
             } else {
-                value = Util.fix(actions, node.val());
+                value = node.val();
+                // value = Util.fix(actions, node.val());
             }
             if (object) {
                 //处理多绑定时，值从event对象上读取

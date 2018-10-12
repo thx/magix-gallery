@@ -243,7 +243,8 @@ module.exports = {
                     value = checked;
                 }
                 else {
-                    value = Util.fix(actions, node.val());
+                    value = node.val();
+                    // value = Util.fix(actions, node.val());
                     if ($.isArray(src)) {
                         var checkboxName = node.prop('name');
                         if (checkboxName) {
@@ -251,7 +252,7 @@ module.exports = {
                             Util.addCheckbox(checkboxName, src, actions);
                         }
                         else {
-                            value = Util.fix(actions, node.val());
+                            // value = Util.fix(actions, node.val());
                             var idx = Util.indexOf(src, value);
                             if (checked) {
                                 if (idx === -1) {
@@ -282,10 +283,12 @@ module.exports = {
             }
             else if (node.prop('type') == 'radio') {
                 var radioName = node.prop('name');
-                value = Util.fix(actions, $('input[name=' + radioName + ']:checked').val());
+                value = $('input[name=' + radioName + ']:checked').val();
+                // value = Util.fix(actions, $('input[name=' + radioName + ']:checked').val());
             }
             else {
-                value = Util.fix(actions, node.val());
+                value = node.val();
+                // value = Util.fix(actions, node.val());
             }
             if (valid) {
                 var checkInfo = isValid('error', actions, value);

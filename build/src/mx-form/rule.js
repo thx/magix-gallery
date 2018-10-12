@@ -211,7 +211,9 @@ module.exports = {
         var valid = true, tip = I18n['form.check.number'];
         val = $.trim(val);
         if (val && rule) {
-            if (val.indexOf('.') != val.lastIndexOf('.')) { //多个.
+            if ((val.indexOf('.') != val.lastIndexOf('.')) || (val.indexOf('.') == (val.length - 1))) {
+                //多个.
+                // 最后一个是点
                 valid = false;
             }
             else {

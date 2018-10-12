@@ -22,9 +22,9 @@ module.exports = {
         return $.inArray(s_value, s_str);
     },
     fix: (actions, value) => {
-        if (actions.number) {
-            value = parseFloat(value);
-        }
-        return value;
+        // if (actions.number) {
+        //     value = parseFloat(value);
+        // }
+        // return value;
     }
 }
