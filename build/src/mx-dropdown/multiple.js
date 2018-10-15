@@ -173,8 +173,8 @@ module.exports = Magix.View.extend({
         $line = 30;
         $art = 'each groups as group groupIndex';
         ;
-        $expr = '<%for (var groupIndex = 0, $art_ckepdhziai$art_c = groups.length; groupIndex < $art_ckepdhziai$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
-        for (var groupIndex = 0, $art_ckepdhziai$art_c = groups.length; groupIndex < $art_ckepdhziai$art_c; groupIndex++) {
+        $expr = '<%for (var groupIndex = 0, $art_cajijmqojh$art_c = groups.length; groupIndex < $art_cajijmqojh$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
+        for (var groupIndex = 0, $art_cajijmqojh$art_c = groups.length; groupIndex < $art_cajijmqojh$art_c; groupIndex++) {
             var group = groups[groupIndex];
             $p += ' ';
             $line = 31;
@@ -270,9 +270,9 @@ module.exports = Magix.View.extend({
             $line = 48;
             $art = 'each group.list as item';
             ;
-            $expr = '<%for (var $art_izctsq$art_i = 0, $art_objsrhrqrfj$art_obj = group.list, $art_canyscrwiyd$art_c = $art_objsrhrqrfj$art_obj.length; $art_izctsq$art_i < $art_canyscrwiyd$art_c; $art_izctsq$art_i++) {            var item = $art_objsrhrqrfj$art_obj[$art_izctsq$art_i]%>';
-            for (var $art_izctsq$art_i = 0, $art_objsrhrqrfj$art_obj = group.list, $art_canyscrwiyd$art_c = $art_objsrhrqrfj$art_obj.length; $art_izctsq$art_i < $art_canyscrwiyd$art_c; $art_izctsq$art_i++) {
-                var item = $art_objsrhrqrfj$art_obj[$art_izctsq$art_i];
+            $expr = '<%for (var $art_iximvtok$art_i = 0, $art_objknspyvq$art_obj = group.list, $art_cagnloomt$art_c = $art_objknspyvq$art_obj.length; $art_iximvtok$art_i < $art_cagnloomt$art_c; $art_iximvtok$art_i++) {            var item = $art_objknspyvq$art_obj[$art_iximvtok$art_i]%>';
+            for (var $art_iximvtok$art_i = 0, $art_objknspyvq$art_obj = group.list, $art_cagnloomt$art_c = $art_objknspyvq$art_obj.length; $art_iximvtok$art_i < $art_cagnloomt$art_c; $art_iximvtok$art_i++) {
+                var item = $art_objknspyvq$art_obj[$art_iximvtok$art_i];
                 $p += ' ';
                 $line = 49;
                 $art = 'if !item.hide';
@@ -775,7 +775,8 @@ catch (ex) {
         me['@{owner.node}'].trigger({
             type: 'change',
             texts: texts,
-            values: selected
+            values: selected,
+            selected: $('#' + me.id).val()
         });
     },
     '@{hide}<click>': function (e) {

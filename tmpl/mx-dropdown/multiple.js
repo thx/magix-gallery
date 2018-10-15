@@ -436,7 +436,8 @@ module.exports = Magix.View.extend({
         me['@{owner.node}'].trigger({
             type: 'change',
             texts,
-            values: selected
+            values: selected,
+            selected: $('#' + me.id).val()
         });
     },
     '@{hide}<click>' (e) {

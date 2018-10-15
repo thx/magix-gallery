@@ -44,7 +44,7 @@ module.exports = Base.extend({
     $line = 20;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown class="w200" \n    searchbox="true"\n    list="&#123;&#123;@[&#123;\n        value: 1,\n        text: \'向上1\'\n    &#125;,&#123;\n        value: 2,\n        text: \'向上2\'\n    &#125;]&#125;&#125;"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown class="w200" \n    placement="top"\n    list="&#123;&#123;@[&#123;\n        value: 1,\n        text: \'向上1\'\n    &#125;,&#123;\n        value: 2,\n        text: \'向上2\'\n    &#125;]&#125;&#125;"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
