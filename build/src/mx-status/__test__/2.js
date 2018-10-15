@@ -30,9 +30,9 @@ module.exports = Base.extend({
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
     $p += '<div mxa="_zs_galleryck:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryck:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryck:_" class="mb20 lh22 clearfix"><div class="fl color-9">以下示例：</div><div class="fl"><div>纯提示信息，无操作项</div></div></div><div mx-view="mx-status/index?info=';
     $line = 10;
-    $art = '@{\n                value: 1,\n                text: \'正在投放\',\n                icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',\n                tip: \'当前正在投放中\'\n                color: \'#51a300\'\n            }';
+    $art = '@{\n                value: 1,\n                text: \'正在投放\',\n                icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',\n                tip: \'当前正在投放中<br/>换一行\'\n                color: \'#51a300\'\n            }';
     ;
-    $p += ($expr = '<%@{        value: 1,        text: \'正在投放\',        icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',        tip: \'当前正在投放中\',        color: \'#51a300\'    }%>', $i($$ref, { value: 1, text: '正在投放', icon: '<i class=\"mc-iconfont\">&#xe683;</i>', tip: '当前正在投放中', color: '#51a300' })) + '"></div></div><div mxa="_zs_galleryck:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryck:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@{        value: 1,        text: \'正在投放\',        icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',        tip: \'当前正在投放中<br/>换一行\',        color: \'#51a300\'    }%>', $i($$ref, { value: 1, text: '正在投放', icon: '<i class=\"mc-iconfont\">&#xe683;</i>', tip: '当前正在投放中<br/>换一行', color: '#51a300' })) + '"></div></div><div mxa="_zs_galleryck:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryck:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 20;
     $art = '=viewId';
     ;
@@ -44,7 +44,7 @@ module.exports = Base.extend({
     $line = 25;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-status \n    info="&#123;&#123;@&#123;\n        value: 1,\n        text: \'正在投放\',\n        icon: \'&lt;i class=\\"mc-iconfont\\"&gt;&#xe683;&lt;/i&gt;\',\n        tip: \'当前正在投放中\'\n        color: \'#51a300\'\n    &#125;&#125;&#125;"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-status \n    info="&#123;&#123;@&#123;\n        value: 1,\n        text: \'正在投放\',\n        icon: \'&lt;i class=\\"mc-iconfont\\"&gt;&#38;&#35;xe683;&lt;/i&gt;\',\n        tip: \'当前正在投放中\'\n        color: \'#51a300\'\n    &#125;&#125;&#125;"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

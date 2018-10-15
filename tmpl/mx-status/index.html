@@ -18,10 +18,10 @@
             {{if showInfo}}
                 <li class="status-desc">
                     <span class="status-icon" style="color: {{=info.color}};">{{!info.icon}}</span>
-                    <span class="status-name">{{=info.text}}</span>
+                    <span class="status-name">{{!info.text}}</span>
                 </li>
                 {{if info.tip}}
-                <li class="status-tip">{{=info.tip}}</li>
+                <li class="status-tip">{{!info.tip}}</li>
                 {{/if}}
                 {{if (opers.length > 0)}}
                 <li class="status-line"></li>
@@ -31,7 +31,7 @@
             {{each opers as item}}
             <li class="status-oper clearfix {{if (item.value == cur.value)}} status-oper-cur {{/if}}" mx-click="select({item:'{{@item}}'})">
                 <span class="status-icon" style="color: {{=item.color}};">{{!item.icon}}</span>
-                <span class="status-name">{{=item.text}}</span>
+                <span class="status-name">{{!item.text}}</span>
                 <i class="mc-iconfont oper-icon">&#xe65d;</i>
             </li>
             {{/each}}

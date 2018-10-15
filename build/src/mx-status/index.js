@@ -102,9 +102,9 @@ module.exports = Base.extend({
             ;
             $p += ($expr = '<%!info.icon%>', $n(info.icon)) + '</span><span mxa="_zs_gallerycs:d" class="_zs_gallery_mx-status_base_-status-name">';
             $line = 21;
-            $art = '=info.text';
+            $art = '!info.text';
             ;
-            $p += ($expr = '<%=info.text%>', $e(info.text)) + '</span></li>';
+            $p += ($expr = '<%!info.text%>', $n(info.text)) + '</span></li>';
             $line = 23;
             $art = 'if info.tip';
             ;
@@ -113,9 +113,9 @@ module.exports = Base.extend({
                 ;
                 $p += '<li mxa="_zs_gallerycs:e" class="_zs_gallery_mx-status_base_-status-tip">';
                 $line = 24;
-                $art = '=info.tip';
+                $art = '!info.tip';
                 ;
-                $p += ($expr = '<%=info.tip%>', $e(info.tip)) + '</li>';
+                $p += ($expr = '<%!info.tip%>', $n(info.tip)) + '</li>';
                 $line = 25;
                 $art = '/if';
                 ;
@@ -147,9 +147,9 @@ module.exports = Base.extend({
         $line = 31;
         $art = 'each opers as item';
         ;
-        $expr = '<%for (var $art_izclwbnd$art_i = 0, $art_cwlpjwqxb$art_c = opers.length; $art_izclwbnd$art_i < $art_cwlpjwqxb$art_c; $art_izclwbnd$art_i++) {        var item = opers[$art_izclwbnd$art_i]%>';
-        for (var $art_izclwbnd$art_i = 0, $art_cwlpjwqxb$art_c = opers.length; $art_izclwbnd$art_i < $art_cwlpjwqxb$art_c; $art_izclwbnd$art_i++) {
-            var item = opers[$art_izclwbnd$art_i];
+        $expr = '<%for (var $art_ijpnkdy$art_i = 0, $art_cgniypjuh$art_c = opers.length; $art_ijpnkdy$art_i < $art_cgniypjuh$art_c; $art_ijpnkdy$art_i++) {        var item = opers[$art_ijpnkdy$art_i]%>';
+        for (var $art_ijpnkdy$art_i = 0, $art_cgniypjuh$art_c = opers.length; $art_ijpnkdy$art_i < $art_cgniypjuh$art_c; $art_ijpnkdy$art_i++) {
+            var item = opers[$art_ijpnkdy$art_i];
             $p += '<li class="_zs_gallery_mx-status_base_-status-oper clearfix ';
             $line = 32;
             $art = 'if (item.value == cur.value)';
@@ -178,9 +178,9 @@ module.exports = Base.extend({
             ;
             $p += ($expr = '<%!item.icon%>', $n(item.icon)) + '</span><span mxa="_zs_gallerycs:f" class="_zs_gallery_mx-status_base_-status-name">';
             $line = 34;
-            $art = '=item.text';
+            $art = '!item.text';
             ;
-            $p += ($expr = '<%=item.text%>', $e(item.text)) + '</span><i mxs="_zs_gallerycs:b" class="mc-iconfont _zs_gallery_mx-status_base_-oper-icon">&#xe65d;</i></li>';
+            $p += ($expr = '<%!item.text%>', $n(item.text)) + '</span><i mxs="_zs_gallerycs:b" class="mc-iconfont _zs_gallery_mx-status_base_-oper-icon">&#xe65d;</i></li>';
             $line = 37;
             $art = '/each';
             ;
