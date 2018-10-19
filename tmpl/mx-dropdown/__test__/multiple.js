@@ -58,7 +58,12 @@ module.exports = Magix.View.extend({
             desc: '没有选择时的提示文案',
             type: 'string',
             def: ''
-        },]
+        }, {
+            key: 'placement',
+            desc: '可选内容展示方向，bottom（下方），top（上方）',
+            type: 'string',
+            def: 'bottom'
+        }]
         this.updater.digest({
             viewId: this.id,
             options

@@ -40,9 +40,9 @@ module.exports = Base.extend({
         $line = 3;
         $art = 'each list as item';
         ;
-        $expr = '<%for (var $art_ianjcjmc$art_i = 0, $art_cuhcfszrp$art_c = list.length; $art_ianjcjmc$art_i < $art_cuhcfszrp$art_c; $art_ianjcjmc$art_i++) {        var item = list[$art_ianjcjmc$art_i]%>';
-        for (var $art_ianjcjmc$art_i = 0, $art_cuhcfszrp$art_c = list.length; $art_ianjcjmc$art_i < $art_cuhcfszrp$art_c; $art_ianjcjmc$art_i++) {
-            var item = list[$art_ianjcjmc$art_i];
+        $expr = '<%for (var $art_iitpvjnr$art_i = 0, $art_cxiiefk$art_c = list.length; $art_iitpvjnr$art_i < $art_cxiiefk$art_c; $art_iitpvjnr$art_i++) {        var item = list[$art_iitpvjnr$art_i]%>';
+        for (var $art_iitpvjnr$art_i = 0, $art_cxiiefk$art_c = list.length; $art_iitpvjnr$art_i < $art_cxiiefk$art_c; $art_iitpvjnr$art_i++) {
+            var item = list[$art_iitpvjnr$art_i];
             $p += '<a mx-mouseover="' + $viewId + '@{over}({value:\'';
             $line = 4;
             $art = '=item.value';
@@ -134,9 +134,9 @@ module.exports = Base.extend({
         $line = 23;
         $art = 'each list as item';
         ;
-        $expr = '<%for (var $art_ixcihpn$art_i = 0, $art_cxysmjijm$art_c = list.length; $art_ixcihpn$art_i < $art_cxysmjijm$art_c; $art_ixcihpn$art_i++) {        var item = list[$art_ixcihpn$art_i]%>';
-        for (var $art_ixcihpn$art_i = 0, $art_cxysmjijm$art_c = list.length; $art_ixcihpn$art_i < $art_cxysmjijm$art_c; $art_ixcihpn$art_i++) {
-            var item = list[$art_ixcihpn$art_i];
+        $expr = '<%for (var $art_ilwwmkuso$art_i = 0, $art_cwfdbeqw$art_c = list.length; $art_ilwwmkuso$art_i < $art_cwfdbeqw$art_c; $art_ilwwmkuso$art_i++) {        var item = list[$art_ilwwmkuso$art_i]%>';
+        for (var $art_ilwwmkuso$art_i = 0, $art_cwfdbeqw$art_c = list.length; $art_ilwwmkuso$art_i < $art_cwfdbeqw$art_c; $art_ilwwmkuso$art_i++) {
+            var item = list[$art_ilwwmkuso$art_i];
             $p += '<a href="javascript:;" ';
             $line = 24;
             $art = 'if !disabled';

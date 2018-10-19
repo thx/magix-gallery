@@ -23,7 +23,7 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', expand = $$.expand, selected = $$.selected, selectedText = $$.selectedText, over = $$.over, menuStyles = $$.menuStyles, rList = $$.rList, searchbox = $$.searchbox, text = $$.text, keyword = $$.keyword, needAll = $$.needAll, spm = $$.spm, viewId = $$.viewId, height = $$.height, groups = $$.groups; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', expand = $$.expand, selected = $$.selected, selectedText = $$.selectedText, placementClass = $$.placementClass, over = $$.over, menuStyles = $$.menuStyles, rList = $$.rList, searchbox = $$.searchbox, text = $$.text, keyword = $$.keyword, needAll = $$.needAll, spm = $$.spm, viewId = $$.viewId, height = $$.height, groups = $$.groups; var $expr, $art, $line; try {
     $p += '<div class="_zs_gallery_mx-dropdown_index_-dropdown-toggle ';
     $line = 1;
     $art = 'if expand';
@@ -56,7 +56,11 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = '=selectedText';
     ;
-    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryaD:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper _zs_gallery_mx-dropdown_index_-bottom ';
+    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryaD:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ';
+    $line = 5;
+    $art = '=placementClass';
+    ;
+    $p += ($expr = '<%=placementClass%>', $e(placementClass)) + ' ';
     $line = 5;
     $art = 'if expand';
     ;
@@ -173,8 +177,8 @@ module.exports = Magix.View.extend({
         $line = 30;
         $art = 'each groups as group groupIndex';
         ;
-        $expr = '<%for (var groupIndex = 0, $art_cacnhtxrng$art_c = groups.length; groupIndex < $art_cacnhtxrng$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
-        for (var groupIndex = 0, $art_cacnhtxrng$art_c = groups.length; groupIndex < $art_cacnhtxrng$art_c; groupIndex++) {
+        $expr = '<%for (var groupIndex = 0, $art_czjharsawd$art_c = groups.length; groupIndex < $art_czjharsawd$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
+        for (var groupIndex = 0, $art_czjharsawd$art_c = groups.length; groupIndex < $art_czjharsawd$art_c; groupIndex++) {
             var group = groups[groupIndex];
             $p += ' ';
             $line = 31;
@@ -270,9 +274,9 @@ module.exports = Magix.View.extend({
             $line = 48;
             $art = 'each group.list as item';
             ;
-            $expr = '<%for (var $art_ioajomchdq$art_i = 0, $art_objillczaw$art_obj = group.list, $art_ciqtdtzsw$art_c = $art_objillczaw$art_obj.length; $art_ioajomchdq$art_i < $art_ciqtdtzsw$art_c; $art_ioajomchdq$art_i++) {            var item = $art_objillczaw$art_obj[$art_ioajomchdq$art_i]%>';
-            for (var $art_ioajomchdq$art_i = 0, $art_objillczaw$art_obj = group.list, $art_ciqtdtzsw$art_c = $art_objillczaw$art_obj.length; $art_ioajomchdq$art_i < $art_ciqtdtzsw$art_c; $art_ioajomchdq$art_i++) {
-                var item = $art_objillczaw$art_obj[$art_ioajomchdq$art_i];
+            $expr = '<%for (var $art_iyrymuvv$art_i = 0, $art_objvgjbukd$art_obj = group.list, $art_ckaajz$art_c = $art_objvgjbukd$art_obj.length; $art_iyrymuvv$art_i < $art_ckaajz$art_c; $art_iyrymuvv$art_i++) {            var item = $art_objvgjbukd$art_obj[$art_iyrymuvv$art_i]%>';
+            for (var $art_iyrymuvv$art_i = 0, $art_objvgjbukd$art_obj = group.list, $art_ckaajz$art_c = $art_objvgjbukd$art_obj.length; $art_iyrymuvv$art_i < $art_ckaajz$art_c; $art_iyrymuvv$art_i++) {
+                var item = $art_objvgjbukd$art_obj[$art_iyrymuvv$art_i];
                 $p += ' ';
                 $line = 49;
                 $art = 'if !item.hide';
@@ -390,6 +394,12 @@ catch (ex) {
         me['@{owner.node}'] = node;
         var disabledNode = $('#' + me.id + '[mx-disabled]');
         me['@{ui.disabled}'] = disabledNode && (disabledNode.length > 0);
+        // 展开方向
+        var placementMap = {
+            top: '_zs_gallery_mx-dropdown_index_-top',
+            bottom: '_zs_gallery_mx-dropdown_index_-bottom'
+        };
+        me['@{ui.placement}'] = placementMap[ops.placement || 'bottom'];
         // trigger方式，click，hover，默认click
         me['@{trigger.type}'] = ops.triggerType || 'click';
         var expand = false;
@@ -510,6 +520,7 @@ catch (ex) {
             groups: groups,
             height: ops.height || 400,
             spm: me['@{owner.node}'].attr('data-spm-click') || '',
+            placementClass: me['@{ui.placement}'],
             text: {
                 search: I18n['dropdown.search'],
                 select: I18n['select.all'],

@@ -2,7 +2,7 @@
     <span class="dropdown-toggle-label {{if (selected==='')}} dropdown-toggle-label-ph {{/if}}">{{=selectedText}}</span>
     <span class="mc-iconfont arrow">&#xe692;</span>
 </div>
-<div class="dropdown-menu-wrapper bottom {{if expand}} open {{/if}} {{if over}} dropdown-menu-group {{/if}}"
+<div class="dropdown-menu-wrapper {{=placementClass}} {{if expand}} open {{/if}} {{if over}} dropdown-menu-group {{/if}}"
    {{if menuStyles}} style="{{=menuStyles}}" {{/if}} >
 {{if rList}}
     {{if searchbox}}
