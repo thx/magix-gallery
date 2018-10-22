@@ -35,7 +35,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryaB:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_galleryaC:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'分组\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'hover展开\',\n            key: viewId + \'_demo13\'\n        },{\n            name: \'selected\',\n            key: viewId + \'_demo8\'\n        },{\n            name: \'禁选\',\n            key: viewId + \'_demo11\'\n        },{\n            name: \'自定义key\',\n            key: viewId + \'_demo9\'\n        },{\n            name: \'带搜索框\',\n            key: viewId + \'_demo16\'\n        },{\n            name: \'向上展开\',\n            key: viewId + \'_demo18\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
@@ -43,7 +43,7 @@ module.exports = Magix.View.extend({
     $line = 32;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryaB:a" class="clearfix mb20"><div mxa="_zs_galleryaB:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/7" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryaC:a" class="clearfix mb20"><div mxa="_zs_galleryaC:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/7" id="';
     $line = 35;
     $art = '=viewId';
     ;
@@ -55,7 +55,7 @@ module.exports = Magix.View.extend({
     $line = 37;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo16"></div></div><div mxa="_zs_galleryaB:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/13" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo16"></div></div><div mxa="_zs_galleryaC:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/13" id="';
     $line = 40;
     $art = '=viewId';
     ;
@@ -67,7 +67,7 @@ module.exports = Magix.View.extend({
     $line = 42;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div><div mxs="_zs_galleryaB:_" mx-view="mx-dropdown/__test__/10"></div><div mx-view="mx-dropdown/__test__/18" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div><div mxs="_zs_galleryaC:_" mx-view="mx-dropdown/__test__/10"></div><div mx-view="mx-dropdown/__test__/18" id="';
     $line = 44;
     $art = '=viewId';
     ;
