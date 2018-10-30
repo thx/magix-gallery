@@ -313,7 +313,7 @@ module.exports = Magix.View.extend({
                 path: '/effects/star',
                 icon: '&#xe646;'
             }, {
-                name: '进度条',
+                name: '进度比例',
                 tip: '条型，刻度型',
                 path: '/effects/progress',
                 icon: '&#xe6e4;'

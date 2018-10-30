@@ -1,26 +1,23 @@
 @import "../mx-style/_vars";
-
 @progress-bg: #f0f0f0;
 @progress-radius: 3px;
 @progress-num-width: 60px;
 @progress-num-height: 24px;
-
-[mx-view*="mx-effects/progress"]{
-    position: relative;
+[mx-view*="mx-effects/progress"] {
     display: inline-block;
 }
 
 .line,
-.on{
+.on {
     height: (@progress-radius * 2);
     border-radius: @progress-radius;
 }
-.line{
+
+.line {
     position: relative;
     width: 200px;
     background-color: @progress-bg;
-   
-    .on{
+    .on {
         position: absolute;
         top: 0;
         left: 0;
@@ -28,8 +25,7 @@
         background-color: @color-brand;
         transition: width @duration;
     }
-
-    .num{
+    .num {
         position: absolute;
         width: @progress-num-width;
         height: @progress-num-height;
@@ -38,54 +34,101 @@
         color: #999;
         transition: all @duration;
     }
-    
-    .num-right{
+    .num-right {
         top: 0 - (@progress-num-height / 2 - @progress-radius);
         left: 100%;
         padding-left: 10px;
         text-align: left;
     }
-    .num-left{
+    .num-left {
         top: 0 - (@progress-num-height / 2 - @progress-radius);
         left: 0 - @progress-num-width;
         padding-right: 10px;
         text-align: right;
     }
-    .num-top{
+    .num-top {
         top: -24px;
         margin-left: 0 - (@progress-num-width / 2);
         text-align: center;
     }
-    .num-bottom{
+    .num-bottom {
         bottom: -24px;
         margin-left: 0 - (@progress-num-width / 2);
         text-align: center;
     }
 }
 
+.degree-wrapper{
+    position: relative;
+    .degree {
+        display: inline-block;
+        width: 4px;
+        height: 14px;
+        margin-right: 3px;
+        border-radius: 2px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    
+    .degree-bg {
+        .degree {
+            background-color: @progress-bg;
+        }
+    }
+    
+    .degree-on {
+        position: absolute;
+        top: 0;
+        left: 0;
+        .degree {
+            background-color: @color-brand;
+        }
+    }
+}
 
-.degree{
-    display: inline-block;
-    width: 4px;
-    height: 14px;
-    margin-right: 3px;
-    border-radius: 2px;
-    &:last-child{
-        margin-right: 0;
-    }
+.circle {
+    width: 200px;
+    height: 200px;
+    border: 5px solid rgb(118, 218, 255);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow: hidden;
 }
-.degree-bg{
-    .degree{
-        background-color: @progress-bg;
-    }
-}
-.degree-on{
-    position: absolute;
-    top: 0;
-    left: 0;
-    .degree{
-        background-color: @color-brand;
+.wave {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(118, 218, 255);
+    border-radius: 50%;
+    &::before,
+    &::after{
+        content: "";
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        top: 0;
+        left: 50%;
+        background-color: rgba(255, 255, 255, .4);
+        border-radius: 45%;
+        transform: translate(-50%, -70%) rotate(0);
+        animation: rotate 6s linear infinite;
+        z-index: 10;
+    }   
+    &::after {
+        border-radius: 47%;
+        background-color: rgba(255, 255, 255, .9);
+        transform: translate(-50%, -70%) rotate(0);
+        animation: rotate 10s linear -5s infinite;
+        z-index: 20;
     }
 }
 
-  
+@keyframes rotate {
+  50% {
+    transform: translate(-50%, -73%) rotate(180deg);
+  } 
+  100% {
+    transform: translate(-50%, -70%) rotate(360deg);
+  }
+}

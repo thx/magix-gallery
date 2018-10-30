@@ -86,9 +86,9 @@ module.exports = Magix.View.extend({
         $line = 14;
         $art = 'each list as item';
         ;
-        $expr = '<%for (var $art_iscirynhjh$art_i = 0, $art_cipimad$art_c = list.length; $art_iscirynhjh$art_i < $art_cipimad$art_c; $art_iscirynhjh$art_i++) {        var item = list[$art_iscirynhjh$art_i]%>';
-        for (var $art_iscirynhjh$art_i = 0, $art_cipimad$art_c = list.length; $art_iscirynhjh$art_i < $art_cipimad$art_c; $art_iscirynhjh$art_i++) {
-            var item = list[$art_iscirynhjh$art_i];
+        $expr = '<%for (var $art_igcbaddr$art_i = 0, $art_cklpuujqb$art_c = list.length; $art_igcbaddr$art_i < $art_cklpuujqb$art_c; $art_igcbaddr$art_i++) {        var item = list[$art_igcbaddr$art_i]%>';
+        for (var $art_igcbaddr$art_i = 0, $art_cklpuujqb$art_c = list.length; $art_igcbaddr$art_i < $art_cklpuujqb$art_c; $art_igcbaddr$art_i++) {
+            var item = list[$art_igcbaddr$art_i];
             $p += '<li class="_zs_gallery_mx-suggest_index_-suggest-item ';
             $line = 15;
             $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';

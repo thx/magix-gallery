@@ -9,7 +9,7 @@ define("mx-effects/progress",["magix","./base","$"],(require,exports,module)=>{
 var Magix = require("magix");
 var Base = require("./base");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-effects_progress_","/* @dependent: ./index.less */\n._zs_gallery_mx-effects_progress_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-effects_progress_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-effects/progress\"] {\n  position: relative;\n  display: inline-block;\n}\n._zs_gallery_mx-effects_progress_-line,\n._zs_gallery_mx-effects_progress_-on {\n  height: 6px;\n  border-radius: 3px;\n}\n._zs_gallery_mx-effects_progress_-line {\n  position: relative;\n  width: 200px;\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-on {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 0;\n  background-color: #4d7fff;\n  transition: width 0.25s;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num {\n  position: absolute;\n  width: 60px;\n  height: 24px;\n  line-height: 24px;\n  font-family: \"Tahoma\";\n  color: #999;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num-right {\n  top: -9px;\n  left: 100%;\n  padding-left: 10px;\n  text-align: left;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num-left {\n  top: -9px;\n  left: -60px;\n  padding-right: 10px;\n  text-align: right;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num-top {\n  top: -24px;\n  margin-left: -30px;\n  text-align: center;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num-bottom {\n  bottom: -24px;\n  margin-left: -30px;\n  text-align: center;\n}\n._zs_gallery_mx-effects_progress_-degree {\n  display: inline-block;\n  width: 4px;\n  height: 14px;\n  margin-right: 3px;\n  border-radius: 2px;\n}\n._zs_gallery_mx-effects_progress_-degree:last-child {\n  margin-right: 0;\n}\n._zs_gallery_mx-effects_progress_-degree-bg ._zs_gallery_mx-effects_progress_-degree {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-effects_progress_-degree-on {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n._zs_gallery_mx-effects_progress_-degree-on ._zs_gallery_mx-effects_progress_-degree {\n  background-color: #4d7fff;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-effects_progress_","/* @dependent: ./index.less */\n._zs_gallery_mx-effects_progress_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-effects_progress_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-effects/progress\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-effects_progress_-line,\n._zs_gallery_mx-effects_progress_-on {\n  height: 6px;\n  border-radius: 3px;\n}\n._zs_gallery_mx-effects_progress_-line {\n  position: relative;\n  width: 200px;\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-on {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 0;\n  background-color: #4d7fff;\n  transition: width 0.25s;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num {\n  position: absolute;\n  width: 60px;\n  height: 24px;\n  line-height: 24px;\n  font-family: \"Tahoma\";\n  color: #999;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num-right {\n  top: -9px;\n  left: 100%;\n  padding-left: 10px;\n  text-align: left;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num-left {\n  top: -9px;\n  left: -60px;\n  padding-right: 10px;\n  text-align: right;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num-top {\n  top: -24px;\n  margin-left: -30px;\n  text-align: center;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num-bottom {\n  bottom: -24px;\n  margin-left: -30px;\n  text-align: center;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper {\n  position: relative;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper ._zs_gallery_mx-effects_progress_-degree {\n  display: inline-block;\n  width: 4px;\n  height: 14px;\n  margin-right: 3px;\n  border-radius: 2px;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper ._zs_gallery_mx-effects_progress_-degree:last-child {\n  margin-right: 0;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper ._zs_gallery_mx-effects_progress_-degree-bg ._zs_gallery_mx-effects_progress_-degree {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper ._zs_gallery_mx-effects_progress_-degree-on {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper ._zs_gallery_mx-effects_progress_-degree-on ._zs_gallery_mx-effects_progress_-degree {\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-effects_progress_-circle {\n  width: 200px;\n  height: 200px;\n  border: 5px solid #76daff;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  border-radius: 50%;\n  overflow: hidden;\n}\n._zs_gallery_mx-effects_progress_-wave {\n  position: relative;\n  width: 200px;\n  height: 200px;\n  background-color: #76daff;\n  border-radius: 50%;\n}\n._zs_gallery_mx-effects_progress_-wave::before,\n._zs_gallery_mx-effects_progress_-wave::after {\n  content: \"\";\n  position: absolute;\n  width: 400px;\n  height: 400px;\n  top: 0;\n  left: 50%;\n  background-color: rgba(255, 255, 255, 0.4);\n  border-radius: 45%;\n  -webkit-transform: translate(-50%, -70%) rotate(0);\n          transform: translate(-50%, -70%) rotate(0);\n  -webkit-animation: _zs_gallery_mx-effects_progress_-rotate 6s linear infinite;\n          animation: _zs_gallery_mx-effects_progress_-rotate 6s linear infinite;\n  z-index: 10;\n}\n._zs_gallery_mx-effects_progress_-wave::after {\n  border-radius: 47%;\n  background-color: rgba(255, 255, 255, 0.9);\n  -webkit-transform: translate(-50%, -70%) rotate(0);\n          transform: translate(-50%, -70%) rotate(0);\n  -webkit-animation: _zs_gallery_mx-effects_progress_-rotate 10s linear -5s infinite;\n          animation: _zs_gallery_mx-effects_progress_-rotate 10s linear -5s infinite;\n  z-index: 20;\n}\n@-webkit-keyframes _zs_gallery_mx-effects_progress_-rotate {\n  50% {\n    -webkit-transform: translate(-50%, -73%) rotate(180deg);\n            transform: translate(-50%, -73%) rotate(180deg);\n  }\n  100% {\n    -webkit-transform: translate(-50%, -70%) rotate(360deg);\n            transform: translate(-50%, -70%) rotate(360deg);\n  }\n}\n@keyframes _zs_gallery_mx-effects_progress_-rotate {\n  50% {\n    -webkit-transform: translate(-50%, -73%) rotate(180deg);\n            transform: translate(-50%, -73%) rotate(180deg);\n  }\n  100% {\n    -webkit-transform: translate(-50%, -70%) rotate(360deg);\n            transform: translate(-50%, -70%) rotate(360deg);\n  }\n}\n");
 var ClassNames = {
     left: '_zs_gallery_mx-effects_progress_-num-left',
     right: '_zs_gallery_mx-effects_progress_-num-right',
@@ -29,126 +29,126 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', type = $$.type, num = $$.num, color = $$.color, cName = $$.cName, placement = $$.placement, degree = $$.degree; var $expr, $art, $line; try {
-    $line = 1;
+    $line = 5;
     $art = 'if (type == \'line\')';
     ;
     $expr = '<%if (type == \'line\') {%>';
     if (type == 'line') {
         ;
-        $p += '<div mxa="_zs_gallerya%:_" class="_zs_gallery_mx-effects_progress_-line"><div class="_zs_gallery_mx-effects_progress_-on" style="width: ';
-        $line = 3;
+        $p += '<div mxa="_zs_gallerya%:d" class="_zs_gallery_mx-effects_progress_-line"><div class="_zs_gallery_mx-effects_progress_-on" style="width: ';
+        $line = 7;
         $art = '=num';
         ;
         $p += ($expr = '<%=num%>', $e(num)) + '; ';
-        $line = 3;
+        $line = 7;
         $art = 'if color';
         ;
         $expr = '<%if (color) {%>';
         if (color) {
             ;
             $p += ' background-color: ';
-            $line = 3;
+            $line = 7;
             $art = '=color';
             ;
             $p += ($expr = '<%=color%>', $e(color)) + '; ';
-            $line = 3;
+            $line = 7;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '"></div><div class="_zs_gallery_mx-effects_progress_-num ';
-        $line = 4;
+        $line = 8;
         $art = '=cName';
         ;
         $p += ($expr = '<%=cName%>', $e(cName)) + '" ';
-        $line = 4;
+        $line = 8;
         $art = 'if (placement == \'top\' || placement == \'bottom\')';
         ;
         $expr = '<%if (placement == \'top\' || placement == \'bottom\') {%>';
         if (placement == 'top' || placement == 'bottom') {
             ;
             $p += ' style="left: ';
-            $line = 4;
+            $line = 8;
             $art = '=num';
             ;
             $p += ($expr = '<%=num%>', $e(num)) + ';" ';
-            $line = 4;
+            $line = 8;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '>';
-        $line = 4;
+        $line = 8;
         $art = '=num';
         ;
         $p += ($expr = '<%=num%>', $e(num)) + '</div></div>';
-        $line = 6;
+        $line = 10;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += ' ';
-    $line = 8;
+    $line = 12;
     $art = 'if (type == \'degree\')';
     ;
     $expr = '<%if (type == \'degree\') {%>';
     if (type == 'degree') {
         ;
-        $p += '<div mxa="_zs_gallerya%:a" class="_zs_gallery_mx-effects_progress_-degree-bg">';
-        $line = 10;
+        $p += '<div mxa="_zs_gallerya%:e" class="_zs_gallery_mx-effects_progress_-degree-wrapper"><div mxa="_zs_gallerya%:f" class="_zs_gallery_mx-effects_progress_-degree-bg">';
+        $line = 15;
         $art = 'for (let i=0;i<10;i+=1)';
         ;
         $expr = '<%for (var i = 0; i < 10; i += 1) {%>';
         for (var i = 0; i < 10; i += 1) {
             ;
-            $p += '<span mxs="_zs_gallerya%:_" class="_zs_gallery_mx-effects_progress_-degree"></span>';
-            $line = 12;
-            $art = '/for';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '</div><div mxa="_zs_gallerya%:b" class="_zs_gallery_mx-effects_progress_-degree-on">';
-        $line = 15;
-        $art = 'for (let i=0;i<degree;i+=1)';
-        ;
-        $expr = '<%for (var i = 0; i < degree; i += 1) {%>';
-        for (var i = 0; i < degree; i += 1) {
-            ;
-            $p += '<span class="_zs_gallery_mx-effects_progress_-degree" style="opacity: ';
-            $line = 16;
-            $art = '=(i / 10 + 0.08)';
-            ;
-            $p += ($expr = '<%=(i / 10 + 0.08)%>', $e((i / 10 + 0.08))) + '; ';
-            $line = 16;
-            $art = 'if color';
-            ;
-            $expr = '<%if (color) {%>';
-            if (color) {
-                ;
-                $p += ' background-color: ';
-                $line = 16;
-                $art = '=color';
-                ;
-                $p += ($expr = '<%=color%>', $e(color)) + '; ';
-                $line = 16;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
-            }
-            ;
-            $p += '"></span>';
+            $p += '<span mxs="_zs_gallerya%:a" class="_zs_gallery_mx-effects_progress_-degree"></span>';
             $line = 17;
             $art = '/for';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += '</div>';
-        $line = 19;
+        $p += '</div><div mxa="_zs_gallerya%:b" class="_zs_gallery_mx-effects_progress_-degree-on">';
+        $line = 20;
+        $art = 'for (let i=0;i<degree;i+=1)';
+        ;
+        $expr = '<%for (var i = 0; i < degree; i += 1) {%>';
+        for (var i = 0; i < degree; i += 1) {
+            ;
+            $p += '<span class="_zs_gallery_mx-effects_progress_-degree" style="opacity: ';
+            $line = 21;
+            $art = '=(i / 10 + 0.08)';
+            ;
+            $p += ($expr = '<%=(i / 10 + 0.08)%>', $e((i / 10 + 0.08))) + '; ';
+            $line = 21;
+            $art = 'if color';
+            ;
+            $expr = '<%if (color) {%>';
+            if (color) {
+                ;
+                $p += ' background-color: ';
+                $line = 21;
+                $art = '=color';
+                ;
+                $p += ($expr = '<%=color%>', $e(color)) + '; ';
+                $line = 21;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '"></span>';
+            $line = 22;
+            $art = '/for';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div></div>';
+        $line = 25;
         $art = '/if';
         ;
         $expr = '<%}%>';

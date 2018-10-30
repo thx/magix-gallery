@@ -38,7 +38,6 @@ let Rangepicker = Magix.View.extend({
             center: centerClass
         }
         let textAlign = classes[extra.textAlign || 'center'] || centerClass;
-
         // vsEnable 是否可对比，默认关闭
         // vs 对比初始状态 
         // vsSingle 可对比情况下，关闭对比时是选择时间段还是单天
@@ -195,7 +194,13 @@ let Rangepicker = Magix.View.extend({
             } else {
                 // 选择连续时间
                 if (quickDateText) {
-                    result.startStr = quickDateText;
+                    if(quickDateText == Util.foreverStr){
+                        // 不限的情况显示开始时间
+                        result.startStr = startStr;
+                        result.endStr = Util.foreverStr;
+                    }else{
+                        result.startStr = quickDateText;
+                    }
                 } else {
                     result.startStr = startStr;
                     result.endStr = endStr;

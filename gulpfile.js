@@ -159,6 +159,9 @@ let  spawnCommand = (command, args, options) => {
 };
 
 gulp.task('release', async () => {
+    // 已取消打tag发布，直接tnpm pub
+    // 云构建发布
+
     //先更新远程分支数据 
     await spawnCommand('git', ['pull']);
 
