@@ -78,49 +78,43 @@ module.exports = Magix.View.extend({
         }
     },
     setBottomValues(bottomValues) {
-        this.getBottom((vf) => {
+        this.loop((vf) => {
             vf.invoke('setValues', [bottomValues]);
-        })
+        });
     },
-    getBottomValues() {
-        let me = this;
 
+    getBottomValues() {
         let bottomValues = [];
-        me.getBottom((vf) => {
+        this.loop((vf) => {
             let result = vf.invoke('getValues');
             bottomValues = bottomValues.concat(result);
         })
-
         return bottomValues;
     },
-    getBottom(callback){
-        let me = this;
-        let children = me.owner.children();
 
-        let loop = (children) => {
-            for (let c of children) {
-                let vf = Vframe.get(c);
-                let cc = vf.children();
-                if (cc && (cc.length > 0)) {
-                    loop(cc);
-                } else {
-                    if(callback){
-                        callback(vf);
-                    }
-                }
-            }
-        }
-        loop(children);
-    },
     getBottomItems() {
-        let me = this;
-
         let bottomItems = [];
-        me.getBottom((vf) => {
+        this.loop((vf) => {
             let result = vf.invoke('getItems');
             bottomItems = bottomItems.concat(result);
         })
-
         return bottomItems;
     },
+
+    loop(fn){
+        let me = this;
+        let children = me.owner.children();
+        let _loop = (children) => {
+            for (let c of children) {
+                let vf = Vframe.get(c);
+                fn(vf);
+
+                let cc = vf.children();
+                if (cc && (cc.length > 0)) {
+                    _loop(cc);
+                } 
+            }
+        }
+        _loop(children);
+    }
 });

@@ -1,6 +1,6 @@
 {
     "name": "@ali/zs-gallery",
-    "version": "1.1.84",
+    "version": "1.1.85",
     "description": "钻展风格magix组件",
     "main": "index.js",
     "repository": {
@@ -26,5 +26,8 @@
         "seajs": "3.0.2",
         "typescript": "^2.6.2",
         "magix-combine": "3.11.21"
+    },
+    "magixCliConfig": {
+        "cloudBuild": true
     }
 }

@@ -89,9 +89,9 @@ module.exports = Magix.View.extend({
         let cName = '@index.less:close';
         let branch = $('#' + this.id + '_' + index);
         branch.toggleClass(cName);
-        if(branch.hasClass(cName)){
+        if (branch.hasClass(cName)) {
             node.html('&#xe65b;');
-        }else{
+        } else {
             node.html('&#xe65a;');
         }
     },
@@ -111,31 +111,34 @@ module.exports = Magix.View.extend({
         me['@{checkParentState}'](me.id);
     },
     getValues() {
-        let me = this;
-        let viewId = me.id;
-        let result = [];
-        let nodes = $('#' + viewId + ' input[name="' + viewId + '"]');
-        nodes.each((i, n) => {
-            if (n.checked) {
-                result.push(n.value);
-            }
-        });
-        return result;
+        return this.get('value');
     },
     getItems() {
-        let me = this;
-        let list = me.updater.get('list'),
-            valueKey = me.updater.get('valueKey');
+        return this.get('item')
+    },
 
-        let map = Magix.toMap(list, valueKey);
+    get(type){
+        let me = this;
         let viewId = me.id;
         let result = [];
-        let nodes = $('#' + viewId + ' input[name="' + viewId + '"]');
-        nodes.each((i, n) => {
-            if (n.checked) {
-                result.push(map[n.value])
+
+        let list = me.updater.get('list');
+        list.forEach((item, index) => {
+            let children = item.children || [];
+            if (children.length == 0) {
+                // 根节点
+                let node = $('#cb_' + viewId + '_' + index);
+                if (node[0].checked) {
+                    if(type == 'item'){
+                        // 完整对象
+                        result.push(item);
+                    }else{
+                        // value值
+                        result.push(node[0].value);
+                    }
+                }
             }
-        });
+        })
         return result;
     }
 });

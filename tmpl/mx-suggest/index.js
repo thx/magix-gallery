@@ -52,7 +52,7 @@ module.exports = Magix.View.extend({
 
         // 在哪些值中搜索关键词
         let type = (data.type || 'text') + '';
-        if(type == 'all'){
+        if (type == 'all') {
             type = 'text,value';
         }
         that['@{search.type}'] = type.split(',');
@@ -177,6 +177,16 @@ module.exports = Magix.View.extend({
         });
         Monitor['@{remove}'](that);
     },
+    showLoading() {
+        this.updater.digest({
+            loading: true
+        })
+    },
+    hideLoading() {
+        this.updater.digest({
+            loading: false
+        })
+    },
     /**
      * 外部更新list可选项
      */
@@ -208,7 +218,7 @@ module.exports = Magix.View.extend({
                     has = true;
                 }
             })
-            if(has){
+            if (has) {
                 list.push(item);
             }
         });

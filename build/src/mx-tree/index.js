@@ -154,47 +154,41 @@ catch (ex) {
         }
     },
     setBottomValues: function (bottomValues) {
-        this.getBottom(function (vf) {
+        this.loop(function (vf) {
             vf.invoke('setValues', [bottomValues]);
         });
     },
     getBottomValues: function () {
-        var me = this;
         var bottomValues = [];
-        me.getBottom(function (vf) {
+        this.loop(function (vf) {
             var result = vf.invoke('getValues');
             bottomValues = bottomValues.concat(result);
         });
         return bottomValues;
     },
-    getBottom: function (callback) {
-        var me = this;
-        var children = me.owner.children();
-        var loop = function (children) {
-            for (var _i = 0, children_1 = children; _i < children_1.length; _i++) {
-                var c = children_1[_i];
-                var vf = Vframe.get(c);
-                var cc = vf.children();
-                if (cc && (cc.length > 0)) {
-                    loop(cc);
-                }
-                else {
-                    if (callback) {
-                        callback(vf);
-                    }
-                }
-            }
-        };
-        loop(children);
-    },
     getBottomItems: function () {
-        var me = this;
         var bottomItems = [];
-        me.getBottom(function (vf) {
+        this.loop(function (vf) {
             var result = vf.invoke('getItems');
             bottomItems = bottomItems.concat(result);
         });
         return bottomItems;
+    },
+    loop: function (fn) {
+        var me = this;
+        var children = me.owner.children();
+        var _loop = function (children) {
+            for (var _i = 0, children_1 = children; _i < children_1.length; _i++) {
+                var c = children_1[_i];
+                var vf = Vframe.get(c);
+                fn(vf);
+                var cc = vf.children();
+                if (cc && (cc.length > 0)) {
+                    _loop(cc);
+                }
+            }
+        };
+        _loop(children);
     }
 });
 

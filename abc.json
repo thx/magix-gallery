@@ -1,0 +1,11 @@
+{
+     "assets":{
+         "type":"command",
+         "command":{
+             "cmd":[
+                 "tnpm install", 
+                 "npx gulp combine"
+             ]
+         }
+     }
+ }

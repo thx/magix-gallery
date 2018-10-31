@@ -3,6 +3,9 @@
 
 [mx-view*="mx-suggest/index"]{
     display: inline-block;
+    .loading-small{
+        padding: 40px 0;
+    }
 }
 .suggest-box-right,
 .suggest-box-left {
@@ -12,15 +15,15 @@
         display: none;
         position: absolute;
         top: 100%;
+        z-index: 99;
         min-width: 100%;
         max-height: 300px;
-        overflow-y: auto;
-        z-index: 99;
         margin-top: 10px;
         padding: 8px 10px;
         border-radius: @border-radius;
         background-color: #fff;
         user-select: none;
+        overflow-y: auto;
         .shadow();
         .suggest-item {
             margin: 2px 0;

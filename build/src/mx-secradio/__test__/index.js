@@ -31,11 +31,11 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryb;:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_galleryb::_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'带前缀\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'val()\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'默认收起\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'最大高度\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'带前缀\',                    key: viewId + \'_demo1\'                }, {                    name: \'val()\',                    key: viewId + \'_demo2\'                }, {                    name: \'默认收起\',                    key: viewId + \'_demo3\'                }, {                    name: \'最大高度\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '带前缀', key: viewId + '_demo1' }, { name: 'val()', key: viewId + '_demo2' }, { name: '默认收起', key: viewId + '_demo3' }, { name: '最大高度', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div mxs="_zs_galleryb;:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryb;:a" class="clearfix mb20"><div mxa="_zs_galleryb;:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-secradio/__test__/1" id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'带前缀\',                    key: viewId + \'_demo1\'                }, {                    name: \'val()\',                    key: viewId + \'_demo2\'                }, {                    name: \'默认收起\',                    key: viewId + \'_demo3\'                }, {                    name: \'最大高度\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '带前缀', key: viewId + '_demo1' }, { name: 'val()', key: viewId + '_demo2' }, { name: '默认收起', key: viewId + '_demo3' }, { name: '最大高度', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div mxs="_zs_galleryb::_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryb::a" class="clearfix mb20"><div mxa="_zs_galleryb::b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-secradio/__test__/1" id="';
     $line = 26;
     $art = '=viewId';
     ;
@@ -43,7 +43,7 @@ module.exports = Magix.View.extend({
     $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div mxa="_zs_galleryb;:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-secradio/__test__/2" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div mxa="_zs_galleryb::c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-secradio/__test__/2" id="';
     $line = 30;
     $art = '=viewId';
     ;

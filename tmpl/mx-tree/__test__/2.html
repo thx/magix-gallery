@@ -4,6 +4,7 @@
             <div class="color-9 fl">使用场景：</div>
             <div class="fl">
                 <div>实时反馈选中结果，每次操作都响应事件</div>
+                <div>默认选中某些选项</div>
                 <div>可展开收起子选项</div>
             </div>
         </div>
@@ -15,6 +16,7 @@
             <div class="content">
                 <mx-tree id="{{=viewId}}_tree"
                     list="{{@list}}"
+                    bottom-values="{{@selected}}"
                     mx-change="change()"></mx-tree>
             </div>
         </div>
@@ -29,6 +31,7 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"
     list="&#123;&#123;@list&#125;&#125;"
+    bottom-values="&#123;&#123;@selected&#125;&#125;"
     mx-change="change()"&gt;&lt;/mx-tree&gt;</pre>
     </div>
     <div class="eg-desc">
@@ -55,6 +58,10 @@ module.exports = Magix.View.extend(&#123;
             pValue: '',
             text: '2'
         &#125;, &#123;
+            value: 3,
+            pValue: '',
+            text: '3'
+        &#125;, &#123;
             value: 11,
             pValue: 1,
             text: '1-1'
@@ -66,6 +73,14 @@ module.exports = Magix.View.extend(&#123;
             value: 21,
             pValue: 2,
             text: '2-1'
+        &#125;, &#123;
+            value: 211,
+            pValue: 21,
+            text: '2-1-1'
+        &#125;, &#123;
+            value: 212,
+            pValue: 21,
+            text: '2-1-2'
         &#125;, &#123;
             value: 22,
             pValue: 2,
@@ -79,7 +94,7 @@ module.exports = Magix.View.extend(&#123;
         this.updater.digest(&#123;
             viewId: this.id,
             list,
-            selected: []
+            selected: [211, 23, 3]
         &#125;);
     &#125;,
     'change&lt;change&gt;'(e) &#123;

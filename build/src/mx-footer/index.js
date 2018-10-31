@@ -47,13 +47,13 @@ module.exports = Magix.View.extend({
         $line = 2;
         $art = '=width';
         ;
-        $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_gallerya]:_" class="_zs_gallery_mx-footer_index_-logo"><img src="https://img.alicdn.com/tfs/TB1_j6sn0cnBKNjSZR0XXcFqFXa-182-185.png"><i class="mc-iconfont _zs_gallery_mx-footer_index_-mama-icon">&#xe601;</i></div><div mxa="_zs_gallerya]:_" class="clearfix">';
+        $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_gallerya|:_" class="_zs_gallery_mx-footer_index_-logo"><img src="https://img.alicdn.com/tfs/TB1_j6sn0cnBKNjSZR0XXcFqFXa-182-185.png"><i class="mc-iconfont _zs_gallery_mx-footer_index_-mama-icon">&#xe601;</i></div><div mxa="_zs_gallerya|:_" class="clearfix">';
         $line = 8;
         $art = 'each products as p';
         ;
-        $expr = '<%for (var $art_idtshxazjv$art_i = 0, $art_cggzkczn$art_c = products.length; $art_idtshxazjv$art_i < $art_cggzkczn$art_c; $art_idtshxazjv$art_i++) {        var p = products[$art_idtshxazjv$art_i]%>';
-        for (var $art_idtshxazjv$art_i = 0, $art_cggzkczn$art_c = products.length; $art_idtshxazjv$art_i < $art_cggzkczn$art_c; $art_idtshxazjv$art_i++) {
-            var p = products[$art_idtshxazjv$art_i];
+        $expr = '<%for (var $art_ihpijysp$art_i = 0, $art_cjwqhijmvi$art_c = products.length; $art_ihpijysp$art_i < $art_cjwqhijmvi$art_c; $art_ihpijysp$art_i++) {        var p = products[$art_ihpijysp$art_i]%>';
+        for (var $art_ihpijysp$art_i = 0, $art_cjwqhijmvi$art_c = products.length; $art_ihpijysp$art_i < $art_cjwqhijmvi$art_c; $art_ihpijysp$art_i++) {
+            var p = products[$art_ihpijysp$art_i];
             $p += '<dl style="width: ';
             $line = 9;
             $art = '=(100 / len)';
@@ -66,9 +66,9 @@ module.exports = Magix.View.extend({
             $line = 11;
             $art = 'each p.thirds as t';
             ;
-            $expr = '<%for (var $art_ilupsxnzpe$art_i = 0, $art_objtbyufzs$art_obj = p.thirds, $art_cefgwqhkr$art_c = $art_objtbyufzs$art_obj.length; $art_ilupsxnzpe$art_i < $art_cefgwqhkr$art_c; $art_ilupsxnzpe$art_i++) {            var t = $art_objtbyufzs$art_obj[$art_ilupsxnzpe$art_i]%>';
-            for (var $art_ilupsxnzpe$art_i = 0, $art_objtbyufzs$art_obj = p.thirds, $art_cefgwqhkr$art_c = $art_objtbyufzs$art_obj.length; $art_ilupsxnzpe$art_i < $art_cefgwqhkr$art_c; $art_ilupsxnzpe$art_i++) {
-                var t = $art_objtbyufzs$art_obj[$art_ilupsxnzpe$art_i];
+            $expr = '<%for (var $art_ioclislzqy$art_i = 0, $art_objopjwgigc$art_obj = p.thirds, $art_cdisaiqpzr$art_c = $art_objopjwgigc$art_obj.length; $art_ioclislzqy$art_i < $art_cdisaiqpzr$art_c; $art_ioclislzqy$art_i++) {            var t = $art_objopjwgigc$art_obj[$art_ioclislzqy$art_i]%>';
+            for (var $art_ioclislzqy$art_i = 0, $art_objopjwgigc$art_obj = p.thirds, $art_cdisaiqpzr$art_c = $art_objopjwgigc$art_obj.length; $art_ioclislzqy$art_i < $art_cdisaiqpzr$art_c; $art_ioclislzqy$art_i++) {
+                var t = $art_objopjwgigc$art_obj[$art_ioclislzqy$art_i];
                 $p += '<dd><a href="';
                 $line = 13;
                 $art = '=t.link';
@@ -91,7 +91,7 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxs="_zs_gallerya]:a" class="_zs_gallery_mx-footer_index_-qrcode"><img src="//gw.alicdn.com/tfs/TB1C2cNrv1TBuNjy0FjXXajyXXa-300-300.png"><div>打开淘宝扫一扫</div><div>下载阿里妈妈APP</div></div></div>';
+        $p += '</div><div mxs="_zs_gallerya|:a" class="_zs_gallery_mx-footer_index_-qrcode"><img src="//gw.alicdn.com/tfs/TB1C2cNrv1TBuNjy0FjXXajyXXa-300-300.png"><div>打开淘宝扫一扫</div><div>下载阿里妈妈APP</div></div></div>';
         $line = 25;
         $art = '/if';
         ;

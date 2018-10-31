@@ -30,10 +30,10 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cwtnlej$art_c = list.length; index < $art_cwtnlej$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cwtnlej$art_c = list.length; index < $art_cwtnlej$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cdqcfxnoc$art_c = list.length; index < $art_cdqcfxnoc$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cdqcfxnoc$art_c = list.length; index < $art_cdqcfxnoc$art_c; index++) {
         var item = list[index];
-        $p += '<div mxv mxa="_zs_gallerydh:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_gallerydh:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
+        $p += '<div mxv mxa="_zs_gallerydj:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_gallerydj:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
         $line = 4;
         $art = 'if needExpand';
         ;
@@ -88,7 +88,7 @@ module.exports = Magix.View.extend({
                 $expr = '<%if (readOnly) {%>';
                 if (readOnly) {
                     ;
-                    $p += '<i mxs="_zs_gallerydh:_" class="mc-iconfont _zs_gallery_mx-tree_index_-icon empty">&#xe732;</i>';
+                    $p += '<i mxs="_zs_gallerydj:_" class="mc-iconfont _zs_gallery_mx-tree_index_-icon empty">&#xe732;</i>';
                     $line = 17;
                     $art = '/if';
                     ;
@@ -109,7 +109,7 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '<label mxv mxa="_zs_gallerydh:b" class="fl">';
+        $p += '<label mxv mxa="_zs_gallerydj:b" class="fl">';
         $line = 21;
         $art = 'if !readOnly';
         ;
@@ -359,27 +359,31 @@ catch (ex) {
         me['@{checkParentState}'](me.id);
     },
     getValues: function () {
-        var me = this;
-        var viewId = me.id;
-        var result = [];
-        var nodes = $('#' + viewId + ' input[name="' + viewId + '"]');
-        nodes.each(function (i, n) {
-            if (n.checked) {
-                result.push(n.value);
-            }
-        });
-        return result;
+        return this.get('value');
     },
     getItems: function () {
+        return this.get('item');
+    },
+    get: function (type) {
         var me = this;
-        var list = me.updater.get('list'), valueKey = me.updater.get('valueKey');
-        var map = Magix.toMap(list, valueKey);
         var viewId = me.id;
         var result = [];
-        var nodes = $('#' + viewId + ' input[name="' + viewId + '"]');
-        nodes.each(function (i, n) {
-            if (n.checked) {
-                result.push(map[n.value]);
+        var list = me.updater.get('list');
+        list.forEach(function (item, index) {
+            var children = item.children || [];
+            if (children.length == 0) {
+                // 根节点
+                var node = $('#cb_' + viewId + '_' + index);
+                if (node[0].checked) {
+                    if (type == 'item') {
+                        // 完整对象
+                        result.push(item);
+                    }
+                    else {
+                        // value值
+                        result.push(node[0].value);
+                    }
+                }
             }
         });
         return result;

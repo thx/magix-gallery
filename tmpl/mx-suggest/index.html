@@ -10,15 +10,21 @@
         mx-change="@{stop}()"/>
 
     <ul class="suggest-menu {{if show}} open {{/if}}">
-        {{if (list.length > 0)}}
-            {{each list as item}}
-            <li class="suggest-item {{if ((selectedValue + '') === (item.value + ''))}} active {{/if}}" 
-                mx-click="@{select}({item:'{{@item}}'})">
-                {{=item.text}}
-            </li>
-            {{/each}}
+        {{if loading}}
+            <div class="loading loading-ext loading-small">
+                <span class="loading-anim"></span>
+            </div>
         {{else}}
-        <li class="text-center color-9">无匹配选项</li>
+            {{if (list.length > 0)}}
+                {{each list as item}}
+                <li class="suggest-item {{if ((selectedValue + '') === (item.value + ''))}} active {{/if}}" 
+                    mx-click="@{select}({item:'{{@item}}'})">
+                    {{=item.text}}
+                </li>
+                {{/each}}
+            {{else}}
+            <li class="text-center color-9">无匹配选项</li>
+            {{/if}}
         {{/if}}
     </ul>
 </div>

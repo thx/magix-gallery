@@ -16,6 +16,10 @@ module.exports = Base.extend({
             pValue: '',
             text: '2'
         }, {
+            value: 3,
+            pValue: '',
+            text: '3'
+        }, {
             value: 11,
             pValue: 1,
             text: '1-1'
@@ -28,6 +32,14 @@ module.exports = Base.extend({
             pValue: 2,
             text: '2-1'
         }, {
+            value: 211,
+            pValue: 21,
+            text: '2-1-1'
+        }, {
+            value: 212,
+            pValue: 21,
+            text: '2-1-2'
+        }, {
             value: 22,
             pValue: 2,
             text: '2-2'
@@ -39,7 +51,7 @@ module.exports = Base.extend({
 
         this.updater.digest({
             list,
-            selected: []
+            selected: [211, 23, 3]
         });
     },
     'change<change>'(e) {

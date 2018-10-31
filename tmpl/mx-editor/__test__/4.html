@@ -1,0 +1,40 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb15 clearfix">
+            <div class="color-9 fl lh22">以下示例：</div>
+            <div class="fl lh22">最多显示两行，超出换行</div>
+        </div>
+        <div class="mb15">
+            <span class="color-9">当前内容：</span>
+            <span>{{=content}}</span>
+        </div>
+        <div class="mb20 clearfix">
+            <div class="color-9 fl">实际显示：</div>
+            <div class="fl">
+                <mx-editor
+                    tmpl="{{=tmpl}}"
+                    content="{{=content}}"
+                    rules="{{@{
+                        required: true
+                    }}}"></mx-editor>
+            </div>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-editor
+    width="200"
+    small="true"
+    content="&#123;&#123;=content&#125;&#125;"
+    rules="&#123;&#123;@&#123;
+        required: true,
+        min: [200, '不小于200']
+    &#125;&#125;&#125;"/&gt;</pre>
+    </div>
+</div>

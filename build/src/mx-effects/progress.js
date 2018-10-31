@@ -35,7 +35,7 @@ module.exports = Base.extend({
     $expr = '<%if (type == \'line\') {%>';
     if (type == 'line') {
         ;
-        $p += '<div mxa="_zs_gallerya%:d" class="_zs_gallery_mx-effects_progress_-line"><div class="_zs_gallery_mx-effects_progress_-on" style="width: ';
+        $p += '<div mxa="_zs_gallerya^:_" class="_zs_gallery_mx-effects_progress_-line"><div class="_zs_gallery_mx-effects_progress_-on" style="width: ';
         $line = 7;
         $art = '=num';
         ;
@@ -97,21 +97,21 @@ module.exports = Base.extend({
     $expr = '<%if (type == \'degree\') {%>';
     if (type == 'degree') {
         ;
-        $p += '<div mxa="_zs_gallerya%:e" class="_zs_gallery_mx-effects_progress_-degree-wrapper"><div mxa="_zs_gallerya%:f" class="_zs_gallery_mx-effects_progress_-degree-bg">';
+        $p += '<div mxa="_zs_gallerya^:a" class="_zs_gallery_mx-effects_progress_-degree-wrapper"><div mxa="_zs_gallerya^:b" class="_zs_gallery_mx-effects_progress_-degree-bg">';
         $line = 15;
         $art = 'for (let i=0;i<10;i+=1)';
         ;
         $expr = '<%for (var i = 0; i < 10; i += 1) {%>';
         for (var i = 0; i < 10; i += 1) {
             ;
-            $p += '<span mxs="_zs_gallerya%:a" class="_zs_gallery_mx-effects_progress_-degree"></span>';
+            $p += '<span mxs="_zs_gallerya^:_" class="_zs_gallery_mx-effects_progress_-degree"></span>';
             $line = 17;
             $art = '/for';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxa="_zs_gallerya%:b" class="_zs_gallery_mx-effects_progress_-degree-on">';
+        $p += '</div><div mxa="_zs_gallerya^:c" class="_zs_gallery_mx-effects_progress_-degree-on">';
         $line = 20;
         $art = 'for (let i=0;i<degree;i+=1)';
         ;
