@@ -3,8 +3,9 @@
          "type":"command",
          "command":{
              "cmd":[
-                 "tnpm install", 
-                 "npx gulp combine"
+                "tnpm i",
+                "npx gulp combine",
+                "cp ./build $BUILD_DEST"
              ]
          }
      }

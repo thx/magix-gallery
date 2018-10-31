@@ -47,9 +47,9 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_ixzpfyee$art_i = 0, $art_caxomcjn$art_c = stepInfos.length; $art_ixzpfyee$art_i < $art_caxomcjn$art_c; $art_ixzpfyee$art_i++) {    var step = stepInfos[$art_ixzpfyee$art_i]%>';
-    for (var $art_ixzpfyee$art_i = 0, $art_caxomcjn$art_c = stepInfos.length; $art_ixzpfyee$art_i < $art_caxomcjn$art_c; $art_ixzpfyee$art_i++) {
-        var step = stepInfos[$art_ixzpfyee$art_i];
+    $expr = '<%for (var $art_ityexqmi$art_i = 0, $art_cmsclidl$art_c = stepInfos.length; $art_ityexqmi$art_i < $art_cmsclidl$art_c; $art_ityexqmi$art_i++) {    var step = stepInfos[$art_ityexqmi$art_i]%>';
+    for (var $art_ityexqmi$art_i = 0, $art_cmsclidl$art_c = stepInfos.length; $art_ityexqmi$art_i < $art_cmsclidl$art_c; $art_ityexqmi$art_i++) {
+        var step = stepInfos[$art_ityexqmi$art_i];
         $p += '<div class="_zs_gallery_mx-main_index_-main-step ';
         $line = 4;
         $art = 'if (step.index == curStepIndex)';
@@ -143,9 +143,9 @@ module.exports = Magix.View.extend({
             $line = 17;
             $art = 'each step.subs as sub';
             ;
-            $expr = '<%for (var $art_ihzqlnejg$art_i = 0, $art_objbnfbetbrj$art_obj = step.subs, $art_cfqtek$art_c = $art_objbnfbetbrj$art_obj.length; $art_ihzqlnejg$art_i < $art_cfqtek$art_c; $art_ihzqlnejg$art_i++) {            var sub = $art_objbnfbetbrj$art_obj[$art_ihzqlnejg$art_i]%>';
-            for (var $art_ihzqlnejg$art_i = 0, $art_objbnfbetbrj$art_obj = step.subs, $art_cfqtek$art_c = $art_objbnfbetbrj$art_obj.length; $art_ihzqlnejg$art_i < $art_cfqtek$art_c; $art_ihzqlnejg$art_i++) {
-                var sub = $art_objbnfbetbrj$art_obj[$art_ihzqlnejg$art_i];
+            $expr = '<%for (var $art_ifjcabvowa$art_i = 0, $art_objliyxmshew$art_obj = step.subs, $art_cjtdmnm$art_c = $art_objliyxmshew$art_obj.length; $art_ifjcabvowa$art_i < $art_cjtdmnm$art_c; $art_ifjcabvowa$art_i++) {            var sub = $art_objliyxmshew$art_obj[$art_ifjcabvowa$art_i]%>';
+            for (var $art_ifjcabvowa$art_i = 0, $art_objliyxmshew$art_obj = step.subs, $art_cjtdmnm$art_c = $art_objliyxmshew$art_obj.length; $art_ifjcabvowa$art_i < $art_cjtdmnm$art_c; $art_ifjcabvowa$art_i++) {
+                var sub = $art_objliyxmshew$art_obj[$art_ifjcabvowa$art_i];
                 $p += '<div mxa="_zs_gallerybK:c" class="_zs_gallery_mx-main_index_-step-sub"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link ';
                 $line = 19;
                 $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))';
@@ -237,9 +237,9 @@ module.exports = Magix.View.extend({
     $line = 42;
     $art = 'each curStepInfo.subs as sub';
     ;
-    $expr = '<%for (var $art_ijxfvvvsk$art_i = 0, $art_objbuwdfgjfen$art_obj = curStepInfo.subs, $art_cldluctk$art_c = $art_objbuwdfgjfen$art_obj.length; $art_ijxfvvvsk$art_i < $art_cldluctk$art_c; $art_ijxfvvvsk$art_i++) {    var sub = $art_objbuwdfgjfen$art_obj[$art_ijxfvvvsk$art_i]%>';
-    for (var $art_ijxfvvvsk$art_i = 0, $art_objbuwdfgjfen$art_obj = curStepInfo.subs, $art_cldluctk$art_c = $art_objbuwdfgjfen$art_obj.length; $art_ijxfvvvsk$art_i < $art_cldluctk$art_c; $art_ijxfvvvsk$art_i++) {
-        var sub = $art_objbuwdfgjfen$art_obj[$art_ijxfvvvsk$art_i];
+    $expr = '<%for (var $art_imjiorkyod$art_i = 0, $art_objuirnhgc$art_obj = curStepInfo.subs, $art_cfskxhadld$art_c = $art_objuirnhgc$art_obj.length; $art_imjiorkyod$art_i < $art_cfskxhadld$art_c; $art_imjiorkyod$art_i++) {    var sub = $art_objuirnhgc$art_obj[$art_imjiorkyod$art_i]%>';
+    for (var $art_imjiorkyod$art_i = 0, $art_objuirnhgc$art_obj = curStepInfo.subs, $art_cfskxhadld$art_c = $art_objuirnhgc$art_obj.length; $art_imjiorkyod$art_i < $art_cfskxhadld$art_c; $art_imjiorkyod$art_i++) {
+        var sub = $art_objuirnhgc$art_obj[$art_imjiorkyod$art_i];
         $p += '<div mxv class="_zs_gallery_mx-main_index_-content-box" style="padding-right: ';
         $line = 44;
         $art = '=(curStepInfo.rightWidth + 20)';
