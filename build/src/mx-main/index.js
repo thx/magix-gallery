@@ -47,9 +47,9 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_iuuakfbewwr$art_i = 0, $art_cvntrnrbe$art_c = stepInfos.length; $art_iuuakfbewwr$art_i < $art_cvntrnrbe$art_c; $art_iuuakfbewwr$art_i++) {    var step = stepInfos[$art_iuuakfbewwr$art_i]%>';
-    for (var $art_iuuakfbewwr$art_i = 0, $art_cvntrnrbe$art_c = stepInfos.length; $art_iuuakfbewwr$art_i < $art_cvntrnrbe$art_c; $art_iuuakfbewwr$art_i++) {
-        var step = stepInfos[$art_iuuakfbewwr$art_i];
+    $expr = '<%for (var $art_ixeudqsrr$art_i = 0, $art_colsjs$art_c = stepInfos.length; $art_ixeudqsrr$art_i < $art_colsjs$art_c; $art_ixeudqsrr$art_i++) {    var step = stepInfos[$art_ixeudqsrr$art_i]%>';
+    for (var $art_ixeudqsrr$art_i = 0, $art_colsjs$art_c = stepInfos.length; $art_ixeudqsrr$art_i < $art_colsjs$art_c; $art_ixeudqsrr$art_i++) {
+        var step = stepInfos[$art_ixeudqsrr$art_i];
         $p += '<div class="_zs_gallery_mx-main_index_-main-step ';
         $line = 4;
         $art = 'if (step.index == curStepIndex)';
@@ -143,9 +143,9 @@ module.exports = Magix.View.extend({
             $line = 17;
             $art = 'each step.subs as sub';
             ;
-            $expr = '<%for (var $art_ivuyfib$art_i = 0, $art_objwinsaf$art_obj = step.subs, $art_cznlsxvmn$art_c = $art_objwinsaf$art_obj.length; $art_ivuyfib$art_i < $art_cznlsxvmn$art_c; $art_ivuyfib$art_i++) {            var sub = $art_objwinsaf$art_obj[$art_ivuyfib$art_i]%>';
-            for (var $art_ivuyfib$art_i = 0, $art_objwinsaf$art_obj = step.subs, $art_cznlsxvmn$art_c = $art_objwinsaf$art_obj.length; $art_ivuyfib$art_i < $art_cznlsxvmn$art_c; $art_ivuyfib$art_i++) {
-                var sub = $art_objwinsaf$art_obj[$art_ivuyfib$art_i];
+            $expr = '<%for (var $art_itgpzlsywb$art_i = 0, $art_objentbyj$art_obj = step.subs, $art_ctunoauxdc$art_c = $art_objentbyj$art_obj.length; $art_itgpzlsywb$art_i < $art_ctunoauxdc$art_c; $art_itgpzlsywb$art_i++) {            var sub = $art_objentbyj$art_obj[$art_itgpzlsywb$art_i]%>';
+            for (var $art_itgpzlsywb$art_i = 0, $art_objentbyj$art_obj = step.subs, $art_ctunoauxdc$art_c = $art_objentbyj$art_obj.length; $art_itgpzlsywb$art_i < $art_ctunoauxdc$art_c; $art_itgpzlsywb$art_i++) {
+                var sub = $art_objentbyj$art_obj[$art_itgpzlsywb$art_i];
                 $p += '<div mxa="_zs_gallerybK:c" class="_zs_gallery_mx-main_index_-step-sub"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link ';
                 $line = 19;
                 $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))';
@@ -237,9 +237,9 @@ module.exports = Magix.View.extend({
     $line = 42;
     $art = 'each curStepInfo.subs as sub';
     ;
-    $expr = '<%for (var $art_iibbulhzr$art_i = 0, $art_objhgswtdqba$art_obj = curStepInfo.subs, $art_cygigcbd$art_c = $art_objhgswtdqba$art_obj.length; $art_iibbulhzr$art_i < $art_cygigcbd$art_c; $art_iibbulhzr$art_i++) {    var sub = $art_objhgswtdqba$art_obj[$art_iibbulhzr$art_i]%>';
-    for (var $art_iibbulhzr$art_i = 0, $art_objhgswtdqba$art_obj = curStepInfo.subs, $art_cygigcbd$art_c = $art_objhgswtdqba$art_obj.length; $art_iibbulhzr$art_i < $art_cygigcbd$art_c; $art_iibbulhzr$art_i++) {
-        var sub = $art_objhgswtdqba$art_obj[$art_iibbulhzr$art_i];
+    $expr = '<%for (var $art_ixfxdfgxpn$art_i = 0, $art_objsxninqm$art_obj = curStepInfo.subs, $art_csoecko$art_c = $art_objsxninqm$art_obj.length; $art_ixfxdfgxpn$art_i < $art_csoecko$art_c; $art_ixfxdfgxpn$art_i++) {    var sub = $art_objsxninqm$art_obj[$art_ixfxdfgxpn$art_i]%>';
+    for (var $art_ixfxdfgxpn$art_i = 0, $art_objsxninqm$art_obj = curStepInfo.subs, $art_csoecko$art_c = $art_objsxninqm$art_obj.length; $art_ixfxdfgxpn$art_i < $art_csoecko$art_c; $art_ixfxdfgxpn$art_i++) {
+        var sub = $art_objsxninqm$art_obj[$art_ixfxdfgxpn$art_i];
         $p += '<div mxv class="_zs_gallery_mx-main_index_-content-box" style="padding-right: ';
         $line = 44;
         $art = '=(curStepInfo.rightWidth + 20)';
