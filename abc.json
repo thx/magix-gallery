@@ -4,7 +4,7 @@
          "command":{
              "cmd":[
                 "tnpm i",
-                "npx gulp combine",
+                "gulp combine",
                 "cp ./build $BUILD_DEST"
              ]
          }

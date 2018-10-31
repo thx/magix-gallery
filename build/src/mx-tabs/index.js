@@ -40,9 +40,9 @@ module.exports = Base.extend({
         $line = 3;
         $art = 'each list as item';
         ;
-        $expr = '<%for (var $art_iqanesewn$art_i = 0, $art_cjywuuob$art_c = list.length; $art_iqanesewn$art_i < $art_cjywuuob$art_c; $art_iqanesewn$art_i++) {        var item = list[$art_iqanesewn$art_i]%>';
-        for (var $art_iqanesewn$art_i = 0, $art_cjywuuob$art_c = list.length; $art_iqanesewn$art_i < $art_cjywuuob$art_c; $art_iqanesewn$art_i++) {
-            var item = list[$art_iqanesewn$art_i];
+        $expr = '<%for (var $art_ioqegnf$art_i = 0, $art_cpyxpyowtk$art_c = list.length; $art_ioqegnf$art_i < $art_cpyxpyowtk$art_c; $art_ioqegnf$art_i++) {        var item = list[$art_ioqegnf$art_i]%>';
+        for (var $art_ioqegnf$art_i = 0, $art_cpyxpyowtk$art_c = list.length; $art_ioqegnf$art_i < $art_cpyxpyowtk$art_c; $art_ioqegnf$art_i++) {
+            var item = list[$art_ioqegnf$art_i];
             $p += '<a mx-mouseover="' + $viewId + '@{over}({value:\'';
             $line = 4;
             $art = '=item.value';
@@ -134,9 +134,9 @@ module.exports = Base.extend({
         $line = 23;
         $art = 'each list as item';
         ;
-        $expr = '<%for (var $art_iekdjkarc$art_i = 0, $art_clwnpgbk$art_c = list.length; $art_iekdjkarc$art_i < $art_clwnpgbk$art_c; $art_iekdjkarc$art_i++) {        var item = list[$art_iekdjkarc$art_i]%>';
-        for (var $art_iekdjkarc$art_i = 0, $art_clwnpgbk$art_c = list.length; $art_iekdjkarc$art_i < $art_clwnpgbk$art_c; $art_iekdjkarc$art_i++) {
-            var item = list[$art_iekdjkarc$art_i];
+        $expr = '<%for (var $art_idyqinf$art_i = 0, $art_cjhzxiqss$art_c = list.length; $art_idyqinf$art_i < $art_cjhzxiqss$art_c; $art_idyqinf$art_i++) {        var item = list[$art_idyqinf$art_i]%>';
+        for (var $art_idyqinf$art_i = 0, $art_cjhzxiqss$art_c = list.length; $art_idyqinf$art_i < $art_cjhzxiqss$art_c; $art_idyqinf$art_i++) {
+            var item = list[$art_idyqinf$art_i];
             $p += '<a href="javascript:;" ';
             $line = 24;
             $art = 'if !disabled';
