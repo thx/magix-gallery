@@ -4,8 +4,8 @@
          "command":{
              "cmd":[
                 "tnpm i",
-                "gulp combine",
-                "cp ./build $BUILD_DEST"
+                "npx gulp combine",
+                "mv ./build $BUILD_DEST"
              ]
          }
      }
