@@ -3,9 +3,7 @@
          "type":"command",
          "command":{
              "cmd":[
-                "tnpm i",
-                "npx gulp combine",
-                "mv ./build $BUILD_DEST"
+                "cp ./build $BUILD_DEST"
              ]
          }
      }
