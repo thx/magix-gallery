@@ -10,7 +10,6 @@ let classReg = /\bclass\s*=\s*"[^"]+/;
 
 combineTool.config({
     debug: true,
-    log: false, //关闭日志输出，以防在云端执行构建命令时日志溢出导致发布失败的情形
     srcFolder: 'build/src',
     loaderType: 'cmd_es',
     projectName: '_',

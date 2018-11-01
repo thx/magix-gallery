@@ -11,7 +11,7 @@ require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-editor___test___4_","._zs_gallery_mx-editor___test___4_-multi-ellipsis {\n  max-width: 120px;\n  display: -webkit-box;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  -webkit-line-clamp: 2;\n  /* autoprefixer: off */\n  -webkit-box-orient: vertical;\n  /* autoprefixer: on */\n}\n");
+Magix.applyStyle("_zs_gallery_mx-editor___test___4_","._zs_gallery_mx-editor___test___4_-con {\n  width: 80%;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -28,12 +28,12 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', content = $$.content, tmpl = $$.tmpl, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryaM:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryaM:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryaM:_" class="mb15 clearfix"><div class="color-9 fl lh22">以下示例：</div><div class="fl lh22">最多显示两行，超出换行</div></div><div mxa="_zs_galleryaM:b" class="mb15"><span mxs="_zs_galleryaM:a" class="color-9">当前内容：</span><span>';
+} ; var $g = '', $_temp, $p = '', content = $$.content, tmpl = $$.tmpl, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryaM:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryaM:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryaM:e" class="mb10 clearfix"><div class="fl lh22 color-9">以下示例：</div><div class="fl lh22">最多显示两行，超出换行</div></div><div mxa="_zs_galleryaM:b" class="mb10 clearfix"><div mxs="_zs_galleryaM:f" class="fl lh22 color-9">当前内容：</div><div mxa="_zs_galleryaM:g" class="fl lh22 _zs_gallery_mx-editor___test___4_-con">';
     $line = 9;
     $art = '=content';
     ;
-    $p += ($expr = '<%=content%>', $e(content)) + '</span></div><div mxa="_zs_galleryaM:c" class="mb20 clearfix"><div mxs="_zs_galleryaM:b" class="color-9 fl">实际显示：</div><div mxa="_zs_galleryaM:d" class="fl"><div mx-view="mx-editor/index?tmpl=';
+    $p += ($expr = '<%=content%>', $e(content)) + '</div></div><div mxa="_zs_galleryaM:c" class="mb20 clearfix"><div mxs="_zs_galleryaM:b" class="color-9 fl">实际显示：</div><div mxa="_zs_galleryaM:d" class="fl w140"><div mx-edit="' + $viewId + 'change()" mx-view="mx-editor/index?tmpl=';
     $line = 15;
     $art = '=tmpl';
     ;
@@ -46,18 +46,30 @@ module.exports = Base.extend({
     $art = '@{\n                        required: true\n                    }';
     ;
     $p += ($expr = '<%@{        required: true    }%>', $i($$ref, { required: true })) + '"></div></div></div></div><div mxa="_zs_galleryaM:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryaM:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 25;
+    $line = 26;
     $art = '=viewId';
     ;
     $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaM:f" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 27;
+    $line = 28;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaM:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 30;
+    $line = 31;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-editor\n    width="200"\n    small="true"\n    content="&#123;&#123;=content&#125;&#125;"\n    rules="&#123;&#123;@&#123;\n        required: true,\n        min: [200, \'不小于200\']\n    &#125;&#125;&#125;"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="w140"&gt;\n    &lt;mx-editor\n        tmpl="&#123;&#123;=tmpl&#125;&#125;"\n        content="&#123;&#123;=content&#125;&#125;"\n        rules="&#123;&#123;@&#123;\n            required: true\n        &#125;&#125;&#125;"\n        mx-edit="change()"&gt;&lt;/mx-editor&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryaM:k" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryaM:g" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 44;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryaM:l" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 46;
+    $art = '!text2';
+    ;
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryaM:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 49;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Base = require(\'__test__/example\');\nlet $ = require(\'$\');\n\nmodule.exports = Base.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let content = \'这是一条非常长非常长非常长的需要换行的数据\';\n        this.setContent(content);\n    &#125;,\n    \'change&lt;edit&gt;\' (e) &#123;\n        // editText编辑后的文案\n        this.setContent(e.editText);\n    &#125;,\n    setContent(content)&#123;\n        let len = content.length,\n            max = 20;\n        this.updater.digest(&#123;\n            tmpl: (len &gt; max) ? (content.slice(0, max) + \'...\') : content,\n            content\n        &#125;);\n    &#125;\n&#125;);</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -68,15 +80,19 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
-        this.updater.digest({
-            tmpl: '<div class="_zs_gallery_mx-editor___test___4_-multi-ellipsis">${content}</div>',
-            content: '这是一条非常长非常长非常长的需要换行的数据'
-        });
+        var content = '这是一条非常长非常长非常长的需要换行的数据';
+        this.setContent(content);
     },
     'change<edit>': function (e) {
         // editText编辑后的文案
+        this.setContent(e.editText);
+    },
+    setContent: function (content) {
+        var len = content.length;
+        var max = 20;
         this.updater.digest({
-            content: e.editText
+            tmpl: (len > max) ? (content.slice(0, max) + '...') : content,
+            content: content
         });
     }
 });

@@ -6,15 +6,19 @@ Magix.applyStyle('@4.less');
 module.exports = Base.extend({
     tmpl: '@4.html',
     render() {
-        this.updater.digest({
-            tmpl: '<div class="@4.less:multi-ellipsis">${content}</div>',
-            content: '这是一条非常长非常长非常长的需要换行的数据'
-        });
+        let content = '这是一条非常长非常长非常长的需要换行的数据';
+        this.setContent(content);
     },
     'change<edit>' (e) {
         // editText编辑后的文案
+        this.setContent(e.editText);
+    },
+    setContent(content){
+        let len = content.length;
+        let max = 20;
         this.updater.digest({
-            content: e.editText
-        })
+            tmpl: (len > max) ? (content.slice(0, max) + '...') : content,
+            content
+        });
     }
 });

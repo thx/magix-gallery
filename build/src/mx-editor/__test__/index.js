@@ -3,13 +3,13 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-editor/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./2","./3","./4","__test__/api"],(require,exports,module)=>{
+define("mx-editor/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./3","./2","./4","__test__/api"],(require,exports,module)=>{
 /*Magix,$*/
 require("__test__/subs");
 require("mx-title/second");
 require("./1");
-require("./2");
 require("./3");
+require("./2");
 require("./4");
 require("__test__/api");
 var Magix = require("magix");
@@ -43,15 +43,15 @@ module.exports = Magix.View.extend({
     $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-editor/__test__/2" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-editor/__test__/3" id="';
     $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div mxa="_zs_galleryaN:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-editor/__test__/3" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div mxa="_zs_galleryaN:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-editor/__test__/2" id="';
     $line = 30;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-editor/__test__/4" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-editor/__test__/4" id="';
     $line = 31;
     $art = '=viewId';
     ;
