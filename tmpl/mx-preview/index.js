@@ -14,8 +14,6 @@ module.exports = Magix.View.extend({
         that.on('destroy', () => {
             clearTimeout(that.timer);
             $('#pic_preview_' + that.id).remove();
-
-            that['@{scroll.wrapper}'].off('scroll.' + that.id);
         });
     },
     render() {

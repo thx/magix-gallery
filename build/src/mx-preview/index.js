@@ -58,7 +58,6 @@ catch (ex) {
         that.on('destroy', function () {
             clearTimeout(that.timer);
             $('#pic_preview_' + that.id).remove();
-            that['@{scroll.wrapper}'].off('scroll.' + that.id);
         });
     },
     render: function () {
