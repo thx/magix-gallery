@@ -55,6 +55,7 @@ module.exports = Magix.View.extend({
             def: ''
         }]
         that.updater.digest({
+            viewId: that.id,
             options
         });
     }

@@ -11,7 +11,7 @@ define("mx-preview/index",["magix","$"],(require,exports,module)=>{
  */
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-preview_index_","[mx-view*=\"mx-preview/index\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-preview_index_-outer {\n  display: table;\n  text-align: center;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner {\n  display: table-cell;\n  vertical-align: middle;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-img,\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-video {\n  max-width: 100%;\n  max-height: 100%;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-text {\n  white-space: nowrap;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-icon {\n  font-size: 20px;\n  color: #999;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-iframe {\n  -webkit-transform-origin: left top;\n          transform-origin: left top;\n}\n._zs_gallery_mx-preview_index_-pic-preview {\n  display: none;\n  position: absolute;\n  z-index: 99999;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border-collapse: separate;\n  background-color: #fff;\n  padding: 10px;\n}\n._zs_gallery_mx-preview_index_-pic-preview ._zs_gallery_mx-preview_index_-preview-inner {\n  display: block;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-preview_index_","[mx-view*=\"mx-preview/index\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-preview_index_-holder {\n  color: #ccc;\n  font-size: 30px;\n}\n._zs_gallery_mx-preview_index_-outer {\n  display: table;\n  text-align: center;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner {\n  display: table-cell;\n  vertical-align: middle;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-img,\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-video {\n  max-width: 100%;\n  max-height: 100%;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-text {\n  white-space: nowrap;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-icon {\n  font-size: 20px;\n  color: #999;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-iframe {\n  -webkit-transform-origin: left top;\n          transform-origin: left top;\n}\n._zs_gallery_mx-preview_index_-pic-preview {\n  display: none;\n  position: absolute;\n  z-index: 99999;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border-collapse: separate;\n  background-color: #fff;\n  padding: 10px;\n}\n._zs_gallery_mx-preview_index_-pic-preview ._zs_gallery_mx-preview_index_-preview-inner {\n  display: block;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n}\n");
 var Active; //优化大量预览
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
@@ -25,7 +25,7 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', maxWidth = $$.maxWidth, maxHeight = $$.maxHeight, clickUrl = $$.clickUrl, format = $$.format, url = $$.url, frameWidth = $$.frameWidth, frameHeight = $$.frameHeight, scale = $$.scale, width = $$.width, height = $$.height; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', maxWidth = $$.maxWidth, maxHeight = $$.maxHeight, viewId = $$.viewId; var $expr, $art, $line; try {
     $p += '<div class="_zs_gallery_mx-preview_index_-outer" style="width: ';
     $line = 1;
     $art = '=maxWidth';
@@ -38,135 +38,11 @@ module.exports = Magix.View.extend({
     $line = 4;
     $art = '=maxHeight';
     ;
-    $p += ($expr = '<%=maxHeight%>', $e(maxHeight)) + 'px;">';
-    $line = 5;
-    $art = 'if clickUrl';
+    $p += ($expr = '<%=maxHeight%>', $e(maxHeight)) + 'px;" id="';
+    $line = 4;
+    $art = '=viewId';
     ;
-    $expr = '<%if (clickUrl) {%>';
-    if (clickUrl) {
-        ;
-        $p += '<a href="';
-        $line = 6;
-        $art = '=clickUrl';
-        ;
-        $p += ($expr = '<%=clickUrl%>', $e(clickUrl)) + '" target="_blank" rel="noopener noreferrer">';
-        $line = 7;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += ' ';
-    $line = 9;
-    $art = 'if format==2 || format==11 || format==23';
-    ;
-    $expr = '<%if (format == 2 || format == 11 || format == 23) {%>';
-    if (format == 2 || format == 11 || format == 23) {
-        ;
-        $p += '<img class="_zs_gallery_mx-preview_index_-img" src="';
-        $line = 10;
-        $art = '=url';
-        ;
-        $p += ($expr = '<%=url%>', $e(url)) + '"/>';
-        $line = 11;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += ' ';
-    $line = 14;
-    $art = 'if format==5 || format==3 || format==9';
-    ;
-    $expr = '<%if (format == 5 || format == 3 || format == 9) {%>';
-    if (format == 5 || format == 3 || format == 9) {
-        ;
-        $p += '<div class="_zs_gallery_mx-preview_index_-text" style="max-width: ';
-        $line = 15;
-        $art = '=maxWidth';
-        ;
-        $p += ($expr = '<%=maxWidth%>', $e(maxWidth)) + 'px;">';
-        $line = 15;
-        $art = '=url';
-        ;
-        $p += ($expr = '<%=url%>', $e(url)) + '</div>';
-        $line = 16;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += ' ';
-    $line = 19;
-    $art = 'if format==4';
-    ;
-    $expr = '<%if (format == 4) {%>';
-    if (format == 4) {
-        ;
-        $p += '<video src="';
-        $line = 20;
-        $art = '=url';
-        ;
-        $p += ($expr = '<%=url%>', $e(url)) + '" class="_zs_gallery_mx-preview_index_-video"><i mxs="_zs_galleryb}:_" class="mc-iconfont _zs_gallery_mx-preview_index_-icon">&#xe78d;</i></video>';
-        $line = 23;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += ' ';
-    $line = 26;
-    $art = 'if format==10';
-    ;
-    $expr = '<%if (format == 10) {%>';
-    if (format == 10) {
-        ;
-        $p += '<div style="width: ';
-        $line = 27;
-        $art = '=frameWidth';
-        ;
-        $p += ($expr = '<%=frameWidth%>', $e(frameWidth)) + 'px; height: ';
-        $line = 27;
-        $art = '=frameHeight';
-        ;
-        $p += ($expr = '<%=frameHeight%>', $e(frameHeight)) + 'px; overflow: hidden"><iframe src="';
-        $line = 28;
-        $art = '=url';
-        ;
-        $p += ($expr = '<%=url%>', $e(url)) + '" class="_zs_gallery_mx-preview_index_-iframe" style="transform:scale(';
-        $line = 29;
-        $art = '=scale';
-        ;
-        $p += ($expr = '<%=scale%>', $e(scale)) + ')" width="';
-        $line = 30;
-        $art = '=width';
-        ;
-        $p += ($expr = '<%=width%>', $e(width)) + '" height="';
-        $line = 31;
-        $art = '=height';
-        ;
-        $p += ($expr = '<%=height%>', $e(height)) + '" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" border="0"></iframe></div>';
-        $line = 38;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += ' ';
-    $line = 39;
-    $art = 'if clickUrl';
-    ;
-    $expr = '<%if (clickUrl) {%>';
-    if (clickUrl) {
-        ;
-        $p += '</a>';
-        $line = 41;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_inner"><i mxs="_zs_galleryb[:_" class="mc-iconfont _zs_gallery_mx-preview_index_-holder">&#xe615;</i></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -182,10 +58,8 @@ catch (ex) {
         that.on('destroy', function () {
             clearTimeout(that.timer);
             $('#pic_preview_' + that.id).remove();
+            that['@{scroll.wrapper}'].off('scroll.' + that.id);
         });
-    },
-    isFlash: function (format) {
-        return (format == 3 || format == 9);
     },
     render: function () {
         var that = this;
@@ -202,24 +76,20 @@ catch (ex) {
         // 预览尺寸范围
         var maxWidth = +extra.maxWidth || 100, maxHeight = +extra.maxHeight || 100;
         var url = extra.url, clickUrl = extra.clickUrl;
-        var scale, frameWidth, frameHeight; //format=10
-        var xiaotuUrl = extra.xiaotuUrl, datuUrl = extra.datuUrl; //format=23
-        if (that.isFlash(format)) {
-            // flash
-            url = 'flash已下线';
-            clickUrl = '';
-        }
-        else if (format == 10) {
+        var scale, frameWidth, frameHeight;
+        var xiaotuUrl = extra.xiaotuUrl, datuUrl = extra.datuUrl;
+        if (format == 10) {
             // 创意模板，iframe必须要有高度
             scale = Math.min(+maxWidth / +width, +maxHeight / +height);
             frameWidth = width * scale;
             frameHeight = height * scale;
         }
         else if (format == 23) {
-            // 套图
+            // 套图，预览取小图
             url = extra.xiaotuUrl;
         }
-        var data = {
+        that.updater.digest({
+            viewId: that.id,
             format: format,
             url: url,
             clickUrl: clickUrl,
@@ -227,13 +97,63 @@ catch (ex) {
             height: height,
             maxWidth: maxWidth,
             maxHeight: maxHeight,
-            scale: scale,
             frameWidth: frameWidth,
             frameHeight: frameHeight,
+            scale: scale,
             xiaotuUrl: xiaotuUrl,
             datuUrl: datuUrl
-        };
-        that.updater.digest(data);
+        });
+        if (window.IntersectionObserver) {
+            var observer = new IntersectionObserver(function (changes) {
+                changes.forEach(function (_a) {
+                    var target = _a.target, isIntersecting = _a.isIntersecting;
+                    if (!isIntersecting) {
+                        return;
+                    }
+                    ;
+                    that.thumbnail();
+                    observer.unobserve(target);
+                });
+            }, {
+                rootMargin: '10px 0px'
+            });
+            observer.observe(document.querySelector('#' + that.id));
+        }
+        else {
+            // 直接加载
+            that.thumbnail();
+        }
+    },
+    thumbnail: function () {
+        var data = this.updater.get();
+        var format = data.format, url = data.url, width = data.width, height = data.height, maxWidth = data.maxWidth, maxHeight = data.maxHeight, clickUrl = data.clickUrl;
+        var thumbnail = '';
+        switch (format) {
+            case 2: // 2：图片
+            case 11: //11：直播（封面图）
+            case 23: //23：套图（大图+小图）
+                thumbnail = "<img class=\"_zs_gallery_mx-preview_index_-img\" src=\"" + url + "\"/>";
+                break;
+            case 3: // 3：flash
+            case 9: // 9：flash
+                thumbnail = 'flash已下线';
+            case 4: //视频
+                thumbnail = "<video src=\"" + url + "\" class=\"_zs_gallery_mx-preview_index_-video\"></video>";
+                break;
+            case 5: // 5：文字链
+                thumbnail = $("<div class=\"_zs_gallery_mx-preview_index_-text\" style=\"max-width: " + maxWidth + "px;\"></div>");
+                // 纯文案展示
+                thumbnail[0].innerText = url;
+                break;
+            case 10: //html 模板
+                var frameWidth = data.frameWidth, frameHeight = data.frameHeight, scale = data.scale;
+                thumbnail = "<div style=\"width: " + frameWidth + "px; height: " + frameHeight + "px; overflow: hidden\">\n                                <iframe src=\"" + url + "\" class=\"_zs_gallery_mx-preview_index_-iframe\"\n                                    style=\"transform:scale(" + scale + ")\"\n                                    width=\"" + width + "\" \n                                    height=\"" + height + "\" \n                                    frameborder=\"0\"\n                                    scrolling=\"no\" \n                                    marginheight=\"0\" \n                                    marginwidth=\"0\" \n                                    border=\"0\"></iframe>\n                            </div>";
+                break;
+        }
+        if (clickUrl) {
+            thumbnail = $(thumbnail).wrap("<a href=\"" + clickUrl + "\" target=\"_blank\" rel=\"noopener noreferrer\"></a>");
+        }
+        $('#' + this.id + '_inner').html(thumbnail);
     },
     'preview<mouseover>': function (e) {
         var that = this;
@@ -250,7 +170,7 @@ catch (ex) {
             var format_1 = data_1.format, url_1 = data_1.url, datuUrl_1 = data_1.datuUrl, //套图的大图展示，特殊处理
             clickUrl_1 = data_1.clickUrl, width_1 = +data_1.width + 20, height_1 = +data_1.height + 20;
             var left_1 = offset.left + target.outerWidth() + 10, top_1 = offset.top;
-            if (!url_1 || !format_1 || that.isFlash(format_1)) {
+            if (!url_1 || !format_1 || (format_1 == 3 || format_1 == 9)) {
                 // flash不预览
                 return;
             }
@@ -279,7 +199,7 @@ catch (ex) {
                         inner = $("<img src=\"" + url_1 + "\" class=\"_zs_gallery_mx-preview_index_-preview-inner\"/>");
                         break;
                     case 4: // 视频
-                        inner = $("<video src=\"" + url_1 + "\" class=\"_zs_gallery_mx-preview_index_-preview-inner\"\n                            controls=\"controls\" autoplay=\"autoplay\">\n                            <i class=\"mc-iconfont icon\">&#xe78d;</i>\n                        </video>");
+                        inner = $("<video src=\"" + url_1 + "\" class=\"_zs_gallery_mx-preview_index_-preview-inner\"\n                            controls=\"controls\" autoplay=\"autoplay\"></video>");
                         break;
                     case 5: // 文字链
                         inner = $("<div class=\"_zs_gallery_mx-preview_index_-preview-inner\"></div>");
@@ -300,9 +220,9 @@ catch (ex) {
                     floatingLayer = $('<div id="pic_preview_' + that.id + '" class="_zs_gallery_mx-preview_index_-pic-preview"></div>').appendTo('body');
                 }
                 floatingLayer.empty().append(inner);
-                if (clickUrl_1 && (format_1 == 2 || format_1 == 4 || format_1 == 5 || format_1 == 23)) {
+                if (clickUrl_1) {
                     // 只有文字和图片支持配置外链
-                    inner.wrap("<a href=\"" + clickUrl_1 + "\" target=\"_blank\"></a>");
+                    inner.wrap("<a href=\"" + clickUrl_1 + "\" target=\"_blank\" rel=\"noopener noreferrer\"></a>");
                 }
                 floatingLayer.css({
                     width: width_1,

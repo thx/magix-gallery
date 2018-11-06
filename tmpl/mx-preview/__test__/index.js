@@ -50,7 +50,9 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }]
+
         this.updater.digest({
+            viewId: this.id,
             options
         });
     }
