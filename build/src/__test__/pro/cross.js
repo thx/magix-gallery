@@ -9,7 +9,7 @@ require("../subs");
 require("mx-title/second");
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery___test___pro_cross_","/* @dependent: ./index.less */\n._zs_gallery___test___pro_cross_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery___test___pro_cross_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_cross_-line {\n  position: relative;\n  padding-left: 20px;\n  line-height: 32px;\n}\n._zs_gallery___test___pro_cross_-line ._zs_gallery___test___pro_cross_-num {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 20px;\n}\n._zs_gallery___test___pro_cross_-iframe {\n  box-shadow: 0 6px 8px rgba(51, 51, 51, 0.08);\n}\n");
+Magix.applyStyle("_zs_gallery___test___pro_cross_","/* @dependent: ./index.less */\n._zs_gallery___test___pro_cross_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_cross_-line {\n  position: relative;\n  padding-left: 20px;\n  line-height: 32px;\n}\n._zs_gallery___test___pro_cross_-line ._zs_gallery___test___pro_cross_-num {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 20px;\n}\n._zs_gallery___test___pro_cross_-iframe {\n  box-shadow: 0 6px 8px rgba(51, 51, 51, 0.08);\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

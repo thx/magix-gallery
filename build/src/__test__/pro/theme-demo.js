@@ -9,7 +9,7 @@ require("./theme-demo1");
 require("./theme-demo2");
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery___test___pro_theme-demo_","/* @dependent: ./index.less */\n._zs_gallery___test___pro_theme-demo_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery___test___pro_theme-demo_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_theme-demo_-demo-wrapper {\n  width: 860px;\n  padding: 20px;\n  border-radius: 4px;\n  box-shadow: 0 1px 12px rgba(51, 51, 51, 0.08);\n}\n");
+Magix.applyStyle("_zs_gallery___test___pro_theme-demo_","/* @dependent: ./index.less */\n._zs_gallery___test___pro_theme-demo_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_theme-demo_-demo-wrapper {\n  width: 860px;\n  padding: 20px;\n  border-radius: 4px;\n  box-shadow: 0 1px 12px rgba(51, 51, 51, 0.08);\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

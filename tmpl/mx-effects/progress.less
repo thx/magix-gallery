@@ -1,4 +1,5 @@
 @import "../mx-style/_vars";
+@import "../mx-style/_animation";
 @progress-bg: #f0f0f0;
 @progress-radius: 3px;
 @progress-num-width: 60px;
@@ -8,23 +9,20 @@
 }
 
 .line,
-.on {
-    height: (@progress-radius * 2);
-    border-radius: @progress-radius;
-}
-
-.line {
+.gradient{
     position: relative;
     width: 200px;
-    background-color: @progress-bg;
+    background: @progress-bg;
+
     .on {
         position: absolute;
         top: 0;
         left: 0;
         width: 0;
-        background-color: @color-brand;
+        height: 100%;
         transition: width @duration;
     }
+
     .num {
         position: absolute;
         width: @progress-num-width;
@@ -58,7 +56,31 @@
     }
 }
 
-.degree-wrapper{
+.line{
+    height: (@progress-radius * 2);
+    border-radius: @progress-radius;
+    .on{
+        border-radius: @progress-radius;
+        background: @color-brand;
+    }
+}
+
+@gc1: tint(@color-brand, 60%);
+@gc2: tint(@color-brand, 80%);
+.gradient{
+    height: (@progress-radius * 4);
+    border-radius: (@progress-radius * 2);
+    .on{
+        border-radius: (@progress-radius * 2);
+        background: @color-brand;
+        background: linear-gradient(45deg, @gc1 33%, @gc2 34%, @gc2 59%, @gc1 60%);
+        background-size: (@progress-radius * 8) (@progress-radius * 4);
+    }
+}
+
+
+
+.degree-wrapper {
     position: relative;
     .degree {
         display: inline-block;
@@ -70,13 +92,11 @@
             margin-right: 0;
         }
     }
-    
     .degree-bg {
         .degree {
             background-color: @progress-bg;
         }
     }
-    
     .degree-on {
         position: absolute;
         top: 0;
@@ -87,48 +107,47 @@
     }
 }
 
-.circle {
-    width: 200px;
-    height: 200px;
-    border: 5px solid rgb(118, 218, 255);
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    overflow: hidden;
-}
-.wave {
+@circle-width: 120px;
+@gap: 8px;
+.circle-wrapper {
     position: relative;
-    width: 200px;
-    height: 200px;
-    background-color: rgb(118, 218, 255);
-    border-radius: 50%;
-    &::before,
-    &::after{
-        content: "";
+    .circle-text,
+    .circle-bg {
         position: absolute;
-        width: 400px;
-        height: 400px;
         top: 0;
         left: 50%;
-        background-color: rgba(255, 255, 255, .4);
-        border-radius: 45%;
-        transform: translate(-50%, -70%) rotate(0);
-        animation: rotate 6s linear infinite;
-        z-index: 10;
-    }   
-    &::after {
-        border-radius: 47%;
-        background-color: rgba(255, 255, 255, .9);
-        transform: translate(-50%, -70%) rotate(0);
-        animation: rotate 10s linear -5s infinite;
-        z-index: 20;
     }
-}
-
-@keyframes rotate {
-  50% {
-    transform: translate(-50%, -73%) rotate(180deg);
-  } 
-  100% {
-    transform: translate(-50%, -70%) rotate(360deg);
-  }
+    .circle-text {
+        z-index: 4;
+        text-align: center;
+        font-family: "Tahoma";
+        font-size: 14px;
+        color: #666;
+    }
+    .circle-bg {
+        z-index: 2;
+        border-radius: 50%;
+    }
+    .circle {
+        position: relative;
+        z-index: 3;
+        .progress {
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            transform: rotate(-135deg);
+            text-indent: 1px;
+        }
+        .half {
+            position: absolute;
+            top: 0;
+            overflow: hidden;
+            &.half-left {
+                left: 0;
+            }
+            &.half-right {
+                right: 0;
+            }
+        }
+    }
 }

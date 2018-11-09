@@ -31,7 +31,7 @@ module.exports = Magix.View.extend({
             key: 'logo',
             desc: '项目logo的图片地址',
             type: 'string',
-            def: '<img src="//img.alicdn.com/tfs/TB1Zn4Sq1uSBuNjy1XcXXcYjFXa-240-39.png">'
+            def: '<img width="200" src="//img.alicdn.com/tfs/TB1vee6iAzoK1RjSZFlXXai4VXa-534-98.png">'
         }]
 
         this.updater.digest({

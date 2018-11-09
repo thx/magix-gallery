@@ -19,20 +19,37 @@ module.exports = Magix.View.extend({
             type: 'number',
             def: ''
         }, {
-            key: 'text-placement',
-            desc: '数值位置，可选left，right，top，bottom',
-            type: 'string',
-            def: 'top'
-        }, {
             key: 'color',
             desc: '自定义颜色，#4d7fff 或者 rgb(77, 127, 255)',
             type: 'string',
             def: '品牌色'
         }]
 
+        let lineOptions = [{
+            key: 'text-placement',
+            desc: '数值位置，只在type=line时生效<br/>可选：left，right，top，bottom',
+            type: 'string',
+            def: 'top'
+        }]
+        
+        let circleOptions = [{
+            key: 'width',
+            desc: '圆形直径',
+            type: 'number',
+            def: '120'
+        }, {
+            key: 'border',
+            desc: '圆形边宽',
+            type: 'number',
+            def: '8'
+        }]
+
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            lineOptions,
+            circleOptions,
+            type: 'a'
         });
     }
 });

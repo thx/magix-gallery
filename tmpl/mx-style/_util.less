@@ -1,4 +1,6 @@
 /* @dependent: ./index.less */
+@import '_animation';
+
 /* 常用字号 */
 .fontsize-loop(@n, @i:12) when (@i <= @n) {
     .fontsize-@{i}{
@@ -473,3 +475,10 @@
 }
 
 
+
+/*动画*/
+/*上下浮动*/
+.mx-anim-suspension{
+    display: inline-block;
+    .animation(suspension 1.4s ease-out infinite, forwards);
+}

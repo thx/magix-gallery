@@ -9,7 +9,7 @@ define("mx-effects/star",["magix","./base","$"],(require,exports,module)=>{
 var Magix = require("magix");
 var Base = require("./base");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-effects_star_","/* @dependent: ./index.less */\n._zs_gallery_mx-effects_star_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-effects_star_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-effects/star\"] {\n  position: relative;\n  display: inline-block;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star > * {\n  display: inline-block;\n  width: 24px;\n  height: 24px;\n  line-height: 24px;\n  text-align: center;\n  font-size: 20px;\n  color: inherit;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-bg {\n  color: #f0f0f0;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 24px;\n  overflow: hidden;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on ._zs_gallery_mx-effects_star_-star-inner {\n  width: 120px;\n  height: 24px;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on ._zs_gallery_mx-effects_star_-star-inner._zs_gallery_mx-effects_star_-star-brand {\n  color: #4d7fff;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-effects_star_","/* @dependent: ./index.less */\n._zs_gallery_mx-effects_star_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-effects/star\"] {\n  position: relative;\n  display: inline-block;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star > * {\n  display: inline-block;\n  width: 24px;\n  height: 24px;\n  line-height: 24px;\n  text-align: center;\n  font-size: 20px;\n  color: inherit;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-bg {\n  color: #f0f0f0;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 24px;\n  overflow: hidden;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on ._zs_gallery_mx-effects_star_-star-inner {\n  width: 120px;\n  height: 24px;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on ._zs_gallery_mx-effects_star_-star-inner._zs_gallery_mx-effects_star_-star-brand {\n  color: #4d7fff;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -23,14 +23,14 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', icon = $$.icon, width = $$.width, color = $$.color; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya&:_" class="_zs_gallery_mx-effects_star_-star-bg">';
+    $p += '<div mxa="_zs_gallerya):_" class="_zs_gallery_mx-effects_star_-star-bg">';
     $line = 2;
     $art = 'for (let i=0;i<5;i+=1)';
     ;
     $expr = '<%for (var i = 0; i < 5; i += 1) {%>';
     for (var i = 0; i < 5; i += 1) {
         ;
-        $p += '<span mxa="_zs_gallerya&:a" class="_zs_gallery_mx-effects_star_-star">';
+        $p += '<span mxa="_zs_gallerya):a" class="_zs_gallery_mx-effects_star_-star">';
         $line = 4;
         $art = 'if icon';
         ;
@@ -49,7 +49,7 @@ module.exports = Base.extend({
         }
         else {
             ;
-            $p += '<i mxs="_zs_gallerya&:_" class="mc-iconfont">&#xe60f;</i>';
+            $p += '<i mxs="_zs_gallerya):_" class="mc-iconfont">&#xe60f;</i>';
             $line = 8;
             $art = '/if';
             ;
@@ -125,7 +125,7 @@ module.exports = Base.extend({
         }
         else {
             ;
-            $p += '<i mxs="_zs_gallerya&:_" class="mc-iconfont">&#xe60f;</i>';
+            $p += '<i mxs="_zs_gallerya):_" class="mc-iconfont">&#xe60f;</i>';
             $line = 20;
             $art = '/if';
             ;

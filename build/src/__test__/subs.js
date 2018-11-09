@@ -8,7 +8,7 @@ define("__test__/subs",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery___test___subs_","/* @dependent: ./index.less */\n._zs_gallery___test___subs_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery___test___subs_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___subs_-content-subs {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 120px;\n  padding: 10px 0 10px 10px;\n  border-left: 1px solid #e6e6e6;\n}\n._zs_gallery___test___subs_-content-subs ._zs_gallery___test___subs_-sub-link {\n  margin-bottom: 6px;\n}\n._zs_gallery___test___subs_-content-subs ._zs_gallery___test___subs_-sub-link:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery___test___subs_-content-subs._zs_gallery___test___subs_-subs-fixed {\n  position: fixed;\n}\n");
+Magix.applyStyle("_zs_gallery___test___subs_","/* @dependent: ./index.less */\n._zs_gallery___test___subs_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___subs_-content-subs {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 120px;\n  padding: 10px 0 10px 10px;\n  border-left: 1px solid #e6e6e6;\n}\n._zs_gallery___test___subs_-content-subs ._zs_gallery___test___subs_-sub-link {\n  margin-bottom: 6px;\n}\n._zs_gallery___test___subs_-content-subs ._zs_gallery___test___subs_-sub-link:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery___test___subs_-content-subs._zs_gallery___test___subs_-subs-fixed {\n  position: fixed;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ioezbe$art_i = 0, $art_cguscmglb$art_c = list.length; $art_ioezbe$art_i < $art_cguscmglb$art_c; $art_ioezbe$art_i++) {    var item = list[$art_ioezbe$art_i]%>';
-    for (var $art_ioezbe$art_i = 0, $art_cguscmglb$art_c = list.length; $art_ioezbe$art_i < $art_cguscmglb$art_c; $art_ioezbe$art_i++) {
-        var item = list[$art_ioezbe$art_i];
+    $expr = '<%for (var $art_iojhcdtrmb$art_i = 0, $art_ckpfdwwy$art_c = list.length; $art_iojhcdtrmb$art_i < $art_ckpfdwwy$art_c; $art_iojhcdtrmb$art_i++) {    var item = list[$art_iojhcdtrmb$art_i]%>';
+    for (var $art_iojhcdtrmb$art_i = 0, $art_ckpfdwwy$art_c = list.length; $art_iojhcdtrmb$art_i < $art_ckpfdwwy$art_c; $art_iojhcdtrmb$art_i++) {
+        var item = list[$art_iojhcdtrmb$art_i];
         $p += '<div mxa="_zs_galleryP:_" class="_zs_gallery___test___subs_-sub-link"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'';
         $line = 4;
         $art = '=item.key';
@@ -62,9 +62,9 @@ module.exports = Magix.View.extend({
             $line = 7;
             $art = 'each item.subs as sub';
             ;
-            $expr = '<%for (var $art_iticsroal$art_i = 0, $art_objakodngzy$art_obj = item.subs, $art_cuvvqyplrg$art_c = $art_objakodngzy$art_obj.length; $art_iticsroal$art_i < $art_cuvvqyplrg$art_c; $art_iticsroal$art_i++) {            var sub = $art_objakodngzy$art_obj[$art_iticsroal$art_i]%>';
-            for (var $art_iticsroal$art_i = 0, $art_objakodngzy$art_obj = item.subs, $art_cuvvqyplrg$art_c = $art_objakodngzy$art_obj.length; $art_iticsroal$art_i < $art_cuvvqyplrg$art_c; $art_iticsroal$art_i++) {
-                var sub = $art_objakodngzy$art_obj[$art_iticsroal$art_i];
+            $expr = '<%for (var $art_iiivxbb$art_i = 0, $art_objqympm$art_obj = item.subs, $art_ccayzxure$art_c = $art_objqympm$art_obj.length; $art_iiivxbb$art_i < $art_ccayzxure$art_c; $art_iiivxbb$art_i++) {            var sub = $art_objqympm$art_obj[$art_iiivxbb$art_i]%>';
+            for (var $art_iiivxbb$art_i = 0, $art_objqympm$art_obj = item.subs, $art_ccayzxure$art_c = $art_objqympm$art_obj.length; $art_iiivxbb$art_i < $art_ccayzxure$art_c; $art_iiivxbb$art_i++) {
+                var sub = $art_objqympm$art_obj[$art_iiivxbb$art_i];
                 $p += '<div mxa="_zs_galleryP:a" class="_zs_gallery___test___subs_-sub-link pl10"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'';
                 $line = 9;
                 $art = '=sub.key';

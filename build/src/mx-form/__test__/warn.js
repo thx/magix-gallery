@@ -25,7 +25,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_warn" mx-view="mx-title/second?content=warn%E8%AD%A6%E5%91%8A%E5%9C%BA%E6%99%AF%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerybi:_" class="clearfix mb20"><div mx-view="mx-form/__test__/1"></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_warn" mx-view="mx-title/second?content=warn%E8%AD%A6%E5%91%8A%E5%9C%BA%E6%99%AF%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerybl:_" class="clearfix mb20"><div mx-view="mx-form/__test__/1"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

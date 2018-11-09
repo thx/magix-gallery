@@ -1,0 +1,43 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mt20">
+            <mx-effects.progress class="mr20"
+                type="gradient"
+                num="20.22"/>
+        </div>
+        <div class="mt20">
+            <mx-effects.progress class="mr20"
+                type="gradient"
+                num="60" 
+                color="#ffb400"/>
+        </div>
+        <div class="mt20">
+            <mx-effects.progress
+                type="gradient"
+                num="80" 
+                color="rgb(81, 163, 0)"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">刻度型展示值取整</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-effects.progress
+    type="gradient"
+    num="20.22"/&gt;
+
+&lt;mx-effects.progress
+    type="gradient"
+    num="60" 
+    color="#ffb400"/&gt;
+
+&lt;mx-effects.progress
+    type="gradient"
+    num="80" 
+    color="rgb(81, 163, 0)"/&gt;</pre>
+    </div>
+</div>

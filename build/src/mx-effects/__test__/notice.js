@@ -31,7 +31,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerya9:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerya9:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/3"></div><div mx-view="mx-effects/__test__/4"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/5"></div><div mx-view="mx-effects/__test__/6"></div><div mx-view="mx-effects/__test__/7"></div></div></div><div mxs="_zs_gallerya9:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += '<div mxs="_zs_gallerya@:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerya@:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/3"></div><div mx-view="mx-effects/__test__/4"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/5"></div><div mx-view="mx-effects/__test__/6"></div><div mx-view="mx-effects/__test__/7"></div></div></div><div mxs="_zs_gallerya@:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 15;
     $art = '@options';
     ;
@@ -68,8 +68,8 @@ catch (ex) {
                 def: 'left'
             }, {
                 key: 'color',
-                desc: '自定义颜色，背景色要计算透明度，请用hex格式色号，配置了color的时候忽略type的配置',
-                type: 'hex格式色号',
+                desc: '自定义颜色，#4d7fff 或者 rgb(77, 127, 255)均可，背景色根据自定义颜色计算透明度<br/>配置了color的时候忽略type的配置',
+                type: 'string',
                 def: ''
             }, {
                 key: 'icon',

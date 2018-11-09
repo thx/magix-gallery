@@ -1,162 +1,125 @@
 @import '_vars';
+.transform(@value) {
+    transform: @value;
+    -ms-transform: @value;
+    -moz-transform: @value;
+    -webkit-transform: @value;
+    -o-transform: @value;
+}
 
-/**
-   css3注意点小计
-    - animation-fill-mode 动画结束停在最后一帧
-    - translate(-30%, 0) 百分比是相对于元素自己的宽高，margin-left:-30%; 是相对于父容器的宽高
-    - transition、animation动画不能设置display:none;
-    - :after, :before等伪元素目前不支持嵌套，未来会支持 [还有多重伪元素 div::before(3) { content: ”; }];
-      - :after.content 用法
-        { content: url(@imgsrc) }  - 加载指定资源图片
-        { content: attr(data-src) } - 读取当前节点上的自定义属性值
-        { content: content:"选项" counter(sectioncounter) "： ";
-          counter-increment: sectioncounter;
-        } - 自动计数器 【参考资料：http://dev.opera.com/articles/view/automatic-numbering-with-css-counters/】
+/* 动画结束停在最后一帧 */
+.animation(@value, @mode: none) {
+    animation: @value;
+    -webkit-animation: @value;
+    -ms-animation: @value;
+    -moz-animation: @value;
+    -o-animation: @value;
+    animation-fill-mode: @mode;
+    -webkit-animation-fill-mode: @mode;
+    -ms-animation-fill-mode: @mode;
+    -moz-animation-fill-mode: @mode;
+    -o-animation-fill-mode: @mode;
+  }
 
-    - box-sizing: [content-box | padding-box | border-box];
-      - 全局设置：
-        html {
-          box-sizing: border-box;
-        }
-        *, *:before, *:after {
-          box-sizing: inherit;
-        }
-        // 宽度包含了border以及padding，这在容器设置了100%百分比宽度时又设置了padding时很有用
- */
-
+.fade-in-down-keyframes () {
+    0% {
+        .transform(translate(0, -20%));
+        opacity: 0;
+    }
+    100% {
+        .transform(translate(0, 0));
+        opacity: 1;
+    }
+}
 /**
 * 渐显下拉动画
 */
 @keyframes fade-in-down {
-    0% {
-        transform: translate(0, -20%);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translate(0, 0);
-        opacity: 1;
-    }
-
+    .fade-in-down-keyframes
 }
 
 @-webkit-keyframes fade-in-down {
-    0% {
-        -webkit-transform: translate(0, -20%);
-        opacity: 0;
-    }
-
-    100% {
-        -webkit-transform: translate(0, 0);
-        opacity: 1;
-    }
-
+    .fade-in-down-keyframes
 }
 
 @-moz-keyframes fade-in-down {
-    0% {
-        -moz-transform: translate(0, -20%);
-        opacity: 0;
-    }
-
-    100% {
-        -moz-transform: translate(0, 0);
-        opacity: 1;
-    }
-
+    .fade-in-down-keyframes
 }
 
 @-ms-keyframes fade-in-down {
-    0% {
-        -ms-transform: translate(0, -20%);
-        opacity: 0;
-    }
-
-    100% {
-        -ms-transform: translate(0, 0);
-        opacity: 1;
-    }
-
+    .fade-in-down-keyframes
 }
 
 @-o-keyframes fade-in-down {
-    0% {
-        -o-transform: translate(0, -20%);
-        opacity: 0;
-    }
-
-    100% {
-        -o-transform: translate(0, 0);
-        opacity: 1;
-    }
-
+    .fade-in-down-keyframes
 }
 
 
 /**
 * 渐显上拉动画
 */
-@keyframes fade-in-up {
+.fade-in-up-keyframes () {
     0% {
-        transform: translate(0, 20%);
+        .transform(translate(0, 20%));
         opacity: 0;
     }
-
     100% {
-        transform: translate(0, 0);
+        .transform(translate(0, 0));
         opacity: 1;
     }
+}
 
+@keyframes fade-in-up {
+    .fade-in-up-keyframes
 }
 
 @-webkit-keyframes fade-in-up {
-    0% {
-        -webkit-transform: translate(0, 20%);
-        opacity: 0;
-    }
-
-    100% {
-        -webkit-transform: translate(0, 0);
-        opacity: 1;
-    }
-
+    .fade-in-up-keyframes
 }
 
 @-moz-keyframes fade-in-up {
-    0% {
-        -moz-transform: translate(0, 20%);
-        opacity: 0;
-    }
-
-    100% {
-        -moz-transform: translate(0, 0);
-        opacity: 1;
-    }
-
+    .fade-in-up-keyframes
 }
 
 @-ms-keyframes fade-in-up {
-    0% {
-        -ms-transform: translate(0, 20%);
-        opacity: 0;
-    }
-
-    100% {
-        -ms-transform: translate(0, 0);
-        opacity: 1;
-    }
-
+    .fade-in-up-keyframes
 }
 
 @-o-keyframes fade-in-up {
+    .fade-in-up-keyframes
+}
+
+.suspension-keyframes () {
     0% {
-        -o-transform: translate(0, 20%);
-        opacity: 0;
+        .transform(translate(0, 0))
     }
-
+    25% {
+        .transform(translate(0, -15%))
+    }
+    75% {
+        .transform(translate(0, 15%))
+    }
     100% {
-        -o-transform: translate(0, 0);
-        opacity: 1;
+        .transform(translate(0, 0))
     }
+}
 
+@keyframes suspension {
+    .suspension-keyframes
+}
+
+@-webkit-keyframes suspension {
+    .suspension-keyframes
+}
+
+@-moz-keyframes suspension {
+    .suspension-keyframes
+}
+
+@-ms-keyframes suspension {
+    .suspension-keyframes
+}
+
+@-o-keyframes suspension {
+    .suspension-keyframes
 }

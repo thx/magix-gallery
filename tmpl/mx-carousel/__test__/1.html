@@ -23,14 +23,15 @@
             </mx-carousel>
         </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-carousel height="100" autoplay="true" mode="fade"&gt;
     &lt;mx-carousel.panel&gt;
         &lt;div class="bg bg1"&gt;1&lt;/div&gt;
@@ -42,15 +43,15 @@
         &lt;div class="bg bg3"&gt;3&lt;/div&gt;
     &lt;/mx-carousel.panel&gt;
 &lt;/mx-carousel&gt;</pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">CSS</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">CSS</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 .bg &#123;
     width: 100%;
     height: 100%;
@@ -74,5 +75,6 @@
 .bg3 &#123;
     background-color: #ffb400;
 &#125;</pre>
+        </div>
     </div>
 </div>

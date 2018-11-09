@@ -26,8 +26,8 @@ module.exports = Magix.View.extend({
             def: 'left'
         }, {
             key: 'color',
-            desc: '自定义颜色，背景色要计算透明度，请用hex格式色号，配置了color的时候忽略type的配置',
-            type: 'hex格式色号',
+            desc: '自定义颜色，#4d7fff 或者 rgb(77, 127, 255)均可，背景色根据自定义颜色计算透明度<br/>配置了color的时候忽略type的配置',
+            type: 'string',
             def: ''
         }, {
             key: 'icon',

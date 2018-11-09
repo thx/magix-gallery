@@ -1,0 +1,59 @@
+<div class="spinner" style="width: {{=size}}px; height: {{=size}}px; margin-left: {{=(0 - size/2)}}px; ">
+    {{if mode == 'square'}}
+        <div class="square {{=classNames}}" style="{{=styles}}"></div>
+    {{/if}}
+    {{if mode == 'double-circle'}}
+        <div class="double-circle double-circle1 {{=classNames}}" style="{{=styles}}"></div>
+        <div class="double-circle double-circle2 {{=classNames}}" style="{{=styles}}"></div>    
+    {{/if}}
+    {{if mode == 'rectangle'}}
+        <div class="rectangle">
+            <div class="rect rect1 {{=classNames}}" style="{{=styles}}"></div>
+            <div class="rect rect2 {{=classNames}}" style="{{=styles}}"></div>
+            <div class="rect rect3 {{=classNames}}" style="{{=styles}}"></div>
+            <div class="rect rect4 {{=classNames}}" style="{{=styles}}"></div>
+            <div class="rect rect5 {{=classNames}}" style="{{=styles}}"></div>
+        </div>
+    {{/if}}
+    {{if mode == 'cubes'}}
+        <div class="cube1 {{=classNames}}" style="{{=styles}}"></div>
+        <div class="cube2 {{=classNames}}" style="{{=styles}}"></div>
+    {{/if}}
+    {{if mode == 'pulse'}}
+        <div class="pulse {{=classNames}}" style="{{=styles}}"></div>
+    {{/if}}
+    {{if mode == 'dots'}}
+        <div class="dots">
+            <div class="dot1 {{=classNames}}" style="{{=styles}}"></div>
+            <div class="dot2 {{=classNames}}" style="{{=styles}}"></div>
+        </div>
+    {{/if}}
+    {{if mode == 'three-bounce'}}
+        <div class="three-bounce one {{=classNames}}" style="{{=styles}}"></div>
+        <div class="three-bounce two {{=classNames}}" style="{{=styles}}"></div>
+        <div class="three-bounce three {{=classNames}}" style="{{=styles}}"></div>
+    {{/if}}
+    {{if mode == 'circle-spinner'}}
+        <div class="circle-spinner">
+            <div class="spinner-container container1">
+                <div class="spinner-circle circle1 {{=classNames}}" style="{{=styles}}"></div>
+                <div class="spinner-circle circle2 {{=classNames}}" style="{{=styles}}"></div>
+                <div class="spinner-circle circle3 {{=classNames}}" style="{{=styles}}"></div>
+                <div class="spinner-circle circle4 {{=classNames}}" style="{{=styles}}"></div>
+            </div>
+            <div class="spinner-container container2">
+                <div class="spinner-circle circle1 {{=classNames}}" style="{{=styles}}"></div>
+                <div class="spinner-circle circle2 {{=classNames}}" style="{{=styles}}"></div>
+                <div class="spinner-circle circle3 {{=classNames}}" style="{{=styles}}"></div>
+                <div class="spinner-circle circle4 {{=classNames}}" style="{{=styles}}"></div>
+            </div>
+            <div class="spinner-container container3">
+                <div class="spinner-circle circle1 {{=classNames}}" style="{{=styles}}"></div>
+                <div class="spinner-circle circle2 {{=classNames}}" style="{{=styles}}"></div>
+                <div class="spinner-circle circle3 {{=classNames}}" style="{{=styles}}"></div>
+                <div class="spinner-circle circle4 {{=classNames}}" style="{{=styles}}"></div>
+            </div>
+        </div>
+    {{/if}}
+</div>
+    

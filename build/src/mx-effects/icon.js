@@ -9,7 +9,7 @@ require("mx-popover/index");
 var Magix = require("magix");
 var Base = require("./base");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-effects_icon_","/* @dependent: ./index.less */\n._zs_gallery_mx-effects_icon_-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-effects_icon_-mask {\n  background-color: rgba(33, 33, 33, 0.72);\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-effects_icon_-text {\n  display: inline-block;\n  font-size: 12px;\n  font-weight: bold;\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n}\n/*实心打标icon*/\n._zs_gallery_mx-effects_icon_-solid-icon {\n  display: inline-block;\n  height: 16px;\n  padding: 0 4px;\n  border-radius: 4px;\n  color: #fff;\n  text-align: center;\n  line-height: 16px;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-common {\n  background-color: #ccc;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-error {\n  background-color: #a40100;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-warn {\n  background-color: #ffb400;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-highlight {\n  background-color: #4d7fff;\n}\n/*空心打标*/\n._zs_gallery_mx-effects_icon_-hollow-icon {\n  display: inline-block;\n  height: 16px;\n  padding: 0 4px;\n  border-radius: 8px;\n  text-align: center;\n  line-height: 14px;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-common {\n  border: 1px solid #ccc;\n  color: #999;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-error {\n  border: 1px solid #a40100;\n  color: #a40100;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-warn {\n  border: 1px solid #ffb400;\n  color: #ffb400;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-highlight {\n  border: 1px solid #4d7fff;\n  color: #4d7fff;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-effects_icon_","/* @dependent: ./index.less */\n._zs_gallery_mx-effects_icon_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-effects_icon_-text {\n  display: inline-block;\n  font-size: 12px;\n  font-weight: bold;\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n}\n/*实心打标icon*/\n._zs_gallery_mx-effects_icon_-solid-icon {\n  display: inline-block;\n  height: 16px;\n  padding: 0 4px;\n  border-radius: 4px;\n  color: #fff;\n  text-align: center;\n  line-height: 16px;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-common {\n  background-color: #ccc;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-error {\n  background-color: #a40100;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-warn {\n  background-color: #ffb400;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-highlight {\n  background-color: #4d7fff;\n}\n/*空心打标*/\n._zs_gallery_mx-effects_icon_-hollow-icon {\n  display: inline-block;\n  height: 16px;\n  padding: 0 4px;\n  border-radius: 8px;\n  text-align: center;\n  line-height: 14px;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-common {\n  border: 1px solid #ccc;\n  color: #999;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-error {\n  border: 1px solid #a40100;\n  color: #a40100;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-warn {\n  border: 1px solid #ffb400;\n  color: #ffb400;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-highlight {\n  border: 1px solid #4d7fff;\n  color: #4d7fff;\n}\n");
 var ClassNames = {
     solid: '_zs_gallery_mx-effects_icon_-solid-icon',
     hollow: '_zs_gallery_mx-effects_icon_-hollow-icon',
@@ -49,7 +49,7 @@ module.exports = Base.extend({
         $line = 3;
         $art = '=tip';
         ;
-        $p += ($expr = '<%!$eu(tip)%>', $eu(tip)) + '"><span mxa="_zs_gallerya$:_" class="_zs_gallery_mx-effects_icon_-text">';
+        $p += ($expr = '<%!$eu(tip)%>', $eu(tip)) + '"><span mxa="_zs_gallerya&:_" class="_zs_gallery_mx-effects_icon_-text">';
         $line = 4;
         $art = '=content';
         ;
@@ -69,7 +69,7 @@ module.exports = Base.extend({
         $line = 7;
         $art = '=styles';
         ;
-        $p += ($expr = '<%=styles%>', $e(styles)) + '"><span mxa="_zs_gallerya$:a" class="_zs_gallery_mx-effects_icon_-text">';
+        $p += ($expr = '<%=styles%>', $e(styles)) + '"><span mxa="_zs_gallerya&:a" class="_zs_gallery_mx-effects_icon_-text">';
         $line = 8;
         $art = '=content';
         ;

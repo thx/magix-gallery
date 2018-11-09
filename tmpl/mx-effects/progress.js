@@ -1,6 +1,6 @@
 let Magix = require('magix');
-let Base = require('./base');
 let $ = require('$');
+let Util = require('@./util');
 Magix.applyStyle('@progress.less');
 let ClassNames = {
     left: '@progress.less:num-left',
@@ -9,7 +9,7 @@ let ClassNames = {
     bottom: '@progress.less:num-bottom'
 }
 
-module.exports = Base.extend({
+module.exports = Magix.View.extend({
     tmpl: '@progress.html',
     init(e) {
         this.updater.snapshot();
@@ -43,19 +43,45 @@ module.exports = Base.extend({
             num = 100;
         }
 
-        let degree = 0;
-        if(type == 'degree'){
-            // 刻度取整
-            degree = parseInt(num / 10);
+        let degree = 0,
+            width = e.width || 120,
+            border = e.border || 8,
+            color1, color2;
+        switch (type) {
+            case 'degree':
+                // 刻度型，刻度取整
+                degree = parseInt(num / 10);
+                break;
+            case 'circle':
+                // 圆形
+                if (!color) {
+                    color = '#4d7fff';
+                }
+                break;
+            case 'gradient':
+                // 渐变
+                if(color){
+                    let result = Util.toRgb(color);
+                    color1 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.4)`;
+                    color2 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.2)`;
+                }
+                break;
         }
 
         that.updater.set({
+            viewId: that.id,
             placement,
+            originNum: num,
             num: num.toFixed(i) + '%',
             cName: ClassNames[placement],
             color,
+            color1,
+            color2,
             type,
-            degree
+            degree,
+            width: +width,
+            border: +border,
+            gradient: (type == 'gradient')
         });
 
         if (!altered) {
@@ -66,5 +92,57 @@ module.exports = Base.extend({
             return true;
         }
         return false;
+    },
+    render() {
+        let that = this;
+        that.updater.digest();
+
+        let type = that.updater.get('type'),
+            originNum = that.updater.get('originNum');
+        if (type == 'circle') {
+            let circleNode = $('#' + that.id + '_circle');
+            let right = circleNode.find('.@progress.less:half-right .@progress.less:progress'),
+                left = circleNode.find('.@progress.less:half-left .@progress.less:progress');
+            let deg = Math.ceil(360 * originNum / 100);
+            let rightDeg, leftDeg;
+            if(deg > 180){
+                rightDeg = 180;
+                leftDeg = deg - rightDeg;
+            }else{
+                rightDeg = deg;
+                leftDeg = 0;
+            }
+            let duration = Math.ceil(1000 * originNum / 100), easing = 'linear';
+            let rightDuration = Math.floor(duration * rightDeg / deg),
+                leftDuration = Math.floor(duration * leftDeg / deg);
+            right.animate({
+                textIndent: 0
+            }, {
+                step: function (rNow, fx) {
+                    let rt = (1 - rNow) * rightDeg - 135;
+                    $(this).css({
+                        '-webkit-transform': 'rotate(' + rt + 'deg)',
+                        'transform': 'rotate(' + rt + 'deg)'
+                    });
+                },
+                duration: rightDuration,
+                done: () => {
+                    if(leftDeg > 0){
+                        left.animate({
+                            textIndent: 0
+                        }, {
+                            step: function (lNow, fx) {
+                                let lt = (1 - lNow) * leftDeg - 135;
+                                $(this).css({
+                                    '-webkit-transform': 'rotate(' + lt + 'deg)',
+                                    'transform': 'rotate(' + lt + 'deg)'
+                                });
+                            },
+                            duration: leftDuration
+                        }, easing);
+                    }
+                }
+            }, easing);
+        }
     }
 });

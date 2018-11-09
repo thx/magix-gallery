@@ -22,7 +22,7 @@ module.exports = Magix.View.extend({
         let cur = ops.cur || ''; //默认不选中任何一个导航
         let width = ops.width || 1184;
         let navs = ops.navs || [];
-        let logo = ops.logo || '//img.alicdn.com/tfs/TB1Zn4Sq1uSBuNjy1XcXXcYjFXa-240-39.png';
+        let logo = ops.logo || '//img.alicdn.com/tfs/TB1vee6iAzoK1RjSZFlXXai4VXa-534-98.png';
         let maxWidth = wrapper.outerWidth();
         if (+width > (maxWidth - 40)) {
             width = maxWidth - 40;

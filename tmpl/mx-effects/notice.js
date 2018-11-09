@@ -37,7 +37,7 @@ module.exports = Base.extend({
                 classNames.push(ClassNames[type]);
             }
         } else {
-            let result = Util.hexToRgb(color);
+            let result = Util.toRgb(color);
             rgba = `rgba(${result.r}, ${result.g}, ${result.b}, 0.2)`;
             styles.push(
                 'color:' + color,

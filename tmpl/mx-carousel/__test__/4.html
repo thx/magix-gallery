@@ -31,14 +31,15 @@
             </div>
         </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;div class="wrapper"&gt;
     &lt;mx-carousel height="100" 
         prev-trigger="&#123;&#123;=viewId&#125;&#125;_prev"
@@ -57,18 +58,22 @@
             &lt;div class="bg"&gt;6&lt;/div&gt;
         &lt;/mx-carousel.panel&gt;
     &lt;/mx-carousel&gt;
-    &lt;i class="mc-iconfont arrow prev" id="&#123;&#123;=viewId&#125;&#125;_prev"&gt;&#xe61e;&lt;/i&gt;
-    &lt;i class="mc-iconfont arrow next" id="&#123;&#123;=viewId&#125;&#125;_next"&gt;&#xe61e;&lt;/i&gt;
+    &lt;i class="mc-iconfont arrow prev" id="&#123;&#123;=viewId&#125;&#125;_prev"&gt;
+        &#38;&#35;xe61e;
+    &lt;/i&gt;
+    &lt;i class="mc-iconfont arrow next" id="&#123;&#123;=viewId&#125;&#125;_next"&gt;
+        &#38;&#35;xe61e;
+    &lt;/i&gt;
 &lt;/div&gt;</pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">CSS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">CSS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 @import "../../mx-style/_vars";
 
 .wrapper&#123;
@@ -123,8 +128,7 @@
         margin-top: 8px;
         background-color: @color-brand;
     &#125;
-&#125;
-
-</pre>
+&#125;</pre>
+        </div>
     </div>
 </div>

@@ -171,7 +171,7 @@ module.exports = Magix.View.extend({
                 path: '/editor/index',
                 icon: '&#xe698;'
             }, {
-                name: '复杂分步流程',
+                name: '侧边导航分步流程',
                 path: '/main/index',
                 icon: '&#xe64c;'
             }, {
