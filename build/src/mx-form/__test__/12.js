@@ -29,9 +29,9 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'each radioes as r';
     ;
-    $expr = '<%for (var $art_iazxgkphx$art_i = 0, $art_ccechimwqx$art_c = radioes.length; $art_iazxgkphx$art_i < $art_ccechimwqx$art_c; $art_iazxgkphx$art_i++) {    var r = radioes[$art_iazxgkphx$art_i]%>';
-    for (var $art_iazxgkphx$art_i = 0, $art_ccechimwqx$art_c = radioes.length; $art_iazxgkphx$art_i < $art_ccechimwqx$art_c; $art_iazxgkphx$art_i++) {
-        var r = radioes[$art_iazxgkphx$art_i];
+    $expr = '<%for (var $art_itdzuitr$art_i = 0, $art_czkbhqsxf$art_c = radioes.length; $art_itdzuitr$art_i < $art_czkbhqsxf$art_c; $art_itdzuitr$art_i++) {    var r = radioes[$art_itdzuitr$art_i]%>';
+    for (var $art_itdzuitr$art_i = 0, $art_czkbhqsxf$art_c = radioes.length; $art_itdzuitr$art_i < $art_czkbhqsxf$art_c; $art_itdzuitr$art_i++) {
+        var r = radioes[$art_itdzuitr$art_i];
         $p += '<label mxv mxa="_zs_gallerya/:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 8;
         $art = ':selected';
