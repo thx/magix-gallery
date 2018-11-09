@@ -1,0 +1,12 @@
+{
+    "assets": {
+        "type": "command",
+        "command": {
+            "cmd": [
+                "tnpm i",
+                "npx gulp combine",
+                "cp ./build $BUILD_DEST"
+            ]
+        }
+    }
+}

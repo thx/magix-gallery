@@ -26,5 +26,8 @@
         "seajs": "3.0.2",
         "typescript": "^2.6.2",
         "magix-combine": "3.11.21"
+    },
+    "magixCliConfig": {
+        "cloudBuild": true
     }
 }
