@@ -10,6 +10,7 @@ let classReg = /\bclass\s*=\s*"[^"]+/;
 
 combineTool.config({
     debug: true,
+    log: false,
     srcFolder: 'build/src',
     loaderType: 'cmd_es',
     projectName: '_',
