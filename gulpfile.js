@@ -4,13 +4,13 @@ let watch = require('gulp-watch');
 let del = require('del');
 let fs = require('fs');
 let pkg = require('./package.json');
-let uglify = require('gulp-uglify-es').default;
+let terser = require('gulp-terser-scoped').default;
 let ts = require('typescript');
 let classReg = /\bclass\s*=\s*"[^"]+/;
 
 combineTool.config({
     debug: true,
-    log: false,
+    log: true,
     srcFolder: 'build/src',
     loaderType: 'cmd_es',
     projectName: '_',
@@ -102,13 +102,14 @@ gulp.task('watch', ['combine'], () => {
 
 gulp.task('turnOffDebug', () => {
     combineTool.config({
-        debug: false
+        debug: false,
+        log: false
     });
 });
 
-gulp.task('compress', ['turnOffDebug', 'combine', 'ver'], () => {
+gulp.task('compress', ['turnOffDebug', 'combine'], () => {
     return gulp.src('./build/src/**/*.js')
-        .pipe(uglify({
+        .pipe(terser({
             compress: {
                 drop_console: true,
                 drop_debugger: true,

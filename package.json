@@ -21,7 +21,7 @@
     "dependencies": {
         "del": "3.0.0",
         "gulp": "3.9.1",
-        "gulp-uglify-es": "^0.1.9",
+        "gulp-terser-scoped": "^1.0.0",
         "gulp-watch": "4.3.11",
         "seajs": "3.0.2",
         "typescript": "^2.6.2",
