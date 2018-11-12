@@ -4,7 +4,7 @@ let watch = require('gulp-watch');
 let del = require('del');
 let fs = require('fs');
 let pkg = require('./package.json');
-let terser = require('gulp-terser-scoped').default;
+let terser = require('gulp-terser-scoped');
 let ts = require('typescript');
 let classReg = /\bclass\s*=\s*"[^"]+/;
 
