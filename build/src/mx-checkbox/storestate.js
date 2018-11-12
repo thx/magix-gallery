@@ -1,1 +1,102 @@
-define("mx-checkbox/storestate",["$","magix"],(e,a,t)=>{var n=e("$"),i=e("magix");t.exports={ctor:function(){var e=this;e.__a_={};e.on("domready",function(a){var t=e.__a_;n("#"+(a.id||e.id)+" input[linkage-parent]").each(function(e,a){var i=n(a).attr("linkage-parent"),r=t[i]||(t[i]={});a.checked?r[a.value]=1:r&&1==r[a.value]?a.checked=!0:a.checked=!1})})},getStoreState:function(e){var a,t=this.__a_,n=[];if(e)(a=t[e])&&(n=i.keys(a));else for(var r in t)(a=t[r])&&(n=n.concat(i.keys(a)));return n},"$input[linkage-parent]<change>":function(e){var a=n(e.eventTarget),t=a.val(),i=a.attr("linkage-parent");if(t){var r=this.__a_[i];r||(r=this.__a_[i]={}),!a[0].disabled&&a[0].checked?r[t]=1:delete r[t]}},"$input[linkage]<change>":function(e){var a=n(e.eventTarget).attr("linkage"),t=this.__a_[a];t||(t=this.__a_[a]={}),n("#"+this.id+" input[type=checkbox]").each(function(i,r){var c=(r=n(r)).attr("linkage-parent"),_=r.val();_&&c==a&&(r[0].disabled?delete t[_]:e.target.checked?t[_]=1:delete t[_])})}}});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-checkbox/storestate",["$","magix"],(require,exports,module)=>{
+/*$,Magix*/
+
+var $ = require("$");
+var Magix = require("magix");
+module.exports = {
+    ctor: function () {
+        var me = this;
+        me['@{state.store}'] = {};
+        var ready = function (e) {
+            var state = me['@{state.store}'];
+            var ipts = $('#' + (e.id || me.id) + ' input[linkage-parent]');
+            ipts.each(function (idx, item) {
+                var linkName = $(item).attr('linkage-parent');
+                var object = state[linkName] || (state[linkName] = {});
+                if (item.checked) {
+                    object[item.value] = 1;
+                }
+                else {
+                    if (object && object[item.value] == 1) {
+                        item.checked = true;
+                    }
+                    else {
+                        item.checked = false;
+                    }
+                }
+            });
+        };
+        me.on('domready', ready);
+    },
+    getStoreState: function (key) {
+        var store = this['@{state.store}'];
+        var keys = [];
+        var value;
+        if (key) {
+            value = store[key];
+            if (value) {
+                keys = Magix.keys(value);
+            }
+        }
+        else {
+            for (var p in store) {
+                value = store[p];
+                if (value) {
+                    keys = keys.concat(Magix.keys(value));
+                }
+            }
+        }
+        return keys;
+    },
+    '$input[linkage-parent]<change>': function (e) {
+        var me = this;
+        var node = $(e.eventTarget);
+        var value = node.val();
+        var linkName = node.attr('linkage-parent');
+        if (value) {
+            var object = me['@{state.store}'][linkName];
+            if (!object) {
+                object = me['@{state.store}'][linkName] = {};
+            }
+            if (!node[0].disabled && node[0].checked) {
+                object[value] = 1;
+            }
+            else {
+                delete object[value];
+            }
+        }
+    },
+    '$input[linkage]<change>': function (e) {
+        var me = this;
+        var linkName = $(e.eventTarget).attr('linkage');
+        var object = me['@{state.store}'][linkName];
+        if (!object) {
+            object = me['@{state.store}'][linkName] = {};
+        }
+        $('#' + me.id + ' input[type=checkbox]').each(function (index, input) {
+            input = $(input);
+            var tempName = input.attr('linkage-parent');
+            var value = input.val();
+            if (value && (tempName == linkName)) {
+                if (input[0].disabled) {
+                    delete object[value];
+                }
+                else {
+                    if (e.target.checked) {
+                        object[value] = 1;
+                    }
+                    else {
+                        delete object[value];
+                    }
+                }
+            }
+        });
+    }
+};
+
+});

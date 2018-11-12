@@ -1,1 +1,84 @@
-define("mx-form/__test__/7",["magix","__test__/example","mx-form/index","mx-form/validator","$","mx-copy/index","__test__/hl"],(e,l,a)=>{e("mx-copy/index"),e("__test__/hl");e("magix");var r=e("__test__/example"),n=e("mx-form/index"),t=e("mx-form/validator");e("$");a.exports=r.extend({tmpl:function(e,l,a,r,n,t,i,_){if(a||(a=e),!n){var s={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},m=/[&<>"'`]/g,x=function(e){return"&"+s[e]+";"};n=function(e){return""+(null==e?"":e)},r=function(e){return n(e).replace(m,x)}}if(!t){var c={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},u=function(e){return c[e]},p=/[!')(*]/g;t=function(e){return encodeURIComponent(n(e)).replace(p,u)}}if(!_){var d=/[\\'"]/g;_=function(e){return n(e).replace(d,"\\$&")}}var o="",v=e.number,f=e.viewId,g=e.text1;return o+='<div mxv mxa="_zs_gallerybf:_" class="_zs_galleryf"><div mxv mxa="_zs_gallerybf:a" class="_zs_galleryh"><div mxv mxa="_zs_gallerybf:b" class="clearfix"><input mxe="'+l+'_0" mxc="[{p:\'number\',f:{range:[4, 8]}}]" class="input mr20 mb20" placeholder="4到8之间的数字" value="'+r(v)+'"/> <input mxe="'+l+'_1" mxc="[{p:\'number\',f:{min:20}}]" class="input mr20 mb20" placeholder="数字不能小于20" value="'+r(v)+'"/> <input mxe="'+l+'_2" mxc="[{p:\'number\',f:{max:30}}]" class="input mr20 mb20" placeholder="数字不能大于30" value="'+r(v)+'"/></div></div><div mxa="_zs_gallerybf:c" class="_zs_galleryi"><div mxs="_zs_gallerybf:_" class="_zs_galleryg">数字范围</div><div class="_zs_galleryj" mx-success="'+l+'done({id:1})" mx-view="mx-copy/index?copyNode='+t(f)+'_text_1"><span mxa="_zs_gallerybf:d" class="_zs_galleryl">'+n(g)+'</span><i mxs="_zs_gallerybf:a" class="mc-iconfont _zs_galleryk">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+r(f)+'_text_1">\n&lt;input class="input" placeholder="4到8之间的数字" value="&#123;&#123;:number&#123;range:[4, 8]&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="数字不能小于20" value="&#123;&#123;:number&#123;min:20&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="数字不能大于30" value="&#123;&#123;:number&#123;max:30&#125;&#125;&#125;"/&gt;</pre></div></div>'},mixins:[n,t],render:function(){this.updater.digest({rules:{required:!0}})}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-form/__test__/7",["magix","__test__/example","mx-form/index","mx-form/validator","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,Form,Validator,$*/
+require("mx-copy/index");
+require("__test__/hl");
+var Magix = require("magix");
+var Base = require("__test__/example");
+var Form = require("mx-form/index");
+var Validator = require("mx-form/validator");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', number = $$.number, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerybf:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybf:a" class="_zs_gallery___test___layout_-eg-content"><div mxv mxa="_zs_gallerybf:b" class="clearfix"><input mxe="' + $viewId + '_0" mxc="[';
+    $line = 4;
+    $art = ':number{range:[4, 8]}';
+    ;
+    $p += '{p:\'number\',f:{range:[4, 8]}}]" class="input mr20 mb20" placeholder="4到8之间的数字" value="';
+    $line = 4;
+    $art = ':number{range:[4, 8]}';
+    ;
+    $p += ($expr = '<%=number%>', $e(number)) + '"/> <input mxe="' + $viewId + '_1" mxc="[';
+    $line = 5;
+    $art = ':number{min:20}';
+    ;
+    $p += '{p:\'number\',f:{min:20}}]" class="input mr20 mb20" placeholder="数字不能小于20" value="';
+    $line = 5;
+    $art = ':number{min:20}';
+    ;
+    $p += ($expr = '<%=number%>', $e(number)) + '"/> <input mxe="' + $viewId + '_2" mxc="[';
+    $line = 6;
+    $art = ':number{max:30}';
+    ;
+    $p += '{p:\'number\',f:{max:30}}]" class="input mr20 mb20" placeholder="数字不能大于30" value="';
+    $line = 6;
+    $art = ':number{max:30}';
+    ;
+    $p += ($expr = '<%=number%>', $e(number)) + '"/></div></div><div mxa="_zs_gallerybf:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybf:_" class="_zs_gallery___test___layout_-eg-title">数字范围</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 11;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybf:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 13;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybf:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 16;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;input class="input" placeholder="4到8之间的数字" value="&#123;&#123;:number&#123;range:[4, 8]&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="数字不能小于20" value="&#123;&#123;:number&#123;min:20&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="数字不能大于30" value="&#123;&#123;:number&#123;max:30&#125;&#125;&#125;"/&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-form/__test__/7.html';
+    throw msg;
+} return $p; },
+    mixins: [Form, Validator],
+    render: function () {
+        this.updater.digest({
+            rules: {
+                required: true
+            }
+        });
+    }
+});
+
+});

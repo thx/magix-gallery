@@ -1,1 +1,64 @@
-define("mx-effects/__test__/star",["magix","$","mx-title/second","./11","./12","./13","__test__/api"],(e,t,i)=>{e("mx-title/second"),e("./11"),e("./12"),e("./13"),e("__test__/api");var n=e("magix");e("$");i.exports=n.View.extend({tmpl:function(e,t,i,n,r,s,_,d){if(i||(i=e),!r){var c={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},o=/[&<>"'`]/g,v=function(e){return"&"+c[e]+";"};r=function(e){return""+(null==e?"":e)},function(e){return r(e).replace(o,v)}}if(!s){var a={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},f=function(e){return a[e]},l=/[!')(*]/g;s=function(e){return encodeURIComponent(r(e)).replace(l,f)}}if(!d){var m=/[\\'"]/g;d=function(e){return r(e).replace(m,"\\$&")}}_||(_=function(e,t,i,n){for(n=e[x];--n;)if(e[i=x+n]===t)return i;return e[i=x+e[x]++]=t,i});var x="",u="";return u+='<div mxs="_zs_gallerya%:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerya%:a" class="clearfix mb20"><div class="_zs_galleryc"><div mx-view="mx-effects/__test__/11"></div></div><div class="_zs_galleryc"><div mx-view="mx-effects/__test__/12"></div><div mx-view="mx-effects/__test__/13"></div></div></div><div mxs="_zs_gallerya%:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options='+_(i,e.options)+'"></div>'},render:function(){this.updater.digest({options:[{key:"num",desc:"当前评分，0， 0.5， 1， 1.5 ... 4， 4.5， 5，超出范围会进行修正",type:"number",def:""},{key:"color",desc:"自定义颜色，#4d7fff 或者 rgb(77, 127, 255)",type:"string",def:"品牌色"}]})}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-effects/__test__/star",["magix","$","mx-title/second","./11","./12","./13","__test__/api"],(require,exports,module)=>{
+/*Magix,$*/
+require("mx-title/second");
+require("./11");
+require("./12");
+require("./13");
+require("__test__/api");
+var Magix = require("magix");
+var $ = require("$");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
+    $p += '<div mxs="_zs_gallerya%:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerya%:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/11"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/12"></div><div mx-view="mx-effects/__test__/13"></div></div></div><div mxs="_zs_gallerya%:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $line = 14;
+    $art = '@options';
+    ;
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-effects/__test__/star.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        var options = [{
+                key: 'num',
+                desc: '当前评分，0， 0.5， 1， 1.5 ... 4， 4.5， 5，超出范围会进行修正',
+                type: 'number',
+                def: ''
+            }, {
+                key: 'color',
+                desc: '自定义颜色，#4d7fff 或者 rgb(77, 127, 255)',
+                type: 'string',
+                def: '品牌色'
+            }];
+        this.updater.digest({
+            options: options
+        });
+    }
+});
+
+});

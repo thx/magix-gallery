@@ -1,1 +1,76 @@
-define("mx-status/base",["magix"],(e,t,i)=>{var s=e("magix");i.exports=s.View.extend({init:function(e){var t=e.opers||[],i=e.selected||(t[0]||"").value,s={};if(t.length>0){for(var r=0;r<t.length;r++)if(t[r].value==i){s=t[r],t.splice(r,1);break}t.unshift(s)}var a=e.info||{},n=!1;$.isEmptyObject(a)||(n=!0),this.updater.set({info:a,opers:t,cur:s,showInfo:n,show:!1})},render:function(){this.updater.digest()},"select<click>":function(e){var t=e.params.item;this.updater.get("cur").value!=t.value&&(this.updater.digest({show:!1}),$("#"+this.id).trigger({type:"change",status:t}))},"over<mouseover>":function(e){s.inside(e.relatedTarget,e.eventTarget)||this.updater.digest({show:!0})},"out<mouseout>":function(e){s.inside(e.relatedTarget,e.eventTarget)||this.updater.digest({show:!1})}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-status/base",["magix"],(require,exports,module)=>{
+/*Magix*/
+
+var Magix = require("magix");
+module.exports = Magix.View.extend({
+    init: function (e) {
+        var opers = e.opers || [];
+        var selected = e.selected || (opers[0] || '').value;
+        // 当前项在最前面
+        var cur = {};
+        if (opers.length > 0) {
+            for (var i = 0; i < opers.length; i++) {
+                if (opers[i].value == selected) {
+                    cur = opers[i];
+                    opers.splice(i, 1);
+                    break;
+                }
+            }
+            opers.unshift(cur);
+        }
+        // 提示信息
+        var info = e.info || {};
+        var showInfo = false;
+        if (!$.isEmptyObject(info)) {
+            showInfo = true;
+        }
+        this.updater.set({
+            info: info,
+            opers: opers,
+            cur: cur,
+            showInfo: showInfo,
+            show: false
+        });
+    },
+    render: function () {
+        this.updater.digest();
+    },
+    'select<click>': function (e) {
+        var that = this;
+        var item = e.params.item;
+        var cur = that.updater.get('cur');
+        if (cur.value == item.value) {
+            return;
+        }
+        that.updater.digest({
+            show: false
+        });
+        $('#' + that.id).trigger({
+            type: 'change',
+            status: item
+        });
+    },
+    'over<mouseover>': function (event) {
+        if (Magix.inside(event.relatedTarget, event.eventTarget)) {
+            return;
+        }
+        this.updater.digest({
+            show: true
+        });
+    },
+    'out<mouseout>': function (event) {
+        if (Magix.inside(event.relatedTarget, event.eventTarget)) {
+            return;
+        }
+        this.updater.digest({
+            show: false
+        });
+    }
+});
+
+});

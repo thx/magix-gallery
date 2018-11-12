@@ -1,1 +1,561 @@
-define("mx-dragsort/index",["magix","../mx-dragdrop/index","../mx-runner/index","$"],(_,e,a)=>{var t=_("magix"),i=_("../mx-dragdrop/index"),o=_("../mx-runner/index"),n=_("$");t.applyStyle("_zs_galleryC",'._zs_gallerydk{box-shadow:0 2px 4px rgba(51,51,51,.08);border:1px solid #eee}._zs_gallerydl{left:-1000px;top:0;background:#4d7fff}._zs_gallerydl,._zs_gallerydm{position:absolute;z-index:10000}._zs_gallerydm{width:20px;height:20px;border-radius:4px}._zs_gallerydm:after{position:absolute;left:0;right:0;top:0;bottom:0;font-size:12px;line-height:20px;text-align:center;color:#4d7fff}._zs_gallerydn{background:#f6f9ff;border:1px solid #4d7fff}._zs_gallerydn:after{content:"✓"}');var d=t.guid("dbar_"),r=t.guid("pt_"),l=n(window),h=n(document),s={__ax:function(){n("#"+d).length||n('<div class="_zs_gallerydl" id="'+d+'"/>').appendTo("body")},__ay:function(_){_.child&&(n(_.child).css({opacity:.4}),this.__ax())},__aB:function(_){_&&_.child&&n(_.child).css({opacity:1}),this.__az(),this.__aA()},__az:function(){n("#"+d).css({left:-1e5})},__aC:function(_,e){var a=n("#"+d),t=!1;2&_.anchor&&(2&e?(a.css({height:2,width:_.bound.width,top:_.bound.y-1,left:_.bound.x}),t=!0):8&e&&(a.css({height:2,width:_.bound.width,top:_.bound.y+_.bound.height-1,left:_.bound.x}),t=!0)),!t&&1&_.anchor&&(1&e?a.css({height:_.bound.height,width:2,top:_.bound.y,left:_.bound.x-1}):4&e&&a.css({height:_.bound.height,width:2,top:_.bound.y,left:_.bound.x+_.bound.width-1}))},__aE:function(_){var e=this;_.atPlace&&_.child!=_.hover?(3==_.anchor?_.__aD&&e.__aC(_,_.side):_.__aE&&e.__aC(_,_.position),e.__aF(!0)):(e.__az(),e.__aF())},__aG:function(_){var e=n("#"+r);e.length||(e=n('<div class="_zs_gallerydm" id="'+r+'"/>')).appendTo("body");var a=Math.max(0,Math.min(_.pageX+10,h.width()-e.width())),t=Math.max(0,Math.min(_.pageY+18,h.height()-e.height()));e.css({left:a,top:t,display:"block"})},__aF:function(_){var e=n("#"+r);_?e.addClass("_zs_gallerydn"):e.removeClass("_zs_gallerydn")},__aA:function(){n("#"+r).hide()}};a.exports=t.View.extend({mixins:[i],init:function(_){var e=this,a=n("#"+e.id);a.on("mousedown",_.selector,function(_){_.preventDefault(),e.__ay(_)}),e.on("destroy",function(){a.off("mousedown")}),e.__j=a;var i=[a.get(0)];_.drops&&(i=i.concat(_.drops.split(","))),e.__aH=i;var o=_.horizonal+""=="true",d=_.vertical+""=="true";o||d||(d=!0);var r=0;o&&(r|=1),d&&(r|=2),e.__aI=r;var l=!0;t.has(_,"sort")&&(l=_.sort+""=="true"),e.__aJ=l},__aK:function(_){for(var e=0,a=this.__aH;e<a.length;e++){var i=a[e];if(t.inside(_,i))return t.node(i)}return null},__aM:function(_,e){var a=null;if(e||(e=this.__aK(_)),!this.__aJ&&this.__aL)return{child:this.__aL,zone:e};for(;e!=_;){if(_.parentNode==e){a=_;break}_=_.parentNode}return!e||e.firstChild||a||(a=e),a&&"false"===a.getAttribute("ds-draggable")&&(a=null),{child:a,zone:e}},__aO:function(_,e){var a=0,t=0,i=-1,o=-1,n=-1,d=-1,r=!1;if(e.pageX>=_.x&&e.pageX<=_.x+_.width&&e.pageY>=_.y&&e.pageY<=_.y+_.height&&(a|=e.pageX<=_.x+_.width/2?1:4,i=e.pageX-_.x,n=_.x+_.width-e.pageX,a|=e.pageY<=_.y+_.height/2?2:8,o=e.pageY-_.y,d=_.y+_.height-e.pageY,r=!0),r){var l=Math.min(i,o,n,d);l>-1&&(l==i?t=1:l==o?t=2:l==n?t=4:l==d&&(t=8))}var h=this.__aN;return h&&h.zone===h.hover&&(a=2,t=1),{position:a,atPlace:r,side:t}},__ay:function(_){if(1===_.which){var e=this,a=e.__aM(_.target);a.child&&(e.__aL=a.child,e.__aP=a.zone,e.__j.trigger({type:"dragbegin",dragNode:a.child,dragZone:a.zone}),s.__ay(a),e.dragdrop(a.zone,function(_){e.__aQ(_)},function(_){e.__aB(_)}))}},__aT:function(_,e,a){var t=this,i=t.__aO(_,e),o=i.side!=t.__aR,n=i.position!=t.__aS;(o||n)&&(t.__aR=i.side,t.__aS=i.position,a.__aD=o,a.__aE=n,a.side=i.side,a.position=i.position,a.atPlace=i.atPlace,a.anchor=t.__aI,s.__aE(a))},__aQ:function(_){var e=i.fromPoint(_.clientX,_.clientY),a=this;if(s.__aG(_),a.__aU=_,a.__aV=!0,a.__aW(),a.__aX(),a.__aY||a.__aZ||!e)return delete a.__b_,delete a.__aR,void delete a.__aS;if(a.__b_!=e){if(e.id===d)return;a.__b_=e,delete a.__aR;var o=a.__aK(e);if(o){o!=a.__ba&&(a.__ba=o,a.__j.trigger({type:"enterzone",zone:o,changePointer:s.__aF}));var r=a.__aM(e,o);if(!r.child)return;var l=n(r.child),h=l.offset(),g={x:h.left,y:h.top,width:l.outerWidth(),height:l.outerHeight()};h=(l=n(r.zone)).offset(),a.__bb={x:h.left,y:h.top,scrollX:l.prop("scrollLeft"),scrollY:l.prop("scrollTop"),maxWidth:l.prop("scrollWidth"),maxHeight:l.prop("scrollHeight"),width:l.width(),height:l.height()},a.__aT(a.__bc=g,_,a.__aN={child:a.__aL,bound:g,zone:r.zone,hover:r.child})}else a.__ba&&(a.__j.trigger({type:"leavezone",zone:a.__ba,changePointer:s.__aF}),delete a.__ba)}else a.__bc&&t.inside(e,a.__aN.zone)?a.__aT(a.__bc,_,a.__aN):(delete a.__aR,delete a.__aS,a.__aJ&&(s.__az(),s.__aF()))},__aB:function(){var _=this;_.__bd(),_.__be(),s.__aB({child:_.__aL});var e=_.__aS,a=_.__aR,t=_.__aV,i=_.__aN,o=_.__aL;if(t&&(e||a)){var n=i.zone,d=_.__aI,r=3===d?a:e;if(1&d&&1&r||2&r&&2&d)i.hover==n?n.appendChild(o):n.insertBefore(o,i.hover);else if(8&r&&2&d||4&r&&1&d){for(var l=i.hover.nextSibling;l&&1!=l.nodeType;)l=l.nextSibling;n.insertBefore(o,l),l||(n.scrollTop=n.scrollHeight)}}i&&_.__j.trigger({type:"dragfinish",moved:t,dragNode:o,dragZone:_.__aP,dropNode:i.hover,dropZone:i.zone,outZone:!_.__ba}),delete _.__aL,delete _.__aP,delete _.__b_,delete _.__aN,delete _.__bc,delete _.__aS,delete _.__aR,delete _.__aU,delete _.__aZ,delete _.__ba,delete _.__bb,delete _.__aY,delete _.__aV},__aW:function(){var _=this;_.__bf||(_.__bf=function(){var e=_.__bb;if(e){var a=_.__aN.zone,t=0,i=0,o=_.__aU;o.pageX>e.x&&o.pageY>e.y&&o.pageX<e.x+e.width&&o.pageY<e.y+e.height?(o.pageX-e.x<20&&e.scrollX>0?t=-Math.min(7,e.scrollX):e.x+e.width-o.pageX<20&&e.scrollX+e.width<e.maxWidth&&(t=Math.min(7,e.maxWidth-e.scrollX-e.width)),o.pageY-e.y<20&&e.scrollY>0?i=-Math.min(7,e.scrollY):e.y+e.height-o.pageY<20&&e.scrollY+e.height<e.maxHeight&&(i=Math.min(7,e.maxHeight-e.scrollY-e.height)),t||i?(_.__aY=!0,_.__bg=!0,a.scrollTop+=i,a.scrollLeft+=t,e.scrollX+=t,e.scrollY+=i,delete _.__aV,s.__az(),s.__aF()):(delete _.__aY,delete _.__bg)):(delete _.__aY,delete _.__bg)}},o.__bh(30,_.__bf))},__aX:function(){var _=this;_.__bi||(_.__bi=function(){if(!_.__bg){var e=0,a=0,t=_.__aU,i=l.scrollTop(),o=l.height(),n=h.height(),d=h.width(),r=l.width(),g=l.scrollLeft();t.pageX-g<20&&g>0?e=-Math.min(7,g):g+r-t.pageX<20&&g+r<d&&(e=Math.min(7,d-r-g)),t.pageY-i<20&&i>0?a=-Math.min(7,i):i+o-t.pageY<20&&i+o<n&&(a=Math.min(7,n-o-i)),e||a?(_.__aZ=!0,t.pageX+=e,t.pageY+=a,window.scrollBy(e,a),delete _.__aV,s.__az(),s.__aG(t),s.__aF()):delete _.__aZ}},o.__bh(30,_.__bi))},__bd:function(){this.__bf&&(o.__bj(this.__bf),delete this.__bf,delete this.__bg)},__be:function(){this.__bi&&(o.__bj(this.__bi),delete this.__bi)}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-dragsort/index",["magix","../mx-dragdrop/index","../mx-runner/index","$"],(require,exports,module)=>{
+/*Magix,DD,Runner,$*/
+
+var Magix = require("magix");
+var DD = require("../mx-dragdrop/index");
+var Runner = require("../mx-runner/index");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-dragsort_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-dragsort_index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-dragsort_index_-bar {\n  position: absolute;\n  left: -1000px;\n  top: 0;\n  z-index: 10000;\n  background: #4d7fff;\n}\n._zs_gallery_mx-dragsort_index_-pointer {\n  position: absolute;\n  z-index: 10000;\n  width: 20px;\n  height: 20px;\n  border-radius: 4px;\n}\n._zs_gallery_mx-dragsort_index_-pointer:after {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  font-size: 12px;\n  line-height: 20px;\n  text-align: center;\n  color: #4d7fff;\n}\n._zs_gallery_mx-dragsort_index_-ok {\n  background: #f6f9ff;\n  border: 1px solid #4d7fff;\n}\n._zs_gallery_mx-dragsort_index_-ok:after {\n  content: '✓';\n}\n");
+var BarId = Magix.guid('dbar_');
+var PointerId = Magix.guid('pt_');
+var Win = $(window);
+var Doc = $(document);
+var LEFT = 1;
+var TOP = 2;
+var RIGHT = 4;
+var BOTTOM = 8;
+var SCROLL_OFFSET = 20;
+var SCROLL_STEP = 7;
+var SCROLL_INTERVAL = 30;
+var HORIZONAL = 1;
+var VERTICAL = 2;
+var HANDV = HORIZONAL | VERTICAL;
+var UI = {
+    '@{bar.create}': function () {
+        var node = $('#' + BarId);
+        if (!node.length) {
+            $('<div class="_zs_gallery_mx-dragsort_index_-bar" id="' + BarId + '"/>').appendTo('body');
+        }
+    },
+    '@{drag.start}': function (info) {
+        if (info.child) {
+            $(info.child).css({
+                opacity: 0.4
+            });
+            this['@{bar.create}']();
+        }
+    },
+    '@{drag.end}': function (info) {
+        if (info && info.child) {
+            $(info.child).css({
+                opacity: 1
+            });
+        }
+        this['@{bar.hide}']();
+        this['@{pointer.hide}']();
+    },
+    '@{bar.hide}': function () {
+        $('#' + BarId).css({
+            left: -1e5
+        });
+    },
+    '@{bar.move}': function (info, v) {
+        var node = $('#' + BarId);
+        var hasFound = false;
+        if (info.anchor & VERTICAL) {
+            if (v & TOP) {
+                node.css({
+                    height: 2,
+                    width: info.bound.width,
+                    top: info.bound.y - 1,
+                    left: info.bound.x
+                });
+                hasFound = true;
+            }
+            else if (v & BOTTOM) {
+                node.css({
+                    height: 2,
+                    width: info.bound.width,
+                    top: info.bound.y + info.bound.height - 1,
+                    left: info.bound.x
+                });
+                hasFound = true;
+            }
+        }
+        if (!hasFound && info.anchor & HORIZONAL) {
+            if (v & LEFT) {
+                node.css({
+                    height: info.bound.height,
+                    width: 2,
+                    top: info.bound.y,
+                    left: info.bound.x - 1
+                });
+            }
+            else if (v & RIGHT) {
+                node.css({
+                    height: info.bound.height,
+                    width: 2,
+                    top: info.bound.y,
+                    left: info.bound.x + info.bound.width - 1
+                });
+            }
+        }
+    },
+    '@{pos.changed}': function (info) {
+        var me = this;
+        if (info.atPlace && info.child != info.hover) {
+            if (info.anchor == HANDV) {
+                if (info['@{side.changed}']) {
+                    me['@{bar.move}'](info, info.side);
+                }
+            }
+            else if (info['@{pos.changed}']) {
+                me['@{bar.move}'](info, info.position);
+            }
+            me['@{pointer.change}'](true);
+        }
+        else {
+            me['@{bar.hide}']();
+            me['@{pointer.change}']();
+        }
+    },
+    '@{pointer.update}': function (e) {
+        var node = $('#' + PointerId);
+        if (!node.length) {
+            node = $('<div class="_zs_gallery_mx-dragsort_index_-pointer" id="' + PointerId + '"/>');
+            node.appendTo('body');
+        }
+        var x = Math.max(0, Math.min(e.pageX + 10, Doc.width() - node.width()));
+        var y = Math.max(0, Math.min(e.pageY + 18, Doc.height() - node.height()));
+        node.css({
+            left: x,
+            top: y,
+            display: 'block'
+        });
+    },
+    '@{pointer.change}': function (state) {
+        var node = $('#' + PointerId);
+        if (state) {
+            node.addClass('_zs_gallery_mx-dragsort_index_-ok');
+        }
+        else {
+            node.removeClass('_zs_gallery_mx-dragsort_index_-ok');
+        }
+    },
+    '@{pointer.hide}': function () {
+        $('#' + PointerId).hide();
+    }
+};
+module.exports = Magix.View.extend({
+    mixins: [DD],
+    init: function (extra) {
+        var me = this;
+        var oNode = $('#' + me.id);
+        oNode.on('mousedown', extra.selector, function (e) {
+            e.preventDefault();
+            me['@{drag.start}'](e);
+        });
+        me.on('destroy', function () {
+            oNode.off('mousedown');
+        });
+        me['@{owner.node}'] = oNode;
+        var zones = [oNode.get(0)];
+        if (extra.drops) {
+            zones = zones.concat(extra.drops.split(','));
+        }
+        me['@{zone.ids}'] = zones;
+        var hor = (extra.horizonal + '') === 'true';
+        var ver = (extra.vertical + '') === 'true';
+        if (!hor && !ver) {
+            ver = true;
+        }
+        var anchor = 0;
+        if (hor) {
+            anchor |= HORIZONAL;
+        }
+        if (ver) {
+            anchor |= VERTICAL;
+        }
+        me['@{anchor.direction}'] = anchor;
+        var sort = true;
+        if (Magix.has(extra, 'sort')) {
+            sort = (extra.sort + '') === 'true';
+        }
+        me['@{sort.ctrl}'] = sort;
+    },
+    '@{findZone}': function (node) {
+        var me = this;
+        var zones = me['@{zone.ids}'];
+        for (var _i = 0, zones_1 = zones; _i < zones_1.length; _i++) {
+            var zone = zones_1[_i];
+            if (Magix.inside(node, zone)) {
+                return Magix.node(zone);
+            }
+        }
+        return null;
+    },
+    '@{findDirectChild}': function (node, zone) {
+        var me = this, result = null;
+        if (!zone) {
+            zone = me['@{findZone}'](node);
+        }
+        if (!me['@{sort.ctrl}'] && me['@{drag.start.node}']) {
+            return {
+                child: me['@{drag.start.node}'],
+                zone: zone
+            };
+        }
+        while (zone != node) {
+            if (node.parentNode == zone) {
+                result = node;
+                break;
+            }
+            else {
+                node = node.parentNode;
+            }
+        }
+        if (zone && !zone.firstChild && !result) {
+            result = zone;
+        }
+        if (result) {
+            if (result.getAttribute('ds-draggable') === 'false') {
+                result = null;
+            }
+        }
+        return {
+            child: result,
+            zone: zone
+        };
+    },
+    '@{findPosition}': function (nb, evt) {
+        var position = 0, side = 0, toLeft = -1, toTop = -1, toRight = -1, toBottom = -1, hasNearest = false;
+        if (evt.pageX >= nb.x &&
+            evt.pageX <= nb.x + nb.width &&
+            evt.pageY >= nb.y &&
+            evt.pageY <= nb.y + nb.height) {
+            position = position | ((evt.pageX <= nb.x + nb.width / 2) ? LEFT : RIGHT);
+            toLeft = evt.pageX - nb.x;
+            toRight = nb.x + nb.width - evt.pageX;
+            position = position | ((evt.pageY <= nb.y + nb.height / 2) ? TOP : BOTTOM);
+            toTop = evt.pageY - nb.y;
+            toBottom = nb.y + nb.height - evt.pageY;
+            hasNearest = true;
+        }
+        if (hasNearest) {
+            var temp = Math.min(toLeft, toTop, toRight, toBottom);
+            if (temp > -1) {
+                if (temp == toLeft) {
+                    side = LEFT;
+                }
+                else if (temp == toTop) {
+                    side = TOP;
+                }
+                else if (temp == toRight) {
+                    side = RIGHT;
+                }
+                else if (temp == toBottom) {
+                    side = BOTTOM;
+                }
+            }
+        }
+        var me = this;
+        var info = me['@{hover.info}'];
+        if (info) {
+            if (info.zone === info.hover) {
+                position = TOP;
+                side = LEFT;
+            }
+        }
+        return {
+            position: position,
+            atPlace: hasNearest,
+            side: side
+        };
+    },
+    '@{drag.start}': function (e) {
+        if (e.which === 1) {
+            var me_1 = this;
+            var info = me_1['@{findDirectChild}'](e.target);
+            if (info.child) {
+                me_1['@{drag.start.node}'] = info.child;
+                me_1['@{drag.start.zone}'] = info.zone;
+                me_1['@{owner.node}'].trigger({
+                    type: 'dragbegin',
+                    dragNode: info.child,
+                    dragZone: info.zone
+                });
+                UI['@{drag.start}'](info);
+                me_1.dragdrop(info.zone, function (e) {
+                    me_1['@{drag.move}'](e);
+                }, function (e) {
+                    me_1['@{drag.end}'](e);
+                });
+            }
+        }
+    },
+    '@{checkPosition}': function (bound, e, info) {
+        var me = this;
+        var p = me['@{findPosition}'](bound, e);
+        var sideChanage = p.side != me['@{last.side}'], positionChange = p.position != me['@{last.position}'];
+        if (sideChanage || positionChange) {
+            me['@{last.side}'] = p.side;
+            me['@{last.position}'] = p.position;
+            info['@{side.changed}'] = sideChanage;
+            info['@{pos.changed}'] = positionChange;
+            info.side = p.side;
+            info.position = p.position;
+            info.atPlace = p.atPlace;
+            info.anchor = me['@{anchor.direction}'];
+            UI['@{pos.changed}'](info);
+        }
+    },
+    '@{drag.move}': function (e) {
+        var current = DD.fromPoint(e.clientX, e.clientY);
+        var me = this;
+        UI['@{pointer.update}'](e);
+        me['@{move.event}'] = e;
+        me['@{has.moved}'] = true;
+        me['@{start.zone.scroll}']();
+        me['@{start.win.scroll}']();
+        if (me['@{zone.start.scrolling}'] || me['@{win.start.scrolling}'] || !current) {
+            delete me['@{last.hover.node}'];
+            delete me['@{last.side}'];
+            delete me['@{last.position}'];
+            return;
+        }
+        if (me['@{last.hover.node}'] != current) {
+            if (current.id === BarId)
+                return; //
+            me['@{last.hover.node}'] = current;
+            delete me['@{last.side}'];
+            var zone = me['@{findZone}'](current);
+            if (zone) {
+                if (zone != me['@{last.zone}']) {
+                    me['@{last.zone}'] = zone;
+                    me['@{owner.node}'].trigger({
+                        type: 'enterzone',
+                        zone: zone,
+                        changePointer: UI['@{pointer.change}']
+                    });
+                }
+                var info = me['@{findDirectChild}'](current, zone);
+                if (!info.child)
+                    return;
+                var n = $(info.child);
+                var offset = n.offset();
+                var bound = {
+                    x: offset.left,
+                    y: offset.top,
+                    width: n.outerWidth(),
+                    height: n.outerHeight()
+                };
+                n = $(info.zone);
+                offset = n.offset();
+                me['@{last.zone.bound}'] = {
+                    x: offset.left,
+                    y: offset.top,
+                    scrollX: n.prop('scrollLeft'),
+                    scrollY: n.prop('scrollTop'),
+                    maxWidth: n.prop('scrollWidth'),
+                    maxHeight: n.prop('scrollHeight'),
+                    width: n.width(),
+                    height: n.height()
+                };
+                me['@{checkPosition}'](me['@{last.hover.node.bound}'] = bound, e, me['@{hover.info}'] = {
+                    child: me['@{drag.start.node}'],
+                    bound: bound,
+                    zone: info.zone,
+                    hover: info.child
+                });
+            }
+            else if (me['@{last.zone}']) {
+                me['@{owner.node}'].trigger({
+                    type: 'leavezone',
+                    zone: me['@{last.zone}'],
+                    changePointer: UI['@{pointer.change}']
+                });
+                delete me['@{last.zone}'];
+            }
+        }
+        else if (me['@{last.hover.node.bound}'] &&
+            Magix.inside(current, me['@{hover.info}'].zone)) {
+            me['@{checkPosition}'](me['@{last.hover.node.bound}'], e, me['@{hover.info}']);
+        }
+        else {
+            delete me['@{last.side}'];
+            delete me['@{last.position}'];
+            if (me['@{sort.ctrl}']) {
+                UI['@{bar.hide}']();
+                UI['@{pointer.change}']();
+            }
+        }
+    },
+    '@{drag.end}': function () {
+        var me = this;
+        me['@{stop.zone.scroll}']();
+        me['@{stop.win.scroll}']();
+        UI['@{drag.end}']({
+            child: me['@{drag.start.node}']
+        });
+        var position = me['@{last.position}'], side = me['@{last.side}'], move = me['@{has.moved}'], info = me['@{hover.info}'], dragNode = me['@{drag.start.node}'];
+        if (move) {
+            if (position || side) {
+                var zone = info.zone;
+                var a = me['@{anchor.direction}'];
+                var v = a === HANDV ? side : position;
+                if (((a & HORIZONAL) && (LEFT & v)) || ((TOP & v) && (a & VERTICAL))) {
+                    if (info.hover == zone) {
+                        zone.appendChild(dragNode);
+                    }
+                    else {
+                        zone.insertBefore(dragNode, info.hover);
+                    }
+                }
+                else if (((BOTTOM & v) && (a & VERTICAL)) ||
+                    ((RIGHT & v) && (a & HORIZONAL))) {
+                    var next = info.hover.nextSibling;
+                    while (next && next.nodeType != 1) {
+                        next = next.nextSibling;
+                    }
+                    zone.insertBefore(dragNode, next);
+                    if (!next) { //如果是最后一个，则滚动
+                        zone.scrollTop = zone.scrollHeight;
+                    }
+                }
+            }
+        }
+        if (info) {
+            me['@{owner.node}'].trigger({
+                type: 'dragfinish',
+                moved: move,
+                dragNode: dragNode,
+                dragZone: me['@{drag.start.zone}'],
+                dropNode: info.hover,
+                dropZone: info.zone,
+                outZone: !me['@{last.zone}']
+            });
+        }
+        delete me['@{drag.start.node}'];
+        delete me['@{drag.start.zone}'];
+        delete me['@{last.hover.node}'];
+        delete me['@{hover.info}'];
+        delete me['@{last.hover.node.bound}'];
+        delete me['@{last.position}'];
+        delete me['@{last.side}'];
+        delete me['@{move.event}'];
+        delete me['@{win.start.scrolling}'];
+        delete me['@{last.zone}'];
+        delete me['@{last.zone.bound}'];
+        delete me['@{zone.start.scrolling}'];
+        delete me['@{has.moved}'];
+    },
+    '@{start.zone.scroll}': function () {
+        var me = this;
+        if (!me['@{fn.zone.scroll}']) {
+            me['@{fn.zone.scroll}'] = function () {
+                var zoneBound = me['@{last.zone.bound}'];
+                if (zoneBound) {
+                    var zone = me['@{hover.info}'].zone;
+                    var tx = 0, ty = 0, e = me['@{move.event}'];
+                    if (e.pageX > zoneBound.x &&
+                        e.pageY > zoneBound.y &&
+                        e.pageX < zoneBound.x + zoneBound.width &&
+                        e.pageY < zoneBound.y + zoneBound.height) {
+                        if (e.pageX - zoneBound.x < SCROLL_OFFSET && zoneBound.scrollX > 0) {
+                            tx = -Math.min(SCROLL_STEP, zoneBound.scrollX);
+                        }
+                        else if (zoneBound.x + zoneBound.width - e.pageX < SCROLL_OFFSET &&
+                            zoneBound.scrollX + zoneBound.width < zoneBound.maxWidth) {
+                            tx = Math.min(SCROLL_STEP, zoneBound.maxWidth - zoneBound.scrollX - zoneBound.width);
+                        }
+                        if (e.pageY - zoneBound.y < SCROLL_OFFSET && zoneBound.scrollY > 0) {
+                            ty = -Math.min(SCROLL_STEP, zoneBound.scrollY);
+                        }
+                        else if (zoneBound.y + zoneBound.height - e.pageY < SCROLL_OFFSET &&
+                            zoneBound.scrollY + zoneBound.height < zoneBound.maxHeight) {
+                            ty = Math.min(SCROLL_STEP, zoneBound.maxHeight - zoneBound.scrollY - zoneBound.height);
+                        }
+                        if (tx || ty) {
+                            me['@{zone.start.scrolling}'] = true;
+                            me['@{prevent.win.scroll}'] = true;
+                            zone.scrollTop += ty;
+                            zone.scrollLeft += tx;
+                            zoneBound.scrollX += tx;
+                            zoneBound.scrollY += ty;
+                            delete me['@{has.moved}'];
+                            UI['@{bar.hide}']();
+                            UI['@{pointer.change}']();
+                        }
+                        else {
+                            delete me['@{zone.start.scrolling}'];
+                            delete me['@{prevent.win.scroll}'];
+                        }
+                    }
+                    else {
+                        delete me['@{zone.start.scrolling}'];
+                        delete me['@{prevent.win.scroll}'];
+                    }
+                }
+            };
+            Runner['@{task.add}'](SCROLL_INTERVAL, me['@{fn.zone.scroll}']);
+        }
+    },
+    '@{start.win.scroll}': function () {
+        var me = this;
+        if (!me['@{fn.win.scroll}']) {
+            me['@{fn.win.scroll}'] = function () {
+                if (me['@{prevent.win.scroll}'])
+                    return;
+                var tx = 0, ty = 0, e = me['@{move.event}'];
+                var scrollTop = Win.scrollTop();
+                var winHeight = Win.height();
+                var maxHeight = Doc.height();
+                var maxWidth = Doc.width();
+                var winWidth = Win.width();
+                var scrollLeft = Win.scrollLeft();
+                if (e.pageX - scrollLeft < SCROLL_OFFSET &&
+                    scrollLeft > 0) {
+                    tx = -Math.min(SCROLL_STEP, scrollLeft);
+                }
+                else if (scrollLeft + winWidth - e.pageX < SCROLL_OFFSET &&
+                    scrollLeft + winWidth < maxWidth) {
+                    tx = Math.min(SCROLL_STEP, maxWidth - winWidth - scrollLeft);
+                }
+                if (e.pageY - scrollTop < SCROLL_OFFSET &&
+                    scrollTop > 0) {
+                    ty = -Math.min(SCROLL_STEP, scrollTop);
+                }
+                else if (scrollTop + winHeight - e.pageY < SCROLL_OFFSET &&
+                    scrollTop + winHeight < maxHeight) {
+                    ty = Math.min(SCROLL_STEP, maxHeight - winHeight - scrollTop);
+                }
+                if (tx || ty) {
+                    me['@{win.start.scrolling}'] = true;
+                    e.pageX += tx;
+                    e.pageY += ty;
+                    window.scrollBy(tx, ty);
+                    delete me['@{has.moved}'];
+                    UI['@{bar.hide}']();
+                    UI['@{pointer.update}'](e);
+                    UI['@{pointer.change}']();
+                }
+                else {
+                    delete me['@{win.start.scrolling}'];
+                }
+            };
+            Runner['@{task.add}'](SCROLL_INTERVAL, me['@{fn.win.scroll}']);
+        }
+    },
+    '@{stop.zone.scroll}': function () {
+        var me = this;
+        if (me['@{fn.zone.scroll}']) {
+            Runner['@{task.remove}'](me['@{fn.zone.scroll}']);
+            delete me['@{fn.zone.scroll}'];
+            delete me['@{prevent.win.scroll}'];
+        }
+    },
+    '@{stop.win.scroll}': function () {
+        var me = this;
+        if (me['@{fn.win.scroll}']) {
+            Runner['@{task.remove}'](me['@{fn.win.scroll}']);
+            delete me['@{fn.win.scroll}'];
+        }
+    }
+});
+
+});

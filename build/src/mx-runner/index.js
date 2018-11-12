@@ -1,1 +1,70 @@
-define("mx-runner/index",["magix"],(n,i,e)=>{var t=n("magix"),_=window.requestAnimationFrame||function(n){return setTimeout(n,16)},r=window.cancelAnimationFrame||clearTimeout,c=Date.now||function(){return(new Date).getTime()};e.exports={__cz:[],__bh:function(n,i){this.__cz.push({i:n||15,f:i,n:c()}),this.__cE()},__bj:function(n){for(var i=this.__cz,e=void 0,t=0;t<i.length;t++)if(!(e=i[t]).r&&e.f==n){e.r=1;break}},__cE:function(){var n=this;if(!n.__cK){var i=function(){for(var e=n.__cz,o=0,a=void 0,f=void 0;o<e.length;o++)(a=e[o]).r?e.splice(o--,1):(f=c())-a.n>=a.i&&(a.n=f,t.toTry(a.f));e.length?n.__cK=_(i):(r(n.__cK),delete n.__cK)};n.__cK=_(i)}}}});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-runner/index",["magix"],(require,exports,module)=>{
+/*Magix*/
+
+var Magix = require("magix");
+var setRAF = window.requestAnimationFrame || (function (fn) {
+    return setTimeout(fn, 16);
+});
+var cancelRAF = window.cancelAnimationFrame || clearTimeout;
+var Now = Date.now || (function () {
+    return new Date().getTime();
+});
+module.exports = {
+    '@{task.list}': [],
+    '@{task.add}': function (interval, fn) {
+        var me = this;
+        me['@{task.list}'].push({
+            i: interval || 15,
+            f: fn,
+            n: Now()
+        });
+        me['@{start.work}']();
+    },
+    '@{task.remove}': function (fn) {
+        var me = this;
+        var q = me['@{task.list}'];
+        for (var o = void 0, i = 0; i < q.length; i++) {
+            o = q[i];
+            if (!o.r && o.f == fn) {
+                o.r = 1;
+                break;
+            }
+        }
+    },
+    '@{start.work}': function () {
+        var me = this;
+        if (!me['@{timer.id}']) {
+            var run_1 = function () {
+                var q = me['@{task.list}'];
+                for (var i = 0, o = void 0, now = void 0; i < q.length; i++) {
+                    o = q[i];
+                    if (o.r) {
+                        q.splice(i--, 1);
+                    }
+                    else {
+                        now = Now();
+                        if (now - o.n >= o.i) {
+                            o.n = now;
+                            Magix.toTry(o.f);
+                        }
+                    }
+                }
+                if (!q.length) {
+                    cancelRAF(me['@{timer.id}']);
+                    delete me['@{timer.id}'];
+                }
+                else {
+                    me['@{timer.id}'] = setRAF(run_1);
+                }
+            };
+            me['@{timer.id}'] = setRAF(run_1);
+        }
+    }
+};
+
+});

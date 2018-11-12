@@ -1,1 +1,702 @@
-define("mx-calendar/index",["magix","$","mx-calendar/util","../mx-medusa/util","mx-time/index"],(e,a,l)=>{e("mx-time/index");var r=e("magix"),t=e("$"),_=e("mx-calendar/util"),s=_.padZero,n=_.foreverStr,i=_.dateFormat,g=_.dateParse,o=_.getDefaultDate;r.applyStyle("_zs_galleryn","._zs_gallerybR{border:1px solid #eee}._zs_gallerybR,._zs_galleryaC{box-shadow:0 2px 4px rgba(51,51,51,.08)}._zs_galleryaC{position:relative;z-index:1000;display:inline-block;padding:0;background-color:#fff;border-radius:4px;overflow-y:hidden;color:#333;text-align:center;border:1px solid #eee}._zs_galleryaC ._zs_galleryaD{padding:2px 4px}._zs_galleryaC ._zs_galleryaD ._zs_galleryaE{float:left}._zs_galleryaC ._zs_galleryaD ._zs_galleryaF{float:right;-webkit-transform:scaleX(-1);transform:scaleX(-1)}._zs_galleryaC ._zs_galleryaD ._zs_galleryaE,._zs_galleryaC ._zs_galleryaD ._zs_galleryaF{line-height:28px;font-size:14px;color:#ccc;cursor:pointer}._zs_galleryaC ._zs_galleryaD ._zs_galleryaE:hover,._zs_galleryaC ._zs_galleryaD ._zs_galleryaF:hover{color:#4d7fff}._zs_galleryaC ._zs_galleryaD ._zs_gallerybS{display:inline-block;height:28px;line-height:28px;padding:0 10px;cursor:pointer;border-radius:4px;color:#666}._zs_galleryaC ._zs_galleryaD ._zs_gallerybS:hover{background-color:#eee}._zs_galleryaC ._zs_galleryaG{width:224px}._zs_galleryaC ._zs_galleryaG ._zs_gallerybT{color:#333;background-color:#fafafa;padding:0 10px;color:#666}._zs_galleryaC ._zs_galleryaG ._zs_gallerybU{padding:10px}._zs_galleryaC ._zs_galleryaG ._zs_gallerybV,._zs_galleryaC ._zs_galleryaG ._zs_gallerybW{float:left;height:24px;line-height:24px;border-radius:4px;cursor:pointer;color:#333}._zs_galleryaC ._zs_galleryaG ._zs_gallerybW{width:28px;margin:3px 0}._zs_galleryaC ._zs_galleryaG ._zs_gallerybV{width:24px;margin:3px 2px}._zs_galleryaC ._zs_galleryaG ._zs_gallerybV:hover{background-color:#f0f0f0}._zs_galleryaC ._zs_galleryaG ._zs_gallerybX{color:#999}._zs_galleryaC ._zs_galleryaG ._zs_galleryaH,._zs_galleryaC ._zs_galleryaG ._zs_galleryaH:hover{background-color:#f6f9ff}._zs_galleryaC ._zs_galleryaG ._zs_gallerybY,._zs_galleryaC ._zs_galleryaG ._zs_gallerybY:hover{color:#eee;cursor:not-allowed;background:#fff}._zs_galleryaC ._zs_galleryaG ._zs_galleryaI,._zs_galleryaC ._zs_galleryaG ._zs_galleryaI:hover{color:#fff;background-color:#4d7fff}._zs_galleryaC ._zs_gallerybZ{padding-top:10px;padding-left:10px;border-top:1px solid #e6e6e6}._zs_galleryaC ._zs_galleryc_{margin:10px;padding:10px 0 0;border-top:1px solid #e6e6e6;text-align:left}._zs_galleryca,._zs_gallerycb{padding:1px 0;position:absolute;top:-100%;left:0;right:0;transition:top .15s;background-color:#fff}._zs_gallerycc{top:0}._zs_gallerycd{float:left;width:54px;height:37px;margin:10px;line-height:37px;border-radius:4px;font-size:14px;cursor:pointer}._zs_gallerycd:hover{background-color:#f0f0f0}");var d=e("../mx-medusa/util"),c=["sunday","monday","tuesday","wednesday","thursday","friday","saturday"].map(function(e){return d["calendar."+e]}),y=new Date,p=function(e,a){return 32-new Date(e,a-1,32).getDate()},u=function(e,a,l,r){var t=e.getDay();if(r.indexOf(t)>-1)return!0;var _,s=e.getTime();return a&&(_=s<a.getTime()),_||(_=!!l&&s>l.getTime()),_},m=function(e,a,l,r){var t,_=parseInt(e+s(a),10);return l&&(t=_<(l=parseInt(l.getFullYear()+s(l.getMonth()),10))),!t&&r&&(t=_>(r=parseInt(r.getFullYear()+s(r.getMonth()),10))),t},z=function(e,a,l){var r;return a&&(r=e<a.getFullYear()),!r&&l&&(r=e>l.getFullYear()),r};l.exports=r.View.extend({tmpl:function(e,a,l,r,t,_,s,n){if(l||(l=e),!t){var i={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},g=/[&<>"'`]/g,o=function(e){return"&"+i[e]+";"};t=function(e){return""+(null==e?"":e)},r=function(e){return t(e).replace(g,o)}}if(!_){var d={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},c=function(e){return d[e]},y=/[!')(*]/g;_=function(e){return encodeURIComponent(t(e)).replace(y,c)}}if(!n){var p=/[\\'"]/g;n=function(e){return t(e).replace(p,"\\$&")}}var u="",m=e.types,z=e.id,h=e.year,f=e.month,x=e.weekText,b=e.days,v=e.timeType,k=e.timeValue,w=e.hasBtn,C=e.showMonth,Y=e.months,D=e.showYear,M=e.startYear,G=e.endYear,V=e.years;if(u+='<div mxa="_zs_gallery):_" class="_zs_galleryaC unselectable" mx-contextmenu="'+a+'__H()">',m.day){u+='<div id="days_'+r(z)+'" class="clearfix"><div mxa="_zs_gallery):a" class="_zs_galleryaD"><span mxs="_zs_gallery):_" class="mc-iconfont _zs_galleryaE fl" mx-click="'+a+'__z()">&#xe61e;</span><span class="_zs_gallerybS" mx-click="'+a+"",m.month?u+="__B":u+="__C",u+='()">'+r(h)+"-"+r(("0"+f).slice(-2))+'</span><span mxs="_zs_gallery):a" class="mc-iconfont _zs_galleryaF fr" mx-click="'+a+'__z({next:true})">&#xe61e;</span></div><div mxa="_zs_gallery):b" class="_zs_galleryaG"><div mxa="_zs_gallery):c" class="_zs_gallerybT clearfix">';for(var F=0;F<x.length;F++)u+='<span mxa="_zs_gallery):d" class="_zs_gallerybW">'+r(x[F])+"</span>";u+='</div><div mxa="_zs_gallery):e" class="_zs_gallerybU clearfix">';for(F=0;F<b.length;F++){u+=" ";var T=b[F];u+=" ";for(var S=0;S<T.length;S++)u+='<span class="_zs_gallerybV',T[S].today&&(u+=" _zs_galleryaH"),T[S].otherMonth&&(u+=" _zs_gallerybX"),T[S].disabled&&(u+=" _zs_gallerybY"),T[S].selected&&(u+=" _zs_galleryaI"),u+='" ',T[S].disabled||(u+=' mx-click="'+a+"__F({toMonth:"+r(T[S].month)+",date:'"+r(n(T[S].full))+"'})\" "),u+=' title="'+r(T[S].full)+'">'+r(T[S].day)+"</span>";u+=" "}u+="</div></div>",v&&(u+='<div class="clearfix _zs_gallerybZ" mx-change="'+a+'__G()" mx-view="mx-time/index?time='+_(k)+"&types="+_(v)+'"></div>',w&&(u+='<div mxs="_zs_gallery):b" class="_zs_galleryc_"><button type="button" class="btn btn-small btn-brand" mx-click="'+a+'__m({enter:true})">确定</button><button type="button" class="btn btn-small ml10" mx-click="'+a+'__m()">取消</button></div>'),u+=" "),u+="</div>"}if(u+=" ",m.month){u+='<div class="clearfix',m.day&&(u+=" _zs_galleryca"),C&&(u+=" _zs_gallerycc"),u+='"><div mxa="_zs_gallery):f" class="_zs_galleryaD"><span mxs="_zs_gallery):c" class="mc-iconfont _zs_galleryaE fl" mx-click="'+a+'__A()">&#xe61e;</span><span mxa="_zs_gallery):g" class="_zs_gallerybS" mx-click="'+a+'__C()">'+r(h)+'</span><span mxs="_zs_gallery):d" class="mc-iconfont _zs_galleryaF fr" mx-click="'+a+'__A({next:true})">&#xe61e;</span></div><div mxa="_zs_gallery):h" class="_zs_galleryaG clearfix">';var I;for(F=0;F<Y.length;F++)u+=" ",u+='<span class="_zs_gallerycd',(I=Y[F]).disabled&&(u+=" _zs_gallerybY"),I.selected&&(u+=" _zs_galleryaI"),u+='" ',I.disabled||(u+=' mx-click="'+a+"__E({month:'"+r(n(I.month))+"'})\" "),u+=">"+r(I.month)+"</span>";u+="</div></div>"}if(u+=" ",m.year){u+='<div class="clearfix',(m.day||m.month)&&(u+=" _zs_gallerycb"),D&&(u+=" _zs_gallerycc"),u+='"><div mxa="_zs_gallery):i" class="_zs_galleryaD"><span mxs="_zs_gallery):e" class="mc-iconfont _zs_galleryaE fl" mx-click="'+a+'__A({range:true})">&#xe61e;</span><span mxa="_zs_gallery):j" class="_zs_gallerybS">'+r(M)+"-"+r(G)+'</span><span mxs="_zs_gallery):f" class="mc-iconfont _zs_galleryaF fr" mx-click="'+a+'__A({range:true,next:true})">&#xe61e;</span></div><div mxa="_zs_gallery):k" class="_zs_galleryaG clearfix">';var E;for(F=0;F<V.length;F++)u+=" ",u+='<span class="_zs_gallerycd',(E=V[F]).selected&&(u+=" _zs_galleryaI"),E.disabled&&(u+=" _zs_gallerybY"),u+='" ',E.disabled||(u+=' mx-click="'+a+"__D({year:'"+r(n(E.year))+"'})\" "),u+=">"+r(E.year)+"</span>";u+="</div></div>"}return u+="</div>"},init:function(e){this.__i=t.extend(!0,{},e.configs)},render:function(){var e,a,l=this,r=l.__i,t=(r=r||{}).selected==n;r.max&&(e=new Date(i(r.max,"YYYY-MM-dd")+" 23:59:59")),r.min&&(a=new Date(i(r.min,"YYYY-MM-dd")+" 00:00:00"));new Date;r.selected&&!t||(r.selected=o(r));var _=g(r.selected),s=i(_,"hh:mm:ss"),d=i(_,r.formatter),y=function(e){e||(e="all");var a={year:!0,month:!0,day:!0};if("all"!=e)for(var l in a)-1===e.indexOf(l)&&delete a[l];return a}(r.dateType),p=0|r.weekStart,u=r.timeType,m=(r.disabledWeeks||[]).map(function(e){return+e});l.updater.set({types:y,showYear:0,showMonth:0,timeType:u,timeValue:s,dateValue:d,hasBtn:r.hasBtn,max:e,min:a,id:l.id,weekStart:p,weekText:function(e){for(var a=[],l=0;l<7;l++)a[l]=c[(l+e)%7];return a}(p),disabledWeeks:m}),l.__r(_,t),l.__s(),l.__t(),l.__u(!0)},__x:function(){var e=this,a=e.updater;a.set({showYear:0,showMonth:0}),a.get().timeType&&(e.__v&&(e.__r(e.__v),e.__s(),e.__t(),e.__u(),delete e.__v),e.__w&&(a.set({timeValue:e.__w}),delete e.__w)),a.digest()},__r:function(e,a){var l=this.updater;(e=g(e))&&l.set({year:e.getFullYear(),month:e.getMonth()+1,selectedYear:e.getFullYear(),selectedMonth:e.getMonth()+1,selected:a?"":i(e)})},__s:function(e){for(var a=this.updater,l=a.get(),r=l.year,t=l.min,_=l.max,s=r-r%10-1,n=s+11,i=[],g=s;g<=n;g++)i.push({year:g,selected:g==l.selectedYear,disabled:z(g,t,_)});a.set({startYear:s,endYear:n,years:i}),e&&a.digest()},__t:function(e){for(var a=[],l=this.updater,r=l.get(),t=r.year,_=r.min,s=r.max,n=1;n<=12;n++)a.push({month:n,selected:t==r.selectedYear&&n==r.selectedMonth,disabled:m(t,n-1,_,s)});l.set({months:a}),e&&l.digest()},__u:function(e){var a,l,r,t,_=[],s=this.updater,n=s.get("weekStart"),g=s.get("disabledWeeks"),o=s.get("year"),d=s.get("month"),c=(7-n+new Date(o,d-1,1).getDay())%7,m=[],z=p(o,d),h=p(o,d-1),f=s.get("max"),x=s.get("min"),b=s.get("selected"),v=i(y);for(a=1;a<=c;a++)l=h-(c-a),r=new Date(o,d-2,l),m.push({month:d-1,full:i(r),day:l,otherMonth:!0,disabled:u(r,x,f,g)});for(a=1;a<=z;a++)r=new Date(o,d-1,a),t=i(r),m.push({today:t==v,selected:t==b,day:a,month:d,full:t,disabled:u(r,x,f,g)}),(a+c)%7==0&&(_.push(m),m=[]);var k=m.length;for(a=k;a<14&&(l=a-k+1,r=new Date(o,d,l),m.push({month:d+1,day:l,otherMonth:!0,full:i(r),disabled:u(r,x,f,g)}),(a+1)%7!=0||(_.push(m),m=[],6!=_.length));a++);s.set({days:_}),e&&s.digest()},__y:function(e){var a=this.updater.get();a.types.day?a.timeType&&a.hasBtn?e&&t("#"+this.id).trigger({type:"change",date:a.dateValue,time:a.timeType?a.timeValue:null}):t("#"+this.id).trigger({type:"change",date:a.dateValue,time:a.timeType?a.timeValue:null}):t("#"+this.id).trigger({type:"change",date:a.selectedYear+(a.types.month?"-"+("0"+a.selectedMonth).slice(-2):"")})},"__z<click>":function(e){var a=this.updater,l=a.get("month"),r=a.get("year");e.params.next?(l+=1)>12&&(l=1,r++):(l-=1)<1&&(l=12,r--),a.set({year:r,month:l}),this.__u(!0)},"__A<click>":function(e){var a=e.params,l=this.updater,r=l.get("year");a.range?r+=a.next?10:-10:r+=a.next?1:-1,l.set({year:r}),a.range?this.__s(!0):this.__t(!0)},"__B<click>":function(){this.updater.set({showMonth:1}),this.__t(!0)},"__C<click>":function(){this.updater.set({showYear:1}),this.__s(!0)},"__D<click>":function(e){var a=e.params.year,l=this,r=l.updater.get().types;r.day||r.month?(l.updater.set({showYear:0,year:+a}),r.month?l.__t(!0):l.__u(!0)):(l.__r(a+"-01-01"),l.__s(!0),l.__y())},"__E<click>":function(e){var a=e.params.month,l=this,r=l.updater,t=r.get();t.types.day?(r.set({showMonth:0,month:+a}),l.__u(!0)):(l.__r(t.year+"-"+a+"-01"),l.__t(!0),l.__y())},"__F<click>":function(e){var a=this,l=a.updater,r=l.get("month"),t=e.params.toMonth!=r;a.__r(e.params.date),a.__v||(a.__v=l.get("dateValue")),t&&(a.__s(),a.__t()),l.set({dateValue:e.params.date}),a.__u(!0),a.__y()},"__G<change>":function(e){e.stopPropagation();var a=this;a.__w||(a.__w=a.updater.get("timeValue")),a.updater.set({timeValue:e.time}),a.__u(!0),a.__y()},"__m<click>":function(e){if(e.params.enter)return delete this.__v,delete this.__w,void this.__y(!0);t("#"+this.id).trigger("cancel")},"__H<contextmenu>":function(e){e.preventDefault()}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-calendar/index",["magix","$","mx-calendar/util","../mx-medusa/util","mx-time/index"],(require,exports,module)=>{
+/*Magix,$,Util,I18n*/
+require("mx-time/index");
+var Magix = require("magix");
+var $ = require("$");
+var Util = require("mx-calendar/util");
+var PadZero = Util.padZero;
+var ForeverStr = Util.foreverStr;
+var DateFormat = Util.dateFormat;
+var DateParse = Util.dateParse;
+var GetDefaultDate = Util.getDefaultDate;
+Magix.applyStyle("_zs_gallery_mx-calendar_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-calendar_index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-calendar_index_-wrapper {\n  position: relative;\n  z-index: 1000;\n  display: inline-block;\n  padding: 0;\n  background-color: #fff;\n  border-radius: 4px;\n  overflow-y: hidden;\n  color: #333;\n  text-align: center;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header {\n  padding: 2px 4px;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-minus {\n  float: left;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-plus {\n  float: right;\n  -webkit-transform: scaleX(-1);\n          transform: scaleX(-1);\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-minus,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-plus {\n  line-height: 28px;\n  font-size: 14px;\n  color: #ccc;\n  cursor: pointer;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-minus:hover,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-plus:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-title {\n  display: inline-block;\n  height: 28px;\n  line-height: 28px;\n  padding: 0 10px;\n  cursor: pointer;\n  border-radius: 4px;\n  color: #666;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-title:hover {\n  background-color: #eee;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body {\n  width: 224px;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-weeks {\n  color: #333;\n  background-color: #fafafa;\n  padding: 0 10px;\n  color: #666;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-days {\n  padding: 10px;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-week,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-day {\n  float: left;\n  height: 24px;\n  line-height: 24px;\n  border-radius: 4px;\n  cursor: pointer;\n  color: #333;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-week {\n  width: 28px;\n  margin: 3px 0;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-day {\n  width: 24px;\n  margin: 3px 2px;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-day:hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-gray {\n  color: #999;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-today,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-today:hover {\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-notallowed,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-notallowed:hover {\n  color: #eee;\n  cursor: not-allowed;\n  background: #fff;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-selected,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-selected:hover {\n  color: #fff;\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-time {\n  padding-top: 10px;\n  padding-left: 10px;\n  border-top: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-footer {\n  margin: 10px;\n  padding: 10px 0 0 0;\n  border-top: 1px solid #e6e6e6;\n  text-align: left;\n}\n._zs_gallery_mx-calendar_index_-y-panel,\n._zs_gallery_mx-calendar_index_-m-panel {\n  padding: 1px 0;\n  position: absolute;\n  top: -100%;\n  left: 0;\n  right: 0;\n  transition: top 0.15s;\n  background-color: #fff;\n}\n._zs_gallery_mx-calendar_index_-ym-show {\n  top: 0;\n}\n._zs_gallery_mx-calendar_index_-ym {\n  float: left;\n  width: 54px;\n  height: 37px;\n  margin: 10px;\n  line-height: 37px;\n  border-radius: 4px;\n  font-size: 14px;\n  cursor: pointer;\n}\n._zs_gallery_mx-calendar_index_-ym:hover {\n  background-color: #f0f0f0;\n}\n");
+var I18n = require("../mx-medusa/util");
+var Days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'].map(function (key) {
+    return I18n['calendar.' + key];
+});
+var Today = new Date();
+var GetNumOfDays = function (year, month) {
+    return 32 - new Date(year, month - 1, 32).getDate();
+};
+var ParseEnablePanels = function (type) {
+    if (!type) {
+        type = 'all';
+    }
+    var enables = {
+        year: true,
+        month: true,
+        day: true
+    };
+    if (type != 'all') {
+        for (var p in enables) {
+            if (type.indexOf(p) === -1) {
+                delete enables[p];
+            }
+        }
+    }
+    return enables;
+};
+var GetWeekText = function (weekStart) {
+    var a = [];
+    for (var i = 0; i < 7; i++) {
+        a[i] = Days[(i + weekStart) % 7];
+    }
+    return a;
+};
+var DateDisabled = function (current, start, end, disabledWeeks) {
+    // disabledWeeks 不可选择周几
+    var day = current.getDay();
+    if (disabledWeeks.indexOf(day) > -1) {
+        return true;
+    }
+    var ts = current.getTime(), flag;
+    if (start) {
+        flag = ts < start.getTime();
+    }
+    if (!flag) {
+        if (end) {
+            flag = ts > end.getTime();
+        }
+        else {
+            flag = false;
+        }
+    }
+    return flag;
+};
+var MonthDisabled = function (year, month, start, end) {
+    var flag, current = parseInt(year + PadZero(month), 10);
+    if (start) {
+        start = parseInt(start.getFullYear() + PadZero(start.getMonth()), 10);
+        flag = current < start;
+    }
+    if (!flag && end) {
+        end = parseInt(end.getFullYear() + PadZero(end.getMonth()), 10);
+        flag = current > end;
+    }
+    return flag;
+};
+var YearDisabled = function (year, start, end) {
+    var flag;
+    if (start) {
+        flag = year < start.getFullYear();
+    }
+    if (!flag && end) {
+        flag = year > end.getFullYear();
+    }
+    return flag;
+};
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', types = $$.types, id = $$.id, year = $$.year, month = $$.month, weekText = $$.weekText, days = $$.days, timeType = $$.timeType, timeValue = $$.timeValue, hasBtn = $$.hasBtn, showMonth = $$.showMonth, months = $$.months, showYear = $$.showYear, startYear = $$.startYear, endYear = $$.endYear, years = $$.years; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallery):_" class="_zs_gallery_mx-calendar_index_-wrapper unselectable" mx-contextmenu="' + $viewId + '@{prevent}()">';
+    $expr = '<%if (types.day) {%>';
+    if (types.day) {
+        ;
+        $p += '<div id="days_' + ($expr = '<%=id%>', $e(id)) + '" class="clearfix"><div mxa="_zs_gallery):a" class="_zs_gallery_mx-calendar_index_-header"><span mxs="_zs_gallery):_" class="mc-iconfont _zs_gallery_mx-calendar_index_-minus fl" mx-click="' + $viewId + '@{changeMonth}()">&#xe61e;</span><span class="_zs_gallery_mx-calendar_index_-title" mx-click="' + $viewId + '';
+        $expr = '<%if (types.month) {%>';
+        if (types.month) {
+            ;
+            $p += '@{showMonths}';
+            $expr = '<%}    else {%>';
+        }
+        else {
+            ;
+            $p += '@{showYears}';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '()">' + ($expr = '<%=year%>', $e(year)) + '-' + ($expr = '<%=(\'0\' + month).slice(-2)%>', $e(('0' + month).slice(-2))) + '</span><span mxs="_zs_gallery):a" class="mc-iconfont _zs_gallery_mx-calendar_index_-plus fr" mx-click="' + $viewId + '@{changeMonth}({next:true})">&#xe61e;</span></div><div mxa="_zs_gallery):b" class="_zs_gallery_mx-calendar_index_-body"><div mxa="_zs_gallery):c" class="_zs_gallery_mx-calendar_index_-weeks clearfix">';
+        $expr = '<%for (var i = 0; i < weekText.length; i++) {%>';
+        for (var i = 0; i < weekText.length; i++) {
+            ;
+            $p += '<span mxa="_zs_gallery):d" class="_zs_gallery_mx-calendar_index_-week">' + ($expr = '<%=weekText[i]%>', $e(weekText[i])) + '</span>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div><div mxa="_zs_gallery):e" class="_zs_gallery_mx-calendar_index_-days clearfix">';
+        $expr = '<%for (var i = 0; i < days.length; i++) {%>';
+        for (var i = 0; i < days.length; i++) {
+            ;
+            $p += ' ';
+            $expr = '<%var tds = days[i]%>';
+            var tds = days[i];
+            $p += ' ';
+            $expr = '<%for (var j = 0; j < tds.length; j++) {%>';
+            for (var j = 0; j < tds.length; j++) {
+                ;
+                $p += '<span class="_zs_gallery_mx-calendar_index_-day';
+                $expr = '<%if (tds[j].today) {%>';
+                if (tds[j].today) {
+                    ;
+                    $p += ' _zs_gallery_mx-calendar_index_-today';
+                    $expr = '<%}%>';
+                }
+                ;
+                $expr = '<%if (tds[j].otherMonth) {%>';
+                if (tds[j].otherMonth) {
+                    ;
+                    $p += ' _zs_gallery_mx-calendar_index_-gray';
+                    $expr = '<%}%>';
+                }
+                ;
+                $expr = '<%if (tds[j].disabled) {%>';
+                if (tds[j].disabled) {
+                    ;
+                    $p += ' _zs_gallery_mx-calendar_index_-notallowed';
+                    $expr = '<%}%>';
+                }
+                ;
+                $expr = '<%if (tds[j].selected) {%>';
+                if (tds[j].selected) {
+                    ;
+                    $p += ' _zs_gallery_mx-calendar_index_-selected';
+                    $expr = '<%}%>';
+                }
+                ;
+                $p += '" ';
+                $expr = '<%if (!tds[j].disabled) {%>';
+                if (!tds[j].disabled) {
+                    ;
+                    $p += ' mx-click="' + $viewId + '@{choose}({toMonth:' + ($expr = '<%=tds[j].month%>', $e(tds[j].month)) + ',date:\'' + ($expr = '<%=$eq(tds[j].full)%>', $e($eq(tds[j].full))) + '\'})" ';
+                    $expr = '<%}%>';
+                }
+                ;
+                $p += ' title="' + ($expr = '<%=tds[j].full%>', $e(tds[j].full)) + '">' + ($expr = '<%=tds[j].day%>', $e(tds[j].day)) + '</span>';
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div></div>';
+        $expr = '<%if (timeType) {%>';
+        if (timeType) {
+            ;
+            $p += '<div class="clearfix _zs_gallery_mx-calendar_index_-time" mx-change="' + $viewId + '@{setTime}()" mx-view="mx-time/index?time=' + ($expr = '<%!$eu(timeValue)%>', $eu(timeValue)) + '&types=' + ($expr = '<%!$eu(timeType)%>', $eu(timeType)) + '"></div>';
+            $expr = '<%if (hasBtn) {%>';
+            if (hasBtn) {
+                ;
+                $p += '<div mxs="_zs_gallery):b" class="_zs_gallery_mx-calendar_index_-footer"><button type="button" class="btn btn-small btn-brand" mx-click="' + $viewId + '@{hide}({enter:true})">确定</button><button type="button" class="btn btn-small ml10" mx-click="' + $viewId + '@{hide}()">取消</button></div>';
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $expr = '<%if (types.month) {%>';
+    if (types.month) {
+        ;
+        $p += '<div class="clearfix';
+        $expr = '<%if (types.day) {%>';
+        if (types.day) {
+            ;
+            $p += ' _zs_gallery_mx-calendar_index_-m-panel';
+            $expr = '<%}%>';
+        }
+        ;
+        $expr = '<%if (showMonth) {%>';
+        if (showMonth) {
+            ;
+            $p += ' _zs_gallery_mx-calendar_index_-ym-show';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '"><div mxa="_zs_gallery):f" class="_zs_gallery_mx-calendar_index_-header"><span mxs="_zs_gallery):c" class="mc-iconfont _zs_gallery_mx-calendar_index_-minus fl" mx-click="' + $viewId + '@{changeYear}()">&#xe61e;</span><span mxa="_zs_gallery):g" class="_zs_gallery_mx-calendar_index_-title" mx-click="' + $viewId + '@{showYears}()">' + ($expr = '<%=year%>', $e(year)) + '</span><span mxs="_zs_gallery):d" class="mc-iconfont _zs_gallery_mx-calendar_index_-plus fr" mx-click="' + $viewId + '@{changeYear}({next:true})">&#xe61e;</span></div><div mxa="_zs_gallery):h" class="_zs_gallery_mx-calendar_index_-body clearfix">';
+        $expr = '<%for (var i = 0, m; i < months.length; i++) {%>';
+        for (var i = 0, m; i < months.length; i++) {
+            ;
+            $p += ' ';
+            $expr = '<%m = months[i]%>';
+            m = months[i];
+            $p += '<span class="_zs_gallery_mx-calendar_index_-ym';
+            $expr = '<%if (m.disabled) {%>';
+            if (m.disabled) {
+                ;
+                $p += ' _zs_gallery_mx-calendar_index_-notallowed';
+                $expr = '<%}%>';
+            }
+            ;
+            $expr = '<%if (m.selected) {%>';
+            if (m.selected) {
+                ;
+                $p += ' _zs_gallery_mx-calendar_index_-selected';
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '" ';
+            $expr = '<%if (!m.disabled) {%>';
+            if (!m.disabled) {
+                ;
+                $p += ' mx-click="' + $viewId + '@{pickMonth}({month:\'' + ($expr = '<%=$eq(m.month)%>', $e($eq(m.month))) + '\'})" ';
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '>' + ($expr = '<%=m.month%>', $e(m.month)) + '</span>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div></div>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $expr = '<%if (types.year) {%>';
+    if (types.year) {
+        ;
+        $p += '<div class="clearfix';
+        $expr = '<%if (types.day || types.month) {%>';
+        if (types.day || types.month) {
+            ;
+            $p += ' _zs_gallery_mx-calendar_index_-y-panel';
+            $expr = '<%}%>';
+        }
+        ;
+        $expr = '<%if (showYear) {%>';
+        if (showYear) {
+            ;
+            $p += ' _zs_gallery_mx-calendar_index_-ym-show';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '"><div mxa="_zs_gallery):i" class="_zs_gallery_mx-calendar_index_-header"><span mxs="_zs_gallery):e" class="mc-iconfont _zs_gallery_mx-calendar_index_-minus fl" mx-click="' + $viewId + '@{changeYear}({range:true})">&#xe61e;</span><span mxa="_zs_gallery):j" class="_zs_gallery_mx-calendar_index_-title">' + ($expr = '<%=startYear%>', $e(startYear)) + '-' + ($expr = '<%=endYear%>', $e(endYear)) + '</span><span mxs="_zs_gallery):f" class="mc-iconfont _zs_gallery_mx-calendar_index_-plus fr" mx-click="' + $viewId + '@{changeYear}({range:true,next:true})">&#xe61e;</span></div><div mxa="_zs_gallery):k" class="_zs_gallery_mx-calendar_index_-body clearfix">';
+        $expr = '<%for (var i = 0, y; i < years.length; i++) {%>';
+        for (var i = 0, y; i < years.length; i++) {
+            ;
+            $p += ' ';
+            $expr = '<%y = years[i]%>';
+            y = years[i];
+            $p += '<span class="_zs_gallery_mx-calendar_index_-ym';
+            $expr = '<%if (y.selected) {%>';
+            if (y.selected) {
+                ;
+                $p += ' _zs_gallery_mx-calendar_index_-selected';
+                $expr = '<%}%>';
+            }
+            ;
+            $expr = '<%if (y.disabled) {%>';
+            if (y.disabled) {
+                ;
+                $p += ' _zs_gallery_mx-calendar_index_-notallowed';
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '" ';
+            $expr = '<%if (!y.disabled) {%>';
+            if (!y.disabled) {
+                ;
+                $p += ' mx-click="' + $viewId + '@{pickYear}({year:\'' + ($expr = '<%=$eq(y.year)%>', $e($eq(y.year))) + '\'})" ';
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '>' + ($expr = '<%=y.year%>', $e(y.year)) + '</span>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div></div>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-calendar/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        this['@{extra}'] = $.extend(true, {}, extra.configs);
+    },
+    render: function () {
+        var me = this;
+        var ops = me['@{extra}'];
+        ops = ops || {};
+        var forever = (ops.selected == ForeverStr);
+        // 最大最小不关心时分秒，时分秒的大小不限制
+        var max, min;
+        if (ops.max) {
+            max = new Date(DateFormat(ops.max, 'YYYY-MM-dd') + ' 23:59:59');
+        }
+        if (ops.min) {
+            min = new Date(DateFormat(ops.min, 'YYYY-MM-dd') + ' 00:00:00');
+        }
+        var today = new Date();
+        if (!ops.selected || forever) {
+            ops.selected = GetDefaultDate(ops);
+        }
+        var selected = DateParse(ops.selected);
+        var timeValue = DateFormat(selected, 'hh:mm:ss'), dateValue = DateFormat(selected, ops.formatter);
+        var types = ParseEnablePanels(ops.dateType);
+        var weekStart = ops.weekStart | 0;
+        var timeType = ops.timeType;
+        var disabledWeeks = (ops.disabledWeeks || []).map(function (w) {
+            return +w;
+        });
+        me.updater.set({
+            types: types,
+            showYear: 0,
+            showMonth: 0,
+            timeType: timeType,
+            timeValue: timeValue,
+            dateValue: dateValue,
+            hasBtn: ops.hasBtn,
+            max: max,
+            min: min,
+            id: me.id,
+            weekStart: weekStart,
+            weekText: GetWeekText(weekStart),
+            disabledWeeks: disabledWeeks
+        });
+        // 不限的情况特殊处理，不设置选中值
+        me['@{update.selected}'](selected, forever);
+        me['@{update.years}']();
+        me['@{update.months}']();
+        me['@{update.days}'](true);
+    },
+    '@{toDefaultPanel}': function () {
+        var me = this;
+        var updater = me.updater;
+        updater.set({
+            showYear: 0,
+            showMonth: 0
+        });
+        var data = updater.get();
+        if (data.timeType) {
+            if (me['@{date.value.bak}']) {
+                me['@{update.selected}'](me['@{date.value.bak}']);
+                me['@{update.years}']();
+                me['@{update.months}']();
+                me['@{update.days}']();
+                delete me['@{date.value.bak}'];
+            }
+            if (me['@{time.value.bak}']) {
+                updater.set({
+                    timeValue: me['@{time.value.bak}']
+                });
+                delete me['@{time.value.bak}'];
+            }
+        }
+        updater.digest();
+    },
+    '@{update.selected}': function (selected, forever) {
+        var me = this, data = me.updater;
+        selected = DateParse(selected);
+        if (selected) {
+            data.set({
+                year: selected.getFullYear(),
+                month: selected.getMonth() + 1,
+                selectedYear: selected.getFullYear(),
+                selectedMonth: selected.getMonth() + 1,
+                selected: forever ? '' : DateFormat(selected)
+            });
+        }
+    },
+    '@{update.years}': function (render) {
+        var me = this;
+        var data = me.updater;
+        var json = data.get();
+        var year = json.year;
+        var min = json.min;
+        var max = json.max;
+        var startYear = year - year % 10 - 1;
+        var endYear = startYear + 11;
+        var rows = [];
+        for (var i = startYear; i <= endYear; i++) {
+            rows.push({
+                year: i,
+                selected: i == json.selectedYear,
+                disabled: YearDisabled(i, min, max)
+            });
+        }
+        data.set({
+            startYear: startYear,
+            endYear: endYear,
+            years: rows
+        });
+        if (render) {
+            data.digest();
+        }
+    },
+    '@{update.months}': function (render) {
+        var rows = [], data = this.updater, json = data.get(), year = json.year, min = json.min, max = json.max;
+        for (var i = 1; i <= 12; i++) {
+            rows.push({
+                month: i,
+                selected: year == json.selectedYear && i == json.selectedMonth,
+                disabled: MonthDisabled(year, i - 1, min, max)
+            });
+        }
+        data.set({
+            months: rows
+        });
+        if (render) {
+            data.digest();
+        }
+    },
+    '@{update.days}': function (render) {
+        var me = this;
+        var trs = [];
+        var data = me.updater;
+        var weekStart = data.get('weekStart');
+        var disabledWeeks = data.get('disabledWeeks');
+        var year = data.get('year');
+        var month = data.get('month');
+        var startOffset = (7 - weekStart + new Date(year, month - 1, 1).getDay()) % 7;
+        var tds = [];
+        var days = GetNumOfDays(year, month), i;
+        var preDays = GetNumOfDays(year, month - 1);
+        var max = data.get('max');
+        var min = data.get('min');
+        var selected = data.get('selected');
+        var day, date, formatDay;
+        var today = DateFormat(Today);
+        for (i = 1; i <= startOffset; i++) {
+            day = preDays - (startOffset - i);
+            date = new Date(year, month - 2, day);
+            tds.push({
+                month: month - 1,
+                full: DateFormat(date),
+                day: day,
+                otherMonth: true,
+                disabled: DateDisabled(date, min, max, disabledWeeks)
+            });
+        }
+        for (i = 1; i <= days; i++) {
+            date = new Date(year, month - 1, i);
+            formatDay = DateFormat(date);
+            tds.push({
+                today: formatDay == today,
+                selected: formatDay == selected,
+                day: i,
+                month: month,
+                full: formatDay,
+                disabled: DateDisabled(date, min, max, disabledWeeks)
+            });
+            if (((i + startOffset) % 7) === 0) {
+                trs.push(tds);
+                tds = [];
+            }
+        }
+        var fillStart = tds.length; //补充
+        var fillEnd = 14; //2周
+        for (i = fillStart; i < fillEnd; i++) {
+            day = i - fillStart + 1;
+            date = new Date(year, month, day);
+            tds.push({
+                month: month + 1,
+                day: day,
+                otherMonth: true,
+                full: DateFormat(date),
+                disabled: DateDisabled(date, min, max, disabledWeeks)
+            });
+            if ((i + 1) % 7 === 0) {
+                trs.push(tds);
+                tds = [];
+                if (trs.length == 6)
+                    break;
+            }
+        }
+        data.set({
+            days: trs
+        });
+        if (render) {
+            data.digest();
+        }
+    },
+    '@{fire.event}': function (fromBtn) {
+        var me = this;
+        var data = me.updater.get();
+        if (data.types.day) {
+            if (data.timeType && data.hasBtn) {
+                if (fromBtn) {
+                    $('#' + me.id).trigger({
+                        type: 'change',
+                        date: data.dateValue,
+                        time: data.timeType ? data.timeValue : null
+                    });
+                }
+            }
+            else {
+                $('#' + me.id).trigger({
+                    type: 'change',
+                    date: data.dateValue,
+                    time: data.timeType ? data.timeValue : null
+                });
+            }
+        }
+        else {
+            $('#' + me.id).trigger({
+                type: 'change',
+                date: data.selectedYear + (data.types.month ? '-' + ('0' + data.selectedMonth).slice(-2) : '')
+            });
+        }
+    },
+    '@{changeMonth}<click>': function (e) {
+        var me = this, data = me.updater, month = data.get('month'), year = data.get('year');
+        if (e.params.next) {
+            month += 1;
+            if (month > 12) {
+                month = 1;
+                year++;
+            }
+        }
+        else {
+            month -= 1;
+            if (month < 1) {
+                month = 12;
+                year--;
+            }
+        }
+        data.set({
+            year: year,
+            month: month
+        });
+        me['@{update.days}'](true);
+    },
+    '@{changeYear}<click>': function (e) {
+        var me = this;
+        var params = e.params;
+        var data = me.updater, year = data.get('year');
+        if (params.range) {
+            year = year + (params.next ? 10 : -10);
+        }
+        else {
+            year = year + (params.next ? 1 : -1);
+        }
+        data.set({
+            year: year
+        });
+        if (params.range) {
+            me['@{update.years}'](true);
+        }
+        else {
+            me['@{update.months}'](true);
+        }
+    },
+    '@{showMonths}<click>': function () {
+        var me = this;
+        me.updater.set({
+            showMonth: 1
+        });
+        me['@{update.months}'](true);
+    },
+    '@{showYears}<click>': function () {
+        var me = this;
+        me.updater.set({
+            showYear: 1
+        });
+        me['@{update.years}'](true);
+    },
+    '@{pickYear}<click>': function (e) {
+        var year = e.params.year;
+        var me = this;
+        var updater = me.updater;
+        var data = updater.get();
+        var types = data.types;
+        if (types.day || types.month) {
+            me.updater.set({
+                showYear: 0,
+                year: +year
+            });
+            if (types.month) {
+                me['@{update.months}'](true);
+            }
+            else {
+                me['@{update.days}'](true);
+            }
+        }
+        else {
+            me['@{update.selected}'](year + '-01-01');
+            me['@{update.years}'](true);
+            me['@{fire.event}']();
+        }
+    },
+    '@{pickMonth}<click>': function (e) {
+        var month = e.params.month;
+        var me = this;
+        var updater = me.updater;
+        var data = updater.get();
+        if (data.types.day) {
+            updater.set({
+                showMonth: 0,
+                month: +month
+            });
+            me['@{update.days}'](true);
+        }
+        else {
+            me['@{update.selected}'](data.year + '-' + month + '-01');
+            me['@{update.months}'](true);
+            me['@{fire.event}']();
+        }
+    },
+    '@{choose}<click>': function (e) {
+        var me = this;
+        var data = me.updater;
+        var month = data.get('month');
+        var turnMonth = e.params.toMonth != month;
+        me['@{update.selected}'](e.params.date);
+        if (!me['@{date.value.bak}']) {
+            me['@{date.value.bak}'] = data.get('dateValue');
+        }
+        if (turnMonth) {
+            me['@{update.years}']();
+            me['@{update.months}']();
+        }
+        data.set({
+            dateValue: e.params.date
+        });
+        me['@{update.days}'](true);
+        me['@{fire.event}']();
+    },
+    '@{setTime}<change>': function (e) {
+        e.stopPropagation();
+        var me = this;
+        if (!me['@{time.value.bak}']) {
+            me['@{time.value.bak}'] = me.updater.get('timeValue');
+        }
+        me.updater.set({
+            timeValue: e.time
+        });
+        me['@{update.days}'](true);
+        me['@{fire.event}']();
+    },
+    '@{hide}<click>': function (e) {
+        var me = this;
+        if (e.params.enter) {
+            delete me['@{date.value.bak}'];
+            delete me['@{time.value.bak}'];
+            me['@{fire.event}'](true);
+            return;
+        }
+        $('#' + me.id).trigger('cancel');
+    },
+    '@{prevent}<contextmenu>': function (e) {
+        e.preventDefault();
+    }
+});
+
+});

@@ -1,1 +1,63 @@
-define("mx-monitor/index",["$"],(e,_,n)=>{var o=e("$"),i=0,f=[],r=o(document),t=o(window),u=function(e){for(var _=f.length;_--;){var n=f[_];if(n.__bZ)f.splice(_,1);else{var o=n.__c_;"resize"!=e.type&&o.__k(e.target)||o.__m()}}},d=function(e){var _=f[e.id];_&&(_.__bZ=!0),delete f[e.id]};n.exports={__p:function(e){d(e);var _={__c_:e};f.push(_),f[e.id]=_},__g:d,__f:function(){i||(r.on("mousedown keyup",u),t.on("resize",u)),i++},__h:function(){i>0&&(--i||(r.off("mousedown keyup",u),t.off("resize",u)))}}});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-monitor/index",["$"],(require,exports,module)=>{
+/*$*/
+
+var $ = require("$");
+var ICounter = 0;
+var Instances = [];
+var Doc = $(document);
+var Win = $(window);
+var Watcher = function (e) {
+    for (var i = Instances.length; i--;) {
+        var info = Instances[i];
+        if (info['@{destroyed}']) {
+            Instances.splice(i, 1);
+        }
+        else {
+            var view = info['@{view}'];
+            if (e.type == 'resize' || !view['@{inside}'](e.target)) {
+                view['@{hide}']();
+            }
+        }
+    }
+};
+var Remove = function (view) {
+    var info = Instances[view.id];
+    if (info) {
+        info['@{destroyed}'] = true;
+    }
+    delete Instances[view.id];
+};
+module.exports = {
+    '@{add}': function (view) {
+        Remove(view);
+        var info = {
+            '@{view}': view
+        };
+        Instances.push(info);
+        Instances[view.id] = info;
+    },
+    '@{remove}': Remove,
+    '@{setup}': function () {
+        if (!ICounter) {
+            Doc.on('mousedown keyup', Watcher);
+            Win.on('resize', Watcher);
+        }
+        ICounter++;
+    },
+    '@{teardown}': function () {
+        if (ICounter > 0) {
+            ICounter--;
+            if (!ICounter) {
+                Doc.off('mousedown keyup', Watcher);
+                Win.off('resize', Watcher);
+            }
+        }
+    }
+};
+
+});

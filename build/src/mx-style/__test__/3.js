@@ -1,1 +1,53 @@
-define("mx-style/__test__/3",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(e,l,a)=>{e("mx-copy/index"),e("__test__/hl");e("magix");var c=e("__test__/example");e("$");a.exports=c.extend({tmpl:function(e,l,a,c,s,_,t,r){if(a||(a=e),!s){var n={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},m=/[&<>"'`]/g,x=function(e){return"&"+n[e]+";"};s=function(e){return""+(null==e?"":e)},c=function(e){return s(e).replace(m,x)}}if(!_){var i={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},b=function(e){return i[e]},u=/[!')(*]/g;_=function(e){return encodeURIComponent(s(e)).replace(u,b)}}if(!r){var g=/[\\'"]/g;r=function(e){return s(e).replace(g,"\\$&")}}var y="",d=e.viewId,v=e.text1;return y+='<div mxv mxa="_zs_gallerycL:_" class="_zs_galleryf"><div mxv mxa="_zs_gallerycL:a" class="_zs_galleryh"><div mxv mxa="_zs_gallerycL:b" class="mb20"><span mxs="_zs_gallerycL:_" class="color-9 mr10">动效：</span><label mxv mxa="_zs_gallerycL:c" class="mr20"><input mxs="_zs_gallerycL:a" type="checkbox" class="anim-checkbox" name="cb2" value="1" checked="true"/> 选中</label><label mxv mxa="_zs_gallerycL:d" class="mr20"><input mxs="_zs_gallerycL:b" type="checkbox" class="anim-checkbox" name="cb2" value="2" checked="true" disabled="true"/> 选中禁止选择</label><label mxv mxa="_zs_gallerycL:e" class="mr20"><input mxs="_zs_gallerycL:c" type="checkbox" class="anim-checkbox" name="cb2" value="3"/> 未选中</label><label mxv><input mxs="_zs_gallerycL:d" type="checkbox" class="anim-checkbox" name="cb2" value="4" disabled="true"/> 未选中禁止选择</label></div><div mxv><span mxs="_zs_gallerycL:e" class="color-9 mr10">普通：</span><label mxv mxa="_zs_gallerycL:f" class="mr20"><input mxs="_zs_gallerycL:f" type="checkbox" name="cb1" value="1" checked="true"/> 选中</label><label mxv mxa="_zs_gallerycL:g" class="mr20"><input mxs="_zs_gallerycL:g" type="checkbox" name="cb1" value="2" checked="true" disabled="true"/> 选中禁止选择</label><label mxv mxa="_zs_gallerycL:h" class="mr20"><input mxs="_zs_gallerycL:h" type="checkbox" name="cb1" value="3"/> 未选中</label><label mxv><input mxs="_zs_gallerycL:i" type="checkbox" name="cb1" value="4" disabled="true"/> 未选中禁止选择</label></div></div><div mxa="_zs_gallerycL:i" class="_zs_galleryi"><div mxs="_zs_gallerycL:j" class="_zs_galleryg">Checkbox</div><div class="_zs_galleryj" mx-success="'+l+'done({id:1})" mx-view="mx-copy/index?copyNode='+_(d)+'_text_1"><span mxa="_zs_gallerycL:j" class="_zs_galleryl">'+s(v)+'</span><i mxs="_zs_gallerycL:k" class="mc-iconfont _zs_galleryk">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+c(d)+'_text_1">\n&lt;label class="mr20"&gt;\n    &lt;input type="checkbox" class="anim-checkbox" \n        name="cb2" value="2" checked="true" /&gt;\n    动效加className（anim-checkbox）\n&lt;/label&gt;\n\n&lt;label class="mr20"&gt;\n    &lt;input type="checkbox"\n        name="cb1" value="1" checked="true" /&gt;\n    普通无动效\n&lt;/label&gt;</pre></div></div>'},render:function(){this.updater.digest()}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-style/__test__/3",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("mx-copy/index");
+require("__test__/hl");
+var Magix = require("magix");
+var Base = require("__test__/example");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerycL:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerycL:a" class="_zs_gallery___test___layout_-eg-content"><div mxv mxa="_zs_gallerycL:b" class="mb20"><span mxs="_zs_gallerycL:_" class="color-9 mr10">动效：</span><label mxv mxa="_zs_gallerycL:c" class="mr20"><input mxs="_zs_gallerycL:a" type="checkbox" class="anim-checkbox" name="cb2" value="1" checked="true"/> 选中</label><label mxv mxa="_zs_gallerycL:d" class="mr20"><input mxs="_zs_gallerycL:b" type="checkbox" class="anim-checkbox" name="cb2" value="2" checked="true" disabled="true"/> 选中禁止选择</label><label mxv mxa="_zs_gallerycL:e" class="mr20"><input mxs="_zs_gallerycL:c" type="checkbox" class="anim-checkbox" name="cb2" value="3"/> 未选中</label><label mxv><input mxs="_zs_gallerycL:d" type="checkbox" class="anim-checkbox" name="cb2" value="4" disabled="true"/> 未选中禁止选择</label></div><div mxv><span mxs="_zs_gallerycL:e" class="color-9 mr10">普通：</span><label mxv mxa="_zs_gallerycL:f" class="mr20"><input mxs="_zs_gallerycL:f" type="checkbox" name="cb1" value="1" checked="true"/> 选中</label><label mxv mxa="_zs_gallerycL:g" class="mr20"><input mxs="_zs_gallerycL:g" type="checkbox" name="cb1" value="2" checked="true" disabled="true"/> 选中禁止选择</label><label mxv mxa="_zs_gallerycL:h" class="mr20"><input mxs="_zs_gallerycL:h" type="checkbox" name="cb1" value="3"/> 未选中</label><label mxv><input mxs="_zs_gallerycL:i" type="checkbox" name="cb1" value="4" disabled="true"/> 未选中禁止选择</label></div></div><div mxa="_zs_gallerycL:i" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycL:j" class="_zs_gallery___test___layout_-eg-title">Checkbox</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 44;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycL:j" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 46;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycL:k" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 49;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;label class="mr20"&gt;\n    &lt;input type="checkbox" class="anim-checkbox" \n        name="cb2" value="2" checked="true" /&gt;\n    动效加className（anim-checkbox）\n&lt;/label&gt;\n\n&lt;label class="mr20"&gt;\n    &lt;input type="checkbox"\n        name="cb1" value="1" checked="true" /&gt;\n    普通无动效\n&lt;/label&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-style/__test__/3.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest();
+    }
+});
+
+});

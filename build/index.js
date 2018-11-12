@@ -1,10 +1,6 @@
 define('$', function () {
-    //magix中对DOM类库的依赖使用的是$做为标识，这里我们进行适配
     return jQuery;
 });
-// let url = location.origin + location.pathname;
-// url = url.replace(/index\.html$/, '');
-// url += 'build/src/';
 let url = 'src/';
 
 let p = {
@@ -67,7 +63,6 @@ seajs.config({
     }
 });
 
-// 空view加载
 let routes = {
     '/header/all': '__test__/empty',
     '/header/def': '__test__/empty',

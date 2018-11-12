@@ -1,1 +1,68 @@
-define("mx-calendar/__test__/16",["magix","__test__/example","moment","$","../datepicker","mx-copy/index","__test__/hl"],(e,a,t)=>{e("../datepicker"),e("mx-copy/index"),e("__test__/hl");e("magix");var l=e("__test__/example");e("moment"),e("$");t.exports=l.extend({tmpl:function(e,a,t,l,s,n,_,r){if(t||(t=e),!s){var i={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},c=/[&<>"'`]/g,d=function(e){return"&"+i[e]+";"};s=function(e){return""+(null==e?"":e)},l=function(e){return s(e).replace(c,d)}}if(!n){var m={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},x=function(e){return m[e]},o=/[!')(*]/g;n=function(e){return encodeURIComponent(s(e)).replace(o,x)}}if(!r){var p=/[\\'"]/g;r=function(e){return s(e).replace(p,"\\$&")}}var g="",v=e.selected,y=e.viewId,u=e.text1;return g+='<div mxa="_zs_gallery5:_" class="_zs_galleryf"><div mxa="_zs_gallery5:a" class="_zs_galleryh"><div mxs="_zs_gallery5:_" class="mb10 clearfix"><span class="color-9">以下示例：</span>限制只可选择到月份</div><div class="w200" mx-change="'+a+'select()" mx-view="mx-calendar/datepicker?min=2018-02&max=2018-10&dateType=year%2Cmonth&selected='+n(v)+'"></div></div><div mxa="_zs_gallery5:b" class="_zs_galleryi"><div mxs="_zs_gallery5:a" class="_zs_galleryg">HTML Code</div><div class="_zs_galleryj" mx-success="'+a+'done({id:1})" mx-view="mx-copy/index?copyNode='+n(y)+'_text_1"><span mxa="_zs_gallery5:c" class="_zs_galleryl">'+s(u)+'</span><i mxs="_zs_gallery5:b" class="mc-iconfont _zs_galleryk">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+l(y)+'_text_1">\n&lt;mx-calendar.datepicker class="w200"\n    min="2018-02"\n    max="2018-10"\n    date-type="year,month"\n    selected="2018-05"/&gt;</pre></div></div>'},render:function(){this.updater.digest({selected:"2018-05"})},"select<change>":function(e){this.updater.digest({selected:e.date})}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-calendar/__test__/16",["magix","__test__/example","moment","$","../datepicker","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,Moment,$*/
+require("../datepicker");
+require("mx-copy/index");
+require("__test__/hl");
+var Magix = require("magix");
+var Base = require("__test__/example");
+var Moment = require("moment");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', selected = $$.selected, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallery5:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallery5:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallery5:_" class="mb10 clearfix"><span class="color-9">以下示例：</span>限制只可选择到月份</div><div class="w200" mx-change="' + $viewId + 'select()" mx-view="mx-calendar/datepicker?min=2018-02&max=2018-10&dateType=year%2Cmonth&selected=';
+    $line = 11;
+    $art = '=selected';
+    ;
+    $p += ($expr = '<%!$eu(selected)%>', $eu(selected)) + '"></div></div><div mxa="_zs_gallery5:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery5:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 16;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery5:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 18;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery5:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 21;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.datepicker class="w200"\n    min="2018-02"\n    max="2018-10"\n    date-type="year,month"\n    selected="2018-05"/&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-calendar/__test__/16.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest({
+            selected: '2018-05'
+        });
+    },
+    'select<change>': function (event) {
+        // event.date 当前选择日期
+        // event.time 时分秒
+        this.updater.digest({
+            selected: event.date
+        });
+    }
+});
+
+});

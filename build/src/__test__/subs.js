@@ -1,1 +1,145 @@
-define("__test__/subs",["magix","$"],(e,t,r)=>{var i=e("magix"),a=e("$");i.applyStyle("_zs_galleryq","._zs_gallerybc{box-shadow:0 2px 4px rgba(51,51,51,.08);border:1px solid #eee}._zs_gallerybd{position:absolute;top:0;right:0;width:120px;padding:10px 0 10px 10px;border-left:1px solid #e6e6e6}._zs_gallerybd ._zs_gallerybe{margin-bottom:6px}._zs_gallerybd ._zs_gallerybe:last-child{margin-bottom:0}._zs_gallerybd._zs_gallerybf{position:fixed}"),r.exports=i.View.extend({tmpl:function(e,t,r,i,a,l,s,n){if(r||(r=e),!a){var o={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},d=/[&<>"'`]/g,f=function(e){return"&"+o[e]+";"};a=function(e){return""+(null==e?"":e)},i=function(e){return a(e).replace(d,f)}}if(!l){var p={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},_=function(e){return p[e]},g=/[!')(*]/g;l=function(e){return encodeURIComponent(a(e)).replace(g,_)}}if(!n){var u=/[\\'"]/g;n=function(e){return a(e).replace(u,"\\$&")}}var c="",x=e.fixed,b=e.list;c+='<div class="_zs_gallerybd ',x&&(c+=" _zs_gallerybf "),c+='">';for(var y=0,v=b.length;y<v;y++){var h=b[y];if(c+='<div mxa="_zs_galleryP:_" class="_zs_gallerybe"><a href="javascript:;" mx-click="'+t+"to({key:'"+i(n(h.key))+"'})\">"+i(h.name)+"</a></div>",h.subs&&h.subs.length){c+=" ";for(var m=0,z=h.subs,k=z.length;m<k;m++){var w=z[m];c+='<div mxa="_zs_galleryP:a" class="_zs_gallerybe pl10"><a href="javascript:;" mx-click="'+t+"to({key:'"+i(n(w.key))+"'})\">"+i(w.name)+"</a></div>"}c+=" "}c+=" "}return c+="</div>"},init:function(e){var t=e.list||[];this.updater.set({list:t})},render:function(){this.updater.digest()},"to<click>":function(e){var t=e.params.key,r=a("#"+t);a(window).scrollTop(r.offset().top)},"$win<scroll>":function(e){var t=a("#"+this.id);if(a(window).scrollTop()>=t.offset().top){if(this.updater.get("fixed"))return;this.updater.digest({fixed:!0})}else{if(!this.updater.get("fixed"))return;this.updater.digest({fixed:!1})}}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("__test__/subs",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery___test___subs_","/* @dependent: ./index.less */\n._zs_gallery___test___subs_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___subs_-content-subs {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 120px;\n  padding: 10px 0 10px 10px;\n  border-left: 1px solid #e6e6e6;\n}\n._zs_gallery___test___subs_-content-subs ._zs_gallery___test___subs_-sub-link {\n  margin-bottom: 6px;\n}\n._zs_gallery___test___subs_-content-subs ._zs_gallery___test___subs_-sub-link:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery___test___subs_-content-subs._zs_gallery___test___subs_-subs-fixed {\n  position: fixed;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', fixed = $$.fixed, list = $$.list; var $expr, $art, $line; try {
+    $p += '<div class="_zs_gallery___test___subs_-content-subs ';
+    $line = 1;
+    $art = 'if fixed';
+    ;
+    $expr = '<%if (fixed) {%>';
+    if (fixed) {
+        ;
+        $p += ' _zs_gallery___test___subs_-subs-fixed ';
+        $line = 1;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '">';
+    $line = 2;
+    $art = 'each list as item';
+    ;
+    $expr = '<%for (var $art_idbopewzue$art_i = 0, $art_cahvpzsxu$art_c = list.length; $art_idbopewzue$art_i < $art_cahvpzsxu$art_c; $art_idbopewzue$art_i++) {    var item = list[$art_idbopewzue$art_i]%>';
+    for (var $art_idbopewzue$art_i = 0, $art_cahvpzsxu$art_c = list.length; $art_idbopewzue$art_i < $art_cahvpzsxu$art_c; $art_idbopewzue$art_i++) {
+        var item = list[$art_idbopewzue$art_i];
+        $p += '<div mxa="_zs_galleryP:_" class="_zs_gallery___test___subs_-sub-link"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'';
+        $line = 4;
+        $art = '=item.key';
+        ;
+        $p += ($expr = '<%=$eq(item.key)%>', $e($eq(item.key))) + '\'})">';
+        $line = 4;
+        $art = '=item.name';
+        ;
+        $p += ($expr = '<%=item.name%>', $e(item.name)) + '</a></div>';
+        $line = 6;
+        $art = 'if (item.subs && item.subs.length)';
+        ;
+        $expr = '<%if (item.subs && item.subs.length) {%>';
+        if (item.subs && item.subs.length) {
+            ;
+            $p += ' ';
+            $line = 7;
+            $art = 'each item.subs as sub';
+            ;
+            $expr = '<%for (var $art_icbasxws$art_i = 0, $art_objxtqpyejs$art_obj = item.subs, $art_chuwiezdci$art_c = $art_objxtqpyejs$art_obj.length; $art_icbasxws$art_i < $art_chuwiezdci$art_c; $art_icbasxws$art_i++) {            var sub = $art_objxtqpyejs$art_obj[$art_icbasxws$art_i]%>';
+            for (var $art_icbasxws$art_i = 0, $art_objxtqpyejs$art_obj = item.subs, $art_chuwiezdci$art_c = $art_objxtqpyejs$art_obj.length; $art_icbasxws$art_i < $art_chuwiezdci$art_c; $art_icbasxws$art_i++) {
+                var sub = $art_objxtqpyejs$art_obj[$art_icbasxws$art_i];
+                $p += '<div mxa="_zs_galleryP:a" class="_zs_gallery___test___subs_-sub-link pl10"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'';
+                $line = 9;
+                $art = '=sub.key';
+                ;
+                $p += ($expr = '<%=$eq(sub.key)%>', $e($eq(sub.key))) + '\'})">';
+                $line = 9;
+                $art = '=sub.name';
+                ;
+                $p += ($expr = '<%=sub.name%>', $e(sub.name)) + '</a></div>';
+                $line = 11;
+                $art = '/each';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 12;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 13;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:__test__/subs.html';
+    throw msg;
+} return $p; },
+    init: function (e) {
+        var list = e.list || [];
+        this.updater.set({
+            list: list
+        });
+    },
+    render: function () {
+        this.updater.digest();
+    },
+    'to<click>': function (e) {
+        var key = e.params.key;
+        var node = $('#' + key);
+        $(window).scrollTop(node.offset().top);
+    },
+    '$win<scroll>': function (e) {
+        var that = this;
+        var mainNode = $('#' + that.id);
+        var scrollTop = $(window).scrollTop();
+        var mainTop = mainNode.offset().top;
+        if (scrollTop >= mainTop) {
+            if (that.updater.get('fixed')) {
+                return;
+            }
+            that.updater.digest({
+                fixed: true
+            });
+        }
+        else {
+            if (!that.updater.get('fixed')) {
+                return;
+            }
+            that.updater.digest({
+                fixed: false
+            });
+        }
+    }
+});
+
+});

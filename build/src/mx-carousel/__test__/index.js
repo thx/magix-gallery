@@ -1,1 +1,156 @@
-define("mx-carousel/__test__/index",["magix","__test__/subs","mx-title/second","./2","./4","./1","./3","__test__/api"],(e,i,t)=>{e("__test__/subs"),e("mx-title/second"),e("./2"),e("./4"),e("./1"),e("./3"),e("__test__/api");var n=e("magix");t.exports=n.View.extend({tmpl:function(e,i,t,n,d,r,s,o){if(t||(t=e),!d){var _={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},a=/[&<>"'`]/g,c=function(e){return"&"+_[e]+";"};d=function(e){return""+(null==e?"":e)},n=function(e){return d(e).replace(a,c)}}if(!r){var m={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},u=function(e){return m[e]},v=/[!')(*]/g;r=function(e){return encodeURIComponent(d(e)).replace(v,u)}}if(!o){var l=/[\\'"]/g;o=function(e){return d(e).replace(l,"\\$&")}}s||(s=function(e,i,t,n){for(n=e[p];--n;)if(e[t=p+n]===i)return t;return e[t=p+e[p]++]=i,t});var p="",y="",f=e.viewId,b=e.options;return y+='<div mxv mxa="_zs_gallery.:_" class="pr pr120"><div mx-view="__test__/subs?list='+s(t,[{name:"使用示例",key:f+"_demo",subs:[{name:"水平滚动",key:f+"_demo2"},{name:"自定义trigger样式",key:f+"_demo4"},{name:"渐显渐隐",key:f+"_demo1"},{name:"垂直滚动",key:f+"_demo3"}]},{name:"API",key:f+"_api"}])+'"></div><div id="'+n(f)+'_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallery.:a" class="clearfix mb20"><div mx-view="mx-carousel/__test__/2" id="'+n(f)+'_demo2"></div><div mx-view="mx-carousel/__test__/4" id="'+n(f)+'_demo4"></div><div mx-view="mx-carousel/__test__/1" id="'+n(f)+'_demo1"></div><div mx-view="mx-carousel/__test__/3" id="'+n(f)+'_demo3"></div></div><div id="'+n(f)+'_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options='+s(t,b)+'" class="mb40"></div></div>'},render:function(){var e=[{key:"mode",desc:["动画播放模式","carousel：跑马灯切换","fade：渐显渐隐"].join("<br>"),type:"string",def:"carousel"},{key:"height",desc:"容器高度",type:"number",def:200},{key:"active",desc:"默认激活第几帧，第一帧为0",type:"number",def:0},{key:"autoplay",desc:"是否自动播放",type:"boolean",def:"false"},{key:"dots",desc:"是否显示缩略点",type:"boolean",def:"true"},{key:"interval",desc:"播放暂停间隔，单位毫秒",type:"number",def:"3000"},{key:"vertical",desc:"是否垂直方向播放",type:"boolean",def:"false"},{key:"timing",desc:["定义同transition-timing-function","linear：规定以相同速度开始至结束的过渡效果（等于 cubic-bezier(0,0,1,1)）","ease：规定慢速开始，然后变快，然后慢速结束的过渡效果（cubic-bezier(0.25,0.1,0.25,1)）","ease-in：规定以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）","ease-out：规定以慢速结束的过渡效果（等于 cubic-bezier(0,0,0.58,1)）","ease-in-out：规定以慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）","cubic-bezier(n,n,n,n)：在 cubic-bezier 函数中定义自己的值。可能的值是 0 至 1 之间的数值"].join("<br>"),type:"string",def:"ease-in-out"},{key:"duration",desc:"动画持续时间",type:"string",def:"0.5s"},{key:"prev-trigger",desc:"自定义上一帧trigger的id",type:"string",def:""},{key:"next-trigger",desc:"自定义下一帧trigger的id",type:"string",def:""},{key:"dot-class",desc:"自定义轮播点样式",type:"string",def:""}];this.updater.digest({viewId:this.id,options:e})}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-carousel/__test__/index",["magix","__test__/subs","mx-title/second","./2","./4","./1","./3","__test__/api"],(require,exports,module)=>{
+/*Magix*/
+require("__test__/subs");
+require("mx-title/second");
+require("./2");
+require("./4");
+require("./1");
+require("./3");
+require("__test__/api");
+var Magix = require("magix");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallery.:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $line = 2;
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'水平滚动\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'自定义trigger样式\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'渐显渐隐\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'垂直滚动\',\n            key: viewId + \'_demo3\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
+    ;
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'水平滚动\',                    key: viewId + \'_demo2\'                }, {                    name: \'自定义trigger样式\',                    key: viewId + \'_demo4\'                }, {                    name: \'渐显渐隐\',                    key: viewId + \'_demo1\'                }, {                    name: \'垂直滚动\',                    key: viewId + \'_demo3\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '水平滚动', key: viewId + '_demo2' }, { name: '自定义trigger样式', key: viewId + '_demo4' }, { name: '渐显渐隐', key: viewId + '_demo1' }, { name: '垂直滚动', key: viewId + '_demo3' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
+    $line = 23;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallery.:a" class="clearfix mb20"><div mx-view="mx-carousel/__test__/2" id="';
+    $line = 25;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-carousel/__test__/4" id="';
+    $line = 26;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-carousel/__test__/1" id="';
+    $line = 27;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-carousel/__test__/3" id="';
+    $line = 28;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div id="';
+    $line = 31;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $line = 32;
+    $art = '@options';
+    ;
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-carousel/__test__/index.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        var options = [{
+                key: 'mode',
+                desc: [
+                    '动画播放模式',
+                    'carousel：跑马灯切换',
+                    'fade：渐显渐隐'
+                ].join('<br>'),
+                type: 'string',
+                def: 'carousel'
+            }, {
+                key: 'height',
+                desc: '容器高度',
+                type: 'number',
+                def: 200
+            }, {
+                key: 'active',
+                desc: '默认激活第几帧，第一帧为0',
+                type: 'number',
+                def: 0
+            }, {
+                key: 'autoplay',
+                desc: '是否自动播放',
+                type: 'boolean',
+                def: 'false'
+            }, {
+                key: 'dots',
+                desc: '是否显示缩略点',
+                type: 'boolean',
+                def: 'true'
+            }, {
+                key: 'interval',
+                desc: '播放暂停间隔，单位毫秒',
+                type: 'number',
+                def: '3000'
+            }, {
+                key: 'vertical',
+                desc: '是否垂直方向播放',
+                type: 'boolean',
+                def: 'false'
+            }, {
+                key: 'timing',
+                desc: [
+                    '定义同transition-timing-function',
+                    'linear：规定以相同速度开始至结束的过渡效果（等于 cubic-bezier(0,0,1,1)）',
+                    'ease：规定慢速开始，然后变快，然后慢速结束的过渡效果（cubic-bezier(0.25,0.1,0.25,1)）',
+                    'ease-in：规定以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）',
+                    'ease-out：规定以慢速结束的过渡效果（等于 cubic-bezier(0,0,0.58,1)）',
+                    'ease-in-out：规定以慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）',
+                    'cubic-bezier(n,n,n,n)：在 cubic-bezier 函数中定义自己的值。可能的值是 0 至 1 之间的数值'
+                ].join('<br>'),
+                type: 'string',
+                def: 'ease-in-out'
+            }, {
+                key: 'duration',
+                desc: '动画持续时间',
+                type: 'string',
+                def: '0.5s'
+            }, {
+                key: 'prev-trigger',
+                desc: '自定义上一帧trigger的id',
+                type: 'string',
+                def: ''
+            }, {
+                key: 'next-trigger',
+                desc: '自定义下一帧trigger的id',
+                type: 'string',
+                def: ''
+            }, {
+                key: 'dot-class',
+                desc: '自定义轮播点样式',
+                type: 'string',
+                def: ''
+            }];
+        this.updater.digest({
+            viewId: this.id,
+            options: options
+        });
+    }
+});
+
+});

@@ -1,1 +1,110 @@
-define("mx-editor/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./3","./2","./4","__test__/api"],(e,t,i)=>{e("__test__/subs"),e("mx-title/second"),e("./1"),e("./3"),e("./2"),e("./4"),e("__test__/api");var d=e("magix");e("$");i.exports=d.View.extend({tmpl:function(e,t,i,d,_,n,s,m){if(i||(i=e),!_){var o={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},r=/[&<>"'`]/g,a=function(e){return"&"+o[e]+";"};_=function(e){return""+(null==e?"":e)},d=function(e){return _(e).replace(r,a)}}if(!n){var v={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},c=function(e){return v[e]},l=/[!')(*]/g;n=function(e){return encodeURIComponent(_(e)).replace(l,c)}}if(!m){var x=/[\\'"]/g;m=function(e){return _(e).replace(x,"\\$&")}}s||(s=function(e,t,i,d){for(d=e[u];--d;)if(e[i=u+d]===t)return i;return e[i=u+e[u]++]=t,i});var u="",p="",f=e.viewId,y=e.options;return p+='<div mxv mxa="_zs_galleryaN:_" class="pr pr120"><div mx-view="__test__/subs?list='+s(i,[{name:"使用示例",key:f+"_demo",subs:[{name:"自定义模板",key:f+"_demo1"},{name:"表格中",key:f+"_demo3"},{name:"小号输入框",key:f+"_demo2"},{name:"多行缩略",key:f+"_demo4"}]},{name:"API",key:f+"_api"}])+'"></div><div id="'+d(f)+'_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryaN:a" class="clearfix mb20"><div mxa="_zs_galleryaN:b" class="_zs_galleryc"><div mx-view="mx-editor/__test__/1" id="'+d(f)+'_demo1"></div><div mx-view="mx-editor/__test__/3" id="'+d(f)+'_demo3"></div></div><div mxa="_zs_galleryaN:c" class="_zs_galleryc"><div mx-view="mx-editor/__test__/2" id="'+d(f)+'_demo2"></div><div mx-view="mx-editor/__test__/4" id="'+d(f)+'_demo4"></div></div></div><div id="'+d(f)+'_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options='+s(i,y)+'"></div></div>'},render:function(){this.updater.digest({viewId:this.id,options:[{key:"content",desc:"需要编辑的文案",type:"string",def:""},{key:"tmpl",desc:"编辑内容不是纯文本，需要有html片段的，配置展示模板，使用${content}当占位符显示编辑内容",type:"string",def:"${content}"},{key:"rules",desc:"校验规则",type:"object",def:"支持form所支持的所有类型校验"},{key:"small",desc:"是否是缩小尺寸的input",type:"boolean",def:"false"},{key:"width",desc:"input的宽度",type:"number",def:140}]})}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-editor/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./3","./2","./4","__test__/api"],(require,exports,module)=>{
+/*Magix,$*/
+require("__test__/subs");
+require("mx-title/second");
+require("./1");
+require("./3");
+require("./2");
+require("./4");
+require("__test__/api");
+var Magix = require("magix");
+var $ = require("$");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryaN:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $line = 2;
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'自定义模板\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'表格中\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'小号输入框\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'多行缩略\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
+    ;
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'自定义模板\',                    key: viewId + \'_demo1\'                }, {                    name: \'表格中\',                    key: viewId + \'_demo3\'                }, {                    name: \'小号输入框\',                    key: viewId + \'_demo2\'                }, {                    name: \'多行缩略\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '自定义模板', key: viewId + '_demo1' }, { name: '表格中', key: viewId + '_demo3' }, { name: '小号输入框', key: viewId + '_demo2' }, { name: '多行缩略', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
+    $line = 23;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryaN:a" class="clearfix mb20"><div mxa="_zs_galleryaN:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-editor/__test__/1" id="';
+    $line = 26;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-editor/__test__/3" id="';
+    $line = 27;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div mxa="_zs_galleryaN:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-editor/__test__/2" id="';
+    $line = 30;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-editor/__test__/4" id="';
+    $line = 31;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div></div><div id="';
+    $line = 35;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $line = 36;
+    $art = '@options';
+    ;
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-editor/__test__/index.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        var options = [{
+                key: 'content',
+                desc: '需要编辑的文案',
+                type: 'string',
+                def: ''
+            }, {
+                key: 'tmpl',
+                desc: '编辑内容不是纯文本，需要有html片段的，配置展示模板，使用${content}当占位符显示编辑内容',
+                type: 'string',
+                def: '${content}'
+            }, {
+                key: 'rules',
+                desc: '校验规则',
+                type: 'object',
+                def: '支持form所支持的所有类型校验'
+            }, {
+                key: 'small',
+                desc: '是否是缩小尺寸的input',
+                type: 'boolean',
+                def: 'false'
+            }, {
+                key: 'width',
+                desc: 'input的宽度',
+                type: 'number',
+                def: 140
+            }];
+        this.updater.digest({
+            viewId: this.id,
+            options: options
+        });
+    }
+});
+
+});

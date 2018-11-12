@@ -1,1 +1,119 @@
-define("mx-table/isticky",["magix","$"],(_,e,i)=>{"use strict";e.__esModule=!0;var t=_("magix"),s=_("$");i.exports=t.View.extend({init:function(_){var e,i=this;_.stickyWrapper?(e=s("#"+_.stickyWrapper),i.__dZ=s("#app_header").height()||50):(e=s(window),i.__dZ=0);var t=function(){i.__e_(e)};i.on("destroy",function(){e.off("scroll",t)}),e.on("scroll",t),i.__ea=e,i.__j=s("#"+i.id)},render:function(){this.__eb(),this.__ec(),this.__e_(this.__ea)},__ec:function(){var _=this.__ed,e=this.__ee,i=_.height();i!=this.__dV&&(e.css({height:i,display:"none"}),this.__dV=i)},__eb:function(){var _=s("#"+this.id).find("thead"),e="ph_"+this.id,i=s("#"+e);i.length||(i=s("<caption />").insertBefore(_).attr("id",e)),this.__ee=i,this.__ed=_},__eh:function(){var _=this,e=s.now();if(!_.__ef||_.__ef+3e3<e){_.__ef=e;var i,t=_.__j,n=void 0;n=_.__dZ?t.offset().top+_.__ea.scrollTop()-_.__dZ:t.offset().top,i=t.height();var o=t.find("tfoot"),h=0;return o.length&&(h=o.height()),_.__eg={min:n,max:n+i-_.__dV-h}}return _.__eg},__e_:function(_){var e=this,i=_.scrollTop(),t=e.__eh(),s=e.__ei;i>t.min&&i<t.max?(e.__ei="s",e.__ee.css({display:"block"}),e.__ed.css({position:"absolute",top:i-t.min})):"i"!=s&&(e.__ei="i",e.__ee.css({display:"none"}),e.__ed.css({position:"initial",top:"auto"}))}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-table/isticky",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+"use strict";
+exports.__esModule = true;
+var Magix = require("magix");
+var $ = require("$");
+module.exports = Magix.View.extend({
+    init: function (extra) {
+        var me = this;
+        var inmain;
+        if (extra.stickyWrapper) {
+            inmain = $('#' + extra.stickyWrapper);
+            me['@{layout.header.height}'] = $('#app_header').height() || 50;
+        }
+        else {
+            inmain = $(window);
+            me['@{layout.header.height}'] = 0;
+        }
+        var watchInmainScroll = function () {
+            me['@{sync.pos}'](inmain);
+        };
+        me.on('destroy', function () {
+            inmain.off('scroll', watchInmainScroll);
+        });
+        inmain.on('scroll', watchInmainScroll);
+        me['@{layout.inmain}'] = inmain;
+        me['@{owner.node}'] = $('#' + me.id);
+    },
+    render: function () {
+        var me = this;
+        me['@{sync.vars}']();
+        me['@{sync.height}']();
+        me['@{sync.pos}'](me['@{layout.inmain}']);
+    },
+    '@{sync.height}': function () {
+        var me = this;
+        var thead = me['@{thead.node}'];
+        var ghost = me['@{ghost.node}'];
+        var height = thead.height();
+        if (height != me['@{thead.height}']) {
+            ghost.css({
+                height: height,
+                display: 'none'
+            });
+            me['@{thead.height}'] = height;
+        }
+    },
+    '@{sync.vars}': function () {
+        var me = this;
+        var thead = $('#' + me.id).find('thead');
+        var ghostId = 'ph_' + me.id;
+        var ghost = $('#' + ghostId);
+        if (!ghost.length) {
+            ghost = $('<caption />').insertBefore(thead).attr('id', ghostId);
+        }
+        me['@{ghost.node}'] = ghost;
+        me['@{thead.node}'] = thead;
+    },
+    '@{get.pos.info}': function () {
+        var me = this;
+        var now = $.now();
+        if (!me['@{ctrl.last.info}'] || me['@{ctrl.last.info}'] + 3000 < now) {
+            me['@{ctrl.last.info}'] = now;
+            var owner = me['@{owner.node}'];
+            var top1 = void 0, height = void 0;
+            if (me['@{layout.header.height}']) {
+                top1 = owner.offset().top + me['@{layout.inmain}'].scrollTop() - me['@{layout.header.height}'];
+            }
+            else {
+                top1 = owner.offset().top;
+            }
+            height = owner.height();
+            var tfoot = owner.find('tfoot');
+            var tfh = 0;
+            if (tfoot.length) {
+                tfh = tfoot.height();
+            }
+            return (me['@{temp.info}'] = {
+                min: top1,
+                max: top1 + height - me['@{thead.height}'] - tfh
+            });
+        }
+        return me['@{temp.info}'];
+    },
+    '@{sync.pos}': function (node) {
+        var me = this;
+        var top = node.scrollTop();
+        var info = me['@{get.pos.info}']();
+        var pi = me['@{pos.info}'];
+        if (top > info.min && top < info.max) {
+            me['@{pos.info}'] = 's';
+            me['@{ghost.node}'].css({
+                display: 'block'
+            });
+            me['@{thead.node}'].css({
+                position: 'absolute',
+                top: top - info.min
+            });
+        }
+        else if (pi != 'i') {
+            me['@{pos.info}'] = 'i';
+            me['@{ghost.node}'].css({
+                display: 'none'
+            });
+            me['@{thead.node}'].css({
+                position: 'initial',
+                top: 'auto'
+            });
+        }
+    }
+});
+
+});

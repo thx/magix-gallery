@@ -1,1 +1,69 @@
-define("mx-title/index",["magix","$"],(n,e,t)=>{var r=n("magix");n("$");t.exports=r.View.extend({tmpl:function(n,e,t,r,a,i,p,c){if(t||(t=n),!a){var s={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},u=/[&<>"'`]/g,l=function(n){return"&"+s[n]+";"};a=function(n){return""+(null==n?"":n)},function(n){return a(n).replace(u,l)}}if(!i){var o={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},d=function(n){return o[n]},f=/[!')(*]/g;i=function(n){return encodeURIComponent(a(n)).replace(f,d)}}if(!c){var g=/[\\'"]/g;c=function(n){return a(n).replace(g,"\\$&")}}var m="",x=n.content,v=n.tip;return m+='<div mxa="_zs_gallerydp:_" class="page-header"><span mxa="_zs_gallerydp:a" class="first-header">'+a(x)+"</span>",v&&(m+='<span mxa="_zs_gallerydp:b" class="page-tip">'+a(v)+"</span>"),m+="</div>"},init:function(n){var e=n.content||"标题",t=n.tip||"";this.updater.set({content:e,tip:t})},render:function(){this.updater.digest()}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-title/index",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+var Magix = require("magix");
+var $ = require("$");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', content = $$.content, tip = $$.tip; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerydp:_" class="page-header"><span mxa="_zs_gallerydp:a" class="first-header">';
+    $line = 2;
+    $art = '!content';
+    ;
+    $p += ($expr = '<%!content%>', $n(content)) + '</span>';
+    $line = 3;
+    $art = 'if tip';
+    ;
+    $expr = '<%if (tip) {%>';
+    if (tip) {
+        ;
+        $p += '<span mxa="_zs_gallerydp:b" class="page-tip">';
+        $line = 4;
+        $art = '!tip';
+        ;
+        $p += ($expr = '<%!tip%>', $n(tip)) + '</span>';
+        $line = 5;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-title/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var content = extra.content || '标题';
+        var tip = extra.tip || '';
+        this.updater.set({
+            content: content,
+            tip: tip
+        });
+    },
+    render: function () {
+        this.updater.digest();
+    }
+});
+
+});

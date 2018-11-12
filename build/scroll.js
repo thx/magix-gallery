@@ -1,4 +1,3 @@
-//#exclude = define
 define('scroll', ['magix', '$'], (require, exports, module) => {
     let Magix = require('magix');
     let $ = require('$');
@@ -17,7 +16,7 @@ define('scroll', ['magix', '$'], (require, exports, module) => {
                     }
                 }
                 if (exist) {
-                    let offset = $(/*'#' + vf.id + ' ' +*/ node).offset();
+                    let offset = $(node).offset();
                     if (offset) {
                         window.scrollTo(offset.left + 10, offset.top + 10);
                         ref['@{page.scrolled}'] = true;

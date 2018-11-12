@@ -1,1 +1,654 @@
-define("mx-main/index",["magix"],(e,l,s)=>{var a=e("magix"),r=a.Router,i=a.Vframe;a.applyStyle("_zs_galleryY",'._zs_galleryhy{box-shadow:0 2px 4px rgba(51,51,51,.08);border:1px solid #eee}._zs_galleryhz{position:relative;background-color:#fafafa}._zs_galleryhz ._zs_galleryhA{position:absolute;top:0;left:0;bottom:0;background-color:#fff}._zs_galleryhz ._zs_galleryhA ._zs_galleryhB{position:relative;padding:10px 0 10px 20px;border-bottom:1px solid #f5f5f5}._zs_galleryhz ._zs_galleryhA ._zs_galleryhB ._zs_galleryhC{color:#666}._zs_galleryhz ._zs_galleryhA ._zs_galleryhB ._zs_galleryhC:hover{color:#4d7fff}._zs_galleryhz ._zs_galleryhA ._zs_galleryhB ._zs_galleryhD{line-height:30px}._zs_galleryhz ._zs_galleryhA ._zs_galleryhB ._zs_galleryhD ._zs_galleryhE>*{position:relative;top:2px;margin-right:4px;font-size:18px;color:#999}._zs_galleryhz ._zs_galleryhA ._zs_galleryhB ._zs_galleryhD:hover ._zs_galleryhE>*{color:#4d7fff}._zs_galleryhz ._zs_galleryhA ._zs_galleryhB ._zs_galleryhF{position:relative;height:30px;line-height:30px;padding-left:26px}._zs_galleryhz ._zs_galleryhA ._zs_galleryhB ._zs_galleryhF:before{content:"";position:absolute;top:0;left:9px;width:0;height:30px;border-left:1px solid #adadad}._zs_galleryhz ._zs_galleryhA ._zs_galleryhB ._zs_galleryhF:after{content:"";position:absolute;top:15px;left:10px;width:6px;height:0;border-top:1px solid #adadad}._zs_galleryhz ._zs_galleryhA ._zs_galleryhB ._zs_galleryhF:last-child:before{height:16px}._zs_galleryhz ._zs_galleryhA ._zs_galleryhB._zs_galleryhG{background-color:#f6f9ff}._zs_galleryhz ._zs_galleryhA ._zs_galleryhB._zs_galleryhG ._zs_galleryhH,._zs_galleryhz ._zs_galleryhA ._zs_galleryhB._zs_galleryhG ._zs_galleryhH ._zs_galleryhE>*,._zs_galleryhz ._zs_galleryhA ._zs_galleryhB._zs_galleryhG ._zs_galleryhH:hover,._zs_galleryhz ._zs_galleryhA ._zs_galleryhB._zs_galleryhG ._zs_galleryhH:hover ._zs_galleryhE>*{color:#4d7fff}._zs_galleryhz ._zs_galleryhA ._zs_galleryhB._zs_galleryhG ._zs_galleryhI{position:absolute;top:50%;right:8px;margin-top:-7px;font-size:12px;font-weight:700;color:#4d7fff}._zs_galleryhz ._zs_galleryhA ._zs_galleryhB._zs_galleryhJ ._zs_galleryhC,._zs_galleryhz ._zs_galleryhA ._zs_galleryhB._zs_galleryhJ ._zs_galleryhC:hover{color:#666;cursor:not-allowed}._zs_galleryhz ._zs_galleryhA ._zs_galleryhB._zs_galleryhJ ._zs_galleryhD:hover ._zs_galleryhE>*{color:#999}._zs_galleryhz ._zs_galleryhA ._zs_galleryhB._zs_galleryhJ ._zs_galleryhK{position:absolute;top:50%;right:8px;margin-top:-9px;font-size:14px;font-weight:700;color:#eee}._zs_galleryhz ._zs_galleryhL ._zs_galleryhM{height:58px;line-height:58px;text-align:center;font-size:20px;border-bottom:1px solid #e6e6e6;background-color:#fafafa}._zs_galleryhz ._zs_galleryhL ._zs_galleryhN{position:relative;margin-left:20px;margin-right:20px;background-color:#fff;border-bottom-left-radius:4px;border-bottom-right-radius:4px}._zs_galleryhz ._zs_galleryhL ._zs_galleryhN ._zs_galleryhO{position:relative;padding-top:20px;padding-bottom:20px;padding-left:20px}._zs_galleryhz ._zs_galleryhL ._zs_galleryhN ._zs_galleryhO:last-child{padding-bottom:40px}._zs_galleryhz ._zs_galleryhL ._zs_galleryhN ._zs_galleryhP{position:absolute;top:0;right:0;height:100%;padding-top:20px;padding-left:20px;border-left:1px solid #e6e6e6}._zs_galleryhz ._zs_galleryhL ._zs_galleryhQ{text-align:center;padding:40px 0}._zs_galleryhz ._zs_galleryhR{display:inline-block;position:relative;margin-top:10px;color:#a40100}._zs_galleryhz ._zs_galleryhR ._zs_galleryhS{position:absolute;left:-20px;top:0;color:#a40100}'),s.exports=a.View.extend({tmpl:function(e,l,s,a,r,i,_,t){if(s||(s=e),!r){var n={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},g=/[&<>"'`]/g,o=function(e){return"&"+n[e]+";"};r=function(e){return""+(null==e?"":e)},a=function(e){return r(e).replace(g,o)}}if(!i){var h={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},d=function(e){return h[e]},p=/[!')(*]/g;i=function(e){return encodeURIComponent(r(e)).replace(p,d)}}if(!t){var z=/[\\'"]/g;t=function(e){return r(e).replace(z,"\\$&")}}_||(_=function(e,l,s,a){for(a=e[y];--a;)if(e[s=y+a]===l)return s;return e[s=y+e[y]++]=l,s});var y="",c="",f=e.viewHeight,x=e.leftWidth,u=e.stepInfos,v=e.curStepIndex,b=e.curSubStepIndex,m=e.curStepInfo,I=e.childInfos,w=e.viewId;c+='<div mxv class="_zs_galleryhz" style="min-height: '+a(f)+'px;"><div class="_zs_galleryhA" style="width: '+a(x)+'px;">';for(var S=0,W=u.length;S<W;S++){var k=u[S];if(c+='<div class="_zs_galleryhB ',k.index==v&&(c+=" _zs_galleryhG "),c+=" ",k.locked&&(c+=" _zs_galleryhJ "),c+='"><div mxa="_zs_gallerybW:_" class="_zs_galleryhD"><a href="javascript:;" class="_zs_galleryhC _zs_galleryhD clearfix ',k.index==v&&-1==b&&(c+=" _zs_galleryhH "),c+='" data-sub="-1" ',k.locked||(c+=' mx-click="'+l+"nav({stepIndex:"+a(k.index)+'})" '),c+=">",k.icon&&(c+='<span mxa="_zs_gallerybW:a" class="_zs_galleryhE fl">'+r(k.icon)+"</span>"),c+='<span mxa="_zs_gallerybW:b" class="fl">'+a(k.label)+"</span></a></div>",!k.locked&&k.subs.length>1){c+="<div>";for(var A=0,B=k.subs,$=B.length;A<$;A++){var T=B[A];c+='<div mxa="_zs_gallerybW:c" class="_zs_galleryhF"><a href="javascript:;" class="_zs_galleryhC ',k.index==v&&b==T.index&&(c+=" _zs_galleryhH "),c+='" data-sub="'+a(T.index)+'" mx-click="'+l+"nav({stepIndex:"+a(k.index)+",subStepIndex:"+a(T.index)+'})">'+a(T.label)+"</a></div>"}c+="</div>"}c+=" ",k.index==v&&(c+='<i mxs="_zs_gallerybW:_" class="mc-iconfont _zs_galleryhI">&#xe602;</i>'),c+=" ",k.locked&&(c+='<i mxs="_zs_gallerybW:a" class="mc-iconfont _zs_galleryhK">&#xe759;</i>'),c+="</div>"}c+='</div><div mxv class="_zs_galleryhL" style="padding-left: '+a(x)+'px;"><div mxa="_zs_gallerybW:d" class="_zs_galleryhM">'+a(m.label)+'</div><div mxv mxa="_zs_gallerybW:e" class="_zs_galleryhN"><div mxv>';for(var H=0,C=m.subs,D=C.length;H<D;H++){T=C[H];c+='<div mxv class="_zs_galleryhO" style="padding-right: '+a(m.rightWidth+20)+'px;"><div mxv="curStepInfo,childInfos" mx-view="'+a(T.view)+"?info="+_(s,T)+"&data="+_(s,I)+'" id="sub_frame_'+a(T.index)+'"><div mxs="_zs_gallerybW:b" class="loading"><span class="loading-anim"></span></div></div>',T.sideWrapper&&(c+='<div mxv="curStepInfo" mx-view="'+a(T.sideWrapper)+"?data="+_(s,T.sideData)+'" class="_zs_galleryhP" style="width: '+a(m.rightWidth)+'px;"><div mxs="_zs_gallerybW:b" class="loading"><span class="loading-anim"></span></div></div>'),c+="</div>"}return c+="</div>",m.sideWrapper&&(c+='<div mxv="curStepInfo" mx-view="'+a(m.sideWrapper)+"?data="+_(s,m.sideData)+'" class="_zs_galleryhP" style="width: '+a(m.rightWidth)+'px;"><div mxs="_zs_gallerybW:b" class="loading"><span class="loading-anim"></span></div></div>'),c+="</div>",m.customTrigger||(c+='<div mxa="_zs_gallerybW:f" class="_zs_galleryhQ"><div>',m.prevTip&&(c+='<a mxa="_zs_gallerybW:g" href="javascript:;" class="btn min-width-100 mr20" mx-click="'+l+'prev()">'+a(m.prevTip)+"</a>"),c+=" ",m.nextTip&&(c+='<a mxa="_zs_gallerybW:h" href="javascript:;" class="btn min-width-100 btn-brand" mx-click="'+l+'next()">'+a(m.nextTip)+"</a>"),c+='</div><div id="'+a(w)+'_error" class="_zs_galleryhR"></div></div>'),c+="</div></div>"},init:function(e){var l=this,s=e.alreadyStep||1,a=e.stepInfos||[];a.forEach(function(e,l){e.locked=l+1>s}),l.updater.set({leftWidth:e.leftWidth||160,rightWidth:e.rightWidth||260,stepInfos:a,childInfos:e.childInfos||{},viewId:l.id,viewHeight:$(window).height()}),l.observeLocation(["stepIndex","subStepIndex"]),l.owner.oncreated=function(){l.$init||(l.subScroll(),l.$init=1)},l.ondestroy=function(){l.owner.off("created")}},render:function(){var e=this;e.$init=null;var l=e.updater.get("stepInfos"),s=r.parse().params,a=+s.stepIndex||1,i=+s.subStepIndex||-1;if(l.forEach(function(s,r){var _=r+1;s.index=_,s.subs&&s.subs.length||!s.subsFn||(s.subs=s.subsFn()),s.subs=s.subs||[],s=e.wrapSide(s),_==a&&(s.locked=!1,(i>s.subs.length||1==s.subs.length)&&(i=-1));var t="";!s.customTrigger&&_>1&&!l[r-1].locked&&(t=s.prevTip||"返回上一步"),s.prevTip=t;var n="";!s.customTrigger&&_<l.length&&(n=s.nextTip||"下一步"),s.nextTip=n}),s.stepIndex+""==a+""&&s.subStepIndex+""==i+""){var _=function(){e.updater.digest({curStepInfo:l[a-1],curStepIndex:a,curSubStepIndex:i})};if(e.$inited)if(r.diff().params.stepIndex)_();else{e.updater.set({curSubStepIndex:i});var t=$("#"+e.id+" ._zs_galleryhG");t.find("._zs_galleryhC").removeClass("_zs_galleryhH"),t.find('._zs_galleryhC[data-sub="'+i+'"]').addClass("_zs_galleryhH"),e.subScroll()}else e.$inited=1,_()}else r.to({stepIndex:a,subStepIndex:i})},wrapSide:function(e){var l=+this.updater.get("rightWidth"),s=!1,a=null,r={};(e.sideView||e.sideTip)&&(a="mx-main/tip",r={view:e.sideView||"",content:e.sideTip||""},s=!0);var i=!1;return e.subs.forEach(function(e,l){e.index=l+1;var a=null,r={};if(!s){var _=!1;(e.sideView||e.sideTip)&&(a="mx-main/tip",r={view:e.sideView||"",content:e.sideTip||""},_=!0),i=i||_}e.sideWrapper=a,e.sideData=r}),s=s||i,e.hasSide=s,e.sideWrapper=a,e.sideData=r,e.rightWidth=s?l:0,e},subScroll:function(){var e,l=+this.updater.get("curSubStepIndex");l>0?e=$("#"+this.id+" #sub_frame_"+l).offset().top:e=0;$(window).scrollTop(e)},"$win<scroll>":function(){var e=$("#"+this.id),l=e.find("._zs_galleryhL");if(l.length){var s=e.find("._zs_galleryhA");$(window).scrollTop()>l.offset().top?s.css({position:"fixed"}):s.css({position:"absolute"})}},"$win<resize>":function(){var e=$(window).height();this.updater.set({viewHeight:e}),$("#"+this.id).find("._zs_galleryhz").css({minHeight:e})},"prev<click>":function(e){var l=this.updater.get("curStepIndex");r.to({stepIndex:+l-1,subStepIndex:-1})},"next<click>":function(e){var l=this,s=l.updater.get("curStepInfo"),r=s.subs,_=r.map(function(e){return i.get("sub_frame_"+e.index).invoke("check")});Promise.all(_).then(function(e){var i=!0,_=[],t={},n=$("#"+l.id+"_error");if(e.forEach(function(e,l){i=i&&e.ok,e.ok||_.push({id:l+1,label:r[l].label,msg:e.msg||""}),a.mix(t,e.remain||{})}),i)n.html(""),s.nextFn&&s.nextFn(t,function(e,s){l.next(e,s)});else{n.html('\n                    <i class="mc-iconfont _zs_galleryhS">&#xe6ad;</i>\n                    '+_.map(function(e){return"\n                        <div>"+e.label+"："+e.msg+"</div>\n                    "}).join("")+"\n                ");var g=$("#"+l.id+" #sub_frame_"+_[0].id);$(window).scrollTop(g.offset().top)}})},"nav<click>":function(e){var l=e.params,s=l.stepIndex,a=l.subStepIndex||-1;r.to({stepIndex:s,subStepIndex:a})},next:function(e,l){var s=this.updater.get("curStepIndex"),i=this.updater.get("childInfos");e.stepIndex=+s+1,r.to(e),a.mix(i,l)}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-main/index",["magix"],(require,exports,module)=>{
+/*Magix*/
+
+/**
+ *  流程步骤组件：
+ *  step定义：当前步骤，从1开始
+ *
+ *  subStep定义
+ *     -1：不停留在具体的子view上
+ *     >0：具体某一个子步骤
+ */
+var Magix = require("magix");
+var Router = Magix.Router;
+var Vframe = Magix.Vframe;
+Magix.applyStyle("_zs_gallery_mx-main_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-main_index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main_index_-main {\n  position: relative;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  background-color: #fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step {\n  position: relative;\n  padding: 10px 0 10px 20px;\n  border-bottom: 1px solid #f5f5f5;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-link {\n  color: #666;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-link:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over {\n  line-height: 30px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over ._zs_gallery_mx-main_index_-over-icon > * {\n  position: relative;\n  top: 2px;\n  margin-right: 4px;\n  font-size: 18px;\n  color: #999;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub {\n  position: relative;\n  height: 30px;\n  line-height: 30px;\n  padding-left: 26px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:before {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 9px;\n  width: 0;\n  height: 30px;\n  border-left: 1px solid #adadad;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:after {\n  content: '';\n  position: absolute;\n  top: 15px;\n  left: 10px;\n  width: 6px;\n  height: 0;\n  border-top: 1px solid #adadad;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:last-child:before {\n  height: 16px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current {\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on ._zs_gallery_mx-main_index_-over-icon > *,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-arrow-icon {\n  position: absolute;\n  top: 50%;\n  right: 8px;\n  margin-top: -7px;\n  font-size: 12px;\n  font-weight: bold;\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-link,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-link:hover {\n  color: #666;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-step-over:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: #999;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-locked-icon {\n  position: absolute;\n  top: 50%;\n  right: 8px;\n  margin-top: -9px;\n  font-size: 14px;\n  font-weight: bold;\n  color: #eee;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-title {\n  height: 58px;\n  line-height: 58px;\n  text-align: center;\n  font-size: 20px;\n  border-bottom: 1px solid #e6e6e6;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body {\n  position: relative;\n  margin-left: 20px;\n  margin-right: 20px;\n  background-color: #fff;\n  border-bottom-left-radius: 4px;\n  border-bottom-right-radius: 4px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-box {\n  position: relative;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  padding-left: 20px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-box:last-child {\n  padding-bottom: 40px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-side {\n  position: absolute;\n  top: 0;\n  right: 0;\n  height: 100%;\n  padding-top: 20px;\n  padding-left: 20px;\n  border-left: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-footer {\n  text-align: center;\n  padding: 40px 0;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-error-node {\n  display: inline-block;\n  position: relative;\n  margin-top: 10px;\n  color: #a40100;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-error-node ._zs_gallery_mx-main_index_-error-icon {\n  position: absolute;\n  left: -20px;\n  top: 0;\n  color: #a40100;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewHeight = $$.viewHeight, leftWidth = $$.leftWidth, stepInfos = $$.stepInfos, curStepIndex = $$.curStepIndex, curSubStepIndex = $$.curSubStepIndex, curStepInfo = $$.curStepInfo, childInfos = $$.childInfos, viewId = $$.viewId; var $expr, $art, $line; try {
+    $p += '<div mxv class="_zs_gallery_mx-main_index_-main" style="min-height: ';
+    $line = 1;
+    $art = '=viewHeight';
+    ;
+    $p += ($expr = '<%=viewHeight%>', $e(viewHeight)) + 'px;"><div class="_zs_gallery_mx-main_index_-main-nav" style="width: ';
+    $line = 2;
+    $art = '=leftWidth';
+    ;
+    $p += ($expr = '<%=leftWidth%>', $e(leftWidth)) + 'px;">';
+    $line = 3;
+    $art = 'each stepInfos as step';
+    ;
+    $expr = '<%for (var $art_imxnkh$art_i = 0, $art_cjqhdeds$art_c = stepInfos.length; $art_imxnkh$art_i < $art_cjqhdeds$art_c; $art_imxnkh$art_i++) {    var step = stepInfos[$art_imxnkh$art_i]%>';
+    for (var $art_imxnkh$art_i = 0, $art_cjqhdeds$art_c = stepInfos.length; $art_imxnkh$art_i < $art_cjqhdeds$art_c; $art_imxnkh$art_i++) {
+        var step = stepInfos[$art_imxnkh$art_i];
+        $p += '<div class="_zs_gallery_mx-main_index_-main-step ';
+        $line = 4;
+        $art = 'if (step.index == curStepIndex)';
+        ;
+        $expr = '<%if (step.index == curStepIndex) {%>';
+        if (step.index == curStepIndex) {
+            ;
+            $p += ' _zs_gallery_mx-main_index_-step-current ';
+            $line = 4;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 4;
+        $art = 'if step.locked';
+        ;
+        $expr = '<%if (step.locked) {%>';
+        if (step.locked) {
+            ;
+            $p += ' _zs_gallery_mx-main_index_-step-locked ';
+            $line = 4;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '"><div mxa="_zs_gallerybW:_" class="_zs_gallery_mx-main_index_-step-over"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link _zs_gallery_mx-main_index_-step-over clearfix ';
+        $line = 6;
+        $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == -1))';
+        ;
+        $expr = '<%if ((step.index == curStepIndex) && (curSubStepIndex == -1)) {%>';
+        if ((step.index == curStepIndex) && (curSubStepIndex == -1)) {
+            ;
+            $p += ' _zs_gallery_mx-main_index_-link-on ';
+            $line = 6;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '" data-sub="-1" ';
+        $line = 8;
+        $art = 'if !step.locked';
+        ;
+        $expr = '<%if (!step.locked) {%>';
+        if (!step.locked) {
+            ;
+            $p += ' mx-click="' + $viewId + 'nav({stepIndex:';
+            $line = 8;
+            $art = '=step.index';
+            ;
+            $p += ($expr = '<%=step.index%>', $e(step.index)) + '})" ';
+            $line = 8;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '>';
+        $line = 9;
+        $art = 'if step.icon';
+        ;
+        $expr = '<%if (step.icon) {%>';
+        if (step.icon) {
+            ;
+            $p += '<span mxa="_zs_gallerybW:a" class="_zs_gallery_mx-main_index_-over-icon fl">';
+            $line = 10;
+            $art = '!step.icon';
+            ;
+            $p += ($expr = '<%!step.icon%>', $n(step.icon)) + '</span>';
+            $line = 11;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '<span mxa="_zs_gallerybW:b" class="fl">';
+        $line = 12;
+        $art = '=step.label';
+        ;
+        $p += ($expr = '<%=step.label%>', $e(step.label)) + '</span></a></div>';
+        $line = 15;
+        $art = 'if (!step.locked && step.subs.length > 1)';
+        ;
+        $expr = '<%if (!step.locked && step.subs.length > 1) {%>';
+        if (!step.locked && step.subs.length > 1) {
+            ;
+            $p += '<div>';
+            $line = 17;
+            $art = 'each step.subs as sub';
+            ;
+            $expr = '<%for (var $art_imgnw$art_i = 0, $art_objkwcynds$art_obj = step.subs, $art_cweqafjwfsa$art_c = $art_objkwcynds$art_obj.length; $art_imgnw$art_i < $art_cweqafjwfsa$art_c; $art_imgnw$art_i++) {            var sub = $art_objkwcynds$art_obj[$art_imgnw$art_i]%>';
+            for (var $art_imgnw$art_i = 0, $art_objkwcynds$art_obj = step.subs, $art_cweqafjwfsa$art_c = $art_objkwcynds$art_obj.length; $art_imgnw$art_i < $art_cweqafjwfsa$art_c; $art_imgnw$art_i++) {
+                var sub = $art_objkwcynds$art_obj[$art_imgnw$art_i];
+                $p += '<div mxa="_zs_gallerybW:c" class="_zs_gallery_mx-main_index_-step-sub"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link ';
+                $line = 19;
+                $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))';
+                ;
+                $expr = '<%if ((step.index == curStepIndex) && (curSubStepIndex == sub.index)) {%>';
+                if ((step.index == curStepIndex) && (curSubStepIndex == sub.index)) {
+                    ;
+                    $p += ' _zs_gallery_mx-main_index_-link-on ';
+                    $line = 19;
+                    $art = '/if';
+                    ;
+                    $expr = '<%}%>';
+                }
+                ;
+                $p += '" data-sub="';
+                $line = 20;
+                $art = '=sub.index';
+                ;
+                $p += ($expr = '<%=sub.index%>', $e(sub.index)) + '" mx-click="' + $viewId + 'nav({stepIndex:';
+                $line = 21;
+                $art = '=step.index';
+                ;
+                $p += ($expr = '<%=step.index%>', $e(step.index)) + ',subStepIndex:';
+                $line = 21;
+                $art = '=sub.index';
+                ;
+                $p += ($expr = '<%=sub.index%>', $e(sub.index)) + '})">';
+                $line = 22;
+                $art = '=sub.label';
+                ;
+                $p += ($expr = '<%=sub.label%>', $e(sub.label)) + '</a></div>';
+                $line = 25;
+                $art = '/each';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '</div>';
+            $line = 27;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 28;
+        $art = 'if (step.index == curStepIndex)';
+        ;
+        $expr = '<%if (step.index == curStepIndex) {%>';
+        if (step.index == curStepIndex) {
+            ;
+            $p += '<i mxs="_zs_gallerybW:_" class="mc-iconfont _zs_gallery_mx-main_index_-arrow-icon">&#xe602;</i>';
+            $line = 30;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 31;
+        $art = 'if step.locked';
+        ;
+        $expr = '<%if (step.locked) {%>';
+        if (step.locked) {
+            ;
+            $p += '<i mxs="_zs_gallerybW:a" class="mc-iconfont _zs_gallery_mx-main_index_-locked-icon">&#xe759;</i>';
+            $line = 33;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div>';
+        $line = 35;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxv class="_zs_gallery_mx-main_index_-main-content" style="padding-left: ';
+    $line = 37;
+    $art = '=leftWidth';
+    ;
+    $p += ($expr = '<%=leftWidth%>', $e(leftWidth)) + 'px;"><div mxa="_zs_gallerybW:d" class="_zs_gallery_mx-main_index_-content-title">';
+    $line = 38;
+    $art = '=curStepInfo.label';
+    ;
+    $p += ($expr = '<%=curStepInfo.label%>', $e(curStepInfo.label)) + '</div><div mxv mxa="_zs_gallerybW:e" class="_zs_gallery_mx-main_index_-content-body"><div mxv>';
+    $line = 42;
+    $art = 'each curStepInfo.subs as sub';
+    ;
+    $expr = '<%for (var $art_ijufsx$art_i = 0, $art_objywqsdg$art_obj = curStepInfo.subs, $art_cvlzelpfmros$art_c = $art_objywqsdg$art_obj.length; $art_ijufsx$art_i < $art_cvlzelpfmros$art_c; $art_ijufsx$art_i++) {    var sub = $art_objywqsdg$art_obj[$art_ijufsx$art_i]%>';
+    for (var $art_ijufsx$art_i = 0, $art_objywqsdg$art_obj = curStepInfo.subs, $art_cvlzelpfmros$art_c = $art_objywqsdg$art_obj.length; $art_ijufsx$art_i < $art_cvlzelpfmros$art_c; $art_ijufsx$art_i++) {
+        var sub = $art_objywqsdg$art_obj[$art_ijufsx$art_i];
+        $p += '<div mxv class="_zs_gallery_mx-main_index_-content-box" style="padding-right: ';
+        $line = 44;
+        $art = '=(curStepInfo.rightWidth + 20)';
+        ;
+        $p += ($expr = '<%=(curStepInfo.rightWidth + 20)%>', $e((curStepInfo.rightWidth + 20))) + 'px;"><div mxv="curStepInfo,childInfos" mx-view="';
+        $line = 45;
+        $art = '=sub.view';
+        ;
+        $p += ($expr = '<%=sub.view%>', $e(sub.view)) + '?info=';
+        $line = 45;
+        $art = '@sub';
+        ;
+        $p += ($expr = '<%@sub%>', $i($$ref, sub)) + '&data=';
+        $line = 45;
+        $art = '@childInfos';
+        ;
+        $p += ($expr = '<%@childInfos%>', $i($$ref, childInfos)) + '" id="sub_frame_';
+        $line = 46;
+        $art = '=sub.index';
+        ;
+        $p += ($expr = '<%=sub.index%>', $e(sub.index)) + '"><div mxs="_zs_gallerybW:b" class="loading"><span class="loading-anim"></span></div></div>';
+        $line = 49;
+        $art = 'if sub.sideWrapper';
+        ;
+        $expr = '<%if (sub.sideWrapper) {%>';
+        if (sub.sideWrapper) {
+            ;
+            $p += '<div mxv="curStepInfo" mx-view="';
+            $line = 50;
+            $art = '=sub.sideWrapper';
+            ;
+            $p += ($expr = '<%=sub.sideWrapper%>', $e(sub.sideWrapper)) + '?data=';
+            $line = 50;
+            $art = '@sub.sideData';
+            ;
+            $p += ($expr = '<%@sub.sideData%>', $i($$ref, sub.sideData)) + '" class="_zs_gallery_mx-main_index_-content-side" style="width: ';
+            $line = 51;
+            $art = '=curStepInfo.rightWidth';
+            ;
+            $p += ($expr = '<%=curStepInfo.rightWidth%>', $e(curStepInfo.rightWidth)) + 'px;"><div mxs="_zs_gallerybW:b" class="loading"><span class="loading-anim"></span></div></div>';
+            $line = 54;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div>';
+        $line = 56;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+    $line = 58;
+    $art = 'if curStepInfo.sideWrapper';
+    ;
+    $expr = '<%if (curStepInfo.sideWrapper) {%>';
+    if (curStepInfo.sideWrapper) {
+        ;
+        $p += '<div mxv="curStepInfo" mx-view="';
+        $line = 59;
+        $art = '=curStepInfo.sideWrapper';
+        ;
+        $p += ($expr = '<%=curStepInfo.sideWrapper%>', $e(curStepInfo.sideWrapper)) + '?data=';
+        $line = 59;
+        $art = '@curStepInfo.sideData';
+        ;
+        $p += ($expr = '<%@curStepInfo.sideData%>', $i($$ref, curStepInfo.sideData)) + '" class="_zs_gallery_mx-main_index_-content-side" style="width: ';
+        $line = 60;
+        $art = '=curStepInfo.rightWidth';
+        ;
+        $p += ($expr = '<%=curStepInfo.rightWidth%>', $e(curStepInfo.rightWidth)) + 'px;"><div mxs="_zs_gallerybW:b" class="loading"><span class="loading-anim"></span></div></div>';
+        $line = 63;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+    $line = 66;
+    $art = 'if !curStepInfo.customTrigger';
+    ;
+    $expr = '<%if (!curStepInfo.customTrigger) {%>';
+    if (!curStepInfo.customTrigger) {
+        ;
+        $p += '<div mxa="_zs_gallerybW:f" class="_zs_gallery_mx-main_index_-content-footer"><div>';
+        $line = 69;
+        $art = 'if curStepInfo.prevTip';
+        ;
+        $expr = '<%if (curStepInfo.prevTip) {%>';
+        if (curStepInfo.prevTip) {
+            ;
+            $p += '<a mxa="_zs_gallerybW:g" href="javascript:;" class="btn min-width-100 mr20" mx-click="' + $viewId + 'prev()">';
+            $line = 71;
+            $art = '=curStepInfo.prevTip';
+            ;
+            $p += ($expr = '<%=curStepInfo.prevTip%>', $e(curStepInfo.prevTip)) + '</a>';
+            $line = 72;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 74;
+        $art = 'if curStepInfo.nextTip';
+        ;
+        $expr = '<%if (curStepInfo.nextTip) {%>';
+        if (curStepInfo.nextTip) {
+            ;
+            $p += '<a mxa="_zs_gallerybW:h" href="javascript:;" class="btn min-width-100 btn-brand" mx-click="' + $viewId + 'next()">';
+            $line = 76;
+            $art = '=curStepInfo.nextTip';
+            ;
+            $p += ($expr = '<%=curStepInfo.nextTip%>', $e(curStepInfo.nextTip)) + '</a>';
+            $line = 77;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div><div id="';
+        $line = 79;
+        $art = '=viewId';
+        ;
+        $p += ($expr = '<%=viewId%>', $e(viewId)) + '_error" class="_zs_gallery_mx-main_index_-error-node"></div></div>';
+        $line = 81;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-main/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var that = this;
+        var alreadyStep = extra.alreadyStep || 1, stepInfos = extra.stepInfos || [];
+        stepInfos.forEach(function (step, i) {
+            step.locked = (i + 1 > alreadyStep);
+        });
+        that.updater.set({
+            leftWidth: extra.leftWidth || 160,
+            rightWidth: extra.rightWidth || 260,
+            stepInfos: stepInfos,
+            childInfos: extra.childInfos || {},
+            viewId: that.id,
+            viewHeight: $(window).height()
+        });
+        that.observeLocation(['stepIndex', 'subStepIndex']);
+        that.owner.oncreated = function () {
+            if (!that.$init) {
+                // 每次重新render之后
+                // 所有子view加载完成后
+                that.subScroll();
+                // 子组件的mount不需要重新scroll
+                that.$init = 1;
+            }
+        };
+        that.ondestroy = function () {
+            that.owner.off('created');
+        };
+    },
+    render: function () {
+        var that = this;
+        // trigger oncreated，子组件的渲染不scroll
+        that.$init = null;
+        var updater = that.updater;
+        var stepInfos = updater.get('stepInfos');
+        var locParams = Router.parse().params;
+        // 主步骤信息从1开始
+        var curStepIndex = +locParams.stepIndex || 1;
+        // 子步骤：
+        // -1：在主导航上
+        // >0：1，2，3
+        var curSubStepIndex = +locParams.subStepIndex || -1;
+        var defPrevTip = '返回上一步', defNextTip = '下一步';
+        stepInfos.forEach(function (step, i) {
+            var stepIndex = i + 1;
+            step.index = stepIndex;
+            if ((!step.subs || !step.subs.length) && step.subsFn) {
+                step.subs = step.subsFn();
+            }
+            step.subs = step.subs || [];
+            step = that.wrapSide(step);
+            // 锁定项不展开子列表
+            if (stepIndex == curStepIndex) {
+                // 当前步骤展开子项目
+                step.locked = false;
+                if ((curSubStepIndex > step.subs.length) || (step.subs.length == 1)) {
+                    curSubStepIndex = -1;
+                }
+            }
+            var prevTip = '';
+            if (!step.customTrigger && (stepIndex > 1) && (!stepInfos[i - 1].locked)) {
+                // 1. 第一步没有返回上一步
+                // 2. 上一步被锁定的情况下没有返回上一步
+                // 3. 自定义trigger的情况
+                prevTip = step.prevTip || defPrevTip;
+            }
+            step.prevTip = prevTip;
+            var nextTip = '';
+            if (!step.customTrigger && (stepIndex < stepInfos.length)) {
+                // 1. 最后一步没有下一步
+                // 2. 自定义trigger的情况
+                nextTip = step.nextTip || defNextTip;
+            }
+            step.nextTip = nextTip;
+        });
+        if (((locParams.stepIndex + '') !== (curStepIndex + '')) ||
+            ((locParams.subStepIndex + '') !== (curSubStepIndex + ''))) {
+            // 确保路由地址参数和当前参数保持完全一致
+            Router.to({
+                stepIndex: curStepIndex,
+                subStepIndex: curSubStepIndex
+            });
+            return;
+        }
+        var renderFn = function () {
+            that.updater.digest({
+                curStepInfo: stepInfos[curStepIndex - 1],
+                curStepIndex: curStepIndex,
+                curSubStepIndex: curSubStepIndex
+            });
+        };
+        if (!that.$inited) {
+            that.$inited = 1;
+            // 首次渲染
+            renderFn();
+        }
+        else {
+            // locationChange
+            var diffParams = Router.diff().params;
+            if (!diffParams.stepIndex) {
+                // 只子步骤变换的时候不digest
+                // 直接操作dom
+                that.updater.set({
+                    curSubStepIndex: curSubStepIndex
+                });
+                var onClass = '_zs_gallery_mx-main_index_-link-on';
+                var cur = $('#' + that.id + ' ._zs_gallery_mx-main_index_-step-current');
+                cur.find('._zs_gallery_mx-main_index_-link').removeClass(onClass);
+                cur.find('._zs_gallery_mx-main_index_-link[data-sub="' + curSubStepIndex + '"]').addClass(onClass);
+                that.subScroll();
+            }
+            else {
+                renderFn();
+            }
+        }
+    },
+    wrapSide: function (step) {
+        var rightWidth = +this.updater.get('rightWidth');
+        var hasSide = false;
+        var sideWrapper = null, sideData = {};
+        if (step.sideView || step.sideTip) {
+            sideWrapper = 'mx-main/tip';
+            sideData = {
+                view: step.sideView || '',
+                content: step.sideTip || '' // 简单提示文案
+            };
+            hasSide = true;
+        }
+        var subHasSide = false;
+        step.subs.forEach(function (sub, si) {
+            sub.index = (si + 1);
+            // step上有提示的时候，忽略sub的侧边配置
+            var subSideWrapper = null, subSideData = {};
+            if (!hasSide) {
+                var hasSubSide = false;
+                if (sub.sideView || sub.sideTip) {
+                    subSideWrapper = 'mx-main/tip';
+                    subSideData = {
+                        view: sub.sideView || '',
+                        content: sub.sideTip || ''
+                    };
+                    hasSubSide = true;
+                }
+                // step上无提示的时候，判断sub上是否有提示
+                subHasSide = subHasSide || hasSubSide;
+            }
+            sub.sideWrapper = subSideWrapper;
+            sub.sideData = subSideData;
+        });
+        hasSide = hasSide || subHasSide;
+        step.hasSide = hasSide;
+        step.sideWrapper = sideWrapper;
+        step.sideData = sideData;
+        step.rightWidth = hasSide ? rightWidth : 0;
+        return step;
+    },
+    /**
+     * 滚动到当前子view的位置
+     */
+    subScroll: function () {
+        var that = this;
+        var curSubStepIndex = +that.updater.get('curSubStepIndex');
+        var top;
+        if (curSubStepIndex > 0) {
+            var subContent = $('#' + that.id + ' #sub_frame_' + curSubStepIndex);
+            top = subContent.offset().top;
+        }
+        else {
+            top = 0;
+        }
+        $(window).scrollTop(top);
+    },
+    '$win<scroll>': function () {
+        var that = this;
+        var that = this;
+        var context = $('#' + that.id);
+        var content = context.find('._zs_gallery_mx-main_index_-main-content');
+        if (!content.length) {
+            return;
+        }
+        var nav = context.find('._zs_gallery_mx-main_index_-main-nav');
+        var scrollTop = $(window).scrollTop();
+        var contentTop = content.offset().top;
+        if (scrollTop > contentTop) {
+            nav.css({
+                position: 'fixed'
+            });
+        }
+        else {
+            nav.css({
+                position: 'absolute'
+            });
+        }
+    },
+    '$win<resize>': function () {
+        var that = this;
+        var winHeight = $(window).height();
+        that.updater.set({
+            viewHeight: winHeight
+        });
+        var context = $('#' + that.id);
+        var content = context.find('._zs_gallery_mx-main_index_-main');
+        content.css({
+            minHeight: winHeight
+        });
+    },
+    'prev<click>': function (e) {
+        var curStepIndex = this.updater.get('curStepIndex');
+        Router.to({
+            stepIndex: (+curStepIndex - 1),
+            subStepIndex: -1
+        });
+    },
+    'next<click>': function (e) {
+        var that = this;
+        // 先校验能否提交
+        var curStepInfo = that.updater.get('curStepInfo');
+        var subs = curStepInfo.subs;
+        var models = subs.map(function (sub) {
+            var vf = Vframe.get('sub_frame_' + sub.index);
+            return vf.invoke('check');
+        });
+        Promise.all(models).then(function (results) {
+            var ok = true, msgs = [], remain = {};
+            var errorNode = $('#' + that.id + '_error');
+            results.forEach(function (r, i) {
+                ok = ok && r.ok;
+                if (!r.ok) {
+                    msgs.push({
+                        id: (i + 1),
+                        label: subs[i].label,
+                        msg: r.msg || ''
+                    });
+                }
+                Magix.mix(remain, (r.remain || {}));
+            });
+            if (ok) {
+                errorNode.html('');
+                // 下一步
+                if (curStepInfo.nextFn) {
+                    curStepInfo.nextFn(remain, function (remainParams, remainChildInfos) {
+                        that.next(remainParams, remainChildInfos);
+                    });
+                }
+            }
+            else {
+                errorNode.html("\n                    <i class=\"mc-iconfont _zs_gallery_mx-main_index_-error-icon\">&#xe6ad;</i>\n                    " + msgs.map(function (m) { return "\n                        <div>" + m.label + "\uFF1A" + m.msg + "</div>\n                    "; }).join('') + "\n                ");
+                var subContent = $('#' + that.id + ' #sub_frame_' + msgs[0].id);
+                $(window).scrollTop(subContent.offset().top);
+            }
+        });
+    },
+    'nav<click>': function (e) {
+        var params = e.params;
+        var stepIndex = params.stepIndex, subStepIndex = params.subStepIndex || -1;
+        Router.to({
+            stepIndex: stepIndex,
+            subStepIndex: subStepIndex
+        });
+    },
+    next: function (remainParams, remainChildInfos) {
+        var that = this;
+        var curStepIndex = that.updater.get('curStepIndex'), childInfos = that.updater.get('childInfos');
+        remainParams.stepIndex = +curStepIndex + 1;
+        Router.to(remainParams);
+        Magix.mix(childInfos, remainChildInfos);
+    }
+});
+
+});
