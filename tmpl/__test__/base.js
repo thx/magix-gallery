@@ -107,6 +107,10 @@ module.exports = Magix.View.extend({
                 path: '/table/index4',
                 icon: '&#xe7b5;'
             }, {
+                name: '筛选项同表头一起吸顶',
+                path: '/table/index12',
+                icon: '&#xe7b5;'
+            }, {
                 name: '指标排序',
                 path: '/table/index10',
                 icon: '&#xe608;'

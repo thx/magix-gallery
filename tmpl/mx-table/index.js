@@ -27,6 +27,7 @@ module.exports = Magix.View.extend({
         me['@{table.main.thead}'] = me['@{table.main}'].find('thead');
 
         me['@{need.sticky}'] = (extra.sticky + '') === 'true';
+        me['@{sticky.interval}'] = extra.stickyInterval || 0;
         me['@{hover.class}'] = extra.rowHoverClass || 'hover-tr';
 
         // 自定义滚动节点
@@ -36,6 +37,9 @@ module.exports = Magix.View.extend({
 
         me.assign();
     },
+    /**
+     * 每次都重新计算
+     */
     assign() {
         return true;
     },
@@ -558,8 +562,9 @@ module.exports = Magix.View.extend({
 
         let owner = me['@{owner.node}'];
         let ownerOffset = owner.offset();
-        let min = ownerOffset.top;
-        let max = ownerOffset.top + owner.height() - headerHeight;
+        let interval = +me['@{sticky.interval}'];
+        let min = ownerOffset.top - interval;
+        let max = min + owner.height() - headerHeight;
         if (top >= min && top <= max) {
             me['@{sync.sticky.pos}'](node, true, top - min);
         } else {

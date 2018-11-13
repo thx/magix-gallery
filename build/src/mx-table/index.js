@@ -33,6 +33,7 @@ module.exports = Magix.View.extend({
         me['@{table.main.wrapper}'] = me['@{wrapper.get}'](me['@{table.main}'], 'main');
         me['@{table.main.thead}'] = me['@{table.main}'].find('thead');
         me['@{need.sticky}'] = (extra.sticky + '') === 'true';
+        me['@{sticky.interval}'] = extra.stickyInterval || 0;
         me['@{hover.class}'] = extra.rowHoverClass || 'hover-tr';
         // 自定义滚动节点
         if (extra.scrollWrapper) {
@@ -40,6 +41,9 @@ module.exports = Magix.View.extend({
         }
         me.assign();
     },
+    /**
+     * 每次都重新计算
+     */
     assign: function () {
         return true;
     },
@@ -504,8 +508,9 @@ module.exports = Magix.View.extend({
         var headerHeight = me['@{thead.height}'];
         var owner = me['@{owner.node}'];
         var ownerOffset = owner.offset();
-        var min = ownerOffset.top;
-        var max = ownerOffset.top + owner.height() - headerHeight;
+        var interval = +me['@{sticky.interval}'];
+        var min = ownerOffset.top - interval;
+        var max = min + owner.height() - headerHeight;
         if (top >= min && top <= max) {
             me['@{sync.sticky.pos}'](node, true, top - min);
         }

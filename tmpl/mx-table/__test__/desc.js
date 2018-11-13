@@ -10,6 +10,11 @@ module.exports = Magix.View.extend({
             type: 'boolean',
             def: 'false'
         }, {
+            key: 'sticky-interval',
+            desc: 'sticky == true && scroll-wrapper == window时生效<br/>吸顶预留间隔，筛选项也需要吸顶的场景下用到',
+            type: 'number',
+            def: '0'
+        }, {
             key: 'scroll-wrapper',
             desc: '自定义滚动节点id',
             type: 'string',

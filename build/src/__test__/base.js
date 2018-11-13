@@ -59,9 +59,9 @@ module.exports = Magix.View.extend({
     $line = 14;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_imgubskufl$art_i = 0, $art_cgrydcb$art_c = list.length; $art_imgubskufl$art_i < $art_cgrydcb$art_c; $art_imgubskufl$art_i++) {    var item = list[$art_imgubskufl$art_i]%>';
-    for (var $art_imgubskufl$art_i = 0, $art_cgrydcb$art_c = list.length; $art_imgubskufl$art_i < $art_cgrydcb$art_c; $art_imgubskufl$art_i++) {
-        var item = list[$art_imgubskufl$art_i];
+    $expr = '<%for (var $art_iatiijyznnu$art_i = 0, $art_cucbflykd$art_c = list.length; $art_iatiijyznnu$art_i < $art_cucbflykd$art_c; $art_iatiijyznnu$art_i++) {    var item = list[$art_iatiijyznnu$art_i]%>';
+    for (var $art_iatiijyznnu$art_i = 0, $art_cucbflykd$art_c = list.length; $art_iatiijyznnu$art_i < $art_cucbflykd$art_c; $art_iatiijyznnu$art_i++) {
+        var item = list[$art_iatiijyznnu$art_i];
         $p += ' ';
         $line = 15;
         $art = 'if item.name';
@@ -102,9 +102,9 @@ module.exports = Magix.View.extend({
         $line = 22;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_imtgr$art_i = 0, $art_objtrbanzn$art_obj = item.subs, $art_chyvciyg$art_c = $art_objtrbanzn$art_obj.length; $art_imtgr$art_i < $art_chyvciyg$art_c; $art_imtgr$art_i++) {        var sub = $art_objtrbanzn$art_obj[$art_imtgr$art_i]%>';
-        for (var $art_imtgr$art_i = 0, $art_objtrbanzn$art_obj = item.subs, $art_chyvciyg$art_c = $art_objtrbanzn$art_obj.length; $art_imtgr$art_i < $art_chyvciyg$art_c; $art_imtgr$art_i++) {
-            var sub = $art_objtrbanzn$art_obj[$art_imtgr$art_i];
+        $expr = '<%for (var $art_ilqayeqq$art_i = 0, $art_objlldmzjh$art_obj = item.subs, $art_czcds$art_c = $art_objlldmzjh$art_obj.length; $art_ilqayeqq$art_i < $art_czcds$art_c; $art_ilqayeqq$art_i++) {        var sub = $art_objlldmzjh$art_obj[$art_ilqayeqq$art_i]%>';
+        for (var $art_ilqayeqq$art_i = 0, $art_objlldmzjh$art_obj = item.subs, $art_czcds$art_c = $art_objlldmzjh$art_obj.length; $art_ilqayeqq$art_i < $art_czcds$art_c; $art_ilqayeqq$art_i++) {
+            var sub = $art_objlldmzjh$art_obj[$art_ilqayeqq$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 23;
             $art = 'if (sub.path == path)';
@@ -351,6 +351,10 @@ catch (ex) {
                     }, {
                         name: '操作项在同一行',
                         path: '/table/index4',
+                        icon: '&#xe7b5;'
+                    }, {
+                        name: '筛选项同表头一起吸顶',
+                        path: '/table/index12',
                         icon: '&#xe7b5;'
                     }, {
                         name: '指标排序',

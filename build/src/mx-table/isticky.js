@@ -6,8 +6,6 @@
 define("mx-table/isticky",["magix","$"],(require,exports,module)=>{
 /*Magix,$*/
 
-"use strict";
-exports.__esModule = true;
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({

@@ -3,13 +3,13 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-popover/__test__/12",["magix","__test__/example","$"],(require,exports,module)=>{
-/*Magix,Base,$*/
-
+define("mx-table/__test__/index12",["magix","$","mx-title/second","./17"],(require,exports,module)=>{
+/*Magix,$*/
+require("mx-title/second");
+require("./17");
 var Magix = require("magix");
-var Base = require("__test__/example");
 var $ = require("$");
-module.exports = Base.extend({
+module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
     var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
@@ -22,18 +22,20 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryb$:a" class="_zs_gallery___test___layout_-example"><div class="_zs_gallery___test___layout_-eg-content"><div class="mb10">zoom不会影响CSSOM，transform会影响部分，所以zoom定位错误，transform正确</div>Todo</div></div>';
+    $p += '<div mxs="_zs_gallerydG:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerydG:b" mx-view="mx-table/__test__/17"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
     if ($art)
         msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
     msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-popover/__test__/12.html';
+    msg += $expr + '\r\n\tat file:mx-table/__test__/index12.html';
     throw msg;
 } return $p; },
     render: function () {
-        this.updater.digest();
+        this.updater.digest({
+            viewId: this.id
+        });
     }
 });
 
