@@ -59,9 +59,9 @@ module.exports = Magix.View.extend({
     $line = 14;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_irtynksm$art_i = 0, $art_cyygjhjpdp$art_c = list.length; $art_irtynksm$art_i < $art_cyygjhjpdp$art_c; $art_irtynksm$art_i++) {    var item = list[$art_irtynksm$art_i]%>';
-    for (var $art_irtynksm$art_i = 0, $art_cyygjhjpdp$art_c = list.length; $art_irtynksm$art_i < $art_cyygjhjpdp$art_c; $art_irtynksm$art_i++) {
-        var item = list[$art_irtynksm$art_i];
+    $expr = '<%for (var $art_imgubskufl$art_i = 0, $art_cgrydcb$art_c = list.length; $art_imgubskufl$art_i < $art_cgrydcb$art_c; $art_imgubskufl$art_i++) {    var item = list[$art_imgubskufl$art_i]%>';
+    for (var $art_imgubskufl$art_i = 0, $art_cgrydcb$art_c = list.length; $art_imgubskufl$art_i < $art_cgrydcb$art_c; $art_imgubskufl$art_i++) {
+        var item = list[$art_imgubskufl$art_i];
         $p += ' ';
         $line = 15;
         $art = 'if item.name';
@@ -102,9 +102,9 @@ module.exports = Magix.View.extend({
         $line = 22;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_izbxuxcuvn$art_i = 0, $art_objdtodul$art_obj = item.subs, $art_cfesztvrj$art_c = $art_objdtodul$art_obj.length; $art_izbxuxcuvn$art_i < $art_cfesztvrj$art_c; $art_izbxuxcuvn$art_i++) {        var sub = $art_objdtodul$art_obj[$art_izbxuxcuvn$art_i]%>';
-        for (var $art_izbxuxcuvn$art_i = 0, $art_objdtodul$art_obj = item.subs, $art_cfesztvrj$art_c = $art_objdtodul$art_obj.length; $art_izbxuxcuvn$art_i < $art_cfesztvrj$art_c; $art_izbxuxcuvn$art_i++) {
-            var sub = $art_objdtodul$art_obj[$art_izbxuxcuvn$art_i];
+        $expr = '<%for (var $art_imtgr$art_i = 0, $art_objtrbanzn$art_obj = item.subs, $art_chyvciyg$art_c = $art_objtrbanzn$art_obj.length; $art_imtgr$art_i < $art_chyvciyg$art_c; $art_imtgr$art_i++) {        var sub = $art_objtrbanzn$art_obj[$art_imtgr$art_i]%>';
+        for (var $art_imtgr$art_i = 0, $art_objtrbanzn$art_obj = item.subs, $art_chyvciyg$art_c = $art_objtrbanzn$art_obj.length; $art_imtgr$art_i < $art_chyvciyg$art_c; $art_imtgr$art_i++) {
+            var sub = $art_objtrbanzn$art_obj[$art_imtgr$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 23;
             $art = 'if (sub.path == path)';

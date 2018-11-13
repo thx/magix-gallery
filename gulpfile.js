@@ -107,21 +107,6 @@ gulp.task('turnOffDebug', () => {
     });
 });
 
-gulp.task('test', () => {
-    return gulp.src('./lib/*.js')
-        .pipe(terser({
-            compress: {
-                drop_console: true,
-                drop_debugger: true,
-                global_defs: {
-                    DEBUG: false
-                }
-            }
-        }))
-        .pipe(gulp.dest('./build/'));
-});
-
-
 gulp.task('compress', ['turnOffDebug', 'combine'], () => {
     return gulp.src('./build/src/**/*.js')
         .pipe(terser({
