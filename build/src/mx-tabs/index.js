@@ -40,9 +40,9 @@ module.exports = Base.extend({
         $line = 3;
         $art = 'each list as item';
         ;
-        $expr = '<%for (var $art_ihhqbrzro$art_i = 0, $art_cxksqiqyyl$art_c = list.length; $art_ihhqbrzro$art_i < $art_cxksqiqyyl$art_c; $art_ihhqbrzro$art_i++) {        var item = list[$art_ihhqbrzro$art_i]%>';
-        for (var $art_ihhqbrzro$art_i = 0, $art_cxksqiqyyl$art_c = list.length; $art_ihhqbrzro$art_i < $art_cxksqiqyyl$art_c; $art_ihhqbrzro$art_i++) {
-            var item = list[$art_ihhqbrzro$art_i];
+        $expr = '<%for (var $art_imqrboavufi$art_i = 0, $art_cuztktjb$art_c = list.length; $art_imqrboavufi$art_i < $art_cuztktjb$art_c; $art_imqrboavufi$art_i++) {        var item = list[$art_imqrboavufi$art_i]%>';
+        for (var $art_imqrboavufi$art_i = 0, $art_cuztktjb$art_c = list.length; $art_imqrboavufi$art_i < $art_cuztktjb$art_c; $art_imqrboavufi$art_i++) {
+            var item = list[$art_imqrboavufi$art_i];
             $p += '<a mx-mouseover="' + $viewId + '@{over}({value:\'';
             $line = 4;
             $art = '=item.value';
@@ -134,9 +134,9 @@ module.exports = Base.extend({
         $line = 23;
         $art = 'each list as item';
         ;
-        $expr = '<%for (var $art_ivdwxmaj$art_i = 0, $art_caxvlczpgnh$art_c = list.length; $art_ivdwxmaj$art_i < $art_caxvlczpgnh$art_c; $art_ivdwxmaj$art_i++) {        var item = list[$art_ivdwxmaj$art_i]%>';
-        for (var $art_ivdwxmaj$art_i = 0, $art_caxvlczpgnh$art_c = list.length; $art_ivdwxmaj$art_i < $art_caxvlczpgnh$art_c; $art_ivdwxmaj$art_i++) {
-            var item = list[$art_ivdwxmaj$art_i];
+        $expr = '<%for (var $art_izpltjpebel$art_i = 0, $art_ctawvnwypo$art_c = list.length; $art_izpltjpebel$art_i < $art_ctawvnwypo$art_c; $art_izpltjpebel$art_i++) {        var item = list[$art_izpltjpebel$art_i]%>';
+        for (var $art_izpltjpebel$art_i = 0, $art_ctawvnwypo$art_c = list.length; $art_izpltjpebel$art_i < $art_ctawvnwypo$art_c; $art_izpltjpebel$art_i++) {
+            var item = list[$art_izpltjpebel$art_i];
             $p += '<a href="javascript:;" ';
             $line = 24;
             $art = 'if !disabled';

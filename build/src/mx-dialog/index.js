@@ -34,7 +34,7 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', closable = $$.closable, viewId = $$.viewId; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', closable = $$.closable, cntId = $$.cntId; var $expr, $art, $line; try {
     $line = 1;
     $art = 'if closable';
     ;
@@ -48,7 +48,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<div class="_zs_gallery_mx-dialog_index_-dialog-content" id="cnt_' + ($expr = '<%=viewId%>', $e(viewId)) + '"><div mxs="_zs_galleryai:a" class="loading _zs_gallery_mx-dialog_index_-loading-ext"><span class="loading-anim"></span></div></div>';
+    $p += '<div class="_zs_gallery_mx-dialog_index_-dialog-content" id="' + ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryai:a" class="loading _zs_gallery_mx-dialog_index_-loading-ext"><span class="loading-anim"></span></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -72,7 +72,7 @@ catch (ex) {
             extra.closable = true;
         }
         me.updater.set(Magix.mix({
-            viewId: me.id
+            cntId: 'cnt_' + me.id
         }, extra));
     },
     render: function () {
@@ -82,7 +82,7 @@ catch (ex) {
         updater.digest();
         setTimeout(me.wrapAsync(function () {
             var wrapper = $('#wrapper_' + me.id);
-            var cntId = 'cnt_' + me.id;
+            var cntId = data.cntId;
             wrapper.addClass('_zs_gallery_mx-dialog_index_-wrapper-out');
             var mask = $('#mask_' + me.id);
             if (mask.length > 0) {

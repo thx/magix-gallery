@@ -35,7 +35,7 @@ module.exports = Magix.View.extend({
             extra.closable = true;
         }
         me.updater.set(Magix.mix({
-            viewId: me.id
+            cntId: 'cnt_' + me.id
         }, extra));
 
     },
@@ -47,7 +47,7 @@ module.exports = Magix.View.extend({
 
         setTimeout(me.wrapAsync(() => {
             let wrapper = $('#wrapper_' + me.id);
-            let cntId = 'cnt_' + me.id;
+            let cntId = data.cntId;
             wrapper.addClass('@index.less:wrapper-out');
 
             let mask = $('#mask_' + me.id);
