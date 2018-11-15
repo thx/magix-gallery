@@ -29,18 +29,22 @@ module.exports = Base.extend({
         this.updater.digest({
             fields,
             custom: false, //当前是为默认数据
-            defaults: ['cost', 'impression', 'click'],
-            customs: [],
+            customs: ['cost', 'click', 'impression'],
+            defaults: ['cost', 'click'],
             map
         });
     },
     'change<change>'(e){
-        // defaults：默认指标
-        // custom：true or false，是否为自定义指标
-        // customs：用户自定义的指标
+        // e.custom：true or false，是否为自定义指标
+        // e.customs：用户自定义的指标，当前用的的配置
+        // e.defaults：默认指标，不变
+        // e.triggerType：
+        //      btn-switch 切换自定义和默认设置
+        //      dialog-setting 浮层编辑指标
         this.updater.digest({
             custom: e.custom,
-            customs: e.customs
+            customs: e.customs,
+            triggerType: e.triggerType
         });
     }
 });

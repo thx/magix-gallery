@@ -3,7 +3,7 @@ let Base = require('__test__/example');
 let $ = require('$');
 
 module.exports = Base.extend({
-    tmpl: '@3.html',
+    tmpl: '@5.html',
     render() {
         let fields = [{
             text: '消耗', value: 'cost', tip: '提示文案'

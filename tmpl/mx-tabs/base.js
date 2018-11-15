@@ -50,7 +50,8 @@ module.exports = Magix.View.extend({
             list: that['@{data.list}'],
             selected: that['@{data.selected}'],
             left: 0,
-            width: 0
+            width: 0,
+            spm: that['@{owner.node}'].attr('data-spm-click') || ''
         });
 
         //如果数据没变化,则设置新的数据后再次检测

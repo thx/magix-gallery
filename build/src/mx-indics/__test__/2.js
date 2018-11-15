@@ -27,7 +27,7 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', fields = $$.fields, defaults = $$.defaults, custom = $$.custom, customs = $$.customs, map = $$.map, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', fields = $$.fields, defaults = $$.defaults, custom = $$.custom, customs = $$.customs, custom1 = $$.custom1, selected = $$.selected, map = $$.map, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_gallerybw:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybw:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerybw:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl">不限制可选择个数 + 指标可排序</div></div><div mxv mxa="_zs_gallerybw:b" class="mb20"><div mxv="fields,defaults,customs" mx-change="' + $viewId + 'change()" mx-view="mx-indics/index?fields=';
     $line = 9;
     $art = '@fields';
@@ -46,18 +46,18 @@ module.exports = Base.extend({
     ;
     $p += ($expr = '<%@customs%>', $i($$ref, customs)) + '&sortable=true"></div></div>';
     $line = 16;
-    $art = 'if custom';
+    $art = 'if custom1';
     ;
-    $expr = '<%if (custom) {%>';
-    if (custom) {
+    $expr = '<%if (custom1) {%>';
+    if (custom1) {
         ;
         $p += '<div mxa="_zs_gallerybw:c" class="clearfix mb10 pr lh22" style="padding-left: 120px"><span mxs="_zs_gallerybw:a" style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>自定义指标：</span>';
         $line = 19;
-        $art = 'each customs as key';
+        $art = 'each selected as key';
         ;
-        $expr = '<%for (var $art_iwpobewtx$art_i = 0, $art_cufnhuqev$art_c = customs.length; $art_iwpobewtx$art_i < $art_cufnhuqev$art_c; $art_iwpobewtx$art_i++) {        var key = customs[$art_iwpobewtx$art_i]%>';
-        for (var $art_iwpobewtx$art_i = 0, $art_cufnhuqev$art_c = customs.length; $art_iwpobewtx$art_i < $art_cufnhuqev$art_c; $art_iwpobewtx$art_i++) {
-            var key = customs[$art_iwpobewtx$art_i];
+        $expr = '<%for (var $art_inkhunkwew$art_i = 0, $art_chdecnxrlg$art_c = selected.length; $art_inkhunkwew$art_i < $art_chdecnxrlg$art_c; $art_inkhunkwew$art_i++) {        var key = selected[$art_inkhunkwew$art_i]%>';
+        for (var $art_inkhunkwew$art_i = 0, $art_chdecnxrlg$art_c = selected.length; $art_inkhunkwew$art_i < $art_chdecnxrlg$art_c; $art_inkhunkwew$art_i++) {
+            var key = selected[$art_inkhunkwew$art_i];
             $p += '<span mxa="_zs_gallerybw:d" class="fl mr10">';
             $line = 20;
             $art = '=map[key]';
@@ -85,9 +85,9 @@ module.exports = Base.extend({
         $line = 26;
         $art = 'each defaults as key';
         ;
-        $expr = '<%for (var $art_isjzwyi$art_i = 0, $art_clphdaoiq$art_c = defaults.length; $art_isjzwyi$art_i < $art_clphdaoiq$art_c; $art_isjzwyi$art_i++) {        var key = defaults[$art_isjzwyi$art_i]%>';
-        for (var $art_isjzwyi$art_i = 0, $art_clphdaoiq$art_c = defaults.length; $art_isjzwyi$art_i < $art_clphdaoiq$art_c; $art_isjzwyi$art_i++) {
-            var key = defaults[$art_isjzwyi$art_i];
+        $expr = '<%for (var $art_iazqmnyh$art_i = 0, $art_cflywovft$art_c = defaults.length; $art_iazqmnyh$art_i < $art_cflywovft$art_c; $art_iazqmnyh$art_i++) {        var key = defaults[$art_iazqmnyh$art_i]%>';
+        for (var $art_iazqmnyh$art_i = 0, $art_cflywovft$art_c = defaults.length; $art_iazqmnyh$art_i < $art_cflywovft$art_c; $art_iazqmnyh$art_i++) {
+            var key = defaults[$art_iazqmnyh$art_i];
             $p += '<span mxa="_zs_gallerybw:f" class="fl mr10">';
             $line = 27;
             $art = '=map[key]';
@@ -165,8 +165,8 @@ catch (ex) {
         // custom：true or false，是否为自定义指标
         // customs：用户自定义的指标
         this.updater.digest({
-            custom: e.custom,
-            customs: e.customs
+            custom1: e.custom,
+            selected: e.customs
         });
     }
 });

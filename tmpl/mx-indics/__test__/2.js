@@ -39,8 +39,8 @@ module.exports = Base.extend({
         // custom：true or false，是否为自定义指标
         // customs：用户自定义的指标
         this.updater.digest({
-            custom: e.custom,
-            customs: e.customs
+            custom1: e.custom,
+            selected: e.customs
         });
     }
 });

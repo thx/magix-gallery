@@ -6,16 +6,30 @@
         </div>
         <div class="mb20">
             <mx-indics 
-                fields="{{@fields}}" 
-                defaults="{{@defaults}}"
-                custom="{{=custom}}"
-                customs="{{@customs}}"
+                fields="{{@[{
+                    text: '消耗', value: 'cost', tip: '提示文案'
+                }, {
+                    text: '展现量', value: 'impression'
+                }, {
+                    text: '点击量', value: 'click', 
+                }, {
+                    text: '点击率', value: 'ctr'
+                }, {
+                    text: '平均点击单价', value: 'cpc'
+                }, {
+                    text: '点击转化率', value: 'coverage'
+                }, {
+                    text: '成交笔数', value: 'transaction'
+                }]}}" 
+                defaults="{{@['click', 'ctr', 'coverage']}}"
+                custom="false"
+                customs="{{@['click', 'coverage']}}"
                 mx-change="change()"/>
         </div>
-        {{if custom}}
+        {{if custom1}}
             <div class="clearfix mb10 pr lh22" style="padding-left: 120px">
                 <span style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>自定义指标：</span>
-                {{each customs as key}}
+                {{each customs1 as key}}
                 <span class="fl mr10">{{=map[key]}}（{{=key}}）</span>
                 {{/each}}
             </div>
@@ -37,9 +51,24 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-indics 
-    fields="&#123;&#123;@fields&#125;&#125;" 
-    defaults="&#123;&#123;@defaults&#125;&#125;"
-    custom="&#123;&#123;=custom&#125;&#125;"
-    customs="&#123;&#123;@customs&#125;&#125;"/&gt;</pre>
+    fields="&#123;&#123;@[&#123;
+        text: '消耗', value: 'cost', tip: '提示文案'
+    &#125;, &#123;
+        text: '展现量', value: 'impression'
+    &#125;, &#123;
+        text: '点击量', value: 'click', 
+    &#125;, &#123;
+        text: '点击率', value: 'ctr'
+    &#125;, &#123;
+        text: '平均点击单价', value: 'cpc'
+    &#125;, &#123;
+        text: '点击转化率', value: 'coverage'
+    &#125;, &#123;
+        text: '成交笔数', value: 'transaction'
+    &#125;]&#125;&#125;" 
+    defaults="&#123;&#123;@['click', 'ctr', 'coverage']&#125;&#125;"
+    custom="false"
+    customs="&#123;&#123;@['click', 'coverage']&#125;&#125;"
+    mx-change="change()"/&gt;</pre>
     </div>
 </div>

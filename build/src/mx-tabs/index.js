@@ -29,33 +29,25 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', type = $$.type, list = $$.list, selected = $$.selected, viewId = $$.viewId, left = $$.left, width = $$.width, disabled = $$.disabled; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', type = $$.type, list = $$.list, selected = $$.selected, viewId = $$.viewId, spm = $$.spm, left = $$.left, width = $$.width, disabled = $$.disabled; var $expr, $art, $line; try {
     $line = 1;
     $art = 'if type == \'border\'';
     ;
     $expr = '<%if (type == \'border\') {%>';
     if (type == 'border') {
         ;
-        $p += '<div mxa="_zs_gallerydg:_" class="_zs_gallery_mx-tabs_index_-border clearfix">';
+        $p += '<div mxa="_zs_gallerydh:_" class="_zs_gallery_mx-tabs_index_-border clearfix">';
         $line = 3;
-        $art = 'each list as item';
+        $art = 'each list as item index';
         ;
-        $expr = '<%for (var $art_imqrboavufi$art_i = 0, $art_cuztktjb$art_c = list.length; $art_imqrboavufi$art_i < $art_cuztktjb$art_c; $art_imqrboavufi$art_i++) {        var item = list[$art_imqrboavufi$art_i]%>';
-        for (var $art_imqrboavufi$art_i = 0, $art_cuztktjb$art_c = list.length; $art_imqrboavufi$art_i < $art_cuztktjb$art_c; $art_imqrboavufi$art_i++) {
-            var item = list[$art_imqrboavufi$art_i];
-            $p += '<a mx-mouseover="' + $viewId + '@{over}({value:\'';
-            $line = 4;
-            $art = '=item.value';
-            ;
-            $p += ($expr = '<%=$eq(item.value)%>', $e($eq(item.value))) + '\'})" mx-mouseout="' + $viewId + '@{out}()" class="_zs_gallery_mx-tabs_index_-border-item ';
+        $expr = '<%for (var index = 0, $art_cfqdfsrcdi$art_c = list.length; index < $art_cfqdfsrcdi$art_c; index++) {        var item = list[index]%>';
+        for (var index = 0, $art_cfqdfsrcdi$art_c = list.length; index < $art_cfqdfsrcdi$art_c; index++) {
+            var item = list[index];
+            $p += '<a class="_zs_gallery_mx-tabs_index_-border-item ';
             $line = 4;
             $art = '= (item.value == selected) ? \'selected\' : \'\'';
             ;
-            $p += ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '" mx-click="' + $viewId + '@{select}({item:\'';
-            $line = 4;
-            $art = '@item';
-            ;
-            $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})" href="javascript:;" id="';
+            $p += ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '" href="javascript:;" id="';
             $line = 4;
             $art = '=viewId';
             ;
@@ -63,63 +55,93 @@ module.exports = Base.extend({
             $line = 4;
             $art = '=item.value';
             ;
-            $p += ($expr = '<%=item.value%>', $e(item.value)) + '">';
+            $p += ($expr = '<%=item.value%>', $e(item.value)) + '" mx-mouseover="' + $viewId + '@{over}({value:\'';
             $line = 5;
+            $art = '=item.value';
+            ;
+            $p += ($expr = '<%=$eq(item.value)%>', $e($eq(item.value))) + '\'})" mx-mouseout="' + $viewId + '@{out}()" mx-click="' + $viewId + '@{select}({item:\'';
+            $line = 7;
+            $art = '@item';
+            ;
+            $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})" ';
+            $line = 8;
+            $art = 'if spm';
+            ;
+            $expr = '<%if (spm) {%>';
+            if (spm) {
+                ;
+                $p += ' data-spm-click="';
+                $line = 8;
+                $art = '=spm';
+                ;
+                $p += ($expr = '<%=spm%>', $e(spm)) + '';
+                $line = 8;
+                $art = '=index';
+                ;
+                $p += ($expr = '<%=index%>', $e(index)) + '" ';
+                $line = 8;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '>';
+            $line = 9;
             $art = '=item.text';
             ;
             $p += ($expr = '<%=item.text%>', $e(item.text)) + ' ';
-            $line = 6;
+            $line = 10;
             $art = 'if item.tag';
             ;
             $expr = '<%if (item.tag) {%>';
             if (item.tag) {
                 ;
-                $p += '<span mxa="_zs_gallerydg:a" class="_zs_gallery_mx-tabs_index_-tag"><span mxs="_zs_gallerydg:_" class="_zs_gallery_mx-tabs_index_-tag-arrow"></span><span mxa="_zs_gallerydg:b" class="_zs_gallery_mx-tabs_index_-tag-name">';
-                $line = 9;
+                $p += '<span mxa="_zs_gallerydh:a" class="_zs_gallery_mx-tabs_index_-tag"><span mxs="_zs_gallerydh:_" class="_zs_gallery_mx-tabs_index_-tag-arrow"></span><span mxa="_zs_gallerydh:b" class="_zs_gallery_mx-tabs_index_-tag-name">';
+                $line = 13;
                 $art = '=item.tag';
                 ;
                 $p += ($expr = '<%=item.tag%>', $e(item.tag)) + '</span></span>';
-                $line = 11;
+                $line = 15;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' ';
-            $line = 12;
+            $line = 16;
             $art = 'if item.tips';
             ;
             $expr = '<%if (item.tips) {%>';
             if (item.tips) {
                 ;
                 $p += '<i class="mc-iconfont color-c" mx-view="mx-popover/index?content=';
-                $line = 15;
+                $line = 19;
                 $art = '=item.tips';
                 ;
                 $p += ($expr = '<%!$eu(item.tips)%>', $eu(item.tips)) + '">&#xe629;</i>';
-                $line = 16;
+                $line = 20;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '</a>';
-            $line = 18;
+            $line = 22;
             $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '<span class="_zs_gallery_mx-tabs_index_-underline" style="left: ';
-        $line = 19;
+        $line = 23;
         $art = '=left';
         ;
         $p += ($expr = '<%=left%>', $e(left)) + 'px; width: ';
-        $line = 19;
+        $line = 23;
         $art = '=width';
         ;
         $p += ($expr = '<%=width%>', $e(width)) + 'px;"></span></div>';
-        $line = 21;
+        $line = 25;
         $art = 'else';
         ;
         $expr = '<%}else {%>';
@@ -127,69 +149,91 @@ module.exports = Base.extend({
     else {
         ;
         $p += '<div class="_zs_gallery_mx-tabs_index_-box ';
-        $line = 22;
+        $line = 26;
         $art = '= _zs_gallery_mx-tabs_index_-disabled ? \'disabled\' : \'\'';
         ;
         $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-tabs_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-tabs_index_-disabled' : '')) + '">';
-        $line = 23;
+        $line = 27;
         $art = 'each list as item';
         ;
-        $expr = '<%for (var $art_izpltjpebel$art_i = 0, $art_ctawvnwypo$art_c = list.length; $art_izpltjpebel$art_i < $art_ctawvnwypo$art_c; $art_izpltjpebel$art_i++) {        var item = list[$art_izpltjpebel$art_i]%>';
-        for (var $art_izpltjpebel$art_i = 0, $art_ctawvnwypo$art_c = list.length; $art_izpltjpebel$art_i < $art_ctawvnwypo$art_c; $art_izpltjpebel$art_i++) {
-            var item = list[$art_izpltjpebel$art_i];
+        $expr = '<%for (var $art_ircbojdor$art_i = 0, $art_czbppcdgr$art_c = list.length; $art_ircbojdor$art_i < $art_czbppcdgr$art_c; $art_ircbojdor$art_i++) {        var item = list[$art_ircbojdor$art_i]%>';
+        for (var $art_ircbojdor$art_i = 0, $art_czbppcdgr$art_c = list.length; $art_ircbojdor$art_i < $art_czbppcdgr$art_c; $art_ircbojdor$art_i++) {
+            var item = list[$art_ircbojdor$art_i];
             $p += '<a href="javascript:;" ';
-            $line = 24;
+            $line = 28;
             $art = 'if !disabled';
             ;
             $expr = '<%if (!disabled) {%>';
             if (!disabled) {
                 ;
                 $p += ' mx-click="' + $viewId + '@{select}({item:\'';
-                $line = 24;
+                $line = 28;
                 $art = '@item';
                 ;
                 $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})" ';
-                $line = 24;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
-            }
-            ;
-            $p += ' class="_zs_gallery_mx-tabs_index_-box-item ';
-            $line = 24;
-            $art = '= (item.value == selected) ? \'selected\' : \'\'';
-            ;
-            $p += ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '">';
-            $line = 25;
-            $art = '=item.text';
-            ;
-            $p += ($expr = '<%=item.text%>', $e(item.text)) + ' ';
-            $line = 26;
-            $art = 'if item.tag';
-            ;
-            $expr = '<%if (item.tag) {%>';
-            if (item.tag) {
-                ;
-                $p += '<span mxa="_zs_gallerydg:c" class="_zs_gallery_mx-tabs_index_-tag">';
-                $line = 27;
-                $art = '=item.tag';
-                ;
-                $p += ($expr = '<%=item.tag%>', $e(item.tag)) + '</span>';
                 $line = 28;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
-            $p += '</a>';
+            $p += ' class="_zs_gallery_mx-tabs_index_-box-item ';
+            $line = 28;
+            $art = '= (item.value == selected) ? \'selected\' : \'\'';
+            ;
+            $p += ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '" ';
+            $line = 29;
+            $art = 'if spm';
+            ;
+            $expr = '<%if (spm) {%>';
+            if (spm) {
+                ;
+                $p += ' data-spm-click="';
+                $line = 29;
+                $art = '=spm';
+                ;
+                $p += ($expr = '<%=spm%>', $e(spm)) + '';
+                $line = 29;
+                $art = '=index';
+                ;
+                $p += ($expr = '<%=index%>', $e(index)) + '" ';
+                $line = 29;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '>';
             $line = 30;
+            $art = '=item.text';
+            ;
+            $p += ($expr = '<%=item.text%>', $e(item.text)) + ' ';
+            $line = 31;
+            $art = 'if item.tag';
+            ;
+            $expr = '<%if (item.tag) {%>';
+            if (item.tag) {
+                ;
+                $p += '<span mxa="_zs_gallerydh:c" class="_zs_gallery_mx-tabs_index_-tag">';
+                $line = 32;
+                $art = '=item.tag';
+                ;
+                $p += ($expr = '<%=item.tag%>', $e(item.tag)) + '</span>';
+                $line = 33;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '</a>';
+            $line = 35;
             $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</div>';
-        $line = 32;
+        $line = 37;
         $art = '/if';
         ;
         $expr = '<%}%>';

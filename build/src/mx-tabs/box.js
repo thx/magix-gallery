@@ -28,18 +28,18 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', disabled = $$.disabled, list = $$.list, selected = $$.selected; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', disabled = $$.disabled, list = $$.list, selected = $$.selected, spm = $$.spm; var $expr, $art, $line; try {
     $p += '<div class="_zs_gallery_mx-tabs_index_-box ';
     $line = 1;
     $art = '= _zs_gallery_mx-tabs_index_-disabled ? \'disabled\' : \'\'';
     ;
     $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-tabs_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-tabs_index_-disabled' : '')) + '">';
     $line = 2;
-    $art = 'each list as item';
+    $art = 'each list as item index';
     ;
-    $expr = '<%for (var $art_iwjtakvt$art_i = 0, $art_ceyoxztl$art_c = list.length; $art_iwjtakvt$art_i < $art_ceyoxztl$art_c; $art_iwjtakvt$art_i++) {    var item = list[$art_iwjtakvt$art_i]%>';
-    for (var $art_iwjtakvt$art_i = 0, $art_ceyoxztl$art_c = list.length; $art_iwjtakvt$art_i < $art_ceyoxztl$art_c; $art_iwjtakvt$art_i++) {
-        var item = list[$art_iwjtakvt$art_i];
+    $expr = '<%for (var index = 0, $art_cscew$art_c = list.length; index < $art_cscew$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cscew$art_c = list.length; index < $art_cscew$art_c; index++) {
+        var item = list[index];
         $p += '<a href="javascript:;" ';
         $line = 3;
         $art = 'if !disabled';
@@ -62,48 +62,70 @@ module.exports = Base.extend({
         $line = 3;
         $art = '= (item.value == selected) ? \'selected\' : \'\'';
         ;
-        $p += ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '">';
+        $p += ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '" ';
         $line = 4;
+        $art = 'if spm';
+        ;
+        $expr = '<%if (spm) {%>';
+        if (spm) {
+            ;
+            $p += ' data-spm-click="';
+            $line = 4;
+            $art = '=spm';
+            ;
+            $p += ($expr = '<%=spm%>', $e(spm)) + '';
+            $line = 4;
+            $art = '=index';
+            ;
+            $p += ($expr = '<%=index%>', $e(index)) + '" ';
+            $line = 4;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '>';
+        $line = 5;
         $art = '=item.text';
         ;
         $p += ($expr = '<%=item.text%>', $e(item.text)) + ' ';
-        $line = 5;
+        $line = 6;
         $art = 'if item.tag';
         ;
         $expr = '<%if (item.tag) {%>';
         if (item.tag) {
             ;
-            $p += '<span mxa="_zs_gallerydf:_" class="_zs_gallery_mx-tabs_index_-tag">';
-            $line = 6;
+            $p += '<span mxa="_zs_gallerydg:_" class="_zs_gallery_mx-tabs_index_-tag">';
+            $line = 7;
             $art = '=item.tag';
             ;
             $p += ($expr = '<%=item.tag%>', $e(item.tag)) + '</span>';
-            $line = 7;
+            $line = 8;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += ' ';
-        $line = 8;
+        $line = 9;
         $art = 'if item.tips';
         ;
         $expr = '<%if (item.tips) {%>';
         if (item.tips) {
             ;
             $p += '<i class="mc-iconfont color-9 _zs_gallery_mx-tabs_index_-box-tip" mx-view="mx-popover/index?content=';
-            $line = 11;
+            $line = 12;
             $art = '=item.tips';
             ;
             $p += ($expr = '<%!$eu(item.tips)%>', $eu(item.tips)) + '">&#xe629;</i>';
-            $line = 12;
+            $line = 13;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</a>';
-        $line = 14;
+        $line = 15;
         $art = '/each';
         ;
         $expr = '<%}%>';

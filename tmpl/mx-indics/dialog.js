@@ -23,12 +23,13 @@ module.exports = Magix.View.extend({
         })
 
         // 分组，一行三个
-        let groups = [],
-            gap = 3;
+        let groups = [];
+        let gap = 3;
         let num = Math.ceil(fields.length / gap);
         for (var i = 0; i < num; i++) {
             groups.push(fields.slice(i * gap, (i + 1) * gap));
         }
+
         this.updater.set({
             fields: fields,
             groups: groups,
@@ -41,7 +42,7 @@ module.exports = Magix.View.extend({
     render() {
         this.updater.digest({});
     },
-    'toggle<change>': function(e) {
+    'toggle<change>': function (e) {
         let that = this;
         let checked = e.target.checked;
         let value = e.params.value,
@@ -59,13 +60,13 @@ module.exports = Magix.View.extend({
         let selectedItems = updater.get('selectedItems'),
             sortable = updater.get('sortable');
         if (checked) {
-            if(sortable){
+            if (sortable) {
                 // 可排序的时候在最后添加
                 selectedItems.push({
                     value: value,
                     text: text
                 })
-            }else{
+            } else {
                 // 不可选择时按照列表顺序
                 selectedItems = fields.filter(item => {
                     return item.checked;
@@ -85,7 +86,7 @@ module.exports = Magix.View.extend({
             selectedItems
         });
     },
-    'drag<dragfinish>' (e) {
+    'drag<dragfinish>'(e) {
         // 重排序之后的
         let selectedItems = [];
         let drags = $('#' + this.id + ' .@index.less:drag');
@@ -101,7 +102,7 @@ module.exports = Magix.View.extend({
         });
     },
 
-    'clear<click>' () {
+    'clear<click>'() {
         let that = this;
         let updater = that.updater;
 
@@ -116,7 +117,7 @@ module.exports = Magix.View.extend({
         });
     },
 
-    'submit<click>' (event) {
+    'submit<click>'(event) {
         event.preventDefault();
         let selectedItems = this.updater.get('selectedItems');
         if (selectedItems.length == 0) {
@@ -140,7 +141,7 @@ module.exports = Magix.View.extend({
         }
 
     },
-    'cancel<click>' (event) {
+    'cancel<click>'(event) {
         event.preventDefault();
         let viewOptions = this.viewOptions;
         if (viewOptions.dialog) {

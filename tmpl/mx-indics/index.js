@@ -16,7 +16,17 @@ module.exports = Magix.View.extend({
         let that = this;
         let altered = that.updater.altered();
 
-        let fields = e.fields || [];
+        let textKey = e.textKey || 'text',
+            valueKey = e.valueKey || 'value';
+        let fields = [];
+        (e.fields || []).forEach(item => {
+            fields.push({
+                text: item[textKey],
+                value: item[valueKey],
+                tip: item.tip || ''
+            })
+        })
+
         let customs = (e.customs || []).map(v => {
             return '' + v;
         });
@@ -80,14 +90,15 @@ module.exports = Magix.View.extend({
         that.updater.digest({
             type
         });
-        that['@{fire}']();
+        that['@{fire}']('btn-switch');
     },
-    '@{fire}'() {
+    '@{fire}'(triggerType) {
         let that = this;
         let type = that.updater.get('type'),
             map = that.updater.get('map');
         $('#' + that.id).trigger({
             type: 'change',
+            triggerType,
             defaults: map[1].list,
             custom: (type == 2), //是否为自定义指标
             customs: map[2].list
@@ -122,7 +133,7 @@ module.exports = Magix.View.extend({
                 type,
                 map
             });
-            that['@{fire}']();
+            that['@{fire}']('dialog-setting');
         };
 
         that.mxDialog('@./dialog', viewOptions, dialogOptions);

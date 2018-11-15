@@ -6,11 +6,14 @@
             name: '上限 + 排序',
             key: viewId + '_demo1'
         },{
-            name: 'hover展开',
+            name: '不限制 + 不排序',
+            key: viewId + '_demo3'
+        },{
+            name: '不限制 + 排序',
             key: viewId + '_demo2'
         },{
-            name: '带搜索框',
-            key: viewId + '_demo3'
+            name: '自定义key',
+            key: viewId + '_demo5'
         }]
     }, {
         name: 'API',
@@ -20,10 +23,11 @@
     <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
     <div class="clearfix mb20">
         <div class="half">
+            <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
             <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
         </div>
         <div class="half">
-            <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
+            <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
         </div>
     </div>
     

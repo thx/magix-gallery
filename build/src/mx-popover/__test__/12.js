@@ -22,7 +22,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryb$:_" class="_zs_gallery___test___layout_-example"><div class="_zs_gallery___test___layout_-eg-content"><div class="mb10">zoom不会影响CSSOM，transform会影响部分，所以zoom定位错误，transform正确</div>Todo</div></div>';
+    $p += '<div mxs="_zs_galleryb%:_" class="_zs_gallery___test___layout_-example"><div class="_zs_gallery___test___layout_-eg-content"><div class="mb10">zoom不会影响CSSOM，transform会影响部分，所以zoom定位错误，transform正确</div>Todo</div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

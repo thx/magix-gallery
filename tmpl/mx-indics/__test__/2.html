@@ -13,10 +13,10 @@
                 sortable="true" 
                 mx-change="change()"/>
         </div>
-        {{if custom}}
+        {{if custom1}}
             <div class="clearfix mb10 pr lh22" style="padding-left: 120px">
                 <span style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>自定义指标：</span>
-                {{each customs as key}}
+                {{each selected as key}}
                 <span class="fl mr10">{{=map[key]}}（{{=key}}）</span>
                 {{/each}}
             </div>
