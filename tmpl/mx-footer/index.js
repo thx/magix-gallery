@@ -1,6 +1,7 @@
 let Magix = require('magix');
 let Mustache = require('@../mx-mustache/index');
 let $ = require('$');
+let Data = require('@../mx-header/data');
 Magix.applyStyle('@index.less');
 
 module.exports = Magix.View.extend({
@@ -18,6 +19,18 @@ module.exports = Magix.View.extend({
         let me = this;
         let needProducts = me['@{need.products}'];
 
+        let products = [];
+        if(needProducts){
+            Data.products.forEach(item => {
+                item.seconds.forEach(sec => {
+                    if(!sec.title){
+                        sec.title = item.title;
+                    }
+                })
+                products = products.concat(item.seconds);
+            })
+        }
+
         let simple = me['@{mode.simple}'];
         let alimamaReg = /alimama\.(com|net)/i;
         let tanxReg = /tanx\.(com|net)/i;
@@ -32,73 +45,21 @@ module.exports = Magix.View.extend({
         } else {
             alimama = true;
         }
+
+        let year = (new Date()).getFullYear();
+
         let info = {
             simple: simple,
             alimama: alimama,
             taobao: taobao,
-            tanx: tanx
+            tanx: tanx,
+            products,
+            len: products.length,
+            width: me['@{products.width}'],
+            dark: me['@{ui.dark}'],
+            year
         }
 
-        let models = [me.getFooter(info)];
-        if (needProducts) {
-            models.push(me.getProducts());
-        }
-
-        Promise.all(models).then(([footerHtml, products]) => {
-            products = products || [];
-            me.updater.digest({
-                products,
-                len: products.length,
-                footerHtml,
-                width: me['@{products.width}'],
-                dark: me['@{ui.dark}']
-            })
-        });
-    },
-
-    getFooter(info) {
-        return new Promise((resolve) => {
-            $.ajax({
-                url: '//mos.m.taobao.com/union/jsonp/footer',
-                dataType: 'jsonp',
-                jsonp: 'callback',
-                cache: true,
-                success: function (resp) {
-                    resolve(Mustache.render(resp.html, info));
-                },
-                error: function (xhr) {
-                    resolve('');
-                }
-            });
-        })
-    },
-
-    getProducts() {
-        return new Promise((resolve) => {
-            $.ajax({
-                url: '//mos.m.taobao.com/zuanshi/jsonp_201805231426009',
-                dataType: 'jsonp',
-                jsonp: 'callback',
-                cache: true,
-                success: function (resp, status) {
-                    let list = resp.list || [];
-                    let products = [];
-                    list.forEach(item => {
-                        item.seconds.forEach(sec => {
-                            if(!sec.title){
-                                sec.title = item.title;
-                            }
-                        })
-                        products = products.concat(item.seconds);
-                    })
-                    resolve(products);
-                },
-                error: function (xhr) {
-                    // 解耦异常
-                    resolve([]);
-                }
-            });
-        })
+        me.updater.digest(info);
     }
-
 });

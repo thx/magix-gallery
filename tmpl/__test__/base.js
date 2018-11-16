@@ -334,7 +334,6 @@ module.exports = Magix.View.extend({
             name: '业务组件',
             subs: [{
                 name: '阿里妈妈站点吊头',
-                tip: '产品+学习与支持<a target="_blank" class="link-brand" href="//alp.alibaba-inc.com/#!/page/jsonp-editor/index?id=1375248">配置地址</a>',
                 path: '/header/index',
                 icon: '&#xe780;'
             }, {

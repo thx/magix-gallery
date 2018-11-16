@@ -210,7 +210,7 @@ module.exports = {
 
         val = $.trim(val);
         if (val && rule) {
-            if ((val.indexOf('.') != val.lastIndexOf('.')) || (val.indexOf('.') == (val.length - 1))) { 
+            if ((val.indexOf('.') != val.lastIndexOf('.')) || (val.indexOf('.') == (val.length - 1))) {
                 //多个.
                 // 最后一个是点
                 valid = false;
@@ -367,9 +367,9 @@ module.exports = {
         // blength: [10, 20]
         let valid = true,
             tip = I18n['form.char.between'];
-        
+
         val = $.trim(val);
-        if(val){
+        if (val) {
             let min = rule[0],
                 max = rule[1],
                 current = ByteLen(val);
@@ -517,11 +517,11 @@ module.exports = {
 
     range(val, rule) {
         // 数字范围
-        // range: [2,10]
+        // range: [2,10,自定义提示]
         let valid = true;
-        let tip = I18n['form.check.range'];
         let min = rule[0],
             max = rule[1];
+        let tip = rule[2] || I18n['form.check.range'];
 
         val = parseFloat(val);
         if (isNaN(val)) {

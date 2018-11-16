@@ -10,7 +10,7 @@
             <dt>{{=p.title}}</dt>
             {{each p.thirds as t}}
             <dd>
-                <a href="{{=t.link}}" target="_blank" rel="noopener noreferrer">{{=t.name}}</a>
+                <a href="{{=t.link}}" class="line-link" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer">{{=t.name}}</a>
             </dd>
             {{/each}}
         </dl>
@@ -23,6 +23,68 @@
     </div>
 </div>
 {{/if}}
-<div class="custom {{if dark}} white {{/if}}">
-    {{!footerHtml}}
+<div class="footer {{if dark}} white {{/if}}">
+    <div class="line">
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com/home/about-1.htm">联系客服</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//open.taobao.com/">开放平台</a>
+        {{if tanx}}
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//tanx.com/web/opt.html">隐私权保护</a>
+        {{/if}}
+        {{if taobao}}
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="https://terms.alicdn.com/legal-agreement/terms/suit_bu1_ali_mama_division/suit_bu1_ali_mama_division201709111812_13128.html">法律声明</a>
+        {{/if}}
+        {{if alimama}}
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="https://terms.alicdn.com/legal-agreement/terms/suit_bu1_ali_mama_division/suit_bu1_ali_mama_division201709111812_13128.html">法律声明</a>
+        {{/if}}
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com/home/about-4.htm">意见反馈</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//jubao.alibaba.com">廉正举报</a>
+        {{if tanx}}
+        <span class="line-text">Tanx.com版权所有</span>
+        <a class="line-link" target='_blank' href='http://www.miibeian.gov.cn'>浙ICP备09109183号-10</a>
+        {{/if}}
+        {{if taobao}}
+        <span class="line-text">Taobao.com版权所有 2003-{{=year}}</span>
+        <a class="line-link" target='_blank' href='http://www.miibeian.gov.cn'>ICP证：浙B2-20080224-1</a>
+        {{/if}}
+        {{if alimama}}
+        <span class="line-text">阿里妈妈版权所有 2007-{{=year}}</span>
+        <a class="line-link" target='_blank' href='http://www.miibeian.gov.cn'>ICP证：浙B2-20070195</a>
+        {{/if}}
+    </div>
+    {{if !simple}}
+    <div class="line gap-line">
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="http://www.alibabagroup.com/cn/global/home">阿里巴巴集团</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.taobao.com">淘宝网</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.tmall.com">天猫</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//ju.taobao.com">聚划算</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.aliexpress.com">全球速卖通</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.alibaba.com">阿里巴巴国际交易市场</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.1688.com">1688</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com">阿里妈妈</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.fliggy.com">飞猪</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.aliyun.com">阿里云计算</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="http://www.alios.cn"> AliOS</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//aliqin.tmall.com">阿里通信</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="http://www.autonavi.com/">高德</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="http://www.uc.cn/">UC</a>
+    </div>
+    <div class="line gap-line">
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.umeng.com/">友盟</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.xiami.com">虾米</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.alibabaplanet.com">阿里星球</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.dingtalk.com/?lwfrom=20150130163937547">钉钉</a>
+        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.alipay.com">支付宝</a>
+    </div>
+    <div class="img-line">
+      <a class="line-link-img" target="_blank" rel="noopener noreferrer" href="http://www.pingpinganan.gov.cn/">
+        <img class="line-img" align="absmiddle" src="//img.alicdn.com/tps/i2/T1C3z7FudfXXcsE9Te-40-42.png" alt="网监局">
+      </a>
+      <a class="line-link-img" target="_blank" rel="noopener noreferrer" href="http://122.224.75.236/wzba/login.do?method=hdurl&doamin=http://www.alimama.com.cn&id=330108000003117&SHID=1223.0AFF_NAME=com.rouger.gs.main.UserInfoAff&AFF_ACTION=qyhzdetail&PAGE_URL=ShowDetail">
+        <img class="line-img" align="absmiddle" src="//img.alicdn.com/tps/i1/T1KRgkFxdXXXaqJHTe-35-42.png">
+      </a>
+      <a class="line-link-img" target="_blank" rel="noopener noreferrer" href="http://www.pingpinganan.gov.cn/">
+        <img class="line-img" align="absmiddle" alt="网监局" src="//img.alicdn.com/tps/i4/T1VVv9FABeXXbtCInf-38-42.png">
+      </a>
+    </div>
+    {{/if}}
 </div>

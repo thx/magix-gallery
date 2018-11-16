@@ -47,9 +47,9 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_itdzceizhobn$art_i = 0, $art_cdpkxhitwf$art_c = stepInfos.length; $art_itdzceizhobn$art_i < $art_cdpkxhitwf$art_c; $art_itdzceizhobn$art_i++) {    var step = stepInfos[$art_itdzceizhobn$art_i]%>';
-    for (var $art_itdzceizhobn$art_i = 0, $art_cdpkxhitwf$art_c = stepInfos.length; $art_itdzceizhobn$art_i < $art_cdpkxhitwf$art_c; $art_itdzceizhobn$art_i++) {
-        var step = stepInfos[$art_itdzceizhobn$art_i];
+    $expr = '<%for (var $art_idydrvvdbc$art_i = 0, $art_cbpigjefu$art_c = stepInfos.length; $art_idydrvvdbc$art_i < $art_cbpigjefu$art_c; $art_idydrvvdbc$art_i++) {    var step = stepInfos[$art_idydrvvdbc$art_i]%>';
+    for (var $art_idydrvvdbc$art_i = 0, $art_cbpigjefu$art_c = stepInfos.length; $art_idydrvvdbc$art_i < $art_cbpigjefu$art_c; $art_idydrvvdbc$art_i++) {
+        var step = stepInfos[$art_idydrvvdbc$art_i];
         $p += '<div class="_zs_gallery_mx-main_index_-main-step ';
         $line = 4;
         $art = 'if (step.index == curStepIndex)';
@@ -143,9 +143,9 @@ module.exports = Magix.View.extend({
             $line = 17;
             $art = 'each step.subs as sub';
             ;
-            $expr = '<%for (var $art_iztutudyjl$art_i = 0, $art_objboy$art_obj = step.subs, $art_cnldugbzt$art_c = $art_objboy$art_obj.length; $art_iztutudyjl$art_i < $art_cnldugbzt$art_c; $art_iztutudyjl$art_i++) {            var sub = $art_objboy$art_obj[$art_iztutudyjl$art_i]%>';
-            for (var $art_iztutudyjl$art_i = 0, $art_objboy$art_obj = step.subs, $art_cnldugbzt$art_c = $art_objboy$art_obj.length; $art_iztutudyjl$art_i < $art_cnldugbzt$art_c; $art_iztutudyjl$art_i++) {
-                var sub = $art_objboy$art_obj[$art_iztutudyjl$art_i];
+            $expr = '<%for (var $art_itxkitbfau$art_i = 0, $art_objjrcksrbi$art_obj = step.subs, $art_ciughybh$art_c = $art_objjrcksrbi$art_obj.length; $art_itxkitbfau$art_i < $art_ciughybh$art_c; $art_itxkitbfau$art_i++) {            var sub = $art_objjrcksrbi$art_obj[$art_itxkitbfau$art_i]%>';
+            for (var $art_itxkitbfau$art_i = 0, $art_objjrcksrbi$art_obj = step.subs, $art_ciughybh$art_c = $art_objjrcksrbi$art_obj.length; $art_itxkitbfau$art_i < $art_ciughybh$art_c; $art_itxkitbfau$art_i++) {
+                var sub = $art_objjrcksrbi$art_obj[$art_itxkitbfau$art_i];
                 $p += '<div mxa="_zs_gallerybX:c" class="_zs_gallery_mx-main_index_-step-sub"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link ';
                 $line = 19;
                 $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))';
@@ -237,9 +237,9 @@ module.exports = Magix.View.extend({
     $line = 42;
     $art = 'each curStepInfo.subs as sub';
     ;
-    $expr = '<%for (var $art_izksdfevw$art_i = 0, $art_objbwxieli$art_obj = curStepInfo.subs, $art_csvuire$art_c = $art_objbwxieli$art_obj.length; $art_izksdfevw$art_i < $art_csvuire$art_c; $art_izksdfevw$art_i++) {    var sub = $art_objbwxieli$art_obj[$art_izksdfevw$art_i]%>';
-    for (var $art_izksdfevw$art_i = 0, $art_objbwxieli$art_obj = curStepInfo.subs, $art_csvuire$art_c = $art_objbwxieli$art_obj.length; $art_izksdfevw$art_i < $art_csvuire$art_c; $art_izksdfevw$art_i++) {
-        var sub = $art_objbwxieli$art_obj[$art_izksdfevw$art_i];
+    $expr = '<%for (var $art_inwdpdwwhq$art_i = 0, $art_objhhvwmqumin$art_obj = curStepInfo.subs, $art_cyfrvmiv$art_c = $art_objhhvwmqumin$art_obj.length; $art_inwdpdwwhq$art_i < $art_cyfrvmiv$art_c; $art_inwdpdwwhq$art_i++) {    var sub = $art_objhhvwmqumin$art_obj[$art_inwdpdwwhq$art_i]%>';
+    for (var $art_inwdpdwwhq$art_i = 0, $art_objhhvwmqumin$art_obj = curStepInfo.subs, $art_cyfrvmiv$art_c = $art_objhhvwmqumin$art_obj.length; $art_inwdpdwwhq$art_i < $art_cyfrvmiv$art_c; $art_inwdpdwwhq$art_i++) {
+        var sub = $art_objhhvwmqumin$art_obj[$art_inwdpdwwhq$art_i];
         $p += '<div mxv class="_zs_gallery_mx-main_index_-content-box" style="padding-right: ';
         $line = 44;
         $art = '=(curStepInfo.rightWidth + 20)';

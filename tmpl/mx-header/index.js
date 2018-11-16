@@ -1,5 +1,6 @@
 let Magix = require('magix');
 let $ = require('$');
+let Data = require('@./data');
 Magix.applyStyle('@index.less');
 
 module.exports = Magix.View.extend({
@@ -56,76 +57,68 @@ module.exports = Magix.View.extend({
         let that = this;
         let data = that.updater.get();
 
-        $.ajax({
-            url: '//mos.m.taobao.com/zuanshi/jsonp_201805231426009',
-            dataType: 'jsonp',
-            jsonp: 'callback',
-            cache: true,
-            success: that.wrapAsync((resp) => {
-                let list = resp.list || [];
-                list.forEach(item => {
-                    let height = 10 * 2 * item.seconds.length;
-                    item.seconds.forEach(second => {
-                        if (second.title) {
-                            height += 30;
-                        }
-                        height += (second.thirds.length * 32);
-                    })
-
-                    item.height = height;
-                    item.showHeight = 0;
-                })
-
-                that.updater.digest({
-                    list,
-                    fixed: false
-                });
-
-                let wrapper = that['@{wrapper}'];
-                    let maxWidth = wrapper.outerWidth(),
-                        wrapperId = data.wrapperId;
-                let scrollFn = () => {
-                    let front = $('#' + that.id + ' .@index.less:front');
-                    let others = $('#' + that.id + ' .@index.less:others');
-                    let scrollTop = wrapper.scrollTop(),
-                        otherHeight = others.outerHeight();
-
-                    let styles = [
-                        'width:' + maxWidth + 'px',
-                        'left: 0'
-                    ];
-                    if (wrapperId) {
-                        styles.push(
-                            'position: absolute',
-                            'top: ' + scrollTop + 'px'
-                        )
-                    } else {
-                        styles.push(
-                            'position: fixed',
-                            'top: 0'
-                        )
-                    }
-                    if (scrollTop > otherHeight) {
-                        that.updater.digest({
-                            fixed: true,
-                            styles: styles.join(';')
-                        })
-                    } else {
-                        that.updater.digest({
-                            fixed: false
-                        })
-                    }
+        let list = Data.products;
+        list.forEach(item => {
+            let height = 10 * 2 * item.seconds.length;
+            item.seconds.forEach(second => {
+                if (second.title) {
+                    height += 30;
                 }
-                if (!that.$init) {
-                    that.$init = 1;
-                    wrapper.on('scroll', scrollFn);
-                    that.on('destroy', () => {
-                        wrapper.off('scroll', scrollFn);
-                    })
-                }
-                scrollFn();
+                height += (second.thirds.length * 32);
             })
+
+            item.height = height;
+            item.showHeight = 0;
+        })
+
+        that.updater.digest({
+            list,
+            fixed: false
         });
+
+        let wrapper = that['@{wrapper}'];
+        let maxWidth = wrapper.outerWidth(),
+            wrapperId = data.wrapperId;
+        let scrollFn = () => {
+            let front = $('#' + that.id + ' .@index.less:front');
+            let others = $('#' + that.id + ' .@index.less:others');
+            let scrollTop = wrapper.scrollTop(),
+                otherHeight = others.outerHeight();
+
+            let styles = [
+                'width:' + maxWidth + 'px',
+                'left: 0'
+            ];
+            if (wrapperId) {
+                styles.push(
+                    'position: absolute',
+                    'top: ' + scrollTop + 'px'
+                )
+            } else {
+                styles.push(
+                    'position: fixed',
+                    'top: 0'
+                )
+            }
+            if (scrollTop > otherHeight) {
+                that.updater.digest({
+                    fixed: true,
+                    styles: styles.join(';')
+                })
+            } else {
+                that.updater.digest({
+                    fixed: false
+                })
+            }
+        }
+        if (!that.$init) {
+            that.$init = 1;
+            wrapper.on('scroll', scrollFn);
+            that.on('destroy', () => {
+                wrapper.off('scroll', scrollFn);
+            })
+        }
+        scrollFn();
     },
     'toggle<mouseover,mouseout>'(event) {
         if (Magix.inside(event.relatedTarget, event.eventTarget)) {

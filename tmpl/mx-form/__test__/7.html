@@ -2,8 +2,15 @@
     <div class="eg-content">
         <div class="clearfix">
             <input class="input mr20 mb20" placeholder="4到8之间的数字" value="{{:number{range:[4, 8]}}}"/>
+            <input class="input mr20 mb20" placeholder="4到8之间的数字" value="{{:number{range:[4, 8, '自定义提示：4~8中间的数字']}}}"/>
+        </div>
+        <div class="clearfix">
             <input class="input mr20 mb20" placeholder="数字不能小于20" value="{{:number{min:20}}}"/>
+            <input class="input mr20 mb20" placeholder="数字不能小于20" value="{{:number{min:[20, '自定义提示：数字不能小于20']}}}"/>
+        </div>
+        <div class="clearfix">
             <input class="input mr20 mb20" placeholder="数字不能大于30" value="{{:number{max:30}}}"/>
+            <input class="input mr20 mb20" placeholder="数字不能大于30" value="{{:number{max:[30, '自定义提示：数字不能大于30']}}}"/>
         </div>
     </div>
     <div class="eg-desc">
@@ -16,8 +23,14 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;input class="input" placeholder="4到8之间的数字" value="&#123;&#123;:number&#123;range:[4, 8]&#125;&#125;&#125;"/&gt;
 
+&lt;input class="input" placeholder="4到8之间的数字" value="&#123;&#123;:number&#123;range:[4, 8, '自定义提示：4~8中间的数字']&#125;&#125;&#125;"/&gt;
+
 &lt;input class="input" placeholder="数字不能小于20" value="&#123;&#123;:number&#123;min:20&#125;&#125;&#125;"/&gt;
 
-&lt;input class="input" placeholder="数字不能大于30" value="&#123;&#123;:number&#123;max:30&#125;&#125;&#125;"/&gt;</pre>
+&lt;input class="input" placeholder="数字不能小于20" value="&#123;&#123;:number&#123;min:[20, '自定义提示：数字不能小于20']&#125;&#125;&#125;"/&gt;
+
+&lt;input class="input" placeholder="数字不能大于30" value="&#123;&#123;:number&#123;max:30&#125;&#125;&#125;"/&gt;
+
+&lt;input class="input" placeholder="数字不能大于30" value="&#123;&#123;:number&#123;max:[30, '自定义提示：数字不能大于30']&#125;&#125;&#125;"/&gt;</pre>
     </div>
 </div>

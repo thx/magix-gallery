@@ -59,9 +59,9 @@ module.exports = Magix.View.extend({
     $line = 14;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ikwgdnjarm$art_i = 0, $art_cotodlvo$art_c = list.length; $art_ikwgdnjarm$art_i < $art_cotodlvo$art_c; $art_ikwgdnjarm$art_i++) {    var item = list[$art_ikwgdnjarm$art_i]%>';
-    for (var $art_ikwgdnjarm$art_i = 0, $art_cotodlvo$art_c = list.length; $art_ikwgdnjarm$art_i < $art_cotodlvo$art_c; $art_ikwgdnjarm$art_i++) {
-        var item = list[$art_ikwgdnjarm$art_i];
+    $expr = '<%for (var $art_imvrxcxbr$art_i = 0, $art_celwjyrpka$art_c = list.length; $art_imvrxcxbr$art_i < $art_celwjyrpka$art_c; $art_imvrxcxbr$art_i++) {    var item = list[$art_imvrxcxbr$art_i]%>';
+    for (var $art_imvrxcxbr$art_i = 0, $art_celwjyrpka$art_c = list.length; $art_imvrxcxbr$art_i < $art_celwjyrpka$art_c; $art_imvrxcxbr$art_i++) {
+        var item = list[$art_imvrxcxbr$art_i];
         $p += ' ';
         $line = 15;
         $art = 'if item.name';
@@ -102,9 +102,9 @@ module.exports = Magix.View.extend({
         $line = 22;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_ilxzpxah$art_i = 0, $art_objfqkqtsi$art_obj = item.subs, $art_cqoodj$art_c = $art_objfqkqtsi$art_obj.length; $art_ilxzpxah$art_i < $art_cqoodj$art_c; $art_ilxzpxah$art_i++) {        var sub = $art_objfqkqtsi$art_obj[$art_ilxzpxah$art_i]%>';
-        for (var $art_ilxzpxah$art_i = 0, $art_objfqkqtsi$art_obj = item.subs, $art_cqoodj$art_c = $art_objfqkqtsi$art_obj.length; $art_ilxzpxah$art_i < $art_cqoodj$art_c; $art_ilxzpxah$art_i++) {
-            var sub = $art_objfqkqtsi$art_obj[$art_ilxzpxah$art_i];
+        $expr = '<%for (var $art_ipprlyb$art_i = 0, $art_objooeyooct$art_obj = item.subs, $art_cxdbcecu$art_c = $art_objooeyooct$art_obj.length; $art_ipprlyb$art_i < $art_cxdbcecu$art_c; $art_ipprlyb$art_i++) {        var sub = $art_objooeyooct$art_obj[$art_ipprlyb$art_i]%>';
+        for (var $art_ipprlyb$art_i = 0, $art_objooeyooct$art_obj = item.subs, $art_cxdbcecu$art_c = $art_objooeyooct$art_obj.length; $art_ipprlyb$art_i < $art_cxdbcecu$art_c; $art_ipprlyb$art_i++) {
+            var sub = $art_objooeyooct$art_obj[$art_ipprlyb$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 23;
             $art = 'if (sub.path == path)';
@@ -580,7 +580,6 @@ catch (ex) {
                 name: '业务组件',
                 subs: [{
                         name: '阿里妈妈站点吊头',
-                        tip: '产品+学习与支持<a target="_blank" class="link-brand" href="//alp.alibaba-inc.com/#!/page/jsonp-editor/index?id=1375248">配置地址</a>',
                         path: '/header/index',
                         icon: '&#xe780;'
                     }, {

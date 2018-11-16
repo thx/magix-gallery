@@ -3,13 +3,14 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-footer/index",["magix","mx-mustache/index","$"],(require,exports,module)=>{
-/*Magix,Mustache,$*/
+define("mx-footer/index",["magix","mx-mustache/index","$","mx-header/data"],(require,exports,module)=>{
+/*Magix,Mustache,$,Data*/
 
 var Magix = require("magix");
 var Mustache = require("mx-mustache/index");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-footer_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-footer_index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-footer_index_-custom #alimama-footer {\n  text-align: center;\n}\n._zs_gallery_mx-footer_index_-custom._zs_gallery_mx-footer_index_-white #alimama-footer a,\n._zs_gallery_mx-footer_index_-custom._zs_gallery_mx-footer_index_-white #alimama-footer span {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products {\n  position: relative;\n  max-width: 100%;\n  margin-bottom: 20px;\n  padding-left: 220px;\n  padding-right: 220px;\n  text-align: center;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo img {\n  width: 110px;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo ._zs_gallery_mx-footer_index_-mama-icon {\n  display: block;\n  width: 110px;\n  margin-top: 5px;\n  font-size: 36px;\n  color: #666;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-qrcode {\n  position: absolute;\n  top: 0;\n  right: 0;\n  line-height: 22px;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-qrcode img {\n  width: 92px;\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-footer_index_-products dl {\n  float: left;\n  font-size: 16px;\n  line-height: 32px;\n}\n._zs_gallery_mx-footer_index_-products dl dt {\n  margin-bottom: 16px;\n  opacity: 0.5;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-logo ._zs_gallery_mx-footer_index_-mama-icon {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dt {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dd a {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dd a:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-qrcode {\n  color: #fff;\n}\n");
+var Data = require("mx-header/data");
+Magix.applyStyle("_zs_gallery_mx-footer_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-footer_index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-footer_index_-footer {\n  padding: 30px 0;\n  text-align: center;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line {\n  line-height: 28px;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link,\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-text {\n  padding: 0 10px;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link,\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:visited,\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:focus,\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:active {\n  color: #999;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:hover {\n  color: #333;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-text {\n  color: #999;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line._zs_gallery_mx-footer_index_-gap-line ._zs_gallery_mx-footer_index_-line-link {\n  position: relative;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line._zs_gallery_mx-footer_index_-gap-line ._zs_gallery_mx-footer_index_-line-link:after {\n  content: '';\n  position: absolute;\n  top: 1px;\n  right: 0;\n  width: 0;\n  height: 12px;\n  border-left: 1px solid #eee;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line._zs_gallery_mx-footer_index_-gap-line ._zs_gallery_mx-footer_index_-line-link:last-child:after {\n  content: none;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-img-line {\n  padding-top: 10px;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-img-line ._zs_gallery_mx-footer_index_-line-link-img {\n  padding: 0 10px;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-img-line ._zs_gallery_mx-footer_index_-line-link-img ._zs_gallery_mx-footer_index_-line-img {\n  transition: opacity 0.25s;\n  opacity: 0.5;\n  border: none;\n  -webkit-filter: grayscale(100%);\n  -moz-filter: grayscale(100%);\n  -ms-filter: grayscale(100%);\n  -o-filter: grayscale(100%);\n  filter: grayscale(100%);\n  -webkit-filter: gray;\n          filter: gray;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-img-line ._zs_gallery_mx-footer_index_-line-link-img:hover ._zs_gallery_mx-footer_index_-line-img {\n  opacity: 1;\n  -webkit-filter: grayscale(0%);\n  -moz-filter: grayscale(0%);\n  -ms-filter: grayscale(0%);\n  -o-filter: grayscale(0%);\n  filter: grayscale(0%);\n  -webkit-filter: none;\n          filter: none;\n}\n._zs_gallery_mx-footer_index_-footer._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link,\n._zs_gallery_mx-footer_index_-footer._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:visited,\n._zs_gallery_mx-footer_index_-footer._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:focus,\n._zs_gallery_mx-footer_index_-footer._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:active {\n  color: #fff;\n  opacity: 0.5;\n}\n._zs_gallery_mx-footer_index_-footer._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:hover {\n  color: #fff;\n  opacity: 1;\n}\n._zs_gallery_mx-footer_index_-footer._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-text {\n  color: #fff;\n  opacity: 0.5;\n}\n._zs_gallery_mx-footer_index_-footer._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-line._zs_gallery_mx-footer_index_-gap-line ._zs_gallery_mx-footer_index_-line-link:after {\n  border-left: 1px solid #fff;\n  opacity: 0.3;\n}\n@media screen and (max-width: 767px) {\n  ._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link,\n  ._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-text {\n    padding: 0 5px;\n  }\n}\n._zs_gallery_mx-footer_index_-products {\n  position: relative;\n  max-width: 100%;\n  margin-bottom: 20px;\n  padding-left: 220px;\n  padding-right: 220px;\n  text-align: center;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo img {\n  width: 110px;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo ._zs_gallery_mx-footer_index_-mama-icon {\n  display: block;\n  width: 110px;\n  margin-top: 5px;\n  font-size: 36px;\n  color: #666;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-qrcode {\n  position: absolute;\n  top: 0;\n  right: 0;\n  line-height: 22px;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-qrcode img {\n  width: 92px;\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-footer_index_-products dl {\n  float: left;\n  font-size: 16px;\n  line-height: 32px;\n}\n._zs_gallery_mx-footer_index_-products dl dt {\n  margin-bottom: 16px;\n  opacity: 0.5;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-logo ._zs_gallery_mx-footer_index_-mama-icon {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dt {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dd a {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dd a:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-qrcode {\n  color: #fff;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -22,7 +23,7 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', len = $$.len, dark = $$.dark, width = $$.width, products = $$.products, footerHtml = $$.footerHtml; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', len = $$.len, dark = $$.dark, width = $$.width, products = $$.products, tanx = $$.tanx, taobao = $$.taobao, alimama = $$.alimama, year = $$.year, simple = $$.simple; var $expr, $art, $line; try {
     $line = 1;
     $art = 'if len > 0';
     ;
@@ -51,9 +52,9 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each products as p';
         ;
-        $expr = '<%for (var $art_ibwczqiruu$art_i = 0, $art_cknjjpi$art_c = products.length; $art_ibwczqiruu$art_i < $art_cknjjpi$art_c; $art_ibwczqiruu$art_i++) {        var p = products[$art_ibwczqiruu$art_i]%>';
-        for (var $art_ibwczqiruu$art_i = 0, $art_cknjjpi$art_c = products.length; $art_ibwczqiruu$art_i < $art_cknjjpi$art_c; $art_ibwczqiruu$art_i++) {
-            var p = products[$art_ibwczqiruu$art_i];
+        $expr = '<%for (var $art_imcxlzbea$art_i = 0, $art_cbewrunsz$art_c = products.length; $art_imcxlzbea$art_i < $art_cbewrunsz$art_c; $art_imcxlzbea$art_i++) {        var p = products[$art_imcxlzbea$art_i]%>';
+        for (var $art_imcxlzbea$art_i = 0, $art_cbewrunsz$art_c = products.length; $art_imcxlzbea$art_i < $art_cbewrunsz$art_c; $art_imcxlzbea$art_i++) {
+            var p = products[$art_imcxlzbea$art_i];
             $p += '<dl style="width: ';
             $line = 9;
             $art = '=(100 / len)';
@@ -66,14 +67,14 @@ module.exports = Magix.View.extend({
             $line = 11;
             $art = 'each p.thirds as t';
             ;
-            $expr = '<%for (var $art_ixhkzolho$art_i = 0, $art_objmaympguku$art_obj = p.thirds, $art_chxflrvpx$art_c = $art_objmaympguku$art_obj.length; $art_ixhkzolho$art_i < $art_chxflrvpx$art_c; $art_ixhkzolho$art_i++) {            var t = $art_objmaympguku$art_obj[$art_ixhkzolho$art_i]%>';
-            for (var $art_ixhkzolho$art_i = 0, $art_objmaympguku$art_obj = p.thirds, $art_chxflrvpx$art_c = $art_objmaympguku$art_obj.length; $art_ixhkzolho$art_i < $art_chxflrvpx$art_c; $art_ixhkzolho$art_i++) {
-                var t = $art_objmaympguku$art_obj[$art_ixhkzolho$art_i];
+            $expr = '<%for (var $art_ilmhuiangr$art_i = 0, $art_objwchhiq$art_obj = p.thirds, $art_cpdnybmaum$art_c = $art_objwchhiq$art_obj.length; $art_ilmhuiangr$art_i < $art_cpdnybmaum$art_c; $art_ilmhuiangr$art_i++) {            var t = $art_objwchhiq$art_obj[$art_ilmhuiangr$art_i]%>';
+            for (var $art_ilmhuiangr$art_i = 0, $art_objwchhiq$art_obj = p.thirds, $art_cpdnybmaum$art_c = $art_objwchhiq$art_obj.length; $art_ilmhuiangr$art_i < $art_cpdnybmaum$art_c; $art_ilmhuiangr$art_i++) {
+                var t = $art_objwchhiq$art_obj[$art_ilmhuiangr$art_i];
                 $p += '<dd><a href="';
                 $line = 13;
                 $art = '=t.link';
                 ;
-                $p += ($expr = '<%=t.link%>', $e(t.link)) + '" target="_blank" rel="noopener noreferrer">';
+                $p += ($expr = '<%=t.link%>', $e(t.link)) + '" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer">';
                 $line = 13;
                 $art = '=t.name';
                 ;
@@ -98,7 +99,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<div class="_zs_gallery_mx-footer_index_-custom ';
+    $p += '<div class="_zs_gallery_mx-footer_index_-footer ';
     $line = 26;
     $art = 'if dark';
     ;
@@ -112,11 +113,113 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '">';
-    $line = 27;
-    $art = '!footerHtml';
+    $p += '"><div mxa="_zs_gallerya.:a" class="_zs_gallery_mx-footer_index_-line"><a mxs="_zs_gallerya.:b" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com/home/about-1.htm">联系客服</a><a mxs="_zs_gallerya.:c" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//open.taobao.com/">开放平台</a>';
+    $line = 30;
+    $art = 'if tanx';
     ;
-    $p += ($expr = '<%!footerHtml%>', $n(footerHtml)) + '</div>';
+    $expr = '<%if (tanx) {%>';
+    if (tanx) {
+        ;
+        $p += '<a mxs="_zs_gallerya.:d" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//tanx.com/web/opt.html">隐私权保护</a>';
+        $line = 32;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $line = 33;
+    $art = 'if taobao';
+    ;
+    $expr = '<%if (taobao) {%>';
+    if (taobao) {
+        ;
+        $p += '<a mxs="_zs_gallerya.:e" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="https://terms.alicdn.com/legal-agreement/terms/suit_bu1_ali_mama_division/suit_bu1_ali_mama_division201709111812_13128.html">法律声明</a>';
+        $line = 35;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $line = 36;
+    $art = 'if alimama';
+    ;
+    $expr = '<%if (alimama) {%>';
+    if (alimama) {
+        ;
+        $p += '<a mxs="_zs_gallerya.:e" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="https://terms.alicdn.com/legal-agreement/terms/suit_bu1_ali_mama_division/suit_bu1_ali_mama_division201709111812_13128.html">法律声明</a>';
+        $line = 38;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '<a mxs="_zs_gallerya.:f" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com/home/about-4.htm">意见反馈</a><a mxs="_zs_gallerya.:g" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//jubao.alibaba.com">廉正举报</a>';
+    $line = 41;
+    $art = 'if tanx';
+    ;
+    $expr = '<%if (tanx) {%>';
+    if (tanx) {
+        ;
+        $p += '<span mxs="_zs_gallerya.:h" class="_zs_gallery_mx-footer_index_-line-text">Tanx.com版权所有</span><a mxs="_zs_gallerya.:i" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" href="http://www.miibeian.gov.cn">浙ICP备09109183号-10</a>';
+        $line = 44;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $line = 45;
+    $art = 'if taobao';
+    ;
+    $expr = '<%if (taobao) {%>';
+    if (taobao) {
+        ;
+        $p += '<span mxa="_zs_gallerya.:b" class="_zs_gallery_mx-footer_index_-line-text">Taobao.com版权所有 2003-';
+        $line = 46;
+        $art = '=year';
+        ;
+        $p += ($expr = '<%=year%>', $e(year)) + '</span><a mxs="_zs_gallerya.:k" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" href="http://www.miibeian.gov.cn">ICP证：浙B2-20080224-1</a>';
+        $line = 48;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $line = 49;
+    $art = 'if alimama';
+    ;
+    $expr = '<%if (alimama) {%>';
+    if (alimama) {
+        ;
+        $p += '<span mxa="_zs_gallerya.:c" class="_zs_gallery_mx-footer_index_-line-text">阿里妈妈版权所有 2007-';
+        $line = 50;
+        $art = '=year';
+        ;
+        $p += ($expr = '<%=year%>', $e(year)) + '</span><a mxs="_zs_gallerya.:m" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" href="http://www.miibeian.gov.cn">ICP证：浙B2-20070195</a>';
+        $line = 52;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+    $line = 54;
+    $art = 'if !simple';
+    ;
+    $expr = '<%if (!simple) {%>';
+    if (!simple) {
+        ;
+        $p += '<div mxs="_zs_gallerya.:n" class="_zs_gallery_mx-footer_index_-line _zs_gallery_mx-footer_index_-gap-line"><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.alibabagroup.com/cn/global/home">阿里巴巴集团</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.taobao.com">淘宝网</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.tmall.com">天猫</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//ju.taobao.com">聚划算</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.aliexpress.com">全球速卖通</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alibaba.com">阿里巴巴国际交易市场</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.1688.com">1688</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com">阿里妈妈</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.fliggy.com">飞猪</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.aliyun.com">阿里云计算</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.alios.cn">AliOS</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//aliqin.tmall.com">阿里通信</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.autonavi.com/">高德</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.uc.cn/">UC</a></div><div mxs="_zs_gallerya.:o" class="_zs_gallery_mx-footer_index_-line _zs_gallery_mx-footer_index_-gap-line"><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.umeng.com/">友盟</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.xiami.com">虾米</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alibabaplanet.com">阿里星球</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.dingtalk.com/?lwfrom=20150130163937547">钉钉</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alipay.com">支付宝</a></div><div mxs="_zs_gallerya.:r" class="_zs_gallery_mx-footer_index_-img-line"><a class="_zs_gallery_mx-footer_index_-line-link-img" target="_blank" rel="noopener noreferrer" href="http://www.pingpinganan.gov.cn/"><img class="_zs_gallery_mx-footer_index_-line-img" align="absmiddle" src="//img.alicdn.com/tps/i2/T1C3z7FudfXXcsE9Te-40-42.png" alt="网监局"></a><a class="_zs_gallery_mx-footer_index_-line-link-img" target="_blank" rel="noopener noreferrer" href="http://122.224.75.236/wzba/login.do?method=hdurl&doamin=http://www.alimama.com.cn&id=330108000003117&SHID=1223.0AFF_NAME=com.rouger.gs.main.UserInfoAff&AFF_ACTION=qyhzdetail&PAGE_URL=ShowDetail"><img class="_zs_gallery_mx-footer_index_-line-img" align="absmiddle" src="//img.alicdn.com/tps/i1/T1KRgkFxdXXXaqJHTe-35-42.png"></a><a class="_zs_gallery_mx-footer_index_-line-link-img" target="_blank" rel="noopener noreferrer" href="http://www.pingpinganan.gov.cn/"><img class="_zs_gallery_mx-footer_index_-line-img" align="absmiddle" alt="网监局" src="//img.alicdn.com/tps/i4/T1VVv9FABeXXbtCInf-38-42.png"></a></div>';
+        $line = 89;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -138,6 +241,17 @@ catch (ex) {
     render: function () {
         var me = this;
         var needProducts = me['@{need.products}'];
+        var products = [];
+        if (needProducts) {
+            Data.products.forEach(function (item) {
+                item.seconds.forEach(function (sec) {
+                    if (!sec.title) {
+                        sec.title = item.title;
+                    }
+                });
+                products = products.concat(item.seconds);
+            });
+        }
         var simple = me['@{mode.simple}'];
         var alimamaReg = /alimama\.(com|net)/i;
         var tanxReg = /tanx\.(com|net)/i;
@@ -155,70 +269,19 @@ catch (ex) {
         else {
             alimama = true;
         }
+        var year = (new Date()).getFullYear();
         var info = {
             simple: simple,
             alimama: alimama,
             taobao: taobao,
-            tanx: tanx
+            tanx: tanx,
+            products: products,
+            len: products.length,
+            width: me['@{products.width}'],
+            dark: me['@{ui.dark}'],
+            year: year
         };
-        var models = [me.getFooter(info)];
-        if (needProducts) {
-            models.push(me.getProducts());
-        }
-        Promise.all(models).then(function (_a) {
-            var footerHtml = _a[0], products = _a[1];
-            products = products || [];
-            me.updater.digest({
-                products: products,
-                len: products.length,
-                footerHtml: footerHtml,
-                width: me['@{products.width}'],
-                dark: me['@{ui.dark}']
-            });
-        });
-    },
-    getFooter: function (info) {
-        return new Promise(function (resolve) {
-            $.ajax({
-                url: '//mos.m.taobao.com/union/jsonp/footer',
-                dataType: 'jsonp',
-                jsonp: 'callback',
-                cache: true,
-                success: function (resp) {
-                    resolve(Mustache.render(resp.html, info));
-                },
-                error: function (xhr) {
-                    resolve('');
-                }
-            });
-        });
-    },
-    getProducts: function () {
-        return new Promise(function (resolve) {
-            $.ajax({
-                url: '//mos.m.taobao.com/zuanshi/jsonp_201805231426009',
-                dataType: 'jsonp',
-                jsonp: 'callback',
-                cache: true,
-                success: function (resp, status) {
-                    var list = resp.list || [];
-                    var products = [];
-                    list.forEach(function (item) {
-                        item.seconds.forEach(function (sec) {
-                            if (!sec.title) {
-                                sec.title = item.title;
-                            }
-                        });
-                        products = products.concat(item.seconds);
-                    });
-                    resolve(products);
-                },
-                error: function (xhr) {
-                    // 解耦异常
-                    resolve([]);
-                }
-            });
-        });
+        me.updater.digest(info);
     }
 });
 

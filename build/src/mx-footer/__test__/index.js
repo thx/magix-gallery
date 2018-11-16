@@ -3,9 +3,8 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-footer/__test__/index",["magix","$","mx-effects/notice","__test__/subs","mx-title/second","./1","./2","./3","./4","__test__/api"],(require,exports,module)=>{
+define("mx-footer/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./2","./3","./4","__test__/api"],(require,exports,module)=>{
 /*Magix,$*/
-require("mx-effects/notice");
 require("__test__/subs");
 require("mx-title/second");
 require("./1");
@@ -32,36 +31,36 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerya,:_" class="mb20 mr20" mx-view="mx-effects/notice?content=%E9%A1%B5%E9%9D%A2%E6%95%B0%E6%8D%AE%E9%85%8D%E7%BD%AE%E5%9C%A8alp%EF%BC%8CLego2%E6%B8%B2%E6%9F%93%E5%B1%82%E5%AF%B9jsonp%E8%BF%9B%E8%A1%8Creferer%E6%A0%A1%E9%AA%8C%EF%BC%8C%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95%E7%9A%84%E6%97%B6%E5%80%99%E9%9C%80%E8%A6%81%E7%BB%91%E4%B8%AA%E7%B1%BB%E4%BC%BC%E4%BA%8E%20xxx.taobao.com%20%E7%9A%84host%EF%BC%8C%E5%90%A6%E5%88%99%E4%B8%8D%E4%BC%9A%E6%AD%A3%E5%B8%B8%E8%BF%94%E5%9B%9E%E3%80%82&type=highlight&border=true"></div><div mxv mxa="_zs_gallerya,:_" class="pr pr120"><div mx-view="__test__/subs?list=';
-    $line = 8;
+    $p += '<div mxv mxa="_zs_gallerya,:b" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'常规版\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'极简版\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'包含营销平台\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'深底色\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
     $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'常规版\',                    key: viewId + \'_demo1\'                }, {                    name: \'极简版\',                    key: viewId + \'_demo2\'                }, {                    name: \'包含营销平台\',                    key: viewId + \'_demo3\'                }, {                    name: \'深底色\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '常规版', key: viewId + '_demo1' }, { name: '极简版', key: viewId + '_demo2' }, { name: '包含营销平台', key: viewId + '_demo3' }, { name: '深底色', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
-    $line = 28;
+    $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerya,:a" class="clearfix mb20"><div mx-view="mx-footer/__test__/1" id="';
-    $line = 30;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerya,:c" class="clearfix mb20"><div mx-view="mx-footer/__test__/1" id="';
+    $line = 24;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-footer/__test__/2" id="';
-    $line = 31;
+    $line = 25;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-footer/__test__/3" id="';
-    $line = 32;
+    $line = 26;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-footer/__test__/4" id="';
-    $line = 33;
+    $line = 27;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div id="';
-    $line = 36;
+    $line = 30;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 37;
+    $line = 31;
     $art = '@options';
     ;
     $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div></div>';

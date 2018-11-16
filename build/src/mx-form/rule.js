@@ -488,10 +488,10 @@ module.exports = {
     },
     range: function (val, rule) {
         // 数字范围
-        // range: [2,10]
+        // range: [2,10,自定义提示]
         var valid = true;
-        var tip = I18n['form.check.range'];
         var min = rule[0], max = rule[1];
+        var tip = rule[2] || I18n['form.check.range'];
         val = parseFloat(val);
         if (isNaN(val)) {
             valid = false;
