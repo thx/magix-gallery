@@ -29,9 +29,9 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'each radioes as r';
     ;
-    $expr = '<%for (var $art_ilnocdsvx$art_i = 0, $art_cfdaazcb$art_c = radioes.length; $art_ilnocdsvx$art_i < $art_cfdaazcb$art_c; $art_ilnocdsvx$art_i++) {    var r = radioes[$art_ilnocdsvx$art_i]%>';
-    for (var $art_ilnocdsvx$art_i = 0, $art_cfdaazcb$art_c = radioes.length; $art_ilnocdsvx$art_i < $art_cfdaazcb$art_c; $art_ilnocdsvx$art_i++) {
-        var r = radioes[$art_ilnocdsvx$art_i];
+    $expr = '<%for (var $art_ipmfauue$art_i = 0, $art_caooqraoc$art_c = radioes.length; $art_ipmfauue$art_i < $art_caooqraoc$art_c; $art_ipmfauue$art_i++) {    var r = radioes[$art_ipmfauue$art_i]%>';
+    for (var $art_ipmfauue$art_i = 0, $art_caooqraoc$art_c = radioes.length; $art_ipmfauue$art_i < $art_caooqraoc$art_c; $art_ipmfauue$art_i++) {
+        var r = radioes[$art_ipmfauue$art_i];
         $p += '<label mxv mxa="_zs_gallerya/:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 8;
         $art = ':selected';
