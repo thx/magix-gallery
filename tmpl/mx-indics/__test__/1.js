@@ -21,12 +21,12 @@ module.exports = Base.extend({
             text: '成交笔数', value: 'transaction'
         }]
 
-        for (let index = 0; index < 40; index++) {
-            fields.push({
-                text: index,
-                value: index
-            })
-        }
+        // for (let index = 0; index < 40; index++) {
+        //     fields.push({
+        //         text: index,
+        //         value: index
+        //     })
+        // }
 
         let map = {};
         fields.forEach(item => {
