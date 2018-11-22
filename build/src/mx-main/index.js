@@ -17,7 +17,7 @@ define("mx-main/index",["magix"],(require,exports,module)=>{
 var Magix = require("magix");
 var Router = Magix.Router;
 var Vframe = Magix.Vframe;
-Magix.applyStyle("_zs_gallery_mx-main_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-main_index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main_index_-main {\n  position: relative;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  background-color: #fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step {\n  position: relative;\n  padding: 10px 0 10px 20px;\n  border-bottom: 1px solid #f5f5f5;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-link {\n  color: #666;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-link:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over {\n  line-height: 30px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over ._zs_gallery_mx-main_index_-over-icon > * {\n  position: relative;\n  top: 2px;\n  margin-right: 4px;\n  font-size: 18px;\n  color: #999;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub {\n  position: relative;\n  height: 30px;\n  line-height: 30px;\n  padding-left: 26px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:before {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 9px;\n  width: 0;\n  height: 30px;\n  border-left: 1px solid #adadad;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:after {\n  content: '';\n  position: absolute;\n  top: 15px;\n  left: 10px;\n  width: 6px;\n  height: 0;\n  border-top: 1px solid #adadad;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:last-child:before {\n  height: 16px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current {\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on ._zs_gallery_mx-main_index_-over-icon > *,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-arrow-icon {\n  position: absolute;\n  top: 50%;\n  right: 8px;\n  margin-top: -7px;\n  font-size: 12px;\n  font-weight: bold;\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-link,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-link:hover {\n  color: #666;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-step-over:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: #999;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-locked-icon {\n  position: absolute;\n  top: 50%;\n  right: 8px;\n  margin-top: -9px;\n  font-size: 14px;\n  font-weight: bold;\n  color: #eee;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-title {\n  height: 58px;\n  line-height: 58px;\n  text-align: center;\n  font-size: 20px;\n  border-bottom: 1px solid #e6e6e6;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body {\n  position: relative;\n  margin-left: 20px;\n  margin-right: 20px;\n  background-color: #fff;\n  border-bottom-left-radius: 4px;\n  border-bottom-right-radius: 4px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-box {\n  position: relative;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  padding-left: 20px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-box:last-child {\n  padding-bottom: 40px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-side {\n  position: absolute;\n  top: 0;\n  right: 0;\n  height: 100%;\n  padding-top: 20px;\n  padding-left: 20px;\n  border-left: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-footer {\n  text-align: center;\n  padding: 40px 0;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-error-node {\n  display: inline-block;\n  position: relative;\n  margin-top: 10px;\n  color: #a40100;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-error-node ._zs_gallery_mx-main_index_-error-icon {\n  position: absolute;\n  left: -20px;\n  top: 0;\n  color: #a40100;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-main_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-main_index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main_index_-main {\n  position: relative;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  background-color: #fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step {\n  position: relative;\n  padding: 10px 0 10px 20px;\n  border-bottom: 1px solid #f5f5f5;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-link {\n  color: #666;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-link:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over {\n  line-height: 30px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over ._zs_gallery_mx-main_index_-over-icon > * {\n  position: relative;\n  top: 2px;\n  margin-right: 4px;\n  font-size: 18px;\n  color: #999;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub {\n  position: relative;\n  height: 30px;\n  line-height: 30px;\n  padding-left: 26px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:before {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 9px;\n  width: 0;\n  height: 30px;\n  border-left: 1px solid #adadad;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:after {\n  content: '';\n  position: absolute;\n  top: 15px;\n  left: 10px;\n  width: 6px;\n  height: 0;\n  border-top: 1px solid #adadad;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:last-child:before {\n  height: 16px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current {\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on ._zs_gallery_mx-main_index_-over-icon > *,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-arrow-icon {\n  position: absolute;\n  top: 50%;\n  right: 8px;\n  margin-top: -7px;\n  font-size: 12px;\n  font-weight: bold;\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-link,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-link:hover {\n  color: #666;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-step-over:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: #999;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-locked-icon {\n  position: absolute;\n  top: 50%;\n  right: 8px;\n  height: 18px;\n  margin-top: -9px;\n  font-size: 14px;\n  line-height: 18px;\n  font-weight: bold;\n  color: #eee;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-title {\n  height: 58px;\n  line-height: 58px;\n  text-align: center;\n  font-size: 20px;\n  border-bottom: 1px solid #e6e6e6;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body {\n  position: relative;\n  margin-left: 20px;\n  margin-right: 20px;\n  background-color: #fff;\n  border-bottom-left-radius: 4px;\n  border-bottom-right-radius: 4px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-box {\n  position: relative;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  padding-left: 20px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-box:last-child {\n  padding-bottom: 40px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-side {\n  position: absolute;\n  top: 0;\n  right: 0;\n  height: 100%;\n  padding-top: 20px;\n  padding-left: 20px;\n  border-left: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-footer {\n  text-align: center;\n  padding: 40px 0;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-error-node {\n  display: inline-block;\n  position: relative;\n  margin-top: 10px;\n  color: #a40100;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-error-node ._zs_gallery_mx-main_index_-error-icon {\n  position: absolute;\n  left: -20px;\n  top: 0;\n  color: #a40100;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -34,7 +34,7 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewHeight = $$.viewHeight, leftWidth = $$.leftWidth, stepInfos = $$.stepInfos, curStepIndex = $$.curStepIndex, curSubStepIndex = $$.curSubStepIndex, curStepInfo = $$.curStepInfo, childInfos = $$.childInfos, viewId = $$.viewId; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', viewHeight = $$.viewHeight, leftWidth = $$.leftWidth, stepInfos = $$.stepInfos, curStepIndex = $$.curStepIndex, curSubStepIndex = $$.curSubStepIndex, curStepInfo = $$.curStepInfo, viewId = $$.viewId; var $expr, $art, $line; try {
     $p += '<div mxv class="_zs_gallery_mx-main_index_-main" style="min-height: ';
     $line = 1;
     $art = '=viewHeight';
@@ -47,9 +47,9 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_igmqhxttejb$art_i = 0, $art_cgyzgywizj$art_c = stepInfos.length; $art_igmqhxttejb$art_i < $art_cgyzgywizj$art_c; $art_igmqhxttejb$art_i++) {    var step = stepInfos[$art_igmqhxttejb$art_i]%>';
-    for (var $art_igmqhxttejb$art_i = 0, $art_cgyzgywizj$art_c = stepInfos.length; $art_igmqhxttejb$art_i < $art_cgyzgywizj$art_c; $art_igmqhxttejb$art_i++) {
-        var step = stepInfos[$art_igmqhxttejb$art_i];
+    $expr = '<%for (var $art_ipfok$art_i = 0, $art_cqhjvcctbni$art_c = stepInfos.length; $art_ipfok$art_i < $art_cqhjvcctbni$art_c; $art_ipfok$art_i++) {    var step = stepInfos[$art_ipfok$art_i]%>';
+    for (var $art_ipfok$art_i = 0, $art_cqhjvcctbni$art_c = stepInfos.length; $art_ipfok$art_i < $art_cqhjvcctbni$art_c; $art_ipfok$art_i++) {
+        var step = stepInfos[$art_ipfok$art_i];
         $p += '<div class="_zs_gallery_mx-main_index_-main-step ';
         $line = 4;
         $art = 'if (step.index == curStepIndex)';
@@ -143,9 +143,9 @@ module.exports = Magix.View.extend({
             $line = 17;
             $art = 'each step.subs as sub';
             ;
-            $expr = '<%for (var $art_iabdsnc$art_i = 0, $art_objtygwpnlbhe$art_obj = step.subs, $art_cwlrmdf$art_c = $art_objtygwpnlbhe$art_obj.length; $art_iabdsnc$art_i < $art_cwlrmdf$art_c; $art_iabdsnc$art_i++) {            var sub = $art_objtygwpnlbhe$art_obj[$art_iabdsnc$art_i]%>';
-            for (var $art_iabdsnc$art_i = 0, $art_objtygwpnlbhe$art_obj = step.subs, $art_cwlrmdf$art_c = $art_objtygwpnlbhe$art_obj.length; $art_iabdsnc$art_i < $art_cwlrmdf$art_c; $art_iabdsnc$art_i++) {
-                var sub = $art_objtygwpnlbhe$art_obj[$art_iabdsnc$art_i];
+            $expr = '<%for (var $art_ipssvaq$art_i = 0, $art_objhimwuit$art_obj = step.subs, $art_czsjvkxrj$art_c = $art_objhimwuit$art_obj.length; $art_ipssvaq$art_i < $art_czsjvkxrj$art_c; $art_ipssvaq$art_i++) {            var sub = $art_objhimwuit$art_obj[$art_ipssvaq$art_i]%>';
+            for (var $art_ipssvaq$art_i = 0, $art_objhimwuit$art_obj = step.subs, $art_czsjvkxrj$art_c = $art_objhimwuit$art_obj.length; $art_ipssvaq$art_i < $art_czsjvkxrj$art_c; $art_ipssvaq$art_i++) {
+                var sub = $art_objhimwuit$art_obj[$art_ipssvaq$art_i];
                 $p += '<div mxa="_zs_gallerybX:c" class="_zs_gallery_mx-main_index_-step-sub"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link ';
                 $line = 19;
                 $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))';
@@ -237,14 +237,14 @@ module.exports = Magix.View.extend({
     $line = 42;
     $art = 'each curStepInfo.subs as sub';
     ;
-    $expr = '<%for (var $art_ikgfsvogij$art_i = 0, $art_objyserikyv$art_obj = curStepInfo.subs, $art_chhpipphv$art_c = $art_objyserikyv$art_obj.length; $art_ikgfsvogij$art_i < $art_chhpipphv$art_c; $art_ikgfsvogij$art_i++) {    var sub = $art_objyserikyv$art_obj[$art_ikgfsvogij$art_i]%>';
-    for (var $art_ikgfsvogij$art_i = 0, $art_objyserikyv$art_obj = curStepInfo.subs, $art_chhpipphv$art_c = $art_objyserikyv$art_obj.length; $art_ikgfsvogij$art_i < $art_chhpipphv$art_c; $art_ikgfsvogij$art_i++) {
-        var sub = $art_objyserikyv$art_obj[$art_ikgfsvogij$art_i];
+    $expr = '<%for (var $art_ilmmqgrpht$art_i = 0, $art_objnmhtljj$art_obj = curStepInfo.subs, $art_cdsfhwmcq$art_c = $art_objnmhtljj$art_obj.length; $art_ilmmqgrpht$art_i < $art_cdsfhwmcq$art_c; $art_ilmmqgrpht$art_i++) {    var sub = $art_objnmhtljj$art_obj[$art_ilmmqgrpht$art_i]%>';
+    for (var $art_ilmmqgrpht$art_i = 0, $art_objnmhtljj$art_obj = curStepInfo.subs, $art_cdsfhwmcq$art_c = $art_objnmhtljj$art_obj.length; $art_ilmmqgrpht$art_i < $art_cdsfhwmcq$art_c; $art_ilmmqgrpht$art_i++) {
+        var sub = $art_objnmhtljj$art_obj[$art_ilmmqgrpht$art_i];
         $p += '<div mxv class="_zs_gallery_mx-main_index_-content-box" style="padding-right: ';
         $line = 44;
         $art = '=(curStepInfo.rightWidth + 20)';
         ;
-        $p += ($expr = '<%=(curStepInfo.rightWidth + 20)%>', $e((curStepInfo.rightWidth + 20))) + 'px;"><div mxv="curStepInfo,childInfos" mx-view="';
+        $p += ($expr = '<%=(curStepInfo.rightWidth + 20)%>', $e((curStepInfo.rightWidth + 20))) + 'px;"><div mxv="curStepInfo" mx-view="';
         $line = 45;
         $art = '=sub.view';
         ;
@@ -252,11 +252,7 @@ module.exports = Magix.View.extend({
         $line = 45;
         $art = '@sub';
         ;
-        $p += ($expr = '<%@sub%>', $i($$ref, sub)) + '&data=';
-        $line = 45;
-        $art = '@childInfos';
-        ;
-        $p += ($expr = '<%@childInfos%>', $i($$ref, childInfos)) + '" id="sub_frame_';
+        $p += ($expr = '<%@sub%>', $i($$ref, sub)) + '" id="sub_frame_';
         $line = 46;
         $art = '=sub.index';
         ;
@@ -385,15 +381,11 @@ catch (ex) {
 } return $p; },
     init: function (extra) {
         var that = this;
-        var alreadyStep = extra.alreadyStep || 1, stepInfos = extra.stepInfos || [];
-        stepInfos.forEach(function (step, i) {
-            step.locked = (i + 1 > alreadyStep);
-        });
         that.updater.set({
             leftWidth: extra.leftWidth || 160,
             rightWidth: extra.rightWidth || 260,
-            stepInfos: stepInfos,
-            childInfos: extra.childInfos || {},
+            alreadyStep: extra.alreadyStep || 1,
+            stepInfos: extra.stepInfos || [],
             viewId: that.id,
             viewHeight: $(window).height()
         });
@@ -416,10 +408,13 @@ catch (ex) {
         // trigger oncreated，子组件的渲染不scroll
         that.$init = null;
         var updater = that.updater;
-        var stepInfos = updater.get('stepInfos');
+        var alreadyStep = +updater.get('alreadyStep'), stepInfos = updater.get('stepInfos');
         var locParams = Router.parse().params;
         // 主步骤信息从1开始
-        var curStepIndex = +locParams.stepIndex || 1;
+        var curStepIndex = +(locParams.stepIndex || 1);
+        if (curStepIndex > alreadyStep) {
+            alreadyStep = curStepIndex;
+        }
         // 子步骤：
         // -1：在主导航上
         // >0：1，2，3
@@ -428,18 +423,13 @@ catch (ex) {
         stepInfos.forEach(function (step, i) {
             var stepIndex = i + 1;
             step.index = stepIndex;
-            if ((!step.subs || !step.subs.length) && step.subsFn) {
-                step.subs = step.subsFn();
-            }
             step.subs = step.subs || [];
             step = that.wrapSide(step);
-            // 锁定项不展开子列表
-            if (stepIndex == curStepIndex) {
-                // 当前步骤展开子项目
-                step.locked = false;
-                if ((curSubStepIndex > step.subs.length) || (step.subs.length == 1)) {
-                    curSubStepIndex = -1;
-                }
+            // <= 当前步骤 展开子列表
+            step.locked = (stepIndex > alreadyStep);
+            // 修正子步骤信息
+            if ((stepIndex == curStepIndex) && ((curSubStepIndex > step.subs.length) || (step.subs.length == 1))) {
+                curSubStepIndex = -1;
             }
             var prevTip = '';
             if (!step.customTrigger && (stepIndex > 1) && (!stepInfos[i - 1].locked)) {
@@ -468,6 +458,7 @@ catch (ex) {
         }
         var renderFn = function () {
             that.updater.digest({
+                alreadyStep: alreadyStep,
                 curStepInfo: stepInfos[curStepIndex - 1],
                 curStepIndex: curStepIndex,
                 curSubStepIndex: curSubStepIndex
@@ -622,9 +613,12 @@ catch (ex) {
                 errorNode.html('');
                 // 下一步
                 if (curStepInfo.nextFn) {
-                    curStepInfo.nextFn(remain, function (remainParams, remainChildInfos) {
-                        that.next(remainParams, remainChildInfos);
+                    curStepInfo.nextFn(remain, function (remainParams) {
+                        that.next(remainParams);
                     });
+                }
+                else {
+                    that.next({});
                 }
             }
             else {
@@ -642,12 +636,11 @@ catch (ex) {
             subStepIndex: subStepIndex
         });
     },
-    next: function (remainParams, remainChildInfos) {
+    next: function (remainParams) {
         var that = this;
-        var curStepIndex = that.updater.get('curStepIndex'), childInfos = that.updater.get('childInfos');
+        var curStepIndex = that.updater.get('curStepIndex');
         remainParams.stepIndex = +curStepIndex + 1;
         Router.to(remainParams);
-        Magix.mix(childInfos, remainChildInfos);
     }
 });
 

@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
             $line = 19;
             $art = 'each list as item';
             ;
-            $expr = '<%for (var $art_imdmhqqkf$art_i = 0, $art_curcfke$art_c = list.length; $art_imdmhqqkf$art_i < $art_curcfke$art_c; $art_imdmhqqkf$art_i++) {            var item = list[$art_imdmhqqkf$art_i]%>';
-            for (var $art_imdmhqqkf$art_i = 0, $art_curcfke$art_c = list.length; $art_imdmhqqkf$art_i < $art_curcfke$art_c; $art_imdmhqqkf$art_i++) {
-                var item = list[$art_imdmhqqkf$art_i];
+            $expr = '<%for (var $art_iaqum$art_i = 0, $art_cxakivoc$art_c = list.length; $art_iaqum$art_i < $art_cxakivoc$art_c; $art_iaqum$art_i++) {            var item = list[$art_iaqum$art_i]%>';
+            for (var $art_iaqum$art_i = 0, $art_cxakivoc$art_c = list.length; $art_iaqum$art_i < $art_cxakivoc$art_c; $art_iaqum$art_i++) {
+                var item = list[$art_iaqum$art_i];
                 $p += '<li class="_zs_gallery_mx-suggest_index_-suggest-item ';
                 $line = 20;
                 $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';
@@ -124,9 +124,9 @@ module.exports = Magix.View.extend({
                 ;
                 $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})">';
                 $line = 22;
-                $art = '=item.text';
+                $art = '!item.text';
                 ;
-                $p += ($expr = '<%=item.text%>', $e(item.text)) + '</li>';
+                $p += ($expr = '<%!item.text%>', $n(item.text)) + '</li>';
                 $line = 24;
                 $art = '/each';
                 ;

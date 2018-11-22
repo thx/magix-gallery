@@ -33,14 +33,14 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', checkboxes = $$.checkboxes, selected = $$.selected, radioes = $$.radioes; var $expr, $art, $line; try {
-    $p += '<form mxv mxa="_zs_galleryJ:_" class="form demo1"><div mxv mxa="_zs_galleryJ:a" class="form-item"><div mxs="_zs_galleryJ:_" class="form-label">checkbox</div><div mxv mxa="_zs_galleryJ:b" class="form-content">';
+    $p += '<form mxv mxa="_zs_galleryH:_" class="form demo1"><div mxv mxa="_zs_galleryH:a" class="form-item"><div mxs="_zs_galleryH:_" class="form-label">checkbox</div><div mxv mxa="_zs_galleryH:b" class="form-content">';
     $line = 5;
     $art = 'each checkboxes as c';
     ;
-    $expr = '<%for (var $art_iksipmn$art_i = 0, $art_cuiocbazjo$art_c = checkboxes.length; $art_iksipmn$art_i < $art_cuiocbazjo$art_c; $art_iksipmn$art_i++) {    var c = checkboxes[$art_iksipmn$art_i]%>';
-    for (var $art_iksipmn$art_i = 0, $art_cuiocbazjo$art_c = checkboxes.length; $art_iksipmn$art_i < $art_cuiocbazjo$art_c; $art_iksipmn$art_i++) {
-        var c = checkboxes[$art_iksipmn$art_i];
-        $p += '<label mxv mxa="_zs_galleryJ:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
+    $expr = '<%for (var $art_idctseftz$art_i = 0, $art_cfiponwfbt$art_c = checkboxes.length; $art_idctseftz$art_i < $art_cfiponwfbt$art_c; $art_idctseftz$art_i++) {    var c = checkboxes[$art_idctseftz$art_i]%>';
+    for (var $art_idctseftz$art_i = 0, $art_cfiponwfbt$art_c = checkboxes.length; $art_idctseftz$art_i < $art_cfiponwfbt$art_c; $art_idctseftz$art_i++) {
+        var c = checkboxes[$art_idctseftz$art_i];
+        $p += '<label mxv mxa="_zs_galleryH:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 10;
         $art = ':selected.checkboxes';
         ;
@@ -59,14 +59,14 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div><div mxv mxa="_zs_galleryJ:d" class="form-item"><div mxs="_zs_galleryJ:a" class="form-label">radio</div><div mxv mxa="_zs_galleryJ:e" class="form-content">';
+    $p += '</div></div><div mxv mxa="_zs_galleryH:d" class="form-item"><div mxs="_zs_galleryH:a" class="form-label">radio</div><div mxv mxa="_zs_galleryH:e" class="form-content">';
     $line = 19;
     $art = 'each radioes as r';
     ;
-    $expr = '<%for (var $art_iizqfveiifb$art_i = 0, $art_cobxyvhze$art_c = radioes.length; $art_iizqfveiifb$art_i < $art_cobxyvhze$art_c; $art_iizqfveiifb$art_i++) {    var r = radioes[$art_iizqfveiifb$art_i]%>';
-    for (var $art_iizqfveiifb$art_i = 0, $art_cobxyvhze$art_c = radioes.length; $art_iizqfveiifb$art_i < $art_cobxyvhze$art_c; $art_iizqfveiifb$art_i++) {
-        var r = radioes[$art_iizqfveiifb$art_i];
-        $p += '<label mxv mxa="_zs_galleryJ:f" class="mr30"><input mxe="' + $viewId + '_1" mxc="[';
+    $expr = '<%for (var $art_iywpxmnqha$art_i = 0, $art_cmqmzpkh$art_c = radioes.length; $art_iywpxmnqha$art_i < $art_cmqmzpkh$art_c; $art_iywpxmnqha$art_i++) {    var r = radioes[$art_iywpxmnqha$art_i]%>';
+    for (var $art_iywpxmnqha$art_i = 0, $art_cmqmzpkh$art_c = radioes.length; $art_iywpxmnqha$art_i < $art_cmqmzpkh$art_c; $art_iywpxmnqha$art_i++) {
+        var r = radioes[$art_iywpxmnqha$art_i];
+        $p += '<label mxv mxa="_zs_galleryH:f" class="mr30"><input mxe="' + $viewId + '_1" mxc="[';
         $line = 24;
         $art = ':selected.radio';
         ;
@@ -85,7 +85,7 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div><div mxv mxa="_zs_galleryJ:g" class="form-item"><div mxs="_zs_galleryJ:b" class="form-label">dropdown</div><div mxv mxa="_zs_galleryJ:h" class="form-content"><div mxv="selected" mxe="' + $viewId + '_2" mxc="[';
+    $p += '</div></div><div mxv mxa="_zs_galleryH:g" class="form-item"><div mxs="_zs_galleryH:b" class="form-label">dropdown</div><div mxv mxa="_zs_galleryH:h" class="form-content"><div mxv="selected" mxe="' + $viewId + '_2" mxc="[';
     $line = 35;
     $art = ':selected.day';
     ;
@@ -93,7 +93,7 @@ module.exports = Base.extend({
     $line = 35;
     $art = ':selected.day';
     ;
-    $p += ($expr = '<%@selected.day%>', $i($$ref, selected.day)) + '"><i mxs="_zs_galleryJ:c" value="1" class="none">1</i><i mxs="_zs_galleryJ:d" value="2" class="none">2</i></div></div></div><div mxv mxa="_zs_galleryJ:i" class="form-item"><div mxs="_zs_galleryJ:e" class="form-label">输入框</div><div mxv mxa="_zs_galleryJ:j" class="form-content"><input mxe="' + $viewId + '_3" mxc="[';
+    $p += ($expr = '<%@selected.day%>', $i($$ref, selected.day)) + '"><i mxs="_zs_galleryH:c" value="1" class="none">1</i><i mxs="_zs_galleryH:d" value="2" class="none">2</i></div></div></div><div mxv mxa="_zs_galleryH:i" class="form-item"><div mxs="_zs_galleryH:e" class="form-label">输入框</div><div mxv mxa="_zs_galleryH:j" class="form-content"><input mxe="' + $viewId + '_3" mxc="[';
     $line = 45;
     $art = ':selected.name';
     ;
@@ -101,7 +101,7 @@ module.exports = Base.extend({
     $line = 45;
     $art = ':selected.name';
     ;
-    $p += ($expr = '<%=selected.name%>', $e(selected.name)) + '"/><a mxs="_zs_galleryJ:f" rel="noopener noreferrer" href="https://thx.github.io/magix/" target="_blank" class="ml20 link-brand">跳转链接</a></div></div><div mxv mxa="_zs_galleryJ:k" class="form-item"><div mxs="_zs_galleryJ:g" class="form-label">日历</div><div mxv mxa="_zs_galleryJ:l" class="form-content"><div mxv="selected" class="w220" mx-view="mx-calendar/rangepicker?align=right&vsenable=';
+    $p += ($expr = '<%=selected.name%>', $e(selected.name)) + '"/><a mxs="_zs_galleryH:f" rel="noopener noreferrer" href="https://thx.github.io/magix/" target="_blank" class="ml20 link-brand">跳转链接</a></div></div><div mxv mxa="_zs_galleryH:k" class="form-item"><div mxs="_zs_galleryH:g" class="form-label">日历</div><div mxv mxa="_zs_galleryH:l" class="form-content"><div mxv="selected" class="w220" mx-view="mx-calendar/rangepicker?align=right&vsenable=';
     $line = 54;
     $art = '@selected.vsenable';
     ;
@@ -117,7 +117,7 @@ module.exports = Base.extend({
     $line = 57;
     $art = '=selected.end';
     ;
-    $p += ($expr = '<%!$eu(selected.end)%>', $eu(selected.end)) + '"></div></div></div><div mxa="_zs_galleryJ:m" class="form-item"><div mxs="_zs_galleryJ:h" class="form-label">开关</div><div mxa="_zs_galleryJ:n" class="form-content"><span mxe="' + $viewId + '_4_' + ($expr = '<%="switch"%>', $e("switch")) + '" mxc="[';
+    $p += ($expr = '<%!$eu(selected.end)%>', $eu(selected.end)) + '"></div></div></div><div mxa="_zs_galleryH:m" class="form-item"><div mxs="_zs_galleryH:h" class="form-label">开关</div><div mxa="_zs_galleryH:n" class="form-content"><span mxe="' + $viewId + '_4_' + ($expr = '<%="switch"%>', $e("switch")) + '" mxc="[';
     $line = 64;
     $art = ':selected.switch';
     ;
@@ -125,7 +125,7 @@ module.exports = Base.extend({
     $line = 64;
     $art = ':selected.switch';
     ;
-    $p += ($expr = '<%@selected["switch"]%>', $i($$ref, selected["switch"])) + '"></span></div></div><div mxs="_zs_galleryJ:i" class="form-item"><div class="form-label">滑块</div><div class="form-content"><div mx-view="mx-slider/index?width=220&max=200&min=100&step=1"></div></div></div><div mxs="_zs_galleryJ:j" class="form-item"><a href="javascript:;" class="btn w80 btn-brand mr20">确认</a><a href="javascript:;" class="btn w80">取消</a></div></form>';
+    $p += ($expr = '<%@selected["switch"]%>', $i($$ref, selected["switch"])) + '"></span></div></div><div mxs="_zs_galleryH:i" class="form-item"><div class="form-label">滑块</div><div class="form-content"><div mx-view="mx-slider/index?width=220&max=200&min=100&step=1"></div></div></div><div mxs="_zs_galleryH:j" class="form-item"><a href="javascript:;" class="btn w80 btn-brand mr20">确认</a><a href="javascript:;" class="btn w80">取消</a></div></form>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

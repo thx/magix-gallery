@@ -1,35 +1,45 @@
-<div class="base">
-    <div class="left {{if fixed}} fixed {{/if}}">
-        <div class="left-search-wrapper">
-            <mx-suggest class="left-search"
-                selected="{{=selectedValue}}"
-                placeholder="搜索"
-                list="{{@all}}"
-                list-text="name"
-                list-value="path"
-                type="all"
-                mx-suggest="suggest()"/>
-        </div>
-        <div class="left-inner" style="height: {{=minHeight - 30}}px;">
-            {{each list as item}}
-                {{if item.name}}
-                <span class="title {{if item.expand}} expand {{/if}}" 
-                    mx-click="toggle({index:{{=item.index}}})">
-                    {{!item.name}}
-                    <i class="mc-iconfont title-icon">&#xe692;</i>
-                </span>
-                {{/if}}
-                {{each item.subs as sub}}
-                <a class="nav {{if (sub.path == path)}} cur {{/if}} {{if item.name}} sub {{/if}} {{if item.expand}} expand {{/if}}"
-                    href="#!{{=sub.path}}">
-                    <i class="mc-iconfont sub-icon">{{!sub.icon}}</i>
-                    {{!sub.name}}
-                </a>
-                {{/each}}
-            {{/each}}
-        </div>
+<div class="base-header">
+    <div class="header-line"></div>
+    <div class="base-logo">
+        <img src="https://img.alicdn.com/tfs/TB1719eJVGWBuNjy0FbXXb4sXXa-432-355.png" width="38">
+        <span class="fontsize-18 lh32 ml10">Magix Galleries</span>
     </div>
-    <div class="main">
+    <div class="base-search">
+        <mx-suggest class="w200"
+            selected="{{=selectedValue}}"
+            placeholder="搜索"
+            list="{{@suggests}}"
+            list-text="name"
+            list-value="path"
+            type="all"
+            mx-suggest="suggest()"/>
+    </div>
+    <div class="header-tabs">
+        {{each headers as h}}
+        <a href="#!{{=h.path}}" class="header-tab {{if h.cur}} cur {{/if}}">{{=h.name}}</a>
+        {{/each}}
+    </div>
+</div>
+<div class="base">
+    <div class="base-left {{if fixed}} fixed {{/if}}" style="height: {{=minHeight}}px;">
+        {{each list as item}}
+            {{if item.name}}
+            <span class="title {{if item.expand}} expand {{/if}}" 
+                mx-click="toggle({index:{{=item.index}}})">
+                {{!item.name}}
+                <i class="mc-iconfont title-icon">&#xe692;</i>
+            </span>
+            {{/if}}
+            {{each item.subs as sub}}
+            <a class="nav {{if (sub.path == path)}} cur {{/if}} {{if item.name}} sub {{/if}} {{if item.expand}} expand {{/if}}"
+                href="#!{{=sub.path}}">
+                <i class="mc-iconfont sub-icon">{{!sub.icon}}</i>
+                {{!sub.name}}
+            </a>
+            {{/each}}
+        {{/each}}
+    </div>
+    <div class="base-main">
         <div class="content">
             <mx-title content="{{=cur.name}}"
                 {{if cur.tip}} tip="{{@cur.tip}}" {{/if}} />
@@ -66,5 +76,9 @@
     <a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=t5z4z8s" class="fix">
         <i class="mc-iconfont fix-icon">&#xe677;</i>
         <span class="fix-tip">钉我一下</span>
+    </a>
+    <a href="javascript:;" class="fix" mx-click="back()">
+        <i class="mc-iconfont fix-icon">&#xe62d;</i>
+        <span class="fix-tip">回到顶部</span>
     </a>
 </div>

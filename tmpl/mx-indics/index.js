@@ -119,8 +119,7 @@ module.exports = Magix.View.extend({
         let dialogOptions = {
             width: 220 * gap,
             height: 612,
-            closable: false,
-            modal: true
+            closable: false
         };
 
         let viewOptions = $.extend(true, {}, updater.get());

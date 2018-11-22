@@ -15,17 +15,12 @@ module.exports = Magix.View.extend({
     tmpl: '@index.html',
     init(extra) {
         let that = this;
-        let alreadyStep = extra.alreadyStep || 1,
-            stepInfos = extra.stepInfos || [];
-        stepInfos.forEach((step, i) => {
-            step.locked = (i + 1 > alreadyStep);
-        })
 
         that.updater.set({
             leftWidth: extra.leftWidth || 160,
             rightWidth: extra.rightWidth || 260,
-            stepInfos, //所有的步骤信息
-            childInfos: extra.childInfos || {}, // 向子view传递的数据
+            alreadyStep: extra.alreadyStep || 1,
+            stepInfos: extra.stepInfos || [], //所有的步骤信息
             viewId: that.id,
             viewHeight: $(window).height()
         })
@@ -54,11 +49,16 @@ module.exports = Magix.View.extend({
         that.$init = null;
 
         let updater = that.updater;
-        let stepInfos = updater.get('stepInfos');
+        let alreadyStep = +updater.get('alreadyStep'),
+            stepInfos = updater.get('stepInfos');
 
         let locParams = Router.parse().params;
         // 主步骤信息从1开始
-        let curStepIndex = +locParams.stepIndex || 1;
+        let curStepIndex = +(locParams.stepIndex || 1);
+        if(curStepIndex > alreadyStep){
+            alreadyStep = curStepIndex;
+        }
+
         // 子步骤：
         // -1：在主导航上
         // >0：1，2，3
@@ -69,20 +69,15 @@ module.exports = Magix.View.extend({
         stepInfos.forEach((step, i) => {
             let stepIndex = i + 1;
             step.index = stepIndex;
-            if((!step.subs || !step.subs.length) && step.subsFn){
-                step.subs = step.subsFn();
-            }
             step.subs = step.subs || [];
             step = that.wrapSide(step);
 
-            // 锁定项不展开子列表
-            if(stepIndex == curStepIndex){
-                // 当前步骤展开子项目
-                step.locked = false;
+            // <= 当前步骤 展开子列表
+            step.locked = (stepIndex > alreadyStep);
 
-                if((curSubStepIndex > step.subs.length) || (step.subs.length == 1)){
-                    curSubStepIndex = -1;
-                }
+            // 修正子步骤信息
+            if((stepIndex == curStepIndex) && ((curSubStepIndex > step.subs.length) || (step.subs.length == 1))){
+                curSubStepIndex = -1;
             }
 
             let prevTip = '';
@@ -113,6 +108,7 @@ module.exports = Magix.View.extend({
         }
         let renderFn = () => {
             that.updater.digest({
+                alreadyStep,
                 curStepInfo: stepInfos[curStepIndex - 1],
                 curStepIndex,
                 curSubStepIndex,
@@ -285,9 +281,11 @@ module.exports = Magix.View.extend({
                 errorNode.html('');
                 // 下一步
                 if(curStepInfo.nextFn){
-                    curStepInfo.nextFn(remain, (remainParams, remainChildInfos) => {
-                        that.next(remainParams, remainChildInfos);
+                    curStepInfo.nextFn(remain, (remainParams) => {
+                        that.next(remainParams);
                     });
+                }else{
+                    that.next({});
                 }
             }else{
                 errorNode.html(`
@@ -311,12 +309,10 @@ module.exports = Magix.View.extend({
             subStepIndex
         });
     },
-    next(remainParams, remainChildInfos) {
+    next(remainParams) {
         let that = this;
-        let curStepIndex = that.updater.get('curStepIndex'),
-            childInfos = that.updater.get('childInfos');
+        let curStepIndex = that.updater.get('curStepIndex');
         remainParams.stepIndex = +curStepIndex + 1;
         Router.to(remainParams);
-        Magix.mix(childInfos, remainChildInfos);
     }
 });

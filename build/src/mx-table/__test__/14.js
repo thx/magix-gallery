@@ -27,7 +27,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', selected = $$.selected, list = $$.list, total = $$.total, size = $$.size, page = $$.page, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryc9:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryc9:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryc9:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl"><div>mixins[mx-checkbox/storestate]和[mx-checkbox/linkage]</div><div>部分禁止选择，翻页保存选中值</div><div>需要的时候调用this.getStoreState获取选中值</div></div></div><div mxa="_zs_galleryc9:b" class="mb20"><a mxs="_zs_galleryc9:a" href="javascript:;" mx-click="' + $viewId + 'get()" class="btn btn-brand mr20">获取选中值</a>';
+    $p += '<div mxv mxa="_zs_galleryc9:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryc9:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryc9:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl"><div>使用input value作为主键，<span class="color-brand">请保证input value的唯一性（包含翻页的情况），不要使用index</span></div><div>需要的时候调用this.getStoreState获取选中值</div><div>部分禁止选择，翻页保存选中值</div></div></div><div mxa="_zs_galleryc9:b" class="mb20"><a mxs="_zs_galleryc9:a" href="javascript:;" mx-click="' + $viewId + 'get()" class="btn btn-brand mr20">获取选中值</a>';
     $line = 13;
     $art = 'if (selected.length > 0)';
     ;
@@ -49,8 +49,8 @@ module.exports = Base.extend({
     $line = 30;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_ceetuvnxb$art_c = list.length; index < $art_ceetuvnxb$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_ceetuvnxb$art_c = list.length; index < $art_ceetuvnxb$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cvkraajn$art_c = list.length; index < $art_cvkraajn$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cvkraajn$art_c = list.length; index < $art_cvkraajn$art_c; index++) {
         var item = list[index];
         $p += '<tr mxv class="';
         $line = 31;

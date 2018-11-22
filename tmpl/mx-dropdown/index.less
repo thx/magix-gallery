@@ -53,14 +53,15 @@
     height: @input-small-height;
     line-height: @input-small-height;
     border-radius: @border-radius;
+    transition: all @duration;
 
     &:hover {
         background-color: @color-hover;
     }
 
     &.active, &.active:hover, &.active:active, &.active:focus {
-        color: #fff;
-        background-color: @color-brand;
+        color: @color-brand;
+        background-color: @color-brand-opacity;
     }
 
 }

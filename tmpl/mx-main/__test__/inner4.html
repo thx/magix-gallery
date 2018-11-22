@@ -1,0 +1,30 @@
+<div class="box-title clearfix">
+    {{if info.icon}}
+    <span class="title-icon">{{!info.icon}}</span>
+    {{/if}}
+    <span class="title-label">{{=info.label}}</span>
+</div>
+<div class="box-inner" style="min-height: 200px;">
+    <div class="lh22 mb10">
+        <div>页面功能说明：</div>
+    </div>
+    <div class="tip-content mb40">
+        <div>1. 当前步骤只要一个子步骤，侧边导航不显示子步骤</div>
+        <div>2. 没有侧边区域</div>
+    </div>
+    <div class="lh22 mb10">
+        <div>当前页面配置信息：</div>
+    </div>
+    <pre class="tip-content mb40">
+&#123;
+    label: '完成创建',
+    nextTip: '完成',
+    icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe64c;&lt;/i&gt;',
+    subs: [&#123;
+        label: '完成标题',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe7be;&lt;/i&gt;',
+        view: '@./inner4'
+    &#125;]
+&#125;
+    </pre>
+</div>

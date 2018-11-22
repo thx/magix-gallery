@@ -1,3 +1,13 @@
-<mx-title.second content="使用示例"/>
-<div mx-view="@./14"></div>
-<div mx-view="@./15"></div>
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: 'getStoreState',
+        key: viewId + '_demo1'
+    }, {
+        name: '实时获取',
+        key: viewId + '_demo2'
+    }]}}"></div>
+    
+    <mx-title.second content="使用示例"/>
+    <div mx-view="@./14" id="{{=viewId}}_demo1"></div>
+    <div mx-view="@./15" id="{{=viewId}}_demo2"></div>
+</div>

@@ -3,7 +3,7 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("__test__/pro/combine",["magix","$"],(require,exports,module)=>{
+define("__test__/wangwang",["magix","$"],(require,exports,module)=>{
 /*Magix,$*/
 
 var Magix = require("magix");
@@ -28,7 +28,7 @@ catch (ex) {
     if ($art)
         msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
     msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:__test__/pro/combine.html';
+    msg += $expr + '\r\n\tat file:__test__/wangwang.html';
     throw msg;
 } return $p; },
     render: function () {

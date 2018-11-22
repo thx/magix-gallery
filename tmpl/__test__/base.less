@@ -1,143 +1,181 @@
 @import '../mx-style/_vars';
+@search-height: 52px;
 @base-left-width: 240px;
 @base-left-nav-height: 38px;
-.base {
+
+.base-header{
     position: relative;
-    padding-left: @base-left-width;
-
-    .left {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 19;
+    height: @search-height;
+    padding-top: 10px;
+    box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);
+    background-color: #fff;
+    .base-logo{
+        float: left;
         width: @base-left-width;
-        border-right: 1px solid @color-border;
-        .left-search-wrapper{
-            padding: 10px;
-            box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);
+        padding-left: 24px;
+    }
 
-            .left-search{
-                width: 100%;
-            }
-        }
-        .left-inner{
-            padding: 10px 0 30px 0;
-            overflow-y: auto;
-        }
-        
-        .nav,
-        .title{
-            display: block;
-            position: relative;
-            padding-left: 20px;
-            line-height: @base-left-nav-height;
-            cursor: pointer;
-        }
-        .nav{
-            height: 0;
-            border-left: 4px solid transparent;
-            transition: all @duration;
-            overflow: hidden;
-            &:hover{
-                color: @color-brand;
-                &.sub{
-                    .sub-icon{
-                        color: @color-brand;
-                    }
-                }
-            }
-            &.cur{
-                color: @color-brand;
-                border-left: 4px solid @color-brand;
-                background-color: @color-brand-opacity;
-            }
-            &.sub{
-                padding-left: 52px;
-                .sub-icon{
-                    position: absolute;
-                    top: 0;
-                    left: 30px;
-                    height: @base-left-nav-height;
-                    line-height: @base-left-nav-height - 2;
-                    font-size: 18px;
-                    color: #999;
-                }
-                &.cur{
-                    .sub-icon{
-                        color: @color-brand;
-                    }
-                }
-            }
-            &.expand{
-                height: @base-left-nav-height;
-            }
-        }
-        .title{
-            height: @base-left-nav-height;
-            cursor: pointer;
-            .title-icon{
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                font-size: 24px;
-                transition: transform @duration;
-                color: #999;
-            }
-            &:hover{
-                .title-icon{
-                    color: @color-brand;
-                }
-            }
-            &.expand{
-                .title-icon{
-                    top: 10px;
-                    transform: rotate(180deg);
-                }
-            }
-        }
+    .header-line{
+        position: absolute;
+        top: 50%;
+        left: @base-left-width;
+        width: 0;
+        height: 20px;
+        border-left: 1px solid @color-border;
+        margin-top: -10px;
+    }
 
-        &.fixed{
-            position: fixed;
+    .base-search{
+        float: left;
+        padding-left: 10px;
+
+        input{
+            border: 0 none;
         }
     }
-    .main{
-        .content{
-            padding: 20px 0 40px 20px;
+
+    .header-tabs{
+        float: right;
+        margin-right: 140px;
+        line-height: 32px;
+        .header-tab{
+            padding: 0 20px;
+            font-size: 14px;
+
+            &.cur{
+                color: @color-brand;
+            }
         }
+    }
+}
 
-        .contexts{
-            margin-right: 20px;
-            margin-left: 20px;
-            padding: 20px 0 40px 0;
-            border-top: 1px solid @color-border;
+.base{
+    position: relative;
+    margin-top: 18px;
+    padding-left: @base-left-width;
+}
 
-            .prev,
-            .next{
-                position: relative;
-                height: 22px;
+.base-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 19;
+    width: @base-left-width;
+    padding-bottom: 10px;
+    border-right: 1px solid @color-border;
+    overflow-y: auto;
+    
+    .nav,
+    .title{
+        display: block;
+        position: relative;
+        padding-left: 20px;
+        line-height: @base-left-nav-height;
+        cursor: pointer;
+    }
+    .nav{
+        height: 0;
+        border-left: 4px solid transparent;
+        transition: background-color @duration, height @duration, color @duration;
+        overflow: hidden;
+
+        .sub-icon{
+            position: absolute;
+            top: 0;
+            left: 30px;
+            height: @base-left-nav-height;
+            line-height: @base-left-nav-height - 2;
+            font-size: 18px;
+            color: #999;
+        }
+        &:hover{
+            color: @color-brand;
+            .sub-icon{
+                color: @color-brand;
+            }
+        }
+        &.cur{
+            color: @color-brand;
+            border-left: 4px solid @color-brand;
+            background-color: @color-brand-opacity;
+
+            .sub-icon{
+                color: @color-brand;
+            }
+        }
+        &.sub{
+            padding-left: 52px;
+        }
+        &.expand{
+            height: @base-left-nav-height;
+        }
+    }
+    .title{
+        height: @base-left-nav-height;
+        cursor: pointer;
+        .title-icon{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            transition: transform @duration;
+            color: #999;
+        }
+        &:hover{
+            .title-icon{
+                color: @color-brand;
+            }
+        }
+        &.expand{
+            .title-icon{
+                top: 10px;
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &.fixed{
+        position: fixed;
+    }
+}
+
+.base-main{
+    .content{
+        padding: 20px 0 40px 20px;
+    }
+
+    .contexts{
+        margin-right: 20px;
+        margin-left: 20px;
+        padding: 20px 0 40px 0;
+        border-top: 1px solid @color-border;
+
+        .prev,
+        .next{
+            position: relative;
+            height: 22px;
+            line-height: 22px;
+
+            .context-icon{
+                position: absolute;
+                top: 0;
                 line-height: 22px;
-
-                .context-icon{
-                    position: absolute;
-                    top: 0;
-                    line-height: 22px;
-                }
             }
-            .prev{
-                float: left;
-                padding-left: 20px;
-                .context-icon{
-                    left: 0;
-                    transform: rotate(-90deg);
-                }
+        }
+        .prev{
+            float: left;
+            padding-left: 20px;
+            .context-icon{
+                left: 0;
+                transform: rotate(-90deg);
             }
-            .next{
-                float: right;
-                padding-right: 20px;
-                .context-icon{
-                    right: 0;
-                    transform: rotate(90deg);
-                }
+        }
+        .next{
+            float: right;
+            padding-right: 20px;
+            .context-icon{
+                right: 0;
+                transform: rotate(90deg);
             }
         }
     }
@@ -147,7 +185,7 @@
 .fixes{
     position: fixed;
     right: 0;
-    bottom: 50px;
+    bottom: 60px;
     z-index: 20;
     border-bottom: 1px solid @color-border;
     .fix{

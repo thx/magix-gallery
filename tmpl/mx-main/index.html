@@ -42,7 +42,7 @@
                 {{each curStepInfo.subs as sub}}
                     <div class="content-box"
                         style="padding-right: {{=(curStepInfo.rightWidth + 20)}}px;">
-                        <mx-vframe src="{{=sub.view}}?info={{@sub}}&data={{@childInfos}}" 
+                        <mx-vframe src="{{=sub.view}}?info={{@sub}}" 
                             id="sub_frame_{{=sub.index}}">
                             <mx-loading/>
                         </mx-vframe>

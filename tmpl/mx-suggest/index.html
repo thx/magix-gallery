@@ -19,7 +19,7 @@
                 {{each list as item}}
                 <li class="suggest-item {{if ((selectedValue + '') === (item.value + ''))}} active {{/if}}" 
                     mx-click="@{select}({item:'{{@item}}'})">
-                    {{=item.text}}
+                    {{!item.text}}
                 </li>
                 {{/each}}
             {{else}}
