@@ -49,7 +49,7 @@ module.exports = Base.extend({
         $line = 3;
         $art = '=tip';
         ;
-        $p += ($expr = '<%!$eu(tip)%>', $eu(tip)) + '"><span mxa="_zs_gallerya%:_" class="_zs_gallery_mx-effects_icon_-text">';
+        $p += ($expr = '<%!$eu(tip)%>', $eu(tip)) + '"><span mxa="_zs_gallerya&:_" class="_zs_gallery_mx-effects_icon_-text">';
         $line = 4;
         $art = '=content';
         ;
@@ -69,7 +69,7 @@ module.exports = Base.extend({
         $line = 7;
         $art = '=styles';
         ;
-        $p += ($expr = '<%=styles%>', $e(styles)) + '"><span mxa="_zs_gallerya%:a" class="_zs_gallery_mx-effects_icon_-text">';
+        $p += ($expr = '<%=styles%>', $e(styles)) + '"><span mxa="_zs_gallerya&:a" class="_zs_gallery_mx-effects_icon_-text">';
         $line = 8;
         $art = '=content';
         ;
