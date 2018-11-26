@@ -46,7 +46,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (type == \'502\') {%>';
     if (type == '502') {
         ;
-        $p += '<div mxs="_zs_gallerya):h" class="_zs_gallery_mx-error_index_-error-bad"><i class="mc-iconfont _zs_gallery_mx-error_index_-error-bad-icon">&#xe640;</i><span class="_zs_gallery_mx-error_index_-error-bad-num">502</span></div><div mxa="_zs_gallerya):d" class="_zs_gallery_mx-error_index_-info">';
+        $p += '<div mxs="_zs_gallerya):a" class="_zs_gallery_mx-error_index_-error-bad"><i class="mc-iconfont _zs_gallery_mx-error_index_-error-bad-icon">&#xe640;</i><span class="_zs_gallery_mx-error_index_-error-bad-num">502</span></div><div mxa="_zs_gallerya):b" class="_zs_gallery_mx-error_index_-info">';
         $line = 12;
         $art = '=tip';
         ;

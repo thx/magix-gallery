@@ -244,9 +244,12 @@ catch (ex) {
                 return;
             }
             me[key] = 1;
+            // 优先级：外部传入的 > view本身配置的 > 默认
+            // 浮层内部的配置
+            Magix.mix(dOptions, V.dialogOptions || {});
+            // 调用时候的配置，浮层展示位置
             dialogOptions = dialogOptions || {};
-            var width = dialogOptions.width || 400, height = dialogOptions.height || 260;
-            // 浮层展示位置
+            var width = dialogOptions.width || dOptions.width || 400, height = dialogOptions.height || dOptions.height || 260;
             Magix.mix(dOptions, Magix.mix({
                 mask: true,
                 modal: false,

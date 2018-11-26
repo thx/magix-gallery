@@ -13,6 +13,7 @@
         <div>2. 所有子模块共用一个侧标提示区域，配置sideTip使用组件默认样式</div>
         <div>3. 子view实现check方法完成当前模块的校验</div>
         <div>4. 自定义下一步按钮文案（nextTip）</div>
+        <div>5. 当前步骤提交的时候保留参数adgroupId，初始化的时候判断是否有dgroupId，有的话则表示第一步已完成，直接展开（nextFn）</div>
     </div>
     <div class="lh22 mb10">
         <div>当前页面配置信息：</div>
@@ -21,6 +22,12 @@
 &#123;
     label: '设置单元',
     nextTip: '下一步，设置计划',
+    nextFn: (remains, next) =&gt; &#123;
+        // remains 当前步骤保留的信息，提交处理
+        next(&#123;
+            adgroupId: 1
+        &#125;)
+    &#125;
     icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe7b5;&lt;/i&gt;',
     sideTip: `&lt;div&gt;说明：&lt;/div&gt;
         &lt;div&gt;1、条件1&lt;/div&gt;

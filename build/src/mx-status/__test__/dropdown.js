@@ -24,7 +24,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerycG:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerycG:a" class="clearfix mb20"><div class="clearfix"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-status/__test__/4"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-status/__test__/5"></div></div></div></div><div mxs="_zs_gallerycG:b" mx-view="mx-status/__test__/desc"></div>';
+    $p += '<div mxs="_zs_gallerycP:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerycP:a" class="clearfix mb20"><div class="clearfix"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-status/__test__/4"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-status/__test__/5"></div></div></div></div><div mxs="_zs_gallerycP:b" mx-view="mx-status/__test__/desc"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

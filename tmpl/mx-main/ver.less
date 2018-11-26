@@ -1,0 +1,59 @@
+@import "../mx-style/_vars";
+
+@step-circle-width: 42px;
+@step-gap: 5px;
+
+.step{
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: @step-circle-width + 10;
+
+    .line{
+        position: absolute;
+        top: @step-circle-width + @step-gap;
+        left: @step-circle-width / 2;
+        z-index: 2;
+        width: 0;
+        height: 100%;
+        margin-left: -1px;
+        border-left: 2px solid @color-border;
+    }
+
+    .circle{
+        position: absolute;
+        top: @step-gap;
+        left: 0;
+        z-index: 3;
+        width: @step-circle-width;
+        height: @step-circle-width;
+        border-radius: 50%;
+        border-width: 2px;
+        border-style: solid;
+        border-color: @color-border;
+        text-align: center;
+        background-color: @color-bg;
+        cursor: pointer;
+        transition: all @duration;
+        
+        >*{
+            line-height: @step-circle-width - 4;
+            color: #ccc;
+            font-weight: bold;
+        }
+    }
+
+    .content{
+        border-radius: @border-radius;
+        background-color: #fff;
+
+        .title{
+            padding: @step-gap 20px;
+            line-height: @step-circle-width;
+        }
+
+        .inner{
+            padding: 20px;
+            border-top: 1px solid @color-border;
+        }
+    }
+}

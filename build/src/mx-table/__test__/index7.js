@@ -28,11 +28,11 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc/:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxa="_zs_gallerydd:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'getStoreState\',\n        key: viewId + \'_demo1\'\n    }, {\n        name: \'实时获取\',\n        key: viewId + \'_demo2\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'getStoreState\',            key: viewId + \'_demo1\'        }, {            name: \'实时获取\',            key: viewId + \'_demo2\'        }]%>', $i($$ref, [{ name: 'getStoreState', key: viewId + '_demo1' }, { name: '实时获取', key: viewId + '_demo2' }])) + '"></div><div mxs="_zs_galleryc/:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mx-view="mx-table/__test__/14" id="';
+    $p += ($expr = '<%@[{            name: \'getStoreState\',            key: viewId + \'_demo1\'        }, {            name: \'实时获取\',            key: viewId + \'_demo2\'        }]%>', $i($$ref, [{ name: 'getStoreState', key: viewId + '_demo1' }, { name: '实时获取', key: viewId + '_demo2' }])) + '"></div><div mxs="_zs_gallerydd:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mx-view="mx-table/__test__/14" id="';
     $line = 11;
     $art = '=viewId';
     ;

@@ -147,10 +147,6 @@ module.exports = Magix.View.extend({
                     path: '/editor/index',
                     icon: '&#xe698;'
                 }, {
-                    name: '侧边导航分步流程',
-                    path: '/main/index',
-                    icon: '&#xe64c;'
-                }, {
                     name: '搜索',
                     tip: '支持选择类型搜索和普通搜索',
                     path: '/search/index',
@@ -262,6 +258,21 @@ module.exports = Magix.View.extend({
                     icon: '&#xe78b;'
                 }]
             }, {
+                name: '流程类',
+                subs: [{
+                    name: '侧边导航分步流程',
+                    path: '/main/index',
+                    icon: '&#xe64c;'
+                }, {
+                    name: '简单横向分步流程',
+                    path: '/main/hor',
+                    icon: '&#xe690;' 
+                }, {
+                    name: '简单纵向分步流程',
+                    path: '/main/ver',
+                    icon: '&#xe65e;' 
+                }]
+            },{
                 name: '样式',
                 subs: [{
                     name: '常用',

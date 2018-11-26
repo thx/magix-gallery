@@ -16,7 +16,7 @@ module.exports = {
                             "link": "https://unidesk.taobao.com/"
                         }, {
                             "name": "淘宝直通车",
-                            "link": "http://zhitongche.taobao.com/"
+                            "link": "https://zhitongche.taobao.com/"
                         }, {
                             "name": "智钻",
                             "link": "https://zuanshi.taobao.com/"
@@ -50,7 +50,7 @@ module.exports = {
                             "link": "https://help.alimama.com/"
                         }, {
                             "name": "规则中心",
-                            "link": "http://rule.alimama.com/"
+                            "link": "https://rule.alimama.com/"
                         }]
                 }]
         }]

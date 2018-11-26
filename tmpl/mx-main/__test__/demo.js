@@ -23,7 +23,7 @@ module.exports = Magix.View.extend({
                 view: '@./inner'
             }],
             nextFn: (remains, next) => {
-                // remains 提交处理
+                // remains 当前步骤保留的信息，提交处理
                 next({
                     adgroupId: 1
                 })
@@ -38,7 +38,13 @@ module.exports = Magix.View.extend({
                 label: '基本信息',
                 icon: '<i class="mc-iconfont">&#xe612;</i>',
                 view: '@./inner1'
-            }]
+            }],
+            nextFn: (remains, next) => {
+                // remains 当前步骤保留的信息，提交处理
+                next({
+                    campaignId: 1
+                })
+            }
         }, {
             label: '添加创意',
             nextTip: '下一步，完成',

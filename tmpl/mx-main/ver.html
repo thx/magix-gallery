@@ -1,0 +1,37 @@
+{{each stepInfos as step}}
+<div class="clearfix step">
+    <div class="circle">{{!step.icon}}</div>
+    {{if (step.index < stepInfos.length)}}
+    <div class="line"></div>
+    {{/if}}
+    <div class="content">
+        <div class="title">
+            <span class="fontsize-16">{{=step.label}}</span>
+            {{if (!step.locked && !step.current)}} 
+            <a class="fr color-brand" href="javascript:;" 
+                mx-click="nav({stepIndex:{{=step.index}}})">修改</a>
+            {{/if}}
+        </div>
+        {{if step.current}}
+        <div class="inner">
+            <mx-vframe src="{{=curStepInfo.view}}?info={{@curStepInfo}}" 
+                id="{{=viewId}}_cur_content">
+                <mx-loading/>
+            </mx-vframe>
+            <div class="pt20">
+                {{if curStepInfo.prevTip}}
+                <a href="javascript:;" class="btn min-width-100 mr15"
+                    mx-click="prev()">{{=curStepInfo.prevTip}}</a>
+                {{/if}}
+    
+                {{if curStepInfo.nextTip}}
+                <a href="javascript:;" class="btn min-width-100 btn-brand"
+                    mx-click="next()">{{=curStepInfo.nextTip}}</a>
+                {{/if}}
+            </div>
+            <div id="{{=viewId}}_error"></div>
+        </div>
+        {{/if}}
+    </div>
+</div>
+{{/each}}

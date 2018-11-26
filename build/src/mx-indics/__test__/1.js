@@ -81,9 +81,9 @@ module.exports = Base.extend({
         $line = 35;
         $art = 'each customs as key';
         ;
-        $expr = '<%for (var $art_itdhgscyc$art_i = 0, $art_coxnrefj$art_c = customs.length; $art_itdhgscyc$art_i < $art_coxnrefj$art_c; $art_itdhgscyc$art_i++) {        var key = customs[$art_itdhgscyc$art_i]%>';
-        for (var $art_itdhgscyc$art_i = 0, $art_coxnrefj$art_c = customs.length; $art_itdhgscyc$art_i < $art_coxnrefj$art_c; $art_itdhgscyc$art_i++) {
-            var key = customs[$art_itdhgscyc$art_i];
+        $expr = '<%for (var $art_ipglrvcb$art_i = 0, $art_cqryinagkjd$art_c = customs.length; $art_ipglrvcb$art_i < $art_cqryinagkjd$art_c; $art_ipglrvcb$art_i++) {        var key = customs[$art_ipglrvcb$art_i]%>';
+        for (var $art_ipglrvcb$art_i = 0, $art_cqryinagkjd$art_c = customs.length; $art_ipglrvcb$art_i < $art_cqryinagkjd$art_c; $art_ipglrvcb$art_i++) {
+            var key = customs[$art_ipglrvcb$art_i];
             $p += '<span mxa="_zs_gallerybt:h" class="fl mr10">';
             $line = 36;
             $art = '=map[key]';
@@ -111,9 +111,9 @@ module.exports = Base.extend({
         $line = 39;
         $art = 'each defaults as key';
         ;
-        $expr = '<%for (var $art_iaykyslw$art_i = 0, $art_cvnxkphju$art_c = defaults.length; $art_iaykyslw$art_i < $art_cvnxkphju$art_c; $art_iaykyslw$art_i++) {        var key = defaults[$art_iaykyslw$art_i]%>';
-        for (var $art_iaykyslw$art_i = 0, $art_cvnxkphju$art_c = defaults.length; $art_iaykyslw$art_i < $art_cvnxkphju$art_c; $art_iaykyslw$art_i++) {
-            var key = defaults[$art_iaykyslw$art_i];
+        $expr = '<%for (var $art_ixaecdgmgtm$art_i = 0, $art_cgmrrxrd$art_c = defaults.length; $art_ixaecdgmgtm$art_i < $art_cgmrrxrd$art_c; $art_ixaecdgmgtm$art_i++) {        var key = defaults[$art_ixaecdgmgtm$art_i]%>';
+        for (var $art_ixaecdgmgtm$art_i = 0, $art_cgmrrxrd$art_c = defaults.length; $art_ixaecdgmgtm$art_i < $art_cgmrrxrd$art_c; $art_ixaecdgmgtm$art_i++) {
+            var key = defaults[$art_ixaecdgmgtm$art_i];
             $p += '<span mxa="_zs_gallerybt:i" class="fl mr10">';
             $line = 40;
             $art = '=map[key]';
@@ -186,12 +186,12 @@ catch (ex) {
             }, {
                 text: '成交笔数', value: 'transaction'
             }];
-        for (var index = 0; index < 40; index++) {
-            fields.push({
-                text: index,
-                value: index
-            });
-        }
+        // for (let index = 0; index < 40; index++) {
+        //     fields.push({
+        //         text: index,
+        //         value: index
+        //     })
+        // }
         var map = {};
         fields.forEach(function (item) {
             map[item.value] = item.text;
