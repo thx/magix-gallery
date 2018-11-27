@@ -3,12 +3,13 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-cascade/index",["magix","mx-tree/util","../mx-monitor/index"],(require,exports,module)=>{
-/*Magix,Util,Monitor*/
+define("mx-cascade/index",["magix","mx-tree/util","../mx-medusa/util","../mx-monitor/index"],(require,exports,module)=>{
+/*Magix,Util,I18n,Monitor*/
 
 var Magix = require("magix");
 var Vframe = Magix.Vframe;
 var Util = require("mx-tree/util");
+var I18n = require("../mx-medusa/util");
 var Monitor = require("../mx-monitor/index");
 Magix.applyStyle("_zs_gallery_mx-cascade_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-cascade_index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n/* 动画结束停在最后一帧 */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-cascade_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-cascade_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n/**\n* 渐显上拉动画\n*/\n@keyframes _zs_gallery_mx-cascade_index_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-cascade_index_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@keyframes _zs_gallery_mx-cascade_index_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-cascade_index_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n._zs_gallery_mx-cascade_index_-cascade-toggle {\n  position: relative;\n  width: 100%;\n  padding: 0 25px 0 10px;\n  border-radius: 4px;\n  cursor: pointer;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n._zs_gallery_mx-cascade_index_-cascade-toggle ._zs_gallery_mx-cascade_index_-cascade-label {\n  display: block;\n  width: 100%;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-cascade_index_-cascade-toggle ._zs_gallery_mx-cascade_index_-cascade-label._zs_gallery_mx-cascade_index_-cascade-label-ph {\n  color: #999;\n}\n._zs_gallery_mx-cascade_index_-cascade-toggle ._zs_gallery_mx-cascade_index_-arrow {\n  position: absolute;\n  right: 0;\n  top: 50%;\n  width: 28px;\n  height: 28px;\n  font-size: 28px;\n  line-height: 28px;\n  margin-top: -14px;\n  color: #ccc;\n  transition: top 0.25s, -webkit-transform 0.25s;\n  transition: transform 0.25s, top 0.25s;\n  transition: transform 0.25s, top 0.25s, -webkit-transform 0.25s;\n}\n._zs_gallery_mx-cascade_index_-cascade-toggle._zs_gallery_mx-cascade_index_-open ._zs_gallery_mx-cascade_index_-arrow {\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n._zs_gallery_mx-cascade_index_-cascade-list {\n  display: none;\n  position: absolute;\n  left: 0;\n  top: 100%;\n  z-index: 99;\n  margin-top: 10px;\n  border-radius: 4px;\n  background-color: #fff;\n  white-space: nowrap;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-cascade_index_-cascade-list._zs_gallery_mx-cascade_index_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-cascade_index_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-cascade_index_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n._zs_gallery_mx-cascade_index_-group {\n  display: inline-block;\n  min-width: 100px;\n  height: 168px;\n  overflow-y: auto;\n  vertical-align: top;\n  border-right: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-cascade_index_-group:last-child {\n  border-right: 0 none;\n}\n._zs_gallery_mx-cascade_index_-line {\n  position: relative;\n  height: 28px;\n  padding-right: 26px;\n  padding-left: 10px;\n  line-height: 28px;\n  transition: background-color 0.25s, color 0.25s;\n  cursor: pointer;\n}\n._zs_gallery_mx-cascade_index_-line ._zs_gallery_mx-cascade_index_-line-text {\n  display: block;\n  width: 100%;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-cascade_index_-line ._zs_gallery_mx-cascade_index_-line-arrow {\n  position: absolute;\n  right: 0;\n  top: 50%;\n  width: 28px;\n  height: 28px;\n  font-size: 24px;\n  line-height: 28px;\n  margin-top: -14px;\n  color: #ccc;\n  -webkit-transform: rotate(-90deg);\n          transform: rotate(-90deg);\n}\n._zs_gallery_mx-cascade_index_-line:hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-cascade_index_-line._zs_gallery_mx-cascade_index_-cur {\n  color: #4d7fff;\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-cascade_index_-line._zs_gallery_mx-cascade_index_-cur:hover {\n  background-color: #f6f9ff;\n}\n[mx-view*=\"mx-cascade/index\"] {\n  position: relative;\n  display: inline-block;\n  min-width: 100px;\n  height: 32px;\n  line-height: 30px;\n  vertical-align: middle;\n  background-color: #fff;\n  outline: 0;\n}\n[mx-view*=\"mx-cascade/index\"] ._zs_gallery_mx-cascade_index_-cascade-toggle {\n  transition: all 0.25s;\n  border-width: 1px;\n  border-style: solid;\n  border-color: #e6e6e6;\n  color: #999;\n}\n[mx-view*=\"mx-cascade/index\"]:hover ._zs_gallery_mx-cascade_index_-cascade-toggle {\n  border-color: #ccc;\n  color: #666;\n}\n[mx-view*=\"mx-cascade/index\"][mx-disabled] ._zs_gallery_mx-cascade_index_-cascade-toggle,\n[mx-view*=\"mx-cascade/index\"][mx-disabled]:hover ._zs_gallery_mx-cascade_index_-cascade-toggle {\n  border-color: #e6e6e6;\n  color: #999;\n  background-color: #eee;\n  cursor: not-allowed;\n}\n[mx-view*=\"mx-cascade/index\"][mx-disabled] ._zs_gallery_mx-cascade_index_-cascade-toggle ._zs_gallery_mx-cascade_index_-arrow,\n[mx-view*=\"mx-cascade/index\"][mx-disabled]:hover ._zs_gallery_mx-cascade_index_-cascade-toggle ._zs_gallery_mx-cascade_index_-arrow {\n  color: #ccc;\n}\n");
 module.exports = Magix.View.extend({
@@ -87,7 +88,7 @@ module.exports = Magix.View.extend({
     $line = 5;
     $art = '=selectedText';
     ;
-    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_gallerydU:_" class="mc-iconfont _zs_gallery_mx-cascade_index_-arrow">&#xe692;</span></div>';
+    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_gallery/:_" class="mc-iconfont _zs_gallery_mx-cascade_index_-arrow">&#xe692;</span></div>';
     $line = 9;
     $art = 'if !disabled';
     ;
@@ -112,8 +113,8 @@ module.exports = Magix.View.extend({
         $line = 11;
         $art = 'each groups as list gIndex';
         ;
-        $expr = '<%for (var gIndex = 0, $art_cnadqkvli$art_c = groups.length; gIndex < $art_cnadqkvli$art_c; gIndex++) {        var list = groups[gIndex]%>';
-        for (var gIndex = 0, $art_cnadqkvli$art_c = groups.length; gIndex < $art_cnadqkvli$art_c; gIndex++) {
+        $expr = '<%for (var gIndex = 0, $art_ceoluvarvi$art_c = groups.length; gIndex < $art_ceoluvarvi$art_c; gIndex++) {        var list = groups[gIndex]%>';
+        for (var gIndex = 0, $art_ceoluvarvi$art_c = groups.length; gIndex < $art_ceoluvarvi$art_c; gIndex++) {
             var list = groups[gIndex];
             $p += '<div class="_zs_gallery_mx-cascade_index_-group" id="';
             $line = 12;
@@ -127,8 +128,8 @@ module.exports = Magix.View.extend({
             $line = 13;
             $art = 'each list as item iIndex';
             ;
-            $expr = '<%for (var iIndex = 0, $art_cbpwfqjrr$art_c = list.length; iIndex < $art_cbpwfqjrr$art_c; iIndex++) {            var item = list[iIndex]%>';
-            for (var iIndex = 0, $art_cbpwfqjrr$art_c = list.length; iIndex < $art_cbpwfqjrr$art_c; iIndex++) {
+            $expr = '<%for (var iIndex = 0, $art_czmywh$art_c = list.length; iIndex < $art_czmywh$art_c; iIndex++) {            var item = list[iIndex]%>';
+            for (var iIndex = 0, $art_czmywh$art_c = list.length; iIndex < $art_czmywh$art_c; iIndex++) {
                 var item = list[iIndex];
                 $p += '<div class="_zs_gallery_mx-cascade_index_-line ';
                 $line = 14;
@@ -152,7 +153,7 @@ module.exports = Magix.View.extend({
                 $line = 14;
                 $art = '=iIndex';
                 ;
-                $p += ($expr = '<%=iIndex%>', $e(iIndex)) + '})"><span mxa="_zs_gallerydU:b" class="_zs_gallery_mx-cascade_index_-line-text">';
+                $p += ($expr = '<%=iIndex%>', $e(iIndex)) + '})"><span mxa="_zs_gallery/:_" class="_zs_gallery_mx-cascade_index_-line-text">';
                 $line = 15;
                 $art = '=item[textKey]';
                 ;
@@ -163,7 +164,7 @@ module.exports = Magix.View.extend({
                 $expr = '<%if (item.children && item.children.length) {%>';
                 if (item.children && item.children.length) {
                     ;
-                    $p += '<span mxs="_zs_gallerydU:f" class="mc-iconfont _zs_gallery_mx-cascade_index_-line-arrow">&#xe692;</span>';
+                    $p += '<span mxs="_zs_gallery/:a" class="mc-iconfont _zs_gallery_mx-cascade_index_-line-arrow">&#xe692;</span>';
                     $line = 18;
                     $art = '/if';
                     ;
@@ -222,7 +223,7 @@ catch (ex) {
         me.updater.set({
             viewId: me.id,
             disabled: disabledNode && (disabledNode.length > 0),
-            placeholder: ops.placeholder || '请选择',
+            placeholder: ops.placeholder || I18n['choose'],
             valueKey: valueKey,
             textKey: textKey,
             parentKey: parentKey,

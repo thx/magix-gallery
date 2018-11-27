@@ -33,7 +33,7 @@ module.exports = Magix.View.extend({
         me['@{trigger.type}'] = ops.triggerType || 'click';
 
         let expand = false;
-        let emptyText = ops.emptyText || I18n['dropdown.empty.text'];
+        let emptyText = ops.emptyText || I18n['choose'];
         let allText = ops.name || '';
         let needAll = (ops.needAll + '') === 'false'; //禁用全选功能
         let searchbox = (ops.searchbox + '') === 'true';

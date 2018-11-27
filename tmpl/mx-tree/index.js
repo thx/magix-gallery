@@ -1,6 +1,7 @@
 let Magix = require('magix');
 let Vframe = Magix.Vframe;
 let Util = require('@./util');
+let I18n = require('@../../mx-medusa/util');
 Magix.applyStyle('@index.less');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -27,7 +28,7 @@ module.exports = Magix.View.extend({
         if (needAll) {
             let all = {};
             all[valueKey] = 'all';
-            all[textKey] = '全选';
+            all[textKey] = I18n['select.all'];
             all.isAll = true;
             all.children = info.list;
             all.close = close;

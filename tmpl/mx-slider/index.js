@@ -1,7 +1,3 @@
-import {
-    on
-} from 'cluster';
-'ref@./style.less';
 let Magix = require('magix');
 let $ = require('$');
 let DD = require('../mx-dragdrop/index');

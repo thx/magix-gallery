@@ -1,5 +1,6 @@
 let Magix = require('magix');
 Magix.applyStyle('@index.less');
+let I18n = require('@../../mx-medusa/util');
 let $ = require('$');
 
 module.exports = Magix.View.extend({
@@ -46,7 +47,7 @@ module.exports = Magix.View.extend({
         let disabledNode = $('#' + me.id + '[mx-disabled]')
         me.updater.set({
             disabled: disabledNode && (disabledNode.length > 0),
-            placeholder: extra.placeholder || '请选择',
+            placeholder: extra.placeholder || I18n['choose'],
             textKey,
             valueKey,
             map,

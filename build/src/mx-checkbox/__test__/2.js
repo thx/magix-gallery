@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', checked = $$.checked, disabled = $$.disabled, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallery?:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallery?:a" class="_zs_gallery___test___layout_-eg-content"><a mxs="_zs_gallery?:_" href="javascript:;" mx-click="' + $viewId + 'outerChange()" class="btn btn-brand mr20">切换状态</a><label mxv mxa="_zs_gallery?:b" class="mr20"><input name="test" value="2" mx-change="' + $viewId + 'innerChange()" type="checkbox" class="anim-checkbox" mx-view="mx-checkbox/index?checked=';
+    $p += '<div mxv mxa="_zs_gallery::_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallery::a" class="_zs_gallery___test___layout_-eg-content"><a mxs="_zs_gallery::_" href="javascript:;" mx-click="' + $viewId + 'outerChange()" class="btn btn-brand mr20">切换状态</a><label mxv mxa="_zs_gallery::b" class="mr20"><input name="test" value="2" mx-change="' + $viewId + 'innerChange()" type="checkbox" class="anim-checkbox" mx-view="mx-checkbox/index?checked=';
     $line = 6;
     $art = '=checked';
     ;
@@ -32,27 +32,27 @@ module.exports = Base.extend({
     $line = 7;
     $art = '=disabled';
     ;
-    $p += ($expr = '<%!$eu(disabled)%>', $eu(disabled)) + '"/> 动态切换状态</label></div><div mxa="_zs_gallery?:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery?:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%!$eu(disabled)%>', $eu(disabled)) + '"/> 动态切换状态</label></div><div mxa="_zs_gallery::c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery::a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 14;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery?:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery::d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 16;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery?:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery::b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 19;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" mx-click="outerChange()" class="btn btn-brand mr20"&gt;切换状态&lt;/a&gt;\n\n&lt;label class="mr20"&gt;\n    &lt;mx-checkbox name="test" value="2" \n        view-checked="&#123;&#123;=checked&#125;&#125;" \n        view-disabled="&#123;&#123;=disabled&#125;&#125;"\n        mx-change="innerChange()"/&gt;\n    动态切换状态\n&lt;/label&gt;\n</pre></div><div mxa="_zs_gallery?:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery?:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" mx-click="outerChange()" class="btn btn-brand mr20"&gt;切换状态&lt;/a&gt;\n\n&lt;label class="mr20"&gt;\n    &lt;mx-checkbox name="test" value="2" \n        view-checked="&#123;&#123;=checked&#125;&#125;" \n        view-disabled="&#123;&#123;=disabled&#125;&#125;"\n        mx-change="innerChange()"/&gt;\n    动态切换状态\n&lt;/label&gt;\n</pre></div><div mxa="_zs_gallery::e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery::c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 33;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery?:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery::f" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 35;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallery?:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallery::b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 38;
     $art = '=viewId';
     ;

@@ -3,12 +3,13 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-suggest/index",["magix","$","../mx-monitor/index"],(require,exports,module)=>{
-/*Magix,$,Monitor*/
+define("mx-suggest/index",["magix","$","../mx-medusa/util","../mx-monitor/index"],(require,exports,module)=>{
+/*Magix,$,I18n,Monitor*/
 
 var Magix = require("magix");
 var $ = require("$");
 Magix.applyStyle("_zs_gallery_mx-suggest_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-suggest_index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n/* 动画结束停在最后一帧 */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-suggest_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n/**\n* 渐显上拉动画\n*/\n@keyframes _zs_gallery_mx-suggest_index_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_index_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@keyframes _zs_gallery_mx-suggest_index_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_index_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n[mx-view*=\"mx-suggest/index\"] {\n  display: inline-block;\n}\n[mx-view*=\"mx-suggest/index\"] ._zs_gallery_mx-suggest_index_-loading-small {\n  padding: 40px 0;\n}\n._zs_gallery_mx-suggest_index_-suggest-box-right,\n._zs_gallery_mx-suggest_index_-suggest-box-left {\n  position: relative;\n  height: 32px;\n}\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu,\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu {\n  display: none;\n  position: absolute;\n  top: 100%;\n  z-index: 99;\n  min-width: 100%;\n  max-height: 300px;\n  margin-top: 10px;\n  padding: 8px 10px;\n  border-radius: 4px;\n  background-color: #fff;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  overflow-y: auto;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item,\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item {\n  margin: 2px 0;\n  padding: 0 10px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n  white-space: nowrap;\n  word-break: break-all;\n}\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item:hover,\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item:hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item._zs_gallery_mx-suggest_index_-active,\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item._zs_gallery_mx-suggest_index_-active,\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item._zs_gallery_mx-suggest_index_-active:hover,\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item._zs_gallery_mx-suggest_index_-active:hover,\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item._zs_gallery_mx-suggest_index_-active:active,\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item._zs_gallery_mx-suggest_index_-active:active,\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item._zs_gallery_mx-suggest_index_-active:focus,\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item._zs_gallery_mx-suggest_index_-active:focus {\n  color: #fff;\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu._zs_gallery_mx-suggest_index_-open,\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu._zs_gallery_mx-suggest_index_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-suggest_index_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-suggest_index_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu {\n  right: 0;\n}\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu {\n  left: 0;\n}\n");
+var I18n = require("../mx-medusa/util");
 var Monitor = require("../mx-monitor/index");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
@@ -26,7 +27,7 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', align = $$.align, placeholder = $$.placeholder, viewId = $$.viewId, selectText = $$.selectText, show = $$.show, loading = $$.loading, list = $$.list, selectedValue = $$.selectedValue; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', align = $$.align, placeholder = $$.placeholder, viewId = $$.viewId, selectText = $$.selectText, show = $$.show, loading = $$.loading, list = $$.list, selectedValue = $$.selectedValue, emptyText = $$.emptyText; var $expr, $art, $line; try {
     $p += '<div mxv class="search-box ';
     $line = 1;
     $art = 'if (align==\'right\')';
@@ -49,7 +50,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><i mxs="_zs_galleryc9:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+    $p += '"><i mxs="_zs_galleryc%:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
     $line = 3;
     $art = '=placeholder';
     ;
@@ -82,7 +83,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (loading) {%>';
     if (loading) {
         ;
-        $p += '<div mxs="_zs_galleryc9:a" class="loading loading-ext _zs_gallery_mx-suggest_index_-loading-small"><span class="loading-anim"></span></div>';
+        $p += '<div mxs="_zs_galleryc%:a" class="loading loading-ext _zs_gallery_mx-suggest_index_-loading-small"><span class="loading-anim"></span></div>';
         $line = 17;
         $art = 'else';
         ;
@@ -101,9 +102,9 @@ module.exports = Magix.View.extend({
             $line = 19;
             $art = 'each list as item';
             ;
-            $expr = '<%for (var $art_ivakonvk$art_i = 0, $art_cqzjlndob$art_c = list.length; $art_ivakonvk$art_i < $art_cqzjlndob$art_c; $art_ivakonvk$art_i++) {            var item = list[$art_ivakonvk$art_i]%>';
-            for (var $art_ivakonvk$art_i = 0, $art_cqzjlndob$art_c = list.length; $art_ivakonvk$art_i < $art_cqzjlndob$art_c; $art_ivakonvk$art_i++) {
-                var item = list[$art_ivakonvk$art_i];
+            $expr = '<%for (var $art_iquqfbuyd$art_i = 0, $art_ceqzhovpk$art_c = list.length; $art_iquqfbuyd$art_i < $art_ceqzhovpk$art_c; $art_iquqfbuyd$art_i++) {            var item = list[$art_iquqfbuyd$art_i]%>';
+            for (var $art_iquqfbuyd$art_i = 0, $art_ceqzhovpk$art_c = list.length; $art_iquqfbuyd$art_i < $art_ceqzhovpk$art_c; $art_iquqfbuyd$art_i++) {
+                var item = list[$art_iquqfbuyd$art_i];
                 $p += '<li class="_zs_gallery_mx-suggest_index_-suggest-item ';
                 $line = 20;
                 $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';
@@ -141,7 +142,11 @@ module.exports = Magix.View.extend({
         }
         else {
             ;
-            $p += '<li mxs="_zs_galleryc9:b" class="text-center color-9">无匹配选项</li>';
+            $p += '<li mxa="_zs_galleryc%:_" class="text-center color-9">';
+            $line = 26;
+            $art = '=emptyText';
+            ;
+            $p += ($expr = '<%=emptyText%>', $e(emptyText)) + '</li>';
             $line = 27;
             $art = '/if';
             ;
@@ -187,7 +192,7 @@ catch (ex) {
         //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
         var placeholder = data.placeholder || '';
         if (!placeholder) {
-            placeholder = '搜索';
+            placeholder = I18n['search'];
         }
         that['key.value'] = data.listValue || 'value';
         that['key.text'] = data.listText || 'text';
@@ -221,7 +226,8 @@ catch (ex) {
             selectText: selectText,
             placeholder: placeholder,
             align: data.align || 'left',
-            show: false
+            show: false,
+            emptyText: I18n['empty.text']
         });
         //如果数据没变化,则设置新的数据后再次检测
         if (!altered) {

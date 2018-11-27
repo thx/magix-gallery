@@ -1,6 +1,7 @@
 let Magix = require('magix');
 let Vframe = Magix.Vframe;
 let Util = require('@../mx-tree/util');
+let I18n = require('@../../mx-medusa/util');
 let Monitor = require('../mx-monitor/index');
 Magix.applyStyle('@index.less');
 
@@ -32,7 +33,7 @@ module.exports = Magix.View.extend({
         me.updater.set({
             viewId: me.id,
             disabled: disabledNode && (disabledNode.length > 0),
-            placeholder: ops.placeholder || '请选择',
+            placeholder: ops.placeholder || I18n['choose'],
             valueKey,
             textKey,
             parentKey,

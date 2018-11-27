@@ -1,4 +1,5 @@
 let Magix = require('magix');
+let I18n = require('@../../mx-medusa/util');
 Magix.applyStyle('@index.less');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -55,7 +56,11 @@ module.exports = Magix.View.extend({
             prefix,
             maxHeight,
             list,
-            selected
+            selected,
+            text: {
+                expand: I18n['secradio.expand'],
+                collapse: I18n['secradio.collapse']
+            }
         })
 
         if (!altered) {

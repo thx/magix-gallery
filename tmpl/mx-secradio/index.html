@@ -1,10 +1,10 @@
 {{if needExpand}}
 <div class="line all" mx-click="@{toggleAll}()">
-    一键{{if close}}展开{{else}}收起{{/if}}{{if prefix}}{{=prefix}}{{/if}}
+    {{if close}}{{=text.expand}}{{else}}{{=text.collapse}}{{/if}}{{if prefix}}{{=prefix}}{{/if}}
 </div>
 {{/if}}
 <div class="scroll-y" {{if maxHeight}} style="max-height: {{=maxHeight}}px;" {{/if}}>
-    {{each list as item itemIndex}}
+{{each list as item itemIndex}}
     <div class="line">
         <label mx-click="@{toggleOne}({index:{{=itemIndex}}})">
             {{if needExpand}}
@@ -33,5 +33,5 @@
         </label>
     </div>
     {{/each}}
-    {{/each}}
+{{/each}}
 </div>

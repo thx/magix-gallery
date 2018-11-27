@@ -1,4 +1,6 @@
 module.exports = {
+    "secradio.expand": "Expand",
+    "secradio.collapse": "Collapse",
     "calendar.before.yesterday": "The day before yesterday",
     "calendar.dynamic.end": "End of ${day} days",
     "calendar.dynamic.end.tip": "End of ${day} days（base of begin time）",
@@ -40,7 +42,6 @@ module.exports = {
     "dropdown.all.custom": "All",
     "dropdown.all.default": "All",
     "dropdown.search": "Search",
-    "dropdown.empty.text": "Choose please",
     "form.char": "characters",
     "form.char.between": "Between ${min} to ${max} characters, current: ${current} characters",
     "form.check.chinese": "Please enter the Chinese",
@@ -74,5 +75,8 @@ module.exports = {
     "dialog.cancel": "Cancel",
     "dialog.submit": "Submit",
     "select.all": "Select all",
-    "unselect.all": "Unselect all"
+    "unselect.all": "Unselect all",
+    "search": "Search",
+    "choose": "Choose please",
+    "empty.text": "No match"
 };

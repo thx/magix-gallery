@@ -56,7 +56,7 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = '=selectedText';
     ;
-    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryaE:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ';
+    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryaJ:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ';
     $line = 5;
     $art = '=placementClass';
     ;
@@ -120,7 +120,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (searchbox) {%>';
         if (searchbox) {
             ;
-            $p += '<div mxv mxa="_zs_galleryaE:_" class="_zs_gallery_mx-dropdown_index_-search-wrapper"><div mxv mxa="_zs_galleryaE:a" class="search-box"><i mxs="_zs_galleryaE:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+            $p += '<div mxv mxa="_zs_galleryaJ:_" class="_zs_gallery_mx-dropdown_index_-search-wrapper"><div mxv mxa="_zs_galleryaJ:a" class="search-box"><i mxs="_zs_galleryaJ:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
             $line = 13;
             $art = '=text.search';
             ;
@@ -142,7 +142,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (!needAll) {%>';
         if (!needAll) {
             ;
-            $p += '<div mxa="_zs_galleryaE:b" class="_zs_gallery_mx-dropdown_index_-oper-wrapper"><a class="_zs_gallery_mx-dropdown_index_-oper" href="javascript:;" mx-click="' + $viewId + '@{checkAll}({checked:true})" data-spm-click="';
+            $p += '<div mxa="_zs_galleryaJ:b" class="_zs_gallery_mx-dropdown_index_-oper-wrapper"><a class="_zs_gallery_mx-dropdown_index_-oper" href="javascript:;" mx-click="' + $viewId + '@{checkAll}({checked:true})" data-spm-click="';
             $line = 25;
             $art = '=spm';
             ;
@@ -177,8 +177,8 @@ module.exports = Magix.View.extend({
         $line = 30;
         $art = 'each groups as group groupIndex';
         ;
-        $expr = '<%for (var groupIndex = 0, $art_coalkgih$art_c = groups.length; groupIndex < $art_coalkgih$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
-        for (var groupIndex = 0, $art_coalkgih$art_c = groups.length; groupIndex < $art_coalkgih$art_c; groupIndex++) {
+        $expr = '<%for (var groupIndex = 0, $art_caihtxyfi$art_c = groups.length; groupIndex < $art_caihtxyfi$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
+        for (var groupIndex = 0, $art_caihtxyfi$art_c = groups.length; groupIndex < $art_caihtxyfi$art_c; groupIndex++) {
             var group = groups[groupIndex];
             $p += ' ';
             $line = 31;
@@ -270,13 +270,13 @@ module.exports = Magix.View.extend({
                 $expr = '<%}%>';
             }
             ;
-            $p += '<div mxv mxa="_zs_galleryaE:c" class="clearfix _zs_gallery_mx-dropdown_index_-group-wrapper">';
+            $p += '<div mxv mxa="_zs_galleryaJ:c" class="clearfix _zs_gallery_mx-dropdown_index_-group-wrapper">';
             $line = 48;
             $art = 'each group.list as item';
             ;
-            $expr = '<%for (var $art_irtkvafroi$art_i = 0, $art_objtffbgx$art_obj = group.list, $art_cqlevoas$art_c = $art_objtffbgx$art_obj.length; $art_irtkvafroi$art_i < $art_cqlevoas$art_c; $art_irtkvafroi$art_i++) {            var item = $art_objtffbgx$art_obj[$art_irtkvafroi$art_i]%>';
-            for (var $art_irtkvafroi$art_i = 0, $art_objtffbgx$art_obj = group.list, $art_cqlevoas$art_c = $art_objtffbgx$art_obj.length; $art_irtkvafroi$art_i < $art_cqlevoas$art_c; $art_irtkvafroi$art_i++) {
-                var item = $art_objtffbgx$art_obj[$art_irtkvafroi$art_i];
+            $expr = '<%for (var $art_ijvlmbpgacsi$art_i = 0, $art_objvklr$art_obj = group.list, $art_cotkmck$art_c = $art_objvklr$art_obj.length; $art_ijvlmbpgacsi$art_i < $art_cotkmck$art_c; $art_ijvlmbpgacsi$art_i++) {            var item = $art_objvklr$art_obj[$art_ijvlmbpgacsi$art_i]%>';
+            for (var $art_ijvlmbpgacsi$art_i = 0, $art_objvklr$art_obj = group.list, $art_cotkmck$art_c = $art_objvklr$art_obj.length; $art_ijvlmbpgacsi$art_i < $art_cotkmck$art_c; $art_ijvlmbpgacsi$art_i++) {
+                var item = $art_objvklr$art_obj[$art_ijvlmbpgacsi$art_i];
                 $p += ' ';
                 $line = 49;
                 $art = 'if !item.hide';
@@ -355,11 +355,11 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxa="_zs_galleryaE:d" class="_zs_gallery_mx-dropdown_index_-footer-wrapper"><button mxa="_zs_galleryaE:e" type="button" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}({enter:true})">';
+        $p += '</div><div mxa="_zs_galleryaJ:d" class="_zs_gallery_mx-dropdown_index_-footer-wrapper"><button mxa="_zs_galleryaJ:e" type="button" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}({enter:true})">';
         $line = 66;
         $art = '=text.submit';
         ;
-        $p += ($expr = '<%=text.submit%>', $e(text.submit)) + '</button><button mxa="_zs_galleryaE:f" type="button" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
+        $p += ($expr = '<%=text.submit%>', $e(text.submit)) + '</button><button mxa="_zs_galleryaJ:f" type="button" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
         $line = 67;
         $art = '=text.cancel';
         ;
@@ -403,7 +403,7 @@ catch (ex) {
         // trigger方式，click，hover，默认click
         me['@{trigger.type}'] = ops.triggerType || 'click';
         var expand = false;
-        var emptyText = ops.emptyText || I18n['dropdown.empty.text'];
+        var emptyText = ops.emptyText || I18n['choose'];
         var allText = ops.name || '';
         var needAll = (ops.needAll + '') === 'false'; //禁用全选功能
         var searchbox = (ops.searchbox + '') === 'true';

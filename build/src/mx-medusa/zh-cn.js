@@ -7,6 +7,8 @@ define("mx-medusa/zh-cn",[],(require,exports,module)=>{
 /**/
 
 module.exports = {
+    "secradio.expand": "一键展开",
+    "secradio.collapse": "一键收起",
     "calendar.before.yesterday": "前天",
     "calendar.dynamic.end": "${day}天后结束",
     "calendar.dynamic.end.tip": "${day}天后结束（以开始时间为准动态计算）",
@@ -48,7 +50,6 @@ module.exports = {
     "dropdown.all.custom": "全部",
     "dropdown.all.default": "全选",
     "dropdown.search": "搜索关键词",
-    "dropdown.empty.text": "请选择",
     "form.char": "个字符",
     "form.char.between": "${min} ~ ${max} 个字符之间，当前：${current}",
     "form.check.chinese": "请输入中文",
@@ -82,7 +83,10 @@ module.exports = {
     "dialog.cancel": "取消",
     "dialog.submit": "确定",
     "select.all": "全选",
-    "unselect.all": "清空"
+    "unselect.all": "清空",
+    "search": "搜索",
+    "choose": "请选择",
+    "empty.text": "无匹配内容"
 };
 
 });

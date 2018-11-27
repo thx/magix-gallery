@@ -1,6 +1,7 @@
 let Magix = require('magix');
 let $ = require('$');
 Magix.applyStyle('@index.less');
+let I18n = require('@../../mx-medusa/util');
 let Monitor = require('../mx-monitor/index');
 
 module.exports = Magix.View.extend({
@@ -27,7 +28,7 @@ module.exports = Magix.View.extend({
         //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
         let placeholder = data.placeholder || '';
         if (!placeholder) {
-            placeholder = '搜索';
+            placeholder = I18n['search'];
         }
 
         that['key.value'] = data.listValue || 'value';
@@ -65,7 +66,8 @@ module.exports = Magix.View.extend({
             selectText: selectText,
             placeholder: placeholder,
             align: data.align || 'left',
-            show: false
+            show: false,
+            emptyText: I18n['empty.text']
         });
         //如果数据没变化,则设置新的数据后再次检测
         if (!altered) {

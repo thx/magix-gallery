@@ -6,9 +6,6 @@
 define("mx-slider/index",["magix","$","../mx-dragdrop/index"],(require,exports,module)=>{
 /*Magix,$,DD*/
 
-
-"use strict";
-exports.__esModule = true;
 var Magix = require("magix");
 var $ = require("$");
 var DD = require("../mx-dragdrop/index");
@@ -27,7 +24,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', vertical = $$.vertical, height = $$.height, width = $$.width, min = $$.min, max = $$.max, needInput = $$.needInput, viewId = $$.viewId, disabled = $$.disabled; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycJ:_" class="_zs_gallery_mx-slider_style_-rail-wrapper"><span class="_zs_gallery_mx-slider_style_-rail ';
+    $p += '<div mxa="_zs_gallerycO:_" class="_zs_gallery_mx-slider_style_-rail-wrapper"><span class="_zs_gallery_mx-slider_style_-rail ';
     $expr = '<%if (vertical) {%>';
     if (vertical) {
         ;

@@ -7,7 +7,6 @@ let DateFormat = Util.dateFormat;
 let DateParse = Util.dateParse;
 let GetDefaultDate = Util.getDefaultDate;
 Magix.applyStyle('@index.less');
-
 let I18n = require('../mx-medusa/util');
 
 let Days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'].map(key => {
