@@ -85,6 +85,16 @@ catch (ex) {
     render: function () {
         var that = this;
         var options = [{
+                key: 'list',
+                desc: "<pre>\n\u9875\u9762\u5C55\u793A\u6570\u636E\u5217\u8868\uFF0C\u4F8B\u5982\uFF1A\n[{\n    value: 1,\n    pValue: '', //\u7236\u8282\u70B9value\u503C\uFF0C\u6839\u8282\u70B9\u65E0\n    text: '\u8BA1\u52121'\n}, {\n    value: 11,\n    pValue: 1,\n    text: '\u5355\u51431-1'\n}]\n</pre>",
+                type: 'array',
+                def: ''
+            }, {
+                key: 'bottom-values',
+                desc: '已选中的最底层value列表，组件认为选中项最终获取的都是最底层数据',
+                type: 'array',
+                def: ''
+            }, {
                 key: 'text-key',
                 desc: '渲染text时读取的key',
                 type: 'string',
@@ -99,16 +109,6 @@ catch (ex) {
                 desc: '表示父节点id的字段',
                 type: 'string',
                 def: 'pValue'
-            }, {
-                key: 'list',
-                desc: "<pre>\n\u9875\u9762\u5C55\u793A\u6570\u636E\u5217\u8868\uFF0C\u4F8B\u5982\uFF1A\n[{\n    value: 1,\n    pValue: '', //\u7236\u8282\u70B9value\u503C\uFF0C\u6839\u8282\u70B9\u65E0\n    text: '\u8BA1\u52121'\n}, {\n    value: 11,\n    pValue: 1,\n    text: '\u5355\u51431-1'\n}]\n</pre>",
-                type: 'array',
-                def: ''
-            }, {
-                key: 'bottom-values',
-                desc: '已选中的最底层value列表，组件认为选中项最终获取的都是最底层数据',
-                type: 'array',
-                def: ''
             }, {
                 key: 'need-all',
                 desc: '是否需要全选功能',

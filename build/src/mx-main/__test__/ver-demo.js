@@ -111,7 +111,7 @@ catch (ex) {
             }, {
                 label: '设置单元',
                 prevTip: '返回计划设置',
-                nextTip: '下一步，完成',
+                nextTip: '下一步，添加创意',
                 icon: '<i class="mc-iconfont fontsize-20">&#xe664;</i>',
                 view: 'mx-main/__test__/ver-inner',
                 nextFn: function (remains, next) {

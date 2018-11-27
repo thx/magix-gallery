@@ -3,41 +3,12 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-tree/index",["magix","./branch"],(require,exports,module)=>{
-/*Magix*/
+define("mx-tree/index",["magix","mx-tree/util","./branch"],(require,exports,module)=>{
+/*Magix,Util*/
 require("./branch");
 var Magix = require("magix");
 var Vframe = Magix.Vframe;
-var ListToTree = function (list, id, pId, close) {
-    var map = {}, listMap = {}, rootList = [];
-    for (var i = 0, max = list.length; i < max; i++) {
-        var one = Magix.mix({}, list[i]);
-        one.close = close;
-        map[one[id]] = one;
-        if (listMap[one[id]]) {
-            one.children = listMap[one[id]];
-        }
-        if (Magix.has(one, pId) && one[pId] !== '') {
-            if (map[one[pId]]) {
-                var c = map[one[pId]].children || (map[one[pId]].children = []);
-                c.push(one);
-            }
-            else {
-                if (!listMap[one[pId]])
-                    listMap[one[pId]] = [one];
-                else
-                    listMap[one[pId]].push(one);
-            }
-        }
-        else {
-            rootList.push(one);
-        }
-    }
-    return {
-        list: rootList,
-        map: map
-    };
-};
+var Util = require("mx-tree/util");
 Magix.applyStyle("_zs_gallery_mx-tree_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-tree_index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-tree_index_-name {\n  position: relative;\n  height: 32px;\n  line-height: 20px;\n  padding-bottom: 12px;\n  background-color: #fff;\n  overflow: hidden;\n  transition: height 0.2s;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-icon {\n  float: left;\n  height: 20px;\n  margin-right: 5px;\n  line-height: 20px;\n  color: #ccc;\n  transition: color 0.25s;\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper {\n  cursor: pointer;\n  font-size: 14px;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper:hover {\n  color: #666;\n}\n._zs_gallery_mx-tree_index_-close ._zs_gallery_mx-tree_index_-name {\n  height: 0;\n  padding-bottom: 0;\n}\n._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-indent {\n  padding-left: 20px;\n}\n._zs_gallery_mx-tree_index_-line {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:after {\n  content: '';\n  position: absolute;\n  top: 22px;\n  left: 7px;\n  bottom: 2px;\n  width: 1px;\n  background-color: #e6e6e6;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:last-child:after {\n  content: none;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
@@ -125,7 +96,7 @@ catch (ex) {
         var needExpand = (ops.needExpand + '') === 'true';
         // 可展开收起的时候，默认false
         var close = (ops.close + '') === 'true';
-        var info = ListToTree(ops.list, valueKey, parentKey, close);
+        var info = Util.listToTree(ops.list, valueKey, parentKey, close);
         var list;
         if (needAll) {
             var all = {};

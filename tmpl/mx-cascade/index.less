@@ -1,0 +1,149 @@
+@import "../mx-style/_vars";
+@import "../mx-style/_animation";
+.cascade-toggle {
+    position: relative;
+    width: 100%;
+    padding: 0 25px 0 10px;
+    border-radius: @border-radius;
+    cursor: pointer;
+    user-select: none;
+    .cascade-label {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        &.cascade-label-ph {
+            color: @color-third;
+        }
+    }
+    .arrow {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 28px;
+        height: 28px;
+        font-size: 28px;
+        line-height: 28px;
+        margin-top: -14px;
+        color: @color-border-hover;
+        transition: transform @duration, top @duration;
+    }
+    &.open {
+        .arrow {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.cascade-list {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 99;
+    margin-top: 10px;
+    border-radius: @border-radius;
+    background-color: #fff;
+    background-color: #fff;
+    white-space: nowrap;
+
+    .mx-shadow();
+    
+    &.open {
+        display: block;
+        animation: fade-in-down @duration ease-out;
+        animation-fill-mode: forwards;
+    }
+}
+
+@line-height: 28px;
+.group {
+    display: inline-block;
+    min-width: 100px;
+    height: @line-height * 6;
+    overflow-y: auto;
+    vertical-align: top;
+    border-right: 1px solid @color-border;
+
+    &:last-child{
+        border-right: 0 none;
+    }
+}
+
+.line {
+    position: relative;
+    height: @line-height;
+    padding-right: @line-height - 2;
+    padding-left: 10px;
+    line-height: @line-height;
+    transition: background-color @duration, color @duration;
+    cursor: pointer;
+    .line-text {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .line-arrow {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: @line-height;
+        height: @line-height;
+        font-size: 24px;
+        line-height: @line-height;
+        margin-top: 0 - @line-height / 2;
+        color: @color-border-hover;
+        transform: rotate(-90deg);
+    }
+    &:hover {
+        background-color: @color-hover;
+    }
+    &.cur {
+        color: @color-brand;
+        background-color: @color-brand-opacity;
+
+        &:hover{
+            background-color: @color-brand-opacity;
+        }
+    }
+}
+
+[mx-view*="mx-cascade/index"] {
+    position: relative;
+    display: inline-block;
+    min-width: 100px;
+    height: @input-height;
+    line-height: @input-height - 2;
+    vertical-align: middle;
+    background-color: #fff;
+    outline: 0;
+    .cascade-toggle {
+        transition: all @duration;
+        border-width: 1px;
+        border-style: solid;
+        border-color: @color-border;
+        color: @color-third;
+    }
+    &:hover {
+        .cascade-toggle {
+            border-color: @color-border-hover;
+            color: @color-secondary;
+        }
+    }
+
+    &[mx-disabled], &[mx-disabled]:hover{
+        .cascade-toggle {
+            border-color: @color-border;
+            color: @color-third;
+            background-color: @color-disabled;
+            cursor: not-allowed;
+
+            .arrow{
+                color: #ccc;
+            }
+        }
+    }
+}

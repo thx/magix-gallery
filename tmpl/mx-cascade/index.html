@@ -1,0 +1,24 @@
+<div class="cascade-toggle {{if expand}} open {{/if}}"
+    {{if !disabled}} mx-click="@{show}()" {{/if}} >
+    <span class="cascade-label {{if (selectedValue==='')}} cascade-label-ph {{/if}}">
+        {{if name}}{{=name}}：{{/if}}
+        {{=selectedText}}
+    </span>
+    <span class="mc-iconfont arrow">&#xe692;</span>
+</div>
+{{if !disabled}}
+<div class="cascade-list {{if expand}} open {{/if}} clearfix">
+    {{each groups as list gIndex}}
+    <div class="group" id="{{=viewId}}_g_{{=gIndex}}">
+        {{each list as item iIndex}}
+        <div class="line {{if item.cur}} cur {{/if}}" mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">
+            <span class="line-text">{{=item[textKey]}}</span>
+            {{if (item.children && item.children.length)}}
+            <span class="mc-iconfont line-arrow">&#xe692;</span>
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
+    {{/each}}
+</div>
+{{/if}}

@@ -1,33 +1,6 @@
 let Magix = require('magix');
 let Vframe = Magix.Vframe;
-let ListToTree = (list, id, pId, close) => {
-    let map = {},
-        listMap = {},
-        rootList = [];
-    for (let i = 0, max = list.length; i < max; i++) {
-        let one = Magix.mix({}, list[i]);
-        one.close = close;
-        map[one[id]] = one;
-        if (listMap[one[id]]) {
-            one.children = listMap[one[id]];
-        }
-        if (Magix.has(one, pId) && one[pId] !== '') {
-            if (map[one[pId]]) {
-                let c = map[one[pId]].children || (map[one[pId]].children = []);
-                c.push(one);
-            } else {
-                if (!listMap[one[pId]]) listMap[one[pId]] = [one];
-                else listMap[one[pId]].push(one);
-            }
-        } else {
-            rootList.push(one);
-        }
-    }
-    return {
-        list: rootList,
-        map
-    };
-};
+let Util = require('@./util');
 Magix.applyStyle('@index.less');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -48,7 +21,7 @@ module.exports = Magix.View.extend({
         let needExpand = (ops.needExpand + '') === 'true';
         // 可展开收起的时候，默认false
         let close = (ops.close + '') === 'true';
-        let info = ListToTree(ops.list, valueKey, parentKey, close);
+        let info = Util.listToTree(ops.list, valueKey, parentKey, close);
 
         let list;
         if (needAll) {

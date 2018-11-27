@@ -11,6 +11,7 @@ module.exports = Magix.View.extend({
             path: true
         });
 
+        this.$map = {};
     },
     render() {
         $(window).scrollTop(0);
@@ -66,10 +67,6 @@ module.exports = Magix.View.extend({
                     path: '/table/index2',
                     icon: '&#xe770;'
                 }, {
-                    name: '表头吸顶',
-                    path: '/table/index11',
-                    icon: '&#xe7b6;'
-                }, {
                     name: '操作项在下方',
                     path: '/table/index3',
                     icon: '&#xe7b5;'
@@ -78,9 +75,13 @@ module.exports = Magix.View.extend({
                     path: '/table/index4',
                     icon: '&#xe7b5;'
                 }, {
+                    name: '表头吸顶',
+                    path: '/table/index11',
+                    icon: '&#xe641;'
+                }, {
                     name: '筛选项同表头一起吸顶',
                     path: '/table/index12',
-                    icon: '&#xe7b5;'
+                    icon: '&#xe641;'
                 }, {
                     name: '指标排序',
                     path: '/table/index10',
@@ -161,9 +162,12 @@ module.exports = Magix.View.extend({
                     icon: '&#xe72c;'
                 }, {
                     name: '树状结构',
-                    tip: '',
                     path: '/tree/index',
                     icon: '&#xe62b;'
+                }, {
+                    name: '级联选择',
+                    path: '/cascade/index',
+                    icon: '&#xe60a;'
                 }, {
                     name: '二级单选',
                     path: '/secradio/index',
@@ -266,13 +270,13 @@ module.exports = Magix.View.extend({
                 }, {
                     name: '简单横向分步流程',
                     path: '/main/hor',
-                    icon: '&#xe690;' 
+                    icon: '&#xe690;'
                 }, {
                     name: '简单纵向分步流程',
                     path: '/main/ver',
-                    icon: '&#xe65e;' 
+                    icon: '&#xe65e;'
                 }]
-            },{
+            }, {
                 name: '样式',
                 subs: [{
                     name: '常用',
@@ -368,22 +372,22 @@ module.exports = Magix.View.extend({
                     name: '页面监听参数变化回到顶部',
                     path: '/all/pro/top'
                 }]
-            }], 
+            }],
             2: [{
                 subs: [{
                     name: '更新记录',
                     path: '/all/other/update'
-                },{
+                }, {
                     name: '相关链接',
                     path: '/all/other/links'
                 }]
             }]
         }
         let curIndex = 0;
-        if(path.indexOf('/all/other/') > -1){
+        if (path.indexOf('/all/other/') > -1) {
             // 脚手架相关内容
             curIndex = 2;
-        }else if(path.indexOf('/all/pro/') > -1){
+        } else if (path.indexOf('/all/pro/') > -1) {
             // 脚手架相关内容
             curIndex = 1;
         }
@@ -392,7 +396,7 @@ module.exports = Magix.View.extend({
 
         let suggests = [],  //全局提示
             all = []; // 当前tab可选
-        for(let i in map){
+        for (let i in map) {
             map[i].forEach((item) => {
                 let subs = $.extend(true, [], item.subs);
                 subs.forEach(sub => {
@@ -401,11 +405,11 @@ module.exports = Magix.View.extend({
                 suggests = suggests.concat(subs);
             })
 
-            if(i == curIndex){
+            if (i == curIndex) {
                 map[i].forEach((item, index) => {
                     // 默认全部展开
                     item.index = index;
-                    item.expand = true;
+                    item.close = that.$map[item.subs[0].path] || false;
                     all = all.concat(item.subs);
                 })
             }
@@ -424,10 +428,12 @@ module.exports = Magix.View.extend({
         list.forEach(item => {
             item.subs.forEach(sub => {
                 if (sub.path == path) {
-                    item.expand = true;
+                    item.close = false;
+                    that.$map[item.subs[0].path] = false;
                     if (item.name) {
                         curNames.push(item.name);
                     }
+
                 }
             })
         })
@@ -472,14 +478,18 @@ module.exports = Magix.View.extend({
         }
     },
     'toggle<click>'(e) {
-        let updater = this.updater;
+        let that = this;
+        let updater = that.updater;
         let list = updater.get('list');
-        list[e.params.index].expand = !list[e.params.index].expand;
+        let index = e.params.index;
+        list[index].close = !list[index].close;
+        that.$map[list[index].subs[0].path] = list[index].close;
+
         updater.digest({
             list
         })
     },
-    'suggest<suggest>'(e){
+    'suggest<suggest>'(e) {
         Magix.Router.to(e.selected.value);
     },
     '$win<scroll>'(e) {
@@ -515,7 +525,7 @@ module.exports = Magix.View.extend({
             }).digest();
         }), 200);
     },
-    'back<click>'(e){
+    'back<click>'(e) {
         $(window).scrollTop(0);
     }
 });

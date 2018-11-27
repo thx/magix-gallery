@@ -109,7 +109,7 @@ catch (ex) {
             }, {
                 label: '设置单元',
                 prevTip: '返回计划设置',
-                nextTip: '下一步，完成',
+                nextTip: '下一步，添加创意',
                 view: 'mx-main/__test__/hor-inner',
                 nextFn: function (remains, next) {
                     // remains 当前步骤保留的信息，提交处理
