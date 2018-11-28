@@ -3,31 +3,16 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-popconfirm/index",["magix","$"],(require,exports,module)=>{
-/*Magix,$*/
+define("mx-popconfirm/index",["magix","mx-popover/base","../mx-monitor/index","$"],(require,exports,module)=>{
+/*Magix,Base,Monitor,$*/
 
-"use strict";
-exports.__esModule = true;
 var Magix = require("magix");
 var Vframe = Magix.Vframe;
+var Base = require("mx-popover/base");
+var Monitor = require("../mx-monitor/index");
 var $ = require("$");
 Magix.applyStyle("_zs_gallery_mx-popover_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-popover_index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-popover_index_-bottom-left,\n._zs_gallery_mx-popover_index_-bottom-right,\n._zs_gallery_mx-popover_index_-bottom-center,\n._zs_gallery_mx-popover_index_-top-left,\n._zs_gallery_mx-popover_index_-top-right,\n._zs_gallery_mx-popover_index_-top-center,\n._zs_gallery_mx-popover_index_-right-top,\n._zs_gallery_mx-popover_index_-right-bottom,\n._zs_gallery_mx-popover_index_-right-center,\n._zs_gallery_mx-popover_index_-left-top,\n._zs_gallery_mx-popover_index_-left-bottom,\n._zs_gallery_mx-popover_index_-left-center {\n  opacity: 0;\n  transition: opacity 0.15s, -webkit-transform 0.15s;\n  transition: transform 0.15s, opacity 0.15s;\n  transition: transform 0.15s, opacity 0.15s, -webkit-transform 0.15s;\n  -webkit-transform: scale(0);\n          transform: scale(0);\n}\n/**\n * popover下左 初始隐藏状态\n * 注意使用opacity控制popover的显示和隐藏，不要设置display: none\n */\n._zs_gallery_mx-popover_index_-bottom-left,\n._zs_gallery_mx-popover_index_-right-top {\n  -webkit-transform-origin: 0 0;\n          transform-origin: 0 0;\n}\n._zs_gallery_mx-popover_index_-bottom-right,\n._zs_gallery_mx-popover_index_-left-top {\n  -webkit-transform-origin: 100% 0;\n          transform-origin: 100% 0;\n}\n._zs_gallery_mx-popover_index_-bottom-center {\n  -webkit-transform-origin: 50% 0;\n          transform-origin: 50% 0;\n}\n._zs_gallery_mx-popover_index_-top-left,\n._zs_gallery_mx-popover_index_-right-bottom {\n  -webkit-transform-origin: 0 100%;\n          transform-origin: 0 100%;\n}\n._zs_gallery_mx-popover_index_-top-right,\n._zs_gallery_mx-popover_index_-left-bottom {\n  -webkit-transform-origin: 100% 100%;\n          transform-origin: 100% 100%;\n}\n._zs_gallery_mx-popover_index_-top-center {\n  -webkit-transform-origin: 50% 100%;\n          transform-origin: 50% 100%;\n}\n._zs_gallery_mx-popover_index_-left-center {\n  -webkit-transform-origin: 100% 50%;\n          transform-origin: 100% 50%;\n}\n._zs_gallery_mx-popover_index_-right-center {\n  -webkit-transform-origin: 0 50%;\n          transform-origin: 0 50%;\n}\n._zs_gallery_mx-popover_index_-show-out {\n  opacity: 1;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n}\n/**\n * popover显示\n */\n._zs_gallery_mx-popover_index_-popover-hide {\n  display: none;\n}\n._zs_gallery_mx-popover_index_-popover,\n._zs_gallery_mx-popover_index_-popover-dark {\n  position: absolute;\n  z-index: 9999;\n  height: auto;\n  border-radius: 4px;\n  font-size: 12px;\n  line-height: 22px;\n  white-space: normal;\n  font-weight: normal;\n  font-family: Helvetica, Arial, \"Microsoft Yahei\", \"Hiragino Sans GB\", \"Heiti SC\", \"WenQuanYi Micro Hei\", sans-serif;\n}\n._zs_gallery_mx-popover_index_-popover {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n  background-color: #fff;\n  color: #333;\n}\n._zs_gallery_mx-popover_index_-popover ._zs_gallery_mx-popover_index_-popover-content {\n  padding: 10px;\n  word-break: break-all;\n}\n._zs_gallery_mx-popover_index_-popover-dark {\n  background-color: rgba(33, 33, 33, 0.72);\n  color: #fff;\n}\n._zs_gallery_mx-popover_index_-popover-dark ._zs_gallery_mx-popover_index_-popover-content {\n  padding: 4px 10px;\n}\n");
-var ShowDalay = 100;
-var ClassNames = {
-    bl: '_zs_gallery_mx-popover_index_-bottom-left',
-    br: '_zs_gallery_mx-popover_index_-bottom-right',
-    bc: '_zs_gallery_mx-popover_index_-bottom-center',
-    tl: '_zs_gallery_mx-popover_index_-top-left',
-    tr: '_zs_gallery_mx-popover_index_-top-right',
-    tc: '_zs_gallery_mx-popover_index_-top-center',
-    lt: '_zs_gallery_mx-popover_index_-left-top',
-    lb: '_zs_gallery_mx-popover_index_-left-bottom',
-    lc: '_zs_gallery_mx-popover_index_-left-center',
-    rt: '_zs_gallery_mx-popover_index_-right-top',
-    rb: '_zs_gallery_mx-popover_index_-right-bottom',
-    rc: '_zs_gallery_mx-popover_index_-right-center'
-};
-module.exports = Magix.View.extend({
+module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
     var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
@@ -55,10 +40,20 @@ catch (ex) {
 } return $p; },
     init: function (extra) {
         var me = this;
+        Monitor['@{setup}']();
+        var map = {
+            t: 'top',
+            l: 'left',
+            r: 'right',
+            b: 'bottom',
+            c: 'center'
+        };
         var place = extra.place || 'bc';
-        me['@{pos.class}'] = ClassNames[place];
-        me['@{pos.class}'] += ' _zs_gallery_mx-popover_index_-popover';
-        me['@{pos.place}'] = place;
+        var places = place.split('');
+        var placement = map[places[0]], align = map[places[1]];
+        me['@{pos.placement}'] = placement;
+        me['@{pos.align}'] = align;
+        me['@{pos.class}'] = me.constants.classNames[placement + align[0].toUpperCase() + align.slice(1)] + ' _zs_gallery_mx-popover_index_-popover';
         me['@{pos.init}'] = false;
         me['@{pos.cal}'] = false;
         me['@{pos.show}'] = false;
@@ -72,6 +67,8 @@ catch (ex) {
                 clearTimeout(me['@{dealy.show.timer}']);
             }
             $('#popover_' + me.id).remove();
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
         });
         var oNode = $('#' + me.id);
         me['@{trigger.content}'] = oNode.html();
@@ -79,28 +76,9 @@ catch (ex) {
         oNode.on('click', function () {
             me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
                 me['@{show}'](); //等待内容显示
-            }), ShowDalay);
+            }), me.constants.showDelay);
         });
         me.bindScroll();
-    },
-    bindScroll: function () {
-        var me = this;
-        var scrollWrapper = me['@{scroll.wrapper}'];
-        if (!scrollWrapper) {
-            return;
-        }
-        var wrapper;
-        if ((typeof scrollWrapper == 'string') && !(/^#/.test(scrollWrapper)) && !(/^\./.test(scrollWrapper))) {
-            wrapper = $('#' + scrollWrapper);
-        }
-        else {
-            wrapper = $(scrollWrapper);
-        }
-        wrapper.scroll(function () {
-            if (me['@{pos.show}']) {
-                me['@{setPos}']();
-            }
-        });
     },
     render: function () {
         var me = this;
@@ -134,77 +112,8 @@ catch (ex) {
             }
         });
     },
-    '@{setPos}': function () {
-        var me = this;
-        var oNode = me['@{owner.node}'];
-        var popNode = $('#popover_' + me.id);
-        if (!popNode || !popNode.length) {
-            return;
-        }
-        var width = oNode.outerWidth();
-        var height = oNode.outerHeight();
-        var offset = oNode.offset();
-        var rWidth = popNode.outerWidth();
-        var rHeight = popNode.outerHeight();
-        // 默认下方居中
-        var top = offset.top + 10, left = offset.left - (rWidth - width) / 2;
-        var place = me['@{pos.place}'];
-        switch (place) {
-            case 'tl':
-                top = offset.top - rHeight - 10;
-                left = offset.left;
-                break;
-            case 'tc':
-                top = offset.top - rHeight - 10;
-                left = offset.left - (rWidth - width) / 2;
-                break;
-            case 'tr':
-                top = offset.top - rHeight - 10;
-                left = offset.left + width - rWidth;
-                break;
-            case 'bl':
-                top = offset.top + height + 10;
-                left = offset.left;
-                break;
-            case 'bc':
-                top = offset.top + height + 10;
-                left = offset.left - (rWidth - width) / 2;
-                break;
-            case 'br':
-                top = offset.top + height + 10;
-                left = offset.left + width - rWidth;
-                break;
-            case 'lt':
-                top = offset.top;
-                left = offset.left - rWidth - 10;
-                break;
-            case 'lc':
-                top = offset.top - (rHeight - height) / 2;
-                left = offset.left - rWidth - 10;
-                break;
-            case 'lb':
-                top = offset.top - (rHeight - height);
-                left = offset.left - rWidth - 10;
-                break;
-            case 'rt':
-                top = offset.top;
-                left = offset.left + width + 10;
-                break;
-            case 'rc':
-                top = offset.top - (rHeight - height) / 2;
-                left = offset.left + width + 10;
-                break;
-            case 'rb':
-                top = offset.top - (rHeight - height);
-                left = offset.left + width + 10;
-                break;
-        }
-        popNode.css({
-            textAlign: me['@{text.align}'],
-            left: left,
-            top: top
-        });
-        return popNode;
+    '@{inside}': function (node) {
+        return Magix.inside(node, this.id) || Magix.inside(node, 'popover_' + this.id);
     },
     '@{show}': function () {
         var me = this;
@@ -220,6 +129,7 @@ catch (ex) {
         // 每次show时都重新定位
         var popNode = me['@{setPos}']();
         popNode.addClass('_zs_gallery_mx-popover_index_-show-out');
+        Monitor['@{add}'](me);
     },
     '@{hide}': function () {
         var me = this;
@@ -229,25 +139,7 @@ catch (ex) {
         me['@{pos.show}'] = false;
         var popNode = $('#popover_' + me.id);
         popNode.removeClass('_zs_gallery_mx-popover_index_-show-out');
-    },
-    /**
-     * 页面滚动的时候
-     * 如果popover展开则重新定位popover
-     */
-    '$win<scroll>': function (e) {
-        var me = this;
-        if (me['@{pos.show}']) {
-            me['@{setPos}']();
-        }
-    },
-    /**
-     * 浮层中使用dialog
-     */
-    '$doc<dialogScolll>': function (e) {
-        var me = this;
-        if (me['@{pos.show}']) {
-            me['@{setPos}']();
-        }
+        Monitor['@{remove}'](me);
     }
 });
 

@@ -26,6 +26,8 @@ let coms = [
     'calendar',
     'mustache',
     'checkbox',
+    'popmenu',
+    'im',
     'cascade',
     'secradio',
     'tree',

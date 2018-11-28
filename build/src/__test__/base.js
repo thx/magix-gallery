@@ -41,9 +41,9 @@ module.exports = Magix.View.extend({
     $line = 18;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_ipfrjrqhgr$art_i = 0, $art_cavnihlwed$art_c = headers.length; $art_ipfrjrqhgr$art_i < $art_cavnihlwed$art_c; $art_ipfrjrqhgr$art_i++) {    var h = headers[$art_ipfrjrqhgr$art_i]%>';
-    for (var $art_ipfrjrqhgr$art_i = 0, $art_cavnihlwed$art_c = headers.length; $art_ipfrjrqhgr$art_i < $art_cavnihlwed$art_c; $art_ipfrjrqhgr$art_i++) {
-        var h = headers[$art_ipfrjrqhgr$art_i];
+    $expr = '<%for (var $art_ibhevuvgwgks$art_i = 0, $art_cnhrdlfeun$art_c = headers.length; $art_ibhevuvgwgks$art_i < $art_cnhrdlfeun$art_c; $art_ibhevuvgwgks$art_i++) {    var h = headers[$art_ibhevuvgwgks$art_i]%>';
+    for (var $art_ibhevuvgwgks$art_i = 0, $art_cnhrdlfeun$art_c = headers.length; $art_ibhevuvgwgks$art_i < $art_cnhrdlfeun$art_c; $art_ibhevuvgwgks$art_i++) {
+        var h = headers[$art_ibhevuvgwgks$art_i];
         $p += '<a href="#!';
         $line = 19;
         $art = '=h.path';
@@ -95,9 +95,9 @@ module.exports = Magix.View.extend({
     $line = 25;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iznzgvgwm$art_i = 0, $art_cuaeahuzbex$art_c = list.length; $art_iznzgvgwm$art_i < $art_cuaeahuzbex$art_c; $art_iznzgvgwm$art_i++) {    var item = list[$art_iznzgvgwm$art_i]%>';
-    for (var $art_iznzgvgwm$art_i = 0, $art_cuaeahuzbex$art_c = list.length; $art_iznzgvgwm$art_i < $art_cuaeahuzbex$art_c; $art_iznzgvgwm$art_i++) {
-        var item = list[$art_iznzgvgwm$art_i];
+    $expr = '<%for (var $art_iykjdliu$art_i = 0, $art_cxkqmctwsrj$art_c = list.length; $art_iykjdliu$art_i < $art_cxkqmctwsrj$art_c; $art_iykjdliu$art_i++) {    var item = list[$art_iykjdliu$art_i]%>';
+    for (var $art_iykjdliu$art_i = 0, $art_cxkqmctwsrj$art_c = list.length; $art_iykjdliu$art_i < $art_cxkqmctwsrj$art_c; $art_iykjdliu$art_i++) {
+        var item = list[$art_iykjdliu$art_i];
         $p += ' ';
         $line = 26;
         $art = 'if item.name';
@@ -138,9 +138,9 @@ module.exports = Magix.View.extend({
         $line = 33;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_iccosvfjws$art_i = 0, $art_objmnktqxxl$art_obj = item.subs, $art_cblfblkyart$art_c = $art_objmnktqxxl$art_obj.length; $art_iccosvfjws$art_i < $art_cblfblkyart$art_c; $art_iccosvfjws$art_i++) {        var sub = $art_objmnktqxxl$art_obj[$art_iccosvfjws$art_i]%>';
-        for (var $art_iccosvfjws$art_i = 0, $art_objmnktqxxl$art_obj = item.subs, $art_cblfblkyart$art_c = $art_objmnktqxxl$art_obj.length; $art_iccosvfjws$art_i < $art_cblfblkyart$art_c; $art_iccosvfjws$art_i++) {
-            var sub = $art_objmnktqxxl$art_obj[$art_iccosvfjws$art_i];
+        $expr = '<%for (var $art_irqpcxmm$art_i = 0, $art_objskvgbnnwlrc$art_obj = item.subs, $art_ctutrairo$art_c = $art_objskvgbnnwlrc$art_obj.length; $art_irqpcxmm$art_i < $art_ctutrairo$art_c; $art_irqpcxmm$art_i++) {        var sub = $art_objskvgbnnwlrc$art_obj[$art_irqpcxmm$art_i]%>';
+        for (var $art_irqpcxmm$art_i = 0, $art_objskvgbnnwlrc$art_obj = item.subs, $art_ctutrairo$art_c = $art_objskvgbnnwlrc$art_obj.length; $art_irqpcxmm$art_i < $art_ctutrairo$art_c; $art_irqpcxmm$art_i++) {
+            var sub = $art_objskvgbnnwlrc$art_obj[$art_irqpcxmm$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 34;
             $art = 'if (sub.path == path)';
@@ -457,14 +457,13 @@ catch (ex) {
                             path: '/taginput/index',
                             icon: '&#xe794;'
                         }, {
+                            name: 'popmenu更多菜单',
+                            path: '/popmenu/index',
+                            icon: '&#xe62c;'
+                        }, {
                             name: '上传',
                             path: '/uploader/index',
                             icon: '&#xe63c;'
-                        }, {
-                            name: '复制',
-                            tip: '该组件引入了第三方 <a rel="noopener noreferrer" target="_blank" href="https://zenorocha.github.io/clipboard.js" class="color-brand">https://zenorocha.github.io/clipboard.js</a> 代码',
-                            path: '/copy/index',
-                            icon: '&#xe610;'
                         }, {
                             name: '单个滑块',
                             path: '/slider/index',
@@ -487,6 +486,11 @@ catch (ex) {
                             tip: '结合iconfont使用，展现样式同dropdown',
                             path: '/status/dropdown',
                             icon: '&#xe7a4;'
+                        }, {
+                            name: '复制',
+                            tip: '该组件引入了第三方 <a rel="noopener noreferrer" target="_blank" href="https://zenorocha.github.io/clipboard.js" class="color-brand">https://zenorocha.github.io/clipboard.js</a> 代码',
+                            path: '/copy/index',
+                            icon: '&#xe610;'
                         }]
                 }, {
                     name: '提示反馈',
@@ -510,19 +514,20 @@ catch (ex) {
                             path: '/error/index',
                             icon: '&#xe611;'
                         }, {
-                            name: '旺旺点灯',
-                            path: '/all/wangwang',
-                            icon: '&#xe75c;'
-                        }, {
-                            name: '钉钉唤起',
-                            tip: '<a class="color-brand" href="https://open-doc.dingtalk.com/docs/doc.htm?spm=a219a.7386797.0.0.WN76gC&treeId=176&articleId=106086&docType=1" target="_blank"  rel="noopener noreferrer">钉钉PC端统一跳转协议</a>',
-                            path: '/all/dingding',
-                            icon: '&#xe677;'
-                        }, {
                             name: '万象客服问答',
                             tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/wanxiang/technology/description" target="_blank"  rel="noopener noreferrer">服务窗接入wiki文档</a>',
                             path: '/wanxiang/index',
                             icon: '&#xe767;'
+                        }, {
+                            name: '钉钉唤起',
+                            tip: '<a class="color-brand" href="https://open-doc.dingtalk.com/docs/doc.htm?spm=a219a.7386797.0.0.WN76gC&treeId=176&articleId=106086&docType=1" target="_blank"  rel="noopener noreferrer">钉钉PC端统一跳转协议</a>',
+                            path: '/im/dingding',
+                            icon: '&#xe677;'
+                        }, {
+                            name: '旺旺点灯',
+                            tip: '<a class="color-brand" href="http://gitlab.alibaba-inc.com/aliww/web.ww" target="_blank"  rel="noopener noreferrer">接入说明</a>',
+                            path: '/im/wangwang',
+                            icon: '&#xe75c;'
                         }]
                 }, {
                     name: '数据展示',
@@ -775,33 +780,44 @@ catch (ex) {
         var that = this;
         var mainNode = $('#' + that.id);
         var bodyNode = mainNode.find('._zs_gallery___test___base_-base-main');
+        var leftNode = mainNode.find('._zs_gallery___test___base_-base-left');
         var scrollTop = $(window).scrollTop();
         var bodyTop = bodyNode.offset().top;
+        var fixed = that.updater.get('fixed');
         if (scrollTop > bodyTop) {
-            if (that.updater.get('fixed')) {
+            if (fixed) {
                 return;
             }
-            that.updater.digest({
+            that.updater.set({
                 fixed: true
             });
+            leftNode.addClass('_zs_gallery___test___base_-fixed');
         }
         else {
-            if (!that.updater.get('fixed')) {
+            if (!fixed) {
                 return;
             }
-            that.updater.digest({
+            that.updater.set({
                 fixed: false
             });
+            leftNode.removeClass('_zs_gallery___test___base_-fixed');
         }
     },
     '$win<resize>': function () {
         var that = this;
-        clearTimeout(that.winResizeTimer);
-        that.winResizeTimer = setTimeout(that.wrapAsync(function () {
-            that.updater.set({
-                minHeight: $(window).height()
-            }).digest();
-        }), 200);
+        var winHeight = $(window).height();
+        var mainNode = $('#' + that.id);
+        var leftNode = mainNode.find('._zs_gallery___test___base_-base-left');
+        that.updater.set({
+            minHeight: winHeight
+        });
+        leftNode.css(height, winHeight);
+        // clearTimeout(that.winResizeTimer);
+        // that.winResizeTimer = setTimeout(that.wrapAsync(() => {
+        //     that.updater.set({
+        //         minHeight: $(window).height()
+        //     }).digest();
+        // }), 200);
     },
     'back<click>': function (e) {
         $(window).scrollTop(0);

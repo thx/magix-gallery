@@ -3,30 +3,15 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-popover/index",["magix","$"],(require,exports,module)=>{
-/*Magix,$*/
+define("mx-popover/index",["magix","mx-popover/base","$"],(require,exports,module)=>{
+/*Magix,Base,$*/
 
 var Magix = require("magix");
 var Vframe = Magix.Vframe;
+var Base = require("mx-popover/base");
 var $ = require("$");
 Magix.applyStyle("_zs_gallery_mx-popover_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-popover_index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-popover_index_-bottom-left,\n._zs_gallery_mx-popover_index_-bottom-right,\n._zs_gallery_mx-popover_index_-bottom-center,\n._zs_gallery_mx-popover_index_-top-left,\n._zs_gallery_mx-popover_index_-top-right,\n._zs_gallery_mx-popover_index_-top-center,\n._zs_gallery_mx-popover_index_-right-top,\n._zs_gallery_mx-popover_index_-right-bottom,\n._zs_gallery_mx-popover_index_-right-center,\n._zs_gallery_mx-popover_index_-left-top,\n._zs_gallery_mx-popover_index_-left-bottom,\n._zs_gallery_mx-popover_index_-left-center {\n  opacity: 0;\n  transition: opacity 0.15s, -webkit-transform 0.15s;\n  transition: transform 0.15s, opacity 0.15s;\n  transition: transform 0.15s, opacity 0.15s, -webkit-transform 0.15s;\n  -webkit-transform: scale(0);\n          transform: scale(0);\n}\n/**\n * popover下左 初始隐藏状态\n * 注意使用opacity控制popover的显示和隐藏，不要设置display: none\n */\n._zs_gallery_mx-popover_index_-bottom-left,\n._zs_gallery_mx-popover_index_-right-top {\n  -webkit-transform-origin: 0 0;\n          transform-origin: 0 0;\n}\n._zs_gallery_mx-popover_index_-bottom-right,\n._zs_gallery_mx-popover_index_-left-top {\n  -webkit-transform-origin: 100% 0;\n          transform-origin: 100% 0;\n}\n._zs_gallery_mx-popover_index_-bottom-center {\n  -webkit-transform-origin: 50% 0;\n          transform-origin: 50% 0;\n}\n._zs_gallery_mx-popover_index_-top-left,\n._zs_gallery_mx-popover_index_-right-bottom {\n  -webkit-transform-origin: 0 100%;\n          transform-origin: 0 100%;\n}\n._zs_gallery_mx-popover_index_-top-right,\n._zs_gallery_mx-popover_index_-left-bottom {\n  -webkit-transform-origin: 100% 100%;\n          transform-origin: 100% 100%;\n}\n._zs_gallery_mx-popover_index_-top-center {\n  -webkit-transform-origin: 50% 100%;\n          transform-origin: 50% 100%;\n}\n._zs_gallery_mx-popover_index_-left-center {\n  -webkit-transform-origin: 100% 50%;\n          transform-origin: 100% 50%;\n}\n._zs_gallery_mx-popover_index_-right-center {\n  -webkit-transform-origin: 0 50%;\n          transform-origin: 0 50%;\n}\n._zs_gallery_mx-popover_index_-show-out {\n  opacity: 1;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n}\n/**\n * popover显示\n */\n._zs_gallery_mx-popover_index_-popover-hide {\n  display: none;\n}\n._zs_gallery_mx-popover_index_-popover,\n._zs_gallery_mx-popover_index_-popover-dark {\n  position: absolute;\n  z-index: 9999;\n  height: auto;\n  border-radius: 4px;\n  font-size: 12px;\n  line-height: 22px;\n  white-space: normal;\n  font-weight: normal;\n  font-family: Helvetica, Arial, \"Microsoft Yahei\", \"Hiragino Sans GB\", \"Heiti SC\", \"WenQuanYi Micro Hei\", sans-serif;\n}\n._zs_gallery_mx-popover_index_-popover {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n  background-color: #fff;\n  color: #333;\n}\n._zs_gallery_mx-popover_index_-popover ._zs_gallery_mx-popover_index_-popover-content {\n  padding: 10px;\n  word-break: break-all;\n}\n._zs_gallery_mx-popover_index_-popover-dark {\n  background-color: rgba(33, 33, 33, 0.72);\n  color: #fff;\n}\n._zs_gallery_mx-popover_index_-popover-dark ._zs_gallery_mx-popover_index_-popover-content {\n  padding: 4px 10px;\n}\n");
-var ShowDalay = 100;
-var HideDalay = 200;
-var ClassNames = {
-    bottomLeft: '_zs_gallery_mx-popover_index_-bottom-left',
-    bottomRight: '_zs_gallery_mx-popover_index_-bottom-right',
-    bottomCenter: '_zs_gallery_mx-popover_index_-bottom-center',
-    topLeft: '_zs_gallery_mx-popover_index_-top-left',
-    topRight: '_zs_gallery_mx-popover_index_-top-right',
-    topCenter: '_zs_gallery_mx-popover_index_-top-center',
-    leftTop: '_zs_gallery_mx-popover_index_-left-top',
-    leftBottom: '_zs_gallery_mx-popover_index_-left-bottom',
-    leftCenter: '_zs_gallery_mx-popover_index_-left-center',
-    rightTop: '_zs_gallery_mx-popover_index_-right-top',
-    rightBottom: '_zs_gallery_mx-popover_index_-right-bottom',
-    rightCenter: '_zs_gallery_mx-popover_index_-right-center'
-};
-module.exports = Magix.View.extend({
+module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
     var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
@@ -57,7 +42,7 @@ catch (ex) {
         var placement = extra.placement || 'bottom', align = extra.align || 'center';
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
-        me['@{pos.class}'] = ClassNames[placement + align[0].toUpperCase() + align.slice(1)];
+        me['@{pos.class}'] = me.constants.classNames[placement + align[0].toUpperCase() + align.slice(1)];
         if (extra.type == 'dark') {
             me['@{pos.class}'] += ' _zs_gallery_mx-popover_index_-popover-dark';
         }
@@ -91,28 +76,9 @@ catch (ex) {
             clearTimeout(me['@{dealy.hide.timer}']);
             me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
                 me['@{show}'](); //等待内容显示
-            }), ShowDalay);
+            }), me.constants.showDelay);
         }, function () {
             me['@{hide}']();
-        });
-    },
-    bindScroll: function () {
-        var me = this;
-        var scrollWrapper = me['@{scroll.wrapper}'];
-        if (!scrollWrapper) {
-            return;
-        }
-        var wrapper;
-        if ((typeof scrollWrapper == 'string') && !(/^#/.test(scrollWrapper)) && !(/^\./.test(scrollWrapper))) {
-            wrapper = $('#' + scrollWrapper);
-        }
-        else {
-            wrapper = $(scrollWrapper);
-        }
-        wrapper.scroll(function () {
-            if (me['@{pos.show}']) {
-                me['@{setPos}']();
-            }
         });
     },
     render: function () {
@@ -123,7 +89,7 @@ catch (ex) {
         if (me['@{auto}']) {
             me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
                 me['@{show}'](); //等待内容显示
-            }), ShowDalay);
+            }), me.constants.showDelay);
         }
         me.bindScroll();
     },
@@ -153,84 +119,6 @@ catch (ex) {
             data: viewData
         });
     },
-    '@{setPos}': function () {
-        var me = this;
-        var oNode = me['@{owner.node}'];
-        var popNode = $('#popover_' + me.id);
-        if (!popNode || !popNode.length) {
-            return;
-        }
-        var width = oNode.outerWidth();
-        var height = oNode.outerHeight();
-        var offset = oNode.offset();
-        var rWidth = popNode.outerWidth();
-        var rHeight = popNode.outerHeight();
-        // 默认下方居中
-        var top = offset.top + 10, left = offset.left - (rWidth - width) / 2;
-        // 可选组合：
-        //     下右中左
-        //     上右中左
-        //     右上中下
-        //     左上中下
-        var placement = me['@{pos.placement}'], align = me['@{pos.align}'];
-        var place = placement + '_' + align;
-        switch (place) {
-            case 'top_left':
-                top = offset.top - rHeight - 10;
-                left = offset.left;
-                break;
-            case 'top_center':
-                top = offset.top - rHeight - 10;
-                left = offset.left - (rWidth - width) / 2;
-                break;
-            case 'top_right':
-                top = offset.top - rHeight - 10;
-                left = offset.left + width - rWidth;
-                break;
-            case 'bottom_left':
-                top = offset.top + height + 10;
-                left = offset.left;
-                break;
-            case 'bottom_center':
-                top = offset.top + height + 10;
-                left = offset.left - (rWidth - width) / 2;
-                break;
-            case 'bottom_right':
-                top = offset.top + height + 10;
-                left = offset.left + width - rWidth;
-                break;
-            case 'left_top':
-                top = offset.top;
-                left = offset.left - rWidth - 10;
-                break;
-            case 'left_center':
-                top = offset.top - (rHeight - height) / 2;
-                left = offset.left - rWidth - 10;
-                break;
-            case 'left_bottom':
-                top = offset.top - (rHeight - height);
-                left = offset.left - rWidth - 10;
-                break;
-            case 'right_top':
-                top = offset.top;
-                left = offset.left + width + 10;
-                break;
-            case 'right_center':
-                top = offset.top - (rHeight - height) / 2;
-                left = offset.left + width + 10;
-                break;
-            case 'right_bottom':
-                top = offset.top - (rHeight - height);
-                left = offset.left + width + 10;
-                break;
-        }
-        popNode.css({
-            textAlign: me['@{text.align}'],
-            left: left,
-            top: top
-        });
-        return popNode;
-    },
     '@{show}': function () {
         var me = this;
         clearTimeout(me['@{dealy.show.timer}']);
@@ -257,26 +145,7 @@ catch (ex) {
             me['@{pos.show}'] = false;
             var popNode = $('#popover_' + me.id);
             popNode.removeClass('_zs_gallery_mx-popover_index_-show-out');
-        }), HideDalay);
-    },
-    /**
-     * 页面滚动的时候
-     * 如果popover展开则重新定位popover
-     */
-    '$win<scroll>': function (e) {
-        var me = this;
-        if (me['@{pos.show}']) {
-            me['@{setPos}']();
-        }
-    },
-    /**
-     * 浮层中使用dialog
-     */
-    '$doc<dialogScolll>': function (e) {
-        var me = this;
-        if (me['@{pos.show}']) {
-            me['@{setPos}']();
-        }
+        }), me.constants.hideDelay);
     }
 });
 

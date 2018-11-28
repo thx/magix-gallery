@@ -1,0 +1,65 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">trigger：</span>
+            <mx-popmenu class="icon mc-iconfont"
+                menus="{{@[{
+                    value: 1,
+                    text: '操作1'
+                }, {
+                    value: 2,
+                    text: '操作2'
+                }, {
+                    value: 3,
+                    text: '操作3'
+                }]}}"
+                mx-change="select()">&#xe7be;</mx-popmenu>
+            
+            <span class="color-9 ml40">当前选中：</span>
+            <span>{{if selected}}操作{{=selected}}{{/if}}</span>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-popmenu class="icon mc-iconfont"
+    menus="&#123;&#123;@[&#123;
+        value: 1,
+        text: '操作1'
+    &#125;, &#123;
+        value: 2,
+        text: '操作2'
+    &#125;, &#123;
+        value: 3,
+        text: '操作3'
+    &#125;]&#125;&#125;"&gt;&#38;&#35;xe7be;&lt;/mx-popmenu&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half">
+            <div class="eg-title">CSS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+.icon&#123;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 22px;
+    cursor: pointer;
+    color: #ccc;
+    border: 1px solid #e6e6e6;
+&#125;
+            </pre>
+        </div>
+    </div>
+</div>

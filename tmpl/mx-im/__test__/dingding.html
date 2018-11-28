@@ -2,13 +2,21 @@
 <div class="mb40">
     <div class="example">
         <div class="eg-content">
-            <a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=t5z4z8s">
-                <i class="mc-iconfont color-brand displacement-2 fontsize-18">&#xe677;</i>
-                虞佳
-            </a>
+            <mx-im.dd uid="t5z4z8s" uname="虞佳"/>
         </div>
         <div class="eg-desc">
             <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-im.dd uid="t5z4z8s" uname="虞佳"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc">
+            <div class="eg-title">等同于</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
                 <span class="desc-tip">{{!text2}}</span>

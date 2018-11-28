@@ -1,0 +1,31 @@
+@import "../mx-style/_vars";
+
+.menu {
+    padding: 8px 10px;
+    overflow: auto;
+
+    .item {
+        padding: 2px 0;
+        .item-link {
+            display: block;
+            width: 100%;
+            padding: 0 8px;
+            cursor: pointer;
+            height: @input-small-height;
+            line-height: @input-small-height;
+            border-radius: @border-radius;
+            transition: all @duration;
+        
+            &:hover {
+                background-color: @color-hover;
+            }
+        
+            &.active, &.active:hover, &.active:active, &.active:focus {
+                color: @color-brand;
+                background-color: @color-brand-opacity;
+            }
+        
+        }
+    }
+}
+

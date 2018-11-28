@@ -1,33 +1,31 @@
-import { wrap } from 'module';
-
 let Magix = require('magix');
 let Vframe = Magix.Vframe;
+let Base = require('@../mx-popover/base');
+let Monitor = require('../mx-monitor/index');
 let $ = require('$');
 Magix.applyStyle('@../mx-popover/index.less');
-let ShowDalay = 100;
 
-let ClassNames = {
-    bl: '@../mx-popover/index.less:bottom-left',
-    br: '@../mx-popover/index.less:bottom-right',
-    bc: '@../mx-popover/index.less:bottom-center',
-    tl: '@../mx-popover/index.less:top-left',
-    tr: '@../mx-popover/index.less:top-right',
-    tc: '@../mx-popover/index.less:top-center',
-    lt: '@../mx-popover/index.less:left-top',
-    lb: '@../mx-popover/index.less:left-bottom',
-    lc: '@../mx-popover/index.less:left-center',
-    rt: '@../mx-popover/index.less:right-top',
-    rb: '@../mx-popover/index.less:right-bottom',
-    rc: '@../mx-popover/index.less:right-center'
-}
-module.exports = Magix.View.extend({
+module.exports = Base.extend({
     tmpl: '@index.html',
     init(extra) {
         let me = this;
+        Monitor['@{setup}']();
+
+        let map = {
+            t: 'top',
+            l: 'left',
+            r: 'right',
+            b: 'bottom',
+            c: 'center'
+        }
         let place = extra.place || 'bc';
-        me['@{pos.class}'] = ClassNames[place];
-        me['@{pos.class}'] += ' @../mx-popover/index.less:popover';
-        me['@{pos.place}'] = place;
+        let places = place.split('');
+        let placement = map[places[0]],
+            align = map[places[1]]
+        me['@{pos.placement}'] = placement;
+        me['@{pos.align}'] = align;
+        me['@{pos.class}'] = me.constants.classNames[placement + align[0].toUpperCase() + align.slice(1)] + ' @../mx-popover/index.less:popover';
+
         me['@{pos.init}'] = false;
         me['@{pos.cal}'] = false;
         me['@{pos.show}'] = false;
@@ -42,6 +40,9 @@ module.exports = Magix.View.extend({
                 clearTimeout(me['@{dealy.show.timer}']);
             }
             $('#popover_' + me.id).remove();
+
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
         });
         let oNode = $('#' + me.id);
         me['@{trigger.content}'] = oNode.html();
@@ -49,30 +50,9 @@ module.exports = Magix.View.extend({
         oNode.on('click', () => {
             me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
                 me['@{show}'](); //等待内容显示
-            }), ShowDalay);
+            }), me.constants.showDelay);
         })
-
         me.bindScroll();
-    },
-    bindScroll() {
-        let me = this;
-        let scrollWrapper = me['@{scroll.wrapper}'];
-        if (!scrollWrapper) {
-            return;
-        }
-
-        let wrapper;
-        if ((typeof scrollWrapper == 'string') && !(/^#/.test(scrollWrapper)) && !(/^\./.test(scrollWrapper))) {
-            wrapper = $('#' + scrollWrapper);
-        } else {
-            wrapper = $(scrollWrapper);
-        }
-
-        wrapper.scroll(() => {
-            if (me['@{pos.show}']) {
-                me['@{setPos}']();
-            }
-        });
     },
     render() {
         let me = this;
@@ -80,7 +60,6 @@ module.exports = Magix.View.extend({
             trigger: me['@{trigger.content}']
         })
     },
-
     '@{init}'() {
         let me = this;
 
@@ -114,84 +93,8 @@ module.exports = Magix.View.extend({
             }
         })
     },
-    '@{setPos}'() {
-        let me = this;
-        let oNode = me['@{owner.node}'];
-        let popNode = $('#popover_' + me.id);
-
-        if (!popNode || !popNode.length) {
-            return;
-        }
-
-        let width = oNode.outerWidth();
-        let height = oNode.outerHeight();
-        let offset = oNode.offset();
-        let rWidth = popNode.outerWidth();
-        let rHeight = popNode.outerHeight();
-
-        // 默认下方居中
-        let top = offset.top + 10,
-            left = offset.left - (rWidth - width) / 2;
-
-        let place = me['@{pos.place}']
-        switch (place) {
-            case 'tl':
-                top = offset.top - rHeight - 10;
-                left = offset.left;
-                break;
-            case 'tc':
-                top = offset.top - rHeight - 10;
-                left = offset.left - (rWidth - width) / 2
-                break;
-            case 'tr':
-                top = offset.top - rHeight - 10;
-                left = offset.left + width - rWidth;
-                break;
-            case 'bl':
-                top = offset.top + height + 10;
-                left = offset.left;
-                break;
-            case 'bc':
-                top = offset.top + height + 10;
-                left = offset.left - (rWidth - width) / 2
-                break;
-            case 'br':
-                top = offset.top + height + 10;
-                left = offset.left + width - rWidth;
-                break;
-            case 'lt':
-                top = offset.top;
-                left = offset.left - rWidth - 10;
-                break;
-            case 'lc':
-                top = offset.top - (rHeight - height) / 2;
-                left = offset.left - rWidth - 10;
-                break;
-            case 'lb':
-                top = offset.top - (rHeight - height);
-                left = offset.left - rWidth - 10;
-                break;
-            case 'rt':
-                top = offset.top;
-                left = offset.left + width + 10;
-                break;
-            case 'rc':
-                top = offset.top - (rHeight - height) / 2;
-                left = offset.left + width + 10;
-                break;
-            case 'rb':
-                top = offset.top - (rHeight - height);
-                left = offset.left + width + 10;
-                break;
-        }
-
-        popNode.css({
-            textAlign: me['@{text.align}'],
-            left: left,
-            top: top
-        });
-
-        return popNode;
+    '@{inside}' (node) {
+        return Magix.inside(node, this.id) || Magix.inside(node, 'popover_' + this.id);
     },
     '@{show}'() {
         let me = this;
@@ -207,6 +110,7 @@ module.exports = Magix.View.extend({
         // 每次show时都重新定位
         let popNode = me['@{setPos}']();
         popNode.addClass('@../mx-popover/index.less:show-out');
+        Monitor['@{add}'](me);
     },
     '@{hide}'() {
         let me = this;
@@ -216,24 +120,6 @@ module.exports = Magix.View.extend({
         me['@{pos.show}'] = false;
         let popNode = $('#popover_' + me.id);
         popNode.removeClass('@../mx-popover/index.less:show-out');
-    },
-    /**
-     * 页面滚动的时候
-     * 如果popover展开则重新定位popover
-     */
-    '$win<scroll>'(e) {
-        let me = this;
-        if (me['@{pos.show}']) {
-            me['@{setPos}']();
-        }
-    },
-    /**
-     * 浮层中使用dialog
-     */
-    '$doc<dialogScolll>'(e) {
-        let me = this;
-        if (me['@{pos.show}']) {
-            me['@{setPos}']();
-        }
+        Monitor['@{remove}'](me);
     }
 });

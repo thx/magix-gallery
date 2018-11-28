@@ -50,7 +50,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><i mxs="_zs_galleryc%:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+    $p += '"><i mxs="_zs_galleryc):_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
     $line = 3;
     $art = '=placeholder';
     ;
@@ -83,7 +83,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (loading) {%>';
     if (loading) {
         ;
-        $p += '<div mxs="_zs_galleryc%:a" class="loading loading-ext _zs_gallery_mx-suggest_index_-loading-small"><span class="loading-anim"></span></div>';
+        $p += '<div mxs="_zs_galleryc):a" class="loading loading-ext _zs_gallery_mx-suggest_index_-loading-small"><span class="loading-anim"></span></div>';
         $line = 17;
         $art = 'else';
         ;
@@ -102,9 +102,9 @@ module.exports = Magix.View.extend({
             $line = 19;
             $art = 'each list as item';
             ;
-            $expr = '<%for (var $art_iquqfbuyd$art_i = 0, $art_ceqzhovpk$art_c = list.length; $art_iquqfbuyd$art_i < $art_ceqzhovpk$art_c; $art_iquqfbuyd$art_i++) {            var item = list[$art_iquqfbuyd$art_i]%>';
-            for (var $art_iquqfbuyd$art_i = 0, $art_ceqzhovpk$art_c = list.length; $art_iquqfbuyd$art_i < $art_ceqzhovpk$art_c; $art_iquqfbuyd$art_i++) {
-                var item = list[$art_iquqfbuyd$art_i];
+            $expr = '<%for (var $art_ieekzvrff$art_i = 0, $art_cayjwybrxkf$art_c = list.length; $art_ieekzvrff$art_i < $art_cayjwybrxkf$art_c; $art_ieekzvrff$art_i++) {            var item = list[$art_ieekzvrff$art_i]%>';
+            for (var $art_ieekzvrff$art_i = 0, $art_cayjwybrxkf$art_c = list.length; $art_ieekzvrff$art_i < $art_cayjwybrxkf$art_c; $art_ieekzvrff$art_i++) {
+                var item = list[$art_ieekzvrff$art_i];
                 $p += '<li class="_zs_gallery_mx-suggest_index_-suggest-item ';
                 $line = 20;
                 $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';
@@ -142,7 +142,7 @@ module.exports = Magix.View.extend({
         }
         else {
             ;
-            $p += '<li mxa="_zs_galleryc%:_" class="text-center color-9">';
+            $p += '<li mxa="_zs_galleryc):_" class="text-center color-9">';
             $line = 26;
             $art = '=emptyText';
             ;

@@ -177,14 +177,13 @@ module.exports = Magix.View.extend({
                     path: '/taginput/index',
                     icon: '&#xe794;'
                 }, {
+                    name: 'popmenu更多菜单',
+                    path: '/popmenu/index',
+                    icon: '&#xe62c;'
+                }, {
                     name: '上传',
                     path: '/uploader/index',
                     icon: '&#xe63c;'
-                }, {
-                    name: '复制',
-                    tip: '该组件引入了第三方 <a rel="noopener noreferrer" target="_blank" href="https://zenorocha.github.io/clipboard.js" class="color-brand">https://zenorocha.github.io/clipboard.js</a> 代码',
-                    path: '/copy/index',
-                    icon: '&#xe610;'
                 }, {
                     name: '单个滑块',
                     path: '/slider/index',
@@ -207,6 +206,11 @@ module.exports = Magix.View.extend({
                     tip: '结合iconfont使用，展现样式同dropdown',
                     path: '/status/dropdown',
                     icon: '&#xe7a4;'
+                }, {
+                    name: '复制',
+                    tip: '该组件引入了第三方 <a rel="noopener noreferrer" target="_blank" href="https://zenorocha.github.io/clipboard.js" class="color-brand">https://zenorocha.github.io/clipboard.js</a> 代码',
+                    path: '/copy/index',
+                    icon: '&#xe610;'
                 }]
             }, {
                 name: '提示反馈',
@@ -230,19 +234,20 @@ module.exports = Magix.View.extend({
                     path: '/error/index',
                     icon: '&#xe611;'
                 }, {
-                    name: '旺旺点灯',
-                    path: '/all/wangwang',
-                    icon: '&#xe75c;'
-                }, {
-                    name: '钉钉唤起',
-                    tip: '<a class="color-brand" href="https://open-doc.dingtalk.com/docs/doc.htm?spm=a219a.7386797.0.0.WN76gC&treeId=176&articleId=106086&docType=1" target="_blank"  rel="noopener noreferrer">钉钉PC端统一跳转协议</a>',
-                    path: '/all/dingding',
-                    icon: '&#xe677;'
-                }, {
                     name: '万象客服问答',
                     tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/wanxiang/technology/description" target="_blank"  rel="noopener noreferrer">服务窗接入wiki文档</a>',
                     path: '/wanxiang/index',
                     icon: '&#xe767;'
+                }, {
+                    name: '钉钉唤起',
+                    tip: '<a class="color-brand" href="https://open-doc.dingtalk.com/docs/doc.htm?spm=a219a.7386797.0.0.WN76gC&treeId=176&articleId=106086&docType=1" target="_blank"  rel="noopener noreferrer">钉钉PC端统一跳转协议</a>',
+                    path: '/im/dingding',
+                    icon: '&#xe677;'
+                }, {
+                    name: '旺旺点灯',
+                    tip: '<a class="color-brand" href="http://gitlab.alibaba-inc.com/aliww/web.ww" target="_blank"  rel="noopener noreferrer">接入说明</a>',
+                    path: '/im/wangwang',
+                    icon: '&#xe75c;'
                 }]
             }, {
                 name: '数据展示',
@@ -497,33 +502,45 @@ module.exports = Magix.View.extend({
 
         let mainNode = $('#' + that.id);
         let bodyNode = mainNode.find('.@base.less:base-main');
+        let leftNode = mainNode.find('.@base.less:base-left');
         let scrollTop = $(window).scrollTop();
         let bodyTop = bodyNode.offset().top;
+        let fixed = that.updater.get('fixed');
         if (scrollTop > bodyTop) {
-            if (that.updater.get('fixed')) {
+            if (fixed) {
                 return;
             }
-            that.updater.digest({
+            that.updater.set({
                 fixed: true
             })
+            leftNode.addClass('@base.less:fixed');
         } else {
-            if (!that.updater.get('fixed')) {
+            if (!fixed) {
                 return;
             }
-            that.updater.digest({
+            that.updater.set({
                 fixed: false
             })
+            leftNode.removeClass('@base.less:fixed');
         }
     },
     '$win<resize>'() {
         let that = this;
-        clearTimeout(that.winResizeTimer);
+        let winHeight = $(window).height();
+        let mainNode = $('#' + that.id);
+        let leftNode = mainNode.find('.@base.less:base-left');
+        that.updater.set({
+            minHeight: winHeight
+        });
+        leftNode.css(height, winHeight);
+        
+        // clearTimeout(that.winResizeTimer);
 
-        that.winResizeTimer = setTimeout(that.wrapAsync(() => {
-            that.updater.set({
-                minHeight: $(window).height()
-            }).digest();
-        }), 200);
+        // that.winResizeTimer = setTimeout(that.wrapAsync(() => {
+        //     that.updater.set({
+        //         minHeight: $(window).height()
+        //     }).digest();
+        // }), 200);
     },
     'back<click>'(e) {
         $(window).scrollTop(0);
