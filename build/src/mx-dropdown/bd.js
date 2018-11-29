@@ -3,12 +3,9 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-dropdown/index",["magix","$","../mx-monitor/index","../mx-medusa/util"],(require,exports,module)=>{
+define("mx-dropdown/bd",["magix","$","../mx-monitor/index","../mx-medusa/util"],(require,exports,module)=>{
 /*Magix,$,Monitor,I18n*/
 
-/**
- * 为了保证dropdown.item每次更新，不实现assign
- */
 var Magix = require("magix");
 var $ = require("$");
 var Monitor = require("../mx-monitor/index");
@@ -26,147 +23,58 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} if (!$i) {
-    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
-        if (ref[k = $g + f] === v)
-            return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', expand = $$.expand, selected = $$.selected, name = $$.name, selectedText = $$.selectedText, placementClass = $$.placementClass, rList = $$.rList, searchbox = $$.searchbox, searchText = $$.searchText, keyword = $$.keyword, viewId = $$.viewId, height = $$.height, list = $$.list, textKey = $$.textKey, valueKey = $$.valueKey, spm = $$.spm; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', expand = $$.expand, selected = $$.selected, selectedText = $$.selectedText; var $expr, $art, $line; try {
     $p += '<div class="_zs_gallery_mx-dropdown_index_-dropdown-toggle ';
+    $line = 1;
+    $art = 'if expand';
+    ;
     $expr = '<%if (expand) {%>';
     if (expand) {
         ;
         $p += ' _zs_gallery_mx-dropdown_index_-open ';
+        $line = 1;
+        $art = '/if';
+        ;
         $expr = '<%}%>';
     }
     ;
     $p += '"><span class="_zs_gallery_mx-dropdown_index_-dropdown-toggle-label ';
+    $line = 2;
+    $art = 'if (selected===\'\')';
+    ;
     $expr = '<%if (selected === \'\') {%>';
     if (selected === '') {
         ;
-        $p += ' _zs_gallery_mx-dropdown_index_-dropdown-toggle-label-ph';
+        $p += ' _zs_gallery_mx-dropdown_index_-dropdown-toggle-label-ph ';
+        $line = 2;
+        $art = '/if';
+        ;
         $expr = '<%}%>';
     }
     ;
     $p += '">';
-    $expr = '<%if (name) {%>';
-    if (name) {
-        ;
-        $line = 3;
-        $art = '=name';
-        ;
-        $p += ($expr = '<%=name%>', $e(name)) + '：';
-        $expr = '<%}%>';
-    }
+    $line = 3;
+    $art = '=selectedText';
     ;
-    $p += ' ' + ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryaG:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ' + ($expr = '<%=placementClass%>', $e(placementClass)) + ' ';
-    $expr = '<%if (expand) {%>';
-    if (expand) {
-        ;
-        $p += ' _zs_gallery_mx-dropdown_index_-open ';
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '">';
-    $expr = '<%if (rList) {%>';
-    if (rList) {
-        ;
-        $p += ' ';
-        $expr = '<%if (searchbox) {%>';
-        if (searchbox) {
-            ;
-            $p += '<div mxv mxa="_zs_galleryaG:_" class="_zs_gallery_mx-dropdown_index_-search-wrapper"><div mxv mxa="_zs_galleryaG:a" class="search-box"><i mxs="_zs_galleryaG:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="' + ($expr = '<%=searchText%>', $e(searchText)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '<ul class="_zs_gallery_mx-dropdown_index_-dropdown-menu" id="list_' + ($expr = '<%=viewId%>', $e(viewId)) + '" style="max-height:';
-        $line = 26;
-        $art = '=height';
-        ;
-        $p += ($expr = '<%=height%>', $e(height)) + 'px;">';
-        $expr = '<%var text = void 0, value = void 0%>';
-        var text = void 0, value = void 0;
-        $p += ' ';
-        $expr = '<%for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {        var item = list_1[_i];%>';
-        for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
-            var item = list_1[_i];
-            ;
-            $p += ' ';
-            $expr = '<%text = item[textKey];        value = item[valueKey]%>';
-            text = item[textKey];
-            value = item[valueKey];
-            $p += ' ';
-            $expr = '<%if (item && item.group) {%>';
-            if (item && item.group) {
-                ;
-                $p += '<li class="_zs_gallery_mx-dropdown_index_-dropdown-header ellipsis" title="' + ($expr = '<%=item[textKey]%>', $e(item[textKey])) + '">' + ($expr = '<%=item[textKey]%>', $e(item[textKey])) + '</li>';
-                $expr = '<%}        else {%>';
-            }
-            else {
-                ;
-                $p += '<li title="' + ($expr = '<%=text%>', $e(text)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-item">';
-                $expr = '<%var equal = (value + \'\') === (selected + \'\')%>';
-                var equal = (value + '') === (selected + '');
-                $p += '<span class="_zs_gallery_mx-dropdown_index_-item-link ellipsis';
-                $expr = '<%if (equal) {%>';
-                if (equal) {
-                    ;
-                    $p += ' _zs_gallery_mx-dropdown_index_-active';
-                    $expr = '<%}%>';
-                }
-                ;
-                $p += '" mx-click="' + $viewId + '@{select}({item:\'' + ($expr = '<%@item%>', $i($$ref, item)) + '\'})" ';
-                $expr = '<%if (spm) {%>';
-                if (spm) {
-                    ;
-                    $p += ' data-spm-click="' + ($expr = '<%=spm%>', $e(spm)) + '" ';
-                    $expr = '<%}%>';
-                }
-                ;
-                $p += '>' + ($expr = '<%=text%>', $e(text)) + '</span></li>';
-                $expr = '<%}%>';
-            }
-            ;
-            $p += ' ';
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '</ul>';
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</div>';
+    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryd4:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
     if ($art)
         msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
     msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-dropdown/index.html';
+    msg += $expr + '\r\n\tat file:mx-dropdown/bd.html';
     throw msg;
 } return $p; },
     init: function (ops) {
         var me = this;
         Monitor['@{setup}']();
-        me.on('destroy', function () {
-            Monitor['@{remove}'](me);
-            Monitor['@{teardown}']();
-        });
-        me['@{owner.node}'] = $('#' + me.id);
-        var disabledNode = $('#' + me.id + '[mx-disabled]');
-        me['@{ui.disabled}'] = disabledNode && (disabledNode.length > 0);
-        // 列表是否展开
-        me['@{ui.expand}'] = false;
-        // 展开方向：向上向下
-        var placementMap = {
-            top: '_zs_gallery_mx-dropdown_index_-top',
-            bottom: '_zs_gallery_mx-dropdown_index_-bottom'
-        };
-        // trigger方式，click，hover，默认click
-        me['@{trigger.type}'] = ops.triggerType || 'click';
-        var selected = me['@{selected}'] = ops.selected;
-        var textKey = me['@{textKey}'] = ops.textKey || 'text';
-        var valueKey = me['@{valueKey}'] = ops.valueKey || 'value';
-        var emptyText = me['@{emptyText}'] = ops.emptyText || '';
+        var oNode = $('#' + me.id);
+        me['@{owner.node}'] = oNode;
+        var selected = ops.selected;
+        var textKey = ops.textKey || 'text';
+        var valueKey = ops.valueKey || 'value';
+        var emptyText = ops.emptyText || '';
         var list = [];
         if (!ops.list) {
             var node = me['@{owner.node}'].children();
@@ -180,8 +88,6 @@ catch (ex) {
                     value: group_1 ? Magix.guid() : item.attr('value')
                 });
             });
-            textKey = me['@{textKey}'] = 'text';
-            valueKey = me['@{valueKey}'] = 'value';
         }
         else {
             // 直接配数据不支持分组
@@ -193,18 +99,23 @@ catch (ex) {
             }
             if (typeof list[0] === 'object') {
                 // 本身是个对象
+                list = list.map(function (item) {
+                    return {
+                        text: item[textKey],
+                        value: item[valueKey]
+                    };
+                });
             }
             else {
                 // 直接value列表
                 list = list.map(function (value) {
-                    var temp = {};
-                    temp[textKey] = value;
-                    temp[valueKey] = value;
-                    return temp;
+                    return {
+                        text: value,
+                        value: value
+                    };
                 });
             }
         }
-        me['@{list}'] = list;
         var map = Magix.toMap(list, valueKey);
         if (emptyText) {
             if (!map['']) {
@@ -215,7 +126,8 @@ catch (ex) {
                 map[''] = temp;
             }
         }
-        if (!selected || !map[selected]) { //未提供选项，或提供的选项不在列表里，则默认第一个
+        var selectedItem = map[selected];
+        if (!selected || !selectedItem) { //未提供选项，或提供的选项不在列表里，则默认第一个
             var firstItem = {};
             for (var i = 0; i < list.length; i++) {
                 if (!list[i].group) {
@@ -223,221 +135,215 @@ catch (ex) {
                     break;
                 }
             }
-            selected = map[selected] || firstItem;
-            if (textKey && valueKey) {
-                selected = selected[valueKey];
-            }
+            selectedItem = map[selected] || firstItem;
         }
+        // 是否禁用
+        var disabledNode = $('#' + me.id + '[mx-disabled]');
+        me['@{ui.disabled}'] = disabledNode && (disabledNode.length > 0);
+        me['@{pos.init}'] = false;
+        me['@{pos.cal}'] = false;
+        me['@{pos.show}'] = false;
+        me['@{scroll.wrapper}'] = ops.scrollWrapper;
         me.updater.set({
             viewId: me.id,
-            textKey: me['@{textKey}'],
-            valueKey: me['@{valueKey}'],
-            selected: me['@{selected}'] = selected,
-            searchbox: (ops.searchbox + '') === 'true',
-            searchText: I18n['dropdown.search'],
-            selectedText: me['@{selected.text}'] = map[selected][textKey],
-            keyword: me['@{last.search.value}'] = (ops.keyword || ''),
-            expand: me['@{ui.expand}'],
-            height: (ops.height || 250),
-            spm: me['@{owner.node}'].attr('data-spm-click') || '',
-            name: ops.name || '',
-            placementClass: placementMap[ops.placement || 'bottom']
+            list: list,
+            selected: selectedItem.value,
+            selectedText: selectedItem.text,
+            expand: me['@{pos.show}'],
+            name: ops.name || ''
         });
-        me['@{owner.node}'].val(selected);
-    },
-    render: function () {
-        var me = this;
-        var searchbox = me.updater.get('searchbox');
-        var initList;
-        var next = function () {
-            me.updater.digest({
-                list: initList
-            });
-            var triggerType = me['@{trigger.type}'];
-            var triggerNode = $('#' + me.id + ' ._zs_gallery_mx-dropdown_index_-dropdown-toggle');
-            switch (triggerType) {
-                case 'click':
-                    triggerNode.on('click', function () {
-                        if (me['@{ui.expand}']) {
+        me.on('destroy', function () {
+            me['@{owner.node}'].off('mouseenter mouseleave');
+            if (me['@{dealy.show.timer}']) {
+                clearTimeout(me['@{dealy.show.timer}']);
+            }
+            if (me['@{dealy.hide.timer}']) {
+                clearTimeout(me['@{dealy.hide.timer}']);
+            }
+            $('#dd_bd_' + me.id).remove();
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+        });
+        // trigger方式，click，hover，默认click
+        me['@{trigger.type}'] = ops.triggerType || 'click';
+        switch (me['@{trigger.type}']) {
+            case 'click':
+                oNode.on('click', function () {
+                    me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
+                        if (me['@{pos.show}']) {
                             me['@{hide}']();
                         }
                         else if (!me['@{ui.disabled}']) {
                             me['@{show}']();
                         }
-                    });
-                    break;
-                case 'hover':
-                    triggerNode.hover(function () {
-                        clearTimeout(me['@{dealy.hide.timer}']);
+                    }), me.constants.showDelay);
+                });
+                break;
+            case 'hover':
+                oNode.hover(function () {
+                    clearTimeout(me['@{dealy.hide.timer}']);
+                    me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
                         if (!me['@{ui.disabled}']) {
-                            me['@{show}']();
+                            me['@{show}'](); //等待内容显示
                         }
-                    }, function () {
-                        me['@{delay.hide}']();
-                    });
-                    var wrapper = $('#' + me.id + ' ._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper');
-                    wrapper.hover(function () {
-                        clearTimeout(me['@{dealy.hide.timer}']);
-                    }, function () {
-                        me['@{delay.hide}']();
-                    });
-                    break;
+                    }), me.constants.showDelay);
+                }, function () {
+                    me['@{delay.hide}']();
+                });
+                break;
+        }
+        me.bindScroll();
+        me['@{owner.node}'].val(selected);
+    },
+    render: function () {
+        this.updater.digest({});
+    },
+    '@{init}': function () {
+        var me = this;
+        var toggleNode = $('#' + me.id + ' ._zs_gallery_mx-dropdown_index_-dropdown-toggle');
+        var posWidth = toggleNode.outerWidth(), vId = me.id;
+        var minWidth = posWidth, maxWidth = posWidth * 2;
+        var ddNode = "<div class=\"_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper _zs_gallery_mx-dropdown_index_-bottom\" id=\"dd_bd_" + vId + "\"\n                style=\"min-width: " + minWidth + "px; max-width: " + maxWidth + "px;\"></div>";
+        $(document.body).append(ddNode);
+        // 先实例化，绑定事件，再加载对应的view
+        var vf = me.owner.mountVframe('dd_bd_' + vId, '');
+        vf.on('created', function () {
+            var ddNode = me['@{setPos}']();
+            var triggerType = me['@{trigger.type}'];
+            if (triggerType == 'hover') {
+                ddNode.hover(function () {
+                    clearTimeout(me['@{dealy.hide.timer}']);
+                }, function () {
+                    me['@{delay.hide}']();
+                });
             }
-        };
-        if (searchbox) {
-            me['@{fn.search}'](me['@{last.search.value}'], function (list) {
-                initList = list;
-                next();
-            });
-        }
-        else {
-            initList = me['@{list}'];
-            next();
-        }
+        });
+        me['@{content.vf}'] = vf;
     },
     '@{inside}': function (node) {
-        return Magix.inside(node, this.id);
-    },
-    '@{delay.hide}': function () {
-        var me = this;
-        clearTimeout(me['@{dealy.hide.timer}']);
-        me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(function () {
-            me['@{hide}']();
-        }), 250);
-    },
-    '@{hide}': function () {
-        var me = this;
-        if (me['@{ui.expand}']) {
-            me.updater.digest({
-                expand: me['@{ui.expand}'] = false
-            });
-            me['@{owner.node}'].trigger('focusout');
-            Monitor['@{remove}'](me);
-        }
+        return Magix.inside(node, this.id) || Magix.inside(node, 'dd_bd_' + this.id);
     },
     '@{show}': function () {
         var me = this;
-        if (!me['@{ui.expand}']) {
-            var d = {
-                expand: me['@{ui.expand}'] = true
-            };
-            var r = me.updater.get('rList');
-            if (!r) {
-                d.rList = true;
-            }
-            me.updater.digest(d);
-            me['@{owner.node}'].trigger('focusin');
-            var listNode = $('#list_' + me.id);
-            var active = listNode.find('._zs_gallery_mx-dropdown_index_-active');
-            var pos = active.position();
-            var height = listNode.height();
-            var stop = listNode.prop('scrollTop');
-            if (pos && (pos.top < 0 || pos.top > height)) {
-                var top = pos.top - height + stop + height / 2;
-                listNode.prop('scrollTop', top);
-            }
-            Monitor['@{add}'](me);
+        clearTimeout(me['@{dealy.show.timer}']);
+        if (!me['@{pos.init}']) {
+            me['@{pos.init}'] = true;
+            me['@{init}']();
         }
-    },
-    '@{fn.search}': function (val, callback) {
-        var me = this;
-        clearTimeout(me['@{search.timer}']);
-        var srcList = me['@{list}'];
-        var newList = [];
-        var index = 0;
-        var max = srcList.length;
-        var textKey = me['@{textKey}'];
-        var valueKey = me['@{valueKey}'];
-        if (!val) {
-            callback(srcList);
+        if (me['@{pos.show}']) {
             return;
         }
-        var go = function () {
-            if (index < max) {
-                var end = Math.min(index + 400, max);
-                for (var i = index, li = void 0, text = void 0, value = void 0; i < end; i++) {
-                    li = srcList[i];
-                    text = li;
-                    value = li;
-                    if (textKey && valueKey) {
-                        text = li[textKey];
-                        value = li[valueKey];
-                    }
-                    // text不区分大小写匹配
-                    var lowVal = (val + '').toLocaleLowerCase(), lowText = (text + '').toLocaleLowerCase();
-                    if ((lowText).indexOf(lowVal) >= 0 || (value + '').indexOf(val) >= 0) {
-                        newList.push(li);
-                    }
-                }
-                index = end;
-                me['@{search.timer}'] = setTimeout(me.wrapAsync(go), 20);
-            }
-            else {
-                callback(newList);
-            }
-        };
-        go();
-    },
-    '@{search}<keyup,paste>': function (e) {
-        var me = this;
-        e.stopPropagation();
-        clearTimeout(me['@{search.delay.timer}']);
-        var val = $.trim(e.eventTarget.value);
-        me.updater.set({
-            keyword: val
-        });
-        me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(function () {
-            if (val != me['@{last.search.value}']) {
-                me['@{fn.search}'](me['@{last.search.value}'] = val, function (list) {
-                    me.updater.digest({
-                        list: list
-                    });
-                });
-            }
-        }), 300);
-    },
-    '@{select}<click>': function (e) {
-        var me = this;
-        var item = e.params.item;
-        var updater = me.updater;
-        var valueKey = me['@{valueKey}'];
-        var textKey = me['@{textKey}'];
-        var lastSelected = me['@{selected}'];
-        var keyword = me['@{last.search.value}'];
-        var selected = item[valueKey];
-        var selectedText = item[textKey];
-        if (lastSelected !== selected) {
-            updater.set({
-                selected: me['@{selected}'] = selected
-            });
-            var event = $.Event('change', {
-                item: item,
-                keyword: keyword,
-                keys: {
-                    text: textKey,
-                    value: valueKey
-                },
-                value: item[valueKey],
-                text: item[textKey],
-                selected: item[valueKey]
-            });
-            if (!event.isDefaultPrevented()) {
-                updater.digest({
+        var data = me.updater.get();
+        me['@{content.vf}'].mountView('mx-dropdown/content', {
+            data: {
+                list: data.list,
+                selected: data.selected
+            },
+            submit: function (selectedItem) {
+                me['@{hide}']();
+                var selected = selectedItem.value, selectedText = selectedItem.text;
+                me.updater.digest({
                     selected: selected,
                     selectedText: selectedText
                 });
-            }
-            else {
-                updater.set({
-                    selected: lastSelected
+                me['@{owner.node}'].val(selected).trigger({
+                    type: 'change',
+                    selected: selected,
+                    value: selected,
+                    text: selectedText
                 });
             }
-            me['@{owner.node}'].val(valueKey ? item[valueKey] : item).trigger(event);
-        }
-        me['@{hide}']();
+        });
+        me.updater.digest({
+            expand: me['@{pos.show}'] = true
+        });
+        // 每次show时都重新定位
+        var ddNode = me['@{setPos}']();
+        ddNode.addClass('_zs_gallery_mx-dropdown_index_-open');
+        Monitor['@{add}'](me);
     },
-    '@{stop}<change,focusin,focusout>': function (e) {
-        e.stopPropagation();
+    '@{delay.hide}': function () {
+        var me = this;
+        clearTimeout(me['@{dealy.show.timer}']);
+        clearTimeout(me['@{dealy.hide.timer}']);
+        me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(function () {
+            me['@{hide}']();
+        }), me.constants.hideDelay);
+        Monitor['@{remove}'](me);
+    },
+    '@{hide}': function () {
+        var me = this;
+        clearTimeout(me['@{dealy.hide.timer}']);
+        if (!me['@{pos.show}']) {
+            return;
+        }
+        me.updater.digest({
+            expand: me['@{pos.show}'] = false
+        });
+        var ddNode = $('#dd_bd_' + me.id);
+        ddNode.removeClass('_zs_gallery_mx-dropdown_index_-open');
+        Monitor['@{remove}'](me);
+    },
+    bindScroll: function () {
+        var me = this;
+        var scrollWrapper = me['@{scroll.wrapper}'];
+        if (!scrollWrapper) {
+            return;
+        }
+        var wrapper;
+        if ((typeof scrollWrapper == 'string') && !(/^#/.test(scrollWrapper)) && !(/^\./.test(scrollWrapper))) {
+            wrapper = $('#' + scrollWrapper);
+        }
+        else {
+            wrapper = $(scrollWrapper);
+        }
+        wrapper.scroll(function () {
+            if (me['@{pos.show}']) {
+                me['@{setPos}']();
+            }
+        });
+    },
+    '@{setPos}': function () {
+        var me = this;
+        var oNode = me['@{owner.node}'];
+        var ddNode = $('#dd_bd_' + me.id);
+        if (!ddNode || !ddNode.length) {
+            return;
+        }
+        var width = oNode.outerWidth();
+        var height = oNode.outerHeight();
+        var offset = oNode.offset();
+        var rWidth = ddNode.outerWidth();
+        var rHeight = ddNode.outerHeight();
+        var top = offset.top + height;
+        left = offset.left - (rWidth - width) / 2;
+        ddNode.css({
+            left: left,
+            top: top
+        });
+        return ddNode;
+    },
+    /**
+     * 页面滚动的时候，重新定位
+     */
+    '$win<scroll>': function (e) {
+        var me = this;
+        if (me['@{pos.show}']) {
+            me['@{setPos}']();
+        }
+    },
+    /**
+     * 浮层中使用dialog
+     */
+    '$doc<dialogScolll>': function (e) {
+        var me = this;
+        if (me['@{pos.show}']) {
+            me['@{setPos}']();
+        }
+    },
+    constants: {
+        showDelay: 100,
+        hideDelay: 200
     }
 });
 

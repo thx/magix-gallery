@@ -1,6 +1,6 @@
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
-        name: '下拉框在组件内',
+        name: '使用示例',
         key: viewId + '_demo',
         subs: [{
             name: '搜索框+事件处理',
@@ -34,6 +34,9 @@
             key: viewId + '_demo6'
         }]
     }, {
+        name: '追加到body',
+        key: viewId + '_bd'
+    }, {
         name: 'API',
         key: viewId + '_api'
     }, {
@@ -41,7 +44,7 @@
         key: viewId + '_event'
     }]}}"></div>
     
-    <mx-title.second content="下拉框在组件内" id="{{=viewId}}_demo"/>
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
     <div class="clearfix mb20">
         <div class="half">
             <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
@@ -56,6 +59,13 @@
             <div mx-view="@./12" id="{{=viewId}}_demo12"></div>
             <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
             <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
+        </div>
+    </div>
+
+    <mx-title.second content="追加到body" id="{{=viewId}}_bd"/>
+    <div class="clearfix mb20">
+        <div class="half">
+            <div mx-view="@./19" id="{{=viewId}}_demo19"></div>
         </div>
     </div>
     

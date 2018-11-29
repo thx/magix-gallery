@@ -122,7 +122,6 @@ module.exports = Magix.View.extend({
         let searchbox = me.updater.get('searchbox');
 
         let initList;
-
         let next = () => {
             me.updater.digest({
                 list: initList

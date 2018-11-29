@@ -1,23 +1,20 @@
 let Magix = require('magix');
-Magix.applyStyle('@content.less');
+Magix.applyStyle('@index.less');
 
 module.exports = Magix.View.extend({
     tmpl: '@content.html',
     init(e) {
         this.viewOptions = e;
 
-        let data = e.data || {};
-        this.updater.set({
-            menus: data.menus
-        })
+        this.updater.set(e.data)
     },
     render() {
         this.updater.digest({});
     },
-    'submit<click>'(e) {
+    '@{select}<click>'(e) {
         let viewOptions = this.viewOptions;
         if(viewOptions.submit){
-            viewOptions.submit(e.params.value);
+            viewOptions.submit(e.params.item);
         }
     }
 });

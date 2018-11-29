@@ -1,0 +1,10 @@
+<ul class="dropdown-menu">
+    {{each list as item}}
+    <li title="{{=item.text}}" class="dropdown-item">
+        <span class="item-link ellipsis {{if((item.value+'')===(selected+''))}} active {{/if}}" 
+            mx-click="@{select}({item:'{{@item}}'})">
+            {{=item.text}}
+        </span>
+    </li>
+    {{/each}}
+</ul>
