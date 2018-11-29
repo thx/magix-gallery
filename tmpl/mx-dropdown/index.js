@@ -1,3 +1,6 @@
+/**
+ * 为了保证dropdown.item每次更新，不实现assign
+ */
 let Magix = require('magix');
 let $ = require('$');
 let Monitor = require('../mx-monitor/index');
@@ -8,43 +11,34 @@ module.exports = Magix.View.extend({
     tmpl: '@index.html:const[viewId]',
     init(ops) {
         let me = this;
+
         Monitor['@{setup}']();
         me.on('destroy', () => {
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
         });
-        me.updater.set({
-            viewId: me.id
-        });
 
         me['@{owner.node}'] = $('#' + me.id);
 
-        let selected = me['@{selected}'] = ops.selected;
-        let textKey = me['@{textKey}'] = ops.textKey || 'text';
-        let valueKey = me['@{valueKey}'] = ops.valueKey || 'value';
-        let emptyText = me['@{emptyText}'] = ops.emptyText || '';
-        me['@{ui.searchbox}'] = (ops.searchbox + '') === 'true';
         let disabledNode = $('#' + me.id + '[mx-disabled]')
         me['@{ui.disabled}'] = disabledNode && (disabledNode.length > 0);
-        me['@{ui.dark}'] = (ops.colorType == 'dark');
-        me['@{ui.height}'] = (ops.height || 250);
+
         // 列表是否展开
         me['@{ui.expand}'] = false;
-        me['@{ui.name}'] = ops.name || '';
 
+        // 展开方向：向上向下
         let placementMap = {
             top: '@index.less:top',
             bottom: '@index.less:bottom'
         }
 
-        me['@{ui.placement}'] = placementMap[ops.placement || 'bottom'];
-
         // trigger方式，click，hover，默认click
         me['@{trigger.type}'] = ops.triggerType || 'click';
 
-        // 埋点
-        me['@{ui.spm}'] =  me['@{owner.node}'].attr('data-spm-click') || '';
-
+        let selected = me['@{selected}'] = ops.selected;
+        let textKey = me['@{textKey}'] = ops.textKey || 'text';
+        let valueKey = me['@{valueKey}'] = ops.valueKey || 'value';
+        let emptyText = me['@{emptyText}'] = ops.emptyText || '';
         let list = [];
         if (!ops.list) {
             let node = me['@{owner.node}'].children();
@@ -105,53 +99,87 @@ module.exports = Magix.View.extend({
                 selected = selected[valueKey];
             }
         }
-        me['@{selected}'] = selected;
-        me['@{selected.text}'] = map[selected][textKey];
-    },
-    '@{inside}' (node) {
-        return Magix.inside(node, this.id);
+
+        me.updater.set({
+            viewId: me.id,
+            textKey: me['@{textKey}'],
+            valueKey: me['@{valueKey}'],
+            selected: me['@{selected}'] = selected,
+            searchbox: (ops.searchbox + '') === 'true',
+            searchText: I18n['dropdown.search'],
+            selectedText: me['@{selected.text}'] = map[selected][textKey],
+            keyword: me['@{last.search.value}'] = (ops.keyword || ''),  // 搜索关键词
+            expand: me['@{ui.expand}'],
+            height: (ops.height || 250),
+            spm: me['@{owner.node}'].attr('data-spm-click') || '', //埋点
+            name: ops.name || '', // 前缀
+            placementClass: placementMap[ops.placement || 'bottom']
+        });
+        me['@{owner.node}'].val(selected);
     },
     render() {
         let me = this;
-        me['@{ui.update}'](true);
+        let searchbox = me.updater.get('searchbox');
 
-        let triggerType = me['@{trigger.type}'];
-        let triggerNode = $('#' + me.id + ' .@index.less:dropdown-toggle');
-        switch (triggerType){
-            case 'click':
-                triggerNode.on('click', () => {
-                    if (me['@{ui.expand}']) {
-                        me['@{hide}']();
-                    } else if (!me['@{ui.disabled}']) {
-                        me['@{show}']();
-                    }
-                })
-                break;
-            case 'hover':
-                triggerNode.hover(() => {
-                    clearTimeout(me['@{dealy.hide.timer}']);
-                    me['@{show}']();
-                }, () => {
-                    me['@{delay.hide}']();
-                });
+        let initList;
 
-                let wrapper = $('#' + me.id + ' .@index.less:dropdown-menu-wrapper');
-                wrapper.hover(() => {
-                    clearTimeout(me['@{dealy.hide.timer}']);
-                }, () => {
-                    me['@{delay.hide}']();
-                });
-                break;
+        let next = () => {
+            me.updater.digest({
+                list: initList
+            });
+            let triggerType = me['@{trigger.type}'];
+            let triggerNode = $('#' + me.id + ' .@index.less:dropdown-toggle');
+            switch (triggerType) {
+                case 'click':
+                    triggerNode.on('click', () => {
+                        if (me['@{ui.expand}']) {
+                            me['@{hide}']();
+                        } else if (!me['@{ui.disabled}']) {
+                            me['@{show}']();
+                        }
+                    })
+                    break;
+                case 'hover':
+                    triggerNode.hover(() => {
+                        clearTimeout(me['@{dealy.hide.timer}']);
+                        if (!me['@{ui.disabled}']){
+                            me['@{show}']();
+                        }
+                    }, () => {
+                        me['@{delay.hide}']();
+                    });
+    
+                    let wrapper = $('#' + me.id + ' .@index.less:dropdown-menu-wrapper');
+                    wrapper.hover(() => {
+                        clearTimeout(me['@{dealy.hide.timer}']);
+                    }, () => {
+                        me['@{delay.hide}']();
+                    });
+                    break;
+            }
+        }   
+
+        if(searchbox){
+            me['@{fn.search}'](me['@{last.search.value}'], list => {
+                initList = list;
+                next();
+            });
+        }else{
+            initList = me['@{list}'];
+            next();
         }
     },
-    '@{delay.hide}'(){
+    '@{inside}'(node) {
+        return Magix.inside(node, this.id);
+    },
+    '@{delay.hide}'() {
         let me = this;
         clearTimeout(me['@{dealy.hide.timer}']);
         me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(() => {
             me['@{hide}']();
         }), 250);
     },
-    '@{hide}' () {
+    '@{hide}'() {
         let me = this;
         if (me['@{ui.expand}']) {
             me.updater.digest({
@@ -161,7 +189,7 @@ module.exports = Magix.View.extend({
             Monitor['@{remove}'](me);
         }
     },
-    '@{show}' () {
+    '@{show}'() {
         let me = this;
 
         if (!me['@{ui.expand}']) {
@@ -187,29 +215,7 @@ module.exports = Magix.View.extend({
             Monitor['@{add}'](me);
         }
     },
-    '@{ui.update}' (ignoreFireEvent) {
-        let me = this;
-        let selected = me['@{selected}'];
-        me.updater.digest({
-            textKey: me['@{textKey}'],
-            valueKey: me['@{valueKey}'],
-            selected,
-            searchbox: me['@{ui.searchbox}'],
-            searchText: I18n['dropdown.search'],
-            selectedText: me['@{selected.text}'],
-            list: me['@{list}'].slice(),
-            expand: me['@{ui.expand}'],
-            height: me['@{ui.height}'],
-            spm: me['@{ui.spm}'],
-            name: me['@{ui.name}'],
-            placementClass: me['@{ui.placement}']
-        });
-        me['@{owner.node}'].val(selected);
-        if (!ignoreFireEvent) {
-            me['@{fire.event}'](selected);
-        }
-    },
-    '@{fn.search}' (val, callback) {
+    '@{fn.search}'(val, callback) {
         let me = this;
         clearTimeout(me['@{search.timer}']);
         let srcList = me['@{list}'];
@@ -249,20 +255,41 @@ module.exports = Magix.View.extend({
         };
         go();
     },
-    '@{fire.event}' (item, compare) {
+    '@{search}<keyup,paste>'(e) {
         let me = this;
+        e.stopPropagation();
+        clearTimeout(me['@{search.delay.timer}']);
+        let val = $.trim(e.eventTarget.value);
+        me.updater.set({
+            keyword: val
+        });
+        me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(() => {
+            if (val != me['@{last.search.value}']) {
+                me['@{fn.search}'](me['@{last.search.value}'] = val, list => {
+                    me.updater.digest({
+                        list
+                    });
+                });
+            }
+        }), 300);
+    },
+    '@{select}<click>'(e) {
+        let me = this;
+        let item = e.params.item;
         let updater = me.updater;
         let valueKey = me['@{valueKey}'];
         let textKey = me['@{textKey}'];
         let lastSelected = me['@{selected}'];
+        let keyword = me['@{last.search.value}'];
         let selected = item[valueKey];
         let selectedText = item[textKey];
-        if (!compare || lastSelected !== selected) {
+        if (lastSelected !== selected) {
             updater.set({
                 selected: me['@{selected}'] = selected
             });
             let event = $.Event('change', {
-                item: item,
+                item,
+                keyword,
                 keys: {
                     text: textKey,
                     value: valueKey
@@ -283,31 +310,10 @@ module.exports = Magix.View.extend({
             }
             me['@{owner.node}'].val(valueKey ? item[valueKey] : item).trigger(event);
         }
-    },
-    '@{search}<keyup,paste>' (e) {
-        let me = this;
-        e.stopPropagation();
-        clearTimeout(me['@{search.delay.timer}']);
-        let val = $.trim(e.eventTarget.value);
-        me.updater.set({
-            keyword: val
-        });
-        me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(() => {
-            if (val != me['@{last.search.value}']) {
-                me['@{fn.search}'](me['@{last.search.value}'] = val, list => {
-                    me.updater.digest({
-                        list
-                    });
-                });
-            }
-        }), 300);
-    },
-    '@{select}<click>' (e) {
-        let me = this;
-        me['@{fire.event}'](e.params.item, true);
+
         me['@{hide}']();
     },
-    '@{stop}<change,focusin,focusout>' (e) {
+    '@{stop}<change,focusin,focusout>'(e) {
         e.stopPropagation();
     }
 });

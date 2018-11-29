@@ -94,7 +94,7 @@ catch (ex) {
                         me['@{show}'](); //等待内容显示
                     }), me.constants.showDelay);
                 }, function () {
-                    me['@{hide}']();
+                    me['@{delay.hide}']();
                 });
                 break;
         }
@@ -123,14 +123,14 @@ catch (ex) {
                 popNode.hover(function () {
                     clearTimeout(me['@{dealy.hide.timer}']);
                 }, function () {
-                    me['@{hide}']();
+                    me['@{delay.hide}']();
                 });
             }
         });
         vf.mountView(view, {
             data: viewData,
             submit: function (selected) {
-                me['@{immediate.hide}']();
+                me['@{hide}']();
                 me['@{owner.node}'].trigger({
                     type: 'change',
                     selected: selected
@@ -157,16 +157,16 @@ catch (ex) {
         popNode.addClass('_zs_gallery_mx-popover_index_-show-out');
         Monitor['@{add}'](me);
     },
-    '@{hide}': function () {
+    '@{delay.hide}': function () {
         var me = this;
         clearTimeout(me['@{dealy.show.timer}']);
         clearTimeout(me['@{dealy.hide.timer}']);
         me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(function () {
-            me['@{immediate.hide}']();
+            me['@{hide}']();
         }), me.constants.hideDelay);
         Monitor['@{remove}'](me);
     },
-    '@{immediate.hide}': function () {
+    '@{hide}': function () {
         var me = this;
         clearTimeout(me['@{dealy.hide.timer}']);
         if (!me['@{pos.show}']) {

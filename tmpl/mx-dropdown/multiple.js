@@ -159,10 +159,6 @@ module.exports = Magix.View.extend({
             }
         })
     },
-    '@{inside}' (node) {
-        let me = this;
-        return Magix.inside(node, me.id);
-    },
     render() {
         let me = this;
         let selected = me.updater.get('selected');
@@ -201,6 +197,10 @@ module.exports = Magix.View.extend({
                 });
                 break;
         }
+    },
+    '@{inside}' (node) {
+        let me = this;
+        return Magix.inside(node, me.id);
     },
     '@{delay.hide}'(){
         let me = this;
@@ -424,7 +424,7 @@ module.exports = Magix.View.extend({
         groups.forEach(group => {
             group.list.forEach(item => {
                 if (item.checked) {
-                    // 加空格方便判断
+                    // 字符串方便判断
                     selected.push(item.value + '');
                 }
             })

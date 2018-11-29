@@ -64,9 +64,28 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: 'bottom'
         }]
+
+        let events = [{
+            type: 'change',
+            params: [{
+                key: 'selected',
+                desc: '当前选中value值，初始化selected是数组则返回数组，否则为逗号分隔',
+                type: 'array or string'
+            }, {
+                key: 'values',
+                desc: '当前选中value',
+                type: 'array'
+            }, {
+                key: 'texts',
+                desc: '当前选中text，顺序同values',
+                type: 'array'
+            }]
+        }]
+
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events
         });
     }
 });

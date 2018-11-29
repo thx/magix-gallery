@@ -58,10 +58,41 @@ module.exports = Magix.View.extend({
             desc: '可选内容展示方向，bottom（下方），top（上方）',
             type: 'string',
             def: 'bottom'
+        }, {
+            key: 'keyword',
+            desc: '搜索关键词',
+            type: 'string',
+            def: ''
+        }]
+
+        let events = [{
+            type: 'change',
+            params: [{
+                key: 'value',
+                desc: '当前选中value',
+                type: 'string'
+            }, {
+                key: 'text',
+                desc: '当前选中text',
+                type: 'string'
+            }, {
+                key: 'item',
+                desc: '当前选中完整对象',
+                type: 'object'
+            }, {
+                key: 'selected',
+                desc: '当前选中value，同value',
+                type: 'string'
+            }, {
+                key: 'keyword',
+                desc: '当前搜索关键词',
+                type: 'string'
+            }]
         }]
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events
         });
     }
 });

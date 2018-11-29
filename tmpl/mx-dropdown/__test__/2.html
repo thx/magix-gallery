@@ -3,6 +3,7 @@
         <div class="mb20">
             <mx-dropdown class="w200" 
                 searchbox="true" 
+                keyword="{{=keyword}}"
                 selected="{{=selectedValue}}"
                 list="{{@list}}"
                 mx-change="select()"></mx-dropdown>
@@ -24,7 +25,6 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-dropdown class="w200" 
     searchbox="true" 
-    empty-text="请选择类型" 
     selected="&#123;&#123;=selectedValue&#125;&#125;"
     list="&#123;&#123;@list&#125;&#125;"
     mx-change="select()"&gt;
@@ -62,9 +62,7 @@ module.exports = Magix.View.extend(&#123;
     'select&lt;change&gt;' (e) &#123;
         // e.value 当前选中值
         // e.text 当前选中文案
-        this.updater.digest(&#123;
-            selectedValue: e.value
-        &#125;);
+        // e.keyword 当前搜索关键词
     &#125;
 &#125;);</pre>
     </div>

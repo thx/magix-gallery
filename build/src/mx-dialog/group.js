@@ -25,12 +25,12 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', list = $$.list, curIndex = $$.curIndex, hoverIndex = $$.hoverIndex, textKey = $$.textKey, height = $$.height, contentView = $$.contentView; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryaj:_" class="_zs_gallery_mx-dialog_group_-help"><div mxa="_zs_galleryaj:a" class="_zs_gallery_mx-dialog_group_-help-navs">';
+    $p += '<div mxv mxa="_zs_galleryak:_" class="_zs_gallery_mx-dialog_group_-help"><div mxa="_zs_galleryak:a" class="_zs_gallery_mx-dialog_group_-help-navs">';
     $line = 3;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cwajvktgr$art_c = list.length; index < $art_cwajvktgr$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cwajvktgr$art_c = list.length; index < $art_cwajvktgr$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cyhnrzovujl$art_c = list.length; index < $art_cyhnrzovujl$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cyhnrzovujl$art_c = list.length; index < $art_cyhnrzovujl$art_c; index++) {
         var item = list[index];
         $p += '<a href="javascript:;" class="_zs_gallery_mx-dialog_group_-help-nav ';
         $line = 5;

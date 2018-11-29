@@ -27,25 +27,21 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', list = $$.list, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryaw:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryaw:a" class="_zs_gallery___test___layout_-eg-content"><div mxv mxa="_zs_galleryaw:b" class="mb20"><div mxv="list" class="w200" mx-view="mx-dropdown/index?textKey=name&valueKey=id&list=';
-    $line = 7;
-    $art = '@list';
-    ;
-    $p += ($expr = '<%@list%>', $i($$ref, list)) + '"></div></div><div class="w200" mx-view="mx-dropdown/index?textKey=name&valueKey=id&list=';
-    $line = 14;
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryax:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryax:a" class="_zs_gallery___test___layout_-eg-content"><div class="w200" mx-view="mx-dropdown/index?textKey=name&valueKey=id&list=';
+    $line = 6;
     $art = '@[{id:1,name:\'选择1\'},{id:2,name:\'选择2\'}]';
     ;
-    $p += ($expr = '<%@[{ id: 1, name: \'选择1\' }, { id: 2, name: \'选择2\' }]%>', $i($$ref, [{ id: 1, name: '选择1' }, { id: 2, name: '选择2' }])) + '"></div></div><div mxa="_zs_galleryaw:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryaw:_" class="_zs_gallery___test___layout_-eg-title">自定义&nbsp;text-key&nbsp;和&nbsp;value-key</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 19;
+    $p += ($expr = '<%@[{ id: 1, name: \'选择1\' }, { id: 2, name: \'选择2\' }]%>', $i($$ref, [{ id: 1, name: '选择1' }, { id: 2, name: '选择2' }])) + '"></div></div><div mxa="_zs_galleryax:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryax:_" class="_zs_gallery___test___layout_-eg-title">自定义&nbsp;text-key&nbsp;和&nbsp;value-key</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 11;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaw:d" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 21;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryax:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 13;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaw:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 24;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryax:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 16;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown class="w200" \n    text-key="name"\n    value-key="id"\n    list="&#123;&#123;@[&#123;id:1,name:\'选择1\'&#125;,&#123;id:2,name:\'选择2\'&#125;]&#125;&#125;"&gt;\n&lt;/mx-dropdown&gt;</pre></div></div>';
@@ -59,9 +55,7 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
-        this.updater.digest({
-            list: [{ id: 1, name: '选择1' }, { id: 2, name: '选择2' }]
-        });
+        this.updater.digest({});
     }
 });
 

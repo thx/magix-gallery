@@ -1,0 +1,27 @@
+<div class="pr20">
+    <table class="table desc-table">
+        <thead>
+            <tr>
+                <th width="120">事件</th>
+                <th width="100">返回参数</th>
+                <th width="200">参数说明</th>
+                <th width="100">参数类型</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{each options as option}}
+                {{each option.params as param index}}
+                <tr>
+                    {{if (index == 0)}}
+                    <td rowspan="{{=option.params.length}}">{{=option.type}}</td>
+                    {{/if}}
+
+                    <td>{{=param.key}}</td>
+                    <td>{{!param.desc}}</td>
+                    <td>{{!param.type}}</td>
+                </tr>
+                {{/each}}
+            {{/each}}
+        </tbody>
+    </table>
+</div>

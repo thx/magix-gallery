@@ -25,9 +25,11 @@ module.exports = Base.extend({
     'select<change>' (event) {
         // event.value 当前选中值
         // event.text 当前选中文案
+        // event.keyword 当前搜索关键词
         this.updater.digest({
             selectedValue: event.value,
-            selectedText: event.text
+            selectedText: event.text,
+            keyword: event.keyword
         });
     },
 });

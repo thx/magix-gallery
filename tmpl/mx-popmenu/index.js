@@ -72,7 +72,7 @@ module.exports = Base.extend({
                         me['@{show}'](); //等待内容显示
                     }), me.constants.showDelay);
                 }, () => {
-                    me['@{hide}']();
+                    me['@{delay.hide}']();
                 });
                 break;
         }
@@ -110,14 +110,14 @@ module.exports = Base.extend({
                 popNode.hover(() => {
                     clearTimeout(me['@{dealy.hide.timer}']);
                 }, () => {
-                    me['@{hide}']();
+                    me['@{delay.hide}']();
                 });
             }
         });
         vf.mountView(view, {
             data: viewData,
             submit: (selected) => {
-                me['@{immediate.hide}']();
+                me['@{hide}']();
                 me['@{owner.node}'].trigger({
                     type: 'change',
                     selected: selected
@@ -144,17 +144,17 @@ module.exports = Base.extend({
         popNode.addClass('@../mx-popover/index.less:show-out');
         Monitor['@{add}'](me);
     },
-    '@{hide}'() {
+    '@{delay.hide}'() {
         let me = this;
 
         clearTimeout(me['@{dealy.show.timer}']);
         clearTimeout(me['@{dealy.hide.timer}']);
         me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(() => {
-            me['@{immediate.hide}']();
+            me['@{hide}']();
         }), me.constants.hideDelay);
         Monitor['@{remove}'](me);
     },
-    '@{immediate.hide}'() {
+    '@{hide}'() {
         let me = this;
 
         clearTimeout(me['@{dealy.hide.timer}']);

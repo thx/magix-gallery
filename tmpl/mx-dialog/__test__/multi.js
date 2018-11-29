@@ -19,7 +19,9 @@ module.exports = Magix.View.extend({
         event.preventDefault();
         let viewOptions = this.viewOptions;
         if (viewOptions.dialog) {
-            viewOptions.dialog.close();
+            viewOptions.dialog.close(() => {
+                debugger
+            });
         }
     },
     'modal<click>'(e) {

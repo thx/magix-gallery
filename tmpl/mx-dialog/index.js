@@ -53,10 +53,10 @@ module.exports = Magix.View.extend({
             let mask = $('#mask_' + me.id);
             if (mask.length > 0) {
                 mask.addClass('@index.less:backdrop-out');
-            }else{
+            } else {
                 // 没有mask的时候，点击空白处关闭浮层
                 wrapper.on('click', (e) => {
-                    if(!Magix.inside(e.target, cntId)){
+                    if (!Magix.inside(e.target, cntId)) {
                         $('#' + me.id).trigger('dlg_close');
                     }
                 })
@@ -105,10 +105,10 @@ module.exports = Magix.View.extend({
             left = options.left,
             top = options.top;
         let wrapper = $(`<div class="@index.less:dialog-wrapper" id="${wrapperId}"
-            style="z-index:${wrapperZIndex}">
-            <div class="@index.less:dialog" id="${id}"
-                style="top:${top}px; left:${left}px; width:${width}px;"></div>
-        </div>`);
+        style="z-index:${wrapperZIndex}">
+        <div class="@index.less:dialog" id="${id}"
+            style="top:${top}px; left:${left}px; width:${width}px;"></div>
+    </div>`);
         $(document.body).append(wrapper);
 
         // 禁止body滚动
@@ -222,7 +222,26 @@ module.exports = Magix.View.extend({
     mxDialog(view, viewOptions, dialogOptions) {
         let me = this;
         let dlg;
-        let closeCallback;
+        let beforeCloseCallback,
+            afterCloseCallback;
+
+        let output = {
+            beforeClose(fn){
+                // 关闭浮层前调用
+                // return true 关闭
+                // return false 不关闭浮层
+                beforeCloseCallback = fn;
+            },
+            close() {
+                if (dlg && (!beforeCloseCallback || (beforeCloseCallback && beforeCloseCallback()))) {
+                    dlg.trigger('dlg_close');
+                }
+            },
+            afterClose(fn) {
+                // 关闭浮层后调用
+                afterCloseCallback = fn;
+            }
+        };
 
         let dOptions = {
             view: view
@@ -233,12 +252,12 @@ module.exports = Magix.View.extend({
                 return;
             }
             me[key] = 1;
-            
+
             // 优先级：外部传入的 > view本身配置的 > 默认
 
             // 浮层内部的配置
             Magix.mix(dOptions, V.dialogOptions || {});
-                
+
             // 调用时候的配置，浮层展示位置
             dialogOptions = dialogOptions || {};
             let width = dialogOptions.width || dOptions.width || 400,
@@ -254,32 +273,17 @@ module.exports = Magix.View.extend({
 
             // 数据
             Magix.mix(dOptions, viewOptions);
-            dOptions.dialog = {
-                close() {
-                    if (dlg) {
-                        dlg.trigger('dlg_close');
-                    }
-                }
-            };
+            dOptions.dialog = output;
             dlg = me['@{dialog.show}'](me, dOptions);
             dlg.on('close', () => {
                 delete me[key];
-                if (closeCallback) {
-                    closeCallback();
+                if (afterCloseCallback) {
+                    afterCloseCallback();
                 }
             });
         }));
 
-        return {
-            close() {
-                if (dlg) {
-                    dlg.trigger('dlg_close');
-                }
-            },
-            whenClose(fn) {
-                closeCallback = fn;
-            }
-        };
+        return output;
     },
     mxCloseAllDialogs() {
         CacheList.forEach(view => {

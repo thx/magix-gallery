@@ -6,6 +6,9 @@
 define("mx-dropdown/index",["magix","$","../mx-monitor/index","../mx-medusa/util"],(require,exports,module)=>{
 /*Magix,$,Monitor,I18n*/
 
+/**
+ * 为了保证dropdown.item每次更新，不实现assign
+ */
 var Magix = require("magix");
 var $ = require("$");
 var Monitor = require("../mx-monitor/index");
@@ -55,7 +58,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += ' ' + ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryaF:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ' + ($expr = '<%=placementClass%>', $e(placementClass)) + ' ';
+    $p += ' ' + ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryaG:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ' + ($expr = '<%=placementClass%>', $e(placementClass)) + ' ';
     $expr = '<%if (expand) {%>';
     if (expand) {
         ;
@@ -71,7 +74,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (searchbox) {%>';
         if (searchbox) {
             ;
-            $p += '<div mxv mxa="_zs_galleryaF:_" class="_zs_gallery_mx-dropdown_index_-search-wrapper"><div mxv mxa="_zs_galleryaF:a" class="search-box"><i mxs="_zs_galleryaF:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="' + ($expr = '<%=searchText%>', $e(searchText)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
+            $p += '<div mxv mxa="_zs_galleryaG:_" class="_zs_gallery_mx-dropdown_index_-search-wrapper"><div mxv mxa="_zs_galleryaG:a" class="search-box"><i mxs="_zs_galleryaG:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="' + ($expr = '<%=searchText%>', $e(searchText)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
             $expr = '<%}%>';
         }
         ;
@@ -148,31 +151,22 @@ catch (ex) {
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
         });
-        me.updater.set({
-            viewId: me.id
-        });
         me['@{owner.node}'] = $('#' + me.id);
-        var selected = me['@{selected}'] = ops.selected;
-        var textKey = me['@{textKey}'] = ops.textKey || 'text';
-        var valueKey = me['@{valueKey}'] = ops.valueKey || 'value';
-        var emptyText = me['@{emptyText}'] = ops.emptyText || '';
-        me['@{ui.searchbox}'] = (ops.searchbox + '') === 'true';
         var disabledNode = $('#' + me.id + '[mx-disabled]');
         me['@{ui.disabled}'] = disabledNode && (disabledNode.length > 0);
-        me['@{ui.dark}'] = (ops.colorType == 'dark');
-        me['@{ui.height}'] = (ops.height || 250);
         // 列表是否展开
         me['@{ui.expand}'] = false;
-        me['@{ui.name}'] = ops.name || '';
+        // 展开方向：向上向下
         var placementMap = {
             top: '_zs_gallery_mx-dropdown_index_-top',
             bottom: '_zs_gallery_mx-dropdown_index_-bottom'
         };
-        me['@{ui.placement}'] = placementMap[ops.placement || 'bottom'];
         // trigger方式，click，hover，默认click
         me['@{trigger.type}'] = ops.triggerType || 'click';
-        // 埋点
-        me['@{ui.spm}'] = me['@{owner.node}'].attr('data-spm-click') || '';
+        var selected = me['@{selected}'] = ops.selected;
+        var textKey = me['@{textKey}'] = ops.textKey || 'text';
+        var valueKey = me['@{valueKey}'] = ops.valueKey || 'value';
+        var emptyText = me['@{emptyText}'] = ops.emptyText || '';
         var list = [];
         if (!ops.list) {
             var node = me['@{owner.node}'].children();
@@ -234,43 +228,75 @@ catch (ex) {
                 selected = selected[valueKey];
             }
         }
-        me['@{selected}'] = selected;
-        me['@{selected.text}'] = map[selected][textKey];
-    },
-    '@{inside}': function (node) {
-        return Magix.inside(node, this.id);
+        me.updater.set({
+            viewId: me.id,
+            textKey: me['@{textKey}'],
+            valueKey: me['@{valueKey}'],
+            selected: me['@{selected}'] = selected,
+            searchbox: (ops.searchbox + '') === 'true',
+            searchText: I18n['dropdown.search'],
+            selectedText: me['@{selected.text}'] = map[selected][textKey],
+            keyword: me['@{last.search.value}'] = (ops.keyword || ''),
+            expand: me['@{ui.expand}'],
+            height: (ops.height || 250),
+            spm: me['@{owner.node}'].attr('data-spm-click') || '',
+            name: ops.name || '',
+            placementClass: placementMap[ops.placement || 'bottom']
+        });
+        me['@{owner.node}'].val(selected);
     },
     render: function () {
         var me = this;
-        me['@{ui.update}'](true);
-        var triggerType = me['@{trigger.type}'];
-        var triggerNode = $('#' + me.id + ' ._zs_gallery_mx-dropdown_index_-dropdown-toggle');
-        switch (triggerType) {
-            case 'click':
-                triggerNode.on('click', function () {
-                    if (me['@{ui.expand}']) {
-                        me['@{hide}']();
-                    }
-                    else if (!me['@{ui.disabled}']) {
-                        me['@{show}']();
-                    }
-                });
-                break;
-            case 'hover':
-                triggerNode.hover(function () {
-                    clearTimeout(me['@{dealy.hide.timer}']);
-                    me['@{show}']();
-                }, function () {
-                    me['@{delay.hide}']();
-                });
-                var wrapper = $('#' + me.id + ' ._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper');
-                wrapper.hover(function () {
-                    clearTimeout(me['@{dealy.hide.timer}']);
-                }, function () {
-                    me['@{delay.hide}']();
-                });
-                break;
+        var searchbox = me.updater.get('searchbox');
+        var initList;
+        var next = function () {
+            me.updater.digest({
+                list: initList
+            });
+            var triggerType = me['@{trigger.type}'];
+            var triggerNode = $('#' + me.id + ' ._zs_gallery_mx-dropdown_index_-dropdown-toggle');
+            switch (triggerType) {
+                case 'click':
+                    triggerNode.on('click', function () {
+                        if (me['@{ui.expand}']) {
+                            me['@{hide}']();
+                        }
+                        else if (!me['@{ui.disabled}']) {
+                            me['@{show}']();
+                        }
+                    });
+                    break;
+                case 'hover':
+                    triggerNode.hover(function () {
+                        clearTimeout(me['@{dealy.hide.timer}']);
+                        if (!me['@{ui.disabled}']) {
+                            me['@{show}']();
+                        }
+                    }, function () {
+                        me['@{delay.hide}']();
+                    });
+                    var wrapper = $('#' + me.id + ' ._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper');
+                    wrapper.hover(function () {
+                        clearTimeout(me['@{dealy.hide.timer}']);
+                    }, function () {
+                        me['@{delay.hide}']();
+                    });
+                    break;
+            }
+        };
+        if (searchbox) {
+            me['@{fn.search}'](me['@{last.search.value}'], function (list) {
+                initList = list;
+                next();
+            });
         }
+        else {
+            initList = me['@{list}'];
+            next();
+        }
+    },
+    '@{inside}': function (node) {
+        return Magix.inside(node, this.id);
     },
     '@{delay.hide}': function () {
         var me = this;
@@ -313,28 +339,6 @@ catch (ex) {
             Monitor['@{add}'](me);
         }
     },
-    '@{ui.update}': function (ignoreFireEvent) {
-        var me = this;
-        var selected = me['@{selected}'];
-        me.updater.digest({
-            textKey: me['@{textKey}'],
-            valueKey: me['@{valueKey}'],
-            selected: selected,
-            searchbox: me['@{ui.searchbox}'],
-            searchText: I18n['dropdown.search'],
-            selectedText: me['@{selected.text}'],
-            list: me['@{list}'].slice(),
-            expand: me['@{ui.expand}'],
-            height: me['@{ui.height}'],
-            spm: me['@{ui.spm}'],
-            name: me['@{ui.name}'],
-            placementClass: me['@{ui.placement}']
-        });
-        me['@{owner.node}'].val(selected);
-        if (!ignoreFireEvent) {
-            me['@{fire.event}'](selected);
-        }
-    },
     '@{fn.search}': function (val, callback) {
         var me = this;
         clearTimeout(me['@{search.timer}']);
@@ -374,20 +378,41 @@ catch (ex) {
         };
         go();
     },
-    '@{fire.event}': function (item, compare) {
+    '@{search}<keyup,paste>': function (e) {
         var me = this;
+        e.stopPropagation();
+        clearTimeout(me['@{search.delay.timer}']);
+        var val = $.trim(e.eventTarget.value);
+        me.updater.set({
+            keyword: val
+        });
+        me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(function () {
+            if (val != me['@{last.search.value}']) {
+                me['@{fn.search}'](me['@{last.search.value}'] = val, function (list) {
+                    me.updater.digest({
+                        list: list
+                    });
+                });
+            }
+        }), 300);
+    },
+    '@{select}<click>': function (e) {
+        var me = this;
+        var item = e.params.item;
         var updater = me.updater;
         var valueKey = me['@{valueKey}'];
         var textKey = me['@{textKey}'];
         var lastSelected = me['@{selected}'];
+        var keyword = me['@{last.search.value}'];
         var selected = item[valueKey];
         var selectedText = item[textKey];
-        if (!compare || lastSelected !== selected) {
+        if (lastSelected !== selected) {
             updater.set({
                 selected: me['@{selected}'] = selected
             });
             var event = $.Event('change', {
                 item: item,
+                keyword: keyword,
                 keys: {
                     text: textKey,
                     value: valueKey
@@ -409,28 +434,6 @@ catch (ex) {
             }
             me['@{owner.node}'].val(valueKey ? item[valueKey] : item).trigger(event);
         }
-    },
-    '@{search}<keyup,paste>': function (e) {
-        var me = this;
-        e.stopPropagation();
-        clearTimeout(me['@{search.delay.timer}']);
-        var val = $.trim(e.eventTarget.value);
-        me.updater.set({
-            keyword: val
-        });
-        me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(function () {
-            if (val != me['@{last.search.value}']) {
-                me['@{fn.search}'](me['@{last.search.value}'] = val, function (list) {
-                    me.updater.digest({
-                        list: list
-                    });
-                });
-            }
-        }), 300);
-    },
-    '@{select}<click>': function (e) {
-        var me = this;
-        me['@{fire.event}'](e.params.item, true);
         me['@{hide}']();
     },
     '@{stop}<change,focusin,focusout>': function (e) {

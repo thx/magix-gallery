@@ -1,9 +1,21 @@
 <div class="example">
     <div class="eg-content">
-        <mx-dropdown class="w200" 
-            mx-disabled
-            list="[1,2,3]">
-        </mx-dropdown>
+        <div class="mb20 clearfix">
+            <span class="fl w90 lh32">点击禁选：</span>
+            <mx-dropdown class="w200 fl" 
+                mx-disabled
+                list="[1,2,3]">
+            </mx-dropdown>
+        </div>
+
+        <div class="mb20 clearfix">
+            <span class="fl w90 lh32">hover禁选：</span>
+            <mx-dropdown class="w200 fl" 
+                mx-disabled
+                trigger-type="hover"
+                list="[1,2,3]">
+            </mx-dropdown>
+        </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">禁用单选框</div>
@@ -16,6 +28,14 @@
 &lt;mx-dropdown class="w200" 
     mx-disabled
     list="[1,2,3]"&gt;
-&lt;/mx-dropdown&gt;</pre>
+&lt;/mx-dropdown&gt;
+
+
+&lt;mx-dropdown class="w200" 
+    mx-disabled
+    trigger-type="hover"
+    list="[1,2,3]"&gt;
+&lt;/mx-dropdown&gt;
+        </pre>
     </div>
 </div>

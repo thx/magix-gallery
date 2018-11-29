@@ -41,14 +41,14 @@ module.exports = Magix.View.extend({
     $expr = '<%if (closable) {%>';
     if (closable) {
         ;
-        $p += '<a mxs="_zs_galleryak:_" href="javascript:;" mx-click="' + $viewId + '@{close}()" class="_zs_gallery_mx-dialog_index_-dialog-close"><i class="mc-iconfont _zs_gallery_mx-dialog_index_-iconfont-ext">&#xe603;</i></a>';
+        $p += '<a mxs="_zs_galleryal:_" href="javascript:;" mx-click="' + $viewId + '@{close}()" class="_zs_gallery_mx-dialog_index_-dialog-close"><i class="mc-iconfont _zs_gallery_mx-dialog_index_-iconfont-ext">&#xe603;</i></a>';
         $line = 5;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '<div class="_zs_gallery_mx-dialog_index_-dialog-content" id="' + ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryak:a" class="loading _zs_gallery_mx-dialog_index_-loading-ext"><span class="loading-anim"></span></div></div>';
+    $p += '<div class="_zs_gallery_mx-dialog_index_-dialog-content" id="' + ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryal:a" class="loading _zs_gallery_mx-dialog_index_-loading-ext"><span class="loading-anim"></span></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -130,7 +130,7 @@ catch (ex) {
             $(document.body).append(mask);
         }
         var wrapperId = 'wrapper_' + id, wrapperZIndex = DialogZIndex, width = options.width, left = options.left, top = options.top;
-        var wrapper = $("<div class=\"_zs_gallery_mx-dialog_index_-dialog-wrapper\" id=\"" + wrapperId + "\"\n            style=\"z-index:" + wrapperZIndex + "\">\n            <div class=\"_zs_gallery_mx-dialog_index_-dialog\" id=\"" + id + "\"\n                style=\"top:" + top + "px; left:" + left + "px; width:" + width + "px;\"></div>\n        </div>");
+        var wrapper = $("<div class=\"_zs_gallery_mx-dialog_index_-dialog-wrapper\" id=\"" + wrapperId + "\"\n        style=\"z-index:" + wrapperZIndex + "\">\n        <div class=\"_zs_gallery_mx-dialog_index_-dialog\" id=\"" + id + "\"\n            style=\"top:" + top + "px; left:" + left + "px; width:" + width + "px;\"></div>\n    </div>");
         $(document.body).append(wrapper);
         // 禁止body滚动
         $(document.body).addClass('_zs_gallery_mx-dialog_index_-modal');
@@ -234,7 +234,24 @@ catch (ex) {
     mxDialog: function (view, viewOptions, dialogOptions) {
         var me = this;
         var dlg;
-        var closeCallback;
+        var beforeCloseCallback, afterCloseCallback;
+        var output = {
+            beforeClose: function (fn) {
+                // 关闭浮层前调用
+                // return true 关闭
+                // return false 不关闭浮层
+                beforeCloseCallback = fn;
+            },
+            close: function () {
+                if (dlg && (!beforeCloseCallback || (beforeCloseCallback && beforeCloseCallback()))) {
+                    dlg.trigger('dlg_close');
+                }
+            },
+            afterClose: function (fn) {
+                // 关闭浮层后调用
+                afterCloseCallback = fn;
+            }
+        };
         var dOptions = {
             view: view
         };
@@ -260,31 +277,16 @@ catch (ex) {
             }, dialogOptions));
             // 数据
             Magix.mix(dOptions, viewOptions);
-            dOptions.dialog = {
-                close: function () {
-                    if (dlg) {
-                        dlg.trigger('dlg_close');
-                    }
-                }
-            };
+            dOptions.dialog = output;
             dlg = me['@{dialog.show}'](me, dOptions);
             dlg.on('close', function () {
                 delete me[key];
-                if (closeCallback) {
-                    closeCallback();
+                if (afterCloseCallback) {
+                    afterCloseCallback();
                 }
             });
         }));
-        return {
-            close: function () {
-                if (dlg) {
-                    dlg.trigger('dlg_close');
-                }
-            },
-            whenClose: function (fn) {
-                closeCallback = fn;
-            }
-        };
+        return output;
     },
     mxCloseAllDialogs: function () {
         CacheList.forEach(function (view) {

@@ -16,6 +16,13 @@ module.exports = Magix.View.extend({
     'to<click>'(e) {
         let key = e.params.key;
         let node = $('#' + key);
+        let examples = $('.@scoped.style:example');
+        examples.css({
+            border: '1px solid #e6e6e6'
+        })
+        node.find('.@scoped.style:example').css({
+            border: '1px solid #4d7fff'
+        })
         $(window).scrollTop(node.offset().top);
     },
     '$win<scroll>'(e) {
