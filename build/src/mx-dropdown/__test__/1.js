@@ -32,9 +32,9 @@ module.exports = Base.extend({
     $line = 14;
     $art = 'each first as i';
     ;
-    $expr = '<%for (var $art_idptog$art_i = 0, $art_couejilm$art_c = first.length; $art_idptog$art_i < $art_couejilm$art_c; $art_idptog$art_i++) {    var i = first[$art_idptog$art_i]%>';
-    for (var $art_idptog$art_i = 0, $art_couejilm$art_c = first.length; $art_idptog$art_i < $art_couejilm$art_c; $art_idptog$art_i++) {
-        var i = first[$art_idptog$art_i];
+    $expr = '<%for (var $art_iorhavnbm$art_i = 0, $art_cdjeglj$art_c = first.length; $art_iorhavnbm$art_i < $art_cdjeglj$art_c; $art_iorhavnbm$art_i++) {    var i = first[$art_iorhavnbm$art_i]%>';
+    for (var $art_iorhavnbm$art_i = 0, $art_cdjeglj$art_c = first.length; $art_iorhavnbm$art_i < $art_cdjeglj$art_c; $art_iorhavnbm$art_i++) {
+        var i = first[$art_iorhavnbm$art_i];
         $p += '<i value="';
         $line = 15;
         $art = '=i';
@@ -54,9 +54,9 @@ module.exports = Base.extend({
     $line = 18;
     $art = 'each second as i';
     ;
-    $expr = '<%for (var $art_ikzzmht$art_i = 0, $art_coaxlm$art_c = second.length; $art_ikzzmht$art_i < $art_coaxlm$art_c; $art_ikzzmht$art_i++) {    var i = second[$art_ikzzmht$art_i]%>';
-    for (var $art_ikzzmht$art_i = 0, $art_coaxlm$art_c = second.length; $art_ikzzmht$art_i < $art_coaxlm$art_c; $art_ikzzmht$art_i++) {
-        var i = second[$art_ikzzmht$art_i];
+    $expr = '<%for (var $art_irenja$art_i = 0, $art_ctetlk$art_c = second.length; $art_irenja$art_i < $art_ctetlk$art_c; $art_irenja$art_i++) {    var i = second[$art_irenja$art_i]%>';
+    for (var $art_irenja$art_i = 0, $art_ctetlk$art_c = second.length; $art_irenja$art_i < $art_ctetlk$art_c; $art_irenja$art_i++) {
+        var i = second[$art_irenja$art_i];
         $p += '<i value="';
         $line = 19;
         $art = '=i';

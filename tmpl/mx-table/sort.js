@@ -15,9 +15,15 @@ module.exports = {
             let trigger = context.find('[sort-trigger]');
 
             trigger.each((idx, item) => {
+                item = $(item)
                 let field = item.attr('sort-trigger');
+
+                // 当前排序字段
                 let orderField = item.attr('sort-field') || locParams.orderField;
+
+                // 当前排序方式
                 let orderBy = item.attr('sort-orderby') || locParams.orderBy || 'default';
+
                 let icon;
                 if (orderField == field) {
                     icon = Map[orderBy];
@@ -76,10 +82,10 @@ module.exports = {
             oldOrderField = locParams.orderField;
         let orderBy, orderField = trigger;
         if (oldOrderField == trigger) {
-            if (oldOrderBy == 'desc') {
-                orderBy = 'asc';
-            } else {
+            if (oldOrderBy == 'asc') {
                 orderBy = 'desc';
+            } else {
+                orderBy = 'asc';
             }
         } else {
             // 默认降序

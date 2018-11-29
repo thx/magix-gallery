@@ -24,9 +24,12 @@ module.exports = {
             trigger.each(function (idx, item) {
                 item = $(item);
                 var field = item.attr('sort-trigger');
-                var orderBy = locParams.orderBy || 'default';
+                // 当前排序字段
+                var orderField = item.attr('sort-field') || locParams.orderField;
+                // 当前排序方式
+                var orderBy = item.attr('sort-orderby') || locParams.orderBy || 'default';
                 var icon;
-                if (locParams.orderField == field) {
+                if (orderField == field) {
                     icon = Map[orderBy];
                 }
                 else {
@@ -76,11 +79,11 @@ module.exports = {
         var oldOrderBy = locParams.orderBy, oldOrderField = locParams.orderField;
         var orderBy, orderField = trigger;
         if (oldOrderField == trigger) {
-            if (oldOrderBy == 'desc') {
-                orderBy = 'asc';
+            if (oldOrderBy == 'asc') {
+                orderBy = 'desc';
             }
             else {
-                orderBy = 'desc';
+                orderBy = 'asc';
             }
         }
         else {

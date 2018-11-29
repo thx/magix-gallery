@@ -532,7 +532,7 @@ module.exports = Magix.View.extend({
         that.updater.set({
             minHeight: winHeight
         });
-        leftNode.css(height, winHeight);
+        leftNode.css('height', winHeight);
         
         // clearTimeout(that.winResizeTimer);
 
