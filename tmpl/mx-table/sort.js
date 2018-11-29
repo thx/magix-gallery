@@ -15,12 +15,11 @@ module.exports = {
             let trigger = context.find('[sort-trigger]');
 
             trigger.each((idx, item) => {
-                item = $(item);
                 let field = item.attr('sort-trigger');
-
-                let orderBy = locParams.orderBy || 'default';
+                let orderField = item.attr('sort-field') || locParams.orderField;
+                let orderBy = item.attr('sort-orderby') || locParams.orderBy || 'default';
                 let icon;
-                if (locParams.orderField == field) {
+                if (orderField == field) {
                     icon = Map[orderBy];
                 } else {
                     icon = Map.default;
@@ -67,7 +66,7 @@ module.exports = {
 
         return list.concat(emptyList);
     },
-    '$[sort-trigger]<click>' (e) {
+    '$[sort-trigger]<click>'(e) {
         let me = this;
         let context = $('#' + me.id);
         let item = $(e.eventTarget);
