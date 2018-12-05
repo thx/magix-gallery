@@ -3,7 +3,7 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-indics/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./3","./2","./5","__test__/api"],(require,exports,module)=>{
+define("mx-indics/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./3","./2","./5","__test__/api","__test__/event"],(require,exports,module)=>{
 /*Magix,$*/
 require("__test__/subs");
 require("mx-title/second");
@@ -12,6 +12,7 @@ require("./3");
 require("./2");
 require("./5");
 require("__test__/api");
+require("__test__/event");
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
@@ -30,36 +31,44 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_gallerybI:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'上限 + 排序\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'不限制 + 不排序\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'不限制 + 排序\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'自定义key\',\n            key: viewId + \'_demo5\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'上限 + 排序\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'不限制 + 不排序\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'不限制 + 排序\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'自定义key\',\n            key: viewId + \'_demo5\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'上限 + 排序\',                    key: viewId + \'_demo1\'                }, {                    name: \'不限制 + 不排序\',                    key: viewId + \'_demo3\'                }, {                    name: \'不限制 + 排序\',                    key: viewId + \'_demo2\'                }, {                    name: \'自定义key\',                    key: viewId + \'_demo5\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '上限 + 排序', key: viewId + '_demo1' }, { name: '不限制 + 不排序', key: viewId + '_demo3' }, { name: '不限制 + 排序', key: viewId + '_demo2' }, { name: '自定义key', key: viewId + '_demo5' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div mxs="_zs_gallerybI:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mx-view="mx-indics/__test__/1" id="';
-    $line = 23;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mxa="_zs_gallerybI:a" class="clearfix mb20"><div mxa="_zs_gallerybI:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-indics/__test__/3" id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'上限 + 排序\',                    key: viewId + \'_demo1\'                }, {                    name: \'不限制 + 不排序\',                    key: viewId + \'_demo3\'                }, {                    name: \'不限制 + 排序\',                    key: viewId + \'_demo2\'                }, {                    name: \'自定义key\',                    key: viewId + \'_demo5\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '上限 + 排序', key: viewId + '_demo1' }, { name: '不限制 + 不排序', key: viewId + '_demo3' }, { name: '不限制 + 排序', key: viewId + '_demo2' }, { name: '自定义key', key: viewId + '_demo5' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div mxs="_zs_gallerybI:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mx-view="mx-indics/__test__/1" id="';
     $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-indics/__test__/2" id="';
-    $line = 27;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mxa="_zs_gallerybI:a" class="clearfix mb20"><div mxa="_zs_gallerybI:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-indics/__test__/3" id="';
+    $line = 29;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div mxa="_zs_gallerybI:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-indics/__test__/5" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-indics/__test__/2" id="';
     $line = 30;
     $art = '=viewId';
     ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div mxa="_zs_gallerybI:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-indics/__test__/5" id="';
+    $line = 33;
+    $art = '=viewId';
+    ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div></div></div><div id="';
-    $line = 34;
+    $line = 37;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 35;
+    $line = 38;
     $art = '@options';
     ;
-    $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div></div>';
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
+    $line = 40;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_event" mx-view="mx-title/second?content=Event"></div><div mxv="events" mx-view="__test__/event?options=';
+    $line = 41;
+    $art = '@events';
+    ;
+    $p += ($expr = '<%@events%>', $i($$ref, events)) + '"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -70,49 +79,72 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
+        var options = [{
+                key: 'fields',
+                desc: "<pre>\n\u6307\u6807\u6570\u7EC4\uFF0C\u683C\u5F0F\u5982\u4E0B\uFF1A\n[{\ntext: '\u6307\u6807\u6587\u6848',\nvalue: '\u8DDF\u540E\u53F0\u4EA4\u4E92\u7684\u6307\u6807\u5B57\u6BB5',\ntip: '\u6307\u6807\u63D0\u793A\u6587\u6848'\n}]\n</pre>",
+                type: 'array',
+                def: ''
+            }, {
+                key: 'text-key',
+                desc: '渲染text时读取的key',
+                type: 'string',
+                def: 'text'
+            }, {
+                key: 'value-key',
+                desc: '渲染value时读取的key',
+                type: 'string',
+                def: 'value'
+            }, {
+                key: 'custom',
+                desc: '当前是否为自定义指标，false（默认指标），true（自定义指标）<br/>可能存在customs=defaults的情况，因此需要明确指定当前是自定义还是默认',
+                type: 'boolean',
+                def: 'false'
+            }, {
+                key: 'customs',
+                desc: '自定义指标value值的数组，例如["cost"]<br/>为[]的时候，默认=defaults，确保每次切换都有选中的指标',
+                type: 'array',
+                def: ''
+            }, {
+                key: 'defaults',
+                desc: '默认指标value值的数组，必填',
+                type: 'array',
+                def: ''
+            }, {
+                key: 'limit',
+                desc: '指标选中上限，不传不限制选择个数',
+                type: 'number',
+                def: ''
+            }, {
+                key: 'sortable',
+                desc: '是否需要排序',
+                type: 'boolean',
+                def: 'false'
+            }];
+        var events = [{
+                type: 'change',
+                desc: '指标有变化时触发，<br/>包括切换自定义和默认指标',
+                params: [{
+                        key: 'triggerType',
+                        desc: '触发类型：<br/>btn-switch（快捷切换自定义和默认）<br/>dialog-setting（开浮层编辑自定义指标）',
+                        type: 'string'
+                    }, {
+                        key: 'defaults',
+                        desc: '默认指标，固定值',
+                        type: 'array'
+                    }, {
+                        key: 'custom',
+                        desc: '是否是自定义',
+                        type: 'boolean'
+                    }, {
+                        key: 'customs',
+                        desc: '自定义指标',
+                        type: 'array'
+                    }]
+            }];
         this.updater.digest({
             viewId: this.id,
-            options: [{
-                    key: 'fields',
-                    desc: "<pre>\n\u6307\u6807\u6570\u7EC4\uFF0C\u683C\u5F0F\u5982\u4E0B\uFF1A\n[{\n    text: '\u6307\u6807\u6587\u6848',\n    value: '\u8DDF\u540E\u53F0\u4EA4\u4E92\u7684\u6307\u6807\u5B57\u6BB5',\n    tip: '\u6307\u6807\u63D0\u793A\u6587\u6848'\n}]\n</pre>",
-                    type: 'array',
-                    def: ''
-                }, {
-                    key: 'text-key',
-                    desc: '渲染text时读取的key',
-                    type: 'string',
-                    def: 'text'
-                }, {
-                    key: 'value-key',
-                    desc: '渲染value时读取的key',
-                    type: 'string',
-                    def: 'value'
-                }, {
-                    key: 'custom',
-                    desc: '当前是否为自定义指标，false（默认指标），true（自定义指标）<br/>可能存在customs=defaults的情况，因此需要明确指定当前是自定义还是默认',
-                    type: 'boolean',
-                    def: 'false'
-                }, {
-                    key: 'customs',
-                    desc: '自定义指标value值的数组，例如["cost"]<br/>为[]的时候，默认=defaults，确保每次切换都有选中的指标',
-                    type: 'array',
-                    def: ''
-                }, {
-                    key: 'defaults',
-                    desc: '默认指标value值的数组，必填',
-                    type: 'array',
-                    def: ''
-                }, {
-                    key: 'limit',
-                    desc: '指标选中上限，不传不限制选择个数',
-                    type: 'number',
-                    def: ''
-                }, {
-                    key: 'sortable',
-                    desc: '是否需要排序',
-                    type: 'boolean',
-                    def: 'false'
-                }]
+            options: options,
+            events: events
         });
     }
 });

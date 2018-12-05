@@ -1,15 +1,19 @@
 /* @dependent: ./index.less */
-
 @import "_vars";
-.btn {
+.btn{
     display: inline-block;
     height: @input-height;
     margin-bottom: 0;
     padding: 0 12px;
+    line-height: @input-height - 2;
     color: #333;
+    border-radius: @btn-border-radius;
+    background-color: @color-border;
+    border-color: @color-border;
+    border-width: 1px;
+    border-style: solid;
     font-size: @font-size;
     font-weight: normal;
-    line-height: @input-height;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
@@ -20,9 +24,6 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: @color-border;
-    border-radius: @btn-border-radius;
-    border: 0 none;
     outline: none;
     background-image: none;
     transition: all @duration ease-out;
@@ -30,23 +31,29 @@
     &:hover,
     &.hover,
     &:active {
-        background-color: #ccc;
         color: #333;
+        background-color: @color-border-hover;
+        border-color: @color-border-hover;
     }
+
     &.btn-small {
         height: @input-small-height;
-        line-height: @input-small-height;
+        line-height: @input-small-height - 2;
     }
+
     &.btn-brand when (@btn-brand = @btn-brand-gradient) {
         color: @btn-brand-text;
         background-color: @btn-brand;
+        border-color: @btn-brand;
         &:hover,
         &.hover,
         &:active {
             color: @btn-brand-text-hover;
             background-color: @color-brand-hover;
+            border-color: @color-brand-hover;
         }
     }
+
     &.btn-brand when not (@btn-brand = @btn-brand-gradient) {
         color: @btn-brand-text;
         background-color: @btn-brand;
@@ -54,6 +61,7 @@
         background-image: -webkit-linear-gradient(left, @btn-brand, @btn-brand-gradient);
         background-image: -o-linear-gradient(right, @btn-brand, @btn-brand-gradient);
         background-image: -moz-linear-gradient(right, @btn-brand, @btn-brand-gradient);
+        border-color: @btn-brand;
         &:hover,
         &.hover,
         &:active {
@@ -63,25 +71,49 @@
             background-image: -webkit-linear-gradient(left, @btn-brand-hover, @btn-brand-gradient-hover);
             background-image: -o-linear-gradient(right, @btn-brand-hover, @btn-brand-gradient-hover);
             background-image: -moz-linear-gradient(right, @btn-brand-hover, @btn-brand-gradient-hover);
+            border-color: @color-brand-hover;
         }
     }
+
     &.btn-white {
         background-color: #fff;
+        border-color: #fff;
         &:hover,
         &.hover,
         &:active {
-            background-color: @color-bg;
+            background-color: #fafafa;
+            border-color: #fafafa;
         }
     }
-    &[disabled],
-    &.btn-disabled,
-    &.btn-disabled:hover,
-    &.btn-disabled.hover,
-    &.btn-disabled:focus,
-    &.btn-disabled:active,
-    &.btn-disabled:visited {
-        cursor: not-allowed;
-        background-color: @color-border;
-        color: #bbb;
+
+    &.btn-hollow {
+        background-color: transparent;
+        border-color: @color-border;
+
+        &:hover,
+        &.hover,
+        &:active {
+            background-color: transparent;
+            border-color: @color-border-hover;
+        }
     }
+
+    &[disabled],
+    &.btn-disabled {
+        cursor: not-allowed;
+        color: #bbb;
+        background-color: #fafafa;
+        border-color: @color-border;
+
+        &:hover,
+        &.hover,
+        &:active {
+            cursor: not-allowed;
+            color: #bbb;
+            background-color: #fafafa;
+            border-color: @color-border;
+        }
+    }
+    
 }
+

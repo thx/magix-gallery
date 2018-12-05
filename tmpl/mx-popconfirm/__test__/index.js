@@ -44,9 +44,21 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }]
+
+        let events = [{
+            type: 'popconfirm',
+            desc: '点击确认按钮时触发',
+            params: [{
+                key: '-',
+                desc: '-',
+                type: '-'
+            }]
+        }]
+
         that.updater.digest({
             viewId: that.id,
-            options
+            options,
+            events
         });
     }
 });

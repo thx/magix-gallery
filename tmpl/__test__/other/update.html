@@ -1,4 +1,44 @@
-Todo
+<!-- {{each list as item}}
+<div class="update">
+    <div class="ver pl20">
+        <span class="vt">{{=item.ver}}</span>
+        <span class="vi">{{=item.time}}</span>
+    </div>
+    <div class="pt10 pb30">
+        {{each item.subs as s}}
+        <div class="pl20">
+            {{if s.type == 'bug'}}
+            <div class="line"><i class="mc-iconfont color-warn displacement-2 mr5">&#xe63d;</i>bug修复</div>
+            {{/if}}
+
+            {{if s.type == 'add'}}
+            <div class="line"><i class="mc-iconfont color-green displacement-2 mr5">&#xe616;</i>功能上新</div>
+            {{/if}}
+
+            {{each s.subs as ss}}
+            <div class="pl20">
+                <div class="line dot">{{!ss.title}}</div>
+
+                {{if ss.subs && (ss.subs.length > 0)}}
+                <div class="pl20">
+                    {{each ss.subs as sss}}
+                    <div class="line dot">{{!sss}}</div>
+                    {{/each}}
+                </div>
+                {{/if}}
+            </div>
+            {{/each}}
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{/each}}
+<div class="update">
+    <div class="ver pl20">
+        <span class="vt">历史版本</span>
+        <span class="vi">···</span>
+    </div>
+</div> -->
 
 <!-- <div class="tip-content mb20">
         <div class="lh28">@2018.06.19：组件版本升级至@ali/zs-gallery@1.0.71</div>

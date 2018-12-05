@@ -11,8 +11,28 @@ module.exports = Base.extend({
             type: 'string',
             def: ''
         }]
+
+        let events = [{
+            type: 'success',
+            desc: '复制成功触发',
+            params: [{
+                key: '-',
+                desc: '-',
+                type: '-'
+            }]
+        }, {
+            type: 'error',
+            desc: '复制失败触发',
+            params: [{
+                key: '-',
+                desc: '-',
+                type: '-'
+            }]
+        }]
+
         this.updater.digest({
-            options
+            options,
+            events
         });
     },
     'done2<success>'(e) {

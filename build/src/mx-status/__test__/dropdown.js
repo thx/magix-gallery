@@ -3,12 +3,14 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-status/__test__/dropdown",["magix","$","mx-title/second","./4","./5","./desc"],(require,exports,module)=>{
+define("mx-status/__test__/dropdown",["magix","$","__test__/subs","mx-title/second","./4","./5","./options","./events"],(require,exports,module)=>{
 /*Magix,$*/
+require("__test__/subs");
 require("mx-title/second");
 require("./4");
 require("./5");
-require("./desc");
+require("./options");
+require("./events");
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
@@ -23,8 +25,36 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryc5:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryc5:a" class="clearfix mb20"><div class="clearfix"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-status/__test__/4"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-status/__test__/5"></div></div></div></div><div mxs="_zs_galleryc5:b" mx-view="mx-status/__test__/desc"></div>';
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryc4:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $line = 2;
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'纯操作\',\n            key: viewId + \'_demo4\'\n        }, {\n            name: \'纯提示\',\n            key: viewId + \'_demo5\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
+    ;
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'纯操作\',                    key: viewId + \'_demo4\'                }, {                    name: \'纯提示\',                    key: viewId + \'_demo5\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '纯操作', key: viewId + '_demo4' }, { name: '纯提示', key: viewId + '_demo5' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
+    $line = 20;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryc4:a" class="clearfix mb20"><div mxa="_zs_galleryc4:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-status/__test__/4" id="';
+    $line = 23;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div mxa="_zs_galleryc4:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-status/__test__/5" id="';
+    $line = 26;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div></div></div><div mx-view="mx-status/__test__/options" id="';
+    $line = 30;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" class="mb40"></div><div mx-view="mx-status/__test__/events" id="';
+    $line = 31;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_event"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -35,7 +65,9 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
-        this.updater.digest({});
+        this.updater.digest({
+            viewId: this.id
+        });
     }
 });
 

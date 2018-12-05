@@ -3,9 +3,10 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-title/second",["magix","$"],(require,exports,module)=>{
+define("mx-status/__test__/events",["magix","$","mx-title/second","__test__/event"],(require,exports,module)=>{
 /*Magix,$*/
-
+require("mx-title/second");
+require("__test__/event");
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
@@ -20,49 +21,42 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', content = $$.content, tip = $$.tip; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydU:_" class="page-header"><span mxa="_zs_gallerydU:a" class="second-header">';
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, events = $$.events; var $expr, $art, $line; try {
+    $p += '<div id="';
+    $line = 1;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_event" mx-view="mx-title/second?content=Event"></div><div mxv="events" mx-view="__test__/event?options=';
     $line = 2;
-    $art = '!content';
+    $art = '@events';
     ;
-    $p += ($expr = '<%!content%>', $n(content)) + '</span>';
-    $line = 3;
-    $art = 'if tip';
-    ;
-    $expr = '<%if (tip) {%>';
-    if (tip) {
-        ;
-        $p += '<span mxa="_zs_gallerydU:b" class="page-tip">';
-        $line = 4;
-        $art = '!tip';
-        ;
-        $p += ($expr = '<%!tip%>', $n(tip)) + '</span>';
-        $line = 5;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</div>';
+    $p += ($expr = '<%@events%>', $i($$ref, events)) + '"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
     if ($art)
         msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
     msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-title/second.html';
+    msg += $expr + '\r\n\tat file:mx-status/__test__/events.html';
     throw msg;
 } return $p; },
-    init: function (extra) {
-        var content = extra.content || '标题';
-        var tip = extra.tip || '';
-        this.updater.set({
-            content: content,
-            tip: tip
-        });
-    },
     render: function () {
-        this.updater.digest();
+        var events = [{
+                type: 'change',
+                desc: '切换操作项的时候触发',
+                params: [{
+                        key: 'status',
+                        desc: '当前选中操作项完整对象',
+                        type: 'object'
+                    }]
+            }];
+        this.updater.digest({
+            events: events
+        });
     }
 });
 

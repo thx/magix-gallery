@@ -3,7 +3,7 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-status/__test__/desc",["magix","$","mx-title/second","__test__/api"],(require,exports,module)=>{
+define("mx-status/__test__/options",["magix","$","mx-title/second","__test__/api"],(require,exports,module)=>{
 /*Magix,$*/
 require("mx-title/second");
 require("__test__/api");
@@ -26,7 +26,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryc4:_" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += '<div mxs="_zs_galleryc7:_" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 2;
     $art = '@options';
     ;
@@ -37,7 +37,7 @@ catch (ex) {
     if ($art)
         msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
     msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-status/__test__/desc.html';
+    msg += $expr + '\r\n\tat file:mx-status/__test__/options.html';
     throw msg;
 } return $p; },
     render: function () {

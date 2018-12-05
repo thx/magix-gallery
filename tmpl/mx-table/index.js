@@ -140,15 +140,10 @@ module.exports = Magix.View.extend({
             }
             scrollbar.off('scroll', syncToMain).on('scroll', syncToMain);
             mainWrapper.off('scroll', syncToLeft).on('scroll',syncToLeft);
-            
-            if (!me['@{setup.scroll}']) {
-                me['@{setup.scroll}'] = 1;
-
-                me.on('destroy', () => {
-                    inmain.off('scroll.custombar', watchInmainScroll);
-                });
-                inmain.off('scroll.custombar', watchInmainScroll).on('scroll.custombar', watchInmainScroll);
-            }
+            me.on('destroy', () => {
+                inmain.off('scroll.custombar', watchInmainScroll);
+            });
+            inmain.off('scroll.custombar', watchInmainScroll).on('scroll.custombar', watchInmainScroll);
 
             watchInmainScroll();
             if(me['@{scroll.left.back}']){
@@ -179,16 +174,11 @@ module.exports = Magix.View.extend({
                     me['@{sync.sticky.pos.win}'](inmain);
                 };
             }
-            if (!me['@{setup.sticky}']) {
-                me['@{setup.sticky}'] = 1;
-
-                me.on('destroy', () => {
-                    inmain.off('scroll.customsticky', watchInmainScroll);
-                });
-                inmain.on('scroll.customsticky', watchInmainScroll);
-                me['@{thead.height}'] = me['@{table.main.thead}'].height();
-            }
-
+            me.on('destroy', () => {
+                inmain.off('scroll.customsticky', watchInmainScroll);
+            });
+            inmain.on('scroll.customsticky', watchInmainScroll);
+            me['@{thead.height}'] = me['@{table.main.thead}'].height();
             watchInmainScroll();
         }
     },
