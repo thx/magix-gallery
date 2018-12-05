@@ -9,9 +9,6 @@
             name: '获取dialog实例',
             key: viewId + '_self'
         },{
-            name: '内容分组',
-            key: viewId + '_help'
-        },{
             name: 'alert警告',
             key: viewId + '_alert'
         },{
@@ -20,6 +17,9 @@
         },{
             name: 'dialog内配置属性',
             key: viewId + '_inner'
+        },{
+            name: '内容分组',
+            key: viewId + '_help'
         }]
     }, {
         name: 'dialogOptions',
@@ -32,15 +32,11 @@
     <mx-title.second content="使用示例"/>
     <div class="clearfix mb20">
         <div mx-view="@./3" id="{{=viewId}}_mxDialog"></div>
-        <div class="half">
-            <div mx-view="@./5" id="{{=viewId}}_self"></div>
-            <div mx-view="@./2" id="{{=viewId}}_confirm"></div>
-            <div mx-view="@./1" id="{{=viewId}}_alert"></div>
-        </div>
-        <div class="half">
-            <div mx-view="@./4" id="{{=viewId}}_help"></div>
-            <div mx-view="@./6" id="{{=viewId}}_inner"></div>
-        </div>
+        <div mx-view="@./5" id="{{=viewId}}_self"></div>
+        <div mx-view="@./2" id="{{=viewId}}_confirm"></div>
+        <div mx-view="@./1" id="{{=viewId}}_alert"></div>
+        <div mx-view="@./4" id="{{=viewId}}_help"></div>
+        <div mx-view="@./6" id="{{=viewId}}_inner"></div>
     </div>
     
     <mx-title.second content="dialogOptions配置参数" id="{{=viewId}}_options"/>
