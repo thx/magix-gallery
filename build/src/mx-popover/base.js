@@ -118,6 +118,11 @@ module.exports = Magix.View.extend({
                 left = offset.left + width + 10;
                 break;
         }
+        var customOffset = me['@{pos.offset}'] || {};
+        if (!$.isEmptyObject(customOffset)) {
+            left += customOffset.left;
+            top += customOffset.top;
+        }
         popNode.css({
             textAlign: me['@{text.align}'],
             left: left,

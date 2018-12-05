@@ -50,9 +50,24 @@ module.exports = Magix.View.extend({
             def: '配置了placeholder，显示placeholder，否则<br>配置了list，默认显示list-text.join(\'/\')<br>单个类型搜索默认显示搜素'
         }]
 
+        let events = [{
+            type: 'trigger',
+            desc: '回车（默认搜索第一个）<br/>或者点选下拉列表某个选项时触发',
+            params: [{
+                key: 'searchKey',
+                desc: '下拉列表选中项',
+                type: 'string'
+            }, {
+                key: 'searchValue',
+                desc: '输入框输入的内容',
+                type: 'string'
+            }]
+        }]
+
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events
         });
     }
 });

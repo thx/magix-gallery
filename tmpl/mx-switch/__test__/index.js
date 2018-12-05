@@ -22,8 +22,19 @@ module.exports = Base.extend({
             def: ''
         }]
 
+        let events = [{
+            type: 'change',
+            desc: '切换开关时触发',
+            params: [{
+                key: 'state',
+                desc: '当前是开或者关',
+                type: 'boolean'
+            }]
+        }]
+
         this.updater.digest({
             options,
+            events,
             viewId: this.id
         });
     }

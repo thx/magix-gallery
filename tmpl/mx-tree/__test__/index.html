@@ -38,11 +38,11 @@
         <div class="half">
             <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
             <div mx-view="@./3" id="{{=viewId}}_demo4"></div>
+            <div mx-view="@./4" id="{{=viewId}}_demo3"></div>
         </div>
         <div class="half">
             <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
             <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
-            <div mx-view="@./4" id="{{=viewId}}_demo3"></div>
         </div>
     </div>
     
@@ -56,16 +56,29 @@
                 <tr>
                     <th width="100">方法名</th>
                     <th width="200">说明</th>
+                    <th width="200">调用方法</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>getBottomValues</td>
                     <td>获取选中值：最底层数据的value</td>
+                    <td>
+                        <pre>
+let instance = Vframe.get(id);
+instance.invoke('getBottomValues');
+                        </pre>
+                    </td>
                 </tr>
                 <tr>
                     <td>getBottomItems</td>
                     <td>获取选中值：最底层数据完整对象</td>
+                    <td>
+                        <pre>
+let instance = Vframe.get(id);
+instance.invoke('getBottomItems');
+                        </pre>
+                    </td>
                 </tr>
             </tbody>
         </table>

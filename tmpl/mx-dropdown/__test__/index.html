@@ -34,9 +34,6 @@
             key: viewId + '_demo6'
         }]
     }, {
-        name: '追加到body',
-        key: viewId + '_bd'
-    }, {
         name: 'API',
         key: viewId + '_api'
     }, {
@@ -62,13 +59,6 @@
         </div>
     </div>
 
-    <mx-title.second content="追加到body" id="{{=viewId}}_bd"/>
-    <div class="clearfix mb20">
-        <div class="half">
-            <div mx-view="@./19" id="{{=viewId}}_demo19"></div>
-        </div>
-    </div>
-    
     <mx-title.second content="API" id="{{=viewId}}_api"/>
     <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
 

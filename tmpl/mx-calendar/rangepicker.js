@@ -7,7 +7,7 @@ let GetDefaultDate = Util.getDefaultDate;
 let GetQuickInfos = Util.getQuickInfos;
 let GetOffsetDate = Util.getOffsetDate;
 
-let I18n = require('../mx-medusa/util');
+let I18n = require('@../mx-medusa/util');
 
 Magix.applyStyle('@rangepicker.less');
 

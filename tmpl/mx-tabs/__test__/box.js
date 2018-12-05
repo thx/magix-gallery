@@ -42,9 +42,32 @@ module.exports = Magix.View.extend({
             def: ''
         }]
 
+        let events = [{
+            type: 'change',
+            desc: '切换tab时触发',
+            params: [{
+                key: 'selected',
+                desc: '当前选中value，同value',
+                type: 'string'
+            }, {
+                key: 'value',
+                desc: '当前选中value',
+                type: 'string'
+            }, {
+                key: 'text',
+                desc: '当前选中text',
+                type: 'string'
+            }, {
+                key: 'item',
+                desc: '当前选中完整对象',
+                type: 'object'
+            }]
+        }]
+
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events
         });
     },
     'changeTab<change>'(e) {

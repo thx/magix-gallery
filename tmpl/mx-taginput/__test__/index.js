@@ -35,8 +35,40 @@ module.exports = Magix.View.extend({
             def: ''
         }]
 
+        let events = [{
+            type: 'change',
+            desc: '选择某个标签或者删除某个标签时触发',
+            params: [{
+                key: 'items',
+                desc: '当前选中的所有标签完成对象',
+                type: 'array[object]'
+            }, {
+                key: 'ids',
+                desc: '当前选中的所有标签的value值',
+                type: 'array[string]'
+            }]
+        }, {
+            type: 'focusin',
+            desc: '组件获取焦点时触发',
+            params: [{
+                key: '-',
+                desc: '-',
+                type: '-'
+            }]
+        }, {
+            type: 'focusout',
+            desc: '组件失去焦点时触发',
+            params: [{
+                key: '-',
+                desc: '-',
+                type: '-'
+            }]
+        }]
+
         this.updater.digest({
-            options
+            options,
+            events,
+            viewId: this.id
         });
     }
 });

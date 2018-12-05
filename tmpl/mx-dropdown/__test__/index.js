@@ -67,6 +67,7 @@ module.exports = Magix.View.extend({
 
         let events = [{
             type: 'change',
+            desc: '选中下拉框中某个选项时触发',
             params: [{
                 key: 'value',
                 desc: '当前选中value',

@@ -17,12 +17,8 @@ module.exports = Magix.View.extend({
         let key = e.params.key;
         let node = $('#' + key);
         let examples = $('.@scoped.style:example');
-        examples.css({
-            border: '1px solid #e6e6e6'
-        })
-        node.find('.@scoped.style:example').css({
-            border: '1px solid #4d7fff'
-        })
+        examples.removeClass('@scoped.style:example-highlight');
+        node.find('.@scoped.style:example').addClass('@scoped.style:example-highlight');
         $(window).scrollTop(node.offset().top);
     },
     '$win<scroll>'(e) {

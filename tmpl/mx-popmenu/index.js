@@ -6,10 +6,48 @@ let $ = require('$');
 Magix.applyStyle('@../mx-popover/index.less');
 
 module.exports = Base.extend({
-    tmpl: '@index.html',
+    tmpl: '@../mx-popover/index.html',
     init(extra) {
         let me = this;
         Monitor['@{setup}']();
+
+        let oNode = $('#' + me.id);
+        me['@{trigger.content}'] = oNode.html();
+        me['@{owner.node}'] = oNode;
+
+        // trigger方式，click，hover，默认click
+        me['@{trigger.type}'] = extra.triggerType || 'hover';
+        let showFn = () => {
+            clearTimeout(me['@{dealy.hide.timer}']);
+            me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
+                me['@{show}'](); //等待内容显示
+            }), me.constants.showDelay);
+        }
+
+        let place = extra.place || 'bc';
+        switch (me['@{trigger.type}']) {
+            case 'click':
+                oNode.click(showFn);
+                break;
+            case 'contextmenu':
+                // 右键显示的位置固定
+                // bl，居中对齐
+                place = 'bl';
+                me['@{pos.offset}'] = {
+                    left: oNode.width() / 2,
+                    top: 0 - oNode.height() / 2 - 10
+                }
+                oNode.contextmenu((e) => {
+                    e.preventDefault();
+                    showFn();
+                });
+                break;
+            case 'hover':
+                oNode.hover(showFn, () => {
+                    me['@{delay.hide}']();
+                });
+                break;
+        }
 
         let map = {
             t: 'top',
@@ -18,7 +56,7 @@ module.exports = Base.extend({
             b: 'bottom',
             c: 'center'
         }
-        let place = extra.place || 'bc';
+        
         let places = place.split('');
         let placement = map[places[0]],
             align = map[places[1]]
@@ -37,8 +75,9 @@ module.exports = Base.extend({
         // 复用popover，左对齐
         me['@{text.align}'] = 'left';
 
+
+        me.bindScroll();
         me.on('destroy', () => {
-            me['@{owner.node}'].off('mouseenter mouseleave');
             if (me['@{dealy.show.timer}']) {
                 clearTimeout(me['@{dealy.show.timer}']);
             }
@@ -50,34 +89,6 @@ module.exports = Base.extend({
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
         });
-        let oNode = $('#' + me.id);
-        me['@{trigger.content}'] = oNode.html();
-        me['@{owner.node}'] = oNode;
-
-        // trigger方式，click，hover，默认click
-        me['@{trigger.type}'] = extra.triggerType || 'hover';
-        switch (me['@{trigger.type}']) {
-            case 'click':
-                oNode.on('click', () => {
-                    me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
-                        me['@{show}'](); //等待内容显示
-                    }), me.constants.showDelay);
-                })
-                break;
-            case 'hover':
-                oNode.hover(() => {
-                    clearTimeout(me['@{dealy.hide.timer}']);
-
-                    me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
-                        me['@{show}'](); //等待内容显示
-                    }), me.constants.showDelay);
-                }, () => {
-                    me['@{delay.hide}']();
-                });
-                break;
-        }
-
-        me.bindScroll();
     },
     render() {
         let me = this;

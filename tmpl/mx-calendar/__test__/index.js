@@ -45,9 +45,24 @@ module.exports = Magix.View.extend({
             def: '0'
         }]
 
+        let events = [{
+            type: 'change',
+            desc: '切换日期时会触发',
+            params: [{
+                key: 'date',
+                desc: '当前日期，格式：YYYY-MM-DD',
+                type: 'string'
+            }, {
+                key: 'time',
+                desc: '当前时分秒',
+                type: 'string'
+            }]
+        }]
+
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events
         });
         
     }

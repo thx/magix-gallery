@@ -1,7 +1,7 @@
 let Magix = require('magix');
 let $ = require('$');
 Magix.applyStyle('@index.less');
-let I18n = require('@../../mx-medusa/util');
+let I18n = require('../mx-medusa/util');
 let Monitor = require('../mx-monitor/index');
 
 module.exports = Magix.View.extend({

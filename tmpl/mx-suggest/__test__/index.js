@@ -41,9 +41,33 @@ module.exports = Magix.View.extend({
             def: 'text'
         }]
 
+        let events = [{
+            type: 'show',
+            desc: '出现提示框的时候触发，常用于动态更新可选项',
+            params: [{
+                key: 'keyword',
+                desc: '当前输入的关键词',
+                type: 'string'
+            }]
+        },{
+            type: 'suggest',
+            desc: '选中某个可选项时触发',
+            params: [{
+                key: 'selected',
+                desc: `<pre>当前选中项完整对象
+{
+    value: '',
+    text: ''
+}
+</pre>`,
+                type: 'object'
+            }]
+        }]
+
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events
         });
     }
 });

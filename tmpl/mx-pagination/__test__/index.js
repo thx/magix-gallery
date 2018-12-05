@@ -56,9 +56,24 @@ module.exports = Base.extend({
             def: '5'
         }]
 
+        let events = [{
+            type: 'change',
+            desc: '切换页码，分页数时均会触发',
+            params: [{
+                key: 'page',
+                desc: '当前页码',
+                type: 'number'
+            }, {
+                key: 'size',
+                desc: '每页条数',
+                type: 'number'
+            }]
+        }]
+
         this.updater.digest({
             viewId: this.id,
             options,
+            events,
             page: 1,
             size: 40
         });

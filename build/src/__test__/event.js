@@ -21,63 +21,71 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc:_" class="pr20"><table mxa="_zs_galleryc:a" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_galleryc:_"><tr><th width="120">事件</th><th width="100">返回参数</th><th width="200">参数说明</th><th width="100">参数类型</th></tr></thead><tbody>';
-    $line = 12;
+    $p += '<div mxa="_zs_galleryc:_" class="pr20"><table mxa="_zs_galleryc:a" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_galleryc:_"><tr><th width="70">事件</th><th width="120">事件说明</th><th width="90">返回参数</th><th width="200">参数说明</th><th width="80">参数类型</th></tr></thead><tbody>';
+    $line = 13;
     $art = 'each options as option';
     ;
-    $expr = '<%for (var $art_itygoukzvi$art_i = 0, $art_cgosvgii$art_c = options.length; $art_itygoukzvi$art_i < $art_cgosvgii$art_c; $art_itygoukzvi$art_i++) {    var option = options[$art_itygoukzvi$art_i]%>';
-    for (var $art_itygoukzvi$art_i = 0, $art_cgosvgii$art_c = options.length; $art_itygoukzvi$art_i < $art_cgosvgii$art_c; $art_itygoukzvi$art_i++) {
-        var option = options[$art_itygoukzvi$art_i];
+    $expr = '<%for (var $art_ijyottzs$art_i = 0, $art_colcakfojd$art_c = options.length; $art_ijyottzs$art_i < $art_colcakfojd$art_c; $art_ijyottzs$art_i++) {    var option = options[$art_ijyottzs$art_i]%>';
+    for (var $art_ijyottzs$art_i = 0, $art_colcakfojd$art_c = options.length; $art_ijyottzs$art_i < $art_colcakfojd$art_c; $art_ijyottzs$art_i++) {
+        var option = options[$art_ijyottzs$art_i];
         $p += ' ';
-        $line = 13;
+        $line = 14;
         $art = 'each option.params as param index';
         ;
-        $expr = '<%for (var index = 0, $art_objaxsugqp$art_obj = option.params, $art_ctgchqle$art_c = $art_objaxsugqp$art_obj.length; index < $art_ctgchqle$art_c; index++) {        var param = $art_objaxsugqp$art_obj[index]%>';
-        for (var index = 0, $art_objaxsugqp$art_obj = option.params, $art_ctgchqle$art_c = $art_objaxsugqp$art_obj.length; index < $art_ctgchqle$art_c; index++) {
-            var param = $art_objaxsugqp$art_obj[index];
+        $expr = '<%for (var index = 0, $art_objzvvnrwux$art_obj = option.params, $art_chhwuyk$art_c = $art_objzvvnrwux$art_obj.length; index < $art_chhwuyk$art_c; index++) {        var param = $art_objzvvnrwux$art_obj[index]%>';
+        for (var index = 0, $art_objzvvnrwux$art_obj = option.params, $art_chhwuyk$art_c = $art_objzvvnrwux$art_obj.length; index < $art_chhwuyk$art_c; index++) {
+            var param = $art_objzvvnrwux$art_obj[index];
             $p += '<tr>';
-            $line = 15;
+            $line = 16;
             $art = 'if (index == 0)';
             ;
             $expr = '<%if (index == 0) {%>';
             if (index == 0) {
                 ;
                 $p += '<td rowspan="';
-                $line = 16;
+                $line = 17;
                 $art = '=option.params.length';
                 ;
                 $p += ($expr = '<%=option.params.length%>', $e(option.params.length)) + '">';
-                $line = 16;
+                $line = 17;
                 $art = '=option.type';
                 ;
-                $p += ($expr = '<%=option.type%>', $e(option.type)) + '</td>';
-                $line = 17;
+                $p += ($expr = '<%=option.type%>', $e(option.type)) + '</td><td rowspan="';
+                $line = 18;
+                $art = '=option.params.length';
+                ;
+                $p += ($expr = '<%=option.params.length%>', $e(option.params.length)) + '">';
+                $line = 18;
+                $art = '!option.desc';
+                ;
+                $p += ($expr = '<%!option.desc%>', $n(option.desc)) + '</td>';
+                $line = 19;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '<td>';
-            $line = 19;
+            $line = 21;
             $art = '=param.key';
             ;
             $p += ($expr = '<%=param.key%>', $e(param.key)) + '</td><td>';
-            $line = 20;
+            $line = 22;
             $art = '!param.desc';
             ;
             $p += ($expr = '<%!param.desc%>', $n(param.desc)) + '</td><td>';
-            $line = 21;
+            $line = 23;
             $art = '!param.type';
             ;
             $p += ($expr = '<%!param.type%>', $n(param.type)) + '</td></tr>';
-            $line = 23;
+            $line = 25;
             $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += ' ';
-        $line = 24;
+        $line = 26;
         $art = '/each';
         ;
         $expr = '<%}%>';

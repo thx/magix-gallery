@@ -30,6 +30,12 @@ module.exports = {
                 } else {
                     icon = Map.default;
                 }
+
+                me['@{order.field}'] = orderField;
+                me['@{order.by}'] = orderBy;
+                me['@{order.field.key}'] = item.attr('order-field-key') || 'orderField';
+                me['@{order.by.key}'] = item.attr('order-by-key') || 'orderBy';
+
                 item.html(`<i class="mc-iconfont displacement-2 cursor-pointer">${icon}</i>`);
             });
         }
@@ -40,9 +46,8 @@ module.exports = {
     sort(list) {
         list = list || [];
 
-        let locParams = Router.parse().params;
-        let orderBy = locParams.orderBy,
-            orderField = locParams.orderField;
+        let orderField = this['@{order.field}'],
+            orderBy = this['@{order.by}'];
 
         if (!orderField) {
             return list;
@@ -77,9 +82,10 @@ module.exports = {
         let context = $('#' + me.id);
         let item = $(e.eventTarget);
         let trigger = item.attr('sort-trigger');
-        let locParams = Router.parse().params;
-        let oldOrderBy = locParams.orderBy,
-            oldOrderField = locParams.orderField;
+
+        let oldOrderField = me['@{order.field}'],
+            oldOrderBy = me['@{order.by}'];
+
         let orderBy, orderField = trigger;
         if (oldOrderField == trigger) {
             if (oldOrderBy == 'asc') {
@@ -91,9 +97,12 @@ module.exports = {
             // 默认降序
             orderBy = 'desc';
         }
-        Router.to({
-            orderBy,
-            orderField
-        })
+
+        let orderFieldKey = me['@{order.field.key}'],
+            orderByKey = me['@{order.by.key}'];
+        let params = {};
+        params[orderFieldKey] = orderField;
+        params[orderByKey] = orderBy;
+        Router.to(params);
     }
 };

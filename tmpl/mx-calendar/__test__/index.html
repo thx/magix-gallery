@@ -19,6 +19,9 @@
         name: 'API',
         key: viewId + '_api'
     }, {
+        name: 'Event',
+        key: viewId + '_event'
+    }, {
         name: '关于实现方案',
         key: viewId + '_implement'
     }]}}"></div>
@@ -40,6 +43,9 @@
     
     <mx-title.second content="API" id="{{=viewId}}_api"/>
     <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
+
+    <mx-title.second content="Event" id="{{=viewId}}_event" />
+    <div mx-view="__test__/event?options={{@events}}" class="mb40"></div>
     
     <div mx-view="@./implement" id="{{=viewId}}_implement"></div>
 </div>

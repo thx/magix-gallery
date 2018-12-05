@@ -35,12 +35,47 @@ catch (ex) {
     if ($art)
         msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
     msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-popmenu/index.html';
+    msg += $expr + '\r\n\tat file:mx-popover/index.html';
     throw msg;
 } return $p; },
     init: function (extra) {
         var me = this;
         Monitor['@{setup}']();
+        var oNode = $('#' + me.id);
+        me['@{trigger.content}'] = oNode.html();
+        me['@{owner.node}'] = oNode;
+        // trigger方式，click，hover，默认click
+        me['@{trigger.type}'] = extra.triggerType || 'hover';
+        var showFn = function () {
+            clearTimeout(me['@{dealy.hide.timer}']);
+            me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
+                me['@{show}'](); //等待内容显示
+            }), me.constants.showDelay);
+        };
+        var place = extra.place || 'bc';
+        switch (me['@{trigger.type}']) {
+            case 'click':
+                oNode.click(showFn);
+                break;
+            case 'contextmenu':
+                // 右键显示的位置固定
+                // bl，居中对齐
+                place = 'bl';
+                me['@{pos.offset}'] = {
+                    left: oNode.width() / 2,
+                    top: 0 - oNode.height() / 2 - 10
+                };
+                oNode.contextmenu(function (e) {
+                    e.preventDefault();
+                    showFn();
+                });
+                break;
+            case 'hover':
+                oNode.hover(showFn, function () {
+                    me['@{delay.hide}']();
+                });
+                break;
+        }
         var map = {
             t: 'top',
             l: 'left',
@@ -48,7 +83,6 @@ catch (ex) {
             b: 'bottom',
             c: 'center'
         };
-        var place = extra.place || 'bc';
         var places = place.split('');
         var placement = map[places[0]], align = map[places[1]];
         me['@{pos.placement}'] = placement;
@@ -62,8 +96,8 @@ catch (ex) {
         me['@{width}'] = extra.width ? (extra.width + 'px') : 'auto';
         // 复用popover，左对齐
         me['@{text.align}'] = 'left';
+        me.bindScroll();
         me.on('destroy', function () {
-            me['@{owner.node}'].off('mouseenter mouseleave');
             if (me['@{dealy.show.timer}']) {
                 clearTimeout(me['@{dealy.show.timer}']);
             }
@@ -74,31 +108,6 @@ catch (ex) {
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
         });
-        var oNode = $('#' + me.id);
-        me['@{trigger.content}'] = oNode.html();
-        me['@{owner.node}'] = oNode;
-        // trigger方式，click，hover，默认click
-        me['@{trigger.type}'] = extra.triggerType || 'hover';
-        switch (me['@{trigger.type}']) {
-            case 'click':
-                oNode.on('click', function () {
-                    me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
-                        me['@{show}'](); //等待内容显示
-                    }), me.constants.showDelay);
-                });
-                break;
-            case 'hover':
-                oNode.hover(function () {
-                    clearTimeout(me['@{dealy.hide.timer}']);
-                    me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
-                        me['@{show}'](); //等待内容显示
-                    }), me.constants.showDelay);
-                }, function () {
-                    me['@{delay.hide}']();
-                });
-                break;
-        }
-        me.bindScroll();
     },
     render: function () {
         var me = this;

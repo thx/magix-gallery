@@ -3,14 +3,16 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-taginput/__test__/index",["magix","$","mx-title/second","./1","./2","./3","./4","__test__/api"],(require,exports,module)=>{
+define("mx-taginput/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./2","./3","./4","__test__/api","__test__/event"],(require,exports,module)=>{
 /*Magix,$*/
+require("__test__/subs");
 require("mx-title/second");
 require("./1");
 require("./2");
 require("./3");
 require("./4");
 require("__test__/api");
+require("__test__/event");
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
@@ -29,12 +31,48 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerydI:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerydI:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-taginput/__test__/1"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-taginput/__test__/2"></div><div mx-view="mx-taginput/__test__/3"></div><div mx-view="mx-taginput/__test__/4"></div></div></div><div mxs="_zs_gallerydI:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 15;
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerydM:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $line = 2;
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'默认值+事件处理\',\n            key: viewId + \'_demo1\'\n        }, {\n            name: \'自定义key\',\n            key: viewId + \'_demo2\'\n        }, {\n            name: \'简单list\',\n            key: viewId + \'_demo3\'\n        }, {\n            name: \'禁用\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
+    ;
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'默认值+事件处理\',                    key: viewId + \'_demo1\'                }, {                    name: \'自定义key\',                    key: viewId + \'_demo2\'                }, {                    name: \'简单list\',                    key: viewId + \'_demo3\'                }, {                    name: \'禁用\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '默认值+事件处理', key: viewId + '_demo1' }, { name: '自定义key', key: viewId + '_demo2' }, { name: '简单list', key: viewId + '_demo3' }, { name: '禁用', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div mxs="_zs_gallerydM:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div class="clearfix mb20" id="';
+    $line = 28;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo"><div mxa="_zs_gallerydM:a" class="_zs_gallery___test___layout_-half"><div mx-view="mx-taginput/__test__/1" id="';
+    $line = 30;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div></div><div mxa="_zs_gallerydM:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-taginput/__test__/2" id="';
+    $line = 33;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-taginput/__test__/3" id="';
+    $line = 34;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-taginput/__test__/4" id="';
+    $line = 35;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div></div><div id="';
+    $line = 39;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $line = 40;
     $art = '@options';
     ;
-    $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div>';
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
+    $line = 42;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_event" mx-view="mx-title/second?content=Event"></div><div mxv="events" mx-view="__test__/event?options=';
+    $line = 43;
+    $art = '@events';
+    ;
+    $p += ($expr = '<%@events%>', $i($$ref, events)) + '"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -75,8 +113,39 @@ catch (ex) {
                 type: '',
                 def: ''
             }];
+        var events = [{
+                type: 'change',
+                desc: '选择某个标签或者删除某个标签时触发',
+                params: [{
+                        key: 'items',
+                        desc: '当前选中的所有标签完成对象',
+                        type: 'array[object]'
+                    }, {
+                        key: 'ids',
+                        desc: '当前选中的所有标签的value值',
+                        type: 'array[string]'
+                    }]
+            }, {
+                type: 'focusin',
+                desc: '组件获取焦点时触发',
+                params: [{
+                        key: '-',
+                        desc: '-',
+                        type: '-'
+                    }]
+            }, {
+                type: 'focusout',
+                desc: '组件失去焦点时触发',
+                params: [{
+                        key: '-',
+                        desc: '-',
+                        type: '-'
+                    }]
+            }];
         this.updater.digest({
-            options: options
+            options: options,
+            events: events,
+            viewId: this.id
         });
     }
 });

@@ -32,6 +32,12 @@
     border: 1px solid @color-border;
     border-radius: @border-radius;
     transition: border-color @duration;
+    box-shadow: 0 none;
+
+    &.example-highlight{
+        border: 1px solid rgba(77, 127, 255, 0.3);
+        box-shadow: 0 1px 2px rgba(77, 127, 255, 0.3);
+    }
 
     .eg-title{
         position: absolute;

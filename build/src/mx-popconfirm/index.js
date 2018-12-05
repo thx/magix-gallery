@@ -35,7 +35,7 @@ catch (ex) {
     if ($art)
         msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
     msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-popconfirm/index.html';
+    msg += $expr + '\r\n\tat file:mx-popover/index.html';
     throw msg;
 } return $p; },
     init: function (extra) {

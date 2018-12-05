@@ -153,9 +153,41 @@ module.exports = Magix.View.extend({
             tip: I18n['calendar.forever.tip']
         }];
 
+        let events = [{
+            type: 'change',
+            desc: '切换日期，切换对比时会触发',
+            params: [{
+                key: 'start',
+                desc: '开始时间，YYYY-MM-DD( hh:mm:ss)',
+                type: 'string'
+            }, {
+                key: 'end',
+                desc: '结束时间，YYYY-MM-DD( hh:mm:ss)',
+                type: 'string'
+            }, {
+                key: 'vs',
+                desc: '是否对比',
+                type: 'boolean'
+            }, {
+                key: 'dates',
+                desc:  `<pre>当前状态完整对象
+{
+    start: 'Date，开始时间',
+    startStr: 'string，dates.startStr == start',
+    end: 'Date，结束时间',
+    endStr: 'string，dates.endStr == end',
+    quickDateKey: 'string，当前匹配的快捷日期key',
+    quickDateText: 'string，当前匹配的快捷日期文案'
+}
+</pre>`,
+                type: 'object'
+            }]
+        }]
+
         that.updater.digest({
             viewId,
             options,
+            events,
             supportQuickDates
         });
     }

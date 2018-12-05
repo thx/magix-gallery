@@ -1,7 +1,7 @@
 let Magix = require('magix');
 let Vframe = Magix.Vframe;
 let Util = require('@./util');
-let I18n = require('@../../mx-medusa/util');
+let I18n = require('../mx-medusa/util');
 Magix.applyStyle('@index.less');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',

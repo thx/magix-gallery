@@ -51,8 +51,28 @@ module.exports = Magix.View.extend({
             def: ''
         }]
 
+        let events = [{
+            type: 'change',
+            desc: '刻度变化（输入框调整或者拖动滑轴）时触发',
+            params: [{
+                key: 'start',
+                desc: '开始刻度',
+                type: 'number'
+            }, {
+                key: 'end',
+                desc: '结束刻度',
+                type: 'number'
+            }, {
+                key: 'value',
+                desc: '[start, end]',
+                type: 'array'
+            }]
+        }]
+
         this.updater.digest({
-            options
+            viewId: this.id,
+            options,
+            events
         });
     }
 });

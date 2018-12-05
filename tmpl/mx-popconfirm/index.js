@@ -6,7 +6,7 @@ let $ = require('$');
 Magix.applyStyle('@../mx-popover/index.less');
 
 module.exports = Base.extend({
-    tmpl: '@index.html',
+    tmpl: '@../mx-popover/index.html',
     init(extra) {
         let me = this;
         Monitor['@{setup}']();

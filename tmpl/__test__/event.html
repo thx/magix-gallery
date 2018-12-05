@@ -2,10 +2,11 @@
     <table class="table desc-table">
         <thead>
             <tr>
-                <th width="120">事件</th>
-                <th width="100">返回参数</th>
+                <th width="70">事件</th>
+                <th width="120">事件说明</th>
+                <th width="90">返回参数</th>
                 <th width="200">参数说明</th>
-                <th width="100">参数类型</th>
+                <th width="80">参数类型</th>
             </tr>
         </thead>
         <tbody>
@@ -14,6 +15,7 @@
                 <tr>
                     {{if (index == 0)}}
                     <td rowspan="{{=option.params.length}}">{{=option.type}}</td>
+                    <td rowspan="{{=option.params.length}}">{{!option.desc}}</td>
                     {{/if}}
 
                     <td>{{=param.key}}</td>

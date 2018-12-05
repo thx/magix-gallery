@@ -49,9 +49,21 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }]
+
+        let events = [{
+            type: 'change',
+            desc: '选中某个菜单选项时触发',
+            params: [{
+                key: 'selected',
+                desc: '当前选中value值',
+                type: 'string'
+            }]
+        }]
+
         that.updater.digest({
             viewId: that.id,
-            options
+            options,
+            events
         });
     }
 });

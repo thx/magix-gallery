@@ -67,6 +67,7 @@ module.exports = Magix.View.extend({
 
         let events = [{
             type: 'change',
+            desc: '点击下拉框中“确定”按钮时触发',
             params: [{
                 key: 'selected',
                 desc: '当前选中value值，初始化selected是数组则返回数组，否则为逗号分隔',

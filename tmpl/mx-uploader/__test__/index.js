@@ -35,8 +35,40 @@ module.exports = Magix.View.extend({
             def: 'iframe'
         }]
 
+        let events = [{
+            type: 'success',
+            desc: '上传成功时调用',
+            params: [{
+                key: 'files',
+                desc: '上传的文件',
+                type: '-'
+            }, {
+                key: 'response',
+                desc: '-',
+                type: '-'
+            }]
+        }, {
+            type: 'error',
+            desc: '上传失败时调用',
+            params: [{
+                key: 'error',
+                desc: '错误信息',
+                type: '-'
+            }]
+        }, {
+            type: 'progress',
+            desc: '上传过程中调用',
+            params: [{
+                key: 'percent',
+                desc: '上传进度',
+                type: '-'
+            }]
+        }]
+
         this.updater.digest({
-            options
+            options,
+            events,
+            viewId: this.id
         });
     }
 });

@@ -1,6 +1,6 @@
 let Magix = require('magix');
 Magix.applyStyle('@index.less');
-let I18n = require('@../../mx-medusa/util');
+let I18n = require('../mx-medusa/util');
 let $ = require('$');
 
 module.exports = Magix.View.extend({

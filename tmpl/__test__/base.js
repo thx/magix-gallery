@@ -79,10 +79,6 @@ module.exports = Magix.View.extend({
                     path: '/table/index11',
                     icon: '&#xe641;'
                 }, {
-                    name: '筛选项同表头一起吸顶',
-                    path: '/table/index12',
-                    icon: '&#xe641;'
-                }, {
                     name: '指标排序',
                     path: '/table/index10',
                     icon: '&#xe608;'
@@ -107,18 +103,27 @@ module.exports = Magix.View.extend({
                     name: '任意colspan的计算',
                     path: '/table/index9',
                     icon: '&#xe79b;'
+                }, {
+                    name: '筛选项同表头一起吸顶',
+                    path: '/table/index12',
+                    icon: '&#xe641;'
                 }]
             }, {
                 name: '数据交互',
                 subs: [{
                     name: '下拉框（单选）',
-                    tip: '支持click展开和hover展开两种形式',
+                    tip: '支持click展开和hover展开两种形式；下拉列表在组件内',
                     path: '/dropdown/index',
                     icon: '&#xe7a4;'
                 }, {
                     name: '下拉框（多选）',
-                    tip: '支持click展开和hover展开两种形式',
+                    tip: '支持click展开和hover展开两种形式；下拉列表在组件内',
                     path: '/dropdown/multiple',
+                    icon: '&#xe7a4;'
+                }, {
+                    name: '下拉框（追加到body版）',
+                    tip: '支持click展开和hover展开两种形式',
+                    path: '/dropdown/dd',
                     icon: '&#xe7a4;'
                 }, {
                     name: '日历（选择单日）',

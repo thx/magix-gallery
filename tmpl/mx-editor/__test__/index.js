@@ -31,9 +31,20 @@ module.exports = Magix.View.extend({
             def: 140
         }]
 
+        let events = [{
+            type: 'edit',
+            desc: '回车或者失去焦点触发，只调用一次',
+            params: [{
+                key: 'editText',
+                desc: '编辑完成的内容',
+                type: 'string'
+            }]
+        }]
+
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events
         });
     }
 });

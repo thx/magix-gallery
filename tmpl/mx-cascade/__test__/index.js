@@ -44,9 +44,24 @@ module.exports = Magix.View.extend({
             def: 'pValue'
         }]
 
+        let events = [{
+            type: 'change',
+            desc: '选中某个叶子节点时触发',
+            params: [{
+                key: 'item',
+                desc: '当前选中完整对象',
+                type: 'object'
+            }, {
+                key: 'selected',
+                desc: '当前选中value值',
+                type: 'string'
+            }]
+        }]
+
         that.updater.digest({
             viewId: that.id,
-            options
+            options,
+            events
         });
     }
 });
