@@ -1,1 +1,285 @@
-define("mx-pagination/index",["magix","$","mx-dropdown/index"],(e,a,t)=>{e("mx-dropdown/index");var i=e("magix"),s=e("$"),n=[10,20,30,40,50,100];i.applyStyle("_C","._ek{color:#999}._el{font-size:0}._em,._en{font-size:14px}._en{margin:0 3px;text-decoration:none;border-radius:4px;text-align:center;min-width:35px;height:28px;line-height:28px;display:block}._eo{font-size:12px;top:-1px}._ep ._en{color:#fff;background-color:#f96447}._eq ._en,._eq ._en:hover{color:#999;background:transparent;cursor:not-allowed}._er{-webkit-transform:scaleX(-1);transform:scaleX(-1)}"),t.exports=i.View.extend({tmpl:function(e,a){a=a||"";var t="",i={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},s=/[&<>"'`]/g,n=function(e){return null==e?"":""+e},_=function(e){return"&"+i[e]+";"},l=function(e){return n(e).replace(s,_)},r=function(a,t,i){for(i=e[""];--i;)if(e[t=""+i]===a)return t;return e[t=""+e[""]++]=a,t};if(t+='<div mxa="_{:_" class="_ai _ek">',!e.simplify&&!e.mini){t+="<span>当前第<b>";for(var p=e.startSpace;p--;)t+="&nbsp;&nbsp;";t+=l(e.offsetStart)+" - "+l(e.offsetEnd);for(var c=e.endSpace;c--;)t+="&nbsp;&nbsp;";t+="</b>条，共<b>"+l(e.total)+'</b>条，每页展现</span><div style="width:70px" class="_t _h" mx-change="'+a+'__ec()" mx-view="mx-dropdown/index?list=',t+=r(e.sizes),t+="&selected=",t+=r(e.size),t+='"></div><span mxs="_{:_">条</span>'}if(t+='<ul mxa="_{:a" class="_ai _ac _el"><li class="_ac',1==e.page&&(t+=" _eq"),t+='"><a class="_en __ _eo" href="#" mx-click="'+a+"",e.page>1?t+="__eb({page:"+l(e.page-1)+"})":t+="__G()",t+='" title="&lt;">&#xe61e;</a></li>',e.mini){t+='<li mxa="_{:b" class="_ac _em">';for(var o=e.pageSpace;o--;)t+="&nbsp;&nbsp;";t+=l(e.page)+" / "+l(e.pages)+"</li>"}else{e.start>1&&(t+='<li mxs="_{:_" class="_ac"><a class="_en" href="#" mx-click="'+a+'__eb({page:1})" title="1">1</a></li>'),e.start>2&&(t+='<li mxs="_{:_" class="_eq _ac"><a class="_en" href="#" mx-click="'+a+'__G()" title="...">...</a></li>');for(var g=e.start;g<=e.end;g++)t+='<li class="_ac',g==e.page&&(t+=" _ep"),t+='"><a class="_en" href="#" mx-click="'+a+"__eb({page:"+l(g)+'})" title="'+l(g)+'">'+l(g)+"</a></li>";e.end+2<=e.pages&&(t+='<li mxs="_{:_" class="_ac _eq"><a class="_en" href="#" mx-click="'+a+'__G()" title="...">...</a></li>'),e.end<e.pages&&(t+='<li mxa="_{:c" class="_ac"><a class="_en" href="#" mx-click="'+a+"__eb({page:"+l(e.pages)+'})" title="'+l(e.pages)+'">'+l(e.pages)+"</a></li>")}return t+='<li class="_ac',e.page==e.pages&&(t+=" _eq"),t+='"><a class="_en __ _eo _er" href="#" mx-click="'+a+"",e.page<e.pages?t+="__eb({page:"+l(e.page+1)+"})":t+="__G()",t+='" title="&gt;">&#xe61e;</a></li></ul></div>'},init:function(e){this.updater.set({sizes:n}),this.assign(e)},assign:function(e){var a=0|e.total||0,t=e.size||20,i=e.page||1;return this.updater.set({step:e.step||7,simplify:e.simplify+""=="true",mini:e.mini+""=="true",page:i,total:a,size:t}),!0},render:function(){var e=this.__ea();this.updater.digest(e)},__ea:function(){var e=this.updater.get(),a=0|e.page,t=Math.ceil((e.total||1)/e.size);a>t&&(a=t);var i,s=0|e.step,n=s/2|0,_=Math.max(1,a-n),l=Math.min(t,_+s-1);(_=Math.max(1,l-s+1))<=2&&l+(i=3-_)<t&&(l+=i),l+2>t&&_-(i=2-(t-l))>1&&(_-=i),3==_&&(_-=1),l+2==t&&(l+=1);var r=(a-1)*e.size+1,p=Math.min(e.total,a*e.size);return{pages:t,offsetStart:r,offsetEnd:p,startSpace:(e.total+"").length-(r+"").length,endSpace:(e.total+"").length-(p+"").length,pageSpace:(t+"").length-(a+"").length,page:a,start:_,end:l}},__x:function(){var e=s("#"+this.id),a=this.updater.get();e.trigger({type:"change",page:a.page,size:a.size})},"__eb<click>":function(e){e.preventDefault();this.updater.set(e.params),this.render(),this.__x()},"__ec<change>":function(e){e.stopPropagation();this.updater.set({page:1,size:e.item}),this.render(),this.__x()},"__G<click>":function(e){e.preventDefault()}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-pagination/index",["magix","$","mx-dropdown/index"],(require,exports,module)=>{
+/*Magix,$*/
+require("mx-dropdown/index");
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+var DefaultSizes = [10, 20, 30, 40, 50, 100];
+Magix.applyStyle("__mx-pagination_index_","/* @dependent: ./index.less */\n.__mx-pagination_index_-pager {\n  color: #999;\n}\n.__mx-pagination_index_-fz0 {\n  font-size: 0;\n}\n.__mx-pagination_index_-fz {\n  font-size: 14px;\n}\n.__mx-pagination_index_-num-item {\n  margin: 0 3px;\n  text-decoration: none;\n  border-radius: 4px;\n  text-align: center;\n  min-width: 35px;\n  height: 28px;\n  line-height: 28px;\n  display: block;\n  font-size: 14px;\n}\n.__mx-pagination_index_-icon {\n  font-size: 12px;\n  top: -1px;\n}\n.__mx-pagination_index_-active .__mx-pagination_index_-num-item {\n  color: #fff;\n  background-color: #f96447;\n}\n.__mx-pagination_index_-notallowed .__mx-pagination_index_-num-item,\n.__mx-pagination_index_-notallowed .__mx-pagination_index_-num-item:hover {\n  color: #999;\n  background: transparent;\n  cursor: not-allowed;\n}\n.__mx-pagination_index_-rotate180 {\n  -webkit-transform: scaleX(-1);\n          transform: scaleX(-1);\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', simplify = $$.simplify, mini = $$.mini, startSpace = $$.startSpace, offsetStart = $$.offsetStart, offsetEnd = $$.offsetEnd, endSpace = $$.endSpace, total = $$.total, sizes = $$.sizes, size = $$.size, page = $$.page, pageSpace = $$.pageSpace, pages = $$.pages, start = $$.start, end = $$.end; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_{:_" class="__mx-style_index_-clearfix __mx-pagination_index_-pager">';
+    $expr = '<%if (!simplify && !mini) {%>';
+    if (!simplify && !mini) {
+        ;
+        $p += '<span>当前第<b>';
+        $expr = '<%for (var i_1 = startSpace; i_1--;) {%>';
+        for (var i_1 = startSpace; i_1--;) {
+            ;
+            $p += '&nbsp;&nbsp;';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ($expr = '<%=offsetStart%>', $e(offsetStart)) + ' - ' + ($expr = '<%=offsetEnd%>', $e(offsetEnd));
+        $expr = '<%for (var i_2 = endSpace; i_2--;) {%>';
+        for (var i_2 = endSpace; i_2--;) {
+            ;
+            $p += '&nbsp;&nbsp;';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</b>条，共<b>' + ($expr = '<%=total%>', $e(total)) + '</b>条，每页展现</span><div mxv="sizes,size" style="width:70px" class="__mx-style_index_-ml10 __mx-style_index_-mr10" mx-change="' + $viewId + '@{changeSize}()" mx-view="mx-dropdown/index?list=' + ($expr = '<%@sizes%>', $i($$ref, sizes)) + '&selected=' + ($expr = '<%@size%>', $i($$ref, size)) + '"></div><span mxs="_{:_">条</span>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '<ul mxa="_{:a" class="__mx-style_index_-clearfix __mx-style_index_-ib __mx-pagination_index_-fz0"><li class="__mx-style_index_-ib';
+    $expr = '<%if (page == 1) {%>';
+    if (page == 1) {
+        ;
+        $p += ' __mx-pagination_index_-notallowed';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '"><a class="__mx-pagination_index_-num-item __mx-style_index_-mc-iconfont __mx-pagination_index_-icon" href="#" mx-click="' + $viewId + '';
+    $expr = '<%if (page > 1) {%>';
+    if (page > 1) {
+        ;
+        $p += '@{toPage}({page:' + ($expr = '<%=page - 1%>', $e(page - 1)) + '})';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '@{prevent}()';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" title="&lt;">&#xe61e;</a></li>';
+    $expr = '<%if (mini) {%>';
+    if (mini) {
+        ;
+        $p += '<li mxa="_{:b" class="__mx-style_index_-ib __mx-pagination_index_-fz">';
+        $expr = '<%for (var i_3 = pageSpace; i_3--;) {%>';
+        for (var i_3 = pageSpace; i_3--;) {
+            ;
+            $p += '&nbsp;&nbsp;';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ($expr = '<%=page%>', $e(page)) + ' / ' + ($expr = '<%=pages%>', $e(pages)) + '</li>';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' ';
+        $expr = '<%if (start > 1) {%>';
+        if (start > 1) {
+            ;
+            $p += '<li mxs="_{:a" class="__mx-style_index_-ib"><a class="__mx-pagination_index_-num-item" href="#" mx-click="' + $viewId + '@{toPage}({page:1})" title="1">1</a></li>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $expr = '<%if (start > 2) {%>';
+        if (start > 2) {
+            ;
+            $p += '<li mxs="_{:b" class="__mx-pagination_index_-notallowed __mx-style_index_-ib"><a class="__mx-pagination_index_-num-item" href="#" mx-click="' + $viewId + '@{prevent}()" title="...">...</a></li>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $expr = '<%for (var i = start; i <= end; i++) {%>';
+        for (var i = start; i <= end; i++) {
+            ;
+            $p += '<li class="__mx-style_index_-ib';
+            $expr = '<%if (i == page) {%>';
+            if (i == page) {
+                ;
+                $p += ' __mx-pagination_index_-active';
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '"><a class="__mx-pagination_index_-num-item" href="#" mx-click="' + $viewId + '@{toPage}({page:' + ($expr = '<%=i%>', $e(i)) + '})" title="' + ($expr = '<%=i%>', $e(i)) + '">' + ($expr = '<%=i%>', $e(i)) + '</a></li>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $expr = '<%if (end + 2 <= pages) {%>';
+        if (end + 2 <= pages) {
+            ;
+            $p += '<li mxs="_{:c" class="__mx-style_index_-ib __mx-pagination_index_-notallowed"><a class="__mx-pagination_index_-num-item" href="#" mx-click="' + $viewId + '@{prevent}()" title="...">...</a></li>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $expr = '<%if (end < pages) {%>';
+        if (end < pages) {
+            ;
+            $p += '<li mxa="_{:c" class="__mx-style_index_-ib"><a class="__mx-pagination_index_-num-item" href="#" mx-click="' + $viewId + '@{toPage}({page:' + ($expr = '<%=pages%>', $e(pages)) + '})" title="' + ($expr = '<%=pages%>', $e(pages)) + '">' + ($expr = '<%=pages%>', $e(pages)) + '</a></li>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '<li class="__mx-style_index_-ib';
+    $expr = '<%if (page == pages) {%>';
+    if (page == pages) {
+        ;
+        $p += ' __mx-pagination_index_-notallowed';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '"><a class="__mx-pagination_index_-num-item __mx-style_index_-mc-iconfont __mx-pagination_index_-icon __mx-pagination_index_-rotate180" href="#" mx-click="' + $viewId + '';
+    $expr = '<%if (page < pages) {%>';
+    if (page < pages) {
+        ;
+        $p += '@{toPage}({page:' + ($expr = '<%=page + 1%>', $e(page + 1)) + '})';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '@{prevent}()';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" title="&gt;">&#xe61e;</a></li></ul></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-pagination/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var me = this;
+        me.updater.set({
+            sizes: DefaultSizes
+        });
+        me.assign(extra);
+    },
+    assign: function (ops) {
+        var me = this;
+        var total = (ops.total | 0) || 0;
+        var size = ops.size || 20;
+        var page = ops.page || 1;
+        me.updater.set({
+            step: ops.step || 7,
+            simplify: (ops.simplify + '') === 'true',
+            mini: (ops.mini + '') === 'true',
+            page: page,
+            total: total,
+            size: size
+        });
+        return true;
+    },
+    render: function () {
+        var me = this;
+        var info = me['@{cal.page.info}']();
+        me.updater.digest(info);
+    },
+    '@{cal.page.info}': function () {
+        var me = this;
+        var data = me.updater.get();
+        var page = data.page | 0;
+        var pages = Math.ceil((data.total || 1) / data.size);
+        if (page > pages)
+            page = pages;
+        var step = data.step | 0;
+        var middle = step / 2 | 0;
+        var start = Math.max(1, page - middle);
+        var end = Math.min(pages, start + step - 1);
+        start = Math.max(1, end - step + 1);
+        var offset;
+        if (start <= 2) { //=2 +1  =1  +2
+            offset = 3 - start;
+            if (end + offset < pages) {
+                end += offset;
+            }
+        }
+        if (end + 2 > pages) {
+            offset = 2 - (pages - end);
+            if ((start - offset) > 1) {
+                start -= offset;
+            }
+        }
+        if (start == 3) {
+            start -= 1;
+        }
+        if (end + 2 == pages) {
+            end += 1;
+        }
+        var offsetStart = (page - 1) * data.size + 1;
+        var offsetEnd = Math.min(data.total, page * data.size);
+        return {
+            pages: pages,
+            offsetStart: offsetStart,
+            offsetEnd: offsetEnd,
+            startSpace: (data.total + '').length - (offsetStart + '').length,
+            endSpace: (data.total + '').length - (offsetEnd + '').length,
+            pageSpace: (pages + '').length - (page + '').length,
+            page: page,
+            start: start,
+            end: end
+        };
+    },
+    '@{fire.event}': function () {
+        var me = this;
+        var node = $('#' + me.id);
+        var data = me.updater.get();
+        node.trigger({
+            type: 'change',
+            page: data.page,
+            size: data.size
+        });
+    },
+    '@{toPage}<click>': function (e) {
+        e.preventDefault();
+        var me = this;
+        me.updater.set(e.params);
+        me.render();
+        me['@{fire.event}']();
+    },
+    '@{changeSize}<change>': function (e) {
+        e.stopPropagation();
+        var me = this;
+        me.updater.set({
+            page: 1,
+            size: e.item
+        });
+        me.render();
+        me['@{fire.event}']();
+    },
+    '@{prevent}<click>': function (e) {
+        e.preventDefault();
+    }
+});
+
+});

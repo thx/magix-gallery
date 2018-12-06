@@ -1,1 +1,333 @@
-define("mx-linkage/index",["magix","$","../mx-monitor/index"],(t,e,i)=>{var d=t("magix"),_=t("$"),s=t("../mx-monitor/index");d.applyStyle("_y","._dL{height:32px;padding:0 9px;position:relative;border:1px solid #e6e6e6;border-radius:4px;width:340px;line-height:32px;z-index:10}._dL:hover{border-color:#ccc}._dM{cursor:not-allowed;background-color:#fbfbfb}._dM:hover{border-color:#e6e6e6}._dN{color:#999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}._dO{position:absolute;border:1px solid #e6e6e6;font-size:14px;max-height:260px;overflow:auto;list-style:none;border-radius:4px;background-color:#fff;z-index:10;padding:3px 0;line-height:1.8;left:-1px;right:-1px}._dP{border-bottom:1px solid #e6e6e6;margin:0 10px;padding-bottom:3px}._dQ{cursor:pointer;display:inline-block;padding:0 12px;height:29px;line-height:29px;border-radius:4px}._dQ:active,._dQ:focus,._dQ:hover{color:#333;background-color:#f0f0f0}._dR{margin:0 10px;padding-top:3px}._dS{width:32%;float:left;margin:0 0 2px 2px;color:#666;display:block;cursor:pointer;padding:0 12px;height:29px;line-height:29px;border-radius:4px}._dS:active,._dS:focus,._dS:hover{color:#333;background-color:#f0f0f0}._dT{margin-left:-1px}._dU{float:left;height:24px;line-height:24px;padding:0 1px;max-width:31%;overflow:hidden;margin-top:3px}._dV{cursor:pointer;border-radius:4px}._dV:active,._dV:focus,._dV:hover{color:#333;background-color:#f0f0f0}._dM ._dT{cursor:not-allowed}._dM ._dV:active,._dM ._dV:focus,._dM ._dV:hover{background-color:transparent;cursor:not-allowed}._dW,._dW:active,._dW:focus,._dW:hover{color:#fff;background-color:#f96447}");i.exports=d.View.extend({tmpl:function(t,e){e=e||"";var i="",d={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},_=/[&<>"'`]/g,s=function(t){return null==t?"":""+t},r=function(t){return"&"+d[t]+";"},o=function(t){return s(t).replace(_,r)},l=function(e,i,d){for(d=t[""];--d;)if(t[i=""+d]===e)return i;return t[i=""+t[""]++]=e,i};if(i+='<div class="_aj ',t.texts.length?i+="_dT _ai":i+="_dN",i+='" mx-click="'+e+'__e()">',t.texts.length)for(var n=0;n<t.texts.length;n++)i+='<div class="_dU _al _dV" title="'+o(t.texts[n])+'" mx-click="'+e+"__do({i:"+s(n)+'})">'+o(t.texts[n])+"</div>",n<t.texts.length-1&&(i+='<div mxa="_&:_" class="_dU">'+o(t.splitter)+"</div>");else i+=" "+o(t.placeholder)+" ";i+='</div><div class="_aj _dO',t.show||(i+=" _ah"),i+='" style="',t.show&&(i+="left:"+o(t.left)+"px;top:"+o(t.top)+"px;"),i+='"><div mxa="_&:a" class="_dP">';for(var a=0;a<t.headers.length;a++){var h=t.headers[a];i+='<span title="'+o(h)+'" class="_dQ',a==t.active&&(i+=" _dW"),i+='" ',a!==t.active&&(i+=' mx-click="'+e+"__do({i:"+s(a)+'})" '),i+=">"+o(h)+"</span>"}if(i+='</div><div mxa="_&:b" class="_dR">',t.list&&t.list.length){var c=t.selected[t.active];i+="<ul>";for(var p=0,u=t.list;p<u.length;p++){var x=u[p];i+='<li class="_dS _al',x[t.valueKey]+""==c+""&&(i+=" _dW"),i+='" title="'+o(x[t.textKey])+'" mx-click="'+e+"__cw({o:'",i+=l(x),i+="'})\">"+o(x[t.textKey])+"</li>"}i+="</ul>"}return i+="</div></div>"},init:function(t){var e=this;e.assign(t),s.__g(),e.on("destroy",function(){s.__i(e),s.__j()});var i=_("#"+e.id);i.addClass("_dL"),e.__k=i},assign:function(t){this.__dg=t.placeholder;var e=t.valueKey||"id",i=t.parentKey||"pId",_=t.parentKey||"text",s=function(t,e,i){e=e||"id",i=i||"pId";for(var _={},s={},r=[],o=0,l=t.length;o<l;o++){var n=d.mix({},t[o]);_[n[e]]=n,s[n[e]]&&(n.children=s[n[e]]),d.has(n,i)&&""!==n[i]?_[n[i]]?(_[n[i]].children||(_[n[i]].children=[])).push(n):s[n[i]]?s[n[i]].push(n):s[n[i]]=[n]:r.push(n)}return{list:r,map:_}}(t.list,e,i);this.__dh=s,this.__di=t.headers,this.__dj=0;var r=d.has(t,"selected")?t.selected:"";return r=r?(r+"").split(","):[],this.__bb=r,this.__co=t.disabled+""=="true",this.updater.set({splitter:t.splitter||"/",textKey:_,valueKey:e,selected:r}),!0},render:function(){this.updater.digest({placeholder:this.__dg,headers:this.__di,viewId:this.id,texts:this.__dk(),active:this.__dj,list:this.__dl()}),this.__k[this.__co?"addClass":"removeClass"]("_dM")},__dk:function(){for(var t=[],e=this.__dh,i=this.__bb,d=this.updater.get("textKey"),_=0,s=i;_<s.length;_++){var r=s[_];t.push(e.map[r][d])}return t},__dl:function(){var t=this.__dh,e=this.__bb,i=this.__dj;if(0===i)return t.list;var d=e[i-1];return d?t.map[d].children:null},__dm:function(t){this.updater.digest({active:this.__dj=t,list:this.__dl(),selected:this.__bb})},__l:function(t){return d.inside(t,this.id)},__b:function(){this.__m&&(this.__m=!1,s.__i(this),this.__dm(0),this.updater.digest({show:!1}))},__e:function(){this.__m||(this.__m=!0,s.__n(this),this.updater.digest({show:!0,top:this.__k.outerHeight()+5}))},__dn:function(){this.updater.digest({placeholder:this.__dg,texts:this.__dk()})},"__e<click>":function(){this.__k.hasClass("_dM")||this.__e()},"__do<click>":function(t){this.__dm(t.params.i)},"__cw<click>":function(t){var e=this.__dj,i=this.__di,d=this.__bb,_=this.updater.get("valueKey"),s=t.params.o[_];(d=d.slice(0,e)).push(s),e++;var r=this.__dh;this.__bb=d,e<i.length&&r.map[s].children?this.__dm(e):(this.__dn(),this.__b(),this.__k.trigger({type:"change",selected:d}))}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-linkage/index",["magix","$","../mx-monitor/index"],(require,exports,module)=>{
+/*Magix,$,Monitor*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+var Monitor = require("../mx-monitor/index");
+Magix.applyStyle("__mx-linkage_index_","/* @dependent: ./index.less */\n.__mx-linkage_index_-owner {\n  height: 32px;\n  padding: 0 9px;\n  position: relative;\n  border: solid 1px #e6e6e6;\n  border-radius: 4px;\n  width: 340px;\n  line-height: 32px;\n  z-index: 10;\n}\n.__mx-linkage_index_-owner:hover {\n  border-color: #ccc;\n}\n.__mx-linkage_index_-notallowed {\n  cursor: not-allowed;\n  background-color: #fbfbfb;\n}\n.__mx-linkage_index_-notallowed:hover {\n  border-color: #e6e6e6;\n}\n.__mx-linkage_index_-placeholder {\n  color: #999;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.__mx-linkage_index_-dashboard {\n  position: absolute;\n  border: 1px solid #e6e6e6;\n  font-size: 14px;\n  max-height: 260px;\n  overflow: auto;\n  list-style: none;\n  border-radius: 4px;\n  background-color: #fff;\n  z-index: 10;\n  padding: 3px 0;\n  line-height: 1.8;\n  left: -1px;\n  right: -1px;\n}\n.__mx-linkage_index_-tabs {\n  border-bottom: 1px solid #e6e6e6;\n  margin: 0 10px;\n  padding-bottom: 3px;\n}\n.__mx-linkage_index_-tab {\n  cursor: pointer;\n  display: inline-block;\n  padding: 0 12px;\n  height: 29px;\n  line-height: 29px;\n  border-radius: 4px;\n}\n.__mx-linkage_index_-tab:hover,\n.__mx-linkage_index_-tab:focus,\n.__mx-linkage_index_-tab:active {\n  color: #333;\n  background-color: #f0f0f0;\n}\n.__mx-linkage_index_-main-panel {\n  margin: 0 10px;\n  padding-top: 3px;\n}\n.__mx-linkage_index_-panel-item {\n  width: 32%;\n  float: left;\n  margin: 0 0 2px 2px;\n  color: #666;\n  display: block;\n  cursor: pointer;\n  padding: 0 12px;\n  height: 29px;\n  line-height: 29px;\n  border-radius: 4px;\n}\n.__mx-linkage_index_-panel-item:hover,\n.__mx-linkage_index_-panel-item:focus,\n.__mx-linkage_index_-panel-item:active {\n  color: #333;\n  background-color: #f0f0f0;\n}\n.__mx-linkage_index_-texts {\n  margin-left: -1px;\n}\n.__mx-linkage_index_-text {\n  float: left;\n  height: 24px;\n  line-height: 24px;\n  padding: 0 1px 0;\n  max-width: 31%;\n  overflow: hidden;\n  margin-top: 3px;\n}\n.__mx-linkage_index_-text-cnt {\n  cursor: pointer;\n  border-radius: 4px;\n}\n.__mx-linkage_index_-text-cnt:hover,\n.__mx-linkage_index_-text-cnt:focus,\n.__mx-linkage_index_-text-cnt:active {\n  color: #333;\n  background-color: #f0f0f0;\n}\n.__mx-linkage_index_-notallowed .__mx-linkage_index_-texts {\n  cursor: not-allowed;\n}\n.__mx-linkage_index_-notallowed .__mx-linkage_index_-text-cnt:hover,\n.__mx-linkage_index_-notallowed .__mx-linkage_index_-text-cnt:focus,\n.__mx-linkage_index_-notallowed .__mx-linkage_index_-text-cnt:active {\n  background-color: transparent;\n  cursor: not-allowed;\n}\n.__mx-linkage_index_-active,\n.__mx-linkage_index_-active:hover,\n.__mx-linkage_index_-active:active,\n.__mx-linkage_index_-active:focus {\n  color: #fff;\n  background-color: #f96447;\n}\n");
+var ListToTree = function (list, id, pId) {
+    id = id || 'id';
+    pId = pId || 'pId';
+    var map = {}, listMap = {}, rootList = [];
+    for (var i = 0, max = list.length; i < max; i++) {
+        var one = Magix.mix({}, list[i]);
+        map[one[id]] = one;
+        if (listMap[one[id]]) {
+            one.children = listMap[one[id]];
+        }
+        if (Magix.has(one, pId) && one[pId] !== '') {
+            if (map[one[pId]]) {
+                var c = map[one[pId]].children || (map[one[pId]].children = []);
+                c.push(one);
+            }
+            else {
+                if (!listMap[one[pId]])
+                    listMap[one[pId]] = [one];
+                else
+                    listMap[one[pId]].push(one);
+            }
+        }
+        else {
+            rootList.push(one);
+        }
+    }
+    return { list: rootList, map: map };
+};
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', texts = $$.texts, splitter = $$.splitter, placeholder = $$.placeholder, show = $$.show, left = $$.left, top = $$.top, headers = $$.headers, active = $$.active, list = $$.list, selected = $$.selected, valueKey = $$.valueKey, textKey = $$.textKey; var $expr, $art, $line; try {
+    $p += '<div class="__mx-style_index_-unselectable ';
+    $expr = '<%if (texts.length) {%>';
+    if (texts.length) {
+        ;
+        $p += '__mx-linkage_index_-texts __mx-style_index_-clearfix';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '__mx-linkage_index_-placeholder';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" mx-click="' + $viewId + '@{show}()">';
+    $expr = '<%if (texts.length) {%>';
+    if (texts.length) {
+        ;
+        $p += ' ';
+        $expr = '<%for (var i = 0; i < texts.length; i++) {%>';
+        for (var i = 0; i < texts.length; i++) {
+            ;
+            $p += '<div class="__mx-linkage_index_-text __mx-style_index_-ellipsis __mx-linkage_index_-text-cnt" title="' + ($expr = '<%=texts[i]%>', $e(texts[i])) + '" mx-click="' + $viewId + '@{activeTab}({i:' + ($expr = '<%!i%>', $n(i)) + '})">' + ($expr = '<%=texts[i]%>', $e(texts[i])) + '</div>';
+            $expr = '<%if (i < texts.length - 1) {%>';
+            if (i < texts.length - 1) {
+                ;
+                $p += '<div mxa="_&:_" class="__mx-linkage_index_-text">' + ($expr = '<%=splitter%>', $e(splitter)) + '</div>';
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' ' + ($expr = '<%=placeholder%>', $e(placeholder)) + ' ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div class="__mx-style_index_-unselectable __mx-linkage_index_-dashboard';
+    $expr = '<%if (!show) {%>';
+    if (!show) {
+        ;
+        $p += ' __mx-style_index_-none';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" style="';
+    $expr = '<%if (show) {%>';
+    if (show) {
+        ;
+        $p += 'left:' + ($expr = '<%=left%>', $e(left)) + 'px;top:' + ($expr = '<%=top%>', $e(top)) + 'px;';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '"><div mxa="_&:a" class="__mx-linkage_index_-tabs">';
+    $expr = '<%for (var i = 0; i < headers.length; i++) {%>';
+    for (var i = 0; i < headers.length; i++) {
+        ;
+        $p += ' ';
+        $expr = '<%var h = headers[i]%>';
+        var h = headers[i];
+        $p += '<span title="' + ($expr = '<%=h%>', $e(h)) + '" class="__mx-linkage_index_-tab';
+        $expr = '<%if (i == active) {%>';
+        if (i == active) {
+            ;
+            $p += ' __mx-linkage_index_-active';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '" ';
+        $expr = '<%if (i !== active) {%>';
+        if (i !== active) {
+            ;
+            $p += ' mx-click="' + $viewId + '@{activeTab}({i:' + ($expr = '<%!i%>', $n(i)) + '})" ';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '>' + ($expr = '<%=h%>', $e(h)) + '</span>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxa="_&:b" class="__mx-linkage_index_-main-panel">';
+    $expr = '<%if (list && list.length) {%>';
+    if (list && list.length) {
+        ;
+        $p += ' ';
+        $expr = '<%var current = selected[active]%>';
+        var current = selected[active];
+        $p += '<ul>';
+        $expr = '<%for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {        var one = list_1[_i];%>';
+        for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
+            var one = list_1[_i];
+            ;
+            $p += '<li class="__mx-linkage_index_-panel-item __mx-style_index_-ellipsis';
+            $expr = '<%if ((one[valueKey] + \'\') == (current + \'\')) {%>';
+            if ((one[valueKey] + '') == (current + '')) {
+                ;
+                $p += ' __mx-linkage_index_-active';
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '" title="' + ($expr = '<%=one[textKey]%>', $e(one[textKey])) + '" mx-click="' + $viewId + '@{select}({o:\'' + ($expr = '<%@one%>', $i($$ref, one)) + '\'})">' + ($expr = '<%=one[textKey]%>', $e(one[textKey])) + '</li>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</ul>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-linkage/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var me = this;
+        me.assign(extra);
+        Monitor['@{setup}']();
+        me.on('destroy', function () {
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+        });
+        var ownerNode = $('#' + me.id);
+        ownerNode.addClass('__mx-linkage_index_-owner');
+        me['@{owner.node}'] = ownerNode;
+    },
+    assign: function (ops) {
+        var me = this;
+        me['@{placeholder}'] = ops.placeholder;
+        var valueKey = ops.valueKey || 'id';
+        var parentKey = ops.parentKey || 'pId';
+        var textKey = ops.parentKey || 'text';
+        var info = ListToTree(ops.list, valueKey, parentKey);
+        me['@{list.info}'] = info;
+        me['@{headers}'] = ops.headers;
+        me['@{active.tab}'] = 0;
+        var selected = Magix.has(ops, 'selected') ? ops.selected : '';
+        selected = selected ? (selected + '').split(',') : [];
+        me['@{selected}'] = selected;
+        me['@{ui.disabled}'] = (ops.disabled + '') === 'true';
+        me.updater.set({
+            splitter: ops.splitter || '/',
+            textKey: textKey,
+            valueKey: valueKey,
+            selected: selected
+        });
+        return true;
+    },
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            placeholder: me['@{placeholder}'],
+            headers: me['@{headers}'],
+            viewId: me.id,
+            texts: me['@{get.text}'](),
+            active: me['@{active.tab}'],
+            list: me['@{get.active.list}']()
+        });
+        me['@{owner.node}'][me['@{ui.disabled}'] ? 'addClass' : 'removeClass']('__mx-linkage_index_-notallowed');
+    },
+    '@{get.text}': function () {
+        var me = this;
+        var texts = [];
+        var info = me['@{list.info}'];
+        var selected = me['@{selected}'];
+        var textKey = me.updater.get('textKey');
+        for (var _i = 0, selected_1 = selected; _i < selected_1.length; _i++) {
+            var s = selected_1[_i];
+            texts.push(info.map[s][textKey]);
+        }
+        return texts;
+    },
+    '@{get.active.list}': function () {
+        var me = this;
+        var info = me['@{list.info}'];
+        var selected = me['@{selected}'];
+        var currentTab = me['@{active.tab}'];
+        if (currentTab === 0) {
+            return info.list;
+        }
+        var id = selected[currentTab - 1];
+        return id ? info.map[id].children : null;
+    },
+    '@{active.to.tab}': function (tab) {
+        var me = this;
+        me.updater.digest({
+            active: me['@{active.tab}'] = tab,
+            list: me['@{get.active.list}'](),
+            selected: me['@{selected}']
+        });
+    },
+    '@{inside}': function (node) {
+        return Magix.inside(node, this.id);
+    },
+    '@{hide}': function () {
+        var me = this;
+        if (me['@{ui.show}']) {
+            me['@{ui.show}'] = false;
+            Monitor['@{remove}'](me);
+            me['@{active.to.tab}'](0);
+            me.updater.digest({
+                show: false
+            });
+        }
+    },
+    '@{show}': function () {
+        var me = this;
+        if (!me['@{ui.show}']) {
+            me['@{ui.show}'] = true;
+            Monitor['@{add}'](me);
+            me.updater.digest({
+                show: true,
+                top: me['@{owner.node}'].outerHeight() + 5
+            });
+        }
+    },
+    '@{fillText}': function () {
+        var me = this;
+        me.updater.digest({
+            placeholder: me['@{placeholder}'],
+            texts: me['@{get.text}']()
+        });
+    },
+    '@{show}<click>': function () {
+        var me = this;
+        var node = me['@{owner.node}'];
+        if (!node.hasClass('__mx-linkage_index_-notallowed')) {
+            me['@{show}']();
+        }
+    },
+    '@{activeTab}<click>': function (e) {
+        this['@{active.to.tab}'](e.params.i);
+    },
+    '@{select}<click>': function (e) {
+        var me = this;
+        var currentTab = me['@{active.tab}'];
+        var headers = me['@{headers}'];
+        var selected = me['@{selected}'];
+        var valueKey = me.updater.get('valueKey');
+        var one = e.params.o;
+        var itemId = one[valueKey];
+        selected = selected.slice(0, currentTab);
+        selected.push(itemId);
+        currentTab++;
+        var info = me['@{list.info}'];
+        me['@{selected}'] = selected;
+        if (currentTab < headers.length && info.map[itemId].children) {
+            me['@{active.to.tab}'](currentTab);
+        }
+        else {
+            me['@{fillText}']();
+            me['@{hide}']();
+            me['@{owner.node}'].trigger({
+                type: 'change',
+                selected: selected
+            });
+        }
+    }
+});
+
+});

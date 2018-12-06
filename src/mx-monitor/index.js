@@ -1,1 +1,69 @@
-define("mx-monitor/index",["$"],(e,n,_)=>{var o=e("$"),i=0,d=[],r=o(document),t=o(window),f=function(e){for(var n=d.length;n--;){var _=d[n];if(_.__dK)d.splice(n,1);else{var o=_.__dL;"resize"!=e.type&&o.__l(e.target)||o.__b()}}},u=function(e){var n=d[e.id];n&&(n.__dK=!0),delete d[e.id]};_.exports={__n:function(e){u(e);var n={__dL:e};d.push(n),d[e.id]=n},__i:u,__g:function(){i||(r.on("mousedown keyup",f),t.on("resize",f)),i++},__j:function(){i>0&&(--i||(r.off("mousedown keyup",f),t.off("resize",f)))}}});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-monitor/index",["$"],(require,exports,module)=>{
+/*$*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@taobao.com
+ */
+var $ = require("$");
+var ICounter = 0;
+var Instances = [];
+var Doc = $(document);
+var Win = $(window);
+var Watcher = function (e) {
+    for (var i = Instances.length; i--;) {
+        var info = Instances[i];
+        if (info['@{destroyed}']) {
+            Instances.splice(i, 1);
+        }
+        else {
+            var view = info['@{view}'];
+            if (e.type == 'resize' || !view['@{inside}'](e.target)) {
+                view['@{hide}']();
+            }
+        }
+    }
+};
+var Remove = function (view) {
+    var info = Instances[view.id];
+    if (info) {
+        info['@{destroyed}'] = true;
+    }
+    delete Instances[view.id];
+};
+module.exports = {
+    '@{add}': function (view) {
+        Remove(view);
+        var info = {
+            '@{view}': view
+        };
+        Instances.push(info);
+        Instances[view.id] = info;
+    },
+    '@{remove}': Remove,
+    '@{setup}': function () {
+        if (!ICounter) {
+            Doc.on('mousedown keyup', Watcher);
+            Win.on('resize', Watcher);
+        }
+        ICounter++;
+    },
+    '@{teardown}': function () {
+        if (ICounter > 0) {
+            ICounter--;
+            if (!ICounter) {
+                Doc.off('mousedown keyup', Watcher);
+                Win.off('resize', Watcher);
+            }
+        }
+    }
+};
+
+});

@@ -1,1 +1,365 @@
-define("mx-table/index",["magix","$"],(t,e,i)=>{var f=t("magix"),r=t("$"),s=/width\s*:\s*(\d+)px/;f.applyStyle("_J","._eZ{width:100%;overflow:auto;border:1px solid #e6e6e6;position:relative}._f_,._fa thead,._fb{background-color:#fff}._f_,._fb{position:absolute;top:1px;width:auto;z-index:1}._fc{border:none}._f_{left:1px}._fb{right:1px}._fd,._fd thead{box-shadow:6px 0 6px -4px rgba(0,0,0,.2)}._fe,._fe thead{box-shadow:-6px 0 6px -4px rgba(0,0,0,.2)}"),i.exports=f.View.extend({init:function(t){var e=t.rwdRange;this.__fo=((e||[2,-1])+"").split(","),this.__ff=t.sticky+""=="true";var i=r("#"+this.id);this.__k=i,this.__fm=i.find("table"),this.__fg=t.rowHoverClass},__fq:function(t,e,i,f,s,_){var a=r('<table id="'+_+'" class="'+t+'"><thead><tr></tr></thead><tbody></tbody></table>');return this.__fp(a,e,i,f,s),a},__fp:function(t,e,i,f,_){for(var a=t.find("thead>tr:first"),h=a.find("th"),d=t.find("tbody"),n=d.find("tr"),o=e;o<i;o++){var l=f.eq(o),p=o-e>=h.length;"true"!==l.attr("fake")&&(r('<th fake="true"/>').css({height:l.outerHeight(),width:l.outerWidth()}).insertBefore(l),p?a.append(l):h.eq(o-e).replaceWith(l))}for(o=0;o<_.length;o++){for(var c=_.eq(o).find("td"),v=o>=n.length,g=void 0,u=(g=v?r("<tr/>"):n.eq(o)).find("td"),b=e;b<i;b++){var w=c.eq(b),m=(l=f.eq(b),b-e>=u.length);if("true"!==w.attr("fake")){r('<td fake="true"/>').css({height:w.outerHeight(),width:w.outerWidth()}).insertBefore(w);var x=l.attr("style").match(s);x&&w.css({width:parseInt(x[1])}),m?g.append(w):u.eq(b-e).replaceWith(w)}}v&&d.append(g)}for(o=_.length;o<n.length;o++)n.eq(o).remove()},__fr:function(t,e,i){for(var f=0,r=[],_=e.length;_--;){var a=e.eq(_).attr("style");if(a){var h=a.match(s);h&&(h=parseInt(h[1]),r.push(h),f+=h)}}if(f>i)t.css({width:f}),t.find("thead").css({width:f});else{r=r.reverse();_=e.length;for(var d=0;_--;){var n=Math.round(r[_]/f*i);_?d+=n:n=i-d,e.eq(_).css({width:n})}t.css({width:i}),t.find("thead").css({width:i})}},__fs:function(t,e){var i=t.find("tbody>tr:first>td");if(i.length==e.length)for(var f=e.length;f--;){var r=e.eq(f),_=i.eq(f),a=r.attr("style").match(s);a&&_.css({width:a[1]})}},__fn:function(t,e){for(var i=t.length;i--;){var f=t.eq(i);"true"!==f.attr("fake")&&f.css({height:f.outerHeight()})}for(i=e.length;i--;){var r=e.eq(i).find("td"),s=r.eq(0);s.css({height:s.outerHeight()}),(s=r.last()).css({height:s.outerHeight()})}},__ft:function(t){for(var e=0,i=t.find("thead>tr>th"),f=i.length;f--;){var r=i.eq(f).attr("style").match(s);r&&(e+=r=parseInt(r[1]))}t.css({width:e}),t.find("thead").css({width:e})},__fu:function(t,e,i,f,r){if(this.__fi)this.__fp(this.__fi,0,t,e,i),this.__ft(this.__fi);else if(t){var s="t_"+this.id+"_left",_=this.__fq(f.attr("class")+" _f_",0,t,e,i,s);_.appendTo(r),this.__fi=_,this.__ft(_),this.__ff&&this.owner.mountVframe(s,"mx-table/isticky")}},__fv:function(t,e,i,f,r){if(this.__fj)this.__fp(this.__fj,t+e.length,e.length,e,i),this.__ft(this.__fj);else if(t){var s="t_"+this.id+"_right",_=this.__fq(f.attr("class")+" _fb",t+e.length,e.length,e,i,s);_.appendTo(r),this.__fj=_,this.__ft(_),this.__ff&&this.owner.mountVframe(s,"mx-table/isticky")}},__fy:function(){var t=this,e=t.__k,i=t.__fm,s=t.__fw||i.find("thead>tr:first>th");if(delete t.__fw,!e.hasClass("_fa")){var _=e.wrapInner('<div class="_eZ"></div>').children().first();e.addClass("_ag _fa"),t.__fh=_,_.on("scroll",function(){e.prop("sl",_.prop("scrollLeft")),t.__fk()}),t.on("destroy",function(){_.off("scroll")}),i.addClass("_fc");var a=i.find("tfoot");a.length&&r('<table class="_aA"></table>').append(a).appendTo(e)}t.__fr(i,s,e.width()),t.__fs(i,s);var h=t.__fo,d=i.find("tbody>tr");if(t.__fn(s,d),t.__fu(+h[0],s,d,i,e),t.__fv(+h[1],s,d,i,e),t.__ff&&!t.__fx){t.__fx=1;var n=i.attr("id");n||i.attr("id",n=f.guid("table_")),t.owner.mountVframe(n,"mx-table/isticky")}},__fk:function(){var t=this.__fh;if(t){var e=this.__k.prop("sl");e&&t.prop("scrollLeft",e);var i=this.__fi,f=this.__fj;if(t.prop("clientWidth")<t.prop("scrollWidth")){if(i){t.prop("scrollLeft")>=10?i.hasClass("_fd")||i.addClass("_fd"):i.hasClass("_fd")&&i.removeClass("_fd")}if(f){t.prop("scrollLeft")<t.prop("scrollWidth")-t.prop("clientWidth")-10?f.hasClass("_fe")||f.addClass("_fe"):f.hasClass("_fe")&&f.removeClass("_fe")}}}},render:function(){this.__fy(),this.__fk()},"$doc<htmlchanged>":function(t){if(t.vId==this.owner.pId){var e=this.__fm,i=e.find("thead>tr:first>th"),f=e.find("tbody>tr:first>td");i.length!=f.length&&f.length||(this.__fw=i,this.render())}},"$tbody>tr<mouseover,mouseout>":function(t){var e=this.__fg;if(e){var i=t.eventTarget;if(!f.inside(t.relatedTarget,i)){var s=r(i).parents("tbody").find("tr"),_=s.index(i);s=this.__fm.find("tbody>tr");var a="mouseover"==t.type?"addClass":"removeClass";s.eq(_)[a](e);var h=this.__fi;h&&(s=h.find("tbody>tr")).eq(_)[a](e),(h=this.__fj)&&(s=h.find("tbody>tr")).eq(_)[a](e)}}},"$win<resize>":function(){var t=this.__k,e=this.__fm,i=e.find("thead>tr:first>th");this.__fr(e,i,t.width()),this.__fk()}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-table/index",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+var WidthReg = /width\s*:\s*(\d+)px/;
+Magix.applyStyle("__mx-table_index_","/* @dependent: ./index.less */\n.__mx-table_index_-wrapper {\n  width: 100%;\n  overflow: auto;\n  border: 1px solid #e6e6e6;\n  position: relative;\n}\n.__mx-table_index_-owner thead {\n  background-color: #fff;\n}\n.__mx-table_index_-left,\n.__mx-table_index_-right {\n  position: absolute;\n  top: 1px;\n  background-color: #fff;\n  width: auto;\n  z-index: 1;\n}\n.__mx-table_index_-table-no-border {\n  border: none;\n}\n.__mx-table_index_-left {\n  left: 1px;\n}\n.__mx-table_index_-right {\n  right: 1px;\n}\n.__mx-table_index_-left-active,\n.__mx-table_index_-left-active thead {\n  box-shadow: 6px 0 6px -4px rgba(0, 0, 0, 0.2);\n}\n.__mx-table_index_-right-active,\n.__mx-table_index_-right-active thead {\n  box-shadow: -6px 0 6px -4px rgba(0, 0, 0, 0.2);\n}\n");
+module.exports = Magix.View.extend({
+    init: function (extra) {
+        var me = this;
+        var range = extra.rwdRange;
+        me['@{rwd.range}'] = ((range || [2, -1]) + '').split(',');
+        me['@{sticky}'] = (extra.sticky + '') === 'true';
+        var node = $('#' + me.id);
+        me['@{owner.node}'] = node;
+        me['@{table.main}'] = node.find('table');
+        me['@{hover.class}'] = extra.rowHoverClass;
+    },
+    '@{table.insert}': function (className, start, end, ths, trs, id) {
+        var table = $('<table id="' + id + '" class="' + className + '"><thead><tr></tr></thead><tbody></tbody></table>');
+        this['@{table.sync.state}'](table, start, end, ths, trs);
+        return table;
+    },
+    '@{table.sync.state}': function (table, start, end, ths, trs) {
+        var theadTr = table.find('thead>tr:first');
+        var theadThs = theadTr.find('th');
+        var tbody = table.find('tbody');
+        var tbodyTrs = tbody.find('tr');
+        for (var i = start; i < end; i++) {
+            var th = ths.eq(i);
+            var insert = (i - start) >= theadThs.length;
+            if (th.attr('fake') !== 'true') {
+                $('<th fake="true"/>').css({
+                    height: th.outerHeight(),
+                    width: th.outerWidth()
+                }).insertBefore(th);
+                if (insert) {
+                    theadTr.append(th);
+                }
+                else {
+                    theadThs.eq(i - start).replaceWith(th);
+                }
+            }
+        }
+        for (var i = 0; i < trs.length; i++) {
+            var tds = trs.eq(i).find('td');
+            var insertTr = i >= tbodyTrs.length;
+            var tr = void 0;
+            if (insertTr) {
+                tr = $('<tr/>');
+            }
+            else {
+                tr = tbodyTrs.eq(i);
+            }
+            var trTds = tr.find('td');
+            for (var i_1 = start; i_1 < end; i_1++) {
+                var td = tds.eq(i_1);
+                var th = ths.eq(i_1);
+                var insertTd = (i_1 - start) >= trTds.length;
+                if (td.attr('fake') !== 'true') {
+                    $('<td fake="true"/>').css({
+                        height: td.outerHeight(),
+                        width: td.outerWidth()
+                    }).insertBefore(td);
+                    var style = th.attr('style');
+                    var m = style.match(WidthReg);
+                    if (m) {
+                        td.css({
+                            width: parseInt(m[1])
+                        });
+                    }
+                    if (insertTd) {
+                        tr.append(td);
+                    }
+                    else {
+                        trTds.eq(i_1 - start).replaceWith(td);
+                    }
+                }
+            }
+            if (insertTr) {
+                tbody.append(tr);
+            }
+        }
+        for (var i = trs.length; i < tbodyTrs.length; i++) {
+            tbodyTrs.eq(i).remove();
+        }
+    },
+    '@{table.sync.width}': function (table, ths, layoutWidth) {
+        var width = 0;
+        var thWds = [];
+        for (var i = ths.length; i--;) {
+            var style = ths.eq(i).attr('style');
+            if (style) {
+                var m = style.match(WidthReg);
+                if (m) {
+                    m = parseInt(m[1]);
+                    thWds.push(m);
+                    width += m;
+                }
+            }
+        }
+        if (width > layoutWidth) {
+            table.css({
+                width: width
+            });
+            table.find('thead').css({
+                width: width
+            });
+        }
+        else {
+            thWds = thWds.reverse();
+            for (var i = ths.length, tw = 0; i--;) {
+                var w = Math.round((thWds[i] / width) * layoutWidth);
+                if (!i)
+                    w = layoutWidth - tw;
+                else
+                    tw += w;
+                ths.eq(i).css({
+                    width: w
+                });
+            }
+            table.css({
+                width: layoutWidth
+            });
+            table.find('thead').css({
+                width: layoutWidth
+            });
+        }
+    },
+    '@{copy.table.main.thead.width.to.tbody}': function (table, ths) {
+        var bodyFirstTrTds = table.find('tbody>tr:first>td');
+        if (bodyFirstTrTds.length == ths.length) {
+            for (var i = ths.length; i--;) {
+                var th = ths.eq(i);
+                var td = bodyFirstTrTds.eq(i);
+                var style = th.attr('style');
+                var m = style.match(WidthReg);
+                if (m) {
+                    td.css({
+                        width: m[1]
+                    });
+                }
+            }
+        }
+    },
+    '@{sync.cell.height}': function (ths, trs) {
+        for (var i = ths.length; i--;) {
+            var th = ths.eq(i);
+            if (th.attr('fake') !== 'true') {
+                th.css({
+                    height: th.outerHeight()
+                });
+            }
+        }
+        for (var i = trs.length; i--;) {
+            var tr = trs.eq(i);
+            var tds = tr.find('td');
+            var td = tds.eq(0);
+            td.css({
+                height: td.outerHeight()
+            });
+            td = tds.last();
+            td.css({
+                height: td.outerHeight()
+            });
+        }
+    },
+    '@{sync.sticky.table.width}': function (table) {
+        var width = 0;
+        var ths = table.find('thead>tr>th');
+        for (var i = ths.length; i--;) {
+            var style = ths.eq(i).attr('style');
+            var m = style.match(WidthReg);
+            if (m) {
+                m = parseInt(m[1]);
+                width += m;
+            }
+        }
+        table.css({
+            width: width
+        });
+        table.find('thead').css({
+            width: width
+        });
+    },
+    '@{sync.left.sticky.table}': function (left, ths, trs, table, node) {
+        var me = this;
+        if (me['@{table.left}']) {
+            me['@{table.sync.state}'](me['@{table.left}'], 0, left, ths, trs);
+            me['@{sync.sticky.table.width}'](me['@{table.left}']);
+        }
+        else if (left) {
+            var id = 't_' + me.id + '_left';
+            var t = me['@{table.insert}'](table.attr('class') + ' __mx-table_index_-left', 0, left, ths, trs, id);
+            t.appendTo(node);
+            me['@{table.left}'] = t;
+            me['@{sync.sticky.table.width}'](t);
+            if (me['@{sticky}']) {
+                me.owner.mountVframe(id, 'mx-table/isticky');
+            }
+        }
+    },
+    '@{sync.right.sticky.table}': function (right, ths, trs, table, node) {
+        var me = this;
+        if (me['@{table.right}']) {
+            me['@{table.sync.state}'](me['@{table.right}'], right + ths.length, ths.length, ths, trs);
+            me['@{sync.sticky.table.width}'](me['@{table.right}']);
+        }
+        else if (right) {
+            var id = 't_' + me.id + '_right';
+            var t = me['@{table.insert}'](table.attr('class') + ' __mx-table_index_-right', right + ths.length, ths.length, ths, trs, id);
+            t.appendTo(node);
+            me['@{table.right}'] = t;
+            me['@{sync.sticky.table.width}'](t);
+            if (me['@{sticky}']) {
+                me.owner.mountVframe(id, 'mx-table/isticky');
+            }
+        }
+    },
+    '@{main.table.split}': function () {
+        var me = this;
+        var node = me['@{owner.node}'];
+        var table = me['@{table.main}'];
+        var ths = me['@{table.temp.ths}'] || table.find('thead>tr:first>th');
+        delete me['@{table.temp.ths}'];
+        if (!node.hasClass('__mx-table_index_-owner')) {
+            var sNode_1 = node.wrapInner('<div class="__mx-table_index_-wrapper"></div>').children().first();
+            node.addClass('__mx-style_index_-pr __mx-table_index_-owner');
+            me['@{scroll.node}'] = sNode_1;
+            sNode_1.on('scroll', function () {
+                node.prop('sl', sNode_1.prop('scrollLeft'));
+                me['@{sync.state}']();
+            });
+            me.on('destroy', function () {
+                sNode_1.off('scroll');
+            });
+            table.addClass('__mx-table_index_-table-no-border');
+            var tfoot = table.find('tfoot');
+            if (tfoot.length) {
+                $('<table class="__mx-style_index_-table"></table>')
+                    .append(tfoot)
+                    .appendTo(node);
+            }
+        }
+        me['@{table.sync.width}'](table, ths, node.width());
+        me['@{copy.table.main.thead.width.to.tbody}'](table, ths);
+        var r = me['@{rwd.range}'];
+        var trs = table.find('tbody>tr');
+        me['@{sync.cell.height}'](ths, trs);
+        me['@{sync.left.sticky.table}'](+r[0], ths, trs, table, node);
+        me['@{sync.right.sticky.table}'](+r[1], ths, trs, table, node);
+        if (me['@{sticky}'] && !me['@{setup.main.sticky}']) {
+            me['@{setup.main.sticky}'] = 1;
+            var id = table.attr('id');
+            if (!id) {
+                table.attr('id', id = Magix.guid('table_'));
+            }
+            me.owner.mountVframe(id, 'mx-table/isticky');
+        }
+    },
+    '@{sync.state}': function () {
+        var me = this;
+        var scroll = me['@{scroll.node}'];
+        if (!scroll)
+            return;
+        var node = me['@{owner.node}'];
+        var sLeft = node.prop('sl');
+        if (sLeft) {
+            scroll.prop('scrollLeft', sLeft);
+        }
+        var leftTable = me['@{table.left}'];
+        var rightTable = me['@{table.right}'];
+        if (scroll.prop('clientWidth') < scroll.prop('scrollWidth')) {
+            if (leftTable) {
+                var leftActive = '__mx-table_index_-left-active';
+                if (scroll.prop('scrollLeft') >= 10) {
+                    if (!leftTable.hasClass(leftActive)) {
+                        leftTable.addClass(leftActive);
+                    }
+                }
+                else {
+                    if (leftTable.hasClass(leftActive)) {
+                        leftTable.removeClass(leftActive);
+                    }
+                }
+            }
+            if (rightTable) {
+                var rightActive = '__mx-table_index_-right-active';
+                if (scroll.prop('scrollLeft') < scroll.prop('scrollWidth') - scroll.prop('clientWidth') - 10) {
+                    if (!rightTable.hasClass(rightActive)) {
+                        rightTable.addClass(rightActive);
+                    }
+                }
+                else {
+                    if (rightTable.hasClass(rightActive)) {
+                        rightTable.removeClass(rightActive);
+                    }
+                }
+            }
+        }
+    },
+    render: function () {
+        var me = this;
+        me['@{main.table.split}']();
+        me['@{sync.state}']();
+    },
+    '$doc<htmlchanged>': function (e) {
+        var me = this;
+        if (e.vId == me.owner.pId) {
+            var table = me['@{table.main}'];
+            var ths = table.find('thead>tr:first>th');
+            var tds = table.find('tbody>tr:first>td');
+            if (ths.length == tds.length || !tds.length) {
+                me['@{table.temp.ths}'] = ths;
+                me.render();
+            }
+        }
+    },
+    '$tbody>tr<mouseover,mouseout>': function (e) {
+        var me = this;
+        var hoverClass = me['@{hover.class}'];
+        if (hoverClass) {
+            var target = e.eventTarget;
+            var flag = !Magix.inside(e.relatedTarget, target);
+            if (flag) {
+                var trs = $(target).parents('tbody').find('tr');
+                var index = trs.index(target);
+                trs = me['@{table.main}'].find('tbody>tr');
+                var action = e.type == 'mouseover' ? 'addClass' : 'removeClass';
+                trs.eq(index)[action](hoverClass);
+                var table = me['@{table.left}'];
+                if (table) {
+                    trs = table.find('tbody>tr');
+                    trs.eq(index)[action](hoverClass);
+                }
+                table = me['@{table.right}'];
+                if (table) {
+                    trs = table.find('tbody>tr');
+                    trs.eq(index)[action](hoverClass);
+                }
+            }
+        }
+    },
+    '$win<resize>': function () {
+        var me = this;
+        var node = me['@{owner.node}'];
+        var table = me['@{table.main}'];
+        var ths = table.find('thead>tr:first>th');
+        this['@{table.sync.width}'](table, ths, node.width());
+        this['@{sync.state}']();
+    }
+});
+
+});

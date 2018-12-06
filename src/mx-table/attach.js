@@ -1,1 +1,168 @@
-define("mx-table/attach",["magix","$"],(t,f,i)=>{var e=t("magix"),_=t("$");e.applyStyle("_J","._eZ{width:100%;overflow:auto;border:1px solid #e6e6e6;position:relative}._f_,._fa thead,._fb{background-color:#fff}._f_,._fb{position:absolute;top:1px;width:auto;z-index:1}._fc{border:none}._f_{left:1px}._fb{right:1px}._fd,._fd thead{box-shadow:6px 0 6px -4px rgba(0,0,0,.2)}._fe,._fe thead{box-shadow:-6px 0 6px -4px rgba(0,0,0,.2)}"),i.exports=e.View.extend({init:function(t){this.__ff=t.sticky+""=="true",this.__fg=t.rowHoverClass},__fk:function(){var t=this.__fh;if(t){var f=this.__fi,i=this.__fj;if(t.prop("clientWidth")<t.prop("scrollWidth")){if(f){t.prop("scrollLeft")>=10?f.hasClass("_fd")||f.addClass("_fd"):f.hasClass("_fd")&&f.removeClass("_fd")}if(i){t.prop("scrollLeft")<t.prop("scrollWidth")-t.prop("clientWidth")-10?i.hasClass("_fe")||i.addClass("_fe"):i.hasClass("_fe")&&i.removeClass("_fe")}}}},__fl:function(t){var f=t.attr("id");f||t.attr("id",f=e.guid("table_")),t.find("thead").css({width:t.width()}),this.owner.mountVframe(f,"mx-table/isticky")},__fn:function(){var t,f,i=this.__fm,e=this.__fi,_=this.__fj,a=i.find("tbody>tr");e&&(t=e.find("tbody>tr")),_&&(f=_.find("tbody>tr"));for(var s=0;s<a.length;s++){var d=a.eq(s).find("td").outerHeight();t&&t.eq(s).find("td:first").css({height:d}),f&&f.eq(s).find("td:first").css({height:d})}},render:function(){var t=this,f=_("#"+t.id);f.addClass("_ag _fa");var i=f.find('[table-role="main"]');i.addClass("_eZ");var e=i.find("table");e.addClass("_fc"),t.__fm=e;var a=f.find('[table-role="left-sticky"]');a.length&&(a.addClass("_f_ _fc"),t.__fi=a);var s=f.find('[table-role="right-sticky"]');s.length&&(s.addClass("_fb _fc"),t.__fj=s),t.__fh=i;var d=function(){t.__fk()};t.on("destroy",function(){i.off("scroll",d)}),i.on("scroll",d),t.__fk(),t.__fn();t.__ff&&(t.__fl(e),a.length&&t.__fl(a),s.length&&t.__fl(s))},"$doc<htmlchanged>":function(t){t.vId==this.owner.pId&&this.__fn()},"$tbody>tr<mouseover,mouseout>":function(t){var f=this.__fg;if(f){var i=t.eventTarget;if(!e.inside(t.relatedTarget,i)){var a=_(i).parents("tbody").find("tr"),s=a.index(i);a=this.__fm.find("tbody>tr");var d="mouseover"==t.type?"addClass":"removeClass";a.eq(s)[d](f);var r=this.__fi;r&&(a=r.find("tbody>tr")).eq(s)[d](f),(r=this.__fj)&&(a=r.find("tbody>tr")).eq(s)[d](f)}}}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-table/attach",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/*
+ver:2.0.6
+*/
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("__mx-table_index_","/* @dependent: ./index.less */\n.__mx-table_index_-wrapper {\n  width: 100%;\n  overflow: auto;\n  border: 1px solid #e6e6e6;\n  position: relative;\n}\n.__mx-table_index_-owner thead {\n  background-color: #fff;\n}\n.__mx-table_index_-left,\n.__mx-table_index_-right {\n  position: absolute;\n  top: 1px;\n  background-color: #fff;\n  width: auto;\n  z-index: 1;\n}\n.__mx-table_index_-table-no-border {\n  border: none;\n}\n.__mx-table_index_-left {\n  left: 1px;\n}\n.__mx-table_index_-right {\n  right: 1px;\n}\n.__mx-table_index_-left-active,\n.__mx-table_index_-left-active thead {\n  box-shadow: 6px 0 6px -4px rgba(0, 0, 0, 0.2);\n}\n.__mx-table_index_-right-active,\n.__mx-table_index_-right-active thead {\n  box-shadow: -6px 0 6px -4px rgba(0, 0, 0, 0.2);\n}\n");
+module.exports = Magix.View.extend({
+    init: function (extra) {
+        var me = this;
+        me['@{sticky}'] = (extra.sticky + '') == 'true';
+        me['@{hover.class}'] = extra.rowHoverClass;
+    },
+    '@{sync.state}': function () {
+        var me = this;
+        var scroll = me['@{scroll.node}'];
+        if (!scroll)
+            return;
+        var leftTable = me['@{table.left}'];
+        var rightTable = me['@{table.right}'];
+        if (scroll.prop('clientWidth') < scroll.prop('scrollWidth')) {
+            if (leftTable) {
+                var leftActive = '__mx-table_index_-left-active';
+                if (scroll.prop('scrollLeft') >= 10) {
+                    if (!leftTable.hasClass(leftActive)) {
+                        leftTable.addClass(leftActive);
+                    }
+                }
+                else {
+                    if (leftTable.hasClass(leftActive)) {
+                        leftTable.removeClass(leftActive);
+                    }
+                }
+            }
+            if (rightTable) {
+                var rightActive = '__mx-table_index_-right-active';
+                if (scroll.prop('scrollLeft') < scroll.prop('scrollWidth') - scroll.prop('clientWidth') - 10) {
+                    if (!rightTable.hasClass(rightActive)) {
+                        rightTable.addClass(rightActive);
+                    }
+                }
+                else {
+                    if (rightTable.hasClass(rightActive)) {
+                        rightTable.removeClass(rightActive);
+                    }
+                }
+            }
+        }
+    },
+    '@{thead.sticky}': function (table) {
+        var id = table.attr('id');
+        if (!id) {
+            table.attr('id', id = Magix.guid('table_'));
+        }
+        table.find('thead').css({
+            width: table.width()
+        });
+        this.owner.mountVframe(id, 'mx-table/isticky');
+    },
+    '@{sync.cell.height}': function () {
+        var me = this;
+        var mainTable = me['@{table.main}'];
+        var leftTable = me['@{table.left}'];
+        var rightTable = me['@{table.right}'];
+        var mainTrs = mainTable.find('tbody>tr');
+        var leftTrs, rightTrs;
+        if (leftTable) {
+            leftTrs = leftTable.find('tbody>tr');
+        }
+        if (rightTable) {
+            rightTrs = rightTable.find('tbody>tr');
+        }
+        for (var i = 0; i < mainTrs.length; i++) {
+            var td = mainTrs.eq(i).find('td');
+            var height = td.outerHeight();
+            if (leftTrs) {
+                leftTrs.eq(i).find('td:first').css({
+                    height: height
+                });
+            }
+            if (rightTrs) {
+                rightTrs.eq(i).find('td:first').css({
+                    height: height
+                });
+            }
+        }
+    },
+    render: function () {
+        var me = this;
+        var node = $('#' + me.id);
+        node.addClass('__mx-style_index_-pr __mx-table_index_-owner');
+        var main = node.find('[table-role="main"]');
+        main.addClass('__mx-table_index_-wrapper');
+        var mainTable = main.find('table');
+        mainTable.addClass('__mx-table_index_-table-no-border');
+        me['@{table.main}'] = mainTable;
+        var leftTable = node.find('[table-role="left-sticky"]');
+        if (leftTable.length) {
+            leftTable.addClass('__mx-table_index_-left __mx-table_index_-table-no-border');
+            me['@{table.left}'] = leftTable;
+        }
+        var rightTable = node.find('[table-role="right-sticky"]');
+        if (rightTable.length) {
+            rightTable.addClass('__mx-table_index_-right __mx-table_index_-table-no-border');
+            me['@{table.right}'] = rightTable;
+        }
+        me['@{scroll.node}'] = main;
+        var scroll = function () {
+            me['@{sync.state}']();
+        };
+        me.on('destroy', function () {
+            main.off('scroll', scroll);
+        });
+        main.on('scroll', scroll);
+        me['@{sync.state}']();
+        me['@{sync.cell.height}']();
+        var sticky = me['@{sticky}'];
+        if (sticky) {
+            me['@{thead.sticky}'](mainTable);
+            if (leftTable.length) {
+                me['@{thead.sticky}'](leftTable);
+            }
+            if (rightTable.length) {
+                me['@{thead.sticky}'](rightTable);
+            }
+        }
+    },
+    '$doc<htmlchanged>': function (e) {
+        var me = this;
+        if (e.vId == me.owner.pId) {
+            me['@{sync.cell.height}']();
+        }
+    },
+    '$tbody>tr<mouseover,mouseout>': function (e) {
+        var me = this;
+        var hoverClass = me['@{hover.class}'];
+        if (hoverClass) {
+            var target = e.eventTarget;
+            var flag = !Magix.inside(e.relatedTarget, target);
+            if (flag) {
+                var trs = $(target).parents('tbody').find('tr');
+                var index = trs.index(target);
+                trs = me['@{table.main}'].find('tbody>tr');
+                var action = e.type == 'mouseover' ? 'addClass' : 'removeClass';
+                trs.eq(index)[action](hoverClass);
+                var table = me['@{table.left}'];
+                if (table) {
+                    trs = table.find('tbody>tr');
+                    trs.eq(index)[action](hoverClass);
+                }
+                table = me['@{table.right}'];
+                if (table) {
+                    trs = table.find('tbody>tr');
+                    trs.eq(index)[action](hoverClass);
+                }
+            }
+        }
+    }
+});
+
+});

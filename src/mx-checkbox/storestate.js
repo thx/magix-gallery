@@ -1,1 +1,99 @@
-define("mx-checkbox/storestate",["$","magix"],(e,t,a)=>{var n=e("$"),i=e("magix");a.exports={ctor:function(){var e=this;e.__av={};var t=function(t){var a=e.__av;n("#"+(t.id||e.id)+" input[linkage-parent]").each(function(e,t){var i=n(t).attr("linkage-parent"),r=a[i];r&&1==r[t.value]?t.checked=!0:t.checked=!1})};e.on("rendered",t),e.on("domready",t)},getStoreState:function(e){var t,a=this.__av,n=[];if(e)(t=a[e])&&(n=i.keys(t));else for(var r in a)(t=a[r])&&(n=n.concat(i.keys(t)));return n},"$input[linkage-parent]<change>":function(e){var t=n(e.eventTarget),a=t.val(),i=t.attr("linkage-parent");if(a){var r=this.__av[i];r||(r=this.__av[i]={}),t.prop("checked")?r[a]=1:delete r[a]}},"$input[linkage]<change>":function(e){var t=n(e.eventTarget).attr("linkage"),a=this.__av[t];a||(a=this.__av[t]={}),n("#"+this.id+" input[type=checkbox]").each(function(i,r){var c=(r=n(r)).attr("linkage-parent"),v=r.val();v&&c==t&&(e.target.checked?a[v]=1:delete a[v])})}}});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-checkbox/storestate",["$","magix"],(require,exports,module)=>{
+/*$,Magix*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var $ = require("$");
+var Magix = require("magix");
+module.exports = {
+    ctor: function () {
+        var me = this;
+        me['@{state.store}'] = {};
+        var ready = function (e) {
+            var state = me['@{state.store}'];
+            var ipts = $('#' + (e.id || me.id) + ' input[linkage-parent]');
+            ipts.each(function (idx, item) {
+                var linkName = $(item).attr('linkage-parent');
+                var object = state[linkName];
+                if (object && object[item.value] == 1) {
+                    item.checked = true;
+                }
+                else {
+                    item.checked = false;
+                }
+            });
+        };
+        me.on('rendered', ready);
+        me.on('domready', ready);
+    },
+    getStoreState: function (key) {
+        var store = this['@{state.store}'];
+        var keys = [];
+        var value;
+        if (key) {
+            value = store[key];
+            if (value) {
+                keys = Magix.keys(value);
+            }
+        }
+        else {
+            for (var p in store) {
+                value = store[p];
+                if (value) {
+                    keys = keys.concat(Magix.keys(value));
+                }
+            }
+        }
+        return keys;
+    },
+    '$input[linkage-parent]<change>': function (e) {
+        var me = this;
+        var node = $(e.eventTarget);
+        var value = node.val();
+        var linkName = node.attr('linkage-parent');
+        if (value) {
+            var object = me['@{state.store}'][linkName];
+            if (!object) {
+                object = me['@{state.store}'][linkName] = {};
+            }
+            if (node.prop('checked')) {
+                object[value] = 1;
+            }
+            else {
+                delete object[value];
+            }
+        }
+    },
+    '$input[linkage]<change>': function (e) {
+        var me = this;
+        var linkName = $(e.eventTarget).attr('linkage');
+        var object = me['@{state.store}'][linkName];
+        if (!object) {
+            object = me['@{state.store}'][linkName] = {};
+        }
+        $('#' + me.id + ' input[type=checkbox]').each(function (index, input) {
+            input = $(input);
+            var tempName = input.attr('linkage-parent');
+            var value = input.val();
+            if (value && tempName == linkName) {
+                if (e.target.checked) {
+                    object[value] = 1;
+                }
+                else {
+                    delete object[value];
+                }
+            }
+        });
+    }
+};
+
+});

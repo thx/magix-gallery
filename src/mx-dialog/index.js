@@ -1,1 +1,210 @@
-define("mx-dialog/index",["magix","$","./alert","./confirm"],(i,o,t)=>{var e=i("magix");i("./alert"),i("./confirm"),e.applyStyle("_m","._bZ{position:absolute}._c_{position:relative;background-color:#fff;border-radius:4px;border:1px solid #e6e6e6}._ca{position:absolute;cursor:pointer;opacity:.2;z-index:1;top:16px;right:10px}._ca:focus,._ca:hover{opacity:.5}._cb{font-size:22px;font-weight:normal}._cc{position:fixed;top:0;right:0;left:0;bottom:0;background-color:#000;opacity:.5;display:none}._cd{-webkit-filter:blur(3px);filter:blur(3px)}._ce{-webkit-animation:_b .3s;animation:_b .3s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}._cf{position:absolute;right:10px;top:0;width:1px;height:0}._cg{padding:80px 0}@-webkit-keyframes _b{0%{opacity:0}to{opacity:.5}}@keyframes _b{0%{opacity:0}to{opacity:.5}}._ch{-webkit-animation:_c .2s;animation:_c .2s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}@-webkit-keyframes _c{0%{opacity:.5}to{opacity:0}}@keyframes _c{0%{opacity:.5}to{opacity:0}}._ci{margin-bottom:50px;min-height:60px}._cj{position:fixed;width:100%;height:100%;overflow:auto;left:0;top:0}._ck{-webkit-animation:_d .3s;animation:_d .3s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}@-webkit-keyframes _d{0%{margin-top:-50px;opacity:0}to{margin-top:0;opacity:1}}@keyframes _d{0%{margin-top:-50px;opacity:0}to{margin-top:0;opacity:1}}._cl{-webkit-animation:_e .2s;animation:_e .2s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}@-webkit-keyframes _e{0%{margin-top:0;opacity:1}to{margin-top:-50px;opacity:0}}@keyframes _e{0%{margin-top:0;opacity:1}to{margin-top:-50px;opacity:0}}");var a=i("$"),n=a(window),c=500,d=[];t.exports=e.View.extend({tmpl:function(i,o){o=o||"";var t="",e={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},a=/[&<>"'`]/g,n=function(i){return null==i?"":""+i},c=function(i){return"&"+e[i]+";"},d=function(i){return n(i).replace(a,c)};return t+='<div class="_cc _ce" style="display:block;z-index:'+d(i.zIndex-1)+'" id="mask_'+d(i.viewId)+'"></div><div class="_cj" style="z-index:'+d(i.zIndex)+';"><div class="_bZ _ck" data-spm-protocol="i" id="body_'+d(i.viewId)+'" style="left:'+d(i.left)+"px;top:"+d(i.top)+"px;width:"+d(i.width)+'px;"><input id="focus_'+d(i.viewId)+'" class="_cf"/><span class="__ _cb _ca '+d(i.closable?"":"_ah")+'" mx-click="'+o+'__bn()">&#xe67f;</span><div class="_c_ _ci" id="cnt_'+d(i.viewId)+'"><div mxs="_8:_" class="_aC _cg"><span class="_aD"></span></div></div></div></div>'},init:function(i){var o=this,t=a("#app");o.on("destroy",function(){!function(i){for(var o=d.length-1;o>=0;o--)if(d[o].id==i.id){d.splice(o,1);break}}(o),500==(c-=2)&&t.removeClass("_cd"),a("#"+o.id).trigger("close").remove()}),e.has(i,"closable")||(i.closable=!0),o.updater.set(i),500==c&&t.addClass("_cd"),c+=2,d.push(o)},render:function(){var i=this,o=i.updater,t=o.get();o.set({zIndex:c,viewId:i.id}).digest(),a("#"+i.id).show(),a("#focus_"+i.id).focus(),i.owner.mountVframe("cnt_"+i.id,t.view,t),setTimeout(i.wrapAsync(function(){a("#body_"+i.id).removeClass("_ck"),a("#mask_"+i.id).removeClass("_ce")}),300)},__bm:function(i){e.Vframe.get("cnt_"+this.id).invoke("fire",["unload",i])},"__bn<click>":function(){a("#"+this.id).trigger("dlg_close")},"$doc<keyup>":function(i){if(27==i.keyCode){var o=d[d.length-1];if(o==this&&o.updater.get("closable")){a("#"+o.id).trigger("dlg_close")}}}},{__bo:function(i,o){var t=e.guid("dlg_");a(document.body).append('<div id="'+t+'" style="display:none" />');var n,c=i.owner.mountVframe(t,"mx-dialog/index",o),d=a("#"+t);return d.on("dlg_close",function(){if(!d.data("closing")&&!n){var o=function(){d.data("closing",1),a("#body_"+t).addClass("_cl"),a("#mask_"+t).addClass("_ch"),setTimeout(function(){i.owner&&i.owner.unmountVframe(t)},200)},e={prevent:function(){n=1},resolve:function(){e.p=1,n=0,o()},reject:function(){e.p=1,n=0}};c.invoke("__bm",[e]),n||e.p||o()}})},alert:function(i,o,t){this.confirm(i,o,null,t,"alert")},confirm:function(i,o,t,e,a){this.mxDialog("mx-dialog/"+(a||"confirm"),{body:i,cancelCallback:t,enterCallback:o,title:e,modal:!0,width:400,closable:!1,left:(n.width()-400)/2,top:Math.max((n.height()-220)/2,0)})},mxDialog:function(i,o){var t,a,c=this,d={view:i};return seajs.use(i,c.wrapAsync(function(r){var s="$dlg_"+i;c[s]||(c[s]=1,e.mix(d,r.dialogOptions),e.mix(d,o),d.width||(d.width=500),d.left||(d.left=(n.width()-d.width)/2),d.top||(d.top=100),d.dialog={close:function(){t&&t.trigger("dlg_close")}},(t=c.__bo(c,d)).on("close",function(){delete c[s],a&&a()}))})),{close:function(){t&&t.trigger("dlg_close")},whenClose:function(i){a=i}}}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-dialog/index",["magix","$","./alert","./confirm"],(require,exports,module)=>{
+/*Magix,$*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+require("./alert");
+require("./confirm");
+Magix.applyStyle("__mx-dialog_index_","/* @dependent: ./index.less */\n.__mx-dialog_index_-dialog {\n  position: absolute;\n}\n.__mx-dialog_index_-dialog-content {\n  position: relative;\n  background-color: #fff;\n  border-radius: 4px;\n  border: 1px solid #e6e6e6;\n}\n.__mx-dialog_index_-dialog-close {\n  position: absolute;\n  cursor: pointer;\n  opacity: 0.2;\n  z-index: 1;\n  top: 16px;\n  right: 10px;\n}\n.__mx-dialog_index_-dialog-close:hover,\n.__mx-dialog_index_-dialog-close:focus {\n  opacity: 0.5;\n}\n.__mx-dialog_index_-iconfont-ext {\n  font-size: 22px;\n  font-weight: normal;\n}\n.__mx-dialog_index_-dialog-backdrop {\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  background-color: #000;\n  opacity: 0.5;\n  display: none;\n}\n.__mx-dialog_index_-blur {\n  -webkit-filter: blur(3px);\n          filter: blur(3px);\n}\n.__mx-dialog_index_-anim-mask {\n  -webkit-animation: __mx-dialog_index_-fadein 0.3s;\n          animation: __mx-dialog_index_-fadein 0.3s;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n.__mx-dialog_index_-focus {\n  position: absolute;\n  right: 10px;\n  top: 0;\n  width: 1px;\n  height: 0px;\n}\n.__mx-dialog_index_-loading-ext {\n  padding: 80px 0;\n}\n@-webkit-keyframes __mx-dialog_index_-fadein {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 0.5;\n  }\n}\n@keyframes __mx-dialog_index_-fadein {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 0.5;\n  }\n}\n.__mx-dialog_index_-anim-mask-out {\n  -webkit-animation: __mx-dialog_index_-fadeout 0.2s;\n          animation: __mx-dialog_index_-fadeout 0.2s;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n@-webkit-keyframes __mx-dialog_index_-fadeout {\n  from {\n    opacity: 0.5;\n  }\n  to {\n    opacity: 0;\n  }\n}\n@keyframes __mx-dialog_index_-fadeout {\n  from {\n    opacity: 0.5;\n  }\n  to {\n    opacity: 0;\n  }\n}\n.__mx-dialog_index_-dialog-content-ext {\n  margin-bottom: 50px;\n  min-height: 60px;\n}\n.__mx-dialog_index_-scroll-cnt {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  overflow: auto;\n  left: 0;\n  top: 0;\n}\n.__mx-dialog_index_-anim-body {\n  -webkit-animation: __mx-dialog_index_-move 0.3s;\n          animation: __mx-dialog_index_-move 0.3s;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n@-webkit-keyframes __mx-dialog_index_-move {\n  from {\n    margin-top: -50px;\n    opacity: 0;\n  }\n  to {\n    margin-top: 0;\n    opacity: 1;\n  }\n}\n@keyframes __mx-dialog_index_-move {\n  from {\n    margin-top: -50px;\n    opacity: 0;\n  }\n  to {\n    margin-top: 0;\n    opacity: 1;\n  }\n}\n.__mx-dialog_index_-anim-body-out {\n  -webkit-animation: __mx-dialog_index_-moveup 0.2s;\n          animation: __mx-dialog_index_-moveup 0.2s;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n@-webkit-keyframes __mx-dialog_index_-moveup {\n  from {\n    margin-top: 0;\n    opacity: 1;\n  }\n  to {\n    margin-top: -50px;\n    opacity: 0;\n  }\n}\n@keyframes __mx-dialog_index_-moveup {\n  from {\n    margin-top: 0;\n    opacity: 1;\n  }\n  to {\n    margin-top: -50px;\n    opacity: 0;\n  }\n}\n");
+var $ = require("$");
+var Win = $(window);
+var DialogZIndex = 500;
+var CacheList = [];
+var RemoveCache = function (view) {
+    for (var i = CacheList.length - 1, one = void 0; i >= 0; i--) {
+        one = CacheList[i];
+        if (one.id == view.id) {
+            CacheList.splice(i, 1);
+            break;
+        }
+    }
+};
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', zIndex = $$.zIndex, viewId = $$.viewId, left = $$.left, top = $$.top, width = $$.width, closable = $$.closable; var $expr, $art, $line; try {
+    $p += '<div class="__mx-dialog_index_-dialog-backdrop __mx-dialog_index_-anim-mask" style="display:block;z-index:' + ($expr = '<%=zIndex - 1%>', $e(zIndex - 1)) + '" id="mask_' + ($expr = '<%=viewId%>', $e(viewId)) + '"></div><div mxv class="__mx-dialog_index_-scroll-cnt" style="z-index:' + ($expr = '<%=zIndex%>', $e(zIndex)) + ';"><div mxv class="__mx-dialog_index_-dialog __mx-dialog_index_-anim-body" data-spm-protocol="i" id="body_' + ($expr = '<%=viewId%>', $e(viewId)) + '" style="left:' + ($expr = '<%=left%>', $e(left)) + 'px;top:' + ($expr = '<%=top%>', $e(top)) + 'px;width:' + ($expr = '<%=width%>', $e(width)) + 'px;"><input id="focus_' + ($expr = '<%=viewId%>', $e(viewId)) + '" class="__mx-dialog_index_-focus"/><span class="__mx-style_index_-mc-iconfont __mx-dialog_index_-iconfont-ext __mx-dialog_index_-dialog-close ' + ($expr = '<%=closable ? \'\' : \'__mx-style_index_-none\'%>', $e(closable ? '' : '__mx-style_index_-none')) + '" mx-click="' + $viewId + '@{close}()">&#xe67f;</span><div class="__mx-dialog_index_-dialog-content __mx-dialog_index_-dialog-content-ext" id="cnt_' + ($expr = '<%=viewId%>', $e(viewId)) + '"><div mxs="_8:_" class="__mx-style_index_-loading __mx-dialog_index_-loading-ext"><span class="__mx-style_index_-loading-anim"></span></div></div></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dialog/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var me = this;
+        var app = $('#app');
+        me.on('destroy', function () {
+            RemoveCache(me);
+            DialogZIndex -= 2;
+            if (DialogZIndex == 500) {
+                app.removeClass('__mx-dialog_index_-blur');
+            }
+            $('#' + me.id).trigger('close').remove();
+        });
+        if (!Magix.has(extra, 'closable')) {
+            extra.closable = true;
+        }
+        me.updater.set(extra);
+        if (DialogZIndex == 500) {
+            app.addClass('__mx-dialog_index_-blur');
+        }
+        DialogZIndex += 2;
+        CacheList.push(me);
+    },
+    render: function () {
+        var me = this;
+        var updater = me.updater;
+        var data = updater.get();
+        updater.set({
+            zIndex: DialogZIndex,
+            viewId: me.id
+        }).digest();
+        $('#' + me.id).show();
+        $('#focus_' + me.id).focus();
+        me.owner.mountVframe('cnt_' + me.id, data.view, data);
+        setTimeout(me.wrapAsync(function () {
+            $('#body_' + me.id).removeClass('__mx-dialog_index_-anim-body');
+            $('#mask_' + me.id).removeClass('__mx-dialog_index_-anim-mask');
+        }), 300);
+    },
+    '@{notify.main.view.unload}': function (e) {
+        var vf = Magix.Vframe.get('cnt_' + this.id);
+        vf.invoke('fire', ['unload', e]);
+    },
+    '@{close}<click>': function () {
+        $('#' + this.id).trigger('dlg_close');
+    },
+    '$doc<keyup>': function (e) {
+        if (e.keyCode == 27) { //esc
+            var dlg = CacheList[CacheList.length - 1];
+            if (dlg == this && dlg.updater.get('closable')) {
+                var node = $('#' + dlg.id);
+                node.trigger('dlg_close');
+            }
+        }
+    }
+}, {
+    '@{dialog.show}': function (view, options) {
+        var id = Magix.guid('dlg_');
+        $(document.body).append('<div id="' + id + '" style="display:none" />');
+        var vf = view.owner.mountVframe(id, 'mx-dialog/index', options);
+        var node = $('#' + id);
+        var suspend;
+        return node.on('dlg_close', function () {
+            if (!node.data('closing') && !suspend) {
+                var resume_1 = function () {
+                    node.data('closing', 1);
+                    $('#body_' + id).addClass('__mx-dialog_index_-anim-body-out');
+                    $('#mask_' + id).addClass('__mx-dialog_index_-anim-mask-out');
+                    setTimeout(function () {
+                        if (view.owner) {
+                            view.owner.unmountVframe(id);
+                        }
+                    }, 200);
+                };
+                var e_1 = {
+                    prevent: function () {
+                        suspend = 1;
+                    },
+                    resolve: function () {
+                        e_1.p = 1;
+                        suspend = 0;
+                        resume_1();
+                    },
+                    reject: function () {
+                        e_1.p = 1;
+                        suspend = 0;
+                    }
+                };
+                vf.invoke('@{notify.main.view.unload}', [e_1]);
+                if (!suspend && !e_1.p) {
+                    resume_1();
+                }
+            }
+        });
+    },
+    alert: function (content, enterCallback, title) {
+        this.confirm(content, enterCallback, null, title, 'alert');
+    },
+    confirm: function (content, enterCallback, cancelCallback, title, view) {
+        this.mxDialog('mx-dialog/' + (view || 'confirm'), {
+            body: content,
+            cancelCallback: cancelCallback,
+            enterCallback: enterCallback,
+            title: title,
+            modal: true,
+            width: 400,
+            closable: false,
+            left: (Win.width() - 400) / 2,
+            top: Math.max((Win.height() - 220) / 2, 0)
+        });
+    },
+    mxDialog: function (view, options) {
+        var me = this;
+        var dlg;
+        var closeCallback;
+        var dOptions = {
+            view: view
+        };
+        seajs.use(view, me.wrapAsync(function (V) {
+            var key = '$dlg_' + view;
+            if (me[key])
+                return;
+            me[key] = 1;
+            Magix.mix(dOptions, V.dialogOptions);
+            Magix.mix(dOptions, options);
+            if (!dOptions.width)
+                dOptions.width = 500;
+            if (!dOptions.left)
+                dOptions.left = (Win.width() - dOptions.width) / 2;
+            if (!dOptions.top)
+                dOptions.top = 100;
+            dOptions.dialog = {
+                close: function () {
+                    if (dlg)
+                        dlg.trigger('dlg_close');
+                }
+            };
+            dlg = me['@{dialog.show}'](me, dOptions);
+            dlg.on('close', function () {
+                delete me[key];
+                if (closeCallback) {
+                    closeCallback();
+                }
+            });
+        }));
+        return {
+            close: function () {
+                if (dlg)
+                    dlg.trigger('dlg_close');
+            },
+            whenClose: function (fn) {
+                closeCallback = fn;
+            }
+        };
+    }
+});
+
+});

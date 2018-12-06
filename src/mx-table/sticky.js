@@ -1,1 +1,213 @@
-define("mx-table/sticky",["magix","$"],(t,_,i)=>{var s=t("magix"),n=t("$");i.exports=s.View.extend({init:function(t){var _=this;_.__fz=n("#header").height()||50;var i=n("#"+_.id).parents("_cj"),s=n("#inmain");i.length||s.length||(s=n(window),_.__fz=0);var f=i.parent(),h=function(){_.__fA(f)},e=function(){_.__fA(s)};_.on("destroy",function(){f.off("scroll",h),s.off("scroll",e)}),f.on("scroll",h),s.on("scroll",e),_.__fY=f,_.__fZ=i,_.__fB=s,_.__g_=t.zIndex},__fE:function(){var t=n("#"+this.id).find("table"),_=t.find("thead"),i=_.find("tr").last(),s=t.find("tbody>tr").eq(0),f="ph_"+this.id,h=n("#"+f),e=i.find("th"),o=s.find("td");o.length&&o.length==e.length&&(h.length||(h=n("<caption />").insertBefore(_).attr("id",f)),_.css({marginLeft:-1,border:"1px solid "+t.css("border-top-color"),position:"absolute",background:"#fff",zIndex:this.__g_||1})),this.__ga="abs",this.__fC=h,this.__k=t,this.__fD=_,this.__gb=s,this.__gc=o,this.__gd=e},__fI:function(){var t=n.now();if(!this.__fF||this.__fF+3e3<t){this.__fF=t;var _=this.__k,i=void 0,s=void 0;i=this.__fZ.length?_.position().top+parseInt(this.__fZ.css("top"),10):this.__fz?_.offset().top+this.__fB.scrollTop()-this.__fz:_.offset().top,s=_.height();var f=_.find("tfoot"),h=0;return f.length&&(h=f.height()),this.__fG={min:i,max:i+s-this.__fH-h}}return this.__fG},render:function(){this.__fE(),this.__ge(),this.__fJ(),this.__fA(this.__fY)},__fJ:function(){var t=this.__fD,_=this.__fC,i=t.height();i!=this.__fH&&("abs"==this.__ga&&t.css({marginTop:-i}),_.css("height",i),this.__fH=i)},__ge:function(){this.__fD.width(this.__gb.width()-1);var t,_=this.__gc,i=this.__gd;_.length>0&&_.length==i.length&&(_.each(function(_,s){s=n(s);var f=(t=n(i[_])).attr("width");f?(t.removeAttr("width"),s.attr("width",f)):(f=t.attr("style"))&&(t.removeAttr("style"),s.attr("style",f))}),_.each(function(_,s){s=n(s);(t=n(i[_])).children("div").length||t.wrapInner("<div/>"),t.children("div").width(s.width())}))},__fA:function(t){t||(t=this.__fB);var _=t.scrollTop(),i=this.__fI();if(_>i.min&&_<i.max){if("fixed"!=this.__ga){var s=this.__fY;this.__ga="fixed",this.__fD.css({position:"fixed",top:s&&s.length?0:this.__fz,marginTop:"auto"})}}else"abs"!=this.__ga&&(this.__ga="abs",this.__fD.css({marginTop:-this.__fH,position:"absolute",top:"auto"}))},"$win<resize>":function(){this.__ge(),this.__fJ()},"$doc<htmlchanged,navslidend>":function(t){var _=this;(s.inside(t.node,_.id)||t.vId==_.owner.pId||"navslidend"==t.type)&&(clearTimeout(_.__fX),_.__fX=setTimeout(function(){_.__fE(),_.__ge(),_.__fJ(),delete _.__fF,_.__fA(_.__fY)},0))}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-table/sticky",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+module.exports = Magix.View.extend({
+    init: function (extra) {
+        var me = this;
+        me['@{layout.header.height}'] = $('#header').height() || 50;
+        var dialog = $('#' + me.id).parents('__mx-dialog_index_-scroll-cnt');
+        var inmain = $('#inmain');
+        if (!dialog.length && !inmain.length) { //不存在
+            inmain = $(window);
+            me['@{layout.header.height}'] = 0;
+        }
+        var dialogScroll = dialog.parent();
+        var watchDialogScroll = function () {
+            me['@{sync.pos}'](dialogScroll);
+        };
+        var watchInmainScroll = function () {
+            me['@{sync.pos}'](inmain);
+        };
+        me.on('destroy', function () {
+            dialogScroll.off('scroll', watchDialogScroll);
+            inmain.off('scroll', watchInmainScroll);
+        });
+        dialogScroll.on('scroll', watchDialogScroll);
+        inmain.on('scroll', watchInmainScroll);
+        me['@{dialog.scroll.container}'] = dialogScroll;
+        me['@{dialog.node}'] = dialog;
+        me['@{layout.inmain}'] = inmain;
+        me['@{ui.zIndex}'] = extra.zIndex;
+    },
+    '@{sync.vars}': function () {
+        var me = this;
+        var owner = $('#' + me.id).find('table');
+        var thead = owner.find('thead');
+        var field = thead.find('tr').last();
+        var body = owner.find('tbody>tr').eq(0);
+        var ghostId = 'ph_' + me.id;
+        var ghost = $('#' + ghostId);
+        var fieldTds = field.find('th');
+        var bodyTds = body.find('td');
+        if (bodyTds.length && bodyTds.length == fieldTds.length) {
+            if (!ghost.length) {
+                ghost = $('<caption />').insertBefore(thead).attr('id', ghostId);
+            }
+            thead.css({
+                marginLeft: -1,
+                border: '1px solid ' + owner.css('border-top-color'),
+                position: 'absolute',
+                background: '#fff',
+                zIndex: me['@{ui.zIndex}'] || 1
+            });
+        }
+        me['@{ui.pos}'] = 'abs';
+        me['@{ghost.node}'] = ghost;
+        me['@{owner.node}'] = owner;
+        me['@{thead.node}'] = thead;
+        me['@{tbody.node}'] = body;
+        me['@{tbody.node.tds}'] = bodyTds;
+        me['@{thead.node.tds}'] = fieldTds;
+    },
+    '@{get.pos.info}': function () {
+        var me = this;
+        var now = $.now();
+        if (!me['@{ctrl.last.info}'] || me['@{ctrl.last.info}'] + 3000 < now) {
+            //console.log('cal');
+            me['@{ctrl.last.info}'] = now;
+            var owner = me['@{owner.node}'];
+            var top1 = void 0, height = void 0;
+            if (me['@{dialog.node}'].length) {
+                top1 = owner.position().top + parseInt(me['@{dialog.node}'].css('top'), 10);
+            }
+            else {
+                if (me['@{layout.header.height}']) {
+                    top1 = owner.offset().top + me['@{layout.inmain}'].scrollTop() - me['@{layout.header.height}'];
+                }
+                else {
+                    top1 = owner.offset().top;
+                }
+            }
+            height = owner.height();
+            var tfoot = owner.find('tfoot');
+            var tfh = 0;
+            if (tfoot.length) {
+                tfh = tfoot.height();
+            }
+            console.log(top1, height, tfh, me['@{thead.height}']);
+            return (me['@{temp.info}'] = {
+                min: top1,
+                max: top1 + height - me['@{thead.height}'] - tfh
+            });
+        }
+        return me['@{temp.info}'];
+    },
+    render: function () {
+        var me = this;
+        me['@{sync.vars}']();
+        me['@{sync.width}']();
+        me['@{sync.height}']();
+        me['@{sync.pos}'](me['@{dialog.scroll.container}']);
+    },
+    '@{sync.height}': function () {
+        var me = this;
+        var thead = me['@{thead.node}'];
+        var ghost = me['@{ghost.node}'];
+        var height = thead.height();
+        if (height != me['@{thead.height}']) {
+            if (me['@{ui.pos}'] == 'abs') {
+                thead.css({
+                    marginTop: -height
+                });
+            }
+            ghost.css('height', height);
+            me['@{thead.height}'] = height;
+        }
+    },
+    '@{sync.width}': function () {
+        var me = this;
+        me['@{thead.node}'].width(me['@{tbody.node}'].width() - 1);
+        var bodyTds = me['@{tbody.node.tds}'];
+        var fieldTds = me['@{thead.node.tds}'];
+        var td;
+        if (bodyTds.length > 0 && bodyTds.length == fieldTds.length) {
+            bodyTds.each(function (i, item) {
+                item = $(item);
+                td = $(fieldTds[i]);
+                var t = td.attr('width');
+                if (t) {
+                    td.removeAttr('width');
+                    item.attr('width', t);
+                }
+                else {
+                    t = td.attr('style');
+                    if (t) {
+                        td.removeAttr('style');
+                        item.attr('style', t);
+                    }
+                }
+            });
+            bodyTds.each(function (i, item) {
+                item = $(item);
+                td = $(fieldTds[i]);
+                var d = td.children('div');
+                if (!d.length) {
+                    td.wrapInner('<div/>');
+                }
+                td.children('div').width(item.width());
+            });
+        }
+    },
+    '@{sync.pos}': function (node) {
+        var me = this;
+        if (!node)
+            node = me['@{layout.inmain}'];
+        var top = node.scrollTop();
+        var info = me['@{get.pos.info}']();
+        if (top > info.min && top < info.max) {
+            if (me['@{ui.pos}'] != 'fixed') {
+                var ds = me['@{dialog.scroll.container}'];
+                me['@{ui.pos}'] = 'fixed';
+                me['@{thead.node}'].css({
+                    position: 'fixed',
+                    top: ds && ds.length ? 0 : me['@{layout.header.height}'],
+                    marginTop: 'auto'
+                });
+            }
+        }
+        else {
+            if (me['@{ui.pos}'] != 'abs') {
+                me['@{ui.pos}'] = 'abs';
+                me['@{thead.node}'].css({
+                    marginTop: -me['@{thead.height}'],
+                    position: 'absolute',
+                    top: 'auto'
+                });
+            }
+        }
+    },
+    '$win<resize>': function () {
+        this['@{sync.width}']();
+        this['@{sync.height}']();
+    },
+    '$doc<htmlchanged,navslidend>': function (e) {
+        var me = this;
+        if (Magix.inside(e.node, me.id) ||
+            e.vId == me.owner.pId ||
+            e.type == 'navslidend') {
+            clearTimeout(me['@{ctrl.timer}']);
+            me['@{ctrl.timer}'] = setTimeout(function () {
+                me['@{sync.vars}']();
+                me['@{sync.width}']();
+                me['@{sync.height}']();
+                delete me['@{ctrl.last.info}']; //如果界面重新渲染，我们立即获取相应的位置信息，不走缓存
+                me['@{sync.pos}'](me['@{dialog.scroll.container}']);
+            }, 0);
+        }
+    }
+});
+
+});

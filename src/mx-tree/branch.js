@@ -1,1 +1,200 @@
-define("mx-tree/branch",["magix","$","./branch"],(e,n,i)=>{e("./branch");var t=e("magix"),a=e("$"),r=t.Vframe;i.exports=t.View.extend({tmpl:function(e,n){n=n||"";var i="",t={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},a=/[&<>"'`]/g,r=function(e){return null==e?"":""+e},c=function(e){return"&"+t[e]+";"},l=function(e){return r(e).replace(a,c)},_=function(n,i,t){for(t=e[""];--t;)if(e[i=""+t]===n)return i;return e[i=""+e[""]++]=n,i},d={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},s=function(e){return d[e]},u=/[!')(*]/g,h=function(e){return encodeURIComponent(r(e)).replace(u,s)},o=/[\\'"]/g;i+="<ul>";for(var v,f=0;f<e.list.length;f++)v=e.list[f],i+='<li class="_fG',!f&&e.fromTop&&(i+=" _fM"),f==e.list.length-1&&(i+=" _fL"),i+='"><div class="_fH',v.children&&(i+=" _ad"),i+='" ',v.children&&(i+=' mx-click="'+n+"__aY({id:'"+l((p=v[e.valueKey],r(p).replace(o,"\\$&")))+"'})\" "),i+=">",v.children&&(i+='<span mxs="_-:_" class="_fI">+</span>'),i+='</div><div mxa="_-:_" class="_fJ"><label mxa="_-:a" class="_fK"><input class="_as _fO _aa" type="checkbox" mx-change="'+n+'__gm()" id="cb_'+l(e.id)+"_"+l(v[e.valueKey])+'" value="'+l(v[e.valueKey])+'" name="'+l(e.id)+'"/><span mxa="_-:b" class="_ac _fN _aa">'+l(v[e.textKey])+"</span></label></div>",v.children&&(i+='<div id="'+l(e.id)+"_"+l(v[e.valueKey])+'" class="_fF _ah" mx-view="mx-tree/branch?textKey='+r(h(e.textKey))+"&valueKey="+r(h(e.valueKey))+"&list=",i+=_(v.children),i+='"></div>'),i+="</li>";var p;return i+="</ul>"},init:function(e){this.updater.set(e)},render:function(){this.updater.digest({id:this.id})},__gG:function(){var e,n,i=this.id;return a("#"+i+' input[name="'+i+'"]').each(function(i,t){t.indeterminate?e=n=!0:t.checked?e=!0:n=!0}),e&&n?3:e?2:1},__gH:function(e){var n=this.owner.parent(),i=0;if(n){for(var t=0,c=n.children();t<c.length;t++){var l=c[t],_=r.get(l);_&&(i|=_.invoke("__gG"))}var d=a("#cb_"+e);3===i?d.prop("indeterminate",!0):(d.prop("indeterminate",!1),d.prop("checked",2==i)),n.invoke("__gH",[n.id])}},__cD:function(e){var n=this.id;a("#"+n+' input[name="'+n+'"]').prop("indeterminate",!1).prop("checked",e);for(var i=0,t=this.owner.children();i<t.length;i++){var c=t[i],l=r.get(c);l&&l.invoke("__cD",[e])}},"__aY<click>":function(e){var n=a("#"+this.id+"_"+e.params.id),i=a(e.eventTarget).find("span");"+"==a.trim(i.html())?(n.slideDown(),i.html("-")):(n.slideUp(),i.html("+"))},"__gm<change>":function(e){var n=r.get(this.id+"_"+e.eventTarget.value);n&&n.invoke("__cD",[e.eventTarget.checked]),this.__gH(this.id)}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-tree/branch",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@taobao.com
+ */
+
+var Magix = require("magix");
+var $ = require("$");
+var Vframe = Magix.Vframe;
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', list = $$.list, fromTop = $$.fromTop, valueKey = $$.valueKey, id = $$.id, textKey = $$.textKey; var $expr, $art, $line; try {
+    $p += '<ul mxv>';
+    $expr = '<%for (var i = 0, br; i < list.length; i++) {%>';
+    for (var i = 0, br; i < list.length; i++) {
+        ;
+        $p += ' ';
+        $expr = '<%br = list[i]%>';
+        br = list[i];
+        $p += '<li mxv class="__mx-tree_index_-li';
+        $expr = '<%if (!i && fromTop) {%>';
+        if (!i && fromTop) {
+            ;
+            $p += ' __mx-tree_index_-top-li-first';
+            $expr = '<%}%>';
+        }
+        ;
+        $expr = '<%if (i == list.length - 1) {%>';
+        if (i == list.length - 1) {
+            ;
+            $p += ' __mx-tree_index_-li-last';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '"><div class="__mx-tree_index_-icon';
+        $expr = '<%if (br.children) {%>';
+        if (br.children) {
+            ;
+            $p += ' __mx-style_index_-cp';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '" ';
+        $expr = '<%if (br.children) {%>';
+        if (br.children) {
+            ;
+            $p += ' mx-click="' + $viewId + '@{toggle}({id:\'' + ($expr = '<%=$eq(br[valueKey])%>', $e($eq(br[valueKey]))) + '\'})" ';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '>';
+        $expr = '<%if (br.children) {%>';
+        if (br.children) {
+            ;
+            $p += '<span mxs="_-:_" class="__mx-tree_index_-ricon">+</span>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div><div mxv mxa="_-:_" class="__mx-tree_index_-name"><label mxv mxa="_-:a" class="__mx-tree_index_-p0"><input class="__mx-style_index_-checkbox __mx-tree_index_-b-cb __mx-style_index_-fl" type="checkbox" mx-change="' + $viewId + '@{check}()" id="cb_' + ($expr = '<%=id%>', $e(id)) + '_' + ($expr = '<%=br[valueKey]%>', $e(br[valueKey])) + '" value="' + ($expr = '<%=br[valueKey]%>', $e(br[valueKey])) + '" name="' + ($expr = '<%=id%>', $e(id)) + '"/><span mxa="_-:b" class="__mx-style_index_-ib __mx-tree_index_-b-text __mx-style_index_-fl">' + ($expr = '<%=br[textKey]%>', $e(br[textKey])) + '</span></label></div>';
+        $expr = '<%if (br.children) {%>';
+        if (br.children) {
+            ;
+            $p += '<div mxv="list" id="' + ($expr = '<%=id%>', $e(id)) + '_' + ($expr = '<%=br[valueKey]%>', $e(br[valueKey])) + '" class="__mx-tree_index_-indent __mx-style_index_-none" mx-view="mx-tree/branch?textKey=' + ($expr = '<%!$eu(textKey)%>', $eu(textKey)) + '&valueKey=' + ($expr = '<%!$eu(valueKey)%>', $eu(valueKey)) + '&list=' + ($expr = '<%@br.children%>', $i($$ref, br.children)) + '"></div>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</li>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</ul>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-tree/branch.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var me = this;
+        me.updater.set(extra);
+    },
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            id: me.id
+        });
+    },
+    '@{getCheckedState}': function () {
+        var me = this;
+        var id = me.id;
+        var hasChecked, hasUnchecked;
+        $('#' + id + ' input[name="' + id + '"]').each(function (i, n) {
+            if (n.indeterminate) {
+                hasChecked = hasUnchecked = true;
+            }
+            else if (n.checked) {
+                hasChecked = true;
+            }
+            else {
+                hasUnchecked = true;
+            }
+        });
+        if (hasChecked && hasUnchecked) {
+            return 3;
+        }
+        else if (hasChecked) {
+            return 2;
+        }
+        return 1;
+    },
+    '@{checkParentState}': function (key) {
+        var me = this;
+        var parent = me.owner.parent();
+        var state = 0;
+        if (parent) {
+            var children = parent.children();
+            for (var _i = 0, children_1 = children; _i < children_1.length; _i++) {
+                var c = children_1[_i];
+                var vf = Vframe.get(c);
+                if (vf) {
+                    state |= vf.invoke('@{getCheckedState}');
+                }
+            }
+            var node = $('#cb_' + key);
+            if (state === 3) {
+                node.prop('indeterminate', true);
+            }
+            else {
+                node.prop('indeterminate', false);
+                node.prop('checked', state == 2);
+            }
+            parent.invoke('@{checkParentState}', [parent.id]);
+        }
+    },
+    '@{checkAll}': function (state) {
+        var me = this;
+        var id = me.id;
+        $('#' + id + ' input[name="' + id + '"]')
+            .prop('indeterminate', false)
+            .prop('checked', state);
+        var owner = me.owner;
+        var children = owner.children();
+        for (var _i = 0, children_2 = children; _i < children_2.length; _i++) {
+            var c = children_2[_i];
+            var vf = Vframe.get(c);
+            if (vf) {
+                vf.invoke('@{checkAll}', [state]);
+            }
+        }
+    },
+    '@{toggle}<click>': function (e) {
+        var node = $('#' + this.id + '_' + e.params.id);
+        var current = $(e.eventTarget).find('span');
+        var val = $.trim(current.html());
+        if (val == '+') {
+            node.slideDown();
+            current.html('-');
+        }
+        else {
+            node.slideUp();
+            current.html('+');
+        }
+    },
+    '@{check}<change>': function (e) {
+        var me = this;
+        var vf = Vframe.get(me.id + '_' + e.eventTarget.value);
+        if (vf) {
+            vf.invoke('@{checkAll}', [e.eventTarget.checked]);
+        }
+        me['@{checkParentState}'](me.id);
+    }
+});
+
+});

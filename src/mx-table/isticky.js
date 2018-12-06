@@ -1,1 +1,118 @@
-define("mx-table/isticky",["magix","$"],(i,t,_)=>{"use strict";t.__esModule=!0;var s=i("magix"),f=i("$");_.exports=s.View.extend({init:function(){var i=this;i.__fz=f("#header").height()||50;var t=f("#inmain");t.length||(t=f(window),i.__fz=0);var _=function(){i.__fA(t)};i.on("destroy",function(){t.off("scroll",_)}),t.on("scroll",_),i.__fB=t},__fE:function(){var i=f("#"+this.id),t=i.find("thead"),_="ph_"+this.id,s=f("#"+_);s.length||(s=f("<caption />").insertBefore(t).attr("id",_)),t.css({position:"absolute",zIndex:1}),this.__fC=s,this.__k=i,this.__fD=t},__fI:function(){var i=f.now();if(!this.__fF||this.__fF+3e3<i){this.__fF=i;var t=this.__k,_=void 0,s=void 0;_=this.__fz?t.offset().top+this.__fB.scrollTop()-this.__fz:t.offset().top,s=t.height();var n=t.find("tfoot"),o=0;return n.length&&(o=n.height()),this.__fG={min:_,max:_+s-this.__fH-o}}return this.__fG},render:function(){var i=this;i.__fE(),i.__fJ(),setTimeout(i.wrapAsync(function(){i.__fA(i.__fB)}),0)},__fJ:function(){var i=this.__fD,t=this.__fC,_=i.height();_!=this.__fH&&(i.css({marginTop:-_}),t.css("height",_),this.__fH=_)},__fA:function(i){var t=i.scrollTop(),_=this.__fI(),s=this.__fK;t>_.min&&t<_.max?(this.__fK="s",this.__fD.css({top:t-_.min,marginTop:"auto"})):"i"!=s&&(this.__fK="i",this.__fD.css({marginTop:-this.__fH,position:"absolute",top:"auto"}))}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-table/isticky",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+"use strict";
+exports.__esModule = true;
+var Magix = require("magix");
+var $ = require("$");
+module.exports = Magix.View.extend({
+    init: function () {
+        var me = this;
+        me['@{layout.header.height}'] = $('#header').height() || 50;
+        var inmain = $('#inmain');
+        if (!inmain.length) {
+            inmain = $(window);
+            me['@{layout.header.height}'] = 0;
+        }
+        var watchInmainScroll = function () {
+            me['@{sync.pos}'](inmain);
+        };
+        me.on('destroy', function () {
+            inmain.off('scroll', watchInmainScroll);
+        });
+        inmain.on('scroll', watchInmainScroll);
+        me['@{layout.inmain}'] = inmain;
+    },
+    '@{sync.vars}': function () {
+        var me = this;
+        var owner = $('#' + me.id);
+        var thead = owner.find('thead');
+        var ghostId = 'ph_' + me.id;
+        var ghost = $('#' + ghostId);
+        if (!ghost.length) {
+            ghost = $('<caption />').insertBefore(thead).attr('id', ghostId);
+        }
+        thead.css({
+            position: 'absolute',
+            zIndex: 1
+        });
+        me['@{ghost.node}'] = ghost;
+        me['@{owner.node}'] = owner;
+        me['@{thead.node}'] = thead;
+    },
+    '@{get.pos.info}': function () {
+        var me = this;
+        var now = $.now();
+        if (!me['@{ctrl.last.info}'] || me['@{ctrl.last.info}'] + 3000 < now) {
+            me['@{ctrl.last.info}'] = now;
+            var owner = me['@{owner.node}'];
+            var top1 = void 0, height = void 0;
+            if (me['@{layout.header.height}']) {
+                top1 = owner.offset().top + me['@{layout.inmain}'].scrollTop() - me['@{layout.header.height}'];
+            }
+            else {
+                top1 = owner.offset().top;
+            }
+            height = owner.height();
+            var tfoot = owner.find('tfoot');
+            var tfh = 0;
+            if (tfoot.length) {
+                tfh = tfoot.height();
+            }
+            return (me['@{temp.info}'] = {
+                min: top1,
+                max: top1 + height - me['@{thead.height}'] - tfh
+            });
+        }
+        return me['@{temp.info}'];
+    },
+    render: function () {
+        var me = this;
+        me['@{sync.vars}']();
+        me['@{sync.height}']();
+        setTimeout(me.wrapAsync(function () {
+            me['@{sync.pos}'](me['@{layout.inmain}']);
+        }), 0);
+    },
+    '@{sync.height}': function () {
+        var me = this;
+        var thead = me['@{thead.node}'];
+        var ghost = me['@{ghost.node}'];
+        var height = thead.height();
+        if (height != me['@{thead.height}']) {
+            thead.css({
+                marginTop: -height
+            });
+            ghost.css('height', height);
+            me['@{thead.height}'] = height;
+        }
+    },
+    '@{sync.pos}': function (node) {
+        var me = this;
+        var top = node.scrollTop();
+        var info = me['@{get.pos.info}']();
+        var pi = me['@{pos.info}'];
+        if (top > info.min && top < info.max) {
+            me['@{pos.info}'] = 's';
+            me['@{thead.node}'].css({
+                top: top - info.min,
+                marginTop: 'auto'
+            });
+        }
+        else if (pi != 'i') {
+            me['@{pos.info}'] = 'i';
+            me['@{thead.node}'].css({
+                marginTop: -me['@{thead.height}'],
+                position: 'absolute',
+                top: 'auto'
+            });
+        }
+    }
+});
+
+});

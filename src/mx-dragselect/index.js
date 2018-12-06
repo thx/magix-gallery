@@ -1,1 +1,280 @@
-define("mx-dragselect/index",["magix","../mx-dragdrop/index","../mx-runner/index","$"],(t,i,e)=>{var _=t("magix"),h=t("../mx-dragdrop/index"),n=t("../mx-runner/index"),a=t("$");_.applyStyle("_n","._cm{left:-1000px;top:0;background:#5665eb;position:absolute;opacity:.3;border:1px solid #4d4fa8}");var r=_.guid("area_"),d=a(window),o=a(document),s=function(){var t=a("#"+r);t.length||(t=a('<div id="'+r+'" class="_cm" />').appendTo("body"))},b=function(t,i,e,_){a("#"+r).css({left:t,top:i,width:e,height:_})},g=function(){a("#"+r).css({left:-1e5})},c=function(t,i){var e=t.width/2,_=t.height/2,h=i.width/2,n=i.height/2,a=t.x+e,r=t.y+_,d=i.x+h,o=i.y+n;return Math.abs(d-a)<=e+h&&Math.abs(o-r)<=_+n};e.exports=_.View.extend({mixins:[h],init:function(t){var i=this,e=a("#"+i.id);e.on("mousedown",function(t){t.preventDefault(),i.__bq(t)}),e.on("click",function(t){if(!i.__br){var _=i.__bs(t.target);_&&e.trigger({type:"change",action:"add",mode:"click",node:_})}delete i.__br}),i.on("destroy",function(){e.off("mousedown click")}),i.__bt=t.selector,i.__k=e},__bs:function(t){for(var i=null,e=this.__k[0];e!=t;){if(t.parentNode==e){i=t;break}t=t.parentNode}return i&&this.__bt&&(a.find.matchesSelector(i,this.__bt)||(i=null)),i},__bu:function(){for(var t=[],i=0,e=0,_=this.__bt?this.__k.find(this.__bt):this.__k.children();e<_.length;e++){var h=_[e],n=a(h),r=n.offset();t.push({id:i++,c:h,x:r.left,y:r.top,width:n.width(),height:n.height()})}return t},__bz:function(t){var i={x:t.pageX,y:t.pageY},e=this.__bv;i.x<e.x?i.x=e.x:i.x>e.x+e.width&&(i.x=e.x+e.width),i.y<e.y?i.y=e.y:i.y>e.y+e.height&&(i.y=e.y+e.height);var _=this.__bw,h=Math.min(i.x,_.x),n=Math.min(i.y,_.y),a=Math.abs(i.x-_.x),r=Math.abs(i.y-_.y);b(h,n,a,r);for(var d=this.__bx,o={x:h,y:n,width:a,height:r},s=this.__by,g=0,f=d;g<f.length;g++){var x=f[g];c(o,x)?1!==s[x.id]&&(s[x.id]=1,this.__k.trigger({type:"change",action:"add",mode:"drag",node:x.c})):1===s[x.id]&&(delete s[x.id],this.__k.trigger({type:"change",action:"remove",mode:"drag",node:x.c}))}},__bq:function(t){if(1===t.which){var i=this;i.__bw={x:t.pageX,y:t.pageY};var e=i.__k,_=e.offset();i.__bv={x:_.left,y:_.top,width:e.width(),height:e.height()},i.__by={},s(),e.trigger("dragbegin"),i.dragdrop(t.target,function(t){i.__bA(t)},function(t){i.__bB(t)})}},__bA:function(t){if(!this.__br){var i=this.__bw;(Math.abs(t.pageX-i.x)>5||Math.abs(t.pageY-i.y)>5)&&(this.__br=!0)}this.__br&&(this.__bx||(this.__bx=this.__bu()),this.__bC=t,this.__bD(),this.__bz(t))},__bB:function(){this.__bE(),g(),delete this.__bC,delete this.__bw,delete this.__bv,delete this.__bx,delete this.__by,this.__k.trigger("dragfinish")},__bD:function(){var t=this;t.__bF||(t.__bF=function(){var i=0,e=0,_=t.__bC,h=d.scrollTop(),n=d.height(),a=o.height(),r=o.width(),s=d.width(),b=d.scrollLeft();_.pageX-b<20&&b>0?i=-Math.min(7,b):b+s-_.pageX<20&&b+s<r&&(i=Math.min(7,r-s-b)),_.pageY-h<20&&h>0?e=-Math.min(7,h):h+n-_.pageY<20&&h+n<a&&(e=Math.min(7,a-n-h)),(i||e)&&(_.pageX+=i,_.pageY+=e,t.__bz(_),window.scrollBy(i,e))},n.__ai(30,t.__bF))},__bE:function(){this.__bF&&(n.__ak(this.__bF),delete this.__bF)}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-dragselect/index",["magix","../mx-dragdrop/index","../mx-runner/index","$"],(require,exports,module)=>{
+/*Magix,DD,Runner,$*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+var DD = require("../mx-dragdrop/index");
+var Runner = require("../mx-runner/index");
+var $ = require("$");
+Magix.applyStyle("__mx-dragselect_index_","/* @dependent: ./index.less */\n.__mx-dragselect_index_-area {\n  left: -1000px;\n  top: 0;\n  background: #5665EB;\n  position: absolute;\n  opacity: 0.3;\n  border: solid 1px #4D4FA8;\n}\n");
+var AreaId = Magix.guid('area_');
+var Win = $(window);
+var Doc = $(document);
+var SCROLL_OFFSET = 20;
+var SCROLL_STEP = 7;
+var SCROLL_INTERVAL = 30;
+var UI = {
+    '@{start}': function () {
+        var node = $('#' + AreaId);
+        if (!node.length) {
+            node = $('<div id="' + AreaId + '" class="__mx-dragselect_index_-area" />').appendTo('body');
+        }
+    },
+    '@{update}': function (x, y, width, height) {
+        var node = $('#' + AreaId);
+        node.css({
+            left: x,
+            top: y,
+            width: width,
+            height: height
+        });
+    },
+    '@{end}': function () {
+        var node = $('#' + AreaId);
+        node.css({
+            left: -1e5
+        });
+    }
+};
+var rectIntersect = function (rect1, rect2) {
+    var half1Width = rect1.width / 2, half1Height = rect1.height / 2, half2Width = rect2.width / 2, half2Height = rect2.height / 2, cen1 = {
+        x: rect1.x + half1Width,
+        y: rect1.y + half1Height
+    }, cen2 = {
+        x: rect2.x + half2Width,
+        y: rect2.y + half2Height
+    };
+    return Math.abs(cen2.x - cen1.x) <= half1Width + half2Width &&
+        Math.abs(cen2.y - cen1.y) <= half1Height + half2Height;
+};
+module.exports = Magix.View.extend({
+    mixins: [DD],
+    init: function (extra) {
+        var me = this;
+        var oNode = $('#' + me.id);
+        oNode.on('mousedown', function (e) {
+            e.preventDefault();
+            me['@{drag.start}'](e);
+        });
+        oNode.on('click', function (e) {
+            if (!me['@{has.moved}']) {
+                var node = me['@{findDirectChild}'](e.target);
+                if (node) {
+                    oNode.trigger({
+                        type: 'change',
+                        action: 'add',
+                        mode: 'click',
+                        node: node
+                    });
+                }
+            }
+            delete me['@{has.moved}'];
+        });
+        me.on('destroy', function () {
+            oNode.off('mousedown click');
+        });
+        me['@{sub.selector}'] = extra.selector;
+        me['@{owner.node}'] = oNode;
+    },
+    '@{findDirectChild}': function (node) {
+        var me = this, result = null, zone = me['@{owner.node}'][0];
+        while (zone != node) {
+            if (node.parentNode == zone) {
+                result = node;
+                break;
+            }
+            else {
+                node = node.parentNode;
+            }
+        }
+        if (result && me['@{sub.selector}']) {
+            if (!$.find.matchesSelector(result, me['@{sub.selector}'])) {
+                result = null;
+            }
+        }
+        return result;
+    },
+    '@{collectRects}': function () {
+        var me = this;
+        var children = me['@{sub.selector}'] ? me['@{owner.node}'].find(me['@{sub.selector}']) : me['@{owner.node}'].children();
+        var rects = [], count = 0;
+        for (var _i = 0, children_1 = children; _i < children_1.length; _i++) {
+            var c = children_1[_i];
+            var $c = $(c);
+            var offset = $c.offset();
+            rects.push({
+                id: count++,
+                c: c,
+                x: offset.left,
+                y: offset.top,
+                width: $c.width(),
+                height: $c.height()
+            });
+        }
+        return rects;
+    },
+    '@{area.change}': function (e) {
+        var me = this;
+        var newPos = {
+            x: e.pageX,
+            y: e.pageY
+        };
+        var range = me['@{drag.range}'];
+        if (newPos.x < range.x) {
+            newPos.x = range.x;
+        }
+        else if (newPos.x > range.x + range.width) {
+            newPos.x = range.x + range.width;
+        }
+        if (newPos.y < range.y) {
+            newPos.y = range.y;
+        }
+        else if (newPos.y > range.y + range.height) {
+            newPos.y = range.y + range.height;
+        }
+        var oldPos = me['@{drag.info}'];
+        var x = Math.min(newPos.x, oldPos.x);
+        var y = Math.min(newPos.y, oldPos.y);
+        var width = Math.abs(newPos.x - oldPos.x);
+        var height = Math.abs(newPos.y - oldPos.y);
+        UI['@{update}'](x, y, width, height);
+        var rects = me['@{sub.nodes.rect}'];
+        var area = {
+            x: x, y: y, width: width, height: height
+        };
+        var map = me['@{temp.map}'];
+        for (var _i = 0, rects_1 = rects; _i < rects_1.length; _i++) {
+            var rect = rects_1[_i];
+            if (rectIntersect(area, rect)) {
+                if (map[rect.id] !== 1) {
+                    map[rect.id] = 1;
+                    me['@{owner.node}'].trigger({
+                        type: 'change',
+                        action: 'add',
+                        mode: 'drag',
+                        node: rect.c
+                    });
+                }
+            }
+            else if (map[rect.id] === 1) {
+                delete map[rect.id];
+                me['@{owner.node}'].trigger({
+                    type: 'change',
+                    action: 'remove',
+                    mode: 'drag',
+                    node: rect.c
+                });
+            }
+        }
+    },
+    '@{drag.start}': function (e) {
+        if (e.which === 1) {
+            var me_1 = this;
+            me_1['@{drag.info}'] = {
+                x: e.pageX,
+                y: e.pageY
+            };
+            var node = me_1['@{owner.node}'];
+            var offset = node.offset();
+            me_1['@{drag.range}'] = {
+                x: offset.left,
+                y: offset.top,
+                width: node.width(),
+                height: node.height()
+            };
+            me_1['@{temp.map}'] = {};
+            UI['@{start}']();
+            node.trigger('dragbegin');
+            me_1.dragdrop(e.target, function (e) {
+                me_1['@{drag.move}'](e);
+            }, function (e) {
+                me_1['@{drag.end}'](e);
+            });
+        }
+    },
+    '@{drag.move}': function (e) {
+        var me = this;
+        if (!me['@{has.moved}']) {
+            var last = me['@{drag.info}'];
+            if (Math.abs(e.pageX - last.x) > 5 || Math.abs(e.pageY - last.y) > 5) {
+                me['@{has.moved}'] = true;
+            }
+        }
+        if (me['@{has.moved}']) {
+            if (!me['@{sub.nodes.rect}']) {
+                me['@{sub.nodes.rect}'] = me['@{collectRects}']();
+            }
+            me['@{move.event}'] = e;
+            me['@{start.win.scroll}']();
+            me['@{area.change}'](e);
+        }
+    },
+    '@{drag.end}': function () {
+        var me = this;
+        me['@{stop.win.scroll}']();
+        UI['@{end}']();
+        delete me['@{move.event}'];
+        delete me['@{drag.info}'];
+        delete me['@{drag.range}'];
+        delete me['@{sub.nodes.rect}'];
+        delete me['@{temp.map}'];
+        //delete me['@{has.moved}'];
+        me['@{owner.node}'].trigger('dragfinish');
+    },
+    '@{start.win.scroll}': function () {
+        var me = this;
+        if (!me['@{fn.win.scroll}']) {
+            me['@{fn.win.scroll}'] = function () {
+                var tx = 0, ty = 0, e = me['@{move.event}'];
+                var scrollTop = Win.scrollTop();
+                var winHeight = Win.height();
+                var maxHeight = Doc.height();
+                var maxWidth = Doc.width();
+                var winWidth = Win.width();
+                var scrollLeft = Win.scrollLeft();
+                if (e.pageX - scrollLeft < SCROLL_OFFSET &&
+                    scrollLeft > 0) {
+                    tx = -Math.min(SCROLL_STEP, scrollLeft);
+                }
+                else if (scrollLeft + winWidth - e.pageX < SCROLL_OFFSET &&
+                    scrollLeft + winWidth < maxWidth) {
+                    tx = Math.min(SCROLL_STEP, maxWidth - winWidth - scrollLeft);
+                }
+                if (e.pageY - scrollTop < SCROLL_OFFSET &&
+                    scrollTop > 0) {
+                    ty = -Math.min(SCROLL_STEP, scrollTop);
+                }
+                else if (scrollTop + winHeight - e.pageY < SCROLL_OFFSET &&
+                    scrollTop + winHeight < maxHeight) {
+                    ty = Math.min(SCROLL_STEP, maxHeight - winHeight - scrollTop);
+                }
+                if (tx || ty) {
+                    e.pageX += tx;
+                    e.pageY += ty;
+                    me['@{area.change}'](e);
+                    window.scrollBy(tx, ty);
+                }
+            };
+            Runner['@{task.add}'](SCROLL_INTERVAL, me['@{fn.win.scroll}']);
+        }
+    },
+    '@{stop.win.scroll}': function () {
+        var me = this;
+        if (me['@{fn.win.scroll}']) {
+            Runner['@{task.remove}'](me['@{fn.win.scroll}']);
+            delete me['@{fn.win.scroll}'];
+        }
+    }
+});
+
+});

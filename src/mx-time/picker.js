@@ -1,1 +1,154 @@
-define("mx-time/picker",["magix","$","../mx-monitor/index","./index"],(t,i,e)=>{t("./index");var _=t("magix"),n=t("$"),r=t("../mx-monitor/index");_.applyStyle("_O","._fB{position:relative;border:1px solid #e6e6e6;padding:10px 0;border-radius:4px;background-color:#fff;z-index:1;width:271px}._fC{margin:0 10px}._fD{border-top:1px solid #e6e6e6;margin:10px 10px 0;padding:10px 0 0}");var s=function(t){return t<10?"0"+t:t};e.exports=_.View.extend({tmpl:function(t,i){i=i||"";var e="",_={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},n=/[&<>"'`]/g,r=function(t){return null==t?"":""+t},s=function(t){return"&"+_[t]+";"},o=function(t){return r(t).replace(n,s)},a={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},d=function(t){return a[t]},h=/[!')(*]/g,c=function(t){return encodeURIComponent(r(t)).replace(h,d)};return e+='<div class="_fB" id="wrapper_'+o(t.viewId)+'"><div mx-view="mx-time/index?time='+r(c(t.time))+"&types="+r(c(t.types))+'" id="time_'+o(t.viewId)+'" class="_fC _ai" mx-change="'+i+'__gD()"></div><div mxs="_::_" class="_fD"><button type="button" class="_an _ao" mx-click="'+i+'__b({enter:true})">确定</button><button type="button" class="_an _s" mx-click="'+i+'__b()">取消</button></div></div>'},init:function(t){var i=this;r.__g();var e=n("#"+i.id);i.__h=e,(e=e.prev("input")).prop("vframe",i.owner);var _=function(){i.__e()};i.on("destroy",function(){r.__i(i),r.__j(),e.off("click",_)}),e.on("click",_),i.__k=e,e.prop("autocomplete","off");var o=e.val().trim();if(!o){var a=new Date;o=s(a.getHours())+":"+s(a.getMinutes())+":"+s(a.getSeconds())}t.time=o,i.__gA=o,i.__gB=o,i.updater.set(t)},__l:function(t){return _.inside(t,this.id)||_.inside(t,"temp_"+this.id)||_.inside(t,this.__k[0])},render:function(){this.updater.digest({viewId:this.id})},__e:function(){if(!this.__gC){var t=this.__h,i=this.__k;t.show(),this.__gC=!0,r.__n(this);var e=i.offset(),_=void 0,s=void 0,o=this.updater.get();switch(o.placement){case"top":s=e.top-t.outerHeight()-5;break;default:s=e.top+i.outerHeight()+5}switch(o.align){case"right":_=e.left+i.outerWidth()-t.outerWidth();break;default:_=e.left}t.offset({left:_,top:s});var a=this.__k.val().trim();a&&this.__gA!=a&&(this.__gA=a,this.__gB=a,n("#time_"+this.id).invokeView("val",[a]))}},__b:function(){this.__gC&&(this.__gC=!1,this.__h.hide(),r.__i(this),this.__gA!=this.__gB&&(this.__gA=this.__gB,n("#time_"+this.id).invokeView("val",[this.__gA])))},"__gD<change>":function(t){this.__gA=t.time},"__b<click>":function(t){t.params.enter&&(this.__gB=this.__gA),this.__b(),t.params.enter&&this.__k.val(this.__gA).trigger("change")}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-time/picker",["magix","$","../mx-monitor/index","./index"],(require,exports,module)=>{
+/*Magix,$,Monitor*/
+require("./index");
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+var Monitor = require("../mx-monitor/index");
+Magix.applyStyle("__mx-time_picker_","/* @dependent: ./index.less */\n.__mx-time_picker_-wrapper {\n  position: relative;\n  border: 1px solid #e6e6e6;\n  padding: 10px 0;\n  border-radius: 4px;\n  background-color: #fff;\n  z-index: 1;\n  width: 271px;\n}\n.__mx-time_picker_-time {\n  margin: 0 10px;\n}\n.__mx-time_picker_-footer {\n  border-top: 1px solid #e6e6e6;\n  margin: 10px 10px 0;\n  padding: 10px 0 0 0;\n}\n");
+var format = function (t) {
+    if (t < 10)
+        return '0' + t;
+    return t;
+};
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, time = $$.time, types = $$.types; var $expr, $art, $line; try {
+    $p += '<div class="__mx-time_picker_-wrapper" id="wrapper_' + ($expr = '<%=viewId%>', $e(viewId)) + '"><div mx-view="mx-time/index?time=' + ($expr = '<%!$eu(time)%>', $eu(time)) + '&types=' + ($expr = '<%!$eu(types)%>', $eu(types)) + '" id="time_' + ($expr = '<%=viewId%>', $e(viewId)) + '" class="__mx-time_picker_-time __mx-style_index_-clearfix" mx-change="' + $viewId + '@{take}()"></div><div mxs="_::_" class="__mx-time_picker_-footer"><button type="button" class="__mx-style_index_-btn __mx-style_index_-btn-brand" mx-click="' + $viewId + '@{hide}({enter:true})">确定</button><button type="button" class="__mx-style_index_-btn __mx-style_index_-ml5" mx-click="' + $viewId + '@{hide}()">取消</button></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-time/picker.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var me = this;
+        Monitor['@{setup}']();
+        var oNode = $('#' + me.id);
+        me['@{relate.node}'] = oNode;
+        oNode = oNode.prev('input');
+        oNode.prop('vframe', me.owner);
+        var click = function () {
+            me['@{show}']();
+        };
+        me.on('destroy', function () {
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+            oNode.off('click', click);
+        });
+        oNode.on('click', click);
+        me['@{owner.node}'] = oNode;
+        oNode.prop('autocomplete', 'off');
+        var time = oNode.val().trim();
+        if (!time) {
+            var d = new Date();
+            time = format(d.getHours()) + ':' +
+                format(d.getMinutes()) + ':' +
+                format(d.getSeconds());
+        }
+        extra.time = time;
+        me['@{time}'] = time;
+        me['@{time.bak}'] = time;
+        me.updater.set(extra);
+    },
+    '@{inside}': function (node) {
+        var me = this;
+        return Magix.inside(node, me.id) ||
+            Magix.inside(node, 'temp_' + me.id) ||
+            Magix.inside(node, this['@{owner.node}'][0]);
+    },
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            viewId: me.id
+        });
+    },
+    '@{show}': function () {
+        var me = this;
+        if (!me['@{ui.shown}']) {
+            var node = me['@{relate.node}'], ref = me['@{owner.node}'];
+            node.show();
+            me['@{ui.shown}'] = true;
+            Monitor['@{add}'](me);
+            var offset = ref.offset();
+            var left = void 0, top = void 0;
+            var data = me.updater.get();
+            switch (data.placement) {
+                case 'top':
+                    top = offset.top - node.outerHeight() - 5;
+                    break;
+                default:
+                    top = offset.top + ref.outerHeight() + 5;
+                    break;
+            }
+            switch (data.align) {
+                case 'right':
+                    left = offset.left + ref.outerWidth() - node.outerWidth();
+                    break;
+                default:
+                    left = offset.left;
+                    break;
+            }
+            node.offset({
+                left: left,
+                top: top
+            });
+            var v = me['@{owner.node}'].val().trim();
+            if (v && me['@{time}'] != v) {
+                me['@{time}'] = v;
+                me['@{time.bak}'] = v;
+                $('#time_' + me.id).invokeView('val', [v]);
+            }
+        }
+    },
+    '@{hide}': function () {
+        var me = this;
+        if (me['@{ui.shown}']) {
+            me['@{ui.shown}'] = false;
+            me['@{relate.node}'].hide();
+            Monitor['@{remove}'](me);
+            if (me['@{time}'] != me['@{time.bak}']) {
+                me['@{time}'] = me['@{time.bak}'];
+                $('#time_' + me.id).invokeView('val', [me['@{time}']]);
+            }
+        }
+    },
+    '@{take}<change>': function (e) {
+        this['@{time}'] = e.time;
+    },
+    '@{hide}<click>': function (e) {
+        var me = this;
+        if (e.params.enter) {
+            me['@{time.bak}'] = me['@{time}'];
+        }
+        me['@{hide}']();
+        if (e.params.enter) {
+            me['@{owner.node}'].val(me['@{time}']).trigger('change');
+        }
+    }
+});
+
+});

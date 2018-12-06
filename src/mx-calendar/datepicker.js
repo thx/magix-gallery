@@ -1,1 +1,156 @@
-define("mx-calendar/datepicker",["magix","$","../mx-monitor/index","./index"],(t,i,e)=>{var _=t("magix"),n=t("$"),o=_.Vframe,a=t("../mx-monitor/index");t("./index"),e.exports=_.View.extend({tmpl:function(t,i){var e,_="",n={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},o=/[&<>"'`]/g,a=function(t){return null==t?"":""+t},r=function(t){return"&"+n[t]+";"};return _+='<div mx-change="'+(i=i||"")+'__q()" mx-cancel="'+i+'__b()" id="dpcnt_'+(e=t.viewId,a(e).replace(o,r))+'"></div>'},init:function(t){var i=this;t.hasBtn=1,i.__f=t,a.__g();var e=n("#"+i.id);i.__h=e,(e=e.prev("input")).prop("vframe",i.owner);var _=function(){i.__e()},o=function(t){t.date||t.stopPropagation()};i.on("destroy",function(){a.__i(i),a.__j(),e.off("click",_).off("change",o)}),e.on("click",_).on("change",o),i.__k=e,e.prop("autocomplete","off")},__l:function(t){return _.inside(t,this.id)||_.inside(t,this.__k[0])},update:function(t){var i=o.get("dpcnt_"+this.id);t.hasBtn=1,i.invoke("update",[t])},render:function(){this.updater.digest({viewId:this.id}),this.__f.selected||(this.__f.selected=this.__k.val())},__e:function(){if(!this.__m){var t=this.__h,i=this.__k;this.__m=!0,t.show(),a.__n(this),this.__o||(this.__o=!0,this.owner.mountVframe("dpcnt_"+this.id,"mx-calendar/index",this.__f));var e=i.offset(),_=void 0,n=void 0;switch(this.__f.placement){case"top":n=e.top-t.outerHeight()-5;break;default:n=e.top+i.outerHeight()+5}switch(this.__f.align){case"right":_=e.left+i.outerWidth()-t.outerWidth();break;default:_=e.left}t.offset({left:_,top:n})}},__b:function(){if(this.__m){var t=n("#dpcnt_"+this.id).prop("vframe");t&&t.invoke("__p"),this.__m=!1,this.__h.hide(),a.__i(this)}},"__q<change>":function(t){t.stopPropagation();var i=t.date;t.time&&(i+=" "+t.time),this.__k.val(i).trigger({type:"change",date:t.date,time:t.time}),this.__b()},"__b<cancel>":function(){this.__b()}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-calendar/datepicker",["magix","$","../mx-monitor/index","./index"],(require,exports,module)=>{
+/*Magix,$,Monitor*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+var Vframe = Magix.Vframe;
+var Monitor = require("../mx-monitor/index");
+require("./index");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
+    $p += '<div mx-change="' + $viewId + '@{date.picked}()" mx-cancel="' + $viewId + '@{hide}()" id="dpcnt_' + ($expr = '<%=viewId%>', $e(viewId)) + '"></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-calendar/datepicker.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var me = this;
+        extra.hasBtn = 1;
+        me['@{extra}'] = extra;
+        Monitor['@{setup}']();
+        var oNode = $('#' + me.id);
+        me['@{relate.node}'] = oNode;
+        oNode = oNode.prev('input');
+        oNode.prop('vframe', me.owner);
+        var click = function () {
+            me['@{show}']();
+        };
+        var change = function (e) {
+            if (!e.date) {
+                e.stopPropagation();
+            }
+        };
+        me.on('destroy', function () {
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+            oNode.off('click', click).off('change', change);
+        });
+        oNode.on('click', click).on('change', change);
+        me['@{owner.node}'] = oNode;
+        oNode.prop('autocomplete', 'off');
+    },
+    '@{inside}': function (node) {
+        var me = this;
+        return Magix.inside(node, me.id) ||
+            Magix.inside(node, me['@{owner.node}'][0]);
+    },
+    update: function (options) {
+        var me = this;
+        var vf = Vframe.get('dpcnt_' + me.id);
+        options.hasBtn = 1;
+        vf.invoke('update', [options]);
+    },
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            viewId: me.id
+        });
+        if (!me['@{extra}'].selected) {
+            me['@{extra}'].selected = me['@{owner.node}'].val();
+        }
+    },
+    '@{show}': function () {
+        var me = this;
+        if (!me['@{ui.show}']) {
+            var node = me['@{relate.node}'], ref = me['@{owner.node}'];
+            me['@{ui.show}'] = true;
+            node.show();
+            Monitor['@{add}'](me);
+            if (!me['@{core.rendered}']) {
+                me['@{core.rendered}'] = true;
+                me.owner.mountVframe('dpcnt_' + me.id, 'mx-calendar/index', me['@{extra}']);
+            }
+            var offset = ref.offset();
+            var left = void 0, top = void 0;
+            switch (me['@{extra}'].placement) {
+                case 'top':
+                    top = offset.top - node.outerHeight() - 5;
+                    break;
+                default:
+                    top = offset.top + ref.outerHeight() + 5;
+                    break;
+            }
+            switch (me['@{extra}'].align) {
+                case 'right':
+                    left = offset.left + ref.outerWidth() - node.outerWidth();
+                    break;
+                default:
+                    left = offset.left;
+                    break;
+            }
+            node.offset({
+                left: left,
+                top: top
+            });
+        }
+    },
+    '@{hide}': function () {
+        var me = this;
+        if (me['@{ui.show}']) {
+            var node = $('#dpcnt_' + me.id);
+            var vf = node.prop('vframe');
+            if (vf) {
+                vf.invoke('@{toDefaultPanel}');
+            }
+            me['@{ui.show}'] = false;
+            me['@{relate.node}'].hide();
+            Monitor['@{remove}'](me);
+        }
+    },
+    '@{date.picked}<change>': function (e) {
+        var me = this;
+        e.stopPropagation();
+        var val = e.date;
+        if (e.time) {
+            val += ' ' + e.time;
+        }
+        me['@{owner.node}'].val(val).trigger({
+            type: 'change',
+            date: e.date,
+            time: e.time
+        });
+        me['@{hide}']();
+    },
+    '@{hide}<cancel>': function () {
+        this['@{hide}']();
+    }
+});
+
+});

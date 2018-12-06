@@ -1,1 +1,50 @@
-define("mx-effect/count",["magix","$","../mx-runner/fx"],(i,_,t)=>{var n=i("magix"),e=i("$"),c=i("../mx-runner/fx");t.exports=n.View.extend({mixins:[c],init:function(i){this.__k=e("#"+this.id),this.__cF=this.__cG(),this.assign(i)},assign:function(i,_){return _&&(_.deep=0),this.__cH=+i.value,this.__cI=+i.duration||500,this.__cJ=+i.fixed||0,this.__cF.__au(),!0},render:function(){var i=this,_=i.__k,t=_.prop("tagName"),n=i.__cF,e=i.__cH,c="INPUT"==t||"TEXTAREA"==t?"val":"html",s=+_[c]();n.__cK(i.__cI,function(t){_[c](t(s,e).toFixed(i.__cJ))})}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-effect/count",["magix","$","../mx-runner/fx"],(require,exports,module)=>{
+/*Magix,$,FX*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@taobao.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+var FX = require("../mx-runner/fx");
+module.exports = Magix.View.extend({
+    mixins: [FX],
+    init: function (extra) {
+        var me = this;
+        me['@{owner.node}'] = $('#' + me.id);
+        me['@{fx}'] = me['@{getFX}']();
+        me.assign(extra);
+    },
+    assign: function (ops, ctrl) {
+        var me = this;
+        if (ctrl)
+            ctrl.deep = 0;
+        me['@{new.value}'] = +ops.value;
+        me['@{duration}'] = +ops.duration || 500;
+        me['@{number.fixed}'] = +ops.fixed || 0;
+        me['@{fx}']['@{stop}']();
+        return true;
+    },
+    render: function () {
+        var me = this;
+        var node = me['@{owner.node}'];
+        var tag = node.prop('tagName');
+        var fx = me['@{fx}'];
+        var nValue = me['@{new.value}'];
+        var key = (tag == 'INPUT' || tag == 'TEXTAREA') ? 'val' : 'html';
+        var oValue = +node[key]();
+        fx['@{run}'](me['@{duration}'], function (alg) {
+            node[key](alg(oValue, nValue).toFixed(me['@{number.fixed}']));
+        });
+    }
+});
+
+});

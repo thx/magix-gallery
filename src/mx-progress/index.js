@@ -1,1 +1,96 @@
-define("mx-progress/index",["magix","$"],(e,i,t)=>{var _=e("magix"),n=e("$");_.applyStyle("_F","._ew{height:32px;cursor:default;line-height:32px;display:inline-block}._ex{background:#eaeaea;position:relative;display:inline-block;top:-2px}._ex,._ey{height:4px;border-radius:2px}._ey{background:#f96447;left:0;top:0}._ez,._ey{position:absolute;transition:all .15s}._ez{font-size:9px;pointer-events:none;top:-15px;line-height:normal}._eA{cursor:not-allowed}._eA ._ex{background-color:#fbfbfb}._eA ._ey{background-color:#eaeaea}"),t.exports=_.View.extend({tmpl:function(e,i){var t,_="",n={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},s=/[&<>"'`]/g,a=function(e){return null==e?"":""+e},d=function(e){return"&"+n[e]+";"};return _+='<div class="_ex" mx-contextmenu="'+(i=i||"")+'__G()" style="width:'+(t=e.width,a(t).replace(s,d))+'px"><div mxs="_|:_" class="_ey"></div><div mxs="_|:a" class="_ez"></div></div>'},init:function(e){this.__k=n("#"+this.id).addClass("_ew"),this.assign(e)},assign:function(e){return this.__dv=+e.width||340,this.__cx=e.disabled+""=="true",this.__cL=+e.value||0,this.__ej=+e.fixed||0,!0},render:function(){this.updater.digest({width:this.__dv}),this.__k[this.__cx?"addClass":"removeClass"]("_eA"),this.val(this.__cL)},val:function(e){var i=+e;if(i||0===i){i<0?i=0:i>1&&(i=1);var t=this.__k.find("._ex").width(),_=t*i;this.__k.find("._ey").width(_);var n=this.__k.find("._ez"),s=(100*i).toFixed(this.__ej)+"%";n.html(s);var a=n.width();(_-=a/2)<0?_=0:_>t-a&&(_=t-a),n.css({left:_}),this.__cL=i}return this.__cL},"__G<contextmenu>":function(e){e.preventDefault()}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-progress/index",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@taobao.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("__mx-progress_index_","/* @dependent: ./index.less */\n.__mx-progress_index_-as-input {\n  height: 32px;\n  cursor: default;\n  line-height: 32px;\n  display: inline-block;\n}\n.__mx-progress_index_-rail {\n  height: 4px;\n  background: #eaeaea;\n  position: relative;\n  display: inline-block;\n  border-radius: 2px;\n  top: -2px;\n}\n.__mx-progress_index_-tracker {\n  height: 4px;\n  background: #f96447;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 2px;\n  transition: all 0.15s;\n}\n.__mx-progress_index_-pointer-label {\n  position: absolute;\n  font-size: 9px;\n  pointer-events: none;\n  top: -15px;\n  transition: all 0.15s;\n  line-height: normal;\n}\n.__mx-progress_index_-notallowed {\n  cursor: not-allowed;\n}\n.__mx-progress_index_-notallowed .__mx-progress_index_-rail {\n  background-color: #fbfbfb;\n}\n.__mx-progress_index_-notallowed .__mx-progress_index_-tracker {\n  background-color: #eaeaea;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', width = $$.width; var $expr, $art, $line; try {
+    $p += '<div class="__mx-progress_index_-rail" mx-contextmenu="' + $viewId + '@{prevent}()" style="width:' + ($expr = '<%=width%>', $e(width)) + 'px"><div mxs="_]:_" class="__mx-progress_index_-tracker"></div><div mxs="_]:a" class="__mx-progress_index_-pointer-label"></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-progress/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var me = this;
+        me['@{owner.node}'] = $('#' + me.id).addClass('__mx-progress_index_-as-input');
+        me.assign(extra);
+    },
+    assign: function (ops) {
+        var me = this;
+        me['@{width}'] = +ops.width || 340;
+        me['@{disabled}'] = (ops.disabled + '') === 'true';
+        me['@{value}'] = +ops.value || 0;
+        me['@{fixed}'] = +ops.fixed || 0;
+        return true;
+    },
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            width: me['@{width}']
+        });
+        me['@{owner.node}'][me['@{disabled}'] ? 'addClass' : 'removeClass']('__mx-progress_index_-notallowed');
+        me.val(me['@{value}']);
+    },
+    val: function (v) {
+        var me = this;
+        var nv = +v;
+        if (nv || nv === 0) {
+            if (nv < 0)
+                nv = 0;
+            else if (nv > 1)
+                nv = 1;
+            var rail = me['@{owner.node}'].find('.__mx-progress_index_-rail');
+            var rWidth = rail.width();
+            var left = rWidth * nv;
+            var tracker = me['@{owner.node}'].find('.__mx-progress_index_-tracker');
+            tracker.width(left);
+            var indicator = me['@{owner.node}'].find('.__mx-progress_index_-pointer-label');
+            var text = (nv * 100).toFixed(me['@{fixed}']) + '%';
+            indicator.html(text);
+            var w = indicator.width();
+            left -= w / 2;
+            if (left < 0)
+                left = 0;
+            else if (left > (rWidth - w))
+                left = rWidth - w;
+            indicator.css({
+                left: left
+            });
+            me['@{value}'] = nv;
+        }
+        return me['@{value}'];
+    },
+    '@{prevent}<contextmenu>': function (e) {
+        e.preventDefault();
+    }
+});
+
+});

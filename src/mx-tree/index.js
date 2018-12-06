@@ -1,1 +1,89 @@
-define("mx-tree/index",["magix","./branch"],(e,t,i)=>{e("./branch");var n=e("magix");n.applyStyle("_Q",'._fF{padding-left:15px}._fG{line-height:22px;padding:0 4px;position:relative;border-left:1px solid #e6e6e6}._fG:before{content:"";position:absolute;border-top:1px solid #e6e6e6;width:12px;left:0;top:10px}._fH{width:14px;height:14px;float:left;text-align:center;font-weight:800;margin-left:-11px;margin-top:-2px;position:relative;z-index:2}._fI{display:inline-block;background-color:#fff;width:10px;height:10px;line-height:6px;border:1px solid #e6e6e6;font-size:11px}._fJ{margin-left:10px}._fK{padding:0}._fL{border-left-color:transparent}._fL:after{border-left:1px solid #e6e6e6;top:-2px}._fL:after,._fM:after{content:"";position:absolute;left:-1px;width:1px;height:13px}._fM:after{border-left:1px solid #fff;top:-3px}._fN{padding:1px 3px;line-height:1}._fO{margin:2px 2px 0 0}'),i.exports=n.View.extend({tmpl:function(e,t){t=t||"";var i="",n={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},r=/[&<>"'`]/g,p=function(e){return null==e?"":""+e},o=function(e){return"&"+n[e]+";"},f=function(t,i,n){for(n=e[""];--n;)if(e[i=""+n]===t)return i;return e[i=""+e[""]++]=t,i},l={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},a=function(e){return l[e]},d=/[!')(*]/g,x=function(e){return encodeURIComponent(p(e)).replace(d,a)};i+='<div id="tree_'+(h=e.id,p(h).replace(r,o))+'" mx-view="mx-tree/branch?valueKey='+p(x(e.valueKey))+"&textKey="+p(x(e.textKey))+"&parentKey="+p(x(e.parentKey))+"&fromTop=";var h;return i+=f(!0),i+="&list=",i+=f(e.list),i+='"></div>'},init:function(e){this.__f=e},render:function(){var e=this.__f,t=e.valueKey||"id",i=e.parentKey||"pId",r=function(e,t,i){for(var r={},p={},o=[],f=0,l=e.length;f<l;f++){var a=n.mix({},e[f]);r[a[t]]=a,p[a[t]]&&(a.children=p[a[t]]),n.has(a,i)&&""!==a[i]?r[a[i]]?(r[a[i]].children||(r[a[i]].children=[])).push(a):p[a[i]]?p[a[i]].push(a):p[a[i]]=[a]:o.push(a)}return{list:o,map:r}}(e.list,t,i);this.updater.digest({id:this.id,valueKey:t,parentKey:i,textKey:e.textKey||"text",list:r.list})}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-tree/index",["magix","./branch"],(require,exports,module)=>{
+/*Magix*/
+require("./branch");
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@taobao.com
+ */
+var Magix = require("magix");
+var ListToTree = function (list, id, pId) {
+    var map = {}, listMap = {}, rootList = [];
+    for (var i = 0, max = list.length; i < max; i++) {
+        var one = Magix.mix({}, list[i]);
+        map[one[id]] = one;
+        if (listMap[one[id]]) {
+            one.children = listMap[one[id]];
+        }
+        if (Magix.has(one, pId) && one[pId] !== '') {
+            if (map[one[pId]]) {
+                var c = map[one[pId]].children || (map[one[pId]].children = []);
+                c.push(one);
+            }
+            else {
+                if (!listMap[one[pId]])
+                    listMap[one[pId]] = [one];
+                else
+                    listMap[one[pId]].push(one);
+            }
+        }
+        else {
+            rootList.push(one);
+        }
+    }
+    return { list: rootList, map: map };
+};
+Magix.applyStyle("__mx-tree_index_","/* @dependent: ./index.less */\n.__mx-tree_index_-indent {\n  padding-left: 15px;\n}\n.__mx-tree_index_-li {\n  line-height: 22px;\n  padding: 0 4px;\n  position: relative;\n  border-left: solid 1px #e6e6e6;\n}\n.__mx-tree_index_-li:before {\n  content: '';\n  position: absolute;\n  border-top: solid 1px #e6e6e6;\n  width: 12px;\n  left: 0;\n  top: 10px;\n}\n.__mx-tree_index_-icon {\n  width: 14px;\n  height: 14px;\n  float: left;\n  text-align: center;\n  font-weight: 800;\n  margin-left: -11px;\n  margin-top: -2px;\n  position: relative;\n  z-index: 2;\n}\n.__mx-tree_index_-ricon {\n  display: inline-block;\n  background-color: #fff;\n  width: 10px;\n  height: 10px;\n  line-height: 6px;\n  border: solid 1px #e6e6e6;\n  font-size: 11px;\n}\n.__mx-tree_index_-name {\n  margin-left: 10px;\n}\n.__mx-tree_index_-p0 {\n  padding: 0;\n}\n.__mx-tree_index_-li-last {\n  border-left-color: transparent;\n}\n.__mx-tree_index_-li-last:after {\n  content: '';\n  border-left: solid 1px #e6e6e6;\n  position: absolute;\n  left: -1px;\n  top: -2px;\n  width: 1px;\n  height: 13px;\n}\n.__mx-tree_index_-top-li-first:after {\n  position: absolute;\n  content: '';\n  height: 13px;\n  width: 1px;\n  border-left: solid 1px #fff;\n  top: -3px;\n  left: -1px;\n}\n.__mx-tree_index_-b-text {\n  padding: 1px 3px;\n  line-height: 1;\n}\n.__mx-tree_index_-b-cb {\n  margin: 2px 2px 0 0;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', id = $$.id, valueKey = $$.valueKey, textKey = $$.textKey, parentKey = $$.parentKey, list = $$.list; var $expr, $art, $line; try {
+    $p += '<div mxv="list" id="tree_' + ($expr = '<%=id%>', $e(id)) + '" mx-view="mx-tree/branch?valueKey=' + ($expr = '<%!$eu(valueKey)%>', $eu(valueKey)) + '&textKey=' + ($expr = '<%!$eu(textKey)%>', $eu(textKey)) + '&parentKey=' + ($expr = '<%!$eu(parentKey)%>', $eu(parentKey)) + '&fromTop=' + ($expr = '<%@true%>', $i($$ref, true)) + '&list=' + ($expr = '<%@list%>', $i($$ref, list)) + '"></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-tree/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        this['@{extra}'] = extra;
+    },
+    render: function () {
+        var me = this;
+        var ops = me['@{extra}'];
+        var valueKey = ops.valueKey || 'id';
+        var parentKey = ops.parentKey || 'pId';
+        var info = ListToTree(ops.list, valueKey, parentKey);
+        me.updater.digest({
+            id: me.id,
+            valueKey: valueKey,
+            parentKey: parentKey,
+            textKey: ops.textKey || 'text',
+            list: info.list
+        });
+    }
+});
+
+});

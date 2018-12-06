@@ -1,1 +1,183 @@
-define("__test__/ctrl",["magix","$"],(t,e,a)=>{var n=t("magix");t("$");a.exports=n.View.extend({tmpl:function(t,e){e=e||"";var a="",n={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},u=/[&<>"'`]/g,i=function(t){return null==t?"":""+t},r=function(t){return"&"+n[t]+";"},d=function(t){return i(t).replace(u,r)};return a+="<input ","0"==t.value&&(a+='value="'+d(t.value)+'" '),a+=' class="_ap" mx-input="'+e+'___()"/>'+d(t.value)+'<textarea a="'+d(t.value)+'">'+d(t.value)+'</textarea><input type="checkbox" class="_au" ',"0"!=t.value&&(a+="checked"),a+="/><table><tbody><tr><td>"+d(Math.random())+"</td></tr></tbody></table><video ","0"==t.value&&(a+=" controls "),a+="></video>","0"==t.value?a+=" abc ":a+='<div mxs="__:_">good</div>',a+="<select ","0"==t.value&&(a+=" disabled"),a+='><option mxs="__:a">adf</option><option ',"0"==t.value&&(a+=" selected"),a+=">ex</option></select><table><tbody><tr><td>adf"+d(t.value)+"</td></tr></tbody></table>"},ctor:function(t){},init:function(t){this.updater.snapshot(),this.assign(t)},assign:function(t){var e=this.updater.altered();return this.updater.set(t),e||(e=this.updater.altered()),!!e&&(this.updater.snapshot(),!0)},render:function(){this.updater.digest()},"___<input>":function(t){this.updater.digest({value:t.eventTarget.value})}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("__test__/ctrl",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/*
+ver:2.0.6
+*/
+var Magix = require("magix");
+var $ = require("$");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', value = $$.value; var $expr, $art, $line; try {
+    $p += '<input ';
+    $line = 1;
+    $art = 'if value==\'0\'';
+    ;
+    $expr = '<%if (value == \'0\') {%>';
+    if (value == '0') {
+        ;
+        $p += 'value="';
+        $line = 1;
+        $art = '=value';
+        ;
+        $p += ($expr = '<%=value%>', $e(value)) + '" ';
+        $line = 1;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' class="__mx-style_index_-input" mx-input="' + $viewId + '@{change}()"/>';
+    $line = 2;
+    $art = '=value';
+    ;
+    $p += ($expr = '<%=value%>', $e(value)) + '<textarea a="';
+    $line = 3;
+    $art = '=value';
+    ;
+    $p += ($expr = '<%=value%>', $e(value)) + '">';
+    $line = 3;
+    $art = '=value';
+    ;
+    $p += ($expr = '<%=value%>', $e(value)) + '</textarea><input type="checkbox" class="__mx-style_index_-switch" ';
+    $line = 4;
+    $art = 'if value!=\'0\'';
+    ;
+    $expr = '<%if (value != \'0\') {%>';
+    if (value != '0') {
+        ;
+        $p += 'checked';
+        $line = 4;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '/><table><tbody><tr><td>';
+    $line = 5;
+    $art = '=Math.random()';
+    ;
+    $p += ($expr = '<%=Math.random()%>', $e(Math.random())) + '</td></tr></tbody></table><video ';
+    $line = 6;
+    $art = 'if value==\'0\'';
+    ;
+    $expr = '<%if (value == \'0\') {%>';
+    if (value == '0') {
+        ;
+        $p += ' controls ';
+        $line = 6;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '></video>';
+    $line = 7;
+    $art = 'if value==\'0\'';
+    ;
+    $expr = '<%if (value == \'0\') {%>';
+    if (value == '0') {
+        ;
+        $p += ' abc ';
+        $line = 9;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '<div mxs="_V:_">good</div>';
+        $line = 11;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '<select mxv ';
+    $line = 12;
+    $art = 'if value==\'0\'';
+    ;
+    $expr = '<%if (value == \'0\') {%>';
+    if (value == '0') {
+        ;
+        $p += ' disabled';
+        $line = 12;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '><option mxs="_V:a">adf</option><option ';
+    $line = 14;
+    $art = 'if value==\'0\'';
+    ;
+    $expr = '<%if (value == \'0\') {%>';
+    if (value == '0') {
+        ;
+        $p += ' selected';
+        $line = 14;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '>ex</option></select><table><tbody><tr><td>adf';
+    $line = 16;
+    $art = '=value';
+    ;
+    $p += ($expr = '<%=value%>', $e(value)) + '</td></tr></tbody></table>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:__test__/ctrl.html';
+    throw msg;
+} return $p; },
+    ctor: function (extra) {
+        console.log(extra);
+    },
+    init: function (extra) {
+        this.updater.snapshot();
+        this.assign(extra);
+    },
+    assign: function (data) {
+        var me = this;
+        var altered = me.updater.altered();
+        me.updater.set(data);
+        if (!altered)
+            altered = me.updater.altered();
+        if (altered) {
+            me.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render: function () {
+        console.log('render');
+        this.updater.digest();
+    },
+    '@{change}<input>': function (e) {
+        this.updater.digest({
+            value: e.eventTarget.value
+        });
+    }
+});
+
+});

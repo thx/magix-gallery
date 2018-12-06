@@ -1,1 +1,280 @@
-define("mx-taginput/suggest",["magix","$","../mx-monitor/index"],(t,_,i)=>{var e=t("magix"),s=t("$"),r=t("../mx-monitor/index");e.applyStyle("_M","._ft{border:1px solid #e6e6e6;font-size:14px;max-height:260px;overflow:auto;list-style:none;border-radius:4px;background-color:#fff;padding:3px 0;line-height:1.8;position:relative;z-index:1}._fu{padding:0 4px;cursor:pointer;margin:2px 0}._fv{color:#666;display:block;width:100%;padding:0 6px;height:29px;line-height:29px;border-radius:4px}._fw,._fv:active,._fv:focus,._fv:hover{color:#333;background-color:#f0f0f0}._fw{border-radius:4px;text-decoration:none;outline:0}"),i.exports=e.View.extend({tmpl:function(t,_){_=_||"";var i="",e={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},s=/[&<>"'`]/g,r=function(t){return null==t?"":""+t},o=function(t){return"&"+e[t]+";"},h=function(t){return r(t).replace(s,o)},n=function(_,i,e){for(e=t[""];--e;)if(t[i=""+e]===_)return i;return t[i=""+t[""]++]=_,i};if(i+='<ul class="',t.rList&&t.list.length&&(i+="_ft "),i+='_aj" style="width:'+h(t.width)+'px;" mx-mouseout="'+_+'__ei()" mx-mousemove="'+_+'__fe()" mx-contextmenu="'+_+'__G()">',t.rList)for(var f,l=0;l<t.list.length;l++)f=t.list[l],i+='<li mxa="_/:_" class="_fu"><a href="#" class="_fv" data-idx="'+h(l)+'" mx-click="'+_+"__fd({item:'",i+=n(f),i+='\'})" id="sg_'+h(t.viewId)+"_"+h(l)+'">'+h(t.textKey?f[t.textKey]:f)+"</a></li>";return i+="</ul>"},init:function(t){var _=this;_.__gp=t.scrollTop||0,_.__eS=t.list||[],_.__gq=0|(t.offsetLeft||0),r.__g(),_.on("destroy",function(){r.__i(_),r.__j(),_.__k.off("keyup paste input",_.__eT).off("focus",_.__eU)}),_.updater.set({viewId:_.id,width:t.width||340,textKey:t.textKey,valueKey:t.valueKey}),_.__gr=-1,_.__gs=[_.id].concat(t.relateIds.split(","))},__l:function(t){for(var _=this.__gs,i=0;i<_.length;i++)if(e.inside(t,_[i]))return!0;return!1},__gu:function(t,_){_||(this.__eS=t),this.__gr=-1,this.updater.digest({list:this.__gt=t})},render:function(){var t=this,_=s("#"+t.id);t.__h=_,_=_.prev("input"),t.__k=_,_.on("focus",t.__eU=s.proxy(t.__e,t)).on("keyup paste input",t.__eT=s.proxy(t.__eY,t)),t.__gu(t.__eS),t.__eZ=s("#"+t.id+" ul"),setTimeout(t.wrapAsync(function(){t.__eZ.prop("scrollTop",t.__gp)}),0)},__eY:function(t){this.__m||this.__e();var _=this.__gt;if(40==t.keyCode)this.__f_(),this.__gr++,this.__gr>=_.length&&(this.__gr=0),this.__fa();else if(38==t.keyCode)this.__f_(),this.__gr--,this.__gr<0&&(this.__gr=_.length-1),this.__fa();else if(13==t.keyCode){if(this.__gr>-1&&this.__gr<this.__gt.length){var i=this.__gt[this.__gr];this.__f_(),this.__gr=-1,this.__b(),this.__k.trigger({type:"pick",item:i})}}else{var e=s.trim(t.target.value);if(e!=this.__cL)if(this.__cL=e,e){for(var r=[],o=this.__eS.slice(),h=this.updater.get("textKey"),n=0,f=void 0;n<o.length;n++)f=o[n],((h?f[h]:f)+"").indexOf(e)>=0&&r.push(f);this.__gu(r,!0)}else this.__gu(this.__eS,!0)}},__e:function(){var t=this.updater;if(!this.__m){this.__m="from show ";t.get("rList")||t.digest({rList:!0}),r.__n(this);var _=this.__k.position();this.__h.show().css({display:"block",left:_.left+this.__gq,top:_.top+this.__k.outerHeight()+10}),this.__k.trigger("showlist")}},__f_:function(){s("#sg_"+this.id+"_"+this.__gr).removeClass("_fw")},__fa:function(t){var _=s("#sg_"+this.id+"_"+this.__gr);if(_.addClass("_fw"),!t&&_.length){this.__fc=1;var i=_.outerHeight(),e=(this.__gr+1)*i,r=this.__eZ,o=r.height(),h=r.prop("scrollTop"),n=Math.ceil(o/i);e<h+i?r.prop("scrollTop",e-i):e>h+o&&r.prop("scrollTop",(this.__gr+2-n)*i)}},__b:function(){this.__m&&(this.__m=!1,r.__i(this),this.__h.hide(),this.__k.trigger("hidelist"))},"__fd<click>":function(t){t.preventDefault();var _=t.params.item;this.__b(),this.__k.trigger({type:"pick",item:_,scrollTop:this.__eZ.prop("scrollTop")})},"__ei<mouseout>":function(t){if(!e.inside(t.relateTarget,t.eventTarget)){this.__f_(),this.__gr=-1}},"__fe<mousemove>":function(t){if(this.__fc)delete this.__fc;else{var _=s(t.target);if(_.is("li")){var i=_.data("idx");i!=this.__gr&&(this.__f_(),this.__gr=i,this.__fa(!0))}}},"__G<contextmenu>":function(t){t.preventDefault()}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-taginput/suggest",["magix","$","../mx-monitor/index"],(require,exports,module)=>{
+/*Magix,$,Monitor*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author: xinglie.lkf@ alibaba - inc.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+var Monitor = require("../mx-monitor/index");
+Magix.applyStyle("__mx-taginput_suggest_","/* @dependent: ./index.less */\n.__mx-taginput_suggest_-suggest {\n  border: 1px solid #e6e6e6;\n  font-size: 14px;\n  max-height: 260px;\n  overflow: auto;\n  list-style: none;\n  border-radius: 4px;\n  background-color: #fff;\n  padding: 3px 0;\n  line-height: 1.8;\n  position: relative;\n  z-index: 1;\n}\n.__mx-taginput_suggest_-item {\n  padding: 0 4px;\n  cursor: pointer;\n  margin: 2px 0;\n}\n.__mx-taginput_suggest_-item-link {\n  color: #666;\n  display: block;\n  width: 100%;\n  padding: 0 6px;\n  height: 29px;\n  line-height: 29px;\n  border-radius: 4px;\n}\n.__mx-taginput_suggest_-item-link:hover,\n.__mx-taginput_suggest_-item-link:focus,\n.__mx-taginput_suggest_-item-link:active {\n  color: #333;\n  background-color: #f0f0f0;\n}\n.__mx-taginput_suggest_-active {\n  color: #333;\n  background-color: #f0f0f0;\n  border-radius: 4px;\n  text-decoration: none;\n  outline: 0;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', rList = $$.rList, list = $$.list, width = $$.width, viewId = $$.viewId, textKey = $$.textKey; var $expr, $art, $line; try {
+    $p += '<ul class="';
+    $expr = '<%if (rList && list.length) {%>';
+    if (rList && list.length) {
+        ;
+        $p += '__mx-taginput_suggest_-suggest ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '__mx-style_index_-unselectable" style="width:' + ($expr = '<%=width%>', $e(width)) + 'px;" mx-mouseout="' + $viewId + '@{out}()" mx-mousemove="' + $viewId + '@{move}()" mx-contextmenu="' + $viewId + '@{prevent}()">';
+    $expr = '<%if (rList) {%>';
+    if (rList) {
+        ;
+        $p += ' ';
+        $expr = '<%for (var i = 0, one; i < list.length; i++) {%>';
+        for (var i = 0, one; i < list.length; i++) {
+            ;
+            $p += ' ';
+            $expr = '<%one = list[i]%>';
+            one = list[i];
+            $p += '<li mxa="_/:_" class="__mx-taginput_suggest_-item"><a href="#" class="__mx-taginput_suggest_-item-link" data-idx="' + ($expr = '<%=i%>', $e(i)) + '" mx-click="' + $viewId + '@{pick}({item:\'' + ($expr = '<%@one%>', $i($$ref, one)) + '\'})" id="sg_' + ($expr = '<%=viewId%>', $e(viewId)) + '_' + ($expr = '<%=i%>', $e(i)) + '">' + ($expr = '<%=textKey ? one[textKey] : one%>', $e(textKey ? one[textKey] : one)) + '</a></li>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</ul>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-taginput/suggest.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var me = this;
+        me['@{scroll.top}'] = extra.scrollTop || 0;
+        me['@{data.list}'] = extra.list || [];
+        me['@{offset.left}'] = (extra.offsetLeft || 0) | 0;
+        Monitor['@{setup}']();
+        me.on('destroy', function () {
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+            me['@{owner.node}'].off('keyup paste input', me['@{fn.watch}'])
+                .off('focus', me['@{fn.show}']);
+        });
+        me.updater.set({
+            viewId: me.id,
+            width: extra.width || 340,
+            textKey: extra.textKey,
+            valueKey: extra.valueKey
+        });
+        me['@{ui.index}'] = -1;
+        me['@{relate.ids}'] = [me.id].concat(extra.relateIds.split(','));
+    },
+    '@{inside}': function (node) {
+        var me = this;
+        var ids = me['@{relate.ids}'];
+        for (var i = 0; i < ids.length; i++) {
+            if (Magix.inside(node, ids[i])) {
+                return true;
+            }
+        }
+        return false;
+    },
+    '@{list.update}': function (list, ignore) {
+        var me = this;
+        if (!ignore) {
+            me['@{data.list}'] = list;
+        }
+        me['@{ui.index}'] = -1;
+        me.updater.digest({
+            list: me['@{source.list}'] = list
+        });
+    },
+    render: function () {
+        var me = this;
+        var oNode = $('#' + me.id);
+        me['@{relate.node}'] = oNode;
+        oNode = oNode.prev('input');
+        me['@{owner.node}'] = oNode;
+        oNode.on('focus', me['@{fn.show}'] = $.proxy(me['@{show}'], me))
+            .on('keyup paste input', me['@{fn.watch}'] = $.proxy(me['@{filter}'], me));
+        me['@{list.update}'](me['@{data.list}']);
+        me['@{relate.list.node}'] = $('#' + me.id + ' ul');
+        setTimeout(me.wrapAsync(function () {
+            me['@{relate.list.node}'].prop('scrollTop', me['@{scroll.top}']);
+        }), 0);
+    },
+    '@{filter}': function (e) {
+        var me = this;
+        if (!me['@{ui.show}'])
+            me['@{show}']();
+        var slist = me['@{source.list}'];
+        if (e.keyCode == 40) {
+            me['@{normal}']();
+            me['@{ui.index}']++;
+            if (me['@{ui.index}'] >= slist.length) {
+                me['@{ui.index}'] = 0;
+            }
+            me['@{highlight}']();
+        }
+        else if (e.keyCode == 38) {
+            me['@{normal}']();
+            me['@{ui.index}']--;
+            if (me['@{ui.index}'] < 0) {
+                me['@{ui.index}'] = slist.length - 1;
+            }
+            me['@{highlight}']();
+        }
+        else if (e.keyCode == 13) {
+            if (me['@{ui.index}'] > -1 && me['@{ui.index}'] < me['@{source.list}'].length) {
+                var item = me['@{source.list}'][me['@{ui.index}']];
+                me['@{normal}']();
+                me['@{ui.index}'] = -1;
+                me['@{hide}']();
+                me['@{owner.node}'].trigger({
+                    type: 'pick',
+                    item: item
+                });
+            }
+        }
+        else {
+            var val = $.trim(e.target.value);
+            if (val != me['@{value}']) {
+                me['@{value}'] = val;
+                if (val) {
+                    var arr = [];
+                    var list = me['@{data.list}'].slice();
+                    var key = me.updater.get('textKey');
+                    var text = void 0;
+                    for (var i = 0, one = void 0; i < list.length; i++) {
+                        one = list[i];
+                        text = key ? one[key] : one;
+                        if ((text + '').indexOf(val) >= 0) {
+                            arr.push(one);
+                        }
+                    }
+                    me['@{list.update}'](arr, true);
+                }
+                else {
+                    me['@{list.update}'](me['@{data.list}'], true);
+                }
+            }
+        }
+    },
+    '@{show}': function () {
+        var me = this;
+        var updater = me.updater;
+        if (!me['@{ui.show}']) {
+            me['@{ui.show}'] = 'from show ';
+            var rList = updater.get('rList');
+            if (!rList) {
+                updater.digest({
+                    rList: true
+                });
+            }
+            Monitor['@{add}'](me);
+            var offset = me['@{owner.node}'].position();
+            me['@{relate.node}'].show().css({
+                display: 'block',
+                left: offset.left + me['@{offset.left}'],
+                top: offset.top + me['@{owner.node}'].outerHeight() + 10
+            });
+            me['@{owner.node}'].trigger('showlist');
+        }
+    },
+    '@{normal}': function () {
+        var me = this;
+        var node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
+        node.removeClass('__mx-taginput_suggest_-active');
+    },
+    '@{highlight}': function (ignore) {
+        var me = this;
+        var node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
+        node.addClass('__mx-taginput_suggest_-active');
+        if (!ignore && node.length) {
+            me['@{temp.ignore}'] = 1; //如果是上下按键引起的滚动，则在move时忽略
+            var height = node.outerHeight();
+            var scrolled = (me['@{ui.index}'] + 1) * height;
+            var rNode = me['@{relate.list.node}'];
+            var vHeight = rNode.height();
+            var sTop = rNode.prop('scrollTop');
+            var items = Math.ceil(vHeight / height);
+            if (scrolled < sTop + height) {
+                rNode.prop('scrollTop', scrolled - height);
+            }
+            else if (scrolled > sTop + vHeight) {
+                rNode.prop('scrollTop', (me['@{ui.index}'] + 2 - items) * height);
+            }
+        }
+    },
+    '@{hide}': function () {
+        var me = this;
+        if (me['@{ui.show}']) {
+            me['@{ui.show}'] = false;
+            Monitor['@{remove}'](me);
+            me['@{relate.node}'].hide();
+            me['@{owner.node}'].trigger('hidelist');
+        }
+    },
+    '@{pick}<click>': function (e) {
+        e.preventDefault();
+        var me = this;
+        var item = e.params.item;
+        me['@{hide}']();
+        me['@{owner.node}'].trigger({
+            type: 'pick',
+            item: item,
+            scrollTop: me['@{relate.list.node}'].prop('scrollTop')
+        });
+    },
+    '@{out}<mouseout>': function (e) {
+        var flag = !Magix.inside(e.relateTarget, e.eventTarget);
+        if (flag) {
+            var me = this;
+            me['@{normal}']();
+            me['@{ui.index}'] = -1;
+        }
+    },
+    '@{move}<mousemove>': function (e) {
+        var me = this;
+        if (me['@{temp.ignore}']) {
+            delete me['@{temp.ignore}'];
+            return;
+        }
+        var target = $(e.target);
+        if (target.is('li')) {
+            var idx = target.data('idx');
+            if (idx != me['@{ui.index}']) {
+                me['@{normal}']();
+                me['@{ui.index}'] = idx;
+                me['@{highlight}'](true);
+            }
+        }
+    },
+    '@{prevent}<contextmenu>': function (e) {
+        e.preventDefault();
+    }
+});
+
+});

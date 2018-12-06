@@ -1,1 +1,164 @@
-define("mx-storage/index",["magix"],(e,t,a)=>{var i,_,r,n=e("magix"),o={},c=!1,s={};_="localStorage";var d=function(){var e=(+new Date).toString(),t=JSON.stringify(s);o.__eN=t,o.__eO=e,"__eP"==_&&(r.setAttribute("__eO",e),r.setAttribute("__eN",t),r.save("__eQ"))},l=n.mix({set:function(e,t){s[e]=t,d()},get:function(e){return s[e]},del:function(e){delete s[e],d()}},n.Event);if(_ in window)try{localStorage.setItem(_,n.guid()),c=!0,localStorage.removeItem(_)}catch(e){}if(c)o=localStorage,i=o.__eO;else if((_="globalStorage")in window)try{var g=window[_];o="localhost"==location.hostname?g.__eR:g[location.hostname],i=o.__eO}catch(e){}else if((r=document.createElement("link")).addBehavior){r.style.behavior="url(#default#userData)",document.getElementsByTagName("head")[0].appendChild(r);try{r.load("__eQ")}catch(e){r.setAttribute("__eQ","{}"),r.save("__eQ"),r.load("__eQ")}var f="{}";try{f=r.getAttribute("__eQ"),i=r.getAttribute("__eO")}catch(e){}_="__eP",o.__eN=f}var u=function(){var e;clearTimeout(u.timer),u.timer=setTimeout(function(){if("__eP"==_){r.load("__eQ");try{e=r.getAttribute("__eO")}catch(e){}}else e=o.__eO;if(e&&e!=i){i=e;var t=void 0,a="{}";if("__eP"==_){r.load("__eQ");try{a=r.getAttribute("__eQ")}catch(e){}o.__eN=a}t=JSON.parse(o.__eN);for(var c={},d=0,g=n.keys(s).concat(n.keys(t));d<g.length;d++){var f=g[d];if(1!==c[f]){c[f]=1;var u=JSON.stringify(s[f]);JSON.stringify(t[f])!=u&&l.fire("change",{key:f,from:s[f],to:t[f]})}}s=t}},25)};if("addEventListener"in window&&window.addEventListener("pageshow",function(e){e.persisted&&u()},!1),"__eP"==_?setInterval(u,1e3):"addEventListener"in window?window.addEventListener("storage",u,!1):document.attachEvent("onstorage",u),o.__eN)try{s=JSON.parse(o.__eN)}catch(e){o.__eN="{}"}else o.__eN="{}";a.exports=l});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-storage/index",["magix"],(require,exports,module)=>{
+/*Magix*/
+
+/*
+ver:2.0.6
+*/
+var Magix = require("magix");
+var StorageService = {}, StorageUpdateTime, Backend, Test = false, StorageLink, StorageData = {};
+Backend = 'localStorage';
+var UpdateStorage = function () {
+    var updateTime = (+new Date()).toString();
+    var dataString = JSON.stringify(StorageData);
+    StorageService['@{store.data}'] = dataString;
+    StorageService['@{update.time}'] = updateTime;
+    if ('@{user.data}' == Backend) {
+        StorageLink.setAttribute('@{update.time}', updateTime);
+        StorageLink.setAttribute('@{store.data}', dataString);
+        StorageLink.save('@{storage}');
+    }
+};
+var StorageAPI = Magix.mix({
+    set: function (key, value) {
+        StorageData[key] = value;
+        UpdateStorage();
+    },
+    get: function (key) {
+        return StorageData[key];
+    },
+    del: function (key) {
+        delete StorageData[key];
+        UpdateStorage();
+    }
+}, Magix.Event);
+if (Backend in window) {
+    try {
+        localStorage.setItem(Backend, Magix.guid());
+        Test = true;
+        localStorage.removeItem(Backend);
+    }
+    catch (ignore) { }
+}
+if (Test) {
+    StorageService = localStorage;
+    StorageUpdateTime = StorageService['@{update.time}'];
+}
+else {
+    Backend = 'globalStorage';
+    if (Backend in window) {
+        try {
+            var globalStorage = window[Backend];
+            StorageService = 'localhost' == location.hostname ? globalStorage['@{localhost.localdomain}'] : globalStorage[location.hostname];
+            StorageUpdateTime = StorageService['@{update.time}'];
+        }
+        catch (n) { }
+    }
+    else {
+        StorageLink = document.createElement('link');
+        if (StorageLink.addBehavior) {
+            StorageLink.style.behavior = 'url(#default#userData)';
+            document.getElementsByTagName('head')[0].appendChild(StorageLink);
+            try {
+                StorageLink.load('@{storage}');
+            }
+            catch (i) {
+                StorageLink.setAttribute('@{storage}', '{}');
+                StorageLink.save('@{storage}');
+                StorageLink.load('@{storage}');
+            }
+            var data = '{}';
+            try {
+                data = StorageLink.getAttribute('@{storage}');
+                StorageUpdateTime = StorageLink.getAttribute('@{update.time}');
+            }
+            catch (g) { }
+            Backend = '@{user.data}';
+            StorageService['@{store.data}'] = data;
+        }
+    }
+}
+var CheckedChange = function () {
+    var currentUpdate;
+    clearTimeout(CheckedChange.timer);
+    CheckedChange.timer = setTimeout(function () {
+        if ('@{user.data}' == Backend) {
+            StorageLink.load('@{storage}');
+            try {
+                currentUpdate = StorageLink.getAttribute('@{update.time}');
+            }
+            catch (t) { }
+        }
+        else {
+            currentUpdate = StorageService['@{update.time}'];
+        }
+        if (currentUpdate) {
+            if (currentUpdate != StorageUpdateTime) {
+                StorageUpdateTime = currentUpdate;
+                var newData = void 0, dataString = '{}';
+                if ('@{user.data}' == Backend) {
+                    StorageLink.load('@{storage}');
+                    try {
+                        dataString = StorageLink.getAttribute('@{storage}');
+                    }
+                    catch (t) { }
+                    StorageService['@{store.data}'] = dataString;
+                }
+                newData = JSON.parse(StorageService['@{store.data}']);
+                var keys = Magix.keys(StorageData).concat(Magix.keys(newData)), locker = {};
+                for (var _i = 0, keys_1 = keys; _i < keys_1.length; _i++) {
+                    var key = keys_1[_i];
+                    if (locker[key] !== 1) {
+                        locker[key] = 1;
+                        var value1 = JSON.stringify(StorageData[key]);
+                        var value2 = JSON.stringify(newData[key]);
+                        if (value2 != value1) {
+                            StorageAPI.fire('change', {
+                                key: key,
+                                from: StorageData[key],
+                                to: newData[key]
+                            });
+                        }
+                    }
+                }
+                StorageData = newData;
+            }
+        }
+    }, 25);
+};
+if ('addEventListener' in window) {
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted) {
+            CheckedChange();
+        }
+    }, false);
+}
+if (Backend == '@{user.data}') {
+    setInterval(CheckedChange, 1000);
+}
+else {
+    if ('addEventListener' in window) {
+        window.addEventListener('storage', CheckedChange, false);
+    }
+    else {
+        document.attachEvent('onstorage', CheckedChange);
+    }
+}
+if (StorageService['@{store.data}']) {
+    try {
+        StorageData = JSON.parse(StorageService['@{store.data}']);
+    }
+    catch (e) {
+        StorageService['@{store.data}'] = '{}';
+    }
+}
+else {
+    StorageService['@{store.data}'] = '{}';
+}
+module.exports = StorageAPI;
+
+});

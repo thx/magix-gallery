@@ -1,1 +1,240 @@
-define("mx-number/index",["magix","$"],(_,t,e)=>{var i=_("magix"),o=_("$");i.applyStyle("_B",'._ef{width:100%;border:none;height:100%;background-color:transparent;color:#333;display:block}._eg,._eh{width:25px;height:50%;position:absolute;right:1px;border:2px solid #fff;border-radius:4px;cursor:pointer}._eg:hover,._eh:hover{background-color:#f0f0f0}._eh{top:1px}._eg{bottom:1px}._ei:after{width:0;height:0;position:absolute;top:0;right:0;bottom:0;left:0;border-left:5px solid transparent;border-right:5px solid transparent;content:"";display:block;margin:auto}._eg:after{border-top:5px solid #ccc}._eh:after{border-bottom:5px solid #ccc}._ej{background-color:#fbfbfb}._ej:hover{border-color:#e6e6e6}._ej ._eg,._ej ._eh{cursor:not-allowed;border-color:transparent}._ej ._eg:hover,._ej ._eh:hover{background-color:transparent}._ej ._eh:hover:after{border-bottom-color:#ccc}._ej ._eg:hover:after{border-top-color:#ccc}'),e.exports=i.View.extend({tmpl:function(_,t){var e="",i={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},o=/[&<>"'`]/g,s=function(_){return null==_?"":""+_},r=function(_){return"&"+i[_]+";"};e+='<input class="_ef" mx-focusin="'+(t=t||"")+'__aq()" mx-focusout="'+t+'__dV()" value="'+(n=_.value,s(n).replace(o,r))+'" mx-change="'+t+'__dT()" mx-keydown="'+t+'__e_()" ';var n;return _.disabled&&(e+=" disabled"),e+=' autocomplete="off"/><span mxs="_):_" class="_eh _ei _aj" mx-click="'+t+'__dQ({i:true})" mx-mousedown="'+t+'__dZ({i:true})" mx-contextmenu="'+t+'__G()"></span><span mxs="_):a" class="_eg _ei _aj" mx-click="'+t+'__dQ()" mx-mousedown="'+t+'__dZ()" mx-contextmenu="'+t+'__G()"></span>'},init:function(_){this.assign(_);var t=o("#"+this.id);this.__k=t},assign:function(_){var t=+_.value;t||0===t||(t=""),this.__cL=t,this.__dM=+_.step||1,this.__cx=_.disabled+""=="true",this.__I=i.has(_,"max")?+_.max:Number.MAX_VALUE,this.__H=i.has(_,"min")?+_.min:-Number.MAX_VALUE,this.__dN=+_.ratio||10;var e=this.__dM+"",o=e.indexOf(".");return o=o>=0?e.slice(o+1).length:0,this.__dO=o,!0},render:function(){this.__k[this.__cx?"addClass":"removeClass"]("_ej"),this.updater.digest({value:this.__cL,disabled:this.__cx}),this.__dP=this.__k.find("input")},val:function(_){if((_=+_)||0===_){var t=this.__I,e=this.__H,i=this.__dM;_>t?_=t:_<e&&(_=e),_!==this.__cL&&(_=(_=i<1?Math.round(_/i)*i:_).toFixed(this.__dO),this.__dP.val(_),_=+_,this.__k.prop("value",this.__cL=_).trigger({type:"input",value:_}))}return this.__cL},__dQ:function(_,t){var e=this.__cL;""===e&&(e=0);var i=this.__dM,o=e;t&&(i*=this.__dN),_?o+=i:o-=i,this.val(o)},__dR:function(){var _=this.__dP[0];_&&(_.focus(),_.selectionStart=_.selectionEnd=_.value.length)},__dS:function(){this.__k.addClass("_ar"),i.has(this,"__cC")||(this.__cC=this.__cL)},"__dT<change>":function(_){_.stopPropagation();var t=_.eventTarget,e=t.value;if(""===e)return t.value=this.__cL="",void this.__k.prop("value","");var i=Number(e);(i||0===i)&&this.val(i),i=(i=this.__cL)||0===i?i.toFixed(this.__dO):"",t.value=i},"__aq<focusin>":function(){this.__dS()},"__dV<focusout>":function(){this.__dU||(this.__k.removeClass("_ar"),this.__cC!=this.__cL&&this.__k.trigger({type:"change",value:this.__cL}),delete this.__cC)},"__dQ<click>":function(_){this.__cx||this.__dW||(this.__dQ(_.params.i,_.shiftKey),this.__dR())},"__dZ<mousedown>":function(_){var t=this;t.__cx||(t.__dU=!0,t.__dS(),t.__dX=setTimeout(t.wrapAsync(function(){t.__dY=setInterval(t.wrapAsync(function(){t.__dW=!0,t.__dQ(_.params.i),t.__dR()}),50)}),300))},"__e_<keydown>":function(_){if(38==_.keyCode||40==_.keyCode){_.preventDefault();if(!this.__cx){var t=_.eventTarget.value;if(""===t)this.__cL="";else{var e=Number(t);(e||0===e)&&e!=this.__cL&&(this.__cL=e)}this.__dQ(38==_.keyCode,_.shiftKey)}}},"__G<contextmenu>":function(_){_.preventDefault()},"$doc<mouseup>":function(){var _=this;clearTimeout(_.__dX),clearInterval(_.__dY),delete _.__dU,setTimeout(_.wrapAsync(function(){delete _.__dW}),0)}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-number/index",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("__mx-number_index_","/* @dependent: ./index.less */\n.__mx-number_index_-ipt {\n  width: 100%;\n  border: none;\n  height: 100%;\n  background-color: transparent;\n  color: #333;\n  display: block;\n}\n.__mx-number_index_-up,\n.__mx-number_index_-down {\n  width: 25px;\n  height: 50%;\n  position: absolute;\n  right: 1px;\n  border: 2px solid #fff;\n  border-radius: 4px;\n  cursor: pointer;\n}\n.__mx-number_index_-up:hover,\n.__mx-number_index_-down:hover {\n  background-color: #f0f0f0;\n}\n.__mx-number_index_-up {\n  top: 1px;\n}\n.__mx-number_index_-down {\n  bottom: 1px;\n}\n.__mx-number_index_-arrow:after {\n  width: 0;\n  height: 0;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-left: 5px solid rgba(0, 0, 0, 0);\n  border-right: 5px solid rgba(0, 0, 0, 0);\n  content: '';\n  display: block;\n  margin: auto;\n}\n.__mx-number_index_-down:after {\n  border-top: 5px solid #ccc;\n}\n.__mx-number_index_-up:after {\n  border-bottom: 5px solid #ccc;\n}\n.__mx-number_index_-notallowed {\n  background-color: #fbfbfb;\n}\n.__mx-number_index_-notallowed:hover {\n  border-color: #e6e6e6;\n}\n.__mx-number_index_-notallowed .__mx-number_index_-up,\n.__mx-number_index_-notallowed .__mx-number_index_-down {\n  cursor: not-allowed;\n  border-color: transparent;\n}\n.__mx-number_index_-notallowed .__mx-number_index_-up:hover,\n.__mx-number_index_-notallowed .__mx-number_index_-down:hover {\n  background-color: transparent;\n}\n.__mx-number_index_-notallowed .__mx-number_index_-up:hover:after {\n  border-bottom-color: #ccc;\n}\n.__mx-number_index_-notallowed .__mx-number_index_-down:hover:after {\n  border-top-color: #ccc;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', value = $$.value, disabled = $$.disabled; var $expr, $art, $line; try {
+    $p += '<input class="__mx-number_index_-ipt" mx-focusin="' + $viewId + '@{active}()" mx-focusout="' + $viewId + '@{deactive}()" value="' + ($expr = '<%=value%>', $e(value)) + '" mx-change="' + $viewId + '@{num.check}()" mx-keydown="' + $viewId + '@{press.check}()" ';
+    $expr = '<%if (disabled) {%>';
+    if (disabled) {
+        ;
+        $p += ' disabled';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' autocomplete="off"/><span mxs="_):_" class="__mx-number_index_-up __mx-number_index_-arrow __mx-style_index_-unselectable" mx-click="' + $viewId + '@{num.change}({i:true})" mx-mousedown="' + $viewId + '@{fast.start}({i:true})" mx-contextmenu="' + $viewId + '@{prevent}()"></span><span mxs="_):a" class="__mx-number_index_-down __mx-number_index_-arrow __mx-style_index_-unselectable" mx-click="' + $viewId + '@{num.change}()" mx-mousedown="' + $viewId + '@{fast.start}()" mx-contextmenu="' + $viewId + '@{prevent}()"></span>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-number/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var me = this;
+        me.assign(extra);
+        var node = $('#' + me.id);
+        me['@{owner.node}'] = node;
+    },
+    assign: function (ops) {
+        var me = this;
+        var v = +ops.value;
+        if (!v && v !== 0)
+            v = '';
+        me['@{value}'] = v;
+        me['@{step}'] = +ops.step || 1;
+        me['@{disabled}'] = (ops.disabled + '') === 'true';
+        me['@{max}'] = Magix.has(ops, 'max') ? +ops.max : Number.MAX_VALUE;
+        me['@{min}'] = Magix.has(ops, 'min') ? +ops.min : -Number.MAX_VALUE;
+        me['@{ratio}'] = +ops.ratio || 10;
+        var s = me['@{step}'] + '';
+        var i = s.indexOf('.');
+        if (i >= 0) {
+            i = s.slice(i + 1).length;
+        }
+        else {
+            i = 0;
+        }
+        me['@{tail.length}'] = i;
+        return true;
+    },
+    render: function () {
+        var me = this;
+        me['@{owner.node}'][me['@{disabled}'] ? 'addClass' : 'removeClass']('__mx-number_index_-notallowed');
+        me.updater.digest({
+            value: me['@{value}'],
+            disabled: me['@{disabled}']
+        });
+        me['@{ctrl.input}'] = me['@{owner.node}'].find('input');
+    },
+    val: function (v) {
+        v = +v;
+        var me = this;
+        if (v || v === 0) {
+            var max = me['@{max}'];
+            var min = me['@{min}'];
+            var step = me['@{step}'];
+            if (v > max) {
+                v = max;
+            }
+            else if (v < min) {
+                v = min;
+            }
+            if (v !== me['@{value}']) {
+                v = step < 1 ? Math.round(v / step) * step : v;
+                v = v.toFixed(me['@{tail.length}']);
+                me['@{ctrl.input}'].val(v);
+                v = +v;
+                me['@{owner.node}'].prop('value', me['@{value}'] = v).trigger({
+                    type: 'input',
+                    value: v
+                });
+            }
+        }
+        return me['@{value}'];
+    },
+    '@{num.change}': function (increase, enlarge) {
+        var me = this;
+        var value = me['@{value}'];
+        if (value === '')
+            value = 0; //for init
+        var step = me['@{step}'];
+        var c = value;
+        if (enlarge)
+            step *= me['@{ratio}'];
+        if (increase) {
+            c += step;
+        }
+        else {
+            c -= step;
+        }
+        me.val(c);
+    },
+    '@{cursor.show}': function () {
+        var me = this;
+        var ipt = me['@{ctrl.input}'][0];
+        if (ipt) {
+            ipt.focus();
+            ipt.selectionStart = ipt.selectionEnd = ipt.value.length;
+        }
+    },
+    '@{simulator.active}': function () {
+        var me = this;
+        me['@{owner.node}'].addClass('__mx-style_index_-input-focus');
+        if (!Magix.has(me, '@{last.value}')) {
+            me['@{last.value}'] = me['@{value}'];
+        }
+    },
+    '@{num.check}<change>': function (e) {
+        e.stopPropagation();
+        var target = e.eventTarget;
+        var value = target.value;
+        var me = this;
+        if (value === '') {
+            target.value = me['@{value}'] = '';
+            me['@{owner.node}'].prop('value', '');
+            return;
+        }
+        var v = Number(value);
+        if (v || v === 0) {
+            me.val(v);
+        }
+        v = me['@{value}'];
+        if (v || v === 0) {
+            v = v.toFixed(me['@{tail.length}']);
+        }
+        else {
+            v = '';
+        }
+        target.value = v;
+    },
+    '@{active}<focusin>': function () {
+        this['@{simulator.active}']();
+    },
+    '@{deactive}<focusout>': function () {
+        var me = this;
+        if (!me['@{ui.keep.active}']) {
+            me['@{owner.node}'].removeClass('__mx-style_index_-input-focus');
+            if (me['@{last.value}'] != me['@{value}']) {
+                me['@{owner.node}'].trigger({
+                    type: 'change',
+                    value: me['@{value}']
+                });
+            }
+            delete me['@{last.value}'];
+        }
+    },
+    '@{num.change}<click>': function (e) {
+        var me = this;
+        if (!me['@{disabled}'] && !me['@{fast.change.start}']) {
+            me['@{num.change}'](e.params.i, e.shiftKey);
+            me['@{cursor.show}']();
+        }
+    },
+    '@{fast.start}<mousedown>': function (e) {
+        var me = this;
+        if (!me['@{disabled}']) {
+            me['@{ui.keep.active}'] = true;
+            me['@{simulator.active}']();
+            me['@{long.tap.timer}'] = setTimeout(me.wrapAsync(function () {
+                me['@{interval.timer}'] = setInterval(me.wrapAsync(function () {
+                    me['@{fast.change.start}'] = true;
+                    me['@{num.change}'](e.params.i);
+                    me['@{cursor.show}']();
+                }), 50);
+            }), 300);
+        }
+    },
+    '@{press.check}<keydown>': function (e) {
+        if (e.keyCode == 38 || e.keyCode == 40) {
+            e.preventDefault();
+            var me = this;
+            if (!me['@{disabled}']) {
+                var target = e.eventTarget;
+                var value = target.value;
+                if (value === '') {
+                    me['@{value}'] = '';
+                }
+                else {
+                    var v = Number(value);
+                    if (v || v === 0) {
+                        if (v != me['@{value}']) {
+                            me['@{value}'] = v;
+                        }
+                    }
+                }
+                me['@{num.change}'](e.keyCode == 38, e.shiftKey);
+            }
+        }
+    },
+    '@{prevent}<contextmenu>': function (e) {
+        e.preventDefault();
+    },
+    '$doc<mouseup>': function () {
+        var me = this;
+        clearTimeout(me['@{long.tap.timer}']);
+        clearInterval(me['@{interval.timer}']);
+        delete me['@{ui.keep.active}'];
+        setTimeout(me.wrapAsync(function () {
+            delete me['@{fast.change.start}'];
+        }), 0);
+    }
+});
+
+});

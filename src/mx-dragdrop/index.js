@@ -1,1 +1,112 @@
-define("mx-dragdrop/index",["$"],(o,d,e)=>{var t=o("$"),n=t(window),r=t(document),i=window.getComputedStyle,s=function(o){(o=window.getSelection)?o().removeAllRanges():(o=window.document.selection)&&(o.empty?o.empty():o=null)},u=function(o){o.preventDefault()},p="mousemove touchmove",c="keydown mousewheel DOMMouseScroll";e.exports={ctor:function(){var o=this;o.on("destroy",function(){o["@{dd&drag.end}"]()})},"@{dd&drag.end}":function(o){var d=this["@{dd&drag.object}"];if(d){delete this["@{dd&drag.object}"],r.off(p,this["@{dd&move.proxy}"]).off("mouseup touchend",this["@{dd&stop.proxy}"]).off(c,u),n.off("blur",this["@{dd&stop.proxy}"]);var e=d["@{dd&node}"],i=d["@{dd&stop}"],s=d["@{dd&stop.is.function}"];t(e).off("losecapture",this["@{dd&stop.proxy}"]),e.setCapture&&e.releaseCapture(),s&&i(o)}},dragdrop:function(o,d,e){var i=this;if(i["@{dd&drag.end}"](),o){s(),o.setCapture&&o.setCapture(),i["@{dd&drag.object}"]={"@{dd&stop}":e,"@{dd&node}":o,"@{dd&stop.is.function}":t.isFunction(e)};var l=t.isFunction(d);i["@{dd&stop.proxy}"]=function(o){i["@{dd&drag.end}"](o)},i["@{dd&move.proxy}"]=function(o){l&&d(o)},r.on(p,i["@{dd&move.proxy}"]).on("mouseup touchend",i["@{dd&stop.proxy}"]).on(c,u),n.on("blur",i["@{dd&stop.proxy}"]),t(o).on("losecapture",i["@{dd&stop.proxy}"])}},fromPoint:function(o,d){var e=null;if(document.elementFromPoint)for(!u["@{dd&fixed}"]&&i&&(u["@{dd&fixed}"]=!0,u["@{dd&add.scroll}"]=null!==document.elementFromPoint(-1,-1)),u["@{dd&add.scroll}"]&&(o+=n.scrollLeft(),d+=n.scrollTop()),e=document.elementFromPoint(o,d);e&&3==e.nodeType;)e=e.parentNode;return e},clear:s}});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-dragdrop/index",["$"],(require,exports,module)=>{
+/*$*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@taobao.com
+ */
+var $ = require("$");
+var Win = $(window);
+var Doc = $(document);
+var IsW3C = window.getComputedStyle;
+var ClearSelection = function (t) {
+    if ((t = window.getSelection)) {
+        t().removeAllRanges();
+    }
+    else if ((t = window.document.selection)) {
+        if (t.empty)
+            t.empty();
+        else
+            t = null;
+    }
+};
+var DragPrevent = function (e) {
+    e.preventDefault();
+};
+var DragMoveEvent = 'mousemove touchmove';
+var DragEndEvent = 'mouseup touchend';
+var DragPreventEvent = 'keydown mousewheel DOMMouseScroll';
+module.exports = {
+    ctor: function () {
+        var me = this;
+        me.on('destroy', function () {
+            me['@{dd&drag.end}']();
+        });
+    },
+    '@{dd&drag.end}': function (e) {
+        var me = this;
+        var info = me['@{dd&drag.object}'];
+        if (info) {
+            delete me['@{dd&drag.object}'];
+            Doc.off(DragMoveEvent, me['@{dd&move.proxy}'])
+                .off(DragEndEvent, me['@{dd&stop.proxy}'])
+                .off(DragPreventEvent, DragPrevent);
+            Win.off('blur', me['@{dd&stop.proxy}']);
+            var node = info['@{dd&node}'];
+            var stop = info['@{dd&stop}'];
+            var iStop = info['@{dd&stop.is.function}'];
+            $(node).off('losecapture', me['@{dd&stop.proxy}']);
+            if (node.setCapture)
+                node.releaseCapture();
+            if (iStop) {
+                stop(e);
+            }
+        }
+    },
+    dragdrop: function (node, moveCallback, endCallback) {
+        var me = this;
+        me['@{dd&drag.end}']();
+        if (node) {
+            ClearSelection();
+            if (node.setCapture) {
+                node.setCapture();
+            }
+            me['@{dd&drag.object}'] = {
+                '@{dd&stop}': endCallback,
+                '@{dd&node}': node,
+                '@{dd&stop.is.function}': $.isFunction(endCallback)
+            };
+            var moveIsFunction_1 = $.isFunction(moveCallback);
+            me['@{dd&stop.proxy}'] = function (e) {
+                me['@{dd&drag.end}'](e);
+            };
+            me['@{dd&move.proxy}'] = function (e) {
+                if (moveIsFunction_1) {
+                    moveCallback(e);
+                }
+            };
+            Doc.on(DragMoveEvent, me['@{dd&move.proxy}'])
+                .on(DragEndEvent, me['@{dd&stop.proxy}'])
+                .on(DragPreventEvent, DragPrevent);
+            Win.on('blur', me['@{dd&stop.proxy}']);
+            $(node).on('losecapture', me['@{dd&stop.proxy}']);
+        }
+    },
+    fromPoint: function (x, y) {
+        var node = null;
+        if (document.elementFromPoint) {
+            if (!DragPrevent['@{dd&fixed}'] && IsW3C) {
+                DragPrevent['@{dd&fixed}'] = true;
+                DragPrevent['@{dd&add.scroll}'] = document.elementFromPoint(-1, -1) !== null;
+            }
+            if (DragPrevent['@{dd&add.scroll}']) {
+                x += Win.scrollLeft();
+                y += Win.scrollTop();
+            }
+            node = document.elementFromPoint(x, y);
+            while (node && node.nodeType == 3)
+                node = node.parentNode;
+        }
+        return node;
+    },
+    clear: ClearSelection
+};
+
+});

@@ -1,5 +1,5 @@
 let gulp = require('gulp');
-let combineTool = require('../magix-combine/index');
+let combineTool = require('magix-combine');
 let watch = require('gulp-watch');
 let del = require('del');
 let fs = require('fs');

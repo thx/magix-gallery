@@ -1,1 +1,203 @@
-define("mx-uploader/index",["magix","$","../mx-runner/index"],(e,t,n)=>{var i=e("magix"),r=e("$"),a=e("../mx-runner/index");i.applyStyle("_R","._fP{position:relative;overflow:hidden}._fQ{left:0;top:0;bottom:0;right:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:100px;filter:alpha(opacity=0)}._fR,._fQ{position:absolute}._fR{left:-999999px}");var o=i.Base.extend({destroy:function(){this.__dK=1}}),p=o.extend({__gI:function(e,t,n,o){var p=e.form,s=this,d=i.guid("up");if(!p){r("body").append('<div id="'+d+'_temp" class="_fR"><form target="'+d+'"></form></div>');(p=r("#"+d+"_temp").find("form")).append(e),p=p[0]}var f=0,l=2e3;if(e.files){l=0;for(var c=0;c<e.files.length;c++)l+=e.files[c].size;(l/=1e3)<2e3&&(l=2e3)}var _=1e3/l,u=function(){s.__dK?a.__ak(u):f<1&&(o(f),f+=_+20*Math.random()*_)};a.__ai(100,u),r('<iframe name="'+d+'" id="'+d+'" style="display:none;"></iframe>').insertAfter(p).on("load",function(e){if(a.__ak(u),!s.__dK){o(1);var t=e.target,i=r(t.contentWindow.document.body);i.find("script").remove();var p=r.trim(i.text());r(t).remove(),r("#"+d+"_temp").remove();try{n(null,new Function("return "+p)())}catch(e){n(e)}}}).on("error",function(e){a.__ak(u),s.__dK||(r("#"+d+"_temp").remove(),n(e))}),p.target=d,p.action=t.get("action"),p.method="POST",p.enctype="multipart/form-data",p.submit()}}),s=o.extend({__gI:function(e,t,n,i){for(var r=new FormData,a=this,o=e.files,p=0;p<o.length;p++)r.append(t.get("name"),o[p]);var s=new XMLHttpRequest;s.open("post",t.get("action"),!0),s.onload=function(){if(!a.__dK)try{n(null,new Function("return "+s.responseText)())}catch(e){n(e)}},s.onerror=function(e){a.__dK||(e.message="network error",n(e))},s.upload.onprogress=function(e){a.__dK||(e.lengthComputable?i(e.loaded/e.total):i(0))},s.send(r)}});n.exports=i.View.extend({init:function(e){this.updater.set({name:e.name||"file",action:e.action||"",multiple:e.multiple,accept:e.accept});var t;t=window.FormData?s:p,this.capture("__gJ",new t)},render:function(){var e="file_"+this.id,t=r("#"+e);t.length&&t.remove();var n=this.updater.get();r("#"+this.id).append('<input id="'+e+'" type="file" class="_fQ" mx-change='+this.id+'__gK()" name="'+n.name+'" />').addClass("_fP"),t=r("#"+e),n.multiple&&t.attr("multiple","multiple"),n.accept&&t.prop("accept",n.accept)},"__gK<change>":function(e){var t=r("#"+this.id),n=e.eventTarget.files,i=r.Event("start",{files:n});if(t.trigger(i),i.isDefaultPrevented())this.render();else{this.capture("__gJ").__gI(e.target,this.updater,function(e,i){e?t.trigger({type:"error",error:e}):t.trigger({type:"success",files:n,response:i})},function(e){t.trigger({type:"progress",percent:e})}),this.render()}}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-uploader/index",["magix","$","../mx-runner/index"],(require,exports,module)=>{
+/*Magix,$,Runner*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@taobao.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+var Runner = require("../mx-runner/index");
+Magix.applyStyle("__mx-uploader_index_",".__mx-uploader_index_-pro{\n    position: relative;\n    overflow: hidden;\n}\n.__mx-uploader_index_-file{\n    position: absolute;\n    left:0;\n    top:0;\n    bottom: 0;\n    right: 0;\n    width: 100%;\n    height: 100%;\n    opacity: 0;\n    cursor: pointer;\n    font-size:100px;\n    filter: alpha(opacity=0);\n}\n.__mx-uploader_index_-cnt{\n    position: absolute;\n    left:-999999px;\n}");
+var Uploader = Magix.Base.extend({
+    destroy: function () {
+        var me = this;
+        me['@{destroyed}'] = 1;
+    }
+});
+var Iframe = Uploader.extend({
+    '@{send.request}': function (input, data, callback, progress) {
+        var form = input.form;
+        var me = this;
+        var id = Magix.guid('up');
+        if (!form) {
+            $('body').append('<div id="' + id + '_temp" class="__mx-uploader_index_-cnt"><form target="' + id + '"></form></div>');
+            var cnt = $('#' + id + '_temp');
+            form = cnt.find('form');
+            form.append(input);
+            form = form[0];
+        }
+        var p = 0;
+        var total = 2000;
+        if (input.files) {
+            total = 0;
+            for (var i = 0; i < input.files.length; i++) {
+                total += input.files[i].size;
+            }
+            total /= 1000;
+            if (total < 2000) {
+                total = 2000;
+            }
+        }
+        var base = 1000 / total;
+        var prgs = function () {
+            if (me['@{destroyed}']) {
+                Runner['@{task.remove}'](prgs);
+                return;
+            }
+            if (p < 1) {
+                progress(p);
+                p += base + Math.random() * 20 * base;
+            }
+        };
+        Runner['@{task.add}'](100, prgs);
+        $('<iframe name="' + id + '" id="' + id + '" style="display:none;"></iframe>').insertAfter(form).on('load', function (e) {
+            Runner['@{task.remove}'](prgs);
+            if (!me['@{destroyed}']) {
+                progress(1);
+                var iframe = e.target;
+                var $body = $(iframe.contentWindow.document.body);
+                $body.find('script').remove();
+                var response = $.trim($body.text());
+                $(iframe).remove();
+                $('#' + id + '_temp').remove();
+                try {
+                    /*jshint evil:true*/
+                    callback(null, new Function('return ' + response)());
+                }
+                catch (ex) {
+                    callback(ex);
+                }
+            }
+        }).on('error', function (e) {
+            Runner['@{task.remove}'](prgs);
+            if (!me['@{destroyed}']) {
+                $('#' + id + '_temp').remove();
+                callback(e);
+            }
+        });
+        form.target = id;
+        form.action = data.get('action');
+        form.method = 'POST';
+        form.enctype = 'multipart/form-data';
+        form.submit();
+    }
+});
+var XHR = Uploader.extend({
+    '@{send.request}': function (input, data, callback, progress) {
+        var fd = new FormData();
+        var me = this;
+        var files = input.files;
+        for (var i = 0; i < files.length; i++) {
+            fd.append(data.get('name'), files[i]);
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.open('post', data.get('action'), true);
+        xhr.onload = function () {
+            if (!me['@{destroyed}']) {
+                try {
+                    /*jshint evil:true*/
+                    callback(null, new Function('return ' + xhr.responseText)());
+                }
+                catch (ex) {
+                    callback(ex);
+                }
+            }
+        };
+        xhr.onerror = function (e) {
+            if (!me['@{destroyed}']) {
+                e.message = 'network error';
+                callback(e);
+            }
+        };
+        xhr.upload.onprogress = function (e) {
+            if (!me['@{destroyed}']) {
+                if (e.lengthComputable) {
+                    progress(e.loaded / e.total);
+                }
+                else {
+                    progress(0);
+                }
+            }
+        };
+        xhr.send(fd);
+    }
+});
+module.exports = Magix.View.extend({
+    init: function (extra) {
+        var me = this;
+        me.updater.set({
+            name: extra.name || 'file',
+            action: extra.action || '',
+            multiple: extra.multiple,
+            accept: extra.accept
+        });
+        var Transport;
+        if (window.FormData) {
+            Transport = XHR;
+        }
+        else {
+            Transport = Iframe;
+        }
+        me.capture('@{transport}', new Transport());
+    },
+    render: function () {
+        var me = this;
+        var nodeId = 'file_' + me.id;
+        var node = $('#' + nodeId);
+        if (node.length) {
+            node.remove();
+        }
+        var data = me.updater.get();
+        $('#' + me.id).append('<input id="' + nodeId + '" type="file" class="__mx-uploader_index_-file" mx-change=' + me.id + '\x1e@{upload}()" name="' + data.name + '" />').addClass('__mx-uploader_index_-pro');
+        node = $('#' + nodeId);
+        if (data.multiple)
+            node.attr('multiple', 'multiple');
+        if (data.accept)
+            node.prop('accept', data.accept);
+    },
+    '@{upload}<change>': function (e) {
+        var me = this;
+        var node = $('#' + me.id);
+        var files = e.eventTarget.files;
+        var event = $.Event('start', {
+            files: files
+        });
+        node.trigger(event);
+        if (event.isDefaultPrevented()) {
+            me.render();
+            return;
+        }
+        var transport = me.capture('@{transport}');
+        transport['@{send.request}'](e.target, me.updater, function (err, response) {
+            if (err) {
+                node.trigger({
+                    type: 'error',
+                    error: err
+                });
+            }
+            else {
+                node.trigger({
+                    type: 'success',
+                    files: files,
+                    response: response
+                });
+            }
+        }, function (percent) {
+            node.trigger({
+                type: 'progress',
+                percent: percent
+            });
+        });
+        me.render();
+    }
+});
+
+});

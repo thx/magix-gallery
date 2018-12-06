@@ -1,1 +1,88 @@
-define("mx-topbar/router",["magix","$"],(t,e,n)=>{var a=t("magix"),r=t("$");a.applyStyle("_P","._fE{position:fixed;z-index:400;height:2px;left:0;top:0;right:0;background-color:#5665eb;-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0);transition:all .3s ease}");var o,i,d=a.guid("mx_topbar_"),f=a.Vframe,s=100,_={__e:function(){clearTimeout(o);r("#"+d).length||(r("body").append('<div class="_fE" id="'+d+'"></div>'),i=setInterval(_.__gF,300))},__gF:function(){var t=r("#"+d);t.length&&(s>15?s-=3+5*Math.random():s>4&&(s-=1+Math.random()),t.css({transform:"translate3d(-"+s+"%,0px,0px)"}))},__b:function(){setTimeout(function(){clearInterval(i);var t=r("#"+d);t.length&&(t.css({transform:"translate3d(0,0px,0px)"}),o=setTimeout(function(){s=100,t.remove()},400))},0)}};n.exports=a.View.extend({init:function(t){a.Router.on("changed",function(t){t.path&&_.__e()});var e=function(t){t.off("created",_.__b),t.on("created",_.__b)};f.on("add",function(n){n.vframe.id==t.id&&e(n.vframe)});var n=f.get(t.id);n&&e(n)},render:function(){_.__e()}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-topbar/router",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("__mx-topbar_index_","/* @dependent: ./index.less */\n.__mx-topbar_index_-bar {\n  position: fixed;\n  z-index: 400;\n  height: 2px;\n  left: 0;\n  top: 0;\n  right: 0;\n  background-color: #5665EB;\n  -webkit-transform: translate3d(-100%, 0px, 0px);\n          transform: translate3d(-100%, 0px, 0px);\n  transition: all 300ms ease;\n}\n");
+var barId = Magix.guid('mx_topbar_');
+var Vframe = Magix.Vframe;
+var timer, interval;
+var percent = 100;
+var Topbar = {
+    '@{show}': function () {
+        clearTimeout(timer);
+        var bar = $('#' + barId);
+        if (!bar.length) {
+            $('body').append("<div class=\"__mx-topbar_index_-bar\" id=\"" + barId + "\"></div>");
+            interval = setInterval(Topbar['@{porgress}'], 300);
+        }
+    },
+    '@{porgress}': function () {
+        var bar = $('#' + barId);
+        if (bar.length) {
+            if (percent > 15) {
+                percent -= (3 + Math.random() * 5);
+            }
+            else if (percent > 4) {
+                percent -= (1 + Math.random());
+            }
+            bar.css({
+                transform: "translate3d(-" + percent + "%,0px,0px)"
+            });
+        }
+    },
+    '@{hide}': function () {
+        setTimeout(function () {
+            clearInterval(interval);
+            var bar = $('#' + barId);
+            if (bar.length) {
+                bar.css({
+                    transform: "translate3d(0,0px,0px)"
+                });
+                timer = setTimeout(function () {
+                    percent = 100;
+                    bar.remove();
+                }, 400);
+            }
+        }, 0);
+    }
+};
+module.exports = Magix.View.extend({
+    init: function (extra) {
+        Magix.Router.on('changed', function (e) {
+            if (e.path) {
+                Topbar['@{show}']();
+            }
+        });
+        var resume = function (vf) {
+            vf.off('created', Topbar['@{hide}']);
+            vf.on('created', Topbar['@{hide}']);
+        };
+        var watch = function (e) {
+            if (e.vframe.id == extra.id) {
+                resume(e.vframe);
+            }
+        };
+        Vframe.on('add', watch);
+        var vf = Vframe.get(extra.id);
+        if (vf) {
+            resume(vf);
+        }
+    },
+    render: function () {
+        Topbar['@{show}']();
+    }
+});
+
+});

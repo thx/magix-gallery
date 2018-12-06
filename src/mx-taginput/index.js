@@ -1,1 +1,310 @@
-define("mx-taginput/index",["magix","$","./suggest"],(t,i,e)=>{t("./suggest");var s=t("magix");s.applyStyle("_L","._fk{height:auto;min-height:32px;padding:1px 7px;position:relative;border:1px solid #e6e6e6;border-radius:4px;width:340px;line-height:1}._fk:hover{border-color:#ccc}._fl{cursor:not-allowed;background-color:#fbfbfb}._fl:hover{border-color:#e6e6e6}._fm{height:auto;cursor:text}._fn{position:absolute;left:9px;top:8px;color:#999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}._fo{position:relative;display:inline-block;margin:1px;cursor:pointer;background-color:#eee;border-radius:4px}._fp{width:1px;visibility:hidden}._fq{float:left;border-right:1px solid #fff;max-width:200px;overflow:hidden}._fr,._fq{height:24px;line-height:24px;padding:0 4px}._fr{width:20px;font-weight:bolder;text-align:center;color:#999;display:inline-block}._fs{border:none;outline:none;height:24px;line-height:24px;padding:0;width:20px;position:relative;z-index:1;background:transparent}._fl ._fm,._fl ._fr,._fl ._fq,._fl ._fs{cursor:not-allowed}");var _=t("$");e.exports=s.View.extend({tmpl:function(t,i){var e="",s={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},_=/[&<>"'`]/g,o=function(t){return null==t?"":""+t},n=function(t){return"&"+s[t]+";"},a=function(t){return o(t).replace(_,n)},l=function(i,e,s){for(s=t[""];--s;)if(t[e=""+s]===i)return e;return t[e=""+t[""]++]=i,e},r={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},d=function(t){return r[t]},h=/[!')(*]/g,g=function(t){return encodeURIComponent(o(t)).replace(h,d)};if(e+='<div class="_fm _aj" mx-click="'+(i=i||"")+'__gn()" id="ipt_'+a(t.viewId)+'">',!t.items.length&&t.placeholder&&(e+='<div mxa="_~:_" class="_fn">'+a(t.placeholder)+"</div>"),t.items.length)for(var u=0;u<t.items.length;u++){var p=t.items[u];e+='<div mxa="_~:a" class="_fo" mx-contextmenu="'+i+'__G()"><div mxa="_~:b" class="_fq _al">'+a(t.textKey?p[t.textKey]:p)+'</div><div class="_fr" mx-click="'+i+"__gl({idx:"+o(u)+'})">x</div></div>'}else e+='<div mxa="_~:c" class="_fo _fp" mx-click="'+i+'stop()"><div class="_fr" mx-click="'+i+"__gl({idx:"+o(u)+'})">x</div></div>';return e+='<input mx-keydown="'+i+'__gm()" mx-keyup="'+i+'__gm()" mx-input="'+i+'__gm()" mx-paste="'+i+'__gm()" mx-pick="'+i+'__n()" mx-change="'+i+'__au()" mx-focusin="'+i+'__au()" mx-focusout="'+i+'__au()" mx-showlist="'+i+'__go()" mx-hidelist="'+i+'__go()" ',t.disabled&&(e+=' disabled="disabled" '),e+=' class="_fs" autocomplete="off"/>',t.disabled||(e+='<div mx-view="mx-taginput/suggest?list=',e+=l(t.list),e+="&textKey=",e+=l(t.textKey),e+="&valueKey=",e+=l(t.valueKey),e+="&relateIds=ipt_"+o(g(t.viewId))+"&offsetLeft=-11&width="+o(g(t.width))+"&scrollTop=",e+=l(t.scrollTop),e+='" class="_af _ah"></div>'),e+="</div>"},init:function(t){this.__eS=t.list||[],this.__k=_("#"+this.id),this.updater.set({disabled:t.disabled,placeholder:t.placeholder||"",textKey:t.textKey,valueKey:t.valueKey}),this.__gf(t.selected)},__gg:function(){for(var t=this.updater,i=t.get("sMap"),e=t.get("valueKey"),s=this.__eS,_=[],o=0,n=void 0;o<s.length;o++)n=s[o],i[e?n[e]:n]||_.push(n);return _},render:function(){var t=_("#"+this.id),i=t.outerWidth();0===i&&(i=340),this.updater.digest({width:i,list:this.__gg(),viewId:this.id}),t.addClass("_fk"),this.__h=t,this.__gh();this.updater.get().disabled&&t.addClass("_fl")},__gh:function(){var t=this.__h;this.__gi=t.find("input"),this.__gi.width(20);var i=_("#ipt_"+this.id).width()-this.__gi.position().left;this.__gi.width(i>=20?i:20)},__gf:function(t){t=((t=t||"")+"").split(",");for(var i=[],e={},_=this.updater.get("valueKey"),o=this.__eS,n=s.toMap(t),a=0,l=void 0,r=void 0;a<o.length;a++)l=o[a],r=_?l[_]:l,s.has(n,r)&&(e[r]=1,i.push(l));this.updater.set({sMap:e,items:i}),this.__k.val(t.join(","))},val:function(t){return t&&(this.__gf(t),this.updater.digest({list:this.__gg()}),this.__gh(),this.__h.removeClass("_ar"),this.__x()),this.updater.get("items")},__x:function(){for(var t=this.updater,i=[],e=t.get("items"),s=t.get("valueKey"),o=0,n=void 0;o<e.length;o++)n=e[o],i.push(s?n[s]:n);_("#"+this.id).val(i.join(",")).trigger({type:"change",ids:i,items:e})},__gk:function(){var t=this;clearTimeout(t.__gj),t.__eB=!0,t.__gi.focus(),t.__gj=setTimeout(t.wrapAsync(function(){delete t.__eB}),20)},"__gm<keydown,input,paste,keyup>":function(t){t.stopPropagation();var i=t.eventTarget.value;if(this.__cC!==i){this.__cC=i;var e=this.__h.find("._fn");i?e.hide():e.show()}if(!i&&"keydown"==t.type&&8==t.keyCode){var s=this.updater.get("items").length-1;s>-1&&(this["__gl<click>"]({params:{idx:s}}),this.__gk())}},"__n<pick>":function(t){t.stopPropagation();var i=this.updater,e=i.get("items"),s=i.get("sMap"),_=t.item,o=i.get("valueKey"),n=o?_[o]:_;s[n]||(s[n]=1,e.push(_),i.digest({items:e,scrollTop:t.scrollTop,list:this.__gg()}),this.__gh(),this.__gk(),this.__x())},"__gn<click>":function(){this.__k.hasClass("_fl")||this.__gi.focus()},"__gl<click>":function(t){if(!this.__k.hasClass("_fl")){var i=this.updater,e=i.get("items"),s=i.get("sMap"),_=i.get("valueKey"),o=e[t.params.idx];delete s[_?o[_]:o],e.splice(t.params.idx,1),i.digest({items:e,list:this.__gg()}),this.__gh(),this.__x(),this.__gk()}},"__G<contextmenu>":function(t){t.preventDefault()},"__au<change,focusin,focusout>":function(t){t.stopPropagation();var i=this.__h;"focusin"==t.type&&i.addClass("_ar")},"__go<showlist,hidelist>":function(t){if(!this.__eB&&(_("#"+this.id).trigger({type:"showlist"==t.type?"focusin":"focusout"}),"hidelist"==t.type)){this.__h.removeClass("_ar")}}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-taginput/index",["magix","$","./suggest"],(require,exports,module)=>{
+/*Magix,$*/
+require("./suggest");
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+Magix.applyStyle("__mx-taginput_index_","/* @dependent: ./index.less */\n.__mx-taginput_index_-owner {\n  height: auto;\n  min-height: 32px;\n  padding: 1px 7px;\n  position: relative;\n  border: solid 1px #e6e6e6;\n  border-radius: 4px;\n  width: 340px;\n  line-height: 1;\n}\n.__mx-taginput_index_-owner:hover {\n  border-color: #ccc;\n}\n.__mx-taginput_index_-notallowed {\n  cursor: not-allowed;\n  background-color: #fbfbfb;\n}\n.__mx-taginput_index_-notallowed:hover {\n  border-color: #e6e6e6;\n}\n.__mx-taginput_index_-ipt {\n  height: auto;\n  cursor: text;\n}\n.__mx-taginput_index_-placeholder {\n  position: absolute;\n  left: 9px;\n  top: 8px;\n  color: #999;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.__mx-taginput_index_-item {\n  position: relative;\n  display: inline-block;\n  margin: 1px;\n  cursor: pointer;\n  background-color: #eee;\n  border-radius: 4px;\n}\n.__mx-taginput_index_-ghost {\n  width: 1px;\n  visibility: hidden;\n}\n.__mx-taginput_index_-item-name {\n  float: left;\n  border-right: 1px solid #fff;\n  height: 24px;\n  line-height: 24px;\n  padding: 0 4px;\n  max-width: 200px;\n  overflow: hidden;\n}\n.__mx-taginput_index_-item-delete {\n  width: 20px;\n  font-weight: bolder;\n  text-align: center;\n  color: #999;\n  display: inline-block;\n  height: 24px;\n  line-height: 24px;\n  padding: 0 4px;\n}\n.__mx-taginput_index_-trigger {\n  border: none;\n  outline: none;\n  height: 24px;\n  line-height: 24px;\n  padding: 0;\n  width: 20px;\n  position: relative;\n  z-index: 1;\n  background: transparent;\n}\n.__mx-taginput_index_-notallowed .__mx-taginput_index_-ipt,\n.__mx-taginput_index_-notallowed .__mx-taginput_index_-trigger,\n.__mx-taginput_index_-notallowed .__mx-taginput_index_-item-name,\n.__mx-taginput_index_-notallowed .__mx-taginput_index_-item-delete {\n  cursor: not-allowed;\n}\n");
+var $ = require("$");
+var INPUT_MIN_WIDTH = 20;
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, items = $$.items, placeholder = $$.placeholder, textKey = $$.textKey, disabled = $$.disabled, list = $$.list, valueKey = $$.valueKey, width = $$.width, scrollTop = $$.scrollTop; var $expr, $art, $line; try {
+    $p += '<div mxv class="__mx-taginput_index_-ipt __mx-style_index_-unselectable" mx-click="' + $viewId + '@{focus}()" id="ipt_' + ($expr = '<%=viewId%>', $e(viewId)) + '">';
+    $expr = '<%if (!items.length && placeholder) {%>';
+    if (!items.length && placeholder) {
+        ;
+        $p += '<div mxa="_~:_" class="__mx-taginput_index_-placeholder">' + ($expr = '<%=placeholder%>', $e(placeholder)) + '</div>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $expr = '<%if (items.length) {%>';
+    if (items.length) {
+        ;
+        $p += ' ';
+        $expr = '<%for (var i = 0; i < items.length; i++) {%>';
+        for (var i = 0; i < items.length; i++) {
+            ;
+            $p += ' ';
+            $expr = '<%var one = items[i];%>';
+            var one = items[i];
+            ;
+            $p += '<div mxa="_~:a" class="__mx-taginput_index_-item" mx-contextmenu="' + $viewId + '@{prevent}()"><div mxa="_~:b" class="__mx-taginput_index_-item-name __mx-style_index_-ellipsis">' + ($expr = '<%=textKey ? one[textKey] : one%>', $e(textKey ? one[textKey] : one)) + '</div><div class="__mx-taginput_index_-item-delete" mx-click="' + $viewId + '@{delete}({idx:' + ($expr = '<%!i%>', $n(i)) + '})">x</div></div>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '<div mxa="_~:c" class="__mx-taginput_index_-item __mx-taginput_index_-ghost" mx-click="' + $viewId + 'stop()"><div class="__mx-taginput_index_-item-delete" mx-click="' + $viewId + '@{delete}({idx:' + ($expr = '<%!i%>', $n(i)) + '})">x</div></div>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '<input mx-keydown="' + $viewId + '@{check}()" mx-keyup="' + $viewId + '@{check}()" mx-input="' + $viewId + '@{check}()" mx-paste="' + $viewId + '@{check}()" mx-pick="' + $viewId + '@{add}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" mx-showlist="' + $viewId + '@{toggleList}()" mx-hidelist="' + $viewId + '@{toggleList}()" ';
+    $expr = '<%if (disabled) {%>';
+    if (disabled) {
+        ;
+        $p += ' disabled="disabled" ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' class="__mx-taginput_index_-trigger" autocomplete="off"/>';
+    $expr = '<%if (!disabled) {%>';
+    if (!disabled) {
+        ;
+        $p += '<div mxv="list,textKey,valueKey,scrollTop" mx-view="mx-taginput/suggest?list=' + ($expr = '<%@list%>', $i($$ref, list)) + '&textKey=' + ($expr = '<%@textKey%>', $i($$ref, textKey)) + '&valueKey=' + ($expr = '<%@valueKey%>', $i($$ref, valueKey)) + '&relateIds=ipt_' + ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '&offsetLeft=-11&width=' + ($expr = '<%!$eu(width)%>', $eu(width)) + '&scrollTop=' + ($expr = '<%@scrollTop%>', $i($$ref, scrollTop)) + '" class="__mx-style_index_-pa __mx-style_index_-none"></div>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-taginput/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var me = this;
+        me['@{data.list}'] = extra.list || [];
+        me['@{owner.node}'] = $('#' + me.id);
+        me.updater.set({
+            disabled: extra.disabled,
+            placeholder: extra.placeholder || '',
+            textKey: extra.textKey,
+            valueKey: extra.valueKey
+        });
+        me['@{selected.update}'](extra.selected);
+    },
+    '@{get.suggest.list}': function () {
+        var me = this;
+        var updater = me.updater;
+        var sMap = updater.get('sMap');
+        var valueKey = updater.get('valueKey');
+        var list = me['@{data.list}'];
+        var s = [];
+        for (var i = 0, one = void 0, key = void 0; i < list.length; i++) {
+            one = list[i];
+            key = valueKey ? one[valueKey] : one;
+            if (!sMap[key]) {
+                s.push(one);
+            }
+        }
+        return s;
+    },
+    render: function () {
+        var me = this;
+        var rNode = $('#' + me.id);
+        var w = rNode.outerWidth();
+        if (w === 0)
+            w = 340;
+        me.updater.digest({
+            width: w,
+            list: me['@{get.suggest.list}'](),
+            viewId: me.id
+        });
+        rNode.addClass('__mx-taginput_index_-owner');
+        me['@{relate.node}'] = rNode;
+        me['@{trigger.update}']();
+        var data = me.updater.get();
+        if (data.disabled) {
+            rNode.addClass('__mx-taginput_index_-notallowed');
+        }
+    },
+    '@{trigger.update}': function () {
+        var me = this;
+        var rNode = me['@{relate.node}'];
+        me['@{trigger.node}'] = rNode.find('input');
+        me['@{trigger.node}'].width(INPUT_MIN_WIDTH);
+        var width = $('#ipt_' + me.id).width() - me['@{trigger.node}'].position().left;
+        me['@{trigger.node}'].width(width >= INPUT_MIN_WIDTH ? width : INPUT_MIN_WIDTH);
+    },
+    '@{selected.update}': function (selected) {
+        var me = this;
+        selected = selected || '';
+        selected = (selected + '').split(',');
+        var items = [];
+        var sMap = {};
+        var updater = me.updater;
+        var valueKey = updater.get('valueKey');
+        var list = me['@{data.list}'];
+        var ssMap = Magix.toMap(selected);
+        for (var i = 0, one = void 0, key = void 0; i < list.length; i++) {
+            one = list[i];
+            key = valueKey ? one[valueKey] : one;
+            if (Magix.has(ssMap, key)) {
+                sMap[key] = 1;
+                items.push(one);
+            }
+        }
+        me.updater.set({
+            sMap: sMap,
+            items: items
+        });
+        me['@{owner.node}'].val(selected.join(','));
+    },
+    val: function (selected) {
+        var me = this;
+        if (selected) {
+            me['@{selected.update}'](selected);
+            me.updater.digest({
+                list: me['@{get.suggest.list}']()
+            });
+            me['@{trigger.update}']();
+            me['@{relate.node}'].removeClass('__mx-style_index_-input-focus');
+            me['@{fire.event}']();
+        }
+        return me.updater.get('items');
+    },
+    '@{fire.event}': function () {
+        var me = this;
+        var updater = me.updater;
+        var ids = [];
+        var items = updater.get('items');
+        var valueKey = updater.get('valueKey');
+        for (var i = 0, one = void 0; i < items.length; i++) {
+            one = items[i];
+            ids.push(valueKey ? one[valueKey] : one);
+        }
+        $('#' + me.id).val(ids.join(',')).trigger({
+            type: 'change',
+            ids: ids,
+            items: items
+        });
+    },
+    '@{ui.focus}': function () {
+        var me = this;
+        clearTimeout(me['@{focus.timer}']);
+        me['@{temp.hold.event}'] = true;
+        me['@{trigger.node}'].focus();
+        me['@{focus.timer}'] = setTimeout(me.wrapAsync(function () {
+            delete me['@{temp.hold.event}'];
+        }), 20);
+    },
+    '@{check}<keydown,input,paste,keyup>': function (e) {
+        e.stopPropagation();
+        var me = this;
+        var val = e.eventTarget.value;
+        if (me['@{last.value}'] !== val) {
+            me['@{last.value}'] = val;
+            var holder = me['@{relate.node}'].find('.__mx-taginput_index_-placeholder');
+            if (val) {
+                holder.hide();
+            }
+            else {
+                holder.show();
+            }
+        }
+        if (!val && e.type == 'keydown' && e.keyCode == 8) {
+            var idx = me.updater.get('items').length - 1;
+            if (idx > -1) {
+                me['@{delete}<click>']({
+                    params: {
+                        idx: idx
+                    }
+                });
+                me['@{ui.focus}']();
+            }
+        }
+    },
+    '@{add}<pick>': function (e) {
+        e.stopPropagation();
+        var me = this;
+        var updater = me.updater;
+        var items = updater.get('items');
+        var sMap = updater.get('sMap');
+        var item = e.item;
+        var valueKey = updater.get('valueKey');
+        var id = valueKey ? item[valueKey] : item;
+        if (sMap[id])
+            return;
+        sMap[id] = 1;
+        items.push(item);
+        updater.digest({
+            items: items,
+            scrollTop: e.scrollTop,
+            list: me['@{get.suggest.list}']()
+        });
+        me['@{trigger.update}']();
+        me['@{ui.focus}']();
+        me['@{fire.event}']();
+    },
+    '@{focus}<click>': function () {
+        var me = this;
+        if (!me['@{owner.node}'].hasClass('__mx-taginput_index_-notallowed')) {
+            me['@{trigger.node}'].focus();
+        }
+    },
+    '@{delete}<click>': function (e) {
+        var me = this;
+        if (me['@{owner.node}'].hasClass('__mx-taginput_index_-notallowed'))
+            return;
+        var updater = me.updater;
+        var items = updater.get('items');
+        var sMap = updater.get('sMap');
+        var valueKey = updater.get('valueKey');
+        var idx = e.params.idx;
+        var item = items[idx];
+        delete sMap[valueKey ? item[valueKey] : item];
+        items.splice(e.params.idx, 1);
+        updater.digest({
+            items: items,
+            list: me['@{get.suggest.list}']()
+        });
+        me['@{trigger.update}']();
+        me['@{fire.event}']();
+        me['@{ui.focus}']();
+    },
+    '@{prevent}<contextmenu>': function (e) {
+        e.preventDefault();
+    },
+    '@{stop}<change,focusin,focusout>': function (e) {
+        e.stopPropagation();
+        var rNode = this['@{relate.node}'];
+        if (e.type == 'focusin') {
+            rNode.addClass('__mx-style_index_-input-focus');
+        }
+    },
+    '@{toggleList}<showlist,hidelist>': function (e) {
+        var me = this;
+        if (!me['@{temp.hold.event}']) {
+            $('#' + this.id).trigger({
+                type: e.type == 'showlist' ? 'focusin' : 'focusout'
+            });
+            if (e.type == 'hidelist') {
+                var rNode = this['@{relate.node}'];
+                rNode.removeClass('__mx-style_index_-input-focus');
+            }
+        }
+    }
+});
+
+});

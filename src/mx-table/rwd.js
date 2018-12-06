@@ -1,1 +1,181 @@
-define("mx-table/rwd",["magix","$"],(_,i,f)=>{var t=_("magix"),s=_("$");t.applyStyle("_K","._ff{width:24px}._fg{width:12px;background-color:#ccc;color:#e6e6e6;cursor:pointer}._fg:hover{background-color:#f96447}._fh{font-size:12px}._fi{-webkit-transform:scaleX(-1);transform:scaleX(-1)}._fj{padding-right:40px}");var e=function(_,i){var f="";return f+='<div mxs="_`:_" class="_af _ff _aj"><div class="_fg _aa" mx-click="'+(i=i||"")+'__fV()"><i class="__ _fh">&#xe61e;</i></div><div class="_fg _ab" mx-click="'+i+'__fW()"><i class="__ _fh _fi">&#xe61e;</i></div></div>'};f.exports=t.View.extend({init:function(_){this.__fo=((_.rwdRange||[2,-1])+"").split(","),this.__fL=+_.rwdLimit||4,this.__fM=+_.rwdCurrent||1,s("#"+this.id).addClass("_ag")},__fE:function(){var _=s("#"+this.id).find("table"),i=_.find("thead");_.css({borderCollapse:"inherit"});var f=i.find(">tr>th"),t=_.find(">tbody>tr");this.__fN=f,this.__fO=t,this.__fP=_},__fS:function(){var _=this.__fN,i=this.__fM,f=this.__fo,t=this.__fL,s=+f[0],e=_.length+ +f[1]-1,h=s+(i-1)*t,n=Math.min(e,s+i*t-1),r=this.__fO;this.__fQ=Math.ceil((e-s+1)/t);for(var o=s;o<=e;o++){var a=_.eq(o);o>=h&&o<=n?(o==n?(a.addClass("_fj"),this.__fR=a):a.removeClass("_fj"),a.show()):a.hide()}for(var d=r.length;d--;){var c=r.eq(d).find("td");for(o=s;o<=e;o++){var l=c.eq(o);o>=h&&o<=n?l.show():l.hide()}}},__fU:function(){var _;if(!this.__fT){var i=s.isFunction(e)?e(0,this.id):e;_=s(i).insertBefore(this.__fP),this.__fT=_}_=this.__fT;var f=this.__fR,t=f.outerHeight(),h=f.offset();_.css({height:t,lineHeight:t+"px"}).offset({left:h.left+f.outerWidth()-24,top:h.top});var n=this.__fM,r=this.__fQ,o=_.find("div");1==n?o.eq(0).hide():o.eq(0).show(),n==r?o.eq(1).hide():o.eq(1).show()},render:function(){this.__fE(),this.__fS(),this.__fU()},"__fV<click>":function(){this.__fM>1&&(this.__fM--,this.__fS(),this.__fU())},"__fW<click>":function(){this.__fM<this.__fQ&&(this.__fM++,this.__fS(),this.__fU())},"$doc<htmlchanged>":function(_){var i=this;t.inside(_.vId,i.owner.pId)&&(clearTimeout(i.__fX),i.__fX=setTimeout(function(){i.__fE(),i.__fS(),i.__fU()},0))},"$doc<navslidend>":function(){this.__fU()},"$win<resize>":function(){this.__fU()}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-table/rwd",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("__mx-table_rwd_","/* @dependent: ./index.less */\n.__mx-table_rwd_-wrap {\n  width: 24px;\n}\n.__mx-table_rwd_-arrow {\n  width: 12px;\n  background-color: #ccc;\n  color: #e6e6e6;\n  cursor: pointer;\n}\n.__mx-table_rwd_-arrow:hover {\n  background-color: #f96447;\n}\n.__mx-table_rwd_-f12 {\n  font-size: 12px;\n}\n.__mx-table_rwd_-rotate180 {\n  -webkit-transform: scaleX(-1);\n          transform: scaleX(-1);\n}\n.__mx-table_rwd_-end {\n  padding-right: 40px;\n}\n");
+var html = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
+    $p += '<div mxs="_`:_" class="__mx-style_index_-pa __mx-table_rwd_-wrap __mx-style_index_-unselectable"><div class="__mx-table_rwd_-arrow __mx-style_index_-fl" mx-click="' + $viewId + '@{toPrev}()"><i class="__mx-style_index_-mc-iconfont __mx-table_rwd_-f12">&#xe61e;</i></div><div class="__mx-table_rwd_-arrow __mx-style_index_-fr" mx-click="' + $viewId + '@{toNext}()"><i class="__mx-style_index_-mc-iconfont __mx-table_rwd_-f12 __mx-table_rwd_-rotate180">&#xe61e;</i></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-table/rwd.html';
+    throw msg;
+} return $p; };
+module.exports = Magix.View.extend({
+    init: function (extra) {
+        var me = this;
+        me['@{rwd.range}'] = ((extra.rwdRange || [2, -1]) + '').split(',');
+        me['@{rwd.limit}'] = +extra.rwdLimit || 4;
+        me['@{rwd.current}'] = +extra.rwdCurrent || 1;
+        $('#' + me.id).addClass('__mx-style_index_-pr');
+    },
+    '@{sync.vars}': function () {
+        var me = this;
+        var table = $('#' + me.id).find('table');
+        var thead = table.find('thead');
+        table.css({
+            borderCollapse: 'inherit'
+        });
+        var ths = thead.find('>tr>th');
+        var rows = table.find('>tbody>tr');
+        me['@{thead.ths}'] = ths;
+        me['@{tbody.trs}'] = rows;
+        me['@{table}'] = table;
+    },
+    '@{ui.flush}': function () {
+        var me = this;
+        var ths = me['@{thead.ths}'];
+        var c = me['@{rwd.current}'];
+        var r = me['@{rwd.range}'];
+        var l = me['@{rwd.limit}'];
+        var min = +r[0];
+        var max = ths.length + (+r[1]) - 1;
+        var start = min + (c - 1) * l;
+        var end = Math.min(max, min + c * l - 1);
+        var rows = me['@{tbody.trs}'];
+        me['@{pages}'] = Math.ceil((max - min + 1) / l);
+        for (var i = min; i <= max; i++) {
+            var th = ths.eq(i);
+            if (i >= start && i <= end) {
+                if (i == end) {
+                    th.addClass('__mx-table_rwd_-end');
+                    me['@{thead.show.ths.last}'] = th;
+                }
+                else {
+                    th.removeClass('__mx-table_rwd_-end');
+                }
+                th.show();
+            }
+            else {
+                th.hide();
+            }
+        }
+        for (var j = rows.length; j--;) {
+            var row = rows.eq(j);
+            var tds = row.find('td');
+            for (var i = min; i <= max; i++) {
+                var td = tds.eq(i);
+                if (i >= start && i <= end) {
+                    td.show();
+                }
+                else {
+                    td.hide();
+                }
+            }
+        }
+    },
+    '@{ui.arrow}': function () {
+        var me = this, ctrl;
+        if (!me['@{ui.ctrl.arrow}']) {
+            var t = $.isFunction(html) ? html(0, me.id) : html;
+            ctrl = $(t).insertBefore(me['@{table}']);
+            me['@{ui.ctrl.arrow}'] = ctrl;
+        }
+        ctrl = me['@{ui.ctrl.arrow}'];
+        var last = me['@{thead.show.ths.last}'];
+        var height = last.outerHeight();
+        var offset = last.offset();
+        ctrl.css({
+            height: height,
+            lineHeight: height + 'px'
+        }).offset({
+            left: offset.left + last.outerWidth() - 24,
+            top: offset.top
+        });
+        var c = me['@{rwd.current}'];
+        var p = me['@{pages}'];
+        var children = ctrl.find('div');
+        if (c == 1) {
+            children.eq(0).hide();
+        }
+        else {
+            children.eq(0).show();
+        }
+        if (c == p) {
+            children.eq(1).hide();
+        }
+        else {
+            children.eq(1).show();
+        }
+    },
+    render: function () {
+        var me = this;
+        me['@{sync.vars}']();
+        me['@{ui.flush}']();
+        me['@{ui.arrow}']();
+    },
+    '@{toPrev}<click>': function () {
+        var me = this;
+        var c = me['@{rwd.current}'];
+        if (c > 1) {
+            me['@{rwd.current}']--;
+            me['@{ui.flush}']();
+            me['@{ui.arrow}']();
+        }
+    },
+    '@{toNext}<click>': function () {
+        var me = this;
+        var c = me['@{rwd.current}'];
+        var pages = me['@{pages}'];
+        if (c < pages) {
+            me['@{rwd.current}']++;
+            me['@{ui.flush}']();
+            me['@{ui.arrow}']();
+        }
+    },
+    '$doc<htmlchanged>': function (e) {
+        var me = this;
+        if (Magix.inside(e.vId, me.owner.pId)) {
+            clearTimeout(me['@{ctrl.timer}']);
+            me['@{ctrl.timer}'] = setTimeout(function () {
+                me['@{sync.vars}']();
+                me['@{ui.flush}']();
+                me['@{ui.arrow}']();
+            }, 0);
+        }
+    },
+    '$doc<navslidend>': function () {
+        this['@{ui.arrow}']();
+    },
+    '$win<resize>': function () {
+        this['@{ui.arrow}']();
+    }
+});
+
+});

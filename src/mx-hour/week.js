@@ -1,1 +1,301 @@
-define("mx-hour/week",["magix","$","../mx-monitor/index","./index"],(t,_,a)=>{var i=t("magix"),e=t("$"),d=t("../mx-monitor/index");i.applyStyle("_x","._dB{padding:0;height:38.4px;text-align:center}._dC{text-align:left;padding-left:10px}._dD{border:none}._dE{border-right:1px solid #e6e6e6}._dF{visibility:hidden}._dG:hover ._dF{visibility:visible}._dH{position:absolute;display:none;background-color:#fff;border:1px solid #e6e6e6;border-radius:4px;padding:10px;margin-top:10px;z-index:10}._dI{margin-bottom:10px;width:300px;border-bottom:1px solid #e6e6e6}._dJ{margin:0 25px 10px 0}._dK{visibility:visible}");var s=t("./index"),n="111111111111111111111111",r="000000000000000000000000",l=function(t){var _=0;for(t=(t=(t+"").split(",")).slice(_,7);_<7;)t[_]=s.improve(t[_]),_++;return t};a.exports=i.View.extend({tmpl:function(t,_){_=_||"";var a="",i={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},e=/[&<>"'`]/g,d=function(t){return null==t?"":""+t},s=function(t){return"&"+i[t]+";"},n=function(t){return d(t).replace(e,s)};a+='<div class="_dH" id="dlg_'+n(t.viewId)+'"><div mxa="_^:_" class="_dI">';for(var r=0;r<t.days.length;r++)a+='<label class="_dJ',r==t.currentClone&&(a+=" _am"),a+='"><input class="_h" type="checkbox" value="'+n(r)+'" ',r==t.currentClone&&(a+=" disabled"),a+="/>周"+n(t.days.charAt(r))+"</label>";a+='</div><div mxs="_^:_"><button type="button" class="_an _ao" mx-click="'+_+'__df()">确认</button><button type="button" mx-click="'+_+'__de()" class="_an _s">取消</button></div></div><table mxa="_^:a" class="_W"><thead><tr><th mxs="_^:a" class="_dB" width="100">快捷设置</th><th mxa="_^:b" colspan="2" class="_dB _dC"><label mxa="_^:c" class="_t"><input class="_at" type="radio" mx-change="'+_+'__dc({type:0})" name="st-'+n(t.viewId)+'" ',t.allDays&&(a+=" checked"),a+='/> 全日程投放</label><label mxa="_^:d" class="_v"><input class="_at" type="radio" mx-change="'+_+'__dc({type:1})" name="st-'+n(t.viewId)+'" ',t.weekdays&&(a+=" checked"),a+='/> 工作日（周一至周五）投放</label><label mxa="_^:d" class="_v"><input class="_at" type="radio" mx-change="'+_+'__dc({type:2})" name="st-'+n(t.viewId)+'" ',t.weekends&&(a+=" checked"),a+='/> 休息日（周六、周日）投放</label></th></tr><tr><th mxs="_^:b" class="_dB">时间</th><th mxa="_^:e" class="_dB"><table mxa="_^:a" class="_W"><tbody><tr>';for(var l=0;l<24;l++)a+='<td class="_dB _dD',l<23&&(a+=" _dE"),a+='">'+n(("0"+l).slice(-2))+"</td>";a+='</tr></tbody></table></th><th mxs="_^:c" width="80" class="_dB">操作</th></tr></thead><tbody>';for(var c=0;c<t.days.length;c++)a+='<tr mxa="_^:f" class="_dG"><td class="_dB _ad" mx-click="'+_+"__aY({day:"+n(c)+'})">周'+n(t.days.charAt(c))+'</td><td mxa="_^:e" class="_dB"><table mxa="_^:a" class="_W"><tbody id="hours_'+n(t.viewId)+"_"+n(c)+'" mx-view="mx-hour/index?border=no" mx-change="'+_+"__cX({day:"+n(c)+'})"></tbody></table></td><td mxa="_^:e" class="_dB"><div mxa="_^:g" class="_dF"><a mx-click="'+_+"__dd({day:"+n(c)+'})" href="#">复制到</a></div></td></tr>';return a+="</tbody></table>"},init:function(t){var _=this;_.__aZ=l(t.days||[r,r,r,r,r,r,r]),d.__g(),_.__k=e("#"+_.id),_.on("destroy",function(){d.__i(_),d.__j()})},render:function(){this.updater.digest({viewId:this.id,days:"一二三四五六日"}),this.val(this.__aZ)},__l:function(t){var _=i.inside(t,"dlg_"+this.id);if(!_&&this.__d_){var a=this.__d_.parent();_=i.inside(t,a[0])}return _},__da:function(){var t=this.__aZ.slice(0,5).join(""),_=this.__aZ.slice(-2).join(""),a=t.indexOf("1")>-1,i=_.indexOf("1")>-1,e=-1==t.indexOf("0"),d=-1==_.indexOf("0"),s=e&&d;this.updater.digest({allDays:s,weekdays:!i&&e,weekends:d&&!a})},__db:function(){for(var t=this.__aZ,_=0,a=void 0,e=void 0;_<t.length;_++)a=t[_],(e=i.Vframe.get("hours_"+this.id+"_"+_))&&e.invoke("val",[a])},val:function(t){return t&&(this.__aZ=l(t),this.__da(),this.__db()),this.__aZ},__e:function(){if(!this.__m){this.__m=!0,d.__n(this);var t=this.__d_,_=e("#dlg_"+this.id);_.show();var a=t.offset(),i=a.left+t.outerWidth()-_.outerWidth(),s=a.top+t.outerHeight()+10;_.offset({left:i,top:s}),t.parent().addClass("_dK")}},__b:function(){if(this.__m){this.__m=!1,d.__i(this),e("#dlg_"+this.id).hide();var t=this.__d_;t&&t.parent().removeClass("_dK")}},__x:function(){var t=this.__aZ;this.__k.val(t).trigger({type:"change",days:t})},"__dc<change>":function(t){switch(t.stopPropagation(),t.params.type){case 0:this.__aZ=[n,n,n,n,n,n,n];break;case 1:this.__aZ=[n,n,n,n,n,r,r];break;case 2:this.__aZ=[r,r,r,r,r,n,n]}this.__da(),this.__db(),this.__x()},"__cX<change>":function(t){t.stopPropagation();var _=this;_.__aZ[t.params.day]=t.range,clearTimeout(_.__cS),_.__cS=setTimeout(_.wrapAsync(function(){_.__da()}),100),_.__x()},"__aY<click>":function(t){var _=t.params.day,a=i.Vframe.get("hours_"+this.id+"_"+_);if(a){a.invoke("val").indexOf("0")>-1?a.invoke("val",[this.__aZ[_]=n]):a.invoke("val",[this.__aZ[_]=r]),this.__da(),this.__x()}},"__dd<click>":function(t){t.preventDefault();var _=e(t.eventTarget);this.__m||(this.updater.digest({currentClone:t.params.day}),this.__d_=_,this.__e())},"__de<click>":function(){this.__b()},"__df<click>":function(){var t=this,_=t.updater.get("currentClone"),a=t.__aZ[_];e("#dlg_"+t.id+" input:checked").each(function(_,i){t.__aZ[i.value]=a}),t.__b(),t.__db(),t.__da()}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-hour/week",["magix","$","../mx-monitor/index","./index"],(require,exports,module)=>{
+/*Magix,$,Monitor,Core*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+*/
+var Magix = require("magix");
+var $ = require("$");
+var Monitor = require("../mx-monitor/index");
+Magix.applyStyle("__mx-hour_week_","/* @dependent: ./index.less */\n.__mx-hour_week_-reset {\n  padding: 0;\n  height: 38.4px;\n  text-align: center;\n}\n.__mx-hour_week_-cycle {\n  text-align: left;\n  padding-left: 10px;\n}\n.__mx-hour_week_-no-border {\n  border: none;\n}\n.__mx-hour_week_-right-border {\n  border-right: solid 1px #e6e6e6;\n}\n.__mx-hour_week_-operation {\n  visibility: hidden;\n}\n.__mx-hour_week_-day:hover .__mx-hour_week_-operation {\n  visibility: visible;\n}\n.__mx-hour_week_-dialog {\n  position: absolute;\n  display: none;\n  background-color: #fff;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  padding: 10px;\n  margin-top: 10px;\n  z-index: 10;\n}\n.__mx-hour_week_-body {\n  margin-bottom: 10px;\n  width: 300px;\n  border-bottom: 1px solid #e6e6e6;\n}\n.__mx-hour_week_-d-label {\n  margin: 0 25px 10px 0;\n}\n.__mx-hour_week_-opshow {\n  visibility: visible;\n}\n");
+var Weeks = '一二三四五六日';
+var Core = require("./index");
+var All = '111111111111111111111111';
+var None = '000000000000000000000000';
+var ImproveDays = function (days) {
+    var start = 0;
+    var end = 7;
+    days = (days + '').split(',');
+    days = days.slice(start, end);
+    while (start < end) {
+        days[start] = Core.improve(days[start]);
+        start++;
+    }
+    return days;
+};
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, days = $$.days, currentClone = $$.currentClone, allDays = $$.allDays, weekdays = $$.weekdays, weekends = $$.weekends; var $expr, $art, $line; try {
+    $p += '<div mxv class="__mx-hour_week_-dialog" id="dlg_' + ($expr = '<%=viewId%>', $e(viewId)) + '"><div mxv mxa="_^:_" class="__mx-hour_week_-body">';
+    $expr = '<%for (var i = 0; i < days.length; i++) {%>';
+    for (var i = 0; i < days.length; i++) {
+        ;
+        $p += '<label mxv class="__mx-hour_week_-d-label';
+        $expr = '<%if (i == currentClone) {%>';
+        if (i == currentClone) {
+            ;
+            $p += ' __mx-style_index_-disabled';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '"><input class="__mx-style_index_-mr10" type="checkbox" value="' + ($expr = '<%=i%>', $e(i)) + '" ';
+        $expr = '<%if (i == currentClone) {%>';
+        if (i == currentClone) {
+            ;
+            $p += ' disabled';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '/>周' + ($expr = '<%=days.charAt(i)%>', $e(days.charAt(i))) + '</label>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxs="_^:_"><button type="button" class="__mx-style_index_-btn __mx-style_index_-btn-brand" mx-click="' + $viewId + '@{apply}()">确认</button><button type="button" mx-click="' + $viewId + '@{closeDlg}()" class="__mx-style_index_-btn __mx-style_index_-ml5">取消</button></div></div><table mxv mxa="_^:a" class="__mx-style_index_-wp100"><thead mxv><tr mxv><th mxs="_^:a" class="__mx-hour_week_-reset" width="100">快捷设置</th><th mxv mxa="_^:b" colspan="2" class="__mx-hour_week_-reset __mx-hour_week_-cycle"><label mxv mxa="_^:c" class="__mx-style_index_-ml10"><input class="__mx-style_index_-radio" type="radio" mx-change="' + $viewId + '@{shortcuts.processor}({type:0})" name="st-' + ($expr = '<%=viewId%>', $e(viewId)) + '" ';
+    $expr = '<%if (allDays) {%>';
+    if (allDays) {
+        ;
+        $p += ' checked';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '/> 全日程投放</label><label mxv mxa="_^:d" class="__mx-style_index_-ml20"><input class="__mx-style_index_-radio" type="radio" mx-change="' + $viewId + '@{shortcuts.processor}({type:1})" name="st-' + ($expr = '<%=viewId%>', $e(viewId)) + '" ';
+    $expr = '<%if (weekdays) {%>';
+    if (weekdays) {
+        ;
+        $p += ' checked';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '/> 工作日（周一至周五）投放</label><label mxv mxa="_^:e" class="__mx-style_index_-ml20"><input class="__mx-style_index_-radio" type="radio" mx-change="' + $viewId + '@{shortcuts.processor}({type:2})" name="st-' + ($expr = '<%=viewId%>', $e(viewId)) + '" ';
+    $expr = '<%if (weekends) {%>';
+    if (weekends) {
+        ;
+        $p += ' checked';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '/> 休息日（周六、周日）投放</label></th></tr><tr><th mxs="_^:b" class="__mx-hour_week_-reset">时间</th><th mxa="_^:f" class="__mx-hour_week_-reset"><table mxa="_^:g" class="__mx-style_index_-wp100"><tbody><tr>';
+    $expr = '<%for (var i = 0; i < 24; i++) {%>';
+    for (var i = 0; i < 24; i++) {
+        ;
+        $p += '<td class="__mx-hour_week_-reset __mx-hour_week_-no-border';
+        $expr = '<%if (i < 23) {%>';
+        if (i < 23) {
+            ;
+            $p += ' __mx-hour_week_-right-border';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '">' + ($expr = '<%=(\'0\' + i).slice(-2)%>', $e(('0' + i).slice(-2))) + '</td>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</tr></tbody></table><th mxs="_^:c" width="80" class="__mx-hour_week_-reset">操作</th><tbody>';
+    $expr = '<%for (var i = 0; i < days.length; i++) {%>';
+    for (var i = 0; i < days.length; i++) {
+        ;
+        $p += '<tr mxa="_^:h" class="__mx-hour_week_-day"><td class="__mx-hour_week_-reset __mx-style_index_-cp" mx-click="' + $viewId + '@{toggle}({day:' + ($expr = '<%=i%>', $e(i)) + '})">周' + ($expr = '<%=days.charAt(i)%>', $e(days.charAt(i))) + '</td><td mxa="_^:i" class="__mx-hour_week_-reset"><table mxa="_^:j" class="__mx-style_index_-wp100"><tbody id="hours_' + ($expr = '<%=viewId%>', $e(viewId)) + '_' + ($expr = '<%=i%>', $e(i)) + '" mx-view="mx-hour/index?border=no" mx-change="' + $viewId + '@{hour}({day:' + ($expr = '<%=i%>', $e(i)) + '})"></tbody></table></td><td mxa="_^:k" class="__mx-hour_week_-reset"><div mxa="_^:l" class="__mx-hour_week_-operation"><a mx-click="' + $viewId + '@{copy}({day:' + ($expr = '<%=i%>', $e(i)) + '})" href="#">复制到</a></div></td></tr>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</tbody>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-hour/week.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var me = this;
+        me['@{days}'] = ImproveDays(extra.days || [None, None, None, None, None, None, None]);
+        Monitor['@{setup}']();
+        me['@{owner.node}'] = $('#' + me.id);
+        me.on('destroy', function () {
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+        });
+    },
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            viewId: me.id,
+            days: Weeks
+        });
+        me.val(me['@{days}']);
+    },
+    '@{inside}': function (node) {
+        var me = this;
+        var inView = Magix.inside(node, 'dlg_' + me.id);
+        if (!inView && me['@{ref.node}']) {
+            var parent = me['@{ref.node}'].parent();
+            inView = Magix.inside(node, parent[0]);
+        }
+        return inView;
+    },
+    '@{sync.shortcuts}': function () {
+        var me = this;
+        var weekdays = me['@{days}'].slice(0, 5).join('');
+        var weekends = me['@{days}'].slice(-2).join('');
+        var weekdaysHas = weekdays.indexOf('1') > -1;
+        var weekendsHas = weekends.indexOf('1') > -1;
+        var weekdaysChecked = weekdays.indexOf('0') == -1;
+        var weekendsChekced = weekends.indexOf('0') == -1;
+        var allDaysChecked = weekdaysChecked && weekendsChekced;
+        me.updater.digest({
+            allDays: allDaysChecked,
+            weekdays: !weekendsHas && weekdaysChecked,
+            weekends: weekendsChekced && !weekdaysHas
+        });
+    },
+    '@{sync.ui}': function () {
+        var me = this;
+        var ws = me['@{days}'];
+        for (var i = 0, w = void 0, vf = void 0; i < ws.length; i++) {
+            w = ws[i];
+            vf = Magix.Vframe.get('hours_' + me.id + '_' + i);
+            if (vf) {
+                vf.invoke('val', [w]);
+            }
+        }
+    },
+    val: function (days) {
+        var me = this;
+        if (days) {
+            me['@{days}'] = ImproveDays(days);
+            me['@{sync.shortcuts}']();
+            me['@{sync.ui}']();
+        }
+        return me['@{days}'];
+    },
+    '@{show}': function () {
+        var me = this;
+        if (!me['@{ui.show}']) {
+            me['@{ui.show}'] = true;
+            Monitor['@{add}'](me);
+            var ref = me['@{ref.node}'];
+            var dlg = $('#dlg_' + me.id);
+            dlg.show();
+            var offset = ref.offset();
+            var left = offset.left + ref.outerWidth() - dlg.outerWidth();
+            var top = offset.top + ref.outerHeight() + 10;
+            dlg.offset({
+                left: left,
+                top: top
+            });
+            ref.parent().addClass('__mx-hour_week_-opshow');
+        }
+    },
+    '@{hide}': function () {
+        var me = this;
+        if (me['@{ui.show}']) {
+            me['@{ui.show}'] = false;
+            Monitor['@{remove}'](me);
+            $('#dlg_' + me.id).hide();
+            var ref = me['@{ref.node}'];
+            if (ref) {
+                ref.parent().removeClass('__mx-hour_week_-opshow');
+            }
+        }
+    },
+    '@{fire.event}': function () {
+        var me = this;
+        var days = me['@{days}'];
+        me['@{owner.node}'].val(days).trigger({
+            type: 'change',
+            days: days
+        });
+    },
+    '@{shortcuts.processor}<change>': function (e) {
+        var me = this;
+        e.stopPropagation();
+        switch (e.params.type) {
+            case 0:
+                me['@{days}'] = [All, All, All, All, All, All, All];
+                break;
+            case 1:
+                me['@{days}'] = [All, All, All, All, All, None, None];
+                break;
+            case 2:
+                me['@{days}'] = [None, None, None, None, None, All, All];
+                break;
+        }
+        me['@{sync.shortcuts}']();
+        me['@{sync.ui}']();
+        me['@{fire.event}']();
+    },
+    '@{hour}<change>': function (e) {
+        e.stopPropagation();
+        var me = this;
+        me['@{days}'][e.params.day] = e.range;
+        clearTimeout(me['@{change.delay.timer}']);
+        me['@{change.delay.timer}'] = setTimeout(me.wrapAsync(function () {
+            me['@{sync.shortcuts}']();
+        }), 100);
+        me['@{fire.event}']();
+    },
+    '@{toggle}<click>': function (e) {
+        var day = e.params.day;
+        var me = this;
+        var vf = Magix.Vframe.get('hours_' + me.id + '_' + day);
+        if (vf) {
+            var val = vf.invoke('val');
+            if (val.indexOf('0') > -1) {
+                vf.invoke('val', [me['@{days}'][day] = All]);
+            }
+            else {
+                vf.invoke('val', [me['@{days}'][day] = None]);
+            }
+            me['@{sync.shortcuts}']();
+            me['@{fire.event}']();
+        }
+    },
+    '@{copy}<click>': function (e) {
+        e.preventDefault();
+        var me = this;
+        var ref = $(e.eventTarget);
+        if (!me['@{ui.show}']) {
+            me.updater.digest({
+                currentClone: e.params.day
+            });
+            me['@{ref.node}'] = ref;
+            me['@{show}']();
+        }
+    },
+    '@{closeDlg}<click>': function () {
+        this['@{hide}']();
+    },
+    '@{apply}<click>': function () {
+        var me = this;
+        var day = me.updater.get('currentClone');
+        var val = me['@{days}'][day];
+        $('#dlg_' + me.id + ' input:checked').each(function (idx, item) {
+            me['@{days}'][item.value] = val;
+        });
+        me['@{hide}']();
+        me['@{sync.ui}']();
+        me['@{sync.shortcuts}']();
+    }
+});
+
+});

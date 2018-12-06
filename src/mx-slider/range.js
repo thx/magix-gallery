@@ -1,1 +1,560 @@
-define("mx-slider/range",["magix","$","../mx-dragdrop/index","./style"],(_,t,e)=>{var i=_("magix"),s=_("$"),a=_("../mx-dragdrop/index");_("./style"),e.exports=i.View.extend({tmpl:function(_,t){t=t||"";var e="",i={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},s=/[&<>"'`]/g,a=function(_){return null==_?"":""+_},h=function(_){return"&"+i[_]+";"},r=function(_){return a(_).replace(s,h)};return e+='<div class="_eE',_.vertical?e+=" _eG":e+=" _eF",e+='" mx-contextmenu="'+t+'__G()" style="',_.vertical?e+="height:"+r(_.height):e+="width:"+r(_.width),e+='px"><div class="_eH',_.vertical?e+=" _eJ":e+=" _eI",e+='"></div><div tabindex="0" mx-keydown="'+t+'__eL({start:true})" class="_eK',_.vertical?e+=" _eM":e+=" _eL",e+='" mx-mousedown="'+t+'__eH({start:true})" id="left_'+r(_.viewId)+'"></div><div class="_eN',_.vertical?e+=" _eT":e+=" _eS",e+='" id="leftl_'+r(_.viewId)+'"></div><div tabindex="0" mx-keydown="'+t+'__eL()" class="_eK',_.vertical?e+=" _eM":e+=" _eL",e+='" mx-mousedown="'+t+'__eH({end:true})" id="right_'+r(_.viewId)+'"></div><div class="_eN',_.vertical?e+=" _eT":e+=" _eS",e+='" id="rightl_'+r(_.viewId)+'"></div><div class="',_.vertical?e+="_eQ":e+="_eO",e+='">'+r(_.min)+'</div><div class="',_.vertical?e+="_eR":e+="_eP",e+='">'+r(_.max)+"</div></div>"},mixins:[a],init:function(_){var t=this,e=s("#"+t.id);e.addClass("_eD"),t.assign(_);var a=function(_){if(!t.__eB&&!t.__cx){var s=e.offset(),a=t.__eC(),h=((t.__eD?a.rMax-_.pageY+s.top:_.pageX-s.left)-a.half)/a.max,r=t.__eE(h),d=+t.__as,n=+t.__bg;Math.abs(d-r)<Math.abs(n-r)?(t.__eI(r),t.__as=r,t.__x(),i.node("left_"+t.id).focus()):(t.__eJ(r),t.__bg=r,t.__x(),i.node("right_"+t.id).focus())}};e.on("click",a),t.on("destroy",function(){e.off("click",a)}),t.__k=e},assign:function(_){this.__dv=+_.width||340,this.__eG=+_.height||340,this.__H=+_.min||0,this.__I=+_.max||100,this.__dM=+_.step||1,this.__cx=_.disabled+""=="true",this.__eD=_.vertical+""=="true";var t=this.__dM+"",e=t.indexOf(".");e=e>=0?t.slice(e+1).length:0,this.__dO=e;var i=_.value;return i?(i=(i+"").split(","),this.__as=+i[0]||0,this.__bg=+i[1]||0):(this.__as=0,this.__bg=0),!0},render:function(){this.updater.digest({min:this.__H.toFixed(this.__dO),max:this.__I.toFixed(this.__dO),viewId:this.id,height:this.__eG,width:this.__dv,vertical:this.__eD}),this.__k[this.__cx?"addClass":"removeClass"]("_eU"),this.val([this.__as,this.__bg])},__eC:function(){var _=this.__k.find("._eE"),t=this.__k.find("._eH"),e=s("#left_"+this.id),i=s("#right_"+this.id),a=this.__eD?_.height():_.width(),h=e.outerWidth()/2,r=a-2*h;return{rail:_,iLeftL:s("#leftl_"+this.id),iRightL:s("#rightl_"+this.id),tracker:t,iLeft:e,iRight:i,left:parseInt(e.css(this.__eD?"bottom":"left"),10),right:parseInt(i.css(this.__eD?"bottom":"left"),10),rMax:a,max:r,half:h}},__eI:function(_){_=+_;var t=this.__I,e=this.__H;_>t?_=t:_<e&&(_=e);var i=(_-e)/(t-e),s=this.__eC(),a=i*s.max;this.__eD?s.iLeft.css({bottom:a}):s.iLeft.css({left:a}),_=this.__eE(i);var h=s.iLeftL;h.html(_);var r=a+s.half;if(this.__eD){r-=d=h.height()/2,h.css({bottom:r}),s.tracker.css({bottom:a+s.half}).height(s.right-a)}else{var d;r<(d=h.width()/2)?r=0:r+d>s.rMax?r=s.rMax-2*d:r-=d,h.css({left:r}),s.tracker.css({left:a+s.half}).width(s.right-a)}return _},__eJ:function(_){_=+_;var t=this.__I,e=this.__H;_>t?_=t:_<e&&(_=e);var i=(_-e)/(t-e),s=this.__eC(),a=i*s.max;this.__eD?s.iRight.css({bottom:a}):s.iRight.css({left:a}),_=this.__eE(i);var h=s.iRightL;h.html(_);var r=a+s.half;if(this.__eD){r-=d=h.height()/2,h.css({bottom:r}),s.tracker.height(a-s.left)}else{var d;r<(d=h.width()/2)?r=0:r+d>s.rMax?r=s.rMax-2*d:r-=d,h.css({left:r}),s.tracker.width(a-s.left)}return _},val:function(_){if(_){var t=(_+"").split(","),e=+t[0]||0,i=+t[1]||0;e>i&&(e=(s=[i,e])[0],i=s[1]),this.__k.prop("value",[e,i]),e=this.__eI(e),i=this.__eJ(i),this.__as==e&&this.__bg==i||(this.__as=e,this.__bg=i,this.__x())}return[+this.__as,+this.__bg];var s},__eE:function(_){var t,e=this.__I,i=this.__H,s=this.__dM;return 0===_?t=i:1===_?t=e:(t=i+(e-i)*_,t=Math.round(t/s)*s),t=t.toFixed(this.__dO)},__x:function(){var _=[+this.__as,+this.__bg];this.__k.prop("value",_).trigger({type:"change",value:_,start:+this.__as,end:+this.__bg})},__eK:function(_,t){_==this.__as&&t==this.__bg||(this.__as=_,this.__bg=t,this.__x())},"__eH<mousedown>":function(_){var t=this;if(!t.__cx){var e=s(_.eventTarget),h=e.outerWidth(),r=-1;r=t.__eD?e.parent().height()-h:e.parent().width()-h;var d=parseInt(e.css(t.__eD?"bottom":"left"),10),n=t.__as,o=t.__bg;t.__eF=1,t.dragdrop(_.eventTarget,function(e){a.clear();var s=-1;(s=t.__eD?d+_.pageY-e.pageY:d+e.pageX-_.pageX)<0?s=0:s>r&&(s=r);var h=s/r,l=t.__eE(h),c=+l;if(_.params.end){var f=+t.__as;c>=f?(t.__as!=n&&(n=t.__eI(f)),o=t.__eJ(l),i.node("right_"+t.id).focus()):(t.__as!=o&&(o=t.__eJ(f)),n=t.__eI(l),i.node("left_"+t.id).focus())}else{var v=+t.__bg;c<=v?(t.__bg!=o&&(o=t.__eJ(v)),n=t.__eI(l),i.node("left_"+t.id).focus()):(t.__bg!=n&&(n=t.__eI(v)),o=t.__eJ(l),i.node("right_"+t.id).focus())}},function(){t.__eK(n,o),t.__eB=!0,setTimeout(t.wrapAsync(function(){delete t.__eB}),20),delete t.__eF})}},"__eL<keydown>":function(_){var t,e=this.__dM;if(!this.__eF&&(37==_.keyCode||40==_.keyCode?(_.preventDefault(),e=-e,t=!0):39!=_.keyCode&&38!=_.keyCode||(_.preventDefault(),t=!0),t)){var s=this.__as,a=+s,h=this.__bg,r=+h,d=_.params.start;d?a+=e:r+=e,a>r?(d?i.node("right_"+this.id).focus():i.node("left_"+this.id).focus(),r!=+s&&(s=this.__eI(r)),a!=+h&&(h=this.__eJ(a))):d?s=this.__eI(a):h=this.__eJ(r),this.__eK(s,h)}},"__G<contextmenu>":function(_){_.preventDefault()}})});
+/*
+    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-slider/range",["magix","$","../mx-dragdrop/index","./style"],(require,exports,module)=>{
+/*Magix,$,DD*/
+
+/*
+ver:2.0.6
+*/
+/*
+    author:xinglie.lkf@alibaba-inc.com
+ */
+
+var Magix = require("magix");
+var $ = require("$");
+var DD = require("../mx-dragdrop/index");
+require("./style");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', vertical = $$.vertical, height = $$.height, width = $$.width, viewId = $$.viewId, min = $$.min, max = $$.max; var $expr, $art, $line; try {
+    $p += '<div class="__mx-slider_style_-rail';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += ' __mx-slider_style_-ver';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' __mx-slider_style_-hor';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" mx-contextmenu="' + $viewId + '@{prevent}()" style="';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += 'height:' + ($expr = '<%=height%>', $e(height));
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += 'width:' + ($expr = '<%=width%>', $e(width));
+        $expr = '<%}%>';
+    }
+    ;
+    $p += 'px"><div class="__mx-slider_style_-tracker';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += ' __mx-slider_style_-ver-tracker';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' __mx-slider_style_-hor-tracker';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '"></div><div tabindex="0" mx-keydown="' + $viewId + '@{move.by.keyboard}({start:true})" class="__mx-slider_style_-indicator';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += ' __mx-slider_style_-ver-idctor';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' __mx-slider_style_-hor-idctor';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" mx-mousedown="' + $viewId + '@{drag}({start:true})" id="left_' + ($expr = '<%=viewId%>', $e(viewId)) + '"></div><div class="__mx-slider_style_-pointer-label';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += ' __mx-slider_style_-ver-pl';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' __mx-slider_style_-hor-pl';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" id="leftl_' + ($expr = '<%=viewId%>', $e(viewId)) + '"></div><div tabindex="0" mx-keydown="' + $viewId + '@{move.by.keyboard}()" class="__mx-slider_style_-indicator';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += ' __mx-slider_style_-ver-idctor';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' __mx-slider_style_-hor-idctor';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" mx-mousedown="' + $viewId + '@{drag}({end:true})" id="right_' + ($expr = '<%=viewId%>', $e(viewId)) + '"></div><div class="__mx-slider_style_-pointer-label';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += ' __mx-slider_style_-ver-pl';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' __mx-slider_style_-hor-pl';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" id="rightl_' + ($expr = '<%=viewId%>', $e(viewId)) + '"></div><div class="';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += '__mx-slider_style_-ver-scale-bottom';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '__mx-slider_style_-scale-left';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '">' + ($expr = '<%=min%>', $e(min)) + '</div><div class="';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += '__mx-slider_style_-ver-scale-top';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '__mx-slider_style_-scale-right';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '">' + ($expr = '<%=max%>', $e(max)) + '</div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-slider/range.html';
+    throw msg;
+} return $p; },
+    mixins: [DD],
+    init: function (extra) {
+        var me = this;
+        var oNode = $('#' + me.id);
+        oNode.addClass('__mx-slider_style_-as-input');
+        me.assign(extra);
+        var click = function (e) {
+            if (me['@{temp.hold.event}'] || me['@{disabled}'])
+                return;
+            var offset = oNode.offset();
+            var vars = me['@{get.ui.vars}']();
+            var pos = -1;
+            if (me['@{vertical}']) {
+                pos = vars.rMax - e.pageY + offset.top;
+            }
+            else {
+                pos = e.pageX - offset.left;
+            }
+            var p = (pos - vars.half) / vars.max;
+            var v = me['@{get.fixed.value}'](p);
+            var start = +me['@{start}'];
+            var end = +me['@{end}'];
+            var syncLeft = Math.abs(start - v) < Math.abs(end - v);
+            if (syncLeft) {
+                me['@{sync.left}'](v);
+                me['@{start}'] = v;
+                me['@{fire.event}']();
+                Magix.node('left_' + me.id).focus();
+            }
+            else {
+                me['@{sync.right}'](v);
+                me['@{end}'] = v;
+                me['@{fire.event}']();
+                Magix.node('right_' + me.id).focus();
+            }
+        };
+        oNode.on('click', click);
+        me.on('destroy', function () {
+            oNode.off('click', click);
+        });
+        me['@{owner.node}'] = oNode;
+    },
+    assign: function (ops) {
+        var me = this;
+        me['@{width}'] = +ops.width || 340;
+        me['@{height}'] = +ops.height || 340;
+        me['@{min}'] = +ops.min || 0;
+        me['@{max}'] = +ops.max || 100;
+        me['@{step}'] = +ops.step || 1;
+        me['@{disabled}'] = (ops.disabled + '') === 'true';
+        me['@{vertical}'] = (ops.vertical + '') === 'true';
+        var s = me['@{step}'] + '';
+        var i = s.indexOf('.');
+        if (i >= 0) {
+            i = s.slice(i + 1).length;
+        }
+        else {
+            i = 0;
+        }
+        me['@{tail.length}'] = i;
+        var value = ops.value;
+        if (value) {
+            value = (value + '').split(',');
+            me['@{start}'] = +value[0] || 0;
+            me['@{end}'] = +value[1] || 0;
+        }
+        else {
+            me['@{start}'] = 0;
+            me['@{end}'] = 0;
+        }
+        return true;
+    },
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            min: me['@{min}'].toFixed(me['@{tail.length}']),
+            max: me['@{max}'].toFixed(me['@{tail.length}']),
+            viewId: me.id,
+            height: me['@{height}'],
+            width: me['@{width}'],
+            vertical: me['@{vertical}']
+        });
+        me['@{owner.node}'][me['@{disabled}'] ? 'addClass' : 'removeClass']('__mx-slider_style_-notallowed');
+        me.val([me['@{start}'], me['@{end}']]);
+    },
+    '@{get.ui.vars}': function () {
+        var me = this;
+        var rail = me['@{owner.node}'].find('.__mx-slider_style_-rail');
+        var tracker = me['@{owner.node}'].find('.__mx-slider_style_-tracker');
+        var iLeft = $('#left_' + me.id);
+        var iRight = $('#right_' + me.id);
+        var rMax = me['@{vertical}'] ? rail.height() : rail.width();
+        var half = iLeft.outerWidth() / 2;
+        var max = rMax - half * 2;
+        return {
+            rail: rail,
+            iLeftL: $('#leftl_' + me.id),
+            iRightL: $('#rightl_' + me.id),
+            tracker: tracker,
+            iLeft: iLeft,
+            iRight: iRight,
+            left: parseInt(iLeft.css(me['@{vertical}'] ? 'bottom' : 'left'), 10),
+            right: parseInt(iRight.css(me['@{vertical}'] ? 'bottom' : 'left'), 10),
+            rMax: rMax,
+            max: max,
+            half: half
+        };
+    },
+    '@{sync.left}': function (v) {
+        var me = this;
+        v = +v;
+        var max = me['@{max}'], min = me['@{min}'];
+        if (v > max)
+            v = max;
+        else if (v < min)
+            v = min;
+        var leftPercent = (v - min) / (max - min);
+        var vars = me['@{get.ui.vars}']();
+        var pos = leftPercent * vars.max;
+        if (me['@{vertical}']) {
+            vars.iLeft.css({
+                bottom: pos
+            });
+        }
+        else {
+            vars.iLeft.css({
+                left: pos
+            });
+        }
+        v = me['@{get.fixed.value}'](leftPercent);
+        var node = vars.iLeftL;
+        node.html(v);
+        var l = pos + vars.half;
+        if (me['@{vertical}']) {
+            var pHalf = node.height() / 2;
+            l -= pHalf;
+            node.css({
+                bottom: l
+            });
+            vars.tracker.css({
+                bottom: pos + vars.half
+            }).height(vars.right - pos);
+        }
+        else {
+            var pHalf = node.width() / 2;
+            if (l < pHalf) {
+                l = 0;
+            }
+            else if (l + pHalf > vars.rMax) {
+                l = vars.rMax - 2 * pHalf;
+            }
+            else {
+                l -= pHalf;
+            }
+            node.css({
+                left: l
+            });
+            vars.tracker.css({
+                left: pos + vars.half
+            }).width(vars.right - pos);
+        }
+        return v;
+    },
+    '@{sync.right}': function (v) {
+        var me = this;
+        v = +v;
+        var max = me['@{max}'], min = me['@{min}'];
+        if (v > max)
+            v = max;
+        else if (v < min)
+            v = min;
+        var rightPercent = (v - min) / (max - min);
+        var vars = me['@{get.ui.vars}']();
+        var pos = rightPercent * vars.max;
+        if (me['@{vertical}']) {
+            vars.iRight.css({
+                bottom: pos
+            });
+        }
+        else {
+            vars.iRight.css({
+                left: pos
+            });
+        }
+        v = me['@{get.fixed.value}'](rightPercent);
+        var node = vars.iRightL;
+        node.html(v);
+        var l = pos + vars.half;
+        if (me['@{vertical}']) {
+            var pHalf = node.height() / 2;
+            l -= pHalf;
+            node.css({
+                bottom: l
+            });
+            vars.tracker.height(pos - vars.left);
+        }
+        else {
+            var pHalf = node.width() / 2;
+            if (l < pHalf) {
+                l = 0;
+            }
+            else if (l + pHalf > vars.rMax) {
+                l = vars.rMax - 2 * pHalf;
+            }
+            else {
+                l -= pHalf;
+            }
+            node.css({
+                left: l
+            });
+            vars.tracker.width(pos - vars.left);
+        }
+        return v;
+    },
+    val: function (v) {
+        var _a;
+        var me = this;
+        if (v) {
+            var av = (v + '').split(',');
+            var start = +av[0] || 0;
+            var end = +av[1] || 0;
+            if (start > end) {
+                _a = [end, start], start = _a[0], end = _a[1];
+            }
+            me['@{owner.node}'].prop('value', [start, end]);
+            start = me['@{sync.left}'](start);
+            end = me['@{sync.right}'](end);
+            if (me['@{start}'] != start || me['@{end}'] != end) {
+                me['@{start}'] = start;
+                me['@{end}'] = end;
+                me['@{fire.event}']();
+            }
+        }
+        return [+me['@{start}'], +me['@{end}']];
+    },
+    '@{get.fixed.value}': function (p) {
+        var me = this;
+        var max = me['@{max}'], min = me['@{min}'], step = me['@{step}'], v;
+        if (p === 0)
+            v = min;
+        else if (p === 1)
+            v = max;
+        else {
+            v = min + (max - min) * p;
+            v = Math.round(v / step) * step;
+        }
+        v = v.toFixed(me['@{tail.length}']);
+        return v;
+    },
+    '@{fire.event}': function () {
+        var me = this;
+        var value = [+me['@{start}'], +me['@{end}']];
+        this['@{owner.node}'].prop('value', value).trigger({
+            type: 'change',
+            value: value,
+            start: +me['@{start}'],
+            end: +me['@{end}']
+        });
+    },
+    '@{check.and.fire}': function (start, end) {
+        var me = this;
+        if (start != me['@{start}'] ||
+            end != me['@{end}']) {
+            me['@{start}'] = start;
+            me['@{end}'] = end;
+            me['@{fire.event}']();
+        }
+    },
+    '@{drag}<mousedown>': function (e) {
+        var me = this;
+        if (me['@{disabled}'])
+            return;
+        var current = $(e.eventTarget);
+        var size = current.outerWidth();
+        var min = 0; //最小
+        var max = -1;
+        if (me['@{vertical}']) {
+            max = current.parent().height() - size;
+        }
+        else {
+            max = current.parent().width() - size;
+        }
+        var currentValue = parseInt(current.css(me['@{vertical}'] ? 'bottom' : 'left'), 10);
+        var dragStartValue = me['@{start}'];
+        var dragEndValue = me['@{end}'];
+        me['@{dragging}'] = 1;
+        me.dragdrop(e.eventTarget, function (ex) {
+            DD.clear();
+            var newValue = -1;
+            if (me['@{vertical}']) {
+                newValue = currentValue + e.pageY - ex.pageY;
+            }
+            else {
+                newValue = currentValue + ex.pageX - e.pageX;
+            }
+            if (newValue < min)
+                newValue = min;
+            else if (newValue > max)
+                newValue = max;
+            var p = newValue / max;
+            var v = me['@{get.fixed.value}'](p);
+            var nv = +v;
+            if (e.params.end) {
+                var start = +me['@{start}'];
+                if (nv >= start) {
+                    if (me['@{start}'] != dragStartValue) {
+                        dragStartValue = me['@{sync.left}'](start);
+                    }
+                    dragEndValue = me['@{sync.right}'](v);
+                    Magix.node('right_' + me.id).focus();
+                }
+                else {
+                    if (me['@{start}'] != dragEndValue) {
+                        dragEndValue = me['@{sync.right}'](start);
+                    }
+                    dragStartValue = me['@{sync.left}'](v);
+                    Magix.node('left_' + me.id).focus();
+                }
+            }
+            else {
+                var end = +me['@{end}'];
+                if (nv <= end) {
+                    if (me['@{end}'] != dragEndValue) {
+                        dragEndValue = me['@{sync.right}'](end);
+                    }
+                    dragStartValue = me['@{sync.left}'](v);
+                    Magix.node('left_' + me.id).focus();
+                }
+                else {
+                    if (me['@{end}'] != dragStartValue) {
+                        dragStartValue = me['@{sync.left}'](end);
+                    }
+                    dragEndValue = me['@{sync.right}'](v);
+                    Magix.node('right_' + me.id).focus();
+                }
+            }
+        }, function () {
+            me['@{check.and.fire}'](dragStartValue, dragEndValue);
+            me['@{temp.hold.event}'] = true;
+            setTimeout(me.wrapAsync(function () {
+                delete me['@{temp.hold.event}'];
+            }), 20);
+            delete me['@{dragging}'];
+        });
+    },
+    '@{move.by.keyboard}<keydown>': function (e) {
+        var me = this, step = me['@{step}'], move;
+        if (me['@{dragging}'])
+            return;
+        if (e.keyCode == 37 || e.keyCode == 40) { //decrement
+            e.preventDefault();
+            step = -step;
+            move = true;
+        }
+        else if (e.keyCode == 39 || e.keyCode == 38) { //increment
+            e.preventDefault();
+            move = true;
+        }
+        if (move) {
+            var srcStartValue = me['@{start}'];
+            var startValue = +srcStartValue;
+            var srcEndValue = me['@{end}'];
+            var endValue = +srcEndValue;
+            var start = e.params.start;
+            if (start) {
+                startValue += step;
+            }
+            else {
+                endValue += step;
+            }
+            if (startValue > endValue) {
+                if (start) {
+                    Magix.node('right_' + me.id).focus();
+                }
+                else {
+                    Magix.node('left_' + me.id).focus();
+                }
+                if (endValue != +srcStartValue) {
+                    srcStartValue = me['@{sync.left}'](endValue);
+                }
+                if (startValue != +srcEndValue) {
+                    srcEndValue = me['@{sync.right}'](startValue);
+                }
+            }
+            else {
+                if (start) {
+                    srcStartValue = me['@{sync.left}'](startValue);
+                }
+                else {
+                    srcEndValue = me['@{sync.right}'](endValue);
+                }
+            }
+            me['@{check.and.fire}'](srcStartValue, srcEndValue);
+        }
+    },
+    '@{prevent}<contextmenu>': function (e) {
+        e.preventDefault();
+    }
+});
+
+});
