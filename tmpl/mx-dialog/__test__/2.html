@@ -1,8 +1,8 @@
 <div class="example">
     <div class="eg-content">
-        <div class="color-9 mb20">
-            <i class="mc-iconfont displacement-2 mr5">&#xe6ac;</i>
-            二次确认浮层，默认无mask，宽度320，居中显示
+        <div class="mb20">
+            <span class="color-9">二次确认浮层：</span>
+            默认无mask，宽度320，居中显示
         </div>
         <div>
             <a href="javascript:;" mx-click="confirm1()" 
@@ -12,28 +12,31 @@
                 class="btn btn-brand ml20">自定义confirm样式</a>
         </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;a href="javascript:;" mx-click="confirm1()" 
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;a href="javascript:;" 
+    mx-click="confirm1()" 
     class="btn btn-brand"&gt;默认confirm&lt;/a&gt;
 
-&lt;a href="javascript:;" mx-click="confirm2()" 
+&lt;a href="javascript:;" 
+    mx-click="confirm2()" 
     class="btn btn-brand ml20"&gt;自定义confirm样式&lt;/a&gt;</pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
 let Dialog = require('@../index'); //mixins dialog
 let $ = require('$');
@@ -78,6 +81,8 @@ module.exports = Magix.View.extend(&#123;
             mask: true
         &#125;)
     &#125;
-&#125;);</pre>
+&#125;);
+            </pre>
+        </div>
     </div>
 </div>

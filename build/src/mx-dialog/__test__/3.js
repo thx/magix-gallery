@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryaa:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryaa:_" class="_zs_gallery___test___layout_-eg-content"><div class="color-9 mb20"><i class="mc-iconfont displacement-2 mr5">&#xe6ac;</i>将dialog的方法mixins到view上</div><div><a href="javascript:;" mx-click="' + $viewId + 'open()" class="btn btn-brand mr20">可打开多个浮层</a><a href="javascript:;" class="btn btn-brand mr20">关闭所有浮层</a><a href="javascript:;" mx-click="' + $viewId + 'alert1()" class="btn btn-brand">mask=false的浮层，点击空白处自动关闭浮层</a></div></div><div mxa="_zs_galleryaa:a" class="clearfix"><div mxa="_zs_galleryaa:b" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_galleryaa:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_galleryaa:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryaa:_" class="_zs_gallery___test___layout_-eg-content"><div class="lh22">将dialog的方法mixins到view上</div><div class="lh22">1. 打开多个浮层时，新开浮层总是在最上方</div><div class="lh22">2. 提供一键关闭所有浮层的方法</div><div class="lh22 mb20">3. false的浮层，点击空白处自动关闭浮层</div><div class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'open()" class="btn btn-brand mr20">打开浮层</a><a href="javascript:;" class="btn btn-brand mr20">一键关闭所有浮层</a><a href="javascript:;" mx-click="' + $viewId + 'noMask()" class="btn btn-brand">mask=false</a></div></div><div mxa="_zs_galleryaa:a" class="clearfix"><div mxa="_zs_galleryaa:b" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third1"><div mxs="_zs_galleryaa:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 21;
     $art = '=viewId';
     ;
@@ -36,19 +36,19 @@ module.exports = Base.extend({
     $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" mx-click="open()" \n    class="btn btn-brand"&gt;可打开多个浮层&lt;/a&gt;\n\n&lt;a href="javascript:;" mx-click="closeAll()" \n    class="btn btn-brand"&gt;关闭所有浮层&lt;/a&gt;</pre></div><div mxa="_zs_galleryaa:d" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryaa:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 35;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" \n    class="btn btn-brand"\n    mx-click="open()"&gt;打开浮层&lt;/a&gt;\n\n&lt;a href="javascript:;" \n    class="btn btn-brand"\n    mx-click="closeAll()"&gt;一键关闭所有浮层&lt;/a&gt;\n            </pre></div><div mxa="_zs_galleryaa:d" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryaa:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 38;
     $art = '=viewId';
     ;
     $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryaa:e" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 37;
+    $line = 40;
     $art = '!text2';
     ;
     $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryaa:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 40;
+    $line = 43;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Dialog = require(\'@../index\'); //mixins dialog\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [Dialog],\n    render() {\n        this.updater.digest();\n    },\n    \'open&lt;click&gt;\'(e) &#123;\n        //  viewPath：dialog view路径\n        //  viewOptions：传入dialog的数据，挂载当前dialog实体\n        //  dialogOptions：样式覆盖\n        //      width： 宽度\n        //      height： 高度\n        //      modal：是否允许滚动\n        //      mask：是否有遮罩\n        //      ......\n        this.mxDialog(\'@./multi\', &#123;\n            number: 1\n        &#125;, &#123;\n            width: 800,\n            height: 270,\n            modal: true\n        &#125;);\n    &#125;,\n    \'closeAll&lt;click&gt;\'(e)&#123;\n        this.mxCloseAllDialogs();\n    &#125;\n&#125;);</pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Dialog = require(\'@../index\'); //mixins dialog\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [Dialog],\n    render() {\n        this.updater.digest();\n    },\n    \'open&lt;click&gt;\'(e) &#123;\n        //  viewPath：dialog view路径\n        //  viewOptions：传入dialog的数据，挂载当前dialog实体\n        //  dialogOptions：样式覆盖\n        //      width： 宽度\n        //      height： 高度\n        //      modal：是否允许滚动\n        //      mask：是否有遮罩\n        //      ......\n        this.mxDialog(\'@./multi\', &#123;\n            number: 1\n        &#125;, &#123;\n            width: 800,\n            height: 270,\n            modal: true\n        &#125;);\n    &#125;,\n\n    \'closeAll&lt;click&gt;\'(e)&#123;\n        this.mxCloseAllDialogs();\n    &#125;\n&#125;);</pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -79,7 +79,7 @@ catch (ex) {
             modal: true
         });
     },
-    'alert1<click>': function (e) {
+    'noMask<click>': function (e) {
         var node = $(e.eventTarget);
         var offset = node.offset();
         var top = offset.top + node.outerHeight() - $(window).scrollTop() + 10;

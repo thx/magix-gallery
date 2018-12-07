@@ -12,14 +12,15 @@
                 class="btn btn-brand">自定义属性</a>  
         </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">浮层本身写法</div>
-        <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
-            mx-success="done({id:3})">
-            <span class="desc-tip">{{!text3}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_3">
+    <div class="clearfix">
+        <div class="eg-desc half half-left">
+            <div class="eg-title">浮层本身写法</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_3">
 let Magix = require('magix');
 
 module.exports = Magix.View.extend(&#123;
@@ -42,34 +43,37 @@ module.exports = Magix.View.extend(&#123;
         width: 800
     &#125;
 &#125;);
-</pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">使用浮层内配置的属性</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+            </pre>
+        </div>
+        <div class="half">
+            <div class="eg-desc">
+                <div class="eg-title">使用浮层内配置的属性</div>
+                <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                    mx-success="done({id:1})">
+                    <span class="desc-tip">{{!text1}}</span>
+                    <i class="mc-iconfont desc-icon">&#xe610;</i>
+                </mx-copy>
+                <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 'open&lt;click&gt;'(e) &#123;
     this.mxDialog('@./inner');
 &#125;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">自定义属性</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+                </pre>
+            </div>
+            <div class="eg-desc">
+                <div class="eg-title">自定义属性</div>
+                <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                    mx-success="done({id:2})">
+                    <span class="desc-tip">{{!text2}}</span>
+                    <i class="mc-iconfont desc-icon">&#xe610;</i>
+                </mx-copy>
+                <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 'open&lt;click&gt;'(e) &#123;
     this.mxDialog('@./inner', &#123;&#125;, &#123;
         width: 400
     &#125;);
 &#125;
-        </pre>
+                </pre>
+            </div>
+        </div>
     </div>
 </div>

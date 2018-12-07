@@ -7,14 +7,14 @@ module.exports = Base.extend({
     render() {
         let options = [{
             key: 'type',
-            desc: '异常类型，可选404，502',
+            desc: '异常类型，可选404，500，502',
             type: 'string',
             def: '404'
         }, {
             key: 'tip',
             desc: '自定义提示信息',
             type: 'string',
-            def: '404：抱歉，您查看的页面不存在或无权限查看当前页面<br/>502：Bad Gateway'
+            def: '404：抱歉，您查看的页面不存在或无权限查看当前页面<br/>500：Internal Server Error<br/>502：Bad Gateway'
         }, {
             key: 'btns',
             desc: '是否需要返回首页 + 返回上一页按钮',

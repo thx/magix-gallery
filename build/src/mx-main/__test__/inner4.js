@@ -22,14 +22,14 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', info = $$.info; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryb9:_" class="_zs_gallery_mx-main___test___inner_-box-title clearfix">';
+    $p += '<div mxa="_zs_galleryb$:_" class="_zs_gallery_mx-main___test___inner_-box-title clearfix">';
     $line = 2;
     $art = 'if info.icon';
     ;
     $expr = '<%if (info.icon) {%>';
     if (info.icon) {
         ;
-        $p += '<span mxa="_zs_galleryb9:a" class="_zs_gallery_mx-main___test___inner_-title-icon">';
+        $p += '<span mxa="_zs_galleryb$:a" class="_zs_gallery_mx-main___test___inner_-title-icon">';
         $line = 3;
         $art = '!info.icon';
         ;
@@ -40,11 +40,11 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<span mxa="_zs_galleryb9:b" class="_zs_gallery_mx-main___test___inner_-title-label">';
+    $p += '<span mxa="_zs_galleryb$:b" class="_zs_gallery_mx-main___test___inner_-title-label">';
     $line = 5;
     $art = '=info.label';
     ;
-    $p += ($expr = '<%=info.label%>', $e(info.label)) + '</span></div><div mxs="_zs_galleryb9:_" class="_zs_gallery_mx-main___test___inner_-box-inner" style="min-height: 200px;"><div class="lh22 mb10"><div>页面功能说明：</div></div><div class="tip-content mb40"><div>1. 当前步骤只要一个子步骤，侧边导航不显示子步骤</div><div>2. 没有侧边区域</div></div><div class="lh22 mb10"><div>当前页面配置信息：</div></div><pre class="tip-content mb40">\n&#123;\n    label: \'完成创建\',\n    nextTip: \'完成\',\n    icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe64c;&lt;/i&gt;\',\n    subs: [&#123;\n        label: \'完成标题\',\n        icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe7be;&lt;/i&gt;\',\n        view: \'@./inner4\'\n    &#125;]\n&#125;\n    </pre></div>';
+    $p += ($expr = '<%=info.label%>', $e(info.label)) + '</span></div><div mxs="_zs_galleryb$:_" class="_zs_gallery_mx-main___test___inner_-box-inner" style="min-height: 200px;"><div class="lh22 mb10"><div>页面功能说明：</div></div><div class="tip-content mb40"><div>1. 当前步骤只要一个子步骤，侧边导航不显示子步骤</div><div>2. 没有侧边区域</div></div><div class="lh22 mb10"><div>当前页面配置信息：</div></div><pre class="tip-content mb40">\n&#123;\n    label: \'完成创建\',\n    nextTip: \'完成\',\n    icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe64c;&lt;/i&gt;\',\n    subs: [&#123;\n        label: \'完成标题\',\n        icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe7be;&lt;/i&gt;\',\n        view: \'@./inner4\'\n    &#125;]\n&#125;\n    </pre></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

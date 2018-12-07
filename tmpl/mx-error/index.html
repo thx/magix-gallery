@@ -4,11 +4,9 @@
     <div class="info">{{=tip}}</div>
     {{/if}}
 
-    {{if (type == '502')}}
-    <div class="error-bad">
-        <i class="mc-iconfont error-bad-icon">&#xe640;</i>
-        <span class="error-bad-num">502</span>
-    </div>
+    {{if (type == '502' || type == '500')}}
+    <img class="error-bad-img" src="https://img.alicdn.com/tfs/TB1RljduirpK1RjSZFhXXXSdXXa-1313-678.png"/>
+    <span class="error-bad-num">{{=type}}</span>
     <div class="info">{{=tip}}</div>
     {{/if}}
 

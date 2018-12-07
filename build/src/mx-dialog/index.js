@@ -41,14 +41,14 @@ module.exports = Magix.View.extend({
     $expr = '<%if (closable) {%>';
     if (closable) {
         ;
-        $p += '<a mxs="_zs_galleryal:_" href="javascript:;" mx-click="' + $viewId + '@{close}()" class="_zs_gallery_mx-dialog_index_-dialog-close"><i class="mc-iconfont _zs_gallery_mx-dialog_index_-iconfont-ext">&#xe603;</i></a>';
+        $p += '<a mxs="_zs_galleryap:_" href="javascript:;" mx-click="' + $viewId + '@{close}()" class="_zs_gallery_mx-dialog_index_-dialog-close"><i class="mc-iconfont _zs_gallery_mx-dialog_index_-iconfont-ext">&#xe603;</i></a>';
         $line = 5;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '<div class="_zs_gallery_mx-dialog_index_-dialog-content" id="' + ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryal:a" class="loading _zs_gallery_mx-dialog_index_-loading-ext"><span class="loading-anim"></span></div></div>';
+    $p += '<div class="_zs_gallery_mx-dialog_index_-dialog-content" id="' + ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryap:a" class="loading _zs_gallery_mx-dialog_index_-loading-ext"><span class="loading-anim"></span></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -64,6 +64,8 @@ catch (ex) {
             RemoveCache(me);
             // 2 dialog + mask
             DialogZIndex -= 2;
+            // 存在非手动关闭浮层的情况，比如浮层中有一个按钮从本页面跳走
+            // 这时候需要关闭浮层
             $('#' + me.id).trigger('dlg_close');
         });
         DialogZIndex += 2;
@@ -141,41 +143,51 @@ catch (ex) {
         var node = $('#' + id);
         var suspend;
         return node.on('dlg_close', function () {
-            if (!node.data('closing') && !suspend) {
-                var resume_1 = function () {
-                    node.data('closing', 1);
-                    $('#wrapper_' + id).removeClass('_zs_gallery_mx-dialog_index_-wrapper-out');
-                    $('#mask_' + id).removeClass('_zs_gallery_mx-dialog_index_-backdrop-out');
-                    setTimeout(function () {
-                        node.trigger('close');
-                        if (view.owner) {
-                            view.owner.unmountVframe(id);
-                        }
-                        $('#wrapper_' + id).remove();
-                        $('#mask_' + id).remove();
-                        // 有浮层展开的情况下，body都不可滚动
-                        $(document.body)[(CacheList.length == 0) ? 'removeClass' : 'addClass']('_zs_gallery_mx-dialog_index_-modal');
-                    }, Duration);
-                };
-                var e_1 = {
-                    prevent: function () {
-                        suspend = 1;
-                    },
-                    resolve: function () {
-                        e_1.p = 1;
-                        suspend = 0;
-                        resume_1();
-                    },
-                    reject: function () {
-                        e_1.p = 1;
-                        suspend = 0;
-                    }
-                };
-                vf.invoke('@{notify.main.view.unload}', [e_1]);
-                if (!suspend && !e_1.p) {
-                    resume_1();
-                }
+            if (node.data('closed')) {
+                return;
             }
+            node.trigger({
+                type: 'beforeClose',
+                closeFn: function () {
+                    if (!node.data('closing') && !suspend) {
+                        var resume_1 = function () {
+                            node.data('closing', 1);
+                            $('#wrapper_' + id).removeClass('_zs_gallery_mx-dialog_index_-wrapper-out');
+                            $('#mask_' + id).removeClass('_zs_gallery_mx-dialog_index_-backdrop-out');
+                            setTimeout(function () {
+                                node.trigger('close');
+                                // 不重复关闭
+                                node.data('closed', 1);
+                                if (view.owner) {
+                                    view.owner.unmountVframe(id);
+                                }
+                                $('#wrapper_' + id).remove();
+                                $('#mask_' + id).remove();
+                                // 有浮层展开的情况下，body都不可滚动
+                                $(document.body)[(CacheList.length == 0) ? 'removeClass' : 'addClass']('_zs_gallery_mx-dialog_index_-modal');
+                            }, Duration);
+                        };
+                        var e_1 = {
+                            prevent: function () {
+                                suspend = 1;
+                            },
+                            resolve: function () {
+                                e_1.p = 1;
+                                suspend = 0;
+                                resume_1();
+                            },
+                            reject: function () {
+                                e_1.p = 1;
+                                suspend = 0;
+                            }
+                        };
+                        vf.invoke('@{notify.main.view.unload}', [e_1]);
+                        if (!suspend && !e_1.p) {
+                            resume_1();
+                        }
+                    }
+                }
+            });
         });
     },
     alert: function (title, content, enterCallback, dialogOptions) {
@@ -243,7 +255,7 @@ catch (ex) {
                 beforeCloseCallback = fn;
             },
             close: function () {
-                if (dlg && (!beforeCloseCallback || (beforeCloseCallback && beforeCloseCallback()))) {
+                if (dlg) {
                     dlg.trigger('dlg_close');
                 }
             },
@@ -279,6 +291,11 @@ catch (ex) {
             Magix.mix(dOptions, viewOptions);
             dOptions.dialog = output;
             dlg = me['@{dialog.show}'](me, dOptions);
+            dlg.on('beforeClose', function (event) {
+                if (!beforeCloseCallback || (beforeCloseCallback && beforeCloseCallback())) {
+                    event.closeFn();
+                }
+            });
             dlg.on('close', function () {
                 delete me[key];
                 if (afterCloseCallback) {

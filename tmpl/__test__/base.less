@@ -39,11 +39,16 @@
         margin-right: 140px;
         line-height: 32px;
         .header-tab{
-            padding: 0 20px;
+            float: left;
+            padding: 0 20px 8px 20px;
             font-size: 14px;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            transition: all @duration;
 
             &.cur{
                 color: @color-brand;
+                border-bottom: 2px solid @color-brand;
             }
         }
     }

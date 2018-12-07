@@ -25,6 +25,9 @@ module.exports = Magix.View.extend({
             RemoveCache(me);
             // 2 dialog + mask
             DialogZIndex -= 2;
+
+            // 存在非手动关闭浮层的情况，比如浮层中有一个按钮从本页面跳走
+            // 这时候需要关闭浮层
             $('#' + me.id).trigger('dlg_close');
         });
 
@@ -121,45 +124,56 @@ module.exports = Magix.View.extend({
         let node = $('#' + id);
         let suspend;
         return node.on('dlg_close', () => {
-            if (!node.data('closing') && !suspend) {
-                let resume = () => {
-                    node.data('closing', 1);
-
-                    $('#wrapper_' + id).removeClass('@index.less:wrapper-out');
-                    $('#mask_' + id).removeClass('@index.less:backdrop-out');
-
-                    setTimeout(() => {
-                        node.trigger('close');
-
-                        if (view.owner) {
-                            view.owner.unmountVframe(id);
-                        }
-                        $('#wrapper_' + id).remove();
-                        $('#mask_' + id).remove();
-
-                        // 有浮层展开的情况下，body都不可滚动
-                        $(document.body)[(CacheList.length == 0) ? 'removeClass' : 'addClass']('@index.less:modal');
-                    }, Duration);
-                };
-                let e = {
-                    prevent() {
-                        suspend = 1;
-                    },
-                    resolve() {
-                        e.p = 1;
-                        suspend = 0;
-                        resume();
-                    },
-                    reject() {
-                        e.p = 1;
-                        suspend = 0;
-                    }
-                };
-                vf.invoke('@{notify.main.view.unload}', [e]);
-                if (!suspend && !e.p) {
-                    resume();
-                }
+            if(node.data('closed')){
+                return;
             }
+            node.trigger({
+                type: 'beforeClose',
+                closeFn: () => {
+                    if (!node.data('closing') && !suspend) {
+                        let resume = () => {
+                            node.data('closing', 1);
+        
+                            $('#wrapper_' + id).removeClass('@index.less:wrapper-out');
+                            $('#mask_' + id).removeClass('@index.less:backdrop-out');
+        
+                            setTimeout(() => {
+                                node.trigger('close');
+
+                                // 不重复关闭
+                                node.data('closed', 1);
+        
+                                if (view.owner) {
+                                    view.owner.unmountVframe(id);
+                                }
+                                $('#wrapper_' + id).remove();
+                                $('#mask_' + id).remove();
+        
+                                // 有浮层展开的情况下，body都不可滚动
+                                $(document.body)[(CacheList.length == 0) ? 'removeClass' : 'addClass']('@index.less:modal');
+                            }, Duration);
+                        };
+                        let e = {
+                            prevent() {
+                                suspend = 1;
+                            },
+                            resolve() {
+                                e.p = 1;
+                                suspend = 0;
+                                resume();
+                            },
+                            reject() {
+                                e.p = 1;
+                                suspend = 0;
+                            }
+                        };
+                        vf.invoke('@{notify.main.view.unload}', [e]);
+                        if (!suspend && !e.p) {
+                            resume();
+                        }
+                    }
+                }
+            });
         });
     },
 
@@ -233,7 +247,7 @@ module.exports = Magix.View.extend({
                 beforeCloseCallback = fn;
             },
             close() {
-                if (dlg && (!beforeCloseCallback || (beforeCloseCallback && beforeCloseCallback()))) {
+                if (dlg) {
                     dlg.trigger('dlg_close');
                 }
             },
@@ -275,6 +289,13 @@ module.exports = Magix.View.extend({
             Magix.mix(dOptions, viewOptions);
             dOptions.dialog = output;
             dlg = me['@{dialog.show}'](me, dOptions);
+
+            dlg.on('beforeClose', (event) => {
+                if(!beforeCloseCallback || (beforeCloseCallback && beforeCloseCallback())){
+                    event.closeFn();
+                }
+            })
+
             dlg.on('close', () => {
                 delete me[key];
                 if (afterCloseCallback) {

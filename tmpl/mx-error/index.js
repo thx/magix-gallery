@@ -11,6 +11,9 @@ module.exports = Magix.View.extend({
                 case '404':
                     tip = '抱歉，您查看的页面不存在或无权限查看当前页面';
                     break;
+                case '500':
+                    tip = 'Internal Server Error';
+                    break;
                 case '502':
                     tip = 'Bad Gateway';
                     break;

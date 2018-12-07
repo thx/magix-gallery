@@ -14,7 +14,7 @@
             type="all"
             mx-suggest="suggest()"/>
     </div>
-    <div class="header-tabs">
+    <div class="header-tabs clearfix">
         {{each headers as h}}
         <a href="#!{{=h.path}}" class="header-tab {{if h.cur}} cur {{/if}}">{{=h.name}}</a>
         {{/each}}

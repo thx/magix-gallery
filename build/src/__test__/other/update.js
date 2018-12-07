@@ -8,7 +8,7 @@ define("__test__/other/update",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery___test___other_update_","/* @dependent: ./index.less */\n._zs_gallery___test___other_update_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___other_update_-update {\n  position: relative;\n}\n._zs_gallery___test___other_update_-update::before {\n  content: '';\n  position: absolute;\n  top: 12px;\n  left: 0;\n  width: 0;\n  height: 100%;\n  border-left: 2px solid #e6e6e6;\n}\n._zs_gallery___test___other_update_-update:last-child::before {\n  display: none;\n}\n._zs_gallery___test___other_update_-ver {\n  position: relative;\n}\n._zs_gallery___test___other_update_-ver::before {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: -4px;\n  width: 10px;\n  height: 10px;\n  margin-top: -5px;\n  border: 2px solid #e6e6e6;\n  background-color: #fff;\n  border-radius: 50%;\n}\n._zs_gallery___test___other_update_-ver ._zs_gallery___test___other_update_-vt {\n  display: inline-block;\n  margin-right: 10px;\n  font-size: 18px;\n  overflow: hidden;\n  vertical-align: middle;\n}\n._zs_gallery___test___other_update_-ver ._zs_gallery___test___other_update_-vi {\n  display: inline-block;\n  padding: 0 10px;\n  height: 20px;\n  line-height: 20px;\n  background-color: #ccc;\n  text-align: center;\n  border-radius: 2px;\n  overflow: hidden;\n  vertical-align: middle;\n}\n._zs_gallery___test___other_update_-dot {\n  position: relative;\n  padding-left: 10px;\n}\n._zs_gallery___test___other_update_-dot::before {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 4px;\n  height: 4px;\n  margin-top: -2px;\n  border: 1px solid #ccc;\n  border-radius: 50%;\n}\n._zs_gallery___test___other_update_-line {\n  line-height: 28px;\n}\n");
+Magix.applyStyle("_zs_gallery___test___other_update_","/* @dependent: ./index.less */\n._zs_gallery___test___other_update_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___other_update_-update {\n  position: relative;\n}\n._zs_gallery___test___other_update_-update::before {\n  content: '';\n  position: absolute;\n  top: 12px;\n  left: 0;\n  width: 0;\n  height: 100%;\n  border-left: 2px solid #e6e6e6;\n}\n._zs_gallery___test___other_update_-update:last-child::before {\n  display: none;\n}\n._zs_gallery___test___other_update_-tag,\n._zs_gallery___test___other_update_-vi {\n  display: inline-block;\n  padding: 0 10px;\n  height: 20px;\n  line-height: 18px;\n  background-color: #f3f4f5;\n  border: 1px solid #eee;\n  text-align: center;\n  border-radius: 2px;\n  overflow: hidden;\n  vertical-align: middle;\n}\n._zs_gallery___test___other_update_-tag {\n  margin: 0 3px;\n}\n._zs_gallery___test___other_update_-ver {\n  position: relative;\n}\n._zs_gallery___test___other_update_-ver::before {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: -4px;\n  width: 10px;\n  height: 10px;\n  margin-top: -5px;\n  border: 2px solid #e6e6e6;\n  background-color: #fff;\n  border-radius: 50%;\n}\n._zs_gallery___test___other_update_-ver ._zs_gallery___test___other_update_-vt {\n  display: inline-block;\n  font-size: 18px;\n  overflow: hidden;\n  vertical-align: middle;\n}\n._zs_gallery___test___other_update_-ver ._zs_gallery___test___other_update_-vi {\n  margin: 0 10px;\n}\n._zs_gallery___test___other_update_-dot {\n  position: relative;\n  padding-left: 10px;\n}\n._zs_gallery___test___other_update_-dot::before {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 4px;\n  height: 4px;\n  margin-top: -2px;\n  border: 1px solid #ccc;\n  border-radius: 50%;\n}\n._zs_gallery___test___other_update_-line {\n  line-height: 28px;\n}\n._zs_gallery___test___other_update_-line-icon {\n  position: relative;\n  top: 2px;\n  margin-right: 5px;\n  font-size: 18px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -25,117 +25,135 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ilnjir$art_i = 0, $art_cynbtxvhryb$art_c = list.length; $art_ilnjir$art_i < $art_cynbtxvhryb$art_c; $art_ilnjir$art_i++) {    var item = list[$art_ilnjir$art_i]%>';
-    for (var $art_ilnjir$art_i = 0, $art_cynbtxvhryb$art_c = list.length; $art_ilnjir$art_i < $art_cynbtxvhryb$art_c; $art_ilnjir$art_i++) {
-        var item = list[$art_ilnjir$art_i];
-        $p += '<div mxa="_zs_gallerye:_" class="_zs_gallery___test___other_update_-update"><div mxa="_zs_gallerye:e" class="_zs_gallery___test___other_update_-ver pl20"><span mxa="_zs_gallerye:f" class="_zs_gallery___test___other_update_-vt">';
+    $expr = '<%for (var $art_imucexgtb$art_i = 0, $art_csxmlkgvi$art_c = list.length; $art_imucexgtb$art_i < $art_csxmlkgvi$art_c; $art_imucexgtb$art_i++) {    var item = list[$art_imucexgtb$art_i]%>';
+    for (var $art_imucexgtb$art_i = 0, $art_csxmlkgvi$art_c = list.length; $art_imucexgtb$art_i < $art_csxmlkgvi$art_c; $art_imucexgtb$art_i++) {
+        var item = list[$art_imucexgtb$art_i];
+        $p += '<div mxa="_zs_gallerye:_" class="_zs_gallery___test___other_update_-update"><div mxa="_zs_gallerye:a" class="_zs_gallery___test___other_update_-ver pl20"><span mxa="_zs_gallerye:b" class="_zs_gallery___test___other_update_-vt">';
         $line = 4;
         $art = '=item.ver';
         ;
-        $p += ($expr = '<%=item.ver%>', $e(item.ver)) + '</span><span mxa="_zs_gallerye:g" class="_zs_gallery___test___other_update_-vi">';
+        $p += ($expr = '<%=item.ver%>', $e(item.ver)) + '</span><span mxa="_zs_gallerye:c" class="_zs_gallery___test___other_update_-vi">';
         $line = 5;
         $art = '=item.time';
         ;
-        $p += ($expr = '<%=item.time%>', $e(item.time)) + '</span></div><div mxa="_zs_gallerye:a" class="pt10 pb30">';
+        $p += ($expr = '<%=item.time%>', $e(item.time)) + '</span></div><div mxa="_zs_gallerye:d" class="pt10 pb30">';
         $line = 8;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_ixzvsoix$art_i = 0, $art_objljhqg$art_obj = item.subs, $art_cqldthdhfl$art_c = $art_objljhqg$art_obj.length; $art_ixzvsoix$art_i < $art_cqldthdhfl$art_c; $art_ixzvsoix$art_i++) {        var s = $art_objljhqg$art_obj[$art_ixzvsoix$art_i]%>';
-        for (var $art_ixzvsoix$art_i = 0, $art_objljhqg$art_obj = item.subs, $art_cqldthdhfl$art_c = $art_objljhqg$art_obj.length; $art_ixzvsoix$art_i < $art_cqldthdhfl$art_c; $art_ixzvsoix$art_i++) {
-            var s = $art_objljhqg$art_obj[$art_ixzvsoix$art_i];
-            $p += '<div mxa="_zs_gallerye:b" class="pl20">';
+        $expr = '<%for (var $art_ifsqzdzj$art_i = 0, $art_objqrsuqsigh$art_obj = item.subs, $art_cvimvfjwz$art_c = $art_objqrsuqsigh$art_obj.length; $art_ifsqzdzj$art_i < $art_cvimvfjwz$art_c; $art_ifsqzdzj$art_i++) {        var s = $art_objqrsuqsigh$art_obj[$art_ifsqzdzj$art_i]%>';
+        for (var $art_ifsqzdzj$art_i = 0, $art_objqrsuqsigh$art_obj = item.subs, $art_cvimvfjwz$art_c = $art_objqrsuqsigh$art_obj.length; $art_ifsqzdzj$art_i < $art_cvimvfjwz$art_c; $art_ifsqzdzj$art_i++) {
+            var s = $art_objqrsuqsigh$art_obj[$art_ifsqzdzj$art_i];
+            $p += '<div mxa="_zs_gallerye:e" class="pl20">';
             $line = 10;
+            $art = 'if s.type == \'notice\'';
+            ;
+            $expr = '<%if (s.type == \'notice\') {%>';
+            if (s.type == 'notice') {
+                ;
+                $p += '<div mxs="_zs_gallerye:_" class="_zs_gallery___test___other_update_-line"><i class="mc-iconfont _zs_gallery___test___other_update_-line-icon color-warn">&#xe66f;</i><span class="fontsize-14">重要通知</span></div>';
+                $line = 15;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 17;
             $art = 'if s.type == \'bug\'';
             ;
             $expr = '<%if (s.type == \'bug\') {%>';
             if (s.type == 'bug') {
                 ;
-                $p += '<div mxs="_zs_gallerye:n" class="_zs_gallery___test___other_update_-line"><i class="mc-iconfont color-warn displacement-2 mr5">&#xe63d;</i>bug修复</div>';
-                $line = 12;
+                $p += '<div mxs="_zs_gallerye:a" class="_zs_gallery___test___other_update_-line"><i class="mc-iconfont _zs_gallery___test___other_update_-line-icon color-red">&#xe63d;</i><span class="fontsize-14">bug修复</span></div>';
+                $line = 22;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' ';
-            $line = 14;
+            $line = 24;
             $art = 'if s.type == \'add\'';
             ;
             $expr = '<%if (s.type == \'add\') {%>';
             if (s.type == 'add') {
                 ;
-                $p += '<div mxs="_zs_gallerye:q" class="_zs_gallery___test___other_update_-line"><i class="mc-iconfont color-green displacement-2 mr5">&#xe616;</i>功能上新</div>';
-                $line = 16;
+                $p += '<div mxa="_zs_gallerye:f" class="_zs_gallery___test___other_update_-line"><i mxs="_zs_gallerye:b" class="mc-iconfont _zs_gallery___test___other_update_-line-icon color-green">&#xe616;</i><span mxa="_zs_gallerye:g" class="fontsize-14">';
+                $line = 27;
+                $art = '=(s.title ? s.title : \'功能上新\')';
+                ;
+                $p += ($expr = '<%=(s.title ? s.title : \'功能上新\')%>', $e((s.title ? s.title : '功能上新'))) + '</span></div>';
+                $line = 29;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' ';
-            $line = 18;
+            $line = 31;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_iwdvsnqxol$art_i = 0, $art_objnygbofhfm$art_obj = s.subs, $art_ceaftbemh$art_c = $art_objnygbofhfm$art_obj.length; $art_iwdvsnqxol$art_i < $art_ceaftbemh$art_c; $art_iwdvsnqxol$art_i++) {            var ss = $art_objnygbofhfm$art_obj[$art_iwdvsnqxol$art_i]%>';
-            for (var $art_iwdvsnqxol$art_i = 0, $art_objnygbofhfm$art_obj = s.subs, $art_ceaftbemh$art_c = $art_objnygbofhfm$art_obj.length; $art_iwdvsnqxol$art_i < $art_ceaftbemh$art_c; $art_iwdvsnqxol$art_i++) {
-                var ss = $art_objnygbofhfm$art_obj[$art_iwdvsnqxol$art_i];
+            $expr = '<%for (var $art_inwruyxs$art_i = 0, $art_objodgcijmxzo$art_obj = s.subs, $art_cjiukpvd$art_c = $art_objodgcijmxzo$art_obj.length; $art_inwruyxs$art_i < $art_cjiukpvd$art_c; $art_inwruyxs$art_i++) {            var ss = $art_objodgcijmxzo$art_obj[$art_inwruyxs$art_i]%>';
+            for (var $art_inwruyxs$art_i = 0, $art_objodgcijmxzo$art_obj = s.subs, $art_cjiukpvd$art_c = $art_objodgcijmxzo$art_obj.length; $art_inwruyxs$art_i < $art_cjiukpvd$art_c; $art_inwruyxs$art_i++) {
+                var ss = $art_objodgcijmxzo$art_obj[$art_inwruyxs$art_i];
                 $p += '<div mxa="_zs_gallerye:h" class="pl20"><div mxa="_zs_gallerye:i" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
-                $line = 20;
+                $line = 33;
                 $art = '!ss.title';
                 ;
                 $p += ($expr = '<%!ss.title%>', $n(ss.title)) + '</div>';
-                $line = 22;
+                $line = 35;
                 $art = 'if ss.subs && (ss.subs.length > 0)';
                 ;
                 $expr = '<%if (ss.subs && (ss.subs.length > 0)) {%>';
                 if (ss.subs && (ss.subs.length > 0)) {
                     ;
-                    $p += '<div mxa="_zs_gallerye:c" class="pl20">';
-                    $line = 24;
+                    $p += '<div mxa="_zs_gallerye:j" class="pl20">';
+                    $line = 37;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_isitnco$art_i = 0, $art_objebjuiakt$art_obj = ss.subs, $art_cudszsbnge$art_c = $art_objebjuiakt$art_obj.length; $art_isitnco$art_i < $art_cudszsbnge$art_c; $art_isitnco$art_i++) {                    var sss = $art_objebjuiakt$art_obj[$art_isitnco$art_i]%>';
-                    for (var $art_isitnco$art_i = 0, $art_objebjuiakt$art_obj = ss.subs, $art_cudszsbnge$art_c = $art_objebjuiakt$art_obj.length; $art_isitnco$art_i < $art_cudszsbnge$art_c; $art_isitnco$art_i++) {
-                        var sss = $art_objebjuiakt$art_obj[$art_isitnco$art_i];
-                        $p += '<div mxa="_zs_gallerye:d" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
-                        $line = 25;
+                    $expr = '<%for (var $art_igbaiign$art_i = 0, $art_objpjxxzunvx$art_obj = ss.subs, $art_cxdzcwbpm$art_c = $art_objpjxxzunvx$art_obj.length; $art_igbaiign$art_i < $art_cxdzcwbpm$art_c; $art_igbaiign$art_i++) {                    var sss = $art_objpjxxzunvx$art_obj[$art_igbaiign$art_i]%>';
+                    for (var $art_igbaiign$art_i = 0, $art_objpjxxzunvx$art_obj = ss.subs, $art_cxdzcwbpm$art_c = $art_objpjxxzunvx$art_obj.length; $art_igbaiign$art_i < $art_cxdzcwbpm$art_c; $art_igbaiign$art_i++) {
+                        var sss = $art_objpjxxzunvx$art_obj[$art_igbaiign$art_i];
+                        $p += '<div mxa="_zs_gallerye:k" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
+                        $line = 38;
                         $art = '!sss';
                         ;
                         $p += ($expr = '<%!sss%>', $n(sss)) + '</div>';
-                        $line = 26;
+                        $line = 39;
                         $art = '/each';
                         ;
                         $expr = '<%}%>';
                     }
                     ;
                     $p += '</div>';
-                    $line = 28;
+                    $line = 41;
                     $art = '/if';
                     ;
                     $expr = '<%}%>';
                 }
                 ;
                 $p += '</div>';
-                $line = 30;
+                $line = 43;
                 $art = '/each';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '</div>';
-            $line = 32;
+            $line = 45;
             $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</div></div>';
-        $line = 35;
+        $line = 48;
         $art = '/each';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '<div mxs="_zs_gallerye:B" class="_zs_gallery___test___other_update_-update"><div class="_zs_gallery___test___other_update_-ver pl20"><span class="_zs_gallery___test___other_update_-vt">历史版本</span><span class="_zs_gallery___test___other_update_-vi">···</span></div></div>';
+    $p += '<div mxs="_zs_gallerye:c" class="_zs_gallery___test___other_update_-update"><div class="_zs_gallery___test___other_update_-ver pl20"><span class="_zs_gallery___test___other_update_-vt">历史版本</span><span class="_zs_gallery___test___other_update_-vi">···</span></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -147,38 +165,80 @@ catch (ex) {
 } return $p; },
     render: function () {
         var list = [{
-                ver: '3.10.8',
-                time: '2018-21-12',
+                ver: '1.2.1',
+                time: '2018-12-06',
                 subs: [{
-                        type: 'bug',
-                        subs: [{
-                                title: 'Avatar 组件增加',
-                                subs: [
-                                    'Avatar 组件增加',
-                                    'Avatar 组件增加',
-                                    'Avatar 组件增加'
-                                ]
-                            }, {
-                                title: 'Avatar 组件增加'
-                            }, {
-                                title: 'Avatar 组件增加'
-                            }]
-                    }, {
                         type: 'add',
+                        title: '功能全概览',
                         subs: [{
-                                title: 'Avatar 组件增加',
+                                title: '表单',
                                 subs: [
-                                    'Avatar 组件增加',
-                                    'Avatar 组件增加',
-                                    'Avatar 组件增加'
+                                    '双向绑定',
+                                    '丰富的校验类型：必填，checkbox，radio，dropdown必选，refresh，动态添加，正则，字个数，字符个数，数字，数字范围，节点不重复，节点一致等等',
+                                    '支持警告类提示场景'
                                 ]
                             }, {
-                                title: 'Avatar 组件增加',
+                                title: '表格',
                                 subs: [
-                                    'Avatar 组件增加',
-                                    'Avatar 组件增加',
-                                    'Avatar 组件增加'
+                                    '支持左右分栏，操作项分行，大数据量下依然保持页面简介明了',
+                                    '表头可相对任意容器吸顶',
+                                    '覆盖了常见的批量选中操作行，排序功能',
+                                    '支持普通翻页查看大量数据'
                                 ]
+                            }, {
+                                title: 'dropdown：单选多选自由切换'
+                            }, {
+                                title: '日历',
+                                subs: [
+                                    '单日，单日对比，可细节到时分秒',
+                                    '时间段，可细节到时分秒'
+                                ]
+                            }, {
+                                title: '分页：快捷切换分页数，页面；可限制为顺序翻页'
+                            }, {
+                                title: '分组',
+                                subs: [
+                                    '盒状分组，常适用于页面筛选',
+                                    '底边线分组，常适用于一级分组标题'
+                                ]
+                            }, {
+                                title: '内容区域可编辑：支持自定义模板，各种检验轻松加'
+                            }, {
+                                title: '快捷搜索',
+                                subs: [
+                                    '单类型搜索，多类型搜索均支持',
+                                    '动态加载可搜索内容'
+                                ]
+                            }, {
+                                title: '开关'
+                            }, {
+                                title: '树形结构',
+                                subs: [
+                                    '支持级联显示再单选',
+                                    '平铺单选多选任意挑',
+                                    '内容过长时可展开收起',
+                                    '只读'
+                                ]
+                            }, {
+                                title: '标签选择'
+                            }, {
+                                title: '更多菜单：hover展示，点击展示，右键显示任意选'
+                            }, {
+                                title: '滑块选择：单值或者范围'
+                            }, {
+                                title: '指标默认配置及选择排序'
+                            }, {
+                                title: '状态切换与显示：支持icon或者dropdown两种形式'
+                            }, {
+                                title: '多样提示反馈：二次确认，hover小提示框，loading；对接集团钉钉，旺旺，万象等等'
+                            }, {
+                                title: '缩略图和预览：支持图片，视频，html，文件等多种形式，实现懒加载，优化性能'
+                            }, {
+                                title: '分步流程：侧边导航，顶部导航，将复杂流程简单化'
+                            }, {
+                                title: '常用样式：打标，提示公告，评分，空状态，进度比例，各种动效等等'
+                            }, {
+                                title: '业务组件：阿里妈妈通用吊顶，吊底，时段地域组件等等'
                             }]
                     }]
             }];

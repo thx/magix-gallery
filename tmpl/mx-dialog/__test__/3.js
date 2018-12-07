@@ -26,7 +26,7 @@ module.exports = Base.extend({
             modal: true
         });
     },
-    'alert1<click>'(e){
+    'noMask<click>'(e){
         let node = $(e.eventTarget);
         let offset = node.offset();
         let top = offset.top + node.outerHeight() - $(window).scrollTop() + 10;

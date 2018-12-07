@@ -50,6 +50,21 @@
         </div>
         <div class="example">
             <div class="eg-content">
+                <mx-error type="500"/> 
+            </div>
+            <div class="eg-desc">
+                <div class="eg-title">500提示</div>
+                <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
+                    mx-success="done({id:5})">
+                    <span class="desc-tip">{{!text5}}</span>
+                    <i class="mc-iconfont desc-icon">&#xe610;</i>
+                </mx-copy>
+                <pre mx-view="__test__/hl" id="{{=viewId}}_text_5">
+&lt;mx-error type="500"/&gt;</pre>
+            </div>
+        </div>
+        <div class="example">
+            <div class="eg-content">
                 <mx-error type="502" tip="自定义提示" btns="false"/> 
             </div>
             <div class="eg-desc">

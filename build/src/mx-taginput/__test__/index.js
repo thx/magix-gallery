@@ -32,19 +32,19 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerydN:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_gallerydR:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'默认值+事件处理\',\n            key: viewId + \'_demo1\'\n        }, {\n            name: \'自定义key\',\n            key: viewId + \'_demo2\'\n        }, {\n            name: \'简单list\',\n            key: viewId + \'_demo3\'\n        }, {\n            name: \'禁用\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'默认值+事件处理\',                    key: viewId + \'_demo1\'                }, {                    name: \'自定义key\',                    key: viewId + \'_demo2\'                }, {                    name: \'简单list\',                    key: viewId + \'_demo3\'                }, {                    name: \'禁用\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '默认值+事件处理', key: viewId + '_demo1' }, { name: '自定义key', key: viewId + '_demo2' }, { name: '简单list', key: viewId + '_demo3' }, { name: '禁用', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div mxs="_zs_gallerydN:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div class="clearfix mb20" id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'默认值+事件处理\',                    key: viewId + \'_demo1\'                }, {                    name: \'自定义key\',                    key: viewId + \'_demo2\'                }, {                    name: \'简单list\',                    key: viewId + \'_demo3\'                }, {                    name: \'禁用\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '默认值+事件处理', key: viewId + '_demo1' }, { name: '自定义key', key: viewId + '_demo2' }, { name: '简单list', key: viewId + '_demo3' }, { name: '禁用', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div mxs="_zs_gallerydR:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div class="clearfix mb20" id="';
     $line = 28;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo"><div mxa="_zs_gallerydN:a" class="_zs_gallery___test___layout_-half"><div mx-view="mx-taginput/__test__/1" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo"><div mxa="_zs_gallerydR:a" class="_zs_gallery___test___layout_-half"><div mx-view="mx-taginput/__test__/1" id="';
     $line = 30;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div></div><div mxa="_zs_gallerydN:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-taginput/__test__/2" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div></div><div mxa="_zs_gallerydR:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-taginput/__test__/2" id="';
     $line = 33;
     $art = '=viewId';
     ;

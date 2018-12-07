@@ -120,12 +120,14 @@ module.exports = Magix.View.extend({
                     tip: '支持click展开和hover展开两种形式；下拉列表在组件内',
                     path: '/dropdown/multiple',
                     icon: '&#xe7a4;'
-                }, {
-                    name: '下拉框（追加到body版）',
-                    tip: '支持click展开和hover展开两种形式',
-                    path: '/dropdown/dd',
-                    icon: '&#xe7a4;'
-                }, {
+                }, 
+                // {
+                //     name: '下拉框（追加到body版）',
+                //     tip: '支持click展开和hover展开两种形式',
+                //     path: '/dropdown/dd',
+                //     icon: '&#xe7a4;'
+                // }, 
+                {
                     name: '日历（选择单日）',
                     path: '/calendar/index',
                     icon: '&#xe60e;'
@@ -369,10 +371,11 @@ module.exports = Magix.View.extend({
                     path: '/all/pro/local'
                 }, {
                     name: 'chartpark图表',
-                    tip: '接口人<a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=y8e7um3" class="ml5"><i class="mc-iconfont color-brand fontsize-18 displacement-2">&#xe677;</i>浩添</a><a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=ru4x0jq" class="ml5"><i class="mc-iconfont color-brand fontsize-18 displacement-2">&#xe677;</i>释剑</a>',
+                    tip: '<a href="https://chartpark.alibaba-inc.com/" target="_blank" rel="noopener noreferrer" class="color-brand">https://chartpark.alibaba-inc.com/</a>，接口人<a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=ru4x0jq" class="ml5"><i class="mc-iconfont color-brand fontsize-18 displacement-2">&#xe677;</i>释剑</a><a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=y8e7um3" class="ml5"><i class="mc-iconfont color-brand fontsize-18 displacement-2">&#xe677;</i>浩添</a>',
                     path: '/all/pro/chartpark'
                 }, {
                     name: '数据小站接入',
+                    tip: '<a href="http://data.alimama.net/" target="_blank" rel="noopener noreferrer" class="color-brand">http://data.alimama.net/</a>，接口人<a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=y8e7um3" class="ml5"><i class="mc-iconfont color-brand fontsize-18 displacement-2">&#xe677;</i>浩添</a>',
                     path: '/all/pro/data'
                 }, {
                     name: '淘宝登陆框接入',

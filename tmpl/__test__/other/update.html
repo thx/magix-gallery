@@ -7,12 +7,25 @@
     <div class="pt10 pb30">
         {{each item.subs as s}}
         <div class="pl20">
+            {{if s.type == 'notice'}}
+            <div class="line">
+                <i class="mc-iconfont line-icon color-warn">&#xe66f;</i>
+                <span class="fontsize-14">重要通知</span>
+            </div>
+            {{/if}}
+            
             {{if s.type == 'bug'}}
-            <div class="line"><i class="mc-iconfont color-warn displacement-2 mr5">&#xe63d;</i>bug修复</div>
+            <div class="line">
+                <i class="mc-iconfont line-icon color-red">&#xe63d;</i>
+                <span class="fontsize-14">bug修复</span>
+            </div>
             {{/if}}
 
             {{if s.type == 'add'}}
-            <div class="line"><i class="mc-iconfont color-green displacement-2 mr5">&#xe616;</i>功能上新</div>
+            <div class="line">
+                <i class="mc-iconfont line-icon color-green">&#xe616;</i>
+                <span class="fontsize-14">{{=(s.title ? s.title : '功能上新')}}</span>
+            </div>
             {{/if}}
 
             {{each s.subs as ss}}
