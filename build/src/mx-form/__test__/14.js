@@ -29,14 +29,14 @@ module.exports = Base.extend({
     $line = 9;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_izyrnsixny$art_i = 0, $art_ctzhfncu$art_c = list.length; $art_izyrnsixny$art_i < $art_ctzhfncu$art_c; $art_izyrnsixny$art_i++) {    var item = list[$art_izyrnsixny$art_i]%>';
-    for (var $art_izyrnsixny$art_i = 0, $art_ctzhfncu$art_c = list.length; $art_izyrnsixny$art_i < $art_ctzhfncu$art_c; $art_izyrnsixny$art_i++) {
-        var item = list[$art_izyrnsixny$art_i];
-        $p += '<input mxe="' + $viewId + '_0_' + ($expr = '<%=$art_izyrnsixny$art_i%>', $e($art_izyrnsixny$art_i)) + '" mxc="[';
+    $expr = '<%for (var $art_iwhpbjjlh$art_i = 0, $art_cdkdkgsq$art_c = list.length; $art_iwhpbjjlh$art_i < $art_cdkdkgsq$art_c; $art_iwhpbjjlh$art_i++) {    var item = list[$art_iwhpbjjlh$art_i]%>';
+    for (var $art_iwhpbjjlh$art_i = 0, $art_cdkdkgsq$art_c = list.length; $art_iwhpbjjlh$art_i < $art_cdkdkgsq$art_c; $art_iwhpbjjlh$art_i++) {
+        var item = list[$art_iwhpbjjlh$art_i];
+        $p += '<input mxe="' + $viewId + '_0_' + ($expr = '<%=$art_iwhpbjjlh$art_i%>', $e($art_iwhpbjjlh$art_i)) + '" mxc="[';
         $line = 11;
         $art = ':item.value{required:true,blength:[2,4]}';
         ;
-        $p += '{p:\'list.' + ($expr = '<%=$art_izyrnsixny$art_i%>', $e($art_izyrnsixny$art_i)) + '.value\',f:{required:true,blength:[2,4]}}]" class="input mr20 mb20 w120" placeholder="请填写" value="';
+        $p += '{p:\'list.' + ($expr = '<%=$art_iwhpbjjlh$art_i%>', $e($art_iwhpbjjlh$art_i)) + '.value\',f:{required:true,blength:[2,4]}}]" class="input mr20 mb20 w120" placeholder="请填写" value="';
         $line = 11;
         $art = ':item.value{required:true,blength:[2,4]}';
         ;
