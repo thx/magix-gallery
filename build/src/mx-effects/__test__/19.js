@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya#:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerya#:_" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-effects/progress?type=circle&num=23.3"></div><div mx-view="mx-effects/progress?type=circle&num=50"></div><div mx-view="mx-effects/progress?type=circle&width=100&border=6&num=75.25&color=%23ffb400"></div></div><div mxa="_zs_gallerya#:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya#:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerya#:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerya#:_" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-effects/progress?type=circle&num=23.3"></div><div mx-view="mx-effects/progress?type=circle&num=50"></div><div mx-view="mx-effects/progress?type=circle&width=100&border=6&num=75.25&color=%23ffb400"></div></div><div mxa="_zs_gallerya#:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya#:a" class="_zs_gallery___test___layout_-eg-title">圆型，精度与传入数值保持一致</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 20;
     $art = '=viewId';
     ;

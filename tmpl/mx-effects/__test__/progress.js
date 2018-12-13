@@ -9,7 +9,9 @@ module.exports = Magix.View.extend({
             desc: [
                 '进度条类型',
                 'line：条型',
-                'degree：刻度型'
+                'degree：刻度型',
+                'circle：圆型',
+                'gradient：渐变型'
             ].join('<br>'),
             type: 'string',
             def: 'line'

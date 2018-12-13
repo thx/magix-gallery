@@ -28,7 +28,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydQ:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerydQ:a" class="_zs_gallery___test___layout_-eg-content"><div class="mb20" mx-disabled mx-view="mx-taginput/index?list=';
+    $p += '<div mxa="_zs_gallerydQ:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerydQ:a" class="_zs_gallery___test___layout_-eg-content"><div class="w250" mx-disabled mx-view="mx-taginput/index?list=';
     $line = 5;
     $art = '@[\'test1\',\'test2\',\'test3\',\'test4\']';
     ;
@@ -44,7 +44,7 @@ module.exports = Base.extend({
     $line = 15;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-taginput \n    mx-disabled\n    list="&#123;&#123;@[\'test1\',\'test2\',\'test3\',\'test4\']&#125;&#125;"\n    selected="test1,test2"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-taginput class="w250"\n    mx-disabled\n    list="&#123;&#123;@[\'test1\',\'test2\',\'test3\',\'test4\']&#125;&#125;"\n    selected="test1,test2"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -36,7 +36,7 @@ module.exports = Base.extend({
     $line = 1;
     $art = '=classNames';
     ;
-    $p += ($expr = '<%=classNames%>', $e(classNames)) + '" style="text-align:';
+    $p += ($expr = '<%=classNames%>', $e(classNames)) + ' clearfix" style="text-align:';
     $line = 1;
     $art = '=textAlign';
     ;

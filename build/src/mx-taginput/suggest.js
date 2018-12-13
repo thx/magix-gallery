@@ -9,7 +9,7 @@ define("mx-taginput/suggest",["magix","$","../mx-monitor/index"],(require,export
 var Magix = require("magix");
 var $ = require("$");
 var Monitor = require("../mx-monitor/index");
-Magix.applyStyle("_zs_gallery_mx-taginput_suggest_","/* @dependent: ./index.less */\n._zs_gallery_mx-taginput_suggest_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-taginput_suggest_-suggest {\n  position: relative;\n  z-index: 1;\n  max-height: 260px;\n  padding: 10px;\n  font-size: 12px;\n  border-radius: 4px;\n  border: 1px solid #e6e6e6;\n  overflow: auto;\n  list-style: none;\n  background-color: #fff;\n  line-height: 1.5;\n}\n._zs_gallery_mx-taginput_suggest_-suggest ._zs_gallery_mx-taginput_suggest_-item {\n  cursor: pointer;\n}\n._zs_gallery_mx-taginput_suggest_-suggest ._zs_gallery_mx-taginput_suggest_-item ._zs_gallery_mx-taginput_suggest_-item-link {\n  display: block;\n  width: 100%;\n  padding: 0 10px;\n  height: 32px;\n  color: #666;\n  line-height: 32px;\n  border-radius: 4px;\n}\n._zs_gallery_mx-taginput_suggest_-suggest ._zs_gallery_mx-taginput_suggest_-item ._zs_gallery_mx-taginput_suggest_-item-link:hover,\n._zs_gallery_mx-taginput_suggest_-suggest ._zs_gallery_mx-taginput_suggest_-item ._zs_gallery_mx-taginput_suggest_-item-link:focus,\n._zs_gallery_mx-taginput_suggest_-suggest ._zs_gallery_mx-taginput_suggest_-item ._zs_gallery_mx-taginput_suggest_-item-link:active {\n  color: #333;\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-taginput_suggest_-suggest ._zs_gallery_mx-taginput_suggest_-item:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery_mx-taginput_suggest_-suggest ._zs_gallery_mx-taginput_suggest_-active {\n  color: #333;\n  background-color: #f0f0f0;\n  border-radius: 4px;\n  text-decoration: none;\n  outline: 0;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-taginput_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-taginput_index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt {\n  position: relative;\n  height: auto;\n  border-style: solid;\n  border-width: 1px;\n  border-color: #e6e6e6;\n  border-radius: 4px;\n  padding: 2px 6px;\n  cursor: text;\n  transition: border-color 0.25s;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt:hover {\n  border-color: #ccc;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-placeholder,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-trigger,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item {\n  height: 22px;\n  line-height: 22px;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-placeholder {\n  position: absolute;\n  left: 10px;\n  top: 50%;\n  margin-top: -11px;\n  color: #999;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-trigger {\n  float: left;\n  margin-top: 2px;\n  margin-bottom: 2px;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item {\n  float: left;\n  position: relative;\n  max-width: 220px;\n  padding-right: 26px;\n  padding-left: 6px;\n  margin-right: 4px;\n  background-color: #eee;\n  border-radius: 4px;\n  cursor: pointer;\n  white-space: nowrap;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item ._zs_gallery_mx-taginput_index_-item-delete {\n  position: absolute;\n  top: 0;\n  right: 0;\n  height: 100%;\n  width: 20px;\n  line-height: 22px;\n  text-align: center;\n  font-size: 12px;\n  font-weight: bold;\n  color: #ccc;\n  transition: color 0.25s;\n  border-left: 1px solid #fff;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item ._zs_gallery_mx-taginput_index_-item-delete:hover {\n  color: #999;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-trigger {\n  padding: 0;\n  border: none;\n  outline: none;\n  background: transparent;\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-ipt {\n  cursor: not-allowed;\n  background-color: #fafafa;\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-ipt:hover {\n  border-color: #e6e6e6;\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-item {\n  cursor: not-allowed;\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-item ._zs_gallery_mx-taginput_index_-item-delete:hover {\n  color: #ccc;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-loading-small {\n  padding: 40px 0;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -33,7 +33,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (list && list.length) {%>';
     if (list && list.length) {
         ;
-        $p += '<ul class="_zs_gallery_mx-taginput_suggest_-suggest unselectable" style="width: ';
+        $p += '<ul class="suggest unselectable" style="width: ';
         $line = 3;
         $art = '=width';
         ;
@@ -41,14 +41,14 @@ module.exports = Magix.View.extend({
         $line = 7;
         $art = 'each list as one idx';
         ;
-        $expr = '<%for (var idx = 0, $art_cbznsbmpcn$art_c = list.length; idx < $art_cbznsbmpcn$art_c; idx++) {        var one = list[idx]%>';
-        for (var idx = 0, $art_cbznsbmpcn$art_c = list.length; idx < $art_cbznsbmpcn$art_c; idx++) {
+        $expr = '<%for (var idx = 0, $art_cgnksmao$art_c = list.length; idx < $art_cgnksmao$art_c; idx++) {        var one = list[idx]%>';
+        for (var idx = 0, $art_cgnksmao$art_c = list.length; idx < $art_cgnksmao$art_c; idx++) {
             var one = list[idx];
-            $p += '<li mxa="_zs_gallerydT:_" class="_zs_gallery_mx-taginput_suggest_-item"><a href="javascript:;" class="_zs_gallery_mx-taginput_suggest_-item-link" data-idx="';
+            $p += '<li mxa="_zs_gallerydT:a" class="suggest-item"><a href="javascript:;" class="suggest-item-link" data-idx="';
             $line = 10;
             $art = '=idx';
             ;
-            $p += ($expr = '<%=idx%>', $e(idx)) + '" mx-click="' + $viewId + '@{pick}({item:\'';
+            $p += ($expr = '<%=idx%>', $e(idx)) + '" mx-click="' + $viewId + '@{add}({item:\'';
             $line = 11;
             $art = '@one';
             ;
@@ -79,12 +79,12 @@ module.exports = Magix.View.extend({
     }
     else {
         ;
-        $p += '<div class="_zs_gallery_mx-taginput_suggest_-suggest text-center color-9" style="width: ';
+        $p += '<div class="suggest" style="width: ';
         $line = 18;
         $art = '=width';
         ;
-        $p += ($expr = '<%=width%>', $e(width)) + 'px;">无匹配选项</div>';
-        $line = 19;
+        $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_gallerydT:_" class="pt20 pb20 text-center color-9">无匹配选项</div></div>';
+        $line = 21;
         $art = '/if';
         ;
         $expr = '<%}%>';
@@ -103,12 +103,11 @@ catch (ex) {
         var me = this;
         me['@{scroll.top}'] = extra.scrollTop || 0;
         me['@{data.list}'] = extra.list || [];
-        me['@{offset.left}'] = (extra.offsetLeft || 0) | 0;
         Monitor['@{setup}']();
         me.on('destroy', function () {
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
-            me['@{owner.node}'].off('keyup paste input', me['@{fn.watch}'])
+            me['@{trigger.node}'].off('keyup paste input', me['@{fn.watch}'])
                 .off('focus', me['@{fn.show}']);
         });
         me.updater.set({
@@ -140,11 +139,9 @@ catch (ex) {
     },
     render: function () {
         var me = this;
-        var oNode = $('#' + me.id);
-        me['@{relate.node}'] = oNode;
-        oNode = oNode.prev('input');
-        me['@{owner.node}'] = oNode;
-        oNode.on('focus', me['@{fn.show}'] = $.proxy(me['@{show}'], me))
+        me['@{relate.node}'] = $('#' + me.id);
+        me['@{trigger.node}'] = me['@{relate.node}'].prev('input');
+        me['@{trigger.node}'].on('focus', me['@{fn.show}'] = $.proxy(me['@{show}'], me))
             .on('keyup paste input', me['@{fn.watch}'] = $.proxy(me['@{filter}'], me));
         me['@{list.update}'](me['@{data.list}']);
         me['@{relate.list.node}'] = $('#' + me.id + ' ul');
@@ -180,7 +177,7 @@ catch (ex) {
                 me['@{normal}']();
                 me['@{ui.index}'] = -1;
                 me['@{hide}']();
-                me['@{owner.node}'].trigger({
+                me['@{trigger.node}'].trigger({
                     type: 'pick',
                     item: item
                 });
@@ -221,24 +218,24 @@ catch (ex) {
                 });
             }
             Monitor['@{add}'](me);
-            var offset = me['@{owner.node}'].position();
+            var offset = me['@{trigger.node}'].position();
             me['@{relate.node}'].show().css({
                 display: 'block',
-                left: offset.left + me['@{offset.left}'],
-                top: offset.top + me['@{owner.node}'].outerHeight() + 10
+                left: offset.left - 7,
+                top: offset.top + me['@{trigger.node}'].outerHeight() + 14
             });
-            me['@{owner.node}'].trigger('showlist');
+            me['@{trigger.node}'].trigger('showlist');
         }
     },
     '@{normal}': function () {
         var me = this;
         var node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
-        node.removeClass('_zs_gallery_mx-taginput_suggest_-active');
+        node.removeClass('unfound-[suggest-active]-from-index.less');
     },
     '@{highlight}': function (ignore) {
         var me = this;
         var node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
-        node.addClass('_zs_gallery_mx-taginput_suggest_-active');
+        node.addClass('unfound-[suggest-active]-from-index.less');
         if (!ignore && node.length) {
             me['@{temp.ignore}'] = 1; //如果是上下按键引起的滚动，则在move时忽略
             var height = node.outerHeight();
@@ -261,7 +258,7 @@ catch (ex) {
             me['@{ui.show}'] = false;
             Monitor['@{remove}'](me);
             me['@{relate.node}'].hide();
-            me['@{owner.node}'].trigger('hidelist');
+            me['@{trigger.node}'].trigger('hidelist');
         }
     },
     '@{pick}<click>': function (e) {
@@ -269,7 +266,7 @@ catch (ex) {
         var me = this;
         var item = e.params.item;
         me['@{hide}']();
-        me['@{owner.node}'].trigger({
+        me['@{trigger.node}'].trigger({
             type: 'pick',
             item: item,
             scrollTop: me['@{relate.list.node}'].prop('scrollTop')

@@ -8,9 +8,10 @@ define("mx-suggest/index",["magix","$","../mx-medusa/util","../mx-monitor/index"
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-suggest_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-suggest_index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n/* 动画结束停在最后一帧 */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-suggest_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n/**\n* 渐显上拉动画\n*/\n@keyframes _zs_gallery_mx-suggest_index_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_index_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@keyframes _zs_gallery_mx-suggest_index_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_index_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n[mx-view*=\"mx-suggest/index\"] {\n  display: inline-block;\n}\n[mx-view*=\"mx-suggest/index\"] ._zs_gallery_mx-suggest_index_-loading-small {\n  padding: 40px 0;\n}\n._zs_gallery_mx-suggest_index_-suggest-box-right,\n._zs_gallery_mx-suggest_index_-suggest-box-left {\n  position: relative;\n  height: 32px;\n}\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu,\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu {\n  display: none;\n  position: absolute;\n  top: 100%;\n  z-index: 99;\n  min-width: 100%;\n  max-height: 300px;\n  margin-top: 10px;\n  padding: 8px 10px;\n  border-radius: 4px;\n  background-color: #fff;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  overflow-y: auto;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item,\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item {\n  margin: 2px 0;\n  padding: 0 10px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n  white-space: nowrap;\n  word-break: break-all;\n}\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item:hover,\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item:hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item._zs_gallery_mx-suggest_index_-active,\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item._zs_gallery_mx-suggest_index_-active,\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item._zs_gallery_mx-suggest_index_-active:hover,\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item._zs_gallery_mx-suggest_index_-active:hover,\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item._zs_gallery_mx-suggest_index_-active:active,\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item._zs_gallery_mx-suggest_index_-active:active,\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item._zs_gallery_mx-suggest_index_-active:focus,\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu ._zs_gallery_mx-suggest_index_-suggest-item._zs_gallery_mx-suggest_index_-active:focus {\n  color: #fff;\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu._zs_gallery_mx-suggest_index_-open,\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu._zs_gallery_mx-suggest_index_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-suggest_index_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-suggest_index_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n._zs_gallery_mx-suggest_index_-suggest-box-right ._zs_gallery_mx-suggest_index_-suggest-menu {\n  right: 0;\n}\n._zs_gallery_mx-suggest_index_-suggest-box-left ._zs_gallery_mx-suggest_index_-suggest-menu {\n  left: 0;\n}\n");
 var I18n = require("../mx-medusa/util");
 var Monitor = require("../mx-monitor/index");
+Magix.applyStyle("_zs_gallery_mx-suggest_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-suggest_index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-suggest/index\"] {\n  display: inline-block;\n}\n[mx-view*=\"mx-suggest/index\"] ._zs_gallery_mx-suggest_index_-loading-small {\n  padding: 40px 0;\n}\n._zs_gallery_mx-suggest_index_-suggest-box {\n  position: relative;\n  height: 32px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-suggest_suggest_","/* @dependent: ./index.less */\n._zs_gallery_mx-suggest_suggest_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n/* 动画结束停在最后一帧 */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-suggest_suggest_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n/**\n* 渐显上拉动画\n*/\n@keyframes _zs_gallery_mx-suggest_suggest_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@keyframes _zs_gallery_mx-suggest_suggest_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu {\n  display: none;\n  position: absolute;\n  top: 100%;\n  z-index: 99;\n  min-width: 100%;\n  max-height: 300px;\n  margin-top: 10px;\n  padding: 8px 10px;\n  border-radius: 4px;\n  background-color: #fff;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  overflow-y: auto;\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item {\n  margin: 2px 0;\n  padding: 0 10px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n  white-space: nowrap;\n  word-break: break-all;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item:hover,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active:hover,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active:active,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active:focus {\n  color: #fff;\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu._zs_gallery_mx-suggest_suggest_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-suggest_suggest_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-suggest_suggest_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -27,30 +28,8 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', align = $$.align, placeholder = $$.placeholder, viewId = $$.viewId, selectText = $$.selectText, show = $$.show, loading = $$.loading, list = $$.list, selectedValue = $$.selectedValue, emptyText = $$.emptyText; var $expr, $art, $line; try {
-    $p += '<div mxv class="search-box ';
-    $line = 1;
-    $art = 'if (align==\'right\')';
-    ;
-    $expr = '<%if (align == \'right\') {%>';
-    if (align == 'right') {
-        ;
-        $p += ' _zs_gallery_mx-suggest_index_-suggest-box-right ';
-        $line = 1;
-        $art = 'else';
-        ;
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += ' _zs_gallery_mx-suggest_index_-suggest-box-left ';
-        $line = 1;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '"><i mxs="_zs_galleryc?:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+} ; var $g = '', $_temp, $p = '', placeholder = $$.placeholder, viewId = $$.viewId, selectText = $$.selectText, show = $$.show, align = $$.align, loading = $$.loading, list = $$.list, selectedValue = $$.selectedValue, emptyText = $$.emptyText; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryc?:a" class="search-box"><i mxs="_zs_galleryc?:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
     $line = 3;
     $art = '=placeholder';
     ;
@@ -62,14 +41,36 @@ module.exports = Magix.View.extend({
     $line = 5;
     $art = '=selectText';
     ;
-    $p += ($expr = '<%=selectText%>', $e(selectText)) + '" mx-keyup="' + $viewId + '@{suggest}()" mx-paste="' + $viewId + '@{suggest}()" mx-focusin="' + $viewId + '@{suggest}()" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{stop}()"/><ul class="_zs_gallery_mx-suggest_index_-suggest-menu ';
+    $p += ($expr = '<%=selectText%>', $e(selectText)) + '" mx-keyup="' + $viewId + '@{suggest}()" mx-paste="' + $viewId + '@{suggest}()" mx-focusin="' + $viewId + '@{suggest}()" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{stop}()"/><ul class="_zs_gallery_mx-suggest_suggest_-suggest-menu ';
     $line = 12;
     $art = 'if show';
     ;
     $expr = '<%if (show) {%>';
     if (show) {
         ;
-        $p += ' _zs_gallery_mx-suggest_index_-open ';
+        $p += ' _zs_gallery_mx-suggest_suggest_-open ';
+        $line = 12;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" style="';
+    $line = 12;
+    $art = 'if (align==\'right\')';
+    ;
+    $expr = '<%if (align == \'right\') {%>';
+    if (align == 'right') {
+        ;
+        $p += 'right: 0;';
+        $line = 12;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += 'left: 0;';
         $line = 12;
         $art = '/if';
         ;
@@ -83,7 +84,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (loading) {%>';
     if (loading) {
         ;
-        $p += '<div mxs="_zs_galleryc?:a" class="loading loading-ext _zs_gallery_mx-suggest_index_-loading-small"><span class="loading-anim"></span></div>';
+        $p += '<li mxs="_zs_galleryc?:b" class="loading loading-ext _zs_gallery_mx-suggest_index_-loading-small"><span class="loading-anim"></span></li>';
         $line = 17;
         $art = 'else';
         ;
@@ -102,17 +103,17 @@ module.exports = Magix.View.extend({
             $line = 19;
             $art = 'each list as item';
             ;
-            $expr = '<%for (var $art_ieqpyo$art_i = 0, $art_cnrkguzteus$art_c = list.length; $art_ieqpyo$art_i < $art_cnrkguzteus$art_c; $art_ieqpyo$art_i++) {            var item = list[$art_ieqpyo$art_i]%>';
-            for (var $art_ieqpyo$art_i = 0, $art_cnrkguzteus$art_c = list.length; $art_ieqpyo$art_i < $art_cnrkguzteus$art_c; $art_ieqpyo$art_i++) {
-                var item = list[$art_ieqpyo$art_i];
-                $p += '<li class="_zs_gallery_mx-suggest_index_-suggest-item ';
+            $expr = '<%for (var $art_issdipwdm$art_i = 0, $art_ccfzuaf$art_c = list.length; $art_issdipwdm$art_i < $art_ccfzuaf$art_c; $art_issdipwdm$art_i++) {            var item = list[$art_issdipwdm$art_i]%>';
+            for (var $art_issdipwdm$art_i = 0, $art_ccfzuaf$art_c = list.length; $art_issdipwdm$art_i < $art_ccfzuaf$art_c; $art_issdipwdm$art_i++) {
+                var item = list[$art_issdipwdm$art_i];
+                $p += '<li class="_zs_gallery_mx-suggest_suggest_-suggest-item ';
                 $line = 20;
                 $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';
                 ;
                 $expr = '<%if ((selectedValue + \'\') === (item.value + \'\')) {%>';
                 if ((selectedValue + '') === (item.value + '')) {
                     ;
-                    $p += ' _zs_gallery_mx-suggest_index_-active ';
+                    $p += ' _zs_gallery_mx-suggest_suggest_-active ';
                     $line = 20;
                     $art = '/if';
                     ;
@@ -354,7 +355,7 @@ catch (ex) {
     update: function (list) {
         var that = this;
         that['@{list.bak}'] = that['@{wrap}'](list);
-        // 不需要再过来，直接返回什么，展示什么
+        // 不需要再处理，直接返回什么，展示什么
         var selectText = $('#' + that.id + '_input').val();
         that.updater.digest({
             list: that['@{list.bak}'],

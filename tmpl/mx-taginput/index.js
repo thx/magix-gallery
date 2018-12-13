@@ -1,7 +1,10 @@
 let Magix = require('magix');
-Magix.applyStyle('@index.less');
-let I18n = require('../mx-medusa/util');
 let $ = require('$');
+let I18n = require('../mx-medusa/util');
+let Monitor = require('../mx-monitor/index');
+Magix.applyStyle('@index.less');
+Magix.applyStyle('@../mx-suggest/suggest.less');
+let MinWidth = 10;
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -9,7 +12,7 @@ module.exports = Magix.View.extend({
         let me = this;
 
         let textKey = extra.textKey || 'text',
-            valueKey =  extra.valueKey || 'value';
+            valueKey = extra.valueKey || 'value';
 
         let list = extra.list || [];
         if (typeof list[0] === 'object') {
@@ -23,59 +26,57 @@ module.exports = Magix.View.extend({
         } else {
             // 直接value列表
             list = list.map(value => {
-               return {
+                return {
                     text: value,
                     value: value
                 };
             })
         }
 
-
         let selected = extra.selected || '';
         selected = (selected + '').split(',');
 
         let map = Magix.toMap(list, 'value');
+        // 当前已选中的
         let items = [];
         selected.forEach(v => {
-            if(map[v]){
+            if (map[v]) {
                 items.push(map[v]);
             }
         })
 
         me['@{data.list}'] = list;
         me['@{owner.node}'] = $('#' + me.id);
+
         let disabledNode = $('#' + me.id + '[mx-disabled]')
         me.updater.set({
+            viewId: me.id,
             disabled: disabledNode && (disabledNode.length > 0),
             placeholder: extra.placeholder || I18n['choose'],
+            emptyText: I18n['empty.text'],
+            inputWidth: MinWidth,
             textKey,
             valueKey,
             map,
             items
         });
+
+        Monitor['@{setup}']();
+        me.on('destroy', function () {
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+        });
     },
 
     render() {
-        let me = this;
-        let node = me['@{owner.node}'];
-        let w = node.outerWidth();
-        if (w === 0) {
-            w = 320;
-        }
+        this.updater.digest();
 
-        let items = me.updater.get('items');
-        me.updater.digest({
-            suggest: me['@{get.suggest.list}'](items),
-            width: w,
-            viewId: me.id
-        });
-        
-        me['@{val}']();
-        me['@{trigger.update}']();
+        this['@{ui.update}']();
+        this['@{val}']();
     },
 
-    '@{val}'(){
-        let me =this;
+    '@{val}'() {
+        let me = this;
         let items = me.updater.get('items');
         let selected = items.map(item => {
             return item.value;
@@ -84,62 +85,70 @@ module.exports = Magix.View.extend({
         me['@{owner.node}'].val(selected.join(','));
     },
 
-    '@{trigger.update}' () {
+    /**
+     * 更新input的宽度，提示框位置，提示框数据
+     */
+    '@{ui.update}'() {
         let me = this;
-        let minWidth = 20;
-        let node = me['@{owner.node}'];
-        me['@{trigger.node}'] = node.find('input');
-        me['@{trigger.node}'].width(minWidth);
-        let width = $('#ipt_' + me.id).width() - me['@{trigger.node}'].position().left;
-        me['@{trigger.node}'].width(
-            width >= minWidth ? width : minWidth
-        );
-    },
+        me['@{ui.index}'] = -1;
 
-    '@{get.suggest.list}' (items) {
-        let me = this;
         let list = me['@{data.list}'];
-        let data = me.updater.get();
+        let items = me.updater.get('items'),
+            map = me.updater.get('map');
 
-        let map = data.map;
         let selected = items.map(item => {
             return item.value + '';
         })
 
-        let s = [];
+        // 输入框内容
+        let iv = me['@{last.value}'] || '';
+        let suggest = [];
         for (let i = 0, one, key; i < list.length; i++) {
             one = list[i];
-            if (selected.indexOf(one.value + '') < 0) {
-                s.push(one);
+            if ((selected.indexOf(one.value + '') < 0) && ((one.value + '').indexOf(iv) > -1 || (one.text + '').indexOf(iv) > -1)) {
+                suggest.push(one);
             }
         }
-        return s;
+
+        let tNode = me['@{owner.node}'].find('input');
+        tNode.width(MinWidth);
+        let offset = tNode.position();
+        let inputWidth = $('#ipt_' + me.id).width() - offset.left;
+        me.updater.digest({
+            iv,
+            suggest,
+            inputWidth: inputWidth >= MinWidth ? inputWidth : MinWidth,
+            suggestLeft: offset.left - 6
+        });
     },
 
     /**
      * 输入框获取焦点
      */
-    '@{focus}<click>' () {
+    '@{focus}<click>'() {
         let me = this;
         let disabled = me.updater.get('disabled')
         if (!disabled) {
-            me['@{trigger.node}'].focus();
+            me['@{owner.node}'].find('input').focus();
         }
     },
 
-    '@{ui.focus}' () {
-        let me = this;
-        clearTimeout(me['@{focus.timer}']);
-        me['@{temp.hold.event}'] = true;
-        me['@{trigger.node}'].focus();
-        me['@{focus.timer}'] = setTimeout(me.wrapAsync(() => {
-            delete me['@{temp.hold.event}'];
-        }), 20);
+    '@{prevent}<contextmenu>'(e) {
+        e.preventDefault();
     },
 
-    '@{check}<keydown,input,paste,keyup>' (e) {
+    '@{stop}<change,focusout>'(e) {
         e.stopPropagation();
+    },
+
+    '@{check}<focusin,paste,keyup,keydown>'(e) {
+        e.stopPropagation();
+
         let me = this;
+        if (me['@{suggest.delay.timer}']) {
+            clearTimeout(me['@{suggest.delay.timer}']);
+        }
+
         let val = e.eventTarget.value;
         if (me['@{last.value}'] !== val) {
             me['@{last.value}'] = val;
@@ -150,6 +159,36 @@ module.exports = Magix.View.extend({
                 holder.show();
             }
         }
+
+        let suggest = me.updater.get('suggest');
+        if (e.keyCode == 40) {
+            me['@{normal}']();
+            me['@{ui.index}']++;
+            if (me['@{ui.index}'] >= suggest.length) {
+                me['@{ui.index}'] = 0;
+            }
+            me['@{highlight}']();
+        } else if (e.keyCode == 38) {
+            me['@{normal}']();
+            me['@{ui.index}']--;
+            if (me['@{ui.index}'] < 0) {
+                me['@{ui.index}'] = suggest.length - 1;
+            }
+            me['@{highlight}']();
+        } else if (e.keyCode == 13) {
+            // 回车
+            if (me['@{ui.index}'] > -1 && me['@{ui.index}'] < suggest.length) {
+                let item = suggest[me['@{ui.index}']];
+                me['@{normal}']();
+                me['@{add}'](item);
+            }
+        } else {
+            me['@{suggest.delay.timer}'] = setTimeout(me.wrapAsync(function () {
+                me['@{ui.update}']();
+                me['@{show}']();
+            }), 300);
+        }
+
         if (!val && e.type == 'keydown' && e.keyCode == 8) {
             // 删除
             let items = me.updater.get('items');
@@ -160,92 +199,195 @@ module.exports = Magix.View.extend({
                         idx
                     }
                 });
-                me['@{ui.focus}']();
             }
         }
     },
 
-    '@{fire.event}' () {
+    '@{fire.event}'() {
         let me = this;
         let updater = me.updater;
-        let ids = [];
+        let selected = [];
         let items = updater.get('items');
         let valueKey = updater.get('valueKey');
         for (let i = 0, one; i < items.length; i++) {
             one = items[i];
-            ids.push(valueKey ? one[valueKey] : one);
+            selected.push(valueKey ? one[valueKey] : one);
         }
-        $('#' + me.id).val(ids.join(',')).trigger({
+        selected = selected.join(',');
+        me['@{owner.node}'].val(selected).trigger({
             type: 'change',
-            ids,
+            selected,
             items
         });
     },
-   
-    '@{add}<pick>' (e) {
-        e.stopPropagation();
+
+    '@{add}<click>'(e) {
+        if (e.stopPropagation) {
+            e.stopPropagation();
+        }
+        this['@{add}'](e.params.item);
+    },
+
+    '@{add}'(item) {
         let me = this;
         let updater = me.updater;
         let items = updater.get('items');
 
-        let item = e.item;
         items.push(item);
         updater.digest({
-            items,
-            scrollTop: e.scrollTop,
-            suggest: me['@{get.suggest.list}'](items)
+            items
         });
 
+        me['@{last.value}'] = '';
         me['@{val}']();
-        me['@{trigger.update}']();
-        me['@{ui.focus}']();
+        me['@{ui.update}']();
         me['@{fire.event}']();
+        me['@{ui.focus}']();
     },
-    
-    '@{delete}<click>' (event) {
+
+    '@{delete}<click>'(event) {
         let me = this;
         let data = me.updater.get();
-        if(data.disabled){
+        if (data.disabled) {
             return;
         }
 
         let items = data.items;
         let idx = event.params.idx;
         items.splice(idx, 1);
-        
+
         me.updater.digest({
-            items,
-            suggest: me['@{get.suggest.list}'](items)
+            items
         });
 
+        me['@{last.value}'] = '';
         me['@{val}']();
-        me['@{trigger.update}']();
+        me['@{ui.update}']();
         me['@{fire.event}']();
         me['@{ui.focus}']();
     },
 
-    '@{prevent}<contextmenu>' (e) {
-        e.preventDefault();
-    },
-
-    '@{stop}<change,focusin,focusout>' (e) {
-        e.stopPropagation();
-        let rNode = this['@{owner.node}'];
-        if (e.type == 'focusin') {
-            rNode.addClass('input-focus');
+    '@{ui.focus}'() {
+        let me = this;
+        let suggest = me.updater.get('suggest');
+        if(suggest && suggest.length){
+            me['@{owner.node}'].find('input').focus();
+        }else{
+            me['@{hide}']();
         }
     },
 
-    '@{toggleList}<showlist,hidelist>' (e) {
+    '@{normal}'() {
         let me = this;
-        let node = me['@{owner.node}'];
-        if (!me['@{temp.hold.event}']) {
-            node.trigger({
-                type: e.type == 'showlist' ? 'focusin' : 'focusout'
-            });
-            if (e.type == 'hidelist') {
-                node.removeClass('input-focus');
+        let node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
+        node.removeClass('@../mx-suggest/suggest.less:hover');
+    },
+
+    '@{highlight}'(ignore) {
+        let me = this;
+        let node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
+        node.addClass('@../mx-suggest/suggest.less:hover');
+        if (!ignore && node.length) {
+            me['@{temp.ignore}'] = 1; //如果是上下按键引起的滚动，则在move时忽略
+            let height = node.outerHeight();
+            let scrolled = (me['@{ui.index}'] + 1) * height;
+            let rNode = $('#ul_' + me.id);
+            let vHeight = rNode.height();
+            let sTop = rNode.prop('scrollTop');
+            let items = Math.ceil(vHeight / height);
+
+            if (scrolled < sTop + height) {
+                rNode.prop('scrollTop', scrolled - height);
+            } else if (scrolled > sTop + vHeight) {
+                rNode.prop('scrollTop', (me['@{ui.index}'] + 2 - items) * height);
             }
         }
+    },
+
+    '@{hide}'() {
+        let me = this;
+        if (me['@{ui.show}']) {
+            me['@{ui.show}'] = false;
+            me.updater.digest({
+                show: false
+            })
+            Monitor['@{remove}'](me);
+        }
+    },
+
+    '@{show}'() {
+        let me = this;
+
+        // 外部需要动态更新时
+        me['@{owner.node}'].trigger({
+            type: 'show',
+            keyword: me['@{last.value}']
+        });
+
+        let suggest = me.updater.get('suggest');
+        if (!me['@{ui.show}'] && suggest && suggest.length) {
+            me['@{ui.show}'] = true;
+            me.updater.digest({
+                show: true
+            })
+            Monitor['@{add}'](me);
+        }
+    },
+
+    '@{inside}'(node) {
+        return Magix.inside(node, this.id);
+    },
+
+    '@{out}<mouseout>'(e) {
+        let flag = !Magix.inside(e.relateTarget, e.eventTarget);
+        if (flag) {
+            let me = this;
+            me['@{normal}']();
+            me['@{ui.index}'] = -1;
+        }
+    },
+
+    '@{move}<mousemove>'(e) {
+        let me = this;
+        if (me['@{temp.ignore}']) {
+            delete me['@{temp.ignore}'];
+            return;
+        }
+        let target = $(e.target);
+        if (target.hasClass('@../mx-suggest/suggest.less:suggest-item')) {
+            let idx = target.data('idx');
+            if (idx != me['@{ui.index}']) {
+                me['@{normal}']();
+                me['@{ui.index}'] = idx;
+                me['@{highlight}'](true);
+            }
+        }
+    },
+
+    showLoading() {
+        let me = this;
+        if (!me['@{ui.show}']) {
+            me['@{ui.show}'] = true;
+            me.updater.digest({
+                show: true,
+                loading: true
+            })
+            Monitor['@{add}'](me);
+        }
+    },
+
+    hideLoading() {
+        this.updater.digest({
+            loading: false
+        })
+    },
+    /**
+     * 外部更新可选项
+     */
+    update: function (suggest) {
+        let me = this;
+        me.updater.digest({
+            suggest
+        })
     }
 });

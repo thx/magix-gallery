@@ -28,11 +28,11 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydP:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerydP:a" class="_zs_gallery___test___layout_-eg-content"><div class="mb20" mx-view="mx-taginput/index?list=';
+    $p += '<div mxa="_zs_gallerydP:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerydP:a" class="_zs_gallery___test___layout_-eg-content"><div class="mb20 w280" mx-view="mx-taginput/index?list=';
     $line = 4;
     $art = '@[\'test1\',\'test2\',\'test3\',\'test4\']';
     ;
-    $p += ($expr = '<%@[\'test1\', \'test2\', \'test3\', \'test4\']%>', $i($$ref, ['test1', 'test2', 'test3', 'test4'])) + '&selected=test1%2Ctest2"></div><div mx-view="mx-taginput/index?list=';
+    $p += ($expr = '<%@[\'test1\', \'test2\', \'test3\', \'test4\']%>', $i($$ref, ['test1', 'test2', 'test3', 'test4'])) + '&selected=test1%2Ctest2"></div><div class="w280" mx-view="mx-taginput/index?list=';
     $line = 8;
     $art = '@[\'test1\',\'test2\',\'test3\',\'test4\']';
     ;
@@ -48,7 +48,7 @@ module.exports = Base.extend({
     $line = 17;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-taginput \n    list="&#123;&#123;@[\'test1\',\'test2\',\'test3\',\'test4\']&#125;&#125;"\n    selected="test1,test2"/&gt;\n\n&lt;mx-taginput \n    list="&#123;&#123;@[\'test1\',\'test2\',\'test3\',\'test4\']&#125;&#125;"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-taginput class="w280"\n    list="&#123;&#123;@[\'test1\',\'test2\',\'test3\',\'test4\']&#125;&#125;"\n    selected="test1,test2"/&gt;\n\n&lt;mx-taginput class="w280"\n    list="&#123;&#123;@[\'test1\',\'test2\',\'test3\',\'test4\']&#125;&#125;"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

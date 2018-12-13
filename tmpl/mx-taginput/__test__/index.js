@@ -43,25 +43,17 @@ module.exports = Magix.View.extend({
                 desc: '当前选中的所有标签完成对象',
                 type: 'array[object]'
             }, {
-                key: 'ids',
-                desc: '当前选中的所有标签的value值',
-                type: 'array[string]'
+                key: 'selected',
+                desc: '当前选中的所有标签的value值，逗号分隔',
+                type: 'string'
             }]
         }, {
-            type: 'focusin',
-            desc: '组件获取焦点时触发',
+            type: 'show',
+            desc: '出现提示框的时候触发，常用于动态更新可选项',
             params: [{
-                key: '-',
-                desc: '-',
-                type: '-'
-            }]
-        }, {
-            type: 'focusout',
-            desc: '组件失去焦点时触发',
-            params: [{
-                key: '-',
-                desc: '-',
-                type: '-'
+                key: 'keyword',
+                desc: '当前输入的关键词',
+                type: 'string'
             }]
         }]
 

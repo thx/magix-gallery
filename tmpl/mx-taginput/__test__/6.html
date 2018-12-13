@@ -10,16 +10,13 @@
             </div>
         </div>
         <div class="mb20">
-            <a href="javascript:;" class="btn btn-brand mr20" mx-click="get()">获取选中值</a>
             <span class="color-9">当前选择：</span>
             <span>{{=selected}}</span>
         </div>
         <div class="mb20">
             <mx-taginput class="w280"
-                id="{{=viewId}}_taginput"
                 list="{{@list}}"
-                selected="{{=selected}}"
-                placeholder="请选择需要的值"/>
+                mx-change="select()"/>
         </div>
     </div>
     <div class="eg-desc">
@@ -30,14 +27,10 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;a href="javascript:;" class="btn btn-brand" 
-    mx-click="get()"&gt;获取选中值&lt;/a&gt;
-
 &lt;mx-taginput class="w280"
     id="&#123;&#123;=viewId&#125;&#125;_taginput"
     list="&#123;&#123;@list&#125;&#125;"
-    selected="&#123;&#123;=selected&#125;&#125;"
-    placeholder="请选择需要的值"/&gt;</pre>
+    mx-change="select()"/&gt;</pre>
     </div>
     <div class="eg-desc">
         <div class="eg-title">JS Code</div>
@@ -62,15 +55,15 @@ module.exports = Magix.View.extend(&#123;
         &#125;
         this.updater.digest(&#123;
             viewId: this.id,
-            list,
-            selected: '1,2'
+            list
         &#125;);
     &#125;,
-    'get&lt;click&gt;'()&#123;
-        let node = $('#' + this.id + '_taginput');
+    'select&lt;change&gt;'(e) &#123;
+        // e.selected：string，逗号分隔，选中value
+        // e.items：array，选中完成对象
         this.updater.digest(&#123;
-            selected: node.val()
-        &#125;)
+            selected: e.selected
+        &#125;);
     &#125;
 &#125;);</pre>
     </div>

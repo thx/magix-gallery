@@ -1,8 +1,9 @@
 let Magix = require('magix');
 let $ = require('$');
-Magix.applyStyle('@index.less');
 let I18n = require('../mx-medusa/util');
 let Monitor = require('../mx-monitor/index');
+Magix.applyStyle('@index.less');
+Magix.applyStyle('@suggest.less');
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -144,8 +145,7 @@ module.exports = Magix.View.extend({
             that.updater.digest({
                 selectedValue: list[idx].value
             });
-        }
-        else if (e.keyCode == 13) {
+        } else if (e.keyCode == 13) {
             // 未选中时，回车默认第一个，已选中的情况下还是当前选项
             if (idx < 0) {
                 idx = 0;
@@ -153,8 +153,7 @@ module.exports = Magix.View.extend({
             that['@{value.bak}'] = list[idx].value;
             that['@{hide}']();
             that['@{fire}']();
-        }
-        else {
+        } else {
             that['@{suggest.delay.timer}'] = setTimeout(that.wrapAsync(function () {
                 that['@{show}']();
             }), 300);
@@ -196,7 +195,7 @@ module.exports = Magix.View.extend({
         let that = this;
         that['@{list.bak}'] = that['@{wrap}'](list);
 
-        // 不需要再过来，直接返回什么，展示什么
+        // 不需要再处理，直接返回什么，展示什么
         let selectText = $('#' + that.id + '_input').val();
         that.updater.digest({
             list: that['@{list.bak}'],

@@ -3,14 +3,16 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-taginput/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./2","./3","./4","__test__/api","__test__/event"],(require,exports,module)=>{
+define("mx-taginput/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./3","./4","./2","./5","./6","__test__/api","__test__/event"],(require,exports,module)=>{
 /*Magix,$*/
 require("__test__/subs");
 require("mx-title/second");
 require("./1");
-require("./2");
 require("./3");
 require("./4");
+require("./2");
+require("./5");
+require("./6");
 require("__test__/api");
 require("__test__/event");
 var Magix = require("magix");
@@ -34,45 +36,57 @@ module.exports = Magix.View.extend({
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_gallerydR:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'默认值+事件处理\',\n            key: viewId + \'_demo1\'\n        }, {\n            name: \'自定义key\',\n            key: viewId + \'_demo2\'\n        }, {\n            name: \'简单list\',\n            key: viewId + \'_demo3\'\n        }, {\n            name: \'禁用\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'一次性获取选中值\',\n            key: viewId + \'_demo1\'\n        }, {\n            name: \'动态更新数据\',\n            key: viewId + \'_demo5\'\n        }, {\n            name: \'实时获取选中值\',\n            key: viewId + \'_demo6\'\n        }, {\n            name: \'自定义key\',\n            key: viewId + \'_demo2\'\n        }, {\n            name: \'简单list\',\n            key: viewId + \'_demo3\'\n        }, {\n            name: \'禁用\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }, {\n        name: \'Methods\',\n        key: viewId + \'_method\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'默认值+事件处理\',                    key: viewId + \'_demo1\'                }, {                    name: \'自定义key\',                    key: viewId + \'_demo2\'                }, {                    name: \'简单list\',                    key: viewId + \'_demo3\'                }, {                    name: \'禁用\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '默认值+事件处理', key: viewId + '_demo1' }, { name: '自定义key', key: viewId + '_demo2' }, { name: '简单list', key: viewId + '_demo3' }, { name: '禁用', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div mxs="_zs_gallerydR:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div class="clearfix mb20" id="';
-    $line = 28;
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'一次性获取选中值\',                    key: viewId + \'_demo1\'                }, {                    name: \'动态更新数据\',                    key: viewId + \'_demo5\'                }, {                    name: \'实时获取选中值\',                    key: viewId + \'_demo6\'                }, {                    name: \'自定义key\',                    key: viewId + \'_demo2\'                }, {                    name: \'简单list\',                    key: viewId + \'_demo3\'                }, {                    name: \'禁用\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }, {            name: \'Methods\',            key: viewId + \'_method\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '一次性获取选中值', key: viewId + '_demo1' }, { name: '动态更新数据', key: viewId + '_demo5' }, { name: '实时获取选中值', key: viewId + '_demo6' }, { name: '自定义key', key: viewId + '_demo2' }, { name: '简单list', key: viewId + '_demo3' }, { name: '禁用', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }, { name: 'Methods', key: viewId + '_method' }])) + '"></div><div mxs="_zs_gallerydR:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div class="clearfix mb20" id="';
+    $line = 37;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo"><div mxa="_zs_gallerydR:a" class="_zs_gallery___test___layout_-half"><div mx-view="mx-taginput/__test__/1" id="';
-    $line = 30;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div></div><div mxa="_zs_gallerydR:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-taginput/__test__/2" id="';
-    $line = 33;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-taginput/__test__/3" id="';
-    $line = 34;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-taginput/__test__/4" id="';
-    $line = 35;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div></div><div id="';
     $line = 39;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-taginput/__test__/3" id="';
     $line = 40;
-    $art = '@options';
+    $art = '=viewId';
     ;
-    $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-taginput/__test__/4" id="';
+    $line = 41;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-taginput/__test__/2" id="';
     $line = 42;
     $art = '=viewId';
     ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div mxa="_zs_gallerydR:d" class="_zs_gallery___test___layout_-half"><div mx-view="mx-taginput/__test__/5" id="';
+    $line = 45;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div><div mx-view="mx-taginput/__test__/6" id="';
+    $line = 46;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div></div></div><div id="';
+    $line = 50;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $line = 51;
+    $art = '@options';
+    ;
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
+    $line = 53;
+    $art = '=viewId';
+    ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_event" mx-view="mx-title/second?content=Event"></div><div mxv="events" mx-view="__test__/event?options=';
-    $line = 43;
+    $line = 54;
     $art = '@events';
     ;
-    $p += ($expr = '<%@events%>', $i($$ref, events)) + '"></div></div>';
+    $p += ($expr = '<%@events%>', $i($$ref, events)) + '" class="mb40"></div><div id="';
+    $line = 56;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_method" mx-view="mx-title/second?content=Methods"></div><div mxs="_zs_gallerydR:a" class="pr20"><table class="table _zs_gallery___test___layout_-desc-table"><thead><tr><th width="100">方法名</th><th width="200">说明</th><th width="200">调用方法</th></tr></thead><tbody><tr><td>update(suggest: Array)</td><td>动态更新下拉列表数据</td><td><pre>\nlet instance = Vframe.get(id);\ninstance.invoke(\'update\');\n                        </pre></td></tr><tr><td>showLoading</td><td>动态更新数据时有延时，增加loading</td><td><pre>\nlet instance = Vframe.get(id);\ninstance.invoke(\'showLoading\');\n                        </pre></td></tr><tr><td>hideLoading</td><td>动态更新数据完毕，去掉loading</td><td><pre>\nlet instance = Vframe.get(id);\ninstance.invoke(\'hideLoading\');\n                        </pre></td></tr></tbody></table></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -121,25 +135,17 @@ catch (ex) {
                         desc: '当前选中的所有标签完成对象',
                         type: 'array[object]'
                     }, {
-                        key: 'ids',
-                        desc: '当前选中的所有标签的value值',
-                        type: 'array[string]'
+                        key: 'selected',
+                        desc: '当前选中的所有标签的value值，逗号分隔',
+                        type: 'string'
                     }]
             }, {
-                type: 'focusin',
-                desc: '组件获取焦点时触发',
+                type: 'show',
+                desc: '出现提示框的时候触发，常用于动态更新可选项',
                 params: [{
-                        key: '-',
-                        desc: '-',
-                        type: '-'
-                    }]
-            }, {
-                type: 'focusout',
-                desc: '组件失去焦点时触发',
-                params: [{
-                        key: '-',
-                        desc: '-',
-                        type: '-'
+                        key: 'keyword',
+                        desc: '当前输入的关键词',
+                        type: 'string'
                     }]
             }];
         this.updater.digest({

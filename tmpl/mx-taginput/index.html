@@ -1,5 +1,8 @@
-<div class="ipt unselectable clearfix" mx-click="@{focus}()" id="ipt_{{=viewId}}">
-    {{if(!items.length&&placeholder)}}
+<div class="ipt unselectable clearfix" 
+    mx-click="@{focus}()" 
+    id="ipt_{{=viewId}}">
+
+    {{if(!items.length)}}
     <span class="placeholder">{{=placeholder}}</span>
     {{/if}}
 
@@ -13,25 +16,41 @@
     {{/if}}
     
     <input class="trigger" autocomplete="off"
+        style="width: {{=inputWidth}}px;"
+        value="{{=iv}}"
         mx-keydown="@{check}()"
         mx-keyup="@{check}()"
-        mx-input="@{check}()"
         mx-paste="@{check}()"
-        mx-pick="@{add}()"
-        mx-change="@{stop}()"
-        mx-focusin="@{stop}()"
+        mx-focusin="@{check}()"
         mx-focusout="@{stop}()"
-        mx-showlist="@{toggleList}()"
-        mx-hidelist="@{toggleList}()"
+        mx-change="@{stop}()"
         {{if disabled}} disabled="true" {{/if}} />
         
-    {{if(!disabled && suggest && suggest.length)}}
-    <mx-vframe src="./suggest"
-        class="suggest-wrapper"
-        list="{{@suggest}}"
-        relate-ids="ipt_{{=viewId}}"
-        offset-left="-7"
-        width="{{=width}}"
-        scroll-top="{{@scrollTop}}"/>
+    {{if(!disabled)}}
+    <ul id="ul_{{=viewId}}"
+        style="left: {{=suggestLeft}}px;"
+        class="suggest-menu {{if show}} open {{/if}}"
+        mx-mouseout="@{out}()" 
+        mx-mousemove="@{move}()" 
+        mx-contextmenu="@{prevent}()">
+        {{if loading}}
+            <li class="loading loading-ext loading-small">
+                <span class="loading-anim"></span>
+            </li>
+        {{else}}
+            {{if (suggest && suggest.length)}}
+                {{each suggest as item idx}}
+                <li class="suggest-item" 
+                    mx-click="@{add}({item:'{{@item}}'})"
+                    data-idx="{{=idx}}" 
+                    id="sg_{{=viewId}}_{{=idx}}">
+                    {{!item.text}}
+                </li>
+                {{/each}}
+            {{else}}
+                <li class="text-center color-9">{{=emptyText}}</li>
+            {{/if}}
+        {{/if}}
+    </ul>
     {{/if}}
 </div>

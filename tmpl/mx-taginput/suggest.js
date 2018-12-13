@@ -1,7 +1,7 @@
 let Magix = require('magix');
 let $ = require('$');
 let Monitor = require('../mx-monitor/index');
-Magix.applyStyle('@suggest.less');
+Magix.applyStyle('@index.less');
 
 module.exports = Magix.View.extend({
     tmpl: '@suggest.html',
@@ -9,12 +9,11 @@ module.exports = Magix.View.extend({
         let me = this;
         me['@{scroll.top}'] = extra.scrollTop || 0;
         me['@{data.list}'] = extra.list || [];
-        me['@{offset.left}'] = (extra.offsetLeft || 0) | 0;
         Monitor['@{setup}']();
         me.on('destroy', function() {
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
-            me['@{owner.node}'].off('keyup paste input', me['@{fn.watch}'])
+            me['@{trigger.node}'].off('keyup paste input', me['@{fn.watch}'])
                 .off('focus', me['@{fn.show}']);
         });
         me.updater.set({
@@ -46,11 +45,9 @@ module.exports = Magix.View.extend({
     },
     render() {
         let me = this;
-        let oNode = $('#' + me.id);
-        me['@{relate.node}'] = oNode;
-        oNode = oNode.prev('input');
-        me['@{owner.node}'] = oNode;
-        oNode.on('focus', me['@{fn.show}'] = $.proxy(me['@{show}'], me))
+        me['@{relate.node}'] = $('#' + me.id);
+        me['@{trigger.node}'] = me['@{relate.node}'].prev('input');
+        me['@{trigger.node}'].on('focus', me['@{fn.show}'] = $.proxy(me['@{show}'], me))
             .on('keyup paste input', me['@{fn.watch}'] = $.proxy(me['@{filter}'], me));
         me['@{list.update}'](me['@{data.list}']);
         me['@{relate.list.node}'] = $('#' + me.id + ' ul');
@@ -84,7 +81,7 @@ module.exports = Magix.View.extend({
                 me['@{normal}']();
                 me['@{ui.index}'] = -1;
                 me['@{hide}']();
-                me['@{owner.node}'].trigger({
+                me['@{trigger.node}'].trigger({
                     type: 'pick',
                     item: item
                 });
@@ -123,24 +120,24 @@ module.exports = Magix.View.extend({
                 });
             }
             Monitor['@{add}'](me);
-            let offset = me['@{owner.node}'].position();
+            let offset = me['@{trigger.node}'].position();
             me['@{relate.node}'].show().css({
                 display: 'block',
-                left: offset.left + me['@{offset.left}'],
-                top: offset.top + me['@{owner.node}'].outerHeight() + 10
+                left: offset.left - 7,
+                top: offset.top + me['@{trigger.node}'].outerHeight() + 14
             });
-            me['@{owner.node}'].trigger('showlist');
+            me['@{trigger.node}'].trigger('showlist');
         }
     },
     '@{normal}' () {
         let me = this;
         let node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
-        node.removeClass('@suggest.less:active');
+        node.removeClass('@index.less:suggest-active');
     },
     '@{highlight}' (ignore) {
         let me = this;
         let node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
-        node.addClass('@suggest.less:active');
+        node.addClass('@index.less:suggest-active');
         if (!ignore && node.length) {
             me['@{temp.ignore}'] = 1; //如果是上下按键引起的滚动，则在move时忽略
             let height = node.outerHeight();
@@ -163,7 +160,7 @@ module.exports = Magix.View.extend({
             me['@{ui.show}'] = false;
             Monitor['@{remove}'](me);
             me['@{relate.node}'].hide();
-            me['@{owner.node}'].trigger('hidelist');
+            me['@{trigger.node}'].trigger('hidelist');
         }
     },
     '@{pick}<click>' (e) {
@@ -171,7 +168,7 @@ module.exports = Magix.View.extend({
         let me = this;
         let item = e.params.item;
         me['@{hide}']();
-        me['@{owner.node}'].trigger({
+        me['@{trigger.node}'].trigger({
             type: 'pick',
             item: item,
             scrollTop: me['@{relate.list.node}'].prop('scrollTop')
