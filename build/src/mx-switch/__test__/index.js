@@ -32,7 +32,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryc;:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_galleryc::_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'可用切换\',\n            key: viewId + \'_demo1\',\n        },{\n            name: \'已开禁用\',\n            key: viewId + \'_demo2\',\n        },{\n            name: \'禁用原因\',\n            key: viewId + \'_demo3\',\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
@@ -44,11 +44,11 @@ module.exports = Base.extend({
     $line = 24;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mxa="_zs_galleryc;:a" class="mb20 clearfix"><div mxa="_zs_galleryc;:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-switch/__test__/2" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mxa="_zs_galleryc::a" class="mb20 clearfix"><div mxa="_zs_galleryc::b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-switch/__test__/2" id="';
     $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div mxa="_zs_galleryc;:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-switch/__test__/3" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div mxa="_zs_galleryc::c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-switch/__test__/3" id="';
     $line = 30;
     $art = '=viewId';
     ;

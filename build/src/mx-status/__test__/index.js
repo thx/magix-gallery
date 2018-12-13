@@ -31,7 +31,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc#:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxa="_zs_galleryc!:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'纯操作\',\n            key: viewId + \'_demo1\'\n        }, {\n            name: \'操作+提示\',\n            key: viewId + \'_demo3\'\n        }, {\n            name: \'纯提示\',\n            key: viewId + \'_demo2\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
@@ -39,11 +39,11 @@ module.exports = Magix.View.extend({
     $line = 23;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryc#:a" class="clearfix mb20"><div mxa="_zs_galleryc#:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-status/__test__/1" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryc!:a" class="clearfix mb20"><div mxa="_zs_galleryc!:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-status/__test__/1" id="';
     $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div></div><div mxa="_zs_galleryc#:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-status/__test__/3" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div></div><div mxa="_zs_galleryc!:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-status/__test__/3" id="';
     $line = 29;
     $art = '=viewId';
     ;

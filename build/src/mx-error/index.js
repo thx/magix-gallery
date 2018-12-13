@@ -21,14 +21,14 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', type = $$.type, tip = $$.tip, btns = $$.btns; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya;:_" class="_zs_gallery_mx-error_index_-error">';
+    $p += '<div mxa="_zs_gallerya::_" class="_zs_gallery_mx-error_index_-error">';
     $line = 2;
     $art = 'if (type == \'404\')';
     ;
     $expr = '<%if (type == \'404\') {%>';
     if (type == '404') {
         ;
-        $p += '<div mxs="_zs_gallerya;:_"><i class="mc-iconfont _zs_gallery_mx-error_index_-error-unfound">&#xe6c7;</i></div><div mxa="_zs_gallerya;:a" class="_zs_gallery_mx-error_index_-info">';
+        $p += '<div mxs="_zs_gallerya::_"><i class="mc-iconfont _zs_gallery_mx-error_index_-error-unfound">&#xe6c7;</i></div><div mxa="_zs_gallerya::a" class="_zs_gallery_mx-error_index_-info">';
         $line = 4;
         $art = '=tip';
         ;
@@ -46,11 +46,11 @@ module.exports = Magix.View.extend({
     $expr = '<%if (type == \'502\' || type == \'500\') {%>';
     if (type == '502' || type == '500') {
         ;
-        $p += '<img mxs="_zs_gallerya;:a" class="_zs_gallery_mx-error_index_-error-bad-img" src="https://img.alicdn.com/tfs/TB1RljduirpK1RjSZFhXXXSdXXa-1313-678.png"/><span mxa="_zs_gallerya;:b" class="_zs_gallery_mx-error_index_-error-bad-num">';
+        $p += '<img mxs="_zs_gallerya::a" class="_zs_gallery_mx-error_index_-error-bad-img" src="https://img.alicdn.com/tfs/TB1RljduirpK1RjSZFhXXXSdXXa-1313-678.png"/><span mxa="_zs_gallerya::b" class="_zs_gallery_mx-error_index_-error-bad-num">';
         $line = 9;
         $art = '=type';
         ;
-        $p += ($expr = '<%=type%>', $e(type)) + '</span><div mxa="_zs_gallerya;:c" class="_zs_gallery_mx-error_index_-info">';
+        $p += ($expr = '<%=type%>', $e(type)) + '</span><div mxa="_zs_gallerya::c" class="_zs_gallery_mx-error_index_-info">';
         $line = 10;
         $art = '=tip';
         ;
@@ -68,7 +68,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (btns) {%>';
     if (btns) {
         ;
-        $p += '<div mxs="_zs_gallerya;:b"><a href="#!" class="btn btn-brand _zs_gallery_mx-error_index_-home-btn">回到首页</a><a href="javascript:;" class="btn _zs_gallery_mx-error_index_-back-btn" mx-click="' + $viewId + 'back()">返回上一页</a></div>';
+        $p += '<div mxs="_zs_gallerya::b"><a href="#!" class="btn btn-brand _zs_gallery_mx-error_index_-home-btn">回到首页</a><a href="javascript:;" class="btn _zs_gallery_mx-error_index_-back-btn" mx-click="' + $viewId + 'back()">返回上一页</a></div>';
         $line = 18;
         $art = '/if';
         ;

@@ -40,11 +40,13 @@ module.exports = Magix.View.extend({
         let textKey = ops.textKey || 'text';
         let valueKey = ops.valueKey || 'value';
 
+        let hasGroups = false;
         let groups = [];
         if (!ops.list) {
             let node = me['@{owner.node}'].children();
             let hasGroup = $(node[0]).attr('group') == 'true';
             if (hasGroup) {
+                hasGroups = true;
                 node.each((idx, item) => {
                     item = $(item);
                     let group = item.attr('group') == 'true';
@@ -118,25 +120,31 @@ module.exports = Magix.View.extend({
                 me['@{bak.type}'] = 'array';
                 // 后续做indexOf
                 selected = ops.selected.map(v => {
-                    return '' + v; 
+                    return '' + v;
                 });
-            }else{
+            } else {
                 selected = ops.selected.split(',');
             }
         }
 
         groups.forEach(group => {
-            let allChecked = true;
+            let checkes = [];
             group.list.forEach(item => {
                 count++;
                 item.checked = (selected.indexOf(item.value + '') > -1);
-                allChecked = allChecked && item.checked;
                 map[item.value] = item;
-            })
-            group.checked = allChecked;
-        })
 
+                if (item.checked) {
+                    checkes.push(item.value);
+                }
+            })
+            // 0：未选中
+            // 1：部分选择
+            // 2：全部徐那种
+            group.state = (checkes.length > 0) ? (checkes.length == group.list.length ? 2 : 1) : 0;
+        })
         me.updater.set({
+            hasGroups,
             viewId: me.id,
             expand,
             emptyText,
@@ -145,6 +153,8 @@ module.exports = Magix.View.extend({
             searchbox,
             map,
             selected,
+            imme: selected, // 选中立即反馈
+            max: ops.max || 0,
             over: (count > 20), //选项大于20样式处理下
             groups,
             height: ops.height || 400,
@@ -171,7 +181,7 @@ module.exports = Magix.View.extend({
         let triggerType = me['@{trigger.type}'];
         let triggerNode = $('#' + me.id + ' .@index.less:dropdown-toggle');
         let menuWrapper = $('#' + me.id + ' .@index.less:dropdown-menu-wrapper');
-        switch (triggerType){
+        switch (triggerType) {
             case 'click':
                 triggerNode.on('click', () => {
                     let expand = me.updater.get('expand');
@@ -198,27 +208,27 @@ module.exports = Magix.View.extend({
                 break;
         }
     },
-    '@{inside}' (node) {
+    '@{inside}'(node) {
         let me = this;
         return Magix.inside(node, me.id);
     },
-    '@{delay.hide}'(){
+    '@{delay.hide}'() {
         let me = this;
         clearTimeout(me['@{dealy.hide.timer}']);
         me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(() => {
             me['@{hide}']();
         }), 250);
     },
-    '@{val}'(){
+    '@{val}'() {
         let me = this;
         let selected = me.updater.get('selected');
-        if(me['@{bak.type}'] == 'array'){
+        if (me['@{bak.type}'] == 'array') {
             me['@{owner.node}'].val(selected);
-        }else{
+        } else {
             me['@{owner.node}'].val(selected.join(','));
         }
     },
-    '@{hide}' () {
+    '@{hide}'() {
         let me = this;
         let data = me.updater.get();
         if (data.expand) {
@@ -231,24 +241,28 @@ module.exports = Magix.View.extend({
             let selected = data.selected,
                 groups = data.groups;
             groups.forEach(group => {
-                let allChecked = true;
+                let checkes = [];
                 group.list.forEach(item => {
                     item.checked = (selected.indexOf(item.value + '') > -1);
-                    allChecked = allChecked && item.checked;
+
+                    if (item.checked) {
+                        checkes.push(item.value);
+                    }
                 })
-                group.checked = allChecked;
+                group.state = (checkes.length > 0) ? (checkes.length == group.list.length ? 2 : 1) : 0;
             })
 
             me.updater.digest({
                 groups,
                 selected,
+                imme: selected,
                 selectedText: me['@{getText}'](selected)
             })
-            
+
             me['@{val}']();
         }
     },
-    '@{show}' () {
+    '@{show}'() {
         let me = this;
         let data = me.updater.get();
         if (!data.expand) {
@@ -273,7 +287,7 @@ module.exports = Magix.View.extend({
                     menuOffset.left
                 )
             }
-            if(menuLeft > 0){
+            if (menuLeft > 0) {
                 d.menuStyles = 'left:' + (0 - menuLeft) + 'px';
             }
 
@@ -295,7 +309,7 @@ module.exports = Magix.View.extend({
             Monitor['@{add}'](me);
         }
     },
-    '@{getText}' (selected) {
+    '@{getText}'(selected) {
         let me = this;
         let data = me.updater.get();
         let emptyText = data.emptyText;
@@ -323,7 +337,7 @@ module.exports = Magix.View.extend({
 
     },
 
-    '@{fn.search}' (val, callback) {
+    '@{fn.search}'(val, callback) {
         let me = this;
         let data = me.updater.get();
         let groups = data.groups;
@@ -351,7 +365,7 @@ module.exports = Magix.View.extend({
         })
         callback(groups);
     },
-    '@{search}<keyup,paste>' (e) {
+    '@{search}<keyup,paste>'(e) {
         let me = this;
         clearTimeout(me['@{search.delay.timer}']);
         let val = $.trim(e.eventTarget.value);
@@ -369,53 +383,97 @@ module.exports = Magix.View.extend({
         }), 300);
     },
 
-    '@{selectGroup}<change>' (e) {
-        e.stopPropagation();
-
-        let me = this;
-        let data = me.updater.get();
-        let value = e.params.value;
-
-        let groupIndex = e.params.groupIndex,
-            checked = e.target.checked;
-        let groups = data.groups;
-        let group = groups[groupIndex];
-        group.list.forEach(item => {
-            item.checked = checked;
-        })
-        groups[groupIndex].checked = checked;
-        me.updater.digest({
-            groups
-        });
-
-    },
-    '@{select}<change>' (e) {
+    '@{checkItem}<change>'(e) {
         e.stopPropagation();
         let me = this;
-        let data = me.updater.get();
-
         let value = e.params.value,
             groupIndex = e.params.groupIndex,
             checked = e.target.checked;
-        let groups = data.groups;
-        let group = groups[groupIndex];
-        let list = group.list;
-        let allChecked = true;
-        for (var i = 0; i < list.length; i++) {
-            if (list[i].value == value) {
-                list[i].checked = checked;
-            }
-            allChecked = allChecked && list[i].checked;
-        }
-        groups[groupIndex].checked = allChecked;
-        me.updater.digest({
-            groups
-        });
+        me['@{checkGroup}'](groupIndex, value, checked);
     },
-    '@{stop}<change,focusin,focusout>' (e) {
+
+    /**
+     * 全选的时候注意限制上限
+     */
+    '@{checkAll}<click>'(e) {
+        let me = this;
+        let checked = e.params.checked;
+        me['@{checkGroup}']('all', 'all', checked);
+    },
+
+    '@{checkGroup}<change>'(e) {
+        e.stopPropagation();
+
+        let me = this;
+        let groupIndex = e.params.groupIndex,
+            checked = e.target.checked;
+        me['@{checkGroup}'](groupIndex, 'all', checked);
+    },
+
+    /**
+     * 全选的时候注意限制上限
+     */
+    '@{checkGroup}'(groupIndex, value, checked) {
+        let me = this;
+        let data = me.updater.get();
+        let groups = data.groups;
+
+        let groups = me.updater.get('groups');
+
+        let max = me.updater.get('max'),
+            imme = me.updater.get('imme');
+
+        let last = 0;
+        if (max > 0) {
+            last = max - imme.length;
+        }
+
+        let newImme = [];
+        groups.forEach((group, gi) => {
+            let checkes = [];
+            group.list.forEach(item => {
+                if((groupIndex === 'all' || (groupIndex == gi)) &&
+                   (value == 'all' || value == item.value)){
+                    // 重新设置
+                    if (checked) {
+                        // 选中
+                        if (max > 0) {
+                            // 有上限
+                            if (last > 0 && !item.checked) {
+                                item.checked = true;
+                                last -= 1;
+                            } else {
+                                // 选择top max
+                                // 其他保持原来的状态
+                            }
+                        } else {
+                            item.checked = true;
+                        }
+                    } else {
+                        // 取消选择
+                        item.checked = false;
+                    }
+                }
+
+                if (item.checked) {
+                    checkes.push(item.value);
+                }
+            })
+            group.state = (checkes.length > 0) ? (checkes.length == group.list.length ? 2 : 1) : 0;
+            newImme = newImme.concat(checkes);
+
+        })
+
+        me.updater.digest({
+            groups,
+            imme: newImme
+        })
+    },
+
+    '@{stop}<change,focusin,focusout>'(e) {
         e.stopPropagation();
     },
-    '@{submit}<click>' (e) {
+    '@{submit}<click>'(e) {
         let me = this;
 
         let data = me.updater.get();
@@ -448,26 +506,8 @@ module.exports = Magix.View.extend({
             selected: $('#' + me.id).val()
         });
     },
-    '@{hide}<click>' (e) {
+    '@{hide}<click>'(e) {
         this['@{hide}']();
-    },
-
-    '@{checkAll}<click>' (e) {
-        let me = this;
-        let groups = me.updater.get('groups');
-
-        let checked = e.params.checked;
-        groups.forEach(group => {
-            group.list.forEach(item => {
-                item.checked = checked;
-            })
-            group.checked = checked;
-        })
-
-        me.updater.digest({
-            groups
-        })
-
     }
 
 });

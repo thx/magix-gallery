@@ -27,7 +27,7 @@ module.exports = Magix.View.extend({
                         '支持普通翻页查看大量数据'
                     ]
                 }, {
-                    title: 'dropdown：单选多选自由切换'
+                    title: 'dropdown：单选多选自由切换，多选可限制选择上限'
                 }, {
                     title: '日历',
                     subs: [
@@ -48,6 +48,7 @@ module.exports = Magix.View.extend({
                     title: '快捷搜索',
                     subs: [
                         '单类型搜索，多类型搜索均支持',
+                        '单选，多选自由选中',
                         '动态加载可搜索内容'
                     ]
                 }, {
@@ -79,7 +80,12 @@ module.exports = Magix.View.extend({
                 }, {
                     title: '常用样式：打标，提示公告，评分，空状态，进度比例，各种动效等等'
                 }, {
-                    title: '业务组件：阿里妈妈通用吊顶，吊底，时段地域组件等等'
+                    title: '业务组件：',
+                    subs: [
+                        '阿里妈妈通用吊顶，吊底',
+                        '地域选择',
+                        '时段选择'
+                    ]
                 }]
             }]
         }]

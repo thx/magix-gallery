@@ -29,6 +29,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: 'value'
         }, {
+            key: 'max',
+            desc: '选择个数上限',
+            type: 'number',
+            def: ''
+        }, {
             key: 'searchbox',
             desc: '是否开启搜索框',
             type: 'boolean',

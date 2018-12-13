@@ -27,16 +27,16 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', width = $$.width, list = $$.list, fixed = $$.fixed, styles = $$.styles, logo = $$.logo, navs = $$.navs, cur = $$.cur; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybB:_" class="_zs_gallery_mx-header_index_-header"><div class="_zs_gallery_mx-header_index_-others clearfix" style="width: ';
+    $p += '<div mxa="_zs_gallerybC:_" class="_zs_gallery_mx-header_index_-header"><div class="_zs_gallery_mx-header_index_-others clearfix" style="width: ';
     $line = 2;
     $art = '=width';
     ;
-    $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_gallerybB:_" class="fl mr35"><a class="_zs_gallery_mx-header_index_-text _zs_gallery_mx-header_index_-text-h-brand" href="//www.alimama.com" target="_blank" rel="noopener noreferrer">阿里妈妈首页</a></div>';
+    $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_gallerybC:_" class="fl mr35"><a class="_zs_gallery_mx-header_index_-text _zs_gallery_mx-header_index_-text-h-brand" href="//www.alimama.com" target="_blank" rel="noopener noreferrer">阿里妈妈首页</a></div>';
     $line = 6;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cvoalabvdh$art_c = list.length; index < $art_cvoalabvdh$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cvoalabvdh$art_c = list.length; index < $art_cvoalabvdh$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_caglve$art_c = list.length; index < $art_caglve$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_caglve$art_c = list.length; index < $art_caglve$art_c; index++) {
         var item = list[index];
         $p += '<div class="_zs_gallery_mx-header_index_-item fl mr35" mx-mouseover="' + $viewId + 'toggle({index:';
         $line = 8;
@@ -50,11 +50,11 @@ module.exports = Magix.View.extend({
         $line = 9;
         $art = '=index';
         ;
-        $p += ($expr = '<%=index%>', $e(index)) + ',height:0})"><span mxa="_zs_gallerybB:a" class="_zs_gallery_mx-header_index_-text">';
+        $p += ($expr = '<%=index%>', $e(index)) + ',height:0})"><span mxa="_zs_gallerybC:a" class="_zs_gallery_mx-header_index_-text">';
         $line = 10;
         $art = '=item.title';
         ;
-        $p += ($expr = '<%=item.title%>', $e(item.title)) + '</span><span mxs="_zs_gallerybB:a" class="mc-iconfont ml5 _zs_gallery_mx-header_index_-arrow">&#xe692;</span><div class="_zs_gallery_mx-header_index_-links" style="height: ';
+        $p += ($expr = '<%=item.title%>', $e(item.title)) + '</span><span mxs="_zs_gallerybC:a" class="mc-iconfont ml5 _zs_gallery_mx-header_index_-arrow">&#xe692;</span><div class="_zs_gallery_mx-header_index_-links" style="height: ';
         $line = 12;
         $art = '=item.showHeight';
         ;
@@ -62,9 +62,9 @@ module.exports = Magix.View.extend({
         $line = 13;
         $art = 'each item.seconds as second';
         ;
-        $expr = '<%for (var $art_imqorjdxh$art_i = 0, $art_objefljgn$art_obj = item.seconds, $art_cvnelqnrdb$art_c = $art_objefljgn$art_obj.length; $art_imqorjdxh$art_i < $art_cvnelqnrdb$art_c; $art_imqorjdxh$art_i++) {        var second = $art_objefljgn$art_obj[$art_imqorjdxh$art_i]%>';
-        for (var $art_imqorjdxh$art_i = 0, $art_objefljgn$art_obj = item.seconds, $art_cvnelqnrdb$art_c = $art_objefljgn$art_obj.length; $art_imqorjdxh$art_i < $art_cvnelqnrdb$art_c; $art_imqorjdxh$art_i++) {
-            var second = $art_objefljgn$art_obj[$art_imqorjdxh$art_i];
+        $expr = '<%for (var $art_ieklijnpst$art_i = 0, $art_objofrmphaa$art_obj = item.seconds, $art_cgbtvfqe$art_c = $art_objofrmphaa$art_obj.length; $art_ieklijnpst$art_i < $art_cgbtvfqe$art_c; $art_ieklijnpst$art_i++) {        var second = $art_objofrmphaa$art_obj[$art_ieklijnpst$art_i]%>';
+        for (var $art_ieklijnpst$art_i = 0, $art_objofrmphaa$art_obj = item.seconds, $art_cgbtvfqe$art_c = $art_objofrmphaa$art_obj.length; $art_ieklijnpst$art_i < $art_cgbtvfqe$art_c; $art_ieklijnpst$art_i++) {
+            var second = $art_objofrmphaa$art_obj[$art_ieklijnpst$art_i];
             $p += '<dl>';
             $line = 15;
             $art = 'if second.title';
@@ -87,9 +87,9 @@ module.exports = Magix.View.extend({
             $line = 18;
             $art = 'each second.thirds as third';
             ;
-            $expr = '<%for (var $art_ipeteqtxj$art_i = 0, $art_objodauga$art_obj = second.thirds, $art_cjsqmgzespg$art_c = $art_objodauga$art_obj.length; $art_ipeteqtxj$art_i < $art_cjsqmgzespg$art_c; $art_ipeteqtxj$art_i++) {            var third = $art_objodauga$art_obj[$art_ipeteqtxj$art_i]%>';
-            for (var $art_ipeteqtxj$art_i = 0, $art_objodauga$art_obj = second.thirds, $art_cjsqmgzespg$art_c = $art_objodauga$art_obj.length; $art_ipeteqtxj$art_i < $art_cjsqmgzespg$art_c; $art_ipeteqtxj$art_i++) {
-                var third = $art_objodauga$art_obj[$art_ipeteqtxj$art_i];
+            $expr = '<%for (var $art_ifanfch$art_i = 0, $art_objucotwmf$art_obj = second.thirds, $art_cncrbikmpd$art_c = $art_objucotwmf$art_obj.length; $art_ifanfch$art_i < $art_cncrbikmpd$art_c; $art_ifanfch$art_i++) {            var third = $art_objucotwmf$art_obj[$art_ifanfch$art_i]%>';
+            for (var $art_ifanfch$art_i = 0, $art_objucotwmf$art_obj = second.thirds, $art_cncrbikmpd$art_c = $art_objucotwmf$art_obj.length; $art_ifanfch$art_i < $art_cncrbikmpd$art_c; $art_ifanfch$art_i++) {
+                var third = $art_objucotwmf$art_obj[$art_ifanfch$art_i];
                 $p += '<dd><a href="';
                 $line = 19;
                 $art = '=third.link';
@@ -155,17 +155,17 @@ module.exports = Magix.View.extend({
     $line = 28;
     $art = '=width';
     ;
-    $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxa="_zs_gallerybB:b" class="_zs_gallery_mx-header_index_-logo"><img src="';
+    $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxa="_zs_gallerybC:b" class="_zs_gallery_mx-header_index_-logo"><img src="';
     $line = 30;
     $art = '=logo';
     ;
-    $p += ($expr = '<%=logo%>', $e(logo)) + '"/></div><div mxa="_zs_gallerybB:c" class="_zs_gallery_mx-header_index_-navs">';
+    $p += ($expr = '<%=logo%>', $e(logo)) + '"/></div><div mxa="_zs_gallerybC:c" class="_zs_gallery_mx-header_index_-navs">';
     $line = 33;
     $art = 'each navs as nav';
     ;
-    $expr = '<%for (var $art_ilxqrfooki$art_i = 0, $art_ckfmueaash$art_c = navs.length; $art_ilxqrfooki$art_i < $art_ckfmueaash$art_c; $art_ilxqrfooki$art_i++) {    var nav = navs[$art_ilxqrfooki$art_i]%>';
-    for (var $art_ilxqrfooki$art_i = 0, $art_ckfmueaash$art_c = navs.length; $art_ilxqrfooki$art_i < $art_ckfmueaash$art_c; $art_ilxqrfooki$art_i++) {
-        var nav = navs[$art_ilxqrfooki$art_i];
+    $expr = '<%for (var $art_igvwczs$art_i = 0, $art_celrceooi$art_c = navs.length; $art_igvwczs$art_i < $art_celrceooi$art_c; $art_igvwczs$art_i++) {    var nav = navs[$art_igvwczs$art_i]%>';
+    for (var $art_igvwczs$art_i = 0, $art_celrceooi$art_c = navs.length; $art_igvwczs$art_i < $art_celrceooi$art_c; $art_igvwczs$art_i++) {
+        var nav = navs[$art_igvwczs$art_i];
         $p += '<a class="mr40 ';
         $line = 34;
         $art = 'if (cur == nav.value)';

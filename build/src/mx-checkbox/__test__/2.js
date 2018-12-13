@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', checked = $$.checked, disabled = $$.disabled, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallery/:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallery/:a" class="_zs_gallery___test___layout_-eg-content"><a mxs="_zs_gallery/:_" href="javascript:;" mx-click="' + $viewId + 'outerChange()" class="btn btn-brand mr20">切换状态</a><label mxv mxa="_zs_gallery/:b" class="mr20"><input name="test" value="2" mx-change="' + $viewId + 'innerChange()" type="checkbox" class="anim-checkbox" mx-view="mx-checkbox/index?checked=';
+    $p += '<div mxv mxa="_zs_gallery/:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallery/:a" class="_zs_gallery___test___layout_-eg-content"><a mxs="_zs_gallery/:_" href="javascript:;" mx-click="' + $viewId + 'outerChange()" class="btn btn-brand mr20">切换状态</a><label mxv mxa="_zs_gallery/:b" class="mr20"><input name="test" value="2" mx-change="' + $viewId + 'innerChange()" type="checkbox" mx-view="mx-checkbox/index?checked=';
     $line = 6;
     $art = '=checked';
     ;

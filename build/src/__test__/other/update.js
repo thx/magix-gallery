@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ipibnqd$art_i = 0, $art_cnfrrfzv$art_c = list.length; $art_ipibnqd$art_i < $art_cnfrrfzv$art_c; $art_ipibnqd$art_i++) {    var item = list[$art_ipibnqd$art_i]%>';
-    for (var $art_ipibnqd$art_i = 0, $art_cnfrrfzv$art_c = list.length; $art_ipibnqd$art_i < $art_cnfrrfzv$art_c; $art_ipibnqd$art_i++) {
-        var item = list[$art_ipibnqd$art_i];
+    $expr = '<%for (var $art_ijqldecuqmj$art_i = 0, $art_czcwhbcbd$art_c = list.length; $art_ijqldecuqmj$art_i < $art_czcwhbcbd$art_c; $art_ijqldecuqmj$art_i++) {    var item = list[$art_ijqldecuqmj$art_i]%>';
+    for (var $art_ijqldecuqmj$art_i = 0, $art_czcwhbcbd$art_c = list.length; $art_ijqldecuqmj$art_i < $art_czcwhbcbd$art_c; $art_ijqldecuqmj$art_i++) {
+        var item = list[$art_ijqldecuqmj$art_i];
         $p += '<div mxa="_zs_gallerye:_" class="_zs_gallery___test___other_update_-update"><div mxa="_zs_gallerye:a" class="_zs_gallery___test___other_update_-ver pl20"><span mxa="_zs_gallerye:b" class="_zs_gallery___test___other_update_-vt">';
         $line = 4;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_ikpcehzub$art_i = 0, $art_objrgmowdj$art_obj = item.subs, $art_cgbifzqa$art_c = $art_objrgmowdj$art_obj.length; $art_ikpcehzub$art_i < $art_cgbifzqa$art_c; $art_ikpcehzub$art_i++) {        var s = $art_objrgmowdj$art_obj[$art_ikpcehzub$art_i]%>';
-        for (var $art_ikpcehzub$art_i = 0, $art_objrgmowdj$art_obj = item.subs, $art_cgbifzqa$art_c = $art_objrgmowdj$art_obj.length; $art_ikpcehzub$art_i < $art_cgbifzqa$art_c; $art_ikpcehzub$art_i++) {
-            var s = $art_objrgmowdj$art_obj[$art_ikpcehzub$art_i];
+        $expr = '<%for (var $art_iidoinll$art_i = 0, $art_objmcqvanpi$art_obj = item.subs, $art_chdyfhchf$art_c = $art_objmcqvanpi$art_obj.length; $art_iidoinll$art_i < $art_chdyfhchf$art_c; $art_iidoinll$art_i++) {        var s = $art_objmcqvanpi$art_obj[$art_iidoinll$art_i]%>';
+        for (var $art_iidoinll$art_i = 0, $art_objmcqvanpi$art_obj = item.subs, $art_chdyfhchf$art_c = $art_objmcqvanpi$art_obj.length; $art_iidoinll$art_i < $art_chdyfhchf$art_c; $art_iidoinll$art_i++) {
+            var s = $art_objmcqvanpi$art_obj[$art_iidoinll$art_i];
             $p += '<div mxa="_zs_gallerye:e" class="pl20">';
             $line = 10;
             $art = 'if s.type == \'notice\'';
@@ -93,9 +93,9 @@ module.exports = Magix.View.extend({
             $line = 31;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_ihervtis$art_i = 0, $art_objnrrzmzv$art_obj = s.subs, $art_cjuimrfdyl$art_c = $art_objnrrzmzv$art_obj.length; $art_ihervtis$art_i < $art_cjuimrfdyl$art_c; $art_ihervtis$art_i++) {            var ss = $art_objnrrzmzv$art_obj[$art_ihervtis$art_i]%>';
-            for (var $art_ihervtis$art_i = 0, $art_objnrrzmzv$art_obj = s.subs, $art_cjuimrfdyl$art_c = $art_objnrrzmzv$art_obj.length; $art_ihervtis$art_i < $art_cjuimrfdyl$art_c; $art_ihervtis$art_i++) {
-                var ss = $art_objnrrzmzv$art_obj[$art_ihervtis$art_i];
+            $expr = '<%for (var $art_ibrcyyuyfoq$art_i = 0, $art_objhrjvuesuhm$art_obj = s.subs, $art_cdofyohgut$art_c = $art_objhrjvuesuhm$art_obj.length; $art_ibrcyyuyfoq$art_i < $art_cdofyohgut$art_c; $art_ibrcyyuyfoq$art_i++) {            var ss = $art_objhrjvuesuhm$art_obj[$art_ibrcyyuyfoq$art_i]%>';
+            for (var $art_ibrcyyuyfoq$art_i = 0, $art_objhrjvuesuhm$art_obj = s.subs, $art_cdofyohgut$art_c = $art_objhrjvuesuhm$art_obj.length; $art_ibrcyyuyfoq$art_i < $art_cdofyohgut$art_c; $art_ibrcyyuyfoq$art_i++) {
+                var ss = $art_objhrjvuesuhm$art_obj[$art_ibrcyyuyfoq$art_i];
                 $p += '<div mxa="_zs_gallerye:h" class="pl20"><div mxa="_zs_gallerye:i" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                 $line = 33;
                 $art = '!ss.title';
@@ -111,9 +111,9 @@ module.exports = Magix.View.extend({
                     $line = 37;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_ikjpj$art_i = 0, $art_objgpvahijy$art_obj = ss.subs, $art_casrax$art_c = $art_objgpvahijy$art_obj.length; $art_ikjpj$art_i < $art_casrax$art_c; $art_ikjpj$art_i++) {                    var sss = $art_objgpvahijy$art_obj[$art_ikjpj$art_i]%>';
-                    for (var $art_ikjpj$art_i = 0, $art_objgpvahijy$art_obj = ss.subs, $art_casrax$art_c = $art_objgpvahijy$art_obj.length; $art_ikjpj$art_i < $art_casrax$art_c; $art_ikjpj$art_i++) {
-                        var sss = $art_objgpvahijy$art_obj[$art_ikjpj$art_i];
+                    $expr = '<%for (var $art_izoyzhy$art_i = 0, $art_objtjwiivsij$art_obj = ss.subs, $art_crekifct$art_c = $art_objtjwiivsij$art_obj.length; $art_izoyzhy$art_i < $art_crekifct$art_c; $art_izoyzhy$art_i++) {                    var sss = $art_objtjwiivsij$art_obj[$art_izoyzhy$art_i]%>';
+                    for (var $art_izoyzhy$art_i = 0, $art_objtjwiivsij$art_obj = ss.subs, $art_crekifct$art_c = $art_objtjwiivsij$art_obj.length; $art_izoyzhy$art_i < $art_crekifct$art_c; $art_izoyzhy$art_i++) {
+                        var sss = $art_objtjwiivsij$art_obj[$art_izoyzhy$art_i];
                         $p += '<div mxa="_zs_gallerye:k" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                         $line = 38;
                         $art = '!sss';
@@ -186,7 +186,7 @@ catch (ex) {
                                     '支持普通翻页查看大量数据'
                                 ]
                             }, {
-                                title: 'dropdown：单选多选自由切换'
+                                title: 'dropdown：单选多选自由切换，多选可限制选择上限'
                             }, {
                                 title: '日历',
                                 subs: [
@@ -207,6 +207,7 @@ catch (ex) {
                                 title: '快捷搜索',
                                 subs: [
                                     '单类型搜索，多类型搜索均支持',
+                                    '单选，多选自由选中',
                                     '动态加载可搜索内容'
                                 ]
                             }, {
@@ -238,7 +239,12 @@ catch (ex) {
                             }, {
                                 title: '常用样式：打标，提示公告，评分，空状态，进度比例，各种动效等等'
                             }, {
-                                title: '业务组件：阿里妈妈通用吊顶，吊底，时段地域组件等等'
+                                title: '业务组件：',
+                                subs: [
+                                    '阿里妈妈通用吊顶，吊底',
+                                    '地域选择',
+                                    '时段选择'
+                                ]
                             }]
                     }]
             }];

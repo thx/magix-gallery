@@ -25,7 +25,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', name = $$.name, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerybm:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybm:a" class="_zs_gallery___test___layout_-eg-content"><div mxv mxa="_zs_gallerybm:b" class="mb20"><input mxe="' + $viewId + '_0" mxc="[';
+    $p += '<div mxv mxa="_zs_gallerybn:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybn:a" class="_zs_gallery___test___layout_-eg-content"><div mxv mxa="_zs_gallerybn:b" class="mb20"><input mxe="' + $viewId + '_0" mxc="[';
     $line = 4;
     $art = ':name{pattern:\'^[a-zA-Z0-9_\\u4e00-\\u9fa5]+$\'}';
     ;
@@ -41,15 +41,15 @@ module.exports = Base.extend({
     $line = 5;
     $art = ':name{pattern:[\'^[a-zA-Z0-9_\\u4e00-\\u9fa5]+$\', \'只支持汉字、字母、数字、下划线\']}';
     ;
-    $p += ($expr = '<%=name%>', $e(name)) + '"/></div></div><div mxa="_zs_gallerybm:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybm:_" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=name%>', $e(name)) + '"/></div></div><div mxa="_zs_gallerybn:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybn:_" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 10;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybm:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybn:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 12;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybm:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybn:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 15;
     $art = '=viewId';
     ;
