@@ -5,6 +5,7 @@
             实时反馈当前选中项
         </div>
         <div class="mb20">
+            <a href="javascript:;" mx-click="clear()" class="btn btn-brand mr20">清空所有选中</a>
             <span class="color-9">当前选中：</span>{{=selected}}
         </div>
         <mx-table sticky="true">
@@ -53,6 +54,9 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;div class="mb20"&gt;
+    &lt;a href="javascript:;" class="btn btn-brand mr20"
+        mx-click="clear()"&gt;清空所有选中&lt;/a&gt;
+
     &lt;span class="color-9"&gt;当前选中：&lt;/span&gt;&#123;&#123;=selected&#125;&#125;
 &lt;/div&gt;
 &lt;mx-table sticky="true"&gt;
@@ -131,6 +135,7 @@ module.exports = Magix.View.extend(&#123;
             selected: []
         &#125;);
     &#125;,
+
     'changePager&lt;change&gt;' (e) &#123;
         // e.page 当前第几页
         // e.size 每页多少条
@@ -143,10 +148,18 @@ module.exports = Magix.View.extend(&#123;
             page
         &#125;)
     &#125;,
+
     'get&lt;change&gt;' (e) &#123;
         let selected = this.getStoreState('example');
         this.updater.digest(&#123;
             selected: selected
+        &#125;)
+    &#125;,
+
+    'clear&lt;click&gt;' (e) &#123;
+        this.clearStoreState('example');
+        this.updater.digest(&#123;
+            selected: ''
         &#125;)
     &#125;
 &#125;);</pre>

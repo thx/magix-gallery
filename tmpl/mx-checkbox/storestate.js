@@ -23,6 +23,21 @@ module.exports = {
         };
         me.on('domready', ready);
     },
+    clearStoreState(key){
+        let me = this;
+        let store = this['@{state.store}'];
+
+        if(!key){
+            // 全部清空
+            this['@{state.store}'] = {};
+            $('#' + me.id).find('input[linkage]').prop('checked', false);
+            $('#' + me.id).find('input[linkage-parent]').prop('checked', false);
+        }else{
+            delete this['@{state.store}'][key];
+            $('#' + me.id).find('input[linkage="' + key + '"]').prop('checked', false);
+            $('#' + me.id).find('input[linkage-parent="' + key + '"]').prop('checked', false);
+        }
+    },
     getStoreState(key) {
         let store = this['@{state.store}'];
         let keys = [];
