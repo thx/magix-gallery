@@ -23,14 +23,14 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', icon = $$.icon, width = $$.width, color = $$.color; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya/:_" class="_zs_gallery_mx-effects_star_-star-bg">';
+    $p += '<div mxa="_zs_gallerya~:_" class="_zs_gallery_mx-effects_star_-star-bg">';
     $line = 2;
     $art = 'for (let i=0;i<5;i+=1)';
     ;
     $expr = '<%for (var i = 0; i < 5; i += 1) {%>';
     for (var i = 0; i < 5; i += 1) {
         ;
-        $p += '<span mxa="_zs_gallerya/:a" class="_zs_gallery_mx-effects_star_-star">';
+        $p += '<span mxa="_zs_gallerya~:a" class="_zs_gallery_mx-effects_star_-star">';
         $line = 4;
         $art = 'if icon';
         ;
@@ -49,7 +49,7 @@ module.exports = Base.extend({
         }
         else {
             ;
-            $p += '<i mxs="_zs_gallerya/:_" class="mc-iconfont">&#xe60f;</i>';
+            $p += '<i mxs="_zs_gallerya~:_" class="mc-iconfont">&#xe60f;</i>';
             $line = 8;
             $art = '/if';
             ;
@@ -125,7 +125,7 @@ module.exports = Base.extend({
         }
         else {
             ;
-            $p += '<i mxs="_zs_gallerya/:_" class="mc-iconfont">&#xe60f;</i>';
+            $p += '<i mxs="_zs_gallerya~:_" class="mc-iconfont">&#xe60f;</i>';
             $line = 20;
             $art = '/if';
             ;

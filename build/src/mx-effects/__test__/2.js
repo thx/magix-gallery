@@ -3,9 +3,8 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/__test__/2",["magix","__test__/example","$","../empty","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+define("mx-effects/__test__/2",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
 /*Magix,Base,$*/
-require("../empty");
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
@@ -24,7 +23,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya@:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerya@:_" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-effects/empty?bg=white&content=%E6%9A%82%E6%97%A0%E7%9B%B8%E5%85%B3%E8%AE%B0%E5%BD%95"></div></div><div mxa="_zs_gallerya@:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya@:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerya@:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerya@:_" class="_zs_gallery___test___layout_-eg-content"><div class="empty-white"><i class="mc-iconfont no-data">&#xe685;</i><p class="mt10">暂无相关记录</p></div></div><div mxa="_zs_gallerya@:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya@:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 8;
     $art = '=viewId';
     ;

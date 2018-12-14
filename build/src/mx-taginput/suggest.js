@@ -41,10 +41,10 @@ module.exports = Magix.View.extend({
         $line = 7;
         $art = 'each list as one idx';
         ;
-        $expr = '<%for (var idx = 0, $art_cxpjcbmpbjab$art_c = list.length; idx < $art_cxpjcbmpbjab$art_c; idx++) {        var one = list[idx]%>';
-        for (var idx = 0, $art_cxpjcbmpbjab$art_c = list.length; idx < $art_cxpjcbmpbjab$art_c; idx++) {
+        $expr = '<%for (var idx = 0, $art_cgcmsofrm$art_c = list.length; idx < $art_cgcmsofrm$art_c; idx++) {        var one = list[idx]%>';
+        for (var idx = 0, $art_cgcmsofrm$art_c = list.length; idx < $art_cgcmsofrm$art_c; idx++) {
             var one = list[idx];
-            $p += '<li mxa="_zs_gallerydW:_" class="suggest-item"><a href="javascript:;" class="suggest-item-link" data-idx="';
+            $p += '<li mxa="_zs_gallerydV:_" class="suggest-item"><a href="javascript:;" class="suggest-item-link" data-idx="';
             $line = 10;
             $art = '=idx';
             ;
@@ -83,7 +83,7 @@ module.exports = Magix.View.extend({
         $line = 18;
         $art = '=width';
         ;
-        $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_gallerydW:_" class="pt20 pb20 text-center color-9">无匹配选项</div></div>';
+        $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_gallerydV:_" class="pt20 pb20 text-center color-9">无匹配选项</div></div>';
         $line = 21;
         $art = '/if';
         ;

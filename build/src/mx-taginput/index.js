@@ -41,7 +41,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!items.length) {%>';
     if (!items.length) {
         ;
-        $p += '<span mxa="_zs_gallerydV:_" class="_zs_gallery_mx-taginput_index_-placeholder">';
+        $p += '<span mxa="_zs_gallerydU:_" class="_zs_gallery_mx-taginput_index_-placeholder">';
         $line = 6;
         $art = '=placeholder';
         ;
@@ -63,10 +63,10 @@ module.exports = Magix.View.extend({
         $line = 10;
         $art = 'each items as one idx';
         ;
-        $expr = '<%for (var idx = 0, $art_cckpflphar$art_c = items.length; idx < $art_cckpflphar$art_c; idx++) {        var one = items[idx]%>';
-        for (var idx = 0, $art_cckpflphar$art_c = items.length; idx < $art_cckpflphar$art_c; idx++) {
+        $expr = '<%for (var idx = 0, $art_chxodv$art_c = items.length; idx < $art_chxodv$art_c; idx++) {        var one = items[idx]%>';
+        for (var idx = 0, $art_chxodv$art_c = items.length; idx < $art_chxodv$art_c; idx++) {
             var one = items[idx];
-            $p += '<span mxa="_zs_gallerydV:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
+            $p += '<span mxa="_zs_gallerydU:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
             $line = 12;
             $art = '=one.text';
             ;
@@ -146,7 +146,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (loading) {%>';
         if (loading) {
             ;
-            $p += '<li mxs="_zs_gallerydV:_" class="loading loading-ext _zs_gallery_mx-taginput_index_-loading-small"><span class="loading-anim"></span></li>';
+            $p += '<li mxs="_zs_gallerydU:_" class="loading loading-ext _zs_gallery_mx-taginput_index_-loading-small"><span class="loading-anim"></span></li>';
             $line = 40;
             $art = 'else';
             ;
@@ -165,8 +165,8 @@ module.exports = Magix.View.extend({
                 $line = 42;
                 $art = 'each suggest as item idx';
                 ;
-                $expr = '<%for (var idx = 0, $art_cgyyljjin$art_c = suggest.length; idx < $art_cgyyljjin$art_c; idx++) {                var item = suggest[idx]%>';
-                for (var idx = 0, $art_cgyyljjin$art_c = suggest.length; idx < $art_cgyyljjin$art_c; idx++) {
+                $expr = '<%for (var idx = 0, $art_ctehhkfdem$art_c = suggest.length; idx < $art_ctehhkfdem$art_c; idx++) {                var item = suggest[idx]%>';
+                for (var idx = 0, $art_ctehhkfdem$art_c = suggest.length; idx < $art_ctehhkfdem$art_c; idx++) {
                     var item = suggest[idx];
                     $p += '<li class="_zs_gallery_mx-suggest_suggest_-suggest-item" mx-click="' + $viewId + '@{add}({item:\'';
                     $line = 44;
@@ -203,7 +203,7 @@ module.exports = Magix.View.extend({
             }
             else {
                 ;
-                $p += '<li mxa="_zs_gallerydV:b" class="text-center color-9">';
+                $p += '<li mxa="_zs_gallerydU:b" class="text-center color-9">';
                 $line = 51;
                 $art = '=emptyText';
                 ;
