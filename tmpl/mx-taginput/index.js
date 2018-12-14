@@ -13,8 +13,54 @@ module.exports = Magix.View.extend({
 
         let textKey = extra.textKey || 'text',
             valueKey = extra.valueKey || 'value';
-
+        me['@{dynamic.list}'] = extra.dynamicList == 'true';
+        me.updater.set({
+            textKey,
+            valueKey
+        });
         let list = extra.list || [];
+        list = this.rebuildList(list);
+
+        let selected = extra.selected || '';
+        selected = (selected + '').split(',');
+
+        // 当前已选中的
+        let items = [];
+        let selectedItems = extra.items || [];
+        if (selectedItems) {
+            items = selectedItems;
+        } else {
+            let map = Magix.toMap(list, 'value');
+            selected.forEach(v => {
+                if (map[v]) {
+                    items.push(map[v]);
+                }
+            })
+        }
+
+        me['@{data.list}'] = me['@{dynamic.list}'] ? [] : list;
+        me['@{owner.node}'] = $('#' + me.id);
+
+        let disabledNode = $('#' + me.id + '[mx-disabled]')
+        me.updater.set({
+            viewId: me.id,
+            disabled: disabledNode && (disabledNode.length > 0),
+            placeholder: extra.placeholder || I18n['choose'],
+            emptyText: I18n['empty.text'],
+            inputWidth: MinWidth,
+            items
+        });
+
+        Monitor['@{setup}']();
+        me.on('destroy', function () {
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+        });
+    },
+    rebuildList(list) {
+        let updater = this.updater;
+        let textKey = updater.get('textKey'),
+            valueKey = updater.get('valueKey');
         if (typeof list[0] === 'object') {
             // 本身是个对象
             list = list.map(item => {
@@ -32,42 +78,8 @@ module.exports = Magix.View.extend({
                 };
             })
         }
-
-        let selected = extra.selected || '';
-        selected = (selected + '').split(',');
-
-        let map = Magix.toMap(list, 'value');
-        // 当前已选中的
-        let items = [];
-        selected.forEach(v => {
-            if (map[v]) {
-                items.push(map[v]);
-            }
-        })
-
-        me['@{data.list}'] = list;
-        me['@{owner.node}'] = $('#' + me.id);
-
-        let disabledNode = $('#' + me.id + '[mx-disabled]')
-        me.updater.set({
-            viewId: me.id,
-            disabled: disabledNode && (disabledNode.length > 0),
-            placeholder: extra.placeholder || I18n['choose'],
-            emptyText: I18n['empty.text'],
-            inputWidth: MinWidth,
-            textKey,
-            valueKey,
-            map,
-            items
-        });
-
-        Monitor['@{setup}']();
-        me.on('destroy', function () {
-            Monitor['@{remove}'](me);
-            Monitor['@{teardown}']();
-        });
+        return list;
     },
-
     render() {
         this.updater.digest();
 
@@ -93,20 +105,23 @@ module.exports = Magix.View.extend({
         me['@{ui.index}'] = -1;
 
         let list = me['@{data.list}'];
-        let items = me.updater.get('items'),
-            map = me.updater.get('map');
+        let items = me.updater.get('items');
 
-        let selected = items.map(item => {
-            return item.value + '';
-        })
-
-        // 输入框内容
-        let iv = me['@{last.value}'] || '';
         let suggest = [];
-        for (let i = 0, one, key; i < list.length; i++) {
-            one = list[i];
-            if ((selected.indexOf(one.value + '') < 0) && ((one.value + '').indexOf(iv) > -1 || (one.text + '').indexOf(iv) > -1)) {
-                suggest.push(one);
+        if (me['@{dynamic.list}']) {
+            suggest = list;
+        } else {
+
+            let selected = items.map(item => {
+                return item.value + '';
+            })
+            // 输入框内容
+            let iv = me['@{last.value}'] || '';
+            for (let i = 0, one; i < list.length; i++) {
+                one = list[i];
+                if ((selected.indexOf(one.value + '') < 0) && ((one.value + '').indexOf(iv) > -1 || (one.text + '').indexOf(iv) > -1)) {
+                    suggest.push(one);
+                }
             }
         }
 
@@ -141,9 +156,8 @@ module.exports = Magix.View.extend({
         e.stopPropagation();
     },
 
-    '@{check}<focusin,paste,keyup,keydown>'(e) {
+    '@{check}<focusin,paste,keyup>'(e) {
         e.stopPropagation();
-
         let me = this;
         if (me['@{suggest.delay.timer}']) {
             clearTimeout(me['@{suggest.delay.timer}']);
@@ -189,7 +203,7 @@ module.exports = Magix.View.extend({
             }), 300);
         }
 
-        if (!val && e.type == 'keydown' && e.keyCode == 8) {
+        if (!val && e.keyCode == 8) {
             // 删除
             let items = me.updater.get('items');
             let idx = items.length - 1;
@@ -243,6 +257,10 @@ module.exports = Magix.View.extend({
         me['@{ui.update}']();
         me['@{fire.event}']();
         me['@{ui.focus}']();
+        if (this['@{dynamic.list}']) {
+            this['@{data.list}'] = [];
+            this['@{hide}']();
+        }
     },
 
     '@{delete}<click>'(event) {
@@ -269,11 +287,15 @@ module.exports = Magix.View.extend({
 
     '@{ui.focus}'() {
         let me = this;
-        let suggest = me.updater.get('suggest');
-        if(suggest && suggest.length){
+        if (me['@{dynamic.list}']) {
             me['@{owner.node}'].find('input').focus();
-        }else{
-            me['@{hide}']();
+        } else {
+            let suggest = me.updater.get('suggest');
+            if (suggest && suggest.length) {
+                me['@{owner.node}'].find('input').focus();
+            } else {
+                me['@{hide}']();
+            }
         }
     },
 
@@ -386,6 +408,8 @@ module.exports = Magix.View.extend({
      */
     update: function (suggest) {
         let me = this;
+        suggest = this.rebuildList(suggest);
+        this['@{data.list}'] = suggest;
         me.updater.digest({
             suggest
         })
