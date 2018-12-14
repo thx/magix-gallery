@@ -47,9 +47,9 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_iizzocpxp$art_i = 0, $art_cehjrbrwvye$art_c = stepInfos.length; $art_iizzocpxp$art_i < $art_cehjrbrwvye$art_c; $art_iizzocpxp$art_i++) {    var step = stepInfos[$art_iizzocpxp$art_i]%>';
-    for (var $art_iizzocpxp$art_i = 0, $art_cehjrbrwvye$art_c = stepInfos.length; $art_iizzocpxp$art_i < $art_cehjrbrwvye$art_c; $art_iizzocpxp$art_i++) {
-        var step = stepInfos[$art_iizzocpxp$art_i];
+    $expr = '<%for (var $art_iilasuocvs$art_i = 0, $art_ckdjfyuimac$art_c = stepInfos.length; $art_iilasuocvs$art_i < $art_ckdjfyuimac$art_c; $art_iilasuocvs$art_i++) {    var step = stepInfos[$art_iilasuocvs$art_i]%>';
+    for (var $art_iilasuocvs$art_i = 0, $art_ckdjfyuimac$art_c = stepInfos.length; $art_iilasuocvs$art_i < $art_ckdjfyuimac$art_c; $art_iilasuocvs$art_i++) {
+        var step = stepInfos[$art_iilasuocvs$art_i];
         $p += '<div class="_zs_gallery_mx-main_index_-main-step ';
         $line = 4;
         $art = 'if (step.index == curStepIndex)';
@@ -143,9 +143,9 @@ module.exports = Magix.View.extend({
             $line = 17;
             $art = 'each step.subs as sub';
             ;
-            $expr = '<%for (var $art_iyyvuisrs$art_i = 0, $art_objmwpvlew$art_obj = step.subs, $art_clzsamvj$art_c = $art_objmwpvlew$art_obj.length; $art_iyyvuisrs$art_i < $art_clzsamvj$art_c; $art_iyyvuisrs$art_i++) {            var sub = $art_objmwpvlew$art_obj[$art_iyyvuisrs$art_i]%>';
-            for (var $art_iyyvuisrs$art_i = 0, $art_objmwpvlew$art_obj = step.subs, $art_clzsamvj$art_c = $art_objmwpvlew$art_obj.length; $art_iyyvuisrs$art_i < $art_clzsamvj$art_c; $art_iyyvuisrs$art_i++) {
-                var sub = $art_objmwpvlew$art_obj[$art_iyyvuisrs$art_i];
+            $expr = '<%for (var $art_iiowakpb$art_i = 0, $art_objmmcagkf$art_obj = step.subs, $art_cqnyympzy$art_c = $art_objmmcagkf$art_obj.length; $art_iiowakpb$art_i < $art_cqnyympzy$art_c; $art_iiowakpb$art_i++) {            var sub = $art_objmmcagkf$art_obj[$art_iiowakpb$art_i]%>';
+            for (var $art_iiowakpb$art_i = 0, $art_objmmcagkf$art_obj = step.subs, $art_cqnyympzy$art_c = $art_objmmcagkf$art_obj.length; $art_iiowakpb$art_i < $art_cqnyympzy$art_c; $art_iiowakpb$art_i++) {
+                var sub = $art_objmmcagkf$art_obj[$art_iiowakpb$art_i];
                 $p += '<div mxa="_zs_galleryb}:c" class="_zs_gallery_mx-main_index_-step-sub"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link ';
                 $line = 19;
                 $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))';
@@ -237,9 +237,9 @@ module.exports = Magix.View.extend({
     $line = 42;
     $art = 'each curStepInfo.subs as sub';
     ;
-    $expr = '<%for (var $art_inyxqiylwkh$art_i = 0, $art_objrrjmzk$art_obj = curStepInfo.subs, $art_ctvenzk$art_c = $art_objrrjmzk$art_obj.length; $art_inyxqiylwkh$art_i < $art_ctvenzk$art_c; $art_inyxqiylwkh$art_i++) {    var sub = $art_objrrjmzk$art_obj[$art_inyxqiylwkh$art_i]%>';
-    for (var $art_inyxqiylwkh$art_i = 0, $art_objrrjmzk$art_obj = curStepInfo.subs, $art_ctvenzk$art_c = $art_objrrjmzk$art_obj.length; $art_inyxqiylwkh$art_i < $art_ctvenzk$art_c; $art_inyxqiylwkh$art_i++) {
-        var sub = $art_objrrjmzk$art_obj[$art_inyxqiylwkh$art_i];
+    $expr = '<%for (var $art_ifeblzrdfvo$art_i = 0, $art_objmtoynlq$art_obj = curStepInfo.subs, $art_cutkksro$art_c = $art_objmtoynlq$art_obj.length; $art_ifeblzrdfvo$art_i < $art_cutkksro$art_c; $art_ifeblzrdfvo$art_i++) {    var sub = $art_objmtoynlq$art_obj[$art_ifeblzrdfvo$art_i]%>';
+    for (var $art_ifeblzrdfvo$art_i = 0, $art_objmtoynlq$art_obj = curStepInfo.subs, $art_cutkksro$art_c = $art_objmtoynlq$art_obj.length; $art_ifeblzrdfvo$art_i < $art_cutkksro$art_c; $art_ifeblzrdfvo$art_i++) {
+        var sub = $art_objmtoynlq$art_obj[$art_ifeblzrdfvo$art_i];
         $p += '<div mxv class="_zs_gallery_mx-main_index_-content-box" style="padding-right: ';
         $line = 44;
         $art = '=(curStepInfo.rightWidth + 20)';

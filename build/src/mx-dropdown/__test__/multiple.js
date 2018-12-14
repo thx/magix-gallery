@@ -45,7 +45,7 @@ module.exports = Magix.View.extend({
     $line = 41;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryaM:a" class="clearfix mb20"><div mxa="_zs_galleryaM:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/8" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryaM:a" class="clearfix mb20"><div mxa="_zs_galleryaM:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/8" id="';
     $line = 44;
     $art = '=viewId';
     ;
@@ -65,7 +65,7 @@ module.exports = Magix.View.extend({
     $line = 48;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo18"></div></div><div mxa="_zs_galleryaM:f" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/7" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo18"></div></div><div mxa="_zs_galleryaM:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/7" id="';
     $line = 51;
     $art = '=viewId';
     ;
