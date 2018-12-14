@@ -1,3 +1,4 @@
+/*md5:e0cdda10a9168373e40202f1f05c37c9*/
 let Magix = require('magix');
 let $ = require('$');
 let I18n = require('../mx-medusa/util');
@@ -26,7 +27,7 @@ module.exports = Magix.View.extend({
 
         // 当前已选中的
         let items = [];
-        let selectedItems = extra.items || [];
+        let selectedItems = extra.items;
         if (selectedItems) {
             items = selectedItems;
         } else {
@@ -107,6 +108,8 @@ module.exports = Magix.View.extend({
         let list = me['@{data.list}'];
         let items = me.updater.get('items');
 
+        // 输入框内容
+        let iv = me['@{last.value}'] || '';
         let suggest = [];
         if (me['@{dynamic.list}']) {
             suggest = list;
@@ -115,8 +118,6 @@ module.exports = Magix.View.extend({
             let selected = items.map(item => {
                 return item.value + '';
             })
-            // 输入框内容
-            let iv = me['@{last.value}'] || '';
             for (let i = 0, one; i < list.length; i++) {
                 one = list[i];
                 if ((selected.indexOf(one.value + '') < 0) && ((one.value + '').indexOf(iv) > -1 || (one.text + '').indexOf(iv) > -1)) {
@@ -156,7 +157,7 @@ module.exports = Magix.View.extend({
         e.stopPropagation();
     },
 
-    '@{check}<focusin,paste,keyup>'(e) {
+    '@{check}<focusin,paste,keyup,keydown>'(e) {
         e.stopPropagation();
         let me = this;
         if (me['@{suggest.delay.timer}']) {
@@ -173,37 +174,38 @@ module.exports = Magix.View.extend({
                 holder.show();
             }
         }
-
-        let suggest = me.updater.get('suggest');
-        if (e.keyCode == 40) {
-            me['@{normal}']();
-            me['@{ui.index}']++;
-            if (me['@{ui.index}'] >= suggest.length) {
-                me['@{ui.index}'] = 0;
-            }
-            me['@{highlight}']();
-        } else if (e.keyCode == 38) {
-            me['@{normal}']();
-            me['@{ui.index}']--;
-            if (me['@{ui.index}'] < 0) {
-                me['@{ui.index}'] = suggest.length - 1;
-            }
-            me['@{highlight}']();
-        } else if (e.keyCode == 13) {
-            // 回车
-            if (me['@{ui.index}'] > -1 && me['@{ui.index}'] < suggest.length) {
-                let item = suggest[me['@{ui.index}']];
+        if (e.type != 'keydown') {
+            let suggest = me.updater.get('suggest');
+            if (e.keyCode == 40) {
                 me['@{normal}']();
-                me['@{add}'](item);
+                me['@{ui.index}']++;
+                if (me['@{ui.index}'] >= suggest.length) {
+                    me['@{ui.index}'] = 0;
+                }
+                me['@{highlight}']();
+            } else if (e.keyCode == 38) {
+                me['@{normal}']();
+                me['@{ui.index}']--;
+                if (me['@{ui.index}'] < 0) {
+                    me['@{ui.index}'] = suggest.length - 1;
+                }
+                me['@{highlight}']();
+            } else if (e.keyCode == 13) {
+                // 回车
+                if (me['@{ui.index}'] > -1 && me['@{ui.index}'] < suggest.length) {
+                    let item = suggest[me['@{ui.index}']];
+                    me['@{normal}']();
+                    me['@{add}'](item);
+                }
+            } else {
+                me['@{suggest.delay.timer}'] = setTimeout(me.wrapAsync(function () {
+                    me['@{ui.update}']();
+                    me['@{show}']();
+                }), 300);
             }
-        } else {
-            me['@{suggest.delay.timer}'] = setTimeout(me.wrapAsync(function () {
-                me['@{ui.update}']();
-                me['@{show}']();
-            }), 300);
         }
 
-        if (!val && e.keyCode == 8) {
+        if (!val && e.type == 'keydown' && e.keyCode == 8) {
             // 删除
             let items = me.updater.get('items');
             let idx = items.length - 1;
@@ -213,6 +215,9 @@ module.exports = Magix.View.extend({
                         idx
                     }
                 });
+                if (me['@{dynamic.list}']) {
+                    me['@{hide}']();
+                }
             }
         }
     },
@@ -258,7 +263,6 @@ module.exports = Magix.View.extend({
         me['@{fire.event}']();
         me['@{ui.focus}']();
         if (this['@{dynamic.list}']) {
-            this['@{data.list}'] = [];
             this['@{hide}']();
         }
     },
@@ -334,6 +338,9 @@ module.exports = Magix.View.extend({
                 show: false
             })
             Monitor['@{remove}'](me);
+            if (me['@{dynamic.list}']) {
+                me['@{data.list}'] = [];
+            }
         }
     },
 
@@ -392,7 +399,8 @@ module.exports = Magix.View.extend({
             me['@{ui.show}'] = true;
             me.updater.digest({
                 show: true,
-                loading: true
+                loading: true,
+                iv: me['@{last.value}']
             })
             Monitor['@{add}'](me);
         }
@@ -411,6 +419,7 @@ module.exports = Magix.View.extend({
         suggest = this.rebuildList(suggest);
         this['@{data.list}'] = suggest;
         me.updater.digest({
+            iv: me['@{last.value}'],
             suggest
         })
     }
