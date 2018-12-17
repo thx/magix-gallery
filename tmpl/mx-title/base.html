@@ -1,5 +1,5 @@
 <div class="page-header">
-    <span class="first-header">{{!content}}</span>
+    <span class="{{=(second ? 'second-header' : 'first-header')}}">{{!content}}</span>
     {{if tip}}
     <span class="page-tip">{{!tip}}</span>
     {{/if}}

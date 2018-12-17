@@ -1,17 +1,11 @@
 let Magix = require('magix');
 let $ = require('$');
+let Base = require('@./base');
 
-module.exports = Magix.View.extend({
-    tmpl: '@second.html',
-    init(extra){
-        let content = extra.content || '标题';
-        let tip = extra.tip || '';
-        this.updater.set({
-            content,
-            tip
-        })
-    },
+module.exports = Base.extend({
     render() {
-        this.updater.digest();
+        this.updater.digest({
+            second: true
+        });
     }
 });

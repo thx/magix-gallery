@@ -14,6 +14,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
+            key: 'items',
+            desc: '当前选中对象，<br>格式：[{value:1,text:"a"}]，同时配置了items和selected，以items为准',
+            type: 'array[object]',
+            def: '[]'
+        }, {
             key: 'text-key',
             desc: '渲染text时读取的key',
             type: 'string',
@@ -28,6 +33,11 @@ module.exports = Magix.View.extend({
             desc: '空状态提示文案',
             type: 'string',
             def: '请选择'
+        }, {
+            key: 'dynamic-list',
+            desc: '动态单个选择',
+            type: 'boolean',
+            def: 'false'
         }, {
             key: 'mx-disabled',
             desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-taginput mx-disabled&gt;&lt;/mx-taginput&gt;',

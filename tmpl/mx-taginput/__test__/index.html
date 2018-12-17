@@ -6,7 +6,10 @@
             name: '一次性获取选中值',
             key: viewId + '_demo1'
         }, {
-            name: '动态更新数据',
+            name: '动态单个选择',
+            key: viewId + '_demo7'
+        }, {
+            name: '动态连续选择',
             key: viewId + '_demo5'
         }, {
             name: '实时获取选中值',
@@ -40,10 +43,11 @@
             <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
             <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
             <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+            <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
         </div>
         <div class="half">
+            <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
             <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
-            <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
         </div>
     </div>
     

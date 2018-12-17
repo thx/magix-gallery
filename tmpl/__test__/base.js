@@ -291,9 +291,9 @@ module.exports = Magix.View.extend({
             }, {
                 name: '样式',
                 subs: [{
-                    name: '常用',
-                    path: '/style/index',
-                    icon: '&#xe62c;'
+                    name: '布局',
+                    path: '/layout/index',
+                    icon: '&#xe6b4;'
                 }, {
                     name: 'checkbox',
                     tip: '包装indeterminate状态，无需操作dom',
@@ -328,6 +328,10 @@ module.exports = Magix.View.extend({
                     name: '空状态',
                     path: '/effects/empty',
                     icon: '&#xe685;'
+                }, {
+                    name: '其他常用',
+                    path: '/style/index',
+                    icon: '&#xe62c;'
                 }]
             }, {
                 name: '业务组件',

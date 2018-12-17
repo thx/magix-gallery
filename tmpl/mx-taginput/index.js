@@ -14,21 +14,20 @@ module.exports = Magix.View.extend({
 
         let textKey = extra.textKey || 'text',
             valueKey = extra.valueKey || 'value';
-        me['@{dynamic.list}'] = extra.dynamicList == 'true';
+        me['@{dynamic.list}'] = (extra.dynamicList + '' === 'true');
         me.updater.set({
             textKey,
             valueKey
         });
-        let list = extra.list || [];
-        list = this.rebuildList(list);
+        let list = me.rebuildList(extra.list || []);
 
         let selected = extra.selected || '';
         selected = (selected + '').split(',');
 
         // 当前已选中的
         let items = [];
-        let selectedItems = extra.items;
-        if (selectedItems) {
+        let selectedItems = extra.items || [];
+        if (selectedItems && selectedItems.length) {
             items = selectedItems;
         } else {
             let map = Magix.toMap(list, 'value');
@@ -262,8 +261,8 @@ module.exports = Magix.View.extend({
         me['@{ui.update}']();
         me['@{fire.event}']();
         me['@{ui.focus}']();
-        if (this['@{dynamic.list}']) {
-            this['@{hide}']();
+        if (me['@{dynamic.list}']) {
+            me['@{hide}']();
         }
     },
 

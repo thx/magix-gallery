@@ -6,6 +6,7 @@
 define("mx-taginput/index",["magix","$","../mx-medusa/util","../mx-monitor/index"],(require,exports,module)=>{
 /*Magix,$,I18n,Monitor*/
 
+/*md5:e0cdda10a9168373e40202f1f05c37c9*/
 var Magix = require("magix");
 var $ = require("$");
 var I18n = require("../mx-medusa/util");
@@ -41,7 +42,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!items.length) {%>';
     if (!items.length) {
         ;
-        $p += '<span mxa="_zs_gallerydU:_" class="_zs_gallery_mx-taginput_index_-placeholder">';
+        $p += '<span mxa="_zs_galleryd1:_" class="_zs_gallery_mx-taginput_index_-placeholder">';
         $line = 6;
         $art = '=placeholder';
         ;
@@ -63,10 +64,10 @@ module.exports = Magix.View.extend({
         $line = 10;
         $art = 'each items as one idx';
         ;
-        $expr = '<%for (var idx = 0, $art_chxodv$art_c = items.length; idx < $art_chxodv$art_c; idx++) {        var one = items[idx]%>';
-        for (var idx = 0, $art_chxodv$art_c = items.length; idx < $art_chxodv$art_c; idx++) {
+        $expr = '<%for (var idx = 0, $art_ckwdumrn$art_c = items.length; idx < $art_ckwdumrn$art_c; idx++) {        var one = items[idx]%>';
+        for (var idx = 0, $art_ckwdumrn$art_c = items.length; idx < $art_ckwdumrn$art_c; idx++) {
             var one = items[idx];
-            $p += '<span mxa="_zs_gallerydU:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
+            $p += '<span mxa="_zs_galleryd1:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
             $line = 12;
             $art = '=one.text';
             ;
@@ -146,7 +147,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (loading) {%>';
         if (loading) {
             ;
-            $p += '<li mxs="_zs_gallerydU:_" class="loading loading-ext _zs_gallery_mx-taginput_index_-loading-small"><span class="loading-anim"></span></li>';
+            $p += '<li mxs="_zs_galleryd1:_" class="loading loading-ext _zs_gallery_mx-taginput_index_-loading-small"><span class="loading-anim"></span></li>';
             $line = 40;
             $art = 'else';
             ;
@@ -165,8 +166,8 @@ module.exports = Magix.View.extend({
                 $line = 42;
                 $art = 'each suggest as item idx';
                 ;
-                $expr = '<%for (var idx = 0, $art_ctehhkfdem$art_c = suggest.length; idx < $art_ctehhkfdem$art_c; idx++) {                var item = suggest[idx]%>';
-                for (var idx = 0, $art_ctehhkfdem$art_c = suggest.length; idx < $art_ctehhkfdem$art_c; idx++) {
+                $expr = '<%for (var idx = 0, $art_cfarcouc$art_c = suggest.length; idx < $art_cfarcouc$art_c; idx++) {                var item = suggest[idx]%>';
+                for (var idx = 0, $art_cfarcouc$art_c = suggest.length; idx < $art_cfarcouc$art_c; idx++) {
                     var item = suggest[idx];
                     $p += '<li class="_zs_gallery_mx-suggest_suggest_-suggest-item" mx-click="' + $viewId + '@{add}({item:\'';
                     $line = 44;
@@ -203,7 +204,7 @@ module.exports = Magix.View.extend({
             }
             else {
                 ;
-                $p += '<li mxa="_zs_gallerydU:b" class="text-center color-9">';
+                $p += '<li mxa="_zs_galleryd1:b" class="text-center color-9">';
                 $line = 51;
                 $art = '=emptyText';
                 ;
@@ -241,7 +242,48 @@ catch (ex) {
     init: function (extra) {
         var me = this;
         var textKey = extra.textKey || 'text', valueKey = extra.valueKey || 'value';
-        var list = extra.list || [];
+        me['@{dynamic.list}'] = (extra.dynamicList + '' === 'true');
+        me.updater.set({
+            textKey: textKey,
+            valueKey: valueKey
+        });
+        var list = me.rebuildList(extra.list || []);
+        var selected = extra.selected || '';
+        selected = (selected + '').split(',');
+        // 当前已选中的
+        var items = [];
+        var selectedItems = extra.items || [];
+        if (selectedItems && selectedItems.length) {
+            items = selectedItems;
+        }
+        else {
+            var map_1 = Magix.toMap(list, 'value');
+            selected.forEach(function (v) {
+                if (map_1[v]) {
+                    items.push(map_1[v]);
+                }
+            });
+        }
+        me['@{data.list}'] = me['@{dynamic.list}'] ? [] : list;
+        me['@{owner.node}'] = $('#' + me.id);
+        var disabledNode = $('#' + me.id + '[mx-disabled]');
+        me.updater.set({
+            viewId: me.id,
+            disabled: disabledNode && (disabledNode.length > 0),
+            placeholder: extra.placeholder || I18n['choose'],
+            emptyText: I18n['empty.text'],
+            inputWidth: MinWidth,
+            items: items
+        });
+        Monitor['@{setup}']();
+        me.on('destroy', function () {
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+        });
+    },
+    rebuildList: function (list) {
+        var updater = this.updater;
+        var textKey = updater.get('textKey'), valueKey = updater.get('valueKey');
         if (typeof list[0] === 'object') {
             // 本身是个对象
             list = list.map(function (item) {
@@ -260,35 +302,7 @@ catch (ex) {
                 };
             });
         }
-        var selected = extra.selected || '';
-        selected = (selected + '').split(',');
-        var map = Magix.toMap(list, 'value');
-        // 当前已选中的
-        var items = [];
-        selected.forEach(function (v) {
-            if (map[v]) {
-                items.push(map[v]);
-            }
-        });
-        me['@{data.list}'] = list;
-        me['@{owner.node}'] = $('#' + me.id);
-        var disabledNode = $('#' + me.id + '[mx-disabled]');
-        me.updater.set({
-            viewId: me.id,
-            disabled: disabledNode && (disabledNode.length > 0),
-            placeholder: extra.placeholder || I18n['choose'],
-            emptyText: I18n['empty.text'],
-            inputWidth: MinWidth,
-            textKey: textKey,
-            valueKey: valueKey,
-            map: map,
-            items: items
-        });
-        Monitor['@{setup}']();
-        me.on('destroy', function () {
-            Monitor['@{remove}'](me);
-            Monitor['@{teardown}']();
-        });
+        return list;
     },
     render: function () {
         this.updater.digest();
@@ -310,17 +324,22 @@ catch (ex) {
         var me = this;
         me['@{ui.index}'] = -1;
         var list = me['@{data.list}'];
-        var items = me.updater.get('items'), map = me.updater.get('map');
-        var selected = items.map(function (item) {
-            return item.value + '';
-        });
+        var items = me.updater.get('items');
         // 输入框内容
         var iv = me['@{last.value}'] || '';
         var suggest = [];
-        for (var i = 0, one = void 0, key = void 0; i < list.length; i++) {
-            one = list[i];
-            if ((selected.indexOf(one.value + '') < 0) && ((one.value + '').indexOf(iv) > -1 || (one.text + '').indexOf(iv) > -1)) {
-                suggest.push(one);
+        if (me['@{dynamic.list}']) {
+            suggest = list;
+        }
+        else {
+            var selected = items.map(function (item) {
+                return item.value + '';
+            });
+            for (var i = 0, one = void 0; i < list.length; i++) {
+                one = list[i];
+                if ((selected.indexOf(one.value + '') < 0) && ((one.value + '').indexOf(iv) > -1 || (one.text + '').indexOf(iv) > -1)) {
+                    suggest.push(one);
+                }
             }
         }
         var tNode = me['@{owner.node}'].find('input');
@@ -367,36 +386,38 @@ catch (ex) {
                 holder.show();
             }
         }
-        var suggest = me.updater.get('suggest');
-        if (e.keyCode == 40) {
-            me['@{normal}']();
-            me['@{ui.index}']++;
-            if (me['@{ui.index}'] >= suggest.length) {
-                me['@{ui.index}'] = 0;
-            }
-            me['@{highlight}']();
-        }
-        else if (e.keyCode == 38) {
-            me['@{normal}']();
-            me['@{ui.index}']--;
-            if (me['@{ui.index}'] < 0) {
-                me['@{ui.index}'] = suggest.length - 1;
-            }
-            me['@{highlight}']();
-        }
-        else if (e.keyCode == 13) {
-            // 回车
-            if (me['@{ui.index}'] > -1 && me['@{ui.index}'] < suggest.length) {
-                var item = suggest[me['@{ui.index}']];
+        if (e.type != 'keydown') {
+            var suggest = me.updater.get('suggest');
+            if (e.keyCode == 40) {
                 me['@{normal}']();
-                me['@{add}'](item);
+                me['@{ui.index}']++;
+                if (me['@{ui.index}'] >= suggest.length) {
+                    me['@{ui.index}'] = 0;
+                }
+                me['@{highlight}']();
             }
-        }
-        else {
-            me['@{suggest.delay.timer}'] = setTimeout(me.wrapAsync(function () {
-                me['@{ui.update}']();
-                me['@{show}']();
-            }), 300);
+            else if (e.keyCode == 38) {
+                me['@{normal}']();
+                me['@{ui.index}']--;
+                if (me['@{ui.index}'] < 0) {
+                    me['@{ui.index}'] = suggest.length - 1;
+                }
+                me['@{highlight}']();
+            }
+            else if (e.keyCode == 13) {
+                // 回车
+                if (me['@{ui.index}'] > -1 && me['@{ui.index}'] < suggest.length) {
+                    var item = suggest[me['@{ui.index}']];
+                    me['@{normal}']();
+                    me['@{add}'](item);
+                }
+            }
+            else {
+                me['@{suggest.delay.timer}'] = setTimeout(me.wrapAsync(function () {
+                    me['@{ui.update}']();
+                    me['@{show}']();
+                }), 300);
+            }
         }
         if (!val && e.type == 'keydown' && e.keyCode == 8) {
             // 删除
@@ -408,6 +429,9 @@ catch (ex) {
                         idx: idx
                     }
                 });
+                if (me['@{dynamic.list}']) {
+                    me['@{hide}']();
+                }
             }
         }
     },
@@ -447,6 +471,9 @@ catch (ex) {
         me['@{ui.update}']();
         me['@{fire.event}']();
         me['@{ui.focus}']();
+        if (me['@{dynamic.list}']) {
+            me['@{hide}']();
+        }
     },
     '@{delete}<click>': function (event) {
         var me = this;
@@ -468,12 +495,17 @@ catch (ex) {
     },
     '@{ui.focus}': function () {
         var me = this;
-        var suggest = me.updater.get('suggest');
-        if (suggest && suggest.length) {
+        if (me['@{dynamic.list}']) {
             me['@{owner.node}'].find('input').focus();
         }
         else {
-            me['@{hide}']();
+            var suggest = me.updater.get('suggest');
+            if (suggest && suggest.length) {
+                me['@{owner.node}'].find('input').focus();
+            }
+            else {
+                me['@{hide}']();
+            }
         }
     },
     '@{normal}': function () {
@@ -509,6 +541,9 @@ catch (ex) {
                 show: false
             });
             Monitor['@{remove}'](me);
+            if (me['@{dynamic.list}']) {
+                me['@{data.list}'] = [];
+            }
         }
     },
     '@{show}': function () {
@@ -560,7 +595,8 @@ catch (ex) {
             me['@{ui.show}'] = true;
             me.updater.digest({
                 show: true,
-                loading: true
+                loading: true,
+                iv: me['@{last.value}']
             });
             Monitor['@{add}'](me);
         }
@@ -575,7 +611,10 @@ catch (ex) {
      */
     update: function (suggest) {
         var me = this;
+        suggest = this.rebuildList(suggest);
+        this['@{data.list}'] = suggest;
         me.updater.digest({
+            iv: me['@{last.value}'],
             suggest: suggest
         });
     }
