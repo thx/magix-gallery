@@ -292,7 +292,7 @@ module.exports = Magix.View.extend({
                 name: '样式',
                 subs: [{
                     name: '布局',
-                    path: '/layout/index',
+                    path: '/grid/index',
                     icon: '&#xe6b4;'
                 }, {
                     name: 'checkbox',

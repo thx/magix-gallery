@@ -41,9 +41,9 @@ module.exports = Magix.View.extend({
     $line = 18;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_imvgxmlzy$art_i = 0, $art_cewlgddri$art_c = headers.length; $art_imvgxmlzy$art_i < $art_cewlgddri$art_c; $art_imvgxmlzy$art_i++) {    var h = headers[$art_imvgxmlzy$art_i]%>';
-    for (var $art_imvgxmlzy$art_i = 0, $art_cewlgddri$art_c = headers.length; $art_imvgxmlzy$art_i < $art_cewlgddri$art_c; $art_imvgxmlzy$art_i++) {
-        var h = headers[$art_imvgxmlzy$art_i];
+    $expr = '<%for (var $art_ipblisa$art_i = 0, $art_cxkortxzjj$art_c = headers.length; $art_ipblisa$art_i < $art_cxkortxzjj$art_c; $art_ipblisa$art_i++) {    var h = headers[$art_ipblisa$art_i]%>';
+    for (var $art_ipblisa$art_i = 0, $art_cxkortxzjj$art_c = headers.length; $art_ipblisa$art_i < $art_cxkortxzjj$art_c; $art_ipblisa$art_i++) {
+        var h = headers[$art_ipblisa$art_i];
         $p += '<a href="#!';
         $line = 19;
         $art = '=h.path';
@@ -95,9 +95,9 @@ module.exports = Magix.View.extend({
     $line = 25;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_icbxbitnu$art_i = 0, $art_cmpudte$art_c = list.length; $art_icbxbitnu$art_i < $art_cmpudte$art_c; $art_icbxbitnu$art_i++) {    var item = list[$art_icbxbitnu$art_i]%>';
-    for (var $art_icbxbitnu$art_i = 0, $art_cmpudte$art_c = list.length; $art_icbxbitnu$art_i < $art_cmpudte$art_c; $art_icbxbitnu$art_i++) {
-        var item = list[$art_icbxbitnu$art_i];
+    $expr = '<%for (var $art_igybzepls$art_i = 0, $art_cacisjd$art_c = list.length; $art_igybzepls$art_i < $art_cacisjd$art_c; $art_igybzepls$art_i++) {    var item = list[$art_igybzepls$art_i]%>';
+    for (var $art_igybzepls$art_i = 0, $art_cacisjd$art_c = list.length; $art_igybzepls$art_i < $art_cacisjd$art_c; $art_igybzepls$art_i++) {
+        var item = list[$art_igybzepls$art_i];
         $p += ' ';
         $line = 26;
         $art = 'if item.name';
@@ -138,9 +138,9 @@ module.exports = Magix.View.extend({
         $line = 33;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_iqgycfebe$art_i = 0, $art_objgklsvdnpia$art_obj = item.subs, $art_cvxatdwig$art_c = $art_objgklsvdnpia$art_obj.length; $art_iqgycfebe$art_i < $art_cvxatdwig$art_c; $art_iqgycfebe$art_i++) {        var sub = $art_objgklsvdnpia$art_obj[$art_iqgycfebe$art_i]%>';
-        for (var $art_iqgycfebe$art_i = 0, $art_objgklsvdnpia$art_obj = item.subs, $art_cvxatdwig$art_c = $art_objgklsvdnpia$art_obj.length; $art_iqgycfebe$art_i < $art_cvxatdwig$art_c; $art_iqgycfebe$art_i++) {
-            var sub = $art_objgklsvdnpia$art_obj[$art_iqgycfebe$art_i];
+        $expr = '<%for (var $art_ivrzee$art_i = 0, $art_objlzukuyyys$art_obj = item.subs, $art_chaszuwfll$art_c = $art_objlzukuyyys$art_obj.length; $art_ivrzee$art_i < $art_chaszuwfll$art_c; $art_ivrzee$art_i++) {        var sub = $art_objlzukuyyys$art_obj[$art_ivrzee$art_i]%>';
+        for (var $art_ivrzee$art_i = 0, $art_objlzukuyyys$art_obj = item.subs, $art_chaszuwfll$art_c = $art_objlzukuyyys$art_obj.length; $art_ivrzee$art_i < $art_chaszuwfll$art_c; $art_ivrzee$art_i++) {
+            var sub = $art_objlzukuyyys$art_obj[$art_ivrzee$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 34;
             $art = 'if (sub.path == path)';
@@ -572,7 +572,7 @@ catch (ex) {
                     name: '样式',
                     subs: [{
                             name: '布局',
-                            path: '/layout/index',
+                            path: '/grid/index',
                             icon: '&#xe6b4;'
                         }, {
                             name: 'checkbox',

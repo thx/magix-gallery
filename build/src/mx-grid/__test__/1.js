@@ -3,15 +3,14 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-layout/__test__/4",["magix","__test__/example","$","mx-footer/index","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+define("mx-grid/__test__/1",["magix","__test__/example","$","../index","mx-copy/index","__test__/hl"],(require,exports,module)=>{
 /*Magix,Base,$*/
-require("mx-footer/index");
+require("../index");
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-layout___test___index_","._zs_gallery_mx-layout___test___index_-dark {\n  padding: 20px;\n  background-color: #3d414d;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -25,26 +24,26 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybS:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybS:_" class="_zs_gallery___test___layout_-eg-content"><div class="_zs_gallery_mx-layout___test___index_-dark"><div mx-view="mx-footer/index?dark=true&products=true"></div></div></div><div mxa="_zs_gallerybS:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybS:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 9;
+    $p += '<div mxa="_zs_galleryd}:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryd}:c" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-grid/index"></div></div><div mxa="_zs_galleryd}:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd}:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 7;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybS:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 11;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryd}:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 9;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybS:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 14;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryd}:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 12;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-footer dark="true" products="true"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-footer/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
     if ($art)
         msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
     msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-layout/__test__/4.html';
+    msg += $expr + '\r\n\tat file:mx-grid/__test__/1.html';
     throw msg;
 } return $p; },
     render: function () {

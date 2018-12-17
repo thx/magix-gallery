@@ -3,14 +3,11 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-layout/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./2","./3","./4","__test__/api"],(require,exports,module)=>{
+define("mx-grid/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","__test__/api"],(require,exports,module)=>{
 /*Magix,$*/
 require("__test__/subs");
 require("mx-title/second");
 require("./1");
-require("./2");
-require("./3");
-require("./4");
 require("__test__/api");
 var Magix = require("magix");
 var $ = require("$");
@@ -31,7 +28,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerybT:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_galleryd|:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'常规版\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'极简版\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'包含营销平台\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'深底色\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
@@ -39,23 +36,11 @@ module.exports = Magix.View.extend({
     $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerybT:a" class="clearfix mb20"><div mx-view="mx-layout/__test__/1" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryd|:a" class="clearfix mb20"><div mx-view="mx-grid/__test__/1" id="';
     $line = 24;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-layout/__test__/2" id="';
-    $line = 25;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-layout/__test__/3" id="';
-    $line = 26;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-layout/__test__/4" id="';
-    $line = 27;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div></div><div id="';
     $line = 30;
     $art = '=viewId';
     ;
@@ -70,7 +55,7 @@ catch (ex) {
     if ($art)
         msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
     msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-layout/__test__/index.html';
+    msg += $expr + '\r\n\tat file:mx-grid/__test__/index.html';
     throw msg;
 } return $p; },
     render: function () {

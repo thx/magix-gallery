@@ -31,7 +31,7 @@ let coms = [
     'cascade',
     'secradio',
     'tree',
-    'layout',
+    'grid',
     'runner',
     'time',
     'form',
