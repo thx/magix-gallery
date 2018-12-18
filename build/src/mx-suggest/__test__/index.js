@@ -34,7 +34,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryc+:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_galleryde:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'事件处理\',\n            key: viewId + \'_demo2\'\n        }, {\n            name: \'动态 + loading\',\n            key: viewId + \'_demo6\'\n        }, {\n            name: \'动态更新数据\',\n            key: viewId + \'_demo1\'\n        }, {\n            name: \'自定义字段\',\n            key: viewId + \'_demo4\'\n        }, {\n            name: \'简单数组\',\n            key: viewId + \'_demo3\'\n        }, {\n            name: \'搜索value和text\',\n            key: viewId + \'_demo5\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }, {\n        name: \'Methods\',\n        key: viewId + \'_method\'\n    }]';
     ;
@@ -42,7 +42,7 @@ module.exports = Magix.View.extend({
     $line = 35;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryc+:a" class="clearfix mb20"><div mxa="_zs_galleryc+:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-suggest/__test__/2" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryde:a" class="clearfix mb20"><div mxa="_zs_galleryde:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-suggest/__test__/2" id="';
     $line = 39;
     $art = '=viewId';
     ;
@@ -54,7 +54,7 @@ module.exports = Magix.View.extend({
     $line = 41;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div></div><div mxa="_zs_galleryc+:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-suggest/__test__/6" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div></div><div mxa="_zs_galleryde:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-suggest/__test__/6" id="';
     $line = 44;
     $art = '=viewId';
     ;
@@ -86,7 +86,7 @@ module.exports = Magix.View.extend({
     $line = 56;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_method" mx-view="mx-title/second?content=Methods"></div><div mxs="_zs_galleryc+:_" class="pr20"><table class="table _zs_gallery___test___layout_-desc-table"><thead><tr><th width="100">方法名</th><th width="200">说明</th><th width="200">调用方法</th></tr></thead><tbody><tr><td>update(list: Array)</td><td>动态更新下拉列表数据</td><td><pre>\nlet instance = Vframe.get(id);\ninstance.invoke(\'update\');\n                        </pre></td></tr><tr><td>showLoading</td><td>动态更新数据时有延时，增加loading</td><td><pre>\nlet instance = Vframe.get(id);\ninstance.invoke(\'showLoading\');\n                        </pre></td></tr><tr><td>hideLoading</td><td>动态更新数据完毕，去掉loading</td><td><pre>\nlet instance = Vframe.get(id);\ninstance.invoke(\'hideLoading\');\n                        </pre></td></tr></tbody></table></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_method" mx-view="mx-title/second?content=Methods"></div><div mxs="_zs_galleryde:_" class="pr20"><table class="table _zs_gallery___test___layout_-desc-table"><thead><tr><th width="100">方法名</th><th width="200">说明</th><th width="200">调用方法</th></tr></thead><tbody><tr><td>update(list: Array)</td><td>动态更新下拉列表数据</td><td><pre>\nlet instance = Vframe.get(id);\ninstance.invoke(\'update\');\n                        </pre></td></tr><tr><td>showLoading</td><td>动态更新数据时有延时，增加loading</td><td><pre>\nlet instance = Vframe.get(id);\ninstance.invoke(\'showLoading\');\n                        </pre></td></tr><tr><td>hideLoading</td><td>动态更新数据完毕，去掉loading</td><td><pre>\nlet instance = Vframe.get(id);\ninstance.invoke(\'hideLoading\');\n                        </pre></td></tr></tbody></table></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

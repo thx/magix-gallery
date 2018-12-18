@@ -11,7 +11,7 @@ module.exports = {
         //钉钉
         let a = i.seprateAttrs('a');
         return `<a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=${a.viewAttrsMap.uid}" ${a.attrs}>
-        <i class="mc-iconfont color-brand">&#xe677;</i>${a.viewAttrsMap.uname}
-    </a>`;
+            <i class="mc-iconfont color-brand">&#xe677;</i>${a.viewAttrsMap.uname}
+        </a>`;
     }
 }

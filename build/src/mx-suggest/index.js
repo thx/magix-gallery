@@ -29,7 +29,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', placeholder = $$.placeholder, viewId = $$.viewId, selectText = $$.selectText, show = $$.show, align = $$.align, loading = $$.loading, list = $$.list, selectedValue = $$.selectedValue, emptyText = $$.emptyText; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryd_:_" class="search-box"><i mxs="_zs_galleryd_:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+    $p += '<div mxv mxa="_zs_gallerydf:_" class="search-box"><i mxs="_zs_gallerydf:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
     $line = 3;
     $art = '=placeholder';
     ;
@@ -84,7 +84,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (loading) {%>';
     if (loading) {
         ;
-        $p += '<li mxs="_zs_galleryd_:a" class="loading loading-ext _zs_gallery_mx-suggest_index_-loading-small"><span class="loading-anim"></span></li>';
+        $p += '<li mxs="_zs_gallerydf:a" class="loading loading-ext _zs_gallery_mx-suggest_index_-loading-small"><span class="loading-anim"></span></li>';
         $line = 17;
         $art = 'else';
         ;
@@ -103,9 +103,9 @@ module.exports = Magix.View.extend({
             $line = 19;
             $art = 'each list as item';
             ;
-            $expr = '<%for (var $art_imdyzbkmqw$art_i = 0, $art_curvujudbo$art_c = list.length; $art_imdyzbkmqw$art_i < $art_curvujudbo$art_c; $art_imdyzbkmqw$art_i++) {            var item = list[$art_imdyzbkmqw$art_i]%>';
-            for (var $art_imdyzbkmqw$art_i = 0, $art_curvujudbo$art_c = list.length; $art_imdyzbkmqw$art_i < $art_curvujudbo$art_c; $art_imdyzbkmqw$art_i++) {
-                var item = list[$art_imdyzbkmqw$art_i];
+            $expr = '<%for (var $art_ixuneedeqr$art_i = 0, $art_cgxwwcqa$art_c = list.length; $art_ixuneedeqr$art_i < $art_cgxwwcqa$art_c; $art_ixuneedeqr$art_i++) {            var item = list[$art_ixuneedeqr$art_i]%>';
+            for (var $art_ixuneedeqr$art_i = 0, $art_cgxwwcqa$art_c = list.length; $art_ixuneedeqr$art_i < $art_cgxwwcqa$art_c; $art_ixuneedeqr$art_i++) {
+                var item = list[$art_ixuneedeqr$art_i];
                 $p += '<li class="_zs_gallery_mx-suggest_suggest_-suggest-item ';
                 $line = 20;
                 $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';
@@ -143,7 +143,7 @@ module.exports = Magix.View.extend({
         }
         else {
             ;
-            $p += '<li mxa="_zs_galleryd_:a" class="text-center color-9">';
+            $p += '<li mxa="_zs_gallerydf:a" class="text-center color-9">';
             $line = 26;
             $art = '=emptyText';
             ;

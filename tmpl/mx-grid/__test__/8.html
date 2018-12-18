@@ -1,0 +1,23 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="container">
+            <mx-grid>
+                <mx-grid.title border="none" content="标题" tip="提示信息" />
+            </mx-grid>
+        </div>
+
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-grid&gt;
+    &lt;mx-grid.title border="none" content="标题" tip="提示信息" /&gt;
+&lt;/mx-grid&gt;
+        </pre>
+    </div>
+</div>

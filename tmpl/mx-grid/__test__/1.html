@@ -1,6 +1,20 @@
 <div class="example">
     <div class="eg-content">
-        <mx-grid/>
+        <div class="mb10">1:1:1:1</div>
+        <mx-grid.row height="100px" gutter="20px" class="mb40">
+            <mx-grid.col class="grid1"></mx-grid.col>
+            <mx-grid.col class="grid2"></mx-grid.col>
+            <mx-grid.col class="grid3"></mx-grid.col>
+            <mx-grid.col class="grid4"></mx-grid.col>
+        </mx-grid.row>
+
+        <div class="mb10">1:3:1</div>
+        <mx-grid.row height="100px" gutter="20px">
+            <mx-grid.col flex="1" class="grid1"></mx-grid.col>
+            <mx-grid.col flex="3" class="grid2"></mx-grid.col>
+            <mx-grid.col flex="1" class="grid3"></mx-grid.col>
+        </mx-grid.row>
+        
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -10,6 +24,20 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-footer/&gt;</pre>
+&lt;!-- 1:1:1:1 --&gt;
+&lt;mx-grid.row height="100px" gutter="20px" class="mb40"&gt;
+    &lt;mx-grid.col class="grid1"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col class="grid2"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col class="grid3"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col class="grid4"&gt;&lt;/mx-grid.col&gt;
+&lt;/mx-grid.row&gt;
+
+&lt;!-- 1:3:1 --&gt;
+&lt;mx-grid.row height="100px" gutter="20px"&gt;
+    &lt;mx-grid.col flex="1" class="grid1"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col flex="3" class="grid2"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col flex="1" class="grid3"&gt;&lt;/mx-grid.col&gt;
+&lt;/mx-grid.row&gt;
+        </pre>
     </div>
 </div>

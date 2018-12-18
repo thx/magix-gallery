@@ -5,6 +5,11 @@ let Validator = require('@../../mx-form/validator');
 module.exports = Magix.View.extend({
     tmpl: '@full.html',
     mixins: [Form, Validator],
+    init(extra){
+        this.updater.set({
+            readonly: extra.readonly
+        })
+    },
     render() {
         this.updater.digest();
     },

@@ -34,6 +34,18 @@ module.exports = Magix.View.extend({
         }]
         let map = {
             0: [{
+                name: '基础规范',
+                subs: [{
+                    name: '双向绑定约定',
+                    tip: '下述详细说明如何写一个支持多参数且数据双向绑定的组件',
+                    path: '/all/bind',
+                    icon: '&#xe6d1;'
+                }, {
+                    name: '_config说明',
+                    path: '/all/config',
+                    icon: '&#xe64f;'
+                }]
+            }, {
                 name: '表单（mixins）',
                 subs: [{
                     name: '支持的校验项',
@@ -292,6 +304,7 @@ module.exports = Magix.View.extend({
                 name: '样式',
                 subs: [{
                     name: '布局',
+                    tip: '基于display:flex实现',
                     path: '/grid/index',
                     icon: '&#xe6b4;'
                 }, {
@@ -417,7 +430,7 @@ module.exports = Magix.View.extend({
             map[i].forEach((item) => {
                 let subs = $.extend(true, [], item.subs);
                 subs.forEach(sub => {
-                    sub.name = headers[i].name + '&nbsp;-&nbsp;' + sub.name;
+                    sub.name = headers[i].name + ' - ' + sub.name;
                 })
                 suggests = suggests.concat(subs);
             })
@@ -472,6 +485,7 @@ module.exports = Magix.View.extend({
             }
         }
         updater.digest({
+            cusSuggest: '',
             headers,
             suggests,
             all,

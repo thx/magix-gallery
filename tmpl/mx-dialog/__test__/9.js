@@ -53,7 +53,7 @@ module.exports = Base.extend({
     },
     'open2<click>'(e) {
         this.mxModal('@./full', {
-            
+            readonly: true
         }, {
             header: {
                 title: '全屏右出浮层'

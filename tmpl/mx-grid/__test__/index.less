@@ -1,4 +1,16 @@
-.dark{
+@import "../../mx-style/_vars";
+
+.grid-loop(@n, @i:1) when (@i <= @n) {
+    .grid@{i}{
+        background-color: @color-brand;
+        opacity: (@i * 0.1);
+    }
+
+    .grid-loop(@n, (@i + 1));
+}
+.grid-loop(10);
+
+.container{
     padding: 20px;
-    background-color: #3d414d;
+    background-color: @color-bg;
 }

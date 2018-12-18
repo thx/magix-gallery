@@ -42,7 +42,7 @@ module.exports = Magix.View.extend({
     $line = 4;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_inner"><i mxs="_zs_gallerycK:_" class="mc-iconfont _zs_gallery_mx-preview_index_-holder">&#xe615;</i></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_inner"><i mxs="_zs_gallerycQ:_" class="mc-iconfont _zs_gallery_mx-preview_index_-holder">&#xe615;</i></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

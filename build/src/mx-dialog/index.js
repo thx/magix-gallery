@@ -43,7 +43,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (closable) {%>';
     if (closable) {
         ;
-        $p += '<a mxs="_zs_galleryar:_" href="javascript:;" mx-click="' + $viewId + '@{close}()" class="_zs_gallery_mx-dialog_index_-dialog-close"><i class="mc-iconfont _zs_gallery_mx-dialog_index_-iconfont-ext">&#xe603;</i></a>';
+        $p += '<a mxs="_zs_galleryas:_" href="javascript:;" mx-click="' + $viewId + '@{close}()" class="_zs_gallery_mx-dialog_index_-dialog-close"><i class="mc-iconfont _zs_gallery_mx-dialog_index_-iconfont-ext">&#xe603;</i></a>';
         $line = 5;
         $art = '/if';
         ;
@@ -65,7 +65,7 @@ module.exports = Magix.View.extend({
         $line = 9;
         $art = '=cntId';
         ;
-        $p += ($expr = '<%=cntId%>', $e(cntId)) + '_header"><span mxa="_zs_galleryar:_" class="fontsize-16">';
+        $p += ($expr = '<%=cntId%>', $e(cntId)) + '_header"><span mxa="_zs_galleryas:_" class="fontsize-16">';
         $line = 10;
         $art = '!fullHeader.title';
         ;
@@ -76,7 +76,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (fullHeader.tip) {%>';
         if (fullHeader.tip) {
             ;
-            $p += '<span mxa="_zs_galleryar:a" class="color-9 ml10">';
+            $p += '<span mxa="_zs_galleryas:a" class="color-9 ml10">';
             $line = 12;
             $art = '!fullHeader.tip';
             ;
@@ -98,7 +98,7 @@ module.exports = Magix.View.extend({
     $line = 17;
     $art = '=cntId';
     ;
-    $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryar:a" class="loading _zs_gallery_mx-dialog_index_-loading-ext"><span class="loading-anim"></span></div></div>';
+    $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryas:a" class="loading _zs_gallery_mx-dialog_index_-loading-ext"><span class="loading-anim"></span></div></div>';
     $line = 25;
     $art = 'if (full && (fullFooter.enter || fullFooter.cancel))';
     ;
@@ -116,7 +116,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (fullFooter.enter) {%>';
         if (fullFooter.enter) {
             ;
-            $p += '<a mxa="_zs_galleryar:b" href="javascript:;" class="btn btn-brand mr10 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_galleryar:c" class="_zs_gallery_mx-dialog_index_-submit-text">';
+            $p += '<a mxa="_zs_galleryas:b" href="javascript:;" class="btn btn-brand mr10 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_galleryas:c" class="_zs_gallery_mx-dialog_index_-submit-text">';
             $line = 29;
             $art = '=fullFooter.enterText';
             ;
@@ -134,7 +134,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (fullFooter.cancel) {%>';
         if (fullFooter.cancel) {
             ;
-            $p += '<a mxa="_zs_galleryar:d" href="javascript:;" class="btn mr10" mx-click="' + $viewId + '@{close}()">';
+            $p += '<a mxa="_zs_galleryas:d" href="javascript:;" class="btn mr10" mx-click="' + $viewId + '@{close}()">';
             $line = 34;
             $art = '=fullFooter.cancelText';
             ;

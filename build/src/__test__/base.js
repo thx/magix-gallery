@@ -28,12 +28,12 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', selectedValue = $$.selectedValue, suggests = $$.suggests, headers = $$.headers, fixed = $$.fixed, minHeight = $$.minHeight, list = $$.list, path = $$.path, cur = $$.cur, view = $$.view, prev = $$.prev, next = $$.next; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerya:_" class="_zs_gallery___test___base_-base-header"><div mxs="_zs_gallerya:_" class="_zs_gallery___test___base_-header-line"></div><div mxs="_zs_gallerya:a" class="_zs_gallery___test___base_-base-logo"><img src="https://img.alicdn.com/tfs/TB1719eJVGWBuNjy0FbXXb4sXXa-432-355.png" width="38"><span class="fontsize-18 lh32 ml10">Magix Galleries</span></div><div mxv mxa="_zs_gallerya:a" class="_zs_gallery___test___base_-base-search"><div mxv="suggests" class="w200" mx-suggest="' + $viewId + 'suggest()" mx-view="mx-suggest/index?selected=';
+} ; var $g = '', $_temp, $p = '', cusSuggest = $$.cusSuggest, suggests = $$.suggests, headers = $$.headers, fixed = $$.fixed, minHeight = $$.minHeight, list = $$.list, path = $$.path, cur = $$.cur, view = $$.view, prev = $$.prev, next = $$.next; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerya:_" class="_zs_gallery___test___base_-base-header"><div mxs="_zs_gallerya:_" class="_zs_gallery___test___base_-header-line"></div><div mxs="_zs_gallerya:a" class="_zs_gallery___test___base_-base-logo"><img src="https://img.alicdn.com/tfs/TB1719eJVGWBuNjy0FbXXb4sXXa-432-355.png" width="38"><span class="fontsize-18 lh32 ml10">Magix Galleries</span></div><div mxv mxa="_zs_gallerya:a" class="_zs_gallery___test___base_-base-search"><div mxv="suggests" class="w260" mx-suggest="' + $viewId + 'suggest()" mx-view="mx-suggest/index?selected=';
     $line = 9;
-    $art = '=selectedValue';
+    $art = '=cusSuggest';
     ;
-    $p += ($expr = '<%!$eu(selectedValue)%>', $eu(selectedValue)) + '&placeholder=%E6%90%9C%E7%B4%A2&list=';
+    $p += ($expr = '<%!$eu(cusSuggest)%>', $eu(cusSuggest)) + '&placeholder=%E6%90%9C%E7%B4%A2&list=';
     $line = 11;
     $art = '@suggests';
     ;
@@ -41,9 +41,9 @@ module.exports = Magix.View.extend({
     $line = 18;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_iufyfdshb$art_i = 0, $art_cwgiedy$art_c = headers.length; $art_iufyfdshb$art_i < $art_cwgiedy$art_c; $art_iufyfdshb$art_i++) {    var h = headers[$art_iufyfdshb$art_i]%>';
-    for (var $art_iufyfdshb$art_i = 0, $art_cwgiedy$art_c = headers.length; $art_iufyfdshb$art_i < $art_cwgiedy$art_c; $art_iufyfdshb$art_i++) {
-        var h = headers[$art_iufyfdshb$art_i];
+    $expr = '<%for (var $art_iizbr$art_i = 0, $art_ctyq$art_c = headers.length; $art_iizbr$art_i < $art_ctyq$art_c; $art_iizbr$art_i++) {    var h = headers[$art_iizbr$art_i]%>';
+    for (var $art_iizbr$art_i = 0, $art_ctyq$art_c = headers.length; $art_iizbr$art_i < $art_ctyq$art_c; $art_iizbr$art_i++) {
+        var h = headers[$art_iizbr$art_i];
         $p += '<a href="#!';
         $line = 19;
         $art = '=h.path';
@@ -95,9 +95,9 @@ module.exports = Magix.View.extend({
     $line = 25;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_incasmy$art_i = 0, $art_cdtzhxnvji$art_c = list.length; $art_incasmy$art_i < $art_cdtzhxnvji$art_c; $art_incasmy$art_i++) {    var item = list[$art_incasmy$art_i]%>';
-    for (var $art_incasmy$art_i = 0, $art_cdtzhxnvji$art_c = list.length; $art_incasmy$art_i < $art_cdtzhxnvji$art_c; $art_incasmy$art_i++) {
-        var item = list[$art_incasmy$art_i];
+    $expr = '<%for (var $art_iimeygtel$art_i = 0, $art_cpbsshmfkdg$art_c = list.length; $art_iimeygtel$art_i < $art_cpbsshmfkdg$art_c; $art_iimeygtel$art_i++) {    var item = list[$art_iimeygtel$art_i]%>';
+    for (var $art_iimeygtel$art_i = 0, $art_cpbsshmfkdg$art_c = list.length; $art_iimeygtel$art_i < $art_cpbsshmfkdg$art_c; $art_iimeygtel$art_i++) {
+        var item = list[$art_iimeygtel$art_i];
         $p += ' ';
         $line = 26;
         $art = 'if item.name';
@@ -138,9 +138,9 @@ module.exports = Magix.View.extend({
         $line = 33;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_isvulrtjqik$art_i = 0, $art_objiiyalyj$art_obj = item.subs, $art_cntophxxq$art_c = $art_objiiyalyj$art_obj.length; $art_isvulrtjqik$art_i < $art_cntophxxq$art_c; $art_isvulrtjqik$art_i++) {        var sub = $art_objiiyalyj$art_obj[$art_isvulrtjqik$art_i]%>';
-        for (var $art_isvulrtjqik$art_i = 0, $art_objiiyalyj$art_obj = item.subs, $art_cntophxxq$art_c = $art_objiiyalyj$art_obj.length; $art_isvulrtjqik$art_i < $art_cntophxxq$art_c; $art_isvulrtjqik$art_i++) {
-            var sub = $art_objiiyalyj$art_obj[$art_isvulrtjqik$art_i];
+        $expr = '<%for (var $art_ihzuzsrof$art_i = 0, $art_objggzbeftuu$art_obj = item.subs, $art_cqbiqnewk$art_c = $art_objggzbeftuu$art_obj.length; $art_ihzuzsrof$art_i < $art_cqbiqnewk$art_c; $art_ihzuzsrof$art_i++) {        var sub = $art_objggzbeftuu$art_obj[$art_ihzuzsrof$art_i]%>';
+        for (var $art_ihzuzsrof$art_i = 0, $art_objggzbeftuu$art_obj = item.subs, $art_cqbiqnewk$art_c = $art_objggzbeftuu$art_obj.length; $art_ihzuzsrof$art_i < $art_cqbiqnewk$art_c; $art_ihzuzsrof$art_i++) {
+            var sub = $art_objggzbeftuu$art_obj[$art_ihzuzsrof$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 34;
             $art = 'if (sub.path == path)';
@@ -314,6 +314,18 @@ catch (ex) {
             }];
         var map = {
             0: [{
+                    name: '基础规范',
+                    subs: [{
+                            name: '双向绑定约定',
+                            tip: '下述详细说明如何写一个支持多参数且数据双向绑定的组件',
+                            path: '/all/bind',
+                            icon: '&#xe6d1;'
+                        }, {
+                            name: '_config说明',
+                            path: '/all/config',
+                            icon: '&#xe64f;'
+                        }]
+                }, {
                     name: '表单（mixins）',
                     subs: [{
                             name: '支持的校验项',
@@ -572,6 +584,7 @@ catch (ex) {
                     name: '样式',
                     subs: [{
                             name: '布局',
+                            tip: '基于display:flex实现',
                             path: '/grid/index',
                             icon: '&#xe6b4;'
                         }, {
@@ -697,7 +710,7 @@ catch (ex) {
             map[i_1].forEach(function (item) {
                 var subs = $.extend(true, [], item.subs);
                 subs.forEach(function (sub) {
-                    sub.name = headers[i_1].name + '&nbsp;-&nbsp;' + sub.name;
+                    sub.name = headers[i_1].name + ' - ' + sub.name;
                 });
                 suggests = suggests.concat(subs);
             });
@@ -752,6 +765,7 @@ catch (ex) {
             }
         }
         updater.digest({
+            cusSuggest: '',
             headers: headers,
             suggests: suggests,
             all: all,

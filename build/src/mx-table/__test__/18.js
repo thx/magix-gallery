@@ -27,12 +27,12 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', list = $$.list, groups = $$.groups, sortField = $$.sortField, sortBy = $$.sortBy, orderFieldKey = $$.orderFieldKey, orderByKey = $$.orderByKey, format = $$.format, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydo:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerydo:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerydo:_" class="mb20"><div class="mb5">1. 默认使用 “指标field1” + “升序” 进行排序：sort-field（当前排序字段）；sort-orderby（当前排序方式）</div><div class="mb5 pl15"><pre class="tip-content">\n&lt;th class="field-item"&gt;\n    指标&#123;&#123;=field&#125;&#125;\n    &lt;span sort-trigger="&#123;&#123;=field&#125;&#125;"\n        sort-field="&#123;&#123;=sortField&#125;&#125;"\n        sort-orderby="&#123;&#123;=sortBy&#125;&#125;"&gt;&lt;/span&gt;\n&lt;/th&gt;\n                </pre></div><div class="mb5">2. 自定义路由参数：当前页面有两个表格，都需要排序，如果都用默认的路由参数（orderField 和 orderBy）会存在冲突，需要自定义路由参数</div><div class="mb5 pl15"><pre class="tip-content mb5">\n&lt;th class="field-item"&gt;\n指标&#123;&#123;=field&#125;&#125;\n&lt;span sort-trigger="&#123;&#123;=field&#125;&#125;"\n    order-field-key="&#123;&#123;=orderFieldKey&#125;&#125;"\n    order-by-key="&#123;&#123;=orderByKey&#125;&#125;"&gt;&lt;/span&gt;\n&lt;/th&gt;\n                </pre><div class="mb5">最终路由上显示为：</div><pre class="tip-content">\n{\n    [order-field-key]: sort-trigger,\n    [order-by-key]: desc or asc\n}\n                </pre></div></div><div mxa="_zs_gallerydo:b" mx-view="mx-table/index?sticky=true" class="mb40"><div><table mxa="_zs_gallerydo:c" class="table" left="true" width="400"><thead mxs="_zs_gallerydo:a"><tr><th>固定1</th><th>固定2</th><th>固定3</th></tr></thead><tbody>';
+    $p += '<div mxa="_zs_gallerydu:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerydu:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerydu:_" class="mb20"><div class="mb5">1. 默认使用 “指标field1” + “升序” 进行排序：sort-field（当前排序字段）；sort-orderby（当前排序方式）</div><div class="mb5 pl15"><pre class="tip-content">\n&lt;th class="field-item"&gt;\n    指标&#123;&#123;=field&#125;&#125;\n    &lt;span sort-trigger="&#123;&#123;=field&#125;&#125;"\n        sort-field="&#123;&#123;=sortField&#125;&#125;"\n        sort-orderby="&#123;&#123;=sortBy&#125;&#125;"&gt;&lt;/span&gt;\n&lt;/th&gt;\n                </pre></div><div class="mb5">2. 自定义路由参数：当前页面有两个表格，都需要排序，如果都用默认的路由参数（orderField 和 orderBy）会存在冲突，需要自定义路由参数</div><div class="mb5 pl15"><pre class="tip-content mb5">\n&lt;th class="field-item"&gt;\n指标&#123;&#123;=field&#125;&#125;\n&lt;span sort-trigger="&#123;&#123;=field&#125;&#125;"\n    order-field-key="&#123;&#123;=orderFieldKey&#125;&#125;"\n    order-by-key="&#123;&#123;=orderByKey&#125;&#125;"&gt;&lt;/span&gt;\n&lt;/th&gt;\n                </pre><div class="mb5">最终路由上显示为：</div><pre class="tip-content">\n{\n    [order-field-key]: sort-trigger,\n    [order-by-key]: desc or asc\n}\n                </pre></div></div><div mxa="_zs_gallerydu:b" mx-view="mx-table/index?sticky=true" class="mb40"><div><table mxa="_zs_gallerydu:c" class="table" left="true" width="400"><thead mxs="_zs_gallerydu:a"><tr><th>固定1</th><th>固定2</th><th>固定3</th></tr></thead><tbody>';
     $line = 45;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cjxslayqq$art_c = list.length; index < $art_cjxslayqq$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cjxslayqq$art_c = list.length; index < $art_cjxslayqq$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_ckzaymfxl$art_c = list.length; index < $art_ckzaymfxl$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_ckzaymfxl$art_c = list.length; index < $art_ckzaymfxl$art_c; index++) {
         var item = list[index];
         $p += '<tr><td>';
         $line = 47;
@@ -53,18 +53,18 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</tbody></table></div><div><table mxa="_zs_gallerydo:d" class="table" center="true" width="1200"><thead><tr>';
+    $p += '</tbody></table></div><div><table mxa="_zs_gallerydu:d" class="table" center="true" width="1200"><thead><tr>';
     $line = 58;
     $art = 'each groups as group';
     ;
-    $expr = '<%for (var $art_ivovkh$art_i = 0, $art_cjcpkiva$art_c = groups.length; $art_ivovkh$art_i < $art_cjcpkiva$art_c; $art_ivovkh$art_i++) {    var group = groups[$art_ivovkh$art_i]%>';
-    for (var $art_ivovkh$art_i = 0, $art_cjcpkiva$art_c = groups.length; $art_ivovkh$art_i < $art_cjcpkiva$art_c; $art_ivovkh$art_i++) {
-        var group = groups[$art_ivovkh$art_i];
+    $expr = '<%for (var $art_iobllnzrcpc$art_i = 0, $art_ccqujuqwe$art_c = groups.length; $art_iobllnzrcpc$art_i < $art_ccqujuqwe$art_c; $art_iobllnzrcpc$art_i++) {    var group = groups[$art_iobllnzrcpc$art_i]%>';
+    for (var $art_iobllnzrcpc$art_i = 0, $art_ccqujuqwe$art_c = groups.length; $art_iobllnzrcpc$art_i < $art_ccqujuqwe$art_c; $art_iobllnzrcpc$art_i++) {
+        var group = groups[$art_iobllnzrcpc$art_i];
         $p += '<th class="field-group" colspan="';
         $line = 59;
         $art = '=group.fields.length';
         ;
-        $p += ($expr = '<%=group.fields.length%>', $e(group.fields.length)) + '"><div mxa="_zs_gallerydo:e" class="group-name">';
+        $p += ($expr = '<%=group.fields.length%>', $e(group.fields.length)) + '"><div mxa="_zs_gallerydu:e" class="group-name">';
         $line = 60;
         $art = '=group.name';
         ;
@@ -79,17 +79,17 @@ module.exports = Base.extend({
     $line = 65;
     $art = 'each groups as group';
     ;
-    $expr = '<%for (var $art_imlbeh$art_i = 0, $art_cbbhskg$art_c = groups.length; $art_imlbeh$art_i < $art_cbbhskg$art_c; $art_imlbeh$art_i++) {    var group = groups[$art_imlbeh$art_i]%>';
-    for (var $art_imlbeh$art_i = 0, $art_cbbhskg$art_c = groups.length; $art_imlbeh$art_i < $art_cbbhskg$art_c; $art_imlbeh$art_i++) {
-        var group = groups[$art_imlbeh$art_i];
+    $expr = '<%for (var $art_iiyyzhax$art_i = 0, $art_chngjpbc$art_c = groups.length; $art_iiyyzhax$art_i < $art_chngjpbc$art_c; $art_iiyyzhax$art_i++) {    var group = groups[$art_iiyyzhax$art_i]%>';
+    for (var $art_iiyyzhax$art_i = 0, $art_chngjpbc$art_c = groups.length; $art_iiyyzhax$art_i < $art_chngjpbc$art_c; $art_iiyyzhax$art_i++) {
+        var group = groups[$art_iiyyzhax$art_i];
         $p += ' ';
         $line = 66;
         $art = 'each group.fields as field';
         ;
-        $expr = '<%for (var $art_ixntkcvial$art_i = 0, $art_objfieeqsrv$art_obj = group.fields, $art_cyvlssez$art_c = $art_objfieeqsrv$art_obj.length; $art_ixntkcvial$art_i < $art_cyvlssez$art_c; $art_ixntkcvial$art_i++) {        var field = $art_objfieeqsrv$art_obj[$art_ixntkcvial$art_i]%>';
-        for (var $art_ixntkcvial$art_i = 0, $art_objfieeqsrv$art_obj = group.fields, $art_cyvlssez$art_c = $art_objfieeqsrv$art_obj.length; $art_ixntkcvial$art_i < $art_cyvlssez$art_c; $art_ixntkcvial$art_i++) {
-            var field = $art_objfieeqsrv$art_obj[$art_ixntkcvial$art_i];
-            $p += '<th mxa="_zs_gallerydo:f" class="field-item">指标';
+        $expr = '<%for (var $art_itlbzsmun$art_i = 0, $art_objoffiuqllc$art_obj = group.fields, $art_coabkm$art_c = $art_objoffiuqllc$art_obj.length; $art_itlbzsmun$art_i < $art_coabkm$art_c; $art_itlbzsmun$art_i++) {        var field = $art_objoffiuqllc$art_obj[$art_itlbzsmun$art_i]%>';
+        for (var $art_itlbzsmun$art_i = 0, $art_objoffiuqllc$art_obj = group.fields, $art_coabkm$art_c = $art_objoffiuqllc$art_obj.length; $art_itlbzsmun$art_i < $art_coabkm$art_c; $art_itlbzsmun$art_i++) {
+            var field = $art_objoffiuqllc$art_obj[$art_itlbzsmun$art_i];
+            $p += '<th mxa="_zs_gallerydu:f" class="field-item">指标';
             $line = 68;
             $art = '=field';
             ;
@@ -131,8 +131,8 @@ module.exports = Base.extend({
     $line = 80;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_clzrohjmop$art_c = list.length; index < $art_clzrohjmop$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_clzrohjmop$art_c = list.length; index < $art_clzrohjmop$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cqyfhdbn$art_c = list.length; index < $art_cqyfhdbn$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cqyfhdbn$art_c = list.length; index < $art_cqyfhdbn$art_c; index++) {
         var item = list[index];
         $p += '<tr class="';
         $line = 81;
@@ -142,16 +142,16 @@ module.exports = Base.extend({
         $line = 82;
         $art = 'each groups as group';
         ;
-        $expr = '<%for (var $art_iutptrupmc$art_i = 0, $art_cdncc$art_c = groups.length; $art_iutptrupmc$art_i < $art_cdncc$art_c; $art_iutptrupmc$art_i++) {        var group = groups[$art_iutptrupmc$art_i]%>';
-        for (var $art_iutptrupmc$art_i = 0, $art_cdncc$art_c = groups.length; $art_iutptrupmc$art_i < $art_cdncc$art_c; $art_iutptrupmc$art_i++) {
-            var group = groups[$art_iutptrupmc$art_i];
+        $expr = '<%for (var $art_iealrdjj$art_i = 0, $art_cwejyzel$art_c = groups.length; $art_iealrdjj$art_i < $art_cwejyzel$art_c; $art_iealrdjj$art_i++) {        var group = groups[$art_iealrdjj$art_i]%>';
+        for (var $art_iealrdjj$art_i = 0, $art_cwejyzel$art_c = groups.length; $art_iealrdjj$art_i < $art_cwejyzel$art_c; $art_iealrdjj$art_i++) {
+            var group = groups[$art_iealrdjj$art_i];
             $p += ' ';
             $line = 83;
             $art = 'each group.fields as field';
             ;
-            $expr = '<%for (var $art_iduxqtv$art_i = 0, $art_objyexrhtlxf$art_obj = group.fields, $art_cxenzbbpsfq$art_c = $art_objyexrhtlxf$art_obj.length; $art_iduxqtv$art_i < $art_cxenzbbpsfq$art_c; $art_iduxqtv$art_i++) {            var field = $art_objyexrhtlxf$art_obj[$art_iduxqtv$art_i]%>';
-            for (var $art_iduxqtv$art_i = 0, $art_objyexrhtlxf$art_obj = group.fields, $art_cxenzbbpsfq$art_c = $art_objyexrhtlxf$art_obj.length; $art_iduxqtv$art_i < $art_cxenzbbpsfq$art_c; $art_iduxqtv$art_i++) {
-                var field = $art_objyexrhtlxf$art_obj[$art_iduxqtv$art_i];
+            $expr = '<%for (var $art_ikgutjdxy$art_i = 0, $art_objwowlpmjq$art_obj = group.fields, $art_csszqaoyt$art_c = $art_objwowlpmjq$art_obj.length; $art_ikgutjdxy$art_i < $art_csszqaoyt$art_c; $art_ikgutjdxy$art_i++) {            var field = $art_objwowlpmjq$art_obj[$art_ikgutjdxy$art_i]%>';
+            for (var $art_ikgutjdxy$art_i = 0, $art_objwowlpmjq$art_obj = group.fields, $art_csszqaoyt$art_c = $art_objwowlpmjq$art_obj.length; $art_ikgutjdxy$art_i < $art_csszqaoyt$art_c; $art_ikgutjdxy$art_i++) {
+                var field = $art_objwowlpmjq$art_obj[$art_ikgutjdxy$art_i];
                 $p += '<td>';
                 $line = 84;
                 $art = '=format(item[field])';
@@ -177,27 +177,27 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</tbody></table></div></div></div><div mxa="_zs_gallerydo:g" class="clearfix"><div mxa="_zs_gallerydo:h" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_gallerydo:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</tbody></table></div></div></div><div mxa="_zs_gallerydu:g" class="clearfix"><div mxa="_zs_gallerydu:h" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_gallerydu:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 96;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydo:i" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydu:i" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 98;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydo:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydu:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 101;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-table sticky="true" class="mb40"&gt;\n    &lt;table class="table" left="true" width="400"&gt;\n        &lt;thead&gt;\n            &lt;tr&gt;\n                &lt;th&gt;固定1&lt;/th&gt;\n                &lt;th&gt;固定2&lt;/th&gt;\n                &lt;th&gt;固定3&lt;/th&gt;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;each list as item index&#125;&#125;\n                &lt;tr&gt;\n                    &lt;td&gt;&#123;&#123;=item.fixed1&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.fixed2&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.fixed3&#125;&#125;&lt;/td&gt;\n                &lt;/tr&gt;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n    &lt;table class="table" center="true" width="1200"&gt; \n        &lt;thead&gt;\n            &lt;tr&gt;\n                &#123;&#123;each groups as group&#125;&#125;\n                    &lt;th class="field-group" colspan="&#123;&#123;=group.fields.length&#125;&#125;"&gt;\n                        &lt;div class="group-name"&gt;&#123;&#123;=group.name&#125;&#125;&lt;/div&gt;\n                    &lt;/th&gt;\n                &#123;&#123;/each&#125;&#125;\n            &lt;/tr&gt;\n            &lt;tr&gt;\n                &#123;&#123;each groups as group&#125;&#125;\n                    &#123;&#123;each group.fields as field&#125;&#125;\n                    &lt;th class="field-item"&gt;\n                        指标&#123;&#123;=field&#125;&#125;\n                        &lt;span sort-trigger="&#123;&#123;=field&#125;&#125;"\n                            sort-field="&#123;&#123;=sortField&#125;&#125;"\n                            sort-orderby="&#123;&#123;=sortBy&#125;&#125;"\n                            order-field-key="&#123;&#123;=orderFieldKey&#125;&#125;"\n                            order-by-key="&#123;&#123;=orderByKey&#125;&#125;"&gt;&lt;/span&gt;\n                    &lt;/th&gt;\n                    &#123;&#123;/each&#125;&#125;\n                &#123;&#123;/each&#125;&#125;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;each list as item index&#125;&#125;\n                &lt;tr class="&#123;&#123;= (index+1==list.length) ? \'last-tr\' : \'\'&#125;&#125;"&gt;\n                    &#123;&#123;each groups as group&#125;&#125;\n                        &#123;&#123;each group.fields as field&#125;&#125;\n                        &lt;td&gt;&#123;&#123;=format(item[field])&#125;&#125;&lt;/td&gt;\n                        &#123;&#123;/each&#125;&#125;\n                    &#123;&#123;/each&#125;&#125;\n                &lt;/tr&gt;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n&lt;/mx-table&gt;\n            </pre></div><div mxa="_zs_gallerydo:j" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerydo:d" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-table sticky="true" class="mb40"&gt;\n    &lt;table class="table" left="true" width="400"&gt;\n        &lt;thead&gt;\n            &lt;tr&gt;\n                &lt;th&gt;固定1&lt;/th&gt;\n                &lt;th&gt;固定2&lt;/th&gt;\n                &lt;th&gt;固定3&lt;/th&gt;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;each list as item index&#125;&#125;\n                &lt;tr&gt;\n                    &lt;td&gt;&#123;&#123;=item.fixed1&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.fixed2&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.fixed3&#125;&#125;&lt;/td&gt;\n                &lt;/tr&gt;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n    &lt;table class="table" center="true" width="1200"&gt; \n        &lt;thead&gt;\n            &lt;tr&gt;\n                &#123;&#123;each groups as group&#125;&#125;\n                    &lt;th class="field-group" colspan="&#123;&#123;=group.fields.length&#125;&#125;"&gt;\n                        &lt;div class="group-name"&gt;&#123;&#123;=group.name&#125;&#125;&lt;/div&gt;\n                    &lt;/th&gt;\n                &#123;&#123;/each&#125;&#125;\n            &lt;/tr&gt;\n            &lt;tr&gt;\n                &#123;&#123;each groups as group&#125;&#125;\n                    &#123;&#123;each group.fields as field&#125;&#125;\n                    &lt;th class="field-item"&gt;\n                        指标&#123;&#123;=field&#125;&#125;\n                        &lt;span sort-trigger="&#123;&#123;=field&#125;&#125;"\n                            sort-field="&#123;&#123;=sortField&#125;&#125;"\n                            sort-orderby="&#123;&#123;=sortBy&#125;&#125;"\n                            order-field-key="&#123;&#123;=orderFieldKey&#125;&#125;"\n                            order-by-key="&#123;&#123;=orderByKey&#125;&#125;"&gt;&lt;/span&gt;\n                    &lt;/th&gt;\n                    &#123;&#123;/each&#125;&#125;\n                &#123;&#123;/each&#125;&#125;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;each list as item index&#125;&#125;\n                &lt;tr class="&#123;&#123;= (index+1==list.length) ? \'last-tr\' : \'\'&#125;&#125;"&gt;\n                    &#123;&#123;each groups as group&#125;&#125;\n                        &#123;&#123;each group.fields as field&#125;&#125;\n                        &lt;td&gt;&#123;&#123;=format(item[field])&#125;&#125;&lt;/td&gt;\n                        &#123;&#123;/each&#125;&#125;\n                    &#123;&#123;/each&#125;&#125;\n                &lt;/tr&gt;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n&lt;/mx-table&gt;\n            </pre></div><div mxa="_zs_gallerydu:j" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerydu:d" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 162;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerydo:k" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerydu:k" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 164;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerydo:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerydu:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 167;
     $art = '=viewId';
     ;

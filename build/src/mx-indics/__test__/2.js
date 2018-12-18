@@ -28,7 +28,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', fields = $$.fields, defaults = $$.defaults, custom = $$.custom, customs = $$.customs, custom1 = $$.custom1, selected = $$.selected, map = $$.map, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerybR:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybR:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerybR:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl">不限制可选择个数 + 指标可排序</div></div><div mxv mxa="_zs_gallerybR:b" class="mb20"><div mxv="fields,defaults,customs" mx-change="' + $viewId + 'change()" mx-view="mx-indics/index?fields=';
+    $p += '<div mxv mxa="_zs_gallerybX:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybX:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerybX:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl">不限制可选择个数 + 指标可排序</div></div><div mxv mxa="_zs_gallerybX:b" class="mb20"><div mxv="fields,defaults,customs" mx-change="' + $viewId + 'change()" mx-view="mx-indics/index?fields=';
     $line = 9;
     $art = '@fields';
     ;
@@ -51,14 +51,14 @@ module.exports = Base.extend({
     $expr = '<%if (custom1) {%>';
     if (custom1) {
         ;
-        $p += '<div mxa="_zs_gallerybR:c" class="clearfix mb10 pr lh22" style="padding-left: 120px"><span mxs="_zs_gallerybR:a" style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>自定义指标：</span>';
+        $p += '<div mxa="_zs_gallerybX:c" class="clearfix mb10 pr lh22" style="padding-left: 120px"><span mxs="_zs_gallerybX:a" style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>自定义指标：</span>';
         $line = 19;
         $art = 'each selected as key';
         ;
-        $expr = '<%for (var $art_igluuevbr$art_i = 0, $art_cpnptgcaf$art_c = selected.length; $art_igluuevbr$art_i < $art_cpnptgcaf$art_c; $art_igluuevbr$art_i++) {        var key = selected[$art_igluuevbr$art_i]%>';
-        for (var $art_igluuevbr$art_i = 0, $art_cpnptgcaf$art_c = selected.length; $art_igluuevbr$art_i < $art_cpnptgcaf$art_c; $art_igluuevbr$art_i++) {
-            var key = selected[$art_igluuevbr$art_i];
-            $p += '<span mxa="_zs_gallerybR:d" class="fl mr10">';
+        $expr = '<%for (var $art_izlyxpeb$art_i = 0, $art_ccgirooqp$art_c = selected.length; $art_izlyxpeb$art_i < $art_ccgirooqp$art_c; $art_izlyxpeb$art_i++) {        var key = selected[$art_izlyxpeb$art_i]%>';
+        for (var $art_izlyxpeb$art_i = 0, $art_ccgirooqp$art_c = selected.length; $art_izlyxpeb$art_i < $art_ccgirooqp$art_c; $art_izlyxpeb$art_i++) {
+            var key = selected[$art_izlyxpeb$art_i];
+            $p += '<span mxa="_zs_gallerybX:d" class="fl mr10">';
             $line = 20;
             $art = '=map[key]';
             ;
@@ -81,14 +81,14 @@ module.exports = Base.extend({
     }
     else {
         ;
-        $p += '<div mxa="_zs_gallerybR:e" class="clearfix mb10 pr lh22" style="padding-left: 110px"><span mxs="_zs_gallerybR:b" style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>默认指标：</span>';
+        $p += '<div mxa="_zs_gallerybX:e" class="clearfix mb10 pr lh22" style="padding-left: 110px"><span mxs="_zs_gallerybX:b" style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>默认指标：</span>';
         $line = 26;
         $art = 'each defaults as key';
         ;
-        $expr = '<%for (var $art_iedfdaun$art_i = 0, $art_ceurjmqni$art_c = defaults.length; $art_iedfdaun$art_i < $art_ceurjmqni$art_c; $art_iedfdaun$art_i++) {        var key = defaults[$art_iedfdaun$art_i]%>';
-        for (var $art_iedfdaun$art_i = 0, $art_ceurjmqni$art_c = defaults.length; $art_iedfdaun$art_i < $art_ceurjmqni$art_c; $art_iedfdaun$art_i++) {
-            var key = defaults[$art_iedfdaun$art_i];
-            $p += '<span mxa="_zs_gallerybR:f" class="fl mr10">';
+        $expr = '<%for (var $art_inewhmf$art_i = 0, $art_cbdkefzj$art_c = defaults.length; $art_inewhmf$art_i < $art_cbdkefzj$art_c; $art_inewhmf$art_i++) {        var key = defaults[$art_inewhmf$art_i]%>';
+        for (var $art_inewhmf$art_i = 0, $art_cbdkefzj$art_c = defaults.length; $art_inewhmf$art_i < $art_cbdkefzj$art_c; $art_inewhmf$art_i++) {
+            var key = defaults[$art_inewhmf$art_i];
+            $p += '<span mxa="_zs_gallerybX:f" class="fl mr10">';
             $line = 27;
             $art = '=map[key]';
             ;
@@ -110,15 +110,15 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxa="_zs_gallerybR:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybR:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</div><div mxa="_zs_gallerybX:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybX:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 34;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybR:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybX:h" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 36;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybR:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybX:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 39;
     $art = '=viewId';
     ;

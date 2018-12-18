@@ -3,15 +3,14 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-grid/__test__/4",["magix","__test__/example","$","mx-footer/index","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+define("mx-grid/__test__/4",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
 /*Magix,Base,$*/
-require("mx-footer/index");
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-grid___test___index_","._zs_gallery_mx-grid___test___index_-dark {\n  padding: 20px;\n  background-color: #3d414d;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-grid___test___index_","/* @dependent: ./index.less */\n._zs_gallery_mx-grid___test___index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-grid___test___index_-grid1 {\n  background-color: #4d7fff;\n  opacity: 0.1;\n}\n._zs_gallery_mx-grid___test___index_-grid2 {\n  background-color: #4d7fff;\n  opacity: 0.2;\n}\n._zs_gallery_mx-grid___test___index_-grid3 {\n  background-color: #4d7fff;\n  opacity: 0.3;\n}\n._zs_gallery_mx-grid___test___index_-grid4 {\n  background-color: #4d7fff;\n  opacity: 0.4;\n}\n._zs_gallery_mx-grid___test___index_-grid5 {\n  background-color: #4d7fff;\n  opacity: 0.5;\n}\n._zs_gallery_mx-grid___test___index_-grid6 {\n  background-color: #4d7fff;\n  opacity: 0.6;\n}\n._zs_gallery_mx-grid___test___index_-grid7 {\n  background-color: #4d7fff;\n  opacity: 0.7;\n}\n._zs_gallery_mx-grid___test___index_-grid8 {\n  background-color: #4d7fff;\n  opacity: 0.8;\n}\n._zs_gallery_mx-grid___test___index_-grid9 {\n  background-color: #4d7fff;\n  opacity: 0.9;\n}\n._zs_gallery_mx-grid___test___index_-grid10 {\n  background-color: #4d7fff;\n  opacity: 1;\n}\n._zs_gallery_mx-grid___test___index_-container {\n  padding: 20px;\n  background-color: #fafafa;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -25,19 +24,19 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybC:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybC:_" class="_zs_gallery___test___layout_-eg-content"><div class="_zs_gallery_mx-grid___test___index_-dark"><div mx-view="mx-footer/index?dark=true&products=true"></div></div></div><div mxa="_zs_gallerybC:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybC:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 9;
+    $p += '<div mxa="_zs_gallerybD:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybD:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb10">align（交叉轴对齐方式）</div><div class="mb10">1. stretch（默认值）：如果项目未设置高度或者设为 auto，将占满整个容器的高度</div><div style="display: flex;height: 60px;flex-direction: row;justify-content: flex-start;align-items: stretch" align="stretch" height="60px" class="mb40"><div style="flex: 1" class="_zs_gallery_mx-grid___test___index_-grid1"></div><div style="flex: 1" class="_zs_gallery_mx-grid___test___index_-grid2"></div><div style="flex: 1" class="_zs_gallery_mx-grid___test___index_-grid3"></div></div><div class="mb10">top：交叉轴的起点对齐</div><div style="display: flex;height: 60px;flex-direction: row;justify-content: flex-start;align-items: flex-start" align="top" height="60px" class="mb40"><div style="flex: 1;height: 20px" class="_zs_gallery_mx-grid___test___index_-grid1" height="20px"></div><div style="flex: 1;height: 40px" class="_zs_gallery_mx-grid___test___index_-grid2" height="40px"></div><div style="flex: 1;height: 60px" class="_zs_gallery_mx-grid___test___index_-grid3" height="60px"></div></div><div class="mb10">bottom：交叉轴的终点对齐</div><div style="display: flex;height: 60px;flex-direction: row;justify-content: flex-start;align-items: flex-end" align="bottom" height="60px" class="mb40"><div style="flex: 1;height: 20px" class="_zs_gallery_mx-grid___test___index_-grid1" height="20px"></div><div style="flex: 1;height: 40px" class="_zs_gallery_mx-grid___test___index_-grid2" height="40px"></div><div style="flex: 1;height: 60px" class="_zs_gallery_mx-grid___test___index_-grid3" height="60px"></div></div><div class="mb10">center：交叉轴的中点对齐</div><div style="display: flex;height: 60px;flex-direction: row;justify-content: flex-start;align-items: center" align="center" height="60px"><div style="flex: 1;height: 20px" class="_zs_gallery_mx-grid___test___index_-grid1" height="20px"></div><div style="flex: 1;height: 40px" class="_zs_gallery_mx-grid___test___index_-grid2" height="40px"></div><div style="flex: 1;height: 60px" class="_zs_gallery_mx-grid___test___index_-grid3" height="60px"></div></div></div><div mxa="_zs_gallerybD:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybD:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 35;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybC:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 11;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybD:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 37;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybC:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 14;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybD:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 40;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-footer dark="true" products="true"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;!-- 1. stretch（默认值）：如果项目未设置高度或者设为 auto，将占满整个容器的高度 --&gt;\n&lt;mx-grid.row align="stretch" height="60px" class="mb40"&gt;\n    &lt;mx-grid.col class="grid1"&gt;&lt;/mx-grid.col&gt;\n    &lt;mx-grid.col class="grid2"&gt;&lt;/mx-grid.col&gt;\n    &lt;mx-grid.col class="grid3"&gt;&lt;/mx-grid.col&gt;\n&lt;/mx-grid.row&gt;\n\n&lt;!-- top：交叉轴的起点对齐 --&gt;\n&lt;mx-grid.row align="top" height="60px" class="mb40"&gt;\n    &lt;mx-grid.col class="grid1" height="20px"&gt;&lt;/mx-grid.col&gt;\n    &lt;mx-grid.col class="grid2" height="40px"&gt;&lt;/mx-grid.col&gt;\n    &lt;mx-grid.col class="grid3" height="60px"&gt;&lt;/mx-grid.col&gt;\n&lt;/mx-grid.row&gt;\n\n&lt;!-- bottom：交叉轴的终点对齐 --&gt;\n&lt;mx-grid.row align="bottom" height="60px" class="mb40"&gt;\n    &lt;mx-grid.col class="grid1" height="20px"&gt;&lt;/mx-grid.col&gt;\n    &lt;mx-grid.col class="grid2" height="40px"&gt;&lt;/mx-grid.col&gt;\n    &lt;mx-grid.col class="grid3" height="60px"&gt;&lt;/mx-grid.col&gt;\n&lt;/mx-grid.row&gt;\n\n&lt;!-- center：交叉轴的中点对齐 --&gt;\n&lt;mx-grid.row align="center" height="60px"&gt;\n    &lt;mx-grid.col class="grid1" height="20px"&gt;&lt;/mx-grid.col&gt;\n    &lt;mx-grid.col class="grid2" height="40px"&gt;&lt;/mx-grid.col&gt;\n    &lt;mx-grid.col class="grid3" height="60px"&gt;&lt;/mx-grid.col&gt;\n&lt;/mx-grid.row&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

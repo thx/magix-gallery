@@ -1,0 +1,64 @@
+<mx-effects.notice class="mb20 mr20"
+    border="true"
+    icon="false"
+    type="highlight"
+    content="{{=contents}}"/>
+
+<mx-title.second content="需求示例"/>
+<div class="mb40 lh22">假设我们实现一个获取用户信息的组件，比如用户可以输入姓名，年龄并选择性别的功能。</div>
+
+<mx-title.second content="确认输入与输出"/>
+<div class="mb40 lh22">
+    <div>我们的组件命名为 <span class="color-brand">mx-profile</span> ，并在相应目录下新建 <span class="color-brand">index.ts</span> ， <span class="color-brand">index.html</span> 等文件；</div>
+    <div>组件接收 <span class="color-brand">name</span> ， <span class="color-brand">age</span> 和 <span class="color-brand">gender</span> 三个参数并根据需要展示他们供用户修改；</div>
+    <div>当 <span class="color-brand">name</span> ， <span class="color-brand">age</span> 和 <span class="color-brand">gender</span> 有变化时，组件派发change事件通知外部。</div>
+</div>
+
+<mx-title.second content="使用方式"/>
+<div class="mb40 lh22">
+    <div class="mb10">最终我们使用 <span class="color-brand">mx-profile</span> 的js代码可能如下：</div>
+    <pre class="tip-content mb10">
+import Magix from 'magix';
+export default Magix.View.extend({
+    tmpl:'@user-settings.html',
+    render(){
+        this.updater.digest({
+            name:'xl',
+            age:32,
+            gender:'male'
+        });
+    }
+})</pre>
+    <div class="mb10">对应的html片断可能是：</div>
+    <pre class="tip-content mb10">
+&lt;mx-profile name="&#123;&#123;:name&#125;&#125;" age="&#123;&#123;:age&#125;&#125;" gender="&#123;&#123;:gender&#125;&#125;"/&gt;</pre>
+</div>
+
+<mx-title.second content="代码实现"/>
+<div class="mb40 lh22">
+    <div> <span class="color-brand">mx-profile</span> 与 <span class="color-brand">一般view</span> 一样，接收参数，并按需要渲染即可，这一部分的代码实现不再具体示意。</div>
+    <div>对于双向绑定功能，我们已经实现了数据变化更新界面，接下来我们重点看界面上变化后，如何更新数据</div>
+    <div>用户姓名和年龄，我们可能用 <span class="color-brand">2个input</span> 来做为输入，性别可能使用下拉框，不管用什么样的标签，我们都可以在它们的类似change或input事件中得知界面的变化。</div>
+    <div class="mb10">比如我们监听 <span class="color-brand">input</span> 的 <span class="color-brand">change</span> 事件：</div>
+    <pre class="tip-content mb10">
+import Magix from 'magix';
+import $ from '$';
+export default Magix.View.extend({
+    tmpl:'@mx-profile.html',
+    'name&lt;change&gt;'(e){
+        e.stopPropagation();
+        $('#'+this.id).trigger({
+            type:'change',
+            name:e.eventTarget.trim()
+        });
+    }
+})</pre>
+    <div>1. 当 <span class="color-brand">input</span> 的 <span class="color-brand">change</span> 事件发生后，我们停止事件冒泡，因为这个 <span class="color-brand">input</span> 只为 <span class="color-brand">当前view</span> 服务，不必通知到外部</div>
+    <div>2. 我们从 <span class="color-brand">view根节点</span> 上派发一个 <span class="color-brand">change</span> 事件来通知外部数据变化</div>
+    <div>3. 事件上数据的 <span class="color-brand">key</span> 要与输入一致，比如输入是 <span class="color-brand">age</span> ，那么如果年龄发生变化，则通知外部时，事件对象上要有 <span class="color-brand">age</span> 这个字段，这一点非常重要，是实现双向绑定时，多参数绑定的根本</div>
+    <div>4. 当前只实现了名称变化，年龄、性别变化同理，这样就完成了一个组件多个参数的双向绑定功能</div>
+</div>
+
+
+<mx-title.second content="为什么是&lt;span class='color-brand'&gt;change&lt;/span&gt;事件"/>
+<div class="mb40 lh22">这取决于 <span class="color-brand">zs_gallery/mx-form/index.js</span> 中的实现，因为要实现原生节点与自定义组件的双向绑定，在原生节点中数据变化多为 <span class="color-brand">change</span> ，所以我们自定义组件也沿用 <span class="color-brand">change</span>  就好</div>

@@ -1,0 +1,35 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10">嵌套</div>
+        <mx-grid.row gutter="20px">
+            <mx-grid.col flex="1" class="grid1"></mx-grid.col>
+            <mx-grid.col width="200px">
+                <mx-grid.row direction="col" gutter="20px">
+                    <mx-grid.col class="grid2" height="20px"></mx-grid.col>
+                    <mx-grid.col class="grid3" height="40px"></mx-grid.col>
+                    <mx-grid.col class="grid4" height="60px"></mx-grid.col>
+                </mx-grid.row>
+            </mx-grid.col>
+        </mx-grid.row>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-grid.row gutter="20px"&gt;
+    &lt;mx-grid.col flex="1" class="grid1"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col width="200px"&gt;
+        &lt;mx-grid.row direction="col" gutter="20px"&gt;
+            &lt;mx-grid.col class="grid2" height="20px"&gt;&lt;/mx-grid.col&gt;
+            &lt;mx-grid.col class="grid3" height="40px"&gt;&lt;/mx-grid.col&gt;
+            &lt;mx-grid.col class="grid4" height="60px"&gt;&lt;/mx-grid.col&gt;
+        &lt;/mx-grid.row&gt;
+    &lt;/mx-grid.col&gt;
+&lt;/mx-grid.row&gt;
+        </pre>
+    </div>
+</div>

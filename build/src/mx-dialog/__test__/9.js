@@ -24,27 +24,27 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryag:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryag:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb20"><div class="lh22 clearfix mb10"><div class="color-9 fl">全屏右出浮层：</div><div class="fl"><div>this.mxModal()</div><div>dialog-header和dialog-footer都在组件内，配置即可，集中关心中间区域即可；</div><div>默认mask，宽度600</div></div></div><div class="lh22 clearfix"><div class="color-9 fl">浮层内：</div><div class="fl"><div>由于确定按钮在组件内不在浮层区域内，如有确定按钮，请在浮层内实现check方法；</div><div>点击确定之前会先调用check，提交按钮加loading效果，避免多次提交；</div><div class="mb10">ok=false的情况下不关闭按钮，如有错误信息显示错误信息，格式如下：</div><pre class="tip-content">\ncheck() {\n    // do something\n\n    return new Promise((resolve) => {\n        // 此处返回promise，防止有接口提交校验等\n        resolve({\n            ok: true,  // true or false，是否校验通过，false的时候不关闭按钮\n            msg: \'错误信息提示\'\n        })\n    })\n}\n                    </pre></div></div></div><div class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'open1()" class="btn btn-brand mr20">全屏右出浮层(头部+底部)</a><a href="javascript:;" mx-click="' + $viewId + 'open2()" class="btn btn-brand mr20">全屏右出浮层(只头部)</a><a href="javascript:;" mx-click="' + $viewId + 'open3()" class="btn btn-brand mr20">全屏右出浮层(只底部)</a></div></div><div mxa="_zs_galleryag:a" class="clearfix"><div mxa="_zs_galleryag:b" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third1"><div mxs="_zs_galleryag:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_galleryah:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryah:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb20"><div class="lh22 clearfix mb10"><div class="color-9 fl">全屏右出浮层：</div><div class="fl"><div>this.mxModal()</div><div>dialog-header和dialog-footer都在组件内，配置即可，集中关心中间区域即可；</div><div>默认mask，宽度600</div></div></div><div class="lh22 clearfix"><div class="color-9 fl">浮层内：</div><div class="fl"><div>由于确定按钮在组件内不在浮层区域内，如有确定按钮，请在浮层内实现check方法；</div><div>点击确定之前会先调用check，提交按钮加loading效果，避免多次提交；</div><div class="mb10">ok=false的情况下不关闭按钮，如有错误信息显示错误信息，格式如下：</div><pre class="tip-content">\ncheck() {\n    // do something\n\n    return new Promise((resolve) => {\n        // 此处返回promise，防止有接口提交校验等\n        resolve({\n            ok: true,  // true or false，是否校验通过，false的时候不关闭按钮\n            msg: \'错误信息提示\'\n        })\n    })\n}\n                    </pre></div></div></div><div class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'open1()" class="btn btn-brand mr20">全屏右出浮层(头部+底部)</a><a href="javascript:;" mx-click="' + $viewId + 'open2()" class="btn btn-brand mr20">全屏右出浮层(只头部)</a><a href="javascript:;" mx-click="' + $viewId + 'open3()" class="btn btn-brand mr20">全屏右出浮层(只底部)</a></div></div><div mxa="_zs_galleryah:a" class="clearfix"><div mxa="_zs_galleryah:b" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third1"><div mxs="_zs_galleryah:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 48;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryag:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryah:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 50;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryag:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryah:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 53;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" mx-click="open1()" \n    class="btn btn-brand"&gt;全屏右出浮层(头部+底部)&lt;/a&gt;  \n\n&lt;a href="javascript:;" mx-click="open2()" \n    class="btn btn-brand"&gt;全屏右出浮层(只头部)&lt;/a&gt;\n\n&lt;a href="javascript:;" mx-click="open3()" \n    class="btn btn-brand"&gt;全屏右出浮层(只底部)&lt;/a&gt;\n            </pre></div><div mxa="_zs_galleryag:d" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryag:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" mx-click="open1()" \n    class="btn btn-brand"&gt;全屏右出浮层(头部+底部)&lt;/a&gt;  \n\n&lt;a href="javascript:;" mx-click="open2()" \n    class="btn btn-brand"&gt;全屏右出浮层(只头部)&lt;/a&gt;\n\n&lt;a href="javascript:;" mx-click="open3()" \n    class="btn btn-brand"&gt;全屏右出浮层(只底部)&lt;/a&gt;\n            </pre></div><div mxa="_zs_galleryah:d" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryah:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 66;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryag:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryah:e" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 68;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryag:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryah:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 71;
     $art = '=viewId';
     ;
@@ -103,7 +103,9 @@ catch (ex) {
         });
     },
     'open2<click>': function (e) {
-        this.mxModal('mx-dialog/__test__/full', {}, {
+        this.mxModal('mx-dialog/__test__/full', {
+            readonly: true
+        }, {
             header: {
                 title: '全屏右出浮层'
             },
