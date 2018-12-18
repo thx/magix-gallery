@@ -10,14 +10,20 @@ module.exports = Base.extend({
         this.updater.digest();
     },
     'open<click>'(e) {
-        //  viewPath  //dialog view路径
-        //  viewOptions //传入dialog的数据，挂载当前dialog实体
-        //  dialogOptions //样式覆盖
-        //      width： 宽度
-        //      height： 高度
-        //      modal：是否允许滚动
-        //      mask：是否有遮罩
-        //      ......
+        // this.mxDialog(viewPath[string], viewOptions[object], dialogOptions[object])
+        //      viewPath: 'dialog view路径'
+        //      viewOptions: {
+        //          传入dialog的数据，挂载当前dialog实体
+        //      }
+        //      dialogOptions: { //浮层样式覆盖
+        //          width:'宽度',
+        //          height:'高度',
+        //          modal: 'true or false，是否允许滚动',
+        //          mask: 'true or false，是否有遮罩',
+        //          closable: 'true or false，是否有右上角关闭按钮'
+        //          left: '最终定位相对于屏幕左侧',
+        //          top: '最终定位相对于屏幕高侧'
+        //      }
         this.mxDialog('@./multi', {
             number: 1
         }, {

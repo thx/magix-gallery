@@ -1,9 +1,10 @@
 <div class="example">
     <div class="eg-content">
         <div class="lh22">将dialog的方法mixins到view上</div>
-        <div class="lh22">1. 打开多个浮层时，新开浮层总是在最上方</div>
-        <div class="lh22">2. 提供一键关闭所有浮层的方法</div>
-        <div class="lh22 mb20">3. false的浮层，点击空白处自动关闭浮层</div>
+        <div class="lh22">1. this.mxDialog()</div>
+        <div class="lh22">2. 打开多个浮层时，新开浮层总是在最上方</div>
+        <div class="lh22">3. 提供一键关闭所有浮层的方法</div>
+        <div class="lh22 mb20">4. false的浮层，点击空白处自动关闭浮层</div>
         <div class="mb20">
             <a href="javascript:;" mx-click="open()" 
                 class="btn btn-brand mr20">打开浮层</a>  
@@ -52,14 +53,20 @@ module.exports = Magix.View.extend(&#123;
         this.updater.digest();
     },
     'open&lt;click&gt;'(e) &#123;
-        //  viewPath：dialog view路径
-        //  viewOptions：传入dialog的数据，挂载当前dialog实体
-        //  dialogOptions：样式覆盖
-        //      width： 宽度
-        //      height： 高度
-        //      modal：是否允许滚动
-        //      mask：是否有遮罩
-        //      ......
+        // this.mxDialog(viewPath[string], viewOptions[object], dialogOptions[object])
+        //    viewPath: 'dialog view路径'
+        //    viewOptions: {
+        //        传入dialog的数据，挂载当前dialog实体
+        //    }, 
+        //    dialogOptions: { //浮层样式覆盖
+        //        width:'宽度',
+        //        height:'高度',
+        //        modal: 'true（禁止滚动） or false（允许滚动），溢出是否允许滚动，默认false',
+        //        mask: 'true or false，是否有遮罩，默认true',
+        //        closable: 'true or false，是否有右上角关闭按钮，默认true',
+        //        left: '最终定位相对于屏幕左侧，默认居中',
+        //        top: '最终定位相对于屏幕高侧，默认居中'
+        //    }
         this.mxDialog('@./multi', &#123;
             number: 1
         &#125;, &#123;

@@ -1,0 +1,40 @@
+<div class="dialog-body">
+    <form class="mb40">
+        <span class="color-9 mr10">必填项：</span>
+        <input class="input" placeholder="必填项" 
+            value="{{:name{required:true}}}"/>
+    </form>
+
+    <div class="mb10">浮层HTML Code:</div>
+    <pre class="tip-content mb40">
+&lt;form class="dialog-body"&gt;
+    &lt;span class="color-9 mr10"&gt;必填项：&lt;/span&gt;
+    &lt;input class="input" placeholder="必填项" 
+        value="&#123;&#123;:name&#123;required:true&#125;&#125;&#125;"/&gt;
+&lt;/form&gt;
+    </pre>
+
+    <div class="mb10">浮层JS Code:</div>
+    <pre class="tip-content mb40">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    check() &#123;
+        let that = this;
+        let ok = that.isValid();
+        return new Promise((resolve) =&gt; &#123;
+            setTimeout(() =&gt; &#123;
+                resolve(&#123;
+                    ok,  
+                    msg: '请按照要求填写完信息再提交'
+                &#125;)
+            &#125;, 1000)
+        &#125;)
+    &#125;
+&#125;);
+    </pre>
+</div>

@@ -474,3 +474,27 @@
     display: inline-block;
     .animation(suspension 1.4s ease-out infinite, forwards);
 }
+
+/*三点loading动画*/
+.mx-anim-loading {
+    .loading-dot;
+    position: relative;
+    margin: 0 8px;
+
+    &:after {
+        content: '';
+        .loading-dot;
+        position: absolute;
+        left: -8px;
+        top: 0;
+        .animation(loading-dots 0.6s linear 0s infinite);
+    }
+    &:before {
+        content: '';
+        .loading-dot;
+        position: absolute;
+        left: 8px;
+        top: 0;
+        .animation(loading-dots-rev 0.6s linear 0s infinite);
+    }
+}

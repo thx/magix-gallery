@@ -31,79 +31,79 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2, text5 = $$.text5, text3 = $$.text3, text4 = $$.text4, text6 = $$.text6, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryd4:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryd4:_" class="clearfix"><div mxa="_zs_galleryd4:a" class="_zs_gallery___test___layout_-half"><div mxa="_zs_galleryd4:b" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryd4:a" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-title/index?content=%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98&tip=%E6%A0%87%E9%A2%98%E6%8F%90%E7%A4%BA%E6%96%87%E6%A1%88"></div></div><div mxa="_zs_galleryd4:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd4:b" class="_zs_gallery___test___layout_-eg-title">使用组件</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxs="_zs_galleryd6:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryd6:_" class="clearfix"><div mxa="_zs_galleryd6:a" class="_zs_gallery___test___layout_-half"><div mxa="_zs_galleryd6:b" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryd6:a" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-title/index?content=%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98&tip=%E6%A0%87%E9%A2%98%E6%8F%90%E7%A4%BA%E6%96%87%E6%A1%88"></div></div><div mxa="_zs_galleryd6:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd6:b" class="_zs_gallery___test___layout_-eg-title">使用组件</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 12;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryd4:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryd6:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 14;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryd4:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryd6:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 17;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-title \n    content="一级标题"\n    tip="标题提示文案"/&gt;</pre></div><div mxa="_zs_galleryd4:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd4:d" class="_zs_gallery___test___layout_-eg-title">可直接使用class</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-title \n    content="一级标题"\n    tip="标题提示文案"/&gt;</pre></div><div mxa="_zs_galleryd6:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd6:d" class="_zs_gallery___test___layout_-eg-title">可直接使用class</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 24;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryd4:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryd6:f" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 26;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryd4:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryd6:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 29;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\n&lt;div class="page-header"&gt;\n    &lt;span class="first-header"&gt;一级标题&lt;/span&gt;\n    &lt;span class="page-tip"&gt;标题提示文案&lt;/span&gt;\n&lt;/div&gt;</pre></div></div><div mxa="_zs_galleryd4:g" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryd4:e" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-title/index?content=%3Cspan%20style%3D%27color%3A%20red%3B%27%3E%E4%B8%80%E7%BA%A7%3C%2Fspan%3E%E6%A0%87%E9%A2%98&tip=%3Cspan%20style%3D%27color%3A%20red%3B%27%3E%E9%AB%98%E4%BA%AE%3C%2Fspan%3E%E6%98%BE%E7%A4%BA"></div></div><div mxa="_zs_galleryd4:h" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd4:f" class="_zs_gallery___test___layout_-eg-title">可包含html标签，需要转义</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:5})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\n&lt;div class="page-header"&gt;\n    &lt;span class="first-header"&gt;一级标题&lt;/span&gt;\n    &lt;span class="page-tip"&gt;标题提示文案&lt;/span&gt;\n&lt;/div&gt;</pre></div></div><div mxa="_zs_galleryd6:g" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryd6:e" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-title/index?content=%3Cspan%20style%3D%27color%3A%20red%3B%27%3E%E4%B8%80%E7%BA%A7%3C%2Fspan%3E%E6%A0%87%E9%A2%98&tip=%3Cspan%20style%3D%27color%3A%20red%3B%27%3E%E9%AB%98%E4%BA%AE%3C%2Fspan%3E%E6%98%BE%E7%A4%BA"></div></div><div mxa="_zs_galleryd6:h" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd6:f" class="_zs_gallery___test___layout_-eg-title">可包含html标签，需要转义</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:5})" mx-view="mx-copy/index?copyNode=';
     $line = 44;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_5"><span mxa="_zs_galleryd4:i" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_5"><span mxa="_zs_galleryd6:i" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 46;
     $art = '!text5';
     ;
-    $p += ($expr = '<%!text5%>', $n(text5)) + '</span><i mxs="_zs_galleryd4:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text5%>', $n(text5)) + '</span><i mxs="_zs_galleryd6:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 49;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_5">\n&lt;mx-title \n    content="&amp;lt;span style=\'color: red;\'&amp;gt;一级&amp;lt;/span&amp;gt;标题"\n    tip="&amp;lt;span style=\'color: red;\'&amp;gt;高亮&amp;lt;/span&amp;gt;显示"/&gt;</pre></div></div></div><div mxa="_zs_galleryd4:j" class="_zs_gallery___test___layout_-half"><div mxa="_zs_galleryd4:k" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryd4:g" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-title/second?content=%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98&tip=%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98%E6%8F%90%E7%A4%BA%E6%96%87%E6%A1%88"></div></div><div mxa="_zs_galleryd4:l" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd4:b" class="_zs_gallery___test___layout_-eg-title">使用组件</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_5">\n&lt;mx-title \n    content="&amp;lt;span style=\'color: red;\'&amp;gt;一级&amp;lt;/span&amp;gt;标题"\n    tip="&amp;lt;span style=\'color: red;\'&amp;gt;高亮&amp;lt;/span&amp;gt;显示"/&gt;</pre></div></div></div><div mxa="_zs_galleryd6:j" class="_zs_gallery___test___layout_-half"><div mxa="_zs_galleryd6:k" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryd6:g" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-title/second?content=%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98&tip=%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98%E6%8F%90%E7%A4%BA%E6%96%87%E6%A1%88"></div></div><div mxa="_zs_galleryd6:l" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd6:b" class="_zs_gallery___test___layout_-eg-title">使用组件</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=';
     $line = 65;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_galleryd4:m" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_galleryd6:m" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 67;
     $art = '!text3';
     ;
-    $p += ($expr = '<%!text3%>', $n(text3)) + '</span><i mxs="_zs_galleryd4:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text3%>', $n(text3)) + '</span><i mxs="_zs_galleryd6:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 70;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_3">\n&lt;mx-title.second\n    content="二级标题"\n    tip="二级标题提示文案"/&gt;</pre></div><div mxa="_zs_galleryd4:n" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd4:d" class="_zs_gallery___test___layout_-eg-title">可直接使用class</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:4})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_3">\n&lt;mx-title.second\n    content="二级标题"\n    tip="二级标题提示文案"/&gt;</pre></div><div mxa="_zs_galleryd6:n" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd6:d" class="_zs_gallery___test___layout_-eg-title">可直接使用class</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:4})" mx-view="mx-copy/index?copyNode=';
     $line = 77;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_4"><span mxa="_zs_galleryd4:o" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_4"><span mxa="_zs_galleryd6:o" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 79;
     $art = '!text4';
     ;
-    $p += ($expr = '<%!text4%>', $n(text4)) + '</span><i mxs="_zs_galleryd4:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text4%>', $n(text4)) + '</span><i mxs="_zs_galleryd6:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 82;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_4">\n&lt;div class="page-header"&gt;\n    &lt;span class="second-header"&gt;二级标题&lt;/span&gt;\n    &lt;span class="page-tip"&gt;二级标题提示文案&lt;/span&gt;\n&lt;/div&gt;</pre></div></div><div mxa="_zs_galleryd4:p" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryd4:h" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-title/second?content=%3Cspan%20style%3D%27color%3A%20red%3B%27%3E%E4%BA%8C%E7%BA%A7%3C%2Fspan%3E%E6%A0%87%E9%A2%98&tip=%3Cspan%20style%3D%27color%3A%20red%3B%27%3E%E9%AB%98%E4%BA%AE%3C%2Fspan%3E%E6%98%BE%E7%A4%BA"></div></div><div mxa="_zs_galleryd4:q" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd4:f" class="_zs_gallery___test___layout_-eg-title">可包含html标签，需要转义</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:6})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_4">\n&lt;div class="page-header"&gt;\n    &lt;span class="second-header"&gt;二级标题&lt;/span&gt;\n    &lt;span class="page-tip"&gt;二级标题提示文案&lt;/span&gt;\n&lt;/div&gt;</pre></div></div><div mxa="_zs_galleryd6:p" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryd6:h" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-title/second?content=%3Cspan%20style%3D%27color%3A%20red%3B%27%3E%E4%BA%8C%E7%BA%A7%3C%2Fspan%3E%E6%A0%87%E9%A2%98&tip=%3Cspan%20style%3D%27color%3A%20red%3B%27%3E%E9%AB%98%E4%BA%AE%3C%2Fspan%3E%E6%98%BE%E7%A4%BA"></div></div><div mxa="_zs_galleryd6:q" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd6:f" class="_zs_gallery___test___layout_-eg-title">可包含html标签，需要转义</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:6})" mx-view="mx-copy/index?copyNode=';
     $line = 97;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_6"><span mxa="_zs_galleryd4:r" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_6"><span mxa="_zs_galleryd6:r" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 99;
     $art = '!text6';
     ;
-    $p += ($expr = '<%!text6%>', $n(text6)) + '</span><i mxs="_zs_galleryd4:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text6%>', $n(text6)) + '</span><i mxs="_zs_galleryd6:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 102;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_6">\n&lt;mx-title.second \n    content="&amp;lt;span style=\'color: red;\'&amp;gt;二级&amp;lt;/span&amp;gt;标题"\n    tip="&amp;lt;span style=\'color: red;\'&amp;gt;高亮&amp;lt;/span&amp;gt;显示"/&gt;</pre></div></div></div></div><div mxs="_zs_galleryd4:i" class="mb20"><div mx-view="mx-title/__test__/1"></div></div><div mxs="_zs_galleryd4:j" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_6">\n&lt;mx-title.second \n    content="&amp;lt;span style=\'color: red;\'&amp;gt;二级&amp;lt;/span&amp;gt;标题"\n    tip="&amp;lt;span style=\'color: red;\'&amp;gt;高亮&amp;lt;/span&amp;gt;显示"/&gt;</pre></div></div></div></div><div mxs="_zs_galleryd6:i" class="mb20"><div mx-view="mx-title/__test__/1"></div></div><div mxs="_zs_galleryd6:j" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 115;
     $art = '@options';
     ;

@@ -32,15 +32,15 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerybM:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_gallerybU:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'上限 + 排序\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'不限制 + 不排序\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'不限制 + 排序\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'自定义key\',\n            key: viewId + \'_demo5\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'上限 + 排序\',                    key: viewId + \'_demo1\'                }, {                    name: \'不限制 + 不排序\',                    key: viewId + \'_demo3\'                }, {                    name: \'不限制 + 排序\',                    key: viewId + \'_demo2\'                }, {                    name: \'自定义key\',                    key: viewId + \'_demo5\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '上限 + 排序', key: viewId + '_demo1' }, { name: '不限制 + 不排序', key: viewId + '_demo3' }, { name: '不限制 + 排序', key: viewId + '_demo2' }, { name: '自定义key', key: viewId + '_demo5' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div mxs="_zs_gallerybM:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mx-view="mx-indics/__test__/1" id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'上限 + 排序\',                    key: viewId + \'_demo1\'                }, {                    name: \'不限制 + 不排序\',                    key: viewId + \'_demo3\'                }, {                    name: \'不限制 + 排序\',                    key: viewId + \'_demo2\'                }, {                    name: \'自定义key\',                    key: viewId + \'_demo5\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '上限 + 排序', key: viewId + '_demo1' }, { name: '不限制 + 不排序', key: viewId + '_demo3' }, { name: '不限制 + 排序', key: viewId + '_demo2' }, { name: '自定义key', key: viewId + '_demo5' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div mxs="_zs_gallerybU:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mx-view="mx-indics/__test__/1" id="';
     $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mxa="_zs_gallerybM:a" class="clearfix mb20"><div mxa="_zs_gallerybM:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-indics/__test__/3" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mxa="_zs_gallerybU:a" class="clearfix mb20"><div mxa="_zs_gallerybU:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-indics/__test__/3" id="';
     $line = 29;
     $art = '=viewId';
     ;
@@ -48,7 +48,7 @@ module.exports = Magix.View.extend({
     $line = 30;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div mxa="_zs_gallerybM:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-indics/__test__/5" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div mxa="_zs_gallerybU:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-indics/__test__/5" id="';
     $line = 33;
     $art = '=viewId';
     ;

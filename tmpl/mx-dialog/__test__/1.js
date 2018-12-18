@@ -14,17 +14,20 @@ module.exports = Base.extend({
     },
     'alert2<click>'(e) {
         let that = this;
-        // alert(title, content, enterCallback, dialogOptions)
-        //     title： 标题
-        //     content： 内容
-        //     enterCallback：确认回调
-        //     dialogOptions： 浮层样式覆盖
-        //         width： 宽度
-        //         height： 高度
-        //         modal：是否允许滚动
-        //         mask：是否有遮罩
-        //         btns：是否有按钮
-        //         ......
+        // this.alert(title, content, enterCallback, dialogOptions)
+        //   title: '标题',
+        //   content: '内容',
+        //   enterCallback: '点击确认按钮的回调',
+        //   dialogOptions: { //浮层样式覆盖
+        //      width:'宽度',
+        //      height:'高度',
+        //      btns: 'true or false，是否有按钮',
+        //      modal: 'true or false，是否允许滚动',
+        //      mask: 'true or false，是否有遮罩',
+        //      closable: 'true or false，是否有右上角关闭按钮',
+        //      left: '最终定位相对于屏幕左侧',
+        //      top: '最终定位相对于屏幕高侧'
+        //   }
         that.alert('系统异常', '测试内容', () => {
             console.log('点击确认后响应')
         }, {

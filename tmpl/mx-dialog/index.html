@@ -3,8 +3,40 @@
     <i class="mc-iconfont iconfont-ext">&#xe603;</i>
 </a>
 {{/if}}
-<div class="dialog-content" id="<%=cntId%>">
-    <div class="loading loading-ext">
-        <span class="loading-anim"></span>
+<div class="dialog-content" id="{{=cntId}}_content">
+    <!-- header -->
+    {{if (full && fullHeader.title)}}
+    <div class="dialog-header" id="{{=cntId}}_header">
+        <span class="fontsize-16">{{!fullHeader.title}}</span>
+        {{if fullHeader.tip}}
+        <span class="color-9 ml10">{{!fullHeader.tip}}</span>
+        {{/if}}
     </div>
+    {{/if}}
+
+    <div id="{{=cntId}}">
+        <!-- content -->
+        <div class="loading loading-ext">
+            <span class="loading-anim"></span>
+        </div>
+    </div>
+
+    <!-- footer -->
+    {{if (full && (fullFooter.enter || fullFooter.cancel))}}
+    <div class="dialog-footer" id="{{=cntId}}_footer">
+        {{if fullFooter.enter}}
+        <a href="javascript:;" class="btn btn-brand mr10 btn-submit" mx-click="@{submit}()">
+            <span class="submit-text">{{=fullFooter.enterText}}</span>
+        </a>
+        {{/if}}
+
+        {{if fullFooter.cancel}}
+        <a href="javascript:;" class="btn mr10" mx-click="@{close}()">{{=fullFooter.cancelText}}</a>
+        {{/if}}
+
+        {{if fullFooter.enter}}
+        <span id="{{=cntId}}_footer_error" class="color-red"></span>
+        {{/if}}
+    </div>  
+    {{/if}}  
 </div>

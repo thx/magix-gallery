@@ -1,8 +1,11 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">二次确认浮层：</span>
-            默认无mask，宽度320，居中显示
+        <div class="mb20 clearfix">
+            <div class="color-9 fl">二次确认浮层：</div>
+            <div class="fl">
+                <div>mixins到view上，this.confirm()</div>
+                <div>默认无mask，宽度320，居中显示</div>
+            </div>
         </div>
         <div>
             <a href="javascript:;" mx-click="confirm1()" 
@@ -54,21 +57,24 @@ module.exports = Magix.View.extend(&#123;
         &#125;)
     &#125;,
     'confirm2&lt;click&gt;'(e) &#123;
-        // this.confirm(viewOptions, dialogOptions);
-        //      viewOptions 展示内容
-        //          title：标题
-        //          content：内容
-        //          enterText：自定义确定按钮文案，默认确定
-        //          cancelText：自定义取消按钮文案，默认取消
-        //          enterCallback：确定按钮响应事件
-        //          cancelCallback：取消按钮响应事件
-        //      dialogOptions 扩展浮层样式
-        //          width： 宽度
-        //          height： 高度
-        //          modal：是否允许滚动
-        //          mask：是否有遮罩
-        //          ......
-        this.confirm(&#123;
+            // this.confirm(viewOptions, dialogOptions);
+            //    viewOptions: {
+            //          title: '标题',
+            //          content: '内容',
+            //          enterText: '自定义确定按钮文案，默认确定',
+            //          cancelText: '自定义取消按钮文案，默认取消',
+            //          enterCallback: '确定按钮响应事件',
+            //          cancelCallback: '取消按钮响应事件'
+            //    }
+            //    dialogOptions: { //浮层样式覆盖
+            //          width:'宽度，默认320',
+            //          height:'高度',
+            //          modal: 'true（禁止滚动） or false（允许滚动），溢出是否允许滚动，默认false',
+            //          mask: 'true or false，是否有遮罩，默认false',
+            //          closable: 'true or false，是否有右上角关闭按钮，默认false',
+            //          left: '最终定位相对于屏幕左侧，默认居中',
+            //          top: '最终定位相对于屏幕高侧，默认居中'
+            //    }
             title: '标题',
             content: '测试内容',
             enterText: '确认按钮文案',

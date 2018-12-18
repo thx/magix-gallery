@@ -97,7 +97,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (mode == \'rectangle\') {%>';
     if (mode == 'rectangle') {
         ;
-        $p += '<div mxa="_zs_galleryb7:_" class="_zs_gallery_mx-loading_anim_-rectangle"><div class="_zs_gallery_mx-loading_anim_-rect rect1 ';
+        $p += '<div mxa="_zs_galleryb9:_" class="_zs_gallery_mx-loading_anim_-rectangle"><div class="_zs_gallery_mx-loading_anim_-rect rect1 ';
         $line = 11;
         $art = '=classNames';
         ;
@@ -203,7 +203,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (mode == \'dots\') {%>';
     if (mode == 'dots') {
         ;
-        $p += '<div mxa="_zs_galleryb7:a" class="_zs_gallery_mx-loading_anim_-dots"><div class="_zs_gallery_mx-loading_anim_-dot1 ';
+        $p += '<div mxa="_zs_galleryb9:a" class="_zs_gallery_mx-loading_anim_-dots"><div class="_zs_gallery_mx-loading_anim_-dot1 ';
         $line = 27;
         $art = '=classNames';
         ;
@@ -271,7 +271,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (mode == \'circle-spinner\') {%>';
     if (mode == 'circle-spinner') {
         ;
-        $p += '<div mxa="_zs_galleryb7:b" class="_zs_gallery_mx-loading_anim_-circle-spinner"><div mxa="_zs_galleryb7:c" class="_zs_gallery_mx-loading_anim_-spinner-container _zs_gallery_mx-loading_anim_-container1"><div class="_zs_gallery_mx-loading_anim_-spinner-circle _zs_gallery_mx-loading_anim_-circle1 ';
+        $p += '<div mxa="_zs_galleryb9:b" class="_zs_gallery_mx-loading_anim_-circle-spinner"><div mxa="_zs_galleryb9:c" class="_zs_gallery_mx-loading_anim_-spinner-container _zs_gallery_mx-loading_anim_-container1"><div class="_zs_gallery_mx-loading_anim_-spinner-circle _zs_gallery_mx-loading_anim_-circle1 ';
         $line = 39;
         $art = '=classNames';
         ;
@@ -303,7 +303,7 @@ module.exports = Magix.View.extend({
         $line = 42;
         $art = '=styles';
         ;
-        $p += ($expr = '<%=styles%>', $e(styles)) + '"></div></div><div mxa="_zs_galleryb7:d" class="_zs_gallery_mx-loading_anim_-spinner-container _zs_gallery_mx-loading_anim_-container2"><div class="_zs_gallery_mx-loading_anim_-spinner-circle _zs_gallery_mx-loading_anim_-circle1 ';
+        $p += ($expr = '<%=styles%>', $e(styles)) + '"></div></div><div mxa="_zs_galleryb9:d" class="_zs_gallery_mx-loading_anim_-spinner-container _zs_gallery_mx-loading_anim_-container2"><div class="_zs_gallery_mx-loading_anim_-spinner-circle _zs_gallery_mx-loading_anim_-circle1 ';
         $line = 45;
         $art = '=classNames';
         ;
@@ -335,7 +335,7 @@ module.exports = Magix.View.extend({
         $line = 48;
         $art = '=styles';
         ;
-        $p += ($expr = '<%=styles%>', $e(styles)) + '"></div></div><div mxa="_zs_galleryb7:e" class="_zs_gallery_mx-loading_anim_-spinner-container _zs_gallery_mx-loading_anim_-container3"><div class="_zs_gallery_mx-loading_anim_-spinner-circle _zs_gallery_mx-loading_anim_-circle1 ';
+        $p += ($expr = '<%=styles%>', $e(styles)) + '"></div></div><div mxa="_zs_galleryb9:e" class="_zs_gallery_mx-loading_anim_-spinner-container _zs_gallery_mx-loading_anim_-container3"><div class="_zs_gallery_mx-loading_anim_-spinner-circle _zs_gallery_mx-loading_anim_-circle1 ';
         $line = 51;
         $art = '=classNames';
         ;

@@ -24,17 +24,17 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', selected = $$.selected, first = $$.first, second = $$.second, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryaH:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryaH:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryaH:_" class="mb20 clearfix lh22"><div class="fl color-9">以下示例：</div><div class="fl"><div>带分组的只能用mx-dropdown.item节点实现</div><div>不需要全选功能，配置need-all="false"</div><div>组上面需要全选功能在mx-dropdown.item上配置all="true"</div><div>展开选择浮层时会修正浮层到可视范围之内</div></div></div><div mxa="_zs_galleryaH:b" class="clearfix"><div class="w200 fl" mx-view="mx-dropdown/multiple?needAll=false&searchbox=true&name=%E6%95%B0%E5%AD%97&emptyText=%E8%AF%B7%E9%80%89%E6%8B%A9%E6%95%B0%E5%AD%97&selected=';
+    $p += '<div mxa="_zs_galleryaJ:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryaJ:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryaJ:_" class="mb20 clearfix lh22"><div class="fl color-9">以下示例：</div><div class="fl"><div>带分组的只能用mx-dropdown.item节点实现</div><div>不需要全选功能，配置need-all="false"</div><div>组上面需要全选功能在mx-dropdown.item上配置all="true"</div><div>展开选择浮层时会修正浮层到可视范围之内</div></div></div><div mxa="_zs_galleryaJ:b" class="clearfix"><div class="w200 fl" mx-view="mx-dropdown/multiple?needAll=false&searchbox=true&name=%E6%95%B0%E5%AD%97&emptyText=%E8%AF%B7%E9%80%89%E6%8B%A9%E6%95%B0%E5%AD%97&selected=';
     $line = 18;
     $art = '=selected';
     ;
-    $p += ($expr = '<%!$eu(selected)%>', $eu(selected)) + '"><i mxs="_zs_galleryaH:a" group="true" all="true" class="none">第一组</i>';
+    $p += ($expr = '<%!$eu(selected)%>', $eu(selected)) + '"><i mxs="_zs_galleryaJ:a" group="true" all="true" class="none">第一组</i>';
     $line = 20;
     $art = 'each first as i';
     ;
-    $expr = '<%for (var $art_iwfwibicl$art_i = 0, $art_capacdhkv$art_c = first.length; $art_iwfwibicl$art_i < $art_capacdhkv$art_c; $art_iwfwibicl$art_i++) {    var i = first[$art_iwfwibicl$art_i]%>';
-    for (var $art_iwfwibicl$art_i = 0, $art_capacdhkv$art_c = first.length; $art_iwfwibicl$art_i < $art_capacdhkv$art_c; $art_iwfwibicl$art_i++) {
-        var i = first[$art_iwfwibicl$art_i];
+    $expr = '<%for (var $art_iybkmhecja$art_i = 0, $art_cleywscqn$art_c = first.length; $art_iybkmhecja$art_i < $art_cleywscqn$art_c; $art_iybkmhecja$art_i++) {    var i = first[$art_iybkmhecja$art_i]%>';
+    for (var $art_iybkmhecja$art_i = 0, $art_cleywscqn$art_c = first.length; $art_iybkmhecja$art_i < $art_cleywscqn$art_c; $art_iybkmhecja$art_i++) {
+        var i = first[$art_iybkmhecja$art_i];
         $p += '<i value="';
         $line = 21;
         $art = '=i';
@@ -50,13 +50,13 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<i mxs="_zs_galleryaH:b" group="true" all="true" class="none">第二组</i>';
+    $p += '<i mxs="_zs_galleryaJ:b" group="true" all="true" class="none">第二组</i>';
     $line = 24;
     $art = 'each second as i';
     ;
-    $expr = '<%for (var $art_inxxoyp$art_i = 0, $art_czhrhsc$art_c = second.length; $art_inxxoyp$art_i < $art_czhrhsc$art_c; $art_inxxoyp$art_i++) {    var i = second[$art_inxxoyp$art_i]%>';
-    for (var $art_inxxoyp$art_i = 0, $art_czhrhsc$art_c = second.length; $art_inxxoyp$art_i < $art_czhrhsc$art_c; $art_inxxoyp$art_i++) {
-        var i = second[$art_inxxoyp$art_i];
+    $expr = '<%for (var $art_ijfndhfbq$art_i = 0, $art_coehsfuic$art_c = second.length; $art_ijfndhfbq$art_i < $art_coehsfuic$art_c; $art_ijfndhfbq$art_i++) {    var i = second[$art_ijfndhfbq$art_i]%>';
+    for (var $art_ijfndhfbq$art_i = 0, $art_coehsfuic$art_c = second.length; $art_ijfndhfbq$art_i < $art_coehsfuic$art_c; $art_ijfndhfbq$art_i++) {
+        var i = second[$art_ijfndhfbq$art_i];
         $p += '<i value="';
         $line = 25;
         $art = '=i';
@@ -72,27 +72,27 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><a mxs="_zs_galleryaH:c" href="javascript:;" class="btn btn-brand ml20 fl" mx-click="' + $viewId + 'changeData()">修改数据</a></div></div><div mxa="_zs_galleryaH:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryaH:d" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</div><a mxs="_zs_galleryaJ:c" href="javascript:;" class="btn btn-brand ml20 fl" mx-click="' + $viewId + 'changeData()">修改数据</a></div></div><div mxa="_zs_galleryaJ:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryaJ:d" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 33;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaH:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaJ:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 35;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaH:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaJ:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 38;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="clearfix"&gt;\n    &lt;mx-dropdown.multiple class="w200 mr20 fl"\n        need-all="false"\n        searchbox="true"\n        name="数字"\n        empty-text="请选择数字"\n        selected="&#123;&#123;=selected&#125;&#125;"&gt;\n        &lt;mx-dropdown.item group="true" all="true"&gt;\n            第一组\n        &lt;/mx-dropdown.item&gt;\n        &#123;&#123;each first as i&#125;&#125;\n        &lt;mx-dropdown.item value="&#123;&#123;=i&#125;&#125;"&gt;&#123;&#123;=i&#125;&#125;&lt;/mx-dropdown.item&gt;\n        &#123;&#123;/each&#125;&#125;\n        &lt;mx-dropdown.item group="true" all="true"&gt;\n            第二组\n        &lt;/mx-dropdown.item&gt;\n        &#123;&#123;each second as i&#125;&#125;\n        &lt;mx-dropdown.item value="&#123;&#123;=i&#125;&#125;"&gt;&#123;&#123;=i&#125;&#125;&lt;/mx-dropdown.item&gt;\n        &#123;&#123;/each&#125;&#125;\n    &lt;/mx-dropdown.multiple&gt;\n\n    &lt;a class="btn btn-brand fl" href="javascript:;" \n        mx-click="changeData()"&gt;修改数据&lt;/a&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryaH:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryaH:f" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="clearfix"&gt;\n    &lt;mx-dropdown.multiple class="w200 mr20 fl"\n        need-all="false"\n        searchbox="true"\n        name="数字"\n        empty-text="请选择数字"\n        selected="&#123;&#123;=selected&#125;&#125;"&gt;\n        &lt;mx-dropdown.item group="true" all="true"&gt;\n            第一组\n        &lt;/mx-dropdown.item&gt;\n        &#123;&#123;each first as i&#125;&#125;\n        &lt;mx-dropdown.item value="&#123;&#123;=i&#125;&#125;"&gt;&#123;&#123;=i&#125;&#125;&lt;/mx-dropdown.item&gt;\n        &#123;&#123;/each&#125;&#125;\n        &lt;mx-dropdown.item group="true" all="true"&gt;\n            第二组\n        &lt;/mx-dropdown.item&gt;\n        &#123;&#123;each second as i&#125;&#125;\n        &lt;mx-dropdown.item value="&#123;&#123;=i&#125;&#125;"&gt;&#123;&#123;=i&#125;&#125;&lt;/mx-dropdown.item&gt;\n        &#123;&#123;/each&#125;&#125;\n    &lt;/mx-dropdown.multiple&gt;\n\n    &lt;a class="btn btn-brand fl" href="javascript:;" \n        mx-click="changeData()"&gt;修改数据&lt;/a&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryaJ:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryaJ:f" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 66;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryaH:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryaJ:f" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 68;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryaH:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryaJ:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 71;
     $art = '=viewId';
     ;
