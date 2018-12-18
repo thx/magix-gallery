@@ -246,6 +246,9 @@ catch (ex) {
         var vf = Vframe.get('cnt_' + this.id);
         vf && vf.invoke('fire', ['unload', e]);
     },
+    /**
+     * 全屏右出浮层提交按钮
+     */
     '@{submit}<click>': function (e) {
         var node = $(e.eventTarget);
         var cc = '_zs_gallery_mx-dialog_index_-btn-submit-loading';

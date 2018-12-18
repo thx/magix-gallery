@@ -97,6 +97,9 @@ module.exports = Magix.View.extend({
         vf && vf.invoke('fire', ['unload', e]);
     },
 
+    /**
+     * 全屏右出浮层提交按钮
+     */
     '@{submit}<click>'(e) {
         let node = $(e.eventTarget);
         let cc = '@index.less:btn-submit-loading';
