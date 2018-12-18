@@ -25,11 +25,11 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybI:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybI:i" class="_zs_gallery___test___layout_-eg-content"><div class="_zs_gallery_mx-grid___test___index_-container"><div style="background: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);"><div mx-view="mx-grid/__test__/grid-body" style="padding: 20px;"></div></div></div></div><div mxa="_zs_gallerybI:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybI:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerybI:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybI:_" class="_zs_gallery___test___layout_-eg-content"><div class="_zs_gallery_mx-grid___test___index_-container"><div style="background: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);"><div mx-view="mx-grid/__test__/grid-body" style="padding: 20px;"></div></div></div></div><div mxa="_zs_gallerybI:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybI:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 11;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybI:l" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybI:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 13;
     $art = '!text1';
     ;
