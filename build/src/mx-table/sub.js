@@ -8,6 +8,7 @@ define("mx-table/sub",["$","magix"],(require,exports,module)=>{
 
 var $ = require("$");
 var Magix = require("magix");
+Magix.applyStyle("_zs_gallery_mx-table_sub_","/* @dependent: ./index.less */\n._zs_gallery_mx-table_sub_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-table_sub_-sub-wrapper {\n  position: relative;\n  display: inline-block;\n  width: 1px;\n  height: 1px;\n}\n._zs_gallery_mx-table_sub_-sub-wrapper ._zs_gallery_mx-table_sub_-sub-expand,\n._zs_gallery_mx-table_sub_-sub-wrapper ._zs_gallery_mx-table_sub_-sub-close {\n  position: absolute;\n  top: -10px;\n  left: 0;\n  width: 16px;\n  height: 16px;\n  text-align: center;\n  line-height: 16px;\n}\n._zs_gallery_mx-table_sub_-sub-expand {\n  cursor: pointer;\n  color: #4d7fff;\n}\n._zs_gallery_mx-table_sub_-sub-close {\n  cursor: pointer;\n  color: #999;\n}\n._zs_gallery_mx-table_sub_-sub-close:hover {\n  color: #333;\n}\n");
 module.exports = {
     ctor: function () {
         // &#xe653; 收起
@@ -37,14 +38,15 @@ module.exports = {
     sync: function (expand, item, toggleName) {
         var me = this;
         var context = $('#' + me.id);
+        $(item).addClass('_zs_gallery_mx-table_sub_-sub-wrapper');
         if (expand) {
             // 收起
-            $(item).html('<i class="mc-iconfont color-brand cursor-pointer">&#xe653;</i>');
+            $(item).html('<i class="mc-iconfont _zs_gallery_mx-table_sub_-sub-expand">&#xe653;</i>');
             context.find('[sub-toggle-parent=' + toggleName + ']').removeClass('hide');
         }
         else {
             // 展开
-            $(item).html('<i class="mc-iconfont color-9 color-h-3 cursor-pointer">&#xe652;</i>');
+            $(item).html('<i class="mc-iconfont _zs_gallery_mx-table_sub_-sub-close">&#xe652;</i>');
             context.find('[sub-toggle-parent=' + toggleName + ']').addClass('hide');
         }
     },

@@ -10,9 +10,30 @@
     box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);
     background-color: #fff;
     .base-logo{
+        position: relative;
         float: left;
         width: @base-left-width;
         padding-left: 24px;
+
+        .logo-img{
+            position: absolute;
+            top: 50%;
+            width: 38px;
+            height: 32px;
+            margin-top: -16px;
+            background-image: linear-gradient(to right, @btn-brand, @btn-brand-gradient);
+
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .logo-name{
+            padding-left: 48px;
+            line-height: 32px;
+            font-size: 18px;
+        }
     }
 
     .header-line{

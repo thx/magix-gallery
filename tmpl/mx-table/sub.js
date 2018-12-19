@@ -1,5 +1,7 @@
 let $ = require('$');
 let Magix = require('magix');
+Magix.applyStyle('@sub.less');
+
 module.exports = {
     ctor() {
         // &#xe653; 收起
@@ -32,14 +34,15 @@ module.exports = {
     sync(expand, item, toggleName){
         let me = this;
         let context = $('#' + me.id);
+        $(item).addClass('@sub.less:sub-wrapper');
         
         if (expand) {
             // 收起
-            $(item).html('<i class="mc-iconfont color-brand cursor-pointer">&#xe653;</i>');
+            $(item).html('<i class="mc-iconfont @sub.less:sub-expand">&#xe653;</i>');
             context.find('[sub-toggle-parent=' + toggleName + ']').removeClass('hide');
         } else {
             // 展开
-            $(item).html('<i class="mc-iconfont color-9 color-h-3 cursor-pointer">&#xe652;</i>');
+            $(item).html('<i class="mc-iconfont @sub.less:sub-close">&#xe652;</i>');
             context.find('[sub-toggle-parent=' + toggleName + ']').addClass('hide');
         }
     },
