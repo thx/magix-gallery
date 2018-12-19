@@ -1,30 +1,21 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb10">
-            <mx-tabs.box
-                disabled="true"
-                list="[{
-                    text: '模块1',
-                    value: 1
-                },{
-                    text: '模块2',
-                    value: 2
-                }]"/>
-        </div>
-
         <mx-tabs.box
             mode="hollow"
-            disabled="true"
-            list="[{
+            list="{{@[{
                 text: '模块1',
-                value: 1
+                value: 1,
+                tips: '提示信息'
             },{
                 text: '模块2',
                 value: 2
-            }]"/>
+            },{
+                text: '模块3',
+                value: 3
+            }]}}" />
     </div>
     <div class="eg-desc">
-        <div class="eg-title">可直接传数组 + 禁用</div>
+        <div class="eg-title">自定义&nbsp;text-key&nbsp;和&nbsp;value-key</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
@@ -32,13 +23,17 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-tabs.box
-    disabled="true"
-    list="[&#123;
+    mode="hollow"
+    list="&#123;&#123;@[&#123;
         text: '模块1',
-        value: 1
+        value: 1,
+        tips: '提示信息'
     &#125;,&#123;
         text: '模块2',
         value: 2
-    &#125;]"/&gt;</pre>
+    &#125;,&#123;
+        text: '模块3',
+        value: 3
+    &#125;]&#125;&#125;" /&gt;</pre>
     </div>
 </div>

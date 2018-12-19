@@ -12,6 +12,9 @@ module.exports = Base.extend({
         }, {
             value: 2,
             text: '模块2'
+        }, {
+            value: 3,
+            text: '模块3'
         }];
 
         this.updater.digest({

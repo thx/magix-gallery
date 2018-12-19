@@ -36,6 +36,11 @@ module.exports = Magix.View.extend({
             type: 'boolean',
             def: 'false'
         }, {
+            key: 'mode',
+            desc: '样式版本，可选实心（solid），空心（hollow）',
+            type: 'string',
+            def: 'solid'
+        }, {
             key: 'tag',
             desc: '打标内容',
             type: 'string',

@@ -45,9 +45,14 @@ module.exports = Magix.View.extend({
         //     box
         that['@{display.type}'] = data.type || 'border';
         that['@{display.disabled}'] = (/^true$/i).test(data.disabled) || false;
+        // box 类型
+        //     solid 实心
+        //     hollow 空心
+        var mode = data.mode || 'solid';
         that['@{owner.node}'] = $('#' + that.id);
         that.updater.set({
             viewId: that.id,
+            mode: mode,
             type: that['@{display.type}'],
             disabled: that['@{display.disabled}'],
             list: that['@{data.list}'],
