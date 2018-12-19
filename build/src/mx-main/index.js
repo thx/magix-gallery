@@ -47,9 +47,9 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_ickrispxe$art_i = 0, $art_cpmmotkjfs$art_c = stepInfos.length; $art_ickrispxe$art_i < $art_cpmmotkjfs$art_c; $art_ickrispxe$art_i++) {    var step = stepInfos[$art_ickrispxe$art_i]%>';
-    for (var $art_ickrispxe$art_i = 0, $art_cpmmotkjfs$art_c = stepInfos.length; $art_ickrispxe$art_i < $art_cpmmotkjfs$art_c; $art_ickrispxe$art_i++) {
-        var step = stepInfos[$art_ickrispxe$art_i];
+    $expr = '<%for (var $art_iwiwudawmdt$art_i = 0, $art_czeoqwtm$art_c = stepInfos.length; $art_iwiwudawmdt$art_i < $art_czeoqwtm$art_c; $art_iwiwudawmdt$art_i++) {    var step = stepInfos[$art_iwiwudawmdt$art_i]%>';
+    for (var $art_iwiwudawmdt$art_i = 0, $art_czeoqwtm$art_c = stepInfos.length; $art_iwiwudawmdt$art_i < $art_czeoqwtm$art_c; $art_iwiwudawmdt$art_i++) {
+        var step = stepInfos[$art_iwiwudawmdt$art_i];
         $p += '<div class="_zs_gallery_mx-main_index_-main-step ';
         $line = 4;
         $art = 'if (step.index == curStepIndex)';
@@ -143,9 +143,9 @@ module.exports = Magix.View.extend({
             $line = 17;
             $art = 'each step.subs as sub';
             ;
-            $expr = '<%for (var $art_illntuizo$art_i = 0, $art_objmdxgyzjm$art_obj = step.subs, $art_czjezum$art_c = $art_objmdxgyzjm$art_obj.length; $art_illntuizo$art_i < $art_czjezum$art_c; $art_illntuizo$art_i++) {            var sub = $art_objmdxgyzjm$art_obj[$art_illntuizo$art_i]%>';
-            for (var $art_illntuizo$art_i = 0, $art_objmdxgyzjm$art_obj = step.subs, $art_czjezum$art_c = $art_objmdxgyzjm$art_obj.length; $art_illntuizo$art_i < $art_czjezum$art_c; $art_illntuizo$art_i++) {
-                var sub = $art_objmdxgyzjm$art_obj[$art_illntuizo$art_i];
+            $expr = '<%for (var $art_iowjnvvx$art_i = 0, $art_objesnmkhaa$art_obj = step.subs, $art_cprgilner$art_c = $art_objesnmkhaa$art_obj.length; $art_iowjnvvx$art_i < $art_cprgilner$art_c; $art_iowjnvvx$art_i++) {            var sub = $art_objesnmkhaa$art_obj[$art_iowjnvvx$art_i]%>';
+            for (var $art_iowjnvvx$art_i = 0, $art_objesnmkhaa$art_obj = step.subs, $art_cprgilner$art_c = $art_objesnmkhaa$art_obj.length; $art_iowjnvvx$art_i < $art_cprgilner$art_c; $art_iowjnvvx$art_i++) {
+                var sub = $art_objesnmkhaa$art_obj[$art_iowjnvvx$art_i];
                 $p += '<div mxa="_zs_galleryb-:c" class="_zs_gallery_mx-main_index_-step-sub"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link ';
                 $line = 19;
                 $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))';
@@ -237,9 +237,9 @@ module.exports = Magix.View.extend({
     $line = 42;
     $art = 'each curStepInfo.subs as sub';
     ;
-    $expr = '<%for (var $art_iudestdo$art_i = 0, $art_objpqtrtre$art_obj = curStepInfo.subs, $art_cwwdrudqm$art_c = $art_objpqtrtre$art_obj.length; $art_iudestdo$art_i < $art_cwwdrudqm$art_c; $art_iudestdo$art_i++) {    var sub = $art_objpqtrtre$art_obj[$art_iudestdo$art_i]%>';
-    for (var $art_iudestdo$art_i = 0, $art_objpqtrtre$art_obj = curStepInfo.subs, $art_cwwdrudqm$art_c = $art_objpqtrtre$art_obj.length; $art_iudestdo$art_i < $art_cwwdrudqm$art_c; $art_iudestdo$art_i++) {
-        var sub = $art_objpqtrtre$art_obj[$art_iudestdo$art_i];
+    $expr = '<%for (var $art_ijscjbntnus$art_i = 0, $art_objxvspcfoxjo$art_obj = curStepInfo.subs, $art_cuwwhkp$art_c = $art_objxvspcfoxjo$art_obj.length; $art_ijscjbntnus$art_i < $art_cuwwhkp$art_c; $art_ijscjbntnus$art_i++) {    var sub = $art_objxvspcfoxjo$art_obj[$art_ijscjbntnus$art_i]%>';
+    for (var $art_ijscjbntnus$art_i = 0, $art_objxvspcfoxjo$art_obj = curStepInfo.subs, $art_cuwwhkp$art_c = $art_objxvspcfoxjo$art_obj.length; $art_ijscjbntnus$art_i < $art_cuwwhkp$art_c; $art_ijscjbntnus$art_i++) {
+        var sub = $art_objxvspcfoxjo$art_obj[$art_ijscjbntnus$art_i];
         $p += '<div mxv class="_zs_gallery_mx-main_index_-content-box" style="padding-right: ';
         $line = 44;
         $art = '=(curStepInfo.rightWidth + 20)';

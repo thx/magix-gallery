@@ -15,12 +15,12 @@
 
 .header {
     line-height: 60px;
-    border-bottom: 1px solid @color-line;
+    border-bottom: 1px solid @color-border;
 }
 
 .footer {
     padding-top: 14px;
-    border-top: 1px solid @color-line;
+    border-top: 1px solid @color-border;
 }
 
 .sortable {
@@ -64,7 +64,7 @@
     &.sortable {
         .left {
             min-height: 316px;
-            border-right: 1px solid @color-line;
+            border-right: 1px solid @color-border;
         }
         .right {
             background-color: @color-bg;
@@ -88,7 +88,7 @@
                     padding: 0 15px;
                     line-height: 28px;
                     background: #fff;
-                    border: 1px solid @color-line;
+                    border: 1px solid @color-border;
                     border-radius: @border-radius;
                     cursor: move;
                     &:last-child {
@@ -106,11 +106,11 @@
 
     &:hover{
         color: #666;
-        border-color: @color-border-hover;
+        border-color: @border-highlight-hover;
     }
 
     &:focus{
-        border-color: @color-border-hover;
+        border-color: @border-highlight-hover;
     }
 }
 

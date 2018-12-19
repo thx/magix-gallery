@@ -5,10 +5,17 @@
 .dropdown-toggle {
     position: relative;
     width: 100%;
+    height: @input-height;
     padding: 0 25px 0 10px;
     border-radius: @border-radius;
     cursor: pointer;
     user-select: none;
+    line-height: @input-height - 2;
+    transition: all @duration;
+    border-width: 1px;
+    border-style: solid;
+    border-color: @border-highlight;
+    
     .dropdown-toggle-label {
         display: block;
         width: 100%;
@@ -28,7 +35,7 @@
         font-size: 28px;
         line-height: 28px;
         margin-top: -14px;
-        color: @color-border-hover;
+        color: @border-highlight;
         transition: transform @duration, top @duration;
     }
     &.open {
@@ -145,23 +152,18 @@
     min-width: 100px;
     vertical-align: middle;
     
-    .dropdown-toggle {
-        height: @input-height;
-        line-height: @input-height - 2;
-        transition: all @duration;
-        border-width: 1px;
-        border-style: solid;
-        border-color: @color-border;
-    }
     &:hover {
         .dropdown-toggle {
-            border-color: @color-border-hover;
+            border-color: @border-highlight-hover;
+            .arrow{
+                color: @border-highlight-hover;
+            }
         }
     }
     &[mx-disabled],
     &[mx-disabled]:hover {
         .dropdown-toggle {
-            border-color: @color-line;
+            border-color: @color-border;
             color: @color-third;
             background-color: @color-disabled;
             cursor: not-allowed;
@@ -194,5 +196,5 @@
 
 .footer-wrapper {
     padding: 10px;
-    border-top: 1px solid @color-line;
+    border-top: 1px solid @color-border;
 }

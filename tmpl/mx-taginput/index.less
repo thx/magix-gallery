@@ -8,14 +8,14 @@
         height: auto;
         border-style: solid;
         border-width: 1px;
-        border-color: @color-border;
+        border-color: @border-highlight;
         border-radius: @border-radius;
         padding: @tag-gap (@tag-left-padding - 4);
         cursor: text;
         transition: border-color @duration;
 
         &:hover {
-            border-color: @color-border-hover;
+            border-color: @border-highlight-hover;
         }
 
         .placeholder,
@@ -85,10 +85,10 @@
         .ipt{
             cursor: not-allowed;
             background-color: @color-bg;
-            border-color: @color-line;
+            border-color: @color-border;
 
             &:hover {
-                border-color: @color-line;
+                border-color: @color-border;
             }
         }
         

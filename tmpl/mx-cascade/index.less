@@ -3,10 +3,17 @@
 .cascade-toggle {
     position: relative;
     width: 100%;
+    height: @input-height;
     padding: 0 25px 0 10px;
     border-radius: @border-radius;
     cursor: pointer;
     user-select: none;
+    line-height: @input-height - 2;
+    transition: all @duration;
+    border-width: 1px;
+    border-style: solid;
+    border-color: @border-highlight;
+
     .cascade-label {
         display: block;
         width: 100%;
@@ -26,7 +33,7 @@
         font-size: 28px;
         line-height: 28px;
         margin-top: -14px;
-        color: @color-border-hover;
+        color: @border-highlight;
         transition: transform @duration, top @duration;
     }
     &.open {
@@ -64,7 +71,7 @@
     height: @line-height * 6;
     overflow-y: auto;
     vertical-align: top;
-    border-right: 1px solid @color-line;
+    border-right: 1px solid @color-border;
 
     &:last-child{
         border-right: 0 none;
@@ -95,7 +102,7 @@
         font-size: 24px;
         line-height: @line-height;
         margin-top: 0 - @line-height / 2;
-        color: @color-border-hover;
+        color: #999;
         transform: rotate(-90deg);
     }
     &:hover {
@@ -115,26 +122,20 @@
     position: relative;
     display: inline-block;
     min-width: 100px;
-    height: @input-height;
-    line-height: @input-height - 2;
     vertical-align: middle;
-    background-color: #fff;
-    outline: 0;
-    .cascade-toggle {
-        transition: all @duration;
-        border-width: 1px;
-        border-style: solid;
-        border-color: @color-border;
-    }
+
     &:hover {
         .cascade-toggle {
-            border-color: @color-border-hover;
+            border-color: @border-highlight-hover;
+            .arrow{
+                color: @border-highlight-hover;
+            }
         }
     }
 
     &[mx-disabled], &[mx-disabled]:hover{
         .cascade-toggle {
-            border-color: @color-line;
+            border-color: @color-border;
             color: @color-third;
             background-color: @color-disabled;
             cursor: not-allowed;

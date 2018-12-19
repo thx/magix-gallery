@@ -15,7 +15,7 @@ textarea,
     display: inline-block;
     max-width: 100%;
     font-size: @font-size;
-    border-color: @color-border;
+    border-color: @border-highlight;
     border-width: 1px;
     border-style: solid;
     border-radius: 4px;
@@ -29,7 +29,7 @@ textarea,
     
     // 鼠标 hover 状态
     &:hover {
-        border-color: @color-border-hover;
+        border-color: @border-highlight-hover;
     } 
     
     // focus 状态
@@ -43,7 +43,7 @@ textarea,
     &[readonly],
     &[readonly]:hover,
     &[readonly]:focus {
-        border-color: @color-line;
+        border-color: @color-border;
         cursor: not-allowed;
         background-color: @color-bg;
         color: #999;
@@ -135,7 +135,7 @@ input[type="checkbox"],
     }
     
     &:disabled {
-        border-color: @color-line;
+        border-color: @color-border;
         background-color: @color-bg;
         &:checked{
             border-color: #ccc;
@@ -263,9 +263,9 @@ input[type="radio"],
     }
     &:disabled {
         background-color: @color-bg;
-        border-color: @color-line;
+        border-color: @color-border;
         &:hover {
-            border-color: @color-line;
+            border-color: @color-border;
         }
         &:after {
             background-color: #ccc;
@@ -305,9 +305,9 @@ input[type="radio"],
         }
         &:disabled {
             background-color: @color-bg;
-            border-color: @color-line;
+            border-color: @color-border;
             &:hover {
-                border-color: @color-line;
+                border-color: @color-border;
             }
             &:after {
                 background-color: #ccc;

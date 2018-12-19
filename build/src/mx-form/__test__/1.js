@@ -46,8 +46,8 @@ module.exports = Base.extend({
     $line = 34;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_clncpsqrr$art_c = list.length; index < $art_clncpsqrr$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_clncpsqrr$art_c = list.length; index < $art_clncpsqrr$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cqtwtofdm$art_c = list.length; index < $art_cqtwtofdm$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cqtwtofdm$art_c = list.length; index < $art_cqtwtofdm$art_c; index++) {
         var item = list[index];
         $p += '<tr mxv><td>';
         $line = 36;
@@ -100,7 +100,7 @@ module.exports = Base.extend({
     $line = 103;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_3">\n@import \'../../mx-style/_vars\';\n\n.fixed-head &#123;\n    tr.batch-oper &#123;\n        th &#123;\n            height: 68px;\n            background-color: #fff;\n            border-bottom: 1px solid @color-border;\n\n            .batch-input &#123;\n                position: relative;\n\n                .batch-input-text &#123;\n                    position: absolute;\n                    top: 0;\n                    left: -80px;\n                    width: 70px;\n                    height: 28px;\n                    line-height: 28px;\n                    text-align: right;\n                &#125;\n            &#125;\n        &#125;\n    &#125;\n&#125;</pre></div></div><div mxa="_zs_gallerybf:n" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerybf:h" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_3">\n@import \'../../mx-style/_vars\';\n\n.fixed-head &#123;\n    tr.batch-oper &#123;\n        th &#123;\n            height: 68px;\n            background-color: #fff;\n            border-bottom: 1px solid #e6e6e6;\n\n            .batch-input &#123;\n                position: relative;\n\n                .batch-input-text &#123;\n                    position: absolute;\n                    top: 0;\n                    left: -80px;\n                    width: 70px;\n                    height: 28px;\n                    line-height: 28px;\n                    text-align: right;\n                &#125;\n            &#125;\n        &#125;\n    &#125;\n&#125;</pre></div></div><div mxa="_zs_gallerybf:n" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerybf:h" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 133;
     $art = '=viewId';
     ;

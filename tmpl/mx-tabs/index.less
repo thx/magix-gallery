@@ -19,7 +19,7 @@
 
 .border {
     position: relative;
-    border-bottom: 1px solid @color-line;
+    border-bottom: 1px solid @color-border;
 
     .border-item {
         position: relative;
@@ -115,10 +115,10 @@
             &.selected {
                 color: #999;
                 background-color: @color-disabled;
-                border-color: @color-line;
+                border-color: @color-border;
 
                 & + .box-item{
-                    border-left-color: @color-line;
+                    border-left-color: @color-border;
                 }
             }
 
@@ -142,7 +142,7 @@
         border-left-width: 1px;
         border-right-width: 0;
         border-style: solid;
-        border-color: @color-line;
+        border-color: @color-border;
         color: #333;
 
         &:last-child{
@@ -167,7 +167,7 @@
 .solid-box {
     display: inline-block;
     height: @input-height;
-    border: 1px solid @color-line;
+    border: 1px solid @color-border;
     border-radius: @border-radius;
 
     .box-item {
