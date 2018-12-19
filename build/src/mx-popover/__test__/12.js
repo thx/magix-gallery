@@ -9,7 +9,7 @@ require("../index");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-popover___test___error_","/* @dependent: ./index.less */\n._zs_gallery_mx-popover___test___error_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-popover___test___error_-icon {\n  color: #ccc;\n  border: 1px solid #e6e6e6;\n  width: 24px;\n  height: 24px;\n  border-radius: 4px;\n  text-align: center;\n  line-height: 22px;\n}\n._zs_gallery_mx-popover___test___error_-zoom-icon {\n  zoom: 2;\n}\n._zs_gallery_mx-popover___test___error_-transform-icon {\n  -webkit-transform: scale(2);\n          transform: scale(2);\n}\n");
+Magix.applyStyle("_zs_gallery_mx-popover___test___error_","/* @dependent: ./index.less */\n._zs_gallery_mx-popover___test___error_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-popover___test___error_-icon {\n  color: #ccc;\n  border: 1px solid #9095A1;\n  width: 24px;\n  height: 24px;\n  border-radius: 4px;\n  text-align: center;\n  line-height: 22px;\n}\n._zs_gallery_mx-popover___test___error_-zoom-icon {\n  zoom: 2;\n}\n._zs_gallery_mx-popover___test___error_-transform-icon {\n  -webkit-transform: scale(2);\n          transform: scale(2);\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

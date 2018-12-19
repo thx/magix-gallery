@@ -1,6 +1,6 @@
 /* @dependent: ./index.less */
-
 @import '_vars';
+
 ::placeholder,
 ::-moz-placeholder,
 :-ms-input-placeholder,
@@ -43,7 +43,7 @@ textarea,
     &[readonly],
     &[readonly]:hover,
     &[readonly]:focus {
-        border-color: @color-border;
+        border-color: @color-line;
         cursor: not-allowed;
         background-color: @color-bg;
         color: #999;
@@ -135,7 +135,7 @@ input[type="checkbox"],
     }
     
     &:disabled {
-        border-color: @color-border;
+        border-color: @color-line;
         background-color: @color-bg;
         &:checked{
             border-color: #ccc;
@@ -263,9 +263,9 @@ input[type="radio"],
     }
     &:disabled {
         background-color: @color-bg;
-        border-color: @color-border;
+        border-color: @color-line;
         &:hover {
-            border-color: @color-border;
+            border-color: @color-line;
         }
         &:after {
             background-color: #ccc;
@@ -305,9 +305,9 @@ input[type="radio"],
         }
         &:disabled {
             background-color: @color-bg;
-            border-color: @color-border;
+            border-color: @color-line;
             &:hover {
-                border-color: @color-border;
+                border-color: @color-line;
             }
             &:after {
                 background-color: #ccc;

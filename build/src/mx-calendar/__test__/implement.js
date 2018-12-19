@@ -8,7 +8,7 @@ define("mx-calendar/__test__/implement",["magix","$","mx-title/second"],(require
 require("mx-title/second");
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-calendar___test___implement_","/* @dependent: ./index.less */\n._zs_gallery_mx-calendar___test___implement_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-calendar___test___implement_-wrapper {\n  position: relative;\n  width: 480px;\n  height: 330px;\n  border: 1px solid #e6e6e6;\n  overflow: hidden;\n}\n._zs_gallery_mx-calendar___test___implement_-wrapper ._zs_gallery_mx-calendar___test___implement_-content {\n  position: absolute;\n  top: 0;\n  left: -10px;\n  width: 520px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-calendar___test___implement_","/* @dependent: ./index.less */\n._zs_gallery_mx-calendar___test___implement_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-calendar___test___implement_-wrapper {\n  position: relative;\n  width: 480px;\n  height: 330px;\n  border: 1px solid #9095A1;\n  overflow: hidden;\n}\n._zs_gallery_mx-calendar___test___implement_-wrapper ._zs_gallery_mx-calendar___test___implement_-content {\n  position: absolute;\n  top: 0;\n  left: -10px;\n  width: 520px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

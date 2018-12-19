@@ -1,5 +1,8 @@
 /* @dependent: ./index.less */
 @import "_vars";
+@color-grey-btn: #e6e6e6;
+@color-grey-btn-hover: #ccc;
+
 .btn{
     display: inline-block;
     height: @input-height;
@@ -8,8 +11,8 @@
     line-height: @input-height - 2;
     color: #333;
     border-radius: @btn-border-radius;
-    background-color: @color-border;
-    border-color: @color-border;
+    background-color: @color-grey-btn;
+    border-color: @color-grey-btn;
     border-width: 1px;
     border-style: solid;
     font-size: @font-size;
@@ -32,8 +35,8 @@
     &.hover,
     &:active {
         color: #333;
-        background-color: @color-border-hover;
-        border-color: @color-border-hover;
+        background-color: @color-grey-btn-hover;
+        border-color: @color-grey-btn-hover;
     }
 
     &.btn-small {
@@ -102,7 +105,7 @@
         cursor: not-allowed;
         color: #bbb;
         background-color: #fafafa;
-        border-color: @color-border;
+        border-color: @color-grey-btn;
 
         &:hover,
         &.hover,
@@ -110,7 +113,7 @@
             cursor: not-allowed;
             color: #bbb;
             background-color: #fafafa;
-            border-color: @color-border;
+            border-color: @color-grey-btn;
         }
     }
     
