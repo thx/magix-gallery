@@ -8,7 +8,7 @@ define("__test__/other/update",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery___test___other_update_","/* @dependent: ./index.less */\n._zs_gallery___test___other_update_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___other_update_-update {\n  position: relative;\n}\n._zs_gallery___test___other_update_-update::before {\n  content: '';\n  position: absolute;\n  top: 12px;\n  left: 0;\n  width: 0;\n  height: 100%;\n  border-left: 2px solid #9095A1;\n}\n._zs_gallery___test___other_update_-update:last-child::before {\n  display: none;\n}\n._zs_gallery___test___other_update_-tag,\n._zs_gallery___test___other_update_-vi {\n  display: inline-block;\n  padding: 0 10px;\n  height: 20px;\n  line-height: 18px;\n  background-color: #f3f4f5;\n  border: 1px solid #eee;\n  text-align: center;\n  border-radius: 2px;\n  overflow: hidden;\n  vertical-align: middle;\n}\n._zs_gallery___test___other_update_-tag {\n  margin: 0 3px;\n}\n._zs_gallery___test___other_update_-ver {\n  position: relative;\n}\n._zs_gallery___test___other_update_-ver::before {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: -4px;\n  width: 10px;\n  height: 10px;\n  margin-top: -5px;\n  border: 2px solid #9095A1;\n  background-color: #fff;\n  border-radius: 50%;\n}\n._zs_gallery___test___other_update_-ver ._zs_gallery___test___other_update_-vt {\n  display: inline-block;\n  font-size: 18px;\n  overflow: hidden;\n  vertical-align: middle;\n}\n._zs_gallery___test___other_update_-ver ._zs_gallery___test___other_update_-vi {\n  margin: 0 10px;\n}\n._zs_gallery___test___other_update_-dot {\n  position: relative;\n  padding-left: 10px;\n}\n._zs_gallery___test___other_update_-dot::before {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 4px;\n  height: 4px;\n  margin-top: -2px;\n  border: 1px solid #ccc;\n  border-radius: 50%;\n}\n._zs_gallery___test___other_update_-line {\n  line-height: 28px;\n}\n._zs_gallery___test___other_update_-line-icon {\n  position: relative;\n  top: 2px;\n  margin-right: 5px;\n  font-size: 18px;\n}\n");
+Magix.applyStyle("_zs_gallery___test___other_update_","/* @dependent: ./index.less */\n._zs_gallery___test___other_update_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___other_update_-update {\n  position: relative;\n}\n._zs_gallery___test___other_update_-update::before {\n  content: '';\n  position: absolute;\n  top: 12px;\n  left: 0;\n  width: 0;\n  height: 100%;\n  border-left: 2px solid #e6e6e6;\n}\n._zs_gallery___test___other_update_-update:last-child::before {\n  display: none;\n}\n._zs_gallery___test___other_update_-tag,\n._zs_gallery___test___other_update_-vi {\n  display: inline-block;\n  padding: 0 10px;\n  height: 20px;\n  line-height: 18px;\n  background-color: #f3f4f5;\n  border: 1px solid #eee;\n  text-align: center;\n  border-radius: 2px;\n  overflow: hidden;\n  vertical-align: middle;\n}\n._zs_gallery___test___other_update_-tag {\n  margin: 0 3px;\n}\n._zs_gallery___test___other_update_-ver {\n  position: relative;\n}\n._zs_gallery___test___other_update_-ver::before {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: -4px;\n  width: 10px;\n  height: 10px;\n  margin-top: -5px;\n  border: 2px solid #e6e6e6;\n  background-color: #fff;\n  border-radius: 50%;\n}\n._zs_gallery___test___other_update_-ver ._zs_gallery___test___other_update_-vt {\n  display: inline-block;\n  font-size: 18px;\n  overflow: hidden;\n  vertical-align: middle;\n}\n._zs_gallery___test___other_update_-ver ._zs_gallery___test___other_update_-vi {\n  margin: 0 10px;\n}\n._zs_gallery___test___other_update_-dot {\n  position: relative;\n  padding-left: 10px;\n}\n._zs_gallery___test___other_update_-dot::before {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 4px;\n  height: 4px;\n  margin-top: -2px;\n  border: 1px solid #ccc;\n  border-radius: 50%;\n}\n._zs_gallery___test___other_update_-line {\n  line-height: 28px;\n}\n._zs_gallery___test___other_update_-line-icon {\n  position: relative;\n  top: 2px;\n  margin-right: 5px;\n  font-size: 18px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iyssvtxoiy$art_i = 0, $art_ctqofkduak$art_c = list.length; $art_iyssvtxoiy$art_i < $art_ctqofkduak$art_c; $art_iyssvtxoiy$art_i++) {    var item = list[$art_iyssvtxoiy$art_i]%>';
-    for (var $art_iyssvtxoiy$art_i = 0, $art_ctqofkduak$art_c = list.length; $art_iyssvtxoiy$art_i < $art_ctqofkduak$art_c; $art_iyssvtxoiy$art_i++) {
-        var item = list[$art_iyssvtxoiy$art_i];
+    $expr = '<%for (var $art_itlkvaidr$art_i = 0, $art_cvlgcpjri$art_c = list.length; $art_itlkvaidr$art_i < $art_cvlgcpjri$art_c; $art_itlkvaidr$art_i++) {    var item = list[$art_itlkvaidr$art_i]%>';
+    for (var $art_itlkvaidr$art_i = 0, $art_cvlgcpjri$art_c = list.length; $art_itlkvaidr$art_i < $art_cvlgcpjri$art_c; $art_itlkvaidr$art_i++) {
+        var item = list[$art_itlkvaidr$art_i];
         $p += '<div mxa="_zs_galleryg:_" class="_zs_gallery___test___other_update_-update"><div mxa="_zs_galleryg:a" class="_zs_gallery___test___other_update_-ver pl20"><span mxa="_zs_galleryg:b" class="_zs_gallery___test___other_update_-vt">';
         $line = 4;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_iynpssgygok$art_i = 0, $art_objdfunvnq$art_obj = item.subs, $art_cnngmqlc$art_c = $art_objdfunvnq$art_obj.length; $art_iynpssgygok$art_i < $art_cnngmqlc$art_c; $art_iynpssgygok$art_i++) {        var s = $art_objdfunvnq$art_obj[$art_iynpssgygok$art_i]%>';
-        for (var $art_iynpssgygok$art_i = 0, $art_objdfunvnq$art_obj = item.subs, $art_cnngmqlc$art_c = $art_objdfunvnq$art_obj.length; $art_iynpssgygok$art_i < $art_cnngmqlc$art_c; $art_iynpssgygok$art_i++) {
-            var s = $art_objdfunvnq$art_obj[$art_iynpssgygok$art_i];
+        $expr = '<%for (var $art_iuzpvcpbzh$art_i = 0, $art_objcrfnkhbcps$art_obj = item.subs, $art_cgzmeruwhufm$art_c = $art_objcrfnkhbcps$art_obj.length; $art_iuzpvcpbzh$art_i < $art_cgzmeruwhufm$art_c; $art_iuzpvcpbzh$art_i++) {        var s = $art_objcrfnkhbcps$art_obj[$art_iuzpvcpbzh$art_i]%>';
+        for (var $art_iuzpvcpbzh$art_i = 0, $art_objcrfnkhbcps$art_obj = item.subs, $art_cgzmeruwhufm$art_c = $art_objcrfnkhbcps$art_obj.length; $art_iuzpvcpbzh$art_i < $art_cgzmeruwhufm$art_c; $art_iuzpvcpbzh$art_i++) {
+            var s = $art_objcrfnkhbcps$art_obj[$art_iuzpvcpbzh$art_i];
             $p += '<div mxa="_zs_galleryg:e" class="pl20">';
             $line = 10;
             $art = 'if s.type == \'notice\'';
@@ -93,9 +93,9 @@ module.exports = Magix.View.extend({
             $line = 31;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_ivefwspfrfq$art_i = 0, $art_objdvdxcjns$art_obj = s.subs, $art_clvijataolj$art_c = $art_objdvdxcjns$art_obj.length; $art_ivefwspfrfq$art_i < $art_clvijataolj$art_c; $art_ivefwspfrfq$art_i++) {            var ss = $art_objdvdxcjns$art_obj[$art_ivefwspfrfq$art_i]%>';
-            for (var $art_ivefwspfrfq$art_i = 0, $art_objdvdxcjns$art_obj = s.subs, $art_clvijataolj$art_c = $art_objdvdxcjns$art_obj.length; $art_ivefwspfrfq$art_i < $art_clvijataolj$art_c; $art_ivefwspfrfq$art_i++) {
-                var ss = $art_objdvdxcjns$art_obj[$art_ivefwspfrfq$art_i];
+            $expr = '<%for (var $art_ifvrjeis$art_i = 0, $art_objhwcaeftm$art_obj = s.subs, $art_cqsajlsbos$art_c = $art_objhwcaeftm$art_obj.length; $art_ifvrjeis$art_i < $art_cqsajlsbos$art_c; $art_ifvrjeis$art_i++) {            var ss = $art_objhwcaeftm$art_obj[$art_ifvrjeis$art_i]%>';
+            for (var $art_ifvrjeis$art_i = 0, $art_objhwcaeftm$art_obj = s.subs, $art_cqsajlsbos$art_c = $art_objhwcaeftm$art_obj.length; $art_ifvrjeis$art_i < $art_cqsajlsbos$art_c; $art_ifvrjeis$art_i++) {
+                var ss = $art_objhwcaeftm$art_obj[$art_ifvrjeis$art_i];
                 $p += '<div mxa="_zs_galleryg:h" class="pl20"><div mxa="_zs_galleryg:i" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                 $line = 33;
                 $art = '!ss.title';
@@ -111,9 +111,9 @@ module.exports = Magix.View.extend({
                     $line = 37;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_igovyyue$art_i = 0, $art_objvghzdjlci$art_obj = ss.subs, $art_cuhnopg$art_c = $art_objvghzdjlci$art_obj.length; $art_igovyyue$art_i < $art_cuhnopg$art_c; $art_igovyyue$art_i++) {                    var sss = $art_objvghzdjlci$art_obj[$art_igovyyue$art_i]%>';
-                    for (var $art_igovyyue$art_i = 0, $art_objvghzdjlci$art_obj = ss.subs, $art_cuhnopg$art_c = $art_objvghzdjlci$art_obj.length; $art_igovyyue$art_i < $art_cuhnopg$art_c; $art_igovyyue$art_i++) {
-                        var sss = $art_objvghzdjlci$art_obj[$art_igovyyue$art_i];
+                    $expr = '<%for (var $art_ifooznfobn$art_i = 0, $art_objcagkv$art_obj = ss.subs, $art_chvdwzuxntn$art_c = $art_objcagkv$art_obj.length; $art_ifooznfobn$art_i < $art_chvdwzuxntn$art_c; $art_ifooznfobn$art_i++) {                    var sss = $art_objcagkv$art_obj[$art_ifooznfobn$art_i]%>';
+                    for (var $art_ifooznfobn$art_i = 0, $art_objcagkv$art_obj = ss.subs, $art_chvdwzuxntn$art_c = $art_objcagkv$art_obj.length; $art_ifooznfobn$art_i < $art_chvdwzuxntn$art_c; $art_ifooznfobn$art_i++) {
+                        var sss = $art_objcagkv$art_obj[$art_ifooznfobn$art_i];
                         $p += '<div mxa="_zs_galleryg:k" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                         $line = 38;
                         $art = '!sss';

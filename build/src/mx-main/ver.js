@@ -8,7 +8,7 @@ define("mx-main/ver",["magix","mx-main/steps"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var Base = require("mx-main/steps");
-Magix.applyStyle("_zs_gallery_mx-main_ver_","/* @dependent: ./index.less */\n._zs_gallery_mx-main_ver_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main_ver_-step {\n  position: relative;\n  margin-bottom: 20px;\n  padding-left: 52px;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-line {\n  position: absolute;\n  top: 47px;\n  left: 21px;\n  z-index: 2;\n  width: 0;\n  height: 100%;\n  margin-left: -1px;\n  border-left: 2px solid #9095A1;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-circle {\n  position: absolute;\n  top: 5px;\n  left: 0;\n  z-index: 3;\n  width: 42px;\n  height: 42px;\n  border-radius: 50%;\n  border-width: 2px;\n  border-style: solid;\n  border-color: #9095A1;\n  text-align: center;\n  background-color: #fafafa;\n  cursor: pointer;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-circle > * {\n  line-height: 38px;\n  color: #ccc;\n  font-weight: bold;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-content {\n  border-radius: 4px;\n  background-color: #fff;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-content ._zs_gallery_mx-main_ver_-title {\n  padding: 5px 20px;\n  line-height: 42px;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-content ._zs_gallery_mx-main_ver_-inner {\n  padding: 20px;\n  border-top: 1px solid #9095A1;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-main_ver_","/* @dependent: ./index.less */\n._zs_gallery_mx-main_ver_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main_ver_-step {\n  position: relative;\n  margin-bottom: 20px;\n  padding-left: 52px;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-line {\n  position: absolute;\n  top: 47px;\n  left: 21px;\n  z-index: 2;\n  width: 0;\n  height: 100%;\n  margin-left: -1px;\n  border-left: 2px solid #e6e6e6;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-circle {\n  position: absolute;\n  top: 5px;\n  left: 0;\n  z-index: 3;\n  width: 42px;\n  height: 42px;\n  border-radius: 50%;\n  border-width: 2px;\n  border-style: solid;\n  border-color: #e6e6e6;\n  text-align: center;\n  background-color: #fafafa;\n  cursor: pointer;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-circle > * {\n  line-height: 38px;\n  color: #ccc;\n  font-weight: bold;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-content {\n  border-radius: 4px;\n  background-color: #fff;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-content ._zs_gallery_mx-main_ver_-title {\n  padding: 5px 20px;\n  line-height: 42px;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-content ._zs_gallery_mx-main_ver_-inner {\n  padding: 20px;\n  border-top: 1px solid #e6e6e6;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -29,9 +29,9 @@ module.exports = Base.extend({
     $line = 1;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_iebtfaal$art_i = 0, $art_csqlrrddlc$art_c = stepInfos.length; $art_iebtfaal$art_i < $art_csqlrrddlc$art_c; $art_iebtfaal$art_i++) {    var step = stepInfos[$art_iebtfaal$art_i]%>';
-    for (var $art_iebtfaal$art_i = 0, $art_csqlrrddlc$art_c = stepInfos.length; $art_iebtfaal$art_i < $art_csqlrrddlc$art_c; $art_iebtfaal$art_i++) {
-        var step = stepInfos[$art_iebtfaal$art_i];
+    $expr = '<%for (var $art_igkpyqtdnhh$art_i = 0, $art_crzfmc$art_c = stepInfos.length; $art_igkpyqtdnhh$art_i < $art_crzfmc$art_c; $art_igkpyqtdnhh$art_i++) {    var step = stepInfos[$art_igkpyqtdnhh$art_i]%>';
+    for (var $art_igkpyqtdnhh$art_i = 0, $art_crzfmc$art_c = stepInfos.length; $art_igkpyqtdnhh$art_i < $art_crzfmc$art_c; $art_igkpyqtdnhh$art_i++) {
+        var step = stepInfos[$art_igkpyqtdnhh$art_i];
         $p += '<div mxv mxa="_zs_galleryc_:_" class="clearfix _zs_gallery_mx-main_ver_-step"><div mxa="_zs_galleryc_:a" class="_zs_gallery_mx-main_ver_-circle">';
         $line = 3;
         $art = '!step.icon';

@@ -8,8 +8,11 @@
         line-height: @input-small-height;
         .pager-dropdown {
             min-width: 66px;
-            height: @input-small-height;
-            line-height: @input-small-height - 2;
+            
+            [ref="@../mx-dropdown/index.less:dropdown-toggle"]{
+                height: @input-small-height;
+                line-height: @input-small-height - 2;
+            }
         }
     }
 

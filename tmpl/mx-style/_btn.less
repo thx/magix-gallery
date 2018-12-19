@@ -81,39 +81,43 @@
     &.btn-white {
         background-color: #fff;
         border-color: #fff;
+        background-image: none;
         &:hover,
         &.hover,
         &:active {
             background-color: #fafafa;
             border-color: #fafafa;
+            background-image: none;
         }
     }
 
     &.btn-hollow {
         background-color: @color-brand-opacity;
         border-color: @color-brand;
-
+        background-image: none;
         &:hover,
         &.hover,
         &:active {
             border-color: @color-brand-hover;
+            background-image: none;
         }
     }
 
     &[disabled],
     &.btn-disabled {
         cursor: not-allowed;
-        color: #bbb;
-        background-color: #fafafa;
-        border-color: @color-grey-btn;
-
+        color: #999;
+        background-color: @color-disabled;
+        border-color: @color-line;
+        background-image: none;
         &:hover,
         &.hover,
         &:active {
             cursor: not-allowed;
-            color: #bbb;
-            background-color: #fafafa;
-            border-color: @color-grey-btn;
+            color: #999;
+            background-color: @color-disabled;
+            border-color: @color-line;
+            background-image: none;
         }
     }
     

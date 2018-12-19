@@ -95,6 +95,12 @@
         width: 110px;
         .status-input {
             width: 100%;
+
+            &.readonly,
+            &.readonly:hover{
+                border-color: @color-border;
+                cursor: not-allowed;
+            }
         }
         .status-arrow {
             position: absolute;
@@ -112,6 +118,6 @@
 
     .status-line{
         height: 0;
-        border-top: 1px solid @color-border;
+        border-top: 1px solid @color-line;
     }
 }

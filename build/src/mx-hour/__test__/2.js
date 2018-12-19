@@ -12,7 +12,7 @@ var Magix = require("magix");
 var Vframe = Magix.Vframe;
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-hour___test___index_","/* @dependent: ./index.less */\n._zs_gallery_mx-hour___test___index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-hour___test___index_-wrapper {\n  padding: 10px;\n  border-radius: 4px;\n  border: 1px solid #9095A1;\n}\n._zs_gallery_mx-hour___test___index_-wrapper1 {\n  width: 760px;\n}\n._zs_gallery_mx-hour___test___index_-wrapper2 {\n  width: 800px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-hour___test___index_","/* @dependent: ./index.less */\n._zs_gallery_mx-hour___test___index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-hour___test___index_-wrapper {\n  padding: 10px;\n  border-radius: 4px;\n  border: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-hour___test___index_-wrapper1 {\n  width: 760px;\n}\n._zs_gallery_mx-hour___test___index_-wrapper2 {\n  width: 800px;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -34,9 +34,9 @@ module.exports = Base.extend({
     $line = 16;
     $art = 'each selected as s';
     ;
-    $expr = '<%for (var $art_ihugdyiunrla$art_i = 0, $art_ckthhwe$art_c = selected.length; $art_ihugdyiunrla$art_i < $art_ckthhwe$art_c; $art_ihugdyiunrla$art_i++) {    var s = selected[$art_ihugdyiunrla$art_i]%>';
-    for (var $art_ihugdyiunrla$art_i = 0, $art_ckthhwe$art_c = selected.length; $art_ihugdyiunrla$art_i < $art_ckthhwe$art_c; $art_ihugdyiunrla$art_i++) {
-        var s = selected[$art_ihugdyiunrla$art_i];
+    $expr = '<%for (var $art_iodsogcbmd$art_i = 0, $art_cpwpucbabp$art_c = selected.length; $art_iodsogcbmd$art_i < $art_cpwpucbabp$art_c; $art_iodsogcbmd$art_i++) {    var s = selected[$art_iodsogcbmd$art_i]%>';
+    for (var $art_iodsogcbmd$art_i = 0, $art_cpwpucbabp$art_c = selected.length; $art_iodsogcbmd$art_i < $art_cpwpucbabp$art_c; $art_iodsogcbmd$art_i++) {
+        var s = selected[$art_iodsogcbmd$art_i];
         $p += '<div>';
         $line = 17;
         $art = '=s.name';

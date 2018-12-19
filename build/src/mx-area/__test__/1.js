@@ -11,7 +11,7 @@ require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-area___test___index_","/* @dependent: ./index.less */\n._zs_gallery_mx-area___test___index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-area___test___index_-area-wrapper1,\n._zs_gallery_mx-area___test___index_-area-wrapper2 {\n  padding: 20px 20px 0;\n  border: 1px solid #9095A1;\n  border-radius: 4px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper1 {\n  width: 740px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper2 {\n  width: 600px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper3 {\n  width: 740px;\n  border: 1px solid #9095A1;\n  border-radius: 4px;\n  padding: 20px 0;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-area___test___index_","/* @dependent: ./index.less */\n._zs_gallery_mx-area___test___index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-area___test___index_-area-wrapper1,\n._zs_gallery_mx-area___test___index_-area-wrapper2 {\n  padding: 20px 20px 0;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper1 {\n  width: 740px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper2 {\n  width: 600px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper3 {\n  width: 740px;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  padding: 20px 0;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -41,9 +41,9 @@ module.exports = Base.extend({
     $line = 22;
     $art = 'each selected as item';
     ;
-    $expr = '<%for (var $art_ildrfavmsf$art_i = 0, $art_czyojiblc$art_c = selected.length; $art_ildrfavmsf$art_i < $art_czyojiblc$art_c; $art_ildrfavmsf$art_i++) {    var item = selected[$art_ildrfavmsf$art_i]%>';
-    for (var $art_ildrfavmsf$art_i = 0, $art_czyojiblc$art_c = selected.length; $art_ildrfavmsf$art_i < $art_czyojiblc$art_c; $art_ildrfavmsf$art_i++) {
-        var item = selected[$art_ildrfavmsf$art_i];
+    $expr = '<%for (var $art_ilimtmzpmc$art_i = 0, $art_chaqlcv$art_c = selected.length; $art_ilimtmzpmc$art_i < $art_chaqlcv$art_c; $art_ilimtmzpmc$art_i++) {    var item = selected[$art_ilimtmzpmc$art_i]%>';
+    for (var $art_ilimtmzpmc$art_i = 0, $art_chaqlcv$art_c = selected.length; $art_ilimtmzpmc$art_i < $art_chaqlcv$art_c; $art_ilimtmzpmc$art_i++) {
+        var item = selected[$art_ilimtmzpmc$art_i];
         $p += '<div>';
         $line = 23;
         $art = '=item';

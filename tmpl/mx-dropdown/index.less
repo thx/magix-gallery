@@ -143,12 +143,11 @@
     position: relative;
     display: inline-block;
     min-width: 100px;
-    height: @input-height;
-    line-height: @input-height - 2;
     vertical-align: middle;
-    background-color: #fff;
-    outline: 0;
+    
     .dropdown-toggle {
+        height: @input-height;
+        line-height: @input-height - 2;
         transition: all @duration;
         border-width: 1px;
         border-style: solid;
@@ -162,7 +161,7 @@
     &[mx-disabled],
     &[mx-disabled]:hover {
         .dropdown-toggle {
-            border-color: @color-border;
+            border-color: @color-line;
             color: @color-third;
             background-color: @color-disabled;
             cursor: not-allowed;

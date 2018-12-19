@@ -29,6 +29,11 @@
             min-width: @range-input-width;
             text-align: center;
             cursor: text;
+
+            [mx-view*="mx-calendar/datepicker"]{
+                width: 100%;
+            }
+
             .range-disabled,
             [ref="@./rangepicker.less:rangepicker-input"] {
                 height: @range-line-height;
@@ -93,8 +98,8 @@
             }
             &.selected,
             &.selected:hover {
-                color: #fff;
-                background: @color-brand;
+                color: @color-brand;
+                background: @color-brand-opacity;
             }
         }
 
@@ -107,7 +112,7 @@
     }
     .footer {
         padding-top: 10px;
-        border-top: 1px solid @color-border;
+        border-top: 1px solid @color-line;
     }
     
     &.time {

@@ -3,7 +3,7 @@
     <div class="status-handle-dd"
         mx-mouseover="over()">
         {{if showInfo}}
-            <span class="input status-input cursor-not-allow" style="color: {{=info.color}};">{{=info.text}}</span>
+            <span class="input status-input readonly" style="color: {{=info.color}};">{{=info.text}}</span>
         {{else}}
             <span class="input status-input" style="color: {{=cur.color}};">{{=cur.text}}</span>
             <i class="mc-iconfont status-arrow">&#xe692;</i>

@@ -30,7 +30,7 @@ module.exports = Base.extend({
     $line = 9;
     $art = '=selected';
     ;
-    $p += ($expr = '<%=selected%>', $e(selected)) + '</span></div><div mxa="_zs_galleryW:c" class="clearfix"><div class="w200 fl" mx-change="' + $viewId + 'select()" mx-view="mx-calendar/datepicker?min=';
+    $p += ($expr = '<%=selected%>', $e(selected)) + '</span></div><div mxa="_zs_galleryW:c" class="clearfix"><div class="w200" mx-change="' + $viewId + 'select()" mx-view="mx-calendar/datepicker?min=';
     $line = 13;
     $art = '=min';
     ;
@@ -42,7 +42,7 @@ module.exports = Base.extend({
     $line = 17;
     $art = '=selected';
     ;
-    $p += ($expr = '<%!$eu(selected)%>', $eu(selected)) + '"></div><a mxs="_zs_galleryW:b" href="javascript:;" class="btn btn-brand ml20 fl" mx-click="' + $viewId + 'changeDate()">修改时间</a></div></div><div mxa="_zs_galleryW:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryW:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%!$eu(selected)%>', $eu(selected)) + '"></div><a mxs="_zs_galleryW:b" href="javascript:;" class="btn btn-brand ml20" mx-click="' + $viewId + 'changeDate()">修改时间</a></div></div><div mxa="_zs_galleryW:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryW:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 24;
     $art = '=viewId';
     ;
