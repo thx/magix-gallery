@@ -30,8 +30,8 @@ module.exports = Base.extend({
     $line = 30;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cezefgkkz$art_c = list.length; index < $art_cezefgkkz$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cezefgkkz$art_c = list.length; index < $art_cezefgkkz$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cauemixms$art_c = list.length; index < $art_cauemixms$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cauemixms$art_c = list.length; index < $art_cauemixms$art_c; index++) {
         var item = list[index];
         $p += '<tr><td>';
         $line = 32;
@@ -56,9 +56,9 @@ module.exports = Base.extend({
     $line = 43;
     $art = 'each groups as group';
     ;
-    $expr = '<%for (var $art_iapnqvr$art_i = 0, $art_cjnblkxbej$art_c = groups.length; $art_iapnqvr$art_i < $art_cjnblkxbej$art_c; $art_iapnqvr$art_i++) {    var group = groups[$art_iapnqvr$art_i]%>';
-    for (var $art_iapnqvr$art_i = 0, $art_cjnblkxbej$art_c = groups.length; $art_iapnqvr$art_i < $art_cjnblkxbej$art_c; $art_iapnqvr$art_i++) {
-        var group = groups[$art_iapnqvr$art_i];
+    $expr = '<%for (var $art_itqdqefnu$art_i = 0, $art_caaupvkqk$art_c = groups.length; $art_itqdqefnu$art_i < $art_caaupvkqk$art_c; $art_itqdqefnu$art_i++) {    var group = groups[$art_itqdqefnu$art_i]%>';
+    for (var $art_itqdqefnu$art_i = 0, $art_caaupvkqk$art_c = groups.length; $art_itqdqefnu$art_i < $art_caaupvkqk$art_c; $art_itqdqefnu$art_i++) {
+        var group = groups[$art_itqdqefnu$art_i];
         $p += '<th class="field-group" colspan="';
         $line = 44;
         $art = '=group.fields.length';
@@ -78,16 +78,16 @@ module.exports = Base.extend({
     $line = 50;
     $art = 'each groups as group';
     ;
-    $expr = '<%for (var $art_igsbkwxu$art_i = 0, $art_ctaodfmxkw$art_c = groups.length; $art_igsbkwxu$art_i < $art_ctaodfmxkw$art_c; $art_igsbkwxu$art_i++) {    var group = groups[$art_igsbkwxu$art_i]%>';
-    for (var $art_igsbkwxu$art_i = 0, $art_ctaodfmxkw$art_c = groups.length; $art_igsbkwxu$art_i < $art_ctaodfmxkw$art_c; $art_igsbkwxu$art_i++) {
-        var group = groups[$art_igsbkwxu$art_i];
+    $expr = '<%for (var $art_irksws$art_i = 0, $art_ckmrssetw$art_c = groups.length; $art_irksws$art_i < $art_ckmrssetw$art_c; $art_irksws$art_i++) {    var group = groups[$art_irksws$art_i]%>';
+    for (var $art_irksws$art_i = 0, $art_ckmrssetw$art_c = groups.length; $art_irksws$art_i < $art_ckmrssetw$art_c; $art_irksws$art_i++) {
+        var group = groups[$art_irksws$art_i];
         $p += ' ';
         $line = 51;
         $art = 'each group.fields as field';
         ;
-        $expr = '<%for (var $art_igjrcmrzmc$art_i = 0, $art_objcmgwnndnns$art_obj = group.fields, $art_cmncgvpma$art_c = $art_objcmgwnndnns$art_obj.length; $art_igjrcmrzmc$art_i < $art_cmncgvpma$art_c; $art_igjrcmrzmc$art_i++) {        var field = $art_objcmgwnndnns$art_obj[$art_igjrcmrzmc$art_i]%>';
-        for (var $art_igjrcmrzmc$art_i = 0, $art_objcmgwnndnns$art_obj = group.fields, $art_cmncgvpma$art_c = $art_objcmgwnndnns$art_obj.length; $art_igjrcmrzmc$art_i < $art_cmncgvpma$art_c; $art_igjrcmrzmc$art_i++) {
-            var field = $art_objcmgwnndnns$art_obj[$art_igjrcmrzmc$art_i];
+        $expr = '<%for (var $art_iyfkasoirbx$art_i = 0, $art_objdwfcmpkv$art_obj = group.fields, $art_cxrkkqrsjm$art_c = $art_objdwfcmpkv$art_obj.length; $art_iyfkasoirbx$art_i < $art_cxrkkqrsjm$art_c; $art_iyfkasoirbx$art_i++) {        var field = $art_objdwfcmpkv$art_obj[$art_iyfkasoirbx$art_i]%>';
+        for (var $art_iyfkasoirbx$art_i = 0, $art_objdwfcmpkv$art_obj = group.fields, $art_cxrkkqrsjm$art_c = $art_objdwfcmpkv$art_obj.length; $art_iyfkasoirbx$art_i < $art_cxrkkqrsjm$art_c; $art_iyfkasoirbx$art_i++) {
+            var field = $art_objdwfcmpkv$art_obj[$art_iyfkasoirbx$art_i];
             $p += '<th mxa="_zs_gallerydB:f" class="field-item">指标';
             $line = 53;
             $art = '=field';
@@ -114,8 +114,8 @@ module.exports = Base.extend({
     $line = 61;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_clqogzfhn$art_c = list.length; index < $art_clqogzfhn$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_clqogzfhn$art_c = list.length; index < $art_clqogzfhn$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cgqjrvcgs$art_c = list.length; index < $art_cgqjrvcgs$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cgqjrvcgs$art_c = list.length; index < $art_cgqjrvcgs$art_c; index++) {
         var item = list[index];
         $p += '<tr class="';
         $line = 62;
@@ -125,16 +125,16 @@ module.exports = Base.extend({
         $line = 63;
         $art = 'each groups as group';
         ;
-        $expr = '<%for (var $art_ihyjbnxder$art_i = 0, $art_cigjth$art_c = groups.length; $art_ihyjbnxder$art_i < $art_cigjth$art_c; $art_ihyjbnxder$art_i++) {        var group = groups[$art_ihyjbnxder$art_i]%>';
-        for (var $art_ihyjbnxder$art_i = 0, $art_cigjth$art_c = groups.length; $art_ihyjbnxder$art_i < $art_cigjth$art_c; $art_ihyjbnxder$art_i++) {
-            var group = groups[$art_ihyjbnxder$art_i];
+        $expr = '<%for (var $art_itqigl$art_i = 0, $art_czvqaxhlpr$art_c = groups.length; $art_itqigl$art_i < $art_czvqaxhlpr$art_c; $art_itqigl$art_i++) {        var group = groups[$art_itqigl$art_i]%>';
+        for (var $art_itqigl$art_i = 0, $art_czvqaxhlpr$art_c = groups.length; $art_itqigl$art_i < $art_czvqaxhlpr$art_c; $art_itqigl$art_i++) {
+            var group = groups[$art_itqigl$art_i];
             $p += ' ';
             $line = 64;
             $art = 'each group.fields as field';
             ;
-            $expr = '<%for (var $art_izaainkz$art_i = 0, $art_objtryffelhh$art_obj = group.fields, $art_cukrncmqscd$art_c = $art_objtryffelhh$art_obj.length; $art_izaainkz$art_i < $art_cukrncmqscd$art_c; $art_izaainkz$art_i++) {            var field = $art_objtryffelhh$art_obj[$art_izaainkz$art_i]%>';
-            for (var $art_izaainkz$art_i = 0, $art_objtryffelhh$art_obj = group.fields, $art_cukrncmqscd$art_c = $art_objtryffelhh$art_obj.length; $art_izaainkz$art_i < $art_cukrncmqscd$art_c; $art_izaainkz$art_i++) {
-                var field = $art_objtryffelhh$art_obj[$art_izaainkz$art_i];
+            $expr = '<%for (var $art_ikkxfku$art_i = 0, $art_objophwkwgzq$art_obj = group.fields, $art_cuxeraswo$art_c = $art_objophwkwgzq$art_obj.length; $art_ikkxfku$art_i < $art_cuxeraswo$art_c; $art_ikkxfku$art_i++) {            var field = $art_objophwkwgzq$art_obj[$art_ikkxfku$art_i]%>';
+            for (var $art_ikkxfku$art_i = 0, $art_objophwkwgzq$art_obj = group.fields, $art_cuxeraswo$art_c = $art_objophwkwgzq$art_obj.length; $art_ikkxfku$art_i < $art_cuxeraswo$art_c; $art_ikkxfku$art_i++) {
+                var field = $art_objophwkwgzq$art_obj[$art_ikkxfku$art_i];
                 $p += '<td>';
                 $line = 65;
                 $art = '=format(item[field])';

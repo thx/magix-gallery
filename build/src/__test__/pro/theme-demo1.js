@@ -3,10 +3,10 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("__test__/pro/theme-demo1",["magix","../example","mx-form/index","mx-form/validator","$","moment","mx-dropdown/index","mx-calendar/rangepicker","mx-switch/index","mx-slider/index"],(require,exports,module)=>{
+define("__test__/pro/theme-demo1",["magix","../example","mx-form/index","mx-form/validator","$","moment","mx-dropdown/index","mx-calendar/datepicker","mx-switch/index","mx-slider/index"],(require,exports,module)=>{
 /*Magix,Base,Form,Validator,$,Moment*/
 require("mx-dropdown/index");
-require("mx-calendar/rangepicker");
+require("mx-calendar/datepicker");
 require("mx-switch/index");
 require("mx-slider/index");
 var Magix = require("magix");
@@ -37,9 +37,9 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'each checkboxes as c';
     ;
-    $expr = '<%for (var $art_iboppsbyh$art_i = 0, $art_cuytejumd$art_c = checkboxes.length; $art_iboppsbyh$art_i < $art_cuytejumd$art_c; $art_iboppsbyh$art_i++) {    var c = checkboxes[$art_iboppsbyh$art_i]%>';
-    for (var $art_iboppsbyh$art_i = 0, $art_cuytejumd$art_c = checkboxes.length; $art_iboppsbyh$art_i < $art_cuytejumd$art_c; $art_iboppsbyh$art_i++) {
-        var c = checkboxes[$art_iboppsbyh$art_i];
+    $expr = '<%for (var $art_ijvpqeztnp$art_i = 0, $art_cdbwkggfh$art_c = checkboxes.length; $art_ijvpqeztnp$art_i < $art_cdbwkggfh$art_c; $art_ijvpqeztnp$art_i++) {    var c = checkboxes[$art_ijvpqeztnp$art_i]%>';
+    for (var $art_ijvpqeztnp$art_i = 0, $art_cdbwkggfh$art_c = checkboxes.length; $art_ijvpqeztnp$art_i < $art_cdbwkggfh$art_c; $art_ijvpqeztnp$art_i++) {
+        var c = checkboxes[$art_ijvpqeztnp$art_i];
         $p += '<label mxv mxa="_zs_galleryI:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 10;
         $art = ':selected.checkboxes';
@@ -63,9 +63,9 @@ module.exports = Base.extend({
     $line = 19;
     $art = 'each radioes as r';
     ;
-    $expr = '<%for (var $art_ixatcnlulo$art_i = 0, $art_cjwezctxg$art_c = radioes.length; $art_ixatcnlulo$art_i < $art_cjwezctxg$art_c; $art_ixatcnlulo$art_i++) {    var r = radioes[$art_ixatcnlulo$art_i]%>';
-    for (var $art_ixatcnlulo$art_i = 0, $art_cjwezctxg$art_c = radioes.length; $art_ixatcnlulo$art_i < $art_cjwezctxg$art_c; $art_ixatcnlulo$art_i++) {
-        var r = radioes[$art_ixatcnlulo$art_i];
+    $expr = '<%for (var $art_ilopatbh$art_i = 0, $art_csbeknjo$art_c = radioes.length; $art_ilopatbh$art_i < $art_csbeknjo$art_c; $art_ilopatbh$art_i++) {    var r = radioes[$art_ilopatbh$art_i]%>';
+    for (var $art_ilopatbh$art_i = 0, $art_csbeknjo$art_c = radioes.length; $art_ilopatbh$art_i < $art_csbeknjo$art_c; $art_ilopatbh$art_i++) {
+        var r = radioes[$art_ilopatbh$art_i];
         $p += '<label mxv mxa="_zs_galleryI:f" class="mr30"><input mxe="' + $viewId + '_1" mxc="[';
         $line = 24;
         $art = ':selected.radio';
@@ -101,28 +101,16 @@ module.exports = Base.extend({
     $line = 45;
     $art = ':selected.name';
     ;
-    $p += ($expr = '<%=selected.name%>', $e(selected.name)) + '"/><a mxs="_zs_galleryI:f" rel="noopener noreferrer" href="https://thx.github.io/magix/" target="_blank" class="ml20 link-brand">跳转链接</a></div></div><div mxv mxa="_zs_galleryI:k" class="form-item"><div mxs="_zs_galleryI:g" class="form-label">日历</div><div mxv mxa="_zs_galleryI:l" class="form-content"><div mxv="selected" class="w220" mx-view="mx-calendar/rangepicker?align=right&vsenable=';
+    $p += ($expr = '<%=selected.name%>', $e(selected.name)) + '"/><a mxs="_zs_galleryI:f" rel="noopener noreferrer" href="https://thx.github.io/magix/" target="_blank" class="ml20 link-brand">跳转链接</a></div></div><div mxa="_zs_galleryI:k" class="form-item"><div mxs="_zs_galleryI:g" class="form-label">日历</div><div mxa="_zs_galleryI:l" class="form-content"><div class="w220" mx-view="mx-calendar/datepicker?prefix=%E6%88%AA%E6%AD%A2%E8%87%B3&selected=';
     $line = 54;
-    $art = '@selected.vsenable';
+    $art = '=selected.time';
     ;
-    $p += ($expr = '<%@selected.vsenable%>', $i($$ref, selected.vsenable)) + '&vs=';
-    $line = 55;
-    $art = '@selected.vs';
-    ;
-    $p += ($expr = '<%@selected.vs%>', $i($$ref, selected.vs)) + '&start=';
-    $line = 56;
-    $art = '=selected.start';
-    ;
-    $p += ($expr = '<%!$eu(selected.start)%>', $eu(selected.start)) + '&end=';
-    $line = 57;
-    $art = '=selected.end';
-    ;
-    $p += ($expr = '<%!$eu(selected.end)%>', $eu(selected.end)) + '"></div></div></div><div mxa="_zs_galleryI:m" class="form-item"><div mxs="_zs_galleryI:h" class="form-label">开关</div><div mxa="_zs_galleryI:n" class="form-content"><span mxe="' + $viewId + '_4_' + ($expr = '<%="switch"%>', $e("switch")) + '" mxc="[';
-    $line = 64;
+    $p += ($expr = '<%!$eu(selected.time)%>', $eu(selected.time)) + '"></div></div></div><div mxa="_zs_galleryI:m" class="form-item"><div mxs="_zs_galleryI:h" class="form-label">开关</div><div mxa="_zs_galleryI:n" class="form-content"><span mxe="' + $viewId + '_4_' + ($expr = '<%="switch"%>', $e("switch")) + '" mxc="[';
+    $line = 61;
     $art = ':selected.switch';
     ;
     $p += '{p:\'selected.' + ($expr = '<%="switch"%>', $e("switch")) + '\',a:\'state\'}]" class="mr20" style="margin-top: 7px;" mx-view="mx-switch/index?state=';
-    $line = 64;
+    $line = 61;
     $art = ':selected.switch';
     ;
     $p += ($expr = '<%@selected["switch"]%>', $i($$ref, selected["switch"])) + '"></span></div></div><div mxs="_zs_galleryI:i" class="form-item"><div class="form-label">滑块</div><div class="form-content"><div mx-view="mx-slider/index?width=220&max=200&min=100&step=1"></div></div></div><div mxs="_zs_galleryI:j" class="form-item"><a href="javascript:;" class="btn w80 btn-brand mr20">确认</a><a href="javascript:;" class="btn w80">取消</a></div></form>';
@@ -145,10 +133,7 @@ catch (ex) {
                 "switch": true,
                 radio: 'radio2',
                 checkboxes: ['checkbox1'],
-                vsenable: true,
-                vs: true,
-                start: Moment().subtract(1, 'days').format(Formater),
-                end: Moment().add(1, 'days').format(Formater)
+                time: Moment().subtract(1, 'days').format(Formater)
             }
         });
     }

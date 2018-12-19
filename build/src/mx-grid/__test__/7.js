@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', icon = $$.icon, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybG:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerybG:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_gallerybG:b" class="_zs_gallery_mx-grid___test___index_-container"><div mxa="_zs_gallerybG:c" style="background: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);"><div mxa="_zs_gallerybG:d" style="padding: 10px 20px;;line-height: 32px;;border-bottom: 1px solid #e6e6e6;"><span mxa="_zs_gallerybG:e" style="margin-right: 5px; color: #999;">';
+    $p += '<div mxa="_zs_gallerybG:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerybG:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_gallerybG:b" class="_zs_gallery_mx-grid___test___index_-container"><div mxa="_zs_gallerybG:c" style="background: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);"><div mxa="_zs_gallerybG:d" style="padding: 10px 20px;;line-height: 32px;;border-bottom: 1px solid #e6e6e6;"><span mxa="_zs_gallerybG:e" style="margin-right: 2px; color: #ccc;">';
     $line = 5;
     $art = '!icon';
     ;
@@ -64,7 +64,7 @@ catch (ex) {
 } return $p; },
     render: function () {
         this.updater.digest({
-            icon: '<i class="mc-iconfont fontsize-20">&#xe670;</i>'
+            icon: '<i class="mc-iconfont fontsize-20 displacement-2 bold">&#xe670;</i>'
         });
     }
 });

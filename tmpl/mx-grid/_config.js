@@ -81,7 +81,7 @@ module.exports = {
         let tmpl = `<div style="${styles.join(';')}">`;
         
         if(attrsKV.icon){
-            tmpl += `<span style="margin-right: 5px; color: #999;">${attrsKV.icon}</span>`;
+            tmpl += `<span style="margin-right: 2px; color: #ccc;">${attrsKV.icon}</span>`;
         }
 
         tmpl += `<span style="font-size: 16px;">${attrsKV.content}</span>`;

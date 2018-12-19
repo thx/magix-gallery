@@ -1,5 +1,5 @@
 <div class="dropdown-toggle {{if expand}} open {{/if}}">
-    <span class="dropdown-toggle-label">{{=selectedText}}</span>
+    <span class="dropdown-toggle-label {{if (selected.length==0)}} dropdown-toggle-label-ph {{/if}}">{{=selectedText}}</span>
     <span class="mc-iconfont arrow">&#xe692;</span>
 </div>
 <div class="dropdown-menu-wrapper {{=placementClass}} {{if expand}} open {{/if}} {{if over}} dropdown-menu-group {{/if}}"
@@ -47,10 +47,9 @@
                 {{if group.all}}
                     <div title="{{=group.text}}" class="dropdown-item dropdown-header-item">
                         <label for="{{=viewId}}_{{=group.value}}" class="item-link ellipsis">
-                            <mx-checkbox 
-                                view-disabled="{{if (max > 0) && (imme.length >= max)}}true{{/if}}"
-                                view-indeterminate="{{if (group.state == 1)}}true{{/if}}" 
-                                view-checked="{{if (group.state == 2)}}true{{/if}}" 
+                            <input type="checkbox" class="checkbox" 
+                                {{if (max > 0) && (imme.length >= max)}} disabled="true" {{/if}}
+                                {{if group.checked}} checked="true" {{/if}}
                                 id="{{=viewId}}_{{=group.value}}"
                                 mx-focusout="@{stop}()"
                                 mx-change="@{checkGroup}({groupIndex:'{{=groupIndex}}'})" 

@@ -18,10 +18,7 @@ module.exports = Base.extend({
                 switch: true,
                 radio: 'radio2',
                 checkboxes: ['checkbox1'],
-                vsenable: true,
-                vs: true,
-                start: Moment().subtract(1, 'days').format(Formater),
-                end: Moment().add(1, 'days').format(Formater)
+                time: Moment().subtract(1, 'days').format(Formater)
             }
         });
     }

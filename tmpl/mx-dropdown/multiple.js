@@ -138,10 +138,8 @@ module.exports = Magix.View.extend({
                     checkes.push(item.value);
                 }
             })
-            // 0：未选中
-            // 1：部分选择
-            // 2：全部徐那种
-            group.state = (checkes.length > 0) ? (checkes.length == group.list.length ? 2 : 1) : 0;
+
+            group.checked = (checkes.length > 0) && (checkes.length == group.list.length);
         })
         me.updater.set({
             hasGroups,
@@ -249,7 +247,7 @@ module.exports = Magix.View.extend({
                         checkes.push(item.value);
                     }
                 })
-                group.state = (checkes.length > 0) ? (checkes.length == group.list.length ? 2 : 1) : 0;
+                group.checked = (checkes.length > 0) && (checkes.length == group.list.length);
             })
 
             me.updater.digest({
@@ -432,8 +430,8 @@ module.exports = Magix.View.extend({
         groups.forEach((group, gi) => {
             let checkes = [];
             group.list.forEach(item => {
-                if((groupIndex === 'all' || (groupIndex == gi)) &&
-                   (value == 'all' || value == item.value)){
+                if ((groupIndex === 'all' || (groupIndex == gi)) &&
+                    (value == 'all' || value == item.value)) {
                     // 重新设置
                     if (checked) {
                         // 选中
@@ -459,9 +457,8 @@ module.exports = Magix.View.extend({
                     checkes.push(item.value);
                 }
             })
-            group.state = (checkes.length > 0) ? (checkes.length == group.list.length ? 2 : 1) : 0;
+            group.checked = (checkes.length > 0) && (checkes.length == group.list.length);
             newImme = newImme.concat(checkes);
-
         })
 
         me.updater.digest({

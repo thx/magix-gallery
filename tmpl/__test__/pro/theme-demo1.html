@@ -49,12 +49,9 @@
     <div class="form-item">
         <div class="form-label">日历</div>
         <div class="form-content">
-            <mx-calendar.rangepicker class="w220"
-                align="right"
-                vsenable="{{@selected.vsenable}}"
-                vs="{{@selected.vs}}"
-                start="{{=selected.start}}"
-                end="{{=selected.end}}"/>
+            <mx-calendar.datepicker class="w220" 
+                prefix="截止至"
+                selected="{{=selected.time}}"/>
         </div>
     </div>
     <div class="form-item">
