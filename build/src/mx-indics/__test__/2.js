@@ -55,9 +55,9 @@ module.exports = Base.extend({
         $line = 19;
         $art = 'each selected as key';
         ;
-        $expr = '<%for (var $art_iafaxdubtqj$art_i = 0, $art_cocfnya$art_c = selected.length; $art_iafaxdubtqj$art_i < $art_cocfnya$art_c; $art_iafaxdubtqj$art_i++) {        var key = selected[$art_iafaxdubtqj$art_i]%>';
-        for (var $art_iafaxdubtqj$art_i = 0, $art_cocfnya$art_c = selected.length; $art_iafaxdubtqj$art_i < $art_cocfnya$art_c; $art_iafaxdubtqj$art_i++) {
-            var key = selected[$art_iafaxdubtqj$art_i];
+        $expr = '<%for (var $art_iislnifpg$art_i = 0, $art_cdxpdqelfp$art_c = selected.length; $art_iislnifpg$art_i < $art_cdxpdqelfp$art_c; $art_iislnifpg$art_i++) {        var key = selected[$art_iislnifpg$art_i]%>';
+        for (var $art_iislnifpg$art_i = 0, $art_cdxpdqelfp$art_c = selected.length; $art_iislnifpg$art_i < $art_cdxpdqelfp$art_c; $art_iislnifpg$art_i++) {
+            var key = selected[$art_iislnifpg$art_i];
             $p += '<span mxa="_zs_gallerybX:d" class="fl mr10">';
             $line = 20;
             $art = '=map[key]';
@@ -85,9 +85,9 @@ module.exports = Base.extend({
         $line = 26;
         $art = 'each defaults as key';
         ;
-        $expr = '<%for (var $art_ixmxfseld$art_i = 0, $art_cwdufyui$art_c = defaults.length; $art_ixmxfseld$art_i < $art_cwdufyui$art_c; $art_ixmxfseld$art_i++) {        var key = defaults[$art_ixmxfseld$art_i]%>';
-        for (var $art_ixmxfseld$art_i = 0, $art_cwdufyui$art_c = defaults.length; $art_ixmxfseld$art_i < $art_cwdufyui$art_c; $art_ixmxfseld$art_i++) {
-            var key = defaults[$art_ixmxfseld$art_i];
+        $expr = '<%for (var $art_ifesxvqpr$art_i = 0, $art_cqdgaclvxl$art_c = defaults.length; $art_ifesxvqpr$art_i < $art_cqdgaclvxl$art_c; $art_ifesxvqpr$art_i++) {        var key = defaults[$art_ifesxvqpr$art_i]%>';
+        for (var $art_ifesxvqpr$art_i = 0, $art_cqdgaclvxl$art_c = defaults.length; $art_ifesxvqpr$art_i < $art_cqdgaclvxl$art_c; $art_ifesxvqpr$art_i++) {
+            var key = defaults[$art_ifesxvqpr$art_i];
             $p += '<span mxa="_zs_gallerybX:f" class="fl mr10">';
             $line = 27;
             $art = '=map[key]';
