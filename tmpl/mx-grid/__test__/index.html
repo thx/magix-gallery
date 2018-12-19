@@ -1,10 +1,26 @@
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
-        name: '布局',
+        name: '单格样式',
+        key: viewId + '_grid',
+        subs: [{
+            name: '顶部+内容区域',
+            key: viewId + '_grid1'
+        },{
+            name: '只顶部+筛选',
+            key: viewId + '_grid2'
+        },{
+            name: '只内容区域',
+            key: viewId + '_grid3'
+        }]
+    }, {
+        name: '布局示例',
         key: viewId + '_demo',
         subs: [{
             name: '水平等比例',
             key: viewId + '_demo1'
+        },{
+            name: '嵌套',
+            key: viewId + '_demo6'
         },{
             name: '某一个固定宽度',
             key: viewId + '_demo2'
@@ -17,25 +33,22 @@
         },{
             name: '垂直等比例',
             key: viewId + '_demo5'
-        },{
-            name: '嵌套',
-            key: viewId + '_demo6'
         }]
     }, {
-        name: '单格样式',
-        key: viewId + '_grid',
-        subs: [{
-            name: '顶部+内容区域',
-            key: viewId + '_grid1'
-        },{
-            name: '只顶部',
-            key: viewId + '_grid2'
-        },{
-            name: '只内容区域',
-            key: viewId + '_grid3'
-        }]
+        name: 'mx-grid.row',
+        key: viewId + '_row',
+    }, {
+        name: 'mx-grid.col',
+        key: viewId + '_col',
     }]}}"></div>
-    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <mx-title.second content="单格样式" id="{{=viewId}}_grid"/>
+    <div class="clearfix mb40">
+        <div mx-view="@./7" id="{{=viewId}}_grid1"></div>
+        <div mx-view="@./8" id="{{=viewId}}_grid2"></div>
+        <div mx-view="@./9" id="{{=viewId}}_grid3"></div>
+    </div>
+
+    <mx-title.second content="布局示例" id="{{=viewId}}_demo"/>
     <div class="clearfix mb20">
         <div class="half">
             <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
@@ -43,23 +56,19 @@
             <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
         </div>
         <div class="half">
+            <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
             <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
             <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
-            <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
         </div>
     </div>
 
-    <mx-title.second content="单格样式" id="{{=viewId}}_grid"/>
-    <div class="clearfix mb20">
-        <div class="half">
-            <div mx-view="@./7" id="{{=viewId}}_grid1"></div>
-        </div>
-        <div class="half">
-            <div mx-view="@./8" id="{{=viewId}}_grid2"></div>
-            <div mx-view="@./9" id="{{=viewId}}_grid3"></div>
-        </div>
-    </div>
-    
-    <!-- <mx-title.second content="API" id="{{=viewId}}_api"/>
-    <div mx-view="__test__/api?options={{@options}}"></div> -->
+    <mx-title.second id="{{=viewId}}_row"
+        content="mx-grid.row" 
+        tip="flex容器"/>
+    <div mx-view="__test__/api?options={{@rows}}" class="mb40"></div>
+
+    <mx-title.second id="{{=viewId}}_col"
+        content="mx-grid.col"
+        tip="flex项目"/>
+    <div mx-view="__test__/api?options={{@cols}}" class="mb20"></div>
 </div>

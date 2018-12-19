@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -75,9 +75,9 @@ module.exports = Base.extend({
         $line = 16;
         $art = 'each opers as item';
         ;
-        $expr = '<%for (var $art_iyitblzpp$art_i = 0, $art_ccloktlux$art_c = opers.length; $art_iyitblzpp$art_i < $art_ccloktlux$art_c; $art_iyitblzpp$art_i++) {        var item = opers[$art_iyitblzpp$art_i]%>';
-        for (var $art_iyitblzpp$art_i = 0, $art_ccloktlux$art_c = opers.length; $art_iyitblzpp$art_i < $art_ccloktlux$art_c; $art_iyitblzpp$art_i++) {
-            var item = opers[$art_iyitblzpp$art_i];
+        $expr = '<%for (var $art_igfohawoe$art_i = 0, $art_crjraxrfh$art_c = opers.length; $art_igfohawoe$art_i < $art_crjraxrfh$art_c; $art_igfohawoe$art_i++) {        var item = opers[$art_igfohawoe$art_i]%>';
+        for (var $art_igfohawoe$art_i = 0, $art_crjraxrfh$art_c = opers.length; $art_igfohawoe$art_i < $art_crjraxrfh$art_c; $art_igfohawoe$art_i++) {
+            var item = opers[$art_igfohawoe$art_i];
             $p += '<li class="_zs_gallery_mx-status_base_-status-oper clearfix ';
             $line = 17;
             $art = 'if (item.value == cur.value)';

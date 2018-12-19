@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -75,9 +75,9 @@ module.exports = Magix.View.extend({
     $line = 12;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_igcmhdiim$art_i = 0, $art_cfmycbatqe$art_c = list.length; $art_igcmhdiim$art_i < $art_cfmycbatqe$art_c; $art_igcmhdiim$art_i++) {    var item = list[$art_igcmhdiim$art_i]%>';
-    for (var $art_igcmhdiim$art_i = 0, $art_cfmycbatqe$art_c = list.length; $art_igcmhdiim$art_i < $art_cfmycbatqe$art_c; $art_igcmhdiim$art_i++) {
-        var item = list[$art_igcmhdiim$art_i];
+    $expr = '<%for (var $art_iefuttbf$art_i = 0, $art_cvehgkfmr$art_c = list.length; $art_iefuttbf$art_i < $art_cvehgkfmr$art_c; $art_iefuttbf$art_i++) {    var item = list[$art_iefuttbf$art_i]%>';
+    for (var $art_iefuttbf$art_i = 0, $art_cvehgkfmr$art_c = list.length; $art_iefuttbf$art_i < $art_cvehgkfmr$art_c; $art_iefuttbf$art_i++) {
+        var item = list[$art_iefuttbf$art_i];
         $p += '<li class="_zs_gallery_mx-search_index_-search-item ';
         $line = 13;
         $art = 'if (searchKey == item.value)';

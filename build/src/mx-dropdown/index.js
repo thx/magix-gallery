@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -51,7 +51,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (name) {%>';
     if (name) {
         ;
-        $p += '<span mxa="_zs_galleryaS:b" class="color-9">' + ($expr = '<%=name%>', $e(name)) + '：</span>';
+        $p += '<span mxa="_zs_galleryaS:_" class="color-9">' + ($expr = '<%=name%>', $e(name)) + '：</span>';
         $expr = '<%}%>';
     }
     ;
@@ -71,7 +71,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (searchbox) {%>';
         if (searchbox) {
             ;
-            $p += '<div mxv mxa="_zs_galleryaS:a" class="_zs_gallery_mx-dropdown_index_-search-wrapper"><div mxv mxa="_zs_galleryaS:c" class="search-box _zs_gallery_mx-dropdown_index_-dropdown-search-box"><i mxs="_zs_galleryaS:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="' + ($expr = '<%=searchText%>', $e(searchText)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
+            $p += '<div mxv mxa="_zs_galleryaS:a" class="_zs_gallery_mx-dropdown_index_-search-wrapper"><div mxv mxa="_zs_galleryaS:b" class="search-box _zs_gallery_mx-dropdown_index_-dropdown-search-box"><i mxs="_zs_galleryaS:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="' + ($expr = '<%=searchText%>', $e(searchText)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
             $expr = '<%}%>';
         }
         ;

@@ -304,7 +304,7 @@ module.exports = Magix.View.extend({
                 name: '样式',
                 subs: [{
                     name: '布局',
-                    tip: '基于display:flex实现',
+                    tip: '基于display:flex实现，简化api',
                     path: '/grid/index',
                     icon: '&#xe6b4;'
                 }, {

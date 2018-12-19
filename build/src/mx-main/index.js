@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -47,9 +47,9 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_iuggkynej$art_i = 0, $art_cdonxwycyi$art_c = stepInfos.length; $art_iuggkynej$art_i < $art_cdonxwycyi$art_c; $art_iuggkynej$art_i++) {    var step = stepInfos[$art_iuggkynej$art_i]%>';
-    for (var $art_iuggkynej$art_i = 0, $art_cdonxwycyi$art_c = stepInfos.length; $art_iuggkynej$art_i < $art_cdonxwycyi$art_c; $art_iuggkynej$art_i++) {
-        var step = stepInfos[$art_iuggkynej$art_i];
+    $expr = '<%for (var $art_ibnbcw$art_i = 0, $art_cnoifpbeh$art_c = stepInfos.length; $art_ibnbcw$art_i < $art_cnoifpbeh$art_c; $art_ibnbcw$art_i++) {    var step = stepInfos[$art_ibnbcw$art_i]%>';
+    for (var $art_ibnbcw$art_i = 0, $art_cnoifpbeh$art_c = stepInfos.length; $art_ibnbcw$art_i < $art_cnoifpbeh$art_c; $art_ibnbcw$art_i++) {
+        var step = stepInfos[$art_ibnbcw$art_i];
         $p += '<div class="_zs_gallery_mx-main_index_-main-step ';
         $line = 4;
         $art = 'if (step.index == curStepIndex)';
@@ -143,9 +143,9 @@ module.exports = Magix.View.extend({
             $line = 17;
             $art = 'each step.subs as sub';
             ;
-            $expr = '<%for (var $art_ifryheixhy$art_i = 0, $art_objnzkjgds$art_obj = step.subs, $art_cuuceokvo$art_c = $art_objnzkjgds$art_obj.length; $art_ifryheixhy$art_i < $art_cuuceokvo$art_c; $art_ifryheixhy$art_i++) {            var sub = $art_objnzkjgds$art_obj[$art_ifryheixhy$art_i]%>';
-            for (var $art_ifryheixhy$art_i = 0, $art_objnzkjgds$art_obj = step.subs, $art_cuuceokvo$art_c = $art_objnzkjgds$art_obj.length; $art_ifryheixhy$art_i < $art_cuuceokvo$art_c; $art_ifryheixhy$art_i++) {
-                var sub = $art_objnzkjgds$art_obj[$art_ifryheixhy$art_i];
+            $expr = '<%for (var $art_inlaxkgs$art_i = 0, $art_objfyqziaguiw$art_obj = step.subs, $art_ccgvijog$art_c = $art_objfyqziaguiw$art_obj.length; $art_inlaxkgs$art_i < $art_ccgvijog$art_c; $art_inlaxkgs$art_i++) {            var sub = $art_objfyqziaguiw$art_obj[$art_inlaxkgs$art_i]%>';
+            for (var $art_inlaxkgs$art_i = 0, $art_objfyqziaguiw$art_obj = step.subs, $art_ccgvijog$art_c = $art_objfyqziaguiw$art_obj.length; $art_inlaxkgs$art_i < $art_ccgvijog$art_c; $art_inlaxkgs$art_i++) {
+                var sub = $art_objfyqziaguiw$art_obj[$art_inlaxkgs$art_i];
                 $p += '<div mxa="_zs_galleryb-:c" class="_zs_gallery_mx-main_index_-step-sub"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link ';
                 $line = 19;
                 $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))';
@@ -237,9 +237,9 @@ module.exports = Magix.View.extend({
     $line = 42;
     $art = 'each curStepInfo.subs as sub';
     ;
-    $expr = '<%for (var $art_iqzkhpvt$art_i = 0, $art_objuujol$art_obj = curStepInfo.subs, $art_cksvxdlvw$art_c = $art_objuujol$art_obj.length; $art_iqzkhpvt$art_i < $art_cksvxdlvw$art_c; $art_iqzkhpvt$art_i++) {    var sub = $art_objuujol$art_obj[$art_iqzkhpvt$art_i]%>';
-    for (var $art_iqzkhpvt$art_i = 0, $art_objuujol$art_obj = curStepInfo.subs, $art_cksvxdlvw$art_c = $art_objuujol$art_obj.length; $art_iqzkhpvt$art_i < $art_cksvxdlvw$art_c; $art_iqzkhpvt$art_i++) {
-        var sub = $art_objuujol$art_obj[$art_iqzkhpvt$art_i];
+    $expr = '<%for (var $art_iqmndpzobg$art_i = 0, $art_objiiqowxjba$art_obj = curStepInfo.subs, $art_coipkoxkcu$art_c = $art_objiiqowxjba$art_obj.length; $art_iqmndpzobg$art_i < $art_coipkoxkcu$art_c; $art_iqmndpzobg$art_i++) {    var sub = $art_objiiqowxjba$art_obj[$art_iqmndpzobg$art_i]%>';
+    for (var $art_iqmndpzobg$art_i = 0, $art_objiiqowxjba$art_obj = curStepInfo.subs, $art_coipkoxkcu$art_c = $art_objiiqowxjba$art_obj.length; $art_iqmndpzobg$art_i < $art_coipkoxkcu$art_c; $art_iqmndpzobg$art_i++) {
+        var sub = $art_objiiqowxjba$art_obj[$art_iqmndpzobg$art_i];
         $p += '<div mxv class="_zs_gallery_mx-main_index_-content-box" style="padding-right: ';
         $line = 44;
         $art = '=(curStepInfo.rightWidth + 20)';

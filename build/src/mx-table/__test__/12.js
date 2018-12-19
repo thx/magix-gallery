@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -30,9 +30,9 @@ module.exports = Base.extend({
     $line = 26;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_itbcadj$art_i = 0, $art_cuxbidu$art_c = list.length; $art_itbcadj$art_i < $art_cuxbidu$art_c; $art_itbcadj$art_i++) {    var item = list[$art_itbcadj$art_i]%>';
-    for (var $art_itbcadj$art_i = 0, $art_cuxbidu$art_c = list.length; $art_itbcadj$art_i < $art_cuxbidu$art_c; $art_itbcadj$art_i++) {
-        var item = list[$art_itbcadj$art_i];
+    $expr = '<%for (var $art_idgsgznd$art_i = 0, $art_cbsrykohf$art_c = list.length; $art_idgsgznd$art_i < $art_cbsrykohf$art_c; $art_idgsgznd$art_i++) {    var item = list[$art_idgsgznd$art_i]%>';
+    for (var $art_idgsgznd$art_i = 0, $art_cbsrykohf$art_c = list.length; $art_idgsgznd$art_i < $art_cbsrykohf$art_c; $art_idgsgznd$art_i++) {
+        var item = list[$art_idgsgznd$art_i];
         $p += '<tr><td><span sub-toggle="toggle_';
         $line = 30;
         $art = '=item.id';
@@ -65,9 +65,9 @@ module.exports = Base.extend({
         $line = 43;
         $art = 'each item.subs as sub subIndex';
         ;
-        $expr = '<%for (var subIndex = 0, $art_objlizwglooyd$art_obj = item.subs, $art_cnlopko$art_c = $art_objlizwglooyd$art_obj.length; subIndex < $art_cnlopko$art_c; subIndex++) {        var sub = $art_objlizwglooyd$art_obj[subIndex]%>';
-        for (var subIndex = 0, $art_objlizwglooyd$art_obj = item.subs, $art_cnlopko$art_c = $art_objlizwglooyd$art_obj.length; subIndex < $art_cnlopko$art_c; subIndex++) {
-            var sub = $art_objlizwglooyd$art_obj[subIndex];
+        $expr = '<%for (var subIndex = 0, $art_objvotchjep$art_obj = item.subs, $art_cttbwajb$art_c = $art_objvotchjep$art_obj.length; subIndex < $art_cttbwajb$art_c; subIndex++) {        var sub = $art_objvotchjep$art_obj[subIndex]%>';
+        for (var subIndex = 0, $art_objvotchjep$art_obj = item.subs, $art_cttbwajb$art_c = $art_objvotchjep$art_obj.length; subIndex < $art_cttbwajb$art_c; subIndex++) {
+            var sub = $art_objvotchjep$art_obj[subIndex];
             $p += '<tr class="hide" sub-toggle-parent="toggle_';
             $line = 46;
             $art = '=item.id';

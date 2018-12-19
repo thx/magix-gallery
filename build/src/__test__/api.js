@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 12;
     $art = 'each options as option';
     ;
-    $expr = '<%for (var $art_iltugzqei$art_i = 0, $art_cygwpcaof$art_c = options.length; $art_iltugzqei$art_i < $art_cygwpcaof$art_c; $art_iltugzqei$art_i++) {    var option = options[$art_iltugzqei$art_i]%>';
-    for (var $art_iltugzqei$art_i = 0, $art_cygwpcaof$art_c = options.length; $art_iltugzqei$art_i < $art_cygwpcaof$art_c; $art_iltugzqei$art_i++) {
-        var option = options[$art_iltugzqei$art_i];
+    $expr = '<%for (var $art_icvyabthxg$art_i = 0, $art_czjhgrr$art_c = options.length; $art_icvyabthxg$art_i < $art_czjhgrr$art_c; $art_icvyabthxg$art_i++) {    var option = options[$art_icvyabthxg$art_i]%>';
+    for (var $art_icvyabthxg$art_i = 0, $art_czjhgrr$art_c = options.length; $art_icvyabthxg$art_i < $art_czjhgrr$art_c; $art_icvyabthxg$art_i++) {
+        var option = options[$art_icvyabthxg$art_i];
         $p += '<tr><td>';
         $line = 14;
         $art = '=option.key';

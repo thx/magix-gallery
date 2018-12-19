@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = 'each menus as item';
     ;
-    $expr = '<%for (var $art_ihdrkwh$art_i = 0, $art_coulkkivo$art_c = menus.length; $art_ihdrkwh$art_i < $art_coulkkivo$art_c; $art_ihdrkwh$art_i++) {    var item = menus[$art_ihdrkwh$art_i]%>';
-    for (var $art_ihdrkwh$art_i = 0, $art_coulkkivo$art_c = menus.length; $art_ihdrkwh$art_i < $art_coulkkivo$art_c; $art_ihdrkwh$art_i++) {
-        var item = menus[$art_ihdrkwh$art_i];
+    $expr = '<%for (var $art_iiygydlrhz$art_i = 0, $art_ccbdcqdsr$art_c = menus.length; $art_iiygydlrhz$art_i < $art_ccbdcqdsr$art_c; $art_iiygydlrhz$art_i++) {    var item = menus[$art_iiygydlrhz$art_i]%>';
+    for (var $art_iiygydlrhz$art_i = 0, $art_ccbdcqdsr$art_c = menus.length; $art_iiygydlrhz$art_i < $art_ccbdcqdsr$art_c; $art_iiygydlrhz$art_i++) {
+        var item = menus[$art_iiygydlrhz$art_i];
         $p += '<div mxa="_zs_gallerycr:a" class="_zs_gallery_mx-popmenu_content_-item"><span class="_zs_gallery_mx-popmenu_content_-item-link ellipsis" mx-click="' + $viewId + 'submit({value:';
         $line = 5;
         $art = '=item.value';

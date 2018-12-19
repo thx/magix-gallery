@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -32,9 +32,9 @@ module.exports = Base.extend({
     $line = 14;
     $art = 'each first as i';
     ;
-    $expr = '<%for (var $art_iydyvycbkj$art_i = 0, $art_ctucsonwev$art_c = first.length; $art_iydyvycbkj$art_i < $art_ctucsonwev$art_c; $art_iydyvycbkj$art_i++) {    var i = first[$art_iydyvycbkj$art_i]%>';
-    for (var $art_iydyvycbkj$art_i = 0, $art_ctucsonwev$art_c = first.length; $art_iydyvycbkj$art_i < $art_ctucsonwev$art_c; $art_iydyvycbkj$art_i++) {
-        var i = first[$art_iydyvycbkj$art_i];
+    $expr = '<%for (var $art_iavtthxlpwb$art_i = 0, $art_cuewhobfhg$art_c = first.length; $art_iavtthxlpwb$art_i < $art_cuewhobfhg$art_c; $art_iavtthxlpwb$art_i++) {    var i = first[$art_iavtthxlpwb$art_i]%>';
+    for (var $art_iavtthxlpwb$art_i = 0, $art_cuewhobfhg$art_c = first.length; $art_iavtthxlpwb$art_i < $art_cuewhobfhg$art_c; $art_iavtthxlpwb$art_i++) {
+        var i = first[$art_iavtthxlpwb$art_i];
         $p += '<i value="';
         $line = 15;
         $art = '=i';
@@ -54,9 +54,9 @@ module.exports = Base.extend({
     $line = 18;
     $art = 'each second as i';
     ;
-    $expr = '<%for (var $art_iphxwsn$art_i = 0, $art_cxhlfhhqsz$art_c = second.length; $art_iphxwsn$art_i < $art_cxhlfhhqsz$art_c; $art_iphxwsn$art_i++) {    var i = second[$art_iphxwsn$art_i]%>';
-    for (var $art_iphxwsn$art_i = 0, $art_cxhlfhhqsz$art_c = second.length; $art_iphxwsn$art_i < $art_cxhlfhhqsz$art_c; $art_iphxwsn$art_i++) {
-        var i = second[$art_iphxwsn$art_i];
+    $expr = '<%for (var $art_ivahsk$art_i = 0, $art_ckkhaxhtezy$art_c = second.length; $art_ivahsk$art_i < $art_ckkhaxhtezy$art_c; $art_ivahsk$art_i++) {    var i = second[$art_ivahsk$art_i]%>';
+    for (var $art_ivahsk$art_i = 0, $art_ckkhaxhtezy$art_c = second.length; $art_ivahsk$art_i < $art_ckkhaxhtezy$art_c; $art_ivahsk$art_i++) {
+        var i = second[$art_ivahsk$art_i];
         $p += '<i value="';
         $line = 19;
         $art = '=i';

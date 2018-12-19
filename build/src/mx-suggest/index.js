@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -103,9 +103,9 @@ module.exports = Magix.View.extend({
             $line = 19;
             $art = 'each list as item';
             ;
-            $expr = '<%for (var $art_iuhfdobfo$art_i = 0, $art_cimnznsnf$art_c = list.length; $art_iuhfdobfo$art_i < $art_cimnznsnf$art_c; $art_iuhfdobfo$art_i++) {            var item = list[$art_iuhfdobfo$art_i]%>';
-            for (var $art_iuhfdobfo$art_i = 0, $art_cimnznsnf$art_c = list.length; $art_iuhfdobfo$art_i < $art_cimnznsnf$art_c; $art_iuhfdobfo$art_i++) {
-                var item = list[$art_iuhfdobfo$art_i];
+            $expr = '<%for (var $art_itzljtt$art_i = 0, $art_csadmgayzb$art_c = list.length; $art_itzljtt$art_i < $art_csadmgayzb$art_c; $art_itzljtt$art_i++) {            var item = list[$art_itzljtt$art_i]%>';
+            for (var $art_itzljtt$art_i = 0, $art_csadmgayzb$art_c = list.length; $art_itzljtt$art_i < $art_csadmgayzb$art_c; $art_itzljtt$art_i++) {
+                var item = list[$art_itzljtt$art_i];
                 $p += '<li class="_zs_gallery_mx-suggest_suggest_-suggest-item ';
                 $line = 20;
                 $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';

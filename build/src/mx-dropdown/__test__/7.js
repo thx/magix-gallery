@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -32,9 +32,9 @@ module.exports = Base.extend({
     $line = 20;
     $art = 'each first as i';
     ;
-    $expr = '<%for (var $art_isamrmzs$art_i = 0, $art_cacayqytg$art_c = first.length; $art_isamrmzs$art_i < $art_cacayqytg$art_c; $art_isamrmzs$art_i++) {    var i = first[$art_isamrmzs$art_i]%>';
-    for (var $art_isamrmzs$art_i = 0, $art_cacayqytg$art_c = first.length; $art_isamrmzs$art_i < $art_cacayqytg$art_c; $art_isamrmzs$art_i++) {
-        var i = first[$art_isamrmzs$art_i];
+    $expr = '<%for (var $art_islaukrkiaeo$art_i = 0, $art_cwceffvbp$art_c = first.length; $art_islaukrkiaeo$art_i < $art_cwceffvbp$art_c; $art_islaukrkiaeo$art_i++) {    var i = first[$art_islaukrkiaeo$art_i]%>';
+    for (var $art_islaukrkiaeo$art_i = 0, $art_cwceffvbp$art_c = first.length; $art_islaukrkiaeo$art_i < $art_cwceffvbp$art_c; $art_islaukrkiaeo$art_i++) {
+        var i = first[$art_islaukrkiaeo$art_i];
         $p += '<i value="';
         $line = 21;
         $art = '=i';
@@ -54,9 +54,9 @@ module.exports = Base.extend({
     $line = 24;
     $art = 'each second as i';
     ;
-    $expr = '<%for (var $art_ifsskbqu$art_i = 0, $art_ckdwtx$art_c = second.length; $art_ifsskbqu$art_i < $art_ckdwtx$art_c; $art_ifsskbqu$art_i++) {    var i = second[$art_ifsskbqu$art_i]%>';
-    for (var $art_ifsskbqu$art_i = 0, $art_ckdwtx$art_c = second.length; $art_ifsskbqu$art_i < $art_ckdwtx$art_c; $art_ifsskbqu$art_i++) {
-        var i = second[$art_ifsskbqu$art_i];
+    $expr = '<%for (var $art_iwqvohc$art_i = 0, $art_cfarnfsbwak$art_c = second.length; $art_iwqvohc$art_i < $art_cfarnfsbwak$art_c; $art_iwqvohc$art_i++) {    var i = second[$art_iwqvohc$art_i]%>';
+    for (var $art_iwqvohc$art_i = 0, $art_cfarnfsbwak$art_c = second.length; $art_iwqvohc$art_i < $art_cfarnfsbwak$art_c; $art_iwqvohc$art_i++) {
+        var i = second[$art_iwqvohc$art_i];
         $p += '<i value="';
         $line = 25;
         $art = '=i';

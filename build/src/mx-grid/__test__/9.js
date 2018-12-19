@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -25,16 +25,16 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybI:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybI:_" class="_zs_gallery___test___layout_-eg-content"><div class="_zs_gallery_mx-grid___test___index_-container"><div style="background: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);"><div mx-view="mx-grid/__test__/grid-body" style="padding: 20px;"></div></div></div></div><div mxa="_zs_gallerybI:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybI:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 11;
+    $p += '<div mxa="_zs_gallerybI:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybI:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb10">内容区域支持指定一个view：</div><div class="_zs_gallery_mx-grid___test___index_-container"><div style="background: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);"><div mx-view="mx-grid/__test__/grid-body" style="padding:20px;"></div></div></div></div><div mxa="_zs_gallerybI:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybI:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 12;
     $art = '=viewId';
     ;
     $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybI:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 13;
+    $line = 14;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybI:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 16;
+    $line = 17;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-grid&gt;\n    &lt;mx-grid.body mx-view="@./grid-body"&gt;&lt;/mx-grid.body&gt;\n&lt;/mx-grid&gt;\n        </pre></div></div>';

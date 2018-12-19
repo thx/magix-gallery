@@ -790,7 +790,7 @@
     },{"./clipboard-action":7,"good-listener":4,"tiny-emitter":6}]},{},[8])(8)
     });
 /*
-    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */

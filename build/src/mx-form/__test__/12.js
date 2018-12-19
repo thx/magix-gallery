@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -29,9 +29,9 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'each radioes as r';
     ;
-    $expr = '<%for (var $art_ihzoudima$art_i = 0, $art_cvoffotx$art_c = radioes.length; $art_ihzoudima$art_i < $art_cvoffotx$art_c; $art_ihzoudima$art_i++) {    var r = radioes[$art_ihzoudima$art_i]%>';
-    for (var $art_ihzoudima$art_i = 0, $art_cvoffotx$art_c = radioes.length; $art_ihzoudima$art_i < $art_cvoffotx$art_c; $art_ihzoudima$art_i++) {
-        var r = radioes[$art_ihzoudima$art_i];
+    $expr = '<%for (var $art_idgoozpchdt$art_i = 0, $art_coprsroog$art_c = radioes.length; $art_idgoozpchdt$art_i < $art_coprsroog$art_c; $art_idgoozpchdt$art_i++) {    var r = radioes[$art_idgoozpchdt$art_i]%>';
+    for (var $art_idgoozpchdt$art_i = 0, $art_coprsroog$art_c = radioes.length; $art_idgoozpchdt$art_i < $art_coprsroog$art_c; $art_idgoozpchdt$art_i++) {
+        var r = radioes[$art_idgoozpchdt$art_i];
         $p += '<label mxv mxa="_zs_gallerybi:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 8;
         $art = ':selected';

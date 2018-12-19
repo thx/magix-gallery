@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.21: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -25,16 +25,16 @@ module.exports = Magix.View.extend({
     $line = 13;
     $art = 'each options as option';
     ;
-    $expr = '<%for (var $art_iewqufbhqv$art_i = 0, $art_ccmguemb$art_c = options.length; $art_iewqufbhqv$art_i < $art_ccmguemb$art_c; $art_iewqufbhqv$art_i++) {    var option = options[$art_iewqufbhqv$art_i]%>';
-    for (var $art_iewqufbhqv$art_i = 0, $art_ccmguemb$art_c = options.length; $art_iewqufbhqv$art_i < $art_ccmguemb$art_c; $art_iewqufbhqv$art_i++) {
-        var option = options[$art_iewqufbhqv$art_i];
+    $expr = '<%for (var $art_iljuwfmh$art_i = 0, $art_cxgobxhwr$art_c = options.length; $art_iljuwfmh$art_i < $art_cxgobxhwr$art_c; $art_iljuwfmh$art_i++) {    var option = options[$art_iljuwfmh$art_i]%>';
+    for (var $art_iljuwfmh$art_i = 0, $art_cxgobxhwr$art_c = options.length; $art_iljuwfmh$art_i < $art_cxgobxhwr$art_c; $art_iljuwfmh$art_i++) {
+        var option = options[$art_iljuwfmh$art_i];
         $p += ' ';
         $line = 14;
         $art = 'each option.params as param index';
         ;
-        $expr = '<%for (var index = 0, $art_objjoxfkwi$art_obj = option.params, $art_crljmmfe$art_c = $art_objjoxfkwi$art_obj.length; index < $art_crljmmfe$art_c; index++) {        var param = $art_objjoxfkwi$art_obj[index]%>';
-        for (var index = 0, $art_objjoxfkwi$art_obj = option.params, $art_crljmmfe$art_c = $art_objjoxfkwi$art_obj.length; index < $art_crljmmfe$art_c; index++) {
-            var param = $art_objjoxfkwi$art_obj[index];
+        $expr = '<%for (var index = 0, $art_objivcnt$art_obj = option.params, $art_cdkoqftmou$art_c = $art_objivcnt$art_obj.length; index < $art_cdkoqftmou$art_c; index++) {        var param = $art_objivcnt$art_obj[index]%>';
+        for (var index = 0, $art_objivcnt$art_obj = option.params, $art_cdkoqftmou$art_c = $art_objivcnt$art_obj.length; index < $art_cdkoqftmou$art_c; index++) {
+            var param = $art_objivcnt$art_obj[index];
             $p += '<tr>';
             $line = 16;
             $art = 'if (index == 0)';

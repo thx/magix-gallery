@@ -17,20 +17,28 @@ let AlignMap = {
     'stretch': 'stretch'
 }
 
-let ProcessAttr = (attrs, style, ignores) => {
+let ProcessAttr = (attrs, style, ignores, className) => {
     let attrStr = '',
+        classAdded = false,
         styleAdded = false;
     for (let p in attrs) {
         if (ignores[p] !== 1) {
             let v = attrs[p];
-            if (p == 'style') {
-                attrStr += `style="${style}${v}"`;
+            if ((p == 'class') && className) {
+                attrStr += ` class="${className} ${v}"`;
+                classAdded = true;
+            } else if (p == 'style') {
+                attrStr += ` style="${style}${v}"`;
+                styleAdded = true;
             } else {
                 if (v === true) v = '';
                 else v = '="' + v + '"';
                 attrStr += ' ' + p + v;
             }
         }
+    }
+    if (!classAdded && className) {
+        attrStr += ' class="' + className + '"';
     }
     if (!styleAdded) {
         attrStr += ` style="${style}"`;
@@ -113,28 +121,35 @@ module.exports = {
         let { content, attrsKV } = i;
 
         let styles = [
-            'padding: 10px 20px;',
-            'line-height: 32px;'
+            'padding: 10px 20px;'
         ];
         if ((attrsKV.border + '') !== 'none') {
             styles.push('border-bottom: 1px solid #e6e6e6;');
         }
 
-        let tmpl = `<div ${ProcessAttr(attrsKV, styles.join(''), {
+        styles = styles.join(';') + ';';
+        let tmpl = `<div ${ProcessAttr(attrsKV, styles, {
             icon: 1,
             tip: 1,
             border: 1
-        })}>`;
+        }, 'clearfix')}>`;
 
+        // 标题，提示，icon
+        tmpl += '<div style="float:left; line-height: 32px;">';
         if (attrsKV.icon) {
             tmpl += `<span style="margin-right: 2px; color: #ccc;">${attrsKV.icon}</span>`;
         }
-
         tmpl += `<span style="font-size: 16px;">${attrsKV.content}</span>`;
-
         if (attrsKV.tip) {
             tmpl += `<span style="margin-left: 20px; color: #999;">${attrsKV.tip}</span>`;
         }
+        tmpl += '</div>';
+
+        // 筛选项
+        if(content){
+            tmpl += `<div style="float: right;">${content}</div>`;
+        }
+
         tmpl += '</div>';
         return tmpl;
     },
