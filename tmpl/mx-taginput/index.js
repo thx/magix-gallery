@@ -13,7 +13,8 @@ module.exports = Magix.View.extend({
         let me = this;
 
         let textKey = extra.textKey || 'text',
-            valueKey = extra.valueKey || 'value';
+            valueKey = extra.valueKey || 'value',
+            max = extra.max | 0;
         me['@{dynamic.list}'] = (extra.dynamicList + '' === 'true');
         me.updater.set({
             textKey,
@@ -48,7 +49,8 @@ module.exports = Magix.View.extend({
             placeholder: extra.placeholder || I18n['choose'],
             emptyText: I18n['empty.text'],
             inputWidth: MinWidth,
-            items
+            items,
+            max
         });
 
         Monitor['@{setup}']();
@@ -198,8 +200,12 @@ module.exports = Magix.View.extend({
                 }
             } else {
                 me['@{suggest.delay.timer}'] = setTimeout(me.wrapAsync(function () {
-                    me['@{ui.update}']();
-                    me['@{show}']();
+                    let items = me.updater.get('items');
+                    let max = me.updater.get('max');
+                    if (max <= 0 || items.length < max) {
+                        me['@{ui.update}']();
+                        me['@{show}']();
+                    }
                 }), 300);
             }
         }
