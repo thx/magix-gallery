@@ -64,8 +64,8 @@ module.exports = Magix.View.extend({
         $line = 10;
         $art = 'each items as one idx';
         ;
-        $expr = '<%for (var idx = 0, $art_cgmcbpqd$art_c = items.length; idx < $art_cgmcbpqd$art_c; idx++) {        var one = items[idx]%>';
-        for (var idx = 0, $art_cgmcbpqd$art_c = items.length; idx < $art_cgmcbpqd$art_c; idx++) {
+        $expr = '<%for (var idx = 0, $art_cyledoomcqe$art_c = items.length; idx < $art_cyledoomcqe$art_c; idx++) {        var one = items[idx]%>';
+        for (var idx = 0, $art_cyledoomcqe$art_c = items.length; idx < $art_cyledoomcqe$art_c; idx++) {
             var one = items[idx];
             $p += '<span mxa="_zs_galleryd!:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
             $line = 12;
@@ -166,8 +166,8 @@ module.exports = Magix.View.extend({
                 $line = 42;
                 $art = 'each suggest as item idx';
                 ;
-                $expr = '<%for (var idx = 0, $art_cvoemwfcwxh$art_c = suggest.length; idx < $art_cvoemwfcwxh$art_c; idx++) {                var item = suggest[idx]%>';
-                for (var idx = 0, $art_cvoemwfcwxh$art_c = suggest.length; idx < $art_cvoemwfcwxh$art_c; idx++) {
+                $expr = '<%for (var idx = 0, $art_ccvmpuei$art_c = suggest.length; idx < $art_ccvmpuei$art_c; idx++) {                var item = suggest[idx]%>';
+                for (var idx = 0, $art_ccvmpuei$art_c = suggest.length; idx < $art_ccvmpuei$art_c; idx++) {
                     var item = suggest[idx];
                     $p += '<li class="_zs_gallery_mx-suggest_suggest_-suggest-item" mx-click="' + $viewId + '@{add}({item:\'';
                     $line = 44;
@@ -241,7 +241,7 @@ catch (ex) {
 } return $p; },
     init: function (extra) {
         var me = this;
-        var textKey = extra.textKey || 'text', valueKey = extra.valueKey || 'value';
+        var textKey = extra.textKey || 'text', valueKey = extra.valueKey || 'value', max = extra.max | 0;
         me['@{dynamic.list}'] = (extra.dynamicList + '' === 'true');
         me.updater.set({
             textKey: textKey,
@@ -273,7 +273,8 @@ catch (ex) {
             placeholder: extra.placeholder || I18n['choose'],
             emptyText: I18n['empty.text'],
             inputWidth: MinWidth,
-            items: items
+            items: items,
+            max: max
         });
         Monitor['@{setup}']();
         me.on('destroy', function () {
@@ -414,8 +415,12 @@ catch (ex) {
             }
             else {
                 me['@{suggest.delay.timer}'] = setTimeout(me.wrapAsync(function () {
-                    me['@{ui.update}']();
-                    me['@{show}']();
+                    var items = me.updater.get('items');
+                    var max = me.updater.get('max');
+                    if (max <= 0 || items.length < max) {
+                        me['@{ui.update}']();
+                        me['@{show}']();
+                    }
                 }), 300);
             }
         }
@@ -470,9 +475,15 @@ catch (ex) {
         me['@{val}']();
         me['@{ui.update}']();
         me['@{fire.event}']();
-        me['@{ui.focus}']();
-        if (me['@{dynamic.list}']) {
+        var max = me.updater.get('max'), items = me.updater.get('items');
+        if (max > 0 && items.length >= max) {
             me['@{hide}']();
+        }
+        else {
+            me['@{ui.focus}']();
+            if (me['@{dynamic.list}']) {
+                me['@{hide}']();
+            }
         }
     },
     '@{delete}<click>': function (event) {

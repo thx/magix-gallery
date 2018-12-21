@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ignyadkejl$art_i = 0, $art_ctxjzlhee$art_c = list.length; $art_ignyadkejl$art_i < $art_ctxjzlhee$art_c; $art_ignyadkejl$art_i++) {    var item = list[$art_ignyadkejl$art_i]%>';
-    for (var $art_ignyadkejl$art_i = 0, $art_ctxjzlhee$art_c = list.length; $art_ignyadkejl$art_i < $art_ctxjzlhee$art_c; $art_ignyadkejl$art_i++) {
-        var item = list[$art_ignyadkejl$art_i];
+    $expr = '<%for (var $art_igqckdozef$art_i = 0, $art_cxrnpsjeys$art_c = list.length; $art_igqckdozef$art_i < $art_cxrnpsjeys$art_c; $art_igqckdozef$art_i++) {    var item = list[$art_igqckdozef$art_i]%>';
+    for (var $art_igqckdozef$art_i = 0, $art_cxrnpsjeys$art_c = list.length; $art_igqckdozef$art_i < $art_cxrnpsjeys$art_c; $art_igqckdozef$art_i++) {
+        var item = list[$art_igqckdozef$art_i];
         $p += '<div mxa="_zs_galleryg:_" class="_zs_gallery___test___other_update_-update"><div mxa="_zs_galleryg:a" class="_zs_gallery___test___other_update_-ver pl20"><span mxa="_zs_galleryg:b" class="_zs_gallery___test___other_update_-vt">';
         $line = 4;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_itea$art_i = 0, $art_objkorbxip$art_obj = item.subs, $art_ckpiegiwo$art_c = $art_objkorbxip$art_obj.length; $art_itea$art_i < $art_ckpiegiwo$art_c; $art_itea$art_i++) {        var s = $art_objkorbxip$art_obj[$art_itea$art_i]%>';
-        for (var $art_itea$art_i = 0, $art_objkorbxip$art_obj = item.subs, $art_ckpiegiwo$art_c = $art_objkorbxip$art_obj.length; $art_itea$art_i < $art_ckpiegiwo$art_c; $art_itea$art_i++) {
-            var s = $art_objkorbxip$art_obj[$art_itea$art_i];
+        $expr = '<%for (var $art_isdydgyu$art_i = 0, $art_objrsqcl$art_obj = item.subs, $art_chkununs$art_c = $art_objrsqcl$art_obj.length; $art_isdydgyu$art_i < $art_chkununs$art_c; $art_isdydgyu$art_i++) {        var s = $art_objrsqcl$art_obj[$art_isdydgyu$art_i]%>';
+        for (var $art_isdydgyu$art_i = 0, $art_objrsqcl$art_obj = item.subs, $art_chkununs$art_c = $art_objrsqcl$art_obj.length; $art_isdydgyu$art_i < $art_chkununs$art_c; $art_isdydgyu$art_i++) {
+            var s = $art_objrsqcl$art_obj[$art_isdydgyu$art_i];
             $p += '<div mxa="_zs_galleryg:e" class="pl20">';
             $line = 10;
             $art = 'if s.type == \'notice\'';
@@ -50,7 +50,11 @@ module.exports = Magix.View.extend({
             $expr = '<%if (s.type == \'notice\') {%>';
             if (s.type == 'notice') {
                 ;
-                $p += '<div mxs="_zs_galleryg:_" class="_zs_gallery___test___other_update_-line"><i class="mc-iconfont _zs_gallery___test___other_update_-line-icon color-warn">&#xe66f;</i><span class="fontsize-14">重要通知</span></div>';
+                $p += '<div mxa="_zs_galleryg:l" class="_zs_gallery___test___other_update_-line"><i mxs="_zs_galleryg:d" class="mc-iconfont _zs_gallery___test___other_update_-line-icon color-warn">&#xe66f;</i><span mxa="_zs_galleryg:m" class="fontsize-14">';
+                $line = 13;
+                $art = '=(s.title ? s.title : \'重要通知\')';
+                ;
+                $p += ($expr = '<%=(s.title ? s.title : \'重要通知\')%>', $e((s.title ? s.title : '重要通知'))) + '</span></div>';
                 $line = 15;
                 $art = '/if';
                 ;
@@ -64,7 +68,11 @@ module.exports = Magix.View.extend({
             $expr = '<%if (s.type == \'bug\') {%>';
             if (s.type == 'bug') {
                 ;
-                $p += '<div mxs="_zs_galleryg:a" class="_zs_gallery___test___other_update_-line"><i class="mc-iconfont _zs_gallery___test___other_update_-line-icon color-red">&#xe63d;</i><span class="fontsize-14">bug修复</span></div>';
+                $p += '<div mxa="_zs_galleryg:n" class="_zs_gallery___test___other_update_-line"><i mxs="_zs_galleryg:e" class="mc-iconfont _zs_gallery___test___other_update_-line-icon color-red">&#xe63d;</i><span mxa="_zs_galleryg:o" class="fontsize-14">';
+                $line = 20;
+                $art = '=(s.title ? s.title : \'bug修复\')';
+                ;
+                $p += ($expr = '<%=(s.title ? s.title : \'bug修复\')%>', $e((s.title ? s.title : 'bug修复'))) + '</span></div>';
                 $line = 22;
                 $art = '/if';
                 ;
@@ -93,9 +101,9 @@ module.exports = Magix.View.extend({
             $line = 31;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_iiqfgeae$art_i = 0, $art_objczyrklinb$art_obj = s.subs, $art_cikvjzek$art_c = $art_objczyrklinb$art_obj.length; $art_iiqfgeae$art_i < $art_cikvjzek$art_c; $art_iiqfgeae$art_i++) {            var ss = $art_objczyrklinb$art_obj[$art_iiqfgeae$art_i]%>';
-            for (var $art_iiqfgeae$art_i = 0, $art_objczyrklinb$art_obj = s.subs, $art_cikvjzek$art_c = $art_objczyrklinb$art_obj.length; $art_iiqfgeae$art_i < $art_cikvjzek$art_c; $art_iiqfgeae$art_i++) {
-                var ss = $art_objczyrklinb$art_obj[$art_iiqfgeae$art_i];
+            $expr = '<%for (var $art_iskyfabzsw$art_i = 0, $art_objzkibvcao$art_obj = s.subs, $art_ckkymmvckf$art_c = $art_objzkibvcao$art_obj.length; $art_iskyfabzsw$art_i < $art_ckkymmvckf$art_c; $art_iskyfabzsw$art_i++) {            var ss = $art_objzkibvcao$art_obj[$art_iskyfabzsw$art_i]%>';
+            for (var $art_iskyfabzsw$art_i = 0, $art_objzkibvcao$art_obj = s.subs, $art_ckkymmvckf$art_c = $art_objzkibvcao$art_obj.length; $art_iskyfabzsw$art_i < $art_ckkymmvckf$art_c; $art_iskyfabzsw$art_i++) {
+                var ss = $art_objzkibvcao$art_obj[$art_iskyfabzsw$art_i];
                 $p += '<div mxa="_zs_galleryg:h" class="pl20"><div mxa="_zs_galleryg:i" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                 $line = 33;
                 $art = '!ss.title';
@@ -111,9 +119,9 @@ module.exports = Magix.View.extend({
                     $line = 37;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_ihgdcrhf$art_i = 0, $art_objgttfosr$art_obj = ss.subs, $art_clrrnkrnybv$art_c = $art_objgttfosr$art_obj.length; $art_ihgdcrhf$art_i < $art_clrrnkrnybv$art_c; $art_ihgdcrhf$art_i++) {                    var sss = $art_objgttfosr$art_obj[$art_ihgdcrhf$art_i]%>';
-                    for (var $art_ihgdcrhf$art_i = 0, $art_objgttfosr$art_obj = ss.subs, $art_clrrnkrnybv$art_c = $art_objgttfosr$art_obj.length; $art_ihgdcrhf$art_i < $art_clrrnkrnybv$art_c; $art_ihgdcrhf$art_i++) {
-                        var sss = $art_objgttfosr$art_obj[$art_ihgdcrhf$art_i];
+                    $expr = '<%for (var $art_iwgkgqvauma$art_i = 0, $art_objfkxhkueppb$art_obj = ss.subs, $art_cgbosisuqc$art_c = $art_objfkxhkueppb$art_obj.length; $art_iwgkgqvauma$art_i < $art_cgbosisuqc$art_c; $art_iwgkgqvauma$art_i++) {                    var sss = $art_objfkxhkueppb$art_obj[$art_iwgkgqvauma$art_i]%>';
+                    for (var $art_iwgkgqvauma$art_i = 0, $art_objfkxhkueppb$art_obj = ss.subs, $art_cgbosisuqc$art_c = $art_objfkxhkueppb$art_obj.length; $art_iwgkgqvauma$art_i < $art_cgbosisuqc$art_c; $art_iwgkgqvauma$art_i++) {
+                        var sss = $art_objfkxhkueppb$art_obj[$art_iwgkgqvauma$art_i];
                         $p += '<div mxa="_zs_galleryg:k" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                         $line = 38;
                         $art = '!sss';
@@ -165,6 +173,31 @@ catch (ex) {
 } return $p; },
     render: function () {
         var list = [{
+                ver: '1.2.2',
+                time: '2018-12-21',
+                subs: [{
+                        type: 'add',
+                        subs: [{
+                                title: '全屏右出浮层，<a href="#!/dialog/modal" class="color-brand">查看详情</a>'
+                            }, {
+                                title: '布局组件，<a href="#!/grid/index" class="color-brand">查看详情</a>'
+                            }, {
+                                title: 'mx-taginput增加配置max，可限制选择个数上限'
+                            }]
+                    }, {
+                        type: 'notice',
+                        title: '全新视觉规范，组件相关调整平滑升级',
+                        subs: [{
+                                title: '默认按钮样式提取为变量，可在项目中覆盖配置 @btn-text，@btn-text-hover，@btn-border，@btn-border-hover，@btn-bg，@btn-bg-hover'
+                            }, {
+                                title: '指标默认配置及选择排序（mx-indics）浮层改成全屏右出，<a href="#!/indics/index" class="color-brand">查看详情</a>'
+                            }, {
+                                title: '开关（mx-switch）增加文字显示版，<a href="#!/switch/index" class="color-brand">查看详情</a>'
+                            }, {
+                                title: '盒状分组（mx-tabs.box）增加空心显示显示版，<a href="#!/tabs/box" class="color-brand">查看详情</a>'
+                            }]
+                    }]
+            }, {
                 ver: '1.2.1',
                 time: '2018-12-06',
                 subs: [{

@@ -15,6 +15,7 @@ module.exports = Magix.View.extend({
         let textKey = extra.textKey || 'text',
             valueKey = extra.valueKey || 'value',
             max = extra.max | 0;
+
         me['@{dynamic.list}'] = (extra.dynamicList + '' === 'true');
         me.updater.set({
             textKey,
@@ -266,9 +267,16 @@ module.exports = Magix.View.extend({
         me['@{val}']();
         me['@{ui.update}']();
         me['@{fire.event}']();
-        me['@{ui.focus}']();
-        if (me['@{dynamic.list}']) {
+
+        let max = me.updater.get('max'),
+            items = me.updater.get('items');
+        if (max > 0 && items.length >= max) {
             me['@{hide}']();
+        }else{
+            me['@{ui.focus}']();
+            if(me['@{dynamic.list}']){
+                me['@{hide}']();
+            }
         }
     },
 
@@ -296,6 +304,7 @@ module.exports = Magix.View.extend({
 
     '@{ui.focus}'() {
         let me = this;
+
         if (me['@{dynamic.list}']) {
             me['@{owner.node}'].find('input').focus();
         } else {

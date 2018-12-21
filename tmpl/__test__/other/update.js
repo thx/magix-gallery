@@ -6,6 +6,31 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.2',
+            time: '2018-12-21',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: '全屏右出浮层，<a href="#!/dialog/modal" class="color-brand">查看详情</a>'
+                }, {
+                    title: '布局组件，<a href="#!/grid/index" class="color-brand">查看详情</a>'
+                }, {
+                    title: 'mx-taginput增加配置max，可限制选择个数上限'
+                }]
+            }, {
+                type: 'notice',
+                title: '全新视觉规范，组件相关调整平滑升级',
+                subs: [{
+                    title: '默认按钮样式提取为变量，可在项目中覆盖配置 @btn-text，@btn-text-hover，@btn-border，@btn-border-hover，@btn-bg，@btn-bg-hover'
+                },{
+                    title: '指标默认配置及选择排序（mx-indics）浮层改成全屏右出，<a href="#!/indics/index" class="color-brand">查看详情</a>'
+                }, {
+                    title: '开关（mx-switch）增加文字显示版，<a href="#!/switch/index" class="color-brand">查看详情</a>'
+                }, {
+                    title: '盒状分组（mx-tabs.box）增加空心显示显示版，<a href="#!/tabs/box" class="color-brand">查看详情</a>'
+                }]
+            }]
+        }, {
             ver: '1.2.1',
             time: '2018-12-06',
             subs: [{

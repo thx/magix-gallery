@@ -148,7 +148,8 @@ catch (ex) {
         };
         var gap = sortable ? 3 : 2;
         that.mxModal('mx-indics/dialog', viewOptions, {
-            width: 220 * gap
+            width: 220 * gap,
+            closable: false
         });
     }
 });
