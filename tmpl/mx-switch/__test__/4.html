@@ -1,8 +1,12 @@
 <div class="example">
     <div class="eg-content clearfix">
+        <mx-switch class="mr10"
+            mode="text"/>
+            
         <mx-switch 
-            mode="text"
-            mx-change="toggle()" />
+            tip="禁止选择的原因说明"
+            disabled="true"
+            mode="text"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -12,11 +16,13 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-switch class="mr20"
-    state="&#123;&#123;=state&#125;&#125;"
-    mx-change="toggle()"/&gt;
-
-&lt;a href="javascript:;" class="btn btn-brand" 
-    mx-click="change()"&gt;切换状态&lt;/a&gt;</pre>
+&lt;mx-switch 
+    mode="text"/&gt;
+    
+&lt;mx-switch 
+    tip="禁止选择的原因说明"
+    disabled="true"
+    mode="text"/&gt;
+        </pre>
     </div>
 </div>

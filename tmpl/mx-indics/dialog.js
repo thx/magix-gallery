@@ -117,20 +117,6 @@ module.exports = Magix.View.extend({
         });
     },
 
-    // 'submit<click>'(event) {
-        
-
-    //     let viewOptions = this.viewOptions;
-    //     if (viewOptions.dialog) {
-    //         viewOptions.dialog.close();
-    //     }
-
-    //     if (viewOptions.callback) {
-    //         Magix.toTry(viewOptions.callback(selected));
-    //     }
-
-    // },
-
     check() {
         event.preventDefault();
         let selectedItems = this.updater.get('selectedItems');

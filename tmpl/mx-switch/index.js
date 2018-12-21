@@ -12,7 +12,6 @@ module.exports = Magix.View.extend({
         let altered = that.updater.altered();
 
         that['@{owner.node}'] = $('#' + that.id);
-
         that.updater.set({
             on: (extra.state + '' === 'true'),
             disabled: (extra.disabled + '' === 'true'),

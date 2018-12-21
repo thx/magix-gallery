@@ -1,14 +1,18 @@
 {{if text}}
-<span class="switch {{= on ? 'on' : ''}} {{= disabled ? 'disabled' : ''}}" mx-click="@{toggle}()">
-    <span class="switch-icon"></span>
-</span>
+    <span class="switch-text {{= on ? 'on' : ''}} {{= disabled ? 'disabled' : ''}}" mx-click="@{toggle}()">
+        <span class="text open">开</span>
+        <span class="text close">关</span>
+        <span class="switch-icon"></span>
+    </span>
+
 {{else}}
-<span class="switch {{= on ? 'on' : ''}} {{= disabled ? 'disabled' : ''}}" mx-click="@{toggle}()">
-    <span class="switch-icon"></span>
-</span>
+    <span class="switch {{= on ? 'on' : ''}} {{= disabled ? 'disabled' : ''}}" mx-click="@{toggle}()">
+        <span class="switch-icon"></span>
+    </span>
+{{/if}}
+
 {{if (disabled && tip)}}
 <mx-popover class="reason"
     tag="span"
     content="{{=tip}}"></mx-popover>
-{{/if}}
 {{/if}}

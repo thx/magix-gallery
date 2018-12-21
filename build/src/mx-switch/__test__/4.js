@@ -24,19 +24,19 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryd~:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryd~:d" class="_zs_gallery___test___layout_-eg-content clearfix"><span mx-change="' + $viewId + 'toggle()" mx-view="mx-switch/index?mode=text"></span></div><div mxa="_zs_galleryd~:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd~:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 9;
+    $p += '<div mxa="_zs_galleryd~:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryd~:k" class="_zs_gallery___test___layout_-eg-content clearfix"><span class="mr10" mx-view="mx-switch/index?mode=text"></span><span mx-view="mx-switch/index?tip=%E7%A6%81%E6%AD%A2%E9%80%89%E6%8B%A9%E7%9A%84%E5%8E%9F%E5%9B%A0%E8%AF%B4%E6%98%8E&disabled=true&mode=text"></span></div><div mxa="_zs_galleryd~:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd~:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 13;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryd~:f" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 11;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryd~:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 15;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryd~:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 14;
+    $line = 18;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-switch class="mr20"\n    state="&#123;&#123;=state&#125;&#125;"\n    mx-change="toggle()"/&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand" \n    mx-click="change()"&gt;切换状态&lt;/a&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-switch \n    mode="text"/&gt;\n    \n&lt;mx-switch \n    tip="禁止选择的原因说明"\n    disabled="true"\n    mode="text"/&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
