@@ -29,7 +29,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (hasBtns) {%>';
     if (hasBtns) {
         ;
-        $p += '<div mxa="_zs_galleryap:c" class="dialog-footer"><a mxa="_zs_galleryap:d" href="javascript:;" class="btn btn-small btn-brand min-width-50" mx-click="' + $viewId + '@{enter}();">' + ($expr = '<%=enterText%>', $e(enterText)) + '</a></div>';
+        $p += '<div mxa="_zs_galleryap:c" class="dialog-footer"><a mxa="_zs_galleryap:d" href="javascript:;" class="btn btn-small btn-brand min-width-60" mx-click="' + $viewId + '@{enter}();">' + ($expr = '<%=enterText%>', $e(enterText)) + '</a></div>';
         $line = 9;
         $art = '/if';
         ;

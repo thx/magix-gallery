@@ -39,6 +39,7 @@ module.exports = Magix.View.extend({
         if (!Magix.has(extra, 'closable')) {
             extra.closable = true;
         }
+
         me.updater.set(Magix.mix({
             cntId: 'cnt_' + me.id
         }, extra));
@@ -123,6 +124,10 @@ module.exports = Magix.View.extend({
             if(result.ok){
                 errorNode.html('');
                 me['@{close}<click>']();
+
+                if(data.callback){
+                    data.callback(result.data || {});
+                }
             }else{
                 errorNode.html(`<i class="mc-iconfont displacement-2">&#xe6ad;</i>${result.msg}`);
             }

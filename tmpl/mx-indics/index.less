@@ -5,44 +5,31 @@
 }
 
 @setting-right-width: 32%;
-.header,
-.footer {
-    position: relative;
-    height: 60px;
-    padding: 0 18px;
-    background-color: #fff;
-}
-
-.header {
-    line-height: 60px;
-    border-bottom: 1px solid @color-border;
-}
-
-.footer {
-    padding-top: 14px;
-    border-top: 1px solid @color-border;
-}
-
-.sortable {
-    padding-right: @setting-right-width;
-    .right {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: @setting-right-width;
-        height: 100%;
-        padding-left: 18px;
-    }
-}
+@setting-header-height: 60px;
 
 .setting {
     position: relative;
-    .left {
-        max-height: 492px;
+    height: 100%;
+
+    .header{
+        width: 100%;
+        height: @setting-header-height;
+        padding: 0 24px;
+        background-color: #fff;
+        line-height: @setting-header-height;
+        border-bottom: 1px solid @color-border;
+    }
+
+    .content {
+        position: absolute;
+        top: @setting-header-height;
+        left: 0;
+        bottom: 0;
+        right: 0;
         overflow-y: auto;
         
         .line {
-            padding: 18px;
+            padding: 16px 24px;
             &:nth-of-type(even) {
                 background-color: @color-bg;
             }
@@ -62,38 +49,58 @@
         }
     }
     &.sortable {
-        .left {
-            min-height: 316px;
+        padding-right: @setting-right-width;
+
+        .content {
+            right: @setting-right-width;
             border-right: 1px solid @color-border;
         }
-        .right {
-            background-color: @color-bg;
-            padding-top: 56px;
-            padding-bottom: 18px;
 
-            .drag-oper {
-                position: absolute;
-                top: 18px;
-                left: 18px;
-                right: 18px;
-                text-align: right;
+        .drag-header{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: @setting-right-width;
+            height: @setting-header-height + 38px;
+            
+            .drag-title{
+                height: @setting-header-height;
+                line-height: @setting-header-height;
+                font-size: 16px;
+                padding-left: 24px;
+                border-bottom: 1px solid @color-border;
             }
-            .drag-wrapper{
-                height: 100%;
-                overflow-y: scroll;
-                .drag {
-                    height: 30px;
-                    margin-right: 18px;
-                    margin-bottom: 5px;
-                    padding: 0 15px;
-                    line-height: 28px;
-                    background: #fff;
-                    border: 1px solid @color-border;
-                    border-radius: @border-radius;
-                    cursor: move;
-                    &:last-child {
-                        margin-bottom: 0;
-                    }
+
+            .drag-oper{
+                height: 38px;
+                padding: 0 24px;
+                line-height: 38px;
+                text-align: right;
+                background-color: @color-bg;
+            }
+        }
+
+        .drag-wrapper{
+            position: absolute;
+            top: @setting-header-height + 38px;;
+            right: 0;
+            bottom: 0;
+            width: @setting-right-width;
+            padding: 0 24px 16px 24px;
+            overflow-y: scroll;
+            background-color: @color-bg;
+
+            .drag {
+                height: 30px;
+                margin-bottom: 5px;
+                padding: 0 15px;
+                line-height: 28px;
+                background: #fff;
+                border: 1px solid @color-border;
+                border-radius: @border-radius;
+                cursor: move;
+                &:last-child {
+                    margin-bottom: 0;
                 }
             }
         }

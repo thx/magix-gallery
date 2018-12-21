@@ -66,7 +66,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<div mxs="_zs_galleryal:d" class="mb10">浮层JS Code:</div><pre mxs="_zs_galleryal:e" class="tip-content mb40">\nlet Magix = require(\'magix\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    check() &#123;\n        let that = this;\n        let ok = that.isValid();\n        return new Promise((resolve) =&gt; &#123;\n            setTimeout(() =&gt; &#123;\n                resolve(&#123;\n                    ok,  \n                    msg: \'请按照要求填写完信息再提交\'\n                &#125;)\n            &#125;, 1000)\n        &#125;)\n    &#125;\n&#125;);\n    </pre></div>';
+    $p += '<div mxs="_zs_galleryal:d" class="mb10">浮层JS Code:</div><pre mxs="_zs_galleryal:f" class="tip-content mb40">\nlet Magix = require(\'magix\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    check() &#123;\n        let that = this;\n        let ok = that.isValid();\n        let name = \'\';\n        if(ok)&#123;\n            name = that.updater.get(\'name\');\n        &#125;\n        return new Promise((resolve) =&gt; &#123;\n            setTimeout(() =&gt; &#123;\n                resolve(&#123;\n                    ok,\n                    data: &#123;\n                        name\n                    &#125;,\n                    msg: \'请按照要求填写完信息再提交\'\n                &#125;)\n            &#125;, 1000)\n        &#125;)\n    &#125;\n&#125;);\n    </pre></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -88,11 +88,18 @@ catch (ex) {
     check: function () {
         var that = this;
         var ok = that.isValid();
+        var name = '';
+        if (ok) {
+            name = that.updater.get('name');
+        }
         return new Promise(function (resolve) {
             setTimeout(function () {
                 resolve({
                     ok: ok,
-                    msg: '请按照要求填写完信息再提交'
+                    msg: '请按照要求填写完信息再提交',
+                    data: {
+                        name: name
+                    }
                 });
             }, 1000);
         });

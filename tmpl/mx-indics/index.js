@@ -115,19 +115,13 @@ module.exports = Magix.View.extend({
         let updater = that.updater;
         let sortable = updater.get('sortable');
 
-        let gap = sortable ? 3 : 2;
-        let dialogOptions = {
-            width: 220 * gap,
-            height: 612,
-            closable: false
-        };
-
+        
         let viewOptions = $.extend(true, {}, updater.get());
         viewOptions.selected = viewOptions.map[viewOptions.type].list;
-        viewOptions.callback = (newSelected) => {
+        viewOptions.callback = (d) => {
             let map = updater.get('map');
             let type = 2;
-            map[type]['list'] = newSelected;
+            map[type]['list'] = d.selected;
             that.updater.digest({
                 type,
                 map
@@ -135,6 +129,9 @@ module.exports = Magix.View.extend({
             that['@{fire}']('dialog-setting');
         };
 
-        that.mxDialog('@./dialog', viewOptions, dialogOptions);
+        let gap = sortable ? 3 : 2;
+        that.mxModal('@./dialog', viewOptions, {
+            width: 220 * gap
+        });
     }
 });

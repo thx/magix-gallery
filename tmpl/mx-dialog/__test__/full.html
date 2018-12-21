@@ -36,10 +36,17 @@ module.exports = Magix.View.extend(&#123;
     check() &#123;
         let that = this;
         let ok = that.isValid();
+        let name = '';
+        if(ok)&#123;
+            name = that.updater.get('name');
+        &#125;
         return new Promise((resolve) =&gt; &#123;
             setTimeout(() =&gt; &#123;
                 resolve(&#123;
-                    ok,  
+                    ok,
+                    data: &#123;
+                        name
+                    &#125;,
                     msg: '请按照要求填写完信息再提交'
                 &#125;)
             &#125;, 1000)

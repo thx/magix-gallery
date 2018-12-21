@@ -117,35 +117,36 @@ module.exports = Magix.View.extend({
         });
     },
 
-    'submit<click>'(event) {
+    // 'submit<click>'(event) {
+        
+
+    //     let viewOptions = this.viewOptions;
+    //     if (viewOptions.dialog) {
+    //         viewOptions.dialog.close();
+    //     }
+
+    //     if (viewOptions.callback) {
+    //         Magix.toTry(viewOptions.callback(selected));
+    //     }
+
+    // },
+
+    check() {
         event.preventDefault();
         let selectedItems = this.updater.get('selectedItems');
-        if (selectedItems.length == 0) {
-            this.updater.digest({
-                error: true
-            })
-            return;
-        }
-
         let selected = selectedItems.map(item => {
             return item.value;
         })
-
-        let viewOptions = this.viewOptions;
-        if (viewOptions.dialog) {
-            viewOptions.dialog.close();
-        }
-
-        if (viewOptions.callback) {
-            Magix.toTry(viewOptions.callback(selected));
-        }
-
-    },
-    'cancel<click>'(event) {
-        event.preventDefault();
-        let viewOptions = this.viewOptions;
-        if (viewOptions.dialog) {
-            viewOptions.dialog.close();
-        }
+    
+        return new Promise((resolve) => {
+            // 此处返回promise，防止有接口提交校验等
+            resolve({
+                ok: (selected.length > 0),  
+                msg: '请至少选择一个指标',
+                data: {
+                    selected
+                }
+            })
+        })
     }
 });

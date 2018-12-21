@@ -105,7 +105,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (full && (fullFooter.enter || fullFooter.cancel)) {%>';
     if (full && (fullFooter.enter || fullFooter.cancel)) {
         ;
-        $p += '<div class="dialog-footer" id="';
+        $p += '<div class="dialog-footer clearfix" id="';
         $line = 26;
         $art = '=cntId';
         ;
@@ -116,7 +116,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (fullFooter.enter) {%>';
         if (fullFooter.enter) {
             ;
-            $p += '<a mxa="_zs_galleryas:b" href="javascript:;" class="btn btn-small btn-brand mr10 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_galleryas:c" class="_zs_gallery_mx-dialog_index_-submit-text">';
+            $p += '<a mxa="_zs_galleryas:b" href="javascript:;" class="fl btn btn-brand min-width-60 mr16 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_galleryas:c" class="_zs_gallery_mx-dialog_index_-submit-text">';
             $line = 29;
             $art = '=fullFooter.enterText';
             ;
@@ -134,7 +134,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (fullFooter.cancel) {%>';
         if (fullFooter.cancel) {
             ;
-            $p += '<a mxa="_zs_galleryas:d" href="javascript:;" class="btn btn-small mr10" mx-click="' + $viewId + '@{close}()">';
+            $p += '<a mxa="_zs_galleryas:d" href="javascript:;" class="fl btn min-width-60 mr16" mx-click="' + $viewId + '@{close}()">';
             $line = 34;
             $art = '=fullFooter.cancelText';
             ;
@@ -156,7 +156,7 @@ module.exports = Magix.View.extend({
             $line = 38;
             $art = '=cntId';
             ;
-            $p += ($expr = '<%=cntId%>', $e(cntId)) + '_footer_error" class="color-red"></span>';
+            $p += ($expr = '<%=cntId%>', $e(cntId)) + '_footer_error" class="fl lh32 color-red"></span>';
             $line = 39;
             $art = '/if';
             ;
@@ -269,6 +269,9 @@ catch (ex) {
             if (result.ok) {
                 errorNode.html('');
                 me['@{close}<click>']();
+                if (data.callback) {
+                    data.callback(result.data || {});
+                }
             }
             else {
                 errorNode.html("<i class=\"mc-iconfont displacement-2\">&#xe6ad;</i>" + result.msg);

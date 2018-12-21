@@ -8,7 +8,7 @@ define("mx-indics/dialog",["magix","mx-popover/index","mx-dragsort/index"],(requ
 require("mx-popover/index");
 require("mx-dragsort/index");
 var Magix = require("magix");
-Magix.applyStyle("_zs_gallery_mx-indics_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-indics_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-indics/index\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-indics_index_-header,\n._zs_gallery_mx-indics_index_-footer {\n  position: relative;\n  height: 60px;\n  padding: 0 18px;\n  background-color: #fff;\n}\n._zs_gallery_mx-indics_index_-header {\n  line-height: 60px;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-footer {\n  padding-top: 14px;\n  border-top: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-sortable {\n  padding-right: 32%;\n}\n._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-right {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 32%;\n  height: 100%;\n  padding-left: 18px;\n}\n._zs_gallery_mx-indics_index_-setting {\n  position: relative;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-left {\n  max-height: 492px;\n  overflow-y: auto;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-left ._zs_gallery_mx-indics_index_-line {\n  padding: 18px;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-left ._zs_gallery_mx-indics_index_-line:nth-of-type(even) {\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-left ._zs_gallery_mx-indics_index_-line ._zs_gallery_mx-indics_index_-item {\n  float: left;\n  width: 33%;\n  padding: 8px 0;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-left ._zs_gallery_mx-indics_index_-line ._zs_gallery_mx-indics_index_-item ._zs_gallery_mx-indics_index_-field-tip {\n  position: relative;\n  top: 1px;\n  left: 4px;\n  font-size: 14px;\n  color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-left {\n  min-height: 316px;\n  border-right: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-right {\n  background-color: #fafafa;\n  padding-top: 56px;\n  padding-bottom: 18px;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-right ._zs_gallery_mx-indics_index_-drag-oper {\n  position: absolute;\n  top: 18px;\n  left: 18px;\n  right: 18px;\n  text-align: right;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-right ._zs_gallery_mx-indics_index_-drag-wrapper {\n  height: 100%;\n  overflow-y: scroll;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-right ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag {\n  height: 30px;\n  margin-right: 18px;\n  margin-bottom: 5px;\n  padding: 0 15px;\n  line-height: 28px;\n  background: #fff;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  cursor: move;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-right ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery_mx-indics_index_-setting-btn {\n  position: relative;\n  color: #999;\n}\n._zs_gallery_mx-indics_index_-setting-btn:hover {\n  color: #666;\n  border-color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting-btn:focus {\n  border-color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting-show-btn {\n  margin-right: 10px;\n}\n._zs_gallery_mx-indics_index_-setting-show-btn ._zs_gallery_mx-indics_index_-setting-show-icon {\n  position: relative;\n  top: 2px;\n}\n._zs_gallery_mx-indics_index_-setting-switch-btn {\n  padding-right: 20px;\n}\n._zs_gallery_mx-indics_index_-setting-switch-btn ._zs_gallery_mx-indics_index_-setting-switch-icon {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 20px;\n  height: 32px;\n  line-height: 32px;\n  text-align: center;\n  font-size: 18px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-indics_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-indics_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-indics/index\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-indics_index_-setting {\n  position: relative;\n  height: 100%;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-header {\n  width: 100%;\n  height: 60px;\n  padding: 0 24px;\n  background-color: #fff;\n  line-height: 60px;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content {\n  position: absolute;\n  top: 60px;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  overflow-y: auto;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line {\n  padding: 16px 24px;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line:nth-of-type(even) {\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line ._zs_gallery_mx-indics_index_-item {\n  float: left;\n  width: 33%;\n  padding: 8px 0;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line ._zs_gallery_mx-indics_index_-item ._zs_gallery_mx-indics_index_-field-tip {\n  position: relative;\n  top: 1px;\n  left: 4px;\n  font-size: 14px;\n  color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable {\n  padding-right: 32%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-content {\n  right: 32%;\n  border-right: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 32%;\n  height: 98px;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header ._zs_gallery_mx-indics_index_-drag-title {\n  height: 60px;\n  line-height: 60px;\n  font-size: 16px;\n  padding-left: 24px;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header ._zs_gallery_mx-indics_index_-drag-oper {\n  height: 38px;\n  padding: 0 24px;\n  line-height: 38px;\n  text-align: right;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper {\n  position: absolute;\n  top: 98px;\n  right: 0;\n  bottom: 0;\n  width: 32%;\n  padding: 0 24px 16px 24px;\n  overflow-y: scroll;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag {\n  height: 30px;\n  margin-bottom: 5px;\n  padding: 0 15px;\n  line-height: 28px;\n  background: #fff;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  cursor: move;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery_mx-indics_index_-setting-btn {\n  position: relative;\n  color: #999;\n}\n._zs_gallery_mx-indics_index_-setting-btn:hover {\n  color: #666;\n  border-color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting-btn:focus {\n  border-color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting-show-btn {\n  margin-right: 10px;\n}\n._zs_gallery_mx-indics_index_-setting-show-btn ._zs_gallery_mx-indics_index_-setting-show-icon {\n  position: relative;\n  top: 2px;\n}\n._zs_gallery_mx-indics_index_-setting-switch-btn {\n  padding-right: 20px;\n}\n._zs_gallery_mx-indics_index_-setting-switch-btn ._zs_gallery_mx-indics_index_-setting-switch-icon {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 20px;\n  height: 32px;\n  line-height: 32px;\n  text-align: center;\n  font-size: 18px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -21,8 +21,8 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', sortable = $$.sortable, limit = $$.limit, selectedItems = $$.selectedItems, groups = $$.groups, error = $$.error; var $expr, $art, $line; try {
-    $p += '<div class="_zs_gallery_mx-indics_index_-header ';
+} ; var $g = '', $_temp, $p = '', sortable = $$.sortable, limit = $$.limit, selectedItems = $$.selectedItems, groups = $$.groups; var $expr, $art, $line; try {
+    $p += '<div mxv class="_zs_gallery_mx-indics_index_-setting ';
     $line = 1;
     $art = 'if sortable';
     ;
@@ -36,223 +36,181 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><div mxa="_zs_galleryb2:_" class="_zs_gallery_mx-indics_index_-left"><span mxs="_zs_galleryb2:_" class="fontsize-16">选择数据字段</span>';
-    $line = 4;
+    $p += '"><div mxa="_zs_galleryb2:_" class="_zs_gallery_mx-indics_index_-header"><div mxa="_zs_galleryb2:a" class="left"><span mxs="_zs_galleryb2:_" class="fontsize-16">选择数据字段</span>';
+    $line = 5;
     $art = 'if (limit > 0)';
     ;
     $expr = '<%if (limit > 0) {%>';
     if (limit > 0) {
         ;
-        $p += '<span mxa="_zs_galleryb2:a" class="color-9 font-tahoma bold ml10">';
-        $line = 5;
+        $p += '<span mxa="_zs_galleryb2:b" class="color-9 font-tahoma bold ml10">';
+        $line = 6;
         $art = '=selectedItems.length';
         ;
         $p += ($expr = '<%=selectedItems.length%>', $e(selectedItems.length)) + ' / ';
-        $line = 5;
+        $line = 6;
         $art = '=limit';
         ;
         $p += ($expr = '<%=limit%>', $e(limit)) + '</span>';
-        $line = 6;
+        $line = 7;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += ' ';
-    $line = 7;
+    $line = 8;
     $art = 'if !sortable';
     ;
     $expr = '<%if (!sortable) {%>';
     if (!sortable) {
         ;
         $p += '<a mxs="_zs_galleryb2:a" href="javascript:;" class="link-brand fr" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a>';
-        $line = 11;
+        $line = 12;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</div>';
-    $line = 13;
-    $art = 'if sortable';
-    ;
-    $expr = '<%if (sortable) {%>';
-    if (sortable) {
-        ;
-        $p += '<div mxs="_zs_galleryb2:b" class="_zs_gallery_mx-indics_index_-right"><span class="fontsize-16">自定义字段</span></div>';
-        $line = 17;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</div><div mxv class="_zs_gallery_mx-indics_index_-setting ';
-    $line = 19;
-    $art = 'if sortable';
-    ;
-    $expr = '<%if (sortable) {%>';
-    if (sortable) {
-        ;
-        $p += '_zs_gallery_mx-indics_index_-sortable';
-        $line = 19;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '"><div mxv mxa="_zs_galleryb2:b" class="_zs_gallery_mx-indics_index_-left">';
-    $line = 21;
+    $p += '</div></div><div mxv mxa="_zs_galleryb2:c" class="_zs_gallery_mx-indics_index_-content">';
+    $line = 16;
     $art = 'each groups as group';
     ;
-    $expr = '<%for (var $art_ivqyccg$art_i = 0, $art_clovkis$art_c = groups.length; $art_ivqyccg$art_i < $art_clovkis$art_c; $art_ivqyccg$art_i++) {    var group = groups[$art_ivqyccg$art_i]%>';
-    for (var $art_ivqyccg$art_i = 0, $art_clovkis$art_c = groups.length; $art_ivqyccg$art_i < $art_clovkis$art_c; $art_ivqyccg$art_i++) {
-        var group = groups[$art_ivqyccg$art_i];
-        $p += '<div mxv mxa="_zs_galleryb2:c" class="_zs_gallery_mx-indics_index_-line clearfix">';
-        $line = 23;
+    $expr = '<%for (var $art_icvlsluodmw$art_i = 0, $art_ciggoairevt$art_c = groups.length; $art_icvlsluodmw$art_i < $art_ciggoairevt$art_c; $art_icvlsluodmw$art_i++) {    var group = groups[$art_icvlsluodmw$art_i]%>';
+    for (var $art_icvlsluodmw$art_i = 0, $art_ciggoairevt$art_c = groups.length; $art_icvlsluodmw$art_i < $art_ciggoairevt$art_c; $art_icvlsluodmw$art_i++) {
+        var group = groups[$art_icvlsluodmw$art_i];
+        $p += '<div mxv mxa="_zs_galleryb2:d" class="_zs_gallery_mx-indics_index_-line clearfix">';
+        $line = 18;
         $art = 'each group as field';
         ;
-        $expr = '<%for (var $art_ikqa$art_i = 0, $art_cbnhssueiq$art_c = group.length; $art_ikqa$art_i < $art_cbnhssueiq$art_c; $art_ikqa$art_i++) {        var field = group[$art_ikqa$art_i]%>';
-        for (var $art_ikqa$art_i = 0, $art_cbnhssueiq$art_c = group.length; $art_ikqa$art_i < $art_cbnhssueiq$art_c; $art_ikqa$art_i++) {
-            var field = group[$art_ikqa$art_i];
-            $p += '<div mxv mxa="_zs_galleryb2:d" class="_zs_gallery_mx-indics_index_-item"><label mxv ';
-            $line = 25;
+        $expr = '<%for (var $art_ievpuupmje$art_i = 0, $art_czmvtzqihwk$art_c = group.length; $art_ievpuupmje$art_i < $art_czmvtzqihwk$art_c; $art_ievpuupmje$art_i++) {        var field = group[$art_ievpuupmje$art_i]%>';
+        for (var $art_ievpuupmje$art_i = 0, $art_czmvtzqihwk$art_c = group.length; $art_ievpuupmje$art_i < $art_czmvtzqihwk$art_c; $art_ievpuupmje$art_i++) {
+            var field = group[$art_ievpuupmje$art_i];
+            $p += '<div mxv mxa="_zs_galleryb2:e" class="_zs_gallery_mx-indics_index_-item"><label mxv ';
+            $line = 20;
             $art = 'if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)';
             ;
             $expr = '<%if ((limit > 0) && (selectedItems.length >= limit) && !field.checked) {%>';
             if ((limit > 0) && (selectedItems.length >= limit) && !field.checked) {
                 ;
                 $p += ' class="cursor-not-allow" ';
-                $line = 25;
+                $line = 20;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '><input type="checkbox" name="field" value="';
-            $line = 26;
+            $line = 21;
             $art = '=field.value';
             ;
             $p += ($expr = '<%=field.value%>', $e(field.value)) + '" class="checkbox" ';
-            $line = 27;
+            $line = 22;
             $art = 'if field.checked';
             ;
             $expr = '<%if (field.checked) {%>';
             if (field.checked) {
                 ;
                 $p += ' checked="true" ';
-                $line = 27;
+                $line = 22;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' ';
-            $line = 28;
+            $line = 23;
             $art = 'if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)';
             ;
             $expr = '<%if ((limit > 0) && (selectedItems.length >= limit) && !field.checked) {%>';
             if ((limit > 0) && (selectedItems.length >= limit) && !field.checked) {
                 ;
                 $p += ' disabled="true" ';
-                $line = 28;
+                $line = 23;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' mx-change="' + $viewId + 'toggle({value:\'';
-            $line = 29;
+            $line = 24;
             $art = '=field.value';
             ;
             $p += ($expr = '<%=$eq(field.value)%>', $e($eq(field.value))) + '\',text:\'';
-            $line = 29;
+            $line = 24;
             $art = '=field.text';
             ;
             $p += ($expr = '<%=$eq(field.text)%>', $e($eq(field.text))) + '\'})"/>';
-            $line = 29;
+            $line = 24;
             $art = '=field.text';
             ;
             $p += ($expr = '<%=field.text%>', $e(field.text)) + '</label>';
-            $line = 31;
+            $line = 26;
             $art = 'if field.tip';
             ;
             $expr = '<%if (field.tip) {%>';
             if (field.tip) {
                 ;
                 $p += '<i class="mc-iconfont _zs_gallery_mx-indics_index_-field-tip" mx-view="mx-popover/index?content=';
-                $line = 34;
+                $line = 29;
                 $art = '=field.tip';
                 ;
                 $p += ($expr = '<%!$eu(field.tip)%>', $eu(field.tip)) + '">&#xe629;</i>';
-                $line = 35;
+                $line = 30;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '</div>';
-            $line = 37;
+            $line = 32;
             $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</div>';
-        $line = 39;
+        $line = 34;
         $art = '/each';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += '</div>';
-    $line = 41;
+    $line = 36;
     $art = 'if sortable';
     ;
     $expr = '<%if (sortable) {%>';
     if (sortable) {
         ;
-        $p += '<div mxa="_zs_galleryb2:e" class="_zs_gallery_mx-indics_index_-right"><div mxs="_zs_galleryb2:c" class="_zs_gallery_mx-indics_index_-drag-oper"><span class="color-9 mr10">可拖动排序</span><a href="javascript:;" class="link-brand" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a></div><div mxa="_zs_galleryb2:f" class="_zs_gallery_mx-indics_index_-drag-wrapper" mx-view="mx-dragsort/index" mx-dragfinish="' + $viewId + 'drag()">';
-        $line = 48;
+        $p += '<div mxs="_zs_galleryb2:b" class="_zs_gallery_mx-indics_index_-drag-header"><div class="_zs_gallery_mx-indics_index_-drag-title">自定义字段</div><div class="_zs_gallery_mx-indics_index_-drag-oper"><span class="color-9 mr10">可拖动排序</span><a href="javascript:;" class="link-brand" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a></div></div><div mxa="_zs_galleryb2:f" class="_zs_gallery_mx-indics_index_-drag-wrapper" mx-view="mx-dragsort/index" mx-dragfinish="' + $viewId + 'drag()">';
+        $line = 45;
         $art = 'each selectedItems as s';
         ;
-        $expr = '<%for (var $art_ilqctfmf$art_i = 0, $art_cwdwrxpezp$art_c = selectedItems.length; $art_ilqctfmf$art_i < $art_cwdwrxpezp$art_c; $art_ilqctfmf$art_i++) {        var s = selectedItems[$art_ilqctfmf$art_i]%>';
-        for (var $art_ilqctfmf$art_i = 0, $art_cwdwrxpezp$art_c = selectedItems.length; $art_ilqctfmf$art_i < $art_cwdwrxpezp$art_c; $art_ilqctfmf$art_i++) {
-            var s = selectedItems[$art_ilqctfmf$art_i];
+        $expr = '<%for (var $art_igpafxw$art_i = 0, $art_cyeolbbmbwa$art_c = selectedItems.length; $art_igpafxw$art_i < $art_cyeolbbmbwa$art_c; $art_igpafxw$art_i++) {        var s = selectedItems[$art_igpafxw$art_i]%>';
+        for (var $art_igpafxw$art_i = 0, $art_cyeolbbmbwa$art_c = selectedItems.length; $art_igpafxw$art_i < $art_cyeolbbmbwa$art_c; $art_igpafxw$art_i++) {
+            var s = selectedItems[$art_igpafxw$art_i];
             $p += '<div class="_zs_gallery_mx-indics_index_-drag" data-value="';
-            $line = 49;
+            $line = 46;
             $art = '=s.value';
             ;
             $p += ($expr = '<%=s.value%>', $e(s.value)) + '" data-text="';
-            $line = 49;
+            $line = 46;
             $art = '=s.text';
             ;
             $p += ($expr = '<%=s.text%>', $e(s.text)) + '">';
-            $line = 49;
+            $line = 46;
             $art = '=s.text';
             ;
             $p += ($expr = '<%=s.text%>', $e(s.text)) + '</div>';
-            $line = 50;
+            $line = 47;
             $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += '</div></div>';
-        $line = 53;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</div><div mxa="_zs_galleryb2:g" class="_zs_gallery_mx-indics_index_-footer"><a mxs="_zs_galleryb2:d" href="javascript:;" class="min-width-60 btn btn-brand mr10" mx-click="' + $viewId + 'submit()">确定</a><a mxs="_zs_galleryb2:e" href="javascript:;" class="min-width-60 btn mr10" mx-click="' + $viewId + 'cancel()">取消</a>';
-    $line = 58;
-    $art = 'if error';
-    ;
-    $expr = '<%if (error) {%>';
-    if (error) {
-        ;
-        $p += '<span mxs="_zs_galleryb2:f" class="color-error"><i class="mc-iconfont displacement-2 mr5">&#xe6ad;</i>请至少选择一个指标</span>';
-        $line = 60;
+        $p += '</div>';
+        $line = 49;
         $art = '/if';
         ;
         $expr = '<%}%>';
@@ -370,32 +328,31 @@ catch (ex) {
             selectedItems: []
         });
     },
-    'submit<click>': function (event) {
+    // 'submit<click>'(event) {
+    //     let viewOptions = this.viewOptions;
+    //     if (viewOptions.dialog) {
+    //         viewOptions.dialog.close();
+    //     }
+    //     if (viewOptions.callback) {
+    //         Magix.toTry(viewOptions.callback(selected));
+    //     }
+    // },
+    check: function () {
         event.preventDefault();
         var selectedItems = this.updater.get('selectedItems');
-        if (selectedItems.length == 0) {
-            this.updater.digest({
-                error: true
-            });
-            return;
-        }
         var selected = selectedItems.map(function (item) {
             return item.value;
         });
-        var viewOptions = this.viewOptions;
-        if (viewOptions.dialog) {
-            viewOptions.dialog.close();
-        }
-        if (viewOptions.callback) {
-            Magix.toTry(viewOptions.callback(selected));
-        }
-    },
-    'cancel<click>': function (event) {
-        event.preventDefault();
-        var viewOptions = this.viewOptions;
-        if (viewOptions.dialog) {
-            viewOptions.dialog.close();
-        }
+        return new Promise(function (resolve) {
+            // 此处返回promise，防止有接口提交校验等
+            resolve({
+                ok: (selected.length > 0),
+                msg: '请至少选择一个指标',
+                data: {
+                    selected: selected
+                }
+            });
+        });
     }
 });
 

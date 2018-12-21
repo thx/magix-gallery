@@ -12,10 +12,12 @@ module.exports = Magix.View.extend({
         let altered = that.updater.altered();
 
         that['@{owner.node}'] = $('#' + that.id);
+
         that.updater.set({
             on: (extra.state + '' === 'true'),
             disabled: (extra.disabled + '' === 'true'),
-            tip: extra.tip || ''
+            tip: extra.tip || '',
+            text: (extra.mode == 'text')
         });
         if (!altered) {
             altered = that.updater.altered();

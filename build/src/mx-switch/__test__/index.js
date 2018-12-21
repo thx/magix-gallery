@@ -40,15 +40,15 @@ module.exports = Base.extend({
     $line = 23;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mx-view="mx-switch/__test__/1" id="';
-    $line = 24;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerydk:d" class="mb20 clearfix"><div mxa="_zs_gallerydk:a" class="_zs_gallery___test___layout_-half"><div mx-view="mx-switch/__test__/1" id="';
+    $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mxa="_zs_gallerydk:a" class="mb20 clearfix"><div mxa="_zs_gallerydk:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-switch/__test__/2" id="';
-    $line = 27;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div></div><div mxa="_zs_gallerydk:e" class="_zs_gallery___test___layout_-half"><div mx-view="mx-switch/__test__/2" id="';
+    $line = 29;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div mxa="_zs_gallerydk:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-switch/__test__/3" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-switch/__test__/3" id="';
     $line = 30;
     $art = '=viewId';
     ;
@@ -94,6 +94,11 @@ catch (ex) {
                 desc: '禁止操作时的补充说明',
                 type: 'string',
                 def: ''
+            }, {
+                key: 'mode',
+                desc: '样式版本，可选带文字版（text），空心（hollow）',
+                type: 'string',
+                def: 'hollow'
             }];
         var events = [{
                 type: 'change',

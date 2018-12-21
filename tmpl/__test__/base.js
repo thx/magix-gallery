@@ -276,6 +276,11 @@ module.exports = Magix.View.extend({
                     path: '/dialog/index',
                     icon: '&#xe7ff;'
                 }, {
+                    name: '全屏右出浮层',
+                    tip: 'Magix.View上挂载mxModal',
+                    path: '/dialog/modal',
+                    icon: '&#xe7ff;'
+                }, {
                     name: '缩略图和预览',
                     tip: '支持图片，视频，html，文件链，套图（大小图）',
                     path: '/preview/index',

@@ -9,7 +9,9 @@ module.exports = Base.extend({
     render() {
         this.updater.digest();
     },
-    'open1<click>'(e) {
+    'open<click>'(e) {
+        let that = this;
+
         // this.mxModal(viewPath[string], viewOptions[object], dialogOptions[object])
         //      viewPath: 'dialog view路径'
         //      viewOptions: {
@@ -37,8 +39,12 @@ module.exports = Base.extend({
         //          top: '固定为0',
         //          modal: '固定为false，禁止滚动',
         //      }
-        this.mxModal('@./full', {
-            
+        that.mxModal('@./full', {
+            callback: (data) => {
+                that.updater.digest({
+                    text: data.name
+                })
+            }
         }, {
             width: 800,
             header: {
@@ -49,27 +55,6 @@ module.exports = Base.extend({
                 enterText: '自定义确认',
                 cancelText: '自定义取消'
             }
-        });
-    },
-    'open2<click>'(e) {
-        this.mxModal('@./full', {
-            readonly: true
-        }, {
-            header: {
-                title: '全屏右出浮层'
-            },
-            footer: {
-                enter: false,
-                cancel: false
-            }
-        });
-    },
-    'open3<click>'(e) {
-        this.mxModal('@./full', {
-            
-        }, {
-            width: 800,
-            mask: false
         });
     }
 });

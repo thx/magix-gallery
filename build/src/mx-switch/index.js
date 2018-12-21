@@ -20,28 +20,57 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', on = $$.on, disabled = $$.disabled, tip = $$.tip; var $expr, $art, $line; try {
-    $p += '<span class="_zs_gallery_mx-switch_index_-switch ';
+} ; var $g = '', $_temp, $p = '', text = $$.text, on = $$.on, disabled = $$.disabled, tip = $$.tip; var $expr, $art, $line; try {
     $line = 1;
-    $art = '= _zs_gallery_mx-switch_index_-on ? \'on\' : \'\'';
+    $art = 'if text';
     ;
-    $p += ($expr = '<%=on ? \'_zs_gallery_mx-switch_index_-on\' : \'\'%>', $e(on ? '_zs_gallery_mx-switch_index_-on' : '')) + ' ';
-    $line = 1;
-    $art = '= _zs_gallery_mx-switch_index_-disabled ? \'disabled\' : \'\'';
-    ;
-    $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_gallerydl:_" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
-    $line = 4;
-    $art = 'if (disabled && tip)';
-    ;
-    $expr = '<%if (disabled && tip) {%>';
-    if (disabled && tip) {
+    $expr = '<%if (text) {%>';
+    if (text) {
         ;
-        $p += '<span class="_zs_gallery_mx-switch_index_-reason" mx-view="mx-popover/index?content=';
-        $line = 7;
-        $art = '=tip';
+        $p += '<span class="_zs_gallery_mx-switch_index_-switch ';
+        $line = 2;
+        $art = '= _zs_gallery_mx-switch_index_-on ? \'on\' : \'\'';
         ;
-        $p += ($expr = '<%!$eu(tip)%>', $eu(tip)) + '"></span>';
-        $line = 8;
+        $p += ($expr = '<%=on ? \'_zs_gallery_mx-switch_index_-on\' : \'\'%>', $e(on ? '_zs_gallery_mx-switch_index_-on' : '')) + ' ';
+        $line = 2;
+        $art = '= _zs_gallery_mx-switch_index_-disabled ? \'disabled\' : \'\'';
+        ;
+        $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_gallerydl:_" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
+        $line = 5;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '<span class="_zs_gallery_mx-switch_index_-switch ';
+        $line = 6;
+        $art = '= _zs_gallery_mx-switch_index_-on ? \'on\' : \'\'';
+        ;
+        $p += ($expr = '<%=on ? \'_zs_gallery_mx-switch_index_-on\' : \'\'%>', $e(on ? '_zs_gallery_mx-switch_index_-on' : '')) + ' ';
+        $line = 6;
+        $art = '= _zs_gallery_mx-switch_index_-disabled ? \'disabled\' : \'\'';
+        ;
+        $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_gallerydl:_" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
+        $line = 9;
+        $art = 'if (disabled && tip)';
+        ;
+        $expr = '<%if (disabled && tip) {%>';
+        if (disabled && tip) {
+            ;
+            $p += '<span class="_zs_gallery_mx-switch_index_-reason" mx-view="mx-popover/index?content=';
+            $line = 12;
+            $art = '=tip';
+            ;
+            $p += ($expr = '<%!$eu(tip)%>', $eu(tip)) + '"></span>';
+            $line = 13;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 14;
         $art = '/if';
         ;
         $expr = '<%}%>';
@@ -67,7 +96,8 @@ catch (ex) {
         that.updater.set({
             on: (extra.state + '' === 'true'),
             disabled: (extra.disabled + '' === 'true'),
-            tip: extra.tip || ''
+            tip: extra.tip || '',
+            text: (extra.mode == 'text')
         });
         if (!altered) {
             altered = that.updater.altered();

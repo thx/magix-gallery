@@ -32,31 +32,31 @@ module.exports = Base.extend({
     $line = 7;
     $art = '=state';
     ;
-    $p += ($expr = '<%=state%>', $e(state)) + '</span></div><div mxa="_zs_gallerydh:c" class="clearfix"><div mxa="_zs_gallerydh:d" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_gallerydh:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 12;
+    $p += ($expr = '<%=state%>', $e(state)) + '</span></div><div mxa="_zs_gallerydh:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydh:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 11;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydh:e" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 14;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydh:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 13;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydh:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 17;
+    $line = 16;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-switch class="mr20"\n    state="&#123;&#123;=state&#125;&#125;"\n    mx-change="toggle()"/&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand" \n    mx-click="change()"&gt;切换状态&lt;/a&gt;</pre></div><div mxa="_zs_gallerydh:f" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerydh:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 27;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-switch class="mr20"\n    state="&#123;&#123;=state&#125;&#125;"\n    mx-change="toggle()"/&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand" \n    mx-click="change()"&gt;切换状态&lt;/a&gt;</pre></div><div mxa="_zs_gallerydh:i" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydh:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerydh:g" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 29;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerydh:j" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 28;
     $art = '!text2';
     ;
     $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerydh:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 32;
+    $line = 31;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\ntmpl: \'@index.html\',\nrender() &#123;\n    this.updater.digest(&#123;\n        state: true\n    &#125;);\n&#125;,\n\'toggle&lt;change&gt;\' (event) &#123;\n    // event.state 当前开还是关\n    // true 开，false关\n    this.updater.digest(&#123;\n        state: event.state\n    &#125;);\n&#125;,\n\'change&lt;click&gt;\'(event)&#123;\n    let state = this.updater.get(\'state\');\n    this.updater.digest(&#123;\n        state: !state\n    &#125;);\n&#125;\n&#125;);</pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            state: true\n        &#125;);\n    &#125;,\n    \'toggle&lt;change&gt;\' (event) &#123;\n        // event.state 当前开还是关\n        // true 开，false关\n        this.updater.digest(&#123;\n            state: event.state\n        &#125;);\n    &#125;,\n    \'change&lt;click&gt;\'(event)&#123;\n        let state = this.updater.get(\'state\');\n        this.updater.digest(&#123;\n            state: !state\n        &#125;);\n&#125;\n&#125;);</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
