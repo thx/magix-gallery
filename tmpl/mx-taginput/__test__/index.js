@@ -43,6 +43,11 @@ module.exports = Magix.View.extend({
             desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-taginput mx-disabled&gt;&lt;/mx-taginput&gt;',
             type: '',
             def: ''
+        }, {
+            key: 'max',
+            desc: '最大可选择几个，不配置或为0为不限制',
+            type: 'number',
+            def: 0
         }]
 
         let events = [{
