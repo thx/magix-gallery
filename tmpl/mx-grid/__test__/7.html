@@ -1,5 +1,6 @@
 <div class="example">
     <div class="eg-content">
+        <div class="mb10">使用 &lt;mx-grid&gt; 标签；也可直接用 class grid 样式</div>
         <div class="container">
             <mx-grid>
                 <mx-grid.title content="标题" tip="提示信息" icon="{{!icon}}"/>
@@ -8,21 +9,43 @@
         </div>
     </div>
     <div class="clearfix">
-        <div class="eg-desc half">
-            <div class="eg-title">HTML Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-                mx-success="done({id:1})">
-                <span class="desc-tip">{{!text1}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+        <div class="half half-left">
+            <div class="eg-desc">
+                <div class="eg-title">HTML Code</div>
+                <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                    mx-success="done({id:1})">
+                    <span class="desc-tip">{{!text1}}</span>
+                    <i class="mc-iconfont desc-icon">&#xe610;</i>
+                </mx-copy>
+                <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-grid&gt;
-    &lt;mx-grid.title content="标题" tip="提示信息" icon="&#123;&#123;!icon&#125;&#125;"/&gt;
+    &lt;mx-grid.title 
+        content="标题" 
+        tip="提示信息" 
+        icon="&#123;&#123;!icon&#125;&#125;"/&gt;
     &lt;mx-grid.body&gt;test&lt;/mx-grid.body&gt;
 &lt;/mx-grid&gt;
-            </pre>
+                </pre>
+            </div>
+            <div class="eg-desc">
+                <div class="eg-title">等同于使用class grid</div>
+                <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                    mx-success="done({id:3})">
+                    <span class="desc-tip">{{!text3}}</span>
+                    <i class="mc-iconfont desc-icon">&#xe610;</i>
+                </mx-copy>
+                <pre mx-view="__test__/hl" id="{{=viewId}}_text_3">
+&lt;div class="grid"&gt;
+    &lt;mx-grid.title 
+        content="标题" 
+        tip="提示信息" 
+        icon="&#123;&#123;!icon&#125;&#125;"/&gt;
+    &lt;mx-grid.body&gt;test&lt;/mx-grid.body&gt;
+&lt;/div&gt;
+                </pre>
+            </div>
         </div>
-        <div class="eg-desc half half-right">
+        <div class="eg-desc half">
             <div class="eg-title">JS Code</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">

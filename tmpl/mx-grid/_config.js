@@ -27,7 +27,7 @@ let ProcessAttr = (attrs, style, ignores, className) => {
             if ((p == 'class') && className) {
                 attrStr += ` class="${className} ${v}"`;
                 classAdded = true;
-            } else if (p == 'style') {
+            } else if ((p == 'style') && style) {
                 attrStr += ` style="${style}${v}"`;
                 styleAdded = true;
             } else {
@@ -40,7 +40,7 @@ let ProcessAttr = (attrs, style, ignores, className) => {
     if (!classAdded && className) {
         attrStr += ' class="' + className + '"';
     }
-    if (!styleAdded) {
+    if (!styleAdded && style) {
         attrStr += ` style="${style}"`;
     }
     return attrStr;
@@ -112,8 +112,7 @@ module.exports = {
         })}>${content}</div>`;
     },
     'mx-grid'(i) {
-        let styles = 'background: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);';
-        return `<div ${ProcessAttr(i.attrsKV, styles, {})}>
+        return `<div ${ProcessAttr(i.attrsKV, null, {}, 'grid')}>
                     ${i.content}
                 </div>`;
     },
@@ -121,7 +120,7 @@ module.exports = {
         let { content, attrsKV } = i;
 
         let styles = [
-            'padding: 10px 20px;'
+            'padding: 8px 24px;'
         ];
         if ((attrsKV.border + '') !== 'none') {
             styles.push('border-bottom: 1px solid #e6e6e6;');
@@ -141,7 +140,7 @@ module.exports = {
         }
         tmpl += `<span style="font-size: 16px;">${attrsKV.content}</span>`;
         if (attrsKV.tip) {
-            tmpl += `<span style="margin-left: 20px; color: #999;">${attrsKV.tip}</span>`;
+            tmpl += `<span style="margin-left: 16px; color: #999;">${attrsKV.tip}</span>`;
         }
         tmpl += '</div>';
 
@@ -155,6 +154,6 @@ module.exports = {
     },
     'mx-grid.body'(i) {
         let { content, attrsKV } = i;
-        return `<div ${ProcessAttr(attrsKV, 'padding:20px;', {})}>${content}</div>`;
+        return `<div ${ProcessAttr(attrsKV, 'padding: 16px 24px;', {})}>${content}</div>`;
     }
 };

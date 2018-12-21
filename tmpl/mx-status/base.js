@@ -2,9 +2,18 @@ let Magix = require('magix');
 
 module.exports = Magix.View.extend({
     init(e) {
-        let opers = e.opers || [];
-        let selected = e.selected || (opers[0] || '').value;
-
+        this.viewOptions = e;
+    },
+    render() {
+        let viewOptions = this.viewOptions;
+        let opers = viewOptions.opers || [];
+        let selected = viewOptions.selected || (opers[0] || '').value;
+        this.update(selected);
+    },
+    update(selected){
+        let viewOptions = this.viewOptions;
+        
+        let opers = viewOptions.opers || [];
         // 当前项在最前面
         let cur = {};
         if(opers.length > 0){
@@ -19,22 +28,19 @@ module.exports = Magix.View.extend({
         }
 
         // 提示信息
-        let info = e.info || {};
+        let info = viewOptions.info || {};
         let showInfo = false;
         if(!$.isEmptyObject(info)){
             showInfo = true;
         }
         
-        this.updater.set({
+        this.updater.digest({
             info,
             opers,
             cur,
             showInfo,
             show: false
         })
-    },
-    render() {
-        this.updater.digest();
     },
     'select<click>'(e) {
         let that = this;
@@ -44,9 +50,7 @@ module.exports = Magix.View.extend({
             return;
         }
 
-        that.updater.digest({
-            show: false
-        })
+        that.update(item.value);
         $('#' + that.id).trigger({
             type: 'change',
             status: item

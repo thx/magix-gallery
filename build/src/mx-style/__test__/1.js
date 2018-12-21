@@ -10,7 +10,7 @@ require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-style___test___1_","/* @dependent: ./index.less */\n._zs_gallery_mx-style___test___1_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-style___test___1_-con {\n  padding: 10px;\n}\n._zs_gallery_mx-style___test___1_-dark {\n  background-color: #eee;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-style___test___1_","/* @dependent: ./index.less */\n._zs_gallery_mx-style___test___1_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-style___test___1_-con {\n  padding: 10px;\n}\n._zs_gallery_mx-style___test___1_-dark {\n  background-color: #eee;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -24,19 +24,19 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc?:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryc?:_" class="_zs_gallery___test___layout_-eg-content"><div class="_zs_gallery_mx-style___test___1_-con"><a href="javascript:;" class="btn btn-brand mr20">品牌色按钮</a><a href="javascript:;" class="btn btn-brand btn-small">小号品牌色按钮</a></div><div class="_zs_gallery_mx-style___test___1_-con"><a href="javascript:;" class="btn mr20">普通按钮</a><a href="javascript:;" class="btn btn-small">小号普通按钮</a></div><div class="_zs_gallery_mx-style___test___1_-con"><a href="javascript:;" class="btn btn-hollow mr20">空心按钮</a><a href="javascript:;" class="btn btn-hollow btn-small">小号空心按钮</a></div><div class="_zs_gallery_mx-style___test___1_-con _zs_gallery_mx-style___test___1_-dark"><a href="javascript:;" class="btn btn-white mr20">白色按钮</a><a href="javascript:;" class="btn btn-white btn-small">小号白色按钮</a></div><div class="_zs_gallery_mx-style___test___1_-con"><a href="javascript:;" class="btn btn-disabled mr20">禁用按钮</a><a href="javascript:;" class="btn btn-disabled btn-small">小号禁用按钮</a></div></div><div mxa="_zs_galleryc?:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryc?:a" class="_zs_gallery___test___layout_-eg-title">按钮</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 26;
+    $p += '<div mxa="_zs_galleryc`:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryc`:_" class="_zs_gallery___test___layout_-eg-content"><div class="_zs_gallery_mx-style___test___1_-con"><a href="javascript:;" class="btn btn-brand mr20">品牌色按钮</a><a href="javascript:;" class="btn btn-brand btn-small">小号品牌色按钮</a></div><div class="_zs_gallery_mx-style___test___1_-con"><a href="javascript:;" class="btn mr20">普通按钮</a><a href="javascript:;" class="btn btn-small">小号普通按钮</a></div><div class="_zs_gallery_mx-style___test___1_-con _zs_gallery_mx-style___test___1_-dark"><a href="javascript:;" class="btn btn-white mr20">白色按钮</a><a href="javascript:;" class="btn btn-white btn-small">小号白色按钮</a></div><div class="_zs_gallery_mx-style___test___1_-con"><a href="javascript:;" class="btn btn-disabled mr20">禁用按钮</a><a href="javascript:;" class="btn btn-disabled btn-small">小号禁用按钮</a></div></div><div mxa="_zs_galleryc`:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryc`:a" class="_zs_gallery___test___layout_-eg-title">按钮</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryc?:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 28;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryc`:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 24;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryc?:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 31;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryc`:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" class="btn btn-brand"&gt;品牌色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand btn-small"&gt;小号品牌色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn"&gt;普通按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-small"&gt;小号普通按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-hollow"&gt;空心按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-hollow btn-small"&gt;小号空心按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-white"&gt;白色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-white btn-small"&gt;小号白色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-disabled"&gt;禁用按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-disabled btn-small"&gt;小号禁用按钮&lt;/a&gt;\n        </pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" class="btn btn-brand"&gt;品牌色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand btn-small"&gt;小号品牌色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn"&gt;普通按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-small"&gt;小号普通按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-white"&gt;白色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-white btn-small"&gt;小号白色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-disabled"&gt;禁用按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-disabled btn-small"&gt;小号禁用按钮&lt;/a&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -13,7 +13,7 @@ require("./chartpark-id");
 require("./chartpark-custom");
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery___test___pro_chartpark_","/* @dependent: ./index.less */\n._zs_gallery___test___pro_chartpark_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_chartpark_-chart-img {\n  width: 100%;\n  margin-bottom: 20px;\n}\n._zs_gallery___test___pro_chartpark_-chart-img:last-child {\n  margin-bottom: 0;\n}\n");
+Magix.applyStyle("_zs_gallery___test___pro_chartpark_","/* @dependent: ./index.less */\n._zs_gallery___test___pro_chartpark_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_chartpark_-chart-img {\n  width: 100%;\n  margin-bottom: 20px;\n}\n._zs_gallery___test___pro_chartpark_-chart-img:last-child {\n  margin-bottom: 0;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

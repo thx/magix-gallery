@@ -1,5 +1,8 @@
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
+        name: '组合示例',
+        key: viewId + '_demo10',
+    }, {
         name: '单格样式',
         key: viewId + '_grid',
         subs: [{
@@ -41,6 +44,12 @@
         name: 'mx-grid.col',
         key: viewId + '_col',
     }]}}"></div>
+
+    <mx-title.second content="组合示例"/>
+    <div class="clearfix mb40">
+        <div mx-view="@./10" id="{{=viewId}}_demo10"></div>
+    </div>
+
     <mx-title.second content="单格样式" id="{{=viewId}}_grid"/>
     <div class="clearfix mb40">
         <div mx-view="@./7" id="{{=viewId}}_grid1"></div>

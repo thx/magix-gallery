@@ -12,7 +12,7 @@ require("../hl");
 var Magix = require("magix");
 var Base = require("../example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery___test___pro_theme-style_","/* @dependent: ./index.less */\n._zs_gallery___test___pro_theme-style_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_theme-style_-outer ._zs_gallery_mx-switch_index_-switch {\n  height: 8px;\n  border-radius: 4px;\n}\n._zs_gallery___test___pro_theme-style_-outer ._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on {\n  background-color: #cbf3f4;\n}\n._zs_gallery___test___pro_theme-style_-outer ._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on ._zs_gallery_mx-switch_index_-switch-icon {\n  background-color: #14c9ce;\n}\n");
+Magix.applyStyle("_zs_gallery___test___pro_theme-style_","/* @dependent: ./index.less */\n._zs_gallery___test___pro_theme-style_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_theme-style_-outer ._zs_gallery_mx-switch_index_-switch {\n  height: 8px;\n  border-radius: 4px;\n}\n._zs_gallery___test___pro_theme-style_-outer ._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on {\n  background-color: #cbf3f4;\n}\n._zs_gallery___test___pro_theme-style_-outer ._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on ._zs_gallery_mx-switch_index_-switch-icon {\n  background-color: #14c9ce;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

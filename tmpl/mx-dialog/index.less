@@ -23,14 +23,14 @@
 
 .dialog {
     position: absolute;
+    border-radius: @border-radius;
+    background-color: #fff;
+    .mx-shadow();
 
     .dialog-content {
         position: relative;
-        background-color: #fff;
-        border-radius: @border-radius;
         word-break: break-all;
-        .mx-shadow();
-
+        
         .loading-ext {
             padding: 80px 0;
         }

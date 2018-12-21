@@ -1,144 +1,153 @@
 /* @dependent: ./index.less */
-@import '_animation';
 
+@import '_animation';
 /* 常用字号 */
-.fontsize-loop(@n, @i:12) when (@i <= @n) {
-    .fontsize-@{i}{
+
+.fontsize-loop(@n, @i: 12) when (@i <=@n) {
+    .fontsize-@{i} {
         font-size: unit(@i, px);
     }
-
     .fontsize-loop(@n, (@i + 2));
 }
-.fontsize-loop(40);
 
+.fontsize-loop(40);
 /* 常用字号 */
-.line-height-loop(@n, @i:14) when (@i <= @n) {
-    .lh@{i}{
+
+.line-height-loop(@n, @i: 14) when (@i <=@n) {
+    .lh@{i} {
         line-height: unit(@i, px);
     }
-
     .line-height-loop(@n, (@i + 2));
 }
-.line-height-loop(36);
 
-.width-loop(@n, @i:60) when (@i <= @n) {
-    .w@{i}{
+.line-height-loop(36);
+.width-loop(@n, @i: 60) when (@i <=@n) {
+    .w@{i} {
         width: unit(@i, px);
     }
-
     .width-loop(@n, (@i + 10));
 }
-.width-loop(500);
 
-.height-loop(@n, @i:50) when (@i <= @n) {
-    .h@{i}{
+.width-loop(500);
+.height-loop(@n, @i: 50) when (@i <=@n) {
+    .h@{i} {
         height: unit(@i, px);
     }
-
     .height-loop(@n, (@i + 10));
 }
-.height-loop(320);
 
-.min-width-loop(@n, @i:10) when (@i <= @n) {
-    .min-width-@{i}{
+.height-loop(320);
+.min-width-loop(@n, @i: 10) when (@i <=@n) {
+    .min-width-@{i} {
         min-width: unit(@i, px);
     }
-
     .min-width-loop(@n, (@i + 10));
 }
-.min-width-loop(320);
 
-.max-width-loop(@n, @i:100) when (@i <= @n) {
-    .max-width-@{i}{
+.min-width-loop(320);
+.max-width-loop(@n, @i: 100) when (@i <=@n) {
+    .max-width-@{i} {
         max-width: unit(@i, px);
     }
-
     .max-width-loop(@n, (@i + 100));
 }
-.max-width-loop(1000);
 
-.max-height-loop(@n, @i:100) when (@i <= @n) {
-    .max-height-@{i}{
+.max-width-loop(1000);
+.max-height-loop(@n, @i: 100) when (@i <=@n) {
+    .max-height-@{i} {
         max-height: unit(@i, px);
     }
-
     .max-height-loop(@n, (@i + 100));
 }
-.max-height-loop(1000);
 
-/*常用间距*/
-.margin-loop(@n, @i:5) when (@i <= @n) {
-    .mt@{i}{
+.max-height-loop(1000);
+/*间距规范 8*n */
+
+.gap-loop(@n, @i: 8) when (@i <=@n) {
+    .mt@{i} {
         margin-top: unit(@i, px);
     }
-
-    .mr@{i}{
+    .mr@{i} {
         margin-right: unit(@i, px);
     }
-
-    .mb@{i}{
+    .mb@{i} {
         margin-bottom: unit(@i, px);
     }
-
-    .ml@{i}{
+    .ml@{i} {
         margin-left: unit(@i, px);
     }
+    .gap-loop(@n, (@i + 8));
+}
 
+.gap-loop(48);
+/*常用margin*/
+
+.margin-loop(@n, @i: 5) when (@i <=@n) {
+    .mt@{i} {
+        margin-top: unit(@i, px);
+    }
+    .mr@{i} {
+        margin-right: unit(@i, px);
+    }
+    .mb@{i} {
+        margin-bottom: unit(@i, px);
+    }
+    .ml@{i} {
+        margin-left: unit(@i, px);
+    }
     .margin-loop(@n, (@i + 5));
 }
-.margin-loop(100);
 
-/*常用间距*/
-.padding-loop(@n, @i:5) when (@i <= @n) {
-    .pt@{i}{
+.margin-loop(100);
+/*常用padding*/
+
+.padding-loop(@n, @i: 5) when (@i <=@n) {
+    .pt@{i} {
         padding-top: unit(@i, px);
     }
-
-    .pr@{i}{
+    .pr@{i} {
         padding-right: unit(@i, px);
     }
-
-    .pb@{i}{
+    .pb@{i} {
         padding-bottom: unit(@i, px);
     }
-
-    .pl@{i}{
+    .pl@{i} {
         padding-left: unit(@i, px);
     }
-
-    .pa@{i}{
+    .pa@{i} {
         padding: unit(@i, px);
     }
-
     .padding-loop(@n, (@i + 5));
 }
-.padding-loop(140);
 
-.text-center, .tc {
+.padding-loop(140);
+.text-center,
+.tc {
     text-align: center;
 }
 
-.text-right, .tr {
+.text-right,
+.tr {
     text-align: right;
 }
 
-.text-left, .tl {
+.text-left,
+.tl {
     text-align: left;
 }
 
 .clearfix {
-    &:before, &:after {
+    &:before,
+    &:after {
         display: table;
         content: "";
     }
-
     &:after {
         clear: both;
     }
-
 }
 
-.border-radius{
+.border-radius {
     border-radius: @border-radius;
 }
 
@@ -146,11 +155,11 @@
     user-select: none;
 }
 
-.bold{
+.bold {
     font-weight: bold;
 }
 
-.word-break{
+.word-break {
     word-break: break-all;
 }
 
@@ -161,9 +170,11 @@
 .color-c {
     color: #ccc;
 }
+
 .color-3 {
     color: #333;
 }
+
 .color-6 {
     color: #666;
 }
@@ -180,14 +191,14 @@
     color: @color-brand;
 }
 
-.color-h-3{
-    &:hover{
+.color-h-3 {
+    &:hover {
         color: #333;
     }
 }
 
-.color-h-brand{
-    &:hover{
+.color-h-brand {
+    &:hover {
         color: @color-brand;
     }
 }
@@ -200,11 +211,11 @@
     color: @color-red;
 }
 
-.color-red{
+.color-red {
     color: @color-red;
 }
 
-.color-green{
+.color-green {
     color: @color-green;
 }
 
@@ -212,15 +223,15 @@
     color: @color-warn;
 }
 
-.bb-e6{
+.bb-e6 {
     border-bottom: 1px solid @color-border;
 }
 
-.bg{
+.bg {
     background-color: @color-bg;
 }
 
-.radius{
+.radius {
     border-radius: @border-radius;
 }
 
@@ -244,7 +255,7 @@
     cursor: move;
 }
 
-.cursor-not-allow{
+.cursor-not-allow {
     cursor: not-allowed;
 }
 
@@ -263,15 +274,17 @@
     text-overflow: ellipsis;
 }
 
-.inline{
+.inline {
     display: inline;
 }
 
-.ib, .inline-block {
+.ib,
+.inline-block {
     display: inline-block;
 }
 
-.none, .hide {
+.none,
+.hide {
     display: none;
 }
 
@@ -284,29 +297,28 @@
 }
 
 /* 小位移 */
-.displacement-loop(@n, @i:1) when (@i <= @n) {
-    .displacement-@{i}{
+
+.displacement-loop(@n, @i: 1) when (@i <=@n) {
+    .displacement-@{i} {
         position: relative;
         top: unit(@i, px);
     }
-
     .displacement-loop(@n, (@i + 1));
 }
+
 .displacement-loop(3);
-
-
 /** 
  * <div class="search-box">
  *      <i class="iconfont search-icon">&#xe651;</i>
  *      <input type="text" class="input search-input"/>
  * </div>
  */
-.search-box{
+
+.search-box {
     display: inline-block;
     position: relative;
     width: 100%;
-    
-    .search-icon{
+    .search-icon {
         position: absolute;
         top: 0;
         left: 1px;
@@ -317,28 +329,30 @@
         color: #999;
         font-size: 18px;
     }
-
-    .search-input{
+    .search-input {
         width: 100%;
         padding-left: @input-height;
     }
 }
 
-.scroll-y{
+.scroll-y {
     overflow-y: auto;
 }
-.scroll-x{
+
+.scroll-x {
     overflow-x: auto;
 }
-.hidden-y{
+
+.hidden-y {
     overflow-y: hidden;
 }
-.hidden-x{
+
+.hidden-x {
     overflow-x: hidden;
 }
 
 .empty-white,
-.empty-area{
+.empty-area {
     height: 200px;
     padding-top: 40px;
     text-align: center;
@@ -349,14 +363,15 @@
         font-size: 60px;
         color: #ccc;
     }
-
 }
 
-.empty-area{
+.empty-area {
     background-color: @color-bg;
 }
 
-.tip-content, .notice-content, .error-content {
+.tip-content,
+.notice-content,
+.error-content {
     padding: 10px 20px;
 }
 
@@ -377,47 +392,37 @@
     background-color: @color-bg;
     color: #999;
     line-height: 18px;
-
     .tip-icon {
         position: absolute;
         top: 12px;
         left: 10px;
         color: #ccc;
     }
-
     &.has-icon {
         padding-left: 30px;
     }
-
     &.has-border {
         border-radius: @border-radius;
         border: 1px solid @color-border;
     }
-
     &.has-highlight {
         color: #333;
-
         .tip-icon {
             color: @color-brand;
         }
-
     }
-
     &.in-dialog {
         padding-left: 54px;
         padding-right: 40px;
-
         .tip-icon {
             left: 34px;
         }
-
     }
-
 }
 
 .grey-solid-icon,
-.brand-solid-icon, 
-.grey-hollow-icon, 
+.brand-solid-icon,
+.grey-hollow-icon,
 .brand-hollow-icon {
     display: inline-block;
     min-width: 32px;
@@ -450,7 +455,6 @@
     color: #fff;
 }
 
-
 /*品牌色空心打标*/
 .brand-hollow-icon,
 .brand-hollow-icon:hover {
@@ -467,10 +471,25 @@
     color: #999;
 }
 
+/*卡片样式*/
+.grid {
+    background: #fff;
+    border-radius: @border-radius;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #fff;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
+    transition: border-color @duration ease-out, box-shadow @duration ease-out;
+    
+    &:hover{
+        border-color: #f5f5f6;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06);
+    }
+}
 
 /*动画*/
 /*上下浮动*/
-.mx-anim-suspension{
+.mx-anim-suspension {
     display: inline-block;
     .animation(suspension 1.4s ease-out infinite, forwards);
 }
@@ -480,7 +499,6 @@
     .loading-dot;
     position: relative;
     margin: 0 8px;
-
     &:after {
         content: '';
         .loading-dot;

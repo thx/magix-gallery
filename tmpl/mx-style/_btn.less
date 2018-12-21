@@ -1,7 +1,5 @@
 /* @dependent: ./index.less */
 @import "_vars";
-@color-grey-btn: #e6e6e6;
-@color-grey-btn-hover: #ccc;
 
 .btn{
     display: inline-block;
@@ -9,10 +7,7 @@
     margin-bottom: 0;
     padding: 0 12px;
     line-height: @input-height - 2;
-    color: #333;
     border-radius: @btn-border-radius;
-    background-color: @color-grey-btn;
-    border-color: @color-grey-btn;
     border-width: 1px;
     border-style: solid;
     font-size: @font-size;
@@ -30,13 +25,17 @@
     outline: none;
     background-image: none;
     transition: all @duration ease-out;
+    color: @btn-text;
+    background-color: @btn-bg;
+    border-color: @btn-border;
+    background-image: none;
 
     &:hover,
     &.hover,
     &:active {
-        color: #333;
-        background-color: @color-grey-btn-hover;
-        border-color: @color-grey-btn-hover;
+        color: @btn-text-hover;
+        background-color: @btn-bg-hover;
+        border-color: @btn-border-hover;
     }
 
     &.btn-small {
@@ -87,19 +86,6 @@
         &:active {
             background-color: #fafafa;
             border-color: #fafafa;
-            background-image: none;
-        }
-    }
-
-    &.btn-hollow {
-        background-color: @color-brand-opacity;
-        border-color: @color-brand;
-        background-image: none;
-        &:hover,
-        &.hover,
-        &:active {
-            color: @color-brand;
-            border-color: @color-brand;
             background-image: none;
         }
     }

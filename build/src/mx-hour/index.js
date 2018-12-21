@@ -11,7 +11,7 @@ define("mx-hour/index",["magix","$"],(require,exports,module)=>{
  */
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-hour_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-hour_index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-hour_index_-opers {\n  padding-left: 1%;\n}\n._zs_gallery_mx-hour_index_-btn-clear {\n  width: 10%;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours {\n  padding-top: 40px;\n  padding-bottom: 10px;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-all,\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour {\n  float: left;\n  height: 36px;\n  text-align: center;\n  vertical-align: middle;\n  cursor: pointer;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-all {\n  position: relative;\n  width: 10%;\n  margin-right: 3%;\n  margin-left: 1%;\n  border-radius: 4px;\n  color: #333;\n  user-select: none;\n  -moz-user-select: none;\n  -webkit-user-select: none;\n  -ms-user-select: none;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-all ._zs_gallery_mx-hour_index_-all-tip {\n  position: absolute;\n  top: -18px;\n  width: 100%;\n  height: 18px;\n  line-height: 18px;\n  right: 0;\n  text-align: center;\n  color: #999;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-all ._zs_gallery_mx-hour_index_-all-btn {\n  width: 100%;\n  margin-top: 8px;\n  padding: 0;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour {\n  position: relative;\n  width: 3.5%;\n  color: #999;\n  line-height: 20px;\n  font-weight: bold;\n  font-family: \"Tahoma\";\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour._zs_gallery_mx-hour_index_-hour-last {\n  width: 2%;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-hour-inner {\n  position: relative;\n  height: 36px;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-hour-inner:before {\n  content: '';\n  position: absolute;\n  top: -16px;\n  left: 0;\n  width: 100%;\n  height: 16px;\n  background-color: transparent;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-hour-line {\n  position: absolute;\n  top: 13px;\n  left: 0;\n  width: 0;\n  height: 10px;\n  border-left: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-hour-line ._zs_gallery_mx-hour_index_-hour-info {\n  position: absolute;\n  top: -31px;\n  left: 50%;\n  width: 40px;\n  margin-left: -20px;\n  color: #ccc;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour._zs_gallery_mx-hour_index_-milestone ._zs_gallery_mx-hour_index_-hour-line {\n  height: 16px;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour._zs_gallery_mx-hour_index_-selected ._zs_gallery_mx-hour_index_-hour-inner {\n  background-color: #f5f7fc;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour._zs_gallery_mx-hour_index_-selected ._zs_gallery_mx-hour_index_-hour-inner:before {\n  background-color: #385ACC;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour._zs_gallery_mx-hour_index_-selected ._zs_gallery_mx-hour_index_-hour-line {\n  border-left: 1px solid #d3dbf4;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour._zs_gallery_mx-hour_index_-selected ._zs_gallery_mx-hour_index_-hour-line ._zs_gallery_mx-hour_index_-hour-info {\n  color: #fff;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-start,\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-end {\n  position: absolute;\n  top: 0;\n  width: 0;\n  height: 36px;\n  border-left: 1px solid #385ACC;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-start:before,\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-end:before {\n  content: '';\n  position: absolute;\n  top: 0;\n  right: -3px;\n  width: 0;\n  height: 0;\n  border-left: 4px solid transparent;\n  border-right: 4px solid transparent;\n  border-top: 4px solid #385ACC;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-start ._zs_gallery_mx-hour_index_-line-info,\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-end ._zs_gallery_mx-hour_index_-line-info {\n  position: absolute;\n  top: -16px;\n  left: -10px;\n  width: 20px;\n  height: 16px;\n  background-color: #385ACC;\n  color: #fff;\n  text-align: center;\n  line-height: 16px;\n  border-radius: 2px;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-start {\n  left: 0;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-end {\n  right: -1px;\n}\n._zs_gallery_mx-hour_index_-opers-wrapper {\n  margin-right: 2%;\n  margin-left: 1%;\n  padding: 10px 0;\n  color: #999;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-hour_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-hour_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-hour_index_-opers {\n  padding-left: 1%;\n}\n._zs_gallery_mx-hour_index_-btn-clear {\n  width: 10%;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours {\n  padding-top: 40px;\n  padding-bottom: 10px;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-all,\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour {\n  float: left;\n  height: 36px;\n  text-align: center;\n  vertical-align: middle;\n  cursor: pointer;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-all {\n  position: relative;\n  width: 10%;\n  margin-right: 3%;\n  margin-left: 1%;\n  border-radius: 4px;\n  color: #333;\n  user-select: none;\n  -moz-user-select: none;\n  -webkit-user-select: none;\n  -ms-user-select: none;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-all ._zs_gallery_mx-hour_index_-all-tip {\n  position: absolute;\n  top: -18px;\n  width: 100%;\n  height: 18px;\n  line-height: 18px;\n  right: 0;\n  text-align: center;\n  color: #999;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-all ._zs_gallery_mx-hour_index_-all-btn {\n  width: 100%;\n  margin-top: 8px;\n  padding: 0;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour {\n  position: relative;\n  width: 3.5%;\n  color: #999;\n  line-height: 20px;\n  font-weight: bold;\n  font-family: \"Tahoma\";\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour._zs_gallery_mx-hour_index_-hour-last {\n  width: 2%;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-hour-inner {\n  position: relative;\n  height: 36px;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-hour-inner:before {\n  content: '';\n  position: absolute;\n  top: -16px;\n  left: 0;\n  width: 100%;\n  height: 16px;\n  background-color: transparent;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-hour-line {\n  position: absolute;\n  top: 13px;\n  left: 0;\n  width: 0;\n  height: 10px;\n  border-left: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-hour-line ._zs_gallery_mx-hour_index_-hour-info {\n  position: absolute;\n  top: -31px;\n  left: 50%;\n  width: 40px;\n  margin-left: -20px;\n  color: #ccc;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour._zs_gallery_mx-hour_index_-milestone ._zs_gallery_mx-hour_index_-hour-line {\n  height: 16px;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour._zs_gallery_mx-hour_index_-selected ._zs_gallery_mx-hour_index_-hour-inner {\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour._zs_gallery_mx-hour_index_-selected ._zs_gallery_mx-hour_index_-hour-inner:before {\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour._zs_gallery_mx-hour_index_-selected ._zs_gallery_mx-hour_index_-hour-line {\n  border-left: 1px solid #d8e3ff;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour._zs_gallery_mx-hour_index_-selected ._zs_gallery_mx-hour_index_-hour-line ._zs_gallery_mx-hour_index_-hour-info {\n  color: #fff;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-start,\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-end {\n  position: absolute;\n  top: 0;\n  width: 0;\n  height: 36px;\n  border-left: 1px solid #4d7fff;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-start:before,\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-end:before {\n  content: '';\n  position: absolute;\n  top: 0;\n  right: -3px;\n  width: 0;\n  height: 0;\n  border-left: 4px solid transparent;\n  border-right: 4px solid transparent;\n  border-top: 4px solid #4d7fff;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-start ._zs_gallery_mx-hour_index_-line-info,\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-end ._zs_gallery_mx-hour_index_-line-info {\n  position: absolute;\n  top: -16px;\n  left: -10px;\n  width: 20px;\n  height: 16px;\n  background-color: #4d7fff;\n  color: #fff;\n  text-align: center;\n  line-height: 16px;\n  border-radius: 2px;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-start {\n  left: 0;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-end {\n  right: -1px;\n}\n._zs_gallery_mx-hour_index_-opers-wrapper {\n  margin-right: 2%;\n  margin-left: 1%;\n  padding: 10px 0;\n  color: #999;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -25,21 +25,21 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', simple = $$.simple, types = $$.types, viewId = $$.viewId, type = $$.type, periods = $$.periods, tip = $$.tip; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerybT:_" class="_zs_gallery_mx-hour_index_-period">';
+    $p += '<div mxv mxa="_zs_gallerybU:_" class="_zs_gallery_mx-hour_index_-period">';
     $line = 2;
     $art = 'if !simple';
     ;
     $expr = '<%if (!simple) {%>';
     if (!simple) {
         ;
-        $p += '<div mxv mxa="_zs_gallerybT:a" class="_zs_gallery_mx-hour_index_-opers"><span mxs="_zs_gallerybT:_" class="color-9 mr10">快捷操作：</span>';
+        $p += '<div mxv mxa="_zs_gallerybU:a" class="_zs_gallery_mx-hour_index_-opers"><span mxs="_zs_gallerybU:_" class="color-9 mr10">快捷操作：</span>';
         $line = 5;
         $art = 'each types as t';
         ;
-        $expr = '<%for (var $art_iirburws$art_i = 0, $art_cnvskul$art_c = types.length; $art_iirburws$art_i < $art_cnvskul$art_c; $art_iirburws$art_i++) {        var t = types[$art_iirburws$art_i]%>';
-        for (var $art_iirburws$art_i = 0, $art_cnvskul$art_c = types.length; $art_iirburws$art_i < $art_cnvskul$art_c; $art_iirburws$art_i++) {
-            var t = types[$art_iirburws$art_i];
-            $p += '<label mxv mxa="_zs_gallerybT:b" class="mr40"><input type="radio" name="';
+        $expr = '<%for (var $art_iaeizshigh$art_i = 0, $art_ckckhfacqk$art_c = types.length; $art_iaeizshigh$art_i < $art_ckckhfacqk$art_c; $art_iaeizshigh$art_i++) {        var t = types[$art_iaeizshigh$art_i]%>';
+        for (var $art_iaeizshigh$art_i = 0, $art_ckckhfacqk$art_c = types.length; $art_iaeizshigh$art_i < $art_ckckhfacqk$art_c; $art_iaeizshigh$art_i++) {
+            var t = types[$art_iaeizshigh$art_i];
+            $p += '<label mxv mxa="_zs_gallerybU:b" class="mr40"><input type="radio" name="';
             $line = 7;
             $art = '=viewId';
             ;
@@ -87,10 +87,10 @@ module.exports = Magix.View.extend({
     $line = 15;
     $art = 'each periods as p pIndex';
     ;
-    $expr = '<%for (var pIndex = 0, $art_cvfsfxbbj$art_c = periods.length; pIndex < $art_cvfsfxbbj$art_c; pIndex++) {    var p = periods[pIndex]%>';
-    for (var pIndex = 0, $art_cvfsfxbbj$art_c = periods.length; pIndex < $art_cvfsfxbbj$art_c; pIndex++) {
+    $expr = '<%for (var pIndex = 0, $art_czvgyxrk$art_c = periods.length; pIndex < $art_czvgyxrk$art_c; pIndex++) {    var p = periods[pIndex]%>';
+    for (var pIndex = 0, $art_czvgyxrk$art_c = periods.length; pIndex < $art_czvgyxrk$art_c; pIndex++) {
         var p = periods[pIndex];
-        $p += '<ul mxa="_zs_gallerybT:c" class="_zs_gallery_mx-hour_index_-hours clearfix"><li mxa="_zs_gallerybT:d" class="_zs_gallery_mx-hour_index_-all"><span mxs="_zs_gallerybT:a" class="_zs_gallery_mx-hour_index_-all-tip">时间段</span><a href="javascript:;" class="btn btn-small _zs_gallery_mx-hour_index_-all-btn ';
+        $p += '<ul mxa="_zs_gallerybU:c" class="_zs_gallery_mx-hour_index_-hours clearfix"><li mxa="_zs_gallerybU:d" class="_zs_gallery_mx-hour_index_-all"><span mxs="_zs_gallerybU:a" class="_zs_gallery_mx-hour_index_-all-tip">时间段</span><a href="javascript:;" class="btn btn-small _zs_gallery_mx-hour_index_-all-btn ';
         $line = 19;
         $art = 'if p.selected';
         ;
@@ -116,9 +116,9 @@ module.exports = Magix.View.extend({
         $line = 22;
         $art = 'each p.hours as h';
         ;
-        $expr = '<%for (var $art_isqnkjqkt$art_i = 0, $art_objbrsfqlh$art_obj = p.hours, $art_cpixdnixo$art_c = $art_objbrsfqlh$art_obj.length; $art_isqnkjqkt$art_i < $art_cpixdnixo$art_c; $art_isqnkjqkt$art_i++) {        var h = $art_objbrsfqlh$art_obj[$art_isqnkjqkt$art_i]%>';
-        for (var $art_isqnkjqkt$art_i = 0, $art_objbrsfqlh$art_obj = p.hours, $art_cpixdnixo$art_c = $art_objbrsfqlh$art_obj.length; $art_isqnkjqkt$art_i < $art_cpixdnixo$art_c; $art_isqnkjqkt$art_i++) {
-            var h = $art_objbrsfqlh$art_obj[$art_isqnkjqkt$art_i];
+        $expr = '<%for (var $art_izeqsuwgmzs$art_i = 0, $art_objvbihmliurjb$art_obj = p.hours, $art_ceavwitfef$art_c = $art_objvbihmliurjb$art_obj.length; $art_izeqsuwgmzs$art_i < $art_ceavwitfef$art_c; $art_izeqsuwgmzs$art_i++) {        var h = $art_objvbihmliurjb$art_obj[$art_izeqsuwgmzs$art_i]%>';
+        for (var $art_izeqsuwgmzs$art_i = 0, $art_objvbihmliurjb$art_obj = p.hours, $art_ceavwitfef$art_c = $art_objvbihmliurjb$art_obj.length; $art_izeqsuwgmzs$art_i < $art_ceavwitfef$art_c; $art_izeqsuwgmzs$art_i++) {
+            var h = $art_objvbihmliurjb$art_obj[$art_izeqsuwgmzs$art_i];
             $p += '<li mx-mousedown="' + $viewId + 'drag()" class="_zs_gallery_mx-hour_index_-hour ';
             $line = 23;
             $art = 'if h.milestone';
@@ -155,7 +155,7 @@ module.exports = Magix.View.extend({
             $line = 25;
             $art = '=h.index';
             ;
-            $p += ($expr = '<%=h.index%>', $e(h.index)) + '"><div mxs="_zs_gallerybT:b" class="_zs_gallery_mx-hour_index_-hour-inner"></div><div class="_zs_gallery_mx-hour_index_-line-start ';
+            $p += ($expr = '<%=h.index%>', $e(h.index)) + '"><div mxs="_zs_gallerybU:b" class="_zs_gallery_mx-hour_index_-hour-inner"></div><div class="_zs_gallery_mx-hour_index_-line-start ';
             $line = 27;
             $art = 'if !h.firstSelected';
             ;
@@ -173,7 +173,7 @@ module.exports = Magix.View.extend({
             $line = 27;
             $art = '=h.zIndex';
             ;
-            $p += ($expr = '<%=h.zIndex%>', $e(h.zIndex)) + ';"><span mxa="_zs_gallerybT:e" class="_zs_gallery_mx-hour_index_-line-info">';
+            $p += ($expr = '<%=h.zIndex%>', $e(h.zIndex)) + ';"><span mxa="_zs_gallerybU:e" class="_zs_gallery_mx-hour_index_-line-info">';
             $line = 28;
             $art = '=h.index';
             ;
@@ -195,11 +195,11 @@ module.exports = Magix.View.extend({
             $line = 30;
             $art = '=h.zIndex';
             ;
-            $p += ($expr = '<%=h.zIndex%>', $e(h.zIndex)) + '"><span mxa="_zs_gallerybT:f" class="_zs_gallery_mx-hour_index_-line-info">';
+            $p += ($expr = '<%=h.zIndex%>', $e(h.zIndex)) + '"><span mxa="_zs_gallerybU:f" class="_zs_gallery_mx-hour_index_-line-info">';
             $line = 31;
             $art = '=h.indexNext';
             ;
-            $p += ($expr = '<%=h.indexNext%>', $e(h.indexNext)) + '</span></div><div mxa="_zs_gallerybT:g" class="_zs_gallery_mx-hour_index_-hour-line"><span mxa="_zs_gallerybT:h" class="_zs_gallery_mx-hour_index_-hour-info">';
+            $p += ($expr = '<%=h.indexNext%>', $e(h.indexNext)) + '</span></div><div mxa="_zs_gallerybU:g" class="_zs_gallery_mx-hour_index_-hour-line"><span mxa="_zs_gallerybU:h" class="_zs_gallery_mx-hour_index_-hour-info">';
             $line = 34;
             $art = '=h.index';
             ;
@@ -210,14 +210,14 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '<li mxs="_zs_gallerybT:c" class="_zs_gallery_mx-hour_index_-hour _zs_gallery_mx-hour_index_-milestone _zs_gallery_mx-hour_index_-hour-last"><span class="_zs_gallery_mx-hour_index_-hour-line"><span class="_zs_gallery_mx-hour_index_-hour-info">24</span></span></li></ul>';
+        $p += '<li mxs="_zs_gallerybU:c" class="_zs_gallery_mx-hour_index_-hour _zs_gallery_mx-hour_index_-milestone _zs_gallery_mx-hour_index_-hour-last"><span class="_zs_gallery_mx-hour_index_-hour-line"><span class="_zs_gallery_mx-hour_index_-hour-info">24</span></span></li></ul>';
         $line = 44;
         $art = '/each';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxa="_zs_gallerybT:i" class="clearfix _zs_gallery_mx-hour_index_-opers-wrapper"><a mxs="_zs_gallerybT:d" mx-click="' + $viewId + 'clearAll()" href="javascript:;" class="btn btn-small _zs_gallery_mx-hour_index_-btn-clear"><i class="mc-iconfont displacement-2 mr5 color-9">&#xe72e;</i>清空</a><span mxa="_zs_gallerybT:j" class="fr lh32">';
+    $p += '</div><div mxa="_zs_gallerybU:i" class="clearfix _zs_gallery_mx-hour_index_-opers-wrapper"><a mxs="_zs_gallerybU:d" mx-click="' + $viewId + 'clearAll()" href="javascript:;" class="btn btn-small _zs_gallery_mx-hour_index_-btn-clear"><i class="mc-iconfont displacement-2 mr5 color-9">&#xe72e;</i>清空</a><span mxa="_zs_gallerybU:j" class="fr lh32">';
     $line = 50;
     $art = '=tip';
     ;

@@ -1,0 +1,89 @@
+
+        
+
+
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10">完整组合使用示例：</div>
+        <div class="container">
+            <mx-grid.row gutter="16px">
+                <mx-grid.col flex="1" class="grid">
+                    <mx-grid.title content="标题" tip="提示信息" >
+                        <mx-calendar.datepicker class="w200 mr10"/>
+                
+                        <mx-dropdown class="w200" 
+                            list="{{@[1,2,3]}}">
+                        </mx-dropdown>
+                    </mx-grid.title>
+                    <mx-grid.body>区块4</mx-grid.body>
+                </mx-grid.col>
+                <mx-grid.col width="200px">
+                    <mx-grid.row direction="col" gutter="16px">
+                        <mx-grid.col class="grid">
+                            <mx-grid.title 
+                                content="标题1" 
+                                tip="提示信息1"/>
+                            <mx-grid.body>区块1</mx-grid.body>
+                        </mx-grid.col>
+                        <mx-grid.col class="grid">
+                            <mx-grid.title 
+                                content="标题2" 
+                                tip="提示信息2"/>
+                            <mx-grid.body>区块2</mx-grid.body>
+                        </mx-grid.col>
+                        <mx-grid.col class="grid">
+                            <mx-grid.title 
+                                content="标题3" 
+                                tip="提示信息3"/>
+                            <mx-grid.body>区块3</mx-grid.body>
+                        </mx-grid.col>
+                    </mx-grid.row>
+                </mx-grid.col>
+            </mx-grid.row>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-grid.row gutter="16px"&gt;
+    &lt;mx-grid.col flex="1" class="grid"&gt;
+        &lt;mx-grid.title content="标题" tip="提示信息" &gt;
+            &lt;mx-calendar.datepicker class="w200 mr10"/&gt;
+    
+            &lt;mx-dropdown class="w200" 
+                list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;
+            &lt;/mx-dropdown&gt;
+        &lt;/mx-grid.title&gt;
+        &lt;mx-grid.body&gt;区块4&lt;/mx-grid.body&gt;
+    &lt;/mx-grid.col&gt;
+    &lt;mx-grid.col width="200px"&gt;
+        &lt;mx-grid.row direction="col" gutter="16px"&gt;
+            &lt;mx-grid.col class="grid"&gt;
+                &lt;mx-grid.title 
+                    content="标题1" 
+                    tip="提示信息1"/&gt;
+                &lt;mx-grid.body&gt;区块1&lt;/mx-grid.body&gt;
+            &lt;/mx-grid.col&gt;
+            &lt;mx-grid.col class="grid"&gt;
+                &lt;mx-grid.title 
+                    content="标题2" 
+                    tip="提示信息2"/&gt;
+                &lt;mx-grid.body&gt;区块2&lt;/mx-grid.body&gt;
+            &lt;/mx-grid.col&gt;
+            &lt;mx-grid.col class="grid"&gt;
+                &lt;mx-grid.title 
+                    content="标题3" 
+                    tip="提示信息3"/&gt;
+                &lt;mx-grid.body&gt;区块3&lt;/mx-grid.body&gt;
+            &lt;/mx-grid.col&gt;
+        &lt;/mx-grid.row&gt;
+    &lt;/mx-grid.col&gt;
+&lt;/mx-grid.row&gt;
+        </pre>
+    </div>
+</div>

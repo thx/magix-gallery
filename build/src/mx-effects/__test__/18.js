@@ -10,7 +10,7 @@ require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-effects___test___18_","/* @dependent: ./index.less */\n._zs_gallery_mx-effects___test___18_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-effects___test___18_-suspension {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  background-color: #385ACC;\n}\n._zs_gallery_mx-effects___test___18_-text {\n  padding-top: 35px;\n  color: #fff;\n  text-align: center;\n}\n._zs_gallery_mx-effects___test___18_-icon {\n  padding-top: 5px;\n  text-align: center;\n}\n._zs_gallery_mx-effects___test___18_-icon ._zs_gallery_mx-effects___test___18_-suspension-icon {\n  font-size: 24px;\n  color: #fff;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-effects___test___18_","/* @dependent: ./index.less */\n._zs_gallery_mx-effects___test___18_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-effects___test___18_-suspension {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-effects___test___18_-text {\n  padding-top: 35px;\n  color: #fff;\n  text-align: center;\n}\n._zs_gallery_mx-effects___test___18_-icon {\n  padding-top: 5px;\n  text-align: center;\n}\n._zs_gallery_mx-effects___test___18_-icon ._zs_gallery_mx-effects___test___18_-suspension-icon {\n  font-size: 24px;\n  color: #fff;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

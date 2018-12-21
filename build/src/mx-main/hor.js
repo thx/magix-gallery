@@ -8,7 +8,7 @@ define("mx-main/hor",["magix","mx-main/steps"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var Base = require("mx-main/steps");
-Magix.applyStyle("_zs_gallery_mx-main_hor_","/* @dependent: ./index.less */\n._zs_gallery_mx-main_hor_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main_hor_-steps {\n  box-sizing: border-box;\n  display: flex;\n}\n._zs_gallery_mx-main_hor_-step {\n  position: relative;\n  display: inline-block;\n  margin-right: 10px;\n  white-space: nowrap;\n  flex: 1;\n  vertical-align: top;\n  overflow: hidden;\n}\n._zs_gallery_mx-main_hor_-step ._zs_gallery_mx-main_hor_-circle {\n  float: left;\n  position: relative;\n  z-index: 3;\n  width: 28px;\n  height: 28px;\n  border-radius: 50%;\n  border-width: 1px;\n  border-style: solid;\n  border-color: #385ACC;\n  color: #385ACC;\n  text-align: center;\n  line-height: 26px;\n  background-color: #fff;\n  cursor: pointer;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-main_hor_-step ._zs_gallery_mx-main_hor_-circle ._zs_gallery_mx-main_hor_-circle-icon {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 28px;\n  height: 28px;\n  text-align: center;\n  line-height: 26px;\n  font-size: 26px;\n}\n._zs_gallery_mx-main_hor_-step ._zs_gallery_mx-main_hor_-title {\n  float: left;\n  position: relative;\n  z-index: 3;\n  padding-right: 10px;\n  padding-left: 6px;\n  font-size: 14px;\n  background-color: #fff;\n  cursor: pointer;\n  transition: all 0.25s;\n  line-height: 28px;\n}\n._zs_gallery_mx-main_hor_-step:after {\n  content: '';\n  position: absolute;\n  z-index: 2;\n  top: 50%;\n  left: 0;\n  width: 100%;\n  height: 0;\n  border-top: 1px solid #e6e6e6;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-main_hor_-step:last-child {\n  flex: none;\n}\n._zs_gallery_mx-main_hor_-step:last-child:after {\n  display: none;\n}\n._zs_gallery_mx-main_hor_-step._zs_gallery_mx-main_hor_-locked ._zs_gallery_mx-main_hor_-circle {\n  border-color: #e6e6e6;\n  color: #999;\n  background-color: #fafafa;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-main_hor_-step._zs_gallery_mx-main_hor_-locked ._zs_gallery_mx-main_hor_-title {\n  color: #999;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-main_hor_-step._zs_gallery_mx-main_hor_-line-on:after {\n  border-top: 1px solid #385ACC;\n}\n._zs_gallery_mx-main_hor_-step._zs_gallery_mx-main_hor_-current ._zs_gallery_mx-main_hor_-circle {\n  border-color: #385ACC;\n  color: #385ACC;\n  background-color: #f5f7fc;\n}\n._zs_gallery_mx-main_hor_-step._zs_gallery_mx-main_hor_-current ._zs_gallery_mx-main_hor_-title {\n  color: #385ACC;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-main_hor_","/* @dependent: ./index.less */\n._zs_gallery_mx-main_hor_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main_hor_-steps {\n  box-sizing: border-box;\n  display: flex;\n}\n._zs_gallery_mx-main_hor_-step {\n  position: relative;\n  display: inline-block;\n  margin-right: 10px;\n  white-space: nowrap;\n  flex: 1;\n  vertical-align: top;\n  overflow: hidden;\n}\n._zs_gallery_mx-main_hor_-step ._zs_gallery_mx-main_hor_-circle {\n  float: left;\n  position: relative;\n  z-index: 3;\n  width: 28px;\n  height: 28px;\n  border-radius: 50%;\n  border-width: 1px;\n  border-style: solid;\n  border-color: #4d7fff;\n  color: #4d7fff;\n  text-align: center;\n  line-height: 26px;\n  background-color: #fff;\n  cursor: pointer;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-main_hor_-step ._zs_gallery_mx-main_hor_-circle ._zs_gallery_mx-main_hor_-circle-icon {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 28px;\n  height: 28px;\n  text-align: center;\n  line-height: 26px;\n  font-size: 26px;\n}\n._zs_gallery_mx-main_hor_-step ._zs_gallery_mx-main_hor_-title {\n  float: left;\n  position: relative;\n  z-index: 3;\n  padding-right: 10px;\n  padding-left: 6px;\n  font-size: 14px;\n  background-color: #fff;\n  cursor: pointer;\n  transition: all 0.25s;\n  line-height: 28px;\n}\n._zs_gallery_mx-main_hor_-step:after {\n  content: '';\n  position: absolute;\n  z-index: 2;\n  top: 50%;\n  left: 0;\n  width: 100%;\n  height: 0;\n  border-top: 1px solid #e6e6e6;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-main_hor_-step:last-child {\n  flex: none;\n}\n._zs_gallery_mx-main_hor_-step:last-child:after {\n  display: none;\n}\n._zs_gallery_mx-main_hor_-step._zs_gallery_mx-main_hor_-locked ._zs_gallery_mx-main_hor_-circle {\n  border-color: #e6e6e6;\n  color: #999;\n  background-color: #fafafa;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-main_hor_-step._zs_gallery_mx-main_hor_-locked ._zs_gallery_mx-main_hor_-title {\n  color: #999;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-main_hor_-step._zs_gallery_mx-main_hor_-line-on:after {\n  border-top: 1px solid #4d7fff;\n}\n._zs_gallery_mx-main_hor_-step._zs_gallery_mx-main_hor_-current ._zs_gallery_mx-main_hor_-circle {\n  border-color: #4d7fff;\n  color: #4d7fff;\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-main_hor_-step._zs_gallery_mx-main_hor_-current ._zs_gallery_mx-main_hor_-title {\n  color: #4d7fff;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -26,13 +26,13 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', stepInfos = $$.stepInfos, curStepInfo = $$.curStepInfo, viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryb::_" class="_zs_gallery_mx-main_hor_-steps">';
+    $p += '<div mxa="_zs_galleryb-:_" class="_zs_gallery_mx-main_hor_-steps">';
     $line = 2;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_ipppstjo$art_i = 0, $art_cffrsjw$art_c = stepInfos.length; $art_ipppstjo$art_i < $art_cffrsjw$art_c; $art_ipppstjo$art_i++) {    var step = stepInfos[$art_ipppstjo$art_i]%>';
-    for (var $art_ipppstjo$art_i = 0, $art_cffrsjw$art_c = stepInfos.length; $art_ipppstjo$art_i < $art_cffrsjw$art_c; $art_ipppstjo$art_i++) {
-        var step = stepInfos[$art_ipppstjo$art_i];
+    $expr = '<%for (var $art_iztyciqjuzf$art_i = 0, $art_cmaodrnj$art_c = stepInfos.length; $art_iztyciqjuzf$art_i < $art_cmaodrnj$art_c; $art_iztyciqjuzf$art_i++) {    var step = stepInfos[$art_iztyciqjuzf$art_i]%>';
+    for (var $art_iztyciqjuzf$art_i = 0, $art_cmaodrnj$art_c = stepInfos.length; $art_iztyciqjuzf$art_i < $art_cmaodrnj$art_c; $art_iztyciqjuzf$art_i++) {
+        var step = stepInfos[$art_iztyciqjuzf$art_i];
         $p += '<div class="clearfix _zs_gallery_mx-main_hor_-step ';
         $line = 3;
         $art = 'if step.current';
@@ -107,14 +107,14 @@ module.exports = Base.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '><div mxa="_zs_galleryb::a" class="_zs_gallery_mx-main_hor_-circle">';
+        $p += '><div mxa="_zs_galleryb-:a" class="_zs_gallery_mx-main_hor_-circle">';
         $line = 6;
         $art = 'if step.lineOn';
         ;
         $expr = '<%if (step.lineOn) {%>';
         if (step.lineOn) {
             ;
-            $p += '<i mxs="_zs_galleryb::_" class="mc-iconfont _zs_gallery_mx-main_hor_-circle-icon">&#xe65d;</i>';
+            $p += '<i mxs="_zs_galleryb-:_" class="mc-iconfont _zs_gallery_mx-main_hor_-circle-icon">&#xe65d;</i>';
             $line = 8;
             $art = 'else';
             ;
@@ -133,7 +133,7 @@ module.exports = Base.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxa="_zs_galleryb::b" class="_zs_gallery_mx-main_hor_-title">';
+        $p += '</div><div mxa="_zs_galleryb-:b" class="_zs_gallery_mx-main_hor_-title">';
         $line = 12;
         $art = '=step.label';
         ;
@@ -156,14 +156,14 @@ module.exports = Base.extend({
     $line = 17;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_cur_content"><div mxs="_zs_galleryb::a" class="loading"><span class="loading-anim"></span></div></div><div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_cur_content"><div mxs="_zs_galleryb-:a" class="loading"><span class="loading-anim"></span></div></div><div>';
     $line = 21;
     $art = 'if curStepInfo.prevTip';
     ;
     $expr = '<%if (curStepInfo.prevTip) {%>';
     if (curStepInfo.prevTip) {
         ;
-        $p += '<a mxa="_zs_galleryb::c" href="javascript:;" class="btn min-width-100 mr15" mx-click="' + $viewId + 'prev()">';
+        $p += '<a mxa="_zs_galleryb-:c" href="javascript:;" class="btn min-width-100 mr15" mx-click="' + $viewId + 'prev()">';
         $line = 23;
         $art = '=curStepInfo.prevTip';
         ;
@@ -181,7 +181,7 @@ module.exports = Base.extend({
     $expr = '<%if (curStepInfo.nextTip) {%>';
     if (curStepInfo.nextTip) {
         ;
-        $p += '<a mxa="_zs_galleryb::d" href="javascript:;" class="btn min-width-100 btn-brand" mx-click="' + $viewId + 'next()">';
+        $p += '<a mxa="_zs_galleryb-:d" href="javascript:;" class="btn min-width-100 btn-brand" mx-click="' + $viewId + 'next()">';
         $line = 28;
         $art = '=curStepInfo.nextTip';
         ;

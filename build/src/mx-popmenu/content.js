@@ -7,7 +7,7 @@ define("mx-popmenu/content",["magix"],(require,exports,module)=>{
 /*Magix*/
 
 var Magix = require("magix");
-Magix.applyStyle("_zs_gallery_mx-popmenu_content_","/* @dependent: ./index.less */\n._zs_gallery_mx-popmenu_content_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-popmenu_content_-menu {\n  padding: 8px 10px;\n  overflow: auto;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item {\n  padding: 2px 0;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link {\n  display: block;\n  width: 100%;\n  padding: 0 8px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link:hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active,\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active:hover,\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active:active,\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active:focus {\n  color: #385ACC;\n  background-color: #f5f7fc;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-popmenu_content_","/* @dependent: ./index.less */\n._zs_gallery_mx-popmenu_content_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-popmenu_content_-menu {\n  padding: 8px 10px;\n  overflow: auto;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item {\n  padding: 2px 0;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link {\n  display: block;\n  width: 100%;\n  padding: 0 8px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link:hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active,\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active:hover,\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active:active,\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active:focus {\n  color: #4d7fff;\n  background-color: #f6f9ff;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -21,14 +21,14 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', menus = $$.menus; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycr:_" class="_zs_gallery_mx-popmenu_content_-menu">';
+    $p += '<div mxa="_zs_gallerycs:_" class="_zs_gallery_mx-popmenu_content_-menu">';
     $line = 2;
     $art = 'each menus as item';
     ;
-    $expr = '<%for (var $art_iaigtkhxwtw$art_i = 0, $art_cqgojwnaa$art_c = menus.length; $art_iaigtkhxwtw$art_i < $art_cqgojwnaa$art_c; $art_iaigtkhxwtw$art_i++) {    var item = menus[$art_iaigtkhxwtw$art_i]%>';
-    for (var $art_iaigtkhxwtw$art_i = 0, $art_cqgojwnaa$art_c = menus.length; $art_iaigtkhxwtw$art_i < $art_cqgojwnaa$art_c; $art_iaigtkhxwtw$art_i++) {
-        var item = menus[$art_iaigtkhxwtw$art_i];
-        $p += '<div mxa="_zs_gallerycr:a" class="_zs_gallery_mx-popmenu_content_-item"><span class="_zs_gallery_mx-popmenu_content_-item-link ellipsis" mx-click="' + $viewId + 'submit({value:';
+    $expr = '<%for (var $art_iwpyvkmsc$art_i = 0, $art_cwfwytnpb$art_c = menus.length; $art_iwpyvkmsc$art_i < $art_cwfwytnpb$art_c; $art_iwpyvkmsc$art_i++) {    var item = menus[$art_iwpyvkmsc$art_i]%>';
+    for (var $art_iwpyvkmsc$art_i = 0, $art_cwfwytnpb$art_c = menus.length; $art_iwpyvkmsc$art_i < $art_cwfwytnpb$art_c; $art_iwpyvkmsc$art_i++) {
+        var item = menus[$art_iwpyvkmsc$art_i];
+        $p += '<div mxa="_zs_gallerycs:a" class="_zs_gallery_mx-popmenu_content_-item"><span class="_zs_gallery_mx-popmenu_content_-item-link ellipsis" mx-click="' + $viewId + 'submit({value:';
         $line = 5;
         $art = '=item.value';
         ;

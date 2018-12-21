@@ -12,7 +12,7 @@ var Magix = require("magix");
 var Vframe = Magix.Vframe;
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-hour___test___index_","/* @dependent: ./index.less */\n._zs_gallery_mx-hour___test___index_-mx-shadow {\n  box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);\n  border: 1px solid #eee;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-hour___test___index_-wrapper {\n  padding: 10px;\n  border-radius: 4px;\n  border: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-hour___test___index_-wrapper1 {\n  width: 760px;\n}\n._zs_gallery_mx-hour___test___index_-wrapper2 {\n  width: 800px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-hour___test___index_","/* @dependent: ./index.less */\n._zs_gallery_mx-hour___test___index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-hour___test___index_-wrapper {\n  padding: 10px;\n  border-radius: 4px;\n  border: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-hour___test___index_-wrapper1 {\n  width: 760px;\n}\n._zs_gallery_mx-hour___test___index_-wrapper2 {\n  width: 800px;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -30,13 +30,13 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', selected = $$.selected, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerybR:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybR:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerybR:_" class="clearfix lh22 mb15"><div class="fl color-9">以下示例：</div><div class="fl"><div>每日单独选择</div><div>提供快捷操作</div></div></div><div mxa="_zs_gallerybR:b" class="mb20 clearfix"><div mxs="_zs_gallerybR:a" class="fl mr10"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'get()">获取选中值</a></div><div mxa="_zs_gallerybR:c" class="fl">';
+    $p += '<div mxv mxa="_zs_gallerybS:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybS:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerybS:_" class="clearfix lh22 mb15"><div class="fl color-9">以下示例：</div><div class="fl"><div>每日单独选择</div><div>提供快捷操作</div></div></div><div mxa="_zs_gallerybS:b" class="mb20 clearfix"><div mxs="_zs_gallerybS:a" class="fl mr10"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'get()">获取选中值</a></div><div mxa="_zs_gallerybS:c" class="fl">';
     $line = 16;
     $art = 'each selected as s';
     ;
-    $expr = '<%for (var $art_iqkspyexh$art_i = 0, $art_cpheprlj$art_c = selected.length; $art_iqkspyexh$art_i < $art_cpheprlj$art_c; $art_iqkspyexh$art_i++) {    var s = selected[$art_iqkspyexh$art_i]%>';
-    for (var $art_iqkspyexh$art_i = 0, $art_cpheprlj$art_c = selected.length; $art_iqkspyexh$art_i < $art_cpheprlj$art_c; $art_iqkspyexh$art_i++) {
-        var s = selected[$art_iqkspyexh$art_i];
+    $expr = '<%for (var $art_ixlltdkkcn$art_i = 0, $art_cvptqzmvv$art_c = selected.length; $art_ixlltdkkcn$art_i < $art_cvptqzmvv$art_c; $art_ixlltdkkcn$art_i++) {    var s = selected[$art_ixlltdkkcn$art_i]%>';
+    for (var $art_ixlltdkkcn$art_i = 0, $art_cvptqzmvv$art_c = selected.length; $art_ixlltdkkcn$art_i < $art_cvptqzmvv$art_c; $art_ixlltdkkcn$art_i++) {
+        var s = selected[$art_ixlltdkkcn$art_i];
         $p += '<div>';
         $line = 17;
         $art = '=s.name';
@@ -60,15 +60,15 @@ module.exports = Base.extend({
     $line = 23;
     $art = '@selected';
     ;
-    $p += ($expr = '<%@selected%>', $i($$ref, selected)) + '"></div></div><div mxa="_zs_gallerybR:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybR:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@selected%>', $i($$ref, selected)) + '"></div></div><div mxa="_zs_gallerybS:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybS:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybR:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybS:e" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 29;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybR:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybS:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 32;
     $art = '=viewId';
     ;

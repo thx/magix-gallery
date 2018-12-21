@@ -65,7 +65,7 @@ module.exports = {
     "form.more": "最多",
     "form.word": "个字",
     "form.word.between": "${min} ~ ${max} 个字之间，当前：${current} 个字",
-    "pager.offset": "当前第 ${min} - ${max}  条，",
+    "pager.offset": "当前第 ${min} - ${max} 条，",
     "pager.per.page": "每页展示",
     "pager.total": "共 ${total} 条",
     "pager.unit": "条",

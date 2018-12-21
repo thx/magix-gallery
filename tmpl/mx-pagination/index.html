@@ -4,14 +4,15 @@
         <span><%! tipOffset%></span>
         <span><%! tipTotal%>，</span>
         <span><%! tipPer%></span>
+
         <%if(sizesChange){%>
-        <mx-dropdown class="ml10 mr10 pager-dropdown"
-            placement="<%=sizesPlacement%>"
-            list="<%@sizes%>"
-            selected="<%@size%>"
-            mx-change="@{changeSize}()"/>
+            <mx-dropdown class="ml10 mr10 pager-dropdown"
+                placement="<%=sizesPlacement%>"
+                list="<%@sizes%>"
+                selected="<%@size%>"
+                mx-change="@{changeSize}()"/>
         <%}else{%>
-        <b>&nbsp;<%= size%>&nbsp;</b>
+            <%= size%>
         <%}%>
         <span><%! tipUnit%></span>
     </div>

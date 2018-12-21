@@ -1,8 +1,8 @@
 @import "../mx-style/_vars";
-
-[mx-view*="mx-tabs/box"]{
+[mx-view*="mx-tabs/box"] {
     display: inline-block;
 }
+
 .tag {
     display: inline-block;
     height: 18px;
@@ -20,34 +20,28 @@
 .border {
     position: relative;
     border-bottom: 1px solid @color-border;
-
     .border-item {
         position: relative;
         float: left;
         font-size: 16px;
-        padding: 10px 25px 20px 25px;
+        padding: 16px 24px;
         transition: color @duration ease-out;
-        color: #999;
-
+        color: #666;
         &:hover {
             color: #333;
         }
-
         &.selected {
             color: @color-brand;
         }
-
         .tag {
             position: absolute;
             top: -4px;
             left: 100%;
             margin-left: -26px;
-
             .tag-name {
                 display: inline-block;
                 transform: scale(.92);
             }
-
             .tag-arrow {
                 position: absolute;
                 left: 4px;
@@ -56,13 +50,10 @@
                 height: 0;
                 border-width: 3px;
                 border-style: solid;
-                border-color: @color-brand #ffffff #ffffff  @color-brand;
+                border-color: @color-brand #ffffff #ffffff @color-brand;
             }
-
         }
-
     }
-
     .underline {
         position: absolute;
         width: 0;
@@ -71,97 +62,82 @@
         border-bottom: 1px solid @color-brand;
         transition: width @duration cubic-bezier(0.645, 0.045, 0.355, 1), left @duration cubic-bezier(0.645, 0.045, 0.355, 1);
     }
-
 }
 
-.box{
-    .box-tip{
+.box {
+    .box-tip {
         position: relative;
         top: 1px;
         font-size: 14px;
     }
-
-    .box-item{
+    .box-item {
         cursor: pointer;
         text-align: center;
         padding: 0 12px;
         transition: all @duration ease-out;
-    
         &:first-child {
             border-top-left-radius: @border-radius;
             border-bottom-left-radius: @border-radius;
         }
-    
         &:last-child {
             border-top-right-radius: @border-radius;
             border-bottom-right-radius: @border-radius;
         }
-    
         .tag {
             transform: scale(.9);
         }
-    
     }
-
     &.disabled {
         .box-item {
             color: #999;
             cursor: not-allowed;
-
             &:hover {
                 color: #999;
             }
-
             &.selected {
                 color: #999;
                 background-color: @color-disabled;
                 border-color: @color-border;
-
-                & + .box-item{
-                    border-left-color: @color-border;
-                }
             }
-
             .tag {
                 background-color: #ccc;
             }
-
         }
-
     }
 }
 
-.hollow-box{
+.hollow-box {
+    position: relative;
     display: inline-block;
-    .box-item{
+    .box-item {
         display: inline-block;
         height: @input-height;
         line-height: @input-height - 2;
-        border-top-width: 1px;
-        border-bottom-width: 1px;
-        border-left-width: 1px;
-        border-right-width: 0;
-        border-style: solid;
-        border-color: @color-border;
-        color: #333;
-
-        &:last-child{
-            border-right-width: 1px;
+        border-radius: @border-radius;
+        color: #666;
+        border: 1px solid transparent;
+        
+        &:hover {
+            color: #333;
         }
-
-        &:hover{
-            color: @color-brand;
-        }
-
         &.selected {
-            color: @color-brand;
-            border-color: @color-brand;
-
-            & + .box-item{
-                border-left-color: @color-brand;
-            }
+            color: #333;
+            background-color: @color-brand-opacity;
+            border: 1px solid @color-brand;
         }
     }
+
+    &::after{
+        content: ' ';
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        border-radius: @border-radius;
+        border: 1px solid @color-border;    
+    }    
 }
 
 .solid-box {
@@ -169,22 +145,18 @@
     height: @input-height;
     border: 1px solid @color-border;
     border-radius: @border-radius;
-
     .box-item {
         display: inline-block;
         height: @input-height - 2;
         line-height: @input-height - 2;
         color: #999;
         background-color: #fff;
-        
         &:hover {
             color: #333;
         }
-
         &.selected {
             color: @color-brand;
             background-color: @color-brand-opacity;
         }
     }
-
 }

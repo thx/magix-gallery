@@ -1,7 +1,7 @@
 @import "../mx-style/_vars";
 
 .pager {
-    color: #999;
+    color: #666;
 
     .infos{
         float: left;
@@ -31,18 +31,17 @@
                 font-size: @font-size;
                 border-radius: @border-radius;
                 text-align: center;
-                color: #999;
             }
 
             .num-item-inner {
+                color: #666;
                 &:hover {
-                    color: #666;
-                    background-color: #eee;
+                    color: #333;
                 }
 
                 &.active {
-                    color: #fff;
-                    background-color: @color-brand;
+                    color: #333;
+                    background-color: #eee;
                 }
 
                 &.notallowed {
@@ -53,6 +52,7 @@
             }
 
             .num-item-icon {
+                color: #999;
                 line-height: @input-small-height + 2;
 
                 &:hover {
@@ -60,7 +60,7 @@
                 }
 
                 &.notallowed {
-                    color: #e6e6e6;
+                    color: #eee;
                     background: transparent;
                     cursor: not-allowed;
                 }

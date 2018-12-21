@@ -9,8 +9,17 @@ define("mx-status/base",["magix"],(require,exports,module)=>{
 var Magix = require("magix");
 module.exports = Magix.View.extend({
     init: function (e) {
-        var opers = e.opers || [];
-        var selected = e.selected || (opers[0] || '').value;
+        this.viewOptions = e;
+    },
+    render: function () {
+        var viewOptions = this.viewOptions;
+        var opers = viewOptions.opers || [];
+        var selected = viewOptions.selected || (opers[0] || '').value;
+        this.update(selected);
+    },
+    update: function (selected) {
+        var viewOptions = this.viewOptions;
+        var opers = viewOptions.opers || [];
         // 当前项在最前面
         var cur = {};
         if (opers.length > 0) {
@@ -24,21 +33,18 @@ module.exports = Magix.View.extend({
             opers.unshift(cur);
         }
         // 提示信息
-        var info = e.info || {};
+        var info = viewOptions.info || {};
         var showInfo = false;
         if (!$.isEmptyObject(info)) {
             showInfo = true;
         }
-        this.updater.set({
+        this.updater.digest({
             info: info,
             opers: opers,
             cur: cur,
             showInfo: showInfo,
             show: false
         });
-    },
-    render: function () {
-        this.updater.digest();
     },
     'select<click>': function (e) {
         var that = this;
@@ -47,9 +53,7 @@ module.exports = Magix.View.extend({
         if (cur.value == item.value) {
             return;
         }
-        that.updater.digest({
-            show: false
-        });
+        that.update(item.value);
         $('#' + that.id).trigger({
             type: 'change',
             status: item
