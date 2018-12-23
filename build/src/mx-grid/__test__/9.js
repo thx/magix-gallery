@@ -25,7 +25,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybR:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybR:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb10">内容区域支持指定一个view：</div><div class="_zs_gallery_mx-grid___test___index_-container"><div class="grid"><div mx-view="mx-grid/__test__/grid-body" style="padding: 16px 24px;"></div></div></div></div><div mxa="_zs_gallerybR:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybR:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerybR:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybR:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb10">内容区域支持指定一个view：</div><div class="_zs_gallery_mx-grid___test___index_-container"><div class="grid"><div mx-view="mx-grid/__test__/grid-body" class="clearfix" style="padding: 16px 24px;"></div></div></div></div><div mxa="_zs_gallerybR:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybR:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 12;
     $art = '=viewId';
     ;

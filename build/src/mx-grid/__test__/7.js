@@ -28,7 +28,7 @@ module.exports = Base.extend({
     $line = 6;
     $art = '!icon';
     ;
-    $p += ($expr = '<%!icon%>', $n(icon)) + '</span><span mxs="_zs_gallerybP:a" style="font-size: 20px;">标题</span><span mxs="_zs_gallerybP:b" style="margin-left: 16px; color: #999;">提示信息</span></div></div><div mxs="_zs_gallerybP:c" style="padding: 16px 24px;">test</div></div></div></div><div mxa="_zs_gallerybP:g" class="clearfix"><div mxa="_zs_gallerybP:h" class="_zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-left"><div mxa="_zs_gallerybP:i" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybP:d" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%!icon%>', $n(icon)) + '</span><span mxs="_zs_gallerybP:a" style="font-size: 20px;">标题</span><span mxs="_zs_gallerybP:b" style="margin-left: 16px; color: #999;">提示信息</span></div></div><div mxs="_zs_gallerybP:c" class="clearfix" style="padding: 16px 24px;">test</div></div></div></div><div mxa="_zs_gallerybP:g" class="clearfix"><div mxa="_zs_gallerybP:h" class="_zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-left"><div mxa="_zs_gallerybP:i" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybP:d" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 15;
     $art = '=viewId';
     ;
