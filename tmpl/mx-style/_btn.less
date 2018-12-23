@@ -91,21 +91,16 @@
     }
 
     &[disabled],
-    &.btn-disabled {
+    &.btn-disabled,
+    &[disabled]:hover,
+    &[disabled].hover,
+    &[disabled]:active{
+        opacity: .5;
         cursor: not-allowed;
-        color: #999;
+        color: @btn-text;
         background-color: @color-disabled;
-        border-color: @color-border;
+        border-color: @btn-border;
         background-image: none;
-        &:hover,
-        &.hover,
-        &:active {
-            cursor: not-allowed;
-            color: #999;
-            background-color: @color-disabled;
-            border-color: @color-border;
-            background-image: none;
-        }
     }
     
 }
