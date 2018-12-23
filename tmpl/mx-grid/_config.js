@@ -138,7 +138,7 @@ module.exports = {
         if (attrsKV.icon) {
             tmpl += `<span style="margin-right: 2px; color: #ccc;">${attrsKV.icon}</span>`;
         }
-        tmpl += `<span style="font-size: 16px;">${attrsKV.content}</span>`;
+        tmpl += `<span style="font-size: 20px;">${attrsKV.content}</span>`;
         if (attrsKV.tip) {
             tmpl += `<span style="margin-left: 16px; color: #999;">${attrsKV.tip}</span>`;
         }
@@ -154,6 +154,6 @@ module.exports = {
     },
     'mx-grid.body'(i) {
         let { content, attrsKV } = i;
-        return `<div ${ProcessAttr(attrsKV, 'padding: 16px 24px;', {})}>${content}</div>`;
+        return `<div ${ProcessAttr(attrsKV, 'padding: 16px 24px;', {}, 'clearfix')}>${content}</div>`;
     }
 };

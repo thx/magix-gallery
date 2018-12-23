@@ -36,14 +36,14 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><div mxa="_zs_galleryb2:_" class="_zs_gallery_mx-indics_index_-header"><div mxa="_zs_galleryb2:a" class="left"><span mxs="_zs_galleryb2:_" class="fontsize-16">选择数据字段</span>';
+    $p += '"><div mxa="_zs_galleryb#:_" class="_zs_gallery_mx-indics_index_-header"><div mxa="_zs_galleryb#:a" class="left"><span mxs="_zs_galleryb#:_" class="fontsize-16">选择数据字段</span>';
     $line = 5;
     $art = 'if (limit > 0)';
     ;
     $expr = '<%if (limit > 0) {%>';
     if (limit > 0) {
         ;
-        $p += '<span mxa="_zs_galleryb2:b" class="color-9 font-tahoma bold ml10">';
+        $p += '<span mxa="_zs_galleryb#:b" class="color-9 font-tahoma bold ml10">';
         $line = 6;
         $art = '=selectedItems.length';
         ;
@@ -65,28 +65,28 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!sortable) {%>';
     if (!sortable) {
         ;
-        $p += '<a mxs="_zs_galleryb2:a" href="javascript:;" class="link-brand fr" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a>';
+        $p += '<a mxs="_zs_galleryb#:a" href="javascript:;" class="link-brand fr" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a>';
         $line = 12;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div><div mxv mxa="_zs_galleryb2:c" class="_zs_gallery_mx-indics_index_-content">';
+    $p += '</div></div><div mxv mxa="_zs_galleryb#:c" class="_zs_gallery_mx-indics_index_-content">';
     $line = 16;
     $art = 'each groups as group';
     ;
-    $expr = '<%for (var $art_imxvjnfr$art_i = 0, $art_czdzpqup$art_c = groups.length; $art_imxvjnfr$art_i < $art_czdzpqup$art_c; $art_imxvjnfr$art_i++) {    var group = groups[$art_imxvjnfr$art_i]%>';
-    for (var $art_imxvjnfr$art_i = 0, $art_czdzpqup$art_c = groups.length; $art_imxvjnfr$art_i < $art_czdzpqup$art_c; $art_imxvjnfr$art_i++) {
-        var group = groups[$art_imxvjnfr$art_i];
-        $p += '<div mxv mxa="_zs_galleryb2:d" class="_zs_gallery_mx-indics_index_-line clearfix">';
+    $expr = '<%for (var $art_ipppyduvnaf$art_i = 0, $art_cduayqwats$art_c = groups.length; $art_ipppyduvnaf$art_i < $art_cduayqwats$art_c; $art_ipppyduvnaf$art_i++) {    var group = groups[$art_ipppyduvnaf$art_i]%>';
+    for (var $art_ipppyduvnaf$art_i = 0, $art_cduayqwats$art_c = groups.length; $art_ipppyduvnaf$art_i < $art_cduayqwats$art_c; $art_ipppyduvnaf$art_i++) {
+        var group = groups[$art_ipppyduvnaf$art_i];
+        $p += '<div mxv mxa="_zs_galleryb#:d" class="_zs_gallery_mx-indics_index_-line clearfix">';
         $line = 18;
         $art = 'each group as field';
         ;
-        $expr = '<%for (var $art_iaocqen$art_i = 0, $art_clfyhbiri$art_c = group.length; $art_iaocqen$art_i < $art_clfyhbiri$art_c; $art_iaocqen$art_i++) {        var field = group[$art_iaocqen$art_i]%>';
-        for (var $art_iaocqen$art_i = 0, $art_clfyhbiri$art_c = group.length; $art_iaocqen$art_i < $art_clfyhbiri$art_c; $art_iaocqen$art_i++) {
-            var field = group[$art_iaocqen$art_i];
-            $p += '<div mxv mxa="_zs_galleryb2:e" class="_zs_gallery_mx-indics_index_-item"><label mxv ';
+        $expr = '<%for (var $art_igxpeyub$art_i = 0, $art_chuimhwy$art_c = group.length; $art_igxpeyub$art_i < $art_chuimhwy$art_c; $art_igxpeyub$art_i++) {        var field = group[$art_igxpeyub$art_i]%>';
+        for (var $art_igxpeyub$art_i = 0, $art_chuimhwy$art_c = group.length; $art_igxpeyub$art_i < $art_chuimhwy$art_c; $art_igxpeyub$art_i++) {
+            var field = group[$art_igxpeyub$art_i];
+            $p += '<div mxv mxa="_zs_galleryb#:e" class="_zs_gallery_mx-indics_index_-item"><label mxv ';
             $line = 20;
             $art = 'if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)';
             ;
@@ -183,13 +183,13 @@ module.exports = Magix.View.extend({
     $expr = '<%if (sortable) {%>';
     if (sortable) {
         ;
-        $p += '<div mxs="_zs_galleryb2:b" class="_zs_gallery_mx-indics_index_-drag-header"><div class="_zs_gallery_mx-indics_index_-drag-title">自定义字段</div><div class="_zs_gallery_mx-indics_index_-drag-oper"><span class="color-9 mr10">可拖动排序</span><a href="javascript:;" class="link-brand" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a></div></div><div mxa="_zs_galleryb2:f" class="_zs_gallery_mx-indics_index_-drag-wrapper" mx-view="mx-dragsort/index" mx-dragfinish="' + $viewId + 'drag()">';
+        $p += '<div mxs="_zs_galleryb#:b" class="_zs_gallery_mx-indics_index_-drag-header"><div class="_zs_gallery_mx-indics_index_-drag-title">自定义字段</div><div class="_zs_gallery_mx-indics_index_-drag-oper"><span class="color-9 mr10">可拖动排序</span><a href="javascript:;" class="link-brand" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a></div></div><div mxa="_zs_galleryb#:f" class="_zs_gallery_mx-indics_index_-drag-wrapper" mx-view="mx-dragsort/index" mx-dragfinish="' + $viewId + 'drag()">';
         $line = 45;
         $art = 'each selectedItems as s';
         ;
-        $expr = '<%for (var $art_iehirekg$art_i = 0, $art_cxmcemlzth$art_c = selectedItems.length; $art_iehirekg$art_i < $art_cxmcemlzth$art_c; $art_iehirekg$art_i++) {        var s = selectedItems[$art_iehirekg$art_i]%>';
-        for (var $art_iehirekg$art_i = 0, $art_cxmcemlzth$art_c = selectedItems.length; $art_iehirekg$art_i < $art_cxmcemlzth$art_c; $art_iehirekg$art_i++) {
-            var s = selectedItems[$art_iehirekg$art_i];
+        $expr = '<%for (var $art_ietgqg$art_i = 0, $art_cpdldgqlo$art_c = selectedItems.length; $art_ietgqg$art_i < $art_cpdldgqlo$art_c; $art_ietgqg$art_i++) {        var s = selectedItems[$art_ietgqg$art_i]%>';
+        for (var $art_ietgqg$art_i = 0, $art_cpdldgqlo$art_c = selectedItems.length; $art_ietgqg$art_i < $art_cpdldgqlo$art_c; $art_ietgqg$art_i++) {
+            var s = selectedItems[$art_ietgqg$art_i];
             $p += '<div class="_zs_gallery_mx-indics_index_-drag" data-value="';
             $line = 46;
             $art = '=s.value';

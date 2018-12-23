@@ -28,7 +28,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', custom1 = $$.custom1, customs1 = $$.customs1, map = $$.map, defaults = $$.defaults, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybZ:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerybZ:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerybZ:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl">不限制可选择个数 + 不排序</div></div><div mxa="_zs_gallerybZ:b" class="mb20"><div mx-change="' + $viewId + 'change()" mx-view="mx-indics/index?fields=';
+    $p += '<div mxa="_zs_galleryb7:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryb7:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryb7:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl">不限制可选择个数 + 不排序</div></div><div mxa="_zs_galleryb7:b" class="mb20"><div mx-change="' + $viewId + 'change()" mx-view="mx-indics/index?fields=';
     $line = 9;
     $art = '@[{\n                    text: \'消耗\', value: \'cost\', tip: \'提示文案\'\n                }, {\n                    text: \'展现量\', value: \'impression\'\n                }, {\n                    text: \'点击量\', value: \'click\', \n                }, {\n                    text: \'点击率\', value: \'ctr\'\n                }, {\n                    text: \'平均点击单价\', value: \'cpc\'\n                }, {\n                    text: \'点击转化率\', value: \'coverage\'\n                }, {\n                    text: \'成交笔数\', value: \'transaction\'\n                }]';
     ;
@@ -47,14 +47,14 @@ module.exports = Base.extend({
     $expr = '<%if (custom1) {%>';
     if (custom1) {
         ;
-        $p += '<div mxa="_zs_gallerybZ:c" class="clearfix mb10 pr lh22" style="padding-left: 120px"><span mxs="_zs_gallerybZ:a" style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>自定义指标：</span>';
+        $p += '<div mxa="_zs_galleryb7:c" class="clearfix mb10 pr lh22" style="padding-left: 120px"><span mxs="_zs_galleryb7:a" style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>自定义指标：</span>';
         $line = 32;
         $art = 'each customs1 as key';
         ;
-        $expr = '<%for (var $art_iwmmdoho$art_i = 0, $art_cpfjtgzgeu$art_c = customs1.length; $art_iwmmdoho$art_i < $art_cpfjtgzgeu$art_c; $art_iwmmdoho$art_i++) {        var key = customs1[$art_iwmmdoho$art_i]%>';
-        for (var $art_iwmmdoho$art_i = 0, $art_cpfjtgzgeu$art_c = customs1.length; $art_iwmmdoho$art_i < $art_cpfjtgzgeu$art_c; $art_iwmmdoho$art_i++) {
-            var key = customs1[$art_iwmmdoho$art_i];
-            $p += '<span mxa="_zs_gallerybZ:d" class="fl mr10">';
+        $expr = '<%for (var $art_inqaubxk$art_i = 0, $art_cbrgyakp$art_c = customs1.length; $art_inqaubxk$art_i < $art_cbrgyakp$art_c; $art_inqaubxk$art_i++) {        var key = customs1[$art_inqaubxk$art_i]%>';
+        for (var $art_inqaubxk$art_i = 0, $art_cbrgyakp$art_c = customs1.length; $art_inqaubxk$art_i < $art_cbrgyakp$art_c; $art_inqaubxk$art_i++) {
+            var key = customs1[$art_inqaubxk$art_i];
+            $p += '<span mxa="_zs_galleryb7:d" class="fl mr10">';
             $line = 33;
             $art = '=map[key]';
             ;
@@ -77,14 +77,14 @@ module.exports = Base.extend({
     }
     else {
         ;
-        $p += '<div mxa="_zs_gallerybZ:e" class="clearfix mb10 pr lh22" style="padding-left: 110px"><span mxs="_zs_gallerybZ:b" style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>默认指标：</span>';
+        $p += '<div mxa="_zs_galleryb7:e" class="clearfix mb10 pr lh22" style="padding-left: 110px"><span mxs="_zs_galleryb7:b" style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>默认指标：</span>';
         $line = 39;
         $art = 'each defaults as key';
         ;
-        $expr = '<%for (var $art_idsybwrt$art_i = 0, $art_cusdh$art_c = defaults.length; $art_idsybwrt$art_i < $art_cusdh$art_c; $art_idsybwrt$art_i++) {        var key = defaults[$art_idsybwrt$art_i]%>';
-        for (var $art_idsybwrt$art_i = 0, $art_cusdh$art_c = defaults.length; $art_idsybwrt$art_i < $art_cusdh$art_c; $art_idsybwrt$art_i++) {
-            var key = defaults[$art_idsybwrt$art_i];
-            $p += '<span mxa="_zs_gallerybZ:f" class="fl mr10">';
+        $expr = '<%for (var $art_ijaewfxv$art_i = 0, $art_crxntoyz$art_c = defaults.length; $art_ijaewfxv$art_i < $art_crxntoyz$art_c; $art_ijaewfxv$art_i++) {        var key = defaults[$art_ijaewfxv$art_i]%>';
+        for (var $art_ijaewfxv$art_i = 0, $art_crxntoyz$art_c = defaults.length; $art_ijaewfxv$art_i < $art_crxntoyz$art_c; $art_ijaewfxv$art_i++) {
+            var key = defaults[$art_ijaewfxv$art_i];
+            $p += '<span mxa="_zs_galleryb7:f" class="fl mr10">';
             $line = 40;
             $art = '=map[key]';
             ;
@@ -106,15 +106,15 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxa="_zs_gallerybZ:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybZ:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</div><div mxa="_zs_galleryb7:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryb7:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 47;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybZ:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryb7:h" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 49;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybZ:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryb7:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 52;
     $art = '=viewId';
     ;

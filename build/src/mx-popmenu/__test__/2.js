@@ -29,11 +29,11 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', menus = $$.menus, text = $$.text, selected = $$.selected, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryco:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryco:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryco:_" class="mb20"><span class="color-9">以下示例：</span>hover显示菜单</div><div mxv mxa="_zs_galleryco:b" class="clearfix mb20"><div mxv mxa="_zs_galleryco:c" class="fl _zs_gallery_mx-popmenu___test___index_-left"><div mxv mxa="_zs_galleryco:d" class="mb20"><span mxv="menus" class="btn w100" mx-change="' + $viewId + 'select({text:\'左上对齐（lt）\'})" mx-view="mx-popmenu/index?menus=';
+    $p += '<div mxv mxa="_zs_gallerycw:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerycw:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerycw:_" class="mb20"><span class="color-9">以下示例：</span>hover显示菜单</div><div mxv mxa="_zs_gallerycw:b" class="clearfix mb20"><div mxv mxa="_zs_gallerycw:c" class="fl _zs_gallery_mx-popmenu___test___index_-left"><div mxv mxa="_zs_gallerycw:d" class="mb20"><span mxv="menus" class="btn w100" mx-change="' + $viewId + 'select({text:\'左上对齐（lt）\'})" mx-view="mx-popmenu/index?menus=';
     $line = 11;
     $art = '@menus';
     ;
-    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&place=lt">左上对齐（lt）</span></div><div mxv mxa="_zs_galleryco:e" class="mb20"><span mxv="menus" class="btn w100" mx-change="' + $viewId + 'select({text:\'左中对齐（lc）\'})" mx-view="mx-popmenu/index?menus=';
+    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&place=lt">左上对齐（lt）</span></div><div mxv mxa="_zs_gallerycw:e" class="mb20"><span mxv="menus" class="btn w100" mx-change="' + $viewId + 'select({text:\'左中对齐（lc）\'})" mx-view="mx-popmenu/index?menus=';
     $line = 18;
     $art = '@menus';
     ;
@@ -41,7 +41,7 @@ module.exports = Base.extend({
     $line = 24;
     $art = '@menus';
     ;
-    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&place=lb">左下对齐（lb）</span></div><div mxv mxa="_zs_galleryco:f" class="fl _zs_gallery_mx-popmenu___test___index_-center"><div mxv mxa="_zs_galleryco:g" class="_zs_gallery_mx-popmenu___test___index_-center-top"><span mxv="menus" class="btn w100 mr20" mx-change="' + $viewId + 'select({text:\'上左对齐（tl）\'})" mx-view="mx-popmenu/index?menus=';
+    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&place=lb">左下对齐（lb）</span></div><div mxv mxa="_zs_gallerycw:f" class="fl _zs_gallery_mx-popmenu___test___index_-center"><div mxv mxa="_zs_gallerycw:g" class="_zs_gallery_mx-popmenu___test___index_-center-top"><span mxv="menus" class="btn w100 mr20" mx-change="' + $viewId + 'select({text:\'上左对齐（tl）\'})" mx-view="mx-popmenu/index?menus=';
     $line = 32;
     $art = '@menus';
     ;
@@ -60,7 +60,7 @@ module.exports = Base.extend({
     $expr = '<%if (text && selected) {%>';
     if (text && selected) {
         ;
-        $p += '<div mxa="_zs_galleryco:h" class="_zs_gallery_mx-popmenu___test___index_-center-tip">';
+        $p += '<div mxa="_zs_gallerycw:h" class="_zs_gallery_mx-popmenu___test___index_-center-tip">';
         $line = 48;
         $art = '=text';
         ;
@@ -87,11 +87,11 @@ module.exports = Base.extend({
     $line = 62;
     $art = '@menus';
     ;
-    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&place=br">下右对齐（br）</span></div></div><div mxv mxa="_zs_galleryco:i" class="fl _zs_gallery_mx-popmenu___test___index_-right"><div mxv mxa="_zs_galleryco:j" class="mb20"><span mxv="menus" class="btn w100" mx-change="' + $viewId + 'select({text:\'右上对齐（rt）\'})" mx-view="mx-popmenu/index?menus=';
+    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&place=br">下右对齐（br）</span></div></div><div mxv mxa="_zs_gallerycw:i" class="fl _zs_gallery_mx-popmenu___test___index_-right"><div mxv mxa="_zs_gallerycw:j" class="mb20"><span mxv="menus" class="btn w100" mx-change="' + $viewId + 'select({text:\'右上对齐（rt）\'})" mx-view="mx-popmenu/index?menus=';
     $line = 71;
     $art = '@menus';
     ;
-    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&place=rt">右上对齐（rt）</span></div><div mxv mxa="_zs_galleryco:k" class="mb20"><span mxv="menus" class="btn w100" mx-change="' + $viewId + 'select({text:\'右中对齐（rc）\'})" mx-view="mx-popmenu/index?menus=';
+    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&place=rt">右上对齐（rt）</span></div><div mxv mxa="_zs_gallerycw:k" class="mb20"><span mxv="menus" class="btn w100" mx-change="' + $viewId + 'select({text:\'右中对齐（rc）\'})" mx-view="mx-popmenu/index?menus=';
     $line = 78;
     $art = '@menus';
     ;
@@ -99,27 +99,27 @@ module.exports = Base.extend({
     $line = 84;
     $art = '@menus';
     ;
-    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&place=rb">右下对齐（rb）</span></div></div></div><div mxa="_zs_galleryco:l" class="clearfix"><div mxa="_zs_galleryco:m" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-left"><div mxs="_zs_galleryco:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&place=rb">右下对齐（rb）</span></div></div></div><div mxa="_zs_gallerycw:l" class="clearfix"><div mxa="_zs_gallerycw:m" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-left"><div mxs="_zs_gallerycw:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 94;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryco:n" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycw:n" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 96;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryco:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycw:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 99;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-popmenu class="btn w100"\n    menus="&#123;&#123;@[&#123;\n        value: 1,\n        text: \'操作1\'\n    &#125;, &#123;\n        value: 2,\n        text: \'操作2\'\n    &#125;, &#123;\n        value: 3,\n        text: \'操作3\'\n    &#125;]&#125;&#125;"\n    width="100"\n    mx-change="select()"&gt;下中对齐&lt;/mx-popmenu&gt;\n\n&lt;mx-popmenu class="btn w100"\n    menus="&#123;&#123;@[&#123;\n        value: 1,\n        text: \'操作1\'\n    &#125;, &#123;\n        value: 2,\n        text: \'操作2\'\n    &#125;, &#123;\n        value: 3,\n        text: \'操作3\'\n    &#125;]&#125;&#125;"\n    width="100"\n    place="lt"\n    mx-change="select()"&gt;左上对齐（lt）&lt;/mx-popmenu&gt;\n            </pre></div><div mxa="_zs_galleryco:o" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_galleryco:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-popmenu class="btn w100"\n    menus="&#123;&#123;@[&#123;\n        value: 1,\n        text: \'操作1\'\n    &#125;, &#123;\n        value: 2,\n        text: \'操作2\'\n    &#125;, &#123;\n        value: 3,\n        text: \'操作3\'\n    &#125;]&#125;&#125;"\n    width="100"\n    mx-change="select()"&gt;下中对齐&lt;/mx-popmenu&gt;\n\n&lt;mx-popmenu class="btn w100"\n    menus="&#123;&#123;@[&#123;\n        value: 1,\n        text: \'操作1\'\n    &#125;, &#123;\n        value: 2,\n        text: \'操作2\'\n    &#125;, &#123;\n        value: 3,\n        text: \'操作3\'\n    &#125;]&#125;&#125;"\n    width="100"\n    place="lt"\n    mx-change="select()"&gt;左上对齐（lt）&lt;/mx-popmenu&gt;\n            </pre></div><div mxa="_zs_gallerycw:o" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_gallerycw:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 132;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryco:p" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerycw:p" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 134;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryco:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerycw:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 137;
     $art = '=viewId';
     ;

@@ -29,7 +29,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryd9:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryd9:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryd9:_" class="mb10 clearfix"><div class="color-9 fl lh22">以下示例：</div><div class="fl lh22"><div>动态刷新列表已选中的传入完整的items:array[object]</div><div>用户输入关键词，动态更新提示数据</div><div>动态刷的列表只选择一个</div><div>请求数据有延时，可加loading</div></div></div><div mxa="_zs_galleryd9:b" class="mb20"><div class="w280" id="';
+    $p += '<div mxa="_zs_galleryd(:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryd(:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryd(:_" class="mb10 clearfix"><div class="color-9 fl lh22">以下示例：</div><div class="fl lh22"><div>动态刷新列表已选中的传入完整的items:array[object]</div><div>用户输入关键词，动态更新提示数据</div><div>动态刷的列表只选择一个</div><div>请求数据有延时，可加loading</div></div></div><div mxa="_zs_galleryd(:b" class="mb20"><div class="w280" id="';
     $line = 22;
     $art = '=viewId';
     ;
@@ -37,27 +37,27 @@ module.exports = Base.extend({
     $line = 15;
     $art = '@[{\n                    text: \'one\',\n                    value: 1\n                },{\n                    text: \'two\',\n                    value: 2\n                }]';
     ;
-    $p += ($expr = '<%@[{            text: \'one\',            value: 1        }, {            text: \'two\',            value: 2        }]%>', $i($$ref, [{ text: 'one', value: 1 }, { text: 'two', value: 2 }])) + '&placeholder=%E8%AF%B7%E9%80%89%E6%8B%A9%E9%9C%80%E8%A6%81%E7%9A%84%E5%80%BC"></div></div></div><div mxa="_zs_galleryd9:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd9:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[{            text: \'one\',            value: 1        }, {            text: \'two\',            value: 2        }]%>', $i($$ref, [{ text: 'one', value: 1 }, { text: 'two', value: 2 }])) + '&placeholder=%E8%AF%B7%E9%80%89%E6%8B%A9%E9%9C%80%E8%A6%81%E7%9A%84%E5%80%BC"></div></div></div><div mxa="_zs_galleryd(:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd(:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 29;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryd9:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryd(:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 31;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryd9:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryd(:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 34;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-taginput class="w280"\n    dynamic-list="true"\n    items="&#123;&#123;@[&#123;\n        text: \'one\',\n        value: 1\n    &#125;,&#123;\n        text: \'two\',\n        value: 2\n    &#125;]&#125;&#125;"\n    id="&#123;&#123;=viewId&#125;&#125;_taginput"\n    placeholder="请选择需要的值"\n    mx-show="update()"/&gt;\n        </pre></div><div mxa="_zs_galleryd9:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd9:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-taginput class="w280"\n    dynamic-list="true"\n    items="&#123;&#123;@[&#123;\n        text: \'one\',\n        value: 1\n    &#125;,&#123;\n        text: \'two\',\n        value: 2\n    &#125;]&#125;&#125;"\n    id="&#123;&#123;=viewId&#125;&#125;_taginput"\n    placeholder="请选择需要的值"\n    mx-show="update()"/&gt;\n        </pre></div><div mxa="_zs_galleryd(:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd(:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 51;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryd9:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryd(:f" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 53;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryd9:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryd(:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 56;
     $art = '=viewId';
     ;

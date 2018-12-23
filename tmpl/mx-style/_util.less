@@ -76,6 +76,18 @@
     .ml@{i} {
         margin-left: unit(@i, px);
     }
+    .pt@{i} {
+        padding-top: unit(@i, px);
+    }
+    .pr@{i} {
+        padding-right: unit(@i, px);
+    }
+    .pb@{i} {
+        padding-bottom: unit(@i, px);
+    }
+    .pl@{i} {
+        padding-left: unit(@i, px);
+    }
     .gap-loop(@n, (@i + 8));
 }
 
@@ -479,7 +491,7 @@
     border-width: 1px;
     border-color: #fff;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
-    transition: border-color @duration ease-out, box-shadow @duration ease-out;
+    transition: box-shadow @duration ease-out;
     
     &:hover{
         border-color: #f5f5f6;

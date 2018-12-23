@@ -76,11 +76,11 @@ module.exports = Magix.View.extend({
     $line = 6;
     $art = '=content';
     ;
-    $p += ($expr = '<%=content%>', $e(content)) + '" mx-keyup="' + $viewId + '@{out}()" mx-focusout="' + $viewId + '@{out}()"/><div mxa="_zs_gallerya3:_" class="_zs_gallery_mx-editor_index_-editor-content">';
+    $p += ($expr = '<%=content%>', $e(content)) + '" mx-keyup="' + $viewId + '@{out}()" mx-focusout="' + $viewId + '@{out}()"/><div mxa="_zs_gallerya7:_" class="_zs_gallery_mx-editor_index_-editor-content">';
     $line = 11;
     $art = '!dis';
     ;
-    $p += ($expr = '<%!dis%>', $n(dis)) + '<i mxs="_zs_gallerya3:_" class="mc-iconfont operations _zs_gallery_mx-editor_index_-editor-oper" mx-click="' + $viewId + '@{show}()">&#xe698;</i></div></div>';
+    $p += ($expr = '<%!dis%>', $n(dis)) + '<i mxs="_zs_gallerya7:_" class="mc-iconfont operations _zs_gallery_mx-editor_index_-editor-oper" mx-click="' + $viewId + '@{show}()">&#xe698;</i></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

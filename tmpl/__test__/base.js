@@ -63,6 +63,10 @@ module.exports = Magix.View.extend({
                     name: '警告类校验场景',
                     path: '/form/warn',
                     icon: '&#xe656;'
+                }, {
+                    name: '表单样式',
+                    path: '/form/style',
+                    icon: '&#xe62c;'
                 }]
             }, {
                 name: '表格（mixins）',
