@@ -3,8 +3,9 @@ let Magix = require('magix');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
     render() {
-        this.updater.digest({
-            viewId: this.id
+        let that = this;
+        that.updater.digest({
+            viewId: that.id
         });
     }
 });

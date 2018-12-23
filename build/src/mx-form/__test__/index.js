@@ -49,8 +49,9 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
-        this.updater.digest({
-            viewId: this.id
+        var that = this;
+        that.updater.digest({
+            viewId: that.id
         });
     }
 });
