@@ -6,6 +6,20 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.3',
+            time: '2018-12-24',
+            subs: [{
+                type: 'notice',
+                title: '样式细节调整',
+                subs: [{
+                    title: '统一所有下拉选项样式，默认态，hover态，选中态，禁选态'
+                }, {
+                    title: 'mx-grid细节调整：mx-grid.title字体，间距调整；mx-grid.body默认加clearfix；'
+                }, {
+                    title: '统一规范的表单样式，<a href="#!/form/style" class="color-brand">查看详情</a>'
+                }]
+            }]
+        },{
             ver: '1.2.2',
             time: '2018-12-21',
             subs: [{

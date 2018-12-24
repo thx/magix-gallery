@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_inugrtia$art_i = 0, $art_cpdgtbms$art_c = list.length; $art_inugrtia$art_i < $art_cpdgtbms$art_c; $art_inugrtia$art_i++) {    var item = list[$art_inugrtia$art_i]%>';
-    for (var $art_inugrtia$art_i = 0, $art_cpdgtbms$art_c = list.length; $art_inugrtia$art_i < $art_cpdgtbms$art_c; $art_inugrtia$art_i++) {
-        var item = list[$art_inugrtia$art_i];
+    $expr = '<%for (var $art_ixfuugjqv$art_i = 0, $art_chzsaielc$art_c = list.length; $art_ixfuugjqv$art_i < $art_chzsaielc$art_c; $art_ixfuugjqv$art_i++) {    var item = list[$art_ixfuugjqv$art_i]%>';
+    for (var $art_ixfuugjqv$art_i = 0, $art_chzsaielc$art_c = list.length; $art_ixfuugjqv$art_i < $art_chzsaielc$art_c; $art_ixfuugjqv$art_i++) {
+        var item = list[$art_ixfuugjqv$art_i];
         $p += '<div mxa="_zs_galleryg:_" class="_zs_gallery___test___other_update_-update"><div mxa="_zs_galleryg:a" class="_zs_gallery___test___other_update_-ver pl20"><span mxa="_zs_galleryg:b" class="_zs_gallery___test___other_update_-vt">';
         $line = 4;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_iljjlhwty$art_i = 0, $art_objwnwf$art_obj = item.subs, $art_cxuuzqzlkn$art_c = $art_objwnwf$art_obj.length; $art_iljjlhwty$art_i < $art_cxuuzqzlkn$art_c; $art_iljjlhwty$art_i++) {        var s = $art_objwnwf$art_obj[$art_iljjlhwty$art_i]%>';
-        for (var $art_iljjlhwty$art_i = 0, $art_objwnwf$art_obj = item.subs, $art_cxuuzqzlkn$art_c = $art_objwnwf$art_obj.length; $art_iljjlhwty$art_i < $art_cxuuzqzlkn$art_c; $art_iljjlhwty$art_i++) {
-            var s = $art_objwnwf$art_obj[$art_iljjlhwty$art_i];
+        $expr = '<%for (var $art_idpjyvzr$art_i = 0, $art_objlwzulsrmc$art_obj = item.subs, $art_ctciqpnbj$art_c = $art_objlwzulsrmc$art_obj.length; $art_idpjyvzr$art_i < $art_ctciqpnbj$art_c; $art_idpjyvzr$art_i++) {        var s = $art_objlwzulsrmc$art_obj[$art_idpjyvzr$art_i]%>';
+        for (var $art_idpjyvzr$art_i = 0, $art_objlwzulsrmc$art_obj = item.subs, $art_ctciqpnbj$art_c = $art_objlwzulsrmc$art_obj.length; $art_idpjyvzr$art_i < $art_ctciqpnbj$art_c; $art_idpjyvzr$art_i++) {
+            var s = $art_objlwzulsrmc$art_obj[$art_idpjyvzr$art_i];
             $p += '<div mxa="_zs_galleryg:e" class="pl20">';
             $line = 10;
             $art = 'if s.type == \'notice\'';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
             $line = 31;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_itckfnzo$art_i = 0, $art_objipjkujpo$art_obj = s.subs, $art_csnulmot$art_c = $art_objipjkujpo$art_obj.length; $art_itckfnzo$art_i < $art_csnulmot$art_c; $art_itckfnzo$art_i++) {            var ss = $art_objipjkujpo$art_obj[$art_itckfnzo$art_i]%>';
-            for (var $art_itckfnzo$art_i = 0, $art_objipjkujpo$art_obj = s.subs, $art_csnulmot$art_c = $art_objipjkujpo$art_obj.length; $art_itckfnzo$art_i < $art_csnulmot$art_c; $art_itckfnzo$art_i++) {
-                var ss = $art_objipjkujpo$art_obj[$art_itckfnzo$art_i];
+            $expr = '<%for (var $art_imttmavwi$art_i = 0, $art_objgquvzkfbb$art_obj = s.subs, $art_cccfsyjhzfk$art_c = $art_objgquvzkfbb$art_obj.length; $art_imttmavwi$art_i < $art_cccfsyjhzfk$art_c; $art_imttmavwi$art_i++) {            var ss = $art_objgquvzkfbb$art_obj[$art_imttmavwi$art_i]%>';
+            for (var $art_imttmavwi$art_i = 0, $art_objgquvzkfbb$art_obj = s.subs, $art_cccfsyjhzfk$art_c = $art_objgquvzkfbb$art_obj.length; $art_imttmavwi$art_i < $art_cccfsyjhzfk$art_c; $art_imttmavwi$art_i++) {
+                var ss = $art_objgquvzkfbb$art_obj[$art_imttmavwi$art_i];
                 $p += '<div mxa="_zs_galleryg:l" class="pl20"><div mxa="_zs_galleryg:m" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                 $line = 33;
                 $art = '!ss.title';
@@ -119,9 +119,9 @@ module.exports = Magix.View.extend({
                     $line = 37;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_iwwnqpq$art_i = 0, $art_objngfis$art_obj = ss.subs, $art_cgcxtyyji$art_c = $art_objngfis$art_obj.length; $art_iwwnqpq$art_i < $art_cgcxtyyji$art_c; $art_iwwnqpq$art_i++) {                    var sss = $art_objngfis$art_obj[$art_iwwnqpq$art_i]%>';
-                    for (var $art_iwwnqpq$art_i = 0, $art_objngfis$art_obj = ss.subs, $art_cgcxtyyji$art_c = $art_objngfis$art_obj.length; $art_iwwnqpq$art_i < $art_cgcxtyyji$art_c; $art_iwwnqpq$art_i++) {
-                        var sss = $art_objngfis$art_obj[$art_iwwnqpq$art_i];
+                    $expr = '<%for (var $art_iaqulqkwxb$art_i = 0, $art_objidhnois$art_obj = ss.subs, $art_cinanwm$art_c = $art_objidhnois$art_obj.length; $art_iaqulqkwxb$art_i < $art_cinanwm$art_c; $art_iaqulqkwxb$art_i++) {                    var sss = $art_objidhnois$art_obj[$art_iaqulqkwxb$art_i]%>';
+                    for (var $art_iaqulqkwxb$art_i = 0, $art_objidhnois$art_obj = ss.subs, $art_cinanwm$art_c = $art_objidhnois$art_obj.length; $art_iaqulqkwxb$art_i < $art_cinanwm$art_c; $art_iaqulqkwxb$art_i++) {
+                        var sss = $art_objidhnois$art_obj[$art_iaqulqkwxb$art_i];
                         $p += '<div mxa="_zs_galleryg:o" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                         $line = 38;
                         $art = '!sss';
@@ -173,6 +173,20 @@ catch (ex) {
 } return $p; },
     render: function () {
         var list = [{
+                ver: '1.2.3',
+                time: '2018-12-24',
+                subs: [{
+                        type: 'notice',
+                        title: '样式细节调整',
+                        subs: [{
+                                title: '统一所有下拉选项样式，默认态，hover态，选中态，禁选态'
+                            }, {
+                                title: 'mx-grid细节调整：mx-grid.title字体，间距调整；mx-grid.body默认加clearfix；'
+                            }, {
+                                title: '统一规范的表单样式，<a href="#!/form/style" class="color-brand">查看详情</a>'
+                            }]
+                    }]
+            }, {
                 ver: '1.2.2',
                 time: '2018-12-21',
                 subs: [{
