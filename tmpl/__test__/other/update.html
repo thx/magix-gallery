@@ -31,6 +31,9 @@
             {{each s.subs as ss}}
             <div class="pl20">
                 <div class="line dot">{{!ss.title}}</div>
+                {{if ss.content}}
+                    {{!ss.content}}
+                {{/if}}
 
                 {{if ss.subs && (ss.subs.length > 0)}}
                 <div class="pl20">

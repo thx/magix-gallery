@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ixfuugjqv$art_i = 0, $art_chzsaielc$art_c = list.length; $art_ixfuugjqv$art_i < $art_chzsaielc$art_c; $art_ixfuugjqv$art_i++) {    var item = list[$art_ixfuugjqv$art_i]%>';
-    for (var $art_ixfuugjqv$art_i = 0, $art_chzsaielc$art_c = list.length; $art_ixfuugjqv$art_i < $art_chzsaielc$art_c; $art_ixfuugjqv$art_i++) {
-        var item = list[$art_ixfuugjqv$art_i];
+    $expr = '<%for (var $art_iepurqysb$art_i = 0, $art_cvxzfyxiu$art_c = list.length; $art_iepurqysb$art_i < $art_cvxzfyxiu$art_c; $art_iepurqysb$art_i++) {    var item = list[$art_iepurqysb$art_i]%>';
+    for (var $art_iepurqysb$art_i = 0, $art_cvxzfyxiu$art_c = list.length; $art_iepurqysb$art_i < $art_cvxzfyxiu$art_c; $art_iepurqysb$art_i++) {
+        var item = list[$art_iepurqysb$art_i];
         $p += '<div mxa="_zs_galleryg:_" class="_zs_gallery___test___other_update_-update"><div mxa="_zs_galleryg:a" class="_zs_gallery___test___other_update_-ver pl20"><span mxa="_zs_galleryg:b" class="_zs_gallery___test___other_update_-vt">';
         $line = 4;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_idpjyvzr$art_i = 0, $art_objlwzulsrmc$art_obj = item.subs, $art_ctciqpnbj$art_c = $art_objlwzulsrmc$art_obj.length; $art_idpjyvzr$art_i < $art_ctciqpnbj$art_c; $art_idpjyvzr$art_i++) {        var s = $art_objlwzulsrmc$art_obj[$art_idpjyvzr$art_i]%>';
-        for (var $art_idpjyvzr$art_i = 0, $art_objlwzulsrmc$art_obj = item.subs, $art_ctciqpnbj$art_c = $art_objlwzulsrmc$art_obj.length; $art_idpjyvzr$art_i < $art_ctciqpnbj$art_c; $art_idpjyvzr$art_i++) {
-            var s = $art_objlwzulsrmc$art_obj[$art_idpjyvzr$art_i];
+        $expr = '<%for (var $art_iecpxwfv$art_i = 0, $art_objogbwiqk$art_obj = item.subs, $art_czevnree$art_c = $art_objogbwiqk$art_obj.length; $art_iecpxwfv$art_i < $art_czevnree$art_c; $art_iecpxwfv$art_i++) {        var s = $art_objogbwiqk$art_obj[$art_iecpxwfv$art_i]%>';
+        for (var $art_iecpxwfv$art_i = 0, $art_objogbwiqk$art_obj = item.subs, $art_czevnree$art_c = $art_objogbwiqk$art_obj.length; $art_iecpxwfv$art_i < $art_czevnree$art_c; $art_iecpxwfv$art_i++) {
+            var s = $art_objogbwiqk$art_obj[$art_iecpxwfv$art_i];
             $p += '<div mxa="_zs_galleryg:e" class="pl20">';
             $line = 10;
             $art = 'if s.type == \'notice\'';
@@ -101,61 +101,79 @@ module.exports = Magix.View.extend({
             $line = 31;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_imttmavwi$art_i = 0, $art_objgquvzkfbb$art_obj = s.subs, $art_cccfsyjhzfk$art_c = $art_objgquvzkfbb$art_obj.length; $art_imttmavwi$art_i < $art_cccfsyjhzfk$art_c; $art_imttmavwi$art_i++) {            var ss = $art_objgquvzkfbb$art_obj[$art_imttmavwi$art_i]%>';
-            for (var $art_imttmavwi$art_i = 0, $art_objgquvzkfbb$art_obj = s.subs, $art_cccfsyjhzfk$art_c = $art_objgquvzkfbb$art_obj.length; $art_imttmavwi$art_i < $art_cccfsyjhzfk$art_c; $art_imttmavwi$art_i++) {
-                var ss = $art_objgquvzkfbb$art_obj[$art_imttmavwi$art_i];
+            $expr = '<%for (var $art_iwuwd$art_i = 0, $art_objvqaettoxo$art_obj = s.subs, $art_cbrxucyyd$art_c = $art_objvqaettoxo$art_obj.length; $art_iwuwd$art_i < $art_cbrxucyyd$art_c; $art_iwuwd$art_i++) {            var ss = $art_objvqaettoxo$art_obj[$art_iwuwd$art_i]%>';
+            for (var $art_iwuwd$art_i = 0, $art_objvqaettoxo$art_obj = s.subs, $art_cbrxucyyd$art_c = $art_objvqaettoxo$art_obj.length; $art_iwuwd$art_i < $art_cbrxucyyd$art_c; $art_iwuwd$art_i++) {
+                var ss = $art_objvqaettoxo$art_obj[$art_iwuwd$art_i];
                 $p += '<div mxa="_zs_galleryg:l" class="pl20"><div mxa="_zs_galleryg:m" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                 $line = 33;
                 $art = '!ss.title';
                 ;
                 $p += ($expr = '<%!ss.title%>', $n(ss.title)) + '</div>';
-                $line = 35;
+                $line = 34;
+                $art = 'if ss.content';
+                ;
+                $expr = '<%if (ss.content) {%>';
+                if (ss.content) {
+                    ;
+                    $p += ' ';
+                    $line = 35;
+                    $art = '!ss.content';
+                    ;
+                    $p += ($expr = '<%!ss.content%>', $n(ss.content)) + ' ';
+                    $line = 36;
+                    $art = '/if';
+                    ;
+                    $expr = '<%}%>';
+                }
+                ;
+                $p += ' ';
+                $line = 38;
                 $art = 'if ss.subs && (ss.subs.length > 0)';
                 ;
                 $expr = '<%if (ss.subs && (ss.subs.length > 0)) {%>';
                 if (ss.subs && (ss.subs.length > 0)) {
                     ;
                     $p += '<div mxa="_zs_galleryg:n" class="pl20">';
-                    $line = 37;
+                    $line = 40;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_iaqulqkwxb$art_i = 0, $art_objidhnois$art_obj = ss.subs, $art_cinanwm$art_c = $art_objidhnois$art_obj.length; $art_iaqulqkwxb$art_i < $art_cinanwm$art_c; $art_iaqulqkwxb$art_i++) {                    var sss = $art_objidhnois$art_obj[$art_iaqulqkwxb$art_i]%>';
-                    for (var $art_iaqulqkwxb$art_i = 0, $art_objidhnois$art_obj = ss.subs, $art_cinanwm$art_c = $art_objidhnois$art_obj.length; $art_iaqulqkwxb$art_i < $art_cinanwm$art_c; $art_iaqulqkwxb$art_i++) {
-                        var sss = $art_objidhnois$art_obj[$art_iaqulqkwxb$art_i];
+                    $expr = '<%for (var $art_iwulgnmgg$art_i = 0, $art_objcwwrzk$art_obj = ss.subs, $art_cuezqjfbk$art_c = $art_objcwwrzk$art_obj.length; $art_iwulgnmgg$art_i < $art_cuezqjfbk$art_c; $art_iwulgnmgg$art_i++) {                    var sss = $art_objcwwrzk$art_obj[$art_iwulgnmgg$art_i]%>';
+                    for (var $art_iwulgnmgg$art_i = 0, $art_objcwwrzk$art_obj = ss.subs, $art_cuezqjfbk$art_c = $art_objcwwrzk$art_obj.length; $art_iwulgnmgg$art_i < $art_cuezqjfbk$art_c; $art_iwulgnmgg$art_i++) {
+                        var sss = $art_objcwwrzk$art_obj[$art_iwulgnmgg$art_i];
                         $p += '<div mxa="_zs_galleryg:o" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
-                        $line = 38;
+                        $line = 41;
                         $art = '!sss';
                         ;
                         $p += ($expr = '<%!sss%>', $n(sss)) + '</div>';
-                        $line = 39;
+                        $line = 42;
                         $art = '/each';
                         ;
                         $expr = '<%}%>';
                     }
                     ;
                     $p += '</div>';
-                    $line = 41;
+                    $line = 44;
                     $art = '/if';
                     ;
                     $expr = '<%}%>';
                 }
                 ;
                 $p += '</div>';
-                $line = 43;
+                $line = 46;
                 $art = '/each';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '</div>';
-            $line = 45;
+            $line = 48;
             $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</div></div>';
-        $line = 48;
+        $line = 51;
         $art = '/each';
         ;
         $expr = '<%}%>';
@@ -179,6 +197,9 @@ catch (ex) {
                         type: 'notice',
                         title: '样式细节调整',
                         subs: [{
+                                title: '取消渐变按钮的border，避免出现如下情况：',
+                                content: '<div class="pl10"><img width="108" src="https://img.alicdn.com/tfs/TB1dtx6xYrpK1RjSZTEXXcWAVXa-500-158.png" /></div>'
+                            }, {
                                 title: '统一所有下拉选项样式，默认态，hover态，选中态，禁选态'
                             }, {
                                 title: 'mx-grid细节调整：mx-grid.title字体，间距调整；mx-grid.body默认加clearfix；'

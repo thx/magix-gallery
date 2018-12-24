@@ -63,7 +63,9 @@
         background-image: -webkit-linear-gradient(left, @btn-brand, @btn-brand-gradient);
         background-image: -o-linear-gradient(right, @btn-brand, @btn-brand-gradient);
         background-image: -moz-linear-gradient(right, @btn-brand, @btn-brand-gradient);
-        border-color: @btn-brand;
+        border: 0 none;
+        line-height: @input-height;
+        
         &:hover,
         &.hover,
         &:active {
@@ -73,7 +75,11 @@
             background-image: -webkit-linear-gradient(left, @btn-brand-hover, @btn-brand-gradient-hover);
             background-image: -o-linear-gradient(right, @btn-brand-hover, @btn-brand-gradient-hover);
             background-image: -moz-linear-gradient(right, @btn-brand-hover, @btn-brand-gradient-hover);
-            border-color: @color-brand-hover;
+            border: 0 none;
+        }
+
+        &.btn-small{
+            line-height: @input-small-height;
         }
     }
 
