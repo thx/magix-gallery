@@ -47,9 +47,9 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_ikuifgpkr$art_i = 0, $art_cexxzaekvjq$art_c = stepInfos.length; $art_ikuifgpkr$art_i < $art_cexxzaekvjq$art_c; $art_ikuifgpkr$art_i++) {    var step = stepInfos[$art_ikuifgpkr$art_i]%>';
-    for (var $art_ikuifgpkr$art_i = 0, $art_cexxzaekvjq$art_c = stepInfos.length; $art_ikuifgpkr$art_i < $art_cexxzaekvjq$art_c; $art_ikuifgpkr$art_i++) {
-        var step = stepInfos[$art_ikuifgpkr$art_i];
+    $expr = '<%for (var $art_ihknoour$art_i = 0, $art_czbbqtttk$art_c = stepInfos.length; $art_ihknoour$art_i < $art_czbbqtttk$art_c; $art_ihknoour$art_i++) {    var step = stepInfos[$art_ihknoour$art_i]%>';
+    for (var $art_ihknoour$art_i = 0, $art_czbbqtttk$art_c = stepInfos.length; $art_ihknoour$art_i < $art_czbbqtttk$art_c; $art_ihknoour$art_i++) {
+        var step = stepInfos[$art_ihknoour$art_i];
         $p += '<div class="_zs_gallery_mx-main_index_-main-step ';
         $line = 4;
         $art = 'if (step.index == curStepIndex)';
@@ -143,9 +143,9 @@ module.exports = Magix.View.extend({
             $line = 17;
             $art = 'each step.subs as sub';
             ;
-            $expr = '<%for (var $art_ihmsomvhj$art_i = 0, $art_objnqutbcqv$art_obj = step.subs, $art_cizqyxla$art_c = $art_objnqutbcqv$art_obj.length; $art_ihmsomvhj$art_i < $art_cizqyxla$art_c; $art_ihmsomvhj$art_i++) {            var sub = $art_objnqutbcqv$art_obj[$art_ihmsomvhj$art_i]%>';
-            for (var $art_ihmsomvhj$art_i = 0, $art_objnqutbcqv$art_obj = step.subs, $art_cizqyxla$art_c = $art_objnqutbcqv$art_obj.length; $art_ihmsomvhj$art_i < $art_cizqyxla$art_c; $art_ihmsomvhj$art_i++) {
-                var sub = $art_objnqutbcqv$art_obj[$art_ihmsomvhj$art_i];
+            $expr = '<%for (var $art_iouskeftfg$art_i = 0, $art_objfsgsbyd$art_obj = step.subs, $art_cebnrgl$art_c = $art_objfsgsbyd$art_obj.length; $art_iouskeftfg$art_i < $art_cebnrgl$art_c; $art_iouskeftfg$art_i++) {            var sub = $art_objfsgsbyd$art_obj[$art_iouskeftfg$art_i]%>';
+            for (var $art_iouskeftfg$art_i = 0, $art_objfsgsbyd$art_obj = step.subs, $art_cebnrgl$art_c = $art_objfsgsbyd$art_obj.length; $art_iouskeftfg$art_i < $art_cebnrgl$art_c; $art_iouskeftfg$art_i++) {
+                var sub = $art_objfsgsbyd$art_obj[$art_iouskeftfg$art_i];
                 $p += '<div mxa="_zs_gallerycg:c" class="_zs_gallery_mx-main_index_-step-sub"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link ';
                 $line = 19;
                 $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))';
@@ -237,9 +237,9 @@ module.exports = Magix.View.extend({
     $line = 42;
     $art = 'each curStepInfo.subs as sub';
     ;
-    $expr = '<%for (var $art_ielvobims$art_i = 0, $art_objjeqvyjlo$art_obj = curStepInfo.subs, $art_cfermhxumep$art_c = $art_objjeqvyjlo$art_obj.length; $art_ielvobims$art_i < $art_cfermhxumep$art_c; $art_ielvobims$art_i++) {    var sub = $art_objjeqvyjlo$art_obj[$art_ielvobims$art_i]%>';
-    for (var $art_ielvobims$art_i = 0, $art_objjeqvyjlo$art_obj = curStepInfo.subs, $art_cfermhxumep$art_c = $art_objjeqvyjlo$art_obj.length; $art_ielvobims$art_i < $art_cfermhxumep$art_c; $art_ielvobims$art_i++) {
-        var sub = $art_objjeqvyjlo$art_obj[$art_ielvobims$art_i];
+    $expr = '<%for (var $art_irglcspcsd$art_i = 0, $art_objlksgtr$art_obj = curStepInfo.subs, $art_clvapsarg$art_c = $art_objlksgtr$art_obj.length; $art_irglcspcsd$art_i < $art_clvapsarg$art_c; $art_irglcspcsd$art_i++) {    var sub = $art_objlksgtr$art_obj[$art_irglcspcsd$art_i]%>';
+    for (var $art_irglcspcsd$art_i = 0, $art_objlksgtr$art_obj = curStepInfo.subs, $art_clvapsarg$art_c = $art_objlksgtr$art_obj.length; $art_irglcspcsd$art_i < $art_clvapsarg$art_c; $art_irglcspcsd$art_i++) {
+        var sub = $art_objlksgtr$art_obj[$art_irglcspcsd$art_i];
         $p += '<div mxv class="_zs_gallery_mx-main_index_-content-box" style="padding-right: ';
         $line = 44;
         $art = '=(curStepInfo.rightWidth + 20)';
