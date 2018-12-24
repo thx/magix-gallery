@@ -46,7 +46,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (type == \'502\' || type == \'500\') {%>';
     if (type == '502' || type == '500') {
         ;
-        $p += '<img mxs="_zs_gallerybc:c" class="_zs_gallery_mx-error_index_-error-bad-img" src="//img.alicdn.com/tfs/TB1gwinx9rqK1RjSZK9XXXyypXa-1122-678.png"/><span mxa="_zs_gallerybc:b" class="_zs_gallery_mx-error_index_-error-bad-num">';
+        $p += '<img mxs="_zs_gallerybc:a" class="_zs_gallery_mx-error_index_-error-bad-img" src="//img.alicdn.com/tfs/TB1gwinx9rqK1RjSZK9XXXyypXa-1122-678.png"/><span mxa="_zs_gallerybc:b" class="_zs_gallery_mx-error_index_-error-bad-num">';
         $line = 9;
         $art = '=type';
         ;

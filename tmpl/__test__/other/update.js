@@ -6,15 +6,33 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.5',
+            time: '2018-12-24',
+            subs: [{
+                type: 'bug',
+                title: 'mx-grid',
+                subs: [{
+                    title: '修复gutter在动态渲染mx-grid.col时不生效的问题，使用css3变量保留gutter'
+                }]
+            }]
+        }, {
+            ver: '1.2.4',
+            time: '2018-12-24',
+            subs: [{
+                type: 'bug',
+                title: 'btn/btn-brand',
+                subs: [{
+                    title: '取消渐变按钮的border，避免出现如下情况：',
+                    content: '<div class="pl10"><img width="108" src="https://img.alicdn.com/tfs/TB1dtx6xYrpK1RjSZTEXXcWAVXa-500-158.png" /></div>'
+                }]
+            }]
+        }, {
             ver: '1.2.3',
             time: '2018-12-24',
             subs: [{
                 type: 'notice',
                 title: '样式细节调整',
                 subs: [{
-                    title: '取消渐变按钮的border，避免出现如下情况：',
-                    content: '<div class="pl10"><img width="108" src="https://img.alicdn.com/tfs/TB1dtx6xYrpK1RjSZTEXXcWAVXa-500-158.png" /></div>'
-                }, {
                     title: '统一所有下拉选项样式，默认态，hover态，选中态，禁选态'
                 }, {
                     title: 'mx-grid细节调整：mx-grid.title字体，间距调整；mx-grid.body默认加clearfix；'

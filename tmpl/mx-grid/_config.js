@@ -68,6 +68,16 @@ module.exports = {
         let align = AlignMap[attrsKV.align || 'stretch'] || 'stretch';
         styles.push(`align-items: ${align}`);
 
+        let gutter = attrsKV.gutter || 0;
+        styles.push(`--mx-grid-gutter: ${gutter}`);
+        if(direction == 'row'){
+            styles.push(`margin-left: calc(0px - var(--mx-grid-gutter) / 2)`);
+            styles.push(`margin-right: calc(0px - var(--mx-grid-gutter) / 2)`);
+        }else{
+            styles.push(`margin-top: calc(0px - var(--mx-grid-gutter) / 2)`);
+            styles.push(`margin-bottom: calc(0px - var(--mx-grid-gutter) / 2)`);
+        }
+
         styles = styles.join(';') + ';';
         return `<div ${ProcessAttr(attrsKV, styles, {
             width: 1,
@@ -94,15 +104,26 @@ module.exports = {
         if (attrsKV.height) {
             styles.push(`height: ${attrsKV.height}`);
         }
+
         //检查父标签是mx-grid.row且有gutter属性
-        if (!i.lastElement &&
-            pNode.tag == 'mx-grid.row' &&
-            pNode.attrsKV.gutter) {
-            let dir = `right`;
-            if (pNode.attrsKV.direction == 'col') {
-                dir = 'bottom';
+        // if (!i.lastElement &&
+        //     pNode.tag == 'mx-grid.row' &&
+        //     pNode.attrsKV.gutter) {
+        //     let dir = `right`;
+        //     if (pNode.attrsKV.direction == 'col') {
+        //         dir = 'bottom';
+        //     }
+        //     styles.push(`margin-${dir}:${pNode.attrsKV.gutter}`);
+        // }
+        if(pNode.tag == 'mx-grid.row' &&
+           pNode.attrsKV.gutter){
+            if (pNode.attrsKV.direction == 'col'){
+                styles.push(`margin-top: calc(var(--mx-grid-gutter) / 2)`);
+                styles.push(`margin-bottom: calc(var(--mx-grid-gutter) / 2)`);
+            }else{
+                styles.push(`margin-left: calc(var(--mx-grid-gutter) / 2)`);
+                styles.push(`margin-right: calc(var(--mx-grid-gutter) / 2)`);
             }
-            styles.push(`margin-${dir}:${pNode.attrsKV.gutter}`);
         }
 
         styles = styles.join(';') + ';';

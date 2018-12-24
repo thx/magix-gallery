@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ifnuqxkrbl$art_i = 0, $art_cxmxcai$art_c = list.length; $art_ifnuqxkrbl$art_i < $art_cxmxcai$art_c; $art_ifnuqxkrbl$art_i++) {    var item = list[$art_ifnuqxkrbl$art_i]%>';
-    for (var $art_ifnuqxkrbl$art_i = 0, $art_cxmxcai$art_c = list.length; $art_ifnuqxkrbl$art_i < $art_cxmxcai$art_c; $art_ifnuqxkrbl$art_i++) {
-        var item = list[$art_ifnuqxkrbl$art_i];
+    $expr = '<%for (var $art_imnlskor$art_i = 0, $art_czfbwwnl$art_c = list.length; $art_imnlskor$art_i < $art_czfbwwnl$art_c; $art_imnlskor$art_i++) {    var item = list[$art_imnlskor$art_i]%>';
+    for (var $art_imnlskor$art_i = 0, $art_czfbwwnl$art_c = list.length; $art_imnlskor$art_i < $art_czfbwwnl$art_c; $art_imnlskor$art_i++) {
+        var item = list[$art_imnlskor$art_i];
         $p += '<div mxa="_zs_galleryg:_" class="_zs_gallery___test___other_update_-update"><div mxa="_zs_galleryg:a" class="_zs_gallery___test___other_update_-ver pl20"><span mxa="_zs_galleryg:b" class="_zs_gallery___test___other_update_-vt">';
         $line = 4;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_iexmthefbb$art_i = 0, $art_objcdovvvfc$art_obj = item.subs, $art_camiqtcolj$art_c = $art_objcdovvvfc$art_obj.length; $art_iexmthefbb$art_i < $art_camiqtcolj$art_c; $art_iexmthefbb$art_i++) {        var s = $art_objcdovvvfc$art_obj[$art_iexmthefbb$art_i]%>';
-        for (var $art_iexmthefbb$art_i = 0, $art_objcdovvvfc$art_obj = item.subs, $art_camiqtcolj$art_c = $art_objcdovvvfc$art_obj.length; $art_iexmthefbb$art_i < $art_camiqtcolj$art_c; $art_iexmthefbb$art_i++) {
-            var s = $art_objcdovvvfc$art_obj[$art_iexmthefbb$art_i];
+        $expr = '<%for (var $art_iyxsqigkm$art_i = 0, $art_objnliko$art_obj = item.subs, $art_crrybzygr$art_c = $art_objnliko$art_obj.length; $art_iyxsqigkm$art_i < $art_crrybzygr$art_c; $art_iyxsqigkm$art_i++) {        var s = $art_objnliko$art_obj[$art_iyxsqigkm$art_i]%>';
+        for (var $art_iyxsqigkm$art_i = 0, $art_objnliko$art_obj = item.subs, $art_crrybzygr$art_c = $art_objnliko$art_obj.length; $art_iyxsqigkm$art_i < $art_crrybzygr$art_c; $art_iyxsqigkm$art_i++) {
+            var s = $art_objnliko$art_obj[$art_iyxsqigkm$art_i];
             $p += '<div mxa="_zs_galleryg:e" class="pl20">';
             $line = 10;
             $art = 'if s.type == \'notice\'';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
             $line = 31;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_igmsnurjf$art_i = 0, $art_objtqkdomjvzi$art_obj = s.subs, $art_czzdlbzyec$art_c = $art_objtqkdomjvzi$art_obj.length; $art_igmsnurjf$art_i < $art_czzdlbzyec$art_c; $art_igmsnurjf$art_i++) {            var ss = $art_objtqkdomjvzi$art_obj[$art_igmsnurjf$art_i]%>';
-            for (var $art_igmsnurjf$art_i = 0, $art_objtqkdomjvzi$art_obj = s.subs, $art_czzdlbzyec$art_c = $art_objtqkdomjvzi$art_obj.length; $art_igmsnurjf$art_i < $art_czzdlbzyec$art_c; $art_igmsnurjf$art_i++) {
-                var ss = $art_objtqkdomjvzi$art_obj[$art_igmsnurjf$art_i];
+            $expr = '<%for (var $art_icsiszhbm$art_i = 0, $art_objtwvhxtqsk$art_obj = s.subs, $art_cthawdeme$art_c = $art_objtwvhxtqsk$art_obj.length; $art_icsiszhbm$art_i < $art_cthawdeme$art_c; $art_icsiszhbm$art_i++) {            var ss = $art_objtwvhxtqsk$art_obj[$art_icsiszhbm$art_i]%>';
+            for (var $art_icsiszhbm$art_i = 0, $art_objtwvhxtqsk$art_obj = s.subs, $art_cthawdeme$art_c = $art_objtwvhxtqsk$art_obj.length; $art_icsiszhbm$art_i < $art_cthawdeme$art_c; $art_icsiszhbm$art_i++) {
+                var ss = $art_objtwvhxtqsk$art_obj[$art_icsiszhbm$art_i];
                 $p += '<div mxa="_zs_galleryg:l" class="pl20"><div mxa="_zs_galleryg:m" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                 $line = 33;
                 $art = '!ss.title';
@@ -137,9 +137,9 @@ module.exports = Magix.View.extend({
                     $line = 40;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_ieylvitqm$art_i = 0, $art_objqwdngdc$art_obj = ss.subs, $art_cgijyhtzd$art_c = $art_objqwdngdc$art_obj.length; $art_ieylvitqm$art_i < $art_cgijyhtzd$art_c; $art_ieylvitqm$art_i++) {                    var sss = $art_objqwdngdc$art_obj[$art_ieylvitqm$art_i]%>';
-                    for (var $art_ieylvitqm$art_i = 0, $art_objqwdngdc$art_obj = ss.subs, $art_cgijyhtzd$art_c = $art_objqwdngdc$art_obj.length; $art_ieylvitqm$art_i < $art_cgijyhtzd$art_c; $art_ieylvitqm$art_i++) {
-                        var sss = $art_objqwdngdc$art_obj[$art_ieylvitqm$art_i];
+                    $expr = '<%for (var $art_imkaiulvcff$art_i = 0, $art_objfstglqk$art_obj = ss.subs, $art_cmxcpgcwe$art_c = $art_objfstglqk$art_obj.length; $art_imkaiulvcff$art_i < $art_cmxcpgcwe$art_c; $art_imkaiulvcff$art_i++) {                    var sss = $art_objfstglqk$art_obj[$art_imkaiulvcff$art_i]%>';
+                    for (var $art_imkaiulvcff$art_i = 0, $art_objfstglqk$art_obj = ss.subs, $art_cmxcpgcwe$art_c = $art_objfstglqk$art_obj.length; $art_imkaiulvcff$art_i < $art_cmxcpgcwe$art_c; $art_imkaiulvcff$art_i++) {
+                        var sss = $art_objfstglqk$art_obj[$art_imkaiulvcff$art_i];
                         $p += '<div mxa="_zs_galleryg:o" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                         $line = 41;
                         $art = '!sss';
@@ -191,15 +191,33 @@ catch (ex) {
 } return $p; },
     render: function () {
         var list = [{
+                ver: '1.2.5',
+                time: '2018-12-24',
+                subs: [{
+                        type: 'bug',
+                        title: 'mx-grid',
+                        subs: [{
+                                title: '修复gutter在动态渲染mx-grid.col时不生效的问题，使用css3变量保留gutter'
+                            }]
+                    }]
+            }, {
+                ver: '1.2.4',
+                time: '2018-12-24',
+                subs: [{
+                        type: 'bug',
+                        title: 'btn/btn-brand',
+                        subs: [{
+                                title: '取消渐变按钮的border，避免出现如下情况：',
+                                content: '<div class="pl10"><img width="108" src="https://img.alicdn.com/tfs/TB1dtx6xYrpK1RjSZTEXXcWAVXa-500-158.png" /></div>'
+                            }]
+                    }]
+            }, {
                 ver: '1.2.3',
                 time: '2018-12-24',
                 subs: [{
                         type: 'notice',
                         title: '样式细节调整',
                         subs: [{
-                                title: '取消渐变按钮的border，避免出现如下情况：',
-                                content: '<div class="pl10"><img width="108" src="https://img.alicdn.com/tfs/TB1dtx6xYrpK1RjSZTEXXcWAVXa-500-158.png" /></div>'
-                            }, {
                                 title: '统一所有下拉选项样式，默认态，hover态，选中态，禁选态'
                             }, {
                                 title: 'mx-grid细节调整：mx-grid.title字体，间距调整；mx-grid.body默认加clearfix；'

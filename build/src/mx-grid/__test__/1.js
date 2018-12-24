@@ -24,19 +24,33 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybI:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybI:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb10">1:1:1:1等分，间隔为20px</div><div class="mb40" style="display: flex;height: 100px;flex-direction: row;justify-content: flex-start;align-items: stretch;"><div class="_zs_gallery_mx-grid___test___index_-grid1" style="flex: 1;margin-right:20px;"></div><div class="_zs_gallery_mx-grid___test___index_-grid2" style="flex: 1;margin-right:20px;"></div><div class="_zs_gallery_mx-grid___test___index_-grid3" style="flex: 1;margin-right:20px;"></div><div class="_zs_gallery_mx-grid___test___index_-grid4" style="flex: 1;"></div></div><div class="mb10">1:3:1，间隔为20px</div><div style="display: flex;height: 100px;flex-direction: row;justify-content: flex-start;align-items: stretch;"><div flex="1" class="_zs_gallery_mx-grid___test___index_-grid1" style="flex: 1;margin-right:20px;"></div><div flex="3" class="_zs_gallery_mx-grid___test___index_-grid2" style="flex: 3;margin-right:20px;"></div><div flex="1" class="_zs_gallery_mx-grid___test___index_-grid3" style="flex: 1;"></div></div></div><div mxa="_zs_gallerybI:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybI:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 21;
+    $p += '<div mxa="_zs_gallerybI:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerybI:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerybI:_" class="mb10">1:1:1:1等分，间隔为20px</div><div mxa="_zs_gallerybI:b" class="mb40" style="display: flex;height: 100px;flex-direction: row;justify-content: flex-start;align-items: stretch;--mx-grid-gutter: 20px;margin-left: calc(0px - var(--mx-grid-gutter) / 2);margin-right: calc(0px - var(--mx-grid-gutter) / 2);">';
+    $line = 5;
+    $art = 'for (let i=0;i<4;i+=1)';
+    ;
+    $expr = '<%for (var i = 0; i < 4; i += 1) {%>';
+    for (var i = 0; i < 4; i += 1) {
+        ;
+        $p += '<div mxs="_zs_gallerybI:a" class="_zs_gallery_mx-grid___test___index_-grid1" style="flex: 1;margin-left: calc(var(--mx-grid-gutter) / 2);margin-right: calc(var(--mx-grid-gutter) / 2);"></div>';
+        $line = 7;
+        $art = '/for';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxs="_zs_gallerybI:b" class="mb10">1:3:1，间隔为20px</div><div mxs="_zs_gallerybI:c" style="display: flex;height: 100px;flex-direction: row;justify-content: flex-start;align-items: stretch;--mx-grid-gutter: 20px;margin-left: calc(0px - var(--mx-grid-gutter) / 2);margin-right: calc(0px - var(--mx-grid-gutter) / 2);"><div flex="1" class="_zs_gallery_mx-grid___test___index_-grid1" style="flex: 1;margin-left: calc(var(--mx-grid-gutter) / 2);margin-right: calc(var(--mx-grid-gutter) / 2);"></div><div flex="3" class="_zs_gallery_mx-grid___test___index_-grid2" style="flex: 3;margin-left: calc(var(--mx-grid-gutter) / 2);margin-right: calc(var(--mx-grid-gutter) / 2);"></div><div flex="1" class="_zs_gallery_mx-grid___test___index_-grid3" style="flex: 1;margin-left: calc(var(--mx-grid-gutter) / 2);margin-right: calc(var(--mx-grid-gutter) / 2);"></div></div></div><div mxa="_zs_gallerybI:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybI:d" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 20;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybI:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 23;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybI:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 22;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybI:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 26;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybI:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 25;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;!-- 1:1:1:1 --&gt;\n&lt;mx-grid.row height="100px" gutter="20px" class="mb40"&gt;\n    &lt;mx-grid.col class="grid1"&gt;&lt;/mx-grid.col&gt;\n    &lt;mx-grid.col class="grid2"&gt;&lt;/mx-grid.col&gt;\n    &lt;mx-grid.col class="grid3"&gt;&lt;/mx-grid.col&gt;\n    &lt;mx-grid.col class="grid4"&gt;&lt;/mx-grid.col&gt;\n&lt;/mx-grid.row&gt;\n\n&lt;!-- 1:3:1 --&gt;\n&lt;mx-grid.row height="100px" gutter="20px"&gt;\n    &lt;mx-grid.col flex="1" class="grid1"&gt;&lt;/mx-grid.col&gt;\n    &lt;mx-grid.col flex="3" class="grid2"&gt;&lt;/mx-grid.col&gt;\n    &lt;mx-grid.col flex="1" class="grid3"&gt;&lt;/mx-grid.col&gt;\n&lt;/mx-grid.row&gt;\n        </pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;!-- 1:1:1:1（支持动态） --&gt;\n&lt;mx-grid.row height="100px" gutter="20px" class="mb40"&gt;\n    &#123;&#123;for(let i=0;i&lt;4;i+=1)&#125;&#125;\n    &lt;mx-grid.col class="grid1"&gt;&lt;/mx-grid.col&gt;\n    &#123;&#123;/for&#125;&#125;\n&lt;/mx-grid.row&gt;\n\n&lt;!-- 1:3:1 --&gt;\n&lt;mx-grid.row height="100px" gutter="20px"&gt;\n    &lt;mx-grid.col flex="1" class="grid1"&gt;&lt;/mx-grid.col&gt;\n    &lt;mx-grid.col flex="3" class="grid2"&gt;&lt;/mx-grid.col&gt;\n    &lt;mx-grid.col flex="1" class="grid3"&gt;&lt;/mx-grid.col&gt;\n&lt;/mx-grid.row&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
