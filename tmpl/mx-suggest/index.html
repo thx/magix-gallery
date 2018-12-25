@@ -11,8 +11,8 @@
 
     <ul class="suggest-menu {{if show}} open {{/if}}" style="{{if (align=='right')}}right: 0;{{else}}left: 0;{{/if}}">
         {{if loading}}
-            <li class="loading loading-ext loading-small">
-                <span class="loading-anim"></span>
+            <li>
+                <mx-loading padding="40px"/>
             </li>
         {{else}}
             {{if (list.length > 0)}}

@@ -34,8 +34,8 @@
         mx-mousemove="@{move}()" 
         mx-contextmenu="@{prevent}()">
         {{if loading}}
-            <li class="loading loading-ext loading-small">
-                <span class="loading-anim"></span>
+            <li>
+                <mx-loading padding="40px"/>
             </li>
         {{else}}
             {{if (suggest && suggest.length)}}

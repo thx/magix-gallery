@@ -10,7 +10,7 @@ var Magix = require("magix");
 var $ = require("$");
 var Vframe = Magix.Vframe;
 var I18n = require("../mx-medusa/util");
-Magix.applyStyle("_zs_gallery_mx-dialog_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-dialog_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-dialog_index_-dialog-backdrop,\n._zs_gallery_mx-dialog_index_-dialog-wrapper {\n  position: fixed;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop {\n  opacity: 0;\n  top: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop._zs_gallery_mx-dialog_index_-backdrop-out {\n  opacity: 1;\n}\n._zs_gallery_mx-dialog_index_-dialog-wrapper {\n  overflow-y: auto;\n}\n._zs_gallery_mx-dialog_index_-dialog {\n  position: absolute;\n  border-radius: 4px;\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-content {\n  position: relative;\n  word-break: break-all;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-content ._zs_gallery_mx-dialog_index_-loading-ext {\n  padding: 80px 0;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close {\n  position: absolute;\n  top: 18px;\n  right: 20px;\n  width: 26px;\n  height: 26px;\n  z-index: 20;\n  border-radius: 50%;\n  background: transparent;\n  color: #ccc;\n  text-align: center;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close ._zs_gallery_mx-dialog_index_-iconfont-ext {\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 26px;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:hover,\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:focus {\n  background-color: #999;\n  color: #fff;\n}\n._zs_gallery_mx-dialog_index_-modal {\n  overflow-y: hidden;\n}\n._zs_gallery_mx-dialog_index_-btn-submit {\n  position: relative;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 1;\n  position: relative;\n  z-index: 1;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: none;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 2;\n  margin-top: -2px;\n  margin-left: -2px;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: inline;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-dialog_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-dialog_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-dialog_index_-dialog-backdrop,\n._zs_gallery_mx-dialog_index_-dialog-wrapper {\n  position: fixed;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop {\n  opacity: 0;\n  top: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop._zs_gallery_mx-dialog_index_-backdrop-out {\n  opacity: 1;\n}\n._zs_gallery_mx-dialog_index_-dialog-wrapper {\n  overflow-y: auto;\n}\n._zs_gallery_mx-dialog_index_-dialog {\n  position: absolute;\n  border-radius: 4px;\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-content {\n  position: relative;\n  word-break: break-all;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close {\n  position: absolute;\n  top: 18px;\n  right: 20px;\n  width: 26px;\n  height: 26px;\n  z-index: 20;\n  border-radius: 50%;\n  background: transparent;\n  color: #ccc;\n  text-align: center;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close ._zs_gallery_mx-dialog_index_-iconfont-ext {\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 26px;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:hover,\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:focus {\n  background-color: #999;\n  color: #fff;\n}\n._zs_gallery_mx-dialog_index_-modal {\n  overflow-y: hidden;\n}\n._zs_gallery_mx-dialog_index_-btn-submit {\n  position: relative;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 1;\n  position: relative;\n  z-index: 1;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: none;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 2;\n  margin-top: -2px;\n  margin-left: -2px;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: inline;\n}\n");
 var Win = $(window);
 var DialogZIndex = 500;
 var Duration = 250;
@@ -98,73 +98,73 @@ module.exports = Magix.View.extend({
     $line = 17;
     $art = '=cntId';
     ;
-    $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryaw:a" class="loading _zs_gallery_mx-dialog_index_-loading-ext"><span class="loading-anim"></span></div></div>';
-    $line = 25;
+    $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryaw:b" class="loading" style="padding: 80 0;"><span class="loading-anim"></span></div></div>';
+    $line = 23;
     $art = 'if (full && (fullFooter.enter || fullFooter.cancel))';
     ;
     $expr = '<%if (full && (fullFooter.enter || fullFooter.cancel)) {%>';
     if (full && (fullFooter.enter || fullFooter.cancel)) {
         ;
         $p += '<div class="dialog-footer clearfix" id="';
-        $line = 26;
+        $line = 24;
         $art = '=cntId';
         ;
         $p += ($expr = '<%=cntId%>', $e(cntId)) + '_footer">';
-        $line = 27;
+        $line = 25;
         $art = 'if fullFooter.enter';
         ;
         $expr = '<%if (fullFooter.enter) {%>';
         if (fullFooter.enter) {
             ;
             $p += '<a mxa="_zs_galleryaw:b" href="javascript:;" class="fl btn btn-brand min-width-60 mr16 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_galleryaw:c" class="_zs_gallery_mx-dialog_index_-submit-text">';
-            $line = 29;
+            $line = 27;
             $art = '=fullFooter.enterText';
             ;
             $p += ($expr = '<%=fullFooter.enterText%>', $e(fullFooter.enterText)) + '</span></a>';
-            $line = 31;
+            $line = 29;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += ' ';
-        $line = 33;
+        $line = 31;
         $art = 'if fullFooter.cancel';
         ;
         $expr = '<%if (fullFooter.cancel) {%>';
         if (fullFooter.cancel) {
             ;
             $p += '<a mxa="_zs_galleryaw:d" href="javascript:;" class="fl btn min-width-60 mr16" mx-click="' + $viewId + '@{close}()">';
-            $line = 34;
+            $line = 32;
             $art = '=fullFooter.cancelText';
             ;
             $p += ($expr = '<%=fullFooter.cancelText%>', $e(fullFooter.cancelText)) + '</a>';
-            $line = 35;
+            $line = 33;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += ' ';
-        $line = 37;
+        $line = 35;
         $art = 'if fullFooter.enter';
         ;
         $expr = '<%if (fullFooter.enter) {%>';
         if (fullFooter.enter) {
             ;
             $p += '<span id="';
-            $line = 38;
+            $line = 36;
             $art = '=cntId';
             ;
             $p += ($expr = '<%=cntId%>', $e(cntId)) + '_footer_error" class="fl lh32 color-red"></span>';
-            $line = 39;
+            $line = 37;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</div>';
-        $line = 41;
+        $line = 39;
         $art = '/if';
         ;
         $expr = '<%}%>';
