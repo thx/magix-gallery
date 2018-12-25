@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -29,9 +29,9 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ikkkvhwnzo$art_i = 0, $art_cnmazvwdb$art_c = list.length; $art_ikkkvhwnzo$art_i < $art_cnmazvwdb$art_c; $art_ikkkvhwnzo$art_i++) {    var item = list[$art_ikkkvhwnzo$art_i]%>';
-    for (var $art_ikkkvhwnzo$art_i = 0, $art_cnmazvwdb$art_c = list.length; $art_ikkkvhwnzo$art_i < $art_cnmazvwdb$art_c; $art_ikkkvhwnzo$art_i++) {
-        var item = list[$art_ikkkvhwnzo$art_i];
+    $expr = '<%for (var $art_ihzncohlu$art_i = 0, $art_ctivvhnc$art_c = list.length; $art_ihzncohlu$art_i < $art_ctivvhnc$art_c; $art_ihzncohlu$art_i++) {    var item = list[$art_ihzncohlu$art_i]%>';
+    for (var $art_ihzncohlu$art_i = 0, $art_ctivvhnc$art_c = list.length; $art_ihzncohlu$art_i < $art_ctivvhnc$art_c; $art_ihzncohlu$art_i++) {
+        var item = list[$art_ihzncohlu$art_i];
         $p += '<li title="';
         $line = 3;
         $art = '=item.text';

@@ -19,28 +19,7 @@ combineTool.config({
     magixUpdaterIncrement: true,
     galleries: {
         mxRoot: '',
-        mxMap: {  //配置到 https://github.com/thx/magix-combine-tool-config/blob/master/index.js
-            'mx-carousel.panel'(tag) {
-                return `<div ${tag.attrs} data-carousel="true">${tag.content}</div>`;
-            },
-            'mx-popover': {
-                tag: 'span'
-            },
-            'mx-calendar.rangepicker': {
-                tag: 'div'
-            },
-            'mx-switch': {
-                tag: 'span'
-            },
-            'mx-loading'() {
-                return `<div class="loading">
-                        <span class="loading-anim"></span>
-                    </div>`;
-            },
-            'mx-dropdown.item'(tag) {
-                return `<i ${tag.attrs} class="none">${tag.content}</i>`;
-            }
-        }
+        mxMap: {}
     },
     revisableStringSplitter: '',
     //cssSourceMap: true,

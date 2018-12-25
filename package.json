@@ -25,7 +25,7 @@
         "gulp-watch": "4.3.11",
         "seajs": "3.0.2",
         "typescript": "^2.6.2",
-        "magix-combine": "3.11.25"
+        "magix-combine": "3.11.26"
     },
     "magixCliConfig": {
         "cloudBuild": true

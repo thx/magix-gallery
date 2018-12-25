@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -21,18 +21,18 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', list = $$.list; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycN:_" class="_zs_gallery_mx-popover___test___custom_-custom"><div mxs="_zs_gallerycN:_" class="_zs_gallery_mx-popover___test___custom_-custom-title">标题标题</div><div mxa="_zs_gallerycN:a" class="clearfix">';
+    $p += '<div mxa="_zs_gallerycO:_" class="_zs_gallery_mx-popover___test___custom_-custom"><div mxs="_zs_gallerycO:_" class="_zs_gallery_mx-popover___test___custom_-custom-title">标题标题</div><div mxa="_zs_gallerycO:a" class="clearfix">';
     $line = 5;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ihnqatqgmf$art_i = 0, $art_cxewjgbjhjzj$art_c = list.length; $art_ihnqatqgmf$art_i < $art_cxewjgbjhjzj$art_c; $art_ihnqatqgmf$art_i++) {    var item = list[$art_ihnqatqgmf$art_i]%>';
-    for (var $art_ihnqatqgmf$art_i = 0, $art_cxewjgbjhjzj$art_c = list.length; $art_ihnqatqgmf$art_i < $art_cxewjgbjhjzj$art_c; $art_ihnqatqgmf$art_i++) {
-        var item = list[$art_ihnqatqgmf$art_i];
-        $p += '<div mxa="_zs_gallerycN:b" class="_zs_gallery_mx-popover___test___custom_-custom-item"><div mxa="_zs_gallerycN:c" class="mb5 color-9">';
+    $expr = '<%for (var $art_ioidlupv$art_i = 0, $art_cpfaheut$art_c = list.length; $art_ioidlupv$art_i < $art_cpfaheut$art_c; $art_ioidlupv$art_i++) {    var item = list[$art_ioidlupv$art_i]%>';
+    for (var $art_ioidlupv$art_i = 0, $art_cpfaheut$art_c = list.length; $art_ioidlupv$art_i < $art_cpfaheut$art_c; $art_ioidlupv$art_i++) {
+        var item = list[$art_ioidlupv$art_i];
+        $p += '<div mxa="_zs_gallerycO:b" class="_zs_gallery_mx-popover___test___custom_-custom-item"><div mxa="_zs_gallerycO:c" class="mb5 color-9">';
         $line = 7;
         $art = '=item.name';
         ;
-        $p += ($expr = '<%=item.name%>', $e(item.name)) + '</div><div mxs="_zs_gallerycN:a">-</div></div>';
+        $p += ($expr = '<%=item.name%>', $e(item.name)) + '</div><div mxs="_zs_gallerycO:a">-</div></div>';
         $line = 10;
         $art = '/each';
         ;

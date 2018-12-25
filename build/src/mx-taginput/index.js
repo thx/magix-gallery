@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -42,7 +42,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!items.length) {%>';
     if (!items.length) {
         ;
-        $p += '<span mxa="_zs_galleryd}:_" class="_zs_gallery_mx-taginput_index_-placeholder">';
+        $p += '<span mxa="_zs_galleryd[:_" class="_zs_gallery_mx-taginput_index_-placeholder">';
         $line = 6;
         $art = '=placeholder';
         ;
@@ -64,10 +64,10 @@ module.exports = Magix.View.extend({
         $line = 10;
         $art = 'each items as one idx';
         ;
-        $expr = '<%for (var idx = 0, $art_cdcbvwrfwwf$art_c = items.length; idx < $art_cdcbvwrfwwf$art_c; idx++) {        var one = items[idx]%>';
-        for (var idx = 0, $art_cdcbvwrfwwf$art_c = items.length; idx < $art_cdcbvwrfwwf$art_c; idx++) {
+        $expr = '<%for (var idx = 0, $art_cdkxthzum$art_c = items.length; idx < $art_cdkxthzum$art_c; idx++) {        var one = items[idx]%>';
+        for (var idx = 0, $art_cdkxthzum$art_c = items.length; idx < $art_cdkxthzum$art_c; idx++) {
             var one = items[idx];
-            $p += '<span mxa="_zs_galleryd}:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
+            $p += '<span mxa="_zs_galleryd[:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
             $line = 12;
             $art = '=one.text';
             ;
@@ -147,7 +147,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (loading) {%>';
         if (loading) {
             ;
-            $p += '<li mxs="_zs_galleryd}:_" class="loading loading-ext _zs_gallery_mx-taginput_index_-loading-small"><span class="loading-anim"></span></li>';
+            $p += '<li mxs="_zs_galleryd[:_" class="loading loading-ext _zs_gallery_mx-taginput_index_-loading-small"><span class="loading-anim"></span></li>';
             $line = 40;
             $art = 'else';
             ;
@@ -166,8 +166,8 @@ module.exports = Magix.View.extend({
                 $line = 42;
                 $art = 'each suggest as item idx';
                 ;
-                $expr = '<%for (var idx = 0, $art_caeckghupsp$art_c = suggest.length; idx < $art_caeckghupsp$art_c; idx++) {                var item = suggest[idx]%>';
-                for (var idx = 0, $art_caeckghupsp$art_c = suggest.length; idx < $art_caeckghupsp$art_c; idx++) {
+                $expr = '<%for (var idx = 0, $art_ctijcmk$art_c = suggest.length; idx < $art_ctijcmk$art_c; idx++) {                var item = suggest[idx]%>';
+                for (var idx = 0, $art_ctijcmk$art_c = suggest.length; idx < $art_ctijcmk$art_c; idx++) {
                     var item = suggest[idx];
                     $p += '<li class="_zs_gallery_mx-suggest_suggest_-suggest-item" mx-click="' + $viewId + '@{add}({item:\'';
                     $line = 44;
@@ -204,7 +204,7 @@ module.exports = Magix.View.extend({
             }
             else {
                 ;
-                $p += '<li mxa="_zs_galleryd}:b" class="text-center color-9">';
+                $p += '<li mxa="_zs_galleryd[:b" class="text-center color-9">';
                 $line = 51;
                 $art = '=emptyText';
                 ;

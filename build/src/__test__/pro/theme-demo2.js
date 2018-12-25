@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -38,9 +38,9 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'each checkboxes as c';
     ;
-    $expr = '<%for (var $art_iljpogtzamm$art_i = 0, $art_ckehhuwxhi$art_c = checkboxes.length; $art_iljpogtzamm$art_i < $art_ckehhuwxhi$art_c; $art_iljpogtzamm$art_i++) {    var c = checkboxes[$art_iljpogtzamm$art_i]%>';
-    for (var $art_iljpogtzamm$art_i = 0, $art_ckehhuwxhi$art_c = checkboxes.length; $art_iljpogtzamm$art_i < $art_ckehhuwxhi$art_c; $art_iljpogtzamm$art_i++) {
-        var c = checkboxes[$art_iljpogtzamm$art_i];
+    $expr = '<%for (var $art_ilbjncsie$art_i = 0, $art_cbgsau$art_c = checkboxes.length; $art_ilbjncsie$art_i < $art_cbgsau$art_c; $art_ilbjncsie$art_i++) {    var c = checkboxes[$art_ilbjncsie$art_i]%>';
+    for (var $art_ilbjncsie$art_i = 0, $art_cbgsau$art_c = checkboxes.length; $art_ilbjncsie$art_i < $art_cbgsau$art_c; $art_ilbjncsie$art_i++) {
+        var c = checkboxes[$art_ilbjncsie$art_i];
         $p += '<label mxv mxa="_zs_galleryJ:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 10;
         $art = ':selected.checkboxes';
@@ -64,9 +64,9 @@ module.exports = Base.extend({
     $line = 19;
     $art = 'each radioes as r';
     ;
-    $expr = '<%for (var $art_ipkcqnilmp$art_i = 0, $art_cjnfcsoi$art_c = radioes.length; $art_ipkcqnilmp$art_i < $art_cjnfcsoi$art_c; $art_ipkcqnilmp$art_i++) {    var r = radioes[$art_ipkcqnilmp$art_i]%>';
-    for (var $art_ipkcqnilmp$art_i = 0, $art_cjnfcsoi$art_c = radioes.length; $art_ipkcqnilmp$art_i < $art_cjnfcsoi$art_c; $art_ipkcqnilmp$art_i++) {
-        var r = radioes[$art_ipkcqnilmp$art_i];
+    $expr = '<%for (var $art_iuhrdpkgb$art_i = 0, $art_cqcorzjyj$art_c = radioes.length; $art_iuhrdpkgb$art_i < $art_cqcorzjyj$art_c; $art_iuhrdpkgb$art_i++) {    var r = radioes[$art_iuhrdpkgb$art_i]%>';
+    for (var $art_iuhrdpkgb$art_i = 0, $art_cqcorzjyj$art_c = radioes.length; $art_iuhrdpkgb$art_i < $art_cqcorzjyj$art_c; $art_iuhrdpkgb$art_i++) {
+        var r = radioes[$art_iuhrdpkgb$art_i];
         $p += '<label mxv mxa="_zs_galleryJ:f" class="mr30"><input mxe="' + $viewId + '_1" mxc="[';
         $line = 24;
         $art = ':selected.radio';

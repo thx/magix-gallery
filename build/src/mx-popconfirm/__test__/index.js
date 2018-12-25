@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -31,7 +31,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerycs:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_galleryct:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'各个方向\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'文字链 + 居中\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'内容包含html\',\n            key: viewId + \'_demo6\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
@@ -43,11 +43,11 @@ module.exports = Magix.View.extend({
     $line = 24;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mxa="_zs_gallerycs:a" class="clearfix mb20"><div mxa="_zs_gallerycs:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-popconfirm/__test__/4" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mxa="_zs_galleryct:a" class="clearfix mb20"><div mxa="_zs_galleryct:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-popconfirm/__test__/4" id="';
     $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div mxa="_zs_gallerycs:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-popconfirm/__test__/6" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div mxa="_zs_galleryct:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-popconfirm/__test__/6" id="';
     $line = 30;
     $art = '=viewId';
     ;

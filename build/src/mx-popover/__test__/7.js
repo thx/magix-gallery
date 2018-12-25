@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -24,39 +24,39 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2, text3 = $$.text3; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycK:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerycK:_" class="_zs_gallery___test___layout_-eg-content"><span class="btn mr20" mx-view="mx-popover/index?content=%E5%B7%A6%E4%B8%AD%E5%AF%B9%E9%BD%90&placement=left">左中对齐</span><span class="btn mr20" mx-view="mx-popover/index?content=%E5%B7%A6%E4%B8%8A%E5%AF%B9%E9%BD%90&placement=left&align=top">左上对齐</span><span class="btn" mx-view="mx-popover/index?content=%E5%B7%A6%E4%B8%8B%E5%AF%B9%E9%BD%90&placement=left&align=bottom">左下对齐</span></div><div mxa="_zs_gallerycK:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycK:a" class="_zs_gallery___test___layout_-eg-title">左中对齐</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerycL:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerycL:_" class="_zs_gallery___test___layout_-eg-content"><span class="btn mr20" mx-view="mx-popover/index?content=%E5%B7%A6%E4%B8%AD%E5%AF%B9%E9%BD%90&placement=left">左中对齐</span><span class="btn mr20" mx-view="mx-popover/index?content=%E5%B7%A6%E4%B8%8A%E5%AF%B9%E9%BD%90&placement=left&align=top">左上对齐</span><span class="btn" mx-view="mx-popover/index?content=%E5%B7%A6%E4%B8%8B%E5%AF%B9%E9%BD%90&placement=left&align=bottom">左下对齐</span></div><div mxa="_zs_gallerycL:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycL:a" class="_zs_gallery___test___layout_-eg-title">左中对齐</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 17;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycK:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycL:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 19;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycK:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycL:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-popover class="btn mr20"\n    content="左中对齐"\n    placement="left"&gt;左中对齐&lt;/mx-popover&gt;</pre></div><div mxa="_zs_gallerycK:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycK:c" class="_zs_gallery___test___layout_-eg-title">左上对齐</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-popover class="btn mr20"\n    content="左中对齐"\n    placement="left"&gt;左中对齐&lt;/mx-popover&gt;</pre></div><div mxa="_zs_gallerycL:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycL:c" class="_zs_gallery___test___layout_-eg-title">左上对齐</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 29;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerycK:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerycL:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 31;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerycK:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerycL:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 34;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\n&lt;mx-popover class="btn mr20"\n    content="左上对齐"\n    placement="left"\n    align="top"&gt;左上对齐&lt;/mx-popover&gt;</pre></div><div mxa="_zs_gallerycK:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycK:d" class="_zs_gallery___test___layout_-eg-title">左下对齐</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\n&lt;mx-popover class="btn mr20"\n    content="左上对齐"\n    placement="left"\n    align="top"&gt;左上对齐&lt;/mx-popover&gt;</pre></div><div mxa="_zs_gallerycL:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycL:d" class="_zs_gallery___test___layout_-eg-title">左下对齐</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=';
     $line = 42;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_gallerycK:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_gallerycL:f" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 44;
     $art = '!text3';
     ;
-    $p += ($expr = '<%!text3%>', $n(text3)) + '</span><i mxs="_zs_gallerycK:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text3%>', $n(text3)) + '</span><i mxs="_zs_gallerycL:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 47;
     $art = '=viewId';
     ;

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -23,15 +23,15 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerydb:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerydb:a" class="_zs_gallery___test___layout_-eg-content"><div mxv mxa="_zs_gallerydb:b" class="mb20"><input mxs="_zs_gallerydb:_" placeholder="正常尺寸input"/></div><div mxv mxa="_zs_gallerydb:c" class="mb20"><input mxs="_zs_gallerydb:a" class="input-small" placeholder="小号input"/></div><div mxs="_zs_gallerydb:b" class="mb20 clearfix"><span class="color-9 fl lh32">只使用input样式：</span><span class="input w200 fl"></span></div></div><div mxa="_zs_gallerydb:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydb:c" class="_zs_gallery___test___layout_-eg-title">Input</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxv mxa="_zs_gallerydc:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerydc:a" class="_zs_gallery___test___layout_-eg-content"><div mxv mxa="_zs_gallerydc:b" class="mb20"><input mxs="_zs_gallerydc:_" placeholder="正常尺寸input"/></div><div mxv mxa="_zs_gallerydc:c" class="mb20"><input mxs="_zs_gallerydc:a" class="input-small" placeholder="小号input"/></div><div mxs="_zs_gallerydc:b" class="mb20 clearfix"><span class="color-9 fl lh32">只使用input样式：</span><span class="input w200 fl"></span></div></div><div mxa="_zs_gallerydc:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydc:c" class="_zs_gallery___test___layout_-eg-title">Input</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 12;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydb:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydc:e" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 14;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydb:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydc:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 17;
     $art = '=viewId';
     ;

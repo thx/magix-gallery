@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -32,7 +32,7 @@ module.exports = Magix.View.extend({
         $line = 3;
         $art = '=view';
         ;
-        $p += ($expr = '<%=view%>', $e(view)) + '"><div mxs="_zs_gallerych:_" class="loading"><span class="loading-anim"></span></div></div>';
+        $p += ($expr = '<%=view%>', $e(view)) + '"><div mxs="_zs_galleryci:_" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
         $line = 6;
         $art = 'else';
         ;
@@ -40,7 +40,7 @@ module.exports = Magix.View.extend({
     }
     else {
         ;
-        $p += '<div mxa="_zs_gallerych:_" class="_zs_gallery_mx-main_tip_-side-tip"><i mxs="_zs_gallerych:a" class="mc-iconfont _zs_gallery_mx-main_tip_-side-light">&#xe654;</i><div mxa="_zs_gallerych:a" class="_zs_gallery_mx-main_tip_-side-content">';
+        $p += '<div mxa="_zs_galleryci:_" class="_zs_gallery_mx-main_tip_-side-tip"><i mxs="_zs_galleryci:a" class="mc-iconfont _zs_gallery_mx-main_tip_-side-light">&#xe654;</i><div mxa="_zs_galleryci:a" class="_zs_gallery_mx-main_tip_-side-content">';
         $line = 9;
         $art = '!content';
         ;

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -29,9 +29,9 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'each checkboxes as c';
     ;
-    $expr = '<%for (var $art_iuudtswr$art_i = 0, $art_cfujbp$art_c = checkboxes.length; $art_iuudtswr$art_i < $art_cfujbp$art_c; $art_iuudtswr$art_i++) {    var c = checkboxes[$art_iuudtswr$art_i]%>';
-    for (var $art_iuudtswr$art_i = 0, $art_cfujbp$art_c = checkboxes.length; $art_iuudtswr$art_i < $art_cfujbp$art_c; $art_iuudtswr$art_i++) {
-        var c = checkboxes[$art_iuudtswr$art_i];
+    $expr = '<%for (var $art_igppa$art_i = 0, $art_cflhxltyczd$art_c = checkboxes.length; $art_igppa$art_i < $art_cflhxltyczd$art_c; $art_igppa$art_i++) {    var c = checkboxes[$art_igppa$art_i]%>';
+    for (var $art_igppa$art_i = 0, $art_cflhxltyczd$art_c = checkboxes.length; $art_igppa$art_i < $art_cflhxltyczd$art_c; $art_igppa$art_i++) {
+        var c = checkboxes[$art_igppa$art_i];
         $p += '<label mxv mxa="_zs_gallerybl:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 8;
         $art = ':selected{required:[true,\'必选\']}';

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -45,9 +45,9 @@ module.exports = Base.extend({
     $line = 25;
     $art = 'each arrs as item';
     ;
-    $expr = '<%for (var $art_ickjbyali$art_i = 0, $art_cllxpjcrxf$art_c = arrs.length; $art_ickjbyali$art_i < $art_cllxpjcrxf$art_c; $art_ickjbyali$art_i++) {    var item = arrs[$art_ickjbyali$art_i]%>';
-    for (var $art_ickjbyali$art_i = 0, $art_cllxpjcrxf$art_c = arrs.length; $art_ickjbyali$art_i < $art_cllxpjcrxf$art_c; $art_ickjbyali$art_i++) {
-        var item = arrs[$art_ickjbyali$art_i];
+    $expr = '<%for (var $art_iksipizv$art_i = 0, $art_cayxgiltgp$art_c = arrs.length; $art_iksipizv$art_i < $art_cayxgiltgp$art_c; $art_iksipizv$art_i++) {    var item = arrs[$art_iksipizv$art_i]%>';
+    for (var $art_iksipizv$art_i = 0, $art_cayxgiltgp$art_c = arrs.length; $art_iksipizv$art_i < $art_cayxgiltgp$art_c; $art_iksipizv$art_i++) {
+        var item = arrs[$art_iksipizv$art_i];
         $p += '<div>';
         $line = 26;
         $art = '=item.name';

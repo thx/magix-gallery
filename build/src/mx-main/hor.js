@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -26,13 +26,13 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', stepInfos = $$.stepInfos, curStepInfo = $$.curStepInfo, viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycf:_" class="_zs_gallery_mx-main_hor_-steps">';
+    $p += '<div mxa="_zs_gallerycg:_" class="_zs_gallery_mx-main_hor_-steps">';
     $line = 2;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_ivxxtxk$art_i = 0, $art_cshquhu$art_c = stepInfos.length; $art_ivxxtxk$art_i < $art_cshquhu$art_c; $art_ivxxtxk$art_i++) {    var step = stepInfos[$art_ivxxtxk$art_i]%>';
-    for (var $art_ivxxtxk$art_i = 0, $art_cshquhu$art_c = stepInfos.length; $art_ivxxtxk$art_i < $art_cshquhu$art_c; $art_ivxxtxk$art_i++) {
-        var step = stepInfos[$art_ivxxtxk$art_i];
+    $expr = '<%for (var $art_irmzurk$art_i = 0, $art_culprtvj$art_c = stepInfos.length; $art_irmzurk$art_i < $art_culprtvj$art_c; $art_irmzurk$art_i++) {    var step = stepInfos[$art_irmzurk$art_i]%>';
+    for (var $art_irmzurk$art_i = 0, $art_culprtvj$art_c = stepInfos.length; $art_irmzurk$art_i < $art_culprtvj$art_c; $art_irmzurk$art_i++) {
+        var step = stepInfos[$art_irmzurk$art_i];
         $p += '<div class="clearfix _zs_gallery_mx-main_hor_-step ';
         $line = 3;
         $art = 'if step.current';
@@ -107,14 +107,14 @@ module.exports = Base.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '><div mxa="_zs_gallerycf:a" class="_zs_gallery_mx-main_hor_-circle">';
+        $p += '><div mxa="_zs_gallerycg:a" class="_zs_gallery_mx-main_hor_-circle">';
         $line = 6;
         $art = 'if step.lineOn';
         ;
         $expr = '<%if (step.lineOn) {%>';
         if (step.lineOn) {
             ;
-            $p += '<i mxs="_zs_gallerycf:_" class="mc-iconfont _zs_gallery_mx-main_hor_-circle-icon">&#xe65d;</i>';
+            $p += '<i mxs="_zs_gallerycg:_" class="mc-iconfont _zs_gallery_mx-main_hor_-circle-icon">&#xe65d;</i>';
             $line = 8;
             $art = 'else';
             ;
@@ -133,7 +133,7 @@ module.exports = Base.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxa="_zs_gallerycf:b" class="_zs_gallery_mx-main_hor_-title">';
+        $p += '</div><div mxa="_zs_gallerycg:b" class="_zs_gallery_mx-main_hor_-title">';
         $line = 12;
         $art = '=step.label';
         ;
@@ -156,14 +156,14 @@ module.exports = Base.extend({
     $line = 17;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_cur_content"><div mxs="_zs_gallerycf:a" class="loading"><span class="loading-anim"></span></div></div><div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_cur_content"><div mxs="_zs_gallerycg:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div><div>';
     $line = 21;
     $art = 'if curStepInfo.prevTip';
     ;
     $expr = '<%if (curStepInfo.prevTip) {%>';
     if (curStepInfo.prevTip) {
         ;
-        $p += '<a mxa="_zs_gallerycf:c" href="javascript:;" class="btn min-width-100 mr15" mx-click="' + $viewId + 'prev()">';
+        $p += '<a mxa="_zs_gallerycg:c" href="javascript:;" class="btn min-width-100 mr15" mx-click="' + $viewId + 'prev()">';
         $line = 23;
         $art = '=curStepInfo.prevTip';
         ;
@@ -181,7 +181,7 @@ module.exports = Base.extend({
     $expr = '<%if (curStepInfo.nextTip) {%>';
     if (curStepInfo.nextTip) {
         ;
-        $p += '<a mxa="_zs_gallerycf:d" href="javascript:;" class="btn min-width-100 btn-brand" mx-click="' + $viewId + 'next()">';
+        $p += '<a mxa="_zs_gallerycg:d" href="javascript:;" class="btn min-width-100 btn-brand" mx-click="' + $viewId + 'next()">';
         $line = 28;
         $art = '=curStepInfo.nextTip';
         ;

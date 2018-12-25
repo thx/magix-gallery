@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -41,9 +41,9 @@ module.exports = Base.extend({
     $line = 20;
     $art = 'each selected as item';
     ;
-    $expr = '<%for (var $art_ijvkjryvf$art_i = 0, $art_cclgxbfiw$art_c = selected.length; $art_ijvkjryvf$art_i < $art_cclgxbfiw$art_c; $art_ijvkjryvf$art_i++) {    var item = selected[$art_ijvkjryvf$art_i]%>';
-    for (var $art_ijvkjryvf$art_i = 0, $art_cclgxbfiw$art_c = selected.length; $art_ijvkjryvf$art_i < $art_cclgxbfiw$art_c; $art_ijvkjryvf$art_i++) {
-        var item = selected[$art_ijvkjryvf$art_i];
+    $expr = '<%for (var $art_idueggkwo$art_i = 0, $art_czewzzfwp$art_c = selected.length; $art_idueggkwo$art_i < $art_czewzzfwp$art_c; $art_idueggkwo$art_i++) {    var item = selected[$art_idueggkwo$art_i]%>';
+    for (var $art_idueggkwo$art_i = 0, $art_czewzzfwp$art_c = selected.length; $art_idueggkwo$art_i < $art_czewzzfwp$art_c; $art_idueggkwo$art_i++) {
+        var item = selected[$art_idueggkwo$art_i];
         $p += '<div>';
         $line = 21;
         $art = '=item';

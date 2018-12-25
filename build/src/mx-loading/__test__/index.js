@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -38,68 +38,68 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryb]:_" class="pr pr120"><div mx-view="__test__/subs?list=';
-    $line = 2;
+    $p += '<div mxs="_zs_galleryb|:_" class="loading" style="padding: 20px 0;"><span class="loading-anim"></span></div><div mxv mxa="_zs_galleryb|:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $line = 3;
     $art = '@[{\n        name: \'手动加载\',\n        key: viewId + \'_custom\',\n        subs: [{\n            name: \'非全屏自动关\',\n            key: viewId + \'_custom1\'\n        },{\n            name: \'全屏自动关\',\n            key: viewId + \'_custom2\'\n        },{\n            name: \'手动关闭\',\n            key: viewId + \'_custom3\'\n        }]\n    }, {\n        name: \'loading动画\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'circle-spinner\',\n            key: viewId + \'_demo11\'\n        },{\n            name: \'three-bounce\',\n            key: viewId + \'_demo10\'\n        },{\n            name: \'rectangle\',\n            key: viewId + \'_demo6\'\n        },{\n            name: \'double-bounce\',\n            key: viewId + \'_demo5\'\n        },{\n            name: \'square\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'cubes\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'pulse\',\n            key: viewId + \'_demo8\'\n        },{\n            name: \'dots\',\n            key: viewId + \'_demo9\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
     $p += ($expr = '<%@[{            name: \'手动加载\',            key: viewId + \'_custom\',            subs: [{                    name: \'非全屏自动关\',                    key: viewId + \'_custom1\'                }, {                    name: \'全屏自动关\',                    key: viewId + \'_custom2\'                }, {                    name: \'手动关闭\',                    key: viewId + \'_custom3\'                }]        }, {            name: \'loading动画\',            key: viewId + \'_demo\',            subs: [{                    name: \'circle-spinner\',                    key: viewId + \'_demo11\'                }, {                    name: \'three-bounce\',                    key: viewId + \'_demo10\'                }, {                    name: \'rectangle\',                    key: viewId + \'_demo6\'                }, {                    name: \'double-bounce\',                    key: viewId + \'_demo5\'                }, {                    name: \'square\',                    key: viewId + \'_demo4\'                }, {                    name: \'cubes\',                    key: viewId + \'_demo7\'                }, {                    name: \'pulse\',                    key: viewId + \'_demo8\'                }, {                    name: \'dots\',                    key: viewId + \'_demo9\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '手动加载', key: viewId + '_custom', subs: [{ name: '非全屏自动关', key: viewId + '_custom1' }, { name: '全屏自动关', key: viewId + '_custom2' }, { name: '手动关闭', key: viewId + '_custom3' }] }, { name: 'loading动画', key: viewId + '_demo', subs: [{ name: 'circle-spinner', key: viewId + '_demo11' }, { name: 'three-bounce', key: viewId + '_demo10' }, { name: 'rectangle', key: viewId + '_demo6' }, { name: 'double-bounce', key: viewId + '_demo5' }, { name: 'square', key: viewId + '_demo4' }, { name: 'cubes', key: viewId + '_demo7' }, { name: 'pulse', key: viewId + '_demo8' }, { name: 'dots', key: viewId + '_demo9' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
-    $line = 48;
+    $line = 49;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_custom" mx-view="mx-title/second?content=%E6%89%8B%E5%8A%A8%E5%8A%A0%E8%BD%BD"></div><div mxa="_zs_galleryb]:a" class="clearfix mb20"><div mxa="_zs_galleryb]:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-loading/__test__/1" id="';
-    $line = 51;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_custom1"></div><div mx-view="mx-loading/__test__/2" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_custom" mx-view="mx-title/second?content=%E6%89%8B%E5%8A%A8%E5%8A%A0%E8%BD%BD"></div><div mxa="_zs_galleryb|:a" class="clearfix mb20"><div mxa="_zs_galleryb|:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-loading/__test__/1" id="';
     $line = 52;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_custom2"></div></div><div mxa="_zs_galleryb]:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-loading/__test__/3" id="';
-    $line = 55;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_custom1"></div><div mx-view="mx-loading/__test__/2" id="';
+    $line = 53;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_custom2"></div></div><div mxa="_zs_galleryb|:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-loading/__test__/3" id="';
+    $line = 56;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_custom3"></div></div></div><div id="';
-    $line = 59;
+    $line = 60;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=loading%E5%8A%A8%E7%94%BB"></div><div mxa="_zs_galleryb]:d" class="clearfix mb20"><div mxa="_zs_galleryb]:e" class="_zs_gallery___test___layout_-half"><div mx-view="mx-loading/__test__/11" id="';
-    $line = 62;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo11"></div><div mx-view="mx-loading/__test__/6" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=loading%E5%8A%A8%E7%94%BB"></div><div mxa="_zs_galleryb|:d" class="clearfix mb20"><div mxa="_zs_galleryb|:e" class="_zs_gallery___test___layout_-half"><div mx-view="mx-loading/__test__/11" id="';
     $line = 63;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div><div mx-view="mx-loading/__test__/4" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo11"></div><div mx-view="mx-loading/__test__/6" id="';
     $line = 64;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-loading/__test__/8" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div><div mx-view="mx-loading/__test__/4" id="';
     $line = 65;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div></div><div mxa="_zs_galleryb]:f" class="_zs_gallery___test___layout_-half"><div mx-view="mx-loading/__test__/10" id="';
-    $line = 68;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-loading/__test__/8" id="';
+    $line = 66;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo10"></div><div mx-view="mx-loading/__test__/5" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div></div><div mxa="_zs_galleryb|:f" class="_zs_gallery___test___layout_-half"><div mx-view="mx-loading/__test__/10" id="';
     $line = 69;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div><div mx-view="mx-loading/__test__/7" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo10"></div><div mx-view="mx-loading/__test__/5" id="';
     $line = 70;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div><div mx-view="mx-loading/__test__/9" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div><div mx-view="mx-loading/__test__/7" id="';
     $line = 71;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div></div></div><div id="';
-    $line = 75;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div><div mx-view="mx-loading/__test__/9" id="';
+    $line = 72;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 76;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div></div></div><div id="';
+    $line = 79;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API&tip=mx-loading.anim%20api"></div><div mxv="options" mx-view="__test__/api?options=';
+    $line = 80;
     $art = '@options';
     ;
     $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div></div>';

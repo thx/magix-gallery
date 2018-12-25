@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -22,14 +22,14 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', info = $$.info; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryb;:_" class="_zs_gallery_mx-main___test___inner_-box-title clearfix">';
+    $p += '<div mxa="_zs_galleryb::_" class="_zs_gallery_mx-main___test___inner_-box-title clearfix">';
     $line = 2;
     $art = 'if info.icon';
     ;
     $expr = '<%if (info.icon) {%>';
     if (info.icon) {
         ;
-        $p += '<span mxa="_zs_galleryb;:a" class="_zs_gallery_mx-main___test___inner_-title-icon">';
+        $p += '<span mxa="_zs_galleryb::a" class="_zs_gallery_mx-main___test___inner_-title-icon">';
         $line = 3;
         $art = '!info.icon';
         ;
@@ -40,11 +40,11 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<span mxa="_zs_galleryb;:b" class="_zs_gallery_mx-main___test___inner_-title-label">';
+    $p += '<span mxa="_zs_galleryb::b" class="_zs_gallery_mx-main___test___inner_-title-label">';
     $line = 5;
     $art = '=info.label';
     ;
-    $p += ($expr = '<%=info.label%>', $e(info.label)) + '</span></div><div mxs="_zs_galleryb;:_" class="_zs_gallery_mx-main___test___inner_-box-inner" style="min-height: 200px;">自定义内容</div>';
+    $p += ($expr = '<%=info.label%>', $e(info.label)) + '</span></div><div mxs="_zs_galleryb::_" class="_zs_gallery_mx-main___test___inner_-box-inner" style="min-height: 200px;">自定义内容</div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

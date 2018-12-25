@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.25: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -29,8 +29,8 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_crbhlxwxem$art_c = list.length; index < $art_crbhlxwxem$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_crbhlxwxem$art_c = list.length; index < $art_crbhlxwxem$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_ckjnwdibt$art_c = list.length; index < $art_ckjnwdibt$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_ckjnwdibt$art_c = list.length; index < $art_ckjnwdibt$art_c; index++) {
         var item = list[index];
         $p += '<a href="javascript:;" class="_zs_gallery_mx-dialog_group_-help-nav ';
         $line = 5;
