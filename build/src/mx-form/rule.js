@@ -36,6 +36,49 @@ var isMobile = function (str) {
     return flag;
 };
 module.exports = {
+    email: function (val, rule) {
+        // 邮箱：名称@域名
+        var valid = true, tip = I18n['form.check.email'];
+        val = $.trim(val);
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        var domains = [];
+        if (val) {
+            if ($.isArray(rule)) {
+                if (rule[0]) {
+                    valid = reg.test(val);
+                }
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+                if (rule[2] && $.isArray(rule[2])) {
+                    domains = rule[2];
+                }
+            }
+            else {
+                if (rule) {
+                    valid = reg.test(val);
+                }
+            }
+        }
+        if (valid && (domains.length > 0)) {
+            // 指定域名校验
+            var contain = false;
+            var d = val.substring(val.indexOf('@') + 1);
+            for (var i = 0; i < domains.length; i++) {
+                if (domains[i] == d) {
+                    contain = true;
+                    break;
+                }
+            }
+            if (!contain) {
+                valid = false;
+            }
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
     url: function (val, rule) {
         // 中文
         var valid = true, tip = I18n['form.check.url'];

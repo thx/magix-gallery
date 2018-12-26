@@ -55,6 +55,7 @@ module.exports = {
     "form.check.chinese": "Please enter the Chinese",
     "form.check.currency": "Please enter the amount, accurate to two decimal places",
     "form.check.english": "Please enter the English",
+    "form.check.email": "Please enter the correct email address",
     "form.check.equal": "Equal to ${rule}",
     "form.check.unequal": "Unequal to ${rule}",
     "form.check.int": "Please enter an integer",

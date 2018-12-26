@@ -47,6 +47,7 @@ module.exports = {
     "form.check.chinese": "请输入中文",
     "form.check.currency": "请输入金额，精确到小数点后两位",
     "form.check.english": "请输入英文",
+    "form.check.email": "请输入正确的邮箱地址",
     "form.check.equal": "请输入与 ${rule} 相同的内容",
     "form.check.unequal": "请输入与 ${rule} 不同的内容",
     "form.check.int": "请输入整数",
