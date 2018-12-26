@@ -56,7 +56,7 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = '=selectedText';
     ;
-    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryaU:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div>';
+    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryaV:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

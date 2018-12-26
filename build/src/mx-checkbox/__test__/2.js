@@ -23,40 +23,100 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', checked = $$.checked, disabled = $$.disabled, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallery::_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallery::a" class="_zs_gallery___test___layout_-eg-content"><a mxs="_zs_gallery::_" href="javascript:;" mx-click="' + $viewId + 'outerChange()" class="btn btn-brand mr20">切换状态</a><label mxv mxa="_zs_gallery::b" class="mr20"><input name="test" value="2" mx-change="' + $viewId + 'innerChange()" type="checkbox" mx-view="mx-checkbox/index?checked=';
-    $line = 6;
-    $art = '=checked';
+} ; var $g = '', $_temp, $p = '', list = $$.list, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallery::_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallery::a" class="_zs_gallery___test___layout_-eg-content">';
+    $line = 3;
+    $art = 'each list as group groupIndex';
     ;
-    $p += ($expr = '<%!$eu(checked)%>', $eu(checked)) + '&disabled=';
-    $line = 7;
-    $art = '=disabled';
+    $expr = '<%for (var groupIndex = 0, $art_cdxpdfwf$art_c = list.length; groupIndex < $art_cdxpdfwf$art_c; groupIndex++) {    var group = list[groupIndex]%>';
+    for (var groupIndex = 0, $art_cdxpdfwf$art_c = list.length; groupIndex < $art_cdxpdfwf$art_c; groupIndex++) {
+        var group = list[groupIndex];
+        $p += '<div><label mxa="_zs_gallery::b" class="mr20 mb20"><span mx-change="' + $viewId + 'toggle({groupIndex:';
+        $line = 9;
+        $art = '=groupIndex';
+        ;
+        $p += ($expr = '<%=groupIndex%>', $e(groupIndex)) + ',subIndex:\'all\'})" mx-view="mx-checkbox/index?value=';
+        $line = 6;
+        $art = '=group.value';
+        ;
+        $p += ($expr = '<%!$eu(group.value)%>', $eu(group.value)) + '&checked=';
+        $line = 7;
+        $art = '=(group.type==3)';
+        ;
+        $p += ($expr = '<%!$eu((group.type == 3))%>', $eu((group.type == 3))) + '&indeterminate=';
+        $line = 8;
+        $art = '=(group.type==2)';
+        ;
+        $p += ($expr = '<%!$eu((group.type == 2))%>', $eu((group.type == 2))) + '"></span>组';
+        $line = 9;
+        $art = '=group.value';
+        ;
+        $p += ($expr = '<%=group.value%>', $e(group.value)) + '</label></div><div>';
+        $line = 13;
+        $art = 'each group.subs as sub subIndex';
+        ;
+        $expr = '<%for (var subIndex = 0, $art_objttamkjpnh$art_obj = group.subs, $art_cajzvjoeki$art_c = $art_objttamkjpnh$art_obj.length; subIndex < $art_cajzvjoeki$art_c; subIndex++) {        var sub = $art_objttamkjpnh$art_obj[subIndex]%>';
+        for (var subIndex = 0, $art_objttamkjpnh$art_obj = group.subs, $art_cajzvjoeki$art_c = $art_objttamkjpnh$art_obj.length; subIndex < $art_cajzvjoeki$art_c; subIndex++) {
+            var sub = $art_objttamkjpnh$art_obj[subIndex];
+            $p += '<label mxa="_zs_gallery::g" class="mr20 mb20"><span mx-change="' + $viewId + 'toggle({groupIndex:';
+            $line = 17;
+            $art = '=groupIndex';
+            ;
+            $p += ($expr = '<%=groupIndex%>', $e(groupIndex)) + ',subIndex:';
+            $line = 17;
+            $art = '=subIndex';
+            ;
+            $p += ($expr = '<%=subIndex%>', $e(subIndex)) + '})" mx-view="mx-checkbox/index?value=';
+            $line = 15;
+            $art = '=sub.value';
+            ;
+            $p += ($expr = '<%!$eu(sub.value)%>', $eu(sub.value)) + '&checked=';
+            $line = 16;
+            $art = '=sub.checked';
+            ;
+            $p += ($expr = '<%!$eu(sub.checked)%>', $eu(sub.checked)) + '"></span>';
+            $line = 17;
+            $art = '=sub.value';
+            ;
+            $p += ($expr = '<%=sub.value%>', $e(sub.value)) + '</label>';
+            $line = 19;
+            $art = '/each';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div>';
+        $line = 21;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
     ;
-    $p += ($expr = '<%!$eu(disabled)%>', $eu(disabled)) + '"/> 动态切换状态</label></div><div mxa="_zs_gallery::c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery::a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 14;
+    $p += '</div><div mxa="_zs_gallery::d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery::a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 25;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery::d" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 16;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery::e" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 27;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery::b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 19;
+    $line = 30;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" mx-click="outerChange()" class="btn btn-brand mr20"&gt;切换状态&lt;/a&gt;\n\n&lt;label class="mr20"&gt;\n    &lt;mx-checkbox name="test" value="2" \n        view-checked="&#123;&#123;=checked&#125;&#125;" \n        view-disabled="&#123;&#123;=disabled&#125;&#125;"\n        mx-change="innerChange()"/&gt;\n    动态切换状态\n&lt;/label&gt;\n</pre></div><div mxa="_zs_gallery::e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery::c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 33;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&#123;&#123;each list as group groupIndex&#125;&#125;\n&lt;div&gt;\n    &lt;label class="mr20 mb20"&gt;\n        &lt;mx-checkbox value="&#123;&#123;=group.value&#125;&#125;"\n            checked="&#123;&#123;=(group.type==3)&#125;&#125;" \n            indeterminate="&#123;&#123;=(group.type==2)&#125;&#125;" \n            mx-change="toggle(&#123;groupIndex:&#123;&#123;=groupIndex&#125;&#125;,subIndex:\'all\'&#125;)"/&gt;组&#123;&#123;=group.value&#125;&#125;\n    &lt;/label&gt;\n&lt;/div&gt;\n&lt;div&gt;\n    &#123;&#123;each group.subs as sub subIndex&#125;&#125;\n    &lt;label class="mr20 mb20"&gt;\n        &lt;mx-checkbox value="&#123;&#123;=sub.value&#125;&#125;"\n            checked="&#123;&#123;=sub.checked&#125;&#125;" \n            mx-change="toggle(&#123;groupIndex:&#123;&#123;=groupIndex&#125;&#125;,subIndex:&#123;&#123;=subIndex&#125;&#125;&#125;)"/&gt;&#123;&#123;=sub.value&#125;&#125;\n    &lt;/label&gt;\n    &#123;&#123;/each&#125;&#125;\n&lt;/div&gt;\n&#123;&#123;/each&#125;&#125;\n        </pre></div><div mxa="_zs_gallery::f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery::c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 54;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery::f" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 35;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery::k" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 56;
     $art = '!text2';
     ;
     $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallery::b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 38;
+    $line = 59;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            disabled: true,\n            checked: true\n        &#125;);\n    &#125;,\n    \'outerChange&lt;click&gt;\'() &#123;\n        let disabled = this.updater.get(\'disabled\'),\n            checked = this.updater.get(\'checked\');\n        this.updater.digest(&#123;\n            disabled: !disabled,\n            checked: !checked\n        &#125;);\n    &#125;,\n    \'innerChange&lt;change&gt;\'(e)&#123;\n        this.updater.digest(&#123;\n            checked: e.target.checked\n        &#125;)\n    &#125;\n&#125;);</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let list = [&#123;\n            value: 1,\n            subs: [&#123;\n                value: 11\n            &#125;,&#123;\n                value: 12\n            &#125;,&#123;\n                value: 13\n            &#125;]\n        &#125;,&#123;\n            value: 2,\n            subs: [&#123;\n                value: 21\n            &#125;,&#123;\n                value: 22\n            &#125;,&#123;\n                value: 23\n            &#125;]\n        &#125;]\n        this.updater.digest(&#123;\n            list\n        &#125;);\n    &#125;,\n    \'toggle&lt;change&gt;\'(e) &#123;\n        let checked = e.target.checked;\n        let groupIndex = e.params.groupIndex,\n            subIndex = e.params.subIndex;\n\n        let list = this.updater.get(\'list\');\n        list.forEach((group, gi) =&gt; &#123;\n            let checkes = [];\n            group.subs.forEach((sub, si) =&gt; &#123;\n                if((groupIndex == gi) && \n                    (subIndex == \'all\' || subIndex == si))&#123;\n                    sub.checked = checked;\n                &#125;\n\n                if(sub.checked)&#123;\n                    checkes.push(sub.value);\n                &#125;\n            &#125;)\n\n            // 1：全不选\n            // 2：部分选\n            // 3：全选\n            group.type = (checkes.length &gt; 0) ? ((checkes.length == group.subs.length) ? 3 : 2) : 1;\n        &#125;)\n\n        this.updater.digest(&#123;\n            list\n        &#125;)\n    &#125;\n&#125;);\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -67,21 +127,51 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
+        var list = [{
+                value: 1,
+                subs: [{
+                        value: 11
+                    }, {
+                        value: 12
+                    }, {
+                        value: 13
+                    }]
+            }, {
+                value: 2,
+                subs: [{
+                        value: 21
+                    }, {
+                        value: 22
+                    }, {
+                        value: 23
+                    }]
+            }];
         this.updater.digest({
-            disabled: true,
-            checked: true
+            list: list
         });
     },
-    'outerChange<click>': function () {
-        var disabled = this.updater.get('disabled'), checked = this.updater.get('checked');
-        this.updater.digest({
-            disabled: !disabled,
-            checked: !checked
+    'toggle<change>': function (e) {
+        var checked = e.target.checked;
+        var groupIndex = e.params.groupIndex, subIndex = e.params.subIndex;
+        var list = this.updater.get('list');
+        list.forEach(function (group, gi) {
+            var checkes = [];
+            group.subs.forEach(function (sub, si) {
+                if ((groupIndex == gi) &&
+                    (subIndex == 'all' || subIndex == si)) {
+                    sub.checked = checked;
+                }
+                if (sub.checked) {
+                    checkes.push(sub.value);
+                }
+            });
+            // 1：全不选
+            // 2：部分选
+            // 3：全选
+            group.type = (checkes.length > 0) ? ((checkes.length == group.subs.length) ? 3 : 2) : 1;
         });
-    },
-    'innerChange<change>': function (e) {
         this.updater.digest({
-            checked: e.target.checked
+            list: list
         });
     }
 });

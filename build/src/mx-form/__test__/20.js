@@ -25,15 +25,15 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerybv:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybv:a" class="_zs_gallery___test___layout_-eg-content clearfix"><div mxs="_zs_gallerybv:_" class="mb10 lh22"><div>class：form-6（左文字预留6个字符），支持4 ~ 10</div></div><form mxv mxa="_zs_gallerybv:b" class="form form-4"><div mxv mxa="_zs_gallerybv:c" class="form-item"><div mxs="_zs_gallerybv:a" class="form-label">请输入</div><div mxv mxa="_zs_gallerybv:d" class="form-content"><input mxs="_zs_gallerybv:b" class="input w200"/></div></div><div mxv mxa="_zs_gallerybv:e" class="form-item"><div mxs="_zs_gallerybv:a" class="form-label">请输入</div><div mxv mxa="_zs_gallerybv:f" class="form-content"><input mxs="_zs_gallerybv:b" class="input w200"/></div></div><div mxs="_zs_gallerybv:c" class="form-footer"><a href="javascript:;" class="btn w80 btn-brand mr20" mx-click="' + $viewId + 'confirm()">确定</a><a href="javascript:;" class="btn w80">取消</a></div></form></div><div mxa="_zs_gallerybv:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybv:d" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxv mxa="_zs_gallerybw:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybw:a" class="_zs_gallery___test___layout_-eg-content clearfix"><div mxs="_zs_gallerybw:_" class="mb10 lh22"><div>class：form-6（左文字预留6个字符），支持4 ~ 10</div></div><form mxv mxa="_zs_gallerybw:b" class="form form-4"><div mxv mxa="_zs_gallerybw:c" class="form-item"><div mxs="_zs_gallerybw:a" class="form-label">请输入</div><div mxv mxa="_zs_gallerybw:d" class="form-content"><input mxs="_zs_gallerybw:b" class="input w200"/></div></div><div mxv mxa="_zs_gallerybw:e" class="form-item"><div mxs="_zs_gallerybw:a" class="form-label">请输入</div><div mxv mxa="_zs_gallerybw:f" class="form-content"><input mxs="_zs_gallerybw:b" class="input w200"/></div></div><div mxs="_zs_gallerybw:c" class="form-footer"><a href="javascript:;" class="btn w80 btn-brand mr20" mx-click="' + $viewId + 'confirm()">确定</a><a href="javascript:;" class="btn w80">取消</a></div></form></div><div mxa="_zs_gallerybw:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybw:d" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 28;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybv:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybw:h" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 30;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybv:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybw:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 33;
     $art = '=viewId';
     ;

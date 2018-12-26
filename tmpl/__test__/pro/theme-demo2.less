@@ -137,17 +137,25 @@
 
     .demo-btn {
         border-radius: 16px;
+        border-color: @test-color-brand;
+        background-color: @test-color-brand-opacity;
+
+        &:hover,
+        &.hover,
+        &:active {
+            color: @test-color-brand;
+        }
        
         &.demo-btn-brand{
+            color: #fff;
             border-color: @test-color-brand;
             background-color: @test-color-brand;
-            background-image: linear-gradient(to right, @test-color-brand, @test-color-brand);
             &:hover,
             &.hover,
             &:active {
+                color: #fff;
                 border-color: @test-color-brand-hover;
                 background-color: @test-color-brand-hover;
-                background-image: linear-gradient(to right, @test-color-brand-hover, @test-color-brand-hover);
             }
         }
     }

@@ -2,6 +2,7 @@ let Magix = require('magix');
 let $ = require('$');
 
 module.exports = Magix.View.extend({
+    tmpl: '@index.html',
     init(extra) {
         //初始化时保存一份当前数据的快照
         this.updater.snapshot();
@@ -19,7 +20,10 @@ module.exports = Magix.View.extend({
         that.updater.set({
             checked,
             disabled,
-            indeterminate
+            indeterminate,
+            name: extra.name || '',
+            id: extra.id || '',
+            value: extra.value || ''
         })
 
         if (!altered) {
@@ -34,11 +38,11 @@ module.exports = Magix.View.extend({
     },
     render(){
         this.updater.digest({});
-
-        let data = this.updater.get();
-        let node = $('#' + this.id);
-        ['checked', 'disabled', 'indeterminate'].forEach(key => {
-            node.prop(key, data[key]);
+    },
+    '@{change}<change>'(e){
+        this.updater.digest({
+            checked: e.target.checked,
+            indeterminate: false
         })
     }
 });

@@ -119,7 +119,8 @@ input[type="checkbox"],
         border-color: @color-brand;
     }
 
-    &:checked {
+    &:checked,
+    &.checked {
         border-color: @color-brand;
         background-color: @color-brand;
         &:after {
@@ -134,15 +135,19 @@ input[type="checkbox"],
         }
     }
     
-    &:disabled {
+    &:disabled,
+    &.disabled {
         border-color: @color-border;
         background-color: @color-bg;
-        &:checked{
+        &:checked,
+        &.checked{
             border-color: #ccc;
             background-color: #ccc;
         }
     }
-    &:indeterminate {
+
+    &:indeterminate,
+    &.indeterminate {
         background-color: @color-brand;
         border-color: @color-brand;
         &:after {
@@ -153,7 +158,8 @@ input[type="checkbox"],
             margin: 40% auto;
             background-color: #fff;
         }
-        &:disabled{
+        &:disabled,
+        &.disabled{
             border-color: #ccc;
             background-color: #ccc;
         }
