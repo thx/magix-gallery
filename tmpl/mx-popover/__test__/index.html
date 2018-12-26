@@ -43,6 +43,9 @@
             name: '滚动定位',
             key: viewId + '_demo11'
         }, {
+            name: 'tag=a & dark',
+            key: viewId + '_demo13'
+        }, {
             name: '影响CSSOM',
             key: viewId + '_demo12'
         }]
@@ -65,7 +68,7 @@
             <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
         </div>
     </div>
-    
+        
     <mx-title.second content="API" id="{{=viewId}}_api"/>
     <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
 
@@ -76,6 +79,7 @@
         </div>
         <div class="half">
             <div mx-view="@./12" id="{{=viewId}}_demo12"></div>
+            <div mx-view="@./13" id="{{=viewId}}_demo13"></div>
         </div>
     </div>
 </div>
