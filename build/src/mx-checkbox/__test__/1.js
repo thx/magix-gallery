@@ -60,27 +60,7 @@ module.exports = Base.extend({
     $line = 48;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;label class="mr20 mb20"&gt;\n    &lt;mx-checkbox name="';
-    $line = 50;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test" value="1"\n        checked="true"/&gt;\n    选中状态\n&lt;/label&gt;\n\n&lt;label class="mr20 mb20"&gt;\n    &lt;mx-checkbox name="';
-    $line = 56;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test" value="2" \n        checked="true" \n        disabled="true"/&gt;\n    选中禁选状态\n&lt;/label&gt;\n\n&lt;label class="mr20 mb20"&gt;\n    &lt;mx-checkbox name="';
-    $line = 63;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test" value="3"\n        disabled="true"/&gt;\n    禁止选择\n&lt;/label&gt;\n\n&lt;label class="mr20 mb20"&gt;\n    &lt;mx-checkbox name="';
-    $line = 69;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test" value="4"/&gt;\n    普通checkbox\n&lt;/label&gt;\n\n&lt;label class="mr20 mb20"&gt;\n    &lt;mx-checkbox name="';
-    $line = 74;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test" value="5"\n        indeterminate="true"/&gt;\n    indeterminate\n&lt;/label&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;label class="mr20"&gt;\n    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="1"\n        checked="true"/&gt;\n    选中\n&lt;/label&gt;\n\n&lt;label class="mr20"&gt;\n    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="2" \n        checked="true" \n        disabled="true"/&gt;\n    选中禁选\n&lt;/label&gt;\n\n&lt;label class="mr20"&gt;\n    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="3"/&gt;\n    非选中\n&lt;/label&gt;\n\n&lt;label class="mr20"&gt;\n    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="4" \n        disabled="true"/&gt;\n    非选中禁选\n&lt;/label&gt;\n\n&lt;label class="mr20"&gt;\n    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="5"\n        indeterminate="true"/&gt;\n    indeterminate\n&lt;/label&gt;\n\n&lt;label class="mr20"&gt;\n    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="6" \n        indeterminate="true" \n        disabled="true"/&gt;\n    indeterminate禁选\n&lt;/label&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

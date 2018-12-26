@@ -22,7 +22,6 @@ module.exports = Magix.View.extend({
             disabled,
             indeterminate,
             name: extra.name || '',
-            id: extra.id || '',
             value: extra.value || ''
         })
 

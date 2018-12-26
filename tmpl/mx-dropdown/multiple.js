@@ -137,9 +137,13 @@ module.exports = Magix.View.extend({
                 if (item.checked) {
                     checkes.push(item.value);
                 }
-            })
+            })  
 
-            group.checked = (checkes.length > 0) && (checkes.length == group.list.length);
+            // type: 
+            // 1：全不选
+            // 2：部分
+            // 3：全选
+            group.type = (checkes.length > 0) ? ((checkes.length == group.list.length) ? 3 : 2) : 1;
         })
         me.updater.set({
             hasGroups,
@@ -247,7 +251,8 @@ module.exports = Magix.View.extend({
                         checkes.push(item.value);
                     }
                 })
-                group.checked = (checkes.length > 0) && (checkes.length == group.list.length);
+
+                group.type = (checkes.length > 0) ? ((checkes.length == group.list.length) ? 3 : 2) : 1;
             })
 
             me.updater.digest({
@@ -457,7 +462,7 @@ module.exports = Magix.View.extend({
                     checkes.push(item.value);
                 }
             })
-            group.checked = (checkes.length > 0) && (checkes.length == group.list.length);
+            group.type = (checkes.length > 0) ? ((checkes.length == group.list.length) ? 3 : 2) : 1;
             newImme = newImme.concat(checkes);
         })
 

@@ -20,7 +20,7 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', indeterminate = $$.indeterminate, checked = $$.checked, disabled = $$.disabled, name = $$.name, value = $$.value, id = $$.id; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', indeterminate = $$.indeterminate, checked = $$.checked, disabled = $$.disabled, name = $$.name, value = $$.value; var $expr, $art, $line; try {
     $p += '<input type="checkbox" class="';
     $line = 2;
     $art = 'if indeterminate';
@@ -71,11 +71,7 @@ module.exports = Magix.View.extend({
     $line = 6;
     $art = '=value';
     ;
-    $p += ($expr = '<%=value%>', $e(value)) + '" id="';
-    $line = 7;
-    $art = '=id';
-    ;
-    $p += ($expr = '<%=id%>', $e(id)) + '" mx-change="' + $viewId + '@{change}()"/>';
+    $p += ($expr = '<%=value%>', $e(value)) + '" mx-change="' + $viewId + '@{change}()"/>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -101,7 +97,6 @@ catch (ex) {
             disabled: disabled,
             indeterminate: indeterminate,
             name: extra.name || '',
-            id: extra.id || '',
             value: extra.value || ''
         });
         if (!altered) {

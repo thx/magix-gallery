@@ -3,9 +3,9 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-dropdown/multiple",["magix","$","../mx-monitor/index","../mx-medusa/util"],(require,exports,module)=>{
+define("mx-dropdown/multiple",["magix","$","../mx-monitor/index","../mx-medusa/util","mx-checkbox/index"],(require,exports,module)=>{
 /*Magix,$,Monitor,I18n*/
-
+require("mx-checkbox/index");
 var Magix = require("magix");
 var $ = require("$");
 var Monitor = require("../mx-monitor/index");
@@ -263,8 +263,8 @@ module.exports = Magix.View.extend({
         $line = 45;
         $art = 'each groups as group groupIndex';
         ;
-        $expr = '<%for (var groupIndex = 0, $art_cellwxbrht$art_c = groups.length; groupIndex < $art_cellwxbrht$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
-        for (var groupIndex = 0, $art_cellwxbrht$art_c = groups.length; groupIndex < $art_cellwxbrht$art_c; groupIndex++) {
+        $expr = '<%for (var groupIndex = 0, $art_cyvlswlkgj$art_c = groups.length; groupIndex < $art_cyvlswlkgj$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
+        for (var groupIndex = 0, $art_cyvlswlkgj$art_c = groups.length; groupIndex < $art_cyvlswlkgj$art_c; groupIndex++) {
             var group = groups[groupIndex];
             $p += ' ';
             $line = 46;
@@ -280,55 +280,11 @@ module.exports = Magix.View.extend({
                 $expr = '<%if (group.all) {%>';
                 if (group.all) {
                     ;
-                    $p += '<div mxv title="';
+                    $p += '<div title="';
                     $line = 48;
                     $art = '=group.text';
                     ;
-                    $p += ($expr = '<%=group.text%>', $e(group.text)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-item _zs_gallery_mx-dropdown_index_-dropdown-header-item"><label mxv for="';
-                    $line = 49;
-                    $art = '=viewId';
-                    ;
-                    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
-                    $line = 49;
-                    $art = '=group.value';
-                    ;
-                    $p += ($expr = '<%=group.value%>', $e(group.value)) + '" class="_zs_gallery_mx-dropdown_index_-item-link ellipsis"><input type="checkbox" class="checkbox" ';
-                    $line = 51;
-                    $art = 'if (max > 0) && (imme.length >= max)';
-                    ;
-                    $expr = '<%if ((max > 0) && (imme.length >= max)) {%>';
-                    if ((max > 0) && (imme.length >= max)) {
-                        ;
-                        $p += ' disabled="true" ';
-                        $line = 51;
-                        $art = '/if';
-                        ;
-                        $expr = '<%}%>';
-                    }
-                    ;
-                    $p += ' ';
-                    $line = 52;
-                    $art = 'if group.checked';
-                    ;
-                    $expr = '<%if (group.checked) {%>';
-                    if (group.checked) {
-                        ;
-                        $p += ' checked="true" ';
-                        $line = 52;
-                        $art = '/if';
-                        ;
-                        $expr = '<%}%>';
-                    }
-                    ;
-                    $p += ' id="';
-                    $line = 53;
-                    $art = '=viewId';
-                    ;
-                    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
-                    $line = 53;
-                    $art = '=group.value';
-                    ;
-                    $p += ($expr = '<%=group.value%>', $e(group.value)) + '" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{checkGroup}({groupIndex:\'';
+                    $p += ($expr = '<%=group.text%>', $e(group.text)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-item _zs_gallery_mx-dropdown_index_-dropdown-header-item"><label mxa="_zs_galleryaY:i" class="_zs_gallery_mx-dropdown_index_-item-link ellipsis"><span mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{checkGroup}({groupIndex:\'';
                     $line = 55;
                     $art = '=groupIndex';
                     ;
@@ -336,7 +292,19 @@ module.exports = Magix.View.extend({
                     $line = 56;
                     $art = '=spm';
                     ;
-                    $p += ($expr = '<%=spm%>', $e(spm)) + '"/>';
+                    $p += ($expr = '<%=spm%>', $e(spm)) + '" mx-view="mx-checkbox/index?disabled=';
+                    $line = 51;
+                    $art = '=((max > 0) && (imme.length >= max))';
+                    ;
+                    $p += ($expr = '<%!$eu(((max > 0) && (imme.length >= max)))%>', $eu(((max > 0) && (imme.length >= max)))) + '&indeterminate=';
+                    $line = 52;
+                    $art = '=(group.type==2)';
+                    ;
+                    $p += ($expr = '<%!$eu((group.type == 2))%>', $eu((group.type == 2))) + '&checked=';
+                    $line = 53;
+                    $art = '=(group.type==3)';
+                    ;
+                    $p += ($expr = '<%!$eu((group.type == 3))%>', $eu((group.type == 3))) + '"></span>';
                     $line = 56;
                     $art = '=group.text';
                     ;
@@ -374,9 +342,9 @@ module.exports = Magix.View.extend({
             $line = 64;
             $art = 'each group.list as item';
             ;
-            $expr = '<%for (var $art_ijszqw$art_i = 0, $art_objvqkhxufr$art_obj = group.list, $art_cbuggmb$art_c = $art_objvqkhxufr$art_obj.length; $art_ijszqw$art_i < $art_cbuggmb$art_c; $art_ijszqw$art_i++) {            var item = $art_objvqkhxufr$art_obj[$art_ijszqw$art_i]%>';
-            for (var $art_ijszqw$art_i = 0, $art_objvqkhxufr$art_obj = group.list, $art_cbuggmb$art_c = $art_objvqkhxufr$art_obj.length; $art_ijszqw$art_i < $art_cbuggmb$art_c; $art_ijszqw$art_i++) {
-                var item = $art_objvqkhxufr$art_obj[$art_ijszqw$art_i];
+            $expr = '<%for (var $art_iqjysa$art_i = 0, $art_objqcqpkvlk$art_obj = group.list, $art_cflqtrttcg$art_c = $art_objqcqpkvlk$art_obj.length; $art_iqjysa$art_i < $art_cflqtrttcg$art_c; $art_iqjysa$art_i++) {            var item = $art_objqcqpkvlk$art_obj[$art_iqjysa$art_i]%>';
+            for (var $art_iqjysa$art_i = 0, $art_objqcqpkvlk$art_obj = group.list, $art_cflqtrttcg$art_c = $art_objqcqpkvlk$art_obj.length; $art_iqjysa$art_i < $art_cflqtrttcg$art_c; $art_iqjysa$art_i++) {
+                var item = $art_objqcqpkvlk$art_obj[$art_iqjysa$art_i];
                 $p += ' ';
                 $line = 65;
                 $art = 'if !item.hide';
@@ -623,7 +591,11 @@ catch (ex) {
                     checkes.push(item.value);
                 }
             });
-            group.checked = (checkes.length > 0) && (checkes.length == group.list.length);
+            // type: 
+            // 1：全不选
+            // 2：部分
+            // 3：全选
+            group.type = (checkes.length > 0) ? ((checkes.length == group.list.length) ? 3 : 2) : 1;
         });
         me.updater.set({
             hasGroups: hasGroups,
@@ -727,7 +699,7 @@ catch (ex) {
                         checkes.push(item.value);
                     }
                 });
-                group.checked = (checkes.length > 0) && (checkes.length == group.list.length);
+                group.type = (checkes.length > 0) ? ((checkes.length == group.list.length) ? 3 : 2) : 1;
             });
             me.updater.digest({
                 groups: groups,
@@ -912,7 +884,7 @@ catch (ex) {
                     checkes.push(item.value);
                 }
             });
-            group.checked = (checkes.length > 0) && (checkes.length == group.list.length);
+            group.type = (checkes.length > 0) ? ((checkes.length == group.list.length) ? 3 : 2) : 1;
             newImme = newImme.concat(checkes);
         });
         me.updater.digest({

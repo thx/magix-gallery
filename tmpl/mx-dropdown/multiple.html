@@ -46,11 +46,11 @@
             {{if (group.text && !group.hide)}}
                 {{if group.all}}
                     <div title="{{=group.text}}" class="dropdown-item dropdown-header-item">
-                        <label for="{{=viewId}}_{{=group.value}}" class="item-link ellipsis">
-                            <input type="checkbox" class="checkbox" 
-                                {{if (max > 0) && (imme.length >= max)}} disabled="true" {{/if}}
-                                {{if group.checked}} checked="true" {{/if}}
-                                id="{{=viewId}}_{{=group.value}}"
+                        <label class="item-link ellipsis">
+                            <mx-checkbox 
+                                disabled="{{=((max > 0) && (imme.length >= max))}}"
+                                indeterminate="{{=(group.type==2)}}"
+                                checked="{{=(group.type==3)}}"
                                 mx-focusout="@{stop}()"
                                 mx-change="@{checkGroup}({groupIndex:'{{=groupIndex}}'})" 
                                 data-spm-click="{{=spm}}"/>{{=group.text}}

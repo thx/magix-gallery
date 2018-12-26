@@ -46,34 +46,42 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;label class="mr20 mb20"&gt;
-    &lt;mx-checkbox name="{{=viewId}}_test" value="1"
+&lt;label class="mr20"&gt;
+    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="1"
         checked="true"/&gt;
-    选中状态
+    选中
 &lt;/label&gt;
 
-&lt;label class="mr20 mb20"&gt;
-    &lt;mx-checkbox name="{{=viewId}}_test" value="2" 
+&lt;label class="mr20"&gt;
+    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="2" 
         checked="true" 
         disabled="true"/&gt;
-    选中禁选状态
+    选中禁选
 &lt;/label&gt;
 
-&lt;label class="mr20 mb20"&gt;
-    &lt;mx-checkbox name="{{=viewId}}_test" value="3"
+&lt;label class="mr20"&gt;
+    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="3"/&gt;
+    非选中
+&lt;/label&gt;
+
+&lt;label class="mr20"&gt;
+    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="4" 
         disabled="true"/&gt;
-    禁止选择
+    非选中禁选
 &lt;/label&gt;
 
-&lt;label class="mr20 mb20"&gt;
-    &lt;mx-checkbox name="{{=viewId}}_test" value="4"/&gt;
-    普通checkbox
-&lt;/label&gt;
-
-&lt;label class="mr20 mb20"&gt;
-    &lt;mx-checkbox name="{{=viewId}}_test" value="5"
+&lt;label class="mr20"&gt;
+    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="5"
         indeterminate="true"/&gt;
     indeterminate
-&lt;/label&gt;</pre>
+&lt;/label&gt;
+
+&lt;label class="mr20"&gt;
+    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="6" 
+        indeterminate="true" 
+        disabled="true"/&gt;
+    indeterminate禁选
+&lt;/label&gt;
+        </pre>
     </div>
 </div>

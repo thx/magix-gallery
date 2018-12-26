@@ -79,11 +79,6 @@ catch (ex) {
                     type: 'string',
                     def: ''
                 }, {
-                    key: 'id',
-                    desc: 'checkbox 的 id',
-                    type: 'string',
-                    def: ''
-                }, {
                     key: 'value',
                     desc: 'checkbox 的 value 属性的值',
                     type: 'string',
