@@ -58,7 +58,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        z-index: -2;
+        z-index: 1;
         width: 100%;
         height: 100%;
         border-radius: @border-radius;
@@ -87,12 +87,17 @@
         line-height: @switch-height;
         border-radius: @border-radius;
     }
-    
+
+    .text{
+        position: relative;
+        z-index: 3;
+    }
+
     .switch-icon {
         position: absolute;
         top: 0;
         left: 50%;
-        z-index: -1;
+        z-index: 2;
         background-image: linear-gradient(to right, @btn-brand, @btn-brand-gradient);
         background-image: -webkit-linear-gradient(left, @btn-brand, @btn-brand-gradient);
         background-image: -o-linear-gradient(right, @btn-brand, @btn-brand-gradient);
