@@ -81,11 +81,11 @@ module.exports = Base.extend({
     $line = 10;
     $art = ':email{email:[true, \'只支持qq邮箱\', [\'qq.com\']]}';
     ;
-    $p += ($expr = '<%=email%>', $e(email)) + '"/></div></div><div mxa="_zs_gallerybl:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybl:_" class="_zs_gallery___test___layout_-eg-title">常用校验</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=email%>', $e(email)) + '"/></div></div><div mxa="_zs_gallerybl:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybl:_" class="_zs_gallery___test___layout_-eg-title">常用校验</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 15;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybl:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybl:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 17;
     $art = '!text1';
     ;

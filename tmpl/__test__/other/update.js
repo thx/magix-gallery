@@ -6,6 +6,38 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.6',
+            time: '2018-12-27',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-form支持email校验，包括指定邮箱的校验'
+                }, {
+                    title: 'mx-loading支持自定义padding，example：&lt;mx-loading padding="40px" /&gt;'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-dialog：修复存在滚动条的情况下，打开浮层页面抖动问题'
+                },{
+                    title: 'mx-popover',
+                    subs: [
+                        '异常情况说明：tag="a"时，a标签的原生属性type与组件定义的type冲突，此时若设置type="dark"失效',
+                        '如何解决：请使用 <span class="color-brand">view-type</span> 与原生属性type区分来解决该问题'
+                    ]
+                }]
+            }, {
+                type: 'notice',
+                title: '实现调整',
+                subs: [{
+                    title: '去掉magix combine里的mxMap配置，打散到组件的_config中'
+                }, {
+                    title: 'mx-checkbox，包装indeterminate状态调整为只负责对样式进行控制，不修改属性；组件内取消dom操作，避免状态不一致。<a href="#!/checkbox/index" class="color-brand">查看详情</a>'
+                }, {
+                    title: 'mx-dropdown.multiple中分组批量选择checkbox调整为mx-checkbox，保留中间态，优化交互'
+                }]
+            }]
+        }, {
             ver: '1.2.5',
             time: '2018-12-24',
             subs: [{

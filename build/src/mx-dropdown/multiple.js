@@ -263,8 +263,8 @@ module.exports = Magix.View.extend({
         $line = 45;
         $art = 'each groups as group groupIndex';
         ;
-        $expr = '<%for (var groupIndex = 0, $art_cyvlswlkgj$art_c = groups.length; groupIndex < $art_cyvlswlkgj$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
-        for (var groupIndex = 0, $art_cyvlswlkgj$art_c = groups.length; groupIndex < $art_cyvlswlkgj$art_c; groupIndex++) {
+        $expr = '<%for (var groupIndex = 0, $art_cchbjvzoi$art_c = groups.length; groupIndex < $art_cchbjvzoi$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
+        for (var groupIndex = 0, $art_cchbjvzoi$art_c = groups.length; groupIndex < $art_cchbjvzoi$art_c; groupIndex++) {
             var group = groups[groupIndex];
             $p += ' ';
             $line = 46;
@@ -284,7 +284,7 @@ module.exports = Magix.View.extend({
                     $line = 48;
                     $art = '=group.text';
                     ;
-                    $p += ($expr = '<%=group.text%>', $e(group.text)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-item _zs_gallery_mx-dropdown_index_-dropdown-header-item"><label mxa="_zs_galleryaY:i" class="_zs_gallery_mx-dropdown_index_-item-link ellipsis"><span mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{checkGroup}({groupIndex:\'';
+                    $p += ($expr = '<%=group.text%>', $e(group.text)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-item _zs_gallery_mx-dropdown_index_-dropdown-header-item"><label mxa="_zs_galleryaY:e" class="_zs_gallery_mx-dropdown_index_-item-link ellipsis"><span mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{checkGroup}({groupIndex:\'';
                     $line = 55;
                     $art = '=groupIndex';
                     ;
@@ -338,13 +338,13 @@ module.exports = Magix.View.extend({
                 $expr = '<%}%>';
             }
             ;
-            $p += '<div mxv mxa="_zs_galleryaY:e" class="clearfix _zs_gallery_mx-dropdown_index_-group-wrapper">';
+            $p += '<div mxv mxa="_zs_galleryaY:f" class="clearfix _zs_gallery_mx-dropdown_index_-group-wrapper">';
             $line = 64;
             $art = 'each group.list as item';
             ;
-            $expr = '<%for (var $art_iqjysa$art_i = 0, $art_objqcqpkvlk$art_obj = group.list, $art_cflqtrttcg$art_c = $art_objqcqpkvlk$art_obj.length; $art_iqjysa$art_i < $art_cflqtrttcg$art_c; $art_iqjysa$art_i++) {            var item = $art_objqcqpkvlk$art_obj[$art_iqjysa$art_i]%>';
-            for (var $art_iqjysa$art_i = 0, $art_objqcqpkvlk$art_obj = group.list, $art_cflqtrttcg$art_c = $art_objqcqpkvlk$art_obj.length; $art_iqjysa$art_i < $art_cflqtrttcg$art_c; $art_iqjysa$art_i++) {
-                var item = $art_objqcqpkvlk$art_obj[$art_iqjysa$art_i];
+            $expr = '<%for (var $art_idaifevn$art_i = 0, $art_objkepjjyonbl$art_obj = group.list, $art_ceaolenic$art_c = $art_objkepjjyonbl$art_obj.length; $art_idaifevn$art_i < $art_ceaolenic$art_c; $art_idaifevn$art_i++) {            var item = $art_objkepjjyonbl$art_obj[$art_idaifevn$art_i]%>';
+            for (var $art_idaifevn$art_i = 0, $art_objkepjjyonbl$art_obj = group.list, $art_ceaolenic$art_c = $art_objkepjjyonbl$art_obj.length; $art_idaifevn$art_i < $art_ceaolenic$art_c; $art_idaifevn$art_i++) {
+                var item = $art_objkepjjyonbl$art_obj[$art_idaifevn$art_i];
                 $p += ' ';
                 $line = 65;
                 $art = 'if !item.hide';
@@ -437,11 +437,11 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxa="_zs_galleryaY:f" class="_zs_gallery_mx-dropdown_index_-footer-wrapper"><button mxa="_zs_galleryaY:g" type="button" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}({enter:true})">';
+        $p += '</div><div mxa="_zs_galleryaY:g" class="_zs_gallery_mx-dropdown_index_-footer-wrapper"><button mxa="_zs_galleryaY:h" type="button" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}({enter:true})">';
         $line = 83;
         $art = '=text.submit';
         ;
-        $p += ($expr = '<%=text.submit%>', $e(text.submit)) + '</button><button mxa="_zs_galleryaY:h" type="button" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
+        $p += ($expr = '<%=text.submit%>', $e(text.submit)) + '</button><button mxa="_zs_galleryaY:i" type="button" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
         $line = 84;
         $art = '=text.cancel';
         ;

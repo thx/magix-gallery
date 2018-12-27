@@ -4,7 +4,6 @@ let Vframe = Magix.Vframe;
 let I18n = require('../mx-medusa/util');
 Magix.applyStyle('@index.less');
 
-let Win = $(window);
 let DialogZIndex = 500;
 let Duration = 250;
 
@@ -56,7 +55,7 @@ module.exports = Magix.View.extend({
 
             let cntId = data.cntId;
             if(data.full){
-                let h = $(window).height();
+                let h = window.innerHeight;
                 let fh = $('#' + cntId + '_header'),
                     ff = $('#' + cntId + '_footer');
                 if(fh && fh.length){
@@ -68,8 +67,8 @@ module.exports = Magix.View.extend({
 
                 // 全屏右出浮层
                 $('#' + cntId).css({
-                    'height': h - 2, 
-                    'overflow-y': 'auto'
+                    height: h - 2, 
+                    overflowY: 'auto'
                 });
             }
 
@@ -172,10 +171,15 @@ module.exports = Magix.View.extend({
         $(document.body).append(wrapper);
 
         // 禁止body滚动
-        $(document.body).addClass('@index.less:modal');
-        if (options.modal) {
-            wrapper.addClass('@index.less:modal');
+        // 有滚动条的时候，加上右padding，防止页面抖动
+        if(window.innerWidth - document.body.clientWidth > 0){
+            document.body.style.paddingRight = (window.innerWidth - document.body.clientWidth) + 'px';
         }
+        document.body.style.overflowY = 'hidden';
+
+        wrapper.css({
+            overflowY: options.modal ? 'hidden' : 'auto'
+        });
 
         let vf = view.owner.mountVframe(id, '@moduleId', options);
         let node = $('#' + id);
@@ -207,7 +211,10 @@ module.exports = Magix.View.extend({
                                 $('#mask_' + id).remove();
 
                                 // 有浮层展开的情况下，body都不可滚动
-                                $(document.body)[(CacheList.length == 0) ? 'removeClass' : 'addClass']('@index.less:modal');
+                                if(CacheList.length == 0){
+                                    document.body.style.paddingRight = '';
+                                    document.body.style.overflowY = '';
+                                }
                             }, Duration);
                         };
                         let e = {
@@ -365,9 +372,9 @@ module.exports = Magix.View.extend({
             cancelText: I18n['dialog.cancel']
         }, dialogOptions.footer || {})
 
-        let winWidth = $(window).width(),
-            winHeight = $(window).height();
-        
+        let winWidth = window.innerWidth,
+            winHeight = window.innerHeight;
+
         let left = Math.max(winWidth - dialogOptions.width, 0),
             top = 0;
         Magix.mix(dialogOptions, {
@@ -375,7 +382,7 @@ module.exports = Magix.View.extend({
             fullHeader,
             fullFooter,
             modal: false,
-            height: $(window).height(),
+            height: winHeight,
             left,
             top,
             posFrom: {
@@ -460,8 +467,8 @@ module.exports = Magix.View.extend({
                 modal: false,
                 width: width,
                 closable: true,
-                left: (Win.width() - width) / 2,
-                top: Math.max((Win.height() - height) / 2, 0),
+                left: (window.innerWidth - width) / 2,
+                top: Math.max((window.innerHeight - height) / 2, 0),
                 posFrom: {
                     opacity: 0,
                     top: '-50px'

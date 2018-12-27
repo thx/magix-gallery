@@ -10,8 +10,7 @@ var Magix = require("magix");
 var $ = require("$");
 var Vframe = Magix.Vframe;
 var I18n = require("../mx-medusa/util");
-Magix.applyStyle("_zs_gallery_mx-dialog_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-dialog_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-dialog_index_-dialog-backdrop,\n._zs_gallery_mx-dialog_index_-dialog-wrapper {\n  position: fixed;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop {\n  opacity: 0;\n  top: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop._zs_gallery_mx-dialog_index_-backdrop-out {\n  opacity: 1;\n}\n._zs_gallery_mx-dialog_index_-dialog-wrapper {\n  overflow-y: auto;\n}\n._zs_gallery_mx-dialog_index_-dialog {\n  position: absolute;\n  border-radius: 4px;\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-content {\n  position: relative;\n  word-break: break-all;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close {\n  position: absolute;\n  top: 18px;\n  right: 20px;\n  width: 26px;\n  height: 26px;\n  z-index: 20;\n  border-radius: 50%;\n  background: transparent;\n  color: #ccc;\n  text-align: center;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close ._zs_gallery_mx-dialog_index_-iconfont-ext {\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 26px;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:hover,\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:focus {\n  background-color: #999;\n  color: #fff;\n}\n._zs_gallery_mx-dialog_index_-modal {\n  overflow-y: hidden;\n}\n._zs_gallery_mx-dialog_index_-btn-submit {\n  position: relative;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 1;\n  position: relative;\n  z-index: 1;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: none;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 2;\n  margin-top: -2px;\n  margin-left: -2px;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: inline;\n}\n");
-var Win = $(window);
+Magix.applyStyle("_zs_gallery_mx-dialog_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-dialog_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-dialog_index_-dialog-backdrop,\n._zs_gallery_mx-dialog_index_-dialog-wrapper {\n  position: fixed;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop {\n  opacity: 0;\n  top: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop._zs_gallery_mx-dialog_index_-backdrop-out {\n  opacity: 1;\n}\n._zs_gallery_mx-dialog_index_-dialog {\n  position: absolute;\n  border-radius: 4px;\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-content {\n  position: relative;\n  word-break: break-all;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close {\n  position: absolute;\n  top: 18px;\n  right: 20px;\n  width: 26px;\n  height: 26px;\n  z-index: 20;\n  border-radius: 50%;\n  background: transparent;\n  color: #ccc;\n  text-align: center;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close ._zs_gallery_mx-dialog_index_-iconfont-ext {\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 26px;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:hover,\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:focus {\n  background-color: #999;\n  color: #fff;\n}\n._zs_gallery_mx-dialog_index_-btn-submit {\n  position: relative;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 1;\n  position: relative;\n  z-index: 1;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: none;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 2;\n  margin-top: -2px;\n  margin-left: -2px;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: inline;\n}\n");
 var DialogZIndex = 500;
 var Duration = 250;
 var CacheList = [];
@@ -209,7 +208,7 @@ catch (ex) {
             wrapper.css(data.posTo);
             var cntId = data.cntId;
             if (data.full) {
-                var h = $(window).height();
+                var h = window.innerHeight;
                 var fh = $('#' + cntId + '_header'), ff = $('#' + cntId + '_footer');
                 if (fh && fh.length) {
                     h -= fh.outerHeight();
@@ -219,8 +218,8 @@ catch (ex) {
                 }
                 // 全屏右出浮层
                 $('#' + cntId).css({
-                    'height': h - 2,
-                    'overflow-y': 'auto'
+                    height: h - 2,
+                    overflowY: 'auto'
                 });
             }
             var mask = $('#mask_' + me.id);
@@ -305,10 +304,14 @@ catch (ex) {
         wrapper.css(options.posFrom);
         $(document.body).append(wrapper);
         // 禁止body滚动
-        $(document.body).addClass('_zs_gallery_mx-dialog_index_-modal');
-        if (options.modal) {
-            wrapper.addClass('_zs_gallery_mx-dialog_index_-modal');
+        // 有滚动条的时候，加上右padding，防止页面抖动
+        if (window.innerWidth - document.body.clientWidth > 0) {
+            document.body.style.paddingRight = (window.innerWidth - document.body.clientWidth) + 'px';
         }
+        document.body.style.overflowY = 'hidden';
+        wrapper.css({
+            overflowY: options.modal ? 'hidden' : 'auto'
+        });
         var vf = view.owner.mountVframe(id, 'mx-dialog/index', options);
         var node = $('#' + id);
         var suspend;
@@ -334,7 +337,10 @@ catch (ex) {
                                 $('#wrapper_' + id).remove();
                                 $('#mask_' + id).remove();
                                 // 有浮层展开的情况下，body都不可滚动
-                                $(document.body)[(CacheList.length == 0) ? 'removeClass' : 'addClass']('_zs_gallery_mx-dialog_index_-modal');
+                                if (CacheList.length == 0) {
+                                    document.body.style.paddingRight = '';
+                                    document.body.style.overflowY = '';
+                                }
                             }, Duration);
                         };
                         var e_1 = {
@@ -486,14 +492,14 @@ catch (ex) {
             cancel: true,
             cancelText: I18n['dialog.cancel']
         }, dialogOptions.footer || {});
-        var winWidth = $(window).width(), winHeight = $(window).height();
+        var winWidth = window.innerWidth, winHeight = window.innerHeight;
         var left = Math.max(winWidth - dialogOptions.width, 0), top = 0;
         Magix.mix(dialogOptions, {
             full: true,
             fullHeader: fullHeader,
             fullFooter: fullFooter,
             modal: false,
-            height: $(window).height(),
+            height: winHeight,
             left: left,
             top: top,
             posFrom: {
@@ -569,8 +575,8 @@ catch (ex) {
                 modal: false,
                 width: width,
                 closable: true,
-                left: (Win.width() - width) / 2,
-                top: Math.max((Win.height() - height) / 2, 0),
+                left: (window.innerWidth - width) / 2,
+                top: Math.max((window.innerHeight - height) / 2, 0),
                 posFrom: {
                     opacity: 0,
                     top: '-50px'

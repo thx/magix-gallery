@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iqkpeod$art_i = 0, $art_cbwbqm$art_c = list.length; $art_iqkpeod$art_i < $art_cbwbqm$art_c; $art_iqkpeod$art_i++) {    var item = list[$art_iqkpeod$art_i]%>';
-    for (var $art_iqkpeod$art_i = 0, $art_cbwbqm$art_c = list.length; $art_iqkpeod$art_i < $art_cbwbqm$art_c; $art_iqkpeod$art_i++) {
-        var item = list[$art_iqkpeod$art_i];
+    $expr = '<%for (var $art_ihbzbpj$art_i = 0, $art_cbvicazamqa$art_c = list.length; $art_ihbzbpj$art_i < $art_cbvicazamqa$art_c; $art_ihbzbpj$art_i++) {    var item = list[$art_ihbzbpj$art_i]%>';
+    for (var $art_ihbzbpj$art_i = 0, $art_cbvicazamqa$art_c = list.length; $art_ihbzbpj$art_i < $art_cbvicazamqa$art_c; $art_ihbzbpj$art_i++) {
+        var item = list[$art_ihbzbpj$art_i];
         $p += '<div mxa="_zs_galleryg:_" class="_zs_gallery___test___other_update_-update"><div mxa="_zs_galleryg:a" class="_zs_gallery___test___other_update_-ver pl20"><span mxa="_zs_galleryg:b" class="_zs_gallery___test___other_update_-vt">';
         $line = 4;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_idwyewe$art_i = 0, $art_objymtelk$art_obj = item.subs, $art_cuccbvwzti$art_c = $art_objymtelk$art_obj.length; $art_idwyewe$art_i < $art_cuccbvwzti$art_c; $art_idwyewe$art_i++) {        var s = $art_objymtelk$art_obj[$art_idwyewe$art_i]%>';
-        for (var $art_idwyewe$art_i = 0, $art_objymtelk$art_obj = item.subs, $art_cuccbvwzti$art_c = $art_objymtelk$art_obj.length; $art_idwyewe$art_i < $art_cuccbvwzti$art_c; $art_idwyewe$art_i++) {
-            var s = $art_objymtelk$art_obj[$art_idwyewe$art_i];
+        $expr = '<%for (var $art_ijxqdg$art_i = 0, $art_objsctlvlc$art_obj = item.subs, $art_cssuvndeg$art_c = $art_objsctlvlc$art_obj.length; $art_ijxqdg$art_i < $art_cssuvndeg$art_c; $art_ijxqdg$art_i++) {        var s = $art_objsctlvlc$art_obj[$art_ijxqdg$art_i]%>';
+        for (var $art_ijxqdg$art_i = 0, $art_objsctlvlc$art_obj = item.subs, $art_cssuvndeg$art_c = $art_objsctlvlc$art_obj.length; $art_ijxqdg$art_i < $art_cssuvndeg$art_c; $art_ijxqdg$art_i++) {
+            var s = $art_objsctlvlc$art_obj[$art_ijxqdg$art_i];
             $p += '<div mxa="_zs_galleryg:e" class="pl20">';
             $line = 10;
             $art = 'if s.type == \'notice\'';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
             $line = 31;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_ivrpnhqjp$art_i = 0, $art_objhfjrsmh$art_obj = s.subs, $art_ctvpvrzxspe$art_c = $art_objhfjrsmh$art_obj.length; $art_ivrpnhqjp$art_i < $art_ctvpvrzxspe$art_c; $art_ivrpnhqjp$art_i++) {            var ss = $art_objhfjrsmh$art_obj[$art_ivrpnhqjp$art_i]%>';
-            for (var $art_ivrpnhqjp$art_i = 0, $art_objhfjrsmh$art_obj = s.subs, $art_ctvpvrzxspe$art_c = $art_objhfjrsmh$art_obj.length; $art_ivrpnhqjp$art_i < $art_ctvpvrzxspe$art_c; $art_ivrpnhqjp$art_i++) {
-                var ss = $art_objhfjrsmh$art_obj[$art_ivrpnhqjp$art_i];
+            $expr = '<%for (var $art_iwbxpuwpx$art_i = 0, $art_objcdikrxd$art_obj = s.subs, $art_cyreahz$art_c = $art_objcdikrxd$art_obj.length; $art_iwbxpuwpx$art_i < $art_cyreahz$art_c; $art_iwbxpuwpx$art_i++) {            var ss = $art_objcdikrxd$art_obj[$art_iwbxpuwpx$art_i]%>';
+            for (var $art_iwbxpuwpx$art_i = 0, $art_objcdikrxd$art_obj = s.subs, $art_cyreahz$art_c = $art_objcdikrxd$art_obj.length; $art_iwbxpuwpx$art_i < $art_cyreahz$art_c; $art_iwbxpuwpx$art_i++) {
+                var ss = $art_objcdikrxd$art_obj[$art_iwbxpuwpx$art_i];
                 $p += '<div mxa="_zs_galleryg:l" class="pl20"><div mxa="_zs_galleryg:m" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                 $line = 33;
                 $art = '!ss.title';
@@ -137,9 +137,9 @@ module.exports = Magix.View.extend({
                     $line = 40;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_iqnpwzvcd$art_i = 0, $art_objfzdjhovgq$art_obj = ss.subs, $art_cnzvymr$art_c = $art_objfzdjhovgq$art_obj.length; $art_iqnpwzvcd$art_i < $art_cnzvymr$art_c; $art_iqnpwzvcd$art_i++) {                    var sss = $art_objfzdjhovgq$art_obj[$art_iqnpwzvcd$art_i]%>';
-                    for (var $art_iqnpwzvcd$art_i = 0, $art_objfzdjhovgq$art_obj = ss.subs, $art_cnzvymr$art_c = $art_objfzdjhovgq$art_obj.length; $art_iqnpwzvcd$art_i < $art_cnzvymr$art_c; $art_iqnpwzvcd$art_i++) {
-                        var sss = $art_objfzdjhovgq$art_obj[$art_iqnpwzvcd$art_i];
+                    $expr = '<%for (var $art_ibmyvqpbfg$art_i = 0, $art_objrtgsvlzbro$art_obj = ss.subs, $art_cwnmnvbcrug$art_c = $art_objrtgsvlzbro$art_obj.length; $art_ibmyvqpbfg$art_i < $art_cwnmnvbcrug$art_c; $art_ibmyvqpbfg$art_i++) {                    var sss = $art_objrtgsvlzbro$art_obj[$art_ibmyvqpbfg$art_i]%>';
+                    for (var $art_ibmyvqpbfg$art_i = 0, $art_objrtgsvlzbro$art_obj = ss.subs, $art_cwnmnvbcrug$art_c = $art_objrtgsvlzbro$art_obj.length; $art_ibmyvqpbfg$art_i < $art_cwnmnvbcrug$art_c; $art_ibmyvqpbfg$art_i++) {
+                        var sss = $art_objrtgsvlzbro$art_obj[$art_ibmyvqpbfg$art_i];
                         $p += '<div mxa="_zs_galleryg:o" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                         $line = 41;
                         $art = '!sss';
@@ -191,6 +191,38 @@ catch (ex) {
 } return $p; },
     render: function () {
         var list = [{
+                ver: '1.2.6',
+                time: '2018-12-27',
+                subs: [{
+                        type: 'add',
+                        subs: [{
+                                title: 'mx-form支持email校验，包括指定邮箱的校验'
+                            }, {
+                                title: 'mx-loading支持自定义padding，example：&lt;mx-loading padding="40px" /&gt;'
+                            }]
+                    }, {
+                        type: 'bug',
+                        subs: [{
+                                title: 'mx-dialog：修复存在滚动条的情况下，打开浮层页面抖动问题'
+                            }, {
+                                title: 'mx-popover',
+                                subs: [
+                                    '异常情况说明：tag="a"时，a标签的原生属性type与组件定义的type冲突，此时若设置type="dark"失效',
+                                    '如何解决：请使用 <span class="color-brand">view-type</span> 与原生属性type区分来解决该问题'
+                                ]
+                            }]
+                    }, {
+                        type: 'notice',
+                        title: '实现调整',
+                        subs: [{
+                                title: '去掉magix combine里的mxMap配置，打散到组件的_config中'
+                            }, {
+                                title: 'mx-checkbox，包装indeterminate状态调整为只负责对样式进行控制，不修改属性；组件内取消dom操作，避免状态不一致。<a href="#!/checkbox/index" class="color-brand">查看详情</a>'
+                            }, {
+                                title: 'mx-dropdown.multiple中分组批量选择checkbox调整为mx-checkbox，保留中间态，优化交互'
+                            }]
+                    }]
+            }, {
                 ver: '1.2.5',
                 time: '2018-12-24',
                 subs: [{
