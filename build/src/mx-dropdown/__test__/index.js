@@ -120,7 +120,7 @@ catch (ex) {
     render: function () {
         var options = [{
                 key: 'list',
-                desc: '列表数组<br/>可为简单数组[1,2,3]<br/>或对象数组，如[{value:1,text:"a"}]',
+                desc: "<pre>\n\u5217\u8868\u6570\u7EC4\uFF1A\n1. \u53EF\u4E3A\u7B80\u5355\u6570\u7EC4[1,2,3]\n2. \u5BF9\u8C61\u6570\u7EC4\uFF0C\u5982[{\n    value: 1,\n    text: '\u5C55\u793A\u6587\u6848',\n    tip: '\u63D0\u793A\u4FE1\u606F\uFF08\u53EF\u9009\uFF09'\n}]\n</pre>",
                 type: 'array'
             }, {
                 key: 'selected',

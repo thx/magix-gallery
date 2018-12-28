@@ -6,7 +6,15 @@ module.exports = Magix.View.extend({
     render() {
         let options = [{
             key: 'list',
-            desc: '列表数组<br/>可为简单数组[1,2,3]<br/>或对象数组，如[{value:1,text:"a"}]',
+            desc: `<pre>
+列表数组：
+1. 可为简单数组[1,2,3]
+2. 对象数组，如[{
+    value: 1,
+    text: '展示文案',
+    tip: '提示信息（可选）'
+}]
+</pre>`,
             type: 'array'
         }, {
             key: 'selected',
