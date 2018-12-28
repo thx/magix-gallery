@@ -28,19 +28,19 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydo:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerydo:a" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-suggest/index?list=';
+    $p += '<div mxa="_zs_gallerydp:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerydp:a" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-suggest/index?list=';
     $line = 4;
     $art = '@[{\n                text: \'test1\',\n                value: 4\n            }, {\n                text: \'test2\',\n                value: 3\n            }, {\n                text: \'test3\',\n                value: 2\n            }, {\n                text: \'test4\',\n                value: 1\n            }]';
     ;
-    $p += ($expr = '<%@[{            text: \'test1\',            value: 4        }, {            text: \'test2\',            value: 3        }, {            text: \'test3\',            value: 2        }, {            text: \'test4\',            value: 1        }]%>', $i($$ref, [{ text: 'test1', value: 4 }, { text: 'test2', value: 3 }, { text: 'test3', value: 2 }, { text: 'test4', value: 1 }])) + '&type=all"></div></div><div mxa="_zs_gallerydo:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydo:_" class="_zs_gallery___test___layout_-eg-title">同时在value和text中搜索关键词</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[{            text: \'test1\',            value: 4        }, {            text: \'test2\',            value: 3        }, {            text: \'test3\',            value: 2        }, {            text: \'test4\',            value: 1        }]%>', $i($$ref, [{ text: 'test1', value: 4 }, { text: 'test2', value: 3 }, { text: 'test3', value: 2 }, { text: 'test4', value: 1 }])) + '&type=all"></div></div><div mxa="_zs_gallerydp:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydp:_" class="_zs_gallery___test___layout_-eg-title">同时在value和text中搜索关键词</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 21;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydo:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydp:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 23;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydo:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydp:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 26;
     $art = '=viewId';
     ;

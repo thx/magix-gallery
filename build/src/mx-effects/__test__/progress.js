@@ -32,7 +32,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, lineOptions = $$.lineOptions, circleOptions = $$.circleOptions; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerya::_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_gallerya-:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'条形\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'刻度型\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'圆形\',\n            key: viewId + \'_demo19\'\n        },{\n            name: \'渐变\',\n            key: viewId + \'_demo20\'\n        },{\n            name: \'动态修改\',\n            key: viewId + \'_demo2\'\n        }]\n    }, {\n        name: \'通用参数\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'type=line可配参数\',\n        key: viewId + \'_line_api\'\n    }, {\n        name: \'type=circle可配参数\',\n        key: viewId + \'_circle_api\'\n    }]';
     ;
@@ -40,7 +40,7 @@ module.exports = Magix.View.extend({
     $line = 31;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerya::a" class="clearfix mb20"><div mxa="_zs_gallerya::b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/8" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerya-:a" class="clearfix mb20"><div mxa="_zs_gallerya-:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/8" id="';
     $line = 34;
     $art = '=viewId';
     ;
@@ -48,7 +48,7 @@ module.exports = Magix.View.extend({
     $line = 35;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div mxa="_zs_gallerya::c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/10" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div mxa="_zs_gallerya-:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/10" id="';
     $line = 38;
     $art = '=viewId';
     ;

@@ -304,7 +304,12 @@ catch (ex) {
                 }
             }
             else {
-                errorNode.html("<i class=\"mc-iconfont displacement-2\">&#xe6ad;</i>" + result.msg);
+                if (result.msg) {
+                    errorNode.html("<i class=\"mc-iconfont displacement-2\">&#xe6ad;</i>" + result.msg);
+                }
+                else {
+                    errorNode.html('');
+                }
             }
         });
     },
