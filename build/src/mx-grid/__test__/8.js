@@ -3,10 +3,8 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-grid/__test__/8",["magix","__test__/example","$","mx-calendar/datepicker","mx-dropdown/index","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+define("mx-grid/__test__/8",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
 /*Magix,Base,$*/
-require("mx-calendar/datepicker");
-require("mx-dropdown/index");
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
@@ -25,28 +23,36 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} if (!$i) {
-    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
-        if (ref[k = $g + f] === v)
-            return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybR:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerybR:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerybR:_" class="mb10">只标题部分 + 筛选项（右浮动）：</div><div mxa="_zs_gallerybR:b" class="_zs_gallery_mx-grid___test___index_-container"><div mxa="_zs_gallerybR:c" class="grid"><div mxa="_zs_gallerybR:d" content="标题" class="clearfix" style="padding: 8px 24px;;"><div mxs="_zs_gallerybR:a" style="float:left; line-height: 32px;"><span style="font-size: 20px;">标题</span><span style="margin-left: 16px; color: #999;">提示信息</span></div><div mxa="_zs_gallerybR:e" style="float: right;"><div mxs="_zs_gallerybR:b" class="w200 mr10" mx-view="mx-calendar/datepicker"></div><div class="w200" mx-view="mx-dropdown/index?list=';
+} ; var $g = '', $_temp, $p = '', icon = $$.icon, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerybR:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerybR:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerybR:_" class="mb10">只标题部分 + 筛选项（右浮动）：</div><div mxa="_zs_gallerybR:b" class="_zs_gallery_mx-grid___test___index_-container"><div mxa="_zs_gallerybR:c" class="grid"><div mxa="_zs_gallerybR:d" content="标题" class="clearfix" style="padding: 8px 24px;;"><div mxa="_zs_gallerybR:g" style="float:left; line-height: 32px;"><span mxa="_zs_gallerybR:h" style="margin-right: 4px; color: #ccc;">';
     $line = 10;
-    $art = '@[1,2,3]';
+    $art = '!icon';
     ;
-    $p += ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div></div></div></div></div><div mxa="_zs_gallerybR:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybR:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 19;
+    $p += ($expr = '<%!icon%>', $n(icon)) + '</span><span mxs="_zs_gallerybR:e" style="font-size: 20px; margin-right: 16px;">标题</span><span mxs="_zs_gallerybR:f" style="margin-right: 16px; color: #999;">提示信息</span></div></div></div></div></div><div mxa="_zs_gallerybR:i" class="clearfix"><div mxa="_zs_gallerybR:e" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third1"><div mxs="_zs_gallerybR:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 17;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybR:g" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 21;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybR:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 19;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybR:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 24;
+    $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-grid&gt;\n    &lt;mx-grid.title border="none" content="标题" tip="提示信息" &gt;\n        &lt;mx-calendar.datepicker class="w200 mr10"/&gt;\n\n        &lt;mx-dropdown class="w200" \n            list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;\n        &lt;/mx-dropdown&gt;\n    &lt;/mx-grid.title&gt;\n&lt;/mx-grid&gt;\n        </pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-grid&gt;\n    &lt;mx-grid.title \n        border="none" \n        content="标题" \n        tip="提示信息" \n        icon="&#123;&#123;!icon&#125;&#125;"/&gt;\n&lt;/mx-grid&gt;\n            </pre></div><div mxa="_zs_gallerybR:k" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerybR:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 34;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybR:l" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 36;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybR:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 39;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            icon: \'&lt;i class="mc-iconfont fontsize-20 bold"&gt;&#xe60e;&lt;/i&gt;\'\n        &#125;);\n    &#125;\n&#125;);\n            </pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -57,7 +63,9 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
-        this.updater.digest();
+        this.updater.digest({
+            icon: '<i class="mc-iconfont fontsize-20 bold">&#xe60e;</i>'
+        });
     }
 });
 

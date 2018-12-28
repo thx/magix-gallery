@@ -66,10 +66,15 @@ module.exports = Magix.View.extend({
                 }
 
                 // 全屏右出浮层
-                $('#' + cntId).css({
+                let fcss = {
                     height: h - 2, 
                     overflowY: 'auto'
-                });
+                }
+                if(data.card){
+                    fcss.backgroundColor = '#e8ebf2';
+                    fcss.padding = '16px 24px';
+                }
+                $('#' + cntId).css(fcss);
             }
 
             let mask = $('#mask_' + me.id);
@@ -394,7 +399,8 @@ module.exports = Magix.View.extend({
                 opacity: 1,
                 top,
                 left: 0
-            }
+            },
+            card: (dialogOptions.card + '' !== 'false')
         })
         return this.mxDialog(view, viewOptions, Magix.mix({
             closable: true,

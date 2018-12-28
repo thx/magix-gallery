@@ -157,17 +157,17 @@ module.exports = {
         // 标题，提示，icon
         tmpl += '<div style="float:left; line-height: 32px;">';
         if (attrsKV.icon) {
-            tmpl += `<span style="margin-right: 2px; color: #ccc;">${attrsKV.icon}</span>`;
+            tmpl += `<span style="margin-right: 4px; color: #ccc;">${attrsKV.icon}</span>`;
         }
-        tmpl += `<span style="font-size: 20px;">${attrsKV.content}</span>`;
+        tmpl += `<span style="font-size: 20px; margin-right: 16px;">${attrsKV.content}</span>`;
         if (attrsKV.tip) {
-            tmpl += `<span style="margin-left: 16px; color: #999;">${attrsKV.tip}</span>`;
+            tmpl += `<span style="margin-right: 16px; color: #999;">${attrsKV.tip}</span>`;
         }
         tmpl += '</div>';
 
         // 筛选项
         if(content){
-            tmpl += `<div style="float: right;">${content}</div>`;
+            tmpl += `${content}`;
         }
 
         tmpl += '</div>';

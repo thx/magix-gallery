@@ -132,7 +132,8 @@ module.exports = Magix.View.extend({
         let gap = sortable ? 3 : 2;
         that.mxModal('@./dialog', viewOptions, {
             width: 220 * gap,
-            closable: false
+            closable: false,
+            card: false
         });
     }
 });

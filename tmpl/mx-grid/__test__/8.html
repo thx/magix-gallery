@@ -3,34 +3,52 @@
         <div class="mb10">只标题部分 + 筛选项（右浮动）：</div>
         <div class="container">
             <mx-grid>
-                <mx-grid.title border="none" content="标题" tip="提示信息" >
-                    <mx-calendar.datepicker class="w200  mr10"/>
-
-                    <mx-dropdown class="w200" 
-                        list="{{@[1,2,3]}}">
-                    </mx-dropdown>
-                </mx-grid.title>
+                <mx-grid.title 
+                    border="none" 
+                    content="标题" 
+                    tip="提示信息" 
+                    icon="{{!icon}}"/>
             </mx-grid>
         </div>
-
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-grid&gt;
-    &lt;mx-grid.title border="none" content="标题" tip="提示信息" &gt;
-        &lt;mx-calendar.datepicker class="w200 mr10"/&gt;
-
-        &lt;mx-dropdown class="w200" 
-            list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;
-        &lt;/mx-dropdown&gt;
-    &lt;/mx-grid.title&gt;
+    &lt;mx-grid.title 
+        border="none" 
+        content="标题" 
+        tip="提示信息" 
+        icon="&#123;&#123;!icon&#125;&#125;"/&gt;
 &lt;/mx-grid&gt;
-        </pre>
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            icon: '&lt;i class="mc-iconfont fontsize-20 bold"&gt;&#xe60e;&lt;/i&gt;'
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
     </div>
 </div>

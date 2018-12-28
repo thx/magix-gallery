@@ -3,8 +3,10 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-grid/__test__/7",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+define("mx-grid/__test__/7",["magix","__test__/example","$","mx-calendar/datepicker","mx-dropdown/index","mx-copy/index","__test__/hl"],(require,exports,module)=>{
 /*Magix,Base,$*/
+require("mx-calendar/datepicker");
+require("mx-dropdown/index");
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
@@ -23,48 +25,40 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', icon = $$.icon, viewId = $$.viewId, text1 = $$.text1, text3 = $$.text3, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybQ:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerybQ:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerybQ:_" class="mb10">使用 &lt;mx-grid&gt; 标签；也可直接用 class grid 样式</div><div mxa="_zs_gallerybQ:b" class="_zs_gallery_mx-grid___test___index_-container"><div mxa="_zs_gallerybQ:c" class="grid"><div mxa="_zs_gallerybQ:d" content="标题" class="clearfix" style="padding: 8px 24px;;border-bottom: 1px solid #e6e6e6;;"><div mxa="_zs_gallerybQ:e" style="float:left; line-height: 32px;"><span mxa="_zs_gallerybQ:f" style="margin-right: 2px; color: #ccc;">';
-    $line = 6;
-    $art = '!icon';
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text3 = $$.text3; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerybQ:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerybQ:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerybQ:_" class="mb10">使用 &lt;mx-grid&gt; 标签；也可直接用 class grid 样式</div><div mxs="_zs_gallerybQ:l" class="mb10">其中标题部分，<span class="color-brand">标题+提示信息固定向左浮动</span>，标题上其他内容请自行控制左右浮动</div><div mxa="_zs_gallerybQ:d" class="_zs_gallery_mx-grid___test___index_-container"><div mxa="_zs_gallerybQ:e" class="grid"><div mxa="_zs_gallerybQ:f" content="标题" class="clearfix" style="padding: 8px 24px;;border-bottom: 1px solid #e6e6e6;;"><div mxs="_zs_gallerybQ:i" style="float:left; line-height: 32px;"><span style="font-size: 20px; margin-right: 16px;">标题</span><span style="margin-right: 16px; color: #999;">提示信息</span></div><div mxs="_zs_gallerybQ:k" class="fl"><div class="w200 mr10" mx-view="mx-calendar/datepicker"></div></div><div mxa="_zs_gallerybQ:i" class="fr"><div mxs="_zs_gallerybQ:j" class="w200 mr10" mx-view="mx-calendar/datepicker"></div><div class="w200" mx-view="mx-dropdown/index?list=';
+    $line = 16;
+    $art = '@[1,2,3]';
     ;
-    $p += ($expr = '<%!icon%>', $n(icon)) + '</span><span mxs="_zs_gallerybQ:a" style="font-size: 20px;">标题</span><span mxs="_zs_gallerybQ:b" style="margin-left: 16px; color: #999;">提示信息</span></div></div><div mxs="_zs_gallerybQ:c" class="clearfix" style="padding: 16px 24px;">test</div></div></div></div><div mxa="_zs_gallerybQ:g" class="clearfix"><div mxa="_zs_gallerybQ:h" class="_zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-left"><div mxa="_zs_gallerybQ:i" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybQ:d" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 15;
+    $p += ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div></div><div mxs="_zs_gallerybQ:c" class="clearfix" style="padding: 16px 24px;">test</div></div></div></div><div mxa="_zs_gallerybQ:x" class="clearfix"><div mxa="_zs_gallerybQ:q" class="_zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-left"><div mxa="_zs_gallerybQ:k" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybQ:d" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 28;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybQ:j" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 17;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybQ:l" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 30;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybQ:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 20;
+    $line = 33;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-grid&gt;\n    &lt;mx-grid.title \n        content="标题" \n        tip="提示信息" \n        icon="&#123;&#123;!icon&#125;&#125;"/&gt;\n    &lt;mx-grid.body&gt;test&lt;/mx-grid.body&gt;\n&lt;/mx-grid&gt;\n                </pre></div><div mxa="_zs_gallerybQ:k" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybQ:f" class="_zs_gallery___test___layout_-eg-title">等同于使用class grid</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=';
-    $line = 32;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-grid&gt;\n    &lt;mx-grid.title content="标题" tip="提示信息"&gt;\n        &lt;div class="fl"&gt;\n            &lt;mx-calendar.datepicker class="w200 mr10"/&gt;\n        &lt;/div&gt;\n\n        &lt;div class="fr"&gt;\n            &lt;mx-calendar.datepicker class="w200 mr10"/&gt;\n\n            &lt;mx-dropdown class="w200" \n                list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;\n            &lt;/mx-dropdown&gt;\n        &lt;/div&gt;\n    &lt;/mx-grid.title&gt;\n    &lt;mx-grid.body&gt;test&lt;/mx-grid.body&gt;\n&lt;/mx-grid&gt;\n                </pre></div></div><div mxa="_zs_gallerybQ:m" class="_zs_gallery___test___layout_-half"><div mxa="_zs_gallerybQ:A" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybQ:f" class="_zs_gallery___test___layout_-eg-title">等同于使用class grid</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=';
+    $line = 56;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_gallerybQ:l" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 34;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_gallerybQ:B" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 58;
     $art = '!text3';
     ;
     $p += ($expr = '<%!text3%>', $n(text3)) + '</span><i mxs="_zs_gallerybQ:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 37;
+    $line = 61;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_3">\n&lt;div class="grid"&gt;\n    &lt;mx-grid.title \n        content="标题" \n        tip="提示信息" \n        icon="&#123;&#123;!icon&#125;&#125;"/&gt;\n    &lt;mx-grid.body&gt;test&lt;/mx-grid.body&gt;\n&lt;/div&gt;\n                </pre></div></div><div mxa="_zs_gallerybQ:m" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_gallerybQ:g" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 50;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerybQ:n" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 52;
-    $art = '!text2';
-    ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerybQ:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 55;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            icon: \'&lt;i class="mc-iconfont fontsize-20"&gt;&#38;&#35;xe670;&lt;/i&gt;\'\n        &#125;);\n    &#125;\n&#125;);\n            </pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_3">\n&lt;div class="grid"&gt;\n    &lt;mx-grid.title content="标题" tip="提示信息"&gt;\n        &lt;div class="fl"&gt;\n            &lt;mx-calendar.datepicker class="w200 mr10"/&gt;\n        &lt;/div&gt;\n\n        &lt;div class="fr"&gt;\n            &lt;mx-calendar.datepicker class="w200 mr10"/&gt;\n\n            &lt;mx-dropdown class="w200" \n                list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;\n            &lt;/mx-dropdown&gt;\n        &lt;/div&gt;\n    &lt;/mx-grid.title&gt;\n    &lt;mx-grid.body&gt;test&lt;/mx-grid.body&gt;\n&lt;/div&gt;\n                </pre></div></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -75,9 +69,7 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
-        this.updater.digest({
-            icon: '<i class="mc-iconfont fontsize-20 displacement-2 bold">&#xe670;</i>'
-        });
+        this.updater.digest();
     }
 });
 

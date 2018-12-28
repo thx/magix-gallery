@@ -22,14 +22,13 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', readonly = $$.readonly, name = $$.name; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryao:_" class="dialog-body">';
-    $line = 2;
+    $line = 1;
     $art = 'if !readonly';
     ;
     $expr = '<%if (!readonly) {%>';
     if (!readonly) {
         ;
-        $p += '<form mxv mxa="_zs_galleryao:a" class="mb40"><span mxs="_zs_galleryao:_" class="color-9 mr10">必填项：</span><input mxe="' + $viewId + '_0" mxc="[';
+        $p += '<form mxv mxa="_zs_galleryao:_" class="grid mb16"><div mxv mxa="_zs_galleryao:a" class="clearfix" style="padding: 16px 24px;"><span mxs="_zs_galleryao:_" class="color-9 mr10">必填项：</span><input mxe="' + $viewId + '_0" mxc="[';
         $line = 6;
         $art = ':name{required:true}';
         ;
@@ -37,36 +36,36 @@ module.exports = Magix.View.extend({
         $line = 6;
         $art = ':name{required:true}';
         ;
-        $p += ($expr = '<%=name%>', $e(name)) + '"/></form>';
-        $line = 8;
+        $p += ($expr = '<%=name%>', $e(name)) + '"/></div></form>';
+        $line = 9;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '<div mxs="_zs_galleryao:a" class="mb10">浮层HTML Code:</div>';
-    $line = 11;
+    $p += '<div mxa="_zs_galleryao:b" class="grid mb16"><div mxa="_zs_galleryao:d" class="clearfix" style="padding: 16px 24px;"><div mxs="_zs_galleryao:w" class="mb10">浮层HTML Code：</div>';
+    $line = 14;
     $art = 'if readonly';
     ;
     $expr = '<%if (readonly) {%>';
     if (readonly) {
         ;
-        $p += '<pre mxs="_zs_galleryao:b" class="tip-content mb40">\n&lt;form class="dialog-body"&gt;\n    // something\n&lt;/form&gt;  \n    </pre>';
-        $line = 17;
+        $p += '<pre mxs="_zs_galleryao:A" class="tip-content">\n&lt;div class="grid"&gt;\n    &lt;mx-grid.body&gt;\n        // something\n    &lt;/mx-grid.body&gt;\n&lt;/div&gt;\n        </pre>';
+        $line = 22;
         $art = 'else';
         ;
         $expr = '<%}else {%>';
     }
     else {
         ;
-        $p += '<pre mxs="_zs_galleryao:c" class="tip-content mb40">\n&lt;form class="dialog-body"&gt;\n    &lt;span class="color-9 mr10"&gt;必填项：&lt;/span&gt;\n    &lt;input class="input" placeholder="必填项" \n        value="&#123;&#123;:name&#123;required:true&#125;&#125;&#125;"/&gt;\n&lt;/form&gt;\n    </pre>';
-        $line = 25;
+        $p += '<pre mxs="_zs_galleryao:v" class="tip-content">\n&lt;form class="grid"&gt;\n    &lt;mx-grid.body&gt;\n        &lt;span class="color-9 mr10"&gt;必填项：&lt;/span&gt;\n        &lt;input class="input" placeholder="必填项" \n            value="&#123;&#123;:name&#123;required:true&#125;&#125;&#125;"/&gt;\n    &lt;/mx-grid.body&gt;\n&lt;/form&gt;\n        </pre>';
+        $line = 32;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '<div mxs="_zs_galleryao:d" class="mb10">浮层JS Code:</div><pre mxs="_zs_galleryao:e" class="tip-content mb40">\nlet Magix = require(\'magix\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    check() &#123;\n        let that = this;\n        let ok = that.isValid();\n        let name = \'\';\n        if(ok)&#123;\n            name = that.updater.get(\'name\');\n        &#125;\n        return new Promise((resolve) =&gt; &#123;\n            setTimeout(() =&gt; &#123;\n                resolve(&#123;\n                    ok,\n                    data: &#123;\n                        name\n                    &#125;,\n                    msg: \'请按照要求填写完信息再提交\'\n                &#125;)\n            &#125;, 1000)\n        &#125;)\n    &#125;\n&#125;);\n    </pre></div>';
+    $p += '</div></div><div mxs="_zs_galleryao:y" class="grid mb16"><div class="clearfix" style="padding: 16px 24px;"><div class="mb10">浮层JS Code：</div><pre class="tip-content">\nlet Magix = require(\'magix\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    check() &#123;\n        let that = this;\n        let ok = that.isValid();\n        let name = \'\';\n        if(ok)&#123;\n            name = that.updater.get(\'name\');\n        &#125;\n        return new Promise((resolve) =&gt; &#123;\n            setTimeout(() =&gt; &#123;\n                resolve(&#123;\n                    ok,\n                    data: &#123;\n                        name\n                    &#125;,\n                    msg: \'请按照要求填写完信息再提交\'\n                &#125;)\n            &#125;, 1000)\n        &#125;)\n    &#125;\n&#125;);\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

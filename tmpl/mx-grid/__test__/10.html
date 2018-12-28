@@ -9,11 +9,13 @@
             <mx-grid.row gutter="16px">
                 <mx-grid.col flex="1" class="grid">
                     <mx-grid.title content="标题" tip="提示信息" >
-                        <mx-calendar.datepicker class="w200 mr10"/>
-                
-                        <mx-dropdown class="w200" 
-                            list="{{@[1,2,3]}}">
-                        </mx-dropdown>
+                        <div class="fr">
+                            <mx-calendar.datepicker class="w200 mr10"/>
+            
+                            <mx-dropdown class="w200" 
+                                list="{{@[1,2,3]}}">
+                            </mx-dropdown>
+                        </div>
                     </mx-grid.title>
                     <mx-grid.body>区块4</mx-grid.body>
                 </mx-grid.col>
@@ -53,11 +55,13 @@
 &lt;mx-grid.row gutter="16px"&gt;
     &lt;mx-grid.col flex="1" class="grid"&gt;
         &lt;mx-grid.title content="标题" tip="提示信息" &gt;
-            &lt;mx-calendar.datepicker class="w200 mr10"/&gt;
-    
-            &lt;mx-dropdown class="w200" 
-                list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;
-            &lt;/mx-dropdown&gt;
+            &lt;div class="fr"&gt;
+                &lt;mx-calendar.datepicker class="w200 mr10"/&gt;
+
+                &lt;mx-dropdown class="w200" 
+                    list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;
+                &lt;/mx-dropdown&gt;
+            &lt;/div&gt;
         &lt;/mx-grid.title&gt;
         &lt;mx-grid.body&gt;区块4&lt;/mx-grid.body&gt;
     &lt;/mx-grid.col&gt;

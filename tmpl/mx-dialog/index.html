@@ -4,37 +4,45 @@
 </a>
 {{/if}}
 <div class="dialog-content" id="{{=cntId}}_content">
-    <!-- header -->
-    {{if (full && fullHeader.title)}}
-    <div class="dialog-header" id="{{=cntId}}_header">
-        <span class="fontsize-16">{{!fullHeader.title}}</span>
-        {{if fullHeader.tip}}
-        <span class="color-9 ml10">{{!fullHeader.tip}}</span>
+    {{if full}}
+        <!-- 样式固定 -->
+        <!-- header -->
+        {{if fullHeader.title}}
+        <div class="dialog-header" id="{{=cntId}}_header">
+            <span class="header-name">{{!fullHeader.title}}</span>
+            {{if fullHeader.tip}}
+            <span class="color-9 ml10">{{!fullHeader.tip}}</span>
+            {{/if}}
+        </div>
         {{/if}}
-    </div>
+
+        <div id="{{=cntId}}">
+            <!-- content -->
+            <mx-loading padding="80" />
+        </div>
+
+        <!-- footer -->
+        {{if (fullFooter.enter || fullFooter.cancel)}}
+        <div class="dialog-footer clearfix" id="{{=cntId}}_footer">
+            {{if fullFooter.enter}}
+            <a href="javascript:;" class="fl btn btn-brand min-width-60 mr16 btn-submit" mx-click="@{submit}()">
+                <span class="submit-text">{{=fullFooter.enterText}}</span>
+            </a>
+            {{/if}}
+
+            {{if fullFooter.cancel}}
+            <a href="javascript:;" class="fl btn min-width-60 mr16" mx-click="@{close}()">{{=fullFooter.cancelText}}</a>
+            {{/if}}
+
+            {{if fullFooter.enter}}
+            <span id="{{=cntId}}_footer_error" class="fl lh32 color-red"></span>
+            {{/if}}
+        </div>  
+        {{/if}}  
+    {{else}}
+        <!-- 完全自行控制 -->
+        <div id="{{=cntId}}">
+            <mx-loading padding="80" />
+        </div>
     {{/if}}
-
-    <div id="{{=cntId}}">
-        <!-- content -->
-        <mx-loading padding="80" />
-    </div>
-
-    <!-- footer -->
-    {{if (full && (fullFooter.enter || fullFooter.cancel))}}
-    <div class="dialog-footer clearfix" id="{{=cntId}}_footer">
-        {{if fullFooter.enter}}
-        <a href="javascript:;" class="fl btn btn-brand min-width-60 mr16 btn-submit" mx-click="@{submit}()">
-            <span class="submit-text">{{=fullFooter.enterText}}</span>
-        </a>
-        {{/if}}
-
-        {{if fullFooter.cancel}}
-        <a href="javascript:;" class="fl btn min-width-60 mr16" mx-click="@{close}()">{{=fullFooter.cancelText}}</a>
-        {{/if}}
-
-        {{if fullFooter.enter}}
-        <span id="{{=cntId}}_footer_error" class="fl lh32 color-red"></span>
-        {{/if}}
-    </div>  
-    {{/if}}  
 </div>

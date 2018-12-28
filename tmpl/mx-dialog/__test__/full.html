@@ -1,31 +1,42 @@
-<div class="dialog-body">
-    {{if !readonly}}
-    <form class="mb40">
+{{if !readonly}}
+<form class="grid mb16">
+    <mx-grid.body>
         <span class="color-9 mr10">必填项：</span>
         <input class="input" placeholder="必填项" 
             value="{{:name{required:true}}}"/>
-    </form>
-    {{/if}}
+    </mx-grid.body>
+</form>
+{{/if}}
 
-    <div class="mb10">浮层HTML Code:</div>
-    {{if readonly}}
-    <pre class="tip-content mb40">
-&lt;form class="dialog-body"&gt;
-    // something
-&lt;/form&gt;  
-    </pre>
-    {{else}}
-    <pre class="tip-content mb40">
-&lt;form class="dialog-body"&gt;
-    &lt;span class="color-9 mr10"&gt;必填项：&lt;/span&gt;
-    &lt;input class="input" placeholder="必填项" 
-        value="&#123;&#123;:name&#123;required:true&#125;&#125;&#125;"/&gt;
+<div class="grid mb16">
+    <mx-grid.body>
+        <div class="mb10">浮层HTML Code：</div>
+        {{if readonly}}
+        <pre class="tip-content">
+&lt;div class="grid"&gt;
+    &lt;mx-grid.body&gt;
+        // something
+    &lt;/mx-grid.body&gt;
+&lt;/div&gt;
+        </pre>
+        {{else}}
+        <pre class="tip-content">
+&lt;form class="grid"&gt;
+    &lt;mx-grid.body&gt;
+        &lt;span class="color-9 mr10"&gt;必填项：&lt;/span&gt;
+        &lt;input class="input" placeholder="必填项" 
+            value="&#123;&#123;:name&#123;required:true&#125;&#125;&#125;"/&gt;
+    &lt;/mx-grid.body&gt;
 &lt;/form&gt;
-    </pre>
-    {{/if}}
+        </pre>
+        {{/if}}
+    </mx-grid.body>
+</div>
 
-    <div class="mb10">浮层JS Code:</div>
-    <pre class="tip-content mb40">
+<div class="grid mb16">
+    <mx-grid.body>
+        <div class="mb10">浮层JS Code：</div>
+        <pre class="tip-content">
 let Magix = require('magix');
 
 module.exports = Magix.View.extend(&#123;
@@ -53,5 +64,6 @@ module.exports = Magix.View.extend(&#123;
         &#125;)
     &#125;
 &#125;);
-    </pre>
+        </pre>
+    </mx-grid.body>
 </div>
