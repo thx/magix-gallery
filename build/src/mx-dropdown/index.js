@@ -100,7 +100,7 @@ module.exports = Magix.View.extend({
             }
             else {
                 ;
-                $p += '<li title="' + ($expr = '<%=text%>', $e(text)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-item">';
+                $p += '<li title="' + ($expr = '<%=(item.tip ? item.tip : text)%>', $e((item.tip ? item.tip : text))) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-item">';
                 $expr = '<%var equal = (value + \'\') === (selected + \'\')%>';
                 var equal = (value + '') === (selected + '');
                 $p += '<span class="_zs_gallery_mx-dropdown_index_-item-link ellipsis';

@@ -32,7 +32,7 @@
                     <%=item[textKey]%>
                 </li>
             <%}else{%>
-                <li title="<%=text%>" class="dropdown-item">
+                <li title="<%=(item.tip?item.tip:text)%>" class="dropdown-item">
                     <%let equal=(value+'')===(selected+'')%>
                     <span class="item-link ellipsis<%if(equal){%> active<%}%>"
                         mx-click="@{select}({item:'<%@item%>'})" <%if(spm){%> data-spm-click="<%=spm%>" <%}%>>
