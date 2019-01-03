@@ -2,6 +2,7 @@
 
 [mx-view*="mx-indics/index"]{
     display: inline-block;
+    vertical-align: middle;
 }
 
 @setting-right-width: 32%;
@@ -33,11 +34,20 @@
             &:nth-of-type(even) {
                 background-color: @color-bg;
             }
+        }
+        .name{
+            float: left;
+            padding: 8px 0;
+            color: #999;
+        }
+        .items{
+            float: left;
+            width: 100%;
             .item {
                 float: left;
-                width: 33%;
+                width: 20%;
                 padding: 8px 0;
-
+    
                 .field-tip{
                     position: relative;
                     top: 1px;
@@ -45,6 +55,36 @@
                     font-size: 14px;
                     color: #ccc;
                 }
+            }
+        }
+    }
+    &.parent{
+        .name{
+            width: 15%;
+        }
+        .items{
+            width: 85%;
+            .item{
+                width: 25%; 
+            }
+        }
+    }
+    &.sortable{
+        .items{
+            width: 100%;
+            .item{
+                width: 25%; 
+            }
+        }
+    }
+    &.parent.sortable{
+        .name{
+            width: 20%;
+        }
+        .items{
+            width: 80%;
+            .item{
+                width: 33%; 
             }
         }
     }
@@ -109,10 +149,10 @@
 
 .setting-btn {
     position: relative;
-    color: #999;
+    color: #333;
 
     &:hover{
-        color: #666;
+        color: #333;
         border-color: @border-highlight-hover;
     }
 

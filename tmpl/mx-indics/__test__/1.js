@@ -6,27 +6,56 @@ module.exports = Base.extend({
     tmpl: '@1.html',
     render() {
         let fields = [{
-            text: '消耗', value: 'cost', tip: '提示文案'
+            text: '消耗', 
+            value: 1, 
+            pValue: 1,
+            tip: '消耗提示文案'
         }, {
-            text: '展现量', value: 'impression'
+            text: '展现量', 
+            value: 2, 
+            pValue: 1
         }, {
-            text: '点击量', value: 'click', 
+            text: '点击量', 
+            value: 3, 
+            pValue: 1
         }, {
-            text: '点击率', value: 'ctr'
+            text: '点击率', 
+            value: 4, 
+            pValue: 1
         }, {
-            text: '平均点击单价', value: 'cpc'
+            text: '平均点击单价', 
+            value: 5, 
+            pValue: 1,
+            tip: '平均点击单价提示文案'
         }, {
-            text: '点击转化率', value: 'coverage'
+            text: '点击转化率', 
+            value: 6, 
+            pValue: 2
         }, {
-            text: '成交笔数', value: 'transaction'
+            text: '成交笔数', 
+            value: 7, 
+            pValue: 2
+        }, {
+            text: '千次展现成本', 
+            value: 8, 
+            pValue: 2
+        }, {
+            text: '投资回报率', 
+            value: 9, 
+            pValue: 2
+        }, {
+            text: '访问页面数', 
+            value: 10, 
+            pValue: 2
         }]
 
-        // for (let index = 0; index < 40; index++) {
-        //     fields.push({
-        //         text: index,
-        //         value: index
-        //     })
-        // }
+        let parents = [{
+            text: '组1',
+            value: 1
+        }, {
+            text: '组2',
+            value: 2
+        }]
 
         let map = {};
         fields.forEach(item => {
@@ -34,10 +63,11 @@ module.exports = Base.extend({
         })
         
         this.updater.digest({
+            parents,
             fields,
             custom: false, //当前是为默认数据
-            customs: ['cost', 'click', 'impression'],
-            defaults: ['cost', 'click'],
+            customs: [2,3,4,5],
+            defaults: [2,3],
             map
         });
     },

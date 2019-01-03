@@ -17,15 +17,26 @@ module.exports = Magix.View.extend({
         let altered = that.updater.altered();
 
         let textKey = e.textKey || 'text',
-            valueKey = e.valueKey || 'value';
+            valueKey = e.valueKey || 'value',
+            parentKey = e.parentKey || 'pValue';
         let fields = [];
         (e.fields || []).forEach(item => {
             fields.push({
                 text: item[textKey],
                 value: item[valueKey],
+                pValue: item[parentKey],
                 tip: item.tip || ''
             })
         })
+
+        let parents = [];
+        (e.parents || []).forEach(item => {
+            parents.push({
+                text: item[textKey],
+                value: item[valueKey]
+            })
+        })
+
 
         let customs = (e.customs || []).map(v => {
             return '' + v;
@@ -57,6 +68,7 @@ module.exports = Magix.View.extend({
         }
 
         this.updater.set({
+            parents,
             fields,
             sortable,
             limit,
@@ -115,7 +127,6 @@ module.exports = Magix.View.extend({
         let updater = that.updater;
         let sortable = updater.get('sortable');
 
-        
         let viewOptions = $.extend(true, {}, updater.get());
         viewOptions.selected = viewOptions.map[viewOptions.type].list;
         viewOptions.callback = (d) => {
@@ -129,9 +140,8 @@ module.exports = Magix.View.extend({
             that['@{fire}']('dialog-setting');
         };
 
-        let gap = sortable ? 3 : 2;
         that.mxModal('@./dialog', viewOptions, {
-            width: 220 * gap,
+            width: 800,
             closable: false,
             card: false
         });

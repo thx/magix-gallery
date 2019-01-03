@@ -27,98 +27,52 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', custom1 = $$.custom1, customs1 = $$.customs1, map = $$.map, defaults = $$.defaults, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryb9:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryb9:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryb9:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl">不限制可选择个数 + 不排序</div></div><div mxa="_zs_galleryb9:b" class="mb20"><div mx-change="' + $viewId + 'change()" mx-view="mx-indics/index?fields=';
-    $line = 9;
-    $art = '@[{\n                    text: \'消耗\', value: \'cost\', tip: \'提示文案\'\n                }, {\n                    text: \'展现量\', value: \'impression\'\n                }, {\n                    text: \'点击量\', value: \'click\', \n                }, {\n                    text: \'点击率\', value: \'ctr\'\n                }, {\n                    text: \'平均点击单价\', value: \'cpc\'\n                }, {\n                    text: \'点击转化率\', value: \'coverage\'\n                }, {\n                    text: \'成交笔数\', value: \'transaction\'\n                }]';
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryb9:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryb9:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_galleryb9:i" class="clearfix mb20"><div mxa="_zs_galleryb9:j" class="_zs_gallery___test___layout_-half"><div mxs="_zs_galleryb9:g" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl">不限制可选择个数 + 指标不需排序 + 无分组</div></div><div mx-view="mx-indics/index?fields=';
+    $line = 10;
+    $art = '@[{\n                        value: 1, text: \'消耗\', tip: \'消耗提示文案\'\n                    }, {\n                        value: 2, text: \'展现量\'\n                    }, {\n                        value: 3, text: \'点击量\'\n                    }, {\n                        value: 4, text: \'点击率\'\n                    }, {\n                        value: 5, text: \'平均点击单价\', tip: \'平均点击单价提示文案\'\n                    }, {\n                        value: 6, text: \'点击转化率\'\n                    }, {\n                        value: 7, text: \'成交笔数\'\n                    }, {\n                        value: 8, text: \'千次展现成本\'\n                    }, {\n                        value: 9, text: \'投资回报率\'\n                    }, {\n                        value: 10, text: \'访问页面数\'\n                    }]';
     ;
-    $p += ($expr = '<%@[{            text: \'消耗\', value: \'cost\', tip: \'提示文案\'        }, {            text: \'展现量\', value: \'impression\'        }, {            text: \'点击量\', value: \'click\'        }, {            text: \'点击率\', value: \'ctr\'        }, {            text: \'平均点击单价\', value: \'cpc\'        }, {            text: \'点击转化率\', value: \'coverage\'        }, {            text: \'成交笔数\', value: \'transaction\'        }]%>', $i($$ref, [{ text: '消耗', value: 'cost', tip: '提示文案' }, { text: '展现量', value: 'impression' }, { text: '点击量', value: 'click' }, { text: '点击率', value: 'ctr' }, { text: '平均点击单价', value: 'cpc' }, { text: '点击转化率', value: 'coverage' }, { text: '成交笔数', value: 'transaction' }])) + '&defaults=';
-    $line = 24;
-    $art = '@[\'click\', \'ctr\', \'coverage\']';
+    $p += ($expr = '<%@[{            value: 1, text: \'消耗\', tip: \'消耗提示文案\'        }, {            value: 2, text: \'展现量\'        }, {            value: 3, text: \'点击量\'        }, {            value: 4, text: \'点击率\'        }, {            value: 5, text: \'平均点击单价\', tip: \'平均点击单价提示文案\'        }, {            value: 6, text: \'点击转化率\'        }, {            value: 7, text: \'成交笔数\'        }, {            value: 8, text: \'千次展现成本\'        }, {            value: 9, text: \'投资回报率\'        }, {            value: 10, text: \'访问页面数\'        }]%>', $i($$ref, [{ value: 1, text: '消耗', tip: '消耗提示文案' }, { value: 2, text: '展现量' }, { value: 3, text: '点击量' }, { value: 4, text: '点击率' }, { value: 5, text: '平均点击单价', tip: '平均点击单价提示文案' }, { value: 6, text: '点击转化率' }, { value: 7, text: '成交笔数' }, { value: 8, text: '千次展现成本' }, { value: 9, text: '投资回报率' }, { value: 10, text: '访问页面数' }])) + '&defaults=';
+    $line = 31;
+    $art = '@[1,2,3]';
     ;
-    $p += ($expr = '<%@[\'click\', \'ctr\', \'coverage\']%>', $i($$ref, ['click', 'ctr', 'coverage'])) + '&custom=false&customs=';
-    $line = 26;
-    $art = '@[\'click\', \'coverage\']';
+    $p += ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div><div mxa="_zs_galleryb9:k" class="_zs_gallery___test___layout_-half"><div mxs="_zs_galleryb9:h" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl">不限制可选择个数 + 指标不需排序 + 有分组</div></div><div mx-view="mx-indics/index?parents=';
+    $line = 40;
+    $art = '@[{\n                        value: 1, text: \'组1\'\n                    }, {\n                        value: 2, text: \'组2\'\n                    }]';
     ;
-    $p += ($expr = '<%@[\'click\', \'coverage\']%>', $i($$ref, ['click', 'coverage'])) + '"></div></div>';
-    $line = 29;
-    $art = 'if custom1';
+    $p += ($expr = '<%@[{            value: 1, text: \'组1\'        }, {            value: 2, text: \'组2\'        }]%>', $i($$ref, [{ value: 1, text: '组1' }, { value: 2, text: '组2' }])) + '&fields=';
+    $line = 45;
+    $art = '@[{\n                        value: 1, text: \'消耗\', pValue: 1, tip: \'消耗提示文案\'\n                    }, {\n                        value: 2, text: \'展现量\', pValue: 1\n                    }, {\n                        value: 3, text: \'点击量\', pValue: 1\n                    }, {\n                        value: 4, text: \'点击率\', pValue: 1\n                    }, {\n                        value: 5, text: \'平均点击单价\', pValue: 1, tip: \'平均点击单价提示文案\'\n                    }, {\n                        value: 6, text: \'点击转化率\', pValue: 2\n                    }, {\n                        value: 7, text: \'成交笔数\', pValue: 2\n                    }, {\n                        value: 8, text: \'千次展现成本\', pValue: 2\n                    }, {\n                        value: 9, text: \'投资回报率\', pValue: 2\n                    }, {\n                        value: 10, text: \'访问页面数\', pValue: 2\n                    }]';
     ;
-    $expr = '<%if (custom1) {%>';
-    if (custom1) {
-        ;
-        $p += '<div mxa="_zs_galleryb9:c" class="clearfix mb10 pr lh22" style="padding-left: 120px"><span mxs="_zs_galleryb9:a" style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>自定义指标：</span>';
-        $line = 32;
-        $art = 'each customs1 as key';
-        ;
-        $expr = '<%for (var $art_issrqsmp$art_i = 0, $art_csfwjmzuiw$art_c = customs1.length; $art_issrqsmp$art_i < $art_csfwjmzuiw$art_c; $art_issrqsmp$art_i++) {        var key = customs1[$art_issrqsmp$art_i]%>';
-        for (var $art_issrqsmp$art_i = 0, $art_csfwjmzuiw$art_c = customs1.length; $art_issrqsmp$art_i < $art_csfwjmzuiw$art_c; $art_issrqsmp$art_i++) {
-            var key = customs1[$art_issrqsmp$art_i];
-            $p += '<span mxa="_zs_galleryb9:d" class="fl mr10">';
-            $line = 33;
-            $art = '=map[key]';
-            ;
-            $p += ($expr = '<%=map[key]%>', $e(map[key])) + '（';
-            $line = 33;
-            $art = '=key';
-            ;
-            $p += ($expr = '<%=key%>', $e(key)) + '）</span>';
-            $line = 34;
-            $art = '/each';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '</div>';
-        $line = 36;
-        $art = 'else';
-        ;
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += '<div mxa="_zs_galleryb9:e" class="clearfix mb10 pr lh22" style="padding-left: 110px"><span mxs="_zs_galleryb9:b" style="position: absolute; top: 0; left: 0;"><span class="color-9">当前选中</span>默认指标：</span>';
-        $line = 39;
-        $art = 'each defaults as key';
-        ;
-        $expr = '<%for (var $art_iirxwku$art_i = 0, $art_cqcqqbcuf$art_c = defaults.length; $art_iirxwku$art_i < $art_cqcqqbcuf$art_c; $art_iirxwku$art_i++) {        var key = defaults[$art_iirxwku$art_i]%>';
-        for (var $art_iirxwku$art_i = 0, $art_cqcqqbcuf$art_c = defaults.length; $art_iirxwku$art_i < $art_cqcqqbcuf$art_c; $art_iirxwku$art_i++) {
-            var key = defaults[$art_iirxwku$art_i];
-            $p += '<span mxa="_zs_galleryb9:f" class="fl mr10">';
-            $line = 40;
-            $art = '=map[key]';
-            ;
-            $p += ($expr = '<%=map[key]%>', $e(map[key])) + '（';
-            $line = 40;
-            $art = '=key';
-            ;
-            $p += ($expr = '<%=key%>', $e(key)) + '）</span>';
-            $line = 41;
-            $art = '/each';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '</div>';
-        $line = 43;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
+    $p += ($expr = '<%@[{            value: 1, text: \'消耗\', pValue: 1, tip: \'消耗提示文案\'        }, {            value: 2, text: \'展现量\', pValue: 1        }, {            value: 3, text: \'点击量\', pValue: 1        }, {            value: 4, text: \'点击率\', pValue: 1        }, {            value: 5, text: \'平均点击单价\', pValue: 1, tip: \'平均点击单价提示文案\'        }, {            value: 6, text: \'点击转化率\', pValue: 2        }, {            value: 7, text: \'成交笔数\', pValue: 2        }, {            value: 8, text: \'千次展现成本\', pValue: 2        }, {            value: 9, text: \'投资回报率\', pValue: 2        }, {            value: 10, text: \'访问页面数\', pValue: 2        }]%>', $i($$ref, [{ value: 1, text: '消耗', pValue: 1, tip: '消耗提示文案' }, { value: 2, text: '展现量', pValue: 1 }, { value: 3, text: '点击量', pValue: 1 }, { value: 4, text: '点击率', pValue: 1 }, { value: 5, text: '平均点击单价', pValue: 1, tip: '平均点击单价提示文案' }, { value: 6, text: '点击转化率', pValue: 2 }, { value: 7, text: '成交笔数', pValue: 2 }, { value: 8, text: '千次展现成本', pValue: 2 }, { value: 9, text: '投资回报率', pValue: 2 }, { value: 10, text: '访问页面数', pValue: 2 }])) + '&defaults=';
+    $line = 66;
+    $art = '@[1,2,3]';
     ;
-    $p += '</div><div mxa="_zs_galleryb9:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryb9:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 47;
+    $p += ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div></div></div><div mxa="_zs_galleryb9:l" class="clearfix"><div mxa="_zs_galleryb9:f" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_galleryb9:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 73;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryb9:h" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 49;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryb9:m" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 75;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryb9:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 52;
+    $line = 78;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-indics \n    fields="&#123;&#123;@[&#123;\n        text: \'消耗\', value: \'cost\', tip: \'提示文案\'\n    &#125;, &#123;\n        text: \'展现量\', value: \'impression\'\n    &#125;, &#123;\n        text: \'点击量\', value: \'click\', \n    &#125;, &#123;\n        text: \'点击率\', value: \'ctr\'\n    &#125;, &#123;\n        text: \'平均点击单价\', value: \'cpc\'\n    &#125;, &#123;\n        text: \'点击转化率\', value: \'coverage\'\n    &#125;, &#123;\n        text: \'成交笔数\', value: \'transaction\'\n    &#125;]&#125;&#125;" \n    defaults="&#123;&#123;@[\'click\', \'ctr\', \'coverage\']&#125;&#125;"\n    custom="false"\n    customs="&#123;&#123;@[\'click\', \'coverage\']&#125;&#125;"\n    mx-change="change()"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-indics \n    fields="&#123;&#123;@[&#123;\n        value: 1, text: \'消耗\', tip: \'消耗提示文案\'\n    &#125;, &#123;\n        value: 2, text: \'展现量\'\n    &#125;, &#123;\n        value: 3, text: \'点击量\'\n    &#125;, &#123;\n        value: 4, text: \'点击率\'\n    &#125;, &#123;\n        value: 5, text: \'平均点击单价\', tip: \'平均点击单价提示文案\'\n    &#125;, &#123;\n        value: 6, text: \'点击转化率\'\n    &#125;, &#123;\n        value: 7, text: \'成交笔数\'\n    &#125;, &#123;\n        value: 8, text: \'千次展现成本\'\n    &#125;, &#123;\n        value: 9, text: \'投资回报率\'\n    &#125;, &#123;\n        value: 10, text: \'访问页面数\'\n    &#125;]&#125;&#125;" \n    defaults="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;\n            </pre></div><div mxa="_zs_galleryb9:n" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryb9:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 106;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryb9:o" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 108;
+    $art = '!text2';
+    ;
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryb9:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 111;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\n&lt;mx-indics \n    parents="&#123;&#123;@[&#123;\n        value: 1, text: \'组1\'\n    &#125;, &#123;\n        value: 2, text: \'组2\'\n    &#125;]&#125;&#125;"\n    fields="&#123;&#123;@[&#123;\n        value: 1, text: \'消耗\', pValue: 1, tip: \'消耗提示文案\'\n    &#125;, &#123;\n        value: 2, text: \'展现量\', pValue: 1\n    &#125;, &#123;\n        value: 3, text: \'点击量\', pValue: 1\n    &#125;, &#123;\n        value: 4, text: \'点击率\', pValue: 1\n    &#125;, &#123;\n        value: 5, text: \'平均点击单价\', pValue: 1, tip: \'平均点击单价提示文案\'\n    &#125;, &#123;\n        value: 6, text: \'点击转化率\', pValue: 2\n    &#125;, &#123;\n        value: 7, text: \'成交笔数\', pValue: 2\n    &#125;, &#123;\n        value: 8, text: \'千次展现成本\', pValue: 2\n    &#125;, &#123;\n        value: 9, text: \'投资回报率\', pValue: 2\n    &#125;, &#123;\n        value: 10, text: \'访问页面数\', pValue: 2\n    &#125;]&#125;&#125;" \n    defaults="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;\n            </pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -129,38 +83,7 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
-        var fields = [{
-                text: '消耗', value: 'cost', tip: '提示文案'
-            }, {
-                text: '展现量', value: 'impression'
-            }, {
-                text: '点击量', value: 'click'
-            }, {
-                text: '点击率', value: 'ctr'
-            }, {
-                text: '平均点击单价', value: 'cpc'
-            }, {
-                text: '点击转化率', value: 'coverage'
-            }, {
-                text: '成交笔数', value: 'transaction'
-            }];
-        var map = {};
-        fields.forEach(function (item) {
-            map[item.value] = item.text;
-        });
-        this.updater.digest({
-            map: map,
-            defaults: ['click', 'ctr', 'coverage']
-        });
-    },
-    'change<change>': function (e) {
-        // defaults：默认指标
-        // custom：true or false，是否为自定义指标
-        // customs：用户自定义的指标
-        this.updater.digest({
-            custom1: e.custom,
-            customs1: e.customs
-        });
+        this.updater.digest({});
     }
 });
 

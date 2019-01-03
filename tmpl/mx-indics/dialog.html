@@ -1,4 +1,4 @@
-<div class="setting {{if sortable}}sortable{{/if}}">
+<div class="setting {{if sortable}}sortable{{/if}} {{if hasParent}}parent{{/if}}">
     <div class="header">
         <div class="left">
             <span class="fontsize-16">选择数据字段</span>
@@ -15,21 +15,26 @@
     <div class="content">
         {{each groups as group}}
         <div class="line clearfix">
-            {{each group as field}}
-            <div class="item">
-                <label {{if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)}} class="cursor-not-allow" {{/if}}>
-                    <input type="checkbox" name="field" value="{{=field.value}}" class="checkbox" 
-                        {{if field.checked}} checked="true" {{/if}} 
-                        {{if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)}} disabled="true" {{/if}} 
-                        mx-change="toggle({value:'{{=field.value}}',text:'{{=field.text}}'})"/>{{=field.text}}
-                </label>
-                {{if field.tip}}
-                <mx-popover class="mc-iconfont field-tip"
-                    tag="i"
-                    content="{{=field.tip}}">&#xe629;</mx-popover>
-                {{/if}}
+            {{if group.text}}
+            <div class="name">{{=group.text}}</div>
+            {{/if}}
+            <div class="items clearfix">
+                {{each group.fields as field}}
+                <div class="item">
+                    <label {{if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)}} class="cursor-not-allow" {{/if}}>
+                        <input type="checkbox" name="field" value="{{=field.value}}" class="checkbox" 
+                            {{if field.checked}} checked="true" {{/if}} 
+                            {{if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)}} disabled="true" {{/if}} 
+                            mx-change="toggle({value:'{{=field.value}}',text:'{{=field.text}}'})"/>{{=field.text}}
+                    </label>
+                    {{if field.tip}}
+                    <mx-popover class="mc-iconfont field-tip"
+                        tag="i"
+                        content="{{=field.tip}}">&#xe629;</mx-popover>
+                    {{/if}}
+                </div>
+                {{/each}}
             </div>
-            {{/each}}
         </div>
         {{/each}}
     </div>

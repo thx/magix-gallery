@@ -30,9 +30,9 @@ module.exports = Base.extend({
     $line = 26;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_inreifqznfl$art_i = 0, $art_cylwyuk$art_c = list.length; $art_inreifqznfl$art_i < $art_cylwyuk$art_c; $art_inreifqznfl$art_i++) {    var item = list[$art_inreifqznfl$art_i]%>';
-    for (var $art_inreifqznfl$art_i = 0, $art_cylwyuk$art_c = list.length; $art_inreifqznfl$art_i < $art_cylwyuk$art_c; $art_inreifqznfl$art_i++) {
-        var item = list[$art_inreifqznfl$art_i];
+    $expr = '<%for (var $art_impdxqrm$art_i = 0, $art_czqzlnsrb$art_c = list.length; $art_impdxqrm$art_i < $art_czqzlnsrb$art_c; $art_impdxqrm$art_i++) {    var item = list[$art_impdxqrm$art_i]%>';
+    for (var $art_impdxqrm$art_i = 0, $art_czqzlnsrb$art_c = list.length; $art_impdxqrm$art_i < $art_czqzlnsrb$art_c; $art_impdxqrm$art_i++) {
+        var item = list[$art_impdxqrm$art_i];
         $p += '<tr><td><span sub-toggle="toggle_';
         $line = 30;
         $art = '=item.id';
@@ -65,9 +65,9 @@ module.exports = Base.extend({
         $line = 43;
         $art = 'each item.subs as sub subIndex';
         ;
-        $expr = '<%for (var subIndex = 0, $art_objroexacahea$art_obj = item.subs, $art_caqdlv$art_c = $art_objroexacahea$art_obj.length; subIndex < $art_caqdlv$art_c; subIndex++) {        var sub = $art_objroexacahea$art_obj[subIndex]%>';
-        for (var subIndex = 0, $art_objroexacahea$art_obj = item.subs, $art_caqdlv$art_c = $art_objroexacahea$art_obj.length; subIndex < $art_caqdlv$art_c; subIndex++) {
-            var sub = $art_objroexacahea$art_obj[subIndex];
+        $expr = '<%for (var subIndex = 0, $art_objzpfxruqw$art_obj = item.subs, $art_cftjicyty$art_c = $art_objzpfxruqw$art_obj.length; subIndex < $art_cftjicyty$art_c; subIndex++) {        var sub = $art_objzpfxruqw$art_obj[subIndex]%>';
+        for (var subIndex = 0, $art_objzpfxruqw$art_obj = item.subs, $art_cftjicyty$art_c = $art_objzpfxruqw$art_obj.length; subIndex < $art_cftjicyty$art_c; subIndex++) {
+            var sub = $art_objzpfxruqw$art_obj[subIndex];
             $p += '<tr class="hide" sub-toggle-parent="toggle_';
             $line = 46;
             $art = '=item.id';

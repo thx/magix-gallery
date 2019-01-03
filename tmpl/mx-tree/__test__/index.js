@@ -39,7 +39,7 @@ module.exports = Magix.View.extend({
             def: 'value'
         }, {
             key: 'parent-key',
-            desc: '表示父节点id的字段',
+            desc: '表示父节点value的字段',
             type: 'string',
             def: 'pValue'
         }, {

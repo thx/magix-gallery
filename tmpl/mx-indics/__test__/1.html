@@ -9,6 +9,7 @@
         </div>
         <div class="clearfix">
             <mx-indics class="fl mr20"
+                parents="{{@parents}}" 
                 fields="{{@fields}}" 
                 defaults="{{@defaults}}"
                 custom="{{=custom}}"
@@ -54,6 +55,7 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-indics 
+    parents="&#123;&#123;@parents&#125;&#125;" 
     fields="&#123;&#123;@fields&#125;&#125;" 
     defaults="&#123;&#123;@defaults&#125;&#125;"
     custom="&#123;&#123;=custom&#125;&#125;"
@@ -77,26 +79,39 @@ module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
         let fields = [&#123;
-            text: '消耗', value: 'cost', tip: '提示文案'
+            value: 1, text: '消耗', pValue: 1, tip: '消耗提示文案'
         &#125;, &#123;
-            text: '展现量', value: 'impression'
+            value: 2, text: '展现量', pValue: 1
         &#125;, &#123;
-            text: '点击量', value: 'click', 
+            value: 3, text: '点击量', pValue: 1
         &#125;, &#123;
-            text: '点击率', value: 'ctr'
+            value: 4, text: '点击率', pValue: 1
         &#125;, &#123;
-            text: '平均点击单价', value: 'cpc'
+            value: 5, text: '平均点击单价', pValue: 1, tip: '平均点击单价提示文案'
         &#125;, &#123;
-            text: '点击转化率', value: 'coverage'
+            value: 6, text: '点击转化率', pValue: 2
         &#125;, &#123;
-            text: '成交笔数', value: 'transaction'
+            value: 7, text: '成交笔数', pValue: 2
+        &#125;, &#123;
+            value: 8, text: '千次展现成本', pValue: 2
+        &#125;, &#123;
+            value: 9, text: '投资回报率', pValue: 2
+        &#125;, &#123;
+            value: 10, text: '访问页面数', pValue: 2
+        &#125;]
+
+        let parents = [&#123;
+            value: 1, text: '组1'
+        &#125;, &#123;
+            value: 2, text: '组2'
         &#125;]
         
         this.updater.digest(&#123;
+            parents,
             fields,
             custom: false, //当前是为默认数据
-            customs: ['cost', 'click', 'impression'],
-            defaults: ['cost', 'click']
+            customs: [2,3,4,5],
+            defaults: [2,3]
         &#125;);
     &#125;,
     'change&lt;change&gt;'(e)&#123;

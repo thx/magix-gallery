@@ -6,6 +6,7 @@ module.exports = Magix.View.extend({
     init(e) {
         let selected = e.selected || [],
             fields = e.fields || [],
+            parents = e.parents || [];
             selectedItems = [];
 
         selected.forEach(value => {
@@ -22,20 +23,46 @@ module.exports = Magix.View.extend({
             }
         })
 
-        // 分组，一行三个
-        let groups = [];
-        let gap = 3;
-        let num = Math.ceil(fields.length / gap);
-        for (var i = 0; i < num; i++) {
-            groups.push(fields.slice(i * gap, (i + 1) * gap));
+        let sortable = e.sortable;
+
+        
+        let groups = [], hasParent;
+        if(parents.length > 0){
+            // 有分组
+            groups = parents.map(p => {
+                let fs = [];
+                fields.forEach(f => {
+                    if(f.pValue == p.value){
+                        fs.push(f);
+                    }
+                })
+                return {
+                    text: p.text,
+                    fields: fs
+                }
+            })
+            hasParent = true;
+        }else{
+            // 可排序：一行三个
+            // 不可排序：一行四个
+            let gap = sortable ? 4 : 5;
+            let num = Math.ceil(fields.length / gap);
+            for (var i = 0; i < num; i++) {
+                let group = {
+                    fields: fields.slice(i * gap, (i + 1) * gap)
+                }
+                groups.push(group);
+            }
+            hasParent = false;
         }
 
         this.updater.set({
-            fields: fields,
-            groups: groups,
-            selectedItems: selectedItems,
-            limit: e.limit,
-            sortable: e.sortable
+            hasParent,
+            sortable,
+            fields,
+            groups,
+            selectedItems,
+            limit: e.limit
         })
         this.viewOptions = e;
     },

@@ -9,9 +9,21 @@ module.exports = Magix.View.extend({
             desc: `<pre>
 指标数组，格式如下：
 [{
-text: '指标文案',
-value: '跟后台交互的指标字段',
-tip: '指标提示文案'
+    text: '指标文案',
+    value: '跟后台交互的指标字段',
+    pValue: '可选，需要分组时配置parents对应的value', 
+    tip: '指标提示文案'
+}]
+</pre>`,
+            type: 'array',
+            def: ''
+        }, {
+            key: 'parents',
+            desc: `<pre>
+分组数组，格式如下：
+[{
+    text: '组文案',
+    value: '分组值，对应fields的pValue'
 }]
 </pre>`,
             type: 'array',
@@ -26,6 +38,11 @@ tip: '指标提示文案'
             desc: '渲染value时读取的key',
             type: 'string',
             def: 'value'
+        }, {
+            key: 'parent-key',
+            desc: '表示父节点value的字段',
+            type: 'string',
+            def: 'pValue'
         }, {
             key: 'custom',
             desc: '当前是否为自定义指标，false（默认指标），true（自定义指标）<br/>可能存在customs=defaults的情况，因此需要明确指定当前是自定义还是默认',
