@@ -93,7 +93,7 @@ let YearDisabled = (year, start, end) => {
 };
 
 module.exports = Magix.View.extend({
-    tmpl: '@index.html:const[id]',
+    tmpl: '@index.html',
     init(extra) {
         this['@{extra}'] = $.extend(true, {}, extra.configs);
     },

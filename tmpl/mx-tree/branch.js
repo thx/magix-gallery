@@ -3,7 +3,7 @@ let $ = require('$');
 let Vframe = Magix.Vframe;
 Magix.applyStyle('@index.less');
 module.exports = Magix.View.extend({
-    tmpl: '@branch.html:const[id]',
+    tmpl: '@branch.html',
     init(extra) {
         this.updater.set(extra);
     },

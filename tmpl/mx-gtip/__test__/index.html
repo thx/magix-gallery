@@ -1,0 +1,35 @@
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo'
+    }, {
+        name: 'Methods',
+        key: viewId + '_method'
+    }]}}"></div>
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <div class="clearfix mb20">
+        <div mx-view="@./1"></div>
+    </div>
+    
+    <mx-title.second content="Methods" id="{{=viewId}}_method"/>
+    <div class="pr20 mb40">
+        <table class="table desc-table">
+            <thead>
+                <tr>
+                    <th>方法名</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>gtip(msg, timeout)</td>
+                    <td>
+                        <div>显示通顶提示信息</div>
+                        <div>msg：信息内容</div>
+                        <div>timeout：延时自动关闭，不设置的时候显示关闭按钮手动关闭</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

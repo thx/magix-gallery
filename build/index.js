@@ -32,6 +32,7 @@ let coms = [
     'secradio',
     'tree',
     'grid',
+    'gtip',
     'runner',
     'time',
     'form',

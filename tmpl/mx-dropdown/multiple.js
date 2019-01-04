@@ -4,7 +4,7 @@ let Monitor = require('../mx-monitor/index');
 let I18n = require('../mx-medusa/util');
 Magix.applyStyle('@index.less');
 module.exports = Magix.View.extend({
-    tmpl: '@multiple.html:const[viewId]',
+    tmpl: '@multiple.html',
     init(ops) {
         let me = this;
         Monitor['@{setup}']();

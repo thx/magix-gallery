@@ -1,0 +1,40 @@
+@import "../mx-style/_vars";
+@gtip-height: 50px;
+@gtip-close-size: 26px;
+
+.gtip{
+    position: fixed;
+    top: 0 - @gtip-height;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: @gtip-height;
+    padding: 0 (@gtip-close-size + 20px);
+    line-height: @gtip-height;
+    color: #fff;
+    background-color: rgba(33, 33, 33, .72);
+    transition: all @duration;
+    text-align: center;
+    .gtip-close{
+        opacity: .5;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        width: @gtip-close-size;
+        height: @gtip-close-size;
+        margin-top: 0 - (@gtip-close-size / 2);
+        line-height: @gtip-close-size;
+        text-align: center;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 50%;
+        transition: all @duration;
+        cursor: pointer;
+
+        &:hover{
+            opacity: 1;
+        }
+    }
+}
+

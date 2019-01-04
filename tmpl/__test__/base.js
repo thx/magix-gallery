@@ -252,6 +252,10 @@ module.exports = Magix.View.extend({
                     path: '/loading/index',
                     icon: '&#xe6ab;'
                 }, {
+                    name: '全局提示',
+                    path: '/gtip/index',
+                    icon: '&#xe662;'
+                }, {
                     name: '异常页面',
                     tip: '404找不到页面',
                     path: '/error/index',

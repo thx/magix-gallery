@@ -41,9 +41,9 @@ module.exports = Magix.View.extend({
     $line = 20;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_ivholrnjw$art_i = 0, $art_cclobmnhf$art_c = headers.length; $art_ivholrnjw$art_i < $art_cclobmnhf$art_c; $art_ivholrnjw$art_i++) {    var h = headers[$art_ivholrnjw$art_i]%>';
-    for (var $art_ivholrnjw$art_i = 0, $art_cclobmnhf$art_c = headers.length; $art_ivholrnjw$art_i < $art_cclobmnhf$art_c; $art_ivholrnjw$art_i++) {
-        var h = headers[$art_ivholrnjw$art_i];
+    $expr = '<%for (var $art_ivehajqdu$art_i = 0, $art_crxgqrm$art_c = headers.length; $art_ivehajqdu$art_i < $art_crxgqrm$art_c; $art_ivehajqdu$art_i++) {    var h = headers[$art_ivehajqdu$art_i]%>';
+    for (var $art_ivehajqdu$art_i = 0, $art_crxgqrm$art_c = headers.length; $art_ivehajqdu$art_i < $art_crxgqrm$art_c; $art_ivehajqdu$art_i++) {
+        var h = headers[$art_ivehajqdu$art_i];
         $p += '<a href="#!';
         $line = 21;
         $art = '=h.path';
@@ -95,9 +95,9 @@ module.exports = Magix.View.extend({
     $line = 27;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ievlraarzl$art_i = 0, $art_ckbeftvts$art_c = list.length; $art_ievlraarzl$art_i < $art_ckbeftvts$art_c; $art_ievlraarzl$art_i++) {    var item = list[$art_ievlraarzl$art_i]%>';
-    for (var $art_ievlraarzl$art_i = 0, $art_ckbeftvts$art_c = list.length; $art_ievlraarzl$art_i < $art_ckbeftvts$art_c; $art_ievlraarzl$art_i++) {
-        var item = list[$art_ievlraarzl$art_i];
+    $expr = '<%for (var $art_itpordviau$art_i = 0, $art_ciiuhgtueo$art_c = list.length; $art_itpordviau$art_i < $art_ciiuhgtueo$art_c; $art_itpordviau$art_i++) {    var item = list[$art_itpordviau$art_i]%>';
+    for (var $art_itpordviau$art_i = 0, $art_ciiuhgtueo$art_c = list.length; $art_itpordviau$art_i < $art_ciiuhgtueo$art_c; $art_itpordviau$art_i++) {
+        var item = list[$art_itpordviau$art_i];
         $p += ' ';
         $line = 28;
         $art = 'if item.name';
@@ -138,9 +138,9 @@ module.exports = Magix.View.extend({
         $line = 35;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_ipzjxbcsh$art_i = 0, $art_objvlahvtym$art_obj = item.subs, $art_cxuzgsezf$art_c = $art_objvlahvtym$art_obj.length; $art_ipzjxbcsh$art_i < $art_cxuzgsezf$art_c; $art_ipzjxbcsh$art_i++) {        var sub = $art_objvlahvtym$art_obj[$art_ipzjxbcsh$art_i]%>';
-        for (var $art_ipzjxbcsh$art_i = 0, $art_objvlahvtym$art_obj = item.subs, $art_cxuzgsezf$art_c = $art_objvlahvtym$art_obj.length; $art_ipzjxbcsh$art_i < $art_cxuzgsezf$art_c; $art_ipzjxbcsh$art_i++) {
-            var sub = $art_objvlahvtym$art_obj[$art_ipzjxbcsh$art_i];
+        $expr = '<%for (var $art_iqkesonpe$art_i = 0, $art_objaryxjtmh$art_obj = item.subs, $art_ceydxptuzn$art_c = $art_objaryxjtmh$art_obj.length; $art_iqkesonpe$art_i < $art_ceydxptuzn$art_c; $art_iqkesonpe$art_i++) {        var sub = $art_objaryxjtmh$art_obj[$art_iqkesonpe$art_i]%>';
+        for (var $art_iqkesonpe$art_i = 0, $art_objaryxjtmh$art_obj = item.subs, $art_ceydxptuzn$art_c = $art_objaryxjtmh$art_obj.length; $art_iqkesonpe$art_i < $art_ceydxptuzn$art_c; $art_iqkesonpe$art_i++) {
+            var sub = $art_objaryxjtmh$art_obj[$art_iqkesonpe$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 36;
             $art = 'if (sub.path == path)';
@@ -531,6 +531,10 @@ catch (ex) {
                             name: 'loading加载',
                             path: '/loading/index',
                             icon: '&#xe6ab;'
+                        }, {
+                            name: '全局提示',
+                            path: '/gtip/index',
+                            icon: '&#xe662;'
                         }, {
                             name: '异常页面',
                             tip: '404找不到页面',

@@ -8,7 +8,7 @@ let I18n = require('../mx-medusa/util');
 Magix.applyStyle('@index.less');
 
 module.exports = Magix.View.extend({
-    tmpl: '@index.html:const[viewId]',
+    tmpl: '@index.html',
     init(ops) {
         let me = this;
 
