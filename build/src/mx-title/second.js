@@ -1,1 +1,0 @@
-define("mx-title/second",["magix","$","mx-title/base"],(e,t,i)=>{e("magix"),e("$");var d=e("mx-title/base");i.exports=d.extend({render:function(){this.updater.digest({second:!0})}})});

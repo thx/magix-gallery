@@ -1,1 +1,0 @@
-define("mx-table/excel",["mx-table/index"],(e,x,l)=>{l.exports=e("mx-table/index")});

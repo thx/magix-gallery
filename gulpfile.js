@@ -1,6 +1,7 @@
 let gulp = require('gulp');
 let combineTool = require('magix-combine');
 let watch = require('gulp-watch');
+let concat = require('gulp-concat');
 let del = require('del');
 let fs = require('fs');
 let pkg = require('./package.json');
@@ -10,7 +11,6 @@ let classReg = /\bclass\s*=\s*"[^"]+/;
 
 combineTool.config({
     debug: true,
-    log: true,
     srcFolder: 'build/src',
     loaderType: 'cmd_es',
     projectName: '_',
@@ -81,29 +81,36 @@ gulp.task('watch', ['combine'], () => {
 
 gulp.task('turnOffDebug', () => {
     combineTool.config({
-        debug: false,
-        log: false
+        debug: false
     });
 });
 
 gulp.task('compress', ['turnOffDebug', 'combine'], () => {
-    return gulp.src('./build/src/**/*.js')
-        .pipe(terser({
-            compress: {
-                drop_console: true,
-                drop_debugger: true,
-                global_defs: {
-                    DEBUG: false
+    return del('./dist').then(() => {
+        return gulp.src('./build/src/**/*.js')
+            .pipe(concat('all.js'))
+            .pipe(gulp.dest('./disc'));
+    }).then(() => {
+        return gulp.src('./disc/all.js')
+            .pipe(terser({
+                compress: {
+                    drop_console: true,
+                    drop_debugger: true,
+                    global_defs: {
+                        DEBUG: false
+                    }
                 }
-            }
-        }))
-        .pipe(gulp.dest('./build/src/'));
+            }))
+            .pipe(gulp.dest('./disc'))
+    });
 });
 
 gulp.task('release', ['compress'], () => {
-    let cs = fs.readFileSync('./build/src/__test__/base.js').toString();
     let index = fs.readFileSync('./index.html').toString();
+    
+    let cs = fs.readFileSync('./disc/all.js').toString();
     cs = cs.replace(/\$/g, '$$$$');
     index = index.replace(/<script id="test">[\s\S]*?<\/script>/, '<script id="test">' + cs + '</script>');
+
     fs.writeFileSync('./index.html', index);
 });

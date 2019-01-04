@@ -1,1 +1,0 @@
-define("mx-effects/base",["magix"],(e,i,t)=>{var a=e("magix");t.exports=a.View.extend({render:function(){this.updater.digest()}})});

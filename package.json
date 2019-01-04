@@ -21,10 +21,11 @@
     "dependencies": {
         "del": "3.0.0",
         "gulp": "3.9.1",
-        "gulp-terser-scoped": "^1.0.0",
+        "gulp-terser-scoped": "1.0.0",
         "gulp-watch": "4.3.11",
+        "gulp-concat": "2.6.1",
         "seajs": "3.0.2",
-        "typescript": "^2.6.2",
+        "typescript": "2.6.2",
         "magix-combine": "3.11.26"
     },
     "magixCliConfig": {
