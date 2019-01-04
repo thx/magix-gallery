@@ -29,85 +29,7 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text3 = $$.text3, text2 = $$.text2, text5 = $$.text5, text4 = $$.text4, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerybd:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerybd:_" class="clearfix"><div mxa="_zs_gallerybd:a" class="_zs_gallery___test___layout_-half"><div mxa="_zs_gallerybd:b" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybd:a" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-error/index"></div></div><div mxa="_zs_gallerybd:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybd:b" class="_zs_gallery___test___layout_-eg-title">默认404</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 10;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybd:d" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 12;
-    $art = '!text1';
-    ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybd:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 15;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-error/&gt;</pre></div></div><div mxa="_zs_gallerybd:e" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybd:d" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-error/index?tip=%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%90%E7%A4%BA%E4%BF%A1%E6%81%AF"></div></div><div mxa="_zs_gallerybd:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybd:e" class="_zs_gallery___test___layout_-eg-title">404自定义提示</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=';
-    $line = 25;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_gallerybd:g" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 27;
-    $art = '!text3';
-    ;
-    $p += ($expr = '<%!text3%>', $n(text3)) + '</span><i mxs="_zs_gallerybd:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 30;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_3">\n&lt;mx-error tip="自定义提示信息"/&gt;</pre></div></div></div><div mxa="_zs_gallerybd:h" class="_zs_gallery___test___layout_-half"><div mxa="_zs_gallerybd:i" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybd:f" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-error/index?type=502"></div></div><div mxa="_zs_gallerybd:j" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybd:g" class="_zs_gallery___test___layout_-eg-title">502提示</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 42;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerybd:k" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 44;
-    $art = '!text2';
-    ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerybd:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 47;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\n&lt;mx-error type="502"/&gt;</pre></div></div><div mxa="_zs_gallerybd:l" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybd:h" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-error/index?type=500"></div></div><div mxa="_zs_gallerybd:m" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybd:i" class="_zs_gallery___test___layout_-eg-title">500提示</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:5})" mx-view="mx-copy/index?copyNode=';
-    $line = 57;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_5"><span mxa="_zs_gallerybd:n" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 59;
-    $art = '!text5';
-    ;
-    $p += ($expr = '<%!text5%>', $n(text5)) + '</span><i mxs="_zs_gallerybd:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 62;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_5">\n&lt;mx-error type="500"/&gt;</pre></div></div><div mxa="_zs_gallerybd:o" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybd:j" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-error/index?type=502&tip=%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%90%E7%A4%BA&btns=false"></div></div><div mxa="_zs_gallerybd:p" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybd:k" class="_zs_gallery___test___layout_-eg-title">502自定义提示 + 不要按钮</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:4})" mx-view="mx-copy/index?copyNode=';
-    $line = 72;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_4"><span mxa="_zs_gallerybd:q" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 74;
-    $art = '!text4';
-    ;
-    $p += ($expr = '<%!text4%>', $n(text4)) + '</span><i mxs="_zs_gallerybd:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 77;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_4">\n&lt;mx-error type="502" tip="自定义提示" btns="false"/&gt;</pre></div></div></div></div><div id="';
-    $line = 84;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 85;
-    $art = '@options';
-    ;
-    $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-error/__test__/index.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text3 = $$.text3, text2 = $$.text2, text5 = $$.text5, text4 = $$.text4, options = $$.options; $p += '<div mxs="_zs_gallerybd:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerybd:_" class="clearfix"><div mxa="_zs_gallerybd:a" class="_zs_gallerye"><div mxa="_zs_gallerybd:b" class="_zs_galleryh"><div mxs="_zs_gallerybd:a" class="_zs_galleryk"><div mx-view="mx-error/index"></div></div><div mxa="_zs_gallerybd:c" class="_zs_galleryl"><div mxs="_zs_gallerybd:b" class="_zs_galleryj">默认404</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerybd:d" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerybd:c" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-error/&gt;</pre></div></div><div mxa="_zs_gallerybd:e" class="_zs_galleryh"><div mxs="_zs_gallerybd:d" class="_zs_galleryk"><div mx-view="mx-error/index?tip=%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%90%E7%A4%BA%E4%BF%A1%E6%81%AF"></div></div><div mxa="_zs_gallerybd:f" class="_zs_galleryl"><div mxs="_zs_gallerybd:e" class="_zs_galleryj">404自定义提示</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_3"><span mxa="_zs_gallerybd:g" class="_zs_galleryo">' + $n(text3) + '</span><i mxs="_zs_gallerybd:c" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_3">\n&lt;mx-error tip="自定义提示信息"/&gt;</pre></div></div></div><div mxa="_zs_gallerybd:h" class="_zs_gallerye"><div mxa="_zs_gallerybd:i" class="_zs_galleryh"><div mxs="_zs_gallerybd:f" class="_zs_galleryk"><div mx-view="mx-error/index?type=502"></div></div><div mxa="_zs_gallerybd:j" class="_zs_galleryl"><div mxs="_zs_gallerybd:g" class="_zs_galleryj">502提示</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_2"><span mxa="_zs_gallerybd:k" class="_zs_galleryo">' + $n(text2) + '</span><i mxs="_zs_gallerybd:c" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_2">\n&lt;mx-error type="502"/&gt;</pre></div></div><div mxa="_zs_gallerybd:l" class="_zs_galleryh"><div mxs="_zs_gallerybd:h" class="_zs_galleryk"><div mx-view="mx-error/index?type=500"></div></div><div mxa="_zs_gallerybd:m" class="_zs_galleryl"><div mxs="_zs_gallerybd:i" class="_zs_galleryj">500提示</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:5})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_5"><span mxa="_zs_gallerybd:n" class="_zs_galleryo">' + $n(text5) + '</span><i mxs="_zs_gallerybd:c" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_5">\n&lt;mx-error type="500"/&gt;</pre></div></div><div mxa="_zs_gallerybd:o" class="_zs_galleryh"><div mxs="_zs_gallerybd:j" class="_zs_galleryk"><div mx-view="mx-error/index?type=502&tip=%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%90%E7%A4%BA&btns=false"></div></div><div mxa="_zs_gallerybd:p" class="_zs_galleryl"><div mxs="_zs_gallerybd:k" class="_zs_galleryj">502自定义提示 + 不要按钮</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:4})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_4"><span mxa="_zs_gallerybd:q" class="_zs_galleryo">' + $n(text4) + '</span><i mxs="_zs_gallerybd:c" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_4">\n&lt;mx-error type="502" tip="自定义提示" btns="false"/&gt;</pre></div></div></div></div><div id="' + $e(viewId) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=' + $i($$ref, options) + '"></div>'; return $p; },
     render: function () {
         var options = [{
                 key: 'type',

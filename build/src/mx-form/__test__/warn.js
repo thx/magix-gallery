@@ -20,21 +20,7 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div id="';
-    $line = 1;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_warn" mx-view="mx-title/second?content=warn%E8%AD%A6%E5%91%8A%E5%9C%BA%E6%99%AF%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerybJ:_" class="clearfix mb20"><div mx-view="mx-form/__test__/1"></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-form/__test__/warn.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId; $p += '<div id="' + $e(viewId) + '_warn" mx-view="mx-title/second?content=warn%E8%AD%A6%E5%91%8A%E5%9C%BA%E6%99%AF%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerybJ:_" class="clearfix mb20"><div mx-view="mx-form/__test__/1"></div></div>'; return $p; },
     render: function () {
         this.updater.digest({
             viewId: this.id

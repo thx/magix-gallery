@@ -15,76 +15,76 @@ var Now = Date.now || (function () {
 var FX = Magix.Base.extend({
     ctor: function (interval, alg) {
         var me = this;
-        if (!me['@{alg.fn}'] || alg) {
+        if (!me['__cx'] || alg) {
             alg = alg || DALG;
-            me['@{alg.fn}'] = function (from, to) {
-                return (from + (to - from) * alg(me['@{current.timespan}'] / me['@{item.timespan}']));
+            me['__cx'] = function (from, to) {
+                return (from + (to - from) * alg(me['__cy'] / me['__cz']));
             };
         }
-        me['@{task.list}'] = [];
-        me['@{interval}'] = interval;
+        me['__cA'] = [];
+        me['__cB'] = interval;
     },
-    '@{run}': function (time, callback) {
+    '__cG': function (time, callback) {
         var me = this;
-        if (!me['@{destroyed}']) {
-            me['@{task.list}'].push({
-                '@{timespan}': time,
-                '@{fn}': callback
+        if (!me['__cf']) {
+            me['__cA'].push({
+                '__cC': time,
+                '__cD': callback
             });
-            if (!me['@{for.runner.fn}']) {
-                me['@{start.work}']();
+            if (!me['__cE']) {
+                me['__cF']();
             }
         }
     },
-    '@{start.work}': function () {
+    '__cF': function () {
         var me = this;
-        var item = me['@{task.list}'].shift();
+        var item = me['__cA'].shift();
         if (item) {
-            me['@{item.timespan}'] = item['@{timespan}'];
-            me['@{item.fn}'] = item['@{fn}'];
-            me['@{now.time}'] = Now();
-            if (!me['@{for.runner.fn}']) {
-                Runner['@{task.add}'](me['@{interval}'], me['@{for.runner.fn}'] = function (end) {
-                    me['@{current.timespan}'] = Date.now() - me['@{now.time}'];
-                    if (me['@{current.timespan}'] > me['@{item.timespan}']) {
-                        me['@{current.timespan}'] = me['@{item.timespan}'];
+            me['__cz'] = item['__cC'];
+            me['__cH'] = item['__cD'];
+            me['__cI'] = Now();
+            if (!me['__cE']) {
+                Runner['__bl'](me['__cB'], me['__cE'] = function (end) {
+                    me['__cy'] = Date.now() - me['__cI'];
+                    if (me['__cy'] > me['__cz']) {
+                        me['__cy'] = me['__cz'];
                         end = 1;
                     }
                     try {
-                        me['@{item.fn}'](me['@{alg.fn}']);
+                        me['__cH'](me['__cx']);
                     }
                     catch (e) {
                         end = e;
                     }
                     if (end) {
-                        me['@{start.work}']();
+                        me['__cF']();
                     }
                 });
             }
         }
         else {
-            me['@{stop}']();
+            me['__l']();
         }
     },
-    '@{stop}': function () {
+    '__l': function () {
         var me = this;
-        if (me['@{for.runner.fn}']) {
-            Runner['@{task.remove}'](me['@{for.runner.fn}']);
-            delete me['@{for.runner.fn}'];
+        if (me['__cE']) {
+            Runner['__bn'](me['__cE']);
+            delete me['__cE'];
             me.fire('stop');
         }
     },
     destroy: function () {
         var me = this;
-        me['@{stop}']();
-        me['@{task.list}'] = [];
-        me['@{destroyed}'] = 1;
+        me['__l']();
+        me['__cA'] = [];
+        me['__cf'] = 1;
     }
 });
 module.exports = {
-    '@{getFX}': function () {
+    '__cK': function () {
         var fx = new FX();
-        this.capture(Magix.guid('@{fx}'), fx);
+        this.capture(Magix.guid('__cJ'), fx);
         return fx;
     }
 };

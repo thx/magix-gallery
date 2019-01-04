@@ -10,8 +10,8 @@ var Magix = require("magix");
 var $ = require("$");
 var I18n = require("../mx-medusa/util");
 var Monitor = require("../mx-monitor/index");
-Magix.applyStyle("_zs_gallery_mx-suggest_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-suggest_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-suggest/index\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-suggest_index_-suggest-box {\n  position: relative;\n  height: 32px;\n}\n");
-Magix.applyStyle("_zs_gallery_mx-suggest_suggest_","/* @dependent: ./index.less */\n._zs_gallery_mx-suggest_suggest_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n/* 动画结束停在最后一帧 */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-suggest_suggest_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n/**\n* 渐显上拉动画\n*/\n@keyframes _zs_gallery_mx-suggest_suggest_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@keyframes _zs_gallery_mx-suggest_suggest_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n/**\n * 按钮中间的loading点动画\n */\n@keyframes _zs_gallery_mx-suggest_suggest_-loading-dots {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, 2px);\n    -ms-transform: translate(0, 2px);\n    -moz-transform: translate(0, 2px);\n    -webkit-transform: translate(0, 2px);\n    -o-transform: translate(0, 2px);\n  }\n  50% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, -2px);\n    -ms-transform: translate(0, -2px);\n    -moz-transform: translate(0, -2px);\n    -webkit-transform: translate(0, -2px);\n    -o-transform: translate(0, -2px);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-loading-dots {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, 2px);\n    -ms-transform: translate(0, 2px);\n    -moz-transform: translate(0, 2px);\n    -webkit-transform: translate(0, 2px);\n    -o-transform: translate(0, 2px);\n  }\n  50% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, -2px);\n    -ms-transform: translate(0, -2px);\n    -moz-transform: translate(0, -2px);\n    -webkit-transform: translate(0, -2px);\n    -o-transform: translate(0, -2px);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@keyframes _zs_gallery_mx-suggest_suggest_-loading-dots-rev {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -2px);\n    -ms-transform: translate(0, -2px);\n    -moz-transform: translate(0, -2px);\n    -webkit-transform: translate(0, -2px);\n    -o-transform: translate(0, -2px);\n  }\n  50% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, 2px);\n    -ms-transform: translate(0, 2px);\n    -moz-transform: translate(0, 2px);\n    -webkit-transform: translate(0, 2px);\n    -o-transform: translate(0, 2px);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-loading-dots-rev {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -2px);\n    -ms-transform: translate(0, -2px);\n    -moz-transform: translate(0, -2px);\n    -webkit-transform: translate(0, -2px);\n    -o-transform: translate(0, -2px);\n  }\n  50% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, 2px);\n    -ms-transform: translate(0, 2px);\n    -moz-transform: translate(0, 2px);\n    -webkit-transform: translate(0, 2px);\n    -o-transform: translate(0, 2px);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu {\n  display: none;\n  position: absolute;\n  top: 100%;\n  z-index: 99;\n  min-width: 100%;\n  max-height: 300px;\n  margin-top: 10px;\n  padding: 8px 10px;\n  border-radius: 4px;\n  background-color: #fff;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  overflow-y: auto;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item {\n  margin: 2px 0;\n  padding: 0 10px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n  white-space: nowrap;\n  word-break: break-all;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item:hover,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active:hover,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active:active,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active:focus {\n  color: #4d7fff;\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu._zs_gallery_mx-suggest_suggest_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-suggest_suggest_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-suggest_suggest_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n");
+Magix.applyStyle("_zs_galleryaw","._zs_gallerylN{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}[mx-view*=\"mx-suggest/index\"]{display:inline-block}._zs_gallerylO{position:relative;height:32px}");
+Magix.applyStyle("_zs_galleryax","._zs_gallerylP{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}@keyframes _zs_galleryF{0%{transform:translateY(-20%);-ms-transform:translateY(-20%);-moz-transform:translateY(-20%);-webkit-transform:translateY(-20%);-o-transform:translateY(-20%);opacity:0}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0);opacity:1}}@-webkit-keyframes _zs_galleryF{0%{transform:translateY(-20%);-ms-transform:translateY(-20%);-moz-transform:translateY(-20%);-webkit-transform:translateY(-20%);-o-transform:translateY(-20%);opacity:0}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0);opacity:1}}@keyframes _zs_galleryG{0%{transform:translateY(20%);-ms-transform:translateY(20%);-moz-transform:translateY(20%);-webkit-transform:translateY(20%);-o-transform:translateY(20%);opacity:0}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0);opacity:1}}@-webkit-keyframes _zs_galleryG{0%{transform:translateY(20%);-ms-transform:translateY(20%);-moz-transform:translateY(20%);-webkit-transform:translateY(20%);-o-transform:translateY(20%);opacity:0}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0);opacity:1}}@keyframes _zs_galleryH{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(-15%);-ms-transform:translateY(-15%);-moz-transform:translateY(-15%);-webkit-transform:translateY(-15%);-o-transform:translateY(-15%)}75%{transform:translateY(15%);-ms-transform:translateY(15%);-moz-transform:translateY(15%);-webkit-transform:translateY(15%);-o-transform:translateY(15%)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}@-webkit-keyframes _zs_galleryH{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(-15%);-ms-transform:translateY(-15%);-moz-transform:translateY(-15%);-webkit-transform:translateY(-15%);-o-transform:translateY(-15%)}75%{transform:translateY(15%);-ms-transform:translateY(15%);-moz-transform:translateY(15%);-webkit-transform:translateY(15%);-o-transform:translateY(15%)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}@keyframes _zs_galleryI{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(2px);-ms-transform:translateY(2px);-moz-transform:translateY(2px);-webkit-transform:translateY(2px);-o-transform:translateY(2px)}50%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}75%{transform:translateY(-2px);-ms-transform:translateY(-2px);-moz-transform:translateY(-2px);-webkit-transform:translateY(-2px);-o-transform:translateY(-2px)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}@-webkit-keyframes _zs_galleryI{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(2px);-ms-transform:translateY(2px);-moz-transform:translateY(2px);-webkit-transform:translateY(2px);-o-transform:translateY(2px)}50%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}75%{transform:translateY(-2px);-ms-transform:translateY(-2px);-moz-transform:translateY(-2px);-webkit-transform:translateY(-2px);-o-transform:translateY(-2px)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}@keyframes _zs_galleryJ{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(-2px);-ms-transform:translateY(-2px);-moz-transform:translateY(-2px);-webkit-transform:translateY(-2px);-o-transform:translateY(-2px)}50%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}75%{transform:translateY(2px);-ms-transform:translateY(2px);-moz-transform:translateY(2px);-webkit-transform:translateY(2px);-o-transform:translateY(2px)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}@-webkit-keyframes _zs_galleryJ{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(-2px);-ms-transform:translateY(-2px);-moz-transform:translateY(-2px);-webkit-transform:translateY(-2px);-o-transform:translateY(-2px)}50%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}75%{transform:translateY(2px);-ms-transform:translateY(2px);-moz-transform:translateY(2px);-webkit-transform:translateY(2px);-o-transform:translateY(2px)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}._zs_gallerylQ{display:none;position:absolute;top:100%;z-index:99;min-width:100%;max-height:300px;margin-top:10px;padding:8px 10px;border-radius:4px;background-color:#fff;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;overflow-y:auto;box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerylQ ._zs_gallerylR{margin:2px 0;padding:0 10px;cursor:pointer;height:26px;line-height:26px;border-radius:4px;white-space:nowrap;word-break:break-all}._zs_gallerylQ ._zs_gallerylR._zs_gallerylS,._zs_gallerylQ ._zs_gallerylR:hover{background-color:#f0f0f0}._zs_gallerylQ ._zs_gallerylR._zs_gallerylT,._zs_gallerylQ ._zs_gallerylR._zs_gallerylT:active,._zs_gallerylQ ._zs_gallerylR._zs_gallerylT:focus,._zs_gallerylQ ._zs_gallerylR._zs_gallerylT:hover{color:#4d7fff;background-color:#f6f9ff}._zs_gallerylQ._zs_gallerylU{display:block;-webkit-animation:_zs_galleryF .25s ease-out;animation:_zs_galleryF .25s ease-out;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -28,161 +28,58 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', placeholder = $$.placeholder, viewId = $$.viewId, selectText = $$.selectText, show = $$.show, align = $$.align, loading = $$.loading, list = $$.list, selectedValue = $$.selectedValue, emptyText = $$.emptyText; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerydv:_" class="search-box"><i mxs="_zs_gallerydv:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
-    $line = 3;
-    $art = '=placeholder';
+} ; var $g = '', $_temp, $p = '', placeholder = $$.placeholder, viewId = $$.viewId, selectText = $$.selectText, show = $$.show, align = $$.align, loading = $$.loading, list = $$.list, selectedValue = $$.selectedValue, emptyText = $$.emptyText; $p += '<div mxv mxa="_zs_gallerydv:_" class="search-box"><i mxs="_zs_gallerydv:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="' + $e(placeholder) + '" id="' + $e(viewId) + '_input" value="' + $e(selectText) + '" mx-keyup="' + $viewId + '__dv()" mx-paste="' + $viewId + '__dv()" mx-focusin="' + $viewId + '__dv()" mx-focusout="' + $viewId + '__l()" mx-change="' + $viewId + '__l()"/><ul class="_zs_gallerylQ '; if (show) {
     ;
-    $p += ($expr = '<%=placeholder%>', $e(placeholder)) + '" id="';
-    $line = 4;
-    $art = '=viewId';
+    $p += ' _zs_gallerylU ';
+} ; $p += '" style="'; if (align == 'right') {
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_input" value="';
-    $line = 5;
-    $art = '=selectText';
+    $p += 'right: 0;';
+}
+else {
     ;
-    $p += ($expr = '<%=selectText%>', $e(selectText)) + '" mx-keyup="' + $viewId + '@{suggest}()" mx-paste="' + $viewId + '@{suggest}()" mx-focusin="' + $viewId + '@{suggest}()" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{stop}()"/><ul class="_zs_gallery_mx-suggest_suggest_-suggest-menu ';
-    $line = 12;
-    $art = 'if show';
+    $p += 'left: 0;';
+} ; $p += '">'; if (loading) {
     ;
-    $expr = '<%if (show) {%>';
-    if (show) {
-        ;
-        $p += ' _zs_gallery_mx-suggest_suggest_-open ';
-        $line = 12;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
+    $p += '<li mxs="_zs_gallerydv:a"><div class="loading" style="padding: 40px 0;"><span class="loading-anim"></span></div></li>';
+}
+else {
     ;
-    $p += '" style="';
-    $line = 12;
-    $art = 'if (align==\'right\')';
-    ;
-    $expr = '<%if (align == \'right\') {%>';
-    if (align == 'right') {
-        ;
-        $p += 'right: 0;';
-        $line = 12;
-        $art = 'else';
-        ;
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += 'left: 0;';
-        $line = 12;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '">';
-    $line = 13;
-    $art = 'if loading';
-    ;
-    $expr = '<%if (loading) {%>';
-    if (loading) {
-        ;
-        $p += '<li mxs="_zs_gallerydv:a"><div class="loading" style="padding: 40px 0;"><span class="loading-anim"></span></div></li>';
-        $line = 17;
-        $art = 'else';
-        ;
-        $expr = '<%}else {%>';
-    }
-    else {
+    $p += ' ';
+    if (list.length > 0) {
         ;
         $p += ' ';
-        $line = 18;
-        $art = 'if (list.length > 0)';
-        ;
-        $expr = '<%if (list.length > 0) {%>';
-        if (list.length > 0) {
-            ;
-            $p += ' ';
-            $line = 19;
-            $art = 'each list as item';
-            ;
-            $expr = '<%for (var $art_ivrkzvvaj$art_i = 0, $art_cqsrjsxjl$art_c = list.length; $art_ivrkzvvaj$art_i < $art_cqsrjsxjl$art_c; $art_ivrkzvvaj$art_i++) {            var item = list[$art_ivrkzvvaj$art_i]%>';
-            for (var $art_ivrkzvvaj$art_i = 0, $art_cqsrjsxjl$art_c = list.length; $art_ivrkzvvaj$art_i < $art_cqsrjsxjl$art_c; $art_ivrkzvvaj$art_i++) {
-                var item = list[$art_ivrkzvvaj$art_i];
-                $p += '<li class="_zs_gallery_mx-suggest_suggest_-suggest-item ';
-                $line = 20;
-                $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';
+        for (var $art_isoyhjovg$art_i = 0, $art_cyvfnvgiyk$art_c = list.length; $art_isoyhjovg$art_i < $art_cyvfnvgiyk$art_c; $art_isoyhjovg$art_i++) {
+            var item = list[$art_isoyhjovg$art_i];
+            $p += '<li class="_zs_gallerylR ';
+            if ((selectedValue + '') === (item.value + '')) {
                 ;
-                $expr = '<%if ((selectedValue + \'\') === (item.value + \'\')) {%>';
-                if ((selectedValue + '') === (item.value + '')) {
-                    ;
-                    $p += ' _zs_gallery_mx-suggest_suggest_-active ';
-                    $line = 20;
-                    $art = '/if';
-                    ;
-                    $expr = '<%}%>';
-                }
-                ;
-                $p += '" mx-click="' + $viewId + '@{select}({item:\'';
-                $line = 21;
-                $art = '@item';
-                ;
-                $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})">';
-                $line = 22;
-                $art = '!item.text';
-                ;
-                $p += ($expr = '<%!item.text%>', $n(item.text)) + '</li>';
-                $line = 24;
-                $art = '/each';
-                ;
-                $expr = '<%}%>';
+                $p += ' _zs_gallerylT ';
             }
             ;
-            $p += ' ';
-            $line = 25;
-            $art = 'else';
-            ;
-            $expr = '<%}    else {%>';
-        }
-        else {
-            ;
-            $p += '<li mxa="_zs_gallerydv:a" class="text-center color-9">';
-            $line = 26;
-            $art = '=emptyText';
-            ;
-            $p += ($expr = '<%=emptyText%>', $e(emptyText)) + '</li>';
-            $line = 27;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
+            $p += '" mx-click="' + $viewId + '__aa({item:\'' + $i($$ref, item) + '\'})">' + $n(item.text) + '</li>';
         }
         ;
         $p += ' ';
-        $line = 28;
-        $art = '/if';
+    }
+    else {
         ;
-        $expr = '<%}%>';
+        $p += '<li mxa="_zs_gallerydv:a" class="text-center color-9">' + $e(emptyText) + '</li>';
     }
     ;
-    $p += '</ul></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-suggest/index.html';
-    throw msg;
-} return $p; },
+    $p += ' ';
+} ; $p += '</ul></div>'; return $p; },
     init: function (extra) {
         var that = this;
         //初始化时保存一份当前数据的快照
         that.updater.snapshot();
         //该处是否可以由magix自动调用
         that.assign(extra);
-        Monitor['@{setup}']();
+        Monitor['__f']();
         that.on('destroy', function () {
-            Monitor['@{remove}'](that);
-            Monitor['@{teardown}']();
-            if (that['@{suggest.delay.timer}']) {
-                clearTimeout(that['@{suggest.delay.timer}']);
+            Monitor['__g'](that);
+            Monitor['__h']();
+            if (that['__dq']) {
+                clearTimeout(that['__dq']);
             }
         });
     },
@@ -198,7 +95,7 @@ catch (ex) {
         that['key.value'] = data.listValue || 'value';
         that['key.text'] = data.listText || 'text';
         // 多种类型搜索的时候
-        var list = that['@{wrap}'](data.list);
+        var list = that['__dr'](data.list);
         //当前选中的value值
         var selectedValue = data.selected || '';
         var selectText = '';
@@ -211,15 +108,15 @@ catch (ex) {
             }
         }
         // 上下键切换缓存
-        that['@{value.bak}'] = selectedValue;
-        that['@{list.bak}'] = list;
+        that['__ds'] = selectedValue;
+        that['__dt'] = list;
         // 在哪些值中搜索关键词
         var type = (data.type || 'text') + '';
         if (type == 'all') {
             type = 'text,value';
         }
-        that['@{search.type}'] = type.split(',');
-        that['@{owner.node}'] = $('#' + that.id);
+        that['__du'] = type.split(',');
+        that['__j'] = $('#' + that.id);
         that.updater.set({
             viewId: that.id,
             list: list,
@@ -242,7 +139,7 @@ catch (ex) {
         //如果数据没变化,则告诉magix当前view不用更新
         return false;
     },
-    '@{wrap}': function (origin) {
+    '__dr': function (origin) {
         var listValue = this['key.value'], listText = this['key.text'];
         var list = [];
         if (origin && (origin.length > 0)) {
@@ -270,11 +167,11 @@ catch (ex) {
     render: function () {
         this.updater.digest();
     },
-    '@{suggest}<focusin,keyup,paste>': function (e) {
+    '__dv<focusin,keyup,paste>': function (e) {
         e.stopPropagation();
         var that = this;
-        if (that['@{suggest.delay.timer}']) {
-            clearTimeout(that['@{suggest.delay.timer}']);
+        if (that['__dq']) {
+            clearTimeout(that['__dq']);
         }
         var data = that.updater.get();
         var list = data.list, selectedValue = data.selectedValue;
@@ -310,20 +207,20 @@ catch (ex) {
             if (idx < 0) {
                 idx = 0;
             }
-            that['@{value.bak}'] = list[idx].value;
-            that['@{hide}']();
-            that['@{fire}']();
+            that['__ds'] = list[idx].value;
+            that['__m']();
+            that['__cd']();
         }
         else {
-            that['@{suggest.delay.timer}'] = setTimeout(that.wrapAsync(function () {
-                that['@{show}']();
+            that['__dq'] = setTimeout(that.wrapAsync(function () {
+                that['__n']();
             }), 300);
         }
     },
-    '@{hide}': function () {
+    '__m': function () {
         var that = this;
         var data = that.updater.get();
-        var list = data.list, selectedValue = that['@{value.bak}'] + '', selectText = '';
+        var list = data.list, selectedValue = that['__ds'] + '', selectText = '';
         // 上下键切换未选择
         for (var index = 0; index < list.length; index++) {
             var item = list[index];
@@ -337,7 +234,7 @@ catch (ex) {
             selectText: selectText,
             show: false
         });
-        Monitor['@{remove}'](that);
+        Monitor['__g'](that);
     },
     showLoading: function () {
         this.updater.digest({
@@ -354,23 +251,23 @@ catch (ex) {
      */
     update: function (list) {
         var that = this;
-        that['@{list.bak}'] = that['@{wrap}'](list);
+        that['__dt'] = that['__dr'](list);
         // 不需要再处理，直接返回什么，展示什么
         var selectText = $('#' + that.id + '_input').val();
         that.updater.digest({
-            list: that['@{list.bak}'],
+            list: that['__dt'],
             selectText: selectText,
             show: true
         });
-        Monitor['@{add}'](that);
+        Monitor['__p'](that);
     },
-    '@{show}': function (ignore) {
+    '__n': function (ignore) {
         var that = this;
-        var source = that['@{list.bak}'];
+        var source = that['__dt'];
         var selectText = $('#' + that.id + '_input').val();
         var lowerText = (selectText + '').toLowerCase();
         var list = [];
-        var types = that['@{search.type}'];
+        var types = that['__du'];
         source.forEach(function (item) {
             var has = false;
             types.forEach(function (type) {
@@ -387,33 +284,33 @@ catch (ex) {
             selectText: selectText,
             show: true
         });
-        Monitor['@{add}'](that);
-        that['@{owner.node}'].trigger({
+        Monitor['__p'](that);
+        that['__j'].trigger({
             type: 'show',
             keyword: selectText
         });
     },
-    '@{inside}': function (node) {
+    '__k': function (node) {
         return Magix.inside(node, this.id);
     },
-    '@{stop}<change,focusout>': function (e) {
+    '__l<change,focusout>': function (e) {
         e.stopPropagation();
     },
-    '@{select}<click>': function (e) {
+    '__aa<click>': function (e) {
         e.stopPropagation();
         var that = this;
         var item = e.params.item;
         that.updater.digest({
             selectText: item.text,
-            selectedValue: that['@{value.bak}'] = item.value,
+            selectedValue: that['__ds'] = item.value,
             show: false
         });
-        that['@{fire}']();
+        that['__cd']();
     },
-    '@{fire}': function () {
+    '__cd': function () {
         var that = this;
         var selectedValue = that.updater.get('selectedValue'), selectText = that.updater.get('selectText');
-        that['@{owner.node}'].val(selectedValue).trigger({
+        that['__j'].val(selectedValue).trigger({
             type: 'suggest',
             selected: {
                 value: selectedValue,

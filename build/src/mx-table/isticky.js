@@ -14,42 +14,42 @@ module.exports = Magix.View.extend({
         var inmain;
         if (extra.stickyWrapper) {
             inmain = $('#' + extra.stickyWrapper);
-            me['@{layout.header.height}'] = $('#app_header').height() || 50;
+            me['__dZ'] = $('#app_header').height() || 50;
         }
         else {
             inmain = $(window);
-            me['@{layout.header.height}'] = 0;
+            me['__dZ'] = 0;
         }
         var watchInmainScroll = function () {
-            me['@{sync.pos}'](inmain);
+            me['__e_'](inmain);
         };
         me.on('destroy', function () {
             inmain.off('scroll', watchInmainScroll);
         });
         inmain.on('scroll', watchInmainScroll);
-        me['@{layout.inmain}'] = inmain;
-        me['@{owner.node}'] = $('#' + me.id);
+        me['__ea'] = inmain;
+        me['__j'] = $('#' + me.id);
     },
     render: function () {
         var me = this;
-        me['@{sync.vars}']();
-        me['@{sync.height}']();
-        me['@{sync.pos}'](me['@{layout.inmain}']);
+        me['__eb']();
+        me['__ec']();
+        me['__e_'](me['__ea']);
     },
-    '@{sync.height}': function () {
+    '__ec': function () {
         var me = this;
-        var thead = me['@{thead.node}'];
-        var ghost = me['@{ghost.node}'];
+        var thead = me['__ed'];
+        var ghost = me['__ee'];
         var height = thead.height();
-        if (height != me['@{thead.height}']) {
+        if (height != me['__dV']) {
             ghost.css({
                 height: height,
                 display: 'none'
             });
-            me['@{thead.height}'] = height;
+            me['__dV'] = height;
         }
     },
-    '@{sync.vars}': function () {
+    '__eb': function () {
         var me = this;
         var thead = $('#' + me.id).find('thead');
         var ghostId = 'ph_' + me.id;
@@ -57,18 +57,18 @@ module.exports = Magix.View.extend({
         if (!ghost.length) {
             ghost = $('<caption />').insertBefore(thead).attr('id', ghostId);
         }
-        me['@{ghost.node}'] = ghost;
-        me['@{thead.node}'] = thead;
+        me['__ee'] = ghost;
+        me['__ed'] = thead;
     },
-    '@{get.pos.info}': function () {
+    '__eh': function () {
         var me = this;
         var now = $.now();
-        if (!me['@{ctrl.last.info}'] || me['@{ctrl.last.info}'] + 3000 < now) {
-            me['@{ctrl.last.info}'] = now;
-            var owner = me['@{owner.node}'];
+        if (!me['__ef'] || me['__ef'] + 3000 < now) {
+            me['__ef'] = now;
+            var owner = me['__j'];
             var top1 = void 0, height = void 0;
-            if (me['@{layout.header.height}']) {
-                top1 = owner.offset().top + me['@{layout.inmain}'].scrollTop() - me['@{layout.header.height}'];
+            if (me['__dZ']) {
+                top1 = owner.offset().top + me['__ea'].scrollTop() - me['__dZ'];
             }
             else {
                 top1 = owner.offset().top;
@@ -79,34 +79,34 @@ module.exports = Magix.View.extend({
             if (tfoot.length) {
                 tfh = tfoot.height();
             }
-            return (me['@{temp.info}'] = {
+            return (me['__eg'] = {
                 min: top1,
-                max: top1 + height - me['@{thead.height}'] - tfh
+                max: top1 + height - me['__dV'] - tfh
             });
         }
-        return me['@{temp.info}'];
+        return me['__eg'];
     },
-    '@{sync.pos}': function (node) {
+    '__e_': function (node) {
         var me = this;
         var top = node.scrollTop();
-        var info = me['@{get.pos.info}']();
-        var pi = me['@{pos.info}'];
+        var info = me['__eh']();
+        var pi = me['__ei'];
         if (top > info.min && top < info.max) {
-            me['@{pos.info}'] = 's';
-            me['@{ghost.node}'].css({
+            me['__ei'] = 's';
+            me['__ee'].css({
                 display: 'block'
             });
-            me['@{thead.node}'].css({
+            me['__ed'].css({
                 position: 'absolute',
                 top: top - info.min
             });
         }
         else if (pi != 'i') {
-            me['@{pos.info}'] = 'i';
-            me['@{ghost.node}'].css({
+            me['__ei'] = 'i';
+            me['__ee'].css({
                 display: 'none'
             });
-            me['@{thead.node}'].css({
+            me['__ed'].css({
                 position: 'initial',
                 top: 'auto'
             });

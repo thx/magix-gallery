@@ -9,7 +9,7 @@ define("mx-tree/branch",["magix","$"],(require,exports,module)=>{
 var Magix = require("magix");
 var $ = require("$");
 var Vframe = Magix.Vframe;
-Magix.applyStyle("_zs_gallery_mx-tree_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-tree_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-tree_index_-name {\n  position: relative;\n  height: 32px;\n  line-height: 20px;\n  padding-bottom: 12px;\n  background-color: #fff;\n  overflow: hidden;\n  transition: height 0.2s;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-icon {\n  float: left;\n  height: 20px;\n  margin-right: 5px;\n  line-height: 20px;\n  color: #ccc;\n  transition: color 0.25s;\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper {\n  cursor: pointer;\n  font-size: 14px;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper:hover {\n  color: #666;\n}\n._zs_gallery_mx-tree_index_-close ._zs_gallery_mx-tree_index_-name {\n  height: 0;\n  padding-bottom: 0;\n}\n._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-indent {\n  padding-left: 20px;\n}\n._zs_gallery_mx-tree_index_-line {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:after {\n  content: '';\n  position: absolute;\n  top: 22px;\n  left: 7px;\n  bottom: 2px;\n  width: 1px;\n  background-color: #e6e6e6;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:last-child:after {\n  content: none;\n}\n");
+Magix.applyStyle("_zs_galleryaH","._zs_gallerymX{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerymY{position:relative;height:32px;line-height:20px;padding-bottom:12px;background-color:#fff;overflow:hidden;transition:height .2s}._zs_gallerymY ._zs_gallerymZ{float:left;height:20px;margin-right:5px;line-height:20px;color:#ccc;transition:color .25s;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-user-select:none}._zs_gallerymY ._zs_galleryn_{cursor:pointer;font-size:14px}._zs_gallerymY ._zs_galleryn_:hover{color:#666}._zs_galleryna ._zs_gallerymY{height:0;padding-bottom:0}._zs_gallerynb{position:relative}._zs_gallerync{padding-left:20px}._zs_gallerynd,._zs_gallerynd ._zs_gallerynb{position:relative}._zs_gallerynd ._zs_gallerynb:after{content:\"\";position:absolute;top:22px;left:7px;bottom:2px;width:1px;background-color:#e6e6e6}._zs_gallerynd ._zs_gallerynb:last-child:after{content:none}");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -26,227 +26,72 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', list = $$.list, needExpand = $$.needExpand, readOnly = $$.readOnly, viewId = $$.viewId, valueKey = $$.valueKey, textKey = $$.textKey, fromTop = $$.fromTop; var $expr, $art, $line; try {
-    $line = 1;
-    $art = 'each list as item index';
-    ;
-    $expr = '<%for (var index = 0, $art_cmhtmaife$art_c = list.length; index < $art_cmhtmaife$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cmhtmaife$art_c = list.length; index < $art_cmhtmaife$art_c; index++) {
-        var item = list[index];
-        $p += '<div mxv mxa="_zs_galleryec:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_galleryec:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
-        $line = 4;
-        $art = 'if needExpand';
+} ; var $g = '', $_temp, $p = '', list = $$.list, needExpand = $$.needExpand, readOnly = $$.readOnly, viewId = $$.viewId, valueKey = $$.valueKey, textKey = $$.textKey, fromTop = $$.fromTop; for (var index = 0, $art_cewblbpcv$art_c = list.length; index < $art_cewblbpcv$art_c; index++) {
+    var item = list[index];
+    $p += '<div mxv mxa="_zs_galleryec:_" class="_zs_gallerynb"><div mxv mxa="_zs_galleryec:a" class="_zs_gallerymY clearfix">';
+    if (needExpand) {
         ;
-        $expr = '<%if (needExpand) {%>';
-        if (needExpand) {
+        $p += ' ';
+        if (item.children && (item.children.length > 0)) {
             ;
-            $p += ' ';
-            $line = 5;
-            $art = 'if (item.children && (item.children.length > 0))';
-            ;
-            $expr = '<%if (item.children && (item.children.length > 0)) {%>';
-            if (item.children && (item.children.length > 0)) {
+            $p += '<i class="mc-iconfont _zs_gallerymZ _zs_galleryn_" mx-click="' + $viewId + '__o({index:' + $e(index) + '})">';
+            if (item.close) {
                 ;
-                $p += '<i class="mc-iconfont _zs_gallery_mx-tree_index_-icon _zs_gallery_mx-tree_index_-oper" mx-click="' + $viewId + '@{toggle}({index:';
-                $line = 6;
-                $art = '=index';
-                ;
-                $p += ($expr = '<%=index%>', $e(index)) + '})">';
-                $line = 7;
-                $art = 'if item.close';
-                ;
-                $expr = '<%if (item.close) {%>';
-                if (item.close) {
-                    ;
-                    $p += ' &#xe65b; ';
-                    $line = 9;
-                    $art = 'else';
-                    ;
-                    $expr = '<%}            else {%>';
-                }
-                else {
-                    ;
-                    $p += ' &#xe65a; ';
-                    $line = 11;
-                    $art = '/if';
-                    ;
-                    $expr = '<%}%>';
-                }
-                ;
-                $p += '</i>';
-                $line = 13;
-                $art = 'else';
-                ;
-                $expr = '<%}        else {%>';
+                $p += ' &#xe65b; ';
             }
             else {
                 ;
-                $p += ' ';
-                $line = 14;
-                $art = 'if readOnly';
+                $p += ' &#xe65a; ';
+            }
+            ;
+            $p += '</i>';
+        }
+        else {
+            ;
+            $p += ' ';
+            if (readOnly) {
                 ;
-                $expr = '<%if (readOnly) {%>';
-                if (readOnly) {
-                    ;
-                    $p += '<i mxs="_zs_galleryec:_" class="mc-iconfont _zs_gallery_mx-tree_index_-icon empty">&#xe732;</i>';
-                    $line = 17;
-                    $art = '/if';
-                    ;
-                    $expr = '<%}%>';
-                }
-                ;
-                $p += ' ';
-                $line = 18;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
+                $p += '<i mxs="_zs_galleryec:_" class="mc-iconfont _zs_gallerymZ empty">&#xe732;</i>';
             }
             ;
             $p += ' ';
-            $line = 19;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '<label mxv mxa="_zs_galleryec:b" class="fl">';
-        $line = 21;
-        $art = 'if !readOnly';
-        ;
-        $expr = '<%if (!readOnly) {%>';
-        if (!readOnly) {
-            ;
-            $p += '<input class="checkbox" type="checkbox" id="cb_';
-            $line = 24;
-            $art = '=viewId';
-            ;
-            $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
-            $line = 24;
-            $art = '=index';
-            ;
-            $p += ($expr = '<%=index%>', $e(index)) + '" value="';
-            $line = 25;
-            $art = '=item[valueKey]';
-            ;
-            $p += ($expr = '<%=item[valueKey]%>', $e(item[valueKey])) + '" name="';
-            $line = 26;
-            $art = '=viewId';
-            ;
-            $p += ($expr = '<%=viewId%>', $e(viewId)) + '" mx-change="' + $viewId + '@{check}({index:';
-            $line = 27;
-            $art = '=index';
-            ;
-            $p += ($expr = '<%=index%>', $e(index)) + '})"/>';
-            $line = 28;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
         }
         ;
         $p += ' ';
-        $line = 30;
-        $art = '=item[textKey]';
-        ;
-        $p += ($expr = '<%=item[textKey]%>', $e(item[textKey])) + '</label></div>';
-        $line = 33;
-        $art = 'if (item.children && (item.children.length > 0))';
-        ;
-        $expr = '<%if (item.children && (item.children.length > 0)) {%>';
-        if (item.children && (item.children.length > 0)) {
-            ;
-            $p += '<div mxv="readOnly,needExpand,list" id="';
-            $line = 40;
-            $art = '=viewId';
-            ;
-            $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
-            $line = 40;
-            $art = '=index';
-            ;
-            $p += ($expr = '<%=index%>', $e(index)) + '" class="';
-            $line = 41;
-            $art = 'if item.close';
-            ;
-            $expr = '<%if (item.close) {%>';
-            if (item.close) {
-                ;
-                $p += ' _zs_gallery_mx-tree_index_-close ';
-                $line = 41;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
-            }
-            ;
-            $p += ' ';
-            $line = 41;
-            $art = 'if !item.isAll';
-            ;
-            $expr = '<%if (!item.isAll) {%>';
-            if (!item.isAll) {
-                ;
-                $p += ' _zs_gallery_mx-tree_index_-indent ';
-                $line = 41;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
-            }
-            ;
-            $p += ' ';
-            $line = 41;
-            $art = 'if fromTop';
-            ;
-            $expr = '<%if (fromTop) {%>';
-            if (fromTop) {
-                ;
-                $p += ' top ';
-                $line = 41;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
-            }
-            ;
-            $p += '" mx-view="mx-tree/branch?textKey=';
-            $line = 35;
-            $art = '=textKey';
-            ;
-            $p += ($expr = '<%!$eu(textKey)%>', $eu(textKey)) + '&valueKey=';
-            $line = 36;
-            $art = '=valueKey';
-            ;
-            $p += ($expr = '<%!$eu(valueKey)%>', $eu(valueKey)) + '&readOnly=';
-            $line = 37;
-            $art = '@readOnly';
-            ;
-            $p += ($expr = '<%@readOnly%>', $i($$ref, readOnly)) + '&needExpand=';
-            $line = 38;
-            $art = '@needExpand';
-            ;
-            $p += ($expr = '<%@needExpand%>', $i($$ref, needExpand)) + '&list=';
-            $line = 39;
-            $art = '@item.children';
-            ;
-            $p += ($expr = '<%@item.children%>', $i($$ref, item.children)) + '"></div>';
-            $line = 42;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '</div>';
-        $line = 44;
-        $art = '/each';
-        ;
-        $expr = '<%}%>';
     }
     ;
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-tree/branch.html';
-    throw msg;
-} return $p; },
+    $p += '<label mxv mxa="_zs_galleryec:b" class="fl">';
+    if (!readOnly) {
+        ;
+        $p += '<input class="checkbox" type="checkbox" id="cb_' + $e(viewId) + '_' + $e(index) + '" value="' + $e(item[valueKey]) + '" name="' + $e(viewId) + '" mx-change="' + $viewId + '__ca({index:' + $e(index) + '})"/>';
+    }
+    ;
+    $p += ' ' + $e(item[textKey]) + '</label></div>';
+    if (item.children && (item.children.length > 0)) {
+        ;
+        $p += '<div mxv="readOnly,needExpand,list" id="' + $e(viewId) + '_' + $e(index) + '" class="';
+        if (item.close) {
+            ;
+            $p += ' _zs_galleryna ';
+        }
+        ;
+        $p += ' ';
+        if (!item.isAll) {
+            ;
+            $p += ' _zs_gallerync ';
+        }
+        ;
+        $p += ' ';
+        if (fromTop) {
+            ;
+            $p += ' top ';
+        }
+        ;
+        $p += '" mx-view="mx-tree/branch?textKey=' + $eu(textKey) + '&valueKey=' + $eu(valueKey) + '&readOnly=' + $i($$ref, readOnly) + '&needExpand=' + $i($$ref, needExpand) + '&list=' + $i($$ref, item.children) + '"></div>';
+    }
+    ;
+    $p += '</div>';
+} ; return $p; },
     init: function (extra) {
         this.updater.set(extra);
     },
@@ -256,7 +101,7 @@ catch (ex) {
             viewId: me.id
         });
     },
-    '@{getCheckedState}': function () {
+    '__ff': function () {
         var me = this;
         var viewId = me.id;
         var hasChecked, hasUnchecked;
@@ -279,7 +124,7 @@ catch (ex) {
         }
         return 1;
     },
-    '@{checkParentState}': function (key) {
+    '__fg': function (key) {
         var me = this;
         var parent = me.owner.parent();
         var state = 0;
@@ -289,7 +134,7 @@ catch (ex) {
                 if (children[i] == key) {
                     var vf = Vframe.get(children[i]);
                     if (vf) {
-                        state |= vf.invoke('@{getCheckedState}');
+                        state |= vf.invoke('__ff');
                     }
                     break;
                 }
@@ -302,10 +147,10 @@ catch (ex) {
                 node.prop('indeterminate', false);
                 node.prop('checked', state == 2);
             }
-            parent.invoke('@{checkParentState}', [parent.id]);
+            parent.invoke('__fg', [parent.id]);
         }
     },
-    '@{checkAll}': function (state) {
+    '__bS': function (state) {
         var me = this;
         var viewId = me.id;
         $('#' + viewId + ' input[name="' + viewId + '"]')
@@ -317,23 +162,23 @@ catch (ex) {
             var c = children_1[_i];
             var vf = Vframe.get(c);
             if (vf) {
-                vf.invoke('@{checkAll}', [state]);
+                vf.invoke('__bS', [state]);
             }
         }
     },
-    '@{check}<change>': function (e) {
+    '__ca<change>': function (e) {
         var me = this;
         var vf = Vframe.get(me.id + '_' + e.params.index);
         if (vf) {
-            vf.invoke('@{checkAll}', [e.eventTarget.checked]);
+            vf.invoke('__bS', [e.eventTarget.checked]);
         }
-        me['@{checkParentState}'](me.id);
+        me['__fg'](me.id);
     },
-    '@{toggle}<click>': function (e) {
+    '__o<click>': function (e) {
         e.stopPropagation();
         var node = $(e.eventTarget);
         var index = e.params.index;
-        var cName = '_zs_gallery_mx-tree_index_-close';
+        var cName = '_zs_galleryna';
         var branch = $('#' + this.id + '_' + index);
         branch.toggleClass(cName);
         if (branch.hasClass(cName)) {
@@ -356,7 +201,7 @@ catch (ex) {
                 n.checked = true;
             }
         });
-        me['@{checkParentState}'](me.id);
+        me['__fg'](me.id);
     },
     getValues: function () {
         return this.get('value');

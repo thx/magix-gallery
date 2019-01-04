@@ -9,6 +9,45 @@ let terser = require('gulp-terser-scoped');
 let ts = require('typescript');
 let classReg = /\bclass\s*=\s*"[^"]+/;
 
+const { exec, execSync, spawn, spawnSync } = require('child_process');
+let  spawnCommand = (command, args, options) => {
+    //默认stdio: inherit可传入自定义options
+    const _options = {
+        stdio: 'inherit',
+        shell: process.platform === 'win32' //win下需要设置shell为true
+    }
+ 
+    Object.assign(_options, options)
+ 
+    return new Promise((resolve, reject) => {
+        const sp = spawn(command, args, _options)
+ 
+        sp.on('close', code => {
+            resolve()
+        })
+ 
+        sp.on('error', err => {
+            console.log(err)
+        })
+    })
+ };
+ 
+ let execCommandReturn = (command) => {
+     return new Promise((resolve, reject) => {
+         const child = exec(command, {
+             maxBuffer: 20000 * 1024
+         })
+         child.stdout.on('data', data => {
+             resolve(data)
+         })
+ 
+         child.on('close', () => {
+             resolve()
+         })
+     })
+};
+
+
 combineTool.config({
     debug: true,
     srcFolder: 'build/src',
@@ -105,7 +144,7 @@ gulp.task('compress', ['turnOffDebug', 'combine'], () => {
     });
 });
 
-gulp.task('release', ['compress'], () => {
+gulp.task('release', ['compress'], async () => {
     let index = fs.readFileSync('./index.html').toString();
     
     let cs = fs.readFileSync('./disc/all.js').toString();
@@ -113,4 +152,7 @@ gulp.task('release', ['compress'], () => {
     index = index.replace(/<script id="test">[\s\S]*?<\/script>/, '<script id="test">' + cs + '</script>');
 
     fs.writeFileSync('./index.html', index);
+
+    await spawnCommand('git', ['add', '.']);
+    await spawnCommand('git', ['commit', '-m', 'publish ' + pkg.version]);
 });

@@ -10,7 +10,7 @@ var Magix = require("magix");
 var $ = require("$");
 var Vframe = Magix.Vframe;
 var I18n = require("../mx-medusa/util");
-Magix.applyStyle("_zs_gallery_mx-dialog_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-dialog_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-dialog_index_-dialog-backdrop,\n._zs_gallery_mx-dialog_index_-dialog-wrapper {\n  position: fixed;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop {\n  opacity: 0;\n  top: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop._zs_gallery_mx-dialog_index_-backdrop-out {\n  opacity: 1;\n}\n._zs_gallery_mx-dialog_index_-dialog {\n  position: absolute;\n  border-radius: 4px;\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-content {\n  position: relative;\n  word-break: break-all;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  width: 26px;\n  height: 26px;\n  z-index: 20;\n  border-radius: 50%;\n  background: transparent;\n  color: #ccc;\n  text-align: center;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close ._zs_gallery_mx-dialog_index_-iconfont-ext {\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 26px;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:hover,\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:focus {\n  background-color: #999;\n  color: #fff;\n}\n._zs_gallery_mx-dialog_index_-btn-submit {\n  position: relative;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 1;\n  position: relative;\n  z-index: 1;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: none;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 2;\n  margin-top: -2px;\n  margin-left: -2px;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: inline;\n}\n");
+Magix.applyStyle("_zs_galleryA","._zs_gallerydr{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryds,._zs_gallerydt{position:fixed;left:0;width:100%;height:100%;transition:all .25s}._zs_galleryds{opacity:0;top:0;background-color:rgba(0,0,0,.4)}._zs_galleryds._zs_gallerydu{opacity:1}._zs_gallerydv{position:absolute;border-radius:4px;background-color:#fff;box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerydv ._zs_gallerydw{position:relative;word-break:break-all}._zs_gallerydv ._zs_gallerydx{position:absolute;top:16px;right:24px;width:26px;height:26px;z-index:20;border-radius:50%;background:transparent;color:#ccc;text-align:center}._zs_gallerydv ._zs_gallerydx ._zs_gallerydy{font-size:18px;font-weight:700;line-height:26px}._zs_gallerydv ._zs_gallerydx:focus,._zs_gallerydv ._zs_gallerydx:hover{background-color:#999;color:#fff}._zs_gallerydz{position:relative}._zs_gallerydz ._zs_gallerydA{opacity:1;position:relative;z-index:1}._zs_gallerydz ._zs_gallerydB{display:none;position:absolute;top:50%;left:50%;z-index:2;margin-top:-2px;margin-left:-2px}._zs_gallerydz._zs_gallerydC ._zs_gallerydA{opacity:0}._zs_gallerydz._zs_gallerydC ._zs_gallerydB{display:inline}");
 var DialogZIndex = 500;
 var Duration = 250;
 var CacheList = [];
@@ -35,176 +35,53 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', closable = $$.closable, cntId = $$.cntId, full = $$.full, fullHeader = $$.fullHeader, fullFooter = $$.fullFooter; var $expr, $art, $line; try {
-    $line = 1;
-    $art = 'if closable';
+} ; var $g = '', $_temp, $p = '', closable = $$.closable, cntId = $$.cntId, full = $$.full, fullHeader = $$.fullHeader, fullFooter = $$.fullFooter; if (closable) {
     ;
-    $expr = '<%if (closable) {%>';
-    if (closable) {
-        ;
-        $p += '<a mxs="_zs_galleryax:_" href="javascript:;" mx-click="' + $viewId + '@{close}()" class="_zs_gallery_mx-dialog_index_-dialog-close"><i class="mc-iconfont _zs_gallery_mx-dialog_index_-iconfont-ext">&#xe603;</i></a>';
-        $line = 5;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
+    $p += '<a mxs="_zs_galleryax:_" href="javascript:;" mx-click="' + $viewId + '__ap()" class="_zs_gallerydx"><i class="mc-iconfont _zs_gallerydy">&#xe603;</i></a>';
+} ; $p += '<div class="_zs_gallerydw" id="' + $e(cntId) + '_content">'; if (full) {
     ;
-    $p += '<div class="_zs_gallery_mx-dialog_index_-dialog-content" id="';
-    $line = 6;
-    $art = '=cntId';
-    ;
-    $p += ($expr = '<%=cntId%>', $e(cntId)) + '_content">';
-    $line = 7;
-    $art = 'if full';
-    ;
-    $expr = '<%if (full) {%>';
-    if (full) {
+    $p += ' ';
+    if (fullHeader.title) {
         ;
-        $p += ' ';
-        $line = 10;
-        $art = 'if fullHeader.title';
-        ;
-        $expr = '<%if (fullHeader.title) {%>';
-        if (fullHeader.title) {
+        $p += '<div class="dialog-header" id="' + $e(cntId) + '_header"><span mxa="_zs_galleryax:_" class="header-name">' + $n(fullHeader.title) + '</span>';
+        if (fullHeader.tip) {
             ;
-            $p += '<div class="dialog-header" id="';
-            $line = 11;
-            $art = '=cntId';
-            ;
-            $p += ($expr = '<%=cntId%>', $e(cntId)) + '_header"><span mxa="_zs_galleryax:_" class="header-name">';
-            $line = 12;
-            $art = '!fullHeader.title';
-            ;
-            $p += ($expr = '<%!fullHeader.title%>', $n(fullHeader.title)) + '</span>';
-            $line = 13;
-            $art = 'if fullHeader.tip';
-            ;
-            $expr = '<%if (fullHeader.tip) {%>';
-            if (fullHeader.tip) {
-                ;
-                $p += '<span mxa="_zs_galleryax:a" class="color-9 ml10">';
-                $line = 14;
-                $art = '!fullHeader.tip';
-                ;
-                $p += ($expr = '<%!fullHeader.tip%>', $n(fullHeader.tip)) + '</span>';
-                $line = 15;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
-            }
-            ;
-            $p += '</div>';
-            $line = 17;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
+            $p += '<span mxa="_zs_galleryax:a" class="color-9 ml10">' + $n(fullHeader.tip) + '</span>';
         }
         ;
-        $p += '<div id="';
-        $line = 19;
-        $art = '=cntId';
+        $p += '</div>';
+    }
+    ;
+    $p += '<div id="' + $e(cntId) + '"><div mxs="_zs_galleryax:a" class="loading" style="padding: 80 0;"><span class="loading-anim"></span></div></div>';
+    if (fullFooter.enter || fullFooter.cancel) {
         ;
-        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryax:a" class="loading" style="padding: 80 0;"><span class="loading-anim"></span></div></div>';
-        $line = 25;
-        $art = 'if (fullFooter.enter || fullFooter.cancel)';
-        ;
-        $expr = '<%if (fullFooter.enter || fullFooter.cancel) {%>';
-        if (fullFooter.enter || fullFooter.cancel) {
+        $p += '<div class="dialog-footer clearfix" id="' + $e(cntId) + '_footer">';
+        if (fullFooter.enter) {
             ;
-            $p += '<div class="dialog-footer clearfix" id="';
-            $line = 26;
-            $art = '=cntId';
-            ;
-            $p += ($expr = '<%=cntId%>', $e(cntId)) + '_footer">';
-            $line = 27;
-            $art = 'if fullFooter.enter';
-            ;
-            $expr = '<%if (fullFooter.enter) {%>';
-            if (fullFooter.enter) {
-                ;
-                $p += '<a mxa="_zs_galleryax:b" href="javascript:;" class="fl btn btn-brand min-width-60 mr16 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_galleryax:c" class="_zs_gallery_mx-dialog_index_-submit-text">';
-                $line = 29;
-                $art = '=fullFooter.enterText';
-                ;
-                $p += ($expr = '<%=fullFooter.enterText%>', $e(fullFooter.enterText)) + '</span></a>';
-                $line = 31;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
-            }
-            ;
-            $p += ' ';
-            $line = 33;
-            $art = 'if fullFooter.cancel';
-            ;
-            $expr = '<%if (fullFooter.cancel) {%>';
-            if (fullFooter.cancel) {
-                ;
-                $p += '<a mxa="_zs_galleryax:d" href="javascript:;" class="fl btn min-width-60 mr16" mx-click="' + $viewId + '@{close}()">';
-                $line = 34;
-                $art = '=fullFooter.cancelText';
-                ;
-                $p += ($expr = '<%=fullFooter.cancelText%>', $e(fullFooter.cancelText)) + '</a>';
-                $line = 35;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
-            }
-            ;
-            $p += ' ';
-            $line = 37;
-            $art = 'if fullFooter.enter';
-            ;
-            $expr = '<%if (fullFooter.enter) {%>';
-            if (fullFooter.enter) {
-                ;
-                $p += '<span id="';
-                $line = 38;
-                $art = '=cntId';
-                ;
-                $p += ($expr = '<%=cntId%>', $e(cntId)) + '_footer_error" class="fl lh32 color-red"></span>';
-                $line = 39;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
-            }
-            ;
-            $p += '</div>';
-            $line = 41;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
+            $p += '<a mxa="_zs_galleryax:b" href="javascript:;" class="fl btn btn-brand min-width-60 mr16 _zs_gallerydz" mx-click="' + $viewId + '__aq()"><span mxa="_zs_galleryax:c" class="_zs_gallerydA">' + $e(fullFooter.enterText) + '</span></a>';
         }
         ;
         $p += ' ';
-        $line = 42;
-        $art = 'else';
+        if (fullFooter.cancel) {
+            ;
+            $p += '<a mxa="_zs_galleryax:d" href="javascript:;" class="fl btn min-width-60 mr16" mx-click="' + $viewId + '__ap()">' + $e(fullFooter.cancelText) + '</a>';
+        }
         ;
-        $expr = '<%}else {%>';
-    }
-    else {
+        $p += ' ';
+        if (fullFooter.enter) {
+            ;
+            $p += '<span id="' + $e(cntId) + '_footer_error" class="fl lh32 color-red"></span>';
+        }
         ;
-        $p += '<div id="';
-        $line = 44;
-        $art = '=cntId';
-        ;
-        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryax:a" class="loading" style="padding: 80 0;"><span class="loading-anim"></span></div></div>';
-        $line = 47;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
+        $p += '</div>';
     }
     ;
-    $p += '</div>';
+    $p += ' ';
 }
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-dialog/index.html';
-    throw msg;
-} return $p; },
+else {
+    ;
+    $p += '<div id="' + $e(cntId) + '"><div mxs="_zs_galleryax:a" class="loading" style="padding: 80 0;"><span class="loading-anim"></span></div></div>';
+} ; $p += '</div>'; return $p; },
     init: function (extra) {
         var me = this;
         me.on('destroy', function () {
@@ -255,7 +132,7 @@ catch (ex) {
             }
             var mask = $('#mask_' + me.id);
             if (mask.length > 0) {
-                mask.addClass('_zs_gallery_mx-dialog_index_-backdrop-out');
+                mask.addClass('_zs_gallerydu');
             }
             else {
                 // 没有mask的时候，点击空白处关闭浮层
@@ -272,33 +149,33 @@ catch (ex) {
             });
         }), Duration);
     },
-    '@{notify.main.view.unload}': function (e) {
+    '__ao': function (e) {
         var vf = Vframe.get('cnt_' + this.id);
         vf && vf.invoke('fire', ['unload', e]);
     },
     /**
      * 全屏右出浮层提交按钮
      */
-    '@{submit}<click>': function (e) {
+    '__aq<click>': function (e) {
         var node = $(e.eventTarget);
-        var cc = '_zs_gallery_mx-dialog_index_-btn-submit-loading';
+        var cc = '_zs_gallerydC';
         if (node.hasClass(cc)) {
             // 防止重复提交
             return;
         }
         node.addClass(cc);
-        node.append('<span class="mx-anim-loading _zs_gallery_mx-dialog_index_-submit-loading"></span>');
+        node.append('<span class="mx-anim-loading _zs_gallerydB"></span>');
         var me = this;
         var data = me.updater.get();
         var cntId = data.cntId;
         var vf = Vframe.get(cntId);
         vf.invoke('check').then(function (result) {
-            node.find('._zs_gallery_mx-dialog_index_-submit-loading').remove();
+            node.find('._zs_gallerydB').remove();
             node.removeClass(cc);
             var errorNode = $('#' + cntId + '_footer_error');
             if (result.ok) {
                 errorNode.html('');
-                me['@{close}<click>']();
+                me['__ap<click>']();
                 if (data.callback) {
                     data.callback(result.data || {});
                 }
@@ -313,7 +190,7 @@ catch (ex) {
             }
         });
     },
-    '@{close}<click>': function () {
+    '__ap<click>': function () {
         $('#' + this.id).trigger('dlg_close');
     },
     '$doc<keyup>': function (e) {
@@ -326,17 +203,17 @@ catch (ex) {
         }
     }
 }, {
-    '@{dialog.show}': function (view, options) {
+    '__ar': function (view, options) {
         var id = Magix.guid('dlg_');
         if (options.mask) {
-            var mask = $('<div class="_zs_gallery_mx-dialog_index_-dialog-backdrop" id="mask_' + id + '" />');
+            var mask = $('<div class="_zs_galleryds" id="mask_' + id + '" />');
             mask.css({
                 zIndex: DialogZIndex - 1
             });
             $(document.body).append(mask);
         }
         var wrapperId = 'wrapper_' + id, wrapperZIndex = DialogZIndex, width = options.width, left = options.left, top = options.top;
-        var wrapper = $("<div class=\"_zs_gallery_mx-dialog_index_-dialog-wrapper\" id=\"" + wrapperId + "\"\n        style=\"z-index:" + wrapperZIndex + "\">\n        <div class=\"_zs_gallery_mx-dialog_index_-dialog\" id=\"" + id + "\"\n            style=\"top:" + top + "px; left:" + left + "px; width:" + width + "px;\"></div>\n    </div>");
+        var wrapper = $("<div class=\"_zs_gallerydt\" id=\"" + wrapperId + "\"\n        style=\"z-index:" + wrapperZIndex + "\">\n        <div class=\"_zs_gallerydv\" id=\"" + id + "\"\n            style=\"top:" + top + "px; left:" + left + "px; width:" + width + "px;\"></div>\n    </div>");
         wrapper.css(options.posFrom);
         $(document.body).append(wrapper);
         // 禁止body滚动
@@ -362,7 +239,7 @@ catch (ex) {
                         var resume_1 = function () {
                             node.data('closing', 1);
                             $('#wrapper_' + id).css(options.posFrom);
-                            $('#mask_' + id).removeClass('_zs_gallery_mx-dialog_index_-backdrop-out');
+                            $('#mask_' + id).removeClass('_zs_gallerydu');
                             setTimeout(function () {
                                 node.trigger('close');
                                 // 不重复关闭
@@ -393,7 +270,7 @@ catch (ex) {
                                 suspend = 0;
                             }
                         };
-                        vf.invoke('@{notify.main.view.unload}', [e_1]);
+                        vf.invoke('__ao', [e_1]);
                         if (!suspend && !e_1.p) {
                             resume_1();
                         }
@@ -626,7 +503,7 @@ catch (ex) {
             // 数据
             Magix.mix(dOptions, viewOptions);
             dOptions.dialog = output;
-            dlg = me['@{dialog.show}'](me, dOptions);
+            dlg = me['__ar'](me, dOptions);
             dlg.on('beforeClose', function (event) {
                 if (!beforeCloseCallback || (beforeCloseCallback && beforeCloseCallback())) {
                     event.closeFn();

@@ -10,7 +10,7 @@ var Magix = require("magix");
 var DD = require("../mx-dragdrop/index");
 var Runner = require("../mx-runner/index");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-dragsort_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-dragsort_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-dragsort_index_-bar {\n  position: absolute;\n  left: -1000px;\n  top: 0;\n  z-index: 10000;\n  background: #4d7fff;\n}\n._zs_gallery_mx-dragsort_index_-pointer {\n  position: absolute;\n  z-index: 10000;\n  width: 20px;\n  height: 20px;\n  border-radius: 4px;\n}\n._zs_gallery_mx-dragsort_index_-pointer:after {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  font-size: 12px;\n  line-height: 20px;\n  text-align: center;\n  color: #4d7fff;\n}\n._zs_gallery_mx-dragsort_index_-ok {\n  background: #f6f9ff;\n  border: 1px solid #4d7fff;\n}\n._zs_gallery_mx-dragsort_index_-ok:after {\n  content: '✓';\n}\n");
+Magix.applyStyle("_zs_galleryD","._zs_gallerydL{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerydM{left:-1000px;top:0;background:#4d7fff}._zs_gallerydM,._zs_gallerydN{position:absolute;z-index:10000}._zs_gallerydN{width:20px;height:20px;border-radius:4px}._zs_gallerydN:after{position:absolute;left:0;right:0;top:0;bottom:0;font-size:12px;line-height:20px;text-align:center;color:#4d7fff}._zs_gallerydO{background:#f6f9ff;border:1px solid #4d7fff}._zs_gallerydO:after{content:\"✓\"}");
 var BarId = Magix.guid('dbar_');
 var PointerId = Magix.guid('pt_');
 var Win = $(window);
@@ -26,35 +26,35 @@ var HORIZONAL = 1;
 var VERTICAL = 2;
 var HANDV = HORIZONAL | VERTICAL;
 var UI = {
-    '@{bar.create}': function () {
+    '__aB': function () {
         var node = $('#' + BarId);
         if (!node.length) {
-            $('<div class="_zs_gallery_mx-dragsort_index_-bar" id="' + BarId + '"/>').appendTo('body');
+            $('<div class="_zs_gallerydM" id="' + BarId + '"/>').appendTo('body');
         }
     },
-    '@{drag.start}': function (info) {
+    '__aC': function (info) {
         if (info.child) {
             $(info.child).css({
                 opacity: 0.4
             });
-            this['@{bar.create}']();
+            this['__aB']();
         }
     },
-    '@{drag.end}': function (info) {
+    '__aF': function (info) {
         if (info && info.child) {
             $(info.child).css({
                 opacity: 1
             });
         }
-        this['@{bar.hide}']();
-        this['@{pointer.hide}']();
+        this['__aD']();
+        this['__aE']();
     },
-    '@{bar.hide}': function () {
+    '__aD': function () {
         $('#' + BarId).css({
             left: -1e5
         });
     },
-    '@{bar.move}': function (info, v) {
+    '__aG': function (info, v) {
         var node = $('#' + BarId);
         var hasFound = false;
         if (info.anchor & VERTICAL) {
@@ -96,28 +96,28 @@ var UI = {
             }
         }
     },
-    '@{pos.changed}': function (info) {
+    '__aI': function (info) {
         var me = this;
         if (info.atPlace && info.child != info.hover) {
             if (info.anchor == HANDV) {
-                if (info['@{side.changed}']) {
-                    me['@{bar.move}'](info, info.side);
+                if (info['__aH']) {
+                    me['__aG'](info, info.side);
                 }
             }
-            else if (info['@{pos.changed}']) {
-                me['@{bar.move}'](info, info.position);
+            else if (info['__aI']) {
+                me['__aG'](info, info.position);
             }
-            me['@{pointer.change}'](true);
+            me['__aJ'](true);
         }
         else {
-            me['@{bar.hide}']();
-            me['@{pointer.change}']();
+            me['__aD']();
+            me['__aJ']();
         }
     },
-    '@{pointer.update}': function (e) {
+    '__aK': function (e) {
         var node = $('#' + PointerId);
         if (!node.length) {
-            node = $('<div class="_zs_gallery_mx-dragsort_index_-pointer" id="' + PointerId + '"/>');
+            node = $('<div class="_zs_gallerydN" id="' + PointerId + '"/>');
             node.appendTo('body');
         }
         var x = Math.max(0, Math.min(e.pageX + 10, Doc.width() - node.width()));
@@ -128,16 +128,16 @@ var UI = {
             display: 'block'
         });
     },
-    '@{pointer.change}': function (state) {
+    '__aJ': function (state) {
         var node = $('#' + PointerId);
         if (state) {
-            node.addClass('_zs_gallery_mx-dragsort_index_-ok');
+            node.addClass('_zs_gallerydO');
         }
         else {
-            node.removeClass('_zs_gallery_mx-dragsort_index_-ok');
+            node.removeClass('_zs_gallerydO');
         }
     },
-    '@{pointer.hide}': function () {
+    '__aE': function () {
         $('#' + PointerId).hide();
     }
 };
@@ -148,17 +148,17 @@ module.exports = Magix.View.extend({
         var oNode = $('#' + me.id);
         oNode.on('mousedown', extra.selector, function (e) {
             e.preventDefault();
-            me['@{drag.start}'](e);
+            me['__aC'](e);
         });
         me.on('destroy', function () {
             oNode.off('mousedown');
         });
-        me['@{owner.node}'] = oNode;
+        me['__j'] = oNode;
         var zones = [oNode.get(0)];
         if (extra.drops) {
             zones = zones.concat(extra.drops.split(','));
         }
-        me['@{zone.ids}'] = zones;
+        me['__aL'] = zones;
         var hor = (extra.horizonal + '') === 'true';
         var ver = (extra.vertical + '') === 'true';
         if (!hor && !ver) {
@@ -171,16 +171,16 @@ module.exports = Magix.View.extend({
         if (ver) {
             anchor |= VERTICAL;
         }
-        me['@{anchor.direction}'] = anchor;
+        me['__aM'] = anchor;
         var sort = true;
         if (Magix.has(extra, 'sort')) {
             sort = (extra.sort + '') === 'true';
         }
-        me['@{sort.ctrl}'] = sort;
+        me['__aN'] = sort;
     },
-    '@{findZone}': function (node) {
+    '__aO': function (node) {
         var me = this;
-        var zones = me['@{zone.ids}'];
+        var zones = me['__aL'];
         for (var _i = 0, zones_1 = zones; _i < zones_1.length; _i++) {
             var zone = zones_1[_i];
             if (Magix.inside(node, zone)) {
@@ -189,14 +189,14 @@ module.exports = Magix.View.extend({
         }
         return null;
     },
-    '@{findDirectChild}': function (node, zone) {
+    '__aQ': function (node, zone) {
         var me = this, result = null;
         if (!zone) {
-            zone = me['@{findZone}'](node);
+            zone = me['__aO'](node);
         }
-        if (!me['@{sort.ctrl}'] && me['@{drag.start.node}']) {
+        if (!me['__aN'] && me['__aP']) {
             return {
-                child: me['@{drag.start.node}'],
+                child: me['__aP'],
                 zone: zone
             };
         }
@@ -222,7 +222,7 @@ module.exports = Magix.View.extend({
             zone: zone
         };
     },
-    '@{findPosition}': function (nb, evt) {
+    '__aS': function (nb, evt) {
         var position = 0, side = 0, toLeft = -1, toTop = -1, toRight = -1, toBottom = -1, hasNearest = false;
         if (evt.pageX >= nb.x &&
             evt.pageX <= nb.x + nb.width &&
@@ -254,7 +254,7 @@ module.exports = Magix.View.extend({
             }
         }
         var me = this;
-        var info = me['@{hover.info}'];
+        var info = me['__aR'];
         if (info) {
             if (info.zone === info.hover) {
                 position = TOP;
@@ -267,73 +267,73 @@ module.exports = Magix.View.extend({
             side: side
         };
     },
-    '@{drag.start}': function (e) {
+    '__aC': function (e) {
         if (e.which === 1) {
             var me_1 = this;
-            var info = me_1['@{findDirectChild}'](e.target);
+            var info = me_1['__aQ'](e.target);
             if (info.child) {
-                me_1['@{drag.start.node}'] = info.child;
-                me_1['@{drag.start.zone}'] = info.zone;
-                me_1['@{owner.node}'].trigger({
+                me_1['__aP'] = info.child;
+                me_1['__aT'] = info.zone;
+                me_1['__j'].trigger({
                     type: 'dragbegin',
                     dragNode: info.child,
                     dragZone: info.zone
                 });
-                UI['@{drag.start}'](info);
+                UI['__aC'](info);
                 me_1.dragdrop(info.zone, function (e) {
-                    me_1['@{drag.move}'](e);
+                    me_1['__aU'](e);
                 }, function (e) {
-                    me_1['@{drag.end}'](e);
+                    me_1['__aF'](e);
                 });
             }
         }
     },
-    '@{checkPosition}': function (bound, e, info) {
+    '__aX': function (bound, e, info) {
         var me = this;
-        var p = me['@{findPosition}'](bound, e);
-        var sideChanage = p.side != me['@{last.side}'], positionChange = p.position != me['@{last.position}'];
+        var p = me['__aS'](bound, e);
+        var sideChanage = p.side != me['__aV'], positionChange = p.position != me['__aW'];
         if (sideChanage || positionChange) {
-            me['@{last.side}'] = p.side;
-            me['@{last.position}'] = p.position;
-            info['@{side.changed}'] = sideChanage;
-            info['@{pos.changed}'] = positionChange;
+            me['__aV'] = p.side;
+            me['__aW'] = p.position;
+            info['__aH'] = sideChanage;
+            info['__aI'] = positionChange;
             info.side = p.side;
             info.position = p.position;
             info.atPlace = p.atPlace;
-            info.anchor = me['@{anchor.direction}'];
-            UI['@{pos.changed}'](info);
+            info.anchor = me['__aM'];
+            UI['__aI'](info);
         }
     },
-    '@{drag.move}': function (e) {
+    '__aU': function (e) {
         var current = DD.fromPoint(e.clientX, e.clientY);
         var me = this;
-        UI['@{pointer.update}'](e);
-        me['@{move.event}'] = e;
-        me['@{has.moved}'] = true;
-        me['@{start.zone.scroll}']();
-        me['@{start.win.scroll}']();
-        if (me['@{zone.start.scrolling}'] || me['@{win.start.scrolling}'] || !current) {
-            delete me['@{last.hover.node}'];
-            delete me['@{last.side}'];
-            delete me['@{last.position}'];
+        UI['__aK'](e);
+        me['__aY'] = e;
+        me['__aZ'] = true;
+        me['__b_']();
+        me['__ba']();
+        if (me['__bb'] || me['__bc'] || !current) {
+            delete me['__bd'];
+            delete me['__aV'];
+            delete me['__aW'];
             return;
         }
-        if (me['@{last.hover.node}'] != current) {
+        if (me['__bd'] != current) {
             if (current.id === BarId)
                 return; //
-            me['@{last.hover.node}'] = current;
-            delete me['@{last.side}'];
-            var zone = me['@{findZone}'](current);
+            me['__bd'] = current;
+            delete me['__aV'];
+            var zone = me['__aO'](current);
             if (zone) {
-                if (zone != me['@{last.zone}']) {
-                    me['@{last.zone}'] = zone;
-                    me['@{owner.node}'].trigger({
+                if (zone != me['__be']) {
+                    me['__be'] = zone;
+                    me['__j'].trigger({
                         type: 'enterzone',
                         zone: zone,
-                        changePointer: UI['@{pointer.change}']
+                        changePointer: UI['__aJ']
                     });
                 }
-                var info = me['@{findDirectChild}'](current, zone);
+                var info = me['__aQ'](current, zone);
                 if (!info.child)
                     return;
                 var n = $(info.child);
@@ -346,7 +346,7 @@ module.exports = Magix.View.extend({
                 };
                 n = $(info.zone);
                 offset = n.offset();
-                me['@{last.zone.bound}'] = {
+                me['__bf'] = {
                     x: offset.left,
                     y: offset.top,
                     scrollX: n.prop('scrollLeft'),
@@ -356,47 +356,47 @@ module.exports = Magix.View.extend({
                     width: n.width(),
                     height: n.height()
                 };
-                me['@{checkPosition}'](me['@{last.hover.node.bound}'] = bound, e, me['@{hover.info}'] = {
-                    child: me['@{drag.start.node}'],
+                me['__aX'](me['__bg'] = bound, e, me['__aR'] = {
+                    child: me['__aP'],
                     bound: bound,
                     zone: info.zone,
                     hover: info.child
                 });
             }
-            else if (me['@{last.zone}']) {
-                me['@{owner.node}'].trigger({
+            else if (me['__be']) {
+                me['__j'].trigger({
                     type: 'leavezone',
-                    zone: me['@{last.zone}'],
-                    changePointer: UI['@{pointer.change}']
+                    zone: me['__be'],
+                    changePointer: UI['__aJ']
                 });
-                delete me['@{last.zone}'];
+                delete me['__be'];
             }
         }
-        else if (me['@{last.hover.node.bound}'] &&
-            Magix.inside(current, me['@{hover.info}'].zone)) {
-            me['@{checkPosition}'](me['@{last.hover.node.bound}'], e, me['@{hover.info}']);
+        else if (me['__bg'] &&
+            Magix.inside(current, me['__aR'].zone)) {
+            me['__aX'](me['__bg'], e, me['__aR']);
         }
         else {
-            delete me['@{last.side}'];
-            delete me['@{last.position}'];
-            if (me['@{sort.ctrl}']) {
-                UI['@{bar.hide}']();
-                UI['@{pointer.change}']();
+            delete me['__aV'];
+            delete me['__aW'];
+            if (me['__aN']) {
+                UI['__aD']();
+                UI['__aJ']();
             }
         }
     },
-    '@{drag.end}': function () {
+    '__aF': function () {
         var me = this;
-        me['@{stop.zone.scroll}']();
-        me['@{stop.win.scroll}']();
-        UI['@{drag.end}']({
-            child: me['@{drag.start.node}']
+        me['__bh']();
+        me['__bi']();
+        UI['__aF']({
+            child: me['__aP']
         });
-        var position = me['@{last.position}'], side = me['@{last.side}'], move = me['@{has.moved}'], info = me['@{hover.info}'], dragNode = me['@{drag.start.node}'];
+        var position = me['__aW'], side = me['__aV'], move = me['__aZ'], info = me['__aR'], dragNode = me['__aP'];
         if (move) {
             if (position || side) {
                 var zone = info.zone;
-                var a = me['@{anchor.direction}'];
+                var a = me['__aM'];
                 var v = a === HANDV ? side : position;
                 if (((a & HORIZONAL) && (LEFT & v)) || ((TOP & v) && (a & VERTICAL))) {
                     if (info.hover == zone) {
@@ -420,38 +420,38 @@ module.exports = Magix.View.extend({
             }
         }
         if (info) {
-            me['@{owner.node}'].trigger({
+            me['__j'].trigger({
                 type: 'dragfinish',
                 moved: move,
                 dragNode: dragNode,
-                dragZone: me['@{drag.start.zone}'],
+                dragZone: me['__aT'],
                 dropNode: info.hover,
                 dropZone: info.zone,
-                outZone: !me['@{last.zone}']
+                outZone: !me['__be']
             });
         }
-        delete me['@{drag.start.node}'];
-        delete me['@{drag.start.zone}'];
-        delete me['@{last.hover.node}'];
-        delete me['@{hover.info}'];
-        delete me['@{last.hover.node.bound}'];
-        delete me['@{last.position}'];
-        delete me['@{last.side}'];
-        delete me['@{move.event}'];
-        delete me['@{win.start.scrolling}'];
-        delete me['@{last.zone}'];
-        delete me['@{last.zone.bound}'];
-        delete me['@{zone.start.scrolling}'];
-        delete me['@{has.moved}'];
+        delete me['__aP'];
+        delete me['__aT'];
+        delete me['__bd'];
+        delete me['__aR'];
+        delete me['__bg'];
+        delete me['__aW'];
+        delete me['__aV'];
+        delete me['__aY'];
+        delete me['__bc'];
+        delete me['__be'];
+        delete me['__bf'];
+        delete me['__bb'];
+        delete me['__aZ'];
     },
-    '@{start.zone.scroll}': function () {
+    '__b_': function () {
         var me = this;
-        if (!me['@{fn.zone.scroll}']) {
-            me['@{fn.zone.scroll}'] = function () {
-                var zoneBound = me['@{last.zone.bound}'];
+        if (!me['__bj']) {
+            me['__bj'] = function () {
+                var zoneBound = me['__bf'];
                 if (zoneBound) {
-                    var zone = me['@{hover.info}'].zone;
-                    var tx = 0, ty = 0, e = me['@{move.event}'];
+                    var zone = me['__aR'].zone;
+                    var tx = 0, ty = 0, e = me['__aY'];
                     if (e.pageX > zoneBound.x &&
                         e.pageY > zoneBound.y &&
                         e.pageX < zoneBound.x + zoneBound.width &&
@@ -471,37 +471,37 @@ module.exports = Magix.View.extend({
                             ty = Math.min(SCROLL_STEP, zoneBound.maxHeight - zoneBound.scrollY - zoneBound.height);
                         }
                         if (tx || ty) {
-                            me['@{zone.start.scrolling}'] = true;
-                            me['@{prevent.win.scroll}'] = true;
+                            me['__bb'] = true;
+                            me['__bk'] = true;
                             zone.scrollTop += ty;
                             zone.scrollLeft += tx;
                             zoneBound.scrollX += tx;
                             zoneBound.scrollY += ty;
-                            delete me['@{has.moved}'];
-                            UI['@{bar.hide}']();
-                            UI['@{pointer.change}']();
+                            delete me['__aZ'];
+                            UI['__aD']();
+                            UI['__aJ']();
                         }
                         else {
-                            delete me['@{zone.start.scrolling}'];
-                            delete me['@{prevent.win.scroll}'];
+                            delete me['__bb'];
+                            delete me['__bk'];
                         }
                     }
                     else {
-                        delete me['@{zone.start.scrolling}'];
-                        delete me['@{prevent.win.scroll}'];
+                        delete me['__bb'];
+                        delete me['__bk'];
                     }
                 }
             };
-            Runner['@{task.add}'](SCROLL_INTERVAL, me['@{fn.zone.scroll}']);
+            Runner['__bl'](SCROLL_INTERVAL, me['__bj']);
         }
     },
-    '@{start.win.scroll}': function () {
+    '__ba': function () {
         var me = this;
-        if (!me['@{fn.win.scroll}']) {
-            me['@{fn.win.scroll}'] = function () {
-                if (me['@{prevent.win.scroll}'])
+        if (!me['__bm']) {
+            me['__bm'] = function () {
+                if (me['__bk'])
                     return;
-                var tx = 0, ty = 0, e = me['@{move.event}'];
+                var tx = 0, ty = 0, e = me['__aY'];
                 var scrollTop = Win.scrollTop();
                 var winHeight = Win.height();
                 var maxHeight = Doc.height();
@@ -525,35 +525,35 @@ module.exports = Magix.View.extend({
                     ty = Math.min(SCROLL_STEP, maxHeight - winHeight - scrollTop);
                 }
                 if (tx || ty) {
-                    me['@{win.start.scrolling}'] = true;
+                    me['__bc'] = true;
                     e.pageX += tx;
                     e.pageY += ty;
                     window.scrollBy(tx, ty);
-                    delete me['@{has.moved}'];
-                    UI['@{bar.hide}']();
-                    UI['@{pointer.update}'](e);
-                    UI['@{pointer.change}']();
+                    delete me['__aZ'];
+                    UI['__aD']();
+                    UI['__aK'](e);
+                    UI['__aJ']();
                 }
                 else {
-                    delete me['@{win.start.scrolling}'];
+                    delete me['__bc'];
                 }
             };
-            Runner['@{task.add}'](SCROLL_INTERVAL, me['@{fn.win.scroll}']);
+            Runner['__bl'](SCROLL_INTERVAL, me['__bm']);
         }
     },
-    '@{stop.zone.scroll}': function () {
+    '__bh': function () {
         var me = this;
-        if (me['@{fn.zone.scroll}']) {
-            Runner['@{task.remove}'](me['@{fn.zone.scroll}']);
-            delete me['@{fn.zone.scroll}'];
-            delete me['@{prevent.win.scroll}'];
+        if (me['__bj']) {
+            Runner['__bn'](me['__bj']);
+            delete me['__bj'];
+            delete me['__bk'];
         }
     },
-    '@{stop.win.scroll}': function () {
+    '__bi': function () {
         var me = this;
-        if (me['@{fn.win.scroll}']) {
-            Runner['@{task.remove}'](me['@{fn.win.scroll}']);
-            delete me['@{fn.win.scroll}'];
+        if (me['__bm']) {
+            Runner['__bn'](me['__bm']);
+            delete me['__bm'];
         }
     }
 });

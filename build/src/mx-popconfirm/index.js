@@ -11,7 +11,7 @@ var Vframe = Magix.Vframe;
 var Base = require("mx-popover/base");
 var Monitor = require("../mx-monitor/index");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-popover_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-popover_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-popover_index_-bottom-left,\n._zs_gallery_mx-popover_index_-bottom-right,\n._zs_gallery_mx-popover_index_-bottom-center,\n._zs_gallery_mx-popover_index_-top-left,\n._zs_gallery_mx-popover_index_-top-right,\n._zs_gallery_mx-popover_index_-top-center,\n._zs_gallery_mx-popover_index_-right-top,\n._zs_gallery_mx-popover_index_-right-bottom,\n._zs_gallery_mx-popover_index_-right-center,\n._zs_gallery_mx-popover_index_-left-top,\n._zs_gallery_mx-popover_index_-left-bottom,\n._zs_gallery_mx-popover_index_-left-center {\n  opacity: 0;\n  transition: opacity 0.15s, -webkit-transform 0.15s;\n  transition: transform 0.15s, opacity 0.15s;\n  transition: transform 0.15s, opacity 0.15s, -webkit-transform 0.15s;\n  -webkit-transform: scale(0);\n          transform: scale(0);\n}\n/**\n * popover下左 初始隐藏状态\n * 注意使用opacity控制popover的显示和隐藏，不要设置display: none\n */\n._zs_gallery_mx-popover_index_-bottom-left,\n._zs_gallery_mx-popover_index_-right-top {\n  -webkit-transform-origin: 0 0;\n          transform-origin: 0 0;\n}\n._zs_gallery_mx-popover_index_-bottom-right,\n._zs_gallery_mx-popover_index_-left-top {\n  -webkit-transform-origin: 100% 0;\n          transform-origin: 100% 0;\n}\n._zs_gallery_mx-popover_index_-bottom-center {\n  -webkit-transform-origin: 50% 0;\n          transform-origin: 50% 0;\n}\n._zs_gallery_mx-popover_index_-top-left,\n._zs_gallery_mx-popover_index_-right-bottom {\n  -webkit-transform-origin: 0 100%;\n          transform-origin: 0 100%;\n}\n._zs_gallery_mx-popover_index_-top-right,\n._zs_gallery_mx-popover_index_-left-bottom {\n  -webkit-transform-origin: 100% 100%;\n          transform-origin: 100% 100%;\n}\n._zs_gallery_mx-popover_index_-top-center {\n  -webkit-transform-origin: 50% 100%;\n          transform-origin: 50% 100%;\n}\n._zs_gallery_mx-popover_index_-left-center {\n  -webkit-transform-origin: 100% 50%;\n          transform-origin: 100% 50%;\n}\n._zs_gallery_mx-popover_index_-right-center {\n  -webkit-transform-origin: 0 50%;\n          transform-origin: 0 50%;\n}\n._zs_gallery_mx-popover_index_-show-out {\n  opacity: 1;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n}\n/**\n * popover显示\n */\n._zs_gallery_mx-popover_index_-popover-hide {\n  display: none;\n}\n._zs_gallery_mx-popover_index_-popover,\n._zs_gallery_mx-popover_index_-popover-dark {\n  position: absolute;\n  z-index: 9999;\n  height: auto;\n  border-radius: 4px;\n  font-size: 12px;\n  line-height: 22px;\n  white-space: normal;\n  font-weight: normal;\n  font-family: Helvetica, Arial, \"Microsoft Yahei\", \"Hiragino Sans GB\", \"Heiti SC\", \"WenQuanYi Micro Hei\", sans-serif;\n}\n._zs_gallery_mx-popover_index_-popover {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n  background-color: #fff;\n  color: #333;\n}\n._zs_gallery_mx-popover_index_-popover ._zs_gallery_mx-popover_index_-popover-content {\n  padding: 10px;\n  word-break: break-all;\n}\n._zs_gallery_mx-popover_index_-popover-dark {\n  background-color: rgba(33, 33, 33, 0.72);\n  color: #fff;\n}\n._zs_gallery_mx-popover_index_-popover-dark ._zs_gallery_mx-popover_index_-popover-content {\n  padding: 4px 10px;\n}\n");
+Magix.applyStyle("_zs_galleryaj","._zs_galleryjR{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryjS,._zs_galleryjT,._zs_galleryjU,._zs_galleryjV,._zs_galleryjW,._zs_galleryjX,._zs_galleryjY,._zs_galleryjZ,._zs_galleryk_,._zs_galleryka,._zs_gallerykb,._zs_gallerykc{opacity:0;transition:opacity .15s,-webkit-transform .15s;transition:transform .15s,opacity .15s;transition:transform .15s,opacity .15s,-webkit-transform .15s;-webkit-transform:scale(0);transform:scale(0)}._zs_galleryjT,._zs_galleryk_{-webkit-transform-origin:0 0;transform-origin:0 0}._zs_galleryjU,._zs_galleryjX{-webkit-transform-origin:100% 0;transform-origin:100% 0}._zs_galleryjS{-webkit-transform-origin:50% 0;transform-origin:50% 0}._zs_galleryjY,._zs_gallerykb{-webkit-transform-origin:0 100%;transform-origin:0 100%}._zs_galleryjV,._zs_gallerykc{-webkit-transform-origin:100% 100%;transform-origin:100% 100%}._zs_galleryka{-webkit-transform-origin:50% 100%;transform-origin:50% 100%}._zs_galleryjW{-webkit-transform-origin:100% 50%;transform-origin:100% 50%}._zs_galleryjZ{-webkit-transform-origin:0 50%;transform-origin:0 50%}._zs_gallerykd{opacity:1;-webkit-transform:scale(1);transform:scale(1)}._zs_galleryke{display:none}._zs_gallerykf,._zs_gallerykg{position:absolute;z-index:9999;height:auto;border-radius:4px;font-size:12px;line-height:22px;white-space:normal;font-weight:400;font-family:Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif}._zs_gallerykf{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6;background-color:#fff;color:#333}._zs_gallerykf ._zs_gallerykh{padding:10px;word-break:break-all}._zs_gallerykg{background-color:rgba(33,33,33,.72);color:#fff}._zs_gallerykg ._zs_gallerykh{padding:4px 10px}");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -24,23 +24,10 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', trigger = $$.trigger; var $expr, $art, $line; try {
-    $line = 1;
-    $art = '!trigger';
-    ;
-    $p += ($expr = '<%!trigger%>', $n(trigger)) + '';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-popover/index.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', trigger = $$.trigger; $p += $n(trigger) + ''; return $p; },
     init: function (extra) {
         var me = this;
-        Monitor['@{setup}']();
+        Monitor['__f']();
         var map = {
             t: 'top',
             l: 'left',
@@ -51,31 +38,31 @@ catch (ex) {
         var place = extra.place || 'bc';
         var places = place.split('');
         var placement = map[places[0]], align = map[places[1]];
-        me['@{pos.placement}'] = placement;
-        me['@{pos.align}'] = align;
-        me['@{pos.class}'] = me.constants.classNames[placement + align[0].toUpperCase() + align.slice(1)] + ' _zs_gallery_mx-popover_index_-popover';
-        me['@{pos.init}'] = false;
-        me['@{pos.cal}'] = false;
-        me['@{pos.show}'] = false;
-        me['@{scroll.wrapper}'] = extra.scrollWrapper;
-        me['@{content}'] = extra.content || '';
-        me['@{width}'] = extra.width || 200;
-        me['@{text.align}'] = (extra.alignText || 'left');
+        me['__cl'] = placement;
+        me['__cm'] = align;
+        me['__cn'] = me.constants.classNames[placement + align[0].toUpperCase() + align.slice(1)] + ' _zs_gallerykf';
+        me['__bp'] = false;
+        me['__bq'] = false;
+        me['__br'] = false;
+        me['__bs'] = extra.scrollWrapper;
+        me['__co'] = extra.content || '';
+        me['__cp'] = extra.width || 200;
+        me['__cq'] = (extra.alignText || 'left');
         me.on('destroy', function () {
-            me['@{owner.node}'].off('mouseenter mouseleave');
-            if (me['@{dealy.show.timer}']) {
-                clearTimeout(me['@{dealy.show.timer}']);
+            me['__j'].off('mouseenter mouseleave');
+            if (me['__bt']) {
+                clearTimeout(me['__bt']);
             }
             $('#popover_' + me.id).remove();
-            Monitor['@{remove}'](me);
-            Monitor['@{teardown}']();
+            Monitor['__g'](me);
+            Monitor['__h']();
         });
         var oNode = $('#' + me.id);
-        me['@{trigger.content}'] = oNode.html();
-        me['@{owner.node}'] = oNode;
+        me['__cr'] = oNode.html();
+        me['__j'] = oNode;
         oNode.on('click', function () {
-            me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
-                me['@{show}'](); //等待内容显示
+            me['__bt'] = setTimeout(me.wrapAsync(function () {
+                me['__n'](); //等待内容显示
             }), me.constants.showDelay);
         });
         me.bindScroll();
@@ -83,63 +70,63 @@ catch (ex) {
     render: function () {
         var me = this;
         me.updater.digest({
-            trigger: me['@{trigger.content}']
+            trigger: me['__cr']
         });
     },
-    '@{init}': function () {
+    '__bz': function () {
         var me = this;
-        var posClass = me['@{pos.class}'], posWidth = me['@{width}'], vId = me.id, view = 'mx-popconfirm/content', viewData = {
-            content: me['@{content}']
+        var posClass = me['__cn'], posWidth = me['__cp'], vId = me.id, view = 'mx-popconfirm/content', viewData = {
+            content: me['__co']
         };
-        var popNode = "<div class=\"_zs_gallery_mx-popover_index_-popover-hide " + posClass + "\" id=\"popover_" + vId + "\"\n                style=\"width: " + posWidth + "px;\"></div>";
+        var popNode = "<div class=\"_zs_galleryke " + posClass + "\" id=\"popover_" + vId + "\"\n                style=\"width: " + posWidth + "px;\"></div>";
         $(document.body).append(popNode);
         // 先实例化，绑定事件，再加载对应的view
         var vf = me.owner.mountVframe('popover_' + vId, '');
         vf.on('created', function () {
-            var popNode = me['@{setPos}']();
-            popNode.removeClass('_zs_gallery_mx-popover_index_-popover-hide');
+            var popNode = me['__bx']();
+            popNode.removeClass('_zs_galleryke');
         });
         vf.mountView(view, {
             data: viewData,
             submit: function () {
-                me['@{hide}']();
-                me['@{owner.node}'].trigger({
+                me['__m']();
+                me['__j'].trigger({
                     type: 'popconfirm'
                 });
             },
             cancel: function () {
-                me['@{hide}']();
+                me['__m']();
             }
         });
     },
-    '@{inside}': function (node) {
+    '__k': function (node) {
         return Magix.inside(node, this.id) || Magix.inside(node, 'popover_' + this.id);
     },
-    '@{show}': function () {
+    '__n': function () {
         var me = this;
-        clearTimeout(me['@{dealy.show.timer}']);
-        if (!me['@{pos.init}']) {
-            me['@{pos.init}'] = true;
-            me['@{init}']();
+        clearTimeout(me['__bt']);
+        if (!me['__bp']) {
+            me['__bp'] = true;
+            me['__bz']();
         }
-        if (me['@{pos.show}']) {
+        if (me['__br']) {
             return;
         }
-        me['@{pos.show}'] = true;
+        me['__br'] = true;
         // 每次show时都重新定位
-        var popNode = me['@{setPos}']();
-        popNode.addClass('_zs_gallery_mx-popover_index_-show-out');
-        Monitor['@{add}'](me);
+        var popNode = me['__bx']();
+        popNode.addClass('_zs_gallerykd');
+        Monitor['__p'](me);
     },
-    '@{hide}': function () {
+    '__m': function () {
         var me = this;
-        if (!me['@{pos.show}']) {
+        if (!me['__br']) {
             return;
         }
-        me['@{pos.show}'] = false;
+        me['__br'] = false;
         var popNode = $('#popover_' + me.id);
-        popNode.removeClass('_zs_gallery_mx-popover_index_-show-out');
-        Monitor['@{remove}'](me);
+        popNode.removeClass('_zs_gallerykd');
+        Monitor['__g'](me);
     }
 });
 

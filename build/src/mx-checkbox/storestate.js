@@ -11,9 +11,9 @@ var Magix = require("magix");
 module.exports = {
     ctor: function () {
         var me = this;
-        me['@{state.store}'] = {};
+        me['__ac'] = {};
         var ready = function (e) {
-            var state = me['@{state.store}'];
+            var state = me['__ac'];
             var ipts = $('#' + (e.id || me.id) + ' input[linkage-parent]');
             ipts.each(function (idx, item) {
                 var linkName = $(item).attr('linkage-parent');
@@ -35,21 +35,21 @@ module.exports = {
     },
     clearStoreState: function (key) {
         var me = this;
-        var store = this['@{state.store}'];
+        var store = this['__ac'];
         if (!key) {
             // 全部清空
-            this['@{state.store}'] = {};
+            this['__ac'] = {};
             $('#' + me.id).find('input[linkage]').prop('checked', false);
             $('#' + me.id).find('input[linkage-parent]').prop('checked', false);
         }
         else {
-            delete this['@{state.store}'][key];
+            delete this['__ac'][key];
             $('#' + me.id).find('input[linkage="' + key + '"]').prop('checked', false);
             $('#' + me.id).find('input[linkage-parent="' + key + '"]').prop('checked', false);
         }
     },
     getStoreState: function (key) {
-        var store = this['@{state.store}'];
+        var store = this['__ac'];
         var keys = [];
         var value;
         if (key) {
@@ -74,9 +74,9 @@ module.exports = {
         var value = node.val();
         var linkName = node.attr('linkage-parent');
         if (value) {
-            var object = me['@{state.store}'][linkName];
+            var object = me['__ac'][linkName];
             if (!object) {
-                object = me['@{state.store}'][linkName] = {};
+                object = me['__ac'][linkName] = {};
             }
             if (!node[0].disabled && node[0].checked) {
                 object[value] = 1;
@@ -89,9 +89,9 @@ module.exports = {
     '$input[linkage]<change>': function (e) {
         var me = this;
         var linkName = $(e.eventTarget).attr('linkage');
-        var object = me['@{state.store}'][linkName];
+        var object = me['__ac'][linkName];
         if (!object) {
-            object = me['@{state.store}'][linkName] = {};
+            object = me['__ac'][linkName] = {};
         }
         $('#' + me.id + ' input[type=checkbox]').each(function (index, input) {
             input = $(input);

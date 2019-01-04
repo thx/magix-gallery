@@ -29,49 +29,7 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallery\\:_" class="pr pr120"><div mx-view="__test__/subs?list=';
-    $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'水平滚动\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'自定义trigger样式\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'渐显渐隐\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'垂直滚动\',\n            key: viewId + \'_demo3\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
-    ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'水平滚动\',                    key: viewId + \'_demo2\'                }, {                    name: \'自定义trigger样式\',                    key: viewId + \'_demo4\'                }, {                    name: \'渐显渐隐\',                    key: viewId + \'_demo1\'                }, {                    name: \'垂直滚动\',                    key: viewId + \'_demo3\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '水平滚动', key: viewId + '_demo2' }, { name: '自定义trigger样式', key: viewId + '_demo4' }, { name: '渐显渐隐', key: viewId + '_demo1' }, { name: '垂直滚动', key: viewId + '_demo3' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
-    $line = 23;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallery\\:a" class="clearfix mb20"><div mx-view="mx-carousel/__test__/2" id="';
-    $line = 25;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-carousel/__test__/4" id="';
-    $line = 26;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-carousel/__test__/1" id="';
-    $line = 27;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-carousel/__test__/3" id="';
-    $line = 28;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div id="';
-    $line = 31;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 32;
-    $art = '@options';
-    ;
-    $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-carousel/__test__/index.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; $p += '<div mxv mxa="_zs_gallery\\:_" class="pr pr120"><div mx-view="__test__/subs?list=' + $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '水平滚动', key: viewId + '_demo2' }, { name: '自定义trigger样式', key: viewId + '_demo4' }, { name: '渐显渐隐', key: viewId + '_demo1' }, { name: '垂直滚动', key: viewId + '_demo3' }] }, { name: 'API', key: viewId + '_api' }]) + '"></div><div id="' + $e(viewId) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallery\\:a" class="clearfix mb20"><div mx-view="mx-carousel/__test__/2" id="' + $e(viewId) + '_demo2"></div><div mx-view="mx-carousel/__test__/4" id="' + $e(viewId) + '_demo4"></div><div mx-view="mx-carousel/__test__/1" id="' + $e(viewId) + '_demo1"></div><div mx-view="mx-carousel/__test__/3" id="' + $e(viewId) + '_demo3"></div></div><div id="' + $e(viewId) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=' + $i($$ref, options) + '" class="mb40"></div></div>'; return $p; },
     render: function () {
         var options = [{
                 key: 'mode',

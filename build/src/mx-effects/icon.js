@@ -9,14 +9,14 @@ require("mx-popover/index");
 var Magix = require("magix");
 var Base = require("./base");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-effects_icon_","/* @dependent: ./index.less */\n._zs_gallery_mx-effects_icon_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-effects_icon_-text {\n  display: inline-block;\n  font-size: 12px;\n  font-weight: bold;\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n}\n/*实心打标icon*/\n._zs_gallery_mx-effects_icon_-solid-icon {\n  display: inline-block;\n  height: 16px;\n  padding: 0 4px;\n  border-radius: 4px;\n  color: #fff;\n  text-align: center;\n  line-height: 16px;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-common {\n  background-color: #ccc;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-error {\n  background-color: #a40100;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-warn {\n  background-color: #ffb400;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-highlight {\n  background-color: #4d7fff;\n}\n/*空心打标*/\n._zs_gallery_mx-effects_icon_-hollow-icon {\n  display: inline-block;\n  height: 16px;\n  padding: 0 4px;\n  border-radius: 8px;\n  text-align: center;\n  line-height: 14px;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-common {\n  border: 1px solid #ccc;\n  color: #999;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-error {\n  border: 1px solid #a40100;\n  color: #a40100;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-warn {\n  border: 1px solid #ffb400;\n  color: #ffb400;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-highlight {\n  border: 1px solid #4d7fff;\n  color: #4d7fff;\n}\n");
+Magix.applyStyle("_zs_galleryI","._zs_galleryeO{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryeP{font-size:12px;font-weight:700;-webkit-transform:scale(.9);transform:scale(.9)}._zs_galleryeQ,._zs_galleryeP{display:inline-block}._zs_galleryeQ{height:16px;padding:0 4px;border-radius:4px;color:#fff;text-align:center;line-height:16px}._zs_galleryeQ._zs_galleryeR{background-color:#ccc}._zs_galleryeQ._zs_galleryeS{background-color:#a40100}._zs_galleryeQ._zs_galleryeT{background-color:#ffb400}._zs_galleryeQ._zs_galleryeU{background-color:#4d7fff}._zs_galleryeV{display:inline-block;height:16px;padding:0 4px;border-radius:8px;text-align:center;line-height:14px}._zs_galleryeV._zs_galleryeR{border:1px solid #ccc;color:#999}._zs_galleryeV._zs_galleryeS{border:1px solid #a40100;color:#a40100}._zs_galleryeV._zs_galleryeT{border:1px solid #ffb400;color:#ffb400}._zs_galleryeV._zs_galleryeU{border:1px solid #4d7fff;color:#4d7fff}");
 var ClassNames = {
-    solid: '_zs_gallery_mx-effects_icon_-solid-icon',
-    hollow: '_zs_gallery_mx-effects_icon_-hollow-icon',
-    common: '_zs_gallery_mx-effects_icon_-common',
-    error: '_zs_gallery_mx-effects_icon_-error',
-    warn: '_zs_gallery_mx-effects_icon_-warn',
-    highlight: '_zs_gallery_mx-effects_icon_-highlight'
+    solid: '_zs_galleryeQ',
+    hollow: '_zs_galleryeV',
+    common: '_zs_galleryeR',
+    error: '_zs_galleryeS',
+    warn: '_zs_galleryeT',
+    highlight: '_zs_galleryeU'
 };
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
@@ -30,65 +30,14 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', tip = $$.tip, classNames = $$.classNames, styles = $$.styles, content = $$.content; var $expr, $art, $line; try {
-    $line = 1;
-    $art = 'if tip';
+} ; var $g = '', $_temp, $p = '', tip = $$.tip, classNames = $$.classNames, styles = $$.styles, content = $$.content; if (tip) {
     ;
-    $expr = '<%if (tip) {%>';
-    if (tip) {
-        ;
-        $p += '<span class="';
-        $line = 2;
-        $art = '=classNames';
-        ;
-        $p += ($expr = '<%=classNames%>', $e(classNames)) + '" style="';
-        $line = 2;
-        $art = '=styles';
-        ;
-        $p += ($expr = '<%=styles%>', $e(styles)) + '" mx-view="mx-popover/index?content=';
-        $line = 3;
-        $art = '=tip';
-        ;
-        $p += ($expr = '<%!$eu(tip)%>', $eu(tip)) + '"><span mxa="_zs_galleryb_:_" class="_zs_gallery_mx-effects_icon_-text">';
-        $line = 4;
-        $art = '=content';
-        ;
-        $p += ($expr = '<%=content%>', $e(content)) + '</span></span>';
-        $line = 6;
-        $art = 'else';
-        ;
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += '<span class="';
-        $line = 7;
-        $art = '=classNames';
-        ;
-        $p += ($expr = '<%=classNames%>', $e(classNames)) + '" style="';
-        $line = 7;
-        $art = '=styles';
-        ;
-        $p += ($expr = '<%=styles%>', $e(styles)) + '"><span mxa="_zs_galleryb_:a" class="_zs_gallery_mx-effects_icon_-text">';
-        $line = 8;
-        $art = '=content';
-        ;
-        $p += ($expr = '<%=content%>', $e(content)) + '</span></span>';
-        $line = 10;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
+    $p += '<span class="' + $e(classNames) + '" style="' + $e(styles) + '" mx-view="mx-popover/index?content=' + $eu(tip) + '"><span mxa="_zs_galleryb_:_" class="_zs_galleryeP">' + $e(content) + '</span></span>';
 }
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-effects/icon.html';
-    throw msg;
-} return $p; },
+else {
+    ;
+    $p += '<span class="' + $e(classNames) + '" style="' + $e(styles) + '"><span mxa="_zs_galleryb_:a" class="_zs_galleryeP">' + $e(content) + '</span></span>';
+} ; return $p; },
     init: function (extra) {
         // 如果用户自定义了色值以自定义色值为准
         var color = extra.color, styles = [], mode = extra.mode || 'solid', type = extra.type || 'common';

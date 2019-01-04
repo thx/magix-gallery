@@ -22,29 +22,7 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryq:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryq:a" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-top-none"><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 3;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryq:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 5;
-    $art = '!text1';
-    ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryq:_" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 8;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n.login-switch .iconfont {\n    color: #0391f4;\n}\n.login-switch .iconfont:hover {\n    color: #0383dc;\n}\n.login-box a {\n    color: #ccc;\n}\n.login-box a:hover {\n    color: #0383dc;\n}\n.login-box a.light-link {\n    color: #0383dc;\n}\n.login-box .submit button {\n    background-color: #0391f4;\n}\n.login-box .submit button:hover {\n    background-color: #0383dc;\n}\n.qrcode-desc {\n    margin-top: 25px;\n}\n.qrcode-desc .iconfont {\n    color: #0391f4;\n}\n.qrcode-help {\n    background-image: url(//gtms02.alicdn.com/tps/i2/TB16efXKVXXXXbOXXXX.C3E4VXX-120-182.png) no-repeat;\n}\n.qrcode-login .msg-err .refresh {\n    background-color: #0391f4;\n}</pre></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:__test__/pro/login-css.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_galleryq:_" class="_zs_galleryh"><div mxa="_zs_galleryq:a" class="_zs_galleryl _zs_galleryq"><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_galleryq:b" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_galleryq:_" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n.login-switch .iconfont {\n    color: #0391f4;\n}\n.login-switch .iconfont:hover {\n    color: #0383dc;\n}\n.login-box a {\n    color: #ccc;\n}\n.login-box a:hover {\n    color: #0383dc;\n}\n.login-box a.light-link {\n    color: #0383dc;\n}\n.login-box .submit button {\n    background-color: #0391f4;\n}\n.login-box .submit button:hover {\n    background-color: #0383dc;\n}\n.qrcode-desc {\n    margin-top: 25px;\n}\n.qrcode-desc .iconfont {\n    color: #0391f4;\n}\n.qrcode-help {\n    background-image: url(//gtms02.alicdn.com/tps/i2/TB16efXKVXXXXbOXXXX.C3E4VXX-120-182.png) no-repeat;\n}\n.qrcode-login .msg-err .refresh {\n    background-color: #0391f4;\n}</pre></div></div>'; return $p; },
     render: function () {
         this.updater.digest();
     }

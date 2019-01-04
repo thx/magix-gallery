@@ -8,21 +8,21 @@ define("mx-topbar/index",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-topbar_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-topbar_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-topbar_index_-bar {\n  position: fixed;\n  z-index: 400;\n  height: 2px;\n  left: 0;\n  top: 0;\n  right: 0;\n  background-color: #4d7fff;\n  -webkit-transform: translate3d(-100%, 0px, 0px);\n          transform: translate3d(-100%, 0px, 0px);\n  transition: all 0.25s ease;\n}\n");
+Magix.applyStyle("_zs_galleryaF","._zs_gallerymS{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerymT{position:fixed;z-index:400;height:2px;left:0;top:0;right:0;background-color:#4d7fff;-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0);transition:all .25s ease}");
 var barId = Magix.guid('mx_topbar_');
 var Vframe = Magix.Vframe;
 var timer, interval;
 var percent = 100;
 var Topbar = {
-    '@{show}': function () {
+    '__n': function () {
         clearTimeout(timer);
         var bar = $('#' + barId);
         if (!bar.length) {
-            $('body').append("<div class=\"_zs_gallery_mx-topbar_index_-bar\" id=\"" + barId + "\"></div>");
-            interval = setInterval(Topbar['@{progress}'], 300);
+            $('body').append("<div class=\"_zs_gallerymT\" id=\"" + barId + "\"></div>");
+            interval = setInterval(Topbar['__fd'], 300);
         }
     },
-    '@{porgress}': function () {
+    '__fe': function () {
         var bar = $('#' + barId);
         if (bar.length) {
             if (percent > 15) {
@@ -36,7 +36,7 @@ var Topbar = {
             });
         }
     },
-    '@{hide}': function () {
+    '__m': function () {
         clearInterval(interval);
         var bar = $('#' + barId);
         if (bar.length) {
@@ -53,14 +53,14 @@ var Topbar = {
 var rootId = Magix.config('rootId');
 var rootVf = Vframe.get(rootId);
 var resume = function (vf) {
-    vf.on('alter', Topbar['@{show}']);
-    vf.on('created', Topbar['@{hide}']);
+    vf.on('alter', Topbar['__n']);
+    vf.on('created', Topbar['__m']);
 };
 if (rootVf) {
     resume(rootVf);
 }
 else {
-    Topbar['@{show}'](); //未准备好的情况下
+    Topbar['__n'](); //未准备好的情况下
     var watch_1 = function (e) {
         if (e.vframe.id == rootId) {
             Vframe.off('add', watch_1);

@@ -15,19 +15,19 @@ var Now = Date.now || (function () {
     return new Date().getTime();
 });
 module.exports = {
-    '@{task.list}': [],
-    '@{task.add}': function (interval, fn) {
+    '__cA': [],
+    '__bl': function (interval, fn) {
         var me = this;
-        me['@{task.list}'].push({
+        me['__cA'].push({
             i: interval || 15,
             f: fn,
             n: Now()
         });
-        me['@{start.work}']();
+        me['__cF']();
     },
-    '@{task.remove}': function (fn) {
+    '__bn': function (fn) {
         var me = this;
-        var q = me['@{task.list}'];
+        var q = me['__cA'];
         for (var o = void 0, i = 0; i < q.length; i++) {
             o = q[i];
             if (!o.r && o.f == fn) {
@@ -36,11 +36,11 @@ module.exports = {
             }
         }
     },
-    '@{start.work}': function () {
+    '__cF': function () {
         var me = this;
-        if (!me['@{timer.id}']) {
+        if (!me['__cL']) {
             var run_1 = function () {
-                var q = me['@{task.list}'];
+                var q = me['__cA'];
                 for (var i = 0, o = void 0, now = void 0; i < q.length; i++) {
                     o = q[i];
                     if (o.r) {
@@ -55,14 +55,14 @@ module.exports = {
                     }
                 }
                 if (!q.length) {
-                    cancelRAF(me['@{timer.id}']);
-                    delete me['@{timer.id}'];
+                    cancelRAF(me['__cL']);
+                    delete me['__cL'];
                 }
                 else {
-                    me['@{timer.id}'] = setRAF(run_1);
+                    me['__cL'] = setRAF(run_1);
                 }
             };
-            me['@{timer.id}'] = setRAF(run_1);
+            me['__cL'] = setRAF(run_1);
         }
     }
 };

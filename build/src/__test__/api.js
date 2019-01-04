@@ -20,47 +20,10 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallery_:_" class="pr20"><table mxa="_zs_gallery_:a" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_gallery_:_"><tr><th width="100">可配参数</th><th width="200">说明</th><th width="100">类型</th><th width="120">默认值</th></tr></thead><tbody>';
-    $line = 12;
-    $art = 'each options as option';
-    ;
-    $expr = '<%for (var $art_ilqnpk$art_i = 0, $art_cojftrib$art_c = options.length; $art_ilqnpk$art_i < $art_cojftrib$art_c; $art_ilqnpk$art_i++) {    var option = options[$art_ilqnpk$art_i]%>';
-    for (var $art_ilqnpk$art_i = 0, $art_cojftrib$art_c = options.length; $art_ilqnpk$art_i < $art_cojftrib$art_c; $art_ilqnpk$art_i++) {
-        var option = options[$art_ilqnpk$art_i];
-        $p += '<tr><td>';
-        $line = 14;
-        $art = '=option.key';
-        ;
-        $p += ($expr = '<%=option.key%>', $e(option.key)) + '</td><td>';
-        $line = 15;
-        $art = '!option.desc';
-        ;
-        $p += ($expr = '<%!option.desc%>', $n(option.desc)) + '</td><td>';
-        $line = 16;
-        $art = '!option.type';
-        ;
-        $p += ($expr = '<%!option.type%>', $n(option.type)) + '</td><td mxa="_zs_gallery_:b" class="word-break">';
-        $line = 17;
-        $art = '!option.def';
-        ;
-        $p += ($expr = '<%!option.def%>', $n(option.def)) + '</td></tr>';
-        $line = 19;
-        $art = '/each';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</tbody></table></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:__test__/api.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', options = $$.options; $p += '<div mxa="_zs_gallery_:_" class="pr20"><table mxa="_zs_gallery_:a" class="table _zs_galleryr"><thead mxs="_zs_gallery_:_"><tr><th width="100">可配参数</th><th width="200">说明</th><th width="100">类型</th><th width="120">默认值</th></tr></thead><tbody>'; for (var $art_iqazhaugkcb$art_i = 0, $art_cczdnmvpmjo$art_c = options.length; $art_iqazhaugkcb$art_i < $art_cczdnmvpmjo$art_c; $art_iqazhaugkcb$art_i++) {
+    var option = options[$art_iqazhaugkcb$art_i];
+    $p += '<tr><td>' + $e(option.key) + '</td><td>' + $n(option.desc) + '</td><td>' + $n(option.type) + '</td><td mxa="_zs_gallery_:b" class="word-break">' + $n(option.def) + '</td></tr>';
+} ; $p += '</tbody></table></div>'; return $p; },
     init: function (options) {
         this.updater.digest(options);
     },

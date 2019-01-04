@@ -11,7 +11,7 @@ define("mx-preview/index",["magix","$"],(require,exports,module)=>{
  */
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-preview_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-preview_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-preview/index\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-preview_index_-holder {\n  color: #ccc;\n  font-size: 30px;\n}\n._zs_gallery_mx-preview_index_-outer {\n  display: table;\n  text-align: center;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner {\n  display: table-cell;\n  vertical-align: middle;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-img,\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-video {\n  max-width: 100%;\n  max-height: 100%;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-text {\n  white-space: nowrap;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-icon {\n  font-size: 20px;\n  color: #999;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-iframe {\n  -webkit-transform-origin: left top;\n          transform-origin: left top;\n}\n._zs_gallery_mx-preview_index_-pic-preview {\n  display: none;\n  position: absolute;\n  z-index: 99999;\n  border-collapse: separate;\n  background-color: #fff;\n  padding: 10px;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-preview_index_-pic-preview ._zs_gallery_mx-preview_index_-preview-inner {\n  display: block;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n}\n");
+Magix.applyStyle("_zs_galleryaq","._zs_gallerykG{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}[mx-view*=\"mx-preview/index\"]{display:inline-block}._zs_gallerykH{color:#ccc;font-size:30px}._zs_gallerykI{display:table;text-align:center}._zs_gallerykI ._zs_gallerykJ{display:table-cell;vertical-align:middle}._zs_gallerykI ._zs_gallerykJ ._zs_gallerykK,._zs_gallerykI ._zs_gallerykJ ._zs_gallerykL{max-width:100%;max-height:100%}._zs_gallerykI ._zs_gallerykJ ._zs_gallerykM{white-space:nowrap;word-wrap:normal;overflow:hidden;text-overflow:ellipsis}._zs_gallerykI ._zs_gallerykJ ._zs_gallerykN{font-size:20px;color:#999}._zs_gallerykI ._zs_gallerykJ ._zs_gallerykO{-webkit-transform-origin:left top;transform-origin:left top}._zs_gallerykP{display:none;position:absolute;z-index:99999;border-collapse:separate;background-color:#fff;padding:10px;box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerykP ._zs_gallerykQ{display:block;width:100%;height:100%;overflow:hidden}");
 var Active; //优化大量预览
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
@@ -25,33 +25,7 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', maxWidth = $$.maxWidth, maxHeight = $$.maxHeight, viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div class="_zs_gallery_mx-preview_index_-outer" style="width: ';
-    $line = 1;
-    $art = '=maxWidth';
-    ;
-    $p += ($expr = '<%=maxWidth%>', $e(maxWidth)) + 'px; height: ';
-    $line = 1;
-    $art = '=maxHeight';
-    ;
-    $p += ($expr = '<%=maxHeight%>', $e(maxHeight)) + 'px;" mx-mouseover="' + $viewId + 'preview()" mx-mouseout="' + $viewId + 'hide()"><div class="_zs_gallery_mx-preview_index_-inner" style="height: ';
-    $line = 4;
-    $art = '=maxHeight';
-    ;
-    $p += ($expr = '<%=maxHeight%>', $e(maxHeight)) + 'px;" id="';
-    $line = 4;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_inner"><i mxs="_zs_galleryc6:_" class="mc-iconfont _zs_gallery_mx-preview_index_-holder">&#xe615;</i></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-preview/index.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', maxWidth = $$.maxWidth, maxHeight = $$.maxHeight, viewId = $$.viewId; $p += '<div class="_zs_gallerykI" style="width: ' + $e(maxWidth) + 'px; height: ' + $e(maxHeight) + 'px;" mx-mouseover="' + $viewId + 'preview()" mx-mouseout="' + $viewId + 'hide()"><div class="_zs_gallerykJ" style="height: ' + $e(maxHeight) + 'px;" id="' + $e(viewId) + '_inner"><i mxs="_zs_galleryc6:_" class="mc-iconfont _zs_gallerykH">&#xe615;</i></div></div>'; return $p; },
     init: function (extra) {
         var that = this;
         that.extra = extra;
@@ -131,22 +105,22 @@ catch (ex) {
             case 2: // 2：图片
             case 11: //11：直播（封面图）
             case 23://23：套图（大图+小图）
-                thumbnail = "<img class=\"_zs_gallery_mx-preview_index_-img\" src=\"" + url + "\"/>";
+                thumbnail = "<img class=\"_zs_gallerykK\" src=\"" + url + "\"/>";
                 break;
             case 3: // 3：flash
             case 9:// 9：flash
                 thumbnail = 'flash已下线';
             case 4://视频
-                thumbnail = "<video src=\"" + url + "\" class=\"_zs_gallery_mx-preview_index_-video\"></video>";
+                thumbnail = "<video src=\"" + url + "\" class=\"_zs_gallerykL\"></video>";
                 break;
             case 5:// 5：文字链
-                thumbnail = $("<div class=\"_zs_gallery_mx-preview_index_-text\" style=\"max-width: " + maxWidth + "px;\"></div>");
+                thumbnail = $("<div class=\"_zs_gallerykM\" style=\"max-width: " + maxWidth + "px;\"></div>");
                 // 纯文案展示
                 thumbnail[0].innerText = url;
                 break;
             case 10://html 模板
                 var frameWidth = data.frameWidth, frameHeight = data.frameHeight, scale = data.scale;
-                thumbnail = "<div style=\"width: " + frameWidth + "px; height: " + frameHeight + "px; overflow: hidden\">\n                                <iframe src=\"" + url + "\" class=\"_zs_gallery_mx-preview_index_-iframe\"\n                                    style=\"transform:scale(" + scale + ")\"\n                                    width=\"" + width + "\" \n                                    height=\"" + height + "\" \n                                    frameborder=\"0\"\n                                    scrolling=\"no\" \n                                    marginheight=\"0\" \n                                    marginwidth=\"0\" \n                                    border=\"0\"></iframe>\n                            </div>";
+                thumbnail = "<div style=\"width: " + frameWidth + "px; height: " + frameHeight + "px; overflow: hidden\">\n                                <iframe src=\"" + url + "\" class=\"_zs_gallerykO\"\n                                    style=\"transform:scale(" + scale + ")\"\n                                    width=\"" + width + "\" \n                                    height=\"" + height + "\" \n                                    frameborder=\"0\"\n                                    scrolling=\"no\" \n                                    marginheight=\"0\" \n                                    marginwidth=\"0\" \n                                    border=\"0\"></iframe>\n                            </div>";
                 break;
         }
         if (clickUrl) {
@@ -195,20 +169,20 @@ catch (ex) {
                 switch (+format_1) {
                     case 2: // 图片
                     case 11://直播，显示为封面图
-                        inner = $("<img src=\"" + url_1 + "\" class=\"_zs_gallery_mx-preview_index_-preview-inner\"/>");
+                        inner = $("<img src=\"" + url_1 + "\" class=\"_zs_gallerykQ\"/>");
                         break;
                     case 4:// 视频
-                        inner = $("<video src=\"" + url_1 + "\" class=\"_zs_gallery_mx-preview_index_-preview-inner\"\n                            controls=\"controls\" autoplay=\"autoplay\"></video>");
+                        inner = $("<video src=\"" + url_1 + "\" class=\"_zs_gallerykQ\"\n                            controls=\"controls\" autoplay=\"autoplay\"></video>");
                         break;
                     case 5:// 文字链
-                        inner = $("<div class=\"_zs_gallery_mx-preview_index_-preview-inner\"></div>");
+                        inner = $("<div class=\"_zs_gallerykQ\"></div>");
                         // 纯文案展示
                         inner[0].innerText = url_1;
                         break;
                     case 10:// 创意模板
                         var originWidth = +data_1.width, originHeight = +data_1.height;
                         var scale = (width_1 - 20) / originWidth;
-                        inner = $("<div class=\"_zs_gallery_mx-preview_index_-preview-inner\">\n                            <iframe src=\"" + url_1 + "\"\n                                style=\"transform: scale(" + scale + "); transform-origin: left top;\"\n                                width=\"" + originWidth + "\" \n                                height=\"" + originHeight + "\"\n                                frameborder=\"0\" \n                                scrolling=\"no\" \n                                marginheight=\"0\" \n                                marginwidth=\"0\" \n                                border=\"0\"></iframe>\n                        </div>");
+                        inner = $("<div class=\"_zs_gallerykQ\">\n                            <iframe src=\"" + url_1 + "\"\n                                style=\"transform: scale(" + scale + "); transform-origin: left top;\"\n                                width=\"" + originWidth + "\" \n                                height=\"" + originHeight + "\"\n                                frameborder=\"0\" \n                                scrolling=\"no\" \n                                marginheight=\"0\" \n                                marginwidth=\"0\" \n                                border=\"0\"></iframe>\n                        </div>");
                         break;
                     case 23:// 套图 
                         inner = $("<div class=\"clearfix\">\n                            <img src=\"" + url_1 + "\" class=\"fl mr10\"/>    \n                            <img src=\"" + datuUrl_1 + "\" class=\"fl\"/>\n                        </div>");
@@ -216,7 +190,7 @@ catch (ex) {
                 }
                 var floatingLayer = $('#pic_preview_' + that.id);
                 if (!floatingLayer.length) {
-                    floatingLayer = $('<div id="pic_preview_' + that.id + '" class="_zs_gallery_mx-preview_index_-pic-preview"></div>').appendTo('body');
+                    floatingLayer = $('<div id="pic_preview_' + that.id + '" class="_zs_gallerykP"></div>').appendTo('body');
                 }
                 floatingLayer.empty().append(inner);
                 if (clickUrl_1) {

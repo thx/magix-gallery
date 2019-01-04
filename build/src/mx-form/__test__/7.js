@@ -24,77 +24,7 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', number = $$.number, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerybC:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybC:a" class="_zs_gallery___test___layout_-eg-content"><div mxv mxa="_zs_gallerybC:b" class="clearfix"><input mxe="' + $viewId + '_0" mxc="[';
-    $line = 4;
-    $art = ':number{range:[4, 8]}';
-    ;
-    $p += '{p:\'number\',f:{range:[4, 8]}}]" class="input mr20 mb20" placeholder="4到8之间的数字" value="';
-    $line = 4;
-    $art = ':number{range:[4, 8]}';
-    ;
-    $p += ($expr = '<%=number%>', $e(number)) + '"/> <input mxe="' + $viewId + '_1" mxc="[';
-    $line = 5;
-    $art = ':number{range:[4, 8, \'自定义提示：4~8中间的数字\']}';
-    ;
-    $p += '{p:\'number\',f:{range:[4, 8, \'自定义提示：4~8中间的数字\']}}]" class="input mr20 mb20" placeholder="4到8之间的数字" value="';
-    $line = 5;
-    $art = ':number{range:[4, 8, \'自定义提示：4~8中间的数字\']}';
-    ;
-    $p += ($expr = '<%=number%>', $e(number)) + '"/></div><div mxv mxa="_zs_gallerybC:c" class="clearfix"><input mxe="' + $viewId + '_2" mxc="[';
-    $line = 8;
-    $art = ':number{min:20}';
-    ;
-    $p += '{p:\'number\',f:{min:20}}]" class="input mr20 mb20" placeholder="数字不能小于20" value="';
-    $line = 8;
-    $art = ':number{min:20}';
-    ;
-    $p += ($expr = '<%=number%>', $e(number)) + '"/> <input mxe="' + $viewId + '_3" mxc="[';
-    $line = 9;
-    $art = ':number{min:[20, \'自定义提示：数字不能小于20\']}';
-    ;
-    $p += '{p:\'number\',f:{min:[20, \'自定义提示：数字不能小于20\']}}]" class="input mr20 mb20" placeholder="数字不能小于20" value="';
-    $line = 9;
-    $art = ':number{min:[20, \'自定义提示：数字不能小于20\']}';
-    ;
-    $p += ($expr = '<%=number%>', $e(number)) + '"/></div><div mxv mxa="_zs_gallerybC:d" class="clearfix"><input mxe="' + $viewId + '_4" mxc="[';
-    $line = 12;
-    $art = ':number{max:30}';
-    ;
-    $p += '{p:\'number\',f:{max:30}}]" class="input mr20 mb20" placeholder="数字不能大于30" value="';
-    $line = 12;
-    $art = ':number{max:30}';
-    ;
-    $p += ($expr = '<%=number%>', $e(number)) + '"/> <input mxe="' + $viewId + '_5" mxc="[';
-    $line = 13;
-    $art = ':number{max:[30, \'自定义提示：数字不能大于30\']}';
-    ;
-    $p += '{p:\'number\',f:{max:[30, \'自定义提示：数字不能大于30\']}}]" class="input mr20 mb20" placeholder="数字不能大于30" value="';
-    $line = 13;
-    $art = ':number{max:[30, \'自定义提示：数字不能大于30\']}';
-    ;
-    $p += ($expr = '<%=number%>', $e(number)) + '"/></div></div><div mxa="_zs_gallerybC:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybC:_" class="_zs_gallery___test___layout_-eg-title">数字范围</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 18;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybC:f" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 20;
-    $art = '!text1';
-    ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybC:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 23;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;input class="input" placeholder="4到8之间的数字" value="&#123;&#123;:number&#123;range:[4, 8]&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="4到8之间的数字" value="&#123;&#123;:number&#123;range:[4, 8, \'自定义提示：4~8中间的数字\']&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="数字不能小于20" value="&#123;&#123;:number&#123;min:20&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="数字不能小于20" value="&#123;&#123;:number&#123;min:[20, \'自定义提示：数字不能小于20\']&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="数字不能大于30" value="&#123;&#123;:number&#123;max:30&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="数字不能大于30" value="&#123;&#123;:number&#123;max:[30, \'自定义提示：数字不能大于30\']&#125;&#125;&#125;"/&gt;</pre></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-form/__test__/7.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', number = $$.number, viewId = $$.viewId, text1 = $$.text1; $p += '<div mxv mxa="_zs_gallerybC:_" class="_zs_galleryh"><div mxv mxa="_zs_gallerybC:a" class="_zs_galleryk"><div mxv mxa="_zs_gallerybC:b" class="clearfix"><input mxe="' + $viewId + '_0" mxc="[{p:\'number\',f:{range:[4, 8]}}]" class="input mr20 mb20" placeholder="4到8之间的数字" value="' + $e(number) + '"/> <input mxe="' + $viewId + '_1" mxc="[{p:\'number\',f:{range:[4, 8, \'自定义提示：4~8中间的数字\']}}]" class="input mr20 mb20" placeholder="4到8之间的数字" value="' + $e(number) + '"/></div><div mxv mxa="_zs_gallerybC:c" class="clearfix"><input mxe="' + $viewId + '_2" mxc="[{p:\'number\',f:{min:20}}]" class="input mr20 mb20" placeholder="数字不能小于20" value="' + $e(number) + '"/> <input mxe="' + $viewId + '_3" mxc="[{p:\'number\',f:{min:[20, \'自定义提示：数字不能小于20\']}}]" class="input mr20 mb20" placeholder="数字不能小于20" value="' + $e(number) + '"/></div><div mxv mxa="_zs_gallerybC:d" class="clearfix"><input mxe="' + $viewId + '_4" mxc="[{p:\'number\',f:{max:30}}]" class="input mr20 mb20" placeholder="数字不能大于30" value="' + $e(number) + '"/> <input mxe="' + $viewId + '_5" mxc="[{p:\'number\',f:{max:[30, \'自定义提示：数字不能大于30\']}}]" class="input mr20 mb20" placeholder="数字不能大于30" value="' + $e(number) + '"/></div></div><div mxa="_zs_gallerybC:e" class="_zs_galleryl"><div mxs="_zs_gallerybC:_" class="_zs_galleryj">数字范围</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerybC:f" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerybC:a" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;input class="input" placeholder="4到8之间的数字" value="&#123;&#123;:number&#123;range:[4, 8]&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="4到8之间的数字" value="&#123;&#123;:number&#123;range:[4, 8, \'自定义提示：4~8中间的数字\']&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="数字不能小于20" value="&#123;&#123;:number&#123;min:20&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="数字不能小于20" value="&#123;&#123;:number&#123;min:[20, \'自定义提示：数字不能小于20\']&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="数字不能大于30" value="&#123;&#123;:number&#123;max:30&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="数字不能大于30" value="&#123;&#123;:number&#123;max:[30, \'自定义提示：数字不能大于30\']&#125;&#125;&#125;"/&gt;</pre></div></div>'; return $p; },
     mixins: [Form, Validator],
     render: function () {
         this.updater.digest({

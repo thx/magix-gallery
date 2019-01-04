@@ -27,33 +27,7 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryd%:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryd%:a" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-tabs/box?mode=hollow&list=';
-    $line = 5;
-    $art = '@[{\n                text: \'模块1\',\n                value: 1,\n                tips: \'提示信息\'\n            },{\n                text: \'模块2\',\n                value: 2\n            },{\n                text: \'模块3\',\n                value: 3\n            }]';
-    ;
-    $p += ($expr = '<%@[{            text: \'模块1\',            value: 1,            tips: \'提示信息\'        }, {            text: \'模块2\',            value: 2        }, {            text: \'模块3\',            value: 3        }]%>', $i($$ref, [{ text: '模块1', value: 1, tips: '提示信息' }, { text: '模块2', value: 2 }, { text: '模块3', value: 3 }])) + '"></div></div><div mxa="_zs_galleryd%:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd%:_" class="_zs_gallery___test___layout_-eg-title">自定义&nbsp;text-key&nbsp;和&nbsp;value-key</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 19;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryd%:c" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 21;
-    $art = '!text1';
-    ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryd%:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 24;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-tabs.box\n    mode="hollow"\n    list="&#123;&#123;@[&#123;\n        text: \'模块1\',\n        value: 1,\n        tips: \'提示信息\'\n    &#125;,&#123;\n        text: \'模块2\',\n        value: 2\n    &#125;,&#123;\n        text: \'模块3\',\n        value: 3\n    &#125;]&#125;&#125;" /&gt;</pre></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-tabs/__test__/7.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_galleryd%:_" class="_zs_galleryh"><div mxa="_zs_galleryd%:a" class="_zs_galleryk"><div mx-view="mx-tabs/box?mode=hollow&list=' + $i($$ref, [{ text: '模块1', value: 1, tips: '提示信息' }, { text: '模块2', value: 2 }, { text: '模块3', value: 3 }]) + '"></div></div><div mxa="_zs_galleryd%:b" class="_zs_galleryl"><div mxs="_zs_galleryd%:_" class="_zs_galleryj">自定义&nbsp;text-key&nbsp;和&nbsp;value-key</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_galleryd%:c" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_galleryd%:a" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-tabs.box\n    mode="hollow"\n    list="&#123;&#123;@[&#123;\n        text: \'模块1\',\n        value: 1,\n        tips: \'提示信息\'\n    &#125;,&#123;\n        text: \'模块2\',\n        value: 2\n    &#125;,&#123;\n        text: \'模块3\',\n        value: 3\n    &#125;]&#125;&#125;" /&gt;</pre></div></div>'; return $p; },
     render: function () {
         this.updater.digest();
     }

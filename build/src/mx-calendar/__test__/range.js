@@ -38,103 +38,10 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events, supportQuickDates = $$.supportQuickDates; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallery^:_" class="pr pr120"><div mx-view="__test__/subs?list=';
-    $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'对比+时间段\',\n            key: viewId + \'_demo6\'\n        },{\n            name: \'对比+单天\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'选择时分秒\',\n            key: viewId + \'_demo8\'\n        },{\n            name: \'自定义trigger\',\n            key: viewId + \'_demo12\'\n        },{\n            name: \'动态快捷日期\',\n            key: viewId + \'_demo9\'\n        },{\n            name: \'禁选开始或结束\',\n            key: viewId + \'_demo11\'\n        },{\n            name: \'部分不可选\',\n            key: viewId + \'_demo15\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }, {\n        name: \'快捷日期备选项\',\n        key: viewId + \'_quick\'\n    }, {\n        name: \'关于实现方案\',\n        key: viewId + \'_implement\'\n    }]';
-    ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'对比+时间段\',                    key: viewId + \'_demo6\'                }, {                    name: \'对比+单天\',                    key: viewId + \'_demo7\'                }, {                    name: \'选择时分秒\',                    key: viewId + \'_demo8\'                }, {                    name: \'自定义trigger\',                    key: viewId + \'_demo12\'                }, {                    name: \'动态快捷日期\',                    key: viewId + \'_demo9\'                }, {                    name: \'禁选开始或结束\',                    key: viewId + \'_demo11\'                }, {                    name: \'部分不可选\',                    key: viewId + \'_demo15\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }, {            name: \'快捷日期备选项\',            key: viewId + \'_quick\'        }, {            name: \'关于实现方案\',            key: viewId + \'_implement\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '对比+时间段', key: viewId + '_demo6' }, { name: '对比+单天', key: viewId + '_demo7' }, { name: '选择时分秒', key: viewId + '_demo8' }, { name: '自定义trigger', key: viewId + '_demo12' }, { name: '动态快捷日期', key: viewId + '_demo9' }, { name: '禁选开始或结束', key: viewId + '_demo11' }, { name: '部分不可选', key: viewId + '_demo15' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }, { name: '快捷日期备选项', key: viewId + '_quick' }, { name: '关于实现方案', key: viewId + '_implement' }])) + '"></div><div id="';
-    $line = 41;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallery^:a" class="clearfix mb20"><div mxa="_zs_gallery^:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/6" id="';
-    $line = 44;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div><div mx-view="mx-calendar/__test__/12" id="';
-    $line = 45;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo12"></div></div><div mxa="_zs_gallery^:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/7" id="';
-    $line = 48;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div><div mx-view="mx-calendar/__test__/8" id="';
-    $line = 49;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div><div mx-view="mx-calendar/__test__/9" id="';
-    $line = 50;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div><div mxs="_zs_gallery^:_" mx-view="mx-calendar/__test__/10"></div><div mx-view="mx-calendar/__test__/11" id="';
-    $line = 52;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo11"></div><div mxs="_zs_gallery^:a" mx-view="mx-calendar/__test__/13"></div><div mx-view="mx-calendar/__test__/15" id="';
-    $line = 54;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo15"></div></div></div><div id="';
-    $line = 58;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 59;
-    $art = '@options';
-    ;
-    $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
-    $line = 61;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_event" mx-view="mx-title/second?content=Event"></div><div mxv="events" mx-view="__test__/event?options=';
-    $line = 62;
-    $art = '@events';
-    ;
-    $p += ($expr = '<%@events%>', $i($$ref, events)) + '" class="mb40"></div><div id="';
-    $line = 64;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_quick" mx-view="mx-title/second?content=%E5%BF%AB%E6%8D%B7%E6%97%A5%E6%9C%9F%E5%A4%87%E9%80%89%E9%A1%B9"></div><div mxa="_zs_gallery^:d" class="pr20 mb40"><table mxa="_zs_gallery^:e" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_gallery^:b"><tr><th width="100">配置key值</th><th width="100">显示文案</th><th width="200">描述</th></tr></thead><tbody>';
-    $line = 75;
-    $art = 'each supportQuickDates as item';
-    ;
-    $expr = '<%for (var $art_isacspjieh$art_i = 0, $art_cqxvysk$art_c = supportQuickDates.length; $art_isacspjieh$art_i < $art_cqxvysk$art_c; $art_isacspjieh$art_i++) {    var item = supportQuickDates[$art_isacspjieh$art_i]%>';
-    for (var $art_isacspjieh$art_i = 0, $art_cqxvysk$art_c = supportQuickDates.length; $art_isacspjieh$art_i < $art_cqxvysk$art_c; $art_isacspjieh$art_i++) {
-        var item = supportQuickDates[$art_isacspjieh$art_i];
-        $p += '<tr><td>';
-        $line = 77;
-        $art = '=item.key';
-        ;
-        $p += ($expr = '<%=item.key%>', $e(item.key)) + '</td><td>';
-        $line = 78;
-        $art = '=item.text';
-        ;
-        $p += ($expr = '<%=item.text%>', $e(item.text)) + '</td><td>';
-        $line = 79;
-        $art = '=item.tip';
-        ;
-        $p += ($expr = '<%=item.tip%>', $e(item.tip)) + '</td></tr>';
-        $line = 81;
-        $art = '/each';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</tbody></table></div><div mx-view="mx-calendar/__test__/implement" id="';
-    $line = 86;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_implement"></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-calendar/__test__/range.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events, supportQuickDates = $$.supportQuickDates; $p += '<div mxv mxa="_zs_gallery^:_" class="pr pr120"><div mx-view="__test__/subs?list=' + $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '对比+时间段', key: viewId + '_demo6' }, { name: '对比+单天', key: viewId + '_demo7' }, { name: '选择时分秒', key: viewId + '_demo8' }, { name: '自定义trigger', key: viewId + '_demo12' }, { name: '动态快捷日期', key: viewId + '_demo9' }, { name: '禁选开始或结束', key: viewId + '_demo11' }, { name: '部分不可选', key: viewId + '_demo15' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }, { name: '快捷日期备选项', key: viewId + '_quick' }, { name: '关于实现方案', key: viewId + '_implement' }]) + '"></div><div id="' + $e(viewId) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallery^:a" class="clearfix mb20"><div mxa="_zs_gallery^:b" class="_zs_gallerye"><div mx-view="mx-calendar/__test__/6" id="' + $e(viewId) + '_demo6"></div><div mx-view="mx-calendar/__test__/12" id="' + $e(viewId) + '_demo12"></div></div><div mxa="_zs_gallery^:c" class="_zs_gallerye"><div mx-view="mx-calendar/__test__/7" id="' + $e(viewId) + '_demo7"></div><div mx-view="mx-calendar/__test__/8" id="' + $e(viewId) + '_demo8"></div><div mx-view="mx-calendar/__test__/9" id="' + $e(viewId) + '_demo9"></div><div mxs="_zs_gallery^:_" mx-view="mx-calendar/__test__/10"></div><div mx-view="mx-calendar/__test__/11" id="' + $e(viewId) + '_demo11"></div><div mxs="_zs_gallery^:a" mx-view="mx-calendar/__test__/13"></div><div mx-view="mx-calendar/__test__/15" id="' + $e(viewId) + '_demo15"></div></div></div><div id="' + $e(viewId) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=' + $i($$ref, options) + '" class="mb40"></div><div id="' + $e(viewId) + '_event" mx-view="mx-title/second?content=Event"></div><div mxv="events" mx-view="__test__/event?options=' + $i($$ref, events) + '" class="mb40"></div><div id="' + $e(viewId) + '_quick" mx-view="mx-title/second?content=%E5%BF%AB%E6%8D%B7%E6%97%A5%E6%9C%9F%E5%A4%87%E9%80%89%E9%A1%B9"></div><div mxa="_zs_gallery^:d" class="pr20 mb40"><table mxa="_zs_gallery^:e" class="table _zs_galleryr"><thead mxs="_zs_gallery^:b"><tr><th width="100">配置key值</th><th width="100">显示文案</th><th width="200">描述</th></tr></thead><tbody>'; for (var $art_ipuyhibgr$art_i = 0, $art_cemgemdyd$art_c = supportQuickDates.length; $art_ipuyhibgr$art_i < $art_cemgemdyd$art_c; $art_ipuyhibgr$art_i++) {
+    var item = supportQuickDates[$art_ipuyhibgr$art_i];
+    $p += '<tr><td>' + $e(item.key) + '</td><td>' + $e(item.text) + '</td><td>' + $e(item.tip) + '</td></tr>';
+} ; $p += '</tbody></table></div><div mx-view="mx-calendar/__test__/implement" id="' + $e(viewId) + '_implement"></div></div>'; return $p; },
     render: function () {
         var that = this;
         var viewId = that.id;

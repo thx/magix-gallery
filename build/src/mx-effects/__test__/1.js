@@ -22,29 +22,7 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya#:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerya#:_" class="_zs_gallery___test___layout_-eg-content"><div class="empty-area"><i class="mc-iconfont no-data">&#xe685;</i><p class="mt10">暂无内容</p></div></div><div mxa="_zs_gallerya#:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya#:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 7;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya#:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 9;
-    $art = '!text1';
-    ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya#:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 12;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.empty/&gt;</pre></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-effects/__test__/1.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_gallerya#:_" class="_zs_galleryh"><div mxs="_zs_gallerya#:_" class="_zs_galleryk"><div class="empty-area"><i class="mc-iconfont no-data">&#xe685;</i><p class="mt10">暂无内容</p></div></div><div mxa="_zs_gallerya#:a" class="_zs_galleryl"><div mxs="_zs_gallerya#:a" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerya#:b" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerya#:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-effects.empty/&gt;</pre></div></div>'; return $p; },
     render: function () {
         this.updater.digest();
     }

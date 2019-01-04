@@ -23,29 +23,7 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycQ:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerycQ:_" class="_zs_gallery___test___layout_-eg-content"><span class="btn" mx-view="mx-popover/index?content=%E7%AC%AC%E4%B8%80%E8%A1%8C%3Cbr%2F%3E%E7%AC%AC%E4%BA%8C%E8%A1%8C&placement=bottom">内容包含html</span></div><div mxa="_zs_gallerycQ:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycQ:a" class="_zs_gallery___test___layout_-eg-title">内容包含html，标签需要转义</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 9;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycQ:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 11;
-    $art = '!text1';
-    ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycQ:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 14;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-popover class="btn"\n    content="第一行&amp;lt;br/&amp;gt;第二行"\n    placement="bottom"&gt;内容包含html&lt;/mx-popover&gt;</pre></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-popover/__test__/6.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_gallerycQ:_" class="_zs_galleryh"><div mxs="_zs_gallerycQ:_" class="_zs_galleryk"><span class="btn" mx-view="mx-popover/index?content=%E7%AC%AC%E4%B8%80%E8%A1%8C%3Cbr%2F%3E%E7%AC%AC%E4%BA%8C%E8%A1%8C&placement=bottom">内容包含html</span></div><div mxa="_zs_gallerycQ:a" class="_zs_galleryl"><div mxs="_zs_gallerycQ:a" class="_zs_galleryj">内容包含html，标签需要转义</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerycQ:b" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerycQ:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-popover class="btn"\n    content="第一行&amp;lt;br/&amp;gt;第二行"\n    placement="bottom"&gt;内容包含html&lt;/mx-popover&gt;</pre></div></div>'; return $p; },
     render: function () {
         this.updater.digest();
     }

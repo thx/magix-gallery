@@ -27,33 +27,7 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydr:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerydr:a" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-suggest/index?list=';
-    $line = 4;
-    $art = '@[{\n                name: \'test1\',\n                id: 1\n            }, {\n                name: \'test12\',\n                id: 2\n            }, {\n                name: \'abc1\',\n                id: 3\n            }, {\n                name: \'abc2\',\n                id: 4\n            }]';
-    ;
-    $p += ($expr = '<%@[{            name: \'test1\',            id: 1        }, {            name: \'test12\',            id: 2        }, {            name: \'abc1\',            id: 3        }, {            name: \'abc2\',            id: 4        }]%>', $i($$ref, [{ name: 'test1', id: 1 }, { name: 'test12', id: 2 }, { name: 'abc1', id: 3 }, { name: 'abc2', id: 4 }])) + '&listText=name&listValue=id"></div></div><div mxa="_zs_gallerydr:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydr:_" class="_zs_gallery___test___layout_-eg-title">自定义&nbsp;list-text&nbsp;和&nbsp;list-value</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 22;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydr:c" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 24;
-    $art = '!text1';
-    ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydr:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 27;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-suggest \n    list="&#123;&#123;@[&#123;\n        name: \'test1\',\n        id: 1\n    &#125;, &#123;\n        name: \'test12\',\n        id: 2\n    &#125;, &#123;\n        name: \'abc1\',\n        id: 3\n    &#125;, &#123;\n        name: \'abc2\',\n        id: 4\n    &#125;]&#125;&#125;"\n    list-text="name"\n    list-value="id"/&gt;</pre></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-suggest/__test__/4.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_gallerydr:_" class="_zs_galleryh"><div mxa="_zs_gallerydr:a" class="_zs_galleryk"><div mx-view="mx-suggest/index?list=' + $i($$ref, [{ name: 'test1', id: 1 }, { name: 'test12', id: 2 }, { name: 'abc1', id: 3 }, { name: 'abc2', id: 4 }]) + '&listText=name&listValue=id"></div></div><div mxa="_zs_gallerydr:b" class="_zs_galleryl"><div mxs="_zs_gallerydr:_" class="_zs_galleryj">自定义&nbsp;list-text&nbsp;和&nbsp;list-value</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerydr:c" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerydr:a" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-suggest \n    list="&#123;&#123;@[&#123;\n        name: \'test1\',\n        id: 1\n    &#125;, &#123;\n        name: \'test12\',\n        id: 2\n    &#125;, &#123;\n        name: \'abc1\',\n        id: 3\n    &#125;, &#123;\n        name: \'abc2\',\n        id: 4\n    &#125;]&#125;&#125;"\n    list-text="name"\n    list-value="id"/&gt;</pre></div></div>'; return $p; },
     render: function () {
         this.updater.digest();
     }

@@ -8,7 +8,7 @@ define("mx-table/rwd",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-table_rwd_","/* @dependent: ./index.less */\n._zs_gallery_mx-table_rwd_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-table_rwd_-wrap {\n  width: 24px;\n}\n._zs_gallery_mx-table_rwd_-wrap ._zs_gallery_mx-table_rwd_-arrow {\n  width: 12px;\n  background-color: #ccc;\n  color: #fff;\n  cursor: pointer;\n}\n._zs_gallery_mx-table_rwd_-wrap ._zs_gallery_mx-table_rwd_-arrow:hover {\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-table_rwd_-end {\n  padding-right: 40px;\n}\n");
+Magix.applyStyle("_zs_galleryaA","._zs_gallerymk{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryml{width:24px}._zs_galleryml ._zs_gallerymm{width:12px;background-color:#ccc;color:#fff;cursor:pointer}._zs_galleryml ._zs_gallerymm:hover{background-color:#4d7fff}._zs_gallerymn{padding-right:40px}");
 var html = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
     var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
@@ -20,28 +20,18 @@ var html = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryd7:_" class="pa _zs_gallery_mx-table_rwd_-wrap unselectable"><div class="_zs_gallery_mx-table_rwd_-arrow fl" mx-click="' + $viewId + '@{toPrev}()"><i class="mc-iconfont fontsize-12">&#xe61e;</i></div><div class="_zs_gallery_mx-table_rwd_-arrow fr" mx-click="' + $viewId + '@{toNext}()"><i class="mc-iconfont fontsize-12 rotate180">&#xe61e;</i></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-table/rwd.html';
-    throw msg;
-} return $p; };
+} ; var $g = '', $_temp, $p = ''; $p += '<div mxs="_zs_galleryd7:_" class="pa _zs_galleryml unselectable"><div class="_zs_gallerymm fl" mx-click="' + $viewId + '__eu()"><i class="mc-iconfont fontsize-12">&#xe61e;</i></div><div class="_zs_gallerymm fr" mx-click="' + $viewId + '__ev()"><i class="mc-iconfont fontsize-12 rotate180">&#xe61e;</i></div></div>'; return $p; };
 module.exports = Magix.View.extend({
     init: function (extra) {
         var me = this;
-        me['@{rwd.range}'] = ((extra.rwdRange || [2, -1]) + '').split(',');
-        me['@{rwd.limit}'] = +extra.rwdLimit || 4;
-        me['@{rwd.current}'] = +extra.rwdCurrent || 1;
+        me['__ej'] = ((extra.rwdRange || [2, -1]) + '').split(',');
+        me['__ek'] = +extra.rwdLimit || 4;
+        me['__el'] = +extra.rwdCurrent || 1;
         $('#' + me.id).css({
             position: 'relative'
         });
     },
-    '@{sync.vars}': function () {
+    '__eb': function () {
         var me = this;
         var table = $('#' + me.id).find('table');
         var thead = table.find('thead');
@@ -50,31 +40,31 @@ module.exports = Magix.View.extend({
         });
         var ths = thead.find('>tr>th');
         var rows = table.find('>tbody>tr');
-        me['@{thead.ths}'] = ths;
-        me['@{tbody.trs}'] = rows;
-        me['@{table}'] = table;
+        me['__em'] = ths;
+        me['__en'] = rows;
+        me['__eo'] = table;
     },
-    '@{ui.flush}': function () {
+    '__er': function () {
         var me = this;
-        var ths = me['@{thead.ths}'];
-        var c = me['@{rwd.current}'];
-        var r = me['@{rwd.range}'];
-        var l = me['@{rwd.limit}'];
+        var ths = me['__em'];
+        var c = me['__el'];
+        var r = me['__ej'];
+        var l = me['__ek'];
         var min = +r[0];
         var max = ths.length + (+r[1]) - 1;
         var start = min + (c - 1) * l;
         var end = Math.min(max, min + c * l - 1);
-        var rows = me['@{tbody.trs}'];
-        me['@{pages}'] = Math.ceil((max - min + 1) / l);
+        var rows = me['__en'];
+        me['__ep'] = Math.ceil((max - min + 1) / l);
         for (var i = min; i <= max; i++) {
             var th = ths.eq(i);
             if (i >= start && i <= end) {
                 if (i == end) {
-                    th.addClass('_zs_gallery_mx-table_rwd_-end');
-                    me['@{thead.show.ths.last}'] = th;
+                    th.addClass('_zs_gallerymn');
+                    me['__eq'] = th;
                 }
                 else {
-                    th.removeClass('_zs_gallery_mx-table_rwd_-end');
+                    th.removeClass('_zs_gallerymn');
                 }
                 th.show();
             }
@@ -96,18 +86,18 @@ module.exports = Magix.View.extend({
             }
         }
     },
-    '@{ui.arrow}': function () {
+    '__et': function () {
         var me = this, ctrl;
-        if (!me['@{ui.ctrl.arrow}']) {
+        if (!me['__es']) {
             var tmpl = $.isFunction(html) ? html(null, me.id) : html;
             if (me.wrapEvent) {
                 tmpl = me.wrapEvent(tmpl);
             }
-            ctrl = $(tmpl).insertBefore(me['@{table}']);
-            me['@{ui.ctrl.arrow}'] = ctrl;
+            ctrl = $(tmpl).insertBefore(me['__eo']);
+            me['__es'] = ctrl;
         }
-        ctrl = me['@{ui.ctrl.arrow}'];
-        var last = me['@{thead.show.ths.last}'];
+        ctrl = me['__es'];
+        var last = me['__eq'];
         var height = last.outerHeight();
         var offset = last.offset();
         ctrl.css({
@@ -117,8 +107,8 @@ module.exports = Magix.View.extend({
             left: offset.left + last.outerWidth() - 24,
             top: offset.top
         });
-        var c = me['@{rwd.current}'];
-        var p = me['@{pages}'];
+        var c = me['__el'];
+        var p = me['__ep'];
         var children = ctrl.find('div');
         if (c == 1) {
             children.eq(0).hide();
@@ -135,45 +125,45 @@ module.exports = Magix.View.extend({
     },
     render: function () {
         var me = this;
-        me['@{sync.vars}']();
-        me['@{ui.flush}']();
-        me['@{ui.arrow}']();
+        me['__eb']();
+        me['__er']();
+        me['__et']();
     },
-    '@{toPrev}<click>': function () {
+    '__eu<click>': function () {
         var me = this;
-        var c = me['@{rwd.current}'];
+        var c = me['__el'];
         if (c > 1) {
-            me['@{rwd.current}']--;
-            me['@{ui.flush}']();
-            me['@{ui.arrow}']();
+            me['__el']--;
+            me['__er']();
+            me['__et']();
         }
     },
-    '@{toNext}<click>': function () {
+    '__ev<click>': function () {
         var me = this;
-        var c = me['@{rwd.current}'];
-        var pages = me['@{pages}'];
+        var c = me['__el'];
+        var pages = me['__ep'];
         if (c < pages) {
-            me['@{rwd.current}']++;
-            me['@{ui.flush}']();
-            me['@{ui.arrow}']();
+            me['__el']++;
+            me['__er']();
+            me['__et']();
         }
     },
     '$doc<htmlchanged>': function (e) {
         var me = this;
         if (Magix.inside(e.vId, me.owner.pId)) {
-            clearTimeout(me['@{ctrl.timer}']);
-            me['@{ctrl.timer}'] = setTimeout(function () {
-                me['@{sync.vars}']();
-                me['@{ui.flush}']();
-                me['@{ui.arrow}']();
+            clearTimeout(me['__ew']);
+            me['__ew'] = setTimeout(function () {
+                me['__eb']();
+                me['__er']();
+                me['__et']();
             }, 0);
         }
     },
     '$doc<navslidend>': function () {
-        this['@{ui.arrow}']();
+        this['__et']();
     },
     '$win<resize>': function () {
-        this['@{ui.arrow}']();
+        this['__et']();
     }
 });
 

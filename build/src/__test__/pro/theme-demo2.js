@@ -16,7 +16,7 @@ var Validator = require("mx-form/validator");
 var $ = require("$");
 var Moment = require("moment");
 var Formater = 'YYYY-MM-DD';
-Magix.applyStyle("_zs_gallery___test___pro_theme-demo2_","/* @dependent: ./index.less */\n._zs_gallery___test___pro_theme-demo2_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on {\n  background-color: #ffddc7;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on ._zs_gallery_mx-switch_index_-switch-icon {\n  background-color: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-active,\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-active:hover,\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-active:active,\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-active:focus {\n  color: #ff6600;\n  background-color: #fff7f2;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-tracker {\n  background-color: #ffb380;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator {\n  background-color: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator:before {\n  background-color: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-left {\n  color: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-right {\n  color: #ffb400;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-minus:hover,\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-plus:hover {\n  color: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-today,\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-today:hover {\n  background-color: #fff7f2;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-selected,\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-selected:hover {\n  background-color: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-vs1 ._zs_gallery_mx-calendar_rangepicker_-result {\n  color: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-vs2 ._zs_gallery_mx-calendar_rangepicker_-result {\n  color: #ffb400;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st._zs_gallery_mx-calendar_range_-selected,\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st._zs_gallery_mx-calendar_range_-selected:hover {\n  background: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-checkbox:hover {\n  border-color: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-checkbox:checked {\n  border-color: #ff6600;\n  background-color: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-checkbox:indeterminate {\n  background-color: #ff6600;\n  border-color: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-radio:hover {\n  border-color: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-radio:checked {\n  background-color: #ff6600;\n  border-color: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-radio:checked:hover {\n  border-color: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-btn {\n  border-radius: 16px;\n  border-color: #ff6600;\n  background-color: #fff7f2;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-btn:hover,\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-btn._zs_gallery___test___pro_theme-demo2_-hover,\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-btn:active {\n  color: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-btn._zs_gallery___test___pro_theme-demo2_-demo-btn-brand {\n  color: #fff;\n  border-color: #ff6600;\n  background-color: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-btn._zs_gallery___test___pro_theme-demo2_-demo-btn-brand:hover,\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-btn._zs_gallery___test___pro_theme-demo2_-demo-btn-brand._zs_gallery___test___pro_theme-demo2_-hover,\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-btn._zs_gallery___test___pro_theme-demo2_-demo-btn-brand:active {\n  color: #fff;\n  border-color: #eb5e00;\n  background-color: #eb5e00;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-input:focus {\n  border-color: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-link,\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-link:visited,\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-link:focus,\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-link:active {\n  color: #ff6600;\n}\n._zs_gallery___test___pro_theme-demo2_-demo2 ._zs_gallery___test___pro_theme-demo2_-demo-link:hover {\n  color: #eb5e00;\n}\n");
+Magix.applyStyle("_zs_galleryi","._zs_gallerybh{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerybi ._zs_galleryaF._zs_galleryaG{background-color:#ffddc7}._zs_gallerybi ._zs_galleryaF._zs_galleryaG ._zs_galleryaH{background-color:#f60}._zs_gallerybi ._zs_galleryaI._zs_galleryaJ,._zs_gallerybi ._zs_galleryaI._zs_galleryaJ:active,._zs_gallerybi ._zs_galleryaI._zs_galleryaJ:focus,._zs_gallerybi ._zs_galleryaI._zs_galleryaJ:hover{color:#f60;background-color:#fff7f2}._zs_gallerybi ._zs_galleryaK ._zs_galleryaL ._zs_galleryaM{background-color:#ffb380}._zs_gallerybi ._zs_galleryaK ._zs_galleryaL ._zs_galleryaN,._zs_gallerybi ._zs_galleryaK ._zs_galleryaL ._zs_galleryaN:before{background-color:#f60}._zs_gallerybi ._zs_galleryaO._zs_galleryaP ._zs_galleryaQ{color:#f60}._zs_gallerybi ._zs_galleryaO._zs_galleryaP ._zs_galleryaR{color:#ffb400}._zs_gallerybi ._zs_galleryaS ._zs_galleryaT ._zs_galleryaU:hover,._zs_gallerybi ._zs_galleryaS ._zs_galleryaT ._zs_galleryaV:hover{color:#f60}._zs_gallerybi ._zs_galleryaS ._zs_galleryaW ._zs_galleryaX,._zs_gallerybi ._zs_galleryaS ._zs_galleryaW ._zs_galleryaX:hover{background-color:#fff7f2}._zs_gallerybi ._zs_galleryaS ._zs_galleryaW ._zs_galleryaY,._zs_gallerybi ._zs_galleryaS ._zs_galleryaW ._zs_galleryaY:hover{background-color:#f60}._zs_gallerybi ._zs_galleryaZ ._zs_galleryb_ ._zs_galleryba ._zs_gallerybb ._zs_galleryaO{color:#f60}._zs_gallerybi ._zs_galleryaZ ._zs_galleryb_ ._zs_galleryba ._zs_gallerybc ._zs_galleryaO{color:#ffb400}._zs_gallerybi ._zs_galleryaZ ._zs_gallerybd ._zs_gallerybe._zs_gallerybf,._zs_gallerybi ._zs_galleryaZ ._zs_gallerybd ._zs_gallerybe._zs_gallerybf:hover{background:#f60}._zs_gallerybi ._zs_gallerybj:hover{border-color:#f60}._zs_gallerybi ._zs_gallerybj:checked{border-color:#f60;background-color:#f60}._zs_gallerybi ._zs_gallerybj:indeterminate{background-color:#f60;border-color:#f60}._zs_gallerybi ._zs_gallerybk:hover{border-color:#f60}._zs_gallerybi ._zs_gallerybk:checked{background-color:#f60;border-color:#f60}._zs_gallerybi ._zs_gallerybl,._zs_gallerybi ._zs_gallerybk:checked:hover{border-color:#f60}._zs_gallerybi ._zs_gallerybl{border-radius:16px;background-color:#fff7f2}._zs_gallerybi ._zs_gallerybl._zs_gallerybm,._zs_gallerybi ._zs_gallerybl:active,._zs_gallerybi ._zs_gallerybl:hover{color:#f60}._zs_gallerybi ._zs_gallerybl._zs_gallerybn{color:#fff;border-color:#f60;background-color:#f60}._zs_gallerybi ._zs_gallerybl._zs_gallerybn._zs_gallerybm,._zs_gallerybi ._zs_gallerybl._zs_gallerybn:active,._zs_gallerybi ._zs_gallerybl._zs_gallerybn:hover{color:#fff;border-color:#eb5e00;background-color:#eb5e00}._zs_gallerybi ._zs_gallerybo:focus{border-color:#f60}._zs_gallerybi ._zs_gallerybp,._zs_gallerybi ._zs_gallerybp:active,._zs_gallerybi ._zs_gallerybp:focus,._zs_gallerybi ._zs_gallerybp:visited{color:#f60}._zs_gallerybi ._zs_gallerybp:hover{color:#eb5e00}");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -33,97 +33,13 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', checkboxes = $$.checkboxes, selected = $$.selected, radioes = $$.radioes; var $expr, $art, $line; try {
-    $p += '<form mxv mxa="_zs_galleryJ:_" class="form _zs_gallery___test___pro_theme-demo2_-demo2"><div mxv mxa="_zs_galleryJ:a" class="form-item"><div mxs="_zs_galleryJ:_" class="form-label">checkbox</div><div mxv mxa="_zs_galleryJ:b" class="form-content">';
-    $line = 5;
-    $art = 'each checkboxes as c';
-    ;
-    $expr = '<%for (var $art_ieixnyhxele$art_i = 0, $art_cnubyyv$art_c = checkboxes.length; $art_ieixnyhxele$art_i < $art_cnubyyv$art_c; $art_ieixnyhxele$art_i++) {    var c = checkboxes[$art_ieixnyhxele$art_i]%>';
-    for (var $art_ieixnyhxele$art_i = 0, $art_cnubyyv$art_c = checkboxes.length; $art_ieixnyhxele$art_i < $art_cnubyyv$art_c; $art_ieixnyhxele$art_i++) {
-        var c = checkboxes[$art_ieixnyhxele$art_i];
-        $p += '<label mxv mxa="_zs_galleryJ:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
-        $line = 10;
-        $art = ':selected.checkboxes';
-        ;
-        $p += '{p:\'selected.checkboxes\'}]" type="checkbox" class="_zs_gallery___test___pro_theme-demo2_-demo-checkbox checkbox" name="cb" value="';
-        $line = 9;
-        $art = '=c';
-        ;
-        $p += ($expr = '<%=c%>', $e(c)) + '"/>';
-        $line = 11;
-        $art = '=c';
-        ;
-        $p += ($expr = '<%=c%>', $e(c)) + '</label>';
-        $line = 13;
-        $art = '/each';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</div></div><div mxv mxa="_zs_galleryJ:d" class="form-item"><div mxs="_zs_galleryJ:a" class="form-label">radio</div><div mxv mxa="_zs_galleryJ:e" class="form-content">';
-    $line = 19;
-    $art = 'each radioes as r';
-    ;
-    $expr = '<%for (var $art_iwvqsc$art_i = 0, $art_combsnjv$art_c = radioes.length; $art_iwvqsc$art_i < $art_combsnjv$art_c; $art_iwvqsc$art_i++) {    var r = radioes[$art_iwvqsc$art_i]%>';
-    for (var $art_iwvqsc$art_i = 0, $art_combsnjv$art_c = radioes.length; $art_iwvqsc$art_i < $art_combsnjv$art_c; $art_iwvqsc$art_i++) {
-        var r = radioes[$art_iwvqsc$art_i];
-        $p += '<label mxv mxa="_zs_galleryJ:f" class="mr30"><input mxe="' + $viewId + '_1" mxc="[';
-        $line = 24;
-        $art = ':selected.radio';
-        ;
-        $p += '{p:\'selected.radio\'}]" type="radio" class="_zs_gallery___test___pro_theme-demo2_-demo-radio radio" name="magix" value="';
-        $line = 23;
-        $art = '=r';
-        ;
-        $p += ($expr = '<%=r%>', $e(r)) + '"/>';
-        $line = 25;
-        $art = '=r';
-        ;
-        $p += ($expr = '<%=r%>', $e(r)) + '</label>';
-        $line = 27;
-        $art = '/each';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</div></div><div mxv mxa="_zs_galleryJ:g" class="form-item"><div mxs="_zs_galleryJ:b" class="form-label">dropdown</div><div mxv mxa="_zs_galleryJ:h" class="form-content"><div mxv="selected" mxe="' + $viewId + '_2" mxc="[';
-    $line = 35;
-    $art = ':selected.day';
-    ;
-    $p += '{p:\'selected.day\',a:\'selected\'}]" class="w220" mx-view="mx-dropdown/index?emptyText=%E8%AF%B7%E9%80%89%E6%8B%A9&selected=';
-    $line = 35;
-    $art = ':selected.day';
-    ;
-    $p += ($expr = '<%@selected.day%>', $i($$ref, selected.day)) + '"><i mxs="_zs_galleryJ:c" value="1" class="none">1</i><i mxs="_zs_galleryJ:d" value="2" class="none">2</i></div></div></div><div mxv mxa="_zs_galleryJ:i" class="form-item"><div mxs="_zs_galleryJ:e" class="form-label">输入框</div><div mxv mxa="_zs_galleryJ:j" class="form-content"><input mxe="' + $viewId + '_3" mxc="[';
-    $line = 45;
-    $art = ':selected.name';
-    ;
-    $p += '{p:\'selected.name\'}]" class="input w220 _zs_gallery___test___pro_theme-demo2_-demo-input" placeholder="必填项" value="';
-    $line = 45;
-    $art = ':selected.name';
-    ;
-    $p += ($expr = '<%=selected.name%>', $e(selected.name)) + '"/><a mxs="_zs_galleryJ:f" rel="noopener noreferrer" href="https://thx.github.io/magix/" target="_blank" class="ml20 _zs_gallery___test___pro_theme-demo2_-demo-link">跳转链接</a></div></div><div mxa="_zs_galleryJ:k" class="form-item"><div mxs="_zs_galleryJ:g" class="form-label">日历</div><div mxa="_zs_galleryJ:l" class="form-content"><div class="w220" mx-view="mx-calendar/datepicker?prefix=%E6%88%AA%E6%AD%A2%E8%87%B3&selected=';
-    $line = 54;
-    $art = '=selected.time';
-    ;
-    $p += ($expr = '<%!$eu(selected.time)%>', $eu(selected.time)) + '"></div></div></div><div mxa="_zs_galleryJ:m" class="form-item"><div mxs="_zs_galleryJ:h" class="form-label">开关</div><div mxa="_zs_galleryJ:n" class="form-content"><span mxe="' + $viewId + '_4_' + ($expr = '<%="switch"%>', $e("switch")) + '" mxc="[';
-    $line = 61;
-    $art = ':selected.switch';
-    ;
-    $p += '{p:\'selected.' + ($expr = '<%="switch"%>', $e("switch")) + '\',a:\'state\'}]" class="mr20" style="margin-top: 7px;" mx-view="mx-switch/index?state=';
-    $line = 61;
-    $art = ':selected.switch';
-    ;
-    $p += ($expr = '<%@selected["switch"]%>', $i($$ref, selected["switch"])) + '"></span></div></div><div mxs="_zs_galleryJ:i" class="form-item"><div class="form-label">滑块</div><div class="form-content"><div mx-view="mx-slider/index?width=220&max=200&min=100&step=1"></div></div></div><div mxs="_zs_galleryJ:j" class="form-item"><a href="javascript:;" class="btn btn-brand w80 _zs_gallery___test___pro_theme-demo2_-demo-btn _zs_gallery___test___pro_theme-demo2_-demo-btn-brand mr20">确认</a><a href="javascript:;" class="btn w80 _zs_gallery___test___pro_theme-demo2_-demo-btn">取消</a></div></form>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:__test__/pro/theme-demo2.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', checkboxes = $$.checkboxes, selected = $$.selected, radioes = $$.radioes; $p += '<form mxv mxa="_zs_galleryJ:_" class="form _zs_gallerybi"><div mxv mxa="_zs_galleryJ:a" class="form-item"><div mxs="_zs_galleryJ:_" class="form-label">checkbox</div><div mxv mxa="_zs_galleryJ:b" class="form-content">'; for (var $art_ichnbpxwp$art_i = 0, $art_cqkscbdaucf$art_c = checkboxes.length; $art_ichnbpxwp$art_i < $art_cqkscbdaucf$art_c; $art_ichnbpxwp$art_i++) {
+    var c = checkboxes[$art_ichnbpxwp$art_i];
+    $p += '<label mxv mxa="_zs_galleryJ:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[{p:\'selected.checkboxes\'}]" type="checkbox" class="_zs_gallerybj checkbox" name="cb" value="' + $e(c) + '"/>' + $e(c) + '</label>';
+} ; $p += '</div></div><div mxv mxa="_zs_galleryJ:d" class="form-item"><div mxs="_zs_galleryJ:a" class="form-label">radio</div><div mxv mxa="_zs_galleryJ:e" class="form-content">'; for (var $art_ibxepwgnxm$art_i = 0, $art_cccofbenf$art_c = radioes.length; $art_ibxepwgnxm$art_i < $art_cccofbenf$art_c; $art_ibxepwgnxm$art_i++) {
+    var r = radioes[$art_ibxepwgnxm$art_i];
+    $p += '<label mxv mxa="_zs_galleryJ:f" class="mr30"><input mxe="' + $viewId + '_1" mxc="[{p:\'selected.radio\'}]" type="radio" class="_zs_gallerybk radio" name="magix" value="' + $e(r) + '"/>' + $e(r) + '</label>';
+} ; $p += '</div></div><div mxv mxa="_zs_galleryJ:g" class="form-item"><div mxs="_zs_galleryJ:b" class="form-label">dropdown</div><div mxv mxa="_zs_galleryJ:h" class="form-content"><div mxv="selected" mxe="' + $viewId + '_2" mxc="[{p:\'selected.day\',a:\'selected\'}]" class="w220" mx-view="mx-dropdown/index?emptyText=%E8%AF%B7%E9%80%89%E6%8B%A9&selected=' + $i($$ref, selected.day) + '"><i mxs="_zs_galleryJ:c" value="1" class="none">1</i><i mxs="_zs_galleryJ:d" value="2" class="none">2</i></div></div></div><div mxv mxa="_zs_galleryJ:i" class="form-item"><div mxs="_zs_galleryJ:e" class="form-label">输入框</div><div mxv mxa="_zs_galleryJ:j" class="form-content"><input mxe="' + $viewId + '_3" mxc="[{p:\'selected.name\'}]" class="input w220 _zs_gallerybo" placeholder="必填项" value="' + $e(selected.name) + '"/><a mxs="_zs_galleryJ:f" rel="noopener noreferrer" href="https://thx.github.io/magix/" target="_blank" class="ml20 _zs_gallerybp">跳转链接</a></div></div><div mxa="_zs_galleryJ:k" class="form-item"><div mxs="_zs_galleryJ:g" class="form-label">日历</div><div mxa="_zs_galleryJ:l" class="form-content"><div class="w220" mx-view="mx-calendar/datepicker?prefix=%E6%88%AA%E6%AD%A2%E8%87%B3&selected=' + $eu(selected.time) + '"></div></div></div><div mxa="_zs_galleryJ:m" class="form-item"><div mxs="_zs_galleryJ:h" class="form-label">开关</div><div mxa="_zs_galleryJ:n" class="form-content"><span mxe="' + $viewId + '_4_' + $e("switch") + '" mxc="[{p:\'selected.' + $e("switch") + '\',a:\'state\'}]" class="mr20" style="margin-top: 7px;" mx-view="mx-switch/index?state=' + $i($$ref, selected["switch"]) + '"></span></div></div><div mxs="_zs_galleryJ:i" class="form-item"><div class="form-label">滑块</div><div class="form-content"><div mx-view="mx-slider/index?width=220&max=200&min=100&step=1"></div></div></div><div mxs="_zs_galleryJ:j" class="form-item"><a href="javascript:;" class="btn btn-brand w80 _zs_gallerybl _zs_gallerybn mr20">确认</a><a href="javascript:;" class="btn w80 _zs_gallerybl">取消</a></div></form>'; return $p; },
     mixins: [Form, Validator],
     render: function () {
         this.updater.digest({

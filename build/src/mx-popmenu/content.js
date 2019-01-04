@@ -7,7 +7,7 @@ define("mx-popmenu/content",["magix"],(require,exports,module)=>{
 /*Magix*/
 
 var Magix = require("magix");
-Magix.applyStyle("_zs_gallery_mx-popmenu_content_","/* @dependent: ./index.less */\n._zs_gallery_mx-popmenu_content_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-popmenu_content_-menu {\n  padding: 8px 10px;\n  overflow: auto;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item {\n  padding: 2px 0;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link {\n  display: block;\n  width: 100%;\n  padding: 0 8px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link:hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active,\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active:hover,\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active:active,\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active:focus {\n  color: #4d7fff;\n  background-color: #f6f9ff;\n}\n");
+Magix.applyStyle("_zs_galleryam","._zs_gallerykq{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerykr{padding:8px 10px;overflow:auto}._zs_gallerykr ._zs_galleryks{padding:2px 0}._zs_gallerykr ._zs_galleryks ._zs_gallerykt{display:block;width:100%;padding:0 8px;cursor:pointer;height:26px;line-height:26px;border-radius:4px;transition:all .25s}._zs_gallerykr ._zs_galleryks ._zs_gallerykt:hover{background-color:#f0f0f0}._zs_gallerykr ._zs_galleryks ._zs_gallerykt._zs_galleryku,._zs_gallerykr ._zs_galleryks ._zs_gallerykt._zs_galleryku:active,._zs_gallerykr ._zs_galleryks ._zs_gallerykt._zs_galleryku:focus,._zs_gallerykr ._zs_galleryks ._zs_gallerykt._zs_galleryku:hover{color:#4d7fff;background-color:#f6f9ff}");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -20,39 +20,10 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', menus = $$.menus; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycG:_" class="_zs_gallery_mx-popmenu_content_-menu">';
-    $line = 2;
-    $art = 'each menus as item';
-    ;
-    $expr = '<%for (var $art_ixgcubjbg$art_i = 0, $art_cukeimopitb$art_c = menus.length; $art_ixgcubjbg$art_i < $art_cukeimopitb$art_c; $art_ixgcubjbg$art_i++) {    var item = menus[$art_ixgcubjbg$art_i]%>';
-    for (var $art_ixgcubjbg$art_i = 0, $art_cukeimopitb$art_c = menus.length; $art_ixgcubjbg$art_i < $art_cukeimopitb$art_c; $art_ixgcubjbg$art_i++) {
-        var item = menus[$art_ixgcubjbg$art_i];
-        $p += '<div mxa="_zs_gallerycG:a" class="_zs_gallery_mx-popmenu_content_-item"><span class="_zs_gallery_mx-popmenu_content_-item-link ellipsis" mx-click="' + $viewId + 'submit({value:';
-        $line = 5;
-        $art = '=item.value';
-        ;
-        $p += ($expr = '<%=item.value%>', $e(item.value)) + '})">';
-        $line = 6;
-        $art = '=item.text';
-        ;
-        $p += ($expr = '<%=item.text%>', $e(item.text)) + '</span></div>';
-        $line = 9;
-        $art = '/each';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-popmenu/content.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', menus = $$.menus; $p += '<div mxa="_zs_gallerycG:_" class="_zs_gallerykr">'; for (var $art_ilqivalki$art_i = 0, $art_cervumsuspf$art_c = menus.length; $art_ilqivalki$art_i < $art_cervumsuspf$art_c; $art_ilqivalki$art_i++) {
+    var item = menus[$art_ilqivalki$art_i];
+    $p += '<div mxa="_zs_gallerycG:a" class="_zs_galleryks"><span class="_zs_gallerykt ellipsis" mx-click="' + $viewId + 'submit({value:' + $e(item.value) + '})">' + $e(item.text) + '</span></div>';
+} ; $p += '</div>'; return $p; },
     init: function (e) {
         this.viewOptions = e;
         var data = e.data || {};

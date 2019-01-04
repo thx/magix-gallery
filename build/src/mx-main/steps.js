@@ -13,7 +13,7 @@ define("mx-main/steps",["magix"],(require,exports,module)=>{
 var Magix = require("magix");
 var Router = Magix.Router;
 var Vframe = Magix.Vframe;
-Magix.applyStyle("_zs_gallery_mx-main_step_","/* @dependent: ./index.less */\n._zs_gallery_mx-main_step_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main_step_-step-error {\n  position: relative;\n  padding-top: 10px;\n  padding-left: 20px;\n  color: #a40100;\n}\n._zs_gallery_mx-main_step_-step-error ._zs_gallery_mx-main_step_-error-icon {\n  position: absolute;\n  left: 0;\n  top: 10px;\n  color: #a40100;\n}\n");
+Magix.applyStyle("_zs_galleryae","._zs_galleryjl{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryjm{position:relative;padding-top:10px;padding-left:20px;color:#a40100}._zs_galleryjm ._zs_galleryjn{position:absolute;left:0;top:10px;color:#a40100}");
 module.exports = Magix.View.extend({
     init: function (extra) {
         var that = this;
@@ -112,7 +112,7 @@ module.exports = Magix.View.extend({
                 }
             }
             else {
-                errorNode.html("<div class=\"_zs_gallery_mx-main_step_-step-error\"><i class=\"mc-iconfont _zs_gallery_mx-main_step_-error-icon\">&#xe6ad;</i>" + result.msg + "</div>");
+                errorNode.html("<div class=\"_zs_galleryjm\"><i class=\"mc-iconfont _zs_galleryjn\">&#xe6ad;</i>" + result.msg + "</div>");
             }
         });
     }

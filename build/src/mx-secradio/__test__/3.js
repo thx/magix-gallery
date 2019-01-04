@@ -27,33 +27,7 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', list = $$.list, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryc&:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryc&:a" class="_zs_gallery___test___layout_-eg-content"><div mxv="list" mx-view="mx-secradio/index?list=';
-    $line = 4;
-    $art = '@list';
-    ;
-    $p += ($expr = '<%@list%>', $i($$ref, list)) + '&close=true"></div></div><div mxa="_zs_galleryc&:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryc&:_" class="_zs_gallery___test___layout_-eg-title">默认收起</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 9;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryc&:c" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 11;
-    $art = '!text1';
-    ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryc&:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 14;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-secradio \n    list="&#123;&#123;@list&#125;&#125;"\n    close="true"/&gt;</pre></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-secradio/__test__/3.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', list = $$.list, viewId = $$.viewId, text1 = $$.text1; $p += '<div mxv mxa="_zs_galleryc&:_" class="_zs_galleryh"><div mxv mxa="_zs_galleryc&:a" class="_zs_galleryk"><div mxv="list" mx-view="mx-secradio/index?list=' + $i($$ref, list) + '&close=true"></div></div><div mxa="_zs_galleryc&:b" class="_zs_galleryl"><div mxs="_zs_galleryc&:_" class="_zs_galleryj">默认收起</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_galleryc&:c" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_galleryc&:a" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-secradio \n    list="&#123;&#123;@list&#125;&#125;"\n    close="true"/&gt;</pre></div></div>'; return $p; },
     render: function () {
         var list = [{
                 value: 1,

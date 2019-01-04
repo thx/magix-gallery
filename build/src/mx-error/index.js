@@ -7,7 +7,7 @@ define("mx-error/index",["magix"],(require,exports,module)=>{
 /*Magix*/
 
 var Magix = require("magix");
-Magix.applyStyle("_zs_gallery_mx-error_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-error_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-error_index_-error {\n  width: 400px;\n  margin: auto;\n  padding-top: 80px;\n  padding-bottom: 120px;\n  text-align: center;\n}\n._zs_gallery_mx-error_index_-error ._zs_gallery_mx-error_index_-error-unfound {\n  margin-bottom: 30px;\n  font-size: 240px;\n  color: #ccc;\n}\n._zs_gallery_mx-error_index_-error ._zs_gallery_mx-error_index_-info {\n  margin-bottom: 20px;\n  font-size: 16px;\n  color: #999;\n}\n._zs_gallery_mx-error_index_-error ._zs_gallery_mx-error_index_-home-btn,\n._zs_gallery_mx-error_index_-error ._zs_gallery_mx-error_index_-back-btn {\n  width: 90px;\n}\n._zs_gallery_mx-error_index_-error ._zs_gallery_mx-error_index_-back-btn {\n  margin-left: 20px;\n}\n._zs_gallery_mx-error_index_-error ._zs_gallery_mx-error_index_-error-bad-img {\n  display: block;\n  width: 400px;\n  margin: auto;\n}\n._zs_gallery_mx-error_index_-error ._zs_gallery_mx-error_index_-error-bad-num {\n  text-align: center;\n  font-size: 40px;\n  font-family: \"Tahoma\";\n}\n");
+Magix.applyStyle("_zs_galleryM","._zs_galleryfH{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryfI{width:400px;margin:auto;padding-top:80px;padding-bottom:120px;text-align:center}._zs_galleryfI ._zs_galleryfJ{margin-bottom:30px;font-size:240px;color:#ccc}._zs_galleryfI ._zs_galleryfK{margin-bottom:20px;font-size:16px;color:#999}._zs_galleryfI ._zs_galleryfL,._zs_galleryfI ._zs_galleryfM{width:90px}._zs_galleryfI ._zs_galleryfL{margin-left:20px}._zs_galleryfI ._zs_galleryfN{display:block;width:400px;margin:auto}._zs_galleryfI ._zs_galleryfO{text-align:center;font-size:40px;font-family:Tahoma}");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -20,71 +20,16 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', type = $$.type, tip = $$.tip, btns = $$.btns; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybe:_" class="_zs_gallery_mx-error_index_-error">';
-    $line = 2;
-    $art = 'if (type == \'404\')';
+} ; var $g = '', $_temp, $p = '', type = $$.type, tip = $$.tip, btns = $$.btns; $p += '<div mxa="_zs_gallerybe:_" class="_zs_galleryfI">'; if (type == '404') {
     ;
-    $expr = '<%if (type == \'404\') {%>';
-    if (type == '404') {
-        ;
-        $p += '<div mxs="_zs_gallerybe:_"><i class="mc-iconfont _zs_gallery_mx-error_index_-error-unfound">&#xe6c7;</i></div><div mxa="_zs_gallerybe:a" class="_zs_gallery_mx-error_index_-info">';
-        $line = 4;
-        $art = '=tip';
-        ;
-        $p += ($expr = '<%=tip%>', $e(tip)) + '</div>';
-        $line = 5;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
+    $p += '<div mxs="_zs_gallerybe:_"><i class="mc-iconfont _zs_galleryfJ">&#xe6c7;</i></div><div mxa="_zs_gallerybe:a" class="_zs_galleryfK">' + $e(tip) + '</div>';
+} ; $p += ' '; if (type == '502' || type == '500') {
     ;
-    $p += ' ';
-    $line = 7;
-    $art = 'if (type == \'502\' || type == \'500\')';
+    $p += '<img mxs="_zs_gallerybe:a" class="_zs_galleryfN" src="//img.alicdn.com/tfs/TB1gwinx9rqK1RjSZK9XXXyypXa-1122-678.png"/><span mxa="_zs_gallerybe:b" class="_zs_galleryfO">' + $e(type) + '</span><div mxa="_zs_gallerybe:c" class="_zs_galleryfK">' + $e(tip) + '</div>';
+} ; $p += ' '; if (btns) {
     ;
-    $expr = '<%if (type == \'502\' || type == \'500\') {%>';
-    if (type == '502' || type == '500') {
-        ;
-        $p += '<img mxs="_zs_gallerybe:a" class="_zs_gallery_mx-error_index_-error-bad-img" src="//img.alicdn.com/tfs/TB1gwinx9rqK1RjSZK9XXXyypXa-1122-678.png"/><span mxa="_zs_gallerybe:b" class="_zs_gallery_mx-error_index_-error-bad-num">';
-        $line = 9;
-        $art = '=type';
-        ;
-        $p += ($expr = '<%=type%>', $e(type)) + '</span><div mxa="_zs_gallerybe:c" class="_zs_gallery_mx-error_index_-info">';
-        $line = 10;
-        $art = '=tip';
-        ;
-        $p += ($expr = '<%=tip%>', $e(tip)) + '</div>';
-        $line = 11;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += ' ';
-    $line = 13;
-    $art = 'if btns';
-    ;
-    $expr = '<%if (btns) {%>';
-    if (btns) {
-        ;
-        $p += '<div mxs="_zs_gallerybe:b"><a href="#!" class="btn btn-brand _zs_gallery_mx-error_index_-home-btn">回到首页</a><a href="javascript:;" class="btn _zs_gallery_mx-error_index_-back-btn" mx-click="' + $viewId + 'back()">返回上一页</a></div>';
-        $line = 18;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-error/index.html';
-    throw msg;
-} return $p; },
+    $p += '<div mxs="_zs_gallerybe:b"><a href="#!" class="btn btn-brand _zs_galleryfM">回到首页</a><a href="javascript:;" class="btn _zs_galleryfL" mx-click="' + $viewId + 'back()">返回上一页</a></div>';
+} ; $p += '</div>'; return $p; },
     init: function (extra) {
         var type = extra.type || '404';
         var tip = extra.tip || '';

@@ -8,7 +8,7 @@ define("mx-main/tip",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-main_tip_","/* @dependent: ./index.less */\n._zs_gallery_mx-main_tip_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main_tip_-side-tip {\n  position: relative;\n  top: 0;\n  left: 0;\n  margin: 0 20px 20px 0;\n  padding-left: 24px;\n}\n._zs_gallery_mx-main_tip_-side-tip ._zs_gallery_mx-main_tip_-side-content {\n  padding: 10px;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  color: #999;\n  background-color: #fff;\n}\n._zs_gallery_mx-main_tip_-side-tip ._zs_gallery_mx-main_tip_-side-light {\n  opacity: 0.5;\n  position: absolute;\n  top: 50%;\n  left: -8px;\n  font-size: 22px;\n  margin-top: -10px;\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_tip_-side-tip:before,\n._zs_gallery_mx-main_tip_-side-tip:after {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: 18px;\n  width: 0;\n  height: 0;\n  margin-top: -7px;\n  border-top: 7px solid transparent;\n  border-right: 6px solid #ccc;\n  border-bottom: 6px solid transparent;\n}\n._zs_gallery_mx-main_tip_-side-tip:after {\n  border-right: 6px solid #fff;\n  left: 19px;\n}\n");
+Magix.applyStyle("_zs_galleryaf","._zs_galleryjo{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryjp{position:relative;top:0;left:0;margin:0 20px 20px 0;padding-left:24px}._zs_galleryjp ._zs_galleryjq{padding:10px;border:1px solid #e6e6e6;border-radius:4px;color:#999;background-color:#fff}._zs_galleryjp ._zs_galleryjr{opacity:.5;position:absolute;top:50%;left:-8px;font-size:22px;margin-top:-10px;color:#4d7fff}._zs_galleryjp:after,._zs_galleryjp:before{content:\"\";position:absolute;top:50%;left:18px;width:0;height:0;margin-top:-7px;border-top:7px solid transparent;border-right:6px solid #ccc;border-bottom:6px solid transparent}._zs_galleryjp:after{border-right:6px solid #fff;left:19px}");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -21,45 +21,14 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', view = $$.view, content = $$.content; var $expr, $art, $line; try {
-    $line = 1;
-    $art = 'if view';
+} ; var $g = '', $_temp, $p = '', view = $$.view, content = $$.content; if (view) {
     ;
-    $expr = '<%if (view) {%>';
-    if (view) {
-        ;
-        $p += '<div mx-view="';
-        $line = 3;
-        $art = '=view';
-        ;
-        $p += ($expr = '<%=view%>', $e(view)) + '"><div mxs="_zs_gallerycn:_" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
-        $line = 6;
-        $art = 'else';
-        ;
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += '<div mxa="_zs_gallerycn:_" class="_zs_gallery_mx-main_tip_-side-tip"><i mxs="_zs_gallerycn:a" class="mc-iconfont _zs_gallery_mx-main_tip_-side-light">&#xe654;</i><div mxa="_zs_gallerycn:a" class="_zs_gallery_mx-main_tip_-side-content">';
-        $line = 9;
-        $art = '!content';
-        ;
-        $p += ($expr = '<%!content%>', $n(content)) + '</div></div>';
-        $line = 11;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
+    $p += '<div mx-view="' + $e(view) + '"><div mxs="_zs_gallerycn:_" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
 }
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-main/tip.html';
-    throw msg;
-} return $p; },
+else {
+    ;
+    $p += '<div mxa="_zs_gallerycn:_" class="_zs_galleryjp"><i mxs="_zs_gallerycn:a" class="mc-iconfont _zs_galleryjr">&#xe654;</i><div mxa="_zs_gallerycn:a" class="_zs_galleryjq">' + $n(content) + '</div></div>';
+} ; return $p; },
     init: function (extra) {
         var data = extra.data || {};
         this.updater.set(data);

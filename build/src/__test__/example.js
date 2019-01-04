@@ -31,7 +31,7 @@ module.exports = Magix.View.extend({
         var that = this;
         var id = e.params.id;
         var data = {};
-        data['text' + id] = '<i class="mc-iconfont _zs_gallery___test___layout_-desc-tip-icon">&#xe630;</i>复制成功';
+        data['text' + id] = '<i class="mc-iconfont _zs_galleryp">&#xe630;</i>复制成功';
         that.updater.digest(data);
         setTimeout(function () {
             data['text' + id] = CopyText;

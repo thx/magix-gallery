@@ -23,79 +23,19 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydJ:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerydJ:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerydJ:_" class="mb20 clearfix lh22"><span class="color-9">以下示例：</span><span>表头吸顶，默认相对于window吸顶</span></div><div mxa="_zs_gallerydJ:b" mx-view="mx-table/index?sticky=true" class="mb20"><div><table mxa="_zs_gallerydJ:c" class="table"><thead><tr>';
-    $line = 11;
-    $art = 'for (let i=0;i<5;i++)';
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_gallerydJ:_" class="_zs_galleryh"><div mxa="_zs_gallerydJ:a" class="_zs_galleryk"><div mxs="_zs_gallerydJ:_" class="mb20 clearfix lh22"><span class="color-9">以下示例：</span><span>表头吸顶，默认相对于window吸顶</span></div><div mxa="_zs_gallerydJ:b" mx-view="mx-table/index?sticky=true" class="mb20"><div><table mxa="_zs_gallerydJ:c" class="table"><thead><tr>'; for (var i = 0; i < 5; i++) {
     ;
-    $expr = '<%for (var i = 0; i < 5; i++) {%>';
+    $p += '<th>示例字段' + $e(i) + '</th>';
+} ; $p += '<th mxs="_zs_gallerydJ:a">操作</th></tr></thead><tbody>'; for (var j = 0; j < 3; j++) {
+    ;
+    $p += '<tr>';
     for (var i = 0; i < 5; i++) {
         ;
-        $p += '<th>示例字段';
-        $line = 12;
-        $art = '=i';
-        ;
-        $p += ($expr = '<%=i%>', $e(i)) + '</th>';
-        $line = 13;
-        $art = '/for';
-        ;
-        $expr = '<%}%>';
+        $p += '<td>示例字段' + $e(i) + '</td>';
     }
     ;
-    $p += '<th mxs="_zs_gallerydJ:a">操作</th></tr></thead><tbody>';
-    $line = 18;
-    $art = 'for (let j=0;j<3;j++)';
-    ;
-    $expr = '<%for (var j = 0; j < 3; j++) {%>';
-    for (var j = 0; j < 3; j++) {
-        ;
-        $p += '<tr>';
-        $line = 20;
-        $art = 'for (let i=0;i<5;i++)';
-        ;
-        $expr = '<%for (var i = 0; i < 5; i++) {%>';
-        for (var i = 0; i < 5; i++) {
-            ;
-            $p += '<td>示例字段';
-            $line = 21;
-            $art = '=i';
-            ;
-            $p += ($expr = '<%=i%>', $e(i)) + '</td>';
-            $line = 22;
-            $art = '/for';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '<td mxs="_zs_gallerydJ:b"><div class="operations"><a href="javascript:;" class="btn btn-white btn-small">操作</a></div></td></tr>';
-        $line = 29;
-        $art = '/for';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</tbody></table></div></div></div><div mxa="_zs_gallerydJ:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydJ:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 36;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydJ:e" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 38;
-    $art = '!text1';
-    ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydJ:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 41;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-table sticky="true"&gt;\n    &lt;table class="table"&gt;\n    &lt;thead&gt;\n        &lt;tr&gt;\n            &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;\n            &lt;th&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/th&gt;\n            &#123;&#123;/for&#125;&#125;\n            &lt;th&gt;操作&lt;/th&gt;\n        &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n        &#123;&#123;for(let j=0;j&lt;3;j++)&#125;&#125;\n        &lt;tr&gt;\n            &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;\n            &lt;td&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/td&gt;\n            &#123;&#123;/for&#125;&#125;\n            &lt;td&gt;\n                &lt;div class="operations"&gt;\n                    &lt;a href="javascript:;" class="btn btn-white btn-small"&gt;操作&lt;/a&gt;\n                &lt;/div&gt;\n            &lt;/td&gt;\n        &lt;/tr&gt;\n        &#123;&#123;/for&#125;&#125;\n    &lt;/tbody&gt;\n    &lt;/table&gt;\n&lt;/mx-table&gt;\n</pre></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-table/__test__/16.html';
-    throw msg;
-} return $p; },
+    $p += '<td mxs="_zs_gallerydJ:b"><div class="operations"><a href="javascript:;" class="btn btn-white btn-small">操作</a></div></td></tr>';
+} ; $p += '</tbody></table></div></div></div><div mxa="_zs_gallerydJ:d" class="_zs_galleryl"><div mxs="_zs_gallerydJ:c" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerydJ:e" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerydJ:d" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-table sticky="true"&gt;\n    &lt;table class="table"&gt;\n    &lt;thead&gt;\n        &lt;tr&gt;\n            &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;\n            &lt;th&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/th&gt;\n            &#123;&#123;/for&#125;&#125;\n            &lt;th&gt;操作&lt;/th&gt;\n        &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n        &#123;&#123;for(let j=0;j&lt;3;j++)&#125;&#125;\n        &lt;tr&gt;\n            &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;\n            &lt;td&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/td&gt;\n            &#123;&#123;/for&#125;&#125;\n            &lt;td&gt;\n                &lt;div class="operations"&gt;\n                    &lt;a href="javascript:;" class="btn btn-white btn-small"&gt;操作&lt;/a&gt;\n                &lt;/div&gt;\n            &lt;/td&gt;\n        &lt;/tr&gt;\n        &#123;&#123;/for&#125;&#125;\n    &lt;/tbody&gt;\n    &lt;/table&gt;\n&lt;/mx-table&gt;\n</pre></div></div>'; return $p; },
     render: function () {
         this.updater.digest();
     }

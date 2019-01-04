@@ -12,32 +12,32 @@ define("mx-table/index",["magix","$"],(require,exports,module)=>{
 var Magix = require("magix");
 var $ = require("$");
 var WidthReg = /width\s*:\s*(\d+)px/;
-Magix.applyStyle("_zs_gallery_mx-table_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-table_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-table/index\"],\n[mx-view*=\"mx-table/excel\"] {\n  position: relative;\n}\n[mx-view*=\"mx-table/index\"] table,\n[mx-view*=\"mx-table/excel\"] table {\n  table-layout: auto;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-wrapper,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-wrapper,\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-scrollbar,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-scrollbar {\n  position: absolute;\n  left: 0;\n  right: 0;\n  overflow-x: scroll;\n  overflow-y: hidden;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-wrapper,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-wrapper {\n  top: 0;\n  z-index: 1;\n  -ms-overflow-style: none;\n  overflow: auto;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-wrapper::-webkit-scrollbar,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-wrapper::-webkit-scrollbar {\n  display: none;\n  width: 0;\n  height: 0;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-wrapper::-webkit-scrollbar-thumb,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-wrapper::-webkit-scrollbar-thumb {\n  background-color: transparent;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-scrollbar,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-scrollbar {\n  display: none;\n  z-index: 2;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-scrollbar ._zs_gallery_mx-table_index_-bar,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-scrollbar ._zs_gallery_mx-table_index_-bar {\n  height: 10px;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-scrollbar::-webkit-scrollbar,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-scrollbar::-webkit-scrollbar {\n  width: 14px;\n  height: 14px;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-scrollbar::-webkit-scrollbar-thumb,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-scrollbar::-webkit-scrollbar-thumb {\n  background-color: #d8e3ff;\n  border-radius: 7px;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-left,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-left {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  background-color: #fff;\n  width: auto;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-left-shadow,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-left-shadow {\n  box-shadow: 3px 0 4px rgba(0, 0, 0, 0.06);\n}\n");
+Magix.applyStyle("_zs_galleryaz","._zs_galleryme{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}[mx-view*=\"mx-table/excel\"],[mx-view*=\"mx-table/index\"]{position:relative}[mx-view*=\"mx-table/excel\"] table,[mx-view*=\"mx-table/index\"] table{table-layout:auto}[mx-view*=\"mx-table/excel\"] ._zs_gallerymf,[mx-view*=\"mx-table/excel\"] ._zs_gallerymg,[mx-view*=\"mx-table/index\"] ._zs_gallerymf,[mx-view*=\"mx-table/index\"] ._zs_gallerymg{position:absolute;left:0;right:0;overflow-x:scroll;overflow-y:hidden}[mx-view*=\"mx-table/excel\"] ._zs_gallerymg,[mx-view*=\"mx-table/index\"] ._zs_gallerymg{top:0;z-index:1;-ms-overflow-style:none;overflow:auto}[mx-view*=\"mx-table/excel\"] ._zs_gallerymg::-webkit-scrollbar,[mx-view*=\"mx-table/index\"] ._zs_gallerymg::-webkit-scrollbar{display:none;width:0;height:0}[mx-view*=\"mx-table/excel\"] ._zs_gallerymg::-webkit-scrollbar-thumb,[mx-view*=\"mx-table/index\"] ._zs_gallerymg::-webkit-scrollbar-thumb{background-color:transparent}[mx-view*=\"mx-table/excel\"] ._zs_gallerymf,[mx-view*=\"mx-table/index\"] ._zs_gallerymf{display:none;z-index:2}[mx-view*=\"mx-table/excel\"] ._zs_gallerymf ._zs_gallerymh,[mx-view*=\"mx-table/index\"] ._zs_gallerymf ._zs_gallerymh{height:10px}[mx-view*=\"mx-table/excel\"] ._zs_gallerymf::-webkit-scrollbar,[mx-view*=\"mx-table/index\"] ._zs_gallerymf::-webkit-scrollbar{width:14px;height:14px}[mx-view*=\"mx-table/excel\"] ._zs_gallerymf::-webkit-scrollbar-thumb,[mx-view*=\"mx-table/index\"] ._zs_gallerymf::-webkit-scrollbar-thumb{background-color:#d8e3ff;border-radius:7px}[mx-view*=\"mx-table/excel\"] ._zs_gallerymi,[mx-view*=\"mx-table/index\"] ._zs_gallerymi{position:absolute;top:0;left:0;z-index:2;background-color:#fff;width:auto}[mx-view*=\"mx-table/excel\"] ._zs_gallerymj,[mx-view*=\"mx-table/index\"] ._zs_gallerymj{box-shadow:3px 0 4px rgba(0,0,0,.06)}");
 module.exports = Magix.View.extend({
     init: function (extra) {
         var me = this;
         // 默认展示第一行
-        me['@{hover.index}'] = 0;
+        me['__dw'] = 0;
         var node = $('#' + me.id);
-        me['@{owner.node}'] = node;
+        me['__j'] = node;
         var leftTable = node.find('table[left="true"]');
         if (leftTable && leftTable.length > 0) {
-            me['@{table.left}'] = leftTable;
-            me['@{table.left.wrapper}'] = me['@{wrapper.get}'](leftTable, 'left');
-            me['@{table.left.thead}'] = leftTable.find('thead');
-            me['@{table.main}'] = node.find('table[center="true"]');
+            me['__dx'] = leftTable;
+            me['__dy'] = me['__dz'](leftTable, 'left');
+            me['__dA'] = leftTable.find('thead');
+            me['__dB'] = node.find('table[center="true"]');
         }
         else {
-            me['@{table.main}'] = node.find('table');
+            me['__dB'] = node.find('table');
         }
-        me['@{table.main.wrapper}'] = me['@{wrapper.get}'](me['@{table.main}'], 'main');
-        me['@{table.main.thead}'] = me['@{table.main}'].find('thead');
-        me['@{need.sticky}'] = (extra.sticky + '') === 'true';
-        me['@{sticky.interval}'] = extra.stickyInterval || 0;
-        me['@{hover.class}'] = extra.rowHoverClass || 'hover-tr';
+        me['__dC'] = me['__dz'](me['__dB'], 'main');
+        me['__dD'] = me['__dB'].find('thead');
+        me['__dE'] = (extra.sticky + '') === 'true';
+        me['__dF'] = extra.stickyInterval || 0;
+        me['__dG'] = extra.rowHoverClass || 'hover-tr';
         // 自定义滚动节点
         if (extra.scrollWrapper) {
-            me['@{scroll.wrapper}'] = $('#' + extra.scrollWrapper);
+            me['__bs'] = $('#' + extra.scrollWrapper);
         }
         me.assign();
     },
@@ -49,75 +49,75 @@ module.exports = Magix.View.extend({
     },
     render: function () {
         var me = this;
-        me['@{table.init}']();
-        me['@{toggle.hover.state}'](me['@{hover.index}'], 'add');
+        me['__dH']();
+        me['__dI'](me['__dw'], 'add');
     },
-    '@{wrapper.get}': function (table, id) {
+    '__dz': function (table, id) {
         id = this.id + '_' + id;
         table.attr('id', id + '_table');
         var wrapper = table.parent('div');
         wrapper.attr(id, id);
         return wrapper;
     },
-    '@{table.init}': function () {
+    '__dH': function () {
         var me = this;
         // 左侧固定表格
-        var leftTable = me['@{table.left}'];
+        var leftTable = me['__dx'];
         // 中间滚动表格
-        var table = me['@{table.main}'];
+        var table = me['__dB'];
         if (leftTable) {
             // 计算左侧固定表格宽度
-            me['@{left.table.sync.width}']();
+            me['__dJ']();
             // 滚动表格跨度
-            var wrapper = me['@{table.main.wrapper}'];
-            wrapper.addClass('_zs_gallery_mx-table_index_-wrapper');
+            var wrapper = me['__dC'];
+            wrapper.addClass('_zs_gallerymg');
             wrapper.css('left', leftTable.outerWidth());
-            me['@{main.table.sync.width}']();
+            me['__dK']();
             // 表格分栏时同步两边表格的内容的高度
-            me['@{table.sync.height}']();
+            me['__dL']();
         }
         // 根据内容宽度计算头部th的宽度
-        me['@{table.sync.th.width}']();
+        me['__dM']();
         // 分栏时模拟滚动条
         // windows下面无法鼠标左右滚动，需要模拟滚动条，滚定条吸底在可视范围之内
-        me['@{scroll.init}']();
+        me['__dN']();
         // 表头吸顶
-        me['@{sticky.init}']();
+        me['__dO']();
     },
     /**
      * 分栏时模拟滚动条
      * windows下面无法鼠标左右滚动，需要模拟滚动条，滚定条吸底在可视范围之内
      */
-    '@{scroll.init}': function () {
+    '__dN': function () {
         var me = this;
         var viewId = me.id;
-        var leftWrapper = me['@{table.left.wrapper}'];
+        var leftWrapper = me['__dy'];
         var inmain, watchInmainScroll;
-        if (me['@{scroll.wrapper}']) {
-            inmain = me['@{scroll.wrapper}'];
+        if (me['__bs']) {
+            inmain = me['__bs'];
             watchInmainScroll = function () {
-                me['@{sync.scroll.pos.custom}'](inmain);
+                me['__dP'](inmain);
             };
         }
         else {
             inmain = $(window);
             watchInmainScroll = function () {
-                me['@{sync.scroll.pos.win}'](inmain);
+                me['__dQ'](inmain);
             };
         }
-        if (leftWrapper && (leftWrapper.length > 0) && (leftWrapper.hasClass('_zs_gallery_mx-table_index_-left-shadow'))) {
-            me['@{need.scroll}'] = true;
-            var mainWrapper_1 = me['@{table.main.wrapper}'], mainTable = me['@{table.main}'];
+        if (leftWrapper && (leftWrapper.length > 0) && (leftWrapper.hasClass('_zs_gallerymj'))) {
+            me['__dR'] = true;
+            var mainWrapper_1 = me['__dC'], mainTable = me['__dB'];
             var outerWidth = mainWrapper_1.width(), innerWidth = mainTable.width();
             var scrollbar_1 = $('#' + viewId + '_scrollbar');
             if (scrollbar_1 && scrollbar_1.length) {
                 scrollbar_1.css({
                     width: outerWidth
                 });
-                scrollbar_1.find('._zs_gallery_mx-table_index_-bar').width(innerWidth);
+                scrollbar_1.find('._zs_gallerymh').width(innerWidth);
             }
             else {
-                var tmpl = "<div id=\"" + viewId + "_scrollbar\" class=\"_zs_gallery_mx-table_index_-scrollbar\" style=\"width:" + outerWidth + "px;\"><div class=\"_zs_gallery_mx-table_index_-bar\" style=\"width:" + innerWidth + "px;\"><div><div>";
+                var tmpl = "<div id=\"" + viewId + "_scrollbar\" class=\"_zs_gallerymf\" style=\"width:" + outerWidth + "px;\"><div class=\"_zs_gallerymh\" style=\"width:" + innerWidth + "px;\"><div><div>";
                 mainWrapper_1.after($(tmpl));
                 scrollbar_1 = $('#' + viewId + '_scrollbar');
             }
@@ -128,7 +128,7 @@ module.exports = Magix.View.extend({
                 var sl = mainWrapper_1[0].scrollLeft;
                 scrollbar_1[0].scrollLeft = sl;
                 // 缓存滚动位置，下次刷新时候恢复
-                me['@{scroll.left.back}'] = sl;
+                me['__dS'] = sl;
             };
             scrollbar_1.off('scroll', syncToMain).on('scroll', syncToMain);
             mainWrapper_1.off('scroll', syncToLeft).on('scroll', syncToLeft);
@@ -137,47 +137,47 @@ module.exports = Magix.View.extend({
             });
             inmain.off('scroll.custombar', watchInmainScroll).on('scroll.custombar', watchInmainScroll);
             watchInmainScroll();
-            if (me['@{scroll.left.back}']) {
-                mainWrapper_1[0].scrollLeft = me['@{scroll.left.back}'];
-                scrollbar_1[0].scrollLeft = me['@{scroll.left.back}'];
+            if (me['__dS']) {
+                mainWrapper_1[0].scrollLeft = me['__dS'];
+                scrollbar_1[0].scrollLeft = me['__dS'];
             }
         }
         else {
-            me['@{need.scroll}'] = false;
+            me['__dR'] = false;
             var scrollbar = $('#' + viewId + '_scrollbar');
             if (scrollbar && scrollbar.length) {
                 scrollbar.remove();
             }
         }
     },
-    '@{sticky.init}': function () {
+    '__dO': function () {
         var me = this;
-        if (me['@{need.sticky}']) {
+        if (me['__dE']) {
             var inmain_1, watchInmainScroll_1;
-            if (me['@{scroll.wrapper}']) {
-                inmain_1 = me['@{scroll.wrapper}'];
+            if (me['__bs']) {
+                inmain_1 = me['__bs'];
                 watchInmainScroll_1 = function () {
-                    me['@{sync.sticky.pos.custom}'](inmain_1);
+                    me['__dT'](inmain_1);
                 };
             }
             else {
                 inmain_1 = $(window);
                 watchInmainScroll_1 = function () {
-                    me['@{sync.sticky.pos.win}'](inmain_1);
+                    me['__dU'](inmain_1);
                 };
             }
             me.on('destroy', function () {
                 inmain_1.off('scroll.customsticky', watchInmainScroll_1);
             });
             inmain_1.on('scroll.customsticky', watchInmainScroll_1);
-            me['@{thead.height}'] = me['@{table.main.thead}'].height();
+            me['__dV'] = me['__dD'].height();
             watchInmainScroll_1();
         }
     },
     /**
      * 根据内容算头部
      */
-    '@{table.sync.th.width}': function () {
+    '__dM': function () {
         var me = this;
         var wrapFn = function (table) {
             var trs = table.find('tbody>tr');
@@ -253,13 +253,13 @@ module.exports = Magix.View.extend({
                 }
             }
         };
-        wrapFn(me['@{table.main}']);
-        var leftTable = me['@{table.left}'];
+        wrapFn(me['__dB']);
+        var leftTable = me['__dx'];
         if (leftTable) {
             wrapFn(leftTable);
         }
     },
-    '@{table.width.get}': function (table) {
+    '__dW': function (table) {
         var ths = table.find('thead>tr:first-child>th');
         var width = table.attr('width');
         if (!width) {
@@ -288,23 +288,23 @@ module.exports = Magix.View.extend({
         }
         return +width;
     },
-    '@{left.table.sync.width}': function () {
+    '__dJ': function () {
         var me = this;
-        var table = me['@{table.left}'];
-        var wrapper = me['@{table.left.wrapper}'];
-        var width = me['@{table.width.get}'](table);
+        var table = me['__dx'];
+        var wrapper = me['__dy'];
+        var width = me['__dW'](table);
         table.css('width', width);
         table.find('thead').css('width', width);
         wrapper.css('width', table.outerWidth());
     },
-    '@{main.table.sync.width}': function () {
+    '__dK': function () {
         var me = this;
-        var node = me['@{owner.node}'];
-        var table = me['@{table.main}'];
-        var leftTable = me['@{table.left}'];
+        var node = me['__j'];
+        var table = me['__dB'];
+        var leftTable = me['__dx'];
         var layoutWidth = node.width() - leftTable.outerWidth();
-        var width = me['@{table.width.get}'](table);
-        var leftWrapper = me['@{table.left.wrapper}'];
+        var width = me['__dW'](table);
+        var leftWrapper = me['__dy'];
         if (width > layoutWidth) {
             table.css('width', width);
             table.find('thead').css('width', width);
@@ -312,20 +312,20 @@ module.exports = Magix.View.extend({
                 'position': 'relative',
                 'z-index': 2
             });
-            leftWrapper.addClass('_zs_gallery_mx-table_index_-left-shadow');
+            leftWrapper.addClass('_zs_gallerymj');
         }
         else {
             table.css('width', layoutWidth);
             table.find('thead').css('width', layoutWidth);
-            leftWrapper.removeClass('_zs_gallery_mx-table_index_-left-shadow');
+            leftWrapper.removeClass('_zs_gallerymj');
         }
     },
     /**
      * 表格分栏时同步两边表格的表头高度
      */
-    '@{table.sync.height}': function () {
+    '__dL': function () {
         var me = this;
-        var table = me['@{table.main}'], leftTable = me['@{table.left}'];
+        var table = me['__dB'], leftTable = me['__dx'];
         var trs = table.find('tbody>tr'), leftTrs = leftTable.find('tbody>tr');
         for (var i = 0; i < leftTrs.length; i++) {
             var maxHeight = Math.max($(leftTrs[i]).height(), $(trs[i]).height());
@@ -352,33 +352,33 @@ module.exports = Magix.View.extend({
     '$doc<htmlchanged>': function (e) {
         var me = this;
         if (e.vId == me.owner.pId) {
-            me['@{rechange}']();
+            me['__dX']();
         }
     },
     '$doc<navslidend,tableresize>': function (e) {
-        this['@{rechange}']();
+        this['__dX']();
     },
     '$win<resize>': function (e) {
-        this['@{rechange}']();
+        this['__dX']();
     },
-    '@{rechange}': function () {
+    '__dX': function () {
         var me = this;
-        var leftTable = me['@{table.left}'];
+        var leftTable = me['__dx'];
         if (leftTable) {
             // 重新计算主体表格的宽度
-            me['@{main.table.sync.width}']();
+            me['__dK']();
             // 重新同步内容高度
-            me['@{table.sync.height}']();
+            me['__dL']();
             // 重新初始化模拟的滚动条
-            me['@{scroll.init}']();
+            me['__dN']();
         }
         // 重新同步表头高度
-        me['@{table.sync.th.width}']();
+        me['__dM']();
     },
-    '@{toggle.hover.state}': function (index, action) {
+    '__dI': function (index, action) {
         var me = this;
-        var hoverClass = me['@{hover.class}'];
-        var trs = me['@{table.main}'].find('tbody>tr');
+        var hoverClass = me['__dG'];
+        var trs = me['__dB'].find('tbody>tr');
         if (trs.length == 0) {
             // 表格被清空了
             return;
@@ -391,8 +391,8 @@ module.exports = Magix.View.extend({
             // 2. hover的这一行外部有样式控制隐藏了
             // 不存在则更新到第一行
             index = 0;
-            me['@{hover.index}'] = index;
-            me['@{owner.node}'].attr('data-hover', index);
+            me['__dw'] = index;
+            me['__j'].attr('data-hover', index);
             tr = trs.eq(index);
         }
         tr[action](hoverClass);
@@ -402,7 +402,7 @@ module.exports = Magix.View.extend({
             next[action](operationTrOpenClass);
             tr[action](operationNextTrOpenClass);
         }
-        var leftTable = me['@{table.left}'];
+        var leftTable = me['__dx'];
         if (leftTable) {
             var leftTrs = leftTable.find('tbody>tr');
             var leftTr = leftTrs.eq(index);
@@ -416,7 +416,7 @@ module.exports = Magix.View.extend({
     },
     '$tbody>tr<mouseover>': function (e) {
         var me = this;
-        var hoverClass = me['@{hover.class}'];
+        var hoverClass = me['__dG'];
         var target = e.eventTarget;
         var flag = !Magix.inside(e.relatedTarget, target);
         if (!flag || $(target).hasClass('operation-tr')) {
@@ -424,17 +424,17 @@ module.exports = Magix.View.extend({
             return;
         }
         // 取消当前选中
-        me['@{toggle.hover.state}'](me['@{hover.index}'], 'remove');
+        me['__dI'](me['__dw'], 'remove');
         // 更新选中项
         var trs = $(target).parents('tbody').find('tr');
         var index = trs.index(target);
-        me['@{hover.index}'] = index;
-        me['@{toggle.hover.state}'](index, 'add');
+        me['__dw'] = index;
+        me['__dI'](index, 'add');
     },
-    '@{sync.sticky.pos}': function (node, sticky, top) {
+    '__dY': function (node, sticky, top) {
         var me = this;
-        var headerHeight = me['@{thead.height}'];
-        var mainWrapper = me['@{table.main.wrapper}'], mainHeader = me['@{table.main.thead}'], leftWrapper = me['@{table.left.wrapper}'], leftHeader = me['@{table.left.thead}'];
+        var headerHeight = me['__dV'];
+        var mainWrapper = me['__dC'], mainHeader = me['__dD'], leftWrapper = me['__dy'], leftHeader = me['__dA'];
         var nodeHeight = node.height();
         if (sticky) {
             mainWrapper.css({
@@ -477,50 +477,50 @@ module.exports = Magix.View.extend({
             }
         }
     },
-    '@{sync.sticky.pos.custom}': function (node) {
+    '__dT': function (node) {
         var me = this;
-        if (!me['@{need.sticky}']) {
+        if (!me['__dE']) {
             return;
         }
         var top = node.scrollTop();
-        var headerHeight = me['@{thead.height}'];
-        var owner = me['@{owner.node}'];
+        var headerHeight = me['__dV'];
+        var owner = me['__j'];
         var max = owner.height() - node.height();
         if (top >= 0 && top <= max) {
-            me['@{sync.sticky.pos}'](node, true, top);
+            me['__dY'](node, true, top);
         }
         else {
-            me['@{sync.sticky.pos}'](node, false);
+            me['__dY'](node, false);
         }
     },
-    '@{sync.sticky.pos.win}': function (node) {
+    '__dU': function (node) {
         var me = this;
-        if (!me['@{need.sticky}']) {
+        if (!me['__dE']) {
             return;
         }
         var top = node.scrollTop();
-        var headerHeight = me['@{thead.height}'];
-        var owner = me['@{owner.node}'];
+        var headerHeight = me['__dV'];
+        var owner = me['__j'];
         var ownerOffset = owner.offset();
-        var interval = +me['@{sticky.interval}'];
+        var interval = +me['__dF'];
         var min = ownerOffset.top - interval;
         var max = min + owner.height() - headerHeight;
         if (top >= min && top <= max) {
-            me['@{sync.sticky.pos}'](node, true, top - min);
+            me['__dY'](node, true, top - min);
         }
         else {
-            me['@{sync.sticky.pos}'](node, false);
+            me['__dY'](node, false);
         }
     },
-    '@{sync.scroll.pos.custom}': function (node) {
+    '__dP': function (node) {
         var me = this;
-        if (!me['@{need.scroll}']) {
+        if (!me['__dR']) {
             return;
         }
         var top = node.scrollTop();
-        var leftWrapper = me['@{table.left.wrapper}'], mainTable = me['@{table.main}'];
+        var leftWrapper = me['__dy'], mainTable = me['__dB'];
         var scrollbar = $('#' + me.id + '_scrollbar');
-        var bar = scrollbar.find('._zs_gallery_mx-table_index_-bar');
+        var bar = scrollbar.find('._zs_gallerymh');
         var scrollbarHeight = scrollbar.height(), barHeight = bar.height(), left = leftWrapper.width();
         var targetTop;
         ;
@@ -537,20 +537,20 @@ module.exports = Magix.View.extend({
             top: targetTop
         });
     },
-    '@{sync.scroll.pos.win}': function (node) {
+    '__dQ': function (node) {
         var me = this;
-        if (!me['@{need.scroll}']) {
+        if (!me['__dR']) {
             return;
         }
         var top = node.scrollTop(), maxHeight = node.height();
-        var leftWrapper = me['@{table.left.wrapper}'], mainTable = me['@{table.main}'];
+        var leftWrapper = me['__dy'], mainTable = me['__dB'];
         var tbody = mainTable.find('tbody');
         var between = function (value) {
             var min = top, max = top + maxHeight;
             return (min <= value) && (value <= max);
         };
         var scrollbar = $('#' + me.id + '_scrollbar');
-        var bar = scrollbar.find('._zs_gallery_mx-table_index_-bar');
+        var bar = scrollbar.find('._zs_gallerymh');
         var scrollbarHeight = scrollbar.height(), barHeight = bar.height();
         var tbodyTop = tbody.offset().top;
         var tbodyHeight = tbody.height();

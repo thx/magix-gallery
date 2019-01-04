@@ -14,13 +14,13 @@ var Win = $(window);
 var Watcher = function (e) {
     for (var i = Instances.length; i--;) {
         var info = Instances[i];
-        if (info['@{destroyed}']) {
+        if (info['__cf']) {
             Instances.splice(i, 1);
         }
         else {
-            var view = info['@{view}'];
-            if (e.type == 'resize' || !view['@{inside}'](e.target)) {
-                view['@{hide}']();
+            var view = info['__cg'];
+            if (e.type == 'resize' || !view['__k'](e.target)) {
+                view['__m']();
             }
         }
     }
@@ -28,28 +28,28 @@ var Watcher = function (e) {
 var Remove = function (view) {
     var info = Instances[view.id];
     if (info) {
-        info['@{destroyed}'] = true;
+        info['__cf'] = true;
     }
     delete Instances[view.id];
 };
 module.exports = {
-    '@{add}': function (view) {
+    '__p': function (view) {
         Remove(view);
         var info = {
-            '@{view}': view
+            '__cg': view
         };
         Instances.push(info);
         Instances[view.id] = info;
     },
-    '@{remove}': Remove,
-    '@{setup}': function () {
+    '__g': Remove,
+    '__f': function () {
         if (!ICounter) {
             Doc.on('mousedown keyup', Watcher);
             Win.on('resize', Watcher);
         }
         ICounter++;
     },
-    '@{teardown}': function () {
+    '__h': function () {
         if (ICounter > 0) {
             ICounter--;
             if (!ICounter) {

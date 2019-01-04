@@ -11,7 +11,7 @@ require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-footer___test___index_","._zs_gallery_mx-footer___test___index_-dark {\n  padding: 20px;\n  background-color: #3d414d;\n}\n");
+Magix.applyStyle("_zs_galleryN","._zs_galleryfP{padding:20px;background-color:#3d414d}");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -24,29 +24,7 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybi:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybi:_" class="_zs_gallery___test___layout_-eg-content"><div class="_zs_gallery_mx-footer___test___index_-dark"><div mx-view="mx-footer/index?dark=true&products=true"></div></div></div><div mxa="_zs_gallerybi:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybi:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 9;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybi:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 11;
-    $art = '!text1';
-    ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybi:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 14;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-footer dark="true" products="true"/&gt;</pre></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-footer/__test__/4.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_gallerybi:_" class="_zs_galleryh"><div mxs="_zs_gallerybi:_" class="_zs_galleryk"><div class="_zs_galleryfP"><div mx-view="mx-footer/index?dark=true&products=true"></div></div></div><div mxa="_zs_gallerybi:a" class="_zs_galleryl"><div mxs="_zs_gallerybi:a" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerybi:b" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerybi:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-footer dark="true" products="true"/&gt;</pre></div></div>'; return $p; },
     render: function () {
         this.updater.digest();
     }

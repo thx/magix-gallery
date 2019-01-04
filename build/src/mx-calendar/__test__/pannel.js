@@ -23,21 +23,7 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', inlayConfig = $$.inlayConfig; var $expr, $art, $line; try {
-    $p += '<div mxv="inlayConfig" mx-change="' + $viewId + 'submit()" mx-cancel="' + $viewId + 'hide()" mx-view="mx-calendar/range?configs=';
-    $line = 2;
-    $art = '@inlayConfig';
-    ;
-    $p += ($expr = '<%@inlayConfig%>', $i($$ref, inlayConfig)) + '"></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-calendar/__test__/pannel.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', inlayConfig = $$.inlayConfig; $p += '<div mxv="inlayConfig" mx-change="' + $viewId + 'submit()" mx-cancel="' + $viewId + 'hide()" mx-view="mx-calendar/range?configs=' + $i($$ref, inlayConfig) + '"></div>'; return $p; },
     init: function (e) {
         this.viewOptions = e;
         this.updater.set({

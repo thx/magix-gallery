@@ -24,29 +24,7 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallery#:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallery#:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb20"><span class="color-9">以下示例：</span><span>关闭快捷选项 + 可选择时分秒</span></div><div class="w300" mx-view="mx-calendar/rangepicker?shortcuts=false&min=2018-03-02&max=2018-03-05&start=2018-03-03%2012%3A23%3A23&end=2018-03-04%2008%3A01%3A01&timeType=hour"></div></div><div mxa="_zs_gallery#:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery#:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 17;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery#:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 19;
-    $art = '!text1';
-    ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery#:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 22;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.rangepicker class="w300"\n    shortcuts="false"\n    min="2018-03-02"\n    max="2018-03-05"\n    start="2018-03-03 12:23:23"\n    end="2018-03-04 08:01:01"\n    time-type="hour"/&gt;</pre></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-calendar/__test__/8.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_gallery#:_" class="_zs_galleryh"><div mxs="_zs_gallery#:_" class="_zs_galleryk"><div class="mb20"><span class="color-9">以下示例：</span><span>关闭快捷选项 + 可选择时分秒</span></div><div class="w300" mx-view="mx-calendar/rangepicker?shortcuts=false&min=2018-03-02&max=2018-03-05&start=2018-03-03%2012%3A23%3A23&end=2018-03-04%2008%3A01%3A01&timeType=hour"></div></div><div mxa="_zs_gallery#:a" class="_zs_galleryl"><div mxs="_zs_gallery#:a" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallery#:b" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallery#:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-calendar.rangepicker class="w300"\n    shortcuts="false"\n    min="2018-03-02"\n    max="2018-03-05"\n    start="2018-03-03 12:23:23"\n    end="2018-03-04 08:01:01"\n    time-type="hour"/&gt;</pre></div></div>'; return $p; },
     render: function () {
         this.updater.digest();
     }

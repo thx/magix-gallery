@@ -20,87 +20,22 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerye:_" class="pr20"><table mxa="_zs_gallerye:a" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_gallerye:_"><tr><th width="70">事件</th><th width="120">事件说明</th><th width="90">返回参数</th><th width="200">参数说明</th><th width="80">参数类型</th></tr></thead><tbody>';
-    $line = 13;
-    $art = 'each options as option';
-    ;
-    $expr = '<%for (var $art_ihxbst$art_i = 0, $art_cgrluabhaf$art_c = options.length; $art_ihxbst$art_i < $art_cgrluabhaf$art_c; $art_ihxbst$art_i++) {    var option = options[$art_ihxbst$art_i]%>';
-    for (var $art_ihxbst$art_i = 0, $art_cgrluabhaf$art_c = options.length; $art_ihxbst$art_i < $art_cgrluabhaf$art_c; $art_ihxbst$art_i++) {
-        var option = options[$art_ihxbst$art_i];
-        $p += ' ';
-        $line = 14;
-        $art = 'each option.params as param index';
-        ;
-        $expr = '<%for (var index = 0, $art_objixxhqkvbi$art_obj = option.params, $art_ctkxwtbfo$art_c = $art_objixxhqkvbi$art_obj.length; index < $art_ctkxwtbfo$art_c; index++) {        var param = $art_objixxhqkvbi$art_obj[index]%>';
-        for (var index = 0, $art_objixxhqkvbi$art_obj = option.params, $art_ctkxwtbfo$art_c = $art_objixxhqkvbi$art_obj.length; index < $art_ctkxwtbfo$art_c; index++) {
-            var param = $art_objixxhqkvbi$art_obj[index];
-            $p += '<tr>';
-            $line = 16;
-            $art = 'if (index == 0)';
+} ; var $g = '', $_temp, $p = '', options = $$.options; $p += '<div mxa="_zs_gallerye:_" class="pr20"><table mxa="_zs_gallerye:a" class="table _zs_galleryr"><thead mxs="_zs_gallerye:_"><tr><th width="70">事件</th><th width="120">事件说明</th><th width="90">返回参数</th><th width="200">参数说明</th><th width="80">参数类型</th></tr></thead><tbody>'; for (var $art_idqpfydrha$art_i = 0, $art_ckmujfns$art_c = options.length; $art_idqpfydrha$art_i < $art_ckmujfns$art_c; $art_idqpfydrha$art_i++) {
+    var option = options[$art_idqpfydrha$art_i];
+    $p += ' ';
+    for (var index = 0, $art_objvbxksraum$art_obj = option.params, $art_cmskuntg$art_c = $art_objvbxksraum$art_obj.length; index < $art_cmskuntg$art_c; index++) {
+        var param = $art_objvbxksraum$art_obj[index];
+        $p += '<tr>';
+        if (index == 0) {
             ;
-            $expr = '<%if (index == 0) {%>';
-            if (index == 0) {
-                ;
-                $p += '<td rowspan="';
-                $line = 17;
-                $art = '=option.params.length';
-                ;
-                $p += ($expr = '<%=option.params.length%>', $e(option.params.length)) + '">';
-                $line = 17;
-                $art = '=option.type';
-                ;
-                $p += ($expr = '<%=option.type%>', $e(option.type)) + '</td><td rowspan="';
-                $line = 18;
-                $art = '=option.params.length';
-                ;
-                $p += ($expr = '<%=option.params.length%>', $e(option.params.length)) + '">';
-                $line = 18;
-                $art = '!option.desc';
-                ;
-                $p += ($expr = '<%!option.desc%>', $n(option.desc)) + '</td>';
-                $line = 19;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
-            }
-            ;
-            $p += '<td>';
-            $line = 21;
-            $art = '=param.key';
-            ;
-            $p += ($expr = '<%=param.key%>', $e(param.key)) + '</td><td>';
-            $line = 22;
-            $art = '!param.desc';
-            ;
-            $p += ($expr = '<%!param.desc%>', $n(param.desc)) + '</td><td>';
-            $line = 23;
-            $art = '!param.type';
-            ;
-            $p += ($expr = '<%!param.type%>', $n(param.type)) + '</td></tr>';
-            $line = 25;
-            $art = '/each';
-            ;
-            $expr = '<%}%>';
+            $p += '<td rowspan="' + $e(option.params.length) + '">' + $e(option.type) + '</td><td rowspan="' + $e(option.params.length) + '">' + $n(option.desc) + '</td>';
         }
         ;
-        $p += ' ';
-        $line = 26;
-        $art = '/each';
-        ;
-        $expr = '<%}%>';
+        $p += '<td>' + $e(param.key) + '</td><td>' + $n(param.desc) + '</td><td>' + $n(param.type) + '</td></tr>';
     }
     ;
-    $p += '</tbody></table></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:__test__/event.html';
-    throw msg;
-} return $p; },
+    $p += ' ';
+} ; $p += '</tbody></table></div>'; return $p; },
     init: function (options) {
         this.updater.digest(options);
     },

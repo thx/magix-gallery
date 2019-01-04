@@ -35,10 +35,10 @@ module.exports = {
                 else {
                     icon = Map["default"];
                 }
-                me['@{order.field}'] = orderField;
-                me['@{order.by}'] = orderBy;
-                me['@{order.field.key}'] = item.attr('order-field-key') || 'orderField';
-                me['@{order.by.key}'] = item.attr('order-by-key') || 'orderBy';
+                me['__ex'] = orderField;
+                me['__ey'] = orderBy;
+                me['__ez'] = item.attr('order-field-key') || 'orderField';
+                me['__eA'] = item.attr('order-by-key') || 'orderBy';
                 item.html("<i class=\"mc-iconfont displacement-2 cursor-pointer\">" + icon + "</i>");
             });
         };
@@ -47,7 +47,7 @@ module.exports = {
     },
     sort: function (list) {
         list = list || [];
-        var orderField = this['@{order.field}'], orderBy = this['@{order.by}'];
+        var orderField = this['__ex'], orderBy = this['__ey'];
         if (!orderField) {
             return list;
         }
@@ -78,7 +78,7 @@ module.exports = {
         var context = $('#' + me.id);
         var item = $(e.eventTarget);
         var trigger = item.attr('sort-trigger');
-        var oldOrderField = me['@{order.field}'], oldOrderBy = me['@{order.by}'];
+        var oldOrderField = me['__ex'], oldOrderBy = me['__ey'];
         var orderBy, orderField = trigger;
         if (oldOrderField == trigger) {
             if (oldOrderBy == 'asc') {
@@ -92,7 +92,7 @@ module.exports = {
             // 默认降序
             orderBy = 'desc';
         }
-        var orderFieldKey = me['@{order.field.key}'], orderByKey = me['@{order.by.key}'];
+        var orderFieldKey = me['__ez'], orderByKey = me['__eA'];
         var params = {};
         params[orderFieldKey] = orderField;
         params[orderByKey] = orderBy;

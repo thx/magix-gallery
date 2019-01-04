@@ -12,7 +12,7 @@ var Magix = require("magix");
 var Vframe = Magix.Vframe;
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-hour___test___index_","/* @dependent: ./index.less */\n._zs_gallery_mx-hour___test___index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-hour___test___index_-wrapper {\n  padding: 10px;\n  border-radius: 4px;\n  border: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-hour___test___index_-wrapper1 {\n  width: 760px;\n}\n._zs_gallery_mx-hour___test___index_-wrapper2 {\n  width: 800px;\n}\n");
+Magix.applyStyle("_zs_galleryV","._zs_gallerygV{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerygW{padding:10px;border-radius:4px;border:1px solid #e6e6e6}._zs_gallerygX{width:760px}._zs_gallerygY{width:800px}");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -29,59 +29,10 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', selected = $$.selected, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryb5:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryb5:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryb5:_" class="clearfix lh22 mb15"><div class="fl color-9">以下示例：</div><div class="fl"><div>每日单独选择</div><div>提供快捷操作</div></div></div><div mxa="_zs_galleryb5:b" class="mb20 clearfix"><div mxs="_zs_galleryb5:a" class="fl mr10"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'get()">获取选中值</a></div><div mxa="_zs_galleryb5:c" class="fl">';
-    $line = 16;
-    $art = 'each selected as s';
-    ;
-    $expr = '<%for (var $art_ibrhhyi$art_i = 0, $art_cfrzeagtm$art_c = selected.length; $art_ibrhhyi$art_i < $art_cfrzeagtm$art_c; $art_ibrhhyi$art_i++) {    var s = selected[$art_ibrhhyi$art_i]%>';
-    for (var $art_ibrhhyi$art_i = 0, $art_cfrzeagtm$art_c = selected.length; $art_ibrhhyi$art_i < $art_cfrzeagtm$art_c; $art_ibrhhyi$art_i++) {
-        var s = selected[$art_ibrhhyi$art_i];
-        $p += '<div>';
-        $line = 17;
-        $art = '=s.name';
-        ;
-        $p += ($expr = '<%=s.name%>', $e(s.name)) + '：';
-        $line = 17;
-        $art = '=s.times';
-        ;
-        $p += ($expr = '<%=s.times%>', $e(s.times)) + '</div>';
-        $line = 18;
-        $art = '/each';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</div></div><div mxv="selected" class="_zs_gallery_mx-hour___test___index_-wrapper _zs_gallery_mx-hour___test___index_-wrapper2" id="';
-    $line = 21;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_hour" mx-view="mx-hour/index?simple=false&selected=';
-    $line = 23;
-    $art = '@selected';
-    ;
-    $p += ($expr = '<%@selected%>', $i($$ref, selected)) + '"></div></div><div mxa="_zs_galleryb5:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryb5:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 27;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryb5:e" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 29;
-    $art = '!text1';
-    ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryb5:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 32;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-hour style="width: 760px;"\n    simple="false"\n    selected="&#123;&#123;@[&#123;\n        week: 1,\n        times: [2,3,4,21,22,23]\n    &#125;, &#123;\n        week: 3,\n        times: [0,1,2,3,4,10,11,12]\n    &#125;]&#125;&#125;"/&gt;</pre></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-hour/__test__/2.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', selected = $$.selected, viewId = $$.viewId, text1 = $$.text1; $p += '<div mxv mxa="_zs_galleryb5:_" class="_zs_galleryh"><div mxv mxa="_zs_galleryb5:a" class="_zs_galleryk"><div mxs="_zs_galleryb5:_" class="clearfix lh22 mb15"><div class="fl color-9">以下示例：</div><div class="fl"><div>每日单独选择</div><div>提供快捷操作</div></div></div><div mxa="_zs_galleryb5:b" class="mb20 clearfix"><div mxs="_zs_galleryb5:a" class="fl mr10"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'get()">获取选中值</a></div><div mxa="_zs_galleryb5:c" class="fl">'; for (var $art_iyuuqgqrd$art_i = 0, $art_ctnsuolq$art_c = selected.length; $art_iyuuqgqrd$art_i < $art_ctnsuolq$art_c; $art_iyuuqgqrd$art_i++) {
+    var s = selected[$art_iyuuqgqrd$art_i];
+    $p += '<div>' + $e(s.name) + '：' + $e(s.times) + '</div>';
+} ; $p += '</div></div><div mxv="selected" class="_zs_gallerygW _zs_gallerygY" id="' + $e(viewId) + '_hour" mx-view="mx-hour/index?simple=false&selected=' + $i($$ref, selected) + '"></div></div><div mxa="_zs_galleryb5:d" class="_zs_galleryl"><div mxs="_zs_galleryb5:b" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_galleryb5:e" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_galleryb5:c" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-hour style="width: 760px;"\n    simple="false"\n    selected="&#123;&#123;@[&#123;\n        week: 1,\n        times: [2,3,4,21,22,23]\n    &#125;, &#123;\n        week: 3,\n        times: [0,1,2,3,4,10,11,12]\n    &#125;]&#125;&#125;"/&gt;</pre></div></div>'; return $p; },
     render: function () {
         this.updater.digest({
             viewId: this.id,

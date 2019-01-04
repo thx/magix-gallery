@@ -14,23 +14,23 @@ module.exports = Magix.View.extend({
         showDelay: 100,
         hideDelay: 200,
         classNames: {
-            bottomLeft: '_zs_gallery_mx-popover_index_-bottom-left',
-            bottomRight: '_zs_gallery_mx-popover_index_-bottom-right',
-            bottomCenter: '_zs_gallery_mx-popover_index_-bottom-center',
-            topLeft: '_zs_gallery_mx-popover_index_-top-left',
-            topRight: '_zs_gallery_mx-popover_index_-top-right',
-            topCenter: '_zs_gallery_mx-popover_index_-top-center',
-            leftTop: '_zs_gallery_mx-popover_index_-left-top',
-            leftBottom: '_zs_gallery_mx-popover_index_-left-bottom',
-            leftCenter: '_zs_gallery_mx-popover_index_-left-center',
-            rightTop: '_zs_gallery_mx-popover_index_-right-top',
-            rightBottom: '_zs_gallery_mx-popover_index_-right-bottom',
-            rightCenter: '_zs_gallery_mx-popover_index_-right-center'
+            bottomLeft: '_zs_galleryjT',
+            bottomRight: '_zs_galleryjU',
+            bottomCenter: '_zs_galleryjS',
+            topLeft: '_zs_gallerykb',
+            topRight: '_zs_gallerykc',
+            topCenter: '_zs_galleryka',
+            leftTop: '_zs_galleryjX',
+            leftBottom: '_zs_galleryjV',
+            leftCenter: '_zs_galleryjW',
+            rightTop: '_zs_galleryk_',
+            rightBottom: '_zs_galleryjY',
+            rightCenter: '_zs_galleryjZ'
         }
     },
     bindScroll: function () {
         var me = this;
-        var scrollWrapper = me['@{scroll.wrapper}'];
+        var scrollWrapper = me['__bs'];
         if (!scrollWrapper) {
             return;
         }
@@ -42,14 +42,14 @@ module.exports = Magix.View.extend({
             wrapper = $(scrollWrapper);
         }
         wrapper.scroll(function () {
-            if (me['@{pos.show}']) {
-                me['@{setPos}']();
+            if (me['__br']) {
+                me['__bx']();
             }
         });
     },
-    '@{setPos}': function () {
+    '__bx': function () {
         var me = this;
-        var oNode = me['@{owner.node}'];
+        var oNode = me['__j'];
         var popNode = $('#popover_' + me.id);
         if (!popNode || !popNode.length) {
             return;
@@ -66,7 +66,7 @@ module.exports = Magix.View.extend({
         //     上右中左
         //     右上中下
         //     左上中下
-        var placement = me['@{pos.placement}'], align = me['@{pos.align}'];
+        var placement = me['__cl'], align = me['__cm'];
         var place = placement + '_' + align;
         switch (place) {
             case 'top_left':
@@ -118,13 +118,13 @@ module.exports = Magix.View.extend({
                 left = offset.left + width + 10;
                 break;
         }
-        var customOffset = me['@{pos.offset}'] || {};
+        var customOffset = me['__cs'] || {};
         if (!$.isEmptyObject(customOffset)) {
             left += customOffset.left;
             top += customOffset.top;
         }
         popNode.css({
-            textAlign: me['@{text.align}'],
+            textAlign: me['__cq'],
             left: left,
             top: top
         });
@@ -136,8 +136,8 @@ module.exports = Magix.View.extend({
      */
     '$win<scroll>': function (e) {
         var me = this;
-        if (me['@{pos.show}']) {
-            me['@{setPos}']();
+        if (me['__br']) {
+            me['__bx']();
         }
     },
     /**
@@ -145,8 +145,8 @@ module.exports = Magix.View.extend({
      */
     '$doc<dialogScolll>': function (e) {
         var me = this;
-        if (me['@{pos.show}']) {
-            me['@{setPos}']();
+        if (me['__br']) {
+            me['__bx']();
         }
     }
 });

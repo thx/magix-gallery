@@ -10,7 +10,7 @@ var $ = require("$");
 var Magix = require("magix");
 var Rules = require("mx-form/rule");
 var Util = require("./util");
-Magix.applyStyle("_zs_gallery_mx-form_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-form_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\nhtml ._zs_gallery_mx-form_index_-error,\nhtml ._zs_gallery_mx-form_index_-error:hover,\nhtml ._zs_gallery_mx-form_index_-error:focus {\n  border-color: #a40100;\n}\n._zs_gallery_mx-form_index_-error-msg {\n  display: none;\n  position: absolute;\n  white-space: nowrap;\n  word-wrap: normal;\n  pointer-events: none;\n  color: #a40100;\n  font-size: 12px;\n}\n._zs_gallery_mx-form_index_-warn,\n._zs_gallery_mx-form_index_-warn:hover,\n._zs_gallery_mx-form_index_-warn:focus {\n  border-color: #ffb400;\n}\n._zs_gallery_mx-form_index_-warn-msg {\n  display: none;\n  position: absolute;\n  white-space: nowrap;\n  word-wrap: normal;\n  pointer-events: none;\n  color: #ffb400;\n  font-size: 12px;\n}\n");
+Magix.applyStyle("_zs_galleryQ","._zs_gallerygj{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}html ._zs_gallerygk,html ._zs_gallerygk:focus,html ._zs_gallerygk:hover{border-color:#a40100}._zs_gallerygl{display:none;position:absolute;white-space:nowrap;word-wrap:normal;pointer-events:none;color:#a40100;font-size:12px}._zs_gallerygm,._zs_gallerygm:focus,._zs_gallerygm:hover{border-color:#ffb400}._zs_gallerygn{display:none;position:absolute;white-space:nowrap;word-wrap:normal;pointer-events:none;color:#ffb400;font-size:12px}");
 var isValid = function (type, actions, val) {
     var valid = true, action, rule, tip;
     for (var a in actions) {
@@ -43,7 +43,7 @@ var isValid = function (type, actions, val) {
 };
 var hideMsg = function (ssId) {
     var node = $('[mxe="' + ssId + '"]');
-    node.removeClass('_zs_gallery_mx-form_index_-warn _zs_gallery_mx-form_index_-error');
+    node.removeClass('_zs_gallerygm _zs_gallerygk');
     node.each(function (i, n) {
         n = $(n);
         var msgId = n.attr('id') + '_msg';
@@ -57,10 +57,10 @@ var showMsg = function (type, ssId, checkInfo) {
     }
     switch (type) {
         case 'warn':
-            node.addClass('_zs_gallery_mx-form_index_-warn').removeClass('_zs_gallery_mx-form_index_-error');
+            node.addClass('_zs_gallerygm').removeClass('_zs_gallerygk');
             break;
         case 'error':
-            node.addClass('_zs_gallery_mx-form_index_-error').removeClass('_zs_gallery_mx-form_index_-warn');
+            node.addClass('_zs_gallerygk').removeClass('_zs_gallerygm');
             break;
     }
     // checkbox radio 提示的时候取第一个节点提示
@@ -89,10 +89,10 @@ var showMsg = function (type, ssId, checkInfo) {
         }
         switch (type) {
             case 'warn':
-                msgNode[0].className = '_zs_gallery_mx-form_index_-warn-msg';
+                msgNode[0].className = '_zs_gallerygn';
                 break;
             case 'error':
-                msgNode[0].className = '_zs_gallery_mx-form_index_-error-msg';
+                msgNode[0].className = '_zs_gallerygl';
                 break;
         }
         // 提示信息
@@ -171,7 +171,7 @@ module.exports = {
             //     type: 'change',
             //     from: 'faker'
             // });
-            me['@{check}']($(e));
+            me['__ca']($(e));
             keys.push($(e).attr('mxe'));
         });
         // 缓存所有的错误，只提取type=error类型的
@@ -217,9 +217,9 @@ module.exports = {
         if (!mxe || !mxe.startsWith(me.id)) {
             return;
         }
-        me['@{check}'](node);
+        me['__ca'](node);
     },
-    '@{check}': function (node) {
+    '__ca': function (node) {
         var me = this;
         var updater = me.updater;
         var form = updater.$form || (updater.$form = {});

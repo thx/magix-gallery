@@ -28,403 +28,126 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', list = $$.list, groups = $$.groups, len = $$.len, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerydQ:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerydQ:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerydQ:_" class="mb20 clearfix lh22"><div class="color-9 fl">该示例：</div><div class="fl"><div>删除完之后有空状态</div><div>表头二级分组 + 分栏 + 吸顶 + 宽度配置在th上</div><div>渲染表格涉及的数据都绑定到组件上 &lt;mx-table sticky="true" list="&#123;&#123;@list&#125;&#125;" groups="&#123;&#123;@groups&#125;&#125;"&gt;&lt;/mx-table&gt;</div></div></div><div mxv mxa="_zs_gallerydQ:b" class="mb20">';
-    $line = 12;
-    $art = 'if (list.length > 0)';
+} ; var $g = '', $_temp, $p = '', list = $$.list, groups = $$.groups, len = $$.len, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; $p += '<div mxv mxa="_zs_gallerydQ:_" class="_zs_galleryh"><div mxv mxa="_zs_gallerydQ:a" class="_zs_galleryk"><div mxs="_zs_gallerydQ:_" class="mb20 clearfix lh22"><div class="color-9 fl">该示例：</div><div class="fl"><div>删除完之后有空状态</div><div>表头二级分组 + 分栏 + 吸顶 + 宽度配置在th上</div><div>渲染表格涉及的数据都绑定到组件上 &lt;mx-table sticky="true" list="&#123;&#123;@list&#125;&#125;" groups="&#123;&#123;@groups&#125;&#125;"&gt;&lt;/mx-table&gt;</div></div></div><div mxv mxa="_zs_gallerydQ:b" class="mb20">'; if (list.length > 0) {
     ;
-    $expr = '<%if (list.length > 0) {%>';
-    if (list.length > 0) {
-        ;
-        $p += '<div mxv="list,groups" mx-view="mx-table/index?sticky=true&list=';
-        $line = 14;
-        $art = '@list';
-        ;
-        $p += ($expr = '<%@list%>', $i($$ref, list)) + '&groups=';
-        $line = 14;
-        $art = '@groups';
-        ;
-        $p += ($expr = '<%@groups%>', $i($$ref, groups)) + '"><div><table mxa="_zs_gallerydQ:c" class="table" left="true" width="500"><thead mxs="_zs_gallerydQ:a"><tr><th></th><th>固定1</th><th>固定2</th><th>固定3</th></tr></thead><tbody>';
-        $line = 26;
-        $art = 'each list as item index';
-        ;
-        $expr = '<%for (var index = 0, $art_cuvaybyohff$art_c = list.length; index < $art_cuvaybyohff$art_c; index++) {        var item = list[index]%>';
-        for (var index = 0, $art_cuvaybyohff$art_c = list.length; index < $art_cuvaybyohff$art_c; index++) {
-            var item = list[index];
-            $p += '<tr><td><a href="javascript:;" mx-click="' + $viewId + 'toggle({index:';
-            $line = 29;
-            $art = '=index';
+    $p += '<div mxv="list,groups" mx-view="mx-table/index?sticky=true&list=' + $i($$ref, list) + '&groups=' + $i($$ref, groups) + '"><div><table mxa="_zs_gallerydQ:c" class="table" left="true" width="500"><thead mxs="_zs_gallerydQ:a"><tr><th></th><th>固定1</th><th>固定2</th><th>固定3</th></tr></thead><tbody>';
+    for (var index = 0, $art_cwouofxbe$art_c = list.length; index < $art_cwouofxbe$art_c; index++) {
+        var item = list[index];
+        $p += '<tr><td><a href="javascript:;" mx-click="' + $viewId + 'toggle({index:' + $e(index) + '})" class="link-brand">';
+        if (item.expand) {
             ;
-            $p += ($expr = '<%=index%>', $e(index)) + '})" class="link-brand">';
-            $line = 31;
-            $art = 'if item.expand';
+            $p += '收起';
+        }
+        else {
             ;
-            $expr = '<%if (item.expand) {%>';
-            if (item.expand) {
+            $p += '展开';
+        }
+        ;
+        $p += '</a></td><td>' + $e(item.fixed1) + '</td><td>' + $e(item.fixed2) + '</td><td>' + $e(item.fixed3) + '</td></tr><tr mxa="_zs_gallerydQ:d" class="operation-tr"><td mxa="_zs_gallerydQ:e" colspan="4"><a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="' + $viewId + 'change({index:' + $e(index) + '})">修改固定1数据</a><a href="javascript:;" class="btn btn-white btn-small" mx-click="' + $viewId + 'delete({index:' + $e(index) + '})">移除</a></td></tr>';
+        if (item.expand) {
+            ;
+            $p += '<tr mxs="_zs_gallerydQ:b" class="thead"><td class="sub-mask"></td><td>子表格固定1</td><td>子表格固定2</td><td>子表格固定3</td></tr>';
+            for (var subIndex = 0, $art_objlogvgfw$art_obj = item.subs, $art_cbyfemgopj$art_c = $art_objlogvgfw$art_obj.length; subIndex < $art_cbyfemgopj$art_c; subIndex++) {
+                var sub = $art_objlogvgfw$art_obj[subIndex];
+                $p += '<tr><td class="sub-mask ';
+                if (item.subs.length == subIndex + 1) {
+                    ;
+                    $p += ' sub-mask-last ';
+                }
                 ;
-                $p += '收起';
-                $line = 31;
-                $art = 'else';
+                $p += '"></td><td>' + $e(sub.fixed1) + '</td><td>' + $e(sub.fixed2) + '</td><td>' + $e(sub.fixed3) + '</td></tr><tr mxa="_zs_gallerydQ:f" class="operation-tr"><td class="sub-mask ';
+                if (item.subs.length == subIndex + 1) {
+                    ;
+                    $p += ' sub-mask-last ';
+                }
                 ;
-                $expr = '<%}        else {%>';
-            }
-            else {
-                ;
-                $p += '展开';
-                $line = 31;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
+                $p += '"></td><td mxs="_zs_gallerydQ:c" colspan="3"><a href="javascript:;" class="btn btn-white btn-small">操作</a></td></tr>';
             }
             ;
-            $p += '</a></td><td>';
-            $line = 34;
-            $art = '=item.fixed1';
+            $p += ' ';
+        }
+        ;
+        $p += ' ';
+    }
+    ;
+    $p += '</tbody></table></div><div><table mxa="_zs_gallerydQ:g" class="table" center="true" width="1200"><thead><tr>';
+    for (var $art_ifpywqvpc$art_i = 0, $art_cyfqmpsph$art_c = groups.length; $art_ifpywqvpc$art_i < $art_cyfqmpsph$art_c; $art_ifpywqvpc$art_i++) {
+        var group = groups[$art_ifpywqvpc$art_i];
+        $p += '<th class="field-group" colspan="' + $e(group.fields.length) + '"><div mxa="_zs_gallerydQ:h" class="group-name">' + $e(group.name) + '</div></th>';
+    }
+    ;
+    $p += '</tr><tr>';
+    for (var $art_igttcfri$art_i = 0, $art_cgmuaqmc$art_c = groups.length; $art_igttcfri$art_i < $art_cgmuaqmc$art_c; $art_igttcfri$art_i++) {
+        var group = groups[$art_igttcfri$art_i];
+        $p += ' ';
+        for (var $art_iwkxkmybyr$art_i = 0, $art_objovpirsiic$art_obj = group.fields, $art_cgixjnewnf$art_c = $art_objovpirsiic$art_obj.length; $art_iwkxkmybyr$art_i < $art_cgixjnewnf$art_c; $art_iwkxkmybyr$art_i++) {
+            var field = $art_objovpirsiic$art_obj[$art_iwkxkmybyr$art_i];
+            $p += '<th mxa="_zs_gallerydQ:i" class="field-item">滚动' + $e(field) + '</th>';
+        }
+        ;
+        $p += ' ';
+    }
+    ;
+    $p += '</tr></thead><tbody>';
+    for (var index = 0, $art_cnfdsocf$art_c = list.length; index < $art_cnfdsocf$art_c; index++) {
+        var item = list[index];
+        $p += '<tr>';
+        for (var $art_iljvlkfgk$art_i = 0, $art_cohicibbiui$art_c = groups.length; $art_iljvlkfgk$art_i < $art_cohicibbiui$art_c; $art_iljvlkfgk$art_i++) {
+            var group = groups[$art_iljvlkfgk$art_i];
+            $p += ' ';
+            for (var $art_ifjkpbasrgb$art_i = 0, $art_objugzeunr$art_obj = group.fields, $art_ctzfxmrdl$art_c = $art_objugzeunr$art_obj.length; $art_ifjkpbasrgb$art_i < $art_ctzfxmrdl$art_c; $art_ifjkpbasrgb$art_i++) {
+                var field = $art_objugzeunr$art_obj[$art_ifjkpbasrgb$art_i];
+                $p += '<td>' + $e(item['content' + field]) + '</td>';
+            }
             ;
-            $p += ($expr = '<%=item.fixed1%>', $e(item.fixed1)) + '</td><td>';
-            $line = 35;
-            $art = '=item.fixed2';
+            $p += ' ';
+        }
+        ;
+        $p += '</tr><tr mxa="_zs_gallerydQ:j" class="operation-tr"><td colspan="' + $e(len) + '"></td></tr>';
+        if (item.expand) {
             ;
-            $p += ($expr = '<%=item.fixed2%>', $e(item.fixed2)) + '</td><td>';
-            $line = 36;
-            $art = '=item.fixed3';
-            ;
-            $p += ($expr = '<%=item.fixed3%>', $e(item.fixed3)) + '</td></tr><tr mxa="_zs_gallerydQ:d" class="operation-tr"><td mxa="_zs_gallerydQ:e" colspan="4"><a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="' + $viewId + 'change({index:';
-            $line = 40;
-            $art = '=index';
-            ;
-            $p += ($expr = '<%=index%>', $e(index)) + '})">修改固定1数据</a><a href="javascript:;" class="btn btn-white btn-small" mx-click="' + $viewId + 'delete({index:';
-            $line = 41;
-            $art = '=index';
-            ;
-            $p += ($expr = '<%=index%>', $e(index)) + '})">移除</a></td></tr>';
-            $line = 44;
-            $art = 'if item.expand';
-            ;
-            $expr = '<%if (item.expand) {%>';
-            if (item.expand) {
-                ;
-                $p += '<tr mxs="_zs_gallerydQ:b" class="thead"><td class="sub-mask"></td><td>子表格固定1</td><td>子表格固定2</td><td>子表格固定3</td></tr>';
-                $line = 52;
-                $art = 'each item.subs as sub subIndex';
-                ;
-                $expr = '<%for (var subIndex = 0, $art_objvapjtbns$art_obj = item.subs, $art_cndfgjnmfnn$art_c = $art_objvapjtbns$art_obj.length; subIndex < $art_cndfgjnmfnn$art_c; subIndex++) {                var sub = $art_objvapjtbns$art_obj[subIndex]%>';
-                for (var subIndex = 0, $art_objvapjtbns$art_obj = item.subs, $art_cndfgjnmfnn$art_c = $art_objvapjtbns$art_obj.length; subIndex < $art_cndfgjnmfnn$art_c; subIndex++) {
-                    var sub = $art_objvapjtbns$art_obj[subIndex];
-                    $p += '<tr><td class="sub-mask ';
-                    $line = 54;
-                    $art = 'if item.subs.length==subIndex+1';
-                    ;
-                    $expr = '<%if (item.subs.length == subIndex + 1) {%>';
-                    if (item.subs.length == subIndex + 1) {
-                        ;
-                        $p += ' sub-mask-last ';
-                        $line = 54;
-                        $art = '/if';
-                        ;
-                        $expr = '<%}%>';
-                    }
-                    ;
-                    $p += '"></td><td>';
-                    $line = 55;
-                    $art = '=sub.fixed1';
-                    ;
-                    $p += ($expr = '<%=sub.fixed1%>', $e(sub.fixed1)) + '</td><td>';
-                    $line = 56;
-                    $art = '=sub.fixed2';
-                    ;
-                    $p += ($expr = '<%=sub.fixed2%>', $e(sub.fixed2)) + '</td><td>';
-                    $line = 57;
-                    $art = '=sub.fixed3';
-                    ;
-                    $p += ($expr = '<%=sub.fixed3%>', $e(sub.fixed3)) + '</td></tr><tr mxa="_zs_gallerydQ:f" class="operation-tr"><td class="sub-mask ';
-                    $line = 60;
-                    $art = 'if item.subs.length==subIndex+1';
-                    ;
-                    $expr = '<%if (item.subs.length == subIndex + 1) {%>';
-                    if (item.subs.length == subIndex + 1) {
-                        ;
-                        $p += ' sub-mask-last ';
-                        $line = 60;
-                        $art = '/if';
-                        ;
-                        $expr = '<%}%>';
-                    }
-                    ;
-                    $p += '"></td><td mxs="_zs_gallerydQ:c" colspan="3"><a href="javascript:;" class="btn btn-white btn-small">操作</a></td></tr>';
-                    $line = 65;
-                    $art = '/each';
-                    ;
-                    $expr = '<%}%>';
+            $p += '<tr mxa="_zs_gallerydQ:k" class="thead">';
+            for (var $art_ititgbefa$art_i = 0, $art_cnckfkaxnc$art_c = groups.length; $art_ititgbefa$art_i < $art_cnckfkaxnc$art_c; $art_ititgbefa$art_i++) {
+                var group = groups[$art_ititgbefa$art_i];
+                $p += ' ';
+                for (var $art_ixyhhtvzrts$art_i = 0, $art_objzfios$art_obj = group.fields, $art_cqptll$art_c = $art_objzfios$art_obj.length; $art_ixyhhtvzrts$art_i < $art_cqptll$art_c; $art_ixyhhtvzrts$art_i++) {
+                    var field = $art_objzfios$art_obj[$art_ixyhhtvzrts$art_i];
+                    $p += '<td>子表头滚动' + $e(field) + '</td>';
                 }
                 ;
                 $p += ' ';
-                $line = 66;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
             }
             ;
-            $p += ' ';
-            $line = 67;
-            $art = '/each';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '</tbody></table></div><div><table mxa="_zs_gallerydQ:g" class="table" center="true" width="1200"><thead><tr>';
-        $line = 75;
-        $art = 'each groups as group';
-        ;
-        $expr = '<%for (var $art_ilqenxcvv$art_i = 0, $art_clikhgqvzza$art_c = groups.length; $art_ilqenxcvv$art_i < $art_clikhgqvzza$art_c; $art_ilqenxcvv$art_i++) {        var group = groups[$art_ilqenxcvv$art_i]%>';
-        for (var $art_ilqenxcvv$art_i = 0, $art_clikhgqvzza$art_c = groups.length; $art_ilqenxcvv$art_i < $art_clikhgqvzza$art_c; $art_ilqenxcvv$art_i++) {
-            var group = groups[$art_ilqenxcvv$art_i];
-            $p += '<th class="field-group" colspan="';
-            $line = 76;
-            $art = '=group.fields.length';
-            ;
-            $p += ($expr = '<%=group.fields.length%>', $e(group.fields.length)) + '"><div mxa="_zs_gallerydQ:h" class="group-name">';
-            $line = 77;
-            $art = '=group.name';
-            ;
-            $p += ($expr = '<%=group.name%>', $e(group.name)) + '</div></th>';
-            $line = 79;
-            $art = '/each';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '</tr><tr>';
-        $line = 82;
-        $art = 'each groups as group';
-        ;
-        $expr = '<%for (var $art_iqhijg$art_i = 0, $art_ctdxzkway$art_c = groups.length; $art_iqhijg$art_i < $art_ctdxzkway$art_c; $art_iqhijg$art_i++) {        var group = groups[$art_iqhijg$art_i]%>';
-        for (var $art_iqhijg$art_i = 0, $art_ctdxzkway$art_c = groups.length; $art_iqhijg$art_i < $art_ctdxzkway$art_c; $art_iqhijg$art_i++) {
-            var group = groups[$art_iqhijg$art_i];
-            $p += ' ';
-            $line = 83;
-            $art = 'each group.fields as field';
-            ;
-            $expr = '<%for (var $art_iqqaefocn$art_i = 0, $art_objkpvwezppo$art_obj = group.fields, $art_cbyfsnro$art_c = $art_objkpvwezppo$art_obj.length; $art_iqqaefocn$art_i < $art_cbyfsnro$art_c; $art_iqqaefocn$art_i++) {            var field = $art_objkpvwezppo$art_obj[$art_iqqaefocn$art_i]%>';
-            for (var $art_iqqaefocn$art_i = 0, $art_objkpvwezppo$art_obj = group.fields, $art_cbyfsnro$art_c = $art_objkpvwezppo$art_obj.length; $art_iqqaefocn$art_i < $art_cbyfsnro$art_c; $art_iqqaefocn$art_i++) {
-                var field = $art_objkpvwezppo$art_obj[$art_iqqaefocn$art_i];
-                $p += '<th mxa="_zs_gallerydQ:i" class="field-item">滚动';
-                $line = 84;
-                $art = '=field';
-                ;
-                $p += ($expr = '<%=field%>', $e(field)) + '</th>';
-                $line = 85;
-                $art = '/each';
-                ;
-                $expr = '<%}%>';
-            }
-            ;
-            $p += ' ';
-            $line = 86;
-            $art = '/each';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '</tr></thead><tbody>';
-        $line = 90;
-        $art = 'each list as item index';
-        ;
-        $expr = '<%for (var index = 0, $art_cjdacpkrjg$art_c = list.length; index < $art_cjdacpkrjg$art_c; index++) {        var item = list[index]%>';
-        for (var index = 0, $art_cjdacpkrjg$art_c = list.length; index < $art_cjdacpkrjg$art_c; index++) {
-            var item = list[index];
-            $p += '<tr>';
-            $line = 92;
-            $art = 'each groups as group';
-            ;
-            $expr = '<%for (var $art_iwuedjav$art_i = 0, $art_cqcfisgzt$art_c = groups.length; $art_iwuedjav$art_i < $art_cqcfisgzt$art_c; $art_iwuedjav$art_i++) {            var group = groups[$art_iwuedjav$art_i]%>';
-            for (var $art_iwuedjav$art_i = 0, $art_cqcfisgzt$art_c = groups.length; $art_iwuedjav$art_i < $art_cqcfisgzt$art_c; $art_iwuedjav$art_i++) {
-                var group = groups[$art_iwuedjav$art_i];
-                $p += ' ';
-                $line = 93;
-                $art = 'each group.fields as field';
-                ;
-                $expr = '<%for (var $art_iccbnly$art_i = 0, $art_objxhhfhvra$art_obj = group.fields, $art_cselqrlkrh$art_c = $art_objxhhfhvra$art_obj.length; $art_iccbnly$art_i < $art_cselqrlkrh$art_c; $art_iccbnly$art_i++) {                var field = $art_objxhhfhvra$art_obj[$art_iccbnly$art_i]%>';
-                for (var $art_iccbnly$art_i = 0, $art_objxhhfhvra$art_obj = group.fields, $art_cselqrlkrh$art_c = $art_objxhhfhvra$art_obj.length; $art_iccbnly$art_i < $art_cselqrlkrh$art_c; $art_iccbnly$art_i++) {
-                    var field = $art_objxhhfhvra$art_obj[$art_iccbnly$art_i];
-                    $p += '<td>';
-                    $line = 94;
-                    $art = '=item[\'content\' + field]';
-                    ;
-                    $p += ($expr = '<%=item[\'content\' + field]%>', $e(item['content' + field])) + '</td>';
-                    $line = 95;
-                    $art = '/each';
-                    ;
-                    $expr = '<%}%>';
-                }
-                ;
-                $p += ' ';
-                $line = 96;
-                $art = '/each';
-                ;
-                $expr = '<%}%>';
-            }
-            ;
-            $p += '</tr><tr mxa="_zs_gallerydQ:j" class="operation-tr"><td colspan="';
-            $line = 100;
-            $art = '=len';
-            ;
-            $p += ($expr = '<%=len%>', $e(len)) + '"></td></tr>';
-            $line = 102;
-            $art = 'if item.expand';
-            ;
-            $expr = '<%if (item.expand) {%>';
-            if (item.expand) {
-                ;
-                $p += '<tr mxa="_zs_gallerydQ:k" class="thead">';
-                $line = 104;
-                $art = 'each groups as group';
-                ;
-                $expr = '<%for (var $art_iufarfpd$art_i = 0, $art_cxnplqnmhf$art_c = groups.length; $art_iufarfpd$art_i < $art_cxnplqnmhf$art_c; $art_iufarfpd$art_i++) {                var group = groups[$art_iufarfpd$art_i]%>';
-                for (var $art_iufarfpd$art_i = 0, $art_cxnplqnmhf$art_c = groups.length; $art_iufarfpd$art_i < $art_cxnplqnmhf$art_c; $art_iufarfpd$art_i++) {
-                    var group = groups[$art_iufarfpd$art_i];
+            $p += '</tr>';
+            for (var $art_iiuuu$art_i = 0, $art_objvtofdtbbxh$art_obj = item.subs, $art_czpcevm$art_c = $art_objvtofdtbbxh$art_obj.length; $art_iiuuu$art_i < $art_czpcevm$art_c; $art_iiuuu$art_i++) {
+                var sub = $art_objvtofdtbbxh$art_obj[$art_iiuuu$art_i];
+                $p += '<tr>';
+                for (var $art_ivlspxk$art_i = 0, $art_ckxdse$art_c = groups.length; $art_ivlspxk$art_i < $art_ckxdse$art_c; $art_ivlspxk$art_i++) {
+                    var group = groups[$art_ivlspxk$art_i];
                     $p += ' ';
-                    $line = 105;
-                    $art = 'each group.fields as field';
-                    ;
-                    $expr = '<%for (var $art_izhmlvr$art_i = 0, $art_objuvqfr$art_obj = group.fields, $art_cohylycgab$art_c = $art_objuvqfr$art_obj.length; $art_izhmlvr$art_i < $art_cohylycgab$art_c; $art_izhmlvr$art_i++) {                    var field = $art_objuvqfr$art_obj[$art_izhmlvr$art_i]%>';
-                    for (var $art_izhmlvr$art_i = 0, $art_objuvqfr$art_obj = group.fields, $art_cohylycgab$art_c = $art_objuvqfr$art_obj.length; $art_izhmlvr$art_i < $art_cohylycgab$art_c; $art_izhmlvr$art_i++) {
-                        var field = $art_objuvqfr$art_obj[$art_izhmlvr$art_i];
-                        $p += '<td>子表头滚动';
-                        $line = 106;
-                        $art = '=field';
-                        ;
-                        $p += ($expr = '<%=field%>', $e(field)) + '</td>';
-                        $line = 107;
-                        $art = '/each';
-                        ;
-                        $expr = '<%}%>';
+                    for (var $art_iqdjnitd$art_i = 0, $art_objfeowcfuu$art_obj = group.fields, $art_cpcwbwxojd$art_c = $art_objfeowcfuu$art_obj.length; $art_iqdjnitd$art_i < $art_cpcwbwxojd$art_c; $art_iqdjnitd$art_i++) {
+                        var field = $art_objfeowcfuu$art_obj[$art_iqdjnitd$art_i];
+                        $p += '<td>' + $e(sub['content' + field]) + '</td>';
                     }
                     ;
                     $p += ' ';
-                    $line = 108;
-                    $art = '/each';
-                    ;
-                    $expr = '<%}%>';
                 }
                 ;
-                $p += '</tr>';
-                $line = 110;
-                $art = 'each item.subs as sub';
-                ;
-                $expr = '<%for (var $art_imlhxdgzwg$art_i = 0, $art_objafmeycx$art_obj = item.subs, $art_ckqvtkrsmyi$art_c = $art_objafmeycx$art_obj.length; $art_imlhxdgzwg$art_i < $art_ckqvtkrsmyi$art_c; $art_imlhxdgzwg$art_i++) {                var sub = $art_objafmeycx$art_obj[$art_imlhxdgzwg$art_i]%>';
-                for (var $art_imlhxdgzwg$art_i = 0, $art_objafmeycx$art_obj = item.subs, $art_ckqvtkrsmyi$art_c = $art_objafmeycx$art_obj.length; $art_imlhxdgzwg$art_i < $art_ckqvtkrsmyi$art_c; $art_imlhxdgzwg$art_i++) {
-                    var sub = $art_objafmeycx$art_obj[$art_imlhxdgzwg$art_i];
-                    $p += '<tr>';
-                    $line = 112;
-                    $art = 'each groups as group';
-                    ;
-                    $expr = '<%for (var $art_inbrxytl$art_i = 0, $art_cgccxzm$art_c = groups.length; $art_inbrxytl$art_i < $art_cgccxzm$art_c; $art_inbrxytl$art_i++) {                    var group = groups[$art_inbrxytl$art_i]%>';
-                    for (var $art_inbrxytl$art_i = 0, $art_cgccxzm$art_c = groups.length; $art_inbrxytl$art_i < $art_cgccxzm$art_c; $art_inbrxytl$art_i++) {
-                        var group = groups[$art_inbrxytl$art_i];
-                        $p += ' ';
-                        $line = 113;
-                        $art = 'each group.fields as field';
-                        ;
-                        $expr = '<%for (var $art_icbzqhya$art_i = 0, $art_objcskwihtbsd$art_obj = group.fields, $art_cbblvlgc$art_c = $art_objcskwihtbsd$art_obj.length; $art_icbzqhya$art_i < $art_cbblvlgc$art_c; $art_icbzqhya$art_i++) {                        var field = $art_objcskwihtbsd$art_obj[$art_icbzqhya$art_i]%>';
-                        for (var $art_icbzqhya$art_i = 0, $art_objcskwihtbsd$art_obj = group.fields, $art_cbblvlgc$art_c = $art_objcskwihtbsd$art_obj.length; $art_icbzqhya$art_i < $art_cbblvlgc$art_c; $art_icbzqhya$art_i++) {
-                            var field = $art_objcskwihtbsd$art_obj[$art_icbzqhya$art_i];
-                            $p += '<td>';
-                            $line = 114;
-                            $art = '=sub[\'content\' + field]';
-                            ;
-                            $p += ($expr = '<%=sub[\'content\' + field]%>', $e(sub['content' + field])) + '</td>';
-                            $line = 115;
-                            $art = '/each';
-                            ;
-                            $expr = '<%}%>';
-                        }
-                        ;
-                        $p += ' ';
-                        $line = 116;
-                        $art = '/each';
-                        ;
-                        $expr = '<%}%>';
-                    }
-                    ;
-                    $p += '</tr><tr mxa="_zs_gallerydQ:l" class="operation-tr"><td colspan="';
-                    $line = 119;
-                    $art = '=len';
-                    ;
-                    $p += ($expr = '<%=len%>', $e(len)) + '"></td></tr>';
-                    $line = 121;
-                    $art = '/each';
-                    ;
-                    $expr = '<%}%>';
-                }
-                ;
-                $p += ' ';
-                $line = 122;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
+                $p += '</tr><tr mxa="_zs_gallerydQ:l" class="operation-tr"><td colspan="' + $e(len) + '"></td></tr>';
             }
             ;
             $p += ' ';
-            $line = 123;
-            $art = '/each';
-            ;
-            $expr = '<%}%>';
         }
         ;
-        $p += '</tbody></table></div></div>';
-        $line = 127;
-        $art = 'else';
-        ;
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += '<div mxs="_zs_gallerydQ:d" class="empty-area"><i class="mc-iconfont no-data">&#xe685;</i><p class="mt10">您还没有相关记录</p></div>';
-        $line = 129;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
+        $p += ' ';
     }
     ;
-    $p += '<div mxa="_zs_gallerydQ:m" class="table-pager-wrapper"><div mx-view="mx-pagination/index?total=';
-    $line = 132;
-    $art = '=list.length';
-    ;
-    $p += ($expr = '<%!$eu(list.length)%>', $eu(list.length)) + '&size=40&page=1"></div></div></div></div><div mxa="_zs_gallerydQ:n" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydQ:e" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 140;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydQ:o" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 142;
-    $art = '!text1';
-    ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydQ:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 145;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&#123;&#123;if(list.length &gt; 0)&#125;&#125;\n&lt;!-- 渲染表格涉及的数据请都挂在到mx-table上 --&gt;\n&lt;mx-table sticky="true" list="&#123;&#123;@list&#125;&#125;" groups="&#123;&#123;@groups&#125;&#125;"&gt;\n    &lt;!-- 固定的表格 --&gt;\n    &lt;table class="table" left="true" width="500"&gt;\n        &lt;thead&gt;\n            &lt;tr&gt;\n                &lt;th&gt;&lt;/th&gt;\n                &lt;th&gt;固定1&lt;/th&gt;\n                &lt;th&gt;固定2&lt;/th&gt;\n                &lt;th&gt;固定3&lt;/th&gt;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;each list as item index&#125;&#125;\n                &lt;tr&gt;\n                    &lt;td&gt;  \n                        &lt;a href="javascript:;" class="link-brand"\n                            mx-click="toggle(&#123;index:&#123;&#123;=index&#125;&#125;&#125;)"&gt;\n                            &#123;&#123;if item.expand&#125;&#125;收起&#123;&#123;else&#125;&#125;展开&#123;&#123;/if&#125;&#125;\n                        &lt;/a&gt;\n                    &lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.fixed1&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.fixed2&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.fixed3&#125;&#125;&lt;/td&gt;\n                &lt;/tr&gt;\n                &lt;tr class="operation-tr"&gt;\n                    &lt;td colspan="4"&gt;\n                        &lt;a href="javascript:;" class="btn btn-white btn-small mr10" \n                            mx-click="change(&#123;index:&#123;&#123;=index&#125;&#125;&#125;)"&gt;修改固定1数据&lt;/a&gt;\n                        &lt;a href="javascript:;" class="btn btn-white btn-small" \n                            mx-click="delete(&#123;index:&#123;&#123;=index&#125;&#125;&#125;)"&gt;移除&lt;/a&gt;\n                    &lt;/td&gt;\n                &lt;/tr&gt;\n                &#123;&#123;if item.expand&#125;&#125;\n                    &lt;tr class="thead"&gt;\n                        &lt;!-- td个数保持一致，占位符加class="sub-mask" --&gt;\n                        &lt;td class="sub-mask"&gt;&lt;/td&gt;\n                        &lt;td&gt;子表格固定1&lt;/td&gt;\n                        &lt;td&gt;子表格固定2&lt;/td&gt;\n                        &lt;td&gt;子表格固定3&lt;/td&gt;\n                    &lt;/tr&gt;\n                    &#123;&#123;each item.subs as sub subIndex&#125;&#125;\n                    &lt;tr&gt;\n                        &lt;td class="sub-mask &#123;&#123;if item.subs.length==subIndex+1&#125;&#125; sub-mask-last &#123;&#123;/if&#125;&#125;"&gt;&lt;/td&gt;\n                        &lt;td&gt;&#123;&#123;=sub.fixed1&#125;&#125;&lt;/td&gt;\n                        &lt;td&gt;&#123;&#123;=sub.fixed2&#125;&#125;&lt;/td&gt;\n                        &lt;td&gt;&#123;&#123;=sub.fixed3&#125;&#125;&lt;/td&gt;\n                    &lt;/tr&gt;\n                    &lt;tr class="operation-tr"&gt;\n                        &lt;td class="sub-mask &#123;&#123;if item.subs.length==subIndex+1&#125;&#125; sub-mask-last &#123;&#123;/if&#125;&#125;"&gt;&lt;/td&gt;\n                        &lt;td colspan="3"&gt;\n                            &lt;a href="javascript:;" class="btn btn-white btn-small"&gt;操作&lt;/a&gt;\n                        &lt;/td&gt;\n                    &lt;/tr&gt;\n                    &#123;&#123;/each&#125;&#125;\n                &#123;&#123;/if&#125;&#125;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n    &lt;!-- 滚动列 --&gt;\n    &lt;table class="table" center="true" width="1200"&gt;\n        &lt;thead&gt;\n            &lt;!-- 二级结构的表头 --&gt;\n            &lt;tr&gt;\n                &#123;&#123;each groups as group&#125;&#125;\n                &lt;th class="field-group" colspan="&#123;&#123;=group.fields.length&#125;&#125;"&gt;\n                    &lt;div class="group-name"&gt;&#123;&#123;=group.name&#125;&#125;&lt;/div&gt;\n                &lt;/th&gt;\n                &#123;&#123;/each&#125;&#125;\n            &lt;/tr&gt;\n            &lt;tr&gt;\n                &#123;&#123;each groups as group&#125;&#125;\n                    &#123;&#123;each group.fields as field&#125;&#125;\n                    &lt;th class="field-item"&gt;滚动&#123;&#123;=field&#125;&#125;&lt;/th&gt;\n                    &#123;&#123;/each&#125;&#125;\n                &#123;&#123;/each&#125;&#125;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;each list as item index&#125;&#125;\n                &lt;tr&gt;\n                    &#123;&#123;each groups as group&#125;&#125;\n                        &#123;&#123;each group.fields as field&#125;&#125;\n                        &lt;td&gt;&#123;&#123;=item[\'content\' + field]&#125;&#125;&lt;/td&gt;\n                        &#123;&#123;/each&#125;&#125;\n                    &#123;&#123;/each&#125;&#125;\n                &lt;/tr&gt;\n                &lt;!-- 有操作项该行不可少 --&gt;\n                &lt;tr class="operation-tr"&gt;\n                    &lt;td colspan="&#123;&#123;=len&#125;&#125;"&gt;&lt;/td&gt;\n                &lt;/tr&gt;\n                &#123;&#123;if item.expand&#125;&#125;\n                    &lt;tr class="thead"&gt;\n                        &#123;&#123;each groups as group&#125;&#125;\n                            &#123;&#123;each group.fields as field&#125;&#125;\n                            &lt;td&gt;子表头滚动&#123;&#123;=field&#125;&#125;&lt;/td&gt;\n                            &#123;&#123;/each&#125;&#125;\n                        &#123;&#123;/each&#125;&#125;\n                    &lt;/tr&gt;\n                    &#123;&#123;each item.subs as sub&#125;&#125;\n                    &lt;tr&gt;\n                        &#123;&#123;each groups as group&#125;&#125;\n                            &#123;&#123;each group.fields as field&#125;&#125;\n                            &lt;td&gt;&#123;&#123;=sub[\'content\' + field]&#125;&#125;&lt;/td&gt;\n                            &#123;&#123;/each&#125;&#125;\n                        &#123;&#123;/each&#125;&#125;\n                    &lt;/tr&gt;\n                    &lt;tr class="operation-tr"&gt;\n                        &lt;td colspan="&#123;&#123;=len&#125;&#125;"&gt;&lt;/td&gt;\n                    &lt;/tr&gt;\n                    &#123;&#123;/each&#125;&#125;\n                &#123;&#123;/if&#125;&#125;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n&lt;/mx-table&gt;\n&#123;&#123;else&#125;&#125;\n&lt;mx-effects.empty content="您还没有相关记录"/&gt;\n&#123;&#123;/if&#125;&#125;\n&lt;div class="table-pager-wrapper"&gt;\n    &lt;mx-pagination \n        total="&#123;&#123;=list.length&#125;&#125;" \n        size="40" \n        page="1"/&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_gallerydQ:p" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydQ:g" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 275;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerydQ:q" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 277;
-    $art = '!text2';
-    ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerydQ:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 280;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let that = this;\n        let list = [];\n\n        let itemFn = (key) =&gt; &#123;\n            return &#123;\n                expand: false,\n                fixed1: \'fixed1-\' + key,\n                fixed2: \'fixed2-\' + key,\n                fixed3: \'fixed3-\' + key,\n                content1: \'content1-\' + key,\n                content2: \'content2-\' + key,\n                content3: \'content3-\' + key,\n                content4: \'content4-\' + key,\n                content5: \'content5-\' + key,\n                content6: \'content6-\' + key,\n                content7: \'content7-\' + key,\n                content8: \'content8-\' + key,\n                content9: \'content9-\' + key,\n            &#125;\n        &#125;\n        for (var i = 1; i &lt; 4; i++) &#123;\n            let item = itemFn(i);\n            item.subs = [];\n            for (let j = 1; j &lt; 3; j++) &#123;\n                item.subs.push(itemFn(i + \'-\' + j));\n            &#125;\n            list.push(item);\n        &#125;\n        // 默认展开第一个\n        list[0].expand = true;\n\n        let groups = [&#123;\n            name: \'组1\',\n            fields: [1, 2]\n        &#125;, &#123;\n            name: \'组2\',\n            fields: [3, 4, 5, 6]\n        &#125;, &#123;\n            name: \'组3\',\n            fields: [7, 8, 9]\n        &#125;]\n\n        // 计算colspan\n        let len = 0;\n        groups.forEach(group =&gt; &#123;\n            len += group.fields.length;\n        &#125;)\n\n        that.updater.digest(&#123;\n            groups,\n            len,\n            list\n        &#125;);\n    &#125;,\n\n    /**\n    * 展开收起\n    */\n    \'toggle&lt;click&gt;\' (e) &#123;\n        let that = this;\n        let index = e.params.index,\n            list = that.updater.get(\'list\');\n        list[index].expand = !list[index].expand;\n        that.updater.digest(&#123;\n            list\n        &#125;)\n    &#125;,\n\n    /**\n    * 修改数据\n    */\n    \'change&lt;click&gt;\' (e) &#123;\n        let that = this;\n        let index = e.params.index,\n            list = that.updater.get(\'list\');\n        list[index].fixed1 = Magix.guid();\n        that.updater.digest(&#123;\n            list\n        &#125;)\n    &#125;,\n\n    \'delete&lt;click&gt;\' (e) &#123;\n        let that = this;\n        let index = e.params.index,\n            list = that.updater.get(\'list\');\n        list.splice(index, 1);\n        that.updater.digest(&#123;\n            list\n        &#125;)\n    &#125;\n&#125;);</pre></div></div>';
+    $p += '</tbody></table></div></div>';
 }
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-table/__test__/6.html';
-    throw msg;
-} return $p; },
+else {
+    ;
+    $p += '<div mxs="_zs_gallerydQ:d" class="empty-area"><i class="mc-iconfont no-data">&#xe685;</i><p class="mt10">您还没有相关记录</p></div>';
+} ; $p += '<div mxa="_zs_gallerydQ:m" class="table-pager-wrapper"><div mx-view="mx-pagination/index?total=' + $eu(list.length) + '&size=40&page=1"></div></div></div></div><div mxa="_zs_gallerydQ:n" class="_zs_galleryl"><div mxs="_zs_gallerydQ:e" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerydQ:o" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerydQ:f" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&#123;&#123;if(list.length &gt; 0)&#125;&#125;\n&lt;!-- 渲染表格涉及的数据请都挂在到mx-table上 --&gt;\n&lt;mx-table sticky="true" list="&#123;&#123;@list&#125;&#125;" groups="&#123;&#123;@groups&#125;&#125;"&gt;\n    &lt;!-- 固定的表格 --&gt;\n    &lt;table class="table" left="true" width="500"&gt;\n        &lt;thead&gt;\n            &lt;tr&gt;\n                &lt;th&gt;&lt;/th&gt;\n                &lt;th&gt;固定1&lt;/th&gt;\n                &lt;th&gt;固定2&lt;/th&gt;\n                &lt;th&gt;固定3&lt;/th&gt;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;each list as item index&#125;&#125;\n                &lt;tr&gt;\n                    &lt;td&gt;  \n                        &lt;a href="javascript:;" class="link-brand"\n                            mx-click="toggle(&#123;index:&#123;&#123;=index&#125;&#125;&#125;)"&gt;\n                            &#123;&#123;if item.expand&#125;&#125;收起&#123;&#123;else&#125;&#125;展开&#123;&#123;/if&#125;&#125;\n                        &lt;/a&gt;\n                    &lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.fixed1&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.fixed2&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.fixed3&#125;&#125;&lt;/td&gt;\n                &lt;/tr&gt;\n                &lt;tr class="operation-tr"&gt;\n                    &lt;td colspan="4"&gt;\n                        &lt;a href="javascript:;" class="btn btn-white btn-small mr10" \n                            mx-click="change(&#123;index:&#123;&#123;=index&#125;&#125;&#125;)"&gt;修改固定1数据&lt;/a&gt;\n                        &lt;a href="javascript:;" class="btn btn-white btn-small" \n                            mx-click="delete(&#123;index:&#123;&#123;=index&#125;&#125;&#125;)"&gt;移除&lt;/a&gt;\n                    &lt;/td&gt;\n                &lt;/tr&gt;\n                &#123;&#123;if item.expand&#125;&#125;\n                    &lt;tr class="thead"&gt;\n                        &lt;!-- td个数保持一致，占位符加class="sub-mask" --&gt;\n                        &lt;td class="sub-mask"&gt;&lt;/td&gt;\n                        &lt;td&gt;子表格固定1&lt;/td&gt;\n                        &lt;td&gt;子表格固定2&lt;/td&gt;\n                        &lt;td&gt;子表格固定3&lt;/td&gt;\n                    &lt;/tr&gt;\n                    &#123;&#123;each item.subs as sub subIndex&#125;&#125;\n                    &lt;tr&gt;\n                        &lt;td class="sub-mask &#123;&#123;if item.subs.length==subIndex+1&#125;&#125; sub-mask-last &#123;&#123;/if&#125;&#125;"&gt;&lt;/td&gt;\n                        &lt;td&gt;&#123;&#123;=sub.fixed1&#125;&#125;&lt;/td&gt;\n                        &lt;td&gt;&#123;&#123;=sub.fixed2&#125;&#125;&lt;/td&gt;\n                        &lt;td&gt;&#123;&#123;=sub.fixed3&#125;&#125;&lt;/td&gt;\n                    &lt;/tr&gt;\n                    &lt;tr class="operation-tr"&gt;\n                        &lt;td class="sub-mask &#123;&#123;if item.subs.length==subIndex+1&#125;&#125; sub-mask-last &#123;&#123;/if&#125;&#125;"&gt;&lt;/td&gt;\n                        &lt;td colspan="3"&gt;\n                            &lt;a href="javascript:;" class="btn btn-white btn-small"&gt;操作&lt;/a&gt;\n                        &lt;/td&gt;\n                    &lt;/tr&gt;\n                    &#123;&#123;/each&#125;&#125;\n                &#123;&#123;/if&#125;&#125;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n    &lt;!-- 滚动列 --&gt;\n    &lt;table class="table" center="true" width="1200"&gt;\n        &lt;thead&gt;\n            &lt;!-- 二级结构的表头 --&gt;\n            &lt;tr&gt;\n                &#123;&#123;each groups as group&#125;&#125;\n                &lt;th class="field-group" colspan="&#123;&#123;=group.fields.length&#125;&#125;"&gt;\n                    &lt;div class="group-name"&gt;&#123;&#123;=group.name&#125;&#125;&lt;/div&gt;\n                &lt;/th&gt;\n                &#123;&#123;/each&#125;&#125;\n            &lt;/tr&gt;\n            &lt;tr&gt;\n                &#123;&#123;each groups as group&#125;&#125;\n                    &#123;&#123;each group.fields as field&#125;&#125;\n                    &lt;th class="field-item"&gt;滚动&#123;&#123;=field&#125;&#125;&lt;/th&gt;\n                    &#123;&#123;/each&#125;&#125;\n                &#123;&#123;/each&#125;&#125;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;each list as item index&#125;&#125;\n                &lt;tr&gt;\n                    &#123;&#123;each groups as group&#125;&#125;\n                        &#123;&#123;each group.fields as field&#125;&#125;\n                        &lt;td&gt;&#123;&#123;=item[\'content\' + field]&#125;&#125;&lt;/td&gt;\n                        &#123;&#123;/each&#125;&#125;\n                    &#123;&#123;/each&#125;&#125;\n                &lt;/tr&gt;\n                &lt;!-- 有操作项该行不可少 --&gt;\n                &lt;tr class="operation-tr"&gt;\n                    &lt;td colspan="&#123;&#123;=len&#125;&#125;"&gt;&lt;/td&gt;\n                &lt;/tr&gt;\n                &#123;&#123;if item.expand&#125;&#125;\n                    &lt;tr class="thead"&gt;\n                        &#123;&#123;each groups as group&#125;&#125;\n                            &#123;&#123;each group.fields as field&#125;&#125;\n                            &lt;td&gt;子表头滚动&#123;&#123;=field&#125;&#125;&lt;/td&gt;\n                            &#123;&#123;/each&#125;&#125;\n                        &#123;&#123;/each&#125;&#125;\n                    &lt;/tr&gt;\n                    &#123;&#123;each item.subs as sub&#125;&#125;\n                    &lt;tr&gt;\n                        &#123;&#123;each groups as group&#125;&#125;\n                            &#123;&#123;each group.fields as field&#125;&#125;\n                            &lt;td&gt;&#123;&#123;=sub[\'content\' + field]&#125;&#125;&lt;/td&gt;\n                            &#123;&#123;/each&#125;&#125;\n                        &#123;&#123;/each&#125;&#125;\n                    &lt;/tr&gt;\n                    &lt;tr class="operation-tr"&gt;\n                        &lt;td colspan="&#123;&#123;=len&#125;&#125;"&gt;&lt;/td&gt;\n                    &lt;/tr&gt;\n                    &#123;&#123;/each&#125;&#125;\n                &#123;&#123;/if&#125;&#125;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n&lt;/mx-table&gt;\n&#123;&#123;else&#125;&#125;\n&lt;mx-effects.empty content="您还没有相关记录"/&gt;\n&#123;&#123;/if&#125;&#125;\n&lt;div class="table-pager-wrapper"&gt;\n    &lt;mx-pagination \n        total="&#123;&#123;=list.length&#125;&#125;" \n        size="40" \n        page="1"/&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_gallerydQ:p" class="_zs_galleryl"><div mxs="_zs_gallerydQ:g" class="_zs_galleryj">JS Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_2"><span mxa="_zs_gallerydQ:q" class="_zs_galleryo">' + $n(text2) + '</span><i mxs="_zs_gallerydQ:f" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let that = this;\n        let list = [];\n\n        let itemFn = (key) =&gt; &#123;\n            return &#123;\n                expand: false,\n                fixed1: \'fixed1-\' + key,\n                fixed2: \'fixed2-\' + key,\n                fixed3: \'fixed3-\' + key,\n                content1: \'content1-\' + key,\n                content2: \'content2-\' + key,\n                content3: \'content3-\' + key,\n                content4: \'content4-\' + key,\n                content5: \'content5-\' + key,\n                content6: \'content6-\' + key,\n                content7: \'content7-\' + key,\n                content8: \'content8-\' + key,\n                content9: \'content9-\' + key,\n            &#125;\n        &#125;\n        for (var i = 1; i &lt; 4; i++) &#123;\n            let item = itemFn(i);\n            item.subs = [];\n            for (let j = 1; j &lt; 3; j++) &#123;\n                item.subs.push(itemFn(i + \'-\' + j));\n            &#125;\n            list.push(item);\n        &#125;\n        // 默认展开第一个\n        list[0].expand = true;\n\n        let groups = [&#123;\n            name: \'组1\',\n            fields: [1, 2]\n        &#125;, &#123;\n            name: \'组2\',\n            fields: [3, 4, 5, 6]\n        &#125;, &#123;\n            name: \'组3\',\n            fields: [7, 8, 9]\n        &#125;]\n\n        // 计算colspan\n        let len = 0;\n        groups.forEach(group =&gt; &#123;\n            len += group.fields.length;\n        &#125;)\n\n        that.updater.digest(&#123;\n            groups,\n            len,\n            list\n        &#125;);\n    &#125;,\n\n    /**\n    * 展开收起\n    */\n    \'toggle&lt;click&gt;\' (e) &#123;\n        let that = this;\n        let index = e.params.index,\n            list = that.updater.get(\'list\');\n        list[index].expand = !list[index].expand;\n        that.updater.digest(&#123;\n            list\n        &#125;)\n    &#125;,\n\n    /**\n    * 修改数据\n    */\n    \'change&lt;click&gt;\' (e) &#123;\n        let that = this;\n        let index = e.params.index,\n            list = that.updater.get(\'list\');\n        list[index].fixed1 = Magix.guid();\n        that.updater.digest(&#123;\n            list\n        &#125;)\n    &#125;,\n\n    \'delete&lt;click&gt;\' (e) &#123;\n        let that = this;\n        let index = e.params.index,\n            list = that.updater.get(\'list\');\n        list.splice(index, 1);\n        that.updater.digest(&#123;\n            list\n        &#125;)\n    &#125;\n&#125;);</pre></div></div>'; return $p; },
     render: function () {
         var that = this;
         var list = [];

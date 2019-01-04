@@ -8,7 +8,7 @@ define("__test__/other/update",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery___test___other_update_","/* @dependent: ./index.less */\n._zs_gallery___test___other_update_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___other_update_-update {\n  position: relative;\n}\n._zs_gallery___test___other_update_-update::before {\n  content: '';\n  position: absolute;\n  top: 12px;\n  left: 0;\n  width: 0;\n  height: 100%;\n  border-left: 2px solid #e6e6e6;\n}\n._zs_gallery___test___other_update_-update:last-child::before {\n  display: none;\n}\n._zs_gallery___test___other_update_-tag,\n._zs_gallery___test___other_update_-vi {\n  display: inline-block;\n  padding: 0 10px;\n  height: 20px;\n  line-height: 18px;\n  background-color: #f3f4f5;\n  border: 1px solid #eee;\n  text-align: center;\n  border-radius: 2px;\n  overflow: hidden;\n  vertical-align: middle;\n}\n._zs_gallery___test___other_update_-tag {\n  margin: 0 3px;\n}\n._zs_gallery___test___other_update_-ver {\n  position: relative;\n}\n._zs_gallery___test___other_update_-ver::before {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: -4px;\n  width: 10px;\n  height: 10px;\n  margin-top: -5px;\n  border: 2px solid #e6e6e6;\n  background-color: #fff;\n  border-radius: 50%;\n}\n._zs_gallery___test___other_update_-ver ._zs_gallery___test___other_update_-vt {\n  display: inline-block;\n  font-size: 18px;\n  overflow: hidden;\n  vertical-align: middle;\n}\n._zs_gallery___test___other_update_-ver ._zs_gallery___test___other_update_-vi {\n  margin: 0 10px;\n}\n._zs_gallery___test___other_update_-dot {\n  position: relative;\n  padding-left: 10px;\n}\n._zs_gallery___test___other_update_-dot::before {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 4px;\n  height: 4px;\n  margin-top: -2px;\n  border: 1px solid #ccc;\n  border-radius: 50%;\n}\n._zs_gallery___test___other_update_-line {\n  line-height: 28px;\n}\n._zs_gallery___test___other_update_-line-icon {\n  position: relative;\n  top: 2px;\n  margin-right: 5px;\n  font-size: 18px;\n}\n");
+Magix.applyStyle("_zs_galleryc","._zs_galleryV{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryW{position:relative}._zs_galleryW:before{content:\"\";position:absolute;top:12px;left:0;width:0;height:100%;border-left:2px solid #e6e6e6}._zs_galleryW:last-child:before{display:none}._zs_galleryX,._zs_galleryY{display:inline-block;padding:0 10px;height:20px;line-height:18px;background-color:#f3f4f5;border:1px solid #eee;text-align:center;border-radius:2px;overflow:hidden;vertical-align:middle}._zs_galleryX{margin:0 3px}._zs_galleryZ{position:relative}._zs_galleryZ:before{content:\"\";position:absolute;top:50%;left:-4px;width:10px;height:10px;margin-top:-5px;border:2px solid #e6e6e6;background-color:#fff;border-radius:50%}._zs_galleryZ ._zs_gallerya_{display:inline-block;font-size:18px;overflow:hidden;vertical-align:middle}._zs_galleryZ ._zs_galleryY{margin:0 10px}._zs_galleryaa{position:relative;padding-left:10px}._zs_galleryaa:before{content:\"\";position:absolute;top:50%;left:0;width:4px;height:4px;margin-top:-2px;border:1px solid #ccc;border-radius:50%}._zs_galleryab{line-height:28px}._zs_galleryac{position:relative;top:2px;margin-right:5px;font-size:18px}");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -21,174 +21,58 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', list = $$.list; var $expr, $art, $line; try {
-    $line = 1;
-    $art = 'each list as item';
-    ;
-    $expr = '<%for (var $art_iyvylufqwh$art_i = 0, $art_coixqlrt$art_c = list.length; $art_iyvylufqwh$art_i < $art_coixqlrt$art_c; $art_iyvylufqwh$art_i++) {    var item = list[$art_iyvylufqwh$art_i]%>';
-    for (var $art_iyvylufqwh$art_i = 0, $art_coixqlrt$art_c = list.length; $art_iyvylufqwh$art_i < $art_coixqlrt$art_c; $art_iyvylufqwh$art_i++) {
-        var item = list[$art_iyvylufqwh$art_i];
-        $p += '<div mxa="_zs_galleryg:_" class="_zs_gallery___test___other_update_-update"><div mxa="_zs_galleryg:a" class="_zs_gallery___test___other_update_-ver pl20"><span mxa="_zs_galleryg:b" class="_zs_gallery___test___other_update_-vt">';
-        $line = 4;
-        $art = '=item.ver';
-        ;
-        $p += ($expr = '<%=item.ver%>', $e(item.ver)) + '</span><span mxa="_zs_galleryg:c" class="_zs_gallery___test___other_update_-vi">';
-        $line = 5;
-        $art = '=item.time';
-        ;
-        $p += ($expr = '<%=item.time%>', $e(item.time)) + '</span></div><div mxa="_zs_galleryg:d" class="pt10 pb30">';
-        $line = 8;
-        $art = 'each item.subs as s';
-        ;
-        $expr = '<%for (var $art_iblzsvemtb$art_i = 0, $art_objqpwyblqyx$art_obj = item.subs, $art_cxkmeouos$art_c = $art_objqpwyblqyx$art_obj.length; $art_iblzsvemtb$art_i < $art_cxkmeouos$art_c; $art_iblzsvemtb$art_i++) {        var s = $art_objqpwyblqyx$art_obj[$art_iblzsvemtb$art_i]%>';
-        for (var $art_iblzsvemtb$art_i = 0, $art_objqpwyblqyx$art_obj = item.subs, $art_cxkmeouos$art_c = $art_objqpwyblqyx$art_obj.length; $art_iblzsvemtb$art_i < $art_cxkmeouos$art_c; $art_iblzsvemtb$art_i++) {
-            var s = $art_objqpwyblqyx$art_obj[$art_iblzsvemtb$art_i];
-            $p += '<div mxa="_zs_galleryg:e" class="pl20">';
-            $line = 10;
-            $art = 'if s.type == \'notice\'';
+} ; var $g = '', $_temp, $p = '', list = $$.list; for (var $art_igzhguzqhn$art_i = 0, $art_cfoncnwt$art_c = list.length; $art_igzhguzqhn$art_i < $art_cfoncnwt$art_c; $art_igzhguzqhn$art_i++) {
+    var item = list[$art_igzhguzqhn$art_i];
+    $p += '<div mxa="_zs_galleryg:_" class="_zs_galleryW"><div mxa="_zs_galleryg:a" class="_zs_galleryZ pl20"><span mxa="_zs_galleryg:b" class="_zs_gallerya_">' + $e(item.ver) + '</span><span mxa="_zs_galleryg:c" class="_zs_galleryY">' + $e(item.time) + '</span></div><div mxa="_zs_galleryg:d" class="pt10 pb30">';
+    for (var $art_iymqziq$art_i = 0, $art_objcrgeceyvy$art_obj = item.subs, $art_ceggztre$art_c = $art_objcrgeceyvy$art_obj.length; $art_iymqziq$art_i < $art_ceggztre$art_c; $art_iymqziq$art_i++) {
+        var s = $art_objcrgeceyvy$art_obj[$art_iymqziq$art_i];
+        $p += '<div mxa="_zs_galleryg:e" class="pl20">';
+        if (s.type == 'notice') {
             ;
-            $expr = '<%if (s.type == \'notice\') {%>';
-            if (s.type == 'notice') {
+            $p += '<div mxa="_zs_galleryg:f" class="_zs_galleryab"><i mxs="_zs_galleryg:_" class="mc-iconfont _zs_galleryac color-warn">&#xe66f;</i><span mxa="_zs_galleryg:g" class="fontsize-14">' + $e((s.title ? s.title : '重要通知')) + '</span></div>';
+        }
+        ;
+        $p += ' ';
+        if (s.type == 'bug') {
+            ;
+            $p += '<div mxa="_zs_galleryg:h" class="_zs_galleryab"><i mxs="_zs_galleryg:a" class="mc-iconfont _zs_galleryac color-red">&#xe63d;</i><span mxa="_zs_galleryg:i" class="fontsize-14">' + $e((s.title ? s.title : 'bug修复')) + '</span></div>';
+        }
+        ;
+        $p += ' ';
+        if (s.type == 'add') {
+            ;
+            $p += '<div mxa="_zs_galleryg:j" class="_zs_galleryab"><i mxs="_zs_galleryg:b" class="mc-iconfont _zs_galleryac color-green">&#xe616;</i><span mxa="_zs_galleryg:k" class="fontsize-14">' + $e((s.title ? s.title : '功能上新')) + '</span></div>';
+        }
+        ;
+        $p += ' ';
+        for (var $art_idhivuwbq$art_i = 0, $art_objzmabdegmc$art_obj = s.subs, $art_cezrqaapf$art_c = $art_objzmabdegmc$art_obj.length; $art_idhivuwbq$art_i < $art_cezrqaapf$art_c; $art_idhivuwbq$art_i++) {
+            var ss = $art_objzmabdegmc$art_obj[$art_idhivuwbq$art_i];
+            $p += '<div mxa="_zs_galleryg:l" class="pl20"><div mxa="_zs_galleryg:m" class="_zs_galleryab _zs_galleryaa">' + $n(ss.title) + '</div>';
+            if (ss.content) {
                 ;
-                $p += '<div mxa="_zs_galleryg:f" class="_zs_gallery___test___other_update_-line"><i mxs="_zs_galleryg:_" class="mc-iconfont _zs_gallery___test___other_update_-line-icon color-warn">&#xe66f;</i><span mxa="_zs_galleryg:g" class="fontsize-14">';
-                $line = 13;
-                $art = '=(s.title ? s.title : \'重要通知\')';
-                ;
-                $p += ($expr = '<%=(s.title ? s.title : \'重要通知\')%>', $e((s.title ? s.title : '重要通知'))) + '</span></div>';
-                $line = 15;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
+                $p += ' ' + $n(ss.content) + ' ';
             }
             ;
             $p += ' ';
-            $line = 17;
-            $art = 'if s.type == \'bug\'';
-            ;
-            $expr = '<%if (s.type == \'bug\') {%>';
-            if (s.type == 'bug') {
+            if (ss.subs && (ss.subs.length > 0)) {
                 ;
-                $p += '<div mxa="_zs_galleryg:h" class="_zs_gallery___test___other_update_-line"><i mxs="_zs_galleryg:a" class="mc-iconfont _zs_gallery___test___other_update_-line-icon color-red">&#xe63d;</i><span mxa="_zs_galleryg:i" class="fontsize-14">';
-                $line = 20;
-                $art = '=(s.title ? s.title : \'bug修复\')';
-                ;
-                $p += ($expr = '<%=(s.title ? s.title : \'bug修复\')%>', $e((s.title ? s.title : 'bug修复'))) + '</span></div>';
-                $line = 22;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
-            }
-            ;
-            $p += ' ';
-            $line = 24;
-            $art = 'if s.type == \'add\'';
-            ;
-            $expr = '<%if (s.type == \'add\') {%>';
-            if (s.type == 'add') {
-                ;
-                $p += '<div mxa="_zs_galleryg:j" class="_zs_gallery___test___other_update_-line"><i mxs="_zs_galleryg:b" class="mc-iconfont _zs_gallery___test___other_update_-line-icon color-green">&#xe616;</i><span mxa="_zs_galleryg:k" class="fontsize-14">';
-                $line = 27;
-                $art = '=(s.title ? s.title : \'功能上新\')';
-                ;
-                $p += ($expr = '<%=(s.title ? s.title : \'功能上新\')%>', $e((s.title ? s.title : '功能上新'))) + '</span></div>';
-                $line = 29;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
-            }
-            ;
-            $p += ' ';
-            $line = 31;
-            $art = 'each s.subs as ss';
-            ;
-            $expr = '<%for (var $art_iailkghvcg$art_i = 0, $art_objtiqitvyf$art_obj = s.subs, $art_cjgttmrid$art_c = $art_objtiqitvyf$art_obj.length; $art_iailkghvcg$art_i < $art_cjgttmrid$art_c; $art_iailkghvcg$art_i++) {            var ss = $art_objtiqitvyf$art_obj[$art_iailkghvcg$art_i]%>';
-            for (var $art_iailkghvcg$art_i = 0, $art_objtiqitvyf$art_obj = s.subs, $art_cjgttmrid$art_c = $art_objtiqitvyf$art_obj.length; $art_iailkghvcg$art_i < $art_cjgttmrid$art_c; $art_iailkghvcg$art_i++) {
-                var ss = $art_objtiqitvyf$art_obj[$art_iailkghvcg$art_i];
-                $p += '<div mxa="_zs_galleryg:l" class="pl20"><div mxa="_zs_galleryg:m" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
-                $line = 33;
-                $art = '!ss.title';
-                ;
-                $p += ($expr = '<%!ss.title%>', $n(ss.title)) + '</div>';
-                $line = 34;
-                $art = 'if ss.content';
-                ;
-                $expr = '<%if (ss.content) {%>';
-                if (ss.content) {
-                    ;
-                    $p += ' ';
-                    $line = 35;
-                    $art = '!ss.content';
-                    ;
-                    $p += ($expr = '<%!ss.content%>', $n(ss.content)) + ' ';
-                    $line = 36;
-                    $art = '/if';
-                    ;
-                    $expr = '<%}%>';
-                }
-                ;
-                $p += ' ';
-                $line = 38;
-                $art = 'if ss.subs && (ss.subs.length > 0)';
-                ;
-                $expr = '<%if (ss.subs && (ss.subs.length > 0)) {%>';
-                if (ss.subs && (ss.subs.length > 0)) {
-                    ;
-                    $p += '<div mxa="_zs_galleryg:n" class="pl20">';
-                    $line = 40;
-                    $art = 'each ss.subs as sss';
-                    ;
-                    $expr = '<%for (var $art_ilobnpqqm$art_i = 0, $art_objbqzbyepka$art_obj = ss.subs, $art_cncwcma$art_c = $art_objbqzbyepka$art_obj.length; $art_ilobnpqqm$art_i < $art_cncwcma$art_c; $art_ilobnpqqm$art_i++) {                    var sss = $art_objbqzbyepka$art_obj[$art_ilobnpqqm$art_i]%>';
-                    for (var $art_ilobnpqqm$art_i = 0, $art_objbqzbyepka$art_obj = ss.subs, $art_cncwcma$art_c = $art_objbqzbyepka$art_obj.length; $art_ilobnpqqm$art_i < $art_cncwcma$art_c; $art_ilobnpqqm$art_i++) {
-                        var sss = $art_objbqzbyepka$art_obj[$art_ilobnpqqm$art_i];
-                        $p += '<div mxa="_zs_galleryg:o" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
-                        $line = 41;
-                        $art = '!sss';
-                        ;
-                        $p += ($expr = '<%!sss%>', $n(sss)) + '</div>';
-                        $line = 42;
-                        $art = '/each';
-                        ;
-                        $expr = '<%}%>';
-                    }
-                    ;
-                    $p += '</div>';
-                    $line = 44;
-                    $art = '/if';
-                    ;
-                    $expr = '<%}%>';
+                $p += '<div mxa="_zs_galleryg:n" class="pl20">';
+                for (var $art_ijwaizdgsl$art_i = 0, $art_objmmwckfli$art_obj = ss.subs, $art_cdfbfqbkl$art_c = $art_objmmwckfli$art_obj.length; $art_ijwaizdgsl$art_i < $art_cdfbfqbkl$art_c; $art_ijwaizdgsl$art_i++) {
+                    var sss = $art_objmmwckfli$art_obj[$art_ijwaizdgsl$art_i];
+                    $p += '<div mxa="_zs_galleryg:o" class="_zs_galleryab _zs_galleryaa">' + $n(sss) + '</div>';
                 }
                 ;
                 $p += '</div>';
-                $line = 46;
-                $art = '/each';
-                ;
-                $expr = '<%}%>';
             }
             ;
             $p += '</div>';
-            $line = 48;
-            $art = '/each';
-            ;
-            $expr = '<%}%>';
         }
         ;
-        $p += '</div></div>';
-        $line = 51;
-        $art = '/each';
-        ;
-        $expr = '<%}%>';
+        $p += '</div>';
     }
     ;
-    $p += '<div mxs="_zs_galleryg:c" class="_zs_gallery___test___other_update_-update"><div class="_zs_gallery___test___other_update_-ver pl20"><span class="_zs_gallery___test___other_update_-vt">历史版本</span><span class="_zs_gallery___test___other_update_-vi">···</span></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:__test__/other/update.html';
-    throw msg;
-} return $p; },
+    $p += '</div></div>';
+} ; $p += '<div mxs="_zs_galleryg:c" class="_zs_galleryW"><div class="_zs_galleryZ pl20"><span class="_zs_gallerya_">历史版本</span><span class="_zs_galleryY">···</span></div></div>'; return $p; },
     render: function () {
         var list = [{
                 ver: '1.2.9',

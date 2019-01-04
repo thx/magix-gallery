@@ -24,73 +24,13 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', bool = $$.bool, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerybE:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybE:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerybE:_" class="mb20"><span class="color-9">以下示例：</span>配置refresh:true，数据改变的时候，刷新view</div><div mxv mxa="_zs_gallerybE:b" class="clearfix mb20"><label mxv mxa="_zs_gallerybE:c" class="fl mr20 lh32"><input mxe="' + $viewId + '_0" mxc="[';
-    $line = 10;
-    $art = ':bool{refresh:true}';
+} ; var $g = '', $_temp, $p = '', bool = $$.bool, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; $p += '<div mxv mxa="_zs_gallerybE:_" class="_zs_galleryh"><div mxv mxa="_zs_gallerybE:a" class="_zs_galleryk"><div mxs="_zs_gallerybE:_" class="mb20"><span class="color-9">以下示例：</span>配置refresh:true，数据改变的时候，刷新view</div><div mxv mxa="_zs_gallerybE:b" class="clearfix mb20"><label mxv mxa="_zs_gallerybE:c" class="fl mr20 lh32"><input mxe="' + $viewId + '_0" mxc="[{p:\'bool\',f:{refresh:true}}]" type="checkbox" name="bool" class="checkbox" '; if (bool) {
     ;
-    $p += '{p:\'bool\',f:{refresh:true}}]" type="checkbox" name="bool" class="checkbox" ';
-    $line = 11;
-    $art = 'if bool';
+    $p += ' checked="true" ';
+} ; $p += '/>切换控制input的显示与隐藏</label>'; if (bool) {
     ;
-    $expr = '<%if (bool) {%>';
-    if (bool) {
-        ;
-        $p += ' checked="true" ';
-        $line = 11;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '/>切换控制input的显示与隐藏</label>';
-    $line = 13;
-    $art = 'if bool';
-    ;
-    $expr = '<%if (bool) {%>';
-    if (bool) {
-        ;
-        $p += '<input mxs="_zs_gallerybE:a" class="fl input"/>';
-        $line = 15;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</div></div><div mxa="_zs_gallerybE:d" class="clearfix"><div mxa="_zs_gallerybE:e" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_gallerybE:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 21;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybE:f" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 23;
-    $art = '!text1';
-    ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybE:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 26;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="clearfix"&gt;\n    &lt;label class="fl mr20 lh32"&gt;\n        &lt;input type="checkbox" name="bool" class="checkbox"\n            &#123;&#123;:bool&#123;refresh:true&#125;&#125;&#125;  \n            &#123;&#123;if bool&#125;&#125; checked="true" &#123;&#123;/if&#125;&#125;/&gt;\n            切换控制input的显示与隐藏\n    &lt;/label&gt;\n    &#123;&#123;if bool&#125;&#125;\n    &lt;input type="text" class="fl input"/&gt;\n    &#123;&#123;/if&#125;&#125; \n&lt;/div&gt;</pre></div><div mxa="_zs_gallerybE:g" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerybE:d" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 41;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerybE:h" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 43;
-    $art = '!text2';
-    ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerybE:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 46;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Form = require(\'@../index\');\nlet Validator = require(\'@../validator\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend({\n    tmpl: \'@index.html\',\n    mixins: [Form, Validator],\n    render() {\n        this.updater.digest({\n            bool: true\n        });\n    }\n});</pre></div></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-form/__test__/9.html';
-    throw msg;
-} return $p; },
+    $p += '<input mxs="_zs_gallerybE:a" class="fl input"/>';
+} ; $p += '</div></div><div mxa="_zs_gallerybE:d" class="clearfix"><div mxa="_zs_gallerybE:e" class="_zs_galleryl _zs_gallerye"><div mxs="_zs_gallerybE:b" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerybE:f" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerybE:c" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;div class="clearfix"&gt;\n    &lt;label class="fl mr20 lh32"&gt;\n        &lt;input type="checkbox" name="bool" class="checkbox"\n            &#123;&#123;:bool&#123;refresh:true&#125;&#125;&#125;  \n            &#123;&#123;if bool&#125;&#125; checked="true" &#123;&#123;/if&#125;&#125;/&gt;\n            切换控制input的显示与隐藏\n    &lt;/label&gt;\n    &#123;&#123;if bool&#125;&#125;\n    &lt;input type="text" class="fl input"/&gt;\n    &#123;&#123;/if&#125;&#125; \n&lt;/div&gt;</pre></div><div mxa="_zs_gallerybE:g" class="_zs_galleryl _zs_gallerye _zs_galleryf"><div mxs="_zs_gallerybE:d" class="_zs_galleryj">JS Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_2"><span mxa="_zs_gallerybE:h" class="_zs_galleryo">' + $n(text2) + '</span><i mxs="_zs_gallerybE:c" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_2">\nlet Magix = require(\'magix\');\nlet Form = require(\'@../index\');\nlet Validator = require(\'@../validator\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend({\n    tmpl: \'@index.html\',\n    mixins: [Form, Validator],\n    render() {\n        this.updater.digest({\n            bool: true\n        });\n    }\n});</pre></div></div></div>'; return $p; },
     mixins: [Form, Validator],
     render: function () {
         this.updater.digest({

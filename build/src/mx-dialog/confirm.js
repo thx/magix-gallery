@@ -8,7 +8,7 @@ define("mx-dialog/confirm",["magix","../mx-medusa/util"],(require,exports,module
 
 var Magix = require("magix");
 var I18n = require("../mx-medusa/util");
-Magix.applyStyle("_zs_gallery_mx-dialog_alert_","._zs_gallery_mx-dialog_alert_-alert-header {\n  font-size: 16px;\n  margin-bottom: 20px;\n}\n");
+Magix.applyStyle("_zs_galleryB","._zs_gallerydD{font-size:16px;margin-bottom:20px}");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -21,48 +21,38 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', title = $$.title, content = $$.content, enterText = $$.enterText, cancelText = $$.cancelText; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryav:_" class="dialog-body"><div mxa="_zs_galleryav:a" class="_zs_gallery_mx-dialog_alert_-alert-header">' + ($expr = '<%=title%>', $e(title)) + '</div><div mxa="_zs_galleryav:b" class="word-break">' + ($expr = '<%!content%>', $n(content)) + '</div></div><div mxa="_zs_galleryav:c" class="dialog-footer"><a mxa="_zs_galleryav:d" href="javascript:;" class="btn btn-small btn-brand min-width-60 mr16" mx-click="' + $viewId + '@{enter}();">' + ($expr = '<%=enterText%>', $e(enterText)) + '</a><a mxa="_zs_galleryav:e" href="javascript:;" class="btn btn-small min-width-60" mx-click="' + $viewId + '@{cancel}()">' + ($expr = '<%=cancelText%>', $e(cancelText)) + '</a></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-dialog/confirm.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', title = $$.title, content = $$.content, enterText = $$.enterText, cancelText = $$.cancelText; $p += '<div mxa="_zs_galleryav:_" class="dialog-body"><div mxa="_zs_galleryav:a" class="_zs_gallerydD">' + $e(title) + '</div><div mxa="_zs_galleryav:b" class="word-break">' + $n(content) + '</div></div><div mxa="_zs_galleryav:c" class="dialog-footer"><a mxa="_zs_galleryav:d" href="javascript:;" class="btn btn-small btn-brand min-width-60 mr16" mx-click="' + $viewId + '__al();">' + $e(enterText) + '</a><a mxa="_zs_galleryav:e" href="javascript:;" class="btn btn-small min-width-60" mx-click="' + $viewId + '__K()">' + $e(cancelText) + '</a></div>'; return $p; },
     init: function (extra) {
         var me = this;
-        me['@{dialog}'] = extra.dialog;
-        me['@{string.content}'] = extra.content;
-        me['@{string.title}'] = extra.title || I18n['dialog.tip'];
-        me['@{string.enter}'] = extra.enterText || I18n['dialog.submit'];
-        me['@{string.cancel}'] = extra.cancelText || I18n['dialog.cancel'];
-        me['@{fn.enter.callback}'] = extra.enterCallback;
-        me['@{fn.calcel.callback}'] = extra.cancelCallback;
+        me['__af'] = extra.dialog;
+        me['__ag'] = extra.content;
+        me['__ah'] = extra.title || I18n['dialog.tip'];
+        me['__ai'] = extra.enterText || I18n['dialog.submit'];
+        me['__am'] = extra.cancelText || I18n['dialog.cancel'];
+        me['__aj'] = extra.enterCallback;
+        me['__an'] = extra.cancelCallback;
     },
     render: function () {
         var me = this;
         me.updater.digest({
-            content: me['@{string.content}'],
-            title: me['@{string.title}'],
-            enterText: me['@{string.enter}'],
-            cancelText: me['@{string.cancel}']
+            content: me['__ag'],
+            title: me['__ah'],
+            enterText: me['__ai'],
+            cancelText: me['__am']
         });
     },
-    '@{enter}<click>': function () {
+    '__al<click>': function () {
         var me = this;
-        me['@{dialog}'].close();
-        if (me['@{fn.enter.callback}']) {
-            Magix.toTry(me['@{fn.enter.callback}']);
+        me['__af'].close();
+        if (me['__aj']) {
+            Magix.toTry(me['__aj']);
         }
     },
-    '@{cancel}<click>': function () {
+    '__K<click>': function () {
         var me = this;
-        me['@{dialog}'].close();
-        if (me['@{fn.calcel.callback}']) {
-            Magix.toTry(me['@{fn.calcel.callback}']);
+        me['__af'].close();
+        if (me['__an']) {
+            Magix.toTry(me['__an']);
         }
     }
 });

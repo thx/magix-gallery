@@ -22,29 +22,7 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydm:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerydm:_" class="_zs_gallery___test___layout_-eg-content"><span class="brand-solid-icon">品牌色实心打标</span><span class="grey-solid-icon">灰色实心打标</span><span class="brand-hollow-icon">品牌色空心打标</span><span class="grey-hollow-icon">灰色空心打标</span></div><div mxa="_zs_gallerydm:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydm:a" class="_zs_gallery___test___layout_-eg-title">打标</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 10;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydm:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 12;
-    $art = '!text1';
-    ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydm:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 15;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;span class="brand-solid-icon"&gt;品牌色实心打标&lt;/span&gt;\n\n&lt;span class="grey-solid-icon"&gt;灰色实心打标&lt;/span&gt;\n\n&lt;span class="brand-hollow-icon"&gt;品牌色空心打标&lt;/span&gt;\n\n&lt;span class="grey-hollow-icon"&gt;灰色空心打标&lt;/span&gt;</pre></div></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-style/__test__/6.html';
-    throw msg;
-} return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_gallerydm:_" class="_zs_galleryh"><div mxs="_zs_gallerydm:_" class="_zs_galleryk"><span class="brand-solid-icon">品牌色实心打标</span><span class="grey-solid-icon">灰色实心打标</span><span class="brand-hollow-icon">品牌色空心打标</span><span class="grey-hollow-icon">灰色空心打标</span></div><div mxa="_zs_gallerydm:a" class="_zs_galleryl"><div mxs="_zs_gallerydm:a" class="_zs_galleryj">打标</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerydm:b" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerydm:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;span class="brand-solid-icon"&gt;品牌色实心打标&lt;/span&gt;\n\n&lt;span class="grey-solid-icon"&gt;灰色实心打标&lt;/span&gt;\n\n&lt;span class="brand-hollow-icon"&gt;品牌色空心打标&lt;/span&gt;\n\n&lt;span class="grey-hollow-icon"&gt;灰色空心打标&lt;/span&gt;</pre></div></div>'; return $p; },
     render: function () {
         this.updater.digest();
     }
