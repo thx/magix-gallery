@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iolcqglx$art_i = 0, $art_ctdezqhyzf$art_c = list.length; $art_iolcqglx$art_i < $art_ctdezqhyzf$art_c; $art_iolcqglx$art_i++) {    var item = list[$art_iolcqglx$art_i]%>';
-    for (var $art_iolcqglx$art_i = 0, $art_ctdezqhyzf$art_c = list.length; $art_iolcqglx$art_i < $art_ctdezqhyzf$art_c; $art_iolcqglx$art_i++) {
-        var item = list[$art_iolcqglx$art_i];
+    $expr = '<%for (var $art_ihsrqlvkhtv$art_i = 0, $art_cwlrnc$art_c = list.length; $art_ihsrqlvkhtv$art_i < $art_cwlrnc$art_c; $art_ihsrqlvkhtv$art_i++) {    var item = list[$art_ihsrqlvkhtv$art_i]%>';
+    for (var $art_ihsrqlvkhtv$art_i = 0, $art_cwlrnc$art_c = list.length; $art_ihsrqlvkhtv$art_i < $art_cwlrnc$art_c; $art_ihsrqlvkhtv$art_i++) {
+        var item = list[$art_ihsrqlvkhtv$art_i];
         $p += '<div mxa="_zs_galleryg:_" class="_zs_gallery___test___other_update_-update"><div mxa="_zs_galleryg:a" class="_zs_gallery___test___other_update_-ver pl20"><span mxa="_zs_galleryg:b" class="_zs_gallery___test___other_update_-vt">';
         $line = 4;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_iphvhdmfwj$art_i = 0, $art_objoijnfiagmx$art_obj = item.subs, $art_czpwfbioy$art_c = $art_objoijnfiagmx$art_obj.length; $art_iphvhdmfwj$art_i < $art_czpwfbioy$art_c; $art_iphvhdmfwj$art_i++) {        var s = $art_objoijnfiagmx$art_obj[$art_iphvhdmfwj$art_i]%>';
-        for (var $art_iphvhdmfwj$art_i = 0, $art_objoijnfiagmx$art_obj = item.subs, $art_czpwfbioy$art_c = $art_objoijnfiagmx$art_obj.length; $art_iphvhdmfwj$art_i < $art_czpwfbioy$art_c; $art_iphvhdmfwj$art_i++) {
-            var s = $art_objoijnfiagmx$art_obj[$art_iphvhdmfwj$art_i];
+        $expr = '<%for (var $art_ipfmirreu$art_i = 0, $art_objbirqxfdrl$art_obj = item.subs, $art_cwwefabq$art_c = $art_objbirqxfdrl$art_obj.length; $art_ipfmirreu$art_i < $art_cwwefabq$art_c; $art_ipfmirreu$art_i++) {        var s = $art_objbirqxfdrl$art_obj[$art_ipfmirreu$art_i]%>';
+        for (var $art_ipfmirreu$art_i = 0, $art_objbirqxfdrl$art_obj = item.subs, $art_cwwefabq$art_c = $art_objbirqxfdrl$art_obj.length; $art_ipfmirreu$art_i < $art_cwwefabq$art_c; $art_ipfmirreu$art_i++) {
+            var s = $art_objbirqxfdrl$art_obj[$art_ipfmirreu$art_i];
             $p += '<div mxa="_zs_galleryg:e" class="pl20">';
             $line = 10;
             $art = 'if s.type == \'notice\'';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
             $line = 31;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_ikwaoyytz$art_i = 0, $art_objvxiejbdcj$art_obj = s.subs, $art_cyyhrjymh$art_c = $art_objvxiejbdcj$art_obj.length; $art_ikwaoyytz$art_i < $art_cyyhrjymh$art_c; $art_ikwaoyytz$art_i++) {            var ss = $art_objvxiejbdcj$art_obj[$art_ikwaoyytz$art_i]%>';
-            for (var $art_ikwaoyytz$art_i = 0, $art_objvxiejbdcj$art_obj = s.subs, $art_cyyhrjymh$art_c = $art_objvxiejbdcj$art_obj.length; $art_ikwaoyytz$art_i < $art_cyyhrjymh$art_c; $art_ikwaoyytz$art_i++) {
-                var ss = $art_objvxiejbdcj$art_obj[$art_ikwaoyytz$art_i];
+            $expr = '<%for (var $art_ijbvif$art_i = 0, $art_objaasx$art_obj = s.subs, $art_cagxfsimwr$art_c = $art_objaasx$art_obj.length; $art_ijbvif$art_i < $art_cagxfsimwr$art_c; $art_ijbvif$art_i++) {            var ss = $art_objaasx$art_obj[$art_ijbvif$art_i]%>';
+            for (var $art_ijbvif$art_i = 0, $art_objaasx$art_obj = s.subs, $art_cagxfsimwr$art_c = $art_objaasx$art_obj.length; $art_ijbvif$art_i < $art_cagxfsimwr$art_c; $art_ijbvif$art_i++) {
+                var ss = $art_objaasx$art_obj[$art_ijbvif$art_i];
                 $p += '<div mxa="_zs_galleryg:l" class="pl20"><div mxa="_zs_galleryg:m" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                 $line = 33;
                 $art = '!ss.title';
@@ -137,9 +137,9 @@ module.exports = Magix.View.extend({
                     $line = 40;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_iytacuzek$art_i = 0, $art_objwjlzwtgkkq$art_obj = ss.subs, $art_cqmnoxle$art_c = $art_objwjlzwtgkkq$art_obj.length; $art_iytacuzek$art_i < $art_cqmnoxle$art_c; $art_iytacuzek$art_i++) {                    var sss = $art_objwjlzwtgkkq$art_obj[$art_iytacuzek$art_i]%>';
-                    for (var $art_iytacuzek$art_i = 0, $art_objwjlzwtgkkq$art_obj = ss.subs, $art_cqmnoxle$art_c = $art_objwjlzwtgkkq$art_obj.length; $art_iytacuzek$art_i < $art_cqmnoxle$art_c; $art_iytacuzek$art_i++) {
-                        var sss = $art_objwjlzwtgkkq$art_obj[$art_iytacuzek$art_i];
+                    $expr = '<%for (var $art_icjpjots$art_i = 0, $art_objobdppzcij$art_obj = ss.subs, $art_czjeqjfwlbd$art_c = $art_objobdppzcij$art_obj.length; $art_icjpjots$art_i < $art_czjeqjfwlbd$art_c; $art_icjpjots$art_i++) {                    var sss = $art_objobdppzcij$art_obj[$art_icjpjots$art_i]%>';
+                    for (var $art_icjpjots$art_i = 0, $art_objobdppzcij$art_obj = ss.subs, $art_czjeqjfwlbd$art_c = $art_objobdppzcij$art_obj.length; $art_icjpjots$art_i < $art_czjeqjfwlbd$art_c; $art_icjpjots$art_i++) {
+                        var sss = $art_objobdppzcij$art_obj[$art_icjpjots$art_i];
                         $p += '<div mxa="_zs_galleryg:o" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                         $line = 41;
                         $art = '!sss';
@@ -191,6 +191,45 @@ catch (ex) {
 } return $p; },
     render: function () {
         var list = [{
+                ver: '1.2.9',
+                time: '2019-01-04',
+                subs: [{
+                        type: 'add',
+                        subs: [{
+                                title: 'mx-indics：支持指标分组。<a href="#!/indics/index" class="color-brand">查看详情</a>'
+                            }, {
+                                title: 'mx-gtip：全局提示组件。<a href="#!/gtip/index" class="color-brand">查看详情</a>'
+                            }]
+                    }]
+            }, {
+                ver: '1.2.8',
+                time: '2018-12-28',
+                subs: [{
+                        type: 'notice',
+                        title: '实现调整',
+                        subs: [{
+                                title: 'mx-grid.title：调整 ${content} 位置，自行控制内容的浮动'
+                            }, {
+                                title: 'mx-dialog（mxModal）：全屏右出浮层卡片式'
+                            }]
+                    }, {
+                        type: 'add',
+                        subs: [{
+                                title: 'mx-dropdown：选项可配置tip提示信息'
+                            }]
+                    }]
+            }, {
+                ver: '1.2.7',
+                time: '2018-12-27',
+                subs: [{
+                        type: 'bug',
+                        subs: [{
+                                title: 'mx-switch：修正 mode=text 样式'
+                            }, {
+                                title: 'mx-tabs.box：修正 mode=hollow 样式'
+                            }]
+                    }]
+            }, {
                 ver: '1.2.6',
                 time: '2018-12-27',
                 subs: [{

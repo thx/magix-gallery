@@ -6,6 +6,45 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.9',
+            time: '2019-01-04',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-indics：支持指标分组。<a href="#!/indics/index" class="color-brand">查看详情</a>'
+                }, {
+                    title: 'mx-gtip：全局提示组件。<a href="#!/gtip/index" class="color-brand">查看详情</a>'
+                }]
+            }]
+        }, {
+            ver: '1.2.8',
+            time: '2018-12-28',
+            subs: [{
+                type: 'notice',
+                title: '实现调整',
+                subs: [{
+                    title: 'mx-grid.title：调整 ${content} 位置，自行控制内容的浮动'
+                }, {
+                    title: 'mx-dialog（mxModal）：全屏右出浮层卡片式'
+                }]
+            }, {
+                type: 'add',
+                subs: [{
+                    title: 'mx-dropdown：选项可配置tip提示信息'
+                }]
+            }]
+        }, {
+            ver: '1.2.7',
+            time: '2018-12-27',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-switch：修正 mode=text 样式'
+                },{
+                    title: 'mx-tabs.box：修正 mode=hollow 样式'
+                }]
+            }]
+        }, {
             ver: '1.2.6',
             time: '2018-12-27',
             subs: [{
