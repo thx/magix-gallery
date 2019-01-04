@@ -155,4 +155,5 @@ gulp.task('release', ['compress'], async () => {
 
     await spawnCommand('git', ['add', '.']);
     await spawnCommand('git', ['commit', '-m', 'publish ' + pkg.version]);
+    await spawnCommand('git', ['push', 'origin', 'master']);
 });
