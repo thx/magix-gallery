@@ -99,3 +99,11 @@ gulp.task('compress', ['turnOffDebug', 'combine'], () => {
         }))
         .pipe(gulp.dest('./build/src/'));
 });
+
+gulp.task('release', ['compress'], () => {
+    let cs = fs.readFileSync('./build/src/__test__/base.js').toString();
+    let index = fs.readFileSync('./index.html').toString();
+    cs = cs.replace(/\$/g, '$$$$');
+    index = index.replace(/<script id="test">[\s\S]*?<\/script>/, '<script id="test">' + cs + '</script>');
+    fs.writeFileSync('./index.html', index);
+});
