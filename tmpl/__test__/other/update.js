@@ -6,6 +6,22 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.10',
+            time: '2019-01-07',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-pagination：返回增加offset偏移量 offset =（size-1）* page'
+                }, {
+                    title: 'mx-dialog：mxModal全屏右出浮层支持浮层内配置dialogOptions，展示优先级：外部自定义属性 > 浮层内属性 > 默认属性'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'input，textarea禁用状态样式修正，与其他组件保持一致'
+                }]
+            }]
+        }, {
             ver: '1.2.9',
             time: '2019-01-04',
             subs: [{

@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ielpuuesb$art_i = 0, $art_cqwfndbh$art_c = list.length; $art_ielpuuesb$art_i < $art_cqwfndbh$art_c; $art_ielpuuesb$art_i++) {    var item = list[$art_ielpuuesb$art_i]%>';
-    for (var $art_ielpuuesb$art_i = 0, $art_cqwfndbh$art_c = list.length; $art_ielpuuesb$art_i < $art_cqwfndbh$art_c; $art_ielpuuesb$art_i++) {
-        var item = list[$art_ielpuuesb$art_i];
+    $expr = '<%for (var $art_iiaqulinl$art_i = 0, $art_cyjhguq$art_c = list.length; $art_iiaqulinl$art_i < $art_cyjhguq$art_c; $art_iiaqulinl$art_i++) {    var item = list[$art_iiaqulinl$art_i]%>';
+    for (var $art_iiaqulinl$art_i = 0, $art_cyjhguq$art_c = list.length; $art_iiaqulinl$art_i < $art_cyjhguq$art_c; $art_iiaqulinl$art_i++) {
+        var item = list[$art_iiaqulinl$art_i];
         $p += '<div mxa="_zs_galleryg:_" class="_zs_gallery___test___other_update_-update"><div mxa="_zs_galleryg:a" class="_zs_gallery___test___other_update_-ver pl20"><span mxa="_zs_galleryg:b" class="_zs_gallery___test___other_update_-vt">';
         $line = 4;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_ilttomzey$art_i = 0, $art_objnuvyrwg$art_obj = item.subs, $art_cqjxxokydz$art_c = $art_objnuvyrwg$art_obj.length; $art_ilttomzey$art_i < $art_cqjxxokydz$art_c; $art_ilttomzey$art_i++) {        var s = $art_objnuvyrwg$art_obj[$art_ilttomzey$art_i]%>';
-        for (var $art_ilttomzey$art_i = 0, $art_objnuvyrwg$art_obj = item.subs, $art_cqjxxokydz$art_c = $art_objnuvyrwg$art_obj.length; $art_ilttomzey$art_i < $art_cqjxxokydz$art_c; $art_ilttomzey$art_i++) {
-            var s = $art_objnuvyrwg$art_obj[$art_ilttomzey$art_i];
+        $expr = '<%for (var $art_ilpnoukpfb$art_i = 0, $art_objezjhonen$art_obj = item.subs, $art_cevdoismcd$art_c = $art_objezjhonen$art_obj.length; $art_ilpnoukpfb$art_i < $art_cevdoismcd$art_c; $art_ilpnoukpfb$art_i++) {        var s = $art_objezjhonen$art_obj[$art_ilpnoukpfb$art_i]%>';
+        for (var $art_ilpnoukpfb$art_i = 0, $art_objezjhonen$art_obj = item.subs, $art_cevdoismcd$art_c = $art_objezjhonen$art_obj.length; $art_ilpnoukpfb$art_i < $art_cevdoismcd$art_c; $art_ilpnoukpfb$art_i++) {
+            var s = $art_objezjhonen$art_obj[$art_ilpnoukpfb$art_i];
             $p += '<div mxa="_zs_galleryg:e" class="pl20">';
             $line = 10;
             $art = 'if s.type == \'notice\'';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
             $line = 31;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_idibbaxy$art_i = 0, $art_objpwslcpg$art_obj = s.subs, $art_cduootamr$art_c = $art_objpwslcpg$art_obj.length; $art_idibbaxy$art_i < $art_cduootamr$art_c; $art_idibbaxy$art_i++) {            var ss = $art_objpwslcpg$art_obj[$art_idibbaxy$art_i]%>';
-            for (var $art_idibbaxy$art_i = 0, $art_objpwslcpg$art_obj = s.subs, $art_cduootamr$art_c = $art_objpwslcpg$art_obj.length; $art_idibbaxy$art_i < $art_cduootamr$art_c; $art_idibbaxy$art_i++) {
-                var ss = $art_objpwslcpg$art_obj[$art_idibbaxy$art_i];
+            $expr = '<%for (var $art_itgkwlkem$art_i = 0, $art_objuqdrrgfts$art_obj = s.subs, $art_chcrfyzao$art_c = $art_objuqdrrgfts$art_obj.length; $art_itgkwlkem$art_i < $art_chcrfyzao$art_c; $art_itgkwlkem$art_i++) {            var ss = $art_objuqdrrgfts$art_obj[$art_itgkwlkem$art_i]%>';
+            for (var $art_itgkwlkem$art_i = 0, $art_objuqdrrgfts$art_obj = s.subs, $art_chcrfyzao$art_c = $art_objuqdrrgfts$art_obj.length; $art_itgkwlkem$art_i < $art_chcrfyzao$art_c; $art_itgkwlkem$art_i++) {
+                var ss = $art_objuqdrrgfts$art_obj[$art_itgkwlkem$art_i];
                 $p += '<div mxa="_zs_galleryg:l" class="pl20"><div mxa="_zs_galleryg:m" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                 $line = 33;
                 $art = '!ss.title';
@@ -137,9 +137,9 @@ module.exports = Magix.View.extend({
                     $line = 40;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_iaesxkicgxb$art_i = 0, $art_objfwhnrkxz$art_obj = ss.subs, $art_ccezwgzjoj$art_c = $art_objfwhnrkxz$art_obj.length; $art_iaesxkicgxb$art_i < $art_ccezwgzjoj$art_c; $art_iaesxkicgxb$art_i++) {                    var sss = $art_objfwhnrkxz$art_obj[$art_iaesxkicgxb$art_i]%>';
-                    for (var $art_iaesxkicgxb$art_i = 0, $art_objfwhnrkxz$art_obj = ss.subs, $art_ccezwgzjoj$art_c = $art_objfwhnrkxz$art_obj.length; $art_iaesxkicgxb$art_i < $art_ccezwgzjoj$art_c; $art_iaesxkicgxb$art_i++) {
-                        var sss = $art_objfwhnrkxz$art_obj[$art_iaesxkicgxb$art_i];
+                    $expr = '<%for (var $art_ijzdtkn$art_i = 0, $art_objlarhxufa$art_obj = ss.subs, $art_cxoqcfyr$art_c = $art_objlarhxufa$art_obj.length; $art_ijzdtkn$art_i < $art_cxoqcfyr$art_c; $art_ijzdtkn$art_i++) {                    var sss = $art_objlarhxufa$art_obj[$art_ijzdtkn$art_i]%>';
+                    for (var $art_ijzdtkn$art_i = 0, $art_objlarhxufa$art_obj = ss.subs, $art_cxoqcfyr$art_c = $art_objlarhxufa$art_obj.length; $art_ijzdtkn$art_i < $art_cxoqcfyr$art_c; $art_ijzdtkn$art_i++) {
+                        var sss = $art_objlarhxufa$art_obj[$art_ijzdtkn$art_i];
                         $p += '<div mxa="_zs_galleryg:o" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                         $line = 41;
                         $art = '!sss';
@@ -191,6 +191,22 @@ catch (ex) {
 } return $p; },
     render: function () {
         var list = [{
+                ver: '1.2.10',
+                time: '2019-01-07',
+                subs: [{
+                        type: 'add',
+                        subs: [{
+                                title: 'mx-pagination：返回增加offset偏移量 offset =（size-1）* page'
+                            }, {
+                                title: 'mx-dialog：mxModal全屏右出浮层支持浮层内配置dialogOptions，展示优先级：外部自定义属性 > 浮层内属性 > 默认属性'
+                            }]
+                    }, {
+                        type: 'bug',
+                        subs: [{
+                                title: 'input，textarea禁用状态样式修正，与其他组件保持一致'
+                            }]
+                    }]
+            }, {
                 ver: '1.2.9',
                 time: '2019-01-04',
                 subs: [{
