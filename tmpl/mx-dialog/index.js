@@ -1,4 +1,3 @@
-/*md5:f6e8d1189e050a0efe8a486b195eb980*/
 let Magix = require('magix');
 let $ = require('$');
 let Vframe = Magix.Vframe;
@@ -55,23 +54,23 @@ module.exports = Magix.View.extend({
             wrapper.css(data.posTo);
 
             let cntId = data.cntId;
-            if(data.full){
+            if (data.full) {
                 let h = window.innerHeight;
                 let fh = $('#' + cntId + '_header'),
                     ff = $('#' + cntId + '_footer');
-                if(fh && fh.length){
+                if (fh && fh.length) {
                     h -= fh.outerHeight();
                 }
-                if(ff && ff.length){
+                if (ff && ff.length) {
                     h -= ff.outerHeight();
                 }
 
                 // 全屏右出浮层
                 let fcss = {
-                    height: h - 2, 
+                    height: h - 2,
                     overflowY: 'auto'
                 }
-                if(data.card){
+                if (data.card) {
                     fcss.backgroundColor = '#e8ebf2';
                     fcss.padding = '16px 24px';
                 }
@@ -110,7 +109,7 @@ module.exports = Magix.View.extend({
         let node = $(e.eventTarget);
         let cc = '@index.less:btn-submit-loading';
 
-        if(node.hasClass(cc)){
+        if (node.hasClass(cc)) {
             // 防止重复提交
             return;
         }
@@ -120,23 +119,23 @@ module.exports = Magix.View.extend({
         let me = this;
         let data = me.updater.get();
         let cntId = data.cntId;
-        let vf = Vframe.get(cntId); 
+        let vf = Vframe.get(cntId);
         vf.invoke('check').then(result => {
             node.find('.@index.less:submit-loading').remove();
             node.removeClass(cc);
 
             let errorNode = $('#' + cntId + '_footer_error');
-            if(result.ok){
+            if (result.ok) {
                 errorNode.html('');
                 me['@{close}<click>']();
 
-                if(data.callback){
+                if (data.callback) {
                     data.callback(result.data || {});
                 }
-            }else{
-                if(result.msg){
+            } else {
+                if (result.msg) {
                     errorNode.html(`<i class="mc-iconfont displacement-2">&#xe6ad;</i>${result.msg}`);
-                }else{
+                } else {
                     errorNode.html('');
                 }
             }
@@ -173,17 +172,17 @@ module.exports = Magix.View.extend({
             left = options.left,
             top = options.top;
         let wrapper = $(`<div class="@index.less:dialog-wrapper" id="${wrapperId}"
-        style="z-index:${wrapperZIndex}">
-        <div class="@index.less:dialog" id="${id}"
-            style="top:${top}px; left:${left}px; width:${width}px;"></div>
-    </div>`);
+    style="z-index:${wrapperZIndex}">
+    <div class="@index.less:dialog" id="${id}"
+        style="top:${top}px; left:${left}px; width:${width}px;"></div>
+</div>`);
         wrapper.css(options.posFrom);
         $(document.body).append(wrapper);
 
         // 禁止body滚动
         // 有滚动条的时候，加上右padding，防止页面抖动
-        if(window.innerWidth - document.body.clientWidth > 0){
-            document.body.style.paddingRight = (window.innerWidth - document.body.clientWidth) + 'px';
+        if (window.innerWidth - document.body.clientWidth > 0) {
+            document.body.style.paddingRight = (window.innerWidth - document.body.clientWidth) + 'px';
         }
         document.body.style.overflowY = 'hidden';
 
@@ -221,7 +220,7 @@ module.exports = Magix.View.extend({
                                 $('#mask_' + id).remove();
 
                                 // 有浮层展开的情况下，body都不可滚动
-                                if(CacheList.length == 0){
+                                if (CacheList.length == 0) {
                                     document.body.style.paddingRight = '';
                                     document.body.style.overflowY = '';
                                 }
@@ -369,105 +368,27 @@ module.exports = Magix.View.extend({
      *      }
      */
     mxModal(view, viewOptions, dialogOptions) {
-        let me = this;
-        let dlg;
-        let beforeCloseCallback,
-            afterCloseCallback;
-
-        let output = {
-            beforeClose(fn) {
-                // 关闭浮层前调用
-                // return true 关闭
-                // return false 不关闭浮层
-                beforeCloseCallback = fn;
-            },
-            close() {
-                if (dlg) {
-                    dlg.trigger('dlg_close');
-                }
-            },
-            afterClose(fn) {
-                // 关闭浮层后调用
-                afterCloseCallback = fn;
-            }
-        };
-
-        let dOptions = {
-            view: view
-        };
-        seajs.use(view, me.wrapAsync(V => {
-            let key = '$dlg_' + view;
-            if (me[key]) {
-                return;
-            }
-            me[key] = 1;
-
-            // 优先级：外部传入的 > view本身配置的 > 默认
-
-            // 浮层内部的配置
-            Magix.mix(dOptions, V.dialogOptions || {});
-
-            // 调用时候的配置，浮层展示位置
-            dialogOptions = Magix.mix({
-                closable: true,
-                mask: true
-            }, dialogOptions || {});
-    
-            let winWidth = window.innerWidth,
-                winHeight = window.innerHeight;
-            let width = dialogOptions.width || dOptions.width || 600;
-            let left = Math.max(winWidth - width, 0),
-                top = 0;
-            Magix.mix(dialogOptions, {
-                full: true,
-                fullHeader: Magix.mix({
-                    title: '',
-                    tip: ''
-                }, dialogOptions.header || {}),
-                fullFooter: Magix.mix({
-                    enter: true,
-                    enterText: I18n['dialog.submit'],
-                    cancel: true,
-                    cancelText: I18n['dialog.cancel']
-                }, dialogOptions.footer || {}),
-                modal: false,
-                height: winHeight,
-                left,
-                top,
-                posFrom: {
-                    opacity: 0,
-                    top,
-                    left: winWidth
-                },
-                posTo: {
-                    opacity: 1,
-                    top,
-                    left: 0
-                },
-                card: (dialogOptions.card + '' !== 'false')
-            })
-            Magix.mix(dOptions, dialogOptions);
-
-            // 数据
-            Magix.mix(dOptions, viewOptions);
-            dOptions.dialog = output;
-            dlg = me['@{dialog.show}'](me, dOptions);
-
-            dlg.on('beforeClose', (event) => {
-                if (!beforeCloseCallback || (beforeCloseCallback && beforeCloseCallback())) {
-                    event.closeFn();
-                }
-            })
-
-            dlg.on('close', () => {
-                delete me[key];
-                if (afterCloseCallback) {
-                    afterCloseCallback();
-                }
-            });
-        }));
-
-        return output;
+        dialogOptions = dialogOptions || {}
+        return this.mxDialog(view, viewOptions, Magix.mix({
+            closable: true,
+            mask: true
+        }, Magix.mix((dialogOptions || {}), {
+            full: true,
+            fullHeader: Magix.mix({
+                title: '',
+                tip: ''
+            }, dialogOptions.header || {}),
+            fullFooter: Magix.mix({
+                enter: true,
+                enterText: I18n['dialog.submit'],
+                cancel: true,
+                cancelText: I18n['dialog.cancel']
+            }, dialogOptions.footer || {}),
+            modal: false,
+            height: window.innerHeight,
+            placement: 'right',
+            card: (dialogOptions.card + '' !== 'false')
+        })));
     },
 
 
@@ -528,23 +449,54 @@ module.exports = Magix.View.extend({
 
             // 调用时候的配置，浮层展示位置
             dialogOptions = dialogOptions || {};
+
+            // 显示位置：
+            //     center：居中
+            //     right：右侧
+            let placement = dialogOptions.placement || 'center';
             let width = dialogOptions.width || dOptions.width || 400,
                 height = dialogOptions.height || dOptions.height || 260;
+
+            let left, top, posFrom, posTo;
+            let winWidth = window.innerWidth,
+                winHeight = window.innerHeight;
+            switch (placement){
+                case 'center':
+                    left = (winWidth - width) / 2;
+                    top = Math.max((winHeight - height) / 2, 0);
+                    posFrom = {
+                        opacity: 0,
+                        top: '-50px'
+                    }
+                    posTo = {
+                        opacity: 1,
+                        top: 0
+                    }
+                    break;
+                case 'right':
+                    left = winWidth - width;
+                    top = 0;
+                    posFrom = {
+                        opacity: 0,
+                        top: 0,
+                        left: winWidth
+                    }
+                    posTo = {
+                        opacity: 1,
+                        top: 0,
+                        left: 0
+                    }
+                    break;
+            }
             Magix.mix(dOptions, Magix.mix({
                 mask: true,
                 modal: false,
                 width: width,
                 closable: true,
-                left: (window.innerWidth - width) / 2,
-                top: Math.max((window.innerHeight - height) / 2, 0),
-                posFrom: {
-                    opacity: 0,
-                    top: '-50px'
-                },
-                posTo: {
-                    opacity: 1,
-                    top: 0
-                }
+                left,
+                top,
+                posFrom,
+                posTo
             }, dialogOptions));
 
             // 数据

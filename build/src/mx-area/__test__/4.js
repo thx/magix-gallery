@@ -45,9 +45,9 @@ module.exports = Base.extend({
     $line = 26;
     $art = 'each arrs as item';
     ;
-    $expr = '<%for (var $art_inhqpsrny$art_i = 0, $art_cmmacom$art_c = arrs.length; $art_inhqpsrny$art_i < $art_cmmacom$art_c; $art_inhqpsrny$art_i++) {    var item = arrs[$art_inhqpsrny$art_i]%>';
-    for (var $art_inhqpsrny$art_i = 0, $art_cmmacom$art_c = arrs.length; $art_inhqpsrny$art_i < $art_cmmacom$art_c; $art_inhqpsrny$art_i++) {
-        var item = arrs[$art_inhqpsrny$art_i];
+    $expr = '<%for (var $art_ivyxvdbcza$art_i = 0, $art_cqaubzspfj$art_c = arrs.length; $art_ivyxvdbcza$art_i < $art_cqaubzspfj$art_c; $art_ivyxvdbcza$art_i++) {    var item = arrs[$art_ivyxvdbcza$art_i]%>';
+    for (var $art_ivyxvdbcza$art_i = 0, $art_cqaubzspfj$art_c = arrs.length; $art_ivyxvdbcza$art_i < $art_cqaubzspfj$art_c; $art_ivyxvdbcza$art_i++) {
+        var item = arrs[$art_ivyxvdbcza$art_i];
         $p += '<div>';
         $line = 27;
         $art = '=item.name';

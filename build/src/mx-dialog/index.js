@@ -6,7 +6,6 @@
 define("mx-dialog/index",["magix","$","../mx-medusa/util"],(require,exports,module)=>{
 /*Magix,$,I18n*/
 
-/*md5:f6e8d1189e050a0efe8a486b195eb980*/
 var Magix = require("magix");
 var $ = require("$");
 var Vframe = Magix.Vframe;
@@ -337,7 +336,7 @@ catch (ex) {
             $(document.body).append(mask);
         }
         var wrapperId = 'wrapper_' + id, wrapperZIndex = DialogZIndex, width = options.width, left = options.left, top = options.top;
-        var wrapper = $("<div class=\"_zs_gallery_mx-dialog_index_-dialog-wrapper\" id=\"" + wrapperId + "\"\n        style=\"z-index:" + wrapperZIndex + "\">\n        <div class=\"_zs_gallery_mx-dialog_index_-dialog\" id=\"" + id + "\"\n            style=\"top:" + top + "px; left:" + left + "px; width:" + width + "px;\"></div>\n    </div>");
+        var wrapper = $("<div class=\"_zs_gallery_mx-dialog_index_-dialog-wrapper\" id=\"" + wrapperId + "\"\n    style=\"z-index:" + wrapperZIndex + "\">\n    <div class=\"_zs_gallery_mx-dialog_index_-dialog\" id=\"" + id + "\"\n        style=\"top:" + top + "px; left:" + left + "px; width:" + width + "px;\"></div>\n</div>");
         wrapper.css(options.posFrom);
         $(document.body).append(wrapper);
         // 禁止body滚动
@@ -518,92 +517,27 @@ catch (ex) {
      *      }
      */
     mxModal: function (view, viewOptions, dialogOptions) {
-        var me = this;
-        var dlg;
-        var beforeCloseCallback, afterCloseCallback;
-        var output = {
-            beforeClose: function (fn) {
-                // 关闭浮层前调用
-                // return true 关闭
-                // return false 不关闭浮层
-                beforeCloseCallback = fn;
-            },
-            close: function () {
-                if (dlg) {
-                    dlg.trigger('dlg_close');
-                }
-            },
-            afterClose: function (fn) {
-                // 关闭浮层后调用
-                afterCloseCallback = fn;
-            }
-        };
-        var dOptions = {
-            view: view
-        };
-        seajs.use(view, me.wrapAsync(function (V) {
-            var key = '$dlg_' + view;
-            if (me[key]) {
-                return;
-            }
-            me[key] = 1;
-            // 优先级：外部传入的 > view本身配置的 > 默认
-            // 浮层内部的配置
-            Magix.mix(dOptions, V.dialogOptions || {});
-            // 调用时候的配置，浮层展示位置
-            dialogOptions = Magix.mix({
-                closable: true,
-                mask: true
-            }, dialogOptions || {});
-            var winWidth = window.innerWidth, winHeight = window.innerHeight;
-            var width = dialogOptions.width || dOptions.width || 600;
-            var left = Math.max(winWidth - width, 0), top = 0;
-            Magix.mix(dialogOptions, {
-                full: true,
-                fullHeader: Magix.mix({
-                    title: '',
-                    tip: ''
-                }, dialogOptions.header || {}),
-                fullFooter: Magix.mix({
-                    enter: true,
-                    enterText: I18n['dialog.submit'],
-                    cancel: true,
-                    cancelText: I18n['dialog.cancel']
-                }, dialogOptions.footer || {}),
-                modal: false,
-                height: winHeight,
-                left: left,
-                top: top,
-                posFrom: {
-                    opacity: 0,
-                    top: top,
-                    left: winWidth
-                },
-                posTo: {
-                    opacity: 1,
-                    top: top,
-                    left: 0
-                },
-                card: (dialogOptions.card + '' !== 'false')
-            });
-            Magix.mix(dOptions, dialogOptions);
-            // 数据
-            Magix.mix(dOptions, viewOptions);
-            dOptions.dialog = output;
-            dlg = me['@{dialog.show}'](me, dOptions);
-            dlg.on('beforeClose', function (event) {
-                if (!beforeCloseCallback || (beforeCloseCallback && beforeCloseCallback())) {
-                    event.closeFn();
-                }
-            });
-            dlg.on('close', function () {
-                delete me[key];
-                if (afterCloseCallback) {
-                    afterCloseCallback();
-                }
-            });
-        }));
-        return output;
+        dialogOptions = dialogOptions || {};
+        return this.mxDialog(view, viewOptions, Magix.mix({
+            closable: true,
+            mask: true
+        }, Magix.mix((dialogOptions || {}), {
+            full: true,
+            fullHeader: Magix.mix({
+                title: '',
+                tip: ''
+            }, dialogOptions.header || {}),
+            fullFooter: Magix.mix({
+                enter: true,
+                enterText: I18n['dialog.submit'],
+                cancel: true,
+                cancelText: I18n['dialog.cancel']
+            }, dialogOptions.footer || {}),
+            modal: false,
+            height: window.innerHeight,
+            placement: 'right',
+            card: (dialogOptions.card + '' !== 'false')
+        })));
     },
     /**
      * this.mxDialog(viewPath[string], viewOptions[object], dialogOptions[object])
@@ -656,22 +590,50 @@ catch (ex) {
             Magix.mix(dOptions, V.dialogOptions || {});
             // 调用时候的配置，浮层展示位置
             dialogOptions = dialogOptions || {};
+            // 显示位置：
+            //     center：居中
+            //     right：右侧
+            var placement = dialogOptions.placement || 'center';
             var width = dialogOptions.width || dOptions.width || 400, height = dialogOptions.height || dOptions.height || 260;
+            var left, top, posFrom, posTo;
+            var winWidth = window.innerWidth, winHeight = window.innerHeight;
+            switch (placement) {
+                case 'center':
+                    left = (winWidth - width) / 2;
+                    top = Math.max((winHeight - height) / 2, 0);
+                    posFrom = {
+                        opacity: 0,
+                        top: '-50px'
+                    };
+                    posTo = {
+                        opacity: 1,
+                        top: 0
+                    };
+                    break;
+                case 'right':
+                    left = winWidth - width;
+                    top = 0;
+                    posFrom = {
+                        opacity: 0,
+                        top: 0,
+                        left: winWidth
+                    };
+                    posTo = {
+                        opacity: 1,
+                        top: 0,
+                        left: 0
+                    };
+                    break;
+            }
             Magix.mix(dOptions, Magix.mix({
                 mask: true,
                 modal: false,
                 width: width,
                 closable: true,
-                left: (window.innerWidth - width) / 2,
-                top: Math.max((window.innerHeight - height) / 2, 0),
-                posFrom: {
-                    opacity: 0,
-                    top: '-50px'
-                },
-                posTo: {
-                    opacity: 1,
-                    top: 0
-                }
+                left: left,
+                top: top,
+                posFrom: posFrom,
+                posTo: posTo
             }, dialogOptions));
             // 数据
             Magix.mix(dOptions, viewOptions);
