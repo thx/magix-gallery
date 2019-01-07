@@ -9,7 +9,7 @@ define("mx-carousel/index",["magix","$","../mx-runner/index"],(require,exports,m
 var Magix = require("magix");
 var $ = require("$");
 var Runner = require("../mx-runner/index");
-Magix.applyStyle("_zs_galleryy","._zs_gallerycY{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerycZ{position:relative;width:100%;overflow:hidden}._zs_gallerycZ ._zs_galleryd_{position:relative;z-index:3}._zs_galleryda{display:inline-block;vertical-align:top}._zs_galleryda ._zs_gallerydb{cursor:pointer;background-color:#fff;opacity:.5;display:block;border-radius:1px;transition:all .5s}._zs_galleryda ._zs_gallerydb:hover{opacity:.8}._zs_gallerydc{position:absolute;left:0;bottom:12px;z-index:4;height:5px;width:100%;text-align:center}._zs_gallerydc ._zs_galleryda{margin:0 2px}._zs_gallerydc ._zs_galleryda ._zs_gallerydb{width:20px;height:5px}._zs_gallerydc ._zs_galleryda ._zs_gallerydb._zs_gallerydd{opacity:1;width:28px}._zs_galleryde{position:absolute;top:50%;right:12px;z-index:4;width:5px;-webkit-transform:translateY(-50%);transform:translateY(-50%)}._zs_galleryde ._zs_galleryda{margin:2px 0}._zs_galleryde ._zs_galleryda ._zs_gallerydb{width:5px;height:20px}._zs_galleryde ._zs_galleryda ._zs_gallerydb._zs_gallerydd{opacity:1;height:28px}");
+Magix.applyStyle("_zs_gallery_mx-carousel_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-carousel_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-carousel_index_-carousel {\n  position: relative;\n  width: 100%;\n  overflow: hidden;\n}\n._zs_gallery_mx-carousel_index_-carousel ._zs_gallery_mx-carousel_index_-inner {\n  position: relative;\n  z-index: 3;\n}\n._zs_gallery_mx-carousel_index_-dot-cnt {\n  display: inline-block;\n  vertical-align: top;\n}\n._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot {\n  cursor: pointer;\n  background-color: #fff;\n  opacity: 0.5;\n  display: block;\n  border-radius: 1px;\n  transition: all 0.5s;\n}\n._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot:hover {\n  opacity: 0.8;\n}\n._zs_gallery_mx-carousel_index_-dots {\n  position: absolute;\n  left: 0;\n  bottom: 12px;\n  z-index: 4;\n  height: 5px;\n  width: 100%;\n  text-align: center;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot-cnt {\n  margin: 0 2px;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot {\n  width: 20px;\n  height: 5px;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  opacity: 1;\n  width: 28px;\n}\n._zs_gallery_mx-carousel_index_-v-dots {\n  position: absolute;\n  top: 50%;\n  right: 12px;\n  z-index: 4;\n  width: 5px;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot-cnt {\n  margin: 2px 0;\n}\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot {\n  width: 5px;\n  height: 20px;\n}\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  opacity: 1;\n  height: 28px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -22,31 +22,88 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', height = $$.height, content = $$.content, dots = $$.dots, vertical = $$.vertical, len = $$.len, dotClass = $$.dotClass; $p += '<div class="_zs_gallerycZ" style="height: ' + $e(height) + 'px;"><div mxa="_zs_gallery,:_" class="_zs_galleryd_" mx-mouseover="' + $viewId + '__l()" mx-mouseout="' + $viewId + '__Z()">' + $n(content) + '</div>'; if (dots) {
+} ; var $g = '', $_temp, $p = '', height = $$.height, content = $$.content, dots = $$.dots, vertical = $$.vertical, len = $$.len, dotClass = $$.dotClass; var $expr, $art, $line; try {
+    $p += '<div class="_zs_gallery_mx-carousel_index_-carousel" style="height: ';
+    $line = 1;
+    $art = '=height';
     ;
-    $p += '<ul class="';
-    if (vertical) {
+    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_gallery,:_" class="_zs_gallery_mx-carousel_index_-inner" mx-mouseover="' + $viewId + '@{stop}()" mx-mouseout="' + $viewId + '@{start}()">';
+    $line = 5;
+    $art = '!content';
+    ;
+    $p += ($expr = '<%!content%>', $n(content)) + '</div>';
+    $line = 7;
+    $art = 'if dots';
+    ;
+    $expr = '<%if (dots) {%>';
+    if (dots) {
         ;
-        $p += ' _zs_galleryde ';
-    }
-    else {
+        $p += '<ul class="';
+        $line = 8;
+        $art = 'if vertical';
         ;
-        $p += ' _zs_gallerydc ';
+        $expr = '<%if (vertical) {%>';
+        if (vertical) {
+            ;
+            $p += ' _zs_gallery_mx-carousel_index_-v-dots ';
+            $line = 8;
+            $art = 'else';
+            ;
+            $expr = '<%}    else {%>';
+        }
+        else {
+            ;
+            $p += ' _zs_gallery_mx-carousel_index_-dots ';
+            $line = 8;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '" mx-mouseover="' + $viewId + '@{stop}()" mx-mouseout="' + $viewId + '@{start}()">';
+        $line = 11;
+        $art = 'for (let i=0;i<len;i+=1)';
+        ;
+        $expr = '<%for (var i = 0; i < len; i += 1) {%>';
+        for (var i = 0; i < len; i += 1) {
+            ;
+            $p += '<li mxa="_zs_gallery,:a" class="_zs_gallery_mx-carousel_index_-dot-cnt"><i class="_zs_gallery_mx-carousel_index_-dot ';
+            $line = 13;
+            $art = '=dotClass';
+            ;
+            $p += ($expr = '<%=dotClass%>', $e(dotClass)) + '" mx-click="' + $viewId + '@{active}({idx:';
+            $line = 13;
+            $art = '=i';
+            ;
+            $p += ($expr = '<%=i%>', $e(i)) + '})"></i></li>';
+            $line = 15;
+            $art = '/for';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</ul>';
+        $line = 17;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
     }
     ;
-    $p += '" mx-mouseover="' + $viewId + '__l()" mx-mouseout="' + $viewId + '__Z()">';
-    for (var i = 0; i < len; i += 1) {
-        ;
-        $p += '<li mxa="_zs_gallery,:a" class="_zs_galleryda"><i class="_zs_gallerydb ' + $e(dotClass) + '" mx-click="' + $viewId + '__Y({idx:' + $e(i) + '})"></i></li>';
-    }
-    ;
-    $p += '</ul>';
-} ; $p += '</div>'; return $p; },
+    $p += '</div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-carousel/index.html';
+    throw msg;
+} return $p; },
     init: function (extra) {
         var that = this;
         var node = $('#' + that.id);
-        that['__j'] = node;
-        that['__N'] = extra;
+        that['@{owner.node}'] = node;
+        that['@{extra.info}'] = extra;
         that.updater.set({
             mode: extra.mode || 'carousel',
             width: extra.width || $(node).width() || 400,
@@ -62,46 +119,46 @@ module.exports = Magix.View.extend({
         });
         if (extra.prevTrigger) {
             $('#' + extra.prevTrigger).on('click', function () {
-                that['__O'](-1);
+                that['@{trigger}'](-1);
             });
         }
         if (extra.nextTrigger) {
             $('#' + extra.nextTrigger).on('click', function () {
-                that['__O'](1);
+                that['@{trigger}'](1);
             });
         }
         that.on('destroy', function () {
-            that['__P']();
-            if (that['__Q']) {
-                clearTimeout(that['__Q']);
+            that['@{stop.auto.play}']();
+            if (that['@{over.timer}']) {
+                clearTimeout(that['@{over.timer}']);
             }
         });
     },
     render: function () {
         var that = this;
         var data = that.updater.get();
-        var node = that['__j'];
+        var node = that['@{owner.node}'];
         var children = node.children();
         that.updater.digest({
             len: children.length,
             content: node.html()
         });
-        that['__R'] = node.find('._zs_gallerydb');
-        var panelsCnt = node.find('._zs_galleryd_');
-        that['__S'] = panelsCnt;
-        that['__T'] = panelsCnt.find('[data-carousel="true"]');
-        that['__U']();
-        that['__V'](data.active, 1);
+        that['@{dots.node}'] = node.find('._zs_gallery_mx-carousel_index_-dot');
+        var panelsCnt = node.find('._zs_gallery_mx-carousel_index_-inner');
+        that['@{panels.cnt}'] = panelsCnt;
+        that['@{panels.node}'] = panelsCnt.find('[data-carousel="true"]');
+        that['@{update.stage.size}']();
+        that['@{to.panel}'](data.active, 1);
         if (data.autoplay) {
-            that['__W']();
+            that['@{start.auto.play}']();
         }
     },
-    '__U': function () {
+    '@{update.stage.size}': function () {
         var that = this;
-        var node = that['__j'];
+        var node = that['@{owner.node}'];
         var data = that.updater.get();
         var w = data.width, h = data.height, mode = data.mode;
-        var panelNodes = that['__T'];
+        var panelNodes = that['@{panels.node}'];
         switch (mode) {
             case 'carousel':
                 for (var index = 0; index < panelNodes.length; index++) {
@@ -141,13 +198,13 @@ module.exports = Magix.View.extend({
                 break;
         }
         if (data.vertical) {
-            that['__S'].height(panelNodes.length * h).width(w);
+            that['@{panels.cnt}'].height(panelNodes.length * h).width(w);
         }
         else {
-            that['__S'].width(panelNodes.length * w).height(h);
+            that['@{panels.cnt}'].width(panelNodes.length * w).height(h);
         }
     },
-    '__V': function (active, immediate) {
+    '@{to.panel}': function (active, immediate) {
         var that = this;
         var updater = that.updater;
         var data = updater.get();
@@ -165,10 +222,10 @@ module.exports = Magix.View.extend({
                 if (immediate) {
                     delete style.transition;
                 }
-                that['__S'].css(style);
+                that['@{panels.cnt}'].css(style);
                 break;
             case 'fade':
-                var panelNodes = that['__T'];
+                var panelNodes = that['@{panels.node}'];
                 panelNodes.css({
                     opacity: 0
                 });
@@ -182,30 +239,30 @@ module.exports = Magix.View.extend({
                 });
                 break;
         }
-        var cName = '_zs_gallerydd';
-        that['__R'].removeClass(cName).eq(active).addClass(cName);
+        var cName = '_zs_gallery_mx-carousel_index_-active';
+        that['@{dots.node}'].removeClass(cName).eq(active).addClass(cName);
     },
-    '__W': function () {
+    '@{start.auto.play}': function () {
         var that = this;
         var data = that.updater.get();
         if (data.autoplay) {
             var active_1 = data.active;
-            that['__X'] = setInterval(function () {
+            that['@{play.task}'] = setInterval(function () {
                 var n = ++active_1;
-                if (n >= that['__T'].length) {
+                if (n >= that['@{panels.node}'].length) {
                     active_1 = n = 0;
                 }
-                that['__V'](n);
+                that['@{to.panel}'](n);
             }, data.interval);
         }
     },
-    '__P': function () {
+    '@{stop.auto.play}': function () {
         var that = this;
-        if (that['__X']) {
-            clearInterval(that['__X']);
+        if (that['@{play.task}']) {
+            clearInterval(that['@{play.task}']);
         }
     },
-    '__O': function (offset) {
+    '@{trigger}': function (offset) {
         var active = this.updater.get('active'), len = this.updater.get('len');
         active = +active + offset;
         if (active >= len) {
@@ -214,36 +271,36 @@ module.exports = Magix.View.extend({
         if (active < 0) {
             active = (len - 1);
         }
-        this['__V'](active);
+        this['@{to.panel}'](active);
     },
-    '__Y<click>': function (e) {
-        this['__V'](e.params.idx);
+    '@{active}<click>': function (e) {
+        this['@{to.panel}'](e.params.idx);
     },
-    '__Z<mouseout>': function (e) {
+    '@{start}<mouseout>': function (e) {
         var that = this;
         if (!Magix.inside(e.relatedTarget, that.id)) {
-            that['__Q'] = setTimeout(that.wrapAsync(that['__W'], that), 50);
+            that['@{over.timer}'] = setTimeout(that.wrapAsync(that['@{start.auto.play}'], that), 50);
         }
     },
-    '__l<mouseover>': function (e) {
+    '@{stop}<mouseover>': function (e) {
         var that = this;
         if (!Magix.inside(e.relatedTarget, that.id)) {
-            if (that['__Q']) {
-                clearTimeout(that['__Q']);
+            if (that['@{over.timer}']) {
+                clearTimeout(that['@{over.timer}']);
             }
-            that['__P']();
+            that['@{stop.auto.play}']();
         }
     },
     '$win<resize>': function () {
         var that = this;
         var data = that.updater.get();
-        var extra = that['__N'];
-        var node = that['__j'];
+        var extra = that['@{extra.info}'];
+        var node = that['@{owner.node}'];
         that.updater.set({
             width: extra.width || $(node).width() || 400
         });
-        that['__U']();
-        that['__V'](data.active, 1);
+        that['@{update.stage.size}']();
+        that['@{to.panel}'](data.active, 1);
     }
 });
 

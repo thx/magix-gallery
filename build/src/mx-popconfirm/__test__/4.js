@@ -23,7 +23,29 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_gallerycw:_" class="_zs_galleryh"><div mxs="_zs_gallerycw:_" class="_zs_galleryk"><span mx-view="mx-popconfirm/index?content=%E7%A1%AE%E8%AE%A4%E5%88%A0%E9%99%A4%E5%90%97%EF%BC%9F&width=260&alignText=center"><a href="javascript:;" class="link-brand">删除</a></span></div><div mxa="_zs_gallerycw:a" class="_zs_galleryl"><div mxs="_zs_gallerycw:a" class="_zs_galleryj">自定义宽度 + 文字居中对齐</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerycw:b" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerycw:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-popconfirm \n    content="确认删除吗？"\n    width="260"\n    align-text="center"&gt;\n    &lt;a href="javascript:;" class="link-brand"&gt;删除&lt;/a&gt;\n&lt;/mx-popconfirm&gt;</pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerycw:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerycw:_" class="_zs_gallery___test___layout_-eg-content"><span mx-view="mx-popconfirm/index?content=%E7%A1%AE%E8%AE%A4%E5%88%A0%E9%99%A4%E5%90%97%EF%BC%9F&width=260&alignText=center"><a href="javascript:;" class="link-brand">删除</a></span></div><div mxa="_zs_gallerycw:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycw:a" class="_zs_gallery___test___layout_-eg-title">自定义宽度 + 文字居中对齐</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 12;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycw:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 14;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycw:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 17;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-popconfirm \n    content="确认删除吗？"\n    width="260"\n    align-text="center"&gt;\n    &lt;a href="javascript:;" class="link-brand"&gt;删除&lt;/a&gt;\n&lt;/mx-popconfirm&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-popconfirm/__test__/4.html';
+    throw msg;
+} return $p; },
     render: function () {
         this.updater.digest();
     }

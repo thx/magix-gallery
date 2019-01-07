@@ -24,7 +24,29 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, custom = $$.custom; $p += '<div mxs="_zs_gallerycX:_" class="dialog-header"><span class="fontsize-16">多个带modal的浮层</span></div><div mxv class="dialog-body" style="height: 200px; overflow-y: scroll;" id="' + $e(viewId) + '_wrapper"><div mxs="_zs_gallerycX:a" class="mb20">滚动区域</div><div mxv mxa="_zs_gallerycX:_" style="height: 400px; padding: 20px; border: 1px solid #e6e6e6;"><span mxv="custom" class="btn" mx-view="mx-popover/index?width=420&scrollWrapper=' + $eu(viewId) + '_wrapper&view=mx-popover%2F__test__%2Fcustom&data=' + $i($$ref, custom) + '">提示内容为自定义view</span></div></div><div mxs="_zs_gallerycX:b" class="dialog-footer"><a href="javascript:;" class="btn mr10" mx-click="' + $viewId + 'cancel()">取消</a></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, custom = $$.custom; var $expr, $art, $line; try {
+    $p += '<div mxs="_zs_gallerycX:_" class="dialog-header"><span class="fontsize-16">多个带modal的浮层</span></div><div mxv class="dialog-body" style="height: 200px; overflow-y: scroll;" id="';
+    $line = 5;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_wrapper"><div mxs="_zs_gallerycX:a" class="mb20">滚动区域</div><div mxv mxa="_zs_gallerycX:_" style="height: 400px; padding: 20px; border: 1px solid #e6e6e6;"><span mxv="custom" class="btn" mx-view="mx-popover/index?width=420&scrollWrapper=';
+    $line = 10;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_wrapper&view=mx-popover%2F__test__%2Fcustom&data=';
+    $line = 12;
+    $art = '@custom';
+    ;
+    $p += ($expr = '<%@custom%>', $i($$ref, custom)) + '">提示内容为自定义view</span></div></div><div mxs="_zs_gallerycX:b" class="dialog-footer"><a href="javascript:;" class="btn mr10" mx-click="' + $viewId + 'cancel()">取消</a></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-popover/__test__/multi2.html';
+    throw msg;
+} return $p; },
     mixins: [Dialog],
     init: function (e) {
         this.viewOptions = e;

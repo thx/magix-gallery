@@ -27,7 +27,33 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_galleryda:_" class="_zs_galleryh"><div mxa="_zs_galleryda:a" class="_zs_galleryk"><div mxs="_zs_galleryda:_" class="mb20 lh22 clearfix"><div class="fl color-9">以下示例：</div><div class="fl">纯提示，无操作</div></div><div mx-view="mx-status/dropdown?info=' + $i($$ref, { value: 1, text: '正在投放', icon: '<i class=\"mc-iconfont\">&#xe683;</i>', color: '#51a300' }) + '"></div></div><div mxa="_zs_galleryda:b" class="_zs_galleryl"><div mxs="_zs_galleryda:a" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_galleryda:c" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_galleryda:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-status.dropdown \n    info="&#123;&#123;@&#123;\n        value: 1,\n        text: \'正在投放\',\n        icon: \'&lt;i class=\\"mc-iconfont\\"&gt;&#38;&#35;xe683;&lt;/i&gt;\',\n        color: \'#51a300\'\n    &#125;&#125;&#125;"/&gt;</pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryda:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryda:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryda:_" class="mb20 lh22 clearfix"><div class="fl color-9">以下示例：</div><div class="fl">纯提示，无操作</div></div><div mx-view="mx-status/dropdown?info=';
+    $line = 8;
+    $art = '@{\n                value: 1,\n                text: \'正在投放\',\n                icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',\n                color: \'#51a300\'\n            }';
+    ;
+    $p += ($expr = '<%@{        value: 1,        text: \'正在投放\',        icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',        color: \'#51a300\'    }%>', $i($$ref, { value: 1, text: '正在投放', icon: '<i class=\"mc-iconfont\">&#xe683;</i>', color: '#51a300' })) + '"></div></div><div mxa="_zs_galleryda:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryda:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 17;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryda:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 19;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryda:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 22;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-status.dropdown \n    info="&#123;&#123;@&#123;\n        value: 1,\n        text: \'正在投放\',\n        icon: \'&lt;i class=\\"mc-iconfont\\"&gt;&#38;&#35;xe683;&lt;/i&gt;\',\n        color: \'#51a300\'\n    &#125;&#125;&#125;"/&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-status/__test__/5.html';
+    throw msg;
+} return $p; },
     render: function () {
         this.updater.digest();
     }

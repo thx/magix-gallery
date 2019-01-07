@@ -21,7 +21,17 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = ''; $p += 'grid-body'; return $p; },
+} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
+    $p += 'grid-body';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-grid/__test__/grid-body.html';
+    throw msg;
+} return $p; },
     render: function () {
         this.updater.digest();
     }

@@ -38,28 +38,28 @@ module.exports = Magix.View.extend({
             };
         });
         var selected = data.selected || (list[0] || {})['value'];
-        that['__cR'] = list;
-        that['__eC'] = selected;
+        that['@{data.list}'] = list;
+        that['@{data.selected}'] = selected;
         // 展示类型：（兼容老的写法，不建议配置）
         //     border
         //     box
-        that['__eD'] = data.type || 'border';
-        that['__eE'] = (/^true$/i).test(data.disabled) || false;
+        that['@{display.type}'] = data.type || 'border';
+        that['@{display.disabled}'] = (/^true$/i).test(data.disabled) || false;
         // box 类型
         //     solid 实心
         //     hollow 空心
         var mode = data.mode || 'solid';
-        that['__j'] = $('#' + that.id);
+        that['@{owner.node}'] = $('#' + that.id);
         that.updater.set({
             viewId: that.id,
             mode: mode,
-            type: that['__eD'],
-            disabled: that['__eE'],
-            list: that['__cR'],
-            selected: that['__eC'],
+            type: that['@{display.type}'],
+            disabled: that['@{display.disabled}'],
+            list: that['@{data.list}'],
+            selected: that['@{data.selected}'],
             left: 0,
             width: 0,
-            spm: that['__j'].attr('data-spm-click') || ''
+            spm: that['@{owner.node}'].attr('data-spm-click') || ''
         });
         //如果数据没变化,则设置新的数据后再次检测
         if (!altered) {
@@ -73,14 +73,14 @@ module.exports = Magix.View.extend({
         //如果数据没变化,则告诉magix当前view不用更新
         return false;
     },
-    '__aa<click>': function (e) {
+    '@{select}<click>': function (e) {
         var that = this;
         var item = e.params.item;
         var value = item.value;
-        if (that['__eC'] == value) {
+        if (that['@{data.selected}'] == value) {
             return;
         }
-        that['__eC'] = value;
+        that['@{data.selected}'] = value;
         that.updater.set({
             selected: value,
             hover: value
@@ -91,7 +91,7 @@ module.exports = Magix.View.extend({
             text: item.text,
             selected: value
         });
-        that['__j'].trigger(event);
+        that['@{owner.node}'].trigger(event);
     }
 });
 

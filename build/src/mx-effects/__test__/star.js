@@ -28,7 +28,21 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', options = $$.options; $p += '<div mxs="_zs_gallerya+:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerya+:a" class="clearfix mb20"><div class="_zs_gallerye"><div mx-view="mx-effects/__test__/11"></div></div><div class="_zs_gallerye"><div mx-view="mx-effects/__test__/12"></div><div mx-view="mx-effects/__test__/13"></div></div></div><div mxs="_zs_gallerya+:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=' + $i($$ref, options) + '"></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
+    $p += '<div mxs="_zs_gallerya+:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerya+:a" class="clearfix mb20"><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/11"></div></div><div class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/12"></div><div mx-view="mx-effects/__test__/13"></div></div></div><div mxs="_zs_gallerya+:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $line = 14;
+    $art = '@options';
+    ;
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-effects/__test__/star.html';
+    throw msg;
+} return $p; },
     render: function () {
         var options = [{
                 key: 'num',

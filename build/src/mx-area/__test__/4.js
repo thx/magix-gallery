@@ -11,7 +11,7 @@ require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_galleryr","._zs_gallerybw{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerybx,._zs_galleryby{padding:20px 20px 0;border:1px solid #e6e6e6;border-radius:4px}._zs_gallerybx{width:740px}._zs_galleryby{width:600px}._zs_gallerybz{width:740px;border:1px solid #e6e6e6;border-radius:4px;padding:20px 0}");
+Magix.applyStyle("_zs_gallery_mx-area___test___index_","/* @dependent: ./index.less */\n._zs_gallery_mx-area___test___index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-area___test___index_-area-wrapper1,\n._zs_gallery_mx-area___test___index_-area-wrapper2 {\n  padding: 20px 20px 0;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper1 {\n  width: 740px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper2 {\n  width: 600px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper3 {\n  width: 740px;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  padding: 20px 0;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -28,10 +28,63 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, types = $$.types, selected = $$.selected, arrs = $$.arrs, text1 = $$.text1; $p += '<div mxv mxa="_zs_galleryT:_" class="_zs_galleryh"><div mxv mxa="_zs_galleryT:a" class="_zs_galleryk"><div mxs="_zs_galleryT:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl"><div>自定义省份城市数据，example[{id,name,cities:[{id,name}]}]</div><div>tab切换展示分组</div><div>可以选择城市</div><div>每个省份和城市都有各自的id，若选择了省份，则获取选中值时只有省份的id（不包含该省份下所有城市id）</div><div>宽度由容器宽度决定，自适应</div></div></div><div mxv mxa="_zs_galleryT:b" class="clearfix mb20"><div mxv mxa="_zs_galleryT:c" class="_zs_gallerybz fl mr20"><div mxv="types,selected" id="' + $e(viewId) + '_area" mx-view="mx-area/index?city=true&type=tab&data=' + $i($$ref, types) + '&selected=' + $i($$ref, selected) + '"></div></div><div mxa="_zs_galleryT:d" class="fl"><div mxs="_zs_galleryT:a" class="mb10"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'get()">获取选中值</a></div><div mxa="_zs_galleryT:e" class="clearfix lh22"><div mxs="_zs_galleryT:b" class="fl color-9">当前选中值：</div><div mxa="_zs_galleryT:f" class="fl">'; for (var $art_iauczhohnae$art_i = 0, $art_croouajljt$art_c = arrs.length; $art_iauczhohnae$art_i < $art_croouajljt$art_c; $art_iauczhohnae$art_i++) {
-    var item = arrs[$art_iauczhohnae$art_i];
-    $p += '<div>' + $e(item.name) + '（' + $e(item.id) + '）</div>';
-} ; $p += '</div></div></div></div></div><div mxa="_zs_galleryT:g" class="_zs_galleryl"><div mxs="_zs_galleryT:c" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_galleryT:h" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_galleryT:d" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\ncity="true" \ntype="tab"\ndata="&#123;&#123;@types&#125;&#125;"\nselected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, types = $$.types, selected = $$.selected, arrs = $$.arrs, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryT:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryT:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryT:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl"><div>自定义省份城市数据，example[{id,name,cities:[{id,name}]}]</div><div>tab切换展示分组</div><div>可以选择城市</div><div>每个省份和城市都有各自的id，若选择了省份，则获取选中值时只有省份的id（不包含该省份下所有城市id）</div><div>宽度由容器宽度决定，自适应</div></div></div><div mxv mxa="_zs_galleryT:b" class="clearfix mb20"><div mxv mxa="_zs_galleryT:c" class="_zs_gallery_mx-area___test___index_-area-wrapper3 fl mr20"><div mxv="types,selected" id="';
+    $line = 15;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_area" mx-view="mx-area/index?city=true&type=tab&data=';
+    $line = 18;
+    $art = '@types';
+    ;
+    $p += ($expr = '<%@types%>', $i($$ref, types)) + '&selected=';
+    $line = 19;
+    $art = '@selected';
+    ;
+    $p += ($expr = '<%@selected%>', $i($$ref, selected)) + '"></div></div><div mxa="_zs_galleryT:d" class="fl"><div mxs="_zs_galleryT:a" class="mb10"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'get()">获取选中值</a></div><div mxa="_zs_galleryT:e" class="clearfix lh22"><div mxs="_zs_galleryT:b" class="fl color-9">当前选中值：</div><div mxa="_zs_galleryT:f" class="fl">';
+    $line = 26;
+    $art = 'each arrs as item';
+    ;
+    $expr = '<%for (var $art_iddaikzgssr$art_i = 0, $art_cxauqrgum$art_c = arrs.length; $art_iddaikzgssr$art_i < $art_cxauqrgum$art_c; $art_iddaikzgssr$art_i++) {    var item = arrs[$art_iddaikzgssr$art_i]%>';
+    for (var $art_iddaikzgssr$art_i = 0, $art_cxauqrgum$art_c = arrs.length; $art_iddaikzgssr$art_i < $art_cxauqrgum$art_c; $art_iddaikzgssr$art_i++) {
+        var item = arrs[$art_iddaikzgssr$art_i];
+        $p += '<div>';
+        $line = 27;
+        $art = '=item.name';
+        ;
+        $p += ($expr = '<%=item.name%>', $e(item.name)) + '（';
+        $line = 27;
+        $art = '=item.id';
+        ;
+        $p += ($expr = '<%=item.id%>', $e(item.id)) + '）</div>';
+        $line = 28;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div></div></div></div><div mxa="_zs_galleryT:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryT:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 36;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryT:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 38;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryT:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 41;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\ncity="true" \ntype="tab"\ndata="&#123;&#123;@types&#125;&#125;"\nselected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-area/__test__/4.html';
+    throw msg;
+} return $p; },
     render: function () {
         var types = [{
                 "name": "组1",

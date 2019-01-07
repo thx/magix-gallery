@@ -36,7 +36,77 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; $p += '<div mxv mxa="_zs_galleryaV:_" class="pr pr120"><div mx-view="__test__/subs?list=' + $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '事件+双向绑定值', key: viewId + '_demo8' }, { name: '复杂分组', key: viewId + '_demo7' }, { name: '简单分组+上限', key: viewId + '_demo20' }, { name: 'hover展开', key: viewId + '_demo13' }, { name: '带搜索框', key: viewId + '_demo16' }, { name: '禁选', key: viewId + '_demo11' }, { name: '自定义key', key: viewId + '_demo9' }, { name: '向上展开', key: viewId + '_demo18' }, { name: '简单数组', key: viewId + '_demo10' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }]) + '"></div><div id="' + $e(viewId) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryaV:a" class="clearfix mb20"><div mxa="_zs_galleryaV:b" class="_zs_gallerye"><div mx-view="mx-dropdown/__test__/8" id="' + $e(viewId) + '_demo8"></div><div mx-view="mx-dropdown/__test__/13" id="' + $e(viewId) + '_demo13"></div><div mx-view="mx-dropdown/__test__/16" id="' + $e(viewId) + '_demo16"></div><div mx-view="mx-dropdown/__test__/9" id="' + $e(viewId) + '_demo9"></div><div mx-view="mx-dropdown/__test__/18" id="' + $e(viewId) + '_demo18"></div></div><div mxa="_zs_galleryaV:c" class="_zs_gallerye"><div mx-view="mx-dropdown/__test__/7" id="' + $e(viewId) + '_demo7"></div><div mx-view="mx-dropdown/__test__/20" id="' + $e(viewId) + '_demo20"></div><div mx-view="mx-dropdown/__test__/11" id="' + $e(viewId) + '_demo11"></div><div mx-view="mx-dropdown/__test__/10" id="' + $e(viewId) + '_demo10"></div></div></div><div id="' + $e(viewId) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=' + $i($$ref, options) + '" class="mb40"></div><div id="' + $e(viewId) + '_event" mx-view="mx-title/second?content=Event"></div><div mxv="events" mx-view="__test__/event?options=' + $i($$ref, events) + '"></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryaV:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $line = 2;
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'事件+双向绑定值\',\n            key: viewId + \'_demo8\'\n        },{\n            name: \'复杂分组\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'简单分组+上限\',\n            key: viewId + \'_demo20\'\n        },{\n            name: \'hover展开\',\n            key: viewId + \'_demo13\'\n        },{\n            name: \'带搜索框\',\n            key: viewId + \'_demo16\'\n        },{\n            name: \'禁选\',\n            key: viewId + \'_demo11\'\n        },{\n            name: \'自定义key\',\n            key: viewId + \'_demo9\'\n        },{\n            name: \'向上展开\',\n            key: viewId + \'_demo18\'\n        },{\n            name: \'简单数组\',\n            key: viewId + \'_demo10\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
+    ;
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'事件+双向绑定值\',                    key: viewId + \'_demo8\'                }, {                    name: \'复杂分组\',                    key: viewId + \'_demo7\'                }, {                    name: \'简单分组+上限\',                    key: viewId + \'_demo20\'                }, {                    name: \'hover展开\',                    key: viewId + \'_demo13\'                }, {                    name: \'带搜索框\',                    key: viewId + \'_demo16\'                }, {                    name: \'禁选\',                    key: viewId + \'_demo11\'                }, {                    name: \'自定义key\',                    key: viewId + \'_demo9\'                }, {                    name: \'向上展开\',                    key: viewId + \'_demo18\'                }, {                    name: \'简单数组\',                    key: viewId + \'_demo10\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '事件+双向绑定值', key: viewId + '_demo8' }, { name: '复杂分组', key: viewId + '_demo7' }, { name: '简单分组+上限', key: viewId + '_demo20' }, { name: 'hover展开', key: viewId + '_demo13' }, { name: '带搜索框', key: viewId + '_demo16' }, { name: '禁选', key: viewId + '_demo11' }, { name: '自定义key', key: viewId + '_demo9' }, { name: '向上展开', key: viewId + '_demo18' }, { name: '简单数组', key: viewId + '_demo10' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
+    $line = 41;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryaV:a" class="clearfix mb20"><div mxa="_zs_galleryaV:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/8" id="';
+    $line = 44;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div><div mx-view="mx-dropdown/__test__/13" id="';
+    $line = 45;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo13"></div><div mx-view="mx-dropdown/__test__/16" id="';
+    $line = 46;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo16"></div><div mx-view="mx-dropdown/__test__/9" id="';
+    $line = 47;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div><div mx-view="mx-dropdown/__test__/18" id="';
+    $line = 48;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo18"></div></div><div mxa="_zs_galleryaV:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/7" id="';
+    $line = 51;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div><div mx-view="mx-dropdown/__test__/20" id="';
+    $line = 52;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo20"></div><div mx-view="mx-dropdown/__test__/11" id="';
+    $line = 53;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo11"></div><div mx-view="mx-dropdown/__test__/10" id="';
+    $line = 54;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo10"></div></div></div><div id="';
+    $line = 58;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $line = 59;
+    $art = '@options';
+    ;
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
+    $line = 61;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_event" mx-view="mx-title/second?content=Event"></div><div mxv="events" mx-view="__test__/event?options=';
+    $line = 62;
+    $art = '@events';
+    ;
+    $p += ($expr = '<%@events%>', $i($$ref, events)) + '"></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dropdown/__test__/multiple.html';
+    throw msg;
+} return $p; },
     render: function () {
         var options = [{
                 key: 'list',

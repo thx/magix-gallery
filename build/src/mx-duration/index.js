@@ -17,7 +17,7 @@ var Form = require("mx-form/index");
 var Validator = require("mx-form/validator");
 var Data = require("mx-duration/data");
 var WidthLimit = 780;
-Magix.applyStyle("_zs_galleryE","._zs_galleryek{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryel{display:inline-block;width:10px;height:10px;margin-right:3px;border-radius:50%}._zs_galleryem{box-sizing:border-box;border-radius:4px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;background-color:#fafafa}._zs_galleryem ._zs_galleryen{border-top:1px solid #e6e6e6;border-right:1px solid #e6e6e6;border-left:1px solid #e6e6e6;border-top-left-radius:4px;border-bottom-left-radius:4px}._zs_galleryem ._zs_galleryen ._zs_galleryeo{color:#999;text-align:center;border-bottom:1px solid #e6e6e6}._zs_galleryem ._zs_galleryen ._zs_galleryeo:first-child{border-top-left-radius:4px}._zs_galleryem ._zs_galleryen ._zs_galleryeo:last-child{border-bottom-left-radius:4px}._zs_galleryem ._zs_galleryep ._zs_galleryeq{background-color:#fafafa;border-top:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;border-top-right-radius:4px;text-align:center;color:#999}._zs_galleryem ._zs_galleryep ._zs_galleryeq ._zs_galleryer{float:left;border-right:1px solid #e6e6e6}._zs_galleryem ._zs_galleryep ._zs_galleryeq ._zs_galleryer:last-child{border-top-right-radius:4px}._zs_galleryem ._zs_galleryep ._zs_galleryes{background-color:#fafafa;text-align:center;color:#999}._zs_galleryem ._zs_galleryep ._zs_galleryes ._zs_galleryet{float:left;border-right:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6}._zs_galleryem ._zs_galleryep ._zs_galleryeu ._zs_galleryev{background:#fff;border-right:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6}._zs_galleryem ._zs_galleryep ._zs_galleryeu ._zs_galleryev:last-child{border-bottom-right-radius:4px}._zs_galleryew{position:relative}._zs_galleryew ._zs_galleryex{position:absolute;z-index:100;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;border:1px solid #4d7fff;background:rgba(75,138,251,.2)}._zs_galleryew ._zs_galleryey{width:140px;padding:20px;filter:alpha(opacity=80);opacity:.8}._zs_galleryew ._zs_galleryey,._zs_galleryew ._zs_galleryez{position:absolute;z-index:100;box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6;border-radius:4px;background:#fff}._zs_galleryew ._zs_galleryez{width:260px}._zs_galleryew ._zs_galleryez ._zs_galleryeA{padding:20px 20px 10px;border-bottom:1px solid #e6e6e6}._zs_galleryew ._zs_galleryez ._zs_galleryeB{padding:10px 20px}");
+Magix.applyStyle("_zs_gallery_mx-duration_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-duration_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-duration_index_-circle {\n  display: inline-block;\n  width: 10px;\n  height: 10px;\n  margin-right: 3px;\n  border-radius: 50%;\n}\n._zs_gallery_mx-duration_index_-duration {\n  box-sizing: border-box;\n  border-radius: 4px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  cursor: default;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-week {\n  border-top: 1px solid #e6e6e6;\n  border-right: 1px solid #e6e6e6;\n  border-left: 1px solid #e6e6e6;\n  border-top-left-radius: 4px;\n  border-bottom-left-radius: 4px;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-week ._zs_gallery_mx-duration_index_-week-item {\n  color: #999;\n  text-align: center;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-week ._zs_gallery_mx-duration_index_-week-item:first-child {\n  border-top-left-radius: 4px;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-week ._zs_gallery_mx-duration_index_-week-item:last-child {\n  border-bottom-left-radius: 4px;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-range {\n  background-color: #fafafa;\n  border-top: 1px solid #e6e6e6;\n  border-bottom: 1px solid #e6e6e6;\n  border-top-right-radius: 4px;\n  text-align: center;\n  color: #999;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-range ._zs_gallery_mx-duration_index_-range-item {\n  float: left;\n  border-right: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-range ._zs_gallery_mx-duration_index_-range-item:last-child {\n  border-top-right-radius: 4px;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-time {\n  background-color: #fafafa;\n  text-align: center;\n  color: #999;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-time ._zs_gallery_mx-duration_index_-time-item {\n  float: left;\n  border-right: 1px solid #e6e6e6;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-boxzone ._zs_gallery_mx-duration_index_-box {\n  background: #fff;\n  border-right: 1px solid #e6e6e6;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-boxzone ._zs_gallery_mx-duration_index_-box:last-child {\n  border-bottom-right-radius: 4px;\n}\n._zs_gallery_mx-duration_index_-duration-wrapper {\n  position: relative;\n}\n._zs_gallery_mx-duration_index_-duration-wrapper ._zs_gallery_mx-duration_index_-discount-mask {\n  position: absolute;\n  z-index: 100;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  cursor: default;\n  border: 1px solid #4d7fff;\n  background: rgba(75, 138, 251, 0.2);\n}\n._zs_gallery_mx-duration_index_-duration-wrapper ._zs_gallery_mx-duration_index_-discount-hover {\n  position: absolute;\n  z-index: 100;\n  width: 140px;\n  padding: 20px;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n  border-radius: 4px;\n  background: #fff;\n  filter: alpha(opacity=80);\n  opacity: 0.8;\n}\n._zs_gallery_mx-duration_index_-duration-wrapper ._zs_gallery_mx-duration_index_-discount-setting {\n  position: absolute;\n  z-index: 100;\n  width: 260px;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n  border-radius: 4px;\n  background: #fff;\n}\n._zs_gallery_mx-duration_index_-duration-wrapper ._zs_gallery_mx-duration_index_-discount-setting ._zs_gallery_mx-duration_index_-setting-content {\n  padding: 20px 20px 10px 20px;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-duration_index_-duration-wrapper ._zs_gallery_mx-duration_index_-discount-setting ._zs_gallery_mx-duration_index_-setting-footer {\n  padding: 10px 20px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -30,56 +30,339 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', maxWidth = $$.maxWidth, hoverInfo = $$.hoverInfo, maskInfo = $$.maskInfo, settingInfo = $$.settingInfo, viewId = $$.viewId, boxWidth = $$.boxWidth, multiple = $$.multiple, headerHeight = $$.headerHeight, weeks = $$.weeks, boxHeight = $$.boxHeight, rowNum = $$.rowNum, ranges = $$.ranges, boxZones = $$.boxZones; $p += '<div mxv style="width: ' + $e(maxWidth) + 'px;" class="_zs_galleryew">'; if (hoverInfo.show) {
+} ; var $g = '', $_temp, $p = '', maxWidth = $$.maxWidth, hoverInfo = $$.hoverInfo, maskInfo = $$.maskInfo, settingInfo = $$.settingInfo, viewId = $$.viewId, boxWidth = $$.boxWidth, multiple = $$.multiple, headerHeight = $$.headerHeight, weeks = $$.weeks, boxHeight = $$.boxHeight, rowNum = $$.rowNum, ranges = $$.ranges, boxZones = $$.boxZones; var $expr, $art, $line; try {
+    $p += '<div mxv style="width: ';
+    $line = 1;
+    $art = '=maxWidth';
     ;
-    $p += '<div style="top: ' + $e(hoverInfo.top) + 'px; left: ' + $e(hoverInfo.left) + 'px;" class="_zs_galleryey"><div mxa="_zs_gallerya3:_" class="mb5">' + $e(hoverInfo.week) + '</div><div mxa="_zs_gallerya3:a" class="mb5"><strong>' + $e(hoverInfo.time) + '</strong></div><div><strong>' + $e(hoverInfo.discount) + '</strong>%折扣</div></div>';
-} ; $p += ' '; if (maskInfo.show) {
+    $p += ($expr = '<%=maxWidth%>', $e(maxWidth)) + 'px;" class="_zs_gallery_mx-duration_index_-duration-wrapper">';
+    $line = 3;
+    $art = 'if hoverInfo.show';
     ;
-    $p += '<div style="top: ' + $e(maskInfo.top) + 'px; left: ' + $e(maskInfo.left) + 'px; height: ' + $e(maskInfo.height) + 'px; width: ' + $e(maskInfo.width) + 'px;" class="_zs_galleryex"></div>';
-} ; $p += ' '; if (settingInfo.show) {
-    ;
-    $p += '<div mxv style="top: ' + $e(settingInfo.top) + 'px; left: ' + $e(settingInfo.left) + 'px;" class="_zs_galleryez"><div mxv mxa="_zs_gallerya3:b" class="_zs_galleryeA"><div mxa="_zs_gallerya3:c" class="mb20"><span>' + $e(settingInfo.week) + '</span>：<strong mxa="_zs_gallerya3:d" class="ml5">' + $e(settingInfo.time) + '</strong></div><div mxv mxa="_zs_gallerya3:e" class="mb5"><label mxv><input type="radio" class="radio" name="settingType" value="1" mx-change="' + $viewId + 'changeSettingType({type:1})" ';
-    if (settingInfo.type == 1) {
+    $expr = '<%if (hoverInfo.show) {%>';
+    if (hoverInfo.show) {
         ;
-        $p += ' checked="true" ';
+        $p += '<div style="top: ';
+        $line = 4;
+        $art = '=hoverInfo.top';
+        ;
+        $p += ($expr = '<%=hoverInfo.top%>', $e(hoverInfo.top)) + 'px; left: ';
+        $line = 4;
+        $art = '=hoverInfo.left';
+        ;
+        $p += ($expr = '<%=hoverInfo.left%>', $e(hoverInfo.left)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-hover"><div mxa="_zs_gallerya3:_" class="mb5">';
+        $line = 6;
+        $art = '=hoverInfo.week';
+        ;
+        $p += ($expr = '<%=hoverInfo.week%>', $e(hoverInfo.week)) + '</div><div mxa="_zs_gallerya3:a" class="mb5"><strong>';
+        $line = 7;
+        $art = '=hoverInfo.time';
+        ;
+        $p += ($expr = '<%=hoverInfo.time%>', $e(hoverInfo.time)) + '</strong></div><div><strong>';
+        $line = 8;
+        $art = '=hoverInfo.discount';
+        ;
+        $p += ($expr = '<%=hoverInfo.discount%>', $e(hoverInfo.discount)) + '</strong>%折扣</div></div>';
+        $line = 10;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
     }
     ;
-    $p += '/>自定义：</label>';
-    if (settingInfo.type == 1) {
+    $p += ' ';
+    $line = 13;
+    $art = 'if maskInfo.show';
+    ;
+    $expr = '<%if (maskInfo.show) {%>';
+    if (maskInfo.show) {
         ;
-        $p += '<input mxe="' + $viewId + '_0" mxc="[{p:\'settingInfo.discount\',f:{required:true,posint:[true,\'范围:30-250的整数\'],min:[30,\'范围:30-250的整数\'],max:[250,\'范围:30-250的整数\']}}]" class="input w100" value="' + $e(settingInfo.discount) + '"/>';
-    }
-    else {
+        $p += '<div style="top: ';
+        $line = 14;
+        $art = '=maskInfo.top';
         ;
-        $p += '<input class="input w100" disabled="true" value="' + $e(settingInfo.discount) + '"/>';
+        $p += ($expr = '<%=maskInfo.top%>', $e(maskInfo.top)) + 'px; left: ';
+        $line = 14;
+        $art = '=maskInfo.left';
+        ;
+        $p += ($expr = '<%=maskInfo.left%>', $e(maskInfo.left)) + 'px; height: ';
+        $line = 14;
+        $art = '=maskInfo.height';
+        ;
+        $p += ($expr = '<%=maskInfo.height%>', $e(maskInfo.height)) + 'px; width: ';
+        $line = 14;
+        $art = '=maskInfo.width';
+        ;
+        $p += ($expr = '<%=maskInfo.width%>', $e(maskInfo.width)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-mask"></div>';
+        $line = 16;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
     }
     ;
-    $p += '<span mxs="_zs_gallerya3:_" class="ml5">%</span></div><div mxv mxa="_zs_gallerya3:f" class="mb10"><label mxv><input type="radio" name="settingType" class="radio" value="2" mx-change="' + $viewId + 'changeSettingType({type:2})" ';
-    if (settingInfo.type == 2) {
+    $p += ' ';
+    $line = 19;
+    $art = 'if settingInfo.show';
+    ;
+    $expr = '<%if (settingInfo.show) {%>';
+    if (settingInfo.show) {
         ;
-        $p += ' checked="true" ';
+        $p += '<div mxv style="top: ';
+        $line = 20;
+        $art = '=settingInfo.top';
+        ;
+        $p += ($expr = '<%=settingInfo.top%>', $e(settingInfo.top)) + 'px; left: ';
+        $line = 20;
+        $art = '=settingInfo.left';
+        ;
+        $p += ($expr = '<%=settingInfo.left%>', $e(settingInfo.left)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-setting"><div mxv mxa="_zs_gallerya3:b" class="_zs_gallery_mx-duration_index_-setting-content"><div mxa="_zs_gallerya3:c" class="mb20"><span>';
+        $line = 24;
+        $art = '=settingInfo.week';
+        ;
+        $p += ($expr = '<%=settingInfo.week%>', $e(settingInfo.week)) + '</span>：<strong mxa="_zs_gallerya3:d" class="ml5">';
+        $line = 25;
+        $art = '=settingInfo.time';
+        ;
+        $p += ($expr = '<%=settingInfo.time%>', $e(settingInfo.time)) + '</strong></div><div mxv mxa="_zs_gallerya3:e" class="mb5"><label mxv><input type="radio" class="radio" name="settingType" value="1" mx-change="' + $viewId + 'changeSettingType({type:1})" ';
+        $line = 31;
+        $art = 'if settingInfo.type == 1';
+        ;
+        $expr = '<%if (settingInfo.type == 1) {%>';
+        if (settingInfo.type == 1) {
+            ;
+            $p += ' checked="true" ';
+            $line = 31;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '/>自定义：</label>';
+        $line = 33;
+        $art = 'if settingInfo.type == 1';
+        ;
+        $expr = '<%if (settingInfo.type == 1) {%>';
+        if (settingInfo.type == 1) {
+            ;
+            $p += '<input mxe="' + $viewId + '_0" mxc="[';
+            $line = 36;
+            $art = ':settingInfo.discount{required:true,posint:[true,\'范围:30-250的整数\'],min:[30,\'范围:30-250的整数\'],max:[250,\'范围:30-250的整数\']}';
+            ;
+            $p += '{p:\'settingInfo.discount\',f:{required:true,posint:[true,\'范围:30-250的整数\'],min:[30,\'范围:30-250的整数\'],max:[250,\'范围:30-250的整数\']}}]" class="input w100" value="';
+            $line = 35;
+            $art = '=settingInfo.discount';
+            ;
+            $p += ($expr = '<%=settingInfo.discount%>', $e(settingInfo.discount)) + '"/>';
+            $line = 37;
+            $art = 'else';
+            ;
+            $expr = '<%}    else {%>';
+        }
+        else {
+            ;
+            $p += '<input class="input w100" disabled="true" value="';
+            $line = 40;
+            $art = '=settingInfo.discount';
+            ;
+            $p += ($expr = '<%=settingInfo.discount%>', $e(settingInfo.discount)) + '"/>';
+            $line = 41;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '<span mxs="_zs_gallerya3:_" class="ml5">%</span></div><div mxv mxa="_zs_gallerya3:f" class="mb10"><label mxv><input type="radio" name="settingType" class="radio" value="2" mx-change="' + $viewId + 'changeSettingType({type:2})" ';
+        $line = 48;
+        $art = 'if settingInfo.type == 2';
+        ;
+        $expr = '<%if (settingInfo.type == 2) {%>';
+        if (settingInfo.type == 2) {
+            ;
+            $p += ' checked="true" ';
+            $line = 48;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '/>无折扣</label></div><div mxv mxa="_zs_gallerya3:g" class="mb10"><label mxv><input type="radio" name="settingType" class="radio" value="3" mx-change="' + $viewId + 'changeSettingType({type:3})" ';
+        $line = 55;
+        $art = 'if settingInfo.type == 3';
+        ;
+        $expr = '<%if (settingInfo.type == 3) {%>';
+        if (settingInfo.type == 3) {
+            ;
+            $p += ' checked="true" ';
+            $line = 55;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '/>不投放</label></div></div><div mxs="_zs_gallerya3:a" class="_zs_gallery_mx-duration_index_-setting-footer"><a class="btn btn-brand mr10 w60" href="javascript:;" mx-click="' + $viewId + 'submitSetting()">确定</a><a class="btn w60" href="javascript:;" mx-click="' + $viewId + 'cancelSetting()">取消</a></div></div>';
+        $line = 64;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
     }
     ;
-    $p += '/>无折扣</label></div><div mxv mxa="_zs_gallerya3:g" class="mb10"><label mxv><input type="radio" name="settingType" class="radio" value="3" mx-change="' + $viewId + 'changeSettingType({type:3})" ';
-    if (settingInfo.type == 3) {
+    $p += '<div class="_zs_gallery_mx-duration_index_-duration clearfix" id="';
+    $line = 66;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_duration" style="width: ';
+    $line = 67;
+    $art = '=(maxWidth)';
+    ;
+    $p += ($expr = '<%=(maxWidth)%>', $e((maxWidth))) + 'px;"><ul class="_zs_gallery_mx-duration_index_-week fl" style="width: ';
+    $line = 68;
+    $art = '=(boxWidth*multiple)';
+    ;
+    $p += ($expr = '<%=(boxWidth * multiple)%>', $e((boxWidth * multiple))) + 'px;"><li class="_zs_gallery_mx-duration_index_-week-item" style="height: ';
+    $line = 69;
+    $art = '=headerHeight+1';
+    ;
+    $p += ($expr = '<%=headerHeight + 1%>', $e(headerHeight + 1)) + 'px; line-height: ';
+    $line = 69;
+    $art = '=headerHeight';
+    ;
+    $p += ($expr = '<%=headerHeight%>', $e(headerHeight)) + 'px;">星期</li>';
+    $line = 70;
+    $art = 'each weeks as week';
+    ;
+    $expr = '<%for (var $art_ikphbku$art_i = 0, $art_crdpwbkp$art_c = weeks.length; $art_ikphbku$art_i < $art_crdpwbkp$art_c; $art_ikphbku$art_i++) {    var week = weeks[$art_ikphbku$art_i]%>';
+    for (var $art_ikphbku$art_i = 0, $art_crdpwbkp$art_c = weeks.length; $art_ikphbku$art_i < $art_crdpwbkp$art_c; $art_ikphbku$art_i++) {
+        var week = weeks[$art_ikphbku$art_i];
+        $p += '<li class="_zs_gallery_mx-duration_index_-week-item" style="height: ';
+        $line = 71;
+        $art = '=boxHeight';
         ;
-        $p += ' checked="true" ';
+        $p += ($expr = '<%=boxHeight%>', $e(boxHeight)) + 'px; line-height: ';
+        $line = 71;
+        $art = '=boxHeight';
+        ;
+        $p += ($expr = '<%=boxHeight%>', $e(boxHeight)) + 'px;">';
+        $line = 71;
+        $art = '=week';
+        ;
+        $p += ($expr = '<%=week%>', $e(week)) + '</li>';
+        $line = 72;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
     }
     ;
-    $p += '/>不投放</label></div></div><div mxs="_zs_gallerya3:a" class="_zs_galleryeB"><a class="btn btn-brand mr10 w60" href="javascript:;" mx-click="' + $viewId + 'submitSetting()">确定</a><a class="btn w60" href="javascript:;" mx-click="' + $viewId + 'cancelSetting()">取消</a></div></div>';
-} ; $p += '<div class="_zs_galleryem clearfix" id="' + $e(viewId) + '_duration" style="width: ' + $e((maxWidth)) + 'px;"><ul class="_zs_galleryen fl" style="width: ' + $e((boxWidth * multiple)) + 'px;"><li class="_zs_galleryeo" style="height: ' + $e(headerHeight + 1) + 'px; line-height: ' + $e(headerHeight) + 'px;">星期</li>'; for (var $art_iroivase$art_i = 0, $art_cqvfqfheao$art_c = weeks.length; $art_iroivase$art_i < $art_cqvfqfheao$art_c; $art_iroivase$art_i++) {
-    var week = weeks[$art_iroivase$art_i];
-    $p += '<li class="_zs_galleryeo" style="height: ' + $e(boxHeight) + 'px; line-height: ' + $e(boxHeight) + 'px;">' + $e(week) + '</li>';
-} ; $p += '</ul><div class="_zs_galleryep fl" style="width: ' + $e(boxWidth * rowNum) + 'px;"><ul mxa="_zs_gallerya3:h" class="_zs_galleryeq clearfix">'; for (var $art_iiipqabmg$art_i = 0, $art_cdjijhlgw$art_c = ranges.length; $art_iiipqabmg$art_i < $art_cdjijhlgw$art_c; $art_iiipqabmg$art_i++) {
-    var range = ranges[$art_iiipqabmg$art_i];
-    $p += '<li class="_zs_galleryer" style="width: ' + $e((boxWidth * (rowNum / 4))) + 'px; height: ' + $e(headerHeight / 2) + 'px; line-height: ' + $e(headerHeight / 2) + 'px;">' + $e(range) + '</li>';
-} ; $p += '</ul><ul mxa="_zs_gallerya3:i" class="_zs_galleryes clearfix">'; for (var i = 0; i < 24; i += 1) {
+    $p += '</ul><div class="_zs_gallery_mx-duration_index_-content fl" style="width: ';
+    $line = 74;
+    $art = '=boxWidth*rowNum';
     ;
-    $p += '<li class="_zs_galleryet" style="width: ' + $e((boxWidth * multiple)) + 'px; height: ' + $e(headerHeight / 2) + 'px; line-height: ' + $e(headerHeight / 2) + 'px;">' + $e(i) + '</li>';
-} ; $p += '</ul><ul mxa="_zs_gallerya3:j" class="_zs_galleryeu clearfix">'; for (var $art_ixxgbgtxrq$art_i = 0, $art_cciktxctf$art_c = boxZones.length; $art_ixxgbgtxrq$art_i < $art_cciktxctf$art_c; $art_ixxgbgtxrq$art_i++) {
-    var zone = boxZones[$art_ixxgbgtxrq$art_i];
-    $p += '<li class="_zs_galleryev fl" style="width: ' + $e(boxWidth) + 'px; height: ' + $e(boxHeight) + 'px; background-color: ' + $e(zone.bg) + '" mx-click="' + $viewId + 'clickOutside({index:' + $e(zone.index) + '})" mx-mousedown="' + $viewId + 'select()" mx-mouseover="' + $viewId + 'showTip({index:' + $e(zone.index) + '})" mx-mouseout="' + $viewId + 'hideTip({index:' + $e(zone.index) + '})"></li>';
-} ; $p += '</ul></div></div><div mxs="_zs_gallerya3:b" class="mt20 clearfix"><a class="btn mr10 fl" href="javascript:;" mx-click="' + $viewId + 'clear()">清空</a><a class="btn mr10 fl" href="javascript:;" mx-click="' + $viewId + 'reset()">重置</a><span class="fr lh32 color-c"><span class="_zs_galleryel" style="background-color: rgba(97,199,242,0.7)"></span><span class="font-tahoma bold color-c mr15">30-100%</span><span class="_zs_galleryel" style="background-color: rgba(77,166,255,0.7)"></span><span class="font-tahoma bold color-c mr15">100-200%</span><span class="_zs_galleryel" style="background-color: rgba(134,115,230,0.7)"></span><span class="font-tahoma bold color-c mr15">200-250%</span><i class="mc-iconfont displacement-2">&#xe705;</i><span class="mr10">可以拖拽鼠标选择投放时段</span></span></div></div>'; return $p; },
+    $p += ($expr = '<%=boxWidth * rowNum%>', $e(boxWidth * rowNum)) + 'px;"><ul mxa="_zs_gallerya3:h" class="_zs_gallery_mx-duration_index_-range clearfix">';
+    $line = 76;
+    $art = 'each ranges as range';
+    ;
+    $expr = '<%for (var $art_inqkeulaz$art_i = 0, $art_cqgnolze$art_c = ranges.length; $art_inqkeulaz$art_i < $art_cqgnolze$art_c; $art_inqkeulaz$art_i++) {    var range = ranges[$art_inqkeulaz$art_i]%>';
+    for (var $art_inqkeulaz$art_i = 0, $art_cqgnolze$art_c = ranges.length; $art_inqkeulaz$art_i < $art_cqgnolze$art_c; $art_inqkeulaz$art_i++) {
+        var range = ranges[$art_inqkeulaz$art_i];
+        $p += '<li class="_zs_gallery_mx-duration_index_-range-item" style="width: ';
+        $line = 77;
+        $art = '=(boxWidth*(rowNum/4))';
+        ;
+        $p += ($expr = '<%=(boxWidth * (rowNum / 4))%>', $e((boxWidth * (rowNum / 4)))) + 'px; height: ';
+        $line = 77;
+        $art = '=headerHeight/2';
+        ;
+        $p += ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px; line-height: ';
+        $line = 77;
+        $art = '=headerHeight/2';
+        ;
+        $p += ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px;">';
+        $line = 77;
+        $art = '=range';
+        ;
+        $p += ($expr = '<%=range%>', $e(range)) + '</li>';
+        $line = 78;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</ul><ul mxa="_zs_gallerya3:i" class="_zs_gallery_mx-duration_index_-time clearfix">';
+    $line = 81;
+    $art = 'for (let i=0;i<24;i+=1)';
+    ;
+    $expr = '<%for (var i = 0; i < 24; i += 1) {%>';
+    for (var i = 0; i < 24; i += 1) {
+        ;
+        $p += '<li class="_zs_gallery_mx-duration_index_-time-item" style="width: ';
+        $line = 82;
+        $art = '=(boxWidth*multiple)';
+        ;
+        $p += ($expr = '<%=(boxWidth * multiple)%>', $e((boxWidth * multiple))) + 'px; height: ';
+        $line = 82;
+        $art = '=headerHeight/2';
+        ;
+        $p += ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px; line-height: ';
+        $line = 82;
+        $art = '=headerHeight/2';
+        ;
+        $p += ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px;">';
+        $line = 82;
+        $art = '=i';
+        ;
+        $p += ($expr = '<%=i%>', $e(i)) + '</li>';
+        $line = 83;
+        $art = '/for';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</ul><ul mxa="_zs_gallerya3:j" class="_zs_gallery_mx-duration_index_-boxzone clearfix">';
+    $line = 86;
+    $art = 'each boxZones as zone';
+    ;
+    $expr = '<%for (var $art_iqopyyj$art_i = 0, $art_cfwmevkjyu$art_c = boxZones.length; $art_iqopyyj$art_i < $art_cfwmevkjyu$art_c; $art_iqopyyj$art_i++) {    var zone = boxZones[$art_iqopyyj$art_i]%>';
+    for (var $art_iqopyyj$art_i = 0, $art_cfwmevkjyu$art_c = boxZones.length; $art_iqopyyj$art_i < $art_cfwmevkjyu$art_c; $art_iqopyyj$art_i++) {
+        var zone = boxZones[$art_iqopyyj$art_i];
+        $p += '<li class="_zs_gallery_mx-duration_index_-box fl" style="width: ';
+        $line = 88;
+        $art = '=boxWidth';
+        ;
+        $p += ($expr = '<%=boxWidth%>', $e(boxWidth)) + 'px; height: ';
+        $line = 88;
+        $art = '=boxHeight';
+        ;
+        $p += ($expr = '<%=boxHeight%>', $e(boxHeight)) + 'px; background-color: ';
+        $line = 88;
+        $art = '=zone.bg';
+        ;
+        $p += ($expr = '<%=zone.bg%>', $e(zone.bg)) + '" mx-click="' + $viewId + 'clickOutside({index:';
+        $line = 89;
+        $art = '=zone.index';
+        ;
+        $p += ($expr = '<%=zone.index%>', $e(zone.index)) + '})" mx-mousedown="' + $viewId + 'select()" mx-mouseover="' + $viewId + 'showTip({index:';
+        $line = 91;
+        $art = '=zone.index';
+        ;
+        $p += ($expr = '<%=zone.index%>', $e(zone.index)) + '})" mx-mouseout="' + $viewId + 'hideTip({index:';
+        $line = 92;
+        $art = '=zone.index';
+        ;
+        $p += ($expr = '<%=zone.index%>', $e(zone.index)) + '})"></li>';
+        $line = 93;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</ul></div></div><div mxs="_zs_gallerya3:b" class="mt20 clearfix"><a class="btn mr10 fl" href="javascript:;" mx-click="' + $viewId + 'clear()">清空</a><a class="btn mr10 fl" href="javascript:;" mx-click="' + $viewId + 'reset()">重置</a><span class="fr lh32 color-c"><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(97,199,242,0.7)"></span><span class="font-tahoma bold color-c mr15">30-100%</span><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(77,166,255,0.7)"></span><span class="font-tahoma bold color-c mr15">100-200%</span><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(134,115,230,0.7)"></span><span class="font-tahoma bold color-c mr15">200-250%</span><i class="mc-iconfont displacement-2">&#xe705;</i><span class="mr10">可以拖拽鼠标选择投放时段</span></span></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-duration/index.html';
+    throw msg;
+} return $p; },
     mixins: [Form, Validator],
     init: function (viewOptions) {
         var that = this;

@@ -10,14 +10,14 @@ var Magix = require("magix");
 var Base = require("./base");
 var $ = require("$");
 var Util = require("mx-effects/util");
-Magix.applyStyle("_zs_galleryJ","._zs_galleryeW{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryeX{padding:10px;line-height:18px;border-radius:inherit}._zs_galleryeX ._zs_galleryeY{display:inline-block;position:relative;padding-left:18px;word-break:break-all}._zs_galleryeX ._zs_galleryeY ._zs_galleryeZ{position:absolute;top:0;left:0;height:18px;line-height:18px}._zs_galleryeX._zs_galleryf_{border-width:1px;border-style:solid;border-radius:4px}._zs_galleryeX._zs_galleryfa{color:#999;background-color:#fafafa}._zs_galleryeX._zs_galleryfa ._zs_galleryeZ{color:#ccc}._zs_galleryeX._zs_galleryfa._zs_galleryf_{border-color:#e6e6e6}._zs_galleryeX._zs_galleryfb{color:#a40100;background-color:#f1d9d9}._zs_galleryeX._zs_galleryfb ._zs_galleryeZ{color:#a40100}._zs_galleryeX._zs_galleryfb._zs_galleryf_{border-color:#a40100}._zs_galleryeX._zs_galleryfc{background-color:#fff8e6}._zs_galleryeX._zs_galleryfc,._zs_galleryeX._zs_galleryfc ._zs_galleryeZ{color:#ffb400}._zs_galleryeX._zs_galleryfc._zs_galleryf_{border-color:#ffb400}._zs_galleryeX._zs_galleryfd{color:#333;background-color:#fafafa}._zs_galleryeX._zs_galleryfd ._zs_galleryeZ{color:#4d7fff}._zs_galleryeX._zs_galleryfd._zs_galleryf_{border-color:#e6e6e6}");
+Magix.applyStyle("_zs_gallery_mx-effects_notice_","/* @dependent: ./index.less */\n._zs_gallery_mx-effects_notice_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-effects_notice_-notice {\n  padding: 10px;\n  line-height: 18px;\n  border-radius: inherit;\n}\n._zs_gallery_mx-effects_notice_-notice ._zs_gallery_mx-effects_notice_-inner {\n  display: inline-block;\n  position: relative;\n  padding-left: 18px;\n  word-break: break-all;\n}\n._zs_gallery_mx-effects_notice_-notice ._zs_gallery_mx-effects_notice_-inner ._zs_gallery_mx-effects_notice_-icon {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 18px;\n  line-height: 18px;\n}\n._zs_gallery_mx-effects_notice_-notice._zs_gallery_mx-effects_notice_-border {\n  border-width: 1px;\n  border-style: solid;\n  border-radius: 4px;\n}\n._zs_gallery_mx-effects_notice_-notice._zs_gallery_mx-effects_notice_-common {\n  color: #999;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-effects_notice_-notice._zs_gallery_mx-effects_notice_-common ._zs_gallery_mx-effects_notice_-icon {\n  color: #ccc;\n}\n._zs_gallery_mx-effects_notice_-notice._zs_gallery_mx-effects_notice_-common._zs_gallery_mx-effects_notice_-border {\n  border-color: #e6e6e6;\n}\n._zs_gallery_mx-effects_notice_-notice._zs_gallery_mx-effects_notice_-error {\n  color: #a40100;\n  background-color: #f1d9d9;\n}\n._zs_gallery_mx-effects_notice_-notice._zs_gallery_mx-effects_notice_-error ._zs_gallery_mx-effects_notice_-icon {\n  color: #a40100;\n}\n._zs_gallery_mx-effects_notice_-notice._zs_gallery_mx-effects_notice_-error._zs_gallery_mx-effects_notice_-border {\n  border-color: #a40100;\n}\n._zs_gallery_mx-effects_notice_-notice._zs_gallery_mx-effects_notice_-warn {\n  color: #ffb400;\n  background-color: #fff8e6;\n}\n._zs_gallery_mx-effects_notice_-notice._zs_gallery_mx-effects_notice_-warn ._zs_gallery_mx-effects_notice_-icon {\n  color: #ffb400;\n}\n._zs_gallery_mx-effects_notice_-notice._zs_gallery_mx-effects_notice_-warn._zs_gallery_mx-effects_notice_-border {\n  border-color: #ffb400;\n}\n._zs_gallery_mx-effects_notice_-notice._zs_gallery_mx-effects_notice_-highlight {\n  color: #333;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-effects_notice_-notice._zs_gallery_mx-effects_notice_-highlight ._zs_gallery_mx-effects_notice_-icon {\n  color: #4d7fff;\n}\n._zs_gallery_mx-effects_notice_-notice._zs_gallery_mx-effects_notice_-highlight._zs_gallery_mx-effects_notice_-border {\n  border-color: #e6e6e6;\n}\n");
 var ClassNames = {
-    common: '_zs_galleryfa',
-    error: '_zs_galleryfb',
-    warn: '_zs_galleryfc',
-    highlight: '_zs_galleryfd',
-    border: '_zs_galleryf_',
-    notice: '_zs_galleryeX'
+    common: '_zs_gallery_mx-effects_notice_-common',
+    error: '_zs_gallery_mx-effects_notice_-error',
+    warn: '_zs_gallery_mx-effects_notice_-warn',
+    highlight: '_zs_gallery_mx-effects_notice_-highlight',
+    border: '_zs_gallery_mx-effects_notice_-border',
+    notice: '_zs_gallery_mx-effects_notice_-notice'
 };
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
@@ -31,14 +31,59 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', classNames = $$.classNames, textAlign = $$.textAlign, styles = $$.styles, icon = $$.icon, content = $$.content; $p += '<div class="' + $e(classNames) + ' clearfix" style="text-align:' + $e(textAlign) + '; ' + $e(styles) + '">'; if (icon) {
+} ; var $g = '', $_temp, $p = '', classNames = $$.classNames, textAlign = $$.textAlign, styles = $$.styles, icon = $$.icon, content = $$.content; var $expr, $art, $line; try {
+    $p += '<div class="';
+    $line = 1;
+    $art = '=classNames';
     ;
-    $p += '<div mxa="_zs_galleryba:_" class="_zs_galleryeY"><i mxs="_zs_galleryba:_" class="mc-iconfont _zs_galleryeZ">&#xe6ad;</i>' + $n(content) + '</div>';
+    $p += ($expr = '<%=classNames%>', $e(classNames)) + ' clearfix" style="text-align:';
+    $line = 1;
+    $art = '=textAlign';
+    ;
+    $p += ($expr = '<%=textAlign%>', $e(textAlign)) + '; ';
+    $line = 1;
+    $art = '=styles';
+    ;
+    $p += ($expr = '<%=styles%>', $e(styles)) + '">';
+    $line = 2;
+    $art = 'if icon';
+    ;
+    $expr = '<%if (icon) {%>';
+    if (icon) {
+        ;
+        $p += '<div mxa="_zs_galleryba:_" class="_zs_gallery_mx-effects_notice_-inner"><i mxs="_zs_galleryba:_" class="mc-iconfont _zs_gallery_mx-effects_notice_-icon">&#xe6ad;</i>';
+        $line = 5;
+        $art = '!content';
+        ;
+        $p += ($expr = '<%!content%>', $n(content)) + '</div>';
+        $line = 7;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' ';
+        $line = 8;
+        $art = '!content';
+        ;
+        $p += ($expr = '<%!content%>', $n(content)) + ' ';
+        $line = 9;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
 }
-else {
-    ;
-    $p += ' ' + $n(content) + ' ';
-} ; $p += '</div>'; return $p; },
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-effects/notice.html';
+    throw msg;
+} return $p; },
     init: function (extra) {
         // 默认左对齐
         var textAlign = extra.textAlign || 'left';

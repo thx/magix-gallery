@@ -20,7 +20,25 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', text = $$.text, content = $$.content; $p += '<div mxa="_zs_galleryal:_" class="fontsize-16 mb20">标题：' + $e(text) + '</div><div mxa="_zs_galleryal:a" class="mb20">内容：' + $e(content) + '</div><div mxs="_zs_galleryal:_"><a href="#!/popover/index" class="btn btn-brand">从当前页面跳走，自动销毁浮层</a></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', text = $$.text, content = $$.content; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryal:_" class="fontsize-16 mb20">标题：';
+    $line = 1;
+    $art = '=text';
+    ;
+    $p += ($expr = '<%=text%>', $e(text)) + '</div><div mxa="_zs_galleryal:a" class="mb20">内容：';
+    $line = 2;
+    $art = '=content';
+    ;
+    $p += ($expr = '<%=content%>', $e(content)) + '</div><div mxs="_zs_galleryal:_"><a href="#!/popover/index" class="btn btn-brand">从当前页面跳走，自动销毁浮层</a></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dialog/__test__/content.html';
+    throw msg;
+} return $p; },
     init: function (extra) {
         this.updater.set(extra.data);
     },

@@ -8,7 +8,7 @@ define("__test__/subs",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_galleryq","._zs_gallerybs{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerybt{position:absolute;top:0;right:0;width:120px;padding:10px 0 10px 10px;border-left:1px solid #e6e6e6}._zs_gallerybt ._zs_gallerybu{margin-bottom:6px}._zs_gallerybt ._zs_gallerybu:last-child{margin-bottom:0}._zs_gallerybt._zs_gallerybv{position:fixed}");
+Magix.applyStyle("_zs_gallery___test___subs_","/* @dependent: ./index.less */\n._zs_gallery___test___subs_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___subs_-content-subs {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 120px;\n  padding: 10px 0 10px 10px;\n  border-left: 1px solid #e6e6e6;\n}\n._zs_gallery___test___subs_-content-subs ._zs_gallery___test___subs_-sub-link {\n  margin-bottom: 6px;\n}\n._zs_gallery___test___subs_-content-subs ._zs_gallery___test___subs_-sub-link:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery___test___subs_-content-subs._zs_gallery___test___subs_-subs-fixed {\n  position: fixed;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -21,25 +21,89 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', fixed = $$.fixed, list = $$.list; $p += '<div class="_zs_gallerybt '; if (fixed) {
+} ; var $g = '', $_temp, $p = '', fixed = $$.fixed, list = $$.list; var $expr, $art, $line; try {
+    $p += '<div class="_zs_gallery___test___subs_-content-subs ';
+    $line = 1;
+    $art = 'if fixed';
     ;
-    $p += ' _zs_gallerybv ';
-} ; $p += '">'; for (var $art_itvtxwctq$art_i = 0, $art_cwhzaomjhkm$art_c = list.length; $art_itvtxwctq$art_i < $art_cwhzaomjhkm$art_c; $art_itvtxwctq$art_i++) {
-    var item = list[$art_itvtxwctq$art_i];
-    $p += '<div mxa="_zs_galleryO:_" class="_zs_gallerybu"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'' + $e($eq(item.key)) + '\'})">' + $e(item.name) + '</a></div>';
-    if (item.subs && item.subs.length) {
+    $expr = '<%if (fixed) {%>';
+    if (fixed) {
         ;
-        $p += ' ';
-        for (var $art_ikquntuzke$art_i = 0, $art_objckdobkkb$art_obj = item.subs, $art_cebhfvlov$art_c = $art_objckdobkkb$art_obj.length; $art_ikquntuzke$art_i < $art_cebhfvlov$art_c; $art_ikquntuzke$art_i++) {
-            var sub = $art_objckdobkkb$art_obj[$art_ikquntuzke$art_i];
-            $p += '<div mxa="_zs_galleryO:a" class="_zs_gallerybu pl10"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'' + $e($eq(sub.key)) + '\'})">' + $e(sub.name) + '</a></div>';
+        $p += ' _zs_gallery___test___subs_-subs-fixed ';
+        $line = 1;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '">';
+    $line = 2;
+    $art = 'each list as item';
+    ;
+    $expr = '<%for (var $art_iiuaeedy$art_i = 0, $art_cdofjift$art_c = list.length; $art_iiuaeedy$art_i < $art_cdofjift$art_c; $art_iiuaeedy$art_i++) {    var item = list[$art_iiuaeedy$art_i]%>';
+    for (var $art_iiuaeedy$art_i = 0, $art_cdofjift$art_c = list.length; $art_iiuaeedy$art_i < $art_cdofjift$art_c; $art_iiuaeedy$art_i++) {
+        var item = list[$art_iiuaeedy$art_i];
+        $p += '<div mxa="_zs_galleryO:_" class="_zs_gallery___test___subs_-sub-link"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'';
+        $line = 4;
+        $art = '=item.key';
+        ;
+        $p += ($expr = '<%=$eq(item.key)%>', $e($eq(item.key))) + '\'})">';
+        $line = 4;
+        $art = '=item.name';
+        ;
+        $p += ($expr = '<%=item.name%>', $e(item.name)) + '</a></div>';
+        $line = 6;
+        $art = 'if (item.subs && item.subs.length)';
+        ;
+        $expr = '<%if (item.subs && item.subs.length) {%>';
+        if (item.subs && item.subs.length) {
+            ;
+            $p += ' ';
+            $line = 7;
+            $art = 'each item.subs as sub';
+            ;
+            $expr = '<%for (var $art_itxccbb$art_i = 0, $art_objpwuzdn$art_obj = item.subs, $art_cashzsj$art_c = $art_objpwuzdn$art_obj.length; $art_itxccbb$art_i < $art_cashzsj$art_c; $art_itxccbb$art_i++) {            var sub = $art_objpwuzdn$art_obj[$art_itxccbb$art_i]%>';
+            for (var $art_itxccbb$art_i = 0, $art_objpwuzdn$art_obj = item.subs, $art_cashzsj$art_c = $art_objpwuzdn$art_obj.length; $art_itxccbb$art_i < $art_cashzsj$art_c; $art_itxccbb$art_i++) {
+                var sub = $art_objpwuzdn$art_obj[$art_itxccbb$art_i];
+                $p += '<div mxa="_zs_galleryO:a" class="_zs_gallery___test___subs_-sub-link pl10"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'';
+                $line = 9;
+                $art = '=sub.key';
+                ;
+                $p += ($expr = '<%=$eq(sub.key)%>', $e($eq(sub.key))) + '\'})">';
+                $line = 9;
+                $art = '=sub.name';
+                ;
+                $p += ($expr = '<%=sub.name%>', $e(sub.name)) + '</a></div>';
+                $line = 11;
+                $art = '/each';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 12;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
         }
         ;
         $p += ' ';
+        $line = 13;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
     }
     ;
-    $p += ' ';
-} ; $p += '</div>'; return $p; },
+    $p += '</div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:__test__/subs.html';
+    throw msg;
+} return $p; },
     init: function (e) {
         var list = e.list || [];
         this.updater.set({
@@ -52,9 +116,9 @@ module.exports = Magix.View.extend({
     'to<click>': function (e) {
         var key = e.params.key;
         var node = $('#' + key);
-        var examples = $('._zs_galleryh');
-        examples.removeClass('_zs_galleryi');
-        node.find('._zs_galleryh').addClass('_zs_galleryi');
+        var examples = $('._zs_gallery___test___layout_-example');
+        examples.removeClass('_zs_gallery___test___layout_-example-highlight');
+        node.find('._zs_gallery___test___layout_-example').addClass('_zs_gallery___test___layout_-example-highlight');
         $(window).scrollTop(node.offset().top);
     },
     '$win<scroll>': function (e) {

@@ -807,7 +807,7 @@ module.exports = Magix.View.extend({
         var owner = $('#' + me.id);
         var clipboard = new window.Clipboard(owner[0], {
             target: function () {
-                return Magix.node(me['__ad']);
+                return Magix.node(me['@{copy.node}']);
             }
         });
         clipboard.on('success', function (e) {
@@ -817,10 +817,10 @@ module.exports = Magix.View.extend({
         clipboard.on('error', function () {
             owner.trigger('error');
         });
-        me.capture('__ae', clipboard);
+        me.capture('@{clipboard}', clipboard);
     },
     assign: function (ops) {
-        this['__ad'] = ops.copyNode;
+        this['@{copy.node}'] = ops.copyNode;
         return true;
     }
 });

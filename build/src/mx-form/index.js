@@ -181,8 +181,8 @@ module.exports = {
         }
         if (refresh && e.type === 'change') {
             //解决在updater已经digesting时，再次digest带来的不稳定问题
-            clearTimeout(me['__c_']);
-            me['__c_'] = setTimeout(function () {
+            clearTimeout(me['@{digest.timer}']);
+            me['@{digest.timer}'] = setTimeout(function () {
                 updater.digest();
             }, 0);
         }

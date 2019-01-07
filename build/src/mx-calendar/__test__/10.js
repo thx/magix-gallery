@@ -28,7 +28,33 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_galleryX:_" class="_zs_galleryh"><div mxa="_zs_galleryX:a" class="_zs_galleryk"><div mxs="_zs_galleryX:_" class="mb20"><div class="mb5">组件会对可选范围进行修正</div><div class="mb5">1. 结束日期的最大可选范围是开始日期</div><div>2. 快捷日期会根据最大最小值范围进行修正（不限除外）</div></div><div class="w220" mx-view="mx-calendar/rangepicker?min=2018-07-27&max=2018-08-03&start=2018-07-29&end=2018-08-02&shortkeys=' + $i($$ref, ['passed10', 'dynamicStart15', 'forever']) + '"></div></div><div mxa="_zs_galleryX:b" class="_zs_galleryl"><div mxs="_zs_galleryX:a" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_galleryX:c" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_galleryX:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-calendar.rangepicker class="w220"\n    min="2018-07-27"\n    max="2018-08-03"\n    start="2018-07-29"\n    end="2018-08-02"\n    shortkeys="&#123;&#123;@[\n        \'passed10\', \n        \'dynamicStart15\', \n        \'forever\'\n    ]&#125;&#125;"/&gt;</pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryX:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryX:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryX:_" class="mb20"><div class="mb5">组件会对可选范围进行修正</div><div class="mb5">1. 结束日期的最大可选范围是开始日期</div><div>2. 快捷日期会根据最大最小值范围进行修正（不限除外）</div></div><div class="w220" mx-view="mx-calendar/rangepicker?min=2018-07-27&max=2018-08-03&start=2018-07-29&end=2018-08-02&shortkeys=';
+    $line = 13;
+    $art = '@[\'passed10\', \'dynamicStart15\', \'forever\']';
+    ;
+    $p += ($expr = '<%@[\'passed10\', \'dynamicStart15\', \'forever\']%>', $i($$ref, ['passed10', 'dynamicStart15', 'forever'])) + '"></div></div><div mxa="_zs_galleryX:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryX:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 17;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryX:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 19;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryX:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 22;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.rangepicker class="w220"\n    min="2018-07-27"\n    max="2018-08-03"\n    start="2018-07-29"\n    end="2018-08-02"\n    shortkeys="&#123;&#123;@[\n        \'passed10\', \n        \'dynamicStart15\', \n        \'forever\'\n    ]&#125;&#125;"/&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-calendar/__test__/10.html';
+    throw msg;
+} return $p; },
     render: function () {
         this.updater.digest();
     }

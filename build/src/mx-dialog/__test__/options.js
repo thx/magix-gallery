@@ -24,7 +24,21 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', options = $$.options; $p += '<div mxv="options" class="mb40" mx-view="__test__/api?options=' + $i($$ref, options) + '"></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
+    $p += '<div mxv="options" class="mb40" mx-view="__test__/api?options=';
+    $line = 1;
+    $art = '@options';
+    ;
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dialog/__test__/options.html';
+    throw msg;
+} return $p; },
     render: function () {
         var that = this;
         var options = [{

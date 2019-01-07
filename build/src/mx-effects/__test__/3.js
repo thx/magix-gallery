@@ -23,7 +23,29 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_gallerya]:_" class="_zs_galleryh"><div mxs="_zs_gallerya]:_" class="_zs_galleryk"><div class="mb20" mx-view="mx-effects/notice?content=%E6%99%AE%E9%80%9A%E6%8F%90%E7%A4%BA"></div><div class="mb20" mx-view="mx-effects/notice?content=%E6%97%A0icon%E6%8F%90%E7%A4%BA&icon=false"></div><div class="mb20" mx-view="mx-effects/notice?content=%E6%99%AE%E9%80%9A%E5%B1%85%E4%B8%AD%E6%8F%90%E7%A4%BA&textAlign=center"></div><div class="mb20" mx-view="mx-effects/notice?border=true&content=%E5%B8%A6%E8%BE%B9%E6%A1%86%E7%9A%84%E6%99%AE%E9%80%9A%E6%8F%90%E7%A4%BA"></div><div class="mb20" mx-view="mx-effects/notice?border=true&content=%E5%B8%A6%E8%BE%B9%E6%A1%86%E7%9A%84%E6%97%A0icon%E6%8F%90%E7%A4%BA&icon=false"></div></div><div mxa="_zs_gallerya]:a" class="_zs_galleryl"><div mxs="_zs_gallerya]:a" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerya]:b" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerya]:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-effects.notice \n    content="普通提示"/&gt;\n\n&lt;mx-effects.notice \n    content="无icon提示" \n    icon="false"/&gt;\n\n&lt;mx-effects.notice \n    content="普通居中提示" \n    text-align="center"/&gt;\n\n&lt;mx-effects.notice \n    content="带边框的普通提示"\n    border="true"/&gt;\n\n&lt;mx-effects.notice \n    content="带边框的无icon提示" \n    border="true" \n    icon="false"/&gt;</pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerya]:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerya]:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb20" mx-view="mx-effects/notice?content=%E6%99%AE%E9%80%9A%E6%8F%90%E7%A4%BA"></div><div class="mb20" mx-view="mx-effects/notice?content=%E6%97%A0icon%E6%8F%90%E7%A4%BA&icon=false"></div><div class="mb20" mx-view="mx-effects/notice?content=%E6%99%AE%E9%80%9A%E5%B1%85%E4%B8%AD%E6%8F%90%E7%A4%BA&textAlign=center"></div><div class="mb20" mx-view="mx-effects/notice?border=true&content=%E5%B8%A6%E8%BE%B9%E6%A1%86%E7%9A%84%E6%99%AE%E9%80%9A%E6%8F%90%E7%A4%BA"></div><div class="mb20" mx-view="mx-effects/notice?border=true&content=%E5%B8%A6%E8%BE%B9%E6%A1%86%E7%9A%84%E6%97%A0icon%E6%8F%90%E7%A4%BA&icon=false"></div></div><div mxa="_zs_gallerya]:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya]:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 11;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya]:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 13;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya]:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 16;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.notice \n    content="普通提示"/&gt;\n\n&lt;mx-effects.notice \n    content="无icon提示" \n    icon="false"/&gt;\n\n&lt;mx-effects.notice \n    content="普通居中提示" \n    text-align="center"/&gt;\n\n&lt;mx-effects.notice \n    content="带边框的普通提示"\n    border="true"/&gt;\n\n&lt;mx-effects.notice \n    content="带边框的无icon提示" \n    border="true" \n    icon="false"/&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-effects/__test__/3.html';
+    throw msg;
+} return $p; },
     render: function () {
         this.updater.digest();
     }

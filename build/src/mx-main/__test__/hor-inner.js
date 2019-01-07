@@ -8,7 +8,7 @@ define("mx-main/__test__/hor-inner",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallerya_","._zs_galleryix{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryiy{height:20px;margin-top:10px;background-color:#e6e6e6}");
+Magix.applyStyle("_zs_gallery_mx-main___test___hor-inner_","/* @dependent: ./index.less */\n._zs_gallery_mx-main___test___hor-inner_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main___test___hor-inner_-line {\n  height: 20px;\n  margin-top: 10px;\n  background-color: #e6e6e6;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -21,7 +21,25 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', info = $$.info; $p += '<div mxa="_zs_galleryb+:_" class="fontsize-16">第' + $e(info.index) + '步：' + $e(info.label) + '</div><div mxs="_zs_galleryb+:_" class="_zs_galleryiy" style="width: 200px;"></div><div mxs="_zs_galleryb+:a" class="_zs_galleryiy" style="width: 400px;"></div><div mxs="_zs_galleryb+:a" class="_zs_galleryiy" style="width: 400px;"></div><div mxs="_zs_galleryb+:a" class="_zs_galleryiy" style="width: 400px;"></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', info = $$.info; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryb+:_" class="fontsize-16">第';
+    $line = 1;
+    $art = '=info.index';
+    ;
+    $p += ($expr = '<%=info.index%>', $e(info.index)) + '步：';
+    $line = 1;
+    $art = '=info.label';
+    ;
+    $p += ($expr = '<%=info.label%>', $e(info.label)) + '</div><div mxs="_zs_galleryb+:_" class="_zs_gallery_mx-main___test___hor-inner_-line" style="width: 200px;"></div><div mxs="_zs_galleryb+:a" class="_zs_gallery_mx-main___test___hor-inner_-line" style="width: 400px;"></div><div mxs="_zs_galleryb+:a" class="_zs_gallery_mx-main___test___hor-inner_-line" style="width: 400px;"></div><div mxs="_zs_galleryb+:a" class="_zs_gallery_mx-main___test___hor-inner_-line" style="width: 400px;"></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-main/__test__/hor-inner.html';
+    throw msg;
+} return $p; },
     init: function (extra) {
         this.updater.set({
             info: extra.info || {},

@@ -19,7 +19,17 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = ''; $p += '<div mxs="_zs_galleryan:_" class="dialog-content" style="height: 200px;"><div class="dialog-header"><div class="fontsize-16">标题</div></div><div class="dialog-body">浮层内容</div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
+    $p += '<div mxs="_zs_galleryan:_" class="dialog-content" style="height: 200px;"><div class="dialog-header"><div class="fontsize-16">标题</div></div><div class="dialog-body">浮层内容</div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dialog/__test__/demo2.html';
+    throw msg;
+} return $p; },
     init: function (e) {
         this.viewOptions = e;
         var dlg = this.viewOptions.dialog;

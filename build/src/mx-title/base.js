@@ -20,10 +20,43 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', second = $$.second, content = $$.content, tip = $$.tip; $p += '<div mxa="_zs_galleryd;:_" class="page-header"><span class="' + $e((second ? 'second-header' : 'first-header')) + '">' + $n(content) + '</span>'; if (tip) {
+} ; var $g = '', $_temp, $p = '', second = $$.second, content = $$.content, tip = $$.tip; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryd;:_" class="page-header"><span class="';
+    $line = 2;
+    $art = '=(second ? \'second-header\' : \'first-header\')';
     ;
-    $p += '<span mxa="_zs_galleryd;:a" class="page-tip">' + $n(tip) + '</span>';
-} ; $p += '</div>'; return $p; },
+    $p += ($expr = '<%=(second ? \'second-header\' : \'first-header\')%>', $e((second ? 'second-header' : 'first-header'))) + '">';
+    $line = 2;
+    $art = '!content';
+    ;
+    $p += ($expr = '<%!content%>', $n(content)) + '</span>';
+    $line = 3;
+    $art = 'if tip';
+    ;
+    $expr = '<%if (tip) {%>';
+    if (tip) {
+        ;
+        $p += '<span mxa="_zs_galleryd;:a" class="page-tip">';
+        $line = 4;
+        $art = '!tip';
+        ;
+        $p += ($expr = '<%!tip%>', $n(tip)) + '</span>';
+        $line = 5;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-title/base.html';
+    throw msg;
+} return $p; },
     init: function (extra) {
         var content = extra.content || '标题';
         var tip = extra.tip || '';

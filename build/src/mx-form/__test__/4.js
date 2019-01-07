@@ -24,7 +24,61 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', number = $$.number, int = $$.int, posint = $$.posint, negint = $$.negint, viewId = $$.viewId, text1 = $$.text1; $p += '<div mxv mxa="_zs_gallerybz:_" class="_zs_galleryh"><div mxv mxa="_zs_gallerybz:a" class="_zs_galleryk"><div mxv mxa="_zs_gallerybz:b" class="clearfix"><input mxe="' + $viewId + '_0" mxc="[{p:\'number\',f:{number:true}}]" class="input mr20 mb20" placeholder="数字" value="' + $e(number) + '"/> <input mxe="' + $viewId + '_1" mxc="[{p:\'int\',f:{int:true}}]" class="input mr20 mb20" placeholder="整数" value="' + $e(int) + '"/> <input mxe="' + $viewId + '_2" mxc="[{p:\'posint\',f:{posint:[true,\'自定义提示输入正整数\']}}]" class="input mr20 mb20" placeholder="正整数" value="' + $e(posint) + '"/> <input mxe="' + $viewId + '_3" mxc="[{p:\'negint\',f:{negint:[true,\'自定义提示输入负整数\']}}]" class="input mr20 mb20" placeholder="负整数" value="' + $e(negint) + '"/></div></div><div mxa="_zs_gallerybz:c" class="_zs_galleryl"><div mxs="_zs_gallerybz:_" class="_zs_galleryj">整数</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerybz:d" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerybz:a" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;input class="input" placeholder="数字" value="&#123;&#123;:number&#123;number:true&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="整数" value="&#123;&#123;:int&#123;int:true&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="正整数" value="&#123;&#123;:posint&#123;posint:[true,\'自定义提示输入正整数\']&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="负整数" value="&#123;&#123;:negint&#123;negint:[true,\'自定义提示输入负整数\']&#125;&#125;&#125;"/&gt;</pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', number = $$.number, int = $$.int, posint = $$.posint, negint = $$.negint, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerybz:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybz:a" class="_zs_gallery___test___layout_-eg-content"><div mxv mxa="_zs_gallerybz:b" class="clearfix"><input mxe="' + $viewId + '_0" mxc="[';
+    $line = 4;
+    $art = ':number{number:true}';
+    ;
+    $p += '{p:\'number\',f:{number:true}}]" class="input mr20 mb20" placeholder="数字" value="';
+    $line = 4;
+    $art = ':number{number:true}';
+    ;
+    $p += ($expr = '<%=number%>', $e(number)) + '"/> <input mxe="' + $viewId + '_1" mxc="[';
+    $line = 5;
+    $art = ':int{int:true}';
+    ;
+    $p += '{p:\'int\',f:{int:true}}]" class="input mr20 mb20" placeholder="整数" value="';
+    $line = 5;
+    $art = ':int{int:true}';
+    ;
+    $p += ($expr = '<%=int%>', $e(int)) + '"/> <input mxe="' + $viewId + '_2" mxc="[';
+    $line = 6;
+    $art = ':posint{posint:[true,\'自定义提示输入正整数\']}';
+    ;
+    $p += '{p:\'posint\',f:{posint:[true,\'自定义提示输入正整数\']}}]" class="input mr20 mb20" placeholder="正整数" value="';
+    $line = 6;
+    $art = ':posint{posint:[true,\'自定义提示输入正整数\']}';
+    ;
+    $p += ($expr = '<%=posint%>', $e(posint)) + '"/> <input mxe="' + $viewId + '_3" mxc="[';
+    $line = 7;
+    $art = ':negint{negint:[true,\'自定义提示输入负整数\']}';
+    ;
+    $p += '{p:\'negint\',f:{negint:[true,\'自定义提示输入负整数\']}}]" class="input mr20 mb20" placeholder="负整数" value="';
+    $line = 7;
+    $art = ':negint{negint:[true,\'自定义提示输入负整数\']}';
+    ;
+    $p += ($expr = '<%=negint%>', $e(negint)) + '"/></div></div><div mxa="_zs_gallerybz:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybz:_" class="_zs_gallery___test___layout_-eg-title">整数</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 12;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybz:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 14;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybz:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 17;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;input class="input" placeholder="数字" value="&#123;&#123;:number&#123;number:true&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="整数" value="&#123;&#123;:int&#123;int:true&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="正整数" value="&#123;&#123;:posint&#123;posint:[true,\'自定义提示输入正整数\']&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="负整数" value="&#123;&#123;:negint&#123;negint:[true,\'自定义提示输入负整数\']&#125;&#125;&#125;"/&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-form/__test__/4.html';
+    throw msg;
+} return $p; },
     mixins: [Form, Validator],
     render: function () {
         this.updater.digest();

@@ -50,14 +50,15 @@
                     <i class="mc-iconfont desc-icon">&#xe610;</i>
                 </mx-copy>
                 <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-    &lt;mx-pagination
-        total="600" 
-        sizes="&#123;&#123;@[20,40,50]&#125;&#125;"
-        step="6"
-        size="&#123;&#123;=size&#125;&#125;" 
-        page="&#123;&#123;=page&#125;&#125;"
-        mx-change="change()"&gt;
-    &lt;/mx-pagination&gt;</pre>
+&lt;mx-pagination
+    total="600" 
+    sizes="&#123;&#123;@[20,40,50]&#125;&#125;"
+    step="6"
+    size="&#123;&#123;=size&#125;&#125;" 
+    page="&#123;&#123;=page&#125;&#125;"
+    mx-change="change()"&gt;
+&lt;/mx-pagination&gt;
+                </pre>
             </div>
             <div class="eg-desc half half-right">
                 <div class="eg-title">JS Code</div>
@@ -67,26 +68,28 @@
                     <i class="mc-iconfont desc-icon">&#xe610;</i>
                 </mx-copy>
                 <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
-    let Magix = require('magix');
-    let $ = require('$');
-    
-    module.exports = Magix.View.extend(&#123;
-        tmpl: '@index.html',
-        render() &#123;
-            this.updater.digest(&#123;
-                page: 1,
-                size: 40
-            &#125;);
-        &#125;,
-        'change&lt;change&gt;' (e) &#123;
-            // e.page 当前第几页
-            // e.size 每页多少条
-            this.updater.digest(&#123;
-                page: e.page,
-                size: e.size
-            &#125;)
-        &#125;
-    &#125;);</pre>
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            page: 1,
+            size: 40
+        &#125;);
+    &#125;,
+    'change&lt;change&gt;' (e) &#123;
+        // e.page 当前第几页
+        // e.size 每页多少条
+        // e.offset 偏移量
+        this.updater.digest(&#123;
+            page: e.page,
+            size: e.size
+        &#125;)
+    &#125;
+&#125;);
+                </pre>
             </div>
         </div>
     </div>

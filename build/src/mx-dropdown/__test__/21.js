@@ -27,7 +27,33 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_galleryaL:_" class="_zs_galleryh"><div mxa="_zs_galleryaL:a" class="_zs_galleryk"><div mxs="_zs_galleryaL:_" class="clearfix mb20"><div class="fl color-9">以下示例：</div><div class="fl">下拉选项的提示信息可配置tip，title展示，无tip时title=text</div></div><div class="w200" mx-view="mx-dropdown/index?list=' + $i($$ref, [{ text: '选项1', value: 1, tip: '选项1的提示信息' }, { text: '选项2', value: 2 }]) + '"></div></div><div mxa="_zs_galleryaL:b" class="_zs_galleryl"><div mxs="_zs_galleryaL:a" class="_zs_galleryj">选择为空时的提示文案定制</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_galleryaL:c" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_galleryaL:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-dropdown class="w200" \n    list="&#123;&#123;@[&#123;\n        text: \'选项1\',\n        value: 1,\n        tip: \'选项1的提示信息\'\n    &#125;, &#123;\n        text: \'选项2\',\n        value: 2\n    &#125;]&#125;&#125;"&gt;\n&lt;/mx-dropdown&gt;\n        </pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryaL:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryaL:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryaL:_" class="clearfix mb20"><div class="fl color-9">以下示例：</div><div class="fl">下拉选项的提示信息可配置tip，title展示，无tip时title=text</div></div><div class="w200" mx-view="mx-dropdown/index?list=';
+    $line = 8;
+    $art = '@[{\n                text: \'选项1\',\n                value: 1,\n                tip: \'选项1的提示信息\'\n            }, {\n                text: \'选项2\',\n                value: 2\n            }]';
+    ;
+    $p += ($expr = '<%@[{            text: \'选项1\',            value: 1,            tip: \'选项1的提示信息\'        }, {            text: \'选项2\',            value: 2        }]%>', $i($$ref, [{ text: '选项1', value: 1, tip: '选项1的提示信息' }, { text: '选项2', value: 2 }])) + '"></div></div><div mxa="_zs_galleryaL:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryaL:a" class="_zs_gallery___test___layout_-eg-title">选择为空时的提示文案定制</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 20;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaL:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 22;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaL:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 25;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown class="w200" \n    list="&#123;&#123;@[&#123;\n        text: \'选项1\',\n        value: 1,\n        tip: \'选项1的提示信息\'\n    &#125;, &#123;\n        text: \'选项2\',\n        value: 2\n    &#125;]&#125;&#125;"&gt;\n&lt;/mx-dropdown&gt;\n        </pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dropdown/__test__/21.html';
+    throw msg;
+} return $p; },
     render: function () {
         var that = this;
         that.updater.digest();

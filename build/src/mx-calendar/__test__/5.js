@@ -24,7 +24,45 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', yesterday = $$.yesterday, tomorrow = $$.tomorrow, viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_gallery7:_" class="_zs_galleryh"><div mxa="_zs_gallery7:a" class="_zs_galleryk"><div mxs="_zs_gallery7:_" class="mb20"><div class="mb5">根据可选范围对默认值进行修正</div><div class="mb5">1. 未配置默认选中项且有min时，默认取min和今天中的较大值</div><div>2. 未配置默认选中项且有max时，默认取max和今天中的较小值</div></div><div mxa="_zs_gallery7:b" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?min=' + $eu(yesterday) + '"></div></div><div mxa="_zs_gallery7:c" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?min=' + $eu(tomorrow) + '"></div></div><div mxa="_zs_gallery7:d" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?max=' + $eu(yesterday) + '"></div></div><div class="w200" mx-view="mx-calendar/datepicker?max=' + $eu(tomorrow) + '"></div></div><div mxa="_zs_gallery7:e" class="_zs_galleryl"><div mxs="_zs_gallery7:a" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallery7:f" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallery7:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-calendar.datepicker class="w200"\n    min="&#123;&#123;=yesterday&#125;&#125;"/&gt;\n\n&lt;mx-calendar.datepicker class="w200"\n    min="&#123;&#123;=tomorrow&#125;&#125;"/&gt;\n\n&lt;mx-calendar.datepicker class="w200"\n    max="&#123;&#123;=yesterday&#125;&#125;"/&gt;\n\n&lt;mx-calendar.datepicker class="w200"\n    max="&#123;&#123;=tomorrow&#125;&#125;"/&gt;</pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', yesterday = $$.yesterday, tomorrow = $$.tomorrow, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallery7:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallery7:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallery7:_" class="mb20"><div class="mb5">根据可选范围对默认值进行修正</div><div class="mb5">1. 未配置默认选中项且有min时，默认取min和今天中的较大值</div><div>2. 未配置默认选中项且有max时，默认取max和今天中的较小值</div></div><div mxa="_zs_gallery7:b" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?min=';
+    $line = 10;
+    $art = '=yesterday';
+    ;
+    $p += ($expr = '<%!$eu(yesterday)%>', $eu(yesterday)) + '"></div></div><div mxa="_zs_gallery7:c" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?min=';
+    $line = 14;
+    $art = '=tomorrow';
+    ;
+    $p += ($expr = '<%!$eu(tomorrow)%>', $eu(tomorrow)) + '"></div></div><div mxa="_zs_gallery7:d" class="mb20"><div class="w200" mx-view="mx-calendar/datepicker?max=';
+    $line = 18;
+    $art = '=yesterday';
+    ;
+    $p += ($expr = '<%!$eu(yesterday)%>', $eu(yesterday)) + '"></div></div><div class="w200" mx-view="mx-calendar/datepicker?max=';
+    $line = 21;
+    $art = '=tomorrow';
+    ;
+    $p += ($expr = '<%!$eu(tomorrow)%>', $eu(tomorrow)) + '"></div></div><div mxa="_zs_gallery7:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery7:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 25;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery7:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 27;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery7:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 30;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.datepicker class="w200"\n    min="&#123;&#123;=yesterday&#125;&#125;"/&gt;\n\n&lt;mx-calendar.datepicker class="w200"\n    min="&#123;&#123;=tomorrow&#125;&#125;"/&gt;\n\n&lt;mx-calendar.datepicker class="w200"\n    max="&#123;&#123;=yesterday&#125;&#125;"/&gt;\n\n&lt;mx-calendar.datepicker class="w200"\n    max="&#123;&#123;=tomorrow&#125;&#125;"/&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-calendar/__test__/5.html';
+    throw msg;
+} return $p; },
     render: function () {
         var formater = 'YYYY-MM-DD';
         this.updater.digest({

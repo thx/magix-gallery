@@ -20,7 +20,17 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = ''; $p += '自定义右侧提示view'; return $p; },
+} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
+    $p += '自定义右侧提示view';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-main/__test__/tip.html';
+    throw msg;
+} return $p; },
     render: function () {
         this.updater.digest();
     }

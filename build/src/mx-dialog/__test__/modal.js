@@ -29,7 +29,45 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId; $p += '<div mxa="_zs_galleryar:_" class="pr pr120"><div mx-view="__test__/subs?list=' + $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '头部 + 底部', key: viewId + '_demo9' }, { name: '只头部', key: viewId + '_demo10' }, { name: '只底部', key: viewId + '_demo11' }] }, { name: 'View Methods', key: viewId + '_method' }, { name: 'dialogOptions', key: viewId + '_options' }]) + '"></div><div id="' + $e(viewId) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mx-view="mx-dialog/__test__/9" id="' + $e(viewId) + '_demo9"></div><div mxa="_zs_galleryar:a" class="clearfix mb20"><div mxa="_zs_galleryar:b" class="_zs_gallerye"><div mx-view="mx-dialog/__test__/10" id="' + $e(viewId) + '_demo10"></div></div><div mxa="_zs_galleryar:c" class="_zs_gallerye"><div mx-view="mx-dialog/__test__/11" id="' + $e(viewId) + '_demo11"></div></div></div><div id="' + $e(viewId) + '_method" mx-view="mx-title/second?content=Methods"></div><div mxs="_zs_galleryar:_" class="pr20 mb40"><table class="table _zs_galleryr"><thead><tr><th width="200">方法名</th><th width="200">说明</th><th width="300">预览</th></tr></thead><tbody><tr><td>mxModal(viewPath, [viewOptions], [dialogOptions])</td><td>自定义浮层</td><td></td></tr><tr><td>mxCloseAllDialogs()</td><td>关闭当前所有展开的浮层</td><td></td></tr></tbody></table></div><div id="' + $e(viewId) + '_options" mx-view="mx-title/second?content=dialogOptions%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0"></div><div mxs="_zs_galleryar:a" class="mb40" mx-view="mx-dialog/__test__/options"></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryar:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $line = 2;
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'头部 + 底部\',\n            key: viewId + \'_demo9\'\n        },{\n            name: \'只头部\',\n            key: viewId + \'_demo10\'\n        },{\n            name: \'只底部\',\n            key: viewId + \'_demo11\'\n        }]\n    }, {\n        name: \'View Methods\',\n        key: viewId + \'_method\'\n    }, {\n        name: \'dialogOptions\',\n        key: viewId + \'_options\'\n    }]';
+    ;
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'头部 + 底部\',                    key: viewId + \'_demo9\'                }, {                    name: \'只头部\',                    key: viewId + \'_demo10\'                }, {                    name: \'只底部\',                    key: viewId + \'_demo11\'                }]        }, {            name: \'View Methods\',            key: viewId + \'_method\'        }, {            name: \'dialogOptions\',            key: viewId + \'_options\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '头部 + 底部', key: viewId + '_demo9' }, { name: '只头部', key: viewId + '_demo10' }, { name: '只底部', key: viewId + '_demo11' }] }, { name: 'View Methods', key: viewId + '_method' }, { name: 'dialogOptions', key: viewId + '_options' }])) + '"></div><div id="';
+    $line = 23;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mx-view="mx-dialog/__test__/9" id="';
+    $line = 24;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div><div mxa="_zs_galleryar:a" class="clearfix mb20"><div mxa="_zs_galleryar:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dialog/__test__/10" id="';
+    $line = 27;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo10"></div></div><div mxa="_zs_galleryar:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dialog/__test__/11" id="';
+    $line = 30;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo11"></div></div></div><div id="';
+    $line = 34;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_method" mx-view="mx-title/second?content=Methods"></div><div mxs="_zs_galleryar:_" class="pr20 mb40"><table class="table _zs_gallery___test___layout_-desc-table"><thead><tr><th width="200">方法名</th><th width="200">说明</th><th width="300">预览</th></tr></thead><tbody><tr><td>mxModal(viewPath, [viewOptions], [dialogOptions])</td><td>自定义浮层</td><td></td></tr><tr><td>mxCloseAllDialogs()</td><td>关闭当前所有展开的浮层</td><td></td></tr></tbody></table></div><div id="';
+    $line = 59;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_options" mx-view="mx-title/second?content=dialogOptions%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0"></div><div mxs="_zs_galleryar:a" class="mb40" mx-view="mx-dialog/__test__/options"></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dialog/__test__/modal.html';
+    throw msg;
+} return $p; },
     render: function () {
         this.updater.digest({
             viewId: this.id

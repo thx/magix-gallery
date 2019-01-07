@@ -8,7 +8,7 @@ define("mx-loading/index",["$","magix","./base"],(require,exports,module)=>{
 
 var $ = require("$");
 var Magix = require("magix");
-Magix.applyStyle("_zs_galleryZ","._zs_galleryis{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryit{display:none;position:fixed;z-index:999999;background-color:rgba(0,0,0,.5);border-radius:4px}._zs_galleryiu{z-index:999998;background:transparent}._zs_galleryiv,._zs_galleryiu{display:none;position:fixed;top:0;left:0;width:100%;height:100%}._zs_galleryiv{z-index:999999;background-color:rgba(0,0,0,.5)}._zs_galleryiv ._zs_galleryiw{position:absolute;top:50%;left:50%;width:160px;height:36px;margin-top:-18px;margin-left:-80px}");
+Magix.applyStyle("_zs_gallery_mx-loading_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-loading_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-loading_index_-mask-loading {\n  display: none;\n  position: fixed;\n  z-index: 999999;\n  background-color: rgba(0, 0, 0, 0.5);\n  border-radius: 4px;\n}\n._zs_gallery_mx-loading_index_-mask-loading-backdrop {\n  display: none;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 999998;\n  width: 100%;\n  height: 100%;\n  background: transparent;\n}\n._zs_gallery_mx-loading_index_-full-loading {\n  display: none;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 999999;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n}\n._zs_gallery_mx-loading_index_-full-loading ._zs_gallery_mx-loading_index_-loading-overwite {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 160px;\n  height: 36px;\n  margin-top: -18px;\n  margin-left: -80px;\n}\n");
 var Width = 150;
 var Height = 36;
 var Tmpl = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
@@ -22,10 +22,32 @@ var Tmpl = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', id = $$.id, width = $$.width, height = $$.height; $p += '<div id="' + $e(id) + '" class="_zs_galleryit" style="width: ' + $e(width) + 'px; height: ' + $e(height) + 'px;"><div mxs="_zs_galleryb/:_" class="loading _zs_galleryiw" style="padding: 10px 0;"><span class="loading-anim"></span></div></div>'; return $p; };
+} ; var $g = '', $_temp, $p = '', id = $$.id, width = $$.width, height = $$.height; var $expr, $art, $line; try {
+    $p += '<div id="';
+    $line = 1;
+    $art = '=id';
+    ;
+    $p += ($expr = '<%=id%>', $e(id)) + '" class="_zs_gallery_mx-loading_index_-mask-loading" style="width: ';
+    $line = 1;
+    $art = '=width';
+    ;
+    $p += ($expr = '<%=width%>', $e(width)) + 'px; height: ';
+    $line = 1;
+    $art = '=height';
+    ;
+    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxs="_zs_galleryb/:_" class="loading _zs_gallery_mx-loading_index_-loading-overwite" style="padding: 10px 0;"><span class="loading-anim"></span></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-loading/index.html';
+    throw msg;
+} return $p; };
 var Base = require("./base");
 module.exports = Magix.mix({
-    '__ce': function () {
+    '@{loading.build}': function () {
         var me = this;
         var maskId = me.id + '_loading';
         var node = $('#' + maskId);
@@ -43,7 +65,7 @@ module.exports = Magix.mix({
     showLoading: function (closeMask) {
         var me = this;
         var maskId = me.id + '_loading';
-        var node = me['__ce']();
+        var node = me['@{loading.build}']();
         var win = $(window);
         var left = ((win.width() - Width) / 2) | 0;
         var top = ((win.height() - Height) / 2) | 0;
@@ -56,7 +78,7 @@ module.exports = Magix.mix({
         if (!closeMask) {
             var backNode = $('#' + maskId + '_mask');
             if (!backNode.length) {
-                $(document.body).append('<div id="' + maskId + '_mask" class="_zs_galleryiu"></div>');
+                $(document.body).append('<div id="' + maskId + '_mask" class="_zs_gallery_mx-loading_index_-mask-loading-backdrop"></div>');
                 backNode = $('#' + maskId + '_mask');
             }
             backNode.css({

@@ -1,3 +1,4 @@
+/*md5:f6e8d1189e050a0efe8a486b195eb980*/
 let Magix = require('magix');
 let $ = require('$');
 let Vframe = Magix.Vframe;
@@ -368,48 +369,105 @@ module.exports = Magix.View.extend({
      *      }
      */
     mxModal(view, viewOptions, dialogOptions) {
-        dialogOptions.width = dialogOptions.width || 600;
-        let fullHeader = Magix.mix({
-            title: '',
-            tip: ''
-        }, dialogOptions.header || {});
+        let me = this;
+        let dlg;
+        let beforeCloseCallback,
+            afterCloseCallback;
 
-        let fullFooter = Magix.mix({
-            enter: true,
-            enterText: I18n['dialog.submit'],
-            cancel: true,
-            cancelText: I18n['dialog.cancel']
-        }, dialogOptions.footer || {})
-
-        let winWidth = window.innerWidth,
-            winHeight = window.innerHeight;
-
-        let left = Math.max(winWidth - dialogOptions.width, 0),
-            top = 0;
-        Magix.mix(dialogOptions, {
-            full: true,
-            fullHeader,
-            fullFooter,
-            modal: false,
-            height: winHeight,
-            left,
-            top,
-            posFrom: {
-                opacity: 0,
-                top,
-                left: winWidth
+        let output = {
+            beforeClose(fn) {
+                // 关闭浮层前调用
+                // return true 关闭
+                // return false 不关闭浮层
+                beforeCloseCallback = fn;
             },
-            posTo: {
-                opacity: 1,
-                top,
-                left: 0
+            close() {
+                if (dlg) {
+                    dlg.trigger('dlg_close');
+                }
             },
-            card: (dialogOptions.card + '' !== 'false')
-        })
-        return this.mxDialog(view, viewOptions, Magix.mix({
-            closable: true,
-            mask: true
-        }, dialogOptions));
+            afterClose(fn) {
+                // 关闭浮层后调用
+                afterCloseCallback = fn;
+            }
+        };
+
+        let dOptions = {
+            view: view
+        };
+        seajs.use(view, me.wrapAsync(V => {
+            let key = '$dlg_' + view;
+            if (me[key]) {
+                return;
+            }
+            me[key] = 1;
+
+            // 优先级：外部传入的 > view本身配置的 > 默认
+
+            // 浮层内部的配置
+            Magix.mix(dOptions, V.dialogOptions || {});
+
+            // 调用时候的配置，浮层展示位置
+            dialogOptions = Magix.mix({
+                closable: true,
+                mask: true
+            }, dialogOptions || {});
+    
+            let winWidth = window.innerWidth,
+                winHeight = window.innerHeight;
+            let width = dialogOptions.width || dOptions.width || 600;
+            let left = Math.max(winWidth - width, 0),
+                top = 0;
+            Magix.mix(dialogOptions, {
+                full: true,
+                fullHeader: Magix.mix({
+                    title: '',
+                    tip: ''
+                }, dialogOptions.header || {}),
+                fullFooter: Magix.mix({
+                    enter: true,
+                    enterText: I18n['dialog.submit'],
+                    cancel: true,
+                    cancelText: I18n['dialog.cancel']
+                }, dialogOptions.footer || {}),
+                modal: false,
+                height: winHeight,
+                left,
+                top,
+                posFrom: {
+                    opacity: 0,
+                    top,
+                    left: winWidth
+                },
+                posTo: {
+                    opacity: 1,
+                    top,
+                    left: 0
+                },
+                card: (dialogOptions.card + '' !== 'false')
+            })
+            Magix.mix(dOptions, dialogOptions);
+
+            // 数据
+            Magix.mix(dOptions, viewOptions);
+            dOptions.dialog = output;
+            dlg = me['@{dialog.show}'](me, dOptions);
+
+            dlg.on('beforeClose', (event) => {
+                if (!beforeCloseCallback || (beforeCloseCallback && beforeCloseCallback())) {
+                    event.closeFn();
+                }
+            })
+
+            dlg.on('close', () => {
+                delete me[key];
+                if (afterCloseCallback) {
+                    afterCloseCallback();
+                }
+            });
+        }));
+
+        return output;
     },
 
 

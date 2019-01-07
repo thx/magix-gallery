@@ -8,7 +8,7 @@ define("mx-secradio/index",["magix","../mx-medusa/util"],(require,exports,module
 
 var Magix = require("magix");
 var I18n = require("../mx-medusa/util");
-Magix.applyStyle("_zs_galleryat","._zs_gallerykY{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerykZ{position:relative;height:32px;line-height:32px;transition:height .2s;overflow:hidden}._zs_gallerykZ ._zs_galleryl_{width:20px;cursor:pointer;font-size:14px;color:#ccc;transition:color .2s}._zs_gallerykZ ._zs_galleryl_:hover{color:#666}._zs_galleryla{cursor:pointer;color:#999}._zs_gallerylb{padding-left:20px}._zs_gallerylb._zs_gallerylc{height:0}");
+Magix.applyStyle("_zs_gallery_mx-secradio_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-secradio_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-secradio_index_-line {\n  position: relative;\n  height: 32px;\n  line-height: 32px;\n  transition: height 0.2s;\n  overflow: hidden;\n}\n._zs_gallery_mx-secradio_index_-line ._zs_gallery_mx-secradio_index_-oper {\n  width: 20px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #ccc;\n  transition: color 0.2s;\n}\n._zs_gallery_mx-secradio_index_-line ._zs_gallery_mx-secradio_index_-oper:hover {\n  color: #666;\n}\n._zs_gallery_mx-secradio_index_-all {\n  cursor: pointer;\n  color: #999;\n}\n._zs_gallery_mx-secradio_index_-sub {\n  padding-left: 20px;\n}\n._zs_gallery_mx-secradio_index_-sub._zs_gallery_mx-secradio_index_-close {\n  height: 0;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -21,77 +21,244 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', needExpand = $$.needExpand, close = $$.close, text = $$.text, prefix = $$.prefix, maxHeight = $$.maxHeight, list = $$.list, parentPrefix = $$.parentPrefix, viewId = $$.viewId, selected = $$.selected; if (needExpand) {
+} ; var $g = '', $_temp, $p = '', needExpand = $$.needExpand, close = $$.close, text = $$.text, prefix = $$.prefix, maxHeight = $$.maxHeight, list = $$.list, parentPrefix = $$.parentPrefix, viewId = $$.viewId, selected = $$.selected; var $expr, $art, $line; try {
+    $line = 1;
+    $art = 'if needExpand';
     ;
-    $p += '<div mxa="_zs_galleryc):_" class="_zs_gallerykZ _zs_galleryla" mx-click="' + $viewId + '__cT()">';
-    if (close) {
-        ;
-        $p += $e(text.expand);
-    }
-    else {
-        ;
-        $p += $e(text.collapse);
-    }
-    ;
-    if (prefix) {
-        ;
-        $p += $e(prefix);
-    }
-    ;
-    $p += '</div>';
-} ; $p += '<div mxv class="scroll-y" '; if (maxHeight) {
-    ;
-    $p += ' style="max-height: ' + $e(maxHeight) + 'px;" ';
-} ; $p += '>'; for (var itemIndex = 0, $art_cexihlfwk$art_c = list.length; itemIndex < $art_cexihlfwk$art_c; itemIndex++) {
-    var item = list[itemIndex];
-    $p += '<div mxa="_zs_galleryc):a" class="_zs_gallerykZ"><label mx-click="' + $viewId + '__cU({index:' + $e(itemIndex) + '})">';
+    $expr = '<%if (needExpand) {%>';
     if (needExpand) {
         ;
-        $p += '<i mxa="_zs_galleryc):b" class="mc-iconfont _zs_galleryl_">';
-        if (item.close) {
+        $p += '<div mxa="_zs_galleryc):_" class="_zs_gallery_mx-secradio_index_-line _zs_gallery_mx-secradio_index_-all" mx-click="' + $viewId + '@{toggleAll}()">';
+        $line = 3;
+        $art = 'if close';
+        ;
+        $expr = '<%if (close) {%>';
+        if (close) {
             ;
-            $p += '&#xe65b;';
+            $line = 3;
+            $art = '=text.expand';
+            ;
+            $p += ($expr = '<%=text.expand%>', $e(text.expand)) + '';
+            $line = 3;
+            $art = 'else';
+            ;
+            $expr = '<%}    else {%>';
         }
         else {
             ;
-            $p += '&#xe65a;';
-        }
-        ;
-        $p += '</i>';
-    }
-    ;
-    $p += ' ';
-    if (parentPrefix) {
-        ;
-        $p += ' ' + $e(parentPrefix) + '： ';
-    }
-    ;
-    $p += ' ' + $e(item.text) + '</label></div>';
-    for (var $art_ibjbteqi$art_i = 0, $art_objsqspamd$art_obj = item.subs, $art_cwprkztuvkr$art_c = $art_objsqspamd$art_obj.length; $art_ibjbteqi$art_i < $art_cwprkztuvkr$art_c; $art_ibjbteqi$art_i++) {
-        var sub = $art_objsqspamd$art_obj[$art_ibjbteqi$art_i];
-        $p += '<div mxv class="_zs_gallerykZ _zs_gallerylb ';
-        if (item.close) {
+            $line = 3;
+            $art = '=text.collapse';
             ;
-            $p += ' _zs_gallerylc ';
-        }
-        ;
-        $p += '"><label mxv><input class="radio" type="radio" value="' + $e(sub.value) + '" name="' + $e(viewId) + '_radio" ';
-        if (selected == sub.value) {
+            $p += ($expr = '<%=text.collapse%>', $e(text.collapse)) + '';
+            $line = 3;
+            $art = '/if';
             ;
-            $p += ' checked="true" ';
+            $expr = '<%}%>';
         }
         ;
-        $p += ' mx-change="' + $viewId + '__ca({value:' + $e(sub.value) + '})"/>';
+        $line = 3;
+        $art = 'if prefix';
+        ;
+        $expr = '<%if (prefix) {%>';
         if (prefix) {
             ;
-            $p += ' ' + $e(prefix) + '： ';
+            $line = 3;
+            $art = '=prefix';
+            ;
+            $p += ($expr = '<%=prefix%>', $e(prefix)) + '';
+            $line = 3;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
         }
         ;
-        $p += ' ' + $e(sub.text) + '</label></div>';
+        $p += '</div>';
+        $line = 5;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
     }
     ;
-    $p += ' ';
-} ; $p += '</div>'; return $p; },
+    $p += '<div mxv class="scroll-y" ';
+    $line = 6;
+    $art = 'if maxHeight';
+    ;
+    $expr = '<%if (maxHeight) {%>';
+    if (maxHeight) {
+        ;
+        $p += ' style="max-height: ';
+        $line = 6;
+        $art = '=maxHeight';
+        ;
+        $p += ($expr = '<%=maxHeight%>', $e(maxHeight)) + 'px;" ';
+        $line = 6;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '>';
+    $line = 7;
+    $art = 'each list as item itemIndex';
+    ;
+    $expr = '<%for (var itemIndex = 0, $art_cgzspbnkr$art_c = list.length; itemIndex < $art_cgzspbnkr$art_c; itemIndex++) {    var item = list[itemIndex]%>';
+    for (var itemIndex = 0, $art_cgzspbnkr$art_c = list.length; itemIndex < $art_cgzspbnkr$art_c; itemIndex++) {
+        var item = list[itemIndex];
+        $p += '<div mxa="_zs_galleryc):a" class="_zs_gallery_mx-secradio_index_-line"><label mx-click="' + $viewId + '@{toggleOne}({index:';
+        $line = 9;
+        $art = '=itemIndex';
+        ;
+        $p += ($expr = '<%=itemIndex%>', $e(itemIndex)) + '})">';
+        $line = 10;
+        $art = 'if needExpand';
+        ;
+        $expr = '<%if (needExpand) {%>';
+        if (needExpand) {
+            ;
+            $p += '<i mxa="_zs_galleryc):b" class="mc-iconfont _zs_gallery_mx-secradio_index_-oper">';
+            $line = 12;
+            $art = 'if item.close';
+            ;
+            $expr = '<%if (item.close) {%>';
+            if (item.close) {
+                ;
+                $p += '&#xe65b;';
+                $line = 12;
+                $art = 'else';
+                ;
+                $expr = '<%}        else {%>';
+            }
+            else {
+                ;
+                $p += '&#xe65a;';
+                $line = 12;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '</i>';
+            $line = 14;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 15;
+        $art = 'if parentPrefix';
+        ;
+        $expr = '<%if (parentPrefix) {%>';
+        if (parentPrefix) {
+            ;
+            $p += ' ';
+            $line = 16;
+            $art = '=parentPrefix';
+            ;
+            $p += ($expr = '<%=parentPrefix%>', $e(parentPrefix)) + '： ';
+            $line = 17;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 18;
+        $art = '=item.text';
+        ;
+        $p += ($expr = '<%=item.text%>', $e(item.text)) + '</label></div>';
+        $line = 21;
+        $art = 'each item.subs as sub';
+        ;
+        $expr = '<%for (var $art_iowiffpuu$art_i = 0, $art_objpatufecknn$art_obj = item.subs, $art_cplcbbnft$art_c = $art_objpatufecknn$art_obj.length; $art_iowiffpuu$art_i < $art_cplcbbnft$art_c; $art_iowiffpuu$art_i++) {        var sub = $art_objpatufecknn$art_obj[$art_iowiffpuu$art_i]%>';
+        for (var $art_iowiffpuu$art_i = 0, $art_objpatufecknn$art_obj = item.subs, $art_cplcbbnft$art_c = $art_objpatufecknn$art_obj.length; $art_iowiffpuu$art_i < $art_cplcbbnft$art_c; $art_iowiffpuu$art_i++) {
+            var sub = $art_objpatufecknn$art_obj[$art_iowiffpuu$art_i];
+            $p += '<div mxv class="_zs_gallery_mx-secradio_index_-line _zs_gallery_mx-secradio_index_-sub ';
+            $line = 22;
+            $art = 'if item.close';
+            ;
+            $expr = '<%if (item.close) {%>';
+            if (item.close) {
+                ;
+                $p += ' _zs_gallery_mx-secradio_index_-close ';
+                $line = 22;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '"><label mxv><input class="radio" type="radio" value="';
+            $line = 25;
+            $art = '=sub.value';
+            ;
+            $p += ($expr = '<%=sub.value%>', $e(sub.value)) + '" name="';
+            $line = 26;
+            $art = '=viewId';
+            ;
+            $p += ($expr = '<%=viewId%>', $e(viewId)) + '_radio" ';
+            $line = 27;
+            $art = 'if (selected == sub.value)';
+            ;
+            $expr = '<%if (selected == sub.value) {%>';
+            if (selected == sub.value) {
+                ;
+                $p += ' checked="true" ';
+                $line = 27;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' mx-change="' + $viewId + '@{check}({value:';
+            $line = 28;
+            $art = '=sub.value';
+            ;
+            $p += ($expr = '<%=sub.value%>', $e(sub.value)) + '})"/>';
+            $line = 29;
+            $art = 'if prefix';
+            ;
+            $expr = '<%if (prefix) {%>';
+            if (prefix) {
+                ;
+                $p += ' ';
+                $line = 30;
+                $art = '=prefix';
+                ;
+                $p += ($expr = '<%=prefix%>', $e(prefix)) + '： ';
+                $line = 31;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 32;
+            $art = '=sub.text';
+            ;
+            $p += ($expr = '<%=sub.text%>', $e(sub.text)) + '</label></div>';
+            $line = 35;
+            $art = '/each';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 36;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-secradio/index.html';
+    throw msg;
+} return $p; },
     init: function (extra) {
         //初始化时保存一份当前数据的快照
         this.updater.snapshot();
@@ -119,7 +286,7 @@ module.exports = Magix.View.extend({
                     };
                 })
             };
-            item.pValue = that['__cS'](item);
+            item.pValue = that['@{getPValue}'](item);
             item.close = that.$map[item.pValue] || close;
             list.push(item);
         });
@@ -155,13 +322,13 @@ module.exports = Magix.View.extend({
         var selected = this.updater.get('selected');
         $('#' + this.id).val(selected);
     },
-    '__cS': function (item) {
+    '@{getPValue}': function (item) {
         var subValues = item.subs.map(function (sub) {
             return sub.value + '';
         });
         return subValues.sort().join('_');
     },
-    '__cT<click>': function (event) {
+    '@{toggleAll}<click>': function (event) {
         var that = this;
         var close = !this.updater.get('close');
         var list = this.updater.get('list');
@@ -179,7 +346,7 @@ module.exports = Magix.View.extend({
             list: list
         });
     },
-    '__cU<click>': function (event) {
+    '@{toggleOne}<click>': function (event) {
         var that = this;
         var index = event.params.index;
         var close = true, list = this.updater.get('list');
@@ -200,7 +367,7 @@ module.exports = Magix.View.extend({
             list: list
         });
     },
-    '__ca<change>': function (event) {
+    '@{check}<change>': function (event) {
         var selected = event.params.value;
         this.updater.digest({
             selected: selected

@@ -8,15 +8,15 @@ define("mx-table/sub",["$","magix"],(require,exports,module)=>{
 
 var $ = require("$");
 var Magix = require("magix");
-Magix.applyStyle("_zs_galleryaB","._zs_gallerymo{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerymp{position:relative;display:inline-block;width:1px;height:1px}._zs_gallerymp ._zs_gallerymq,._zs_gallerymp ._zs_gallerymr{position:absolute;top:-10px;left:0;width:16px;height:16px;text-align:center;line-height:16px}._zs_gallerymr{cursor:pointer;color:#4d7fff}._zs_gallerymq{cursor:pointer;color:#999}._zs_gallerymq:hover{color:#333}");
+Magix.applyStyle("_zs_gallery_mx-table_sub_","/* @dependent: ./index.less */\n._zs_gallery_mx-table_sub_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-table_sub_-sub-wrapper {\n  position: relative;\n  display: inline-block;\n  width: 1px;\n  height: 1px;\n}\n._zs_gallery_mx-table_sub_-sub-wrapper ._zs_gallery_mx-table_sub_-sub-expand,\n._zs_gallery_mx-table_sub_-sub-wrapper ._zs_gallery_mx-table_sub_-sub-close {\n  position: absolute;\n  top: -10px;\n  left: 0;\n  width: 16px;\n  height: 16px;\n  text-align: center;\n  line-height: 16px;\n}\n._zs_gallery_mx-table_sub_-sub-expand {\n  cursor: pointer;\n  color: #4d7fff;\n}\n._zs_gallery_mx-table_sub_-sub-close {\n  cursor: pointer;\n  color: #999;\n}\n._zs_gallery_mx-table_sub_-sub-close:hover {\n  color: #333;\n}\n");
 module.exports = {
     ctor: function () {
         // &#xe653; 收起
         // &#xe652; 展开
         var me = this;
-        me['__eB'] = {};
+        me['@{sub.toggle.store}'] = {};
         var ready = function (e) {
-            var state = me['__eB'];
+            var state = me['@{sub.toggle.store}'];
             var context = $('#' + (e.id || me.id));
             var trigger = context.find('[sub-toggle]');
             trigger.each(function (idx, item) {
@@ -38,15 +38,15 @@ module.exports = {
     sync: function (expand, item, toggleName) {
         var me = this;
         var context = $('#' + me.id);
-        $(item).addClass('_zs_gallerymp');
+        $(item).addClass('_zs_gallery_mx-table_sub_-sub-wrapper');
         if (expand) {
             // 收起
-            $(item).html('<i class="mc-iconfont _zs_gallerymr">&#xe653;</i>');
+            $(item).html('<i class="mc-iconfont _zs_gallery_mx-table_sub_-sub-expand">&#xe653;</i>');
             context.find('[sub-toggle-parent=' + toggleName + ']').removeClass('hide');
         }
         else {
             // 展开
-            $(item).html('<i class="mc-iconfont _zs_gallerymq">&#xe652;</i>');
+            $(item).html('<i class="mc-iconfont _zs_gallery_mx-table_sub_-sub-close">&#xe652;</i>');
             context.find('[sub-toggle-parent=' + toggleName + ']').addClass('hide');
         }
     },
@@ -55,9 +55,9 @@ module.exports = {
         var context = $('#' + me.id);
         var item = $(e.eventTarget);
         var toggleName = item.attr('sub-toggle');
-        var object = me['__eB'][toggleName];
+        var object = me['@{sub.toggle.store}'][toggleName];
         if (!object) {
-            object = me['__eB'][toggleName] = {};
+            object = me['@{sub.toggle.store}'][toggleName] = {};
         }
         object.expand = !object.expand;
         me.sync(object.expand, item, toggleName);

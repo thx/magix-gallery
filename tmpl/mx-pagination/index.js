@@ -138,10 +138,13 @@ module.exports = Magix.View.extend({
         let me = this;
         let node = $('#' + me.id);
         let data = me.updater.get();
+        let page = +data.page, size = +data.size;
+        let offset = (page - 1) * size;
         node.trigger({
             type: 'change',
-            page: data.page,
-            size: data.size
+            page,
+            size,
+            offset
         });
     },
     '@{toPage}<click>'(e) {

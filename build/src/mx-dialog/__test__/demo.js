@@ -19,7 +19,17 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = ''; $p += '<div mxs="_zs_galleryam:_" class="dialog-header"><span class="fontsize-16">浮层标题</span></div><div mxs="_zs_galleryam:a" class="dialog-body">浮层内容</div><div mxs="_zs_galleryam:b" class="dialog-footer"><a href="javascript:;" class="btn mr10" mx-click="' + $viewId + 'cancel()">取消</a></div>'; return $p; },
+} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
+    $p += '<div mxs="_zs_galleryam:_" class="dialog-header"><span class="fontsize-16">浮层标题</span></div><div mxs="_zs_galleryam:a" class="dialog-body">浮层内容</div><div mxs="_zs_galleryam:b" class="dialog-footer"><a href="javascript:;" class="btn mr10" mx-click="' + $viewId + 'cancel()">取消</a></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dialog/__test__/demo.html';
+    throw msg;
+} return $p; },
     init: function (e) {
         this.viewOptions = e;
     },

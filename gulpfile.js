@@ -125,29 +125,25 @@ gulp.task('turnOffDebug', () => {
 });
 
 gulp.task('compress', ['turnOffDebug', 'combine'], () => {
-    return del('./dist').then(() => {
-        return gulp.src('./build/src/**/*.js')
-            .pipe(concat('all.js'))
-            .pipe(gulp.dest('./disc'));
-    }).then(() => {
-        return gulp.src('./disc/all.js')
-            .pipe(terser({
-                compress: {
-                    drop_console: true,
-                    drop_debugger: true,
-                    global_defs: {
-                        DEBUG: false
-                    }
+    return gulp.src('./build/src/**/*.js')
+        .pipe(terser({
+            compress: {
+                drop_console: true,
+                drop_debugger: true,
+                global_defs: {
+                    DEBUG: false
                 }
-            }))
-            .pipe(gulp.dest('./disc'))
-    });
+            }
+        }))
+        .pipe(gulp.dest('./build/src/'))
+        .pipe(concat('all.js'))
+        .pipe(gulp.dest('./build'));
 });
 
 gulp.task('release', ['compress'], async () => {
     let index = fs.readFileSync('./index.html').toString();
     
-    let cs = fs.readFileSync('./disc/all.js').toString();
+    let cs = fs.readFileSync('./build/all.js').toString();
     cs = cs.replace(/\$/g, '$$$$');
     index = index.replace(/<script id="test">[\s\S]*?<\/script>/, '<script id="test">' + cs + '</script>');
 
@@ -156,4 +152,5 @@ gulp.task('release', ['compress'], async () => {
     await spawnCommand('git', ['add', '.']);
     await spawnCommand('git', ['commit', '-m', 'publish ' + pkg.version]);
     await spawnCommand('git', ['push', 'origin', 'master']);
+    await spawnCommand('tnpm', ['pub']);
 });

@@ -27,7 +27,33 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', chartData = $$.chartData, viewId = $$.viewId, text1 = $$.text1; $p += '<div mxv mxa="_zs_galleryi:_" class="_zs_galleryh"><div mxv mxa="_zs_galleryi:a" class="_zs_galleryk"><div mxv="chartData" mx-view="__test__/pro/chartpark/demo?chartId=4&data=' + $i($$ref, chartData) + '" style="height: 250px;"></div></div><div mxa="_zs_galleryi:b" class="_zs_galleryl"><div mxs="_zs_galleryi:_" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_galleryi:c" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_galleryi:a" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;lg-chart style="height: 250px;" chart-id="1" data="&#123;&#123;@chartData&#125;&#125;"&gt;&lt;/lg-chart&gt;\n</pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', chartData = $$.chartData, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryi:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryi:a" class="_zs_gallery___test___layout_-eg-content"><div mxv="chartData" mx-view="__test__/pro/chartpark/demo?chartId=4&data=';
+    $line = 3;
+    $art = '@chartData';
+    ;
+    $p += ($expr = '<%@chartData%>', $i($$ref, chartData)) + '" style="height: 250px;"></div></div><div mxa="_zs_galleryi:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryi:_" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 7;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryi:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 9;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryi:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 12;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;lg-chart style="height: 250px;" chart-id="1" data="&#123;&#123;@chartData&#125;&#125;"&gt;&lt;/lg-chart&gt;\n</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:__test__/pro/chartpark-id.html';
+    throw msg;
+} return $p; },
     render: function () {
         var chartData = [
             ['time', 'click', 'ppc'],

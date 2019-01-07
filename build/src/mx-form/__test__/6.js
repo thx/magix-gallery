@@ -24,7 +24,53 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', number = $$.number, viewId = $$.viewId, text1 = $$.text1; $p += '<div mxv mxa="_zs_gallerybB:_" class="_zs_galleryh"><div mxv mxa="_zs_gallerybB:a" class="_zs_galleryk"><div mxv mxa="_zs_gallerybB:b" class="clearfix"><input mxe="' + $viewId + '_0" mxc="[{p:\'number\',f:{blength:[4, 8]}}]" class="input mr20 mb20" placeholder="4到8个字符之间" value="' + $e(number) + '"/> <input mxe="' + $viewId + '_1" mxc="[{p:\'number\',f:{bminlength:2}}]" class="input mr20 mb20" placeholder="最少2个字符" value="' + $e(number) + '"/> <input mxe="' + $viewId + '_2" mxc="[{p:\'number\',f:{bmaxlength:3}}]" class="input mr20 mb20" placeholder="最多3个字符" value="' + $e(number) + '"/></div></div><div mxa="_zs_gallerybB:c" class="_zs_galleryl"><div mxs="_zs_gallerybB:_" class="_zs_galleryj">字符个数（一个汉字两个字符）</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerybB:d" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerybB:a" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;input class="input" placeholder="4到8个字之间" value="&#123;&#123;:number&#123;blength:[4, 8]&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="最少2个字" value="&#123;&#123;:number&#123;bminlength:2&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="最多3个字" value="&#123;&#123;:number&#123;bmaxlength:3&#125;&#125;&#125;"/&gt;</pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', number = $$.number, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerybB:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybB:a" class="_zs_gallery___test___layout_-eg-content"><div mxv mxa="_zs_gallerybB:b" class="clearfix"><input mxe="' + $viewId + '_0" mxc="[';
+    $line = 4;
+    $art = ':number{blength:[4, 8]}';
+    ;
+    $p += '{p:\'number\',f:{blength:[4, 8]}}]" class="input mr20 mb20" placeholder="4到8个字符之间" value="';
+    $line = 4;
+    $art = ':number{blength:[4, 8]}';
+    ;
+    $p += ($expr = '<%=number%>', $e(number)) + '"/> <input mxe="' + $viewId + '_1" mxc="[';
+    $line = 5;
+    $art = ':number{bminlength:2}';
+    ;
+    $p += '{p:\'number\',f:{bminlength:2}}]" class="input mr20 mb20" placeholder="最少2个字符" value="';
+    $line = 5;
+    $art = ':number{bminlength:2}';
+    ;
+    $p += ($expr = '<%=number%>', $e(number)) + '"/> <input mxe="' + $viewId + '_2" mxc="[';
+    $line = 6;
+    $art = ':number{bmaxlength:3}';
+    ;
+    $p += '{p:\'number\',f:{bmaxlength:3}}]" class="input mr20 mb20" placeholder="最多3个字符" value="';
+    $line = 6;
+    $art = ':number{bmaxlength:3}';
+    ;
+    $p += ($expr = '<%=number%>', $e(number)) + '"/></div></div><div mxa="_zs_gallerybB:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybB:_" class="_zs_gallery___test___layout_-eg-title">字符个数（一个汉字两个字符）</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 11;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybB:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 13;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybB:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 16;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;input class="input" placeholder="4到8个字之间" value="&#123;&#123;:number&#123;blength:[4, 8]&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="最少2个字" value="&#123;&#123;:number&#123;bminlength:2&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="最多3个字" value="&#123;&#123;:number&#123;bmaxlength:3&#125;&#125;&#125;"/&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-form/__test__/6.html';
+    throw msg;
+} return $p; },
     mixins: [Form, Validator],
     render: function () {
         this.updater.digest();

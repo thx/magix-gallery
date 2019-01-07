@@ -27,7 +27,7 @@ module.exports = {
     hideLoading: function () {
         var me = this;
         var maskId = me.id + '_loading';
-        var node = me['__ce']();
+        var node = me['@{loading.build}']();
         node.css({
             display: 'none'
         });

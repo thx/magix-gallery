@@ -11,7 +11,7 @@ require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_galleryT","._zs_gallerygD{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerygE{height:1200px;background-color:#fafafa}._zs_gallerygE ._zs_gallerygF{width:1000px;padding-top:220px;margin:auto;font-size:20px;text-align:center}._zs_gallerygG{height:400px;overflow-y:auto;background-color:#fafafa;border:1px solid #e6e6e6}._zs_gallerygG ._zs_gallerygF{height:800px}");
+Magix.applyStyle("_zs_gallery_mx-header___test___index_","/* @dependent: ./index.less */\n._zs_gallery_mx-header___test___index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-header___test___index_-content {\n  height: 1200px;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-header___test___index_-content ._zs_gallery_mx-header___test___index_-inner {\n  width: 1000px;\n  padding-top: 220px;\n  margin: auto;\n  font-size: 20px;\n  text-align: center;\n}\n._zs_gallery_mx-header___test___index_-wrapper {\n  height: 400px;\n  overflow-y: auto;\n  background-color: #fafafa;\n  border: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-header___test___index_-wrapper ._zs_gallery_mx-header___test___index_-inner {\n  height: 800px;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -28,7 +28,53 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_galleryb0:_" class="_zs_galleryh"><div mxa="_zs_galleryb0:a" class="_zs_galleryk"><div id="' + $e(viewId) + '_test" class="_zs_gallerygG"><div mx-view="mx-header/index?width=900&navs=' + $i($$ref, [{ value: 1, text: '营销中台' }, { value: 2, text: '创意中台' }]) + '&wrapper=' + $eu(viewId) + '_test"></div><div mxs="_zs_galleryb0:_" class="_zs_gallerygF"></div></div></div><div mxa="_zs_galleryb0:b" class="_zs_galleryl"><div mxs="_zs_galleryb0:a" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_galleryb0:c" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_galleryb0:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;div id="' + $e(viewId) + '_test"&gt;\n    &lt;mx-header \n        width="900" \n        navs="' + $i($$ref, [{ value: 1, text: '营销中台' }, { value: 2, text: '创意中台' }]) + '" \n        wrapper="' + $e(viewId) + '_test"/&gt;\n&lt;/div&gt;</pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryb0:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryb0:a" class="_zs_gallery___test___layout_-eg-content"><div id="';
+    $line = 3;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test" class="_zs_gallery_mx-header___test___index_-wrapper"><div mx-view="mx-header/index?width=900&navs=';
+    $line = 6;
+    $art = '@[{\n                    value: 1,\n                    text: \'营销中台\'\n                }, {\n                    value: 2,\n                    text: \'创意中台\'\n                }]';
+    ;
+    $p += ($expr = '<%@[{            value: 1,            text: \'营销中台\'        }, {            value: 2,            text: \'创意中台\'        }]%>', $i($$ref, [{ value: 1, text: '营销中台' }, { value: 2, text: '创意中台' }])) + '&wrapper=';
+    $line = 13;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_test"></div><div mxs="_zs_galleryb0:_" class="_zs_gallery_mx-header___test___index_-inner"></div></div></div><div mxa="_zs_galleryb0:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryb0:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 19;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryb0:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 21;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryb0:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 24;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div id="';
+    $line = 25;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test"&gt;\n    &lt;mx-header \n        width="900" \n        navs="';
+    $line = 28;
+    $art = '@[{\n            value: 1,\n            text: \'营销中台\'\n        }, {\n            value: 2,\n            text: \'创意中台\'\n        }]';
+    ;
+    $p += ($expr = '<%@[{            value: 1,            text: \'营销中台\'        }, {            value: 2,            text: \'创意中台\'        }]%>', $i($$ref, [{ value: 1, text: '营销中台' }, { value: 2, text: '创意中台' }])) + '" \n        wrapper="';
+    $line = 35;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test"/&gt;\n&lt;/div&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-header/__test__/2.html';
+    throw msg;
+} return $p; },
     render: function () {
         this.updater.digest({
             viewId: this.id

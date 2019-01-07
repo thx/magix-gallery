@@ -21,7 +21,17 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = ''; $p += '<div mxs="_zs_gallerydY:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerydY:a" mx-view="mx-table/__test__/17"></div>'; return $p; },
+} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
+    $p += '<div mxs="_zs_gallerydY:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_gallerydY:a" mx-view="mx-table/__test__/17"></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-table/__test__/index12.html';
+    throw msg;
+} return $p; },
     render: function () {
         this.updater.digest({
             viewId: this.id

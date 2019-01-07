@@ -31,22 +31,22 @@ module.exports = {
     ctor: function () {
         var me = this;
         me.on('destroy', function () {
-            me['__as']();
+            me['@{dd&drag.end}']();
         });
     },
-    '__as': function (e) {
+    '@{dd&drag.end}': function (e) {
         var me = this;
-        var info = me['__at'];
+        var info = me['@{dd&drag.object}'];
         if (info) {
-            delete me['__at'];
-            Doc.off(DragMoveEvent, me['__au'])
-                .off(DragEndEvent, me['__av'])
+            delete me['@{dd&drag.object}'];
+            Doc.off(DragMoveEvent, me['@{dd&move.proxy}'])
+                .off(DragEndEvent, me['@{dd&stop.proxy}'])
                 .off(DragPreventEvent, DragPrevent);
-            Win.off('blur', me['__av']);
-            var node = info['__aw'];
-            var stop = info['__ax'];
-            var iStop = info['__ay'];
-            $(node).off('losecapture', me['__av']);
+            Win.off('blur', me['@{dd&stop.proxy}']);
+            var node = info['@{dd&node}'];
+            var stop = info['@{dd&stop}'];
+            var iStop = info['@{dd&stop.is.function}'];
+            $(node).off('losecapture', me['@{dd&stop.proxy}']);
             if (node.setCapture)
                 node.releaseCapture();
             if (iStop) {
@@ -56,41 +56,41 @@ module.exports = {
     },
     dragdrop: function (node, moveCallback, endCallback) {
         var me = this;
-        me['__as']();
+        me['@{dd&drag.end}']();
         if (node) {
             ClearSelection();
             if (node.setCapture) {
                 node.setCapture();
             }
-            me['__at'] = {
-                '__ax': endCallback,
-                '__aw': node,
-                '__ay': $.isFunction(endCallback)
+            me['@{dd&drag.object}'] = {
+                '@{dd&stop}': endCallback,
+                '@{dd&node}': node,
+                '@{dd&stop.is.function}': $.isFunction(endCallback)
             };
             var moveIsFunction_1 = $.isFunction(moveCallback);
-            me['__av'] = function (e) {
-                me['__as'](e);
+            me['@{dd&stop.proxy}'] = function (e) {
+                me['@{dd&drag.end}'](e);
             };
-            me['__au'] = function (e) {
+            me['@{dd&move.proxy}'] = function (e) {
                 if (moveIsFunction_1) {
                     moveCallback(e);
                 }
             };
-            Doc.on(DragMoveEvent, me['__au'])
-                .on(DragEndEvent, me['__av'])
+            Doc.on(DragMoveEvent, me['@{dd&move.proxy}'])
+                .on(DragEndEvent, me['@{dd&stop.proxy}'])
                 .on(DragPreventEvent, DragPrevent);
-            Win.on('blur', me['__av']);
-            $(node).on('losecapture', me['__av']);
+            Win.on('blur', me['@{dd&stop.proxy}']);
+            $(node).on('losecapture', me['@{dd&stop.proxy}']);
         }
     },
     fromPoint: function (x, y) {
         var node = null;
         if (document.elementFromPoint) {
-            if (!DragPrevent['__az'] && IsW3C) {
-                DragPrevent['__az'] = true;
-                DragPrevent['__aA'] = document.elementFromPoint(-1, -1) !== null;
+            if (!DragPrevent['@{dd&fixed}'] && IsW3C) {
+                DragPrevent['@{dd&fixed}'] = true;
+                DragPrevent['@{dd&add.scroll}'] = document.elementFromPoint(-1, -1) !== null;
             }
-            if (DragPrevent['__aA']) {
+            if (DragPrevent['@{dd&add.scroll}']) {
                 x += Win.scrollLeft();
                 y += Win.scrollTop();
             }

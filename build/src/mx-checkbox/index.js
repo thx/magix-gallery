@@ -20,16 +20,67 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', indeterminate = $$.indeterminate, checked = $$.checked, disabled = $$.disabled, name = $$.name, value = $$.value; $p += '<input type="checkbox" class="'; if (indeterminate) {
+} ; var $g = '', $_temp, $p = '', indeterminate = $$.indeterminate, checked = $$.checked, disabled = $$.disabled, name = $$.name, value = $$.value; var $expr, $art, $line; try {
+    $p += '<input type="checkbox" class="';
+    $line = 2;
+    $art = 'if indeterminate';
     ;
-    $p += ' indeterminate ';
-} ; $p += '" '; if (checked) {
+    $expr = '<%if (indeterminate) {%>';
+    if (indeterminate) {
+        ;
+        $p += ' indeterminate ';
+        $line = 2;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
     ;
-    $p += ' checked="checked" ';
-} ; $p += ' '; if (disabled) {
+    $p += '" ';
+    $line = 3;
+    $art = 'if checked';
     ;
-    $p += ' disabled="disabled" ';
-} ; $p += ' name="' + $e(name) + '" value="' + $e(value) + '" mx-change="' + $viewId + '__ab()"/>'; return $p; },
+    $expr = '<%if (checked) {%>';
+    if (checked) {
+        ;
+        $p += ' checked="checked" ';
+        $line = 3;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $line = 4;
+    $art = 'if disabled';
+    ;
+    $expr = '<%if (disabled) {%>';
+    if (disabled) {
+        ;
+        $p += ' disabled="disabled" ';
+        $line = 4;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' name="';
+    $line = 5;
+    $art = '=name';
+    ;
+    $p += ($expr = '<%=name%>', $e(name)) + '" value="';
+    $line = 6;
+    $art = '=value';
+    ;
+    $p += ($expr = '<%=value%>', $e(value)) + '" mx-change="' + $viewId + '@{change}()"/>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-checkbox/index.html';
+    throw msg;
+} return $p; },
     init: function (extra) {
         //初始化时保存一份当前数据的快照
         this.updater.snapshot();
@@ -61,7 +112,7 @@ module.exports = Magix.View.extend({
     render: function () {
         this.updater.digest({});
     },
-    '__ab<change>': function (e) {
+    '@{change}<change>': function (e) {
         this.updater.digest({
             checked: e.target.checked,
             indeterminate: false

@@ -7,7 +7,7 @@ define("mx-dialog/group",["magix"],(require,exports,module)=>{
 /*Magix*/
 
 var Magix = require("magix");
-Magix.applyStyle("_zs_galleryC","._zs_gallerydE{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerydF{position:relative;padding-left:192px;border-radius:4px}._zs_gallerydF ._zs_gallerydG{position:absolute;top:-1px;left:-1px;bottom:-1px;width:192px;background-color:#fafafa;border-top-left-radius:4px;border-bottom-left-radius:4px;overflow-y:auto}._zs_gallerydF ._zs_gallerydG ._zs_gallerydH{display:block;height:44px;padding:0 16px;line-height:44px;border-left:4px solid #fafafa;color:#999;white-space:nowrap;word-wrap:normal;overflow:hidden;text-overflow:ellipsis;transition:all .25s ease-out}._zs_gallerydF ._zs_gallerydG ._zs_gallerydH._zs_gallerydI{color:#333;background-color:#f6f9ff;border-left:4px solid #4d7fff}._zs_gallerydF ._zs_gallerydG ._zs_gallerydH._zs_gallerydJ{color:#4d7fff}._zs_gallerydF ._zs_gallerydK{padding:20px;overflow-y:auto}");
+Magix.applyStyle("_zs_gallery_mx-dialog_group_","/* @dependent: ./index.less */\n._zs_gallery_mx-dialog_group_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-dialog_group_-help {\n  position: relative;\n  padding-left: 192px;\n  border-radius: 4px;\n}\n._zs_gallery_mx-dialog_group_-help ._zs_gallery_mx-dialog_group_-help-navs {\n  position: absolute;\n  top: -1px;\n  left: -1px;\n  bottom: -1px;\n  width: 192px;\n  background-color: #fafafa;\n  border-top-left-radius: 4px;\n  border-bottom-left-radius: 4px;\n  overflow-y: auto;\n}\n._zs_gallery_mx-dialog_group_-help ._zs_gallery_mx-dialog_group_-help-navs ._zs_gallery_mx-dialog_group_-help-nav {\n  display: block;\n  height: 44px;\n  padding: 0 16px;\n  line-height: 44px;\n  border-left: 4px solid #fafafa;\n  color: #999;\n  white-space: nowrap;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  transition: all 0.25s ease-out;\n}\n._zs_gallery_mx-dialog_group_-help ._zs_gallery_mx-dialog_group_-help-navs ._zs_gallery_mx-dialog_group_-help-nav._zs_gallery_mx-dialog_group_-hover {\n  color: #333;\n  background-color: #f6f9ff;\n  border-left: 4px solid #4d7fff;\n}\n._zs_gallery_mx-dialog_group_-help ._zs_gallery_mx-dialog_group_-help-navs ._zs_gallery_mx-dialog_group_-help-nav._zs_gallery_mx-dialog_group_-cur {\n  color: #4d7fff;\n}\n._zs_gallery_mx-dialog_group_-help ._zs_gallery_mx-dialog_group_-help-content {\n  padding: 20px;\n  overflow-y: auto;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -24,22 +24,83 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', list = $$.list, curIndex = $$.curIndex, hoverIndex = $$.hoverIndex, textKey = $$.textKey, height = $$.height, contentView = $$.contentView; $p += '<div mxv mxa="_zs_galleryaw:_" class="_zs_gallerydF"><div mxa="_zs_galleryaw:a" class="_zs_gallerydG">'; for (var index = 0, $art_czsdgatlslr$art_c = list.length; index < $art_czsdgatlslr$art_c; index++) {
-    var item = list[index];
-    $p += '<a href="javascript:;" class="_zs_gallerydH ';
-    if (index == curIndex) {
+} ; var $g = '', $_temp, $p = '', list = $$.list, curIndex = $$.curIndex, hoverIndex = $$.hoverIndex, textKey = $$.textKey, height = $$.height, contentView = $$.contentView; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryaw:_" class="_zs_gallery_mx-dialog_group_-help"><div mxa="_zs_galleryaw:a" class="_zs_gallery_mx-dialog_group_-help-navs">';
+    $line = 3;
+    $art = 'each list as item index';
+    ;
+    $expr = '<%for (var index = 0, $art_cheodavnhh$art_c = list.length; index < $art_cheodavnhh$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cheodavnhh$art_c = list.length; index < $art_cheodavnhh$art_c; index++) {
+        var item = list[index];
+        $p += '<a href="javascript:;" class="_zs_gallery_mx-dialog_group_-help-nav ';
+        $line = 5;
+        $art = 'if index == curIndex';
         ;
-        $p += ' _zs_gallerydJ ';
+        $expr = '<%if (index == curIndex) {%>';
+        if (index == curIndex) {
+            ;
+            $p += ' _zs_gallery_mx-dialog_group_-cur ';
+            $line = 5;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 5;
+        $art = 'if index == hoverIndex';
+        ;
+        $expr = '<%if (index == hoverIndex) {%>';
+        if (index == hoverIndex) {
+            ;
+            $p += ' _zs_gallery_mx-dialog_group_-hover ';
+            $line = 5;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '" mx-mouseover="' + $viewId + 'over({index:\'';
+        $line = 6;
+        $art = '=index';
+        ;
+        $p += ($expr = '<%=$eq(index)%>', $e($eq(index))) + '\'})" mx-mouseout="' + $viewId + 'out()" mx-click="' + $viewId + 'select({index:\'';
+        $line = 8;
+        $art = '=index';
+        ;
+        $p += ($expr = '<%=$eq(index)%>', $e($eq(index))) + '\'})">';
+        $line = 8;
+        $art = '=item[textKey]';
+        ;
+        $p += ($expr = '<%=item[textKey]%>', $e(item[textKey])) + '</a>';
+        $line = 9;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
     }
     ;
-    $p += ' ';
-    if (index == hoverIndex) {
-        ;
-        $p += ' _zs_gallerydI ';
-    }
+    $p += '</div><div mxv class="_zs_gallery_mx-dialog_group_-help-content" style="height: ';
+    $line = 11;
+    $art = '=height';
     ;
-    $p += '" mx-mouseover="' + $viewId + 'over({index:\'' + $e($eq(index)) + '\'})" mx-mouseout="' + $viewId + 'out()" mx-click="' + $viewId + 'select({index:\'' + $e($eq(index)) + '\'})">' + $e(item[textKey]) + '</a>';
-} ; $p += '</div><div mxv class="_zs_gallerydK" style="height: ' + $e(height) + 'px;"><div mxv="list,curIndex" mx-view="' + $e(contentView) + '?data=' + $i($$ref, list[curIndex]) + '"></div></div></div>'; return $p; },
+    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxv="list,curIndex" mx-view="';
+    $line = 12;
+    $art = '=contentView';
+    ;
+    $p += ($expr = '<%=contentView%>', $e(contentView)) + '?data=';
+    $line = 12;
+    $art = '@list[curIndex]';
+    ;
+    $p += ($expr = '<%@list[curIndex]%>', $i($$ref, list[curIndex])) + '"></div></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dialog/group.html';
+    throw msg;
+} return $p; },
     init: function (extra) {
         var textKey = extra.textKey || 'text';
         var list = extra.list || [];

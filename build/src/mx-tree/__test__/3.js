@@ -27,7 +27,37 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, list = $$.list, text1 = $$.text1; $p += '<div mxv mxa="_zs_galleryd+:_" class="_zs_galleryh"><div mxv mxa="_zs_galleryd+:a" class="_zs_galleryk"><div mxv="list" id="' + $e(viewId) + '_tree" mx-view="mx-tree/index?needExpand=true&readOnly=true&hasLine=true&list=' + $i($$ref, list) + '"></div></div><div mxa="_zs_galleryd+:b" class="_zs_galleryl"><div mxs="_zs_galleryd+:_" class="_zs_galleryj">只读 + 可展开收起 + 默认展开 + 有连接线</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_galleryd+:c" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_galleryd+:a" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"\n    need-expand="true"\n    read-only="true"\n    has-line="true"\n    list="&#123;&#123;@list&#125;&#125;"&gt;&lt;/mx-tree&gt;</pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, list = $$.list, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryd+:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryd+:a" class="_zs_gallery___test___layout_-eg-content"><div mxv="list" id="';
+    $line = 3;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_tree" mx-view="mx-tree/index?needExpand=true&readOnly=true&hasLine=true&list=';
+    $line = 7;
+    $art = '@list';
+    ;
+    $p += ($expr = '<%@list%>', $i($$ref, list)) + '"></div></div><div mxa="_zs_galleryd+:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd+:_" class="_zs_gallery___test___layout_-eg-title">只读 + 可展开收起 + 默认展开 + 有连接线</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 11;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryd+:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 13;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryd+:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 16;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"\n    need-expand="true"\n    read-only="true"\n    has-line="true"\n    list="&#123;&#123;@list&#125;&#125;"&gt;&lt;/mx-tree&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-tree/__test__/3.html';
+    throw msg;
+} return $p; },
     render: function () {
         var list = [{
                 value: 1,

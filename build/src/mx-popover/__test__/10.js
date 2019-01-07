@@ -23,7 +23,29 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_gallerycI:_" class="_zs_galleryh"><div mxs="_zs_gallerycI:_" class="_zs_galleryk"><span class="btn" mx-view="mx-popover/index?content=%E6%8F%90%E7%A4%BA%E5%86%85%E5%AE%B9&auto=true&placement=right&align=bottom">默认展开</span></div><div mxa="_zs_gallerycI:a" class="_zs_galleryl"><div mxs="_zs_gallerycI:a" class="_zs_galleryj">默认展开</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerycI:b" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerycI:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-popover class="btn"\n    content="提示内容"\n    auto="true"\n    placement="right"\n    align="bottom"&gt;默认展开&lt;/mx-popover&gt;</pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerycI:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerycI:_" class="_zs_gallery___test___layout_-eg-content"><span class="btn" mx-view="mx-popover/index?content=%E6%8F%90%E7%A4%BA%E5%86%85%E5%AE%B9&auto=true&placement=right&align=bottom">默认展开</span></div><div mxa="_zs_gallerycI:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycI:a" class="_zs_gallery___test___layout_-eg-title">默认展开</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 11;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycI:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 13;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycI:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 16;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-popover class="btn"\n    content="提示内容"\n    auto="true"\n    placement="right"\n    align="bottom"&gt;默认展开&lt;/mx-popover&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-popover/__test__/10.html';
+    throw msg;
+} return $p; },
     render: function () {
         this.updater.digest();
     }

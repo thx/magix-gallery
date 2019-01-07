@@ -10,7 +10,7 @@ require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_galleryav","._zs_gallerylK{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerylL{padding:10px}._zs_gallerylM{background-color:#eee}");
+Magix.applyStyle("_zs_gallery_mx-style___test___1_","/* @dependent: ./index.less */\n._zs_gallery_mx-style___test___1_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-style___test___1_-con {\n  padding: 10px;\n}\n._zs_gallery_mx-style___test___1_-dark {\n  background-color: #eee;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -23,7 +23,29 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_gallerydh:_" class="_zs_galleryh"><div mxs="_zs_gallerydh:_" class="_zs_galleryk"><div class="_zs_gallerylL"><a href="javascript:;" class="btn btn-brand mr20">品牌色按钮</a><a href="javascript:;" class="btn btn-brand btn-small mr20">小号品牌色按钮</a><a href="javascript:;" class="btn btn-brand"><i class="mc-iconfont displacement-2">&#xe731;</i>&nbsp;品牌色按钮</a></div><div class="_zs_gallerylL"><a href="javascript:;" class="btn mr20">普通按钮</a><a href="javascript:;" class="btn btn-small mr20">小号普通按钮</a><a href="javascript:;" class="btn"><i class="mc-iconfont displacement-2">&#xe731;</i>&nbsp;品牌色按钮</a></div><div class="_zs_gallerylL _zs_gallerylM"><a href="javascript:;" class="btn btn-white mr20">白色按钮</a><a href="javascript:;" class="btn btn-white btn-small mr20">小号白色按钮</a><a href="javascript:;" class="btn btn-white"><i class="mc-iconfont displacement-2">&#xe731;</i>&nbsp;品牌色按钮</a></div><div class="_zs_gallerylL"><a href="javascript:;" class="btn btn-disabled mr20">禁用按钮</a><a href="javascript:;" class="btn btn-disabled btn-small mr20">小号禁用按钮</a><a href="javascript:;" class="btn btn-disabled"><i class="mc-iconfont displacement-2">&#xe731;</i>&nbsp;品牌色按钮</a></div></div><div mxa="_zs_gallerydh:a" class="_zs_galleryl"><div mxs="_zs_gallerydh:a" class="_zs_galleryj">按钮</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerydh:b" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerydh:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;a href="javascript:;" class="btn btn-brand"&gt;品牌色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand btn-small"&gt;小号品牌色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn"&gt;普通按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-small"&gt;小号普通按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-white"&gt;白色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-white btn-small"&gt;小号白色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-disabled"&gt;禁用按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-disabled btn-small"&gt;小号禁用按钮&lt;/a&gt;\n        </pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerydh:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerydh:_" class="_zs_gallery___test___layout_-eg-content"><div class="_zs_gallery_mx-style___test___1_-con"><a href="javascript:;" class="btn btn-brand mr20">品牌色按钮</a><a href="javascript:;" class="btn btn-brand btn-small mr20">小号品牌色按钮</a><a href="javascript:;" class="btn btn-brand"><i class="mc-iconfont displacement-2">&#xe731;</i>&nbsp;品牌色按钮</a></div><div class="_zs_gallery_mx-style___test___1_-con"><a href="javascript:;" class="btn mr20">普通按钮</a><a href="javascript:;" class="btn btn-small mr20">小号普通按钮</a><a href="javascript:;" class="btn"><i class="mc-iconfont displacement-2">&#xe731;</i>&nbsp;品牌色按钮</a></div><div class="_zs_gallery_mx-style___test___1_-con _zs_gallery_mx-style___test___1_-dark"><a href="javascript:;" class="btn btn-white mr20">白色按钮</a><a href="javascript:;" class="btn btn-white btn-small mr20">小号白色按钮</a><a href="javascript:;" class="btn btn-white"><i class="mc-iconfont displacement-2">&#xe731;</i>&nbsp;品牌色按钮</a></div><div class="_zs_gallery_mx-style___test___1_-con"><a href="javascript:;" class="btn btn-disabled mr20">禁用按钮</a><a href="javascript:;" class="btn btn-disabled btn-small mr20">小号禁用按钮</a><a href="javascript:;" class="btn btn-disabled"><i class="mc-iconfont displacement-2">&#xe731;</i>&nbsp;品牌色按钮</a></div></div><div mxa="_zs_gallerydh:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydh:a" class="_zs_gallery___test___layout_-eg-title">按钮</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 34;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydh:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 36;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydh:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 39;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" class="btn btn-brand"&gt;品牌色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand btn-small"&gt;小号品牌色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn"&gt;普通按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-small"&gt;小号普通按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-white"&gt;白色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-white btn-small"&gt;小号白色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-disabled"&gt;禁用按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-disabled btn-small"&gt;小号禁用按钮&lt;/a&gt;\n        </pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-style/__test__/1.html';
+    throw msg;
+} return $p; },
     render: function () {
         this.updater.digest();
     }

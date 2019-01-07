@@ -23,7 +23,41 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; $p += '<div mxa="_zs_galleryai:_" class="_zs_galleryh"><div mxs="_zs_galleryai:_" class="_zs_galleryk"><div class="mb20"><span class="color-9">afterClose：</span>浮层关闭之后调用</div><div class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'open()" class="btn btn-brand mr20">打开浮层</a></div></div><div mxa="_zs_galleryai:a" class="clearfix"><div mxa="_zs_galleryai:b" class="_zs_galleryl _zs_gallerya"><div mxs="_zs_galleryai:a" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_galleryai:c" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_galleryai:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;a href="javascript:;" \n    mx-click="open()" \n    class="btn btn-brand"&gt;打开浮层&lt;/a&gt;\n            </pre></div><div mxa="_zs_galleryai:d" class="_zs_galleryl _zs_galleryb _zs_galleryf"><div mxs="_zs_galleryai:c" class="_zs_galleryj">JS Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_2"><span mxa="_zs_galleryai:e" class="_zs_galleryo">' + $n(text2) + '</span><i mxs="_zs_galleryai:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_2">\nlet Magix = require(\'magix\');\nlet Dialog = require(\'@../index\'); //mixins dialog\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [Dialog],\n    render() {\n        this.updater.digest();\n    },\n    \'open&lt;click&gt;\'(e) &#123;\n        let dlg = this.mxDialog(\'@./demo\');\n        dlg.afterClose(() =&gt; &#123;\n            // do something\n        &#125;)\n    &#125;\n&#125;);</pre></div></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryai:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryai:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb20"><span class="color-9">afterClose：</span>浮层关闭之后调用</div><div class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'open()" class="btn btn-brand mr20">打开浮层</a></div></div><div mxa="_zs_galleryai:a" class="clearfix"><div mxa="_zs_galleryai:b" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third1"><div mxs="_zs_galleryai:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 15;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryai:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 17;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryai:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 20;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" \n    mx-click="open()" \n    class="btn btn-brand"&gt;打开浮层&lt;/a&gt;\n            </pre></div><div mxa="_zs_galleryai:d" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryai:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 28;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryai:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 30;
+    $art = '!text2';
+    ;
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryai:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 33;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Dialog = require(\'@../index\'); //mixins dialog\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [Dialog],\n    render() {\n        this.updater.digest();\n    },\n    \'open&lt;click&gt;\'(e) &#123;\n        let dlg = this.mxDialog(\'@./demo\');\n        dlg.afterClose(() =&gt; &#123;\n            // do something\n        &#125;)\n    &#125;\n&#125;);</pre></div></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dialog/__test__/7.html';
+    throw msg;
+} return $p; },
     mixins: [Dialog],
     render: function () {
         this.updater.digest();

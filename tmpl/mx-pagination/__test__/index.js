@@ -67,6 +67,10 @@ module.exports = Base.extend({
                 key: 'size',
                 desc: '每页条数',
                 type: 'number'
+            }, {
+                key: 'offset',
+                desc: '偏移量：offset = (size - 1) * page',
+                type: 'number'
             }]
         }]
 
@@ -81,6 +85,7 @@ module.exports = Base.extend({
     'change<change>' (e) {
         // e.page 当前第几页
         // e.size 每页多少条
+        // e.offset 偏移量
         this.updater.digest({
             page: e.page,
             size: e.size

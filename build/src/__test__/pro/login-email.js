@@ -22,7 +22,29 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_gallerys:_" class="_zs_galleryh"><div mxa="_zs_gallerys:a" class="_zs_galleryl _zs_galleryq"><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerys:b" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerys:_" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n应用说明：\n1. 产品名：\n2. 域名：\n3. 产品介绍：\n\n参数说明：\ncss_style：申请完成对方会邮件回复\nredirectURL：encodeURIComponent(需要跳转的地址)\nstyle：mini\nfull_redirect：true\nnewMini2：true\nenup：0\nqrlogin：1\nkeyLogin：true\n\ncss 文件链接：\nhttps://g.alicdn.com/mm/ziyuan/0.1.29/item_login.css?_blank</pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerys:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerys:a" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-top-none"><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 3;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerys:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 5;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerys:_" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 8;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n应用说明：\n1. 产品名：\n2. 域名：\n3. 产品介绍：\n\n参数说明：\ncss_style：申请完成对方会邮件回复\nredirectURL：encodeURIComponent(需要跳转的地址)\nstyle：mini\nfull_redirect：true\nnewMini2：true\nenup：0\nqrlogin：1\nkeyLogin：true\n\ncss 文件链接：\nhttps://g.alicdn.com/mm/ziyuan/0.1.29/item_login.css?_blank</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:__test__/pro/login-email.html';
+    throw msg;
+} return $p; },
     render: function () {
         this.updater.digest();
     }

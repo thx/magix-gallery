@@ -23,7 +23,29 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_gallerycs:_" class="_zs_galleryh"><div mxs="_zs_gallerycs:_" class="_zs_galleryk"><div class="text-center"><div mx-view="mx-pagination/index?jump=false&simplify=true&hideTotal=true&total=100&size=40&page=2"></div></div></div><div mxa="_zs_gallerycs:a" class="_zs_galleryl"><div mxs="_zs_gallerycs:a" class="_zs_galleryj">只有翻页器，没有汇总数据，可自行控制位置</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerycs:b" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerycs:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;div class="text-center"&gt;\n    &lt;mx-pagination \n        simplify="true"\n        jump="false"\n        hide-total="true"\n        total="100" \n        size="40" \n        page="2"/&gt;\n&lt;/div&gt;</pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerycs:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerycs:_" class="_zs_gallery___test___layout_-eg-content"><div class="text-center"><div mx-view="mx-pagination/index?jump=false&simplify=true&hideTotal=true&total=100&size=40&page=2"></div></div></div><div mxa="_zs_gallerycs:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycs:a" class="_zs_gallery___test___layout_-eg-title">只有翻页器，没有汇总数据，可自行控制位置</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 15;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycs:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 17;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycs:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 20;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="text-center"&gt;\n    &lt;mx-pagination \n        simplify="true"\n        jump="false"\n        hide-total="true"\n        total="100" \n        size="40" \n        page="2"/&gt;\n&lt;/div&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-pagination/__test__/4.html';
+    throw msg;
+} return $p; },
     render: function () {
         this.updater.digest();
     }

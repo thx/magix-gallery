@@ -25,7 +25,25 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', alreadyStep = $$.alreadyStep, stepInfos = $$.stepInfos; $p += '<div mxv="stepInfos" mx-view="mx-main/index?rightWidth=220&leftWidth=140&alreadyStep=' + $eu(alreadyStep) + '&stepInfos=' + $i($$ref, stepInfos) + '"></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', alreadyStep = $$.alreadyStep, stepInfos = $$.stepInfos; var $expr, $art, $line; try {
+    $p += '<div mxv="stepInfos" mx-view="mx-main/index?rightWidth=220&leftWidth=140&alreadyStep=';
+    $line = 4;
+    $art = '=alreadyStep';
+    ;
+    $p += ($expr = '<%!$eu(alreadyStep)%>', $eu(alreadyStep)) + '&stepInfos=';
+    $line = 5;
+    $art = '@stepInfos';
+    ;
+    $p += ($expr = '<%@stepInfos%>', $i($$ref, stepInfos)) + '"></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-main/__test__/demo.html';
+    throw msg;
+} return $p; },
     render: function () {
         var stepInfos = [{
                 label: '设置单元',

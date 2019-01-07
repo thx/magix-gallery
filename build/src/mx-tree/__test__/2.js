@@ -12,7 +12,7 @@ var Magix = require("magix");
 var Base = require("__test__/example");
 var Vframe = Magix.Vframe;
 var $ = require("$");
-Magix.applyStyle("_zs_galleryaG","._zs_gallerymU{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerymV{width:300px;border:1px solid #e6e6e6}._zs_gallerymV ._zs_gallerymW{padding:20px 20px 5px}");
+Magix.applyStyle("_zs_gallery_mx-tree___test___index_","/* @dependent: ./index.less */\n._zs_gallery_mx-tree___test___index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-tree___test___index_-wrapper {\n  width: 300px;\n  border: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-tree___test___index_-wrapper ._zs_gallery_mx-tree___test___index_-content {\n  padding: 20px 20px 5px 20px;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -29,7 +29,57 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', selected = $$.selected, viewId = $$.viewId, list = $$.list, text1 = $$.text1, text2 = $$.text2; $p += '<div mxv mxa="_zs_galleryd-:_" class="_zs_galleryh"><div mxv mxa="_zs_galleryd-:a" class="_zs_galleryk"><div mxs="_zs_galleryd-:_" class="mb10 clearfix"><div class="color-9 fl">使用场景：</div><div class="fl"><div>实时反馈选中结果，每次操作都响应事件</div><div>默认选中某些选项</div><div>可展开收起子选项</div></div></div><div mxa="_zs_galleryd-:b" class="mb20"><span mxs="_zs_galleryd-:a" class="color-9">当前已选中：</span>' + $e(selected.length) + '</div><div mxv mxa="_zs_galleryd-:c" class="_zs_gallerymV"><div mxv mxa="_zs_galleryd-:d" class="_zs_gallerymW"><div mxv="list,selected" id="' + $e(viewId) + '_tree" mx-change="' + $viewId + 'change()" mx-view="mx-tree/index?list=' + $i($$ref, list) + '&bottomValues=' + $i($$ref, selected) + '"></div></div></div></div><div mxa="_zs_galleryd-:e" class="_zs_galleryl"><div mxs="_zs_galleryd-:b" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_galleryd-:f" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_galleryd-:c" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"\n    list="&#123;&#123;@list&#125;&#125;"\n    bottom-values="&#123;&#123;@selected&#125;&#125;"\n    mx-change="change()"&gt;&lt;/mx-tree&gt;</pre></div><div mxa="_zs_galleryd-:g" class="_zs_galleryl"><div mxs="_zs_galleryd-:d" class="_zs_galleryj">JS Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_2"><span mxa="_zs_galleryd-:h" class="_zs_galleryo">' + $n(text2) + '</span><i mxs="_zs_galleryd-:c" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_2">\nlet Magix = require(\'magix\');\nlet Vframe = Magix.Vframe;\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let list = [&#123;\n            value: 1,\n            pValue: \'\',\n            text: \'1\'\n        &#125;, &#123;\n            value: 2,\n            pValue: \'\',\n            text: \'2\'\n        &#125;, &#123;\n            value: 3,\n            pValue: \'\',\n            text: \'3\'\n        &#125;, &#123;\n            value: 11,\n            pValue: 1,\n            text: \'1-1\'\n        &#125;, &#123;\n            value: 12,\n            pValue: 1,\n            text: \'1-2\'\n        &#125;, &#123;\n            value: 21,\n            pValue: 2,\n            text: \'2-1\'\n        &#125;, &#123;\n            value: 211,\n            pValue: 21,\n            text: \'2-1-1\'\n        &#125;, &#123;\n            value: 212,\n            pValue: 21,\n            text: \'2-1-2\'\n        &#125;, &#123;\n            value: 22,\n            pValue: 2,\n            text: \'2-2\'\n        &#125;, &#123;\n            value: 23,\n            pValue: 2,\n            text: \'2-3\'\n        &#125;]\n\n        this.updater.digest(&#123;\n            viewId: this.id,\n            list,\n            selected: [211, 23, 3]\n        &#125;);\n    &#125;,\n    \'change&lt;change&gt;\'(e) &#123;\n        let tree = Vframe.get(this.id + \'_tree\');\n\n        this.updater.digest(&#123;\n            selected: tree.invoke(\'getBottomValues\')\n        &#125;)\n    &#125;\n&#125;);</pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', selected = $$.selected, viewId = $$.viewId, list = $$.list, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryd-:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryd-:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryd-:_" class="mb10 clearfix"><div class="color-9 fl">使用场景：</div><div class="fl"><div>实时反馈选中结果，每次操作都响应事件</div><div>默认选中某些选项</div><div>可展开收起子选项</div></div></div><div mxa="_zs_galleryd-:b" class="mb20"><span mxs="_zs_galleryd-:a" class="color-9">当前已选中：</span>';
+    $line = 13;
+    $art = '=selected.length';
+    ;
+    $p += ($expr = '<%=selected.length%>', $e(selected.length)) + '</div><div mxv mxa="_zs_galleryd-:c" class="_zs_gallery_mx-tree___test___index_-wrapper"><div mxv mxa="_zs_galleryd-:d" class="_zs_gallery_mx-tree___test___index_-content"><div mxv="list,selected" id="';
+    $line = 17;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_tree" mx-change="' + $viewId + 'change()" mx-view="mx-tree/index?list=';
+    $line = 18;
+    $art = '@list';
+    ;
+    $p += ($expr = '<%@list%>', $i($$ref, list)) + '&bottomValues=';
+    $line = 19;
+    $art = '@selected';
+    ;
+    $p += ($expr = '<%@selected%>', $i($$ref, selected)) + '"></div></div></div></div><div mxa="_zs_galleryd-:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd-:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 26;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryd-:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 28;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryd-:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 31;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"\n    list="&#123;&#123;@list&#125;&#125;"\n    bottom-values="&#123;&#123;@selected&#125;&#125;"\n    mx-change="change()"&gt;&lt;/mx-tree&gt;</pre></div><div mxa="_zs_galleryd-:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd-:d" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 39;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryd-:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 41;
+    $art = '!text2';
+    ;
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryd-:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 44;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Vframe = Magix.Vframe;\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let list = [&#123;\n            value: 1,\n            pValue: \'\',\n            text: \'1\'\n        &#125;, &#123;\n            value: 2,\n            pValue: \'\',\n            text: \'2\'\n        &#125;, &#123;\n            value: 3,\n            pValue: \'\',\n            text: \'3\'\n        &#125;, &#123;\n            value: 11,\n            pValue: 1,\n            text: \'1-1\'\n        &#125;, &#123;\n            value: 12,\n            pValue: 1,\n            text: \'1-2\'\n        &#125;, &#123;\n            value: 21,\n            pValue: 2,\n            text: \'2-1\'\n        &#125;, &#123;\n            value: 211,\n            pValue: 21,\n            text: \'2-1-1\'\n        &#125;, &#123;\n            value: 212,\n            pValue: 21,\n            text: \'2-1-2\'\n        &#125;, &#123;\n            value: 22,\n            pValue: 2,\n            text: \'2-2\'\n        &#125;, &#123;\n            value: 23,\n            pValue: 2,\n            text: \'2-3\'\n        &#125;]\n\n        this.updater.digest(&#123;\n            viewId: this.id,\n            list,\n            selected: [211, 23, 3]\n        &#125;);\n    &#125;,\n    \'change&lt;change&gt;\'(e) &#123;\n        let tree = Vframe.get(this.id + \'_tree\');\n\n        this.updater.digest(&#123;\n            selected: tree.invoke(\'getBottomValues\')\n        &#125;)\n    &#125;\n&#125;);</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-tree/__test__/2.html';
+    throw msg;
+} return $p; },
     render: function () {
         var list = [{
                 value: 1,

@@ -9,7 +9,7 @@ define("mx-slider/index",["magix","$","../mx-dragdrop/index"],(require,exports,m
 var Magix = require("magix");
 var $ = require("$");
 var DD = require("../mx-dragdrop/index");
-Magix.applyStyle("_zs_galleryl","._zs_galleryld{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}[mx-view*=\"mx-slider/index\"],[mx-view*=\"mx-slider/range\"]{position:relative;display:inline-block;outline:0;cursor:pointer}[mx-view*=\"mx-slider/index\"] ._zs_galleryle,[mx-view*=\"mx-slider/range\"] ._zs_galleryle{position:absolute;top:0;right:-74px;width:64px}[mx-view*=\"mx-slider/index\"][mx-disabled],[mx-view*=\"mx-slider/range\"][mx-disabled]{cursor:not-allowed}[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_galleryaK ._zs_galleryaL ._zs_galleryaN,[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_galleryaK ._zs_galleryaL ._zs_galleryaN:before,[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_galleryaK ._zs_galleryaL ._zs_galleryaM,[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_galleryaK ._zs_galleryaL ._zs_galleryaN,[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_galleryaK ._zs_galleryaL ._zs_galleryaN:before,[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_galleryaK ._zs_galleryaL ._zs_galleryaM{background-color:#ccc}._zs_galleryaK{line-height:28px}._zs_galleryaK ._zs_galleryaL{display:inline-block;position:relative;border-radius:2px;background:#f0f0f0}._zs_galleryaK ._zs_galleryaL ._zs_galleryaM{position:absolute;border-radius:2px;left:0;background-color:#cddbff}._zs_galleryaK ._zs_galleryaL ._zs_galleryaM._zs_gallerylf{height:4px;top:0}._zs_galleryaK ._zs_galleryaL ._zs_galleryaM._zs_gallerylg{width:4px;bottom:0}._zs_galleryaK ._zs_galleryaL ._zs_galleryaN{position:absolute;width:8px;height:8px;border-radius:50%;background-color:#4d7fff;outline:0}._zs_galleryaK ._zs_galleryaL ._zs_galleryaN:before{content:\" \";position:absolute;top:-4px;left:-4px;width:16px;height:16px;border-radius:50%;background-color:#4d7fff;opacity:.3}._zs_galleryaK ._zs_galleryaL ._zs_galleryaN._zs_gallerylh{top:-2px}._zs_galleryaK ._zs_galleryaL ._zs_galleryaN._zs_galleryli{left:-2px}._zs_galleryaK ._zs_galleryaL ._zs_gallerylj{position:absolute;font-size:12px;pointer-events:none;line-height:normal}._zs_galleryaK ._zs_galleryaL ._zs_gallerylj._zs_gallerylk{top:-23px}._zs_galleryaK ._zs_galleryaL ._zs_gallerylj._zs_galleryll{right:12px}._zs_galleryaK ._zs_galleryaL ._zs_gallerylm,._zs_galleryaK ._zs_galleryaL ._zs_galleryln,._zs_galleryaK ._zs_galleryaL ._zs_gallerylo,._zs_galleryaK ._zs_galleryaL ._zs_gallerylp{position:absolute;font-size:12px;pointer-events:none;line-height:normal}._zs_galleryaK ._zs_galleryaL ._zs_gallerylm{left:0;top:9px}._zs_galleryaK ._zs_galleryaL ._zs_galleryln{right:0;top:9px}._zs_galleryaK ._zs_galleryaL ._zs_gallerylo{bottom:0;left:12px}._zs_galleryaK ._zs_galleryaL ._zs_gallerylp{top:0;left:12px}._zs_galleryaK ._zs_galleryaL._zs_gallerylq{height:4px;top:-2px}._zs_galleryaK ._zs_galleryaL._zs_gallerylr{width:4px;left:8px}._zs_galleryaK ._zs_galleryls{margin-left:3px;color:#999}");
+Magix.applyStyle("_zs_gallery_mx-slider_style_","/* @dependent: ./index.less */\n._zs_gallery_mx-slider_style_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-slider/index\"],\n[mx-view*=\"mx-slider/range\"] {\n  position: relative;\n  display: inline-block;\n  outline: 0;\n  cursor: pointer;\n}\n[mx-view*=\"mx-slider/index\"] ._zs_gallery_mx-slider_style_-rail-input,\n[mx-view*=\"mx-slider/range\"] ._zs_gallery_mx-slider_style_-rail-input {\n  position: absolute;\n  top: 0;\n  right: -74px;\n  width: 64px;\n}\n[mx-view*=\"mx-slider/index\"][mx-disabled],\n[mx-view*=\"mx-slider/range\"][mx-disabled] {\n  cursor: not-allowed;\n}\n[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-tracker,\n[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-tracker {\n  background-color: #ccc;\n}\n[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator,\n[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator {\n  background-color: #ccc;\n}\n[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator:before,\n[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator:before {\n  background-color: #ccc;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper {\n  line-height: 28px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail {\n  display: inline-block;\n  position: relative;\n  border-radius: 2px;\n  background: #f0f0f0;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-tracker {\n  position: absolute;\n  border-radius: 2px;\n  left: 0;\n  background-color: #cddbff;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-tracker._zs_gallery_mx-slider_style_-hor-tracker {\n  height: 4px;\n  top: 0;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-tracker._zs_gallery_mx-slider_style_-ver-tracker {\n  width: 4px;\n  bottom: 0;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator {\n  position: absolute;\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background-color: #4d7fff;\n  outline: 0;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator:before {\n  content: ' ';\n  position: absolute;\n  top: -4px;\n  left: -4px;\n  width: 16px;\n  height: 16px;\n  border-radius: 50%;\n  background-color: #4d7fff;\n  opacity: 0.3;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator._zs_gallery_mx-slider_style_-hor-idctor {\n  top: -2px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator._zs_gallery_mx-slider_style_-ver-idctor {\n  left: -2px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-pointer-label {\n  position: absolute;\n  font-size: 12px;\n  pointer-events: none;\n  line-height: normal;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-pointer-label._zs_gallery_mx-slider_style_-hor-pl {\n  top: -23px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-pointer-label._zs_gallery_mx-slider_style_-ver-pl {\n  right: 12px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-scale-left,\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-scale-right,\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-ver-scale-top,\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-ver-scale-bottom {\n  position: absolute;\n  font-size: 12px;\n  pointer-events: none;\n  line-height: normal;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-scale-left {\n  left: 0;\n  top: 9px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-scale-right {\n  right: 0;\n  top: 9px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-ver-scale-bottom {\n  bottom: 0;\n  left: 12px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-ver-scale-top {\n  top: 0;\n  left: 12px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail._zs_gallery_mx-slider_style_-hor {\n  height: 4px;\n  top: -2px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail._zs_gallery_mx-slider_style_-ver {\n  width: 4px;\n  left: 8px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-unit {\n  margin-left: 3px;\n  color: #999;\n}\n");
 var DefaultSize = 280;
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
@@ -23,84 +23,142 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', vertical = $$.vertical, height = $$.height, width = $$.width, min = $$.min, max = $$.max, needInput = $$.needInput, viewId = $$.viewId, disabled = $$.disabled; $p += '<div mxa="_zs_galleryc/:_" class="_zs_galleryaK"><span class="_zs_galleryaL '; if (vertical) {
-    ;
-    $p += ' _zs_gallerylr ';
-}
-else {
-    ;
-    $p += ' _zs_gallerylq ';
-} ; $p += '" mx-contextmenu="' + $viewId + '__H()" style="'; if (vertical) {
-    ;
-    $p += 'height:' + $e(height);
-}
-else {
-    ;
-    $p += 'width:' + $e(width);
-} ; $p += 'px"><span class="_zs_galleryaM '; if (vertical) {
-    ;
-    $p += ' _zs_gallerylg ';
-}
-else {
-    ;
-    $p += ' _zs_gallerylf ';
-} ; $p += '"></span><span class="_zs_galleryaN '; if (vertical) {
-    ;
-    $p += ' _zs_galleryli ';
-}
-else {
-    ;
-    $p += ' _zs_gallerylh ';
-} ; $p += '" mx-mousedown="' + $viewId + '__dj()"></span><span class="_zs_gallerylj '; if (vertical) {
-    ;
-    $p += ' _zs_galleryll ';
-}
-else {
-    ;
-    $p += ' _zs_gallerylk ';
-} ; $p += '"></span><span class="'; if (vertical) {
-    ;
-    $p += ' _zs_gallerylo ';
-}
-else {
-    ;
-    $p += ' _zs_gallerylm ';
-} ; $p += '">' + $e(min) + '</span><span class="'; if (vertical) {
-    ;
-    $p += ' _zs_gallerylp ';
-}
-else {
-    ;
-    $p += ' _zs_galleryln';
-} ; $p += '">' + $e(max) + '</span></span></div>'; if (needInput) {
-    ;
-    $p += '<input class="input input-small _zs_galleryle" id="' + $e(viewId) + '_input" ';
-    if (disabled) {
+} ; var $g = '', $_temp, $p = '', vertical = $$.vertical, height = $$.height, width = $$.width, min = $$.min, max = $$.max, needInput = $$.needInput, viewId = $$.viewId, disabled = $$.disabled; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryc/:_" class="_zs_gallery_mx-slider_style_-rail-wrapper"><span class="_zs_gallery_mx-slider_style_-rail ';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
         ;
-        $p += ' disabled="true" ';
+        $p += ' _zs_gallery_mx-slider_style_-ver ';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-hor ';
+        $expr = '<%}%>';
     }
     ;
-    $p += ' mx-keyup="' + $viewId + '__al()" mx-focusout="' + $viewId + '__bV()"/>';
-} ; return $p; },
+    $p += '" mx-contextmenu="' + $viewId + '@{prevent}()" style="';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += 'height:' + ($expr = '<%=height%>', $e(height));
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += 'width:' + ($expr = '<%=width%>', $e(width));
+        $expr = '<%}%>';
+    }
+    ;
+    $p += 'px"><span class="_zs_gallery_mx-slider_style_-tracker ';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-ver-tracker ';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-hor-tracker ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '"></span><span class="_zs_gallery_mx-slider_style_-indicator ';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-ver-idctor ';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-hor-idctor ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" mx-mousedown="' + $viewId + '@{drag}()"></span><span class="_zs_gallery_mx-slider_style_-pointer-label ';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-ver-pl ';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-hor-pl ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '"></span><span class="';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-ver-scale-bottom ';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-scale-left ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '">' + ($expr = '<%=min%>', $e(min)) + '</span><span class="';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-ver-scale-top ';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-scale-right';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '">' + ($expr = '<%=max%>', $e(max)) + '</span></span></div>';
+    $expr = '<%if (needInput) {%>';
+    if (needInput) {
+        ;
+        $p += '<input class="input input-small _zs_gallery_mx-slider_style_-rail-input" id="' + ($expr = '<%=viewId%>', $e(viewId)) + '_input" ';
+        $expr = '<%if (disabled) {%>';
+        if (disabled) {
+            ;
+            $p += ' disabled="true" ';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' mx-keyup="' + $viewId + '@{enter}()" mx-focusout="' + $viewId + '@{out}()"/>';
+        $expr = '<%}%>';
+    }
+    ;
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-slider/index.html';
+    throw msg;
+} return $p; },
     mixins: [DD],
     init: function (extra) {
         var me = this;
         me.assign(extra);
-        me['__j'] = $('#' + me.id);
+        me['@{owner.node}'] = $('#' + me.id);
     },
     assign: function (ops) {
         var me = this;
-        me['__cp'] = +ops.width || DefaultSize;
-        me['__cV'] = +ops.height || DefaultSize;
-        me['__cW'] = +ops.min || 0;
-        me['__cX'] = +ops.max || 100;
-        me['__cY'] = +ops.step || 1;
-        me['__cZ'] = ops.tip || '';
+        me['@{width}'] = +ops.width || DefaultSize;
+        me['@{height}'] = +ops.height || DefaultSize;
+        me['@{min}'] = +ops.min || 0;
+        me['@{max}'] = +ops.max || 100;
+        me['@{step}'] = +ops.step || 1;
+        me['@{tip}'] = ops.tip || '';
         var disabledNode = $('#' + me.id + '[mx-disabled]');
-        me['__d_'] = disabledNode && (disabledNode.length > 0);
-        me['__da'] = (ops.vertical + '') === 'true';
-        me['__db'] = ((ops.needInput + '') === 'true') && !me['__da'];
-        var s = me['__cY'] + '';
+        me['@{disabled}'] = disabledNode && (disabledNode.length > 0);
+        me['@{vertical}'] = (ops.vertical + '') === 'true';
+        me['@{needInput}'] = ((ops.needInput + '') === 'true') && !me['@{vertical}'];
+        var s = me['@{step}'] + '';
         var i = s.indexOf('.');
         if (i >= 0) {
             i = s.slice(i + 1).length;
@@ -108,64 +166,64 @@ else {
         else {
             i = 0;
         }
-        me['__dc'] = i;
+        me['@{tail.length}'] = i;
         var value;
         if (ops.value) {
             value = +ops.value;
         }
         else {
             // 默认取中间值
-            value = ((me['__cX'] + me['__cW']) / 2);
+            value = ((me['@{max}'] + me['@{min}']) / 2);
         }
-        me['__dd'] = value;
+        me['@{value}'] = value;
         return true;
     },
     render: function () {
         var me = this;
         me.updater.digest({
             viewId: me.id,
-            min: me['__cW'].toFixed(me['__dc']),
-            max: me['__cX'].toFixed(me['__dc']),
-            width: me['__cp'],
-            height: me['__cV'],
-            vertical: me['__da'],
-            needInput: me['__db'],
-            disabled: me['__d_']
+            min: me['@{min}'].toFixed(me['@{tail.length}']),
+            max: me['@{max}'].toFixed(me['@{tail.length}']),
+            width: me['@{width}'],
+            height: me['@{height}'],
+            vertical: me['@{vertical}'],
+            needInput: me['@{needInput}'],
+            disabled: me['@{disabled}']
         });
-        me.val(me['__dd']);
-        var railWrapper = me['__j'].find('._zs_galleryaK');
-        me['__de'] = railWrapper;
+        me.val(me['@{value}']);
+        var railWrapper = me['@{owner.node}'].find('._zs_gallery_mx-slider_style_-rail-wrapper');
+        me['@{rail.node}'] = railWrapper;
         var click = function (e) {
-            if (me['__df'] || me['__d_']) {
+            if (me['@{temp.hold.event}'] || me['@{disabled}']) {
                 return;
             }
             var offset = railWrapper.offset();
-            var vars = me['__dg']();
+            var vars = me['@{get.ui.vars}']();
             var pos = -1;
-            if (me['__da']) {
+            if (me['@{vertical}']) {
                 pos = vars.rMax - e.pageY + offset.top;
             }
             else {
                 pos = e.pageX - offset.left;
             }
             var p = (pos - vars.half) / vars.max;
-            var v = me['__dh'](p);
+            var v = me['@{get.fixed.value}'](p);
             me.val(v);
         };
         var keydown = function (e) {
-            if (me['__di']) {
+            if (me['@{dragging}']) {
                 return;
             }
             if (e.keyCode == 37 || e.keyCode == 40) {
                 e.preventDefault();
-                var v = +me['__dd'];
-                v -= me['__cY'];
+                var v = +me['@{value}'];
+                v -= me['@{step}'];
                 me.val(v);
             }
             else if (e.keyCode == 39 || e.keyCode == 38) {
                 e.preventDefault();
-                var v = +me['__dd'];
-                v += me['__cY'];
+                var v = +me['@{value}'];
+                v += me['@{step}'];
                 me.val(v);
             }
         };
@@ -176,15 +234,15 @@ else {
             railWrapper.off('keydown', keydown);
         });
     },
-    '__dg': function () {
+    '@{get.ui.vars}': function () {
         var me = this;
-        var rail = me['__j'].find('._zs_galleryaL');
-        var tracker = me['__j'].find('._zs_galleryaM');
-        var indicator = me['__j'].find('._zs_galleryaN');
-        var pLabel = me['__j'].find('._zs_gallerylj');
-        var inputArea = me['__j'].find('._zs_galleryle');
+        var rail = me['@{owner.node}'].find('._zs_gallery_mx-slider_style_-rail');
+        var tracker = me['@{owner.node}'].find('._zs_gallery_mx-slider_style_-tracker');
+        var indicator = me['@{owner.node}'].find('._zs_gallery_mx-slider_style_-indicator');
+        var pLabel = me['@{owner.node}'].find('._zs_gallery_mx-slider_style_-pointer-label');
+        var inputArea = me['@{owner.node}'].find('._zs_gallery_mx-slider_style_-rail-input');
         var half = indicator.outerWidth() / 2;
-        var rMax = me['__da'] ? rail.height() : rail.width();
+        var rMax = me['@{vertical}'] ? rail.height() : rail.width();
         var max = rMax - half * 2;
         return {
             rail: rail,
@@ -201,16 +259,16 @@ else {
         var me = this;
         var nv = +v;
         if (nv || nv === 0) {
-            me['__j'].prop('value', nv);
-            var max = me['__cX'], min = me['__cW'];
+            me['@{owner.node}'].prop('value', nv);
+            var max = me['@{max}'], min = me['@{min}'];
             if (nv > max)
                 nv = max;
             else if (nv < min)
                 nv = min;
             var p = (nv - min) / (max - min);
-            var vars = me['__dg']();
+            var vars = me['@{get.ui.vars}']();
             var pos = p * vars.max;
-            if (me['__da']) {
+            if (me['@{vertical}']) {
                 vars.indicator.css({
                     bottom: pos
                 });
@@ -220,14 +278,14 @@ else {
                     left: pos
                 });
             }
-            v = me['__dh'](p);
+            v = me['@{get.fixed.value}'](p);
             var node = vars.pLabel;
-            node.html(v + (me['__cZ'] ? ('<span class="_zs_galleryls">' + me['__cZ'] + '</span>') : ''));
+            node.html(v + (me['@{tip}'] ? ('<span class="_zs_gallery_mx-slider_style_-unit">' + me['@{tip}'] + '</span>') : ''));
             if (vars.inputArea && vars.inputArea.length) {
                 vars.inputArea.val(v);
             }
             var l = pos + vars.half;
-            if (me['__da']) {
+            if (me['@{vertical}']) {
                 var pHalf = node.height() / 2;
                 if (l - pHalf < 0) {
                     l = 0;
@@ -257,24 +315,24 @@ else {
                     left: l
                 });
             }
-            if (me['__da']) {
+            if (me['@{vertical}']) {
                 vars.tracker.height(pos + vars.half);
             }
             else {
                 vars.tracker.width(pos + vars.half);
             }
             if (!ignoreSyncValue) {
-                if (me['__dd'] != v) {
-                    me['__y'](v);
+                if (me['@{value}'] != v) {
+                    me['@{fire.event}'](v);
                 }
-                me['__dd'] = v;
+                me['@{value}'] = v;
             }
         }
-        return +me['__dd'];
+        return +me['@{value}'];
     },
-    '__dh': function (p) {
+    '@{get.fixed.value}': function (p) {
         var me = this;
-        var max = me['__cX'], min = me['__cW'], step = me['__cY'], v;
+        var max = me['@{max}'], min = me['@{min}'], step = me['@{step}'], v;
         if (p === 0)
             v = min;
         else if (p === 1)
@@ -283,37 +341,37 @@ else {
             v = min + (max - min) * p;
             v = Math.round(v / step) * step;
         }
-        v = v.toFixed(me['__dc']);
+        v = v.toFixed(me['@{tail.length}']);
         return v;
     },
-    '__y': function (p) {
-        this['__j'].prop('value', +p).trigger({
+    '@{fire.event}': function (p) {
+        this['@{owner.node}'].prop('value', +p).trigger({
             type: 'change',
             value: +p
         });
     },
-    '__dj<mousedown>': function (e) {
+    '@{drag}<mousedown>': function (e) {
         var me = this;
-        if (me['__d_']) {
+        if (me['@{disabled}']) {
             return;
         }
         var current = $(e.eventTarget);
         var size = current.outerWidth();
         var min = 0; //最小
         var max = -1;
-        if (me['__da']) {
+        if (me['@{vertical}']) {
             max = current.parent().height() - size;
         }
         else {
             max = current.parent().width() - size;
         }
-        var currentValue = parseInt(current.css(me['__da'] ? 'bottom' : 'left'), 10);
-        var dragValue = me['__dd'];
-        me['__di'] = 1;
+        var currentValue = parseInt(current.css(me['@{vertical}'] ? 'bottom' : 'left'), 10);
+        var dragValue = me['@{value}'];
+        me['@{dragging}'] = 1;
         me.dragdrop(e.eventTarget, function (ex) {
             DD.clear();
             var newValue = -1;
-            if (me['__da']) {
+            if (me['@{vertical}']) {
                 newValue = currentValue + e.pageY - ex.pageY;
             }
             else {
@@ -326,31 +384,31 @@ else {
                 newValue = max;
             }
             var p = newValue / max;
-            me.val(dragValue = me['__dh'](p), true);
+            me.val(dragValue = me['@{get.fixed.value}'](p), true);
         }, function () {
-            if (me['__dd'] != dragValue) {
-                me['__dd'] = dragValue;
-                me['__y'](dragValue);
+            if (me['@{value}'] != dragValue) {
+                me['@{value}'] = dragValue;
+                me['@{fire.event}'](dragValue);
             }
-            me['__df'] = true;
+            me['@{temp.hold.event}'] = true;
             setTimeout(me.wrapAsync(function () {
-                delete me['__df'];
+                delete me['@{temp.hold.event}'];
             }), 20);
-            delete me['__di'];
+            delete me['@{dragging}'];
         });
     },
-    '__al<keyup>': function (e) {
+    '@{enter}<keyup>': function (e) {
         var me = this;
         e.stopPropagation();
-        clearTimeout(me['__dk']);
+        clearTimeout(me['@{enter.delay.timer}']);
         var val = $.trim(e.eventTarget.value);
-        me['__dk'] = setTimeout(me.wrapAsync(function () {
+        me['@{enter.delay.timer}'] = setTimeout(me.wrapAsync(function () {
             if ($.isNumeric(val)) {
                 me.val(val);
             }
         }), 400);
     },
-    '__bV<focusout>': function (e) {
+    '@{out}<focusout>': function (e) {
         var me = this;
         e.stopPropagation();
         var val = $.trim(e.eventTarget.value);
@@ -358,7 +416,7 @@ else {
             me.val(val);
         }
     },
-    '__H<contextmenu>': function (e) {
+    '@{prevent}<contextmenu>': function (e) {
         e.preventDefault();
     }
 });

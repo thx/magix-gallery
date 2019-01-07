@@ -13,7 +13,7 @@ define("mx-editor/index",["magix","mx-form/index","mx-form/validator"],(require,
 var Magix = require("magix");
 var Form = require("mx-form/index");
 var Validator = require("mx-form/validator");
-Magix.applyStyle("_zs_galleryG","._zs_galleryeD{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryeE ._zs_galleryeF{display:none}._zs_galleryeE ._zs_galleryeG{display:inline-block;word-break:break-all}._zs_galleryeE ._zs_galleryeG ._zs_galleryeH{opacity:0;position:relative;top:2px;left:2px;color:#ccc;cursor:pointer}._zs_galleryeE ._zs_galleryeG:hover ._zs_galleryeH{opacity:1}._zs_galleryeE._zs_galleryeI ._zs_galleryeF{display:inline-block}._zs_galleryeE._zs_galleryeI ._zs_galleryeG{display:none}");
+Magix.applyStyle("_zs_gallery_mx-editor_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-editor_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-editor_index_-editor ._zs_gallery_mx-editor_index_-editor-input {\n  display: none;\n}\n._zs_gallery_mx-editor_index_-editor ._zs_gallery_mx-editor_index_-editor-content {\n  display: inline-block;\n  word-break: break-all;\n}\n._zs_gallery_mx-editor_index_-editor ._zs_gallery_mx-editor_index_-editor-content ._zs_gallery_mx-editor_index_-editor-oper {\n  opacity: 0;\n  position: relative;\n  top: 2px;\n  left: 2px;\n  color: #ccc;\n  cursor: pointer;\n}\n._zs_gallery_mx-editor_index_-editor ._zs_gallery_mx-editor_index_-editor-content:hover ._zs_gallery_mx-editor_index_-editor-oper {\n  opacity: 1;\n}\n._zs_gallery_mx-editor_index_-editor._zs_gallery_mx-editor_index_-editor-on ._zs_gallery_mx-editor_index_-editor-input {\n  display: inline-block;\n}\n._zs_gallery_mx-editor_index_-editor._zs_gallery_mx-editor_index_-editor-on ._zs_gallery_mx-editor_index_-editor-content {\n  display: none;\n}\n");
 var Placeholder = '${content}';
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
@@ -31,13 +31,65 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', editing = $$.editing, small = $$.small, width = $$.width, viewId = $$.viewId, content = $$.content, rules = $$.rules, dis = $$.dis; $p += '<div mxv class="_zs_galleryeE '; if (editing) {
+} ; var $g = '', $_temp, $p = '', editing = $$.editing, small = $$.small, width = $$.width, viewId = $$.viewId, content = $$.content, rules = $$.rules, dis = $$.dis; var $expr, $art, $line; try {
+    $p += '<div mxv class="_zs_gallery_mx-editor_index_-editor ';
+    $line = 1;
+    $art = 'if editing';
     ;
-    $p += ' _zs_galleryeI ';
-} ; $p += '"><input mxe="' + $viewId + '_0" mxc="[{p:\'content\',f:\'' + $i($$ref, rules) + '\'}]" class="input '; if (small) {
+    $expr = '<%if (editing) {%>';
+    if (editing) {
+        ;
+        $p += ' _zs_gallery_mx-editor_index_-editor-on ';
+        $line = 1;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
     ;
-    $p += ' input-small ';
-} ; $p += ' _zs_galleryeF" style="width: ' + $e(width) + 'px;" id="' + $e(viewId) + '_input" value="' + $e(content) + '" mx-keyup="' + $viewId + '__bV()" mx-focusout="' + $viewId + '__bV()"/><div mxa="_zs_gallerya9:_" class="_zs_galleryeG">' + $n(dis) + '<i mxs="_zs_gallerya9:_" class="mc-iconfont operations _zs_galleryeH" mx-click="' + $viewId + '__n()">&#xe698;</i></div></div>'; return $p; },
+    $p += '"><input mxe="' + $viewId + '_0" mxc="[';
+    $line = 7;
+    $art = ':content&rules';
+    ;
+    $p += '{p:\'content\',f:\'' + ($expr = '<%@ rules%>', $i($$ref, rules)) + '\'}]" class="input ';
+    $line = 3;
+    $art = 'if small';
+    ;
+    $expr = '<%if (small) {%>';
+    if (small) {
+        ;
+        $p += ' input-small ';
+        $line = 3;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' _zs_gallery_mx-editor_index_-editor-input" style="width: ';
+    $line = 4;
+    $art = '=width';
+    ;
+    $p += ($expr = '<%=width%>', $e(width)) + 'px;" id="';
+    $line = 5;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_input" value="';
+    $line = 6;
+    $art = '=content';
+    ;
+    $p += ($expr = '<%=content%>', $e(content)) + '" mx-keyup="' + $viewId + '@{out}()" mx-focusout="' + $viewId + '@{out}()"/><div mxa="_zs_gallerya9:_" class="_zs_gallery_mx-editor_index_-editor-content">';
+    $line = 11;
+    $art = '!dis';
+    ;
+    $p += ($expr = '<%!dis%>', $n(dis)) + '<i mxs="_zs_gallerya9:_" class="mc-iconfont operations _zs_gallery_mx-editor_index_-editor-oper" mx-click="' + $viewId + '@{show}()">&#xe698;</i></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-editor/index.html';
+    throw msg;
+} return $p; },
     mixins: [Form, Validator],
     init: function (extra) {
         var that = this;
@@ -46,7 +98,7 @@ module.exports = Magix.View.extend({
         //该处是否可以由magix自动调用
         that.assign(extra);
         that.on('destroy', function () {
-            clearTimeout(that['__bT']);
+            clearTimeout(that['@{out.timer}']);
         });
     },
     assign: function (extra) {
@@ -55,7 +107,7 @@ module.exports = Magix.View.extend({
         var altered = that.updater.altered();
         //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
         var rules = extra.rules || {}, content = extra.content, small = (/^true$/i).test(extra.small), tmpl = extra.tmpl || Placeholder;
-        that['__bU'] = content;
+        that['@{old.content}'] = content;
         that.updater.set({
             viewId: that.id,
             tmpl: tmpl,
@@ -81,14 +133,14 @@ module.exports = Magix.View.extend({
     render: function () {
         this.updater.digest();
     },
-    '__n<click>': function (e) {
+    '@{show}<click>': function (e) {
         e.preventDefault();
         this.updater.digest({
             editing: true
         });
         $('#' + this.id + '_input').focus();
     },
-    '__bV<keyup>': function (e) {
+    '@{out}<keyup>': function (e) {
         var that = this;
         var valid = that.isValid();
         if ((e.keyCode == 13) && valid) {
@@ -109,7 +161,7 @@ module.exports = Magix.View.extend({
             // }
         }
     },
-    '__bV<focusout>': function (e) {
+    '@{out}<focusout>': function (e) {
         e.stopPropagation();
         var that = this;
         var valid = that.isValid();
@@ -125,7 +177,7 @@ module.exports = Magix.View.extend({
         });
         // 只触发一次trigger
         var val = that.updater.get('content');
-        if (that['__bU'] != val) {
+        if (that['@{old.content}'] != val) {
             $('#' + that.id).trigger({
                 type: 'edit',
                 editText: val

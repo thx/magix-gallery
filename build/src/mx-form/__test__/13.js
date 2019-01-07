@@ -29,7 +29,37 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', day = $$.day, viewId = $$.viewId, text1 = $$.text1; $p += '<div mxv mxa="_zs_gallerybp:_" class="_zs_galleryh"><div mxv mxa="_zs_gallerybp:a" class="_zs_galleryk"><div mxv mxa="_zs_gallerybp:b" class="mb20"><span mxs="_zs_gallerybp:_" class="color-9 mr20">dropdown必选（请选择为空状态提示）：</span><div mxv="day" mxe="' + $viewId + '_0" mxc="[{p:\'day\',f:{required:true},a:\'selected\'}]" class="w200" mx-view="mx-dropdown/index?emptyText=%E8%AF%B7%E9%80%89%E6%8B%A9&selected=' + $i($$ref, day) + '"><i mxs="_zs_gallerybp:a" value="1" class="none">1</i><i mxs="_zs_gallerybp:b" value="2" class="none">2</i></div></div></div><div mxa="_zs_gallerybp:c" class="_zs_galleryl"><div mxs="_zs_gallerybp:c" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_gallerybp:d" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_gallerybp:d" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-dropdown class="w200"\n    empty-text="请选择"\n    selected="&#123;&#123;:day&#123;required:true&#125;&#125;&#125;"&gt;\n    &lt;mx-dropdown.item value="1"&gt;1&lt;/mx-dropdown.item&gt;\n    &lt;mx-dropdown.item value="2"&gt;2&lt;/mx-dropdown.item&gt;\n&lt;/mx-dropdown&gt;</pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', day = $$.day, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerybp:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybp:a" class="_zs_gallery___test___layout_-eg-content"><div mxv mxa="_zs_gallerybp:b" class="mb20"><span mxs="_zs_gallerybp:_" class="color-9 mr20">dropdown必选（请选择为空状态提示）：</span><div mxv="day" mxe="' + $viewId + '_0" mxc="[';
+    $line = 7;
+    $art = ':day{required:true}';
+    ;
+    $p += '{p:\'day\',f:{required:true},a:\'selected\'}]" class="w200" mx-view="mx-dropdown/index?emptyText=%E8%AF%B7%E9%80%89%E6%8B%A9&selected=';
+    $line = 7;
+    $art = ':day{required:true}';
+    ;
+    $p += ($expr = '<%@day%>', $i($$ref, day)) + '"><i mxs="_zs_gallerybp:a" value="1" class="none">1</i><i mxs="_zs_gallerybp:b" value="2" class="none">2</i></div></div></div><div mxa="_zs_gallerybp:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybp:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 15;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybp:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 17;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybp:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 20;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown class="w200"\n    empty-text="请选择"\n    selected="&#123;&#123;:day&#123;required:true&#125;&#125;&#125;"&gt;\n    &lt;mx-dropdown.item value="1"&gt;1&lt;/mx-dropdown.item&gt;\n    &lt;mx-dropdown.item value="2"&gt;2&lt;/mx-dropdown.item&gt;\n&lt;/mx-dropdown&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-form/__test__/13.html';
+    throw msg;
+} return $p; },
     mixins: [Form, Validator],
     render: function () {
         this.updater.digest();

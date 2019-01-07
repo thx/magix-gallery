@@ -23,7 +23,29 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_galleryab:_" class="_zs_galleryh"><div mxs="_zs_galleryab:_" class="_zs_galleryk"><a href="javascript:;" mx-click="' + $viewId + 'open()" class="btn btn-brand mr20">全屏右出浮层(只头部)</a></div><div mxa="_zs_galleryab:a" class="_zs_galleryl"><div mxs="_zs_galleryab:a" class="_zs_galleryj">JS Code</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_galleryab:b" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_galleryab:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n\'open&lt;click&gt;\'(e) &#123;\n    this.mxModal(\'@./full\', &#123;\n    &#125;, &#123;\n        header: &#123;\n            title: \'全屏右出浮层\'\n        &#125;,\n        footer: &#123;\n            enter: false,\n            cancel: false\n        &#125;\n    &#125;);\n&#125;\n        </pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryab:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryab:_" class="_zs_gallery___test___layout_-eg-content"><a href="javascript:;" mx-click="' + $viewId + 'open()" class="btn btn-brand mr20">全屏右出浮层(只头部)</a></div><div mxa="_zs_galleryab:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryab:a" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 8;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryab:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 10;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryab:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 13;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n\'open&lt;click&gt;\'(e) &#123;\n    this.mxModal(\'@./full\', &#123;\n    &#125;, &#123;\n        header: &#123;\n            title: \'全屏右出浮层\'\n        &#125;,\n        footer: &#123;\n            enter: false,\n            cancel: false\n        &#125;\n    &#125;);\n&#125;\n        </pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dialog/__test__/10.html';
+    throw msg;
+} return $p; },
     mixins: [Dialog],
     render: function () {
         this.updater.digest();

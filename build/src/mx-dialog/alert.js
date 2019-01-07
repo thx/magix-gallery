@@ -8,7 +8,7 @@ define("mx-dialog/alert",["magix","../mx-medusa/util"],(require,exports,module)=
 
 var Magix = require("magix");
 var I18n = require("../mx-medusa/util");
-Magix.applyStyle("_zs_galleryB","._zs_gallerydD{font-size:16px;margin-bottom:20px}");
+Magix.applyStyle("_zs_gallery_mx-dialog_alert_","._zs_gallery_mx-dialog_alert_-alert-header {\n  font-size: 16px;\n  margin-bottom: 20px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -21,33 +21,53 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', title = $$.title, content = $$.content, hasBtns = $$.hasBtns, enterText = $$.enterText; $p += '<div mxa="_zs_galleryau:_" class="dialog-body"><div mxa="_zs_galleryau:a" class="_zs_gallerydD">' + $e(title) + '</div><div mxa="_zs_galleryau:b" class="word-break">' + $n(content) + '</div></div>'; if (hasBtns) {
+} ; var $g = '', $_temp, $p = '', title = $$.title, content = $$.content, hasBtns = $$.hasBtns, enterText = $$.enterText; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryau:_" class="dialog-body"><div mxa="_zs_galleryau:a" class="_zs_gallery_mx-dialog_alert_-alert-header">' + ($expr = '<%=title%>', $e(title)) + '</div><div mxa="_zs_galleryau:b" class="word-break">' + ($expr = '<%!content%>', $n(content)) + '</div></div>';
+    $line = 5;
+    $art = 'if hasBtns';
     ;
-    $p += '<div mxa="_zs_galleryau:c" class="dialog-footer"><a mxa="_zs_galleryau:d" href="javascript:;" class="btn btn-small btn-brand min-width-60" mx-click="' + $viewId + '__al();">' + $e(enterText) + '</a></div>';
-} ; return $p; },
+    $expr = '<%if (hasBtns) {%>';
+    if (hasBtns) {
+        ;
+        $p += '<div mxa="_zs_galleryau:c" class="dialog-footer"><a mxa="_zs_galleryau:d" href="javascript:;" class="btn btn-small btn-brand min-width-60" mx-click="' + $viewId + '@{enter}();">' + ($expr = '<%=enterText%>', $e(enterText)) + '</a></div>';
+        $line = 9;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dialog/alert.html';
+    throw msg;
+} return $p; },
     init: function (extra) {
         var me = this;
-        me['__af'] = extra.dialog;
-        me['__ag'] = extra.content;
-        me['__ah'] = extra.title || I18n['dialog.tip'];
-        me['__ai'] = I18n['dialog.submit'];
-        me['__aj'] = extra.enterCallback;
-        me['__ak'] = extra.hasBtns;
+        me['@{dialog}'] = extra.dialog;
+        me['@{string.content}'] = extra.content;
+        me['@{string.title}'] = extra.title || I18n['dialog.tip'];
+        me['@{string.enter}'] = I18n['dialog.submit'];
+        me['@{fn.enter.callback}'] = extra.enterCallback;
+        me['@{ui.btns}'] = extra.hasBtns;
     },
     render: function () {
         var me = this;
         me.updater.digest({
-            content: me['__ag'],
-            title: me['__ah'],
-            enterText: me['__ai'],
-            hasBtns: me['__ak']
+            content: me['@{string.content}'],
+            title: me['@{string.title}'],
+            enterText: me['@{string.enter}'],
+            hasBtns: me['@{ui.btns}']
         });
     },
-    '__al<click>': function () {
+    '@{enter}<click>': function () {
         var me = this;
-        me['__af'].close();
-        if (me['__aj']) {
-            Magix.toTry(me['__aj']);
+        me['@{dialog}'].close();
+        if (me['@{fn.enter.callback}']) {
+            Magix.toTry(me['@{fn.enter.callback}']);
         }
     }
 });

@@ -23,7 +23,33 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', searchValue = $$.searchValue, viewId = $$.viewId, text1 = $$.text1; $p += '<div mxa="_zs_galleryc#:_" class="_zs_galleryh"><div mxa="_zs_galleryc#:a" class="_zs_galleryk"><div mxa="_zs_galleryc#:b" class="mb20"><span mxs="_zs_galleryc#:_" class="color-9">回车搜索：</span><span>campaignId = ' + $e(searchValue) + '</span></div><div mxs="_zs_galleryc#:a" class="w200" mx-search="' + $viewId + 'change()" mx-view="mx-search/index?searchKey=campaignId&placeholder=%E6%90%9C%E7%B4%A2%E8%AE%A1%E5%88%92"></div></div><div mxa="_zs_galleryc#:c" class="_zs_galleryl"><div mxs="_zs_galleryc#:b" class="_zs_galleryj">单个搜索，封装事件</div><div class="_zs_gallerym" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=' + $eu(viewId) + '_text_1"><span mxa="_zs_galleryc#:d" class="_zs_galleryo">' + $n(text1) + '</span><i mxs="_zs_galleryc#:c" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="' + $e(viewId) + '_text_1">\n&lt;mx-search class="w200"\n    search-key="campaignId"\n    placeholder="搜索计划"\n    mx-search="change()"/&gt;</pre></div></div>'; return $p; },
+} ; var $g = '', $_temp, $p = '', searchValue = $$.searchValue, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryc#:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryc#:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_galleryc#:b" class="mb20"><span mxs="_zs_galleryc#:_" class="color-9">回车搜索：</span><span>campaignId = ';
+    $line = 6;
+    $art = '=searchValue';
+    ;
+    $p += ($expr = '<%=searchValue%>', $e(searchValue)) + '</span></div><div mxs="_zs_galleryc#:a" class="w200" mx-search="' + $viewId + 'change()" mx-view="mx-search/index?searchKey=campaignId&placeholder=%E6%90%9C%E7%B4%A2%E8%AE%A1%E5%88%92"></div></div><div mxa="_zs_galleryc#:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryc#:b" class="_zs_gallery___test___layout_-eg-title">单个搜索，封装事件</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 15;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryc#:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 17;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryc#:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 20;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-search class="w200"\n    search-key="campaignId"\n    placeholder="搜索计划"\n    mx-search="change()"/&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-search/__test__/4.html';
+    throw msg;
+} return $p; },
     render: function () {
         this.updater.digest({
             searchValue: ''

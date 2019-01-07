@@ -8,7 +8,7 @@ define("mx-header/__test__/all",["magix","$","../index"],(require,exports,module
 require("../index");
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_galleryT","._zs_gallerygD{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerygE{height:1200px;background-color:#fafafa}._zs_gallerygE ._zs_gallerygF{width:1000px;padding-top:220px;margin:auto;font-size:20px;text-align:center}._zs_gallerygG{height:400px;overflow-y:auto;background-color:#fafafa;border:1px solid #e6e6e6}._zs_gallerygG ._zs_gallerygF{height:800px}");
+Magix.applyStyle("_zs_gallery_mx-header___test___index_","/* @dependent: ./index.less */\n._zs_gallery_mx-header___test___index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-header___test___index_-content {\n  height: 1200px;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-header___test___index_-content ._zs_gallery_mx-header___test___index_-inner {\n  width: 1000px;\n  padding-top: 220px;\n  margin: auto;\n  font-size: 20px;\n  text-align: center;\n}\n._zs_gallery_mx-header___test___index_-wrapper {\n  height: 400px;\n  overflow-y: auto;\n  background-color: #fafafa;\n  border: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-header___test___index_-wrapper ._zs_gallery_mx-header___test___index_-inner {\n  height: 800px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -25,14 +25,55 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', navs = $$.navs, cur = $$.cur, curText = $$.curText; $p += '<div mxv="navs" mx-navchange="' + $viewId + 'change()" mx-view="mx-header/index?navs=' + $i($$ref, navs) + '&cur=' + $eu(cur) + '&logo=%2F%2Fgw.alicdn.com%2Ftfs%2FTB1Uhbvh_vI8KJjSspjXXcgjXXa-534-98.png"></div><div mxa="_zs_galleryb1:_" class="_zs_gallerygE"><div mxa="_zs_galleryb1:a" class="_zs_gallerygF">'; if (!cur) {
+} ; var $g = '', $_temp, $p = '', navs = $$.navs, cur = $$.cur, curText = $$.curText; var $expr, $art, $line; try {
+    $p += '<div mxv="navs" mx-navchange="' + $viewId + 'change()" mx-view="mx-header/index?navs=';
+    $line = 2;
+    $art = '@navs';
     ;
-    $p += ' 点击导航切换区块内容 ';
+    $p += ($expr = '<%@navs%>', $i($$ref, navs)) + '&cur=';
+    $line = 3;
+    $art = '=cur';
+    ;
+    $p += ($expr = '<%!$eu(cur)%>', $eu(cur)) + '&logo=%2F%2Fgw.alicdn.com%2Ftfs%2FTB1Uhbvh_vI8KJjSspjXXcgjXXa-534-98.png"></div><div mxa="_zs_galleryb1:_" class="_zs_gallery_mx-header___test___index_-content"><div mxa="_zs_galleryb1:a" class="_zs_gallery_mx-header___test___index_-inner">';
+    $line = 8;
+    $art = 'if !cur';
+    ;
+    $expr = '<%if (!cur) {%>';
+    if (!cur) {
+        ;
+        $p += ' 点击导航切换区块内容 ';
+        $line = 10;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' 当前导航：';
+        $line = 11;
+        $art = '=curText';
+        ;
+        $p += ($expr = '<%=curText%>', $e(curText)) + '（';
+        $line = 11;
+        $art = '=cur';
+        ;
+        $p += ($expr = '<%=cur%>', $e(cur)) + '） ';
+        $line = 12;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div>';
 }
-else {
-    ;
-    $p += ' 当前导航：' + $e(curText) + '（' + $e(cur) + '） ';
-} ; $p += '</div></div>'; return $p; },
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-header/__test__/all.html';
+    throw msg;
+} return $p; },
     render: function () {
         var navs = [{
                 value: 1,
