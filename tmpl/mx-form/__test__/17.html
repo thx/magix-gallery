@@ -81,6 +81,14 @@
                 </div>
             </div>
             <div class="form-item">
+                <div class="form-label">地区</div>
+                <div class="form-content">
+                    <mx-cascade class="w200"
+                        list="{{@areas}}"
+                        selected="{{:selected.area{refresh:true}}}"></mx-cascade>
+                </div>
+            </div>
+            <div class="form-item">
                 <div class="form-label">radio + 输入框</div>
                 <div class="form-content clearfix">
                     <label class="mr30 fl">
@@ -152,6 +160,10 @@
                 <span class="mr5">对比（{{=selected.vs}}）</span>
                 <span class="mr5">开始时间（{{=selected.start}}）</span>
                 <span>结束时间（{{=selected.end}}）</span>
+            </div>
+            <div class="lh32 mb30">
+                <span class="color-9">当前值：</span>
+                {{=selected.area}}
             </div>
             <div class="lh32 mb30">
                 <span class="color-9">当前值：</span>
@@ -254,6 +266,14 @@
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;地区&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;mx-cascade class="w200"
+                list="&#123;&#123;@areas&#125;&#125;"
+                selected="&#123;&#123;:selected.area&#123;refresh:true&#125;&#125;&#125;"&gt;&lt;/mx-cascade&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-item"&gt;
         &lt;div class="form-label"&gt;radio + 输入框&lt;/div&gt;
         &lt;div class="form-content clearfix"&gt;
             &lt;label class="mr30 fl"&gt;
@@ -306,7 +326,93 @@ module.exports = Magix.View.extend(&#123;
             viewId: this.id,
             checkboxes: ['checkbox1', 'checkbox2', 'checkbox3'],
             radioes: ['radio1', 'radio2', 'radio3'],
+            areas: [&#123;
+                value: 11,
+                pValue: '',
+                text: '上海'
+            &#125;, &#123;
+                value: 12,
+                pValue: '',
+                text: '江苏'
+            &#125;, &#123;
+                value: 13,
+                pValue: '',
+                text: '浙江'
+            &#125;, &#123;
+                value: 14,
+                pValue: '',
+                text: '北京'
+            &#125;, &#123;
+                value: 15,
+                pValue: '',
+                text: '四川'
+            &#125;, &#123;
+                value: 121,
+                pValue: 12,
+                text: '南京'
+            &#125;, &#123;
+                value: 122,
+                pValue: 12,
+                text: '苏州'
+            &#125;, &#123;
+                value: 123,
+                pValue: 12,
+                text: '南通'
+            &#125;, &#123;
+                value: 131,
+                pValue: 13,
+                text: '杭州'
+            &#125;, &#123;
+                value: 132,
+                pValue: 13,
+                text: '宁波'
+            &#125;, &#123;
+                value: 133,
+                pValue: 13,
+                text: '温州'
+            &#125;, &#123;
+                value: 134,
+                pValue: 13,
+                text: '嘉兴'
+            &#125;, &#123;
+                value: 135,
+                pValue: 13,
+                text: '舟山'
+            &#125;, &#123;
+                value: 136,
+                pValue: 13,
+                text: '台州'
+            &#125;, &#123;
+                value: 137,
+                pValue: 13,
+                text: '湖州'
+            &#125;, &#123;
+                value: 1311,
+                pValue: 131,
+                text: '余杭区'
+            &#125;, &#123;
+                value: 1312,
+                pValue: 131,
+                text: '西湖区'
+            &#125;, &#123;
+                value: 1313,
+                pValue: 131,
+                text: '上城区'
+            &#125;, &#123;
+                value: 1314,
+                pValue: 131,
+                text: '下城区'
+            &#125;, &#123;
+                value: 1315,
+                pValue: 131,
+                text: '江干区'
+            &#125;, &#123;
+                value: 1316,
+                pValue: 131,
+                text: '拱墅区'
+            &#125;],
             selected: &#123;
+                area: 1312,
                 checkboxes: ['checkbox1'],
                 radio: 'radio2',
                 single: '',  //下拉框单选
