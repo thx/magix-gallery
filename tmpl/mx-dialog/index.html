@@ -26,12 +26,12 @@
         <div class="dialog-footer clearfix" id="{{=cntId}}_footer">
             {{if fullFooter.enter}}
             <a href="javascript:;" class="fl btn btn-brand min-width-60 mr16 btn-submit" mx-click="@{submit}()">
-                <span class="submit-text">{{=fullFooter.enterText}}</span>
+                <span class="submit-text">{{!fullFooter.enterText}}</span>
             </a>
             {{/if}}
 
             {{if fullFooter.cancel}}
-            <a href="javascript:;" class="fl btn min-width-60 mr16" mx-click="@{close}()">{{=fullFooter.cancelText}}</a>
+            <a href="javascript:;" class="fl btn min-width-60 mr16" mx-click="@{close}()">{{!fullFooter.cancelText}}</a>
             {{/if}}
 
             {{if fullFooter.enter}}

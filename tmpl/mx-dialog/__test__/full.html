@@ -8,19 +8,16 @@
 </form>
 {{/if}}
 
-<div class="grid mb16">
-    <mx-grid.body>
-        <div class="mb10">浮层HTML Code：</div>
-        {{if readonly}}
-        <pre class="tip-content">
-&lt;div class="grid"&gt;
-    &lt;mx-grid.body&gt;
-        // something
-    &lt;/mx-grid.body&gt;
-&lt;/div&gt;
-        </pre>
-        {{else}}
-        <pre class="tip-content">
+<mx-grid.body class="grid mb16">
+    <div class="mb10">浮层HTML Code：</div>
+    {{if readonly}}
+    <pre class="tip-content">
+&lt;mx-grid.body class="grid"&gt;
+    // something
+&lt;/mx-grid.body&gt;
+    </pre>
+    {{else}}
+    <pre class="tip-content">
 &lt;form class="grid"&gt;
     &lt;mx-grid.body&gt;
         &lt;span class="color-9 mr10"&gt;必填项：&lt;/span&gt;
@@ -28,15 +25,13 @@
             value="&#123;&#123;:name&#123;required:true&#125;&#125;&#125;"/&gt;
     &lt;/mx-grid.body&gt;
 &lt;/form&gt;
-        </pre>
-        {{/if}}
-    </mx-grid.body>
-</div>
+    </pre>
+    {{/if}}
+</mx-grid.body>
 
-<div class="grid">
-    <mx-grid.body>
-        <div class="mb10">浮层JS Code：</div>
-        <pre class="tip-content">
+<mx-grid.body class="grid">
+    <div class="mb10">浮层JS Code：</div>
+    <pre class="tip-content">
 let Magix = require('magix');
 
 module.exports = Magix.View.extend(&#123;
@@ -68,6 +63,5 @@ module.exports = Magix.View.extend(&#123;
         width: 1000
     &#125;
 &#125;);
-        </pre>
-    </mx-grid.body>
-</div>
+    </pre>
+</mx-grid.body>

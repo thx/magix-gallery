@@ -1,1 +1,166 @@
-define("mx-indics/index",["magix","$","mx-dialog/index"],(l,e,a)=>{var r=l("magix"),t=l("$"),s=l("mx-dialog/index");r.applyStyle("_zs_galleryX",'._zs_galleryhr{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}[mx-view*="mx-indics/index"]{display:inline-block;vertical-align:middle}._zs_galleryhs{position:relative;height:100%}._zs_galleryhs ._zs_galleryht{width:100%;height:60px;padding:0 24px;background-color:#fff;line-height:60px;border-bottom:1px solid #e6e6e6}._zs_galleryhs ._zs_galleryhu{position:absolute;top:60px;left:0;bottom:0;right:0;overflow-y:auto}._zs_galleryhs ._zs_galleryhu ._zs_galleryhv{padding:16px 24px}._zs_galleryhs ._zs_galleryhu ._zs_galleryhv:nth-of-type(2n){background-color:#fafafa}._zs_galleryhs ._zs_galleryhu ._zs_galleryhw{float:left;padding:8px 0;color:#999}._zs_galleryhs ._zs_galleryhu ._zs_galleryhx{float:left;width:100%}._zs_galleryhs ._zs_galleryhu ._zs_galleryhx ._zs_galleryhy{float:left;width:20%;padding:8px 0}._zs_galleryhs ._zs_galleryhu ._zs_galleryhx ._zs_galleryhy ._zs_galleryhz{position:relative;top:1px;left:4px;font-size:14px;color:#ccc}._zs_galleryhs._zs_galleryhA ._zs_galleryhw{width:15%}._zs_galleryhs._zs_galleryhA ._zs_galleryhx{width:85%}._zs_galleryhs._zs_galleryhA ._zs_galleryhx ._zs_galleryhy{width:25%}._zs_galleryhs._zs_galleryhB ._zs_galleryhx{width:100%}._zs_galleryhs._zs_galleryhB ._zs_galleryhx ._zs_galleryhy{width:25%}._zs_galleryhs._zs_galleryhA._zs_galleryhB ._zs_galleryhw{width:20%}._zs_galleryhs._zs_galleryhA._zs_galleryhB ._zs_galleryhx{width:80%}._zs_galleryhs._zs_galleryhA._zs_galleryhB ._zs_galleryhx ._zs_galleryhy{width:33%}._zs_galleryhs._zs_galleryhB{padding-right:32%}._zs_galleryhs._zs_galleryhB ._zs_galleryhu{right:32%;border-right:1px solid #e6e6e6}._zs_galleryhs._zs_galleryhB ._zs_galleryhC{position:absolute;top:0;right:0;width:32%;height:98px}._zs_galleryhs._zs_galleryhB ._zs_galleryhC ._zs_galleryhD{height:60px;line-height:60px;font-size:16px;padding-left:24px;border-bottom:1px solid #e6e6e6}._zs_galleryhs._zs_galleryhB ._zs_galleryhC ._zs_galleryhE{height:38px;padding:0 24px;line-height:38px;text-align:right;background-color:#fafafa}._zs_galleryhs._zs_galleryhB ._zs_galleryhF{position:absolute;top:98px;right:0;bottom:0;width:32%;padding:0 24px 16px;overflow-y:scroll;background-color:#fafafa}._zs_galleryhs._zs_galleryhB ._zs_galleryhF ._zs_galleryhG{height:30px;margin-bottom:5px;padding:0 15px;line-height:28px;background:#fff;border:1px solid #e6e6e6;border-radius:4px;cursor:move}._zs_galleryhs._zs_galleryhB ._zs_galleryhF ._zs_galleryhG:last-child{margin-bottom:0}._zs_galleryhH{position:relative;color:#333}._zs_galleryhH:hover{color:#333;border-color:#ccc}._zs_galleryhH:focus{border-color:#ccc}._zs_galleryhI{margin-right:10px}._zs_galleryhI ._zs_galleryhJ{position:relative;top:2px}._zs_galleryhK{padding-right:20px}._zs_galleryhK ._zs_galleryhL{position:absolute;top:0;right:0;width:20px;height:32px;line-height:32px;text-align:center;font-size:18px}'),a.exports=r.View.extend({tmpl:function(l,e,a,r,t,s,_,i){if(a||(a=l),!t){var g={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},h=/[&<>"'`]/g,o=function(l){return"&"+g[l]+";"};t=function(l){return""+(null==l?"":l)},r=function(l){return t(l).replace(h,o)}}if(!s){var y={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},n=function(l){return y[l]},p=/[!')(*]/g;s=function(l){return encodeURIComponent(t(l)).replace(p,n)}}if(!i){var z=/[\\'"]/g;i=function(l){return t(l).replace(z,"\\$&")}}var d="";return d+='<a mxs="_zs_galleryb&:_" href="javascript:;" class="input _zs_galleryhH _zs_galleryhI" mx-click="'+e+'show()"><i class="mc-iconfont _zs_galleryhJ">&#xe731;</i></a><a mxa="_zs_galleryb&:_" href="javascript:;" class="input _zs_galleryhH _zs_galleryhK" mx-click="'+e+'toggleDefault()">'+r(l.map[l.type].label)+'<i mxs="_zs_galleryb&:a" class="mc-iconfont _zs_galleryhL">&#xe692;</i></a>'},mixins:[s],init:function(l){this.updater.snapshot(),this.assign(l)},assign:function(l){var e=this.updater.altered(),a=l.textKey||"text",r=l.valueKey||"value",t=l.parentKey||"pValue",s=[];(l.fields||[]).forEach(function(l){s.push({text:l[a],value:l[r],pValue:l[t],tip:l.tip||""})});var _=[];(l.parents||[]).forEach(function(l){_.push({text:l[a],value:l[r]})});var i=(l.customs||[]).map(function(l){return""+l}),g=(l.defaults||[]).map(function(l){return""+l});0==i.length&&(i=g);var h=+l.limit||0,o=l.sortable+""=="true",y=l.custom+""=="true"?2:1,n={1:{label:"默认数据",list:g},2:{label:"自定义数据",list:i}};return this.updater.set({parents:_,fields:s,sortable:o,limit:h,map:n,type:y}),e||(e=this.updater.altered()),!!e&&(this.updater.snapshot(),!0)},render:function(){this.updater.digest()},"toggleDefault<click>":function(l){var e=this.updater.get("type");e=1==e?2:1,this.updater.digest({type:e}),this.__cd("btn-switch")},__cd:function(l){var e=this.updater.get("type"),a=this.updater.get("map");t("#"+this.id).trigger({type:"change",triggerType:l,defaults:a[1].list,custom:2==e,customs:a[2].list})},"show<click>":function(l){l.preventDefault();var e=this,a=e.updater,r=(a.get("sortable"),t.extend(!0,{},a.get()));r.selected=r.map[r.type].list,r.callback=function(l){var r=a.get("map");r[2].list=l.selected,e.updater.digest({type:2,map:r}),e.__cd("dialog-setting")},e.mxModal("mx-indics/dialog",r,{width:800,closable:!1,card:!1})}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-indics/index",["magix","$","mx-dialog/index"],(require,exports,module)=>{
+/*Magix,$,Dialog*/
+
+var Magix = require("magix");
+var $ = require("$");
+var Dialog = require("mx-dialog/index"); //mixins dialog
+Magix.applyStyle("_zs_gallery_mx-indics_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-indics_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-indics/index\"] {\n  display: inline-block;\n  vertical-align: middle;\n}\n._zs_gallery_mx-indics_index_-setting {\n  position: relative;\n  height: 100%;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-header {\n  width: 100%;\n  height: 60px;\n  padding: 0 24px;\n  background-color: #fff;\n  line-height: 60px;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content {\n  position: absolute;\n  top: 60px;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  overflow-y: auto;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line {\n  padding: 16px 24px;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line:nth-of-type(even) {\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-name {\n  float: left;\n  padding: 8px 0;\n  color: #999;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-items {\n  float: left;\n  width: 100%;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-items ._zs_gallery_mx-indics_index_-item {\n  float: left;\n  width: 20%;\n  padding: 8px 0;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-items ._zs_gallery_mx-indics_index_-item ._zs_gallery_mx-indics_index_-field-tip {\n  position: relative;\n  top: 1px;\n  left: 4px;\n  font-size: 14px;\n  color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent ._zs_gallery_mx-indics_index_-name {\n  width: 15%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent ._zs_gallery_mx-indics_index_-items {\n  width: 85%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent ._zs_gallery_mx-indics_index_-items ._zs_gallery_mx-indics_index_-item {\n  width: 25%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-items {\n  width: 100%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-items ._zs_gallery_mx-indics_index_-item {\n  width: 25%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-name {\n  width: 20%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-items {\n  width: 80%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-items ._zs_gallery_mx-indics_index_-item {\n  width: 33%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable {\n  padding-right: 32%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-content {\n  right: 32%;\n  border-right: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 32%;\n  height: 98px;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header ._zs_gallery_mx-indics_index_-drag-title {\n  height: 60px;\n  line-height: 60px;\n  font-size: 16px;\n  padding-left: 24px;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header ._zs_gallery_mx-indics_index_-drag-oper {\n  height: 38px;\n  padding: 0 24px;\n  line-height: 38px;\n  text-align: right;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper {\n  position: absolute;\n  top: 98px;\n  right: 0;\n  bottom: 0;\n  width: 32%;\n  padding: 0 24px 16px 24px;\n  overflow-y: scroll;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag {\n  height: 30px;\n  margin-bottom: 5px;\n  padding: 0 15px;\n  line-height: 28px;\n  background: #fff;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  cursor: move;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery_mx-indics_index_-setting-btn {\n  position: relative;\n  color: #333;\n}\n._zs_gallery_mx-indics_index_-setting-btn:hover {\n  color: #333;\n  border-color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting-btn:focus {\n  border-color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting-show-btn {\n  margin-right: 10px;\n}\n._zs_gallery_mx-indics_index_-setting-show-btn ._zs_gallery_mx-indics_index_-setting-show-icon {\n  position: relative;\n  top: 2px;\n}\n._zs_gallery_mx-indics_index_-setting-switch-btn {\n  padding-right: 20px;\n}\n._zs_gallery_mx-indics_index_-setting-switch-btn ._zs_gallery_mx-indics_index_-setting-switch-icon {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 20px;\n  height: 32px;\n  line-height: 32px;\n  text-align: center;\n  font-size: 18px;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', map = $$.map, type = $$.type; var $expr, $art, $line; try {
+    $p += '<a mxs="_zs_galleryb&:_" href="javascript:;" class="input _zs_gallery_mx-indics_index_-setting-btn _zs_gallery_mx-indics_index_-setting-show-btn" mx-click="' + $viewId + 'show()"><i class="mc-iconfont _zs_gallery_mx-indics_index_-setting-show-icon">&#xe731;</i></a><a mxa="_zs_galleryb&:_" href="javascript:;" class="input _zs_gallery_mx-indics_index_-setting-btn _zs_gallery_mx-indics_index_-setting-switch-btn" mx-click="' + $viewId + 'toggleDefault()">';
+    $line = 5;
+    $art = '=map[type][\'label\']';
+    ;
+    $p += ($expr = '<%=map[type][\'label\']%>', $e(map[type]['label'])) + '<i mxs="_zs_galleryb&:a" class="mc-iconfont _zs_gallery_mx-indics_index_-setting-switch-icon">&#xe692;</i></a>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-indics/index.html';
+    throw msg;
+} return $p; },
+    mixins: [Dialog],
+    init: function (e) {
+        //初始化时保存一份当前数据的快照
+        this.updater.snapshot();
+        this.assign(e);
+    },
+    assign: function (e) {
+        var that = this;
+        var altered = that.updater.altered();
+        var textKey = e.textKey || 'text', valueKey = e.valueKey || 'value', parentKey = e.parentKey || 'pValue';
+        var fields = [];
+        (e.fields || []).forEach(function (item) {
+            fields.push({
+                text: item[textKey],
+                value: item[valueKey],
+                pValue: item[parentKey],
+                tip: item.tip || ''
+            });
+        });
+        var parents = [];
+        (e.parents || []).forEach(function (item) {
+            parents.push({
+                text: item[textKey],
+                value: item[valueKey]
+            });
+        });
+        var customs = (e.customs || []).map(function (v) {
+            return '' + v;
+        });
+        var defaults = (e.defaults || []).map(function (v) {
+            return '' + v;
+        });
+        // 当自定义为空时，默认为defaults
+        if (customs.length == 0) {
+            customs = defaults;
+        }
+        var limit = +e.limit || 0;
+        // 是否可排序
+        var sortable = (e.sortable + '' === 'true');
+        // 1 默认
+        // 2 自定义
+        var type = (e.custom + '' === 'true') ? 2 : 1;
+        var map = {
+            1: {
+                label: '默认数据',
+                list: defaults
+            },
+            2: {
+                label: '自定义数据',
+                list: customs
+            }
+        };
+        this.updater.set({
+            parents: parents,
+            fields: fields,
+            sortable: sortable,
+            limit: limit,
+            map: map,
+            type: type
+        });
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            // 组件有更新，真个节点会全部需要重新初始化
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render: function () {
+        this.updater.digest();
+    },
+    'toggleDefault<click>': function (e) {
+        var that = this;
+        var type = that.updater.get('type');
+        if (type == 1) {
+            type = 2;
+        }
+        else {
+            type = 1;
+        }
+        that.updater.digest({
+            type: type
+        });
+        that['@{fire}']('btn-switch');
+    },
+    '@{fire}': function (triggerType) {
+        var that = this;
+        var type = that.updater.get('type'), map = that.updater.get('map');
+        $('#' + that.id).trigger({
+            type: 'change',
+            triggerType: triggerType,
+            defaults: map[1].list,
+            custom: (type == 2),
+            customs: map[2].list
+        });
+    },
+    /**
+     * 开浮层编辑了就是自定义数据了
+     */
+    'show<click>': function (e) {
+        e.preventDefault();
+        var that = this;
+        var updater = that.updater;
+        var sortable = updater.get('sortable');
+        var viewOptions = $.extend(true, {}, updater.get());
+        viewOptions.selected = viewOptions.map[viewOptions.type].list;
+        viewOptions.callback = function (d) {
+            var map = updater.get('map');
+            var type = 2;
+            map[type]['list'] = d.selected;
+            that.updater.digest({
+                type: type,
+                map: map
+            });
+            that['@{fire}']('dialog-setting');
+        };
+        that.mxModal('mx-indics/dialog', viewOptions, {
+            width: 800,
+            closable: false,
+            card: false
+        });
+    }
+});
+
+});
