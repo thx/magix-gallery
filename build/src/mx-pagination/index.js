@@ -218,6 +218,18 @@ catch (ex) {
         if ((/^false$/i).test(ops.sizesChange)) {
             sizesChange = false;
         }
+        //当前第几页
+        // 优先级page > offset
+        var page, size = ops.size || 40;
+        if (ops.page) {
+            page = ops.page;
+        }
+        else if (ops.offset) {
+            page = parseInt(ops.offset / size) + 1;
+        }
+        else {
+            page = 1;
+        }
         me.updater.set({
             viewId: me.id,
             step: ops.step || 5,
@@ -225,9 +237,9 @@ catch (ex) {
             mini: (ops.mini + '') === 'true',
             hideTotal: (ops.hideTotal + '') === 'true',
             jump: (ops.jump + '') === 'false',
-            page: ops.page || 1,
             total: (ops.total | 0) || 0,
-            size: ops.size || 40,
+            page: page,
+            size: size,
             sizesChange: sizesChange,
             sizesPlacement: ops.sizesPlacement || 'bottom',
             sizes: sizes //可选分页数

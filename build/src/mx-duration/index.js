@@ -229,9 +229,9 @@ module.exports = Magix.View.extend({
     $line = 70;
     $art = 'each weeks as week';
     ;
-    $expr = '<%for (var $art_izinvfgyh$art_i = 0, $art_cbuplkxf$art_c = weeks.length; $art_izinvfgyh$art_i < $art_cbuplkxf$art_c; $art_izinvfgyh$art_i++) {    var week = weeks[$art_izinvfgyh$art_i]%>';
-    for (var $art_izinvfgyh$art_i = 0, $art_cbuplkxf$art_c = weeks.length; $art_izinvfgyh$art_i < $art_cbuplkxf$art_c; $art_izinvfgyh$art_i++) {
-        var week = weeks[$art_izinvfgyh$art_i];
+    $expr = '<%for (var $art_imlhdgccodd$art_i = 0, $art_clfwdmh$art_c = weeks.length; $art_imlhdgccodd$art_i < $art_clfwdmh$art_c; $art_imlhdgccodd$art_i++) {    var week = weeks[$art_imlhdgccodd$art_i]%>';
+    for (var $art_imlhdgccodd$art_i = 0, $art_clfwdmh$art_c = weeks.length; $art_imlhdgccodd$art_i < $art_clfwdmh$art_c; $art_imlhdgccodd$art_i++) {
+        var week = weeks[$art_imlhdgccodd$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-week-item" style="height: ';
         $line = 71;
         $art = '=boxHeight';
@@ -259,9 +259,9 @@ module.exports = Magix.View.extend({
     $line = 76;
     $art = 'each ranges as range';
     ;
-    $expr = '<%for (var $art_iumsngssd$art_i = 0, $art_cxxhgbgqug$art_c = ranges.length; $art_iumsngssd$art_i < $art_cxxhgbgqug$art_c; $art_iumsngssd$art_i++) {    var range = ranges[$art_iumsngssd$art_i]%>';
-    for (var $art_iumsngssd$art_i = 0, $art_cxxhgbgqug$art_c = ranges.length; $art_iumsngssd$art_i < $art_cxxhgbgqug$art_c; $art_iumsngssd$art_i++) {
-        var range = ranges[$art_iumsngssd$art_i];
+    $expr = '<%for (var $art_ivtizu$art_i = 0, $art_cmburwuag$art_c = ranges.length; $art_ivtizu$art_i < $art_cmburwuag$art_c; $art_ivtizu$art_i++) {    var range = ranges[$art_ivtizu$art_i]%>';
+    for (var $art_ivtizu$art_i = 0, $art_cmburwuag$art_c = ranges.length; $art_ivtizu$art_i < $art_cmburwuag$art_c; $art_ivtizu$art_i++) {
+        var range = ranges[$art_ivtizu$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-range-item" style="width: ';
         $line = 77;
         $art = '=(boxWidth*(rowNum/4))';
@@ -319,9 +319,9 @@ module.exports = Magix.View.extend({
     $line = 86;
     $art = 'each boxZones as zone';
     ;
-    $expr = '<%for (var $art_iqfokrc$art_i = 0, $art_cajvjressgi$art_c = boxZones.length; $art_iqfokrc$art_i < $art_cajvjressgi$art_c; $art_iqfokrc$art_i++) {    var zone = boxZones[$art_iqfokrc$art_i]%>';
-    for (var $art_iqfokrc$art_i = 0, $art_cajvjressgi$art_c = boxZones.length; $art_iqfokrc$art_i < $art_cajvjressgi$art_c; $art_iqfokrc$art_i++) {
-        var zone = boxZones[$art_iqfokrc$art_i];
+    $expr = '<%for (var $art_iamhlfhwri$art_i = 0, $art_cqlernwjk$art_c = boxZones.length; $art_iamhlfhwri$art_i < $art_cqlernwjk$art_c; $art_iamhlfhwri$art_i++) {    var zone = boxZones[$art_iamhlfhwri$art_i]%>';
+    for (var $art_iamhlfhwri$art_i = 0, $art_cqlernwjk$art_c = boxZones.length; $art_iamhlfhwri$art_i < $art_cqlernwjk$art_c; $art_iamhlfhwri$art_i++) {
+        var zone = boxZones[$art_iamhlfhwri$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-box fl" style="width: ';
         $line = 88;
         $art = '=boxWidth';
@@ -353,7 +353,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</ul></div></div><div mxs="_zs_gallerya3:d" class="pt10 pb10 clearfix"><a class="btn btn-small mr10 fl" href="javascript:;" mx-click="' + $viewId + 'clear()">清空</a><a class="btn btn-small mr10 fl" href="javascript:;" mx-click="' + $viewId + 'reset()">重置</a><span class="fr lh28 color-c"><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(97,199,242,0.7)"></span><span class="font-tahoma bold color-c mr15">30-100%</span><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(77,166,255,0.7)"></span><span class="font-tahoma bold color-c mr15">100-200%</span><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(134,115,230,0.7)"></span><span class="font-tahoma bold color-c mr15">200-250%</span><i class="mc-iconfont displacement-2">&#xe705;</i><span class="mr10">可以拖拽鼠标选择投放时段</span></span></div></div>';
+    $p += '</ul></div></div><div mxs="_zs_gallerya3:b" class="pt10 pb10 clearfix"><a class="btn btn-small mr10 fl" href="javascript:;" mx-click="' + $viewId + 'clear()">清空</a><a class="btn btn-small mr10 fl" href="javascript:;" mx-click="' + $viewId + 'reset()">重置</a><span class="fr lh28 color-c"><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(97,199,242,0.7)"></span><span class="font-tahoma bold color-c mr15">30-100%</span><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(77,166,255,0.7)"></span><span class="font-tahoma bold color-c mr15">100-200%</span><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(134,115,230,0.7)"></span><span class="font-tahoma bold color-c mr15">200-250%</span><i class="mc-iconfont displacement-2">&#xe705;</i><span class="mr10">可以拖拽鼠标选择投放时段</span></span></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

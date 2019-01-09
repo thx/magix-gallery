@@ -32,6 +32,18 @@ module.exports = Magix.View.extend({
             sizesChange = false;
         }
 
+        //当前第几页
+        // 优先级page > offset
+        let page,
+            size = ops.size || 40;
+        if(ops.page){
+            page = ops.page;
+        }else if(ops.offset){
+            page = parseInt(ops.offset / size) + 1;
+        }else{
+            page = 1;
+        }
+
         me.updater.set({
             viewId: me.id,
             step: ops.step || 5, //页码过多时，中间显示多少条页码
@@ -39,9 +51,9 @@ module.exports = Magix.View.extend({
             mini: (ops.mini + '') === 'true',
             hideTotal: (ops.hideTotal + '') === 'true', //是否隐藏总计
             jump: (ops.jump + '') === 'false', //是否有快捷跳转
-            page: ops.page || 1, //当前第几页
             total: (ops.total | 0) || 0, //总数
-            size: ops.size || 40, //当前分页数
+            page, 
+            size, //当前分页数
             sizesChange: sizesChange, //是否可切换分页数
             sizesPlacement: ops.sizesPlacement || 'bottom',
             sizes: sizes //可选分页数

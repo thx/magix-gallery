@@ -15,6 +15,11 @@ module.exports = Base.extend({
             type: 'number',
             def: 1
         }, {
+            key: 'offset',
+            desc: '偏移量，优先级 page > offset',
+            type: 'number',
+            def: 0  
+        }, {
             key: 'size',
             desc: '每页多少条',
             type: 'number',
