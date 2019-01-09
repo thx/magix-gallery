@@ -1,0 +1,59 @@
+<div class="clearfix pr">
+    <div class="clearfix sps">
+        <div class="sp spa">:</div>
+        <div class="sp spb">:</div>
+    </div>
+    <mx-grid.row justify="space-between" class="groups">
+        <mx-grid.col class="group" width="52px">
+            <div class="mb5">
+                <input class="input ipt" 
+                    maxlength="2" 
+                    autocomplete="off"
+                    value="{{=format(time['@{hour}'])}}"
+                    {{if types['@{hour}']}} mx-change="@{set}({type:'@{hour}'})" {{else}} disabled {{/if}}
+                    mx-keydown="@{press.check}({type:'@{hour}'})" />
+            </div>
+            <div class="clearfix {{if !types['@{hour}']}} disabled {{/if}}">
+                <i class="mc-iconfont ipb fl" 
+                    {{if types['@{hour}']}} mx-click="@{change}({type:'@{hour}'})" mx-mousedown="@{fast.start}({type:'@{hour}'})" {{/if}}>&#xe618;</i>
+    
+                <i class="mc-iconfont ipb fr" 
+                    {{if types['@{hour}']}} mx-click="@{change}({type:'@{hour}',inc:1})" mx-mousedown="@{fast.start}({type:'@{hour}',inc:1})" {{/if}}>&#xe605;</i>
+            </div>
+        </mx-grid.col>
+        <mx-grid.col class="group" width="52px">
+            <div class="mb5">
+                <input class="input ipt" 
+                    maxlength="2" 
+                    autocomplete="off"
+                    value="{{=format(time['@{minute}'])}}"
+                    {{if types['@{minute}']}} mx-change="@{set}({type:'@{minute}'})" {{else}} disabled {{/if}}
+                    mx-keydown="@{press.check}({type:'@{minute}'})" />
+            </div>
+            <div class="clearfix {{if !types['@{minute}']}} disabled {{/if}}">
+                <i class="mc-iconfont ipb fl" 
+                    {{if types['@{minute}']}} mx-click="@{change}({type:'@{minute}'})" mx-mousedown="@{fast.start}({type:'@{minute}'})" {{/if}}>&#xe618;</i>
+    
+                <i class="mc-iconfont ipb fr" 
+                    {{if types['@{minute}']}} mx-click="@{change}({type:'@{minute}',inc:1})" mx-mousedown="@{fast.start}({type:'@{minute}',inc:1})" {{/if}}>&#xe605;</i>
+            </div>
+        </mx-grid.col>
+        <mx-grid.col class="group" width="52px">
+            <div class="mb5">
+                <input class="input ipt" 
+                    maxlength="2" 
+                    autocomplete="off"
+                    value="{{=format(time['@{second}'])}}"
+                    {{if types['@{second}']}} mx-change="@{set}({type:'@{second}'})" {{else}} disabled {{/if}}
+                    mx-keydown="@{press.check}({type:'@{second}'})" />
+            </div>
+            <div class="clearfix {{if !types['@{second}']}} disabled {{/if}}">
+                <i class="mc-iconfont ipb fl" 
+                    {{if types['@{second}']}} mx-click="@{change}({type:'@{second}'})" mx-mousedown="@{fast.start}({type:'@{second}'})" {{/if}}>&#xe618;</i>
+    
+                <i class="mc-iconfont ipb fr" 
+                    {{if types['@{second}']}} mx-click="@{change}({type:'@{second}',inc:1})" mx-mousedown="@{fast.start}({type:'@{second}',inc:1})" {{/if}}>&#xe605;</i>
+            </div>
+        </mx-grid.col>
+    </mx-grid.row>
+</div>

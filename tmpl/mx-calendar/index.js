@@ -134,7 +134,6 @@ module.exports = Magix.View.extend({
             timeType,
             timeValue,
             dateValue,
-            hasBtn: ops.hasBtn,
             max,
             min,
             id: me.id,
@@ -311,7 +310,7 @@ module.exports = Magix.View.extend({
         let me = this;
         let data = me.updater.get();
         if (data.types.day) {
-            if (data.timeType && data.hasBtn) {
+            if (data.timeType) {
                 if (fromBtn) {
                     $('#' + me.id).trigger({
                         type: 'change',

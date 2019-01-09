@@ -106,8 +106,13 @@ catch (ex) {
                 type: 'string',
                 def: '1. 今天小于min，默认为min<br/>2. 今天大于max，默认为max<br/>3. 今天在可选范围之内，默认为今天'
             }, {
+                key: 'date-type',
+                desc: "<pre>\n\u5E74\u6708\u65E5\u9009\u62E9\u7C7B\u578B\uFF1A\n\u53EF\u9009\u62E9\"year,month,day\"\u4E2D\u7684\u4E00\u4E2A\u6216\u8005\u591A\u4E2A\n\u6B64\u5916\"all\" = \"year,month,day\" = \"\"\uFF0C\u4E0D\u8BBE\u7F6E\u7684\u65F6\u5019\u9ED8\u8BA4\u5E74\u6708\u65E5\u90FD\u663E\u793A\n</pre>",
+                type: 'string',
+                def: ''
+            }, {
                 key: 'time-type',
-                desc: '时分秒选择类型，设置该值后会出现时间选择组件<br/>可选择"hour,minute,second"中的一个或者多个<br/>此外提供快捷的配置"all" = "hour,minute,second"',
+                desc: "<pre>\n\u65F6\u5206\u79D2\u9009\u62E9\u7C7B\u578B\uFF1A\n1.\u8BBE\u7F6E\u8BE5\u503C\u540E\u4F1A\u51FA\u73B0\u65F6\u95F4\u9009\u62E9\u7EC4\u4EF6\n  \u53EF\u9009\u62E9\"hour,minute,second\"\u4E2D\u7684\u4E00\u4E2A\u6216\u8005\u591A\u4E2A\n  \u6B64\u5916\u63D0\u4F9B\u5FEB\u6377\u7684\u914D\u7F6E\"all\" = \"hour,minute,second\"\n2.\u4E0D\u8BBE\u7F6E\u65E0\u65F6\u5206\u79D2\u9009\u62E9            \n            </pre>",
                 type: 'string',
                 def: ''
             }, {

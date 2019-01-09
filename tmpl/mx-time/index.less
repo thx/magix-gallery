@@ -1,34 +1,98 @@
 @import "../mx-style/_vars";
-@group-height: 40px;
-.group {
-    float: left;
-    overflow: hidden;
-
-    .ipt {
-        width: (2 * @font-size) * 2 + 4px;
-        height: @group-height;
-        font-size: @font-size + 12;
-        text-align: center;
+@import "../mx-style/_animation";
+.time-toggle {
+    position: relative;
+    width: 100%;
+    height: @input-height;
+    padding: 0 25px 0 10px;
+    border-radius: @border-radius;
+    cursor: pointer;
+    user-select: none;
+    line-height: @input-height - 2;
+    transition: all @duration;
+    border-width: 1px;
+    border-style: solid;
+    border-color: @border-highlight;
+    
+    .time-toggle-label {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
-
-    .o-btn{
-        width: 2 * @font-size;
-        height: 2 * @font-size;
-        line-height: 2 * @font-size;
-        padding: 0;
+    .arrow {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 28px;
+        height: 28px;
+        font-size: 28px;
+        line-height: 28px;
+        margin-top: -14px;
+        color: @border-highlight;
+        transition: all @duration;
     }
-    .o-icon{
-        line-height: 2 * @font-size;
+    &.open {
+        .arrow {
+            transform: rotate(180deg);
+        }
     }
-
 }
 
-.spliter {
-    float: left;
-    width: 2 * @font-size;
-    font-size: 24px;
-    height: @group-height;
-    line-height: @group-height;
-    font-weight: bolder;
-    text-align: center;
+.time-wrapper {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 99;
+    min-width: 220px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: @border-radius;
+    background-color: #fff;
+    user-select: none;
+    background-color: #fff;
+    .mx-shadow();
+    
+    &.open {
+        display: block;
+        animation: fade-in-down @duration ease-out;
+        animation-fill-mode: forwards;
+    }
+}
+
+[mx-view*="mx-time/index"] {
+    position: relative;
+    display: inline-block;
+    min-width: 100px;
+    vertical-align: middle;
+    
+    &:hover {
+        .time-toggle {
+            border-color: @border-highlight-hover;
+            .arrow{
+                color: @border-highlight-hover;
+            }
+        }
+    }
+    &[mx-disabled],
+    &[mx-disabled]:hover {
+        .time-toggle {
+            border-color: @color-border;
+            color: @color-third;
+            background-color: @color-disabled;
+            cursor: not-allowed;
+            .arrow {
+                color: #ccc;
+            }
+        }
+    }
+}
+
+.footer {
+    margin: 10px;
+    padding: 10px 0 0 0;
+    border-top: 1px solid @color-border;
+    text-align: left;
 }

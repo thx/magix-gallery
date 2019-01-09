@@ -61,8 +61,23 @@ module.exports = Magix.View.extend({
             desc: '最小可选的日期',
             type: 'string'
         }, {
+            key: 'date-type',
+            desc: `<pre>
+年月日选择类型：
+可选择"year,month,day"中的一个或者多个
+此外"all" = "year,month,day" = ""，不设置的时候默认年月日都显示
+</pre>`,
+            type: 'string',
+            def: ''
+        }, {
             key: 'time-type',
-            desc: '时分秒选择类型，设置该值后会出现时间选择组件<br/>可选择"hour,minute,second"中的一个或者多个<br/>此外提供快捷的配置"all" = "hour,minute,second"',
+            desc: `<pre>
+时分秒选择类型：
+1.设置该值后会出现时间选择组件
+  可选择"hour,minute,second"中的一个或者多个
+  此外提供快捷的配置"all" = "hour,minute,second"
+2.不设置无时分秒选择            
+            </pre>`,
             type: 'string',
             def: ''
         }, {

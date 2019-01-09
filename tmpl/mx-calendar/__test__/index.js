@@ -19,8 +19,23 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: '1. 今天小于min，默认为min<br/>2. 今天大于max，默认为max<br/>3. 今天在可选范围之内，默认为今天'
         }, {
+            key: 'date-type',
+            desc: `<pre>
+年月日选择类型：
+可选择"year,month,day"中的一个或者多个
+此外"all" = "year,month,day" = ""，不设置的时候默认年月日都显示
+</pre>`,
+            type: 'string',
+            def: ''
+        }, {
             key: 'time-type',
-            desc: '时分秒选择类型，设置该值后会出现时间选择组件<br/>可选择"hour,minute,second"中的一个或者多个<br/>此外提供快捷的配置"all" = "hour,minute,second"',
+            desc: `<pre>
+时分秒选择类型：
+1.设置该值后会出现时间选择组件
+  可选择"hour,minute,second"中的一个或者多个
+  此外提供快捷的配置"all" = "hour,minute,second"
+2.不设置无时分秒选择            
+            </pre>`,
             type: 'string',
             def: ''
         }, {

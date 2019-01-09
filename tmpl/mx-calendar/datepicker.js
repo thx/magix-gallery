@@ -21,7 +21,6 @@ module.exports = Magix.View.extend({
     render() {
         let that = this;
         let dateInfo = that['@{extra}'];
-        dateInfo.hasBtn = 1;
         if (!dateInfo.selected) {
             dateInfo.selected = GetDefaultDate(dateInfo.min, dateInfo.max, dateInfo.formatter);
         }

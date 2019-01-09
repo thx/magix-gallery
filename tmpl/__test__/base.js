@@ -152,6 +152,10 @@ module.exports = Magix.View.extend({
                     path: '/calendar/range',
                     icon: '&#xe60e;'
                 }, {
+                    name: '时分秒选择',
+                    path: '/time/index',
+                    icon: '&#xe604;'
+                }, {
                     name: '分页',
                     path: '/pagination/index',
                     icon: '&#xe61a;'

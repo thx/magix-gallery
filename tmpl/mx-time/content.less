@@ -1,0 +1,68 @@
+@import "../mx-style/_vars";
+@group-height: 40px;
+@oper-size: 24px;
+.groups{
+    position: relative;
+    z-index: 2;
+}
+.group {
+    .ipt {
+        width: 100%;
+        height: @group-height;
+        font-size: @font-size + 12;
+        text-align: center;
+    }
+
+    .ipb{
+        width: @oper-size;
+        height: @oper-size;
+        line-height: @oper-size;
+        font-weight: bold;
+        font-size: 12px;
+        text-align: center;
+        background-color: #e6e6e6;
+        border-radius: @border-radius;
+        cursor: pointer;
+        transition: all @duration;
+
+        &:hover{
+            background-color: #ccc;
+        }
+    }
+
+    .disabled{
+        .ipb{
+            background-color: @color-disabled;
+            color: #ccc;
+        }
+    }
+}
+
+.sps{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: @group-height;
+    .sp {
+        float: left;
+        width: 50%;
+        font-size: 24px;
+        height: @group-height;
+        line-height: @group-height;
+        font-weight: bolder;
+        text-align: center;
+
+        &.spa{
+            padding-left: 26px;
+        }
+        &.spb{
+            padding-right: 26px;
+        }
+    }
+}
+
+[mx-view*="mx-time/content"]{
+    padding: 10px 10px 0 10px;
+}

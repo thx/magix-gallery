@@ -107,7 +107,6 @@ catch (ex) {
     render: function () {
         var that = this;
         var dateInfo = that['@{extra}'];
-        dateInfo.hasBtn = 1;
         if (!dateInfo.selected) {
             dateInfo.selected = GetDefaultDate(dateInfo.min, dateInfo.max, dateInfo.formatter);
         }

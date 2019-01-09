@@ -1,4 +1,3 @@
-/*md5:e0cdda10a9168373e40202f1f05c37c9*/
 let Magix = require('magix');
 let $ = require('$');
 let I18n = require('../mx-medusa/util');

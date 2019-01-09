@@ -3,50 +3,13 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-time/index",["magix","$"],(require,exports,module)=>{
-/*Magix,$*/
-
+define("mx-time/index",["magix","$","../mx-monitor/index","./content"],(require,exports,module)=>{
+/*Magix,$,Monitor*/
+require("./content");
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-time_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-time_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-time_index_-group {\n  float: left;\n  overflow: hidden;\n}\n._zs_gallery_mx-time_index_-group ._zs_gallery_mx-time_index_-ipt {\n  width: 52px;\n  height: 40px;\n  font-size: 24px;\n  text-align: center;\n}\n._zs_gallery_mx-time_index_-group ._zs_gallery_mx-time_index_-o-btn {\n  width: 24px;\n  height: 24px;\n  line-height: 24px;\n  padding: 0;\n}\n._zs_gallery_mx-time_index_-group ._zs_gallery_mx-time_index_-o-icon {\n  line-height: 24px;\n}\n._zs_gallery_mx-time_index_-spliter {\n  float: left;\n  width: 24px;\n  font-size: 24px;\n  height: 40px;\n  line-height: 40px;\n  font-weight: bolder;\n  text-align: center;\n}\n");
-var parseTime = function (time) {
-    if (!time) {
-        var d = new Date();
-        time = d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
-    }
-    var ts = time.split(':');
-    if (ts.length != 3) {
-        throw new Error('bad time:' + time);
-    }
-    return {
-        '@{hour}': parseInt(ts[0], 10) || 0,
-        '@{minute}': parseInt(ts[1], 10) || 0,
-        '@{second}': parseInt(ts[2], 10) || 0
-    };
-};
-var parseType = function (type) {
-    if (!type) {
-        type = 'all';
-    }
-    var enables = {
-        '@{hour}': true,
-        '@{minute}': true,
-        '@{second}': true
-    };
-    var keysMap = {
-        hour: '@{hour}',
-        minute: '@{minute}',
-        second: '@{second}'
-    };
-    if (type != 'all') {
-        for (var p in keysMap) {
-            if (type.indexOf(p) === -1) {
-                delete enables[keysMap[p]];
-            }
-        }
-    }
-    return enables;
-};
+var Monitor = require("../mx-monitor/index");
+Magix.applyStyle("_zs_gallery_mx-time_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-time_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n/* 动画结束停在最后一帧 */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-time_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-time_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n/**\n* 渐显上拉动画\n*/\n@keyframes _zs_gallery_mx-time_index_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-time_index_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@keyframes _zs_gallery_mx-time_index_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-time_index_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n/**\n * 按钮中间的loading点动画\n */\n@keyframes _zs_gallery_mx-time_index_-loading-dots {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, 2px);\n    -ms-transform: translate(0, 2px);\n    -moz-transform: translate(0, 2px);\n    -webkit-transform: translate(0, 2px);\n    -o-transform: translate(0, 2px);\n  }\n  50% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, -2px);\n    -ms-transform: translate(0, -2px);\n    -moz-transform: translate(0, -2px);\n    -webkit-transform: translate(0, -2px);\n    -o-transform: translate(0, -2px);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-time_index_-loading-dots {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, 2px);\n    -ms-transform: translate(0, 2px);\n    -moz-transform: translate(0, 2px);\n    -webkit-transform: translate(0, 2px);\n    -o-transform: translate(0, 2px);\n  }\n  50% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, -2px);\n    -ms-transform: translate(0, -2px);\n    -moz-transform: translate(0, -2px);\n    -webkit-transform: translate(0, -2px);\n    -o-transform: translate(0, -2px);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@keyframes _zs_gallery_mx-time_index_-loading-dots-rev {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -2px);\n    -ms-transform: translate(0, -2px);\n    -moz-transform: translate(0, -2px);\n    -webkit-transform: translate(0, -2px);\n    -o-transform: translate(0, -2px);\n  }\n  50% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, 2px);\n    -ms-transform: translate(0, 2px);\n    -moz-transform: translate(0, 2px);\n    -webkit-transform: translate(0, 2px);\n    -o-transform: translate(0, 2px);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-time_index_-loading-dots-rev {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -2px);\n    -ms-transform: translate(0, -2px);\n    -moz-transform: translate(0, -2px);\n    -webkit-transform: translate(0, -2px);\n    -o-transform: translate(0, -2px);\n  }\n  50% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, 2px);\n    -ms-transform: translate(0, 2px);\n    -moz-transform: translate(0, 2px);\n    -webkit-transform: translate(0, 2px);\n    -o-transform: translate(0, 2px);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n._zs_gallery_mx-time_index_-time-toggle {\n  position: relative;\n  width: 100%;\n  height: 32px;\n  padding: 0 25px 0 10px;\n  border-radius: 4px;\n  cursor: pointer;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  line-height: 30px;\n  transition: all 0.25s;\n  border-width: 1px;\n  border-style: solid;\n  border-color: #e6e6e6;\n}\n._zs_gallery_mx-time_index_-time-toggle ._zs_gallery_mx-time_index_-time-toggle-label {\n  display: block;\n  width: 100%;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-time_index_-time-toggle ._zs_gallery_mx-time_index_-arrow {\n  position: absolute;\n  right: 0;\n  top: 50%;\n  width: 28px;\n  height: 28px;\n  font-size: 28px;\n  line-height: 28px;\n  margin-top: -14px;\n  color: #e6e6e6;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-time_index_-time-toggle._zs_gallery_mx-time_index_-open ._zs_gallery_mx-time_index_-arrow {\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n._zs_gallery_mx-time_index_-time-wrapper {\n  display: none;\n  position: absolute;\n  left: 0;\n  top: 100%;\n  z-index: 99;\n  min-width: 220px;\n  width: 100%;\n  margin-top: 10px;\n  border-radius: 4px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-time_index_-time-wrapper._zs_gallery_mx-time_index_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-time_index_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-time_index_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n[mx-view*=\"mx-time/index\"] {\n  position: relative;\n  display: inline-block;\n  min-width: 100px;\n  vertical-align: middle;\n}\n[mx-view*=\"mx-time/index\"]:hover ._zs_gallery_mx-time_index_-time-toggle {\n  border-color: #ccc;\n}\n[mx-view*=\"mx-time/index\"]:hover ._zs_gallery_mx-time_index_-time-toggle ._zs_gallery_mx-time_index_-arrow {\n  color: #ccc;\n}\n[mx-view*=\"mx-time/index\"][mx-disabled] ._zs_gallery_mx-time_index_-time-toggle,\n[mx-view*=\"mx-time/index\"][mx-disabled]:hover ._zs_gallery_mx-time_index_-time-toggle {\n  border-color: #e6e6e6;\n  color: #999;\n  background-color: #eee;\n  cursor: not-allowed;\n}\n[mx-view*=\"mx-time/index\"][mx-disabled] ._zs_gallery_mx-time_index_-time-toggle ._zs_gallery_mx-time_index_-arrow,\n[mx-view*=\"mx-time/index\"][mx-disabled]:hover ._zs_gallery_mx-time_index_-time-toggle ._zs_gallery_mx-time_index_-arrow {\n  color: #ccc;\n}\n._zs_gallery_mx-time_index_-footer {\n  margin: 10px;\n  padding: 10px 0 0 0;\n  border-top: 1px solid #e6e6e6;\n  text-align: left;\n}\n");
 var format = function (t) {
     if (t < 10)
         return '0' + t;
@@ -64,125 +27,98 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', format = $$.format, time = $$.time, types = $$.types; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryd`:_" class="clearfix"><div mxv mxa="_zs_galleryd`:a" class="_zs_gallery_mx-time_index_-group"><div mxv mxa="_zs_galleryd`:b" class="mb5"><input class="input _zs_gallery_mx-time_index_-ipt" value="' + ($expr = '<%=format(time[\'@{hour}\'])%>', $e(format(time['@{hour}']))) + '" ';
-    $expr = '<%if (types[\'@{hour}\']) {%>';
-    if (types['@{hour}']) {
+} ; var $g = '', $_temp, $p = '', expand = $$.expand, disabled = $$.disabled, name = $$.name, time = $$.time, rList = $$.rList, viewId = $$.viewId, types = $$.types; var $expr, $art, $line; try {
+    $p += '<div class="_zs_gallery_mx-time_index_-time-toggle ';
+    $line = 1;
+    $art = 'if expand';
+    ;
+    $expr = '<%if (expand) {%>';
+    if (expand) {
         ;
-        $p += ' mx-change="' + $viewId + '@{set}({type:\'@{hour}\'})" ';
-        $expr = '<%}else {%>';
-    }
-    else {
+        $p += ' _zs_gallery_mx-time_index_-open ';
+        $line = 1;
+        $art = '/if';
         ;
-        $p += ' disabled';
         $expr = '<%}%>';
     }
     ;
-    $p += ' maxlength="2" mx-keydown="' + $viewId + '@{press.check}({type:\'@{hour}\'})" autocomplete="off"/></div><div mxa="_zs_galleryd`:c" class="clearfix"><button type="button" class="btn _zs_gallery_mx-time_index_-o-btn fl" ';
-    $expr = '<%if (types[\'@{hour}\']) {%>';
-    if (types['@{hour}']) {
+    $p += '" ';
+    $line = 2;
+    $art = 'if !disabled';
+    ;
+    $expr = '<%if (!disabled) {%>';
+    if (!disabled) {
         ;
-        $p += ' mx-click="' + $viewId + '@{change}({type:\'@{hour}\'})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{hour}\'})" ';
-        $expr = '<%}else {%>';
-    }
-    else {
+        $p += ' mx-click="' + $viewId + '@{show}()" ';
+        $line = 2;
+        $art = '/if';
         ;
-        $p += ' disabled';
         $expr = '<%}%>';
     }
     ;
-    $p += ' tabindex="-1"><i mxs="_zs_galleryd`:_" class="mc-iconfont _zs_gallery_mx-time_index_-o-icon">&#xe6df;</i></button><button type="button" class="btn _zs_gallery_mx-time_index_-o-btn fr" ';
-    $expr = '<%if (types[\'@{hour}\']) {%>';
-    if (types['@{hour}']) {
+    $p += '><span mxa="_zs_gallerye_:_" class="_zs_gallery_mx-time_index_-time-toggle-label">';
+    $line = 4;
+    $art = 'if name';
+    ;
+    $expr = '<%if (name) {%>';
+    if (name) {
         ;
-        $p += ' mx-click="' + $viewId + '@{change}({type:\'@{hour}\',inc:1})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{hour}\',inc:1})" ';
-        $expr = '<%}else {%>';
-    }
-    else {
+        $p += '<span mxa="_zs_gallerye_:a" class="color-9">';
+        $line = 4;
+        $art = '=name';
         ;
-        $p += ' disabled';
+        $p += ($expr = '<%=name%>', $e(name)) + '：</span>';
+        $line = 4;
+        $art = '/if';
+        ;
         $expr = '<%}%>';
     }
     ;
-    $p += ' tabindex="-1"><i mxs="_zs_galleryd`:a" class="mc-iconfont _zs_gallery_mx-time_index_-o-icon">&#xe661;</i></button></div></div><div mxs="_zs_galleryd`:b" class="_zs_gallery_mx-time_index_-spliter">:</div><div mxv mxa="_zs_galleryd`:d" class="_zs_gallery_mx-time_index_-group"><div mxv mxa="_zs_galleryd`:e" class="mb5"><input class="input _zs_gallery_mx-time_index_-ipt" value="' + ($expr = '<%=format(time[\'@{minute}\'])%>', $e(format(time['@{minute}']))) + '" ';
-    $expr = '<%if (types[\'@{minute}\']) {%>';
-    if (types['@{minute}']) {
+    $p += ' ';
+    $line = 5;
+    $art = '=time';
+    ;
+    $p += ($expr = '<%=time%>', $e(time)) + '</span><span mxs="_zs_gallerye_:_" class="mc-iconfont _zs_gallery_mx-time_index_-arrow">&#xe692;</span></div><div class="_zs_gallery_mx-time_index_-time-wrapper ';
+    $line = 10;
+    $art = 'if expand';
+    ;
+    $expr = '<%if (expand) {%>';
+    if (expand) {
         ;
-        $p += ' mx-change="' + $viewId + '@{set}({type:\'@{minute}\'})" ';
-        $expr = '<%}else {%>';
-    }
-    else {
+        $p += ' _zs_gallery_mx-time_index_-open ';
+        $line = 10;
+        $art = '/if';
         ;
-        $p += ' disabled';
         $expr = '<%}%>';
     }
     ;
-    $p += ' maxlength="2" mx-keydown="' + $viewId + '@{press.check}({type:\'@{minute}\'})" autocomplete="off"/></div><div mxa="_zs_galleryd`:f" class="clearfix"><button type="button" class="btn _zs_gallery_mx-time_index_-o-btn fl" ';
-    $expr = '<%if (types[\'@{minute}\']) {%>';
-    if (types['@{minute}']) {
+    $p += '">';
+    $line = 11;
+    $art = 'if rList';
+    ;
+    $expr = '<%if (rList) {%>';
+    if (rList) {
         ;
-        $p += ' mx-click="' + $viewId + '@{change}({type:\'@{minute}\'})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{minute}\'})" ';
-        $expr = '<%}else {%>';
-    }
-    else {
+        $p += '<div mx-view="mx-time/content?time=';
+        $line = 14;
+        $art = '=time';
         ;
-        $p += ' disabled';
+        $p += ($expr = '<%!$eu(time)%>', $eu(time)) + '&types=';
+        $line = 15;
+        $art = '=types';
+        ;
+        $p += ($expr = '<%!$eu(types)%>', $eu(types)) + '" id="';
+        $line = 13;
+        $art = '=viewId';
+        ;
+        $p += ($expr = '<%=viewId%>', $e(viewId)) + '_content" mx-change="' + $viewId + '@{stop}()"></div><div mxs="_zs_gallerye_:a" class="_zs_gallery_mx-time_index_-footer"><button type="button" class="btn btn-small btn-brand" mx-click="' + $viewId + '@{hide}({enter:true})">确定</button><button type="button" class="btn btn-small ml10" mx-click="' + $viewId + '@{hide}()">取消</button></div>';
+        $line = 21;
+        $art = '/if';
+        ;
         $expr = '<%}%>';
     }
     ;
-    $p += ' tabindex="-1"><i mxs="_zs_galleryd`:_" class="mc-iconfont _zs_gallery_mx-time_index_-o-icon">&#xe6df;</i></button><button type="button" class="btn _zs_gallery_mx-time_index_-o-btn fr" ';
-    $expr = '<%if (types[\'@{minute}\']) {%>';
-    if (types['@{minute}']) {
-        ;
-        $p += ' mx-click="' + $viewId + '@{change}({type:\'@{minute}\',inc:1})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{minute}\',inc:1})" ';
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += ' disabled';
-        $expr = '<%}%>';
-    }
-    ;
-    $p += ' tabindex="-1"><i mxs="_zs_galleryd`:a" class="mc-iconfont _zs_gallery_mx-time_index_-o-icon">&#xe661;</i></button></div></div><div mxs="_zs_galleryd`:b" class="_zs_gallery_mx-time_index_-spliter">:</div><div mxv mxa="_zs_galleryd`:g" class="_zs_gallery_mx-time_index_-group"><div mxv mxa="_zs_galleryd`:h" class="mb5"><input class="input _zs_gallery_mx-time_index_-ipt" value="' + ($expr = '<%=format(time[\'@{second}\'])%>', $e(format(time['@{second}']))) + '" ';
-    $expr = '<%if (types[\'@{second}\']) {%>';
-    if (types['@{second}']) {
-        ;
-        $p += ' mx-change="' + $viewId + '@{set}({type:\'@{second}\'})" ';
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += ' disabled';
-        $expr = '<%}%>';
-    }
-    ;
-    $p += ' maxlength="2" mx-keydown="' + $viewId + '@{press.check}({type:\'@{second}\'})" autocomplete="off"/></div><div mxa="_zs_galleryd`:i" class="clearfix"><button type="button" class="btn _zs_gallery_mx-time_index_-o-btn fl" ';
-    $expr = '<%if (types[\'@{second}\']) {%>';
-    if (types['@{second}']) {
-        ;
-        $p += ' mx-click="' + $viewId + '@{change}({type:\'@{second}\'})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{second}\'})" ';
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += ' disabled';
-        $expr = '<%}%>';
-    }
-    ;
-    $p += ' tabindex="-1"><i mxs="_zs_galleryd`:_" class="mc-iconfont _zs_gallery_mx-time_index_-o-icon">&#xe6df;</i></button><button type="button" class="btn _zs_gallery_mx-time_index_-o-btn fr" ';
-    $expr = '<%if (types[\'@{second}\']) {%>';
-    if (types['@{second}']) {
-        ;
-        $p += ' mx-click="' + $viewId + '@{change}({type:\'@{second}\',inc:1})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{second}\',inc:1})" ';
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += ' disabled';
-        $expr = '<%}%>';
-    }
-    ;
-    $p += ' tabindex="-1"><i mxs="_zs_galleryd`:a" class="mc-iconfont _zs_gallery_mx-time_index_-o-icon">&#xe661;</i></button></div></div></div>';
+    $p += '</div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -193,145 +129,86 @@ catch (ex) {
     throw msg;
 } return $p; },
     init: function (extra) {
-        var that = this;
-        //初始化时保存一份当前数据的快照
-        that.updater.snapshot();
-        //该处是否可以由magix自动调用
-        that.assign(extra);
-    },
-    assign: function (extra) {
-        var that = this;
-        //赋值前先进行数据变化的检测,首次assign是在init方法中调用,后续的调用是magix自动调用,这个检测主要用于在首次调用后,magix自动调用前有没有进行数据的更新
-        var altered = that.updater.altered();
-        //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
-        var time = parseTime(extra.time);
-        var types = parseType(extra.types);
-        that.updater.set({
-            format: format,
-            time: time,
-            types: types
+        var me = this;
+        me['@{owner.node}'] = $('#' + me.id);
+        var disabledNode = $('#' + me.id + '[mx-disabled]');
+        me['@{ui.disabled}'] = disabledNode && (disabledNode.length > 0);
+        Monitor['@{setup}']();
+        me.on('destroy', function () {
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
         });
-        //如果数据没变化,则设置新的数据后再次检测
-        if (!altered) {
-            altered = that.updater.altered();
+        var time = extra.time;
+        if (!time) {
+            var d = new Date();
+            time = format(d.getHours()) + ':' +
+                format(d.getMinutes()) + ':' +
+                format(d.getSeconds());
         }
-        //如果有变化,则再保存当前的快照,然后返回true告诉magix当前view需要更新
-        if (altered) {
-            that.updater.snapshot();
-            return true;
-        }
-        //如果数据没变化,则告诉magix当前view不用更新
-        return false;
+        me.updater.set({
+            viewId: me.id,
+            disabled: me['@{ui.disabled}'],
+            time: time,
+            types: extra.types,
+            expand: false //列表是否展开
+        });
+        me['@{owner.node}'].val(time);
     },
     render: function () {
-        this.updater.digest();
+        this.updater.digest({});
     },
-    val: function (v) {
-        var updater = this.updater;
-        if (v) {
-            var time = parseTime(v);
-            updater.digest({
-                time: time
+    '@{hide}': function () {
+        var me = this;
+        var expand = me.updater.get('expand');
+        if (expand) {
+            me.updater.digest({
+                expand: false
             });
+            Monitor['@{remove}'](me);
         }
-        return updater.get('time');
     },
-    '@{change.time.by.type}': function (type, increase) {
+    '@{show}<click>': function (e) {
         var me = this;
-        var time = me.updater.get('time');
-        var max = type == '@{hour}' ? 23 : 59;
-        if (increase) {
-            time[type]++;
+        var expand = me.updater.get('expand');
+        if (!expand) {
+            var d = {
+                expand: true
+            };
+            var r = me.updater.get('rList');
+            if (!r) {
+                d.rList = true;
+            }
+            me.updater.digest(d);
+            Monitor['@{add}'](me);
         }
-        else {
-            time[type]--;
-        }
-        if (time[type] > max) {
-            time[type] = 0;
-        }
-        else if (time[type] < 0) {
-            time[type] = max;
-        }
-        me.updater.digest({
-            time: time
-        });
     },
-    '@{fire.event}': function () {
+    '@{inside}': function (node) {
+        return Magix.inside(node, this.id);
+    },
+    '@{hide}<click>': function (e) {
         var me = this;
-        var node = $('#' + me.id);
-        var time = me.updater.get('time');
-        node.trigger({
-            type: 'change',
-            time: format(time['@{hour}']) + ':' + format(time['@{minute}']) + ':' + format(time['@{second}'])
-        });
-    },
-    '@{change}<click>': function (e) {
-        var me = this;
-        if (!me['@{fast.change.start}']) {
-            var params = e.params;
-            me['@{change.time.by.type}'](params.type, params.inc);
-            me['@{fire.event}']();
+        var oldTime = me.updater.get('time');
+        var newTime = oldTime;
+        if (e.params.enter) {
+            // 确定
+            var vf = Magix.Vframe.get(me.id + '_content');
+            newTime = vf.invoke('val');
         }
-    },
-    '@{set}<change>': function (e) {
-        e.stopPropagation();
-        var type = e.params.type;
-        var max = type == '@{hour}' ? 23 : 59;
-        var target = e.eventTarget;
-        var value = target.value;
-        var v = parseInt(value, 10);
-        var time = this.updater.get('time');
-        if (v || v === 0) {
-            if (v < 0)
-                v = 0;
-            else if (v > max)
-                v = max;
-            if (v !== time[type]) {
-                time[type] = v;
-                this.updater.digest({
-                    time: time
+        me['@{hide}']();
+        if (e.params.enter) {
+            if (oldTime != newTime) {
+                me.updater.digest({
+                    time: newTime
                 });
-                this['@{fire.event}']();
-            }
-            else {
-                target.value = format(v);
+                me['@{owner.node}'].val(newTime).trigger({
+                    type: 'change',
+                    time: newTime
+                });
             }
         }
-        else {
-            target.value = format(time[type]);
-        }
     },
-    '@{fast.start}<mousedown>': function (e) {
-        var me = this;
-        var params = e.params;
-        me['@{long.tap.timer}'] = setTimeout(me.wrapAsync(function () {
-            me['@{interval.timer}'] = setInterval(me.wrapAsync(function () {
-                me['@{fast.change.start}'] = true;
-                me['@{change.time.by.type}'](params.type, params.inc);
-            }), 50);
-        }), 300);
-    },
-    '@{press.check}<keydown>': function (e) {
-        if (e.keyCode == 38 || e.keyCode == 40) {
-            e.preventDefault();
-            var me_1 = this;
-            me_1['@{change.time.by.type}'](e.params.type, e.keyCode == 38);
-            clearTimeout(me_1['@{event.dealy.timer}']);
-            me_1['@{event.dealy.timer}'] = setTimeout(me_1.wrapAsync(function () {
-                me_1['@{fire.event}']();
-            }), 100);
-        }
-    },
-    '$doc<mouseup>': function () {
-        var me = this;
-        clearTimeout(me['@{long.tap.timer}']);
-        clearInterval(me['@{interval.timer}']);
-        setTimeout(me.wrapAsync(function () {
-            if (me['@{fast.change.start}']) {
-                me['@{fire.event}']();
-            }
-            delete me['@{fast.change.start}'];
-        }), 0);
+    '@{stop}<change,focusin,focusout>': function (e) {
+        e.stopPropagation();
     }
 });
 
