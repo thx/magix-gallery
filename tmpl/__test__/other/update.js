@@ -6,6 +6,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.11',
+            time: '2019-01-10',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-pagination：支持入参offset，优先级page > offset'
+                }, {
+                    title: 'mx-time：时分秒选择组件。<a href="#!/time/index" class="color-brand">查看详情</a>'
+                }]
+            }]
+        }, {
             ver: '1.2.10',
             time: '2019-01-07',
             subs: [{
