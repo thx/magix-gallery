@@ -29,6 +29,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: 'value'
         }, {
+            key: 'min',
+            desc: '选择个数下限，min > 0时，点击确定时若len < min，不允许提交',
+            type: 'number',
+            def: ''
+        }, {
             key: 'max',
             desc: '选择个数上限',
             type: 'number',
@@ -68,6 +73,11 @@ module.exports = Magix.View.extend({
             desc: '可选内容展示方向，bottom（下方），top（上方）',
             type: 'string',
             def: 'bottom'
+        }, {
+            key: 'continuous',
+            desc: '是否要求选择连续的数据<br/>continuous = true时，点击确定时若选择不是连续数据，不允许提交<br/>提示请选择连续的(${name} || 数据)',
+            type: 'boolean',
+            def: 'false'
         }]
 
         let events = [{

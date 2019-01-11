@@ -34,7 +34,7 @@ module.exports = Magix.View.extend({
 
         let expand = false;
         let emptyText = ops.emptyText || I18n['choose'];
-        let allText = ops.name || '';
+        let name = ops.name || '';
         let needAll = (ops.needAll + '') === 'false'; //禁用全选功能
         let searchbox = (ops.searchbox + '') === 'true';
         let textKey = ops.textKey || 'text';
@@ -149,7 +149,7 @@ module.exports = Magix.View.extend({
         // 选择上限及下限
         let min = +ops.min || 0,
             max = +ops.max || 0;
-        if(min > max){
+        if((max > 0) && (min > max)){
             min = max;
         }
         me.updater.set({
@@ -157,7 +157,7 @@ module.exports = Magix.View.extend({
             viewId: me.id,
             expand,
             emptyText,
-            allText,
+            name,
             needAll,
             searchbox,
             map,
@@ -165,6 +165,7 @@ module.exports = Magix.View.extend({
             imme: selected, // 选中立即反馈
             min,
             max,
+            continuous: (ops.continuous + '' === 'true'), //是否要求连续选择
             over: (count > 20), //选项大于20样式处理下
             groups,
             height: ops.height || 400,
@@ -335,10 +336,10 @@ module.exports = Magix.View.extend({
             text.push(entity.text);
         }
 
-        let allText = data.allText;
+        let name = data.name;
         if (text.length == Object.keys(map).length) {
-            if (allText) {
-                return I18n['dropdown.all.custom'] + allText;
+            if (name) {
+                return I18n['dropdown.all.custom'] + name;
             } else {
                 return I18n['dropdown.all.default'];
             }
@@ -489,16 +490,49 @@ module.exports = Magix.View.extend({
         let data = me.updater.get();
         let groups = data.groups;
         let selected = [];
+        let selectedIndexes = []; //用于判断选择是否连续
+        let index = 0;
         groups.forEach(group => {
             group.list.forEach(item => {
+                index += 1;
                 if (item.checked) {
                     // 字符串方便判断
                     selected.push(item.value + '');
+
+                    let len = selectedIndexes.length;
+                    if(len == 0){
+                        selectedIndexes.push(index);
+                    }else{
+                        if(selectedIndexes[len - 1] + 1 == index){
+                            selectedIndexes[len - 1] = index;
+                        }else{
+                            selectedIndexes.push(index);
+                        }
+                    }
                 }
             })
         })
+        let min = me.updater.get('min');
+        if((min > 0) && (selected.length < min)){
+            me.updater.digest({
+                errMsg: `请至少选择${min}个`
+            })
+            return;
+        }
+        let continuous = me.updater.get('continuous');
+        if(continuous && (selected.length > 0)){
+            let name = me.updater.get('name') || '数据';
+            if(selectedIndexes.length > 1){
+                // 连续选择
+                me.updater.digest({
+                    errMsg: `请选择连续的${name}`
+                })
+                return;
+            }
+        }
 
         me.updater.set({
+            errMsg: '',
             selected
         })
 
