@@ -1,6 +1,8 @@
 <div class="search-box">
     <i class="mc-iconfont search-icon">&#xe651;</i>
-    <input type="text" class="input search-input" placeholder="{{=placeholder}}"
+    <input type="text" class="input search-input" 
+        placeholder="{{=placeholder}}"
+        autocomplete="off"
         id="{{=viewId}}_input"
         value="{{=selectText}}" 
         mx-keyup="@{suggest}()"

@@ -53,63 +53,63 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = '=placeholder';
     ;
-    $p += ($expr = '<%=placeholder%>', $e(placeholder)) + '" value="';
-    $line = 4;
+    $p += ($expr = '<%=placeholder%>', $e(placeholder)) + '" autocomplete="off" value="';
+    $line = 5;
     $art = '=searchValue';
     ;
     $p += ($expr = '<%=searchValue%>', $e(searchValue)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-focusin="' + $viewId + '@{search}()" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{stop}()"/><ul class="_zs_gallery_mx-search_index_-search-menu ';
-    $line = 11;
+    $line = 12;
     $art = 'if ((list.length > 1) && searchValue && show)';
     ;
     $expr = '<%if ((list.length > 1) && searchValue && show) {%>';
     if ((list.length > 1) && searchValue && show) {
         ;
         $p += ' _zs_gallery_mx-search_index_-open ';
-        $line = 11;
+        $line = 12;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += '">';
-    $line = 12;
+    $line = 13;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ipqdphwa$art_i = 0, $art_cdwkebkqh$art_c = list.length; $art_ipqdphwa$art_i < $art_cdwkebkqh$art_c; $art_ipqdphwa$art_i++) {    var item = list[$art_ipqdphwa$art_i]%>';
-    for (var $art_ipqdphwa$art_i = 0, $art_cdwkebkqh$art_c = list.length; $art_ipqdphwa$art_i < $art_cdwkebkqh$art_c; $art_ipqdphwa$art_i++) {
-        var item = list[$art_ipqdphwa$art_i];
+    $expr = '<%for (var $art_ihgcdl$art_i = 0, $art_cayupm$art_c = list.length; $art_ihgcdl$art_i < $art_cayupm$art_c; $art_ihgcdl$art_i++) {    var item = list[$art_ihgcdl$art_i]%>';
+    for (var $art_ihgcdl$art_i = 0, $art_cayupm$art_c = list.length; $art_ihgcdl$art_i < $art_cayupm$art_c; $art_ihgcdl$art_i++) {
+        var item = list[$art_ihgcdl$art_i];
         $p += '<li class="_zs_gallery_mx-search_index_-search-item ';
-        $line = 13;
+        $line = 14;
         $art = 'if (searchKey == item.value)';
         ;
         $expr = '<%if (searchKey == item.value) {%>';
         if (searchKey == item.value) {
             ;
             $p += ' _zs_gallery_mx-search_index_-active ';
-            $line = 13;
+            $line = 14;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '" mx-click="' + $viewId + '@{select}({item:\'';
-        $line = 13;
+        $line = 14;
         $art = '@item';
         ;
         $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})">';
-        $line = 14;
+        $line = 15;
         $art = '=item.prefix';
         ;
         $p += ($expr = '<%=item.prefix%>', $e(item.prefix)) + '';
-        $line = 14;
+        $line = 15;
         $art = '=searchValue';
         ;
         $p += ($expr = '<%=searchValue%>', $e(searchValue)) + '';
-        $line = 14;
+        $line = 15;
         $art = '=item.suffix';
         ;
         $p += ($expr = '<%=item.suffix%>', $e(item.suffix)) + '</li>';
-        $line = 16;
+        $line = 17;
         $art = '/each';
         ;
         $expr = '<%}%>';

@@ -1,6 +1,7 @@
 <div class="search-box {{if (align=='right')}} search-box-right {{else}} search-box-left {{/if}}">
     <i class="mc-iconfont search-icon">&#xe651;</i>
     <input type="text" class="input search-input" placeholder="{{=placeholder}}"
+        autocomplete="off"
         value="{{=searchValue}}" 
         mx-keyup="@{search}()"
         mx-paste="@{search}()"
