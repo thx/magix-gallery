@@ -36,21 +36,26 @@ module.exports = Magix.View.extend({
         that['key.text'] = data.listText || 'text';
 
         // 多种类型搜索的时候
-        let list = that['@{wrap}'](data.list);
-        //当前选中的value值
-        let selectedValue = data.selected || '';
-        let selectText = '';
+        let list = that['@{wrap}']((data.list || that['@{list.bak}']));
+        that['@{list.bak}'] = list;
+
+        // selectedValue：当前选中的value值
+        // item：完整selected对象
+        // 优先级selectedValue > item
+        let item = data.item || {};
+        let selectedValue = data.selected || item.value || '';
+        let selectedText = item.text || '';
         if (selectedValue) {
             for (let index = 0; index < list.length; index++) {
                 if (list[index].value == selectedValue) {
-                    selectText = list[index].text;
+                    selectedText = list[index].text;
                     break;
                 }
             }
         }
+
         // 上下键切换缓存
         that['@{value.bak}'] = selectedValue;
-        that['@{list.bak}'] = list;
 
         // 在哪些值中搜索关键词
         let type = (data.type || 'text') + '';
@@ -64,7 +69,7 @@ module.exports = Magix.View.extend({
             viewId: that.id,
             list: list,
             selectedValue: selectedValue,
-            selectText: selectText,
+            selectedText: selectedText,
             placeholder: placeholder,
             align: data.align || 'left',
             show: false,
@@ -95,8 +100,7 @@ module.exports = Magix.View.extend({
                         text: item[listText]
                     };
                 });
-            }
-            else {
+            } else {
                 // 直接value列表
                 list = origin.map(function (value) {
                     return {
@@ -150,33 +154,12 @@ module.exports = Magix.View.extend({
             if (idx < 0) {
                 idx = 0;
             }
-            that['@{value.bak}'] = list[idx].value;
-            that['@{hide}']();
-            that['@{fire}']();
+            that['@{select}'](list[idx]);
         } else {
             that['@{suggest.delay.timer}'] = setTimeout(that.wrapAsync(function () {
                 that['@{show}']();
             }), 300);
         }
-    },
-    '@{hide}': function () {
-        let that = this;
-        let data = that.updater.get();
-        let list = data.list, selectedValue = that['@{value.bak}'] + '', selectText = '';
-        // 上下键切换未选择
-        for (let index = 0; index < list.length; index++) {
-            let item = list[index];
-            if ((item.value + '') === selectedValue) {
-                selectText = item.text;
-                break;
-            }
-        }
-        that.updater.digest({
-            selectedValue: selectedValue,
-            selectText: selectText,
-            show: false
-        });
-        Monitor['@{remove}'](that);
     },
     showLoading() {
         this.updater.digest({
@@ -193,22 +176,31 @@ module.exports = Magix.View.extend({
      */
     update: function (list) {
         let that = this;
-        that['@{list.bak}'] = that['@{wrap}'](list);
+        let show = that.updater.get('show');
 
-        // 不需要再处理，直接返回什么，展示什么
-        let selectText = $('#' + that.id + '_input').val();
-        that.updater.digest({
-            list: that['@{list.bak}'],
-            selectText: selectText,
-            show: true
-        });
-        Monitor['@{add}'](that);
+        if(show){
+            that['@{list.bak}'] = that['@{wrap}'](list);
+    
+            // 不需要再处理，直接返回什么，展示什么
+            let selectedText = $('#' + that.id + '_input').val();
+            that.updater.digest({
+                list: that['@{list.bak}'],
+                selectedText: selectedText
+            });
+            Monitor['@{add}'](that);
+        }
+    },
+    '@{inside}': function (node) {
+        return Magix.inside(node, this.id);
+    },
+    '@{stop}<change,focusout>': function (e) {
+        e.stopPropagation();
     },
     '@{show}': function (ignore) {
         let that = this;
         let source = that['@{list.bak}'];
-        let selectText = $('#' + that.id + '_input').val();
-        let lowerText = (selectText + '').toLowerCase();
+        let selectedText = $('#' + that.id + '_input').val();
+        let lowerText = (selectedText + '').toLowerCase();
         let list = [];
 
         let types = that['@{search.type}'];
@@ -225,41 +217,70 @@ module.exports = Magix.View.extend({
         });
         that.updater.digest({
             list: list,
-            selectText: selectText,
+            selectedText: selectedText,
             show: true
         });
         Monitor['@{add}'](that);
         that['@{owner.node}'].trigger({
             type: 'show',
-            keyword: selectText
+            keyword: selectedText
         });
     },
-    '@{inside}': function (node) {
-        return Magix.inside(node, this.id);
-    },
-    '@{stop}<change,focusout>': function (e) {
-        e.stopPropagation();
+    '@{hide}': function () {
+        let that = this;
+        let data = that.updater.get();
+        let list = data.list, selectedValue = that['@{value.bak}'] + '', selectedText = '';
+        // 上下键切换未选择
+        for (let index = 0; index < list.length; index++) {
+            let item = list[index];
+            if ((item.value + '') === selectedValue) {
+                selectedText = item.text;
+                break;
+            }
+        }
+        that.updater.digest({
+            selectedValue: selectedValue,
+            selectedText: selectedText,
+            show: false
+        });
+        Monitor['@{remove}'](that);
+
+        // 双向绑定
+        that['@{owner.node}'].trigger('focusout');
     },
     '@{select}<click>': function (e) {
         e.stopPropagation();
-        let that = this;
         let item = e.params.item;
-        that.updater.digest({
-            selectText: item.text,
-            selectedValue: that['@{value.bak}'] = item.value,
-            show: false
-        });
-        that['@{fire}']();
+        this['@{select}'](item);
     },
-    '@{fire}': function () {
+    '@{select}': function (item) {
         let that = this;
-        let selectedValue = that.updater.get('selectedValue'),
-            selectText = that.updater.get('selectText');
+        let notice = !(item.value == that['@{value.bak}']);
+
+        let selectedText = item.text,
+            selectedValue = that['@{value.bak}'] = item.value;
+        that['@{hide}']();
+
+        if(notice){
+            that['@{owner.node}'].val(selectedValue).trigger({
+                type: 'suggest',
+                selected: {
+                    value: selectedValue,
+                    text: selectedText
+                }
+            });
+    
+            // 双向绑定
+            that['@{owner.node}'].trigger('change');
+        }
+    },
+    '@{fire}': function (selectedValue, selectedText) {
+        let that = this;
         that['@{owner.node}'].val(selectedValue).trigger({
             type: 'suggest',
             selected: {
                 value: selectedValue,
-                text: selectText
+                text: selectedText
             }
         });
     }

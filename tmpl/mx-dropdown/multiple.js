@@ -145,6 +145,13 @@ module.exports = Magix.View.extend({
             // 3：全选
             group.type = (checkes.length > 0) ? ((checkes.length == group.list.length) ? 3 : 2) : 1;
         })
+
+        // 选择上限及下限
+        let min = +ops.min || 0,
+            max = +ops.max || 0;
+        if(min > max){
+            min = max;
+        }
         me.updater.set({
             hasGroups,
             viewId: me.id,
@@ -156,7 +163,8 @@ module.exports = Magix.View.extend({
             map,
             selected,
             imme: selected, // 选中立即反馈
-            max: ops.max || 0,
+            min,
+            max,
             over: (count > 20), //选项大于20样式处理下
             groups,
             height: ops.height || 400,

@@ -263,8 +263,8 @@ module.exports = Magix.View.extend({
         $line = 45;
         $art = 'each groups as group groupIndex';
         ;
-        $expr = '<%for (var groupIndex = 0, $art_cecqtvw$art_c = groups.length; groupIndex < $art_cecqtvw$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
-        for (var groupIndex = 0, $art_cecqtvw$art_c = groups.length; groupIndex < $art_cecqtvw$art_c; groupIndex++) {
+        $expr = '<%for (var groupIndex = 0, $art_crexawqesb$art_c = groups.length; groupIndex < $art_crexawqesb$art_c; groupIndex++) {        var group = groups[groupIndex]%>';
+        for (var groupIndex = 0, $art_crexawqesb$art_c = groups.length; groupIndex < $art_crexawqesb$art_c; groupIndex++) {
             var group = groups[groupIndex];
             $p += ' ';
             $line = 46;
@@ -342,9 +342,9 @@ module.exports = Magix.View.extend({
             $line = 64;
             $art = 'each group.list as item';
             ;
-            $expr = '<%for (var $art_iqlomjhdutj$art_i = 0, $art_objyrrexw$art_obj = group.list, $art_cbwnvrlbn$art_c = $art_objyrrexw$art_obj.length; $art_iqlomjhdutj$art_i < $art_cbwnvrlbn$art_c; $art_iqlomjhdutj$art_i++) {            var item = $art_objyrrexw$art_obj[$art_iqlomjhdutj$art_i]%>';
-            for (var $art_iqlomjhdutj$art_i = 0, $art_objyrrexw$art_obj = group.list, $art_cbwnvrlbn$art_c = $art_objyrrexw$art_obj.length; $art_iqlomjhdutj$art_i < $art_cbwnvrlbn$art_c; $art_iqlomjhdutj$art_i++) {
-                var item = $art_objyrrexw$art_obj[$art_iqlomjhdutj$art_i];
+            $expr = '<%for (var $art_iiqabvgxehm$art_i = 0, $art_objixaahr$art_obj = group.list, $art_cicdmesfyup$art_c = $art_objixaahr$art_obj.length; $art_iiqabvgxehm$art_i < $art_cicdmesfyup$art_c; $art_iiqabvgxehm$art_i++) {            var item = $art_objixaahr$art_obj[$art_iiqabvgxehm$art_i]%>';
+            for (var $art_iiqabvgxehm$art_i = 0, $art_objixaahr$art_obj = group.list, $art_cicdmesfyup$art_c = $art_objixaahr$art_obj.length; $art_iiqabvgxehm$art_i < $art_cicdmesfyup$art_c; $art_iiqabvgxehm$art_i++) {
+                var item = $art_objixaahr$art_obj[$art_iiqabvgxehm$art_i];
                 $p += ' ';
                 $line = 65;
                 $art = 'if !item.hide';
@@ -437,16 +437,16 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxa="_zs_galleryaZ:g" class="_zs_gallery_mx-dropdown_index_-footer-wrapper"><button mxa="_zs_galleryaZ:h" type="button" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}({enter:true})">';
+        $p += '</div><div mxa="_zs_galleryaZ:g" class="_zs_gallery_mx-dropdown_index_-footer-wrapper"><a mxa="_zs_galleryaZ:h" href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}({enter:true})">';
         $line = 83;
         $art = '=text.submit';
         ;
-        $p += ($expr = '<%=text.submit%>', $e(text.submit)) + '</button><button mxa="_zs_galleryaZ:i" type="button" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
+        $p += ($expr = '<%=text.submit%>', $e(text.submit)) + '</a><a mxa="_zs_galleryaZ:i" href="javascript:;" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
         $line = 84;
         $art = '=text.cancel';
         ;
-        $p += ($expr = '<%=text.cancel%>', $e(text.cancel)) + '</button></div>';
-        $line = 86;
+        $p += ($expr = '<%=text.cancel%>', $e(text.cancel)) + '</a><span mxs="_zs_galleryaZ:d" class="color-red ml10"><i class="mc-iconfont displacement-2">&#xe6ad;</i>请诗选</span></div>';
+        $line = 87;
         $art = '/if';
         ;
         $expr = '<%}%>';
@@ -597,6 +597,11 @@ catch (ex) {
             // 3：全选
             group.type = (checkes.length > 0) ? ((checkes.length == group.list.length) ? 3 : 2) : 1;
         });
+        // 选择上限及下限
+        var min = +ops.min || 0, max = +ops.max || 0;
+        if (min > max) {
+            min = max;
+        }
         me.updater.set({
             hasGroups: hasGroups,
             viewId: me.id,
@@ -608,7 +613,8 @@ catch (ex) {
             map: map,
             selected: selected,
             imme: selected,
-            max: ops.max || 0,
+            min: min,
+            max: max,
             over: (count > 20),
             groups: groups,
             height: ops.height || 400,

@@ -15,6 +15,7 @@ module.exports = Base.extend({
             type: 'string'
         }]
         this.updater.digest({
+            viewId: this.id,
             options
         });
     }

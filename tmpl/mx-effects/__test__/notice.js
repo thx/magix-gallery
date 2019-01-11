@@ -37,6 +37,7 @@ module.exports = Magix.View.extend({
         }]
 
         this.updater.digest({
+            viewId: this.id,
             options
         });
     }

@@ -28,7 +28,7 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', placeholder = $$.placeholder, viewId = $$.viewId, selectText = $$.selectText, show = $$.show, align = $$.align, loading = $$.loading, list = $$.list, selectedValue = $$.selectedValue, emptyText = $$.emptyText; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', placeholder = $$.placeholder, viewId = $$.viewId, selectedText = $$.selectedText, show = $$.show, align = $$.align, loading = $$.loading, list = $$.list, selectedValue = $$.selectedValue, emptyText = $$.emptyText; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_gallerydx:_" class="search-box"><i mxs="_zs_gallerydx:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
     $line = 4;
     $art = '=placeholder';
@@ -39,9 +39,9 @@ module.exports = Magix.View.extend({
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_input" value="';
     $line = 7;
-    $art = '=selectText';
+    $art = '=selectedText';
     ;
-    $p += ($expr = '<%=selectText%>', $e(selectText)) + '" mx-keyup="' + $viewId + '@{suggest}()" mx-paste="' + $viewId + '@{suggest}()" mx-focusin="' + $viewId + '@{suggest}()" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{stop}()"/><ul class="_zs_gallery_mx-suggest_suggest_-suggest-menu ';
+    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '" mx-keyup="' + $viewId + '@{suggest}()" mx-paste="' + $viewId + '@{suggest}()" mx-focusin="' + $viewId + '@{suggest}()" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{stop}()"/><ul class="_zs_gallery_mx-suggest_suggest_-suggest-menu ';
     $line = 14;
     $art = 'if show';
     ;
@@ -103,9 +103,9 @@ module.exports = Magix.View.extend({
             $line = 21;
             $art = 'each list as item';
             ;
-            $expr = '<%for (var $art_ikbnyjedwt$art_i = 0, $art_cailayul$art_c = list.length; $art_ikbnyjedwt$art_i < $art_cailayul$art_c; $art_ikbnyjedwt$art_i++) {            var item = list[$art_ikbnyjedwt$art_i]%>';
-            for (var $art_ikbnyjedwt$art_i = 0, $art_cailayul$art_c = list.length; $art_ikbnyjedwt$art_i < $art_cailayul$art_c; $art_ikbnyjedwt$art_i++) {
-                var item = list[$art_ikbnyjedwt$art_i];
+            $expr = '<%for (var $art_ibhrpcevq$art_i = 0, $art_cjrirsagoxkp$art_c = list.length; $art_ibhrpcevq$art_i < $art_cjrirsagoxkp$art_c; $art_ibhrpcevq$art_i++) {            var item = list[$art_ibhrpcevq$art_i]%>';
+            for (var $art_ibhrpcevq$art_i = 0, $art_cjrirsagoxkp$art_c = list.length; $art_ibhrpcevq$art_i < $art_cjrirsagoxkp$art_c; $art_ibhrpcevq$art_i++) {
+                var item = list[$art_ibhrpcevq$art_i];
                 $p += '<li class="_zs_gallery_mx-suggest_suggest_-suggest-item ';
                 $line = 22;
                 $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';
@@ -198,21 +198,24 @@ catch (ex) {
         that['key.value'] = data.listValue || 'value';
         that['key.text'] = data.listText || 'text';
         // 多种类型搜索的时候
-        var list = that['@{wrap}'](data.list);
-        //当前选中的value值
-        var selectedValue = data.selected || '';
-        var selectText = '';
+        var list = that['@{wrap}']((data.list || that['@{list.bak}']));
+        that['@{list.bak}'] = list;
+        // selectedValue：当前选中的value值
+        // item：完整selected对象
+        // 优先级selectedValue > item
+        var item = data.item || {};
+        var selectedValue = data.selected || item.value || '';
+        var selectedText = item.text || '';
         if (selectedValue) {
             for (var index = 0; index < list.length; index++) {
                 if (list[index].value == selectedValue) {
-                    selectText = list[index].text;
+                    selectedText = list[index].text;
                     break;
                 }
             }
         }
         // 上下键切换缓存
         that['@{value.bak}'] = selectedValue;
-        that['@{list.bak}'] = list;
         // 在哪些值中搜索关键词
         var type = (data.type || 'text') + '';
         if (type == 'all') {
@@ -224,7 +227,7 @@ catch (ex) {
             viewId: that.id,
             list: list,
             selectedValue: selectedValue,
-            selectText: selectText,
+            selectedText: selectedText,
             placeholder: placeholder,
             align: data.align || 'left',
             show: false,
@@ -310,34 +313,13 @@ catch (ex) {
             if (idx < 0) {
                 idx = 0;
             }
-            that['@{value.bak}'] = list[idx].value;
-            that['@{hide}']();
-            that['@{fire}']();
+            that['@{select}'](list[idx]);
         }
         else {
             that['@{suggest.delay.timer}'] = setTimeout(that.wrapAsync(function () {
                 that['@{show}']();
             }), 300);
         }
-    },
-    '@{hide}': function () {
-        var that = this;
-        var data = that.updater.get();
-        var list = data.list, selectedValue = that['@{value.bak}'] + '', selectText = '';
-        // 上下键切换未选择
-        for (var index = 0; index < list.length; index++) {
-            var item = list[index];
-            if ((item.value + '') === selectedValue) {
-                selectText = item.text;
-                break;
-            }
-        }
-        that.updater.digest({
-            selectedValue: selectedValue,
-            selectText: selectText,
-            show: false
-        });
-        Monitor['@{remove}'](that);
     },
     showLoading: function () {
         this.updater.digest({
@@ -354,21 +336,29 @@ catch (ex) {
      */
     update: function (list) {
         var that = this;
-        that['@{list.bak}'] = that['@{wrap}'](list);
-        // 不需要再处理，直接返回什么，展示什么
-        var selectText = $('#' + that.id + '_input').val();
-        that.updater.digest({
-            list: that['@{list.bak}'],
-            selectText: selectText,
-            show: true
-        });
-        Monitor['@{add}'](that);
+        var show = that.updater.get('show');
+        if (show) {
+            that['@{list.bak}'] = that['@{wrap}'](list);
+            // 不需要再处理，直接返回什么，展示什么
+            var selectedText = $('#' + that.id + '_input').val();
+            that.updater.digest({
+                list: that['@{list.bak}'],
+                selectedText: selectedText
+            });
+            Monitor['@{add}'](that);
+        }
+    },
+    '@{inside}': function (node) {
+        return Magix.inside(node, this.id);
+    },
+    '@{stop}<change,focusout>': function (e) {
+        e.stopPropagation();
     },
     '@{show}': function (ignore) {
         var that = this;
         var source = that['@{list.bak}'];
-        var selectText = $('#' + that.id + '_input').val();
-        var lowerText = (selectText + '').toLowerCase();
+        var selectedText = $('#' + that.id + '_input').val();
+        var lowerText = (selectedText + '').toLowerCase();
         var list = [];
         var types = that['@{search.type}'];
         source.forEach(function (item) {
@@ -384,40 +374,65 @@ catch (ex) {
         });
         that.updater.digest({
             list: list,
-            selectText: selectText,
+            selectedText: selectedText,
             show: true
         });
         Monitor['@{add}'](that);
         that['@{owner.node}'].trigger({
             type: 'show',
-            keyword: selectText
+            keyword: selectedText
         });
     },
-    '@{inside}': function (node) {
-        return Magix.inside(node, this.id);
-    },
-    '@{stop}<change,focusout>': function (e) {
-        e.stopPropagation();
+    '@{hide}': function () {
+        var that = this;
+        var data = that.updater.get();
+        var list = data.list, selectedValue = that['@{value.bak}'] + '', selectedText = '';
+        // 上下键切换未选择
+        for (var index = 0; index < list.length; index++) {
+            var item = list[index];
+            if ((item.value + '') === selectedValue) {
+                selectedText = item.text;
+                break;
+            }
+        }
+        that.updater.digest({
+            selectedValue: selectedValue,
+            selectedText: selectedText,
+            show: false
+        });
+        Monitor['@{remove}'](that);
+        // 双向绑定
+        that['@{owner.node}'].trigger('focusout');
     },
     '@{select}<click>': function (e) {
         e.stopPropagation();
-        var that = this;
         var item = e.params.item;
-        that.updater.digest({
-            selectText: item.text,
-            selectedValue: that['@{value.bak}'] = item.value,
-            show: false
-        });
-        that['@{fire}']();
+        this['@{select}'](item);
     },
-    '@{fire}': function () {
+    '@{select}': function (item) {
         var that = this;
-        var selectedValue = that.updater.get('selectedValue'), selectText = that.updater.get('selectText');
+        var notice = !(item.value == that['@{value.bak}']);
+        var selectedText = item.text, selectedValue = that['@{value.bak}'] = item.value;
+        that['@{hide}']();
+        if (notice) {
+            that['@{owner.node}'].val(selectedValue).trigger({
+                type: 'suggest',
+                selected: {
+                    value: selectedValue,
+                    text: selectedText
+                }
+            });
+            // 双向绑定
+            that['@{owner.node}'].trigger('change');
+        }
+    },
+    '@{fire}': function (selectedValue, selectedText) {
+        var that = this;
         that['@{owner.node}'].val(selectedValue).trigger({
             type: 'suggest',
             selected: {
                 value: selectedValue,
-                text: selectText
+                text: selectedText
             }
         });
     }

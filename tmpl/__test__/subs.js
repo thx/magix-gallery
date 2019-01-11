@@ -16,9 +16,15 @@ module.exports = Magix.View.extend({
     'to<click>'(e) {
         let key = e.params.key;
         let node = $('#' + key);
-        let examples = $('.@scoped.style:example');
-        examples.removeClass('@scoped.style:example-highlight');
-        node.find('.@scoped.style:example').addClass('@scoped.style:example-highlight');
+        let cName = '@scoped.style:example',
+            hlName = '@scoped.style:example-highlight';
+        let examples = $('.' + cName);
+        examples.removeClass(hlName);
+        if(node.hasClass(cName)){
+            node.addClass(hlName);
+        }else{
+            node.find('.' + cName).addClass(hlName);
+        }
         $(window).scrollTop(node.offset().top);
     },
     '$win<scroll>'(e) {

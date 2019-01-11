@@ -128,12 +128,12 @@ module.exports = Magix.View.extend({
                 name: '数据交互',
                 subs: [{
                     name: '下拉框（单选）',
-                    tip: '支持click展开和hover展开两种形式；下拉列表在组件内',
+                    tip: '支持click展开和hover展开两种形式；下拉列表在组件内；支持双向绑定',
                     path: '/dropdown/index',
                     icon: '&#xe7a4;'
                 }, {
                     name: '下拉框（多选）',
-                    tip: '支持click展开和hover展开两种形式；下拉列表在组件内',
+                    tip: '支持click展开和hover展开两种形式；下拉列表在组件内；支持双向绑定',
                     path: '/dropdown/multiple',
                     icon: '&#xe7a4;'
                 }, 
@@ -145,14 +145,17 @@ module.exports = Magix.View.extend({
                 // }, 
                 {
                     name: '日历（选择单日）',
+                    tip: '支持双向绑定',
                     path: '/calendar/index',
                     icon: '&#xe60e;'
                 }, {
                     name: '日历（选择时间段）',
+                    tip: '支持双向绑定',
                     path: '/calendar/range',
                     icon: '&#xe60e;'
                 }, {
                     name: '时分秒选择',
+                    tip: '支持双向绑定',
                     path: '/time/index',
                     icon: '&#xe604;'
                 }, {
@@ -181,10 +184,12 @@ module.exports = Magix.View.extend({
                     icon: '&#xe651;'
                 }, {
                     name: '可选项提示suggest',
+                    tip: '支持双向绑定',
                     path: '/suggest/index',
                     icon: '&#xe654;'
                 }, {
                     name: '开关',
+                    tip: '支持双向绑定',
                     path: '/switch/index',
                     icon: '&#xe72c;'
                 }, {
@@ -193,6 +198,7 @@ module.exports = Magix.View.extend({
                     icon: '&#xe62b;'
                 }, {
                     name: '级联选择',
+                    tip: '支持双向绑定',
                     path: '/cascade/index',
                     icon: '&#xe60a;'
                 }, {
@@ -201,6 +207,7 @@ module.exports = Magix.View.extend({
                     icon: '&#xe657;'
                 }, {
                     name: '标签选择',
+                    tip: '支持双向绑定',
                     path: '/taginput/index',
                     icon: '&#xe794;'
                 }, {

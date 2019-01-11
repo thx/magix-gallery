@@ -41,9 +41,9 @@ module.exports = Magix.View.extend({
     $line = 18;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_iivmvyzhlv$art_i = 0, $art_cpjvjhqiz$art_c = headers.length; $art_iivmvyzhlv$art_i < $art_cpjvjhqiz$art_c; $art_iivmvyzhlv$art_i++) {    var h = headers[$art_iivmvyzhlv$art_i]%>';
-    for (var $art_iivmvyzhlv$art_i = 0, $art_cpjvjhqiz$art_c = headers.length; $art_iivmvyzhlv$art_i < $art_cpjvjhqiz$art_c; $art_iivmvyzhlv$art_i++) {
-        var h = headers[$art_iivmvyzhlv$art_i];
+    $expr = '<%for (var $art_izzxgcnzimc$art_i = 0, $art_cyzvvlohdhfe$art_c = headers.length; $art_izzxgcnzimc$art_i < $art_cyzvvlohdhfe$art_c; $art_izzxgcnzimc$art_i++) {    var h = headers[$art_izzxgcnzimc$art_i]%>';
+    for (var $art_izzxgcnzimc$art_i = 0, $art_cyzvvlohdhfe$art_c = headers.length; $art_izzxgcnzimc$art_i < $art_cyzvvlohdhfe$art_c; $art_izzxgcnzimc$art_i++) {
+        var h = headers[$art_izzxgcnzimc$art_i];
         $p += '<a href="#!';
         $line = 19;
         $art = '=h.path';
@@ -95,9 +95,9 @@ module.exports = Magix.View.extend({
     $line = 25;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_itrzkrrow$art_i = 0, $art_ckgmoizbc$art_c = list.length; $art_itrzkrrow$art_i < $art_ckgmoizbc$art_c; $art_itrzkrrow$art_i++) {    var item = list[$art_itrzkrrow$art_i]%>';
-    for (var $art_itrzkrrow$art_i = 0, $art_ckgmoizbc$art_c = list.length; $art_itrzkrrow$art_i < $art_ckgmoizbc$art_c; $art_itrzkrrow$art_i++) {
-        var item = list[$art_itrzkrrow$art_i];
+    $expr = '<%for (var $art_ifkvhzwb$art_i = 0, $art_clidsvzkg$art_c = list.length; $art_ifkvhzwb$art_i < $art_clidsvzkg$art_c; $art_ifkvhzwb$art_i++) {    var item = list[$art_ifkvhzwb$art_i]%>';
+    for (var $art_ifkvhzwb$art_i = 0, $art_clidsvzkg$art_c = list.length; $art_ifkvhzwb$art_i < $art_clidsvzkg$art_c; $art_ifkvhzwb$art_i++) {
+        var item = list[$art_ifkvhzwb$art_i];
         $p += ' ';
         $line = 26;
         $art = 'if item.name';
@@ -138,9 +138,9 @@ module.exports = Magix.View.extend({
         $line = 33;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_iborojnocg$art_i = 0, $art_objoyjrsbbn$art_obj = item.subs, $art_cnudzsdn$art_c = $art_objoyjrsbbn$art_obj.length; $art_iborojnocg$art_i < $art_cnudzsdn$art_c; $art_iborojnocg$art_i++) {        var sub = $art_objoyjrsbbn$art_obj[$art_iborojnocg$art_i]%>';
-        for (var $art_iborojnocg$art_i = 0, $art_objoyjrsbbn$art_obj = item.subs, $art_cnudzsdn$art_c = $art_objoyjrsbbn$art_obj.length; $art_iborojnocg$art_i < $art_cnudzsdn$art_c; $art_iborojnocg$art_i++) {
-            var sub = $art_objoyjrsbbn$art_obj[$art_iborojnocg$art_i];
+        $expr = '<%for (var $art_itpouyyf$art_i = 0, $art_objnmipmoisxp$art_obj = item.subs, $art_ctknvzqgaa$art_c = $art_objnmipmoisxp$art_obj.length; $art_itpouyyf$art_i < $art_ctknvzqgaa$art_c; $art_itpouyyf$art_i++) {        var sub = $art_objnmipmoisxp$art_obj[$art_itpouyyf$art_i]%>';
+        for (var $art_itpouyyf$art_i = 0, $art_objnmipmoisxp$art_obj = item.subs, $art_ctknvzqgaa$art_c = $art_objnmipmoisxp$art_obj.length; $art_itpouyyf$art_i < $art_ctknvzqgaa$art_c; $art_itpouyyf$art_i++) {
+            var sub = $art_objnmipmoisxp$art_obj[$art_itpouyyf$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 34;
             $art = 'if (sub.path == path)';
@@ -408,12 +408,12 @@ catch (ex) {
                     name: '数据交互',
                     subs: [{
                             name: '下拉框（单选）',
-                            tip: '支持click展开和hover展开两种形式；下拉列表在组件内',
+                            tip: '支持click展开和hover展开两种形式；下拉列表在组件内；支持双向绑定',
                             path: '/dropdown/index',
                             icon: '&#xe7a4;'
                         }, {
                             name: '下拉框（多选）',
-                            tip: '支持click展开和hover展开两种形式；下拉列表在组件内',
+                            tip: '支持click展开和hover展开两种形式；下拉列表在组件内；支持双向绑定',
                             path: '/dropdown/multiple',
                             icon: '&#xe7a4;'
                         },
@@ -425,14 +425,17 @@ catch (ex) {
                         // }, 
                         {
                             name: '日历（选择单日）',
+                            tip: '支持双向绑定',
                             path: '/calendar/index',
                             icon: '&#xe60e;'
                         }, {
                             name: '日历（选择时间段）',
+                            tip: '支持双向绑定',
                             path: '/calendar/range',
                             icon: '&#xe60e;'
                         }, {
                             name: '时分秒选择',
+                            tip: '支持双向绑定',
                             path: '/time/index',
                             icon: '&#xe604;'
                         }, {
@@ -461,10 +464,12 @@ catch (ex) {
                             icon: '&#xe651;'
                         }, {
                             name: '可选项提示suggest',
+                            tip: '支持双向绑定',
                             path: '/suggest/index',
                             icon: '&#xe654;'
                         }, {
                             name: '开关',
+                            tip: '支持双向绑定',
                             path: '/switch/index',
                             icon: '&#xe72c;'
                         }, {
@@ -473,6 +478,7 @@ catch (ex) {
                             icon: '&#xe62b;'
                         }, {
                             name: '级联选择',
+                            tip: '支持双向绑定',
                             path: '/cascade/index',
                             icon: '&#xe60a;'
                         }, {
@@ -481,6 +487,7 @@ catch (ex) {
                             icon: '&#xe657;'
                         }, {
                             name: '标签选择',
+                            tip: '支持双向绑定',
                             path: '/taginput/index',
                             icon: '&#xe794;'
                         }, {

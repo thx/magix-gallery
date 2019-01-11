@@ -23,8 +23,8 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', icon = $$.icon, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybS:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerybS:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerybS:_" class="mb10">只标题部分 + 筛选项（右浮动）：</div><div mxa="_zs_gallerybS:b" class="_zs_gallery_mx-grid___test___index_-container"><div mxa="_zs_gallerybS:c" class="grid"><div mxa="_zs_gallerybS:d" content="标题" class="clearfix" style="padding: 8px 24px;;"><div mxa="_zs_gallerybS:e" style="float:left; line-height: 32px;"><span mxa="_zs_gallerybS:f" style="margin-right: 4px; color: #ccc;">';
+} ; var $g = '', $_temp, $p = '', icon = $$.icon, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerybS:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerybS:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerybS:e" class="mb10">只标题部分：</div><div mxa="_zs_gallerybS:b" class="_zs_gallery_mx-grid___test___index_-container"><div mxa="_zs_gallerybS:c" class="grid"><div mxa="_zs_gallerybS:d" content="标题" class="clearfix" style="padding: 8px 24px;;"><div mxa="_zs_gallerybS:e" style="float:left; line-height: 32px;"><span mxa="_zs_gallerybS:f" style="margin-right: 4px; color: #ccc;">';
     $line = 10;
     $art = '!icon';
     ;
@@ -40,19 +40,19 @@ module.exports = Base.extend({
     $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-grid&gt;\n    &lt;mx-grid.title \n        border="none" \n        content="标题" \n        tip="提示信息" \n        icon="&#123;&#123;!icon&#125;&#125;"/&gt;\n&lt;/mx-grid&gt;\n            </pre></div><div mxa="_zs_gallerybS:j" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerybS:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-grid&gt;\n    &lt;mx-grid.title \n        border="none" \n        content="标题" \n        tip="提示信息" \n        icon="&#123;&#123;!icon&#125;&#125;"/&gt;\n&lt;/mx-grid&gt;\n            </pre></div><div mxa="_zs_gallerybS:j" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerybS:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 34;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybS:k" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerybS:k" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 36;
-    $art = '!text1';
+    $art = '!text2';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybS:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerybS:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 39;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            icon: \'&lt;i class="mc-iconfont fontsize-20 bold"&gt;&#xe60e;&lt;/i&gt;\'\n        &#125;);\n    &#125;\n&#125;);\n            </pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            icon: \'&lt;i class="mc-iconfont fontsize-20 bold"&gt;&#xe60e;&lt;/i&gt;\'\n        &#125;);\n    &#125;\n&#125;);\n            </pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

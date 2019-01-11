@@ -3,13 +3,15 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-suggest/__test__/6",["magix","__test__/example","$","../index","mx-copy/index","__test__/hl"],(require,exports,module)=>{
-/*Magix,Base,$*/
+define("mx-suggest/__test__/6",["magix","__test__/example","mx-form/index","mx-form/validator","$","../index","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,Form,Validator,$*/
 require("../index");
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
+var Form = require("mx-form/index");
+var Validator = require("mx-form/validator");
 var $ = require("$");
 var Vframe = Magix.Vframe;
 module.exports = Base.extend({
@@ -24,33 +26,63 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydv:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerydv:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerydv:_" class="mb20 clearfix"><div class="fl color-9">以下示例：</div><div class="fl"><div>动态更新提示数据</div><div>请求数据有延时，加loading</div></div></div><div id="';
-    $line = 11;
-    $art = '=viewId';
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', selected = $$.selected, viewId = $$.viewId, valid = $$.valid, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerydv:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerydv:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerydv:i" class="mb20 clearfix"><div class="fl color-9">以下示例：</div><div class="fl"><div class="color-brand">支持双向绑定</div><div>动态更新提示数据</div><div>请求数据有延时，加loading</div></div></div><div mxa="_zs_gallerydv:b" class="mb10"><span mxs="_zs_gallerydv:l" class="color-9">当前选中：</span>';
+    $line = 12;
+    $art = '=selected';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test" mx-show="' + $viewId + 'update()" mx-view="mx-suggest/index"></div></div><div mxa="_zs_gallerydv:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydv:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=selected%>', $e(selected)) + '</div><div mxv mxa="_zs_gallerydv:k" class="mb20"><div mxv="selected" mxe="' + $viewId + '_0" mxc="[';
+    $line = 17;
+    $art = ':selected{required:true,refresh:true}';
+    ;
+    $p += '{p:\'selected\',f:{required:true,refresh:true},a:\'selected\'}]" id="';
     $line = 16;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydv:c" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 18;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test" mx-show="' + $viewId + 'update()" mx-view="mx-suggest/index?selected=';
+    $line = 17;
+    $art = ':selected{required:true,refresh:true}';
+    ;
+    $p += ($expr = '<%@selected%>', $i($$ref, selected)) + '"></div><a mxs="_zs_gallerydv:h" href="javascript:;" class="btn ml10" mx-click="' + $viewId + 'check()">校验选择项</a>';
+    $line = 22;
+    $art = 'if valid';
+    ;
+    $expr = '<%if (valid) {%>';
+    if (valid) {
+        ;
+        $p += '<span mxs="_zs_gallerydv:m" class="ml10 color-green">校验通过</span>';
+        $line = 24;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div><div mxa="_zs_gallerydv:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydv:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 29;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydv:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 31;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydv:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 21;
+    $line = 34;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n    &lt;mx-suggest \n        id="&#123;&#123;=viewId&#125;&#125;_test"\n        mx-show="update()"/&gt;</pre></div><div mxa="_zs_gallerydv:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydv:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 28;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n    &lt;mx-suggest \n        id="&#123;&#123;=viewId&#125;&#125;_test"\n        mx-show="update()"/&gt;</pre></div><div mxa="_zs_gallerydv:o" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydv:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 41;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerydv:e" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 30;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerydv:r" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 43;
     $art = '!text2';
     ;
     $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerydv:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 33;
+    $line = 46;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\n    let Magix = require(\'magix\');\n    let $ = require(\'$\');\n    let Vframe = Magix.Vframe;\n    \n    module.exports = Magix.View.extend(&#123;\n        tmpl: \'@index.html\',\n        render() &#123;\n            this.updater.digest(&#123;\n                viewId: this.id\n            &#125;);\n        &#125;,\n        \'update&lt;show&gt;\'(e) &#123;\n            // 当前输入框输入的值\n            let keyword = e.keyword;\n    \n            let instance = Vframe.get(this.id + \'_test\');\n            instance.invoke(\'showLoading\');\n            setTimeout(() => &#123;\n                let list = [1, 2, 3].map(text => &#123;\n                    return Magix.guid(\'dynamic_\') + keyword;\n                &#125;)\n                instance.invoke(\'update\', [list]);\n                instance.invoke(\'hideLoading\');\n            &#125;, 2000);\n        &#125;\n    &#125;);</pre></div></div>';
@@ -63,8 +95,17 @@ catch (ex) {
     msg += $expr + '\r\n\tat file:mx-suggest/__test__/6.html';
     throw msg;
 } return $p; },
+    mixins: [Form, Validator],
     render: function () {
-        this.updater.digest();
+        var item = {
+            text: '测试1',
+            value: 1
+        };
+        this.updater.digest({
+            item: item,
+            // selected: item.value
+            selected: ''
+        });
     },
     'update<show>': function (e) {
         // 当前输入框输入的值
@@ -72,12 +113,21 @@ catch (ex) {
         var instance = Vframe.get(this.id + '_test');
         instance.invoke('showLoading');
         setTimeout(function () {
-            var list = [1, 2, 3].map(function (text) {
-                return Magix.guid('dynamic_') + keyword;
+            var list = [1, 2, 3].map(function (v) {
+                return {
+                    text: '测试' + v,
+                    value: v
+                };
             });
             instance.invoke('update', [list]);
             instance.invoke('hideLoading');
         }, 1000);
+    },
+    'check<click>': function (e) {
+        var valid = this.isValid();
+        this.updater.digest({
+            valid: valid
+        });
     }
 });
 

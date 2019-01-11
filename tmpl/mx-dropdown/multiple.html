@@ -80,8 +80,9 @@
         {{/each}}
     </div>
     <div class="footer-wrapper">
-        <button type="button" class="btn btn-small btn-brand mr10" mx-click="@{submit}({enter:true})">{{=text.submit}}</button>
-        <button type="button" class="btn btn-small" mx-click="@{hide}()">{{=text.cancel}}</button>
+        <a href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="@{submit}({enter:true})">{{=text.submit}}</a>
+        <a href="javascript:;" class="btn btn-small" mx-click="@{hide}()">{{=text.cancel}}</a>
+        <span class="color-red ml10"><i class="mc-iconfont displacement-2">&#xe6ad;</i>请诗选</span>
     </div>
 {{/if}}
 </div>

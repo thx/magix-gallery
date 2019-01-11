@@ -3,13 +3,26 @@
             <div class="mb20 clearfix">
                 <div class="fl color-9">以下示例：</div>
                 <div class="fl">
+                    <div class="color-brand">支持双向绑定</div>
                     <div>动态更新提示数据</div>
                     <div>请求数据有延时，加loading</div>
                 </div>
             </div>
-            <mx-suggest 
-                id="{{=viewId}}_test"
-                mx-show="update()"/>
+            <div class="mb10">
+                <span class="color-9">当前选中：</span>{{=selected}}
+            </div>
+            <div class="mb20">
+                <mx-suggest 
+                    id="{{=viewId}}_test"
+                    selected="{{:selected{required:true,refresh:true}}}"
+                    mx-show="update()"/>
+                
+                <a href="javascript:;" class="btn ml10" mx-click="check()">校验选择项</a>
+
+                {{if valid}}
+                <span class="ml10 color-green">校验通过</span>
+                {{/if}}
+            </div>
         </div>
         <div class="eg-desc">
             <div class="eg-title">HTML Code</div>
