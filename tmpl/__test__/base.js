@@ -447,7 +447,9 @@ module.exports = Magix.View.extend({
             map[i].forEach((item) => {
                 let subs = $.extend(true, [], item.subs);
                 subs.forEach(sub => {
-                    sub.name = headers[i].name + ' - ' + sub.name;
+                    sub.text = headers[i].name + ' - ' + sub.name;
+                    sub.value = sub.path;
+                    sub.value = 'mx-' + sub.value.slice(1);
                 })
                 suggests = suggests.concat(subs);
             })
@@ -538,7 +540,8 @@ module.exports = Magix.View.extend({
         })
     },
     'suggest<suggest>'(e) {
-        Magix.Router.to(e.selected.value);
+        let value = e.selected.value;
+        Magix.Router.to(value.replace('mx-', '/'));
     },
     '$win<scroll>'(e) {
         let that = this;
