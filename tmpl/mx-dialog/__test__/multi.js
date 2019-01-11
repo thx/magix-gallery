@@ -8,12 +8,14 @@ module.exports = Magix.View.extend({
         this.viewOptions = e;
     },
     render() {
-        let number = +this.viewOptions.number;
-        this.updater.digest({
-            number: number,
-            width: 800 - (number * 100),
-            height: 140 + (number * 40)
-        });
+        setTimeout(() => {
+            let number = +this.viewOptions.number;
+            this.updater.digest({
+                number: number,
+                width: 800 - (number * 100),
+                height: 140 + (number * 40)
+            });
+        }, 2000)
     },
     'cancel<click>'(event) {
         event.preventDefault();

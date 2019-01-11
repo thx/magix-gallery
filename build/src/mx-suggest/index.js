@@ -103,9 +103,9 @@ module.exports = Magix.View.extend({
             $line = 21;
             $art = 'each list as item';
             ;
-            $expr = '<%for (var $art_ibhrpcevq$art_i = 0, $art_cjrirsagoxkp$art_c = list.length; $art_ibhrpcevq$art_i < $art_cjrirsagoxkp$art_c; $art_ibhrpcevq$art_i++) {            var item = list[$art_ibhrpcevq$art_i]%>';
-            for (var $art_ibhrpcevq$art_i = 0, $art_cjrirsagoxkp$art_c = list.length; $art_ibhrpcevq$art_i < $art_cjrirsagoxkp$art_c; $art_ibhrpcevq$art_i++) {
-                var item = list[$art_ibhrpcevq$art_i];
+            $expr = '<%for (var $art_ixjtqkfikeha$art_i = 0, $art_cycoaac$art_c = list.length; $art_ixjtqkfikeha$art_i < $art_cycoaac$art_c; $art_ixjtqkfikeha$art_i++) {            var item = list[$art_ixjtqkfikeha$art_i]%>';
+            for (var $art_ixjtqkfikeha$art_i = 0, $art_cycoaac$art_c = list.length; $art_ixjtqkfikeha$art_i < $art_cycoaac$art_c; $art_ixjtqkfikeha$art_i++) {
+                var item = list[$art_ixjtqkfikeha$art_i];
                 $p += '<li class="_zs_gallery_mx-suggest_suggest_-suggest-item ';
                 $line = 22;
                 $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';
@@ -222,7 +222,6 @@ catch (ex) {
             type = 'text,value';
         }
         that['@{search.type}'] = type.split(',');
-        that['@{owner.node}'] = $('#' + that.id);
         that.updater.set({
             viewId: that.id,
             list: list,
@@ -233,6 +232,8 @@ catch (ex) {
             show: false,
             emptyText: I18n['empty.text']
         });
+        that['@{owner.node}'] = $('#' + that.id);
+        that['@{owner.node}'].val(selectedValue);
         //如果数据没变化,则设置新的数据后再次检测
         if (!altered) {
             altered = that.updater.altered();

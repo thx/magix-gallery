@@ -104,7 +104,7 @@ module.exports = Magix.View.extend({
         $line = 19;
         $art = '=cntId';
         ;
-        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryax:b" class="loading" style="padding: 80px 0;"><span class="loading-anim"></span></div></div>';
+        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryax:c" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
         $line = 25;
         $art = 'if (fullFooter.enter || fullFooter.cancel)';
         ;
@@ -188,7 +188,7 @@ module.exports = Magix.View.extend({
         $line = 44;
         $art = '=cntId';
         ;
-        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryax:b" class="loading" style="padding: 80px 0;"><span class="loading-anim"></span></div></div>';
+        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryax:c" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
         $line = 47;
         $art = '/if';
         ;

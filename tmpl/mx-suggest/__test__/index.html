@@ -22,7 +22,10 @@
             name: '动态 + loading',
             key: viewId + '_demo6'
         }, {
-            name: '动态更新数据',
+            name: '初始化选中',
+            key: viewId + '_demo7'
+        }, {
+            name: '直接更新数据',
             key: viewId + '_demo1'
         }]
     }, {
@@ -51,6 +54,7 @@
     <mx-title.second content="动态数据示例" id="{{=viewId}}_demo_dync"/>
     <div class="clearfix mb20">
         <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
+        <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
         <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
     </div>
     

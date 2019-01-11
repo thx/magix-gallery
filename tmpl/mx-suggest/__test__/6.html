@@ -3,9 +3,8 @@
             <div class="mb20 clearfix">
                 <div class="fl color-9">以下示例：</div>
                 <div class="fl">
-                    <div class="color-brand">支持双向绑定</div>
-                    <div>动态更新提示数据</div>
-                    <div>请求数据有延时，加loading</div>
+                    <span class="color-brand">支持双向绑定</span>
+                    ；动态更新提示数据；请求数据有延时，加loading
                 </div>
             </div>
             <div class="mb10">
@@ -19,56 +18,72 @@
                 
                 <a href="javascript:;" class="btn ml10" mx-click="check()">校验选择项</a>
 
-                {{if valid}}
-                <span class="ml10 color-green">校验通过</span>
+                {{if msg}}
+                <span class="ml10">{{!msg}}</span>
                 {{/if}}
             </div>
         </div>
-        <div class="eg-desc">
-            <div class="eg-title">HTML Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-                mx-success="done({id:1})">
-                <span class="desc-tip">{{!text1}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-    &lt;mx-suggest 
-        id="&#123;&#123;=viewId&#125;&#125;_test"
-        mx-show="update()"/&gt;</pre>
-        </div>
-        <div class="eg-desc">
-            <div class="eg-title">JS Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-                mx-success="done({id:2})">
-                <span class="desc-tip">{{!text2}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
-    let Magix = require('magix');
-    let $ = require('$');
-    let Vframe = Magix.Vframe;
-    
-    module.exports = Magix.View.extend(&#123;
-        tmpl: '@index.html',
-        render() &#123;
-            this.updater.digest(&#123;
-                viewId: this.id
-            &#125;);
-        &#125;,
-        'update&lt;show&gt;'(e) &#123;
-            // 当前输入框输入的值
-            let keyword = e.keyword;
-    
-            let instance = Vframe.get(this.id + '_test');
-            instance.invoke('showLoading');
-            setTimeout(() => &#123;
-                let list = [1, 2, 3].map(text => &#123;
-                    return Magix.guid('dynamic_') + keyword;
-                &#125;)
-                instance.invoke('update', [list]);
-                instance.invoke('hideLoading');
-            &#125;, 2000);
-        &#125;
-    &#125;);</pre>
+        <div class="clearfix">
+            <div class="eg-desc half">
+                <div class="eg-title">HTML Code</div>
+                <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                    mx-success="done({id:1})">
+                    <span class="desc-tip">{{!text1}}</span>
+                    <i class="mc-iconfont desc-icon">&#xe610;</i>
+                </mx-copy>
+                <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-suggest 
+    id="&#123;&#123;=viewId&#125;&#125;_test"
+    selected="&#123;&#123;:selected&#123;required:true&#125;&#125;&#125;"
+    mx-show="update()"/&gt;
+                </pre>
+            </div>
+            <div class="eg-desc half half-right">
+                <div class="eg-title">JS Code</div>
+                <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                    mx-success="done({id:2})">
+                    <span class="desc-tip">{{!text2}}</span>
+                    <i class="mc-iconfont desc-icon">&#xe610;</i>
+                </mx-copy>
+                <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Form = require('@../../mx-form/index');
+let Validator = require('@../../mx-form/validator');
+let $ = require('$');
+let Vframe = Magix.Vframe;
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Form, Validator],
+    render() &#123;
+        this.updater.digest(&#123;
+            selected: ''
+        &#125;);
+    &#125;,
+    'update&lt;show&gt;'(e) &#123;
+        // 当前输入框输入的值
+        let keyword = e.keyword;
+
+        let instance = Vframe.get(this.id + '_test');
+        instance.invoke('showLoading');
+        setTimeout(() =&gt; &#123;
+            let list = [1, 2, 3].map(v =&gt; &#123;
+                return &#123;
+                    text: '测试' + v,
+                    value: v
+                &#125;;
+            &#125;)
+            instance.invoke('update', [list]);
+            instance.invoke('hideLoading');
+        &#125;, 1000);
+    &#125;,
+    'check&lt;click&gt;'(e)&#123;
+        let valid = this.isValid();
+        this.updater.digest(&#123;
+            msg: valid ? '&lt;span class="color-green"&gt;校验通过&lt;/span&gt;' : '&lt;span class="color-red"&gt;校验失败&lt;/span&gt;'
+        &#125;)
+    &#125;
+&#125;);
+                </pre>
+            </div>
         </div>
     </div>

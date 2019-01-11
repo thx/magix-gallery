@@ -511,7 +511,6 @@ module.exports = Magix.View.extend({
             }
         }
         updater.digest({
-            cusSuggest: '',
             headers,
             suggests,
             all,

@@ -64,7 +64,6 @@ module.exports = Magix.View.extend({
         }
         that['@{search.type}'] = type.split(',');
 
-        that['@{owner.node}'] = $('#' + that.id);
         that.updater.set({
             viewId: that.id,
             list: list,
@@ -75,6 +74,9 @@ module.exports = Magix.View.extend({
             show: false,
             emptyText: I18n['empty.text']
         });
+        that['@{owner.node}'] = $('#' + that.id);
+        that['@{owner.node}'].val(selectedValue)
+
         //如果数据没变化,则设置新的数据后再次检测
         if (!altered) {
             altered = that.updater.altered();

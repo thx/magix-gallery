@@ -44,12 +44,15 @@ catch (ex) {
         this.viewOptions = e;
     },
     render: function () {
-        var number = +this.viewOptions.number;
-        this.updater.digest({
-            number: number,
-            width: 800 - (number * 100),
-            height: 140 + (number * 40)
-        });
+        var _this = this;
+        setTimeout(function () {
+            var number = +_this.viewOptions.number;
+            _this.updater.digest({
+                number: number,
+                width: 800 - (number * 100),
+                height: 140 + (number * 40)
+            });
+        }, 2000);
     },
     'cancel<click>': function (event) {
         event.preventDefault();

@@ -1,0 +1,93 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <span class="color-9">以下示例：</span>
+            动态更新list，初始化list为空，需要复现历史选中值，传入item = {text: '', value: ''} 完整对象
+        </div>
+        <div class="mb10">
+            <span class="color-9">当前选中：</span>{{=selected}}
+        </div>
+        <div class="mb20">
+            <mx-suggest 
+                id="{{=viewId}}_test"
+                selected="{{:selected{required:true,refresh:true}}}"
+                item="{{@item}}"
+                mx-show="update()"/>
+            
+            <a href="javascript:;" class="btn ml10" mx-click="check()">校验选择项</a>
+
+            {{if msg}}
+            <span class="ml10">{{!msg}}</span>
+            {{/if}}
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-suggest 
+    id="&#123;&#123;=viewId&#125;&#125;_test"
+    selected="&#123;&#123;:selected&#123;required:true&#125;&#125;&#125;"
+    item="&#123;&#123;@item&#125;&#125;"
+    mx-show="update()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Form = require('@../../mx-form/index');
+let Validator = require('@../../mx-form/validator');
+let $ = require('$');
+let Vframe = Magix.Vframe;
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Form, Validator],
+    render() &#123;
+        let item = &#123;
+            text: '测试1',
+            value: 1
+        &#125;
+        this.updater.digest(&#123;
+            item,
+            selected: item.value
+        &#125;);
+    &#125;,
+    'update&lt;show&gt;'(e) &#123;
+        // 当前输入框输入的值
+        let keyword = e.keyword;
+
+        let instance = Vframe.get(this.id + '_test');
+        instance.invoke('showLoading');
+        setTimeout(() =&gt; &#123;
+            let list = [1, 2, 3].map(v =&gt; &#123;
+                return &#123;
+                    text: '测试' + v,
+                    value: v
+                &#125;;
+            &#125;)
+            instance.invoke('update', [list]);
+            instance.invoke('hideLoading');
+        &#125;, 1000);
+    &#125;,
+    'check&lt;click&gt;'(e)&#123;
+        let valid = this.isValid();
+        this.updater.digest(&#123;
+            msg: valid ? '&lt;span class="color-green"&gt;校验通过&lt;/span&gt;' : '&lt;span class="color-red"&gt;校验失败&lt;/span&gt;'
+        &#125;)
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

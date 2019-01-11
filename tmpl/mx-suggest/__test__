@@ -5,11 +5,16 @@ let Validator = require('@../../mx-form/validator');
 let $ = require('$');
 let Vframe = Magix.Vframe;
 module.exports = Base.extend({
-    tmpl: '@6.html',
+    tmpl: '@7.html',
     mixins: [Form, Validator],
     render() {
+        let item = {
+            text: '测试1',
+            value: 1
+        }
         this.updater.digest({
-            selected: ''
+            item,
+            selected: item.value
         });
     },
     'update<show>'(e) {

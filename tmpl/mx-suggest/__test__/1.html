@@ -2,32 +2,34 @@
     <div class="eg-content">
         <div class="mb20">
             <span class="color-9">以下示例：</span>
-            动态更新提示数据
+            直接更新提示数据
         </div>
         <mx-suggest 
             id="{{=viewId}}_test"
             mx-show="update()"/>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-suggest 
     id="&#123;&#123;=viewId&#125;&#125;_test"
-    mx-show="update()"/&gt;</pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+    mx-show="update()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
 let $ = require('$');
 let Vframe = Magix.Vframe;
@@ -54,6 +56,8 @@ module.exports = Magix.View.extend(&#123;
 
         Vframe.get(id).invoke('update', [list]);
     &#125;
-&#125;);</pre>
+&#125;);
+            </pre>
+        </div>
     </div>
 </div>

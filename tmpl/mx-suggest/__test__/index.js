@@ -16,6 +16,22 @@ module.exports = Magix.View.extend({
 </pre>`,
             type: 'array',
             def: ''
+        },{
+            key: 'selected',
+            desc: '已选中项value值，动态更新数据的时候，如果初始list为空，请使用item传入已选项',
+            type: 'string',
+            def: ''
+        },{
+            key: 'item',
+            desc:  `<pre>动态list时初始化已选状态
+item: {
+    text: '文案',
+    value: '选中值'
+}
+同时设置selected和item时，已selected为准
+</pre>`,  
+            type: 'object',
+            def: ''
         }, {
             key: 'list-text',
             desc: '可搜索类型展示文案',
