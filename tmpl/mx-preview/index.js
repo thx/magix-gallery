@@ -53,6 +53,7 @@ module.exports = Magix.View.extend({
 
         that.updater.digest({
             viewId: that.id,
+            preview: (extra.preview + '' !== 'false'), //是否需要预览
             format,
             url,
             clickUrl,

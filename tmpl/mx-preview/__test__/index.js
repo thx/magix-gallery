@@ -15,6 +15,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
+            key: 'preview',
+            desc: '是否需要预览，preview=false的时候只有缩略图没有预览',
+            type: 'boolean',
+            def: 'true'
+        }, {
             key: 'width',
             desc: '预览实际宽度<br>会根据当前屏幕的可视范围进行修正',
             type: 'number',
