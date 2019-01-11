@@ -6,6 +6,22 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.12',
+            time: '2019-01-10',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-preview：支持配置只缩略图无预览（preview=false）'
+                }, {
+                    title: 'mx-dropdown.multiple：支持配置选择下限（min）；支持配置连续选择（continuous）'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-suggest：fix双向绑定bug + 动态刷新list时配置item复现历史选中'
+                }]
+            }]
+        }, {
             ver: '1.2.11',
             time: '2019-01-10',
             subs: [{
