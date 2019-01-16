@@ -376,7 +376,8 @@ module.exports = Magix.View.extend({
             full: true,
             fullHeader: Magix.mix({
                 title: '',
-                tip: ''
+                tip: '',
+                iconTip: ''
             }, dialogOptions.header || {}),
             fullFooter: Magix.mix({
                 enter: true,

@@ -1,1 +1,107 @@
-define("mx-area/__test__/2",["magix","__test__/example","$","../index","mx-copy/index","__test__/hl"],(e,l,s)=>{e("../index"),e("mx-copy/index"),e("__test__/hl");var a=e("magix"),i=e("__test__/example");e("$");a.applyStyle("_zs_galleryr","._zs_gallerybw{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerybx,._zs_galleryby{padding:20px 20px 0;border:1px solid #e6e6e6;border-radius:4px}._zs_gallerybx{width:740px}._zs_galleryby{width:600px}._zs_gallerybz{width:740px;border:1px solid #e6e6e6;border-radius:4px;padding:20px 0}"),s.exports=i.extend({tmpl:function(e,l,s,a,i,_,d,r){if(s||(s=e),!i){var t={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},n=/[&<>"'`]/g,x=function(e){return"&"+t[e]+";"};i=function(e){return""+(null==e?"":e)},a=function(e){return i(e).replace(n,x)}}if(!_){var c={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},v=function(e){return c[e]},g=/[!')(*]/g;_=function(e){return encodeURIComponent(i(e)).replace(g,v)}}if(!r){var m=/[\\'"]/g;r=function(e){return i(e).replace(m,"\\$&")}}d||(d=function(e,l,s,a){for(a=e[y];--a;)if(e[s=y+a]===l)return s;return e[s=y+e[y]++]=l,s});var y="",o="",p=e.viewId,z=e.selected,f=e.text1,u=e.text2;o+='<div mxv mxa="_zs_galleryR:_" class="_zs_galleryh"><div mxv mxa="_zs_galleryR:a" class="_zs_galleryk"><div mxs="_zs_galleryR:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl"><div>只能选择到省份</div><div>宽度由容器宽度决定，自适应</div></div></div><div mxv mxa="_zs_galleryR:b" class="clearfix mb20"><div mxv mxa="_zs_galleryR:c" class="_zs_galleryby fl mr20"><div mxv="selected" id="'+a(p)+'_area" mx-view="mx-area/index?selected='+d(s,z)+'"></div></div><div mxa="_zs_galleryR:d" class="fl"><div mxs="_zs_galleryR:a" class="mb10"><a href="javascript:;" class="btn btn-brand" mx-click="'+l+'get()">获取选中值</a></div><div mxa="_zs_galleryR:e" class="clearfix lh22"><div mxs="_zs_galleryR:b" class="fl color-9">当前选中值：</div><div mxa="_zs_galleryR:f" class="fl">';for(var h=0,b=z.length;h<b;h++){o+="<div>"+a(z[h])+"</div>"}return o+='</div></div></div></div></div><div mxa="_zs_galleryR:g" class="clearfix"><div mxa="_zs_galleryR:h" class="_zs_galleryl _zs_gallerye"><div mxs="_zs_galleryR:c" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="'+l+'done({id:1})" mx-view="mx-copy/index?copyNode='+_(p)+'_text_1"><span mxa="_zs_galleryR:i" class="_zs_galleryo">'+i(f)+'</span><i mxs="_zs_galleryR:d" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+a(p)+'_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\n    selected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div><div mxa="_zs_galleryR:j" class="_zs_galleryl _zs_gallerye _zs_galleryf"><div mxs="_zs_galleryR:e" class="_zs_galleryj">JS Code</div><div class="_zs_gallerym" mx-success="'+l+'done({id:2})" mx-view="mx-copy/index?copyNode='+_(p)+'_text_2"><span mxa="_zs_galleryR:k" class="_zs_galleryo">'+i(u)+'</span><i mxs="_zs_galleryR:d" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+a(p)+"_text_2\">\nlet Magix = require('magix');\nlet $ = require('$');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: '@index.html',\n    render() &#123;\n        this.updater.digest(&#123;\n            viewId: this.id,\n            selected: [1]\n        &#125;);\n    &#125;,\n    'get&lt;click&gt;' (event) &#123;\n        let id = this.id + '_area'\n        let selected = Magix.Vframe.get(id).invoke('val');\n        this.updater.digest(&#123;\n            selected: selected\n        &#125;)\n    &#125;\n&#125;);</pre></div></div></div>"},render:function(){this.updater.digest({viewId:this.id,selected:[1]})},"get<click>":function(e){var l=this.id+"_area",s=a.Vframe.get(l).invoke("val");this.updater.digest({selected:s})}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-area/__test__/2",["magix","__test__/example","$","../index","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("../index");
+require("mx-copy/index");
+require("__test__/hl");
+var Magix = require("magix");
+var Base = require("__test__/example");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-area___test___index_","/* @dependent: ./index.less */\n._zs_gallery_mx-area___test___index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-area___test___index_-area-wrapper1,\n._zs_gallery_mx-area___test___index_-area-wrapper2 {\n  padding: 20px 20px 0;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper1 {\n  width: 740px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper2 {\n  width: 600px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper3 {\n  width: 740px;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  padding: 20px 0;\n}\n");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, selected = $$.selected, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryR:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryR:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryR:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl"><div>只能选择到省份</div><div>宽度由容器宽度决定，自适应</div></div></div><div mxv mxa="_zs_galleryR:b" class="clearfix mb20"><div mxv mxa="_zs_galleryR:c" class="_zs_gallery_mx-area___test___index_-area-wrapper2 fl mr20"><div mxv="selected" id="';
+    $line = 12;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_area" mx-view="mx-area/index?selected=';
+    $line = 13;
+    $art = '@selected';
+    ;
+    $p += ($expr = '<%@selected%>', $i($$ref, selected)) + '"></div></div><div mxa="_zs_galleryR:d" class="fl"><div mxs="_zs_galleryR:a" class="mb10"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'get()">获取选中值</a></div><div mxa="_zs_galleryR:e" class="clearfix lh22"><div mxs="_zs_galleryR:b" class="fl color-9">当前选中值：</div><div mxa="_zs_galleryR:f" class="fl">';
+    $line = 20;
+    $art = 'each selected as item';
+    ;
+    $expr = '<%for (var $art_ivkakdb$art_i = 0, $art_cxdhenhr$art_c = selected.length; $art_ivkakdb$art_i < $art_cxdhenhr$art_c; $art_ivkakdb$art_i++) {    var item = selected[$art_ivkakdb$art_i]%>';
+    for (var $art_ivkakdb$art_i = 0, $art_cxdhenhr$art_c = selected.length; $art_ivkakdb$art_i < $art_cxdhenhr$art_c; $art_ivkakdb$art_i++) {
+        var item = selected[$art_ivkakdb$art_i];
+        $p += '<div>';
+        $line = 21;
+        $art = '=item';
+        ;
+        $p += ($expr = '<%=item%>', $e(item)) + '</div>';
+        $line = 22;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div></div></div></div><div mxa="_zs_galleryR:g" class="clearfix"><div mxa="_zs_galleryR:h" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_galleryR:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 31;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryR:i" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 33;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryR:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 36;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\n    selected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div><div mxa="_zs_galleryR:j" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryR:e" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 42;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryR:k" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 44;
+    $art = '!text2';
+    ;
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryR:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 47;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            viewId: this.id,\n            selected: [1]\n        &#125;);\n    &#125;,\n    \'get&lt;click&gt;\' (event) &#123;\n        let id = this.id + \'_area\'\n        let selected = Magix.Vframe.get(id).invoke(\'val\');\n        this.updater.digest(&#123;\n            selected: selected\n        &#125;)\n    &#125;\n&#125;);</pre></div></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-area/__test__/2.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest({
+            viewId: this.id,
+            selected: [1]
+        });
+    },
+    'get<click>': function (event) {
+        var id = this.id + '_area';
+        var selected = Magix.Vframe.get(id).invoke('val');
+        this.updater.digest({
+            selected: selected
+        });
+    }
+});
+
+});

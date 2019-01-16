@@ -6,8 +6,22 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.13',
+            time: '2019-01-17',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-dialog：mxModal表头header支持配置tip（直接展示提示）+ iconTip（icon展示提示）'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-dropdown.multiple：selected单值传入非string类型兼容；'
+                }]
+            }]
+        }, {
             ver: '1.2.12',
-            time: '2019-01-10',
+            time: '2019-01-11',
             subs: [{
                 type: 'add',
                 subs: [{

@@ -1,1 +1,82 @@
-define("mx-topbar/router",["magix","$"],(e,n,t)=>{var a=e("magix"),r=e("$");a.applyStyle("_zs_galleryaG","._zs_gallerynd{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryne{position:fixed;z-index:400;height:2px;left:0;top:0;right:0;background-color:#4d7fff;-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0);transition:all .25s ease}");var o,i,d=a.guid("mx_topbar_"),f=a.Vframe,s=100,l={__n:function(){clearTimeout(o),r("#"+d).length||(r("body").append('<div class="_zs_galleryne" id="'+d+'"></div>'),i=setInterval(l.__fe,300))},__fe:function(){var e=r("#"+d);e.length&&(s>15?s-=3+5*Math.random():s>4&&(s-=1+Math.random()),e.css({transform:"translate3d(-"+s+"%,0px,0px)"}))},__m:function(){setTimeout(function(){clearInterval(i);var e=r("#"+d);e.length&&(e.css({transform:"translate3d(0,0px,0px)"}),o=setTimeout(function(){s=100,e.remove()},400))},0)}};t.exports=a.View.extend({init:function(e){a.Router.on("changed",function(e){e.path&&l.__n()});var n=function(e){e.off("created",l.__m),e.on("created",l.__m)};f.on("add",function(t){t.vframe.id==e.id&&n(t.vframe)});var t=f.get(e.id);t&&n(t)},render:function(){l.__n()}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-topbar/router",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-topbar_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-topbar_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-topbar_index_-bar {\n  position: fixed;\n  z-index: 400;\n  height: 2px;\n  left: 0;\n  top: 0;\n  right: 0;\n  background-color: #4d7fff;\n  -webkit-transform: translate3d(-100%, 0px, 0px);\n          transform: translate3d(-100%, 0px, 0px);\n  transition: all 0.25s ease;\n}\n");
+var barId = Magix.guid('mx_topbar_');
+var Vframe = Magix.Vframe;
+var timer, interval;
+var percent = 100;
+var Topbar = {
+    '@{show}': function () {
+        clearTimeout(timer);
+        var bar = $('#' + barId);
+        if (!bar.length) {
+            $('body').append("<div class=\"_zs_gallery_mx-topbar_index_-bar\" id=\"" + barId + "\"></div>");
+            interval = setInterval(Topbar['@{porgress}'], 300);
+        }
+    },
+    '@{porgress}': function () {
+        var bar = $('#' + barId);
+        if (bar.length) {
+            if (percent > 15) {
+                percent -= (3 + Math.random() * 5);
+            }
+            else if (percent > 4) {
+                percent -= (1 + Math.random());
+            }
+            bar.css({
+                transform: "translate3d(-" + percent + "%,0px,0px)"
+            });
+        }
+    },
+    '@{hide}': function () {
+        setTimeout(function () {
+            clearInterval(interval);
+            var bar = $('#' + barId);
+            if (bar.length) {
+                bar.css({
+                    transform: "translate3d(0,0px,0px)"
+                });
+                timer = setTimeout(function () {
+                    percent = 100;
+                    bar.remove();
+                }, 400);
+            }
+        }, 0);
+    }
+};
+module.exports = Magix.View.extend({
+    init: function (extra) {
+        Magix.Router.on('changed', function (e) {
+            if (e.path) {
+                Topbar['@{show}']();
+            }
+        });
+        var resume = function (vf) {
+            vf.off('created', Topbar['@{hide}']);
+            vf.on('created', Topbar['@{hide}']);
+        };
+        var watch = function (e) {
+            if (e.vframe.id == extra.id) {
+                resume(e.vframe);
+            }
+        };
+        Vframe.on('add', watch);
+        var vf = Vframe.get(extra.id);
+        if (vf) {
+            resume(vf);
+        }
+    },
+    render: function () {
+        Topbar['@{show}']();
+    }
+});
+
+});

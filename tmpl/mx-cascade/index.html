@@ -1,6 +1,6 @@
 <div class="cascade-toggle {{if expand}} open {{/if}}"
     {{if !disabled}} mx-click="@{show}()" {{/if}} >
-    <span class="cascade-label {{if (selectedValue==='')}} cascade-label-ph {{/if}}">
+    <span class="cascade-label">
         {{if name}}{{=name}}：{{/if}}
         {{=selectedText}}
     </span>

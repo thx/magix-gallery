@@ -113,7 +113,6 @@ module.exports = Magix.View.extend({
         let selected;
         if (!ops.selected) {
             // 默认情况下逗号分隔
-            // me['@{bak.type}'] = 'array';
             selected = [];
         } else {
             if ($.isArray(ops.selected)) {
@@ -123,7 +122,7 @@ module.exports = Magix.View.extend({
                     return '' + v;
                 });
             } else {
-                selected = ops.selected.split(',');
+                selected = (ops.selected + '').split(',');
             }
         }
 

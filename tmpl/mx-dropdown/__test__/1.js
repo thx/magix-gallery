@@ -6,7 +6,6 @@ module.exports = Base.extend({
     tmpl: '@1.html',
     render() {
         let that = this;
-
         let first = [],
             second = [];
         for (var i = 0; i < 2; i++) {

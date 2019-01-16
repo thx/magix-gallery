@@ -2,7 +2,7 @@
     <div class="eg-content">
         <div class="mb20">
             <a href="javascript:;" mx-click="open()" 
-                class="btn btn-brand mr20">全屏右出浮层(头部+底部)</a>  
+                class="btn btn-brand mr20">全屏右出浮层，头部+底部</a>  
 
             <span class="color-9 ml20">浮层中输入内容：</span>
             <span>{{=text}}</span>
@@ -24,7 +24,8 @@ this.mxModal('@./full', {
     width: 800,
     header: {
         title: '全屏右出浮层',
-        tip: '提示信息'
+        tip: '提示信息',
+        iconTip: '提示信息展示类型，=icon时小icon提示，否则直接展示'
     },
     footer: {
         enter: '是否需要确认按钮',
@@ -103,7 +104,8 @@ module.exports = Magix.View.extend(&#123;
         //          closable: 'true or false，是否有右上角关闭按钮'
         //          header: &#123;
         //              title: '标题',
-        //              tip: '提示信息'
+        //              tip: '提示信息',
+        //              iconTip: '提示信息展示类型，=icon时小icon提示，否则直接展示'
         //          &#125;,
         //          footer: &#123;
         //              enter: 'true or false，是否需要确定按钮',
@@ -129,7 +131,8 @@ module.exports = Magix.View.extend(&#123;
             width: 800,
             header: &#123;
                 title: '全屏右出浮层',
-                tip: '提示信息'
+                tip: '提示信息',
+                iconTip: 'icon提示'
             &#125;,
             footer: &#123;
                 enterText: '自定义确认',

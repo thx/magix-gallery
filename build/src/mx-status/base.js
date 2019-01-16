@@ -1,1 +1,80 @@
-define("mx-status/base",["magix"],(e,t,i)=>{var s=e("magix");i.exports=s.View.extend({init:function(e){this.viewOptions=e},render:function(){var e=this.viewOptions,t=e.opers||[],i=e.selected||(t[0]||"").value;this.update(i)},update:function(e){var t=this.viewOptions,i=t.opers||[],s={};if(i.length>0){for(var a=0;a<i.length;a++)if(i[a].value==e){s=i[a],i.splice(a,1);break}i.unshift(s)}var r=t.info||{},n=!1;$.isEmptyObject(r)||(n=!0),this.updater.digest({info:r,opers:i,cur:s,showInfo:n,show:!1})},"select<click>":function(e){var t=e.params.item;this.updater.get("cur").value!=t.value&&(this.update(t.value),$("#"+this.id).trigger({type:"change",status:t}))},"over<mouseover>":function(e){s.inside(e.relatedTarget,e.eventTarget)||this.updater.digest({show:!0})},"out<mouseout>":function(e){s.inside(e.relatedTarget,e.eventTarget)||this.updater.digest({show:!1})}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-status/base",["magix"],(require,exports,module)=>{
+/*Magix*/
+
+var Magix = require("magix");
+module.exports = Magix.View.extend({
+    init: function (e) {
+        this.viewOptions = e;
+    },
+    render: function () {
+        var viewOptions = this.viewOptions;
+        var opers = viewOptions.opers || [];
+        var selected = viewOptions.selected || (opers[0] || '').value;
+        this.update(selected);
+    },
+    update: function (selected) {
+        var viewOptions = this.viewOptions;
+        var opers = viewOptions.opers || [];
+        // 当前项在最前面
+        var cur = {};
+        if (opers.length > 0) {
+            for (var i = 0; i < opers.length; i++) {
+                if (opers[i].value == selected) {
+                    cur = opers[i];
+                    opers.splice(i, 1);
+                    break;
+                }
+            }
+            opers.unshift(cur);
+        }
+        // 提示信息
+        var info = viewOptions.info || {};
+        var showInfo = false;
+        if (!$.isEmptyObject(info)) {
+            showInfo = true;
+        }
+        this.updater.digest({
+            info: info,
+            opers: opers,
+            cur: cur,
+            showInfo: showInfo,
+            show: false
+        });
+    },
+    'select<click>': function (e) {
+        var that = this;
+        var item = e.params.item;
+        var cur = that.updater.get('cur');
+        if (cur.value == item.value) {
+            return;
+        }
+        that.update(item.value);
+        $('#' + that.id).trigger({
+            type: 'change',
+            status: item
+        });
+    },
+    'over<mouseover>': function (event) {
+        if (Magix.inside(event.relatedTarget, event.eventTarget)) {
+            return;
+        }
+        this.updater.digest({
+            show: true
+        });
+    },
+    'out<mouseout>': function (event) {
+        if (Magix.inside(event.relatedTarget, event.eventTarget)) {
+            return;
+        }
+        this.updater.digest({
+            show: false
+        });
+    }
+});
+
+});

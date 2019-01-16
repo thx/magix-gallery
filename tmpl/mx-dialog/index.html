@@ -10,6 +10,13 @@
         {{if fullHeader.title}}
         <div class="dialog-header" id="{{=cntId}}_header">
             <span class="header-name">{{!fullHeader.title}}</span>
+            {{if fullHeader.iconTip}}
+            <!-- icon提示 -->
+            <mx-popover class="mc-iconfont color-c"
+                tag="i"
+                content="{{=fullHeader.iconTip}}">&#xe7aa;</mx-popover>
+            {{/if}}
+
             {{if fullHeader.tip}}
             <span class="color-9 ml10">{{!fullHeader.tip}}</span>
             {{/if}}

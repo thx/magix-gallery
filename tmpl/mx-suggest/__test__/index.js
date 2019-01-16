@@ -44,7 +44,7 @@ item: {
             def: 'value'
         }, {
             key: 'placeholder',
-            desc: '空状态提示文案',
+            desc: 'placeholder提示',
             type: 'string',
             def: '搜素'
         }, {
