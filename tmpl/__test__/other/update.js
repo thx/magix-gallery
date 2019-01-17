@@ -16,7 +16,7 @@ module.exports = Magix.View.extend({
             }, {
                 type: 'bug',
                 subs: [{
-                    title: 'mx-dropdown.multiple：selected单值传入非string类型兼容；'
+                    title: 'mx-dropdown.multiple：selected单值传入非string类型兼容'
                 }]
             }]
         }, {
