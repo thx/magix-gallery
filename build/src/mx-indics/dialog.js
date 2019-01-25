@@ -1,1 +1,408 @@
-define("mx-indics/dialog",["magix","mx-popover/index","mx-dragsort/index"],(e,l,a)=>{e("mx-popover/index"),e("mx-dragsort/index");var r=e("magix");r.applyStyle("_zs_galleryX",'._zs_galleryhq{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}[mx-view*="mx-indics/index"]{display:inline-block;vertical-align:middle}._zs_galleryhr{position:relative;height:100%}._zs_galleryhr ._zs_galleryhs{width:100%;height:60px;padding:0 24px;background-color:#fff;line-height:60px;border-bottom:1px solid #e6e6e6}._zs_galleryhr ._zs_galleryht{position:absolute;top:60px;left:0;bottom:0;right:0;overflow-y:auto}._zs_galleryhr ._zs_galleryht ._zs_galleryhu{padding:16px 24px}._zs_galleryhr ._zs_galleryht ._zs_galleryhu:nth-of-type(2n){background-color:#fafafa}._zs_galleryhr ._zs_galleryht ._zs_galleryhv{float:left;padding:8px 0;color:#999}._zs_galleryhr ._zs_galleryht ._zs_galleryhw{float:left;width:100%}._zs_galleryhr ._zs_galleryht ._zs_galleryhw ._zs_galleryhx{float:left;width:20%;padding:8px 0}._zs_galleryhr ._zs_galleryht ._zs_galleryhw ._zs_galleryhx ._zs_galleryhy{position:relative;top:1px;left:4px;font-size:14px;color:#ccc}._zs_galleryhr._zs_galleryhz ._zs_galleryhv{width:15%}._zs_galleryhr._zs_galleryhz ._zs_galleryhw{width:85%}._zs_galleryhr._zs_galleryhz ._zs_galleryhw ._zs_galleryhx{width:25%}._zs_galleryhr._zs_galleryhA ._zs_galleryhw{width:100%}._zs_galleryhr._zs_galleryhA ._zs_galleryhw ._zs_galleryhx{width:25%}._zs_galleryhr._zs_galleryhz._zs_galleryhA ._zs_galleryhv{width:20%}._zs_galleryhr._zs_galleryhz._zs_galleryhA ._zs_galleryhw{width:80%}._zs_galleryhr._zs_galleryhz._zs_galleryhA ._zs_galleryhw ._zs_galleryhx{width:33%}._zs_galleryhr._zs_galleryhA{padding-right:32%}._zs_galleryhr._zs_galleryhA ._zs_galleryht{right:32%;border-right:1px solid #e6e6e6}._zs_galleryhr._zs_galleryhA ._zs_galleryhB{position:absolute;top:0;right:0;width:32%;height:98px}._zs_galleryhr._zs_galleryhA ._zs_galleryhB ._zs_galleryhC{height:60px;line-height:60px;font-size:16px;padding-left:24px;border-bottom:1px solid #e6e6e6}._zs_galleryhr._zs_galleryhA ._zs_galleryhB ._zs_galleryhD{height:38px;padding:0 24px;line-height:38px;text-align:right;background-color:#fafafa}._zs_galleryhr._zs_galleryhA ._zs_galleryhE{position:absolute;top:98px;right:0;bottom:0;width:32%;padding:0 24px 16px;overflow-y:scroll;background-color:#fafafa}._zs_galleryhr._zs_galleryhA ._zs_galleryhE ._zs_galleryhF{height:30px;margin-bottom:5px;padding:0 15px;line-height:28px;background:#fff;border:1px solid #e6e6e6;border-radius:4px;cursor:move}._zs_galleryhr._zs_galleryhA ._zs_galleryhE ._zs_galleryhF:last-child{margin-bottom:0}._zs_galleryhG{position:relative;color:#333}._zs_galleryhG:hover{color:#333;border-color:#ccc}._zs_galleryhG:focus{border-color:#ccc}._zs_galleryhH{margin-right:10px}._zs_galleryhH ._zs_galleryhI{position:relative;top:2px}._zs_galleryhJ{padding-right:20px}._zs_galleryhJ ._zs_galleryhK{position:absolute;top:0;right:0;width:20px;height:32px;line-height:32px;text-align:center;font-size:18px}'),a.exports=r.View.extend({tmpl:function(e,l,a,r,s,t,_,i){if(a||(a=e),!s){var g={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},h=/[&<>"'`]/g,o=function(e){return"&"+g[e]+";"};s=function(e){return""+(null==e?"":e)},r=function(e){return s(e).replace(h,o)}}if(!t){var d={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},n=function(e){return d[e]},c=/[!')(*]/g;t=function(e){return encodeURIComponent(s(e)).replace(c,n)}}if(!i){var z=/[\\'"]/g;i=function(e){return s(e).replace(z,"\\$&")}}var y="",p=e.sortable,x=e.hasParent,f=e.limit,v=e.selectedItems,u=e.groups;y+='<div mxv class="_zs_galleryhr ',p&&(y+="_zs_galleryhA"),y+=" ",x&&(y+="_zs_galleryhz"),y+='"><div mxa="_zs_galleryb&:_" class="_zs_galleryhs"><div mxa="_zs_galleryb&:a" class="left"><span mxs="_zs_galleryb&:_" class="fontsize-16">选择数据字段</span>',f>0&&(y+='<span mxa="_zs_galleryb&:b" class="color-9 font-tahoma bold ml10">'+r(v.length)+" / "+r(f)+"</span>"),y+=" ",p||(y+='<a mxs="_zs_galleryb&:a" href="javascript:;" class="link-brand fr" mx-click="'+l+'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a>'),y+='</div></div><div mxv mxa="_zs_galleryb&:c" class="_zs_galleryht">';for(var m=0,b=u.length;m<b;m++){var w=u[m];y+='<div mxv mxa="_zs_galleryb&:d" class="_zs_galleryhu clearfix">',w.text&&(y+='<div mxa="_zs_galleryb&:e" class="_zs_galleryhv">'+r(w.text)+"</div>"),y+='<div mxv mxa="_zs_galleryb&:f" class="_zs_galleryhw clearfix">';for(var k=0,A=w.fields,I=A.length;k<I;k++){var E=A[k];y+='<div mxv mxa="_zs_galleryb&:g" class="_zs_galleryhx"><label mxv ',f>0&&v.length>=f&&!E.checked&&(y+=' class="cursor-not-allow" '),y+='><input type="checkbox" name="field" value="'+r(E.value)+'" class="checkbox" ',E.checked&&(y+=' checked="true" '),y+=" ",f>0&&v.length>=f&&!E.checked&&(y+=' disabled="true" '),y+=' mx-change="'+l+"toggle({value:'"+r(i(E.value))+"',text:'"+r(i(E.text))+"'})\"/>"+r(E.text)+"</label>",E.tip&&(y+='<i class="mc-iconfont _zs_galleryhy" mx-view="mx-popover/index?content='+t(E.tip)+'">&#xe7aa;</i>'),y+="</div>"}y+="</div></div>"}if(y+="</div>",p){y+='<div mxs="_zs_galleryb&:b" class="_zs_galleryhB"><div class="_zs_galleryhC">自定义字段</div><div class="_zs_galleryhD"><span class="color-9 mr10">可拖动排序</span><a href="javascript:;" class="link-brand" mx-click="'+l+'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a></div></div><div mxa="_zs_galleryb&:h" class="_zs_galleryhE" mx-view="mx-dragsort/index" mx-dragfinish="'+l+'drag()">';for(var B=0,F=v.length;B<F;B++){var C=v[B];y+='<div class="_zs_galleryhF" data-value="'+r(C.value)+'" data-text="'+r(C.text)+'">'+r(C.text)+"</div>"}y+="</div>"}return y+="</div>"},init:function(e){var l=e.selected||[],a=e.fields||[],r=e.parents||[];selectedItems=[],l.forEach(function(e){for(var l=0;l<a.length;l++){var r=a[l];if(r.value==e){r.checked=!0,selectedItems.push({value:r.value,text:r.text});break}}});var s,t=e.sortable,_=[];if(r.length>0)_=r.map(function(e){var l=[];return a.forEach(function(a){a.pValue==e.value&&l.push(a)}),{text:e.text,fields:l}}),s=!0;else{for(var i=t?4:5,g=Math.ceil(a.length/i),h=0;h<g;h++){var o={fields:a.slice(h*i,(h+1)*i)};_.push(o)}s=!1}this.updater.set({hasParent:s,sortable:t,fields:a,groups:_,selectedItems:selectedItems,limit:e.limit}),this.viewOptions=e},render:function(){this.updater.digest({})},"toggle<change>":function(e){for(var l=e.target.checked,a=e.params.value,r=e.params.text,s=this.updater,t=s.get("fields"),_=0;_<t.length;_++)if(t[_].value==a){t[_].checked=l;break}var i=s.get("selectedItems"),g=s.get("sortable");if(l)g?i.push({value:a,text:r}):i=t.filter(function(e){return e.checked});else for(_=0;_<i.length;_++)if(i[_].value==a){i.splice(_,1);break}s.digest({fields:t,selectedItems:i})},"drag<dragfinish>":function(e){for(var l=[],a=$("#"+this.id+" ._zs_galleryhF"),r=0,s=a.length;r<s;r++){var t=$(a[r]);l.push({value:t.data("value"),text:t.data("text")})}this.updater.digest({selectedItems:l})},"clear<click>":function(){var e=this.updater,l=e.get("fields");l.forEach(function(e){e.checked=!1}),e.digest({fields:l,selectedItems:[]})},check:function(){event.preventDefault();var e=this.updater.get("selectedItems").map(function(e){return e.value});return new Promise(function(l){l({ok:e.length>0,msg:"请至少选择一个指标",data:{selected:e}})})}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-indics/dialog",["magix","mx-popover/index","mx-dragsort/index"],(require,exports,module)=>{
+/*Magix*/
+require("mx-popover/index");
+require("mx-dragsort/index");
+var Magix = require("magix");
+Magix.applyStyle("_zs_gallery_mx-indics_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-indics_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-indics/index\"] {\n  display: inline-block;\n  vertical-align: middle;\n}\n._zs_gallery_mx-indics_index_-setting {\n  position: relative;\n  height: 100%;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-header {\n  width: 100%;\n  height: 60px;\n  padding: 0 24px;\n  background-color: #fff;\n  line-height: 60px;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content {\n  position: absolute;\n  top: 60px;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  overflow-y: auto;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line {\n  padding: 16px 24px;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line:nth-of-type(even) {\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-name {\n  float: left;\n  padding: 8px 0;\n  color: #999;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-items {\n  float: left;\n  width: 100%;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-items ._zs_gallery_mx-indics_index_-item {\n  float: left;\n  width: 20%;\n  padding: 8px 0;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-items ._zs_gallery_mx-indics_index_-item ._zs_gallery_mx-indics_index_-field-tip {\n  position: relative;\n  top: 1px;\n  left: 4px;\n  font-size: 14px;\n  color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent ._zs_gallery_mx-indics_index_-name {\n  width: 15%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent ._zs_gallery_mx-indics_index_-items {\n  width: 85%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent ._zs_gallery_mx-indics_index_-items ._zs_gallery_mx-indics_index_-item {\n  width: 25%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-items {\n  width: 100%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-items ._zs_gallery_mx-indics_index_-item {\n  width: 25%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-name {\n  width: 20%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-items {\n  width: 80%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-items ._zs_gallery_mx-indics_index_-item {\n  width: 33%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable {\n  padding-right: 32%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-content {\n  right: 32%;\n  border-right: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 32%;\n  height: 98px;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header ._zs_gallery_mx-indics_index_-drag-title {\n  height: 60px;\n  line-height: 60px;\n  font-size: 16px;\n  padding-left: 24px;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header ._zs_gallery_mx-indics_index_-drag-oper {\n  height: 38px;\n  padding: 0 24px;\n  line-height: 38px;\n  text-align: right;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper {\n  position: absolute;\n  top: 98px;\n  right: 0;\n  bottom: 0;\n  width: 32%;\n  padding: 0 24px 16px 24px;\n  overflow-y: scroll;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag {\n  height: 30px;\n  margin-bottom: 5px;\n  padding: 0 15px;\n  line-height: 28px;\n  background: #fff;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  cursor: move;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery_mx-indics_index_-setting-btn {\n  position: relative;\n  color: #333;\n}\n._zs_gallery_mx-indics_index_-setting-btn:hover {\n  color: #333;\n  border-color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting-btn:focus {\n  border-color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting-show-btn {\n  margin-right: 10px;\n}\n._zs_gallery_mx-indics_index_-setting-show-btn ._zs_gallery_mx-indics_index_-setting-show-icon {\n  position: relative;\n  top: 2px;\n}\n._zs_gallery_mx-indics_index_-setting-switch-btn {\n  padding-right: 20px;\n}\n._zs_gallery_mx-indics_index_-setting-switch-btn ._zs_gallery_mx-indics_index_-setting-switch-icon {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 20px;\n  height: 32px;\n  line-height: 32px;\n  text-align: center;\n  font-size: 18px;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', sortable = $$.sortable, hasParent = $$.hasParent, limit = $$.limit, selectedItems = $$.selectedItems, groups = $$.groups; var $expr, $art, $line; try {
+    $p += '<div mxv class="_zs_gallery_mx-indics_index_-setting ';
+    $line = 1;
+    $art = 'if sortable';
+    ;
+    $expr = '<%if (sortable) {%>';
+    if (sortable) {
+        ;
+        $p += '_zs_gallery_mx-indics_index_-sortable';
+        $line = 1;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $line = 1;
+    $art = 'if hasParent';
+    ;
+    $expr = '<%if (hasParent) {%>';
+    if (hasParent) {
+        ;
+        $p += '_zs_gallery_mx-indics_index_-parent';
+        $line = 1;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '"><div mxa="_zs_galleryb&:_" class="_zs_gallery_mx-indics_index_-header"><div mxa="_zs_galleryb&:a" class="left"><span mxs="_zs_galleryb&:_" class="fontsize-16">选择数据字段</span>';
+    $line = 5;
+    $art = 'if (limit > 0)';
+    ;
+    $expr = '<%if (limit > 0) {%>';
+    if (limit > 0) {
+        ;
+        $p += '<span mxa="_zs_galleryb&:b" class="color-9 font-tahoma bold ml10">';
+        $line = 6;
+        $art = '=selectedItems.length';
+        ;
+        $p += ($expr = '<%=selectedItems.length%>', $e(selectedItems.length)) + ' / ';
+        $line = 6;
+        $art = '=limit';
+        ;
+        $p += ($expr = '<%=limit%>', $e(limit)) + '</span>';
+        $line = 7;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $line = 8;
+    $art = 'if !sortable';
+    ;
+    $expr = '<%if (!sortable) {%>';
+    if (!sortable) {
+        ;
+        $p += '<a mxs="_zs_galleryb&:a" href="javascript:;" class="link-brand fr" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a>';
+        $line = 12;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div><div mxv mxa="_zs_galleryb&:c" class="_zs_gallery_mx-indics_index_-content">';
+    $line = 16;
+    $art = 'each groups as group';
+    ;
+    $expr = '<%for (var $art_iroyugsbvs$art_i = 0, $art_csriwhygdmd$art_c = groups.length; $art_iroyugsbvs$art_i < $art_csriwhygdmd$art_c; $art_iroyugsbvs$art_i++) {    var group = groups[$art_iroyugsbvs$art_i]%>';
+    for (var $art_iroyugsbvs$art_i = 0, $art_csriwhygdmd$art_c = groups.length; $art_iroyugsbvs$art_i < $art_csriwhygdmd$art_c; $art_iroyugsbvs$art_i++) {
+        var group = groups[$art_iroyugsbvs$art_i];
+        $p += '<div mxv mxa="_zs_galleryb&:d" class="_zs_gallery_mx-indics_index_-line clearfix">';
+        $line = 18;
+        $art = 'if group.text';
+        ;
+        $expr = '<%if (group.text) {%>';
+        if (group.text) {
+            ;
+            $p += '<div mxa="_zs_galleryb&:e" class="_zs_gallery_mx-indics_index_-name">';
+            $line = 19;
+            $art = '=group.text';
+            ;
+            $p += ($expr = '<%=group.text%>', $e(group.text)) + '</div>';
+            $line = 20;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '<div mxv mxa="_zs_galleryb&:f" class="_zs_gallery_mx-indics_index_-items clearfix">';
+        $line = 22;
+        $art = 'each group.fields as field';
+        ;
+        $expr = '<%for (var $art_iduuocp$art_i = 0, $art_objuvldxq$art_obj = group.fields, $art_ccycndiu$art_c = $art_objuvldxq$art_obj.length; $art_iduuocp$art_i < $art_ccycndiu$art_c; $art_iduuocp$art_i++) {        var field = $art_objuvldxq$art_obj[$art_iduuocp$art_i]%>';
+        for (var $art_iduuocp$art_i = 0, $art_objuvldxq$art_obj = group.fields, $art_ccycndiu$art_c = $art_objuvldxq$art_obj.length; $art_iduuocp$art_i < $art_ccycndiu$art_c; $art_iduuocp$art_i++) {
+            var field = $art_objuvldxq$art_obj[$art_iduuocp$art_i];
+            $p += '<div mxv mxa="_zs_galleryb&:g" class="_zs_gallery_mx-indics_index_-item"><label mxv ';
+            $line = 24;
+            $art = 'if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)';
+            ;
+            $expr = '<%if ((limit > 0) && (selectedItems.length >= limit) && !field.checked) {%>';
+            if ((limit > 0) && (selectedItems.length >= limit) && !field.checked) {
+                ;
+                $p += ' class="cursor-not-allow" ';
+                $line = 24;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '><input type="checkbox" name="field" value="';
+            $line = 25;
+            $art = '=field.value';
+            ;
+            $p += ($expr = '<%=field.value%>', $e(field.value)) + '" class="checkbox" ';
+            $line = 26;
+            $art = 'if field.checked';
+            ;
+            $expr = '<%if (field.checked) {%>';
+            if (field.checked) {
+                ;
+                $p += ' checked="true" ';
+                $line = 26;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 27;
+            $art = 'if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)';
+            ;
+            $expr = '<%if ((limit > 0) && (selectedItems.length >= limit) && !field.checked) {%>';
+            if ((limit > 0) && (selectedItems.length >= limit) && !field.checked) {
+                ;
+                $p += ' disabled="true" ';
+                $line = 27;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' mx-change="' + $viewId + 'toggle({value:\'';
+            $line = 28;
+            $art = '=field.value';
+            ;
+            $p += ($expr = '<%=$eq(field.value)%>', $e($eq(field.value))) + '\',text:\'';
+            $line = 28;
+            $art = '=field.text';
+            ;
+            $p += ($expr = '<%=$eq(field.text)%>', $e($eq(field.text))) + '\'})"/>';
+            $line = 28;
+            $art = '=field.text';
+            ;
+            $p += ($expr = '<%=field.text%>', $e(field.text)) + '</label>';
+            $line = 30;
+            $art = 'if field.tip';
+            ;
+            $expr = '<%if (field.tip) {%>';
+            if (field.tip) {
+                ;
+                $p += '<i class="mc-iconfont _zs_gallery_mx-indics_index_-field-tip" mx-view="mx-popover/index?content=';
+                $line = 33;
+                $art = '=field.tip';
+                ;
+                $p += ($expr = '<%!$eu(field.tip)%>', $eu(field.tip)) + '">&#xe7aa;</i>';
+                $line = 34;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '</div>';
+            $line = 36;
+            $art = '/each';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div></div>';
+        $line = 39;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+    $line = 41;
+    $art = 'if sortable';
+    ;
+    $expr = '<%if (sortable) {%>';
+    if (sortable) {
+        ;
+        $p += '<div mxs="_zs_galleryb&:b" class="_zs_gallery_mx-indics_index_-drag-header"><div class="_zs_gallery_mx-indics_index_-drag-title">自定义字段</div><div class="_zs_gallery_mx-indics_index_-drag-oper"><span class="color-9 mr10">可拖动排序</span><a href="javascript:;" class="link-brand" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a></div></div><div mxa="_zs_galleryb&:h" class="_zs_gallery_mx-indics_index_-drag-wrapper" mx-view="mx-dragsort/index" mx-dragfinish="' + $viewId + 'drag()">';
+        $line = 50;
+        $art = 'each selectedItems as s';
+        ;
+        $expr = '<%for (var $art_irntxs$art_i = 0, $art_cqdjoqomvuxj$art_c = selectedItems.length; $art_irntxs$art_i < $art_cqdjoqomvuxj$art_c; $art_irntxs$art_i++) {        var s = selectedItems[$art_irntxs$art_i]%>';
+        for (var $art_irntxs$art_i = 0, $art_cqdjoqomvuxj$art_c = selectedItems.length; $art_irntxs$art_i < $art_cqdjoqomvuxj$art_c; $art_irntxs$art_i++) {
+            var s = selectedItems[$art_irntxs$art_i];
+            $p += '<div class="_zs_gallery_mx-indics_index_-drag" data-value="';
+            $line = 51;
+            $art = '=s.value';
+            ;
+            $p += ($expr = '<%=s.value%>', $e(s.value)) + '" data-text="';
+            $line = 51;
+            $art = '=s.text';
+            ;
+            $p += ($expr = '<%=s.text%>', $e(s.text)) + '">';
+            $line = 51;
+            $art = '=s.text';
+            ;
+            $p += ($expr = '<%=s.text%>', $e(s.text)) + '</div>';
+            $line = 52;
+            $art = '/each';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div>';
+        $line = 54;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-indics/dialog.html';
+    throw msg;
+} return $p; },
+    init: function (e) {
+        var selected = e.selected || [], fields = e.fields || [], parents = e.parents || [];
+        selectedItems = [];
+        selected.forEach(function (value) {
+            for (var i = 0; i < fields.length; i++) {
+                var field = fields[i];
+                if (field.value == value) {
+                    field.checked = true;
+                    selectedItems.push({
+                        value: field.value,
+                        text: field.text
+                    });
+                    break;
+                }
+            }
+        });
+        var sortable = e.sortable;
+        var groups = [], hasParent;
+        if (parents.length > 0) {
+            // 有分组
+            groups = parents.map(function (p) {
+                var fs = [];
+                fields.forEach(function (f) {
+                    if (f.pValue == p.value) {
+                        fs.push(f);
+                    }
+                });
+                return {
+                    text: p.text,
+                    fields: fs
+                };
+            });
+            hasParent = true;
+        }
+        else {
+            // 可排序：一行三个
+            // 不可排序：一行四个
+            var gap = sortable ? 4 : 5;
+            var num = Math.ceil(fields.length / gap);
+            for (var i = 0; i < num; i++) {
+                var group = {
+                    fields: fields.slice(i * gap, (i + 1) * gap)
+                };
+                groups.push(group);
+            }
+            hasParent = false;
+        }
+        this.updater.set({
+            hasParent: hasParent,
+            sortable: sortable,
+            fields: fields,
+            groups: groups,
+            selectedItems: selectedItems,
+            limit: e.limit
+        });
+        this.viewOptions = e;
+    },
+    render: function () {
+        this.updater.digest({});
+    },
+    'toggle<change>': function (e) {
+        var that = this;
+        var checked = e.target.checked;
+        var value = e.params.value, text = e.params.text;
+        var updater = that.updater;
+        var fields = updater.get('fields');
+        for (var i = 0; i < fields.length; i++) {
+            if (fields[i].value == value) {
+                fields[i].checked = checked;
+                break;
+            }
+        }
+        var selectedItems = updater.get('selectedItems'), sortable = updater.get('sortable');
+        if (checked) {
+            if (sortable) {
+                // 可排序的时候在最后添加
+                selectedItems.push({
+                    value: value,
+                    text: text
+                });
+            }
+            else {
+                // 不可选择时按照列表顺序
+                selectedItems = fields.filter(function (item) {
+                    return item.checked;
+                });
+            }
+        }
+        else {
+            for (var i = 0; i < selectedItems.length; i++) {
+                if (selectedItems[i].value == value) {
+                    selectedItems.splice(i, 1);
+                    break;
+                }
+            }
+        }
+        updater.digest({
+            fields: fields,
+            selectedItems: selectedItems
+        });
+    },
+    'drag<dragfinish>': function (e) {
+        // 重排序之后的
+        var selectedItems = [];
+        var drags = $('#' + this.id + ' ._zs_gallery_mx-indics_index_-drag');
+        for (var i = 0, len = drags.length; i < len; i++) {
+            var drag = $(drags[i]);
+            selectedItems.push({
+                value: drag.data('value'),
+                text: drag.data('text')
+            });
+        }
+        this.updater.digest({
+            selectedItems: selectedItems
+        });
+    },
+    'clear<click>': function () {
+        var that = this;
+        var updater = that.updater;
+        var fields = updater.get('fields');
+        fields.forEach(function (field) {
+            field.checked = false;
+        });
+        updater.digest({
+            fields: fields,
+            selectedItems: []
+        });
+    },
+    check: function () {
+        event.preventDefault();
+        var selectedItems = this.updater.get('selectedItems');
+        var selected = selectedItems.map(function (item) {
+            return item.value;
+        });
+        return new Promise(function (resolve) {
+            // 此处返回promise，防止有接口提交校验等
+            resolve({
+                ok: (selected.length > 0),
+                msg: '请至少选择一个指标',
+                data: {
+                    selected: selected
+                }
+            });
+        });
+    }
+});
+
+});

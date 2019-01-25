@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.14',
+            time: '2019-01-26',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-table：表头宽度计算错误'
+                }]
+            }]
+        }, {
             ver: '1.2.13',
             time: '2019-01-17',
             subs: [{

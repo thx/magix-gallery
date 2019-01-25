@@ -49,7 +49,7 @@ module.exports = Magix.View.extend({
         me['@{toggle.hover.state}'](me['@{hover.index}'], 'add');
     },
 
-    '@{wrapper.get}' (table, id) {
+    '@{wrapper.get}'(table, id) {
         id = this.id + '_' + id;
         table.attr('id', id + '_table');
         let wrapper = table.parent('div');
@@ -57,7 +57,7 @@ module.exports = Magix.View.extend({
         return wrapper;
     },
 
-    '@{table.init}' () {
+    '@{table.init}'() {
         let me = this;
         // 左侧固定表格
         let leftTable = me['@{table.left}'];
@@ -67,16 +67,17 @@ module.exports = Magix.View.extend({
         if (leftTable) {
             // 计算左侧固定表格宽度
             me['@{left.table.sync.width}']();
-            
+
             // 滚动表格跨度
             let wrapper = me['@{table.main.wrapper}'];
             wrapper.addClass('@index.less:wrapper');
             wrapper.css('left', leftTable.outerWidth());
             me['@{main.table.sync.width}']();
-            
+
             // 表格分栏时同步两边表格的内容的高度
             me['@{table.sync.height}']();
         }
+
         // 根据内容宽度计算头部th的宽度
         me['@{table.sync.th.width}']();
 
@@ -92,11 +93,11 @@ module.exports = Magix.View.extend({
      * 分栏时模拟滚动条
      * windows下面无法鼠标左右滚动，需要模拟滚动条，滚定条吸底在可视范围之内
      */
-    '@{scroll.init}' () {
+    '@{scroll.init}'() {
         let me = this;
         let viewId = me.id;
         let leftWrapper = me['@{table.left.wrapper}'];
-        
+
         let inmain, watchInmainScroll;
         if (me['@{scroll.wrapper}']) {
             inmain = me['@{scroll.wrapper}'];
@@ -139,26 +140,26 @@ module.exports = Magix.View.extend({
                 me['@{scroll.left.back}'] = sl;
             }
             scrollbar.off('scroll', syncToMain).on('scroll', syncToMain);
-            mainWrapper.off('scroll', syncToLeft).on('scroll',syncToLeft);
+            mainWrapper.off('scroll', syncToLeft).on('scroll', syncToLeft);
             me.on('destroy', () => {
                 inmain.off('scroll.custombar', watchInmainScroll);
             });
             inmain.off('scroll.custombar', watchInmainScroll).on('scroll.custombar', watchInmainScroll);
 
             watchInmainScroll();
-            if(me['@{scroll.left.back}']){
+            if (me['@{scroll.left.back}']) {
                 mainWrapper[0].scrollLeft = me['@{scroll.left.back}'];
                 scrollbar[0].scrollLeft = me['@{scroll.left.back}'];
             }
-        }else{
+        } else {
             me['@{need.scroll}'] = false;
             let scrollbar = $('#' + viewId + '_scrollbar');
-            if(scrollbar && scrollbar.length){
+            if (scrollbar && scrollbar.length) {
                 scrollbar.remove();
             }
         }
     },
-    '@{sticky.init}' () {
+    '@{sticky.init}'() {
         let me = this;
 
         if (me['@{need.sticky}']) {
@@ -186,75 +187,77 @@ module.exports = Magix.View.extend({
     /**
      * 根据内容算头部
      */
-    '@{table.sync.th.width}' () {
+    '@{table.sync.th.width}'() {
         let me = this;
         let wrapFn = (table) => {
             let trs = table.find('tbody>tr');
-            let firstTds = table.find('tbody>tr:first-child>td');
-            let widthArr = [];
-            for (let i = 0; i < firstTds.length; i++) {
-                let td = firstTds.eq(i); 
-                let colspan = +td.attr('colspan') || 1;
-                let width = td.outerWidth();
-                for(let j = 0; j < colspan; j++){
-                    widthArr.push(width / colspan);
-                }
-            }
-
             let len = trs.length;
-            for(let i = 0; i < len; i++){
-                let tds = $(trs[i]).find('td');
-                let gap = 0;
-                for(let j = 0; j < tds.length; j++){
-                    let td = tds.eq(j); 
-                    let colspan = +td.attr('colspan') || 1;
-                    let width = 0;
-                    for(let k = 0; k < colspan; k++){
-                        width += widthArr[k + gap];
-                    }
-                    td.css('width', width);
-                    gap = gap + colspan;
-                }
-            }
-
             let headTrs = table.find('thead>tr');
-            if(len > 0){
+            if (len > 0) {
                 // 有tbody的时候
                 // 根据table的宽度计算
-                for(let i = 0; i < headTrs.length; i++){
-                    let ths = $(headTrs[i]).find('th');
+
+                let firstTds = table.find('tbody>tr:first-child>td');
+                let widthArr = [];
+                for (let i = 0; i < firstTds.length; i++) {
+                    let td = firstTds.eq(i);
+                    let colspan = +td.attr('colspan') || 1;
+                    let width = td.outerWidth();
+                    for (let j = 0; j < colspan; j++) {
+                        widthArr.push(width / colspan);
+                    }
+                }
+                for (let i = 0; i < len; i++) {
+                    let tds = $(trs[i]).find('td');
                     let gap = 0;
-                    for(let j = 0; j < ths.length; j++){
-                        let th = ths.eq(j); 
+                    for (let j = 0; j < tds.length; j++) {
+                        let td = tds.eq(j);
+                        let colspan = +td.attr('colspan') || 1;
+                        let width = 0;
+                        for (let k = 0; k < colspan; k++) {
+                            width += widthArr[k + gap];
+                        }
+                        td.css('width', width);
+                        gap = gap + colspan;
+                    }
+                }
+
+                if (headTrs.length > 0) {
+                    // 取第一行计算即可
+                    let ths = $(headTrs[0]).find('th');
+                    let gap = 0;
+                    for (let j = 0; j < ths.length; j++) {
+                        let th = ths.eq(j);
                         let colspan = +th.attr('colspan') || 1;
                         let width = 0;
-                        for(let k = 0; k < colspan; k++){
+                        for (let k = 0; k < colspan; k++) {
                             width += widthArr[k + gap];
                         }
                         th.css('width', width);
                         gap = gap + colspan;
                     }
                 }
-            }else{
+            } else {
                 // 没有tbody的时候，设置自己本身的宽度
                 let firstThs = table.find('thead>tr:first-child>th');
                 let thWidthArr = [];
                 for (let i = 0; i < firstThs.length; i++) {
-                    let td = firstThs.eq(i); 
+                    let td = firstThs.eq(i);
                     let colspan = +td.attr('colspan') || 1;
                     let width = td.outerWidth();
-                    for(let j = 0; j < colspan; j++){
+                    for (let j = 0; j < colspan; j++) {
                         thWidthArr.push(width / colspan);
                     }
                 }
-                for(let i = 0; i < headTrs.length; i++){
-                    let ths = $(headTrs[i]).find('th');
+                if (headTrs.length > 0) {
+                    // 取第一行计算即可
+                    let ths = $(headTrs[0]).find('th');
                     let gap = 0;
-                    for(let j = 0; j < ths.length; j++){
-                        let th = ths.eq(j); 
+                    for (let j = 0; j < ths.length; j++) {
+                        let th = ths.eq(j);
                         let colspan = +th.attr('colspan') || 1;
                         let width = 0;
-                        for(let k = 0; k < colspan; k++){
+                        for (let k = 0; k < colspan; k++) {
                             width += thWidthArr[k + gap];
                         }
                         th.css('width', width);
@@ -271,7 +274,7 @@ module.exports = Magix.View.extend({
         }
     },
 
-    '@{table.width.get}' (table) {
+    '@{table.width.get}'(table) {
         let ths = table.find('thead>tr:first-child>th');
         let width = table.attr('width');
         if (!width) {
@@ -299,7 +302,7 @@ module.exports = Magix.View.extend({
         return +width;
     },
 
-    '@{left.table.sync.width}' () {
+    '@{left.table.sync.width}'() {
         let me = this;
         let table = me['@{table.left}'];
         let wrapper = me['@{table.left.wrapper}'];
@@ -309,7 +312,7 @@ module.exports = Magix.View.extend({
         wrapper.css('width', table.outerWidth());
     },
 
-    '@{main.table.sync.width}' () {
+    '@{main.table.sync.width}'() {
         let me = this;
         let node = me['@{owner.node}'];
         let table = me['@{table.main}'];
@@ -335,7 +338,7 @@ module.exports = Magix.View.extend({
     /**
      * 表格分栏时同步两边表格的表头高度
      */
-    '@{table.sync.height}' () {
+    '@{table.sync.height}'() {
         let me = this;
         let table = me['@{table.main}'],
             leftTable = me['@{table.left}'];
@@ -375,22 +378,22 @@ module.exports = Magix.View.extend({
         }
     },
 
-    '$doc<htmlchanged>' (e) {
+    '$doc<htmlchanged>'(e) {
         let me = this;
         if (e.vId == me.owner.pId) {
             me['@{rechange}']();
         }
     },
 
-    '$doc<navslidend,tableresize>' (e) {
+    '$doc<navslidend,tableresize>'(e) {
         this['@{rechange}']();
     },
 
-    '$win<resize>' (e) {
+    '$win<resize>'(e) {
         this['@{rechange}']();
     },
 
-    '@{rechange}' () {
+    '@{rechange}'() {
         let me = this;
         let leftTable = me['@{table.left}'];
         if (leftTable) {
@@ -408,11 +411,11 @@ module.exports = Magix.View.extend({
         me['@{table.sync.th.width}']();
     },
 
-    '@{toggle.hover.state}' (index, action) {
+    '@{toggle.hover.state}'(index, action) {
         let me = this;
         let hoverClass = me['@{hover.class}'];
         let trs = me['@{table.main}'].find('tbody>tr');
-        if(trs.length == 0){
+        if (trs.length == 0) {
             // 表格被清空了
             return;
         }
@@ -454,7 +457,7 @@ module.exports = Magix.View.extend({
         }
     },
 
-    '$tbody>tr<mouseover>' (e) {
+    '$tbody>tr<mouseover>'(e) {
         let me = this;
         let hoverClass = me['@{hover.class}'];
         let target = e.eventTarget;
@@ -474,7 +477,7 @@ module.exports = Magix.View.extend({
         me['@{toggle.hover.state}'](index, 'add');
     },
 
-    '@{sync.sticky.pos}' (node, sticky, top) {
+    '@{sync.sticky.pos}'(node, sticky, top) {
         let me = this;
         let headerHeight = me['@{thead.height}'];
         let mainWrapper = me['@{table.main.wrapper}'],
@@ -525,7 +528,7 @@ module.exports = Magix.View.extend({
         }
     },
 
-    '@{sync.sticky.pos.custom}' (node) {
+    '@{sync.sticky.pos.custom}'(node) {
         let me = this;
         if (!me['@{need.sticky}']) {
             return;
@@ -542,7 +545,7 @@ module.exports = Magix.View.extend({
         }
     },
 
-    '@{sync.sticky.pos.win}' (node) {
+    '@{sync.sticky.pos.win}'(node) {
         let me = this;
         if (!me['@{need.sticky}']) {
             return;
@@ -562,7 +565,7 @@ module.exports = Magix.View.extend({
         }
     },
 
-    '@{sync.scroll.pos.custom}' (node) {
+    '@{sync.scroll.pos.custom}'(node) {
         let me = this;
         if (!me['@{need.scroll}']) {
             return;
@@ -592,7 +595,7 @@ module.exports = Magix.View.extend({
         })
     },
 
-    '@{sync.scroll.pos.win}' (node) {
+    '@{sync.scroll.pos.win}'(node) {
         let me = this;
         if (!me['@{need.scroll}']) {
             return;

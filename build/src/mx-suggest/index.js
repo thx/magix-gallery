@@ -1,1 +1,442 @@
-define("mx-suggest/index",["magix","$","../mx-medusa/util","../mx-monitor/index"],(t,a,r)=>{var s=t("magix"),e=t("$"),n=t("../mx-medusa/util"),l=t("../mx-monitor/index");s.applyStyle("_zs_galleryaw",'._zs_gallerylM{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}[mx-view*="mx-suggest/index"]{display:inline-block}._zs_gallerylN{position:relative;height:32px}'),s.applyStyle("_zs_galleryax","._zs_gallerylO{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}@keyframes _zs_galleryF{0%{transform:translateY(-20%);-ms-transform:translateY(-20%);-moz-transform:translateY(-20%);-webkit-transform:translateY(-20%);-o-transform:translateY(-20%);opacity:0}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0);opacity:1}}@-webkit-keyframes _zs_galleryF{0%{transform:translateY(-20%);-ms-transform:translateY(-20%);-moz-transform:translateY(-20%);-webkit-transform:translateY(-20%);-o-transform:translateY(-20%);opacity:0}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0);opacity:1}}@keyframes _zs_galleryG{0%{transform:translateY(20%);-ms-transform:translateY(20%);-moz-transform:translateY(20%);-webkit-transform:translateY(20%);-o-transform:translateY(20%);opacity:0}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0);opacity:1}}@-webkit-keyframes _zs_galleryG{0%{transform:translateY(20%);-ms-transform:translateY(20%);-moz-transform:translateY(20%);-webkit-transform:translateY(20%);-o-transform:translateY(20%);opacity:0}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0);opacity:1}}@keyframes _zs_galleryH{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(-15%);-ms-transform:translateY(-15%);-moz-transform:translateY(-15%);-webkit-transform:translateY(-15%);-o-transform:translateY(-15%)}75%{transform:translateY(15%);-ms-transform:translateY(15%);-moz-transform:translateY(15%);-webkit-transform:translateY(15%);-o-transform:translateY(15%)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}@-webkit-keyframes _zs_galleryH{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(-15%);-ms-transform:translateY(-15%);-moz-transform:translateY(-15%);-webkit-transform:translateY(-15%);-o-transform:translateY(-15%)}75%{transform:translateY(15%);-ms-transform:translateY(15%);-moz-transform:translateY(15%);-webkit-transform:translateY(15%);-o-transform:translateY(15%)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}@keyframes _zs_galleryI{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(2px);-ms-transform:translateY(2px);-moz-transform:translateY(2px);-webkit-transform:translateY(2px);-o-transform:translateY(2px)}50%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}75%{transform:translateY(-2px);-ms-transform:translateY(-2px);-moz-transform:translateY(-2px);-webkit-transform:translateY(-2px);-o-transform:translateY(-2px)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}@-webkit-keyframes _zs_galleryI{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(2px);-ms-transform:translateY(2px);-moz-transform:translateY(2px);-webkit-transform:translateY(2px);-o-transform:translateY(2px)}50%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}75%{transform:translateY(-2px);-ms-transform:translateY(-2px);-moz-transform:translateY(-2px);-webkit-transform:translateY(-2px);-o-transform:translateY(-2px)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}@keyframes _zs_galleryJ{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(-2px);-ms-transform:translateY(-2px);-moz-transform:translateY(-2px);-webkit-transform:translateY(-2px);-o-transform:translateY(-2px)}50%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}75%{transform:translateY(2px);-ms-transform:translateY(2px);-moz-transform:translateY(2px);-webkit-transform:translateY(2px);-o-transform:translateY(2px)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}@-webkit-keyframes _zs_galleryJ{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(-2px);-ms-transform:translateY(-2px);-moz-transform:translateY(-2px);-webkit-transform:translateY(-2px);-o-transform:translateY(-2px)}50%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}75%{transform:translateY(2px);-ms-transform:translateY(2px);-moz-transform:translateY(2px);-webkit-transform:translateY(2px);-o-transform:translateY(2px)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}._zs_gallerylP{display:none;position:absolute;top:100%;z-index:99;min-width:100%;max-height:300px;margin-top:10px;padding:8px 10px;border-radius:4px;background-color:#fff;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;overflow-y:auto;box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerylP ._zs_gallerylQ{margin:2px 0;padding:0 10px;cursor:pointer;height:26px;line-height:26px;border-radius:4px;white-space:nowrap;word-break:break-all}._zs_gallerylP ._zs_gallerylQ._zs_gallerylR,._zs_gallerylP ._zs_gallerylQ:hover{background-color:#f0f0f0}._zs_gallerylP ._zs_gallerylQ._zs_gallerylS,._zs_gallerylP ._zs_gallerylQ._zs_gallerylS:active,._zs_gallerylP ._zs_gallerylQ._zs_gallerylS:focus,._zs_gallerylP ._zs_gallerylQ._zs_gallerylS:hover{color:#4d7fff;background-color:#f6f9ff}._zs_gallerylP._zs_gallerylT{display:block;-webkit-animation:_zs_galleryF .25s ease-out;animation:_zs_galleryF .25s ease-out;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}"),r.exports=s.View.extend({tmpl:function(t,a,r,s,e,n,l,o){if(r||(r=t),!e){var m={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},f=/[&<>"'`]/g,i=function(t){return"&"+m[t]+";"};e=function(t){return""+(null==t?"":t)},s=function(t){return e(t).replace(f,i)}}if(!n){var _={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},p=function(t){return _[t]},d=/[!')(*]/g;n=function(t){return encodeURIComponent(e(t)).replace(d,p)}}if(!o){var u=/[\\'"]/g;o=function(t){return e(t).replace(u,"\\$&")}}l||(l=function(t,a,r,s){for(s=t[g];--s;)if(t[r=g+s]===a)return r;return t[r=g+t[g]++]=a,r});var g="",x="",c=t.placeholder,h=t.viewId,y=t.selectedText,z=t.show,Y=t.align,k=t.loading,w=t.list,b=t.selectedValue,v=t.emptyText;if(x+='<div mxv mxa="_zs_gallerydz:_" class="search-box"><i mxs="_zs_gallerydz:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="'+s(c)+'" autocomplete="off" id="'+s(h)+'_input" value="'+s(y)+'" mx-keyup="'+a+'__dv()" mx-paste="'+a+'__dv()" mx-focusin="'+a+'__dv()" mx-focusout="'+a+'__l()" mx-change="'+a+'__l()"/><ul class="_zs_gallerylP ',z&&(x+=" _zs_gallerylT "),x+='" style="',x+="right"==Y?"right: 0;":"left: 0;",x+='">',k)x+='<li mxs="_zs_gallerydz:a"><div class="loading" style="padding: 40px 0;"><span class="loading-anim"></span></div></li>';else{if(x+=" ",w.length>0){x+=" ";for(var P=0,T=w.length;P<T;P++){var j=w[P];x+='<li class="_zs_gallerylQ ',b+""==j.value+""&&(x+=" _zs_gallerylS "),x+='" mx-click="'+a+"__aa({item:'"+l(r,j)+"'})\">"+e(j.text)+"</li>"}x+=" "}else x+='<li mxa="_zs_gallerydz:a" class="text-center color-9">'+s(v)+"</li>";x+=" "}return x+="</ul></div>"},init:function(t){var a=this;a.updater.snapshot(),a.assign(t),l.__f(),a.on("destroy",function(){l.__g(a),l.__h(),a.__dq&&clearTimeout(a.__dq)})},assign:function(t){var a=this.updater.altered(),r=t.placeholder||"";r||(r=n.search),this["key.value"]=t.listValue||"value",this["key.text"]=t.listText||"text";var s=this.__dr(t.list||this.__ds);this.__ds=s;var l=t.item||{},o=t.selected||l.value||"",m=l.text||"";if(o)for(var f=0;f<s.length;f++)if(s[f].value==o){m=s[f].text;break}this.__dt=o;var i=(t.type||"text")+"";return"all"==i&&(i="text,value"),this.__du=i.split(","),this.updater.set({viewId:this.id,list:s,selectedValue:o,selectedText:m,placeholder:r,align:t.align||"left",show:!1,emptyText:n["empty.text"]}),this.__j=e("#"+this.id),this.__j.val(o),a||(a=this.updater.altered()),!!a&&(this.updater.snapshot(),!0)},__dr:function(t){var a=this["key.value"],r=this["key.text"],s=[];return t&&t.length>0&&(s="object"==typeof t[0]?t.map(function(t){return{value:t[a],text:t[r]}}):t.map(function(t){return{value:t,text:t}})),s},render:function(){this.updater.digest()},"__dv<focusin,keyup,paste>":function(t){t.stopPropagation();var a=this;a.__dq&&clearTimeout(a.__dq);for(var r=a.updater.get(),s=r.list,e=r.selectedValue,n=-1,l=0;l<s.length;l++)if(s[l].value==e){n=l;break}40==t.keyCode||38==t.keyCode?(40==t.keyCode&&(n+=1)>=s.length&&(n=0),38==t.keyCode&&(n-=1)<0&&(n=s.length-1),a.updater.digest({selectedValue:s[n].value})):13==t.keyCode?(n<0&&(n=0),a.__aa(s[n])):a.__dq=setTimeout(a.wrapAsync(function(){a.__n()}),300)},showLoading:function(){this.updater.digest({loading:!0})},hideLoading:function(){this.updater.digest({loading:!1})},update:function(t){if(this.updater.get("show")){this.__ds=this.__dr(t);var a=e("#"+this.id+"_input").val();this.updater.digest({list:this.__ds,selectedText:a}),l.__p(this)}},__k:function(t){return s.inside(t,this.id)},"__l<change,focusout>":function(t){t.stopPropagation()},__n:function(t){var a=this.__ds,r=e("#"+this.id+"_input").val(),s=(r+"").toLowerCase(),n=[],o=this.__du;a.forEach(function(t){var a=!1;o.forEach(function(r){(t[r]+"").toLowerCase().indexOf(s)>-1&&(a=!0)}),a&&n.push(t)}),this.updater.digest({list:n,selectedText:r,show:!0}),l.__p(this),this.__j.trigger({type:"show",keyword:r})},__m:function(){for(var t=this.updater.get().list,a=this.__dt+"",r="",s=0;s<t.length;s++){var e=t[s];if(e.value+""===a){r=e.text;break}}this.updater.digest({selectedValue:a,selectedText:r,show:!1}),l.__g(this),this.__j.trigger("focusout")},"__aa<click>":function(t){t.stopPropagation();var a=t.params.item;this.__aa(a)},__aa:function(t){var a=!(t.value==this.__dt),r=t.text,s=this.__dt=t.value;this.__m(),a&&(this.__j.val(s).trigger({type:"suggest",selected:{value:s,text:r}}),this.__j.trigger("change"))},__cd:function(t,a){this.__j.val(t).trigger({type:"suggest",selected:{value:t,text:a}})}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-suggest/index",["magix","$","../mx-medusa/util","../mx-monitor/index"],(require,exports,module)=>{
+/*Magix,$,I18n,Monitor*/
+
+var Magix = require("magix");
+var $ = require("$");
+var I18n = require("../mx-medusa/util");
+var Monitor = require("../mx-monitor/index");
+Magix.applyStyle("_zs_gallery_mx-suggest_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-suggest_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-suggest/index\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-suggest_index_-suggest-box {\n  position: relative;\n  height: 32px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-suggest_suggest_","/* @dependent: ./index.less */\n._zs_gallery_mx-suggest_suggest_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n/* 动画结束停在最后一帧 */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-suggest_suggest_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n/**\n* 渐显上拉动画\n*/\n@keyframes _zs_gallery_mx-suggest_suggest_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@keyframes _zs_gallery_mx-suggest_suggest_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n/**\n * 按钮中间的loading点动画\n */\n@keyframes _zs_gallery_mx-suggest_suggest_-loading-dots {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, 2px);\n    -ms-transform: translate(0, 2px);\n    -moz-transform: translate(0, 2px);\n    -webkit-transform: translate(0, 2px);\n    -o-transform: translate(0, 2px);\n  }\n  50% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, -2px);\n    -ms-transform: translate(0, -2px);\n    -moz-transform: translate(0, -2px);\n    -webkit-transform: translate(0, -2px);\n    -o-transform: translate(0, -2px);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-loading-dots {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, 2px);\n    -ms-transform: translate(0, 2px);\n    -moz-transform: translate(0, 2px);\n    -webkit-transform: translate(0, 2px);\n    -o-transform: translate(0, 2px);\n  }\n  50% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, -2px);\n    -ms-transform: translate(0, -2px);\n    -moz-transform: translate(0, -2px);\n    -webkit-transform: translate(0, -2px);\n    -o-transform: translate(0, -2px);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@keyframes _zs_gallery_mx-suggest_suggest_-loading-dots-rev {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -2px);\n    -ms-transform: translate(0, -2px);\n    -moz-transform: translate(0, -2px);\n    -webkit-transform: translate(0, -2px);\n    -o-transform: translate(0, -2px);\n  }\n  50% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, 2px);\n    -ms-transform: translate(0, 2px);\n    -moz-transform: translate(0, 2px);\n    -webkit-transform: translate(0, 2px);\n    -o-transform: translate(0, 2px);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-loading-dots-rev {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -2px);\n    -ms-transform: translate(0, -2px);\n    -moz-transform: translate(0, -2px);\n    -webkit-transform: translate(0, -2px);\n    -o-transform: translate(0, -2px);\n  }\n  50% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, 2px);\n    -ms-transform: translate(0, 2px);\n    -moz-transform: translate(0, 2px);\n    -webkit-transform: translate(0, 2px);\n    -o-transform: translate(0, 2px);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu {\n  display: none;\n  position: absolute;\n  top: 100%;\n  z-index: 99;\n  min-width: 100%;\n  max-height: 300px;\n  margin-top: 10px;\n  padding: 8px 10px;\n  border-radius: 4px;\n  background-color: #fff;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  overflow-y: auto;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item {\n  margin: 2px 0;\n  padding: 0 10px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n  white-space: nowrap;\n  word-break: break-all;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item:hover,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active:hover,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active:active,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active:focus {\n  color: #4d7fff;\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu._zs_gallery_mx-suggest_suggest_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-suggest_suggest_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-suggest_suggest_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', placeholder = $$.placeholder, viewId = $$.viewId, selectedText = $$.selectedText, show = $$.show, align = $$.align, loading = $$.loading, list = $$.list, selectedValue = $$.selectedValue, emptyText = $$.emptyText; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerydz:_" class="search-box"><i mxs="_zs_gallerydz:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+    $line = 4;
+    $art = '=placeholder';
+    ;
+    $p += ($expr = '<%=placeholder%>', $e(placeholder)) + '" autocomplete="off" id="';
+    $line = 6;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_input" value="';
+    $line = 7;
+    $art = '=selectedText';
+    ;
+    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '" mx-keyup="' + $viewId + '@{suggest}()" mx-paste="' + $viewId + '@{suggest}()" mx-focusin="' + $viewId + '@{suggest}()" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{stop}()"/><ul class="_zs_gallery_mx-suggest_suggest_-suggest-menu ';
+    $line = 14;
+    $art = 'if show';
+    ;
+    $expr = '<%if (show) {%>';
+    if (show) {
+        ;
+        $p += ' _zs_gallery_mx-suggest_suggest_-open ';
+        $line = 14;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" style="';
+    $line = 14;
+    $art = 'if (align==\'right\')';
+    ;
+    $expr = '<%if (align == \'right\') {%>';
+    if (align == 'right') {
+        ;
+        $p += 'right: 0;';
+        $line = 14;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += 'left: 0;';
+        $line = 14;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '">';
+    $line = 15;
+    $art = 'if loading';
+    ;
+    $expr = '<%if (loading) {%>';
+    if (loading) {
+        ;
+        $p += '<li mxs="_zs_gallerydz:a"><div class="loading" style="padding: 40px 0;"><span class="loading-anim"></span></div></li>';
+        $line = 19;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' ';
+        $line = 20;
+        $art = 'if (list.length > 0)';
+        ;
+        $expr = '<%if (list.length > 0) {%>';
+        if (list.length > 0) {
+            ;
+            $p += ' ';
+            $line = 21;
+            $art = 'each list as item';
+            ;
+            $expr = '<%for (var $art_iurxaelsnpd$art_i = 0, $art_cwmqlmx$art_c = list.length; $art_iurxaelsnpd$art_i < $art_cwmqlmx$art_c; $art_iurxaelsnpd$art_i++) {            var item = list[$art_iurxaelsnpd$art_i]%>';
+            for (var $art_iurxaelsnpd$art_i = 0, $art_cwmqlmx$art_c = list.length; $art_iurxaelsnpd$art_i < $art_cwmqlmx$art_c; $art_iurxaelsnpd$art_i++) {
+                var item = list[$art_iurxaelsnpd$art_i];
+                $p += '<li class="_zs_gallery_mx-suggest_suggest_-suggest-item ';
+                $line = 22;
+                $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';
+                ;
+                $expr = '<%if ((selectedValue + \'\') === (item.value + \'\')) {%>';
+                if ((selectedValue + '') === (item.value + '')) {
+                    ;
+                    $p += ' _zs_gallery_mx-suggest_suggest_-active ';
+                    $line = 22;
+                    $art = '/if';
+                    ;
+                    $expr = '<%}%>';
+                }
+                ;
+                $p += '" mx-click="' + $viewId + '@{select}({item:\'';
+                $line = 23;
+                $art = '@item';
+                ;
+                $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})">';
+                $line = 24;
+                $art = '!item.text';
+                ;
+                $p += ($expr = '<%!item.text%>', $n(item.text)) + '</li>';
+                $line = 26;
+                $art = '/each';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 27;
+            $art = 'else';
+            ;
+            $expr = '<%}    else {%>';
+        }
+        else {
+            ;
+            $p += '<li mxa="_zs_gallerydz:a" class="text-center color-9">';
+            $line = 28;
+            $art = '=emptyText';
+            ;
+            $p += ($expr = '<%=emptyText%>', $e(emptyText)) + '</li>';
+            $line = 29;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 30;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</ul></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-suggest/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var that = this;
+        //初始化时保存一份当前数据的快照
+        that.updater.snapshot();
+        //该处是否可以由magix自动调用
+        that.assign(extra);
+        Monitor['@{setup}']();
+        that.on('destroy', function () {
+            Monitor['@{remove}'](that);
+            Monitor['@{teardown}']();
+            if (that['@{suggest.delay.timer}']) {
+                clearTimeout(that['@{suggest.delay.timer}']);
+            }
+        });
+    },
+    assign: function (data) {
+        var that = this;
+        //赋值前先进行数据变化的检测,首次assign是在init方法中调用,后续的调用是magix自动调用,这个检测主要用于在首次调用后,magix自动调用前有没有进行数据的更新
+        var altered = that.updater.altered();
+        //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
+        var placeholder = data.placeholder || '';
+        if (!placeholder) {
+            placeholder = I18n['search'];
+        }
+        that['key.value'] = data.listValue || 'value';
+        that['key.text'] = data.listText || 'text';
+        // 多种类型搜索的时候
+        var list = that['@{wrap}']((data.list || that['@{list.bak}']));
+        that['@{list.bak}'] = list;
+        // selectedValue：当前选中的value值
+        // item：完整selected对象
+        // 优先级selectedValue > item
+        var item = data.item || {};
+        var selectedValue = data.selected || item.value || '';
+        var selectedText = item.text || '';
+        if (selectedValue) {
+            for (var index = 0; index < list.length; index++) {
+                if (list[index].value == selectedValue) {
+                    selectedText = list[index].text;
+                    break;
+                }
+            }
+        }
+        // 上下键切换缓存
+        that['@{value.bak}'] = selectedValue;
+        // 在哪些值中搜索关键词
+        var type = (data.type || 'text') + '';
+        if (type == 'all') {
+            type = 'text,value';
+        }
+        that['@{search.type}'] = type.split(',');
+        that.updater.set({
+            viewId: that.id,
+            list: list,
+            selectedValue: selectedValue,
+            selectedText: selectedText,
+            placeholder: placeholder,
+            align: data.align || 'left',
+            show: false,
+            emptyText: I18n['empty.text']
+        });
+        that['@{owner.node}'] = $('#' + that.id);
+        that['@{owner.node}'].val(selectedValue);
+        //如果数据没变化,则设置新的数据后再次检测
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        //如果有变化,则再保存当前的快照,然后返回true告诉magix当前view需要更新
+        if (altered) {
+            that.updater.snapshot();
+            return true;
+        }
+        //如果数据没变化,则告诉magix当前view不用更新
+        return false;
+    },
+    '@{wrap}': function (origin) {
+        var listValue = this['key.value'], listText = this['key.text'];
+        var list = [];
+        if (origin && (origin.length > 0)) {
+            if (typeof origin[0] === 'object') {
+                // 本身是个对象
+                list = origin.map(function (item) {
+                    return {
+                        value: item[listValue],
+                        text: item[listText]
+                    };
+                });
+            }
+            else {
+                // 直接value列表
+                list = origin.map(function (value) {
+                    return {
+                        value: value,
+                        text: value
+                    };
+                });
+            }
+        }
+        return list;
+    },
+    render: function () {
+        this.updater.digest();
+    },
+    '@{suggest}<focusin,keyup,paste>': function (e) {
+        e.stopPropagation();
+        var that = this;
+        if (that['@{suggest.delay.timer}']) {
+            clearTimeout(that['@{suggest.delay.timer}']);
+        }
+        var data = that.updater.get();
+        var list = data.list, selectedValue = data.selectedValue;
+        var idx = -1;
+        for (var index = 0; index < list.length; index++) {
+            if (list[index].value == selectedValue) {
+                idx = index;
+                break;
+            }
+        }
+        if (e.keyCode == 40 || e.keyCode == 38) {
+            // 下移 || 上移
+            if (e.keyCode == 40) {
+                // 下移
+                idx += 1;
+                if (idx >= list.length) {
+                    idx = 0;
+                }
+            }
+            if (e.keyCode == 38) {
+                // 下移
+                idx -= 1;
+                if (idx < 0) {
+                    idx = list.length - 1;
+                }
+            }
+            that.updater.digest({
+                selectedValue: list[idx].value
+            });
+        }
+        else if (e.keyCode == 13) {
+            // 未选中时，回车默认第一个，已选中的情况下还是当前选项
+            if (idx < 0) {
+                idx = 0;
+            }
+            that['@{select}'](list[idx]);
+        }
+        else {
+            that['@{suggest.delay.timer}'] = setTimeout(that.wrapAsync(function () {
+                that['@{show}']();
+            }), 300);
+        }
+    },
+    showLoading: function () {
+        this.updater.digest({
+            loading: true
+        });
+    },
+    hideLoading: function () {
+        this.updater.digest({
+            loading: false
+        });
+    },
+    /**
+     * 外部更新list可选项
+     */
+    update: function (list) {
+        var that = this;
+        var show = that.updater.get('show');
+        if (show) {
+            that['@{list.bak}'] = that['@{wrap}'](list);
+            // 不需要再处理，直接返回什么，展示什么
+            var selectedText = $('#' + that.id + '_input').val();
+            that.updater.digest({
+                list: that['@{list.bak}'],
+                selectedText: selectedText
+            });
+            Monitor['@{add}'](that);
+        }
+    },
+    '@{inside}': function (node) {
+        return Magix.inside(node, this.id);
+    },
+    '@{stop}<change,focusout>': function (e) {
+        e.stopPropagation();
+    },
+    '@{show}': function (ignore) {
+        var that = this;
+        var source = that['@{list.bak}'];
+        var selectedText = $('#' + that.id + '_input').val();
+        var lowerText = (selectedText + '').toLowerCase();
+        var list = [];
+        var types = that['@{search.type}'];
+        source.forEach(function (item) {
+            var has = false;
+            types.forEach(function (type) {
+                if ((item[type] + '').toLowerCase().indexOf(lowerText) > -1) {
+                    has = true;
+                }
+            });
+            if (has) {
+                list.push(item);
+            }
+        });
+        that.updater.digest({
+            list: list,
+            selectedText: selectedText,
+            show: true
+        });
+        Monitor['@{add}'](that);
+        that['@{owner.node}'].trigger({
+            type: 'show',
+            keyword: selectedText
+        });
+    },
+    '@{hide}': function () {
+        var that = this;
+        var data = that.updater.get();
+        var list = data.list, selectedValue = that['@{value.bak}'] + '', selectedText = '';
+        // 上下键切换未选择
+        for (var index = 0; index < list.length; index++) {
+            var item = list[index];
+            if ((item.value + '') === selectedValue) {
+                selectedText = item.text;
+                break;
+            }
+        }
+        that.updater.digest({
+            selectedValue: selectedValue,
+            selectedText: selectedText,
+            show: false
+        });
+        Monitor['@{remove}'](that);
+        // 双向绑定
+        that['@{owner.node}'].trigger('focusout');
+    },
+    '@{select}<click>': function (e) {
+        e.stopPropagation();
+        var item = e.params.item;
+        this['@{select}'](item);
+    },
+    '@{select}': function (item) {
+        var that = this;
+        var notice = !(item.value == that['@{value.bak}']);
+        var selectedText = item.text, selectedValue = that['@{value.bak}'] = item.value;
+        that['@{hide}']();
+        if (notice) {
+            that['@{owner.node}'].val(selectedValue).trigger({
+                type: 'suggest',
+                selected: {
+                    value: selectedValue,
+                    text: selectedText
+                }
+            });
+            // 双向绑定
+            that['@{owner.node}'].trigger('change');
+        }
+    },
+    '@{fire}': function (selectedValue, selectedText) {
+        var that = this;
+        that['@{owner.node}'].val(selectedValue).trigger({
+            type: 'suggest',
+            selected: {
+                value: selectedValue,
+                text: selectedText
+            }
+        });
+    }
+});
+
+});
