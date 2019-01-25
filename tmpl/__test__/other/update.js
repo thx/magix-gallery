@@ -11,7 +11,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'bug',
                 subs: [{
-                    title: 'mx-table：表头宽度计算错误'
+                    title: 'mx-table：表头多行分组时宽度计算错误'
                 }]
             }]
         }, {
