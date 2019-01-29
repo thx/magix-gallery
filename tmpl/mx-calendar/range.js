@@ -35,7 +35,7 @@ let RangeDate = Magix.View.extend({
             dates.startStr = startStr = GetDefaultDate(min, max, formatter);
             dates.start = DateParse(startStr);
         }
-        if(!dates.start){
+        if (!dates.start) {
             dates.start = DateParse(dates.startStr);
         }
 
@@ -44,7 +44,7 @@ let RangeDate = Magix.View.extend({
             dates.endStr = endStr = GetDefaultDate(min, max, formatter);
             dates.end = DateParse(endStr);
         }
-        if(!dates.end){
+        if (!dates.end) {
             dates.end = DateParse(dates.endStr);
         }
 
@@ -67,15 +67,15 @@ let RangeDate = Magix.View.extend({
         ops.cancelText = I18n['dialog.cancel'];
 
         ops.endMinFn = (curStart, curMin) => {
-            if(!curMin){
+            if (!curMin) {
                 return curStart;
             }
             let s = new Date(curStart),
                 m = new Date(curMin);
 
-            if(s.getTime() > m.getTime()){
+            if (s.getTime() > m.getTime()) {
                 return curStart;
-            }else{
+            } else {
                 return curMin
             }
         }
@@ -232,10 +232,11 @@ let RangeDate = Magix.View.extend({
                 endStr = dates.endStr,
                 start = dates.start,
                 end = dates.end;
-            //1. 对比的情况下，可能保留了非对比情况的不限快捷方式选项，如果结束时间为不限，切换为开始时间
-            //2. 不对比选择连续时间的时候，可能有对比切换的结果，如果结束时间小于开始时间，结束时间替换为开始时间
+            // 修正结束时间：
+            //  1. 对比的情况下，可能保留了非对比情况的不限快捷方式选项，如果结束时间为不限，切换为开始时间
+            //  2. 不对比选择连续时间的时候，可能有对比切换的结果，如果结束时间小于开始时间，结束时间替换为开始时间
             if (((endStr == ForeverStr) && vs) ||
-                (!vs && !vsSingle && (end.getTime() < start.getTime()))) {
+                (!vs && !vsSingle && (endStr != ForeverStr) && (end.getTime() < start.getTime()))) {
                 endStr = startStr;
                 end = new Date(DateFormat(endStr, formatter));
             }

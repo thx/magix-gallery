@@ -39,6 +39,7 @@ module.exports = {
     "calendar.vs": "vs",
     "calendar.wednesday": "Wed",
     "calendar.yesterday": "Yesterday",
+    "calendar.tomorrow": "Tomorrow",
     "dropdown.all.custom": "All",
     "dropdown.all.default": "All",
     "dropdown.search": "Search",

@@ -155,7 +155,7 @@ module.exports = {
         }, 'clearfix')}>`;
 
         // 标题，提示，icon
-        tmpl += '<div style="float:left; line-height: 32px;">';
+        tmpl += '<div style="float:left; height: 32px; line-height: 32px;">';
         if (attrsKV.icon) {
             tmpl += `<span style="margin-right: 4px; color: #ccc;">${attrsKV.icon}</span>`;
         }

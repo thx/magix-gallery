@@ -178,11 +178,13 @@ let Rangepicker = Magix.View.extend({
             centetTip: vs ? I18n['calendar.vs'] : I18n['calendar.to']
         }
         if (vs) {
-            let today = DateFormat(GetOffsetDate(0), formatter);
-            let yesterday = DateFormat(GetOffsetDate(-1), formatter);
+            let today = DateFormat(GetOffsetDate(0), formatter),
+                yesterday = DateFormat(GetOffsetDate(-1), formatter),
+                tomorrow = DateFormat(GetOffsetDate(1), formatter);
             let map = {
-                today: I18n['calendar.today'],
-                yesterday: I18n['calendar.yesterday']
+                [today]: I18n['calendar.today'],
+                [yesterday]: I18n['calendar.yesterday'],
+                [tomorrow]: I18n['calendar.tomorrow']
             };
             result.startStr = map[startStr] || startStr;
             result.endStr = map[endStr] || endStr;
