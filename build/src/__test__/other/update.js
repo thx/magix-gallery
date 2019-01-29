@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_igwlqyownyh$art_i = 0, $art_cxljtxant$art_c = list.length; $art_igwlqyownyh$art_i < $art_cxljtxant$art_c; $art_igwlqyownyh$art_i++) {    var item = list[$art_igwlqyownyh$art_i]%>';
-    for (var $art_igwlqyownyh$art_i = 0, $art_cxljtxant$art_c = list.length; $art_igwlqyownyh$art_i < $art_cxljtxant$art_c; $art_igwlqyownyh$art_i++) {
-        var item = list[$art_igwlqyownyh$art_i];
+    $expr = '<%for (var $art_ivmpstyl$art_i = 0, $art_crsguibifj$art_c = list.length; $art_ivmpstyl$art_i < $art_crsguibifj$art_c; $art_ivmpstyl$art_i++) {    var item = list[$art_ivmpstyl$art_i]%>';
+    for (var $art_ivmpstyl$art_i = 0, $art_crsguibifj$art_c = list.length; $art_ivmpstyl$art_i < $art_crsguibifj$art_c; $art_ivmpstyl$art_i++) {
+        var item = list[$art_ivmpstyl$art_i];
         $p += '<div mxa="_zs_galleryg:_" class="_zs_gallery___test___other_update_-update"><div mxa="_zs_galleryg:a" class="_zs_gallery___test___other_update_-ver pl20"><span mxa="_zs_galleryg:b" class="_zs_gallery___test___other_update_-vt">';
         $line = 4;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_ixlttlsmx$art_i = 0, $art_objvujdrtxzs$art_obj = item.subs, $art_cmhxskwz$art_c = $art_objvujdrtxzs$art_obj.length; $art_ixlttlsmx$art_i < $art_cmhxskwz$art_c; $art_ixlttlsmx$art_i++) {        var s = $art_objvujdrtxzs$art_obj[$art_ixlttlsmx$art_i]%>';
-        for (var $art_ixlttlsmx$art_i = 0, $art_objvujdrtxzs$art_obj = item.subs, $art_cmhxskwz$art_c = $art_objvujdrtxzs$art_obj.length; $art_ixlttlsmx$art_i < $art_cmhxskwz$art_c; $art_ixlttlsmx$art_i++) {
-            var s = $art_objvujdrtxzs$art_obj[$art_ixlttlsmx$art_i];
+        $expr = '<%for (var $art_iuhhbofhi$art_i = 0, $art_objqqqaeje$art_obj = item.subs, $art_cnameyahmho$art_c = $art_objqqqaeje$art_obj.length; $art_iuhhbofhi$art_i < $art_cnameyahmho$art_c; $art_iuhhbofhi$art_i++) {        var s = $art_objqqqaeje$art_obj[$art_iuhhbofhi$art_i]%>';
+        for (var $art_iuhhbofhi$art_i = 0, $art_objqqqaeje$art_obj = item.subs, $art_cnameyahmho$art_c = $art_objqqqaeje$art_obj.length; $art_iuhhbofhi$art_i < $art_cnameyahmho$art_c; $art_iuhhbofhi$art_i++) {
+            var s = $art_objqqqaeje$art_obj[$art_iuhhbofhi$art_i];
             $p += '<div mxa="_zs_galleryg:e" class="pl20">';
             $line = 10;
             $art = 'if s.type == \'notice\'';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
             $line = 31;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_ijzcdqvarr$art_i = 0, $art_objlfrkttzir$art_obj = s.subs, $art_cofbmayl$art_c = $art_objlfrkttzir$art_obj.length; $art_ijzcdqvarr$art_i < $art_cofbmayl$art_c; $art_ijzcdqvarr$art_i++) {            var ss = $art_objlfrkttzir$art_obj[$art_ijzcdqvarr$art_i]%>';
-            for (var $art_ijzcdqvarr$art_i = 0, $art_objlfrkttzir$art_obj = s.subs, $art_cofbmayl$art_c = $art_objlfrkttzir$art_obj.length; $art_ijzcdqvarr$art_i < $art_cofbmayl$art_c; $art_ijzcdqvarr$art_i++) {
-                var ss = $art_objlfrkttzir$art_obj[$art_ijzcdqvarr$art_i];
+            $expr = '<%for (var $art_inznellxxe$art_i = 0, $art_objbtrdqj$art_obj = s.subs, $art_cqhggbftn$art_c = $art_objbtrdqj$art_obj.length; $art_inznellxxe$art_i < $art_cqhggbftn$art_c; $art_inznellxxe$art_i++) {            var ss = $art_objbtrdqj$art_obj[$art_inznellxxe$art_i]%>';
+            for (var $art_inznellxxe$art_i = 0, $art_objbtrdqj$art_obj = s.subs, $art_cqhggbftn$art_c = $art_objbtrdqj$art_obj.length; $art_inznellxxe$art_i < $art_cqhggbftn$art_c; $art_inznellxxe$art_i++) {
+                var ss = $art_objbtrdqj$art_obj[$art_inznellxxe$art_i];
                 $p += '<div mxa="_zs_galleryg:l" class="pl20"><div mxa="_zs_galleryg:m" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                 $line = 33;
                 $art = '!ss.title';
@@ -137,9 +137,9 @@ module.exports = Magix.View.extend({
                     $line = 40;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_ifqlyyfh$art_i = 0, $art_objmsvhygb$art_obj = ss.subs, $art_cjmjsbrro$art_c = $art_objmsvhygb$art_obj.length; $art_ifqlyyfh$art_i < $art_cjmjsbrro$art_c; $art_ifqlyyfh$art_i++) {                    var sss = $art_objmsvhygb$art_obj[$art_ifqlyyfh$art_i]%>';
-                    for (var $art_ifqlyyfh$art_i = 0, $art_objmsvhygb$art_obj = ss.subs, $art_cjmjsbrro$art_c = $art_objmsvhygb$art_obj.length; $art_ifqlyyfh$art_i < $art_cjmjsbrro$art_c; $art_ifqlyyfh$art_i++) {
-                        var sss = $art_objmsvhygb$art_obj[$art_ifqlyyfh$art_i];
+                    $expr = '<%for (var $art_iatdiaqgkw$art_i = 0, $art_objhxcapdnd$art_obj = ss.subs, $art_clizlrlti$art_c = $art_objhxcapdnd$art_obj.length; $art_iatdiaqgkw$art_i < $art_clizlrlti$art_c; $art_iatdiaqgkw$art_i++) {                    var sss = $art_objhxcapdnd$art_obj[$art_iatdiaqgkw$art_i]%>';
+                    for (var $art_iatdiaqgkw$art_i = 0, $art_objhxcapdnd$art_obj = ss.subs, $art_clizlrlti$art_c = $art_objhxcapdnd$art_obj.length; $art_iatdiaqgkw$art_i < $art_clizlrlti$art_c; $art_iatdiaqgkw$art_i++) {
+                        var sss = $art_objhxcapdnd$art_obj[$art_iatdiaqgkw$art_i];
                         $p += '<div mxa="_zs_galleryg:o" class="_zs_gallery___test___other_update_-line _zs_gallery___test___other_update_-dot">';
                         $line = 41;
                         $art = '!sss';
@@ -191,6 +191,17 @@ catch (ex) {
 } return $p; },
     render: function () {
         var list = [{
+                ver: '1.2.15',
+                time: '2019-01-29',
+                subs: [{
+                        type: 'bug',
+                        subs: [{
+                                title: 'mx-table：表头单元格包含rowspan+colspan时，实际位置计算方式更新。<a href="#!/table/index2" class="color-brand">查看详情</a>'
+                            }, {
+                                title: 'mx-calendar：修复结束时间不限时，开始时间不可修改。'
+                            }]
+                    }]
+            }, {
                 ver: '1.2.14',
                 time: '2019-01-26',
                 subs: [{

@@ -6,6 +6,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.15',
+            time: '2019-01-29',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-table：表头单元格包含rowspan+colspan时，实际位置计算方式更新。<a href="#!/table/index2" class="color-brand">查看详情</a>'
+                }, {
+                    title: 'mx-calendar：修复结束时间不限时，开始时间不可修改。'
+                }]
+            }]
+        }, {
             ver: '1.2.14',
             time: '2019-01-26',
             subs: [{
