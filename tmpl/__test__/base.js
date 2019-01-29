@@ -67,6 +67,10 @@ module.exports = Magix.View.extend({
                     name: '表单样式',
                     path: '/form/style',
                     icon: '&#xe62c;'
+                }, {
+                    name: '异常情况记录',
+                    path: '/form/error',
+                    icon: '&#xe611;'
                 }]
             }, {
                 name: '表格（mixins）',
