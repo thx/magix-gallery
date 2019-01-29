@@ -12,25 +12,32 @@
                         <th rowspan="2">单个1</th>
                         <th rowspan="2">单个2</th>
                         <th class="field-group" colspan="2">
-                            <div class="group-name">组1</div>
+                            <div class="group-name">第一组</div>
                         </th>
                         <th class="field-group" colspan="3">
-                            <div class="group-name">组2</div>
+                            <div class="group-name">第二组</div>
+                        </th>
+                        <th class="field-group" colspan="4">
+                            <div class="group-name">第三组</div>
                         </th>
                     </tr>
                     <tr>
-                        <th class="field-item">组1-1</th>
-                        <th class="field-item">组1-2</th>
-                        <th class="field-item">组2-1</th>
-                        <th class="field-item">组2-2</th>
-                        <th class="field-item">组2-3</th>
+                        <th class="field-item">点击率</th>
+                        <th class="field-item">点击单价</th>
+                        <th class="field-item">进店访客量</th>
+                        <th class="field-item">千次展现成本</th>
+                        <th class="field-item">展现量</th>
+                        <th class="field-item">消耗</th>
+                        <th class="field-item">收藏加购成本</th>
+                        <th class="field-item">回搜成本</th>
+                        <th class="field-item">成交订单金额</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{for(let j=0;j<3;j++)}}
                     <tr class="{{= (j==2) ? 'last-tr' : ''}}">
-                        {{for(let i=0;i<7;i++)}}
-                        <td>{{=i}}</td>
+                        {{for(let i=0;i<11;i++)}}
+                        <td>{{=(i * 5000)}}</td>
                         {{/for}}
                     </tr>
                     {{/for}}

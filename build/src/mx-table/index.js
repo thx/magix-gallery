@@ -176,6 +176,9 @@ module.exports = Magix.View.extend({
     },
     /**
      * 根据内容算头部
+     * 内容存在时，取表单第一行计算整体内容宽度
+     * 组件只考虑了表单内容colspan的情况，未考虑rowspan情况
+     * thead存在分组的情况，rowspan+colspan，用tbody内容的宽度去同步表头的宽度
      */
     '@{table.sync.th.width}': function () {
         var me = this;
@@ -183,11 +186,11 @@ module.exports = Magix.View.extend({
             var trs = table.find('tbody>tr');
             var len = trs.length;
             var headTrs = table.find('thead>tr');
+            var widthArr = [];
             if (len > 0) {
                 // 有tbody的时候
                 // 根据table的宽度计算
                 var firstTds = table.find('tbody>tr:first-child>td');
-                var widthArr = [];
                 for (var i = 0; i < firstTds.length; i++) {
                     var td = firstTds.eq(i);
                     var colspan = +td.attr('colspan') || 1;
@@ -210,49 +213,70 @@ module.exports = Magix.View.extend({
                         gap = gap + colspan;
                     }
                 }
-                if (headTrs.length > 0) {
-                    // 取第一行计算即可
-                    var ths = $(headTrs[0]).find('th');
-                    var gap = 0;
-                    for (var j = 0; j < ths.length; j++) {
-                        var th = ths.eq(j);
-                        var colspan = +th.attr('colspan') || 1;
-                        var width = 0;
-                        for (var k = 0; k < colspan; k++) {
-                            width += widthArr[k + gap];
-                        }
-                        th.css('width', width);
-                        gap = gap + colspan;
-                    }
-                }
             }
             else {
                 // 没有tbody的时候，设置自己本身的宽度
                 var firstThs = table.find('thead>tr:first-child>th');
-                var thWidthArr = [];
                 for (var i = 0; i < firstThs.length; i++) {
-                    var td = firstThs.eq(i);
-                    var colspan = +td.attr('colspan') || 1;
-                    var width = td.outerWidth();
+                    var th = firstThs.eq(i);
+                    var colspan = +th.attr('colspan') || 1;
+                    var width = th.outerWidth();
                     for (var j = 0; j < colspan; j++) {
-                        thWidthArr.push(width / colspan);
+                        widthArr.push(width / colspan);
                     }
                 }
-                if (headTrs.length > 0) {
-                    // 取第一行计算即可
-                    var ths = $(headTrs[0]).find('th');
-                    var gap = 0;
-                    for (var j = 0; j < ths.length; j++) {
-                        var th = ths.eq(j);
-                        var colspan = +th.attr('colspan') || 1;
-                        var width = 0;
-                        for (var k = 0; k < colspan; k++) {
-                            width += thWidthArr[k + gap];
+            }
+            // 同步宽度到表头
+            // 二维数组
+            var rows = [];
+            // 计算同一行的x位置
+            for (var i = 0; i < headTrs.length; i++) {
+                var ths = $(headTrs[i]).find('th');
+                var gap = 0, row = [];
+                for (var j = 0; j < ths.length; j++) {
+                    var td = ths.eq(j);
+                    var colspan = +td.attr('colspan') || 1, rowspan = +td.attr('rowspan') || 1;
+                    row.push({
+                        x: gap,
+                        y: i,
+                        colspan: colspan,
+                        rowspan: rowspan,
+                        left: td.offset().left //用于判断位置
+                    });
+                    gap = gap + colspan;
+                }
+                rows.push(row);
+            }
+            //计算 rowspan对后边行的影响
+            for (var rowIndex = 0; rowIndex < rows.length - 1; rowIndex++) {
+                var row = rows[rowIndex];
+                for (var cellIndex = 0; cellIndex < row.length; cellIndex++) {
+                    var curCell = row[cellIndex];
+                    if (curCell.rowspan > 1) {
+                        // 后面行，left<当前cell的位置进行移动
+                        for (var nextRowIndex = rowIndex + 1; (nextRowIndex < rows.length) && (curCell.rowspan > nextRowIndex - rowIndex); nextRowIndex++) {
+                            var nextRow = rows[nextRowIndex];
+                            for (var nextCellIndex = 0; nextCellIndex < nextRow.length; nextCellIndex++) {
+                                var nextCell = nextRow[nextCellIndex];
+                                if (nextCell.left > curCell.left) {
+                                    nextCell.x += curCell.colspan;
+                                }
+                            }
                         }
-                        th.css('width', width);
-                        gap = gap + colspan;
                     }
                 }
+            }
+            for (var i = 0; i < headTrs.length; i++) {
+                var ths = $(headTrs[i]).find('th');
+                for (var j = 0; j < ths.length; j++) {
+                    var width = 0;
+                    var cell = rows[i][j];
+                    for (var k = 0; k < cell.colspan; k++) {
+                        width += widthArr[cell.x + k];
+                    }
+                    ths.eq(j).css('width', width);
+                }
+                rows.push(row);
             }
         };
         wrapFn(me['@{table.main}']);

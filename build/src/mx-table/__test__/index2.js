@@ -3,9 +3,11 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-table/__test__/index2",["magix","$","mx-title/second","./7","./6"],(require,exports,module)=>{
+define("mx-table/__test__/index2",["magix","$","__test__/subs","mx-title/second","./cal","./7","./6"],(require,exports,module)=>{
 /*Magix,$*/
+require("__test__/subs");
 require("mx-title/second");
+require("./cal");
 require("./7");
 require("./6");
 var Magix = require("magix");
@@ -22,8 +24,32 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryd4:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryd4:a" mx-view="mx-table/__test__/7"></div><div mxs="_zs_galleryd4:b" mx-view="mx-table/__test__/6"></div>';
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryd5:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $line = 4;
+    $art = '@[{\n        name: \'表头实际位置计算\',\n        key: viewId + \'_cal\'\n    }, {\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'普通table\',\n            key: viewId + \'_demo7\',\n        },{\n            name: \'左右分列\',\n            key: viewId + \'_demo6\',\n        }]\n    }]';
+    ;
+    $p += ($expr = '<%@[{            name: \'表头实际位置计算\',            key: viewId + \'_cal\'        }, {            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'普通table\',                    key: viewId + \'_demo7\'                }, {                    name: \'左右分列\',                    key: viewId + \'_demo6\'                }]        }]%>', $i($$ref, [{ name: '表头实际位置计算', key: viewId + '_cal' }, { name: '使用示例', key: viewId + '_demo', subs: [{ name: '普通table', key: viewId + '_demo7' }, { name: '左右分列', key: viewId + '_demo6' }] }])) + '"></div><div id="';
+    $line = 19;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_cal" mx-view="mx-title/second?content=%E8%A1%A8%E5%A4%B4%E5%AE%9E%E9%99%85%E4%BD%8D%E7%BD%AE%E8%AE%A1%E7%AE%97&tip=%E8%8E%B7%E5%8F%96%E5%8D%95%E5%85%83%E6%A0%BC%E5%AE%9E%E9%99%85%E4%BD%8D%E7%BD%AE%7Bx%2Cy%7D"></div><div mxs="_zs_galleryd5:a" mx-view="mx-table/__test__/cal" class="pr20 mb40"></div><div id="';
+    $line = 24;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryd5:b" class="clearfix mb20"><div mx-view="mx-table/__test__/7" id="';
+    $line = 26;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div><div mx-view="mx-table/__test__/6" id="';
+    $line = 27;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -34,7 +60,9 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
-        this.updater.digest();
+        this.updater.digest({
+            viewId: this.id
+        });
     }
 });
 
