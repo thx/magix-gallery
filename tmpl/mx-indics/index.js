@@ -141,7 +141,7 @@ module.exports = Magix.View.extend({
         };
 
         that.mxModal('@./dialog', viewOptions, {
-            width: 800,
+            width: 820,
             closable: false,
             card: false
         });

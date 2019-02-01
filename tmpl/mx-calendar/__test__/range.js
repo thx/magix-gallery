@@ -81,6 +81,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
+            key: 'formatter',
+            desc: 'date格式',
+            type: 'string',
+            def: 'YYYY-MM-dd'
+        }, {
             key: 'align',
             desc: '日历与目标的对齐方式，left，right',
             type: 'string',
@@ -173,11 +178,11 @@ module.exports = Magix.View.extend({
             desc: '切换日期，切换对比时会触发',
             params: [{
                 key: 'start',
-                desc: '开始时间，YYYY-MM-DD( hh:mm:ss)',
+                desc: '开始时间，包含时分秒',
                 type: 'string'
             }, {
                 key: 'end',
-                desc: '结束时间，YYYY-MM-DD( hh:mm:ss)',
+                desc: '结束时间，包含时分秒',
                 type: 'string'
             }, {
                 key: 'vs',

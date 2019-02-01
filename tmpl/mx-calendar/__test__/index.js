@@ -39,13 +39,18 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
+            key: 'formatter',
+            desc: 'date格式',
+            type: 'string',
+            def: 'YYYY-MM-dd'
+        }, {
             key: 'align',
             desc: '日历与目标的对齐方式，可选left和right',
             type: 'string',
             def: 'left'
         }, {
             key: 'prefix',
-            desc: '提示文案前缀，展示为prefix：YYYY-MM-DD',
+            desc: '提示文案前缀，展示为prefix：date time',
             type: 'string',
             def: ''
         }, {
@@ -65,7 +70,7 @@ module.exports = Magix.View.extend({
             desc: '切换日期时会触发',
             params: [{
                 key: 'date',
-                desc: '当前日期，格式：YYYY-MM-DD',
+                desc: '当前日期（不包含时分秒）',
                 type: 'string'
             }, {
                 key: 'time',

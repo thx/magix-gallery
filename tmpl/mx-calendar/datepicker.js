@@ -93,7 +93,6 @@ module.exports = Magix.View.extend({
     '@{date.picked}<change>'(e) {
         let that = this;
         e.stopPropagation();
-
         let dateInfo = that.updater.get('dateInfo');
         dateInfo.selected = e.date + (e.time ? ' ' + e.time : '');
         that.updater.digest({

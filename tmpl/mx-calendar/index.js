@@ -103,14 +103,15 @@ module.exports = Magix.View.extend({
         let ops = me['@{extra}'];
         ops = ops || {};
         let forever = (ops.selected == ForeverStr);
+        let formatter = ops.formatter;
 
         // 最大最小不关心时分秒，时分秒的大小不限制
         let max, min;
         if (ops.max) {
-            max = new Date(DateFormat(ops.max, 'YYYY-MM-dd') + ' 23:59:59');
+            max = new Date(DateFormat(ops.max, formatter) + ' 23:59:59');
         }
         if (ops.min) {
-            min = new Date(DateFormat(ops.min, 'YYYY-MM-dd') + ' 00:00:00');
+            min = new Date(DateFormat(ops.min, formatter) + ' 00:00:00');
         }
         let today = new Date();
 
@@ -119,7 +120,7 @@ module.exports = Magix.View.extend({
         }
         let selected = DateParse(ops.selected);
         let timeValue = DateFormat(selected, 'hh:mm:ss'),
-            dateValue = DateFormat(selected, ops.formatter);
+            dateValue = DateFormat(selected, formatter);
         let types = ParseEnablePanels(ops.dateType);
         let weekStart = ops.weekStart | 0;
         let timeType = ops.timeType;
@@ -128,6 +129,7 @@ module.exports = Magix.View.extend({
             return +w;
         });
         me.updater.set({
+            formatter,
             types,
             showYear: 0,
             showMonth: 0,
@@ -178,13 +180,14 @@ module.exports = Magix.View.extend({
         let me = this,
             data = me.updater;
         selected = DateParse(selected);
+        let formatter = data.get('formatter');
         if (selected) {
             data.set({
                 year: selected.getFullYear(),
                 month: selected.getMonth() + 1,
                 selectedYear: selected.getFullYear(),
                 selectedMonth: selected.getMonth() + 1,
-                selected: forever ? '' : DateFormat(selected)
+                selected: forever ? '' : DateFormat(selected, formatter)
             });
         }
     },
@@ -253,13 +256,14 @@ module.exports = Magix.View.extend({
         let min = data.get('min');
         let selected = data.get('selected');
         let day, date, formatDay;
-        let today = DateFormat(Today);
+        let formatter = data.get('formatter');
+        let today = DateFormat(Today, formatter);
         for (i = 1; i <= startOffset; i++) {
             day = preDays - (startOffset - i);
             date = new Date(year, month - 2, day);
             tds.push({
                 month: month - 1,
-                full: DateFormat(date),
+                full: DateFormat(date, formatter),
                 day: day,
                 otherMonth: true,
                 disabled: DateDisabled(date, min, max, disabledWeeks)
@@ -267,7 +271,7 @@ module.exports = Magix.View.extend({
         }
         for (i = 1; i <= days; i++) {
             date = new Date(year, month - 1, i);
-            formatDay = DateFormat(date);
+            formatDay = DateFormat(date, formatter);
             tds.push({
                 today: formatDay == today,
                 selected: formatDay == selected,
@@ -290,7 +294,7 @@ module.exports = Magix.View.extend({
                 month: month + 1,
                 day: day,
                 otherMonth: true,
-                full: DateFormat(date),
+                full: DateFormat(date, formatter),
                 disabled: DateDisabled(date, min, max, disabledWeeks)
             });
             if ((i + 1) % 7 === 0) {

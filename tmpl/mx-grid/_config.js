@@ -141,7 +141,7 @@ module.exports = {
         let { content, attrsKV } = i;
 
         let styles = [
-            'padding: 8px 24px;'
+            'padding: 10px 24px;'
         ];
         if ((attrsKV.border + '') !== 'none') {
             styles.push('border-bottom: 1px solid #e6e6e6;');
@@ -159,7 +159,7 @@ module.exports = {
         if (attrsKV.icon) {
             tmpl += `<span style="margin-right: 4px; color: #ccc;">${attrsKV.icon}</span>`;
         }
-        tmpl += `<span style="font-size: 20px; margin-right: 16px;">${attrsKV.content}</span>`;
+        tmpl += `<span style="font-size: 16px; margin-right: 16px;">${attrsKV.content}</span>`;
         if (attrsKV.tip) {
             tmpl += `<span style="margin-right: 16px; color: #999;">${attrsKV.tip}</span>`;
         }

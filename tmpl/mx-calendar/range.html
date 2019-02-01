@@ -14,7 +14,8 @@
                 <!-- 结束时间禁止操作的时候限制最大可选为直接时间endDisabled -->
                 <mx-calendar.datepicker {{if vs}} class="vs1" {{/if}} 
                     min="{{=min}}" 
-                    max="{{=(endDisabled?dates.endStr:max)}}" 
+                    max="{{=(endDisabled?dates.endStr:max)}}"
+                    formatter="{{=formatter}}" 
                     disabled-weeks="{{@disabledWeeks}}"
                     time-type="{{=timeType}}"  
                     date-type="{{=dateType}}" 
@@ -31,6 +32,7 @@
                 <mx-calendar.datepicker {{if vs}} class="vs2" {{/if}}
                     min="{{=(!vs?endMinFn(dates.startStr,min):min)}}"
                     max="{{=max}}" 
+                    formatter="{{=formatter}}" 
                     disabled-weeks="{{@disabledWeeks}}"
                     time-type="{{=timeType}}"  
                     date-type="{{=dateType}}" 
