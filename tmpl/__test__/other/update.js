@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.16',
+            time: '2019-02-01',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-calendar：日历默认格式YYYY-MM-dd，safari不支持YYYY-MM-dd，支持自定义formatter。'
+                }]
+            }]
+        }, {
             ver: '1.2.15',
             time: '2019-01-29',
             subs: [{

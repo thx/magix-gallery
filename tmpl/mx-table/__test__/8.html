@@ -81,60 +81,60 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-table sticky="true" class="mb40"&gt;
-&lt;table class="table" left="true" width="400"&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th&gt;固定1&lt;/th&gt;
-            &lt;th&gt;固定2&lt;/th&gt;
-            &lt;th&gt;固定3&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &#123;&#123;each list as item index&#125;&#125;
+    &lt;table class="table" left="true" width="400"&gt;
+        &lt;thead&gt;
             &lt;tr&gt;
-                &lt;td&gt;&#123;&#123;=item.fixed1&#125;&#125;&lt;/td&gt;
-                &lt;td&gt;&#123;&#123;=item.fixed2&#125;&#125;&lt;/td&gt;
-                &lt;td&gt;&#123;&#123;=item.fixed3&#125;&#125;&lt;/td&gt;
+                &lt;th&gt;固定1&lt;/th&gt;
+                &lt;th&gt;固定2&lt;/th&gt;
+                &lt;th&gt;固定3&lt;/th&gt;
             &lt;/tr&gt;
-        &#123;&#123;/each&#125;&#125;
-    &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;!-- 滚动列 --&gt;
-&lt;table class="table" center="true" width="1200"&gt; 
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &#123;&#123;each groups as group&#125;&#125;
-                &lt;th class="field-group" 
-                    colspan="&#123;&#123;=group.fields.length&#125;&#125;"&gt;
-                    &lt;div class="group-name"&gt;
-                        &#123;&#123;=group.name&#125;&#125;
-                    &lt;/div&gt;
-                &lt;/th&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;each list as item index&#125;&#125;
+                &lt;tr&gt;
+                    &lt;td&gt;&#123;&#123;=item.fixed1&#125;&#125;&lt;/td&gt;
+                    &lt;td&gt;&#123;&#123;=item.fixed2&#125;&#125;&lt;/td&gt;
+                    &lt;td&gt;&#123;&#123;=item.fixed3&#125;&#125;&lt;/td&gt;
+                &lt;/tr&gt;
             &#123;&#123;/each&#125;&#125;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &#123;&#123;each groups as group&#125;&#125;
-                &#123;&#123;each group.fields as field&#125;&#125;
-                &lt;th class="field-item"&gt;
-                    指标&#123;&#123;=field&#125;&#125;
-                    &lt;span sort-trigger="&#123;&#123;=field&#125;&#125;"&gt;&lt;/span&gt;
-                &lt;/th&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;!-- 滚动列 --&gt;
+    &lt;table class="table" center="true" width="1200"&gt; 
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;each groups as group&#125;&#125;
+                    &lt;th class="field-group" 
+                        colspan="&#123;&#123;=group.fields.length&#125;&#125;"&gt;
+                        &lt;div class="group-name"&gt;
+                            &#123;&#123;=group.name&#125;&#125;
+                        &lt;/div&gt;
+                    &lt;/th&gt;
                 &#123;&#123;/each&#125;&#125;
-            &#123;&#123;/each&#125;&#125;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &#123;&#123;each list as item index&#125;&#125;
-            &lt;tr class="&#123;&#123;= (index+1==list.length) ? 'last-tr' : ''&#125;&#125;"&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
                 &#123;&#123;each groups as group&#125;&#125;
                     &#123;&#123;each group.fields as field&#125;&#125;
-                    &lt;td&gt;&#123;&#123;=format(item[field])&#125;&#125;&lt;/td&gt;
+                    &lt;th class="field-item"&gt;
+                        指标&#123;&#123;=field&#125;&#125;
+                        &lt;span sort-trigger="&#123;&#123;=field&#125;&#125;"&gt;&lt;/span&gt;
+                    &lt;/th&gt;
                     &#123;&#123;/each&#125;&#125;
                 &#123;&#123;/each&#125;&#125;
             &lt;/tr&gt;
-        &#123;&#123;/each&#125;&#125;
-    &lt;/tbody&gt;
-&lt;/table&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;each list as item index&#125;&#125;
+                &lt;tr class="&#123;&#123;= (index+1==list.length) ? 'last-tr' : ''&#125;&#125;"&gt;
+                    &#123;&#123;each groups as group&#125;&#125;
+                        &#123;&#123;each group.fields as field&#125;&#125;
+                        &lt;td&gt;&#123;&#123;=format(item[field])&#125;&#125;&lt;/td&gt;
+                        &#123;&#123;/each&#125;&#125;
+                    &#123;&#123;/each&#125;&#125;
+                &lt;/tr&gt;
+            &#123;&#123;/each&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
 &lt;/mx-table&gt;</pre>
         </div>
         <div class="eg-desc half half-right">
@@ -146,7 +146,7 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Sort = require('@../sort');
+let Sort = require('@../gallery/mx-table/sort');
 let $ = require('$');
 
 module.exports = Magix.View.extend(&#123;

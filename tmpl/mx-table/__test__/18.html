@@ -16,10 +16,10 @@
             <div class="mb5 pl15">
                 <pre class="tip-content mb5">
 &lt;th class="field-item"&gt;
-指标&#123;&#123;=field&#125;&#125;
-&lt;span sort-trigger="&#123;&#123;=field&#125;&#125;"
-    order-field-key="&#123;&#123;=orderFieldKey&#125;&#125;"
-    order-by-key="&#123;&#123;=orderByKey&#125;&#125;"&gt;&lt;/span&gt;
+    指标&#123;&#123;=field&#125;&#125;
+    &lt;span sort-trigger="&#123;&#123;=field&#125;&#125;"
+        order-field-key="&#123;&#123;=orderFieldKey&#125;&#125;"
+        order-by-key="&#123;&#123;=orderByKey&#125;&#125;"&gt;&lt;/span&gt;
 &lt;/th&gt;
                 </pre>
                 <div class="mb5">最终路由上显示为：</div>
@@ -91,7 +91,7 @@
         </mx-table>
     </div>
     <div class="clearfix">
-        <div class="eg-desc half">
+        <div class="eg-desc half half-left">
             <div class="eg-title">HTML Code</div>
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
@@ -157,7 +157,7 @@
 &lt;/mx-table&gt;
             </pre>
         </div>
-        <div class="eg-desc half half-right">
+        <div class="eg-desc half">
             <div class="eg-title">JS Code</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
@@ -166,7 +166,7 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Sort = require('@../sort');
+let Sort = require('@../gallery/mx-table/sort');
 let $ = require('$');
 let Router = Magix.Router;
 module.exports = Magix.View.extend(&#123;
