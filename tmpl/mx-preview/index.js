@@ -23,30 +23,34 @@ module.exports = Magix.View.extend({
         // 不配置默认展示为文字
         let format = +extra.format || 5;
 
-        // 真实展示尺寸
-        let width = +extra.width,
-            height = +extra.height;
-        if (!width) {
-            // 没有宽度的时候，高度给自适应
-            width = 640;
-            height = 0;
+        // 2：图片
+        // 4：视频
+        // 5：文字链
+        // 3：flash
+        // 9：flash
+        // 10：html，iframe展示
+        // 11：直播（封面图）也是图片
+        // 23：套图（大图+小图）
+        let map = {
+            'image': [2, 11],
+            'flash': [3, 9],
+            'taotu': [23],
+            'video': [4],
+            'text': [5],
+            'iframe': [10]
+        }
+        // 映射成语义方便处理
+        let type;
+        for(let t in map){
+            if(map[t].indexOf(format) > -1){
+                type = t;
+            }
         }
 
-        // 预览尺寸范围
-        let maxWidth = +extra.maxWidth || 100,
-            maxHeight = +extra.maxHeight || 100;
-
         let url = extra.url,
-            clickUrl = extra.clickUrl;
-        let scale, frameWidth, frameHeight;
-        let xiaotuUrl = extra.xiaotuUrl,
+            xiaotuUrl = extra.xiaotuUrl, //套图大小图
             datuUrl = extra.datuUrl;
-        if (format == 10) {
-            // 创意模板，iframe必须要有高度
-            scale = Math.min(+maxWidth / +width, +maxHeight / +height);
-            frameWidth = width * scale;
-            frameHeight = height * scale;
-        } else if (format == 23) {
+        if (type == 'taotu') {
             // 套图，预览取小图
             url = extra.xiaotuUrl;
         }
@@ -54,18 +58,15 @@ module.exports = Magix.View.extend({
         that.updater.digest({
             viewId: that.id,
             preview: (extra.preview + '' !== 'false'), //是否需要预览
-            format,
+            type,
             url,
-            clickUrl,
-            width,
-            height,
-            maxWidth,
-            maxHeight,
-            frameWidth,
-            frameHeight,
-            scale,
             xiaotuUrl,
-            datuUrl
+            datuUrl, 
+            clickUrl: extra.clickUrl, //图点击跳转外链，没有可不配
+            width: +extra.width, // 预览展示尺寸，图片文案可不配置，其余必填
+            height: +extra.height,
+            maxWidth: +extra.maxWidth || 100, // 缩略图尺寸，默认100
+            maxHeight: +extra.maxHeight || 100
         });
 
         if(window.IntersectionObserver){
@@ -89,36 +90,33 @@ module.exports = Magix.View.extend({
 
     thumbnail() {
         let data = this.updater.get();
-        let format = data.format,
+        let type = data.type,
             url = data.url,
-            width = data.width,
-            height = data.height,
             maxWidth = data.maxWidth,
-            maxHeight = data.maxHeight,
-            clickUrl = data.clickUrl;
+            maxHeight = data.maxHeight;
 
         let thumbnail = '';
-        switch (format) {
-            case 2: // 2：图片
-            case 11: //11：直播（封面图）
-            case 23: //23：套图（大图+小图）
+        switch (type) {
+            case 'image': 
+            case 'taotu':
                 thumbnail = `<img class="@index.less:img" src="${url}"/>`;
                 break;
-            case 3: // 3：flash
-            case 9: // 9：flash
+            case 'flash': 
                 thumbnail = 'flash已下线';
-            case 4: //视频
+            case 'video': 
                 thumbnail = `<video src="${url}" class="@index.less:video"></video>`;
                 break;
-            case 5: // 5：文字链
+            case 'text': 
                 thumbnail = $(`<div class="@index.less:text" style="max-width: ${maxWidth}px;"></div>`);
-                // 纯文案展示
+                // 纯文案展示（包括可执行脚本）
                 thumbnail[0].innerText = url;
                 break;
-            case 10: //html 模板
-                let frameWidth = data.frameWidth,
-                    frameHeight = data.frameHeight,
-                    scale = data.scale;
+            case 'iframe':
+                let width = data.width,
+                    height = data.height;
+                let scale = Math.min(maxWidth / width, maxHeight / height);
+                let frameWidth = width * scale;
+                    frameHeight = height * scale;
                 thumbnail = `<div style="width: ${frameWidth}px; height: ${frameHeight}px; overflow: hidden">
                                 <iframe src="${url}" class="@index.less:iframe"
                                     style="transform:scale(${scale})"
@@ -133,6 +131,8 @@ module.exports = Magix.View.extend({
                 break;
         }
 
+        // 跳转外链
+        let clickUrl = data.clickUrl;
         if (clickUrl) {
             thumbnail = $(thumbnail).wrap(`<a href="${clickUrl}" target="_blank" rel="noopener noreferrer"></a>`);
         }
@@ -151,23 +151,22 @@ module.exports = Magix.View.extend({
             clearTimeout(that.timer);
 
             let data = that.updater.get();
-            let target = $(e.eventTarget);
-            let offset = target.offset();
-            let format = data.format,
-                url = data.url,
-                datuUrl = data.datuUrl, //套图的大图展示，特殊处理
-                clickUrl = data.clickUrl,
-                width = +data.width + 20,
-                height = +data.height + 20;
-
-            let left = offset.left + target.outerWidth() + 10,
-                top = offset.top;
-            if (!url || !format || (format == 3 || format == 9)) {
-                // flash不预览
+            let type = data.type,
+                url = data.url;
+            if (!url || !type || (type == 'flash')) {
+                // 不预览的情况
+                // 1. 没有内容
+                // 2. 不支持的type类型
+                // 3. flash不预览
                 return;
             }
 
-            let next = () => {
+            let next = (width, height) => {
+                let target = $(e.eventTarget);
+                let offset = target.offset();
+                let left = offset.left + target.outerWidth() + 10,
+                    top = offset.top;
+
                 // 对最大范围进行修正，不超过屏幕可视范围
                 let win = $(window);
                 let winWidth = win.width(),
@@ -193,23 +192,27 @@ module.exports = Magix.View.extend({
                 }
 
                 let inner = '';
-                switch (+format) {
-                    case 2: // 图片
-                    case 11: //直播，显示为封面图
+                switch (type) {
+                    case 'image': 
                         inner = $(`<img src="${url}" class="@index.less:preview-inner"/>`);
                         break;
-                    case 4: // 视频
+                    case 'taotu': // 套图 
+                        inner = $(`<div class="clearfix">
+                            <img src="${url}" class="fl"/>    
+                            <img src="${data.datuUrl}" class="fr"/>
+                        </div>`);
+                        break;
+                    case 'video': 
                         inner = $(`<video src="${url}" class="@index.less:preview-inner"
                             controls="controls" autoplay="autoplay"></video>`);
                         break;
-                    case 5: // 文字链
+                    case 'text':
                         inner = $(`<div class="@index.less:preview-inner"></div>`);
-                        // 纯文案展示
                         inner[0].innerText = url;
                         break;
-                    case 10: // 创意模板
-                        let originWidth = +data.width,
-                            originHeight = +data.height;
+                    case 'iframe': 
+                        let originWidth = data.width,
+                            originHeight = data.height;
                         let scale = (width - 20) / originWidth;
                         inner = $(`<div class="@index.less:preview-inner">
                             <iframe src="${url}"
@@ -223,12 +226,12 @@ module.exports = Magix.View.extend({
                                 border="0"></iframe>
                         </div>`);
                         break;
-                    case 23: // 套图 
-                        inner = $(`<div class="clearfix">
-                            <img src="${url}" class="fl mr10"/>    
-                            <img src="${datuUrl}" class="fl"/>
-                        </div>`);
-                        break;
+                }
+
+                // 跳转外链
+                let clickUrl = data.clickUrl;
+                if (clickUrl) {
+                    inner.wrap(`<a href="${clickUrl}" target="_blank" rel="noopener noreferrer"></a>`);
                 }
 
                 let floatingLayer = $('#pic_preview_' + that.id);
@@ -236,29 +239,43 @@ module.exports = Magix.View.extend({
                     floatingLayer = $('<div id="pic_preview_' + that.id + '" class="@index.less:pic-preview"></div>').appendTo('body');
                 }
                 floatingLayer.empty().append(inner);
-                if (clickUrl) {
-                    // 只有文字和图片支持配置外链
-                    inner.wrap(`<a href="${clickUrl}" target="_blank" rel="noopener noreferrer"></a>`);
-                }
                 floatingLayer.css({
                     width,
-                    height: !data.height ? 'auto' : height,
+                    height: !height ? 'auto' : height, //文案没有高度
                     left,
                     top,
                     display: 'block'
                 })
             }
-            if (!datuUrl) {
-                next();
-            } else {
+
+            if(type == 'taotu'){
+                //套图的大图展示，特殊处理
                 //注意onload 放在img.src 前面用来兼容IE
                 let img = new Image();
                 img.onload = function () {
-                    width = width + 10 + this.width;
-                    height = Math.max(height, (this.height + 20));
-                    next();
+                    let width = data.width + 10 + this.width + 20;
+                    let height = Math.max(data.height, this.height) + 20;
+                    next(width, height);
                 }
-                img.src = datuUrl;
+                img.src = data.datuUrl;
+            }else{
+                if(data.width && data.height){
+                    // 预留间隔
+                    next(data.width + 20, data.height + 20);
+                }else{
+                    // 只有图片和文案类型可不配置，其余必填
+                    // 没有配置预览宽高
+                    if(type == 'text'){
+                        // 文案默认宽度600，高度自适应
+                        next(600, 0);
+                    }else if(type == 'image'){
+                        let img = new Image();
+                        img.onload = function () {
+                            next(this.width + 20, this.height + 20);
+                        }
+                        img.src = url;
+                    }
+                }
             }
         }
     },

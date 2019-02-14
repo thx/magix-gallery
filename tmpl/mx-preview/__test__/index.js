@@ -6,12 +6,23 @@ module.exports = Magix.View.extend({
     render() {
         let options = [{
             key: 'format',
-            desc: '展示类型，不配置类型默认展示为纯文本<br>2：图片<br>4：视频<br>5：文字链<br>10：html<br>23：套图',
+            desc: `<pre>展示类型，不配置类型默认展示为纯文本
+2：图片
+4：视频
+5：文字链
+10：html
+23：套图
+</pre>`,
             type: 'number',
-            def: 5
+            def: '5'
         }, {
             key: 'url',
-            desc: '展示内容<br>2：图片链接<br>4：视频链接<br>5：文本<br>10：html链接',
+            desc: `<pre>展示内容
+2：图片链接
+4：视频链接
+5：文本内容
+10：html链接
+</pre>`,
             type: 'string',
             def: ''
         }, {
@@ -21,14 +32,19 @@ module.exports = Magix.View.extend({
             def: 'true'
         }, {
             key: 'width',
-            desc: '预览实际宽度<br>会根据当前屏幕的可视范围进行修正',
+            desc: `<pre>预览实际宽度
+会根据当前屏幕的可视范围进行等比例修正
+<div class="color-brand">除图片和文本类型外，其余情况下必填</div>
+</pre>`,
             type: 'number',
-            def: 640
+            def: ''
         }, {
             key: 'height',
-            desc: '预览实际高度',
+            desc: `<pre>预览实际高度
+<div class="color-brand">除图片和文本类型外，其余情况下必填</div>
+</pre>`,
             type: 'number',
-            def: '自适应'
+            def: ''
         }, {
             key: 'max-width',
             desc: '缩略图最大宽度',
@@ -51,7 +67,7 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'click-url',
-            desc: '预览内容可配置点击外链的format<br>2：图片<br>4：视频<br>5：文字链<br>23：套图',
+            desc: '点击预览内容的跳转外链',
             type: 'string',
             def: ''
         }]

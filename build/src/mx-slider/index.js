@@ -1,1 +1,424 @@
-define("mx-slider/index",["magix","$","../mx-dragdrop/index"],(_,l,a)=>{var e=_("magix"),r=_("$"),s=_("../mx-dragdrop/index");e.applyStyle("_zs_galleryl",'._zs_galleryld{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}[mx-view*="mx-slider/index"],[mx-view*="mx-slider/range"]{position:relative;display:inline-block;outline:0;cursor:pointer}[mx-view*="mx-slider/index"] ._zs_galleryle,[mx-view*="mx-slider/range"] ._zs_galleryle{position:absolute;top:0;right:-74px;width:64px}[mx-view*="mx-slider/index"][mx-disabled],[mx-view*="mx-slider/range"][mx-disabled]{cursor:not-allowed}[mx-view*="mx-slider/index"][mx-disabled] ._zs_galleryaK ._zs_galleryaL ._zs_galleryaN,[mx-view*="mx-slider/index"][mx-disabled] ._zs_galleryaK ._zs_galleryaL ._zs_galleryaN:before,[mx-view*="mx-slider/index"][mx-disabled] ._zs_galleryaK ._zs_galleryaL ._zs_galleryaM,[mx-view*="mx-slider/range"][mx-disabled] ._zs_galleryaK ._zs_galleryaL ._zs_galleryaN,[mx-view*="mx-slider/range"][mx-disabled] ._zs_galleryaK ._zs_galleryaL ._zs_galleryaN:before,[mx-view*="mx-slider/range"][mx-disabled] ._zs_galleryaK ._zs_galleryaL ._zs_galleryaM{background-color:#ccc}._zs_galleryaK{line-height:28px}._zs_galleryaK ._zs_galleryaL{display:inline-block;position:relative;border-radius:2px;background:#f0f0f0}._zs_galleryaK ._zs_galleryaL ._zs_galleryaM{position:absolute;border-radius:2px;left:0;background-color:#cddbff}._zs_galleryaK ._zs_galleryaL ._zs_galleryaM._zs_gallerylf{height:4px;top:0}._zs_galleryaK ._zs_galleryaL ._zs_galleryaM._zs_gallerylg{width:4px;bottom:0}._zs_galleryaK ._zs_galleryaL ._zs_galleryaN{position:absolute;width:8px;height:8px;border-radius:50%;background-color:#4d7fff;outline:0}._zs_galleryaK ._zs_galleryaL ._zs_galleryaN:before{content:" ";position:absolute;top:-4px;left:-4px;width:16px;height:16px;border-radius:50%;background-color:#4d7fff;opacity:.3}._zs_galleryaK ._zs_galleryaL ._zs_galleryaN._zs_gallerylh{top:-2px}._zs_galleryaK ._zs_galleryaL ._zs_galleryaN._zs_galleryli{left:-2px}._zs_galleryaK ._zs_galleryaL ._zs_gallerylj{position:absolute;font-size:12px;pointer-events:none;line-height:normal}._zs_galleryaK ._zs_galleryaL ._zs_gallerylj._zs_gallerylk{top:-23px}._zs_galleryaK ._zs_galleryaL ._zs_gallerylj._zs_galleryll{right:12px}._zs_galleryaK ._zs_galleryaL ._zs_gallerylm,._zs_galleryaK ._zs_galleryaL ._zs_galleryln,._zs_galleryaK ._zs_galleryaL ._zs_gallerylo,._zs_galleryaK ._zs_galleryaL ._zs_gallerylp{position:absolute;font-size:12px;pointer-events:none;line-height:normal}._zs_galleryaK ._zs_galleryaL ._zs_gallerylm{left:0;top:9px}._zs_galleryaK ._zs_galleryaL ._zs_galleryln{right:0;top:9px}._zs_galleryaK ._zs_galleryaL ._zs_gallerylo{bottom:0;left:12px}._zs_galleryaK ._zs_galleryaL ._zs_gallerylp{top:0;left:12px}._zs_galleryaK ._zs_galleryaL._zs_gallerylq{height:4px;top:-2px}._zs_galleryaK ._zs_galleryaL._zs_gallerylr{width:4px;left:8px}._zs_galleryaK ._zs_galleryls{margin-left:3px;color:#999}');a.exports=e.View.extend({tmpl:function(_,l,a,e,r,s,i,t){if(a||(a=_),!r){var n={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},d=/[&<>"'`]/g,g=function(_){return"&"+n[_]+";"};r=function(_){return""+(null==_?"":_)},e=function(_){return r(_).replace(d,g)}}if(!s){var o={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},y=function(_){return o[_]},p=/[!')(*]/g;s=function(_){return encodeURIComponent(r(_)).replace(p,y)}}if(!t){var z=/[\\'"]/g;t=function(_){return r(_).replace(z,"\\$&")}}var c="",x=_.vertical,u=_.height,f=_.width,h=_.min,m=_.max,v=_.needInput,b=_.viewId,w=_.disabled;return c+='<div mxa="_zs_galleryda:_" class="_zs_galleryaK"><span class="_zs_galleryaL ',c+=x?" _zs_gallerylr ":" _zs_gallerylq ",c+='" mx-contextmenu="'+l+'__H()" style="',c+=x?"height:"+e(u):"width:"+e(f),c+='px"><span class="_zs_galleryaM ',c+=x?" _zs_gallerylg ":" _zs_gallerylf ",c+='"></span><span class="_zs_galleryaN ',c+=x?" _zs_galleryli ":" _zs_gallerylh ",c+='" mx-mousedown="'+l+'__dj()"></span><span class="_zs_gallerylj ',c+=x?" _zs_galleryll ":" _zs_gallerylk ",c+='"></span><span class="',c+=x?" _zs_gallerylo ":" _zs_gallerylm ",c+='">'+e(h)+'</span><span class="',c+=x?" _zs_gallerylp ":" _zs_galleryln",c+='">'+e(m)+"</span></span></div>",v&&(c+='<input class="input input-small _zs_galleryle" id="'+e(b)+'_input" ',w&&(c+=' disabled="true" '),c+=' mx-keyup="'+l+'__al()" mx-focusout="'+l+'__bV()"/>'),c},mixins:[s],init:function(_){this.assign(_),this.__j=r("#"+this.id)},assign:function(_){var l=this;l.__cp=+_.width||280,l.__cV=+_.height||280,l.__cW=+_.min||0,l.__cX=+_.max||100,l.__cY=+_.step||1,l.__cZ=_.tip||"";var a=r("#"+l.id+"[mx-disabled]");l.__d_=a&&a.length>0,l.__da=_.vertical+""=="true",l.__db=_.needInput+""=="true"&&!l.__da;var e,s=l.__cY+"",i=s.indexOf(".");return i=i>=0?s.slice(i+1).length:0,l.__dc=i,e=_.value?+_.value:(l.__cX+l.__cW)/2,l.__dd=e,!0},render:function(){var _=this;_.updater.digest({viewId:_.id,min:_.__cW.toFixed(_.__dc),max:_.__cX.toFixed(_.__dc),width:_.__cp,height:_.__cV,vertical:_.__da,needInput:_.__db,disabled:_.__d_}),_.val(_.__dd);var l=_.__j.find("._zs_galleryaK");_.__de=l;var a=function(a){if(!_.__df&&!_.__d_){var e=l.offset(),r=_.__dg(),s=((_.__da?r.rMax-a.pageY+e.top:a.pageX-e.left)-r.half)/r.max,i=_.__dh(s);_.val(i)}},e=function(l){if(!_.__di)if(37==l.keyCode||40==l.keyCode){l.preventDefault();var a=+_.__dd;a-=_.__cY,_.val(a)}else if(39==l.keyCode||38==l.keyCode){l.preventDefault();a=+_.__dd;a+=_.__cY,_.val(a)}};l.on("click",a),l.on("keydown",e),_.on("destroy",function(){l.off("click",a),l.off("keydown",e)})},__dg:function(){var _=this,l=_.__j.find("._zs_galleryaL"),a=_.__j.find("._zs_galleryaM"),e=_.__j.find("._zs_galleryaN"),r=_.__j.find("._zs_gallerylj"),s=_.__j.find("._zs_galleryle"),i=e.outerWidth()/2,t=_.__da?l.height():l.width();return{rail:l,pLabel:r,inputArea:s,tracker:a,indicator:e,rMax:t,max:t-2*i,half:i}},val:function(_,l){var a=this,e=+_;if(e||0===e){a.__j.prop("value",e);var r=a.__cX,s=a.__cW;e>r?e=r:e<s&&(e=s);var i=(e-s)/(r-s),t=a.__dg(),n=i*t.max;a.__da?t.indicator.css({bottom:n}):t.indicator.css({left:n}),_=a.__dh(i);var d=t.pLabel;d.html(_+(a.__cZ?'<span class="_zs_galleryls">'+a.__cZ+"</span>":"")),t.inputArea&&t.inputArea.length&&t.inputArea.val(_);var g,o=n+t.half;if(a.__da)o-(g=d.height()/2)<0?o=0:o+g>t.rMax?o=t.rMax-2*g:o-=g,d.css({bottom:o});else o<(g=d.width()/2)?o=0:o+g>t.rMax?o=t.rMax-2*g:o-=g,d.css({left:o});a.__da?t.tracker.height(n+t.half):t.tracker.width(n+t.half),l||(a.__dd!=_&&a.__y(_),a.__dd=_)}return+a.__dd},__dh:function(_){var l,a=this.__cX,e=this.__cW,r=this.__cY;return 0===_?l=e:1===_?l=a:(l=e+(a-e)*_,l=Math.round(l/r)*r),l=l.toFixed(this.__dc)},__y:function(_){this.__j.prop("value",+_).trigger({type:"change",value:+_})},"__dj<mousedown>":function(_){var l=this;if(!l.__d_){var a=r(_.eventTarget),e=a.outerWidth(),i=-1;i=l.__da?a.parent().height()-e:a.parent().width()-e;var t=parseInt(a.css(l.__da?"bottom":"left"),10),n=l.__dd;l.__di=1,l.dragdrop(_.eventTarget,function(a){s.clear();var e=-1;(e=l.__da?t+_.pageY-a.pageY:t+a.pageX-_.pageX)<0?e=0:e>i&&(e=i);var r=e/i;l.val(n=l.__dh(r),!0)},function(){l.__dd!=n&&(l.__dd=n,l.__y(n)),l.__df=!0,setTimeout(l.wrapAsync(function(){delete l.__df}),20),delete l.__di})}},"__al<keyup>":function(_){var l=this;_.stopPropagation(),clearTimeout(l.__dk);var a=r.trim(_.eventTarget.value);l.__dk=setTimeout(l.wrapAsync(function(){r.isNumeric(a)&&l.val(a)}),400)},"__bV<focusout>":function(_){_.stopPropagation();var l=r.trim(_.eventTarget.value);r.isNumeric(l)&&this.val(l)},"__H<contextmenu>":function(_){_.preventDefault()}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-slider/index",["magix","$","../mx-dragdrop/index"],(require,exports,module)=>{
+/*Magix,$,DD*/
+
+var Magix = require("magix");
+var $ = require("$");
+var DD = require("../mx-dragdrop/index");
+Magix.applyStyle("_zs_gallery_mx-slider_style_","/* @dependent: ./index.less */\n._zs_gallery_mx-slider_style_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-slider/index\"],\n[mx-view*=\"mx-slider/range\"] {\n  position: relative;\n  display: inline-block;\n  outline: 0;\n  cursor: pointer;\n}\n[mx-view*=\"mx-slider/index\"] ._zs_gallery_mx-slider_style_-rail-input,\n[mx-view*=\"mx-slider/range\"] ._zs_gallery_mx-slider_style_-rail-input {\n  position: absolute;\n  top: 0;\n  right: -74px;\n  width: 64px;\n}\n[mx-view*=\"mx-slider/index\"][mx-disabled],\n[mx-view*=\"mx-slider/range\"][mx-disabled] {\n  cursor: not-allowed;\n}\n[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-tracker,\n[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-tracker {\n  background-color: #ccc;\n}\n[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator,\n[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator {\n  background-color: #ccc;\n}\n[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator:before,\n[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator:before {\n  background-color: #ccc;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper {\n  line-height: 28px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail {\n  display: inline-block;\n  position: relative;\n  border-radius: 2px;\n  background: #f0f0f0;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-tracker {\n  position: absolute;\n  border-radius: 2px;\n  left: 0;\n  background-color: #cddbff;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-tracker._zs_gallery_mx-slider_style_-hor-tracker {\n  height: 4px;\n  top: 0;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-tracker._zs_gallery_mx-slider_style_-ver-tracker {\n  width: 4px;\n  bottom: 0;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator {\n  position: absolute;\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background-color: #4d7fff;\n  outline: 0;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator:before {\n  content: ' ';\n  position: absolute;\n  top: -4px;\n  left: -4px;\n  width: 16px;\n  height: 16px;\n  border-radius: 50%;\n  background-color: #4d7fff;\n  opacity: 0.3;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator._zs_gallery_mx-slider_style_-hor-idctor {\n  top: -2px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-indicator._zs_gallery_mx-slider_style_-ver-idctor {\n  left: -2px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-pointer-label {\n  position: absolute;\n  font-size: 12px;\n  pointer-events: none;\n  line-height: normal;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-pointer-label._zs_gallery_mx-slider_style_-hor-pl {\n  top: -23px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-pointer-label._zs_gallery_mx-slider_style_-ver-pl {\n  right: 12px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-scale-left,\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-scale-right,\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-ver-scale-top,\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-ver-scale-bottom {\n  position: absolute;\n  font-size: 12px;\n  pointer-events: none;\n  line-height: normal;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-scale-left {\n  left: 0;\n  top: 9px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-scale-right {\n  right: 0;\n  top: 9px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-ver-scale-bottom {\n  bottom: 0;\n  left: 12px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail ._zs_gallery_mx-slider_style_-ver-scale-top {\n  top: 0;\n  left: 12px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail._zs_gallery_mx-slider_style_-hor {\n  height: 4px;\n  top: -2px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-rail._zs_gallery_mx-slider_style_-ver {\n  width: 4px;\n  left: 8px;\n}\n._zs_gallery_mx-slider_style_-rail-wrapper ._zs_gallery_mx-slider_style_-unit {\n  margin-left: 3px;\n  color: #999;\n}\n");
+var DefaultSize = 280;
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', vertical = $$.vertical, height = $$.height, width = $$.width, min = $$.min, max = $$.max, needInput = $$.needInput, viewId = $$.viewId, disabled = $$.disabled; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryda:_" class="_zs_gallery_mx-slider_style_-rail-wrapper"><span class="_zs_gallery_mx-slider_style_-rail ';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-ver ';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-hor ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" mx-contextmenu="' + $viewId + '@{prevent}()" style="';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += 'height:' + ($expr = '<%=height%>', $e(height));
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += 'width:' + ($expr = '<%=width%>', $e(width));
+        $expr = '<%}%>';
+    }
+    ;
+    $p += 'px"><span class="_zs_gallery_mx-slider_style_-tracker ';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-ver-tracker ';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-hor-tracker ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '"></span><span class="_zs_gallery_mx-slider_style_-indicator ';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-ver-idctor ';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-hor-idctor ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" mx-mousedown="' + $viewId + '@{drag}()"></span><span class="_zs_gallery_mx-slider_style_-pointer-label ';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-ver-pl ';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-hor-pl ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '"></span><span class="';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-ver-scale-bottom ';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-scale-left ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '">' + ($expr = '<%=min%>', $e(min)) + '</span><span class="';
+    $expr = '<%if (vertical) {%>';
+    if (vertical) {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-ver-scale-top ';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' _zs_gallery_mx-slider_style_-scale-right';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '">' + ($expr = '<%=max%>', $e(max)) + '</span></span></div>';
+    $expr = '<%if (needInput) {%>';
+    if (needInput) {
+        ;
+        $p += '<input class="input input-small _zs_gallery_mx-slider_style_-rail-input" id="' + ($expr = '<%=viewId%>', $e(viewId)) + '_input" ';
+        $expr = '<%if (disabled) {%>';
+        if (disabled) {
+            ;
+            $p += ' disabled="true" ';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' mx-keyup="' + $viewId + '@{enter}()" mx-focusout="' + $viewId + '@{out}()"/>';
+        $expr = '<%}%>';
+    }
+    ;
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-slider/index.html';
+    throw msg;
+} return $p; },
+    mixins: [DD],
+    init: function (extra) {
+        var me = this;
+        me.assign(extra);
+        me['@{owner.node}'] = $('#' + me.id);
+    },
+    assign: function (ops) {
+        var me = this;
+        me['@{width}'] = +ops.width || DefaultSize;
+        me['@{height}'] = +ops.height || DefaultSize;
+        me['@{min}'] = +ops.min || 0;
+        me['@{max}'] = +ops.max || 100;
+        me['@{step}'] = +ops.step || 1;
+        me['@{tip}'] = ops.tip || '';
+        var disabledNode = $('#' + me.id + '[mx-disabled]');
+        me['@{disabled}'] = disabledNode && (disabledNode.length > 0);
+        me['@{vertical}'] = (ops.vertical + '') === 'true';
+        me['@{needInput}'] = ((ops.needInput + '') === 'true') && !me['@{vertical}'];
+        var s = me['@{step}'] + '';
+        var i = s.indexOf('.');
+        if (i >= 0) {
+            i = s.slice(i + 1).length;
+        }
+        else {
+            i = 0;
+        }
+        me['@{tail.length}'] = i;
+        var value;
+        if (ops.value) {
+            value = +ops.value;
+        }
+        else {
+            // 默认取中间值
+            value = ((me['@{max}'] + me['@{min}']) / 2);
+        }
+        me['@{value}'] = value;
+        return true;
+    },
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            viewId: me.id,
+            min: me['@{min}'].toFixed(me['@{tail.length}']),
+            max: me['@{max}'].toFixed(me['@{tail.length}']),
+            width: me['@{width}'],
+            height: me['@{height}'],
+            vertical: me['@{vertical}'],
+            needInput: me['@{needInput}'],
+            disabled: me['@{disabled}']
+        });
+        me.val(me['@{value}']);
+        var railWrapper = me['@{owner.node}'].find('._zs_gallery_mx-slider_style_-rail-wrapper');
+        me['@{rail.node}'] = railWrapper;
+        var click = function (e) {
+            if (me['@{temp.hold.event}'] || me['@{disabled}']) {
+                return;
+            }
+            var offset = railWrapper.offset();
+            var vars = me['@{get.ui.vars}']();
+            var pos = -1;
+            if (me['@{vertical}']) {
+                pos = vars.rMax - e.pageY + offset.top;
+            }
+            else {
+                pos = e.pageX - offset.left;
+            }
+            var p = (pos - vars.half) / vars.max;
+            var v = me['@{get.fixed.value}'](p);
+            me.val(v);
+        };
+        var keydown = function (e) {
+            if (me['@{dragging}']) {
+                return;
+            }
+            if (e.keyCode == 37 || e.keyCode == 40) {
+                e.preventDefault();
+                var v = +me['@{value}'];
+                v -= me['@{step}'];
+                me.val(v);
+            }
+            else if (e.keyCode == 39 || e.keyCode == 38) {
+                e.preventDefault();
+                var v = +me['@{value}'];
+                v += me['@{step}'];
+                me.val(v);
+            }
+        };
+        railWrapper.on('click', click);
+        railWrapper.on('keydown', keydown);
+        me.on('destroy', function () {
+            railWrapper.off('click', click);
+            railWrapper.off('keydown', keydown);
+        });
+    },
+    '@{get.ui.vars}': function () {
+        var me = this;
+        var rail = me['@{owner.node}'].find('._zs_gallery_mx-slider_style_-rail');
+        var tracker = me['@{owner.node}'].find('._zs_gallery_mx-slider_style_-tracker');
+        var indicator = me['@{owner.node}'].find('._zs_gallery_mx-slider_style_-indicator');
+        var pLabel = me['@{owner.node}'].find('._zs_gallery_mx-slider_style_-pointer-label');
+        var inputArea = me['@{owner.node}'].find('._zs_gallery_mx-slider_style_-rail-input');
+        var half = indicator.outerWidth() / 2;
+        var rMax = me['@{vertical}'] ? rail.height() : rail.width();
+        var max = rMax - half * 2;
+        return {
+            rail: rail,
+            pLabel: pLabel,
+            inputArea: inputArea,
+            tracker: tracker,
+            indicator: indicator,
+            rMax: rMax,
+            max: max,
+            half: half
+        };
+    },
+    val: function (v, ignoreSyncValue) {
+        var me = this;
+        var nv = +v;
+        if (nv || nv === 0) {
+            me['@{owner.node}'].prop('value', nv);
+            var max = me['@{max}'], min = me['@{min}'];
+            if (nv > max)
+                nv = max;
+            else if (nv < min)
+                nv = min;
+            var p = (nv - min) / (max - min);
+            var vars = me['@{get.ui.vars}']();
+            var pos = p * vars.max;
+            if (me['@{vertical}']) {
+                vars.indicator.css({
+                    bottom: pos
+                });
+            }
+            else {
+                vars.indicator.css({
+                    left: pos
+                });
+            }
+            v = me['@{get.fixed.value}'](p);
+            var node = vars.pLabel;
+            node.html(v + (me['@{tip}'] ? ('<span class="_zs_gallery_mx-slider_style_-unit">' + me['@{tip}'] + '</span>') : ''));
+            if (vars.inputArea && vars.inputArea.length) {
+                vars.inputArea.val(v);
+            }
+            var l = pos + vars.half;
+            if (me['@{vertical}']) {
+                var pHalf = node.height() / 2;
+                if (l - pHalf < 0) {
+                    l = 0;
+                }
+                else if (l + pHalf > vars.rMax) {
+                    l = vars.rMax - 2 * pHalf;
+                }
+                else {
+                    l -= pHalf;
+                }
+                node.css({
+                    bottom: l
+                });
+            }
+            else {
+                var pHalf = node.width() / 2;
+                if (l < pHalf) {
+                    l = 0;
+                }
+                else if (l + pHalf > vars.rMax) {
+                    l = vars.rMax - 2 * pHalf;
+                }
+                else {
+                    l -= pHalf;
+                }
+                node.css({
+                    left: l
+                });
+            }
+            if (me['@{vertical}']) {
+                vars.tracker.height(pos + vars.half);
+            }
+            else {
+                vars.tracker.width(pos + vars.half);
+            }
+            if (!ignoreSyncValue) {
+                if (me['@{value}'] != v) {
+                    me['@{fire.event}'](v);
+                }
+                me['@{value}'] = v;
+            }
+        }
+        return +me['@{value}'];
+    },
+    '@{get.fixed.value}': function (p) {
+        var me = this;
+        var max = me['@{max}'], min = me['@{min}'], step = me['@{step}'], v;
+        if (p === 0)
+            v = min;
+        else if (p === 1)
+            v = max;
+        else {
+            v = min + (max - min) * p;
+            v = Math.round(v / step) * step;
+        }
+        v = v.toFixed(me['@{tail.length}']);
+        return v;
+    },
+    '@{fire.event}': function (p) {
+        this['@{owner.node}'].prop('value', +p).trigger({
+            type: 'change',
+            value: +p
+        });
+    },
+    '@{drag}<mousedown>': function (e) {
+        var me = this;
+        if (me['@{disabled}']) {
+            return;
+        }
+        var current = $(e.eventTarget);
+        var size = current.outerWidth();
+        var min = 0; //最小
+        var max = -1;
+        if (me['@{vertical}']) {
+            max = current.parent().height() - size;
+        }
+        else {
+            max = current.parent().width() - size;
+        }
+        var currentValue = parseInt(current.css(me['@{vertical}'] ? 'bottom' : 'left'), 10);
+        var dragValue = me['@{value}'];
+        me['@{dragging}'] = 1;
+        me.dragdrop(e.eventTarget, function (ex) {
+            DD.clear();
+            var newValue = -1;
+            if (me['@{vertical}']) {
+                newValue = currentValue + e.pageY - ex.pageY;
+            }
+            else {
+                newValue = currentValue + ex.pageX - e.pageX;
+            }
+            if (newValue < min) {
+                newValue = min;
+            }
+            else if (newValue > max) {
+                newValue = max;
+            }
+            var p = newValue / max;
+            me.val(dragValue = me['@{get.fixed.value}'](p), true);
+        }, function () {
+            if (me['@{value}'] != dragValue) {
+                me['@{value}'] = dragValue;
+                me['@{fire.event}'](dragValue);
+            }
+            me['@{temp.hold.event}'] = true;
+            setTimeout(me.wrapAsync(function () {
+                delete me['@{temp.hold.event}'];
+            }), 20);
+            delete me['@{dragging}'];
+        });
+    },
+    '@{enter}<keyup>': function (e) {
+        var me = this;
+        e.stopPropagation();
+        clearTimeout(me['@{enter.delay.timer}']);
+        var val = $.trim(e.eventTarget.value);
+        me['@{enter.delay.timer}'] = setTimeout(me.wrapAsync(function () {
+            if ($.isNumeric(val)) {
+                me.val(val);
+            }
+        }), 400);
+    },
+    '@{out}<focusout>': function (e) {
+        var me = this;
+        e.stopPropagation();
+        var val = $.trim(e.eventTarget.value);
+        if ($.isNumeric(val)) {
+            me.val(val);
+        }
+    },
+    '@{prevent}<contextmenu>': function (e) {
+        e.preventDefault();
+    }
+});
+
+});

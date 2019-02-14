@@ -101,10 +101,10 @@
         top: 0;
         left: 0;
         z-index: 2;
-        background-image: linear-gradient(to right, @btn-brand, @btn-brand-gradient);
-        background-image: -webkit-linear-gradient(left, @btn-brand, @btn-brand-gradient);
-        background-image: -o-linear-gradient(right, @btn-brand, @btn-brand-gradient);
-        background-image: -moz-linear-gradient(right, @btn-brand, @btn-brand-gradient);
+        background-image: linear-gradient(to right, #9095a1, #8b909a);
+        background-image: -webkit-linear-gradient(left, #9095a1, #8b909a);
+        background-image: -o-linear-gradient(right, #9095a1, #8b909a);
+        background-image: -moz-linear-gradient(right, #9095a1, #8b909a);
         transition: left @duration;
         -moz-transition: left @duration;
         -webkit-transition: left @duration;
@@ -122,13 +122,17 @@
 
         .switch-icon {
             left: 50%;
+            background-image: linear-gradient(to right, @btn-brand, @btn-brand-gradient);
+            background-image: -webkit-linear-gradient(left, @btn-brand, @btn-brand-gradient);
+            background-image: -o-linear-gradient(right, @btn-brand, @btn-brand-gradient);
+            background-image: -moz-linear-gradient(right, @btn-brand, @btn-brand-gradient);
         }
 
     }
 
     &.disabled{
         cursor: not-allowed;
-        opacity: .6;
+        opacity: .5;
     }
 
 }

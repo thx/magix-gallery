@@ -1,1 +1,73 @@
-define("mx-dialog/__test__/8",["magix","mx-dialog/index","__test__/example","$","mx-copy/index","__test__/hl"],(l,e,s)=>{l("mx-copy/index"),l("__test__/hl");var a=l("magix"),i=l("mx-dialog/index"),r=l("__test__/example");l("$");a.applyStyle("_zs_galleryA","._zs_gallerydq{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerydr,._zs_galleryds{position:fixed;left:0;width:100%;height:100%;transition:all .25s}._zs_gallerydr{opacity:0;top:0;background-color:rgba(0,0,0,.4)}._zs_gallerydr._zs_gallerydt{opacity:1}._zs_gallerydu{position:absolute;border-radius:4px;background-color:#fff;box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerydu ._zs_gallerydv{position:relative;word-break:break-all}._zs_gallerydu ._zs_gallerydw{position:absolute;top:16px;right:24px;width:26px;height:26px;z-index:20;border-radius:50%;background:transparent;color:#ccc;text-align:center}._zs_gallerydu ._zs_gallerydw ._zs_gallerydx{font-size:18px;font-weight:700;line-height:26px}._zs_gallerydu ._zs_gallerydw:focus,._zs_gallerydu ._zs_gallerydw:hover{background-color:#999;color:#fff}._zs_gallerydu._zs_gallerydy{border-radius:0}._zs_gallerydz{position:relative}._zs_gallerydz ._zs_gallerydA{opacity:1;position:relative;z-index:1}._zs_gallerydz ._zs_gallerydB{display:none;position:absolute;top:50%;left:50%;z-index:2;margin-top:-2px;margin-left:-2px}._zs_gallerydz._zs_gallerydC ._zs_gallerydA{opacity:0}._zs_gallerydz._zs_gallerydC ._zs_gallerydB{display:inline}"),s.exports=r.extend({tmpl:function(l,e,s,a,i,r,_,d){if(s||(s=l),!i){var t={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},n=/[&<>"'`]/g,o=function(l){return"&"+t[l]+";"};i=function(l){return""+(null==l?"":l)},a=function(l){return i(l).replace(n,o)}}if(!r){var g={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},c=function(l){return g[l]},x=/[!')(*]/g;r=function(l){return encodeURIComponent(i(l)).replace(x,c)}}if(!d){var y=/[\\'"]/g;d=function(l){return i(l).replace(y,"\\$&")}}var v="",p=l.viewId,z=l.text1,f=l.text2;return v+='<div mxa="_zs_galleryal:_" class="_zs_galleryh"><div mxs="_zs_galleryal:_" class="_zs_galleryk"><div class="clearfix mb10 lh22"><div class="color-9 fl">beforeClose：</div><div class="fl"><div>关闭浮层之前调用（包括右上角关闭按钮，取消按钮）</div><div>return true; 继续调用dialog.close()</div><div>return false; 中断关闭</div></div></div><div class="clearfix mb10 lh22"><div class="color-9 fl">适用场景：</div><div class="fl">只有右上角关闭按钮，在关闭浮层之前需要额外的校验操作的</div></div><div class="clearfix mb20 lh22"><div class="color-9 fl">以下示例：</div><div class="fl">浮层内没有自定义关闭按钮，点击右上角默认关闭按钮时触发beforeClose，根据beforeClose的返回值判断要不要关闭</div></div><div class="mb20"><a href="javascript:;" mx-click="'+e+'open()" class="btn btn-brand mr20">打开浮层</a></div></div><div mxa="_zs_galleryal:a" class="clearfix"><div mxa="_zs_galleryal:b" class="_zs_galleryl _zs_gallerye"><div mxs="_zs_galleryal:a" class="_zs_galleryj">浮层 HTML Code</div><div class="_zs_gallerym" mx-success="'+e+'done({id:1})" mx-view="mx-copy/index?copyNode='+r(p)+'_text_1"><span mxa="_zs_galleryal:c" class="_zs_galleryo">'+i(z)+'</span><i mxs="_zs_galleryal:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+a(p)+'_text_1">\n&lt;div class="dialog-content" style="height: 200px;"&gt;\n    &lt;div class="dialog-header"&gt;\n        &lt;div class="fontsize-16"&gt;标题&lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="dialog-body"&gt;\n        浮层内容\n    &lt;/div&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryal:d" class="_zs_galleryl _zs_gallerye _zs_galleryf"><div mxs="_zs_galleryal:c" class="_zs_galleryj">浮层 JS Code</div><div class="_zs_gallerym" mx-success="'+e+'done({id:2})" mx-view="mx-copy/index?copyNode='+r(p)+'_text_2"><span mxa="_zs_galleryal:e" class="_zs_galleryo">'+i(f)+'</span><i mxs="_zs_galleryal:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+a(p)+"_text_2\">\nlet Magix = require('magix');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: '@index.html',\n    init(e) &#123;\n        this.viewOptions = e;\n\n        let dlg = this.viewOptions.dialog;\n        dlg.beforeClose(() =&gt; &#123;\n            // do something\n            // return true 可执行dlg.close()\n            // return false 不关闭浮层\n            return true;\n        &#125;)\n    &#125;,\n    \n    render() &#123;\n        this.updater.digest();\n    &#125;\n&#125;);\n            </pre></div></div></div>"},mixins:[i],render:function(){this.updater.digest()},"open<click>":function(l){this.mxDialog("mx-dialog/__test__/demo2",null,{height:200})}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-dialog/__test__/8",["magix","mx-dialog/index","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Dialog,Base,$*/
+require("mx-copy/index");
+require("__test__/hl");
+var Magix = require("magix");
+var Dialog = require("mx-dialog/index"); //mixins dialog
+var Base = require("__test__/example");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-dialog_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-dialog_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-dialog_index_-dialog-backdrop,\n._zs_gallery_mx-dialog_index_-dialog-wrapper {\n  position: fixed;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop {\n  opacity: 0;\n  top: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop._zs_gallery_mx-dialog_index_-backdrop-out {\n  opacity: 1;\n}\n._zs_gallery_mx-dialog_index_-dialog {\n  position: absolute;\n  border-radius: 4px;\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-content {\n  position: relative;\n  word-break: break-all;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  width: 26px;\n  height: 26px;\n  z-index: 20;\n  border-radius: 50%;\n  background: transparent;\n  color: #ccc;\n  text-align: center;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close ._zs_gallery_mx-dialog_index_-iconfont-ext {\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 26px;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:hover,\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:focus {\n  background-color: #999;\n  color: #fff;\n}\n._zs_gallery_mx-dialog_index_-dialog._zs_gallery_mx-dialog_index_-full {\n  border-radius: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit {\n  position: relative;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 1;\n  position: relative;\n  z-index: 1;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: none;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 2;\n  margin-top: -2px;\n  margin-left: -2px;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: inline;\n}\n");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryal:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryal:_" class="_zs_gallery___test___layout_-eg-content"><div class="clearfix mb10 lh22"><div class="color-9 fl">beforeClose：</div><div class="fl"><div>关闭浮层之前调用（包括右上角关闭按钮，取消按钮）</div><div>return true; 继续调用dialog.close()</div><div>return false; 中断关闭</div></div></div><div class="clearfix mb10 lh22"><div class="color-9 fl">适用场景：</div><div class="fl">只有右上角关闭按钮，在关闭浮层之前需要额外的校验操作的</div></div><div class="clearfix mb20 lh22"><div class="color-9 fl">以下示例：</div><div class="fl">浮层内没有自定义关闭按钮，点击右上角默认关闭按钮时触发beforeClose，根据beforeClose的返回值判断要不要关闭</div></div><div class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'open()" class="btn btn-brand mr20">打开浮层</a></div></div><div mxa="_zs_galleryal:a" class="clearfix"><div mxa="_zs_galleryal:b" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_galleryal:a" class="_zs_gallery___test___layout_-eg-title">浮层 HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 29;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryal:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 31;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryal:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 34;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="dialog-content" style="height: 200px;"&gt;\n    &lt;div class="dialog-header"&gt;\n        &lt;div class="fontsize-16"&gt;标题&lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="dialog-body"&gt;\n        浮层内容\n    &lt;/div&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryal:d" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryal:c" class="_zs_gallery___test___layout_-eg-title">浮层 JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 46;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryal:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 48;
+    $art = '!text2';
+    ;
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryal:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 51;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    init(e) &#123;\n        this.viewOptions = e;\n\n        let dlg = this.viewOptions.dialog;\n        dlg.beforeClose(() =&gt; &#123;\n            // do something\n            // return true 可执行dlg.close()\n            // return false 不关闭浮层\n            return true;\n        &#125;)\n    &#125;,\n    \n    render() &#123;\n        this.updater.digest();\n    &#125;\n&#125;);\n            </pre></div></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dialog/__test__/8.html';
+    throw msg;
+} return $p; },
+    mixins: [Dialog],
+    render: function () {
+        this.updater.digest();
+    },
+    'open<click>': function (e) {
+        this.mxDialog('mx-dialog/__test__/demo2', null, {
+            height: 200
+        });
+    }
+});
+
+});
