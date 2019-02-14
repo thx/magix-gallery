@@ -29,9 +29,9 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'each checkboxes as c';
     ;
-    $expr = '<%for (var $art_ilcbenmyki$art_i = 0, $art_cveiyojmszn$art_c = checkboxes.length; $art_ilcbenmyki$art_i < $art_cveiyojmszn$art_c; $art_ilcbenmyki$art_i++) {    var c = checkboxes[$art_ilcbenmyki$art_i]%>';
-    for (var $art_ilcbenmyki$art_i = 0, $art_cveiyojmszn$art_c = checkboxes.length; $art_ilcbenmyki$art_i < $art_cveiyojmszn$art_c; $art_ilcbenmyki$art_i++) {
-        var c = checkboxes[$art_ilcbenmyki$art_i];
+    $expr = '<%for (var $art_iltwcwygbqk$art_i = 0, $art_cjeuhqh$art_c = checkboxes.length; $art_iltwcwygbqk$art_i < $art_cjeuhqh$art_c; $art_iltwcwygbqk$art_i++) {    var c = checkboxes[$art_iltwcwygbqk$art_i]%>';
+    for (var $art_iltwcwygbqk$art_i = 0, $art_cjeuhqh$art_c = checkboxes.length; $art_iltwcwygbqk$art_i < $art_cjeuhqh$art_c; $art_iltwcwygbqk$art_i++) {
+        var c = checkboxes[$art_iltwcwygbqk$art_i];
         $p += '<label mxv mxa="_zs_gallerybq:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 8;
         $art = ':selected{required:[true,\'必选\']}';
@@ -75,7 +75,7 @@ module.exports = Base.extend({
     $line = 42;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Form = require(\'@../index\');\nlet Validator = require(\'@../validator\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend({\n    tmpl: \'@index.html\',\n    mixins: [Form, Validator],\n    render() {\n        this.updater.digest({\n            selected: [\'checkbox1\'],\n            checkboxes: [\'checkbox1\', \'checkbox2\', \'checkbox3\']\n        });\n    }\n});</pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Form = require(\'@../mx-form/index\');\nlet Validator = require(\'@../mx-form/validator\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend({\n    tmpl: \'@index.html\',\n    mixins: [Form, Validator],\n    render() {\n        this.updater.digest({\n            selected: [\'checkbox1\'],\n            checkboxes: [\'checkbox1\', \'checkbox2\', \'checkbox3\']\n        });\n    }\n});</pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -29,9 +29,9 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'each radioes as r';
     ;
-    $expr = '<%for (var $art_ikxtsotil$art_i = 0, $art_cnpypsvug$art_c = radioes.length; $art_ikxtsotil$art_i < $art_cnpypsvug$art_c; $art_ikxtsotil$art_i++) {    var r = radioes[$art_ikxtsotil$art_i]%>';
-    for (var $art_ikxtsotil$art_i = 0, $art_cnpypsvug$art_c = radioes.length; $art_ikxtsotil$art_i < $art_cnpypsvug$art_c; $art_ikxtsotil$art_i++) {
-        var r = radioes[$art_ikxtsotil$art_i];
+    $expr = '<%for (var $art_ilhvjznf$art_i = 0, $art_cxqjctmviq$art_c = radioes.length; $art_ilhvjznf$art_i < $art_cxqjctmviq$art_c; $art_ilhvjznf$art_i++) {    var r = radioes[$art_ilhvjznf$art_i]%>';
+    for (var $art_ilhvjznf$art_i = 0, $art_cxqjctmviq$art_c = radioes.length; $art_ilhvjznf$art_i < $art_cxqjctmviq$art_c; $art_ilhvjznf$art_i++) {
+        var r = radioes[$art_ilhvjznf$art_i];
         $p += '<label mxv mxa="_zs_gallerybr:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 8;
         $art = ':selected';
@@ -75,7 +75,7 @@ module.exports = Base.extend({
     $line = 42;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Form = require(\'@../index\');\nlet Validator = require(\'@../validator\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend({\n    tmpl: \'@index.html\',\n    mixins: [Form, Validator],\n    render() {\n        this.updater.digest({\n            selected: \'radio2\',\n            radioes: [\'radio1\', \'radio2\', \'radio3\']\n        });\n    }\n});</pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Form = require(\'@../mx-form/index\');\nlet Validator = require(\'@../mx-form/validator\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend({\n    tmpl: \'@index.html\',\n    mixins: [Form, Validator],\n    render() {\n        this.updater.digest({\n            selected: \'radio2\',\n            radioes: [\'radio1\', \'radio2\', \'radio3\']\n        });\n    }\n});</pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

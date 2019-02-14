@@ -28,6 +28,10 @@ module.exports = {
                     if (!ps.length) { 
                         // find aim object
                         // 处理对应的key
+                        if(data === undefined){
+                            // fix https://aone.alibaba-inc.com/issue/18911004
+                            return;
+                        }
                         let src = data[key];
                         if (src === true) {
                             e.prop('checked', src);
