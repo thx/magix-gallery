@@ -6,6 +6,21 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.17',
+            time: '2019-02-14',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-form：特殊场景下异常情况兼容，点击查看<a href="#!/form/error" class="color-brand">详细说明</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '实现优化',
+                subs: [{
+                    title: 'mx-preview：图片类型未配置预览宽高时，按照图片的实际尺寸修正到可视范围之内'
+                }]
+            }]
+        }, {
             ver: '1.2.16',
             time: '2019-02-01',
             subs: [{
