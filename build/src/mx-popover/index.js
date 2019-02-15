@@ -1,1 +1,152 @@
-define("mx-popover/index",["magix","mx-popover/base","$"],(r,_,e)=>{var a=r("magix"),o=(a.Vframe,r("mx-popover/base")),t=r("$");a.applyStyle("_zs_galleryaj","._zs_galleryjR{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryjS,._zs_galleryjT,._zs_galleryjU,._zs_galleryjV,._zs_galleryjW,._zs_galleryjX,._zs_galleryjY,._zs_galleryjZ,._zs_galleryk_,._zs_galleryka,._zs_gallerykb,._zs_gallerykc{opacity:0;transition:opacity .15s,-webkit-transform .15s;transition:transform .15s,opacity .15s;transition:transform .15s,opacity .15s,-webkit-transform .15s;-webkit-transform:scale(0);transform:scale(0)}._zs_galleryjT,._zs_galleryk_{-webkit-transform-origin:0 0;transform-origin:0 0}._zs_galleryjU,._zs_galleryjX{-webkit-transform-origin:100% 0;transform-origin:100% 0}._zs_galleryjS{-webkit-transform-origin:50% 0;transform-origin:50% 0}._zs_galleryjY,._zs_gallerykb{-webkit-transform-origin:0 100%;transform-origin:0 100%}._zs_galleryjV,._zs_gallerykc{-webkit-transform-origin:100% 100%;transform-origin:100% 100%}._zs_galleryka{-webkit-transform-origin:50% 100%;transform-origin:50% 100%}._zs_galleryjW{-webkit-transform-origin:100% 50%;transform-origin:100% 50%}._zs_galleryjZ{-webkit-transform-origin:0 50%;transform-origin:0 50%}._zs_gallerykd{opacity:1;-webkit-transform:scale(1);transform:scale(1)}._zs_galleryke{display:none}._zs_gallerykf,._zs_gallerykg{position:absolute;z-index:9999;height:auto;border-radius:4px;font-size:12px;line-height:22px;white-space:normal;font-weight:400;font-family:Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif}._zs_gallerykf{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6;background-color:#fff;color:#333}._zs_gallerykf ._zs_gallerykh{padding:10px;word-break:break-all}._zs_gallerykg{background-color:rgba(33,33,33,.72);color:#fff}._zs_gallerykg ._zs_gallerykh{padding:4px 10px}"),e.exports=o.extend({tmpl:function(r,_,e,a,o,t,n,i){if(e||(e=r),!o){var l={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},s=/[&<>"'`]/g,c=function(r){return"&"+l[r]+";"};o=function(r){return""+(null==r?"":r)},function(r){return o(r).replace(s,c)}}if(!t){var g={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},f=function(r){return g[r]},p=/[!')(*]/g;t=function(r){return encodeURIComponent(o(r)).replace(p,f)}}if(!i){var m=/[\\'"]/g;i=function(r){return o(r).replace(m,"\\$&")}}var u="",y=r.trigger;return u+=o(y)+""},init:function(r){var _=this,e=r.placement||"bottom",a=r.align||"center";_.__cl=e,_.__cm=a,_.__cn=_.constants.classNames[e+a[0].toUpperCase()+a.slice(1)],"dark"==r.type?_.__cn+=" _zs_gallerykg":_.__cn+=" _zs_gallerykf",_.__bp=!1,_.__bq=!1,_.__br=!1,_.__bs=r.scrollWrapper,_.__co=r.content||"",_.__cp=r.width||200,_.__cu=/^true$/i.test(r.auto)||!1,_.__cv=r.view||"",_.__cw=r.data||{},_.__cq=r.alignText||"left",_.on("destroy",function(){_.__j.off("mouseenter mouseleave"),_.__bt&&clearTimeout(_.__bt),_.__bu&&clearTimeout(_.__bu),t("#popover_"+_.id).remove()});var o=t("#"+_.id);_.__cr=o.html(),_.__j=o,o.hover(function(){clearTimeout(_.__bu),_.__bt=setTimeout(_.wrapAsync(function(){_.__n()}),_.constants.showDelay)},function(){_.__m()})},render:function(){var r=this;r.updater.digest({trigger:r.__cr}),r.__cu&&(r.__bt=setTimeout(r.wrapAsync(function(){r.__n()}),r.constants.showDelay)),r.bindScroll()},__bz:function(){var r=this,_=r.__cn,e=r.__cp,a=r.__cv,o=r.__cw,n=r.id;a||(a="mx-popover/content",o={content:r.__co});var i='<div class="_zs_galleryke '+_+'" id="popover_'+n+'"\n                style="width: '+e+'px;"></div>';t(document.body).append(i);var l=r.owner.mountVframe("popover_"+n,"");l.on("created",function(){var _=r.__bx();_.removeClass("_zs_galleryke"),_.hover(function(){clearTimeout(r.__bu)},function(){r.__m()})}),l.mountView(a,{data:o})},__n:function(){var r=this;(clearTimeout(r.__bt),r.__bp||(r.__bp=!0,r.__bz()),r.__br)||(r.__br=!0,r.__bx().addClass("_zs_gallerykd"))},__m:function(){var r=this;clearTimeout(r.__bt),clearTimeout(r.__bu),r.__bu=setTimeout(r.wrapAsync(function(){r.__br&&(r.__br=!1,t("#popover_"+r.id).removeClass("_zs_gallerykd"))}),r.constants.hideDelay)}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-popover/index",["magix","mx-popover/base","$"],(require,exports,module)=>{
+/*Magix,Base,$*/
+
+var Magix = require("magix");
+var Vframe = Magix.Vframe;
+var Base = require("mx-popover/base");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-popover_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-popover_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-popover_index_-bottom-left,\n._zs_gallery_mx-popover_index_-bottom-right,\n._zs_gallery_mx-popover_index_-bottom-center,\n._zs_gallery_mx-popover_index_-top-left,\n._zs_gallery_mx-popover_index_-top-right,\n._zs_gallery_mx-popover_index_-top-center,\n._zs_gallery_mx-popover_index_-right-top,\n._zs_gallery_mx-popover_index_-right-bottom,\n._zs_gallery_mx-popover_index_-right-center,\n._zs_gallery_mx-popover_index_-left-top,\n._zs_gallery_mx-popover_index_-left-bottom,\n._zs_gallery_mx-popover_index_-left-center {\n  opacity: 0;\n  transition: opacity 0.15s, -webkit-transform 0.15s;\n  transition: transform 0.15s, opacity 0.15s;\n  transition: transform 0.15s, opacity 0.15s, -webkit-transform 0.15s;\n  -webkit-transform: scale(0);\n          transform: scale(0);\n}\n/**\n * popover下左 初始隐藏状态\n * 注意使用opacity控制popover的显示和隐藏，不要设置display: none\n */\n._zs_gallery_mx-popover_index_-bottom-left,\n._zs_gallery_mx-popover_index_-right-top {\n  -webkit-transform-origin: 0 0;\n          transform-origin: 0 0;\n}\n._zs_gallery_mx-popover_index_-bottom-right,\n._zs_gallery_mx-popover_index_-left-top {\n  -webkit-transform-origin: 100% 0;\n          transform-origin: 100% 0;\n}\n._zs_gallery_mx-popover_index_-bottom-center {\n  -webkit-transform-origin: 50% 0;\n          transform-origin: 50% 0;\n}\n._zs_gallery_mx-popover_index_-top-left,\n._zs_gallery_mx-popover_index_-right-bottom {\n  -webkit-transform-origin: 0 100%;\n          transform-origin: 0 100%;\n}\n._zs_gallery_mx-popover_index_-top-right,\n._zs_gallery_mx-popover_index_-left-bottom {\n  -webkit-transform-origin: 100% 100%;\n          transform-origin: 100% 100%;\n}\n._zs_gallery_mx-popover_index_-top-center {\n  -webkit-transform-origin: 50% 100%;\n          transform-origin: 50% 100%;\n}\n._zs_gallery_mx-popover_index_-left-center {\n  -webkit-transform-origin: 100% 50%;\n          transform-origin: 100% 50%;\n}\n._zs_gallery_mx-popover_index_-right-center {\n  -webkit-transform-origin: 0 50%;\n          transform-origin: 0 50%;\n}\n._zs_gallery_mx-popover_index_-show-out {\n  opacity: 1;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n}\n/**\n * popover显示\n */\n._zs_gallery_mx-popover_index_-popover-hide {\n  display: none;\n}\n._zs_gallery_mx-popover_index_-popover,\n._zs_gallery_mx-popover_index_-popover-dark {\n  position: absolute;\n  z-index: 9999;\n  height: auto;\n  border-radius: 4px;\n  font-size: 12px;\n  line-height: 22px;\n  white-space: normal;\n  font-weight: normal;\n  font-family: Helvetica, Arial, \"Microsoft Yahei\", \"Hiragino Sans GB\", \"Heiti SC\", \"WenQuanYi Micro Hei\", sans-serif;\n}\n._zs_gallery_mx-popover_index_-popover {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n  background-color: #fff;\n  color: #333;\n}\n._zs_gallery_mx-popover_index_-popover ._zs_gallery_mx-popover_index_-popover-content {\n  padding: 10px;\n  word-break: break-all;\n}\n._zs_gallery_mx-popover_index_-popover-dark {\n  background-color: rgba(33, 33, 33, 0.72);\n  color: #fff;\n}\n._zs_gallery_mx-popover_index_-popover-dark ._zs_gallery_mx-popover_index_-popover-content {\n  padding: 4px 10px;\n}\n");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', trigger = $$.trigger; var $expr, $art, $line; try {
+    $line = 1;
+    $art = '!trigger';
+    ;
+    $p += ($expr = '<%!trigger%>', $n(trigger)) + '';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-popover/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var me = this;
+        var placement = extra.placement || 'bottom', align = extra.align || 'center';
+        me['@{pos.placement}'] = placement;
+        me['@{pos.align}'] = align;
+        me['@{pos.class}'] = me.constants.classNames[placement + align[0].toUpperCase() + align.slice(1)];
+        if (extra.type == 'dark') {
+            me['@{pos.class}'] += ' _zs_gallery_mx-popover_index_-popover-dark';
+        }
+        else {
+            me['@{pos.class}'] += ' _zs_gallery_mx-popover_index_-popover';
+        }
+        me['@{pos.init}'] = false;
+        me['@{pos.cal}'] = false;
+        me['@{pos.show}'] = false;
+        me['@{scroll.wrapper}'] = extra.scrollWrapper;
+        me['@{content}'] = extra.content || '';
+        me['@{width}'] = extra.width || 200;
+        me['@{auto}'] = (/^true$/i).test(extra.auto) || false;
+        me['@{custom.view}'] = extra.view || '';
+        me['@{custom.view.data}'] = extra.data || {};
+        me['@{text.align}'] = (extra.alignText || 'left');
+        me.on('destroy', function () {
+            me['@{owner.node}'].off('mouseenter mouseleave');
+            if (me['@{dealy.show.timer}']) {
+                clearTimeout(me['@{dealy.show.timer}']);
+            }
+            if (me['@{dealy.hide.timer}']) {
+                clearTimeout(me['@{dealy.hide.timer}']);
+            }
+            $('#popover_' + me.id).remove();
+        });
+        var oNode = $('#' + me.id);
+        me['@{trigger.content}'] = oNode.html();
+        me['@{owner.node}'] = oNode;
+        oNode.hover(function () {
+            clearTimeout(me['@{dealy.hide.timer}']);
+            me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
+                me['@{show}'](); //等待内容显示
+            }), me.constants.showDelay);
+        }, function () {
+            me['@{hide}']();
+        });
+    },
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            trigger: me['@{trigger.content}']
+        });
+        if (me['@{auto}']) {
+            me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
+                me['@{show}'](); //等待内容显示
+            }), me.constants.showDelay);
+        }
+        me.bindScroll();
+    },
+    '@{init}': function () {
+        var me = this;
+        var posClass = me['@{pos.class}'], posWidth = me['@{width}'], view = me['@{custom.view}'], viewData = me['@{custom.view.data}'], vId = me.id;
+        if (!view) {
+            view = 'mx-popover/content';
+            viewData = {
+                content: me['@{content}']
+            };
+        }
+        var popNode = "<div class=\"_zs_gallery_mx-popover_index_-popover-hide " + posClass + "\" id=\"popover_" + vId + "\"\n                style=\"width: " + posWidth + "px;\"></div>";
+        $(document.body).append(popNode);
+        // 先实例化，绑定事件，再加载对应的view
+        var vf = me.owner.mountVframe('popover_' + vId, '');
+        vf.on('created', function () {
+            var popNode = me['@{setPos}']();
+            popNode.removeClass('_zs_gallery_mx-popover_index_-popover-hide');
+            popNode.hover(function () {
+                clearTimeout(me['@{dealy.hide.timer}']);
+            }, function () {
+                me['@{hide}']();
+            });
+        });
+        vf.mountView(view, {
+            data: viewData
+        });
+    },
+    '@{show}': function () {
+        var me = this;
+        clearTimeout(me['@{dealy.show.timer}']);
+        if (!me['@{pos.init}']) {
+            me['@{pos.init}'] = true;
+            me['@{init}']();
+        }
+        if (me['@{pos.show}']) {
+            return;
+        }
+        me['@{pos.show}'] = true;
+        // 每次show时都重新定位
+        var popNode = me['@{setPos}']();
+        popNode.addClass('_zs_gallery_mx-popover_index_-show-out');
+    },
+    '@{hide}': function () {
+        var me = this;
+        clearTimeout(me['@{dealy.show.timer}']);
+        clearTimeout(me['@{dealy.hide.timer}']);
+        me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(function () {
+            if (!me['@{pos.show}']) {
+                return;
+            }
+            me['@{pos.show}'] = false;
+            var popNode = $('#popover_' + me.id);
+            popNode.removeClass('_zs_gallery_mx-popover_index_-show-out');
+        }), me.constants.hideDelay);
+    }
+});
+
+});

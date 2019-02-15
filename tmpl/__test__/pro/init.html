@@ -6,6 +6,9 @@
 
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
+        name: '效果预览',
+        key: viewId + '_preview'
+    }, {
         name: '创建步骤',
         key: viewId + '_steps'
     }, {
@@ -13,10 +16,23 @@
         key: viewId + '_dir'
     }]}}"></div>
     
+    <mx-title.second id="{{=viewId}}_preview"
+        content="效果预览"/>
+    <div class="pr20 mb40">
+        <iframe src="https://mo.m.taobao.com/page_201902152003028" class="iframe"
+            width="100%" 
+            height="680" 
+            frameborder="0"
+            scrolling="no" 
+            marginheight="0" 
+            marginwidth="0" 
+            border="0"></iframe>
+    </div>
+    
     <mx-title.second id="{{=viewId}}_steps"
         content="创建步骤"
         tip="magix-cli工具&lt;a rel='noopener noreferrer' href='https://thx.github.io/magix-cli-book/#/' target='_blank' class='color-brand'&gt;https://thx.github.io/magix-cli-book/#/&lt;/a&gt;"/>
-    <div mx-view="@./init-steps" class="pr20"></div>
+    <div mx-view="@./init-steps" class="pr20 mb40"></div>
     
     <mx-title.second id="{{=viewId}}_dir"
         content="脚手架目录结构说明"

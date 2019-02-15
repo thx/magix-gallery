@@ -1,1 +1,103 @@
-define("mx-header/__test__/all",["magix","$","../index"],(e,a,r)=>{e("../index");var n=e("magix");e("$");n.applyStyle("_zs_galleryT","._zs_gallerygE{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerygF{height:1200px;background-color:#fafafa}._zs_gallerygF ._zs_gallerygG{width:1000px;padding-top:220px;margin:auto;font-size:20px;text-align:center}._zs_gallerygH{height:400px;overflow-y:auto;background-color:#fafafa;border:1px solid #e6e6e6}._zs_gallerygH ._zs_gallerygG{height:800px}"),r.exports=n.View.extend({tmpl:function(e,a,r,n,t,l,g,i){if(r||(r=e),!t){var o={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},u=/[&<>"'`]/g,c=function(e){return"&"+o[e]+";"};t=function(e){return""+(null==e?"":e)},n=function(e){return t(e).replace(u,c)}}if(!l){var s={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},x=function(e){return s[e]},d=/[!')(*]/g;l=function(e){return encodeURIComponent(t(e)).replace(d,x)}}if(!i){var _=/[\\'"]/g;i=function(e){return t(e).replace(_,"\\$&")}}g||(g=function(e,a,r,n){for(n=e[f];--n;)if(e[r=f+n]===a)return r;return e[r=f+e[f]++]=a,r});var f="",v="",p=e.navs,h=e.cur,y=e.curText;return v+='<div mxv="navs" mx-navchange="'+a+'change()" mx-view="mx-header/index?navs='+g(r,p)+"&cur="+l(h)+'&logo=%2F%2Fgw.alicdn.com%2Ftfs%2FTB1Uhbvh_vI8KJjSspjXXcgjXXa-534-98.png"></div><div mxa="_zs_galleryb6:_" class="_zs_gallerygF"><div mxa="_zs_galleryb6:a" class="_zs_gallerygG">',v+=h?" 当前导航："+n(y)+"（"+n(h)+"） ":" 点击导航切换区块内容 ",v+="</div></div>"},render:function(){this.updater.digest({navs:[{value:1,text:"营销中台"},{value:2,text:"创意中台"}],cur:"",curText:""})},"change<navchange>":function(e){var a=e.nav;this.updater.digest({cur:a.value,curText:a.text})}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-header/__test__/all",["magix","$","../index"],(require,exports,module)=>{
+/*Magix,$*/
+require("../index");
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-header___test___index_","/* @dependent: ./index.less */\n._zs_gallery_mx-header___test___index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-header___test___index_-content {\n  height: 1200px;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-header___test___index_-content ._zs_gallery_mx-header___test___index_-inner {\n  width: 1000px;\n  padding-top: 220px;\n  margin: auto;\n  font-size: 20px;\n  text-align: center;\n}\n._zs_gallery_mx-header___test___index_-wrapper {\n  height: 400px;\n  overflow-y: auto;\n  background-color: #fafafa;\n  border: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-header___test___index_-wrapper ._zs_gallery_mx-header___test___index_-inner {\n  height: 800px;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', navs = $$.navs, cur = $$.cur, curText = $$.curText; var $expr, $art, $line; try {
+    $p += '<div mxv="navs" mx-navchange="' + $viewId + 'change()" mx-view="mx-header/index?navs=';
+    $line = 2;
+    $art = '@navs';
+    ;
+    $p += ($expr = '<%@navs%>', $i($$ref, navs)) + '&cur=';
+    $line = 3;
+    $art = '=cur';
+    ;
+    $p += ($expr = '<%!$eu(cur)%>', $eu(cur)) + '&logo=%2F%2Fgw.alicdn.com%2Ftfs%2FTB1Uhbvh_vI8KJjSspjXXcgjXXa-534-98.png"></div><div mxa="_zs_galleryb6:_" class="_zs_gallery_mx-header___test___index_-content"><div mxa="_zs_galleryb6:a" class="_zs_gallery_mx-header___test___index_-inner">';
+    $line = 8;
+    $art = 'if !cur';
+    ;
+    $expr = '<%if (!cur) {%>';
+    if (!cur) {
+        ;
+        $p += ' 点击导航切换区块内容 ';
+        $line = 10;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' 当前导航：';
+        $line = 11;
+        $art = '=curText';
+        ;
+        $p += ($expr = '<%=curText%>', $e(curText)) + '（';
+        $line = 11;
+        $art = '=cur';
+        ;
+        $p += ($expr = '<%=cur%>', $e(cur)) + '） ';
+        $line = 12;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-header/__test__/all.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        var navs = [{
+                value: 1,
+                text: '营销中台'
+            }, {
+                value: 2,
+                text: '创意中台'
+            }];
+        // 默认不选中任何一个
+        var cur = '';
+        this.updater.digest({
+            navs: navs,
+            cur: cur,
+            curText: ''
+        });
+    },
+    'change<navchange>': function (event) {
+        // event.nav {value: , text: } 当前导航
+        var nav = event.nav;
+        this.updater.digest({
+            cur: nav.value,
+            curText: nav.text
+        });
+    }
+});
+
+});
