@@ -28,6 +28,7 @@ let coms = [
     'checkbox',
     'popmenu',
     'im',
+    'collapse',
     'cascade',
     'secradio',
     'tree',

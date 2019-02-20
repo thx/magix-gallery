@@ -32,11 +32,11 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydu:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxa="_zs_gallerydC:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'checkbox\',\n        key: viewId + \'_demo3\'\n    }, {\n        name: \'radio\',\n        key: viewId + \'_demo4\'\n    }, {\n        name: \'按钮\',\n        key: viewId + \'_demo1\'\n    }, {\n        name: \'input\',\n        key: viewId + \'_demo2\'\n    }, {\n        name: \'打标\',\n        key: viewId + \'_demo6\'\n    }, {\n        name: \'textarea\',\n        key: viewId + \'_demo5\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'checkbox\',            key: viewId + \'_demo3\'        }, {            name: \'radio\',            key: viewId + \'_demo4\'        }, {            name: \'按钮\',            key: viewId + \'_demo1\'        }, {            name: \'input\',            key: viewId + \'_demo2\'        }, {            name: \'打标\',            key: viewId + \'_demo6\'        }, {            name: \'textarea\',            key: viewId + \'_demo5\'        }]%>', $i($$ref, [{ name: 'checkbox', key: viewId + '_demo3' }, { name: 'radio', key: viewId + '_demo4' }, { name: '按钮', key: viewId + '_demo1' }, { name: 'input', key: viewId + '_demo2' }, { name: '打标', key: viewId + '_demo6' }, { name: 'textarea', key: viewId + '_demo5' }])) + '"></div><div mxs="_zs_gallerydu:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerydu:a" class="clearfix mb20"><div mxa="_zs_gallerydu:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-style/__test__/3" id="';
+    $p += ($expr = '<%@[{            name: \'checkbox\',            key: viewId + \'_demo3\'        }, {            name: \'radio\',            key: viewId + \'_demo4\'        }, {            name: \'按钮\',            key: viewId + \'_demo1\'        }, {            name: \'input\',            key: viewId + \'_demo2\'        }, {            name: \'打标\',            key: viewId + \'_demo6\'        }, {            name: \'textarea\',            key: viewId + \'_demo5\'        }]%>', $i($$ref, [{ name: 'checkbox', key: viewId + '_demo3' }, { name: 'radio', key: viewId + '_demo4' }, { name: '按钮', key: viewId + '_demo1' }, { name: 'input', key: viewId + '_demo2' }, { name: '打标', key: viewId + '_demo6' }, { name: 'textarea', key: viewId + '_demo5' }])) + '"></div><div mxs="_zs_gallerydC:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerydC:a" class="clearfix mb20"><div mxa="_zs_gallerydC:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-style/__test__/3" id="';
     $line = 25;
     $art = '=viewId';
     ;
@@ -52,7 +52,7 @@ module.exports = Magix.View.extend({
     $line = 28;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div></div><div mxa="_zs_gallerydu:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-style/__test__/1" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div></div><div mxa="_zs_gallerydC:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-style/__test__/1" id="';
     $line = 31;
     $art = '=viewId';
     ;

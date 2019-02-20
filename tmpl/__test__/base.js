@@ -312,6 +312,11 @@ module.exports = Magix.View.extend({
                     name: '轮播',
                     path: '/carousel/index',
                     icon: '&#xe78b;'
+                }, {
+                    name: '折叠面板',
+                    tip: '可以折叠/展开的内容区域',
+                    path: '/collapse/index',
+                    icon: '&#xe6a0;'
                 }]
             }, {
                 name: '流程类',

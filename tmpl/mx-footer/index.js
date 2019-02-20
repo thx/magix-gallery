@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let Mustache = require('@../mx-mustache/index');
 let $ = require('$');
 let Data = require('@../mx-header/data');
 Magix.applyStyle('@index.less');

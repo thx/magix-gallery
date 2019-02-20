@@ -25,27 +25,27 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryal:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryal:_" class="_zs_gallery___test___layout_-eg-content"><div class="clearfix mb10 lh22"><div class="color-9 fl">beforeClose：</div><div class="fl"><div>关闭浮层之前调用（包括右上角关闭按钮，取消按钮）</div><div>return true; 继续调用dialog.close()</div><div>return false; 中断关闭</div></div></div><div class="clearfix mb10 lh22"><div class="color-9 fl">适用场景：</div><div class="fl">只有右上角关闭按钮，在关闭浮层之前需要额外的校验操作的</div></div><div class="clearfix mb20 lh22"><div class="color-9 fl">以下示例：</div><div class="fl">浮层内没有自定义关闭按钮，点击右上角默认关闭按钮时触发beforeClose，根据beforeClose的返回值判断要不要关闭</div></div><div class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'open()" class="btn btn-brand mr20">打开浮层</a></div></div><div mxa="_zs_galleryal:a" class="clearfix"><div mxa="_zs_galleryal:b" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_galleryal:a" class="_zs_gallery___test___layout_-eg-title">浮层 HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_galleryat:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryat:_" class="_zs_gallery___test___layout_-eg-content"><div class="clearfix mb10 lh22"><div class="color-9 fl">beforeClose：</div><div class="fl"><div>关闭浮层之前调用（包括右上角关闭按钮，取消按钮）</div><div>return true; 继续调用dialog.close()</div><div>return false; 中断关闭</div></div></div><div class="clearfix mb10 lh22"><div class="color-9 fl">适用场景：</div><div class="fl">只有右上角关闭按钮，在关闭浮层之前需要额外的校验操作的</div></div><div class="clearfix mb20 lh22"><div class="color-9 fl">以下示例：</div><div class="fl">浮层内没有自定义关闭按钮，点击右上角默认关闭按钮时触发beforeClose，根据beforeClose的返回值判断要不要关闭</div></div><div class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'open()" class="btn btn-brand mr20">打开浮层</a></div></div><div mxa="_zs_galleryat:a" class="clearfix"><div mxa="_zs_galleryat:b" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_galleryat:a" class="_zs_gallery___test___layout_-eg-title">浮层 HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 29;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryal:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryat:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 31;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryal:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryat:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 34;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="dialog-content" style="height: 200px;"&gt;\n    &lt;div class="dialog-header"&gt;\n        &lt;div class="fontsize-16"&gt;标题&lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="dialog-body"&gt;\n        浮层内容\n    &lt;/div&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryal:d" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryal:c" class="_zs_gallery___test___layout_-eg-title">浮层 JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="dialog-content" style="height: 200px;"&gt;\n    &lt;div class="dialog-header"&gt;\n        &lt;div class="fontsize-16"&gt;标题&lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="dialog-body"&gt;\n        浮层内容\n    &lt;/div&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryat:d" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryat:c" class="_zs_gallery___test___layout_-eg-title">浮层 JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 46;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryal:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryat:e" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 48;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryal:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryat:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 51;
     $art = '=viewId';
     ;

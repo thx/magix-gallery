@@ -1,0 +1,66 @@
+@import "../mx-style/_vars";
+
+.collapse{
+    border-radius: @border-radius;
+    border: 1px solid @color-border;
+    overflow: hidden;
+    .item{
+        border-bottom: 1px solid @color-border;
+        .title{
+            cursor: pointer;
+            position: relative;
+            padding: 10px 24px;
+            background-color: @color-bg;
+
+            .arrow{
+                >*{
+                    position: absolute;
+                    top: 50%;
+                    left: 20px;
+                    width: 20px;
+                    height: 20px;
+                    text-align: center;
+                    line-height: 20px;
+                    margin-top: -10px;
+                    transition: all @duration;
+                    color: #999;
+                }
+            }
+            .text{
+                margin-left: 20px;
+            }
+        }  
+        .content{
+            display: none;
+            border-top: 1px solid @color-border;
+            overflow: hidden;
+            transition: all @duration;
+            .inner{
+                padding: 10px 24px;
+            }
+            .text{
+                line-height: 22px;
+            }
+        }    
+        &:last-child{
+            border-bottom: 0 none;
+        }
+
+        &.disabled{
+            .title{
+                opacity: .5;
+                cursor: not-allowed;
+            }
+        }
+
+        &.expand{
+            .title{
+                .arrow{
+                    >*{
+                        transform: rotate(90deg);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -24,7 +24,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', vertical = $$.vertical, height = $$.height, width = $$.width, min = $$.min, max = $$.max, needInput = $$.needInput, viewId = $$.viewId, disabled = $$.disabled; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydb:_" class="_zs_gallery_mx-slider_style_-rail-wrapper"><span class="_zs_gallery_mx-slider_style_-rail ';
+    $p += '<div mxa="_zs_gallerydj:_" class="_zs_gallery_mx-slider_style_-rail-wrapper"><span class="_zs_gallery_mx-slider_style_-rail ';
     $expr = '<%if (vertical) {%>';
     if (vertical) {
         ;
