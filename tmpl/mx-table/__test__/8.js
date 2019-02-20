@@ -51,9 +51,9 @@ module.exports = Base.extend({
         for (var i = 0; i < 5; i++) {
             let empty = (i == 2 || i == 4);
             let origin = {
-                fixed1: Magix.guid('fixed1-'),
-                fixed2: Magix.guid('fixed2-'),
-                fixed3: Magix.guid('fixed3-'),
+                fixed1: i + '_1',
+                fixed2: i + '_2',
+                fixed3: i + '_3',
                 field1: empty ? 0 : (i + 9000),
                 field2: empty ? 0 : (i + 3000),
                 field3: empty ? 0 : (i + 1000),

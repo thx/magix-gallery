@@ -1,3 +1,4 @@
+/*md5:1fe3776c98de55d18ff14e66773ffcca*/
 let $ = require('$');
 let Magix = require('magix');
 let Router = Magix.Router;
@@ -18,11 +19,15 @@ module.exports = {
                 item = $(item)
                 let field = item.attr('sort-trigger');
 
+                // 保留在地址栏的排序字段key
+                let orderFieldKey = item.attr('order-field-key') || 'orderField';
                 // 当前排序字段
-                let orderField = item.attr('sort-field') || locParams.orderField;
+                let orderField = item.attr('sort-field') || locParams[orderFieldKey];
 
+                // 保留在地址栏的排序方式key
+                let orderByKey = item.attr('order-by-key') || 'orderBy';
                 // 当前排序方式
-                let orderBy = item.attr('sort-orderby') || locParams.orderBy || 'default';
+                let orderBy = item.attr('sort-orderby') || locParams[orderByKey] || 'default';
 
                 let icon;
                 if (orderField == field) {
@@ -31,10 +36,10 @@ module.exports = {
                     icon = Map.default;
                 }
 
+                me['@{order.field.key}'] = orderFieldKey;
                 me['@{order.field}'] = orderField;
+                me['@{order.by.key}'] = orderByKey;
                 me['@{order.by}'] = orderBy;
-                me['@{order.field.key}'] = item.attr('order-field-key') || 'orderField';
-                me['@{order.by.key}'] = item.attr('order-by-key') || 'orderBy';
 
                 item.html(`<i class="mc-iconfont displacement-2 cursor-pointer">${icon}</i>`);
             });
@@ -43,12 +48,20 @@ module.exports = {
         me.on('domready', ready);
     },
 
-    sort(list) {
+    /**
+     * 本地排序
+     */
+    sort(list, orderFieldKey, orderByKey) {
+        if(DEBUG){
+            console.warn('本地排序方法：如果自定义保留在地址栏的排序字段和排序方式字段，请显示的传入该值，否则默认取地址栏orderField，orderBy');
+        }
         list = list || [];
 
-        let orderField = this['@{order.field}'],
-            orderBy = this['@{order.by}'];
-
+        let locParams = Router.parse().params;
+        orderFieldKey = orderFieldKey || 'orderField';
+        orderByKey = orderByKey || 'orderBy';
+        let orderField = locParams[orderFieldKey],
+            orderBy = locParams[orderByKey];
         if (!orderField) {
             return list;
         }
@@ -77,6 +90,10 @@ module.exports = {
 
         return list.concat(emptyList);
     },
+
+    /**
+     * 点击排序按钮
+     */
     '$[sort-trigger]<click>'(e) {
         let me = this;
         let context = $('#' + me.id);
@@ -98,11 +115,9 @@ module.exports = {
             orderBy = 'desc';
         }
 
-        let orderFieldKey = me['@{order.field.key}'],
-            orderByKey = me['@{order.by.key}'];
-        let params = {};
-        params[orderFieldKey] = orderField;
-        params[orderByKey] = orderBy;
-        Router.to(params);
+        Router.to({
+            [me['@{order.field.key}']]: orderField,
+            [me['@{order.by.key}']]: orderBy
+        });
     }
 };

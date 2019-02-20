@@ -6,6 +6,7 @@
 define("mx-calendar/rangepicker",["magix","$","../mx-monitor/index","mx-calendar/util","mx-medusa/util","./range"],(require,exports,module)=>{
 /*Magix,$,Monitor,Util,I18n*/
 require("./range");
+/*md5:34c02a28c382ba730d4af48e1a450786*/
 var Magix = require("magix");
 var $ = require("$");
 var Monitor = require("../mx-monitor/index");
@@ -272,21 +273,24 @@ catch (ex) {
         var result = {
             centetTip: vs ? I18n['calendar.vs'] : I18n['calendar.to']
         };
+        var today = DateFormat(GetOffsetDate(0), formatter), yesterday = DateFormat(GetOffsetDate(-1), formatter), tomorrow = DateFormat(GetOffsetDate(1), formatter);
+        var map = (_a = {},
+            _a[today] = I18n['calendar.today'],
+            _a[yesterday] = I18n['calendar.yesterday'],
+            _a[tomorrow] = I18n['calendar.tomorrow'],
+            _a);
+        var textFn = function (str) {
+            return map[str] || str;
+        };
         if (vs) {
-            var today = DateFormat(GetOffsetDate(0), formatter), yesterday = DateFormat(GetOffsetDate(-1), formatter), tomorrow = DateFormat(GetOffsetDate(1), formatter);
-            var map = (_a = {},
-                _a[today] = I18n['calendar.today'],
-                _a[yesterday] = I18n['calendar.yesterday'],
-                _a[tomorrow] = I18n['calendar.tomorrow'],
-                _a);
-            result.startStr = map[startStr] || startStr;
-            result.endStr = map[endStr] || endStr;
+            result.startStr = textFn(startStr);
+            result.endStr = textFn(endStr);
         }
         else {
             // 非对比情况
             if (vsSingle) {
                 // 选择单日
-                result.startStr = startStr;
+                result.startStr = textFn(startStr);
             }
             else {
                 // 选择连续时间

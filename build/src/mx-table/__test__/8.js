@@ -30,8 +30,8 @@ module.exports = Base.extend({
     $line = 30;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_ckdidnpof$art_c = list.length; index < $art_ckdidnpof$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_ckdidnpof$art_c = list.length; index < $art_ckdidnpof$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cebvp$art_c = list.length; index < $art_cebvp$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cebvp$art_c = list.length; index < $art_cebvp$art_c; index++) {
         var item = list[index];
         $p += '<tr><td>';
         $line = 32;
@@ -56,9 +56,9 @@ module.exports = Base.extend({
     $line = 43;
     $art = 'each groups as group';
     ;
-    $expr = '<%for (var $art_ibknnquami$art_i = 0, $art_clhzzna$art_c = groups.length; $art_ibknnquami$art_i < $art_clhzzna$art_c; $art_ibknnquami$art_i++) {    var group = groups[$art_ibknnquami$art_i]%>';
-    for (var $art_ibknnquami$art_i = 0, $art_clhzzna$art_c = groups.length; $art_ibknnquami$art_i < $art_clhzzna$art_c; $art_ibknnquami$art_i++) {
-        var group = groups[$art_ibknnquami$art_i];
+    $expr = '<%for (var $art_iminddff$art_i = 0, $art_csprnzxa$art_c = groups.length; $art_iminddff$art_i < $art_csprnzxa$art_c; $art_iminddff$art_i++) {    var group = groups[$art_iminddff$art_i]%>';
+    for (var $art_iminddff$art_i = 0, $art_csprnzxa$art_c = groups.length; $art_iminddff$art_i < $art_csprnzxa$art_c; $art_iminddff$art_i++) {
+        var group = groups[$art_iminddff$art_i];
         $p += '<th class="field-group" colspan="';
         $line = 44;
         $art = '=group.fields.length';
@@ -78,16 +78,16 @@ module.exports = Base.extend({
     $line = 50;
     $art = 'each groups as group';
     ;
-    $expr = '<%for (var $art_iexmixupq$art_i = 0, $art_cwbpdybpue$art_c = groups.length; $art_iexmixupq$art_i < $art_cwbpdybpue$art_c; $art_iexmixupq$art_i++) {    var group = groups[$art_iexmixupq$art_i]%>';
-    for (var $art_iexmixupq$art_i = 0, $art_cwbpdybpue$art_c = groups.length; $art_iexmixupq$art_i < $art_cwbpdybpue$art_c; $art_iexmixupq$art_i++) {
-        var group = groups[$art_iexmixupq$art_i];
+    $expr = '<%for (var $art_iuflcpss$art_i = 0, $art_cjjcfmnlh$art_c = groups.length; $art_iuflcpss$art_i < $art_cjjcfmnlh$art_c; $art_iuflcpss$art_i++) {    var group = groups[$art_iuflcpss$art_i]%>';
+    for (var $art_iuflcpss$art_i = 0, $art_cjjcfmnlh$art_c = groups.length; $art_iuflcpss$art_i < $art_cjjcfmnlh$art_c; $art_iuflcpss$art_i++) {
+        var group = groups[$art_iuflcpss$art_i];
         $p += ' ';
         $line = 51;
         $art = 'each group.fields as field';
         ;
-        $expr = '<%for (var $art_irddugzvm$art_i = 0, $art_objvnrvrbueqw$art_obj = group.fields, $art_clsszgymg$art_c = $art_objvnrvrbueqw$art_obj.length; $art_irddugzvm$art_i < $art_clsszgymg$art_c; $art_irddugzvm$art_i++) {        var field = $art_objvnrvrbueqw$art_obj[$art_irddugzvm$art_i]%>';
-        for (var $art_irddugzvm$art_i = 0, $art_objvnrvrbueqw$art_obj = group.fields, $art_clsszgymg$art_c = $art_objvnrvrbueqw$art_obj.length; $art_irddugzvm$art_i < $art_clsszgymg$art_c; $art_irddugzvm$art_i++) {
-            var field = $art_objvnrvrbueqw$art_obj[$art_irddugzvm$art_i];
+        $expr = '<%for (var $art_ihxesdfwqb$art_i = 0, $art_objmvqrpzza$art_obj = group.fields, $art_cjxgencgqq$art_c = $art_objmvqrpzza$art_obj.length; $art_ihxesdfwqb$art_i < $art_cjxgencgqq$art_c; $art_ihxesdfwqb$art_i++) {        var field = $art_objmvqrpzza$art_obj[$art_ihxesdfwqb$art_i]%>';
+        for (var $art_ihxesdfwqb$art_i = 0, $art_objmvqrpzza$art_obj = group.fields, $art_cjxgencgqq$art_c = $art_objmvqrpzza$art_obj.length; $art_ihxesdfwqb$art_i < $art_cjxgencgqq$art_c; $art_ihxesdfwqb$art_i++) {
+            var field = $art_objmvqrpzza$art_obj[$art_ihxesdfwqb$art_i];
             $p += '<th mxa="_zs_galleryd0:f" class="field-item">指标';
             $line = 53;
             $art = '=field';
@@ -114,8 +114,8 @@ module.exports = Base.extend({
     $line = 61;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_csnmojmbv$art_c = list.length; index < $art_csnmojmbv$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_csnmojmbv$art_c = list.length; index < $art_csnmojmbv$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_ctsrowil$art_c = list.length; index < $art_ctsrowil$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_ctsrowil$art_c = list.length; index < $art_ctsrowil$art_c; index++) {
         var item = list[index];
         $p += '<tr class="';
         $line = 62;
@@ -125,16 +125,16 @@ module.exports = Base.extend({
         $line = 63;
         $art = 'each groups as group';
         ;
-        $expr = '<%for (var $art_ivcbweyvycr$art_i = 0, $art_cvoawufuum$art_c = groups.length; $art_ivcbweyvycr$art_i < $art_cvoawufuum$art_c; $art_ivcbweyvycr$art_i++) {        var group = groups[$art_ivcbweyvycr$art_i]%>';
-        for (var $art_ivcbweyvycr$art_i = 0, $art_cvoawufuum$art_c = groups.length; $art_ivcbweyvycr$art_i < $art_cvoawufuum$art_c; $art_ivcbweyvycr$art_i++) {
-            var group = groups[$art_ivcbweyvycr$art_i];
+        $expr = '<%for (var $art_iloyaod$art_i = 0, $art_czrvxhvtsl$art_c = groups.length; $art_iloyaod$art_i < $art_czrvxhvtsl$art_c; $art_iloyaod$art_i++) {        var group = groups[$art_iloyaod$art_i]%>';
+        for (var $art_iloyaod$art_i = 0, $art_czrvxhvtsl$art_c = groups.length; $art_iloyaod$art_i < $art_czrvxhvtsl$art_c; $art_iloyaod$art_i++) {
+            var group = groups[$art_iloyaod$art_i];
             $p += ' ';
             $line = 64;
             $art = 'each group.fields as field';
             ;
-            $expr = '<%for (var $art_iagdljru$art_i = 0, $art_objxkycatqoed$art_obj = group.fields, $art_cqhvaxjqc$art_c = $art_objxkycatqoed$art_obj.length; $art_iagdljru$art_i < $art_cqhvaxjqc$art_c; $art_iagdljru$art_i++) {            var field = $art_objxkycatqoed$art_obj[$art_iagdljru$art_i]%>';
-            for (var $art_iagdljru$art_i = 0, $art_objxkycatqoed$art_obj = group.fields, $art_cqhvaxjqc$art_c = $art_objxkycatqoed$art_obj.length; $art_iagdljru$art_i < $art_cqhvaxjqc$art_c; $art_iagdljru$art_i++) {
-                var field = $art_objxkycatqoed$art_obj[$art_iagdljru$art_i];
+            $expr = '<%for (var $art_ineyxmldrs$art_i = 0, $art_objsdpx$art_obj = group.fields, $art_cauyvvadrbd$art_c = $art_objsdpx$art_obj.length; $art_ineyxmldrs$art_i < $art_cauyvvadrbd$art_c; $art_ineyxmldrs$art_i++) {            var field = $art_objsdpx$art_obj[$art_ineyxmldrs$art_i]%>';
+            for (var $art_ineyxmldrs$art_i = 0, $art_objsdpx$art_obj = group.fields, $art_cauyvvadrbd$art_c = $art_objsdpx$art_obj.length; $art_ineyxmldrs$art_i < $art_cauyvvadrbd$art_c; $art_ineyxmldrs$art_i++) {
+                var field = $art_objsdpx$art_obj[$art_ineyxmldrs$art_i];
                 $p += '<td>';
                 $line = 65;
                 $art = '=format(item[field])';
@@ -184,7 +184,7 @@ module.exports = Base.extend({
     $line = 147;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Sort = require(\'@../gallery/mx-table/sort\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [Sort],\n    init() &#123;\n        this.observeLocation([\'orderField\', \'orderBy\']);\n    &#125;,\n    render() &#123;\n        let that = this;\n\n        let groups = [&#123;\n            name: \'组1\',\n            fields: [\'field1\', \'field2\']\n        &#125;, &#123;\n            name: \'组2\',\n            fields: [\'field3\', \'field4\', \'field5\', \'field6\']\n        &#125;, &#123;\n            name: \'组3\',\n            fields: [\'field7\', \'field8\', \'field9\']\n        &#125;]\n        let len = 0;\n        groups.forEach(group =&gt; &#123;\n            len += group.fields.length;\n        &#125;)\n\n        that.updater.digest(&#123;\n            list: that.sort(that.getList()),\n            groups,\n            len,\n            format: (val) =&gt; &#123;\n                if (!val) &#123;\n                    return \'-\';\n                &#125;\n                return val;\n            &#125;\n        &#125;);\n    &#125;,\n    getList() &#123;\n        let list = [];\n        for (var i = 0; i &lt; 5; i++) &#123;\n            let empty = (i == 2 || i == 4);\n            let origin = &#123;\n                fixed1: Magix.guid(\'fixed1-\'),\n                fixed2: Magix.guid(\'fixed2-\'),\n                fixed3: Magix.guid(\'fixed3-\'),\n                field1: empty ? 0 : (i + 9000),\n                field2: empty ? 0 : (i + 3000),\n                field3: empty ? 0 : (i + 1000),\n                field4: i + 412,\n                field5: i + 512,\n                field6: i + 612,\n                field7: i + 7,\n                field8: i + 8,\n                field9: i + 2\n            &#125;\n\n            let item = $.extend(true, &#123;&#125;, origin);\n            list.push(item);\n        &#125;\n        return list;\n    &#125;\n&#125;);\n            </pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Sort = require(\'@../gallery/mx-table/sort\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [Sort],\n    init() &#123;\n        this.observeLocation([\'orderField\', \'orderBy\']);\n    &#125;,\n    render() &#123;\n        let that = this;\n\n        let groups = [&#123;\n            name: \'组1\',\n            fields: [\'field1\', \'field2\']\n        &#125;, &#123;\n            name: \'组2\',\n            fields: [\'field3\', \'field4\', \'field5\', \'field6\']\n        &#125;, &#123;\n            name: \'组3\',\n            fields: [\'field7\', \'field8\', \'field9\']\n        &#125;]\n        let len = 0;\n        groups.forEach(group =&gt; &#123;\n            len += group.fields.length;\n        &#125;)\n\n        that.updater.digest(&#123;\n            list: that.sort(that.getList()),\n            groups,\n            len,\n            format: (val) =&gt; &#123;\n                if (!val) &#123;\n                    return \'-\';\n                &#125;\n                return val;\n            &#125;\n        &#125;);\n    &#125;,\n    getList() &#123;\n        let list = [];\n        for (var i = 0; i &lt; 5; i++) &#123;\n            let empty = (i == 2 || i == 4);\n            let origin = &#123;\n                fixed1: i + \'_1\',\n                fixed2: i + \'_2\',\n                fixed3: i + \'_3\',\n                field1: empty ? 0 : (i + 9000),\n                field2: empty ? 0 : (i + 3000),\n                field3: empty ? 0 : (i + 1000),\n                field4: i + 412,\n                field5: i + 512,\n                field6: i + 612,\n                field7: i + 7,\n                field8: i + 8,\n                field9: i + 2\n            &#125;\n\n            let item = $.extend(true, &#123;&#125;, origin);\n            list.push(item);\n        &#125;\n        return list;\n    &#125;\n&#125;);\n            </pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -237,9 +237,9 @@ catch (ex) {
         for (var i = 0; i < 5; i++) {
             var empty = (i == 2 || i == 4);
             var origin = {
-                fixed1: Magix.guid('fixed1-'),
-                fixed2: Magix.guid('fixed2-'),
-                fixed3: Magix.guid('fixed3-'),
+                fixed1: i + '_1',
+                fixed2: i + '_2',
+                fixed3: i + '_3',
                 field1: empty ? 0 : (i + 9000),
                 field2: empty ? 0 : (i + 3000),
                 field3: empty ? 0 : (i + 1000),

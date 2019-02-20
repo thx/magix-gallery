@@ -1,3 +1,4 @@
+/*md5:34c02a28c382ba730d4af48e1a450786*/
 let Magix = require('magix');
 let $ = require('$');
 let Monitor = require('../mx-monitor/index');
@@ -177,22 +178,27 @@ let Rangepicker = Magix.View.extend({
         let result = {
             centetTip: vs ? I18n['calendar.vs'] : I18n['calendar.to']
         }
+
+        let today = DateFormat(GetOffsetDate(0), formatter),
+            yesterday = DateFormat(GetOffsetDate(-1), formatter),
+            tomorrow = DateFormat(GetOffsetDate(1), formatter);
+        let map = {
+            [today]: I18n['calendar.today'],
+            [yesterday]: I18n['calendar.yesterday'],
+            [tomorrow]: I18n['calendar.tomorrow']
+        };
+        let textFn = (str) => {
+            return map[str] || str;
+        }
+
         if (vs) {
-            let today = DateFormat(GetOffsetDate(0), formatter),
-                yesterday = DateFormat(GetOffsetDate(-1), formatter),
-                tomorrow = DateFormat(GetOffsetDate(1), formatter);
-            let map = {
-                [today]: I18n['calendar.today'],
-                [yesterday]: I18n['calendar.yesterday'],
-                [tomorrow]: I18n['calendar.tomorrow']
-            };
-            result.startStr = map[startStr] || startStr;
-            result.endStr = map[endStr] || endStr;
+            result.startStr = textFn(startStr);
+            result.endStr = textFn(endStr);
         } else {
             // 非对比情况
             if (vsSingle) {
                 // 选择单日
-                result.startStr = startStr;
+                result.startStr = textFn(startStr);
             } else {
                 // 选择连续时间
                 if (quickDateText) {

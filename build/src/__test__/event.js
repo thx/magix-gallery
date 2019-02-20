@@ -25,16 +25,16 @@ module.exports = Magix.View.extend({
     $line = 13;
     $art = 'each options as option';
     ;
-    $expr = '<%for (var $art_iwuyeaujfj$art_i = 0, $art_cxatbqlzqni$art_c = options.length; $art_iwuyeaujfj$art_i < $art_cxatbqlzqni$art_c; $art_iwuyeaujfj$art_i++) {    var option = options[$art_iwuyeaujfj$art_i]%>';
-    for (var $art_iwuyeaujfj$art_i = 0, $art_cxatbqlzqni$art_c = options.length; $art_iwuyeaujfj$art_i < $art_cxatbqlzqni$art_c; $art_iwuyeaujfj$art_i++) {
-        var option = options[$art_iwuyeaujfj$art_i];
+    $expr = '<%for (var $art_inuicmyqks$art_i = 0, $art_cupgftj$art_c = options.length; $art_inuicmyqks$art_i < $art_cupgftj$art_c; $art_inuicmyqks$art_i++) {    var option = options[$art_inuicmyqks$art_i]%>';
+    for (var $art_inuicmyqks$art_i = 0, $art_cupgftj$art_c = options.length; $art_inuicmyqks$art_i < $art_cupgftj$art_c; $art_inuicmyqks$art_i++) {
+        var option = options[$art_inuicmyqks$art_i];
         $p += ' ';
         $line = 14;
         $art = 'each option.params as param index';
         ;
-        $expr = '<%for (var index = 0, $art_objplcwvntc$art_obj = option.params, $art_cllbyfpf$art_c = $art_objplcwvntc$art_obj.length; index < $art_cllbyfpf$art_c; index++) {        var param = $art_objplcwvntc$art_obj[index]%>';
-        for (var index = 0, $art_objplcwvntc$art_obj = option.params, $art_cllbyfpf$art_c = $art_objplcwvntc$art_obj.length; index < $art_cllbyfpf$art_c; index++) {
-            var param = $art_objplcwvntc$art_obj[index];
+        $expr = '<%for (var index = 0, $art_objwxarvcccm$art_obj = option.params, $art_corciwaq$art_c = $art_objwxarvcccm$art_obj.length; index < $art_corciwaq$art_c; index++) {        var param = $art_objwxarvcccm$art_obj[index]%>';
+        for (var index = 0, $art_objwxarvcccm$art_obj = option.params, $art_corciwaq$art_c = $art_objwxarvcccm$art_obj.length; index < $art_corciwaq$art_c; index++) {
+            var param = $art_objwxarvcccm$art_obj[index];
             $p += '<tr>';
             $line = 16;
             $art = 'if (index == 0)';
