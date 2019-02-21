@@ -6,6 +6,26 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.18',
+            time: '2019-02-21',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-collapse：新增折叠面板组件，<a href="#!/collapse/index" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-table.sort：本地排序方法sort支持传入自定义排序字段'
+                }]
+            }, {
+                type: 'notice',
+                title: 'UI迭代',
+                subs: [{
+                    title: '更新脚手架为卡片式风格，<a href="#!/all/pro/init" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.2.17',
             time: '2019-02-14',
             subs: [{
@@ -141,7 +161,7 @@ module.exports = Magix.View.extend({
                 type: 'bug',
                 subs: [{
                     title: 'mx-switch：修正 mode=text 样式'
-                },{
+                }, {
                     title: 'mx-tabs.box：修正 mode=hollow 样式'
                 }]
             }]
@@ -159,7 +179,7 @@ module.exports = Magix.View.extend({
                 type: 'bug',
                 subs: [{
                     title: 'mx-dialog：修复存在滚动条的情况下，打开浮层页面抖动问题'
-                },{
+                }, {
                     title: 'mx-popover',
                     subs: [
                         '异常情况说明：tag="a"时，a标签的原生属性type与组件定义的type冲突，此时若设置type="dark"失效',
@@ -212,7 +232,7 @@ module.exports = Magix.View.extend({
                     title: '统一规范的表单样式，<a href="#!/form/style" class="color-brand">查看详情</a>'
                 }]
             }]
-        },{
+        }, {
             ver: '1.2.2',
             time: '2018-12-21',
             subs: [{
@@ -229,7 +249,7 @@ module.exports = Magix.View.extend({
                 title: '全新视觉规范，组件相关调整平滑升级',
                 subs: [{
                     title: '默认按钮样式提取为变量，可在项目中覆盖配置 @btn-text，@btn-text-hover，@btn-border，@btn-border-hover，@btn-bg，@btn-bg-hover'
-                },{
+                }, {
                     title: '指标默认配置及选择排序（mx-indics）浮层改成全屏右出，<a href="#!/indics/index" class="color-brand">查看详情</a>'
                 }, {
                     title: '开关（mx-switch）增加文字显示版，<a href="#!/switch/index" class="color-brand">查看详情</a>'

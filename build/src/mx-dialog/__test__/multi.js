@@ -1,78 +1,1 @@
-/*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-dialog/__test__/multi",["magix","mx-dialog/index"],(require,exports,module)=>{
-/*Magix,Dialog*/
-
-var Magix = require("magix");
-var Dialog = require("mx-dialog/index");
-module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
-    $$ref = $$; if (!$n) {
-    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
-    $n = function (v) { return '' + (v == null ? '' : v); };
-    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
-} if (!$eu) {
-    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
-    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
-} if (!$eq) {
-    var $qr_1 = /[\\'"]/g;
-    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', height = $$.height, number = $$.number; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryaC:_" class="dialog-header"><span class="fontsize-16">多个带modal的浮层</span></div><div class="dialog-body" style="height:';
-    $line = 4;
-    $art = '=height';
-    ;
-    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_galleryaC:_" class="mb20">浮层';
-    $line = 5;
-    $art = '=number';
-    ;
-    $p += ($expr = '<%=number%>', $e(number)) + '</div><div mxs="_zs_galleryaC:a" class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'modal()" class="btn btn-brand">再开一个</a></div><div mxs="_zs_galleryaC:b"><a href="javascript:;" mx-click="' + $viewId + 'closeAll()" class="btn btn-brand">关闭所有展开浮层</a></div></div><div mxs="_zs_galleryaC:c" class="dialog-footer"><a href="javascript:;" class="btn mr10" mx-click="' + $viewId + 'cancel()">取消</a></div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-dialog/__test__/multi.html';
-    throw msg;
-} return $p; },
-    mixins: [Dialog],
-    init: function (e) {
-        this.viewOptions = e;
-    },
-    render: function () {
-        var number = +this.viewOptions.number;
-        this.updater.digest({
-            number: number,
-            width: 800 - (number * 100),
-            height: 140 + (number * 40)
-        });
-    },
-    'cancel<click>': function (event) {
-        event.preventDefault();
-        var viewOptions = this.viewOptions;
-        if (viewOptions.dialog) {
-            viewOptions.dialog.close();
-        }
-    },
-    'modal<click>': function (e) {
-        var width = +this.updater.get('width');
-        var height = +this.updater.get('height');
-        var number = +this.updater.get('number');
-        this.mxDialog('mx-dialog/__test__/multi', {
-            number: number + 1
-        }, {
-            width: width - 100,
-            height: height + 170,
-            modal: true
-        });
-    },
-    'closeAll<click>': function (e) {
-        this.mxCloseAllDialogs();
-    }
-});
-
-});
+define("mx-dialog/__test__/multi",["magix","mx-dialog/index"],(i,a,t)=>{var e=i("magix"),l=i("mx-dialog/index");t.exports=e.View.extend({tmpl:function(i,a,t,e,l,n,s,r){if(t||(t=i),!l){var c={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},d=/[&<>"'`]/g,o=function(i){return"&"+c[i]+";"};l=function(i){return""+(null==i?"":i)},e=function(i){return l(i).replace(d,o)}}if(!n){var m={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},u=function(i){return m[i]},g=/[!')(*]/g;n=function(i){return encodeURIComponent(l(i)).replace(g,u)}}if(!r){var v=/[\\'"]/g;r=function(i){return l(i).replace(v,"\\$&")}}var h="",f=i.height,x=i.number;return h+='<div mxs="_zs_galleryaC:_" class="dialog-header"><span class="fontsize-16">多个带modal的浮层</span></div><div class="dialog-body" style="height:'+e(f)+'px;"><div mxa="_zs_galleryaC:_" class="mb20">浮层'+e(x)+'</div><div mxs="_zs_galleryaC:a" class="mb20"><a href="javascript:;" mx-click="'+a+'modal()" class="btn btn-brand">再开一个</a></div><div mxs="_zs_galleryaC:b"><a href="javascript:;" mx-click="'+a+'closeAll()" class="btn btn-brand">关闭所有展开浮层</a></div></div><div mxs="_zs_galleryaC:c" class="dialog-footer"><a href="javascript:;" class="btn mr10" mx-click="'+a+'cancel()">取消</a></div>'},mixins:[l],init:function(i){this.viewOptions=i},render:function(){var i=+this.viewOptions.number;this.updater.digest({number:i,width:800-100*i,height:140+40*i})},"cancel<click>":function(i){i.preventDefault();var a=this.viewOptions;a.dialog&&a.dialog.close()},"modal<click>":function(i){var a=+this.updater.get("width"),t=+this.updater.get("height"),e=+this.updater.get("number");this.mxDialog("mx-dialog/__test__/multi",{number:e+1},{width:a-100,height:t+170,modal:!0})},"closeAll<click>":function(i){this.mxCloseAllDialogs()}})});
