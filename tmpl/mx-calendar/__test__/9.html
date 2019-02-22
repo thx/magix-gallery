@@ -8,7 +8,7 @@
             </div>
         </div>
         <mx-calendar.rangepicker class="w200"
-            start="2018-04-03"
+            start="{{=today}}"
             end="不限"
             shortkeys="{{@[
                 'dynamicStart15',
@@ -29,7 +29,7 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-calendar.rangepicker class="w200"
-    start="2018-04-03"
+    start="{{=today}}"
     end="不限"
     shortkeys="&#123;&#123;@[
         'dynamicStart15',

@@ -1,1 +1,129 @@
-define("mx-tree/__test__/4",["magix","__test__/example","$","../index","mx-copy/index","__test__/hl"],(e,t,l)=>{e("../index"),e("mx-copy/index"),e("__test__/hl");e("magix");var a=e("__test__/example");e("$");l.exports=a.extend({tmpl:function(e,t,l,a,r,_,n,u){if(l||(l=e),!r){var i={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},s=/[&<>"'`]/g,x=function(e){return"&"+i[e]+";"};r=function(e){return""+(null==e?"":e)},a=function(e){return r(e).replace(s,x)}}if(!_){var v={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},d=function(e){return v[e]},p=/[!')(*]/g;_=function(e){return encodeURIComponent(r(e)).replace(p,d)}}if(!u){var c=/[\\'"]/g;u=function(e){return r(e).replace(c,"\\$&")}}n||(n=function(e,t,l,a){for(a=e[m];--a;)if(e[l=m+a]===t)return l;return e[l=m+e[m]++]=t,l});var m="",o="",g=e.viewId,y=e.list,f=e.text1;return o+='<div mxv mxa="_zs_galleryev:_" class="_zs_galleryh"><div mxv mxa="_zs_galleryev:a" class="_zs_galleryk"><div mxv="list" id="'+a(g)+'_tree" mx-view="mx-tree/index?needExpand=true&hasLine=true&close=true&list='+n(l,y)+'"></div></div><div mxa="_zs_galleryev:b" class="_zs_galleryl"><div mxs="_zs_galleryev:_" class="_zs_galleryj">可展开收起 + 默认收起</div><div class="_zs_gallerym" mx-success="'+t+'done({id:1})" mx-view="mx-copy/index?copyNode='+_(g)+'_text_1"><span mxa="_zs_galleryev:c" class="_zs_galleryo">'+r(f)+'</span><i mxs="_zs_galleryev:a" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+a(g)+'_text_1">\n&lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"\n    need-expand="true"\n    has-line="true"\n    close="true"\n    list="&#123;&#123;@list&#125;&#125;"&gt;&lt;/mx-tree&gt;</pre></div></div>'},render:function(){this.updater.digest({list:[{value:1,pValue:"",text:"1"},{value:2,pValue:"",text:"2"},{value:11,pValue:1,text:"1-1"},{value:111,pValue:11,text:"1-1-1"},{value:1111,pValue:111,text:"1-1-1-1"},{value:1112,pValue:111,text:"1-1-1-2"},{value:12,pValue:1,text:"1-2"},{value:121,pValue:12,text:"1-2-1"},{value:122,pValue:12,text:"1-2-2"},{value:21,pValue:2,text:"2-1"},{value:211,pValue:21,text:"2-1-1"},{value:212,pValue:21,text:"2-1-2"},{value:22,pValue:2,text:"2-2"},{value:221,pValue:22,text:"2-2-1"},{value:222,pValue:22,text:"2-2-2"}]})}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-tree/__test__/4",["magix","__test__/example","$","../index","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("../index");
+require("mx-copy/index");
+require("__test__/hl");
+var Magix = require("magix");
+var Base = require("__test__/example");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, list = $$.list, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryev:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryev:a" class="_zs_gallery___test___layout_-eg-content"><div mxv="list" id="';
+    $line = 3;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_tree" mx-view="mx-tree/index?needExpand=true&hasLine=true&close=true&list=';
+    $line = 7;
+    $art = '@list';
+    ;
+    $p += ($expr = '<%@list%>', $i($$ref, list)) + '"></div></div><div mxa="_zs_galleryev:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryev:_" class="_zs_gallery___test___layout_-eg-title">可展开收起 + 默认收起</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 11;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryev:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 13;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryev:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 16;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"\n    need-expand="true"\n    has-line="true"\n    close="true"\n    list="&#123;&#123;@list&#125;&#125;"&gt;&lt;/mx-tree&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-tree/__test__/4.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        var list = [{
+                value: 1,
+                pValue: '',
+                text: '1'
+            }, {
+                value: 2,
+                pValue: '',
+                text: '2'
+            }, {
+                value: 11,
+                pValue: 1,
+                text: '1-1'
+            }, {
+                value: 111,
+                pValue: 11,
+                text: '1-1-1'
+            }, {
+                value: 1111,
+                pValue: 111,
+                text: '1-1-1-1'
+            }, {
+                value: 1112,
+                pValue: 111,
+                text: '1-1-1-2'
+            }, {
+                value: 12,
+                pValue: 1,
+                text: '1-2'
+            }, {
+                value: 121,
+                pValue: 12,
+                text: '1-2-1'
+            }, {
+                value: 122,
+                pValue: 12,
+                text: '1-2-2'
+            }, {
+                value: 21,
+                pValue: 2,
+                text: '2-1'
+            }, {
+                value: 211,
+                pValue: 21,
+                text: '2-1-1'
+            }, {
+                value: 212,
+                pValue: 21,
+                text: '2-1-2'
+            }, {
+                value: 22,
+                pValue: 2,
+                text: '2-2'
+            }, {
+                value: 221,
+                pValue: 22,
+                text: '2-2-1'
+            }, {
+                value: 222,
+                pValue: 22,
+                text: '2-2-2'
+            }];
+        this.updater.digest({
+            list: list
+        });
+    }
+});
+
+});

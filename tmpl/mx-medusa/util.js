@@ -13,9 +13,9 @@ let Get = () => {
         if (result && result.length > 0) {
             lang = result[1];
         } else {
-            // language 判断除IE外其他浏览器使用语言
             // browserLanguage 判断IE浏览器使用语言
-            lang = navigator.language || navigator.browserLanguage || I18n.defaultLocale;
+            // language 判断除IE外其他浏览器使用语言
+            lang = navigator.browserLanguage || navigator.language || I18n.defaultLocale;
         }
     }
     //获取浏览器配置语言前两位

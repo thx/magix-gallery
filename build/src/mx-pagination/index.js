@@ -1,1 +1,376 @@
-define("mx-pagination/index",["magix","$","../mx-medusa/util","mx-dropdown/index"],(l,e,a)=>{l("mx-dropdown/index");var s=l("magix"),_=l("$"),r=[10,20,30,40],t=l("../mx-medusa/util");s.applyStyle("_zs_galleryaj","._zs_galleryjL{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryjM{color:#666}._zs_galleryjM ._zs_galleryjN{float:left;line-height:26px}._zs_galleryjM ._zs_galleryjN ._zs_galleryjO{min-width:66px}._zs_galleryjM ._zs_galleryjN ._zs_galleryjO ._zs_galleryeb{height:26px;line-height:24px}._zs_galleryjM ._zs_galleryjP{display:inline-block}._zs_galleryjM ._zs_galleryjP ._zs_galleryjQ{float:left;line-height:26px}._zs_galleryjM ._zs_galleryjP ._zs_galleryjQ ._zs_galleryjR,._zs_galleryjM ._zs_galleryjP ._zs_galleryjQ ._zs_galleryjS{display:block;min-width:26px;height:26px;margin:0 2px;font-size:12px;border-radius:4px;text-align:center}._zs_galleryjM ._zs_galleryjP ._zs_galleryjQ ._zs_galleryjS{color:#666}._zs_galleryjM ._zs_galleryjP ._zs_galleryjQ ._zs_galleryjS:hover{color:#333}._zs_galleryjM ._zs_galleryjP ._zs_galleryjQ ._zs_galleryjS._zs_galleryjT{color:#333;background-color:#eee}._zs_galleryjM ._zs_galleryjP ._zs_galleryjQ ._zs_galleryjS._zs_galleryjU{background:transparent;cursor:not-allowed}._zs_galleryjM ._zs_galleryjP ._zs_galleryjQ ._zs_galleryjR{color:#999;line-height:28px}._zs_galleryjM ._zs_galleryjP ._zs_galleryjQ ._zs_galleryjR:hover{color:#666}._zs_galleryjM ._zs_galleryjP ._zs_galleryjQ ._zs_galleryjR._zs_galleryjU{color:#eee;background:transparent;cursor:not-allowed}._zs_galleryjM ._zs_galleryjV{float:right;margin-left:15px}._zs_galleryjM ._zs_galleryjV ._zs_galleryjW{width:40px;text-align:center}"),a.exports=s.View.extend({tmpl:function(l,e,a,s,_,r,t,i){if(a||(a=l),!_){var g={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},n=/[&<>"'`]/g,c=function(l){return"&"+g[l]+";"};_=function(l){return""+(null==l?"":l)},s=function(l){return _(l).replace(n,c)}}if(!r){var p={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},z=function(l){return p[l]},y=/[!')(*]/g;r=function(l){return encodeURIComponent(_(l)).replace(y,z)}}if(!i){var o=/[\\'"]/g;i=function(l){return _(l).replace(o,"\\$&")}}t||(t=function(l,e,a,s){for(s=l[j];--s;)if(l[a=j+s]===e)return a;return l[a=j+l[j]++]=e,a});var j="",m="",u=l.simplify,f=l.mini,x=l.tipOffset,d=l.tipTotal,h=l.tipPer,v=l.sizesChange,M=l.sizesPlacement,I=l.sizes,P=l.size,Q=l.tipUnit,k=l.jump,b=l.tipJumpTo,w=l.next,S=l.viewId,U=l.tipJumpUnit,T=l.hideTotal,R=l.page,$=l.pages,N=l.start,O=l.end;if(m+='<div mxv mxa="_zs_gallerycI:_" class="clearfix _zs_galleryjM">',u||f||(m+='<div mxv mxa="_zs_gallerycI:a" class="_zs_galleryjN"><span>'+_(x)+"</span><span>"+_(d)+"，</span><span>"+_(h)+"</span>",m+=v?'<div mxv="sizes,size" class="ml10 mr10 _zs_galleryjO" mx-change="'+e+'__cj()" mx-view="mx-dropdown/index?placement='+r(M)+"&list="+t(a,I)+"&selected="+t(a,P)+'"></div>':" "+s(P)+" ",m+="<span>"+_(Q)+"</span></div>"),m+=" ",k||(m+='<div mxv mxa="_zs_gallerycI:b" class="_zs_galleryjV"><span mxa="_zs_gallerycI:c" class="mr5">'+s(b)+'</span><input class="input input-small _zs_galleryjW mr5" value="'+s(w)+'" id="'+s(S)+'_jump_input" mx-change="'+e+'__l()" mx-focusin="'+e+'__l()" mx-focusout="'+e+'__l()"/><span mxa="_zs_gallerycI:d" class="mr10">'+s(U)+'</span><a mxs="_zs_gallerycI:_" href="javascript:;" class="btn btn-small" mx-click="'+e+'__ck()">跳转</a></div>'),m+='<ul class="clearfix _zs_galleryjP" ',T||(m+=' style="float: right;" '),m+='><li mxa="_zs_gallerycI:e" class="_zs_galleryjQ"><a class="mc-iconfont _zs_galleryjR ',1==R&&(m+="_zs_galleryjU"),m+='" href="#" mx-click="'+e+"",m+=R>1?"__ci({page:"+s(R-1)+"})":"__H()",m+='">&#xe61e;</a></li>',f)m+='<li mxa="_zs_gallerycI:f" class="_zs_galleryjQ">'+s(R)+" / "+s($)+"</li>";else{m+=" ",N>1&&(m+='<li mxs="_zs_gallerycI:a" class="_zs_galleryjQ"><a class="_zs_galleryjS" href="#" mx-click="'+e+'__ci({page:1})">1</a></li>'),m+=" ",N>2&&(m+='<li mxs="_zs_gallerycI:b" class="_zs_galleryjQ"><a class="_zs_galleryjS _zs_galleryjU" href="#" mx-click="'+e+'__H()">...</a></li>'),m+=" ";for(var H=N;H<=O;H++)m+='<li mxa="_zs_gallerycI:g" class="_zs_galleryjQ"><a class="_zs_galleryjS ',H==R&&(m+="_zs_galleryjT"),m+='" href="#" mx-click="'+e+"__ci({page:"+s(H)+'})">'+s(H)+"</a></li>";m+=" ",O+2<=$&&(m+='<li mxs="_zs_gallerycI:b" class="_zs_galleryjQ"><a class="_zs_galleryjS _zs_galleryjU" href="#" mx-click="'+e+'__H()">...</a></li>'),m+=" ",O<$&&(m+='<li mxa="_zs_gallerycI:h" class="_zs_galleryjQ"><a class="_zs_galleryjS" href="#" mx-click="'+e+"__ci({page:"+s($)+'})">'+s($)+"</a></li>"),m+=" "}return m+='<li mxa="_zs_gallerycI:i" class="_zs_galleryjQ"><a class="mc-iconfont _zs_galleryjR rotate180 ',R==$&&(m+="_zs_galleryjU"),m+='" href="#" mx-click="'+e+"",m+=R<$?"__ci({page:"+s(R+1)+"})":"__H()",m+='">&#xe61e;</a></li>',T||(m+='<li mxa="_zs_gallerycI:j" class="_zs_galleryjQ ml10">'+_(d)+"</li>"),m+="</ul></div>"},init:function(l){this.updater.snapshot(),this.assign(l)},assign:function(l){var e=this,a=e.updater.altered(),s=[];try{s=JSON.parse(l.sizes)}catch(e){s=l.sizes}s&&s.length||(s=r);var _=!0;/^false$/i.test(l.sizesChange)&&(_=!1);var t,i=l.size||40;return t=l.page?l.page:l.offset?parseInt(l.offset/i)+1:1,e.updater.set({viewId:e.id,step:l.step||5,simplify:l.simplify+""=="true",mini:l.mini+""=="true",hideTotal:l.hideTotal+""=="true",jump:l.jump+""=="false",total:0|l.total||0,page:t,size:i,sizesChange:_,sizesPlacement:l.sizesPlacement||"bottom",sizes:s}),a||(a=e.updater.altered()),!!a&&(e.updater.snapshot(),!0)},render:function(){var l=this.__ch();this.updater.digest(l)},__ch:function(){var l=this.updater.get(),e=l.total,a=0|l.page,s=Math.ceil((l.total||1)/l.size);a>s&&(a=s);var _,r=0|l.step,i=r/2|0,g=Math.max(1,a-i),n=Math.min(s,g+r-1);(g=Math.max(1,n-r+1))<=2&&n+(_=3-g)<s&&(n+=_),n+2>s&&g-(_=2-(s-n))>1&&(g-=_),3==g&&(g-=1),n+2==s&&(n+=1);var c=(a-1)*l.size+1,p=Math.min(l.total,a*l.size);0==e&&(c=p=0);var z=a+1;return z>s&&(z=s),{pages:s,offsetStart:c,offsetEnd:p,page:a,start:g,end:n,next:z,tipOffset:t["pager.offset"].replace("${min}",""+c).replace("${max}",""+p),tipTotal:t["pager.total"].replace("${total}",""+e),tipPer:t["pager.per.page"],tipUnit:t["pager.unit"],tipJumpTo:t["pager.jump.to"],tipJumpUnit:t["pager.jump.unit"]}},__y:function(){var l=_("#"+this.id),e=this.updater.get(),a=+e.page,s=+e.size,r=(a-1)*s;l.trigger({type:"change",page:a,size:s,offset:r})},"__ci<click>":function(l){l.preventDefault();this.updater.set(l.params),this.render(),this.__y()},"__cj<change>":function(l){l.stopPropagation();this.updater.set({size:l.value}),this.render(),this.__y()},"__l<change,focusin,focusout>":function(l){l.stopPropagation()},"__ck<click>":function(l){l.stopPropagation();var e=+_("#"+this.id+"_jump_input").val();Number.isInteger(e)&&(this.updater.set({page:e}),this.render(),this.__y())},"__H<click>":function(l){l.preventDefault()}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-pagination/index",["magix","$","../mx-medusa/util","mx-dropdown/index"],(require,exports,module)=>{
+/*Magix,$,I18n*/
+require("mx-dropdown/index");
+var Magix = require("magix");
+var $ = require("$");
+var DefaultSizes = [10, 20, 30, 40];
+var I18n = require("../mx-medusa/util");
+Magix.applyStyle("_zs_gallery_mx-pagination_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-pagination_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-pagination_index_-pager {\n  color: #666;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-infos {\n  float: left;\n  line-height: 26px;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-infos ._zs_gallery_mx-pagination_index_-pager-dropdown {\n  min-width: 66px;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-infos ._zs_gallery_mx-pagination_index_-pager-dropdown ._zs_gallery_mx-dropdown_index_-dropdown-toggle {\n  height: 26px;\n  line-height: 24px;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items {\n  display: inline-block;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item {\n  float: left;\n  line-height: 26px;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item ._zs_gallery_mx-pagination_index_-num-item-inner,\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item ._zs_gallery_mx-pagination_index_-num-item-icon {\n  display: block;\n  min-width: 26px;\n  height: 26px;\n  margin: 0 2px;\n  font-size: 12px;\n  border-radius: 4px;\n  text-align: center;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item ._zs_gallery_mx-pagination_index_-num-item-inner {\n  color: #666;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item ._zs_gallery_mx-pagination_index_-num-item-inner:hover {\n  color: #333;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item ._zs_gallery_mx-pagination_index_-num-item-inner._zs_gallery_mx-pagination_index_-active {\n  color: #333;\n  background-color: #eee;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item ._zs_gallery_mx-pagination_index_-num-item-inner._zs_gallery_mx-pagination_index_-notallowed {\n  background: transparent;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item ._zs_gallery_mx-pagination_index_-num-item-icon {\n  color: #999;\n  line-height: 28px;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item ._zs_gallery_mx-pagination_index_-num-item-icon:hover {\n  color: #666;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-num-items ._zs_gallery_mx-pagination_index_-num-item ._zs_gallery_mx-pagination_index_-num-item-icon._zs_gallery_mx-pagination_index_-notallowed {\n  color: #eee;\n  background: transparent;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-quick {\n  float: right;\n  margin-left: 15px;\n}\n._zs_gallery_mx-pagination_index_-pager ._zs_gallery_mx-pagination_index_-quick ._zs_gallery_mx-pagination_index_-quick-input {\n  width: 40px;\n  text-align: center;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', simplify = $$.simplify, mini = $$.mini, tipOffset = $$.tipOffset, tipTotal = $$.tipTotal, tipPer = $$.tipPer, sizesChange = $$.sizesChange, sizesPlacement = $$.sizesPlacement, sizes = $$.sizes, size = $$.size, tipUnit = $$.tipUnit, jump = $$.jump, tipJumpTo = $$.tipJumpTo, next = $$.next, viewId = $$.viewId, tipJumpUnit = $$.tipJumpUnit, hideTotal = $$.hideTotal, page = $$.page, pages = $$.pages, start = $$.start, end = $$.end; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerycI:_" class="clearfix _zs_gallery_mx-pagination_index_-pager">';
+    $expr = '<%if (!simplify && !mini) {%>';
+    if (!simplify && !mini) {
+        ;
+        $p += '<div mxv mxa="_zs_gallerycI:a" class="_zs_gallery_mx-pagination_index_-infos"><span>' + ($expr = '<%!tipOffset%>', $n(tipOffset)) + '</span><span>' + ($expr = '<%!tipTotal%>', $n(tipTotal)) + '，</span><span>' + ($expr = '<%!tipPer%>', $n(tipPer)) + '</span>';
+        $expr = '<%if (sizesChange) {%>';
+        if (sizesChange) {
+            ;
+            $p += '<div mxv="sizes,size" class="ml10 mr10 _zs_gallery_mx-pagination_index_-pager-dropdown" mx-change="' + $viewId + '@{changeSize}()" mx-view="mx-dropdown/index?placement=' + ($expr = '<%!$eu(sizesPlacement)%>', $eu(sizesPlacement)) + '&list=' + ($expr = '<%@sizes%>', $i($$ref, sizes)) + '&selected=' + ($expr = '<%@size%>', $i($$ref, size)) + '"></div>';
+            $expr = '<%}    else {%>';
+        }
+        else {
+            ;
+            $p += ' ' + ($expr = '<%=size%>', $e(size)) + ' ';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '<span>' + ($expr = '<%!tipUnit%>', $n(tipUnit)) + '</span></div>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $expr = '<%if (!jump) {%>';
+    if (!jump) {
+        ;
+        $p += '<div mxv mxa="_zs_gallerycI:b" class="_zs_gallery_mx-pagination_index_-quick"><span mxa="_zs_gallerycI:c" class="mr5">' + ($expr = '<%=tipJumpTo%>', $e(tipJumpTo)) + '</span><input class="input input-small _zs_gallery_mx-pagination_index_-quick-input mr5" value="';
+        $line = 26;
+        $art = '=next';
+        ;
+        $p += ($expr = '<%=next%>', $e(next)) + '" id="';
+        $line = 26;
+        $art = '=viewId';
+        ;
+        $p += ($expr = '<%=viewId%>', $e(viewId)) + '_jump_input" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()"/><span mxa="_zs_gallerycI:d" class="mr10">' + ($expr = '<%=tipJumpUnit%>', $e(tipJumpUnit)) + '</span><a mxs="_zs_gallerycI:_" href="javascript:;" class="btn btn-small" mx-click="' + $viewId + '@{jump}()">跳转</a></div>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '<ul class="clearfix _zs_gallery_mx-pagination_index_-num-items" ';
+    $expr = '<%if (!hideTotal) {%>';
+    if (!hideTotal) {
+        ;
+        $p += ' style="float: right;" ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '><li mxa="_zs_gallerycI:e" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon ';
+    $expr = '<%if (page == 1) {%>';
+    if (page == 1) {
+        ;
+        $p += '_zs_gallery_mx-pagination_index_-notallowed';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" href="#" mx-click="' + $viewId + '';
+    $expr = '<%if (page > 1) {%>';
+    if (page > 1) {
+        ;
+        $p += '@{toPage}({page:' + ($expr = '<%=page - 1%>', $e(page - 1)) + '})';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '@{prevent}()';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '">&#xe61e;</a></li>';
+    $expr = '<%if (mini) {%>';
+    if (mini) {
+        ;
+        $p += '<li mxa="_zs_gallerycI:f" class="_zs_gallery_mx-pagination_index_-num-item">' + ($expr = '<%=page%>', $e(page)) + ' / ' + ($expr = '<%=pages%>', $e(pages)) + '</li>';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' ';
+        $expr = '<%if (start > 1) {%>';
+        if (start > 1) {
+            ;
+            $p += '<li mxs="_zs_gallerycI:a" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner" href="#" mx-click="' + $viewId + '@{toPage}({page:1})">1</a></li>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $expr = '<%if (start > 2) {%>';
+        if (start > 2) {
+            ;
+            $p += '<li mxs="_zs_gallerycI:b" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner _zs_gallery_mx-pagination_index_-notallowed" href="#" mx-click="' + $viewId + '@{prevent}()">...</a></li>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $expr = '<%for (var i = start; i <= end; i++) {%>';
+        for (var i = start; i <= end; i++) {
+            ;
+            $p += '<li mxa="_zs_gallerycI:g" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner ';
+            $expr = '<%if (i == page) {%>';
+            if (i == page) {
+                ;
+                $p += '_zs_gallery_mx-pagination_index_-active';
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '" href="#" mx-click="' + $viewId + '@{toPage}({page:' + ($expr = '<%=i%>', $e(i)) + '})">' + ($expr = '<%=i%>', $e(i)) + '</a></li>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $expr = '<%if (end + 2 <= pages) {%>';
+        if (end + 2 <= pages) {
+            ;
+            $p += '<li mxs="_zs_gallerycI:b" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner _zs_gallery_mx-pagination_index_-notallowed" href="#" mx-click="' + $viewId + '@{prevent}()">...</a></li>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $expr = '<%if (end < pages) {%>';
+        if (end < pages) {
+            ;
+            $p += '<li mxa="_zs_gallerycI:h" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner" href="#" mx-click="' + $viewId + '@{toPage}({page:' + ($expr = '<%=pages%>', $e(pages)) + '})">' + ($expr = '<%=pages%>', $e(pages)) + '</a></li>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '<li mxa="_zs_gallerycI:i" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon rotate180 ';
+    $expr = '<%if (page == pages) {%>';
+    if (page == pages) {
+        ;
+        $p += '_zs_gallery_mx-pagination_index_-notallowed';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" href="#" mx-click="' + $viewId + '';
+    $expr = '<%if (page < pages) {%>';
+    if (page < pages) {
+        ;
+        $p += '@{toPage}({page:' + ($expr = '<%=page + 1%>', $e(page + 1)) + '})';
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '@{prevent}()';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '">&#xe61e;</a></li>';
+    $expr = '<%if (!hideTotal) {%>';
+    if (!hideTotal) {
+        ;
+        $p += '<li mxa="_zs_gallerycI:j" class="_zs_gallery_mx-pagination_index_-num-item ml10">' + ($expr = '<%!tipTotal%>', $n(tipTotal)) + '</li>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</ul></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-pagination/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        //初始化时保存一份当前数据的快照
+        this.updater.snapshot();
+        //该处是否可以由magix自动调用
+        this.assign(extra);
+    },
+    assign: function (ops) {
+        var me = this;
+        //赋值前先进行数据变化的检测,首次assign是在init方法中调用,后续的调用是magix自动调用,这个检测主要用于在首次调用后,magix自动调用前有没有进行数据的更新
+        var altered = me.updater.altered();
+        var sizes = [];
+        try {
+            sizes = JSON.parse(ops.sizes);
+        }
+        catch (e) {
+            sizes = ops.sizes;
+        }
+        if (!sizes || !sizes.length) {
+            sizes = DefaultSizes;
+        }
+        var sizesChange = true;
+        if ((/^false$/i).test(ops.sizesChange)) {
+            sizesChange = false;
+        }
+        //当前第几页
+        // 优先级page > offset
+        var page, size = ops.size || 40;
+        if (ops.page) {
+            page = ops.page;
+        }
+        else if (ops.offset) {
+            page = parseInt(ops.offset / size) + 1;
+        }
+        else {
+            page = 1;
+        }
+        me.updater.set({
+            viewId: me.id,
+            step: ops.step || 5,
+            simplify: (ops.simplify + '') === 'true',
+            mini: (ops.mini + '') === 'true',
+            hideTotal: (ops.hideTotal + '') === 'true',
+            jump: (ops.jump + '') === 'false',
+            total: (ops.total | 0) || 0,
+            page: page,
+            size: size,
+            sizesChange: sizesChange,
+            sizesPlacement: ops.sizesPlacement || 'bottom',
+            sizes: sizes //可选分页数
+        });
+        //如果数据没变化,则设置新的数据后再次检测
+        if (!altered) {
+            altered = me.updater.altered();
+        }
+        //如果有变化,则再保存当前的快照,然后返回true告诉magix当前view需要更新
+        if (altered) {
+            me.updater.snapshot();
+            return true;
+        }
+        //如果数据没变化,则告诉magix当前view不用更新
+        return false;
+    },
+    render: function () {
+        var me = this;
+        var info = me['@{cal.page.info}']();
+        me.updater.digest(info);
+    },
+    '@{cal.page.info}': function () {
+        var me = this;
+        var data = me.updater.get();
+        var total = data.total;
+        var page = data.page | 0;
+        var pages = Math.ceil((data.total || 1) / data.size);
+        if (page > pages) {
+            page = pages;
+        }
+        var step = data.step | 0;
+        var middle = step / 2 | 0;
+        var start = Math.max(1, page - middle);
+        var end = Math.min(pages, start + step - 1);
+        start = Math.max(1, end - step + 1);
+        var offset;
+        if (start <= 2) {
+            offset = 3 - start;
+            if (end + offset < pages) {
+                end += offset;
+            }
+        }
+        if (end + 2 > pages) {
+            offset = 2 - (pages - end);
+            if ((start - offset) > 1) {
+                start -= offset;
+            }
+        }
+        if (start == 3) {
+            start -= 1;
+        }
+        if (end + 2 == pages) {
+            end += 1;
+        }
+        var offsetStart = (page - 1) * data.size + 1;
+        var offsetEnd = Math.min(data.total, page * data.size);
+        if (total == 0) {
+            offsetStart = offsetEnd = 0;
+        }
+        var tipOffset = I18n['pager.offset'].replace('${min}', "" + offsetStart).replace('${max}', "" + offsetEnd), tipTotal = I18n['pager.total'].replace('${total}', "" + total), tipPer = I18n['pager.per.page'], tipUnit = I18n['pager.unit'], tipJumpTo = I18n['pager.jump.to'], tipJumpUnit = I18n['pager.jump.unit'];
+        // 跳转，下一页
+        var next = page + 1;
+        if (next > pages) {
+            next = pages;
+        }
+        return {
+            pages: pages,
+            offsetStart: offsetStart,
+            offsetEnd: offsetEnd,
+            page: page,
+            start: start,
+            end: end,
+            next: next,
+            tipOffset: tipOffset,
+            tipTotal: tipTotal,
+            tipPer: tipPer,
+            tipUnit: tipUnit,
+            tipJumpTo: tipJumpTo,
+            tipJumpUnit: tipJumpUnit
+        };
+    },
+    '@{fire.event}': function () {
+        var me = this;
+        var node = $('#' + me.id);
+        var data = me.updater.get();
+        var page = +data.page, size = +data.size;
+        var offset = (page - 1) * size;
+        node.trigger({
+            type: 'change',
+            page: page,
+            size: size,
+            offset: offset
+        });
+    },
+    '@{toPage}<click>': function (e) {
+        e.preventDefault();
+        var me = this;
+        me.updater.set(e.params);
+        me.render();
+        me['@{fire.event}']();
+    },
+    '@{changeSize}<change>': function (e) {
+        e.stopPropagation();
+        var me = this;
+        me.updater.set({
+            // page: 1,
+            size: e.value
+        });
+        me.render();
+        me['@{fire.event}']();
+    },
+    '@{stop}<change,focusin,focusout>': function (e) {
+        e.stopPropagation();
+    },
+    '@{jump}<click>': function (e) {
+        e.stopPropagation();
+        var me = this;
+        var i = $('#' + me.id + '_jump_input');
+        var page = +(i.val());
+        if (!Number.isInteger(page)) {
+            return;
+        }
+        me.updater.set({
+            page: page
+        });
+        me.render();
+        me['@{fire.event}']();
+    },
+    '@{prevent}<click>': function (e) {
+        e.preventDefault();
+    }
+});
+
+});

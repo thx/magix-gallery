@@ -1,3 +1,4 @@
+/*md5:d26f8df89825e14487941f09716da1b5*/
 /**
  * 缩略图+预览
  */
@@ -41,8 +42,8 @@ module.exports = Magix.View.extend({
         }
         // 映射成语义方便处理
         let type;
-        for(let t in map){
-            if(map[t].indexOf(format) > -1){
+        for (let t in map) {
+            if (map[t].indexOf(format) > -1) {
                 type = t;
             }
         }
@@ -61,7 +62,7 @@ module.exports = Magix.View.extend({
             type,
             url,
             xiaotuUrl,
-            datuUrl, 
+            datuUrl,
             clickUrl: extra.clickUrl, //图点击跳转外链，没有可不配
             width: +extra.width, // 预览展示尺寸，图片文案可不配置，其余必填
             height: +extra.height,
@@ -69,7 +70,7 @@ module.exports = Magix.View.extend({
             maxHeight: +extra.maxHeight || 100
         });
 
-        if(window.IntersectionObserver){
+        if (window.IntersectionObserver) {
             var observer = new IntersectionObserver(changes => {
                 changes.forEach(({ target, isIntersecting }) => {
                     if (!isIntersecting) {
@@ -79,10 +80,11 @@ module.exports = Magix.View.extend({
                     observer.unobserve(target);
                 })
             }, {
-                rootMargin: '10px 0px' 
+                rootMargin: '10px 0px'
             });
+
             observer.observe(document.querySelector('#' + that.id));
-        }else{
+        } else {
             // 直接加载
             that.thumbnail();
         }
@@ -97,16 +99,16 @@ module.exports = Magix.View.extend({
 
         let thumbnail = '';
         switch (type) {
-            case 'image': 
+            case 'image':
             case 'taotu':
                 thumbnail = `<img class="@index.less:img" src="${url}"/>`;
                 break;
-            case 'flash': 
+            case 'flash':
                 thumbnail = 'flash已下线';
-            case 'video': 
+            case 'video':
                 thumbnail = `<video src="${url}" class="@index.less:video"></video>`;
                 break;
-            case 'text': 
+            case 'text':
                 thumbnail = $(`<div class="@index.less:text" style="max-width: ${maxWidth}px;"></div>`);
                 // 纯文案展示（包括可执行脚本）
                 thumbnail[0].innerText = url;
@@ -115,7 +117,7 @@ module.exports = Magix.View.extend({
                 let width = data.width,
                     height = data.height;
                 let scale = Math.min(maxWidth / width, maxHeight / height);
-                let frameWidth = width * scale;
+                let frameWidth = width * scale,
                     frameHeight = height * scale;
                 thumbnail = `<div style="width: ${frameWidth}px; height: ${frameHeight}px; overflow: hidden">
                                 <iframe src="${url}" class="@index.less:iframe"
@@ -141,158 +143,168 @@ module.exports = Magix.View.extend({
     },
 
     'preview<mouseover>'(e) {
+        if (Magix.inside(e.relatedTarget, e.eventTarget)) {
+            return;
+        }
+        this.show();
+    },
+
+    show() {
         let that = this;
-        if (!Magix.inside(e.relatedTarget, e.eventTarget)) {
-            //优化大量预览的显示
-            if (Active && Active != that) {
-                Active.immediatelyHide();
+        let target = $('#' + that.id + ' .@index.less:outer');
+        let offset = target.offset();
+        let left = offset.left + target.outerWidth() + 10,
+            top = offset.top;
+
+        //优化大量预览的显示
+        if (Active && Active != that) {
+            Active.immediatelyHide();
+        }
+        Active = that;
+        clearTimeout(that.timer);
+
+        let data = that.updater.get();
+        let type = data.type,
+            url = data.url;
+        if (!url || !type || (type == 'flash')) {
+            // 不预览的情况
+            // 1. 没有内容
+            // 2. 不支持的type类型
+            // 3. flash不预览
+            return;
+        }
+
+        let next = (width, height) => {
+            // 对最大范围进行修正，不超过屏幕可视范围
+            let win = $(window);
+            let winWidth = win.width(),
+                winHeight = win.height(),
+                winScroll = win.scrollTop();
+            let rangeWidth = winWidth - left;
+            if (rangeWidth < width) {
+                height = height * (rangeWidth / width);
+                width = rangeWidth;
             }
-            Active = that;
-            clearTimeout(that.timer);
-
-            let data = that.updater.get();
-            let type = data.type,
-                url = data.url;
-            if (!url || !type || (type == 'flash')) {
-                // 不预览的情况
-                // 1. 没有内容
-                // 2. 不支持的type类型
-                // 3. flash不预览
-                return;
-            }
-
-            let next = (width, height) => {
-                let target = $(e.eventTarget);
-                let offset = target.offset();
-                let left = offset.left + target.outerWidth() + 10,
-                    top = offset.top;
-
-                // 对最大范围进行修正，不超过屏幕可视范围
-                let win = $(window);
-                let winWidth = win.width(),
-                    winHeight = win.height(),
-                    winScroll = win.scrollTop();
-                let rangeWidth = winWidth - left;
-                if (rangeWidth < width) {
-                    height = height * (rangeWidth / width);
-                    width = rangeWidth;
-                }
-                if (height > winHeight) {
-                    width = width * winHeight / height;
-                    height = winHeight;
-                }
-
-                if (winScroll + winHeight < top + height) {
-                    // 有部分不可见
-                    let back = Math.min(
-                        (top + height - winScroll - winHeight),
-                        top - winScroll
-                    )
-                    top = top - back;
-                }
-
-                let inner = '';
-                switch (type) {
-                    case 'image': 
-                        inner = $(`<img src="${url}" class="@index.less:preview-inner"/>`);
-                        break;
-                    case 'taotu': // 套图 
-                        inner = $(`<div class="clearfix">
-                            <img src="${url}" class="fl"/>    
-                            <img src="${data.datuUrl}" class="fr"/>
-                        </div>`);
-                        break;
-                    case 'video': 
-                        inner = $(`<video src="${url}" class="@index.less:preview-inner"
-                            controls="controls" autoplay="autoplay"></video>`);
-                        break;
-                    case 'text':
-                        inner = $(`<div class="@index.less:preview-inner"></div>`);
-                        inner[0].innerText = url;
-                        break;
-                    case 'iframe': 
-                        let originWidth = data.width,
-                            originHeight = data.height;
-                        let scale = (width - 20) / originWidth;
-                        inner = $(`<div class="@index.less:preview-inner">
-                            <iframe src="${url}"
-                                style="transform: scale(${scale}); transform-origin: left top;"
-                                width="${originWidth}" 
-                                height="${originHeight}"
-                                frameborder="0" 
-                                scrolling="no" 
-                                marginheight="0" 
-                                marginwidth="0" 
-                                border="0"></iframe>
-                        </div>`);
-                        break;
-                }
-
-                // 跳转外链
-                let clickUrl = data.clickUrl;
-                if (clickUrl) {
-                    inner.wrap(`<a href="${clickUrl}" target="_blank" rel="noopener noreferrer"></a>`);
-                }
-
-                let floatingLayer = $('#pic_preview_' + that.id);
-                if (!floatingLayer.length) {
-                    floatingLayer = $('<div id="pic_preview_' + that.id + '" class="@index.less:pic-preview"></div>').appendTo('body');
-                }
-                floatingLayer.empty().append(inner);
-                floatingLayer.css({
-                    width,
-                    height: !height ? 'auto' : height, //文案没有高度
-                    left,
-                    top,
-                    display: 'block'
-                })
+            if (height > winHeight) {
+                width = width * winHeight / height;
+                height = winHeight;
             }
 
-            if(type == 'taotu'){
-                //套图的大图展示，特殊处理
-                //注意onload 放在img.src 前面用来兼容IE
-                let img = new Image();
-                img.onload = function () {
-                    let width = data.width + 10 + this.width + 20;
-                    let height = Math.max(data.height, this.height) + 20;
-                    next(width, height);
-                }
-                img.src = data.datuUrl;
-            }else{
-                if(data.width && data.height){
-                    // 预留间隔
-                    next(data.width + 20, data.height + 20);
-                }else{
-                    // 只有图片和文案类型可不配置，其余必填
-                    // 没有配置预览宽高
-                    if(type == 'text'){
-                        // 文案默认宽度600，高度自适应
-                        next(600, 0);
-                    }else if(type == 'image'){
-                        let img = new Image();
-                        img.onload = function () {
-                            next(this.width + 20, this.height + 20);
-                        }
-                        img.src = url;
+            if (winScroll + winHeight < top + height) {
+                // 有部分不可见
+                let back = Math.min(
+                    (top + height - winScroll - winHeight),
+                    top - winScroll
+                )
+                top = top - back;
+            }
+
+            let inner = '';
+            switch (type) {
+                case 'image':
+                    inner = $(`<img src="${url}" class="@index.less:preview-inner"/>`);
+                    break;
+                case 'taotu': // 套图 
+                    inner = $(`<div class="clearfix">
+                        <img src="${url}" class="fl"/>    
+                        <img src="${data.datuUrl}" class="fr"/>
+                    </div>`);
+                    break;
+                case 'video':
+                    inner = $(`<video src="${url}" class="@index.less:preview-inner"
+                        controls="controls" autoplay="autoplay"></video>`);
+                    break;
+                case 'text':
+                    inner = $(`<div class="@index.less:preview-inner"></div>`);
+                    inner[0].innerText = url;
+                    break;
+                case 'iframe':
+                    let originWidth = data.width,
+                        originHeight = data.height;
+                    let scale = (width - 20) / originWidth;
+                    inner = $(`<div class="@index.less:preview-inner">
+                        <iframe src="${url}"
+                            style="transform: scale(${scale}); transform-origin: left top;"
+                            width="${originWidth}" 
+                            height="${originHeight}"
+                            frameborder="0" 
+                            scrolling="no" 
+                            marginheight="0" 
+                            marginwidth="0" 
+                            border="0"></iframe>
+                    </div>`);
+                    break;
+            }
+
+            // 跳转外链
+            let clickUrl = data.clickUrl;
+            if (clickUrl) {
+                inner.wrap(`<a href="${clickUrl}" target="_blank" rel="noopener noreferrer"></a>`);
+            }
+
+            let floatingLayer = $('#pic_preview_' + that.id);
+            if (!floatingLayer.length) {
+                floatingLayer = $('<div id="pic_preview_' + that.id + '" class="@index.less:pic-preview"></div>').appendTo('body');
+            }
+            floatingLayer.empty().append(inner);
+            floatingLayer.css({
+                width,
+                height: !height ? 'auto' : height, //文案没有高度
+                left,
+                top,
+                display: 'block'
+            })
+        }
+
+        if (type == 'taotu') {
+            //套图的大图展示，特殊处理
+            //注意onload 放在img.src 前面用来兼容IE
+            let img = new Image();
+            img.onload = function () {
+                let width = data.width + 10 + this.width + 20;
+                let height = Math.max(data.height, this.height) + 20;
+                next(width, height);
+            }
+            img.src = data.datuUrl;
+        } else {
+            if (data.width && data.height) {
+                // 预留间隔
+                next(data.width + 20, data.height + 20);
+            } else {
+                // 只有图片和文案类型可不配置，其余必填
+                // 没有配置预览宽高
+                if (type == 'text') {
+                    // 文案默认宽度600，高度自适应
+                    next(600, 0);
+                } else if (type == 'image') {
+                    let img = new Image();
+                    img.onload = function () {
+                        next(this.width + 20, this.height + 20);
                     }
+                    img.src = url;
                 }
             }
         }
     },
 
     'hide<mouseout>': function (e) {
-        let that = this;
-        if (!Magix.inside(e.relatedTarget, e.eventTarget)) {
-            that.delayHide();
-
-            let floatingLayer = $('#pic_preview_' + that.id);
-            floatingLayer.off('mouseover.preview').on('mouseover.preview', function () {
-                clearTimeout(that.timer);
-                floatingLayer.off('mouseout.preview').on('mouseout.preview', function (event) {
-                    that.delayHide();
-                })
-            })
+        if (Magix.inside(e.relatedTarget, e.eventTarget)) {
+            return;
         }
+        this.hide();
+    },
+
+    hide() {
+        let that = this;
+        that.delayHide();
+
+        let floatingLayer = $('#pic_preview_' + that.id);
+        floatingLayer.off('mouseover.preview').on('mouseover.preview', function () {
+            clearTimeout(that.timer);
+            floatingLayer.off('mouseout.preview').on('mouseout.preview', function (event) {
+                that.delayHide();
+            })
+        })
     },
 
     immediatelyHide() {

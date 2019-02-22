@@ -107,11 +107,12 @@ module.exports = Magix.View.extend({
 
         // 最大最小不关心时分秒，时分秒的大小不限制
         let max, min;
+        // Safari不支持YYYY-MM-dd，使用YYYY/MM/dd
         if (ops.max) {
-            max = new Date(DateFormat(ops.max, formatter) + ' 23:59:59');
+            max = new Date(DateFormat(ops.max, 'YYYY/MM/dd') + ' 23:59:59');
         }
         if (ops.min) {
-            min = new Date(DateFormat(ops.min, formatter) + ' 00:00:00');
+            min = new Date(DateFormat(ops.min, 'YYYY/MM/dd') + ' 00:00:00');
         }
         let today = new Date();
 
