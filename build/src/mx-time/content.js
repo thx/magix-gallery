@@ -65,7 +65,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', format = $$.format, time = $$.time, types = $$.types; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryen:_" class="clearfix pr"><div mxs="_zs_galleryen:_" class="clearfix _zs_gallery_mx-time_content_-sps"><div class="_zs_gallery_mx-time_content_-sp _zs_gallery_mx-time_content_-spa">:</div><div class="_zs_gallery_mx-time_content_-sp _zs_gallery_mx-time_content_-spb">:</div></div><div mxv mxa="_zs_galleryen:a" class="_zs_gallery_mx-time_content_-groups" style="display: flex;flex-direction: row;justify-content: space-between;align-items: stretch;--mx-grid-gutter: 0;margin-left: calc(0px - var(--mx-grid-gutter) / 2);margin-right: calc(0px - var(--mx-grid-gutter) / 2);"><div mxv mxa="_zs_galleryen:b" class="_zs_gallery_mx-time_content_-group" style="flex: 0 0 52px;"><div mxv mxa="_zs_galleryen:c" class="mb5"><input class="input _zs_gallery_mx-time_content_-ipt" maxlength="2" autocomplete="off" value="';
+    $p += '<div mxv mxa="_zs_galleryes:_" class="clearfix pr"><div mxs="_zs_galleryes:_" class="clearfix _zs_gallery_mx-time_content_-sps"><div class="_zs_gallery_mx-time_content_-sp _zs_gallery_mx-time_content_-spa">:</div><div class="_zs_gallery_mx-time_content_-sp _zs_gallery_mx-time_content_-spb">:</div></div><div mxv mxa="_zs_galleryes:a" class="_zs_gallery_mx-time_content_-groups" style="display: flex;flex-direction: row;justify-content: space-between;align-items: stretch;--mx-grid-gutter: 0;margin-left: calc(0px - var(--mx-grid-gutter) / 2);margin-right: calc(0px - var(--mx-grid-gutter) / 2);"><div mxv mxa="_zs_galleryes:b" class="_zs_gallery_mx-time_content_-group" style="flex: 0 0 52px;"><div mxv mxa="_zs_galleryes:c" class="mb5"><input class="input _zs_gallery_mx-time_content_-ipt" maxlength="2" autocomplete="off" value="';
     $line = 12;
     $art = '=format(time[\'@{hour}\'])';
     ;
@@ -133,7 +133,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '>&#xe605;</i></div></div><div mxv mxa="_zs_galleryen:d" class="_zs_gallery_mx-time_content_-group" style="flex: 0 0 52px;"><div mxv mxa="_zs_galleryen:e" class="mb5"><input class="input _zs_gallery_mx-time_content_-ipt" maxlength="2" autocomplete="off" value="';
+    $p += '>&#xe605;</i></div></div><div mxv mxa="_zs_galleryes:d" class="_zs_gallery_mx-time_content_-group" style="flex: 0 0 52px;"><div mxv mxa="_zs_galleryes:e" class="mb5"><input class="input _zs_gallery_mx-time_content_-ipt" maxlength="2" autocomplete="off" value="';
     $line = 29;
     $art = '=format(time[\'@{minute}\'])';
     ;
@@ -201,7 +201,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '>&#xe605;</i></div></div><div mxv mxa="_zs_galleryen:f" class="_zs_gallery_mx-time_content_-group" style="flex: 0 0 52px;"><div mxv mxa="_zs_galleryen:g" class="mb5"><input class="input _zs_gallery_mx-time_content_-ipt" maxlength="2" autocomplete="off" value="';
+    $p += '>&#xe605;</i></div></div><div mxv mxa="_zs_galleryes:f" class="_zs_gallery_mx-time_content_-group" style="flex: 0 0 52px;"><div mxv mxa="_zs_galleryes:g" class="mb5"><input class="input _zs_gallery_mx-time_content_-ipt" maxlength="2" autocomplete="off" value="';
     $line = 46;
     $art = '=format(time[\'@{second}\'])';
     ;

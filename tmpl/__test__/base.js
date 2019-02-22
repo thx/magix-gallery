@@ -245,6 +245,10 @@ module.exports = Magix.View.extend({
                     path: '/status/dropdown',
                     icon: '&#xe7a4;'
                 }, {
+                    name: '拖动排序',
+                    path: '/dragsort/index',
+                    icon: '&#xe64d;'
+                }, {
                     name: '复制',
                     tip: '该组件引入了第三方 <a rel="noopener noreferrer" target="_blank" href="https://zenorocha.github.io/clipboard.js" class="color-brand">https://zenorocha.github.io/clipboard.js</a> 代码',
                     path: '/copy/index',

@@ -29,11 +29,11 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', selected = $$.selected, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycS:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerycS:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_gallerycS:b" class="mb20"><span mxs="_zs_gallerycS:_" class="color-9">trigger：</span><span class="color-brand" mx-change="' + $viewId + 'select()" mx-view="mx-popmenu/index?menus=';
+    $p += '<div mxa="_zs_gallerycX:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerycX:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_gallerycX:b" class="mb20"><span mxs="_zs_gallerycX:_" class="color-9">trigger：</span><span class="color-brand" mx-change="' + $viewId + 'select()" mx-view="mx-popmenu/index?menus=';
     $line = 6;
     $art = '@[{\n                    value: 1,\n                    text: \'操作1\'\n                }, {\n                    value: 2,\n                    text: \'操作2\'\n                }, {\n                    value: 3,\n                    text: \'操作3\'\n                }]';
     ;
-    $p += ($expr = '<%@[{            value: 1,            text: \'操作1\'        }, {            value: 2,            text: \'操作2\'        }, {            value: 3,            text: \'操作3\'        }]%>', $i($$ref, [{ value: 1, text: '操作1' }, { value: 2, text: '操作2' }, { value: 3, text: '操作3' }])) + '&triggerType=contextmenu">右键显示菜单</span><span mxs="_zs_gallerycS:a" class="color-9 ml40">当前选中：</span><span>';
+    $p += ($expr = '<%@[{            value: 1,            text: \'操作1\'        }, {            value: 2,            text: \'操作2\'        }, {            value: 3,            text: \'操作3\'        }]%>', $i($$ref, [{ value: 1, text: '操作1' }, { value: 2, text: '操作2' }, { value: 3, text: '操作3' }])) + '&triggerType=contextmenu">右键显示菜单</span><span mxs="_zs_gallerycX:a" class="color-9 ml40">当前选中：</span><span>';
     $line = 20;
     $art = 'if selected';
     ;
@@ -51,15 +51,15 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</span></div></div><div mxa="_zs_gallerycS:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycS:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</span></div></div><div mxa="_zs_gallerycX:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycX:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 25;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycS:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycX:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 27;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycS:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycX:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 30;
     $art = '=viewId';
     ;

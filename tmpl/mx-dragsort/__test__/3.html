@@ -1,0 +1,63 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20"><span class="color-9">以下示例：</span>自定义拖动元素</div>
+        <div class="clearfix">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>id</th>
+                        <th>title1</th>
+                        <th>title2</th>
+                    </tr>
+                </thead>
+                <tbody mx-view="@../../mx-dragsort/index" 
+                    view-selector="span">
+                    {{for(let i=0;i<3;i+=1)}}
+                    <tr>
+                        <td>
+                            <span class="btn btn-brand">点我拖动</span>
+                        </td>
+                        <td>{{=i}}</td>
+                        <td>text{{=i}}_1</td>
+                        <td>text{{=i}}_2</td>
+                    </tr>
+                    {{/for}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;table class="table"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th&gt;id&lt;/th&gt;
+            &lt;th&gt;title1&lt;/th&gt;
+            &lt;th&gt;title2&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody mx-view="@../../mx-dragsort/index" 
+        view-selector="span"&gt;
+        &#123;&#123;for(let i=0;i&lt;3;i+=1)&#125;&#125;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &lt;span class="btn btn-brand"&gt;点我拖动&lt;/span&gt;
+            &lt;/td&gt;
+            &lt;td&gt;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+            &lt;td&gt;text&#123;&#123;=i&#125;&#125;_1&lt;/td&gt;
+            &lt;td&gt;text&#123;&#123;=i&#125;&#125;_2&lt;/td&gt;
+        &lt;/tr&gt;
+        &#123;&#123;/for&#125;&#125;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+        </pre>
+    </div>
+</div>
