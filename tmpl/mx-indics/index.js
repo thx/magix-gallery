@@ -139,9 +139,8 @@ module.exports = Magix.View.extend({
             });
             that['@{fire}']('dialog-setting');
         };
-
         that.mxModal('@./dialog', viewOptions, {
-            width: 820,
+            width: 1000,
             closable: false,
             card: false
         });

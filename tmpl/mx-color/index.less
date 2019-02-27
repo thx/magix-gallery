@@ -1,0 +1,111 @@
+@import "../mx-style/_vars";
+.cnt{
+  padding:10px;
+  background-color: #fff;
+  display: inline-block;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.shortcuts {
+  width: 225px;
+}
+.shortcuts {
+  *zoom: 1;
+}
+.shortcuts:before,
+.shortcuts:after {
+  display: table;
+  content: "";
+}
+.shortcuts:after {
+  clear: both;
+}
+.shortcuts-item {
+  border: 1px solid #000;
+  float: left;
+  width: 15px;
+  height: 15px;
+  margin: -1px 0px 0 -1px;
+  position: relative;
+}
+.selected:before {
+  content: ' ';
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border:solid 2px #e8e8e8;
+  border-style: inset;
+  width:9px;
+  height: 9px;
+}
+.body{
+  margin:10px 0;
+  height: 200px
+}
+.cpicker{
+  position: relative;
+  float:left;
+  width:196px;
+  height:196px;
+}
+.cpicker-indicator{
+  position: absolute;
+  width:8px;
+  height:8px;
+  box-shadow: 0 0 0 1.5px #fff,inset 0 0 1px 1px rgba(0,0,0,.3),0 0 1px 2px rgba(0,0,0,.4);
+  border-radius: 50%;
+}
+.slide{
+  width:18px;
+  height:196px;
+  position: relative;
+  float:left;
+  margin-left:10px;
+}
+.slide-indicator{
+  position: absolute;
+  left:2px;
+  top:-2px;
+  height:4px;
+  width:14px;
+  box-shadow: 0 0 0 1.5px #fff,inset 0 0 1px 1px rgba(0,0,0,.3),0 0 1px 2px rgba(0,0,0,.4);
+  background:#fff;
+}
+.foot{
+  height: 25px;
+}
+.color-value{
+  width: 104px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.bgcolor{
+  width: 50px;
+  border-radius: @border-radius;
+  height: @input-height;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+}
+.alpha{
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAGUlEQVQYV2M4gwH+YwCGIasIUwhT25BVBADtzYNYrHvv4gAAAABJRU5ErkJggg==);
+  width:224px;
+  height:12px;
+  margin-bottom: 10px;
+}
+.alpha-tracker{
+  height: 100%;
+}
+.alpha-indicator{
+  position: absolute;
+  left:-2px;
+  top:2px;
+  height:8px;
+  width:4px;
+  box-shadow: 0 0 0 1.5px #fff,inset 0 0 1px 1px rgba(0,0,0,.3),0 0 1px 2px rgba(0,0,0,.4);
+  background:#fff;
+}

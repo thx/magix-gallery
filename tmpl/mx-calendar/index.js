@@ -49,7 +49,7 @@ let GetWeekText = (weekStart) => {
 let DateDisabled = (current, start, end, disabledWeeks) => {
     // disabledWeeks 不可选择周几
     let day = current.getDay();
-    if(disabledWeeks.indexOf(day) > -1){
+    if (disabledWeeks.indexOf(day) > -1) {
         return true;
     }
 
@@ -103,7 +103,7 @@ module.exports = Magix.View.extend({
         let ops = me['@{extra}'];
         ops = ops || {};
         let forever = (ops.selected == ForeverStr);
-        let formatter = ops.formatter;
+        let formatter = ops.formatter || 'YYYY-MM-dd';
 
         // 最大最小不关心时分秒，时分秒的大小不限制
         let max, min;
@@ -115,13 +115,12 @@ module.exports = Magix.View.extend({
             min = new Date(DateFormat(ops.min, 'YYYY/MM/dd') + ' 00:00:00');
         }
         let today = new Date();
-
         if (!ops.selected || forever) {
             ops.selected = GetDefaultDate(ops);
         }
         let selected = DateParse(ops.selected);
         let timeValue = DateFormat(selected, 'hh:mm:ss'),
-            dateValue = DateFormat(selected, formatter);
+            dateValue = DateFormat(selected, formatter.slice(0, 10));
         let types = ParseEnablePanels(ops.dateType);
         let weekStart = ops.weekStart | 0;
         let timeType = ops.timeType;
@@ -255,9 +254,19 @@ module.exports = Magix.View.extend({
         let preDays = GetNumOfDays(year, month - 1);
         let max = data.get('max');
         let min = data.get('min');
-        let selected = data.get('selected');
+
         let day, date, formatDay;
+
+        // 日期不关注时分秒
         let formatter = data.get('formatter');
+        formatter = formatter.slice(0, 10);
+
+        let selected = data.get('selected');
+        if(selected){
+            // 不限的情况下，selected = ''
+            selected = DateFormat(selected, formatter);
+        }
+
         let today = DateFormat(Today, formatter);
         for (i = 1; i <= startOffset; i++) {
             day = preDays - (startOffset - i);
@@ -315,15 +324,7 @@ module.exports = Magix.View.extend({
         let me = this;
         let data = me.updater.get();
         if (data.types.day) {
-            if (data.timeType) {
-                if (fromBtn) {
-                    $('#' + me.id).trigger({
-                        type: 'change',
-                        date: data.dateValue,
-                        time: data.timeType ? data.timeValue : null
-                    });
-                }
-            } else {
+            if ((data.timeType && fromBtn) || !data.timeType) {
                 $('#' + me.id).trigger({
                     type: 'change',
                     date: data.dateValue,

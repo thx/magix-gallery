@@ -1,1 +1,249 @@
-define("mx-uploader/index",["magix","$","../mx-runner/index"],(e,t,n)=>{var r=e("magix"),i=e("$"),a=e("../mx-runner/index");r.applyStyle("_zs_galleryaN",'[mx-view*="mx-uploader/index"]{position:relative;overflow:hidden}._zs_gallerynH{left:0;top:0;bottom:0;right:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:100px;filter:alpha(opacity=0)}._zs_gallerynI,._zs_gallerynH{position:absolute}._zs_gallerynI{left:-999999px}');var o=function(e,t,n,r,i,a,o,l){if(n||(n=e),!i){var p={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},d=/[&<>"'`]/g,c=function(e){return"&"+p[e]+";"};i=function(e){return""+(null==e?"":e)},r=function(e){return i(e).replace(d,c)}}if(!a){var f={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},u=function(e){return f[e]},s=/[!')(*]/g;a=function(e){return encodeURIComponent(i(e)).replace(s,u)}}if(!l){var _=/[\\'"]/g;l=function(e){return i(e).replace(_,"\\$&")}}var m="",g=e.nodeId,v=e.disabled,h=e.name;return m+='<input id="'+r(g)+'" class="_zs_gallerynH" ',v&&(m+=' disabled="true" '),m+=' type="file" name="'+r(h)+'" mx-change="'+t+'__fj()"/>'},l=r.Base.extend({destroy:function(){this.__cf=1}}),p=l.extend({__fh:function(e,t,n,o){var l=e.form,p=this,d=r.guid("up");l||(i("body").append('<div id="'+d+'_temp" class="_zs_gallerynI"><form target="'+d+'"></form></div>'),(l=i("#"+d+"_temp").find("form")).append(e),l=l[0]);var c=0,f=2e3;if(e.files){f=0;for(var u=0;u<e.files.length;u++)f+=e.files[u].size;(f/=1e3)<2e3&&(f=2e3)}var s=1e3/f,_=function(){p.__cf?a.__bn(_):c<1&&(o(c),c+=s+20*Math.random()*s)};a.__bl(100,_),i('<iframe name="'+d+'" id="'+d+'" style="display:none;"></iframe>').insertAfter(l).on("load",function(e){if(a.__bn(_),!p.__cf){o(1);var t=e.target,r=i(t.contentWindow.document.body);r.find("script").remove();var l=i.trim(r.text());i(t).remove(),i("#"+d+"_temp").remove();try{n(null,new Function("return "+l)())}catch(e){n(e)}}}).on("error",function(e){a.__bn(_),p.__cf||(i("#"+d+"_temp").remove(),n(e))}),l.target=d,l.action=t.get("action"),l.method="POST",l.enctype="multipart/form-data",l.submit()}}),d=l.extend({__fh:function(e,t,n,r){for(var i=new FormData,a=this,o=e.files,l=0;l<o.length;l++)i.append(t.get("name"),o[l]);var p=new XMLHttpRequest;p.open("post",t.get("action"),!0),p.onload=function(){if(!a.__cf)try{n(null,new Function("return "+p.responseText)())}catch(e){n(e)}},p.onerror=function(e){a.__cf||(e.message="network error",n(e))},p.upload.onprogress=function(e){e.lengthComputable?r(e.loaded/e.total):r(0)},p.send(i)}});n.exports=r.View.extend({init:function(e){var t;this.updater.set({name:e.name||"file",action:e.action||"",multiple:e.multiple+""=="true",accept:e.accept,disabled:e.disabled+""=="true"}),t="xhr"==e.type&&window.FormData?d:p,this.capture("__fi",new t)},render:function(){var e=this,t="file_"+e.id,n=i("#"+t);n.length&&n.remove();var r=e.updater.get(),a=i.isFunction(o)?o({disabled:r.disabled,name:r.name,nodeId:t},e.id):o;e.wrapEvent&&(a=e.wrapEvent(a)),i("#"+e.id).append(a),n=i("#"+t),r.multiple&&n.attr("multiple","multiple"),r.accept&&n.prop("accept",r.accept)},"__fj<change>":function(e){var t=this,n=i("#"+t.id),r=e.eventTarget.files,a=i.Event("start",{files:r});(n.trigger(a),a.isDefaultPrevented())?t.render():(t.capture("__fi").__fh(e.target,t.updater,function(e,t){e?n.trigger({type:"error",error:e}):n.trigger({type:"success",files:r,response:t})},function(e){n.trigger({type:"progress",percent:e})}),t.render())}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-uploader/index",["magix","$","../mx-runner/index"],(require,exports,module)=>{
+/*Magix,$,Runner*/
+
+var Magix = require("magix");
+var $ = require("$");
+var Runner = require("../mx-runner/index");
+Magix.applyStyle("_zs_gallery_mx-uploader_index_","[mx-view*=\"mx-uploader/index\"] {\n  position: relative;\n  overflow: hidden;\n}\n._zs_gallery_mx-uploader_index_-file {\n  position: absolute;\n  left: 0;\n  top: 0;\n  bottom: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  cursor: pointer;\n  font-size: 100px;\n  filter: alpha(opacity=0);\n}\n._zs_gallery_mx-uploader_index_-cnt {\n  position: absolute;\n  left: -999999px;\n}\n");
+var html = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', nodeId = $$.nodeId, disabled = $$.disabled, name = $$.name; var $expr, $art, $line; try {
+    $p += '<input id="';
+    $line = 1;
+    $art = '=nodeId';
+    ;
+    $p += ($expr = '<%=nodeId%>', $e(nodeId)) + '" class="_zs_gallery_mx-uploader_index_-file" ';
+    $line = 2;
+    $art = 'if disabled';
+    ;
+    $expr = '<%if (disabled) {%>';
+    if (disabled) {
+        ;
+        $p += ' disabled="true" ';
+        $line = 2;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' type="file" name="';
+    $line = 3;
+    $art = '=name';
+    ;
+    $p += ($expr = '<%=name%>', $e(name)) + '" mx-change="' + $viewId + '@{upload}()"/>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-uploader/index.html';
+    throw msg;
+} return $p; };
+var Uploader = Magix.Base.extend({
+    destroy: function () {
+        var me = this;
+        me['@{destroyed}'] = 1;
+    }
+});
+var Iframe = Uploader.extend({
+    '@{send.request}': function (input, data, callback, progress) {
+        var form = input.form;
+        var me = this;
+        var id = Magix.guid('up');
+        if (!form) {
+            $('body').append('<div id="' + id + '_temp" class="_zs_gallery_mx-uploader_index_-cnt"><form target="' + id + '"></form></div>');
+            var cnt = $('#' + id + '_temp');
+            form = cnt.find('form');
+            form.append(input);
+            form = form[0];
+        }
+        var p = 0;
+        var total = 2000;
+        if (input.files) {
+            total = 0;
+            for (var i = 0; i < input.files.length; i++) {
+                total += input.files[i].size;
+            }
+            total /= 1000;
+            if (total < 2000) {
+                total = 2000;
+            }
+        }
+        var base = 1000 / total;
+        var prgs = function () {
+            if (me['@{destroyed}']) {
+                Runner['@{task.remove}'](prgs);
+                return;
+            }
+            if (p < 1) {
+                progress(p);
+                p += base + Math.random() * 20 * base;
+            }
+        };
+        Runner['@{task.add}'](100, prgs);
+        $('<iframe name="' + id + '" id="' + id + '" style="display:none;"></iframe>').insertAfter(form).on('load', function (e) {
+            Runner['@{task.remove}'](prgs);
+            if (!me['@{destroyed}']) {
+                progress(1);
+                var iframe = e.target;
+                var $body = $(iframe.contentWindow.document.body);
+                $body.find('script').remove();
+                var response = $.trim($body.text());
+                $(iframe).remove();
+                $('#' + id + '_temp').remove();
+                try {
+                    /*jshint evil:true*/
+                    callback(null, new Function('return ' + response)());
+                }
+                catch (ex) {
+                    callback(ex);
+                }
+            }
+        }).on('error', function (e) {
+            Runner['@{task.remove}'](prgs);
+            if (!me['@{destroyed}']) {
+                $('#' + id + '_temp').remove();
+                callback(e);
+            }
+        });
+        form.target = id;
+        form.action = data.get('action');
+        form.method = 'POST';
+        form.enctype = 'multipart/form-data';
+        form.submit();
+    }
+});
+var XHR = Uploader.extend({
+    '@{send.request}': function (input, data, callback, progress) {
+        var fd = new FormData();
+        var me = this;
+        var files = input.files;
+        for (var i = 0; i < files.length; i++) {
+            fd.append(data.get('name'), files[i]);
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.open('post', data.get('action'), true);
+        xhr.onload = function () {
+            if (!me['@{destroyed}']) {
+                try {
+                    /*jshint evil:true*/
+                    callback(null, new Function('return ' + xhr.responseText)());
+                }
+                catch (ex) {
+                    callback(ex);
+                }
+            }
+        };
+        xhr.onerror = function (e) {
+            if (!me['@{destroyed}']) {
+                e.message = 'network error';
+                callback(e);
+            }
+        };
+        xhr.upload.onprogress = function (e) {
+            if (e.lengthComputable) {
+                progress(e.loaded / e.total);
+            }
+            else {
+                progress(0);
+            }
+        };
+        xhr.send(fd);
+    }
+});
+module.exports = Magix.View.extend({
+    init: function (extra) {
+        var me = this;
+        me.updater.set({
+            name: extra.name || 'file',
+            action: extra.action || '',
+            multiple: ((extra.multiple + '') === 'true'),
+            accept: extra.accept,
+            disabled: ((extra.disabled + '') === 'true')
+        });
+        // 默认iframe
+        var Transport;
+        if ((extra.type == 'xhr') && window.FormData) {
+            Transport = XHR;
+        }
+        else {
+            Transport = Iframe;
+        }
+        me.capture('@{transport}', new Transport());
+    },
+    render: function () {
+        var me = this;
+        var nodeId = 'file_' + me.id;
+        var node = $('#' + nodeId);
+        if (node.length) {
+            node.remove();
+        }
+        var data = me.updater.get();
+        var tmpl = $.isFunction(html) ? html({
+            disabled: data.disabled,
+            name: data.name,
+            nodeId: nodeId
+        }, me.id) : html;
+        if (me.wrapEvent) {
+            tmpl = me.wrapEvent(tmpl);
+        }
+        $('#' + me.id).append(tmpl);
+        node = $('#' + nodeId);
+        if (data.multiple)
+            node.attr('multiple', 'multiple');
+        if (data.accept)
+            node.prop('accept', data.accept);
+    },
+    '@{upload}<change>': function (e) {
+        var me = this;
+        var node = $('#' + me.id);
+        var files = e.eventTarget.files;
+        var event = $.Event('start', {
+            files: files
+        });
+        node.trigger(event);
+        if (event.isDefaultPrevented()) {
+            me.render();
+            return;
+        }
+        var transport = me.capture('@{transport}');
+        transport['@{send.request}'](e.target, me.updater, function (err, response) {
+            if (err) {
+                node.trigger({
+                    type: 'error',
+                    error: err
+                });
+            }
+            else {
+                node.trigger({
+                    type: 'success',
+                    files: files,
+                    response: response
+                });
+            }
+        }, function (percent) {
+            node.trigger({
+                type: 'progress',
+                percent: percent
+            });
+        });
+        me.render();
+    }
+});
+
+});
