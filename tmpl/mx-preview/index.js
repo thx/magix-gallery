@@ -58,6 +58,7 @@ module.exports = Magix.View.extend({
 
         that.updater.digest({
             viewId: that.id,
+            align: extra.align || 'right', //对齐方式
             preview: (extra.preview + '' !== 'false'), //是否需要预览
             type,
             url,
@@ -153,7 +154,7 @@ module.exports = Magix.View.extend({
         let that = this;
         let target = $('#' + that.id + ' .@index.less:outer');
         let offset = target.offset();
-        let left = offset.left + target.outerWidth() + 10,
+        let left = offset.left,
             top = offset.top;
 
         //优化大量预览的显示
@@ -180,7 +181,20 @@ module.exports = Magix.View.extend({
             let winWidth = win.width(),
                 winHeight = win.height(),
                 winScroll = win.scrollTop();
-            let rangeWidth = winWidth - left;
+
+            // align: right右对齐
+            // align: left左对齐
+            let align = data.align,
+                rangeWidth = 0; // 可见宽度范围
+            if(align == 'left'){
+                // 左边
+                rangeWidth = left - 10;
+            }else{
+                // 右边
+                left += target.outerWidth() + 10;
+                rangeWidth = winWidth - left;
+            }
+                
             if (rangeWidth < width) {
                 height = height * (rangeWidth / width);
                 width = rangeWidth;
@@ -250,7 +264,7 @@ module.exports = Magix.View.extend({
             floatingLayer.css({
                 width,
                 height: !height ? 'auto' : height, //文案没有高度
-                left,
+                left: (align == 'left') ? (left - width - 10) : left,
                 top,
                 display: 'block'
             })

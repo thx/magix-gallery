@@ -111,6 +111,7 @@ catch (ex) {
         }
         that.updater.digest({
             viewId: that.id,
+            align: extra.align || 'right',
             preview: (extra.preview + '' !== 'false'),
             type: type,
             url: url,
@@ -186,7 +187,7 @@ catch (ex) {
         var that = this;
         var target = $('#' + that.id + ' ._zs_gallery_mx-preview_index_-outer');
         var offset = target.offset();
-        var left = offset.left + target.outerWidth() + 10, top = offset.top;
+        var left = offset.left, top = offset.top;
         //优化大量预览的显示
         if (Active && Active != that) {
             Active.immediatelyHide();
@@ -206,7 +207,18 @@ catch (ex) {
             // 对最大范围进行修正，不超过屏幕可视范围
             var win = $(window);
             var winWidth = win.width(), winHeight = win.height(), winScroll = win.scrollTop();
-            var rangeWidth = winWidth - left;
+            // align: right右对齐
+            // align: left左对齐
+            var align = data.align, rangeWidth = 0; // 可见宽度范围
+            if (align == 'left') {
+                // 左边
+                rangeWidth = left - 10;
+            }
+            else {
+                // 右边
+                left += target.outerWidth() + 10;
+                rangeWidth = winWidth - left;
+            }
             if (rangeWidth < width) {
                 height = height * (rangeWidth / width);
                 width = rangeWidth;
@@ -254,7 +266,7 @@ catch (ex) {
             floatingLayer.css({
                 width: width,
                 height: !height ? 'auto' : height,
-                left: left,
+                left: (align == 'left') ? (left - width - 10) : left,
                 top: top,
                 display: 'block'
             });

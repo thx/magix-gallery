@@ -70,6 +70,11 @@ module.exports = Magix.View.extend({
             desc: '点击预览内容的跳转外链',
             type: 'string',
             def: ''
+        }, {
+            key: 'align',
+            desc: '与目标的对齐方式，left，right',
+            type: 'string',
+            def: 'right'
         }]
 
         this.updater.digest({
