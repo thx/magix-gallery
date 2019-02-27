@@ -1,9 +1,3 @@
-/*
-ver:2.0.6
-*/
-/*
-    author:xinglie.lkf@taobao.com
- */
 let Magix = require('magix');
 let $ = require('$');
 let DD = require('../mx-dragdrop/index');
@@ -55,15 +49,16 @@ module.exports = Magix.View.extend({
     tmpl: '@index.html',
     init(extra) {
         let me = this;
-        me['@{color}'] = extra.color || '#ffffff';
-        me['@{show.alpha}'] = (extra.showAlpha + '') === 'true';
-        me['@{show.btns}'] = (extra.showBtns + '') === 'true';
+
+        let data = extra.data || {};
+        me['@{color}'] = data.color || '#ffffff';
+        me['@{show.alpha}'] = (data.showAlpha + '') === 'true';
+        me['@{show.btns}'] = (data.showBtns + '') === 'true';
         me['@{hsv.info}'] = {
             h: 0,
             s: 1,
             v: 1
         };
-        $('#' + me.id).addClass(CSSNames.cnt);
     },
     render() {
         let me = this;
@@ -92,10 +87,14 @@ module.exports = Magix.View.extend({
         if (!ignoreSyncUI) {
             $('#scs_' + me.id + ' li').removeClass(CSSNames.selected);
             let slider = $('#si_' + me.id).height() / 2;
+            if(slider < 0){
+                slider = 0;
+            }
+
             let top = Math.round(selfHSV.h * pickerZone / 360 - slider);
             let pickerIndicator = $('#ci_' + me.id).width() / 2;
             $('#si_' + me.id).css({
-                top: top
+                top: top - 6
             });
             top = Math.round((1 - selfHSV.v) * pickerZone - pickerIndicator);
             let left = Math.round(selfHSV.s * pickerZone - pickerIndicator);
@@ -144,7 +143,7 @@ module.exports = Magix.View.extend({
             if (offsetY <= -slider) offsetY = -slider;
             else if (offsetY >= (pickerZone - slider)) offsetY = pickerZone - slider;
             indicator.css({
-                top: offsetY
+                top: offsetY - 6
             });
             let h = (offsetY + slider) / pickerZone * 360;
             me['@{setHSV}']({

@@ -12,7 +12,7 @@ module.exports = Base.extend({
             align = extra.align || 'center';
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
-        me['@{pos.class}'] = me.constants.classNames[placement + align[0].toUpperCase() + align.slice(1)];
+        me['@{pos.class}'] = me.constants.classNames[[placement,align].join('-')];
         if (extra.type == 'dark') {
             me['@{pos.class}'] += ' @index.less:popover-dark';
         } else {

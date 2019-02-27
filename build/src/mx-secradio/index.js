@@ -101,8 +101,8 @@ module.exports = Magix.View.extend({
     $line = 7;
     $art = 'each list as item itemIndex';
     ;
-    $expr = '<%for (var itemIndex = 0, $art_cvhjnedc$art_c = list.length; itemIndex < $art_cvhjnedc$art_c; itemIndex++) {    var item = list[itemIndex]%>';
-    for (var itemIndex = 0, $art_cvhjnedc$art_c = list.length; itemIndex < $art_cvhjnedc$art_c; itemIndex++) {
+    $expr = '<%for (var itemIndex = 0, $art_cudcibeid$art_c = list.length; itemIndex < $art_cudcibeid$art_c; itemIndex++) {    var item = list[itemIndex]%>';
+    for (var itemIndex = 0, $art_cudcibeid$art_c = list.length; itemIndex < $art_cudcibeid$art_c; itemIndex++) {
         var item = list[itemIndex];
         $p += '<div mxa="_zs_gallerydi:a" class="_zs_gallery_mx-secradio_index_-line"><label mx-click="' + $viewId + '@{toggleOne}({index:';
         $line = 9;
@@ -170,9 +170,9 @@ module.exports = Magix.View.extend({
         $line = 21;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_iodruoibi$art_i = 0, $art_objqghbnuxa$art_obj = item.subs, $art_clohxhfo$art_c = $art_objqghbnuxa$art_obj.length; $art_iodruoibi$art_i < $art_clohxhfo$art_c; $art_iodruoibi$art_i++) {        var sub = $art_objqghbnuxa$art_obj[$art_iodruoibi$art_i]%>';
-        for (var $art_iodruoibi$art_i = 0, $art_objqghbnuxa$art_obj = item.subs, $art_clohxhfo$art_c = $art_objqghbnuxa$art_obj.length; $art_iodruoibi$art_i < $art_clohxhfo$art_c; $art_iodruoibi$art_i++) {
-            var sub = $art_objqghbnuxa$art_obj[$art_iodruoibi$art_i];
+        $expr = '<%for (var $art_indgjiin$art_i = 0, $art_objcvzysk$art_obj = item.subs, $art_cveionempf$art_c = $art_objcvzysk$art_obj.length; $art_indgjiin$art_i < $art_cveionempf$art_c; $art_indgjiin$art_i++) {        var sub = $art_objcvzysk$art_obj[$art_indgjiin$art_i]%>';
+        for (var $art_indgjiin$art_i = 0, $art_objcvzysk$art_obj = item.subs, $art_cveionempf$art_c = $art_objcvzysk$art_obj.length; $art_indgjiin$art_i < $art_cveionempf$art_c; $art_indgjiin$art_i++) {
+            var sub = $art_objcvzysk$art_obj[$art_indgjiin$art_i];
             $p += '<div mxv class="_zs_gallery_mx-secradio_index_-line _zs_gallery_mx-secradio_index_-sub ';
             $line = 22;
             $art = 'if item.close';

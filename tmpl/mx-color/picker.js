@@ -1,109 +1,145 @@
-/*
-ver:2.0.6
-*/
-/*
-    author:xinglie.lkf@alibaba-inc.com
- */
 let Magix = require('magix');
 let $ = require('$');
 let Monitor = require('../mx-monitor/index');
 require('./index');
+Magix.applyStyle('@index.less');
+
 module.exports = Magix.View.extend({
     tmpl: '@picker.html',
     init(extra) {
-        let me = this;
-        me['@{pos.placement}'] = extra.placement;
-        me['@{pos.align}'] = extra.align;
-        me['@{show.alpha}'] = extra.showAlpha;
+        let that = this;
+
         Monitor['@{setup}']();
-        let oNode = $('#' + me.id);
-        me['@{relate.node}'] = oNode;
-        oNode = oNode.prev('input');
-        oNode.prop('vframe', me.owner);
-        me['@{color}'] = extra.color || oNode.val();
-        let click = () => {
-            me['@{show}']();
-        };
-        let change = e => {
-            if (!e.color) {
-                e.stopPropagation();
-            }
-        };
-        me.on('destroy', () => {
-            Monitor['@{remove}'](me);
+        that.on('destroy', () => {
+            Monitor['@{remove}'](that);
             Monitor['@{teardown}']();
-            oNode.off('click', click).off('change', change);
         });
-        oNode.on('click', click).on('change', change);
-        me['@{owner.node}'] = oNode;
-        oNode.prop('autocomplete', 'off');
+
+        //初始化时保存一份当前数据的快照
+        that.updater.snapshot();
+
+        that.assign(extra);
     },
-    '@{inside}'(node) {
-        let me = this;
-        return Magix.inside(node, me.id) ||
-            Magix.inside(node, me['@{owner.node}'][0]);
+
+    assign(extra) {
+        let that = this;
+        let altered = that.updater.altered();
+        
+        let color = extra.color || '';
+        that.updater.set({
+            viewId: that.id,
+            align: extra.align,
+            info: {
+                showBtns: true,
+                showAlpha: extra.showAlpha,
+                color
+            }
+        })
+
+        // 双向绑定
+        that['@{owner.node}'] = $('#' + that.id);
+        that['@{owner.node}'].val(color);
+
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            // 组件有更新，真个节点会全部需要重新初始化
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
     },
+
     render() {
-        let me = this;
-        me.updater.digest({
-            viewId: me.id
-        });
+        this.updater.digest({});
     },
-    '@{show}'() {
-        let me = this;
-        if (!me['@{ui.show}']) {
-            let node = me['@{relate.node}'],
-                ref = me['@{owner.node}'];
-            me['@{ui.show}'] = true;
-            node.show();
-            if (!me['@{core.rendered}']) {
-                me['@{core.rendered}'] = true;
-                me.owner.mountVframe('cpcnt_' + me.id, '@./index', {
-                    showBtns: true,
-                    showAlpha: me['@{show.alpha}'],
-                    color: me['@{color}']
-                });
-            }
-            Monitor['@{add}'](me);
-            let offset = ref.offset();
-            let left, top;
-            switch (me['@{pos.placement}']) {
-                case 'top':
-                    top = offset.top - node.outerHeight() - 5;
-                    break;
-                default:
-                    top = offset.top + ref.outerHeight() + 5;
-                    break;
-            }
-            switch (me['@{pos.align}']) {
-                case 'right':
-                    left = offset.left + ref.outerWidth() - node.outerWidth();
-                    break;
-                default:
-                    left = offset.left;
-                    break;
-            }
-            node.offset({
-                left: left,
-                top: top
-            });
-        }
-    },
-    '@{hide}'() {
-        let me = this;
-        if (me['@{ui.show}']) {
-            me['@{relate.node}'].hide();
-            me['@{ui.show}'] = false;
-            Monitor['@{remove}'](me);
-        }
-    },
-    '@{color.picked}<change>'(e) {
-        let me = this;
+
+    '@{stop}<change>'(e) {
         e.stopPropagation();
-        me['@{hide}']();
-        me['@{owner.node}'].val(e.color).trigger({
+    },
+
+    '@{toggle}<click>'(e) {
+        e.preventDefault();
+        let show = this.updater.get('show');
+        if (show) {
+            this['@{hide}']();
+        } else {
+            this['@{show}']();
+        }
+    },
+    
+    '@{show}'() {
+        let that = this;
+        let updater = that.updater;
+        let show = updater.get('show');
+        if (!show) {
+            updater.digest({
+                show: true
+            })
+
+            let inputNode = $('#input_' + that.id),
+                calNode = $('#cpcnt_' + that.id);
+
+            let gap = 10;
+            let left = 0,
+                top = inputNode.outerHeight() + gap;
+            let align = updater.get('align');
+            if (align == 'right') {
+                left = inputNode.outerWidth() - calNode.outerWidth();
+            }
+
+            updater.digest({
+                top,
+                left
+            })
+
+            Monitor['@{add}'](that);
+        }
+    },
+
+    '@{hide}'() {
+        let that = this;
+        let show = that.updater.get('show');
+        if (show) {
+            let info = that.updater.get('info');
+            let color = that['@{owner.node}'].val();
+            info.color = color;
+            that.updater.digest({
+                show: false,
+                info
+            })
+
+            Monitor['@{remove}'](that);
+        }
+    },
+
+    '@{inside}'(node) {
+        let that = this;
+        let inView = Magix.inside(node, that.id) ||
+            Magix.inside(node, that['@{owner.node}'][0]);
+        if (!inView) {
+            let children = that.owner.children();
+            for (let i = children.length - 1; i >= 0; i--) {
+                let child = Magix.Vframe.get(children[i]);
+                if (child) {
+                    inView = child.invoke('@{inside}', [node]);
+                }
+                if (inView) break;
+            }
+        }
+        return inView;
+    },
+
+    '@{color.picked}<change>'(e) {
+        e.stopPropagation();
+
+        let that = this;
+        that['@{owner.node}'].val(e.color).trigger({
             type: 'change',
             color: e.color
         });
+
+        that['@{hide}']();
     }
 });

@@ -6,20 +6,7 @@ module.exports = Magix.View.extend({
     constants: {
         showDelay: 100,
         hideDelay: 200,
-        classNames: {
-            bottomLeft: '@index.less:bottom-left',
-            bottomRight: '@index.less:bottom-right',
-            bottomCenter: '@index.less:bottom-center',
-            topLeft: '@index.less:top-left',
-            topRight: '@index.less:top-right',
-            topCenter: '@index.less:top-center',
-            leftTop: '@index.less:left-top',
-            leftBottom: '@index.less:left-bottom',
-            leftCenter: '@index.less:left-center',
-            rightTop: '@index.less:right-top',
-            rightBottom: '@index.less:right-bottom',
-            rightCenter: '@index.less:right-center'
-        }
+        classNames: 'names@index.less[bottom-left,bottom-right,bottom-center,top-left,top-right,top-center,left-top,left-bottom,left-center,right-top,right-bottom,right-center]'
     },
     bindScroll() {
         let me = this;

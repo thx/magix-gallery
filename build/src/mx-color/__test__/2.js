@@ -3,9 +3,9 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-color/__test__/2",["magix","__test__/example","$","mx-footer/index","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+define("mx-color/__test__/2",["magix","__test__/example","$","../picker","mx-copy/index","__test__/hl"],(require,exports,module)=>{
 /*Magix,Base,$*/
-require("mx-footer/index");
+require("../picker");
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
@@ -24,19 +24,19 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryak:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryak:_" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-footer/index?mode=simple"></div></div><div mxa="_zs_galleryak:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryak:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 7;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryak:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 9;
-    $art = '!text1';
-    ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryak:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += '<div mxa="_zs_galleryak:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryak:e" class="_zs_gallery___test___layout_-eg-content"><div class="mb20"><span class="color-9">以下示例：</span>右对齐</div><div class="w300" mx-view="mx-color/picker?align=right"></div></div><div mxa="_zs_galleryak:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryak:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 12;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-footer mode="simple"/&gt;</pre></div></div>';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryak:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 14;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryak:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 17;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-color.picker class="w300"\n    align="right"/&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

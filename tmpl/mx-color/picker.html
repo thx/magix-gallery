@@ -1,1 +1,8 @@
-<div mx-change="@{color.picked}()" id="cpcnt_<%=viewId%>"></div>
+<div class="input color-input" id="input_{{=viewId}}"
+    mx-click="@{toggle}()"
+    mx-change="@{stop}()">{{=info.color}}</div>
+<div class="color-wrapper {{if show}}open{{/if}}" id="cpcnt_{{=viewId}}" 
+    style="left:{{=left}}px;top:{{=top}}px;"
+    mx-view="@./index?data={{@info}}"
+    mx-change="@{color.picked}()"></div>
+

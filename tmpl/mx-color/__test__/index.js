@@ -4,31 +4,34 @@ let $ = require('$');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
     render() {
+        let that = this;
+        let viewId = that.id;
         let options = [{
-            key: 'mode',
-            desc: '页脚类型，简单版（simple）还是复杂版本',
+            key: 'color',
+            desc: '当前选中颜色',
             type: 'string',
-            def: ''
+            def: '#ffffff'
         }, {
-            key: 'products',
-            desc: '是否需要妈妈产品线信息',
-            type: 'boolean',
-            def: 'false'
-        }, {
-            key: 'width',
-            desc: '产品线信息宽度，products = true时生效',
-            type: 'number',
-            def: '1184'
-        }, {
-            key: 'dark',
-            desc: '产品线信息深底色白字',
-            type: 'boolean',
-            def: 'false'
+            key: 'align',
+            desc: '与目标的对齐方式，left，right',
+            type: 'string',
+            def: 'left'
         }]
 
-        this.updater.digest({
-            viewId: this.id,
-            options
+        let events = [{
+            type: 'change',
+            desc: '切换颜色时触发',
+            params: [{
+                key: 'color',
+                desc: '当前选中颜色',
+                type: 'string'
+            }]
+        }]
+
+        that.updater.digest({
+            viewId,
+            options,
+            events
         });
     }
 });

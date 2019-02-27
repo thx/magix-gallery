@@ -3,15 +3,14 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-color/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./2","./3","./4","__test__/api"],(require,exports,module)=>{
+define("mx-color/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./2","__test__/api","__test__/event"],(require,exports,module)=>{
 /*Magix,$*/
 require("__test__/subs");
 require("mx-title/second");
 require("./1");
 require("./2");
-require("./3");
-require("./4");
 require("__test__/api");
+require("__test__/event");
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
@@ -30,40 +29,40 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_galleryan:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'常规版\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'极简版\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'包含营销平台\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'深底色\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'完整示例\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'对齐方式\',\n            key: viewId + \'_demo2\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'常规版\',                    key: viewId + \'_demo1\'                }, {                    name: \'极简版\',                    key: viewId + \'_demo2\'                }, {                    name: \'包含营销平台\',                    key: viewId + \'_demo3\'                }, {                    name: \'深底色\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '常规版', key: viewId + '_demo1' }, { name: '极简版', key: viewId + '_demo2' }, { name: '包含营销平台', key: viewId + '_demo3' }, { name: '深底色', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
-    $line = 22;
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'完整示例\',                    key: viewId + \'_demo1\'                }, {                    name: \'对齐方式\',                    key: viewId + \'_demo2\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '完整示例', key: viewId + '_demo1' }, { name: '对齐方式', key: viewId + '_demo2' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
+    $line = 20;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryan:a" class="clearfix mb20"><div mx-view="mx-color/__test__/1" id="';
-    $line = 24;
+    $line = 22;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-color/__test__/2" id="';
-    $line = 25;
+    $line = 23;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-color/__test__/3" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div id="';
     $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-color/__test__/4" id="';
-    $line = 27;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div id="';
-    $line = 30;
-    $art = '=viewId';
-    ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 31;
+    $line = 27;
     $art = '@options';
     ;
-    $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div></div>';
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
+    $line = 29;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_event" mx-view="mx-title/second?content=Event"></div><div mxv="events" mx-view="__test__/event?options=';
+    $line = 30;
+    $art = '@events';
+    ;
+    $p += ($expr = '<%@events%>', $i($$ref, events)) + '"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -74,30 +73,32 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
+        var that = this;
+        var viewId = that.id;
         var options = [{
-                key: 'mode',
-                desc: '页脚类型，简单版（simple）还是复杂版本',
+                key: 'color',
+                desc: '当前选中颜色',
                 type: 'string',
-                def: ''
+                def: '#ffffff'
             }, {
-                key: 'products',
-                desc: '是否需要妈妈产品线信息',
-                type: 'boolean',
-                def: 'false'
-            }, {
-                key: 'width',
-                desc: '产品线信息宽度，products = true时生效',
-                type: 'number',
-                def: '1184'
-            }, {
-                key: 'dark',
-                desc: '产品线信息深底色白字',
-                type: 'boolean',
-                def: 'false'
+                key: 'align',
+                desc: '与目标的对齐方式，left，right',
+                type: 'string',
+                def: 'left'
             }];
-        this.updater.digest({
-            viewId: this.id,
-            options: options
+        var events = [{
+                type: 'change',
+                desc: '切换颜色时触发',
+                params: [{
+                        key: 'color',
+                        desc: '当前选中颜色',
+                        type: 'string'
+                    }]
+            }];
+        that.updater.digest({
+            viewId: viewId,
+            options: options,
+            events: events
         });
     }
 });

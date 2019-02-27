@@ -13,20 +13,7 @@ module.exports = Magix.View.extend({
     constants: {
         showDelay: 100,
         hideDelay: 200,
-        classNames: {
-            bottomLeft: '_zs_gallery_mx-popover_index_-bottom-left',
-            bottomRight: '_zs_gallery_mx-popover_index_-bottom-right',
-            bottomCenter: '_zs_gallery_mx-popover_index_-bottom-center',
-            topLeft: '_zs_gallery_mx-popover_index_-top-left',
-            topRight: '_zs_gallery_mx-popover_index_-top-right',
-            topCenter: '_zs_gallery_mx-popover_index_-top-center',
-            leftTop: '_zs_gallery_mx-popover_index_-left-top',
-            leftBottom: '_zs_gallery_mx-popover_index_-left-bottom',
-            leftCenter: '_zs_gallery_mx-popover_index_-left-center',
-            rightTop: '_zs_gallery_mx-popover_index_-right-top',
-            rightBottom: '_zs_gallery_mx-popover_index_-right-bottom',
-            rightCenter: '_zs_gallery_mx-popover_index_-right-center'
-        }
+        classNames: {"bottom-left":"_zs_gallery_mx-popover_index_-bottom-left","bottom-right":"_zs_gallery_mx-popover_index_-bottom-right","bottom-center":"_zs_gallery_mx-popover_index_-bottom-center","top-left":"_zs_gallery_mx-popover_index_-top-left","top-right":"_zs_gallery_mx-popover_index_-top-right","top-center":"_zs_gallery_mx-popover_index_-top-center","left-top":"_zs_gallery_mx-popover_index_-left-top","left-bottom":"_zs_gallery_mx-popover_index_-left-bottom","left-center":"_zs_gallery_mx-popover_index_-left-center","right-top":"_zs_gallery_mx-popover_index_-right-top","right-bottom":"_zs_gallery_mx-popover_index_-right-bottom","right-center":"_zs_gallery_mx-popover_index_-right-center"}
     },
     bindScroll: function () {
         var me = this;

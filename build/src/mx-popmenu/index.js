@@ -87,7 +87,7 @@ catch (ex) {
         var placement = map[places[0]], align = map[places[1]];
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
-        me['@{pos.class}'] = me.constants.classNames[placement + align[0].toUpperCase() + align.slice(1)] + ' _zs_gallery_mx-popover_index_-popover';
+        me['@{pos.class}'] = me.constants.classNames[[placement, align].join('-')] + ' _zs_gallery_mx-popover_index_-popover';
         me['@{pos.init}'] = false;
         me['@{pos.cal}'] = false;
         me['@{pos.show}'] = false;

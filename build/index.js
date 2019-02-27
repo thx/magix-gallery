@@ -30,6 +30,7 @@ let coms = [
     'im',
     'collapse',
     'cascade',
+    'color',
     'secradio',
     'tree',
     'grid',

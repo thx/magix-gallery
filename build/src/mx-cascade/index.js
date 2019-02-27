@@ -99,8 +99,8 @@ module.exports = Magix.View.extend({
         $line = 11;
         $art = 'each groups as list gIndex';
         ;
-        $expr = '<%for (var gIndex = 0, $art_ctzkbjpnd$art_c = groups.length; gIndex < $art_ctzkbjpnd$art_c; gIndex++) {        var list = groups[gIndex]%>';
-        for (var gIndex = 0, $art_ctzkbjpnd$art_c = groups.length; gIndex < $art_ctzkbjpnd$art_c; gIndex++) {
+        $expr = '<%for (var gIndex = 0, $art_conhtdlv$art_c = groups.length; gIndex < $art_conhtdlv$art_c; gIndex++) {        var list = groups[gIndex]%>';
+        for (var gIndex = 0, $art_conhtdlv$art_c = groups.length; gIndex < $art_conhtdlv$art_c; gIndex++) {
             var list = groups[gIndex];
             $p += '<div class="_zs_gallery_mx-cascade_index_-group" id="';
             $line = 12;
@@ -114,8 +114,8 @@ module.exports = Magix.View.extend({
             $line = 13;
             $art = 'each list as item iIndex';
             ;
-            $expr = '<%for (var iIndex = 0, $art_crsfgxhbn$art_c = list.length; iIndex < $art_crsfgxhbn$art_c; iIndex++) {            var item = list[iIndex]%>';
-            for (var iIndex = 0, $art_crsfgxhbn$art_c = list.length; iIndex < $art_crsfgxhbn$art_c; iIndex++) {
+            $expr = '<%for (var iIndex = 0, $art_cbgxwlhdtn$art_c = list.length; iIndex < $art_cbgxwlhdtn$art_c; iIndex++) {            var item = list[iIndex]%>';
+            for (var iIndex = 0, $art_cbgxwlhdtn$art_c = list.length; iIndex < $art_cbgxwlhdtn$art_c; iIndex++) {
                 var item = list[iIndex];
                 $p += '<div class="_zs_gallery_mx-cascade_index_-line ';
                 $line = 14;

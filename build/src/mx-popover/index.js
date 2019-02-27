@@ -42,7 +42,7 @@ catch (ex) {
         var placement = extra.placement || 'bottom', align = extra.align || 'center';
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
-        me['@{pos.class}'] = me.constants.classNames[placement + align[0].toUpperCase() + align.slice(1)];
+        me['@{pos.class}'] = me.constants.classNames[[placement, align].join('-')];
         if (extra.type == 'dark') {
             me['@{pos.class}'] += ' _zs_gallery_mx-popover_index_-popover-dark';
         }

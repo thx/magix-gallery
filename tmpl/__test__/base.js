@@ -253,6 +253,10 @@ module.exports = Magix.View.extend({
                     tip: '该组件引入了第三方 <a rel="noopener noreferrer" target="_blank" href="https://zenorocha.github.io/clipboard.js" class="color-brand">https://zenorocha.github.io/clipboard.js</a> 代码',
                     path: '/copy/index',
                     icon: '&#xe610;'
+                }, {
+                    name: '颜色选择',
+                    path: '/color/index',
+                    icon: '&#xe720;'
                 }]
             }, {
                 name: '提示反馈',
