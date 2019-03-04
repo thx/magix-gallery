@@ -8,7 +8,7 @@ define("mx-indics/dialog",["magix","mx-popover/index","mx-dragsort/index"],(requ
 require("mx-popover/index");
 require("mx-dragsort/index");
 var Magix = require("magix");
-Magix.applyStyle("_zs_gallery_mx-indics_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-indics_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-indics/index\"] {\n  display: inline-block;\n  vertical-align: middle;\n}\n._zs_gallery_mx-indics_index_-setting {\n  position: relative;\n  height: 100%;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-header {\n  width: 100%;\n  height: 60px;\n  padding: 0 24px;\n  background-color: #fff;\n  line-height: 60px;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content {\n  position: absolute;\n  top: 60px;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  overflow-y: auto;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line {\n  padding: 16px 24px;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line:nth-of-type(even) {\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-name {\n  float: left;\n  padding: 8px 0;\n  color: #999;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-items {\n  float: left;\n  width: 100%;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-items ._zs_gallery_mx-indics_index_-item {\n  float: left;\n  width: 20%;\n  padding: 8px 0;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-items ._zs_gallery_mx-indics_index_-item ._zs_gallery_mx-indics_index_-field-tip {\n  position: relative;\n  top: 1px;\n  left: 1px;\n  font-size: 14px;\n  color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent ._zs_gallery_mx-indics_index_-name {\n  width: 15%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent ._zs_gallery_mx-indics_index_-items {\n  width: 85%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent ._zs_gallery_mx-indics_index_-items ._zs_gallery_mx-indics_index_-item {\n  width: 25%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-items {\n  width: 100%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-items ._zs_gallery_mx-indics_index_-item {\n  width: 25%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-name {\n  width: 20%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-items {\n  width: 80%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-items ._zs_gallery_mx-indics_index_-item {\n  width: 33%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable {\n  padding-right: 32%;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-content {\n  right: 32%;\n  border-right: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 32%;\n  height: 98px;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header ._zs_gallery_mx-indics_index_-drag-title {\n  height: 60px;\n  line-height: 60px;\n  font-size: 16px;\n  padding-left: 24px;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header ._zs_gallery_mx-indics_index_-drag-oper {\n  height: 38px;\n  padding: 0 24px;\n  line-height: 38px;\n  text-align: right;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper {\n  position: absolute;\n  top: 98px;\n  right: 0;\n  bottom: 0;\n  width: 32%;\n  padding: 0 24px 16px 24px;\n  overflow-y: scroll;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag {\n  height: 30px;\n  margin-bottom: 5px;\n  padding: 0 15px;\n  line-height: 28px;\n  background: #fff;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  cursor: move;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery_mx-indics_index_-setting-btn {\n  position: relative;\n  color: #333;\n}\n._zs_gallery_mx-indics_index_-setting-btn:hover {\n  color: #333;\n  border-color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting-btn:focus {\n  border-color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting-show-btn {\n  margin-right: 10px;\n}\n._zs_gallery_mx-indics_index_-setting-show-btn ._zs_gallery_mx-indics_index_-setting-show-icon {\n  position: relative;\n  top: 2px;\n}\n._zs_gallery_mx-indics_index_-setting-switch-btn {\n  padding-right: 20px;\n}\n._zs_gallery_mx-indics_index_-setting-switch-btn ._zs_gallery_mx-indics_index_-setting-switch-icon {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 20px;\n  height: 32px;\n  line-height: 32px;\n  text-align: center;\n  font-size: 18px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-indics_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-indics_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-indics/index\"] {\n  display: inline-block;\n  vertical-align: middle;\n}\n._zs_gallery_mx-indics_index_-setting {\n  position: relative;\n  height: 100%;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-header {\n  width: 100%;\n  height: 60px;\n  padding: 0 24px;\n  background-color: #fff;\n  line-height: 60px;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content {\n  position: absolute;\n  top: 60px;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  overflow-y: auto;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line {\n  position: relative;\n  padding: 16px 24px;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line:nth-of-type(even) {\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-name {\n  position: absolute;\n  top: 16px;\n  left: 24px;\n  width: 96px;\n  padding: 8px 0;\n  color: #999;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-item {\n  float: left;\n  padding: 8px 0;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-item ._zs_gallery_mx-indics_index_-field-tip {\n  position: relative;\n  top: 1px;\n  left: 1px;\n  font-size: 14px;\n  color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent ._zs_gallery_mx-indics_index_-line {\n  padding-left: 128px;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable {\n  padding-right: 240px;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-content {\n  right: 240px;\n  border-right: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 240px;\n  height: 98px;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header ._zs_gallery_mx-indics_index_-drag-title {\n  height: 60px;\n  line-height: 60px;\n  font-size: 16px;\n  padding-left: 24px;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header ._zs_gallery_mx-indics_index_-drag-oper {\n  height: 38px;\n  padding: 0 24px;\n  line-height: 38px;\n  text-align: right;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper {\n  position: absolute;\n  top: 98px;\n  right: 0;\n  bottom: 0;\n  width: 240px;\n  padding: 0 24px 16px 24px;\n  overflow-y: scroll;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag {\n  height: 30px;\n  margin-bottom: 5px;\n  padding: 0 15px;\n  line-height: 28px;\n  background: #fff;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  cursor: move;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery_mx-indics_index_-setting-btn {\n  position: relative;\n  color: #333;\n}\n._zs_gallery_mx-indics_index_-setting-btn:hover {\n  color: #333;\n  border-color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting-btn:focus {\n  border-color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting-show-btn {\n  margin-right: 10px;\n}\n._zs_gallery_mx-indics_index_-setting-show-btn ._zs_gallery_mx-indics_index_-setting-show-icon {\n  position: relative;\n  top: 2px;\n}\n._zs_gallery_mx-indics_index_-setting-switch-btn {\n  padding-right: 20px;\n}\n._zs_gallery_mx-indics_index_-setting-switch-btn ._zs_gallery_mx-indics_index_-setting-switch-icon {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 20px;\n  height: 32px;\n  line-height: 32px;\n  text-align: center;\n  font-size: 18px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -21,7 +21,7 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', sortable = $$.sortable, hasParent = $$.hasParent, limit = $$.limit, selectedItems = $$.selectedItems, groups = $$.groups; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', sortable = $$.sortable, hasParent = $$.hasParent, limit = $$.limit, selectedItems = $$.selectedItems, groups = $$.groups, width = $$.width; var $expr, $art, $line; try {
     $p += '<div mxv class="_zs_gallery_mx-indics_index_-setting ';
     $line = 1;
     $art = 'if sortable';
@@ -50,14 +50,14 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><div mxa="_zs_gallerycc:_" class="_zs_gallery_mx-indics_index_-header"><div mxa="_zs_gallerycc:a" class="left"><span mxs="_zs_gallerycc:_" class="fontsize-16">选择数据字段</span>';
+    $p += '"><div mxa="_zs_gallerych:_" class="_zs_gallery_mx-indics_index_-header"><div mxa="_zs_gallerych:a" class="left"><span mxs="_zs_gallerych:_" class="fontsize-16">选择数据字段</span>';
     $line = 5;
     $art = 'if (limit > 0)';
     ;
     $expr = '<%if (limit > 0) {%>';
     if (limit > 0) {
         ;
-        $p += '<span mxa="_zs_gallerycc:b" class="color-9 font-tahoma bold ml10">';
+        $p += '<span mxa="_zs_gallerych:b" class="color-9 font-tahoma bold ml10">';
         $line = 6;
         $art = '=selectedItems.length';
         ;
@@ -79,28 +79,28 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!sortable) {%>';
     if (!sortable) {
         ;
-        $p += '<a mxs="_zs_gallerycc:a" href="javascript:;" class="link-brand fr" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a>';
+        $p += '<a mxs="_zs_gallerych:a" href="javascript:;" class="link-brand fr" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a>';
         $line = 12;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div><div mxv mxa="_zs_gallerycc:c" class="_zs_gallery_mx-indics_index_-content">';
+    $p += '</div></div><div mxv mxa="_zs_gallerych:c" class="_zs_gallery_mx-indics_index_-content">';
     $line = 16;
     $art = 'each groups as group';
     ;
-    $expr = '<%for (var $art_ibtcfqnp$art_i = 0, $art_cchbwpouv$art_c = groups.length; $art_ibtcfqnp$art_i < $art_cchbwpouv$art_c; $art_ibtcfqnp$art_i++) {    var group = groups[$art_ibtcfqnp$art_i]%>';
-    for (var $art_ibtcfqnp$art_i = 0, $art_cchbwpouv$art_c = groups.length; $art_ibtcfqnp$art_i < $art_cchbwpouv$art_c; $art_ibtcfqnp$art_i++) {
-        var group = groups[$art_ibtcfqnp$art_i];
-        $p += '<div mxv mxa="_zs_gallerycc:d" class="_zs_gallery_mx-indics_index_-line clearfix">';
+    $expr = '<%for (var $art_icwdrgul$art_i = 0, $art_catvvlnirqq$art_c = groups.length; $art_icwdrgul$art_i < $art_catvvlnirqq$art_c; $art_icwdrgul$art_i++) {    var group = groups[$art_icwdrgul$art_i]%>';
+    for (var $art_icwdrgul$art_i = 0, $art_catvvlnirqq$art_c = groups.length; $art_icwdrgul$art_i < $art_catvvlnirqq$art_c; $art_icwdrgul$art_i++) {
+        var group = groups[$art_icwdrgul$art_i];
+        $p += '<div mxv mxa="_zs_gallerych:d" class="_zs_gallery_mx-indics_index_-line clearfix">';
         $line = 18;
         $art = 'if group.text';
         ;
         $expr = '<%if (group.text) {%>';
         if (group.text) {
             ;
-            $p += '<div mxa="_zs_gallerycc:e" class="_zs_gallery_mx-indics_index_-name">';
+            $p += '<div mxa="_zs_gallerych:e" class="_zs_gallery_mx-indics_index_-name">';
             $line = 19;
             $art = '=group.text';
             ;
@@ -111,14 +111,18 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '<div mxv mxa="_zs_gallerycc:f" class="_zs_gallery_mx-indics_index_-items clearfix">';
+        $p += '<div mxv mxa="_zs_gallerych:f" class="clearfix">';
         $line = 22;
         $art = 'each group.fields as field';
         ;
-        $expr = '<%for (var $art_irtdvnml$art_i = 0, $art_objlkcdbshw$art_obj = group.fields, $art_croxxrpvb$art_c = $art_objlkcdbshw$art_obj.length; $art_irtdvnml$art_i < $art_croxxrpvb$art_c; $art_irtdvnml$art_i++) {        var field = $art_objlkcdbshw$art_obj[$art_irtdvnml$art_i]%>';
-        for (var $art_irtdvnml$art_i = 0, $art_objlkcdbshw$art_obj = group.fields, $art_croxxrpvb$art_c = $art_objlkcdbshw$art_obj.length; $art_irtdvnml$art_i < $art_croxxrpvb$art_c; $art_irtdvnml$art_i++) {
-            var field = $art_objlkcdbshw$art_obj[$art_irtdvnml$art_i];
-            $p += '<div mxv mxa="_zs_gallerycc:g" class="_zs_gallery_mx-indics_index_-item"><label mxv ';
+        $expr = '<%for (var $art_izmutgjjgi$art_i = 0, $art_objyurgqtir$art_obj = group.fields, $art_czrqrkygo$art_c = $art_objyurgqtir$art_obj.length; $art_izmutgjjgi$art_i < $art_czrqrkygo$art_c; $art_izmutgjjgi$art_i++) {        var field = $art_objyurgqtir$art_obj[$art_izmutgjjgi$art_i]%>';
+        for (var $art_izmutgjjgi$art_i = 0, $art_objyurgqtir$art_obj = group.fields, $art_czrqrkygo$art_c = $art_objyurgqtir$art_obj.length; $art_izmutgjjgi$art_i < $art_czrqrkygo$art_c; $art_izmutgjjgi$art_i++) {
+            var field = $art_objyurgqtir$art_obj[$art_izmutgjjgi$art_i];
+            $p += '<div mxv class="_zs_gallery_mx-indics_index_-item" style="width: ';
+            $line = 23;
+            $art = '=width';
+            ;
+            $p += ($expr = '<%=width%>', $e(width)) + ';"><label mxv ';
             $line = 24;
             $art = 'if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)';
             ;
@@ -215,13 +219,13 @@ module.exports = Magix.View.extend({
     $expr = '<%if (sortable) {%>';
     if (sortable) {
         ;
-        $p += '<div mxs="_zs_gallerycc:b" class="_zs_gallery_mx-indics_index_-drag-header"><div class="_zs_gallery_mx-indics_index_-drag-title">自定义字段</div><div class="_zs_gallery_mx-indics_index_-drag-oper"><span class="color-9 mr10">可拖动排序</span><a href="javascript:;" class="link-brand" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a></div></div><div mxa="_zs_gallerycc:h" class="_zs_gallery_mx-indics_index_-drag-wrapper" mx-view="mx-dragsort/index" mx-dragfinish="' + $viewId + 'drag()">';
+        $p += '<div mxs="_zs_gallerych:b" class="_zs_gallery_mx-indics_index_-drag-header"><div class="_zs_gallery_mx-indics_index_-drag-title">自定义字段</div><div class="_zs_gallery_mx-indics_index_-drag-oper"><span class="color-9 mr10">可拖动排序</span><a href="javascript:;" class="link-brand" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a></div></div><div mxa="_zs_gallerych:h" class="_zs_gallery_mx-indics_index_-drag-wrapper" mx-view="mx-dragsort/index" mx-dragfinish="' + $viewId + 'drag()">';
         $line = 50;
         $art = 'each selectedItems as s';
         ;
-        $expr = '<%for (var $art_ibhizjlbv$art_i = 0, $art_cimsebsnes$art_c = selectedItems.length; $art_ibhizjlbv$art_i < $art_cimsebsnes$art_c; $art_ibhizjlbv$art_i++) {        var s = selectedItems[$art_ibhizjlbv$art_i]%>';
-        for (var $art_ibhizjlbv$art_i = 0, $art_cimsebsnes$art_c = selectedItems.length; $art_ibhizjlbv$art_i < $art_cimsebsnes$art_c; $art_ibhizjlbv$art_i++) {
-            var s = selectedItems[$art_ibhizjlbv$art_i];
+        $expr = '<%for (var $art_iszcauwbv$art_i = 0, $art_caadxlvsir$art_c = selectedItems.length; $art_iszcauwbv$art_i < $art_caadxlvsir$art_c; $art_iszcauwbv$art_i++) {        var s = selectedItems[$art_iszcauwbv$art_i]%>';
+        for (var $art_iszcauwbv$art_i = 0, $art_caadxlvsir$art_c = selectedItems.length; $art_iszcauwbv$art_i < $art_caadxlvsir$art_c; $art_iszcauwbv$art_i++) {
+            var s = selectedItems[$art_iszcauwbv$art_i];
             $p += '<div class="_zs_gallery_mx-indics_index_-drag" data-value="';
             $line = 51;
             $art = '=s.value';
@@ -274,7 +278,7 @@ catch (ex) {
                 }
             }
         });
-        var sortable = e.sortable;
+        var lineNumber = e.lineNumber;
         var groups = [], hasParent;
         if (parents.length > 0) {
             // 有分组
@@ -293,21 +297,19 @@ catch (ex) {
             hasParent = true;
         }
         else {
-            // 可排序：一行三个
-            // 不可排序：一行四个
-            var gap = sortable ? 4 : 5;
-            var num = Math.ceil(fields.length / gap);
+            var num = Math.ceil(fields.length / lineNumber);
             for (var i = 0; i < num; i++) {
                 var group = {
-                    fields: fields.slice(i * gap, (i + 1) * gap)
+                    fields: fields.slice(i * lineNumber, (i + 1) * lineNumber)
                 };
                 groups.push(group);
             }
             hasParent = false;
         }
         this.updater.set({
+            width: Math.floor(100 / lineNumber) + '%',
             hasParent: hasParent,
-            sortable: sortable,
+            sortable: e.sortable,
             fields: fields,
             groups: groups,
             selectedItems: selectedItems,

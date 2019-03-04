@@ -49,9 +49,16 @@ module.exports = Magix.View.extend({
             customs = defaults;
         }
 
+        // 可选指标上限
         let limit = +e.limit || 0;
+
         // 是否可排序
         let sortable = (e.sortable + '' === 'true');
+
+        // lineNumber：每行个数，默认情况下
+        // 可排序：一行四个
+        // 不可排序：一行五个
+        let lineNumber = e.lineNumber || (sortable ? 4 : 5);
 
         // 1 默认
         // 2 自定义
@@ -71,6 +78,7 @@ module.exports = Magix.View.extend({
             parents,
             fields,
             sortable,
+            lineNumber,
             limit,
             map,
             type

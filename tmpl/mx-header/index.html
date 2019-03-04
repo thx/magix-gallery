@@ -29,11 +29,13 @@
             <div class="logo">
                 <img src="{{=logo}}"/>
             </div>
+            {{if (navs.length > 0)}}
             <div class="navs">
                 {{each navs as nav}}
                 <a class="mr40 {{if (cur == nav.value)}} cur {{/if}} " href="javascript:;" mx-click="to({nav:{{@nav}}})">{{=nav.text}}</a>
                 {{/each}}
             </div>
+            {{/if}}
         </div>
     </div>
 </div>

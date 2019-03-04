@@ -5,8 +5,9 @@
     vertical-align: middle;
 }
 
-@setting-right-width: 32%;
+@setting-right-width: 240px;
 @setting-header-height: 60px;
+@setting-content-name-width: @font-size * 8;
 
 .setting {
     position: relative;
@@ -30,62 +31,36 @@
         overflow-y: auto;
         
         .line {
+            position: relative;
             padding: 16px 24px;
             &:nth-of-type(even) {
                 background-color: @color-bg;
             }
         }
         .name{
-            float: left;
+            position: absolute;
+            top: 16px;
+            left: 24px;
+            width: @font-size * 8;
             padding: 8px 0;
             color: #999;
         }
-        .items{
+        .item {
             float: left;
-            width: 100%;
-            .item {
-                float: left;
-                width: 20%;
-                padding: 8px 0;
-    
-                .field-tip{
-                    position: relative;
-                    top: 1px;
-                    left: 1px;
-                    font-size: 14px;
-                    color: #ccc;
-                }
+            padding: 8px 0;
+
+            .field-tip{
+                position: relative;
+                top: 1px;
+                left: 1px;
+                font-size: 14px;
+                color: #ccc;
             }
         }
     }
     &.parent{
-        .name{
-            width: 15%;
-        }
-        .items{
-            width: 85%;
-            .item{
-                width: 25%; 
-            }
-        }
-    }
-    &.sortable{
-        .items{
-            width: 100%;
-            .item{
-                width: 25%; 
-            }
-        }
-    }
-    &.parent.sortable{
-        .name{
-            width: 20%;
-        }
-        .items{
-            width: 80%;
-            .item{
-                width: 33%; 
-            }
+        .line{
+            padding-left: 16 * 2 + @setting-content-name-width;
         }
     }
     &.sortable {

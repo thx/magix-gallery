@@ -11,7 +11,7 @@ module.exports = Magix.View.extend({
     assign(ops) {
         this['@{mode.simple}'] = (ops.mode === 'simple');
         this['@{need.products}'] = (ops.products + '' === 'true');
-        this['@{products.width}'] = ops.width || 1184;
+        this['@{products.width}'] = ops.width || 1200;
         this['@{ui.dark}'] = (ops.dark + '' === 'true');
     },
     render() {

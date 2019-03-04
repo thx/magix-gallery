@@ -36,8 +36,9 @@ module.exports = Base.extend({
             value: 7, 
             pValue: 2
         }, {
-            text: '千次展现成本', 
-            value: 8, 
+            text: '淘积木页面平均停留时长', 
+            value: 8,
+            tip: '淘积木页面平均停留时长提示文案', 
             pValue: 2
         }, {
             text: '投资回报率', 
@@ -50,10 +51,10 @@ module.exports = Base.extend({
         }]
 
         let parents = [{
-            text: '组1',
+            text: '淘积木互动',
             value: 1
         }, {
-            text: '组2',
+            text: '粉丝获取',
             value: 2
         }]
 

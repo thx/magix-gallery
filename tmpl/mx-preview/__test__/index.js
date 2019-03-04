@@ -71,8 +71,8 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
-            key: 'align',
-            desc: '与目标的对齐方式，left，right',
+            key: 'placement',
+            desc: '相对目标的展示位置，可选left、right',
             type: 'string',
             def: 'right'
         }]

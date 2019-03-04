@@ -18,7 +18,7 @@ module.exports = Magix.View.extend({
             key: 'width',
             desc: '产品线信息宽度，products = true时生效',
             type: 'number',
-            def: '1184'
+            def: '1200'
         }, {
             key: 'dark',
             desc: '产品线信息深底色白字',

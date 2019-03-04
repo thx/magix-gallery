@@ -9,7 +9,7 @@ define("mx-header/index",["magix","$","mx-header/data"],(require,exports,module)
 var Magix = require("magix");
 var $ = require("$");
 var Data = require("mx-header/data");
-Magix.applyStyle("_zs_gallery_mx-header_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-header_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-header_index_-header {\n  position: relative;\n  height: 88px;\n  background-color: #09122b;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-text {\n  opacity: 0.8;\n  color: #fff;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-text-h-brand:hover {\n  opacity: 1;\n  color: #4d7fff;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others {\n  height: 50px;\n  margin: 0 auto;\n  padding-left: 22px;\n  padding-right: 22px;\n  line-height: 50px;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item {\n  position: relative;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item ._zs_gallery_mx-header_index_-text {\n  cursor: pointer;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item ._zs_gallery_mx-header_index_-arrow {\n  display: inline-block;\n  position: relative;\n  top: 4px;\n  right: 0;\n  font-size: 20px;\n  color: #fff;\n  transition: -webkit-transform 0.25s ease-out;\n  transition: transform 0.25s ease-out;\n  transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item ._zs_gallery_mx-header_index_-links {\n  position: absolute;\n  top: 38px;\n  left: 50%;\n  z-index: 3;\n  width: 160px;\n  height: 0;\n  margin-left: -80px;\n  overflow: hidden;\n  transition: height 0.25s ease-out;\n  background-color: #f7f7f7;\n  border-radius: 4px;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item ._zs_gallery_mx-header_index_-links dl {\n  padding: 10px 20px;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item ._zs_gallery_mx-header_index_-links dl dt {\n  height: 30px;\n  line-height: 30px;\n  color: #999;\n  font-size: 14px;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item ._zs_gallery_mx-header_index_-links dl dd {\n  height: 32px;\n  margin-left: 25px;\n  line-height: 32px;\n  font-size: 12px;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item:hover ._zs_gallery_mx-header_index_-text {\n  opacity: 1;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item:hover ._zs_gallery_mx-header_index_-arrow {\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item:hover ._zs_gallery_mx-header_index_-links {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-front {\n  position: absolute;\n  z-index: 2;\n  width: 100%;\n  top: 50px;\n  left: 0;\n  transition: background-color 0.25s ease-out;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner {\n  height: 76px;\n  margin: 0 auto;\n  padding: 18px 20px;\n  background-color: #fff;\n  border-radius: 60px;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner ._zs_gallery_mx-header_index_-logo {\n  float: left;\n  height: 40px;\n  margin-right: 50px;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner ._zs_gallery_mx-header_index_-logo img {\n  height: 100%;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner ._zs_gallery_mx-header_index_-navs {\n  float: left;\n  height: 40px;\n  line-height: 40px;\n  font-size: 14px;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner ._zs_gallery_mx-header_index_-navs ._zs_gallery_mx-header_index_-cur {\n  color: #4d7fff;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-front._zs_gallery_mx-header_index_-fixed {\n  position: fixed;\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n}\n");
+Magix.applyStyle("_zs_gallery_mx-header_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-header_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-header_index_-header {\n  position: relative;\n  height: 88px;\n  background-color: #09122b;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-text {\n  opacity: 0.8;\n  color: #fff;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-text-h-brand:hover {\n  opacity: 1;\n  color: #4d7fff;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others {\n  height: 50px;\n  margin: 0 auto;\n  padding: 0 40px;\n  line-height: 50px;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item {\n  position: relative;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item ._zs_gallery_mx-header_index_-text {\n  cursor: pointer;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item ._zs_gallery_mx-header_index_-arrow {\n  display: inline-block;\n  position: relative;\n  top: 4px;\n  right: 0;\n  font-size: 20px;\n  color: #fff;\n  transition: -webkit-transform 0.25s ease-out;\n  transition: transform 0.25s ease-out;\n  transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item ._zs_gallery_mx-header_index_-links {\n  position: absolute;\n  top: 38px;\n  left: 50%;\n  z-index: 3;\n  width: 160px;\n  height: 0;\n  margin-left: -80px;\n  overflow: hidden;\n  transition: height 0.25s ease-out;\n  background-color: #f7f7f7;\n  border-radius: 4px;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item ._zs_gallery_mx-header_index_-links dl {\n  padding: 10px 20px;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item ._zs_gallery_mx-header_index_-links dl dt {\n  height: 30px;\n  line-height: 30px;\n  color: #999;\n  font-size: 14px;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item ._zs_gallery_mx-header_index_-links dl dd {\n  height: 32px;\n  margin-left: 25px;\n  line-height: 32px;\n  font-size: 12px;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item:hover ._zs_gallery_mx-header_index_-text {\n  opacity: 1;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item:hover ._zs_gallery_mx-header_index_-arrow {\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item:hover ._zs_gallery_mx-header_index_-links {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-front {\n  position: absolute;\n  z-index: 2;\n  width: 100%;\n  top: 50px;\n  left: 0;\n  transition: background-color 0.25s ease-out;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner {\n  height: 76px;\n  margin: 0 auto;\n  padding: 18px 40px;\n  background-color: #fff;\n  border-radius: 60px;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner ._zs_gallery_mx-header_index_-logo {\n  float: left;\n  height: 40px;\n  margin-right: 50px;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner ._zs_gallery_mx-header_index_-logo img {\n  height: 100%;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner ._zs_gallery_mx-header_index_-navs {\n  float: left;\n  height: 40px;\n  line-height: 40px;\n  font-size: 14px;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner ._zs_gallery_mx-header_index_-navs ._zs_gallery_mx-header_index_-cur {\n  color: #4d7fff;\n}\n._zs_gallery_mx-header_index_-header ._zs_gallery_mx-header_index_-front._zs_gallery_mx-header_index_-fixed {\n  position: fixed;\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -27,16 +27,16 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', width = $$.width, list = $$.list, fixed = $$.fixed, styles = $$.styles, logo = $$.logo, navs = $$.navs, cur = $$.cur; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryb.:_" class="_zs_gallery_mx-header_index_-header"><div class="_zs_gallery_mx-header_index_-others clearfix" style="width: ';
+    $p += '<div mxa="_zs_galleryb;:_" class="_zs_gallery_mx-header_index_-header"><div class="_zs_gallery_mx-header_index_-others clearfix" style="width: ';
     $line = 2;
     $art = '=width';
     ;
-    $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_galleryb.:_" class="fl mr35"><a class="_zs_gallery_mx-header_index_-text _zs_gallery_mx-header_index_-text-h-brand" href="//www.alimama.com" target="_blank" rel="noopener noreferrer">阿里妈妈首页</a></div>';
+    $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_galleryb;:_" class="fl mr35"><a class="_zs_gallery_mx-header_index_-text _zs_gallery_mx-header_index_-text-h-brand" href="//www.alimama.com" target="_blank" rel="noopener noreferrer">阿里妈妈首页</a></div>';
     $line = 6;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cmhnhyvship$art_c = list.length; index < $art_cmhnhyvship$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cmhnhyvship$art_c = list.length; index < $art_cmhnhyvship$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_chnxdhxjf$art_c = list.length; index < $art_chnxdhxjf$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_chnxdhxjf$art_c = list.length; index < $art_chnxdhxjf$art_c; index++) {
         var item = list[index];
         $p += '<div class="_zs_gallery_mx-header_index_-item fl mr35" mx-mouseover="' + $viewId + 'toggle({index:';
         $line = 8;
@@ -50,11 +50,11 @@ module.exports = Magix.View.extend({
         $line = 9;
         $art = '=index';
         ;
-        $p += ($expr = '<%=index%>', $e(index)) + ',height:0})"><span mxa="_zs_galleryb.:a" class="_zs_gallery_mx-header_index_-text">';
+        $p += ($expr = '<%=index%>', $e(index)) + ',height:0})"><span mxa="_zs_galleryb;:a" class="_zs_gallery_mx-header_index_-text">';
         $line = 10;
         $art = '=item.title';
         ;
-        $p += ($expr = '<%=item.title%>', $e(item.title)) + '</span><span mxs="_zs_galleryb.:a" class="mc-iconfont ml5 _zs_gallery_mx-header_index_-arrow">&#xe692;</span><div class="_zs_gallery_mx-header_index_-links" style="height: ';
+        $p += ($expr = '<%=item.title%>', $e(item.title)) + '</span><span mxs="_zs_galleryb;:a" class="mc-iconfont ml5 _zs_gallery_mx-header_index_-arrow">&#xe692;</span><div class="_zs_gallery_mx-header_index_-links" style="height: ';
         $line = 12;
         $art = '=item.showHeight';
         ;
@@ -62,9 +62,9 @@ module.exports = Magix.View.extend({
         $line = 13;
         $art = 'each item.seconds as second';
         ;
-        $expr = '<%for (var $art_idijownqe$art_i = 0, $art_objfogiccdoug$art_obj = item.seconds, $art_cjawyjdine$art_c = $art_objfogiccdoug$art_obj.length; $art_idijownqe$art_i < $art_cjawyjdine$art_c; $art_idijownqe$art_i++) {        var second = $art_objfogiccdoug$art_obj[$art_idijownqe$art_i]%>';
-        for (var $art_idijownqe$art_i = 0, $art_objfogiccdoug$art_obj = item.seconds, $art_cjawyjdine$art_c = $art_objfogiccdoug$art_obj.length; $art_idijownqe$art_i < $art_cjawyjdine$art_c; $art_idijownqe$art_i++) {
-            var second = $art_objfogiccdoug$art_obj[$art_idijownqe$art_i];
+        $expr = '<%for (var $art_izztqmtfv$art_i = 0, $art_objlrjsjoeytm$art_obj = item.seconds, $art_cvzgjqxvr$art_c = $art_objlrjsjoeytm$art_obj.length; $art_izztqmtfv$art_i < $art_cvzgjqxvr$art_c; $art_izztqmtfv$art_i++) {        var second = $art_objlrjsjoeytm$art_obj[$art_izztqmtfv$art_i]%>';
+        for (var $art_izztqmtfv$art_i = 0, $art_objlrjsjoeytm$art_obj = item.seconds, $art_cvzgjqxvr$art_c = $art_objlrjsjoeytm$art_obj.length; $art_izztqmtfv$art_i < $art_cvzgjqxvr$art_c; $art_izztqmtfv$art_i++) {
+            var second = $art_objlrjsjoeytm$art_obj[$art_izztqmtfv$art_i];
             $p += '<dl>';
             $line = 15;
             $art = 'if second.title';
@@ -87,9 +87,9 @@ module.exports = Magix.View.extend({
             $line = 18;
             $art = 'each second.thirds as third';
             ;
-            $expr = '<%for (var $art_ixqlhr$art_i = 0, $art_objrorbdylgb$art_obj = second.thirds, $art_cggzhiemi$art_c = $art_objrorbdylgb$art_obj.length; $art_ixqlhr$art_i < $art_cggzhiemi$art_c; $art_ixqlhr$art_i++) {            var third = $art_objrorbdylgb$art_obj[$art_ixqlhr$art_i]%>';
-            for (var $art_ixqlhr$art_i = 0, $art_objrorbdylgb$art_obj = second.thirds, $art_cggzhiemi$art_c = $art_objrorbdylgb$art_obj.length; $art_ixqlhr$art_i < $art_cggzhiemi$art_c; $art_ixqlhr$art_i++) {
-                var third = $art_objrorbdylgb$art_obj[$art_ixqlhr$art_i];
+            $expr = '<%for (var $art_ieovpiomiucq$art_i = 0, $art_objpbzhxpmzy$art_obj = second.thirds, $art_cnrukhtitb$art_c = $art_objpbzhxpmzy$art_obj.length; $art_ieovpiomiucq$art_i < $art_cnrukhtitb$art_c; $art_ieovpiomiucq$art_i++) {            var third = $art_objpbzhxpmzy$art_obj[$art_ieovpiomiucq$art_i]%>';
+            for (var $art_ieovpiomiucq$art_i = 0, $art_objpbzhxpmzy$art_obj = second.thirds, $art_cnrukhtitb$art_c = $art_objpbzhxpmzy$art_obj.length; $art_ieovpiomiucq$art_i < $art_cnrukhtitb$art_c; $art_ieovpiomiucq$art_i++) {
+                var third = $art_objpbzhxpmzy$art_obj[$art_ieovpiomiucq$art_i];
                 $p += '<dd><a href="';
                 $line = 19;
                 $art = '=third.link';
@@ -155,47 +155,61 @@ module.exports = Magix.View.extend({
     $line = 28;
     $art = '=width';
     ;
-    $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxa="_zs_galleryb.:b" class="_zs_gallery_mx-header_index_-logo"><img src="';
+    $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxa="_zs_galleryb;:b" class="_zs_gallery_mx-header_index_-logo"><img src="';
     $line = 30;
     $art = '=logo';
     ;
-    $p += ($expr = '<%=logo%>', $e(logo)) + '"/></div><div mxa="_zs_galleryb.:c" class="_zs_gallery_mx-header_index_-navs">';
-    $line = 33;
-    $art = 'each navs as nav';
+    $p += ($expr = '<%=logo%>', $e(logo)) + '"/></div>';
+    $line = 32;
+    $art = 'if (navs.length > 0)';
     ;
-    $expr = '<%for (var $art_iqswrhfa$art_i = 0, $art_czcgegod$art_c = navs.length; $art_iqswrhfa$art_i < $art_czcgegod$art_c; $art_iqswrhfa$art_i++) {    var nav = navs[$art_iqswrhfa$art_i]%>';
-    for (var $art_iqswrhfa$art_i = 0, $art_czcgegod$art_c = navs.length; $art_iqswrhfa$art_i < $art_czcgegod$art_c; $art_iqswrhfa$art_i++) {
-        var nav = navs[$art_iqswrhfa$art_i];
-        $p += '<a class="mr40 ';
-        $line = 34;
-        $art = 'if (cur == nav.value)';
+    $expr = '<%if (navs.length > 0) {%>';
+    if (navs.length > 0) {
         ;
-        $expr = '<%if (cur == nav.value) {%>';
-        if (cur == nav.value) {
+        $p += '<div mxa="_zs_galleryb;:c" class="_zs_gallery_mx-header_index_-navs">';
+        $line = 34;
+        $art = 'each navs as nav';
+        ;
+        $expr = '<%for (var $art_ijbtqkvdma$art_i = 0, $art_coeeqow$art_c = navs.length; $art_ijbtqkvdma$art_i < $art_coeeqow$art_c; $art_ijbtqkvdma$art_i++) {        var nav = navs[$art_ijbtqkvdma$art_i]%>';
+        for (var $art_ijbtqkvdma$art_i = 0, $art_coeeqow$art_c = navs.length; $art_ijbtqkvdma$art_i < $art_coeeqow$art_c; $art_ijbtqkvdma$art_i++) {
+            var nav = navs[$art_ijbtqkvdma$art_i];
+            $p += '<a class="mr40 ';
+            $line = 35;
+            $art = 'if (cur == nav.value)';
             ;
-            $p += ' _zs_gallery_mx-header_index_-cur ';
-            $line = 34;
-            $art = '/if';
+            $expr = '<%if (cur == nav.value) {%>';
+            if (cur == nav.value) {
+                ;
+                $p += ' _zs_gallery_mx-header_index_-cur ';
+                $line = 35;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '" href="javascript:;" mx-click="' + $viewId + 'to({nav:\'';
+            $line = 35;
+            $art = '@nav';
+            ;
+            $p += ($expr = '<%@nav%>', $i($$ref, nav)) + '\'})">';
+            $line = 35;
+            $art = '=nav.text';
+            ;
+            $p += ($expr = '<%=nav.text%>', $e(nav.text)) + '</a>';
+            $line = 36;
+            $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += '" href="javascript:;" mx-click="' + $viewId + 'to({nav:\'';
-        $line = 34;
-        $art = '@nav';
-        ;
-        $p += ($expr = '<%@nav%>', $i($$ref, nav)) + '\'})">';
-        $line = 34;
-        $art = '=nav.text';
-        ;
-        $p += ($expr = '<%=nav.text%>', $e(nav.text)) + '</a>';
-        $line = 35;
-        $art = '/each';
+        $p += '</div>';
+        $line = 38;
+        $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div></div></div>';
+    $p += '</div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -219,7 +233,7 @@ catch (ex) {
         var wrapperId = ops.wrapper || '';
         var wrapper = wrapperId ? $('#' + wrapperId) : $(window);
         var cur = ops.cur || ''; //默认不选中任何一个导航
-        var width = ops.width || 1184;
+        var width = ops.width || 1200;
         var navs = ops.navs || [];
         var logo = ops.logo || '//img.alicdn.com/tfs/TB1vee6iAzoK1RjSZFlXXai4VXa-534-98.png';
         var maxWidth = wrapper.outerWidth();

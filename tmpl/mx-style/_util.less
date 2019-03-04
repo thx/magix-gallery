@@ -1,68 +1,65 @@
 /* @dependent: ./index.less */
-
 @import '_animation';
-/* 常用字号 */
 
+/* 常用字号 */
 .fontsize-loop(@n, @i: 12) when (@i <=@n) {
     .fontsize-@{i} {
         font-size: unit(@i, px);
     }
     .fontsize-loop(@n, (@i + 2));
 }
-
 .fontsize-loop(40);
-/* 常用字号 */
 
+/* 常用字号 */
 .line-height-loop(@n, @i: 14) when (@i <=@n) {
     .lh@{i} {
         line-height: unit(@i, px);
     }
     .line-height-loop(@n, (@i + 2));
 }
-
 .line-height-loop(36);
+
 .width-loop(@n, @i: 60) when (@i <=@n) {
     .w@{i} {
         width: unit(@i, px);
     }
     .width-loop(@n, (@i + 10));
 }
-
 .width-loop(500);
+
 .height-loop(@n, @i: 50) when (@i <=@n) {
     .h@{i} {
         height: unit(@i, px);
     }
     .height-loop(@n, (@i + 10));
 }
-
 .height-loop(320);
+
 .min-width-loop(@n, @i: 10) when (@i <=@n) {
     .min-width-@{i} {
         min-width: unit(@i, px);
     }
     .min-width-loop(@n, (@i + 10));
 }
-
 .min-width-loop(320);
+
 .max-width-loop(@n, @i: 100) when (@i <=@n) {
     .max-width-@{i} {
         max-width: unit(@i, px);
     }
     .max-width-loop(@n, (@i + 100));
 }
-
 .max-width-loop(1000);
+
 .max-height-loop(@n, @i: 100) when (@i <=@n) {
     .max-height-@{i} {
         max-height: unit(@i, px);
     }
     .max-height-loop(@n, (@i + 100));
 }
-
 .max-height-loop(1000);
-/*间距规范 8*n */
 
+/*间距规范 8*n */
 .gap-loop(@n, @i: 8) when (@i <=@n) {
     .mt@{i} {
         margin-top: unit(@i, px);
@@ -90,10 +87,9 @@
     }
     .gap-loop(@n, (@i + 8));
 }
-
 .gap-loop(48);
-/*常用margin*/
 
+/*常用margin*/
 .margin-loop(@n, @i: 5) when (@i <=@n) {
     .mt@{i} {
         margin-top: unit(@i, px);
@@ -109,10 +105,9 @@
     }
     .margin-loop(@n, (@i + 5));
 }
-
 .margin-loop(100);
-/*常用padding*/
 
+/*常用padding*/
 .padding-loop(@n, @i: 5) when (@i <=@n) {
     .pt@{i} {
         padding-top: unit(@i, px);
@@ -131,8 +126,8 @@
     }
     .padding-loop(@n, (@i + 5));
 }
-
 .padding-loop(140);
+
 .text-center,
 .tc {
     text-align: center;
@@ -313,7 +308,6 @@
 }
 
 /* 小位移 */
-
 .displacement-loop(@n, @i: 1) when (@i <=@n) {
     .displacement-@{i} {
         position: relative;
@@ -321,15 +315,14 @@
     }
     .displacement-loop(@n, (@i + 1));
 }
-
 .displacement-loop(3);
+
 /** 
  * <div class="search-box">
  *      <i class="iconfont search-icon">&#xe651;</i>
  *      <input type="text" class="input search-input"/>
  * </div>
  */
-
 .search-box {
     display: inline-block;
     position: relative;
@@ -369,15 +362,25 @@
 
 .empty-white,
 .empty-area {
-    height: 200px;
+    position: relative;
+    min-height: 200px;
     padding-top: 40px;
     text-align: center;
     color: #999;
     .no-data {
         height: 80px;
-        line-height: 80px;
         font-size: 60px;
         color: #ccc;
+    }
+
+    .empty-inner{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 90%;
+        height: 110px;
+        margin-top: -55px;
+        margin-left: -45%;
     }
 }
 

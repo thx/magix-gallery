@@ -58,7 +58,7 @@ module.exports = Magix.View.extend({
 
         that.updater.digest({
             viewId: that.id,
-            align: extra.align || 'right', //对齐方式
+            placement: extra.placement || 'right', //展示位置，左边 or 右边
             preview: (extra.preview + '' !== 'false'), //是否需要预览
             type,
             url,
@@ -182,11 +182,11 @@ module.exports = Magix.View.extend({
                 winHeight = win.height(),
                 winScroll = win.scrollTop();
 
-            // align: right右对齐
-            // align: left左对齐
-            let align = data.align,
+            // placement: right（目标右侧）
+            // placement: left（目标左侧）
+            let placement = data.placement,
                 rangeWidth = 0; // 可见宽度范围
-            if(align == 'left'){
+            if(placement == 'left'){
                 // 左边
                 rangeWidth = left - 10;
             }else{
@@ -264,7 +264,7 @@ module.exports = Magix.View.extend({
             floatingLayer.css({
                 width,
                 height: !height ? 'auto' : height, //文案没有高度
-                left: (align == 'left') ? (left - width - 10) : left,
+                left: (placement == 'left') ? (left - width - 10) : left,
                 top,
                 display: 'block'
             })

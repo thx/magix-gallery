@@ -12,86 +12,68 @@ module.exports = Magix.View.extend({
         let oNode = $('#' + me.id);
         me['@{owner.node}'] = oNode;
 
+        // 已选中数据
         let selected = ops.selected;
-        let textKey = ops.textKey || 'text';
-        let valueKey = ops.valueKey || 'value';
-        let emptyText = ops.emptyText || '';
-        let list = [];
-        if (!ops.list) {
-            let node = me['@{owner.node}'].children();
-            let group;
-            node.each((idx, item) => {
-                item = $(item);
-                group = item.attr('group') == 'true';
-                list.push({
-                    group: group,
-                    text: item.text(),
-                    value: group ? Magix.guid() : item.attr('value')
-                });
-            });
+        if ($.isArray(selected)) {
+            // 数组，保留初始数据状态，双向绑定原样返回
+            me['@{bak.type}'] = 'array';
         } else {
-            // 直接配数据不支持分组
-            try {
-                list = JSON.parse(ops.list);
-            } catch (e) {
-                list = ops.list
-            }
-            if (typeof list[0] === 'object') {
-                // 本身是个对象
-                list = list.map(item => {
-                    return {
-                        text: item[textKey],
-                        value: item[valueKey]
-                    };
-                })
-            } else {
-                // 直接value列表
-                list = list.map(value => {
-                    return {
-                        text: value,
-                        value: value
-                    };
-                })
-            }
+            // 字符串
+            selected = selected ? (selected + '').split(',') : [];
         }
 
-        let map = Magix.toMap(list, valueKey);
-        if (emptyText) {
-            if (!map['']) {
-                let temp = {};
-                temp[textKey] = emptyText;
-                temp[valueKey] = '';
-                list.unshift(temp);
-                map[''] = temp;
-            }
+        let textKey = ops.textKey || 'text';
+        let valueKey = ops.valueKey || 'value';
+        let list = ops.list || [];
+        if (typeof list[0] === 'object') {
+            // 本身是个对象
+            list = list.map(item => {
+                return {
+                    text: item[textKey],
+                    value: item[valueKey]
+                };
+            })
+        } else {
+            // 直接value列表
+            list = list.map(value => {
+                return {
+                    text: value,
+                    value: value
+                };
+            })
         }
-        let selectedItem = map[selected];
-        if (!selected || !selectedItem) { //未提供选项，或提供的选项不在列表里，则默认第一个
-            let firstItem = {};
-            for (var i = 0; i < list.length; i++) {
-                if (!list[i].group) {
-                    firstItem = list[i];
-                    break;
-                }
+
+        // 多选还是单选
+        let multiple = (ops.multiple + '' === 'true');
+        let map = Magix.toMap(list, valueKey);
+        let selectedItems = [];
+        selected.forEach(value => {
+            let selectedItem = map[selected];
+            //未提供选项，或提供的选项不在列表里
+            if (!$.isEmptyObject(selectedItem)) {
+                selectedItems.push(selectedItem);
             }
-            selectedItem = map[selected] || firstItem;
+        })
+        if (multiple && (selectedItems.length == 0)) {
+            // 单选默认选中第一个
+            selectedItems = list[0];
         }
 
         // 是否禁用
         let disabledNode = $('#' + me.id + '[mx-disabled]')
         me['@{ui.disabled}'] = disabledNode && (disabledNode.length > 0);
 
-        me['@{pos.init}'] = false;
-        me['@{pos.cal}'] = false;
-        me['@{pos.show}'] = false;
+        // 相关滚动容器不是window时，支持自定义指定滚动容器
         me['@{scroll.wrapper}'] = ops.scrollWrapper;
 
+        // 初始化
+        me['@{pos.init}'] = false;
         me.updater.set({
             viewId: me.id,
             list,
             selected: selectedItem.value,
             selectedText: selectedItem.text,
-            expand: me['@{pos.show}'],
+            expand: false,
             name: ops.name || ''
         });
 
@@ -108,14 +90,15 @@ module.exports = Magix.View.extend({
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
         });
-    
+
         // trigger方式，click，hover，默认click
         me['@{trigger.type}'] = ops.triggerType || 'click';
         switch (me['@{trigger.type}']) {
             case 'click':
                 oNode.on('click', () => {
                     me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
-                        if (me['@{pos.show}']) {
+                        let expand = me.updater.get('expand');
+                        if (expand) {
                             me['@{hide}']();
                         } else if (!me['@{ui.disabled}']) {
                             me['@{show}']();
@@ -128,7 +111,7 @@ module.exports = Magix.View.extend({
                     clearTimeout(me['@{dealy.hide.timer}']);
 
                     me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
-                        if(!me['@{ui.disabled}']){
+                        if (!me['@{ui.disabled}']) {
                             me['@{show}'](); //等待内容显示
                         }
                     }), me.constants.showDelay);
@@ -156,16 +139,16 @@ module.exports = Magix.View.extend({
 
         let ddNode = `<div class="@index.less:dropdown-menu-wrapper @index.less:bottom" id="dd_bd_${vId}"
                 style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`;
-        
+
         $(document.body).append(ddNode);
 
         // 先实例化，绑定事件，再加载对应的view
         let vf = me.owner.mountVframe('dd_bd_' + vId, '');
         vf.on('created', () => {
             let ddNode = me['@{setPos}']();
-            
+
             let triggerType = me['@{trigger.type}'];
-            if(triggerType == 'hover'){
+            if (triggerType == 'hover') {
                 ddNode.hover(() => {
                     clearTimeout(me['@{dealy.hide.timer}']);
                 }, () => {
@@ -185,11 +168,12 @@ module.exports = Magix.View.extend({
             me['@{pos.init}'] = true;
             me['@{init}']();
         }
-        if (me['@{pos.show}']) {
+
+        let data = me.updater.get();
+        if (data.expand) {
             return;
         }
 
-        let data = me.updater.get();
         me['@{content.vf}'].mountView('@./content', {
             data: {
                 list: data.list,
@@ -214,9 +198,9 @@ module.exports = Magix.View.extend({
         })
 
         me.updater.digest({
-            expand: me['@{pos.show}'] = true
+            expand: true
         })
-        
+
         // 每次show时都重新定位
         let ddNode = me['@{setPos}']();
         ddNode.addClass('@index.less:open');
@@ -236,12 +220,14 @@ module.exports = Magix.View.extend({
         let me = this;
 
         clearTimeout(me['@{dealy.hide.timer}']);
-        if (!me['@{pos.show}']) {
+
+        let expand = me.updater.get('expand');
+        if (!expand) {
             return;
         }
 
         me.updater.digest({
-            expand: me['@{pos.show}'] = false
+            expand: false
         })
 
         let ddNode = $('#dd_bd_' + me.id);
@@ -262,7 +248,8 @@ module.exports = Magix.View.extend({
             wrapper = $(scrollWrapper);
         }
         wrapper.scroll(() => {
-            if (me['@{pos.show}']) {
+            let expand = me.updater.get('expand');
+            if (expand) {
                 me['@{setPos}']();
             }
         });
@@ -283,7 +270,7 @@ module.exports = Magix.View.extend({
         let rHeight = ddNode.outerHeight();
 
         let top = offset.top + height;
-            left = offset.left - (rWidth - width) / 2;
+        left = offset.left - (rWidth - width) / 2;
 
         ddNode.css({
             left: left,
@@ -297,7 +284,8 @@ module.exports = Magix.View.extend({
      */
     '$win<scroll>'(e) {
         let me = this;
-        if (me['@{pos.show}']) {
+        let expand = me.updater.get('expand');
+        if (expand) {
             me['@{setPos}']();
         }
     },
@@ -306,7 +294,8 @@ module.exports = Magix.View.extend({
      */
     '$doc<dialogScolll>'(e) {
         let me = this;
-        if (me['@{pos.show}']) {
+        let expand = me.updater.get('expand');
+        if (expand) {
             me['@{setPos}']();
         }
     },

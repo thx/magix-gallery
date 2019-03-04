@@ -140,14 +140,12 @@ module.exports = Magix.View.extend({
                     tip: '支持click展开和hover展开两种形式；下拉列表在组件内；支持双向绑定',
                     path: '/dropdown/multiple',
                     icon: '&#xe7a4;'
-                }, 
-                // {
-                //     name: '下拉框（追加到body版）',
-                //     tip: '支持click展开和hover展开两种形式',
-                //     path: '/dropdown/dd',
-                //     icon: '&#xe7a4;'
-                // }, 
-                {
+                }, {
+                    name: '下拉框（追加到body版）',
+                    tip: '支持click展开和hover展开两种形式',
+                    path: '/dropdown/bd',
+                    icon: '&#xe7a4;'
+                }, {
                     name: '日历（选择单日）',
                     tip: '支持双向绑定',
                     path: '/calendar/index',
@@ -602,7 +600,7 @@ module.exports = Magix.View.extend({
             minHeight: winHeight
         });
         leftNode.css('height', winHeight);
-        
+
         // clearTimeout(that.winResizeTimer);
 
         // that.winResizeTimer = setTimeout(that.wrapAsync(() => {

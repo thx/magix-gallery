@@ -64,6 +64,11 @@ module.exports = Magix.View.extend({
             type: 'number',
             def: ''
         }, {
+            key: 'line-number',
+            desc: '每行展现指标个数',
+            type: 'number',
+            def: '可排序：默认每行4个<br/>不可排序：默认每行5个'
+        }, {
             key: 'sortable',
             desc: '是否需要排序',
             type: 'boolean',

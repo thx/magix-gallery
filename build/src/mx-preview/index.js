@@ -57,7 +57,7 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_inner"><i mxs="_zs_galleryc;:_" class="mc-iconfont _zs_gallery_mx-preview_index_-holder">&#xe615;</i></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_inner"><i mxs="_zs_gallerydb:_" class="mc-iconfont _zs_gallery_mx-preview_index_-holder">&#xe615;</i></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -111,7 +111,7 @@ catch (ex) {
         }
         that.updater.digest({
             viewId: that.id,
-            align: extra.align || 'right',
+            placement: extra.placement || 'right',
             preview: (extra.preview + '' !== 'false'),
             type: type,
             url: url,
@@ -207,10 +207,10 @@ catch (ex) {
             // 对最大范围进行修正，不超过屏幕可视范围
             var win = $(window);
             var winWidth = win.width(), winHeight = win.height(), winScroll = win.scrollTop();
-            // align: right右对齐
-            // align: left左对齐
-            var align = data.align, rangeWidth = 0; // 可见宽度范围
-            if (align == 'left') {
+            // placement: right（目标右侧）
+            // placement: left（目标左侧）
+            var placement = data.placement, rangeWidth = 0; // 可见宽度范围
+            if (placement == 'left') {
                 // 左边
                 rangeWidth = left - 10;
             }
@@ -266,7 +266,7 @@ catch (ex) {
             floatingLayer.css({
                 width: width,
                 height: !height ? 'auto' : height,
-                left: (align == 'left') ? (left - width - 10) : left,
+                left: (placement == 'left') ? (left - width - 10) : left,
                 top: top,
                 display: 'block'
             });

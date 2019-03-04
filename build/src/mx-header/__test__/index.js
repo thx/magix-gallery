@@ -29,7 +29,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryb,:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_galleryb/:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 3;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'全屏\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'容器内\',\n            key: viewId + \'_demo2\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
@@ -37,7 +37,7 @@ module.exports = Magix.View.extend({
     $line = 18;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryb,:a" class="clearfix mb20"><div mx-view="mx-header/__test__/1" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryb/:a" class="clearfix mb20"><div mx-view="mx-header/__test__/1" id="';
     $line = 20;
     $art = '=viewId';
     ;
@@ -66,9 +66,9 @@ catch (ex) {
     render: function () {
         var options = [{
                 key: 'width',
-                desc: '导航中间区域宽度，默认1184，会根据屏幕宽度进行修正',
+                desc: '导航中间区域宽度，默认1200，会根据屏幕宽度进行修正',
                 type: 'number',
-                def: 1184
+                def: 1200
             }, {
                 key: 'navs',
                 desc: "\u5BFC\u822A\u6570\u7EC4<pre>[{\n    text:\"\u5C55\u793A\u6587\u6848\",\n    value:\"value\u503C\"\n}]</pre>",

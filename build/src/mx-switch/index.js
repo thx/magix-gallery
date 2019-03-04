@@ -35,7 +35,7 @@ module.exports = Magix.View.extend({
         $line = 2;
         $art = '= _zs_gallery_mx-switch_index_-disabled ? \'disabled\' : \'\'';
         ;
-        $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_galleryd2:_" class="_zs_gallery_mx-switch_index_-text _zs_gallery_mx-switch_index_-close">关</span><span mxs="_zs_galleryd2:a" class="_zs_gallery_mx-switch_index_-text _zs_gallery_mx-switch_index_-open">开</span><span mxs="_zs_galleryd2:b" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
+        $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_galleryd8:_" class="_zs_gallery_mx-switch_index_-text _zs_gallery_mx-switch_index_-close">关</span><span mxs="_zs_galleryd8:a" class="_zs_gallery_mx-switch_index_-text _zs_gallery_mx-switch_index_-open">开</span><span mxs="_zs_galleryd8:b" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
         $line = 8;
         $art = 'else';
         ;
@@ -51,7 +51,7 @@ module.exports = Magix.View.extend({
         $line = 9;
         $art = '= _zs_gallery_mx-switch_index_-disabled ? \'disabled\' : \'\'';
         ;
-        $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_galleryd2:b" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
+        $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_galleryd8:b" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
         $line = 12;
         $art = '/if';
         ;

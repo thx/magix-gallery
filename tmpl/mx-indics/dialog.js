@@ -23,8 +23,7 @@ module.exports = Magix.View.extend({
             }
         })
 
-        let sortable = e.sortable;
-
+        let lineNumber = e.lineNumber;
         
         let groups = [], hasParent;
         if(parents.length > 0){
@@ -43,13 +42,10 @@ module.exports = Magix.View.extend({
             })
             hasParent = true;
         }else{
-            // 可排序：一行三个
-            // 不可排序：一行四个
-            let gap = sortable ? 4 : 5;
-            let num = Math.ceil(fields.length / gap);
+            let num = Math.ceil(fields.length / lineNumber);
             for (var i = 0; i < num; i++) {
                 let group = {
-                    fields: fields.slice(i * gap, (i + 1) * gap)
+                    fields: fields.slice(i * lineNumber, (i + 1) * lineNumber)
                 }
                 groups.push(group);
             }
@@ -57,8 +53,9 @@ module.exports = Magix.View.extend({
         }
 
         this.updater.set({
+            width:  Math.floor(100 / lineNumber) + '%',
             hasParent,
-            sortable,
+            sortable: e.sortable,
             fields,
             groups,
             selectedItems,

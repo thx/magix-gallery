@@ -56,14 +56,14 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '><span mxa="_zs_galleryez:_" class="_zs_gallery_mx-time_index_-time-toggle-label">';
+    $p += '><span mxa="_zs_galleryeF:_" class="_zs_gallery_mx-time_index_-time-toggle-label">';
     $line = 4;
     $art = 'if name';
     ;
     $expr = '<%if (name) {%>';
     if (name) {
         ;
-        $p += '<span mxa="_zs_galleryez:a" class="color-9">';
+        $p += '<span mxa="_zs_galleryeF:a" class="color-9">';
         $line = 4;
         $art = '=name';
         ;
@@ -78,7 +78,7 @@ module.exports = Magix.View.extend({
     $line = 5;
     $art = '=time';
     ;
-    $p += ($expr = '<%=time%>', $e(time)) + '</span><span mxs="_zs_galleryez:_" class="mc-iconfont _zs_gallery_mx-time_index_-arrow">&#xe692;</span></div><div class="_zs_gallery_mx-time_index_-time-wrapper ';
+    $p += ($expr = '<%=time%>', $e(time)) + '</span><span mxs="_zs_galleryeF:_" class="mc-iconfont _zs_gallery_mx-time_index_-arrow">&#xe692;</span></div><div class="_zs_gallery_mx-time_index_-time-wrapper ';
     $line = 10;
     $art = 'if expand';
     ;
@@ -111,7 +111,7 @@ module.exports = Magix.View.extend({
         $line = 13;
         $art = '=viewId';
         ;
-        $p += ($expr = '<%=viewId%>', $e(viewId)) + '_content" mx-change="' + $viewId + '@{stop}()"></div><div mxs="_zs_galleryez:a" class="_zs_gallery_mx-time_index_-footer"><button type="button" class="btn btn-small btn-brand" mx-click="' + $viewId + '@{hide}({enter:true})">确定</button><button type="button" class="btn btn-small ml10" mx-click="' + $viewId + '@{hide}()">取消</button></div>';
+        $p += ($expr = '<%=viewId%>', $e(viewId)) + '_content" mx-change="' + $viewId + '@{stop}()"></div><div mxs="_zs_galleryeF:a" class="_zs_gallery_mx-time_index_-footer"><button type="button" class="btn btn-small btn-brand" mx-click="' + $viewId + '@{hide}({enter:true})">确定</button><button type="button" class="btn btn-small ml10" mx-click="' + $viewId + '@{hide}()">取消</button></div>';
         $line = 21;
         $art = '/if';
         ;

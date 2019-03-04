@@ -56,7 +56,7 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = '=selectedText';
     ;
-    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_gallerya(:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div>';
+    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_gallerya]:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -71,85 +71,65 @@ catch (ex) {
         Monitor['@{setup}']();
         var oNode = $('#' + me.id);
         me['@{owner.node}'] = oNode;
+        // 已选中数据
         var selected = ops.selected;
+        if ($.isArray(selected)) {
+            // 数组，保留初始数据状态，双向绑定原样返回
+            me['@{bak.type}'] = 'array';
+        }
+        else {
+            // 字符串
+            selected = selected ? (selected + '').split(',') : [];
+        }
         var textKey = ops.textKey || 'text';
         var valueKey = ops.valueKey || 'value';
-        var emptyText = ops.emptyText || '';
-        var list = [];
-        if (!ops.list) {
-            var node = me['@{owner.node}'].children();
-            var group_1;
-            node.each(function (idx, item) {
-                item = $(item);
-                group_1 = item.attr('group') == 'true';
-                list.push({
-                    group: group_1,
-                    text: item.text(),
-                    value: group_1 ? Magix.guid() : item.attr('value')
-                });
+        var list = ops.list || [];
+        if (typeof list[0] === 'object') {
+            // 本身是个对象
+            list = list.map(function (item) {
+                return {
+                    text: item[textKey],
+                    value: item[valueKey]
+                };
             });
         }
         else {
-            // 直接配数据不支持分组
-            try {
-                list = JSON.parse(ops.list);
-            }
-            catch (e) {
-                list = ops.list;
-            }
-            if (typeof list[0] === 'object') {
-                // 本身是个对象
-                list = list.map(function (item) {
-                    return {
-                        text: item[textKey],
-                        value: item[valueKey]
-                    };
-                });
-            }
-            else {
-                // 直接value列表
-                list = list.map(function (value) {
-                    return {
-                        text: value,
-                        value: value
-                    };
-                });
-            }
+            // 直接value列表
+            list = list.map(function (value) {
+                return {
+                    text: value,
+                    value: value
+                };
+            });
         }
+        // 多选还是单选
+        var multiple = (ops.multiple + '' === 'true');
         var map = Magix.toMap(list, valueKey);
-        if (emptyText) {
-            if (!map['']) {
-                var temp = {};
-                temp[textKey] = emptyText;
-                temp[valueKey] = '';
-                list.unshift(temp);
-                map[''] = temp;
+        var selectedItems = [];
+        selected.forEach(function (value) {
+            var selectedItem = map[selected];
+            //未提供选项，或提供的选项不在列表里
+            if (!$.isEmptyObject(selectedItem)) {
+                selectedItems.push(selectedItem);
             }
-        }
-        var selectedItem = map[selected];
-        if (!selected || !selectedItem) {
-            var firstItem = {};
-            for (var i = 0; i < list.length; i++) {
-                if (!list[i].group) {
-                    firstItem = list[i];
-                    break;
-                }
-            }
-            selectedItem = map[selected] || firstItem;
+        });
+        if (multiple && (selectedItems.length == 0)) {
+            // 单选默认选中第一个
+            selectedItems = list[0];
         }
         // 是否禁用
         var disabledNode = $('#' + me.id + '[mx-disabled]');
         me['@{ui.disabled}'] = disabledNode && (disabledNode.length > 0);
-        me['@{pos.init}'] = false;
-        me['@{pos.cal}'] = false;
-        me['@{pos.show}'] = false;
+        // 相关滚动容器不是window时，支持自定义指定滚动容器
         me['@{scroll.wrapper}'] = ops.scrollWrapper;
+        // 初始化
+        me['@{pos.init}'] = false;
         me.updater.set({
             viewId: me.id,
             list: list,
             selected: selectedItem.value,
             selectedText: selectedItem.text,
-            expand: me['@{pos.show}'],
+            expand: false,
             name: ops.name || ''
         });
         me.on('destroy', function () {
@@ -170,7 +150,8 @@ catch (ex) {
             case 'click':
                 oNode.on('click', function () {
                     me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
-                        if (me['@{pos.show}']) {
+                        var expand = me.updater.get('expand');
+                        if (expand) {
                             me['@{hide}']();
                         }
                         else if (!me['@{ui.disabled}']) {
@@ -230,10 +211,10 @@ catch (ex) {
             me['@{pos.init}'] = true;
             me['@{init}']();
         }
-        if (me['@{pos.show}']) {
+        var data = me.updater.get();
+        if (data.expand) {
             return;
         }
-        var data = me.updater.get();
         me['@{content.vf}'].mountView('mx-dropdown/content', {
             data: {
                 list: data.list,
@@ -255,7 +236,7 @@ catch (ex) {
             }
         });
         me.updater.digest({
-            expand: me['@{pos.show}'] = true
+            expand: true
         });
         // 每次show时都重新定位
         var ddNode = me['@{setPos}']();
@@ -274,11 +255,12 @@ catch (ex) {
     '@{hide}': function () {
         var me = this;
         clearTimeout(me['@{dealy.hide.timer}']);
-        if (!me['@{pos.show}']) {
+        var expand = me.updater.get('expand');
+        if (!expand) {
             return;
         }
         me.updater.digest({
-            expand: me['@{pos.show}'] = false
+            expand: false
         });
         var ddNode = $('#dd_bd_' + me.id);
         ddNode.removeClass('_zs_gallery_mx-dropdown_index_-open');
@@ -298,7 +280,8 @@ catch (ex) {
             wrapper = $(scrollWrapper);
         }
         wrapper.scroll(function () {
-            if (me['@{pos.show}']) {
+            var expand = me.updater.get('expand');
+            if (expand) {
                 me['@{setPos}']();
             }
         });
@@ -328,7 +311,8 @@ catch (ex) {
      */
     '$win<scroll>': function (e) {
         var me = this;
-        if (me['@{pos.show}']) {
+        var expand = me.updater.get('expand');
+        if (expand) {
             me['@{setPos}']();
         }
     },
@@ -337,7 +321,8 @@ catch (ex) {
      */
     '$doc<dialogScolll>': function (e) {
         var me = this;
-        if (me['@{pos.show}']) {
+        var expand = me.updater.get('expand');
+        if (expand) {
             me['@{setPos}']();
         }
     },

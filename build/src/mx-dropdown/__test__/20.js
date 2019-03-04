@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya5:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya5:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya5:_" class="mb20 clearfix lh22"><div class="fl color-9">以下示例：</div><div class="fl"><div>简单分组</div><div>选中上限max=5，此时全选为选择top max</div></div></div><div mxa="_zs_gallerya5:b" class="w200" mx-view="mx-dropdown/multiple?max=5&searchbox=true&height=250"><i mxs="_zs_gallerya5:a" group="true" class="none">第一组</i>';
+    $p += '<div mxa="_zs_gallerya3:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya3:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya3:_" class="mb20 clearfix lh22"><div class="fl color-9">以下示例：</div><div class="fl"><div>简单分组</div><div>选中上限max=5，此时全选为选择top max</div></div></div><div mxa="_zs_gallerya3:b" class="w200" mx-view="mx-dropdown/multiple?max=5&searchbox=true&height=250"><i mxs="_zs_gallerya3:a" group="true" class="none">第一组</i>';
     $line = 15;
     $art = 'for (let i=0;i<4;i+=1)';
     ;
@@ -46,7 +46,7 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<i mxs="_zs_gallerya5:b" group="true" class="none">第二组</i>';
+    $p += '<i mxs="_zs_gallerya3:b" group="true" class="none">第二组</i>';
     $line = 19;
     $art = 'for (let i=10;i<20;i+=1)';
     ;
@@ -68,15 +68,15 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div><div mxa="_zs_gallerya5:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya5:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</div></div><div mxa="_zs_gallerya3:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya3:c" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya5:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya3:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 28;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya5:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya3:d" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 31;
     $art = '=viewId';
     ;

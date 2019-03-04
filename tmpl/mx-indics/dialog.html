@@ -18,9 +18,9 @@
             {{if group.text}}
             <div class="name">{{=group.text}}</div>
             {{/if}}
-            <div class="items clearfix">
+            <div class="clearfix">
                 {{each group.fields as field}}
-                <div class="item">
+                <div class="item" style="width: {{=width}};">
                     <label {{if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)}} class="cursor-not-allow" {{/if}}>
                         <input type="checkbox" name="field" value="{{=field.value}}" class="checkbox" 
                             {{if field.checked}} checked="true" {{/if}} 
