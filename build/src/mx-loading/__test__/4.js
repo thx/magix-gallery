@@ -3,9 +3,8 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-loading/__test__/4",["magix","__test__/example","$","../anim","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+define("mx-loading/__test__/4",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
 /*Magix,Base,$*/
-require("../anim");
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
@@ -24,7 +23,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycp:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerycp:_" class="_zs_gallery___test___layout_-eg-content"><div class="clearfix"><div class="fl ml40" mx-view="mx-loading/anim?mode=square"></div><div class="fl ml80" mx-view="mx-loading/anim?mode=square&type=brand"></div><div class="fl ml80" mx-view="mx-loading/anim?mode=square&size=40"></div><div class="fl ml80" mx-view="mx-loading/anim?mode=square&size=40&color=%2351a300"></div></div></div><div mxa="_zs_gallerycp:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycp:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerycp:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerycp:_" class="_zs_gallery___test___layout_-eg-content"><div class="clearfix"><div class="pr fl ml40"><div style="position:relative; width: 60px; height:60px; margin-left: -30px;"><div class="mx-loading-square mx-loading-bg-grey"></div></div></div><div class="pr fl ml80"><div style="position:relative; width: 60px; height:60px; margin-left: -30px;"><div class="mx-loading-square mx-loading-bg-brand"></div></div></div><div class="pr fl ml80"><div style="position:relative; width: 40px; height:40px; margin-left: -20px;"><div class="mx-loading-square mx-loading-bg-grey"></div></div></div><div class="pr fl ml80"><div style="position:relative; width: 40px; height:40px; margin-left: -20px;"><div class="mx-loading-square" style="background-color:#51a300"></div></div></div></div></div><div mxa="_zs_gallerycp:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycp:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 12;
     $art = '=viewId';
     ;
