@@ -13,7 +13,7 @@
         <div class="search-box dropdown-search-box">
             <i class="mc-iconfont search-icon">&#xe651;</i>
             <input type="text" class="input search-input" 
-                placeholder="<%=searchText%>"
+                placeholder="<%=text.search%>"
                 mx-keyup="@{search}()"
                 mx-paste="@{search}()"
                 mx-change="@{stop}()"
@@ -23,6 +23,7 @@
         </div>
     </div>
     <%}%>
+    <%if(list.length){%>
     <ul class="dropdown-menu" id="list_<%=viewId%>" style="max-height:{{=height}}px;">
         <%let text,value%>
         <%for(let item of list){%>
@@ -42,5 +43,8 @@
             <%}%>
         <%}%>
     </ul>
+    <%}else{%>
+    <div class="text-center color-9 pt20 pb20">{{=text.empty}}</div>
+    <%}%>
 <%}%>
 </div>

@@ -106,14 +106,17 @@ module.exports = Magix.View.extend({
             valueKey: me['@{valueKey}'],
             selected: me['@{selected}'] = selected,
             searchbox: (ops.searchbox + '') === 'true',
-            searchText: I18n['dropdown.search'],
             selectedText: me['@{selected.text}'] = map[selected][textKey],
             keyword: me['@{last.search.value}'] = (ops.keyword || ''),  // 搜索关键词
             expand: me['@{ui.expand}'],
             height: (ops.height || 250),
             spm: me['@{owner.node}'].attr('data-spm-click') || '', //埋点
             name: ops.name || '', // 前缀
-            placementClass: placementMap[ops.placement || 'bottom']
+            placementClass: placementMap[ops.placement || 'bottom'],
+            text: {
+                search: I18n['dropdown.search'],
+                empty: I18n['empty.text']
+            }
         });
         me['@{owner.node}'].val(selected);
     },

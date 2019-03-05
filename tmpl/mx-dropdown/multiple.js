@@ -136,7 +136,7 @@ module.exports = Magix.View.extend({
                 if (item.checked) {
                     checkes.push(item.value);
                 }
-            })  
+            })
 
             // type: 
             // 1：全不选
@@ -148,7 +148,7 @@ module.exports = Magix.View.extend({
         // 选择上限及下限
         let min = +ops.min || 0,
             max = +ops.max || 0;
-        if((max > 0) && (min > max)){
+        if ((max > 0) && (min > max)) {
             min = max;
         }
         me.updater.set({
@@ -175,7 +175,8 @@ module.exports = Magix.View.extend({
                 select: I18n['select.all'],
                 unselect: I18n['unselect.all'],
                 submit: I18n['dialog.submit'],
-                cancel: I18n['dialog.cancel']
+                cancel: I18n['dialog.cancel'],
+                empty: I18n['empty.text']
             }
         })
     },
@@ -352,29 +353,34 @@ module.exports = Magix.View.extend({
         let me = this;
         let data = me.updater.get();
         let groups = data.groups;
-
+        let allHide;
         if (!val) {
+            allHide = false;
             groups.forEach(group => {
                 group.hide = false;
                 group.list.forEach(item => {
                     item.hide = false;
                 })
             })
-            callback(groups);
-            return;
+        }else{
+            allHide = true;
+            let lowVal = (val + '').toLocaleLowerCase();
+            groups.forEach(group => {
+                let groupHide = true;
+                group.list.forEach(item => {
+                    let lowText = (item.text + '').toLocaleLowerCase();
+                    item.hide = (lowText.indexOf(lowVal) < 0);
+                    groupHide = groupHide && item.hide;
+                })
+                group.hide = groupHide;
+                allHide = allHide && groupHide;
+            })
         }
 
-        let lowVal = (val + '').toLocaleLowerCase();
-        groups.forEach(group => {
-            let allHide = true;
-            group.list.forEach(item => {
-                let lowText = (item.text + '').toLocaleLowerCase();
-                item.hide = (lowText.indexOf(lowVal) < 0);
-                allHide = allHide && item.hide;
-            })
-            group.hide = allHide;
-        })
-        callback(groups);
+        callback({
+            groups,
+            allHide
+        });
     },
     '@{search}<keyup,paste>'(e) {
         let me = this;
@@ -385,10 +391,8 @@ module.exports = Magix.View.extend({
         });
         me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(() => {
             if (val != me['@{last.value}']) {
-                me['@{fn.search}'](me['@{last.value}'] = val, (groups) => {
-                    me.updater.digest({
-                        groups
-                    });
+                me['@{fn.search}'](me['@{last.value}'] = val, (result) => {
+                    me.updater.digest(result);
                 });
             }
         }), 300);
@@ -499,12 +503,12 @@ module.exports = Magix.View.extend({
                     selected.push(item.value + '');
 
                     let len = selectedIndexes.length;
-                    if(len == 0){
+                    if (len == 0) {
                         selectedIndexes.push(index);
-                    }else{
-                        if(selectedIndexes[len - 1] + 1 == index){
+                    } else {
+                        if (selectedIndexes[len - 1] + 1 == index) {
                             selectedIndexes[len - 1] = index;
-                        }else{
+                        } else {
                             selectedIndexes.push(index);
                         }
                     }
@@ -512,16 +516,16 @@ module.exports = Magix.View.extend({
             })
         })
         let min = me.updater.get('min');
-        if((min > 0) && (selected.length < min)){
+        if ((min > 0) && (selected.length < min)) {
             me.updater.digest({
                 errMsg: `请至少选择${min}个`
             })
             return;
         }
         let continuous = me.updater.get('continuous');
-        if(continuous && (selected.length > 0)){
+        if (continuous && (selected.length > 0)) {
             let name = me.updater.get('name') || '数据';
-            if(selectedIndexes.length > 1){
+            if (selectedIndexes.length > 1) {
                 // 连续选择
                 me.updater.digest({
                     errMsg: `请选择连续的${name}`

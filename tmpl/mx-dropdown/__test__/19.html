@@ -1,7 +1,12 @@
 <div class="example">
     <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            单选，支持搜索，搜索不区分大小写
+        </div>
         <mx-dropdown.bd class="w200" 
             searchbox="true"
+            selected="2"
             list="{{@[{
                 value:1,
                 text:'test'
@@ -11,7 +16,8 @@
             },{
                 value:3,
                 text:'Another'
-            }]}}">
+            }]}}"
+            mx-change="change()">
         </mx-dropdown.bd>
     </div>
     <div class="eg-desc">

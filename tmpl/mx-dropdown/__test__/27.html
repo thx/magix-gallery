@@ -1,1 +1,41 @@
-27
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            多选，支持搜索，搜索不区分大小写
+        </div>
+        <mx-dropdown.bd class="w200" 
+            multiple="true"
+            searchbox="true"
+            list="{{@[{
+                value:1,
+                text:'test'
+            },{
+                value:2,
+                text:'TestABC'
+            },{
+                value:3,
+                text:'Another'
+            }]}}">
+        </mx-dropdown.bd>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-dropdown.bd class="w200" 
+    list="&#123;&#123;@[&#123;
+        value:1,
+        text:'选择1'
+    &#125;,&#123;
+        value:2,
+        text:'选择2'
+    &#125;]&#125;&#125;"&gt;
+&lt;/mx-dropdown.bd&gt;
+        </pre>
+    </div>
+</div>

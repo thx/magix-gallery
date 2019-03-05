@@ -1,10 +1,57 @@
+{{if searchbox}}
+<div class="search-wrapper">
+    <div class="search-box dropdown-search-box">
+        <i class="mc-iconfont search-icon">&#xe651;</i>
+        <input type="text" class="input search-input" 
+            placeholder="{{=text.search}}"
+            mx-keyup="@{search}()"
+            mx-paste="@{search}()"
+            mx-change="@{stop}()"
+            mx-focusin="@{stop}()"
+            mx-focusout="@{stop}()"
+            value="{{=keyword}}"/>
+    </div>
+</div>
+{{/if}}
+{{if multiple}}   
+<div class="oper-wrapper has-group clearfix">
+    <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:true})" data-spm-click="{{=spm}}">{{=text.select}}</a>
+    <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:false})" data-spm-click="{{=spm}}">{{=text.unselect}}</a>
+</div>
+{{/if}}
 <ul class="dropdown-menu">
-    {{each list as item}}
-    <li title="{{=item.text}}" class="dropdown-item">
-        <span class="item-link ellipsis {{if((item.value+'')===(selected+''))}} active {{/if}}" 
-            mx-click="@{select}({item:'{{@item}}'})">
-            {{=item.text}}
-        </span>
-    </li>
+    {{each parents as parent}}
+        {{if !parent.hide}}
+            {{if hasGroups}}
+            <li class="dropdown-header ellipsis" title="{{=parent.text}}">{{=parent.text}}</li>
+            {{/if}}
+            {{each parent.list as item}}
+                {{if !item.hide}}
+                <li title="{{=item.text}}" class="dropdown-item">
+                    {{if multiple}}         
+                    <label class="item-link ellipsis">
+                        <input type="checkbox" class="checkbox" 
+                            {{if item.checked}} checked="true" {{/if}}
+                            mx-focusout="@{stop}()"
+                            mx-change="@{check}()" 
+                            data-spm-click="{{=spm}}"/>
+                        {{=item.text}}
+                    </label>
+                    {{else}}
+                    <span class="item-link ellipsis {{if item.selected}} active {{/if}}" 
+                        mx-click="@{select}({item:'{{@item}}'})" data-spm-click="{{=spm}}">
+                        {{=item.text}}
+                    </span>
+                    {{/if}}
+                </li>
+                {{/if}}
+            {{/each}}
+        {{/if}}
     {{/each}}
 </ul>
+{{if multiple}}
+<div class="footer-wrapper">
+    <a href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="@{submit}()">{{=text.submit}}</a>
+    <a href="javascript:;" class="btn btn-small" mx-click="@{cancel}()">{{=text.cancel}}</a>
+</div>
+{{/if}}

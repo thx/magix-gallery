@@ -3,7 +3,7 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-dropdown/__test__/bd",["magix","$","__test__/subs","mx-title/second","./19","./23","./24","./25","./26","./27","./28","./29","__test__/api","__test__/event"],(require,exports,module)=>{
+define("mx-dropdown/__test__/bd",["magix","$","__test__/subs","mx-title/second","./19","./23","./24","./25","./27","./28","./29","./26","__test__/api","__test__/event"],(require,exports,module)=>{
 /*Magix,$*/
 require("__test__/subs");
 require("mx-title/second");
@@ -11,10 +11,10 @@ require("./19");
 require("./23");
 require("./24");
 require("./25");
-require("./26");
 require("./27");
 require("./28");
 require("./29");
+require("./26");
 require("__test__/api");
 require("__test__/event");
 var Magix = require("magix");
@@ -60,23 +60,23 @@ module.exports = Magix.View.extend({
     $line = 47;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-dropdown/__test__/26" id="';
-    $line = 48;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div></div><div mxa="_zs_gallerya{:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/27" id="';
-    $line = 51;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div mxa="_zs_gallerya{:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/27" id="';
+    $line = 50;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div><div mx-view="mx-dropdown/__test__/28" id="';
-    $line = 52;
+    $line = 51;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div><div mx-view="mx-dropdown/__test__/29" id="';
+    $line = 52;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div><div mx-view="mx-dropdown/__test__/26" id="';
     $line = 53;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div></div></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div></div></div><div id="';
     $line = 57;
     $art = '=viewId';
     ;

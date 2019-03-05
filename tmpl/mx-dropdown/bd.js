@@ -25,22 +25,58 @@ module.exports = Magix.View.extend({
         let textKey = ops.textKey || 'text';
         let valueKey = ops.valueKey || 'value';
         let list = ops.list || [];
+        let hasGroups, 
+            parents = ops.parents || [],
+            parentKey = ops.parentKey || 'pValue';
         if (typeof list[0] === 'object') {
             // 本身是个对象
+            // 存在分组的情况
             list = list.map(item => {
                 return {
                     text: item[textKey],
-                    value: item[valueKey]
+                    value: item[valueKey],
+                    pValue: item[parentKey]
                 };
             })
+            if(parents.length == 0){
+                hasGroups = false;
+                parents = [{
+                    text: '组',
+                    value: 'all',
+                    list
+                }]
+            }else{
+                hasGroups = true;
+                let groupMap = {};
+                list.forEach(item => {
+                    let pValue = item.pValue;
+                    groupMap[pValue] = groupMap[pValue] || [];
+                    groupMap[pValue].push(item);
+                })
+                for (let i = 0; i < parents.length; i++) {
+                    let parent = parents[i];
+                    let pValue = parent.value;
+                    parent.list = groupMap[pValue] || [];
+                    if(parent.list.length == 0){
+                        parent.splice(i--, 1);
+                    }
+                }
+            }
         } else {
             // 直接value列表
+            // 无分组
+            hasGroups = false;
             list = list.map(value => {
                 return {
                     text: value,
                     value: value
                 };
             })
+            parents = [{
+                text: '组',
+                value: 'all',
+                list
+            }]
         }
 
         // 多选还是单选
@@ -54,9 +90,9 @@ module.exports = Magix.View.extend({
                 selectedItems.push(selectedItem);
             }
         })
-        if (multiple && (selectedItems.length == 0)) {
+        if (!multiple && (selectedItems.length == 0)) {
             // 单选默认选中第一个
-            selectedItems = list[0];
+            selectedItems = [list[0]];
         }
 
         // 是否禁用
@@ -70,11 +106,14 @@ module.exports = Magix.View.extend({
         me['@{pos.init}'] = false;
         me.updater.set({
             viewId: me.id,
-            list,
-            selected: selectedItem.value,
-            selectedText: selectedItem.text,
+            searchbox: (ops.searchbox + '') === 'true',
+            multiple,
+            emptyText: ops.emptyText || I18n['choose'],
+            hasGroups,
+            parents,
+            selectedItems,
             expand: false,
-            name: ops.name || ''
+            spm: me['@{owner.node}'].attr('data-spm-click') || '' //埋点
         });
 
         me.on('destroy', () => {
@@ -122,10 +161,48 @@ module.exports = Magix.View.extend({
         }
 
         me.bindScroll();
-        me['@{owner.node}'].val(selected);
     },
     render() {
         this.updater.digest({})
+
+        this['@{val}']();
+    },
+    '@{val}'(fire) {
+        let me = this;
+        let selectedItems = me.updater.get('selectedItems');
+
+        let texts = [],
+            values = [];
+        selectedItems.forEach(item => {
+            texts.push(item.text);
+            values.push(item.value);
+        })
+
+        let emptyText = me.updater.get('emptyText');
+        me.updater.digest({
+            selectedText: texts.join(',') || emptyText
+        })
+
+        let val;
+        if (me['@{bak.type}'] == 'array') {
+            // 初始化为数组
+            val = values;
+        } else {
+            // 初始化为字符串
+            val = values.join(',');
+        }
+
+        me['@{owner.node}'].val(val);
+        if (fire) {
+            me['@{owner.node}'].trigger({
+                type: 'change',
+                selected: val,
+                values,
+                texts,
+                value: values.join(','),
+                text: texts.join(',')
+            });
+        }
     },
     '@{init}'() {
         let me = this;
@@ -175,25 +252,15 @@ module.exports = Magix.View.extend({
         }
 
         me['@{content.vf}'].mountView('@./content', {
-            data: {
-                list: data.list,
-                selected: data.selected
-            },
-            submit: (selectedItem) => {
+            data: data,
+            submit: (result) => {
                 me['@{hide}']();
 
-                let selected = selectedItem.value,
-                    selectedText = selectedItem.text;
-                me.updater.digest({
-                    selected,
-                    selectedText,
-                })
-                me['@{owner.node}'].val(selected).trigger({
-                    type: 'change',
-                    selected,
-                    value: selected,
-                    text: selectedText
-                });
+                me.updater.set(result);
+                me['@{val}'](true);
+            },
+            cancel: () => {
+                me['@{hide}']();
             }
         })
 
