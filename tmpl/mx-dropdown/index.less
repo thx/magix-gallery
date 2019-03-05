@@ -60,6 +60,14 @@
         color: @color-brand;
         background-color: @color-brand-opacity;
     }
+    &.link-disabled,
+    &.link-disabled:hover,
+    &.link-disabled:active,
+    &.link-disabled:focus {
+        color: #999;
+        cursor: not-allowed;
+        background-color: transparent;
+    }
 }
 
 .dropdown-header-item {

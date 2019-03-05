@@ -48,7 +48,7 @@ module.exports = Base.extend({
     $line = 45;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown.bd class="w200" \n    list="&#123;&#123;@[&#123;\n        value:1,\n        text:\'选择1\'\n    &#125;,&#123;\n        value:2,\n        text:\'选择2\'\n    &#125;]&#125;&#125;"&gt;\n&lt;/mx-dropdown.bd&gt;\n        </pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown.bd class="w200" \n    parents="&#123;&#123;@[&#123;\n        value:1,\n        text:\'第一组\'\n    &#125;,&#123;\n        value:2,\n        text:\'第二组\'\n    &#125;]&#125;&#125;"\n    list="&#123;&#123;@[&#123;\n        value:1,\n        text:\'test\',\n        pValue: 1\n    &#125;,&#123;\n        value:2,\n        text:\'TestABC\',\n        pValue: 1\n    &#125;,&#123;\n        value:3,\n        text:\'Another\',\n        pValue: 2\n    &#125;,&#123;\n        value:4,\n        text:\'选项1\',\n        pValue: 1\n    &#125;,&#123;\n        value:5,\n        text:\'选项2\',\n        pValue: 2\n    &#125;]&#125;&#125;"&gt;\n&lt;/mx-dropdown.bd&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

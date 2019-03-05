@@ -29,8 +29,8 @@
     {{if !needAll || (max > 0 && !over)}}
     <div class="oper-wrapper {{if hasGroups}} has-group {{/if}} clearfix">
         {{if !needAll}}
-        <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:true})" data-spm-click="{{=spm}}">{{=text.select}}</a>
-        <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:false})" data-spm-click="{{=spm}}">{{=text.unselect}}</a>
+        <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:true})" data-spm-click="{{=spm}}a">{{=text.select}}</a>
+        <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:false})" data-spm-click="{{=spm}}ua">{{=text.unselect}}</a>
         {{/if}}
 
         {{if (max > 0 && !over)}}

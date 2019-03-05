@@ -10,7 +10,9 @@ module.exports = Magix.View.extend({
 1. 简单数组[1,2,3]
 2. 对象数组，如[{
     value:1,
-    text:"a"
+    text:"a",
+    disabled: true/false,  //该选项是否禁用
+    pValue: '', //可选个，父节点value值
 }]</pre>`,
             type: 'array'
         }, {
@@ -65,6 +67,11 @@ module.exports = Magix.View.extend({
             type: 'number',
             def: '250'
         }, {
+            key: 'empty-text',
+            desc: '没有选择时的提示文案',
+            type: 'string',
+            def: ''
+        }, {
             key: 'mx-disabled',
             desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-dropdown mx-disabled&gt;&lt;/mx-dropdown&gt;',
             type: '',
@@ -75,25 +82,25 @@ module.exports = Magix.View.extend({
             type: 'change',
             desc: '',
             params: [{
+                key: 'values',
+                desc: '当前选中value数组',
+                type: 'array'
+            }, {
+                key: 'texts',
+                desc: '当前选中text数组',
+                type: 'array'
+            }, {
                 key: 'value',
-                desc: '当前选中value',
+                desc: '当前选中value值，等于values.join(",")',
                 type: 'string'
             }, {
                 key: 'text',
-                desc: '当前选中text',
+                desc: '当前选中text值，等于texts.join(",")',
                 type: 'string'
-            }, {
-                key: 'item',
-                desc: '当前选中完整对象',
-                type: 'object'
             }, {
                 key: 'selected',
-                desc: '当前选中value，同value',
-                type: 'string'
-            }, {
-                key: 'keyword',
-                desc: '当前搜索关键词',
-                type: 'string'
+                desc: '当前选中值，初始化为什么类型就保持什么类型，默认string',
+                type: 'string|array'
             }]
         }]
         this.updater.digest({

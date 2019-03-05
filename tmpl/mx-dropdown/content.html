@@ -15,31 +15,33 @@
 {{/if}}
 {{if multiple}}   
 <div class="oper-wrapper has-group clearfix">
-    <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:true})" data-spm-click="{{=spm}}">{{=text.select}}</a>
-    <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:false})" data-spm-click="{{=spm}}">{{=text.unselect}}</a>
+    <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:true})" data-spm-click="{{=spm}}a">{{=text.select}}</a>
+    <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:false})" data-spm-click="{{=spm}}ua">{{=text.unselect}}</a>
 </div>
 {{/if}}
-<ul class="dropdown-menu">
-    {{each parents as parent}}
+{{if !allHide}}
+<ul class="dropdown-menu" style="max-height:{{=height}}px;">
+    {{each parents as parent parentIndex}}
         {{if !parent.hide}}
             {{if hasGroups}}
             <li class="dropdown-header ellipsis" title="{{=parent.text}}">{{=parent.text}}</li>
             {{/if}}
-            {{each parent.list as item}}
+            {{each parent.list as item itemIndex}}
                 {{if !item.hide}}
                 <li title="{{=item.text}}" class="dropdown-item">
                     {{if multiple}}         
-                    <label class="item-link ellipsis">
+                    <label class="item-link ellipsis {{if item.disabled}} link-disabled {{/if}}">
                         <input type="checkbox" class="checkbox" 
-                            {{if item.checked}} checked="true" {{/if}}
+                            {{if item.selected}} checked="true" {{/if}}
+                            {{if item.disabled}} disabled="true" {{/if}}
                             mx-focusout="@{stop}()"
-                            mx-change="@{check}()" 
+                            mx-change="@{check}({parentIndex:'{{=parentIndex}}',itemIndex:'{{=itemIndex}}'})" 
                             data-spm-click="{{=spm}}"/>
                         {{=item.text}}
                     </label>
                     {{else}}
-                    <span class="item-link ellipsis {{if item.selected}} active {{/if}}" 
-                        mx-click="@{select}({item:'{{@item}}'})" data-spm-click="{{=spm}}">
+                    <span class="item-link ellipsis {{if item.selected}} active {{/if}} {{if item.disabled}} link-disabled {{/if}}" 
+                        {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})" data-spm-click="{{=spm}}" {{/if}}>
                         {{=item.text}}
                     </span>
                     {{/if}}
@@ -49,6 +51,9 @@
         {{/if}}
     {{/each}}
 </ul>
+{{else}}
+<div class="text-center color-9 pt20 pb20">{{=text.empty}}</div>
+{{/if}}
 {{if multiple}}
 <div class="footer-wrapper">
     <a href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="@{submit}()">{{=text.submit}}</a>

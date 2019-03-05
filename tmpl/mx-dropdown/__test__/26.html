@@ -4,17 +4,17 @@
             <span class="color-9">以下示例：</span>
             单选/多选整体禁用
         </div>
-        <mx-dropdown.bd class="w200" 
-            list="{{@[{
-                value:1,
-                text:'test'
-            },{
-                value:2,
-                text:'TestABC'
-            },{
-                value:3,
-                text:'Another'
-            }]}}">
+        <div class="mb10">
+            <mx-dropdown.bd class="w200" 
+                mx-disabled
+                list="{{@[1,2,3]}}">
+            </mx-dropdown.bd>
+        </div>
+
+        <mx-dropdown.bd class="w200"
+            multiple="true"
+            mx-disabled
+            list="{{@[1,2,3]}}">
         </mx-dropdown.bd>
     </div>
     <div class="eg-desc">
@@ -26,13 +26,14 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-dropdown.bd class="w200" 
-    list="&#123;&#123;@[&#123;
-        value:1,
-        text:'选择1'
-    &#125;,&#123;
-        value:2,
-        text:'选择2'
-    &#125;]&#125;&#125;"&gt;
+    mx-disabled
+    list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;
+&lt;/mx-dropdown.bd&gt;
+
+&lt;mx-dropdown.bd class="w200"
+    multiple="true"
+    mx-disabled
+    list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;
 &lt;/mx-dropdown.bd&gt;
         </pre>
     </div>

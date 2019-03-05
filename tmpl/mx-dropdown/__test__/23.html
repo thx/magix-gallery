@@ -44,12 +44,33 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-dropdown.bd class="w200" 
-    list="&#123;&#123;@[&#123;
+    parents="&#123;&#123;@[&#123;
         value:1,
-        text:'选择1'
+        text:'第一组'
     &#125;,&#123;
         value:2,
-        text:'选择2'
+        text:'第二组'
+    &#125;]&#125;&#125;"
+    list="&#123;&#123;@[&#123;
+        value:1,
+        text:'test',
+        pValue: 1
+    &#125;,&#123;
+        value:2,
+        text:'TestABC',
+        pValue: 1
+    &#125;,&#123;
+        value:3,
+        text:'Another',
+        pValue: 2
+    &#125;,&#123;
+        value:4,
+        text:'选项1',
+        pValue: 1
+    &#125;,&#123;
+        value:5,
+        text:'选项2',
+        pValue: 2
     &#125;]&#125;&#125;"&gt;
 &lt;/mx-dropdown.bd&gt;
         </pre>

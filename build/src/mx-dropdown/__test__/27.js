@@ -28,23 +28,23 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya#:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya#:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya#:_" class="mb20"><span class="color-9">以下示例：</span>多选，支持搜索，搜索不区分大小写</div><div class="w200" mx-view="mx-dropdown/bd?multiple=true&searchbox=true&list=';
-    $line = 10;
+    $p += '<div mxa="_zs_gallerya#:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya#:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya#:_" class="mb20"><span class="color-9">以下示例：</span>多选，支持搜索，搜索不区分大小写</div><div class="w200" mx-view="mx-dropdown/bd?emptyText=%E8%87%AA%E5%AE%9A%E4%B9%89%E7%A9%BA%E5%80%BC%E6%96%87%E6%A1%88&multiple=true&searchbox=true&list=';
+    $line = 11;
     $art = '@[{\n                value:1,\n                text:\'test\'\n            },{\n                value:2,\n                text:\'TestABC\'\n            },{\n                value:3,\n                text:\'Another\'\n            }]';
     ;
     $p += ($expr = '<%@[{            value: 1,            text: \'test\'        }, {            value: 2,            text: \'TestABC\'        }, {            value: 3,            text: \'Another\'        }]%>', $i($$ref, [{ value: 1, text: 'test' }, { value: 2, text: 'TestABC' }, { value: 3, text: 'Another' }])) + '"></div></div><div mxa="_zs_gallerya#:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya#:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 24;
+    $line = 25;
     $art = '=viewId';
     ;
     $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya#:c" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 26;
+    $line = 27;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya#:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 29;
+    $line = 30;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown.bd class="w200" \n    list="&#123;&#123;@[&#123;\n        value:1,\n        text:\'选择1\'\n    &#125;,&#123;\n        value:2,\n        text:\'选择2\'\n    &#125;]&#125;&#125;"&gt;\n&lt;/mx-dropdown.bd&gt;\n        </pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown.bd class="w200" \n    empty-text="自定义空值文案"\n    multiple="true"\n    searchbox="true"\n    list="&#123;&#123;@[&#123;\n        value:1,\n        text:\'test\'\n    &#125;,&#123;\n        value:2,\n        text:\'TestABC\'\n    &#125;,&#123;\n        value:3,\n        text:\'Another\'\n    &#125;]&#125;&#125;"&gt;\n&lt;/mx-dropdown.bd&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

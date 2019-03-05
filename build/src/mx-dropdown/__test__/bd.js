@@ -38,9 +38,9 @@ module.exports = Magix.View.extend({
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_gallerya{:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'单选搜索\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'单选分组\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'单选选项禁用\',\n            key: viewId + \'_demo5\'\n        },{\n            name: \'多选搜索\',\n            key: viewId + \'_demo6\'\n        },{\n            name: \'多选分组\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'多选选项禁用\',\n            key: viewId + \'_demo8\'\n        },{\n            name: \'hover展开\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'整体禁用\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }, {\n        name: \'问题小计\',\n        key: viewId + \'_bug\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'单选搜索\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'单选分组\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'单选选项禁用\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'多选搜索\',\n            key: viewId + \'_demo6\'\n        },{\n            name: \'多选分组\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'多选选项禁用\',\n            key: viewId + \'_demo8\'\n        },{\n            name: \'hover展开\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'整体禁用\',\n            key: viewId + \'_demo5\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }, {\n        name: \'问题小计\',\n        key: viewId + \'_bug\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'单选搜索\',                    key: viewId + \'_demo1\'                }, {                    name: \'单选分组\',                    key: viewId + \'_demo2\'                }, {                    name: \'单选选项禁用\',                    key: viewId + \'_demo5\'                }, {                    name: \'多选搜索\',                    key: viewId + \'_demo6\'                }, {                    name: \'多选分组\',                    key: viewId + \'_demo7\'                }, {                    name: \'多选选项禁用\',                    key: viewId + \'_demo8\'                }, {                    name: \'hover展开\',                    key: viewId + \'_demo3\'                }, {                    name: \'整体禁用\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }, {            name: \'问题小计\',            key: viewId + \'_bug\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '单选搜索', key: viewId + '_demo1' }, { name: '单选分组', key: viewId + '_demo2' }, { name: '单选选项禁用', key: viewId + '_demo5' }, { name: '多选搜索', key: viewId + '_demo6' }, { name: '多选分组', key: viewId + '_demo7' }, { name: '多选选项禁用', key: viewId + '_demo8' }, { name: 'hover展开', key: viewId + '_demo3' }, { name: '整体禁用', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }, { name: '问题小计', key: viewId + '_bug' }])) + '"></div><div id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'单选搜索\',                    key: viewId + \'_demo1\'                }, {                    name: \'单选分组\',                    key: viewId + \'_demo2\'                }, {                    name: \'单选选项禁用\',                    key: viewId + \'_demo3\'                }, {                    name: \'多选搜索\',                    key: viewId + \'_demo6\'                }, {                    name: \'多选分组\',                    key: viewId + \'_demo7\'                }, {                    name: \'多选选项禁用\',                    key: viewId + \'_demo8\'                }, {                    name: \'hover展开\',                    key: viewId + \'_demo4\'                }, {                    name: \'整体禁用\',                    key: viewId + \'_demo5\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }, {            name: \'问题小计\',            key: viewId + \'_bug\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '单选搜索', key: viewId + '_demo1' }, { name: '单选分组', key: viewId + '_demo2' }, { name: '单选选项禁用', key: viewId + '_demo3' }, { name: '多选搜索', key: viewId + '_demo6' }, { name: '多选分组', key: viewId + '_demo7' }, { name: '多选选项禁用', key: viewId + '_demo8' }, { name: 'hover展开', key: viewId + '_demo4' }, { name: '整体禁用', key: viewId + '_demo5' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }, { name: '问题小计', key: viewId + '_bug' }])) + '"></div><div id="';
     $line = 41;
     $art = '=viewId';
     ;
@@ -109,7 +109,7 @@ catch (ex) {
     render: function () {
         var options = [{
                 key: 'list',
-                desc: "<pre>\u5217\u8868\u6570\u7EC4\n1. \u7B80\u5355\u6570\u7EC4[1,2,3]\n2. \u5BF9\u8C61\u6570\u7EC4\uFF0C\u5982[{\n    value:1,\n    text:\"a\"\n}]</pre>",
+                desc: "<pre>\u5217\u8868\u6570\u7EC4\n1. \u7B80\u5355\u6570\u7EC4[1,2,3]\n2. \u5BF9\u8C61\u6570\u7EC4\uFF0C\u5982[{\n    value:1,\n    text:\"a\",\n    disabled: true/false,  //\u8BE5\u9009\u9879\u662F\u5426\u7981\u7528\n    pValue: '', //\u53EF\u9009\u4E2A\uFF0C\u7236\u8282\u70B9value\u503C\n}]</pre>",
                 type: 'array'
             }, {
                 key: 'selected',
@@ -157,6 +157,11 @@ catch (ex) {
                 type: 'number',
                 def: '250'
             }, {
+                key: 'empty-text',
+                desc: '没有选择时的提示文案',
+                type: 'string',
+                def: ''
+            }, {
                 key: 'mx-disabled',
                 desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-dropdown mx-disabled&gt;&lt;/mx-dropdown&gt;',
                 type: '',
@@ -166,25 +171,25 @@ catch (ex) {
                 type: 'change',
                 desc: '',
                 params: [{
+                        key: 'values',
+                        desc: '当前选中value数组',
+                        type: 'array'
+                    }, {
+                        key: 'texts',
+                        desc: '当前选中text数组',
+                        type: 'array'
+                    }, {
                         key: 'value',
-                        desc: '当前选中value',
+                        desc: '当前选中value值，等于values.join(",")',
                         type: 'string'
                     }, {
                         key: 'text',
-                        desc: '当前选中text',
+                        desc: '当前选中text值，等于texts.join(",")',
                         type: 'string'
-                    }, {
-                        key: 'item',
-                        desc: '当前选中完整对象',
-                        type: 'object'
                     }, {
                         key: 'selected',
-                        desc: '当前选中value，同value',
-                        type: 'string'
-                    }, {
-                        key: 'keyword',
-                        desc: '当前搜索关键词',
-                        type: 'string'
+                        desc: '当前选中值，初始化为什么类型就保持什么类型，默认string',
+                        type: 'string|array'
                     }]
             }];
         this.updater.digest({

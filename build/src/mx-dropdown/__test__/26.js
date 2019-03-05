@@ -28,15 +28,19 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya9:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya9:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya9:_" class="mb20"><span class="color-9">以下示例：</span>单选/多选整体禁用</div><div class="w200" mx-view="mx-dropdown/bd?list=';
-    $line = 8;
-    $art = '@[{\n                value:1,\n                text:\'test\'\n            },{\n                value:2,\n                text:\'TestABC\'\n            },{\n                value:3,\n                text:\'Another\'\n            }]';
+    $p += '<div mxa="_zs_gallerya9:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya9:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya9:_" class="mb20"><span class="color-9">以下示例：</span>单选/多选整体禁用</div><div mxa="_zs_gallerya9:d" class="mb10"><div class="w200" mx-disabled mx-view="mx-dropdown/bd?list=';
+    $line = 10;
+    $art = '@[1,2,3]';
     ;
-    $p += ($expr = '<%@[{            value: 1,            text: \'test\'        }, {            value: 2,            text: \'TestABC\'        }, {            value: 3,            text: \'Another\'        }]%>', $i($$ref, [{ value: 1, text: 'test' }, { value: 2, text: 'TestABC' }, { value: 3, text: 'Another' }])) + '"></div></div><div mxa="_zs_gallerya9:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya9:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div><div class="w200" mx-disabled mx-view="mx-dropdown/bd?multiple=true&list=';
+    $line = 17;
+    $art = '@[1,2,3]';
+    ;
+    $p += ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div><div mxa="_zs_gallerya9:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya9:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya9:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya9:f" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 24;
     $art = '!text1';
     ;
@@ -44,7 +48,7 @@ module.exports = Base.extend({
     $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown.bd class="w200" \n    list="&#123;&#123;@[&#123;\n        value:1,\n        text:\'选择1\'\n    &#125;,&#123;\n        value:2,\n        text:\'选择2\'\n    &#125;]&#125;&#125;"&gt;\n&lt;/mx-dropdown.bd&gt;\n        </pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown.bd class="w200" \n    mx-disabled\n    list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;\n&lt;/mx-dropdown.bd&gt;\n\n&lt;mx-dropdown.bd class="w200"\n    multiple="true"\n    mx-disabled\n    list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;\n&lt;/mx-dropdown.bd&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

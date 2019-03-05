@@ -32,11 +32,12 @@ module.exports = Magix.View.extend({
             // 本身是个对象
             // 存在分组的情况
             list = list.map(item => {
-                return {
+                Magix.mix(item, {
                     text: item[textKey],
                     value: item[valueKey],
                     pValue: item[parentKey]
-                };
+                })
+                return item;
             })
             if(parents.length == 0){
                 hasGroups = false;
@@ -93,6 +94,12 @@ module.exports = Magix.View.extend({
         if (!multiple && (selectedItems.length == 0)) {
             // 单选默认选中第一个
             selectedItems = [list[0]];
+            for (let i = 0; i < list.length; i++) {
+                if(!list[i].disabled){
+                    selectedItems = [list[i]];
+                    break;
+                }
+            }
         }
 
         // 是否禁用
@@ -113,6 +120,7 @@ module.exports = Magix.View.extend({
             parents,
             selectedItems,
             expand: false,
+            height: (ops.height || 250),
             spm: me['@{owner.node}'].attr('data-spm-click') || '' //埋点
         });
 

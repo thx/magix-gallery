@@ -29,14 +29,46 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-dropdown.bd class="w200" 
+    searchbox="true"
+    selected="2"
     list="&#123;&#123;@[&#123;
         value:1,
-        text:'选择1'
+        text:'test'
     &#125;,&#123;
         value:2,
-        text:'选择2'
-    &#125;]&#125;&#125;"&gt;
+        text:'TestABC'
+    &#125;,&#123;
+        value:3,
+        text:'Another'
+    &#125;]&#125;&#125;"
+    mx-change="change()"&gt;
 &lt;/mx-dropdown.bd&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'change&lt;change&gt;'(event)&#123;
+        // event.value：string
+        // event.text：string
+        // event.values：array
+        // event.texts：array
+        // event.selected：string|array
+    &#125;
+&#125;);
         </pre>
     </div>
 </div>

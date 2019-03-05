@@ -24,23 +24,23 @@ module.exports = Magix.View.extend({
             searchbox: data.searchbox,
             multiple: data.multiple,
             spm: data.spm,
+            height: data.height,
             keyword: (data.keyword || ''),
             text: {
                 search: I18n['dropdown.search'],
                 select: I18n['select.all'],
                 unselect: I18n['unselect.all'],
                 submit: I18n['dialog.submit'],
-                cancel: I18n['dialog.cancel']
+                cancel: I18n['dialog.cancel'],
+                empty: I18n['empty.text']
             }
         })
     },
     render() {
         let me = this;
         let keyword = me.updater.get('keyword');
-        me['@{fn.search}'](me['@{last.value}'] = keyword, (parents) => {
-            me.updater.digest({
-                parents
-            });
+        me['@{fn.search}'](me['@{last.value}'] = keyword, (result) => {
+            me.updater.digest(result);
         });
     },
     /**
@@ -49,12 +49,38 @@ module.exports = Magix.View.extend({
     '@{select}<click>'(e) {
         let me = this;
         let viewOptions = me.viewOptions;
-        if(viewOptions.submit){
+        if (viewOptions.submit) {
             viewOptions.submit({
                 keyword: me.updater.get('keyword'),
                 selectedItems: [e.params.item]
             });
         }
+    },
+
+    '@{checkAll}<click>'(e) {
+        let checked = e.params.checked;
+
+        let parents = this.updater.get('parents');
+        parents.forEach(parent => {
+            parent.list.forEach(item => {
+                if(!item.disabled){
+                    item.selected = checked;
+                }
+            })
+        })
+        this.updater.digest({
+            parents
+        })
+    },
+
+    '@{check}<change>'(e) {
+        let parentIndex = e.params.parentIndex,
+            itemIndex = e.params.itemIndex;
+        let parents = this.updater.get('parents');
+        parents[parentIndex].list[itemIndex].selected = !parents[parentIndex].list[itemIndex].selected;
+        this.updater.digest({
+            parents
+        })
     },
 
     /**
@@ -63,10 +89,20 @@ module.exports = Magix.View.extend({
     '@{submit}<click>'(e) {
         let me = this;
         let viewOptions = me.viewOptions;
-        if(viewOptions.submit){
+
+        let parents = me.updater.get('parents');
+        let selectedItems = [];
+        parents.forEach(parent => {
+            parent.list.forEach(item => {
+                if (item.selected) {
+                    selectedItems.push(item);
+                }
+            })
+        })
+        if (viewOptions.submit) {
             viewOptions.submit({
                 keyword: me.updater.get('keyword'),
-                selectedItems: []
+                selectedItems
             });
         }
     },
@@ -74,9 +110,9 @@ module.exports = Magix.View.extend({
     /**
      * 批量，取消
      */
-    '@{cancel}<click>'(e){
+    '@{cancel}<click>'(e) {
         let viewOptions = this.viewOptions;
-        if(viewOptions.cancel){
+        if (viewOptions.cancel) {
             viewOptions.cancel();
         }
     },
@@ -86,27 +122,34 @@ module.exports = Magix.View.extend({
         let data = me.updater.get();
         let parents = data.parents;
 
+        let allHide;
         if (!val) {
-            parents.forEach(group => {
-                group.hide = false;
-                group.list.forEach(item => {
+            allHide = false;
+            parents.forEach(parent => {
+                parent.hide = false;
+                parent.list.forEach(item => {
                     item.hide = false;
                 })
             })
-        }else{
+        } else {
+            allHide = true;
             let lowVal = (val + '').toLocaleLowerCase();
-            parents.forEach(group => {
-                let allHide = true;
-                group.list.forEach(item => {
+            parents.forEach(parent => {
+                let groupHide = true;
+                parent.list.forEach(item => {
                     let lowText = (item.text + '').toLocaleLowerCase();
                     item.hide = (lowText.indexOf(lowVal) < 0);
-                    allHide = allHide && item.hide;
+                    groupHide = groupHide && item.hide;
                 })
-                group.hide = allHide;
+                parent.hide = groupHide;
+                allHide = allHide && groupHide;
             })
         }
 
-        callback(parents);
+        callback({
+            parents,
+            allHide
+        });
     },
 
     '@{search}<keyup,paste>'(e) {
@@ -118,10 +161,8 @@ module.exports = Magix.View.extend({
         });
         me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(() => {
             if (val != me['@{last.value}']) {
-                me['@{fn.search}'](me['@{last.value}'] = val, (parents) => {
-                    me.updater.digest({
-                        parents
-                    });
+                me['@{fn.search}'](me['@{last.value}'] = val, (result) => {
+                    me.updater.digest(result);
                 });
             }
         }), 300);
