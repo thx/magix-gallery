@@ -31,6 +31,9 @@ module.exports = Magix.View.extend({
         }, {
             name: '其他杂项',
             path: '/all/other/update'
+        }, {
+            name: '在线编辑',
+            path: '/all/edit/index'
         }]
         let map = {
             0: [{
@@ -450,10 +453,22 @@ module.exports = Magix.View.extend({
                     name: '相关链接',
                     path: '/all/other/links'
                 }]
+            }],
+            3: [{
+                subs: [{
+                    name: '说明',
+                    path: '/all/edit/desc'
+                }, {
+                    name: '在线编辑',
+                    path: '/all/edit/index'
+                }]
             }]
         }
         let curIndex = 0;
-        if (path.indexOf('/all/other/') > -1) {
+        if (path.indexOf('/all/edit/') > -1) {
+            // 在线编辑
+            curIndex = 3;
+        } else if (path.indexOf('/all/other/') > -1) {
             // 脚手架相关内容
             curIndex = 2;
         } else if (path.indexOf('/all/pro/') > -1) {

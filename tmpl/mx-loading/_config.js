@@ -143,7 +143,7 @@ module.exports = {
             type: 1,
             color: 1
         }, 'pr')}>
-            <div style="position:relative; width: ${size}px; height:${size}px; margin-left: ${0 - size / 2}px;">${tmpl}</div>        
+            <div style="position:relative; left: 50%; width: ${size}px; height:${size}px; margin-left: ${0 - size / 2}px;">${tmpl}</div>        
         </div>`;
     }
 }
