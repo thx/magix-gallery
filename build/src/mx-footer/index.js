@@ -22,7 +22,7 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', len = $$.len, dark = $$.dark, width = $$.width, products = $$.products, tanx = $$.tanx, taobao = $$.taobao, alimama = $$.alimama, year = $$.year, simple = $$.simple; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', len = $$.len, dark = $$.dark, width = $$.width, products = $$.products, tanx = $$.tanx, taobao = $$.taobao, alimama = $$.alimama, simple = $$.simple; var $expr, $art, $line; try {
     $line = 1;
     $art = 'if len > 0';
     ;
@@ -51,9 +51,9 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each products as p';
         ;
-        $expr = '<%for (var $art_ighzxpsus$art_i = 0, $art_ciknfssvf$art_c = products.length; $art_ighzxpsus$art_i < $art_ciknfssvf$art_c; $art_ighzxpsus$art_i++) {        var p = products[$art_ighzxpsus$art_i]%>';
-        for (var $art_ighzxpsus$art_i = 0, $art_ciknfssvf$art_c = products.length; $art_ighzxpsus$art_i < $art_ciknfssvf$art_c; $art_ighzxpsus$art_i++) {
-            var p = products[$art_ighzxpsus$art_i];
+        $expr = '<%for (var $art_ihvmrmw$art_i = 0, $art_cwjnulom$art_c = products.length; $art_ihvmrmw$art_i < $art_cwjnulom$art_c; $art_ihvmrmw$art_i++) {        var p = products[$art_ihvmrmw$art_i]%>';
+        for (var $art_ihvmrmw$art_i = 0, $art_cwjnulom$art_c = products.length; $art_ihvmrmw$art_i < $art_cwjnulom$art_c; $art_ihvmrmw$art_i++) {
+            var p = products[$art_ihvmrmw$art_i];
             $p += '<dl style="width: ';
             $line = 9;
             $art = '=(100 / len)';
@@ -66,9 +66,9 @@ module.exports = Magix.View.extend({
             $line = 11;
             $art = 'each p.thirds as t';
             ;
-            $expr = '<%for (var $art_ipmwpwxwjb$art_i = 0, $art_objgkcyfeuio$art_obj = p.thirds, $art_cchycojpa$art_c = $art_objgkcyfeuio$art_obj.length; $art_ipmwpwxwjb$art_i < $art_cchycojpa$art_c; $art_ipmwpwxwjb$art_i++) {            var t = $art_objgkcyfeuio$art_obj[$art_ipmwpwxwjb$art_i]%>';
-            for (var $art_ipmwpwxwjb$art_i = 0, $art_objgkcyfeuio$art_obj = p.thirds, $art_cchycojpa$art_c = $art_objgkcyfeuio$art_obj.length; $art_ipmwpwxwjb$art_i < $art_cchycojpa$art_c; $art_ipmwpwxwjb$art_i++) {
-                var t = $art_objgkcyfeuio$art_obj[$art_ipmwpwxwjb$art_i];
+            $expr = '<%for (var $art_ihcczro$art_i = 0, $art_objtefjft$art_obj = p.thirds, $art_cznwnrlxa$art_c = $art_objtefjft$art_obj.length; $art_ihcczro$art_i < $art_cznwnrlxa$art_c; $art_ihcczro$art_i++) {            var t = $art_objtefjft$art_obj[$art_ihcczro$art_i]%>';
+            for (var $art_ihcczro$art_i = 0, $art_objtefjft$art_obj = p.thirds, $art_cznwnrlxa$art_c = $art_objtefjft$art_obj.length; $art_ihcczro$art_i < $art_cznwnrlxa$art_c; $art_ihcczro$art_i++) {
+                var t = $art_objtefjft$art_obj[$art_ihcczro$art_i];
                 $p += '<dd><a href="';
                 $line = 13;
                 $art = '=t.link';
@@ -175,11 +175,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (taobao) {%>';
     if (taobao) {
         ;
-        $p += '<span mxa="_zs_gallerybN:b" class="_zs_gallery_mx-footer_index_-line-text">Taobao.com版权所有 2003-';
-        $line = 46;
-        $art = '=year';
-        ;
-        $p += ($expr = '<%=year%>', $e(year)) + '</span><a mxs="_zs_gallerybN:j" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.miibeian.gov.cn">ICP证：浙B2-20080224-1</a>';
+        $p += '<span mxs="_zs_gallerybN:o" class="_zs_gallery_mx-footer_index_-line-text">Taobao.com版权所有 2003-现在</span><a mxs="_zs_gallerybN:j" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.miibeian.gov.cn">ICP证：浙B2-20080224-1</a>';
         $line = 48;
         $art = '/if';
         ;
@@ -193,11 +189,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (alimama) {%>';
     if (alimama) {
         ;
-        $p += '<span mxa="_zs_gallerybN:c" class="_zs_gallery_mx-footer_index_-line-text">阿里妈妈版权所有 2007-';
-        $line = 50;
-        $art = '=year';
-        ;
-        $p += ($expr = '<%=year%>', $e(year)) + '</span><a mxs="_zs_gallerybN:k" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.miibeian.gov.cn">ICP证：浙B2-20070195</a>';
+        $p += '<span mxs="_zs_gallerybN:p" class="_zs_gallery_mx-footer_index_-line-text">阿里妈妈版权所有 2007-现在</span><a mxs="_zs_gallerybN:k" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.miibeian.gov.cn">ICP证：浙B2-20070195</a>';
         $line = 52;
         $art = '/if';
         ;
