@@ -21,15 +21,15 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', text = $$.text, content = $$.content; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryaA:_" class="fontsize-16 mb20">标题：';
+    $p += '<div mxa="_zs_galleryaC:_" class="fontsize-16 mb20">标题：';
     $line = 1;
     $art = '=text';
     ;
-    $p += ($expr = '<%=text%>', $e(text)) + '</div><div mxa="_zs_galleryaA:a" class="mb20">内容：';
+    $p += ($expr = '<%=text%>', $e(text)) + '</div><div mxa="_zs_galleryaC:a" class="mb20">内容：';
     $line = 2;
     $art = '=content';
     ;
-    $p += ($expr = '<%=content%>', $e(content)) + '</div><div mxs="_zs_galleryaA:_"><a href="#!/popover/index" class="btn btn-brand">从当前页面跳走，自动销毁浮层</a></div>';
+    $p += ($expr = '<%=content%>', $e(content)) + '</div><div mxs="_zs_galleryaC:_"><a href="#!/popover/index" class="btn btn-brand">从当前页面跳走，自动销毁浮层</a></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

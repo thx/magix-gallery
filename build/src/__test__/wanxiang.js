@@ -31,7 +31,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=view';
     ;
-    $p += ($expr = '<%=view%>', $e(view)) + '"><div mxs="_zs_galleryP:_" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div><div mx-view="mx-wanxiang/index?bizCode=PCMaMaAnyWhereWindow&defaultSourceId=432&sourceMap=';
+    $p += ($expr = '<%=view%>', $e(view)) + '"><div mxs="_zs_galleryR:_" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div><div mx-view="mx-wanxiang/index?bizCode=PCMaMaAnyWhereWindow&defaultSourceId=432&sourceMap=';
     $line = 8;
     $art = '@{\n        \'/wanxiang/demo2\': 496\n    }';
     ;

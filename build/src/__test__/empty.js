@@ -27,7 +27,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=view';
     ;
-    $p += ($expr = '<%=view%>', $e(view)) + '"><div mxs="_zs_galleryd:_" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+    $p += ($expr = '<%=view%>', $e(view)) + '"><div mxs="_zs_galleryf:_" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -25,15 +25,15 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerybW:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybW:a" class="_zs_gallery___test___layout_-eg-content clearfix"><div mxs="_zs_gallerybW:_" class="mb10 lh22"><div>class：small-form（margin-bottom:20px）；align-right（文字右对齐）</div></div><form mxv mxa="_zs_gallerybW:b" class="form small-form align-right"><div mxv mxa="_zs_gallerybW:c" class="form-item"><div mxs="_zs_gallerybW:a" class="form-label">请输入</div><div mxv mxa="_zs_gallerybW:d" class="form-content"><input mxs="_zs_gallerybW:b" class="input w200"/></div></div><div mxv mxa="_zs_gallerybW:e" class="form-item"><div mxs="_zs_gallerybW:c" class="form-label">右对齐输入框</div><div mxv mxa="_zs_gallerybW:f" class="form-content"><input mxs="_zs_gallerybW:b" class="input w200"/></div></div><div mxs="_zs_gallerybW:d" class="form-footer"><a href="javascript:;" class="btn w80 btn-brand mr20" mx-click="' + $viewId + 'confirm()">确定</a><a href="javascript:;" class="btn w80">取消</a></div></form></div><div mxa="_zs_gallerybW:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybW:e" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxv mxa="_zs_gallerybY:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerybY:a" class="_zs_gallery___test___layout_-eg-content clearfix"><div mxs="_zs_gallerybY:_" class="mb10 lh22"><div>class：small-form（margin-bottom:20px）；align-right（文字右对齐）</div></div><form mxv mxa="_zs_gallerybY:b" class="form small-form align-right"><div mxv mxa="_zs_gallerybY:c" class="form-item"><div mxs="_zs_gallerybY:a" class="form-label">请输入</div><div mxv mxa="_zs_gallerybY:d" class="form-content"><input mxs="_zs_gallerybY:b" class="input w200"/></div></div><div mxv mxa="_zs_gallerybY:e" class="form-item"><div mxs="_zs_gallerybY:c" class="form-label">右对齐输入框</div><div mxv mxa="_zs_gallerybY:f" class="form-content"><input mxs="_zs_gallerybY:b" class="input w200"/></div></div><div mxs="_zs_gallerybY:d" class="form-footer"><a href="javascript:;" class="btn w80 btn-brand mr20" mx-click="' + $viewId + 'confirm()">确定</a><a href="javascript:;" class="btn w80">取消</a></div></form></div><div mxa="_zs_gallerybY:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybY:e" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 28;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybW:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybY:h" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 30;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybW:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybY:f" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 33;
     $art = '=viewId';
     ;

@@ -24,27 +24,27 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryC:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryC:_" class="_zs_gallery___test___layout_-eg-content"><div class="clearfix mb20"><div class="fl color-9">以下示例：</div><div class="fl">侧边不分组，配置subs，无leftView</div></div><div class="_zs_gallery___test___pro_menu_-menu"><div class="_zs_gallery___test___pro_menu_-header clearfix"><div class="_zs_gallery___test___pro_menu_-logo">LOGO</div><div class="_zs_gallery___test___pro_menu_-name">一级标题</div></div><div class="clearfix"><div class="_zs_gallery___test___pro_menu_-navs"><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third _zs_gallery___test___pro_menu_-third-on"><i class="mc-iconfont mr5">&#xe731;</i>三级1</a></div><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third"><i class="mc-iconfont mr5">&#xe609;</i>三级2</a></div><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third"><i class="mc-iconfont mr5">&#xe698;</i>三级3</a></div></div></div></div></div><div mxa="_zs_galleryC:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryC:a" class="_zs_gallery___test___layout_-eg-title">配置Menus</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_galleryE:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryE:_" class="_zs_gallery___test___layout_-eg-content"><div class="clearfix mb20"><div class="fl color-9">以下示例：</div><div class="fl">侧边不分组，配置subs，无leftView</div></div><div class="_zs_gallery___test___pro_menu_-menu"><div class="_zs_gallery___test___pro_menu_-header clearfix"><div class="_zs_gallery___test___pro_menu_-logo">LOGO</div><div class="_zs_gallery___test___pro_menu_-name">一级标题</div></div><div class="clearfix"><div class="_zs_gallery___test___pro_menu_-navs"><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third _zs_gallery___test___pro_menu_-third-on"><i class="mc-iconfont mr5">&#xe731;</i>三级1</a></div><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third"><i class="mc-iconfont mr5">&#xe609;</i>三级2</a></div><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third"><i class="mc-iconfont mr5">&#xe698;</i>三级3</a></div></div></div></div></div><div mxa="_zs_galleryE:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryE:a" class="_zs_gallery___test___layout_-eg-title">配置Menus</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 38;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryC:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryE:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 40;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryC:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryE:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 43;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\nlet Menus = [&#123;\n    has: true,\n    name: \'一级标题\',\n    path: \'/develop/example1\',\n    subs: [&#123;\n        thirds: [&#123;\n            has: true,\n            name: \'三级1\',\n            path: \'/develop/example1\',\n            icon: \'&#38;&#35;xe731;\'\n        &#125;, &#123;\n            has: true,\n            name: \'三级2\',\n            path: \'/develop/example2\',\n            icon: \'&#38;&#35;xe609;\'\n        &#125;, &#123;\n            has: true,\n            name: \'三级3\',\n            path: \'/develop/example3\',\n            icon: \'&#38;&#35;xe698;\'\n        &#125;]\n    &#125;]\n&#125;]</pre></div><div mxa="_zs_galleryC:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryC:c" class="_zs_gallery___test___layout_-eg-title">等价于以下配置方法</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\nlet Menus = [&#123;\n    has: true,\n    name: \'一级标题\',\n    path: \'/develop/example1\',\n    subs: [&#123;\n        thirds: [&#123;\n            has: true,\n            name: \'三级1\',\n            path: \'/develop/example1\',\n            icon: \'&#38;&#35;xe731;\'\n        &#125;, &#123;\n            has: true,\n            name: \'三级2\',\n            path: \'/develop/example2\',\n            icon: \'&#38;&#35;xe609;\'\n        &#125;, &#123;\n            has: true,\n            name: \'三级3\',\n            path: \'/develop/example3\',\n            icon: \'&#38;&#35;xe698;\'\n        &#125;]\n    &#125;]\n&#125;]</pre></div><div mxa="_zs_galleryE:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryE:c" class="_zs_gallery___test___layout_-eg-title">等价于以下配置方法</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 70;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryC:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryE:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 72;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryC:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryE:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 75;
     $art = '=viewId';
     ;

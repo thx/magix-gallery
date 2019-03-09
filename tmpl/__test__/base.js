@@ -24,19 +24,8 @@ module.exports = Magix.View.extend({
 
         let headers = [{
             name: '组件',
-            path: '/form/mixins'
-        }, {
-            name: '脚手架',
-            path: '/all/pro/init'
-        }, {
-            name: '其他杂项',
-            path: '/all/other/update'
-        }, {
-            name: '在线编辑',
-            path: '/all/edit/index'
-        }]
-        let map = {
-            0: [{
+            path: '/form/mixins',
+            paths: [{
                 name: '基础规范',
                 subs: [{
                     name: '双向绑定约定',
@@ -411,8 +400,11 @@ module.exports = Magix.View.extend({
                     path: '/hour/index',
                     icon: '&#xe67c;'
                 }]
-            }],
-            1: [{
+            }]
+        }, {
+            name: '脚手架',
+            path: '/all/pro/init',
+            paths: [{
                 subs: [{
                     name: '10分钟快速上手',
                     path: '/all/pro/init'
@@ -444,8 +436,11 @@ module.exports = Magix.View.extend({
                     name: '页面监听参数变化回到顶部',
                     path: '/all/pro/top'
                 }]
-            }],
-            2: [{
+            }]
+        }, {
+            name: '其他杂项',
+            path: '/all/other/update',
+            paths: [{
                 subs: [{
                     name: '更新记录',
                     path: '/all/other/update'
@@ -453,53 +448,36 @@ module.exports = Magix.View.extend({
                     name: '相关链接',
                     path: '/all/other/links'
                 }]
-            }],
-            3: [{
-                subs: [{
-                    name: '说明',
-                    path: '/all/edit/desc'
-                }, {
-                    name: '在线编辑',
-                    path: '/all/edit/index'
-                }]
             }]
-        }
-        let curIndex = 0;
-        if (path.indexOf('/all/edit/') > -1) {
-            // 在线编辑
-            curIndex = 3;
-        } else if (path.indexOf('/all/other/') > -1) {
-            // 脚手架相关内容
-            curIndex = 2;
-        } else if (path.indexOf('/all/pro/') > -1) {
-            // 脚手架相关内容
-            curIndex = 1;
-        }
-        headers[curIndex].cur = true;
-        let list = map[curIndex];
+        }]
 
-        let suggests = [],  //全局提示
-            all = []; // 当前tab可选
-        for (let i in map) {
-            map[i].forEach((item) => {
+        let pathMap = {}, // 路径index映射
+            suggests = []; //全局提示
+        headers.forEach((header, i) => {
+            header.paths.forEach(item => {
                 let subs = $.extend(true, [], item.subs);
                 subs.forEach(sub => {
-                    sub.text = headers[i].name + ' - ' + sub.name;
+                    sub.text = header.name + ' - ' + sub.name;
                     sub.value = sub.path;
                     sub.value = 'mx-' + sub.value.slice(1);
+
+                    pathMap[sub.path] = i;
                 })
                 suggests = suggests.concat(subs);
             })
+        })
+        let curIndex = pathMap[path];
+        headers[curIndex].cur = true;
 
-            if (i == curIndex) {
-                map[i].forEach((item, index) => {
-                    // 默认全部展开
-                    item.index = index;
-                    item.close = that.$map[item.subs[0].path] || false;
-                    all = all.concat(item.subs);
-                })
-            }
-        }
+        // 当前tab可选
+        var list = headers[curIndex].paths;
+        let all = []; 
+        list.forEach((item, index) => {
+            // 默认全部展开
+            item.index = index;
+            item.close = that.$map[item.subs[0].path] || false;
+            all = all.concat(item.subs);
+        })
 
         let view = path.slice(1);
         let i = view.indexOf('/');

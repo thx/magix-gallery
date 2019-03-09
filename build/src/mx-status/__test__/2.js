@@ -28,19 +28,19 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydC:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerydC:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerydC:_" class="mb20 lh22 clearfix"><div class="fl color-9">以下示例：</div><div class="fl"><div>纯提示信息，无操作项</div></div></div><div mx-view="mx-status/index?info=';
+    $p += '<div mxa="_zs_gallerydE:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerydE:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerydE:_" class="mb20 lh22 clearfix"><div class="fl color-9">以下示例：</div><div class="fl"><div>纯提示信息，无操作项</div></div></div><div mx-view="mx-status/index?info=';
     $line = 10;
     $art = '@{\n                value: 1,\n                text: \'正在投放\',\n                icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',\n                tip: \'当前正在投放中<br/>换一行\'\n                color: \'#51a300\'\n            }';
     ;
-    $p += ($expr = '<%@{        value: 1,        text: \'正在投放\',        icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',        tip: \'当前正在投放中<br/>换一行\',        color: \'#51a300\'    }%>', $i($$ref, { value: 1, text: '正在投放', icon: '<i class=\"mc-iconfont\">&#xe683;</i>', tip: '当前正在投放中<br/>换一行', color: '#51a300' })) + '"></div></div><div mxa="_zs_gallerydC:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydC:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@{        value: 1,        text: \'正在投放\',        icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',        tip: \'当前正在投放中<br/>换一行\',        color: \'#51a300\'    }%>', $i($$ref, { value: 1, text: '正在投放', icon: '<i class=\"mc-iconfont\">&#xe683;</i>', tip: '当前正在投放中<br/>换一行', color: '#51a300' })) + '"></div></div><div mxa="_zs_gallerydE:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydE:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 20;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydC:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydE:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 22;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydC:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydE:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 25;
     $art = '=viewId';
     ;
