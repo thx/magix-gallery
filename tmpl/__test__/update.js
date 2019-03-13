@@ -6,6 +6,18 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.21',
+            time: '2019-03-13',
+            subs: [{
+                type: 'notice',
+                title: '规范调整',
+                subs: [{
+                    title: 'mx-header：阿里妈妈logo替换'
+                }, {
+                    title: 'mx-footer：版权所有结束时间更新为“现在”，同淘宝'
+                }]
+            }]
+        }, {
             ver: '1.2.20',
             time: '2019-03-05',
             subs: [{

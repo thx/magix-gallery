@@ -15,7 +15,15 @@
     </div>
     <div class="header-tabs clearfix">
         {{each headers as h}}
-        <a {{if h.outer}} href="{{=h.outer}}" target="_blank" rel="noopener noreferrer" {{else}} href="#!{{=h.path}}" {{/if}} class="header-tab {{if h.cur}} cur {{/if}}">{{=h.name}}</a>
+        <a {{if h.new}} mx-click="readed({id:'{{=h.id}}'})" {{/if}} {{if h.outer}} href="{{=h.outer}}" target="_blank" rel="noopener noreferrer" {{else}} href="#!{{=h.path}}" {{/if}} class="header-tab {{if h.cur}} cur {{/if}}">
+            {{=h.name}}
+            {{if h.new}}
+            <mx-popover class="breath-light"
+                tag="span"
+                content="{{=h.new}}"
+                auto="true"></mx-popover>
+            {{/if}}
+        </a>
         {{/each}}
     </div>
 </div>

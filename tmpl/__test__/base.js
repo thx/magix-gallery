@@ -22,9 +22,15 @@ module.exports = Magix.View.extend({
         let loc = Magix.Router.parse();
         let path = loc.path;
         let headers = [{
+            id: 'gallery',
             name: '组件',
             path: '/form/mixins',
             paths: [{
+                subs: [{
+                    name: '更新记录',
+                    path: '/all/update'
+                }]
+            }, {
                 name: '基础规范',
                 subs: [{
                     name: '双向绑定约定',
@@ -35,6 +41,10 @@ module.exports = Magix.View.extend({
                     name: '_config说明',
                     path: '/all/config',
                     icon: '&#xe64f;'
+                }, {
+                    name: '相关文档链接',
+                    path: '/all/links',
+                    icon: '&#xe60d;'
                 }]
             }, {
                 name: '表单（mixins）',
@@ -401,6 +411,7 @@ module.exports = Magix.View.extend({
                 }]
             }]
         }, {
+            id: 'scaffold',
             name: '脚手架',
             path: '/all/pro/init',
             paths: [{
@@ -437,19 +448,9 @@ module.exports = Magix.View.extend({
                 }]
             }]
         }, {
-            name: '其他杂项',
-            path: '/all/other/update',
-            paths: [{
-                subs: [{
-                    name: '更新记录',
-                    path: '/all/other/update'
-                }, {
-                    name: '相关链接',
-                    path: '/all/other/links'
-                }]
-            }]
-        }, {
+            id: 'pro',
             name: 'PRO',
+            new: that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',
             outer: `${location.origin}/pro.html`
         }]
 
@@ -472,8 +473,8 @@ module.exports = Magix.View.extend({
         headers[curIndex].cur = true;
 
         // 当前tab可选
-        var list = headers[curIndex].paths;
-        let all = []; 
+        let list = headers[curIndex].paths;
+        let all = [];
         list.forEach((item, index) => {
             // 默认全部展开
             item.index = index;
@@ -595,16 +596,60 @@ module.exports = Magix.View.extend({
             minHeight: winHeight
         });
         leftNode.css('height', winHeight);
-
-        // clearTimeout(that.winResizeTimer);
-
-        // that.winResizeTimer = setTimeout(that.wrapAsync(() => {
-        //     that.updater.set({
-        //         minHeight: $(window).height()
-        //     }).digest();
-        // }), 200);
     },
+
     'back<click>'(e) {
         $(window).scrollTop(0);
+    },
+
+    /**
+     * 导航提示本地更新
+     */
+    'readed<click>'(e) {
+        let id = e.params.id;
+        // 7天过期
+        let h = 24 * 7;
+        this.setCookie(`header_${id}`, true, `h${h}`);
+    },
+
+    getCookie(name) {
+        let reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)');
+        let arr = document.cookie.match(reg);
+        if (arr && arr.length) {
+            return unescape(arr[2]);
+        } else {
+            return null;
+        }
+    },
+
+    setCookie(name, value, time) {
+        //这是有设定过期时间的使用示例：
+        //s20是代表20秒
+        //h是指小时，如12小时则是：h12
+        //d是天数，30天则：d30
+        let getsec = (str) => {
+            let sec;
+            let str1 = str.substring(1, str.length) * 1;
+            let str2 = str.substring(0, 1);
+            switch (str2) {
+                case 's':
+                    sec = str1 * 1000;
+                    break;
+                case 'h':
+                    sec = str1 * 60 * 60 * 1000;
+                    break;
+                case 'd':
+                    sec = str1 * 24 * 60 * 60 * 1000;
+                    break;
+            }
+            return sec;
+        }
+
+        // time过期时间
+        let strsec = getsec(time);
+        let exp = new Date();
+        exp.setTime(exp.getTime() + strsec * 1);
+
+        document.cookie = name + '=' + escape(value) + ';expires=' + exp.toGMTString();
     }
 });

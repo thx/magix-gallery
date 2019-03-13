@@ -25,16 +25,16 @@ module.exports = Magix.View.extend({
     $line = 13;
     $art = 'each options as option';
     ;
-    $expr = '<%for (var $art_igzxkzfbr$art_i = 0, $art_cuxsjigsg$art_c = options.length; $art_igzxkzfbr$art_i < $art_cuxsjigsg$art_c; $art_igzxkzfbr$art_i++) {    var option = options[$art_igzxkzfbr$art_i]%>';
-    for (var $art_igzxkzfbr$art_i = 0, $art_cuxsjigsg$art_c = options.length; $art_igzxkzfbr$art_i < $art_cuxsjigsg$art_c; $art_igzxkzfbr$art_i++) {
-        var option = options[$art_igzxkzfbr$art_i];
+    $expr = '<%for (var $art_ipxwaildby$art_i = 0, $art_ccsdiialog$art_c = options.length; $art_ipxwaildby$art_i < $art_ccsdiialog$art_c; $art_ipxwaildby$art_i++) {    var option = options[$art_ipxwaildby$art_i]%>';
+    for (var $art_ipxwaildby$art_i = 0, $art_ccsdiialog$art_c = options.length; $art_ipxwaildby$art_i < $art_ccsdiialog$art_c; $art_ipxwaildby$art_i++) {
+        var option = options[$art_ipxwaildby$art_i];
         $p += ' ';
         $line = 14;
         $art = 'each option.params as param index';
         ;
-        $expr = '<%for (var index = 0, $art_objsilhns$art_obj = option.params, $art_cdckuagtx$art_c = $art_objsilhns$art_obj.length; index < $art_cdckuagtx$art_c; index++) {        var param = $art_objsilhns$art_obj[index]%>';
-        for (var index = 0, $art_objsilhns$art_obj = option.params, $art_cdckuagtx$art_c = $art_objsilhns$art_obj.length; index < $art_cdckuagtx$art_c; index++) {
-            var param = $art_objsilhns$art_obj[index];
+        $expr = '<%for (var index = 0, $art_objfswaab$art_obj = option.params, $art_cythaamzctv$art_c = $art_objfswaab$art_obj.length; index < $art_cythaamzctv$art_c; index++) {        var param = $art_objfswaab$art_obj[index]%>';
+        for (var index = 0, $art_objfswaab$art_obj = option.params, $art_cythaamzctv$art_c = $art_objfswaab$art_obj.length; index < $art_cythaamzctv$art_c; index++) {
+            var param = $art_objfswaab$art_obj[index];
             $p += '<tr>';
             $line = 16;
             $art = 'if (index == 0)';
