@@ -47,9 +47,9 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_iqddarwoh$art_i = 0, $art_cxjnid$art_c = stepInfos.length; $art_iqddarwoh$art_i < $art_cxjnid$art_c; $art_iqddarwoh$art_i++) {    var step = stepInfos[$art_iqddarwoh$art_i]%>';
-    for (var $art_iqddarwoh$art_i = 0, $art_cxjnid$art_c = stepInfos.length; $art_iqddarwoh$art_i < $art_cxjnid$art_c; $art_iqddarwoh$art_i++) {
-        var step = stepInfos[$art_iqddarwoh$art_i];
+    $expr = '<%for (var $art_inphsccevc$art_i = 0, $art_cjlqjzxhk$art_c = stepInfos.length; $art_inphsccevc$art_i < $art_cjlqjzxhk$art_c; $art_inphsccevc$art_i++) {    var step = stepInfos[$art_inphsccevc$art_i]%>';
+    for (var $art_inphsccevc$art_i = 0, $art_cjlqjzxhk$art_c = stepInfos.length; $art_inphsccevc$art_i < $art_cjlqjzxhk$art_c; $art_inphsccevc$art_i++) {
+        var step = stepInfos[$art_inphsccevc$art_i];
         $p += '<div class="_zs_gallery_mx-main_index_-main-step ';
         $line = 4;
         $art = 'if (step.index == curStepIndex)';
@@ -143,9 +143,9 @@ module.exports = Magix.View.extend({
             $line = 17;
             $art = 'each step.subs as sub';
             ;
-            $expr = '<%for (var $art_itnstgkxzi$art_i = 0, $art_objkgcqboip$art_obj = step.subs, $art_cvdqtctikyta$art_c = $art_objkgcqboip$art_obj.length; $art_itnstgkxzi$art_i < $art_cvdqtctikyta$art_c; $art_itnstgkxzi$art_i++) {            var sub = $art_objkgcqboip$art_obj[$art_itnstgkxzi$art_i]%>';
-            for (var $art_itnstgkxzi$art_i = 0, $art_objkgcqboip$art_obj = step.subs, $art_cvdqtctikyta$art_c = $art_objkgcqboip$art_obj.length; $art_itnstgkxzi$art_i < $art_cvdqtctikyta$art_c; $art_itnstgkxzi$art_i++) {
-                var sub = $art_objkgcqboip$art_obj[$art_itnstgkxzi$art_i];
+            $expr = '<%for (var $art_ihpzhnkggu$art_i = 0, $art_objtxgzcjh$art_obj = step.subs, $art_cbuptpjluyi$art_c = $art_objtxgzcjh$art_obj.length; $art_ihpzhnkggu$art_i < $art_cbuptpjluyi$art_c; $art_ihpzhnkggu$art_i++) {            var sub = $art_objtxgzcjh$art_obj[$art_ihpzhnkggu$art_i]%>';
+            for (var $art_ihpzhnkggu$art_i = 0, $art_objtxgzcjh$art_obj = step.subs, $art_cbuptpjluyi$art_c = $art_objtxgzcjh$art_obj.length; $art_ihpzhnkggu$art_i < $art_cbuptpjluyi$art_c; $art_ihpzhnkggu$art_i++) {
+                var sub = $art_objtxgzcjh$art_obj[$art_ihpzhnkggu$art_i];
                 $p += '<div mxa="_zs_gallerycQ:c" class="_zs_gallery_mx-main_index_-step-sub"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link ';
                 $line = 19;
                 $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))';
@@ -237,9 +237,9 @@ module.exports = Magix.View.extend({
     $line = 42;
     $art = 'each curStepInfo.subs as sub';
     ;
-    $expr = '<%for (var $art_ixxgpaivm$art_i = 0, $art_objvariilon$art_obj = curStepInfo.subs, $art_cfynunnihm$art_c = $art_objvariilon$art_obj.length; $art_ixxgpaivm$art_i < $art_cfynunnihm$art_c; $art_ixxgpaivm$art_i++) {    var sub = $art_objvariilon$art_obj[$art_ixxgpaivm$art_i]%>';
-    for (var $art_ixxgpaivm$art_i = 0, $art_objvariilon$art_obj = curStepInfo.subs, $art_cfynunnihm$art_c = $art_objvariilon$art_obj.length; $art_ixxgpaivm$art_i < $art_cfynunnihm$art_c; $art_ixxgpaivm$art_i++) {
-        var sub = $art_objvariilon$art_obj[$art_ixxgpaivm$art_i];
+    $expr = '<%for (var $art_idltjail$art_i = 0, $art_objwyrojju$art_obj = curStepInfo.subs, $art_cpvsywsh$art_c = $art_objwyrojju$art_obj.length; $art_idltjail$art_i < $art_cpvsywsh$art_c; $art_idltjail$art_i++) {    var sub = $art_objwyrojju$art_obj[$art_idltjail$art_i]%>';
+    for (var $art_idltjail$art_i = 0, $art_objwyrojju$art_obj = curStepInfo.subs, $art_cpvsywsh$art_c = $art_objwyrojju$art_obj.length; $art_idltjail$art_i < $art_cpvsywsh$art_c; $art_idltjail$art_i++) {
+        var sub = $art_objwyrojju$art_obj[$art_idltjail$art_i];
         $p += '<div mxv class="_zs_gallery_mx-main_index_-content-box" style="padding-right: ';
         $line = 44;
         $art = '=(curStepInfo.rightWidth + 20)';
