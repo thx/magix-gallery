@@ -88,7 +88,7 @@ catch (ex) {
                 key: 'logo',
                 desc: '项目logo的图片地址',
                 type: 'string',
-                def: '<img width="200" src="//img.alicdn.com/tfs/TB1vee6iAzoK1RjSZFlXXai4VXa-534-98.png">'
+                def: '<img width="200" src="//img.alicdn.com/tfs/TB1G_ozLNnaK1RjSZFBXXcW7VXa-292-98.png">'
             }];
         this.updater.digest({
             viewId: this.id,

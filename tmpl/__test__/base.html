@@ -15,7 +15,7 @@
     </div>
     <div class="header-tabs clearfix">
         {{each headers as h}}
-        <a href="#!{{=h.path}}" class="header-tab {{if h.cur}} cur {{/if}}">{{=h.name}}</a>
+        <a {{if h.outer}} href="{{=h.outer}}" target="_blank" rel="noopener noreferrer" {{else}} href="#!{{=h.path}}" {{/if}} class="header-tab {{if h.cur}} cur {{/if}}">{{=h.name}}</a>
         {{/each}}
     </div>
 </div>

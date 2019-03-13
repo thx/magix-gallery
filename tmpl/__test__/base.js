@@ -21,7 +21,6 @@ module.exports = Magix.View.extend({
         // 当前路径
         let loc = Magix.Router.parse();
         let path = loc.path;
-
         let headers = [{
             name: '组件',
             path: '/form/mixins',
@@ -449,12 +448,15 @@ module.exports = Magix.View.extend({
                     path: '/all/other/links'
                 }]
             }]
+        }, {
+            name: 'PRO',
+            outer: `${location.origin}/pro.html`
         }]
 
         let pathMap = {}, // 路径index映射
             suggests = []; //全局提示
         headers.forEach((header, i) => {
-            header.paths.forEach(item => {
+            (header.paths || []).forEach(item => {
                 let subs = $.extend(true, [], item.subs);
                 subs.forEach(sub => {
                     sub.text = header.name + ' - ' + sub.name;
