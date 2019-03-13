@@ -12,7 +12,7 @@ var Form = require("mx-form/index");
 var Validator = require("mx-form/validator");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-form___test___1_","/* @dependent: ./index.less */\n._zs_gallery_mx-form___test___1_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-form___test___1_-table-wrapper {\n  margin-bottom: 20px;\n  border: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-form___test___1_-fixed-head tr._zs_gallery_mx-form___test___1_-batch-oper th {\n  height: 68px;\n  background-color: #fff;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-form___test___1_-fixed-head tr._zs_gallery_mx-form___test___1_-batch-oper th ._zs_gallery_mx-form___test___1_-batch-input {\n  position: relative;\n}\n._zs_gallery_mx-form___test___1_-fixed-head tr._zs_gallery_mx-form___test___1_-batch-oper th ._zs_gallery_mx-form___test___1_-batch-input ._zs_gallery_mx-form___test___1_-batch-input-text {\n  position: absolute;\n  top: 0;\n  left: -80px;\n  width: 70px;\n  height: 28px;\n  line-height: 28px;\n  text-align: right;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-form___test___1_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-form___test___1_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-form___test___1_-table-wrapper {\n  margin-bottom: 20px;\n  border: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-form___test___1_-fixed-head tr._zs_gallery_mx-form___test___1_-batch-oper th {\n  height: 68px;\n  background-color: #fff;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-form___test___1_-fixed-head tr._zs_gallery_mx-form___test___1_-batch-oper th ._zs_gallery_mx-form___test___1_-batch-input {\n  position: relative;\n}\n._zs_gallery_mx-form___test___1_-fixed-head tr._zs_gallery_mx-form___test___1_-batch-oper th ._zs_gallery_mx-form___test___1_-batch-input ._zs_gallery_mx-form___test___1_-batch-input-text {\n  position: absolute;\n  top: 0;\n  left: -80px;\n  width: 70px;\n  height: 28px;\n  line-height: 28px;\n  text-align: right;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -46,8 +46,8 @@ module.exports = Base.extend({
     $line = 34;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_clzon$art_c = list.length; index < $art_clzon$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_clzon$art_c = list.length; index < $art_clzon$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cdjfawzl$art_c = list.length; index < $art_cdjfawzl$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cdjfawzl$art_c = list.length; index < $art_cdjfawzl$art_c; index++) {
         var item = list[index];
         $p += '<tr mxv><td>';
         $line = 36;

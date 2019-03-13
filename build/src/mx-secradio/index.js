@@ -8,7 +8,7 @@ define("mx-secradio/index",["magix","../mx-medusa/util"],(require,exports,module
 
 var Magix = require("magix");
 var I18n = require("../mx-medusa/util");
-Magix.applyStyle("_zs_gallery_mx-secradio_index_","/* @dependent: ./index.less */\n._zs_gallery_mx-secradio_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-secradio_index_-line {\n  position: relative;\n  height: 32px;\n  line-height: 32px;\n  transition: height 0.2s;\n  overflow: hidden;\n}\n._zs_gallery_mx-secradio_index_-line ._zs_gallery_mx-secradio_index_-oper {\n  width: 20px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #ccc;\n  transition: color 0.2s;\n}\n._zs_gallery_mx-secradio_index_-line ._zs_gallery_mx-secradio_index_-oper:hover {\n  color: #666;\n}\n._zs_gallery_mx-secradio_index_-all {\n  cursor: pointer;\n  color: #999;\n}\n._zs_gallery_mx-secradio_index_-sub {\n  padding-left: 20px;\n}\n._zs_gallery_mx-secradio_index_-sub._zs_gallery_mx-secradio_index_-close {\n  height: 0;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-secradio_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-secradio_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-secradio_index_-line {\n  position: relative;\n  height: 32px;\n  line-height: 32px;\n  transition: height 0.2s;\n  overflow: hidden;\n}\n._zs_gallery_mx-secradio_index_-line ._zs_gallery_mx-secradio_index_-oper {\n  width: 20px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #ccc;\n  transition: color 0.2s;\n}\n._zs_gallery_mx-secradio_index_-line ._zs_gallery_mx-secradio_index_-oper:hover {\n  color: #666;\n}\n._zs_gallery_mx-secradio_index_-all {\n  cursor: pointer;\n  color: #999;\n}\n._zs_gallery_mx-secradio_index_-sub {\n  padding-left: 20px;\n}\n._zs_gallery_mx-secradio_index_-sub._zs_gallery_mx-secradio_index_-close {\n  height: 0;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -101,8 +101,8 @@ module.exports = Magix.View.extend({
     $line = 7;
     $art = 'each list as item itemIndex';
     ;
-    $expr = '<%for (var itemIndex = 0, $art_ctlrtb$art_c = list.length; itemIndex < $art_ctlrtb$art_c; itemIndex++) {    var item = list[itemIndex]%>';
-    for (var itemIndex = 0, $art_ctlrtb$art_c = list.length; itemIndex < $art_ctlrtb$art_c; itemIndex++) {
+    $expr = '<%for (var itemIndex = 0, $art_ciidtguzqc$art_c = list.length; itemIndex < $art_ciidtguzqc$art_c; itemIndex++) {    var item = list[itemIndex]%>';
+    for (var itemIndex = 0, $art_ciidtguzqc$art_c = list.length; itemIndex < $art_ciidtguzqc$art_c; itemIndex++) {
         var item = list[itemIndex];
         $p += '<div mxa="_zs_gallerydp:a" class="_zs_gallery_mx-secradio_index_-line"><label mx-click="' + $viewId + '@{toggleOne}({index:';
         $line = 9;
@@ -170,9 +170,9 @@ module.exports = Magix.View.extend({
         $line = 21;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_ifhdagdu$art_i = 0, $art_objnazrppapg$art_obj = item.subs, $art_crztogd$art_c = $art_objnazrppapg$art_obj.length; $art_ifhdagdu$art_i < $art_crztogd$art_c; $art_ifhdagdu$art_i++) {        var sub = $art_objnazrppapg$art_obj[$art_ifhdagdu$art_i]%>';
-        for (var $art_ifhdagdu$art_i = 0, $art_objnazrppapg$art_obj = item.subs, $art_crztogd$art_c = $art_objnazrppapg$art_obj.length; $art_ifhdagdu$art_i < $art_crztogd$art_c; $art_ifhdagdu$art_i++) {
-            var sub = $art_objnazrppapg$art_obj[$art_ifhdagdu$art_i];
+        $expr = '<%for (var $art_iqpqihjfvo$art_i = 0, $art_objfgcuddwlt$art_obj = item.subs, $art_cstmhzsl$art_c = $art_objfgcuddwlt$art_obj.length; $art_iqpqihjfvo$art_i < $art_cstmhzsl$art_c; $art_iqpqihjfvo$art_i++) {        var sub = $art_objfgcuddwlt$art_obj[$art_iqpqihjfvo$art_i]%>';
+        for (var $art_iqpqihjfvo$art_i = 0, $art_objfgcuddwlt$art_obj = item.subs, $art_cstmhzsl$art_c = $art_objfgcuddwlt$art_obj.length; $art_iqpqihjfvo$art_i < $art_cstmhzsl$art_c; $art_iqpqihjfvo$art_i++) {
+            var sub = $art_objfgcuddwlt$art_obj[$art_iqpqihjfvo$art_i];
             $p += '<div mxv class="_zs_gallery_mx-secradio_index_-line _zs_gallery_mx-secradio_index_-sub ';
             $line = 22;
             $art = 'if item.close';

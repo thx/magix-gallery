@@ -9,7 +9,7 @@ define("mx-table/__test__/cal",["magix","__test__/example","$"],(require,exports
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-table___test___cal_","/* @dependent: ./index.less */\n._zs_gallery_mx-table___test___cal_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-table___test___cal_-custom {\n  width: 600px;\n  border: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-table___test___cal_-custom tbody td {\n  padding: 8px!important;\n  background-color: transparent!important;\n  border-right: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-table___test___cal_-tag {\n  display: inline-block;\n  margin: 0 4px;\n  padding: 0 4px;\n  height: 20px;\n  line-height: 16px;\n  background-color: #fafafa;\n  border: 1px solid #ccc;\n  text-align: center;\n  border-radius: 2px;\n  overflow: hidden;\n  vertical-align: middle;\n}\n._zs_gallery_mx-table___test___cal_-prefix {\n  width: 30px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-table___test___cal_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-table___test___cal_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-table___test___cal_-custom {\n  width: 600px;\n  border: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-table___test___cal_-custom tbody td {\n  padding: 8px!important;\n  background-color: transparent!important;\n  border-right: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-table___test___cal_-tag {\n  display: inline-block;\n  margin: 0 4px;\n  padding: 0 4px;\n  height: 20px;\n  line-height: 16px;\n  background-color: #fafafa;\n  border: 1px solid #ccc;\n  text-align: center;\n  border-radius: 2px;\n  overflow: hidden;\n  vertical-align: middle;\n}\n._zs_gallery_mx-table___test___cal_-prefix {\n  width: 30px;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -31,16 +31,16 @@ module.exports = Base.extend({
     $line = 150;
     $art = 'each rows as row';
     ;
-    $expr = '<%for (var $art_ivraebqc$art_i = 0, $art_cpxzjubmxj$art_c = rows.length; $art_ivraebqc$art_i < $art_cpxzjubmxj$art_c; $art_ivraebqc$art_i++) {    var row = rows[$art_ivraebqc$art_i]%>';
-    for (var $art_ivraebqc$art_i = 0, $art_cpxzjubmxj$art_c = rows.length; $art_ivraebqc$art_i < $art_cpxzjubmxj$art_c; $art_ivraebqc$art_i++) {
-        var row = rows[$art_ivraebqc$art_i];
+    $expr = '<%for (var $art_iudlkvara$art_i = 0, $art_cltihmr$art_c = rows.length; $art_iudlkvara$art_i < $art_cltihmr$art_c; $art_iudlkvara$art_i++) {    var row = rows[$art_iudlkvara$art_i]%>';
+    for (var $art_iudlkvara$art_i = 0, $art_cltihmr$art_c = rows.length; $art_iudlkvara$art_i < $art_cltihmr$art_c; $art_iudlkvara$art_i++) {
+        var row = rows[$art_iudlkvara$art_i];
         $p += ' ';
         $line = 151;
         $art = 'each row as cell';
         ;
-        $expr = '<%for (var $art_iftfrbnss$art_i = 0, $art_crdgfadlu$art_c = row.length; $art_iftfrbnss$art_i < $art_crdgfadlu$art_c; $art_iftfrbnss$art_i++) {        var cell = row[$art_iftfrbnss$art_i]%>';
-        for (var $art_iftfrbnss$art_i = 0, $art_crdgfadlu$art_c = row.length; $art_iftfrbnss$art_i < $art_crdgfadlu$art_c; $art_iftfrbnss$art_i++) {
-            var cell = row[$art_iftfrbnss$art_i];
+        $expr = '<%for (var $art_iyvxurjgd$art_i = 0, $art_chqqsmr$art_c = row.length; $art_iyvxurjgd$art_i < $art_chqqsmr$art_c; $art_iyvxurjgd$art_i++) {        var cell = row[$art_iyvxurjgd$art_i]%>';
+        for (var $art_iyvxurjgd$art_i = 0, $art_chqqsmr$art_c = row.length; $art_iyvxurjgd$art_i < $art_chqqsmr$art_c; $art_iyvxurjgd$art_i++) {
+            var cell = row[$art_iyvxurjgd$art_i];
             $p += '<div mxa="_zs_galleryd?:d" class="clearfix"><div mxa="_zs_galleryd?:e" class="fl _zs_gallery_mx-table___test___cal_-prefix">';
             $line = 153;
             $art = '=cell.content';

@@ -8,7 +8,7 @@ define("mx-table/rwd",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-table_rwd_","/* @dependent: ./index.less */\n._zs_gallery_mx-table_rwd_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-table_rwd_-wrap {\n  width: 24px;\n}\n._zs_gallery_mx-table_rwd_-wrap ._zs_gallery_mx-table_rwd_-arrow {\n  width: 12px;\n  background-color: #ccc;\n  color: #fff;\n  cursor: pointer;\n}\n._zs_gallery_mx-table_rwd_-wrap ._zs_gallery_mx-table_rwd_-arrow:hover {\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-table_rwd_-end {\n  padding-right: 40px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-table_rwd_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-table_rwd_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-table_rwd_-wrap {\n  width: 24px;\n}\n._zs_gallery_mx-table_rwd_-wrap ._zs_gallery_mx-table_rwd_-arrow {\n  width: 12px;\n  background-color: #ccc;\n  color: #fff;\n  cursor: pointer;\n}\n._zs_gallery_mx-table_rwd_-wrap ._zs_gallery_mx-table_rwd_-arrow:hover {\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-table_rwd_-end {\n  padding-right: 40px;\n}\n");
 var html = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
     var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };

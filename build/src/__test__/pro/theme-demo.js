@@ -9,7 +9,7 @@ require("./theme-demo1");
 require("./theme-demo2");
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery___test___pro_theme-demo_","/* @dependent: ./index.less */\n._zs_gallery___test___pro_theme-demo_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_theme-demo_-demo-wrapper {\n  width: 860px;\n  padding: 20px;\n  border-radius: 4px;\n  border: 1px solid #e6e6e6;\n}\n");
+Magix.applyStyle("_zs_gallery___test___pro_theme-demo_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery___test___pro_theme-demo_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_theme-demo_-demo-wrapper {\n  width: 860px;\n  padding: 20px;\n  border-radius: 4px;\n  border: 1px solid #e6e6e6;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

@@ -56,7 +56,7 @@ module.exports = Magix.View.extend({
             len: products.length,
             width: me['@{products.width}'],
             dark: me['@{ui.dark}'],
-            year
+            year: '现在'
         }
 
         me.updater.digest(info);

@@ -7,7 +7,7 @@ define("mx-collapse/__test__/content",["magix","mx-preview/index"],(require,expo
 /*Magix*/
 require("mx-preview/index");
 var Magix = require("magix");
-Magix.applyStyle("_zs_gallery_mx-collapse___test___index_","/* @dependent: ./index.less */\n._zs_gallery_mx-collapse___test___index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-collapse___test___index_-demo {\n  margin-right: 20px;\n  border: 1px solid #e6e6e6;\n  background-color: #fafafa;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-collapse___test___index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-collapse___test___index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-collapse___test___index_-demo {\n  margin-right: 20px;\n  border: 1px solid #e6e6e6;\n  background-color: #fafafa;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

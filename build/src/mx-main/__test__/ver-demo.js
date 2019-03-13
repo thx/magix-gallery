@@ -12,7 +12,7 @@ var Magix = require("magix");
 var $ = require("$");
 var Router = Magix.Router;
 var Base = require("__test__/example");
-Magix.applyStyle("_zs_gallery_mx-main___test___ver-demo_","/* @dependent: ./index.less */\n._zs_gallery_mx-main___test___ver-demo_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main___test___ver-demo_-wrap {\n  background-color: #fafafa;\n  padding: 20px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-main___test___ver-demo_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-main___test___ver-demo_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main___test___ver-demo_-wrap {\n  background-color: #fafafa;\n  padding: 20px;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

@@ -7,7 +7,7 @@ define("mx-popover/__test__/custom",["magix"],(require,exports,module)=>{
 /*Magix*/
 
 var Magix = require("magix");
-Magix.applyStyle("_zs_gallery_mx-popover___test___custom_","/* @dependent: ./index.less */\n._zs_gallery_mx-popover___test___custom_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-popover___test___custom_-custom {\n  border-radius: 4px;\n}\n._zs_gallery_mx-popover___test___custom_-custom ._zs_gallery_mx-popover___test___custom_-custom-title {\n  padding: 10px;\n  background-color: #fafafa;\n  border-top-left-radius: 4px;\n  border-top-right-radius: 4px;\n}\n._zs_gallery_mx-popover___test___custom_-custom ._zs_gallery_mx-popover___test___custom_-custom-item {\n  float: left;\n  width: 33.3%;\n  padding: 10px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-popover___test___custom_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-popover___test___custom_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-popover___test___custom_-custom {\n  border-radius: 4px;\n}\n._zs_gallery_mx-popover___test___custom_-custom ._zs_gallery_mx-popover___test___custom_-custom-title {\n  padding: 10px;\n  background-color: #fafafa;\n  border-top-left-radius: 4px;\n  border-top-right-radius: 4px;\n}\n._zs_gallery_mx-popover___test___custom_-custom ._zs_gallery_mx-popover___test___custom_-custom-item {\n  float: left;\n  width: 33.3%;\n  padding: 10px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 5;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ibvpbtjeugc$art_i = 0, $art_cgydihum$art_c = list.length; $art_ibvpbtjeugc$art_i < $art_cgydihum$art_c; $art_ibvpbtjeugc$art_i++) {    var item = list[$art_ibvpbtjeugc$art_i]%>';
-    for (var $art_ibvpbtjeugc$art_i = 0, $art_cgydihum$art_c = list.length; $art_ibvpbtjeugc$art_i < $art_cgydihum$art_c; $art_ibvpbtjeugc$art_i++) {
-        var item = list[$art_ibvpbtjeugc$art_i];
+    $expr = '<%for (var $art_iakzhzgh$art_i = 0, $art_cztcbsmxc$art_c = list.length; $art_iakzhzgh$art_i < $art_cztcbsmxc$art_c; $art_iakzhzgh$art_i++) {    var item = list[$art_iakzhzgh$art_i]%>';
+    for (var $art_iakzhzgh$art_i = 0, $art_cztcbsmxc$art_c = list.length; $art_iakzhzgh$art_i < $art_cztcbsmxc$art_c; $art_iakzhzgh$art_i++) {
+        var item = list[$art_iakzhzgh$art_i];
         $p += '<div mxa="_zs_galleryc\\:b" class="_zs_gallery_mx-popover___test___custom_-custom-item"><div mxa="_zs_galleryc\\:c" class="mb5 color-9">';
         $line = 7;
         $art = '=item.name';

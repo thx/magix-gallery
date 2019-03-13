@@ -11,7 +11,7 @@ require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-dragsort___test___index_","/* @dependent: ./index.less */\n._zs_gallery_mx-dragsort___test___index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-dragsort___test___index_-item {\n  width: 120px;\n  padding: 10px;\n  margin-bottom: 10px;\n  margin-right: 10px;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  cursor: pointer;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-dragsort___test___index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-dragsort___test___index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-dragsort___test___index_-item {\n  width: 120px;\n  padding: 10px;\n  margin-bottom: 10px;\n  margin-right: 10px;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  cursor: pointer;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -29,9 +29,9 @@ module.exports = Base.extend({
     $line = 8;
     $art = 'each items as item';
     ;
-    $expr = '<%for (var $art_ibgfuucdgb$art_i = 0, $art_clkcotgeltq$art_c = items.length; $art_ibgfuucdgb$art_i < $art_clkcotgeltq$art_c; $art_ibgfuucdgb$art_i++) {    var item = items[$art_ibgfuucdgb$art_i]%>';
-    for (var $art_ibgfuucdgb$art_i = 0, $art_clkcotgeltq$art_c = items.length; $art_ibgfuucdgb$art_i < $art_clkcotgeltq$art_c; $art_ibgfuucdgb$art_i++) {
-        var item = items[$art_ibgfuucdgb$art_i];
+    $expr = '<%for (var $art_ifevhdeueo$art_i = 0, $art_crjuleecna$art_c = items.length; $art_ifevhdeueo$art_i < $art_crjuleecna$art_c; $art_ifevhdeueo$art_i++) {    var item = items[$art_ifevhdeueo$art_i]%>';
+    for (var $art_ifevhdeueo$art_i = 0, $art_crjuleecna$art_c = items.length; $art_ifevhdeueo$art_i < $art_crjuleecna$art_c; $art_ifevhdeueo$art_i++) {
+        var item = items[$art_ifevhdeueo$art_i];
         $p += '<li class="_zs_gallery_mx-dragsort___test___index_-item" data-value="';
         $line = 9;
         $art = '=item';
@@ -51,9 +51,9 @@ module.exports = Base.extend({
     $line = 14;
     $art = 'each items as item';
     ;
-    $expr = '<%for (var $art_ivzmwvg$art_i = 0, $art_ccnbissrx$art_c = items.length; $art_ivzmwvg$art_i < $art_ccnbissrx$art_c; $art_ivzmwvg$art_i++) {    var item = items[$art_ivzmwvg$art_i]%>';
-    for (var $art_ivzmwvg$art_i = 0, $art_ccnbissrx$art_c = items.length; $art_ivzmwvg$art_i < $art_ccnbissrx$art_c; $art_ivzmwvg$art_i++) {
-        var item = items[$art_ivzmwvg$art_i];
+    $expr = '<%for (var $art_ijacwd$art_i = 0, $art_coclycmnc$art_c = items.length; $art_ijacwd$art_i < $art_coclycmnc$art_c; $art_ijacwd$art_i++) {    var item = items[$art_ijacwd$art_i]%>';
+    for (var $art_ijacwd$art_i = 0, $art_coclycmnc$art_c = items.length; $art_ijacwd$art_i < $art_coclycmnc$art_c; $art_ijacwd$art_i++) {
+        var item = items[$art_ijacwd$art_i];
         $p += '<div>';
         $line = 15;
         $art = '=item';

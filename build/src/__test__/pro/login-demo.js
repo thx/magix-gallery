@@ -10,7 +10,7 @@ require("../hl");
 var Magix = require("magix");
 var Base = require("../example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery___test___pro_login-demo_","/* @dependent: ./index.less */\n._zs_gallery___test___pro_login-demo_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_login-demo_-demo {\n  padding: 40px 0;\n  background-color: #fafafa;\n}\n._zs_gallery___test___pro_login-demo_-demo ._zs_gallery___test___pro_login-demo_-login-wrapper {\n  width: 350px;\n  height: 340px;\n  margin: auto;\n  background-color: #fff;\n  overflow: hidden;\n}\n");
+Magix.applyStyle("_zs_gallery___test___pro_login-demo_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery___test___pro_login-demo_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_login-demo_-demo {\n  padding: 40px 0;\n  background-color: #fafafa;\n}\n._zs_gallery___test___pro_login-demo_-demo ._zs_gallery___test___pro_login-demo_-login-wrapper {\n  width: 350px;\n  height: 340px;\n  margin: auto;\n  background-color: #fff;\n  overflow: hidden;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
