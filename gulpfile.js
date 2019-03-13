@@ -140,6 +140,20 @@ gulp.task('compress', ['turnOffDebug', 'combine'], () => {
         .pipe(gulp.dest('./build'));
 });
 
+gulp.task('doc', ['compress'], async () => {
+    let index = fs.readFileSync('./index.html').toString();
+    
+    let cs = fs.readFileSync('./build/all.js').toString();
+    cs = cs.replace(/\$/g, '$$$$');
+    index = index.replace(/<script id="test">[\s\S]*?<\/script>/, '<script id="test">' + cs + '</script>');
+
+    fs.writeFileSync('./index.html', index);
+
+    await spawnCommand('git', ['add', '.']);
+    await spawnCommand('git', ['commit', '-m', 'publish ' + pkg.version]);
+    await spawnCommand('git', ['push', 'origin', 'master']);
+});
+
 gulp.task('release', ['compress'], async () => {
     let index = fs.readFileSync('./index.html').toString();
     
