@@ -150,7 +150,7 @@ gulp.task('doc', ['compress'], async () => {
     fs.writeFileSync('./index.html', index);
 
     await spawnCommand('git', ['add', '.']);
-    await spawnCommand('git', ['commit', '-m', 'publish ' + pkg.version]);
+    await spawnCommand('git', ['commit', '-m', '同步至magix-gallery']);
     await spawnCommand('git', ['push', 'origin', 'master']);
 });
 
