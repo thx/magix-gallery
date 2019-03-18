@@ -1,4 +1,3 @@
-/*md5:d26f8df89825e14487941f09716da1b5*/
 /**
  * 缩略图+预览
  */
@@ -11,15 +10,20 @@ module.exports = Magix.View.extend({
     tmpl: '@index.html',
     init(extra) {
         let that = this;
-        that.extra = extra;
+
+        //初始化时保存一份当前数据的快照
+        that.updater.snapshot();
+
+        that.assign(extra);
+
         that.on('destroy', () => {
             clearTimeout(that.timer);
             $('#pic_preview_' + that.id).remove();
         });
     },
-    render() {
+    assign(extra) {
         let that = this;
-        let extra = that.extra;
+        let altered = that.updater.altered();
 
         // 不配置默认展示为文字
         let format = +extra.format || 5;
@@ -56,7 +60,7 @@ module.exports = Magix.View.extend({
             url = extra.xiaotuUrl;
         }
 
-        that.updater.digest({
+        that.updater.set({
             viewId: that.id,
             placement: extra.placement || 'right', //展示位置，左边 or 右边
             preview: (extra.preview + '' !== 'false'), //是否需要预览
@@ -69,7 +73,22 @@ module.exports = Magix.View.extend({
             height: +extra.height,
             maxWidth: +extra.maxWidth || 100, // 缩略图尺寸，默认100
             maxHeight: +extra.maxHeight || 100
-        });
+        })
+
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            // 组件有更新，真个节点会全部需要重新初始化
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+
+    render() {
+        let that = this;
+        that.updater.digest({});
 
         if (window.IntersectionObserver) {
             var observer = new IntersectionObserver(changes => {
@@ -85,6 +104,12 @@ module.exports = Magix.View.extend({
             });
 
             observer.observe(document.querySelector('#' + that.id));
+
+            that.capture('observer', {
+                destroy() {
+                    observer.disconnect();
+                }
+            });
         } else {
             // 直接加载
             that.thumbnail();

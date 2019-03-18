@@ -1,1 +1,98 @@
-define("mx-tabs/base",["magix"],(t,e,i)=>{var s=t("magix");i.exports=s.View.extend({init:function(t){this.updater.snapshot(),this.assign(t)},assign:function(t){var e,i=this.updater.altered(),s=t.textKey||"text",a=t.valueKey||"value";try{e=new Function("return "+t.list)()}catch(i){e=t.list}e=(e=e||[]).map(function(t){return{text:t[s],value:t[a],tag:t.tag,tips:t.tips}});var d=t.selected||(e[0]||{}).value;this.__df=e,this.__eR=d,this.__eS=t.type||"border",this.__eT=/^true$/i.test(t.disabled)||!1;var r=t.mode||"solid";return this.__j=$("#"+this.id),this.updater.set({viewId:this.id,mode:r,type:this.__eS,disabled:this.__eT,list:this.__df,selected:this.__eR,left:0,width:0,spm:this.__j.attr("data-spm-click")||""}),i||(i=this.updater.altered()),!!i&&(this.updater.snapshot(),!0)},"__aa<click>":function(t){var e=t.params.item,i=e.value;if(this.__eR!=i){this.__eR=i,this.updater.set({selected:i,hover:i}).digest();var s=$.Event("change",{item:e,value:i,text:e.text,selected:i});this.__j.trigger(s)}}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-tabs/base",["magix"],(require,exports,module)=>{
+/*Magix*/
+
+var Magix = require("magix");
+module.exports = Magix.View.extend({
+    init: function (extra) {
+        //初始化时保存一份当前数据的快照
+        this.updater.snapshot();
+        //该处是否可以由magix自动调用
+        this.assign(extra);
+    },
+    assign: function (data) {
+        var that = this;
+        //赋值前先进行数据变化的检测,首次assign是在init方法中调用,后续的调用是magix自动调用,这个检测主要用于在首次调用后,magix自动调用前有没有进行数据的更新
+        var altered = that.updater.altered();
+        //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
+        var textKey = data.textKey || 'text';
+        var valueKey = data.valueKey || 'value';
+        var list;
+        try {
+            list = (new Function('return ' + data.list))();
+        }
+        catch (e) {
+            list = data.list;
+        }
+        list = list || [];
+        list = list.map(function (item) {
+            return {
+                text: item[textKey],
+                value: item[valueKey],
+                tag: item.tag,
+                tips: item.tips
+            };
+        });
+        var selected = data.selected || (list[0] || {})['value'];
+        that['@{data.list}'] = list;
+        that['@{data.selected}'] = selected;
+        // 展示类型：（兼容老的写法，不建议配置）
+        //     border
+        //     box
+        that['@{display.type}'] = data.type || 'border';
+        that['@{display.disabled}'] = (/^true$/i).test(data.disabled) || false;
+        // box 类型
+        //     solid 实心
+        //     hollow 空心
+        var mode = data.mode || 'solid';
+        that['@{owner.node}'] = $('#' + that.id);
+        that.updater.set({
+            viewId: that.id,
+            mode: mode,
+            type: that['@{display.type}'],
+            disabled: that['@{display.disabled}'],
+            list: that['@{data.list}'],
+            selected: that['@{data.selected}'],
+            left: 0,
+            width: 0,
+            spm: that['@{owner.node}'].attr('data-spm-click') || ''
+        });
+        //如果数据没变化,则设置新的数据后再次检测
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        //如果有变化,则再保存当前的快照,然后返回true告诉magix当前view需要更新
+        if (altered) {
+            that.updater.snapshot();
+            return true;
+        }
+        //如果数据没变化,则告诉magix当前view不用更新
+        return false;
+    },
+    '@{select}<click>': function (e) {
+        var that = this;
+        var item = e.params.item;
+        var value = item.value;
+        if (that['@{data.selected}'] == value) {
+            return;
+        }
+        that['@{data.selected}'] = value;
+        that.updater.set({
+            selected: value,
+            hover: value
+        }).digest();
+        var event = $.Event('change', {
+            item: item,
+            value: value,
+            text: item.text,
+            selected: value
+        });
+        that['@{owner.node}'].trigger(event);
+    }
+});
+
+});
