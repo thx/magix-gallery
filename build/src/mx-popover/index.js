@@ -55,6 +55,7 @@ catch (ex) {
         me['@{scroll.wrapper}'] = extra.scrollWrapper;
         me['@{content}'] = extra.content || '';
         me['@{width}'] = extra.width || 200;
+        me['@{zIndex}'] = extra.zIndex || 9999;
         me['@{auto}'] = (/^true$/i).test(extra.auto) || false;
         me['@{custom.view}'] = extra.view || '';
         me['@{custom.view.data}'] = extra.data || {};
@@ -95,14 +96,14 @@ catch (ex) {
     },
     '@{init}': function () {
         var me = this;
-        var posClass = me['@{pos.class}'], posWidth = me['@{width}'], view = me['@{custom.view}'], viewData = me['@{custom.view.data}'], vId = me.id;
+        var posClass = me['@{pos.class}'], posWidth = me['@{width}'], zIndex = me['@{zIndex}'], view = me['@{custom.view}'], viewData = me['@{custom.view.data}'], vId = me.id;
         if (!view) {
             view = 'mx-popover/content';
             viewData = {
                 content: me['@{content}']
             };
         }
-        var popNode = "<div class=\"_zs_gallery_mx-popover_index_-popover-hide " + posClass + "\" id=\"popover_" + vId + "\"\n                style=\"width: " + posWidth + "px;\"></div>";
+        var popNode = "<div class=\"_zs_gallery_mx-popover_index_-popover-hide " + posClass + "\" id=\"popover_" + vId + "\"\n                style=\"width: " + posWidth + "px; z-index: " + zIndex + ";\"></div>";
         $(document.body).append(popNode);
         // 先实例化，绑定事件，再加载对应的view
         var vf = me.owner.mountVframe('popover_' + vId, '');

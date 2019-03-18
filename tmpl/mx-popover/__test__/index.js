@@ -57,6 +57,11 @@ module.exports = Magix.View.extend({
             desc: '相对滚动父元素，支持格式#id，.class，id，$(node)',
             type: 'string',
             def: ''
+        }, {
+            key: 'z-index',
+            desc: '自定义z-index',
+            type: 'number',
+            def: '9999'
         }]
         that.updater.digest({
             viewId: that.id,

@@ -25,6 +25,7 @@ module.exports = Base.extend({
 
         me['@{content}'] = extra.content || '';
         me['@{width}'] = extra.width || 200;
+        me['@{zIndex}'] = extra.zIndex || 9999;
         me['@{auto}'] = (/^true$/i).test(extra.auto) || false;
         me['@{custom.view}'] = extra.view || '';
         me['@{custom.view.data}'] = extra.data || {};
@@ -71,6 +72,7 @@ module.exports = Base.extend({
 
         let posClass = me['@{pos.class}'],
             posWidth = me['@{width}'],
+            zIndex = me['@{zIndex}'],
             view = me['@{custom.view}'],
             viewData = me['@{custom.view.data}'],
             vId = me.id;
@@ -82,7 +84,7 @@ module.exports = Base.extend({
         }
 
         let popNode = `<div class="@index.less:popover-hide ${posClass}" id="popover_${vId}"
-                style="width: ${posWidth}px;"></div>`;
+                style="width: ${posWidth}px; z-index: ${zIndex};"></div>`;
         $(document.body).append(popNode);
         // 先实例化，绑定事件，再加载对应的view
         let vf = me.owner.mountVframe('popover_' + vId, '');
