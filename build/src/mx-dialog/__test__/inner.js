@@ -47,6 +47,7 @@ catch (ex) {
     }
 }, {
     dialogOptions: {
+        top: 0,
         width: 800
     }
 });

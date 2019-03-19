@@ -605,16 +605,17 @@ catch (ex) {
                 return;
             }
             me[key] = 1;
-            // 优先级：外部传入的 > view本身配置的 > 默认
-            // 浮层内部的配置
-            Magix.mix(dOptions, V.dialogOptions || {});
-            // 调用时候的配置，浮层展示位置
+            // 优先级：
+            // 外部传入的（dialogOptions） > view本身配置的（vDialogOptions） > 默认（dOptions）
+            // view本身配置的
+            var vDialogOptions = V.dialogOptions || {};
+            // 外部传入的
             dialogOptions = dialogOptions || {};
-            // 显示位置：
-            //     center：居中
-            //     right：右侧
-            var placement = dialogOptions.placement || 'center';
-            var width = dialogOptions.width || dOptions.width || 400, height = dialogOptions.height || dOptions.height || 260;
+            // 浮层出现动画位置：
+            //     center：居中（从上到下）
+            //     right：右侧（从右到左）
+            var placement = dialogOptions.placement || vDialogOptions.placement || 'center';
+            var width = dialogOptions.width || vDialogOptions.width || 400, height = dialogOptions.height || vDialogOptions.height || 260;
             var left, top, posFrom, posTo;
             var winWidth = window.innerWidth, winHeight = window.innerHeight;
             switch (placement) {
@@ -645,7 +646,7 @@ catch (ex) {
                     };
                     break;
             }
-            Magix.mix(dOptions, Magix.mix({
+            Magix.mix(dOptions, {
                 mask: true,
                 modal: false,
                 width: width,
@@ -654,7 +655,7 @@ catch (ex) {
                 top: top,
                 posFrom: posFrom,
                 posTo: posTo
-            }, dialogOptions));
+            }, vDialogOptions, dialogOptions);
             // 数据
             Magix.mix(dOptions, viewOptions);
             dOptions.dialog = output;

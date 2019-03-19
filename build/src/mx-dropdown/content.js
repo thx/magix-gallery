@@ -92,8 +92,8 @@ module.exports = Magix.View.extend({
         $line = 24;
         $art = 'each parents as parent parentIndex';
         ;
-        $expr = '<%for (var parentIndex = 0, $art_czrfcud$art_c = parents.length; parentIndex < $art_czrfcud$art_c; parentIndex++) {        var parent = parents[parentIndex]%>';
-        for (var parentIndex = 0, $art_czrfcud$art_c = parents.length; parentIndex < $art_czrfcud$art_c; parentIndex++) {
+        $expr = '<%for (var parentIndex = 0, $art_cpiysmasc$art_c = parents.length; parentIndex < $art_cpiysmasc$art_c; parentIndex++) {        var parent = parents[parentIndex]%>';
+        for (var parentIndex = 0, $art_cpiysmasc$art_c = parents.length; parentIndex < $art_cpiysmasc$art_c; parentIndex++) {
             var parent = parents[parentIndex];
             $p += ' ';
             $line = 25;
@@ -128,9 +128,9 @@ module.exports = Magix.View.extend({
                 $line = 29;
                 $art = 'each parent.list as item itemIndex';
                 ;
-                $expr = '<%for (var itemIndex = 0, $art_objopabbdzxlo$art_obj = parent.list, $art_clctcwd$art_c = $art_objopabbdzxlo$art_obj.length; itemIndex < $art_clctcwd$art_c; itemIndex++) {                var item = $art_objopabbdzxlo$art_obj[itemIndex]%>';
-                for (var itemIndex = 0, $art_objopabbdzxlo$art_obj = parent.list, $art_clctcwd$art_c = $art_objopabbdzxlo$art_obj.length; itemIndex < $art_clctcwd$art_c; itemIndex++) {
-                    var item = $art_objopabbdzxlo$art_obj[itemIndex];
+                $expr = '<%for (var itemIndex = 0, $art_objvbqitbq$art_obj = parent.list, $art_cnrbgcti$art_c = $art_objvbqitbq$art_obj.length; itemIndex < $art_cnrbgcti$art_c; itemIndex++) {                var item = $art_objvbqitbq$art_obj[itemIndex]%>';
+                for (var itemIndex = 0, $art_objvbqitbq$art_obj = parent.list, $art_cnrbgcti$art_c = $art_objvbqitbq$art_obj.length; itemIndex < $art_cnrbgcti$art_c; itemIndex++) {
+                    var item = $art_objvbqitbq$art_obj[itemIndex];
                     $p += ' ';
                     $line = 30;
                     $art = 'if !item.hide';

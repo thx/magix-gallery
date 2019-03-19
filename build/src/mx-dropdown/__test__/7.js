@@ -32,9 +32,9 @@ module.exports = Base.extend({
     $line = 20;
     $art = 'each first as i';
     ;
-    $expr = '<%for (var $art_irulxmnszf$art_i = 0, $art_clulabnrv$art_c = first.length; $art_irulxmnszf$art_i < $art_clulabnrv$art_c; $art_irulxmnszf$art_i++) {    var i = first[$art_irulxmnszf$art_i]%>';
-    for (var $art_irulxmnszf$art_i = 0, $art_clulabnrv$art_c = first.length; $art_irulxmnszf$art_i < $art_clulabnrv$art_c; $art_irulxmnszf$art_i++) {
-        var i = first[$art_irulxmnszf$art_i];
+    $expr = '<%for (var $art_izlyuvycss$art_i = 0, $art_cxavsvwhl$art_c = first.length; $art_izlyuvycss$art_i < $art_cxavsvwhl$art_c; $art_izlyuvycss$art_i++) {    var i = first[$art_izlyuvycss$art_i]%>';
+    for (var $art_izlyuvycss$art_i = 0, $art_cxavsvwhl$art_c = first.length; $art_izlyuvycss$art_i < $art_cxavsvwhl$art_c; $art_izlyuvycss$art_i++) {
+        var i = first[$art_izlyuvycss$art_i];
         $p += '<i value="';
         $line = 21;
         $art = '=i';
@@ -54,9 +54,9 @@ module.exports = Base.extend({
     $line = 24;
     $art = 'each second as i';
     ;
-    $expr = '<%for (var $art_iypbrptvpjg$art_i = 0, $art_cyhhlakfgzf$art_c = second.length; $art_iypbrptvpjg$art_i < $art_cyhhlakfgzf$art_c; $art_iypbrptvpjg$art_i++) {    var i = second[$art_iypbrptvpjg$art_i]%>';
-    for (var $art_iypbrptvpjg$art_i = 0, $art_cyhhlakfgzf$art_c = second.length; $art_iypbrptvpjg$art_i < $art_cyhhlakfgzf$art_c; $art_iypbrptvpjg$art_i++) {
-        var i = second[$art_iypbrptvpjg$art_i];
+    $expr = '<%for (var $art_iqrvwwrpe$art_i = 0, $art_cbgycoco$art_c = second.length; $art_iqrvwwrpe$art_i < $art_cbgycoco$art_c; $art_iqrvwwrpe$art_i++) {    var i = second[$art_iqrvwwrpe$art_i]%>';
+    for (var $art_iqrvwwrpe$art_i = 0, $art_cbgycoco$art_c = second.length; $art_iqrvwwrpe$art_i < $art_cbgycoco$art_c; $art_iqrvwwrpe$art_i++) {
+        var i = second[$art_iqrvwwrpe$art_i];
         $p += '<i value="';
         $line = 25;
         $art = '=i';

@@ -36,31 +36,31 @@ module.exports = Base.extend({
     $line = 23;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_3">\nlet Magix = require(\'magix\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@inner.html\',\n    init(e) &#123;\n        this.viewOptions = e;\n    &#125;,\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    \'cancel&lt;click&gt;\'(event) &#123;\n        event.preventDefault();\n        let viewOptions = this.viewOptions;\n        if (viewOptions.dialog) &#123;\n            viewOptions.dialog.close();\n        &#125;\n    &#125;\n&#125;, &#123;\n    dialogOptions: &#123;\n        width: 800\n    &#125;\n&#125;);\n            </pre></div><div mxa="_zs_galleryay:d" class="_zs_gallery___test___layout_-half"><div mxa="_zs_galleryay:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryay:c" class="_zs_gallery___test___layout_-eg-title">使用浮层内配置的属性</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 51;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_3">\nlet Magix = require(\'magix\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@inner.html\',\n    init(e) &#123;\n        this.viewOptions = e;\n    &#125;,\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    \'cancel&lt;click&gt;\'(event) &#123;\n        event.preventDefault();\n        let viewOptions = this.viewOptions;\n        if (viewOptions.dialog) &#123;\n            viewOptions.dialog.close();\n        &#125;\n    &#125;\n&#125;, &#123;\n    dialogOptions: &#123;\n        top: 0,\n        width: 800\n    &#125;\n&#125;);\n            </pre></div><div mxa="_zs_galleryay:d" class="_zs_gallery___test___layout_-half"><div mxa="_zs_galleryay:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryay:c" class="_zs_gallery___test___layout_-eg-title">使用浮层内配置的属性</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 52;
     $art = '=viewId';
     ;
     $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryay:f" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 53;
+    $line = 54;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryay:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 56;
+    $line = 57;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n\'open&lt;click&gt;\'(e) &#123;\n    this.mxDialog(\'@./inner\');\n&#125;\n                </pre></div><div mxa="_zs_galleryay:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryay:d" class="_zs_gallery___test___layout_-eg-title">自定义属性</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 64;
+    $line = 65;
     $art = '=viewId';
     ;
     $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryay:h" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 66;
+    $line = 67;
     $art = '!text2';
     ;
     $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryay:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 69;
+    $line = 70;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\n\'open&lt;click&gt;\'(e) &#123;\n    this.mxDialog(\'@./inner\', &#123;&#125;, &#123;\n        width: 400\n    &#125;);\n&#125;\n                </pre></div></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\n\'open&lt;click&gt;\'(e) &#123;\n    this.mxDialog(\'@./inner\', &#123;&#125;, &#123;\n        top: 100,\n        width: 400\n    &#125;);\n&#125;\n                </pre></div></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -79,6 +79,7 @@ catch (ex) {
     },
     'open2<click>': function (e) {
         this.mxDialog('mx-dialog/__test__/inner', {}, {
+            top: 100,
             width: 400
         });
     }

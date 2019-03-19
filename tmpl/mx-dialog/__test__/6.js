@@ -14,6 +14,7 @@ module.exports = Base.extend({
     },
     'open2<click>'(e) {
         this.mxDialog('@./inner', {}, {
+            top: 100,
             width: 400
         });
     }
