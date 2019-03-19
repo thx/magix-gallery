@@ -240,6 +240,9 @@ catch (ex) {
             // 对最大范围进行修正，不超过屏幕可视范围
             var win = $(window);
             var winWidth = win.width(), winHeight = win.height(), winScroll = win.scrollTop();
+            if (top < winScroll) {
+                top = winScroll;
+            }
             // placement: right（目标右侧）
             // placement: left（目标左侧）
             var placement = data.placement, rangeWidth = 0; // 可见宽度范围

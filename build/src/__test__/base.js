@@ -38,9 +38,9 @@ module.exports = Magix.View.extend({
     $line = 17;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_ikpkrxfits$art_i = 0, $art_cvcvimg$art_c = headers.length; $art_ikpkrxfits$art_i < $art_cvcvimg$art_c; $art_ikpkrxfits$art_i++) {    var h = headers[$art_ikpkrxfits$art_i]%>';
-    for (var $art_ikpkrxfits$art_i = 0, $art_cvcvimg$art_c = headers.length; $art_ikpkrxfits$art_i < $art_cvcvimg$art_c; $art_ikpkrxfits$art_i++) {
-        var h = headers[$art_ikpkrxfits$art_i];
+    $expr = '<%for (var $art_idoxpfvks$art_i = 0, $art_cyzvkhvobh$art_c = headers.length; $art_idoxpfvks$art_i < $art_cyzvkhvobh$art_c; $art_idoxpfvks$art_i++) {    var h = headers[$art_idoxpfvks$art_i]%>';
+    for (var $art_idoxpfvks$art_i = 0, $art_cyzvkhvobh$art_c = headers.length; $art_idoxpfvks$art_i < $art_cyzvkhvobh$art_c; $art_idoxpfvks$art_i++) {
+        var h = headers[$art_idoxpfvks$art_i];
         $p += '<a ';
         $line = 18;
         $art = 'if h.new';
@@ -154,9 +154,9 @@ module.exports = Magix.View.extend({
     $line = 32;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_icakcetiwmf$art_i = 0, $art_cgxexvq$art_c = list.length; $art_icakcetiwmf$art_i < $art_cgxexvq$art_c; $art_icakcetiwmf$art_i++) {    var item = list[$art_icakcetiwmf$art_i]%>';
-    for (var $art_icakcetiwmf$art_i = 0, $art_cgxexvq$art_c = list.length; $art_icakcetiwmf$art_i < $art_cgxexvq$art_c; $art_icakcetiwmf$art_i++) {
-        var item = list[$art_icakcetiwmf$art_i];
+    $expr = '<%for (var $art_igsivwaur$art_i = 0, $art_cboaaeycue$art_c = list.length; $art_igsivwaur$art_i < $art_cboaaeycue$art_c; $art_igsivwaur$art_i++) {    var item = list[$art_igsivwaur$art_i]%>';
+    for (var $art_igsivwaur$art_i = 0, $art_cboaaeycue$art_c = list.length; $art_igsivwaur$art_i < $art_cboaaeycue$art_c; $art_igsivwaur$art_i++) {
+        var item = list[$art_igsivwaur$art_i];
         $p += ' ';
         $line = 33;
         $art = 'if item.name';
@@ -197,9 +197,9 @@ module.exports = Magix.View.extend({
         $line = 40;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_idbccpdkvkh$art_i = 0, $art_objxtrmi$art_obj = item.subs, $art_cnnfndyqagi$art_c = $art_objxtrmi$art_obj.length; $art_idbccpdkvkh$art_i < $art_cnnfndyqagi$art_c; $art_idbccpdkvkh$art_i++) {        var sub = $art_objxtrmi$art_obj[$art_idbccpdkvkh$art_i]%>';
-        for (var $art_idbccpdkvkh$art_i = 0, $art_objxtrmi$art_obj = item.subs, $art_cnnfndyqagi$art_c = $art_objxtrmi$art_obj.length; $art_idbccpdkvkh$art_i < $art_cnnfndyqagi$art_c; $art_idbccpdkvkh$art_i++) {
-            var sub = $art_objxtrmi$art_obj[$art_idbccpdkvkh$art_i];
+        $expr = '<%for (var $art_iknfblynwto$art_i = 0, $art_objnyqxhorj$art_obj = item.subs, $art_chsvhkdfq$art_c = $art_objnyqxhorj$art_obj.length; $art_iknfblynwto$art_i < $art_chsvhkdfq$art_c; $art_iknfblynwto$art_i++) {        var sub = $art_objnyqxhorj$art_obj[$art_iknfblynwto$art_i]%>';
+        for (var $art_iknfblynwto$art_i = 0, $art_objnyqxhorj$art_obj = item.subs, $art_chsvhkdfq$art_c = $art_objnyqxhorj$art_obj.length; $art_iknfblynwto$art_i < $art_chsvhkdfq$art_c; $art_iknfblynwto$art_i++) {
+            var sub = $art_objnyqxhorj$art_obj[$art_iknfblynwto$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 41;
             $art = 'if (sub.path == path)';
@@ -792,19 +792,6 @@ catch (ex) {
                 name: 'PRO',
                 "new": that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',
                 outer: 'https://thx.github.io/magix-gallery/pro.html'
-            }, {
-                id: 'edit',
-                name: '在线编辑',
-                path: '/all/edit/index',
-                paths: [{
-                        subs: [{
-                                name: '使用说明',
-                                path: '/all/edit/desc'
-                            }, {
-                                name: '编辑',
-                                path: '/all/edit/index'
-                            }]
-                    }]
             }];
         var pathMap = {}, // 路径index映射
         suggests = []; //全局提示

@@ -5,7 +5,9 @@
 [https://thx.github.io/magix-gallery/](https://thx.github.io/magix-gallery/)
 
 ### 开发说明
-gulp watch
+执行 gulp watch 进行开发
+本地调试test.html，index.html用于压缩发布
+
 
 ### 发布说明
 调整完相关逻辑，修改package.json里version，执行gulp release，包含以下发布操作：

@@ -229,7 +229,8 @@ module.exports = {
         // 是否必填
         // required: [true, '自定义']
         // required: true
-        var valid = true, tip = I18n['form.check.required'], val = $.trim(val);
+        var valid = true, tip = I18n['form.check.required'];
+        val = $.trim(val);
         if ($.isArray(rule)) {
             if (rule[0]) {
                 valid = (val != '');
