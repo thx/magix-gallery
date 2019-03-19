@@ -163,24 +163,108 @@ module.exports = Magix.View.extend({
         let me = this;
 
         if (me['@{need.sticky}']) {
-            let inmain, watchInmainScroll;
             if (me['@{scroll.wrapper}']) {
-                inmain = me['@{scroll.wrapper}'];
-                watchInmainScroll = () => {
-                    me['@{sync.sticky.pos.custom}'](inmain);
+                // 自定义滚动节点
+                let inmain = me['@{scroll.wrapper}'];
+                let watchInmainScroll = () => {
+                    let top = inmain.scrollTop();
+                    let owner = me['@{owner.node}'];
+                    let max = owner.height() - inmain.height();
+                    if (top >= 0 && top <= max) {
+                        me['@{sync.sticky.pos}'](inmain, true, top);
+                    } else {
+                        me['@{sync.sticky.pos.recover}'](inmain);
+                    }
                 };
+                me.on('destroy', () => {
+                    inmain.off('scroll.customsticky', watchInmainScroll);
+                });
+                inmain.on('scroll.customsticky', watchInmainScroll);
+                watchInmainScroll();
             } else {
-                inmain = $(window);
-                watchInmainScroll = () => {
-                    me['@{sync.sticky.pos.win}'](inmain);
+                // 相对于window滚动
+                let inmain = $(window);
+                let watchInmainScroll = () => {
+                    let top = inmain.scrollTop();
+                    let headerHeight = me['@{table.main.thead}'].height();
+            
+                    let owner = me['@{owner.node}'];
+                    let ownerOffset = owner.offset();
+
+                    // 预留顶部间隔
+                    let interval = +me['@{sticky.interval}'];
+                    let min = ownerOffset.top - interval;
+                    let max = min + owner.height() - headerHeight;
+                    if (top >= min && top <= max) {
+                        me['@{sync.sticky.pos}'](inmain, true, top - min);
+                    } else {
+                        me['@{sync.sticky.pos.recover}'](inmain);
+                    }
                 };
+                me.on('destroy', () => {
+                    inmain.off('scroll.customsticky', watchInmainScroll);
+                });
+                inmain.on('scroll.customsticky', watchInmainScroll);
+                watchInmainScroll();
             }
-            me.on('destroy', () => {
-                inmain.off('scroll.customsticky', watchInmainScroll);
+            
+        }
+    },
+
+    '@{sync.sticky.pos}'(node, sticky, top) {
+        let me = this;
+        let mainWrapper = me['@{table.main.wrapper}'],
+            mainHeader = me['@{table.main.thead}'],
+            leftWrapper = me['@{table.left.wrapper}'],
+            leftHeader = me['@{table.left.thead}'];
+        let headerHeight = mainHeader.height();
+        
+
+        mainWrapper.css({
+            paddingTop: headerHeight
+        })
+
+        mainHeader.css({
+            position: 'absolute',
+            zIndex: 80,
+            top: top
+        });
+        if (leftHeader) {
+            leftWrapper.css({
+                paddingTop: headerHeight
+            })
+            leftHeader.css({
+                position: 'absolute',
+                zIndex: 80,
+                top: top
             });
-            inmain.on('scroll.customsticky', watchInmainScroll);
-            me['@{thead.height}'] = me['@{table.main.thead}'].height();
-            watchInmainScroll();
+        }
+            
+    },
+
+    '@{sync.sticky.pos.recover}'(node) {
+        let me = this;
+        let mainWrapper = me['@{table.main.wrapper}'],
+            mainHeader = me['@{table.main.thead}'],
+            leftWrapper = me['@{table.left.wrapper}'],
+            leftHeader = me['@{table.left.thead}'];
+        mainWrapper.css({
+            paddingTop: 0
+        })
+        mainHeader.css({
+            position: 'initial',
+            zIndex: 'auto',
+            top: 'auto'
+        });
+        if (leftHeader) {
+            leftWrapper.css({
+                paddingTop: 0
+            })
+            leftHeader.css({
+                position: 'initial',
+                zIndex: 'auto',
+                top: 'auto'
+            });
         }
     },
 
@@ -502,94 +586,6 @@ module.exports = Magix.View.extend({
         let index = trs.index(target);
         me['@{hover.index}'] = index;
         me['@{toggle.hover.state}'](index, 'add');
-    },
-
-    '@{sync.sticky.pos}'(node, sticky, top) {
-        let me = this;
-        let headerHeight = me['@{thead.height}'];
-        let mainWrapper = me['@{table.main.wrapper}'],
-            mainHeader = me['@{table.main.thead}'],
-            leftWrapper = me['@{table.left.wrapper}'],
-            leftHeader = me['@{table.left.thead}'];
-
-        let nodeHeight = node.height();
-        if (sticky) {
-            mainWrapper.css({
-                paddingTop: headerHeight
-            })
-
-            mainHeader.css({
-                position: 'absolute',
-                zIndex: 80,
-                top: top
-            });
-            if (leftHeader) {
-                leftWrapper.css({
-                    paddingTop: headerHeight
-                })
-                leftHeader.css({
-                    position: 'absolute',
-                    zIndex: 80,
-                    top: top
-                });
-            }
-        } else {
-            mainWrapper.css({
-                paddingTop: 0
-            })
-            mainHeader.css({
-                position: 'initial',
-                zIndex: 'auto',
-                top: 'auto'
-            });
-            if (leftHeader) {
-                leftWrapper.css({
-                    paddingTop: 0
-                })
-                leftHeader.css({
-                    position: 'initial',
-                    zIndex: 'auto',
-                    top: 'auto'
-                });
-            }
-        }
-    },
-
-    '@{sync.sticky.pos.custom}'(node) {
-        let me = this;
-        if (!me['@{need.sticky}']) {
-            return;
-        }
-        let top = node.scrollTop();
-        let headerHeight = me['@{thead.height}'];
-
-        let owner = me['@{owner.node}'];
-        let max = owner.height() - node.height();
-        if (top >= 0 && top <= max) {
-            me['@{sync.sticky.pos}'](node, true, top);
-        } else {
-            me['@{sync.sticky.pos}'](node, false);
-        }
-    },
-
-    '@{sync.sticky.pos.win}'(node) {
-        let me = this;
-        if (!me['@{need.sticky}']) {
-            return;
-        }
-        let top = node.scrollTop();
-        let headerHeight = me['@{thead.height}'];
-
-        let owner = me['@{owner.node}'];
-        let ownerOffset = owner.offset();
-        let interval = +me['@{sticky.interval}'];
-        let min = ownerOffset.top - interval;
-        let max = min + owner.height() - headerHeight;
-        if (top >= min && top <= max) {
-            me['@{sync.sticky.pos}'](node, true, top - min);
-        } else {
-            me['@{sync.sticky.pos}'](node, false);
-        }
     },
 
     '@{sync.scroll.pos.custom}'(node) {
