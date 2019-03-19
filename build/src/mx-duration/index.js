@@ -229,9 +229,9 @@ module.exports = Magix.View.extend({
     $line = 70;
     $art = 'each weeks as week';
     ;
-    $expr = '<%for (var $art_iwdbsqlqt$art_i = 0, $art_cupvcjora$art_c = weeks.length; $art_iwdbsqlqt$art_i < $art_cupvcjora$art_c; $art_iwdbsqlqt$art_i++) {    var week = weeks[$art_iwdbsqlqt$art_i]%>';
-    for (var $art_iwdbsqlqt$art_i = 0, $art_cupvcjora$art_c = weeks.length; $art_iwdbsqlqt$art_i < $art_cupvcjora$art_c; $art_iwdbsqlqt$art_i++) {
-        var week = weeks[$art_iwdbsqlqt$art_i];
+    $expr = '<%for (var $art_imwvcrgi$art_i = 0, $art_cnytiddtys$art_c = weeks.length; $art_imwvcrgi$art_i < $art_cnytiddtys$art_c; $art_imwvcrgi$art_i++) {    var week = weeks[$art_imwvcrgi$art_i]%>';
+    for (var $art_imwvcrgi$art_i = 0, $art_cnytiddtys$art_c = weeks.length; $art_imwvcrgi$art_i < $art_cnytiddtys$art_c; $art_imwvcrgi$art_i++) {
+        var week = weeks[$art_imwvcrgi$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-week-item" style="height: ';
         $line = 71;
         $art = '=boxHeight';
@@ -259,9 +259,9 @@ module.exports = Magix.View.extend({
     $line = 76;
     $art = 'each ranges as range';
     ;
-    $expr = '<%for (var $art_idiiozlpmm$art_i = 0, $art_ctrggdu$art_c = ranges.length; $art_idiiozlpmm$art_i < $art_ctrggdu$art_c; $art_idiiozlpmm$art_i++) {    var range = ranges[$art_idiiozlpmm$art_i]%>';
-    for (var $art_idiiozlpmm$art_i = 0, $art_ctrggdu$art_c = ranges.length; $art_idiiozlpmm$art_i < $art_ctrggdu$art_c; $art_idiiozlpmm$art_i++) {
-        var range = ranges[$art_idiiozlpmm$art_i];
+    $expr = '<%for (var $art_icctohcj$art_i = 0, $art_cidbeu$art_c = ranges.length; $art_icctohcj$art_i < $art_cidbeu$art_c; $art_icctohcj$art_i++) {    var range = ranges[$art_icctohcj$art_i]%>';
+    for (var $art_icctohcj$art_i = 0, $art_cidbeu$art_c = ranges.length; $art_icctohcj$art_i < $art_cidbeu$art_c; $art_icctohcj$art_i++) {
+        var range = ranges[$art_icctohcj$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-range-item" style="width: ';
         $line = 77;
         $art = '=(boxWidth*(rowNum/4))';
@@ -319,9 +319,9 @@ module.exports = Magix.View.extend({
     $line = 86;
     $art = 'each boxZones as zone';
     ;
-    $expr = '<%for (var $art_ilxsfubtygi$art_i = 0, $art_clajmnxnihs$art_c = boxZones.length; $art_ilxsfubtygi$art_i < $art_clajmnxnihs$art_c; $art_ilxsfubtygi$art_i++) {    var zone = boxZones[$art_ilxsfubtygi$art_i]%>';
-    for (var $art_ilxsfubtygi$art_i = 0, $art_clajmnxnihs$art_c = boxZones.length; $art_ilxsfubtygi$art_i < $art_clajmnxnihs$art_c; $art_ilxsfubtygi$art_i++) {
-        var zone = boxZones[$art_ilxsfubtygi$art_i];
+    $expr = '<%for (var $art_iycrgmcdxpz$art_i = 0, $art_crrcntmsyoq$art_c = boxZones.length; $art_iycrgmcdxpz$art_i < $art_crrcntmsyoq$art_c; $art_iycrgmcdxpz$art_i++) {    var zone = boxZones[$art_iycrgmcdxpz$art_i]%>';
+    for (var $art_iycrgmcdxpz$art_i = 0, $art_crrcntmsyoq$art_c = boxZones.length; $art_iycrgmcdxpz$art_i < $art_crrcntmsyoq$art_c; $art_iycrgmcdxpz$art_i++) {
+        var zone = boxZones[$art_iycrgmcdxpz$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-box fl" style="width: ';
         $line = 88;
         $art = '=boxWidth';

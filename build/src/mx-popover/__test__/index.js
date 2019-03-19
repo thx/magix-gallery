@@ -144,6 +144,11 @@ catch (ex) {
                 type: 'string',
                 def: 'center'
             }, {
+                key: 'auto',
+                desc: '默认自动展开提示框',
+                type: 'boolean',
+                def: 'false'
+            }, {
                 key: 'view',
                 desc: '自定义提示内容view，配置的view以view为准，绝对路径',
                 type: 'string'
@@ -158,21 +163,6 @@ catch (ex) {
                 type: 'string',
                 def: ''
             }, {
-                key: 'auto',
-                desc: '默认自动展开提示框',
-                type: 'boolean',
-                def: 'false'
-            }, {
-                key: 'auto-delay',
-                desc: '自动展开的延时时间，单位毫秒',
-                type: 'number',
-                def: '100ms'
-            }, {
-                key: 'z-index',
-                desc: '自定义z-index',
-                type: 'number',
-                def: '9999'
-            }, {
                 key: 'align-text',
                 desc: '文字对齐方式，left，right，center',
                 type: 'string',
@@ -182,6 +172,11 @@ catch (ex) {
                 desc: '相对滚动父元素，支持格式#id，.class，id，$(node)',
                 type: 'string',
                 def: ''
+            }, {
+                key: 'z-index',
+                desc: '自定义z-index',
+                type: 'number',
+                def: '9999'
             }];
         that.updater.digest({
             viewId: that.id,

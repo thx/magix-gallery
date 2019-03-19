@@ -57,7 +57,6 @@ catch (ex) {
         me['@{width}'] = extra.width || 200;
         me['@{zIndex}'] = extra.zIndex || 9999;
         me['@{auto}'] = (/^true$/i).test(extra.auto) || false;
-        me['@{auto.delay}'] = extra.autoDelay || me.constants.showDelay;
         me['@{custom.view}'] = extra.view || '';
         me['@{custom.view.data}'] = extra.data || {};
         me['@{text.align}'] = (extra.alignText || 'left');
@@ -91,7 +90,7 @@ catch (ex) {
         if (me['@{auto}']) {
             me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
                 me['@{show}'](); //等待内容显示
-            }), me['@{auto.delay}']);
+            }), me.constants.showDelay);
         }
         me.bindScroll();
     },
@@ -135,17 +134,6 @@ catch (ex) {
         // 每次show时都重新定位
         var popNode = me['@{setPos}']();
         popNode.addClass('_zs_gallery_mx-popover_index_-show-out');
-    },
-    immediatelyHide: function () {
-        var me = this;
-        clearTimeout(me['@{dealy.show.timer}']);
-        clearTimeout(me['@{dealy.hide.timer}']);
-        if (!me['@{pos.show}']) {
-            return;
-        }
-        me['@{pos.show}'] = false;
-        var popNode = $('#popover_' + me.id);
-        popNode.removeClass('_zs_gallery_mx-popover_index_-show-out');
     },
     '@{hide}': function () {
         var me = this;
