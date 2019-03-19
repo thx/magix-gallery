@@ -101,9 +101,9 @@ module.exports = {
     dateFormat: DateFormat,
     padZero: PadZero,
     getDefaultDate: (min, max, formatter) => {
-        let min = DateParse(min),
-            max = DateParse(max),
-            today = Today;
+        min = DateParse(min);
+        max = DateParse(max);
+        let today = Today;
         let init;
         if (min && (min.getTime() > today.getTime())) {
             init = min;

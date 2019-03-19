@@ -68,7 +68,7 @@ module.exports = {
                     break;
                 }
             }
-            if(!contain){
+            if (!contain) {
                 valid = false;
             }
         }
@@ -228,8 +228,8 @@ module.exports = {
         // required: [true, '自定义']
         // required: true
         let valid = true,
-            tip = I18n['form.check.required'],
-            val = $.trim(val);
+            tip = I18n['form.check.required'];
+        val = $.trim(val)
         if ($.isArray(rule)) {
             if (rule[0]) {
                 valid = (val != '');
