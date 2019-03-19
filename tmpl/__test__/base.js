@@ -452,19 +452,6 @@ module.exports = Magix.View.extend({
             name: 'PRO',
             new: that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',
             outer: 'https://thx.github.io/magix-gallery/pro.html'
-        }, {
-            id: 'edit',
-            name: '在线编辑',
-            path: '/all/edit/index',
-            paths: [{
-                subs: [{
-                    name: '使用说明',
-                    path: '/all/edit/desc'
-                }, {
-                    name: '编辑',
-                    path: '/all/edit/index'
-                }]
-            }]
         }]
 
         let pathMap = {}, // 路径index映射
