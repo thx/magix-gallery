@@ -38,9 +38,9 @@ module.exports = Magix.View.extend({
     $line = 17;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_izprzldzck$art_i = 0, $art_cnddpf$art_c = headers.length; $art_izprzldzck$art_i < $art_cnddpf$art_c; $art_izprzldzck$art_i++) {    var h = headers[$art_izprzldzck$art_i]%>';
-    for (var $art_izprzldzck$art_i = 0, $art_cnddpf$art_c = headers.length; $art_izprzldzck$art_i < $art_cnddpf$art_c; $art_izprzldzck$art_i++) {
-        var h = headers[$art_izprzldzck$art_i];
+    $expr = '<%for (var $art_inngalvu$art_i = 0, $art_cbtfkucp$art_c = headers.length; $art_inngalvu$art_i < $art_cbtfkucp$art_c; $art_inngalvu$art_i++) {    var h = headers[$art_inngalvu$art_i]%>';
+    for (var $art_inngalvu$art_i = 0, $art_cbtfkucp$art_c = headers.length; $art_inngalvu$art_i < $art_cbtfkucp$art_c; $art_inngalvu$art_i++) {
+        var h = headers[$art_inngalvu$art_i];
         $p += '<a ';
         $line = 18;
         $art = 'if h.new';
@@ -154,9 +154,9 @@ module.exports = Magix.View.extend({
     $line = 32;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iptgoaqand$art_i = 0, $art_cmnnyeil$art_c = list.length; $art_iptgoaqand$art_i < $art_cmnnyeil$art_c; $art_iptgoaqand$art_i++) {    var item = list[$art_iptgoaqand$art_i]%>';
-    for (var $art_iptgoaqand$art_i = 0, $art_cmnnyeil$art_c = list.length; $art_iptgoaqand$art_i < $art_cmnnyeil$art_c; $art_iptgoaqand$art_i++) {
-        var item = list[$art_iptgoaqand$art_i];
+    $expr = '<%for (var $art_ingbbaa$art_i = 0, $art_cyxxzloj$art_c = list.length; $art_ingbbaa$art_i < $art_cyxxzloj$art_c; $art_ingbbaa$art_i++) {    var item = list[$art_ingbbaa$art_i]%>';
+    for (var $art_ingbbaa$art_i = 0, $art_cyxxzloj$art_c = list.length; $art_ingbbaa$art_i < $art_cyxxzloj$art_c; $art_ingbbaa$art_i++) {
+        var item = list[$art_ingbbaa$art_i];
         $p += ' ';
         $line = 33;
         $art = 'if item.name';
@@ -197,9 +197,9 @@ module.exports = Magix.View.extend({
         $line = 40;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_ildqlcxkrt$art_i = 0, $art_objnmrfnjvjk$art_obj = item.subs, $art_czildzg$art_c = $art_objnmrfnjvjk$art_obj.length; $art_ildqlcxkrt$art_i < $art_czildzg$art_c; $art_ildqlcxkrt$art_i++) {        var sub = $art_objnmrfnjvjk$art_obj[$art_ildqlcxkrt$art_i]%>';
-        for (var $art_ildqlcxkrt$art_i = 0, $art_objnmrfnjvjk$art_obj = item.subs, $art_czildzg$art_c = $art_objnmrfnjvjk$art_obj.length; $art_ildqlcxkrt$art_i < $art_czildzg$art_c; $art_ildqlcxkrt$art_i++) {
-            var sub = $art_objnmrfnjvjk$art_obj[$art_ildqlcxkrt$art_i];
+        $expr = '<%for (var $art_iwegpkqonce$art_i = 0, $art_objlhfxbzxe$art_obj = item.subs, $art_cxoadelup$art_c = $art_objlhfxbzxe$art_obj.length; $art_iwegpkqonce$art_i < $art_cxoadelup$art_c; $art_iwegpkqonce$art_i++) {        var sub = $art_objlhfxbzxe$art_obj[$art_iwegpkqonce$art_i]%>';
+        for (var $art_iwegpkqonce$art_i = 0, $art_objlhfxbzxe$art_obj = item.subs, $art_cxoadelup$art_c = $art_objlhfxbzxe$art_obj.length; $art_iwegpkqonce$art_i < $art_cxoadelup$art_c; $art_iwegpkqonce$art_i++) {
+            var sub = $art_objlhfxbzxe$art_obj[$art_iwegpkqonce$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 41;
             $art = 'if (sub.path == path)';
@@ -790,7 +790,7 @@ catch (ex) {
             }, {
                 id: 'pro',
                 name: 'PRO',
-                "new": that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',
+                // new: that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',
                 outer: 'https://thx.github.io/magix-gallery/pro.html'
             }];
         var pathMap = {}, // 路径index映射

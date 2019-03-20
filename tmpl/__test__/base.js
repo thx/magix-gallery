@@ -450,7 +450,7 @@ module.exports = Magix.View.extend({
         }, {
             id: 'pro',
             name: 'PRO',
-            new: that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',
+            // new: that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',
             outer: 'https://thx.github.io/magix-gallery/pro.html'
         }]
 
