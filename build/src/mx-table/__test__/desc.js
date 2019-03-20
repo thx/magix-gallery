@@ -66,6 +66,11 @@ catch (ex) {
                 type: 'boolean',
                 def: 'false'
             }, {
+                key: 'sticky-end',
+                desc: '表头吸顶时，是否结束滚动时显示吸顶，滚动时隐藏吸顶',
+                type: 'boolean',
+                def: 'false'
+            }, {
                 key: 'scroll-wrapper',
                 desc: '自定义滚动节点id',
                 type: 'string',

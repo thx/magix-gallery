@@ -33,6 +33,7 @@ module.exports = Magix.View.extend({
         me['@{table.main.wrapper}'] = me['@{wrapper.get}'](me['@{table.main}'], 'main');
         me['@{table.main.thead}'] = me['@{table.main}'].find('thead');
         me['@{need.sticky}'] = (extra.sticky + '') === 'true';
+        me['@{sticky.end}'] = (extra.stickyEnd + '') === 'true'; //滚动时隐藏吸顶，结束滚动吸顶
         me['@{sticky.interval}'] = extra.stickyInterval || 0;
         me['@{hover.class}'] = extra.rowHoverClass || 'hover-tr';
         // 自定义滚动节点
@@ -161,7 +162,7 @@ module.exports = Magix.View.extend({
                     var owner = me['@{owner.node}'];
                     var max = owner.height() - inmain_1.height();
                     if (top >= 0 && top <= max) {
-                        me['@{sync.sticky.pos}'](inmain_1, true, top);
+                        me['@{sync.sticky.pos}'](inmain_1, top);
                     }
                     else {
                         me['@{sync.sticky.pos.recover}'](inmain_1);
@@ -186,21 +187,32 @@ module.exports = Magix.View.extend({
                     var min = ownerOffset.top - interval;
                     var max = min + owner.height() - headerHeight;
                     if (top >= min && top <= max) {
-                        me['@{sync.sticky.pos}'](inmain_2, true, top - min);
+                        me['@{sync.sticky.pos}'](inmain_2, top - min);
                     }
                     else {
                         me['@{sync.sticky.pos.recover}'](inmain_2);
                     }
                 };
                 me.on('destroy', function () {
-                    inmain_2.off('scroll.customsticky', watchInmainScroll_2);
+                    inmain_2.off('scroll.sticky');
                 });
-                inmain_2.on('scroll.customsticky', watchInmainScroll_2);
+                if (me['@{sticky.end}']) {
+                    inmain_2.on('scroll.sticky', function () {
+                        me['@{sync.sticky.pos.recover}'](inmain_2);
+                        clearTimeout(me['@{sticky.end.timer}']);
+                        me['@{sticky.end.timer}'] = setTimeout(me.wrapAsync(function () {
+                            watchInmainScroll_2();
+                        }), 200);
+                    });
+                }
+                else {
+                    inmain_2.on('scroll.sticky', watchInmainScroll_2);
+                }
                 watchInmainScroll_2();
             }
         }
     },
-    '@{sync.sticky.pos}': function (node, sticky, top) {
+    '@{sync.sticky.pos}': function (node, top) {
         var me = this;
         var mainWrapper = me['@{table.main.wrapper}'], mainHeader = me['@{table.main.thead}'], leftWrapper = me['@{table.left.wrapper}'], leftHeader = me['@{table.left.thead}'];
         var headerHeight = mainHeader.height();

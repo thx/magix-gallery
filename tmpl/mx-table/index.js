@@ -27,6 +27,7 @@ module.exports = Magix.View.extend({
         me['@{table.main.thead}'] = me['@{table.main}'].find('thead');
 
         me['@{need.sticky}'] = (extra.sticky + '') === 'true';
+        me['@{sticky.end}'] = (extra.stickyEnd + '') === 'true'; //滚动时隐藏吸顶，结束滚动吸顶
         me['@{sticky.interval}'] = extra.stickyInterval || 0;
         me['@{hover.class}'] = extra.rowHoverClass || 'hover-tr';
 
@@ -171,7 +172,7 @@ module.exports = Magix.View.extend({
                     let owner = me['@{owner.node}'];
                     let max = owner.height() - inmain.height();
                     if (top >= 0 && top <= max) {
-                        me['@{sync.sticky.pos}'](inmain, true, top);
+                        me['@{sync.sticky.pos}'](inmain, top);
                     } else {
                         me['@{sync.sticky.pos.recover}'](inmain);
                     }
@@ -187,7 +188,7 @@ module.exports = Magix.View.extend({
                 let watchInmainScroll = () => {
                     let top = inmain.scrollTop();
                     let headerHeight = me['@{table.main.thead}'].height();
-            
+
                     let owner = me['@{owner.node}'];
                     let ownerOffset = owner.offset();
 
@@ -196,29 +197,39 @@ module.exports = Magix.View.extend({
                     let min = ownerOffset.top - interval;
                     let max = min + owner.height() - headerHeight;
                     if (top >= min && top <= max) {
-                        me['@{sync.sticky.pos}'](inmain, true, top - min);
+                        me['@{sync.sticky.pos}'](inmain, top - min);
                     } else {
                         me['@{sync.sticky.pos.recover}'](inmain);
                     }
                 };
                 me.on('destroy', () => {
-                    inmain.off('scroll.customsticky', watchInmainScroll);
+                    inmain.off('scroll.sticky');
                 });
-                inmain.on('scroll.customsticky', watchInmainScroll);
+
+                if(me['@{sticky.end}']){
+                    inmain.on('scroll.sticky', () => {
+                        me['@{sync.sticky.pos.recover}'](inmain);
+                        
+                        clearTimeout(me['@{sticky.end.timer}']);
+                        me['@{sticky.end.timer}'] = setTimeout(me.wrapAsync(() => {
+                            watchInmainScroll();
+                        }), 200);
+                    });
+                }else{
+                    inmain.on('scroll.sticky', watchInmainScroll);
+                }
                 watchInmainScroll();
             }
-            
         }
     },
 
-    '@{sync.sticky.pos}'(node, sticky, top) {
+    '@{sync.sticky.pos}'(node, top) {
         let me = this;
         let mainWrapper = me['@{table.main.wrapper}'],
             mainHeader = me['@{table.main.thead}'],
             leftWrapper = me['@{table.left.wrapper}'],
             leftHeader = me['@{table.left.thead}'];
         let headerHeight = mainHeader.height();
-        
 
         mainWrapper.css({
             paddingTop: headerHeight
@@ -239,7 +250,6 @@ module.exports = Magix.View.extend({
                 top: top
             });
         }
-            
     },
 
     '@{sync.sticky.pos.recover}'(node) {
