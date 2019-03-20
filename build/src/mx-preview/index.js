@@ -152,7 +152,7 @@ catch (ex) {
         var that = this;
         that.updater.digest({});
         if (window.IntersectionObserver) {
-            var observer = new IntersectionObserver(function (changes) {
+            var observer_1 = new IntersectionObserver(function (changes) {
                 changes.forEach(function (_a) {
                     var target = _a.target, isIntersecting = _a.isIntersecting;
                     if (!isIntersecting) {
@@ -160,15 +160,15 @@ catch (ex) {
                     }
                     ;
                     that.thumbnail();
-                    observer.unobserve(target);
+                    observer_1.unobserve(target);
                 });
             }, {
                 rootMargin: '10px 0px'
             });
-            observer.observe(document.querySelector('#' + that.id));
+            observer_1.observe(document.querySelector('#' + that.id));
             that.capture('observer', {
                 destroy: function () {
-                    observer.disconnect();
+                    observer_1.disconnect();
                 }
             });
         }

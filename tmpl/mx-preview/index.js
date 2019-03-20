@@ -91,7 +91,7 @@ module.exports = Magix.View.extend({
         that.updater.digest({});
 
         if (window.IntersectionObserver) {
-            var observer = new IntersectionObserver(changes => {
+            let observer = new IntersectionObserver(changes => {
                 changes.forEach(({ target, isIntersecting }) => {
                     if (!isIntersecting) {
                         return;

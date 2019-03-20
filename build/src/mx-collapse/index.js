@@ -30,8 +30,8 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cuswljjrdb$art_c = list.length; index < $art_cuswljjrdb$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cuswljjrdb$art_c = list.length; index < $art_cuswljjrdb$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cuvbiby$art_c = list.length; index < $art_cuvbiby$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cuvbiby$art_c = list.length; index < $art_cuvbiby$art_c; index++) {
         var item = list[index];
         $p += '<div mxv class="_zs_gallery_mx-collapse_index_-item ';
         $line = 3;
@@ -182,10 +182,60 @@ catch (ex) {
 } return $p; },
     init: function (extra) {
         var that = this;
-        // 是否只展示一个：默认为true
-        var onlyOne = (extra.onlyOne + '' !== 'false');
-        // 展示列表
-        var list = extra.list || [];
+        //初始化时保存一份当前数据的快照
+        that.updater.snapshot();
+        that.assign(extra);
+        that.owner.oncreated = function () {
+            // 所有子view加载完成后
+            if (!that.$init) {
+                that.$init = 1;
+                // 计算实际高度
+                var viewId_1 = that.id;
+                var list = that.updater.get('list');
+                list.forEach(function (item, index) {
+                    var content = $('#' + viewId_1 + '_content_' + index);
+                    item.height = content.outerHeight();
+                });
+                that.updater.digest({
+                    list: list
+                });
+                // 加载展开动画
+                list.forEach(function (item, index) {
+                    item.inited = true;
+                });
+                that.updater.digest({
+                    list: list
+                });
+            }
+        };
+        that.ondestroy = function () {
+            that.owner.off('created');
+        };
+    },
+    assign: function (extra) {
+        var that = this;
+        var altered = that.updater.altered();
+        that.updater.set({
+            viewId: that.id,
+            onlyOne: (extra.onlyOne + '' !== 'false'),
+            originList: extra.list || [] // 初始展示列表
+        });
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            // 组件有更新，真个节点会全部需要重新初始化
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render: function () {
+        // trigger oncreated
+        // 每次重新render的时候重新触发
+        this.$init = null;
+        var originList = this.updater.get('originList');
+        var list = $.extend(true, [], originList);
         var hasExpand = false;
         list.forEach(function (item, index) {
             if (!item.arrow) {
@@ -210,37 +260,9 @@ catch (ex) {
                 }
             }
         }
-        that.updater.set({
-            viewId: that.id,
-            onlyOne: onlyOne,
+        this.updater.digest({
             list: list
         });
-        that.owner.oncreated = function () {
-            // 所有子view加载完成后
-            if (!that.$init) {
-                that.$init = 1;
-                // 计算实际高度
-                var viewId_1 = that.id;
-                var list_1 = that.updater.get('list');
-                list_1.forEach(function (item, index) {
-                    var content = $('#' + viewId_1 + '_content_' + index);
-                    item.height = content.outerHeight();
-                });
-                that.updater.digest({
-                    list: list_1
-                });
-                // 加载展开动画
-                list_1.forEach(function (item, index) {
-                    item.inited = true;
-                });
-                that.updater.digest({
-                    list: list_1
-                });
-            }
-        };
-    },
-    render: function () {
-        this.updater.digest({});
     },
     'toggle<click>': function (event) {
         var cur = event.params.index;

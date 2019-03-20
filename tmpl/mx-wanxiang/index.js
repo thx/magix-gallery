@@ -27,14 +27,13 @@ module.exports = Magix.View.extend({
             sourceMap: extra.sourceMap || {},
             awLoading: true
         })
-
-        window.awAsyncInit = function() {
+        window.awAsyncInit = () => {
             var wxParams = {
                 isHidden: true,
                 bizCode: bizCode, 
                 sourceId: defaultSourceId,
                 logoWidth: 40, //非必传：指定象仔logo大小
-                onRendered: function() {
+                onRendered: () => {
                     that.updater.set({
                         awLoading: false
                     })

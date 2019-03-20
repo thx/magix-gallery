@@ -23,16 +23,16 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryeV:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryeV:_" class="_zs_gallery___test___layout_-eg-content"><a href="#!/wanxiang/demo1" target="_blank" rel="noopener noreferrer" class="color-brand">新页面查看示例</a></div><div mxa="_zs_galleryeV:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryeV:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 7;
+    $p += '<div mxa="_zs_galleryeV:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryeV:_" class="_zs_gallery___test___layout_-eg-content"><a href="#!/wanxiang/demo1" target="_blank" rel="noopener noreferrer" class="color-brand">新页面查看示例</a>，注意只在taobao域名下可用</div><div mxa="_zs_galleryeV:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryeV:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 8;
     $art = '=viewId';
     ;
     $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryeV:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 9;
+    $line = 10;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryeV:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 12;
+    $line = 13;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-wanxiang \n    biz-code="PCMaMaAnyWhereWindow"\n    default-source-id="432"\n    source-map="&#123;&#123;@&#123;\n        \'/wanxiang/demo2\': 496\n    &#125;&#125;&#125;"\n    bottom="50"/&gt;</pre></div></div>';
