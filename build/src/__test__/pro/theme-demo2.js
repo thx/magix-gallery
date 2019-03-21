@@ -38,9 +38,9 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'each checkboxes as c';
     ;
-    $expr = '<%for (var $art_iulfdcywc$art_i = 0, $art_criombjc$art_c = checkboxes.length; $art_iulfdcywc$art_i < $art_criombjc$art_c; $art_iulfdcywc$art_i++) {    var c = checkboxes[$art_iulfdcywc$art_i]%>';
-    for (var $art_iulfdcywc$art_i = 0, $art_criombjc$art_c = checkboxes.length; $art_iulfdcywc$art_i < $art_criombjc$art_c; $art_iulfdcywc$art_i++) {
-        var c = checkboxes[$art_iulfdcywc$art_i];
+    $expr = '<%for (var $art_iwkvteur$art_i = 0, $art_cmzzryfqi$art_c = checkboxes.length; $art_iwkvteur$art_i < $art_cmzzryfqi$art_c; $art_iwkvteur$art_i++) {    var c = checkboxes[$art_iwkvteur$art_i]%>';
+    for (var $art_iwkvteur$art_i = 0, $art_cmzzryfqi$art_c = checkboxes.length; $art_iwkvteur$art_i < $art_cmzzryfqi$art_c; $art_iwkvteur$art_i++) {
+        var c = checkboxes[$art_iwkvteur$art_i];
         $p += '<label mxv mxa="_zs_galleryK:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 10;
         $art = ':selected.checkboxes';
@@ -64,9 +64,9 @@ module.exports = Base.extend({
     $line = 19;
     $art = 'each radioes as r';
     ;
-    $expr = '<%for (var $art_iigfuh$art_i = 0, $art_cemuitgwc$art_c = radioes.length; $art_iigfuh$art_i < $art_cemuitgwc$art_c; $art_iigfuh$art_i++) {    var r = radioes[$art_iigfuh$art_i]%>';
-    for (var $art_iigfuh$art_i = 0, $art_cemuitgwc$art_c = radioes.length; $art_iigfuh$art_i < $art_cemuitgwc$art_c; $art_iigfuh$art_i++) {
-        var r = radioes[$art_iigfuh$art_i];
+    $expr = '<%for (var $art_iccpjukq$art_i = 0, $art_caudixxuc$art_c = radioes.length; $art_iccpjukq$art_i < $art_caudixxuc$art_c; $art_iccpjukq$art_i++) {    var r = radioes[$art_iccpjukq$art_i]%>';
+    for (var $art_iccpjukq$art_i = 0, $art_caudixxuc$art_c = radioes.length; $art_iccpjukq$art_i < $art_caudixxuc$art_c; $art_iccpjukq$art_i++) {
+        var r = radioes[$art_iccpjukq$art_i];
         $p += '<label mxv mxa="_zs_galleryK:f" class="mr30"><input mxe="' + $viewId + '_1" mxc="[';
         $line = 24;
         $art = ':selected.radio';

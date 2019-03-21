@@ -92,8 +92,8 @@ module.exports = Magix.View.extend({
         $line = 24;
         $art = 'each parents as parent parentIndex';
         ;
-        $expr = '<%for (var parentIndex = 0, $art_cwdompfva$art_c = parents.length; parentIndex < $art_cwdompfva$art_c; parentIndex++) {        var parent = parents[parentIndex]%>';
-        for (var parentIndex = 0, $art_cwdompfva$art_c = parents.length; parentIndex < $art_cwdompfva$art_c; parentIndex++) {
+        $expr = '<%for (var parentIndex = 0, $art_csabwfkcio$art_c = parents.length; parentIndex < $art_csabwfkcio$art_c; parentIndex++) {        var parent = parents[parentIndex]%>';
+        for (var parentIndex = 0, $art_csabwfkcio$art_c = parents.length; parentIndex < $art_csabwfkcio$art_c; parentIndex++) {
             var parent = parents[parentIndex];
             $p += ' ';
             $line = 25;
@@ -128,9 +128,9 @@ module.exports = Magix.View.extend({
                 $line = 29;
                 $art = 'each parent.list as item itemIndex';
                 ;
-                $expr = '<%for (var itemIndex = 0, $art_objtzsfjiari$art_obj = parent.list, $art_cqrayedkx$art_c = $art_objtzsfjiari$art_obj.length; itemIndex < $art_cqrayedkx$art_c; itemIndex++) {                var item = $art_objtzsfjiari$art_obj[itemIndex]%>';
-                for (var itemIndex = 0, $art_objtzsfjiari$art_obj = parent.list, $art_cqrayedkx$art_c = $art_objtzsfjiari$art_obj.length; itemIndex < $art_cqrayedkx$art_c; itemIndex++) {
-                    var item = $art_objtzsfjiari$art_obj[itemIndex];
+                $expr = '<%for (var itemIndex = 0, $art_objjwvnxkrbq$art_obj = parent.list, $art_cgefkquu$art_c = $art_objjwvnxkrbq$art_obj.length; itemIndex < $art_cgefkquu$art_c; itemIndex++) {                var item = $art_objjwvnxkrbq$art_obj[itemIndex]%>';
+                for (var itemIndex = 0, $art_objjwvnxkrbq$art_obj = parent.list, $art_cgefkquu$art_c = $art_objjwvnxkrbq$art_obj.length; itemIndex < $art_cgefkquu$art_c; itemIndex++) {
+                    var item = $art_objjwvnxkrbq$art_obj[itemIndex];
                     $p += ' ';
                     $line = 30;
                     $art = 'if !item.hide';

@@ -191,7 +191,7 @@ module.exports = Base.extend({
     $line = 231;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\n.filters&#123;\n    height: 50px;\n&#125;\n\n.filters-inner&#123;\n    height: 50px;\n    padding-top: 8px;\n    background-color: #fff;\n&#125;\n\n.filters-fixed&#123;\n    position: fixed;  //自定控制筛选项的位置\n    z-index: 100;\n    top: 0;\n    left: 280px;\n    right: 40px;\n&#125;</pre></div></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\n.filters&#123;\n    height: 50px;\n&#125;\n\n.filters-inner&#123;\n    height: 50px;\n    padding-top: 8px;\n    background-color: #fff;\n&#125;\n\n.filters-fixed&#123;\n    position: fixed;  //自行控制筛选项的位置\n    z-index: 100;\n    top: 0;\n    left: 280px;\n    right: 40px;\n&#125;</pre></div></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
