@@ -1,24 +1,26 @@
 <div class="example">
     <div class="eg-content">
-        <div  class="ml40 mt20">
+        <div class="ml40 mt20">
             <mx-effects.progress 
                 num="-20.3"/>
         </div>
-        <div  class="ml40 mt20">
+        <div class="ml40 mt20">
             <mx-effects.progress
+                width="160"
                 num="10"/>
+            <span class="color-9 ml10">（自定义宽度160，默认200）</span>
         </div>
-        <div  class="ml40 mt20">
+        <div class="ml40 mt20">
             <mx-effects.progress
                 num="20.2" 
                 text-placement="left"/>
         </div>
-        <div  class="ml40 mt20">
+        <div class="ml40 mt20">
             <mx-effects.progress
                 num="40.23" 
                 text-placement="right"/>
         </div>
-        <div  class="ml40 mt20">
+        <div class="ml40 mt20">
             <mx-effects.progress
                 num="60.555" 
                 text-placement="bottom"/>
@@ -28,9 +30,17 @@
                 num="101.2" 
                 text-placement="bottom"/>
         </div>
+
+        <div class="ml40 mt20">
+            <mx-effects.progress
+                text="false"
+                num="60.555"/>
+            
+            <span class="color-9 ml10">（不需要文案）</span>
+        </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">条型进度条，精度与传入数值保持一致</div>
+        <div class="eg-title">条型进度条，精度与传入数值保持一致，最多两位</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
@@ -41,6 +51,7 @@
     num="-20.3"/&gt;
 
 &lt;mx-effects.progress
+    width="160"
     num="10"/&gt;
 
 &lt;mx-effects.progress
@@ -58,5 +69,17 @@
 &lt;mx-effects.progress
     num="101.2" 
     text-placement="bottom"/&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">不需要文案</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+&lt;mx-effects.progress
+    text="false"
+    num="60.12"/&gt;</pre>
     </div>
 </div>

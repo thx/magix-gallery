@@ -24,19 +24,19 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybo:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybo:_" class="_zs_gallery___test___layout_-eg-content"><div class="mt20"><div class="mr20" mx-view="mx-effects/progress?type=gradient&num=20.22"></div></div><div class="mt20"><div class="mr20" mx-view="mx-effects/progress?type=gradient&num=60&color=%23ffb400"></div></div><div class="mt20"><div mx-view="mx-effects/progress?type=gradient&num=80&color=rgb%2881%2C%20163%2C%200%29"></div></div></div><div mxa="_zs_gallerybo:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybo:a" class="_zs_gallery___test___layout_-eg-title">渐变型，精度与传入数值保持一致</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 23;
+    $p += '<div mxa="_zs_gallerybo:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybo:f" class="_zs_gallery___test___layout_-eg-content"><div class="mt20"><div class="mr20" mx-view="mx-effects/progress?type=gradient&num=20.22"></div></div><div class="mt20"><div class="mr20" mx-view="mx-effects/progress?type=gradient&width=160&num=60&color=%23ffb400"></div><span class="color-9 ml10">（自定义宽度160，默认200）</span></div><div class="mt20"><div mx-view="mx-effects/progress?type=gradient&num=80&color=rgb%2881%2C%20163%2C%200%29"></div></div><div class="mt20"><div mx-view="mx-effects/progress?text=false&type=gradient&num=80&color=rgb%2881%2C%20163%2C%200%29"></div><span class="color-9 ml10">（不需要文案）</span></div></div><div mxa="_zs_gallerybo:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybo:a" class="_zs_gallery___test___layout_-eg-title">渐变型，精度与传入数值保持一致</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 34;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybo:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 25;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybo:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 36;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybo:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 28;
+    $line = 39;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.progress\n    type="gradient"\n    num="20.22"/&gt;\n\n&lt;mx-effects.progress\n    type="gradient"\n    num="60" \n    color="#ffb400"/&gt;\n\n&lt;mx-effects.progress\n    type="gradient"\n    num="80" \n    color="rgb(81, 163, 0)"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.progress\n    type="gradient"\n    num="20.22"/&gt;\n\n&lt;mx-effects.progress\n    type="gradient"\n    width="160"\n    num="60" \n    color="#ffb400"/&gt;\n\n&lt;mx-effects.progress\n    type="gradient"\n    num="80" \n    color="rgb(81, 163, 0)"/&gt;\n\n&lt;mx-effects.progress\n    text="false"\n    type="gradient"\n    num="80" \n    color="rgb(81, 163, 0)"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

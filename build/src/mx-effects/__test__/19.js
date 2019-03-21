@@ -24,19 +24,19 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybm:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybm:_" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-effects/progress?type=circle&num=23.3"></div><div mx-view="mx-effects/progress?type=circle&num=50"></div><div mx-view="mx-effects/progress?type=circle&width=100&border=6&num=75.25&color=%23ffb400"></div></div><div mxa="_zs_gallerybm:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybm:a" class="_zs_gallery___test___layout_-eg-title">圆型，精度与传入数值保持一致</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 20;
+    $p += '<div mxa="_zs_gallerybm:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybm:g" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-effects/progress?type=circle&width=80&num=23.3"></div><div mx-view="mx-effects/progress?type=circle&width=80&num=50"></div><div mx-view="mx-effects/progress?type=circle&width=80&text=false&num=50"></div><div mx-view="mx-effects/progress?type=circle&border=6&num=75.25&color=%23ffb400"></div></div><div mxa="_zs_gallerybm:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybm:a" class="_zs_gallery___test___layout_-eg-title">圆型，精度与传入数值保持一致</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybm:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 22;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybm:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 29;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybm:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 25;
+    $line = 32;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.progress\n    type="circle"\n    num="23.3"/&gt;\n\n&lt;mx-effects.progress\n    type="circle"\n    num="50"/&gt;\n\n&lt;mx-effects.progress\n    type="circle"\n    width="100"\n    border="6"\n    num="75.25"\n    color="#ffb400"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.progress\n    type="circle"\n    width="80"\n    num="23.3"/&gt;\n\n&lt;mx-effects.progress\n    type="circle"\n    width="80"\n    num="50"/&gt;\n\n&lt;mx-effects.progress\n    type="circle"\n    width="80"\n    text="false"\n    num="50"/&gt;\n\n&lt;mx-effects.progress\n    type="circle"\n    border="6"\n    num="75.25"\n    color="#ffb400"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

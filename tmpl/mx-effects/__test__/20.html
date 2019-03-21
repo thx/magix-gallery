@@ -8,14 +8,25 @@
         <div class="mt20">
             <mx-effects.progress class="mr20"
                 type="gradient"
+                width="160"
                 num="60" 
                 color="#ffb400"/>
+            <span class="color-9 ml10">（自定义宽度160，默认200）</span>
         </div>
         <div class="mt20">
             <mx-effects.progress
                 type="gradient"
                 num="80" 
                 color="rgb(81, 163, 0)"/>
+        </div>
+        <div class="mt20">
+            <mx-effects.progress
+                text="false"
+                type="gradient"
+                num="80" 
+                color="rgb(81, 163, 0)"/>
+
+            <span class="color-9 ml10">（不需要文案）</span>
         </div>
     </div>
     <div class="eg-desc">
@@ -32,10 +43,17 @@
 
 &lt;mx-effects.progress
     type="gradient"
+    width="160"
     num="60" 
     color="#ffb400"/&gt;
 
 &lt;mx-effects.progress
+    type="gradient"
+    num="80" 
+    color="rgb(81, 163, 0)"/&gt;
+
+&lt;mx-effects.progress
+    text="false"
     type="gradient"
     num="80" 
     color="rgb(81, 163, 0)"/&gt;</pre>

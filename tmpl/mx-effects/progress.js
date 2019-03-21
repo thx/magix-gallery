@@ -44,7 +44,6 @@ module.exports = Magix.View.extend({
         }
 
         let degree = 0,
-            width = e.width || 120,
             border = e.border || 8,
             color1, color2;
         switch (type) {
@@ -57,6 +56,7 @@ module.exports = Magix.View.extend({
                 if (!color) {
                     color = '#4d7fff';
                 }
+                width = e.width || 120;
                 break;
             case 'gradient':
                 // 渐变
@@ -65,6 +65,8 @@ module.exports = Magix.View.extend({
                     color1 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.4)`;
                     color2 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.2)`;
                 }
+            case 'line':
+                width = e.width || 200;
                 break;
         }
 
@@ -78,6 +80,7 @@ module.exports = Magix.View.extend({
             color1,
             color2,
             type,
+            text: (e.text + '' !== 'false'),  //是否显示文案
             degree,
             width: +width,
             border: +border,
