@@ -15,7 +15,13 @@ module.exports = Base.extend({
             }, {
                 title: '冷段一组，凉意浓',
                 content: '1、过夜的叫酒店，喝酒的却叫夜店。<br/>2、打呼噜的人能在自己的呼噜声中睡着也太不公平了。<br/>3、友谊其实很简单，就是在自己吃到好吃的食物的时候想着对方，然后拍下来发给他。'
-            }]
+            }],
+            expands: []
         });
+    },
+    'change<change>'(event){
+        this.updater.digest({
+            expands: event.expands
+        })
     }
 });

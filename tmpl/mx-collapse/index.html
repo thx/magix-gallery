@@ -7,7 +7,7 @@
         </div>
         {{if !item.disabled}}
         <div class="content" id="{{=viewId}}_content_{{=index}}"
-            style="{{if item.height}} display: block; opacity: 0; height: 0; {{if item.inited && item.expand}} opacity: 1; height: {{=item.height}}px; {{/if}}  {{if item.inited && !item.expand}} opacity: 0; height: 0; {{/if}} {{/if}}">
+            style="{{if item.height}} display: block; opacity: 0; height: 0; {{if item.inited && item.expand}} opacity: 1; height: {{=item.height}}px; {{/if}}  {{if item.inited && !item.expand}} opacity: 0; height: 0; border-top: 0 none; {{/if}} {{/if}}">
             <div class="inner" mx-view="{{=item.view}}?data={{@item}}"></div>
         </div>
         {{/if}}

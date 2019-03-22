@@ -6,6 +6,7 @@ module.exports = Magix.View.extend({
     tmpl: '@index.html',
     init(extra) {
         let that = this;
+        that['@{owner.node}'] = $('#' + that.id);
 
         //初始化时保存一份当前数据的快照
         that.updater.snapshot();
@@ -96,6 +97,21 @@ module.exports = Magix.View.extend({
         this.updater.digest({
             list
         });
+        if (!hasExpand){
+            // 组件内默认展开的请款，外抛事件通知展开状态变更
+            this['@{fire}']();
+        }
+    },
+
+    '@{fire}' () {
+        let that = this;
+        let list = that.updater.get('list');
+        that['@{owner.node}'].trigger({
+            type: 'change',
+            expands: list.map(item => {
+                return item.expand
+            })
+        })
     },
 
     'toggle<click>'(event) {
@@ -114,5 +130,7 @@ module.exports = Magix.View.extend({
         this.updater.digest({
             list
         })
+
+        this['@{fire}']();
     }
 });
