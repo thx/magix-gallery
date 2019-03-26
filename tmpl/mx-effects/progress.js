@@ -19,9 +19,6 @@ module.exports = Magix.View.extend({
         let that = this;
         let altered = that.updater.altered();
 
-        let type = e.type || 'line';
-        let placement = (e.textPlacement || 'top');
-        let color = e.color || '';
         let num = +e.num || 0;
         let s = num + '';
         let i = s.indexOf('.');
@@ -43,8 +40,13 @@ module.exports = Magix.View.extend({
             num = 100;
         }
 
+        let type = e.type || 'line';
+        let placement = (e.textPlacement || 'top');
+        let width;
         let degree = 0,
             border = e.border || 8,
+            color = e.color || '',
+            colorGradient = e.colorGradient || '',
             color1, color2;
         switch (type) {
             case 'degree':
@@ -77,6 +79,7 @@ module.exports = Magix.View.extend({
             num: num.toFixed(i) + '%',
             cName: ClassNames[placement],
             color,
+            colorGradient,
             color1,
             color2,
             type,

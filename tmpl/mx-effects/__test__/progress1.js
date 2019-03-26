@@ -2,20 +2,9 @@ let Magix = require('magix');
 let $ = require('$');
 
 module.exports = Magix.View.extend({
-    tmpl: '@progress.html',
+    tmpl: '@progress1.html',
     render() {
         let options = [{
-            key: 'type',
-            desc: [
-                '进度条类型',
-                'line：条型',
-                'degree：刻度型',
-                'circle：圆型',
-                'gradient：渐变型'
-            ].join('<br>'),
-            type: 'string',
-            def: 'line'
-        }, {
             key: 'num',
             desc: '当前进度，0 ~ 100之间的数字，传入几位小数展示几位小数，最多保留两位小数',
             type: 'number',
@@ -30,38 +19,20 @@ module.exports = Magix.View.extend({
             desc: '是否显示比例文案',
             type: 'boolean',
             def: true
-        }]
-
-        let lineOptions = [{
-            key: 'width',
-            desc: '进度条宽度',
-            type: 'number',
-            def: '200'
         }, {
             key: 'text-placement',
             desc: '数值位置，只在type=line时生效<br/>可选：left，right，top，bottom',
             type: 'string',
             def: 'top'
-        }]
-        
-        let circleOptions = [{
-            key: 'width',
-            desc: '圆形直径',
-            type: 'number',
-            def: '120'
         }, {
-            key: 'border',
-            desc: '圆形边宽',
+            key: 'width',
+            desc: '进度条宽度',
             type: 'number',
-            def: '8'
+            def: '200'
         }]
-
         this.updater.digest({
             viewId: this.id,
-            options,
-            lineOptions,
-            circleOptions,
-            type: 'a'
+            options
         });
     }
 });

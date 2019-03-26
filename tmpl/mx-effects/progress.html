@@ -17,7 +17,7 @@
 
 {{if (type == 'line' || type == 'gradient')}}
 <div class="type--{{=type}}" style="width: {{=width}}px;">
-    <div class="on" style="width: {{=num}}; {{if color}} background: {{=color}}; {{/if}} {{if color1 && color2}} background: linear-gradient(45deg, {{=color1}} 33%, {{=color2}} 34%, {{=color2}} 59%, {{=color1}} 60%); background-size: 24px 12px; {{/if}} "></div>
+    <div class="on" style="width: {{=num}}; {{if color1 && color2}} background: linear-gradient(45deg, {{=color1}} 33%, {{=color2}} 34%, {{=color2}} 59%, {{=color1}} 60%); background-size: 24px 12px; {{else}} {{if colorGradient}} background: linear-gradient(to right, {{=color}}, {{=colorGradient}}); {{else}} background: {{=color}}; {{/if}}  {{/if}} "></div>
     {{if text}}
     <div class="num {{=cName}}" {{if (placement == 'top' || placement == 'bottom')}} style="left: {{=num}};" {{/if}}>{{=num}}</div>
     {{/if}}

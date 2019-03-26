@@ -369,9 +369,17 @@ module.exports = Magix.View.extend({
                     path: '/effects/star',
                     icon: '&#xe646;'
                 }, {
-                    name: '进度比例',
-                    tip: '条型，刻度型',
-                    path: '/effects/progress',
+                    name: '条型进度比例',
+                    tip: '支持渐变',
+                    path: '/effects/progress1',
+                    icon: '&#xe6e4;'
+                }, {
+                    name: '刻度型进度比例',
+                    path: '/effects/progress2',
+                    icon: '&#xe6e4;'
+                }, {
+                    name: '圆形进度比例',
+                    path: '/effects/progress3',
                     icon: '&#xe6e4;'
                 }, {
                     name: '各种动效',

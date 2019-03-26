@@ -28,7 +28,7 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', type = $$.type, width = $$.width, border = $$.border, viewId = $$.viewId, color = $$.color, text = $$.text, num = $$.num, color1 = $$.color1, color2 = $$.color2, cName = $$.cName, placement = $$.placement, degree = $$.degree; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', type = $$.type, width = $$.width, border = $$.border, viewId = $$.viewId, color = $$.color, text = $$.text, num = $$.num, color1 = $$.color1, color2 = $$.color2, colorGradient = $$.colorGradient, cName = $$.cName, placement = $$.placement, degree = $$.degree; var $expr, $art, $line; try {
     $line = 1;
     $art = 'if (type == \'circle\')';
     ;
@@ -205,24 +205,6 @@ module.exports = Magix.View.extend({
         ;
         $p += ($expr = '<%=num%>', $e(num)) + '; ';
         $line = 20;
-        $art = 'if color';
-        ;
-        $expr = '<%if (color) {%>';
-        if (color) {
-            ;
-            $p += ' background: ';
-            $line = 20;
-            $art = '=color';
-            ;
-            $p += ($expr = '<%=color%>', $e(color)) + '; ';
-            $line = 20;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += ' ';
-        $line = 20;
         $art = 'if color1 && color2';
         ;
         $expr = '<%if (color1 && color2) {%>';
@@ -245,6 +227,48 @@ module.exports = Magix.View.extend({
             $art = '=color1';
             ;
             $p += ($expr = '<%=color1%>', $e(color1)) + ' 60%); background-size: 24px 12px; ';
+            $line = 20;
+            $art = 'else';
+            ;
+            $expr = '<%}    else {%>';
+        }
+        else {
+            ;
+            $p += ' ';
+            $line = 20;
+            $art = 'if colorGradient';
+            ;
+            $expr = '<%if (colorGradient) {%>';
+            if (colorGradient) {
+                ;
+                $p += ' background: linear-gradient(to right, ';
+                $line = 20;
+                $art = '=color';
+                ;
+                $p += ($expr = '<%=color%>', $e(color)) + ', ';
+                $line = 20;
+                $art = '=colorGradient';
+                ;
+                $p += ($expr = '<%=colorGradient%>', $e(colorGradient)) + '); ';
+                $line = 20;
+                $art = 'else';
+                ;
+                $expr = '<%}        else {%>';
+            }
+            else {
+                ;
+                $p += ' background: ';
+                $line = 20;
+                $art = '=color';
+                ;
+                $p += ($expr = '<%=color%>', $e(color)) + '; ';
+                $line = 20;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '  ';
             $line = 20;
             $art = '/if';
             ;
@@ -378,9 +402,6 @@ catch (ex) {
     assign: function (e) {
         var that = this;
         var altered = that.updater.altered();
-        var type = e.type || 'line';
-        var placement = (e.textPlacement || 'top');
-        var color = e.color || '';
         var num = +e.num || 0;
         var s = num + '';
         var i = s.indexOf('.');
@@ -400,7 +421,10 @@ catch (ex) {
         if (num > 100) {
             num = 100;
         }
-        var degree = 0, border = e.border || 8, color1, color2;
+        var type = e.type || 'line';
+        var placement = (e.textPlacement || 'top');
+        var width;
+        var degree = 0, border = e.border || 8, color = e.color || '', colorGradient = e.colorGradient || '', color1, color2;
         switch (type) {
             case 'degree':
                 // 刻度型，刻度取整
@@ -431,6 +455,7 @@ catch (ex) {
             num: num.toFixed(i) + '%',
             cName: ClassNames[placement],
             color: color,
+            colorGradient: colorGradient,
             color1: color1,
             color2: color2,
             type: type,

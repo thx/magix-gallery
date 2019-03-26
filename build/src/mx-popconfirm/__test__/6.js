@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc2:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryc2:c" class="_zs_gallery___test___layout_-eg-content"><span class="btn" mx-view="mx-popconfirm/index?content=%E7%AC%AC%E4%B8%80%E8%A1%8C%3Cbr%2F%3E%E7%AC%AC%E4%BA%8C%E8%A1%8C%3Ca%20href%3D%27https%3A%2F%2Fwww.taobao.com%2F%27%20target%3D%27_blank%27%20class%3D%27link-brand%27%3E%E8%B7%B3%E8%BD%AC%E9%93%BE%E6%8E%A5%3C%2Fa%3E">内容包含html</span></div><div mxa="_zs_galleryc2:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryc2:e" class="_zs_gallery___test___layout_-eg-title">提示内容包含html</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_galleryc2:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryc2:_" class="_zs_gallery___test___layout_-eg-content"><span class="btn" mx-view="mx-popconfirm/index?content=%E7%AC%AC%E4%B8%80%E8%A1%8C%3Cbr%2F%3E%E7%AC%AC%E4%BA%8C%E8%A1%8C%3Ca%20href%3D%27https%3A%2F%2Fwww.taobao.com%2F%27%20target%3D%27_blank%27%20class%3D%27link-brand%27%3E%E8%B7%B3%E8%BD%AC%E9%93%BE%E6%8E%A5%3C%2Fa%3E">内容包含html</span></div><div mxa="_zs_galleryc2:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryc2:a" class="_zs_gallery___test___layout_-eg-title">提示内容包含html</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 8;
     $art = '=viewId';
     ;

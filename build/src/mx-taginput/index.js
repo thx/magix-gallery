@@ -63,8 +63,8 @@ module.exports = Magix.View.extend({
         $line = 10;
         $art = 'each items as one idx';
         ;
-        $expr = '<%for (var idx = 0, $art_cghlnkcpv$art_c = items.length; idx < $art_cghlnkcpv$art_c; idx++) {        var one = items[idx]%>';
-        for (var idx = 0, $art_cghlnkcpv$art_c = items.length; idx < $art_cghlnkcpv$art_c; idx++) {
+        $expr = '<%for (var idx = 0, $art_csrltytj$art_c = items.length; idx < $art_csrltytj$art_c; idx++) {        var one = items[idx]%>';
+        for (var idx = 0, $art_csrltytj$art_c = items.length; idx < $art_csrltytj$art_c; idx++) {
             var one = items[idx];
             $p += '<span mxa="_zs_galleryeB:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
             $line = 12;
@@ -165,8 +165,8 @@ module.exports = Magix.View.extend({
                 $line = 42;
                 $art = 'each suggest as item idx';
                 ;
-                $expr = '<%for (var idx = 0, $art_cnbag$art_c = suggest.length; idx < $art_cnbag$art_c; idx++) {                var item = suggest[idx]%>';
-                for (var idx = 0, $art_cnbag$art_c = suggest.length; idx < $art_cnbag$art_c; idx++) {
+                $expr = '<%for (var idx = 0, $art_csqikuv$art_c = suggest.length; idx < $art_csqikuv$art_c; idx++) {                var item = suggest[idx]%>';
+                for (var idx = 0, $art_csqikuv$art_c = suggest.length; idx < $art_csqikuv$art_c; idx++) {
                     var item = suggest[idx];
                     $p += '<li class="_zs_gallery_mx-suggest_suggest_-suggest-item" mx-click="' + $viewId + '@{add}({item:\'';
                     $line = 44;

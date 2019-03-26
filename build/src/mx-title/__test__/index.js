@@ -72,7 +72,7 @@ module.exports = Base.extend({
     $line = 63;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"><div mxs="_zs_galleryeJ:d" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-title/index?content=%3Cspan%20style%3D%27color%3A%20red%3B%27%3E%E4%B8%80%E7%BA%A7%3C%2Fspan%3E%E6%A0%87%E9%A2%98&tip=%3Cspan%20style%3D%27color%3A%20red%3B%27%3E%E9%AB%98%E4%BA%AE%3C%2Fspan%3E%E6%98%BE%E7%A4%BA"></div></div><div mxa="_zs_galleryeJ:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryeJ:h" class="_zs_gallery___test___layout_-eg-title">可包含html标签</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:5})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"><div mxs="_zs_galleryeJ:d" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-title/index?content=%3Cspan%20style%3D%27color%3A%20red%3B%27%3E%E4%B8%80%E7%BA%A7%3C%2Fspan%3E%E6%A0%87%E9%A2%98&tip=%3Cspan%20style%3D%27color%3A%20red%3B%27%3E%E9%AB%98%E4%BA%AE%3C%2Fspan%3E%E6%98%BE%E7%A4%BA"></div></div><div mxa="_zs_galleryeJ:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryeJ:e" class="_zs_gallery___test___layout_-eg-title">可包含html标签</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:5})" mx-view="mx-copy/index?copyNode=';
     $line = 71;
     $art = '=viewId';
     ;
@@ -116,7 +116,7 @@ module.exports = Base.extend({
     $line = 119;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"><div mxs="_zs_galleryeJ:g" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-title/second?content=%3Cspan%20style%3D%27color%3A%20red%3B%27%3E%E4%BA%8C%E7%BA%A7%3C%2Fspan%3E%E6%A0%87%E9%A2%98&tip=%3Cspan%20style%3D%27color%3A%20red%3B%27%3E%E9%AB%98%E4%BA%AE%3C%2Fspan%3E%E6%98%BE%E7%A4%BA"></div></div><div mxa="_zs_galleryeJ:n" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryeJ:h" class="_zs_gallery___test___layout_-eg-title">可包含html标签</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:6})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"><div mxs="_zs_galleryeJ:g" class="_zs_gallery___test___layout_-eg-content"><div mx-view="mx-title/second?content=%3Cspan%20style%3D%27color%3A%20red%3B%27%3E%E4%BA%8C%E7%BA%A7%3C%2Fspan%3E%E6%A0%87%E9%A2%98&tip=%3Cspan%20style%3D%27color%3A%20red%3B%27%3E%E9%AB%98%E4%BA%AE%3C%2Fspan%3E%E6%98%BE%E7%A4%BA"></div></div><div mxa="_zs_galleryeJ:n" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryeJ:e" class="_zs_gallery___test___layout_-eg-title">可包含html标签</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:6})" mx-view="mx-copy/index?copyNode=';
     $line = 127;
     $art = '=viewId';
     ;

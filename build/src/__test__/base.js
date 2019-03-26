@@ -38,9 +38,9 @@ module.exports = Magix.View.extend({
     $line = 17;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_iokchekcdp$art_i = 0, $art_cxwzycoeyyo$art_c = headers.length; $art_iokchekcdp$art_i < $art_cxwzycoeyyo$art_c; $art_iokchekcdp$art_i++) {    var h = headers[$art_iokchekcdp$art_i]%>';
-    for (var $art_iokchekcdp$art_i = 0, $art_cxwzycoeyyo$art_c = headers.length; $art_iokchekcdp$art_i < $art_cxwzycoeyyo$art_c; $art_iokchekcdp$art_i++) {
-        var h = headers[$art_iokchekcdp$art_i];
+    $expr = '<%for (var $art_igmnytrzot$art_i = 0, $art_ccvjcgbeyxd$art_c = headers.length; $art_igmnytrzot$art_i < $art_ccvjcgbeyxd$art_c; $art_igmnytrzot$art_i++) {    var h = headers[$art_igmnytrzot$art_i]%>';
+    for (var $art_igmnytrzot$art_i = 0, $art_ccvjcgbeyxd$art_c = headers.length; $art_igmnytrzot$art_i < $art_ccvjcgbeyxd$art_c; $art_igmnytrzot$art_i++) {
+        var h = headers[$art_igmnytrzot$art_i];
         $p += '<a ';
         $line = 18;
         $art = 'if h.new';
@@ -154,9 +154,9 @@ module.exports = Magix.View.extend({
     $line = 32;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iiplkuc$art_i = 0, $art_cczonzfavp$art_c = list.length; $art_iiplkuc$art_i < $art_cczonzfavp$art_c; $art_iiplkuc$art_i++) {    var item = list[$art_iiplkuc$art_i]%>';
-    for (var $art_iiplkuc$art_i = 0, $art_cczonzfavp$art_c = list.length; $art_iiplkuc$art_i < $art_cczonzfavp$art_c; $art_iiplkuc$art_i++) {
-        var item = list[$art_iiplkuc$art_i];
+    $expr = '<%for (var $art_icsraketbd$art_i = 0, $art_cnzrpjuo$art_c = list.length; $art_icsraketbd$art_i < $art_cnzrpjuo$art_c; $art_icsraketbd$art_i++) {    var item = list[$art_icsraketbd$art_i]%>';
+    for (var $art_icsraketbd$art_i = 0, $art_cnzrpjuo$art_c = list.length; $art_icsraketbd$art_i < $art_cnzrpjuo$art_c; $art_icsraketbd$art_i++) {
+        var item = list[$art_icsraketbd$art_i];
         $p += ' ';
         $line = 33;
         $art = 'if item.name';
@@ -197,9 +197,9 @@ module.exports = Magix.View.extend({
         $line = 40;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_itmzoril$art_i = 0, $art_objjpjyagfae$art_obj = item.subs, $art_cfjmcihtu$art_c = $art_objjpjyagfae$art_obj.length; $art_itmzoril$art_i < $art_cfjmcihtu$art_c; $art_itmzoril$art_i++) {        var sub = $art_objjpjyagfae$art_obj[$art_itmzoril$art_i]%>';
-        for (var $art_itmzoril$art_i = 0, $art_objjpjyagfae$art_obj = item.subs, $art_cfjmcihtu$art_c = $art_objjpjyagfae$art_obj.length; $art_itmzoril$art_i < $art_cfjmcihtu$art_c; $art_itmzoril$art_i++) {
-            var sub = $art_objjpjyagfae$art_obj[$art_itmzoril$art_i];
+        $expr = '<%for (var $art_itgvcdlti$art_i = 0, $art_objjzwwgyv$art_obj = item.subs, $art_ccyjzczvwjd$art_c = $art_objjzwwgyv$art_obj.length; $art_itgvcdlti$art_i < $art_ccyjzczvwjd$art_c; $art_itgvcdlti$art_i++) {        var sub = $art_objjzwwgyv$art_obj[$art_itgvcdlti$art_i]%>';
+        for (var $art_itgvcdlti$art_i = 0, $art_objjzwwgyv$art_obj = item.subs, $art_ccyjzczvwjd$art_c = $art_objjzwwgyv$art_obj.length; $art_itgvcdlti$art_i < $art_ccyjzczvwjd$art_c; $art_itgvcdlti$art_i++) {
+            var sub = $art_objjzwwgyv$art_obj[$art_itgvcdlti$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 41;
             $art = 'if (sub.path == path)';
@@ -709,9 +709,17 @@ catch (ex) {
                                 path: '/effects/star',
                                 icon: '&#xe646;'
                             }, {
-                                name: '进度比例',
-                                tip: '条型，刻度型',
-                                path: '/effects/progress',
+                                name: '条型进度比例',
+                                tip: '支持渐变',
+                                path: '/effects/progress1',
+                                icon: '&#xe6e4;'
+                            }, {
+                                name: '刻度型进度比例',
+                                path: '/effects/progress2',
+                                icon: '&#xe6e4;'
+                            }, {
+                                name: '圆形进度比例',
+                                path: '/effects/progress3',
                                 icon: '&#xe6e4;'
                             }, {
                                 name: '各种动效',

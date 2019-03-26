@@ -41,9 +41,9 @@ module.exports = Base.extend({
     $line = 7;
     $art = 'each checkboxes as c';
     ;
-    $expr = '<%for (var $art_isuhqllqh$art_i = 0, $art_crylobfhg$art_c = checkboxes.length; $art_isuhqllqh$art_i < $art_crylobfhg$art_c; $art_isuhqllqh$art_i++) {    var c = checkboxes[$art_isuhqllqh$art_i]%>';
-    for (var $art_isuhqllqh$art_i = 0, $art_crylobfhg$art_c = checkboxes.length; $art_isuhqllqh$art_i < $art_crylobfhg$art_c; $art_isuhqllqh$art_i++) {
-        var c = checkboxes[$art_isuhqllqh$art_i];
+    $expr = '<%for (var $art_ijreewj$art_i = 0, $art_cuqady$art_c = checkboxes.length; $art_ijreewj$art_i < $art_cuqady$art_c; $art_ijreewj$art_i++) {    var c = checkboxes[$art_ijreewj$art_i]%>';
+    for (var $art_ijreewj$art_i = 0, $art_cuqady$art_c = checkboxes.length; $art_ijreewj$art_i < $art_cuqady$art_c; $art_ijreewj$art_i++) {
+        var c = checkboxes[$art_ijreewj$art_i];
         $p += '<label mxv mxa="_zs_gallerybW:e" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 12;
         $art = ':selected.checkboxes{refresh:true,required:[true,\'必选\']}';
@@ -67,9 +67,9 @@ module.exports = Base.extend({
     $line = 21;
     $art = 'each radioes as r';
     ;
-    $expr = '<%for (var $art_iqjjnmzpmm$art_i = 0, $art_cmrqxhmxdml$art_c = radioes.length; $art_iqjjnmzpmm$art_i < $art_cmrqxhmxdml$art_c; $art_iqjjnmzpmm$art_i++) {    var r = radioes[$art_iqjjnmzpmm$art_i]%>';
-    for (var $art_iqjjnmzpmm$art_i = 0, $art_cmrqxhmxdml$art_c = radioes.length; $art_iqjjnmzpmm$art_i < $art_cmrqxhmxdml$art_c; $art_iqjjnmzpmm$art_i++) {
-        var r = radioes[$art_iqjjnmzpmm$art_i];
+    $expr = '<%for (var $art_iuzjjtxl$art_i = 0, $art_cjkgnwhwk$art_c = radioes.length; $art_iuzjjtxl$art_i < $art_cjkgnwhwk$art_c; $art_iuzjjtxl$art_i++) {    var r = radioes[$art_iuzjjtxl$art_i]%>';
+    for (var $art_iuzjjtxl$art_i = 0, $art_cjkgnwhwk$art_c = radioes.length; $art_iuzjjtxl$art_i < $art_cjkgnwhwk$art_c; $art_iuzjjtxl$art_i++) {
+        var r = radioes[$art_iuzjjtxl$art_i];
         $p += '<label mxv mxa="_zs_gallerybW:h" class="mr30"><input mxe="' + $viewId + '_1" mxc="[';
         $line = 26;
         $art = ':selected.radio{refresh:true}';
