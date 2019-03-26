@@ -6,6 +6,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.23',
+            time: '2019-03-26',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-collapse：展开收起时抛出change事件，<a href="#!/collapse/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.progress：支持渐变色，<a href="#!/effects/progress1" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.2.22',
             time: '2019-03-21',
             subs: [{
