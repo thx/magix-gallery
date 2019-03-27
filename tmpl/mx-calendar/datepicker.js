@@ -16,6 +16,9 @@ module.exports = Magix.View.extend({
             Monitor['@{teardown}']();
         });
         that['@{extra}'] = $.extend(true, {}, extra);
+
+        let disabledNode = $('#' + that.id + '[mx-disabled]')
+        that['@{ui.disabled}'] = disabledNode && (disabledNode.length > 0);
     },
 
     render() {
@@ -43,6 +46,10 @@ module.exports = Magix.View.extend({
     },
 
     '@{toggle}<click>'(e) {
+        if(this['@{ui.disabled}']){
+            return;
+        }
+        
         e.preventDefault();
         let show = this.updater.get('show');
         if (show) {

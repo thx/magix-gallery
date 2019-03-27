@@ -33,6 +33,9 @@ let Rangepicker = Magix.View.extend({
         let that = this;
         let altered = that.updater.altered();
 
+        let disabledNode = $('#' + that.id + '[mx-disabled]')
+        that['@{ui.disabled}'] = disabledNode && (disabledNode.length > 0);
+
         let centerClass = '@rangepicker.less:result-center';
         let classes = {
             left: '@rangepicker.less:result-left',
@@ -228,6 +231,10 @@ let Rangepicker = Magix.View.extend({
     },
 
     '@{toggle}<click>'(e) {
+        if(this['@{ui.disabled}']){
+            return;
+        }
+
         e.preventDefault();
         let show = this.updater.get('show');
         if (show) {
