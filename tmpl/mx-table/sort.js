@@ -75,19 +75,47 @@ module.exports = {
             }
         }
 
-        switch (orderBy) {
-            case 'desc':
-                list = list.sort((a, b) => {
-                    return (+b[orderField]) - (+a[orderField]);
-                });
-                break;
-            case 'asc':
-                list = list.sort((a, b) => {
-                    return (+a[orderField]) - (+b[orderField]);
-                });
-                break;
-        }
+        list = list.sort((a, b) => {
+            let ax = a[orderField] + '',
+                bx = b[orderField] + '';
 
+            let compare;
+            if(isNaN(parseInt(ax)) || isNaN(parseInt(bx)) ){
+                // 字符串排序，忽略大小写
+                switch (orderBy) {
+                    case 'desc':
+                        // 降序
+                        if(bx.toUpperCase() < ax.toUpperCase()){
+                            compare = -1;
+                        }else{
+                            compare = 1;
+                        }
+                        break;
+                    case 'asc':
+                        // 升序
+                        if(ax.toUpperCase() < bx.toUpperCase()){
+                            compare = -1;
+                        }else{
+                            compare = 1;
+                        }
+                        break;
+                }
+            }else{
+                // 数字排序
+                switch (orderBy) {
+                    case 'desc':
+                        // 降序
+                        compare = (+bx) - (+ax);
+                        break;
+                    case 'asc':
+                        // 升序
+                        compare = (+ax) - (+bx);
+                        break;
+                }
+            }
+
+            return compare;
+        });
         return list.concat(emptyList);
     },
 

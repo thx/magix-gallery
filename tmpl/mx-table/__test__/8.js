@@ -20,22 +20,73 @@ module.exports = Base.extend({
         let that = this;
 
         let groups = [{
-            name: '组1',
-            fields: ['field1', 'field2']
+            name: '数字（忽略无值行）',
+            fields: [{
+                name: '数字列1',
+                key: 'field1'
+            }, {
+                name: '数字列2',
+                key: 'field2'
+            }]
         }, {
-            name: '组2',
-            fields: ['field3', 'field4', 'field5', 'field6']
-        }, {
-            name: '组3',
-            fields: ['field7', 'field8', 'field9']
+            name: '字符串排序（忽略无值行 + 忽略大小写）',
+            fields: [{
+                name: '英文',
+                key: 'field3'
+            }, {
+                name: '中文',
+                key: 'field4'
+            }]
         }]
         let len = 0;
         groups.forEach(group => {
             len += group.fields.length;
         })
 
+        let list = [{
+            fixed1: '1_1',
+            fixed2: '1_2',
+            fixed3: '1_3',
+            field1: 9000,
+            field2: 3000,
+            field3: 'Abc',
+            field4: '中文'
+        },{
+            fixed1: '2_1',
+            fixed2: '2_2',
+            fixed3: '2_3',
+            field1: 9001,
+            field2: undefined,
+            field3: 'dsas',
+            field4: '测试'
+        },{
+            fixed1: '3_1',
+            fixed2: '3_2',
+            fixed3: '3_3',
+            field1: 9004,
+            field2: 2990,
+            field3: 'acc',
+            field4: ''
+        },{
+            fixed1: '4_1',
+            fixed2: '4_2',
+            fixed3: '4_3',
+            field1: null,
+            field2: 3010,
+            field3: 'GSBa',
+            field4: '你好'
+        },{
+            fixed1: '5_1',
+            fixed2: '5_2',
+            fixed3: '5_3',
+            field1: 9051,
+            field2: 3000,
+            field3: '',
+            field4: '随机'
+        }]
+
         that.updater.digest({
-            list: that.sort(that.getList()),
+            list: that.sort(list),
             groups,
             len,
             format: (val) => {
@@ -45,29 +96,5 @@ module.exports = Base.extend({
                 return val;
             }
         });
-    },
-    getList() {
-        let list = [];
-        for (var i = 0; i < 5; i++) {
-            let empty = (i == 2 || i == 4);
-            let origin = {
-                fixed1: i + '_1',
-                fixed2: i + '_2',
-                fixed3: i + '_3',
-                field1: empty ? 0 : (i + 9000),
-                field2: empty ? 0 : (i + 3000),
-                field3: empty ? 0 : (i + 1000),
-                field4: i + 412,
-                field5: i + 512,
-                field6: i + 612,
-                field7: i + 7,
-                field8: i + 8,
-                field9: i + 2
-            }
-
-            let item = $.extend(true, {}, origin);
-            list.push(item);
-        }
-        return list;
     }
 });

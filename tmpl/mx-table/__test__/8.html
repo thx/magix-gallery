@@ -13,33 +13,17 @@
 </pre>
                 </div>
                 <div>排序参数反应在路由上，orderField（按哪个字段排序），orderBy（desc降序，asc升序）；</div>
-                <div>mixins中this.sort为本页排序方法，如果从接口获取排序则忽略此方法</div>
+                <div>mixins中this.sort为本页排序方法（<span class="color-brand">数字排序+字符串排序</span>），如果从接口获取排序则忽略此方法</div>
             </div>
         </div>
         <mx-table sticky="true" class="mb40">
             <!-- 左侧固定展示的列，在th上配置宽度，有操作项请写在固定项内 -->
-            <table class="table" left="true" width="400">
+            <table class="table">
                 <thead>
                     <tr>
-                        <th>固定1</th>
-                        <th>固定2</th>
-                        <th>固定3</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{each list as item index}}
-                        <tr>
-                            <td>{{=item.fixed1}}</td>
-                            <td>{{=item.fixed2}}</td>
-                            <td>{{=item.fixed3}}</td>
-                        </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-            <!-- 滚动列 -->
-            <table class="table" center="true" width="1200"> 
-                <thead>
-                    <tr>
+                        <th rowspan="2">固定1</th>
+                        <th rowspan="2">固定2</th>
+                        <th rowspan="2">固定3</th>
                         {{each groups as group}}
                             <th class="field-group" colspan="{{=group.fields.length}}">
                                 <div class="group-name">{{=group.name}}</div>
@@ -50,8 +34,8 @@
                         {{each groups as group}}
                             {{each group.fields as field}}
                             <th class="field-item">
-                                指标{{=field}}
-                                <span sort-trigger="{{=field}}"></span>
+                                {{=field.name}}
+                                <span sort-trigger="{{=field.key}}"></span>
                             </th>
                             {{/each}}
                         {{/each}}
@@ -59,10 +43,13 @@
                 </thead>
                 <tbody>
                     {{each list as item index}}
-                        <tr class="{{= (index+1==list.length) ? 'last-tr' : ''}}">
+                        <tr>
+                            <td>{{=item.fixed1}}</td>
+                            <td>{{=item.fixed2}}</td>
+                            <td>{{=item.fixed3}}</td>
                             {{each groups as group}}
                                 {{each group.fields as field}}
-                                <td>{{=format(item[field])}}</td>
+                                <td>{{=format(item[field.key])}}</td>
                                 {{/each}}
                             {{/each}}
                         </tr>
