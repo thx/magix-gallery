@@ -1,1 +1,108 @@
-define("mx-table/__test__/19",["magix","__test__/example","$","../index","mx-copy/index","__test__/hl"],(t,e,l)=>{t("../index"),t("mx-copy/index"),t("__test__/hl");t("magix");var a=t("__test__/example");t("$");l.exports=a.extend({tmpl:function(t,e,l,a,r,n,_,s){if(l||(l=t),!r){var i={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},d=/[&<>"'`]/g,g=function(t){return"&"+i[t]+";"};r=function(t){return""+(null==t?"":t)},a=function(t){return r(t).replace(d,g)}}if(!n){var c={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},x=function(t){return c[t]},o=/[!')(*]/g;n=function(t){return encodeURIComponent(r(t)).replace(o,x)}}if(!s){var m=/[\\'"]/g;s=function(t){return r(t).replace(m,"\\$&")}}var y="",v=t.viewId,f=t.text1;y+='<div mxa="_zs_galleryd?:_" class="_zs_galleryh"><div mxa="_zs_galleryd?:a" class="_zs_galleryk"><div mxa="_zs_galleryd?:b" mx-view="mx-table/index?sticky=true&stickyEnd=true"><div><table mxa="_zs_galleryd?:c" class="table"><thead><tr>';for(var u=0;u<6;u++)y+='<th mxa="_zs_galleryd?:d" width="120">固定字段'+a(u)+"</th>";y+="</tr></thead><tbody>";for(var p=0;p<20;p++){y+='<tr class="'+a(9==p?"last-tr":"")+'">';for(u=0;u<6;u++)y+="<td>内容"+a(u)+"</td>";y+="</tr>"}return y+='</tbody></table></div></div></div><div mxa="_zs_galleryd?:e" class="_zs_galleryl"><div mxs="_zs_galleryd?:_" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="'+e+'done({id:1})" mx-view="mx-copy/index?copyNode='+n(v)+'_text_1"><span mxa="_zs_galleryd?:f" class="_zs_galleryo">'+r(f)+'</span><i mxs="_zs_galleryd?:a" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+a(v)+'_text_1">\n&lt;mx-table sticky="true" sticky-end="true"&gt;\n    &lt;table class="table"&gt;\n        &lt;thead&gt;\n            &lt;tr&gt;\n                &#123;&#123;for(let i=0;i&lt;6;i++)&#125;&#125;\n                &lt;th width="120"&gt;固定字段&#123;&#123;=i&#125;&#125;&lt;/th&gt;\n                &#123;&#123;/for&#125;&#125;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;for(let j=0;j&lt;20;j++)&#125;&#125;\n            &lt;tr class="&#123;&#123;= (j==9) ? \'last-tr\' : \'\'&#125;&#125;"&gt;\n                &#123;&#123;for(let i=0;i&lt;6;i++)&#125;&#125;\n                &lt;td&gt;内容&#123;&#123;=i&#125;&#125;&lt;/td&gt;\n                &#123;&#123;/for&#125;&#125;\n            &lt;/tr&gt;\n            &#123;&#123;/for&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n&lt;/mx-table&gt;\n        </pre></div></div>'},render:function(){this.updater.digest()}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-table/__test__/19",["magix","__test__/example","$","../index","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("../index");
+require("mx-copy/index");
+require("__test__/hl");
+var Magix = require("magix");
+var Base = require("__test__/example");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryd?:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryd?:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_galleryd?:b" mx-view="mx-table/index?sticky=true&stickyEnd=true"><div><table mxa="_zs_galleryd?:c" class="table"><thead><tr>';
+    $line = 7;
+    $art = 'for (let i=0;i<6;i++)';
+    ;
+    $expr = '<%for (var i = 0; i < 6; i++) {%>';
+    for (var i = 0; i < 6; i++) {
+        ;
+        $p += '<th mxa="_zs_galleryd?:d" width="120">固定字段';
+        $line = 8;
+        $art = '=i';
+        ;
+        $p += ($expr = '<%=i%>', $e(i)) + '</th>';
+        $line = 9;
+        $art = '/for';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</tr></thead><tbody>';
+    $line = 13;
+    $art = 'for (let j=0;j<20;j++)';
+    ;
+    $expr = '<%for (var j = 0; j < 20; j++) {%>';
+    for (var j = 0; j < 20; j++) {
+        ;
+        $p += '<tr class="';
+        $line = 14;
+        $art = '= (j==9) ? \'last-tr\' : \'\'';
+        ;
+        $p += ($expr = '<%=(j == 9) ? \'last-tr\' : \'\'%>', $e((j == 9) ? 'last-tr' : '')) + '">';
+        $line = 15;
+        $art = 'for (let i=0;i<6;i++)';
+        ;
+        $expr = '<%for (var i = 0; i < 6; i++) {%>';
+        for (var i = 0; i < 6; i++) {
+            ;
+            $p += '<td>内容';
+            $line = 16;
+            $art = '=i';
+            ;
+            $p += ($expr = '<%=i%>', $e(i)) + '</td>';
+            $line = 17;
+            $art = '/for';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</tr>';
+        $line = 19;
+        $art = '/for';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</tbody></table></div></div></div><div mxa="_zs_galleryd?:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd?:_" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 26;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryd?:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 28;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryd?:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 31;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-table sticky="true" sticky-end="true"&gt;\n    &lt;table class="table"&gt;\n        &lt;thead&gt;\n            &lt;tr&gt;\n                &#123;&#123;for(let i=0;i&lt;6;i++)&#125;&#125;\n                &lt;th width="120"&gt;固定字段&#123;&#123;=i&#125;&#125;&lt;/th&gt;\n                &#123;&#123;/for&#125;&#125;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;for(let j=0;j&lt;20;j++)&#125;&#125;\n            &lt;tr class="&#123;&#123;= (j==9) ? \'last-tr\' : \'\'&#125;&#125;"&gt;\n                &#123;&#123;for(let i=0;i&lt;6;i++)&#125;&#125;\n                &lt;td&gt;内容&#123;&#123;=i&#125;&#125;&lt;/td&gt;\n                &#123;&#123;/for&#125;&#125;\n            &lt;/tr&gt;\n            &#123;&#123;/for&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n&lt;/mx-table&gt;\n        </pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-table/__test__/19.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest();
+    }
+});
+
+});

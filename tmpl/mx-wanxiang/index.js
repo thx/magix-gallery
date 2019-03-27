@@ -16,22 +16,21 @@ module.exports = Magix.View.extend({
         let bottom = extra.bottom || 0;
         let defaultSourceId = +extra.defaultSourceId;
         let sourceMap = extra.sourceMap || {};
-        for(let path in sourceMap){
-            sourceMap[path] = +sourceMap[path];
-        }
+        let path = Router.parse().path;
+        let sourceId = sourceMap[path] || defaultSourceId;
         that.updater.set({
             bizCode,
-            sourceId: defaultSourceId, //当前sourceId
-            defaultSourceId, // 默认sourceId
             bottom: +bottom,
-            sourceMap: extra.sourceMap || {},
+            defaultSourceId, // 默认sourceId
+            sourceId, //当前sourceId
+            sourceMap: sourceMap,
             awLoading: true
         })
         window.awAsyncInit = () => {
             var wxParams = {
                 isHidden: true,
-                bizCode: bizCode, 
-                sourceId: defaultSourceId,
+                bizCode: bizCode,
+                sourceId: sourceId,
                 logoWidth: 40, //非必传：指定象仔logo大小
                 onRendered: () => {
                     that.updater.set({
@@ -44,44 +43,51 @@ module.exports = Magix.View.extend({
             }
             AW.init(wxParams);
         }
-        that.assign(extra);
 
         that.on('destroy', () => {
-            if(that.loopTimer){
+            if (that.loopTimer) {
                 clearTimeout(that.loopTimer);
             }
         })
     },
 
-    assign(extra) {
+    assign() {
+        return true;
+    },
+
+    render() {
         let that = this;
         let path = Router.parse().path;
-        let sourceMap = that.updater.get('sourceMap'),
-            defaultSourceId = that.updater.get('defaultSourceId'),
-            oldSourceId = that.updater.get('sourceId');
-        let sourceId = sourceMap[path] || defaultSourceId 
+        let data = that.updater.get();
+        let sourceMap = data.sourceMap,
+            defaultSourceId = data.defaultSourceId,
+            oldSourceId = data.sourceId;
+        let sourceId = sourceMap[path] || defaultSourceId;
 
         // 刷新万象知识库
         let duration = 25;
         let timer = setTimeout(() => {
             clearTimeout(timer);
-            if (window.AW && (sourceId !== oldSourceId)) {
-                AW.refresh({
-                    sourceId
-                });
-                that.updater.set({
-                    sourceId
-                })
-            } else if (that.updater.get('awLoading')) {
-                timer = setTimeout(arguments.callee, duration);
+            if (window.AW) {
+                if ((sourceId + '') !== (oldSourceId + '')) {
+                    AW.refresh({
+                        sourceId
+                    });
+                    that.updater.set({
+                        sourceId
+                    })
+                }
+            } else {
+                // 首次未加载成功时，间隔调用
+                if (that.updater.get('awLoading')) {
+                    timer = setTimeout(arguments.callee, duration);
+                }
             }
         }, duration);
         that.loopTimer = timer;
-
-        return true;
     },
 
-    reloc: function() {
+    reloc: function () {
         let that = this;
         if (window.AW) {
             let bottom = that.updater.get('bottom');

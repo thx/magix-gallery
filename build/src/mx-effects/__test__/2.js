@@ -1,1 +1,53 @@
-define("mx-effects/__test__/2",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(e,t,n)=>{e("mx-copy/index"),e("__test__/hl");e("magix");var _=e("__test__/example");e("$");n.exports=_.extend({tmpl:function(e,t,n,_,i,s,l,a){if(n||(n=e),!i){var r={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},c=/[&<>"'`]/g,d=function(e){return"&"+r[e]+";"};i=function(e){return""+(null==e?"":e)},_=function(e){return i(e).replace(c,d)}}if(!s){var x={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},m=function(e){return x[e]},o=/[!')(*]/g;s=function(e){return encodeURIComponent(i(e)).replace(o,m)}}if(!a){var v=/[\\'"]/g;a=function(e){return i(e).replace(v,"\\$&")}}var g="",p=e.viewId,y=e.text1;return g+='<div mxa="_zs_gallerybn:_" class="_zs_galleryh"><div mxs="_zs_gallerybn:_" class="_zs_galleryk"><div bg="white" content="暂无相关记录" class="empty-white"><div class="empty-inner"><div><i class="mc-iconfont no-data">&#xe685;</i></div><div>暂无相关记录</div></div></div></div><div mxa="_zs_gallerybn:a" class="_zs_galleryl"><div mxs="_zs_gallerybn:a" class="_zs_galleryj">HTML Code</div><div class="_zs_gallerym" mx-success="'+t+'done({id:1})" mx-view="mx-copy/index?copyNode='+s(p)+'_text_1"><span mxa="_zs_gallerybn:b" class="_zs_galleryo">'+i(y)+'</span><i mxs="_zs_gallerybn:b" class="mc-iconfont _zs_galleryn">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+_(p)+'_text_1">\n&lt;mx-effects.empty bg="white"\n    content="暂无相关记录"/&gt;</pre></div></div>'},render:function(){this.updater.digest()}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-effects/__test__/2",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("mx-copy/index");
+require("__test__/hl");
+var Magix = require("magix");
+var Base = require("__test__/example");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerybn:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybn:_" class="_zs_gallery___test___layout_-eg-content"><div bg="white" content="暂无相关记录" class="empty-white"><div class="empty-inner"><div><i class="mc-iconfont no-data">&#xe685;</i></div><div>暂无相关记录</div></div></div></div><div mxa="_zs_gallerybn:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybn:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 8;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybn:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 10;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybn:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 13;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.empty bg="white"\n    content="暂无相关记录"/&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-effects/__test__/2.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest();
+    }
+});
+
+});

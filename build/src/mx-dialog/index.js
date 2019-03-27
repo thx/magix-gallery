@@ -1,1 +1,687 @@
-define("mx-dialog/index",["magix","$","../mx-medusa/util","mx-popover/index"],(e,a,l)=>{e("mx-popover/index");var i=e("magix"),o=e("$"),t=i.Vframe,n=e("../mx-medusa/util");i.applyStyle("_zs_galleryD","._zs_gallerydV{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerydW,._zs_gallerydX{position:fixed;left:0;width:100%;height:100%;transition:all .25s}._zs_gallerydW{opacity:0;top:0;background-color:rgba(0,0,0,.4)}._zs_gallerydW._zs_gallerydY{opacity:1}._zs_gallerydZ{position:absolute;border-radius:4px;background-color:#fff;box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerydZ ._zs_gallerye_{position:relative;word-break:break-all}._zs_gallerydZ ._zs_galleryea{position:absolute;top:16px;right:24px;width:26px;height:26px;z-index:20;border-radius:50%;background:transparent;color:#ccc;text-align:center}._zs_gallerydZ ._zs_galleryea ._zs_galleryeb{font-size:18px;font-weight:700;line-height:26px}._zs_gallerydZ ._zs_galleryea:focus,._zs_gallerydZ ._zs_galleryea:hover{background-color:#999;color:#fff}._zs_gallerydZ._zs_galleryec{border-radius:0}._zs_galleryed{position:relative}._zs_galleryed ._zs_galleryee{opacity:1;position:relative;z-index:1}._zs_galleryed ._zs_galleryef{display:none;position:absolute;top:50%;left:50%;z-index:2;margin-top:-2px;margin-left:-2px}._zs_galleryed._zs_galleryeg ._zs_galleryee{opacity:0}._zs_galleryed._zs_galleryeg ._zs_galleryef{display:inline}");var r=500,s=[];l.exports=i.View.extend({tmpl:function(e,a,l,i,o,t,n,r){if(l||(l=e),!o){var s={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},d=/[&<>"'`]/g,c=function(e){return"&"+s[e]+";"};o=function(e){return""+(null==e?"":e)},i=function(e){return o(e).replace(d,c)}}if(!t){var g={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},_=function(e){return g[e]},p=/[!')(*]/g;t=function(e){return encodeURIComponent(o(e)).replace(p,_)}}if(!r){var f=/[\\'"]/g;r=function(e){return o(e).replace(f,"\\$&")}}var m="",u=e.closable,x=e.cntId,h=e.full,y=e.fullHeader,v=e.fullFooter;return u&&(m+='<a mxs="_zs_galleryaO:_" href="javascript:;" mx-click="'+a+'__aF()" class="_zs_galleryea"><i class="mc-iconfont _zs_galleryeb">&#xe603;</i></a>'),m+='<div class="_zs_gallerye_" id="'+i(x)+'_content">',h?(m+=" ",y.title&&(m+='<div class="dialog-header" id="'+i(x)+'_header"><span mxa="_zs_galleryaO:_" class="header-name">'+o(y.title)+"</span>",y.iconTip&&(m+='<i class="mc-iconfont color-c" mx-view="mx-popover/index?content='+t(y.iconTip)+'">&#xe7aa;</i>'),m+=" ",y.tip&&(m+='<span mxa="_zs_galleryaO:a" class="color-9 ml10">'+o(y.tip)+"</span>"),m+="</div>"),m+='<div id="'+i(x)+'"><div mxs="_zs_galleryaO:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>',(v.enter||v.cancel)&&(m+='<div class="dialog-footer clearfix" id="'+i(x)+'_footer">',v.enter&&(m+='<a mxa="_zs_galleryaO:b" href="javascript:;" class="fl btn btn-brand min-width-60 mr16 _zs_galleryed" mx-click="'+a+'__aG()"><span mxa="_zs_galleryaO:c" class="_zs_galleryee">'+o(v.enterText)+"</span></a>"),m+=" ",v.cancel&&(m+='<a mxa="_zs_galleryaO:d" href="javascript:;" class="fl btn min-width-60 mr16" mx-click="'+a+'__aF()">'+o(v.cancelText)+"</a>"),m+=" ",v.enter&&(m+='<span id="'+i(x)+'_footer_error" class="fl lh32 color-red"></span>'),m+="</div>"),m+=" "):m+='<div id="'+i(x)+'"><div mxs="_zs_galleryaO:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>',m+="</div>"},init:function(e){var a=this;a.on("destroy",function(){!function(e){for(var a=s.length-1;a>=0;a--)if(s[a].id==e.id){s.splice(a,1);break}}(a),r-=2,o("#"+a.id).trigger("dlg_close")}),r+=2,s.push(a),i.has(e,"closable")||(e.closable=!0),a.updater.set(i.mix({cntId:"cnt_"+a.id},e))},render:function(){var e=this,a=e.updater,l=a.get();a.digest(),setTimeout(e.wrapAsync(function(){var a=o("#wrapper_"+e.id);a.css(l.posTo);var t=l.cntId;if(l.full){var n=window.innerHeight,r=o("#"+t+"_header"),s=o("#"+t+"_footer");r&&r.length&&(n-=r.outerHeight()),s&&s.length&&(n-=s.outerHeight());var d={height:n-2,overflowY:"auto"};l.card&&(d.backgroundColor="#e8ebf2",d.padding="16px 24px"),o("#"+t).css(d)}var c=o("#mask_"+e.id);c.length>0?c.addClass("_zs_gallerydY"):a.on("click",function(a){i.inside(a.target,t+"_content")||o("#"+e.id).trigger("dlg_close")}),e.owner.mountVframe(t,l.view,l),a.on("scroll",function(){o(document).trigger("dialogScolll")})}),250)},__aE:function(e){var a=t.get("cnt_"+this.id);a&&a.invoke("fire",["unload",e])},"__aG<click>":function(e){var a=o(e.eventTarget),l="_zs_galleryeg";if(!a.hasClass(l)){a.addClass(l),a.append('<span class="mx-anim-loading _zs_galleryef"></span>');var i=this,n=i.updater.get(),r=n.cntId;t.get(r).invoke("check").then(function(e){a.find("._zs_galleryef").remove(),a.removeClass(l);var t=o("#"+r+"_footer_error");e.ok?(t.html(""),i["__aF<click>"](),n.callback&&n.callback(e.data||{})):e.msg?t.html('<i class="mc-iconfont displacement-2">&#xe6ad;</i>'+e.msg):t.html("")})}},"__aF<click>":function(){o("#"+this.id).trigger("dlg_close")},"$doc<keyup>":function(e){if(27==e.keyCode){var a=s[s.length-1];if(a==this&&a.updater.get("closable"))o("#"+a.id).trigger("dlg_close")}}},{__aH:function(e,a){var l=i.guid("dlg_");if(a.mask){var t=o('<div class="_zs_gallerydW" id="mask_'+l+'" />');t.css({zIndex:r-1}),o(document.body).append(t)}var n="wrapper_"+l,d=r,c=a.width,g=a.left,_=a.top,p=o('<div class="_zs_gallerydX" id="'+n+'"\n    style="z-index:'+d+'">\n    <div class="_zs_gallerydZ '+(a.full?"_zs_galleryec":"")+'" id="'+l+'"\n        style="top:'+_+"px; left:"+g+"px; width:"+c+'px;"></div>\n</div>');p.css(a.posFrom),o(document.body).append(p),window.innerWidth-document.body.clientWidth>0&&(document.body.style.paddingRight=window.innerWidth-document.body.clientWidth+"px"),document.body.style.overflowY="hidden",p.css({overflowY:a.modal?"hidden":"auto"});var f,m=e.owner.mountVframe(l,"mx-dialog/index",a),u=o("#"+l);return u.on("dlg_close",function(){u.data("closed")||u.trigger({type:"beforeClose",closeFn:function(){if(!u.data("closing")&&!f){var i=function(){u.data("closing",1),o("#wrapper_"+l).css(a.posFrom),o("#mask_"+l).removeClass("_zs_gallerydY"),setTimeout(function(){u.trigger("close"),u.data("closed",1),e.owner&&e.owner.unmountVframe(l),o("#wrapper_"+l).remove(),o("#mask_"+l).remove(),0==s.length&&(document.body.style.paddingRight="",document.body.style.overflowY="")},250)},t={prevent:function(){f=1},resolve:function(){t.p=1,f=0,i()},reject:function(){t.p=1,f=0}};m.invoke("__aE",[t]),f||t.p||i()}}})})},alert:function(e,a,l,o){var t=(o=o||{}).btns+""!="false";return this.mxDialog("mx-dialog/alert",{title:e,content:a,enterCallback:l,hasBtns:t},i.mix({width:320,closable:!1,mask:!1},o))},confirm:function(e,a){return this.mxDialog("mx-dialog/confirm",e,i.mix({width:320,closable:!1,mask:!1},a||{}))},mxDialogGroup:function(e,a){return e.height=a.height||500,this.mxDialog("mx-dialog/group",e,i.mix({width:800,closable:!0,mask:!0},a||{}))},mxModal:function(e,a,l){return l=l||{},this.mxDialog(e,a,i.mix({closable:!0,mask:!0},i.mix(l||{},{full:!0,fullHeader:i.mix({title:"",tip:"",iconTip:""},l.header||{}),fullFooter:i.mix({enter:!0,enterText:n["dialog.submit"],cancel:!0,cancelText:n["dialog.cancel"]},l.footer||{}),modal:!1,height:window.innerHeight,placement:"right",card:l.card+""!="false"})))},mxDialog:function(e,a,l){var o,t,n,r=this,s={beforeClose:function(e){t=e},close:function(){o&&o.trigger("dlg_close")},afterClose:function(e){n=e}},d={view:e};return seajs.use(e,r.wrapAsync(function(c){var g="$dlg_"+e;if(!r[g]){r[g]=1;var _,p,f,m,u=c.dialogOptions||{},x=(l=l||{}).placement||u.placement||"center",h=l.width||u.width||400,y=l.height||u.height||260,v=window.innerWidth,z=window.innerHeight;switch(x){case"center":_=(v-h)/2,p=Math.max((z-y)/2,0),f={opacity:0,top:"-50px"},m={opacity:1,top:0};break;case"right":_=v-h,p=0,f={opacity:0,top:0,left:v},m={opacity:1,top:0,left:0}}i.mix(d,{mask:!0,modal:!1,width:h,closable:!0,left:_,top:p,posFrom:f,posTo:m},u,l),i.mix(d,a),d.dialog=s,(o=r.__aH(r,d)).on("beforeClose",function(e){(!t||t&&t())&&e.closeFn()}),o.on("close",function(){delete r[g],n&&n()})}})),s},mxCloseAllDialogs:function(){s.forEach(function(e){var a=o("#"+e.id);a&&a.trigger("dlg_close")})}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-dialog/index",["magix","$","../mx-medusa/util","mx-popover/index"],(require,exports,module)=>{
+/*Magix,$,I18n*/
+require("mx-popover/index");
+var Magix = require("magix");
+var $ = require("$");
+var Vframe = Magix.Vframe;
+var I18n = require("../mx-medusa/util");
+Magix.applyStyle("_zs_gallery_mx-dialog_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-dialog_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-dialog_index_-dialog-backdrop,\n._zs_gallery_mx-dialog_index_-dialog-wrapper {\n  position: fixed;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop {\n  opacity: 0;\n  top: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop._zs_gallery_mx-dialog_index_-backdrop-out {\n  opacity: 1;\n}\n._zs_gallery_mx-dialog_index_-dialog {\n  position: absolute;\n  border-radius: 4px;\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-content {\n  position: relative;\n  word-break: break-all;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  width: 26px;\n  height: 26px;\n  z-index: 20;\n  border-radius: 50%;\n  background: transparent;\n  color: #ccc;\n  text-align: center;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close ._zs_gallery_mx-dialog_index_-iconfont-ext {\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 26px;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:hover,\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:focus {\n  background-color: #999;\n  color: #fff;\n}\n._zs_gallery_mx-dialog_index_-dialog._zs_gallery_mx-dialog_index_-full {\n  border-radius: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit {\n  position: relative;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 1;\n  position: relative;\n  z-index: 1;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: none;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 2;\n  margin-top: -2px;\n  margin-left: -2px;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: inline;\n}\n");
+var DialogZIndex = 500;
+var Duration = 250;
+var CacheList = [];
+var RemoveCache = function (view) {
+    for (var i = CacheList.length - 1, one = void 0; i >= 0; i--) {
+        one = CacheList[i];
+        if (one.id == view.id) {
+            CacheList.splice(i, 1);
+            break;
+        }
+    }
+};
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', closable = $$.closable, cntId = $$.cntId, full = $$.full, fullHeader = $$.fullHeader, fullFooter = $$.fullFooter; var $expr, $art, $line; try {
+    $line = 1;
+    $art = 'if closable';
+    ;
+    $expr = '<%if (closable) {%>';
+    if (closable) {
+        ;
+        $p += '<a mxs="_zs_galleryaO:_" href="javascript:;" mx-click="' + $viewId + '@{close}()" class="_zs_gallery_mx-dialog_index_-dialog-close"><i class="mc-iconfont _zs_gallery_mx-dialog_index_-iconfont-ext">&#xe603;</i></a>';
+        $line = 5;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '<div class="_zs_gallery_mx-dialog_index_-dialog-content" id="';
+    $line = 6;
+    $art = '=cntId';
+    ;
+    $p += ($expr = '<%=cntId%>', $e(cntId)) + '_content">';
+    $line = 7;
+    $art = 'if full';
+    ;
+    $expr = '<%if (full) {%>';
+    if (full) {
+        ;
+        $p += ' ';
+        $line = 10;
+        $art = 'if fullHeader.title';
+        ;
+        $expr = '<%if (fullHeader.title) {%>';
+        if (fullHeader.title) {
+            ;
+            $p += '<div class="dialog-header" id="';
+            $line = 11;
+            $art = '=cntId';
+            ;
+            $p += ($expr = '<%=cntId%>', $e(cntId)) + '_header"><span mxa="_zs_galleryaO:_" class="header-name">';
+            $line = 12;
+            $art = '!fullHeader.title';
+            ;
+            $p += ($expr = '<%!fullHeader.title%>', $n(fullHeader.title)) + '</span>';
+            $line = 13;
+            $art = 'if fullHeader.iconTip';
+            ;
+            $expr = '<%if (fullHeader.iconTip) {%>';
+            if (fullHeader.iconTip) {
+                ;
+                $p += '<i class="mc-iconfont color-c" mx-view="mx-popover/index?content=';
+                $line = 17;
+                $art = '=fullHeader.iconTip';
+                ;
+                $p += ($expr = '<%!$eu(fullHeader.iconTip)%>', $eu(fullHeader.iconTip)) + '">&#xe7aa;</i>';
+                $line = 18;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 20;
+            $art = 'if fullHeader.tip';
+            ;
+            $expr = '<%if (fullHeader.tip) {%>';
+            if (fullHeader.tip) {
+                ;
+                $p += '<span mxa="_zs_galleryaO:a" class="color-9 ml10">';
+                $line = 21;
+                $art = '!fullHeader.tip';
+                ;
+                $p += ($expr = '<%!fullHeader.tip%>', $n(fullHeader.tip)) + '</span>';
+                $line = 22;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '</div>';
+            $line = 24;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '<div id="';
+        $line = 26;
+        $art = '=cntId';
+        ;
+        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryaO:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+        $line = 32;
+        $art = 'if (fullFooter.enter || fullFooter.cancel)';
+        ;
+        $expr = '<%if (fullFooter.enter || fullFooter.cancel) {%>';
+        if (fullFooter.enter || fullFooter.cancel) {
+            ;
+            $p += '<div class="dialog-footer clearfix" id="';
+            $line = 33;
+            $art = '=cntId';
+            ;
+            $p += ($expr = '<%=cntId%>', $e(cntId)) + '_footer">';
+            $line = 34;
+            $art = 'if fullFooter.enter';
+            ;
+            $expr = '<%if (fullFooter.enter) {%>';
+            if (fullFooter.enter) {
+                ;
+                $p += '<a mxa="_zs_galleryaO:b" href="javascript:;" class="fl btn btn-brand min-width-60 mr16 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_galleryaO:c" class="_zs_gallery_mx-dialog_index_-submit-text">';
+                $line = 36;
+                $art = '!fullFooter.enterText';
+                ;
+                $p += ($expr = '<%!fullFooter.enterText%>', $n(fullFooter.enterText)) + '</span></a>';
+                $line = 38;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 40;
+            $art = 'if fullFooter.cancel';
+            ;
+            $expr = '<%if (fullFooter.cancel) {%>';
+            if (fullFooter.cancel) {
+                ;
+                $p += '<a mxa="_zs_galleryaO:d" href="javascript:;" class="fl btn min-width-60 mr16" mx-click="' + $viewId + '@{close}()">';
+                $line = 41;
+                $art = '!fullFooter.cancelText';
+                ;
+                $p += ($expr = '<%!fullFooter.cancelText%>', $n(fullFooter.cancelText)) + '</a>';
+                $line = 42;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 44;
+            $art = 'if fullFooter.enter';
+            ;
+            $expr = '<%if (fullFooter.enter) {%>';
+            if (fullFooter.enter) {
+                ;
+                $p += '<span id="';
+                $line = 45;
+                $art = '=cntId';
+                ;
+                $p += ($expr = '<%=cntId%>', $e(cntId)) + '_footer_error" class="fl lh32 color-red"></span>';
+                $line = 46;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '</div>';
+            $line = 48;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 49;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '<div id="';
+        $line = 51;
+        $art = '=cntId';
+        ;
+        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryaO:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+        $line = 54;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dialog/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var me = this;
+        me.on('destroy', function () {
+            RemoveCache(me);
+            // 2 dialog + mask
+            DialogZIndex -= 2;
+            // 存在非手动关闭浮层的情况，比如浮层中有一个按钮从本页面跳走
+            // 这时候需要关闭浮层
+            $('#' + me.id).trigger('dlg_close');
+        });
+        DialogZIndex += 2;
+        CacheList.push(me);
+        if (!Magix.has(extra, 'closable')) {
+            extra.closable = true;
+        }
+        me.updater.set(Magix.mix({
+            cntId: 'cnt_' + me.id
+        }, extra));
+    },
+    render: function () {
+        var me = this;
+        var updater = me.updater;
+        var data = updater.get();
+        updater.digest();
+        setTimeout(me.wrapAsync(function () {
+            var wrapper = $('#wrapper_' + me.id);
+            wrapper.css(data.posTo);
+            var cntId = data.cntId;
+            if (data.full) {
+                var h = window.innerHeight;
+                var fh = $('#' + cntId + '_header'), ff = $('#' + cntId + '_footer');
+                if (fh && fh.length) {
+                    h -= fh.outerHeight();
+                }
+                if (ff && ff.length) {
+                    h -= ff.outerHeight();
+                }
+                // 全屏右出浮层
+                var fcss = {
+                    height: h - 2,
+                    overflowY: 'auto'
+                };
+                if (data.card) {
+                    fcss.backgroundColor = '#e8ebf2';
+                    fcss.padding = '16px 24px';
+                }
+                $('#' + cntId).css(fcss);
+            }
+            var mask = $('#mask_' + me.id);
+            if (mask.length > 0) {
+                mask.addClass('_zs_gallery_mx-dialog_index_-backdrop-out');
+            }
+            else {
+                // 没有mask的时候，点击空白处关闭浮层
+                wrapper.on('click', function (e) {
+                    if (!Magix.inside(e.target, cntId + '_content')) {
+                        $('#' + me.id).trigger('dlg_close');
+                    }
+                });
+            }
+            me.owner.mountVframe(cntId, data.view, data);
+            wrapper.on('scroll', function () {
+                // popover追加到body，滚动时通知节点改动定位
+                $(document).trigger('dialogScolll');
+            });
+        }), Duration);
+    },
+    '@{notify.main.view.unload}': function (e) {
+        var vf = Vframe.get('cnt_' + this.id);
+        vf && vf.invoke('fire', ['unload', e]);
+    },
+    /**
+     * 全屏右出浮层提交按钮
+     */
+    '@{submit}<click>': function (e) {
+        var node = $(e.eventTarget);
+        var cc = '_zs_gallery_mx-dialog_index_-btn-submit-loading';
+        if (node.hasClass(cc)) {
+            // 防止重复提交
+            return;
+        }
+        node.addClass(cc);
+        node.append('<span class="mx-anim-loading _zs_gallery_mx-dialog_index_-submit-loading"></span>');
+        var me = this;
+        var data = me.updater.get();
+        var cntId = data.cntId;
+        var vf = Vframe.get(cntId);
+        vf.invoke('check').then(function (result) {
+            node.find('._zs_gallery_mx-dialog_index_-submit-loading').remove();
+            node.removeClass(cc);
+            var errorNode = $('#' + cntId + '_footer_error');
+            if (result.ok) {
+                errorNode.html('');
+                me['@{close}<click>']();
+                if (data.callback) {
+                    data.callback(result.data || {});
+                }
+            }
+            else {
+                if (result.msg) {
+                    errorNode.html("<i class=\"mc-iconfont displacement-2\">&#xe6ad;</i>" + result.msg);
+                }
+                else {
+                    errorNode.html('');
+                }
+            }
+        });
+    },
+    '@{close}<click>': function () {
+        $('#' + this.id).trigger('dlg_close');
+    },
+    '$doc<keyup>': function (e) {
+        if (e.keyCode == 27) {
+            var dlg = CacheList[CacheList.length - 1];
+            if (dlg == this && dlg.updater.get('closable')) {
+                var node = $('#' + dlg.id);
+                node.trigger('dlg_close');
+            }
+        }
+    }
+}, {
+    '@{dialog.show}': function (view, options) {
+        var id = Magix.guid('dlg_');
+        if (options.mask) {
+            var mask = $('<div class="_zs_gallery_mx-dialog_index_-dialog-backdrop" id="mask_' + id + '" />');
+            mask.css({
+                zIndex: DialogZIndex - 1
+            });
+            $(document.body).append(mask);
+        }
+        var wrapperId = 'wrapper_' + id, wrapperZIndex = DialogZIndex, width = options.width, left = options.left, top = options.top;
+        // 全屏右出浮层不需要圆角
+        var wrapper = $("<div class=\"_zs_gallery_mx-dialog_index_-dialog-wrapper\" id=\"" + wrapperId + "\"\n    style=\"z-index:" + wrapperZIndex + "\">\n    <div class=\"_zs_gallery_mx-dialog_index_-dialog " + (options.full ? '_zs_gallery_mx-dialog_index_-full' : '') + "\" id=\"" + id + "\"\n        style=\"top:" + top + "px; left:" + left + "px; width:" + width + "px;\"></div>\n</div>");
+        wrapper.css(options.posFrom);
+        $(document.body).append(wrapper);
+        // 禁止body滚动
+        // 有滚动条的时候，加上右padding，防止页面抖动
+        if (window.innerWidth - document.body.clientWidth > 0) {
+            document.body.style.paddingRight = (window.innerWidth - document.body.clientWidth) + 'px';
+        }
+        document.body.style.overflowY = 'hidden';
+        wrapper.css({
+            overflowY: options.modal ? 'hidden' : 'auto'
+        });
+        var vf = view.owner.mountVframe(id, 'mx-dialog/index', options);
+        var node = $('#' + id);
+        var suspend;
+        return node.on('dlg_close', function () {
+            if (node.data('closed')) {
+                return;
+            }
+            node.trigger({
+                type: 'beforeClose',
+                closeFn: function () {
+                    if (!node.data('closing') && !suspend) {
+                        var resume_1 = function () {
+                            node.data('closing', 1);
+                            $('#wrapper_' + id).css(options.posFrom);
+                            $('#mask_' + id).removeClass('_zs_gallery_mx-dialog_index_-backdrop-out');
+                            setTimeout(function () {
+                                node.trigger('close');
+                                // 不重复关闭
+                                node.data('closed', 1);
+                                if (view.owner) {
+                                    view.owner.unmountVframe(id);
+                                }
+                                $('#wrapper_' + id).remove();
+                                $('#mask_' + id).remove();
+                                // 有浮层展开的情况下，body都不可滚动
+                                if (CacheList.length == 0) {
+                                    document.body.style.paddingRight = '';
+                                    document.body.style.overflowY = '';
+                                }
+                            }, Duration);
+                        };
+                        var e_1 = {
+                            prevent: function () {
+                                suspend = 1;
+                            },
+                            resolve: function () {
+                                e_1.p = 1;
+                                suspend = 0;
+                                resume_1();
+                            },
+                            reject: function () {
+                                e_1.p = 1;
+                                suspend = 0;
+                            }
+                        };
+                        vf.invoke('@{notify.main.view.unload}', [e_1]);
+                        if (!suspend && !e_1.p) {
+                            resume_1();
+                        }
+                    }
+                }
+            });
+        });
+    },
+    /**
+     * 系统提示
+     * this.alert(title, content, enterCallback, dialogOptions)
+     *    title: '标题',
+     *    content: '内容',
+     *    enterCallback: '点击确认按钮的回调',
+     *    dialogOptions: { //浮层样式覆盖
+     *       width:'宽度，默认320',
+     *       height:'高度',
+     *       btns: 'true or false，是否有按钮，默认true',
+     *       modal: 'true（禁止滚动） or false（允许滚动），溢出是否允许滚动，默认false',
+     *       mask: 'true or false，是否有遮罩，默认false',
+     *       closable: 'true or false，是否有右上角关闭按钮，默认false',
+     *       left: '最终定位相对于屏幕左侧，默认居中',
+     *       top: '最终定位相对于屏幕高侧，默认居中'
+     *    }
+     */
+    alert: function (title, content, enterCallback, dialogOptions) {
+        dialogOptions = dialogOptions || {};
+        var hasBtns = ((dialogOptions.btns + '') !== 'false');
+        return this.mxDialog('mx-dialog/alert', {
+            title: title,
+            content: content,
+            enterCallback: enterCallback,
+            hasBtns: hasBtns
+        }, Magix.mix({
+            width: 320,
+            closable: false,
+            mask: false
+        }, dialogOptions));
+    },
+    /**
+     * this.confirm(viewOptions, dialogOptions);
+     *    viewOptions: {
+     *       title: '标题',
+     *       content: '内容',
+     *       enterText: '自定义确定按钮文案，默认确定',
+     *       cancelText: '自定义取消按钮文案，默认取消',
+     *       enterCallback: '确定按钮响应事件',
+     *       cancelCallback: '取消按钮响应事件'
+     *    }
+     *    dialogOptions: { //浮层样式覆盖
+     *       width:'宽度',
+     *       height:'高度',
+     *       modal: 'true（禁止滚动） or false（允许滚动），溢出是否允许滚动，默认false',
+     *       mask: 'true or false，是否有遮罩，默认false',
+     *       closable: 'true or false，是否有右上角关闭按钮，默认false',
+     *       left: '最终定位相对于屏幕左侧',
+     *       top: '最终定位相对于屏幕高侧'
+     *    }
+     */
+    confirm: function (viewOptions, dialogOptions) {
+        return this.mxDialog('mx-dialog/confirm', viewOptions, Magix.mix({
+            width: 320,
+            closable: false,
+            mask: false
+        }, (dialogOptions || {})));
+    },
+    /**
+     * 分组
+     * this.mxDialogGroup(viewOptions, dialogOptions)：
+     *    viewOptions: {
+     *        list:'传入的对象数组，如[{text:"测试",content:"内容"}]',
+     *        contentView:'中间区域自定义view，会把当前选中对象完整传入',
+     *        textKey: '右侧文案字段，默认text'
+     *    },
+     *    dialogOptions: { //浮层样式覆盖
+     *        width:'宽度',
+     *        height:'高度',
+     *        modal: 'true（禁止滚动） or false（允许滚动），溢出是否允许滚动，默认false',
+     *        mask: 'true or false，是否有遮罩，默认true',
+     *        closable: 'true or false，是否有右上角关闭按钮，默认true',
+     *        left: '最终定位相对于屏幕左侧，默认居中',
+     *        top: '最终定位相对于屏幕高侧，默认居中'
+     *    }
+     */
+    mxDialogGroup: function (viewOptions, dialogOptions) {
+        viewOptions.height = dialogOptions.height || 500;
+        return this.mxDialog('mx-dialog/group', viewOptions, Magix.mix({
+            width: 800,
+            closable: true,
+            mask: true
+        }, (dialogOptions || {})));
+    },
+    /**
+     * 全屏右出浮层
+     * this.mxModal(viewPath[string], viewOptions[object], dialogOptions[object])
+     *      viewPath: 'dialog view路径'
+     *      viewOptions: {
+     *          传入dialog的数据，挂载当前dialog实体
+     *      }
+     *      dialogOptions: { 浮层样式覆盖
+     *          width:'宽度，默认600',
+     *          mask: 'true or false，是否有遮罩',
+     *          closable: 'true or false，是否有右上角关闭按钮'
+     *          header: {
+     *              title: '标题',
+     *              tip: '提示信息'
+     *          },
+     *          footer: {
+     *              enter: 'true or false，是否需要确定按钮',
+     *              enterText: '确定按钮文案',
+     *              cancel: 'true or false，是否需要取消按钮',
+     *              cancelText: '取消按钮文案'
+     *          }
+     *
+     *          ==========================================
+     *          无效参数：
+     *          height:'高度固定全屏',
+     *          left: '固定为doc.width - width',
+     *          top: '固定为0',
+     *          modal: '固定为false，禁止滚动',
+     *      }
+     */
+    mxModal: function (view, viewOptions, dialogOptions) {
+        dialogOptions = dialogOptions || {};
+        return this.mxDialog(view, viewOptions, Magix.mix({
+            closable: true,
+            mask: true
+        }, Magix.mix((dialogOptions || {}), {
+            full: true,
+            fullHeader: Magix.mix({
+                title: '',
+                tip: '',
+                iconTip: ''
+            }, dialogOptions.header || {}),
+            fullFooter: Magix.mix({
+                enter: true,
+                enterText: I18n['dialog.submit'],
+                cancel: true,
+                cancelText: I18n['dialog.cancel']
+            }, dialogOptions.footer || {}),
+            modal: false,
+            height: window.innerHeight,
+            placement: 'right',
+            card: (dialogOptions.card + '' !== 'false')
+        })));
+    },
+    /**
+     * this.mxDialog(viewPath[string], viewOptions[object], dialogOptions[object])
+     *    viewPath: 'dialog view路径'
+     *    viewOptions: {
+     *        传入dialog的数据，挂载当前dialog实体
+     *    },
+     *    dialogOptions: { //浮层样式覆盖
+     *        width:'宽度',
+     *        height:'高度',
+     *        modal: 'true（禁止滚动） or false（允许滚动），溢出是否允许滚动，默认false',
+     *        mask: 'true or false，是否有遮罩，默认true',
+     *        closable: 'true or false，是否有右上角关闭按钮，默认true',
+     *        left: '最终定位相对于屏幕左侧，默认居中',
+     *        top: '最终定位相对于屏幕高侧，默认居中'
+     *    }
+     */
+    mxDialog: function (view, viewOptions, dialogOptions) {
+        var me = this;
+        var dlg;
+        var beforeCloseCallback, afterCloseCallback;
+        var output = {
+            beforeClose: function (fn) {
+                // 关闭浮层前调用
+                // return true 关闭
+                // return false 不关闭浮层
+                beforeCloseCallback = fn;
+            },
+            close: function () {
+                if (dlg) {
+                    dlg.trigger('dlg_close');
+                }
+            },
+            afterClose: function (fn) {
+                // 关闭浮层后调用
+                afterCloseCallback = fn;
+            }
+        };
+        var dOptions = {
+            view: view
+        };
+        seajs.use(view, me.wrapAsync(function (V) {
+            var key = '$dlg_' + view;
+            if (me[key]) {
+                return;
+            }
+            me[key] = 1;
+            // 优先级：
+            // 外部传入的（dialogOptions） > view本身配置的（vDialogOptions） > 默认（dOptions）
+            // view本身配置的
+            var vDialogOptions = V.dialogOptions || {};
+            // 外部传入的
+            dialogOptions = dialogOptions || {};
+            // 浮层出现动画位置：
+            //     center：居中（从上到下）
+            //     right：右侧（从右到左）
+            var placement = dialogOptions.placement || vDialogOptions.placement || 'center';
+            var width = dialogOptions.width || vDialogOptions.width || 400, height = dialogOptions.height || vDialogOptions.height || 260;
+            var left, top, posFrom, posTo;
+            var winWidth = window.innerWidth, winHeight = window.innerHeight;
+            switch (placement) {
+                case 'center':
+                    left = (winWidth - width) / 2;
+                    top = Math.max((winHeight - height) / 2, 0);
+                    posFrom = {
+                        opacity: 0,
+                        top: '-50px'
+                    };
+                    posTo = {
+                        opacity: 1,
+                        top: 0
+                    };
+                    break;
+                case 'right':
+                    left = winWidth - width;
+                    top = 0;
+                    posFrom = {
+                        opacity: 0,
+                        top: 0,
+                        left: winWidth
+                    };
+                    posTo = {
+                        opacity: 1,
+                        top: 0,
+                        left: 0
+                    };
+                    break;
+            }
+            Magix.mix(dOptions, {
+                mask: true,
+                modal: false,
+                width: width,
+                closable: true,
+                left: left,
+                top: top,
+                posFrom: posFrom,
+                posTo: posTo
+            }, vDialogOptions, dialogOptions);
+            // 数据
+            Magix.mix(dOptions, viewOptions);
+            dOptions.dialog = output;
+            dlg = me['@{dialog.show}'](me, dOptions);
+            dlg.on('beforeClose', function (event) {
+                if (!beforeCloseCallback || (beforeCloseCallback && beforeCloseCallback())) {
+                    event.closeFn();
+                }
+            });
+            dlg.on('close', function () {
+                delete me[key];
+                if (afterCloseCallback) {
+                    afterCloseCallback();
+                }
+            });
+        }));
+        return output;
+    },
+    mxCloseAllDialogs: function () {
+        CacheList.forEach(function (view) {
+            var dlg = $('#' + view.id);
+            if (dlg) {
+                dlg.trigger('dlg_close');
+            }
+        });
+    }
+});
+
+});

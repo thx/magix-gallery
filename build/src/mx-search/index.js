@@ -1,1 +1,312 @@
-define("mx-search/index",["magix","$","../mx-monitor/index"],(t,a,r)=>{var s=t("magix"),e=t("$");s.applyStyle("_zs_galleryau","._zs_gallerykR{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}@keyframes _zs_galleryu{0%{transform:translateY(-20%);-ms-transform:translateY(-20%);-moz-transform:translateY(-20%);-webkit-transform:translateY(-20%);-o-transform:translateY(-20%);opacity:0}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0);opacity:1}}@-webkit-keyframes _zs_galleryu{0%{transform:translateY(-20%);-ms-transform:translateY(-20%);-moz-transform:translateY(-20%);-webkit-transform:translateY(-20%);-o-transform:translateY(-20%);opacity:0}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0);opacity:1}}@keyframes _zs_galleryv{0%{transform:translateY(20%);-ms-transform:translateY(20%);-moz-transform:translateY(20%);-webkit-transform:translateY(20%);-o-transform:translateY(20%);opacity:0}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0);opacity:1}}@-webkit-keyframes _zs_galleryv{0%{transform:translateY(20%);-ms-transform:translateY(20%);-moz-transform:translateY(20%);-webkit-transform:translateY(20%);-o-transform:translateY(20%);opacity:0}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0);opacity:1}}@keyframes _zs_galleryw{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(-15%);-ms-transform:translateY(-15%);-moz-transform:translateY(-15%);-webkit-transform:translateY(-15%);-o-transform:translateY(-15%)}75%{transform:translateY(15%);-ms-transform:translateY(15%);-moz-transform:translateY(15%);-webkit-transform:translateY(15%);-o-transform:translateY(15%)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}@-webkit-keyframes _zs_galleryw{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(-15%);-ms-transform:translateY(-15%);-moz-transform:translateY(-15%);-webkit-transform:translateY(-15%);-o-transform:translateY(-15%)}75%{transform:translateY(15%);-ms-transform:translateY(15%);-moz-transform:translateY(15%);-webkit-transform:translateY(15%);-o-transform:translateY(15%)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}@keyframes _zs_galleryx{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(2px);-ms-transform:translateY(2px);-moz-transform:translateY(2px);-webkit-transform:translateY(2px);-o-transform:translateY(2px)}50%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}75%{transform:translateY(-2px);-ms-transform:translateY(-2px);-moz-transform:translateY(-2px);-webkit-transform:translateY(-2px);-o-transform:translateY(-2px)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}@-webkit-keyframes _zs_galleryx{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(2px);-ms-transform:translateY(2px);-moz-transform:translateY(2px);-webkit-transform:translateY(2px);-o-transform:translateY(2px)}50%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}75%{transform:translateY(-2px);-ms-transform:translateY(-2px);-moz-transform:translateY(-2px);-webkit-transform:translateY(-2px);-o-transform:translateY(-2px)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}@keyframes _zs_galleryy{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(-2px);-ms-transform:translateY(-2px);-moz-transform:translateY(-2px);-webkit-transform:translateY(-2px);-o-transform:translateY(-2px)}50%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}75%{transform:translateY(2px);-ms-transform:translateY(2px);-moz-transform:translateY(2px);-webkit-transform:translateY(2px);-o-transform:translateY(2px)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}@-webkit-keyframes _zs_galleryy{0%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}25%{transform:translateY(-2px);-ms-transform:translateY(-2px);-moz-transform:translateY(-2px);-webkit-transform:translateY(-2px);-o-transform:translateY(-2px)}50%{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}75%{transform:translateY(2px);-ms-transform:translateY(2px);-moz-transform:translateY(2px);-webkit-transform:translateY(2px);-o-transform:translateY(2px)}to{transform:translate(0);-ms-transform:translate(0);-moz-transform:translate(0);-webkit-transform:translate(0);-o-transform:translate(0)}}._zs_gallerykS,._zs_gallerykT{position:relative;height:32px}._zs_gallerykS ._zs_gallerykU,._zs_gallerykT ._zs_gallerykU{display:none;position:absolute;top:100%;min-width:100%;z-index:99;margin-top:10px;padding:8px 10px;border-radius:4px;background-color:#fff;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerykS ._zs_gallerykU ._zs_gallerykV,._zs_gallerykT ._zs_gallerykU ._zs_gallerykV{margin:2px 0;padding:0 10px;cursor:pointer;height:26px;line-height:26px;border-radius:4px;white-space:nowrap;word-break:break-all}._zs_gallerykS ._zs_gallerykU ._zs_gallerykV:hover,._zs_gallerykT ._zs_gallerykU ._zs_gallerykV:hover{background-color:#f0f0f0}._zs_gallerykS ._zs_gallerykU ._zs_gallerykV._zs_gallerykW,._zs_gallerykS ._zs_gallerykU ._zs_gallerykV._zs_gallerykW:active,._zs_gallerykS ._zs_gallerykU ._zs_gallerykV._zs_gallerykW:focus,._zs_gallerykS ._zs_gallerykU ._zs_gallerykV._zs_gallerykW:hover,._zs_gallerykT ._zs_gallerykU ._zs_gallerykV._zs_gallerykW,._zs_gallerykT ._zs_gallerykU ._zs_gallerykV._zs_gallerykW:active,._zs_gallerykT ._zs_gallerykU ._zs_gallerykV._zs_gallerykW:focus,._zs_gallerykT ._zs_gallerykU ._zs_gallerykV._zs_gallerykW:hover{color:#4d7fff;background-color:#f6f9ff}._zs_gallerykS ._zs_gallerykU._zs_gallerykX,._zs_gallerykT ._zs_gallerykU._zs_gallerykX{display:block;-webkit-animation:_zs_galleryu .25s ease-out;animation:_zs_galleryu .25s ease-out;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}._zs_gallerykT ._zs_gallerykU{right:0}._zs_gallerykS ._zs_gallerykU{left:0}");var n=t("../mx-monitor/index");r.exports=s.View.extend({tmpl:function(t,a,r,s,e,n,l,o){if(r||(r=t),!e){var m={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},_=/[&<>"'`]/g,f=function(t){return"&"+m[t]+";"};e=function(t){return""+(null==t?"":t)},s=function(t){return e(t).replace(_,f)}}if(!n){var i={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},k=function(t){return i[t]},g=/[!')(*]/g;n=function(t){return encodeURIComponent(e(t)).replace(g,k)}}if(!o){var p=/[\\'"]/g;o=function(t){return e(t).replace(p,"\\$&")}}l||(l=function(t,a,r,s){for(s=t[y];--s;)if(t[r=y+s]===a)return r;return t[r=y+t[y]++]=a,r});var y="",z="",d=t.align,c=t.placeholder,u=t.searchValue,h=t.list,x=t.show,b=t.searchKey;z+='<div mxv class="search-box ',z+="right"==d?" _zs_gallerykT ":" _zs_gallerykS ",z+='"><i mxs="_zs_gallerydr:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="'+s(c)+'" autocomplete="off" value="'+s(u)+'" mx-keyup="'+a+'__e()" mx-paste="'+a+'__e()" mx-focusin="'+a+'__e()" mx-focusout="'+a+'__l()" mx-change="'+a+'__l()"/><ul class="_zs_gallerykU ',h.length>1&&u&&x&&(z+=" _zs_gallerykX "),z+='">';for(var Y=0,w=h.length;Y<w;Y++){var v=h[Y];z+='<li class="_zs_gallerykV ',b==v.value&&(z+=" _zs_gallerykW "),z+='" mx-click="'+a+"__aa({item:'"+l(r,v)+"'})\">"+s(v.prefix)+s(u)+s(v.suffix)+"</li>"}return z+="</ul></div>"},init:function(t){var a=this;a.updater.snapshot(),a.assign(t),n.__f(),a.on("destroy",function(){n.__g(a),n.__h(),a.__bU&&clearTimeout(a.__bU)})},assign:function(t){var a=this.updater.altered();this.__db=t.searchKey||"",this.__dc=this.__db,this.__dd=t.searchValue||"",this.__de=t.placeholder||"",this.__df=t.align||"left";var r=[];if(t.list){var s=t.listText||"text",n=t.listValue||"value";try{r=new Function("return "+t.list)()}catch(a){r=t.list}if(r=r.map(function(t){var a=(t.tmpl||"搜索含有“${content}”的"+t[s]).split("${content}");return{prefix:a[0],suffix:a[1],text:t[s],value:t[n]}}),!this.__de){var l=r.map(function(t){return t.text});this.__de=e.unique(l).join("/")}}else this.__de||(this.__de="搜索");return this.__dg=r,this.__j=e("#"+this.id),this.updater.set({viewId:this.id,list:this.__dg,searchValue:this.__dd,searchKey:this.__db,placeholder:this.__de,align:this.__df}),a||(a=this.updater.altered()),!!a&&(this.updater.snapshot(),!0)},render:function(){this.updater.digest()},"__e<focusin,keyup,paste>":function(t){t.stopPropagation();var a=this;a.__bU&&clearTimeout(a.__bU);var r=a.updater.get("show"),s=a.__dg;if(40==t.keyCode||38==t.keyCode){if(r){for(var n=-1,l=a.__db,o=0;o<s.length;o++)if(s[o].value==l){n=o;break}40==t.keyCode&&(n+=1)>=s.length&&(n=0),38==t.keyCode&&(n-=1)<0&&(n=s.length-1),a.updater.digest({searchKey:a.__db=s[n].value})}}else 13==t.keyCode?(!a.__db&&s&&s.length>0&&(a.__db=s[0].value),a.__dc=a.__db,a.__dd=e.trim(t.eventTarget.value),a.__m(),a.__ad()):a.__bU=setTimeout(a.wrapAsync(function(){a.__dd=e.trim(t.eventTarget.value),a.__n()}),300)},__m:function(){this.__db!=this.__dc&&(this.__db=this.__dc),this.updater.digest({searchKey:this.__db,searchValue:this.__dd,show:!1}),n.__g(this)},__n:function(){this.updater.digest({searchKey:this.__db,searchValue:this.__dd,show:!0}),n.__p(this)},__k:function(t){return s.inside(t,this.id)},"__l<change,focusout>":function(t){t.stopPropagation()},"__aa<click>":function(t){t.stopPropagation();var a=t.params.item;this.updater.digest({searchKey:this.__db=this.__dc=a.value,show:!1}),this.__ad()},__ad:function(){this.__j.trigger({type:"search",searchKey:this.__db,searchValue:this.__dd})}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-search/index",["magix","$","../mx-monitor/index"],(require,exports,module)=>{
+/*Magix,$,Monitor*/
+
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-search_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-search_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n/* 动画结束停在最后一帧 */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-search_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-search_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n/**\n* 渐显上拉动画\n*/\n@keyframes _zs_gallery_mx-search_index_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-search_index_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@keyframes _zs_gallery_mx-search_index_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-search_index_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n/**\n * 按钮中间的loading点动画\n */\n@keyframes _zs_gallery_mx-search_index_-loading-dots {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, 2px);\n    -ms-transform: translate(0, 2px);\n    -moz-transform: translate(0, 2px);\n    -webkit-transform: translate(0, 2px);\n    -o-transform: translate(0, 2px);\n  }\n  50% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, -2px);\n    -ms-transform: translate(0, -2px);\n    -moz-transform: translate(0, -2px);\n    -webkit-transform: translate(0, -2px);\n    -o-transform: translate(0, -2px);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-search_index_-loading-dots {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, 2px);\n    -ms-transform: translate(0, 2px);\n    -moz-transform: translate(0, 2px);\n    -webkit-transform: translate(0, 2px);\n    -o-transform: translate(0, 2px);\n  }\n  50% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, -2px);\n    -ms-transform: translate(0, -2px);\n    -moz-transform: translate(0, -2px);\n    -webkit-transform: translate(0, -2px);\n    -o-transform: translate(0, -2px);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@keyframes _zs_gallery_mx-search_index_-loading-dots-rev {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -2px);\n    -ms-transform: translate(0, -2px);\n    -moz-transform: translate(0, -2px);\n    -webkit-transform: translate(0, -2px);\n    -o-transform: translate(0, -2px);\n  }\n  50% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, 2px);\n    -ms-transform: translate(0, 2px);\n    -moz-transform: translate(0, 2px);\n    -webkit-transform: translate(0, 2px);\n    -o-transform: translate(0, 2px);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-search_index_-loading-dots-rev {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -2px);\n    -ms-transform: translate(0, -2px);\n    -moz-transform: translate(0, -2px);\n    -webkit-transform: translate(0, -2px);\n    -o-transform: translate(0, -2px);\n  }\n  50% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, 2px);\n    -ms-transform: translate(0, 2px);\n    -moz-transform: translate(0, 2px);\n    -webkit-transform: translate(0, 2px);\n    -o-transform: translate(0, 2px);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n._zs_gallery_mx-search_index_-search-box-right,\n._zs_gallery_mx-search_index_-search-box-left {\n  position: relative;\n  height: 32px;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu {\n  display: none;\n  position: absolute;\n  top: 100%;\n  min-width: 100%;\n  z-index: 99;\n  margin-top: 10px;\n  padding: 8px 10px;\n  border-radius: 4px;\n  background-color: #fff;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item {\n  margin: 2px 0;\n  padding: 0 10px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n  white-space: nowrap;\n  word-break: break-all;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item:hover,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item:hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active,\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:hover,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:hover,\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:active,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:active,\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:focus,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:focus {\n  color: #4d7fff;\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu._zs_gallery_mx-search_index_-open,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu._zs_gallery_mx-search_index_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-search_index_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-search_index_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu {\n  right: 0;\n}\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu {\n  left: 0;\n}\n");
+var Monitor = require("../mx-monitor/index");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', align = $$.align, placeholder = $$.placeholder, searchValue = $$.searchValue, list = $$.list, show = $$.show, searchKey = $$.searchKey; var $expr, $art, $line; try {
+    $p += '<div mxv class="search-box ';
+    $line = 1;
+    $art = 'if (align==\'right\')';
+    ;
+    $expr = '<%if (align == \'right\') {%>';
+    if (align == 'right') {
+        ;
+        $p += ' _zs_gallery_mx-search_index_-search-box-right ';
+        $line = 1;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' _zs_gallery_mx-search_index_-search-box-left ';
+        $line = 1;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '"><i mxs="_zs_gallerydr:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+    $line = 3;
+    $art = '=placeholder';
+    ;
+    $p += ($expr = '<%=placeholder%>', $e(placeholder)) + '" autocomplete="off" value="';
+    $line = 5;
+    $art = '=searchValue';
+    ;
+    $p += ($expr = '<%=searchValue%>', $e(searchValue)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-focusin="' + $viewId + '@{search}()" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{stop}()"/><ul class="_zs_gallery_mx-search_index_-search-menu ';
+    $line = 12;
+    $art = 'if ((list.length > 1) && searchValue && show)';
+    ;
+    $expr = '<%if ((list.length > 1) && searchValue && show) {%>';
+    if ((list.length > 1) && searchValue && show) {
+        ;
+        $p += ' _zs_gallery_mx-search_index_-open ';
+        $line = 12;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '">';
+    $line = 13;
+    $art = 'each list as item';
+    ;
+    $expr = '<%for (var $art_iyqzqwkixj$art_i = 0, $art_cajkpaas$art_c = list.length; $art_iyqzqwkixj$art_i < $art_cajkpaas$art_c; $art_iyqzqwkixj$art_i++) {    var item = list[$art_iyqzqwkixj$art_i]%>';
+    for (var $art_iyqzqwkixj$art_i = 0, $art_cajkpaas$art_c = list.length; $art_iyqzqwkixj$art_i < $art_cajkpaas$art_c; $art_iyqzqwkixj$art_i++) {
+        var item = list[$art_iyqzqwkixj$art_i];
+        $p += '<li class="_zs_gallery_mx-search_index_-search-item ';
+        $line = 14;
+        $art = 'if (searchKey == item.value)';
+        ;
+        $expr = '<%if (searchKey == item.value) {%>';
+        if (searchKey == item.value) {
+            ;
+            $p += ' _zs_gallery_mx-search_index_-active ';
+            $line = 14;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '" mx-click="' + $viewId + '@{select}({item:\'';
+        $line = 14;
+        $art = '@item';
+        ;
+        $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})">';
+        $line = 15;
+        $art = '=item.prefix';
+        ;
+        $p += ($expr = '<%=item.prefix%>', $e(item.prefix)) + '';
+        $line = 15;
+        $art = '=searchValue';
+        ;
+        $p += ($expr = '<%=searchValue%>', $e(searchValue)) + '';
+        $line = 15;
+        $art = '=item.suffix';
+        ;
+        $p += ($expr = '<%=item.suffix%>', $e(item.suffix)) + '</li>';
+        $line = 17;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</ul></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-search/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var that = this;
+        //初始化时保存一份当前数据的快照
+        that.updater.snapshot();
+        //该处是否可以由magix自动调用
+        that.assign(extra);
+        Monitor['@{setup}']();
+        that.on('destroy', function () {
+            Monitor['@{remove}'](that);
+            Monitor['@{teardown}']();
+            if (that['@{search.delay.timer}']) {
+                clearTimeout(that['@{search.delay.timer}']);
+            }
+        });
+    },
+    assign: function (data) {
+        var that = this;
+        //赋值前先进行数据变化的检测,首次assign是在init方法中调用,后续的调用是magix自动调用,这个检测主要用于在首次调用后,magix自动调用前有没有进行数据的更新
+        var altered = that.updater.altered();
+        //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
+        that['@{search.key}'] = data.searchKey || ''; //当前选中的key值
+        // 上下键切换缓存
+        that['@{search.key.bak}'] = that['@{search.key}'];
+        that['@{search.value}'] = data.searchValue || ''; //当前填入的搜索内容
+        that['@{dis.placeholder}'] = data.placeholder || '';
+        that['@{dis.align}'] = data.align || 'left';
+        // 多种类型搜索的时候
+        var list = [];
+        if (data.list) {
+            var listText_1 = data.listText || 'text';
+            var listValue_1 = data.listValue || 'value';
+            try {
+                list = (new Function('return ' + data.list))();
+            }
+            catch (e) {
+                list = data.list;
+            }
+            list = list.map(function (item) {
+                var tpls = (item.tmpl || ('搜索含有“${content}”的' + item[listText_1])).split('${content}');
+                return {
+                    prefix: tpls[0],
+                    suffix: tpls[1],
+                    text: item[listText_1],
+                    value: item[listValue_1]
+                };
+            });
+            if (!that['@{dis.placeholder}']) {
+                var ts = list.map(function (item) {
+                    return item.text;
+                });
+                that['@{dis.placeholder}'] = $.unique(ts).join('/');
+            }
+        }
+        else {
+            if (!that['@{dis.placeholder}']) {
+                that['@{dis.placeholder}'] = '搜索';
+            }
+        }
+        that['@{data.list}'] = list;
+        that['@{owner.node}'] = $('#' + that.id);
+        that.updater.set({
+            viewId: that.id,
+            list: that['@{data.list}'],
+            searchValue: that['@{search.value}'],
+            searchKey: that['@{search.key}'],
+            placeholder: that['@{dis.placeholder}'],
+            align: that['@{dis.align}']
+        });
+        //如果数据没变化,则设置新的数据后再次检测
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        //如果有变化,则再保存当前的快照,然后返回true告诉magix当前view需要更新
+        if (altered) {
+            that.updater.snapshot();
+            return true;
+        }
+        //如果数据没变化,则告诉magix当前view不用更新
+        return false;
+    },
+    render: function () {
+        this.updater.digest();
+    },
+    '@{search}<focusin,keyup,paste>': function (e) {
+        e.stopPropagation();
+        var that = this;
+        if (that['@{search.delay.timer}']) {
+            clearTimeout(that['@{search.delay.timer}']);
+        }
+        var show = that.updater.get('show'), list = that['@{data.list}'];
+        if (e.keyCode == 40 || e.keyCode == 38) {
+            // 下移 || 上移
+            if (show) {
+                var idx = -1, searchKey = that['@{search.key}'];
+                for (var index = 0; index < list.length; index++) {
+                    if (list[index].value == searchKey) {
+                        idx = index;
+                        break;
+                    }
+                }
+                if (e.keyCode == 40) {
+                    // 下移
+                    idx += 1;
+                    if (idx >= list.length) {
+                        idx = 0;
+                    }
+                }
+                if (e.keyCode == 38) {
+                    // 下移
+                    idx -= 1;
+                    if (idx < 0) {
+                        idx = list.length - 1;
+                    }
+                }
+                that.updater.digest({
+                    searchKey: that['@{search.key}'] = list[idx].value
+                });
+            }
+        }
+        else if (e.keyCode == 13) {
+            // 未选中时，回车默认第一个，已选中的情况下还是当前选项
+            if (!that['@{search.key}'] && list && list.length > 0) {
+                that['@{search.key}'] = list[0].value;
+            }
+            that['@{search.key.bak}'] = that['@{search.key}'];
+            that['@{search.value}'] = $.trim(e.eventTarget.value);
+            that['@{hide}']();
+            that['@{fire}']();
+        }
+        else {
+            that['@{search.delay.timer}'] = setTimeout(that.wrapAsync(function () {
+                that['@{search.value}'] = $.trim(e.eventTarget.value);
+                that['@{show}']();
+            }), 300);
+        }
+    },
+    '@{hide}': function () {
+        var that = this;
+        if (that['@{search.key}'] != that['@{search.key.bak}']) {
+            // 上下键切换未选择
+            that['@{search.key}'] = that['@{search.key.bak}'];
+        }
+        that.updater.digest({
+            searchKey: that['@{search.key}'],
+            searchValue: that['@{search.value}'],
+            show: false
+        });
+        Monitor['@{remove}'](that);
+    },
+    '@{show}': function () {
+        var that = this;
+        that.updater.digest({
+            searchKey: that['@{search.key}'],
+            searchValue: that['@{search.value}'],
+            show: true
+        });
+        Monitor['@{add}'](that);
+    },
+    '@{inside}': function (node) {
+        return Magix.inside(node, this.id);
+    },
+    '@{stop}<change,focusout>': function (e) {
+        e.stopPropagation();
+    },
+    '@{select}<click>': function (e) {
+        e.stopPropagation();
+        var that = this;
+        var item = e.params.item;
+        that.updater.digest({
+            searchKey: that['@{search.key}'] = that['@{search.key.bak}'] = item.value,
+            show: false
+        });
+        that['@{fire}']();
+    },
+    '@{fire}': function () {
+        var that = this;
+        that['@{owner.node}'].trigger({
+            type: 'search',
+            searchKey: that['@{search.key}'],
+            searchValue: that['@{search.value}']
+        });
+    }
+});
+
+});
