@@ -6,6 +6,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.24',
+            time: '2019-03-27',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-table.sort：本地排序方法，非数字类型直接字符串排序，<a href="#!/table/index10" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-wanxiang：避免重复init；locationchange调用render；'
+                }]
+            }]
+        }, {
             ver: '1.2.23',
             time: '2019-03-26',
             subs: [{
