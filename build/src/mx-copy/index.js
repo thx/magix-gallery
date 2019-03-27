@@ -1,1 +1,828 @@
-!function(t){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=t();else if("function"==typeof define&&define.amd)define([],t);else{("undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:this).Clipboard=t()}}(function(){return function t(e,n,o){function i(a,c){if(!n[a]){if(!e[a]){var s="function"==typeof require&&require;if(!c&&s)return s(a,!0);if(r)return r(a,!0);var u=new Error("Cannot find module '"+a+"'");throw u.code="MODULE_NOT_FOUND",u}var l=n[a]={exports:{}};e[a][0].call(l.exports,function(t){var n=e[a][1][t];return i(n||t)},l,l.exports,t,e,n,o)}return n[a].exports}for(var r="function"==typeof require&&require,a=0;a<o.length;a++)i(o[a]);return i}({1:[function(t,e,n){var o=9;if("undefined"!=typeof Element&&!Element.prototype.matches){var i=Element.prototype;i.matches=i.matchesSelector||i.mozMatchesSelector||i.msMatchesSelector||i.oMatchesSelector||i.webkitMatchesSelector}e.exports=function(t,e){for(;t&&t.nodeType!==o;){if("function"==typeof t.matches&&t.matches(e))return t;t=t.parentNode}}},{}],2:[function(t,e,n){var o=t("./closest");e.exports=function(t,e,n,i,r){var a=function(t,e,n,i){return function(n){n.delegateTarget=o(n.target,e),n.delegateTarget&&i.call(t,n)}}.apply(this,arguments);return t.addEventListener(n,a,r),{destroy:function(){t.removeEventListener(n,a,r)}}}},{"./closest":1}],3:[function(t,e,n){n.node=function(t){return void 0!==t&&t instanceof HTMLElement&&1===t.nodeType},n.nodeList=function(t){var e=Object.prototype.toString.call(t);return void 0!==t&&("[object NodeList]"===e||"[object HTMLCollection]"===e)&&"length"in t&&(0===t.length||n.node(t[0]))},n.string=function(t){return"string"==typeof t||t instanceof String},n.fn=function(t){return"[object Function]"===Object.prototype.toString.call(t)}},{}],4:[function(t,e,n){var o=t("./is"),i=t("delegate");e.exports=function(t,e,n){if(!t&&!e&&!n)throw new Error("Missing required arguments");if(!o.string(e))throw new TypeError("Second argument must be a String");if(!o.fn(n))throw new TypeError("Third argument must be a Function");if(o.node(t))return function(t,e,n){return t.addEventListener(e,n),{destroy:function(){t.removeEventListener(e,n)}}}(t,e,n);if(o.nodeList(t))return function(t,e,n){return Array.prototype.forEach.call(t,function(t){t.addEventListener(e,n)}),{destroy:function(){Array.prototype.forEach.call(t,function(t){t.removeEventListener(e,n)})}}}(t,e,n);if(o.string(t))return function(t,e,n){return i(document.body,t,e,n)}(t,e,n);throw new TypeError("First argument must be a String, HTMLElement, HTMLCollection, or NodeList")}},{"./is":3,delegate:2}],5:[function(t,e,n){e.exports=function(t){var e;if("SELECT"===t.nodeName)t.focus(),e=t.value;else if("INPUT"===t.nodeName||"TEXTAREA"===t.nodeName){var n=t.hasAttribute("readonly");n||t.setAttribute("readonly",""),t.select(),t.setSelectionRange(0,t.value.length),n||t.removeAttribute("readonly"),e=t.value}else{t.hasAttribute("contenteditable")&&t.focus();var o=window.getSelection(),i=document.createRange();i.selectNodeContents(t),o.removeAllRanges(),o.addRange(i),e=o.toString()}return e}},{}],6:[function(t,e,n){function o(){}o.prototype={on:function(t,e,n){var o=this.e||(this.e={});return(o[t]||(o[t]=[])).push({fn:e,ctx:n}),this},once:function(t,e,n){var o=this;function i(){o.off(t,i),e.apply(n,arguments)}return i._=e,this.on(t,i,n)},emit:function(t){for(var e=[].slice.call(arguments,1),n=((this.e||(this.e={}))[t]||[]).slice(),o=0,i=n.length;o<i;o++)n[o].fn.apply(n[o].ctx,e);return this},off:function(t,e){var n=this.e||(this.e={}),o=n[t],i=[];if(o&&e)for(var r=0,a=o.length;r<a;r++)o[r].fn!==e&&o[r].fn._!==e&&i.push(o[r]);return i.length?n[t]=i:delete n[t],this}},e.exports=o},{}],7:[function(t,e,n){!function(o,i){if(void 0!==n)i(e,t("select"));else{var r={exports:{}};i(r,o.select),o.clipboardAction=r.exports}}(this,function(t,e){"use strict";var n,o=(n=e)&&n.__esModule?n:{default:n};var i="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};var r=function(){function t(t,e){for(var n=0;n<e.length;n++){var o=e[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(t,o.key,o)}}return function(e,n,o){return n&&t(e.prototype,n),o&&t(e,o),e}}(),a=function(){function t(e){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.resolveOptions(e),this.initSelection()}return r(t,[{key:"resolveOptions",value:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};this.action=t.action,this.container=t.container,this.emitter=t.emitter,this.target=t.target,this.text=t.text,this.trigger=t.trigger,this.selectedText=""}},{key:"initSelection",value:function(){this.text?this.selectFake():this.target&&this.selectTarget()}},{key:"selectFake",value:function(){var t=this,e="rtl"==document.documentElement.getAttribute("dir");this.removeFake(),this.fakeHandlerCallback=function(){return t.removeFake()},this.fakeHandler=this.container.addEventListener("click",this.fakeHandlerCallback)||!0,this.fakeElem=document.createElement("textarea"),this.fakeElem.style.fontSize="12pt",this.fakeElem.style.border="0",this.fakeElem.style.padding="0",this.fakeElem.style.margin="0",this.fakeElem.style.position="absolute",this.fakeElem.style[e?"right":"left"]="-9999px";var n=window.pageYOffset||document.documentElement.scrollTop;this.fakeElem.style.top=n+"px",this.fakeElem.setAttribute("readonly",""),this.fakeElem.value=this.text,this.container.appendChild(this.fakeElem),this.selectedText=(0,o.default)(this.fakeElem),this.copyText()}},{key:"removeFake",value:function(){this.fakeHandler&&(this.container.removeEventListener("click",this.fakeHandlerCallback),this.fakeHandler=null,this.fakeHandlerCallback=null),this.fakeElem&&(this.container.removeChild(this.fakeElem),this.fakeElem=null)}},{key:"selectTarget",value:function(){this.selectedText=(0,o.default)(this.target),this.copyText()}},{key:"copyText",value:function(){var t=void 0;try{t=document.execCommand(this.action)}catch(e){t=!1}this.handleResult(t)}},{key:"handleResult",value:function(t){this.emitter.emit(t?"success":"error",{action:this.action,text:this.selectedText,trigger:this.trigger,clearSelection:this.clearSelection.bind(this)})}},{key:"clearSelection",value:function(){this.trigger&&this.trigger.focus(),window.getSelection().removeAllRanges()}},{key:"destroy",value:function(){this.removeFake()}},{key:"action",set:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"copy";if(this._action=t,"copy"!==this._action&&"cut"!==this._action)throw new Error('Invalid "action" value, use either "copy" or "cut"')},get:function(){return this._action}},{key:"target",set:function(t){if(void 0!==t){if(!t||"object"!==(void 0===t?"undefined":i(t))||1!==t.nodeType)throw new Error('Invalid "target" value, use a valid Element');if("copy"===this.action&&t.hasAttribute("disabled"))throw new Error('Invalid "target" attribute. Please use "readonly" instead of "disabled" attribute');if("cut"===this.action&&(t.hasAttribute("readonly")||t.hasAttribute("disabled")))throw new Error('Invalid "target" attribute. You can\'t cut text from elements with "readonly" or "disabled" attributes');this._target=t}},get:function(){return this._target}}]),t}();t.exports=a})},{select:5}],8:[function(t,e,n){!function(o,i){if(void 0!==n)i(e,t("./clipboard-action"),t("tiny-emitter"),t("good-listener"));else{var r={exports:{}};i(r,o.clipboardAction,o.tinyEmitter,o.goodListener),o.clipboard=r.exports}}(this,function(t,e,n,o){"use strict";var i=c(e),r=c(n),a=c(o);function c(t){return t&&t.__esModule?t:{default:t}}var s="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};var u=function(){function t(t,e){for(var n=0;n<e.length;n++){var o=e[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(t,o.key,o)}}return function(e,n,o){return n&&t(e.prototype,n),o&&t(e,o),e}}();var l=function(t){function e(t,n){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e);var o=function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return o.resolveOptions(n),o.listenClick(t),o}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,r.default),u(e,[{key:"resolveOptions",value:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};this.action="function"==typeof t.action?t.action:this.defaultAction,this.target="function"==typeof t.target?t.target:this.defaultTarget,this.text="function"==typeof t.text?t.text:this.defaultText,this.container="object"===s(t.container)?t.container:document.body}},{key:"listenClick",value:function(t){var e=this;this.listener=(0,a.default)(t,"click",function(t){return e.onClick(t)})}},{key:"onClick",value:function(t){var e=t.delegateTarget||t.currentTarget;this.clipboardAction&&(this.clipboardAction=null),this.clipboardAction=new i.default({action:this.action(e),target:this.target(e),text:this.text(e),container:this.container,trigger:e,emitter:this})}},{key:"defaultAction",value:function(t){return f("action",t)}},{key:"defaultTarget",value:function(t){var e=f("target",t);if(e)return document.querySelector(e)}},{key:"defaultText",value:function(t){return f("text",t)}},{key:"destroy",value:function(){this.listener.destroy(),this.clipboardAction&&(this.clipboardAction.destroy(),this.clipboardAction=null)}}],[{key:"isSupported",value:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:["copy","cut"],e="string"==typeof t?[t]:t,n=!!document.queryCommandSupported;return e.forEach(function(t){n=n&&!!document.queryCommandSupported(t)}),n}}]),e}();function f(t,e){var n="data-clipboard-"+t;if(e.hasAttribute(n))return e.getAttribute(n)}t.exports=l})},{"./clipboard-action":7,"good-listener":4,"tiny-emitter":6}]},{},[8])(8)}),define("mx-copy/index",["magix","$"],(t,e,n)=>{var o=t("magix"),i=t("$");n.exports=o.View.extend({init:function(t){var e=this;e.assign(t);var n=i("#"+e.id),r=new window.Clipboard(n[0],{target:function(){return o.node(e.__au)}});r.on("success",function(t){t.clearSelection(),n.trigger("success")}),r.on("error",function(){n.trigger("error")}),e.capture("__av",r)},assign:function(t){return this.__au=t.copyNode,!0}})});
+
+/*!
+ * clipboard.js v1.7.1
+ * https://zenorocha.github.io/clipboard.js
+ *
+ * Licensed MIT © Zeno Rocha
+ */
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Clipboard = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+    var DOCUMENT_NODE_TYPE = 9;
+    
+    /**
+     * A polyfill for Element.matches()
+     */
+    if (typeof Element !== 'undefined' && !Element.prototype.matches) {
+        var proto = Element.prototype;
+    
+        proto.matches = proto.matchesSelector ||
+                        proto.mozMatchesSelector ||
+                        proto.msMatchesSelector ||
+                        proto.oMatchesSelector ||
+                        proto.webkitMatchesSelector;
+    }
+    
+    /**
+     * Finds the closest parent that matches a selector.
+     *
+     * @param {Element} element
+     * @param {String} selector
+     * @return {Function}
+     */
+    function closest (element, selector) {
+        while (element && element.nodeType !== DOCUMENT_NODE_TYPE) {
+            if (typeof element.matches === 'function' &&
+                element.matches(selector)) {
+              return element;
+            }
+            element = element.parentNode;
+        }
+    }
+    
+    module.exports = closest;
+    
+    },{}],2:[function(require,module,exports){
+    var closest = require('./closest');
+    
+    /**
+     * Delegates event to a selector.
+     *
+     * @param {Element} element
+     * @param {String} selector
+     * @param {String} type
+     * @param {Function} callback
+     * @param {Boolean} useCapture
+     * @return {Object}
+     */
+    function delegate(element, selector, type, callback, useCapture) {
+        var listenerFn = listener.apply(this, arguments);
+    
+        element.addEventListener(type, listenerFn, useCapture);
+    
+        return {
+            destroy: function() {
+                element.removeEventListener(type, listenerFn, useCapture);
+            }
+        }
+    }
+    
+    /**
+     * Finds closest match and invokes callback.
+     *
+     * @param {Element} element
+     * @param {String} selector
+     * @param {String} type
+     * @param {Function} callback
+     * @return {Function}
+     */
+    function listener(element, selector, type, callback) {
+        return function(e) {
+            e.delegateTarget = closest(e.target, selector);
+    
+            if (e.delegateTarget) {
+                callback.call(element, e);
+            }
+        }
+    }
+    
+    module.exports = delegate;
+    
+    },{"./closest":1}],3:[function(require,module,exports){
+    /**
+     * Check if argument is a HTML element.
+     *
+     * @param {Object} value
+     * @return {Boolean}
+     */
+    exports.node = function(value) {
+        return value !== undefined
+            && value instanceof HTMLElement
+            && value.nodeType === 1;
+    };
+    
+    /**
+     * Check if argument is a list of HTML elements.
+     *
+     * @param {Object} value
+     * @return {Boolean}
+     */
+    exports.nodeList = function(value) {
+        var type = Object.prototype.toString.call(value);
+    
+        return value !== undefined
+            && (type === '[object NodeList]' || type === '[object HTMLCollection]')
+            && ('length' in value)
+            && (value.length === 0 || exports.node(value[0]));
+    };
+    
+    /**
+     * Check if argument is a string.
+     *
+     * @param {Object} value
+     * @return {Boolean}
+     */
+    exports.string = function(value) {
+        return typeof value === 'string'
+            || value instanceof String;
+    };
+    
+    /**
+     * Check if argument is a function.
+     *
+     * @param {Object} value
+     * @return {Boolean}
+     */
+    exports.fn = function(value) {
+        var type = Object.prototype.toString.call(value);
+    
+        return type === '[object Function]';
+    };
+    
+    },{}],4:[function(require,module,exports){
+    var is = require('./is');
+    var delegate = require('delegate');
+    
+    /**
+     * Validates all params and calls the right
+     * listener function based on its target type.
+     *
+     * @param {String|HTMLElement|HTMLCollection|NodeList} target
+     * @param {String} type
+     * @param {Function} callback
+     * @return {Object}
+     */
+    function listen(target, type, callback) {
+        if (!target && !type && !callback) {
+            throw new Error('Missing required arguments');
+        }
+    
+        if (!is.string(type)) {
+            throw new TypeError('Second argument must be a String');
+        }
+    
+        if (!is.fn(callback)) {
+            throw new TypeError('Third argument must be a Function');
+        }
+    
+        if (is.node(target)) {
+            return listenNode(target, type, callback);
+        }
+        else if (is.nodeList(target)) {
+            return listenNodeList(target, type, callback);
+        }
+        else if (is.string(target)) {
+            return listenSelector(target, type, callback);
+        }
+        else {
+            throw new TypeError('First argument must be a String, HTMLElement, HTMLCollection, or NodeList');
+        }
+    }
+    
+    /**
+     * Adds an event listener to a HTML element
+     * and returns a remove listener function.
+     *
+     * @param {HTMLElement} node
+     * @param {String} type
+     * @param {Function} callback
+     * @return {Object}
+     */
+    function listenNode(node, type, callback) {
+        node.addEventListener(type, callback);
+    
+        return {
+            destroy: function() {
+                node.removeEventListener(type, callback);
+            }
+        }
+    }
+    
+    /**
+     * Add an event listener to a list of HTML elements
+     * and returns a remove listener function.
+     *
+     * @param {NodeList|HTMLCollection} nodeList
+     * @param {String} type
+     * @param {Function} callback
+     * @return {Object}
+     */
+    function listenNodeList(nodeList, type, callback) {
+        Array.prototype.forEach.call(nodeList, function(node) {
+            node.addEventListener(type, callback);
+        });
+    
+        return {
+            destroy: function() {
+                Array.prototype.forEach.call(nodeList, function(node) {
+                    node.removeEventListener(type, callback);
+                });
+            }
+        }
+    }
+    
+    /**
+     * Add an event listener to a selector
+     * and returns a remove listener function.
+     *
+     * @param {String} selector
+     * @param {String} type
+     * @param {Function} callback
+     * @return {Object}
+     */
+    function listenSelector(selector, type, callback) {
+        return delegate(document.body, selector, type, callback);
+    }
+    
+    module.exports = listen;
+    
+    },{"./is":3,"delegate":2}],5:[function(require,module,exports){
+    function select(element) {
+        var selectedText;
+    
+        if (element.nodeName === 'SELECT') {
+            element.focus();
+    
+            selectedText = element.value;
+        }
+        else if (element.nodeName === 'INPUT' || element.nodeName === 'TEXTAREA') {
+            var isReadOnly = element.hasAttribute('readonly');
+    
+            if (!isReadOnly) {
+                element.setAttribute('readonly', '');
+            }
+    
+            element.select();
+            element.setSelectionRange(0, element.value.length);
+    
+            if (!isReadOnly) {
+                element.removeAttribute('readonly');
+            }
+    
+            selectedText = element.value;
+        }
+        else {
+            if (element.hasAttribute('contenteditable')) {
+                element.focus();
+            }
+    
+            var selection = window.getSelection();
+            var range = document.createRange();
+    
+            range.selectNodeContents(element);
+            selection.removeAllRanges();
+            selection.addRange(range);
+    
+            selectedText = selection.toString();
+        }
+    
+        return selectedText;
+    }
+    
+    module.exports = select;
+    
+    },{}],6:[function(require,module,exports){
+    function E () {
+      // Keep this empty so it's easier to inherit from
+      // (via https://github.com/lipsmack from https://github.com/scottcorgan/tiny-emitter/issues/3)
+    }
+    
+    E.prototype = {
+      on: function (name, callback, ctx) {
+        var e = this.e || (this.e = {});
+    
+        (e[name] || (e[name] = [])).push({
+          fn: callback,
+          ctx: ctx
+        });
+    
+        return this;
+      },
+    
+      once: function (name, callback, ctx) {
+        var self = this;
+        function listener () {
+          self.off(name, listener);
+          callback.apply(ctx, arguments);
+        };
+    
+        listener._ = callback
+        return this.on(name, listener, ctx);
+      },
+    
+      emit: function (name) {
+        var data = [].slice.call(arguments, 1);
+        var evtArr = ((this.e || (this.e = {}))[name] || []).slice();
+        var i = 0;
+        var len = evtArr.length;
+    
+        for (i; i < len; i++) {
+          evtArr[i].fn.apply(evtArr[i].ctx, data);
+        }
+    
+        return this;
+      },
+    
+      off: function (name, callback) {
+        var e = this.e || (this.e = {});
+        var evts = e[name];
+        var liveEvents = [];
+    
+        if (evts && callback) {
+          for (var i = 0, len = evts.length; i < len; i++) {
+            if (evts[i].fn !== callback && evts[i].fn._ !== callback)
+              liveEvents.push(evts[i]);
+          }
+        }
+    
+        // Remove event from queue to prevent memory leak
+        // Suggested by https://github.com/lazd
+        // Ref: https://github.com/scottcorgan/tiny-emitter/commit/c6ebfaa9bc973b33d110a84a307742b7cf94c953#commitcomment-5024910
+    
+        (liveEvents.length)
+          ? e[name] = liveEvents
+          : delete e[name];
+    
+        return this;
+      }
+    };
+    
+    module.exports = E;
+    
+    },{}],7:[function(require,module,exports){
+    (function (global, factory) {
+        if (typeof define === "function" && define.amd) {
+            define(['module', 'select'], factory);
+        } else if (typeof exports !== "undefined") {
+            factory(module, require('select'));
+        } else {
+            var mod = {
+                exports: {}
+            };
+            factory(mod, global.select);
+            global.clipboardAction = mod.exports;
+        }
+    })(this, function (module, _select) {
+        'use strict';
+    
+        var _select2 = _interopRequireDefault(_select);
+    
+        function _interopRequireDefault(obj) {
+            return obj && obj.__esModule ? obj : {
+                default: obj
+            };
+        }
+    
+        var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+            return typeof obj;
+        } : function (obj) {
+            return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+        };
+    
+        function _classCallCheck(instance, Constructor) {
+            if (!(instance instanceof Constructor)) {
+                throw new TypeError("Cannot call a class as a function");
+            }
+        }
+    
+        var _createClass = function () {
+            function defineProperties(target, props) {
+                for (var i = 0; i < props.length; i++) {
+                    var descriptor = props[i];
+                    descriptor.enumerable = descriptor.enumerable || false;
+                    descriptor.configurable = true;
+                    if ("value" in descriptor) descriptor.writable = true;
+                    Object.defineProperty(target, descriptor.key, descriptor);
+                }
+            }
+    
+            return function (Constructor, protoProps, staticProps) {
+                if (protoProps) defineProperties(Constructor.prototype, protoProps);
+                if (staticProps) defineProperties(Constructor, staticProps);
+                return Constructor;
+            };
+        }();
+    
+        var ClipboardAction = function () {
+            /**
+             * @param {Object} options
+             */
+            function ClipboardAction(options) {
+                _classCallCheck(this, ClipboardAction);
+    
+                this.resolveOptions(options);
+                this.initSelection();
+            }
+    
+            /**
+             * Defines base properties passed from constructor.
+             * @param {Object} options
+             */
+    
+    
+            _createClass(ClipboardAction, [{
+                key: 'resolveOptions',
+                value: function resolveOptions() {
+                    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    
+                    this.action = options.action;
+                    this.container = options.container;
+                    this.emitter = options.emitter;
+                    this.target = options.target;
+                    this.text = options.text;
+                    this.trigger = options.trigger;
+    
+                    this.selectedText = '';
+                }
+            }, {
+                key: 'initSelection',
+                value: function initSelection() {
+                    if (this.text) {
+                        this.selectFake();
+                    } else if (this.target) {
+                        this.selectTarget();
+                    }
+                }
+            }, {
+                key: 'selectFake',
+                value: function selectFake() {
+                    var _this = this;
+    
+                    var isRTL = document.documentElement.getAttribute('dir') == 'rtl';
+    
+                    this.removeFake();
+    
+                    this.fakeHandlerCallback = function () {
+                        return _this.removeFake();
+                    };
+                    this.fakeHandler = this.container.addEventListener('click', this.fakeHandlerCallback) || true;
+    
+                    this.fakeElem = document.createElement('textarea');
+                    // Prevent zooming on iOS
+                    this.fakeElem.style.fontSize = '12pt';
+                    // Reset box model
+                    this.fakeElem.style.border = '0';
+                    this.fakeElem.style.padding = '0';
+                    this.fakeElem.style.margin = '0';
+                    // Move element out of screen horizontally
+                    this.fakeElem.style.position = 'absolute';
+                    this.fakeElem.style[isRTL ? 'right' : 'left'] = '-9999px';
+                    // Move element to the same position vertically
+                    var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+                    this.fakeElem.style.top = yPosition + 'px';
+    
+                    this.fakeElem.setAttribute('readonly', '');
+                    this.fakeElem.value = this.text;
+    
+                    this.container.appendChild(this.fakeElem);
+    
+                    this.selectedText = (0, _select2.default)(this.fakeElem);
+                    this.copyText();
+                }
+            }, {
+                key: 'removeFake',
+                value: function removeFake() {
+                    if (this.fakeHandler) {
+                        this.container.removeEventListener('click', this.fakeHandlerCallback);
+                        this.fakeHandler = null;
+                        this.fakeHandlerCallback = null;
+                    }
+    
+                    if (this.fakeElem) {
+                        this.container.removeChild(this.fakeElem);
+                        this.fakeElem = null;
+                    }
+                }
+            }, {
+                key: 'selectTarget',
+                value: function selectTarget() {
+                    this.selectedText = (0, _select2.default)(this.target);
+                    this.copyText();
+                }
+            }, {
+                key: 'copyText',
+                value: function copyText() {
+                    var succeeded = void 0;
+    
+                    try {
+                        succeeded = document.execCommand(this.action);
+                    } catch (err) {
+                        succeeded = false;
+                    }
+    
+                    this.handleResult(succeeded);
+                }
+            }, {
+                key: 'handleResult',
+                value: function handleResult(succeeded) {
+                    this.emitter.emit(succeeded ? 'success' : 'error', {
+                        action: this.action,
+                        text: this.selectedText,
+                        trigger: this.trigger,
+                        clearSelection: this.clearSelection.bind(this)
+                    });
+                }
+            }, {
+                key: 'clearSelection',
+                value: function clearSelection() {
+                    if (this.trigger) {
+                        this.trigger.focus();
+                    }
+    
+                    window.getSelection().removeAllRanges();
+                }
+            }, {
+                key: 'destroy',
+                value: function destroy() {
+                    this.removeFake();
+                }
+            }, {
+                key: 'action',
+                set: function set() {
+                    var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'copy';
+    
+                    this._action = action;
+    
+                    if (this._action !== 'copy' && this._action !== 'cut') {
+                        throw new Error('Invalid "action" value, use either "copy" or "cut"');
+                    }
+                },
+                get: function get() {
+                    return this._action;
+                }
+            }, {
+                key: 'target',
+                set: function set(target) {
+                    if (target !== undefined) {
+                        if (target && (typeof target === 'undefined' ? 'undefined' : _typeof(target)) === 'object' && target.nodeType === 1) {
+                            if (this.action === 'copy' && target.hasAttribute('disabled')) {
+                                throw new Error('Invalid "target" attribute. Please use "readonly" instead of "disabled" attribute');
+                            }
+    
+                            if (this.action === 'cut' && (target.hasAttribute('readonly') || target.hasAttribute('disabled'))) {
+                                throw new Error('Invalid "target" attribute. You can\'t cut text from elements with "readonly" or "disabled" attributes');
+                            }
+    
+                            this._target = target;
+                        } else {
+                            throw new Error('Invalid "target" value, use a valid Element');
+                        }
+                    }
+                },
+                get: function get() {
+                    return this._target;
+                }
+            }]);
+    
+            return ClipboardAction;
+        }();
+    
+        module.exports = ClipboardAction;
+    });
+    
+    },{"select":5}],8:[function(require,module,exports){
+    (function (global, factory) {
+        if (typeof define === "function" && define.amd) {
+            define(['module', './clipboard-action', 'tiny-emitter', 'good-listener'], factory);
+        } else if (typeof exports !== "undefined") {
+            factory(module, require('./clipboard-action'), require('tiny-emitter'), require('good-listener'));
+        } else {
+            var mod = {
+                exports: {}
+            };
+            factory(mod, global.clipboardAction, global.tinyEmitter, global.goodListener);
+            global.clipboard = mod.exports;
+        }
+    })(this, function (module, _clipboardAction, _tinyEmitter, _goodListener) {
+        'use strict';
+    
+        var _clipboardAction2 = _interopRequireDefault(_clipboardAction);
+    
+        var _tinyEmitter2 = _interopRequireDefault(_tinyEmitter);
+    
+        var _goodListener2 = _interopRequireDefault(_goodListener);
+    
+        function _interopRequireDefault(obj) {
+            return obj && obj.__esModule ? obj : {
+                default: obj
+            };
+        }
+    
+        var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+            return typeof obj;
+        } : function (obj) {
+            return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+        };
+    
+        function _classCallCheck(instance, Constructor) {
+            if (!(instance instanceof Constructor)) {
+                throw new TypeError("Cannot call a class as a function");
+            }
+        }
+    
+        var _createClass = function () {
+            function defineProperties(target, props) {
+                for (var i = 0; i < props.length; i++) {
+                    var descriptor = props[i];
+                    descriptor.enumerable = descriptor.enumerable || false;
+                    descriptor.configurable = true;
+                    if ("value" in descriptor) descriptor.writable = true;
+                    Object.defineProperty(target, descriptor.key, descriptor);
+                }
+            }
+    
+            return function (Constructor, protoProps, staticProps) {
+                if (protoProps) defineProperties(Constructor.prototype, protoProps);
+                if (staticProps) defineProperties(Constructor, staticProps);
+                return Constructor;
+            };
+        }();
+    
+        function _possibleConstructorReturn(self, call) {
+            if (!self) {
+                throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+            }
+    
+            return call && (typeof call === "object" || typeof call === "function") ? call : self;
+        }
+    
+        function _inherits(subClass, superClass) {
+            if (typeof superClass !== "function" && superClass !== null) {
+                throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+            }
+    
+            subClass.prototype = Object.create(superClass && superClass.prototype, {
+                constructor: {
+                    value: subClass,
+                    enumerable: false,
+                    writable: true,
+                    configurable: true
+                }
+            });
+            if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+        }
+    
+        var Clipboard = function (_Emitter) {
+            _inherits(Clipboard, _Emitter);
+    
+            /**
+             * @param {String|HTMLElement|HTMLCollection|NodeList} trigger
+             * @param {Object} options
+             */
+            function Clipboard(trigger, options) {
+                _classCallCheck(this, Clipboard);
+    
+                var _this = _possibleConstructorReturn(this, (Clipboard.__proto__ || Object.getPrototypeOf(Clipboard)).call(this));
+    
+                _this.resolveOptions(options);
+                _this.listenClick(trigger);
+                return _this;
+            }
+    
+            /**
+             * Defines if attributes would be resolved using internal setter functions
+             * or custom functions that were passed in the constructor.
+             * @param {Object} options
+             */
+    
+    
+            _createClass(Clipboard, [{
+                key: 'resolveOptions',
+                value: function resolveOptions() {
+                    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    
+                    this.action = typeof options.action === 'function' ? options.action : this.defaultAction;
+                    this.target = typeof options.target === 'function' ? options.target : this.defaultTarget;
+                    this.text = typeof options.text === 'function' ? options.text : this.defaultText;
+                    this.container = _typeof(options.container) === 'object' ? options.container : document.body;
+                }
+            }, {
+                key: 'listenClick',
+                value: function listenClick(trigger) {
+                    var _this2 = this;
+    
+                    this.listener = (0, _goodListener2.default)(trigger, 'click', function (e) {
+                        return _this2.onClick(e);
+                    });
+                }
+            }, {
+                key: 'onClick',
+                value: function onClick(e) {
+                    var trigger = e.delegateTarget || e.currentTarget;
+    
+                    if (this.clipboardAction) {
+                        this.clipboardAction = null;
+                    }
+    
+                    this.clipboardAction = new _clipboardAction2.default({
+                        action: this.action(trigger),
+                        target: this.target(trigger),
+                        text: this.text(trigger),
+                        container: this.container,
+                        trigger: trigger,
+                        emitter: this
+                    });
+                }
+            }, {
+                key: 'defaultAction',
+                value: function defaultAction(trigger) {
+                    return getAttributeValue('action', trigger);
+                }
+            }, {
+                key: 'defaultTarget',
+                value: function defaultTarget(trigger) {
+                    var selector = getAttributeValue('target', trigger);
+    
+                    if (selector) {
+                        return document.querySelector(selector);
+                    }
+                }
+            }, {
+                key: 'defaultText',
+                value: function defaultText(trigger) {
+                    return getAttributeValue('text', trigger);
+                }
+            }, {
+                key: 'destroy',
+                value: function destroy() {
+                    this.listener.destroy();
+    
+                    if (this.clipboardAction) {
+                        this.clipboardAction.destroy();
+                        this.clipboardAction = null;
+                    }
+                }
+            }], [{
+                key: 'isSupported',
+                value: function isSupported() {
+                    var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ['copy', 'cut'];
+    
+                    var actions = typeof action === 'string' ? [action] : action;
+                    var support = !!document.queryCommandSupported;
+    
+                    actions.forEach(function (action) {
+                        support = support && !!document.queryCommandSupported(action);
+                    });
+    
+                    return support;
+                }
+            }]);
+    
+            return Clipboard;
+        }(_tinyEmitter2.default);
+    
+        /**
+         * Helper function to retrieve attribute value.
+         * @param {String} suffix
+         * @param {Element} element
+         */
+        function getAttributeValue(suffix, element) {
+            var attribute = 'data-clipboard-' + suffix;
+    
+            if (!element.hasAttribute(attribute)) {
+                return;
+            }
+    
+            return element.getAttribute(attribute);
+        }
+    
+        module.exports = Clipboard;
+    });
+    
+    },{"./clipboard-action":7,"good-listener":4,"tiny-emitter":6}]},{},[8])(8)
+    });
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-copy/index",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+;
+var Magix = require("magix");
+var $ = require("$");
+module.exports = Magix.View.extend({
+    init: function (extra) {
+        var me = this;
+        me.assign(extra);
+        var owner = $('#' + me.id);
+        var clipboard = new window.Clipboard(owner[0], {
+            target: function () {
+                return Magix.node(me['@{copy.node}']);
+            }
+        });
+        clipboard.on('success', function (e) {
+            e.clearSelection();
+            owner.trigger('success');
+        });
+        clipboard.on('error', function () {
+            owner.trigger('error');
+        });
+        me.capture('@{clipboard}', clipboard);
+    },
+    assign: function (ops) {
+        this['@{copy.node}'] = ops.copyNode;
+        return true;
+    }
+});
+
+});

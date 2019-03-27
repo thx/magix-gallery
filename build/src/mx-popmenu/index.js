@@ -1,1 +1,191 @@
-define("mx-popmenu/index",["magix","../mx-monitor/index","mx-popover/base","$"],(r,_,e)=>{var i=r("magix"),t=(i.Vframe,r("../mx-monitor/index")),o=r("mx-popover/base"),a=r("$");i.applyStyle("_zs_galleryam","._zs_galleryjR{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryjS,._zs_galleryjT,._zs_galleryjU,._zs_galleryjV,._zs_galleryjW,._zs_galleryjX,._zs_galleryjY,._zs_galleryjZ,._zs_galleryk_,._zs_galleryka,._zs_gallerykb,._zs_gallerykc{opacity:0;transition:opacity .15s,-webkit-transform .15s;transition:transform .15s,opacity .15s;transition:transform .15s,opacity .15s,-webkit-transform .15s;-webkit-transform:scale(0);transform:scale(0)}._zs_galleryjT,._zs_galleryk_{-webkit-transform-origin:0 0;transform-origin:0 0}._zs_galleryjU,._zs_galleryjX{-webkit-transform-origin:100% 0;transform-origin:100% 0}._zs_galleryjS{-webkit-transform-origin:50% 0;transform-origin:50% 0}._zs_galleryjY,._zs_gallerykb{-webkit-transform-origin:0 100%;transform-origin:0 100%}._zs_galleryjV,._zs_gallerykc{-webkit-transform-origin:100% 100%;transform-origin:100% 100%}._zs_galleryka{-webkit-transform-origin:50% 100%;transform-origin:50% 100%}._zs_galleryjW{-webkit-transform-origin:100% 50%;transform-origin:100% 50%}._zs_galleryjZ{-webkit-transform-origin:0 50%;transform-origin:0 50%}._zs_gallerykd{opacity:1;-webkit-transform:scale(1);transform:scale(1)}._zs_galleryke{display:none}._zs_gallerykf,._zs_gallerykg{position:absolute;z-index:9999;height:auto;border-radius:4px;font-size:12px;line-height:22px;white-space:normal;font-weight:400;font-family:Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif}._zs_gallerykf{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6;background-color:#fff;color:#333}._zs_gallerykf ._zs_gallerykh{padding:10px;word-break:break-all}._zs_gallerykg{background-color:rgba(33,33,33,.72);color:#fff}._zs_gallerykg ._zs_gallerykh{padding:4px 10px}"),e.exports=o.extend({tmpl:function(r,_,e,i,t,o,a,n){if(e||(e=r),!t){var s={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},l=/[&<>"'`]/g,c=function(r){return"&"+s[r]+";"};t=function(r){return""+(null==r?"":r)},function(r){return t(r).replace(l,c)}}if(!o){var g={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},f=function(r){return g[r]},m=/[!')(*]/g;o=function(r){return encodeURIComponent(t(r)).replace(m,f)}}if(!n){var p=/[\\'"]/g;n=function(r){return t(r).replace(p,"\\$&")}}var b="",u=r.trigger;return b+=t(u)+""},init:function(r){var _=this;t.__f();var e=a("#"+_.id);_.__cG=e.html(),_.__j=e,_.__bK=r.triggerType||"hover";var i=function(){clearTimeout(_.__bJ),_.__bI=setTimeout(_.wrapAsync(function(){_.__n()}),_.constants.showDelay)},o=r.place||"bc";switch(_.__bK){case"click":e.click(i);break;case"contextmenu":o="bl",_.__cH={left:e.width()/2,top:0-e.height()/2-10},e.contextmenu(function(r){r.preventDefault(),i()});break;case"hover":e.hover(i,function(){_.__bL()})}var n={t:"top",l:"left",r:"right",b:"bottom",c:"center"},s=o.split(""),l=n[s[0]],c=n[s[1]];_.__cy=l,_.__cz=c,_.__cA=_.constants.classNames[[l,c].join("-")]+" _zs_gallerykf",_.__bH=!1,_.__cB=!1,_.__cC=!1,_.__bG=r.scrollWrapper,_.__cI=r.menus||[],_.__cE=r.width?r.width+"px":"auto",_.__cF="left",_.bindScroll(),_.on("destroy",function(){_.__bI&&clearTimeout(_.__bI),_.__bJ&&clearTimeout(_.__bJ),a("#popover_"+_.id).remove(),t.__g(_),t.__h()})},render:function(){this.updater.digest({trigger:this.__cG})},__bP:function(){var r=this,_=r.__cA,e=r.__cE,i=r.id,t={menus:r.__cI},o='<div class="_zs_galleryke '+_+'" id="popover_'+i+'"\n                style="width: '+e+';"></div>';a(document.body).append(o);var n=r.owner.mountVframe("popover_"+i,"");n.on("created",function(){var _=r.__bN();_.removeClass("_zs_galleryke"),"hover"==r.__bK&&_.hover(function(){clearTimeout(r.__bJ)},function(){r.__bL()})}),n.mountView("mx-popmenu/content",{data:t,submit:function(_){r.__m(),r.__j.trigger({type:"change",selected:_})}})},__k:function(r){return i.inside(r,this.id)||i.inside(r,"popover_"+this.id)},__n:function(){var r=this;(clearTimeout(r.__bI),r.__bH||(r.__bH=!0,r.__bP()),r.__cC)||(r.__cC=!0,r.__bN().addClass("_zs_gallerykd"),t.__p(r))},__bL:function(){var r=this;clearTimeout(r.__bI),clearTimeout(r.__bJ),r.__bJ=setTimeout(r.wrapAsync(function(){r.__m()}),r.constants.hideDelay),t.__g(r)},__m:function(){var r=this;(clearTimeout(r.__bJ),r.__cC)&&(r.__cC=!1,a("#popover_"+r.id).removeClass("_zs_gallerykd"),t.__g(r))}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-popmenu/index",["magix","../mx-monitor/index","mx-popover/base","$"],(require,exports,module)=>{
+/*Magix,Monitor,Base,$*/
+
+var Magix = require("magix");
+var Vframe = Magix.Vframe;
+var Monitor = require("../mx-monitor/index");
+var Base = require("mx-popover/base");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-popover_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-popover_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-popover_index_-bottom-left,\n._zs_gallery_mx-popover_index_-bottom-right,\n._zs_gallery_mx-popover_index_-bottom-center,\n._zs_gallery_mx-popover_index_-top-left,\n._zs_gallery_mx-popover_index_-top-right,\n._zs_gallery_mx-popover_index_-top-center,\n._zs_gallery_mx-popover_index_-right-top,\n._zs_gallery_mx-popover_index_-right-bottom,\n._zs_gallery_mx-popover_index_-right-center,\n._zs_gallery_mx-popover_index_-left-top,\n._zs_gallery_mx-popover_index_-left-bottom,\n._zs_gallery_mx-popover_index_-left-center {\n  opacity: 0;\n  transition: opacity 0.15s, -webkit-transform 0.15s;\n  transition: transform 0.15s, opacity 0.15s;\n  transition: transform 0.15s, opacity 0.15s, -webkit-transform 0.15s;\n  -webkit-transform: scale(0);\n          transform: scale(0);\n}\n/**\n * popover下左 初始隐藏状态\n * 注意使用opacity控制popover的显示和隐藏，不要设置display: none\n */\n._zs_gallery_mx-popover_index_-bottom-left,\n._zs_gallery_mx-popover_index_-right-top {\n  -webkit-transform-origin: 0 0;\n          transform-origin: 0 0;\n}\n._zs_gallery_mx-popover_index_-bottom-right,\n._zs_gallery_mx-popover_index_-left-top {\n  -webkit-transform-origin: 100% 0;\n          transform-origin: 100% 0;\n}\n._zs_gallery_mx-popover_index_-bottom-center {\n  -webkit-transform-origin: 50% 0;\n          transform-origin: 50% 0;\n}\n._zs_gallery_mx-popover_index_-top-left,\n._zs_gallery_mx-popover_index_-right-bottom {\n  -webkit-transform-origin: 0 100%;\n          transform-origin: 0 100%;\n}\n._zs_gallery_mx-popover_index_-top-right,\n._zs_gallery_mx-popover_index_-left-bottom {\n  -webkit-transform-origin: 100% 100%;\n          transform-origin: 100% 100%;\n}\n._zs_gallery_mx-popover_index_-top-center {\n  -webkit-transform-origin: 50% 100%;\n          transform-origin: 50% 100%;\n}\n._zs_gallery_mx-popover_index_-left-center {\n  -webkit-transform-origin: 100% 50%;\n          transform-origin: 100% 50%;\n}\n._zs_gallery_mx-popover_index_-right-center {\n  -webkit-transform-origin: 0 50%;\n          transform-origin: 0 50%;\n}\n._zs_gallery_mx-popover_index_-show-out {\n  opacity: 1;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n}\n/**\n * popover显示\n */\n._zs_gallery_mx-popover_index_-popover-hide {\n  display: none;\n}\n._zs_gallery_mx-popover_index_-popover,\n._zs_gallery_mx-popover_index_-popover-dark {\n  position: absolute;\n  z-index: 9999;\n  height: auto;\n  border-radius: 4px;\n  font-size: 12px;\n  line-height: 22px;\n  white-space: normal;\n  font-weight: normal;\n  font-family: Helvetica, Arial, \"Microsoft Yahei\", \"Hiragino Sans GB\", \"Heiti SC\", \"WenQuanYi Micro Hei\", sans-serif;\n}\n._zs_gallery_mx-popover_index_-popover {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n  background-color: #fff;\n  color: #333;\n}\n._zs_gallery_mx-popover_index_-popover ._zs_gallery_mx-popover_index_-popover-content {\n  padding: 10px;\n  word-break: break-all;\n}\n._zs_gallery_mx-popover_index_-popover-dark {\n  background-color: rgba(33, 33, 33, 0.72);\n  color: #fff;\n}\n._zs_gallery_mx-popover_index_-popover-dark ._zs_gallery_mx-popover_index_-popover-content {\n  padding: 4px 10px;\n}\n");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', trigger = $$.trigger; var $expr, $art, $line; try {
+    $line = 1;
+    $art = '!trigger';
+    ;
+    $p += ($expr = '<%!trigger%>', $n(trigger)) + '';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-popover/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var me = this;
+        Monitor['@{setup}']();
+        var oNode = $('#' + me.id);
+        me['@{trigger.content}'] = oNode.html();
+        me['@{owner.node}'] = oNode;
+        // trigger方式，click，hover，默认click
+        me['@{trigger.type}'] = extra.triggerType || 'hover';
+        var showFn = function () {
+            clearTimeout(me['@{dealy.hide.timer}']);
+            me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
+                me['@{show}'](); //等待内容显示
+            }), me.constants.showDelay);
+        };
+        var place = extra.place || 'bc';
+        switch (me['@{trigger.type}']) {
+            case 'click':
+                oNode.click(showFn);
+                break;
+            case 'contextmenu':
+                // 右键显示的位置固定
+                // bl，居中对齐
+                place = 'bl';
+                me['@{pos.offset}'] = {
+                    left: oNode.width() / 2,
+                    top: 0 - oNode.height() / 2 - 10
+                };
+                oNode.contextmenu(function (e) {
+                    e.preventDefault();
+                    showFn();
+                });
+                break;
+            case 'hover':
+                oNode.hover(showFn, function () {
+                    me['@{delay.hide}']();
+                });
+                break;
+        }
+        var map = {
+            t: 'top',
+            l: 'left',
+            r: 'right',
+            b: 'bottom',
+            c: 'center'
+        };
+        var places = place.split('');
+        var placement = map[places[0]], align = map[places[1]];
+        me['@{pos.placement}'] = placement;
+        me['@{pos.align}'] = align;
+        me['@{pos.class}'] = me.constants.classNames[[placement, align].join('-')] + ' _zs_gallery_mx-popover_index_-popover';
+        me['@{pos.init}'] = false;
+        me['@{pos.cal}'] = false;
+        me['@{pos.show}'] = false;
+        me['@{scroll.wrapper}'] = extra.scrollWrapper;
+        me['@{menus}'] = extra.menus || [];
+        me['@{width}'] = extra.width ? (extra.width + 'px') : 'auto';
+        // 复用popover，左对齐
+        me['@{text.align}'] = 'left';
+        me.bindScroll();
+        me.on('destroy', function () {
+            if (me['@{dealy.show.timer}']) {
+                clearTimeout(me['@{dealy.show.timer}']);
+            }
+            if (me['@{dealy.hide.timer}']) {
+                clearTimeout(me['@{dealy.hide.timer}']);
+            }
+            $('#popover_' + me.id).remove();
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+        });
+    },
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            trigger: me['@{trigger.content}']
+        });
+    },
+    '@{init}': function () {
+        var me = this;
+        var posClass = me['@{pos.class}'], posWidth = me['@{width}'], vId = me.id, view = 'mx-popmenu/content', viewData = {
+            menus: me['@{menus}']
+        };
+        var popNode = "<div class=\"_zs_gallery_mx-popover_index_-popover-hide " + posClass + "\" id=\"popover_" + vId + "\"\n                style=\"width: " + posWidth + ";\"></div>";
+        $(document.body).append(popNode);
+        // 先实例化，绑定事件，再加载对应的view
+        var vf = me.owner.mountVframe('popover_' + vId, '');
+        vf.on('created', function () {
+            var popNode = me['@{setPos}']();
+            popNode.removeClass('_zs_gallery_mx-popover_index_-popover-hide');
+            var triggerType = me['@{trigger.type}'];
+            if (triggerType == 'hover') {
+                popNode.hover(function () {
+                    clearTimeout(me['@{dealy.hide.timer}']);
+                }, function () {
+                    me['@{delay.hide}']();
+                });
+            }
+        });
+        vf.mountView(view, {
+            data: viewData,
+            submit: function (selected) {
+                me['@{hide}']();
+                me['@{owner.node}'].trigger({
+                    type: 'change',
+                    selected: selected
+                });
+            }
+        });
+    },
+    '@{inside}': function (node) {
+        return Magix.inside(node, this.id) || Magix.inside(node, 'popover_' + this.id);
+    },
+    '@{show}': function () {
+        var me = this;
+        clearTimeout(me['@{dealy.show.timer}']);
+        if (!me['@{pos.init}']) {
+            me['@{pos.init}'] = true;
+            me['@{init}']();
+        }
+        if (me['@{pos.show}']) {
+            return;
+        }
+        me['@{pos.show}'] = true;
+        // 每次show时都重新定位
+        var popNode = me['@{setPos}']();
+        popNode.addClass('_zs_gallery_mx-popover_index_-show-out');
+        Monitor['@{add}'](me);
+    },
+    '@{delay.hide}': function () {
+        var me = this;
+        clearTimeout(me['@{dealy.show.timer}']);
+        clearTimeout(me['@{dealy.hide.timer}']);
+        me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(function () {
+            me['@{hide}']();
+        }), me.constants.hideDelay);
+        Monitor['@{remove}'](me);
+    },
+    '@{hide}': function () {
+        var me = this;
+        clearTimeout(me['@{dealy.hide.timer}']);
+        if (!me['@{pos.show}']) {
+            return;
+        }
+        me['@{pos.show}'] = false;
+        var popNode = $('#popover_' + me.id);
+        popNode.removeClass('_zs_gallery_mx-popover_index_-show-out');
+        Monitor['@{remove}'](me);
+    }
+});
+
+});

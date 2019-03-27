@@ -16,10 +16,12 @@ module.exports = Magix.View.extend({
             def: 'text'
         }, {
             key: 'source-map',
-            desc: `如果不同路径的对应不同的问答，配置路径到sourceId的映射关系，例如：<pre>
+            desc: `如果不同路径的对应不同的问答，配置路径到sourceId的映射关系，<br/>
+<span class="color-brand">支持带参数的配置（当前参数包含配置参数则匹配上）</span>，例如：<pre>
 {
-    '/wanxiang/demo1': 432,
-    '/wanxiang/demo2': 496
+    '/wanxiang/demo1': 1,
+    '/wanxiang/demo2?version=1': 2
+    '/wanxiang/demo3': 3
 }
 </pre>
 <br/>
