@@ -30,31 +30,31 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text3 = $$.text3; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryb~:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryb~:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryb~:_" class="mb10">使用 &lt;mx-grid&gt; 标签；也可直接用 class grid 样式</div><div mxs="_zs_galleryb~:a" class="mb10">其中标题部分，<span class="color-brand">标题+提示信息固定向左浮动</span>，标题上其他内容请自行控制左右浮动</div><div mxa="_zs_galleryb~:b" class="_zs_gallery_mx-grid___test___index_-container"><div mxa="_zs_galleryb~:c" class="grid"><div mxa="_zs_galleryb~:d" content="标题" class="clearfix" style="padding: 10px 24px;;border-bottom: 1px solid #e6e6e6;;"><div mxs="_zs_galleryb~:b" style="float:left; height: 32px; line-height: 32px;"><span style="font-size: 16px; margin-right: 16px;">标题</span><span style="margin-right: 16px; color: #999;">提示信息</span></div><div mxs="_zs_galleryb~:c" class="fl"><div class="w200 mr10" mx-view="mx-calendar/datepicker"></div></div><div mxa="_zs_galleryb~:e" class="fr"><div mxs="_zs_galleryb~:d" class="w200 mr10" mx-view="mx-calendar/datepicker"></div><div class="w200" mx-view="mx-dropdown/index?list=';
+    $p += '<div mxa="_zs_galleryb::_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryb::a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryb::_" class="mb10">使用 &lt;mx-grid&gt; 标签；也可直接用 class grid 样式</div><div mxs="_zs_galleryb::a" class="mb10">其中标题部分，<span class="color-brand">标题+提示信息固定向左浮动</span>，标题上其他内容请自行控制左右浮动</div><div mxa="_zs_galleryb::b" class="_zs_gallery_mx-grid___test___index_-container"><div mxa="_zs_galleryb::c" class="grid"><div mxa="_zs_galleryb::d" content="标题" class="clearfix" style="padding: 10px 24px;;border-bottom: 1px solid #e6e6e6;;"><div mxs="_zs_galleryb::b" style="float:left; height: 32px; line-height: 32px;"><span style="font-size: 16px; margin-right: 16px;">标题</span><span style="margin-right: 16px; color: #999;">提示信息</span></div><div mxs="_zs_galleryb::c" class="fl"><div class="w200 mr10" mx-view="mx-calendar/datepicker"></div></div><div mxa="_zs_galleryb::e" class="fr"><div mxs="_zs_galleryb::d" class="w200 mr10" mx-view="mx-calendar/datepicker"></div><div class="w200" mx-view="mx-dropdown/index?list=';
     $line = 16;
     $art = '@[1,2,3]';
     ;
-    $p += ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div></div><div mxs="_zs_galleryb~:e" class="clearfix" style="padding: 16px 24px;">test</div></div></div></div><div mxa="_zs_galleryb~:f" class="clearfix"><div mxa="_zs_galleryb~:g" class="_zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-left"><div mxa="_zs_galleryb~:h" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryb~:f" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div></div><div mxs="_zs_galleryb::e" class="clearfix" style="padding: 16px 24px;">test</div></div></div></div><div mxa="_zs_galleryb::f" class="clearfix"><div mxa="_zs_galleryb::g" class="_zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-left"><div mxa="_zs_galleryb::h" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryb::f" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 28;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryb~:i" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryb::i" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 30;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryb~:g" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryb::g" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 33;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-grid&gt;\n    &lt;mx-grid.title content="标题" tip="提示信息"&gt;\n        &lt;div class="fl"&gt;\n            &lt;mx-calendar.datepicker class="w200 mr10"/&gt;\n        &lt;/div&gt;\n\n        &lt;div class="fr"&gt;\n            &lt;mx-calendar.datepicker class="w200 mr10"/&gt;\n\n            &lt;mx-dropdown class="w200" \n                list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;\n            &lt;/mx-dropdown&gt;\n        &lt;/div&gt;\n    &lt;/mx-grid.title&gt;\n    &lt;mx-grid.body&gt;test&lt;/mx-grid.body&gt;\n&lt;/mx-grid&gt;\n                </pre></div></div><div mxa="_zs_galleryb~:j" class="_zs_gallery___test___layout_-half"><div mxa="_zs_galleryb~:k" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryb~:h" class="_zs_gallery___test___layout_-eg-title">等同于使用class grid</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-grid&gt;\n    &lt;mx-grid.title content="标题" tip="提示信息"&gt;\n        &lt;div class="fl"&gt;\n            &lt;mx-calendar.datepicker class="w200 mr10"/&gt;\n        &lt;/div&gt;\n\n        &lt;div class="fr"&gt;\n            &lt;mx-calendar.datepicker class="w200 mr10"/&gt;\n\n            &lt;mx-dropdown class="w200" \n                list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;\n            &lt;/mx-dropdown&gt;\n        &lt;/div&gt;\n    &lt;/mx-grid.title&gt;\n    &lt;mx-grid.body&gt;test&lt;/mx-grid.body&gt;\n&lt;/mx-grid&gt;\n                </pre></div></div><div mxa="_zs_galleryb::j" class="_zs_gallery___test___layout_-half"><div mxa="_zs_galleryb::k" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryb::h" class="_zs_gallery___test___layout_-eg-title">等同于使用class grid</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=';
     $line = 56;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_galleryb~:l" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_galleryb::l" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 58;
     $art = '!text3';
     ;
-    $p += ($expr = '<%!text3%>', $n(text3)) + '</span><i mxs="_zs_galleryb~:g" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text3%>', $n(text3)) + '</span><i mxs="_zs_galleryb::g" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 61;
     $art = '=viewId';
     ;

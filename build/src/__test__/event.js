@@ -25,16 +25,16 @@ module.exports = Magix.View.extend({
     $line = 13;
     $art = 'each options as option';
     ;
-    $expr = '<%for (var $art_iwkwacxhs$art_i = 0, $art_czxyxnrs$art_c = options.length; $art_iwkwacxhs$art_i < $art_czxyxnrs$art_c; $art_iwkwacxhs$art_i++) {    var option = options[$art_iwkwacxhs$art_i]%>';
-    for (var $art_iwkwacxhs$art_i = 0, $art_czxyxnrs$art_c = options.length; $art_iwkwacxhs$art_i < $art_czxyxnrs$art_c; $art_iwkwacxhs$art_i++) {
-        var option = options[$art_iwkwacxhs$art_i];
+    $expr = '<%for (var $art_iaxxmqqjo$art_i = 0, $art_cdequyleje$art_c = options.length; $art_iaxxmqqjo$art_i < $art_cdequyleje$art_c; $art_iaxxmqqjo$art_i++) {    var option = options[$art_iaxxmqqjo$art_i]%>';
+    for (var $art_iaxxmqqjo$art_i = 0, $art_cdequyleje$art_c = options.length; $art_iaxxmqqjo$art_i < $art_cdequyleje$art_c; $art_iaxxmqqjo$art_i++) {
+        var option = options[$art_iaxxmqqjo$art_i];
         $p += ' ';
         $line = 14;
         $art = 'each option.params as param index';
         ;
-        $expr = '<%for (var index = 0, $art_objaqzrxjbql$art_obj = option.params, $art_ccbovkhlq$art_c = $art_objaqzrxjbql$art_obj.length; index < $art_ccbovkhlq$art_c; index++) {        var param = $art_objaqzrxjbql$art_obj[index]%>';
-        for (var index = 0, $art_objaqzrxjbql$art_obj = option.params, $art_ccbovkhlq$art_c = $art_objaqzrxjbql$art_obj.length; index < $art_ccbovkhlq$art_c; index++) {
-            var param = $art_objaqzrxjbql$art_obj[index];
+        $expr = '<%for (var index = 0, $art_objkssdngi$art_obj = option.params, $art_ckyeehslmun$art_c = $art_objkssdngi$art_obj.length; index < $art_ckyeehslmun$art_c; index++) {        var param = $art_objkssdngi$art_obj[index]%>';
+        for (var index = 0, $art_objkssdngi$art_obj = option.params, $art_ckyeehslmun$art_c = $art_objkssdngi$art_obj.length; index < $art_ckyeehslmun$art_c; index++) {
+            var param = $art_objkssdngi$art_obj[index];
             $p += '<tr>';
             $line = 16;
             $art = 'if (index == 0)';

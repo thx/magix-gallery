@@ -76,6 +76,16 @@ catch (ex) {
                 desc: "\u6700\u7EC8\u5B9A\u4F4D\u76F8\u5BF9\u4E8E\u5C4F\u5E55\u9AD8\u4FA7\n<div class=\"color-brand\">\u5982\u679C\u60F3\u76F8\u5BF9\u4E8Etrigger\u5B9A\u4F4D\uFF0C\u8BF7\u51CF\u53BB $(window).scrollTop()</div>",
                 type: 'number',
                 def: '默认居中，若高度超过屏幕高度则为0'
+            }, {
+                key: 'target',
+                desc: "<pre>\u76F8\u5BF9\u4E8E\u8BE5\u8282\u70B9\u4E0B10px\u5C45\u4E2D\u5BF9\u9F50\uFF0C\u6307\u5B9A\u8282\u70B9\u7684\u60C5\u51B5\u4E0B\u5FFD\u7565left\uFF0Ctop\uFF0C\u53EF\u914D\u5408\u4F7F\u7528offset\u6307\u5B9A\u5FAE\u91CF\u504F\u79FB\ntarget\u652F\u6301\u4F20\u5165 #id\uFF0C.class\uFF0Cid\uFF0C$(node)'</pre>",
+                type: '',
+                def: ''
+            }, {
+                key: 'offset',
+                desc: "<pre>\u6307\u5B9Atarget\u65F6\u751F\u6548\uFF0C\u5FAE\u91CF\u4FBF\u5B9C\noffset: {\n    left: -10,\n    top: 10\n}</pre>",
+                type: 'object',
+                def: ''
             }];
         that.updater.digest({
             options: options

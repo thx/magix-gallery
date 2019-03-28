@@ -408,7 +408,9 @@ module.exports = Magix.View.extend({
      *        mask: 'true or false，是否有遮罩，默认true',
      *        closable: 'true or false，是否有右上角关闭按钮，默认true',
      *        left: '最终定位相对于屏幕左侧，默认居中',
-     *        top: '最终定位相对于屏幕高侧，默认居中'
+     *        top: '最终定位相对于屏幕高侧，默认居中',
+     *        target: 指定节点，相对该节点下中对齐
+     *        offset: 指定节点时微量偏移
      *    }
      */
     mxDialog(view, viewOptions, dialogOptions) {
@@ -464,34 +466,63 @@ module.exports = Magix.View.extend({
             let left, top, posFrom, posTo;
             let winWidth = window.innerWidth,
                 winHeight = window.innerHeight;
-            switch (placement){
-                case 'center':
-                    left = (winWidth - width) / 2;
-                    top = Math.max((winHeight - height) / 2, 0);
-                    posFrom = {
-                        opacity: 0,
-                        top: '-50px'
-                    }
-                    posTo = {
-                        opacity: 1,
-                        top: 0
-                    }
-                    break;
-                case 'right':
-                    left = winWidth - width;
-                    top = 0;
-                    posFrom = {
-                        opacity: 0,
-                        top: 0,
-                        left: winWidth
-                    }
-                    posTo = {
-                        opacity: 1,
-                        top: 0,
-                        left: 0
-                    }
-                    break;
+
+            let target = dialogOptions.target || vDialogOptions.target;
+            if(!target){
+                switch (placement){
+                    case 'center':
+                        left = (winWidth - width) / 2;
+                        top = Math.max((winHeight - height) / 2, 0);
+                        posFrom = {
+                            opacity: 0,
+                            top: '-50px'
+                        }
+                        posTo = {
+                            opacity: 1,
+                            top: 0
+                        }
+                        break;
+                    case 'right':
+                        left = winWidth - width;
+                        top = 0;
+                        posFrom = {
+                            opacity: 0,
+                            top: 0,
+                            left: winWidth
+                        }
+                        posTo = {
+                            opacity: 1,
+                            top: 0,
+                            left: 0
+                        }
+                        break;
+                }
+            }else{
+                // 指定节点
+                let node;
+                if ((typeof target == 'string') && !(/^#/.test(target)) && !(/^\./.test(target))) {
+                    node = $('#' + target);
+                } else {
+                    node = $(target);
+                }
+                let customOffset = dialogOptions.offset || vDialogOptions.offset || {};
+                customOffset.top = +customOffset.top || 0;
+                customOffset.left = +customOffset.left || 0;
+                let offset = node.offset();
+                let top = offset.top + node.outerHeight() + 10 - $(window).scrollTop() + customOffset.top,
+                    left = offset.left - (width - node.outerWidth()) / 2 +customOffset.left;
+                posFrom = {
+                    opacity: 0,
+                    top: top - 50,
+                    left
+                }
+                posTo = {
+                    opacity: 1,
+                    top: top,
+                    left
+                }
             }
+            
             Magix.mix(dOptions, {
                 mask: true,
                 modal: false,

@@ -42,6 +42,21 @@ module.exports = Magix.View.extend({
 <div class="color-brand">如果想相对于trigger定位，请减去 $(window).scrollTop()</div>`,
             type: 'number',
             def: '默认居中，若高度超过屏幕高度则为0'
+        }, {
+            key: 'target',
+            desc: `<pre>相对于该节点下10px居中对齐，指定节点的情况下忽略left，top，可配合使用offset指定微量偏移
+target支持传入 #id，.class，id，$(node)'</pre>`,
+            type: '',
+            def: ''
+        }, {
+            key: 'offset',
+            desc: `<pre>指定target时生效，微量便宜
+offset: {
+    left: -10,
+    top: 10
+}</pre>`,
+            type: 'object',
+            def: ''
         }]
         that.updater.digest({
             options
