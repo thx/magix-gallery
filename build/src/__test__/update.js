@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iowhxaees$art_i = 0, $art_cfwrfgnv$art_c = list.length; $art_iowhxaees$art_i < $art_cfwrfgnv$art_c; $art_iowhxaees$art_i++) {    var item = list[$art_iowhxaees$art_i]%>';
-    for (var $art_iowhxaees$art_i = 0, $art_cfwrfgnv$art_c = list.length; $art_iowhxaees$art_i < $art_cfwrfgnv$art_c; $art_iowhxaees$art_i++) {
-        var item = list[$art_iowhxaees$art_i];
+    $expr = '<%for (var $art_iatrntovfwt$art_i = 0, $art_czgrqda$art_c = list.length; $art_iatrntovfwt$art_i < $art_czgrqda$art_c; $art_iatrntovfwt$art_i++) {    var item = list[$art_iatrntovfwt$art_i]%>';
+    for (var $art_iatrntovfwt$art_i = 0, $art_czgrqda$art_c = list.length; $art_iatrntovfwt$art_i < $art_czgrqda$art_c; $art_iatrntovfwt$art_i++) {
+        var item = list[$art_iatrntovfwt$art_i];
         $p += '<div mxa="_zs_galleryQ:_" class="_zs_gallery___test___update_-update"><div mxa="_zs_galleryQ:a" class="_zs_gallery___test___update_-ver pl20"><span mxa="_zs_galleryQ:b" class="_zs_gallery___test___update_-vt">';
         $line = 4;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_iyewfmot$art_i = 0, $art_objulschw$art_obj = item.subs, $art_cknqahndvd$art_c = $art_objulschw$art_obj.length; $art_iyewfmot$art_i < $art_cknqahndvd$art_c; $art_iyewfmot$art_i++) {        var s = $art_objulschw$art_obj[$art_iyewfmot$art_i]%>';
-        for (var $art_iyewfmot$art_i = 0, $art_objulschw$art_obj = item.subs, $art_cknqahndvd$art_c = $art_objulschw$art_obj.length; $art_iyewfmot$art_i < $art_cknqahndvd$art_c; $art_iyewfmot$art_i++) {
-            var s = $art_objulschw$art_obj[$art_iyewfmot$art_i];
+        $expr = '<%for (var $art_igphsmoyxun$art_i = 0, $art_objrrcbzq$art_obj = item.subs, $art_clezbzl$art_c = $art_objrrcbzq$art_obj.length; $art_igphsmoyxun$art_i < $art_clezbzl$art_c; $art_igphsmoyxun$art_i++) {        var s = $art_objrrcbzq$art_obj[$art_igphsmoyxun$art_i]%>';
+        for (var $art_igphsmoyxun$art_i = 0, $art_objrrcbzq$art_obj = item.subs, $art_clezbzl$art_c = $art_objrrcbzq$art_obj.length; $art_igphsmoyxun$art_i < $art_clezbzl$art_c; $art_igphsmoyxun$art_i++) {
+            var s = $art_objrrcbzq$art_obj[$art_igphsmoyxun$art_i];
             $p += '<div mxa="_zs_galleryQ:e" class="pl20">';
             $line = 10;
             $art = 'if s.type == \'notice\'';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
             $line = 31;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_istwulqzk$art_i = 0, $art_objvcupnyy$art_obj = s.subs, $art_cexgacert$art_c = $art_objvcupnyy$art_obj.length; $art_istwulqzk$art_i < $art_cexgacert$art_c; $art_istwulqzk$art_i++) {            var ss = $art_objvcupnyy$art_obj[$art_istwulqzk$art_i]%>';
-            for (var $art_istwulqzk$art_i = 0, $art_objvcupnyy$art_obj = s.subs, $art_cexgacert$art_c = $art_objvcupnyy$art_obj.length; $art_istwulqzk$art_i < $art_cexgacert$art_c; $art_istwulqzk$art_i++) {
-                var ss = $art_objvcupnyy$art_obj[$art_istwulqzk$art_i];
+            $expr = '<%for (var $art_iichikqcgh$art_i = 0, $art_objsnmlzoqag$art_obj = s.subs, $art_celoxcbf$art_c = $art_objsnmlzoqag$art_obj.length; $art_iichikqcgh$art_i < $art_celoxcbf$art_c; $art_iichikqcgh$art_i++) {            var ss = $art_objsnmlzoqag$art_obj[$art_iichikqcgh$art_i]%>';
+            for (var $art_iichikqcgh$art_i = 0, $art_objsnmlzoqag$art_obj = s.subs, $art_celoxcbf$art_c = $art_objsnmlzoqag$art_obj.length; $art_iichikqcgh$art_i < $art_celoxcbf$art_c; $art_iichikqcgh$art_i++) {
+                var ss = $art_objsnmlzoqag$art_obj[$art_iichikqcgh$art_i];
                 $p += '<div mxa="_zs_galleryQ:l" class="pl20"><div mxa="_zs_galleryQ:m" class="_zs_gallery___test___update_-line _zs_gallery___test___update_-dot">';
                 $line = 33;
                 $art = '!ss.title';
@@ -137,9 +137,9 @@ module.exports = Magix.View.extend({
                     $line = 40;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_irxspfohhr$art_i = 0, $art_objnxjyei$art_obj = ss.subs, $art_cexpnihm$art_c = $art_objnxjyei$art_obj.length; $art_irxspfohhr$art_i < $art_cexpnihm$art_c; $art_irxspfohhr$art_i++) {                    var sss = $art_objnxjyei$art_obj[$art_irxspfohhr$art_i]%>';
-                    for (var $art_irxspfohhr$art_i = 0, $art_objnxjyei$art_obj = ss.subs, $art_cexpnihm$art_c = $art_objnxjyei$art_obj.length; $art_irxspfohhr$art_i < $art_cexpnihm$art_c; $art_irxspfohhr$art_i++) {
-                        var sss = $art_objnxjyei$art_obj[$art_irxspfohhr$art_i];
+                    $expr = '<%for (var $art_iisgsppk$art_i = 0, $art_objujodimcci$art_obj = ss.subs, $art_clcbpawb$art_c = $art_objujodimcci$art_obj.length; $art_iisgsppk$art_i < $art_clcbpawb$art_c; $art_iisgsppk$art_i++) {                    var sss = $art_objujodimcci$art_obj[$art_iisgsppk$art_i]%>';
+                    for (var $art_iisgsppk$art_i = 0, $art_objujodimcci$art_obj = ss.subs, $art_clcbpawb$art_c = $art_objujodimcci$art_obj.length; $art_iisgsppk$art_i < $art_clcbpawb$art_c; $art_iisgsppk$art_i++) {
+                        var sss = $art_objujodimcci$art_obj[$art_iisgsppk$art_i];
                         $p += '<div mxa="_zs_galleryQ:o" class="_zs_gallery___test___update_-line _zs_gallery___test___update_-dot">';
                         $line = 41;
                         $art = '!sss';
@@ -191,6 +191,62 @@ catch (ex) {
 } return $p; },
     render: function () {
         var list = [{
+                ver: '1.2.24',
+                time: '2019-03-27',
+                subs: [{
+                        type: 'bug',
+                        subs: [{
+                                title: 'mx-table.sort：本地排序方法，非数字类型直接字符串排序，<a href="#!/table/index10" class="color-brand">点击查看</a>'
+                            }, {
+                                title: 'mx-wanxiang：避免重复init；locationchange调用render；'
+                            }]
+                    }]
+            }, {
+                ver: '1.2.23',
+                time: '2019-03-26',
+                subs: [{
+                        type: 'add',
+                        subs: [{
+                                title: 'mx-collapse：展开收起时抛出change事件，<a href="#!/collapse/index" class="color-brand">点击查看</a>'
+                            }, {
+                                title: 'mx-effects.progress：支持渐变色，<a href="#!/effects/progress1" class="color-brand">点击查看</a>'
+                            }]
+                    }]
+            }, {
+                ver: '1.2.22',
+                time: '2019-03-21',
+                subs: [{
+                        type: 'bug',
+                        subs: [{
+                                title: 'mx-preview',
+                                subs: [
+                                    '托管IntersectionObserver，防止异步组件错位',
+                                    '触发节点部分不可见的时候，预览完整可见'
+                                ]
+                            }, {
+                                title: 'mx-dialog：修复浮层配置优先级顺序，外部自定义属性 > 浮层内属性 > 默认属性'
+                            }, {
+                                title: 'mx-collapse：折叠面板实现assign，传入数据不改变时不刷新组件'
+                            }]
+                    }, {
+                        type: 'add',
+                        subs: [{
+                                title: 'mx-popover：支持自定义z-index'
+                            }, {
+                                title: 'mx-table：表头吸顶时支持配置sticky-end，滚动时隐藏，滚动结束显示表头'
+                            }, {
+                                title: 'mx-effects.progress：进度条支持配置宽度，配置文案不显示'
+                            }]
+                    }, {
+                        type: 'notice',
+                        title: '关于脚手架（zs_scaffold）和magix-pro',
+                        subs: [{
+                                title: 'zs_scaffold：只保留各种菜单的配置示例 + 常用列表示例 + 图表场景示例'
+                            }, {
+                                title: 'magix-pro：完成应用场景示例，包含真实的广告投放业务场景，以及跨项目mount示例'
+                            }]
+                    }]
+            }, {
                 ver: '1.2.21',
                 time: '2019-03-13',
                 subs: [{

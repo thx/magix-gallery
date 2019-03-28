@@ -1,24 +1,9 @@
 <div class="example">
     <div class="eg-content">
-        <div class="pl40 mb20">
-            <a href="javascript:;" mx-click="add()" class="btn btn-brand">进度 +10</a>
-        </div>
-        <div  class="ml40 mt20">
+        <div class="mb40">
+            <a href="javascript:;" mx-click="add()" class="btn btn-brand mr10">进度 +10</a>
             <mx-effects.progress
-                num="{{=num1}}" 
-                color="#ffb400"/>
-        </div>
-        <div  class="ml40 mt20">
-            <mx-effects.progress
-                num="{{=num2}}" 
-                text-placement="right"
-                color="rgb(81, 163, 0)"/>
-        </div>
-        <div  class="ml40 mt20 mb40">
-            <mx-effects.progress
-                num="{{=num3}}" 
-                text-placement="bottom"
-                color="rgba(77, 127, 255, 0.3)"/>
+                num="{{=num1}}" />
         </div>
     </div>
     <div class="eg-desc">
@@ -30,18 +15,7 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-effects.progress
-    num="&#123;&#123;=num1&#125;&#125;" 
-    color="#ffb400"/&gt;
-
-&lt;mx-effects.progress
-    num="&#123;&#123;=num2&#125;&#125;" 
-    text-placement="right"
-    color="rgb(81, 163, 0)"/&gt;
-
-&lt;mx-effects.progress
-    num="&#123;&#123;=num3&#125;&#125;" 
-    text-placement="bottom"
-    color="rgba(77, 127, 255, 0.3)"/&gt;</pre>
+    num="&#123;&#123;=num1&#125;&#125;" /&gt;</pre>
     </div>
     <div class="eg-desc">
         <div class="eg-title">JS Code</div>
@@ -58,17 +32,13 @@ module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
         this.updater.digest(&#123;
-            num1: 20,
-            num2: 40.3,
-            num3: 60.89
+            num1: 20
         &#125;);
     &#125;,
     'add&lt;click&gt;'(e)&#123;
         let data = this.updater.get();
         this.updater.digest(&#123;
-            num1: data.num1 + 10,
-            num2: data.num2 + 10,
-            num3: data.num3 + 10
+            num1: data.num1 + 10
         &#125;);
     &#125;
 &#125;);</pre>

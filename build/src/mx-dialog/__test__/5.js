@@ -25,27 +25,27 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryax:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryax:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb20"><span class="color-9">以下示例：</span>说明浮层本身如何获取dialog示例关闭，即this.mxDialog(viewPath, viewOptions, dialogOptions)中viewPath页面如何写</div><div class="pr" style="width: 400px; height: 200px;"><div class="_zs_gallery_mx-dialog_index_-dialog" style="top: 0; left: 0; width: 400px;"><div class="_zs_gallery_mx-dialog_index_-dialog-content"><div class="dialog-header"><div class="fontsize-16">标题</div></div><div class="dialog-body">浮层内容</div><div class="dialog-footer"><a href="javascript:;" class="btn" mx-click="' + $viewId + 'cancel()">取消</a></div></div></div></div></div><div mxa="_zs_galleryax:a" class="clearfix"><div mxa="_zs_galleryax:b" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third1"><div mxs="_zs_galleryax:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_galleryaA:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryaA:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb20"><span class="color-9">以下示例：</span>说明浮层本身如何获取dialog示例关闭，即this.mxDialog(viewPath, viewOptions, dialogOptions)中viewPath页面如何写</div><div class="pr" style="width: 400px; height: 200px;"><div class="_zs_gallery_mx-dialog_index_-dialog" style="top: 0; left: 0; width: 400px;"><div class="_zs_gallery_mx-dialog_index_-dialog-content"><div class="dialog-header"><div class="fontsize-16">标题</div></div><div class="dialog-body">浮层内容</div><div class="dialog-footer"><a href="javascript:;" class="btn" mx-click="' + $viewId + 'cancel()">取消</a></div></div></div></div></div><div mxa="_zs_galleryaA:a" class="clearfix"><div mxa="_zs_galleryaA:b" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third1"><div mxs="_zs_galleryaA:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryax:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaA:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 28;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryax:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaA:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 31;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="dialog-header"&gt;\n    &lt;div class="fontsize-16"&gt;标题&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class="dialog-body"&gt;\n    浮层内容\n&lt;/div&gt;\n&lt;div class="dialog-footer"&gt;\n    &lt;a href="javascript:;" \n        class="btn" \n        mx-click="cancel()"&gt;&lt;/a&gt; \n&lt;/div&gt;\n            </pre></div><div mxa="_zs_galleryax:d" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryax:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="dialog-header"&gt;\n    &lt;div class="fontsize-16"&gt;标题&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class="dialog-body"&gt;\n    浮层内容\n&lt;/div&gt;\n&lt;div class="dialog-footer"&gt;\n    &lt;a href="javascript:;" \n        class="btn" \n        mx-click="cancel()"&gt;&lt;/a&gt; \n&lt;/div&gt;\n            </pre></div><div mxa="_zs_galleryaA:d" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryaA:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 47;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryax:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryaA:e" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 49;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryax:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryaA:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 52;
     $art = '=viewId';
     ;

@@ -6,6 +6,62 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.24',
+            time: '2019-03-27',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-table.sort：本地排序方法，非数字类型直接字符串排序，<a href="#!/table/index10" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-wanxiang：避免重复init；locationchange调用render；'
+                }]
+            }]
+        }, {
+            ver: '1.2.23',
+            time: '2019-03-26',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-collapse：展开收起时抛出change事件，<a href="#!/collapse/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.progress：支持渐变色，<a href="#!/effects/progress1" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
+            ver: '1.2.22',
+            time: '2019-03-21',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-preview',
+                    subs: [
+                        '托管IntersectionObserver，防止异步组件错位',
+                        '触发节点部分不可见的时候，预览完整可见'
+                    ]
+                }, {
+                    title: 'mx-dialog：修复浮层配置优先级顺序，外部自定义属性 > 浮层内属性 > 默认属性'
+                }, {
+                    title: 'mx-collapse：折叠面板实现assign，传入数据不改变时不刷新组件'
+                }]
+            },{
+                type: 'add',
+                subs: [{
+                    title: 'mx-popover：支持自定义z-index'
+                }, {
+                    title: 'mx-table：表头吸顶时支持配置sticky-end，滚动时隐藏，滚动结束显示表头'
+                }, {
+                    title: 'mx-effects.progress：进度条支持配置宽度，配置文案不显示'
+                }]
+            },{
+                type: 'notice',
+                title: '关于脚手架（zs_scaffold）和magix-pro',
+                subs: [{
+                    title: 'zs_scaffold：只保留各种菜单的配置示例 + 常用列表示例 + 图表场景示例'
+                }, {
+                    title: 'magix-pro：完成应用场景示例，包含真实的广告投放业务场景，以及跨项目mount示例'
+                }]
+            }]
+        }, {
             ver: '1.2.21',
             time: '2019-03-13',
             subs: [{

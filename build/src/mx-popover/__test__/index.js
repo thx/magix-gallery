@@ -40,7 +40,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryc,:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_galleryda:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'自定义tag\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'自定义view\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'黑底白字\',\n            key: viewId + \'_demo9\'\n        },{\n            name: \'默认展开\',\n            key: viewId + \'_demo10\'\n        },{\n            name: \'上方\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'下方\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'左边\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'内容缩略显示\',\n            key: viewId + \'_demo5\'\n        },{\n            name: \'内容包含html\',\n            key: viewId + \'_demo6\'\n        },{\n            name: \'右边\',\n            key: viewId + \'_demo8\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'异常情况说明\',\n        key: viewId + \'_error\',\n        subs: [{\n            name: \'滚动定位\',\n            key: viewId + \'_demo11\'\n        }, {\n            name: \'tag=a & dark\',\n            key: viewId + \'_demo13\'\n        }, {\n            name: \'影响CSSOM\',\n            key: viewId + \'_demo12\'\n        }]\n    }]';
     ;
@@ -48,7 +48,7 @@ module.exports = Magix.View.extend({
     $line = 54;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryc,:a" class="clearfix mb20"><div mxa="_zs_galleryc,:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-popover/__test__/4" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryda:a" class="clearfix mb20"><div mxa="_zs_galleryda:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-popover/__test__/4" id="';
     $line = 57;
     $art = '=viewId';
     ;
@@ -68,7 +68,7 @@ module.exports = Magix.View.extend({
     $line = 61;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div></div><div mxa="_zs_galleryc,:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-popover/__test__/3" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div></div><div mxa="_zs_galleryda:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-popover/__test__/3" id="';
     $line = 64;
     $art = '=viewId';
     ;
@@ -100,11 +100,11 @@ module.exports = Magix.View.extend({
     $line = 75;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_error" mx-view="mx-title/second?content=%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5%E8%AF%B4%E6%98%8E"></div><div mxa="_zs_galleryc,:d" class="clearfix mb20"><div mxa="_zs_galleryc,:e" class="_zs_gallery___test___layout_-half"><div mx-view="mx-popover/__test__/11" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_error" mx-view="mx-title/second?content=%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5%E8%AF%B4%E6%98%8E"></div><div mxa="_zs_galleryda:d" class="clearfix mb20"><div mxa="_zs_galleryda:e" class="_zs_gallery___test___layout_-half"><div mx-view="mx-popover/__test__/11" id="';
     $line = 78;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo11"></div></div><div mxa="_zs_galleryc,:f" class="_zs_gallery___test___layout_-half"><div mx-view="mx-popover/__test__/12" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo11"></div></div><div mxa="_zs_galleryda:f" class="_zs_gallery___test___layout_-half"><div mx-view="mx-popover/__test__/12" id="';
     $line = 81;
     $art = '=viewId';
     ;

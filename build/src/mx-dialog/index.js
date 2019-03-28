@@ -42,7 +42,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (closable) {%>';
     if (closable) {
         ;
-        $p += '<a mxs="_zs_galleryaO:_" href="javascript:;" mx-click="' + $viewId + '@{close}()" class="_zs_gallery_mx-dialog_index_-dialog-close"><i class="mc-iconfont _zs_gallery_mx-dialog_index_-iconfont-ext">&#xe603;</i></a>';
+        $p += '<a mxs="_zs_galleryaR:_" href="javascript:;" mx-click="' + $viewId + '@{close}()" class="_zs_gallery_mx-dialog_index_-dialog-close"><i class="mc-iconfont _zs_gallery_mx-dialog_index_-iconfont-ext">&#xe603;</i></a>';
         $line = 5;
         $art = '/if';
         ;
@@ -71,7 +71,7 @@ module.exports = Magix.View.extend({
             $line = 11;
             $art = '=cntId';
             ;
-            $p += ($expr = '<%=cntId%>', $e(cntId)) + '_header"><span mxa="_zs_galleryaO:_" class="header-name">';
+            $p += ($expr = '<%=cntId%>', $e(cntId)) + '_header"><span mxa="_zs_galleryaR:_" class="header-name">';
             $line = 12;
             $art = '!fullHeader.title';
             ;
@@ -100,7 +100,7 @@ module.exports = Magix.View.extend({
             $expr = '<%if (fullHeader.tip) {%>';
             if (fullHeader.tip) {
                 ;
-                $p += '<span mxa="_zs_galleryaO:a" class="color-9 ml10">';
+                $p += '<span mxa="_zs_galleryaR:a" class="color-9 ml10">';
                 $line = 21;
                 $art = '!fullHeader.tip';
                 ;
@@ -122,7 +122,7 @@ module.exports = Magix.View.extend({
         $line = 26;
         $art = '=cntId';
         ;
-        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryaO:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryaR:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
         $line = 32;
         $art = 'if (fullFooter.enter || fullFooter.cancel)';
         ;
@@ -140,7 +140,7 @@ module.exports = Magix.View.extend({
             $expr = '<%if (fullFooter.enter) {%>';
             if (fullFooter.enter) {
                 ;
-                $p += '<a mxa="_zs_galleryaO:b" href="javascript:;" class="fl btn btn-brand min-width-60 mr16 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_galleryaO:c" class="_zs_gallery_mx-dialog_index_-submit-text">';
+                $p += '<a mxa="_zs_galleryaR:b" href="javascript:;" class="fl btn btn-brand min-width-60 mr16 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_galleryaR:c" class="_zs_gallery_mx-dialog_index_-submit-text">';
                 $line = 36;
                 $art = '!fullFooter.enterText';
                 ;
@@ -158,7 +158,7 @@ module.exports = Magix.View.extend({
             $expr = '<%if (fullFooter.cancel) {%>';
             if (fullFooter.cancel) {
                 ;
-                $p += '<a mxa="_zs_galleryaO:d" href="javascript:;" class="fl btn min-width-60 mr16" mx-click="' + $viewId + '@{close}()">';
+                $p += '<a mxa="_zs_galleryaR:d" href="javascript:;" class="fl btn min-width-60 mr16" mx-click="' + $viewId + '@{close}()">';
                 $line = 41;
                 $art = '!fullFooter.cancelText';
                 ;
@@ -206,7 +206,7 @@ module.exports = Magix.View.extend({
         $line = 51;
         $art = '=cntId';
         ;
-        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryaO:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryaR:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
         $line = 54;
         $art = '/if';
         ;
@@ -572,7 +572,9 @@ catch (ex) {
      *        mask: 'true or false，是否有遮罩，默认true',
      *        closable: 'true or false，是否有右上角关闭按钮，默认true',
      *        left: '最终定位相对于屏幕左侧，默认居中',
-     *        top: '最终定位相对于屏幕高侧，默认居中'
+     *        top: '最终定位相对于屏幕高侧，默认居中',
+     *        target: 指定节点，相对该节点下中对齐
+     *        offset: 指定节点时微量偏移
      *    }
      */
     mxDialog: function (view, viewOptions, dialogOptions) {
@@ -605,47 +607,76 @@ catch (ex) {
                 return;
             }
             me[key] = 1;
-            // 优先级：外部传入的 > view本身配置的 > 默认
-            // 浮层内部的配置
-            Magix.mix(dOptions, V.dialogOptions || {});
-            // 调用时候的配置，浮层展示位置
+            // 优先级：
+            // 外部传入的（dialogOptions） > view本身配置的（vDialogOptions） > 默认（dOptions）
+            // view本身配置的
+            var vDialogOptions = V.dialogOptions || {};
+            // 外部传入的
             dialogOptions = dialogOptions || {};
-            // 显示位置：
-            //     center：居中
-            //     right：右侧
-            var placement = dialogOptions.placement || 'center';
-            var width = dialogOptions.width || dOptions.width || 400, height = dialogOptions.height || dOptions.height || 260;
+            // 浮层出现动画位置：
+            //     center：居中（从上到下）
+            //     right：右侧（从右到左）
+            var placement = dialogOptions.placement || vDialogOptions.placement || 'center';
+            var width = dialogOptions.width || vDialogOptions.width || 400, height = dialogOptions.height || vDialogOptions.height || 260;
             var left, top, posFrom, posTo;
             var winWidth = window.innerWidth, winHeight = window.innerHeight;
-            switch (placement) {
-                case 'center':
-                    left = (winWidth - width) / 2;
-                    top = Math.max((winHeight - height) / 2, 0);
-                    posFrom = {
-                        opacity: 0,
-                        top: '-50px'
-                    };
-                    posTo = {
-                        opacity: 1,
-                        top: 0
-                    };
-                    break;
-                case 'right':
-                    left = winWidth - width;
-                    top = 0;
-                    posFrom = {
-                        opacity: 0,
-                        top: 0,
-                        left: winWidth
-                    };
-                    posTo = {
-                        opacity: 1,
-                        top: 0,
-                        left: 0
-                    };
-                    break;
+            var target = dialogOptions.target || vDialogOptions.target;
+            if (!target) {
+                switch (placement) {
+                    case 'center':
+                        left = (winWidth - width) / 2;
+                        top = Math.max((winHeight - height) / 2, 0);
+                        posFrom = {
+                            opacity: 0,
+                            top: '-50px'
+                        };
+                        posTo = {
+                            opacity: 1,
+                            top: 0
+                        };
+                        break;
+                    case 'right':
+                        left = winWidth - width;
+                        top = 0;
+                        posFrom = {
+                            opacity: 0,
+                            top: 0,
+                            left: winWidth
+                        };
+                        posTo = {
+                            opacity: 1,
+                            top: 0,
+                            left: 0
+                        };
+                        break;
+                }
             }
-            Magix.mix(dOptions, Magix.mix({
+            else {
+                // 指定节点
+                var node = void 0;
+                if ((typeof target == 'string') && !(/^#/.test(target)) && !(/^\./.test(target))) {
+                    node = $('#' + target);
+                }
+                else {
+                    node = $(target);
+                }
+                var customOffset = dialogOptions.offset || vDialogOptions.offset || {};
+                customOffset.top = +customOffset.top || 0;
+                customOffset.left = +customOffset.left || 0;
+                var offset = node.offset();
+                var top_1 = offset.top + node.outerHeight() + 10 - $(window).scrollTop() + customOffset.top, left_1 = offset.left - (width - node.outerWidth()) / 2 + customOffset.left;
+                posFrom = {
+                    opacity: 0,
+                    top: top_1 - 50,
+                    left: left_1
+                };
+                posTo = {
+                    opacity: 1,
+                    top: top_1,
+                    left: left_1
+                };
+            }
+            Magix.mix(dOptions, {
                 mask: true,
                 modal: false,
                 width: width,
@@ -654,7 +685,7 @@ catch (ex) {
                 top: top,
                 posFrom: posFrom,
                 posTo: posTo
-            }, dialogOptions));
+            }, vDialogOptions, dialogOptions);
             // 数据
             Magix.mix(dOptions, viewOptions);
             dOptions.dialog = output;

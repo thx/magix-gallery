@@ -33,6 +33,7 @@ module.exports = Magix.View.extend({
         me['@{table.main.wrapper}'] = me['@{wrapper.get}'](me['@{table.main}'], 'main');
         me['@{table.main.thead}'] = me['@{table.main}'].find('thead');
         me['@{need.sticky}'] = (extra.sticky + '') === 'true';
+        me['@{sticky.end}'] = (extra.stickyEnd + '') === 'true'; //滚动时隐藏吸顶，结束滚动吸顶
         me['@{sticky.interval}'] = extra.stickyInterval || 0;
         me['@{hover.class}'] = extra.rowHoverClass || 'hover-tr';
         // 自定义滚动节点
@@ -152,16 +153,17 @@ module.exports = Magix.View.extend({
     },
     '@{sticky.init}': function () {
         var me = this;
+        var owner = me['@{owner.node}'];
+        var mainHeader = me['@{table.main.thead}'], leftHeader = me['@{table.left.thead}'];
         if (me['@{need.sticky}']) {
             if (me['@{scroll.wrapper}']) {
                 // 自定义滚动节点
                 var inmain_1 = me['@{scroll.wrapper}'];
                 var watchInmainScroll_1 = function () {
                     var top = inmain_1.scrollTop();
-                    var owner = me['@{owner.node}'];
                     var max = owner.height() - inmain_1.height();
                     if (top >= 0 && top <= max) {
-                        me['@{sync.sticky.pos}'](inmain_1, true, top);
+                        me['@{sync.sticky.pos}'](inmain_1, top);
                     }
                     else {
                         me['@{sync.sticky.pos.recover}'](inmain_1);
@@ -176,31 +178,60 @@ module.exports = Magix.View.extend({
             else {
                 // 相对于window滚动
                 var inmain_2 = $(window);
-                var watchInmainScroll_2 = function () {
+                var headerHeight_1 = me['@{table.main.thead}'].height();
+                // 预留顶部间隔
+                var interval_1 = +me['@{sticky.interval}'];
+                var watchInmainScroll = function () {
                     var top = inmain_2.scrollTop();
-                    var headerHeight = me['@{table.main.thead}'].height();
-                    var owner = me['@{owner.node}'];
                     var ownerOffset = owner.offset();
-                    // 预留顶部间隔
-                    var interval = +me['@{sticky.interval}'];
-                    var min = ownerOffset.top - interval;
-                    var max = min + owner.height() - headerHeight;
+                    var min = ownerOffset.top - interval_1;
+                    var max = min + owner.height() - headerHeight_1;
                     if (top >= min && top <= max) {
-                        me['@{sync.sticky.pos}'](inmain_2, true, top - min);
+                        me['@{sync.sticky.pos}'](inmain_2, top - min);
                     }
                     else {
                         me['@{sync.sticky.pos.recover}'](inmain_2);
                     }
                 };
                 me.on('destroy', function () {
-                    inmain_2.off('scroll.customsticky', watchInmainScroll_2);
+                    inmain_2.off('scroll.sticky');
                 });
-                inmain_2.on('scroll.customsticky', watchInmainScroll_2);
-                watchInmainScroll_2();
+                if (me['@{sticky.end}']) {
+                    // 滚动时隐藏，滚动结束显示
+                    inmain_2.on('scroll.sticky', function () {
+                        me['@{sync.sticky.pos.recover}'](inmain_2);
+                        clearTimeout(me['@{sticky.end.timer}']);
+                        me['@{sticky.end.timer}'] = setTimeout(me.wrapAsync(function () {
+                            var top = inmain_2.scrollTop();
+                            var ownerOffset = owner.offset();
+                            var min = ownerOffset.top - interval_1;
+                            var max = min + owner.height() - headerHeight_1;
+                            if (top >= min && top <= max) {
+                                me['@{sync.sticky.pos}'](inmain_2, top - min - headerHeight_1);
+                                var duration = 200;
+                                mainHeader.animate({
+                                    top: top - min
+                                }, duration);
+                                if (leftHeader) {
+                                    leftHeader.animate({
+                                        top: top - min
+                                    }, duration);
+                                }
+                            }
+                            else {
+                                me['@{sync.sticky.pos.recover}'](inmain_2);
+                            }
+                        }), 200);
+                    });
+                }
+                else {
+                    inmain_2.on('scroll.sticky', watchInmainScroll);
+                }
+                watchInmainScroll();
             }
         }
     },
-    '@{sync.sticky.pos}': function (node, sticky, top) {
+    '@{sync.sticky.pos}': function (node, top) {
         var me = this;
         var mainWrapper = me['@{table.main.wrapper}'], mainHeader = me['@{table.main.thead}'], leftWrapper = me['@{table.left.wrapper}'], leftHeader = me['@{table.left.thead}'];
         var headerHeight = mainHeader.height();

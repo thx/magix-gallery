@@ -8,7 +8,7 @@ define("mx-collapse/index",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-collapse_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-collapse_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-collapse_index_-collapse {\n  border-radius: 4px;\n  border: 1px solid #e6e6e6;\n  overflow: hidden;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item {\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-title {\n  cursor: pointer;\n  position: relative;\n  padding: 10px 24px;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-title ._zs_gallery_mx-collapse_index_-arrow > * {\n  position: absolute;\n  top: 50%;\n  left: 20px;\n  width: 20px;\n  height: 20px;\n  text-align: center;\n  line-height: 20px;\n  margin-top: -10px;\n  transition: all 0.25s;\n  color: #999;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-title ._zs_gallery_mx-collapse_index_-text {\n  margin-left: 20px;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-content {\n  display: none;\n  border-top: 1px solid #e6e6e6;\n  overflow: hidden;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-content ._zs_gallery_mx-collapse_index_-inner {\n  padding: 10px 24px;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-content ._zs_gallery_mx-collapse_index_-text {\n  line-height: 22px;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item:last-child {\n  border-bottom: 0 none;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item._zs_gallery_mx-collapse_index_-disabled ._zs_gallery_mx-collapse_index_-title {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item._zs_gallery_mx-collapse_index_-expand ._zs_gallery_mx-collapse_index_-title ._zs_gallery_mx-collapse_index_-arrow > * {\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n}\n");
+Magix.applyStyle("_zs_gallery_mx-collapse_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-collapse_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-collapse_index_-collapse {\n  border-radius: 4px;\n  border: 1px solid #e6e6e6;\n  overflow: hidden;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item {\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-title {\n  cursor: pointer;\n  position: relative;\n  padding: 10px 24px;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-title ._zs_gallery_mx-collapse_index_-arrow > * {\n  position: absolute;\n  top: 50%;\n  left: 20px;\n  width: 20px;\n  height: 20px;\n  text-align: center;\n  line-height: 20px;\n  margin-top: -10px;\n  transition: all 0.25s;\n  color: #999;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-title ._zs_gallery_mx-collapse_index_-text {\n  margin-left: 20px;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-content {\n  display: none;\n  border-top: 1px solid #e6e6e6;\n  overflow: hidden;\n  transition: height 0.25s, opacity 0.25s;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-content ._zs_gallery_mx-collapse_index_-inner {\n  padding: 10px 24px;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-content ._zs_gallery_mx-collapse_index_-text {\n  line-height: 22px;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item:last-child {\n  border-bottom: 0 none;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item._zs_gallery_mx-collapse_index_-disabled ._zs_gallery_mx-collapse_index_-title {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item._zs_gallery_mx-collapse_index_-expand ._zs_gallery_mx-collapse_index_-title ._zs_gallery_mx-collapse_index_-arrow > * {\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -26,12 +26,12 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', list = $$.list, viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryak:_" class="_zs_gallery_mx-collapse_index_-collapse">';
+    $p += '<div mxv mxa="_zs_galleryam:_" class="_zs_gallery_mx-collapse_index_-collapse">';
     $line = 2;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cghhrqbusm$art_c = list.length; index < $art_cghhrqbusm$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cghhrqbusm$art_c = list.length; index < $art_cghhrqbusm$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cvbwjwpydsf$art_c = list.length; index < $art_cvbwjwpydsf$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cvbwjwpydsf$art_c = list.length; index < $art_cvbwjwpydsf$art_c; index++) {
         var item = list[index];
         $p += '<div mxv class="_zs_gallery_mx-collapse_index_-item ';
         $line = 3;
@@ -79,11 +79,11 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '><span mxa="_zs_galleryak:a" class="_zs_gallery_mx-collapse_index_-arrow">';
+        $p += '><span mxa="_zs_galleryam:a" class="_zs_gallery_mx-collapse_index_-arrow">';
         $line = 5;
         $art = '!item.arrow';
         ;
-        $p += ($expr = '<%!item.arrow%>', $n(item.arrow)) + '</span><span mxa="_zs_galleryak:b" class="_zs_gallery_mx-collapse_index_-text">';
+        $p += ($expr = '<%!item.arrow%>', $n(item.arrow)) + '</span><span mxa="_zs_galleryam:b" class="_zs_gallery_mx-collapse_index_-text">';
         $line = 6;
         $art = '=item.title';
         ;
@@ -134,7 +134,7 @@ module.exports = Magix.View.extend({
                 $expr = '<%if (item.inited && !item.expand) {%>';
                 if (item.inited && !item.expand) {
                     ;
-                    $p += ' opacity: 0; height: 0; ';
+                    $p += ' opacity: 0; height: 0; border-top: 0 none; ';
                     $line = 10;
                     $art = '/if';
                     ;
@@ -182,10 +182,61 @@ catch (ex) {
 } return $p; },
     init: function (extra) {
         var that = this;
-        // 是否只展示一个：默认为true
-        var onlyOne = (extra.onlyOne + '' !== 'false');
-        // 展示列表
-        var list = extra.list || [];
+        that['@{owner.node}'] = $('#' + that.id);
+        //初始化时保存一份当前数据的快照
+        that.updater.snapshot();
+        that.assign(extra);
+        that.owner.oncreated = function () {
+            // 所有子view加载完成后
+            if (!that.$init) {
+                that.$init = 1;
+                // 计算实际高度
+                var viewId_1 = that.id;
+                var list = that.updater.get('list');
+                list.forEach(function (item, index) {
+                    var content = $('#' + viewId_1 + '_content_' + index);
+                    item.height = content.outerHeight();
+                });
+                that.updater.digest({
+                    list: list
+                });
+                // 加载展开动画
+                list.forEach(function (item, index) {
+                    item.inited = true;
+                });
+                that.updater.digest({
+                    list: list
+                });
+            }
+        };
+        that.ondestroy = function () {
+            that.owner.off('created');
+        };
+    },
+    assign: function (extra) {
+        var that = this;
+        var altered = that.updater.altered();
+        that.updater.set({
+            viewId: that.id,
+            onlyOne: (extra.onlyOne + '' !== 'false'),
+            originList: extra.list || [] // 初始展示列表
+        });
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            // 组件有更新，真个节点会全部需要重新初始化
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render: function () {
+        // trigger oncreated
+        // 每次重新render的时候重新触发
+        this.$init = null;
+        var originList = this.updater.get('originList');
+        var list = $.extend(true, [], originList);
         var hasExpand = false;
         list.forEach(function (item, index) {
             if (!item.arrow) {
@@ -210,37 +261,23 @@ catch (ex) {
                 }
             }
         }
-        that.updater.set({
-            viewId: that.id,
-            onlyOne: onlyOne,
+        this.updater.digest({
             list: list
         });
-        that.owner.oncreated = function () {
-            // 所有子view加载完成后
-            if (!that.$init) {
-                that.$init = 1;
-                // 计算实际高度
-                var viewId_1 = that.id;
-                var list_1 = that.updater.get('list');
-                list_1.forEach(function (item, index) {
-                    var content = $('#' + viewId_1 + '_content_' + index);
-                    item.height = content.outerHeight();
-                });
-                that.updater.digest({
-                    list: list_1
-                });
-                // 加载展开动画
-                list_1.forEach(function (item, index) {
-                    item.inited = true;
-                });
-                that.updater.digest({
-                    list: list_1
-                });
-            }
-        };
+        if (!hasExpand) {
+            // 组件内默认展开的请款，外抛事件通知展开状态变更
+            this['@{fire}']();
+        }
     },
-    render: function () {
-        this.updater.digest({});
+    '@{fire}': function () {
+        var that = this;
+        var list = that.updater.get('list');
+        that['@{owner.node}'].trigger({
+            type: 'change',
+            expands: list.map(function (item) {
+                return item.expand;
+            })
+        });
     },
     'toggle<click>': function (event) {
         var cur = event.params.index;
@@ -258,6 +295,7 @@ catch (ex) {
         this.updater.digest({
             list: list
         });
+        this['@{fire}']();
     }
 });
 

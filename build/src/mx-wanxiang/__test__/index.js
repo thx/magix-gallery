@@ -27,7 +27,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryeX:_" mx-view="mx-title/second?content=%E5%BC%95%E5%85%A5%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE%E5%B7%A5%E4%BD%9C"></div><div mxs="_zs_galleryeX:a" class="mb40">详情参见<a href="https://yuque.antfin-inc.com/wanxiang/technology/description" target="_blank" rel="noopener noreferrer" class="color-brand">https://yuque.antfin-inc.com/wanxiang/technology/description</a></div><div mxs="_zs_galleryeX:b" mx-view="mx-title/second?content=%E5%BC%95%E5%85%A5%E6%9C%8D%E5%8A%A1%E7%AA%97"></div><div mxs="_zs_galleryeX:c" mx-view="mx-wanxiang/__test__/1" class="mb40"></div><div mxs="_zs_galleryeX:d" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
+    $p += '<div mxs="_zs_gallerye9:_" mx-view="mx-title/second?content=%E5%BC%95%E5%85%A5%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE%E5%B7%A5%E4%BD%9C"></div><div mxs="_zs_gallerye9:a" class="mb40">详情参见<a href="https://yuque.antfin-inc.com/wanxiang/technology/description" target="_blank" rel="noopener noreferrer" class="color-brand">https://yuque.antfin-inc.com/wanxiang/technology/description</a></div><div mxs="_zs_gallerye9:b" mx-view="mx-title/second?content=%E5%BC%95%E5%85%A5%E6%9C%8D%E5%8A%A1%E7%AA%97"></div><div mxs="_zs_gallerye9:c" mx-view="mx-wanxiang/__test__/1" class="mb40"></div><div mxs="_zs_gallerye9:d" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
     $line = 8;
     $art = '@options';
     ;
@@ -54,7 +54,7 @@ catch (ex) {
                 def: 'text'
             }, {
                 key: 'source-map',
-                desc: "\u5982\u679C\u4E0D\u540C\u8DEF\u5F84\u7684\u5BF9\u5E94\u4E0D\u540C\u7684\u95EE\u7B54\uFF0C\u914D\u7F6E\u8DEF\u5F84\u5230sourceId\u7684\u6620\u5C04\u5173\u7CFB\uFF0C\u4F8B\u5982\uFF1A<pre>\n{\n    '/wanxiang/demo1': 432,\n    '/wanxiang/demo2': 496\n}\n</pre>\n<br/>\n<span class=\"color-red\">\u9700\u8981\u6CE8\u610F\u4E0D\u540CsourceId\u7684\u9875\u9762\u9ED8\u8BA4\u914D\u7F6E\u9879\u5FC5\u987B\u76F8\u540C\uFF0C\u4E0D\u7136\u4F1A\u4EA7\u751F\u4F4D\u7F6E\u5DEE\u9519</span>",
+                desc: "\u5982\u679C\u4E0D\u540C\u8DEF\u5F84\u7684\u5BF9\u5E94\u4E0D\u540C\u7684\u95EE\u7B54\uFF0C\u914D\u7F6E\u8DEF\u5F84\u5230sourceId\u7684\u6620\u5C04\u5173\u7CFB\uFF0C<br/>\n<span class=\"color-brand\">\u652F\u6301\u5E26\u53C2\u6570\u7684\u914D\u7F6E\uFF08\u5F53\u524D\u53C2\u6570\u5305\u542B\u914D\u7F6E\u53C2\u6570\u5219\u5339\u914D\u4E0A\uFF09</span>\uFF0C\u4F8B\u5982\uFF1A<pre>\n{\n    '/wanxiang/demo1': 1,\n    '/wanxiang/demo2?version=1': 2\n    '/wanxiang/demo3': 3\n}\n</pre>\n<br/>\n<span class=\"color-red\">\u9700\u8981\u6CE8\u610F\u4E0D\u540CsourceId\u7684\u9875\u9762\u9ED8\u8BA4\u914D\u7F6E\u9879\u5FC5\u987B\u76F8\u540C\uFF0C\u4E0D\u7136\u4F1A\u4EA7\u751F\u4F4D\u7F6E\u5DEE\u9519</span>",
                 type: 'object',
                 def: '{}'
             }, {

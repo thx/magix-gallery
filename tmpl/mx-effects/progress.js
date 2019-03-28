@@ -19,9 +19,6 @@ module.exports = Magix.View.extend({
         let that = this;
         let altered = that.updater.altered();
 
-        let type = e.type || 'line';
-        let placement = (e.textPlacement || 'top');
-        let color = e.color || '';
         let num = +e.num || 0;
         let s = num + '';
         let i = s.indexOf('.');
@@ -43,9 +40,13 @@ module.exports = Magix.View.extend({
             num = 100;
         }
 
+        let type = e.type || 'line';
+        let placement = (e.textPlacement || 'top');
+        let width;
         let degree = 0,
-            width = e.width || 120,
             border = e.border || 8,
+            color = e.color || '',
+            colorGradient = e.colorGradient || '',
             color1, color2;
         switch (type) {
             case 'degree':
@@ -57,6 +58,7 @@ module.exports = Magix.View.extend({
                 if (!color) {
                     color = '#4d7fff';
                 }
+                width = e.width || 120;
                 break;
             case 'gradient':
                 // 渐变
@@ -65,6 +67,8 @@ module.exports = Magix.View.extend({
                     color1 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.4)`;
                     color2 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.2)`;
                 }
+            case 'line':
+                width = e.width || 200;
                 break;
         }
 
@@ -75,9 +79,11 @@ module.exports = Magix.View.extend({
             num: num.toFixed(i) + '%',
             cName: ClassNames[placement],
             color,
+            colorGradient,
             color1,
             color2,
             type,
+            text: (e.text + '' !== 'false'),  //是否显示文案
             degree,
             width: +width,
             border: +border,

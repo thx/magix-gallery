@@ -63,6 +63,11 @@ module.exports = Magix.View.extend({
             desc: '从周几开，0-6，0表示周日',
             type: 'number',
             def: '0'
+        }, {
+            key: 'mx-disabled',
+            desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-calendar.datepicker mx-disabled /&gt;',
+            type: '',
+            def: ''
         }]
 
         let events = [{

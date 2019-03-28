@@ -91,7 +91,7 @@ module.exports = Magix.View.extend({
         that.updater.digest({});
 
         if (window.IntersectionObserver) {
-            var observer = new IntersectionObserver(changes => {
+            let observer = new IntersectionObserver(changes => {
                 changes.forEach(({ target, isIntersecting }) => {
                     if (!isIntersecting) {
                         return;
@@ -207,6 +207,10 @@ module.exports = Magix.View.extend({
                 winHeight = win.height(),
                 winScroll = win.scrollTop();
 
+            if(top < winScroll){
+                top = winScroll;
+            }
+
             // placement: right（目标右侧）
             // placement: left（目标左侧）
             let placement = data.placement,
@@ -228,7 +232,6 @@ module.exports = Magix.View.extend({
                 width = width * winHeight / height;
                 height = winHeight;
             }
-
             if (winScroll + winHeight < top + height) {
                 // 有部分不可见
                 let back = Math.min(

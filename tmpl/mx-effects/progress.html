@@ -9,14 +9,18 @@
             <div class="progress" style="right: {{=border}}px; width: {{=width}}px; height: {{=width}}px; border: {{=border}}px solid transparent; border-top: {{=border}}px solid {{=color}}; border-right: {{=border}}px solid {{=color}};"></div>
         </div>
     </div>
+    {{if text}}
     <div class="circle-text" style="width: {{=width}}px; height: {{=width}}px; margin-left: {{=(0 - width / 2)}}px; line-height: {{=width}}px;">{{=num}}</div>
+    {{/if}}
 </div>
 {{/if}}
 
 {{if (type == 'line' || type == 'gradient')}}
-<div {{if (type == 'gradient')}} class="gradient" {{else}} class="line" {{/if}}>
-    <div class="on" style="width: {{=num}}; {{if color}} background: {{=color}}; {{/if}} {{if color1 && color2}} background: linear-gradient(45deg, {{=color1}} 33%, {{=color2}} 34%, {{=color2}} 59%, {{=color1}} 60%); background-size: 24px 12px; {{/if}} "></div>
+<div class="type--{{=type}}" style="width: {{=width}}px;">
+    <div class="on" style="width: {{=num}}; {{if color1 && color2}} background: linear-gradient(45deg, {{=color1}} 33%, {{=color2}} 34%, {{=color2}} 59%, {{=color1}} 60%); background-size: 24px 12px; {{else}} {{if colorGradient}} background: linear-gradient(to right, {{=color}}, {{=colorGradient}}); {{else}} background: {{=color}}; {{/if}}  {{/if}} "></div>
+    {{if text}}
     <div class="num {{=cName}}" {{if (placement == 'top' || placement == 'bottom')}} style="left: {{=num}};" {{/if}}>{{=num}}</div>
+    {{/if}}
 </div>
 {{/if}}
 

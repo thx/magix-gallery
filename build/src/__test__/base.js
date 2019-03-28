@@ -38,9 +38,9 @@ module.exports = Magix.View.extend({
     $line = 17;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_ikpkrxfits$art_i = 0, $art_cvcvimg$art_c = headers.length; $art_ikpkrxfits$art_i < $art_cvcvimg$art_c; $art_ikpkrxfits$art_i++) {    var h = headers[$art_ikpkrxfits$art_i]%>';
-    for (var $art_ikpkrxfits$art_i = 0, $art_cvcvimg$art_c = headers.length; $art_ikpkrxfits$art_i < $art_cvcvimg$art_c; $art_ikpkrxfits$art_i++) {
-        var h = headers[$art_ikpkrxfits$art_i];
+    $expr = '<%for (var $art_ireipjulq$art_i = 0, $art_cfnaref$art_c = headers.length; $art_ireipjulq$art_i < $art_cfnaref$art_c; $art_ireipjulq$art_i++) {    var h = headers[$art_ireipjulq$art_i]%>';
+    for (var $art_ireipjulq$art_i = 0, $art_cfnaref$art_c = headers.length; $art_ireipjulq$art_i < $art_cfnaref$art_c; $art_ireipjulq$art_i++) {
+        var h = headers[$art_ireipjulq$art_i];
         $p += '<a ';
         $line = 18;
         $art = 'if h.new';
@@ -154,9 +154,9 @@ module.exports = Magix.View.extend({
     $line = 32;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_icakcetiwmf$art_i = 0, $art_cgxexvq$art_c = list.length; $art_icakcetiwmf$art_i < $art_cgxexvq$art_c; $art_icakcetiwmf$art_i++) {    var item = list[$art_icakcetiwmf$art_i]%>';
-    for (var $art_icakcetiwmf$art_i = 0, $art_cgxexvq$art_c = list.length; $art_icakcetiwmf$art_i < $art_cgxexvq$art_c; $art_icakcetiwmf$art_i++) {
-        var item = list[$art_icakcetiwmf$art_i];
+    $expr = '<%for (var $art_icxfssnopc$art_i = 0, $art_cellfwcohf$art_c = list.length; $art_icxfssnopc$art_i < $art_cellfwcohf$art_c; $art_icxfssnopc$art_i++) {    var item = list[$art_icxfssnopc$art_i]%>';
+    for (var $art_icxfssnopc$art_i = 0, $art_cellfwcohf$art_c = list.length; $art_icxfssnopc$art_i < $art_cellfwcohf$art_c; $art_icxfssnopc$art_i++) {
+        var item = list[$art_icxfssnopc$art_i];
         $p += ' ';
         $line = 33;
         $art = 'if item.name';
@@ -197,9 +197,9 @@ module.exports = Magix.View.extend({
         $line = 40;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_idbccpdkvkh$art_i = 0, $art_objxtrmi$art_obj = item.subs, $art_cnnfndyqagi$art_c = $art_objxtrmi$art_obj.length; $art_idbccpdkvkh$art_i < $art_cnnfndyqagi$art_c; $art_idbccpdkvkh$art_i++) {        var sub = $art_objxtrmi$art_obj[$art_idbccpdkvkh$art_i]%>';
-        for (var $art_idbccpdkvkh$art_i = 0, $art_objxtrmi$art_obj = item.subs, $art_cnnfndyqagi$art_c = $art_objxtrmi$art_obj.length; $art_idbccpdkvkh$art_i < $art_cnnfndyqagi$art_c; $art_idbccpdkvkh$art_i++) {
-            var sub = $art_objxtrmi$art_obj[$art_idbccpdkvkh$art_i];
+        $expr = '<%for (var $art_ihuqhflkj$art_i = 0, $art_objkazwzelzsf$art_obj = item.subs, $art_coenpsawg$art_c = $art_objkazwzelzsf$art_obj.length; $art_ihuqhflkj$art_i < $art_coenpsawg$art_c; $art_ihuqhflkj$art_i++) {        var sub = $art_objkazwzelzsf$art_obj[$art_ihuqhflkj$art_i]%>';
+        for (var $art_ihuqhflkj$art_i = 0, $art_objkazwzelzsf$art_obj = item.subs, $art_coenpsawg$art_c = $art_objkazwzelzsf$art_obj.length; $art_ihuqhflkj$art_i < $art_coenpsawg$art_c; $art_ihuqhflkj$art_i++) {
+            var sub = $art_objkazwzelzsf$art_obj[$art_ihuqhflkj$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 41;
             $art = 'if (sub.path == path)';
@@ -338,7 +338,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div></div><div mxs="_zs_gallerya:e" class="_zs_gallery___test___base_-fixes"><a href="https://aone.alibaba-inc.com/project/768817/req?akProjectId=768817&spm=a2o8d.rdc_projecthome.0.0.70b27a26750VTM" target="_blank" rel="noopener noreferrer" class="_zs_gallery___test___base_-fix"><i class="mc-iconfont _zs_gallery___test___base_-fix-icon">&#xe64f;</i><span class="_zs_gallery___test___base_-fix-tip">给我提需求</span></a><a href="https://aone.alibaba-inc.com/project/768817/issue?spm=a2o8d.corp_prod_req_list.0.0.3e646b88s8ezBH" target="_blank" rel="noopener noreferrer" class="_zs_gallery___test___base_-fix"><i class="mc-iconfont _zs_gallery___test___base_-fix-icon">&#xe63d;</i><span class="_zs_gallery___test___base_-fix-tip">帮我找bug</span></a><a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=t5z4z8s" class="_zs_gallery___test___base_-fix"><i class="mc-iconfont _zs_gallery___test___base_-fix-icon">&#xe677;</i><span class="_zs_gallery___test___base_-fix-tip">钉我一下</span></a><a href="javascript:;" class="_zs_gallery___test___base_-fix" mx-click="' + $viewId + 'back()"><i class="mc-iconfont _zs_gallery___test___base_-fix-icon">&#xe62d;</i><span class="_zs_gallery___test___base_-fix-tip">回到顶部</span></a></div>';
+    $p += '</div></div></div><div mxs="_zs_gallerya:e" class="_zs_gallery___test___base_-fixes"><span class="_zs_gallery___test___base_-fix" mx-view="mx-popover/index?content=%3Cdiv%20style%3D%27height%3A%20260px%3B%27%3E%3Cimg%20src%3D%27%2F%2Fimg.alicdn.com%2Ftfs%2FTB1QnJbNXzqK1RjSZFvXXcB7VXa-1056-1262.jpg%27%20style%3D%27width%3A100%25%3B%27%20%2F%3E%3C%2Fdiv%3E&width=240&placement=left&align=bottom"><i class="mc-iconfont _zs_gallery___test___base_-fix-icon">&#xe677;</i></span><a href="https://aone.alibaba-inc.com/project/768817/req?akProjectId=768817&spm=a2o8d.rdc_projecthome.0.0.70b27a26750VTM" target="_blank" rel="noopener noreferrer" class="_zs_gallery___test___base_-fix"><i class="mc-iconfont _zs_gallery___test___base_-fix-icon">&#xe64f;</i><span class="_zs_gallery___test___base_-fix-tip">给我提需求</span></a><a href="https://aone.alibaba-inc.com/project/768817/issue?spm=a2o8d.corp_prod_req_list.0.0.3e646b88s8ezBH" target="_blank" rel="noopener noreferrer" class="_zs_gallery___test___base_-fix"><i class="mc-iconfont _zs_gallery___test___base_-fix-icon">&#xe63d;</i><span class="_zs_gallery___test___base_-fix-tip">帮我找bug</span></a><a href="javascript:;" class="_zs_gallery___test___base_-fix" mx-click="' + $viewId + 'back()"><i class="mc-iconfont _zs_gallery___test___base_-fix-icon">&#xe62d;</i><span class="_zs_gallery___test___base_-fix-tip">回到顶部</span></a></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -709,9 +709,17 @@ catch (ex) {
                                 path: '/effects/star',
                                 icon: '&#xe646;'
                             }, {
-                                name: '进度比例',
-                                tip: '条型，刻度型',
-                                path: '/effects/progress',
+                                name: '条型进度比例',
+                                tip: '支持渐变',
+                                path: '/effects/progress1',
+                                icon: '&#xe6e4;'
+                            }, {
+                                name: '刻度型进度比例',
+                                path: '/effects/progress2',
+                                icon: '&#xe6e4;'
+                            }, {
+                                name: '圆形进度比例',
+                                path: '/effects/progress3',
                                 icon: '&#xe6e4;'
                             }, {
                                 name: '各种动效',
@@ -790,21 +798,8 @@ catch (ex) {
             }, {
                 id: 'pro',
                 name: 'PRO',
-                "new": that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',
+                // new: that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',
                 outer: 'https://thx.github.io/magix-gallery/pro.html'
-            }, {
-                id: 'edit',
-                name: '在线编辑',
-                path: '/all/edit/index',
-                paths: [{
-                        subs: [{
-                                name: '使用说明',
-                                path: '/all/edit/desc'
-                            }, {
-                                name: '编辑',
-                                path: '/all/edit/index'
-                            }]
-                    }]
             }];
         var pathMap = {}, // 路径index映射
         suggests = []; //全局提示

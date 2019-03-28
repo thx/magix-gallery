@@ -3,7 +3,7 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-collapse/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./2","./3","./4","__test__/api"],(require,exports,module)=>{
+define("mx-collapse/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./2","./3","./4","__test__/api","__test__/event"],(require,exports,module)=>{
 /*Magix,$*/
 require("__test__/subs");
 require("mx-title/second");
@@ -12,6 +12,7 @@ require("./2");
 require("./3");
 require("./4");
 require("__test__/api");
+require("__test__/event");
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
@@ -30,40 +31,48 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryai:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryak:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'默认展开单个\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'展开多个+禁用\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'内容自定义view\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'自定义icon\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'展开单个+事件\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'展开多个+禁用\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'内容自定义view\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'自定义icon\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'默认展开单个\',                    key: viewId + \'_demo1\'                }, {                    name: \'展开多个+禁用\',                    key: viewId + \'_demo2\'                }, {                    name: \'内容自定义view\',                    key: viewId + \'_demo3\'                }, {                    name: \'自定义icon\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '默认展开单个', key: viewId + '_demo1' }, { name: '展开多个+禁用', key: viewId + '_demo2' }, { name: '内容自定义view', key: viewId + '_demo3' }, { name: '自定义icon', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
-    $line = 22;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryai:a" class="clearfix mb20"><div mx-view="mx-collapse/__test__/1" id="';
-    $line = 24;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-collapse/__test__/2" id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'展开单个+事件\',                    key: viewId + \'_demo1\'                }, {                    name: \'展开多个+禁用\',                    key: viewId + \'_demo2\'                }, {                    name: \'内容自定义view\',                    key: viewId + \'_demo3\'                }, {                    name: \'自定义icon\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '展开单个+事件', key: viewId + '_demo1' }, { name: '展开多个+禁用', key: viewId + '_demo2' }, { name: '内容自定义view', key: viewId + '_demo3' }, { name: '自定义icon', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
     $line = 25;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-collapse/__test__/3" id="';
-    $line = 26;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-collapse/__test__/4" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryak:a" class="clearfix mb20"><div mx-view="mx-collapse/__test__/1" id="';
     $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-collapse/__test__/2" id="';
+    $line = 28;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-collapse/__test__/3" id="';
+    $line = 29;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-collapse/__test__/4" id="';
     $line = 30;
     $art = '=viewId';
     ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div id="';
+    $line = 33;
+    $art = '=viewId';
+    ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 31;
+    $line = 34;
     $art = '@options';
     ;
-    $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div></div>';
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
+    $line = 36;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_event" mx-view="mx-title/second?content=Event"></div><div mxv="events" mx-view="__test__/event?options=';
+    $line = 37;
+    $art = '@events';
+    ;
+    $p += ($expr = '<%@events%>', $i($$ref, events)) + '"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -85,9 +94,19 @@ catch (ex) {
                 type: 'boolean',
                 def: 'true'
             }];
+        var events = [{
+                type: 'change',
+                desc: '选中下拉框中某个选项时触发',
+                params: [{
+                        key: 'expands',
+                        desc: '[true, false, ...]，当前每个实体对象的展开收起状态',
+                        type: 'array'
+                    }]
+            }];
         this.updater.digest({
             viewId: this.id,
-            options: options
+            options: options,
+            events: events
         });
     }
 });

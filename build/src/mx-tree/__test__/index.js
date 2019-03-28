@@ -32,7 +32,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryeP:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_gallerye1:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'一次性获取value\',\n            key: viewId + \'_demo1\',\n        }, {\n            name: \'实时获取value\',\n            key: viewId + \'_demo2\',\n        }, {\n            name: \'一次性获取对象\',\n            key: viewId + \'_demo5\',\n        }, {\n            name: \'默认收起\',\n            key: viewId + \'_demo3\',\n        }, {\n            name: \'只读\',\n            key: viewId + \'_demo4\',\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Methods\',\n        key: viewId + \'_method\',\n        subs: [{\n            name: \'getBottomValues\',\n            key: viewId + \'_method\',\n        }, {\n            name: \'getBottomItems\',\n            key: viewId + \'_method\',\n        }]\n    }]';
     ;
@@ -40,7 +40,7 @@ module.exports = Magix.View.extend({
     $line = 36;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryeP:a" class="clearfix mb20"><div mxa="_zs_galleryeP:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-tree/__test__/1" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerye1:a" class="clearfix mb20"><div mxa="_zs_gallerye1:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-tree/__test__/1" id="';
     $line = 39;
     $art = '=viewId';
     ;
@@ -52,7 +52,7 @@ module.exports = Magix.View.extend({
     $line = 41;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div mxa="_zs_galleryeP:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-tree/__test__/2" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div mxa="_zs_gallerye1:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-tree/__test__/2" id="';
     $line = 44;
     $art = '=viewId';
     ;
@@ -72,7 +72,7 @@ module.exports = Magix.View.extend({
     $line = 52;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_method" mx-view="mx-title/second?content=Methods"></div><div mxs="_zs_galleryeP:_" class="pr20"><table class="table _zs_gallery___test___layout_-desc-table"><thead><tr><th width="100">方法名</th><th width="200">说明</th><th width="200">调用方法</th></tr></thead><tbody><tr><td>getBottomValues</td><td>获取选中值：最底层数据的value</td><td><pre>\nlet instance = Vframe.get(id);\ninstance.invoke(\'getBottomValues\');\n                        </pre></td></tr><tr><td>getBottomItems</td><td>获取选中值：最底层数据完整对象</td><td><pre>\nlet instance = Vframe.get(id);\ninstance.invoke(\'getBottomItems\');\n                        </pre></td></tr></tbody></table></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_method" mx-view="mx-title/second?content=Methods"></div><div mxs="_zs_gallerye1:_" class="pr20"><table class="table _zs_gallery___test___layout_-desc-table"><thead><tr><th width="100">方法名</th><th width="200">说明</th><th width="200">调用方法</th></tr></thead><tbody><tr><td>getBottomValues</td><td>获取选中值：最底层数据的value</td><td><pre>\nlet instance = Vframe.get(id);\ninstance.invoke(\'getBottomValues\');\n                        </pre></td></tr><tr><td>getBottomItems</td><td>获取选中值：最底层数据完整对象</td><td><pre>\nlet instance = Vframe.get(id);\ninstance.invoke(\'getBottomItems\');\n                        </pre></td></tr></tbody></table></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

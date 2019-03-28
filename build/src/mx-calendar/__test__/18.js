@@ -26,7 +26,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', start = $$.start, end = $$.end, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallery7:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallery7:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallery7:_" class="mb20"><span class="color-9">以下示例：</span><span>自定义formatter</span></div><div class="w300" mx-view="mx-calendar/rangepicker?shortcuts=false&formatter=YYYY%2FMM%2Fdd&start=';
+    $p += '<div mxa="_zs_gallery7:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallery7:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallery7:_" class="mb20"><span class="color-9">以下示例：</span><span>自定义formatter</span></div><div class="w220" mx-view="mx-calendar/rangepicker?shortcuts=false&formatter=YYYY%2FMM%2Fdd&start=';
     $line = 10;
     $art = '=start';
     ;
@@ -46,7 +46,7 @@ module.exports = Base.extend({
     $line = 20;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.rangepicker class="w300"\n    shortcuts="false"\n    formatter="YYYY/MM/dd"\n    start="&#123;&#123;=start&#125;&#125;"\n    end="&#123;&#123;=end&#125;&#125;"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.rangepicker class="w220"\n    shortcuts="false"\n    formatter="YYYY/MM/dd"\n    start="&#123;&#123;=start&#125;&#125;"\n    end="&#123;&#123;=end&#125;&#125;"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -1,24 +1,20 @@
 <div class="example">
     <div class="eg-content">
-        <div  class="ml40 mt20">
-            <mx-effects.progress
+        <div class="ml40 mt20">
+            <mx-effects.progress 
                 num="-20.3"/>
         </div>
-        <div  class="ml40 mt20">
-            <mx-effects.progress
-                num="10"/>
-        </div>
-        <div  class="ml40 mt20">
+        <div class="ml40 mt20">
             <mx-effects.progress
                 num="20.2" 
                 text-placement="left"/>
         </div>
-        <div  class="ml40 mt20">
+        <div class="ml40 mt20">
             <mx-effects.progress
                 num="40.23" 
                 text-placement="right"/>
         </div>
-        <div  class="ml40 mt20">
+        <div class="ml40 mt20">
             <mx-effects.progress
                 num="60.555" 
                 text-placement="bottom"/>
@@ -30,7 +26,7 @@
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">条型进度条，精度与传入数值保持一致</div>
+        <div class="eg-title">条型进度条，精度与传入数值保持一致，最多两位</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
@@ -39,9 +35,6 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-effects.progress
     num="-20.3"/&gt;
-
-&lt;mx-effects.progress
-    num="10"/&gt;
 
 &lt;mx-effects.progress
     num="20.2" 

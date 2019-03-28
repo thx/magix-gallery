@@ -70,7 +70,7 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_inner"><i mxs="_zs_gallerydc:_" class="mc-iconfont _zs_gallery_mx-preview_index_-holder">&#xe615;</i></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_inner"><i mxs="_zs_gallerydn:_" class="mc-iconfont _zs_gallery_mx-preview_index_-holder">&#xe615;</i></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -152,7 +152,7 @@ catch (ex) {
         var that = this;
         that.updater.digest({});
         if (window.IntersectionObserver) {
-            var observer = new IntersectionObserver(function (changes) {
+            var observer_1 = new IntersectionObserver(function (changes) {
                 changes.forEach(function (_a) {
                     var target = _a.target, isIntersecting = _a.isIntersecting;
                     if (!isIntersecting) {
@@ -160,15 +160,15 @@ catch (ex) {
                     }
                     ;
                     that.thumbnail();
-                    observer.unobserve(target);
+                    observer_1.unobserve(target);
                 });
             }, {
                 rootMargin: '10px 0px'
             });
-            observer.observe(document.querySelector('#' + that.id));
+            observer_1.observe(document.querySelector('#' + that.id));
             that.capture('observer', {
                 destroy: function () {
-                    observer.disconnect();
+                    observer_1.disconnect();
                 }
             });
         }
@@ -240,6 +240,9 @@ catch (ex) {
             // 对最大范围进行修正，不超过屏幕可视范围
             var win = $(window);
             var winWidth = win.width(), winHeight = win.height(), winScroll = win.scrollTop();
+            if (top < winScroll) {
+                top = winScroll;
+            }
             // placement: right（目标右侧）
             // placement: left（目标左侧）
             var placement = data.placement, rangeWidth = 0; // 可见宽度范围

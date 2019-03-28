@@ -105,6 +105,11 @@ module.exports = Magix.View.extend({
             desc: '是否需要边框，自定义trigger显示时可配置',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'mx-disabled',
+            desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-calendar.rangepicker mx-disabled /&gt;',
+            type: '',
+            def: ''
         }]
 
         let supportQuickDates = [{

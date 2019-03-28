@@ -40,6 +40,7 @@ module.exports = Magix.View.extend(&#123;
     &#125;
 &#125;, &#123;
     dialogOptions: &#123;
+        top: 0,
         width: 800
     &#125;
 &#125;);
@@ -69,6 +70,7 @@ module.exports = Magix.View.extend(&#123;
                 <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 'open&lt;click&gt;'(e) &#123;
     this.mxDialog('@./inner', &#123;&#125;, &#123;
+        top: 100,
         width: 400
     &#125;);
 &#125;

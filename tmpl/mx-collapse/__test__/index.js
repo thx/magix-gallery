@@ -25,9 +25,20 @@ list: [{
             def: 'true'
         }]
 
+        let events = [{
+            type: 'change',
+            desc: '选中下拉框中某个选项时触发',
+            params: [{
+                key: 'expands',
+                desc: '[true, false, ...]，当前每个实体对象的展开收起状态',
+                type: 'array'
+            }]
+        }]
+
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events
         });
     }
 });

@@ -408,7 +408,9 @@ module.exports = Magix.View.extend({
      *        mask: 'true or false，是否有遮罩，默认true',
      *        closable: 'true or false，是否有右上角关闭按钮，默认true',
      *        left: '最终定位相对于屏幕左侧，默认居中',
-     *        top: '最终定位相对于屏幕高侧，默认居中'
+     *        top: '最终定位相对于屏幕高侧，默认居中',
+     *        target: 指定节点，相对该节点下中对齐
+     *        offset: 指定节点时微量偏移
      *    }
      */
     mxDialog(view, viewOptions, dialogOptions) {
@@ -445,53 +447,83 @@ module.exports = Magix.View.extend({
             }
             me[key] = 1;
 
-            // 优先级：外部传入的 > view本身配置的 > 默认
+            // 优先级：
+            // 外部传入的（dialogOptions） > view本身配置的（vDialogOptions） > 默认（dOptions）
 
-            // 浮层内部的配置
-            Magix.mix(dOptions, V.dialogOptions || {});
+            // view本身配置的
+            let vDialogOptions = V.dialogOptions || {};
 
-            // 调用时候的配置，浮层展示位置
+            // 外部传入的
             dialogOptions = dialogOptions || {};
 
-            // 显示位置：
-            //     center：居中
-            //     right：右侧
-            let placement = dialogOptions.placement || 'center';
-            let width = dialogOptions.width || dOptions.width || 400,
-                height = dialogOptions.height || dOptions.height || 260;
+            // 浮层出现动画位置：
+            //     center：居中（从上到下）
+            //     right：右侧（从右到左）
+            let placement = dialogOptions.placement || vDialogOptions.placement || 'center';
+            let width = dialogOptions.width || vDialogOptions.width || 400,
+                height = dialogOptions.height || vDialogOptions.height || 260;
 
             let left, top, posFrom, posTo;
             let winWidth = window.innerWidth,
                 winHeight = window.innerHeight;
-            switch (placement){
-                case 'center':
-                    left = (winWidth - width) / 2;
-                    top = Math.max((winHeight - height) / 2, 0);
-                    posFrom = {
-                        opacity: 0,
-                        top: '-50px'
-                    }
-                    posTo = {
-                        opacity: 1,
-                        top: 0
-                    }
-                    break;
-                case 'right':
-                    left = winWidth - width;
-                    top = 0;
-                    posFrom = {
-                        opacity: 0,
-                        top: 0,
-                        left: winWidth
-                    }
-                    posTo = {
-                        opacity: 1,
-                        top: 0,
-                        left: 0
-                    }
-                    break;
+
+            let target = dialogOptions.target || vDialogOptions.target;
+            if(!target){
+                switch (placement){
+                    case 'center':
+                        left = (winWidth - width) / 2;
+                        top = Math.max((winHeight - height) / 2, 0);
+                        posFrom = {
+                            opacity: 0,
+                            top: '-50px'
+                        }
+                        posTo = {
+                            opacity: 1,
+                            top: 0
+                        }
+                        break;
+                    case 'right':
+                        left = winWidth - width;
+                        top = 0;
+                        posFrom = {
+                            opacity: 0,
+                            top: 0,
+                            left: winWidth
+                        }
+                        posTo = {
+                            opacity: 1,
+                            top: 0,
+                            left: 0
+                        }
+                        break;
+                }
+            }else{
+                // 指定节点
+                let node;
+                if ((typeof target == 'string') && !(/^#/.test(target)) && !(/^\./.test(target))) {
+                    node = $('#' + target);
+                } else {
+                    node = $(target);
+                }
+                let customOffset = dialogOptions.offset || vDialogOptions.offset || {};
+                customOffset.top = +customOffset.top || 0;
+                customOffset.left = +customOffset.left || 0;
+                let offset = node.offset();
+                let top = offset.top + node.outerHeight() + 10 - $(window).scrollTop() + customOffset.top,
+                    left = offset.left - (width - node.outerWidth()) / 2 +customOffset.left;
+                posFrom = {
+                    opacity: 0,
+                    top: top - 50,
+                    left
+                }
+                posTo = {
+                    opacity: 1,
+                    top: top,
+                    left
+                }
             }
-            Magix.mix(dOptions, Magix.mix({
+            
+            Magix.mix(dOptions, {
                 mask: true,
                 modal: false,
                 width: width,
@@ -500,7 +532,7 @@ module.exports = Magix.View.extend({
                 top,
                 posFrom,
                 posTo
-            }, dialogOptions));
+            }, vDialogOptions, dialogOptions);
 
             // 数据
             Magix.mix(dOptions, viewOptions);

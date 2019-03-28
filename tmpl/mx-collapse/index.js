@@ -6,42 +6,12 @@ module.exports = Magix.View.extend({
     tmpl: '@index.html',
     init(extra) {
         let that = this;
+        that['@{owner.node}'] = $('#' + that.id);
 
-        // 是否只展示一个：默认为true
-        let onlyOne = (extra.onlyOne + '' !== 'false');
+        //初始化时保存一份当前数据的快照
+        that.updater.snapshot();
 
-        // 展示列表
-        let list = extra.list || [];
-        let hasExpand = false;
-        list.forEach((item, index) => {
-            if(!item.arrow){
-                item.arrow = '<span class="mc-iconfont" style="font-size: 14px;">&#xe602;</span>';
-            }
-            if (!item.view) {
-                item.view = '@./content';
-            }
-            item.expand = item.expand || false;
-            if (item.disabled) {
-                // 禁用的不展开
-                item.expand = false;
-            }
-            hasExpand = hasExpand || item.expand;
-        })
-        if (!hasExpand) {
-            // 默认展开非禁用第一个
-            for (let i = 0; i < list.length; i++) {
-                if (!list[i].disabled) {
-                    list[i].expand = true;
-                    break;
-                }
-            }
-        }
-
-        that.updater.set({
-            viewId: that.id,
-            onlyOne,
-            list
-        });
+        that.assign(extra);
 
         that.owner.oncreated = () => {
             // 所有子view加载完成后
@@ -68,10 +38,80 @@ module.exports = Magix.View.extend({
                 })
             }
         };
+        that.ondestroy = () => {
+            that.owner.off('created');
+        }
+    },
+    assign(extra) {
+        let that = this;
+        let altered = that.updater.altered();
+
+        that.updater.set({
+            viewId: that.id,
+            onlyOne: (extra.onlyOne + '' !== 'false'), // 是否只展示一个：默认为true
+            originList: extra.list || [] // 初始展示列表
+        });
+
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            // 组件有更新，真个节点会全部需要重新初始化
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render() {
+        // trigger oncreated
+        // 每次重新render的时候重新触发
+        this.$init = null;
+
+        let originList = this.updater.get('originList');
+        let list = $.extend(true, [], originList);
+        let hasExpand = false;
+        list.forEach((item, index) => {
+            if(!item.arrow){
+                item.arrow = '<span class="mc-iconfont" style="font-size: 14px;">&#xe602;</span>';
+            }
+            if (!item.view) {
+                item.view = '@./content';
+            }
+            item.expand = item.expand || false;
+            if (item.disabled) {
+                // 禁用的不展开
+                item.expand = false;
+            }
+            hasExpand = hasExpand || item.expand;
+        })
+        if (!hasExpand) {
+            // 默认展开非禁用第一个
+            for (let i = 0; i < list.length; i++) {
+                if (!list[i].disabled) {
+                    list[i].expand = true;
+                    break;
+                }
+            }
+        }
+
+        this.updater.digest({
+            list
+        });
+        if (!hasExpand){
+            // 组件内默认展开的请款，外抛事件通知展开状态变更
+            this['@{fire}']();
+        }
     },
 
-    render() {
-        this.updater.digest({});
+    '@{fire}' () {
+        let that = this;
+        let list = that.updater.get('list');
+        that['@{owner.node}'].trigger({
+            type: 'change',
+            expands: list.map(item => {
+                return item.expand
+            })
+        })
     },
 
     'toggle<click>'(event) {
@@ -90,5 +130,7 @@ module.exports = Magix.View.extend({
         this.updater.digest({
             list
         })
+
+        this['@{fire}']();
     }
 });

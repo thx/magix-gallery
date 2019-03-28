@@ -33,9 +33,9 @@ module.exports = Magix.View.extend({
     ;
     $p += ($expr = '<%=view%>', $e(view)) + '"><div mxs="_zs_galleryR:_" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div><div mx-view="mx-wanxiang/index?bizCode=PCMaMaAnyWhereWindow&defaultSourceId=432&sourceMap=';
     $line = 8;
-    $art = '@{\n        \'/wanxiang/demo2\': 496\n    }';
+    $art = '@{\n        \'/wanxiang/demo1\': 496,\n        \'/wanxiang/demo2?version=1\': 502\n    }';
     ;
-    $p += ($expr = '<%@{        \'/wanxiang/demo2\': 496    }%>', $i($$ref, { '/wanxiang/demo2': 496 })) + '&bottom=50"></div>';
+    $p += ($expr = '<%@{        \'/wanxiang/demo1\': 496,        \'/wanxiang/demo2?version=1\': 502    }%>', $i($$ref, { '/wanxiang/demo1': 496, '/wanxiang/demo2?version=1': 502 })) + '&bottom=50"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -19,6 +19,7 @@ module.exports = Magix.View.extend({
     }
 }, {
     dialogOptions: {
+        top: 0,
         width: 800
     }
 });

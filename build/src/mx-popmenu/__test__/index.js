@@ -32,7 +32,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryc#:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_galleryc}:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'hover显示菜单\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'点击显示菜单\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'右键显示菜单\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'任意trigger\',\n            key: viewId + \'_demo3\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
@@ -48,11 +48,11 @@ module.exports = Magix.View.extend({
     $line = 28;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mxa="_zs_galleryc#:a" class="clearfix mb20"><div mxa="_zs_galleryc#:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-popmenu/__test__/4" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mxa="_zs_galleryc}:a" class="clearfix mb20"><div mxa="_zs_galleryc}:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-popmenu/__test__/4" id="';
     $line = 31;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div mxa="_zs_galleryc#:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-popmenu/__test__/3" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div mxa="_zs_galleryc}:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-popmenu/__test__/3" id="';
     $line = 34;
     $art = '=viewId';
     ;

@@ -28,31 +28,31 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya3:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya3:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya3:_" class="mb20"><span class="color-9">以下示例：</span>单选，支持搜索，搜索不区分大小写</div><div class="w200" mx-change="' + $viewId + 'change()" mx-view="mx-dropdown/bd?searchbox=true&selected=2&list=';
+    $p += '<div mxa="_zs_gallerya6:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya6:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya6:_" class="mb20"><span class="color-9">以下示例：</span>单选，支持搜索，搜索不区分大小写</div><div class="w200" mx-change="' + $viewId + 'change()" mx-view="mx-dropdown/bd?searchbox=true&selected=2&list=';
     $line = 10;
     $art = '@[{\n                value:1,\n                text:\'test\'\n            },{\n                value:2,\n                text:\'TestABC\'\n            },{\n                value:3,\n                text:\'Another\'\n            }]';
     ;
-    $p += ($expr = '<%@[{            value: 1,            text: \'test\'        }, {            value: 2,            text: \'TestABC\'        }, {            value: 3,            text: \'Another\'        }]%>', $i($$ref, [{ value: 1, text: 'test' }, { value: 2, text: 'TestABC' }, { value: 3, text: 'Another' }])) + '"></div></div><div mxa="_zs_gallerya3:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya3:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[{            value: 1,            text: \'test\'        }, {            value: 2,            text: \'TestABC\'        }, {            value: 3,            text: \'Another\'        }]%>', $i($$ref, [{ value: 1, text: 'test' }, { value: 2, text: 'TestABC' }, { value: 3, text: 'Another' }])) + '"></div></div><div mxa="_zs_gallerya6:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya6:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 25;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya3:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya6:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 27;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya3:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya6:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 30;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown.bd class="w200" \n    searchbox="true"\n    selected="2"\n    list="&#123;&#123;@[&#123;\n        value:1,\n        text:\'test\'\n    &#125;,&#123;\n        value:2,\n        text:\'TestABC\'\n    &#125;,&#123;\n        value:3,\n        text:\'Another\'\n    &#125;]&#125;&#125;"\n    mx-change="change()"&gt;\n&lt;/mx-dropdown.bd&gt;\n        </pre></div><div mxa="_zs_gallerya3:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya3:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown.bd class="w200" \n    searchbox="true"\n    selected="2"\n    list="&#123;&#123;@[&#123;\n        value:1,\n        text:\'test\'\n    &#125;,&#123;\n        value:2,\n        text:\'TestABC\'\n    &#125;,&#123;\n        value:3,\n        text:\'Another\'\n    &#125;]&#125;&#125;"\n    mx-change="change()"&gt;\n&lt;/mx-dropdown.bd&gt;\n        </pre></div><div mxa="_zs_gallerya6:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya6:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 50;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya3:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya6:e" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 52;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya3:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya6:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 55;
     $art = '=viewId';
     ;
