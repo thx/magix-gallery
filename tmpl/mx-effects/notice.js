@@ -1,7 +1,6 @@
 let Magix = require('magix');
-let Base = require('./base');
 let $ = require('$');
-let Util = require('@./util');
+let Util = require('@../mx-color/util');
 Magix.applyStyle('@notice.less');
 
 let ClassNames = {
@@ -13,7 +12,7 @@ let ClassNames = {
     notice: '@notice.less:notice'
 }
 
-module.exports = Base.extend({
+module.exports = Magix.View.extend({
     tmpl: '@notice.html',
     init(extra) {
         // 默认左对齐
@@ -55,5 +54,8 @@ module.exports = Base.extend({
             styles: styles.join(';'),
             icon
         })
+    },
+    render() {
+        this.updater.digest();
     }
 });

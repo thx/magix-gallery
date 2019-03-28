@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let Base = require('./base');
 let $ = require('$');
 Magix.applyStyle('@icon.less');
 
@@ -12,7 +11,7 @@ let ClassNames = {
     highlight: '@icon.less:highlight',
 }
 
-module.exports = Base.extend({
+module.exports = Magix.View.extend({
     tmpl: '@icon.html',
     init(extra) {
         // 如果用户自定义了色值以自定义色值为准
@@ -50,5 +49,8 @@ module.exports = Base.extend({
             styles: styles.join(';'),
             tip: extra.tip || ''
         })
+    },
+    render() {
+        this.updater.digest();
     }
 });

@@ -34,7 +34,7 @@ module.exports = Magix.View.extend({
     $line = 5;
     $art = '=contents';
     ;
-    $p += ($expr = '<%!$eu(contents)%>', $eu(contents)) + '"></div><div mxa="_zs_galleryp:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += ($expr = '<%!$eu(contents)%>', $eu(contents)) + '"></div><div mxa="_zs_galleryv:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 8;
     $art = '@[{\n        name: \'效果预览\',\n        key: viewId + \'_preview\'\n    }, {\n        name: \'创建步骤\',\n        key: viewId + \'_steps\'\n    }, {\n        name: \'目录结构说明\',\n        key: viewId + \'_dir\'\n    }]';
     ;
@@ -42,15 +42,15 @@ module.exports = Magix.View.extend({
     $line = 19;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_preview" mx-view="mx-title/second?content=%E6%95%88%E6%9E%9C%E9%A2%84%E8%A7%88&tip=%E4%BB%A5%E4%B8%8B%E7%A4%BA%E4%BE%8Biframe%E5%B5%8C%E5%85%A5%EF%BC%8C%E5%AE%8C%E6%95%B4%E5%8F%AF%E6%93%8D%E4%BD%9C"></div><div mxs="_zs_galleryp:e" class="pr20 mb40"><div class="mb10">脚手架git仓库：<a class="link-brand" href="http://gitlab.alibaba-inc.com/mm/zs_scaffold" target="_blank">http://gitlab.alibaba-inc.com/mm/zs_scaffold</a></div><div class="mb10">iconfont库：<a class="link-brand" href="https://www.iconfont.cn/manage/index?spm=a313x.7781069.1998910419.11&manage_type=myprojects&projectId=826439" target="_blank">https://www.iconfont.cn/manage/index?manage_type=myprojects&projectId=826439</a></div><div class="mb20">图表库：<a class="link-brand" href="https://chartpark.alibaba-inc.com/#!/manage/index?projectId=13" target="_blank">https://chartpark.alibaba-inc.com/#!/manage/index?projectId=13</a></div><iframe src="https://mo.m.taobao.com/page_201902152003028" class="_zs_gallery___test___pro_cross_-iframe" width="100%" height="770" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" border="0"></iframe></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_preview" mx-view="mx-title/second?content=%E6%95%88%E6%9E%9C%E9%A2%84%E8%A7%88&tip=%E4%BB%A5%E4%B8%8B%E7%A4%BA%E4%BE%8Biframe%E5%B5%8C%E5%85%A5%EF%BC%8C%E5%AE%8C%E6%95%B4%E5%8F%AF%E6%93%8D%E4%BD%9C"></div><div mxs="_zs_galleryv:_" class="pr20 mb40"><div class="mb10">脚手架git仓库：<a class="link-brand" href="http://gitlab.alibaba-inc.com/mm/zs_scaffold" target="_blank">http://gitlab.alibaba-inc.com/mm/zs_scaffold</a></div><div class="mb10">iconfont库：<a class="link-brand" href="https://www.iconfont.cn/manage/index?spm=a313x.7781069.1998910419.11&manage_type=myprojects&projectId=826439" target="_blank">https://www.iconfont.cn/manage/index?manage_type=myprojects&projectId=826439</a></div><div class="mb20">图表库：<a class="link-brand" href="https://chartpark.alibaba-inc.com/#!/manage/index?projectId=13" target="_blank">https://chartpark.alibaba-inc.com/#!/manage/index?projectId=13</a></div><iframe src="https://mo.m.taobao.com/page_201902152003028" class="_zs_gallery___test___pro_cross_-iframe" width="100%" height="770" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" border="0"></iframe></div><div id="';
     $line = 36;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_steps" mx-view="mx-title/second?content=%E5%88%9B%E5%BB%BA%E6%AD%A5%E9%AA%A4&tip=magix-cli%E5%B7%A5%E5%85%B7%3Ca%20rel%3D%27noopener%20noreferrer%27%20href%3D%27https%3A%2F%2Fthx.github.io%2Fmagix-cli-book%2F%23%2F%27%20target%3D%27_blank%27%20class%3D%27color-brand%27%3Ehttps%3A%2F%2Fthx.github.io%2Fmagix-cli-book%2F%23%2F%3C%2Fa%3E"></div><div mxs="_zs_galleryp:a" mx-view="__test__/pro/init-steps" class="pr20 mb40"></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_steps" mx-view="mx-title/second?content=%E5%88%9B%E5%BB%BA%E6%AD%A5%E9%AA%A4&tip=magix-cli%E5%B7%A5%E5%85%B7%3Ca%20rel%3D%27noopener%20noreferrer%27%20href%3D%27https%3A%2F%2Fthx.github.io%2Fmagix-cli-book%2F%23%2F%27%20target%3D%27_blank%27%20class%3D%27color-brand%27%3Ehttps%3A%2F%2Fthx.github.io%2Fmagix-cli-book%2F%23%2F%3C%2Fa%3E"></div><div mxs="_zs_galleryv:a" mx-view="__test__/pro/init-steps" class="pr20 mb40"></div><div id="';
     $line = 41;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_dir" mx-view="mx-title/second?content=%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E&tip=%E4%BA%91%E9%9B%80%E6%96%87%E6%A1%A3%E5%9C%B0%E5%9D%80%3Ca%20rel%3D%27noopener%20noreferrer%27%20href%3D%27https%3A%2F%2Flark.alipay.com%2Fchongzhi.ldq%2Fez0zq4%2Fluqazk%27%20target%3D%27_blank%27%20class%3D%27color-brand%27%3Ehttps%3A%2F%2Flark.alipay.com%2Fchongzhi.ldq%2Fez0zq4%2Fluqazk%3C%2Fa%3E"></div><div mxs="_zs_galleryp:b" mx-view="__test__/pro/init-dir"></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_dir" mx-view="mx-title/second?content=%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E&tip=%E4%BA%91%E9%9B%80%E6%96%87%E6%A1%A3%E5%9C%B0%E5%9D%80%3Ca%20rel%3D%27noopener%20noreferrer%27%20href%3D%27https%3A%2F%2Flark.alipay.com%2Fchongzhi.ldq%2Fez0zq4%2Fluqazk%27%20target%3D%27_blank%27%20class%3D%27color-brand%27%3Ehttps%3A%2F%2Flark.alipay.com%2Fchongzhi.ldq%2Fez0zq4%2Fluqazk%3C%2Fa%3E"></div><div mxs="_zs_galleryv:b" mx-view="__test__/pro/init-dir"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

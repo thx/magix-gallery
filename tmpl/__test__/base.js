@@ -427,9 +427,6 @@ module.exports = Magix.View.extend({
                     name: '10分钟快速上手',
                     path: '/all/pro/init'
                 }, {
-                    name: '定制主题 + 覆盖组件样式',
-                    path: '/all/pro/theme'
-                }, {
                     name: '菜单配置',
                     path: '/all/pro/menu'
                 }, {
@@ -438,6 +435,9 @@ module.exports = Magix.View.extend({
                 }, {
                     name: '关于本地组件的约定',
                     path: '/all/pro/local'
+                }, {
+                    name: '覆盖组件样式',
+                    path: '/all/pro/styles'
                 }, {
                     name: 'chartpark图表',
                     tip: '<a href="https://chartpark.alibaba-inc.com/" target="_blank" rel="noopener noreferrer" class="color-brand">https://chartpark.alibaba-inc.com/</a>，接口人<a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=ru4x0jq" class="ml5"><i class="mc-iconfont color-brand fontsize-18 displacement-2">&#xe677;</i>释剑</a><a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=y8e7um3" class="ml5"><i class="mc-iconfont color-brand fontsize-18 displacement-2">&#xe677;</i>浩添</a>',
@@ -456,11 +456,6 @@ module.exports = Magix.View.extend({
                 }]
             }]
         }, {
-            id: 'pro',
-            name: 'PRO',
-            // new: that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',
-            outer: 'https://thx.github.io/magix-gallery/pro.html'
-        }, {
             id: 'edit',
             name: '在线编辑',
             path: '/all/edit/index',
@@ -473,6 +468,11 @@ module.exports = Magix.View.extend({
                     path: '/all/edit/index'
                 }]
             }]
+        }, {
+            id: 'pro',
+            name: 'PRO',
+            // new: that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',
+            outer: 'https://thx.github.io/magix-gallery/pro.html'
         }]
 
         let pathMap = {}, // 路径index映射

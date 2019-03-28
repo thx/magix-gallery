@@ -21,20 +21,20 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryg:_" class="pr20"><table mxa="_zs_galleryg:a" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_galleryg:_"><tr><th width="70">事件</th><th width="120">事件说明</th><th width="90">返回参数</th><th width="200">参数说明</th><th width="80">参数类型</th></tr></thead><tbody>';
+    $p += '<div mxa="_zs_gallerym:_" class="pr20"><table mxa="_zs_gallerym:a" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_gallerym:_"><tr><th width="70">事件</th><th width="120">事件说明</th><th width="90">返回参数</th><th width="200">参数说明</th><th width="80">参数类型</th></tr></thead><tbody>';
     $line = 13;
     $art = 'each options as option';
     ;
-    $expr = '<%for (var $art_iaxxmqqjo$art_i = 0, $art_cdequyleje$art_c = options.length; $art_iaxxmqqjo$art_i < $art_cdequyleje$art_c; $art_iaxxmqqjo$art_i++) {    var option = options[$art_iaxxmqqjo$art_i]%>';
-    for (var $art_iaxxmqqjo$art_i = 0, $art_cdequyleje$art_c = options.length; $art_iaxxmqqjo$art_i < $art_cdequyleje$art_c; $art_iaxxmqqjo$art_i++) {
-        var option = options[$art_iaxxmqqjo$art_i];
+    $expr = '<%for (var $art_iyewrlkue$art_i = 0, $art_cjyxtvzxekh$art_c = options.length; $art_iyewrlkue$art_i < $art_cjyxtvzxekh$art_c; $art_iyewrlkue$art_i++) {    var option = options[$art_iyewrlkue$art_i]%>';
+    for (var $art_iyewrlkue$art_i = 0, $art_cjyxtvzxekh$art_c = options.length; $art_iyewrlkue$art_i < $art_cjyxtvzxekh$art_c; $art_iyewrlkue$art_i++) {
+        var option = options[$art_iyewrlkue$art_i];
         $p += ' ';
         $line = 14;
         $art = 'each option.params as param index';
         ;
-        $expr = '<%for (var index = 0, $art_objkssdngi$art_obj = option.params, $art_ckyeehslmun$art_c = $art_objkssdngi$art_obj.length; index < $art_ckyeehslmun$art_c; index++) {        var param = $art_objkssdngi$art_obj[index]%>';
-        for (var index = 0, $art_objkssdngi$art_obj = option.params, $art_ckyeehslmun$art_c = $art_objkssdngi$art_obj.length; index < $art_ckyeehslmun$art_c; index++) {
-            var param = $art_objkssdngi$art_obj[index];
+        $expr = '<%for (var index = 0, $art_objexlyqpnpc$art_obj = option.params, $art_cpqteji$art_c = $art_objexlyqpnpc$art_obj.length; index < $art_cpqteji$art_c; index++) {        var param = $art_objexlyqpnpc$art_obj[index]%>';
+        for (var index = 0, $art_objexlyqpnpc$art_obj = option.params, $art_cpqteji$art_c = $art_objexlyqpnpc$art_obj.length; index < $art_cpqteji$art_c; index++) {
+            var param = $art_objexlyqpnpc$art_obj[index];
             $p += '<tr>';
             $line = 16;
             $art = 'if (index == 0)';

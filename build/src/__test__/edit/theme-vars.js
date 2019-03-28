@@ -3,13 +3,11 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("__test__/pro/theme-demo",["magix","$","./theme-demo1","./theme-demo2"],(require,exports,module)=>{
+define("__test__/edit/theme-vars",["magix","$"],(require,exports,module)=>{
 /*Magix,$*/
-require("./theme-demo1");
-require("./theme-demo2");
+
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery___test___pro_theme-demo_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery___test___pro_theme-demo_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_theme-demo_-demo-wrapper {\n  width: 860px;\n  padding: 20px;\n  border-radius: 4px;\n  border: 1px solid #e6e6e6;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -23,14 +21,14 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryI:_" class="clearfix"><div class="_zs_gallery___test___pro_theme-demo_-demo-wrapper fl"><div mx-view="__test__/pro/theme-demo1" class="fl"></div><div mx-view="__test__/pro/theme-demo2" class="fr"></div></div></div>';
+    $p += '<div mxs="_zs_galleryj:_" class="mb10 mr20">在本地项目 project/src/project/assets/vars_override.less 文件中覆盖可配置参数，可配置参数如下所示：</div><pre mxs="_zs_galleryj:a" class="tip-content has-border mr20">\n所有可配色值说明\n</pre>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
     if ($art)
         msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
     msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:__test__/pro/theme-demo.html';
+    msg += $expr + '\r\n\tat file:__test__/edit/theme-vars.html';
     throw msg;
 } return $p; },
     render: function () {

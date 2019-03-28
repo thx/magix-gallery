@@ -1,6 +1,5 @@
 let Magix = require('magix');
 let $ = require('$');
-let Runner = require('../mx-runner/index');
 Magix.applyStyle('@index.less');
 
 module.exports = Magix.View.extend({

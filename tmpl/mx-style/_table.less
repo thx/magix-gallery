@@ -29,7 +29,7 @@
                     .group-name {
                         line-height: 28px;
                         padding-bottom: 2px;
-                        border-bottom: 1px solid @table-color-border;
+                        border-bottom: 1px solid @color-border;
                     }
 
                 }
@@ -53,7 +53,7 @@
                 padding: 20px 8px;
                 color: #333;
                 border-top: none;
-                border-bottom: 1px solid @table-color-border;
+                border-bottom: 1px solid @color-border;
                 transition: background-color @duration ease-out;
 
                 &:first-child {
@@ -71,7 +71,7 @@
                 }
 
                 &.sub-mask-last {
-                    border-bottom: 1px solid @table-color-border;
+                    border-bottom: 1px solid @color-border;
                 }
 
                 .operations {
@@ -136,7 +136,7 @@
 
                 td {
                     padding: 8px 20px;
-                    background-color: @table-operation-color-bg;
+                    background-color: tint(@color-brand, 88%);
 
                     &.sub-mask {
                         background-color: #fff;

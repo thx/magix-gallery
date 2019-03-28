@@ -45,8 +45,8 @@ module.exports = Base.extend({
     $line = 2;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cmpckcddif$art_c = list.length; index < $art_cmpckcddif$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cmpckcddif$art_c = list.length; index < $art_cmpckcddif$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_crdrfzlm$art_c = list.length; index < $art_crdrfzlm$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_crdrfzlm$art_c = list.length; index < $art_crdrfzlm$art_c; index++) {
         var item = list[index];
         $p += '<a href="javascript:;" ';
         $line = 3;
@@ -103,7 +103,7 @@ module.exports = Base.extend({
         $expr = '<%if (item.tag) {%>';
         if (item.tag) {
             ;
-            $p += '<span mxa="_zs_galleryeB:_" class="_zs_gallery_mx-tabs_index_-tag">';
+            $p += '<span mxa="_zs_galleryeC:_" class="_zs_gallery_mx-tabs_index_-tag">';
             $line = 7;
             $art = '=item.tag';
             ;

@@ -22,14 +22,14 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', info = $$.info; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycT:_" class="_zs_gallery_mx-main___test___inner_-box-title clearfix">';
+    $p += '<div mxa="_zs_gallerycU:_" class="_zs_gallery_mx-main___test___inner_-box-title clearfix">';
     $line = 2;
     $art = 'if info.icon';
     ;
     $expr = '<%if (info.icon) {%>';
     if (info.icon) {
         ;
-        $p += '<span mxa="_zs_gallerycT:a" class="_zs_gallery_mx-main___test___inner_-title-icon">';
+        $p += '<span mxa="_zs_gallerycU:a" class="_zs_gallery_mx-main___test___inner_-title-icon">';
         $line = 3;
         $art = '!info.icon';
         ;
@@ -40,11 +40,11 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<span mxa="_zs_gallerycT:b" class="_zs_gallery_mx-main___test___inner_-title-label">';
+    $p += '<span mxa="_zs_gallerycU:b" class="_zs_gallery_mx-main___test___inner_-title-label">';
     $line = 5;
     $art = '=info.label';
     ;
-    $p += ($expr = '<%=info.label%>', $e(info.label)) + '</span></div><div mxs="_zs_gallerycT:_" class="_zs_gallery_mx-main___test___inner_-box-inner" style="min-height: 200px;"><div class="lh22 mb10"><div>页面功能说明：</div></div><div class="tip-content mb40"><div>当前步骤三个子步骤，每个子步骤都有自己对应的右侧提示区域，配置subs里的sideView</div></div><div class="lh22 mb10"><div>当前页面配置信息：</div></div><pre class="tip-content mb40">\n&#123;\n    label: \'添加创意\',\n    nextTip: \'下一步，完成\',\n    icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe613;&lt;/i&gt;\',\n    subs: [&#123;\n        label: \'创意内容1\',\n        icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe705;&lt;/i&gt;\',\n        view: \'@./inner3\',\n        sideView: \'@./tip\'\n    &#125;, &#123;\n        label: \'创意内容2\',\n        icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe664;&lt;/i&gt;\',\n        view: \'@./inner\',\n        sideView: \'@./tip\'\n    &#125;, &#123;\n        label: \'创意内容3\',\n        icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe767;&lt;/i&gt;\',\n        view: \'@./inner\',\n        sideView: \'@./tip\'\n    &#125;]\n&#125;\n    </pre></div>';
+    $p += ($expr = '<%=info.label%>', $e(info.label)) + '</span></div><div mxs="_zs_gallerycU:_" class="_zs_gallery_mx-main___test___inner_-box-inner" style="min-height: 200px;"><div class="lh22 mb10"><div>页面功能说明：</div></div><div class="tip-content mb40"><div>当前步骤三个子步骤，每个子步骤都有自己对应的右侧提示区域，配置subs里的sideView</div></div><div class="lh22 mb10"><div>当前页面配置信息：</div></div><pre class="tip-content mb40">\n&#123;\n    label: \'添加创意\',\n    nextTip: \'下一步，完成\',\n    icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe613;&lt;/i&gt;\',\n    subs: [&#123;\n        label: \'创意内容1\',\n        icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe705;&lt;/i&gt;\',\n        view: \'@./inner3\',\n        sideView: \'@./tip\'\n    &#125;, &#123;\n        label: \'创意内容2\',\n        icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe664;&lt;/i&gt;\',\n        view: \'@./inner\',\n        sideView: \'@./tip\'\n    &#125;, &#123;\n        label: \'创意内容3\',\n        icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe767;&lt;/i&gt;\',\n        view: \'@./inner\',\n        sideView: \'@./tip\'\n    &#125;]\n&#125;\n    </pre></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

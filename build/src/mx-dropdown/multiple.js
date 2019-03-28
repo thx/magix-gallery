@@ -56,7 +56,7 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = '=selectedText';
     ;
-    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_gallerya/:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ';
+    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_gallerya;:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ';
     $line = 5;
     $art = '=placementClass';
     ;
@@ -120,7 +120,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (searchbox) {%>';
         if (searchbox) {
             ;
-            $p += '<div mxv mxa="_zs_gallerya/:_" class="_zs_gallery_mx-dropdown_index_-search-wrapper"><div mxv mxa="_zs_gallerya/:a" class="search-box _zs_gallery_mx-dropdown_index_-dropdown-search-box"><i mxs="_zs_gallerya/:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+            $p += '<div mxv mxa="_zs_gallerya;:_" class="_zs_gallery_mx-dropdown_index_-search-wrapper"><div mxv mxa="_zs_gallerya;:a" class="search-box _zs_gallery_mx-dropdown_index_-dropdown-search-box"><i mxs="_zs_gallerya;:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
             $line = 13;
             $art = '=text.search';
             ;
@@ -135,7 +135,7 @@ module.exports = Magix.View.extend({
             $expr = '<%if (max > 0 && over) {%>';
             if (max > 0 && over) {
                 ;
-                $p += '<span mxa="_zs_gallerya/:b" class="ml10"><span mxs="_zs_gallerya/:b" class="color-9">已选：</span><span mxa="_zs_gallerya/:c" class="font-tahoma bold">';
+                $p += '<span mxa="_zs_gallerya;:b" class="ml10"><span mxs="_zs_gallerya;:b" class="color-9">已选：</span><span mxa="_zs_gallerya;:c" class="font-tahoma bold">';
                 $line = 24;
                 $art = '=imme.length';
                 ;
@@ -229,7 +229,7 @@ module.exports = Magix.View.extend({
                     $expr = '<%}%>';
                 }
                 ;
-                $p += '><span mxs="_zs_gallerya/:b" class="color-9">已选：</span><span mxa="_zs_gallerya/:d" class="font-tahoma bold">';
+                $p += '><span mxs="_zs_gallerya;:b" class="color-9">已选：</span><span mxa="_zs_gallerya;:d" class="font-tahoma bold">';
                 $line = 39;
                 $art = '=imme.length';
                 ;
@@ -270,8 +270,8 @@ module.exports = Magix.View.extend({
             $line = 46;
             $art = 'each groups as group groupIndex';
             ;
-            $expr = '<%for (var groupIndex = 0, $art_crjprvesb$art_c = groups.length; groupIndex < $art_crjprvesb$art_c; groupIndex++) {            var group = groups[groupIndex]%>';
-            for (var groupIndex = 0, $art_crjprvesb$art_c = groups.length; groupIndex < $art_crjprvesb$art_c; groupIndex++) {
+            $expr = '<%for (var groupIndex = 0, $art_ckjiyixred$art_c = groups.length; groupIndex < $art_ckjiyixred$art_c; groupIndex++) {            var group = groups[groupIndex]%>';
+            for (var groupIndex = 0, $art_ckjiyixred$art_c = groups.length; groupIndex < $art_ckjiyixred$art_c; groupIndex++) {
                 var group = groups[groupIndex];
                 $p += ' ';
                 $line = 47;
@@ -291,7 +291,7 @@ module.exports = Magix.View.extend({
                         $line = 49;
                         $art = '=group.text';
                         ;
-                        $p += ($expr = '<%=group.text%>', $e(group.text)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-item _zs_gallery_mx-dropdown_index_-dropdown-header-item"><label mxa="_zs_gallerya/:e" class="_zs_gallery_mx-dropdown_index_-item-link ellipsis"><span mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{checkGroup}({groupIndex:\'';
+                        $p += ($expr = '<%=group.text%>', $e(group.text)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-item _zs_gallery_mx-dropdown_index_-dropdown-header-item"><label mxa="_zs_gallerya;:e" class="_zs_gallery_mx-dropdown_index_-item-link ellipsis"><span mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{checkGroup}({groupIndex:\'';
                         $line = 56;
                         $art = '=groupIndex';
                         ;
@@ -345,13 +345,13 @@ module.exports = Magix.View.extend({
                     $expr = '<%}%>';
                 }
                 ;
-                $p += '<div mxv mxa="_zs_gallerya/:f" class="clearfix _zs_gallery_mx-dropdown_index_-group-wrapper">';
+                $p += '<div mxv mxa="_zs_gallerya;:f" class="clearfix _zs_gallery_mx-dropdown_index_-group-wrapper">';
                 $line = 65;
                 $art = 'each group.list as item';
                 ;
-                $expr = '<%for (var $art_ilyufg$art_i = 0, $art_objntpfwwqh$art_obj = group.list, $art_cqtnzxo$art_c = $art_objntpfwwqh$art_obj.length; $art_ilyufg$art_i < $art_cqtnzxo$art_c; $art_ilyufg$art_i++) {                var item = $art_objntpfwwqh$art_obj[$art_ilyufg$art_i]%>';
-                for (var $art_ilyufg$art_i = 0, $art_objntpfwwqh$art_obj = group.list, $art_cqtnzxo$art_c = $art_objntpfwwqh$art_obj.length; $art_ilyufg$art_i < $art_cqtnzxo$art_c; $art_ilyufg$art_i++) {
-                    var item = $art_objntpfwwqh$art_obj[$art_ilyufg$art_i];
+                $expr = '<%for (var $art_igmcpmjmz$art_i = 0, $art_objszrkytd$art_obj = group.list, $art_cxdbanixj$art_c = $art_objszrkytd$art_obj.length; $art_igmcpmjmz$art_i < $art_cxdbanixj$art_c; $art_igmcpmjmz$art_i++) {                var item = $art_objszrkytd$art_obj[$art_igmcpmjmz$art_i]%>';
+                for (var $art_igmcpmjmz$art_i = 0, $art_objszrkytd$art_obj = group.list, $art_cxdbanixj$art_c = $art_objszrkytd$art_obj.length; $art_igmcpmjmz$art_i < $art_cxdbanixj$art_c; $art_igmcpmjmz$art_i++) {
+                    var item = $art_objszrkytd$art_obj[$art_igmcpmjmz$art_i];
                     $p += ' ';
                     $line = 66;
                     $art = 'if !item.hide';
@@ -452,7 +452,7 @@ module.exports = Magix.View.extend({
         }
         else {
             ;
-            $p += '<div mxa="_zs_gallerya/:g" class="text-center color-9 pt20 pb20">';
+            $p += '<div mxa="_zs_gallerya;:g" class="text-center color-9 pt20 pb20">';
             $line = 84;
             $art = '=text.empty';
             ;
@@ -463,11 +463,11 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '<div mxa="_zs_gallerya/:h" class="_zs_gallery_mx-dropdown_index_-footer-wrapper"><a mxa="_zs_gallerya/:i" href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}({enter:true})">';
+        $p += '<div mxa="_zs_gallerya;:h" class="_zs_gallery_mx-dropdown_index_-footer-wrapper"><a mxa="_zs_gallerya;:i" href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}({enter:true})">';
         $line = 87;
         $art = '=text.submit';
         ;
-        $p += ($expr = '<%=text.submit%>', $e(text.submit)) + '</a><a mxa="_zs_gallerya/:j" href="javascript:;" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
+        $p += ($expr = '<%=text.submit%>', $e(text.submit)) + '</a><a mxa="_zs_gallerya;:j" href="javascript:;" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
         $line = 88;
         $art = '=text.cancel';
         ;
@@ -478,7 +478,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (errMsg) {%>';
         if (errMsg) {
             ;
-            $p += '<span mxa="_zs_gallerya/:k" class="_zs_gallery_mx-dropdown_index_-msg-wrapper color-red ml10"><i mxs="_zs_gallerya/:c" class="mc-iconfont displacement-2">&#xe6ad;</i><span mxa="_zs_gallerya/:l" class="_zs_gallery_mx-dropdown_index_-msg">';
+            $p += '<span mxa="_zs_gallerya;:k" class="_zs_gallery_mx-dropdown_index_-msg-wrapper color-red ml10"><i mxs="_zs_gallerya;:c" class="mc-iconfont displacement-2">&#xe6ad;</i><span mxa="_zs_gallerya;:l" class="_zs_gallery_mx-dropdown_index_-msg">';
             $line = 92;
             $art = '!errMsg';
             ;

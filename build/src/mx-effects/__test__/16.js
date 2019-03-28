@@ -24,15 +24,15 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybm:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybm:_" class="_zs_gallery___test___layout_-eg-content"><span class="mr10" mx-view="mx-effects/icon?color=%2351a300&content=%E6%B5%8B%E8%AF%95"></span><span class="mr10" mx-view="mx-effects/icon?mode=hollow&color=%2351a300&content=%E6%B5%8B%E8%AF%95"></span></div><div mxa="_zs_gallerybm:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybm:a" class="_zs_gallery___test___layout_-eg-title">自定义颜色</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerybn:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybn:_" class="_zs_gallery___test___layout_-eg-content"><span class="mr10" mx-view="mx-effects/icon?color=%2351a300&content=%E6%B5%8B%E8%AF%95"></span><span class="mr10" mx-view="mx-effects/icon?mode=hollow&color=%2351a300&content=%E6%B5%8B%E8%AF%95"></span></div><div mxa="_zs_gallerybn:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybn:a" class="_zs_gallery___test___layout_-eg-title">自定义颜色</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 13;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybm:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybn:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 15;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybm:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybn:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 18;
     $art = '=viewId';
     ;

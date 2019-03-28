@@ -62,11 +62,10 @@
     }
 }
 
-@line-height: 28px;
 .group {
     display: inline-block;
     min-width: 100px;
-    height: @line-height * 6;
+    height: @input-small-height * 6;
     overflow-y: auto;
     vertical-align: top;
     border-right: 1px solid @color-border;
@@ -78,10 +77,10 @@
 
 .line {
     position: relative;
-    height: @line-height;
-    padding-right: @line-height - 2;
+    height: @input-small-height;
+    padding-right: @input-small-height - 2;
     padding-left: 10px;
-    line-height: @line-height;
+    line-height: @input-small-height;
     transition: background-color @duration, color @duration;
     cursor: pointer;
     .line-text {
@@ -95,11 +94,11 @@
         position: absolute;
         right: 0;
         top: 50%;
-        width: @line-height;
-        height: @line-height;
+        width: @input-small-height;
+        height: @input-small-height;
         font-size: 24px;
-        line-height: @line-height;
-        margin-top: 0 - @line-height / 2;
+        line-height: @input-small-height;
+        margin-top: 0 - @input-small-height / 2;
         color: #999;
         transform: rotate(-90deg);
     }

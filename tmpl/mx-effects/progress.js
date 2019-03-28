@@ -1,6 +1,6 @@
 let Magix = require('magix');
 let $ = require('$');
-let Util = require('@./util');
+let Util = require('@../mx-color/util');
 Magix.applyStyle('@progress.less');
 let ClassNames = {
     left: '@progress.less:num-left',
