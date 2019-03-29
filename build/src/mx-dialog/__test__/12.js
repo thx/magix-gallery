@@ -28,11 +28,11 @@ module.exports = Base.extend({
     $line = 4;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test" mx-click="' + $viewId + 'open1()">当前节点下居中</a><a mxs="_zs_galleryaw:_" href="javascript:;" class="btn btn-brand mr20" mx-click="' + $viewId + 'open2()">当前节点下居中 + 偏移</a></div><div mxa="_zs_galleryaw:b" class="clearfix"><div mxa="_zs_galleryaw:d" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_galleryaw:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test" mx-click="' + $viewId + 'open1()">当前节点下居中</a><a mxs="_zs_galleryaw:_" href="javascript:;" class="btn btn-brand mr20" mx-click="' + $viewId + 'open2()">当前节点下居中 + 偏移</a></div><div mxa="_zs_galleryaw:b" class="clearfix"><div mxa="_zs_galleryaw:c" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_galleryaw:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 13;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaw:j" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaw:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 15;
     $art = '!text1';
     ;
@@ -40,11 +40,11 @@ module.exports = Base.extend({
     $line = 18;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" class="btn btn-brand mr20"\n    id="&#123;&#123;=viewId&#125;&#125;_test"\n    mx-click="open1()"&gt;当前节点下居中&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand mr20"\n    mx-click="open2()"&gt;当前节点下居中 + 偏移&lt;/a&gt;\n            </pre></div><div mxa="_zs_galleryaw:k" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryaw:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" class="btn btn-brand mr20"\n    id="&#123;&#123;=viewId&#125;&#125;_test"\n    mx-click="open1()"&gt;当前节点下居中&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand mr20"\n    mx-click="open2()"&gt;当前节点下居中 + 偏移&lt;/a&gt;\n            </pre></div><div mxa="_zs_galleryaw:e" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryaw:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 29;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryaw:l" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryaw:f" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 31;
     $art = '!text2';
     ;

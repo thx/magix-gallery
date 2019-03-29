@@ -563,8 +563,7 @@ module.exports = Magix.View.extend({
 
         let action = action + 'Class';
         let operationTrClass = 'operation-tr',
-            operationTrOpenClass = 'operation-tr-open',
-            operationNextTrOpenClass = 'next-operation-tr-open';
+            operationTrOpenClass = 'operation-tr-open';
 
         let tr = trs.eq(index);
         if (!tr || !tr.length || (tr.css('display') == 'none')) {
@@ -582,7 +581,6 @@ module.exports = Magix.View.extend({
         let hasNext = next && next.length;
         if (hasNext) {
             next[action](operationTrOpenClass);
-            tr[action](operationNextTrOpenClass);
         }
 
         let leftTable = me['@{table.left}'];
@@ -593,7 +591,6 @@ module.exports = Magix.View.extend({
             if (hasNext) {
                 let leftNext = leftTr.next('.' + operationTrClass);
                 leftNext[action](operationTrOpenClass);
-                leftTr[action](operationNextTrOpenClass);
             }
         }
     },

@@ -78,7 +78,7 @@
                 </thead>
                 <tbody>
                     {{each list as item index}}
-                        <tr class="{{= (index+1==list.length) ? 'last-tr' : ''}}">
+                        <tr>
                             {{each groups as group}}
                                 {{each group.fields as field}}
                                 <td>{{=format(item[field])}}</td>
@@ -144,7 +144,7 @@
         &lt;/thead&gt;
         &lt;tbody&gt;
             &#123;&#123;each list as item index&#125;&#125;
-                &lt;tr class="&#123;&#123;= (index+1==list.length) ? 'last-tr' : ''&#125;&#125;"&gt;
+                &lt;tr&gt;
                     &#123;&#123;each groups as group&#125;&#125;
                         &#123;&#123;each group.fields as field&#125;&#125;
                         &lt;td&gt;&#123;&#123;=format(item[field])&#125;&#125;&lt;/td&gt;

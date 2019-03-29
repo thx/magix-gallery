@@ -31,11 +31,7 @@ module.exports = Base.extend({
     $expr = '<%for (var j = 0; j < 3; j++) {%>';
     for (var j = 0; j < 3; j++) {
         ;
-        $p += '<tr class="';
-        $line = 38;
-        $art = '= (j==2) ? \'last-tr\' : \'\'';
-        ;
-        $p += ($expr = '<%=(j == 2) ? \'last-tr\' : \'\'%>', $e((j == 2) ? 'last-tr' : '')) + '">';
+        $p += '<tr>';
         $line = 39;
         $art = 'for (let i=0;i<11;i++)';
         ;
@@ -72,7 +68,7 @@ module.exports = Base.extend({
     $line = 55;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-table sticky="true"&gt;\n    &lt;table class="table"&gt;\n        &lt;thead&gt;\n            &lt;!-- 二级结构的表头 --&gt;\n            &lt;tr&gt;\n                &lt;th rowspan="2"&gt;单个1&lt;/th&gt;\n                &lt;th rowspan="2"&gt;单个2&lt;/th&gt;\n                &lt;th class="field-group" colspan="2"&gt;\n                    &lt;div class="group-name"&gt;组1&lt;/div&gt;\n                &lt;/th&gt;\n                &lt;th class="field-group" colspan="3"&gt;\n                    &lt;div class="group-name"&gt;组2&lt;/div&gt;\n                &lt;/th&gt;\n            &lt;/tr&gt;\n            &lt;tr&gt;\n                &lt;th class="field-item"&gt;组1-1&lt;/th&gt;\n                &lt;th class="field-item"&gt;组1-2&lt;/th&gt;\n                &lt;th class="field-item"&gt;组2-1&lt;/th&gt;\n                &lt;th class="field-item"&gt;组2-2&lt;/th&gt;\n                &lt;th class="field-item"&gt;组2-3&lt;/th&gt;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;for(let j=0;j&lt;3;j++)&#125;&#125;\n            &lt;tr class="&#123;&#123;= (j==2) ? \'last-tr\' : \'\'&#125;&#125;"&gt;\n                &#123;&#123;for(let i=0;i&lt;7;i++)&#125;&#125;\n                &lt;td&gt;&#123;&#123;=i&#125;&#125;&lt;/td&gt;\n                &#123;&#123;/for&#125;&#125;\n            &lt;/tr&gt;\n            &#123;&#123;/for&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n&lt;/mx-table&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-table sticky="true"&gt;\n    &lt;table class="table"&gt;\n        &lt;thead&gt;\n            &lt;!-- 二级结构的表头 --&gt;\n            &lt;tr&gt;\n                &lt;th rowspan="2"&gt;单个1&lt;/th&gt;\n                &lt;th rowspan="2"&gt;单个2&lt;/th&gt;\n                &lt;th class="field-group" colspan="2"&gt;\n                    &lt;div class="group-name"&gt;组1&lt;/div&gt;\n                &lt;/th&gt;\n                &lt;th class="field-group" colspan="3"&gt;\n                    &lt;div class="group-name"&gt;组2&lt;/div&gt;\n                &lt;/th&gt;\n            &lt;/tr&gt;\n            &lt;tr&gt;\n                &lt;th class="field-item"&gt;组1-1&lt;/th&gt;\n                &lt;th class="field-item"&gt;组1-2&lt;/th&gt;\n                &lt;th class="field-item"&gt;组2-1&lt;/th&gt;\n                &lt;th class="field-item"&gt;组2-2&lt;/th&gt;\n                &lt;th class="field-item"&gt;组2-3&lt;/th&gt;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;for(let j=0;j&lt;3;j++)&#125;&#125;\n            &lt;tr&gt;\n                &#123;&#123;for(let i=0;i&lt;7;i++)&#125;&#125;\n                &lt;td&gt;&#123;&#123;=i&#125;&#125;&lt;/td&gt;\n                &#123;&#123;/for&#125;&#125;\n            &lt;/tr&gt;\n            &#123;&#123;/for&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n&lt;/mx-table&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
