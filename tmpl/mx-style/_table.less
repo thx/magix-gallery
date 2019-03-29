@@ -1,6 +1,6 @@
 /* @dependent: ./index.less */
 @import '_vars';
-
+@table-ceil-gap: 8px;
 .table {
     width: 100%;
 
@@ -10,24 +10,24 @@
         tr {
             th {
                 height: 60px;
-                padding: 0 8px;
+                padding: 0 @table-ceil-gap;
                 color: #999;
                 border: none;
 
                 &:first-child {
-                    padding-left: 15px;
+                    padding-left: @table-ceil-gap * 2;
                 }
 
                 &:last-child {
-                    padding-right: 15px;
+                    padding-right: @table-ceil-gap * 2;
                 }
 
                 &.field-group {
-                    height: 32px;
-                    padding: 2px 8px 0;
+                    height: 30px;
+                    padding: 2px @table-ceil-gap 0;
 
                     .group-name {
-                        line-height: 28px;
+                        line-height: 26px;
                         padding-bottom: 2px;
                         border-bottom: 1px solid @color-border;
                     }
@@ -35,8 +35,8 @@
                 }
 
                 &.field-item {
-                    height: 32px;
-                    padding: 0 8px;
+                    height: 30px;
+                    padding: 0 @table-ceil-gap;
                 }
 
             }
@@ -50,28 +50,29 @@
 
         tr {
             td {
-                padding: 20px 8px;
+                padding: (@table-ceil-gap * 2) @table-ceil-gap;
                 color: #333;
-                border-top: none;
-                border-bottom: 1px solid @color-border;
+                border-top: 1px solid @color-border;
+                border-bottom: none;
                 transition: background-color @duration ease-out;
 
                 &:first-child {
-                    padding-left: 15px;
+                    padding-left: @table-ceil-gap * 2;
                 }
 
                 &:last-child {
-                    padding-right: 15px;
+                    padding-right: @table-ceil-gap * 2;
                 }
 
                 &.sub-mask {
                     background-color: #fff;
                     border-right: 1px solid @color-brand-light;
-                    border-bottom: 0 none;
+                    border-top: 0 none;
                 }
 
-                &.sub-mask-last {
-                    border-bottom: 1px solid @color-border;
+                &.sub-mask-first {
+                    border-top: 1px solid @color-border;
+                    border-bottom: 0 none;
                 }
 
                 .operations {
@@ -81,11 +82,10 @@
 
             }
 
-            &:last-child, &.last-tr {
-                td {
-                    border-bottom: 0 none;
+            &:first-child{
+                td{
+                    border-top: 0 none;
                 }
-
             }
 
             &:hover, &.hover-tr {
@@ -123,19 +123,12 @@
 
             }
 
-            /* 操作行在下方展示 */
-            &.next-operation-tr-open {
-                td {
-                    border-bottom: 0 none;
-                }
-
-            }
-
             &.operation-tr {
                 display: none;
 
                 td {
-                    padding: 8px 20px;
+                    padding: @table-ceil-gap (@table-ceil-gap * 2);
+                    border-top: 0 none;
                     background-color: tint(@color-brand, 88%);
 
                     &.sub-mask {
@@ -156,8 +149,9 @@
 
                     td {
                         height: 60px;
-                        padding: 0 8px;
+                        padding: 0 @table-ceil-gap;
                         color: #999;
+                        border-top: 1px solid @color-border;
                         border-bottom: 0 none;
                         background-color: transparent;
 
@@ -178,7 +172,7 @@
     tfoot {
         tr {
             td {
-                padding: 15px;
+                padding: @table-ceil-gap * 2;
                 background-color: @color-bg;
                 border: none;
             }

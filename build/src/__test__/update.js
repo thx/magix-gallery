@@ -8,7 +8,7 @@ define("__test__/update",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery___test___update_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery___test___update_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___update_-update {\n  position: relative;\n}\n._zs_gallery___test___update_-update::before {\n  content: '';\n  position: absolute;\n  top: 12px;\n  left: 0;\n  width: 0;\n  height: 100%;\n  border-left: 2px solid #e6e6e6;\n}\n._zs_gallery___test___update_-update:last-child::before {\n  display: none;\n}\n._zs_gallery___test___update_-tag,\n._zs_gallery___test___update_-vi {\n  display: inline-block;\n  padding: 0 10px;\n  height: 20px;\n  line-height: 18px;\n  background-color: #f3f4f5;\n  border: 1px solid #eee;\n  text-align: center;\n  border-radius: 2px;\n  overflow: hidden;\n  vertical-align: middle;\n}\n._zs_gallery___test___update_-tag {\n  margin: 0 3px;\n}\n._zs_gallery___test___update_-ver {\n  position: relative;\n}\n._zs_gallery___test___update_-ver::before {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: -4px;\n  width: 10px;\n  height: 10px;\n  margin-top: -5px;\n  border: 2px solid #e6e6e6;\n  background-color: #fff;\n  border-radius: 50%;\n}\n._zs_gallery___test___update_-ver ._zs_gallery___test___update_-vt {\n  display: inline-block;\n  font-size: 18px;\n  overflow: hidden;\n  vertical-align: middle;\n}\n._zs_gallery___test___update_-ver ._zs_gallery___test___update_-vi {\n  margin: 0 10px;\n}\n._zs_gallery___test___update_-dot {\n  position: relative;\n  padding-left: 10px;\n}\n._zs_gallery___test___update_-dot::before {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 4px;\n  height: 4px;\n  margin-top: -2px;\n  border: 1px solid #ccc;\n  border-radius: 50%;\n}\n._zs_gallery___test___update_-line {\n  line-height: 28px;\n}\n._zs_gallery___test___update_-line-icon {\n  position: relative;\n  top: 2px;\n  margin-right: 5px;\n  font-size: 18px;\n}\n");
+Magix.applyStyle("_zs_gallery___test___update_","._zs_gallery___test___update_-update {\n  position: relative;\n}\n._zs_gallery___test___update_-update::before {\n  content: '';\n  position: absolute;\n  top: 12px;\n  left: 0;\n  width: 0;\n  height: 100%;\n  border-left: 2px solid var(--color-border);\n}\n._zs_gallery___test___update_-update:last-child::before {\n  display: none;\n}\n._zs_gallery___test___update_-tag,\n._zs_gallery___test___update_-vi {\n  display: inline-block;\n  padding: 0 10px;\n  height: 20px;\n  line-height: 18px;\n  background-color: #f3f4f5;\n  border: 1px solid #eee;\n  text-align: center;\n  border-radius: 2px;\n  overflow: hidden;\n  vertical-align: middle;\n}\n._zs_gallery___test___update_-tag {\n  margin: 0 3px;\n}\n._zs_gallery___test___update_-ver {\n  position: relative;\n}\n._zs_gallery___test___update_-ver::before {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: -4px;\n  width: 10px;\n  height: 10px;\n  margin-top: -5px;\n  border: 2px solid var(--color-border);\n  background-color: #fff;\n  border-radius: 50%;\n}\n._zs_gallery___test___update_-ver ._zs_gallery___test___update_-vt {\n  display: inline-block;\n  font-size: 18px;\n  overflow: hidden;\n  vertical-align: middle;\n}\n._zs_gallery___test___update_-ver ._zs_gallery___test___update_-vi {\n  margin: 0 10px;\n}\n._zs_gallery___test___update_-dot {\n  position: relative;\n  padding-left: 10px;\n}\n._zs_gallery___test___update_-dot::before {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 4px;\n  height: 4px;\n  margin-top: -2px;\n  border: 1px solid #ccc;\n  border-radius: 50%;\n}\n._zs_gallery___test___update_-line {\n  line-height: 28px;\n}\n._zs_gallery___test___update_-line-icon {\n  position: relative;\n  top: 2px;\n  margin-right: 5px;\n  font-size: 18px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_idvujupjj$art_i = 0, $art_cigofblmt$art_c = list.length; $art_idvujupjj$art_i < $art_cigofblmt$art_c; $art_idvujupjj$art_i++) {    var item = list[$art_idvujupjj$art_i]%>';
-    for (var $art_idvujupjj$art_i = 0, $art_cigofblmt$art_c = list.length; $art_idvujupjj$art_i < $art_cigofblmt$art_c; $art_idvujupjj$art_i++) {
-        var item = list[$art_idvujupjj$art_i];
+    $expr = '<%for (var $art_imemgphc$art_i = 0, $art_corrxutkbud$art_c = list.length; $art_imemgphc$art_i < $art_corrxutkbud$art_c; $art_imemgphc$art_i++) {    var item = list[$art_imemgphc$art_i]%>';
+    for (var $art_imemgphc$art_i = 0, $art_corrxutkbud$art_c = list.length; $art_imemgphc$art_i < $art_corrxutkbud$art_c; $art_imemgphc$art_i++) {
+        var item = list[$art_imemgphc$art_i];
         $p += '<div mxa="_zs_galleryR:_" class="_zs_gallery___test___update_-update"><div mxa="_zs_galleryR:a" class="_zs_gallery___test___update_-ver pl20"><span mxa="_zs_galleryR:b" class="_zs_gallery___test___update_-vt">';
         $line = 4;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_icjzuiokr$art_i = 0, $art_objyfjnlgsoycj$art_obj = item.subs, $art_cdtivl$art_c = $art_objyfjnlgsoycj$art_obj.length; $art_icjzuiokr$art_i < $art_cdtivl$art_c; $art_icjzuiokr$art_i++) {        var s = $art_objyfjnlgsoycj$art_obj[$art_icjzuiokr$art_i]%>';
-        for (var $art_icjzuiokr$art_i = 0, $art_objyfjnlgsoycj$art_obj = item.subs, $art_cdtivl$art_c = $art_objyfjnlgsoycj$art_obj.length; $art_icjzuiokr$art_i < $art_cdtivl$art_c; $art_icjzuiokr$art_i++) {
-            var s = $art_objyfjnlgsoycj$art_obj[$art_icjzuiokr$art_i];
+        $expr = '<%for (var $art_igsvxyipkip$art_i = 0, $art_objsvhc$art_obj = item.subs, $art_cfcogml$art_c = $art_objsvhc$art_obj.length; $art_igsvxyipkip$art_i < $art_cfcogml$art_c; $art_igsvxyipkip$art_i++) {        var s = $art_objsvhc$art_obj[$art_igsvxyipkip$art_i]%>';
+        for (var $art_igsvxyipkip$art_i = 0, $art_objsvhc$art_obj = item.subs, $art_cfcogml$art_c = $art_objsvhc$art_obj.length; $art_igsvxyipkip$art_i < $art_cfcogml$art_c; $art_igsvxyipkip$art_i++) {
+            var s = $art_objsvhc$art_obj[$art_igsvxyipkip$art_i];
             $p += '<div mxa="_zs_galleryR:e" class="pl20">';
             $line = 10;
             $art = 'if s.type == \'notice\'';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
             $line = 31;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_intuvemkas$art_i = 0, $art_objdafhef$art_obj = s.subs, $art_cytfjnsgo$art_c = $art_objdafhef$art_obj.length; $art_intuvemkas$art_i < $art_cytfjnsgo$art_c; $art_intuvemkas$art_i++) {            var ss = $art_objdafhef$art_obj[$art_intuvemkas$art_i]%>';
-            for (var $art_intuvemkas$art_i = 0, $art_objdafhef$art_obj = s.subs, $art_cytfjnsgo$art_c = $art_objdafhef$art_obj.length; $art_intuvemkas$art_i < $art_cytfjnsgo$art_c; $art_intuvemkas$art_i++) {
-                var ss = $art_objdafhef$art_obj[$art_intuvemkas$art_i];
+            $expr = '<%for (var $art_igawrnavl$art_i = 0, $art_objdiepzbuao$art_obj = s.subs, $art_cdmcccc$art_c = $art_objdiepzbuao$art_obj.length; $art_igawrnavl$art_i < $art_cdmcccc$art_c; $art_igawrnavl$art_i++) {            var ss = $art_objdiepzbuao$art_obj[$art_igawrnavl$art_i]%>';
+            for (var $art_igawrnavl$art_i = 0, $art_objdiepzbuao$art_obj = s.subs, $art_cdmcccc$art_c = $art_objdiepzbuao$art_obj.length; $art_igawrnavl$art_i < $art_cdmcccc$art_c; $art_igawrnavl$art_i++) {
+                var ss = $art_objdiepzbuao$art_obj[$art_igawrnavl$art_i];
                 $p += '<div mxa="_zs_galleryR:l" class="pl20"><div mxa="_zs_galleryR:m" class="_zs_gallery___test___update_-line _zs_gallery___test___update_-dot">';
                 $line = 33;
                 $art = '!ss.title';
@@ -137,9 +137,9 @@ module.exports = Magix.View.extend({
                     $line = 40;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_iqpfttlmff$art_i = 0, $art_objveptzlhyog$art_obj = ss.subs, $art_csfrjpqrjk$art_c = $art_objveptzlhyog$art_obj.length; $art_iqpfttlmff$art_i < $art_csfrjpqrjk$art_c; $art_iqpfttlmff$art_i++) {                    var sss = $art_objveptzlhyog$art_obj[$art_iqpfttlmff$art_i]%>';
-                    for (var $art_iqpfttlmff$art_i = 0, $art_objveptzlhyog$art_obj = ss.subs, $art_csfrjpqrjk$art_c = $art_objveptzlhyog$art_obj.length; $art_iqpfttlmff$art_i < $art_csfrjpqrjk$art_c; $art_iqpfttlmff$art_i++) {
-                        var sss = $art_objveptzlhyog$art_obj[$art_iqpfttlmff$art_i];
+                    $expr = '<%for (var $art_iygeokub$art_i = 0, $art_objzlozmid$art_obj = ss.subs, $art_crshwoywfr$art_c = $art_objzlozmid$art_obj.length; $art_iygeokub$art_i < $art_crshwoywfr$art_c; $art_iygeokub$art_i++) {                    var sss = $art_objzlozmid$art_obj[$art_iygeokub$art_i]%>';
+                    for (var $art_iygeokub$art_i = 0, $art_objzlozmid$art_obj = ss.subs, $art_crshwoywfr$art_c = $art_objzlozmid$art_obj.length; $art_iygeokub$art_i < $art_crshwoywfr$art_c; $art_iygeokub$art_i++) {
+                        var sss = $art_objzlozmid$art_obj[$art_iygeokub$art_i];
                         $p += '<div mxa="_zs_galleryR:o" class="_zs_gallery___test___update_-line _zs_gallery___test___update_-dot">';
                         $line = 41;
                         $art = '!sss';
@@ -191,6 +191,24 @@ catch (ex) {
 } return $p; },
     render: function () {
         var list = [{
+                ver: '1.2.25',
+                time: '2019-03-29',
+                subs: [{
+                        type: 'add',
+                        subs: [{
+                                title: 'mx-calendar：日历支持配置mx-disabled整体禁用，<a href="#!/calendar/index" class="color-brand">点击查看</a>'
+                            }, {
+                                title: 'mx-dialog：mxModal支持传target指定相对定位节点，默认相对该节点下10px居中对齐，可配置offset设置微量偏移，简化计算，<a href="#!/dialog/index" class="color-brand">点击查看</a>'
+                            }, {
+                                title: 'mx-wanxiang：万象支持配置同一个页面不同参数'
+                            }]
+                    }, {
+                        type: 'bug',
+                        subs: [{
+                                title: 'mx-table：修复边框样式bug'
+                            }]
+                    }]
+            }, {
                 ver: '1.2.24',
                 time: '2019-03-27',
                 subs: [{

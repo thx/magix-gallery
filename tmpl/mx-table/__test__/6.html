@@ -44,20 +44,20 @@
                             {{if item.expand}}
                                 <tr class="thead">
                                     <!-- td个数保持一致，占位符加class="sub-mask" -->
-                                    <td class="sub-mask"></td>
+                                    <td class="sub-mask sub-mask-first"></td>
                                     <td>子表格固定1</td>
                                     <td>子表格固定2</td>
                                     <td>子表格固定3</td>
                                 </tr>
                                 {{each item.subs as sub subIndex}}
                                 <tr>
-                                    <td class="sub-mask {{if item.subs.length==subIndex+1}} sub-mask-last {{/if}}"></td>
+                                    <td class="sub-mask"></td>
                                     <td>{{=sub.fixed1}}</td>
                                     <td>{{=sub.fixed2}}</td>
                                     <td>{{=sub.fixed3}}</td>
                                 </tr>
                                 <tr class="operation-tr">
-                                    <td class="sub-mask {{if item.subs.length==subIndex+1}} sub-mask-last {{/if}}"></td>
+                                    <td class="sub-mask"></td>
                                     <td colspan="3">
                                         <a href="javascript:;" class="btn btn-white btn-small">操作</a>
                                     </td>
@@ -180,20 +180,20 @@
                 &#123;&#123;if item.expand&#125;&#125;
                     &lt;tr class="thead"&gt;
                         &lt;!-- td个数保持一致，占位符加class="sub-mask" --&gt;
-                        &lt;td class="sub-mask"&gt;&lt;/td&gt;
+                        &lt;td class="sub-mask sub-mask-first"&gt;&lt;/td&gt;
                         &lt;td&gt;子表格固定1&lt;/td&gt;
                         &lt;td&gt;子表格固定2&lt;/td&gt;
                         &lt;td&gt;子表格固定3&lt;/td&gt;
                     &lt;/tr&gt;
                     &#123;&#123;each item.subs as sub subIndex&#125;&#125;
                     &lt;tr&gt;
-                        &lt;td class="sub-mask &#123;&#123;if item.subs.length==subIndex+1&#125;&#125; sub-mask-last &#123;&#123;/if&#125;&#125;"&gt;&lt;/td&gt;
+                        &lt;td class="sub-mask"&gt;&lt;/td&gt;
                         &lt;td&gt;&#123;&#123;=sub.fixed1&#125;&#125;&lt;/td&gt;
                         &lt;td&gt;&#123;&#123;=sub.fixed2&#125;&#125;&lt;/td&gt;
                         &lt;td&gt;&#123;&#123;=sub.fixed3&#125;&#125;&lt;/td&gt;
                     &lt;/tr&gt;
                     &lt;tr class="operation-tr"&gt;
-                        &lt;td class="sub-mask &#123;&#123;if item.subs.length==subIndex+1&#125;&#125; sub-mask-last &#123;&#123;/if&#125;&#125;"&gt;&lt;/td&gt;
+                        &lt;td class="sub-mask"&gt;&lt;/td&gt;
                         &lt;td colspan="3"&gt;
                             &lt;a href="javascript:;" class="btn btn-white btn-small"&gt;操作&lt;/a&gt;
                         &lt;/td&gt;

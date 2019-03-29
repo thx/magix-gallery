@@ -45,7 +45,7 @@
                             <tr class="hide"
                                 sub-toggle-parent="toggle_{{=item.id}}">
                                 <!-- td个数保持一致，占位符+className sub-mask -->
-                                <td class="sub-mask {{if item.subs.length==subIndex+1}} sub-mask-last {{/if}} "></td>
+                                <td class="sub-mask {{if subIndex==0}} sub-mask-first {{/if}} "></td>
                                 <td>{{=sub.name}}</td>
                                 <td>{{=sub.link}}</td>
                                 <td>{{=sub.value}}</td>
@@ -54,7 +54,7 @@
                             <tr class="hide operation-tr"
                                 sub-toggle-parent="toggle_{{=item.id}}">
                                 <!-- td个数保持一致，占位符+className sub-mask -->
-                                <td class="sub-mask {{if item.subs.length==subIndex+1}} sub-mask-last {{/if}} "></td>
+                                <td class="sub-mask {{if subIndex==0}} sub-mask-first {{/if}} "></td>
                                 <td colspan="4">
                                     <a href="javascript:;" class="btn btn-white btn-small mr10">操作</a>
                                 </td>
@@ -115,7 +115,7 @@
                 &lt;!-- sub-toggle-parent="指向控制的sub-toggle" --&gt;</pre><pre class="color-brand">
                 &lt;tr class="hide" sub-toggle-parent="toggle_&#123;&#123;=item.id&#125;&#125;"&gt;</pre><pre>
                     &lt;!-- td个数保持一致，占位符+className sub-mask --&gt;
-                    &lt;td class="sub-mask &#123;&#123;if item.subs.length==subIndex+1&#125;&#125; sub-mask-last &#123;&#123;/if&#125;&#125; "&gt;&lt;/td&gt;
+                    &lt;td class="sub-mask &#123;&#123;if subIndex==0&#125;&#125; sub-mask-first &#123;&#123;/if&#125;&#125; "&gt;&lt;/td&gt;
                     &lt;td&gt;&#123;&#123;=sub.name&#125;&#125;&lt;/td&gt;
                     &lt;td&gt;&#123;&#123;=sub.link&#125;&#125;&lt;/td&gt;
                     &lt;td&gt;&#123;&#123;=sub.value&#125;&#125;&lt;/td&gt;
@@ -124,7 +124,7 @@
                 &lt;tr class="hide operation-tr"
                     sub-toggle-parent="toggle_&#123;&#123;=item.id&#125;&#125;"&gt;
                     &lt;!-- td个数保持一致，占位符+className sub-mask --&gt;
-                    &lt;td class="sub-mask &#123;&#123;if item.subs.length==subIndex+1&#125;&#125; sub-mask-last &#123;&#123;/if&#125;&#125; "&gt;&lt;/td&gt;
+                    &lt;td class="sub-mask &#123;&#123;if subIndex==0&#125;&#125; sub-mask-first &#123;&#123;/if&#125;&#125; "&gt;&lt;/td&gt;
                     &lt;td colspan="4"&gt;
                         &lt;a href="javascript:;" class="btn btn-white btn-small mr10"&gt;操作&lt;/a&gt;
                     &lt;/td&gt;

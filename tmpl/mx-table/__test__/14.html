@@ -27,7 +27,7 @@
                 </thead>
                 <tbody>
                     {{each list as item index}}
-                    <tr class="{{= (index+1==list.length) ? 'last-tr' : ''}}">
+                    <tr>
                         <td>
                             <input type="checkbox" class="checkbox" 
                                 linkage-parent="example" 
@@ -83,7 +83,7 @@
         &lt;/thead&gt;
         &lt;tbody&gt;
             &#123;&#123;each list as item index&#125;&#125;
-            &lt;tr class="&#123;&#123;= (index+1==list.length) ? 'last-tr' : ''&#125;&#125;"&gt;
+            &lt;tr&gt;
                 &lt;td&gt;
                     &lt;input type="checkbox" class="checkbox" 
                         linkage-parent="example" 

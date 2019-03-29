@@ -512,7 +512,7 @@ module.exports = Magix.View.extend({
             return;
         }
         var action = action + 'Class';
-        var operationTrClass = 'operation-tr', operationTrOpenClass = 'operation-tr-open', operationNextTrOpenClass = 'next-operation-tr-open';
+        var operationTrClass = 'operation-tr', operationTrOpenClass = 'operation-tr-open';
         var tr = trs.eq(index);
         if (!tr || !tr.length || (tr.css('display') == 'none')) {
             // 1. 数据变化可能导致hover行不存在了
@@ -528,7 +528,6 @@ module.exports = Magix.View.extend({
         var hasNext = next && next.length;
         if (hasNext) {
             next[action](operationTrOpenClass);
-            tr[action](operationNextTrOpenClass);
         }
         var leftTable = me['@{table.left}'];
         if (leftTable) {
@@ -538,7 +537,6 @@ module.exports = Magix.View.extend({
             if (hasNext) {
                 var leftNext = leftTr.next('.' + operationTrClass);
                 leftNext[action](operationTrOpenClass);
-                leftTr[action](operationNextTrOpenClass);
             }
         }
     },

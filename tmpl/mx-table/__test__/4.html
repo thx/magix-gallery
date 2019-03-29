@@ -23,7 +23,7 @@
                     </thead>
                     <tbody>
                         {{for(let j=0;j<10;j++)}}
-                        <tr class="{{= (j==9) ? 'last-tr' : ''}}">
+                        <tr>
                             {{for(let i=0;i<4;i++)}}
                             <td>固定内容{{=i}}</td>
                             {{/for}}
@@ -48,7 +48,7 @@
                     </thead>
                     <tbody>
                         {{for(let j=0;j<10;j++)}}
-                        <tr class="{{= (j==9) ? 'last-tr' : ''}}">
+                        <tr>
                             {{for(let i=0;i<4;i++)}}
                             <td>滚动内容{{=i}}</td>
                             {{/for}}
@@ -83,7 +83,7 @@
         &lt;/thead&gt;
         &lt;tbody&gt;
             &#123;&#123;for(let j=0;j&lt;10;j++)&#125;&#125;
-            &lt;tr class="&#123;&#123;= (j==9) ? 'last-tr' : ''&#125;&#125;"&gt;
+            &lt;tr&gt;
                 &#123;&#123;for(let i=0;i&lt;4;i++)&#125;&#125;
                 &lt;td&gt;固定内容&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                 &#123;&#123;/for&#125;&#125;
@@ -108,7 +108,7 @@
         &lt;/thead&gt;
         &lt;tbody&gt;
             &#123;&#123;for(let j=0;j&lt;10;j++)&#125;&#125;
-            &lt;tr class="&#123;&#123;= (j==9) ? 'last-tr' : ''&#125;&#125;"&gt;
+            &lt;tr&gt;
                 &#123;&#123;for(let i=0;i&lt;4;i++)&#125;&#125;
                 &lt;td&gt;滚动内容&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                 &#123;&#123;/for&#125;&#125;

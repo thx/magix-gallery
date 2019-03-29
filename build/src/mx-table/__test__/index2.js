@@ -3,13 +3,13 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-table/__test__/index2",["magix","$","__test__/subs","mx-title/second","./cal","./7","./6"],(require,exports,module)=>{
+define("mx-table/__test__/index2",["magix","$","__test__/subs","mx-title/second","./cal","./6","./7"],(require,exports,module)=>{
 /*Magix,$*/
 require("__test__/subs");
 require("mx-title/second");
 require("./cal");
-require("./7");
 require("./6");
+require("./7");
 var Magix = require("magix");
 var $ = require("$");
 module.exports = Magix.View.extend({
@@ -31,9 +31,9 @@ module.exports = Magix.View.extend({
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
     $p += '<div mxa="_zs_galleryek:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 4;
-    $art = '@[{\n        name: \'表头实际位置计算\',\n        key: viewId + \'_cal\'\n    }, {\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'普通table\',\n            key: viewId + \'_demo7\',\n        },{\n            name: \'左右分列\',\n            key: viewId + \'_demo6\',\n        }]\n    }]';
+    $art = '@[{\n        name: \'表头实际位置计算\',\n        key: viewId + \'_cal\'\n    }, {\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'左右分列+子表格\',\n            key: viewId + \'_demo6\',\n        }, {\n            name: \'普通table\',\n            key: viewId + \'_demo7\',\n        }]\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'表头实际位置计算\',            key: viewId + \'_cal\'        }, {            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'普通table\',                    key: viewId + \'_demo7\'                }, {                    name: \'左右分列\',                    key: viewId + \'_demo6\'                }]        }]%>', $i($$ref, [{ name: '表头实际位置计算', key: viewId + '_cal' }, { name: '使用示例', key: viewId + '_demo', subs: [{ name: '普通table', key: viewId + '_demo7' }, { name: '左右分列', key: viewId + '_demo6' }] }])) + '"></div><div id="';
+    $p += ($expr = '<%@[{            name: \'表头实际位置计算\',            key: viewId + \'_cal\'        }, {            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'左右分列+子表格\',                    key: viewId + \'_demo6\'                }, {                    name: \'普通table\',                    key: viewId + \'_demo7\'                }]        }]%>', $i($$ref, [{ name: '表头实际位置计算', key: viewId + '_cal' }, { name: '使用示例', key: viewId + '_demo', subs: [{ name: '左右分列+子表格', key: viewId + '_demo6' }, { name: '普通table', key: viewId + '_demo7' }] }])) + '"></div><div id="';
     $line = 19;
     $art = '=viewId';
     ;
@@ -41,15 +41,15 @@ module.exports = Magix.View.extend({
     $line = 24;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryek:a" class="clearfix mb20"><div mx-view="mx-table/__test__/7" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryek:a" class="clearfix mb20"><div mx-view="mx-table/__test__/6" id="';
     $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div><div mx-view="mx-table/__test__/6" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div><div mx-view="mx-table/__test__/7" id="';
     $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

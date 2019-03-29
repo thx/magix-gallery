@@ -11,7 +11,7 @@
                 </thead>
                 <tbody>
                     {{for(let j=0;j<20;j++)}}
-                    <tr class="{{= (j==9) ? 'last-tr' : ''}}">
+                    <tr>
                         {{for(let i=0;i<6;i++)}}
                         <td>内容{{=i}}</td>
                         {{/for}}
@@ -40,7 +40,7 @@
         &lt;/thead&gt;
         &lt;tbody&gt;
             &#123;&#123;for(let j=0;j&lt;20;j++)&#125;&#125;
-            &lt;tr class="&#123;&#123;= (j==9) ? 'last-tr' : ''&#125;&#125;"&gt;
+            &lt;tr&gt;
                 &#123;&#123;for(let i=0;i&lt;6;i++)&#125;&#125;
                 &lt;td&gt;内容&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                 &#123;&#123;/for&#125;&#125;

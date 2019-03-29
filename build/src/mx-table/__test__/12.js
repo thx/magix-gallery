@@ -30,9 +30,9 @@ module.exports = Base.extend({
     $line = 26;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ithkhmxh$art_i = 0, $art_czewuemf$art_c = list.length; $art_ithkhmxh$art_i < $art_czewuemf$art_c; $art_ithkhmxh$art_i++) {    var item = list[$art_ithkhmxh$art_i]%>';
-    for (var $art_ithkhmxh$art_i = 0, $art_czewuemf$art_c = list.length; $art_ithkhmxh$art_i < $art_czewuemf$art_c; $art_ithkhmxh$art_i++) {
-        var item = list[$art_ithkhmxh$art_i];
+    $expr = '<%for (var $art_ifkjtpium$art_i = 0, $art_cjpmdsbdu$art_c = list.length; $art_ifkjtpium$art_i < $art_cjpmdsbdu$art_c; $art_ifkjtpium$art_i++) {    var item = list[$art_ifkjtpium$art_i]%>';
+    for (var $art_ifkjtpium$art_i = 0, $art_cjpmdsbdu$art_c = list.length; $art_ifkjtpium$art_i < $art_cjpmdsbdu$art_c; $art_ifkjtpium$art_i++) {
+        var item = list[$art_ifkjtpium$art_i];
         $p += '<tr><td><span sub-toggle="toggle_';
         $line = 30;
         $art = '=item.id';
@@ -65,21 +65,21 @@ module.exports = Base.extend({
         $line = 43;
         $art = 'each item.subs as sub subIndex';
         ;
-        $expr = '<%for (var subIndex = 0, $art_objlbawcavw$art_obj = item.subs, $art_cowieqwmuq$art_c = $art_objlbawcavw$art_obj.length; subIndex < $art_cowieqwmuq$art_c; subIndex++) {        var sub = $art_objlbawcavw$art_obj[subIndex]%>';
-        for (var subIndex = 0, $art_objlbawcavw$art_obj = item.subs, $art_cowieqwmuq$art_c = $art_objlbawcavw$art_obj.length; subIndex < $art_cowieqwmuq$art_c; subIndex++) {
-            var sub = $art_objlbawcavw$art_obj[subIndex];
+        $expr = '<%for (var subIndex = 0, $art_objahvucd$art_obj = item.subs, $art_cmkbtwgw$art_c = $art_objahvucd$art_obj.length; subIndex < $art_cmkbtwgw$art_c; subIndex++) {        var sub = $art_objahvucd$art_obj[subIndex]%>';
+        for (var subIndex = 0, $art_objahvucd$art_obj = item.subs, $art_cmkbtwgw$art_c = $art_objahvucd$art_obj.length; subIndex < $art_cmkbtwgw$art_c; subIndex++) {
+            var sub = $art_objahvucd$art_obj[subIndex];
             $p += '<tr class="hide" sub-toggle-parent="toggle_';
             $line = 46;
             $art = '=item.id';
             ;
             $p += ($expr = '<%=item.id%>', $e(item.id)) + '"><td class="sub-mask ';
             $line = 48;
-            $art = 'if item.subs.length==subIndex+1';
+            $art = 'if subIndex==0';
             ;
-            $expr = '<%if (item.subs.length == subIndex + 1) {%>';
-            if (item.subs.length == subIndex + 1) {
+            $expr = '<%if (subIndex == 0) {%>';
+            if (subIndex == 0) {
                 ;
-                $p += ' sub-mask-last ';
+                $p += ' sub-mask-first ';
                 $line = 48;
                 $art = '/if';
                 ;
@@ -108,12 +108,12 @@ module.exports = Base.extend({
             ;
             $p += ($expr = '<%=item.id%>', $e(item.id)) + '"><td class="sub-mask ';
             $line = 57;
-            $art = 'if item.subs.length==subIndex+1';
+            $art = 'if subIndex==0';
             ;
-            $expr = '<%if (item.subs.length == subIndex + 1) {%>';
-            if (item.subs.length == subIndex + 1) {
+            $expr = '<%if (subIndex == 0) {%>';
+            if (subIndex == 0) {
                 ;
-                $p += ' sub-mask-last ';
+                $p += ' sub-mask-first ';
                 $line = 57;
                 $art = '/if';
                 ;
@@ -154,7 +154,7 @@ module.exports = Base.extend({
     $line = 84;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1"><pre mxs="_zs_galleryd\\:e">\n&lt;mx-table&gt;\n    &lt;table class="table"&gt;\n        &lt;thead&gt;\n            &lt;tr&gt;\n                &lt;th width="40"&gt;&lt;/th&gt;\n                &lt;th width="200"&gt;name&lt;/th&gt;\n                &lt;th width="200"&gt;link&lt;/th&gt;\n                &lt;th width="200"&gt;value&lt;/th&gt;\n                &lt;th width="200"&gt;test&lt;/th&gt;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;each list as item&#125;&#125;\n                &lt;tr&gt;\n                    &lt;td&gt;\n                        &lt;!-- data-expand="是否需要默认展开" sub-toggle="展开icon的id" --&gt;</pre><pre mxs="_zs_galleryd\\:f" class="color-brand">\n                        &lt;span sub-toggle="toggle_&#123;&#123;=item.id&#125;&#125;" data-expand="&#123;&#123;=item.expand&#125;&#125;"&gt;&lt;/span&gt; </pre><pre mxs="_zs_galleryd\\:g">\n                    &lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.link&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.value&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.test&#125;&#125;&lt;/td&gt;\n                &lt;/tr&gt;\n                &lt;tr class="operation-tr"&gt;  \n                    &lt;td colspan="5"&gt;\n                        &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="change(&#123;id:&#123;&#123;=item.id&#125;&#125;&#125;)"&gt;改变数据后digest&lt;/a&gt;\n                    &lt;/td&gt;\n                &lt;/tr&gt;\n                &#123;&#123;each item.subs as sub subIndex&#125;&#125;\n                &lt;!-- sub-toggle-parent="指向控制的sub-toggle" --&gt;</pre><pre mxs="_zs_galleryd\\:h" class="color-brand">\n                &lt;tr class="hide" sub-toggle-parent="toggle_&#123;&#123;=item.id&#125;&#125;"&gt;</pre><pre mxs="_zs_galleryd\\:i">\n                    &lt;!-- td个数保持一致，占位符+className sub-mask --&gt;\n                    &lt;td class="sub-mask &#123;&#123;if item.subs.length==subIndex+1&#125;&#125; sub-mask-last &#123;&#123;/if&#125;&#125; "&gt;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=sub.name&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=sub.link&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=sub.value&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=sub.test&#125;&#125;&lt;/td&gt;\n                &lt;/tr&gt;\n                &lt;tr class="hide operation-tr"\n                    sub-toggle-parent="toggle_&#123;&#123;=item.id&#125;&#125;"&gt;\n                    &lt;!-- td个数保持一致，占位符+className sub-mask --&gt;\n                    &lt;td class="sub-mask &#123;&#123;if item.subs.length==subIndex+1&#125;&#125; sub-mask-last &#123;&#123;/if&#125;&#125; "&gt;&lt;/td&gt;\n                    &lt;td colspan="4"&gt;\n                        &lt;a href="javascript:;" class="btn btn-white btn-small mr10"&gt;操作&lt;/a&gt;\n                    &lt;/td&gt;\n                &lt;/tr&gt;\n                &#123;&#123;/each&#125;&#125;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n&lt;/mx-table&gt;\n&lt;div class="table-pager-wrapper"&gt;\n    &lt;mx-pagination \n        total="&#123;&#123;=count&#125;&#125;" \n        size="5" \n        page="&#123;&#123;=page&#125;&#125;"\n        mx-change="changePager()"/&gt;\n&lt;/div&gt;</pre></div></div><div mxa="_zs_galleryd\\:j" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd\\:j" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1"><pre mxs="_zs_galleryd\\:e">\n&lt;mx-table&gt;\n    &lt;table class="table"&gt;\n        &lt;thead&gt;\n            &lt;tr&gt;\n                &lt;th width="40"&gt;&lt;/th&gt;\n                &lt;th width="200"&gt;name&lt;/th&gt;\n                &lt;th width="200"&gt;link&lt;/th&gt;\n                &lt;th width="200"&gt;value&lt;/th&gt;\n                &lt;th width="200"&gt;test&lt;/th&gt;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;each list as item&#125;&#125;\n                &lt;tr&gt;\n                    &lt;td&gt;\n                        &lt;!-- data-expand="是否需要默认展开" sub-toggle="展开icon的id" --&gt;</pre><pre mxs="_zs_galleryd\\:f" class="color-brand">\n                        &lt;span sub-toggle="toggle_&#123;&#123;=item.id&#125;&#125;" data-expand="&#123;&#123;=item.expand&#125;&#125;"&gt;&lt;/span&gt; </pre><pre mxs="_zs_galleryd\\:g">\n                    &lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.link&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.value&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=item.test&#125;&#125;&lt;/td&gt;\n                &lt;/tr&gt;\n                &lt;tr class="operation-tr"&gt;  \n                    &lt;td colspan="5"&gt;\n                        &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="change(&#123;id:&#123;&#123;=item.id&#125;&#125;&#125;)"&gt;改变数据后digest&lt;/a&gt;\n                    &lt;/td&gt;\n                &lt;/tr&gt;\n                &#123;&#123;each item.subs as sub subIndex&#125;&#125;\n                &lt;!-- sub-toggle-parent="指向控制的sub-toggle" --&gt;</pre><pre mxs="_zs_galleryd\\:h" class="color-brand">\n                &lt;tr class="hide" sub-toggle-parent="toggle_&#123;&#123;=item.id&#125;&#125;"&gt;</pre><pre mxs="_zs_galleryd\\:i">\n                    &lt;!-- td个数保持一致，占位符+className sub-mask --&gt;\n                    &lt;td class="sub-mask &#123;&#123;if subIndex==0&#125;&#125; sub-mask-first &#123;&#123;/if&#125;&#125; "&gt;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=sub.name&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=sub.link&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=sub.value&#125;&#125;&lt;/td&gt;\n                    &lt;td&gt;&#123;&#123;=sub.test&#125;&#125;&lt;/td&gt;\n                &lt;/tr&gt;\n                &lt;tr class="hide operation-tr"\n                    sub-toggle-parent="toggle_&#123;&#123;=item.id&#125;&#125;"&gt;\n                    &lt;!-- td个数保持一致，占位符+className sub-mask --&gt;\n                    &lt;td class="sub-mask &#123;&#123;if subIndex==0&#125;&#125; sub-mask-first &#123;&#123;/if&#125;&#125; "&gt;&lt;/td&gt;\n                    &lt;td colspan="4"&gt;\n                        &lt;a href="javascript:;" class="btn btn-white btn-small mr10"&gt;操作&lt;/a&gt;\n                    &lt;/td&gt;\n                &lt;/tr&gt;\n                &#123;&#123;/each&#125;&#125;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n&lt;/mx-table&gt;\n&lt;div class="table-pager-wrapper"&gt;\n    &lt;mx-pagination \n        total="&#123;&#123;=count&#125;&#125;" \n        size="5" \n        page="&#123;&#123;=page&#125;&#125;"\n        mx-change="changePager()"/&gt;\n&lt;/div&gt;</pre></div></div><div mxa="_zs_galleryd\\:j" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd\\:j" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 148;
     $art = '=viewId';
     ;

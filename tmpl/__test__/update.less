@@ -1,28 +1,24 @@
-@import '../mx-style/_vars';
-
 @title-height: 24px;
-
-.update{
+.update {
     position: relative;
-
-    &::before{
+    &::before {
         content: '';
         position: absolute;
         top: @title-height / 2;
         left: 0;
         width: 0;
         height: 100%;
-        border-left: 2px solid @color-border;
+        border-left: 2px solid var(--color-border);
     }
-
-    &:last-child{
-        &::before{
+    &:last-child {
+        &::before {
             display: none;
         }
     }
 }
+
 .tag,
-.vi{
+.vi {
     display: inline-block;
     padding: 0 10px;
     height: @title-height - 4;
@@ -34,13 +30,14 @@
     overflow: hidden;
     vertical-align: middle;
 }
-.tag{
+
+.tag {
     margin: 0 3px;
 }
-.ver{
-    position: relative;
 
-    &::before{
+.ver {
+    position: relative;
+    &::before {
         content: '';
         position: absolute;
         top: 50%;
@@ -48,26 +45,25 @@
         width: 10px;
         height: 10px;
         margin-top: -5px;
-        border: 2px solid @color-border;
+        border: 2px solid var(--color-border);
         background-color: #fff;
         border-radius: 50%;
     }
-    .vt{
+    .vt {
         display: inline-block;
         font-size: 18px;
         overflow: hidden;
         vertical-align: middle;
     }
-
-    .vi{
+    .vi {
         margin: 0 10px;
     }
 }
-.dot{
+
+.dot {
     position: relative;
     padding-left: 10px;
-
-    &::before{
+    &::before {
         content: '';
         position: absolute;
         top: 50%;
@@ -79,11 +75,12 @@
         border-radius: 50%;
     }
 }
-.line{
+
+.line {
     line-height: 28px;
 }
 
-.line-icon{
+.line-icon {
     position: relative;
     top: 2px;
     margin-right: 5px;
