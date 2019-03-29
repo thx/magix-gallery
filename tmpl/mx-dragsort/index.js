@@ -1,6 +1,6 @@
 let Magix = require('magix');
 let DD = require('../mx-dragdrop/index');
-let Runner = require('../mx-runner/index');
+let Runner = require('../mx-util/runner');
 let $ = require('$');
 Magix.applyStyle('@index.less');
 let BarId = Magix.guid('dbar_');

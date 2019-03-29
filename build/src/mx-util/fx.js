@@ -3,11 +3,11 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-runner/fx",["magix","./index"],(require,exports,module)=>{
+define("mx-util/fx",["magix","./runner"],(require,exports,module)=>{
 /*Magix,Runner*/
 
 var Magix = require("magix");
-var Runner = require("./index");
+var Runner = require("./runner");
 var DALG = function (t) { return t; };
 var Now = Date.now || (function () {
     return new Date().getTime();

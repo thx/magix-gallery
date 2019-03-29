@@ -3,7 +3,7 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-color/util",[],(require,exports,module)=>{
+define("mx-util/color",[],(require,exports,module)=>{
 /**/
 
 module.exports = {

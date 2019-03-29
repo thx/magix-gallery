@@ -1,5 +1,4 @@
 /* @dependent: ./index.less */
-@import '_animation';
 
 /* 常用字号 */
 .fontsize-loop(@n, @i: 12) when (@i <=@n) {
@@ -19,6 +18,7 @@
 }
 .line-height-loop(36);
 
+/*常用宽度*/
 .width-loop(@n, @i: 60) when (@i <=@n) {
     .w@{i} {
         width: unit(@i, px);
@@ -27,6 +27,7 @@
 }
 .width-loop(500);
 
+/*常用高度*/
 .height-loop(@n, @i: 50) when (@i <=@n) {
     .h@{i} {
         height: unit(@i, px);
@@ -35,6 +36,7 @@
 }
 .height-loop(320);
 
+/*常用最小宽度*/
 .min-width-loop(@n, @i: 10) when (@i <=@n) {
     .min-width-@{i} {
         min-width: unit(@i, px);
@@ -43,6 +45,7 @@
 }
 .min-width-loop(320);
 
+/*常用最大宽度*/
 .max-width-loop(@n, @i: 100) when (@i <=@n) {
     .max-width-@{i} {
         max-width: unit(@i, px);
@@ -51,6 +54,16 @@
 }
 .max-width-loop(1000);
 
+/*常用最小高度*/
+.min-height-loop(@n, @i: 10) when (@i <=@n) {
+    .min-height-@{i} {
+        min-height: unit(@i, px);
+    }
+    .min-height-loop(@n, (@i + 10));
+}
+.min-height-loop(320);
+
+/*常用最大高度*/
 .max-height-loop(@n, @i: 100) when (@i <=@n) {
     .max-height-@{i} {
         max-height: unit(@i, px);
@@ -154,7 +167,8 @@
     }
 }
 
-.border-radius {
+.border-radius,
+.radius {
     border-radius: @border-radius;
 }
 
@@ -240,10 +254,6 @@
 
 .bg {
     background-color: @color-bg;
-}
-
-.radius {
-    border-radius: @border-radius;
 }
 
 .fl {
@@ -360,6 +370,13 @@
     overflow-x: hidden;
 }
 
+/** 
+ * 空状态
+ * <div class="empty-white">
+ *    <div><i class="mc-iconfont no-data">&#xe685;</i></div>
+ *    <div>提示</div>
+ * </div>
+ */
 .empty-white,
 .empty-area {
     position: relative;
@@ -383,29 +400,60 @@
         margin-left: -45%;
     }
 }
-
 .empty-area {
     background-color: @color-bg;
 }
 
+/*一级二级标题=*/
+.page-header {
+    position: relative;
+    margin-bottom: 20px;
+    .page-tip {
+        color: #999;
+    }
+    .header-filters {
+        position: absolute;
+        right: 0;
+        bottom: 12px;
+    }
+}
+.first-header,
+.second-header {
+    margin-right: 16px;
+    line-height: 32px;
+}
+.first-header {
+    font-size: 20px;
+}
+.second-header {
+    font-size: 16px;
+}
+
+/*表格底部翻页wrapper*/
+.pager-wrapper {
+    padding: 16px 24px;
+}
+.table-pager-wrapper {
+    padding: 16px 24px;
+    background-color: @color-bg;
+}
+
+/*提示信息*/
 .tip-content,
 .notice-content,
 .error-content {
     padding: 10px 20px;
 }
-
 .error-content {
     background-color: tint(@color-red, 80%);
     color: @color-red;
     text-align: center;
 }
-
 .notice-content {
     background-color: tint(@color-warn, 90%);
     color: @color-orange;
     text-align: center;
 }
-
 .tip-content {
     position: relative;
     background-color: @color-bg;
@@ -441,6 +489,7 @@
     }
 }
 
+/*打标*/
 .grey-solid-icon,
 .brand-solid-icon,
 .grey-hollow-icon,
@@ -459,7 +508,6 @@
     border-width: 1px;
     border-style: solid;
 }
-
 /*品牌色实心打标icon*/
 .brand-solid-icon,
 .brand-solid-icon:hover {
@@ -468,7 +516,6 @@
     border-color: @color-brand;
     color: #fff;
 }
-
 /*灰色实心打标icon*/
 .grey-solid-icon,
 .grey-solid-icon:hover {
@@ -477,7 +524,6 @@
     border-color: #ccc;
     color: #fff;
 }
-
 /*品牌色空心打标*/
 .brand-hollow-icon,
 .brand-hollow-icon:hover {
@@ -503,35 +549,5 @@
     
     &:hover{
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.08);
-    }
-}
-
-/*动画*/
-/*上下浮动*/
-.mx-anim-suspension {
-    display: inline-block;
-    .animation(suspension 1.4s ease-out infinite, forwards);
-}
-
-/*三点loading动画*/
-.mx-anim-loading {
-    .loading-dot;
-    position: relative;
-    margin: 0 8px;
-    &:after {
-        content: '';
-        .loading-dot;
-        position: absolute;
-        left: -8px;
-        top: 0;
-        .animation(loading-dots 0.6s linear 0s infinite);
-    }
-    &:before {
-        content: '';
-        .loading-dot;
-        position: absolute;
-        left: 8px;
-        top: 0;
-        .animation(loading-dots-rev 0.6s linear 0s infinite);
     }
 }

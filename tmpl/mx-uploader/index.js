@@ -1,6 +1,6 @@
 let Magix = require('magix');
 let $ = require('$');
-let Runner = require('../mx-runner/index');
+let Runner = require('../mx-util/runner');
 Magix.applyStyle('@index.less');
 let html = '@index.html';
 let Uploader = Magix.Base.extend({

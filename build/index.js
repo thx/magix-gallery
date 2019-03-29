@@ -36,6 +36,7 @@ let coms = [
     'grid',
     'gtip',
     'runner',
+    'util',
     'time',
     'form',
     'table',

@@ -114,8 +114,10 @@ module.exports = Magix.View.extend({
             return;
         }
         node.addClass(cc);
-        node.append('<span class="mx-anim-loading @index.less:submit-loading"></span>');
-
+        node.append(`<span class="@index.less:submit-loading">
+            <span class="@index.less:loading-dot"></span>
+        </span>`);
+        
         let me = this;
         let data = me.updater.get();
         let cntId = data.cntId;

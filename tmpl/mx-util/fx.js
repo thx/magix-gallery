@@ -1,5 +1,5 @@
 let Magix = require('magix');
-let Runner = require('./index');
+let Runner = require('./runner');
 let DALG = t => t;
 let Now = Date.now || (() => {
     return new Date().getTime();

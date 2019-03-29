@@ -1,0 +1,19 @@
+/*上下浮动动画*/
+@keyframes suspension {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(0, -15%);
+    }
+    75% {
+        transform: translate(0, 15%);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+.mx-anim-suspension {
+    display: inline-block;
+    animation: suspension 1.4s ease-out infinite;
+}

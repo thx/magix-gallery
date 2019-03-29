@@ -1,6 +1,6 @@
 let Magix = require('magix');
 let $ = require('$');
-let Util = require('@../mx-color/util');
+let Util = require('@../mx-util/color');
 Magix.applyStyle('@notice.less');
 
 let ClassNames = {

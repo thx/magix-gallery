@@ -3,7 +3,7 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-runner/index",["magix"],(require,exports,module)=>{
+define("mx-util/runner",["magix"],(require,exports,module)=>{
 /*Magix*/
 
 var Magix = require("magix");

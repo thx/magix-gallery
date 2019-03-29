@@ -3,12 +3,12 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-uploader/index",["magix","$","../mx-runner/index"],(require,exports,module)=>{
+define("mx-uploader/index",["magix","$","../mx-util/runner"],(require,exports,module)=>{
 /*Magix,$,Runner*/
 
 var Magix = require("magix");
 var $ = require("$");
-var Runner = require("../mx-runner/index");
+var Runner = require("../mx-util/runner");
 Magix.applyStyle("_zs_gallery_mx-uploader_index_","[mx-view*=\"mx-uploader/index\"] {\n  position: relative;\n  overflow: hidden;\n}\n._zs_gallery_mx-uploader_index_-file {\n  position: absolute;\n  left: 0;\n  top: 0;\n  bottom: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  cursor: pointer;\n  font-size: 100px;\n  filter: alpha(opacity=0);\n}\n._zs_gallery_mx-uploader_index_-cnt {\n  position: absolute;\n  left: -999999px;\n}\n");
 var html = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
