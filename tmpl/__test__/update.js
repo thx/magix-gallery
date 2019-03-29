@@ -6,6 +6,24 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.25',
+            time: '2019-03-29',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-calendar：日历支持配置mx-disabled整体禁用，<a href="#!/calendar/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dialog：mxModal支持传target指定相对定位节点，默认相对该节点下10px居中对齐，可配置offset设置微量偏移，简化计算，<a href="#!/dialog/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-wanxiang：万象支持配置同一个页面不同参数'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-table：修复边框样式bug'
+                }]
+            }]
+        }, {
             ver: '1.2.24',
             time: '2019-03-27',
             subs: [{
