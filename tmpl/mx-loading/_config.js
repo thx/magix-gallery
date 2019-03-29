@@ -10,7 +10,7 @@ let ProcessAttr = (attrs, style, ignores, className) => {
                 attrStr += ` class="${className} ${v}"`;
                 classAdded = true;
             } else if ((p == 'style') && style) {
-                attrStr += ` style="${style}${v}"`;
+                attrStr += ` style="${style};${v}"`;
                 styleAdded = true;
             } else {
                 if (v === true) v = '';

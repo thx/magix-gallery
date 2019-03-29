@@ -37,9 +37,9 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'each checkboxes as c';
     ;
-    $expr = '<%for (var $art_iqtanu$art_i = 0, $art_cwmqrktunzg$art_c = checkboxes.length; $art_iqtanu$art_i < $art_cwmqrktunzg$art_c; $art_iqtanu$art_i++) {    var c = checkboxes[$art_iqtanu$art_i]%>';
-    for (var $art_iqtanu$art_i = 0, $art_cwmqrktunzg$art_c = checkboxes.length; $art_iqtanu$art_i < $art_cwmqrktunzg$art_c; $art_iqtanu$art_i++) {
-        var c = checkboxes[$art_iqtanu$art_i];
+    $expr = '<%for (var $art_ijrrrlcwr$art_i = 0, $art_conyzmpzi$art_c = checkboxes.length; $art_ijrrrlcwr$art_i < $art_conyzmpzi$art_c; $art_ijrrrlcwr$art_i++) {    var c = checkboxes[$art_ijrrrlcwr$art_i]%>';
+    for (var $art_ijrrrlcwr$art_i = 0, $art_conyzmpzi$art_c = checkboxes.length; $art_ijrrrlcwr$art_i < $art_conyzmpzi$art_c; $art_ijrrrlcwr$art_i++) {
+        var c = checkboxes[$art_ijrrrlcwr$art_i];
         $p += '<label mxv mxa="_zs_galleryg:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 10;
         $art = ':selected.checkboxes';
@@ -63,9 +63,9 @@ module.exports = Base.extend({
     $line = 19;
     $art = 'each radioes as r';
     ;
-    $expr = '<%for (var $art_idmvcgyd$art_i = 0, $art_cucecwtn$art_c = radioes.length; $art_idmvcgyd$art_i < $art_cucecwtn$art_c; $art_idmvcgyd$art_i++) {    var r = radioes[$art_idmvcgyd$art_i]%>';
-    for (var $art_idmvcgyd$art_i = 0, $art_cucecwtn$art_c = radioes.length; $art_idmvcgyd$art_i < $art_cucecwtn$art_c; $art_idmvcgyd$art_i++) {
-        var r = radioes[$art_idmvcgyd$art_i];
+    $expr = '<%for (var $art_isonmtbld$art_i = 0, $art_czfufuuzqpg$art_c = radioes.length; $art_isonmtbld$art_i < $art_czfufuuzqpg$art_c; $art_isonmtbld$art_i++) {    var r = radioes[$art_isonmtbld$art_i]%>';
+    for (var $art_isonmtbld$art_i = 0, $art_czfufuuzqpg$art_c = radioes.length; $art_isonmtbld$art_i < $art_czfufuuzqpg$art_c; $art_isonmtbld$art_i++) {
+        var r = radioes[$art_isonmtbld$art_i];
         $p += '<label mxv mxa="_zs_galleryg:f" class="mr30"><input mxe="' + $viewId + '_1" mxc="[';
         $line = 24;
         $art = ':selected.radio';

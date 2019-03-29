@@ -3,9 +3,8 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/__test__/4",["magix","__test__/example","$","../notice","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+define("mx-effects/__test__/4",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
 /*Magix,Base,$*/
-require("../notice");
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
@@ -24,7 +23,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybA:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybA:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb20" mx-view="mx-effects/notice?type=error&content=%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA"></div><div class="mb20" mx-view="mx-effects/notice?type=error&content=%E9%94%99%E8%AF%AF%E5%B1%85%E4%B8%AD%E6%8F%90%E7%A4%BA&textAlign=center"></div><div class="mb20" mx-view="mx-effects/notice?type=error&border=true&textAlign=center&content=%E5%B8%A6%E8%BE%B9%E6%A1%86%E7%9A%84%E9%94%99%E8%AF%AF%E5%B1%85%E4%B8%AD%E6%8F%90%E7%A4%BA"></div></div><div mxa="_zs_gallerybA:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybA:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerybA:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybA:_" class="_zs_gallery___test___layout_-eg-content"><div class="mx-notice mx-notice-error mb20" style="text-align: left"><div class="mx-notice-inner mx-notice-inner-with"><i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>错误提示</div></div><div text-align="center" class="mx-notice mx-notice-error mb20" style="text-align: center"><div class="mx-notice-inner mx-notice-inner-with"><i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>错误居中提示</div></div><div text-align="center" class="mx-notice mx-notice-border mx-notice-error mb20" style="text-align: center"><div class="mx-notice-inner mx-notice-inner-with"><i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>带边框的错误居中提示</div></div></div><div mxa="_zs_gallerybA:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybA:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 9;
     $art = '=viewId';
     ;

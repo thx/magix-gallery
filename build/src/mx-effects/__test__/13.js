@@ -3,9 +3,8 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/__test__/13",["magix","__test__/example","$","../star","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+define("mx-effects/__test__/13",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
 /*Magix,Base,$*/
-require("../star");
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
@@ -24,15 +23,47 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybk:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybk:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb10"><div mx-view="mx-effects/star?num=2.5&icon=%3Ci%20class%3D%27mc-iconfont%27%3E%EE%98%B5%3C%2Fi%3E&color=%23fc2a2a"></div></div><div class="mb10"><div mx-view="mx-effects/star?num=4&icon=%3Ci%20class%3D%27mc-iconfont%27%3E%EE%98%8C%3C%2Fi%3E&color=rgb%2881%2C%20163%2C%200%29"></div></div></div><div mxa="_zs_gallerybk:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybk:a" class="_zs_gallery___test___layout_-eg-title">自定义icon + 颜色</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerybk:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerybk:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_gallerybk:b" class="mb10"><div mxa="_zs_gallerybk:c" class="mx-star"><div mxa="_zs_gallerybk:d" class="mx-star-bg">';
+    $expr = '<%for (var i = 0; i < 5; i++) {%>';
+    for (var i = 0; i < 5; i++) {
+        ;
+        $p += '<span mxs="_zs_gallerybk:_" class="mx-star-item"><i class="mc-iconfont">&#xe635;</i></span>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxa="_zs_gallerybk:e" class="mx-star-on" style="width: 50%;"><div mxa="_zs_gallerybk:f" class="mx-star-inner">';
+    $expr = '<%for (var i = 0; i < 5; i++) {%>';
+    for (var i = 0; i < 5; i++) {
+        ;
+        $p += '<span mxs="_zs_gallerybk:a" class="mx-star-item" style="color:#fc2a2a"><i class="mc-iconfont">&#xe635;</i></span>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div></div></div><div mxa="_zs_gallerybk:g" class="mb10"><div mxa="_zs_gallerybk:h" class="mx-star"><div mxa="_zs_gallerybk:i" class="mx-star-bg">';
+    $expr = '<%for (var i = 0; i < 5; i++) {%>';
+    for (var i = 0; i < 5; i++) {
+        ;
+        $p += '<span mxs="_zs_gallerybk:b" class="mx-star-item"><i class="mc-iconfont">&#xe60c;</i></span>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxa="_zs_gallerybk:j" class="mx-star-on" style="width: 80%;"><div mxa="_zs_gallerybk:k" class="mx-star-inner">';
+    $expr = '<%for (var i = 0; i < 5; i++) {%>';
+    for (var i = 0; i < 5; i++) {
+        ;
+        $p += '<span mxs="_zs_gallerybk:c" class="mx-star-item" style="color:rgb(81, 163, 0)"><i class="mc-iconfont">&#xe60c;</i></span>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div></div></div></div><div mxa="_zs_gallerybk:l" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybk:d" class="_zs_gallery___test___layout_-eg-title">自定义icon + 颜色</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 16;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybk:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybk:m" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 18;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybk:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybk:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 21;
     $art = '=viewId';
     ;

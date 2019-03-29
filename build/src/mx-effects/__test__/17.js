@@ -3,9 +3,9 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/__test__/17",["magix","__test__/example","$","../icon","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+define("mx-effects/__test__/17",["magix","__test__/example","$","mx-popover/index","mx-copy/index","__test__/hl"],(require,exports,module)=>{
 /*Magix,Base,$*/
-require("../icon");
+require("mx-popover/index");
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybo:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybo:_" class="_zs_gallery___test___layout_-eg-content"><span class="mr10" mx-view="mx-effects/icon?type=highlight&content=%E6%B5%8B%E8%AF%95&tip=%E6%8F%90%E7%A4%BA%E4%BF%A1%E6%81%AF"></span><span class="mr10" mx-view="mx-effects/icon?mode=hollow&type=highlight&content=%E6%B5%8B%E8%AF%95&tip=%E6%8F%90%E7%A4%BA%E4%BF%A1%E6%81%AF"></span></div><div mxa="_zs_gallerybo:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybo:a" class="_zs_gallery___test___layout_-eg-title">带提示的打标</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerybo:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybo:_" class="_zs_gallery___test___layout_-eg-content"><span class="mx-icon-solid mx-icon-highlight mr10" mx-view="mx-popover/index?content=%E6%8F%90%E7%A4%BA%E4%BF%A1%E6%81%AF"><span class="text">测试</span></span><span class="mx-icon-hollow mx-icon-highlight mr10" mx-view="mx-popover/index?content=%E6%8F%90%E7%A4%BA%E4%BF%A1%E6%81%AF"><span class="text">测试</span></span></div><div mxa="_zs_gallerybo:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybo:a" class="_zs_gallery___test___layout_-eg-title">带提示的打标</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 15;
     $art = '=viewId';
     ;

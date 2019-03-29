@@ -3,9 +3,8 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/__test__/16",["magix","__test__/example","$","../icon","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+define("mx-effects/__test__/16",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
 /*Magix,Base,$*/
-require("../icon");
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
@@ -24,7 +23,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybn:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybn:_" class="_zs_gallery___test___layout_-eg-content"><span class="mr10" mx-view="mx-effects/icon?color=%2351a300&content=%E6%B5%8B%E8%AF%95"></span><span class="mr10" mx-view="mx-effects/icon?mode=hollow&color=%2351a300&content=%E6%B5%8B%E8%AF%95"></span></div><div mxa="_zs_gallerybn:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybn:a" class="_zs_gallery___test___layout_-eg-title">自定义颜色</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerybn:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybn:_" class="_zs_gallery___test___layout_-eg-content"><span class="mx-icon-solid mx-icon-common mr10" style="background-color:#51a300"><span class="text">测试</span></span><span class="mx-icon-hollow mx-icon-common mr10" style="color:#51a300;border: 1px solid #51a300"><span class="text">测试</span></span></div><div mxa="_zs_gallerybn:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybn:a" class="_zs_gallery___test___layout_-eg-title">自定义颜色</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 13;
     $art = '=viewId';
     ;

@@ -3,9 +3,8 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/__test__/3",["magix","__test__/example","$","../notice","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+define("mx-effects/__test__/3",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
 /*Magix,Base,$*/
-require("../notice");
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
@@ -24,7 +23,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybz:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybz:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb20" mx-view="mx-effects/notice?content=%E6%99%AE%E9%80%9A%E6%8F%90%E7%A4%BA"></div><div class="mb20" mx-view="mx-effects/notice?content=%E6%97%A0icon%E6%8F%90%E7%A4%BA&icon=false"></div><div class="mb20" mx-view="mx-effects/notice?content=%E6%99%AE%E9%80%9A%E5%B1%85%E4%B8%AD%E6%8F%90%E7%A4%BA&textAlign=center"></div><div class="mb20" mx-view="mx-effects/notice?border=true&content=%E5%B8%A6%E8%BE%B9%E6%A1%86%E7%9A%84%E6%99%AE%E9%80%9A%E6%8F%90%E7%A4%BA"></div><div class="mb20" mx-view="mx-effects/notice?border=true&content=%E5%B8%A6%E8%BE%B9%E6%A1%86%E7%9A%84%E6%97%A0icon%E6%8F%90%E7%A4%BA&icon=false"></div></div><div mxa="_zs_gallerybz:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybz:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerybz:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybz:_" class="_zs_gallery___test___layout_-eg-content"><div class="mx-notice mx-notice-common mb20" style="text-align: left"><div class="mx-notice-inner mx-notice-inner-with"><i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>普通提示</div></div><div class="mx-notice mx-notice-common mb20" style="text-align: left"><div class="mx-notice-inner">无icon提示</div></div><div text-align="center" class="mx-notice mx-notice-common mb20" style="text-align: center"><div class="mx-notice-inner mx-notice-inner-with"><i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>普通居中提示</div></div><div class="mx-notice mx-notice-border mx-notice-common mb20" style="text-align: left"><div class="mx-notice-inner mx-notice-inner-with"><i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>带边框的普通提示</div></div><div class="mx-notice mx-notice-border mx-notice-common mb20" style="text-align: left"><div class="mx-notice-inner">带边框的无icon提示</div></div></div><div mxa="_zs_gallerybz:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybz:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 11;
     $art = '=viewId';
     ;

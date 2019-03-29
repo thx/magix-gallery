@@ -3,9 +3,8 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/__test__/11",["magix","__test__/example","$","../star","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+define("mx-effects/__test__/11",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
 /*Magix,Base,$*/
-require("../star");
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
@@ -24,11 +23,91 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybi:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybi:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb10"><div mx-view="mx-effects/star?num=-1"></div></div><div class="mb10"><div mx-view="mx-effects/star?num=1.4"></div></div><div class="mb10"><div mx-view="mx-effects/star?num=2.5"></div></div><div class="mb10"><div mx-view="mx-effects/star?num=4"></div></div><div class="mb10"><div mx-view="mx-effects/star?num=5.5"></div></div></div><div mxa="_zs_gallerybi:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybi:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerybi:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerybi:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_gallerybi:b" class="mb10"><div mxa="_zs_gallerybi:c" class="mx-star"><div mxa="_zs_gallerybi:d" class="mx-star-bg">';
+    $expr = '<%for (var i = 0; i < 5; i++) {%>';
+    for (var i = 0; i < 5; i++) {
+        ;
+        $p += '<span mxs="_zs_gallerybi:_" class="mx-star-item"><i class="mc-iconfont">&#xe60f;</i></span>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxa="_zs_gallerybi:e" class="mx-star-on" style="width: 0%;"><div mxa="_zs_gallerybi:f" class="mx-star-inner mx-star-brand">';
+    $expr = '<%for (var i = 0; i < 5; i++) {%>';
+    for (var i = 0; i < 5; i++) {
+        ;
+        $p += '<span mxs="_zs_gallerybi:_" class="mx-star-item"><i class="mc-iconfont">&#xe60f;</i></span>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div></div></div><div mxa="_zs_gallerybi:g" class="mb10"><div mxa="_zs_gallerybi:h" class="mx-star"><div mxa="_zs_gallerybi:i" class="mx-star-bg">';
+    $expr = '<%for (var i = 0; i < 5; i++) {%>';
+    for (var i = 0; i < 5; i++) {
+        ;
+        $p += '<span mxs="_zs_gallerybi:_" class="mx-star-item"><i class="mc-iconfont">&#xe60f;</i></span>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxa="_zs_gallerybi:j" class="mx-star-on" style="width: 30%;"><div mxa="_zs_gallerybi:k" class="mx-star-inner mx-star-brand">';
+    $expr = '<%for (var i = 0; i < 5; i++) {%>';
+    for (var i = 0; i < 5; i++) {
+        ;
+        $p += '<span mxs="_zs_gallerybi:_" class="mx-star-item"><i class="mc-iconfont">&#xe60f;</i></span>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div></div></div><div mxa="_zs_gallerybi:l" class="mb10"><div mxa="_zs_gallerybi:m" class="mx-star"><div mxa="_zs_gallerybi:n" class="mx-star-bg">';
+    $expr = '<%for (var i = 0; i < 5; i++) {%>';
+    for (var i = 0; i < 5; i++) {
+        ;
+        $p += '<span mxs="_zs_gallerybi:_" class="mx-star-item"><i class="mc-iconfont">&#xe60f;</i></span>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxa="_zs_gallerybi:o" class="mx-star-on" style="width: 50%;"><div mxa="_zs_gallerybi:p" class="mx-star-inner mx-star-brand">';
+    $expr = '<%for (var i = 0; i < 5; i++) {%>';
+    for (var i = 0; i < 5; i++) {
+        ;
+        $p += '<span mxs="_zs_gallerybi:_" class="mx-star-item"><i class="mc-iconfont">&#xe60f;</i></span>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div></div></div><div mxa="_zs_gallerybi:q" class="mb10"><div mxa="_zs_gallerybi:r" class="mx-star"><div mxa="_zs_gallerybi:s" class="mx-star-bg">';
+    $expr = '<%for (var i = 0; i < 5; i++) {%>';
+    for (var i = 0; i < 5; i++) {
+        ;
+        $p += '<span mxs="_zs_gallerybi:_" class="mx-star-item"><i class="mc-iconfont">&#xe60f;</i></span>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxa="_zs_gallerybi:t" class="mx-star-on" style="width: 80%;"><div mxa="_zs_gallerybi:u" class="mx-star-inner mx-star-brand">';
+    $expr = '<%for (var i = 0; i < 5; i++) {%>';
+    for (var i = 0; i < 5; i++) {
+        ;
+        $p += '<span mxs="_zs_gallerybi:_" class="mx-star-item"><i class="mc-iconfont">&#xe60f;</i></span>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div></div></div><div mxa="_zs_gallerybi:v" class="mb10"><div mxa="_zs_gallerybi:w" class="mx-star"><div mxa="_zs_gallerybi:x" class="mx-star-bg">';
+    $expr = '<%for (var i = 0; i < 5; i++) {%>';
+    for (var i = 0; i < 5; i++) {
+        ;
+        $p += '<span mxs="_zs_gallerybi:_" class="mx-star-item"><i class="mc-iconfont">&#xe60f;</i></span>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxa="_zs_gallerybi:y" class="mx-star-on" style="width: 100%;"><div mxa="_zs_gallerybi:z" class="mx-star-inner mx-star-brand">';
+    $expr = '<%for (var i = 0; i < 5; i++) {%>';
+    for (var i = 0; i < 5; i++) {
+        ;
+        $p += '<span mxs="_zs_gallerybi:_" class="mx-star-item"><i class="mc-iconfont">&#xe60f;</i></span>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div></div></div></div><div mxa="_zs_gallerybi:A" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybi:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 21;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybi:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybi:B" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 23;
     $art = '!text1';
     ;

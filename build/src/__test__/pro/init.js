@@ -3,9 +3,8 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("__test__/pro/init",["magix","$","mx-effects/notice","../subs","mx-title/second","./init-steps","./init-dir"],(require,exports,module)=>{
+define("__test__/pro/init",["magix","$","../subs","mx-title/second","./init-steps","./init-dir"],(require,exports,module)=>{
 /*Magix,$*/
-require("mx-effects/notice");
 require("../subs");
 require("mx-title/second");
 require("./init-steps");
@@ -30,11 +29,11 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', contents = $$.contents, viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div class="mb20 mr20" mx-view="mx-effects/notice?border=true&icon=false&type=highlight&content=';
+    $p += '<div mxa="_zs_galleryv:_" class="mx-notice mx-notice-border mx-notice-highlight mb20 mr20" style="text-align: left"><div mxa="_zs_galleryv:a" class="mx-notice-inner">';
     $line = 5;
     $art = '=contents';
     ;
-    $p += ($expr = '<%!$eu(contents)%>', $eu(contents)) + '"></div><div mxa="_zs_galleryv:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += ($expr = '<%=contents%>', $e(contents)) + '</div></div><div mxa="_zs_galleryv:b" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 8;
     $art = '@[{\n        name: \'效果预览\',\n        key: viewId + \'_preview\'\n    }, {\n        name: \'创建步骤\',\n        key: viewId + \'_steps\'\n    }, {\n        name: \'目录结构说明\',\n        key: viewId + \'_dir\'\n    }]';
     ;

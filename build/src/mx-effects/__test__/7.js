@@ -3,9 +3,8 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/__test__/7",["magix","__test__/example","$","../notice","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+define("mx-effects/__test__/7",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
 /*Magix,Base,$*/
-require("../notice");
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
@@ -24,7 +23,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybD:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybD:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb20" mx-view="mx-effects/notice?type=highlight&content=%E9%87%8D%E8%A6%81%E4%BF%A1%E6%81%AF%E5%BC%BA%E8%B0%83"></div><div class="mb20" mx-view="mx-effects/notice?type=highlight&border=true&content=%E5%B8%A6%E8%BE%B9%E6%A1%86%E9%87%8D%E8%A6%81%E4%BF%A1%E6%81%AF%E5%BC%BA%E8%B0%83"></div></div><div mxa="_zs_gallerybD:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybD:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerybD:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybD:_" class="_zs_gallery___test___layout_-eg-content"><div class="mx-notice mx-notice-highlight mb20" style="text-align: left"><div class="mx-notice-inner mx-notice-inner-with"><i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>重要信息强调</div></div><div class="mx-notice mx-notice-border mx-notice-highlight mb20" style="text-align: left"><div class="mx-notice-inner mx-notice-inner-with"><i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>带边框重要信息强调</div></div></div><div mxa="_zs_gallerybD:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybD:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 13;
     $art = '=viewId';
     ;
