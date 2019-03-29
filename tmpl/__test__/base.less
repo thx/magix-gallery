@@ -1,84 +1,73 @@
-@import '../mx-style/_vars';
 @search-height: 52px;
 @base-left-width: 220px;
 @base-left-nav-height: 38px;
-
-.base-header{
+.base-header {
     position: relative;
     height: @search-height;
     padding-top: 10px;
     box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);
     background-color: #fff;
-
-    .base-logo{
+    .base-logo {
         position: relative;
         float: left;
         width: @base-left-width;
         padding-left: 24px;
-
-        .logo-img{
+        .logo-img {
             position: absolute;
             top: 50%;
             width: 38px;
             height: 32px;
             margin-top: -16px;
-            background-image: linear-gradient(to right, @btn-brand, @btn-brand-gradient);
-
-            img{
+            background-image: linear-gradient(to right, var(--btn-brand), var(--btn-brand-gradient));
+            img {
                 width: 100%;
                 height: 100%;
             }
         }
-
-        .logo-name{
+        .logo-name {
             padding-left: 48px;
             line-height: 32px;
             font-size: 18px;
         }
     }
-
-    .header-line{
+    .header-line {
         position: absolute;
         top: 50%;
         left: @base-left-width;
         width: 0;
         height: 20px;
-        border-left: 1px solid @color-border;
+        border-left: 1px solid var(--color-border);
         margin-top: -10px;
     }
-
-    .base-search{
+    .base-search {
         float: left;
         padding-left: 10px;
-
-        input{
+        input {
             border: 0 none;
         }
     }
-
-    .header-tabs{
+    .header-tabs {
         position: relative;
         float: right;
         margin-right: 140px;
         line-height: 32px;
-        .header-tab{
+        .header-tab {
             float: left;
             margin: 0 10px;
             padding: 0 20px 8px 20px;
             font-size: 14px;
             border-bottom: 2px solid transparent;
             cursor: pointer;
-            transition: all @duration;
-
-            &.cur{
-                color: @color-brand;
-                border-bottom: 2px solid @color-brand;
+            transition: all var(--duration);
+            &.cur {
+                color: var(--color-brand);
+                border-bottom: 2px solid var(--color-brand);
             }
         }
     }
 }
 
-.base{
+.base {
     position: relative;
     margin-top: 18px;
     padding-left: @base-left-width;
@@ -91,24 +80,22 @@
     z-index: 19;
     width: @base-left-width;
     padding-bottom: 10px;
-    border-right: 1px solid @color-border;
+    border-right: 1px solid var(--color-border);
     overflow-y: auto;
-    
     .nav,
-    .title{
+    .title {
         display: block;
         position: relative;
         padding-left: 20px;
         line-height: @base-left-nav-height;
         cursor: pointer;
     }
-    .nav{
+    .nav {
         height: 0;
         border-left: 4px solid transparent;
-        transition: background-color @duration, height @duration, color @duration;
+        transition: background-color var(--duration), height var(--duration), color var(--duration);
         overflow: hidden;
-
-        .sub-icon{
+        .sub-icon {
             position: absolute;
             top: 0;
             left: 30px;
@@ -117,92 +104,87 @@
             font-size: 18px;
             color: #999;
         }
-        &:hover{
-            color: @color-brand;
-            .sub-icon{
-                color: @color-brand;
+        &:hover {
+            color: var(--color-brand);
+            .sub-icon {
+                color: var(--color-brand);
             }
         }
-        &.cur{
-            color: @color-brand;
-            border-left: 4px solid @color-brand;
-            background-color: @color-brand-opacity;
-
-            .sub-icon{
-                color: @color-brand;
+        &.cur {
+            color: var(--color-brand);
+            border-left: 4px solid var(--color-brand);
+            background-color: var(--color-brand)-opacity;
+            .sub-icon {
+                color: var(--color-brand);
             }
         }
-        &.sub{
+        &.sub {
             padding-left: 52px;
         }
-        &.expand{
+        &.expand {
             height: @base-left-nav-height;
         }
     }
-    .title{
+    .title {
         height: @base-left-nav-height;
         cursor: pointer;
-        .title-icon{
+        .title-icon {
             position: absolute;
             top: 10px;
             right: 10px;
             font-size: 24px;
-            transition: transform @duration;
+            transition: transform var(--duration);
             color: #999;
         }
-        &:hover{
-            .title-icon{
-                color: @color-brand;
+        &:hover {
+            .title-icon {
+                color: var(--color-brand);
             }
         }
-        &.expand{
-            .title-icon{
+        &.expand {
+            .title-icon {
                 top: 10px;
                 transform: rotate(180deg);
             }
         }
     }
-
-    &.fixed{
+    &.fixed {
         position: fixed;
     }
 }
 
-.base-main{
-    .content{
+.base-main {
+    .content {
         padding: 20px 0 40px 20px;
     }
-
-    .contexts{
+    .contexts {
         margin-right: 20px;
         margin-left: 20px;
         padding: 20px 0 40px 0;
-        border-top: 1px solid @color-border;
-
+        border-top: 1px solid var(--color-border);
         .prev,
-        .next{
+        .next {
             position: relative;
             height: 22px;
             line-height: 22px;
-
-            .context-icon{
+            .context-icon {
                 position: absolute;
                 top: 0;
                 line-height: 22px;
             }
         }
-        .prev{
+        .prev {
             float: left;
             padding-left: 20px;
-            .context-icon{
+            .context-icon {
                 left: 0;
                 transform: rotate(-90deg);
             }
         }
-        .next{
+        .next {
             float: right;
             padding-right: 20px;
-            .context-icon{
+            .context-icon {
                 right: 0;
                 transform: rotate(90deg);
             }
@@ -211,53 +193,52 @@
 }
 
 @fix-size: 36px;
-.fixes{
+.fixes {
     position: fixed;
     right: 0;
     bottom: 60px;
     z-index: 20;
-    border-bottom: 1px solid @color-border;
-    .fix{
+    border-bottom: 1px solid var(--color-border);
+    .fix {
         position: relative;
         display: block;
         width: @fix-size;
         height: @fix-size;
         .fix-tip,
-        .fix-icon{
+        .fix-icon {
             position: absolute;
             top: 0;
             left: 0;
             height: @fix-size;
             line-height: @fix-size;
-            transition: all @duration;
+            transition: all var(--duration);
             background-color: #fff;
         }
-        .fix-tip{
+        .fix-tip {
             z-index: 21;
             width: 70px;
             color: #fff;
             text-align: right;
         }
-        .fix-icon{
+        .fix-icon {
             z-index: 22;
             width: @fix-size;
             border-width: 1px 0 0 1px;
-            border-color: @color-border;
+            border-color: var(--color-border);
             border-style: solid;
             font-size: 22px;
             color: #ccc;
             text-align: center;
         }
-
-        &:hover{
+        &:hover {
             opacity: .95;
-            .fix-icon{
-                background-color: @color-brand;
-                border-color: @color-brand;
+            .fix-icon {
+                background-color: var(--color-brand);
+                border-color: var(--color-brand);
                 color: #fff;
             }
-            .fix-tip{
-                background-color: @color-brand;
+            .fix-tip {
+                background-color: var(--color-brand);
                 left: -70px;
             }
         }
@@ -268,22 +249,20 @@
     0% {
         opacity: 1;
     }
-
     50% {
         opacity: 0.1;
     }
-
     100% {
         opacity: 1;
     }
 }
+
 .breath-light {
     position: absolute;
     top: 8px;
     right: 10px;
     width: 16px;
     height: 16px;
-
     &::after {
         content: ' ';
         position: absolute;
@@ -293,10 +272,9 @@
         width: 100%;
         height: 100%;
         border-radius: 50%;
-        background-color: @color-brand;
+        background-color: var(--color-brand);
         opacity: .4;
     }
-
     &::before {
         content: ' ';
         position: absolute;
@@ -308,9 +286,7 @@
         border-radius: 50%;
         margin-top: -3px;
         margin-left: -3px;
-        background-color: @color-brand;
+        background-color: var(--color-brand);
         animation: fade-in 1s linear infinite;
     }
-
 }
-

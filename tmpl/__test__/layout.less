@@ -1,5 +1,3 @@
-@import '../mx-style/_vars';
-
 .third1{
     float: left;
     width: 34%;
@@ -21,17 +19,17 @@
     width: 50%;
 }
 .half-right{
-    border-left: 1px solid @color-border;
+    border-left: 1px solid var(--color-border);
 }
 .half-left{
-    border-right: 1px solid @color-border;
+    border-right: 1px solid var(--color-border);
 }
 .example{
     margin-right: 20px;
     margin-bottom: 20px;
-    border: 1px solid @color-border;
-    border-radius: @border-radius;
-    transition: border-color @duration;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    transition: border-color var(--duration);
     box-shadow: 0 none;
 
     &.example-highlight{
@@ -56,7 +54,7 @@
     .eg-desc{
         position: relative;
         padding: 25px 0 25px 20px;
-        border-top: 1px solid @color-border;
+        border-top: 1px solid var(--color-border);
 
         .desc-oper{
             opacity: 0;
@@ -64,7 +62,7 @@
             top: 6px;
             right: 0;
             z-index: 10;
-            transition: opacity @duration;
+            transition: opacity var(--duration);
 
             .desc-icon{
                 width: 36px;
@@ -85,14 +83,14 @@
                 color: #fff;
                 text-align: center;
                 background-color: rgba(33, 33, 33, .72);
-                border-radius: @border-radius;
+                border-radius: var(--border-radius);
                 line-height: 30px;
 
                 .desc-tip-icon{
                     float: left;
                     margin-left: 5px;
                     height: 30px;
-                    color: @color-green;
+                    color: var(--color-green);
                     line-height: 30px;
                 }
             }
@@ -119,7 +117,7 @@
 
 
 .desc-table {
-    border: 1px solid @color-border;
+    border: 1px solid var(--color-border);
 
     tbody {
         tr {

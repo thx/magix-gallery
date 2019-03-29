@@ -35,8 +35,8 @@ module.exports = Base.extend({
     $line = 24;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_ctruroc$art_c = list.length; index < $art_ctruroc$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_ctruroc$art_c = list.length; index < $art_ctruroc$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_ceuglpeyblt$art_c = list.length; index < $art_ceuglpeyblt$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_ceuglpeyblt$art_c = list.length; index < $art_ceuglpeyblt$art_c; index++) {
         var item = list[index];
         $p += '<tr mxv><td mxv><input type="checkbox" class="checkbox" linkage-parent="example" value="';
         $line = 29;
