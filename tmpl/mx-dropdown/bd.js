@@ -2,7 +2,6 @@ let Magix = require('magix');
 let $ = require('$');
 let Monitor = require('../mx-util/monitor');
 let I18n = require('../mx-medusa/util');
-Magix.applyStyle('@index.less');
 
 module.exports = Magix.View.extend({
     tmpl: '@bd.html',
@@ -102,9 +101,8 @@ module.exports = Magix.View.extend({
             }
         }
 
-        // 是否禁用
-        let disabledNode = $('#' + me.id + '[mx-disabled]')
-        me['@{ui.disabled}'] = disabledNode && (disabledNode.length > 0);
+        // 支持mx-disabled或者disabled
+        me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
         // 相关滚动容器不是window时，支持自定义指定滚动容器
         me['@{scroll.wrapper}'] = ops.scrollWrapper;
@@ -215,14 +213,14 @@ module.exports = Magix.View.extend({
     '@{init}'() {
         let me = this;
 
-        let toggleNode = $('#' + me.id + ' .@index.less:dropdown-toggle');
+        let toggleNode = $('#toggle_' + me.id);
         let posWidth = toggleNode.outerWidth(),
             vId = me.id;
 
         let minWidth = posWidth,
             maxWidth = posWidth * 2;
 
-        let ddNode = `<div class="@index.less:dropdown-menu-wrapper @index.less:bottom" id="dd_bd_${vId}"
+        let ddNode = `<div class="mx-output mx-output-bottom" id="dd_bd_${vId}"
                 style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`;
 
         $(document.body).append(ddNode);
@@ -278,7 +276,7 @@ module.exports = Magix.View.extend({
 
         // 每次show时都重新定位
         let ddNode = me['@{setPos}']();
-        ddNode.addClass('@index.less:open');
+        ddNode.addClass('mx-output-open');
         Monitor['@{add}'](me);
     },
     '@{delay.hide}'() {
@@ -306,7 +304,7 @@ module.exports = Magix.View.extend({
         })
 
         let ddNode = $('#dd_bd_' + me.id);
-        ddNode.removeClass('@index.less:open');
+        ddNode.removeClass('mx-output-open');
         Monitor['@{remove}'](me);
     },
     bindScroll() {

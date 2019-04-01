@@ -8,7 +8,7 @@ define("mx-main/__test__/hor-inner",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-main___test___hor-inner_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-main___test___hor-inner_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main___test___hor-inner_-line {\n  height: 20px;\n  margin-top: 10px;\n  background-color: #e6e6e6;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-main___test___hor-inner_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main___test___hor-inner_-line {\n  height: 20px;\n  margin-top: 10px;\n  background-color: #e6e6e6;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -22,7 +22,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', info = $$.info; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycL:_" class="fontsize-16">第';
+    $p += '<div mxa="_zs_gallerycG:_" class="fontsize-16">第';
     $line = 1;
     $art = '=info.index';
     ;
@@ -30,7 +30,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=info.label';
     ;
-    $p += ($expr = '<%=info.label%>', $e(info.label)) + '</div><div mxs="_zs_gallerycL:_" class="_zs_gallery_mx-main___test___hor-inner_-line" style="width: 200px;"></div><div mxs="_zs_gallerycL:a" class="_zs_gallery_mx-main___test___hor-inner_-line" style="width: 400px;"></div><div mxs="_zs_gallerycL:a" class="_zs_gallery_mx-main___test___hor-inner_-line" style="width: 400px;"></div><div mxs="_zs_gallerycL:a" class="_zs_gallery_mx-main___test___hor-inner_-line" style="width: 400px;"></div>';
+    $p += ($expr = '<%=info.label%>', $e(info.label)) + '</div><div mxs="_zs_gallerycG:_" class="_zs_gallery_mx-main___test___hor-inner_-line" style="width: 200px;"></div><div mxs="_zs_gallerycG:a" class="_zs_gallery_mx-main___test___hor-inner_-line" style="width: 400px;"></div><div mxs="_zs_gallerycG:a" class="_zs_gallery_mx-main___test___hor-inner_-line" style="width: 400px;"></div><div mxs="_zs_gallerycG:a" class="_zs_gallery_mx-main___test___hor-inner_-line" style="width: 400px;"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -1,4 +1,3 @@
-@import "../mx-style/_vars";
 @area-height: 46px;
 @expand-size: 20px;
 .area-search-box,
@@ -20,10 +19,10 @@
         height: @area-height;
         .name {
             padding: 5px;
-            border-radius: @border-radius;
-            transition: all @duration;
+            border-radius: var(--border-radius);
+            transition: all var(--duration);
             &.highlight {
-                background-color: @color-brand-light;
+                background-color: var(--color-brand-light);
             }
         }
         .province-label {
@@ -55,9 +54,8 @@
             z-index: 3;
             width: 240px;
             padding: 10px;
-            border-radius: @border-radius;
+            border-radius: var(--border-radius);
             background-color: #fff;
-            .mx-shadow();
             .city {
                 float: left;
                 width: 48%;
@@ -103,7 +101,7 @@
 }
 
 .tabs {
-    border-bottom: 1px solid @color-border;
+    border-bottom: 1px solid var(--color-border);
     .tab {
         float: left;
         margin-bottom: -1px;
@@ -122,12 +120,12 @@
             padding-right: 25px;
         }
         &:hover {
-            color: @color-brand;
-            transition: color @duration;
+            color: var(--color-brand);
+            transition: color var(--duration);
         }
         &.cur {
-            color: @color-brand;
-            border-bottom: 1px solid @color-brand;
+            color: var(--color-brand);
+            border-bottom: 1px solid var(--color-brand);
         }
     }
 }

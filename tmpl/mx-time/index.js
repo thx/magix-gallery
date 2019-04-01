@@ -1,7 +1,6 @@
 let Magix = require('magix');
 let $ = require('$');
 let Monitor = require('../mx-util/monitor');
-Magix.applyStyle('@index.less');
 let format = t => {
     if (t < 10) return '0' + t;
     return t;
@@ -12,9 +11,9 @@ module.exports = Magix.View.extend({
         let me = this;
         me['@{owner.node}'] = $('#' + me.id);
 
-        let disabledNode = $('#' + me.id + '[mx-disabled]')
-        me['@{ui.disabled}'] = disabledNode && (disabledNode.length > 0);
-       
+        // 支持mx-disabled或者disabled
+        let disabled = (extra.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
+
         Monitor['@{setup}']();
         me.on('destroy', () => {
             Monitor['@{remove}'](me);
@@ -31,7 +30,7 @@ module.exports = Magix.View.extend({
         
         me.updater.set({
             viewId: me.id,
-            disabled: me['@{ui.disabled}'],
+            disabled,
             time,
             types: extra.types,
             expand: false //列表是否展开

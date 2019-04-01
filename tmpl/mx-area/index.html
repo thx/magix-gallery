@@ -49,7 +49,7 @@
                             {{if province.hasCity}}
                             <i class="mc-iconfont province-expand" mx-click="@{showCity}({province:{{=province.id}}})">&#xe692;</i>
                             {{/if}}
-                            <div style="display: {{=(province.hasCity && (province.id == showProvinceId)) ? 'block' : 'none'}};" class="cities clearfix">
+                            <div style="display: {{=(province.hasCity && (province.id == showProvinceId)) ? 'block' : 'none'}};" class="cities mx-shadow clearfix">
                                 {{each province.cities as city}}
                                 <label for="{{=viewId}}_city_{{=city.id}}" class="city">
                                     <input mx-change="@{changeOne}({typeIndex:{{=typeIndex}},province:{{=province.id}},city:{{=city.id}}})" id="{{=viewId}}_city_{{=city.id}}" type="checkbox" {{if city.checked}} checked="true" {{/if}} />

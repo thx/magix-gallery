@@ -1,16 +1,16 @@
-<div class="dropdown-toggle <%if (expand){%> open <%}%>">
-    <span class="dropdown-toggle-label">
+<div id="toggle_{{=viewId}}" class="mx-trigger <%if (expand){%> mx-trigger-open <%}%> <%if (small){%> mx-trigger-small <%}%>">
+    <span class="mx-trigger-label">
         <%if(name){%><span class="color-9"><%=name%>：</span><%}%>
         <%=selectedText%>
     </span>
-    <span class="mc-iconfont arrow">&#xe692;</span>
+    <span class="mc-iconfont mx-trigger-arrow">&#xe692;</span>
 </div>
 
-<div class="dropdown-menu-wrapper <%=placementClass%> <%if (expand){%> open <%}%>">
+<div id="menu_{{=viewId}}" class="mx-output <%=placementClass%> <%if (expand){%> mx-output-open <%}%>">
 <%if(rList){%>
     <%if(searchbox){%>
-    <div class="search-wrapper">
-        <div class="search-box dropdown-search-box">
+    <div class="mx-output-search">
+        <div class="search-box" style="width: 100%;">
             <i class="mc-iconfont search-icon">&#xe651;</i>
             <input type="text" class="input search-input" 
                 placeholder="<%=text.search%>"
@@ -24,18 +24,19 @@
     </div>
     <%}%>
     <%if(list.length){%>
-    <ul class="dropdown-menu" id="list_<%=viewId%>" style="max-height:{{=height}}px;">
+    <ul class="mx-output-list" id="list_<%=viewId%>" style="max-height:{{=height}}px;">
         <%let text,value%>
         <%for(let item of list){%>
             <%text=item[textKey];value=item[valueKey]%>
             <%if(item&&item.group){%>
-                <li class="dropdown-header ellipsis" title="<%=item[textKey]%>">
+                <li class="mx-output-header" title="<%=item[textKey]%>">
                     <%=item[textKey]%>
                 </li>
             <%}else{%>
-                <li title="<%=(item.tip?item.tip:text)%>" class="dropdown-item">
+                <li class="mx-output-item" title="<%=(item.tip?item.tip:text)%>">
                     <%let equal=(value+'')===(selected+'')%>
-                    <span class="item-link ellipsis<%if(equal){%> active<%}%>"
+                    <span class="mx-output-link <%if(equal){%> mx-output-link-active <%}%>"
+                        data-active="<%=equal%>"
                         mx-click="@{select}({item:'<%@item%>'})" <%if(spm){%> data-spm-click="<%=spm%>" <%}%>>
                         <%=text%>
                     </span>

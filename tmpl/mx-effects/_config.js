@@ -118,7 +118,7 @@ module.exports = {
                 tip: 1,
                 color: 1
             }, classNames)} >
-                <span class="text">${text}</span>
+                <span class="mx-icon-text">${text}</span>
             </span>`;
         } else {
             return `<mx-popover ${ProcessAttr(attrsKV, styles, {
@@ -129,7 +129,7 @@ module.exports = {
                 color: 1
             }, classNames)} 
                 content="${tip}">
-                <span class="text">${text}</span>
+                <span class="mx-icon-text">${text}</span>
             </mx-popover>`;
         }
     },

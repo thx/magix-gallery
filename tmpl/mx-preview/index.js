@@ -286,7 +286,7 @@ module.exports = Magix.View.extend({
 
             let floatingLayer = $('#pic_preview_' + that.id);
             if (!floatingLayer.length) {
-                floatingLayer = $('<div id="pic_preview_' + that.id + '" class="@index.less:pic-preview"></div>').appendTo('body');
+                floatingLayer = $('<div id="pic_preview_' + that.id + '" class="@index.less:pic-preview mx-shadow"></div>').appendTo('body');
             }
             floatingLayer.empty().append(inner);
             floatingLayer.css({

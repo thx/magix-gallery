@@ -8,7 +8,7 @@ define("mx-main/ver",["magix","mx-main/steps"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var Base = require("mx-main/steps");
-Magix.applyStyle("_zs_gallery_mx-main_ver_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-main_ver_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main_ver_-step {\n  position: relative;\n  margin-bottom: 20px;\n  padding-left: 52px;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-line {\n  position: absolute;\n  top: 47px;\n  left: 21px;\n  z-index: 2;\n  width: 0;\n  height: 100%;\n  margin-left: -1px;\n  border-left: 2px solid #e6e6e6;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-circle {\n  position: absolute;\n  top: 5px;\n  left: 0;\n  z-index: 3;\n  width: 42px;\n  height: 42px;\n  border-radius: 50%;\n  border-width: 2px;\n  border-style: solid;\n  border-color: #e6e6e6;\n  text-align: center;\n  background-color: #fafafa;\n  cursor: pointer;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-circle > * {\n  line-height: 38px;\n  color: #ccc;\n  font-weight: bold;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-content {\n  border-radius: 4px;\n  background-color: #fff;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-content ._zs_gallery_mx-main_ver_-title {\n  padding: 5px 20px;\n  line-height: 42px;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-content ._zs_gallery_mx-main_ver_-inner {\n  padding: 20px;\n  border-top: 1px solid #e6e6e6;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-main_ver_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main_ver_-step {\n  position: relative;\n  margin-bottom: 20px;\n  padding-left: 52px;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-line {\n  position: absolute;\n  top: 47px;\n  left: 21px;\n  z-index: 2;\n  width: 0;\n  height: 100%;\n  margin-left: -1px;\n  border-left: 2px solid #e6e6e6;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-circle {\n  position: absolute;\n  top: 5px;\n  left: 0;\n  z-index: 3;\n  width: 42px;\n  height: 42px;\n  border-radius: 50%;\n  border-width: 2px;\n  border-style: solid;\n  border-color: #e6e6e6;\n  text-align: center;\n  background-color: #fafafa;\n  cursor: pointer;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-circle > * {\n  line-height: 38px;\n  color: #ccc;\n  font-weight: bold;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-content {\n  border-radius: 4px;\n  background-color: #fff;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-content ._zs_gallery_mx-main_ver_-title {\n  padding: 5px 20px;\n  line-height: 42px;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-content ._zs_gallery_mx-main_ver_-inner {\n  padding: 20px;\n  border-top: 1px solid #e6e6e6;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -29,10 +29,10 @@ module.exports = Base.extend({
     $line = 1;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_irbejjte$art_i = 0, $art_cjifqodsc$art_c = stepInfos.length; $art_irbejjte$art_i < $art_cjifqodsc$art_c; $art_irbejjte$art_i++) {    var step = stepInfos[$art_irbejjte$art_i]%>';
-    for (var $art_irbejjte$art_i = 0, $art_cjifqodsc$art_c = stepInfos.length; $art_irbejjte$art_i < $art_cjifqodsc$art_c; $art_irbejjte$art_i++) {
-        var step = stepInfos[$art_irbejjte$art_i];
-        $p += '<div mxv mxa="_zs_galleryc1:_" class="clearfix _zs_gallery_mx-main_ver_-step"><div mxa="_zs_galleryc1:a" class="_zs_gallery_mx-main_ver_-circle">';
+    $expr = '<%for (var $art_itqcmotxd$art_i = 0, $art_cavgqmeh$art_c = stepInfos.length; $art_itqcmotxd$art_i < $art_cavgqmeh$art_c; $art_itqcmotxd$art_i++) {    var step = stepInfos[$art_itqcmotxd$art_i]%>';
+    for (var $art_itqcmotxd$art_i = 0, $art_cavgqmeh$art_c = stepInfos.length; $art_itqcmotxd$art_i < $art_cavgqmeh$art_c; $art_itqcmotxd$art_i++) {
+        var step = stepInfos[$art_itqcmotxd$art_i];
+        $p += '<div mxv mxa="_zs_gallerycW:_" class="clearfix _zs_gallery_mx-main_ver_-step"><div mxa="_zs_gallerycW:a" class="_zs_gallery_mx-main_ver_-circle">';
         $line = 3;
         $art = '!step.icon';
         ;
@@ -43,14 +43,14 @@ module.exports = Base.extend({
         $expr = '<%if (step.index < stepInfos.length) {%>';
         if (step.index < stepInfos.length) {
             ;
-            $p += '<div mxs="_zs_galleryc1:_" class="_zs_gallery_mx-main_ver_-line"></div>';
+            $p += '<div mxs="_zs_gallerycW:_" class="_zs_gallery_mx-main_ver_-line"></div>';
             $line = 6;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += '<div mxv mxa="_zs_galleryc1:b" class="_zs_gallery_mx-main_ver_-content"><div mxa="_zs_galleryc1:c" class="_zs_gallery_mx-main_ver_-title"><span mxa="_zs_galleryc1:d" class="fontsize-16">';
+        $p += '<div mxv mxa="_zs_gallerycW:b" class="_zs_gallery_mx-main_ver_-content"><div mxa="_zs_gallerycW:c" class="_zs_gallery_mx-main_ver_-title"><span mxa="_zs_gallerycW:d" class="fontsize-16">';
         $line = 9;
         $art = '=step.label';
         ;
@@ -79,7 +79,7 @@ module.exports = Base.extend({
         $expr = '<%if (step.current) {%>';
         if (step.current) {
             ;
-            $p += '<div mxv mxa="_zs_galleryc1:e" class="_zs_gallery_mx-main_ver_-inner"><div mxv="curStepInfo" mx-view="';
+            $p += '<div mxv mxa="_zs_gallerycW:e" class="_zs_gallery_mx-main_ver_-inner"><div mxv="curStepInfo" mx-view="';
             $line = 17;
             $art = '=curStepInfo.view';
             ;
@@ -91,14 +91,14 @@ module.exports = Base.extend({
             $line = 18;
             $art = '=viewId';
             ;
-            $p += ($expr = '<%=viewId%>', $e(viewId)) + '_cur_content"><div mxs="_zs_galleryc1:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div><div mxa="_zs_galleryc1:f" class="pt20">';
+            $p += ($expr = '<%=viewId%>', $e(viewId)) + '_cur_content"><div mxs="_zs_gallerycW:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div><div mxa="_zs_gallerycW:f" class="pt20">';
             $line = 22;
             $art = 'if curStepInfo.prevTip';
             ;
             $expr = '<%if (curStepInfo.prevTip) {%>';
             if (curStepInfo.prevTip) {
                 ;
-                $p += '<a mxa="_zs_galleryc1:g" href="javascript:;" class="btn min-width-100 mr15" mx-click="' + $viewId + 'prev()">';
+                $p += '<a mxa="_zs_gallerycW:g" href="javascript:;" class="btn min-width-100 mr15" mx-click="' + $viewId + 'prev()">';
                 $line = 24;
                 $art = '=curStepInfo.prevTip';
                 ;
@@ -116,7 +116,7 @@ module.exports = Base.extend({
             $expr = '<%if (curStepInfo.nextTip) {%>';
             if (curStepInfo.nextTip) {
                 ;
-                $p += '<a mxa="_zs_galleryc1:h" href="javascript:;" class="btn min-width-100 btn-brand" mx-click="' + $viewId + 'next()">';
+                $p += '<a mxa="_zs_gallerycW:h" href="javascript:;" class="btn min-width-100 btn-brand" mx-click="' + $viewId + 'next()">';
                 $line = 29;
                 $art = '=curStepInfo.nextTip';
                 ;

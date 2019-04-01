@@ -1,5 +1,3 @@
-@import "../mx-style/_vars";
-
 .header {
     position: relative;
     height: 88px;
@@ -10,7 +8,7 @@
     }
     .text-h-brand:hover {
         opacity: 1;
-        color: @color-brand;
+        color: var(--color-brand);
     }
     .others {
         height: 50px;
@@ -29,9 +27,7 @@
                 right: 0;
                 font-size: 20px;
                 color: #fff;
-                transition: -webkit-transform @duration ease-out;
-                transition: transform @duration ease-out;
-                transition: transform @duration ease-out, -webkit-transform @duration ease-out;
+                transition: transform var(--duration) ease-out;
             }
             .links {
                 position: absolute;
@@ -42,9 +38,9 @@
                 height: 0;
                 margin-left: -80px;
                 overflow: hidden;
-                transition: height @duration ease-out;
+                transition: height var(--duration) ease-out;
                 background-color: #f7f7f7;
-                border-radius: @border-radius;
+                border-radius: var(--border-radius);
                 dl {
                     padding: 10px 20px;
                     dt {
@@ -68,9 +64,6 @@
                 .arrow {
                     transform: rotate(180deg);
                 }
-                .links{
-                    .mx-shadow();
-                }
             }
         }
     }
@@ -80,7 +73,7 @@
         width: 100%;
         top: 50px;
         left: 0;
-        transition: background-color @duration ease-out;
+        transition: background-color var(--duration) ease-out;
         .front-inner {
             height: 76px;
             margin: 0 auto;
@@ -104,7 +97,7 @@
                 font-size: 14px;
 
                 .cur{
-                    color: @color-brand;
+                    color: var(--color-brand);
                 }
             }
         }

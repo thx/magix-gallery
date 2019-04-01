@@ -10,8 +10,7 @@ var Magix = require("magix");
 var $ = require("$");
 var I18n = require("../mx-medusa/util");
 var Monitor = require("../mx-util/monitor");
-Magix.applyStyle("_zs_gallery_mx-taginput_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-taginput_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt {\n  position: relative;\n  height: auto;\n  border-style: solid;\n  border-width: 1px;\n  border-color: #e6e6e6;\n  border-radius: 4px;\n  padding: 2px 6px;\n  cursor: text;\n  transition: border-color 0.25s;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt:hover {\n  border-color: #ccc;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-placeholder,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-trigger,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item {\n  height: 22px;\n  line-height: 22px;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-placeholder {\n  position: absolute;\n  left: 10px;\n  top: 50%;\n  margin-top: -11px;\n  color: #999;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-trigger {\n  float: left;\n  margin-top: 2px;\n  margin-bottom: 2px;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item {\n  float: left;\n  position: relative;\n  max-width: 220px;\n  padding-right: 26px;\n  padding-left: 6px;\n  margin-right: 4px;\n  background-color: #eee;\n  border-radius: 4px;\n  cursor: pointer;\n  white-space: nowrap;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item ._zs_gallery_mx-taginput_index_-item-delete {\n  position: absolute;\n  top: 0;\n  right: 0;\n  height: 100%;\n  width: 20px;\n  line-height: 22px;\n  text-align: center;\n  font-size: 12px;\n  font-weight: bold;\n  color: #ccc;\n  transition: color 0.25s;\n  border-left: 1px solid #fff;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item ._zs_gallery_mx-taginput_index_-item-delete:hover {\n  color: #999;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-trigger {\n  padding: 0;\n  border: none;\n  outline: none;\n  background: transparent;\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-ipt {\n  cursor: not-allowed;\n  background-color: #fafafa;\n  border-color: #e6e6e6;\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-ipt:hover {\n  border-color: #e6e6e6;\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-item {\n  cursor: not-allowed;\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-item ._zs_gallery_mx-taginput_index_-item-delete:hover {\n  color: #ccc;\n}\n");
-Magix.applyStyle("_zs_gallery_mx-suggest_suggest_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-suggest_suggest_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n/* 动画结束停在最后一帧 */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-suggest_suggest_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n/**\n* 渐显上拉动画\n*/\n@keyframes _zs_gallery_mx-suggest_suggest_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@keyframes _zs_gallery_mx-suggest_suggest_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu {\n  display: none;\n  position: absolute;\n  top: 100%;\n  z-index: 99;\n  min-width: 100%;\n  max-height: 300px;\n  margin-top: 10px;\n  padding: 8px 10px;\n  border-radius: 4px;\n  background-color: #fff;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  overflow-y: auto;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item {\n  margin: 2px 0;\n  padding: 0 10px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n  white-space: nowrap;\n  word-break: break-all;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item:hover,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active:hover,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active:active,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active:focus {\n  color: #4d7fff;\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu._zs_gallery_mx-suggest_suggest_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-suggest_suggest_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-suggest_suggest_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-taginput_index_","[mx-view*=\"mx-taginput/index\"] {\n  --tag-left-padding: 10px;\n  --tag-gap: 2px;\n  --tag-height: calc(var(--input-height) - (var(--tag-gap) * 4) - 2px);\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt {\n  position: relative;\n  height: auto;\n  border-style: solid;\n  border-width: 1px;\n  border-color: var(--border-highlight);\n  border-radius: var(--border-radius);\n  padding-top: var(--tag-gap);\n  padding-bottom: var(--tag-gap);\n  padding-left: calc(var(--tag-left-padding) - 4px);\n  padding-right: calc(var(--tag-left-padding) - 4px);\n  cursor: text;\n  transition: border-color var(--duration);\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt:hover {\n  border-color: var(--border-highlight-hover);\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-placeholder,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-trigger,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item {\n  height: var(--tag-height);\n  line-height: var(--tag-height);\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-placeholder {\n  position: absolute;\n  top: calc(var(--tag-gap) * 2);\n  left: var(--tag-left-padding);\n  color: #999;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-trigger {\n  float: left;\n  margin-top: var(--tag-gap);\n  margin-bottom: var(--tag-gap);\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item {\n  float: left;\n  position: relative;\n  max-width: 220px;\n  padding-right: 26px;\n  padding-left: 6px;\n  margin-right: calc(var(--tag-gap) * 2);\n  background-color: #eee;\n  border-radius: var(--border-radius);\n  cursor: pointer;\n  white-space: nowrap;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item ._zs_gallery_mx-taginput_index_-item-delete {\n  position: absolute;\n  top: 0;\n  right: 0;\n  height: 100%;\n  width: 20px;\n  line-height: var(--tag-height);\n  text-align: center;\n  font-size: 12px;\n  font-weight: bold;\n  color: #ccc;\n  transition: color var(--duration);\n  border-left: 1px solid #fff;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item ._zs_gallery_mx-taginput_index_-item-delete:hover {\n  color: #999;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-trigger {\n  padding: 0;\n  border: none;\n  outline: none;\n  background: transparent;\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-ipt {\n  cursor: not-allowed;\n  background-color: var(--color-bg);\n  border-color: var(--color-border);\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-ipt:hover {\n  border-color: var(--color-border);\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-item {\n  cursor: not-allowed;\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-item ._zs_gallery_mx-taginput_index_-item-delete:hover {\n  color: #ccc;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-tag-item {\n  margin: 2px 0;\n  padding: 0 10px;\n  cursor: pointer;\n  height: var(--input-small-height);\n  line-height: var(--input-small-height);\n  border-radius: var(--border-radius);\n  white-space: nowrap;\n  word-break: break-all;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-tag-item:hover,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-tag-item._zs_gallery_mx-taginput_index_-hover {\n  background-color: var(--color-bg-hover);\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-tag-item._zs_gallery_mx-taginput_index_-active,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-tag-item._zs_gallery_mx-taginput_index_-active:hover,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-tag-item._zs_gallery_mx-taginput_index_-active:active,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-tag-item._zs_gallery_mx-taginput_index_-active:focus {\n  color: var(--color-brand);\n  background-color: var(--color-brand-opacity);\n}\n");
 var MinWidth = 10;
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
@@ -41,7 +40,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!items.length) {%>';
     if (!items.length) {
         ;
-        $p += '<span mxa="_zs_galleryeK:_" class="_zs_gallery_mx-taginput_index_-placeholder">';
+        $p += '<span mxa="_zs_galleryeF:_" class="_zs_gallery_mx-taginput_index_-placeholder">';
         $line = 6;
         $art = '=placeholder';
         ;
@@ -63,10 +62,10 @@ module.exports = Magix.View.extend({
         $line = 10;
         $art = 'each items as one idx';
         ;
-        $expr = '<%for (var idx = 0, $art_cdmkgcmc$art_c = items.length; idx < $art_cdmkgcmc$art_c; idx++) {        var one = items[idx]%>';
-        for (var idx = 0, $art_cdmkgcmc$art_c = items.length; idx < $art_cdmkgcmc$art_c; idx++) {
+        $expr = '<%for (var idx = 0, $art_czbsbppp$art_c = items.length; idx < $art_czbsbppp$art_c; idx++) {        var one = items[idx]%>';
+        for (var idx = 0, $art_czbsbppp$art_c = items.length; idx < $art_czbsbppp$art_c; idx++) {
             var one = items[idx];
-            $p += '<span mxa="_zs_galleryeK:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
+            $p += '<span mxa="_zs_galleryeF:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
             $line = 12;
             $art = '=one.text';
             ;
@@ -117,7 +116,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!disabled) {%>';
     if (!disabled) {
         ;
-        $p += '<ul id="ul_';
+        $p += '<div id="ul_';
         $line = 30;
         $art = '=viewId';
         ;
@@ -125,29 +124,29 @@ module.exports = Magix.View.extend({
         $line = 31;
         $art = '=suggestLeft';
         ;
-        $p += ($expr = '<%=suggestLeft%>', $e(suggestLeft)) + 'px;" class="_zs_gallery_mx-suggest_suggest_-suggest-menu ';
+        $p += ($expr = '<%=suggestLeft%>', $e(suggestLeft)) + 'px;" class="mx-output mx-output-bottom ';
         $line = 32;
         $art = 'if show';
         ;
         $expr = '<%if (show) {%>';
         if (show) {
             ;
-            $p += ' _zs_gallery_mx-suggest_suggest_-open ';
+            $p += ' mx-output-open ';
             $line = 32;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += '" mx-mouseout="' + $viewId + '@{out}()" mx-mousemove="' + $viewId + '@{move}()" mx-contextmenu="' + $viewId + '@{prevent}()">';
-        $line = 36;
+        $p += '" mx-mouseout="' + $viewId + '@{out}()" mx-mousemove="' + $viewId + '@{move}()" mx-contextmenu="' + $viewId + '@{prevent}()"><ul mxa="_zs_galleryeF:b" class="mx-output-list">';
+        $line = 37;
         $art = 'if loading';
         ;
         $expr = '<%if (loading) {%>';
         if (loading) {
             ;
-            $p += '<li mxs="_zs_galleryeK:_"><div class="loading" style="padding: 40px 0;"><span class="loading-anim"></span></div></li>';
-            $line = 40;
+            $p += '<li mxs="_zs_galleryeF:_"><div class="loading" style="padding: 40px 0;"><span class="loading-anim"></span></div></li>';
+            $line = 41;
             $art = 'else';
             ;
             $expr = '<%}    else {%>';
@@ -155,74 +154,74 @@ module.exports = Magix.View.extend({
         else {
             ;
             $p += ' ';
-            $line = 41;
+            $line = 42;
             $art = 'if (suggest && suggest.length)';
             ;
             $expr = '<%if (suggest && suggest.length) {%>';
             if (suggest && suggest.length) {
                 ;
                 $p += ' ';
-                $line = 42;
+                $line = 43;
                 $art = 'each suggest as item idx';
                 ;
-                $expr = '<%for (var idx = 0, $art_cgytvhhkm$art_c = suggest.length; idx < $art_cgytvhhkm$art_c; idx++) {                var item = suggest[idx]%>';
-                for (var idx = 0, $art_cgytvhhkm$art_c = suggest.length; idx < $art_cgytvhhkm$art_c; idx++) {
+                $expr = '<%for (var idx = 0, $art_cuulklbpxn$art_c = suggest.length; idx < $art_cuulklbpxn$art_c; idx++) {                var item = suggest[idx]%>';
+                for (var idx = 0, $art_cuulklbpxn$art_c = suggest.length; idx < $art_cuulklbpxn$art_c; idx++) {
                     var item = suggest[idx];
-                    $p += '<li class="_zs_gallery_mx-suggest_suggest_-suggest-item" mx-click="' + $viewId + '@{add}({item:\'';
-                    $line = 44;
+                    $p += '<li class="_zs_gallery_mx-taginput_index_-tag-item" mx-click="' + $viewId + '@{add}({item:\'';
+                    $line = 45;
                     $art = '@item';
                     ;
                     $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})" data-idx="';
-                    $line = 45;
+                    $line = 46;
                     $art = '=idx';
                     ;
                     $p += ($expr = '<%=idx%>', $e(idx)) + '" id="sg_';
-                    $line = 46;
+                    $line = 47;
                     $art = '=viewId';
                     ;
                     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
-                    $line = 46;
+                    $line = 47;
                     $art = '=idx';
                     ;
                     $p += ($expr = '<%=idx%>', $e(idx)) + '">';
-                    $line = 47;
+                    $line = 48;
                     $art = '!item.text';
                     ;
                     $p += ($expr = '<%!item.text%>', $n(item.text)) + '</li>';
-                    $line = 49;
+                    $line = 50;
                     $art = '/each';
                     ;
                     $expr = '<%}%>';
                 }
                 ;
                 $p += ' ';
-                $line = 50;
+                $line = 51;
                 $art = 'else';
                 ;
                 $expr = '<%}        else {%>';
             }
             else {
                 ;
-                $p += '<li mxa="_zs_galleryeK:b" class="text-center color-9">';
-                $line = 51;
+                $p += '<li mxa="_zs_galleryeF:c" class="text-center color-9">';
+                $line = 52;
                 $art = '=emptyText';
                 ;
                 $p += ($expr = '<%=emptyText%>', $e(emptyText)) + '</li>';
-                $line = 52;
+                $line = 53;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' ';
-            $line = 53;
+            $line = 54;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += '</ul>';
-        $line = 55;
+        $p += '</ul></div>';
+        $line = 57;
         $art = '/if';
         ;
         $expr = '<%}%>';
@@ -265,10 +264,11 @@ catch (ex) {
         }
         me['@{data.list}'] = me['@{dynamic.list}'] ? [] : list;
         me['@{owner.node}'] = $('#' + me.id);
-        var disabledNode = $('#' + me.id + '[mx-disabled]');
+        // 支持mx-disabled或者disabled
+        var disabled = (extra.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
         me.updater.set({
             viewId: me.id,
-            disabled: disabledNode && (disabledNode.length > 0),
+            disabled: disabled,
             placeholder: extra.placeholder || I18n['choose'],
             emptyText: I18n['empty.text'],
             inputWidth: MinWidth,
@@ -521,12 +521,12 @@ catch (ex) {
     '@{normal}': function () {
         var me = this;
         var node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
-        node.removeClass('_zs_gallery_mx-suggest_suggest_-hover');
+        node.removeClass('_zs_gallery_mx-taginput_index_-hover');
     },
     '@{highlight}': function (ignore) {
         var me = this;
         var node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
-        node.addClass('_zs_gallery_mx-suggest_suggest_-hover');
+        node.addClass('_zs_gallery_mx-taginput_index_-hover');
         if (!ignore && node.length) {
             me['@{temp.ignore}'] = 1; //如果是上下按键引起的滚动，则在move时忽略
             var height = node.outerHeight();
@@ -590,7 +590,7 @@ catch (ex) {
             return;
         }
         var target = $(e.target);
-        if (target.hasClass('_zs_gallery_mx-suggest_suggest_-suggest-item')) {
+        if (target.hasClass('unfound-[suggest-item]-from-index.less')) {
             var idx = target.data('idx');
             if (idx != me['@{ui.index}']) {
                 me['@{normal}']();

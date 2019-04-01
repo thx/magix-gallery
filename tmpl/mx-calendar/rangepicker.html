@@ -12,8 +12,9 @@
     </div>        
 </div>
 
-<div class="rangepicker-wrapper {{if show}}open{{/if}}" id="rpcnt_{{=viewId}}" 
+<div class="mx-output mx-output-bottom {{if show}} mx-output-open {{/if}}" 
     style="left:{{=left}}px;top:{{=top}}px;"
+    id="rpcnt_{{=viewId}}" 
     mx-view="@./range?configs={{@rangeInfo}}"
     mx-change="@{range.picked}()" 
     mx-cancel="@{hide}()"></div>

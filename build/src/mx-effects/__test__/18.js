@@ -10,7 +10,7 @@ require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-effects___test___18_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-effects___test___18_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-effects___test___18_-suspension {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-effects___test___18_-text {\n  padding-top: 35px;\n  color: #fff;\n  text-align: center;\n}\n._zs_gallery_mx-effects___test___18_-icon {\n  padding-top: 5px;\n  text-align: center;\n}\n._zs_gallery_mx-effects___test___18_-icon ._zs_gallery_mx-effects___test___18_-suspension-icon {\n  font-size: 24px;\n  color: #fff;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-effects___test___18_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-effects___test___18_-suspension {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-effects___test___18_-text {\n  padding-top: 35px;\n  color: #fff;\n  text-align: center;\n}\n._zs_gallery_mx-effects___test___18_-icon {\n  padding-top: 5px;\n  text-align: center;\n}\n._zs_gallery_mx-effects___test___18_-icon ._zs_gallery_mx-effects___test___18_-suspension-icon {\n  font-size: 24px;\n  color: #fff;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -24,15 +24,15 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybp:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybp:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb20"><span class="color-9">以下示例：</span>上下浮动效果</div><div class="_zs_gallery_mx-effects___test___18_-suspension"><div class="_zs_gallery_mx-effects___test___18_-text">浏览更多</div><div class="_zs_gallery_mx-effects___test___18_-icon"><i class="mc-iconfont _zs_gallery_mx-effects___test___18_-suspension-icon mx-anim-suspension">&#xeb95;</i></div></div></div><div mxa="_zs_gallerybp:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybp:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerybk:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybk:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb20"><span class="color-9">以下示例：</span>上下浮动效果</div><div class="_zs_gallery_mx-effects___test___18_-suspension"><div class="_zs_gallery_mx-effects___test___18_-text">浏览更多</div><div class="_zs_gallery_mx-effects___test___18_-icon"><i class="mc-iconfont _zs_gallery_mx-effects___test___18_-suspension-icon mx-anim-suspension">&#xeb95;</i></div></div></div><div mxa="_zs_gallerybk:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybk:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 13;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybp:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybk:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 15;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybp:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybk:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 18;
     $art = '=viewId';
     ;

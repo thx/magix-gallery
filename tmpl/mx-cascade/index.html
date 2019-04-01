@@ -1,13 +1,13 @@
-<div class="cascade-toggle {{if expand}} open {{/if}}"
+<div class="mx-trigger {{if expand}} mx-trigger-open {{/if}}"
     {{if !disabled}} mx-click="@{show}()" {{/if}} >
-    <span class="cascade-label">
+    <span class="mx-trigger-label">
         {{if name}}{{=name}}：{{/if}}
         {{=selectedText}}
     </span>
-    <span class="mc-iconfont arrow">&#xe692;</span>
+    <span class="mc-iconfont mx-trigger-arrow">&#xe692;</span>
 </div>
 {{if !disabled}}
-<div class="cascade-list {{if expand}} open {{/if}} clearfix">
+<div class="mx-output mx-output-bottom {{if expand}} mx-output-open {{/if}} clearfix cascade-list">
     {{each groups as list gIndex}}
     <div class="group" id="{{=viewId}}_g_{{=gIndex}}">
         {{each list as item iIndex}}

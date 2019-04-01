@@ -27,30 +27,32 @@
         {{if disabled}} disabled="true" {{/if}} />
         
     {{if(!disabled)}}
-    <ul id="ul_{{=viewId}}"
+    <div id="ul_{{=viewId}}"
         style="left: {{=suggestLeft}}px;"
-        class="suggest-menu {{if show}} open {{/if}}"
+        class="mx-output mx-output-bottom {{if show}} mx-output-open {{/if}}"
         mx-mouseout="@{out}()" 
         mx-mousemove="@{move}()" 
         mx-contextmenu="@{prevent}()">
-        {{if loading}}
-            <li>
-                <mx-loading padding="40px"/>
-            </li>
-        {{else}}
-            {{if (suggest && suggest.length)}}
-                {{each suggest as item idx}}
-                <li class="suggest-item" 
-                    mx-click="@{add}({item:'{{@item}}'})"
-                    data-idx="{{=idx}}" 
-                    id="sg_{{=viewId}}_{{=idx}}">
-                    {{!item.text}}
+        <ul class="mx-output-list">
+            {{if loading}}
+                <li>
+                    <mx-loading padding="40px"/>
                 </li>
-                {{/each}}
             {{else}}
-                <li class="text-center color-9">{{=emptyText}}</li>
+                {{if (suggest && suggest.length)}}
+                    {{each suggest as item idx}}
+                    <li class="tag-item" 
+                        mx-click="@{add}({item:'{{@item}}'})"
+                        data-idx="{{=idx}}" 
+                        id="sg_{{=viewId}}_{{=idx}}">
+                        {{!item.text}}
+                    </li>
+                    {{/each}}
+                {{else}}
+                    <li class="text-center color-9">{{=emptyText}}</li>
+                {{/if}}
             {{/if}}
-        {{/if}}
-    </ul>
+        </ul>
+    </div>
     {{/if}}
 </div>

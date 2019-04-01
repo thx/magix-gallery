@@ -16,7 +16,7 @@ module.exports = Base.extend({
         if (extra.type == 'dark') {
             me['@{pos.class}'] += ' @index.less:popover-dark';
         } else {
-            me['@{pos.class}'] += ' @index.less:popover';
+            me['@{pos.class}'] += ' @index.less:popover mx-shadow';
         }
         me['@{pos.init}'] = false;
         me['@{pos.cal}'] = false;

@@ -7,9 +7,7 @@ let DateFormat = Util.dateFormat;
 let GetDefaultDate = Util.getDefaultDate;
 let GetQuickInfos = Util.getQuickInfos;
 let GetOffsetDate = Util.getOffsetDate;
-
 let I18n = require('@../mx-medusa/util');
-
 Magix.applyStyle('@rangepicker.less');
 
 let Rangepicker = Magix.View.extend({
@@ -33,8 +31,8 @@ let Rangepicker = Magix.View.extend({
         let that = this;
         let altered = that.updater.altered();
 
-        let disabledNode = $('#' + that.id + '[mx-disabled]')
-        that['@{ui.disabled}'] = disabledNode && (disabledNode.length > 0);
+        // 支持mx-disabled或者disabled
+        that['@{ui.disabled}'] = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
 
         let centerClass = '@rangepicker.less:result-center';
         let classes = {

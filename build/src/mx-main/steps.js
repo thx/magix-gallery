@@ -13,7 +13,7 @@ define("mx-main/steps",["magix"],(require,exports,module)=>{
 var Magix = require("magix");
 var Router = Magix.Router;
 var Vframe = Magix.Vframe;
-Magix.applyStyle("_zs_gallery_mx-main_step_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-main_step_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main_step_-step-error {\n  position: relative;\n  padding-top: 10px;\n  padding-left: 20px;\n  color: #a40100;\n}\n._zs_gallery_mx-main_step_-step-error ._zs_gallery_mx-main_step_-error-icon {\n  position: absolute;\n  left: 0;\n  top: 10px;\n  color: #a40100;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-main_step_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main_step_-step-error {\n  position: relative;\n  padding-top: 10px;\n  padding-left: 20px;\n  color: #a40100;\n}\n._zs_gallery_mx-main_step_-step-error ._zs_gallery_mx-main_step_-error-icon {\n  position: absolute;\n  left: 0;\n  top: 10px;\n  color: #a40100;\n}\n");
 module.exports = Magix.View.extend({
     init: function (extra) {
         var that = this;

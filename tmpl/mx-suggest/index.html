@@ -11,22 +11,25 @@
         mx-focusout="@{stop}()"
         mx-change="@{stop}()"/>
 
-    <ul class="suggest-menu {{if show}} open {{/if}}" style="{{if (align=='right')}}right: 0;{{else}}left: 0;{{/if}}">
-        {{if loading}}
-            <li>
-                <mx-loading padding="40px"/>
-            </li>
-        {{else}}
-            {{if (list.length > 0)}}
-                {{each list as item}}
-                <li class="suggest-item {{if ((selectedValue + '') === (item.value + ''))}} active {{/if}}" 
-                    mx-click="@{select}({item:'{{@item}}'})">
-                    {{!item.text}}
-                </li>
-                {{/each}}
+    <div class="mx-output mx-output-bottom {{if show}} mx-output-open {{/if}}">
+        <ul class="mx-output-list">
+            {{if loading}}
+                <li><mx-loading padding="40px"/></li>
             {{else}}
-            <li class="text-center color-9">{{=emptyText}}</li>
+                {{if (list.length > 0)}}
+                    {{each list as item}}
+                    <li class="mx-output-item">
+                        <span class="mx-output-link {{if ((selectedValue + '') === (item.value + ''))}} mx-output-link-active {{/if}}" 
+                            data-active="(selectedValue + '') === (item.value + '')"
+                            mx-click="@{select}({item:'{{@item}}'})">
+                            {{!item.text}}
+                        </span>
+                    </li>
+                    {{/each}}
+                {{else}}
+                <li class="text-center color-9">{{=emptyText}}</li>
+                {{/if}}
             {{/if}}
-        {{/if}}
-    </ul>
+        </ul>
+    </div>
 </div>

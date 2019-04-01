@@ -3,7 +3,6 @@ let $ = require('$');
 let I18n = require('../mx-medusa/util');
 let Monitor = require('../mx-util/monitor');
 Magix.applyStyle('@index.less');
-Magix.applyStyle('@suggest.less');
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -63,14 +62,12 @@ module.exports = Magix.View.extend({
             type = 'text,value';
         }
         that['@{search.type}'] = type.split(',');
-
         that.updater.set({
             viewId: that.id,
             list: list,
             selectedValue: selectedValue,
             selectedText: selectedText,
             placeholder: placeholder,
-            align: data.align || 'left',
             show: false,
             emptyText: I18n['empty.text']
         });

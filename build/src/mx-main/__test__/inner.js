@@ -8,7 +8,7 @@ define("mx-main/__test__/inner",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-main___test___inner_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-main___test___inner_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main___test___inner_-box-title {\n  height: 46px;\n  padding: 0 20px;\n  line-height: 44px;\n  background-color: #fafafa;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n}\n._zs_gallery_mx-main___test___inner_-box-title ._zs_gallery_mx-main___test___inner_-title-icon {\n  float: left;\n  height: 44px;\n  line-height: 44px;\n}\n._zs_gallery_mx-main___test___inner_-box-title ._zs_gallery_mx-main___test___inner_-title-icon > * {\n  position: relative;\n  top: 2px;\n  margin-right: 4px;\n  color: #999;\n  font-size: 20px;\n}\n._zs_gallery_mx-main___test___inner_-box-title ._zs_gallery_mx-main___test___inner_-title-label {\n  float: left;\n  font-size: 16px;\n}\n._zs_gallery_mx-main___test___inner_-box-title._zs_gallery_mx-main___test___inner_-error-state {\n  background-color: #f6e6e6;\n  border: 1px solid #a40100;\n  color: #a40100;\n}\n._zs_gallery_mx-main___test___inner_-box-title._zs_gallery_mx-main___test___inner_-error-state ._zs_gallery_mx-main___test___inner_-title-icon > * {\n  color: #a40100;\n}\n._zs_gallery_mx-main___test___inner_-box-title._zs_gallery_mx-main___test___inner_-warn-state {\n  background-color: #fff8e6;\n  border: 1px solid #ffb400;\n  color: #ffb400;\n}\n._zs_gallery_mx-main___test___inner_-box-title._zs_gallery_mx-main___test___inner_-warn-state ._zs_gallery_mx-main___test___inner_-title-icon > * {\n  color: #ffb400;\n}\n._zs_gallery_mx-main___test___inner_-box-inner {\n  padding: 40px 20px 0 20px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-main___test___inner_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main___test___inner_-box-title {\n  height: 46px;\n  padding: 0 20px;\n  line-height: 44px;\n  background-color: #fafafa;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n}\n._zs_gallery_mx-main___test___inner_-box-title ._zs_gallery_mx-main___test___inner_-title-icon {\n  float: left;\n  height: 44px;\n  line-height: 44px;\n}\n._zs_gallery_mx-main___test___inner_-box-title ._zs_gallery_mx-main___test___inner_-title-icon > * {\n  position: relative;\n  top: 2px;\n  margin-right: 4px;\n  color: #999;\n  font-size: 20px;\n}\n._zs_gallery_mx-main___test___inner_-box-title ._zs_gallery_mx-main___test___inner_-title-label {\n  float: left;\n  font-size: 16px;\n}\n._zs_gallery_mx-main___test___inner_-box-title._zs_gallery_mx-main___test___inner_-error-state {\n  background-color: #f6e6e6;\n  border: 1px solid #a40100;\n  color: #a40100;\n}\n._zs_gallery_mx-main___test___inner_-box-title._zs_gallery_mx-main___test___inner_-error-state ._zs_gallery_mx-main___test___inner_-title-icon > * {\n  color: #a40100;\n}\n._zs_gallery_mx-main___test___inner_-box-title._zs_gallery_mx-main___test___inner_-warn-state {\n  background-color: #fff8e6;\n  border: 1px solid #ffb400;\n  color: #ffb400;\n}\n._zs_gallery_mx-main___test___inner_-box-title._zs_gallery_mx-main___test___inner_-warn-state ._zs_gallery_mx-main___test___inner_-title-icon > * {\n  color: #ffb400;\n}\n._zs_gallery_mx-main___test___inner_-box-inner {\n  padding: 40px 20px 0 20px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -22,14 +22,14 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', info = $$.info; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycO:_" class="_zs_gallery_mx-main___test___inner_-box-title clearfix">';
+    $p += '<div mxa="_zs_gallerycJ:_" class="_zs_gallery_mx-main___test___inner_-box-title clearfix">';
     $line = 2;
     $art = 'if info.icon';
     ;
     $expr = '<%if (info.icon) {%>';
     if (info.icon) {
         ;
-        $p += '<span mxa="_zs_gallerycO:a" class="_zs_gallery_mx-main___test___inner_-title-icon">';
+        $p += '<span mxa="_zs_gallerycJ:a" class="_zs_gallery_mx-main___test___inner_-title-icon">';
         $line = 3;
         $art = '!info.icon';
         ;
@@ -40,11 +40,11 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<span mxa="_zs_gallerycO:b" class="_zs_gallery_mx-main___test___inner_-title-label">';
+    $p += '<span mxa="_zs_gallerycJ:b" class="_zs_gallery_mx-main___test___inner_-title-label">';
     $line = 5;
     $art = '=info.label';
     ;
-    $p += ($expr = '<%=info.label%>', $e(info.label)) + '</span></div><div mxs="_zs_gallerycO:_" class="_zs_gallery_mx-main___test___inner_-box-inner" style="min-height: 200px;">自定义内容</div>';
+    $p += ($expr = '<%=info.label%>', $e(info.label)) + '</span></div><div mxs="_zs_gallerycJ:_" class="_zs_gallery_mx-main___test___inner_-box-inner" style="min-height: 200px;">自定义内容</div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

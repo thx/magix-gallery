@@ -8,7 +8,7 @@ define("mx-main/tip",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-main_tip_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-main_tip_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main_tip_-side-tip {\n  position: relative;\n  top: 0;\n  left: 0;\n  margin: 0 20px 20px 0;\n  padding-left: 24px;\n}\n._zs_gallery_mx-main_tip_-side-tip ._zs_gallery_mx-main_tip_-side-content {\n  padding: 10px;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  color: #999;\n  background-color: #fff;\n}\n._zs_gallery_mx-main_tip_-side-tip ._zs_gallery_mx-main_tip_-side-light {\n  opacity: 0.5;\n  position: absolute;\n  top: 50%;\n  left: -8px;\n  font-size: 22px;\n  margin-top: -10px;\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_tip_-side-tip:before,\n._zs_gallery_mx-main_tip_-side-tip:after {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: 18px;\n  width: 0;\n  height: 0;\n  margin-top: -7px;\n  border-top: 7px solid transparent;\n  border-right: 6px solid #ccc;\n  border-bottom: 6px solid transparent;\n}\n._zs_gallery_mx-main_tip_-side-tip:after {\n  border-right: 6px solid #fff;\n  left: 19px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-main_tip_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main_tip_-side-tip {\n  position: relative;\n  top: 0;\n  left: 0;\n  margin: 0 20px 20px 0;\n  padding-left: 24px;\n}\n._zs_gallery_mx-main_tip_-side-tip ._zs_gallery_mx-main_tip_-side-content {\n  padding: 10px;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  color: #999;\n  background-color: #fff;\n}\n._zs_gallery_mx-main_tip_-side-tip ._zs_gallery_mx-main_tip_-side-light {\n  opacity: 0.5;\n  position: absolute;\n  top: 50%;\n  left: -8px;\n  font-size: 22px;\n  margin-top: -10px;\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_tip_-side-tip:before,\n._zs_gallery_mx-main_tip_-side-tip:after {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: 18px;\n  width: 0;\n  height: 0;\n  margin-top: -7px;\n  border-top: 7px solid transparent;\n  border-right: 6px solid #ccc;\n  border-bottom: 6px solid transparent;\n}\n._zs_gallery_mx-main_tip_-side-tip:after {\n  border-right: 6px solid #fff;\n  left: 19px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -32,7 +32,7 @@ module.exports = Magix.View.extend({
         $line = 3;
         $art = '=view';
         ;
-        $p += ($expr = '<%=view%>', $e(view)) + '"><div mxs="_zs_galleryc0:_" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+        $p += ($expr = '<%=view%>', $e(view)) + '"><div mxs="_zs_gallerycV:_" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
         $line = 6;
         $art = 'else';
         ;
@@ -40,7 +40,7 @@ module.exports = Magix.View.extend({
     }
     else {
         ;
-        $p += '<div mxa="_zs_galleryc0:_" class="_zs_gallery_mx-main_tip_-side-tip"><i mxs="_zs_galleryc0:a" class="mc-iconfont _zs_gallery_mx-main_tip_-side-light">&#xe654;</i><div mxa="_zs_galleryc0:a" class="_zs_gallery_mx-main_tip_-side-content">';
+        $p += '<div mxa="_zs_gallerycV:_" class="_zs_gallery_mx-main_tip_-side-tip"><i mxs="_zs_gallerycV:a" class="mc-iconfont _zs_gallery_mx-main_tip_-side-light">&#xe654;</i><div mxa="_zs_gallerycV:a" class="_zs_gallery_mx-main_tip_-side-content">';
         $line = 9;
         $art = '!content';
         ;

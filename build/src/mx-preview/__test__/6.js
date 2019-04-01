@@ -8,7 +8,7 @@ define("mx-preview/__test__/6",["magix","$","../index"],(require,exports,module)
 require("../index");
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-preview___test___index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-preview___test___index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-preview___test___index_-demo {\n  margin-right: 20px;\n  margin-bottom: 20px;\n  border: 1px solid #e6e6e6;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-preview___test___index_-scroll {\n  width: 400px;\n  height: 220px;\n  padding: 10px;\n  border-radius: 4px;\n  overflow-y: auto;\n  border: 1px solid #e6e6e6;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-preview___test___index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-preview___test___index_-demo {\n  margin-right: 20px;\n  margin-bottom: 20px;\n  border: 1px solid #e6e6e6;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-preview___test___index_-scroll {\n  width: 400px;\n  height: 220px;\n  padding: 10px;\n  border-radius: 4px;\n  overflow-y: auto;\n  border: 1px solid #e6e6e6;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -30,9 +30,9 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_itowwspt$art_i = 0, $art_cwzewtqgcu$art_c = list.length; $art_itowwspt$art_i < $art_cwzewtqgcu$art_c; $art_itowwspt$art_i++) {    var item = list[$art_itowwspt$art_i]%>';
-    for (var $art_itowwspt$art_i = 0, $art_cwzewtqgcu$art_c = list.length; $art_itowwspt$art_i < $art_cwzewtqgcu$art_c; $art_itowwspt$art_i++) {
-        var item = list[$art_itowwspt$art_i];
+    $expr = '<%for (var $art_iwxrkwjwjn$art_i = 0, $art_cwhcbpmdg$art_c = list.length; $art_iwxrkwjwjn$art_i < $art_cwhcbpmdg$art_c; $art_iwxrkwjwjn$art_i++) {    var item = list[$art_iwxrkwjwjn$art_i]%>';
+    for (var $art_iwxrkwjwjn$art_i = 0, $art_cwhcbpmdg$art_c = list.length; $art_iwxrkwjwjn$art_i < $art_cwhcbpmdg$art_c; $art_iwxrkwjwjn$art_i++) {
+        var item = list[$art_iwxrkwjwjn$art_i];
         $p += '<div class="_zs_gallery_mx-preview___test___index_-demo" mx-view="mx-preview/index?format=2&url=';
         $line = 5;
         $art = '=item';

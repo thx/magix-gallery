@@ -48,7 +48,7 @@ module.exports = Magix.View.extend({
                 list = data.list
             }
             list = list.map((item) => {
-                let tpls = (item.tmpl || ('搜索含有“${content}”的' + item[listText])).split('${content}');
+                let tpls = (item.tmpl || ('搜索含有 “${content}” 的' + item[listText])).split('${content}');
                 return {
                     prefix: tpls[0],
                     suffix: tpls[1],

@@ -1,0 +1,26 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            小尺寸展示
+        </div>
+        <mx-dropdown class="w100" 
+            small="true"
+            list="{{@[1,2,3]}}">
+        </mx-dropdown>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-dropdown class="w100" 
+    small="true"
+    list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;
+&lt;/mx-dropdown&gt;
+        </pre>
+    </div>
+</div>

@@ -1,4 +1,3 @@
-@import "../mx-style/_vars";
 @group-height: 40px;
 @oper-size: 24px;
 .groups{
@@ -9,7 +8,7 @@
     .ipt {
         width: 100%;
         height: @group-height;
-        font-size: @font-size + 12;
+        font-size: 24px;
         text-align: center;
     }
 
@@ -17,22 +16,22 @@
         width: @oper-size;
         height: @oper-size;
         line-height: @oper-size;
-        font-weight: bold;
         font-size: 12px;
         text-align: center;
+        font-weight: bold;
         background-color: #e6e6e6;
-        border-radius: @border-radius;
+        border-radius: var(--border-radius);
         cursor: pointer;
-        transition: all @duration;
+        transition: all var(--duration);
 
         &:hover{
             background-color: #ccc;
         }
     }
 
-    .disabled{
+    .time-disabled{
         .ipb{
-            background-color: @color-disabled;
+            background-color: var(--color-disabled);
             color: #ccc;
         }
     }
@@ -64,5 +63,6 @@
 }
 
 [mx-view*="mx-time/content"]{
-    padding: 10px 10px 0 10px;
+    min-width: 220px;
+    padding: 10px;
 }

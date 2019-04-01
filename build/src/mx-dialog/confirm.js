@@ -22,7 +22,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', title = $$.title, content = $$.content, enterText = $$.enterText, cancelText = $$.cancelText; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryaQ:_" class="dialog-body"><div mxa="_zs_galleryaQ:a" class="_zs_gallery_mx-dialog_alert_-alert-header">' + ($expr = '<%=title%>', $e(title)) + '</div><div mxa="_zs_galleryaQ:b" class="word-break">' + ($expr = '<%!content%>', $n(content)) + '</div></div><div mxa="_zs_galleryaQ:c" class="dialog-footer"><a mxa="_zs_galleryaQ:d" href="javascript:;" class="btn btn-small btn-brand min-width-60 mr16" mx-click="' + $viewId + '@{enter}();">' + ($expr = '<%=enterText%>', $e(enterText)) + '</a><a mxa="_zs_galleryaQ:e" href="javascript:;" class="btn btn-small min-width-60" mx-click="' + $viewId + '@{cancel}()">' + ($expr = '<%=cancelText%>', $e(cancelText)) + '</a></div>';
+    $p += '<div mxa="_zs_galleryaK:_" class="dialog-body"><div mxa="_zs_galleryaK:a" class="_zs_gallery_mx-dialog_alert_-alert-header">' + ($expr = '<%=title%>', $e(title)) + '</div><div mxa="_zs_galleryaK:b" class="word-break">' + ($expr = '<%!content%>', $n(content)) + '</div></div><div mxa="_zs_galleryaK:c" class="dialog-footer"><a mxa="_zs_galleryaK:d" href="javascript:;" class="btn btn-small btn-brand min-width-60 mr16" mx-click="' + $viewId + '@{enter}();">' + ($expr = '<%=enterText%>', $e(enterText)) + '</a><a mxa="_zs_galleryaK:e" href="javascript:;" class="btn btn-small min-width-60" mx-click="' + $viewId + '@{cancel}()">' + ($expr = '<%=cancelText%>', $e(cancelText)) + '</a></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

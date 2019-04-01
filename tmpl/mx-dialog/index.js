@@ -177,7 +177,7 @@ module.exports = Magix.View.extend({
         // 全屏右出浮层不需要圆角
         let wrapper = $(`<div class="@index.less:dialog-wrapper" id="${wrapperId}"
     style="z-index:${wrapperZIndex}">
-    <div class="@index.less:dialog ${options.full ? '@index.less:full' : ''}" id="${id}"
+    <div class="@index.less:dialog mx-shadow ${options.full ? '@index.less:full' : ''}" id="${id}"
         style="top:${top}px; left:${left}px; width:${width}px;"></div>
 </div>`);
         wrapper.css(options.posFrom);

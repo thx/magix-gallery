@@ -12,7 +12,7 @@ module.exports = Magix.View.extend({
         let oNode = $('#' + me.id);
         me.assign(extra);
         let click = (e) => {
-            if (me['@{temp.hold.event}'] || me['@{disabled}']) {
+            if (me['@{temp.hold.event}'] || me['@{ui.disabled}']) {
                 return;
             }
             let offset = oNode.offset();
@@ -54,8 +54,8 @@ module.exports = Magix.View.extend({
         me['@{max}'] = +ops.max || 100;
         me['@{step}'] = +ops.step || 1;
 
-        let disabledNode = $('#' + me.id + '[mx-disabled]')
-        me['@{disabled}'] = disabledNode && (disabledNode.length > 0);
+        // 支持mx-disabled或者disabled
+        me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
         me['@{vertical}'] = (ops.vertical + '') === 'true';
         let s = me['@{step}'] + '';
@@ -89,7 +89,7 @@ module.exports = Magix.View.extend({
         });
         me.val([me['@{start}'], me['@{end}']]);
     },
-    '@{get.ui.vars}' () {
+    '@{get.ui.vars}'() {
         let me = this;
         let rail = me['@{owner.node}'].find('.@style.less:rail');
         let tracker = me['@{owner.node}'].find('.@style.less:tracker');
@@ -112,7 +112,7 @@ module.exports = Magix.View.extend({
             half
         };
     },
-    '@{sync.left}' (v) {
+    '@{sync.left}'(v) {
         let me = this;
         v = +v;
         let max = me['@{max}'],
@@ -169,7 +169,7 @@ module.exports = Magix.View.extend({
         }
         return v;
     },
-    '@{sync.right}' (v) {
+    '@{sync.right}'(v) {
         let me = this;
         v = +v;
         let max = me['@{max}'],
@@ -241,7 +241,7 @@ module.exports = Magix.View.extend({
         }
         return [+me['@{start}'], +me['@{end}']];
     },
-    '@{get.fixed.value}' (p) {
+    '@{get.fixed.value}'(p) {
         let me = this;
         let max = me['@{max}'],
             min = me['@{min}'],
@@ -256,7 +256,7 @@ module.exports = Magix.View.extend({
         v = v.toFixed(me['@{tail.length}']);
         return v;
     },
-    '@{fire.event}' () {
+    '@{fire.event}'() {
         let me = this;
         let value = [+me['@{start}'], +me['@{end}']];
         this['@{owner.node}'].prop('value', value).trigger({
@@ -266,7 +266,7 @@ module.exports = Magix.View.extend({
             end: +me['@{end}']
         });
     },
-    '@{check.and.fire}' (start, end) {
+    '@{check.and.fire}'(start, end) {
         let me = this;
         if (start != me['@{start}'] ||
             end != me['@{end}']) {
@@ -275,9 +275,9 @@ module.exports = Magix.View.extend({
             me['@{fire.event}']();
         }
     },
-    '@{drag}<mousedown>' (e) {
+    '@{drag}<mousedown>'(e) {
         let me = this;
-        if (me['@{disabled}']) {
+        if (me['@{ui.disabled}']) {
             return;
         }
         let current = $(e.eventTarget);
@@ -346,7 +346,7 @@ module.exports = Magix.View.extend({
             delete me['@{dragging}'];
         });
     },
-    '@{move.by.keyboard}<keydown>' (e) {
+    '@{move.by.keyboard}<keydown>'(e) {
         let me = this,
             step = me['@{step}'],
             move;
@@ -394,7 +394,7 @@ module.exports = Magix.View.extend({
             me['@{check.and.fire}'](srcStartValue, srcEndValue);
         }
     },
-    '@{prevent}<contextmenu>' (e) {
+    '@{prevent}<contextmenu>'(e) {
         e.preventDefault();
     }
 });

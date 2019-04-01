@@ -1,91 +1,67 @@
-@import "../mx-style/_vars";
-@import "../mx-style/_animation";
-
 @center-width: 18px;
-[mx-view*="mx-calendar/rangepicker"], 
-[mx-view*="mx-calendar/datepicker"] {
-    display: inline-block;
-    position: relative;
-    vertical-align: middle;
-    
-    .rangepicker-input {
-        width: 100%;
+.rangepicker-input {
+    width: 100%;
+    .result {
+        position: relative;
+
+        &.result-left{
+            .center{
+                padding: 0 5px;
+            }
+        }
+        &.result-center{
+            .center {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                width: @center-width * 2;
+                height: 30px;
+                margin-left: 0 - @center-width;
+                line-height: 30px;
+                text-align: center;
+            }
+        
+            .co {
+                display: inline-block;
+                width: 50%;
+                text-align: center;
+            }
+        
+            .co-left {
+                padding-right: @center-width;
+            }
+        
+            .co-right {
+                padding-left: @center-width;
+            }
+        }
+
+        &.vs {
+            .co-left {
+                color: var(--color-brand);
+            }
+
+            .co-right {
+                color: var(--color-brand-vs);
+            }
+        }
+    }
+
+}
+
+[mx-disabled],
+[mx-disabled]:hover {
+    .rangepicker-input{
+        border-color: var(--color-border);
+        cursor: not-allowed;
+        background-color: var(--color-disabled);
+        color: #999;
+
         .result {
-            position: relative;
-
-            &.result-left{
-                .center{
-                    padding: 0 5px;
-                }
-            }
-            &.result-center{
-                .center {
-                    position: absolute;
-                    top: 0;
-                    left: 50%;
-                    width: @center-width * 2;
-                    height: 30px;
-                    margin-left: -@center-width;
-                    line-height: 30px;
-                    text-align: center;
-                }
-            
-                .co {
-                    display: inline-block;
-                    width: 50%;
-                    text-align: center;
-                }
-            
-                .co-left {
-                    padding-right: @center-width;
-                }
-            
-                .co-right {
-                    padding-left: @center-width;
-                }
-            }
-
             &.vs {
-                .co-left {
-                    color: @color-brand;
-                }
-
+                .co-left,
                 .co-right {
-                    color: @color-brand-vs;
-                }
-            }
-        }
-
-    }
-
-    .rangepicker-wrapper {
-        display: none;
-        position: absolute;
-        z-index: 1000;
-        min-width: 100%;
-
-        &.open {
-            display: block;
-            animation: fade-in-down @duration ease-out;
-            animation-fill-mode: forwards;
-        }
-    }
-
-
-    &[mx-disabled],
-    &[mx-disabled]:hover {
-        .rangepicker-input{
-            border-color: @color-border;
-            cursor: not-allowed;
-            background-color: @color-disabled;
-            color: #999;
-
-            .result {
-                &.vs {
-                    .co-left,
-                    .co-right {
-                        color: #999;
-                    }
+                    color: #999;
                 }
             }
         }

@@ -5,7 +5,6 @@ let Magix = require('magix');
 let $ = require('$');
 let Monitor = require('../mx-util/monitor');
 let I18n = require('../mx-medusa/util');
-Magix.applyStyle('@index.less');
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -20,17 +19,15 @@ module.exports = Magix.View.extend({
 
         me['@{owner.node}'] = $('#' + me.id);
 
-        let disabledNode = $('#' + me.id + '[mx-disabled]')
-        me['@{ui.disabled}'] = disabledNode && (disabledNode.length > 0);
+        // 支持mx-disabled或者disabled
+        me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
         // 列表是否展开
         me['@{ui.expand}'] = false;
 
         // 展开方向：向上向下
-        let placementMap = {
-            top: '@index.less:top',
-            bottom: '@index.less:bottom'
-        }
+        let placement = ops.placement || 'bottom';
+        let placementClass = `mx-output-${placement}`;
 
         // trigger方式，click，hover，默认click
         me['@{trigger.type}'] = ops.triggerType || 'click';
@@ -109,10 +106,11 @@ module.exports = Magix.View.extend({
             selectedText: me['@{selected.text}'] = map[selected][textKey],
             keyword: me['@{last.search.value}'] = (ops.keyword || ''),  // 搜索关键词
             expand: me['@{ui.expand}'],
+            small: (ops.small + '' === 'true'), //小尺寸
             height: (ops.height || 250),
             spm: me['@{owner.node}'].attr('data-spm-click') || '', //埋点
             name: ops.name || '', // 前缀
-            placementClass: placementMap[ops.placement || 'bottom'],
+            placementClass,
             text: {
                 search: I18n['dropdown.search'],
                 empty: I18n['empty.text']
@@ -130,7 +128,7 @@ module.exports = Magix.View.extend({
                 list: initList
             });
             let triggerType = me['@{trigger.type}'];
-            let triggerNode = $('#' + me.id + ' .@index.less:dropdown-toggle');
+            let triggerNode = $('#toggle_' + me.id);
             switch (triggerType) {
                 case 'click':
                     triggerNode.on('click', () => {
@@ -151,7 +149,7 @@ module.exports = Magix.View.extend({
                         me['@{delay.hide}']();
                     });
     
-                    let wrapper = $('#' + me.id + ' .@index.less:dropdown-menu-wrapper');
+                    let wrapper = $('#menu_' + me.id);
                     wrapper.hover(() => {
                         clearTimeout(me['@{dealy.hide.timer}']);
                     }, () => {
@@ -206,7 +204,7 @@ module.exports = Magix.View.extend({
 
             me['@{owner.node}'].trigger('focusin');
             let listNode = $('#list_' + me.id);
-            let active = listNode.find('.@index.less:active');
+            let active = listNode.find('[data-active="true"]');
             let pos = active.position();
             let height = listNode.height();
             let stop = listNode.prop('scrollTop');

@@ -8,7 +8,7 @@ define("mx-time/content",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-time_content_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-time_content_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-time_content_-groups {\n  position: relative;\n  z-index: 2;\n}\n._zs_gallery_mx-time_content_-group ._zs_gallery_mx-time_content_-ipt {\n  width: 100%;\n  height: 40px;\n  font-size: 24px;\n  text-align: center;\n}\n._zs_gallery_mx-time_content_-group ._zs_gallery_mx-time_content_-ipb {\n  width: 24px;\n  height: 24px;\n  line-height: 24px;\n  font-weight: bold;\n  font-size: 12px;\n  text-align: center;\n  background-color: #e6e6e6;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-time_content_-group ._zs_gallery_mx-time_content_-ipb:hover {\n  background-color: #ccc;\n}\n._zs_gallery_mx-time_content_-group ._zs_gallery_mx-time_content_-disabled ._zs_gallery_mx-time_content_-ipb {\n  background-color: #eee;\n  color: #ccc;\n}\n._zs_gallery_mx-time_content_-sps {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n  width: 100%;\n  height: 40px;\n}\n._zs_gallery_mx-time_content_-sps ._zs_gallery_mx-time_content_-sp {\n  float: left;\n  width: 50%;\n  font-size: 24px;\n  height: 40px;\n  line-height: 40px;\n  font-weight: bolder;\n  text-align: center;\n}\n._zs_gallery_mx-time_content_-sps ._zs_gallery_mx-time_content_-sp._zs_gallery_mx-time_content_-spa {\n  padding-left: 26px;\n}\n._zs_gallery_mx-time_content_-sps ._zs_gallery_mx-time_content_-sp._zs_gallery_mx-time_content_-spb {\n  padding-right: 26px;\n}\n[mx-view*=\"mx-time/content\"] {\n  padding: 10px 10px 0 10px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-time_content_","._zs_gallery_mx-time_content_-groups {\n  position: relative;\n  z-index: 2;\n}\n._zs_gallery_mx-time_content_-group ._zs_gallery_mx-time_content_-ipt {\n  width: 100%;\n  height: 40px;\n  font-size: 24px;\n  text-align: center;\n}\n._zs_gallery_mx-time_content_-group ._zs_gallery_mx-time_content_-ipb {\n  width: 24px;\n  height: 24px;\n  line-height: 24px;\n  font-size: 12px;\n  text-align: center;\n  font-weight: bold;\n  background-color: #e6e6e6;\n  border-radius: var(--border-radius);\n  cursor: pointer;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-time_content_-group ._zs_gallery_mx-time_content_-ipb:hover {\n  background-color: #ccc;\n}\n._zs_gallery_mx-time_content_-group ._zs_gallery_mx-time_content_-time-disabled ._zs_gallery_mx-time_content_-ipb {\n  background-color: var(--color-disabled);\n  color: #ccc;\n}\n._zs_gallery_mx-time_content_-sps {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n  width: 100%;\n  height: 40px;\n}\n._zs_gallery_mx-time_content_-sps ._zs_gallery_mx-time_content_-sp {\n  float: left;\n  width: 50%;\n  font-size: 24px;\n  height: 40px;\n  line-height: 40px;\n  font-weight: bolder;\n  text-align: center;\n}\n._zs_gallery_mx-time_content_-sps ._zs_gallery_mx-time_content_-sp._zs_gallery_mx-time_content_-spa {\n  padding-left: 26px;\n}\n._zs_gallery_mx-time_content_-sps ._zs_gallery_mx-time_content_-sp._zs_gallery_mx-time_content_-spb {\n  padding-right: 26px;\n}\n[mx-view*=\"mx-time/content\"] {\n  min-width: 220px;\n  padding: 10px;\n}\n");
 var parseTime = function (time) {
     if (!time) {
         var d = new Date();
@@ -65,7 +65,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', format = $$.format, time = $$.time, types = $$.types; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryeP:_" class="clearfix pr"><div mxs="_zs_galleryeP:_" class="clearfix _zs_gallery_mx-time_content_-sps"><div class="_zs_gallery_mx-time_content_-sp _zs_gallery_mx-time_content_-spa">:</div><div class="_zs_gallery_mx-time_content_-sp _zs_gallery_mx-time_content_-spb">:</div></div><div mxv mxa="_zs_galleryeP:a" class="_zs_gallery_mx-time_content_-groups" style="display: flex;flex-direction: row;justify-content: space-between;align-items: stretch;--mx-grid-gutter: 0;margin-left: calc(0px - var(--mx-grid-gutter) / 2);margin-right: calc(0px - var(--mx-grid-gutter) / 2);"><div mxv mxa="_zs_galleryeP:b" class="_zs_gallery_mx-time_content_-group" style="flex: 0 0 52px;"><div mxv mxa="_zs_galleryeP:c" class="mb5"><input class="input _zs_gallery_mx-time_content_-ipt" maxlength="2" autocomplete="off" value="';
+    $p += '<div mxv mxa="_zs_galleryeK:_" class="clearfix pr"><div mxs="_zs_galleryeK:_" class="clearfix _zs_gallery_mx-time_content_-sps"><div class="_zs_gallery_mx-time_content_-sp _zs_gallery_mx-time_content_-spa">:</div><div class="_zs_gallery_mx-time_content_-sp _zs_gallery_mx-time_content_-spb">:</div></div><div mxv mxa="_zs_galleryeK:a" class="_zs_gallery_mx-time_content_-groups" style="display: flex;flex-direction: row;justify-content: space-between;align-items: stretch;--mx-grid-gutter: 0;margin-left: calc(0px - var(--mx-grid-gutter) / 2);margin-right: calc(0px - var(--mx-grid-gutter) / 2);"><div mxv mxa="_zs_galleryeK:b" class="_zs_gallery_mx-time_content_-group" style="flex: 0 0 52px;"><div mxv mxa="_zs_galleryeK:c" class="mb5"><input class="input _zs_gallery_mx-time_content_-ipt" maxlength="2" autocomplete="off" value="';
     $line = 12;
     $art = '=format(time[\'@{hour}\'])';
     ;
@@ -84,7 +84,7 @@ module.exports = Magix.View.extend({
     }
     else {
         ;
-        $p += ' disabled="disabled" ';
+        $p += ' time-disabled ';
         $line = 13;
         $art = '/if';
         ;
@@ -98,7 +98,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!types[\'@{hour}\']) {%>';
     if (!types['@{hour}']) {
         ;
-        $p += ' _zs_gallery_mx-time_content_-disabled ';
+        $p += ' _zs_gallery_mx-time_content_-time-disabled ';
         $line = 16;
         $art = '/if';
         ;
@@ -119,7 +119,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '>&#xe618;</i><i class="mc-iconfont _zs_gallery_mx-time_content_-ipb fr" ';
+    $p += '>&#xeb79;</i><i class="mc-iconfont _zs_gallery_mx-time_content_-ipb fr" ';
     $line = 21;
     $art = 'if types[\'@{hour}\']';
     ;
@@ -133,7 +133,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '>&#xe605;</i></div></div><div mxv mxa="_zs_galleryeP:d" class="_zs_gallery_mx-time_content_-group" style="flex: 0 0 52px;"><div mxv mxa="_zs_galleryeP:e" class="mb5"><input class="input _zs_gallery_mx-time_content_-ipt" maxlength="2" autocomplete="off" value="';
+    $p += '>&#xeb78;</i></div></div><div mxv mxa="_zs_galleryeK:d" class="_zs_gallery_mx-time_content_-group" style="flex: 0 0 52px;"><div mxv mxa="_zs_galleryeK:e" class="mb5"><input class="input _zs_gallery_mx-time_content_-ipt" maxlength="2" autocomplete="off" value="';
     $line = 29;
     $art = '=format(time[\'@{minute}\'])';
     ;
@@ -152,7 +152,7 @@ module.exports = Magix.View.extend({
     }
     else {
         ;
-        $p += ' disabled="disabled" ';
+        $p += ' time-disabled ';
         $line = 30;
         $art = '/if';
         ;
@@ -166,7 +166,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!types[\'@{minute}\']) {%>';
     if (!types['@{minute}']) {
         ;
-        $p += ' _zs_gallery_mx-time_content_-disabled ';
+        $p += ' _zs_gallery_mx-time_content_-time-disabled ';
         $line = 33;
         $art = '/if';
         ;
@@ -187,7 +187,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '>&#xe618;</i><i class="mc-iconfont _zs_gallery_mx-time_content_-ipb fr" ';
+    $p += '>&#xeb79;</i><i class="mc-iconfont _zs_gallery_mx-time_content_-ipb fr" ';
     $line = 38;
     $art = 'if types[\'@{minute}\']';
     ;
@@ -201,7 +201,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '>&#xe605;</i></div></div><div mxv mxa="_zs_galleryeP:f" class="_zs_gallery_mx-time_content_-group" style="flex: 0 0 52px;"><div mxv mxa="_zs_galleryeP:g" class="mb5"><input class="input _zs_gallery_mx-time_content_-ipt" maxlength="2" autocomplete="off" value="';
+    $p += '>&#xeb78;</i></div></div><div mxv mxa="_zs_galleryeK:f" class="_zs_gallery_mx-time_content_-group" style="flex: 0 0 52px;"><div mxv mxa="_zs_galleryeK:g" class="mb5"><input class="input _zs_gallery_mx-time_content_-ipt" maxlength="2" autocomplete="off" value="';
     $line = 46;
     $art = '=format(time[\'@{second}\'])';
     ;
@@ -220,7 +220,7 @@ module.exports = Magix.View.extend({
     }
     else {
         ;
-        $p += ' disabled="disabled" ';
+        $p += ' time-disabled ';
         $line = 47;
         $art = '/if';
         ;
@@ -234,7 +234,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!types[\'@{second}\']) {%>';
     if (!types['@{second}']) {
         ;
-        $p += ' _zs_gallery_mx-time_content_-disabled ';
+        $p += ' _zs_gallery_mx-time_content_-time-disabled ';
         $line = 50;
         $art = '/if';
         ;
@@ -255,7 +255,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '>&#xe618;</i><i class="mc-iconfont _zs_gallery_mx-time_content_-ipb fr" ';
+    $p += '>&#xeb79;</i><i class="mc-iconfont _zs_gallery_mx-time_content_-ipb fr" ';
     $line = 55;
     $art = 'if types[\'@{second}\']';
     ;
@@ -269,7 +269,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '>&#xe605;</i></div></div></div></div>';
+    $p += '>&#xeb78;</i></div></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

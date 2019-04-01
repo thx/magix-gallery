@@ -2,7 +2,7 @@
     <!-- 鼠标hover提示浮层 -->
     {{if hoverInfo.show}}
     <div style="top: {{=hoverInfo.top}}px; left: {{=hoverInfo.left}}px;" 
-        class="discount-hover">
+        class="discount-hover mx-shadow">
         <div class="mb5">{{=hoverInfo.week}}</div>
         <div class="mb5"><strong>{{=hoverInfo.time}}</strong></div>
         <div><strong>{{=hoverInfo.discount}}</strong>%折扣</div>
@@ -18,9 +18,9 @@
     <!-- 选中区域设置浮层 -->
     {{if settingInfo.show}}
     <div style="top: {{=settingInfo.top}}px; left: {{=settingInfo.left}}px;" 
-        class="discount-setting">
+        class="discount-setting mx-shadow">
         <div class="setting-content">
-            <div class="mb20">
+            <div class="mb10">
                 <span>{{=settingInfo.week}}</span>：
                 <strong class="ml5">{{=settingInfo.time}}</strong>
             </div>

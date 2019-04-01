@@ -9,7 +9,7 @@
             mx-mouseout="toggle({index:{{=index}},height:0})">
             <span class="text">{{=item.title}}</span>
             <span class="mc-iconfont ml5 arrow">&#xe692;</span>
-            <div class="links" style="height: {{=item.showHeight}}px;">
+            <div class="links {{if (item.showHeight > 0)}} mx-shadow {{/if}}" style="height: {{=item.showHeight}}px;">
                 {{each item.seconds as second}}
                 <dl>
                     {{if second.title}}

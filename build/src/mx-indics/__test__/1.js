@@ -28,7 +28,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', parents = $$.parents, fields = $$.fields, defaults = $$.defaults, custom = $$.custom, customs = $$.customs, triggerType = $$.triggerType, map = $$.map, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerycn:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerycn:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerycn:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl"><div>限制指标选择上限4 + 指标可排序，选择指标超过上限的时候，未选择指标禁止选择</div><div>切换为默认显示默认指标，切换自定义显示用户的自定义配置；当自定义配置为 [] 时，等于默认配置，确保每次操作都是有指标的</div></div></div><div mxv mxa="_zs_gallerycn:b" class="clearfix"><div mxv="parents,fields,defaults,customs" class="fl mr20" mx-change="' + $viewId + 'change()" mx-view="mx-indics/index?parents=';
+    $p += '<div mxv mxa="_zs_galleryci:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryci:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryci:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl"><div>限制指标选择上限4 + 指标可排序，选择指标超过上限的时候，未选择指标禁止选择</div><div>切换为默认显示默认指标，切换自定义显示用户的自定义配置；当自定义配置为 [] 时，等于默认配置，确保每次操作都是有指标的</div></div></div><div mxv mxa="_zs_galleryci:b" class="clearfix"><div mxv="parents,fields,defaults,customs" class="fl mr20" mx-change="' + $viewId + 'change()" mx-view="mx-indics/index?parents=';
     $line = 12;
     $art = '@parents';
     ;
@@ -48,18 +48,18 @@ module.exports = Base.extend({
     $line = 16;
     $art = '@customs';
     ;
-    $p += ($expr = '<%@customs%>', $i($$ref, customs)) + '&sortable=true&limit=4&lineNumber=3"></div><div mxa="_zs_gallerycn:c" class="fl"><div mxa="_zs_gallerycn:d" class="clearfix"><span mxs="_zs_gallerycn:a" class="fl color-9">当前操作：</span><span mxa="_zs_gallerycn:e" class="fl">';
+    $p += ($expr = '<%@customs%>', $i($$ref, customs)) + '&sortable=true&limit=4&lineNumber=3"></div><div mxa="_zs_galleryci:c" class="fl"><div mxa="_zs_galleryci:d" class="clearfix"><span mxs="_zs_galleryci:a" class="fl color-9">当前操作：</span><span mxa="_zs_galleryci:e" class="fl">';
     $line = 24;
     $art = '=triggerType';
     ;
-    $p += ($expr = '<%=triggerType%>', $e(triggerType)) + '</span></div><div mxa="_zs_gallerycn:f" class="clearfix"><span mxs="_zs_gallerycn:b" class="color-9 fl">指标类型：</span>';
+    $p += ($expr = '<%=triggerType%>', $e(triggerType)) + '</span></div><div mxa="_zs_galleryci:f" class="clearfix"><span mxs="_zs_galleryci:b" class="color-9 fl">指标类型：</span>';
     $line = 28;
     $art = 'if custom';
     ;
     $expr = '<%if (custom) {%>';
     if (custom) {
         ;
-        $p += '<span mxs="_zs_gallerycn:c" class="fl">自定义指标</span>';
+        $p += '<span mxs="_zs_galleryci:c" class="fl">自定义指标</span>';
         $line = 30;
         $art = 'else';
         ;
@@ -67,14 +67,14 @@ module.exports = Base.extend({
     }
     else {
         ;
-        $p += '<span mxs="_zs_gallerycn:d" class="fl">默认指标</span>';
+        $p += '<span mxs="_zs_galleryci:d" class="fl">默认指标</span>';
         $line = 32;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxa="_zs_gallerycn:g" class="clearfix"><span mxs="_zs_gallerycn:e" class="color-9 fl">选中指标：</span>';
+    $p += '</div><div mxa="_zs_galleryci:g" class="clearfix"><span mxs="_zs_galleryci:e" class="color-9 fl">选中指标：</span>';
     $line = 36;
     $art = 'if custom';
     ;
@@ -85,10 +85,10 @@ module.exports = Base.extend({
         $line = 37;
         $art = 'each customs as key';
         ;
-        $expr = '<%for (var $art_iuskmemfr$art_i = 0, $art_cdnlnlbn$art_c = customs.length; $art_iuskmemfr$art_i < $art_cdnlnlbn$art_c; $art_iuskmemfr$art_i++) {        var key = customs[$art_iuskmemfr$art_i]%>';
-        for (var $art_iuskmemfr$art_i = 0, $art_cdnlnlbn$art_c = customs.length; $art_iuskmemfr$art_i < $art_cdnlnlbn$art_c; $art_iuskmemfr$art_i++) {
-            var key = customs[$art_iuskmemfr$art_i];
-            $p += '<span mxa="_zs_gallerycn:h" class="fl mr10">';
+        $expr = '<%for (var $art_iykzdham$art_i = 0, $art_cevbxveigi$art_c = customs.length; $art_iykzdham$art_i < $art_cevbxveigi$art_c; $art_iykzdham$art_i++) {        var key = customs[$art_iykzdham$art_i]%>';
+        for (var $art_iykzdham$art_i = 0, $art_cevbxveigi$art_c = customs.length; $art_iykzdham$art_i < $art_cevbxveigi$art_c; $art_iykzdham$art_i++) {
+            var key = customs[$art_iykzdham$art_i];
+            $p += '<span mxa="_zs_galleryci:h" class="fl mr10">';
             $line = 38;
             $art = '=map[key]';
             ;
@@ -115,10 +115,10 @@ module.exports = Base.extend({
         $line = 41;
         $art = 'each defaults as key';
         ;
-        $expr = '<%for (var $art_inamkcxnfib$art_i = 0, $art_cwoclpl$art_c = defaults.length; $art_inamkcxnfib$art_i < $art_cwoclpl$art_c; $art_inamkcxnfib$art_i++) {        var key = defaults[$art_inamkcxnfib$art_i]%>';
-        for (var $art_inamkcxnfib$art_i = 0, $art_cwoclpl$art_c = defaults.length; $art_inamkcxnfib$art_i < $art_cwoclpl$art_c; $art_inamkcxnfib$art_i++) {
-            var key = defaults[$art_inamkcxnfib$art_i];
-            $p += '<span mxa="_zs_gallerycn:i" class="fl mr10">';
+        $expr = '<%for (var $art_ivlzqhfm$art_i = 0, $art_cgzxmqzsu$art_c = defaults.length; $art_ivlzqhfm$art_i < $art_cgzxmqzsu$art_c; $art_ivlzqhfm$art_i++) {        var key = defaults[$art_ivlzqhfm$art_i]%>';
+        for (var $art_ivlzqhfm$art_i = 0, $art_cgzxmqzsu$art_c = defaults.length; $art_ivlzqhfm$art_i < $art_cgzxmqzsu$art_c; $art_ivlzqhfm$art_i++) {
+            var key = defaults[$art_ivlzqhfm$art_i];
+            $p += '<span mxa="_zs_galleryci:i" class="fl mr10">';
             $line = 42;
             $art = '=map[key]';
             ;
@@ -140,27 +140,27 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div></div></div><div mxa="_zs_gallerycn:j" class="clearfix"><div mxa="_zs_gallerycn:k" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third1"><div mxs="_zs_gallerycn:f" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</div></div></div></div><div mxa="_zs_galleryci:j" class="clearfix"><div mxa="_zs_galleryci:k" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third1"><div mxs="_zs_galleryci:f" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 52;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycn:l" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryci:l" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 54;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycn:g" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryci:g" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 57;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-indics \n    parents="&#123;&#123;@parents&#125;&#125;" \n    fields="&#123;&#123;@fields&#125;&#125;" \n    defaults="&#123;&#123;@defaults&#125;&#125;"\n    custom="&#123;&#123;=custom&#125;&#125;"\n    customs="&#123;&#123;@customs&#125;&#125;"\n    sortable="true" \n    limit="4"\n    mx-change="change()"/&gt;</pre></div><div mxa="_zs_gallerycn:m" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerycn:h" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-indics \n    parents="&#123;&#123;@parents&#125;&#125;" \n    fields="&#123;&#123;@fields&#125;&#125;" \n    defaults="&#123;&#123;@defaults&#125;&#125;"\n    custom="&#123;&#123;=custom&#125;&#125;"\n    customs="&#123;&#123;@customs&#125;&#125;"\n    sortable="true" \n    limit="4"\n    mx-change="change()"/&gt;</pre></div><div mxa="_zs_galleryci:m" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryci:h" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 70;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerycn:n" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryci:n" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 72;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerycn:g" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryci:g" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 75;
     $art = '=viewId';
     ;

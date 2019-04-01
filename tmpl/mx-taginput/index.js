@@ -3,7 +3,6 @@ let $ = require('$');
 let I18n = require('../mx-medusa/util');
 let Monitor = require('../mx-util/monitor');
 Magix.applyStyle('@index.less');
-Magix.applyStyle('@../mx-suggest/suggest.less');
 let MinWidth = 10;
 
 module.exports = Magix.View.extend({
@@ -42,10 +41,12 @@ module.exports = Magix.View.extend({
         me['@{data.list}'] = me['@{dynamic.list}'] ? [] : list;
         me['@{owner.node}'] = $('#' + me.id);
 
-        let disabledNode = $('#' + me.id + '[mx-disabled]')
+        // 支持mx-disabled或者disabled
+        let disabled = (extra.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
+
         me.updater.set({
             viewId: me.id,
-            disabled: disabledNode && (disabledNode.length > 0),
+            disabled,
             placeholder: extra.placeholder || I18n['choose'],
             emptyText: I18n['empty.text'],
             inputWidth: MinWidth,
@@ -319,13 +320,13 @@ module.exports = Magix.View.extend({
     '@{normal}'() {
         let me = this;
         let node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
-        node.removeClass('@../mx-suggest/suggest.less:hover');
+        node.removeClass('@index.less:hover');
     },
 
     '@{highlight}'(ignore) {
         let me = this;
         let node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
-        node.addClass('@../mx-suggest/suggest.less:hover');
+        node.addClass('@index.less:hover');
         if (!ignore && node.length) {
             me['@{temp.ignore}'] = 1; //如果是上下按键引起的滚动，则在move时忽略
             let height = node.outerHeight();
@@ -396,7 +397,7 @@ module.exports = Magix.View.extend({
             return;
         }
         let target = $(e.target);
-        if (target.hasClass('@../mx-suggest/suggest.less:suggest-item')) {
+        if (target.hasClass('@index.less:suggest-item')) {
             let idx = target.data('idx');
             if (idx != me['@{ui.index}']) {
                 me['@{normal}']();

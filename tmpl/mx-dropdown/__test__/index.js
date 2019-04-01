@@ -71,6 +71,11 @@ module.exports = Magix.View.extend({
             desc: '搜索关键词',
             type: 'string',
             def: ''
+        }, {
+            key: 'small',
+            desc: '小尺寸展示',
+            type: 'boolean',
+            def: 'false'
         }]
 
         let events = [{

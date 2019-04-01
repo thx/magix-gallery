@@ -1,35 +1,36 @@
-@import '../mx-style/_vars';
-@tag-left-padding: 10px;
-@tag-gap: 2px;
-@tag-height: @input-height - (@tag-gap * 4) - 2; // 2 border
 [mx-view*="mx-taginput/index"] {
+    --tag-left-padding: 10px;
+    --tag-gap: 2px;    
+    --tag-height: calc(var(--input-height) - (var(--tag-gap) * 4) - 2px);
     .ipt {
         position: relative;
         height: auto;
         border-style: solid;
         border-width: 1px;
-        border-color: @border-highlight;
-        border-radius: @border-radius;
-        padding: @tag-gap (@tag-left-padding - 4);
+        border-color: var(--border-highlight);
+        border-radius: var(--border-radius);
+        padding-top: var(--tag-gap);
+        padding-bottom: var(--tag-gap);
+        padding-left: calc(var(--tag-left-padding) - 4px);
+        padding-right: calc(var(--tag-left-padding) - 4px);
         cursor: text;
-        transition: border-color @duration;
+        transition: border-color var(--duration);
 
         &:hover {
-            border-color: @border-highlight-hover;
+            border-color: var(--border-highlight-hover);
         }
 
         .placeholder,
         .trigger,
         .item{
-            height: @tag-height;
-            line-height: @tag-height;
+            height: var(--tag-height);
+            line-height: var(--tag-height);
         }
 
         .placeholder {
             position: absolute;
-            left: @tag-left-padding;
-            top: 50%;
-            margin-top: 0 - (@tag-height / 2);
+            top: calc(var(--tag-gap) * 2);
+            left: var(--tag-left-padding);
             color: #999;
             user-select: none;
         }
@@ -37,8 +38,8 @@
         .item,
         .trigger{
             float: left;
-            margin-top: @tag-gap;
-            margin-bottom: @tag-gap;
+            margin-top: var(--tag-gap);
+            margin-bottom: var(--tag-gap);
         }
         .item {
             float: left;
@@ -46,9 +47,9 @@
             max-width: 220px;
             padding-right: 26px;
             padding-left: 6px;
-            margin-right: @tag-gap * 2;
+            margin-right: calc(var(--tag-gap) * 2);
             background-color: #eee;
-            border-radius: @border-radius;
+            border-radius: var(--border-radius);
             cursor: pointer;
             white-space: nowrap;
             word-wrap: normal;
@@ -61,12 +62,12 @@
                 right: 0;
                 height: 100%;
                 width: 20px;
-                line-height: @tag-height;
+                line-height: var(--tag-height);
                 text-align: center;
                 font-size: 12px;
                 font-weight: bold;
                 color: #ccc;
-                transition: color @duration;
+                transition: color var(--duration);
                 border-left: 1px solid #fff;
 
                 &:hover {
@@ -84,11 +85,11 @@
     &[mx-disabled] {
         .ipt{
             cursor: not-allowed;
-            background-color: @color-bg;
-            border-color: @color-border;
+            background-color: var(--color-bg);
+            border-color: var(--color-border);
 
             &:hover {
-                border-color: @color-border;
+                border-color: var(--color-border);
             }
         }
         
@@ -97,6 +98,28 @@
             .item-delete:hover {
                 color: #ccc;
             }
+        }
+    }
+
+    .tag-item {
+        margin: 2px 0;
+        padding: 0 10px;
+        cursor: pointer;
+        height: var(--input-small-height);
+        line-height: var(--input-small-height);
+        border-radius: var(--border-radius);
+        white-space: nowrap;
+        word-break: break-all;
+        &:hover,
+        &.hover {
+            background-color: var(--color-bg-hover);
+        }
+        &.active,
+        &.active:hover,
+        &.active:active,
+        &.active:focus {
+            color: var(--color-brand);
+            background-color: var(--color-brand-opacity);
         }
     }
 }

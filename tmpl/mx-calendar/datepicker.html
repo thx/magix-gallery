@@ -8,8 +8,9 @@
         {{=dateInfo.selected}}
     </div>        
 </div>
-<div class="rangepicker-wrapper {{if show}}open{{/if}}" id="dpcnt_{{=viewId}}" 
+<div class="mx-output mx-output-bottom {{if show}} mx-output-open {{/if}}" 
     style="left: {{=left}}px; top: {{=top}}px;"
+    id="dpcnt_{{=viewId}}" 
     mx-view="@./index?configs={{@dateInfo}}"
     mx-change="@{date.picked}()" 
     mx-cancel="@{hide}()"></div>

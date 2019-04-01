@@ -7,7 +7,7 @@ define("mx-collapse/__test__/content",["magix","mx-preview/index"],(require,expo
 /*Magix*/
 require("mx-preview/index");
 var Magix = require("magix");
-Magix.applyStyle("_zs_gallery_mx-collapse___test___index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-collapse___test___index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-collapse___test___index_-demo {\n  margin-right: 20px;\n  border: 1px solid #e6e6e6;\n  background-color: #fafafa;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-collapse___test___index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-collapse___test___index_-demo {\n  margin-right: 20px;\n  border: 1px solid #e6e6e6;\n  background-color: #fafafa;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -21,11 +21,11 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', outer = $$.outer; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryak:_" class="mb20">当前模块标题是：';
+    $p += '<div mxa="_zs_galleryae:_" class="mb20">当前模块标题是：';
     $line = 1;
     $art = '!outer.title';
     ;
-    $p += ($expr = '<%!outer.title%>', $n(outer.title)) + '</div><div mxs="_zs_galleryak:_" class="clearfix"><div class="_zs_gallery_mx-collapse___test___index_-demo" mx-view="mx-preview/index?format=2&url=%2F%2Fimg.alicdn.com%2Ftfscom%2FTB10l9lbgZC2uNjSZFnXXaxZpXa.png&maxWidth=100&maxHeight=100"></div><div class="_zs_gallery_mx-collapse___test___index_-demo" mx-view="mx-preview/index?format=2&url=%2F%2Fimg.alicdn.com%2Ftfscom%2FTB10l9lbgZC2uNjSZFnXXaxZpXa.png&maxWidth=100&maxHeight=100"></div></div>';
+    $p += ($expr = '<%!outer.title%>', $n(outer.title)) + '</div><div mxs="_zs_galleryae:_" class="clearfix"><div class="_zs_gallery_mx-collapse___test___index_-demo" mx-view="mx-preview/index?format=2&url=%2F%2Fimg.alicdn.com%2Ftfscom%2FTB10l9lbgZC2uNjSZFnXXaxZpXa.png&maxWidth=100&maxHeight=100"></div><div class="_zs_gallery_mx-collapse___test___index_-demo" mx-view="mx-preview/index?format=2&url=%2F%2Fimg.alicdn.com%2Ftfscom%2FTB10l9lbgZC2uNjSZFnXXaxZpXa.png&maxWidth=100&maxHeight=100"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

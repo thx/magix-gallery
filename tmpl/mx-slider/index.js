@@ -20,8 +20,8 @@ module.exports = Magix.View.extend({
         me['@{step}'] = +ops.step || 1;
         me['@{tip}'] = ops.tip || '';
 
-        let disabledNode = $('#' + me.id + '[mx-disabled]')
-        me['@{disabled}'] = disabledNode && (disabledNode.length > 0);
+        // 支持mx-disabled或者disabled
+        me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
         me['@{vertical}'] = (ops.vertical + '') === 'true';
         me['@{needInput}'] = ((ops.needInput + '') === 'true') && !me['@{vertical}'];
@@ -54,7 +54,7 @@ module.exports = Magix.View.extend({
             height: me['@{height}'],
             vertical: me['@{vertical}'],
             needInput: me['@{needInput}'],
-            disabled: me['@{disabled}']
+            disabled: me['@{ui.disabled}']
         });
         me.val(me['@{value}']);
 
@@ -62,7 +62,7 @@ module.exports = Magix.View.extend({
         me['@{rail.node}'] = railWrapper;
 
         let click = e => {
-            if (me['@{temp.hold.event}'] || me['@{disabled}']) {
+            if (me['@{temp.hold.event}'] || me['@{ui.disabled}']) {
                 return;
             }
             let offset = railWrapper.offset();
@@ -212,7 +212,7 @@ module.exports = Magix.View.extend({
     },
     '@{drag}<mousedown>' (e) {
         let me = this;
-        if (me['@{disabled}']) {
+        if (me['@{ui.disabled}']) {
             return;
         }
         let current = $(e.eventTarget);

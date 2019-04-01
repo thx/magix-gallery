@@ -23,15 +23,15 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybA:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybA:_" class="_zs_gallery___test___layout_-eg-content"><div class="mx-notice mx-notice-error mb20" style="text-align: left"><div class="mx-notice-inner mx-notice-inner-with"><i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>错误提示</div></div><div text-align="center" class="mx-notice mx-notice-error mb20" style="text-align: center"><div class="mx-notice-inner mx-notice-inner-with"><i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>错误居中提示</div></div><div text-align="center" class="mx-notice mx-notice-border mx-notice-error mb20" style="text-align: center"><div class="mx-notice-inner mx-notice-inner-with"><i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>带边框的错误居中提示</div></div></div><div mxa="_zs_gallerybA:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybA:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerybv:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybv:_" class="_zs_gallery___test___layout_-eg-content"><div class="mx-notice mx-notice-error mb20" style="text-align: left"><div class="mx-notice-inner mx-notice-inner-with"><i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>错误提示</div></div><div text-align="center" class="mx-notice mx-notice-error mb20" style="text-align: center"><div class="mx-notice-inner mx-notice-inner-with"><i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>错误居中提示</div></div><div text-align="center" class="mx-notice mx-notice-border mx-notice-error mb20" style="text-align: center"><div class="mx-notice-inner mx-notice-inner-with"><i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>带边框的错误居中提示</div></div></div><div mxa="_zs_gallerybv:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybv:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 9;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybA:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybv:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 11;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybA:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybv:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 14;
     $art = '=viewId';
     ;

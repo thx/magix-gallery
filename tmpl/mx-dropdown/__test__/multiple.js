@@ -35,7 +35,7 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'max',
-            desc: '选择个数上限',
+            desc: '选择个数上限，len >= max时不允许再选择',
             type: 'number',
             def: ''
         }, {

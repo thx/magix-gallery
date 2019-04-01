@@ -19,15 +19,12 @@ module.exports = Magix.View.extend({
         let node = $('#' + me.id);
         me['@{owner.node}'] = node;
 
-        let disabledNode = $('#' + me.id + '[mx-disabled]')
-        me['@{ui.disabled}'] = disabledNode && (disabledNode.length > 0);
+        // 支持mx-disabled或者disabled
+        me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
         // 展开方向
-        let placementMap = {
-            top: '@index.less:top',
-            bottom: '@index.less:bottom'
-        }
-        me['@{ui.placement}'] = placementMap[ops.placement || 'bottom'];
+        let placement = ops.placement || 'bottom';
+        me['@{ui.placement}'] = `mx-output-${placement}`;
 
         // trigger方式，click，hover，默认click
         me['@{trigger.type}'] = ops.triggerType || 'click';
@@ -146,8 +143,8 @@ module.exports = Magix.View.extend({
         })
 
         // 选择上限及下限
-        let min = +ops.min || 0,
-            max = +ops.max || 0;
+        let min = +ops.min || 0, 
+            max = +ops.max || 0; 
         if ((max > 0) && (min > max)) {
             min = max;
         }
@@ -190,8 +187,8 @@ module.exports = Magix.View.extend({
         me['@{val}']();
 
         let triggerType = me['@{trigger.type}'];
-        let triggerNode = $('#' + me.id + ' .@index.less:dropdown-toggle');
-        let menuWrapper = $('#' + me.id + ' .@index.less:dropdown-menu-wrapper');
+        let triggerNode = $('#toggle_' + me.id);
+        let menuWrapper = $('#menu_' + me.id);
         switch (triggerType) {
             case 'click':
                 triggerNode.on('click', () => {
@@ -287,7 +284,7 @@ module.exports = Magix.View.extend({
             }
 
             // 对浮层位置进行修正
-            let menuWrapper = $('#' + me.id + ' .@index.less:dropdown-menu-wrapper');
+            let menuWrapper = $('#menu_' + me.id);
             let win = $(window);
             let winWidth = win.width(),
                 menuOffset = me['@{owner.node}'].offset(),
@@ -306,18 +303,6 @@ module.exports = Magix.View.extend({
             me.updater.digest(d);
             me['@{owner.node}'].trigger('focusin');
 
-            let listNode = $('#list_' + me.id);
-            let active = listNode.find('.@index.less:active');
-            let pos = active.position();
-            if (pos) {
-                // 当前已选项在可是范围之内
-                let height = listNode.height();
-                let stop = listNode.prop('scrollTop');
-                if (pos.top < 0 || pos.top > height) {
-                    let top = pos.top - height + stop + height / 2;
-                    listNode.prop('scrollTop', top);
-                }
-            }
             Monitor['@{add}'](me);
         }
     },

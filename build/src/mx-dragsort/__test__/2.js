@@ -11,7 +11,7 @@ require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-dragsort___test___index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-dragsort___test___index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-dragsort___test___index_-item {\n  width: 120px;\n  padding: 10px;\n  margin-bottom: 10px;\n  margin-right: 10px;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  cursor: pointer;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-dragsort___test___index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-dragsort___test___index_-item {\n  width: 120px;\n  padding: 10px;\n  margin-bottom: 10px;\n  margin-right: 10px;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  cursor: pointer;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -25,17 +25,17 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', items = $$.items, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryaU:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryaU:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryaU:_" class="mb20"><span class="color-9">以下示例：</span>支持水平方向的排序</div><div mxa="_zs_galleryaU:b" class="clearfix"><div mxa="_zs_galleryaU:c" class="mb20"><span mxs="_zs_galleryaU:a" class="color-9 mr10">当前顺序：</span>';
+    $p += '<div mxa="_zs_galleryaO:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryaO:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryaO:_" class="mb20"><span class="color-9">以下示例：</span>支持水平方向的排序</div><div mxa="_zs_galleryaO:b" class="clearfix"><div mxa="_zs_galleryaO:c" class="mb20"><span mxs="_zs_galleryaO:a" class="color-9 mr10">当前顺序：</span>';
     $line = 6;
     $art = '=items';
     ;
-    $p += ($expr = '<%=items%>', $e(items)) + '</div><ul mxa="_zs_galleryaU:d" class="clearfix" mx-view="mx-dragsort/index?horizonal=true&vertical=false" mx-dragfinish="' + $viewId + 'drag()">';
+    $p += ($expr = '<%=items%>', $e(items)) + '</div><ul mxa="_zs_galleryaO:d" class="clearfix" mx-view="mx-dragsort/index?horizonal=true&vertical=false" mx-dragfinish="' + $viewId + 'drag()">';
     $line = 13;
     $art = 'each items as item';
     ;
-    $expr = '<%for (var $art_invjjmtcs$art_i = 0, $art_cuiuutgab$art_c = items.length; $art_invjjmtcs$art_i < $art_cuiuutgab$art_c; $art_invjjmtcs$art_i++) {    var item = items[$art_invjjmtcs$art_i]%>';
-    for (var $art_invjjmtcs$art_i = 0, $art_cuiuutgab$art_c = items.length; $art_invjjmtcs$art_i < $art_cuiuutgab$art_c; $art_invjjmtcs$art_i++) {
-        var item = items[$art_invjjmtcs$art_i];
+    $expr = '<%for (var $art_iomibzddt$art_i = 0, $art_codtrgx$art_c = items.length; $art_iomibzddt$art_i < $art_codtrgx$art_c; $art_iomibzddt$art_i++) {    var item = items[$art_iomibzddt$art_i]%>';
+    for (var $art_iomibzddt$art_i = 0, $art_codtrgx$art_c = items.length; $art_iomibzddt$art_i < $art_codtrgx$art_c; $art_iomibzddt$art_i++) {
+        var item = items[$art_iomibzddt$art_i];
         $p += '<li class="_zs_gallery_mx-dragsort___test___index_-item fl" data-value="';
         $line = 14;
         $art = '=item';
@@ -51,15 +51,15 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</ul></div></div><div mxa="_zs_galleryaU:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryaU:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</ul></div></div><div mxa="_zs_galleryaO:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryaO:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 21;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaU:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaO:f" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 23;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaU:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaO:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 26;
     $art = '=viewId';
     ;

@@ -24,15 +24,15 @@ module.exports = Magix.View.extend({
         let textKey = ops.textKey || 'text';
         let parentKey = ops.parentKey || 'pValue';
 
-        // 是否可操作
-        let disabledNode = $('#' + me.id + '[mx-disabled]')
+        // 支持mx-disabled或者disabled
+        let disabled = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
         let info = Util.listToTree(ops.list, valueKey, parentKey, false);
         let map = info.map,
             list = info.list;
         me.updater.set({
             viewId: me.id,
-            disabled: disabledNode && (disabledNode.length > 0),
+            disabled,
             placeholder: ops.placeholder || I18n['choose'],
             valueKey,
             textKey,

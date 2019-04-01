@@ -12,7 +12,7 @@
     
     <!-- 操作或者提示区域 -->
     {{if show && !showInfo && (opers.length > 0)}}
-    <ul class="status-info status-info-dd">
+    <ul class="mx-shadow status-info status-info-dd">
         {{each opers as item}}
         <li class="status-oper clearfix {{if (item.value == cur.value)}} status-oper-cur {{/if}}" mx-click="select({item:'{{@item}}'})">
             <span class="status-icon" style="color: {{=item.color}};">{{!item.icon}}</span>

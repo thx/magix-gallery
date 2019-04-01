@@ -17,8 +17,8 @@ module.exports = Magix.View.extend({
         });
         that['@{extra}'] = $.extend(true, {}, extra);
 
-        let disabledNode = $('#' + that.id + '[mx-disabled]')
-        that['@{ui.disabled}'] = disabledNode && (disabledNode.length > 0);
+        // 支持mx-disabled或者disabled
+        that['@{ui.disabled}'] = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
     },
 
     render() {

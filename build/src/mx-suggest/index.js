@@ -10,8 +10,7 @@ var Magix = require("magix");
 var $ = require("$");
 var I18n = require("../mx-medusa/util");
 var Monitor = require("../mx-util/monitor");
-Magix.applyStyle("_zs_gallery_mx-suggest_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-suggest_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-suggest/index\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-suggest_index_-suggest-box {\n  position: relative;\n  height: 32px;\n}\n");
-Magix.applyStyle("_zs_gallery_mx-suggest_suggest_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-suggest_suggest_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n/* 动画结束停在最后一帧 */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-suggest_suggest_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n/**\n* 渐显上拉动画\n*/\n@keyframes _zs_gallery_mx-suggest_suggest_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@keyframes _zs_gallery_mx-suggest_suggest_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-suggest_suggest_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu {\n  display: none;\n  position: absolute;\n  top: 100%;\n  z-index: 99;\n  min-width: 100%;\n  max-height: 300px;\n  margin-top: 10px;\n  padding: 8px 10px;\n  border-radius: 4px;\n  background-color: #fff;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  overflow-y: auto;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item {\n  margin: 2px 0;\n  padding: 0 10px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n  white-space: nowrap;\n  word-break: break-all;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item:hover,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active:hover,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active:active,\n._zs_gallery_mx-suggest_suggest_-suggest-menu ._zs_gallery_mx-suggest_suggest_-suggest-item._zs_gallery_mx-suggest_suggest_-active:focus {\n  color: #4d7fff;\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-suggest_suggest_-suggest-menu._zs_gallery_mx-suggest_suggest_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-suggest_suggest_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-suggest_suggest_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-suggest_index_","[mx-view*=\"mx-suggest/index\"] {\n  position: relative;\n  display: inline-block;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -28,8 +27,8 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', placeholder = $$.placeholder, viewId = $$.viewId, selectedText = $$.selectedText, show = $$.show, align = $$.align, loading = $$.loading, list = $$.list, selectedValue = $$.selectedValue, emptyText = $$.emptyText; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryd@:_" class="search-box"><i mxs="_zs_galleryd@:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+} ; var $g = '', $_temp, $p = '', placeholder = $$.placeholder, viewId = $$.viewId, selectedText = $$.selectedText, show = $$.show, loading = $$.loading, list = $$.list, selectedValue = $$.selectedValue, emptyText = $$.emptyText; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryd7:_" class="search-box"><i mxs="_zs_galleryd7:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
     $line = 4;
     $art = '=placeholder';
     ;
@@ -41,51 +40,29 @@ module.exports = Magix.View.extend({
     $line = 7;
     $art = '=selectedText';
     ;
-    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '" mx-keyup="' + $viewId + '@{suggest}()" mx-paste="' + $viewId + '@{suggest}()" mx-focusin="' + $viewId + '@{suggest}()" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{stop}()"/><ul class="_zs_gallery_mx-suggest_suggest_-suggest-menu ';
+    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '" mx-keyup="' + $viewId + '@{suggest}()" mx-paste="' + $viewId + '@{suggest}()" mx-focusin="' + $viewId + '@{suggest}()" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{stop}()"/><div class="mx-output mx-output-bottom ';
     $line = 14;
     $art = 'if show';
     ;
     $expr = '<%if (show) {%>';
     if (show) {
         ;
-        $p += ' _zs_gallery_mx-suggest_suggest_-open ';
+        $p += ' mx-output-open ';
         $line = 14;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '" style="';
-    $line = 14;
-    $art = 'if (align==\'right\')';
-    ;
-    $expr = '<%if (align == \'right\') {%>';
-    if (align == 'right') {
-        ;
-        $p += 'right: 0;';
-        $line = 14;
-        $art = 'else';
-        ;
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += 'left: 0;';
-        $line = 14;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '">';
-    $line = 15;
+    $p += '"><ul mxa="_zs_galleryd7:a" class="mx-output-list">';
+    $line = 16;
     $art = 'if loading';
     ;
     $expr = '<%if (loading) {%>';
     if (loading) {
         ;
-        $p += '<li mxs="_zs_galleryd@:a"><div class="loading" style="padding: 40px 0;"><span class="loading-anim"></span></div></li>';
-        $line = 19;
+        $p += '<li mxs="_zs_galleryd7:a"><div class="loading" style="padding: 40px 0;"><span class="loading-anim"></span></div></li>';
+        $line = 18;
         $art = 'else';
         ;
         $expr = '<%}else {%>';
@@ -93,75 +70,75 @@ module.exports = Magix.View.extend({
     else {
         ;
         $p += ' ';
-        $line = 20;
+        $line = 19;
         $art = 'if (list.length > 0)';
         ;
         $expr = '<%if (list.length > 0) {%>';
         if (list.length > 0) {
             ;
             $p += ' ';
-            $line = 21;
+            $line = 20;
             $art = 'each list as item';
             ;
-            $expr = '<%for (var $art_iieqwuaea$art_i = 0, $art_czvokdnk$art_c = list.length; $art_iieqwuaea$art_i < $art_czvokdnk$art_c; $art_iieqwuaea$art_i++) {            var item = list[$art_iieqwuaea$art_i]%>';
-            for (var $art_iieqwuaea$art_i = 0, $art_czvokdnk$art_c = list.length; $art_iieqwuaea$art_i < $art_czvokdnk$art_c; $art_iieqwuaea$art_i++) {
-                var item = list[$art_iieqwuaea$art_i];
-                $p += '<li class="_zs_gallery_mx-suggest_suggest_-suggest-item ';
+            $expr = '<%for (var $art_ifgzcrlny$art_i = 0, $art_cdlav$art_c = list.length; $art_ifgzcrlny$art_i < $art_cdlav$art_c; $art_ifgzcrlny$art_i++) {            var item = list[$art_ifgzcrlny$art_i]%>';
+            for (var $art_ifgzcrlny$art_i = 0, $art_cdlav$art_c = list.length; $art_ifgzcrlny$art_i < $art_cdlav$art_c; $art_ifgzcrlny$art_i++) {
+                var item = list[$art_ifgzcrlny$art_i];
+                $p += '<li mxa="_zs_galleryd7:b" class="mx-output-item"><span class="mx-output-link ';
                 $line = 22;
                 $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';
                 ;
                 $expr = '<%if ((selectedValue + \'\') === (item.value + \'\')) {%>';
                 if ((selectedValue + '') === (item.value + '')) {
                     ;
-                    $p += ' _zs_gallery_mx-suggest_suggest_-active ';
+                    $p += ' mx-output-link-active ';
                     $line = 22;
                     $art = '/if';
                     ;
                     $expr = '<%}%>';
                 }
                 ;
-                $p += '" mx-click="' + $viewId + '@{select}({item:\'';
-                $line = 23;
+                $p += '" data-active="(selectedValue + \'\') === (item.value + \'\')" mx-click="' + $viewId + '@{select}({item:\'';
+                $line = 24;
                 $art = '@item';
                 ;
                 $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})">';
-                $line = 24;
+                $line = 25;
                 $art = '!item.text';
                 ;
-                $p += ($expr = '<%!item.text%>', $n(item.text)) + '</li>';
-                $line = 26;
+                $p += ($expr = '<%!item.text%>', $n(item.text)) + '</span></li>';
+                $line = 28;
                 $art = '/each';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' ';
-            $line = 27;
+            $line = 29;
             $art = 'else';
             ;
             $expr = '<%}    else {%>';
         }
         else {
             ;
-            $p += '<li mxa="_zs_galleryd@:a" class="text-center color-9">';
-            $line = 28;
+            $p += '<li mxa="_zs_galleryd7:c" class="text-center color-9">';
+            $line = 30;
             $art = '=emptyText';
             ;
             $p += ($expr = '<%=emptyText%>', $e(emptyText)) + '</li>';
-            $line = 29;
+            $line = 31;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += ' ';
-        $line = 30;
+        $line = 32;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</ul></div>';
+    $p += '</ul></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -228,7 +205,6 @@ catch (ex) {
             selectedValue: selectedValue,
             selectedText: selectedText,
             placeholder: placeholder,
-            align: data.align || 'left',
             show: false,
             emptyText: I18n['empty.text']
         });

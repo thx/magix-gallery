@@ -10,7 +10,7 @@ var Magix = require("magix");
 var $ = require("$");
 var Monitor = require("../mx-util/monitor");
 var I18n = require("../mx-medusa/util");
-Magix.applyStyle("_zs_gallery_mx-dropdown_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-dropdown_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n/* 动画结束停在最后一帧 */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-dropdown_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-dropdown_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n/**\n* 渐显上拉动画\n*/\n@keyframes _zs_gallery_mx-dropdown_index_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-dropdown_index_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@keyframes _zs_gallery_mx-dropdown_index_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-dropdown_index_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n._zs_gallery_mx-dropdown_index_-dropdown-toggle {\n  position: relative;\n  width: 100%;\n  height: 32px;\n  padding: 0 25px 0 10px;\n  border-radius: 4px;\n  cursor: pointer;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  line-height: 30px;\n  transition: all 0.25s;\n  border-width: 1px;\n  border-style: solid;\n  border-color: #e6e6e6;\n  background-color: #fff;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-dropdown-toggle-label {\n  display: block;\n  width: 100%;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow {\n  position: absolute;\n  right: 0;\n  top: 50%;\n  width: 28px;\n  height: 28px;\n  font-size: 28px;\n  line-height: 28px;\n  margin-top: -14px;\n  color: #e6e6e6;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-toggle._zs_gallery_mx-dropdown_index_-open ._zs_gallery_mx-dropdown_index_-arrow {\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n._zs_gallery_mx-dropdown_index_-item-link {\n  display: block;\n  width: 100%;\n  padding: 0 8px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-dropdown_index_-item-link:hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-active,\n._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-active:hover,\n._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-active:active,\n._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-active:focus {\n  color: #4d7fff;\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-link-disabled,\n._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-link-disabled:hover,\n._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-link-disabled:active,\n._zs_gallery_mx-dropdown_index_-item-link._zs_gallery_mx-dropdown_index_-link-disabled:focus {\n  color: #999;\n  cursor: not-allowed;\n  background-color: transparent;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-header-item ._zs_gallery_mx-dropdown_index_-item-link:hover {\n  background-color: transparent;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper {\n  display: none;\n  position: absolute;\n  left: 0;\n  z-index: 99;\n  min-width: 100%;\n  max-width: 200%;\n  border-radius: 4px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ._zs_gallery_mx-dropdown_index_-search-wrapper {\n  padding: 10px 10px 0 10px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ._zs_gallery_mx-dropdown_index_-search-wrapper ._zs_gallery_mx-dropdown_index_-dropdown-search-box {\n  width: 100%;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ._zs_gallery_mx-dropdown_index_-dropdown-menu {\n  padding: 8px 10px;\n  overflow: auto;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ._zs_gallery_mx-dropdown_index_-dropdown-menu ._zs_gallery_mx-dropdown_index_-dropdown-item {\n  padding: 2px 0;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ._zs_gallery_mx-dropdown_index_-dropdown-menu ._zs_gallery_mx-dropdown_index_-dropdown-header {\n  height: 26px;\n  line-height: 26px;\n  padding-left: 2px;\n  padding-right: 2px;\n  color: #999;\n  cursor: default;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper._zs_gallery_mx-dropdown_index_-bottom {\n  top: 100%;\n  margin-top: 10px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper._zs_gallery_mx-dropdown_index_-bottom._zs_gallery_mx-dropdown_index_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-dropdown_index_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-dropdown_index_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper._zs_gallery_mx-dropdown_index_-top {\n  bottom: 100%;\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper._zs_gallery_mx-dropdown_index_-top._zs_gallery_mx-dropdown_index_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-dropdown_index_-fade-in-up 0.25s ease-out;\n          animation: _zs_gallery_mx-dropdown_index_-fade-in-up 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group {\n  min-width: 600px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-search-wrapper ._zs_gallery_mx-dropdown_index_-dropdown-search-box {\n  width: 200px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-dropdown-menu ._zs_gallery_mx-dropdown_index_-group-wrapper {\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-dropdown-menu ._zs_gallery_mx-dropdown_index_-group-wrapper ._zs_gallery_mx-dropdown_index_-dropdown-item {\n  float: left;\n  width: 25%;\n}\n._zs_gallery_mx-dropdown_index_-dropdown,\n[mx-view*=\"mx-dropdown/index\"],\n[mx-view*=\"mx-dropdown/bd\"],\n[mx-view*=\"mx-dropdown/multiple\"] {\n  position: relative;\n  display: inline-block;\n  min-width: 100px;\n  vertical-align: middle;\n}\n._zs_gallery_mx-dropdown_index_-dropdown:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/index\"]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/bd\"]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/multiple\"]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle {\n  border-color: #ccc;\n}\n._zs_gallery_mx-dropdown_index_-dropdown:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n[mx-view*=\"mx-dropdown/index\"]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n[mx-view*=\"mx-dropdown/bd\"]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n[mx-view*=\"mx-dropdown/multiple\"]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow {\n  color: #ccc;\n}\n._zs_gallery_mx-dropdown_index_-dropdown[mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/index\"][mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/bd\"][mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/multiple\"][mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n._zs_gallery_mx-dropdown_index_-dropdown[mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/index\"][mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/bd\"][mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle,\n[mx-view*=\"mx-dropdown/multiple\"][mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle {\n  border-color: #e6e6e6;\n  color: #999;\n  background-color: #eee;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-dropdown_index_-dropdown[mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n[mx-view*=\"mx-dropdown/index\"][mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n[mx-view*=\"mx-dropdown/bd\"][mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n[mx-view*=\"mx-dropdown/multiple\"][mx-disabled] ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n._zs_gallery_mx-dropdown_index_-dropdown[mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n[mx-view*=\"mx-dropdown/index\"][mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n[mx-view*=\"mx-dropdown/bd\"][mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow,\n[mx-view*=\"mx-dropdown/multiple\"][mx-disabled]:hover ._zs_gallery_mx-dropdown_index_-dropdown-toggle ._zs_gallery_mx-dropdown_index_-arrow {\n  color: #ccc;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper {\n  padding-top: 10px;\n  padding-right: 10px;\n  padding-left: 18px;\n  padding-right: 18px;\n  line-height: 16px;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper ._zs_gallery_mx-dropdown_index_-oper {\n  float: left;\n  padding-right: 20px;\n  color: #999;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper ._zs_gallery_mx-dropdown_index_-oper:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper._zs_gallery_mx-dropdown_index_-has-group {\n  padding-left: 12px;\n  padding-right: 12px;\n}\n._zs_gallery_mx-dropdown_index_-footer-wrapper {\n  padding: 10px;\n  border-top: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-dropdown_index_-msg-wrapper {\n  position: relative;\n}\n._zs_gallery_mx-dropdown_index_-msg-wrapper ._zs_gallery_mx-dropdown_index_-msg {\n  position: absolute;\n  top: -1px;\n  left: 18px;\n  white-space: nowrap;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-dropdown_index_","._zs_gallery_mx-dropdown_index_-dropdown-menu-group {\n  min-width: 600px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-dropdown-group-item {\n  float: left;\n  width: 25%;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-dropdown-group-wrapper {\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper {\n  padding-top: 10px;\n  padding-right: 10px;\n  padding-left: 18px;\n  padding-right: 18px;\n  line-height: 16px;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper ._zs_gallery_mx-dropdown_index_-oper {\n  float: left;\n  padding-right: 20px;\n  color: #999;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper ._zs_gallery_mx-dropdown_index_-oper:hover {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper._zs_gallery_mx-dropdown_index_-has-group {\n  padding-left: 12px;\n  padding-right: 12px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -23,40 +23,34 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', expand = $$.expand, selected = $$.selected, selectedText = $$.selectedText, placementClass = $$.placementClass, over = $$.over, menuStyles = $$.menuStyles, rList = $$.rList, searchbox = $$.searchbox, text = $$.text, keyword = $$.keyword, max = $$.max, imme = $$.imme, needAll = $$.needAll, hasGroups = $$.hasGroups, spm = $$.spm, allHide = $$.allHide, viewId = $$.viewId, height = $$.height, groups = $$.groups, errMsg = $$.errMsg; var $expr, $art, $line; try {
-    $p += '<div class="_zs_gallery_mx-dropdown_index_-dropdown-toggle ';
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, expand = $$.expand, selectedText = $$.selectedText, placementClass = $$.placementClass, over = $$.over, menuStyles = $$.menuStyles, rList = $$.rList, searchbox = $$.searchbox, text = $$.text, keyword = $$.keyword, max = $$.max, imme = $$.imme, needAll = $$.needAll, hasGroups = $$.hasGroups, spm = $$.spm, allHide = $$.allHide, height = $$.height, groups = $$.groups, errMsg = $$.errMsg; var $expr, $art, $line; try {
+    $p += '<div id="toggle_';
+    $line = 1;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" class="mx-trigger ';
     $line = 1;
     $art = 'if expand';
     ;
     $expr = '<%if (expand) {%>';
     if (expand) {
         ;
-        $p += ' _zs_gallery_mx-dropdown_index_-open ';
+        $p += ' mx-trigger-open ';
         $line = 1;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '"><span class="_zs_gallery_mx-dropdown_index_-dropdown-toggle-label ';
-    $line = 2;
-    $art = 'if (selected.length==0)';
-    ;
-    $expr = '<%if (selected.length == 0) {%>';
-    if (selected.length == 0) {
-        ;
-        $p += ' dropdown-toggle-label-ph ';
-        $line = 2;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '">';
+    $p += '"><span mxa="_zs_gallerya.:_" class="mx-trigger-label">';
     $line = 2;
     $art = '=selectedText';
     ;
-    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_gallerya;:_" class="mc-iconfont _zs_gallery_mx-dropdown_index_-arrow">&#xe692;</span></div><div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper ';
+    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_gallerya.:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
+    $line = 5;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" class="mx-output ';
     $line = 5;
     $art = '=placementClass';
     ;
@@ -67,7 +61,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (expand) {%>';
     if (expand) {
         ;
-        $p += ' _zs_gallery_mx-dropdown_index_-open ';
+        $p += ' mx-output-open ';
         $line = 5;
         $art = '/if';
         ;
@@ -120,7 +114,29 @@ module.exports = Magix.View.extend({
         $expr = '<%if (searchbox) {%>';
         if (searchbox) {
             ;
-            $p += '<div mxv mxa="_zs_gallerya;:_" class="_zs_gallery_mx-dropdown_index_-search-wrapper"><div mxv mxa="_zs_gallerya;:a" class="search-box _zs_gallery_mx-dropdown_index_-dropdown-search-box"><i mxs="_zs_gallerya;:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+            $p += '<div mxv mxa="_zs_gallerya.:a" class="mx-output-search"><div mxv class="search-box" style="';
+            $line = 10;
+            $art = 'if over';
+            ;
+            $expr = '<%if (over) {%>';
+            if (over) {
+                ;
+                $p += ' width: 200px; ';
+                $line = 10;
+                $art = 'else';
+                ;
+                $expr = '<%}        else {%>';
+            }
+            else {
+                ;
+                $p += ' width: 100%; ';
+                $line = 10;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '"><i mxs="_zs_gallerya.:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
             $line = 13;
             $art = '=text.search';
             ;
@@ -135,7 +151,7 @@ module.exports = Magix.View.extend({
             $expr = '<%if (max > 0 && over) {%>';
             if (max > 0 && over) {
                 ;
-                $p += '<span mxa="_zs_gallerya;:b" class="ml10"><span mxs="_zs_gallerya;:b" class="color-9">已选：</span><span mxa="_zs_gallerya;:c" class="font-tahoma bold">';
+                $p += '<span mxa="_zs_gallerya.:b" class="ml10"><span mxs="_zs_gallerya.:b" class="color-9">已选：</span><span mxa="_zs_gallerya.:c" class="font-tahoma bold">';
                 $line = 24;
                 $art = '=imme.length';
                 ;
@@ -229,7 +245,7 @@ module.exports = Magix.View.extend({
                     $expr = '<%}%>';
                 }
                 ;
-                $p += '><span mxs="_zs_gallerya;:b" class="color-9">已选：</span><span mxa="_zs_gallerya;:d" class="font-tahoma bold">';
+                $p += '><span mxs="_zs_gallerya.:b" class="color-9">已选：</span><span mxa="_zs_gallerya.:d" class="font-tahoma bold">';
                 $line = 39;
                 $art = '=imme.length';
                 ;
@@ -258,7 +274,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (!allHide) {%>';
         if (!allHide) {
             ;
-            $p += '<div mxv class="_zs_gallery_mx-dropdown_index_-dropdown-menu" id="list_';
+            $p += '<div mxv class="mx-output-list" id="list_';
             $line = 45;
             $art = '=viewId';
             ;
@@ -270,8 +286,8 @@ module.exports = Magix.View.extend({
             $line = 46;
             $art = 'each groups as group groupIndex';
             ;
-            $expr = '<%for (var groupIndex = 0, $art_clnivqnf$art_c = groups.length; groupIndex < $art_clnivqnf$art_c; groupIndex++) {            var group = groups[groupIndex]%>';
-            for (var groupIndex = 0, $art_clnivqnf$art_c = groups.length; groupIndex < $art_clnivqnf$art_c; groupIndex++) {
+            $expr = '<%for (var groupIndex = 0, $art_ciyqddoyscj$art_c = groups.length; groupIndex < $art_ciyqddoyscj$art_c; groupIndex++) {            var group = groups[groupIndex]%>';
+            for (var groupIndex = 0, $art_ciyqddoyscj$art_c = groups.length; groupIndex < $art_ciyqddoyscj$art_c; groupIndex++) {
                 var group = groups[groupIndex];
                 $p += ' ';
                 $line = 47;
@@ -287,210 +303,210 @@ module.exports = Magix.View.extend({
                     $expr = '<%if (group.all) {%>';
                     if (group.all) {
                         ;
-                        $p += '<div title="';
-                        $line = 49;
+                        $p += '<div mxa="_zs_gallerya.:e" class="clearfix"><div title="';
+                        $line = 50;
                         $art = '=group.text';
                         ;
-                        $p += ($expr = '<%=group.text%>', $e(group.text)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-item _zs_gallery_mx-dropdown_index_-dropdown-header-item"><label mxa="_zs_gallerya;:e" class="_zs_gallery_mx-dropdown_index_-item-link ellipsis"><span mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{checkGroup}({groupIndex:\'';
-                        $line = 56;
+                        $p += ($expr = '<%=group.text%>', $e(group.text)) + '" class="mx-output-item _zs_gallery_mx-dropdown_index_-dropdown-group-item"><label mxa="_zs_gallerya.:f" class="mx-output-link"><span mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{checkGroup}({groupIndex:\'';
+                        $line = 57;
                         $art = '=groupIndex';
                         ;
                         $p += ($expr = '<%=$eq(groupIndex)%>', $e($eq(groupIndex))) + '\'})" data-spm-click="';
-                        $line = 57;
+                        $line = 58;
                         $art = '=spm';
                         ;
                         $p += ($expr = '<%=spm%>', $e(spm)) + '" mx-view="mx-checkbox/index?disabled=';
-                        $line = 52;
+                        $line = 53;
                         $art = '=((max > 0) && (imme.length >= max))';
                         ;
                         $p += ($expr = '<%!$eu(((max > 0) && (imme.length >= max)))%>', $eu(((max > 0) && (imme.length >= max)))) + '&indeterminate=';
-                        $line = 53;
+                        $line = 54;
                         $art = '=(group.type==2)';
                         ;
                         $p += ($expr = '<%!$eu((group.type == 2))%>', $eu((group.type == 2))) + '&checked=';
-                        $line = 54;
+                        $line = 55;
                         $art = '=(group.type==3)';
                         ;
                         $p += ($expr = '<%!$eu((group.type == 3))%>', $eu((group.type == 3))) + '"></span>';
-                        $line = 57;
+                        $line = 58;
                         $art = '=group.text';
                         ;
-                        $p += ($expr = '<%=group.text%>', $e(group.text)) + '</label></div>';
-                        $line = 60;
+                        $p += ($expr = '<%=group.text%>', $e(group.text)) + '</label></div></div>';
+                        $line = 62;
                         $art = 'else';
                         ;
                         $expr = '<%}                else {%>';
                     }
                     else {
                         ;
-                        $p += '<div class="_zs_gallery_mx-dropdown_index_-dropdown-header ellipsis" title="';
-                        $line = 61;
+                        $p += '<div class="mx-output-header" title="';
+                        $line = 63;
                         $art = '=group.text';
                         ;
                         $p += ($expr = '<%=group.text%>', $e(group.text)) + '">';
-                        $line = 61;
+                        $line = 63;
                         $art = '=group.text';
                         ;
                         $p += ($expr = '<%=group.text%>', $e(group.text)) + '</div>';
-                        $line = 62;
+                        $line = 64;
                         $art = '/if';
                         ;
                         $expr = '<%}%>';
                     }
                     ;
                     $p += ' ';
-                    $line = 63;
+                    $line = 65;
                     $art = '/if';
                     ;
                     $expr = '<%}%>';
                 }
                 ;
-                $p += '<div mxv mxa="_zs_gallerya;:f" class="clearfix _zs_gallery_mx-dropdown_index_-group-wrapper">';
-                $line = 65;
+                $p += '<div mxv mxa="_zs_gallerya.:g" class="clearfix _zs_gallery_mx-dropdown_index_-dropdown-group-wrapper">';
+                $line = 67;
                 $art = 'each group.list as item';
                 ;
-                $expr = '<%for (var $art_ieakaapv$art_i = 0, $art_objxhzbzqnc$art_obj = group.list, $art_cljadonnxa$art_c = $art_objxhzbzqnc$art_obj.length; $art_ieakaapv$art_i < $art_cljadonnxa$art_c; $art_ieakaapv$art_i++) {                var item = $art_objxhzbzqnc$art_obj[$art_ieakaapv$art_i]%>';
-                for (var $art_ieakaapv$art_i = 0, $art_objxhzbzqnc$art_obj = group.list, $art_cljadonnxa$art_c = $art_objxhzbzqnc$art_obj.length; $art_ieakaapv$art_i < $art_cljadonnxa$art_c; $art_ieakaapv$art_i++) {
-                    var item = $art_objxhzbzqnc$art_obj[$art_ieakaapv$art_i];
+                $expr = '<%for (var $art_imbkohgzr$art_i = 0, $art_objrpmynqc$art_obj = group.list, $art_cxlkjidblwg$art_c = $art_objrpmynqc$art_obj.length; $art_imbkohgzr$art_i < $art_cxlkjidblwg$art_c; $art_imbkohgzr$art_i++) {                var item = $art_objrpmynqc$art_obj[$art_imbkohgzr$art_i]%>';
+                for (var $art_imbkohgzr$art_i = 0, $art_objrpmynqc$art_obj = group.list, $art_cxlkjidblwg$art_c = $art_objrpmynqc$art_obj.length; $art_imbkohgzr$art_i < $art_cxlkjidblwg$art_c; $art_imbkohgzr$art_i++) {
+                    var item = $art_objrpmynqc$art_obj[$art_imbkohgzr$art_i];
                     $p += ' ';
-                    $line = 66;
+                    $line = 68;
                     $art = 'if !item.hide';
                     ;
                     $expr = '<%if (!item.hide) {%>';
                     if (!item.hide) {
                         ;
-                        $p += '<div mxv title="';
-                        $line = 67;
+                        $p += '<div mxv class="mx-output-item _zs_gallery_mx-dropdown_index_-dropdown-group-item" title="';
+                        $line = 69;
                         $art = '=item.text';
                         ;
-                        $p += ($expr = '<%=item.text%>', $e(item.text)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-item"><label mxv for="';
-                        $line = 68;
+                        $p += ($expr = '<%=item.text%>', $e(item.text)) + '"><label mxv for="';
+                        $line = 70;
                         $art = '=viewId';
                         ;
                         $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
-                        $line = 68;
+                        $line = 70;
                         $art = '=item.value';
                         ;
-                        $p += ($expr = '<%=item.value%>', $e(item.value)) + '" class="_zs_gallery_mx-dropdown_index_-item-link ellipsis"><input type="checkbox" class="checkbox" ';
-                        $line = 70;
+                        $p += ($expr = '<%=item.value%>', $e(item.value)) + '" class="mx-output-link"><input type="checkbox" class="checkbox" ';
+                        $line = 72;
                         $art = 'if !item.checked && (max > 0) && (imme.length >= max)';
                         ;
                         $expr = '<%if (!item.checked && (max > 0) && (imme.length >= max)) {%>';
                         if (!item.checked && (max > 0) && (imme.length >= max)) {
                             ;
                             $p += ' disabled="true" ';
-                            $line = 70;
+                            $line = 72;
                             $art = '/if';
                             ;
                             $expr = '<%}%>';
                         }
                         ;
                         $p += ' ';
-                        $line = 71;
+                        $line = 73;
                         $art = 'if item.checked';
                         ;
                         $expr = '<%if (item.checked) {%>';
                         if (item.checked) {
                             ;
                             $p += ' checked="true" ';
-                            $line = 71;
+                            $line = 73;
                             $art = '/if';
                             ;
                             $expr = '<%}%>';
                         }
                         ;
                         $p += ' id="';
-                        $line = 72;
+                        $line = 74;
                         $art = '=viewId';
                         ;
                         $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
-                        $line = 72;
+                        $line = 74;
                         $art = '=item.value';
                         ;
                         $p += ($expr = '<%=item.value%>', $e(item.value)) + '" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{checkItem}({groupIndex:\'';
-                        $line = 74;
+                        $line = 76;
                         $art = '=groupIndex';
                         ;
                         $p += ($expr = '<%=$eq(groupIndex)%>', $e($eq(groupIndex))) + '\',value:\'';
-                        $line = 74;
+                        $line = 76;
                         $art = '=item.value';
                         ;
                         $p += ($expr = '<%=$eq(item.value)%>', $e($eq(item.value))) + '\'})" data-spm-click="';
-                        $line = 75;
+                        $line = 77;
                         $art = '=spm';
                         ;
                         $p += ($expr = '<%=spm%>', $e(spm)) + '"/>';
-                        $line = 75;
+                        $line = 77;
                         $art = '=item.text';
                         ;
                         $p += ($expr = '<%=item.text%>', $e(item.text)) + '</label></div>';
-                        $line = 78;
+                        $line = 80;
                         $art = '/if';
                         ;
                         $expr = '<%}%>';
                     }
                     ;
                     $p += ' ';
-                    $line = 79;
+                    $line = 81;
                     $art = '/each';
                     ;
                     $expr = '<%}%>';
                 }
                 ;
                 $p += '</div>';
-                $line = 81;
+                $line = 83;
                 $art = '/each';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '</div>';
-            $line = 83;
+            $line = 85;
             $art = 'else';
             ;
             $expr = '<%}    else {%>';
         }
         else {
             ;
-            $p += '<div mxa="_zs_gallerya;:g" class="text-center color-9 pt20 pb20">';
-            $line = 84;
+            $p += '<div mxa="_zs_gallerya.:h" class="text-center color-9 pt20 pb20">';
+            $line = 86;
             $art = '=text.empty';
             ;
             $p += ($expr = '<%=text.empty%>', $e(text.empty)) + '</div>';
-            $line = 85;
+            $line = 87;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += '<div mxa="_zs_gallerya;:h" class="_zs_gallery_mx-dropdown_index_-footer-wrapper"><a mxa="_zs_gallerya;:i" href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}({enter:true})">';
-        $line = 87;
+        $p += '<div mxa="_zs_gallerya.:i" class="mx-output-footer"><div><a mxa="_zs_gallerya.:j" href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}({enter:true})">';
+        $line = 90;
         $art = '=text.submit';
         ;
-        $p += ($expr = '<%=text.submit%>', $e(text.submit)) + '</a><a mxa="_zs_gallerya;:j" href="javascript:;" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
-        $line = 88;
+        $p += ($expr = '<%=text.submit%>', $e(text.submit)) + '</a><a mxa="_zs_gallerya.:k" href="javascript:;" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
+        $line = 91;
         $art = '=text.cancel';
         ;
-        $p += ($expr = '<%=text.cancel%>', $e(text.cancel)) + '</a>';
-        $line = 89;
+        $p += ($expr = '<%=text.cancel%>', $e(text.cancel)) + '</a></div>';
+        $line = 93;
         $art = 'if errMsg';
         ;
         $expr = '<%if (errMsg) {%>';
         if (errMsg) {
             ;
-            $p += '<span mxa="_zs_gallerya;:k" class="_zs_gallery_mx-dropdown_index_-msg-wrapper color-red ml10"><i mxs="_zs_gallerya;:c" class="mc-iconfont displacement-2">&#xe6ad;</i><span mxa="_zs_gallerya;:l" class="_zs_gallery_mx-dropdown_index_-msg">';
-            $line = 92;
+            $p += '<div mxa="_zs_gallerya.:l" class="color-red mt10"><i mxs="_zs_gallerya.:c" class="mc-iconfont displacement-2">&#xe6ad;</i>';
+            $line = 96;
             $art = '!errMsg';
             ;
-            $p += ($expr = '<%!errMsg%>', $n(errMsg)) + '</span></span>';
-            $line = 94;
+            $p += ($expr = '<%!errMsg%>', $n(errMsg)) + '</div>';
+            $line = 98;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</div>';
-        $line = 96;
+        $line = 100;
         $art = '/if';
         ;
         $expr = '<%}%>';
@@ -518,14 +534,11 @@ catch (ex) {
         });
         var node = $('#' + me.id);
         me['@{owner.node}'] = node;
-        var disabledNode = $('#' + me.id + '[mx-disabled]');
-        me['@{ui.disabled}'] = disabledNode && (disabledNode.length > 0);
+        // 支持mx-disabled或者disabled
+        me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
         // 展开方向
-        var placementMap = {
-            top: '_zs_gallery_mx-dropdown_index_-top',
-            bottom: '_zs_gallery_mx-dropdown_index_-bottom'
-        };
-        me['@{ui.placement}'] = placementMap[ops.placement || 'bottom'];
+        var placement = ops.placement || 'bottom';
+        me['@{ui.placement}'] = "mx-output-" + placement;
         // trigger方式，click，hover，默认click
         me['@{trigger.type}'] = ops.triggerType || 'click';
         var expand = false;
@@ -682,8 +695,8 @@ catch (ex) {
         });
         me['@{val}']();
         var triggerType = me['@{trigger.type}'];
-        var triggerNode = $('#' + me.id + ' ._zs_gallery_mx-dropdown_index_-dropdown-toggle');
-        var menuWrapper = $('#' + me.id + ' ._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper');
+        var triggerNode = $('#toggle_' + me.id);
+        var menuWrapper = $('#menu_' + me.id);
         switch (triggerType) {
             case 'click':
                 triggerNode.on('click', function () {
@@ -773,7 +786,7 @@ catch (ex) {
                 d.rList = true;
             }
             // 对浮层位置进行修正
-            var menuWrapper = $('#' + me.id + ' ._zs_gallery_mx-dropdown_index_-dropdown-menu-wrapper');
+            var menuWrapper = $('#menu_' + me.id);
             var win = $(window);
             var winWidth = win.width(), menuOffset = me['@{owner.node}'].offset(), menuWidth = menuWrapper.outerWidth();
             var menuLeft = void 0;
@@ -785,18 +798,6 @@ catch (ex) {
             }
             me.updater.digest(d);
             me['@{owner.node}'].trigger('focusin');
-            var listNode = $('#list_' + me.id);
-            var active = listNode.find('._zs_gallery_mx-dropdown_index_-active');
-            var pos = active.position();
-            if (pos) {
-                // 当前已选项在可是范围之内
-                var height = listNode.height();
-                var stop = listNode.prop('scrollTop');
-                if (pos.top < 0 || pos.top > height) {
-                    var top = pos.top - height + stop + height / 2;
-                    listNode.prop('scrollTop', top);
-                }
-            }
             Monitor['@{add}'](me);
         }
     },

@@ -8,7 +8,7 @@ define("mx-search/index",["magix","$","../mx-util/monitor"],(require,exports,mod
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-search_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-search_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n/* 动画结束停在最后一帧 */\n/**\n* 渐显下拉动画\n*/\n@keyframes _zs_gallery_mx-search_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-search_index_-fade-in-down {\n  0% {\n    transform: translate(0, -20%);\n    -ms-transform: translate(0, -20%);\n    -moz-transform: translate(0, -20%);\n    -webkit-transform: translate(0, -20%);\n    -o-transform: translate(0, -20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n/**\n* 渐显上拉动画\n*/\n@keyframes _zs_gallery_mx-search_index_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-search_index_-fade-in-up {\n  0% {\n    transform: translate(0, 20%);\n    -ms-transform: translate(0, 20%);\n    -moz-transform: translate(0, 20%);\n    -webkit-transform: translate(0, 20%);\n    -o-transform: translate(0, 20%);\n    opacity: 0;\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n    opacity: 1;\n  }\n}\n@keyframes _zs_gallery_mx-search_index_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-search_index_-suspension {\n  0% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -15%);\n    -ms-transform: translate(0, -15%);\n    -moz-transform: translate(0, -15%);\n    -webkit-transform: translate(0, -15%);\n    -o-transform: translate(0, -15%);\n  }\n  75% {\n    transform: translate(0, 15%);\n    -ms-transform: translate(0, 15%);\n    -moz-transform: translate(0, 15%);\n    -webkit-transform: translate(0, 15%);\n    -o-transform: translate(0, 15%);\n  }\n  100% {\n    transform: translate(0, 0);\n    -ms-transform: translate(0, 0);\n    -moz-transform: translate(0, 0);\n    -webkit-transform: translate(0, 0);\n    -o-transform: translate(0, 0);\n  }\n}\n._zs_gallery_mx-search_index_-search-box-right,\n._zs_gallery_mx-search_index_-search-box-left {\n  position: relative;\n  height: 32px;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu {\n  display: none;\n  position: absolute;\n  top: 100%;\n  min-width: 100%;\n  z-index: 99;\n  margin-top: 10px;\n  padding: 8px 10px;\n  border-radius: 4px;\n  background-color: #fff;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item {\n  margin: 2px 0;\n  padding: 0 10px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n  white-space: nowrap;\n  word-break: break-all;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item:hover,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item:hover {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active,\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:hover,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:hover,\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:active,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:active,\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:focus,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu ._zs_gallery_mx-search_index_-search-item._zs_gallery_mx-search_index_-active:focus {\n  color: #4d7fff;\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu._zs_gallery_mx-search_index_-open,\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu._zs_gallery_mx-search_index_-open {\n  display: block;\n  -webkit-animation: _zs_gallery_mx-search_index_-fade-in-down 0.25s ease-out;\n          animation: _zs_gallery_mx-search_index_-fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu {\n  right: 0;\n}\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu {\n  left: 0;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-search_index_","._zs_gallery_mx-search_index_-search-box-right,\n._zs_gallery_mx-search_index_-search-box-left {\n  position: relative;\n  height: 32px;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu {\n  left: auto;\n  right: 0;\n}\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu {\n  left: 0;\n  right: auto;\n}\n");
 var Monitor = require("../mx-util/monitor");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
@@ -49,7 +49,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><i mxs="_zs_galleryds:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+    $p += '"><i mxs="_zs_gallerydn:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
     $line = 3;
     $art = '=placeholder';
     ;
@@ -57,65 +57,65 @@ module.exports = Magix.View.extend({
     $line = 5;
     $art = '=searchValue';
     ;
-    $p += ($expr = '<%=searchValue%>', $e(searchValue)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-focusin="' + $viewId + '@{search}()" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{stop}()"/><ul class="_zs_gallery_mx-search_index_-search-menu ';
+    $p += ($expr = '<%=searchValue%>', $e(searchValue)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-focusin="' + $viewId + '@{search}()" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{stop}()"/><div class="mx-output mx-output-bottom ';
     $line = 12;
     $art = 'if ((list.length > 1) && searchValue && show)';
     ;
     $expr = '<%if ((list.length > 1) && searchValue && show) {%>';
     if ((list.length > 1) && searchValue && show) {
         ;
-        $p += ' _zs_gallery_mx-search_index_-open ';
+        $p += ' mx-output-open ';
         $line = 12;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '">';
-    $line = 13;
+    $p += ' _zs_gallery_mx-search_index_-search-menu"><ul mxa="_zs_gallerydn:_" class="mx-output-list">';
+    $line = 14;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_idaxtune$art_i = 0, $art_cslajldico$art_c = list.length; $art_idaxtune$art_i < $art_cslajldico$art_c; $art_idaxtune$art_i++) {    var item = list[$art_idaxtune$art_i]%>';
-    for (var $art_idaxtune$art_i = 0, $art_cslajldico$art_c = list.length; $art_idaxtune$art_i < $art_cslajldico$art_c; $art_idaxtune$art_i++) {
-        var item = list[$art_idaxtune$art_i];
-        $p += '<li class="_zs_gallery_mx-search_index_-search-item ';
-        $line = 14;
+    $expr = '<%for (var $art_iegrdddycbu$art_i = 0, $art_ckdmplhil$art_c = list.length; $art_iegrdddycbu$art_i < $art_ckdmplhil$art_c; $art_iegrdddycbu$art_i++) {    var item = list[$art_iegrdddycbu$art_i]%>';
+    for (var $art_iegrdddycbu$art_i = 0, $art_ckdmplhil$art_c = list.length; $art_iegrdddycbu$art_i < $art_ckdmplhil$art_c; $art_iegrdddycbu$art_i++) {
+        var item = list[$art_iegrdddycbu$art_i];
+        $p += '<li mxa="_zs_gallerydn:a" class="mx-output-item"><span class="mx-output-link ';
+        $line = 16;
         $art = 'if (searchKey == item.value)';
         ;
         $expr = '<%if (searchKey == item.value) {%>';
         if (searchKey == item.value) {
             ;
-            $p += ' _zs_gallery_mx-search_index_-active ';
-            $line = 14;
+            $p += ' mx-output-link-active ';
+            $line = 16;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '" mx-click="' + $viewId + '@{select}({item:\'';
-        $line = 14;
+        $line = 17;
         $art = '@item';
         ;
         $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})">';
-        $line = 15;
+        $line = 18;
         $art = '=item.prefix';
         ;
         $p += ($expr = '<%=item.prefix%>', $e(item.prefix)) + '';
-        $line = 15;
+        $line = 18;
         $art = '=searchValue';
         ;
         $p += ($expr = '<%=searchValue%>', $e(searchValue)) + '';
-        $line = 15;
+        $line = 18;
         $art = '=item.suffix';
         ;
-        $p += ($expr = '<%=item.suffix%>', $e(item.suffix)) + '</li>';
-        $line = 17;
+        $p += ($expr = '<%=item.suffix%>', $e(item.suffix)) + '</span></li>';
+        $line = 21;
         $art = '/each';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</ul></div>';
+    $p += '</ul></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -163,7 +163,7 @@ catch (ex) {
                 list = data.list;
             }
             list = list.map(function (item) {
-                var tpls = (item.tmpl || ('搜索含有“${content}”的' + item[listText_1])).split('${content}');
+                var tpls = (item.tmpl || ('搜索含有 “${content}” 的' + item[listText_1])).split('${content}');
                 return {
                     prefix: tpls[0],
                     suffix: tpls[1],

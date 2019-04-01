@@ -1,87 +1,30 @@
-@import "../mx-style/_vars";
-@import "../mx-style/_animation";
-.cascade-toggle {
-    position: relative;
-    width: 100%;
-    height: @input-height;
-    padding: 0 25px 0 10px;
-    border-radius: @border-radius;
-    cursor: pointer;
-    user-select: none;
-    line-height: @input-height - 2;
-    transition: all @duration;
-    border-width: 1px;
-    border-style: solid;
-    border-color: @border-highlight;
-    background-color: #fff;
-
-    .cascade-label {
-        display: block;
-        width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    .arrow {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        width: 28px;
-        height: 28px;
-        font-size: 28px;
-        line-height: 28px;
-        margin-top: -14px;
-        color: @border-highlight;
-        transition: all @duration;
-    }
-    &.open {
-        .arrow {
-            transform: rotate(180deg);
-        }
-    }
-}
-
-.cascade-list {
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 100%;
-    z-index: 99;
-    margin-top: 10px;
-    border-radius: @border-radius;
-    background-color: #fff;
-    background-color: #fff;
+.cascade-list{
+    width: auto;
+    min-width: 0;
+    max-width: none;
     white-space: nowrap;
-
-    .mx-shadow();
-    
-    &.open {
-        display: block;
-        animation: fade-in-down @duration ease-out;
-        animation-fill-mode: forwards;
-    }
 }
 
 .group {
     display: inline-block;
     min-width: 100px;
-    height: @input-small-height * 6;
+    height: calc(var(--input-small-height) * 6);
     overflow-y: auto;
     vertical-align: top;
-    border-right: 1px solid @color-border;
+    border-left: 1px solid var(--color-border);
 
-    &:last-child{
-        border-right: 0 none;
+    &:first-child{
+        border-left: 0 none;
     }
 }
 
 .line {
     position: relative;
-    height: @input-small-height;
-    padding-right: @input-small-height - 2;
+    height: var(--input-small-height);
+    padding-right: var(--input-small-height);
     padding-left: 10px;
-    line-height: @input-small-height;
-    transition: background-color @duration, color @duration;
+    line-height: var(--input-small-height);
+    transition: background-color var(--duration), color var(--duration);
     cursor: pointer;
     .line-text {
         display: block;
@@ -93,53 +36,23 @@
     .line-arrow {
         position: absolute;
         right: 0;
-        top: 50%;
-        width: @input-small-height;
-        height: @input-small-height;
+        top: 0;
+        width: var(--input-small-height);
+        height: var(--input-small-height);
         font-size: 24px;
-        line-height: @input-small-height;
-        margin-top: 0 - @input-small-height / 2;
+        line-height: var(--input-small-height);
         color: #999;
         transform: rotate(-90deg);
     }
     &:hover {
-        background-color: @color-hover;
+        background-color: var(--color-bg-hover);
     }
     &.cur {
-        color: @color-brand;
-        background-color: @color-brand-opacity;
+        color: var(--color-brand);
+        background-color: var(--color-brand-opacity);
 
         &:hover{
-            background-color: @color-brand-opacity;
-        }
-    }
-}
-
-[mx-view*="mx-cascade/index"] {
-    position: relative;
-    display: inline-block;
-    min-width: 100px;
-    vertical-align: middle;
-
-    &:hover {
-        .cascade-toggle {
-            border-color: @border-highlight-hover;
-            .arrow{
-                color: @border-highlight-hover;
-            }
-        }
-    }
-
-    &[mx-disabled], &[mx-disabled]:hover{
-        .cascade-toggle {
-            border-color: @color-border;
-            color: #999;
-            background-color: @color-disabled;
-            cursor: not-allowed;
-
-            .arrow{
-                color: #ccc;
-            }
+            background-color: var(--color-brand-opacity);
         }
     }
 }
