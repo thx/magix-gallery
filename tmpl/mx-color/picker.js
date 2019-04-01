@@ -1,6 +1,6 @@
 let Magix = require('magix');
 let $ = require('$');
-let Monitor = require('../mx-monitor/index');
+let Monitor = require('../mx-util/monitor');
 require('./index');
 Magix.applyStyle('@index.less');
 

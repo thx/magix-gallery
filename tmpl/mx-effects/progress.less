@@ -1,5 +1,3 @@
-@import "../mx-style/_vars";
-@import "../mx-style/_animation";
 @progress-bg: #f0f0f0;
 @progress-radius: 3px;
 @progress-num-width: 60px;
@@ -19,7 +17,7 @@
         left: 0;
         width: 0;
         height: 100%;
-        transition: width @duration;
+        transition: width var(--duration);
     }
 
     .num {
@@ -29,7 +27,7 @@
         line-height: @progress-num-height;
         font-family: "Tahoma";
         color: #999;
-        transition: all @duration;
+        transition: all var(--duration);
     }
     .num-right {
         top: 0 - (@progress-num-height / 2 - @progress-radius);
@@ -60,23 +58,19 @@
     border-radius: @progress-radius;
     .on{
         border-radius: @progress-radius;
-        background: @color-brand;
+        background: var(--color-brand);
     }
 }
 
-@gc1: tint(@color-brand, 60%);
-@gc2: tint(@color-brand, 80%);
 .type--gradient{
     height: (@progress-radius * 4);
     border-radius: (@progress-radius * 2);
     .on{
         border-radius: (@progress-radius * 2);
-        background: @color-brand;
-        background: linear-gradient(45deg, @gc1 33%, @gc2 34%, @gc2 59%, @gc1 60%);
+        background: var(--color-brand);
         background-size: (@progress-radius * 8) (@progress-radius * 4);
     }
 }
-
 
 
 .degree-wrapper {
@@ -101,7 +95,7 @@
         top: 0;
         left: 0;
         .degree {
-            background-color: @color-brand;
+            background-color: var(--color-brand);
         }
     }
 }

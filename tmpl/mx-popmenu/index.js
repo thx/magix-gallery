@@ -1,6 +1,6 @@
 let Magix = require('magix');
 let Vframe = Magix.Vframe;
-let Monitor = require('../mx-monitor/index');
+let Monitor = require('../mx-util/monitor');
 let Base = require('@../mx-popover/base');
 let $ = require('$');
 Magix.applyStyle('@../mx-popover/index.less');

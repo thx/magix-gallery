@@ -3,13 +3,13 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-calendar/rangepicker",["magix","$","../mx-monitor/index","mx-calendar/util","mx-medusa/util","./range"],(require,exports,module)=>{
+define("mx-calendar/rangepicker",["magix","$","../mx-util/monitor","mx-calendar/util","mx-medusa/util","./range"],(require,exports,module)=>{
 /*Magix,$,Monitor,Util,I18n*/
 require("./range");
 /*md5:34c02a28c382ba730d4af48e1a450786*/
 var Magix = require("magix");
 var $ = require("$");
-var Monitor = require("../mx-monitor/index");
+var Monitor = require("../mx-util/monitor");
 var Util = require("mx-calendar/util");
 var DateFormat = Util.dateFormat;
 var GetDefaultDate = Util.getDefaultDate;

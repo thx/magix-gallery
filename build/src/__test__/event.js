@@ -25,16 +25,16 @@ module.exports = Magix.View.extend({
     $line = 13;
     $art = 'each options as option';
     ;
-    $expr = '<%for (var $art_icigazfdus$art_i = 0, $art_ctwzrnbwtjao$art_c = options.length; $art_icigazfdus$art_i < $art_ctwzrnbwtjao$art_c; $art_icigazfdus$art_i++) {    var option = options[$art_icigazfdus$art_i]%>';
-    for (var $art_icigazfdus$art_i = 0, $art_ctwzrnbwtjao$art_c = options.length; $art_icigazfdus$art_i < $art_ctwzrnbwtjao$art_c; $art_icigazfdus$art_i++) {
-        var option = options[$art_icigazfdus$art_i];
+    $expr = '<%for (var $art_ikvabrcnn$art_i = 0, $art_cnastxdd$art_c = options.length; $art_ikvabrcnn$art_i < $art_cnastxdd$art_c; $art_ikvabrcnn$art_i++) {    var option = options[$art_ikvabrcnn$art_i]%>';
+    for (var $art_ikvabrcnn$art_i = 0, $art_cnastxdd$art_c = options.length; $art_ikvabrcnn$art_i < $art_cnastxdd$art_c; $art_ikvabrcnn$art_i++) {
+        var option = options[$art_ikvabrcnn$art_i];
         $p += ' ';
         $line = 14;
         $art = 'each option.params as param index';
         ;
-        $expr = '<%for (var index = 0, $art_objrnmxn$art_obj = option.params, $art_clykaowd$art_c = $art_objrnmxn$art_obj.length; index < $art_clykaowd$art_c; index++) {        var param = $art_objrnmxn$art_obj[index]%>';
-        for (var index = 0, $art_objrnmxn$art_obj = option.params, $art_clykaowd$art_c = $art_objrnmxn$art_obj.length; index < $art_clykaowd$art_c; index++) {
-            var param = $art_objrnmxn$art_obj[index];
+        $expr = '<%for (var index = 0, $art_objhautrxnnmv$art_obj = option.params, $art_cmnvd$art_c = $art_objhautrxnnmv$art_obj.length; index < $art_cmnvd$art_c; index++) {        var param = $art_objhautrxnnmv$art_obj[index]%>';
+        for (var index = 0, $art_objhautrxnnmv$art_obj = option.params, $art_cmnvd$art_c = $art_objhautrxnnmv$art_obj.length; index < $art_cmnvd$art_c; index++) {
+            var param = $art_objhautrxnnmv$art_obj[index];
             $p += '<tr>';
             $line = 16;
             $art = 'if (index == 0)';

@@ -3,7 +3,7 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-monitor/index",["$"],(require,exports,module)=>{
+define("mx-util/monitor",["$"],(require,exports,module)=>{
 /*$*/
 
 var $ = require("$");

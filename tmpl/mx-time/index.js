@@ -1,6 +1,6 @@
 let Magix = require('magix');
 let $ = require('$');
-let Monitor = require('../mx-monitor/index');
+let Monitor = require('../mx-util/monitor');
 Magix.applyStyle('@index.less');
 let format = t => {
     if (t < 10) return '0' + t;

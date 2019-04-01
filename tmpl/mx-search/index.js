@@ -1,7 +1,7 @@
 let Magix = require('magix');
 let $ = require('$');
 Magix.applyStyle('@index.less');
-let Monitor = require('../mx-monitor/index');
+let Monitor = require('../mx-util/monitor');
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',

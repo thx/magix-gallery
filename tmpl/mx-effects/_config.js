@@ -224,5 +224,5 @@ module.exports = {
                 ${icon}${notice}
             </div>
         </div>`;
-    },
+    }
 };

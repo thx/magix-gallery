@@ -1,7 +1,7 @@
 let Magix = require('magix');
 let $ = require('$');
 let I18n = require('../mx-medusa/util');
-let Monitor = require('../mx-monitor/index');
+let Monitor = require('../mx-util/monitor');
 Magix.applyStyle('@index.less');
 Magix.applyStyle('@../mx-suggest/suggest.less');
 let MinWidth = 10;

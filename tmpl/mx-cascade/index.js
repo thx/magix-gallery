@@ -2,7 +2,7 @@ let Magix = require('magix');
 let Vframe = Magix.Vframe;
 let Util = require('@../mx-tree/util');
 let I18n = require('../mx-medusa/util');
-let Monitor = require('../mx-monitor/index');
+let Monitor = require('../mx-util/monitor');
 Magix.applyStyle('@index.less');
 
 module.exports = Magix.View.extend({

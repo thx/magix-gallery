@@ -61,7 +61,9 @@ module.exports = Magix.View.extend({
                 width = e.width || 120;
                 break;
             case 'gradient':
-                // 渐变
+                // 渐变，未自定义颜色时适用品牌色
+                let root = getComputedStyle(document.documentElement);
+                color = color || root.getPropertyValue('--color-brand').trim();
                 if(color){
                     let result = Util.toRgb(color);
                     color1 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.4)`;

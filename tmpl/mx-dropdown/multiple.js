@@ -1,6 +1,6 @@
 let Magix = require('magix');
 let $ = require('$');
-let Monitor = require('../mx-monitor/index');
+let Monitor = require('../mx-util/monitor');
 let I18n = require('../mx-medusa/util');
 Magix.applyStyle('@index.less');
 module.exports = Magix.View.extend({
