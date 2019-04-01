@@ -29,14 +29,14 @@ module.exports = Base.extend({
     $line = 9;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iycbqymyp$art_i = 0, $art_cfiaedthu$art_c = list.length; $art_iycbqymyp$art_i < $art_cfiaedthu$art_c; $art_iycbqymyp$art_i++) {    var item = list[$art_iycbqymyp$art_i]%>';
-    for (var $art_iycbqymyp$art_i = 0, $art_cfiaedthu$art_c = list.length; $art_iycbqymyp$art_i < $art_cfiaedthu$art_c; $art_iycbqymyp$art_i++) {
-        var item = list[$art_iycbqymyp$art_i];
-        $p += '<input mxe="' + $viewId + '_0_' + ($expr = '<%=$art_iycbqymyp$art_i%>', $e($art_iycbqymyp$art_i)) + '" mxc="[';
+    $expr = '<%for (var $art_iuzfofh$art_i = 0, $art_cxtagdzs$art_c = list.length; $art_iuzfofh$art_i < $art_cxtagdzs$art_c; $art_iuzfofh$art_i++) {    var item = list[$art_iuzfofh$art_i]%>';
+    for (var $art_iuzfofh$art_i = 0, $art_cxtagdzs$art_c = list.length; $art_iuzfofh$art_i < $art_cxtagdzs$art_c; $art_iuzfofh$art_i++) {
+        var item = list[$art_iuzfofh$art_i];
+        $p += '<input mxe="' + $viewId + '_0_' + ($expr = '<%=$art_iuzfofh$art_i%>', $e($art_iuzfofh$art_i)) + '" mxc="[';
         $line = 11;
         $art = ':item.value{required:true,blength:[2,4]}';
         ;
-        $p += '{p:\'list.' + ($expr = '<%=$art_iycbqymyp$art_i%>', $e($art_iycbqymyp$art_i)) + '.value\',f:{required:true,blength:[2,4]}}]" class="input mr20 mb20 w120" placeholder="请填写" value="';
+        $p += '{p:\'list.' + ($expr = '<%=$art_iuzfofh$art_i%>', $e($art_iuzfofh$art_i)) + '.value\',f:{required:true,blength:[2,4]}}]" class="input mr20 mb20 w120" placeholder="请填写" value="';
         $line = 11;
         $art = ':item.value{required:true,blength:[2,4]}';
         ;

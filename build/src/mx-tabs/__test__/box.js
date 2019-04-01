@@ -103,10 +103,10 @@ catch (ex) {
                 type: 'string',
                 def: 'value'
             }, {
-                key: 'disabled',
-                desc: '是否禁用',
-                type: 'boolean',
-                def: 'false'
+                key: 'mx-disabled',
+                desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-calendar.datepicker mx-disabled /&gt;',
+                type: '',
+                def: ''
             }, {
                 key: 'mode',
                 desc: '样式版本，可选实心（solid），空心（hollow）',

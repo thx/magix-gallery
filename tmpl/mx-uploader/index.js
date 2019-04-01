@@ -116,12 +116,15 @@ let XHR = Uploader.extend({
 module.exports = Magix.View.extend({
     init(extra) {
         let me = this;
+        // 支持mx-disabled或者disabled
+        let disabled = (extra.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
+
         me.updater.set({
             name: extra.name || 'file',
             action: extra.action || '',
             multiple: ((extra.multiple + '') === 'true'),
             accept: extra.accept,
-            disabled: ((extra.disabled + '') === 'true')
+            disabled
         });
 
         // 默认iframe

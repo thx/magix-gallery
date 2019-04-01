@@ -12,9 +12,12 @@ module.exports = Magix.View.extend({
         let altered = that.updater.altered();
 
         that['@{owner.node}'] = $('#' + that.id);
+
+        // 支持mx-disabled或者disabled
+        let disabled = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
         that.updater.set({
             on: (extra.state + '' === 'true'),
-            disabled: (extra.disabled + '' === 'true'),
+            disabled,
             tip: extra.tip || '',
             text: (extra.mode == 'text')
         });

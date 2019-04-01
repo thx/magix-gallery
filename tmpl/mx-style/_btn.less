@@ -97,10 +97,13 @@
     }
 
     &[disabled],
-    &.btn-disabled,
     &[disabled]:hover,
     &[disabled].hover,
-    &[disabled]:active{
+    &[disabled]:active,
+    &.btn-disabled,
+    &.btn-disabled:hover,
+    &.btn-disabled.hover,
+    &.btn-disabled:active{
         opacity: .5;
         cursor: not-allowed;
         color: @btn-text;

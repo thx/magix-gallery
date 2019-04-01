@@ -19,11 +19,11 @@
             mx-success="uploadSuccess()">
             单个上传</mx-uploader>
 
-        <mx-uploader class="btn btn-brand btn-disabled"
+        <mx-uploader class="btn btn-disabled"
             action="/creative/uploadImages.action" 
             method="POST"
             name="images"
-            disabled="true"
+            mx-disabled
             accept="image/jpeg,image/png,image/jpg"
             mx-error="uploadError()"
             mx-success="uploadSuccess()">
@@ -57,11 +57,11 @@
     mx-success="uploadSuccess()"&gt;
     单个上传&lt;/mx-uploader&gt;
 
-&lt;mx-uploader class="btn btn-brand btn-disabled"
+&lt;mx-uploader class="btn btn-disabled"
     action="/creative/uploadImages.action" 
     method="POST"
     name="images"
-    disabled="true"
+    mx-disabled
     accept="image/jpeg,image/png,image/jpg"
     mx-error="uploadError()"
     mx-success="uploadSuccess()"&gt;

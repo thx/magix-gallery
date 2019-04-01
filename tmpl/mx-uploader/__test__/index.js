@@ -24,10 +24,10 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
-            key: 'disabled',
-            desc: '是否禁用',
-            type: 'boolean',
-            def: 'false'
+            key: 'mx-disabled',
+            desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-calendar.datepicker mx-disabled /&gt;',
+            type: '',
+            def: ''
         }, {
             key: 'type',
             desc: '上传方式<br>iframe：返回为页面<br>xhr：直接返回json数据',

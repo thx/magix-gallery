@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryd&:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryd&:_" class="_zs_gallery___test___layout_-eg-content clearfix"><span class="mr10" mx-view="mx-switch/index?mode=text"></span><span class="mr10" mx-view="mx-switch/index?mode=text&state=true"></span><span mx-view="mx-switch/index?tip=%E7%A6%81%E6%AD%A2%E9%80%89%E6%8B%A9%E7%9A%84%E5%8E%9F%E5%9B%A0%E8%AF%B4%E6%98%8E&disabled=true&mode=text"></span></div><div mxa="_zs_galleryd&:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd&:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_galleryd&:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryd&:_" class="_zs_gallery___test___layout_-eg-content clearfix"><span class="mr10" mx-view="mx-switch/index?mode=text"></span><span class="mr10" mx-view="mx-switch/index?mode=text&state=true"></span><span mx-disabled mx-view="mx-switch/index?mode=text&tip=%E7%A6%81%E6%AD%A2%E9%80%89%E6%8B%A9%E7%9A%84%E5%8E%9F%E5%9B%A0%E8%AF%B4%E6%98%8E"></span></div><div mxa="_zs_galleryd&:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd&:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 17;
     $art = '=viewId';
     ;
@@ -36,7 +36,7 @@ module.exports = Base.extend({
     $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-switch \n    mode="text"/&gt;\n\n&lt;mx-switch\n    mode="text"\n    state="true"/&gt;\n    \n&lt;mx-switch \n    tip="禁止选择的原因说明"\n    disabled="true"\n    mode="text"/&gt;\n        </pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-switch \n    mode="text"/&gt;\n\n&lt;mx-switch\n    mode="text"\n    state="true"/&gt;\n    \n&lt;mx-switch \n    mode="text"\n    mx-disabled\n    tip="禁止选择的原因说明"/&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

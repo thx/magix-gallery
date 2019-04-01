@@ -169,12 +169,14 @@ var XHR = Uploader.extend({
 module.exports = Magix.View.extend({
     init: function (extra) {
         var me = this;
+        // 支持mx-disabled或者disabled
+        var disabled = (extra.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
         me.updater.set({
             name: extra.name || 'file',
             action: extra.action || '',
             multiple: ((extra.multiple + '') === 'true'),
             accept: extra.accept,
-            disabled: ((extra.disabled + '') === 'true')
+            disabled: disabled
         });
         // 默认iframe
         var Transport;

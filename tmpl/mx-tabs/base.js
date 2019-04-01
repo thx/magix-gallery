@@ -40,19 +40,21 @@ module.exports = Magix.View.extend({
         //     border
         //     box
         that['@{display.type}'] = data.type || 'border';
-        that['@{display.disabled}'] = (/^true$/i).test(data.disabled) || false;
 
         // box 类型
         //     solid 实心
         //     hollow 空心
         let mode = data.mode || 'solid';
 
+        // 支持mx-disabled或者disabled
+        let disabled = (data.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
+        
         that['@{owner.node}'] = $('#' + that.id);
         that.updater.set({
             viewId: that.id,
             mode,
             type: that['@{display.type}'],
-            disabled: that['@{display.disabled}'],
+            disabled,
             list: that['@{data.list}'],
             selected: that['@{data.selected}'],
             left: 0,

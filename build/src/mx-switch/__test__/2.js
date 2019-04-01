@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryd%:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryd%:_" class="_zs_gallery___test___layout_-eg-content clearfix"><div class="mb20"><span class="color-9">以下示例：</span>已选中 + 禁止选择</div><span mx-view="mx-switch/index?state=true&disabled=true"></span></div><div mxa="_zs_galleryd%:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd%:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_galleryd%:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryd%:_" class="_zs_gallery___test___layout_-eg-content clearfix"><div class="mb20"><span class="color-9">以下示例：</span>已选中 + 禁止选择</div><span mx-disabled mx-view="mx-switch/index?state=true"></span></div><div mxa="_zs_galleryd%:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd%:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 15;
     $art = '=viewId';
     ;
@@ -36,7 +36,7 @@ module.exports = Base.extend({
     $line = 20;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-switch\n    state="true"\n    disabled="true"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-switch\n    state="true"\n    mx-disabled/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

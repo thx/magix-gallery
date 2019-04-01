@@ -90,10 +90,10 @@ catch (ex) {
                 type: 'boolean',
                 def: 'false'
             }, {
-                key: 'disabled',
-                desc: '是否禁止操作',
-                type: 'boolean',
-                def: 'false'
+                key: 'mx-disabled',
+                desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-switch mx-disabled /&gt;',
+                type: '',
+                def: ''
             }, {
                 key: 'tip',
                 desc: '禁止操作时的补充说明',

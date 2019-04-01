@@ -29,9 +29,9 @@ module.exports = Base.extend({
     $line = 8;
     $art = 'each items as item';
     ;
-    $expr = '<%for (var $art_irmoqcrzs$art_i = 0, $art_cawjpnoalf$art_c = items.length; $art_irmoqcrzs$art_i < $art_cawjpnoalf$art_c; $art_irmoqcrzs$art_i++) {    var item = items[$art_irmoqcrzs$art_i]%>';
-    for (var $art_irmoqcrzs$art_i = 0, $art_cawjpnoalf$art_c = items.length; $art_irmoqcrzs$art_i < $art_cawjpnoalf$art_c; $art_irmoqcrzs$art_i++) {
-        var item = items[$art_irmoqcrzs$art_i];
+    $expr = '<%for (var $art_iofeljcvcps$art_i = 0, $art_cjuxklidrfr$art_c = items.length; $art_iofeljcvcps$art_i < $art_cjuxklidrfr$art_c; $art_iofeljcvcps$art_i++) {    var item = items[$art_iofeljcvcps$art_i]%>';
+    for (var $art_iofeljcvcps$art_i = 0, $art_cjuxklidrfr$art_c = items.length; $art_iofeljcvcps$art_i < $art_cjuxklidrfr$art_c; $art_iofeljcvcps$art_i++) {
+        var item = items[$art_iofeljcvcps$art_i];
         $p += '<li class="_zs_gallery_mx-dragsort___test___index_-item" data-value="';
         $line = 9;
         $art = '=item';
@@ -51,9 +51,9 @@ module.exports = Base.extend({
     $line = 14;
     $art = 'each items as item';
     ;
-    $expr = '<%for (var $art_ilscopcjwcq$art_i = 0, $art_cbqdizfwr$art_c = items.length; $art_ilscopcjwcq$art_i < $art_cbqdizfwr$art_c; $art_ilscopcjwcq$art_i++) {    var item = items[$art_ilscopcjwcq$art_i]%>';
-    for (var $art_ilscopcjwcq$art_i = 0, $art_cbqdizfwr$art_c = items.length; $art_ilscopcjwcq$art_i < $art_cbqdizfwr$art_c; $art_ilscopcjwcq$art_i++) {
-        var item = items[$art_ilscopcjwcq$art_i];
+    $expr = '<%for (var $art_idozblqd$art_i = 0, $art_cvzkxhykxrf$art_c = items.length; $art_idozblqd$art_i < $art_cvzkxhykxrf$art_c; $art_idozblqd$art_i++) {    var item = items[$art_idozblqd$art_i]%>';
+    for (var $art_idozblqd$art_i = 0, $art_cvzkxhykxrf$art_c = items.length; $art_idozblqd$art_i < $art_cvzkxhykxrf$art_c; $art_idozblqd$art_i++) {
+        var item = items[$art_idozblqd$art_i];
         $p += '<div>';
         $line = 15;
         $art = '=item';
