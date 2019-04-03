@@ -11,7 +11,7 @@ require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-carousel___test___1_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-carousel___test___1_-bg {\n  width: 100%;\n  height: 100%;\n  background-repeat: no-repeat;\n  background-position: center top;\n  line-height: 100px;\n  color: #fff;\n  text-align: center;\n  font-size: 20px;\n  font-weight: bold;\n}\n._zs_gallery_mx-carousel___test___1_-bg1 {\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-carousel___test___1_-bg2 {\n  background-color: #14c9ce;\n}\n._zs_gallery_mx-carousel___test___1_-bg3 {\n  background-color: #ffb400;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-carousel___test___1_","._zs_gallery_mx-carousel___test___1_-bg {\n  width: 100%;\n  height: 100%;\n  background-repeat: no-repeat;\n  background-position: center top;\n  line-height: 100px;\n  color: #fff;\n  text-align: center;\n  font-size: 20px;\n  font-weight: bold;\n}\n._zs_gallery_mx-carousel___test___1_-bg1 {\n  background-color: var(--color-brand);\n}\n._zs_gallery_mx-carousel___test___1_-bg2 {\n  background-color: var(--color-brand-vs);\n}\n._zs_gallery_mx-carousel___test___1_-bg3 {\n  background-color: var(--color-warn);\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

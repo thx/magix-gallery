@@ -117,9 +117,9 @@ module.exports = Magix.View.extend({
     $line = 89;
     $art = 'each supportQuickDates as item';
     ;
-    $expr = '<%for (var $art_ikgdbvwznp$art_i = 0, $art_cnwhrzacr$art_c = supportQuickDates.length; $art_ikgdbvwznp$art_i < $art_cnwhrzacr$art_c; $art_ikgdbvwznp$art_i++) {    var item = supportQuickDates[$art_ikgdbvwznp$art_i]%>';
-    for (var $art_ikgdbvwznp$art_i = 0, $art_cnwhrzacr$art_c = supportQuickDates.length; $art_ikgdbvwznp$art_i < $art_cnwhrzacr$art_c; $art_ikgdbvwznp$art_i++) {
-        var item = supportQuickDates[$art_ikgdbvwznp$art_i];
+    $expr = '<%for (var $art_ieutsdkkro$art_i = 0, $art_cagcgcru$art_c = supportQuickDates.length; $art_ieutsdkkro$art_i < $art_cagcgcru$art_c; $art_ieutsdkkro$art_i++) {    var item = supportQuickDates[$art_ieutsdkkro$art_i]%>';
+    for (var $art_ieutsdkkro$art_i = 0, $art_cagcgcru$art_c = supportQuickDates.length; $art_ieutsdkkro$art_i < $art_cagcgcru$art_c; $art_ieutsdkkro$art_i++) {
+        var item = supportQuickDates[$art_ieutsdkkro$art_i];
         $p += '<tr><td>';
         $line = 91;
         $art = '=item.key';
@@ -225,10 +225,10 @@ catch (ex) {
                 type: 'string',
                 def: 'YYYY-MM-dd'
             }, {
-                key: 'align',
-                desc: '日历与目标的对齐方式，left，right',
+                key: 'text-align',
+                desc: '日历与目标的对齐方式，left，center',
                 type: 'string',
-                def: 'left'
+                def: 'center'
             }, {
                 key: 'disabled-weeks',
                 desc: '限制周几不可选，[0, 1, 2, 3, 4, 5, 6]的子集',
@@ -239,11 +239,6 @@ catch (ex) {
                 desc: '从周几开，0-6，0表示周日',
                 type: 'number',
                 def: '0'
-            }, {
-                key: 'inlay',
-                desc: '是否需要边框，自定义trigger显示时可配置',
-                type: 'boolean',
-                def: 'false'
             }, {
                 key: 'mx-disabled',
                 desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-calendar.rangepicker mx-disabled /&gt;',

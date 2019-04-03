@@ -9,7 +9,7 @@ define("mx-tree/branch",["magix","$"],(require,exports,module)=>{
 var Magix = require("magix");
 var $ = require("$");
 var Vframe = Magix.Vframe;
-Magix.applyStyle("_zs_gallery_mx-tree_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-tree_index_-name {\n  position: relative;\n  height: 32px;\n  line-height: 20px;\n  padding-bottom: 12px;\n  background-color: #fff;\n  overflow: hidden;\n  transition: height 0.2s;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-icon {\n  float: left;\n  height: 20px;\n  margin-right: 5px;\n  line-height: 20px;\n  color: #ccc;\n  transition: color 0.25s;\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper {\n  cursor: pointer;\n  font-size: 14px;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper:hover {\n  color: #666;\n}\n._zs_gallery_mx-tree_index_-close ._zs_gallery_mx-tree_index_-name {\n  height: 0;\n  padding-bottom: 0;\n}\n._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-indent {\n  padding-left: 20px;\n}\n._zs_gallery_mx-tree_index_-line {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:after {\n  content: '';\n  position: absolute;\n  top: 22px;\n  left: 7px;\n  bottom: 2px;\n  width: 1px;\n  background-color: #e6e6e6;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:last-child:after {\n  content: none;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-tree_index_","._zs_gallery_mx-tree_index_-name {\n  position: relative;\n  height: 32px;\n  line-height: 20px;\n  padding-bottom: 12px;\n  background-color: #fff;\n  overflow: hidden;\n  transition: height 0.2s;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-icon {\n  float: left;\n  height: 20px;\n  margin-right: 5px;\n  line-height: 20px;\n  color: #ccc;\n  transition: color var(--duration);\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper {\n  cursor: pointer;\n  font-size: 14px;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper:hover {\n  color: #666;\n}\n._zs_gallery_mx-tree_index_-close ._zs_gallery_mx-tree_index_-name {\n  height: 0;\n  padding-bottom: 0;\n}\n._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-indent {\n  padding-left: 20px;\n}\n._zs_gallery_mx-tree_index_-line {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:after {\n  content: '';\n  position: absolute;\n  top: 22px;\n  left: 7px;\n  bottom: 2px;\n  width: 1px;\n  background-color: var(--color-border);\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:last-child:after {\n  content: none;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -30,10 +30,10 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cwfkvfdc$art_c = list.length; index < $art_cwfkvfdc$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cwfkvfdc$art_c = list.length; index < $art_cwfkvfdc$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cfrsecxr$art_c = list.length; index < $art_cfrsecxr$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cfrsecxr$art_c = list.length; index < $art_cfrsecxr$art_c; index++) {
         var item = list[index];
-        $p += '<div mxv mxa="_zs_galleryeZ:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_galleryeZ:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
+        $p += '<div mxv mxa="_zs_galleryeW:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_galleryeW:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
         $line = 4;
         $art = 'if needExpand';
         ;
@@ -88,7 +88,7 @@ module.exports = Magix.View.extend({
                 $expr = '<%if (readOnly) {%>';
                 if (readOnly) {
                     ;
-                    $p += '<i mxs="_zs_galleryeZ:_" class="mc-iconfont _zs_gallery_mx-tree_index_-icon empty">&#xe732;</i>';
+                    $p += '<i mxs="_zs_galleryeW:_" class="mc-iconfont _zs_gallery_mx-tree_index_-icon empty">&#xe732;</i>';
                     $line = 17;
                     $art = '/if';
                     ;
@@ -109,7 +109,7 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '<label mxv mxa="_zs_galleryeZ:b" class="fl">';
+        $p += '<label mxv mxa="_zs_galleryeW:b" class="fl">';
         $line = 21;
         $art = 'if !readOnly';
         ;

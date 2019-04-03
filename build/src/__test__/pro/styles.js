@@ -11,7 +11,7 @@ require("../hl");
 var Magix = require("magix");
 var Base = require("../example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery___test___pro_styles_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_styles_-outer ._zs_gallery_mx-switch_index_-switch {\n  height: 8px;\n  border-radius: 4px;\n}\n._zs_gallery___test___pro_styles_-outer ._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on {\n  background-color: #cbf3f4;\n}\n._zs_gallery___test___pro_styles_-outer ._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on ._zs_gallery_mx-switch_index_-switch-icon {\n  background-color: #14c9ce;\n}\n");
+Magix.applyStyle("_zs_gallery___test___pro_styles_","._zs_gallery___test___pro_styles_-outer ._zs_gallery_mx-switch_index_-switch {\n  height: 8px;\n  border-radius: 4px;\n}\n._zs_gallery___test___pro_styles_-outer ._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on {\n  background-color: #cbf3f4;\n}\n._zs_gallery___test___pro_styles_-outer ._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on ._zs_gallery_mx-switch_index_-switch-icon {\n  background-color: #14c9ce;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

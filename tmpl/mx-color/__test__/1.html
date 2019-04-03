@@ -3,7 +3,7 @@
         <div class="mb20">
             <span class="color-9">当前选中颜色：{{=color}}</span>
         </div>
-        <mx-color.picker
+        <mx-color.picker class="w200"
             color="{{=color}}"
             mx-change="changeColor()"/>
     </div>
@@ -16,7 +16,7 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-color.picker
+&lt;mx-color.picker class="w200"
     color="&#123;&#123;=color&#125;&#125;"
     mx-change="changeColor()"/&gt;
             </pre>

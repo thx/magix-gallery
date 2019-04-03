@@ -7,7 +7,7 @@ define("mx-popmenu/content",["magix"],(require,exports,module)=>{
 /*Magix*/
 
 var Magix = require("magix");
-Magix.applyStyle("_zs_gallery_mx-popmenu_content_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-popmenu_content_-menu {\n  padding: 8px 10px;\n  overflow: auto;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item {\n  padding: 2px 0;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link {\n  display: block;\n  width: 100%;\n  padding: 0 8px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link:hover {\n  background-color: #eee;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active,\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active:hover,\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active:active,\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active:focus {\n  color: #4d7fff;\n  background-color: #f6f9ff;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-popmenu_content_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-popmenu_content_-menu {\n  padding: 8px 10px;\n  overflow: auto;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item {\n  padding: 2px 0;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link {\n  display: block;\n  width: 100%;\n  padding: 0 8px;\n  cursor: pointer;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link:hover {\n  background-color: #eee;\n}\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active,\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active:hover,\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active:active,\n._zs_gallery_mx-popmenu_content_-menu ._zs_gallery_mx-popmenu_content_-item ._zs_gallery_mx-popmenu_content_-item-link._zs_gallery_mx-popmenu_content_-active:focus {\n  color: #4d7fff;\n  background-color: #f0f3ff;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -21,14 +21,14 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', menus = $$.menus; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc^:_" class="_zs_gallery_mx-popmenu_content_-menu">';
+    $p += '<div mxa="_zs_galleryc$:_" class="_zs_gallery_mx-popmenu_content_-menu">';
     $line = 2;
     $art = 'each menus as item';
     ;
-    $expr = '<%for (var $art_ihvpbuutd$art_i = 0, $art_clmehiasbjo$art_c = menus.length; $art_ihvpbuutd$art_i < $art_clmehiasbjo$art_c; $art_ihvpbuutd$art_i++) {    var item = menus[$art_ihvpbuutd$art_i]%>';
-    for (var $art_ihvpbuutd$art_i = 0, $art_clmehiasbjo$art_c = menus.length; $art_ihvpbuutd$art_i < $art_clmehiasbjo$art_c; $art_ihvpbuutd$art_i++) {
-        var item = menus[$art_ihvpbuutd$art_i];
-        $p += '<div mxa="_zs_galleryc^:a" class="_zs_gallery_mx-popmenu_content_-item"><span class="_zs_gallery_mx-popmenu_content_-item-link ellipsis" mx-click="' + $viewId + 'submit({value:';
+    $expr = '<%for (var $art_iyijotpbbb$art_i = 0, $art_clnppssrbzk$art_c = menus.length; $art_iyijotpbbb$art_i < $art_clnppssrbzk$art_c; $art_iyijotpbbb$art_i++) {    var item = menus[$art_iyijotpbbb$art_i]%>';
+    for (var $art_iyijotpbbb$art_i = 0, $art_clnppssrbzk$art_c = menus.length; $art_iyijotpbbb$art_i < $art_clnppssrbzk$art_c; $art_iyijotpbbb$art_i++) {
+        var item = menus[$art_iyijotpbbb$art_i];
+        $p += '<div mxa="_zs_galleryc$:a" class="_zs_gallery_mx-popmenu_content_-item"><span class="_zs_gallery_mx-popmenu_content_-item-link ellipsis" mx-click="' + $viewId + 'submit({value:';
         $line = 5;
         $art = '=item.value';
         ;

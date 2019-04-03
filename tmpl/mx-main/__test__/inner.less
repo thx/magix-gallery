@@ -1,13 +1,12 @@
-@import "../../mx-style/_vars";
-
 @box-title-height: 46px;
 .box-title {
+    position: relative;
     height: @box-title-height;
     padding: 0 20px;
     line-height: @box-title-height - 2;
-    background-color: @color-bg;
-    border: 1px solid @color-border;
-    border-radius: @border-radius;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
 
     .title-icon {
         float: left;
@@ -25,30 +24,8 @@
         float: left;
         font-size: 16px;
     }
-
-    &.error-state {
-        background-color: tint(@color-red, 90%);
-        border: 1px solid @color-red;
-        color: @color-red;
-
-        .title-icon>* {
-            color: @color-red;
-        }
-
-    }
-
-    &.warn-state {
-        background-color: tint(@color-warn, 90%);
-        border: 1px solid @color-warn;
-        color: @color-warn;
-
-        .title-icon>* {
-            color: @color-warn;
-        }
-    }
-
 }
 
 .box-inner {
-    padding: 40px 20px 0 20px;
+    padding: 20px 20px 0 20px;
 }

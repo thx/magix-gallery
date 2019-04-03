@@ -29,6 +29,7 @@ module.exports = Magix.View.extend({
         that.updater.set({
             viewId: that.id,
             align: extra.align,
+            show: false,
             info: {
                 showBtns: true,
                 showAlpha: extra.showAlpha,
@@ -78,12 +79,11 @@ module.exports = Magix.View.extend({
                 show: true
             })
 
-            let inputNode = $('#input_' + that.id),
+            let inputNode = $('#trigger_' + that.id),
                 calNode = $('#cpcnt_' + that.id);
 
-            let gap = 10;
             let left = 0,
-                top = inputNode.outerHeight() + gap;
+                top = inputNode.outerHeight();
             let align = updater.get('align');
             if (align == 'right') {
                 left = inputNode.outerWidth() - calNode.outerWidth();
@@ -133,7 +133,6 @@ module.exports = Magix.View.extend({
 
     '@{color.picked}<change>'(e) {
         e.stopPropagation();
-
         let that = this;
         that['@{owner.node}'].val(e.color).trigger({
             type: 'change',

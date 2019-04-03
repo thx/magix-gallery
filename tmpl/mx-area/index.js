@@ -114,13 +114,20 @@ module.exports = Magix.View.extend({
     render() {
         this.updater.digest({});
     },
-    '@{showCity}<click>'(event) {
+    '@{toggleCity}<click>'(event) {
         event.preventDefault();
         let that = this;
-        let province = event.params.province;
-        that.updater.set({
-            showProvinceId: province
-        }).digest();
+        let province = event.params.province,
+            oldProvince = that.updater.get('showProvinceId');
+        if(province == oldProvince){
+            that.updater.digest({
+                showProvinceId: -1
+            });
+        }else{
+            that.updater.digest({
+                showProvinceId: province
+            });
+        }
     },
     '@{changeTab}<click>'(event){
         this.updater.digest({
@@ -202,9 +209,9 @@ module.exports = Magix.View.extend({
             })
         })
         types[typeIndex].checked = allChecked;
-        that.updater.set({
+        that.updater.digest({
             types: types
-        }).digest();
+        });
     },
     '@{init.province}'(province, selected, cityVisible) {
         // province 省的id被选中了，则其全部城市id不传
@@ -285,15 +292,15 @@ module.exports = Magix.View.extend({
         if (showProvinceId > 0) {
             let showNode = $('#' + that.id + '_province_wrapper_' + showProvinceId);
             let labelNode = showNode.find('.@index.less:province-label'),
-                expandNode = showNode.find('.@index.less:province-expand'),
+                expandNode = showNode.find('.@index.less:province-arrow'),
                 citiesNode = showNode.find('.@index.less:cities');
             let target = event.target;
             if (!Magix.inside(target, labelNode[0]) &&
                 !Magix.inside(target, expandNode[0]) &&
                 !Magix.inside(target, citiesNode[0])) {
-                that.updater.set({
+                that.updater.digest({
                     showProvinceId: -1
-                }).digest();
+                });
             }
         }
     },

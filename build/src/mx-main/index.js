@@ -17,7 +17,7 @@ define("mx-main/index",["magix"],(require,exports,module)=>{
 var Magix = require("magix");
 var Router = Magix.Router;
 var Vframe = Magix.Vframe;
-Magix.applyStyle("_zs_gallery_mx-main_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main_index_-main {\n  position: relative;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  background-color: #fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step {\n  position: relative;\n  padding: 10px 0 10px 20px;\n  border-bottom: 1px solid #f5f5f5;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-link {\n  color: #666;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-link:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over {\n  line-height: 30px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over ._zs_gallery_mx-main_index_-over-icon > * {\n  position: relative;\n  top: 2px;\n  margin-right: 4px;\n  font-size: 18px;\n  color: #999;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub {\n  position: relative;\n  height: 30px;\n  line-height: 30px;\n  padding-left: 26px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:before {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 9px;\n  width: 0;\n  height: 30px;\n  border-left: 1px solid #adadad;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:after {\n  content: '';\n  position: absolute;\n  top: 15px;\n  left: 10px;\n  width: 6px;\n  height: 0;\n  border-top: 1px solid #adadad;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:last-child:before {\n  height: 16px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current {\n  background-color: #f6f9ff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on ._zs_gallery_mx-main_index_-over-icon > *,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-arrow-icon {\n  position: absolute;\n  top: 50%;\n  right: 8px;\n  margin-top: -7px;\n  font-size: 12px;\n  font-weight: bold;\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-link,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-link:hover {\n  color: #666;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-step-over:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: #999;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-locked-icon {\n  position: absolute;\n  top: 50%;\n  right: 8px;\n  height: 18px;\n  margin-top: -9px;\n  font-size: 14px;\n  line-height: 18px;\n  font-weight: bold;\n  color: #eee;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-title {\n  height: 58px;\n  line-height: 58px;\n  text-align: center;\n  font-size: 20px;\n  border-bottom: 1px solid #e6e6e6;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body {\n  position: relative;\n  margin-left: 20px;\n  margin-right: 20px;\n  background-color: #fff;\n  border-bottom-left-radius: 4px;\n  border-bottom-right-radius: 4px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-box {\n  position: relative;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  padding-left: 20px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-box:last-child {\n  padding-bottom: 40px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-side {\n  position: absolute;\n  top: 0;\n  right: 0;\n  height: 100%;\n  padding-top: 20px;\n  padding-left: 20px;\n  border-left: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-footer {\n  text-align: center;\n  padding: 40px 0;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-error-node {\n  display: inline-block;\n  position: relative;\n  margin-top: 10px;\n  color: #a40100;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-error-node ._zs_gallery_mx-main_index_-error-icon {\n  position: absolute;\n  left: -20px;\n  top: 0;\n  color: #a40100;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-main_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-main_index_-main {\n  position: relative;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  background-color: #fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step {\n  position: relative;\n  padding: 10px 0 10px 20px;\n  border-bottom: 1px solid #f5f5f5;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-link {\n  color: #666;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-link:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over {\n  line-height: 30px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over ._zs_gallery_mx-main_index_-over-icon > * {\n  position: relative;\n  top: 2px;\n  margin-right: 4px;\n  font-size: 18px;\n  color: #999;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub {\n  position: relative;\n  height: 30px;\n  line-height: 30px;\n  padding-left: 26px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:before {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 9px;\n  width: 0;\n  height: 30px;\n  border-left: 1px solid #adadad;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:after {\n  content: '';\n  position: absolute;\n  top: 15px;\n  left: 10px;\n  width: 6px;\n  height: 0;\n  border-top: 1px solid #adadad;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:last-child:before {\n  height: 16px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current {\n  background-color: #f0f3ff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on:hover {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on ._zs_gallery_mx-main_index_-over-icon > *,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-arrow-icon {\n  position: absolute;\n  top: 50%;\n  right: 8px;\n  margin-top: -7px;\n  font-size: 12px;\n  font-weight: bold;\n  color: #4d7fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-link,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-link:hover {\n  color: #666;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-step-over:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: #999;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-locked-icon {\n  position: absolute;\n  top: 50%;\n  right: 8px;\n  height: 18px;\n  margin-top: -9px;\n  font-size: 14px;\n  line-height: 18px;\n  font-weight: bold;\n  color: #eee;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-title {\n  height: 58px;\n  line-height: 58px;\n  text-align: center;\n  font-size: 20px;\n  border-bottom: 1px solid #e6e6e6;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body {\n  position: relative;\n  margin-left: 20px;\n  margin-right: 20px;\n  background-color: #fff;\n  border-bottom-left-radius: 4px;\n  border-bottom-right-radius: 4px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-box {\n  position: relative;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  padding-left: 20px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-box:last-child {\n  padding-bottom: 40px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-side {\n  position: absolute;\n  top: 0;\n  right: 0;\n  height: 100%;\n  padding-top: 20px;\n  padding-left: 20px;\n  border-left: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-footer {\n  text-align: center;\n  padding: 40px 0;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-error-node {\n  display: inline-block;\n  position: relative;\n  margin-top: 10px;\n  color: #a40100;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-error-node ._zs_gallery_mx-main_index_-error-icon {\n  position: absolute;\n  left: -20px;\n  top: 0;\n  color: #a40100;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -47,9 +47,9 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_iedqmosmqu$art_i = 0, $art_ccptvyddvqr$art_c = stepInfos.length; $art_iedqmosmqu$art_i < $art_ccptvyddvqr$art_c; $art_iedqmosmqu$art_i++) {    var step = stepInfos[$art_iedqmosmqu$art_i]%>';
-    for (var $art_iedqmosmqu$art_i = 0, $art_ccptvyddvqr$art_c = stepInfos.length; $art_iedqmosmqu$art_i < $art_ccptvyddvqr$art_c; $art_iedqmosmqu$art_i++) {
-        var step = stepInfos[$art_iedqmosmqu$art_i];
+    $expr = '<%for (var $art_ifpsmjbx$art_i = 0, $art_cdpjuagl$art_c = stepInfos.length; $art_ifpsmjbx$art_i < $art_cdpjuagl$art_c; $art_ifpsmjbx$art_i++) {    var step = stepInfos[$art_ifpsmjbx$art_i]%>';
+    for (var $art_ifpsmjbx$art_i = 0, $art_cdpjuagl$art_c = stepInfos.length; $art_ifpsmjbx$art_i < $art_cdpjuagl$art_c; $art_ifpsmjbx$art_i++) {
+        var step = stepInfos[$art_ifpsmjbx$art_i];
         $p += '<div class="_zs_gallery_mx-main_index_-main-step ';
         $line = 4;
         $art = 'if (step.index == curStepIndex)';
@@ -78,7 +78,7 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '"><div mxa="_zs_gallerycU:_" class="_zs_gallery_mx-main_index_-step-over"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link _zs_gallery_mx-main_index_-step-over clearfix ';
+        $p += '"><div mxa="_zs_gallerycS:_" class="_zs_gallery_mx-main_index_-step-over"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link _zs_gallery_mx-main_index_-step-over clearfix ';
         $line = 6;
         $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == -1))';
         ;
@@ -117,7 +117,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (step.icon) {%>';
         if (step.icon) {
             ;
-            $p += '<span mxa="_zs_gallerycU:a" class="_zs_gallery_mx-main_index_-over-icon fl">';
+            $p += '<span mxa="_zs_gallerycS:a" class="_zs_gallery_mx-main_index_-over-icon fl">';
             $line = 10;
             $art = '!step.icon';
             ;
@@ -128,7 +128,7 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '<span mxa="_zs_gallerycU:b" class="fl">';
+        $p += '<span mxa="_zs_gallerycS:b" class="fl">';
         $line = 12;
         $art = '=step.label';
         ;
@@ -143,10 +143,10 @@ module.exports = Magix.View.extend({
             $line = 17;
             $art = 'each step.subs as sub';
             ;
-            $expr = '<%for (var $art_iiemxtnq$art_i = 0, $art_objuafrvnh$art_obj = step.subs, $art_cmymtde$art_c = $art_objuafrvnh$art_obj.length; $art_iiemxtnq$art_i < $art_cmymtde$art_c; $art_iiemxtnq$art_i++) {            var sub = $art_objuafrvnh$art_obj[$art_iiemxtnq$art_i]%>';
-            for (var $art_iiemxtnq$art_i = 0, $art_objuafrvnh$art_obj = step.subs, $art_cmymtde$art_c = $art_objuafrvnh$art_obj.length; $art_iiemxtnq$art_i < $art_cmymtde$art_c; $art_iiemxtnq$art_i++) {
-                var sub = $art_objuafrvnh$art_obj[$art_iiemxtnq$art_i];
-                $p += '<div mxa="_zs_gallerycU:c" class="_zs_gallery_mx-main_index_-step-sub"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link ';
+            $expr = '<%for (var $art_iodtvksg$art_i = 0, $art_objtxutocbo$art_obj = step.subs, $art_cjrgjzeqa$art_c = $art_objtxutocbo$art_obj.length; $art_iodtvksg$art_i < $art_cjrgjzeqa$art_c; $art_iodtvksg$art_i++) {            var sub = $art_objtxutocbo$art_obj[$art_iodtvksg$art_i]%>';
+            for (var $art_iodtvksg$art_i = 0, $art_objtxutocbo$art_obj = step.subs, $art_cjrgjzeqa$art_c = $art_objtxutocbo$art_obj.length; $art_iodtvksg$art_i < $art_cjrgjzeqa$art_c; $art_iodtvksg$art_i++) {
+                var sub = $art_objtxutocbo$art_obj[$art_iodtvksg$art_i];
+                $p += '<div mxa="_zs_gallerycS:c" class="_zs_gallery_mx-main_index_-step-sub"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link ';
                 $line = 19;
                 $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))';
                 ;
@@ -197,7 +197,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (step.index == curStepIndex) {%>';
         if (step.index == curStepIndex) {
             ;
-            $p += '<i mxs="_zs_gallerycU:_" class="mc-iconfont _zs_gallery_mx-main_index_-arrow-icon">&#xe602;</i>';
+            $p += '<i mxs="_zs_gallerycS:_" class="mc-iconfont _zs_gallery_mx-main_index_-arrow-icon">&#xe602;</i>';
             $line = 30;
             $art = '/if';
             ;
@@ -211,7 +211,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (step.locked) {%>';
         if (step.locked) {
             ;
-            $p += '<i mxs="_zs_gallerycU:a" class="mc-iconfont _zs_gallery_mx-main_index_-locked-icon">&#xe759;</i>';
+            $p += '<i mxs="_zs_gallerycS:a" class="mc-iconfont _zs_gallery_mx-main_index_-locked-icon">&#xe759;</i>';
             $line = 33;
             $art = '/if';
             ;
@@ -229,17 +229,17 @@ module.exports = Magix.View.extend({
     $line = 37;
     $art = '=leftWidth';
     ;
-    $p += ($expr = '<%=leftWidth%>', $e(leftWidth)) + 'px;"><div mxa="_zs_gallerycU:d" class="_zs_gallery_mx-main_index_-content-title">';
+    $p += ($expr = '<%=leftWidth%>', $e(leftWidth)) + 'px;"><div mxa="_zs_gallerycS:d" class="_zs_gallery_mx-main_index_-content-title">';
     $line = 38;
     $art = '=curStepInfo.label';
     ;
-    $p += ($expr = '<%=curStepInfo.label%>', $e(curStepInfo.label)) + '</div><div mxv mxa="_zs_gallerycU:e" class="_zs_gallery_mx-main_index_-content-body"><div mxv>';
+    $p += ($expr = '<%=curStepInfo.label%>', $e(curStepInfo.label)) + '</div><div mxv mxa="_zs_gallerycS:e" class="_zs_gallery_mx-main_index_-content-body"><div mxv>';
     $line = 42;
     $art = 'each curStepInfo.subs as sub';
     ;
-    $expr = '<%for (var $art_iqutxzzof$art_i = 0, $art_objughmkgb$art_obj = curStepInfo.subs, $art_cjuajkudnf$art_c = $art_objughmkgb$art_obj.length; $art_iqutxzzof$art_i < $art_cjuajkudnf$art_c; $art_iqutxzzof$art_i++) {    var sub = $art_objughmkgb$art_obj[$art_iqutxzzof$art_i]%>';
-    for (var $art_iqutxzzof$art_i = 0, $art_objughmkgb$art_obj = curStepInfo.subs, $art_cjuajkudnf$art_c = $art_objughmkgb$art_obj.length; $art_iqutxzzof$art_i < $art_cjuajkudnf$art_c; $art_iqutxzzof$art_i++) {
-        var sub = $art_objughmkgb$art_obj[$art_iqutxzzof$art_i];
+    $expr = '<%for (var $art_iqtijwvs$art_i = 0, $art_objcnrcvjcynb$art_obj = curStepInfo.subs, $art_ckvbsns$art_c = $art_objcnrcvjcynb$art_obj.length; $art_iqtijwvs$art_i < $art_ckvbsns$art_c; $art_iqtijwvs$art_i++) {    var sub = $art_objcnrcvjcynb$art_obj[$art_iqtijwvs$art_i]%>';
+    for (var $art_iqtijwvs$art_i = 0, $art_objcnrcvjcynb$art_obj = curStepInfo.subs, $art_ckvbsns$art_c = $art_objcnrcvjcynb$art_obj.length; $art_iqtijwvs$art_i < $art_ckvbsns$art_c; $art_iqtijwvs$art_i++) {
+        var sub = $art_objcnrcvjcynb$art_obj[$art_iqtijwvs$art_i];
         $p += '<div mxv class="_zs_gallery_mx-main_index_-content-box" style="padding-right: ';
         $line = 44;
         $art = '=(curStepInfo.rightWidth + 20)';
@@ -256,7 +256,7 @@ module.exports = Magix.View.extend({
         $line = 46;
         $art = '=sub.index';
         ;
-        $p += ($expr = '<%=sub.index%>', $e(sub.index)) + '"><div mxs="_zs_gallerycU:b" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+        $p += ($expr = '<%=sub.index%>', $e(sub.index)) + '"><div mxs="_zs_gallerycS:b" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
         $line = 49;
         $art = 'if sub.sideWrapper';
         ;
@@ -275,7 +275,7 @@ module.exports = Magix.View.extend({
             $line = 51;
             $art = '=curStepInfo.rightWidth';
             ;
-            $p += ($expr = '<%=curStepInfo.rightWidth%>', $e(curStepInfo.rightWidth)) + 'px;"><div mxs="_zs_gallerycU:b" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+            $p += ($expr = '<%=curStepInfo.rightWidth%>', $e(curStepInfo.rightWidth)) + 'px;"><div mxs="_zs_gallerycS:b" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
             $line = 54;
             $art = '/if';
             ;
@@ -308,7 +308,7 @@ module.exports = Magix.View.extend({
         $line = 60;
         $art = '=curStepInfo.rightWidth';
         ;
-        $p += ($expr = '<%=curStepInfo.rightWidth%>', $e(curStepInfo.rightWidth)) + 'px;"><div mxs="_zs_gallerycU:b" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+        $p += ($expr = '<%=curStepInfo.rightWidth%>', $e(curStepInfo.rightWidth)) + 'px;"><div mxs="_zs_gallerycS:b" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
         $line = 63;
         $art = '/if';
         ;
@@ -322,14 +322,14 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!curStepInfo.customTrigger) {%>';
     if (!curStepInfo.customTrigger) {
         ;
-        $p += '<div mxa="_zs_gallerycU:f" class="_zs_gallery_mx-main_index_-content-footer"><div>';
+        $p += '<div mxa="_zs_gallerycS:f" class="_zs_gallery_mx-main_index_-content-footer"><div>';
         $line = 69;
         $art = 'if curStepInfo.prevTip';
         ;
         $expr = '<%if (curStepInfo.prevTip) {%>';
         if (curStepInfo.prevTip) {
             ;
-            $p += '<a mxa="_zs_gallerycU:g" href="javascript:;" class="btn min-width-100 mr20" mx-click="' + $viewId + 'prev()">';
+            $p += '<a mxa="_zs_gallerycS:g" href="javascript:;" class="btn min-width-100 mr20" mx-click="' + $viewId + 'prev()">';
             $line = 71;
             $art = '=curStepInfo.prevTip';
             ;
@@ -347,7 +347,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (curStepInfo.nextTip) {%>';
         if (curStepInfo.nextTip) {
             ;
-            $p += '<a mxa="_zs_gallerycU:h" href="javascript:;" class="btn min-width-100 btn-brand" mx-click="' + $viewId + 'next()">';
+            $p += '<a mxa="_zs_gallerycS:h" href="javascript:;" class="btn min-width-100 btn-brand" mx-click="' + $viewId + 'next()">';
             $line = 76;
             $art = '=curStepInfo.nextTip';
             ;

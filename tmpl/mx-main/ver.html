@@ -4,16 +4,17 @@
     {{if (step.index < stepInfos.length)}}
     <div class="line"></div>
     {{/if}}
-    <div class="content">
-        <div class="title">
-            <span class="fontsize-16">{{=step.label}}</span>
+    <mx-grid>
+        <mx-grid.title 
+            content="{{=step.label}}" 
+            border="none">
             {{if (!step.locked && !step.current)}} 
-            <a class="fr color-brand" href="javascript:;" 
+            <a class="fr lh32 color-brand" href="javascript:;" 
                 mx-click="nav({stepIndex:{{=step.index}}})">修改</a>
             {{/if}}
-        </div>
+        </mx-grid.title>
         {{if step.current}}
-        <div class="inner">
+        <mx-grid.body class="bt-e6">
             <mx-vframe src="{{=curStepInfo.view}}?info={{@curStepInfo}}" 
                 id="{{=viewId}}_cur_content">
                 <mx-loading/>
@@ -30,8 +31,8 @@
                 {{/if}}
             </div>
             <div id="{{=viewId}}_error"></div>
-        </div>
+        </mx-grid.body>
         {{/if}}
-    </div>
+    </mx-grid>
 </div>
 {{/each}}

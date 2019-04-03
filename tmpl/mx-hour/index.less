@@ -1,14 +1,10 @@
-@import "../mx-style/_vars";
-
 @hour-height: 36px;
-.btn-clear{
-    width: 10%;
-}
+
 .period {
     .hours {
         padding-top: 40px;
         padding-bottom: 10px;
-        border-bottom: 1px solid @color-border;
+        border-bottom: 1px solid var(--color-border);
 
         .all, .hour {
             float: left;
@@ -82,7 +78,7 @@
                 left: 0;
                 width: 0;
                 height: 10px;
-                border-left: 1px solid @color-border;
+                border-left: 1px solid var(--color-border);
 
                 .hour-info {
                     position: absolute;
@@ -104,17 +100,15 @@
 
             &.selected {
                 .hour-inner {
-                    background-color: @color-brand-opacity;
+                    background-color: var(--color-brand-opacity);
 
                     &:before {
-                        background-color: @color-brand;
+                        background-color: var(--color-brand);
                     }
 
                 }
 
                 .hour-line {
-                    border-left: 1px solid @color-brand-light;
-
                     .hour-info {
                         color: #fff;
                     }
@@ -128,7 +122,7 @@
                 top: 0;
                 width: 0;
                 height: @hour-height;
-                border-left: 1px solid @color-brand;
+                border-left: 1px solid var(--color-brand);
 
                 &:before {
                     content: '';
@@ -139,7 +133,7 @@
                     height: 0;
                     border-left: 4px solid transparent;
                     border-right: 4px solid transparent;
-                    border-top: 4px solid @color-brand;
+                    border-top: 4px solid var(--color-brand);
                 }
 
                 .line-info {
@@ -148,7 +142,7 @@
                     left: -10px;
                     width: 20px;
                     height: 16px;
-                    background-color: @color-brand;
+                    background-color: var(--color-brand);
                     color: #fff;
                     text-align: center;
                     line-height: 16px;
@@ -172,7 +166,14 @@
 }
 
 .opers-wrapper{
-    margin-right: 1.8%;
     padding: 10px 0;
     color: #999;
+    .btn-clear{
+        width: 10%;
+    }
+
+    .oper-tip{
+        line-height: var(--input-small-height);
+        margin-right: 1.8%;
+    }
 }

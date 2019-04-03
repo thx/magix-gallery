@@ -10,7 +10,7 @@ var Magix = require("magix");
 var $ = require("$");
 var Monitor = require("../mx-util/monitor");
 require("./index");
-Magix.applyStyle("_zs_gallery_mx-color_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-color/picker\"] {\n  display: inline-block;\n  position: relative;\n  vertical-align: middle;\n}\n[mx-view*=\"mx-color/picker\"] ._zs_gallery_mx-color_index_-color-wrapper {\n  display: none;\n  position: absolute;\n  z-index: 1000;\n  width: 246px;\n}\n[mx-view*=\"mx-color/picker\"] ._zs_gallery_mx-color_index_-color-wrapper._zs_gallery_mx-color_index_-open {\n  display: block;\n  -webkit-animation: fade-in-down 0.25s ease-out;\n          animation: fade-in-down 0.25s ease-out;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n[mx-view*=\"mx-color/picker\"] ._zs_gallery_mx-color_index_-color-input {\n  width: 100%;\n  min-width: 246px;\n}\n[mx-view*=\"mx-color/index\"] {\n  position: relative;\n  display: inline-block;\n  z-index: 1;\n  padding: 10px;\n  background-color: #fff;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n}\n._zs_gallery_mx-color_index_-shortcuts,\n._zs_gallery_mx-color_index_-body,\n._zs_gallery_mx-color_index_-foot {\n  width: 224px;\n}\n._zs_gallery_mx-color_index_-body {\n  margin: 10px 0;\n}\n._zs_gallery_mx-color_index_-shortcut {\n  position: relative;\n  float: left;\n  width: 15px;\n  height: 15px;\n  margin: -1px 0 0 -1px;\n  border: 1px solid #333;\n  cursor: pointer;\n}\n._zs_gallery_mx-color_index_-shortcut._zs_gallery_mx-color_index_-selected:before,\n._zs_gallery_mx-color_index_-shortcut._zs_gallery_mx-color_index_-selected:after {\n  content: ' ';\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n}\n._zs_gallery_mx-color_index_-shortcut._zs_gallery_mx-color_index_-selected:before {\n  z-index: 2;\n  border: solid 1px #fff;\n}\n._zs_gallery_mx-color_index_-shortcut._zs_gallery_mx-color_index_-selected:after {\n  z-index: 1;\n  border: solid 2px #333;\n}\n._zs_gallery_mx-color_index_-cpicker {\n  float: left;\n  position: relative;\n  width: 196px;\n  height: 196px;\n  cursor: pointer;\n}\n._zs_gallery_mx-color_index_-cpicker ._zs_gallery_mx-color_index_-cpicker-indicator {\n  position: absolute;\n  width: 8px;\n  height: 8px;\n  box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);\n  border-radius: 50%;\n}\n._zs_gallery_mx-color_index_-slide {\n  float: right;\n  position: relative;\n  width: 18px;\n  height: 196px;\n  cursor: pointer;\n}\n._zs_gallery_mx-color_index_-slide ._zs_gallery_mx-color_index_-slide-indicator {\n  position: absolute;\n  right: -6px;\n  top: -6px;\n  width: 0;\n  height: 0;\n  background-color: none;\n  border-right: 6px solid #333;\n  border-left: none;\n  border-bottom: 6px solid transparent;\n  border-top: 6px solid transparent;\n}\n._zs_gallery_mx-color_index_-color-value {\n  width: 104px;\n}\n._zs_gallery_mx-color_index_-bg-color {\n  height: 32px;\n  width: 50px;\n  margin-right: 10px;\n  border-radius: 4px;\n  border: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-color_index_-alpha {\n  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAGUlEQVQYV2M4gwH+YwCGIasIUwhT25BVBADtzYNYrHvv4gAAAABJRU5ErkJggg==);\n  width: 224px;\n  height: 12px;\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-color_index_-alpha-tracker {\n  height: 100%;\n}\n._zs_gallery_mx-color_index_-alpha-indicator {\n  position: absolute;\n  left: -2px;\n  top: 2px;\n  height: 8px;\n  width: 4px;\n  box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);\n  background: #fff;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-color_index_","[mx-view*=\"mx-color/index\"] {\n  width: 246px;\n  min-width: 246px;\n  padding: 10px;\n  background-color: #fff;\n}\n._zs_gallery_mx-color_index_-shortcuts,\n._zs_gallery_mx-color_index_-cbd,\n._zs_gallery_mx-color_index_-foot {\n  width: 224px;\n}\n._zs_gallery_mx-color_index_-cbd {\n  margin: 10px 0;\n}\n._zs_gallery_mx-color_index_-shortcut {\n  position: relative;\n  float: left;\n  width: 15px;\n  height: 15px;\n  margin: -1px 0 0 -1px;\n  border: 1px solid #333;\n  cursor: pointer;\n}\n._zs_gallery_mx-color_index_-shortcut._zs_gallery_mx-color_index_-selected:before,\n._zs_gallery_mx-color_index_-shortcut._zs_gallery_mx-color_index_-selected:after {\n  content: ' ';\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n}\n._zs_gallery_mx-color_index_-shortcut._zs_gallery_mx-color_index_-selected:before {\n  z-index: 2;\n  border: solid 1px #fff;\n}\n._zs_gallery_mx-color_index_-shortcut._zs_gallery_mx-color_index_-selected:after {\n  z-index: 1;\n  border: solid 2px #333;\n}\n._zs_gallery_mx-color_index_-cpicker {\n  float: left;\n  position: relative;\n  width: 196px;\n  height: 196px;\n  cursor: pointer;\n}\n._zs_gallery_mx-color_index_-cpicker ._zs_gallery_mx-color_index_-cpicker-indicator {\n  position: absolute;\n  width: 8px;\n  height: 8px;\n  box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);\n  border-radius: 50%;\n}\n._zs_gallery_mx-color_index_-slide {\n  float: right;\n  position: relative;\n  width: 18px;\n  height: 196px;\n  cursor: pointer;\n}\n._zs_gallery_mx-color_index_-slide ._zs_gallery_mx-color_index_-slide-indicator {\n  position: absolute;\n  right: -6px;\n  top: -6px;\n  width: 0;\n  height: 0;\n  background-color: none;\n  border-right: 6px solid #333;\n  border-left: none;\n  border-bottom: 6px solid transparent;\n  border-top: 6px solid transparent;\n}\n._zs_gallery_mx-color_index_-color-value {\n  width: 104px;\n}\n._zs_gallery_mx-color_index_-bg-color {\n  height: var(--input-height);\n  width: 50px;\n  margin-right: 10px;\n  border-radius: var(--border-radius);\n  border: 1px solid var(--color-border);\n}\n._zs_gallery_mx-color_index_-alpha {\n  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAGUlEQVQYV2M4gwH+YwCGIasIUwhT25BVBADtzYNYrHvv4gAAAABJRU5ErkJggg==);\n  width: 224px;\n  height: 12px;\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-color_index_-alpha-tracker {\n  height: 100%;\n}\n._zs_gallery_mx-color_index_-alpha-indicator {\n  position: absolute;\n  left: -2px;\n  top: 2px;\n  height: 8px;\n  width: 4px;\n  box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);\n  background: #fff;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -28,7 +28,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, info = $$.info, show = $$.show, left = $$.left, top = $$.top; var $expr, $art, $line; try {
-    $p += '<div class="input _zs_gallery_mx-color_index_-color-input" id="input_';
+    $p += '<div class="mx-trigger" id="trigger_';
     $line = 1;
     $art = '=viewId';
     ;
@@ -36,14 +36,14 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = '=info.color';
     ;
-    $p += ($expr = '<%=info.color%>', $e(info.color)) + '</div><div mxv="info" class="_zs_gallery_mx-color_index_-color-wrapper ';
+    $p += ($expr = '<%=info.color%>', $e(info.color)) + '</div><div mxv="info" class="mx-output mx-output-bottom ';
     $line = 4;
     $art = 'if show';
     ;
     $expr = '<%if (show) {%>';
     if (show) {
         ;
-        $p += '_zs_gallery_mx-color_index_-open';
+        $p += ' mx-output-open ';
         $line = 4;
         $art = '/if';
         ;
@@ -51,19 +51,19 @@ module.exports = Magix.View.extend({
     }
     ;
     $p += '" id="cpcnt_';
-    $line = 4;
+    $line = 5;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '" style="left:';
-    $line = 5;
+    $line = 6;
     $art = '=left';
     ;
     $p += ($expr = '<%=left%>', $e(left)) + 'px;top:';
-    $line = 5;
+    $line = 6;
     $art = '=top';
     ;
     $p += ($expr = '<%=top%>', $e(top)) + 'px;" mx-view="mx-color/index?data=';
-    $line = 6;
+    $line = 7;
     $art = '@info';
     ;
     $p += ($expr = '<%@info%>', $i($$ref, info)) + '" mx-change="' + $viewId + '@{color.picked}()"></div>';
@@ -94,6 +94,7 @@ catch (ex) {
         that.updater.set({
             viewId: that.id,
             align: extra.align,
+            show: false,
             info: {
                 showBtns: true,
                 showAlpha: extra.showAlpha,
@@ -137,9 +138,8 @@ catch (ex) {
             updater.digest({
                 show: true
             });
-            var inputNode = $('#input_' + that.id), calNode = $('#cpcnt_' + that.id);
-            var gap = 10;
-            var left = 0, top = inputNode.outerHeight() + gap;
+            var inputNode = $('#trigger_' + that.id), calNode = $('#cpcnt_' + that.id);
+            var left = 0, top = inputNode.outerHeight();
             var align = updater.get('align');
             if (align == 'right') {
                 left = inputNode.outerWidth() - calNode.outerWidth();

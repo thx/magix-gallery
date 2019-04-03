@@ -68,11 +68,12 @@ module.exports = Magix.View.extend({
                     name: '表单样式',
                     path: '/form/style',
                     icon: '&#xe62c;'
-                }, {
-                    name: '异常情况记录',
-                    path: '/form/error',
-                    icon: '&#xe611;'
                 }]
+                // {
+                //     name: '异常情况记录',
+                //     path: '/form/error',
+                //     icon: '&#xe611;'
+                // }
             }, {
                 name: '表格（mixins）',
                 subs: [{
@@ -302,7 +303,7 @@ module.exports = Magix.View.extend({
                 name: '数据展示',
                 subs: [{
                     name: '浮层',
-                    tip: 'Magix.View上挂载mxDialog（新开浮层），alert（提醒），confirm（二次确认），mxDialogGroup（内容分组显示）',
+                    tip: 'Magix.View上挂载mxDialog（新开浮层），alert（提醒），confirm（二次确认）',
                     path: '/dialog/index',
                     icon: '&#xe7ff;'
                 }, {

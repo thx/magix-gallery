@@ -11,7 +11,7 @@ require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-area___test___index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-area___test___index_-area-wrapper1,\n._zs_gallery_mx-area___test___index_-area-wrapper2 {\n  padding: 20px 20px 0;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper1 {\n  width: 740px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper2 {\n  width: 600px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper3 {\n  width: 740px;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  padding: 20px 0;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-area___test___index_","._zs_gallery_mx-area___test___index_-area-wrapper1,\n._zs_gallery_mx-area___test___index_-area-wrapper2 {\n  padding: 20px 20px 0;\n  border: 1px solid var(--color-border);\n  border-radius: var(--border-radius);\n}\n._zs_gallery_mx-area___test___index_-area-wrapper1 {\n  width: 740px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper2 {\n  width: 600px;\n}\n._zs_gallery_mx-area___test___index_-area-wrapper3 {\n  width: 740px;\n  border: 1px solid var(--color-border);\n  border-radius: var(--border-radius);\n  padding: 20px 0;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -45,9 +45,9 @@ module.exports = Base.extend({
     $line = 25;
     $art = 'each arrs as item';
     ;
-    $expr = '<%for (var $art_ijqxfap$art_i = 0, $art_citpmnbhm$art_c = arrs.length; $art_ijqxfap$art_i < $art_citpmnbhm$art_c; $art_ijqxfap$art_i++) {    var item = arrs[$art_ijqxfap$art_i]%>';
-    for (var $art_ijqxfap$art_i = 0, $art_citpmnbhm$art_c = arrs.length; $art_ijqxfap$art_i < $art_citpmnbhm$art_c; $art_ijqxfap$art_i++) {
-        var item = arrs[$art_ijqxfap$art_i];
+    $expr = '<%for (var $art_izqellkkzg$art_i = 0, $art_cexsavg$art_c = arrs.length; $art_izqellkkzg$art_i < $art_cexsavg$art_c; $art_izqellkkzg$art_i++) {    var item = arrs[$art_izqellkkzg$art_i]%>';
+    for (var $art_izqellkkzg$art_i = 0, $art_cexsavg$art_c = arrs.length; $art_izqellkkzg$art_i < $art_cexsavg$art_c; $art_izqellkkzg$art_i++) {
+        var item = arrs[$art_izqellkkzg$art_i];
         $p += '<div>';
         $line = 26;
         $art = '=item.name';

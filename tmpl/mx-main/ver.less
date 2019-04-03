@@ -1,5 +1,3 @@
-@import "../mx-style/_vars";
-
 @step-circle-width: 42px;
 @step-gap: 5px;
 
@@ -16,7 +14,7 @@
         width: 0;
         height: 100%;
         margin-left: -1px;
-        border-left: 2px solid @color-border;
+        border-left: 2px solid var(--color-border);
     }
 
     .circle{
@@ -29,31 +27,16 @@
         border-radius: 50%;
         border-width: 2px;
         border-style: solid;
-        border-color: @color-border;
+        border-color: var(--color-border);
         text-align: center;
-        background-color: @color-bg;
+        background-color: var(--color-bg);
         cursor: pointer;
-        transition: all @duration;
+        transition: all var(--duration);
         
         >*{
             line-height: @step-circle-width - 4;
             color: #ccc;
             font-weight: bold;
-        }
-    }
-
-    .content{
-        border-radius: @border-radius;
-        background-color: #fff;
-
-        .title{
-            padding: @step-gap 20px;
-            line-height: @step-circle-width;
-        }
-
-        .inner{
-            padding: 20px;
-            border-top: 1px solid @color-border;
         }
     }
 }

@@ -10,7 +10,7 @@ var Magix = require("magix");
 var $ = require("$");
 var Vframe = Magix.Vframe;
 var I18n = require("../mx-medusa/util");
-Magix.applyStyle("_zs_gallery_mx-dialog_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-dialog_index_-dialog-backdrop,\n._zs_gallery_mx-dialog_index_-dialog-wrapper {\n  position: fixed;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transition: all 0.25s;\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop {\n  opacity: 0;\n  top: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop._zs_gallery_mx-dialog_index_-backdrop-out {\n  opacity: 1;\n}\n._zs_gallery_mx-dialog_index_-dialog {\n  position: absolute;\n  border-radius: 4px;\n  background-color: #fff;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-content {\n  position: relative;\n  word-break: break-all;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  width: 26px;\n  height: 26px;\n  z-index: 20;\n  border-radius: 50%;\n  background: transparent;\n  color: #ccc;\n  text-align: center;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close ._zs_gallery_mx-dialog_index_-iconfont-ext {\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 26px;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:hover,\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:focus {\n  background-color: #999;\n  color: #fff;\n}\n._zs_gallery_mx-dialog_index_-dialog._zs_gallery_mx-dialog_index_-full {\n  border-radius: 0;\n}\n/**\n * 按钮中间的loading点动画\n */\n@-webkit-keyframes _zs_gallery_mx-dialog_index_-loading-dots {\n  0% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  25% {\n    -webkit-transform: translate(0, 2px);\n            transform: translate(0, 2px);\n  }\n  50% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  75% {\n    -webkit-transform: translate(0, -2px);\n            transform: translate(0, -2px);\n  }\n  100% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n}\n@keyframes _zs_gallery_mx-dialog_index_-loading-dots {\n  0% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  25% {\n    -webkit-transform: translate(0, 2px);\n            transform: translate(0, 2px);\n  }\n  50% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  75% {\n    -webkit-transform: translate(0, -2px);\n            transform: translate(0, -2px);\n  }\n  100% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-dialog_index_-loading-dots-rev {\n  0% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  25% {\n    -webkit-transform: translate(0, -2px);\n            transform: translate(0, -2px);\n  }\n  50% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  75% {\n    -webkit-transform: translate(0, 2px);\n            transform: translate(0, 2px);\n  }\n  100% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n}\n@keyframes _zs_gallery_mx-dialog_index_-loading-dots-rev {\n  0% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  25% {\n    -webkit-transform: translate(0, -2px);\n            transform: translate(0, -2px);\n  }\n  50% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  75% {\n    -webkit-transform: translate(0, 2px);\n            transform: translate(0, 2px);\n  }\n  100% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n}\n._zs_gallery_mx-dialog_index_-loading-dot,\n._zs_gallery_mx-dialog_index_-loading-dot:after,\n._zs_gallery_mx-dialog_index_-loading-dot:before {\n  display: inline-block;\n  width: 4px;\n  height: 4px;\n  background-color: white;\n  vertical-align: middle;\n  border-radius: 50%;\n}\n._zs_gallery_mx-dialog_index_-loading-dot {\n  position: relative;\n  margin: 0 8px;\n}\n._zs_gallery_mx-dialog_index_-loading-dot:after {\n  content: ' ';\n  position: absolute;\n  left: -8px;\n  top: 0;\n  -webkit-animation: _zs_gallery_mx-dialog_index_-loading-dots 0.6s linear 0s infinite;\n          animation: _zs_gallery_mx-dialog_index_-loading-dots 0.6s linear 0s infinite;\n}\n._zs_gallery_mx-dialog_index_-loading-dot:before {\n  content: ' ';\n  position: absolute;\n  left: 8px;\n  top: 0;\n  -webkit-animation: _zs_gallery_mx-dialog_index_-loading-dots-rev 0.6s linear 0s infinite;\n          animation: _zs_gallery_mx-dialog_index_-loading-dots-rev 0.6s linear 0s infinite;\n}\n._zs_gallery_mx-dialog_index_-btn-submit {\n  position: relative;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 1;\n  position: relative;\n  z-index: 1;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: none;\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: inline;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-dialog_index_","._zs_gallery_mx-dialog_index_-dialog-backdrop,\n._zs_gallery_mx-dialog_index_-dialog-wrapper {\n  position: fixed;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop {\n  opacity: 0;\n  top: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop._zs_gallery_mx-dialog_index_-backdrop-out {\n  opacity: 1;\n}\n._zs_gallery_mx-dialog_index_-dialog {\n  position: absolute;\n  border-radius: var(--border-radius);\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-content {\n  position: relative;\n  word-break: break-all;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  width: 26px;\n  height: 26px;\n  z-index: 20;\n  border-radius: 50%;\n  background: transparent;\n  color: #ccc;\n  text-align: center;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close ._zs_gallery_mx-dialog_index_-iconfont-ext {\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 26px;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:hover,\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:focus {\n  background-color: #999;\n  color: #fff;\n}\n._zs_gallery_mx-dialog_index_-dialog._zs_gallery_mx-dialog_index_-full {\n  border-radius: 0;\n}\n/**\n * 按钮中间的loading点动画\n */\n@-webkit-keyframes _zs_gallery_mx-dialog_index_-loading-dots {\n  0% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  25% {\n    -webkit-transform: translate(0, 2px);\n            transform: translate(0, 2px);\n  }\n  50% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  75% {\n    -webkit-transform: translate(0, -2px);\n            transform: translate(0, -2px);\n  }\n  100% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n}\n@keyframes _zs_gallery_mx-dialog_index_-loading-dots {\n  0% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  25% {\n    -webkit-transform: translate(0, 2px);\n            transform: translate(0, 2px);\n  }\n  50% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  75% {\n    -webkit-transform: translate(0, -2px);\n            transform: translate(0, -2px);\n  }\n  100% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-dialog_index_-loading-dots-rev {\n  0% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  25% {\n    -webkit-transform: translate(0, -2px);\n            transform: translate(0, -2px);\n  }\n  50% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  75% {\n    -webkit-transform: translate(0, 2px);\n            transform: translate(0, 2px);\n  }\n  100% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n}\n@keyframes _zs_gallery_mx-dialog_index_-loading-dots-rev {\n  0% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  25% {\n    -webkit-transform: translate(0, -2px);\n            transform: translate(0, -2px);\n  }\n  50% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  75% {\n    -webkit-transform: translate(0, 2px);\n            transform: translate(0, 2px);\n  }\n  100% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n}\n._zs_gallery_mx-dialog_index_-loading-dot,\n._zs_gallery_mx-dialog_index_-loading-dot:after,\n._zs_gallery_mx-dialog_index_-loading-dot:before {\n  display: inline-block;\n  width: 4px;\n  height: 4px;\n  background-color: white;\n  vertical-align: middle;\n  border-radius: 50%;\n}\n._zs_gallery_mx-dialog_index_-loading-dot {\n  position: relative;\n  margin: 0 8px;\n}\n._zs_gallery_mx-dialog_index_-loading-dot:after {\n  content: ' ';\n  position: absolute;\n  left: -8px;\n  top: 0;\n  -webkit-animation: _zs_gallery_mx-dialog_index_-loading-dots 0.6s linear 0s infinite;\n          animation: _zs_gallery_mx-dialog_index_-loading-dots 0.6s linear 0s infinite;\n}\n._zs_gallery_mx-dialog_index_-loading-dot:before {\n  content: ' ';\n  position: absolute;\n  left: 8px;\n  top: 0;\n  -webkit-animation: _zs_gallery_mx-dialog_index_-loading-dots-rev 0.6s linear 0s infinite;\n          animation: _zs_gallery_mx-dialog_index_-loading-dots-rev 0.6s linear 0s infinite;\n}\n._zs_gallery_mx-dialog_index_-btn-submit {\n  position: relative;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 1;\n  position: relative;\n  z-index: 1;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: none;\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: inline;\n}\n");
 var DialogZIndex = 500;
 var Duration = 250;
 var CacheList = [];
@@ -42,7 +42,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (closable) {%>';
     if (closable) {
         ;
-        $p += '<a mxs="_zs_galleryaM:_" href="javascript:;" mx-click="' + $viewId + '@{close}()" class="_zs_gallery_mx-dialog_index_-dialog-close"><i class="mc-iconfont _zs_gallery_mx-dialog_index_-iconfont-ext">&#xe603;</i></a>';
+        $p += '<a mxs="_zs_galleryaK:_" href="javascript:;" mx-click="' + $viewId + '@{close}()" class="_zs_gallery_mx-dialog_index_-dialog-close"><i class="mc-iconfont _zs_gallery_mx-dialog_index_-iconfont-ext">&#xe603;</i></a>';
         $line = 5;
         $art = '/if';
         ;
@@ -71,7 +71,7 @@ module.exports = Magix.View.extend({
             $line = 11;
             $art = '=cntId';
             ;
-            $p += ($expr = '<%=cntId%>', $e(cntId)) + '_header"><span mxa="_zs_galleryaM:_" class="header-name">';
+            $p += ($expr = '<%=cntId%>', $e(cntId)) + '_header"><span mxa="_zs_galleryaK:_" class="header-name">';
             $line = 12;
             $art = '!fullHeader.title';
             ;
@@ -100,7 +100,7 @@ module.exports = Magix.View.extend({
             $expr = '<%if (fullHeader.tip) {%>';
             if (fullHeader.tip) {
                 ;
-                $p += '<span mxa="_zs_galleryaM:a" class="color-9 ml10">';
+                $p += '<span mxa="_zs_galleryaK:a" class="color-9 ml10">';
                 $line = 21;
                 $art = '!fullHeader.tip';
                 ;
@@ -122,7 +122,7 @@ module.exports = Magix.View.extend({
         $line = 26;
         $art = '=cntId';
         ;
-        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryaM:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+        $p += ($expr = '<%=cntId%>', $e(cntId)) + '" class="pr"><div mxs="_zs_galleryaK:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
         $line = 32;
         $art = 'if (fullFooter.enter || fullFooter.cancel)';
         ;
@@ -140,7 +140,7 @@ module.exports = Magix.View.extend({
             $expr = '<%if (fullFooter.enter) {%>';
             if (fullFooter.enter) {
                 ;
-                $p += '<a mxa="_zs_galleryaM:b" href="javascript:;" class="fl btn btn-brand min-width-60 mr16 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_galleryaM:c" class="_zs_gallery_mx-dialog_index_-submit-text">';
+                $p += '<a mxa="_zs_galleryaK:b" href="javascript:;" class="fl btn btn-brand min-width-60 mr16 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_galleryaK:c" class="_zs_gallery_mx-dialog_index_-submit-text">';
                 $line = 36;
                 $art = '!fullFooter.enterText';
                 ;
@@ -158,7 +158,7 @@ module.exports = Magix.View.extend({
             $expr = '<%if (fullFooter.cancel) {%>';
             if (fullFooter.cancel) {
                 ;
-                $p += '<a mxa="_zs_galleryaM:d" href="javascript:;" class="fl btn min-width-60 mr16" mx-click="' + $viewId + '@{close}()">';
+                $p += '<a mxa="_zs_galleryaK:d" href="javascript:;" class="fl btn min-width-60 mr16" mx-click="' + $viewId + '@{close}()">';
                 $line = 41;
                 $art = '!fullFooter.cancelText';
                 ;
@@ -206,7 +206,7 @@ module.exports = Magix.View.extend({
         $line = 51;
         $art = '=cntId';
         ;
-        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryaM:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryaK:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
         $line = 54;
         $art = '/if';
         ;
@@ -355,7 +355,7 @@ catch (ex) {
         }
         var wrapperId = 'wrapper_' + id, wrapperZIndex = DialogZIndex, width = options.width, left = options.left, top = options.top;
         // 全屏右出浮层不需要圆角
-        var wrapper = $("<div class=\"_zs_gallery_mx-dialog_index_-dialog-wrapper\" id=\"" + wrapperId + "\"\n    style=\"z-index:" + wrapperZIndex + "\">\n    <div class=\"_zs_gallery_mx-dialog_index_-dialog mx-shadow " + (options.full ? '_zs_gallery_mx-dialog_index_-full' : '') + "\" id=\"" + id + "\"\n        style=\"top:" + top + "px; left:" + left + "px; width:" + width + "px;\"></div>\n</div>");
+        var wrapper = $("<div class=\"_zs_gallery_mx-dialog_index_-dialog-wrapper\" id=\"" + wrapperId + "\"\n    style=\"z-index:" + wrapperZIndex + "\">\n    <div class=\"_zs_gallery_mx-dialog_index_-dialog " + (options.full ? '_zs_gallery_mx-dialog_index_-full' : '') + "\" id=\"" + id + "\"\n        style=\"top:" + top + "px; left:" + left + "px; width:" + width + "px;\"></div>\n</div>");
         wrapper.css(options.posFrom);
         $(document.body).append(wrapper);
         // 禁止body滚动
@@ -480,32 +480,6 @@ catch (ex) {
         }, (dialogOptions || {})));
     },
     /**
-     * 分组
-     * this.mxDialogGroup(viewOptions, dialogOptions)：
-     *    viewOptions: {
-     *        list:'传入的对象数组，如[{text:"测试",content:"内容"}]',
-     *        contentView:'中间区域自定义view，会把当前选中对象完整传入',
-     *        textKey: '右侧文案字段，默认text'
-     *    },
-     *    dialogOptions: { //浮层样式覆盖
-     *        width:'宽度',
-     *        height:'高度',
-     *        modal: 'true（禁止滚动） or false（允许滚动），溢出是否允许滚动，默认false',
-     *        mask: 'true or false，是否有遮罩，默认true',
-     *        closable: 'true or false，是否有右上角关闭按钮，默认true',
-     *        left: '最终定位相对于屏幕左侧，默认居中',
-     *        top: '最终定位相对于屏幕高侧，默认居中'
-     *    }
-     */
-    mxDialogGroup: function (viewOptions, dialogOptions) {
-        viewOptions.height = dialogOptions.height || 500;
-        return this.mxDialog('mx-dialog/group', viewOptions, Magix.mix({
-            width: 800,
-            closable: true,
-            mask: true
-        }, (dialogOptions || {})));
-    },
-    /**
      * 全屏右出浮层
      * this.mxModal(viewPath[string], viewOptions[object], dialogOptions[object])
      *      viewPath: 'dialog view路径'
@@ -540,7 +514,7 @@ catch (ex) {
         return this.mxDialog(view, viewOptions, Magix.mix({
             closable: true,
             mask: true
-        }, Magix.mix((dialogOptions || {}), {
+        }, Magix.mix(dialogOptions, {
             full: true,
             fullHeader: Magix.mix({
                 title: '',

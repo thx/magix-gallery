@@ -1,16 +1,14 @@
-@import "../mx-style/_vars";
-
 .collapse{
-    border-radius: @border-radius;
-    border: 1px solid @color-border;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
     overflow: hidden;
     .item{
-        border-bottom: 1px solid @color-border;
+        border-bottom: 1px solid var(--color-border);
         .title{
             cursor: pointer;
             position: relative;
             padding: 10px 24px;
-            background-color: @color-bg;
+            background-color: var(--color-bg);
 
             .arrow{
                 >*{
@@ -22,7 +20,7 @@
                     text-align: center;
                     line-height: 20px;
                     margin-top: -10px;
-                    transition: all @duration;
+                    transition: all var(--duration);
                     color: #999;
                 }
             }
@@ -32,9 +30,9 @@
         }  
         .content{
             display: none;
-            border-top: 1px solid @color-border;
+            border-top: 1px solid var(--color-border);
             overflow: hidden;
-            transition: height @duration, opacity @duration;
+            transition: height var(--duration), opacity var(--duration);
             .inner{
                 padding: 10px 24px;
             }

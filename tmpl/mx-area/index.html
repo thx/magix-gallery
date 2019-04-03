@@ -47,7 +47,7 @@
                             <span class="province-count">({{=province.count}})</span>
                             {{/if}}
                             {{if province.hasCity}}
-                            <i class="mc-iconfont province-expand" mx-click="@{showCity}({province:{{=province.id}}})">&#xe692;</i>
+                            <i class="mc-iconfont province-arrow {{if (province.hasCity && (province.id == showProvinceId))}} province-expand {{/if}}" mx-click="@{toggleCity}({province:{{=province.id}}})">&#xe692;</i>
                             {{/if}}
                             <div style="display: {{=(province.hasCity && (province.id == showProvinceId)) ? 'block' : 'none'}};" class="cities mx-shadow clearfix">
                                 {{each province.cities as city}}

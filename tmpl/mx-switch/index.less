@@ -1,7 +1,5 @@
-@import "../mx-style/_vars";
 @switch-width: 40px;
 @switch-height: 18px;
-
 [mx-view*="mx-switch/index"]{
     position: relative;
     display: inline-block;
@@ -25,18 +23,15 @@
         margin-top: 0 - @switch-height / 2;
         border-radius: 50%;
         background-color: #ccc;
-        transition: left @duration;
-        -moz-transition: left @duration;
-        -webkit-transition: left @duration;
-        -o-transition: left @duration;
+        transition: left var(--duration);
     }
 
     &.on {
-        background-color: @color-brand-light;
+        background-color: var(--color-brand-opacity);
 
         .switch-icon {
             left: @switch-width - @switch-height;
-            background-color: @color-brand;
+            background-color: var(--color-brand);
         }
 
     }
@@ -63,14 +58,14 @@
         z-index: 1;
         width: 100%;
         height: 100%;
-        border-radius: @border-radius;
-        border: 1px solid @color-border;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--color-border);
         background-color: #fff;
     }
 
     .open,
     .close{
-        transition: color @duration;
+        transition: color var(--duration);
     }
 
     .open{
@@ -88,7 +83,7 @@
         height: @switch-height;
         text-align: center;
         line-height: @switch-height;
-        border-radius: @border-radius;
+        border-radius: var(--border-radius);
     }
 
     .text{
@@ -105,10 +100,7 @@
         background-image: -webkit-linear-gradient(left, #9095a1, #8b909a);
         background-image: -o-linear-gradient(right, #9095a1, #8b909a);
         background-image: -moz-linear-gradient(right, #9095a1, #8b909a);
-        transition: left @duration;
-        -moz-transition: left @duration;
-        -webkit-transition: left @duration;
-        -o-transition: left @duration;
+        transition: left var(--duration);
     }
 
     &.on {
@@ -122,10 +114,10 @@
 
         .switch-icon {
             left: 50%;
-            background-image: linear-gradient(to right, @btn-brand, @btn-brand-gradient);
-            background-image: -webkit-linear-gradient(left, @btn-brand, @btn-brand-gradient);
-            background-image: -o-linear-gradient(right, @btn-brand, @btn-brand-gradient);
-            background-image: -moz-linear-gradient(right, @btn-brand, @btn-brand-gradient);
+            background-image: linear-gradient(to right, var(--btn-brand), var(--btn-brand-gradient));
+            background-image: -webkit-linear-gradient(left, var(--btn-brand), var(--btn-brand-gradient));
+            background-image: -o-linear-gradient(right, var(--btn-brand), var(--btn-brand-gradient));
+            background-image: -moz-linear-gradient(right, var(--btn-brand), var(--btn-brand-gradient));
         }
 
     }

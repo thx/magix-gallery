@@ -16,7 +16,7 @@ var GetDefaultDate = Util.getDefaultDate;
 var GetQuickInfos = Util.getQuickInfos;
 var GetOffsetDate = Util.getOffsetDate;
 var I18n = require("mx-medusa/util");
-Magix.applyStyle("_zs_gallery_mx-calendar_rangepicker_","._zs_gallery_mx-calendar_rangepicker_-rangepicker-input {\n  width: 100%;\n}\n._zs_gallery_mx-calendar_rangepicker_-rangepicker-input ._zs_gallery_mx-calendar_rangepicker_-result {\n  position: relative;\n}\n._zs_gallery_mx-calendar_rangepicker_-rangepicker-input ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-left ._zs_gallery_mx-calendar_rangepicker_-center {\n  padding: 0 5px;\n}\n._zs_gallery_mx-calendar_rangepicker_-rangepicker-input ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-center ._zs_gallery_mx-calendar_rangepicker_-center {\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 36px;\n  height: 30px;\n  margin-left: -18px;\n  line-height: 30px;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_rangepicker_-rangepicker-input ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-center ._zs_gallery_mx-calendar_rangepicker_-co {\n  display: inline-block;\n  width: 50%;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_rangepicker_-rangepicker-input ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-center ._zs_gallery_mx-calendar_rangepicker_-co-left {\n  padding-right: 18px;\n}\n._zs_gallery_mx-calendar_rangepicker_-rangepicker-input ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-center ._zs_gallery_mx-calendar_rangepicker_-co-right {\n  padding-left: 18px;\n}\n._zs_gallery_mx-calendar_rangepicker_-rangepicker-input ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-left {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-calendar_rangepicker_-rangepicker-input ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-right {\n  color: var(--color-brand-vs);\n}\n[mx-disabled] ._zs_gallery_mx-calendar_rangepicker_-rangepicker-input,\n[mx-disabled]:hover ._zs_gallery_mx-calendar_rangepicker_-rangepicker-input {\n  border-color: var(--color-border);\n  cursor: not-allowed;\n  background-color: var(--color-disabled);\n  color: #999;\n}\n[mx-disabled] ._zs_gallery_mx-calendar_rangepicker_-rangepicker-input ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-left,\n[mx-disabled]:hover ._zs_gallery_mx-calendar_rangepicker_-rangepicker-input ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-left,\n[mx-disabled] ._zs_gallery_mx-calendar_rangepicker_-rangepicker-input ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-right,\n[mx-disabled]:hover ._zs_gallery_mx-calendar_rangepicker_-rangepicker-input ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-right {\n  color: #999;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-calendar_rangepicker_","._zs_gallery_mx-calendar_rangepicker_-result {\n  position: relative;\n  padding: 0 10px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-left ._zs_gallery_mx-calendar_rangepicker_-center {\n  padding: 0 5px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-center ._zs_gallery_mx-calendar_rangepicker_-center {\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 40px;\n  height: 30px;\n  margin-left: -20px;\n  line-height: 30px;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-center ._zs_gallery_mx-calendar_rangepicker_-co {\n  display: inline-block;\n  width: 50%;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-center ._zs_gallery_mx-calendar_rangepicker_-co-left {\n  padding-right: 10px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-center ._zs_gallery_mx-calendar_rangepicker_-co-right {\n  padding-left: 10px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-left {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-right {\n  color: var(--color-brand-vs);\n}\n[mx-disabled] ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-left,\n[mx-disabled]:hover ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-left,\n[mx-disabled] ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-right,\n[mx-disabled]:hover ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-right {\n  color: #999;\n}\n");
 var Rangepicker = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -33,50 +33,50 @@ var Rangepicker = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, textAlign = $$.textAlign, rangeInfo = $$.rangeInfo, result = $$.result, show = $$.show, left = $$.left, top = $$.top; var $expr, $art, $line; try {
-    $p += '<div class="input _zs_gallery_mx-calendar_rangepicker_-rangepicker-input" id="input_';
+} ; var $g = '', $_temp, $p = '', textAlign = $$.textAlign, rangeInfo = $$.rangeInfo, viewId = $$.viewId, result = $$.result, show = $$.show, left = $$.left, top = $$.top; var $expr, $art, $line; try {
+    $p += '<div class="mx-trigger _zs_gallery_mx-calendar_rangepicker_-result ';
     $line = 1;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" mx-click="' + $viewId + '@{toggle}()" mx-change="' + $viewId + '@{stop}()"><div class="_zs_gallery_mx-calendar_rangepicker_-result ';
-    $line = 4;
     $art = '=textAlign';
     ;
     $p += ($expr = '<%=textAlign%>', $e(textAlign)) + ' ';
-    $line = 4;
+    $line = 1;
     $art = 'if rangeInfo.vs';
     ;
     $expr = '<%if (rangeInfo.vs) {%>';
     if (rangeInfo.vs) {
         ;
         $p += ' _zs_gallery_mx-calendar_rangepicker_-vs ';
-        $line = 4;
+        $line = 1;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '">';
-    $line = 5;
+    $p += '" id="trigger_';
+    $line = 1;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" mx-click="' + $viewId + '@{toggle}()" mx-change="' + $viewId + '@{stop}()">';
+    $line = 4;
     $art = 'if result.endStr';
     ;
     $expr = '<%if (result.endStr) {%>';
     if (result.endStr) {
         ;
         $p += '<span mxa="_zs_gallery{:_" class="_zs_gallery_mx-calendar_rangepicker_-co _zs_gallery_mx-calendar_rangepicker_-co-left">';
-        $line = 6;
+        $line = 5;
         $art = '=result.startStr';
         ;
         $p += ($expr = '<%=result.startStr%>', $e(result.startStr)) + '</span><span mxa="_zs_gallery{:a" class="_zs_gallery_mx-calendar_rangepicker_-center color-9">';
-        $line = 7;
+        $line = 6;
         $art = '=result.centetTip';
         ;
         $p += ($expr = '<%=result.centetTip%>', $e(result.centetTip)) + '</span><span mxa="_zs_gallery{:b" class="_zs_gallery_mx-calendar_rangepicker_-co _zs_gallery_mx-calendar_rangepicker_-co-right">';
-        $line = 8;
+        $line = 7;
         $art = '=result.endStr';
         ;
         $p += ($expr = '<%=result.endStr%>', $e(result.endStr)) + '</span>';
-        $line = 9;
+        $line = 8;
         $art = 'else';
         ;
         $expr = '<%}else {%>';
@@ -84,44 +84,44 @@ var Rangepicker = Magix.View.extend({
     else {
         ;
         $p += ' ';
-        $line = 10;
+        $line = 9;
         $art = '=result.startStr';
         ;
         $p += ($expr = '<%=result.startStr%>', $e(result.startStr)) + ' ';
-        $line = 11;
+        $line = 10;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div><div mxv="rangeInfo" class="mx-output mx-output-bottom ';
-    $line = 15;
+    $p += '</div><div mxv="rangeInfo" class="mx-output mx-output-bottom ';
+    $line = 13;
     $art = 'if show';
     ;
     $expr = '<%if (show) {%>';
     if (show) {
         ;
         $p += ' mx-output-open ';
-        $line = 15;
+        $line = 13;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += '" style="left:';
-    $line = 16;
+    $line = 14;
     $art = '=left';
     ;
     $p += ($expr = '<%=left%>', $e(left)) + 'px;top:';
-    $line = 16;
+    $line = 14;
     $art = '=top';
     ;
     $p += ($expr = '<%=top%>', $e(top)) + 'px;" id="rpcnt_';
-    $line = 17;
+    $line = 15;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '" mx-view="mx-calendar/range?configs=';
-    $line = 18;
+    $line = 16;
     $art = '@rangeInfo';
     ;
     $p += ($expr = '<%@rangeInfo%>', $i($$ref, rangeInfo)) + '" mx-change="' + $viewId + '@{range.picked}()" mx-cancel="' + $viewId + '@{hide}()"></div>';
@@ -344,9 +344,8 @@ catch (ex) {
             updater.digest({
                 show: true
             });
-            var inputNode = $('#input_' + that.id), calNode = $('#rpcnt_' + that.id);
-            var gap = 10;
-            var left = 0, top = inputNode.outerHeight() + gap;
+            var inputNode = $('#trigger_' + that.id), calNode = $('#rpcnt_' + that.id);
+            var left = 0, top = inputNode.outerHeight();
             if (rangeInfo.align == 'right') {
                 left = inputNode.outerWidth() - calNode.outerWidth();
             }

@@ -238,11 +238,11 @@
     cursor: pointer;
     user-select: none;
     transition: all var(--duration);
+    border-radius: var(--border-radius);
     border-width: 1px;
     border-style: solid;
     border-color: var(--border-highlight);
     background-color: #fff;
-    border-radius: var(--border-radius);
     
     .mx-trigger-label {
         display: block;
@@ -386,7 +386,8 @@
 [mx-view*="mx-time/index"],
 [mx-view*="mx-cascade/index"],
 [mx-view*="mx-calendar/rangepicker"], 
-[mx-view*="mx-calendar/datepicker"] {
+[mx-view*="mx-calendar/datepicker"],
+[mx-view*="mx-color/picker"] {
     position: relative;
     display: inline-block;
     min-width: 100px;
@@ -404,9 +405,9 @@
     &[mx-disabled]:hover {
         .mx-trigger {
             border-color: var(--color-border);
-            color: #999;
             background-color: var(--color-disabled);
             cursor: not-allowed;
+            color: #999;
             .mx-trigger-arrow {
                 color: #ccc;
             }

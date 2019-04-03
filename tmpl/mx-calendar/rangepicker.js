@@ -40,6 +40,7 @@ let Rangepicker = Magix.View.extend({
             center: centerClass
         }
         let textAlign = classes[extra.textAlign || 'center'] || centerClass;
+
         // vsEnable 是否可对比，默认关闭
         // vs 对比初始状态 
         // vsSingle 可对比情况下，关闭对比时是选择时间段还是单天
@@ -252,12 +253,11 @@ let Rangepicker = Magix.View.extend({
                 show: true
             })
 
-            let inputNode = $('#input_' + that.id),
+            let inputNode = $('#trigger_' + that.id),
                 calNode = $('#rpcnt_' + that.id);
 
-            let gap = 10;
             let left = 0,
-                top = inputNode.outerHeight() + gap;
+                top = inputNode.outerHeight();
             if (rangeInfo.align == 'right') {
                 left = inputNode.outerWidth() - calNode.outerWidth();
             }

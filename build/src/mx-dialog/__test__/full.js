@@ -28,7 +28,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!readonly) {%>';
     if (!readonly) {
         ;
-        $p += '<form mxv mxa="_zs_galleryaD:_" class="grid mb16"><div mxv mxa="_zs_galleryaD:a" class="clearfix" style="padding: 16px 24px;"><span mxs="_zs_galleryaD:_" class="color-9 mr10">必填项：</span><input mxe="' + $viewId + '_0" mxc="[';
+        $p += '<form mxv mxa="_zs_galleryaC:_" class="grid mb16"><div mxv mxa="_zs_galleryaC:a" class="clearfix" style="padding: 16px 24px;"><span mxs="_zs_galleryaC:_" class="color-9 mr10">必填项：</span><input mxe="' + $viewId + '_0" mxc="[';
         $line = 6;
         $art = ':name{required:true}';
         ;
@@ -43,14 +43,14 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<div mxa="_zs_galleryaD:b" class="clearfix grid mb16" style="padding: 16px 24px;"><div mxs="_zs_galleryaD:a" class="mb10">浮层HTML Code：</div>';
+    $p += '<div mxa="_zs_galleryaC:b" class="clearfix grid mb16" style="padding: 16px 24px;"><div mxs="_zs_galleryaC:a" class="mb10">浮层HTML Code：</div>';
     $line = 13;
     $art = 'if readonly';
     ;
     $expr = '<%if (readonly) {%>';
     if (readonly) {
         ;
-        $p += '<pre mxs="_zs_galleryaD:b" class="tip-content">\n&lt;mx-grid.body class="grid"&gt;\n    // something\n&lt;/mx-grid.body&gt;\n    </pre>';
+        $p += '<pre mxs="_zs_galleryaC:b" class="tip-content">\n&lt;mx-grid.body class="grid"&gt;\n    // something\n&lt;/mx-grid.body&gt;\n    </pre>';
         $line = 19;
         $art = 'else';
         ;
@@ -58,14 +58,14 @@ module.exports = Magix.View.extend({
     }
     else {
         ;
-        $p += '<pre mxs="_zs_galleryaD:c" class="tip-content">\n&lt;form class="grid"&gt;\n    &lt;mx-grid.body&gt;\n        &lt;span class="color-9 mr10"&gt;必填项：&lt;/span&gt;\n        &lt;input class="input" placeholder="必填项" \n            value="&#123;&#123;:name&#123;required:true&#125;&#125;&#125;"/&gt;\n    &lt;/mx-grid.body&gt;\n&lt;/form&gt;\n    </pre>';
+        $p += '<pre mxs="_zs_galleryaC:c" class="tip-content">\n&lt;form class="grid"&gt;\n    &lt;mx-grid.body&gt;\n        &lt;span class="color-9 mr10"&gt;必填项：&lt;/span&gt;\n        &lt;input class="input" placeholder="必填项" \n            value="&#123;&#123;:name&#123;required:true&#125;&#125;&#125;"/&gt;\n    &lt;/mx-grid.body&gt;\n&lt;/form&gt;\n    </pre>';
         $line = 29;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxs="_zs_galleryaD:d" class="clearfix grid" style="padding: 16px 24px;"><div class="mb10">浮层JS Code：</div><pre class="tip-content">\nlet Magix = require(\'magix\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    check() &#123;\n        let that = this;\n        let ok = that.isValid();\n        let name = \'\';\n        if(ok)&#123;\n            name = that.updater.get(\'name\');\n        &#125;\n        return new Promise((resolve) =&gt; &#123;\n            setTimeout(() =&gt; &#123;\n                resolve(&#123;\n                    ok,\n                    data: &#123;\n                        name\n                    &#125;,\n                    msg: \'请按照要求填写完信息再提交\'\n                &#125;)\n            &#125;, 1000)\n        &#125;)\n    &#125;\n&#125;, &#123;\n    dialogOptions: &#123;\n        width: 1000\n    &#125;\n&#125;);\n    </pre></div>';
+    $p += '</div><div mxs="_zs_galleryaC:d" class="clearfix grid" style="padding: 16px 24px;"><div class="mb10">浮层JS Code：</div><pre class="tip-content">\nlet Magix = require(\'magix\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    check() &#123;\n        let that = this;\n        let ok = that.isValid();\n        let name = \'\';\n        if(ok)&#123;\n            name = that.updater.get(\'name\');\n        &#125;\n        return new Promise((resolve) =&gt; &#123;\n            setTimeout(() =&gt; &#123;\n                resolve(&#123;\n                    ok,\n                    data: &#123;\n                        name\n                    &#125;,\n                    msg: \'请按照要求填写完信息再提交\'\n                &#125;)\n            &#125;, 1000)\n        &#125;)\n    &#125;\n&#125;, &#123;\n    dialogOptions: &#123;\n        width: 1000\n    &#125;\n&#125;);\n    </pre></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

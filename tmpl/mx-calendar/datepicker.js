@@ -67,12 +67,11 @@ module.exports = Magix.View.extend({
                 show: true
             })
 
-            let inputNode = $('#input_' + that.id),
+            let inputNode = $('#trigger_' + that.id),
                 calNode = $('#dpcnt_' + that.id);
             let dateInfo = that.updater.get('dateInfo');
-            let gap = 10;
             let left = 0,
-                top = inputNode.outerHeight() + gap;
+                top = inputNode.outerHeight();
             if (dateInfo.align == 'right') {
                 left = inputNode.outerWidth() - calNode.outerWidth();
             }

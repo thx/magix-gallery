@@ -5,6 +5,7 @@
 ::-moz-placeholder,
 :-ms-input-placeholder,
 ::-webkit-input-placeholder {
+    opacity: 1;
     color: #999;
 }
 
@@ -43,8 +44,8 @@ textarea,
     &[readonly],
     &[readonly]:hover,
     &[readonly]:focus {
-        border-color: @color-border;
         cursor: not-allowed;
+        border-color: @color-border;
         background-color: @color-disabled;
         color: #999;
     }
@@ -54,7 +55,7 @@ input,
 .input {
     height: @input-height;
     line-height: @input-height - 2px;
-    padding: 0 9px;
+    padding: 0 8px;
 }
 
 textarea,
@@ -106,7 +107,7 @@ input[type="checkbox"],
     background-color: #fff;
     border-width: 1px;
     border-style: solid;
-    border-color: #ccc;
+    border-color: @color-border;
     cursor: pointer;
     border-radius: 2px;
     box-sizing: border-box;
@@ -141,8 +142,7 @@ input[type="checkbox"],
         background-color: @color-bg;
         &:checked,
         &.checked{
-            border-color: #ccc;
-            background-color: #ccc;
+            background-color: @color-border;
         }
     }
 
@@ -160,8 +160,7 @@ input[type="checkbox"],
         }
         &:disabled,
         &.disabled{
-            border-color: #ccc;
-            background-color: #ccc;
+            background-color: @color-border;
         }
     }
     
@@ -233,7 +232,7 @@ input[type="radio"],
     margin-right: 4px;
     border-width: 1px;
     border-style: solid;
-    border-color: #ccc;
+    border-color: @color-border;
     appearance: none;
     background-color: #fff;
     cursor: pointer;
@@ -274,7 +273,7 @@ input[type="radio"],
             border-color: @color-border;
         }
         &:after {
-            background-color: #ccc;
+            background-color: @color-border;
         }
     }
     
@@ -316,7 +315,7 @@ input[type="radio"],
                 border-color: @color-border;
             }
             &:after {
-                background-color: #ccc;
+                background-color: @color-border;
             }
     
             &:checked{
@@ -327,7 +326,6 @@ input[type="radio"],
         }
     }
 }
-
 
 
 

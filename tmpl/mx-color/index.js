@@ -256,6 +256,23 @@ module.exports = Magix.View.extend({
         $(e.eventTarget).addClass(CSSNames.selected);
         this['@{fire.event}']();
     },
+    '@{input.end}<keyup,paste>'(e) {
+        let me = this;
+        clearTimeout(me['@{end.delay.timer}']);
+        let val = $.trim(e.eventTarget.value);
+       
+        me['@{end.delay.timer}'] = setTimeout(me.wrapAsync(() => {
+            // 只响应合法的色值
+            if (val.length === 7 && val != me['@{color}']) {
+                me['@{setColor}'](val);
+                me['@{fire.event}']();
+            }
+        }), 300);
+    },
+
+    '@{stop}<change,focusin,focusout>'(e) {
+        e.stopPropagation();
+    },
     '@{fire.event}'(fromBtn) {
         let me = this;
         if (!me['@{show.btns}'] || fromBtn) {
@@ -269,6 +286,6 @@ module.exports = Magix.View.extend({
         }
     },
     '@{enter}<click>'() {
-        this['@{fire.event}'](1);
+        this['@{fire.event}'](true);
     }
 });

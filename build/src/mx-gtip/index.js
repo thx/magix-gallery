@@ -8,7 +8,7 @@ define("mx-gtip/index",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-gtip_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-gtip_index_-gtip {\n  position: fixed;\n  top: -50px;\n  left: 0;\n  z-index: 100;\n  width: 100%;\n  height: 50px;\n  padding: 0 46px;\n  line-height: 50px;\n  color: #fff;\n  background-color: rgba(33, 33, 33, 0.72);\n  transition: all 0.25s;\n  text-align: center;\n}\n._zs_gallery_mx-gtip_index_-gtip ._zs_gallery_mx-gtip_index_-gtip-close {\n  opacity: 0.5;\n  position: absolute;\n  top: 50%;\n  right: 20px;\n  width: 26px;\n  height: 26px;\n  margin-top: -13px;\n  line-height: 26px;\n  text-align: center;\n  color: #fff;\n  font-size: 20px;\n  font-weight: bold;\n  border-radius: 50%;\n  transition: all 0.25s;\n  cursor: pointer;\n}\n._zs_gallery_mx-gtip_index_-gtip ._zs_gallery_mx-gtip_index_-gtip-close:hover {\n  opacity: 1;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-gtip_index_","._zs_gallery_mx-gtip_index_-gtip {\n  position: fixed;\n  top: -50px;\n  left: 0;\n  z-index: 100;\n  width: 100%;\n  height: 50px;\n  padding: 0 46px;\n  line-height: 50px;\n  color: #fff;\n  background-color: rgba(33, 33, 33, 0.72);\n  transition: all var(--duration);\n  text-align: center;\n}\n._zs_gallery_mx-gtip_index_-gtip ._zs_gallery_mx-gtip_index_-gtip-close {\n  opacity: 0.5;\n  position: absolute;\n  top: 50%;\n  right: 20px;\n  width: 26px;\n  height: 26px;\n  margin-top: -13px;\n  line-height: 26px;\n  text-align: center;\n  color: #fff;\n  font-size: 20px;\n  font-weight: bold;\n  border-radius: 50%;\n  transition: all var(--duration);\n  cursor: pointer;\n}\n._zs_gallery_mx-gtip_index_-gtip ._zs_gallery_mx-gtip_index_-gtip-close:hover {\n  opacity: 1;\n}\n");
 var Duration = 200;
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
@@ -38,7 +38,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!timeout) {%>';
     if (!timeout) {
         ;
-        $p += '<i mxs="_zs_galleryb::_" class="mc-iconfont _zs_gallery_mx-gtip_index_-gtip-close" mx-click="' + $viewId + '@{close}()">&#xe603;</i>';
+        $p += '<i mxs="_zs_galleryb/:_" class="mc-iconfont _zs_gallery_mx-gtip_index_-gtip-close" mx-click="' + $viewId + '@{close}()">&#xe603;</i>';
         $line = 6;
         $art = '/if';
         ;

@@ -1,6 +1,3 @@
-@import "../mx-style/_vars";
-@range-line-height: 24px;
-@range-bg-color: #f0f0f0;
 @range-input-width: 110px;
 @time-range-input-width: 140px;
 .wrapper {
@@ -9,19 +6,19 @@
     min-width: 280px;
     width: 100%;
     padding: 10px;
-    border-radius: @border-radius;
+    border-radius: var(--border-radius);
     background-color: #fff;
     user-select: none;
     -webkit-user-select: none;
 
     .title {
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         color: #999;
     }
     .range {
         position: relative;
         margin-bottom: 15px;
-        line-height: @range-line-height;
+        line-height: var(--input-small-height);
         .range-input {
             float: left;
             width: 50%;
@@ -34,25 +31,23 @@
             }
 
             .range-disabled,
-            [ref="@./rangepicker.less:rangepicker-input"] {
-                height: @range-line-height;
-                padding: 0;
-                line-height: @range-line-height;
-                border-radius: @border-radius;
-                background-color: @range-bg-color;
-                border: 0;
-            }
             [ref="@./rangepicker.less:result"] {
+                height: var(--input-small-height);
+                padding: 0;
+                line-height: var(--input-small-height);
+                border-radius: var(--border-radius);
+                background-color: var(--color-bg-hover);
+                border: 0;
                 color: #333;
             }
             .vs1 {
                 [ref="@./rangepicker.less:result"] {
-                    color: @color-brand;
+                    color: var(--color-brand);
                 }
             }
             .vs2 {
                 [ref="@./rangepicker.less:result"] {
-                    color: @color-brand-vs;
+                    color: var(--color-brand-vs);
                 }
             }
             .range-disabled {
@@ -61,7 +56,7 @@
                 cursor: not-allowed;
                 user-select: none;
                 -webkit-user-select: none;
-                color: #ccc;
+                color: #999;
                 vertical-align: middle;
             }
         }
@@ -76,7 +71,7 @@
             top: 0;
             left: 50%;
             width: 18px;
-            height: @range-line-height;
+            height: var(--input-small-height);
             margin-left: -9px;
             text-align: center;
         }
@@ -85,23 +80,23 @@
         .st {
             float: left;
             width: 44%;
-            height: @range-line-height;
+            height: var(--input-small-height);
             margin-right: 6%;
             margin-bottom: 10px;
             padding: 0 10px;
-            line-height: @range-line-height;
-            border-radius: @border-radius;
+            line-height: var(--input-small-height);
+            border-radius: var(--border-radius);
             cursor: pointer;
             overflow: hidden;
             white-space: nowrap;
 
             &:hover {
-                background: @range-bg-color;
+                background-color: var(--color-bg-hover);
             }
             &.selected,
             &.selected:hover {
-                color: @color-brand;
-                background: @color-brand-opacity;
+                color: var(--color-brand);
+                background-color: var(--color-brand-opacity);
             }
         }
 
@@ -114,7 +109,7 @@
     }
     .footer {
         padding-top: 10px;
-        border-top: 1px solid @color-border;
+        border-top: 1px solid var(--color-border);
     }
     
     &.time {
@@ -122,8 +117,5 @@
         .range-input {
             min-width: @time-range-input-width;
         }
-    }
-    &.inlay {
-        border: 0 none;
     }
 }

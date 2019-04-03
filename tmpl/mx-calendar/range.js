@@ -9,9 +9,7 @@ let DateParse = Util.dateParse;
 let GetDefaultDate = Util.getDefaultDate;
 let GetQuickInfos = Util.getQuickInfos;
 let ForeverStr = Util.foreverStr;
-
 let I18n = require('../mx-medusa/util');
-
 Magix.applyStyle('@range.less');
 
 let RangeDate = Magix.View.extend({
@@ -19,7 +17,6 @@ let RangeDate = Magix.View.extend({
     init(extra) {
         let ops = $.extend(true, {}, extra.configs);
         let that = this;
-        ops.inlay = ((ops.inlay + '') === 'true');
         ops.dates = ops.dates || {};
         ops.formatter = ops.formatter || 'YYYY-MM-dd';
         ops.title = ops.title || I18n['calendar.range.title'];

@@ -10,7 +10,7 @@ require("../hl");
 var Magix = require("magix");
 var Base = require("../example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery___test___pro_login-demo_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_login-demo_-demo {\n  padding: 40px 0;\n  background-color: #fafafa;\n}\n._zs_gallery___test___pro_login-demo_-demo ._zs_gallery___test___pro_login-demo_-login-wrapper {\n  width: 350px;\n  height: 340px;\n  margin: auto;\n  background-color: #fff;\n  overflow: hidden;\n}\n");
+Magix.applyStyle("_zs_gallery___test___pro_login-demo_","._zs_gallery___test___pro_login-demo_-demo {\n  padding: 40px 0;\n  background-color: var(--color-bg);\n}\n._zs_gallery___test___pro_login-demo_-demo ._zs_gallery___test___pro_login-demo_-login-wrapper {\n  width: 350px;\n  height: 340px;\n  margin: auto;\n  background-color: #fff;\n  overflow: hidden;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

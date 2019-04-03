@@ -28,7 +28,7 @@ module.exports = Base.extend({
     $line = 4;
     $art = '=color';
     ;
-    $p += ($expr = '<%=color%>', $e(color)) + '</span></div><div mx-change="' + $viewId + 'changeColor()" mx-view="mx-color/picker?color=';
+    $p += ($expr = '<%=color%>', $e(color)) + '</span></div><div class="w200" mx-change="' + $viewId + 'changeColor()" mx-view="mx-color/picker?color=';
     $line = 7;
     $art = '=color';
     ;
@@ -44,7 +44,7 @@ module.exports = Base.extend({
     $line = 18;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-color.picker\n    color="&#123;&#123;=color&#125;&#125;"\n    mx-change="changeColor()"/&gt;\n            </pre></div><div mxa="_zs_galleryai:g" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryai:b" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-color.picker class="w200"\n    color="&#123;&#123;=color&#125;&#125;"\n    mx-change="changeColor()"/&gt;\n            </pre></div><div mxa="_zs_galleryai:g" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryai:b" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 26;
     $art = '=viewId';
     ;

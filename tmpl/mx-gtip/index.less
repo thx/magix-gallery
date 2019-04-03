@@ -1,7 +1,5 @@
-@import "../mx-style/_vars";
 @gtip-height: 50px;
 @gtip-close-size: 26px;
-
 .gtip{
     position: fixed;
     top: 0 - @gtip-height;
@@ -13,7 +11,7 @@
     line-height: @gtip-height;
     color: #fff;
     background-color: rgba(33, 33, 33, .72);
-    transition: all @duration;
+    transition: all var(--duration);
     text-align: center;
     .gtip-close{
         opacity: .5;
@@ -29,7 +27,7 @@
         font-size: 20px;
         font-weight: bold;
         border-radius: 50%;
-        transition: all @duration;
+        transition: all var(--duration);
         cursor: pointer;
 
         &:hover{

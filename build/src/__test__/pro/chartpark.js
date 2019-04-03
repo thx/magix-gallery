@@ -12,7 +12,7 @@ require("./chartpark-id");
 require("./chartpark-custom");
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery___test___pro_chartpark_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery___test___pro_chartpark_-chart-img {\n  width: 100%;\n  margin-bottom: 20px;\n}\n._zs_gallery___test___pro_chartpark_-chart-img:last-child {\n  margin-bottom: 0;\n}\n");
+Magix.applyStyle("_zs_gallery___test___pro_chartpark_","._zs_gallery___test___pro_chartpark_-chart-img {\n  width: 100%;\n  margin-bottom: 20px;\n}\n._zs_gallery___test___pro_chartpark_-chart-img:last-child {\n  margin-bottom: 0;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

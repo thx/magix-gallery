@@ -25,16 +25,16 @@ module.exports = Magix.View.extend({
     $line = 13;
     $art = 'each options as option';
     ;
-    $expr = '<%for (var $art_iejkejtrod$art_i = 0, $art_cufbbdumy$art_c = options.length; $art_iejkejtrod$art_i < $art_cufbbdumy$art_c; $art_iejkejtrod$art_i++) {    var option = options[$art_iejkejtrod$art_i]%>';
-    for (var $art_iejkejtrod$art_i = 0, $art_cufbbdumy$art_c = options.length; $art_iejkejtrod$art_i < $art_cufbbdumy$art_c; $art_iejkejtrod$art_i++) {
-        var option = options[$art_iejkejtrod$art_i];
+    $expr = '<%for (var $art_imakuddbml$art_i = 0, $art_cxjowgfk$art_c = options.length; $art_imakuddbml$art_i < $art_cxjowgfk$art_c; $art_imakuddbml$art_i++) {    var option = options[$art_imakuddbml$art_i]%>';
+    for (var $art_imakuddbml$art_i = 0, $art_cxjowgfk$art_c = options.length; $art_imakuddbml$art_i < $art_cxjowgfk$art_c; $art_imakuddbml$art_i++) {
+        var option = options[$art_imakuddbml$art_i];
         $p += ' ';
         $line = 14;
         $art = 'each option.params as param index';
         ;
-        $expr = '<%for (var index = 0, $art_objmhcdatdxe$art_obj = option.params, $art_cxtrbcqlass$art_c = $art_objmhcdatdxe$art_obj.length; index < $art_cxtrbcqlass$art_c; index++) {        var param = $art_objmhcdatdxe$art_obj[index]%>';
-        for (var index = 0, $art_objmhcdatdxe$art_obj = option.params, $art_cxtrbcqlass$art_c = $art_objmhcdatdxe$art_obj.length; index < $art_cxtrbcqlass$art_c; index++) {
-            var param = $art_objmhcdatdxe$art_obj[index];
+        $expr = '<%for (var index = 0, $art_objwyuy$art_obj = option.params, $art_cwzwcebk$art_c = $art_objwyuy$art_obj.length; index < $art_cwzwcebk$art_c; index++) {        var param = $art_objwyuy$art_obj[index]%>';
+        for (var index = 0, $art_objwyuy$art_obj = option.params, $art_cwzwcebk$art_c = $art_objwyuy$art_obj.length; index < $art_cwzwcebk$art_c; index++) {
+            var param = $art_objwyuy$art_obj[index];
             $p += '<tr>';
             $line = 16;
             $art = 'if (index == 0)';

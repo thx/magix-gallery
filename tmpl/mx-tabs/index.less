@@ -1,4 +1,3 @@
-@import "../mx-style/_vars";
 [mx-view*="mx-tabs/box"] {
     display: inline-block;
 }
@@ -9,8 +8,8 @@
     padding-left: 4px;
     padding-right: 4px;
     line-height: 18px;
-    border-radius: @border-radius;
-    background-color: @color-brand;
+    border-radius: var(--border-radius);
+    background-color: var(--color-brand);
     color: #fff;
     font-size: 12px;
     font-weight: bold;
@@ -19,21 +18,21 @@
 
 .border {
     position: relative;
-    border-bottom: 1px solid @color-border;
+    border-bottom: 1px solid var(--color-border);
     .border-item {
         position: relative;
         float: left;
-        height: @input-height + 20px;
+        height: calc(var(--input-height) + 20px);
         padding: 10px 24px;
         font-size: 16px;
-        line-height: @input-height;
-        transition: color @duration ease-out;
+        line-height: var(--input-height);
+        transition: color var(--duration) ease-out;
         color: #666;
         &:hover {
             color: #333;
         }
         &.selected {
-            color: @color-brand;
+            color: var(--color-brand);
         }
         .tag {
             position: absolute;
@@ -52,7 +51,7 @@
                 height: 0;
                 border-width: 3px;
                 border-style: solid;
-                border-color: @color-brand #ffffff #ffffff @color-brand;
+                border-color: var(--color-brand) #ffffff #ffffff var(--color-brand);
             }
         }
     }
@@ -61,8 +60,8 @@
         width: 0;
         height: 0;
         bottom: -1px;
-        border-bottom: 2px solid @color-brand;
-        transition: width @duration cubic-bezier(0.645, 0.045, 0.355, 1), left @duration cubic-bezier(0.645, 0.045, 0.355, 1);
+        border-bottom: 2px solid var(--color-brand);
+        transition: width var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1), left var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1);
     }
 }
 
@@ -76,14 +75,14 @@
         cursor: pointer;
         text-align: center;
         padding: 0 12px;
-        transition: all @duration ease-out;
+        transition: all var(--duration);
         &:first-child {
-            border-top-left-radius: @border-radius;
-            border-bottom-left-radius: @border-radius;
+            border-top-left-radius: var(--border-radius);
+            border-bottom-left-radius: var(--border-radius);
         }
         &:last-child {
-            border-top-right-radius: @border-radius;
-            border-bottom-right-radius: @border-radius;
+            border-top-right-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
         }
         .tag {
             transform: scale(.9);
@@ -98,8 +97,8 @@
             }
             &.selected {
                 color: #999;
-                background-color: @color-disabled;
-                border-color: @color-border;
+                background-color: var(--color-disabled);
+                border-color: var(--color-border);
             }
             .tag {
                 background-color: #ccc;
@@ -115,9 +114,9 @@
         position: relative;
         z-index: 2;
         display: inline-block;
-        height: @input-height;
-        line-height: @input-height - 2;
-        border-radius: @border-radius;
+        height: var(--input-height);
+        line-height: calc(var(--input-height) - 2px);
+        border-radius: var(--border-radius);
         color: #666;
         border: 1px solid transparent;
         
@@ -126,8 +125,8 @@
         }
         &.selected {
             color: #333;
-            background-color: @color-brand-opacity;
-            border: 1px solid @color-brand;
+            background-color: var(--color-brand-opacity);
+            border: 1px solid var(--color-brand);
         }
     }
 
@@ -139,28 +138,28 @@
         z-index: 1;
         width: 100%;
         height: 100%;
-        border-radius: @border-radius;
-        border: 1px solid @border-highlight;    
+        border-radius: var(--border-radius);
+        border: 1px solid var(--border-highlight);    
     }    
 }
 
 .solid-box {
     display: inline-block;
-    height: @input-height;
-    border: 1px solid @border-highlight;    
-    border-radius: @border-radius;
+    height: var(--input-height);
+    border: 1px solid var(--border-highlight);    
+    border-radius: var(--border-radius);
     .box-item {
         display: inline-block;
-        height: @input-height - 2;
-        line-height: @input-height - 2;
+        height: calc(var(--input-height) - 2px);
+        line-height: calc(var(--input-height) - 2px);
         color: #999;
         background-color: #fff;
         &:hover {
             color: #333;
         }
         &.selected {
-            color: @color-brand;
-            background-color: @color-brand-opacity;
+            color: var(--color-brand);
+            background-color: var(--color-brand-opacity);
         }
     }
 }

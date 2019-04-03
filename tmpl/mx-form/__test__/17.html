@@ -74,8 +74,9 @@
                 <div class="form-label">选择时间段</div>
                 <div class="form-content">
                     <mx-calendar.rangepicker class="w200"
-                        vsenable="true"
-                        vs="{{:selected.vs{refresh:true}}}"
+                        vsenable="false"
+                        text-align="left"
+                        vs="false"
                         start="{{:selected.start{refresh:true}}}"
                         end="{{:selected.end{refresh:true}}}"/>
                 </div>
@@ -157,9 +158,9 @@
             </div>
             <div class="lh32 mb30">
                 <span class="color-9">当前值：</span>
-                <span class="mr5">对比（{{=selected.vs}}）</span>
-                <span class="mr5">开始时间（{{=selected.start}}）</span>
-                <span>结束时间（{{=selected.end}}）</span>
+                {{=selected.start}}
+                <span class="color-9 ml5 mr5">至</span>
+                {{=selected.end}}
             </div>
             <div class="lh32 mb30">
                 <span class="color-9">当前值：</span>

@@ -1,42 +1,17 @@
-@import "../mx-style/_vars";
-[mx-view*="mx-color/picker"] {
-    display: inline-block;
-    position: relative;
-    vertical-align: middle;
-    .color-wrapper {
-        display: none;
-        position: absolute;
-        z-index: 1000;
-        width: 246px;
-        &.open {
-            display: block;
-            animation: fade-in-down @duration ease-out;
-            animation-fill-mode: forwards;
-        }
-    }
-    .color-input {
-        width: 100%;
-        min-width: 246px;
-    }
-}
-
 [mx-view*="mx-color/index"] {
-    position: relative;
-    display: inline-block;
-    z-index: 1;
+    width: 246px;
+    min-width: 246px;
     padding: 10px;
     background-color: #fff;
-    border: 1px solid @color-border;
-    border-radius: @border-radius;
 }
 
 .shortcuts,
-.body,
+.cbd,
 .foot {
     width: 224px;
 }
 
-.body {
+.cbd {
     margin: 10px 0;
 }
 
@@ -109,11 +84,11 @@
 }
 
 .bg-color {
-    height: @input-height;
+    height: var(--input-height);
     width: 50px;
     margin-right: 10px;
-    border-radius: @border-radius;
-    border: 1px solid @color-border;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
 }
 
 .alpha {
