@@ -38,9 +38,9 @@ module.exports = Magix.View.extend({
     $line = 17;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_inxgtxmc$art_i = 0, $art_cbimvezobnw$art_c = headers.length; $art_inxgtxmc$art_i < $art_cbimvezobnw$art_c; $art_inxgtxmc$art_i++) {    var h = headers[$art_inxgtxmc$art_i]%>';
-    for (var $art_inxgtxmc$art_i = 0, $art_cbimvezobnw$art_c = headers.length; $art_inxgtxmc$art_i < $art_cbimvezobnw$art_c; $art_inxgtxmc$art_i++) {
-        var h = headers[$art_inxgtxmc$art_i];
+    $expr = '<%for (var $art_iqvtmiogwe$art_i = 0, $art_cwzeghky$art_c = headers.length; $art_iqvtmiogwe$art_i < $art_cwzeghky$art_c; $art_iqvtmiogwe$art_i++) {    var h = headers[$art_iqvtmiogwe$art_i]%>';
+    for (var $art_iqvtmiogwe$art_i = 0, $art_cwzeghky$art_c = headers.length; $art_iqvtmiogwe$art_i < $art_cwzeghky$art_c; $art_iqvtmiogwe$art_i++) {
+        var h = headers[$art_iqvtmiogwe$art_i];
         $p += '<a ';
         $line = 18;
         $art = 'if h.new';
@@ -154,9 +154,9 @@ module.exports = Magix.View.extend({
     $line = 32;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_igzrvfiseg$art_i = 0, $art_czsvtfq$art_c = list.length; $art_igzrvfiseg$art_i < $art_czsvtfq$art_c; $art_igzrvfiseg$art_i++) {    var item = list[$art_igzrvfiseg$art_i]%>';
-    for (var $art_igzrvfiseg$art_i = 0, $art_czsvtfq$art_c = list.length; $art_igzrvfiseg$art_i < $art_czsvtfq$art_c; $art_igzrvfiseg$art_i++) {
-        var item = list[$art_igzrvfiseg$art_i];
+    $expr = '<%for (var $art_ifaujtvhopn$art_i = 0, $art_cisocpxgyp$art_c = list.length; $art_ifaujtvhopn$art_i < $art_cisocpxgyp$art_c; $art_ifaujtvhopn$art_i++) {    var item = list[$art_ifaujtvhopn$art_i]%>';
+    for (var $art_ifaujtvhopn$art_i = 0, $art_cisocpxgyp$art_c = list.length; $art_ifaujtvhopn$art_i < $art_cisocpxgyp$art_c; $art_ifaujtvhopn$art_i++) {
+        var item = list[$art_ifaujtvhopn$art_i];
         $p += ' ';
         $line = 33;
         $art = 'if item.name';
@@ -197,9 +197,9 @@ module.exports = Magix.View.extend({
         $line = 40;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_ishiajiwbbr$art_i = 0, $art_objbzmudlbl$art_obj = item.subs, $art_czznxdia$art_c = $art_objbzmudlbl$art_obj.length; $art_ishiajiwbbr$art_i < $art_czznxdia$art_c; $art_ishiajiwbbr$art_i++) {        var sub = $art_objbzmudlbl$art_obj[$art_ishiajiwbbr$art_i]%>';
-        for (var $art_ishiajiwbbr$art_i = 0, $art_objbzmudlbl$art_obj = item.subs, $art_czznxdia$art_c = $art_objbzmudlbl$art_obj.length; $art_ishiajiwbbr$art_i < $art_czznxdia$art_c; $art_ishiajiwbbr$art_i++) {
-            var sub = $art_objbzmudlbl$art_obj[$art_ishiajiwbbr$art_i];
+        $expr = '<%for (var $art_ieambvdtnlj$art_i = 0, $art_objvyllebre$art_obj = item.subs, $art_cwlkijbmj$art_c = $art_objvyllebre$art_obj.length; $art_ieambvdtnlj$art_i < $art_cwlkijbmj$art_c; $art_ieambvdtnlj$art_i++) {        var sub = $art_objvyllebre$art_obj[$art_ieambvdtnlj$art_i]%>';
+        for (var $art_ieambvdtnlj$art_i = 0, $art_objvyllebre$art_obj = item.subs, $art_cwlkijbmj$art_c = $art_objvyllebre$art_obj.length; $art_ieambvdtnlj$art_i < $art_cwlkijbmj$art_c; $art_ieambvdtnlj$art_i++) {
+            var sub = $art_objvyllebre$art_obj[$art_ieambvdtnlj$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 41;
             $art = 'if (sub.path == path)';
@@ -537,6 +537,7 @@ catch (ex) {
                                 icon: '&#xe72c;'
                             }, {
                                 name: '树状结构',
+                                tip: '支持双向绑定',
                                 path: '/tree/index',
                                 icon: '&#xe62b;'
                             }, {

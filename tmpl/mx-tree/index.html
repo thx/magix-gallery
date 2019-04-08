@@ -1,10 +1,10 @@
-<mx-tree.branch 
+<mx-tree.branch  class="{{if hasLine}} line {{/if}}" 
     id="tree_{{=viewId}}"
     from-top="{{@true}}"
-    class="{{if hasLine}} line {{/if}}" 
     read-only="{{@readOnly}}"
     need-expand="{{@needExpand}}"
     text-key="{{=textKey}}"
     value-key="{{=valueKey}}"
     close-map="{{@closeMap}}"
+    mx-change="@{change}()"
     list="{{@list}}" />

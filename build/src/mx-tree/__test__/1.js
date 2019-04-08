@@ -31,7 +31,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', selected = $$.selected, viewId = $$.viewId, list = $$.list, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryeW:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryeW:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryeW:_" class="mb10"><span class="color-9">使用场景：</span>切换页码的时候保留历史选中项，非实时反馈选中结果</div><div mxa="_zs_galleryeW:b" class="mb20"><span mxs="_zs_galleryeW:a" class="color-9">当前选中单元：</span>';
+    $p += '<div mxv mxa="_zs_galleryeW:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryeW:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryeW:f" class="mb10"><span class="color-9">使用场景：</span>切换页码的时候保留历史选中项，无需实时反馈选中结果</div><div mxa="_zs_galleryeW:b" class="mb20"><span mxs="_zs_galleryeW:a" class="color-9">当前选中单元：</span>';
     $line = 9;
     $art = '=selected';
     ;

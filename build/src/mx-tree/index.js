@@ -27,47 +27,47 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, hasLine = $$.hasLine, readOnly = $$.readOnly, needExpand = $$.needExpand, textKey = $$.textKey, valueKey = $$.valueKey, closeMap = $$.closeMap, list = $$.list; var $expr, $art, $line; try {
-    $p += '<div mxv="readOnly,needExpand,closeMap,list" id="tree_';
-    $line = 2;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" class="';
-    $line = 4;
+} ; var $g = '', $_temp, $p = '', hasLine = $$.hasLine, viewId = $$.viewId, readOnly = $$.readOnly, needExpand = $$.needExpand, textKey = $$.textKey, valueKey = $$.valueKey, closeMap = $$.closeMap, list = $$.list; var $expr, $art, $line; try {
+    $p += '<div mxv="readOnly,needExpand,closeMap,list" class="';
+    $line = 1;
     $art = 'if hasLine';
     ;
     $expr = '<%if (hasLine) {%>';
     if (hasLine) {
         ;
         $p += ' _zs_gallery_mx-tree_index_-line ';
-        $line = 4;
+        $line = 1;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '" mx-view="mx-tree/branch?fromTop=';
+    $p += '" id="tree_';
+    $line = 2;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" mx-change="' + $viewId + '@{change}()" mx-view="mx-tree/branch?fromTop=';
     $line = 3;
     $art = '@true';
     ;
     $p += ($expr = '<%@true%>', $i($$ref, true)) + '&readOnly=';
-    $line = 5;
+    $line = 4;
     $art = '@readOnly';
     ;
     $p += ($expr = '<%@readOnly%>', $i($$ref, readOnly)) + '&needExpand=';
-    $line = 6;
+    $line = 5;
     $art = '@needExpand';
     ;
     $p += ($expr = '<%@needExpand%>', $i($$ref, needExpand)) + '&textKey=';
-    $line = 7;
+    $line = 6;
     $art = '=textKey';
     ;
     $p += ($expr = '<%!$eu(textKey)%>', $eu(textKey)) + '&valueKey=';
-    $line = 8;
+    $line = 7;
     $art = '=valueKey';
     ;
     $p += ($expr = '<%!$eu(valueKey)%>', $eu(valueKey)) + '&closeMap=';
-    $line = 9;
+    $line = 8;
     $art = '@closeMap';
     ;
     $p += ($expr = '<%@closeMap%>', $i($$ref, closeMap)) + '&list=';
@@ -88,6 +88,8 @@ catch (ex) {
         var me = this;
         // 保留历史展开收起状态
         me['@{close.map}'] = {};
+        me['@{bottom.values}'] = [];
+        me['@{owner.node}'] = $('#' + me.id);
         me.updater.snapshot();
         me.assign(ops);
     },
@@ -118,6 +120,7 @@ catch (ex) {
             list = info.list;
         }
         // 展开收起状态，默认false
+        // 切换数据时保留历史展开收起状态
         var close = (ops.close + '') === 'true';
         var map = {};
         var _lp1 = function (arr) {
@@ -139,6 +142,14 @@ catch (ex) {
             });
         };
         _lp2(list);
+        // 历史选中保留
+        me['@{bottom.values}'] = me['@{bottom.values}'].map(function (val) { return (val + ''); });
+        (ops.bottomValues || []).forEach(function (val) {
+            val = val + '';
+            if (me['@{bottom.values}'].indexOf(val) < 0) {
+                me['@{bottom.values}'].push(val);
+            }
+        });
         me.updater.set({
             viewId: me.id,
             valueKey: valueKey,
@@ -147,9 +158,10 @@ catch (ex) {
             readOnly: readOnly,
             hasLine: hasLine,
             needExpand: needExpand,
-            closeMap: me['@{close.map}']
+            closeMap: me['@{close.map}'],
+            bottomValues: me['@{bottom.values}']
         });
-        me['@{init.bottoms}'] = ops.bottomValues || [];
+        me['@{owner.node}'].val(me['@{bottom.values}']);
         if (!altered) {
             altered = me.updater.altered();
         }
@@ -161,12 +173,19 @@ catch (ex) {
         return false;
     },
     render: function () {
-        var me = this;
-        me.updater.digest();
-        var bottomValues = me['@{init.bottoms}'];
+        this.updater.digest();
+        var bottomValues = this.updater.get('bottomValues');
         if (bottomValues.length > 0) {
-            me.setBottomValues(bottomValues);
+            this.setBottomValues(bottomValues);
         }
+    },
+    '@{change}<change>': function (e) {
+        e.stopPropagation();
+        var me = this;
+        var bottomValues = me.getBottomValues();
+        me['@{owner.node}'].val(me['@{bottom.values}'] = bottomValues).trigger($.Event('change', {
+            bottomValues: bottomValues
+        }));
     },
     setBottomValues: function (bottomValues) {
         this.loop(function (vf) {

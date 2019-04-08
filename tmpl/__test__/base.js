@@ -197,6 +197,7 @@ module.exports = Magix.View.extend({
                     icon: '&#xe72c;'
                 }, {
                     name: '树状结构',
+                    tip: '支持双向绑定',
                     path: '/tree/index',
                     icon: '&#xe62b;'
                 }, {

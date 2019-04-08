@@ -10,7 +10,9 @@ module.exports = Magix.View.extend({
         let me = this;
         // 保留历史展开收起状态
         me['@{close.map}'] = {};
-        
+        me['@{bottom.values}'] = [];
+        me['@{owner.node}'] = $('#' + me.id);
+
         me.updater.snapshot();
         me.assign(ops);
     },
@@ -43,13 +45,14 @@ module.exports = Magix.View.extend({
         }
 
         // 展开收起状态，默认false
+        // 切换数据时保留历史展开收起状态
         let close = (ops.close + '') === 'true';
         let map = {};
         let _lp1 = (arr) => {
             arr.forEach(item => {
                 map[item[valueKey]] = close;
 
-                if(item.children && item.children.length > 0){
+                if (item.children && item.children.length > 0) {
                     _lp1(item.children);
                 }
             })
@@ -60,12 +63,21 @@ module.exports = Magix.View.extend({
             arr.forEach(item => {
                 item.close = me['@{close.map}'][item[valueKey]];
 
-                if(item.children && item.children.length > 0){
+                if (item.children && item.children.length > 0) {
                     _lp2(item.children);
                 }
             })
         }
         _lp2(list);
+
+        // 历史选中保留
+        me['@{bottom.values}'] = me['@{bottom.values}'].map(val => (val + ''));
+        (ops.bottomValues || []).forEach(val => {
+            val = val + '';
+            if(me['@{bottom.values}'].indexOf(val) < 0){
+                me['@{bottom.values}'].push(val);
+            }
+        })
 
         me.updater.set({
             viewId: me.id,
@@ -75,9 +87,10 @@ module.exports = Magix.View.extend({
             readOnly,
             hasLine,
             needExpand,
-            closeMap: me['@{close.map}']
+            closeMap: me['@{close.map}'],
+            bottomValues: me['@{bottom.values}']
         });
-        me['@{init.bottoms}'] = ops.bottomValues || [];
+        me['@{owner.node}'].val(me['@{bottom.values}']);
 
         if (!altered) {
             altered = me.updater.altered();
@@ -90,14 +103,22 @@ module.exports = Magix.View.extend({
         return false;
     },
 
-    render: function() {
-        let me = this;
-        me.updater.digest();
+    render: function () {
+        this.updater.digest();
 
-        let bottomValues = me['@{init.bottoms}'];
+        let bottomValues = this.updater.get('bottomValues');
         if (bottomValues.length > 0) {
-            me.setBottomValues(bottomValues);
+            this.setBottomValues(bottomValues);
         }
+    },
+
+    '@{change}<change>'(e){
+        e.stopPropagation();
+        let me = this;
+        let bottomValues = me.getBottomValues();
+        me['@{owner.node}'].val(me['@{bottom.values}'] = bottomValues).trigger($.Event('change', {
+            bottomValues
+        }));
     },
 
     setBottomValues(bottomValues) {
@@ -124,7 +145,7 @@ module.exports = Magix.View.extend({
         return bottomItems;
     },
 
-    loop(fn){
+    loop(fn) {
         let me = this;
         let children = me.owner.children();
         let _loop = (children) => {
@@ -135,7 +156,7 @@ module.exports = Magix.View.extend({
                 let cc = vf.children();
                 if (cc && (cc.length > 0)) {
                     _loop(cc);
-                } 
+                }
             }
         }
         _loop(children);

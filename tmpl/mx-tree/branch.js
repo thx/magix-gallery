@@ -9,9 +9,8 @@ module.exports = Magix.View.extend({
         this.updater.set(extra);
     },
     render() {
-        let me = this;
-        me.updater.digest({
-            viewId: me.id
+        this.updater.digest({
+            viewId: this.id
         });
     },
     '@{getCheckedState}'() {
@@ -83,6 +82,9 @@ module.exports = Magix.View.extend({
         }
         me['@{checkParentState}'](me.id);
     },
+    /**
+     * 展开收起
+     */
     '@{toggle}<click>'(e) {
         e.stopPropagation();
         let node = $(e.eventTarget);
@@ -114,7 +116,7 @@ module.exports = Magix.View.extend({
                 n.checked = true;
             }
         });
-        me['@{checkParentState}'](me.id);
+        me['@{checkParentState}'](viewId);
     },
     getValues() {
         return this.get('value');

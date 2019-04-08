@@ -30,8 +30,8 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cbvtygxs$art_c = list.length; index < $art_cbvtygxs$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cbvtygxs$art_c = list.length; index < $art_cbvtygxs$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_csniroousl$art_c = list.length; index < $art_csniroousl$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_csniroousl$art_c = list.length; index < $art_csniroousl$art_c; index++) {
         var item = list[index];
         $p += '<div mxv mxa="_zs_gallerye2:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_gallerye2:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
         $line = 4;
@@ -255,9 +255,8 @@ catch (ex) {
         this.updater.set(extra);
     },
     render: function () {
-        var me = this;
-        me.updater.digest({
-            viewId: me.id
+        this.updater.digest({
+            viewId: this.id
         });
     },
     '@{getCheckedState}': function () {
@@ -333,6 +332,9 @@ catch (ex) {
         }
         me['@{checkParentState}'](me.id);
     },
+    /**
+     * 展开收起
+     */
     '@{toggle}<click>': function (e) {
         e.stopPropagation();
         var node = $(e.eventTarget);
@@ -364,7 +366,7 @@ catch (ex) {
                 n.checked = true;
             }
         });
-        me['@{checkParentState}'](me.id);
+        me['@{checkParentState}'](viewId);
     },
     getValues: function () {
         return this.get('value');

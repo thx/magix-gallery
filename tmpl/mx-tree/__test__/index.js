@@ -69,9 +69,20 @@ module.exports = Magix.View.extend({
             def: 'false'
         }]
 
+        let events = [{
+            type: 'change',
+            desc: '切换某个标签状态时触发',
+            params: [{
+                key: 'bottomValues',
+                desc: '已选中的最底层value列表，组件认为选中项最终获取的都是最底层数据',
+                type: 'array'
+            }]
+        }]
+
         that.updater.digest({
             viewId: that.id,
-            options
+            options,
+            events
         });
     }
 });
