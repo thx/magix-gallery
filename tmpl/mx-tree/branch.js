@@ -2,6 +2,7 @@ let Magix = require('magix');
 let $ = require('$');
 let Vframe = Magix.Vframe;
 Magix.applyStyle('@index.less');
+
 module.exports = Magix.View.extend({
     tmpl: '@branch.html',
     init(extra) {
@@ -89,10 +90,15 @@ module.exports = Magix.View.extend({
         let cName = '@index.less:close';
         let branch = $('#' + this.id + '_' + index);
         branch.toggleClass(cName);
+        let list = this.updater.get('list'),
+            closeMap = this.updater.get('closeMap');
+        let value = list[index].value;
         if (branch.hasClass(cName)) {
             node.html('&#xe65b;');
+            closeMap[value] = true;
         } else {
             node.html('&#xe65a;');
+            closeMap[value] = false;
         }
     },
     setValues(bottomValues) {
@@ -114,10 +120,9 @@ module.exports = Magix.View.extend({
         return this.get('value');
     },
     getItems() {
-        return this.get('item')
+        return this.get('item');
     },
-
-    get(type){
+    get(type) {
         let me = this;
         let viewId = me.id;
         let result = [];
@@ -129,10 +134,10 @@ module.exports = Magix.View.extend({
                 // 根节点
                 let node = $('#cb_' + viewId + '_' + index);
                 if (node[0].checked) {
-                    if(type == 'item'){
+                    if (type == 'item') {
                         // 完整对象
                         result.push(item);
-                    }else{
+                    } else {
                         // value值
                         result.push(node[0].value);
                     }

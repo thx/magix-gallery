@@ -1,12 +1,12 @@
 let Magix = require('magix');
 module.exports = {
-    listToTree: (list, id, pId, close) => {
+    listToTree: (list, id, pId) => {
+        list = list || [];
         let map = {},
             listMap = {},
             rootList = [];
         for (let i = 0, max = list.length; i < max; i++) {
             let one = Magix.mix({}, list[i]);
-            one.close = close;
             map[one[id]] = one;
             if (listMap[one[id]]) {
                 one.children = listMap[one[id]];

@@ -51,7 +51,8 @@ module.exports = Base.extend({
 
         this.updater.digest({
             list,
-            selected: [211, 23, 3]
+            selected: [211, 23, 3],
+            index: 3
         });
     },
     'change<change>'(e) {
@@ -59,6 +60,20 @@ module.exports = Base.extend({
 
         this.updater.digest({
             selected: tree.invoke('getBottomValues')
+        })
+    },
+    'changeData<click>'(e) {
+        let list = this.updater.get('list');
+        let index = this.updater.get('index');
+        let next = index + 1;
+        list.push({
+            value: '2' + next,
+            pValue: 2,
+            text: '2-' + next
+        })
+        this.updater.digest({
+            index: next,
+            list
         })
     }
 });

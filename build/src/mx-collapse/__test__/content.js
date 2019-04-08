@@ -1,1 +1,50 @@
-define("mx-collapse/__test__/content",["magix","mx-preview/index"],(e,r,i)=>{e("mx-preview/index");var a=e("magix");a.applyStyle("_zs_galleryA","._zs_gallerydr{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryds{margin-right:20px;border:1px solid #e6e6e6;background-color:#fafafa}"),i.exports=a.View.extend({tmpl:function(e,r,i,a,t,n,l,d){if(i||(i=e),!t){var o={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},s=/[&<>"'`]/g,x=function(e){return"&"+o[e]+";"};t=function(e){return""+(null==e?"":e)},function(e){return t(e).replace(s,x)}}if(!n){var c={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},m=function(e){return c[e]},g=/[!')(*]/g;n=function(e){return encodeURIComponent(t(e)).replace(g,m)}}if(!d){var u=/[\\'"]/g;d=function(e){return t(e).replace(u,"\\$&")}}var p="",f=e.outer;return p+='<div mxa="_zs_galleryaj:_" class="mb20">当前模块标题是：'+t(f.title)+'</div><div mxs="_zs_galleryaj:_" class="clearfix"><div class="_zs_galleryds" mx-view="mx-preview/index?format=2&url=%2F%2Fimg.alicdn.com%2Ftfscom%2FTB10l9lbgZC2uNjSZFnXXaxZpXa.png&maxWidth=100&maxHeight=100"></div><div class="_zs_galleryds" mx-view="mx-preview/index?format=2&url=%2F%2Fimg.alicdn.com%2Ftfscom%2FTB10l9lbgZC2uNjSZFnXXaxZpXa.png&maxWidth=100&maxHeight=100"></div></div>'},init:function(e){var r=e.data||{};this.updater.set({outer:r})},render:function(){this.updater.digest({})}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-collapse/__test__/content",["magix","mx-preview/index"],(require,exports,module)=>{
+/*Magix*/
+require("mx-preview/index");
+var Magix = require("magix");
+Magix.applyStyle("_zs_gallery_mx-collapse___test___index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-collapse___test___index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-collapse___test___index_-demo {\n  margin-right: 20px;\n  border: 1px solid #e6e6e6;\n  background-color: #fafafa;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', outer = $$.outer; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryaj:_" class="mb20">当前模块标题是：';
+    $line = 1;
+    $art = '!outer.title';
+    ;
+    $p += ($expr = '<%!outer.title%>', $n(outer.title)) + '</div><div mxs="_zs_galleryaj:_" class="clearfix"><div class="_zs_gallery_mx-collapse___test___index_-demo" mx-view="mx-preview/index?format=2&url=%2F%2Fimg.alicdn.com%2Ftfscom%2FTB10l9lbgZC2uNjSZFnXXaxZpXa.png&maxWidth=100&maxHeight=100"></div><div class="_zs_gallery_mx-collapse___test___index_-demo" mx-view="mx-preview/index?format=2&url=%2F%2Fimg.alicdn.com%2Ftfscom%2FTB10l9lbgZC2uNjSZFnXXaxZpXa.png&maxWidth=100&maxHeight=100"></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-collapse/__test__/content.html';
+    throw msg;
+} return $p; },
+    init: function (e) {
+        var that = this;
+        var data = e.data || {};
+        this.updater.set({
+            outer: data
+        });
+    },
+    render: function () {
+        this.updater.digest({});
+    }
+});
+
+});

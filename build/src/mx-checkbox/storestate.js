@@ -1,1 +1,117 @@
-define("mx-checkbox/storestate",["$","magix"],(e,t,a)=>{var i=e("$"),n=e("magix");a.exports={ctor:function(){var e=this;e.__ad={};e.on("domready",function(t){var a=e.__ad;i("#"+(t.id||e.id)+" input[linkage-parent]").each(function(e,t){var n=i(t).attr("linkage-parent"),d=a[n]||(a[n]={});t.checked?d[t.value]=1:d&&1==d[t.value]?t.checked=!0:t.checked=!1})})},clearStoreState:function(e){this.__ad;e?(delete this.__ad[e],i("#"+this.id).find('input[linkage="'+e+'"]').prop("checked",!1),i("#"+this.id).find('input[linkage-parent="'+e+'"]').prop("checked",!1)):(this.__ad={},i("#"+this.id).find("input[linkage]").prop("checked",!1),i("#"+this.id).find("input[linkage-parent]").prop("checked",!1))},getStoreState:function(e){var t,a=this.__ad,i=[];if(e)(t=a[e])&&(i=n.keys(t));else for(var d in a)(t=a[d])&&(i=i.concat(n.keys(t)));return i},"$input[linkage-parent]<change>":function(e){var t=i(e.eventTarget),a=t.val(),n=t.attr("linkage-parent");if(a){var d=this.__ad[n];d||(d=this.__ad[n]={}),!t[0].disabled&&t[0].checked?d[a]=1:delete d[a]}},"$input[linkage]<change>":function(e){var t=i(e.eventTarget).attr("linkage"),a=this.__ad[t];a||(a=this.__ad[t]={}),i("#"+this.id+" input[type=checkbox]").each(function(n,d){var c=(d=i(d)).attr("linkage-parent"),r=d.val();r&&c==t&&(d[0].disabled?delete a[r]:e.target.checked?a[r]=1:delete a[r])})}}});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-checkbox/storestate",["$","magix"],(require,exports,module)=>{
+/*$,Magix*/
+
+var $ = require("$");
+var Magix = require("magix");
+module.exports = {
+    ctor: function () {
+        var me = this;
+        me['@{state.store}'] = {};
+        var ready = function (e) {
+            var state = me['@{state.store}'];
+            var ipts = $('#' + (e.id || me.id) + ' input[linkage-parent]');
+            ipts.each(function (idx, item) {
+                var linkName = $(item).attr('linkage-parent');
+                var object = state[linkName] || (state[linkName] = {});
+                if (item.checked) {
+                    object[item.value] = 1;
+                }
+                else {
+                    if (object && object[item.value] == 1) {
+                        item.checked = true;
+                    }
+                    else {
+                        item.checked = false;
+                    }
+                }
+            });
+        };
+        me.on('domready', ready);
+    },
+    clearStoreState: function (key) {
+        var me = this;
+        var store = this['@{state.store}'];
+        if (!key) {
+            // 全部清空
+            this['@{state.store}'] = {};
+            $('#' + me.id).find('input[linkage]').prop('checked', false);
+            $('#' + me.id).find('input[linkage-parent]').prop('checked', false);
+        }
+        else {
+            delete this['@{state.store}'][key];
+            $('#' + me.id).find('input[linkage="' + key + '"]').prop('checked', false);
+            $('#' + me.id).find('input[linkage-parent="' + key + '"]').prop('checked', false);
+        }
+    },
+    getStoreState: function (key) {
+        var store = this['@{state.store}'];
+        var keys = [];
+        var value;
+        if (key) {
+            value = store[key];
+            if (value) {
+                keys = Magix.keys(value);
+            }
+        }
+        else {
+            for (var p in store) {
+                value = store[p];
+                if (value) {
+                    keys = keys.concat(Magix.keys(value));
+                }
+            }
+        }
+        return keys;
+    },
+    '$input[linkage-parent]<change>': function (e) {
+        var me = this;
+        var node = $(e.eventTarget);
+        var value = node.val();
+        var linkName = node.attr('linkage-parent');
+        if (value) {
+            var object = me['@{state.store}'][linkName];
+            if (!object) {
+                object = me['@{state.store}'][linkName] = {};
+            }
+            if (!node[0].disabled && node[0].checked) {
+                object[value] = 1;
+            }
+            else {
+                delete object[value];
+            }
+        }
+    },
+    '$input[linkage]<change>': function (e) {
+        var me = this;
+        var linkName = $(e.eventTarget).attr('linkage');
+        var object = me['@{state.store}'][linkName];
+        if (!object) {
+            object = me['@{state.store}'][linkName] = {};
+        }
+        $('#' + me.id + ' input[type=checkbox]').each(function (index, input) {
+            input = $(input);
+            var tempName = input.attr('linkage-parent');
+            var value = input.val();
+            if (value && (tempName == linkName)) {
+                if (input[0].disabled) {
+                    delete object[value];
+                }
+                else {
+                    if (e.target.checked) {
+                        object[value] = 1;
+                    }
+                    else {
+                        delete object[value];
+                    }
+                }
+            }
+        });
+    }
+};
+
+});

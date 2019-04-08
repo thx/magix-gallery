@@ -1,1 +1,180 @@
-define("mx-table/rwd",["magix","$"],(e,_,i)=>{var t=e("magix"),r=e("$");t.applyStyle("_zs_galleryaE","._zs_gallerymo{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerymp{width:24px}._zs_gallerymp ._zs_gallerymq{width:12px;background-color:#ccc;color:#fff;cursor:pointer}._zs_gallerymp ._zs_gallerymq:hover{background-color:#4d7fff}._zs_gallerymr{padding-right:40px}");var n=function(e,_,i,t,r,n,s,a){if(i||(i=e),!r){var l={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},o=/[&<>"'`]/g,c=function(e){return"&"+l[e]+";"};r=function(e){return""+(null==e?"":e)},function(e){return r(e).replace(o,c)}}if(!n){var f={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},d=function(e){return f[e]},h=/[!')(*]/g;n=function(e){return encodeURIComponent(r(e)).replace(h,d)}}if(!a){var u=/[\\'"]/g;a=function(e){return r(e).replace(u,"\\$&")}}var v="";return v+='<div mxs="_zs_galleryer:_" class="pa _zs_gallerymp unselectable"><div class="_zs_gallerymq fl" mx-click="'+_+'__eL()"><i class="mc-iconfont fontsize-12">&#xe61e;</i></div><div class="_zs_gallerymq fr" mx-click="'+_+'__eM()"><i class="mc-iconfont fontsize-12 rotate180">&#xe61e;</i></div></div>'};i.exports=t.View.extend({init:function(e){this.__eA=((e.rwdRange||[2,-1])+"").split(","),this.__eB=+e.rwdLimit||4,this.__eC=+e.rwdCurrent||1,r("#"+this.id).css({position:"relative"})},__er:function(){var e=r("#"+this.id).find("table"),_=e.find("thead");e.css({borderCollapse:"inherit"});var i=_.find(">tr>th"),t=e.find(">tbody>tr");this.__eD=i,this.__eE=t,this.__eF=e},__eI:function(){var e=this,_=e.__eD,i=e.__eC,t=e.__eA,r=e.__eB,n=+t[0],s=_.length+ +t[1]-1,a=n+(i-1)*r,l=Math.min(s,n+i*r-1),o=e.__eE;e.__eG=Math.ceil((s-n+1)/r);for(var c=n;c<=s;c++){var f=_.eq(c);c>=a&&c<=l?(c==l?(f.addClass("_zs_gallerymr"),e.__eH=f):f.removeClass("_zs_gallerymr"),f.show()):f.hide()}for(var d=o.length;d--;){var h=o.eq(d).find("td");for(c=n;c<=s;c++){var u=h.eq(c);c>=a&&c<=l?u.show():u.hide()}}},__eK:function(){var e,_=this;if(!_.__eJ){var i=r.isFunction(n)?n(null,_.id):n;_.wrapEvent&&(i=_.wrapEvent(i)),e=r(i).insertBefore(_.__eF),_.__eJ=e}e=_.__eJ;var t=_.__eH,s=t.outerHeight(),a=t.offset();e.css({height:s,lineHeight:s+"px"}).offset({left:a.left+t.outerWidth()-24,top:a.top});var l=_.__eC,o=_.__eG,c=e.find("div");1==l?c.eq(0).hide():c.eq(0).show(),l==o?c.eq(1).hide():c.eq(1).show()},render:function(){this.__er(),this.__eI(),this.__eK()},"__eL<click>":function(){this.__eC>1&&(this.__eC--,this.__eI(),this.__eK())},"__eM<click>":function(){var e=this;e.__eC<e.__eG&&(e.__eC++,e.__eI(),e.__eK())},"$doc<htmlchanged>":function(e){var _=this;t.inside(e.vId,_.owner.pId)&&(clearTimeout(_.__eN),_.__eN=setTimeout(function(){_.__er(),_.__eI(),_.__eK()},0))},"$doc<navslidend>":function(){this.__eK()},"$win<resize>":function(){this.__eK()}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-table/rwd",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-table_rwd_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-table_rwd_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-table_rwd_-wrap {\n  width: 24px;\n}\n._zs_gallery_mx-table_rwd_-wrap ._zs_gallery_mx-table_rwd_-arrow {\n  width: 12px;\n  background-color: #ccc;\n  color: #fff;\n  cursor: pointer;\n}\n._zs_gallery_mx-table_rwd_-wrap ._zs_gallery_mx-table_rwd_-arrow:hover {\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-table_rwd_-end {\n  padding-right: 40px;\n}\n");
+var html = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
+    $p += '<div mxs="_zs_galleryer:_" class="pa _zs_gallery_mx-table_rwd_-wrap unselectable"><div class="_zs_gallery_mx-table_rwd_-arrow fl" mx-click="' + $viewId + '@{toPrev}()"><i class="mc-iconfont fontsize-12">&#xe61e;</i></div><div class="_zs_gallery_mx-table_rwd_-arrow fr" mx-click="' + $viewId + '@{toNext}()"><i class="mc-iconfont fontsize-12 rotate180">&#xe61e;</i></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-table/rwd.html';
+    throw msg;
+} return $p; };
+module.exports = Magix.View.extend({
+    init: function (extra) {
+        var me = this;
+        me['@{rwd.range}'] = ((extra.rwdRange || [2, -1]) + '').split(',');
+        me['@{rwd.limit}'] = +extra.rwdLimit || 4;
+        me['@{rwd.current}'] = +extra.rwdCurrent || 1;
+        $('#' + me.id).css({
+            position: 'relative'
+        });
+    },
+    '@{sync.vars}': function () {
+        var me = this;
+        var table = $('#' + me.id).find('table');
+        var thead = table.find('thead');
+        table.css({
+            borderCollapse: 'inherit'
+        });
+        var ths = thead.find('>tr>th');
+        var rows = table.find('>tbody>tr');
+        me['@{thead.ths}'] = ths;
+        me['@{tbody.trs}'] = rows;
+        me['@{table}'] = table;
+    },
+    '@{ui.flush}': function () {
+        var me = this;
+        var ths = me['@{thead.ths}'];
+        var c = me['@{rwd.current}'];
+        var r = me['@{rwd.range}'];
+        var l = me['@{rwd.limit}'];
+        var min = +r[0];
+        var max = ths.length + (+r[1]) - 1;
+        var start = min + (c - 1) * l;
+        var end = Math.min(max, min + c * l - 1);
+        var rows = me['@{tbody.trs}'];
+        me['@{pages}'] = Math.ceil((max - min + 1) / l);
+        for (var i = min; i <= max; i++) {
+            var th = ths.eq(i);
+            if (i >= start && i <= end) {
+                if (i == end) {
+                    th.addClass('_zs_gallery_mx-table_rwd_-end');
+                    me['@{thead.show.ths.last}'] = th;
+                }
+                else {
+                    th.removeClass('_zs_gallery_mx-table_rwd_-end');
+                }
+                th.show();
+            }
+            else {
+                th.hide();
+            }
+        }
+        for (var j = rows.length; j--;) {
+            var row = rows.eq(j);
+            var tds = row.find('td');
+            for (var i = min; i <= max; i++) {
+                var td = tds.eq(i);
+                if (i >= start && i <= end) {
+                    td.show();
+                }
+                else {
+                    td.hide();
+                }
+            }
+        }
+    },
+    '@{ui.arrow}': function () {
+        var me = this, ctrl;
+        if (!me['@{ui.ctrl.arrow}']) {
+            var tmpl = $.isFunction(html) ? html(null, me.id) : html;
+            if (me.wrapEvent) {
+                tmpl = me.wrapEvent(tmpl);
+            }
+            ctrl = $(tmpl).insertBefore(me['@{table}']);
+            me['@{ui.ctrl.arrow}'] = ctrl;
+        }
+        ctrl = me['@{ui.ctrl.arrow}'];
+        var last = me['@{thead.show.ths.last}'];
+        var height = last.outerHeight();
+        var offset = last.offset();
+        ctrl.css({
+            height: height,
+            lineHeight: height + 'px'
+        }).offset({
+            left: offset.left + last.outerWidth() - 24,
+            top: offset.top
+        });
+        var c = me['@{rwd.current}'];
+        var p = me['@{pages}'];
+        var children = ctrl.find('div');
+        if (c == 1) {
+            children.eq(0).hide();
+        }
+        else {
+            children.eq(0).show();
+        }
+        if (c == p) {
+            children.eq(1).hide();
+        }
+        else {
+            children.eq(1).show();
+        }
+    },
+    render: function () {
+        var me = this;
+        me['@{sync.vars}']();
+        me['@{ui.flush}']();
+        me['@{ui.arrow}']();
+    },
+    '@{toPrev}<click>': function () {
+        var me = this;
+        var c = me['@{rwd.current}'];
+        if (c > 1) {
+            me['@{rwd.current}']--;
+            me['@{ui.flush}']();
+            me['@{ui.arrow}']();
+        }
+    },
+    '@{toNext}<click>': function () {
+        var me = this;
+        var c = me['@{rwd.current}'];
+        var pages = me['@{pages}'];
+        if (c < pages) {
+            me['@{rwd.current}']++;
+            me['@{ui.flush}']();
+            me['@{ui.arrow}']();
+        }
+    },
+    '$doc<htmlchanged>': function (e) {
+        var me = this;
+        if (Magix.inside(e.vId, me.owner.pId)) {
+            clearTimeout(me['@{ctrl.timer}']);
+            me['@{ctrl.timer}'] = setTimeout(function () {
+                me['@{sync.vars}']();
+                me['@{ui.flush}']();
+                me['@{ui.arrow}']();
+            }, 0);
+        }
+    },
+    '$doc<navslidend>': function () {
+        this['@{ui.arrow}']();
+    },
+    '$win<resize>': function () {
+        this['@{ui.arrow}']();
+    }
+});
+
+});

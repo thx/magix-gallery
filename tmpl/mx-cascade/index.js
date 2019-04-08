@@ -27,7 +27,7 @@ module.exports = Magix.View.extend({
         // 是否可操作
         let disabledNode = $('#' + me.id + '[mx-disabled]')
 
-        let info = Util.listToTree(ops.list, valueKey, parentKey, false);
+        let info = Util.listToTree(ops.list, valueKey, parentKey);
         let map = info.map,
             list = info.list;
         me.updater.set({

@@ -1,1 +1,117 @@
-define("mx-table/isticky",["magix","$"],(_,e,i)=>{var t=_("magix"),s=_("$");i.exports=t.View.extend({init:function(_){var e,i=this;_.stickyWrapper?(e=s("#"+_.stickyWrapper),i.__eo=s("#app_header").height()||50):(e=s(window),i.__eo=0);var t=function(){i.__ep(e)};i.on("destroy",function(){e.off("scroll",t)}),e.on("scroll",t),i.__eq=e,i.__k=s("#"+i.id)},render:function(){this.__er(),this.__es(),this.__ep(this.__eq)},__es:function(){var _=this.__et,e=this.__eu,i=_.height();i!=this.__ev&&(e.css({height:i,display:"none"}),this.__ev=i)},__er:function(){var _=s("#"+this.id).find("thead"),e="ph_"+this.id,i=s("#"+e);i.length||(i=s("<caption />").insertBefore(_).attr("id",e)),this.__eu=i,this.__et=_},__ey:function(){var _=this,e=s.now();if(!_.__ew||_.__ew+3e3<e){_.__ew=e;var i,t=_.__k,o=void 0;o=_.__eo?t.offset().top+_.__eq.scrollTop()-_.__eo:t.offset().top,i=t.height();var n=t.find("tfoot"),r=0;return n.length&&(r=n.height()),_.__ex={min:o,max:o+i-_.__ev-r}}return _.__ex},__ep:function(_){var e=this,i=_.scrollTop(),t=e.__ey(),s=e.__ez;i>t.min&&i<t.max?(e.__ez="s",e.__eu.css({display:"block"}),e.__et.css({position:"absolute",top:i-t.min})):"i"!=s&&(e.__ez="i",e.__eu.css({display:"none"}),e.__et.css({position:"initial",top:"auto"}))}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-table/isticky",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+var Magix = require("magix");
+var $ = require("$");
+module.exports = Magix.View.extend({
+    init: function (extra) {
+        var me = this;
+        var inmain;
+        if (extra.stickyWrapper) {
+            inmain = $('#' + extra.stickyWrapper);
+            me['@{layout.header.height}'] = $('#app_header').height() || 50;
+        }
+        else {
+            inmain = $(window);
+            me['@{layout.header.height}'] = 0;
+        }
+        var watchInmainScroll = function () {
+            me['@{sync.pos}'](inmain);
+        };
+        me.on('destroy', function () {
+            inmain.off('scroll', watchInmainScroll);
+        });
+        inmain.on('scroll', watchInmainScroll);
+        me['@{layout.inmain}'] = inmain;
+        me['@{owner.node}'] = $('#' + me.id);
+    },
+    render: function () {
+        var me = this;
+        me['@{sync.vars}']();
+        me['@{sync.height}']();
+        me['@{sync.pos}'](me['@{layout.inmain}']);
+    },
+    '@{sync.height}': function () {
+        var me = this;
+        var thead = me['@{thead.node}'];
+        var ghost = me['@{ghost.node}'];
+        var height = thead.height();
+        if (height != me['@{thead.height}']) {
+            ghost.css({
+                height: height,
+                display: 'none'
+            });
+            me['@{thead.height}'] = height;
+        }
+    },
+    '@{sync.vars}': function () {
+        var me = this;
+        var thead = $('#' + me.id).find('thead');
+        var ghostId = 'ph_' + me.id;
+        var ghost = $('#' + ghostId);
+        if (!ghost.length) {
+            ghost = $('<caption />').insertBefore(thead).attr('id', ghostId);
+        }
+        me['@{ghost.node}'] = ghost;
+        me['@{thead.node}'] = thead;
+    },
+    '@{get.pos.info}': function () {
+        var me = this;
+        var now = $.now();
+        if (!me['@{ctrl.last.info}'] || me['@{ctrl.last.info}'] + 3000 < now) {
+            me['@{ctrl.last.info}'] = now;
+            var owner = me['@{owner.node}'];
+            var top1 = void 0, height = void 0;
+            if (me['@{layout.header.height}']) {
+                top1 = owner.offset().top + me['@{layout.inmain}'].scrollTop() - me['@{layout.header.height}'];
+            }
+            else {
+                top1 = owner.offset().top;
+            }
+            height = owner.height();
+            var tfoot = owner.find('tfoot');
+            var tfh = 0;
+            if (tfoot.length) {
+                tfh = tfoot.height();
+            }
+            return (me['@{temp.info}'] = {
+                min: top1,
+                max: top1 + height - me['@{thead.height}'] - tfh
+            });
+        }
+        return me['@{temp.info}'];
+    },
+    '@{sync.pos}': function (node) {
+        var me = this;
+        var top = node.scrollTop();
+        var info = me['@{get.pos.info}']();
+        var pi = me['@{pos.info}'];
+        if (top > info.min && top < info.max) {
+            me['@{pos.info}'] = 's';
+            me['@{ghost.node}'].css({
+                display: 'block'
+            });
+            me['@{thead.node}'].css({
+                position: 'absolute',
+                top: top - info.min
+            });
+        }
+        else if (pi != 'i') {
+            me['@{pos.info}'] = 'i';
+            me['@{ghost.node}'].css({
+                display: 'none'
+            });
+            me['@{thead.node}'].css({
+                position: 'initial',
+                top: 'auto'
+            });
+        }
+    }
+});
+
+});

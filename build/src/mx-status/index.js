@@ -1,1 +1,209 @@
-define("mx-status/index",["magix","mx-status/base"],(l,e,a)=>{var r=l("magix"),s=l("mx-status/base");r.applyStyle("_zs_galleryax",'._zs_gallerylt{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}[mx-view*="mx-status/dropdown"],[mx-view*="mx-status/index"]{display:inline-block}._zs_gallerylu{position:relative}._zs_gallerylu ._zs_gallerylv>*{font-size:20px;line-height:25px}._zs_gallerylu ._zs_gallerylw{position:absolute;top:-10px;left:-10px;z-index:10;background-color:#fff;border-radius:4px;text-align:left;word-wrap:break-word;overflow:hidden;box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerylu ._zs_gallerylw ._zs_gallerylv{float:left}._zs_gallerylu ._zs_gallerylw ._zs_gallerylx{float:left;margin-left:8px}._zs_gallerylu ._zs_gallerylw ._zs_galleryly{min-width:140px;height:45px;line-height:25px;padding:10px;cursor:pointer}._zs_gallerylu ._zs_gallerylw ._zs_galleryly ._zs_gallerylz{display:none;float:right;color:#999;font-weight:700;font-size:20px;line-height:25px}._zs_gallerylu ._zs_gallerylw ._zs_galleryly:hover{background-color:#fafafa}._zs_gallerylu ._zs_gallerylw ._zs_galleryly._zs_gallerylA{cursor:default}._zs_gallerylu ._zs_gallerylw ._zs_galleryly._zs_gallerylA ._zs_gallerylz{display:block}._zs_gallerylu ._zs_gallerylw ._zs_gallerylB{min-width:140px;height:45px;line-height:25px;padding:10px}._zs_gallerylu ._zs_gallerylw ._zs_gallerylC{width:200px;font-size:12px;padding:0 10px 10px;line-height:18px}._zs_gallerylu ._zs_gallerylw._zs_gallerylD{top:0;left:0}._zs_gallerylu ._zs_gallerylE{position:relative;width:36px;height:25px;line-height:25px}._zs_gallerylu ._zs_gallerylE ._zs_gallerylF{position:absolute;top:10.5px;left:31px;width:0;height:0;line-height:0;font-size:0;overflow:hidden;border-color:#999 transparent transparent;border-style:solid;border-width:3px 3px 0}._zs_gallerylu ._zs_gallerylG{position:relative;width:110px}._zs_gallerylu ._zs_gallerylG ._zs_gallerylH{width:100%}._zs_gallerylu ._zs_gallerylG ._zs_gallerylH._zs_gallerylI,._zs_gallerylu ._zs_gallerylG ._zs_gallerylH._zs_gallerylI:hover{border-color:#e6e6e6}._zs_gallerylu ._zs_gallerylG ._zs_gallerylF{position:absolute;top:50%;right:0;width:28px;height:28px;margin-top:-14px;line-height:28px;text-align:center;color:#ccc;font-size:20px}._zs_gallerylu ._zs_gallerylJ{height:0;border-top:1px solid #e6e6e6}'),a.exports=s.extend({tmpl:function(l,e,a,r,s,_,g,t){if(a||(a=l),!s){var i={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},o=/[&<>"'`]/g,y=function(l){return"&"+i[l]+";"};s=function(l){return""+(null==l?"":l)},r=function(l){return s(l).replace(o,y)}}if(!_){var n={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},z=function(l){return n[l]},p=/[!')(*]/g;_=function(l){return encodeURIComponent(s(l)).replace(p,z)}}if(!t){var x=/[\\'"]/g;t=function(l){return s(l).replace(x,"\\$&")}}g||(g=function(l,e,a,r){for(r=l[d];--r;)if(l[a=d+r]===e)return a;return l[a=d+l[d]++]=e,a});var d="",c="",u=l.showInfo,f=l.info,h=l.cur,w=l.opers,m=l.show;if(c+='<div mxa="_zs_gallerydY:_" class="_zs_gallerylu" mx-mouseout="'+e+'out()"><div mxa="_zs_gallerydY:a" class="_zs_gallerylE" mx-mouseover="'+e+'over()">',c+=u?'<span class="_zs_gallerylv" style="color: '+r(f.color)+';">'+s(f.icon)+"</span>":'<span class="_zs_gallerylv" style="color: '+r(h.color)+';">'+s(h.icon)+"</span>",c+=" ",w.length>0&&(c+='<i mxs="_zs_gallerydY:_" class="_zs_gallerylF"></i>'),c+="</div>",m){c+='<ul mxa="_zs_gallerydY:b" class="_zs_gallerylw">',u&&(c+='<li mxa="_zs_gallerydY:c" class="_zs_gallerylB"><span class="_zs_gallerylv" style="color: '+r(f.color)+';">'+s(f.icon)+'</span><span mxa="_zs_gallerydY:d" class="_zs_gallerylx">'+s(f.text)+"</span></li>",f.tip&&(c+='<li mxa="_zs_gallerydY:e" class="_zs_gallerylC">'+s(f.tip)+"</li>"),c+=" ",w.length>0&&(c+='<li mxs="_zs_gallerydY:a" class="_zs_gallerylJ"></li>'),c+=" "),c+=" ";for(var v=0,b=w.length;v<b;v++){var Y=w[v];c+='<li class="_zs_galleryly clearfix ',Y.value==h.value&&(c+=" _zs_gallerylA "),c+='" mx-click="'+e+"select({item:'"+g(a,Y)+'\'})"><span class="_zs_gallerylv" style="color: '+r(Y.color)+';">'+s(Y.icon)+'</span><span mxa="_zs_gallerydY:f" class="_zs_gallerylx">'+s(Y.text)+'</span><i mxs="_zs_gallerydY:b" class="mc-iconfont _zs_gallerylz">&#xe65d;</i></li>'}c+="</ul>"}return c+="</div>"}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-status/index",["magix","mx-status/base"],(require,exports,module)=>{
+/*Magix,Base*/
+
+var Magix = require("magix");
+var Base = require("mx-status/base");
+Magix.applyStyle("_zs_gallery_mx-status_base_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-status_base_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-status/index\"],\n[mx-view*=\"mx-status/dropdown\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-status_base_-status {\n  position: relative;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-icon > * {\n  font-size: 20px;\n  line-height: 25px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info {\n  position: absolute;\n  top: -10px;\n  left: -10px;\n  z-index: 10;\n  background-color: #fff;\n  border: 0 none;\n  border-radius: 4px;\n  text-align: left;\n  word-wrap: break-word;\n  overflow: hidden;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-icon {\n  float: left;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-name {\n  float: left;\n  margin-left: 8px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-oper {\n  min-width: 140px;\n  height: 45px;\n  line-height: 25px;\n  padding: 10px;\n  cursor: pointer;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-oper ._zs_gallery_mx-status_base_-oper-icon {\n  display: none;\n  float: right;\n  color: #999;\n  font-weight: bold;\n  font-size: 20px;\n  line-height: 25px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-oper:hover {\n  background-color: #fafafa;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-oper._zs_gallery_mx-status_base_-status-oper-cur {\n  cursor: default;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-oper._zs_gallery_mx-status_base_-status-oper-cur ._zs_gallery_mx-status_base_-oper-icon {\n  display: block;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-desc {\n  min-width: 140px;\n  height: 45px;\n  line-height: 25px;\n  padding: 10px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-tip {\n  width: 200px;\n  font-size: 12px;\n  padding: 0 10px 10px 10px;\n  line-height: 18px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info._zs_gallery_mx-status_base_-status-info-dd {\n  top: 0;\n  left: 0;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-handle-icon {\n  position: relative;\n  width: 36px;\n  height: 25px;\n  line-height: 25px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-handle-icon ._zs_gallery_mx-status_base_-status-arrow {\n  position: absolute;\n  top: 10.5px;\n  left: 31px;\n  width: 0;\n  height: 0;\n  line-height: 0;\n  font-size: 0;\n  overflow: hidden;\n  border-style: solid;\n  border-width: 3px 3px 0 3px;\n  border-color: #999 transparent transparent transparent;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-handle-dd {\n  position: relative;\n  width: 110px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-handle-dd ._zs_gallery_mx-status_base_-status-input {\n  width: 100%;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-handle-dd ._zs_gallery_mx-status_base_-status-input._zs_gallery_mx-status_base_-readonly,\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-handle-dd ._zs_gallery_mx-status_base_-status-input._zs_gallery_mx-status_base_-readonly:hover {\n  border-color: #e6e6e6;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-handle-dd ._zs_gallery_mx-status_base_-status-arrow {\n  position: absolute;\n  top: 50%;\n  right: 0;\n  width: 28px;\n  height: 28px;\n  margin-top: -14px;\n  line-height: 28px;\n  text-align: center;\n  color: #ccc;\n  font-size: 20px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-line {\n  height: 0;\n  border-top: 1px solid #e6e6e6;\n}\n");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', showInfo = $$.showInfo, info = $$.info, cur = $$.cur, opers = $$.opers, show = $$.show; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerydY:_" class="_zs_gallery_mx-status_base_-status" mx-mouseout="' + $viewId + 'out()"><div mxa="_zs_gallerydY:a" class="_zs_gallery_mx-status_base_-status-handle-icon" mx-mouseover="' + $viewId + 'over()">';
+    $line = 5;
+    $art = 'if showInfo';
+    ;
+    $expr = '<%if (showInfo) {%>';
+    if (showInfo) {
+        ;
+        $p += '<span class="_zs_gallery_mx-status_base_-status-icon" style="color: ';
+        $line = 6;
+        $art = '=info.color';
+        ;
+        $p += ($expr = '<%=info.color%>', $e(info.color)) + ';">';
+        $line = 6;
+        $art = '!info.icon';
+        ;
+        $p += ($expr = '<%!info.icon%>', $n(info.icon)) + '</span>';
+        $line = 7;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '<span class="_zs_gallery_mx-status_base_-status-icon" style="color: ';
+        $line = 8;
+        $art = '=cur.color';
+        ;
+        $p += ($expr = '<%=cur.color%>', $e(cur.color)) + ';">';
+        $line = 8;
+        $art = '!cur.icon';
+        ;
+        $p += ($expr = '<%!cur.icon%>', $n(cur.icon)) + '</span>';
+        $line = 9;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $line = 11;
+    $art = 'if (opers.length > 0)';
+    ;
+    $expr = '<%if (opers.length > 0) {%>';
+    if (opers.length > 0) {
+        ;
+        $p += '<i mxs="_zs_gallerydY:_" class="_zs_gallery_mx-status_base_-status-arrow"></i>';
+        $line = 13;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+    $line = 16;
+    $art = 'if show';
+    ;
+    $expr = '<%if (show) {%>';
+    if (show) {
+        ;
+        $p += '<ul mxa="_zs_gallerydY:b" class="_zs_gallery_mx-status_base_-status-info">';
+        $line = 18;
+        $art = 'if showInfo';
+        ;
+        $expr = '<%if (showInfo) {%>';
+        if (showInfo) {
+            ;
+            $p += '<li mxa="_zs_gallerydY:c" class="_zs_gallery_mx-status_base_-status-desc"><span class="_zs_gallery_mx-status_base_-status-icon" style="color: ';
+            $line = 20;
+            $art = '=info.color';
+            ;
+            $p += ($expr = '<%=info.color%>', $e(info.color)) + ';">';
+            $line = 20;
+            $art = '!info.icon';
+            ;
+            $p += ($expr = '<%!info.icon%>', $n(info.icon)) + '</span><span mxa="_zs_gallerydY:d" class="_zs_gallery_mx-status_base_-status-name">';
+            $line = 21;
+            $art = '!info.text';
+            ;
+            $p += ($expr = '<%!info.text%>', $n(info.text)) + '</span></li>';
+            $line = 23;
+            $art = 'if info.tip';
+            ;
+            $expr = '<%if (info.tip) {%>';
+            if (info.tip) {
+                ;
+                $p += '<li mxa="_zs_gallerydY:e" class="_zs_gallery_mx-status_base_-status-tip">';
+                $line = 24;
+                $art = '!info.tip';
+                ;
+                $p += ($expr = '<%!info.tip%>', $n(info.tip)) + '</li>';
+                $line = 25;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 26;
+            $art = 'if (opers.length > 0)';
+            ;
+            $expr = '<%if (opers.length > 0) {%>';
+            if (opers.length > 0) {
+                ;
+                $p += '<li mxs="_zs_gallerydY:a" class="_zs_gallery_mx-status_base_-status-line"></li>';
+                $line = 28;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 29;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 31;
+        $art = 'each opers as item';
+        ;
+        $expr = '<%for (var $art_irykzexi$art_i = 0, $art_cwbaslczla$art_c = opers.length; $art_irykzexi$art_i < $art_cwbaslczla$art_c; $art_irykzexi$art_i++) {        var item = opers[$art_irykzexi$art_i]%>';
+        for (var $art_irykzexi$art_i = 0, $art_cwbaslczla$art_c = opers.length; $art_irykzexi$art_i < $art_cwbaslczla$art_c; $art_irykzexi$art_i++) {
+            var item = opers[$art_irykzexi$art_i];
+            $p += '<li class="_zs_gallery_mx-status_base_-status-oper clearfix ';
+            $line = 32;
+            $art = 'if (item.value == cur.value)';
+            ;
+            $expr = '<%if (item.value == cur.value) {%>';
+            if (item.value == cur.value) {
+                ;
+                $p += ' _zs_gallery_mx-status_base_-status-oper-cur ';
+                $line = 32;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '" mx-click="' + $viewId + 'select({item:\'';
+            $line = 32;
+            $art = '@item';
+            ;
+            $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})"><span class="_zs_gallery_mx-status_base_-status-icon" style="color: ';
+            $line = 33;
+            $art = '=item.color';
+            ;
+            $p += ($expr = '<%=item.color%>', $e(item.color)) + ';">';
+            $line = 33;
+            $art = '!item.icon';
+            ;
+            $p += ($expr = '<%!item.icon%>', $n(item.icon)) + '</span><span mxa="_zs_gallerydY:f" class="_zs_gallery_mx-status_base_-status-name">';
+            $line = 34;
+            $art = '!item.text';
+            ;
+            $p += ($expr = '<%!item.text%>', $n(item.text)) + '</span><i mxs="_zs_gallerydY:b" class="mc-iconfont _zs_gallery_mx-status_base_-oper-icon">&#xe65d;</i></li>';
+            $line = 37;
+            $art = '/each';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</ul>';
+        $line = 39;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-status/index.html';
+    throw msg;
+} return $p; }
+});
+
+});
