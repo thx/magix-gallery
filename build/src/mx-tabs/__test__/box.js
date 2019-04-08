@@ -3,14 +3,15 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-tabs/__test__/box",["magix","$","__test__/subs","mx-title/second","./3","./7","./5","./6","__test__/api","__test__/event"],(require,exports,module)=>{
+define("mx-tabs/__test__/box",["magix","$","__test__/subs","mx-title/second","./3","./6","./9","./7","./5","__test__/api","__test__/event"],(require,exports,module)=>{
 /*Magix,$*/
 require("__test__/subs");
 require("mx-title/second");
 require("./3");
+require("./6");
+require("./9");
 require("./7");
 require("./5");
-require("./6");
 require("__test__/api");
 require("__test__/event");
 var Magix = require("magix");
@@ -34,42 +35,46 @@ module.exports = Magix.View.extend({
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_galleryez:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'打标 + 事件处理\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'空心版\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'带提示\',\n            key: viewId + \'_demo5\'\n        },{\n            name: \'禁止操作\',\n            key: viewId + \'_demo6\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'打标 + 事件处理\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'双向绑定\',\n            key: viewId + \'_demo9\'\n        },{\n            name: \'空心版\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'带提示\',\n            key: viewId + \'_demo5\'\n        },{\n            name: \'禁止操作\',\n            key: viewId + \'_demo6\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'打标 + 事件处理\',                    key: viewId + \'_demo3\'                }, {                    name: \'空心版\',                    key: viewId + \'_demo7\'                }, {                    name: \'带提示\',                    key: viewId + \'_demo5\'                }, {                    name: \'禁止操作\',                    key: viewId + \'_demo6\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '打标 + 事件处理', key: viewId + '_demo3' }, { name: '空心版', key: viewId + '_demo7' }, { name: '带提示', key: viewId + '_demo5' }, { name: '禁止操作', key: viewId + '_demo6' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
-    $line = 26;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryez:a" class="clearfix mb20"><div mxa="_zs_galleryez:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-tabs/__test__/3" id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'打标 + 事件处理\',                    key: viewId + \'_demo3\'                }, {                    name: \'双向绑定\',                    key: viewId + \'_demo9\'                }, {                    name: \'空心版\',                    key: viewId + \'_demo7\'                }, {                    name: \'带提示\',                    key: viewId + \'_demo5\'                }, {                    name: \'禁止操作\',                    key: viewId + \'_demo6\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '打标 + 事件处理', key: viewId + '_demo3' }, { name: '双向绑定', key: viewId + '_demo9' }, { name: '空心版', key: viewId + '_demo7' }, { name: '带提示', key: viewId + '_demo5' }, { name: '禁止操作', key: viewId + '_demo6' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
     $line = 29;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div mxa="_zs_galleryez:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-tabs/__test__/7" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryez:a" class="clearfix mb20"><div mxa="_zs_galleryez:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-tabs/__test__/3" id="';
     $line = 32;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div><div mx-view="mx-tabs/__test__/5" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-tabs/__test__/6" id="';
     $line = 33;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div><div mx-view="mx-tabs/__test__/6" id="';
-    $line = 34;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div></div><div mxa="_zs_galleryez:d" class="_zs_gallery___test___layout_-half"><div mx-view="mx-tabs/__test__/9" id="';
+    $line = 36;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div></div></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div><div mx-view="mx-tabs/__test__/7" id="';
+    $line = 37;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div><div mx-view="mx-tabs/__test__/5" id="';
     $line = 38;
     $art = '=viewId';
     ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div></div></div><div id="';
+    $line = 42;
+    $art = '=viewId';
+    ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 39;
+    $line = 43;
     $art = '@options';
     ;
     $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
-    $line = 41;
+    $line = 45;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_event" mx-view="mx-title/second?content=Event"></div><div mxv="events" mx-view="__test__/event?options=';
-    $line = 42;
+    $line = 46;
     $art = '@events';
     ;
     $p += ($expr = '<%@events%>', $i($$ref, events)) + '"></div></div>';

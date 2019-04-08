@@ -59,6 +59,7 @@ module.exports = Magix.View.extend({
             width: 0,
             spm: that['@{owner.node}'].attr('data-spm-click') || ''
         });
+        that['@{owner.node}'].val(that['@{data.selected}']);
 
         //如果数据没变化,则设置新的数据后再次检测
         if (!altered) {
@@ -74,7 +75,7 @@ module.exports = Magix.View.extend({
         //如果数据没变化,则告诉magix当前view不用更新
         return false;
     },
-    '@{select}<click>' (e) {
+    '@{select}<click>'(e) {
         let that = this;
         let item = e.params.item;
         let value = item.value;
@@ -82,7 +83,6 @@ module.exports = Magix.View.extend({
             return;
         }
 
-        that['@{data.selected}'] = value;
         that.updater.set({
             selected: value,
             hover: value
@@ -94,7 +94,7 @@ module.exports = Magix.View.extend({
             text: item.text,
             selected: value
         });
-        that['@{owner.node}'].trigger(event);
+        that['@{owner.node}'].val(that['@{data.selected}'] = value).trigger(event);
 
     }
 });

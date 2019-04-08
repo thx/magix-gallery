@@ -167,7 +167,7 @@ module.exports = Magix.View.extend({
                     icon: '&#xe61a;'
                 }, {
                     name: '底边线tab切换',
-                    tip: '一般适用于一级导航',
+                    tip: '一般适用于一级导航，支持双向绑定',
                     path: '/tabs/index',
                     icon: '&#xe62a;'
                 }, {
