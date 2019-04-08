@@ -6,6 +6,21 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.2.26',
+            time: '2019-04-08',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-tree：支持双向绑定，切换数据时保留历史选中状态 + 历史展开收起状态，<a href="#!/tree/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-tabs：支持双向绑定，<a href="#!/tabs/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-tabs.box：支持双向绑定，<a href="#!/tabs/box" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-popover：支持自定义offset + left + top，<a href="#!/popover/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.2.25',
             time: '2019-03-29',
             subs: [{

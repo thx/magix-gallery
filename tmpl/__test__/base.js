@@ -172,7 +172,7 @@ module.exports = Magix.View.extend({
                     icon: '&#xe62a;'
                 }, {
                     name: '盒状分组',
-                    tip: '一般适用于快捷筛选',
+                    tip: '一般适用于快捷筛选，支持双向绑定',
                     path: '/tabs/box',
                     icon: '&#xe62a;'
                 }, {
