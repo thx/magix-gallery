@@ -8,11 +8,11 @@ define("mx-tree/util",["magix"],(require,exports,module)=>{
 
 var Magix = require("magix");
 module.exports = {
-    listToTree: function (list, id, pId, close) {
+    listToTree: function (list, id, pId) {
+        list = list || [];
         var map = {}, listMap = {}, rootList = [];
         for (var i = 0, max = list.length; i < max; i++) {
             var one = Magix.mix({}, list[i]);
-            one.close = close;
             map[one[id]] = one;
             if (listMap[one[id]]) {
                 one.children = listMap[one[id]];

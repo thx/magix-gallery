@@ -32,12 +32,13 @@
     </div>
     {{if (item.children && (item.children.length > 0))}}
         <mx-tree.branch
+            id="{{=viewId}}_{{=index}}"
             text-key="{{=textKey}}"
             value-key="{{=valueKey}}"
             read-only="{{@readOnly}}"
             need-expand="{{@needExpand}}"
             list="{{@item.children}}"
-            id="{{=viewId}}_{{=index}}"
+            close-map="{{@closeMap}}"
             class="{{if item.close}} close {{/if}} {{if !item.isAll}} indent {{/if}} {{if fromTop}} top {{/if}}"/>
     {{/if}}
 </div>

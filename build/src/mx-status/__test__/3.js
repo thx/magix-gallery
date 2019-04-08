@@ -28,7 +28,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydH:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerydH:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerydH:_" class="mb20 lh22 clearfix"><div class="fl color-9">以下示例：</div><div class="fl"><div>额外的提示信息 + 可操作项</div><div>当有额外提示信息是，优先显示额外提示信息</div></div></div><div mx-view="mx-status/index?info=';
+    $p += '<div mxa="_zs_gallerydJ:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerydJ:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerydJ:_" class="mb20 lh22 clearfix"><div class="fl color-9">以下示例：</div><div class="fl"><div>额外的提示信息 + 可操作项</div><div>当有额外提示信息是，优先显示额外提示信息</div></div></div><div mx-view="mx-status/index?info=';
     $line = 11;
     $art = '@{\n                value: -99,\n                text: \'故障\',\n                icon: \'<i class=\\"mc-iconfont\\">&#xe67f;</i>\',\n                color: \'#a40100\'\n            }';
     ;
@@ -36,15 +36,15 @@ module.exports = Base.extend({
     $line = 17;
     $art = '@[{\n                value: 1,\n                text: \'正在投放\',\n                icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',\n                color: \'#51a300\'\n            }, {\n                value: 9,\n                text: \'结束投放\',\n                icon: \'<i class=\\"mc-iconfont\\">&#xe682;</i>\',\n                color: \'#999999\'\n            }]';
     ;
-    $p += ($expr = '<%@[{            value: 1,            text: \'正在投放\',            icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',            color: \'#51a300\'        }, {            value: 9,            text: \'结束投放\',            icon: \'<i class=\\"mc-iconfont\\">&#xe682;</i>\',            color: \'#999999\'        }]%>', $i($$ref, [{ value: 1, text: '正在投放', icon: '<i class=\"mc-iconfont\">&#xe683;</i>', color: '#51a300' }, { value: 9, text: '结束投放', icon: '<i class=\"mc-iconfont\">&#xe682;</i>', color: '#999999' }])) + '&selected=9"></div></div><div mxa="_zs_gallerydH:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydH:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[{            value: 1,            text: \'正在投放\',            icon: \'<i class=\\"mc-iconfont\\">&#xe683;</i>\',            color: \'#51a300\'        }, {            value: 9,            text: \'结束投放\',            icon: \'<i class=\\"mc-iconfont\\">&#xe682;</i>\',            color: \'#999999\'        }]%>', $i($$ref, [{ value: 1, text: '正在投放', icon: '<i class=\"mc-iconfont\">&#xe683;</i>', color: '#51a300' }, { value: 9, text: '结束投放', icon: '<i class=\"mc-iconfont\">&#xe682;</i>', color: '#999999' }])) + '&selected=9"></div></div><div mxa="_zs_gallerydJ:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydJ:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 32;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydH:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydJ:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 34;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydH:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydJ:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 37;
     $art = '=viewId';
     ;

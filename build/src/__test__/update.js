@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_itntzjhuha$art_i = 0, $art_ccnwgzxqfo$art_c = list.length; $art_itntzjhuha$art_i < $art_ccnwgzxqfo$art_c; $art_itntzjhuha$art_i++) {    var item = list[$art_itntzjhuha$art_i]%>';
-    for (var $art_itntzjhuha$art_i = 0, $art_ccnwgzxqfo$art_c = list.length; $art_itntzjhuha$art_i < $art_ccnwgzxqfo$art_c; $art_itntzjhuha$art_i++) {
-        var item = list[$art_itntzjhuha$art_i];
+    $expr = '<%for (var $art_ipjjnsyir$art_i = 0, $art_cqszezqqzok$art_c = list.length; $art_ipjjnsyir$art_i < $art_cqszezqqzok$art_c; $art_ipjjnsyir$art_i++) {    var item = list[$art_ipjjnsyir$art_i]%>';
+    for (var $art_ipjjnsyir$art_i = 0, $art_cqszezqqzok$art_c = list.length; $art_ipjjnsyir$art_i < $art_cqszezqqzok$art_c; $art_ipjjnsyir$art_i++) {
+        var item = list[$art_ipjjnsyir$art_i];
         $p += '<div mxa="_zs_galleryL:_" class="_zs_gallery___test___update_-update"><div mxa="_zs_galleryL:a" class="_zs_gallery___test___update_-ver pl20"><span mxa="_zs_galleryL:b" class="_zs_gallery___test___update_-vt">';
         $line = 4;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_ieifcoov$art_i = 0, $art_objscryqr$art_obj = item.subs, $art_cobeztsh$art_c = $art_objscryqr$art_obj.length; $art_ieifcoov$art_i < $art_cobeztsh$art_c; $art_ieifcoov$art_i++) {        var s = $art_objscryqr$art_obj[$art_ieifcoov$art_i]%>';
-        for (var $art_ieifcoov$art_i = 0, $art_objscryqr$art_obj = item.subs, $art_cobeztsh$art_c = $art_objscryqr$art_obj.length; $art_ieifcoov$art_i < $art_cobeztsh$art_c; $art_ieifcoov$art_i++) {
-            var s = $art_objscryqr$art_obj[$art_ieifcoov$art_i];
+        $expr = '<%for (var $art_ihieizi$art_i = 0, $art_objlalogpfvun$art_obj = item.subs, $art_cnfzatxxgwr$art_c = $art_objlalogpfvun$art_obj.length; $art_ihieizi$art_i < $art_cnfzatxxgwr$art_c; $art_ihieizi$art_i++) {        var s = $art_objlalogpfvun$art_obj[$art_ihieizi$art_i]%>';
+        for (var $art_ihieizi$art_i = 0, $art_objlalogpfvun$art_obj = item.subs, $art_cnfzatxxgwr$art_c = $art_objlalogpfvun$art_obj.length; $art_ihieizi$art_i < $art_cnfzatxxgwr$art_c; $art_ihieizi$art_i++) {
+            var s = $art_objlalogpfvun$art_obj[$art_ihieizi$art_i];
             $p += '<div mxa="_zs_galleryL:e" class="pl20">';
             $line = 10;
             $art = 'if s.type == \'notice\'';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
             $line = 31;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_iffho$art_i = 0, $art_objzbkcxjd$art_obj = s.subs, $art_cuiqklyjg$art_c = $art_objzbkcxjd$art_obj.length; $art_iffho$art_i < $art_cuiqklyjg$art_c; $art_iffho$art_i++) {            var ss = $art_objzbkcxjd$art_obj[$art_iffho$art_i]%>';
-            for (var $art_iffho$art_i = 0, $art_objzbkcxjd$art_obj = s.subs, $art_cuiqklyjg$art_c = $art_objzbkcxjd$art_obj.length; $art_iffho$art_i < $art_cuiqklyjg$art_c; $art_iffho$art_i++) {
-                var ss = $art_objzbkcxjd$art_obj[$art_iffho$art_i];
+            $expr = '<%for (var $art_iqplllyep$art_i = 0, $art_objiynstkoq$art_obj = s.subs, $art_cqchlyvfx$art_c = $art_objiynstkoq$art_obj.length; $art_iqplllyep$art_i < $art_cqchlyvfx$art_c; $art_iqplllyep$art_i++) {            var ss = $art_objiynstkoq$art_obj[$art_iqplllyep$art_i]%>';
+            for (var $art_iqplllyep$art_i = 0, $art_objiynstkoq$art_obj = s.subs, $art_cqchlyvfx$art_c = $art_objiynstkoq$art_obj.length; $art_iqplllyep$art_i < $art_cqchlyvfx$art_c; $art_iqplllyep$art_i++) {
+                var ss = $art_objiynstkoq$art_obj[$art_iqplllyep$art_i];
                 $p += '<div mxa="_zs_galleryL:l" class="pl20"><div mxa="_zs_galleryL:m" class="_zs_gallery___test___update_-line _zs_gallery___test___update_-dot">';
                 $line = 33;
                 $art = '!ss.title';
@@ -137,9 +137,9 @@ module.exports = Magix.View.extend({
                     $line = 40;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_iyftfbytxw$art_i = 0, $art_objpuznnjgs$art_obj = ss.subs, $art_cgxegmxgi$art_c = $art_objpuznnjgs$art_obj.length; $art_iyftfbytxw$art_i < $art_cgxegmxgi$art_c; $art_iyftfbytxw$art_i++) {                    var sss = $art_objpuznnjgs$art_obj[$art_iyftfbytxw$art_i]%>';
-                    for (var $art_iyftfbytxw$art_i = 0, $art_objpuznnjgs$art_obj = ss.subs, $art_cgxegmxgi$art_c = $art_objpuznnjgs$art_obj.length; $art_iyftfbytxw$art_i < $art_cgxegmxgi$art_c; $art_iyftfbytxw$art_i++) {
-                        var sss = $art_objpuznnjgs$art_obj[$art_iyftfbytxw$art_i];
+                    $expr = '<%for (var $art_iezvyrmnn$art_i = 0, $art_objglyjnu$art_obj = ss.subs, $art_chlougbtry$art_c = $art_objglyjnu$art_obj.length; $art_iezvyrmnn$art_i < $art_chlougbtry$art_c; $art_iezvyrmnn$art_i++) {                    var sss = $art_objglyjnu$art_obj[$art_iezvyrmnn$art_i]%>';
+                    for (var $art_iezvyrmnn$art_i = 0, $art_objglyjnu$art_obj = ss.subs, $art_chlougbtry$art_c = $art_objglyjnu$art_obj.length; $art_iezvyrmnn$art_i < $art_chlougbtry$art_c; $art_iezvyrmnn$art_i++) {
+                        var sss = $art_objglyjnu$art_obj[$art_iezvyrmnn$art_i];
                         $p += '<div mxa="_zs_galleryL:o" class="_zs_gallery___test___update_-line _zs_gallery___test___update_-dot">';
                         $line = 41;
                         $art = '!sss';
@@ -191,6 +191,21 @@ catch (ex) {
 } return $p; },
     render: function () {
         var list = [{
+                ver: '1.2.26',
+                time: '2019-04-08',
+                subs: [{
+                        type: 'add',
+                        subs: [{
+                                title: 'mx-tree：支持双向绑定，切换数据时保留历史选中状态 + 历史展开收起状态，<a href="#!/tree/index" class="color-brand">点击查看</a>'
+                            }, {
+                                title: 'mx-tabs：支持双向绑定，<a href="#!/tabs/index" class="color-brand">点击查看</a>'
+                            }, {
+                                title: 'mx-tabs.box：支持双向绑定，<a href="#!/tabs/box" class="color-brand">点击查看</a>'
+                            }, {
+                                title: 'mx-popover：支持自定义offset + left + top，<a href="#!/popover/index" class="color-brand">点击查看</a>'
+                            }]
+                    }]
+            }, {
                 ver: '1.2.25',
                 time: '2019-03-29',
                 subs: [{

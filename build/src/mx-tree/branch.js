@@ -26,14 +26,14 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', list = $$.list, needExpand = $$.needExpand, readOnly = $$.readOnly, viewId = $$.viewId, valueKey = $$.valueKey, textKey = $$.textKey, fromTop = $$.fromTop; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', list = $$.list, needExpand = $$.needExpand, readOnly = $$.readOnly, viewId = $$.viewId, valueKey = $$.valueKey, textKey = $$.textKey, closeMap = $$.closeMap, fromTop = $$.fromTop; var $expr, $art, $line; try {
     $line = 1;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cfrsecxr$art_c = list.length; index < $art_cfrsecxr$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cfrsecxr$art_c = list.length; index < $art_cfrsecxr$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_chdudfuovl$art_c = list.length; index < $art_chdudfuovl$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_chdudfuovl$art_c = list.length; index < $art_chdudfuovl$art_c; index++) {
         var item = list[index];
-        $p += '<div mxv mxa="_zs_galleryeW:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_galleryeW:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
+        $p += '<div mxv mxa="_zs_gallerye0:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_gallerye0:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
         $line = 4;
         $art = 'if needExpand';
         ;
@@ -88,7 +88,7 @@ module.exports = Magix.View.extend({
                 $expr = '<%if (readOnly) {%>';
                 if (readOnly) {
                     ;
-                    $p += '<i mxs="_zs_galleryeW:_" class="mc-iconfont _zs_gallery_mx-tree_index_-icon empty">&#xe732;</i>';
+                    $p += '<i mxs="_zs_gallerye0:_" class="mc-iconfont _zs_gallery_mx-tree_index_-icon empty">&#xe732;</i>';
                     $line = 17;
                     $art = '/if';
                     ;
@@ -109,7 +109,7 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '<label mxv mxa="_zs_galleryeW:b" class="fl">';
+        $p += '<label mxv mxa="_zs_gallerye0:b" class="fl">';
         $line = 21;
         $art = 'if !readOnly';
         ;
@@ -154,85 +154,89 @@ module.exports = Magix.View.extend({
         $expr = '<%if (item.children && (item.children.length > 0)) {%>';
         if (item.children && (item.children.length > 0)) {
             ;
-            $p += '<div mxv="readOnly,needExpand,list" id="';
-            $line = 40;
+            $p += '<div mxv="readOnly,needExpand,list,closeMap" id="';
+            $line = 35;
             $art = '=viewId';
             ;
             $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
-            $line = 40;
+            $line = 35;
             $art = '=index';
             ;
             $p += ($expr = '<%=index%>', $e(index)) + '" class="';
-            $line = 41;
+            $line = 42;
             $art = 'if item.close';
             ;
             $expr = '<%if (item.close) {%>';
             if (item.close) {
                 ;
                 $p += ' _zs_gallery_mx-tree_index_-close ';
-                $line = 41;
+                $line = 42;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' ';
-            $line = 41;
+            $line = 42;
             $art = 'if !item.isAll';
             ;
             $expr = '<%if (!item.isAll) {%>';
             if (!item.isAll) {
                 ;
                 $p += ' _zs_gallery_mx-tree_index_-indent ';
-                $line = 41;
+                $line = 42;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' ';
-            $line = 41;
+            $line = 42;
             $art = 'if fromTop';
             ;
             $expr = '<%if (fromTop) {%>';
             if (fromTop) {
                 ;
                 $p += ' top ';
-                $line = 41;
+                $line = 42;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '" mx-view="mx-tree/branch?textKey=';
-            $line = 35;
+            $line = 36;
             $art = '=textKey';
             ;
             $p += ($expr = '<%!$eu(textKey)%>', $eu(textKey)) + '&valueKey=';
-            $line = 36;
+            $line = 37;
             $art = '=valueKey';
             ;
             $p += ($expr = '<%!$eu(valueKey)%>', $eu(valueKey)) + '&readOnly=';
-            $line = 37;
+            $line = 38;
             $art = '@readOnly';
             ;
             $p += ($expr = '<%@readOnly%>', $i($$ref, readOnly)) + '&needExpand=';
-            $line = 38;
+            $line = 39;
             $art = '@needExpand';
             ;
             $p += ($expr = '<%@needExpand%>', $i($$ref, needExpand)) + '&list=';
-            $line = 39;
+            $line = 40;
             $art = '@item.children';
             ;
-            $p += ($expr = '<%@item.children%>', $i($$ref, item.children)) + '"></div>';
-            $line = 42;
+            $p += ($expr = '<%@item.children%>', $i($$ref, item.children)) + '&closeMap=';
+            $line = 41;
+            $art = '@closeMap';
+            ;
+            $p += ($expr = '<%@closeMap%>', $i($$ref, closeMap)) + '"></div>';
+            $line = 43;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</div>';
-        $line = 44;
+        $line = 45;
         $art = '/each';
         ;
         $expr = '<%}%>';
@@ -251,9 +255,8 @@ catch (ex) {
         this.updater.set(extra);
     },
     render: function () {
-        var me = this;
-        me.updater.digest({
-            viewId: me.id
+        this.updater.digest({
+            viewId: this.id
         });
     },
     '@{getCheckedState}': function () {
@@ -329,6 +332,9 @@ catch (ex) {
         }
         me['@{checkParentState}'](me.id);
     },
+    /**
+     * 展开收起
+     */
     '@{toggle}<click>': function (e) {
         e.stopPropagation();
         var node = $(e.eventTarget);
@@ -336,11 +342,15 @@ catch (ex) {
         var cName = '_zs_gallery_mx-tree_index_-close';
         var branch = $('#' + this.id + '_' + index);
         branch.toggleClass(cName);
+        var list = this.updater.get('list'), closeMap = this.updater.get('closeMap');
+        var value = list[index].value;
         if (branch.hasClass(cName)) {
             node.html('&#xe65b;');
+            closeMap[value] = true;
         }
         else {
             node.html('&#xe65a;');
+            closeMap[value] = false;
         }
     },
     setValues: function (bottomValues) {
@@ -356,7 +366,7 @@ catch (ex) {
                 n.checked = true;
             }
         });
-        me['@{checkParentState}'](me.id);
+        me['@{checkParentState}'](viewId);
     },
     getValues: function () {
         return this.get('value');

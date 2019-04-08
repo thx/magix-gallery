@@ -25,6 +25,25 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: 'center'
         }, {
+            key: 'left',
+            desc: '最终定位相对于屏幕左侧，配置 left + top 时忽略 placement + align',
+            type: 'number',
+            def: ''
+        }, {
+            key: 'top',
+            desc: '最终定位相对于屏幕高侧，配置 left + top 时忽略 placement + align',
+            type: 'number',
+            def: ''
+        }, {
+            key: 'offset',
+            desc: `<pre>在placement + align / left + top 基础上微量偏移
+offset: {
+    left: -10,
+    top: 10
+}</pre>`,
+            type: 'object',
+            def: ''
+        }, {
             key: 'auto',
             desc: '默认自动展开提示框',
             type: 'boolean',

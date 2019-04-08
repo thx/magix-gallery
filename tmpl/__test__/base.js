@@ -168,12 +168,12 @@ module.exports = Magix.View.extend({
                     icon: '&#xe61a;'
                 }, {
                     name: '底边线tab切换',
-                    tip: '一般适用于一级导航',
+                    tip: '一般适用于一级导航，支持双向绑定',
                     path: '/tabs/index',
                     icon: '&#xe62a;'
                 }, {
                     name: '盒状分组',
-                    tip: '一般适用于快捷筛选',
+                    tip: '一般适用于快捷筛选，支持双向绑定',
                     path: '/tabs/box',
                     icon: '&#xe62a;'
                 }, {
@@ -198,6 +198,7 @@ module.exports = Magix.View.extend({
                     icon: '&#xe72c;'
                 }, {
                     name: '树状结构',
+                    tip: '支持双向绑定',
                     path: '/tree/index',
                     icon: '&#xe62b;'
                 }, {

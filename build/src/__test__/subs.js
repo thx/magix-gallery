@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ihgqyqnw$art_i = 0, $art_cgvesskkqo$art_c = list.length; $art_ihgqyqnw$art_i < $art_cgvesskkqo$art_c; $art_ihgqyqnw$art_i++) {    var item = list[$art_ihgqyqnw$art_i]%>';
-    for (var $art_ihgqyqnw$art_i = 0, $art_cgvesskkqo$art_c = list.length; $art_ihgqyqnw$art_i < $art_cgvesskkqo$art_c; $art_ihgqyqnw$art_i++) {
-        var item = list[$art_ihgqyqnw$art_i];
+    $expr = '<%for (var $art_ievhnrlsb$art_i = 0, $art_cjouwjjjik$art_c = list.length; $art_ievhnrlsb$art_i < $art_cjouwjjjik$art_c; $art_ievhnrlsb$art_i++) {    var item = list[$art_ievhnrlsb$art_i]%>';
+    for (var $art_ievhnrlsb$art_i = 0, $art_cjouwjjjik$art_c = list.length; $art_ievhnrlsb$art_i < $art_cjouwjjjik$art_c; $art_ievhnrlsb$art_i++) {
+        var item = list[$art_ievhnrlsb$art_i];
         $p += '<div mxa="_zs_galleryK:_" class="_zs_gallery___test___subs_-sub-link"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'';
         $line = 4;
         $art = '=item.key';
@@ -62,9 +62,9 @@ module.exports = Magix.View.extend({
             $line = 7;
             $art = 'each item.subs as sub';
             ;
-            $expr = '<%for (var $art_itzuxmhih$art_i = 0, $art_objgahstx$art_obj = item.subs, $art_cjpyeaw$art_c = $art_objgahstx$art_obj.length; $art_itzuxmhih$art_i < $art_cjpyeaw$art_c; $art_itzuxmhih$art_i++) {            var sub = $art_objgahstx$art_obj[$art_itzuxmhih$art_i]%>';
-            for (var $art_itzuxmhih$art_i = 0, $art_objgahstx$art_obj = item.subs, $art_cjpyeaw$art_c = $art_objgahstx$art_obj.length; $art_itzuxmhih$art_i < $art_cjpyeaw$art_c; $art_itzuxmhih$art_i++) {
-                var sub = $art_objgahstx$art_obj[$art_itzuxmhih$art_i];
+            $expr = '<%for (var $art_izdlsvocgi$art_i = 0, $art_objbakesin$art_obj = item.subs, $art_cvmtvuivd$art_c = $art_objbakesin$art_obj.length; $art_izdlsvocgi$art_i < $art_cvmtvuivd$art_c; $art_izdlsvocgi$art_i++) {            var sub = $art_objbakesin$art_obj[$art_izdlsvocgi$art_i]%>';
+            for (var $art_izdlsvocgi$art_i = 0, $art_objbakesin$art_obj = item.subs, $art_cvmtvuivd$art_c = $art_objbakesin$art_obj.length; $art_izdlsvocgi$art_i < $art_cvmtvuivd$art_c; $art_izdlsvocgi$art_i++) {
+                var sub = $art_objbakesin$art_obj[$art_izdlsvocgi$art_i];
                 $p += '<div mxa="_zs_galleryK:a" class="_zs_gallery___test___subs_-sub-link pl10"><a href="javascript:;" mx-click="' + $viewId + 'to({key:\'';
                 $line = 9;
                 $art = '=sub.key';

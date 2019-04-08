@@ -27,50 +27,54 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, hasLine = $$.hasLine, readOnly = $$.readOnly, needExpand = $$.needExpand, textKey = $$.textKey, valueKey = $$.valueKey, list = $$.list; var $expr, $art, $line; try {
-    $p += '<div mxv="readOnly,needExpand,list" id="tree_';
+} ; var $g = '', $_temp, $p = '', hasLine = $$.hasLine, viewId = $$.viewId, readOnly = $$.readOnly, needExpand = $$.needExpand, textKey = $$.textKey, valueKey = $$.valueKey, closeMap = $$.closeMap, list = $$.list; var $expr, $art, $line; try {
+    $p += '<div mxv="readOnly,needExpand,closeMap,list" class="';
     $line = 1;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" class="';
-    $line = 2;
     $art = 'if hasLine';
     ;
     $expr = '<%if (hasLine) {%>';
     if (hasLine) {
         ;
         $p += ' _zs_gallery_mx-tree_index_-line ';
-        $line = 2;
+        $line = 1;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '" mx-view="mx-tree/branch?readOnly=';
+    $p += '" id="tree_';
+    $line = 2;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" mx-change="' + $viewId + '@{change}()" mx-view="mx-tree/branch?fromTop=';
     $line = 3;
+    $art = '@true';
+    ;
+    $p += ($expr = '<%@true%>', $i($$ref, true)) + '&readOnly=';
+    $line = 4;
     $art = '@readOnly';
     ;
     $p += ($expr = '<%@readOnly%>', $i($$ref, readOnly)) + '&needExpand=';
-    $line = 4;
+    $line = 5;
     $art = '@needExpand';
     ;
     $p += ($expr = '<%@needExpand%>', $i($$ref, needExpand)) + '&textKey=';
-    $line = 5;
+    $line = 6;
     $art = '=textKey';
     ;
     $p += ($expr = '<%!$eu(textKey)%>', $eu(textKey)) + '&valueKey=';
-    $line = 6;
+    $line = 7;
     $art = '=valueKey';
     ;
-    $p += ($expr = '<%!$eu(valueKey)%>', $eu(valueKey)) + '&list=';
-    $line = 7;
+    $p += ($expr = '<%!$eu(valueKey)%>', $eu(valueKey)) + '&closeMap=';
+    $line = 8;
+    $art = '@closeMap';
+    ;
+    $p += ($expr = '<%@closeMap%>', $i($$ref, closeMap)) + '&list=';
+    $line = 10;
     $art = '@list';
     ;
-    $p += ($expr = '<%@list%>', $i($$ref, list)) + '&fromTop=';
-    $line = 8;
-    $art = '@true';
-    ;
-    $p += ($expr = '<%@true%>', $i($$ref, true)) + '"></div>';
+    $p += ($expr = '<%@list%>', $i($$ref, list)) + '"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -80,12 +84,18 @@ catch (ex) {
     msg += $expr + '\r\n\tat file:mx-tree/index.html';
     throw msg;
 } return $p; },
-    init: function (extra) {
-        this['@{extra}'] = extra;
-    },
-    render: function () {
+    init: function (ops) {
         var me = this;
-        var ops = me['@{extra}'];
+        // 保留历史展开收起状态
+        me['@{close.map}'] = {};
+        me['@{bottom.values}'] = [];
+        me['@{owner.node}'] = $('#' + me.id);
+        me.updater.snapshot();
+        me.assign(ops);
+    },
+    assign: function (ops) {
+        var me = this;
+        var altered = me.updater.altered();
         var readOnly = (ops.readOnly + '') === 'true';
         var hasLine = (ops.hasLine + '') === 'true';
         var valueKey = ops.valueKey || 'value';
@@ -95,35 +105,87 @@ catch (ex) {
         var needAll = (ops.needAll + '') === 'true';
         // 是否可展开收起，默认false
         var needExpand = (ops.needExpand + '') === 'true';
-        // 可展开收起的时候，默认false
-        var close = (ops.close + '') === 'true';
-        var info = Util.listToTree(ops.list, valueKey, parentKey, close);
+        // 组织树状结构
+        var info = Util.listToTree(ops.list, valueKey, parentKey);
         var list;
         if (needAll) {
             var all = {};
-            all[valueKey] = 'all';
+            all[valueKey] = me.id + '_all';
             all[textKey] = I18n['select.all'];
             all.isAll = true;
             all.children = info.list;
-            all.close = close;
             list = [all];
         }
         else {
             list = info.list;
         }
-        me.updater.digest({
+        // 展开收起状态，默认false
+        // 切换数据时保留历史展开收起状态
+        var close = (ops.close + '') === 'true';
+        var map = {};
+        var _lp1 = function (arr) {
+            arr.forEach(function (item) {
+                map[item[valueKey]] = close;
+                if (item.children && item.children.length > 0) {
+                    _lp1(item.children);
+                }
+            });
+        };
+        _lp1(list);
+        me['@{close.map}'] = Magix.mix(map, me['@{close.map}']);
+        var _lp2 = function (arr) {
+            arr.forEach(function (item) {
+                item.close = me['@{close.map}'][item[valueKey]];
+                if (item.children && item.children.length > 0) {
+                    _lp2(item.children);
+                }
+            });
+        };
+        _lp2(list);
+        // 历史选中保留
+        me['@{bottom.values}'] = me['@{bottom.values}'].map(function (val) { return (val + ''); });
+        (ops.bottomValues || []).forEach(function (val) {
+            val = val + '';
+            if (me['@{bottom.values}'].indexOf(val) < 0) {
+                me['@{bottom.values}'].push(val);
+            }
+        });
+        me.updater.set({
             viewId: me.id,
             valueKey: valueKey,
             textKey: textKey,
             list: list,
             readOnly: readOnly,
             hasLine: hasLine,
-            needExpand: needExpand
+            needExpand: needExpand,
+            closeMap: me['@{close.map}'],
+            bottomValues: me['@{bottom.values}']
         });
-        var bottomValues = ops.bottomValues || [];
-        if (bottomValues.length > 0) {
-            me.setBottomValues(bottomValues);
+        me['@{owner.node}'].val(me['@{bottom.values}']);
+        if (!altered) {
+            altered = me.updater.altered();
         }
+        if (altered) {
+            // 组件有更新，真个节点会全部需要重新初始化
+            me.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render: function () {
+        this.updater.digest();
+        var bottomValues = this.updater.get('bottomValues');
+        if (bottomValues.length > 0) {
+            this.setBottomValues(bottomValues);
+        }
+    },
+    '@{change}<change>': function (e) {
+        e.stopPropagation();
+        var me = this;
+        var bottomValues = me.getBottomValues();
+        me['@{owner.node}'].val(me['@{bottom.values}'] = bottomValues).trigger($.Event('change', {
+            bottomValues: bottomValues
+        }));
     },
     setBottomValues: function (bottomValues) {
         this.loop(function (vf) {

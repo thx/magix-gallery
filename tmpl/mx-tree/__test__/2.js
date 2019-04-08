@@ -1,11 +1,14 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
+let Form = require('@../../mx-form/index');
+let Validator = require('@../../mx-form/validator');
 let Vframe = Magix.Vframe;
 let $ = require('$');
 Magix.applyStyle('@index.less');
 
 module.exports = Base.extend({
     tmpl: '@2.html',
+    mixins: [Form, Validator],
     render() {
         let list = [{
             value: 1,
@@ -51,14 +54,22 @@ module.exports = Base.extend({
 
         this.updater.digest({
             list,
-            selected: [211, 23, 3]
+            selected: [211, 23, 3],
+            index: 3
         });
     },
-    'change<change>'(e) {
-        let tree = Vframe.get(this.id + '_tree');
-
+    'changeData<click>'(e) {
+        let list = this.updater.get('list');
+        let index = this.updater.get('index');
+        let next = index + 1;
+        list.push({
+            value: '2' + next,
+            pValue: 2,
+            text: '2-' + next
+        })
         this.updater.digest({
-            selected: tree.invoke('getBottomValues')
+            index: next,
+            list
         })
     }
 });

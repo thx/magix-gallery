@@ -38,9 +38,9 @@ module.exports = Magix.View.extend({
     $line = 17;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_ibzugbsu$art_i = 0, $art_cpuahnwgit$art_c = headers.length; $art_ibzugbsu$art_i < $art_cpuahnwgit$art_c; $art_ibzugbsu$art_i++) {    var h = headers[$art_ibzugbsu$art_i]%>';
-    for (var $art_ibzugbsu$art_i = 0, $art_cpuahnwgit$art_c = headers.length; $art_ibzugbsu$art_i < $art_cpuahnwgit$art_c; $art_ibzugbsu$art_i++) {
-        var h = headers[$art_ibzugbsu$art_i];
+    $expr = '<%for (var $art_iqwxqmselit$art_i = 0, $art_cszylyns$art_c = headers.length; $art_iqwxqmselit$art_i < $art_cszylyns$art_c; $art_iqwxqmselit$art_i++) {    var h = headers[$art_iqwxqmselit$art_i]%>';
+    for (var $art_iqwxqmselit$art_i = 0, $art_cszylyns$art_c = headers.length; $art_iqwxqmselit$art_i < $art_cszylyns$art_c; $art_iqwxqmselit$art_i++) {
+        var h = headers[$art_iqwxqmselit$art_i];
         $p += '<a ';
         $line = 18;
         $art = 'if h.new';
@@ -154,9 +154,9 @@ module.exports = Magix.View.extend({
     $line = 32;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_idfmiwrblc$art_i = 0, $art_cxfedrm$art_c = list.length; $art_idfmiwrblc$art_i < $art_cxfedrm$art_c; $art_idfmiwrblc$art_i++) {    var item = list[$art_idfmiwrblc$art_i]%>';
-    for (var $art_idfmiwrblc$art_i = 0, $art_cxfedrm$art_c = list.length; $art_idfmiwrblc$art_i < $art_cxfedrm$art_c; $art_idfmiwrblc$art_i++) {
-        var item = list[$art_idfmiwrblc$art_i];
+    $expr = '<%for (var $art_iinobkkeqlo$art_i = 0, $art_cbduwdkdo$art_c = list.length; $art_iinobkkeqlo$art_i < $art_cbduwdkdo$art_c; $art_iinobkkeqlo$art_i++) {    var item = list[$art_iinobkkeqlo$art_i]%>';
+    for (var $art_iinobkkeqlo$art_i = 0, $art_cbduwdkdo$art_c = list.length; $art_iinobkkeqlo$art_i < $art_cbduwdkdo$art_c; $art_iinobkkeqlo$art_i++) {
+        var item = list[$art_iinobkkeqlo$art_i];
         $p += ' ';
         $line = 33;
         $art = 'if item.name';
@@ -197,9 +197,9 @@ module.exports = Magix.View.extend({
         $line = 40;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_iwmginuh$art_i = 0, $art_objdqasjyvhio$art_obj = item.subs, $art_cvskhfvip$art_c = $art_objdqasjyvhio$art_obj.length; $art_iwmginuh$art_i < $art_cvskhfvip$art_c; $art_iwmginuh$art_i++) {        var sub = $art_objdqasjyvhio$art_obj[$art_iwmginuh$art_i]%>';
-        for (var $art_iwmginuh$art_i = 0, $art_objdqasjyvhio$art_obj = item.subs, $art_cvskhfvip$art_c = $art_objdqasjyvhio$art_obj.length; $art_iwmginuh$art_i < $art_cvskhfvip$art_c; $art_iwmginuh$art_i++) {
-            var sub = $art_objdqasjyvhio$art_obj[$art_iwmginuh$art_i];
+        $expr = '<%for (var $art_ipbyscvvxh$art_i = 0, $art_objfdjwadyz$art_obj = item.subs, $art_cshnmzbdla$art_c = $art_objfdjwadyz$art_obj.length; $art_ipbyscvvxh$art_i < $art_cshnmzbdla$art_c; $art_ipbyscvvxh$art_i++) {        var sub = $art_objfdjwadyz$art_obj[$art_ipbyscvvxh$art_i]%>';
+        for (var $art_ipbyscvvxh$art_i = 0, $art_objfdjwadyz$art_obj = item.subs, $art_cshnmzbdla$art_c = $art_objfdjwadyz$art_obj.length; $art_ipbyscvvxh$art_i < $art_cshnmzbdla$art_c; $art_ipbyscvvxh$art_i++) {
+            var sub = $art_objfdjwadyz$art_obj[$art_ipbyscvvxh$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 41;
             $art = 'if (sub.path == path)';
@@ -508,12 +508,12 @@ catch (ex) {
                                 icon: '&#xe61a;'
                             }, {
                                 name: '底边线tab切换',
-                                tip: '一般适用于一级导航',
+                                tip: '一般适用于一级导航，支持双向绑定',
                                 path: '/tabs/index',
                                 icon: '&#xe62a;'
                             }, {
                                 name: '盒状分组',
-                                tip: '一般适用于快捷筛选',
+                                tip: '一般适用于快捷筛选，支持双向绑定',
                                 path: '/tabs/box',
                                 icon: '&#xe62a;'
                             }, {
@@ -538,6 +538,7 @@ catch (ex) {
                                 icon: '&#xe72c;'
                             }, {
                                 name: '树状结构',
+                                tip: '支持双向绑定',
                                 path: '/tree/index',
                                 icon: '&#xe62b;'
                             }, {

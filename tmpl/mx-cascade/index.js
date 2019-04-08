@@ -27,7 +27,7 @@ module.exports = Magix.View.extend({
         // 支持mx-disabled或者disabled
         let disabled = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
-        let info = Util.listToTree(ops.list, valueKey, parentKey, false);
+        let info = Util.listToTree(ops.list, valueKey, parentKey);
         let map = info.map,
             list = info.list;
         me.updater.set({
