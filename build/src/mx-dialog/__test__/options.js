@@ -83,7 +83,7 @@ catch (ex) {
                 def: ''
             }, {
                 key: 'offset',
-                desc: "<pre>\u6307\u5B9Atarget\u65F6\u751F\u6548\uFF0C\u5FAE\u91CF\u4FBF\u5B9C\noffset: {\n    left: -10,\n    top: 10\n}</pre>",
+                desc: "<pre>\u6307\u5B9Atarget\u65F6\u751F\u6548\uFF0C\u5FAE\u91CF\u504F\u79FB \noffset: {\n    left: -10,\n    top: 10\n}</pre>",
                 type: 'object',
                 def: ''
             }];

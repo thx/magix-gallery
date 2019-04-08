@@ -1,0 +1,25 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-popover class="btn mr20"
+            content="下中对齐，向左40，向下20"
+            offset="{{@{
+                left: -40,
+                top: 20
+            }}}">微量偏移</mx-popover>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">微量偏移</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-popover class="btn mr20"
+    content="下中对齐，向左40，向下20"
+    offset="&#123;&#123;@&#123;
+        left: -40,
+        top: 20
+    &#125;&#125;&#125;"&gt;微量偏移&lt;/mx-popover&gt;</pre>
+    </div>
+</div>

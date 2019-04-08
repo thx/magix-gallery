@@ -50,7 +50,7 @@ target支持传入 #id，.class，id，$(node)'</pre>`,
             def: ''
         }, {
             key: 'offset',
-            desc: `<pre>指定target时生效，微量便宜
+            desc: `<pre>指定target时生效，微量偏移 
 offset: {
     left: -10,
     top: 10

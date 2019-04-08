@@ -18,6 +18,13 @@ module.exports = Base.extend({
         } else {
             me['@{pos.class}'] += ' @index.less:popover';
         }
+        // 用户指定定位，指定left + top时忽略placement + align
+        me['@{pos.left}'] = extra.left;
+        me['@{pos.top}'] = extra.top;
+
+        // 微量偏移：在placement + align / left + top 基础上微量偏移
+        me['@{pos.offset}'] = extra.offset;
+
         me['@{pos.init}'] = false;
         me['@{pos.cal}'] = false;
         me['@{pos.show}'] = false;
