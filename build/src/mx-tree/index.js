@@ -1,1 +1,229 @@
-define("mx-tree/index",["magix","mx-tree/util","../mx-medusa/util","./branch"],(e,t,n)=>{e("./branch");var r=e("magix"),l=r.Vframe,a=e("mx-tree/util"),o=e("../mx-medusa/util");r.applyStyle("_zs_galleryaM",'._zs_gallerynl{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerynm{position:relative;height:32px;line-height:20px;padding-bottom:12px;background-color:#fff;overflow:hidden;transition:height .2s}._zs_gallerynm ._zs_gallerynn{float:left;height:20px;margin-right:5px;line-height:20px;color:#ccc;transition:color .25s;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-user-select:none}._zs_gallerynm ._zs_galleryno{cursor:pointer;font-size:14px}._zs_gallerynm ._zs_galleryno:hover{color:#666}._zs_gallerynp ._zs_gallerynm{height:0;padding-bottom:0}._zs_gallerynq{position:relative}._zs_gallerynr{padding-left:20px}._zs_galleryns,._zs_galleryns ._zs_gallerynq{position:relative}._zs_galleryns ._zs_gallerynq:after{content:"";position:absolute;top:22px;left:7px;bottom:2px;width:1px;background-color:#e6e6e6}._zs_galleryns ._zs_gallerynq:last-child:after{content:none}'),n.exports=r.View.extend({tmpl:function(e,t,n,r,l,a,o,i){if(n||(n=e),!l){var s={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},u=/[&<>"'`]/g,c=function(e){return"&"+s[e]+";"};l=function(e){return""+(null==e?"":e)},r=function(e){return l(e).replace(u,c)}}if(!a){var _={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},f=function(e){return _[e]},d=/[!')(*]/g;a=function(e){return encodeURIComponent(l(e)).replace(d,f)}}if(!i){var p=/[\\'"]/g;i=function(e){return l(e).replace(p,"\\$&")}}o||(o=function(e,t,n,r){for(r=e[g];--r;)if(e[n=g+r]===t)return n;return e[n=g+e[g]++]=t,n});var g="",h="",m=e.hasLine,v=e.viewId,x=e.readOnly,y=e.needExpand,z=e.textKey,b=e.valueKey,B=e.closeMap,V=e.list;return h+='<div mxv="readOnly,needExpand,closeMap,list" class="',m&&(h+=" _zs_galleryns "),h+='" id="tree_'+r(v)+'" mx-change="'+t+'__ac()" mx-view="mx-tree/branch?fromTop='+o(n,!0)+"&readOnly="+o(n,x)+"&needExpand="+o(n,y)+"&textKey="+a(z)+"&valueKey="+a(b)+"&closeMap="+o(n,B)+"&list="+o(n,V)+'"></div>'},init:function(e){var t=this;t.__fA={},t.__fB=[],t.__k=$("#"+t.id),t.updater.snapshot(),t.assign(e)},assign:function(e){var t,n=this,l=n.updater.altered(),i=e.readOnly+""=="true",s=e.hasLine+""=="true",u=e.valueKey||"value",c=e.textKey||"text",_=e.parentKey||"pValue",f=e.needAll+""=="true",d=e.needExpand+""=="true",p=a.listToTree(e.list,u,_);if(f){var g={};g[u]=n.id+"_all",g[c]=o["select.all"],g.isAll=!0,g.children=p.list,t=[g]}else t=p.list;var h=e.close+""=="true",m={},v=function(e){e.forEach(function(e){m[e[u]]=h,e.children&&e.children.length>0&&v(e.children)})};v(t),n.__fA=r.mix(m,n.__fA);var x=function(e){e.forEach(function(e){e.close=n.__fA[e[u]],e.children&&e.children.length>0&&x(e.children)})};return x(t),n.__fB=n.__fB.map(function(e){return e+""}),(e.bottomValues||[]).forEach(function(e){e+="",n.__fB.indexOf(e)<0&&n.__fB.push(e)}),n.updater.set({viewId:n.id,valueKey:u,textKey:c,list:t,readOnly:i,hasLine:s,needExpand:d,closeMap:n.__fA,bottomValues:n.__fB}),n.__k.val(n.__fB),l||(l=n.updater.altered()),!!l&&(n.updater.snapshot(),!0)},render:function(){this.updater.digest();var e=this.updater.get("bottomValues");e.length>0&&this.setBottomValues(e)},"__ac<change>":function(e){e.stopPropagation();var t=this.getBottomValues();this.__k.val(this.__fB=t).trigger($.Event("change",{bottomValues:t}))},setBottomValues:function(e){this.loop(function(t){t.invoke("setValues",[e])})},getBottomValues:function(){var e=[];return this.loop(function(t){var n=t.invoke("getValues");e=e.concat(n)}),e},getBottomItems:function(){var e=[];return this.loop(function(t){var n=t.invoke("getItems");e=e.concat(n)}),e},loop:function(e){var t=this.owner.children(),n=function(t){for(var r=0,a=t;r<a.length;r++){var o=a[r],i=l.get(o);e(i);var s=i.children();s&&s.length>0&&n(s)}};n(t)}})});
+/*
+    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-tree/index",["magix","mx-tree/util","../mx-medusa/util","./branch"],(require,exports,module)=>{
+/*Magix,Util,I18n*/
+require("./branch");
+var Magix = require("magix");
+var Vframe = Magix.Vframe;
+var Util = require("mx-tree/util");
+var I18n = require("../mx-medusa/util");
+Magix.applyStyle("_zs_gallery_mx-tree_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-tree_index_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-tree_index_-name {\n  position: relative;\n  height: 32px;\n  line-height: 20px;\n  padding-bottom: 12px;\n  background-color: #fff;\n  overflow: hidden;\n  transition: height 0.2s;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-icon {\n  float: left;\n  height: 20px;\n  margin-right: 5px;\n  line-height: 20px;\n  color: #ccc;\n  transition: color 0.25s;\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper {\n  cursor: pointer;\n  font-size: 14px;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper:hover {\n  color: #666;\n}\n._zs_gallery_mx-tree_index_-close ._zs_gallery_mx-tree_index_-name {\n  height: 0;\n  padding-bottom: 0;\n}\n._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-indent {\n  padding-left: 20px;\n}\n._zs_gallery_mx-tree_index_-line {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:after {\n  content: '';\n  position: absolute;\n  top: 22px;\n  left: 7px;\n  bottom: 2px;\n  width: 1px;\n  background-color: #e6e6e6;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:last-child:after {\n  content: none;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', hasLine = $$.hasLine, viewId = $$.viewId, readOnly = $$.readOnly, needExpand = $$.needExpand, textKey = $$.textKey, valueKey = $$.valueKey, closeMap = $$.closeMap, list = $$.list; var $expr, $art, $line; try {
+    $p += '<div mxv="readOnly,needExpand,closeMap,list" class="';
+    $line = 1;
+    $art = 'if hasLine';
+    ;
+    $expr = '<%if (hasLine) {%>';
+    if (hasLine) {
+        ;
+        $p += ' _zs_gallery_mx-tree_index_-line ';
+        $line = 1;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" id="tree_';
+    $line = 2;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" mx-change="' + $viewId + '@{change}()" mx-view="mx-tree/branch?fromTop=';
+    $line = 3;
+    $art = '@true';
+    ;
+    $p += ($expr = '<%@true%>', $i($$ref, true)) + '&readOnly=';
+    $line = 4;
+    $art = '@readOnly';
+    ;
+    $p += ($expr = '<%@readOnly%>', $i($$ref, readOnly)) + '&needExpand=';
+    $line = 5;
+    $art = '@needExpand';
+    ;
+    $p += ($expr = '<%@needExpand%>', $i($$ref, needExpand)) + '&textKey=';
+    $line = 6;
+    $art = '=textKey';
+    ;
+    $p += ($expr = '<%!$eu(textKey)%>', $eu(textKey)) + '&valueKey=';
+    $line = 7;
+    $art = '=valueKey';
+    ;
+    $p += ($expr = '<%!$eu(valueKey)%>', $eu(valueKey)) + '&closeMap=';
+    $line = 8;
+    $art = '@closeMap';
+    ;
+    $p += ($expr = '<%@closeMap%>', $i($$ref, closeMap)) + '&list=';
+    $line = 10;
+    $art = '@list';
+    ;
+    $p += ($expr = '<%@list%>', $i($$ref, list)) + '"></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-tree/index.html';
+    throw msg;
+} return $p; },
+    init: function (ops) {
+        var me = this;
+        // 保留历史展开收起状态
+        me['@{close.map}'] = {};
+        me['@{bottom.values}'] = [];
+        me['@{owner.node}'] = $('#' + me.id);
+        me.updater.snapshot();
+        me.assign(ops);
+    },
+    assign: function (ops) {
+        var me = this;
+        var altered = me.updater.altered();
+        var readOnly = (ops.readOnly + '') === 'true';
+        var hasLine = (ops.hasLine + '') === 'true';
+        var valueKey = ops.valueKey || 'value';
+        var textKey = ops.textKey || 'text';
+        var parentKey = ops.parentKey || 'pValue';
+        // 是否需要全选功能，默认关闭
+        var needAll = (ops.needAll + '') === 'true';
+        // 是否可展开收起，默认false
+        var needExpand = (ops.needExpand + '') === 'true';
+        // 组织树状结构
+        var info = Util.listToTree(ops.list, valueKey, parentKey);
+        var list;
+        if (needAll) {
+            var all = {};
+            all[valueKey] = me.id + '_all';
+            all[textKey] = I18n['select.all'];
+            all.isAll = true;
+            all.children = info.list;
+            list = [all];
+        }
+        else {
+            list = info.list;
+        }
+        // 展开收起状态，默认false
+        // 切换数据时保留历史展开收起状态
+        var close = (ops.close + '') === 'true';
+        var map = {};
+        var _lp1 = function (arr) {
+            arr.forEach(function (item) {
+                map[item[valueKey]] = close;
+                if (item.children && item.children.length > 0) {
+                    _lp1(item.children);
+                }
+            });
+        };
+        _lp1(list);
+        me['@{close.map}'] = Magix.mix(map, me['@{close.map}']);
+        var _lp2 = function (arr) {
+            arr.forEach(function (item) {
+                item.close = me['@{close.map}'][item[valueKey]];
+                if (item.children && item.children.length > 0) {
+                    _lp2(item.children);
+                }
+            });
+        };
+        _lp2(list);
+        // 历史选中保留
+        me['@{bottom.values}'] = me['@{bottom.values}'].map(function (val) { return (val + ''); });
+        (ops.bottomValues || []).forEach(function (val) {
+            val = val + '';
+            if (me['@{bottom.values}'].indexOf(val) < 0) {
+                me['@{bottom.values}'].push(val);
+            }
+        });
+        me.updater.set({
+            viewId: me.id,
+            valueKey: valueKey,
+            textKey: textKey,
+            list: list,
+            readOnly: readOnly,
+            hasLine: hasLine,
+            needExpand: needExpand,
+            closeMap: me['@{close.map}'],
+            bottomValues: me['@{bottom.values}']
+        });
+        me['@{owner.node}'].val(me['@{bottom.values}']);
+        if (!altered) {
+            altered = me.updater.altered();
+        }
+        if (altered) {
+            // 组件有更新，真个节点会全部需要重新初始化
+            me.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render: function () {
+        this.updater.digest();
+        var bottomValues = this.updater.get('bottomValues');
+        if (bottomValues.length > 0) {
+            this.setBottomValues(bottomValues);
+        }
+    },
+    '@{change}<change>': function (e) {
+        e.stopPropagation();
+        var me = this;
+        var bottomValues = me.getBottomValues();
+        me['@{owner.node}'].val(me['@{bottom.values}'] = bottomValues).trigger($.Event('change', {
+            bottomValues: bottomValues
+        }));
+    },
+    setBottomValues: function (bottomValues) {
+        this.loop(function (vf) {
+            vf.invoke('setValues', [bottomValues]);
+        });
+    },
+    getBottomValues: function () {
+        var bottomValues = [];
+        this.loop(function (vf) {
+            var result = vf.invoke('getValues');
+            bottomValues = bottomValues.concat(result);
+        });
+        return bottomValues;
+    },
+    getBottomItems: function () {
+        var bottomItems = [];
+        this.loop(function (vf) {
+            var result = vf.invoke('getItems');
+            bottomItems = bottomItems.concat(result);
+        });
+        return bottomItems;
+    },
+    loop: function (fn) {
+        var me = this;
+        var children = me.owner.children();
+        var _loop = function (children) {
+            for (var _i = 0, children_1 = children; _i < children_1.length; _i++) {
+                var c = children_1[_i];
+                var vf = Vframe.get(c);
+                fn(vf);
+                var cc = vf.children();
+                if (cc && (cc.length > 0)) {
+                    _loop(cc);
+                }
+            }
+        };
+        _loop(children);
+    }
+});
+
+});
