@@ -11,7 +11,7 @@ require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-popmenu___test___3_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-popmenu___test___3_-icon {\n  width: 24px;\n  height: 24px;\n  border-radius: 4px;\n  text-align: center;\n  line-height: 22px;\n  cursor: pointer;\n  color: #ccc;\n  border: 1px solid #e6e6e6;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-popmenu___test___3_","._zs_gallery_mx-popmenu___test___3_-icon {\n  width: 24px;\n  height: 24px;\n  border-radius: 4px;\n  text-align: center;\n  line-height: 22px;\n  cursor: pointer;\n  color: #ccc;\n  border: 1px solid var(--color-border);\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

@@ -169,7 +169,7 @@
 
 .border-radius,
 .radius {
-    border-radius: @border-radius;
+    border-radius: var(--border-radius);
 }
 
 .unselectable {
@@ -209,7 +209,7 @@
 }
 
 .color-brand {
-    color: @color-brand;
+    color: var(--color-brand);
 }
 
 .color-h-3 {
@@ -220,40 +220,40 @@
 
 .color-h-brand {
     &:hover {
-        color: @color-brand;
+        color: var(--color-brand);
     }
 }
 
 .color-brand-vs {
-    color: @color-brand-vs;
+    color: var(--color-brand-vs);
 }
 
 .color-error {
-    color: @color-red;
+    color: var(--color-red);
 }
 
 .color-red {
-    color: @color-red;
+    color: var(--color-red);
 }
 
 .color-green {
-    color: @color-green;
+    color: var(--color-green);
 }
 
 .color-warn {
-    color: @color-warn;
+    color: var(--color-warn);
 }
 
 .bt-e6{
-    border-top: 1px solid @color-border;
+    border-top: 1px solid var(--color-border);
 }
 
 .bb-e6 {
-    border-bottom: 1px solid @color-border;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .bg {
-    background-color: @color-bg;
+    background-color: var(--color-bg);
 }
 
 .fl {
@@ -341,16 +341,16 @@
         position: absolute;
         top: 0;
         left: 1px;
-        width: @input-height;
-        height: @input-height;
-        line-height: @input-height;
+        width: var(--input-height);
+        height: var(--input-height);
+        line-height: var(--input-height);
         text-align: center;
         color: #999;
         font-size: 18px;
     }
     .search-input {
         width: 100%;
-        padding-left: @input-height;
+        padding-left: var(--input-height);
     }
 }
 
@@ -401,7 +401,7 @@
     }
 }
 .empty-area {
-    background-color: @color-bg;
+    background-color: var(--color-bg);
 }
 
 /*一级二级标题=*/
@@ -435,28 +435,44 @@
 }
 .table-pager-wrapper {
     padding: 16px 24px;
-    background-color: @color-bg;
+    background-color: var(--color-bg);
 }
 
 /*提示信息*/
 .tip-content,
 .notice-content,
 .error-content {
+    position: relative;
     padding: 10px 20px;
+
+    &::after{
+        content: ' ';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
 .error-content {
-    background-color: tint(@color-red, 80%);
-    color: @color-red;
-    text-align: center;
+    &::after{
+        opacity: .2;
+        background-color: var(--color-red);
+    }
+    color: var(--color-red);
 }
 .notice-content {
-    background-color: tint(@color-warn, 90%);
-    color: @color-orange;
-    text-align: center;
+    &::after{
+        opacity: .3;
+        background-color: var(--color-warn);
+    }
+    color: @color-warn;
 }
 .tip-content {
-    position: relative;
-    background-color: @color-bg;
+    &::after{
+        background-color: var(--color-bg);
+    }
     color: #999;
     line-height: 18px;
     .tip-icon {
@@ -471,20 +487,13 @@
         padding-left: 30px;
     }
     &.has-border {
-        border-radius: @border-radius;
-        border: 1px solid @color-border;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--color-border);
     }
     &.has-highlight {
         color: #333;
         .tip-icon {
-            color: @color-brand;
-        }
-    }
-    &.in-dialog {
-        padding-left: 54px;
-        padding-right: 40px;
-        .tip-icon {
-            left: 34px;
+            color: var(--color-brand);
         }
     }
 }
@@ -512,8 +521,8 @@
 .brand-solid-icon,
 .brand-solid-icon:hover {
     border-radius: 4px;
-    background-color: @color-brand;
-    border-color: @color-brand;
+    background-color: var(--color-brand);
+    border-color: var(--color-brand);
     color: #fff;
 }
 /*灰色实心打标icon*/
@@ -528,8 +537,8 @@
 .brand-hollow-icon,
 .brand-hollow-icon:hover {
     border-radius: 10px;
-    border-color: @color-brand;
-    color: @color-brand;
+    border-color: var(--color-brand);
+    color: var(--color-brand);
 }
 
 /*灰色空心打标*/
@@ -543,11 +552,11 @@
 /*卡片样式*/
 .grid {
     background: #fff;
-    border-radius: @border-radius;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
-    transition: box-shadow @duration ease-out;
+    border-radius: var(--border-radius);
+    box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.08) inset;
+    transition: box-shadow var(--duration) ease-out;
     
     &:hover{
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.08);
+        box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.1) inset;
     }
 }

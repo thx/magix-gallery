@@ -1,9 +1,7 @@
-@import '../mx-style/_vars';
-
 html .error,
 html .error:hover,
 html .error:focus {
-    border-color: @color-red;
+    border-color: var(--color-red);
 }
 
 .error-msg {
@@ -12,12 +10,12 @@ html .error:focus {
     white-space: nowrap;
     word-wrap: normal;
     pointer-events: none;
-    color: @color-red;
-    font-size: @font-size;
+    color: var(--color-red);
+    font-size: var(--font-size);
 }
 
 .warn, .warn:hover, .warn:focus {
-    border-color: @color-warn;
+    border-color: var(--color-warn);
 }
 
 .warn-msg {
@@ -26,6 +24,6 @@ html .error:focus {
     white-space: nowrap;
     word-wrap: normal;
     pointer-events: none;
-    color: @color-warn;
-    font-size: @font-size;
+    color: var(--color-warn);
+    font-size: var(--font-size);
 }

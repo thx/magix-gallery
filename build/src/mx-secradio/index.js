@@ -8,7 +8,7 @@ define("mx-secradio/index",["magix","../mx-medusa/util"],(require,exports,module
 
 var Magix = require("magix");
 var I18n = require("../mx-medusa/util");
-Magix.applyStyle("_zs_gallery_mx-secradio_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-secradio_index_-line {\n  position: relative;\n  height: 32px;\n  line-height: 32px;\n  transition: height 0.2s;\n  overflow: hidden;\n}\n._zs_gallery_mx-secradio_index_-line ._zs_gallery_mx-secradio_index_-oper {\n  width: 20px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #ccc;\n  transition: color 0.2s;\n}\n._zs_gallery_mx-secradio_index_-line ._zs_gallery_mx-secradio_index_-oper:hover {\n  color: #666;\n}\n._zs_gallery_mx-secradio_index_-all {\n  cursor: pointer;\n  color: #999;\n}\n._zs_gallery_mx-secradio_index_-sub {\n  padding-left: 20px;\n}\n._zs_gallery_mx-secradio_index_-sub._zs_gallery_mx-secradio_index_-close {\n  height: 0;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-secradio_index_","._zs_gallery_mx-secradio_index_-line {\n  position: relative;\n  height: 32px;\n  line-height: 32px;\n  transition: height 0.2s;\n  overflow: hidden;\n}\n._zs_gallery_mx-secradio_index_-line ._zs_gallery_mx-secradio_index_-oper {\n  width: 20px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #ccc;\n  transition: color 0.2s;\n}\n._zs_gallery_mx-secradio_index_-line ._zs_gallery_mx-secradio_index_-oper:hover {\n  color: #666;\n}\n._zs_gallery_mx-secradio_index_-all {\n  cursor: pointer;\n  color: #999;\n}\n._zs_gallery_mx-secradio_index_-sub {\n  padding-left: 20px;\n}\n._zs_gallery_mx-secradio_index_-sub._zs_gallery_mx-secradio_index_-close {\n  height: 0;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -101,8 +101,8 @@ module.exports = Magix.View.extend({
     $line = 7;
     $art = 'each list as item itemIndex';
     ;
-    $expr = '<%for (var itemIndex = 0, $art_cannuhht$art_c = list.length; itemIndex < $art_cannuhht$art_c; itemIndex++) {    var item = list[itemIndex]%>';
-    for (var itemIndex = 0, $art_cannuhht$art_c = list.length; itemIndex < $art_cannuhht$art_c; itemIndex++) {
+    $expr = '<%for (var itemIndex = 0, $art_clkcxpp$art_c = list.length; itemIndex < $art_clkcxpp$art_c; itemIndex++) {    var item = list[itemIndex]%>';
+    for (var itemIndex = 0, $art_clkcxpp$art_c = list.length; itemIndex < $art_clkcxpp$art_c; itemIndex++) {
         var item = list[itemIndex];
         $p += '<div mxa="_zs_gallerydt:a" class="_zs_gallery_mx-secradio_index_-line"><label mx-click="' + $viewId + '@{toggleOne}({index:';
         $line = 9;
@@ -170,9 +170,9 @@ module.exports = Magix.View.extend({
         $line = 21;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_ibmkyvso$art_i = 0, $art_objwxbrr$art_obj = item.subs, $art_chkdsbzp$art_c = $art_objwxbrr$art_obj.length; $art_ibmkyvso$art_i < $art_chkdsbzp$art_c; $art_ibmkyvso$art_i++) {        var sub = $art_objwxbrr$art_obj[$art_ibmkyvso$art_i]%>';
-        for (var $art_ibmkyvso$art_i = 0, $art_objwxbrr$art_obj = item.subs, $art_chkdsbzp$art_c = $art_objwxbrr$art_obj.length; $art_ibmkyvso$art_i < $art_chkdsbzp$art_c; $art_ibmkyvso$art_i++) {
-            var sub = $art_objwxbrr$art_obj[$art_ibmkyvso$art_i];
+        $expr = '<%for (var $art_ihtfjere$art_i = 0, $art_objvryvvlp$art_obj = item.subs, $art_cuhahebpyu$art_c = $art_objvryvvlp$art_obj.length; $art_ihtfjere$art_i < $art_cuhahebpyu$art_c; $art_ihtfjere$art_i++) {        var sub = $art_objvryvvlp$art_obj[$art_ihtfjere$art_i]%>';
+        for (var $art_ihtfjere$art_i = 0, $art_objvryvvlp$art_obj = item.subs, $art_cuhahebpyu$art_c = $art_objvryvvlp$art_obj.length; $art_ihtfjere$art_i < $art_cuhahebpyu$art_c; $art_ihtfjere$art_i++) {
+            var sub = $art_objvryvvlp$art_obj[$art_ihtfjere$art_i];
             $p += '<div mxv class="_zs_gallery_mx-secradio_index_-line _zs_gallery_mx-secradio_index_-sub ';
             $line = 22;
             $art = 'if item.close';

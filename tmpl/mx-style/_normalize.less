@@ -1,6 +1,7 @@
 /* @dependent: ./index.less */
 @charset "UTF-8";
 @import "./_vars";
+
 html,
 body {
     margin: 0;
@@ -206,7 +207,6 @@ input[type="submit"] {
 /**
 * 重置按钮禁用时光标样式
 */
-
 button[disabled],
 input[disabled] {
     cursor: not-allowed;
@@ -246,9 +246,7 @@ audio,
 canvas,
 video {
     display: inline-block;
-    /* 1 */
     vertical-align: baseline;
-    /* 2 */
 }
 
 // Box sizing
@@ -338,7 +336,6 @@ label {
 }
 
 /*文字选中样式*/
-
 ::selection,
 ::-moz-selection {
     background-color: @color-brand-hover;

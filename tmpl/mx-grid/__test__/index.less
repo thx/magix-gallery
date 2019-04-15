@@ -1,8 +1,6 @@
-@import "../../mx-style/_vars";
-
 .grid-loop(@n, @i:1) when (@i <= @n) {
     .grid@{i}{
-        background-color: @color-brand;
+        background-color: var(--color-brand);
         opacity: (@i * 0.1);
     }
 

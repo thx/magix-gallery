@@ -1,5 +1,3 @@
-@import "../mx-style/_vars";
-
 .bottom-left, .bottom-right, .bottom-center, .top-left, .top-right, .top-center, .right-top, .right-bottom, .right-center, .left-top, .left-bottom, .left-center {
     opacity: 0;
     transition: transform 0.15s, opacity 0.15s;
@@ -58,7 +56,7 @@
     position: absolute;
     z-index: 9999;
     height: auto;
-    border-radius: @border-radius;
+    border-radius: var(--border-radius);
     font-size: 12px;
     line-height: 22px;
     white-space: normal;
@@ -86,8 +84,3 @@
     }
 
 }
-
-// [mx-view*="mx-popover/index"] {
-//     position: relative;
-//     cursor: help;
-// }

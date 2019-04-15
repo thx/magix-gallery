@@ -10,7 +10,7 @@ require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-effects___test___18_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-effects___test___18_-suspension {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  background-color: #4d7fff;\n}\n._zs_gallery_mx-effects___test___18_-text {\n  padding-top: 35px;\n  color: #fff;\n  text-align: center;\n}\n._zs_gallery_mx-effects___test___18_-icon {\n  padding-top: 5px;\n  text-align: center;\n}\n._zs_gallery_mx-effects___test___18_-icon ._zs_gallery_mx-effects___test___18_-suspension-icon {\n  font-size: 24px;\n  color: #fff;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-effects___test___18_","._zs_gallery_mx-effects___test___18_-suspension {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  background-color: var(--color-brand);\n}\n._zs_gallery_mx-effects___test___18_-text {\n  padding-top: 35px;\n  color: #fff;\n  text-align: center;\n}\n._zs_gallery_mx-effects___test___18_-icon {\n  padding-top: 5px;\n  text-align: center;\n}\n._zs_gallery_mx-effects___test___18_-icon ._zs_gallery_mx-effects___test___18_-suspension-icon {\n  font-size: 24px;\n  color: #fff;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

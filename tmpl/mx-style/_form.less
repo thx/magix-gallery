@@ -96,6 +96,7 @@ textarea,
         opacity: 0;
     }
 }
+@checkbox-color: #ccc;
 @checkbox-size: @font-size + 2px;
 input[type="checkbox"],
 .checkbox {
@@ -107,14 +108,14 @@ input[type="checkbox"],
     background-color: #fff;
     border-width: 1px;
     border-style: solid;
-    border-color: @color-border;
+    border-color: @checkbox-color;
     cursor: pointer;
     border-radius: 2px;
     box-sizing: border-box;
     outline: none;
     transition: border-color @duration, background-color @duration;
     &:focus{
-        border-color: #ccc;
+        border-color: @checkbox-color;
     }
     &:hover{
         border-color: @color-brand;
@@ -142,14 +143,15 @@ input[type="checkbox"],
         background-color: @color-bg;
         &:checked,
         &.checked{
-            background-color: @color-border;
+            border-color: @checkbox-color;
+            background-color: @checkbox-color;
         }
     }
 
     &:indeterminate,
     &.indeterminate {
-        background-color: @color-brand;
         border-color: @color-brand;
+        background-color: @color-brand;
         &:after {
             content: '';
             display: block;
@@ -160,7 +162,8 @@ input[type="checkbox"],
         }
         &:disabled,
         &.disabled{
-            background-color: @color-border;
+            border-color: @checkbox-color;
+            background-color: @checkbox-color;
         }
     }
     
@@ -232,7 +235,7 @@ input[type="radio"],
     margin-right: 4px;
     border-width: 1px;
     border-style: solid;
-    border-color: @color-border;
+    border-color: @checkbox-color;
     appearance: none;
     background-color: #fff;
     cursor: pointer;
@@ -243,7 +246,7 @@ input[type="radio"],
     transition: border-color @duration;
 
     &:focus{
-        border-color: #ccc;
+        border-color: @checkbox-color;
     }
     &:hover{
         border-color: @color-brand;
@@ -273,7 +276,7 @@ input[type="radio"],
             border-color: @color-border;
         }
         &:after {
-            background-color: @color-border;
+            background-color: @checkbox-color;
         }
     }
     
@@ -315,7 +318,7 @@ input[type="radio"],
                 border-color: @color-border;
             }
             &:after {
-                background-color: @color-border;
+                background-color: @checkbox-color;
             }
     
             &:checked{

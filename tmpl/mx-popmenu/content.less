@@ -1,5 +1,3 @@
-@import "../mx-style/_vars";
-
 .menu {
     padding: 8px 10px;
     overflow: auto;
@@ -11,18 +9,18 @@
             width: 100%;
             padding: 0 8px;
             cursor: pointer;
-            height: @input-small-height;
-            line-height: @input-small-height;
-            border-radius: @border-radius;
-            transition: all @duration;
+            height: var(--input-small-height);
+            line-height: var(--input-small-height);
+            border-radius: var(--border-radius);
+            transition: all var(--duration);
         
             &:hover {
-                background-color: @color-bg-hover;
+                background-color: var(--color-bg-hover);
             }
         
             &.active, &.active:hover, &.active:active, &.active:focus {
-                color: @color-brand;
-                background-color: @color-brand-opacity;
+                color: var(--color-brand);
+                background-color: var(--color-brand-opacity);
             }
         
         }

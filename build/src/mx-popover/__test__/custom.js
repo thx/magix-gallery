@@ -7,7 +7,7 @@ define("mx-popover/__test__/custom",["magix"],(require,exports,module)=>{
 /*Magix*/
 
 var Magix = require("magix");
-Magix.applyStyle("_zs_gallery_mx-popover___test___custom_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-popover___test___custom_-custom {\n  border-radius: 4px;\n}\n._zs_gallery_mx-popover___test___custom_-custom ._zs_gallery_mx-popover___test___custom_-custom-title {\n  padding: 10px;\n  background-color: #fafafa;\n  border-top-left-radius: 4px;\n  border-top-right-radius: 4px;\n}\n._zs_gallery_mx-popover___test___custom_-custom ._zs_gallery_mx-popover___test___custom_-custom-item {\n  float: left;\n  width: 33.3%;\n  padding: 10px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-popover___test___custom_","._zs_gallery_mx-popover___test___custom_-custom {\n  border-radius: var(--border-radius);\n}\n._zs_gallery_mx-popover___test___custom_-custom ._zs_gallery_mx-popover___test___custom_-custom-title {\n  padding: 10px;\n  background-color: var(--color-bg);\n  border-top-left-radius: var(--border-radius);\n  border-top-right-radius: var(--border-radius);\n}\n._zs_gallery_mx-popover___test___custom_-custom ._zs_gallery_mx-popover___test___custom_-custom-item {\n  float: left;\n  width: 33.3%;\n  padding: 10px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 5;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iapliplmdii$art_i = 0, $art_cwyrtzzgd$art_c = list.length; $art_iapliplmdii$art_i < $art_cwyrtzzgd$art_c; $art_iapliplmdii$art_i++) {    var item = list[$art_iapliplmdii$art_i]%>';
-    for (var $art_iapliplmdii$art_i = 0, $art_cwyrtzzgd$art_c = list.length; $art_iapliplmdii$art_i < $art_cwyrtzzgd$art_c; $art_iapliplmdii$art_i++) {
-        var item = list[$art_iapliplmdii$art_i];
+    $expr = '<%for (var $art_ixvxqhamk$art_i = 0, $art_ckfllhlb$art_c = list.length; $art_ixvxqhamk$art_i < $art_ckfllhlb$art_c; $art_ixvxqhamk$art_i++) {    var item = list[$art_ixvxqhamk$art_i]%>';
+    for (var $art_ixvxqhamk$art_i = 0, $art_ckfllhlb$art_c = list.length; $art_ixvxqhamk$art_i < $art_ckfllhlb$art_c; $art_ixvxqhamk$art_i++) {
+        var item = list[$art_ixvxqhamk$art_i];
         $p += '<div mxa="_zs_galleryc`:b" class="_zs_gallery_mx-popover___test___custom_-custom-item"><div mxa="_zs_galleryc`:c" class="mb5 color-9">';
         $line = 7;
         $art = '=item.name';

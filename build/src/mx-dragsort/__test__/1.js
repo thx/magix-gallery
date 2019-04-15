@@ -11,7 +11,7 @@ require("__test__/hl");
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-dragsort___test___index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-dragsort___test___index_-item {\n  width: 120px;\n  padding: 10px;\n  margin-bottom: 10px;\n  margin-right: 10px;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  cursor: pointer;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-dragsort___test___index_","._zs_gallery_mx-dragsort___test___index_-item {\n  width: 120px;\n  padding: 10px;\n  margin-bottom: 10px;\n  margin-right: 10px;\n  border: 1px solid var(--color-border);\n  border-radius: var(--border-radius);\n  cursor: pointer;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -29,9 +29,9 @@ module.exports = Base.extend({
     $line = 8;
     $art = 'each items as item';
     ;
-    $expr = '<%for (var $art_iffzgawft$art_i = 0, $art_cawtbknln$art_c = items.length; $art_iffzgawft$art_i < $art_cawtbknln$art_c; $art_iffzgawft$art_i++) {    var item = items[$art_iffzgawft$art_i]%>';
-    for (var $art_iffzgawft$art_i = 0, $art_cawtbknln$art_c = items.length; $art_iffzgawft$art_i < $art_cawtbknln$art_c; $art_iffzgawft$art_i++) {
-        var item = items[$art_iffzgawft$art_i];
+    $expr = '<%for (var $art_iplrvcb$art_i = 0, $art_cgxzpdujr$art_c = items.length; $art_iplrvcb$art_i < $art_cgxzpdujr$art_c; $art_iplrvcb$art_i++) {    var item = items[$art_iplrvcb$art_i]%>';
+    for (var $art_iplrvcb$art_i = 0, $art_cgxzpdujr$art_c = items.length; $art_iplrvcb$art_i < $art_cgxzpdujr$art_c; $art_iplrvcb$art_i++) {
+        var item = items[$art_iplrvcb$art_i];
         $p += '<li class="_zs_gallery_mx-dragsort___test___index_-item" data-value="';
         $line = 9;
         $art = '=item';
@@ -51,9 +51,9 @@ module.exports = Base.extend({
     $line = 14;
     $art = 'each items as item';
     ;
-    $expr = '<%for (var $art_icydceces$art_i = 0, $art_cvpyqjawetf$art_c = items.length; $art_icydceces$art_i < $art_cvpyqjawetf$art_c; $art_icydceces$art_i++) {    var item = items[$art_icydceces$art_i]%>';
-    for (var $art_icydceces$art_i = 0, $art_cvpyqjawetf$art_c = items.length; $art_icydceces$art_i < $art_cvpyqjawetf$art_c; $art_icydceces$art_i++) {
-        var item = items[$art_icydceces$art_i];
+    $expr = '<%for (var $art_idmbbd$art_i = 0, $art_csgokgiujv$art_c = items.length; $art_idmbbd$art_i < $art_csgokgiujv$art_c; $art_idmbbd$art_i++) {    var item = items[$art_idmbbd$art_i]%>';
+    for (var $art_idmbbd$art_i = 0, $art_csgokgiujv$art_c = items.length; $art_idmbbd$art_i < $art_csgokgiujv$art_c; $art_idmbbd$art_i++) {
+        var item = items[$art_idmbbd$art_i];
         $p += '<div>';
         $line = 15;
         $art = '=item';

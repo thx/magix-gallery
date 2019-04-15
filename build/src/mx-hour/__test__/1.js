@@ -12,7 +12,7 @@ var Magix = require("magix");
 var Base = require("__test__/example");
 var Vframe = Magix.Vframe;
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-hour___test___index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n._zs_gallery_mx-hour___test___index_-wrapper {\n  padding: 10px;\n  border-radius: 4px;\n  border: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-hour___test___index_-wrapper1 {\n  width: 760px;\n}\n._zs_gallery_mx-hour___test___index_-wrapper2 {\n  width: 800px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-hour___test___index_","._zs_gallery_mx-hour___test___index_-wrapper {\n  padding: 10px;\n  border-radius: var(--border-radius);\n  border: 1px solid var(--color-border);\n}\n._zs_gallery_mx-hour___test___index_-wrapper1 {\n  width: 760px;\n}\n._zs_gallery_mx-hour___test___index_-wrapper2 {\n  width: 800px;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -34,9 +34,9 @@ module.exports = Base.extend({
     $line = 18;
     $art = 'each selected as s';
     ;
-    $expr = '<%for (var $art_ihajloejwt$art_i = 0, $art_cypzrbalbmg$art_c = selected.length; $art_ihajloejwt$art_i < $art_cypzrbalbmg$art_c; $art_ihajloejwt$art_i++) {    var s = selected[$art_ihajloejwt$art_i]%>';
-    for (var $art_ihajloejwt$art_i = 0, $art_cypzrbalbmg$art_c = selected.length; $art_ihajloejwt$art_i < $art_cypzrbalbmg$art_c; $art_ihajloejwt$art_i++) {
-        var s = selected[$art_ihajloejwt$art_i];
+    $expr = '<%for (var $art_ibtupdxrl$art_i = 0, $art_cencywzmyvo$art_c = selected.length; $art_ibtupdxrl$art_i < $art_cencywzmyvo$art_c; $art_ibtupdxrl$art_i++) {    var s = selected[$art_ibtupdxrl$art_i]%>';
+    for (var $art_ibtupdxrl$art_i = 0, $art_cencywzmyvo$art_c = selected.length; $art_ibtupdxrl$art_i < $art_cencywzmyvo$art_c; $art_ibtupdxrl$art_i++) {
+        var s = selected[$art_ibtupdxrl$art_i];
         $p += '<div>';
         $line = 19;
         $art = '=s.name';
