@@ -1,4 +1,4 @@
-<div class="box {{=boxClass}} {{= disabled ? 'disabled' : ''}}">
+<div class="box {{=boxClass}} {{= disabled ? 'box-disabled' : ''}}">
     {{each list as item index}}
     <a href="javascript:;" {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} class="box-item {{= (item.value == selected) ? 'selected' : ''}}"
         {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>

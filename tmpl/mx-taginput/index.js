@@ -323,11 +323,11 @@ module.exports = Magix.View.extend({
         node.removeClass('@index.less:hover');
     },
 
-    '@{highlight}'(ignore) {
+    '@{highlight}'() {
         let me = this;
         let node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
         node.addClass('@index.less:hover');
-        if (!ignore && node.length) {
+        if (node.length) {
             me['@{temp.ignore}'] = 1; //如果是上下按键引起的滚动，则在move时忽略
             let height = node.outerHeight();
             let scrolled = (me['@{ui.index}'] + 1) * height;
@@ -387,23 +387,6 @@ module.exports = Magix.View.extend({
             let me = this;
             me['@{normal}']();
             me['@{ui.index}'] = -1;
-        }
-    },
-
-    '@{move}<mousemove>'(e) {
-        let me = this;
-        if (me['@{temp.ignore}']) {
-            delete me['@{temp.ignore}'];
-            return;
-        }
-        let target = $(e.target);
-        if (target.hasClass('@index.less:suggest-item')) {
-            let idx = target.data('idx');
-            if (idx != me['@{ui.index}']) {
-                me['@{normal}']();
-                me['@{ui.index}'] = idx;
-                me['@{highlight}'](true);
-            }
         }
     },
 

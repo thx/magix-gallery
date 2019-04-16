@@ -66,7 +66,7 @@ module.exports = {
 
             case 'double-circle':
                 tmpl = `
-                    <div class="mx-loading-double-circle mx-loading-double-circle1 ${classNames}" style="${styles}"></div>
+                    <div class="mx-loading-double-circle ${classNames}" style="${styles}"></div>
                     <div class="mx-loading-double-circle mx-loading-double-circle2 ${classNames}" style="${styles}"></div>
                 `;
                 break;
@@ -74,7 +74,7 @@ module.exports = {
             case 'rectangle':
                 tmpl = `
                     <div class="mx-loading-rects">
-                        <div class="mx-loading-rect mx-loading-rect1 ${classNames}" style="${styles}"></div>
+                        <div class="mx-loading-rect ${classNames}" style="${styles}"></div>
                         <div class="mx-loading-rect mx-loading-rect2 ${classNames}" style="${styles}"></div>
                         <div class="mx-loading-rect mx-loading-rect3 ${classNames}" style="${styles}"></div>
                         <div class="mx-loading-rect mx-loading-rect4 ${classNames}" style="${styles}"></div>
@@ -109,7 +109,7 @@ module.exports = {
                 tmpl = `
                     <div class="mx-loading-three-bounce mx-loading-three-bounce1 ${classNames}" style="${styles}"></div>
                     <div class="mx-loading-three-bounce mx-loading-three-bounce2 ${classNames}" style="${styles}"></div>
-                    <div class="mx-loading-three-bounce mx-loading-three-bounce3 ${classNames}" style="${styles}"></div>
+                    <div class="mx-loading-three-bounce ${classNames}" style="${styles}"></div>
                 `;
                 break;
 

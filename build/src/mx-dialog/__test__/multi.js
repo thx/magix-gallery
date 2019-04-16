@@ -21,15 +21,15 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', height = $$.height, number = $$.number; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryaG:_" class="dialog-header"><span class="fontsize-16">多个带modal的浮层</span></div><div class="dialog-body" style="height:';
+    $p += '<div mxs="_zs_galleryaH:_" class="dialog-header"><span class="fontsize-16">多个带modal的浮层</span></div><div class="dialog-body" style="height:';
     $line = 4;
     $art = '=height';
     ;
-    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_galleryaG:_" class="mb20">浮层';
+    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_galleryaH:_" class="mb20">浮层';
     $line = 5;
     $art = '=number';
     ;
-    $p += ($expr = '<%=number%>', $e(number)) + '</div><div mxs="_zs_galleryaG:a" class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'modal()" class="btn btn-brand">再开一个</a></div><div mxs="_zs_galleryaG:b"><a href="javascript:;" mx-click="' + $viewId + 'closeAll()" class="btn btn-brand">关闭所有展开浮层</a></div></div><div mxs="_zs_galleryaG:c" class="dialog-footer"><a href="javascript:;" class="btn mr10" mx-click="' + $viewId + 'cancel()">取消</a></div>';
+    $p += ($expr = '<%=number%>', $e(number)) + '</div><div mxs="_zs_galleryaH:a" class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'modal()" class="btn btn-brand">再开一个</a></div><div mxs="_zs_galleryaH:b"><a href="javascript:;" mx-click="' + $viewId + 'closeAll()" class="btn btn-brand">关闭所有展开浮层</a></div></div><div mxs="_zs_galleryaH:c" class="dialog-footer"><a href="javascript:;" class="btn mr10" mx-click="' + $viewId + 'cancel()">取消</a></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

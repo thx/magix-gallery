@@ -20,11 +20,7 @@ module.exports = Base.extend({
 
         that.updater.set({
             allList: list,
-            count: count,
-            contents: [
-                '脚手架 boot.ts 中 merge 文件 lib/scroll.js，view 上挂载 scrollIfNeed，该方式监听参数变动返回容器顶部',
-                'this.scrollIfNeed(\'相对滚定的节点，如body\',[\'参数1\', \'参数2\']);'
-            ].join('<br />')
+            count: count
         })
     },
     render() {

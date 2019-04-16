@@ -33,7 +33,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerybD:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_gallerybE:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'精度\',\n            key: viewId + \'_demo8\'\n        },{\n            name: \'自定义颜色\',\n            key: viewId + \'_demo22\'\n        },{\n            name: \'自定义宽度\',\n            key: viewId + \'_demo21\'\n        },{\n            name: \'无文案\',\n            key: viewId + \'_demo23\'\n        },{\n            name: \'滚轴渐变\',\n            key: viewId + \'_demo20\'\n        },{\n            name: \'动态修改\',\n            key: viewId + \'_demo9\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
@@ -41,7 +41,7 @@ module.exports = Magix.View.extend({
     $line = 28;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerybD:a" class="clearfix mb20"><div mxa="_zs_gallerybD:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/8" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerybE:a" class="clearfix mb20"><div mxa="_zs_gallerybE:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/8" id="';
     $line = 31;
     $art = '=viewId';
     ;
@@ -49,7 +49,7 @@ module.exports = Magix.View.extend({
     $line = 32;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div></div><div mxa="_zs_gallerybD:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/22" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div></div><div mxa="_zs_gallerybE:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/22" id="';
     $line = 35;
     $art = '=viewId';
     ;

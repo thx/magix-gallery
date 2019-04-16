@@ -3,8 +3,8 @@
         <div class="sp spa">:</div>
         <div class="sp spb">:</div>
     </div>
-    <mx-grid.row justify="space-between" class="groups">
-        <mx-grid.col class="group" width="52px">
+    <div class="groups">
+        <div class="group">
             <div class="mb5">
                 <input class="input ipt" 
                     maxlength="2" 
@@ -20,8 +20,8 @@
                 <i class="mc-iconfont ipb fr" 
                     {{if types['@{hour}']}} mx-click="@{change}({type:'@{hour}',inc:1})" mx-mousedown="@{fast.start}({type:'@{hour}',inc:1})" {{/if}}>&#xeb78;</i>
             </div>
-        </mx-grid.col>
-        <mx-grid.col class="group" width="52px">
+        </div>
+        <div class="group">
             <div class="mb5">
                 <input class="input ipt" 
                     maxlength="2" 
@@ -37,8 +37,8 @@
                 <i class="mc-iconfont ipb fr" 
                     {{if types['@{minute}']}} mx-click="@{change}({type:'@{minute}',inc:1})" mx-mousedown="@{fast.start}({type:'@{minute}',inc:1})" {{/if}}>&#xeb78;</i>
             </div>
-        </mx-grid.col>
-        <mx-grid.col class="group" width="52px">
+        </div>
+        <div class="group">
             <div class="mb5">
                 <input class="input ipt" 
                     maxlength="2" 
@@ -54,6 +54,6 @@
                 <i class="mc-iconfont ipb fr" 
                     {{if types['@{second}']}} mx-click="@{change}({type:'@{second}',inc:1})" mx-mousedown="@{fast.start}({type:'@{second}',inc:1})" {{/if}}>&#xeb78;</i>
             </div>
-        </mx-grid.col>
-    </mx-grid.row>
+        </div>
+    </div>
 </div>

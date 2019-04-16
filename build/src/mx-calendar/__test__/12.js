@@ -133,7 +133,6 @@ catch (ex) {
                 },
                 vsEnable: true,
                 vs: true,
-                inlay: true,
                 quickDates: ['passed5', 'passed10']
             }
         });

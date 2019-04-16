@@ -1,6 +1,6 @@
 let Magix = require('magix');
 let $ = require('$');
-Magix.applyStyle('@content.less');
+Magix.applyStyle('@../mx-calendar/index.less');
 let parseTime = time => {
     if (!time) {
         let d = new Date();

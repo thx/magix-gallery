@@ -8,7 +8,7 @@ define("mx-indics/dialog",["magix","mx-popover/index","mx-dragsort/index"],(requ
 require("mx-popover/index");
 require("mx-dragsort/index");
 var Magix = require("magix");
-Magix.applyStyle("_zs_gallery_mx-indics_index_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n/*用于覆盖bp的品牌色信息*/\n[mx-view*=\"mx-indics/index\"] {\n  display: inline-block;\n  vertical-align: middle;\n}\n._zs_gallery_mx-indics_index_-setting {\n  position: relative;\n  height: 100%;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-header {\n  width: 100%;\n  height: 60px;\n  padding: 0 24px;\n  background-color: #fff;\n  line-height: 60px;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content {\n  position: absolute;\n  top: 60px;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  overflow-y: auto;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line {\n  position: relative;\n  padding: 16px 24px;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line:nth-of-type(even) {\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-name {\n  position: absolute;\n  top: 16px;\n  left: 24px;\n  width: 96px;\n  padding: 8px 0;\n  color: #999;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-item {\n  float: left;\n  padding: 8px 0;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-item ._zs_gallery_mx-indics_index_-field-tip {\n  position: relative;\n  top: 1px;\n  left: 1px;\n  font-size: 14px;\n  color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent ._zs_gallery_mx-indics_index_-line {\n  padding-left: 128px;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable {\n  padding-right: 240px;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-content {\n  right: 240px;\n  border-right: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 240px;\n  height: 98px;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header ._zs_gallery_mx-indics_index_-drag-title {\n  height: 60px;\n  line-height: 60px;\n  font-size: 16px;\n  padding-left: 24px;\n  border-bottom: 1px solid #e6e6e6;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header ._zs_gallery_mx-indics_index_-drag-oper {\n  height: 38px;\n  padding: 0 24px;\n  line-height: 38px;\n  text-align: right;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper {\n  position: absolute;\n  top: 98px;\n  right: 0;\n  bottom: 0;\n  width: 240px;\n  padding: 0 24px 16px 24px;\n  overflow-y: scroll;\n  background-color: #fafafa;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag {\n  height: 30px;\n  margin-bottom: 5px;\n  padding: 0 15px;\n  line-height: 28px;\n  background: #fff;\n  border: 1px solid #e6e6e6;\n  border-radius: 4px;\n  cursor: move;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery_mx-indics_index_-setting-btn {\n  position: relative;\n  color: #333;\n}\n._zs_gallery_mx-indics_index_-setting-btn:hover {\n  color: #333;\n  border-color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting-btn:focus {\n  border-color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting-show-btn {\n  margin-right: 10px;\n}\n._zs_gallery_mx-indics_index_-setting-show-btn ._zs_gallery_mx-indics_index_-setting-show-icon {\n  position: relative;\n  top: 2px;\n}\n._zs_gallery_mx-indics_index_-setting-switch-btn {\n  padding-right: 20px;\n}\n._zs_gallery_mx-indics_index_-setting-switch-btn ._zs_gallery_mx-indics_index_-setting-switch-icon {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 20px;\n  height: 32px;\n  line-height: 32px;\n  text-align: center;\n  font-size: 18px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-indics_index_","[mx-view*=\"mx-indics/index\"] {\n  display: inline-block;\n  vertical-align: middle;\n}\n._zs_gallery_mx-indics_index_-setting {\n  position: relative;\n  height: 100%;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-header {\n  width: 100%;\n  height: 60px;\n  padding: 0 24px;\n  background-color: #fff;\n  line-height: 60px;\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content {\n  position: absolute;\n  top: 60px;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  overflow-y: auto;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line {\n  position: relative;\n  padding: 16px 24px;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line:nth-of-type(even) {\n  background-color: var(--color-bg);\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-name {\n  position: absolute;\n  top: 16px;\n  left: 24px;\n  width: 90px;\n  padding: 8px 0;\n  color: #999;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-item {\n  float: left;\n  padding: 8px 0;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-item ._zs_gallery_mx-indics_index_-field-tip {\n  position: relative;\n  top: 1px;\n  left: 1px;\n  font-size: 14px;\n  color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent ._zs_gallery_mx-indics_index_-line {\n  padding-left: 122px;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable {\n  padding-right: 240px;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-content {\n  right: 240px;\n  border-right: 1px solid var(--color-border);\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 240px;\n  height: 98px;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header ._zs_gallery_mx-indics_index_-drag-title {\n  height: 60px;\n  line-height: 60px;\n  font-size: 16px;\n  padding-left: 24px;\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header ._zs_gallery_mx-indics_index_-drag-oper {\n  height: 38px;\n  padding: 0 24px;\n  line-height: 38px;\n  text-align: right;\n  background-color: var(--color-bg);\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper {\n  position: absolute;\n  top: 98px;\n  right: 0;\n  bottom: 0;\n  width: 240px;\n  padding: 0 24px 16px 24px;\n  overflow-y: scroll;\n  background-color: var(--color-bg);\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag {\n  height: 30px;\n  margin-bottom: 5px;\n  padding: 0 15px;\n  line-height: 28px;\n  background: #fff;\n  border: 1px solid var(--color-border);\n  border-radius: var(--border-radius);\n  cursor: move;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery_mx-indics_index_-setting-btn {\n  position: relative;\n  color: #333;\n}\n._zs_gallery_mx-indics_index_-setting-btn:hover {\n  color: #333;\n  border-color: var(--border-highlight-hover);\n}\n._zs_gallery_mx-indics_index_-setting-btn:focus {\n  border-color: var(--border-highlight-hover);\n}\n._zs_gallery_mx-indics_index_-setting-show-btn {\n  margin-right: 10px;\n}\n._zs_gallery_mx-indics_index_-setting-show-btn ._zs_gallery_mx-indics_index_-setting-show-icon {\n  position: relative;\n  top: 2px;\n}\n._zs_gallery_mx-indics_index_-setting-switch-btn {\n  padding-right: 20px;\n}\n._zs_gallery_mx-indics_index_-setting-switch-btn ._zs_gallery_mx-indics_index_-setting-switch-icon {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 20px;\n  height: var(--input-height);\n  line-height: var(--input-height);\n  text-align: center;\n  font-size: 18px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -50,203 +50,203 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><div mxa="_zs_gallerycl:_" class="_zs_gallery_mx-indics_index_-header"><div mxa="_zs_gallerycl:a" class="left"><span mxs="_zs_gallerycl:_" class="fontsize-16">选择数据字段</span>';
-    $line = 5;
+    $p += '"><div mxa="_zs_gallerycm:_" class="_zs_gallery_mx-indics_index_-header"><span mxs="_zs_gallerycm:_" class="fontsize-16">选择数据字段</span>';
+    $line = 4;
     $art = 'if (limit > 0)';
     ;
     $expr = '<%if (limit > 0) {%>';
     if (limit > 0) {
         ;
-        $p += '<span mxa="_zs_gallerycl:b" class="color-9 font-tahoma bold ml10">';
-        $line = 6;
+        $p += '<span mxa="_zs_gallerycm:a" class="color-9 font-tahoma bold ml10">';
+        $line = 5;
         $art = '=selectedItems.length';
         ;
         $p += ($expr = '<%=selectedItems.length%>', $e(selectedItems.length)) + ' / ';
-        $line = 6;
+        $line = 5;
         $art = '=limit';
         ;
         $p += ($expr = '<%=limit%>', $e(limit)) + '</span>';
-        $line = 7;
+        $line = 6;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += ' ';
-    $line = 8;
+    $line = 7;
     $art = 'if !sortable';
     ;
     $expr = '<%if (!sortable) {%>';
     if (!sortable) {
         ;
-        $p += '<a mxs="_zs_gallerycl:a" href="javascript:;" class="link-brand fr" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a>';
-        $line = 12;
+        $p += '<a mxs="_zs_gallerycm:a" href="javascript:;" class="link-brand fr" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a>';
+        $line = 11;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div><div mxv mxa="_zs_gallerycl:c" class="_zs_gallery_mx-indics_index_-content">';
-    $line = 16;
+    $p += '</div><div mxv mxa="_zs_gallerycm:b" class="_zs_gallery_mx-indics_index_-content">';
+    $line = 14;
     $art = 'each groups as group';
     ;
-    $expr = '<%for (var $art_ithmgsp$art_i = 0, $art_cswtgmlnvg$art_c = groups.length; $art_ithmgsp$art_i < $art_cswtgmlnvg$art_c; $art_ithmgsp$art_i++) {    var group = groups[$art_ithmgsp$art_i]%>';
-    for (var $art_ithmgsp$art_i = 0, $art_cswtgmlnvg$art_c = groups.length; $art_ithmgsp$art_i < $art_cswtgmlnvg$art_c; $art_ithmgsp$art_i++) {
-        var group = groups[$art_ithmgsp$art_i];
-        $p += '<div mxv mxa="_zs_gallerycl:d" class="_zs_gallery_mx-indics_index_-line clearfix">';
-        $line = 18;
+    $expr = '<%for (var $art_ikxqccdqrbf$art_i = 0, $art_ckcduhfczx$art_c = groups.length; $art_ikxqccdqrbf$art_i < $art_ckcduhfczx$art_c; $art_ikxqccdqrbf$art_i++) {    var group = groups[$art_ikxqccdqrbf$art_i]%>';
+    for (var $art_ikxqccdqrbf$art_i = 0, $art_ckcduhfczx$art_c = groups.length; $art_ikxqccdqrbf$art_i < $art_ckcduhfczx$art_c; $art_ikxqccdqrbf$art_i++) {
+        var group = groups[$art_ikxqccdqrbf$art_i];
+        $p += '<div mxv mxa="_zs_gallerycm:c" class="_zs_gallery_mx-indics_index_-line clearfix">';
+        $line = 16;
         $art = 'if group.text';
         ;
         $expr = '<%if (group.text) {%>';
         if (group.text) {
             ;
-            $p += '<div mxa="_zs_gallerycl:e" class="_zs_gallery_mx-indics_index_-name">';
-            $line = 19;
+            $p += '<div mxa="_zs_gallerycm:d" class="_zs_gallery_mx-indics_index_-name">';
+            $line = 17;
             $art = '=group.text';
             ;
             $p += ($expr = '<%=group.text%>', $e(group.text)) + '</div>';
-            $line = 20;
+            $line = 18;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += '<div mxv mxa="_zs_gallerycl:f" class="clearfix">';
-        $line = 22;
+        $p += '<div mxv mxa="_zs_gallerycm:e" class="clearfix">';
+        $line = 20;
         $art = 'each group.fields as field';
         ;
-        $expr = '<%for (var $art_iyciwmpyps$art_i = 0, $art_objhbwwmram$art_obj = group.fields, $art_ctmupwpkf$art_c = $art_objhbwwmram$art_obj.length; $art_iyciwmpyps$art_i < $art_ctmupwpkf$art_c; $art_iyciwmpyps$art_i++) {        var field = $art_objhbwwmram$art_obj[$art_iyciwmpyps$art_i]%>';
-        for (var $art_iyciwmpyps$art_i = 0, $art_objhbwwmram$art_obj = group.fields, $art_ctmupwpkf$art_c = $art_objhbwwmram$art_obj.length; $art_iyciwmpyps$art_i < $art_ctmupwpkf$art_c; $art_iyciwmpyps$art_i++) {
-            var field = $art_objhbwwmram$art_obj[$art_iyciwmpyps$art_i];
+        $expr = '<%for (var $art_iwpqbdovh$art_i = 0, $art_objdlqjvhurw$art_obj = group.fields, $art_cdkbnejvgor$art_c = $art_objdlqjvhurw$art_obj.length; $art_iwpqbdovh$art_i < $art_cdkbnejvgor$art_c; $art_iwpqbdovh$art_i++) {        var field = $art_objdlqjvhurw$art_obj[$art_iwpqbdovh$art_i]%>';
+        for (var $art_iwpqbdovh$art_i = 0, $art_objdlqjvhurw$art_obj = group.fields, $art_cdkbnejvgor$art_c = $art_objdlqjvhurw$art_obj.length; $art_iwpqbdovh$art_i < $art_cdkbnejvgor$art_c; $art_iwpqbdovh$art_i++) {
+            var field = $art_objdlqjvhurw$art_obj[$art_iwpqbdovh$art_i];
             $p += '<div mxv class="_zs_gallery_mx-indics_index_-item" style="width: ';
-            $line = 23;
+            $line = 21;
             $art = '=width';
             ;
             $p += ($expr = '<%=width%>', $e(width)) + ';"><label mxv ';
-            $line = 24;
+            $line = 22;
             $art = 'if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)';
             ;
             $expr = '<%if ((limit > 0) && (selectedItems.length >= limit) && !field.checked) {%>';
             if ((limit > 0) && (selectedItems.length >= limit) && !field.checked) {
                 ;
                 $p += ' class="cursor-not-allow" ';
-                $line = 24;
+                $line = 22;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '><input type="checkbox" name="field" value="';
-            $line = 25;
+            $line = 23;
             $art = '=field.value';
             ;
             $p += ($expr = '<%=field.value%>', $e(field.value)) + '" class="checkbox" ';
-            $line = 26;
+            $line = 24;
             $art = 'if field.checked';
             ;
             $expr = '<%if (field.checked) {%>';
             if (field.checked) {
                 ;
                 $p += ' checked="true" ';
-                $line = 26;
+                $line = 24;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' ';
-            $line = 27;
+            $line = 25;
             $art = 'if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)';
             ;
             $expr = '<%if ((limit > 0) && (selectedItems.length >= limit) && !field.checked) {%>';
             if ((limit > 0) && (selectedItems.length >= limit) && !field.checked) {
                 ;
                 $p += ' disabled="true" ';
-                $line = 27;
+                $line = 25;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' mx-change="' + $viewId + 'toggle({value:\'';
-            $line = 28;
+            $line = 26;
             $art = '=field.value';
             ;
             $p += ($expr = '<%=$eq(field.value)%>', $e($eq(field.value))) + '\',text:\'';
-            $line = 28;
+            $line = 26;
             $art = '=field.text';
             ;
             $p += ($expr = '<%=$eq(field.text)%>', $e($eq(field.text))) + '\'})"/>';
-            $line = 28;
+            $line = 26;
             $art = '=field.text';
             ;
             $p += ($expr = '<%=field.text%>', $e(field.text)) + '</label>';
-            $line = 30;
+            $line = 28;
             $art = 'if field.tip';
             ;
             $expr = '<%if (field.tip) {%>';
             if (field.tip) {
                 ;
                 $p += '<i class="mc-iconfont _zs_gallery_mx-indics_index_-field-tip" mx-view="mx-popover/index?width=240&content=';
-                $line = 34;
+                $line = 32;
                 $art = '=field.tip';
                 ;
                 $p += ($expr = '<%!$eu(field.tip)%>', $eu(field.tip)) + '">&#xe7aa;</i>';
-                $line = 35;
+                $line = 33;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '</div>';
-            $line = 37;
+            $line = 35;
             $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</div></div>';
-        $line = 40;
+        $line = 38;
         $art = '/each';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += '</div>';
-    $line = 42;
+    $line = 40;
     $art = 'if sortable';
     ;
     $expr = '<%if (sortable) {%>';
     if (sortable) {
         ;
-        $p += '<div mxs="_zs_gallerycl:b" class="_zs_gallery_mx-indics_index_-drag-header"><div class="_zs_gallery_mx-indics_index_-drag-title">自定义字段</div><div class="_zs_gallery_mx-indics_index_-drag-oper"><span class="color-9 mr10">可拖动排序</span><a href="javascript:;" class="link-brand" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a></div></div><div mxa="_zs_gallerycl:g" class="_zs_gallery_mx-indics_index_-drag-wrapper" mx-view="mx-dragsort/index" mx-dragfinish="' + $viewId + 'drag()">';
-        $line = 51;
+        $p += '<div mxs="_zs_gallerycm:b" class="_zs_gallery_mx-indics_index_-drag-header"><div class="_zs_gallery_mx-indics_index_-drag-title">自定义字段</div><div class="_zs_gallery_mx-indics_index_-drag-oper"><span class="color-9 mr10">可拖动排序</span><a href="javascript:;" class="link-brand" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a></div></div><div mxa="_zs_gallerycm:f" class="_zs_gallery_mx-indics_index_-drag-wrapper" mx-view="mx-dragsort/index" mx-dragfinish="' + $viewId + 'drag()">';
+        $line = 49;
         $art = 'each selectedItems as s';
         ;
-        $expr = '<%for (var $art_iywsiwaf$art_i = 0, $art_cacyyjki$art_c = selectedItems.length; $art_iywsiwaf$art_i < $art_cacyyjki$art_c; $art_iywsiwaf$art_i++) {        var s = selectedItems[$art_iywsiwaf$art_i]%>';
-        for (var $art_iywsiwaf$art_i = 0, $art_cacyyjki$art_c = selectedItems.length; $art_iywsiwaf$art_i < $art_cacyyjki$art_c; $art_iywsiwaf$art_i++) {
-            var s = selectedItems[$art_iywsiwaf$art_i];
+        $expr = '<%for (var $art_iwvhzivxw$art_i = 0, $art_cgrizmsuf$art_c = selectedItems.length; $art_iwvhzivxw$art_i < $art_cgrizmsuf$art_c; $art_iwvhzivxw$art_i++) {        var s = selectedItems[$art_iwvhzivxw$art_i]%>';
+        for (var $art_iwvhzivxw$art_i = 0, $art_cgrizmsuf$art_c = selectedItems.length; $art_iwvhzivxw$art_i < $art_cgrizmsuf$art_c; $art_iwvhzivxw$art_i++) {
+            var s = selectedItems[$art_iwvhzivxw$art_i];
             $p += '<div class="_zs_gallery_mx-indics_index_-drag" data-value="';
-            $line = 52;
+            $line = 50;
             $art = '=s.value';
             ;
             $p += ($expr = '<%=s.value%>', $e(s.value)) + '" data-text="';
-            $line = 52;
+            $line = 50;
             $art = '=s.text';
             ;
             $p += ($expr = '<%=s.text%>', $e(s.text)) + '">';
-            $line = 52;
+            $line = 50;
             $art = '=s.text';
             ;
             $p += ($expr = '<%=s.text%>', $e(s.text)) + '</div>';
-            $line = 53;
+            $line = 51;
             $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</div>';
-        $line = 55;
+        $line = 53;
         $art = '/if';
         ;
         $expr = '<%}%>';

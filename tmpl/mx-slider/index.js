@@ -1,7 +1,7 @@
 let Magix = require('magix');
 let $ = require('$');
 let DD = require('../mx-dragdrop/index');
-Magix.applyStyle('@style.less');
+Magix.applyStyle('@index.less');
 let DefaultSize = 280;
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -58,7 +58,7 @@ module.exports = Magix.View.extend({
         });
         me.val(me['@{value}']);
 
-        let railWrapper = me['@{owner.node}'].find('.@style.less:rail-wrapper');
+        let railWrapper = me['@{owner.node}'].find('.@index.less:rail-wrapper');
         me['@{rail.node}'] = railWrapper;
 
         let click = e => {
@@ -102,11 +102,11 @@ module.exports = Magix.View.extend({
     },
     '@{get.ui.vars}' () {
         let me = this;
-        var rail = me['@{owner.node}'].find('.@style.less:rail');
-        let tracker = me['@{owner.node}'].find('.@style.less:tracker');
-        let indicator = me['@{owner.node}'].find('.@style.less:indicator');
-        let pLabel = me['@{owner.node}'].find('.@style.less:pointer-label');
-        let inputArea = me['@{owner.node}'].find('.@style.less:rail-input');
+        var rail = me['@{owner.node}'].find('.@index.less:rail');
+        let tracker = me['@{owner.node}'].find('.@index.less:tracker');
+        let indicator = me['@{owner.node}'].find('.@index.less:indicator');
+        let pLabel = me['@{owner.node}'].find('.@index.less:pointer-label');
+        let inputArea = me['@{owner.node}'].find('.@index.less:rail-input');
         let half = indicator.outerWidth() / 2;
         let rMax = me['@{vertical}'] ? rail.height() : rail.width();
         let max = rMax - half * 2;
@@ -145,7 +145,7 @@ module.exports = Magix.View.extend({
             }
             v = me['@{get.fixed.value}'](p);
             let node = vars.pLabel;
-            node.html(v + (me['@{tip}'] ? ('<span class="@style.less:unit">' + me['@{tip}'] + '</span>') : ''));
+            node.html(v + (me['@{tip}'] ? ('<span class="@index.less:unit">' + me['@{tip}'] + '</span>') : ''));
             if (vars.inputArea && vars.inputArea.length) {
                 vars.inputArea.val(v);
             }

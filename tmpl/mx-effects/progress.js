@@ -109,8 +109,8 @@ module.exports = Magix.View.extend({
             originNum = that.updater.get('originNum');
         if (type == 'circle') {
             let circleNode = $('#' + that.id + '_circle');
-            let right = circleNode.find('.@progress.less:half-right .@progress.less:progress'),
-                left = circleNode.find('.@progress.less:half-left .@progress.less:progress');
+            let right = circleNode.find('.@progress.less:circle-half-right .@progress.less:progress'),
+                left = circleNode.find('.@progress.less:circle-half-left .@progress.less:progress');
             let deg = Math.ceil(360 * originNum / 100);
             let rightDeg, leftDeg;
             if(deg > 180){

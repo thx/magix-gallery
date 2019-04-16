@@ -1,16 +1,14 @@
 <div class="setting {{if sortable}}sortable{{/if}} {{if hasParent}}parent{{/if}}">
     <div class="header">
-        <div class="left">
-            <span class="fontsize-16">选择数据字段</span>
-            {{if (limit > 0)}}
-            <span class="color-9 font-tahoma bold ml10">{{=selectedItems.length}} / {{=limit}}</span>
-            {{/if}}
-            {{if !sortable}}
-            <a href="javascript:;" class="link-brand fr" mx-click="clear()">
-                <i class="mc-iconfont displacement-2">&#xe72e;</i>清空
-            </a>
-            {{/if}}
-        </div>
+        <span class="fontsize-16">选择数据字段</span>
+        {{if (limit > 0)}}
+        <span class="color-9 font-tahoma bold ml10">{{=selectedItems.length}} / {{=limit}}</span>
+        {{/if}}
+        {{if !sortable}}
+        <a href="javascript:;" class="link-brand fr" mx-click="clear()">
+            <i class="mc-iconfont displacement-2">&#xe72e;</i>清空
+        </a>
+        {{/if}}
     </div>
     <div class="content">
         {{each groups as group}}

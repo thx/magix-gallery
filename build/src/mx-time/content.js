@@ -8,7 +8,7 @@ define("mx-time/content",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-time_content_","._zs_gallery_mx-time_content_-groups {\n  position: relative;\n  z-index: 2;\n}\n._zs_gallery_mx-time_content_-group ._zs_gallery_mx-time_content_-ipt {\n  width: 100%;\n  height: 40px;\n  font-size: 24px;\n  text-align: center;\n}\n._zs_gallery_mx-time_content_-group ._zs_gallery_mx-time_content_-ipb {\n  width: 24px;\n  height: 24px;\n  line-height: 24px;\n  font-size: 12px;\n  text-align: center;\n  font-weight: bold;\n  background-color: #e6e6e6;\n  border-radius: var(--border-radius);\n  cursor: pointer;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-time_content_-group ._zs_gallery_mx-time_content_-ipb:hover {\n  background-color: #ccc;\n}\n._zs_gallery_mx-time_content_-group ._zs_gallery_mx-time_content_-time-disabled ._zs_gallery_mx-time_content_-ipb {\n  background-color: var(--color-disabled);\n  color: #ccc;\n}\n._zs_gallery_mx-time_content_-sps {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n  width: 100%;\n  height: 40px;\n}\n._zs_gallery_mx-time_content_-sps ._zs_gallery_mx-time_content_-sp {\n  float: left;\n  width: 50%;\n  font-size: 24px;\n  height: 40px;\n  line-height: 40px;\n  font-weight: bolder;\n  text-align: center;\n}\n._zs_gallery_mx-time_content_-sps ._zs_gallery_mx-time_content_-sp._zs_gallery_mx-time_content_-spa {\n  padding-left: 26px;\n}\n._zs_gallery_mx-time_content_-sps ._zs_gallery_mx-time_content_-sp._zs_gallery_mx-time_content_-spb {\n  padding-right: 26px;\n}\n[mx-view*=\"mx-time/content\"] {\n  min-width: 220px;\n  padding: 10px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-calendar_index_",":root {\n  --calendar-item-gap: 2px;\n  --calendar-item-size: calc(2 * var(--font-size));\n  --calendar-width: calc((var(--calendar-item-size) + var(--calendar-item-gap) * 2) * 7 + 20px);\n  --calendar-height: calc((var(--calendar-item-size) + var(--calendar-item-gap) * 2) * 8 + 20px);\n  --calendar-ym-width: calc((var(--calendar-width) - 60px) / 3);\n  --calendar-ym-height: calc((var(--calendar-height) - var(--calendar-item-size) - var(--calendar-item-gap) * 2 - 80px) / 4);\n  --calendar-time-width: calc(var(--calendar-item-size) * 2 + 6px);\n}\n._zs_gallery_mx-calendar_index_-wrapper {\n  position: relative;\n  z-index: 1000;\n  width: var(--calendar-width);\n  padding: 0;\n  background-color: #fff;\n  border-radius: var(--border-radius);\n  overflow-y: hidden;\n  color: #333;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header {\n  width: var(--calendar-width);\n  padding: 2px 4px;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-minus {\n  float: left;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-plus {\n  float: right;\n  -webkit-transform: scaleX(-1);\n          transform: scaleX(-1);\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-minus,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-plus {\n  line-height: var(--calendar-item-size);\n  font-size: var(--font-size);\n  color: #ccc;\n  cursor: pointer;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-minus:hover,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-plus:hover {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-title {\n  display: inline-block;\n  height: var(--calendar-item-size);\n  line-height: var(--calendar-item-size);\n  padding: 0 10px;\n  cursor: pointer;\n  border-radius: var(--border-radius);\n  color: #666;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-title:hover {\n  background-color: var(--color-bg-hover);\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body {\n  width: var(--calendar-width);\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-weeks {\n  background-color: var(--color-bg);\n  padding: 0 10px;\n  color: #666;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-days {\n  padding: 10px;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-week,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-day {\n  float: left;\n  width: var(--calendar-item-size);\n  height: var(--calendar-item-size);\n  margin: var(--calendar-item-gap);\n  line-height: var(--calendar-item-size);\n  border-radius: 4px;\n  cursor: pointer;\n  color: #333;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-day:hover {\n  background-color: var(--color-bg-hover);\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-gray {\n  color: #999;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-today,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-today:hover {\n  background-color: var(--color-brand-opacity);\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-notallowed,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-notallowed:hover {\n  color: var(--color-disabled);\n  cursor: not-allowed;\n  background: #fff;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-selected,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-selected:hover {\n  color: #fff;\n  background-color: var(--color-brand);\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-time {\n  border-top: 1px solid var(--color-border);\n}\n._zs_gallery_mx-calendar_index_-y-panel,\n._zs_gallery_mx-calendar_index_-m-panel {\n  position: absolute;\n  top: -100%;\n  left: 0;\n  right: 0;\n  transition: top 0.15s;\n  background-color: #fff;\n}\n._zs_gallery_mx-calendar_index_-ym-show {\n  top: 0;\n}\n._zs_gallery_mx-calendar_index_-ym {\n  float: left;\n  width: var(--calendar-ym-width);\n  height: var(--calendar-ym-height);\n  margin: 10px;\n  line-height: var(--calendar-ym-height);\n  border-radius: var(--border-radius);\n  font-size: calc(var(--font-size) + 2px);\n  cursor: pointer;\n}\n._zs_gallery_mx-calendar_index_-ym:hover {\n  background-color: var(--color-bg-hover);\n}\n[mx-view*=\"mx-time/content\"] {\n  min-width: var(--calendar-width);\n  padding: 10px;\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-groups {\n  display: flex;\n  justify-content: space-between;\n  position: relative;\n  z-index: 2;\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-group {\n  overflow: hidden;\n  flex: 0 0 var(--calendar-time-width);\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-group ._zs_gallery_mx-calendar_index_-ipt {\n  width: 100%;\n  height: 40px;\n  font-size: 24px;\n  text-align: center;\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-group ._zs_gallery_mx-calendar_index_-ipb {\n  width: var(--calendar-item-size);\n  height: var(--calendar-item-size);\n  line-height: var(--calendar-item-size);\n  font-size: var(--font-size);\n  text-align: center;\n  font-weight: bold;\n  background-color: var(--color-bg-hover);\n  border-radius: var(--border-radius);\n  cursor: pointer;\n  transition: all var(--duration);\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-group ._zs_gallery_mx-calendar_index_-ipb:hover {\n  background-color: #ccc;\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-group ._zs_gallery_mx-calendar_index_-time-disabled ._zs_gallery_mx-calendar_index_-ipb {\n  background-color: var(--color-disabled);\n  color: #ccc;\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-sps {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n  width: 100%;\n  height: 40px;\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-sps ._zs_gallery_mx-calendar_index_-sp {\n  float: left;\n  width: 50%;\n  font-size: 24px;\n  height: 40px;\n  line-height: 40px;\n  font-weight: bolder;\n  text-align: center;\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-sps ._zs_gallery_mx-calendar_index_-sp._zs_gallery_mx-calendar_index_-spa {\n  padding-left: calc(var(--calendar-time-width) / 2);\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-sps ._zs_gallery_mx-calendar_index_-sp._zs_gallery_mx-calendar_index_-spb {\n  padding-right: calc(var(--calendar-time-width) / 2);\n}\n");
 var parseTime = function (time) {
     if (!time) {
         var d = new Date();
@@ -65,7 +65,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', format = $$.format, time = $$.time, types = $$.types; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryeL:_" class="clearfix pr"><div mxs="_zs_galleryeL:_" class="clearfix _zs_gallery_mx-time_content_-sps"><div class="_zs_gallery_mx-time_content_-sp _zs_gallery_mx-time_content_-spa">:</div><div class="_zs_gallery_mx-time_content_-sp _zs_gallery_mx-time_content_-spb">:</div></div><div mxv mxa="_zs_galleryeL:a" class="_zs_gallery_mx-time_content_-groups" style="display: flex;flex-direction: row;justify-content: space-between;align-items: stretch;--mx-grid-gutter: 0;margin-left: calc(0px - var(--mx-grid-gutter) / 2);margin-right: calc(0px - var(--mx-grid-gutter) / 2);"><div mxv mxa="_zs_galleryeL:b" class="_zs_gallery_mx-time_content_-group" style="overflow: hidden;flex: 0 0 52px;"><div mxv mxa="_zs_galleryeL:c" class="mb5"><input class="input _zs_gallery_mx-time_content_-ipt" maxlength="2" autocomplete="off" value="';
+    $p += '<div mxv mxa="_zs_galleryeM:_" class="clearfix pr"><div mxs="_zs_galleryeM:_" class="clearfix _zs_gallery_mx-calendar_index_-sps"><div class="_zs_gallery_mx-calendar_index_-sp _zs_gallery_mx-calendar_index_-spa">:</div><div class="_zs_gallery_mx-calendar_index_-sp _zs_gallery_mx-calendar_index_-spb">:</div></div><div mxv mxa="_zs_galleryeM:a" class="_zs_gallery_mx-calendar_index_-groups"><div mxv mxa="_zs_galleryeM:b" class="_zs_gallery_mx-calendar_index_-group"><div mxv mxa="_zs_galleryeM:c" class="mb5"><input class="input _zs_gallery_mx-calendar_index_-ipt" maxlength="2" autocomplete="off" value="';
     $line = 12;
     $art = '=format(time[\'@{hour}\'])';
     ;
@@ -98,14 +98,14 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!types[\'@{hour}\']) {%>';
     if (!types['@{hour}']) {
         ;
-        $p += ' _zs_gallery_mx-time_content_-time-disabled ';
+        $p += ' _zs_gallery_mx-calendar_index_-time-disabled ';
         $line = 16;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '"><i class="mc-iconfont _zs_gallery_mx-time_content_-ipb fl" ';
+    $p += '"><i class="mc-iconfont _zs_gallery_mx-calendar_index_-ipb fl" ';
     $line = 18;
     $art = 'if types[\'@{hour}\']';
     ;
@@ -119,7 +119,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '>&#xeb79;</i><i class="mc-iconfont _zs_gallery_mx-time_content_-ipb fr" ';
+    $p += '>&#xeb79;</i><i class="mc-iconfont _zs_gallery_mx-calendar_index_-ipb fr" ';
     $line = 21;
     $art = 'if types[\'@{hour}\']';
     ;
@@ -133,7 +133,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '>&#xeb78;</i></div></div><div mxv mxa="_zs_galleryeL:d" class="_zs_gallery_mx-time_content_-group" style="overflow: hidden;flex: 0 0 52px;"><div mxv mxa="_zs_galleryeL:e" class="mb5"><input class="input _zs_gallery_mx-time_content_-ipt" maxlength="2" autocomplete="off" value="';
+    $p += '>&#xeb78;</i></div></div><div mxv mxa="_zs_galleryeM:d" class="_zs_gallery_mx-calendar_index_-group"><div mxv mxa="_zs_galleryeM:e" class="mb5"><input class="input _zs_gallery_mx-calendar_index_-ipt" maxlength="2" autocomplete="off" value="';
     $line = 29;
     $art = '=format(time[\'@{minute}\'])';
     ;
@@ -166,14 +166,14 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!types[\'@{minute}\']) {%>';
     if (!types['@{minute}']) {
         ;
-        $p += ' _zs_gallery_mx-time_content_-time-disabled ';
+        $p += ' _zs_gallery_mx-calendar_index_-time-disabled ';
         $line = 33;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '"><i class="mc-iconfont _zs_gallery_mx-time_content_-ipb fl" ';
+    $p += '"><i class="mc-iconfont _zs_gallery_mx-calendar_index_-ipb fl" ';
     $line = 35;
     $art = 'if types[\'@{minute}\']';
     ;
@@ -187,7 +187,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '>&#xeb79;</i><i class="mc-iconfont _zs_gallery_mx-time_content_-ipb fr" ';
+    $p += '>&#xeb79;</i><i class="mc-iconfont _zs_gallery_mx-calendar_index_-ipb fr" ';
     $line = 38;
     $art = 'if types[\'@{minute}\']';
     ;
@@ -201,7 +201,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '>&#xeb78;</i></div></div><div mxv mxa="_zs_galleryeL:f" class="_zs_gallery_mx-time_content_-group" style="overflow: hidden;flex: 0 0 52px;"><div mxv mxa="_zs_galleryeL:g" class="mb5"><input class="input _zs_gallery_mx-time_content_-ipt" maxlength="2" autocomplete="off" value="';
+    $p += '>&#xeb78;</i></div></div><div mxv mxa="_zs_galleryeM:f" class="_zs_gallery_mx-calendar_index_-group"><div mxv mxa="_zs_galleryeM:g" class="mb5"><input class="input _zs_gallery_mx-calendar_index_-ipt" maxlength="2" autocomplete="off" value="';
     $line = 46;
     $art = '=format(time[\'@{second}\'])';
     ;
@@ -234,14 +234,14 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!types[\'@{second}\']) {%>';
     if (!types['@{second}']) {
         ;
-        $p += ' _zs_gallery_mx-time_content_-time-disabled ';
+        $p += ' _zs_gallery_mx-calendar_index_-time-disabled ';
         $line = 50;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '"><i class="mc-iconfont _zs_gallery_mx-time_content_-ipb fl" ';
+    $p += '"><i class="mc-iconfont _zs_gallery_mx-calendar_index_-ipb fl" ';
     $line = 52;
     $art = 'if types[\'@{second}\']';
     ;
@@ -255,7 +255,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '>&#xeb79;</i><i class="mc-iconfont _zs_gallery_mx-time_content_-ipb fr" ';
+    $p += '>&#xeb79;</i><i class="mc-iconfont _zs_gallery_mx-calendar_index_-ipb fr" ';
     $line = 55;
     $art = 'if types[\'@{second}\']';
     ;

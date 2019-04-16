@@ -1,16 +1,11 @@
 /* @dependent: ./index.less */
-@import "_vars";
 
 .btn{
     display: inline-block;
-    height: @input-height;
+    height: var(--input-height);
     margin-bottom: 0;
     padding: 0 12px;
-    line-height: @input-height - 2;
-    border-radius: @btn-border-radius;
-    border-width: 1px;
-    border-style: solid;
-    font-size: @font-size;
+    font-size: var(--font-size);
     font-weight: normal;
     text-align: center;
     white-space: nowrap;
@@ -23,76 +18,58 @@
     -ms-user-select: none;
     user-select: none;
     outline: none;
+    line-height: calc(var(--input-height) - 2px);
+    border-radius: var(--btn-border-radius);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--btn-border);
+    background-color: var(--btn-bg);
     background-image: none;
-    transition: all @duration ease-out;
-    color: @btn-text;
-    background-color: @btn-bg;
-    border-color: @btn-border;
-    background-image: none;
+    color: var(--btn-text);
+    transition: all var(--duration) ease-out;
 
     &:hover,
     &.hover,
     &:active {
-        color: @btn-text-hover;
-        background-color: @btn-bg-hover;
-        border-color: @btn-border-hover;
+        border-color: var(--btn-border-hover);
+        background-color: var(--btn-bg-hover);
+        color: var(--btn-text-hover);
     }
 
     &.btn-small {
-        height: @input-small-height;
-        line-height: @input-small-height - 2;
+        height: var(--input-small-height);
+        line-height: calc(var(--input-small-height) - 2px);
     }
 
-    &.btn-brand when (@btn-brand = @btn-brand-gradient) {
-        color: @btn-brand-text;
-        background-color: @btn-brand;
-        border-color: @btn-brand;
-        &:hover,
-        &.hover,
-        &:active {
-            color: @btn-brand-text-hover;
-            background-color: @color-brand-hover;
-            border-color: @color-brand-hover;
-        }
-    }
-
-    &.btn-brand when not (@btn-brand = @btn-brand-gradient) {
-        color: @btn-brand-text;
-        background-color: @btn-brand;
-        background-image: linear-gradient(to right, @btn-brand, @btn-brand-gradient);
-        background-image: -webkit-linear-gradient(left, @btn-brand, @btn-brand-gradient);
-        background-image: -o-linear-gradient(right, @btn-brand, @btn-brand-gradient);
-        background-image: -moz-linear-gradient(right, @btn-brand, @btn-brand-gradient);
+    &.btn-brand {
+        line-height: var(--input-height);
         border: 0 none;
-        line-height: @input-height;
+        background-color: var(--btn-brand);
+        background-image: linear-gradient(to right, transparent, var(--btn-brand-gradient));
+        color: @btn-brand-text;
         
         &:hover,
         &.hover,
         &:active {
-            color: @btn-brand-text-hover;
-            background-color: @color-brand-hover;
-            background-image: linear-gradient(to right, @btn-brand-hover, @btn-brand-gradient-hover);
-            background-image: -webkit-linear-gradient(left, @btn-brand-hover, @btn-brand-gradient-hover);
-            background-image: -o-linear-gradient(right, @btn-brand-hover, @btn-brand-gradient-hover);
-            background-image: -moz-linear-gradient(right, @btn-brand-hover, @btn-brand-gradient-hover);
             border: 0 none;
+            background-color: var(--color-brand-hover);
+            color:var(--btn-brand-text-hover);
         }
 
         &.btn-small{
-            line-height: @input-small-height;
+            line-height: var(--input-small-height);
         }
     }
 
     &.btn-white {
-        background-color: #fff;
         border-color: #fff;
-        background-image: none;
+        background-color: #fff;
+
         &:hover,
         &.hover,
         &:active {
-            background-color: @color-bg;
-            border-color: @color-bg;
-            background-image: none;
+            border-color: var(--color-bg);
+            background-color: var(--color-bg);
         }
     }
 
@@ -105,10 +82,9 @@
     &.btn-disabled.hover,
     &.btn-disabled:active{
         cursor: not-allowed;
-        background-color: @color-disabled;
-        border-color: @btn-border;
         color: #999;
-        background-image: none;
+        border-color: var(--btn-border);
+        background-color: @color-disabled;
     }
     
 }

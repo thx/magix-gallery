@@ -32,7 +32,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (searchbox) {%>';
     if (searchbox) {
         ;
-        $p += '<div mxv mxa="_zs_gallerya]:_" class="mx-output-search"><div mxv mxa="_zs_gallerya]:a" class="search-box" style="width: 100%;"><i mxs="_zs_gallerya]:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+        $p += '<div mxv mxa="_zs_gallerya|:_" class="mx-output-search"><div mxv mxa="_zs_gallerya|:a" class="search-box" style="width: 100%;"><i mxs="_zs_gallerya|:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
         $line = 6;
         $art = '=text.search';
         ;
@@ -54,7 +54,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (multiple) {%>';
     if (multiple) {
         ;
-        $p += '<div mxa="_zs_gallerya]:b" class="_zs_gallery_mx-dropdown_index_-oper-wrapper _zs_gallery_mx-dropdown_index_-has-group clearfix"><a class="_zs_gallery_mx-dropdown_index_-oper" href="javascript:;" mx-click="' + $viewId + '@{checkAll}({checked:true})" data-spm-click="';
+        $p += '<div mxa="_zs_gallerya|:b" class="_zs_gallery_mx-dropdown_index_-oper-wrapper _zs_gallery_mx-dropdown_index_-has-group clearfix"><a class="_zs_gallery_mx-dropdown_index_-oper" href="javascript:;" mx-click="' + $viewId + '@{checkAll}({checked:true})" data-spm-click="';
         $line = 18;
         $art = '=spm';
         ;
@@ -92,8 +92,8 @@ module.exports = Magix.View.extend({
         $line = 24;
         $art = 'each parents as parent parentIndex';
         ;
-        $expr = '<%for (var parentIndex = 0, $art_cxbdivask$art_c = parents.length; parentIndex < $art_cxbdivask$art_c; parentIndex++) {        var parent = parents[parentIndex]%>';
-        for (var parentIndex = 0, $art_cxbdivask$art_c = parents.length; parentIndex < $art_cxbdivask$art_c; parentIndex++) {
+        $expr = '<%for (var parentIndex = 0, $art_crynln$art_c = parents.length; parentIndex < $art_crynln$art_c; parentIndex++) {        var parent = parents[parentIndex]%>';
+        for (var parentIndex = 0, $art_crynln$art_c = parents.length; parentIndex < $art_crynln$art_c; parentIndex++) {
             var parent = parents[parentIndex];
             $p += ' ';
             $line = 25;
@@ -128,9 +128,9 @@ module.exports = Magix.View.extend({
                 $line = 29;
                 $art = 'each parent.list as item itemIndex';
                 ;
-                $expr = '<%for (var itemIndex = 0, $art_objykjalskzr$art_obj = parent.list, $art_cciitpdzaf$art_c = $art_objykjalskzr$art_obj.length; itemIndex < $art_cciitpdzaf$art_c; itemIndex++) {                var item = $art_objykjalskzr$art_obj[itemIndex]%>';
-                for (var itemIndex = 0, $art_objykjalskzr$art_obj = parent.list, $art_cciitpdzaf$art_c = $art_objykjalskzr$art_obj.length; itemIndex < $art_cciitpdzaf$art_c; itemIndex++) {
-                    var item = $art_objykjalskzr$art_obj[itemIndex];
+                $expr = '<%for (var itemIndex = 0, $art_objfnyqnrk$art_obj = parent.list, $art_ckdpklvq$art_c = $art_objfnyqnrk$art_obj.length; itemIndex < $art_ckdpklvq$art_c; itemIndex++) {                var item = $art_objfnyqnrk$art_obj[itemIndex]%>';
+                for (var itemIndex = 0, $art_objfnyqnrk$art_obj = parent.list, $art_ckdpklvq$art_c = $art_objfnyqnrk$art_obj.length; itemIndex < $art_ckdpklvq$art_c; itemIndex++) {
+                    var item = $art_objfnyqnrk$art_obj[itemIndex];
                     $p += ' ';
                     $line = 30;
                     $art = 'if !item.hide';
@@ -312,7 +312,7 @@ module.exports = Magix.View.extend({
     }
     else {
         ;
-        $p += '<div mxa="_zs_gallerya]:c" class="text-center color-9 pt20 pb20">';
+        $p += '<div mxa="_zs_gallerya|:c" class="text-center color-9 pt20 pb20">';
         $line = 55;
         $art = '=text.empty';
         ;
@@ -330,11 +330,11 @@ module.exports = Magix.View.extend({
     $expr = '<%if (multiple) {%>';
     if (multiple) {
         ;
-        $p += '<div mxa="_zs_gallerya]:d" class="mx-output-footer"><a mxa="_zs_gallerya]:e" href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}()">';
+        $p += '<div mxa="_zs_gallerya|:d" class="mx-output-footer"><a mxa="_zs_gallerya|:e" href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}()">';
         $line = 59;
         $art = '=text.submit';
         ;
-        $p += ($expr = '<%=text.submit%>', $e(text.submit)) + '</a><a mxa="_zs_gallerya]:f" href="javascript:;" class="btn btn-small" mx-click="' + $viewId + '@{cancel}()">';
+        $p += ($expr = '<%=text.submit%>', $e(text.submit)) + '</a><a mxa="_zs_gallerya|:f" href="javascript:;" class="btn btn-small" mx-click="' + $viewId + '@{cancel}()">';
         $line = 60;
         $art = '=text.cancel';
         ;

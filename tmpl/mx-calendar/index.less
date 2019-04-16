@@ -1,19 +1,26 @@
-@import "../mx-style/_vars";
-@cwidth: (2 * @font-size + 8) * 7;
-@cheight: (6 * (2 * @font-size + 6))+ 20 + 62;
+:root{
+    --calendar-item-gap: 2px;
+    --calendar-item-size: calc(2 * var(--font-size));
+    --calendar-width: calc((var(--calendar-item-size) + var(--calendar-item-gap) * 2) * 7 + 20px);
+    --calendar-height: calc((var(--calendar-item-size) + var(--calendar-item-gap) * 2) * 8 + 20px);
+    --calendar-ym-width: calc((var(--calendar-width) - 60px) / 3);
+    --calendar-ym-height: calc((var(--calendar-height) - var(--calendar-item-size) - var(--calendar-item-gap) * 2 - 80px) / 4);
+    --calendar-time-width: calc(var(--calendar-item-size) * 2 + 6px);
+}
 
 .wrapper {
     position: relative;
     z-index: 1000;
-    display: inline-block;
+    width: var(--calendar-width);
     padding: 0;
     background-color: #fff;
-    border-radius: @border-radius;
+    border-radius: var(--border-radius);
     overflow-y: hidden;
     color: #333;
     text-align: center;
 
     .header {
+        width: var(--calendar-width);
         padding: 2px 4px;
 
         .minus {
@@ -26,28 +33,28 @@
         }
 
         .minus, .plus {
-            line-height: 28px;
-            font-size: 14px;
+            line-height: var(--calendar-item-size);
+            font-size: var(--font-size);
             color: #ccc;
             cursor: pointer;
 
             &:hover {
-                color: @color-brand;
+                color: var(--color-brand);
             }
 
         }
 
         .title {
             display: inline-block;
-            height: 28px;
-            line-height: 28px;
+            height: var(--calendar-item-size);
+            line-height: var(--calendar-item-size);
             padding: 0 10px;
             cursor: pointer;
-            border-radius: @border-radius;
+            border-radius: var(--border-radius);
             color: #666;
 
             &:hover {
-                background-color: #eee;
+                background-color: var(--color-bg-hover);
             }
 
         }
@@ -55,10 +62,10 @@
     }
 
     .body {
-        width: @cwidth;
+        width: var(--calendar-width);
 
         .weeks {
-            background-color: @color-bg;
+            background-color: var(--color-bg);
             padding: 0 10px;
             color: #666;
         }
@@ -69,25 +76,17 @@
 
         .week, .day {
             float: left;
-            height: 2 * @font-size;
-            line-height: 2 * @font-size;
+            width: var(--calendar-item-size);
+            height: var(--calendar-item-size);
+            margin: var(--calendar-item-gap);
+            line-height: var(--calendar-item-size);
             border-radius: 4px;
             cursor: pointer;
             color: #333;
         }
 
-        .week{
-            width: 2 * @font-size + 4px;
-            margin: 3px 0;
-        }
-
-        .day{
-            width: 2 * @font-size;
-            margin: 3px 2px;
-        }
-
         .day:hover {
-            background-color: @color-bg-hover;
+            background-color: var(--color-bg-hover);
         }
 
         .gray {
@@ -95,37 +94,28 @@
         }
 
         .today, .today:hover {
-            background-color: @color-brand-opacity;
+            background-color: var(--color-brand-opacity);
         }
 
         .notallowed, .notallowed:hover {
-            color: @color-disabled;
+            color: var(--color-disabled);
             cursor: not-allowed;
             background: #fff;
         }
 
         .selected, .selected:hover {
             color: #fff;
-            background-color: @color-brand;
+            background-color: var(--color-brand);
         }
 
     }
 
     .time {
-        border-top: 1px solid @color-border;
+        border-top: 1px solid var(--color-border);
     }
-
-    .footer {
-        margin: 10px;
-        padding: 10px 0 0 0;
-        border-top: 1px solid @color-border;
-        text-align: left;
-    }
-
 }
 
 .y-panel, .m-panel {
-    padding: 1px 0;
     position: absolute;
     top: -100%;
     left: 0;
@@ -140,16 +130,89 @@
 
 .ym {
     float: left;
-    width: floor((@cwidth - 10 * 6) / 3);
-    height: floor((@cheight - 32 - 10 * 8) / 4);
+    width: var(--calendar-ym-width);
+    height: var(--calendar-ym-height);
     margin: 10px;
-    line-height: floor((@cheight - 32 - 10 * 8) / 4);
-    border-radius: @border-radius;
-    font-size: @font-size + 2;
+    line-height: var(--calendar-ym-height);
+    border-radius: var(--border-radius);
+    font-size: calc(var(--font-size) + 2px);
     cursor: pointer;
 
     &:hover {
-        background-color: @color-bg-hover;
+        background-color: var(--color-bg-hover);
     }
 
 }
+
+@group-height: 40px;
+[mx-view*="mx-time/content"]{
+    min-width: var(--calendar-width);
+    padding: 10px;
+
+    .groups{
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+    }
+    .group {
+        overflow: hidden;
+        flex: 0 0 var(--calendar-time-width);
+        .ipt {
+            width: 100%;
+            height: @group-height;
+            font-size: 24px;
+            text-align: center;
+        }
+    
+        .ipb{
+            width: var(--calendar-item-size);
+            height: var(--calendar-item-size);
+            line-height: var(--calendar-item-size);
+            font-size: var(--font-size);
+            text-align: center;
+            font-weight: bold;
+            background-color: var(--color-bg-hover);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all var(--duration);
+    
+            &:hover{
+                background-color: #ccc;
+            }
+        }
+    
+        .time-disabled{
+            .ipb{
+                background-color: var(--color-disabled);
+                color: #ccc;
+            }
+        }
+    }
+    
+    .sps{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: @group-height;
+        .sp {
+            float: left;
+            width: 50%;
+            font-size: 24px;
+            height: @group-height;
+            line-height: @group-height;
+            font-weight: bolder;
+            text-align: center;
+    
+            &.spa{
+                padding-left: calc(var(--calendar-time-width) / 2);
+            }
+            &.spb{
+                padding-right: calc(var(--calendar-time-width) / 2);
+            }
+        }
+    }
+}
+

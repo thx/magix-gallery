@@ -28,19 +28,19 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', list = $$.list, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryab:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryab:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryab:_" class="mb20"><span class="color-9">以下示例：</span><span>可同时展开多个 + 默认展示两个 + 第一个和最后一个禁用</span></div><div mxv="list" mx-view="mx-collapse/index?onlyOne=false&list=';
+    $p += '<div mxv mxa="_zs_galleryac:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryac:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryac:_" class="mb20"><span class="color-9">以下示例：</span><span>可同时展开多个 + 默认展示两个 + 第一个和最后一个禁用</span></div><div mxv="list" mx-view="mx-collapse/index?onlyOne=false&list=';
     $line = 9;
     $art = '@list';
     ;
-    $p += ($expr = '<%@list%>', $i($$ref, list)) + '"></div></div><div mxa="_zs_galleryab:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryab:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@list%>', $i($$ref, list)) + '"></div></div><div mxa="_zs_galleryac:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryac:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 13;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryab:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryac:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 15;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryab:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryac:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 18;
     $art = '=viewId';
     ;

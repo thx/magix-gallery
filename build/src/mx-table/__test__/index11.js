@@ -29,11 +29,11 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerye_:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxa="_zs_galleryea:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'自定义吸顶容器\',\n        key: viewId + \'_1\'\n    }, {\n        name: \'相对于window吸顶\',\n        key: viewId + \'_2\'\n    }, {\n        name: \'滚动时隐藏吸顶\',\n        key: viewId + \'_3\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'自定义吸顶容器\',            key: viewId + \'_1\'        }, {            name: \'相对于window吸顶\',            key: viewId + \'_2\'        }, {            name: \'滚动时隐藏吸顶\',            key: viewId + \'_3\'        }]%>', $i($$ref, [{ name: '自定义吸顶容器', key: viewId + '_1' }, { name: '相对于window吸顶', key: viewId + '_2' }, { name: '滚动时隐藏吸顶', key: viewId + '_3' }])) + '"></div><div mxs="_zs_gallerye_:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mx-view="mx-table/__test__/13" id="';
+    $p += ($expr = '<%@[{            name: \'自定义吸顶容器\',            key: viewId + \'_1\'        }, {            name: \'相对于window吸顶\',            key: viewId + \'_2\'        }, {            name: \'滚动时隐藏吸顶\',            key: viewId + \'_3\'        }]%>', $i($$ref, [{ name: '自定义吸顶容器', key: viewId + '_1' }, { name: '相对于window吸顶', key: viewId + '_2' }, { name: '滚动时隐藏吸顶', key: viewId + '_3' }])) + '"></div><div mxs="_zs_galleryea:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mx-view="mx-table/__test__/13" id="';
     $line = 14;
     $art = '=viewId';
     ;

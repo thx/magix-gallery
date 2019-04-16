@@ -10,7 +10,7 @@ var Magix = require("magix");
 var $ = require("$");
 var I18n = require("../mx-medusa/util");
 var Monitor = require("../mx-util/monitor");
-Magix.applyStyle("_zs_gallery_mx-taginput_index_","[mx-view*=\"mx-taginput/index\"] {\n  --tag-left-padding: 10px;\n  --tag-gap: 2px;\n  --tag-height: calc(var(--input-height) - (var(--tag-gap) * 4) - 2px);\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt {\n  position: relative;\n  height: auto;\n  border-style: solid;\n  border-width: 1px;\n  border-color: var(--border-highlight);\n  border-radius: var(--border-radius);\n  padding-top: var(--tag-gap);\n  padding-bottom: var(--tag-gap);\n  padding-left: calc(var(--tag-left-padding) - 4px);\n  padding-right: calc(var(--tag-left-padding) - 4px);\n  cursor: text;\n  transition: border-color var(--duration);\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt:hover {\n  border-color: var(--border-highlight-hover);\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-placeholder,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-trigger,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item {\n  height: var(--tag-height);\n  line-height: var(--tag-height);\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-placeholder {\n  position: absolute;\n  top: calc(var(--tag-gap) * 2);\n  left: var(--tag-left-padding);\n  color: #999;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-trigger {\n  float: left;\n  margin-top: var(--tag-gap);\n  margin-bottom: var(--tag-gap);\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item {\n  float: left;\n  position: relative;\n  max-width: 220px;\n  padding-right: 26px;\n  padding-left: 6px;\n  margin-right: calc(var(--tag-gap) * 2);\n  background-color: var(--color-bg-hover);\n  border-radius: var(--border-radius);\n  cursor: pointer;\n  white-space: nowrap;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item ._zs_gallery_mx-taginput_index_-item-delete {\n  position: absolute;\n  top: 0;\n  right: 0;\n  height: 100%;\n  width: 20px;\n  line-height: var(--tag-height);\n  text-align: center;\n  font-size: 12px;\n  font-weight: bold;\n  color: #ccc;\n  transition: color var(--duration);\n  border-left: 1px solid #fff;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item ._zs_gallery_mx-taginput_index_-item-delete:hover {\n  color: #999;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-trigger {\n  padding: 0;\n  border: none;\n  outline: none;\n  background: transparent;\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-ipt {\n  cursor: not-allowed;\n  background-color: var(--color-bg);\n  border-color: var(--color-border);\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-ipt:hover {\n  border-color: var(--color-border);\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-item {\n  cursor: not-allowed;\n  color: #999;\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-item ._zs_gallery_mx-taginput_index_-item-delete:hover {\n  color: #ccc;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-tag-item {\n  margin: 2px 0;\n  padding: 0 10px;\n  cursor: pointer;\n  height: var(--input-small-height);\n  line-height: var(--input-small-height);\n  border-radius: var(--border-radius);\n  white-space: nowrap;\n  word-break: break-all;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-tag-item:hover,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-tag-item._zs_gallery_mx-taginput_index_-hover {\n  background-color: var(--color-bg-hover);\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-tag-item._zs_gallery_mx-taginput_index_-active,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-tag-item._zs_gallery_mx-taginput_index_-active:hover,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-tag-item._zs_gallery_mx-taginput_index_-active:active,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-tag-item._zs_gallery_mx-taginput_index_-active:focus {\n  color: var(--color-brand);\n  background-color: var(--color-brand-opacity);\n}\n");
+Magix.applyStyle("_zs_gallery_mx-taginput_index_","[mx-view*=\"mx-taginput/index\"] {\n  --tag-left-padding: 10px;\n  --tag-gap: 2px;\n  --tag-height: calc(var(--input-height) - (var(--tag-gap) * 4) - 2px);\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt {\n  position: relative;\n  height: auto;\n  border-style: solid;\n  border-width: 1px;\n  border-color: var(--border-highlight);\n  border-radius: var(--border-radius);\n  padding-top: var(--tag-gap);\n  padding-bottom: var(--tag-gap);\n  padding-left: calc(var(--tag-left-padding) - 4px);\n  padding-right: calc(var(--tag-left-padding) - 4px);\n  cursor: text;\n  transition: border-color var(--duration);\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt:hover {\n  border-color: var(--border-highlight-hover);\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-placeholder,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-trigger,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item {\n  height: var(--tag-height);\n  line-height: var(--tag-height);\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-placeholder {\n  position: absolute;\n  top: calc(var(--tag-gap) * 2);\n  left: var(--tag-left-padding);\n  color: #999;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-trigger {\n  float: left;\n  margin-top: var(--tag-gap);\n  margin-bottom: var(--tag-gap);\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item {\n  float: left;\n  position: relative;\n  max-width: 220px;\n  padding-right: 26px;\n  padding-left: 6px;\n  margin-right: calc(var(--tag-gap) * 2);\n  background-color: var(--color-bg-hover);\n  border-radius: var(--border-radius);\n  cursor: pointer;\n  white-space: nowrap;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item ._zs_gallery_mx-taginput_index_-item-delete {\n  position: absolute;\n  top: 0;\n  right: 0;\n  height: 100%;\n  width: 20px;\n  line-height: var(--tag-height);\n  text-align: center;\n  font-size: 12px;\n  font-weight: bold;\n  color: #ccc;\n  transition: color var(--duration);\n  border-left: 1px solid #fff;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-item ._zs_gallery_mx-taginput_index_-item-delete:hover {\n  color: #999;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-ipt ._zs_gallery_mx-taginput_index_-trigger {\n  padding: 0;\n  border: none;\n  outline: none;\n  background: transparent;\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-ipt {\n  cursor: not-allowed;\n  background-color: var(--color-bg);\n  border-color: var(--color-border);\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-ipt:hover {\n  border-color: var(--color-border);\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-item {\n  cursor: not-allowed;\n  color: #999;\n}\n[mx-view*=\"mx-taginput/index\"][mx-disabled] ._zs_gallery_mx-taginput_index_-item ._zs_gallery_mx-taginput_index_-item-delete:hover {\n  color: #ccc;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-tag-item {\n  margin: 2px 0;\n  padding: 0 10px;\n  cursor: pointer;\n  height: var(--input-small-height);\n  line-height: var(--input-small-height);\n  border-radius: var(--border-radius);\n  white-space: nowrap;\n  word-break: break-all;\n}\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-tag-item:hover,\n[mx-view*=\"mx-taginput/index\"] ._zs_gallery_mx-taginput_index_-tag-item._zs_gallery_mx-taginput_index_-hover {\n  background-color: var(--color-bg-hover);\n}\n");
 var MinWidth = 10;
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
@@ -40,7 +40,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!items.length) {%>';
     if (!items.length) {
         ;
-        $p += '<span mxa="_zs_galleryeG:_" class="_zs_gallery_mx-taginput_index_-placeholder">';
+        $p += '<span mxa="_zs_galleryeH:_" class="_zs_gallery_mx-taginput_index_-placeholder">';
         $line = 6;
         $art = '=placeholder';
         ;
@@ -62,10 +62,10 @@ module.exports = Magix.View.extend({
         $line = 10;
         $art = 'each items as one idx';
         ;
-        $expr = '<%for (var idx = 0, $art_cpyjkpdx$art_c = items.length; idx < $art_cpyjkpdx$art_c; idx++) {        var one = items[idx]%>';
-        for (var idx = 0, $art_cpyjkpdx$art_c = items.length; idx < $art_cpyjkpdx$art_c; idx++) {
+        $expr = '<%for (var idx = 0, $art_cdktcbis$art_c = items.length; idx < $art_cdktcbis$art_c; idx++) {        var one = items[idx]%>';
+        for (var idx = 0, $art_cdktcbis$art_c = items.length; idx < $art_cdktcbis$art_c; idx++) {
             var one = items[idx];
-            $p += '<span mxa="_zs_galleryeG:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
+            $p += '<span mxa="_zs_galleryeH:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
             $line = 12;
             $art = '=one.text';
             ;
@@ -138,15 +138,15 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '" mx-mouseout="' + $viewId + '@{out}()" mx-mousemove="' + $viewId + '@{move}()" mx-contextmenu="' + $viewId + '@{prevent}()"><ul mxa="_zs_galleryeG:b" class="mx-output-list">';
-        $line = 37;
+        $p += '" mx-mouseout="' + $viewId + '@{out}()" mx-contextmenu="' + $viewId + '@{prevent}()"><ul mxa="_zs_galleryeH:b" class="mx-output-list">';
+        $line = 36;
         $art = 'if loading';
         ;
         $expr = '<%if (loading) {%>';
         if (loading) {
             ;
-            $p += '<li mxs="_zs_galleryeG:_"><div class="loading" style="padding: 40px 0;"><span class="loading-anim"></span></div></li>';
-            $line = 41;
+            $p += '<li mxs="_zs_galleryeH:_"><div class="loading" style="padding: 40px 0;"><span class="loading-anim"></span></div></li>';
+            $line = 40;
             $art = 'else';
             ;
             $expr = '<%}    else {%>';
@@ -154,74 +154,74 @@ module.exports = Magix.View.extend({
         else {
             ;
             $p += ' ';
-            $line = 42;
+            $line = 41;
             $art = 'if (suggest && suggest.length)';
             ;
             $expr = '<%if (suggest && suggest.length) {%>';
             if (suggest && suggest.length) {
                 ;
                 $p += ' ';
-                $line = 43;
+                $line = 42;
                 $art = 'each suggest as item idx';
                 ;
-                $expr = '<%for (var idx = 0, $art_chrlgbiqcj$art_c = suggest.length; idx < $art_chrlgbiqcj$art_c; idx++) {                var item = suggest[idx]%>';
-                for (var idx = 0, $art_chrlgbiqcj$art_c = suggest.length; idx < $art_chrlgbiqcj$art_c; idx++) {
+                $expr = '<%for (var idx = 0, $art_cwapog$art_c = suggest.length; idx < $art_cwapog$art_c; idx++) {                var item = suggest[idx]%>';
+                for (var idx = 0, $art_cwapog$art_c = suggest.length; idx < $art_cwapog$art_c; idx++) {
                     var item = suggest[idx];
                     $p += '<li class="_zs_gallery_mx-taginput_index_-tag-item" mx-click="' + $viewId + '@{add}({item:\'';
-                    $line = 45;
+                    $line = 44;
                     $art = '@item';
                     ;
                     $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})" data-idx="';
-                    $line = 46;
+                    $line = 45;
                     $art = '=idx';
                     ;
                     $p += ($expr = '<%=idx%>', $e(idx)) + '" id="sg_';
-                    $line = 47;
+                    $line = 46;
                     $art = '=viewId';
                     ;
                     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
-                    $line = 47;
+                    $line = 46;
                     $art = '=idx';
                     ;
                     $p += ($expr = '<%=idx%>', $e(idx)) + '">';
-                    $line = 48;
+                    $line = 47;
                     $art = '!item.text';
                     ;
                     $p += ($expr = '<%!item.text%>', $n(item.text)) + '</li>';
-                    $line = 50;
+                    $line = 49;
                     $art = '/each';
                     ;
                     $expr = '<%}%>';
                 }
                 ;
                 $p += ' ';
-                $line = 51;
+                $line = 50;
                 $art = 'else';
                 ;
                 $expr = '<%}        else {%>';
             }
             else {
                 ;
-                $p += '<li mxa="_zs_galleryeG:c" class="text-center color-9">';
-                $line = 52;
+                $p += '<li mxa="_zs_galleryeH:c" class="text-center color-9">';
+                $line = 51;
                 $art = '=emptyText';
                 ;
                 $p += ($expr = '<%=emptyText%>', $e(emptyText)) + '</li>';
-                $line = 53;
+                $line = 52;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' ';
-            $line = 54;
+            $line = 53;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</ul></div>';
-        $line = 57;
+        $line = 56;
         $art = '/if';
         ;
         $expr = '<%}%>';
@@ -523,11 +523,11 @@ catch (ex) {
         var node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
         node.removeClass('_zs_gallery_mx-taginput_index_-hover');
     },
-    '@{highlight}': function (ignore) {
+    '@{highlight}': function () {
         var me = this;
         var node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
         node.addClass('_zs_gallery_mx-taginput_index_-hover');
-        if (!ignore && node.length) {
+        if (node.length) {
             me['@{temp.ignore}'] = 1; //如果是上下按键引起的滚动，则在move时忽略
             var height = node.outerHeight();
             var scrolled = (me['@{ui.index}'] + 1) * height;
@@ -581,22 +581,6 @@ catch (ex) {
             var me = this;
             me['@{normal}']();
             me['@{ui.index}'] = -1;
-        }
-    },
-    '@{move}<mousemove>': function (e) {
-        var me = this;
-        if (me['@{temp.ignore}']) {
-            delete me['@{temp.ignore}'];
-            return;
-        }
-        var target = $(e.target);
-        if (target.hasClass('unfound-[suggest-item]-from-index.less')) {
-            var idx = target.data('idx');
-            if (idx != me['@{ui.index}']) {
-                me['@{normal}']();
-                me['@{ui.index}'] = idx;
-                me['@{highlight}'](true);
-            }
         }
     },
     showLoading: function () {

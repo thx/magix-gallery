@@ -2,10 +2,10 @@
 <div class="circle-wrapper">
     <div class="circle-bg" style="width: {{=width}}px; height: {{=width}}px; margin-left: {{=(0 - width / 2)}}px; border: {{=border}}px solid #f0f0f0;"></div>
     <div id="{{=viewId}}_circle" class="circle" style="width: {{=(width + 2 * border)}}px; height: {{=(width + 2 * border)}}px;">
-        <div class="half half-left" style="width: {{=(width / 2) + border}}px; height: {{=(width + 2 * border)}}px;">
+        <div class="circle-half circle-half-left" style="width: {{=(width / 2) + border}}px; height: {{=(width + 2 * border)}}px;">
             <div class="progress" style="left: {{=border}}px; width: {{=width}}px; height: {{=width}}px; border: {{=border}}px solid transparent; border-bottom: {{=border}}px solid {{=color}}; border-left: {{=border}}px solid {{=color}};"></div>
         </div>
-        <div class="half half-right" style="width: {{=(width / 2) + border}}px; height: {{=(width + 2 * border)}}px; ">
+        <div class="circle-half circle-half-right" style="width: {{=(width / 2) + border}}px; height: {{=(width + 2 * border)}}px; ">
             <div class="progress" style="right: {{=border}}px; width: {{=width}}px; height: {{=width}}px; border: {{=border}}px solid transparent; border-top: {{=border}}px solid {{=color}}; border-right: {{=border}}px solid {{=color}};"></div>
         </div>
     </div>

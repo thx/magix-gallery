@@ -1,5 +1,3 @@
-@import "../mx-style/_vars";
-
 [mx-view*="mx-indics/index"]{
     display: inline-block;
     vertical-align: middle;
@@ -7,7 +5,7 @@
 
 @setting-right-width: 240px;
 @setting-header-height: 60px;
-@setting-content-name-width: @font-size * 8;
+@setting-content-name-width: 90px;
 .setting {
     position: relative;
     height: 100%;
@@ -18,7 +16,7 @@
         padding: 0 24px;
         background-color: #fff;
         line-height: @setting-header-height;
-        border-bottom: 1px solid @color-border;
+        border-bottom: 1px solid var(--color-border);
     }
 
     .content {
@@ -33,14 +31,14 @@
             position: relative;
             padding: 16px 24px;
             &:nth-of-type(even) {
-                background-color: @color-bg;
+                background-color: var(--color-bg);
             }
         }
         .name{
             position: absolute;
             top: 16px;
             left: 24px;
-            width: @font-size * 8;
+            width: @setting-content-name-width;
             padding: 8px 0;
             color: #999;
         }
@@ -67,7 +65,7 @@
 
         .content {
             right: @setting-right-width;
-            border-right: 1px solid @color-border;
+            border-right: 1px solid var(--color-border);
         }
 
         .drag-header{
@@ -82,7 +80,7 @@
                 line-height: @setting-header-height;
                 font-size: 16px;
                 padding-left: 24px;
-                border-bottom: 1px solid @color-border;
+                border-bottom: 1px solid var(--color-border);
             }
 
             .drag-oper{
@@ -90,7 +88,7 @@
                 padding: 0 24px;
                 line-height: 38px;
                 text-align: right;
-                background-color: @color-bg;
+                background-color: var(--color-bg);
             }
         }
 
@@ -102,7 +100,7 @@
             width: @setting-right-width;
             padding: 0 24px 16px 24px;
             overflow-y: scroll;
-            background-color: @color-bg;
+            background-color: var(--color-bg);
 
             .drag {
                 height: 30px;
@@ -110,8 +108,8 @@
                 padding: 0 15px;
                 line-height: 28px;
                 background: #fff;
-                border: 1px solid @color-border;
-                border-radius: @border-radius;
+                border: 1px solid var(--color-border);
+                border-radius: var(--border-radius);
                 cursor: move;
                 &:last-child {
                     margin-bottom: 0;
@@ -127,11 +125,11 @@
 
     &:hover{
         color: #333;
-        border-color: @border-highlight-hover;
+        border-color: var(--border-highlight-hover);
     }
 
     &:focus{
-        border-color: @border-highlight-hover;
+        border-color: var(--border-highlight-hover);
     }
 }
 
@@ -151,8 +149,8 @@
         top: 0;
         right: 0;
         width: 20px;
-        height: @input-height;
-        line-height: @input-height;
+        height: var(--input-height);
+        line-height: var(--input-height);
         text-align: center;
         font-size: 18px;
     }

@@ -1,6 +1,5 @@
 /* @dependent: ./index.less */
 @charset "UTF-8";
-@import "./_vars";
 
 html,
 body {
@@ -8,9 +7,9 @@ body {
     padding: 0;
     font-family: Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
     color: #333;
-    font-size: @font-size;
+    font-size: var(--font-size);
     -webkit-font-smoothing: antialiased;
-    line-height: @line-height;
+    line-height: var(--line-height);
 }
 
 body,
@@ -249,22 +248,17 @@ video {
     vertical-align: baseline;
 }
 
-// Box sizing
-.box-sizing(@boxmodel) {
-    box-sizing: @boxmodel;
-}
-
 html {
-    .box-sizing(border-box);
+    box-sizing: border-box;
 }
 
 * {
-    .box-sizing(inherit);
+    box-sizing: inherit;
 }
 
 *:before,
 *:after {
-    .box-sizing(inherit);
+    box-sizing: inherit;
 }
 
 input:focus,
@@ -278,9 +272,9 @@ button:focus {
 a {
     color: #333;
     text-decoration: none;
-    transition: all @duration;
+    transition: all var(--duration);
     &:hover {
-        color: @color-brand;
+        color: var(--color-brand);
     }
     &:hover,
     &:focus,
@@ -316,10 +310,10 @@ a {
         &:visited,
         &:focus,
         &:active {
-            color: @color-brand;
+            color: var(--color-brand);
         }
         &:hover {
-            color: @color-brand-hover;
+            color: var(--color-brand-hover);
         }
     }
 }
@@ -338,6 +332,6 @@ label {
 /*文字选中样式*/
 ::selection,
 ::-moz-selection {
-    background-color: @color-brand-hover;
+    background-color: var(--color-brand-opacity);
     color: white;
 }

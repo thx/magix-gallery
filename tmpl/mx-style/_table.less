@@ -1,11 +1,10 @@
 /* @dependent: ./index.less */
-@import '_vars';
 @table-ceil-gap: 8px;
 .table {
     width: 100%;
 
     thead {
-        background-color: @color-bg;
+        background-color: var(--color-bg);
 
         tr {
             th {
@@ -29,7 +28,7 @@
                     .group-name {
                         line-height: 26px;
                         padding-bottom: 2px;
-                        border-bottom: 1px solid @color-border;
+                        border-bottom: 1px solid var(--color-border);
                     }
 
                 }
@@ -52,9 +51,9 @@
             td {
                 padding: (@table-ceil-gap * 2) @table-ceil-gap;
                 color: #333;
-                border-top: 1px solid @color-border;
+                border-top: 1px solid var(--color-border);
                 border-bottom: none;
-                transition: background-color @duration ease-out;
+                transition: background-color var(--duration) ease-out;
 
                 &:first-child {
                     padding-left: @table-ceil-gap * 2;
@@ -66,18 +65,18 @@
 
                 &.sub-mask {
                     background-color: #fff;
-                    border-right: 1px solid @color-brand;
+                    border-right: 1px solid var(--color-brand-light);
                     border-top: 0 none;
                 }
 
                 &.sub-mask-first {
-                    border-top: 1px solid @color-border;
+                    border-top: 1px solid var(--color-border);
                     border-bottom: 0 none;
                 }
 
                 .operations {
                     opacity: 0;
-                    transition: opacity @duration ease-out;
+                    transition: opacity var(--duration) ease-out;
                 }
 
             }
@@ -90,7 +89,7 @@
 
             &:hover, &.hover-tr {
                 td {
-                    background-color: @color-brand-opacity;
+                    background-color: var(--color-brand-opacity);
 
                     &.sub-mask {
                         background-color: #fff;
@@ -110,7 +109,7 @@
                         height: 200px;
                         text-align: center;
                         color: #999;
-                        background-color: @color-bg;
+                        background-color: var(--color-bg);
 
                         .no-data {
                             font-size: 60px;
@@ -129,7 +128,7 @@
                 td {
                     padding: @table-ceil-gap (@table-ceil-gap * 2);
                     border-top: 0 none;
-                    background-color: tint(@color-brand, 88%);
+                    background-color: var(--color-brand-light);
 
                     &.sub-mask {
                         background-color: #fff;
@@ -145,13 +144,13 @@
 
             &.thead {
                 &, &:hover, &.hover-tr {
-                    background-color: @color-bg;
+                    background-color: var(--color-bg);
 
                     td {
                         height: 60px;
                         padding: 0 @table-ceil-gap;
                         color: #999;
-                        border-top: 1px solid @color-border;
+                        border-top: 1px solid var(--color-border);
                         border-bottom: 0 none;
                         background-color: transparent;
 
@@ -173,7 +172,7 @@
         tr {
             td {
                 padding: @table-ceil-gap * 2;
-                background-color: @color-bg;
+                background-color: var(--color-bg);
                 border: none;
             }
 

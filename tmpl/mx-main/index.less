@@ -1,8 +1,6 @@
-@import "../mx-style/_vars";
-
 .main {
     position: relative;
-    background-color: @color-bg;
+    background-color: var(--color-bg);
 
     .main-nav {
         position: absolute;
@@ -19,7 +17,7 @@
                 color: #666;
     
                 &:hover {
-                    color: @color-brand;
+                    color: var(--color-brand);
                 }
             }
 
@@ -36,7 +34,7 @@
 
                 &:hover {
                     .over-icon>* {
-                        color: @color-brand;
+                        color: var(--color-brand);
                     }
 
                 }
@@ -78,13 +76,13 @@
             }
 
             &.step-current {
-                background-color: @color-brand-opacity;
+                background-color: var(--color-brand-opacity);
 
                 .link-on, .link-on:hover {
-                    color: @color-brand;
+                    color: var(--color-brand);
 
                     .over-icon>* {
-                        color: @color-brand;
+                        color: var(--color-brand);
                     }
 
                 }
@@ -96,7 +94,7 @@
                     margin-top: -7px;
                     font-size: 12px;
                     font-weight: bold;
-                    color: @color-brand;
+                    color: var(--color-brand);
                 }
 
             }
@@ -137,8 +135,8 @@
             line-height: 58px;
             text-align: center;
             font-size: 20px;
-            border-bottom: 1px solid @color-border;
-            background-color: @color-bg;
+            border-bottom: 1px solid var(--color-border);
+            background-color: var(--color-bg);
         }
 
         .content-body {
@@ -146,8 +144,8 @@
             margin-left: 20px;
             margin-right: 20px;
             background-color: #fff;
-            border-bottom-left-radius: @border-radius;
-            border-bottom-right-radius: @border-radius;
+            border-bottom-left-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
 
             .content-box {
                 position: relative;
@@ -167,7 +165,7 @@
                 height: 100%;
                 padding-top: 20px;
                 padding-left: 20px;
-                border-left: 1px solid @color-border;
+                border-left: 1px solid var(--color-border);
             }
 
         }
@@ -183,12 +181,12 @@
         display: inline-block;
         position: relative;
         margin-top: 10px;
-        color: @color-red;
+        color: var(--color-red);
         .error-icon{
             position: absolute;
             left: -20px;
             top: 0;
-            color: @color-red;
+            color: var(--color-red);
         }
     }
 }   

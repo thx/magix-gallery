@@ -60,6 +60,10 @@ combineTool.config({
         mxRoot: '',
         mxMap: {}
     },
+    checker: {
+        tmplAttrIframe: false, //检测iframe相关
+        jsLoop: false
+    },
     revisableStringSplitter: '',
     //cssSourceMap: true,
     cssSelectorPrefix: '_zs_gallery',

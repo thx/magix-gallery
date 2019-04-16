@@ -1,8 +1,7 @@
-'ref@./style.less';
 let Magix = require('magix');
 let $ = require('$');
 let DD = require('../mx-dragdrop/index');
-Magix.applyStyle('@style.less');
+Magix.applyStyle('@index.less');
 let DefaultSize = 280;
 module.exports = Magix.View.extend({
     tmpl: '@range.html',
@@ -91,8 +90,8 @@ module.exports = Magix.View.extend({
     },
     '@{get.ui.vars}'() {
         let me = this;
-        let rail = me['@{owner.node}'].find('.@style.less:rail');
-        let tracker = me['@{owner.node}'].find('.@style.less:tracker');
+        let rail = me['@{owner.node}'].find('.@index.less:rail');
+        let tracker = me['@{owner.node}'].find('.@index.less:tracker');
         let iLeft = $('#left_' + me.id);
         let iRight = $('#right_' + me.id);
         let rMax = me['@{vertical}'] ? rail.height() : rail.width();
