@@ -29,27 +29,27 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', menus = $$.menus, text = $$.text, selected = $$.selected, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryc9:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryc9:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryc9:_" class="mb20"><span class="color-9">以下示例：</span>点击显示菜单</div><div mxv mxa="_zs_galleryc9:b" class="clearfix mb20"><div mxv mxa="_zs_galleryc9:c" class="fl _zs_gallery_mx-popmenu___test___index_-left"><div mxv mxa="_zs_galleryc9:d" class="mb20"><span mxv="menus" class="btn w100" mx-change="' + $viewId + 'select({text:\'左上对齐（lt）\'})" mx-view="mx-popmenu/index?menus=';
+    $p += '<div mxv mxa="_zs_galleryc9:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryc9:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryc9:_" class="mb20"><span class="color-9">以下示例：</span>点击显示菜单</div><div mxv mxa="_zs_galleryc9:b" class="clearfix mb20"><div mxv mxa="_zs_galleryc9:c" class="fl _zs_gallery_mx-popmenu___test___index_-left"><div mxv mxa="_zs_galleryc9:d" class="mb20"><span mxv="menus" class="btn" mx-change="' + $viewId + 'select({text:\'左上对齐（lt）\'})" mx-view="mx-popmenu/index?menus=';
     $line = 11;
     $art = '@menus';
     ;
-    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=lt">左上对齐（lt）</span></div><div mxv mxa="_zs_galleryc9:e" class="mb20"><span mxv="menus" class="btn w100" mx-change="' + $viewId + 'select({text:\'左中对齐（lc）\'})" mx-view="mx-popmenu/index?menus=';
+    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=lt">左上对齐（lt）</span></div><div mxv mxa="_zs_galleryc9:e" class="mb20"><span mxv="menus" class="btn" mx-change="' + $viewId + 'select({text:\'左中对齐（lc）\'})" mx-view="mx-popmenu/index?menus=';
     $line = 19;
     $art = '@menus';
     ;
-    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=lc">左中对齐（lc）</span></div><span mxv="menus" class="btn w100" mx-change="' + $viewId + 'select({text:\'左下对齐（lb）\'})" mx-view="mx-popmenu/index?menus=';
+    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=lc">左中对齐（lc）</span></div><span mxv="menus" class="btn" mx-change="' + $viewId + 'select({text:\'左下对齐（lb）\'})" mx-view="mx-popmenu/index?menus=';
     $line = 26;
     $art = '@menus';
     ;
-    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=lb">左下对齐（lb）</span></div><div mxv mxa="_zs_galleryc9:f" class="fl _zs_gallery_mx-popmenu___test___index_-center"><div mxv mxa="_zs_galleryc9:g" class="_zs_gallery_mx-popmenu___test___index_-center-top"><span mxv="menus" class="btn w100 mr20" mx-change="' + $viewId + 'select({text:\'上左对齐（tl）\'})" mx-view="mx-popmenu/index?menus=';
+    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=lb">左下对齐（lb）</span></div><div mxv mxa="_zs_galleryc9:f" class="fl _zs_gallery_mx-popmenu___test___index_-center"><div mxv mxa="_zs_galleryc9:g" class="_zs_gallery_mx-popmenu___test___index_-center-top"><span mxv="menus" class="btn mr20" mx-change="' + $viewId + 'select({text:\'上左对齐（tl）\'})" mx-view="mx-popmenu/index?menus=';
     $line = 35;
     $art = '@menus';
     ;
-    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=tl">上左对齐（tl）</span><span mxv="menus" class="btn w100 mr20" mx-change="' + $viewId + 'select({text:\'上中对齐（tc）\'})" mx-view="mx-popmenu/index?menus=';
+    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=tl">上左对齐（tl）</span><span mxv="menus" class="btn mr20" mx-change="' + $viewId + 'select({text:\'上中对齐（tc）\'})" mx-view="mx-popmenu/index?menus=';
     $line = 41;
     $art = '@menus';
     ;
-    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=tc">上中对齐（tc）</span><span mxv="menus" class="btn w100" mx-change="' + $viewId + 'select({text:\'上右对齐（tr）\'})" mx-view="mx-popmenu/index?menus=';
+    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=tc">上中对齐（tc）</span><span mxv="menus" class="btn" mx-change="' + $viewId + 'select({text:\'上右对齐（tr）\'})" mx-view="mx-popmenu/index?menus=';
     $line = 47;
     $art = '@menus';
     ;
@@ -75,27 +75,27 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<div mxv><span mxv="menus" class="btn w100 mr20" mx-change="' + $viewId + 'select({text:\'下左对齐（bl）\'})" mx-view="mx-popmenu/index?menus=';
+    $p += '<div mxv><span mxv="menus" class="btn mr20" mx-change="' + $viewId + 'select({text:\'下左对齐（bl）\'})" mx-view="mx-popmenu/index?menus=';
     $line = 58;
     $art = '@menus';
     ;
-    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=bl">下左对齐（bl）</span><span mxv="menus" class="btn w100 mr20" mx-change="' + $viewId + 'select({text:\'下中对齐（bc）\'})" mx-view="mx-popmenu/index?menus=';
+    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=bl">下左对齐（bl）</span><span mxv="menus" class="btn mr20" mx-change="' + $viewId + 'select({text:\'下中对齐（bc）\'})" mx-view="mx-popmenu/index?menus=';
     $line = 64;
     $art = '@menus';
     ;
-    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=bc">下中对齐（bc）</span><span mxv="menus" class="btn w100" mx-change="' + $viewId + 'select({text:\'下右对齐（br）\'})" mx-view="mx-popmenu/index?menus=';
+    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=bc">下中对齐（bc）</span><span mxv="menus" class="btn" mx-change="' + $viewId + 'select({text:\'下右对齐（br）\'})" mx-view="mx-popmenu/index?menus=';
     $line = 70;
     $art = '@menus';
     ;
-    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=br">下右对齐（br）</span></div></div><div mxv mxa="_zs_galleryc9:i" class="fl _zs_gallery_mx-popmenu___test___index_-right"><div mxv mxa="_zs_galleryc9:j" class="mb20"><span mxv="menus" class="btn w100" mx-change="' + $viewId + 'select({text:\'右上对齐（rt）\'})" mx-view="mx-popmenu/index?menus=';
+    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=br">下右对齐（br）</span></div></div><div mxv mxa="_zs_galleryc9:i" class="fl _zs_gallery_mx-popmenu___test___index_-right"><div mxv mxa="_zs_galleryc9:j" class="mb20"><span mxv="menus" class="btn" mx-change="' + $viewId + 'select({text:\'右上对齐（rt）\'})" mx-view="mx-popmenu/index?menus=';
     $line = 80;
     $art = '@menus';
     ;
-    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=rt">右上对齐（rt）</span></div><div mxv mxa="_zs_galleryc9:k" class="mb20"><span mxv="menus" class="btn w100" mx-change="' + $viewId + 'select({text:\'右中对齐（rc）\'})" mx-view="mx-popmenu/index?menus=';
+    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=rt">右上对齐（rt）</span></div><div mxv mxa="_zs_galleryc9:k" class="mb20"><span mxv="menus" class="btn" mx-change="' + $viewId + 'select({text:\'右中对齐（rc）\'})" mx-view="mx-popmenu/index?menus=';
     $line = 88;
     $art = '@menus';
     ;
-    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=rc">右中对齐（rc）</span></div><span mxv="menus" class="btn w100" mx-change="' + $viewId + 'select({text:\'右下对齐（rb）\'})" mx-view="mx-popmenu/index?menus=';
+    $p += ($expr = '<%@menus%>', $i($$ref, menus)) + '&width=100&triggerType=click&place=rc">右中对齐（rc）</span></div><span mxv="menus" class="btn" mx-change="' + $viewId + 'select({text:\'右下对齐（rb）\'})" mx-view="mx-popmenu/index?menus=';
     $line = 95;
     $art = '@menus';
     ;
@@ -111,7 +111,7 @@ module.exports = Base.extend({
     $line = 111;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-popmenu class="btn w100"\n    menus="&#123;&#123;@[&#123;\n        value: 1,\n        text: \'操作1\'\n    &#125;, &#123;\n        value: 2,\n        text: \'操作2\'\n    &#125;, &#123;\n        value: 3,\n        text: \'操作3\'\n    &#125;]&#125;&#125;"\n    width="100"\n    trigger-type="click"&gt;下中对齐（bc）&lt;/mx-popmenu&gt;\n\n&lt;mx-popmenu class="btn w100"\n    menus="&#123;&#123;@[&#123;\n        value: 1,\n        text: \'操作1\'\n    &#125;, &#123;\n        value: 2,\n        text: \'操作2\'\n    &#125;, &#123;\n        value: 3,\n        text: \'操作3\'\n    &#125;]&#125;&#125;"\n    width="100"\n    trigger-type="click"\n    place="lc"\n    mx-change="select()"&gt;左中对齐（lc）&lt;/mx-popmenu&gt;\n            </pre></div><div mxa="_zs_galleryc9:o" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_galleryc9:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-popmenu class="btn"\n    menus="&#123;&#123;@[&#123;\n        value: 1,\n        text: \'操作1\'\n    &#125;, &#123;\n        value: 2,\n        text: \'操作2\'\n    &#125;, &#123;\n        value: 3,\n        text: \'操作3\'\n    &#125;]&#125;&#125;"\n    width="100"\n    trigger-type="click"&gt;下中对齐（bc）&lt;/mx-popmenu&gt;\n\n&lt;mx-popmenu class="btn"\n    menus="&#123;&#123;@[&#123;\n        value: 1,\n        text: \'操作1\'\n    &#125;, &#123;\n        value: 2,\n        text: \'操作2\'\n    &#125;, &#123;\n        value: 3,\n        text: \'操作3\'\n    &#125;]&#125;&#125;"\n    width="100"\n    trigger-type="click"\n    place="lc"\n    mx-change="select()"&gt;左中对齐（lc）&lt;/mx-popmenu&gt;\n            </pre></div><div mxa="_zs_galleryc9:o" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_galleryc9:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 145;
     $art = '=viewId';
     ;

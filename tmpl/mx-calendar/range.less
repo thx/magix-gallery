@@ -1,9 +1,8 @@
-@range-input-width: 110px;
-@time-range-input-width: 140px;
 .wrapper {
+    --mx-calendar-range-input-width: calc(var(--font-size) * 8);
     position: relative;
     z-index: 1000;
-    min-width: 280px;
+    min-width: calc(var(--mx-calendar-range-input-width) * 2 + 40px);
     width: 100%;
     padding: 10px;
     border-radius: var(--border-radius);
@@ -20,7 +19,7 @@
         .range-input {
             float: left;
             width: 50%;
-            min-width: @range-input-width;
+            min-width: var(--mx-calendar-range-input-width);
             text-align: center;
             cursor: text;
 
@@ -108,9 +107,6 @@
     }
     
     &.time {
-        min-width: 320px;
-        .range-input {
-            min-width: @time-range-input-width;
-        }
+        --mx-calendar-range-input-width: calc(var(--font-size) * 11);
     }
 }

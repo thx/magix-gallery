@@ -17,21 +17,9 @@
     }
 }
 
-.vi {
-    display: inline-block;
-    padding: 0 10px;
-    height: @title-height - 4;
-    line-height: @title-height - 6;
-    background-color: #f3f4f5;
-    border: 1px solid #eee;
-    text-align: center;
-    border-radius: 2px;
-    overflow: hidden;
-    vertical-align: middle;
-}
-
 .ver {
     position: relative;
+    height: @title-height;
     &::before {
         content: '';
         position: absolute;
@@ -45,13 +33,24 @@
         border-radius: 50%;
     }
     .vt {
-        display: inline-block;
+        position: relative;
         font-size: 18px;
-        overflow: hidden;
-        vertical-align: middle;
-    }
-    .vi {
-        margin: 0 10px;
+        .vi {
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 86px;
+            height: calc(var(--font-size) + 4px);
+            margin-left: 10px;
+            margin-top: calc(0px - (var(--font-size) / 2 + 2px));
+            line-height: calc(var(--font-size) + 2px);
+            background-color: #f3f4f5;
+            border: 1px solid #eee;
+            text-align: center;
+            border-radius: 2px;
+            overflow: hidden;
+            font-size: 12px;
+        }
     }
 }
 

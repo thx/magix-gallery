@@ -12,10 +12,7 @@
                 {{if item.close}}&#xe65b;{{else}}&#xe65a;{{/if}}
             </i>
             {{/if}}
-            {{if parentPrefix}}
-                {{=parentPrefix}}：
-            {{/if}}
-            {{=item.text}}
+            {{if parentPrefix}}{{=parentPrefix}}：{{/if}}{{=item.text}}
         </label>
     </div>
     {{each item.subs as sub}}
@@ -26,10 +23,7 @@
                 name="{{=viewId}}_radio" 
                 {{if (selected == sub.value)}} checked="true" {{/if}}
                 mx-change="@{check}({value:{{=sub.value}}})"/>
-            {{if prefix}}
-                {{=prefix}}：
-            {{/if}}
-            {{=sub.text}}
+            {{if prefix}}{{=prefix}}：{{/if}}{{=sub.text}}
         </label>
     </div>
     {{/each}}

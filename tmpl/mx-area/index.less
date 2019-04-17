@@ -18,7 +18,7 @@
         width: 16%;
         height: @area-height;
         .name {
-            padding: 5px;
+            padding: 5px 0;
             border-radius: var(--border-radius);
             transition: all var(--duration);
             &.highlight {
@@ -31,6 +31,7 @@
         }
         .province-count{
             float: left;
+            font-size: 12px;
             font-weight: bold;
             font-family: "Tahoma";
             line-height: @area-height - 2;
@@ -38,7 +39,7 @@
         .province-arrow{
             position: absolute;
             top: 0;
-            left: 88px;
+            left: calc(var(--font-size) * 4 + 28px) ;
             width: @expand-size;
             height: @area-height;
             line-height: @area-height;
@@ -102,6 +103,7 @@
     width: 50%;
     .province {
         width: 33%;
+        min-width: calc(var(--font-size) * 6 + 28px);
     }
 }
 

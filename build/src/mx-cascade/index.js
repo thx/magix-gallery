@@ -11,7 +11,7 @@ var Vframe = Magix.Vframe;
 var Util = require("mx-tree/util");
 var I18n = require("../mx-medusa/util");
 var Monitor = require("../mx-util/monitor");
-Magix.applyStyle("_zs_gallery_mx-cascade_index_","._zs_gallery_mx-cascade_index_-cascade-list {\n  width: auto;\n  min-width: 0;\n  max-width: none;\n  white-space: nowrap;\n}\n._zs_gallery_mx-cascade_index_-group {\n  display: inline-block;\n  min-width: 100px;\n  height: calc(var(--input-small-height) * 6);\n  overflow-y: auto;\n  vertical-align: top;\n  border-left: 1px solid var(--color-border);\n}\n._zs_gallery_mx-cascade_index_-group:first-child {\n  border-left: 0 none;\n}\n._zs_gallery_mx-cascade_index_-line {\n  position: relative;\n  height: var(--input-small-height);\n  padding-right: var(--input-small-height);\n  padding-left: 10px;\n  line-height: var(--input-small-height);\n  transition: background-color var(--duration), color var(--duration);\n  cursor: pointer;\n}\n._zs_gallery_mx-cascade_index_-line ._zs_gallery_mx-cascade_index_-line-text {\n  display: block;\n  width: 100%;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-cascade_index_-line ._zs_gallery_mx-cascade_index_-line-arrow {\n  position: absolute;\n  right: 0;\n  top: 0;\n  width: var(--input-small-height);\n  height: var(--input-small-height);\n  font-size: 24px;\n  line-height: var(--input-small-height);\n  color: #999;\n  -webkit-transform: rotate(-90deg);\n          transform: rotate(-90deg);\n}\n._zs_gallery_mx-cascade_index_-line:hover {\n  background-color: var(--color-bg-hover);\n}\n._zs_gallery_mx-cascade_index_-line._zs_gallery_mx-cascade_index_-cur {\n  color: var(--color-brand);\n  background-color: var(--color-brand-opacity);\n}\n._zs_gallery_mx-cascade_index_-line._zs_gallery_mx-cascade_index_-cur:hover {\n  background-color: var(--color-brand-opacity);\n}\n");
+Magix.applyStyle("_zs_gallery_mx-cascade_index_","._zs_gallery_mx-cascade_index_-cascade-list {\n  width: auto;\n  min-width: 0;\n  max-width: none;\n  white-space: nowrap;\n}\n._zs_gallery_mx-cascade_index_-group {\n  display: inline-block;\n  min-width: 100px;\n  height: calc(var(--input-small-height) * 6);\n  overflow-y: auto;\n  vertical-align: top;\n  border-left: 1px solid var(--color-border);\n}\n._zs_gallery_mx-cascade_index_-group:first-child {\n  border-left: 0 none;\n}\n._zs_gallery_mx-cascade_index_-line {\n  position: relative;\n  height: var(--input-small-height);\n  padding-right: var(--input-small-height);\n  padding-left: 10px;\n  line-height: var(--input-small-height);\n  transition: background-color var(--duration), color var(--duration);\n  cursor: pointer;\n}\n._zs_gallery_mx-cascade_index_-line ._zs_gallery_mx-cascade_index_-line-text {\n  display: block;\n  width: 100%;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-cascade_index_-line ._zs_gallery_mx-cascade_index_-line-arrow {\n  position: absolute;\n  right: 0;\n  top: 0;\n  font-size: 24px;\n  line-height: var(--input-small-height);\n  color: #999;\n  -webkit-transform: rotate(-90deg);\n          transform: rotate(-90deg);\n}\n._zs_gallery_mx-cascade_index_-line:hover {\n  background-color: var(--color-bg-hover);\n}\n._zs_gallery_mx-cascade_index_-line._zs_gallery_mx-cascade_index_-cur {\n  color: var(--color-brand);\n  background-color: var(--color-brand-opacity);\n}\n._zs_gallery_mx-cascade_index_-line._zs_gallery_mx-cascade_index_-cur:hover {\n  background-color: var(--color-brand-opacity);\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -98,8 +98,8 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each groups as list gIndex';
         ;
-        $expr = '<%for (var gIndex = 0, $art_cyvovatf$art_c = groups.length; gIndex < $art_cyvovatf$art_c; gIndex++) {        var list = groups[gIndex]%>';
-        for (var gIndex = 0, $art_cyvovatf$art_c = groups.length; gIndex < $art_cyvovatf$art_c; gIndex++) {
+        $expr = '<%for (var gIndex = 0, $art_cgmqguzc$art_c = groups.length; gIndex < $art_cgmqguzc$art_c; gIndex++) {        var list = groups[gIndex]%>';
+        for (var gIndex = 0, $art_cgmqguzc$art_c = groups.length; gIndex < $art_cgmqguzc$art_c; gIndex++) {
             var list = groups[gIndex];
             $p += '<div class="_zs_gallery_mx-cascade_index_-group" id="';
             $line = 9;
@@ -113,8 +113,8 @@ module.exports = Magix.View.extend({
             $line = 10;
             $art = 'each list as item iIndex';
             ;
-            $expr = '<%for (var iIndex = 0, $art_cuszipgzuy$art_c = list.length; iIndex < $art_cuszipgzuy$art_c; iIndex++) {            var item = list[iIndex]%>';
-            for (var iIndex = 0, $art_cuszipgzuy$art_c = list.length; iIndex < $art_cuszipgzuy$art_c; iIndex++) {
+            $expr = '<%for (var iIndex = 0, $art_ccswkngor$art_c = list.length; iIndex < $art_ccswkngor$art_c; iIndex++) {            var item = list[iIndex]%>';
+            for (var iIndex = 0, $art_ccswkngor$art_c = list.length; iIndex < $art_ccswkngor$art_c; iIndex++) {
                 var item = list[iIndex];
                 $p += '<div class="_zs_gallery_mx-cascade_index_-line ';
                 $line = 11;

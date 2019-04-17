@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallery-:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallery-:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_gallery-:b" class="mb20"><label mxa="_zs_gallery-:c" class="mr20 w100"><span mx-view="mx-checkbox/index?name=';
+    $p += '<div mxa="_zs_gallery-:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallery-:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_gallery-:b" class="mb20"><label mxa="_zs_gallery-:c" class="mr20 w120"><span mx-view="mx-checkbox/index?name=';
     $line = 5;
     $art = '=viewId';
     ;
@@ -32,7 +32,7 @@ module.exports = Base.extend({
     $line = 10;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_test&value=2&checked=true&disabled=true"></span>选中禁选</label></div><div mxa="_zs_gallery-:e" class="mb20"><label mxa="_zs_gallery-:f" class="mr20 w100"><span mx-view="mx-checkbox/index?name=';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_test&value=2&checked=true&disabled=true"></span>选中禁选</label></div><div mxa="_zs_gallery-:e" class="mb20"><label mxa="_zs_gallery-:f" class="mr20 w120"><span mx-view="mx-checkbox/index?name=';
     $line = 18;
     $art = '=viewId';
     ;
@@ -40,7 +40,7 @@ module.exports = Base.extend({
     $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_test&value=4&disabled=true"></span>非选中禁选</label></div><div mxa="_zs_gallery-:h" class="mb20"><label mxa="_zs_gallery-:i" class="mr20 w100"><span mx-view="mx-checkbox/index?name=';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_test&value=4&disabled=true"></span>非选中禁选</label></div><div mxa="_zs_gallery-:h" class="mb20"><label mxa="_zs_gallery-:i" class="mr20 w120"><span mx-view="mx-checkbox/index?name=';
     $line = 29;
     $art = '=viewId';
     ;

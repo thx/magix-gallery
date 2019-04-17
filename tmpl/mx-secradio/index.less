@@ -1,3 +1,6 @@
+:root{
+    --mx-secradio-oper-size: calc(var(--font-size) + 2px);
+}
 .line {
     position: relative;
     height: 32px;
@@ -5,11 +8,15 @@
     transition: height 0.2s;
     overflow: hidden;
     .oper {
-        width: 20px;
-        cursor: pointer;
-        font-size: 14px;
-        color: #ccc;
+        width: var(--mx-tree-oper-size);
+        height: var(--mx-tree-oper-size);
+        margin-right: 5px;
+        line-height: var(--mx-tree-oper-size);
+        font-size: var(--mx-tree-oper-size);
         transition: color 0.2s;
+        cursor: pointer;
+        color: #ccc;
+        user-select: none;
         &:hover {
             color: #666;
         }
@@ -22,7 +29,7 @@
 }
 
 .sub {
-    padding-left: 20px;
+    padding-left: calc(var(--mx-secradio-oper-size) + 5px);
     &.close {
         height: 0;
     }

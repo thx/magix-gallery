@@ -1,25 +1,27 @@
 <!-- dropdown类型 -->
 <div class="status" mx-mouseout="out()">
-    <div class="status-handle-dd"
-        mx-mouseover="over()">
-        {{if showInfo}}
-            <span class="input status-input readonly" style="color: {{=info.color}};">{{=info.text}}</span>
-        {{else}}
-            <span class="input status-input" style="color: {{=cur.color}};">{{=cur.text}}</span>
-            <i class="mc-iconfont status-arrow">&#xe692;</i>
+    {{if showInfo}}
+        <div class="mx-trigger readonly">
+            <span style="color: {{=info.color}};">{{=info.text}}</span>
+        </div>
+    {{else}}
+        <div class="mx-trigger"
+            mx-mouseover="over()">
+            <span style="color: {{=cur.color}};">{{=cur.text}}</span>
+            <i class="mc-iconfont mx-trigger-arrow">&#xe692;</i>
+        </div>
+        
+        <!-- 操作或者提示区域 -->
+        {{if show && (opers.length > 0)}}
+        <ul class="mx-output status-info status-info-dd">
+            {{each opers as item}}
+            <li class="status-oper clearfix {{if (item.value == cur.value)}} status-oper-cur {{/if}}" mx-click="select({item:'{{@item}}'})">
+                <span class="status-icon" style="color: {{=item.color}};">{{!item.icon}}</span>
+                <span class="status-name">{{=item.text}}</span>
+                <i class="mc-iconfont oper-icon">&#xe65d;</i>
+            </li>
+            {{/each}}
+        </ul>
         {{/if}}
-    </div>
-    
-    <!-- 操作或者提示区域 -->
-    {{if show && !showInfo && (opers.length > 0)}}
-    <ul class="mx-shadow status-info status-info-dd">
-        {{each opers as item}}
-        <li class="status-oper clearfix {{if (item.value == cur.value)}} status-oper-cur {{/if}}" mx-click="select({item:'{{@item}}'})">
-            <span class="status-icon" style="color: {{=item.color}};">{{!item.icon}}</span>
-            <span class="status-name">{{=item.text}}</span>
-            <i class="mc-iconfont oper-icon">&#xe65d;</i>
-        </li>
-        {{/each}}
-    </ul>
     {{/if}}
 </div>

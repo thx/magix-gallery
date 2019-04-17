@@ -100,10 +100,15 @@ var showMsg = function (type, ssId, checkInfo) {
         // 提示信息位置 bottom / right
         var placement = checkInfo.placement || 'bottom';
         var width = n.outerWidth(), height = n.outerHeight(), offset = n.offset(), pOffset = prt.offset();
+        var lh = '32px';
+        if (window.getComputedStyle) {
+            var root = getComputedStyle(document.documentElement);
+            lh = root.getPropertyValue('--input-height').trim();
+        }
         switch (placement) {
             case 'right':
                 msgNode.css({
-                    lineHeight: '32px',
+                    lineHeight: lh,
                     top: (offset.top - pOffset.top),
                     left: (offset.left - pOffset.left) + width + 10
                 });

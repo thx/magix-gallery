@@ -62,7 +62,7 @@ module.exports = Base.extend({
             align = map[places[1]]
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
-        me['@{pos.class}'] = me.constants.classNames[[placement,align].join('-')] + ' @../mx-popover/index.less:popover';
+        me['@{pos.class}'] = me.constants.classNames[[placement,align].join('-')] + ' @../mx-popover/index.less:popover mx-shadow';
 
         me['@{pos.init}'] = false;
         me['@{pos.cal}'] = false;

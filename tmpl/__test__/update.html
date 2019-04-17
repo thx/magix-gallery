@@ -1,8 +1,10 @@
 {{each list as item}}
 <div class="update">
     <div class="ver pl20">
-        <span class="vt">{{=item.ver}}</span>
-        <span class="vi">{{=item.time}}</span>
+        <span class="vt">
+            {{=item.ver}}
+            <span class="vi">{{=item.time}}</span>
+        </span>
     </div>
     <div class="pt10 pb30">
         {{each item.subs as s}}
@@ -51,7 +53,9 @@
 {{/each}}
 <div class="update">
     <div class="ver pl20">
-        <span class="vt">历史版本</span>
-        <span class="vi">···</span>
+        <span class="vt">
+            历史版本
+            <span class="vi">···</span>
+        </span>
     </div>
 </div>

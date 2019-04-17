@@ -28,14 +28,6 @@ module.exports = Magix.View.extend({
                 that.updater.digest({
                     list
                 })
-
-                // 加载展开动画
-                list.forEach((item, index) => {
-                    item.inited = true
-                })
-                that.updater.digest({
-                    list
-                })
             }
         };
         that.ondestroy = () => {

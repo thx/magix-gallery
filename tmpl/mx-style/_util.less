@@ -463,7 +463,7 @@
         opacity: .3;
         background-color: var(--color-warn);
     }
-    color: @color-warn;
+    color: var(--color-warn);
 }
 .tip-content {
     &::after{
@@ -549,10 +549,10 @@
 .grid {
     background: #fff;
     border-radius: var(--border-radius);
-    box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.08) inset;
+    box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.08) inset;
     transition: box-shadow var(--duration) ease-out;
     
     &:hover{
-        box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.1) inset;
+        box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1) inset;
     }
 }

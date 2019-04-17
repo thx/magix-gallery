@@ -33,7 +33,7 @@
     border-radius: 4px;
     color: #fff;
     text-align: center;
-    line-height: @solid-height;
+    line-height: @solid-height - 2;
     &.mx-icon-common{
         background-color: #ccc;
     }
@@ -56,7 +56,7 @@
     padding: 0 4px;
     border-radius: @hollow-height / 2;
     text-align: center;
-    line-height: @hollow-height - 2;
+    line-height: @hollow-height - 4;
 
     &.mx-icon-common{
         border: 1px solid #ccc;
@@ -230,6 +230,7 @@
     }
 }
 .mx-trigger {
+    display: block;
     position: relative;
     width: 100%;
     height: var(--input-height);
@@ -266,6 +267,7 @@
     &.mx-trigger-open {
         .mx-trigger-arrow {
             transform: rotate(180deg);
+            margin-top: -15px;
         }
     }
 
@@ -387,7 +389,9 @@
 [mx-view*="mx-cascade/index"],
 [mx-view*="mx-calendar/rangepicker"], 
 [mx-view*="mx-calendar/datepicker"],
-[mx-view*="mx-color/picker"] {
+[mx-view*="mx-color/picker"],
+[mx-view*="mx-status/index"],
+[mx-view*="mx-status/dropdown"] {
     position: relative;
     display: inline-block;
     min-width: 100px;

@@ -1,16 +1,10 @@
-[mx-view*="mx-indics/index"]{
-    display: inline-block;
-    vertical-align: middle;
-}
-
 @setting-right-width: 240px;
 @setting-header-height: 60px;
 @setting-content-name-width: 90px;
 .setting {
     position: relative;
     height: 100%;
-
-    .header{
+    .header {
         width: 100%;
         height: @setting-header-height;
         padding: 0 24px;
@@ -18,7 +12,6 @@
         line-height: @setting-header-height;
         border-bottom: 1px solid var(--color-border);
     }
-
     .content {
         position: absolute;
         top: @setting-header-height;
@@ -26,7 +19,6 @@
         bottom: 0;
         right: 0;
         overflow-y: auto;
-        
         .line {
             position: relative;
             padding: 16px 24px;
@@ -34,7 +26,7 @@
                 background-color: var(--color-bg);
             }
         }
-        .name{
+        .name {
             position: absolute;
             top: 16px;
             left: 24px;
@@ -45,8 +37,8 @@
         .item {
             float: left;
             padding: 8px 0;
-
-            .field-tip{
+            white-space: nowrap;
+            .field-tip {
                 position: relative;
                 top: 1px;
                 left: 1px;
@@ -55,35 +47,31 @@
             }
         }
     }
-    &.parent{
-        .line{
+    &.parent {
+        .line {
             padding-left: 16 * 2 + @setting-content-name-width;
         }
     }
     &.sortable {
         padding-right: @setting-right-width;
-
         .content {
             right: @setting-right-width;
             border-right: 1px solid var(--color-border);
         }
-
-        .drag-header{
+        .drag-header {
             position: absolute;
             top: 0;
             right: 0;
             width: @setting-right-width;
             height: @setting-header-height + 38px;
-            
-            .drag-title{
+            .drag-title {
                 height: @setting-header-height;
                 line-height: @setting-header-height;
                 font-size: 16px;
                 padding-left: 24px;
                 border-bottom: 1px solid var(--color-border);
             }
-
-            .drag-oper{
+            .drag-oper {
                 height: 38px;
                 padding: 0 24px;
                 line-height: 38px;
@@ -91,17 +79,16 @@
                 background-color: var(--color-bg);
             }
         }
-
-        .drag-wrapper{
+        .drag-wrapper {
             position: absolute;
-            top: @setting-header-height + 38px;;
+            top: @setting-header-height + 38px;
+            ;
             right: 0;
             bottom: 0;
             width: @setting-right-width;
             padding: 0 24px 16px 24px;
             overflow-y: scroll;
             background-color: var(--color-bg);
-
             .drag {
                 height: 30px;
                 margin-bottom: 5px;
@@ -119,39 +106,37 @@
     }
 }
 
-.setting-btn {
-    position: relative;
-    color: #333;
-
-    &:hover{
-        color: #333;
-        border-color: var(--border-highlight-hover);
-    }
-
-    &:focus{
-        border-color: var(--border-highlight-hover);
-    }
-}
-
-.setting-show-btn{
+.setting-show-btn {
+    display: inline-block;
+    width: 40px;
+    padding-right: 10px;
     margin-right: 10px;
-
-    .setting-show-icon{
+    text-align: center;
+    .setting-show-icon {
         position: relative;
         top: 2px;
+        font-size: 18px;
     }
 }
-
 .setting-switch-btn{
-    padding-right: 20px;
-    .setting-switch-icon {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 20px;
-        height: var(--input-height);
-        line-height: var(--input-height);
-        text-align: center;
-        font-size: 18px;
+    display: inline-block;
+    width: auto;
+}
+
+[mx-view*="mx-indics/index"] {
+    display: inline-block;
+    vertical-align: middle;
+    &:hover {
+        .setting-show-btn {
+            border-color: var(--border-highlight-hover);
+            color: #333;
+        }
+        .setting-switch-btn {
+            border-color: var(--border-highlight-hover);
+            color: #333;
+            .setting-switch-icon {
+                color: var(--border-highlight-hover);
+            }
+        }
     }
 }

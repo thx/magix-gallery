@@ -30,8 +30,8 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_ctkjszg$art_c = list.length; index < $art_ctkjszg$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_ctkjszg$art_c = list.length; index < $art_ctkjszg$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cyzlkl$art_c = list.length; index < $art_cyzlkl$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cyzlkl$art_c = list.length; index < $art_cyzlkl$art_c; index++) {
         var item = list[index];
         $p += '<div mxv class="_zs_gallery_mx-collapse_index_-item ';
         $line = 3;
@@ -109,62 +109,56 @@ module.exports = Magix.View.extend({
             $expr = '<%if (item.height) {%>';
             if (item.height) {
                 ;
-                $p += ' display: block; opacity: 0; height: 0; ';
-                $line = 10;
-                $art = 'if item.inited && item.expand';
+                $p += ' \n                display: block; \n                ';
+                $line = 12;
+                $art = 'if item.expand';
                 ;
-                $expr = '<%if (item.inited && item.expand) {%>';
-                if (item.inited && item.expand) {
+                $expr = '<%if (item.expand) {%>';
+                if (item.expand) {
                     ;
-                    $p += ' opacity: 1; height: ';
-                    $line = 10;
+                    $p += ' \n                    opacity: 1; height: ';
+                    $line = 13;
                     $art = '=item.height';
                     ;
-                    $p += ($expr = '<%=item.height%>', $e(item.height)) + 'px; ';
-                    $line = 10;
+                    $p += ($expr = '<%=item.height%>', $e(item.height)) + 'px; \n                ';
+                    $line = 14;
+                    $art = 'else';
+                    ;
+                    $expr = '<%}            else {%>';
+                }
+                else {
+                    ;
+                    $p += ' \n                    opacity: 0; height: 0; border-top: 0 none; \n                ';
+                    $line = 16;
                     $art = '/if';
                     ;
                     $expr = '<%}%>';
                 }
                 ;
-                $p += '  ';
-                $line = 10;
-                $art = 'if item.inited && !item.expand';
-                ;
-                $expr = '<%if (item.inited && !item.expand) {%>';
-                if (item.inited && !item.expand) {
-                    ;
-                    $p += ' opacity: 0; height: 0; border-top: 0 none; ';
-                    $line = 10;
-                    $art = '/if';
-                    ;
-                    $expr = '<%}%>';
-                }
-                ;
-                $p += ' ';
-                $line = 10;
+                $p += ' \n            ';
+                $line = 17;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '"><div mxv="list" class="_zs_gallery_mx-collapse_index_-inner" mx-view="';
-            $line = 11;
+            $line = 18;
             $art = '=item.view';
             ;
             $p += ($expr = '<%=item.view%>', $e(item.view)) + '?data=';
-            $line = 11;
+            $line = 18;
             $art = '@item';
             ;
             $p += ($expr = '<%@item%>', $i($$ref, item)) + '"></div></div>';
-            $line = 13;
+            $line = 20;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</div>';
-        $line = 15;
+        $line = 22;
         $art = '/each';
         ;
         $expr = '<%}%>';
@@ -196,13 +190,6 @@ catch (ex) {
                 list.forEach(function (item, index) {
                     var content = $('#' + viewId_1 + '_content_' + index);
                     item.height = content.outerHeight();
-                });
-                that.updater.digest({
-                    list: list
-                });
-                // 加载展开动画
-                list.forEach(function (item, index) {
-                    item.inited = true;
                 });
                 that.updater.digest({
                     list: list

@@ -1,33 +1,30 @@
 @status-line-height: 25px;
-[mx-view*="mx-status/index"],
-[mx-view*="mx-status/dropdown"] {
-    display: inline-block;
-}
-
 .status {
     position: relative;
     .status-icon>* {
         font-size: 20px;
-        line-height: 25px;
+        line-height: @status-line-height;
     }
     .status-info {
-        position: absolute;
-        top: -10px;
-        left: -10px;
-        z-index: 10;
-        background-color: #fff;
-        border: 0 none;
-        border-radius: var(--border-radius);
-        text-align: left;
-        word-wrap: break-word;
-        overflow: hidden;
+        display: block;
+        top: -11px;
+        left: -11px;
         
-        .status-icon {
+        .status-icon,
+        .status-name,
+        .oper-icon {
             float: left;
+            height: @status-line-height;
+            line-height: @status-line-height;
         }
         .status-name {
-            float: left;
             margin-left: 8px;
+        }
+        .oper-icon{
+            float: right;
+            color: #999;
+            font-weight: bold;
+            font-size: 20px;
         }
         .status-oper {
             min-width: 140px;
@@ -37,11 +34,6 @@
             cursor: pointer;
             .oper-icon {
                 display: none;
-                float: right;
-                color: #999;
-                font-weight: bold;
-                font-size: 20px;
-                line-height: @status-line-height;
             }
             &:hover {
                 background-color: var(--color-bg-hover);
@@ -73,12 +65,12 @@
     .status-handle-icon {
         position: relative;
         width: 36px;
-        height: 25px;
-        line-height: 25px;
+        height: @status-line-height;
+        line-height: @status-line-height;
         .status-arrow {
             position: absolute;
             top: (@status-line-height - 4px) / 2;
-            left: @status-line-height + 6px;
+            right: 0;
             width: 0;
             height: 0;
             line-height: 0;
@@ -89,33 +81,17 @@
             border-color: #999 transparent transparent transparent;
         }
     }
-    .status-handle-dd {
-        position: relative;
-        width: 110px;
-        .status-input {
-            width: 100%;
-
-            &.readonly,
-            &.readonly:hover{
-                border-color: var(--border-highlight);
-            }
-        }
-        .status-arrow {
-            position: absolute;
-            top: 50%;
-            right: 0;
-            width: 28px;
-            height: 28px;
-            margin-top: -14px;
-            line-height: 28px;
-            text-align: center;
-            color: #ccc;
-            font-size: 20px;
-        }
-    }
-
     .status-line{
         height: 0;
         border-top: 1px solid var(--color-border);
+    }
+}
+
+[mx-view*="mx-status/dropdown"]{
+    &:hover{
+        .readonly{
+            cursor: not-allowed;
+            border-color: var(--border-highlight);
+        }
     }
 }

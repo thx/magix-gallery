@@ -320,13 +320,13 @@ module.exports = Magix.View.extend({
     '@{normal}'() {
         let me = this;
         let node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
-        node.removeClass('@index.less:hover');
+        node.removeClass('@index.less:item-hover');
     },
 
     '@{highlight}'() {
         let me = this;
         let node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
-        node.addClass('@index.less:hover');
+        node.addClass('@index.less:item-hover');
         if (node.length) {
             me['@{temp.ignore}'] = 1; //如果是上下按键引起的滚动，则在move时忽略
             let height = node.outerHeight();

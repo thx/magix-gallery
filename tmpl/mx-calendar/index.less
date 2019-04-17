@@ -1,17 +1,17 @@
 :root{
-    --calendar-item-gap: 2px;
-    --calendar-item-size: calc(2 * var(--font-size));
-    --calendar-width: calc((var(--calendar-item-size) + var(--calendar-item-gap) * 2) * 7 + 20px);
-    --calendar-height: calc((var(--calendar-item-size) + var(--calendar-item-gap) * 2) * 8 + 20px);
-    --calendar-ym-width: calc((var(--calendar-width) - 60px) / 3);
-    --calendar-ym-height: calc((var(--calendar-height) - var(--calendar-item-size) - var(--calendar-item-gap) * 2 - 80px) / 4);
-    --calendar-time-width: calc(var(--calendar-item-size) * 2 + 6px);
+    --mx-calendar-item-gap: 2px;
+    --mx-calendar-item-size: calc(2 * var(--font-size));
+    --mx-calendar-width: calc((var(--mx-calendar-item-size) + var(--mx-calendar-item-gap) * 2) * 7 + 20px);
+    --mx-calendar-height: calc((var(--mx-calendar-item-size) + var(--mx-calendar-item-gap) * 2) * 8 + 20px);
+    --mx-calendar-ym-width: calc((var(--mx-calendar-width) - 60px) / 3);
+    --mx-calendar-ym-height: calc((var(--mx-calendar-height) - var(--mx-calendar-item-size) - var(--mx-calendar-item-gap) * 2 - 80px) / 4);
+    --mx-calendar-time-width: calc(var(--mx-calendar-item-size) * 2 + 6px);
 }
 
 .wrapper {
     position: relative;
     z-index: 1000;
-    width: var(--calendar-width);
+    width: var(--mx-calendar-width);
     padding: 0;
     background-color: #fff;
     border-radius: var(--border-radius);
@@ -20,7 +20,7 @@
     text-align: center;
 
     .header {
-        width: var(--calendar-width);
+        width: var(--mx-calendar-width);
         padding: 2px 4px;
 
         .minus {
@@ -33,7 +33,7 @@
         }
 
         .minus, .plus {
-            line-height: var(--calendar-item-size);
+            line-height: var(--mx-calendar-item-size);
             font-size: var(--font-size);
             color: #ccc;
             cursor: pointer;
@@ -46,8 +46,8 @@
 
         .title {
             display: inline-block;
-            height: var(--calendar-item-size);
-            line-height: var(--calendar-item-size);
+            height: var(--mx-calendar-item-size);
+            line-height: var(--mx-calendar-item-size);
             padding: 0 10px;
             cursor: pointer;
             border-radius: var(--border-radius);
@@ -62,7 +62,7 @@
     }
 
     .body {
-        width: var(--calendar-width);
+        width: var(--mx-calendar-width);
 
         .weeks {
             background-color: var(--color-bg);
@@ -76,10 +76,10 @@
 
         .week, .day {
             float: left;
-            width: var(--calendar-item-size);
-            height: var(--calendar-item-size);
-            margin: var(--calendar-item-gap);
-            line-height: var(--calendar-item-size);
+            width: var(--mx-calendar-item-size);
+            height: var(--mx-calendar-item-size);
+            margin: var(--mx-calendar-item-gap);
+            line-height: var(--mx-calendar-item-size);
             border-radius: 4px;
             cursor: pointer;
             color: #333;
@@ -130,10 +130,10 @@
 
 .ym {
     float: left;
-    width: var(--calendar-ym-width);
-    height: var(--calendar-ym-height);
+    width: var(--mx-calendar-ym-width);
+    height: var(--mx-calendar-ym-height);
     margin: 10px;
-    line-height: var(--calendar-ym-height);
+    line-height: var(--mx-calendar-ym-height);
     border-radius: var(--border-radius);
     font-size: calc(var(--font-size) + 2px);
     cursor: pointer;
@@ -146,7 +146,7 @@
 
 @group-height: 40px;
 [mx-view*="mx-time/content"]{
-    min-width: var(--calendar-width);
+    min-width: var(--mx-calendar-width);
     padding: 10px;
 
     .groups{
@@ -157,7 +157,7 @@
     }
     .group {
         overflow: hidden;
-        flex: 0 0 var(--calendar-time-width);
+        flex: 0 0 var(--mx-calendar-time-width);
         .ipt {
             width: 100%;
             height: @group-height;
@@ -166,9 +166,9 @@
         }
     
         .ipb{
-            width: var(--calendar-item-size);
-            height: var(--calendar-item-size);
-            line-height: var(--calendar-item-size);
+            width: var(--mx-calendar-item-size);
+            height: var(--mx-calendar-item-size);
+            line-height: var(--mx-calendar-item-size);
             font-size: var(--font-size);
             text-align: center;
             font-weight: bold;
@@ -207,10 +207,10 @@
             text-align: center;
     
             &.spa{
-                padding-left: calc(var(--calendar-time-width) / 2);
+                padding-left: calc(var(--mx-calendar-time-width) / 2);
             }
             &.spb{
-                padding-right: calc(var(--calendar-time-width) / 2);
+                padding-right: calc(var(--mx-calendar-time-width) / 2);
             }
         }
     }

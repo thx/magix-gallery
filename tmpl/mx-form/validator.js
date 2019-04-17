@@ -103,17 +103,23 @@ let showMsg = (type, ssId, checkInfo) => {
             height = n.outerHeight(),
             offset = n.offset(),
             pOffset = prt.offset();
+
+        let lh = '32px';
+        if (window.getComputedStyle) {
+            let root = getComputedStyle(document.documentElement);
+            lh = root.getPropertyValue('--input-height').trim();
+        }
         switch (placement) {
             case 'right':
                 msgNode.css({
-                    lineHeight: '32px',
+                    lineHeight: lh,
                     top: (offset.top - pOffset.top),
                     left: (offset.left - pOffset.left) + width + 10
                 });
                 break;
             case 'bottom':
                 msgNode.css({
-                    lineHeight: '18px',
+                    lineHeight: '18px',  //table td的padding
                     top: (offset.top - pOffset.top) + height,
                     left: (offset.left - pOffset.left) + 10
                 });
@@ -217,7 +223,7 @@ module.exports = {
         }
         return result;
     },
-    '$[mxc]<keyup,change,focusout>' (e) {
+    '$[mxc]<keyup,change,focusout>'(e) {
         let me = this,
             node = $(e.eventTarget);
         let mxe = node.attr('mxe');
@@ -228,7 +234,7 @@ module.exports = {
         me['@{check}'](node);
     },
 
-    '@{check}'(node){
+    '@{check}'(node) {
         let me = this;
         let updater = me.updater;
         let form = updater.$form || (updater.$form = {});
@@ -330,7 +336,7 @@ module.exports = {
         }
         me.updater.$form = {};
     },
-    '$doc<htmlchanged>' (e) {
+    '$doc<htmlchanged>'(e) {
         let me = this;
         let form = me.updater.$form;
         if (e.vId == me.id) {

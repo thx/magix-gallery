@@ -1,11 +1,17 @@
 /* @dependent: ./index.less */
 /* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */
 
+//字体相关参数，输入或下拉框高度 
+@font-size: 12px;
+@line-height: 1.5;
+@input-height: @font-size + 20px;;
+@input-small-height: @font-size + 14px;
+
 // 品牌色
 @color-brand: #4d7fff;
-@color-brand-hover: shade(@color-brand, 10%);
+@color-brand-hover: shade(@color-brand, 12%);
 @color-brand-vs: #14c9ce;
-@color-brand-light: fade(@color-brand, 20%);
+@color-brand-light: fade(@color-brand, 18%);
 @color-brand-opacity: fade(@color-brand, 10%);
 @color-brand-text: #ffffff;
 @color-brand-text-hover: #ffffff;
@@ -26,14 +32,10 @@
 @btn-brand-text-hover: @color-brand-text-hover;
 @btn-text: #333;
 @btn-text-hover: #333;
-@btn-border: #e6e6e6;
-@btn-border-hover: #ccc;
-@btn-bg: #e6e6e6;
-@btn-bg-hover: #ccc;
-
-//字体相关参数
-@line-height: 1.5;
-@font-size: 12px;
+@btn-border: @color-brand;
+@btn-border-hover: @color-brand;
+@btn-bg: @color-brand-opacity;
+@btn-bg-hover: @color-brand-light;
 
 // 提示颜色
 @color-warn: #ffb400;
@@ -46,10 +48,6 @@
 //背景色
 @color-bg: #fafafa;
 @color-bg-hover: #eee;
-
-//输入或下拉框高度 
-@input-height: 32px;
-@input-small-height: 26px;
 
 // 动画
 @duration: 0.25s;

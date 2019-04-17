@@ -1,10 +1,9 @@
 /* @dependent: ./index.less */
-
-.btn{
+.btn {
     display: inline-block;
     height: var(--input-height);
     margin-bottom: 0;
-    padding: 0 12px;
+    padding: 0 10px;
     font-size: var(--font-size);
     font-weight: normal;
     text-align: center;
@@ -27,52 +26,49 @@
     background-image: none;
     color: var(--btn-text);
     transition: all var(--duration) ease-out;
-
     &:hover,
     &.hover,
     &:active {
         border-color: var(--btn-border-hover);
         background-color: var(--btn-bg-hover);
+        background-image: none;
         color: var(--btn-text-hover);
     }
-
     &.btn-small {
         height: var(--input-small-height);
         line-height: calc(var(--input-small-height) - 2px);
     }
-
     &.btn-brand {
+        padding: 0 11px;
         line-height: var(--input-height);
-        border: 0 none;
+        border-width: 0;
         background-color: var(--btn-brand);
         background-image: linear-gradient(to right, transparent, var(--btn-brand-gradient));
-        color: @btn-brand-text;
-        
+        color: var(--btn-brand-text);
         &:hover,
         &.hover,
         &:active {
-            border: 0 none;
-            background-color: var(--color-brand-hover);
-            color:var(--btn-brand-text-hover);
+            line-height: var(--input-height);
+            border-width: 0;
+            background-color: var(--btn-brand-hover);
+            color: var(--btn-brand-text-hover);
         }
-
-        &.btn-small{
+        &.btn-small {
             line-height: var(--input-small-height);
         }
     }
-
     &.btn-white {
         border-color: #fff;
         background-color: #fff;
-
+        background-image: none;
         &:hover,
         &.hover,
         &:active {
             border-color: var(--color-bg);
             background-color: var(--color-bg);
+            background-image: none;
         }
     }
-
     &[disabled],
     &[disabled]:hover,
     &[disabled].hover,
@@ -80,12 +76,17 @@
     &.btn-disabled,
     &.btn-disabled:hover,
     &.btn-disabled.hover,
-    &.btn-disabled:active{
+    &.btn-disabled:active {
         cursor: not-allowed;
+        line-height: calc(var(--input-height) - 2px);
+        border-width: 1px;
+        border-color: var(--color-border);
+        background-color: var(--color-disabled);
+        background-image: none;
         color: #999;
-        border-color: var(--btn-border);
-        background-color: @color-disabled;
-    }
-    
-}
 
+        &.btn-small{
+            line-height: calc(var(--input-small-height) - 2px);
+        }
+    }
+}

@@ -4,11 +4,7 @@
         {{if needExpand}}
             {{if (item.children && (item.children.length > 0))}}
             <i class="mc-iconfont icon oper" mx-click="@{toggle}({index:{{=index}}})">
-                {{if item.close}}
-                &#xe65b;
-                {{else}}
-                &#xe65a;
-                {{/if}}
+                {{if item.close}}&#xe65b;{{else}}&#xe65a;{{/if}}
             </i>
             {{else}}
                 {{if readOnly}}
@@ -25,9 +21,7 @@
                 value="{{=item[valueKey]}}"
                 name="{{=viewId}}" 
                 mx-change="@{check}({index:{{=index}}})"/>
-            {{/if}}
-            
-            {{=item[textKey]}}
+            {{/if}}{{=item[textKey]}}
         </label>
     </div>
     {{if (item.children && (item.children.length > 0))}}

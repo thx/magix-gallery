@@ -9,7 +9,7 @@ define("mx-tree/branch",["magix","$"],(require,exports,module)=>{
 var Magix = require("magix");
 var $ = require("$");
 var Vframe = Magix.Vframe;
-Magix.applyStyle("_zs_gallery_mx-tree_index_","._zs_gallery_mx-tree_index_-name {\n  position: relative;\n  height: 32px;\n  line-height: 20px;\n  padding-bottom: 12px;\n  background-color: #fff;\n  overflow: hidden;\n  transition: height 0.2s;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-icon {\n  float: left;\n  height: 20px;\n  margin-right: 5px;\n  line-height: 20px;\n  color: #ccc;\n  transition: color var(--duration);\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper {\n  cursor: pointer;\n  font-size: 14px;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper:hover {\n  color: #666;\n}\n._zs_gallery_mx-tree_index_-close ._zs_gallery_mx-tree_index_-name {\n  height: 0;\n  padding-bottom: 0;\n}\n._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-indent {\n  padding-left: 20px;\n}\n._zs_gallery_mx-tree_index_-line {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:after {\n  content: '';\n  position: absolute;\n  top: 22px;\n  left: 7px;\n  bottom: 2px;\n  width: 1px;\n  background-color: var(--color-border);\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:last-child:after {\n  content: none;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-tree_index_",":root {\n  --mx-tree-oper-size: calc(var(--font-size) + 2px);\n}\n._zs_gallery_mx-tree_index_-name {\n  position: relative;\n  height: 32px;\n  line-height: 20px;\n  padding-bottom: 12px;\n  background-color: #fff;\n  overflow: hidden;\n  transition: height 0.2s;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-icon {\n  float: left;\n  width: var(--mx-tree-oper-size);\n  height: var(--mx-tree-oper-size);\n  margin-right: 5px;\n  line-height: var(--mx-tree-oper-size);\n  font-size: var(--mx-tree-oper-size);\n  color: #ccc;\n  transition: color var(--duration);\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper {\n  cursor: pointer;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper:hover {\n  color: #666;\n}\n._zs_gallery_mx-tree_index_-close ._zs_gallery_mx-tree_index_-name {\n  height: 0;\n  padding-bottom: 0;\n}\n._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-indent {\n  padding-left: calc(var(--mx-tree-oper-size) + 5px);\n}\n._zs_gallery_mx-tree_index_-line {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:after {\n  content: '';\n  position: absolute;\n  top: 22px;\n  left: calc(var(--mx-tree-oper-size) / 2);\n  bottom: 2px;\n  width: 1px;\n  background-color: var(--color-border);\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:last-child:after {\n  content: none;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -30,8 +30,8 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cthsibcin$art_c = list.length; index < $art_cthsibcin$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cthsibcin$art_c = list.length; index < $art_cthsibcin$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cbdirbrtqpbd$art_c = list.length; index < $art_cbdirbrtqpbd$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cbdirbrtqpbd$art_c = list.length; index < $art_cbdirbrtqpbd$art_c; index++) {
         var item = list[index];
         $p += '<div mxv mxa="_zs_gallerye1:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_gallerye1:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
         $line = 4;
@@ -58,23 +58,23 @@ module.exports = Magix.View.extend({
                 $expr = '<%if (item.close) {%>';
                 if (item.close) {
                     ;
-                    $p += ' &#xe65b; ';
-                    $line = 9;
+                    $p += '&#xe65b;';
+                    $line = 7;
                     $art = 'else';
                     ;
                     $expr = '<%}            else {%>';
                 }
                 else {
                     ;
-                    $p += ' &#xe65a; ';
-                    $line = 11;
+                    $p += '&#xe65a;';
+                    $line = 7;
                     $art = '/if';
                     ;
                     $expr = '<%}%>';
                 }
                 ;
                 $p += '</i>';
-                $line = 13;
+                $line = 9;
                 $art = 'else';
                 ;
                 $expr = '<%}        else {%>';
@@ -82,147 +82,146 @@ module.exports = Magix.View.extend({
             else {
                 ;
                 $p += ' ';
-                $line = 14;
+                $line = 10;
                 $art = 'if readOnly';
                 ;
                 $expr = '<%if (readOnly) {%>';
                 if (readOnly) {
                     ;
                     $p += '<i mxs="_zs_gallerye1:_" class="mc-iconfont _zs_gallery_mx-tree_index_-icon">&#xe732;</i>';
-                    $line = 17;
+                    $line = 13;
                     $art = '/if';
                     ;
                     $expr = '<%}%>';
                 }
                 ;
                 $p += ' ';
-                $line = 18;
+                $line = 14;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' ';
-            $line = 19;
+            $line = 15;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '<label mxv mxa="_zs_gallerye1:b" class="fl">';
-        $line = 21;
+        $line = 17;
         $art = 'if !readOnly';
         ;
         $expr = '<%if (!readOnly) {%>';
         if (!readOnly) {
             ;
             $p += '<input class="checkbox" type="checkbox" id="cb_';
-            $line = 24;
+            $line = 20;
             $art = '=viewId';
             ;
             $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
-            $line = 24;
+            $line = 20;
             $art = '=index';
             ;
             $p += ($expr = '<%=index%>', $e(index)) + '" value="';
-            $line = 25;
+            $line = 21;
             $art = '=item[valueKey]';
             ;
             $p += ($expr = '<%=item[valueKey]%>', $e(item[valueKey])) + '" name="';
-            $line = 26;
+            $line = 22;
             $art = '=viewId';
             ;
             $p += ($expr = '<%=viewId%>', $e(viewId)) + '" mx-change="' + $viewId + '@{check}({index:';
-            $line = 27;
+            $line = 23;
             $art = '=index';
             ;
             $p += ($expr = '<%=index%>', $e(index)) + '})"/>';
-            $line = 28;
+            $line = 24;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += ' ';
-        $line = 30;
+        $line = 24;
         $art = '=item[textKey]';
         ;
         $p += ($expr = '<%=item[textKey]%>', $e(item[textKey])) + '</label></div>';
-        $line = 33;
+        $line = 27;
         $art = 'if (item.children && (item.children.length > 0))';
         ;
         $expr = '<%if (item.children && (item.children.length > 0)) {%>';
         if (item.children && (item.children.length > 0)) {
             ;
             $p += '<div mxv="readOnly,needExpand,list,closeMap" id="';
-            $line = 35;
+            $line = 29;
             $art = '=viewId';
             ;
             $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
-            $line = 35;
+            $line = 29;
             $art = '=index';
             ;
             $p += ($expr = '<%=index%>', $e(index)) + '" class="';
-            $line = 42;
+            $line = 36;
             $art = 'if item.close';
             ;
             $expr = '<%if (item.close) {%>';
             if (item.close) {
                 ;
                 $p += ' _zs_gallery_mx-tree_index_-close ';
-                $line = 42;
+                $line = 36;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' ';
-            $line = 42;
+            $line = 36;
             $art = 'if !item.isAll';
             ;
             $expr = '<%if (!item.isAll) {%>';
             if (!item.isAll) {
                 ;
                 $p += ' _zs_gallery_mx-tree_index_-indent ';
-                $line = 42;
+                $line = 36;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '" mx-view="mx-tree/branch?textKey=';
-            $line = 36;
+            $line = 30;
             $art = '=textKey';
             ;
             $p += ($expr = '<%!$eu(textKey)%>', $eu(textKey)) + '&valueKey=';
-            $line = 37;
+            $line = 31;
             $art = '=valueKey';
             ;
             $p += ($expr = '<%!$eu(valueKey)%>', $eu(valueKey)) + '&readOnly=';
-            $line = 38;
+            $line = 32;
             $art = '@readOnly';
             ;
             $p += ($expr = '<%@readOnly%>', $i($$ref, readOnly)) + '&needExpand=';
-            $line = 39;
+            $line = 33;
             $art = '@needExpand';
             ;
             $p += ($expr = '<%@needExpand%>', $i($$ref, needExpand)) + '&list=';
-            $line = 40;
+            $line = 34;
             $art = '@item.children';
             ;
             $p += ($expr = '<%@item.children%>', $i($$ref, item.children)) + '&closeMap=';
-            $line = 41;
+            $line = 35;
             $art = '@closeMap';
             ;
             $p += ($expr = '<%@closeMap%>', $i($$ref, closeMap)) + '"></div>';
-            $line = 43;
+            $line = 37;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</div>';
-        $line = 45;
+        $line = 39;
         $art = '/each';
         ;
         $expr = '<%}%>';

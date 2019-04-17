@@ -24,6 +24,7 @@
         border-bottom-left-radius: var(--border-radius);
 
         .week-item {
+            font-size: 12px;
             color: #999;
             text-align: center;
             border-bottom: 1px solid var(--color-border);
@@ -51,6 +52,7 @@
 
             .range-item {
                 float: left;
+                font-size: 12px;
                 border-right: 1px solid var(--color-border);
 
                 &:last-child {
@@ -68,6 +70,7 @@
 
             .time-item {
                 float: left;
+                font-size: 12px;
                 border-right: 1px solid var(--color-border);
                 border-bottom: 1px solid var(--color-border);
             }
@@ -121,7 +124,7 @@
     .discount-setting {
         position: absolute;
         z-index: 100;
-        width: 220px;
+        width: calc(var(--font-size) * 16 + 40px);
         border-radius: var(--border-radius);
         background: #fff;
 
