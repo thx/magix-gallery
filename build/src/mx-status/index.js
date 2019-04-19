@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -8,7 +8,7 @@ define("mx-status/index",["magix","mx-status/base"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var Base = require("mx-status/base");
-Magix.applyStyle("_zs_gallery_mx-status_base_","._zs_gallery_mx-status_base_-status {\n  position: relative;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-icon > * {\n  font-size: 20px;\n  line-height: 25px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info {\n  display: block;\n  top: -11px;\n  left: -11px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-icon,\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-name,\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-oper-icon {\n  float: left;\n  height: 25px;\n  line-height: 25px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-name {\n  margin-left: 8px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-oper-icon {\n  float: right;\n  color: #999;\n  font-weight: bold;\n  font-size: 20px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-oper {\n  min-width: 140px;\n  height: 45px;\n  line-height: 25px;\n  padding: 10px;\n  cursor: pointer;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-oper ._zs_gallery_mx-status_base_-oper-icon {\n  display: none;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-oper:hover {\n  background-color: var(--color-bg-hover);\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-oper._zs_gallery_mx-status_base_-status-oper-cur {\n  cursor: default;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-oper._zs_gallery_mx-status_base_-status-oper-cur ._zs_gallery_mx-status_base_-oper-icon {\n  display: block;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-desc {\n  min-width: 140px;\n  height: 45px;\n  line-height: 25px;\n  padding: 10px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-tip {\n  width: 200px;\n  font-size: 12px;\n  padding: 0 10px 10px 10px;\n  line-height: 18px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info._zs_gallery_mx-status_base_-status-info-dd {\n  top: 0;\n  left: 0;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-handle-icon {\n  position: relative;\n  width: 36px;\n  height: 25px;\n  line-height: 25px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-handle-icon ._zs_gallery_mx-status_base_-status-arrow {\n  position: absolute;\n  top: 10.5px;\n  right: 0;\n  width: 0;\n  height: 0;\n  line-height: 0;\n  font-size: 0;\n  overflow: hidden;\n  border-style: solid;\n  border-width: 3px 3px 0 3px;\n  border-color: #999 transparent transparent transparent;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-line {\n  height: 0;\n  border-top: 1px solid var(--color-border);\n}\n[mx-view*=\"mx-status/dropdown\"]:hover ._zs_gallery_mx-status_base_-readonly {\n  cursor: not-allowed;\n  border-color: var(--border-highlight);\n}\n");
+Magix.applyStyle("_zs_gallery_mx-status_base_","._zs_gallery_mx-status_base_-status {\n  position: relative;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-icon > * {\n  font-size: 20px;\n  line-height: var(--input-small-height);\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info {\n  display: block;\n  min-width: calc(var(--font-size) * 6 + 60px);\n  top: -11px;\n  left: -11px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-icon,\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-name,\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-oper-icon {\n  float: left;\n  height: var(--input-small-height);\n  line-height: var(--input-small-height);\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-name {\n  margin-left: 8px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-oper-icon {\n  float: right;\n  color: #999;\n  font-weight: bold;\n  font-size: 20px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-oper {\n  height: calc(var(--input-small-height) + 20px);\n  line-height: var(--input-small-height);\n  padding: 10px;\n  cursor: pointer;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-oper ._zs_gallery_mx-status_base_-oper-icon {\n  display: none;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-oper:hover {\n  background-color: var(--color-bg-hover);\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-oper._zs_gallery_mx-status_base_-status-oper-cur {\n  cursor: default;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-oper._zs_gallery_mx-status_base_-status-oper-cur ._zs_gallery_mx-status_base_-oper-icon {\n  display: block;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-desc {\n  min-width: 140px;\n  height: calc(var(--input-small-height) + 20px);\n  line-height: var(--input-small-height);\n  padding: 10px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info ._zs_gallery_mx-status_base_-status-tip {\n  width: 200px;\n  font-size: 12px;\n  padding: 0 10px 10px 10px;\n  line-height: 18px;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-info._zs_gallery_mx-status_base_-status-info-dd {\n  top: 0;\n  left: 0;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-handle-icon {\n  position: relative;\n  height: var(--input-small-height);\n  line-height: var(--input-small-height);\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-handle-icon ._zs_gallery_mx-status_base_-status-arrow {\n  position: absolute;\n  top: calc((var(--input-small-height) - 4px) / 2);\n  right: 0;\n  width: 0;\n  height: 0;\n  line-height: 0;\n  font-size: 0;\n  overflow: hidden;\n  border-style: solid;\n  border-width: 3px 3px 0 3px;\n  border-color: #999 transparent transparent transparent;\n}\n._zs_gallery_mx-status_base_-status ._zs_gallery_mx-status_base_-status-line {\n  height: 0;\n  border-top: 1px solid var(--color-border);\n}\n[mx-view*=\"mx-status/index\"] {\n  width: 36px;\n  height: var(--input-small-height);\n  min-width: 0;\n}\n[mx-view*=\"mx-status/dropdown\"]:hover ._zs_gallery_mx-status_base_-readonly {\n  cursor: not-allowed;\n  border-color: var(--border-highlight);\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -26,7 +26,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', showInfo = $$.showInfo, info = $$.info, cur = $$.cur, opers = $$.opers, show = $$.show; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydS:_" class="_zs_gallery_mx-status_base_-status" mx-mouseout="' + $viewId + 'out()"><div mxa="_zs_gallerydS:a" class="_zs_gallery_mx-status_base_-status-handle-icon" mx-mouseover="' + $viewId + 'over()">';
+    $p += '<div mxa="_zs_gallerydV:_" class="_zs_gallery_mx-status_base_-status" mx-mouseout="' + $viewId + 'out()"><div mxa="_zs_gallerydV:a" class="_zs_gallery_mx-status_base_-status-handle-icon" mx-mouseover="' + $viewId + 'over()">';
     $line = 5;
     $art = 'if showInfo';
     ;
@@ -71,7 +71,7 @@ module.exports = Base.extend({
     $expr = '<%if (opers.length > 0) {%>';
     if (opers.length > 0) {
         ;
-        $p += '<i mxs="_zs_gallerydS:_" class="_zs_gallery_mx-status_base_-status-arrow"></i>';
+        $p += '<i mxs="_zs_gallerydV:_" class="_zs_gallery_mx-status_base_-status-arrow"></i>';
         $line = 13;
         $art = '/if';
         ;
@@ -85,14 +85,14 @@ module.exports = Base.extend({
     $expr = '<%if (show) {%>';
     if (show) {
         ;
-        $p += '<ul mxa="_zs_gallerydS:b" class="mx-output _zs_gallery_mx-status_base_-status-info">';
+        $p += '<ul mxa="_zs_gallerydV:b" class="mx-output _zs_gallery_mx-status_base_-status-info">';
         $line = 18;
         $art = 'if showInfo';
         ;
         $expr = '<%if (showInfo) {%>';
         if (showInfo) {
             ;
-            $p += '<li mxa="_zs_gallerydS:c" class="_zs_gallery_mx-status_base_-status-desc"><span class="_zs_gallery_mx-status_base_-status-icon" style="color: ';
+            $p += '<li mxa="_zs_gallerydV:c" class="_zs_gallery_mx-status_base_-status-desc"><span class="_zs_gallery_mx-status_base_-status-icon" style="color: ';
             $line = 20;
             $art = '=info.color';
             ;
@@ -100,7 +100,7 @@ module.exports = Base.extend({
             $line = 20;
             $art = '!info.icon';
             ;
-            $p += ($expr = '<%!info.icon%>', $n(info.icon)) + '</span><span mxa="_zs_gallerydS:d" class="_zs_gallery_mx-status_base_-status-name">';
+            $p += ($expr = '<%!info.icon%>', $n(info.icon)) + '</span><span mxa="_zs_gallerydV:d" class="_zs_gallery_mx-status_base_-status-name">';
             $line = 21;
             $art = '!info.text';
             ;
@@ -111,7 +111,7 @@ module.exports = Base.extend({
             $expr = '<%if (info.tip) {%>';
             if (info.tip) {
                 ;
-                $p += '<li mxa="_zs_gallerydS:e" class="_zs_gallery_mx-status_base_-status-tip">';
+                $p += '<li mxa="_zs_gallerydV:e" class="_zs_gallery_mx-status_base_-status-tip">';
                 $line = 24;
                 $art = '!info.tip';
                 ;
@@ -129,7 +129,7 @@ module.exports = Base.extend({
             $expr = '<%if (opers.length > 0) {%>';
             if (opers.length > 0) {
                 ;
-                $p += '<li mxs="_zs_gallerydS:a" class="_zs_gallery_mx-status_base_-status-line"></li>';
+                $p += '<li mxs="_zs_gallerydV:a" class="_zs_gallery_mx-status_base_-status-line"></li>';
                 $line = 28;
                 $art = '/if';
                 ;
@@ -147,9 +147,9 @@ module.exports = Base.extend({
         $line = 31;
         $art = 'each opers as item';
         ;
-        $expr = '<%for (var $art_ihxmhtms$art_i = 0, $art_ccgetakyp$art_c = opers.length; $art_ihxmhtms$art_i < $art_ccgetakyp$art_c; $art_ihxmhtms$art_i++) {        var item = opers[$art_ihxmhtms$art_i]%>';
-        for (var $art_ihxmhtms$art_i = 0, $art_ccgetakyp$art_c = opers.length; $art_ihxmhtms$art_i < $art_ccgetakyp$art_c; $art_ihxmhtms$art_i++) {
-            var item = opers[$art_ihxmhtms$art_i];
+        $expr = '<%for (var $art_iwkqqkdcebl$art_i = 0, $art_clujbbkv$art_c = opers.length; $art_iwkqqkdcebl$art_i < $art_clujbbkv$art_c; $art_iwkqqkdcebl$art_i++) {        var item = opers[$art_iwkqqkdcebl$art_i]%>';
+        for (var $art_iwkqqkdcebl$art_i = 0, $art_clujbbkv$art_c = opers.length; $art_iwkqqkdcebl$art_i < $art_clujbbkv$art_c; $art_iwkqqkdcebl$art_i++) {
+            var item = opers[$art_iwkqqkdcebl$art_i];
             $p += '<li class="_zs_gallery_mx-status_base_-status-oper clearfix ';
             $line = 32;
             $art = 'if (item.value == cur.value)';
@@ -176,11 +176,11 @@ module.exports = Base.extend({
             $line = 33;
             $art = '!item.icon';
             ;
-            $p += ($expr = '<%!item.icon%>', $n(item.icon)) + '</span><span mxa="_zs_gallerydS:f" class="_zs_gallery_mx-status_base_-status-name">';
+            $p += ($expr = '<%!item.icon%>', $n(item.icon)) + '</span><span mxa="_zs_gallerydV:f" class="_zs_gallery_mx-status_base_-status-name">';
             $line = 34;
             $art = '!item.text';
             ;
-            $p += ($expr = '<%!item.text%>', $n(item.text)) + '</span><i mxs="_zs_gallerydS:b" class="mc-iconfont _zs_gallery_mx-status_base_-oper-icon">&#xe65d;</i></li>';
+            $p += ($expr = '<%!item.text%>', $n(item.text)) + '</span><i mxs="_zs_gallerydV:b" class="mc-iconfont _zs_gallery_mx-status_base_-oper-icon">&#xe65d;</i></li>';
             $line = 37;
             $art = '/each';
             ;

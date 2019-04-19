@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -21,14 +21,14 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', menus = $$.menus; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc%:_" class="_zs_gallery_mx-popmenu_content_-menu">';
+    $p += '<div mxa="_zs_galleryc*:_" class="_zs_gallery_mx-popmenu_content_-menu">';
     $line = 2;
     $art = 'each menus as item';
     ;
-    $expr = '<%for (var $art_ifcvit$art_i = 0, $art_cfeslvo$art_c = menus.length; $art_ifcvit$art_i < $art_cfeslvo$art_c; $art_ifcvit$art_i++) {    var item = menus[$art_ifcvit$art_i]%>';
-    for (var $art_ifcvit$art_i = 0, $art_cfeslvo$art_c = menus.length; $art_ifcvit$art_i < $art_cfeslvo$art_c; $art_ifcvit$art_i++) {
-        var item = menus[$art_ifcvit$art_i];
-        $p += '<div mxa="_zs_galleryc%:a" class="_zs_gallery_mx-popmenu_content_-item"><span class="_zs_gallery_mx-popmenu_content_-item-link ellipsis" mx-click="' + $viewId + 'submit({value:';
+    $expr = '<%for (var $art_iaksysr$art_i = 0, $art_catdsfxjrh$art_c = menus.length; $art_iaksysr$art_i < $art_catdsfxjrh$art_c; $art_iaksysr$art_i++) {    var item = menus[$art_iaksysr$art_i]%>';
+    for (var $art_iaksysr$art_i = 0, $art_catdsfxjrh$art_c = menus.length; $art_iaksysr$art_i < $art_catdsfxjrh$art_c; $art_iaksysr$art_i++) {
+        var item = menus[$art_iaksysr$art_i];
+        $p += '<div mxa="_zs_galleryc*:a" class="_zs_gallery_mx-popmenu_content_-item"><span class="_zs_gallery_mx-popmenu_content_-item-link ellipsis" mx-click="' + $viewId + 'submit({value:';
         $line = 5;
         $art = '=item.value';
         ;

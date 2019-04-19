@@ -1,0 +1,66 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">组件内所有的展开项使用通用的样式，mx-trigger，mx-trigger-open，mx-output，mx-output-bottom（向下展开），mx-output-open，可借助这些class自定义一个类似于dropdown的组件</div>
+        <a href="javascript:;" mx-click="toggle()" class="btn btn-brand mr20">{{=(open ? '点击收起' : '点击展开')}}</a>
+        <div style="position: relative; display: inline-block; width: 200px;">
+            <div class="mx-trigger {{if open}} mx-trigger-open {{/if}}">
+                trigger<i class="mc-iconfont mx-trigger-arrow">&#xe692;</i>
+            </div>
+            <div class="mx-output mx-output-bottom {{if open}} mx-output-open {{/if}}">
+                <div style="padding: 20px;">自定义区域</div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;a class="btn btn-brand mr20" href="javascript:;" 
+    mx-click="toggle()"&gt;
+    &#123;&#123;=(open ? '点击收起' : '点击展开')&#125;&#125;
+&lt;/a&gt;
+
+&lt;div style="position: relative; display: inline-block; width: 200px;"&gt;
+    &lt;div class="mx-trigger &#123;&#123;if open&#125;&#125; mx-trigger-open &#123;&#123;/if&#125;&#125;"&gt;
+        trigger
+        &lt;i class="mc-iconfont mx-trigger-arrow"&gt;&#xe692;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;div class="mx-output mx-output-bottom &#123;&#123;if open&#125;&#125; mx-output-open &#123;&#123;/if&#125;&#125;"&gt;
+        &lt;div style="padding: 20px;"&gt;自定义区域&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@trigger.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            open: false
+        &#125;);
+    &#125;,
+    'toggle&lt;click&gt;'()&#123;
+        let open = this.updater.get('open');
+        this.updater.digest(&#123;
+            open: !open
+        &#125;)
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

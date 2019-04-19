@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -22,14 +22,14 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', title = $$.title, content = $$.content, hasBtns = $$.hasBtns, enterText = $$.enterText; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryaJ:_" class="dialog-body"><div mxa="_zs_galleryaJ:a" class="_zs_gallery_mx-dialog_alert_-alert-header">' + ($expr = '<%=title%>', $e(title)) + '</div><div mxa="_zs_galleryaJ:b" class="word-break">' + ($expr = '<%!content%>', $n(content)) + '</div></div>';
+    $p += '<div mxa="_zs_galleryaL:_" class="dialog-body"><div mxa="_zs_galleryaL:a" class="_zs_gallery_mx-dialog_alert_-alert-header">' + ($expr = '<%=title%>', $e(title)) + '</div><div mxa="_zs_galleryaL:b" class="word-break">' + ($expr = '<%!content%>', $n(content)) + '</div></div>';
     $line = 5;
     $art = 'if hasBtns';
     ;
     $expr = '<%if (hasBtns) {%>';
     if (hasBtns) {
         ;
-        $p += '<div mxa="_zs_galleryaJ:c" class="dialog-footer"><a mxa="_zs_galleryaJ:d" href="javascript:;" class="btn btn-small btn-brand min-width-60" mx-click="' + $viewId + '@{enter}();">' + ($expr = '<%=enterText%>', $e(enterText)) + '</a></div>';
+        $p += '<div mxa="_zs_galleryaL:c" class="dialog-footer"><a mxa="_zs_galleryaL:d" href="javascript:;" class="btn btn-small btn-brand min-width-60" mx-click="' + $viewId + '@{enter}();">' + ($expr = '<%=enterText%>', $e(enterText)) + '</a></div>';
         $line = 9;
         $art = '/if';
         ;

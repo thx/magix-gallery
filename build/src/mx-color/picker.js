@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -10,7 +10,7 @@ var Magix = require("magix");
 var $ = require("$");
 var Monitor = require("../mx-util/monitor");
 require("./index");
-Magix.applyStyle("_zs_gallery_mx-color_index_","[mx-view*=\"mx-color/index\"] {\n  width: 246px;\n  min-width: 246px;\n  padding: 10px;\n  background-color: #fff;\n}\n._zs_gallery_mx-color_index_-shortcuts,\n._zs_gallery_mx-color_index_-cbd,\n._zs_gallery_mx-color_index_-foot {\n  width: 224px;\n}\n._zs_gallery_mx-color_index_-cbd {\n  margin: 10px 0;\n}\n._zs_gallery_mx-color_index_-shortcut {\n  position: relative;\n  float: left;\n  width: 15px;\n  height: 15px;\n  margin: -1px 0 0 -1px;\n  border: 1px solid #333;\n  cursor: pointer;\n}\n._zs_gallery_mx-color_index_-shortcut._zs_gallery_mx-color_index_-selected:before,\n._zs_gallery_mx-color_index_-shortcut._zs_gallery_mx-color_index_-selected:after {\n  content: ' ';\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n}\n._zs_gallery_mx-color_index_-shortcut._zs_gallery_mx-color_index_-selected:before {\n  z-index: 2;\n  border: solid 1px #fff;\n}\n._zs_gallery_mx-color_index_-shortcut._zs_gallery_mx-color_index_-selected:after {\n  z-index: 1;\n  border: solid 2px #333;\n}\n._zs_gallery_mx-color_index_-cpicker {\n  float: left;\n  position: relative;\n  width: 196px;\n  height: 196px;\n  cursor: pointer;\n}\n._zs_gallery_mx-color_index_-cpicker ._zs_gallery_mx-color_index_-cpicker-indicator {\n  position: absolute;\n  width: 8px;\n  height: 8px;\n  box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);\n  border-radius: 50%;\n}\n._zs_gallery_mx-color_index_-slide {\n  float: right;\n  position: relative;\n  width: 18px;\n  height: 196px;\n  cursor: pointer;\n}\n._zs_gallery_mx-color_index_-slide ._zs_gallery_mx-color_index_-slide-indicator {\n  position: absolute;\n  right: -6px;\n  top: -6px;\n  width: 0;\n  height: 0;\n  background-color: none;\n  border-right: 6px solid #333;\n  border-left: none;\n  border-bottom: 6px solid transparent;\n  border-top: 6px solid transparent;\n}\n._zs_gallery_mx-color_index_-color-value {\n  width: 104px;\n}\n._zs_gallery_mx-color_index_-bg-color {\n  height: var(--input-height);\n  width: 50px;\n  margin-right: 10px;\n  border-radius: var(--border-radius);\n  border: 1px solid var(--color-border);\n}\n._zs_gallery_mx-color_index_-alpha {\n  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAGUlEQVQYV2M4gwH+YwCGIasIUwhT25BVBADtzYNYrHvv4gAAAABJRU5ErkJggg==);\n  width: 224px;\n  height: 12px;\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-color_index_-alpha-tracker {\n  position: relative;\n  height: 100%;\n  cursor: pointer;\n}\n._zs_gallery_mx-color_index_-alpha-indicator {\n  position: absolute;\n  left: -2px;\n  top: 2px;\n  height: 8px;\n  width: 4px;\n  box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);\n  background: #fff;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-color_index_","[mx-view*=\"mx-color/index\"] {\n  width: 246px;\n  min-width: 246px;\n  padding: 10px;\n  background-color: #fff;\n}\n._zs_gallery_mx-color_index_-shortcuts,\n._zs_gallery_mx-color_index_-cbd,\n._zs_gallery_mx-color_index_-foot {\n  width: 224px;\n}\n._zs_gallery_mx-color_index_-cbd {\n  margin: 10px 0;\n}\n._zs_gallery_mx-color_index_-shortcut {\n  position: relative;\n  float: left;\n  width: 15px;\n  height: 15px;\n  margin: -1px 0 0 -1px;\n  border: 1px solid #333;\n  cursor: pointer;\n}\n._zs_gallery_mx-color_index_-shortcut._zs_gallery_mx-color_index_-selected:before,\n._zs_gallery_mx-color_index_-shortcut._zs_gallery_mx-color_index_-selected:after {\n  content: ' ';\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n}\n._zs_gallery_mx-color_index_-shortcut._zs_gallery_mx-color_index_-selected:before {\n  z-index: 2;\n  border: solid 1px #fff;\n}\n._zs_gallery_mx-color_index_-shortcut._zs_gallery_mx-color_index_-selected:after {\n  z-index: 1;\n  border: solid 2px #333;\n}\n._zs_gallery_mx-color_index_-cpicker {\n  float: left;\n  position: relative;\n  width: 196px;\n  height: 196px;\n  cursor: pointer;\n}\n._zs_gallery_mx-color_index_-cpicker ._zs_gallery_mx-color_index_-cpicker-indicator {\n  position: absolute;\n  width: 8px;\n  height: 8px;\n  box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);\n  border-radius: 50%;\n}\n._zs_gallery_mx-color_index_-slide {\n  float: right;\n  position: relative;\n  width: 18px;\n  height: 196px;\n  cursor: pointer;\n}\n._zs_gallery_mx-color_index_-slide ._zs_gallery_mx-color_index_-slide-indicator {\n  position: absolute;\n  right: -6px;\n  top: -6px;\n  width: 0;\n  height: 0;\n  background-color: none;\n  border-right: 6px solid #333;\n  border-left: none;\n  border-bottom: 6px solid transparent;\n  border-top: 6px solid transparent;\n}\n._zs_gallery_mx-color_index_-color-value {\n  width: 104px;\n}\n._zs_gallery_mx-color_index_-bg-color {\n  height: var(--input-height);\n  width: 50px;\n  margin-right: 10px;\n  border-radius: var(--border-radius);\n  border: 1px solid var(--color-border);\n}\n._zs_gallery_mx-color_index_-alpha {\n  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAGUlEQVQYV2M4gwH+YwCGIasIUwhT25BVBADtzYNYrHvv4gAAAABJRU5ErkJggg==);\n  width: 224px;\n  height: 12px;\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-color_index_-alpha-tracker {\n  position: relative;\n  height: 100%;\n  cursor: pointer;\n}\n._zs_gallery_mx-color_index_-alpha-indicator {\n  position: absolute;\n  left: -2px;\n  top: 2px;\n  height: 8px;\n  width: 4px;\n  box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);\n  background: #fff;\n}\n._zs_gallery_mx-color_index_-dot {\n  width: var(--input-height);\n  height: var(--input-height);\n  border-radius: 50%;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -27,43 +27,72 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, info = $$.info, show = $$.show, left = $$.left, top = $$.top; var $expr, $art, $line; try {
-    $p += '<div class="mx-trigger" id="trigger_';
+} ; var $g = '', $_temp, $p = '', dot = $$.dot, viewId = $$.viewId, info = $$.info, show = $$.show, left = $$.left, top = $$.top; var $expr, $art, $line; try {
     $line = 1;
-    $art = '=viewId';
+    $art = 'if dot';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" mx-click="' + $viewId + '@{toggle}()" mx-change="' + $viewId + '@{stop}()">';
-    $line = 3;
-    $art = '=info.color';
+    $expr = '<%if (dot) {%>';
+    if (dot) {
+        ;
+        $p += '<div class="_zs_gallery_mx-color_index_-dot" id="trigger_';
+        $line = 2;
+        $art = '=viewId';
+        ;
+        $p += ($expr = '<%=viewId%>', $e(viewId)) + '" style="background: ';
+        $line = 2;
+        $art = '=info.color';
+        ;
+        $p += ($expr = '<%=info.color%>', $e(info.color)) + ';" mx-click="' + $viewId + '@{toggle}()" mx-change="' + $viewId + '@{stop}()"></div>';
+        $line = 5;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '<div class="mx-trigger" id="trigger_';
+        $line = 6;
+        $art = '=viewId';
+        ;
+        $p += ($expr = '<%=viewId%>', $e(viewId)) + '" mx-click="' + $viewId + '@{toggle}()" mx-change="' + $viewId + '@{stop}()">';
+        $line = 8;
+        $art = '=info.color';
+        ;
+        $p += ($expr = '<%=info.color%>', $e(info.color)) + '</div>';
+        $line = 9;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
     ;
-    $p += ($expr = '<%=info.color%>', $e(info.color)) + '</div><div mxv="info" class="mx-output mx-output-bottom ';
-    $line = 4;
+    $p += '<div mxv="info" class="mx-output mx-output-bottom ';
+    $line = 11;
     $art = 'if show';
     ;
     $expr = '<%if (show) {%>';
     if (show) {
         ;
         $p += ' mx-output-open ';
-        $line = 4;
+        $line = 11;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += '" id="cpcnt_';
-    $line = 5;
+    $line = 12;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '" style="left:';
-    $line = 6;
+    $line = 13;
     $art = '=left';
     ;
     $p += ($expr = '<%=left%>', $e(left)) + 'px;top:';
-    $line = 6;
+    $line = 13;
     $art = '=top';
     ;
     $p += ($expr = '<%=top%>', $e(top)) + 'px;" mx-view="mx-color/index?data=';
-    $line = 7;
+    $line = 14;
     $art = '@info';
     ;
     $p += ($expr = '<%@info%>', $i($$ref, info)) + '" mx-change="' + $viewId + '@{color.picked}()"></div>';
@@ -95,6 +124,7 @@ catch (ex) {
             viewId: that.id,
             align: extra.align,
             show: false,
+            dot: (extra.dot + '') === 'true',
             info: {
                 showBtns: true,
                 showAlpha: extra.showAlpha,

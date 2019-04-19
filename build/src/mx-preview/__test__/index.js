@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -35,7 +35,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerydg:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_gallerydj:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'图片\',\n            key: viewId + \'_demo1\'\n        }, {\n            name: \'视频\',\n            key: viewId + \'_demo2\'\n        }, {\n            name: \'html(iframe展示)\',\n            key: viewId + \'_demo3\'\n        }, {\n            name: \'文字\',\n            key: viewId + \'_demo4\'\n        }, {\n            name: \'纯缩略图(无预览)\',\n            key: viewId + \'_demo7\'\n        }, {\n            name: \'左对齐\',\n            key: viewId + \'_demo8\'\n        }, {\n            name: \'套图\',\n            key: viewId + \'_demo5\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'关于懒加载\',\n        key: viewId + \'_lazyload\'\n    }]';
     ;
@@ -43,7 +43,7 @@ module.exports = Magix.View.extend({
     $line = 36;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B&tip=%E6%A0%B9%E6%8D%AE%E5%AE%9E%E9%99%85%E5%B0%BA%E5%AF%B8%E5%B1%95%E7%A4%BA%EF%BC%8C%E7%AD%89%E6%AF%94%E4%BE%8B%E7%BC%A9%E6%94%BE%EF%BC%8C%E4%B8%8D%E8%B6%85%E8%BF%87%E5%B1%8F%E5%B9%95%E5%8F%AF%E8%A7%86%E8%8C%83%E5%9B%B4%EF%BC%9B%3Cspan%20class%3D%27color-brand%27%3E%E5%AE%9E%E7%8E%B0%E7%B4%A0%E6%9D%90%E6%87%92%E5%8A%A0%E8%BD%BD%3C%2Fspan%3E"></div><div mxa="_zs_gallerydg:a" class="clearfix mb20"><div mxa="_zs_gallerydg:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-preview/__test__/1" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B&tip=%E6%A0%B9%E6%8D%AE%E5%AE%9E%E9%99%85%E5%B0%BA%E5%AF%B8%E5%B1%95%E7%A4%BA%EF%BC%8C%E7%AD%89%E6%AF%94%E4%BE%8B%E7%BC%A9%E6%94%BE%EF%BC%8C%E4%B8%8D%E8%B6%85%E8%BF%87%E5%B1%8F%E5%B9%95%E5%8F%AF%E8%A7%86%E8%8C%83%E5%9B%B4%EF%BC%9B%3Cspan%20class%3D%27color-brand%27%3E%E5%AE%9E%E7%8E%B0%E7%B4%A0%E6%9D%90%E6%87%92%E5%8A%A0%E8%BD%BD%3C%2Fspan%3E"></div><div mxa="_zs_gallerydj:a" class="clearfix mb20"><div mxa="_zs_gallerydj:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-preview/__test__/1" id="';
     $line = 39;
     $art = '=viewId';
     ;
@@ -55,7 +55,7 @@ module.exports = Magix.View.extend({
     $line = 41;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div></div><div mxa="_zs_gallerydg:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-preview/__test__/2" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div></div><div mxa="_zs_gallerydj:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-preview/__test__/2" id="';
     $line = 44;
     $art = '=viewId';
     ;
@@ -83,7 +83,7 @@ module.exports = Magix.View.extend({
     $line = 54;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_lazyload" mx-view="mx-title/second?content=%E5%85%B3%E4%BA%8E%E6%87%92%E5%8A%A0%E8%BD%BD"></div><div mxs="_zs_gallerydg:_" class="lh22">使用IntersectionObserver实现，滚动容器内依然支持懒加载；</div><div mxs="_zs_gallerydg:a" class="lh22 mb20">注意点：<span class="color-brand">需要提前给包裹容器设定一个高度，不然可能在素材未加载的时候，所有的元素都在可视区，会导致所有元素都被加载</span></div><div mxs="_zs_gallerydg:b" mx-view="mx-preview/__test__/6"></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_lazyload" mx-view="mx-title/second?content=%E5%85%B3%E4%BA%8E%E6%87%92%E5%8A%A0%E8%BD%BD"></div><div mxs="_zs_gallerydj:_" class="lh22">使用IntersectionObserver实现，滚动容器内依然支持懒加载；</div><div mxs="_zs_gallerydj:a" class="lh22 mb20">注意点：<span class="color-brand">需要提前给包裹容器设定一个高度，不然可能在素材未加载的时候，所有的元素都在可视区，会导致所有元素都被加载</span></div><div mxs="_zs_gallerydj:b" mx-view="mx-preview/__test__/6"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

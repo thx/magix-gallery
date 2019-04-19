@@ -1,10 +1,11 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/__test__/6",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+define("mx-effects/__test__/6",["magix","__test__/example","$","../notice","mx-copy/index","__test__/hl"],(require,exports,module)=>{
 /*Magix,Base,$*/
+require("../notice");
 require("mx-copy/index");
 require("__test__/hl");
 var Magix = require("magix");
@@ -23,15 +24,15 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybw:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybw:_" class="_zs_gallery___test___layout_-eg-content"><div class="mx-notice mb20" style="color:rgb(81, 163, 0);background-color:rgba(81, 163, 0, 0.2);text-align: left"><div class="mx-notice-inner mx-notice-inner-with"><i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>自定义颜色提示</div></div><div class="mx-notice mx-notice-border mb20" style="color:rgb(81, 163, 0);background-color:rgba(81, 163, 0, 0.2);border-color:rgb(81, 163, 0);text-align: left"><div class="mx-notice-inner mx-notice-inner-with"><i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>带边框自定义颜色提示</div></div><div text-align="right" class="mx-notice mx-notice-border mb20" style="color:rgb(81, 163, 0);background-color:rgba(81, 163, 0, 0.2);border-color:rgb(81, 163, 0);text-align: right"><div class="mx-notice-inner mx-notice-inner-with"><i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>带边框自定义颜色居右提示</div></div></div><div mxa="_zs_gallerybw:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybw:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_galleryby:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryby:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb20" mx-view="mx-effects/notice?color=rgb%2881%2C%20163%2C%200%29&content=%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A2%9C%E8%89%B2%E6%8F%90%E7%A4%BA"></div><div class="mb20" mx-view="mx-effects/notice?color=rgb%2881%2C%20163%2C%200%29&content=%E5%B8%A6%E8%BE%B9%E6%A1%86%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A2%9C%E8%89%B2%E6%8F%90%E7%A4%BA&border=true"></div><div class="mb20" mx-view="mx-effects/notice?color=rgb%2881%2C%20163%2C%200%29&content=%E5%B8%A6%E8%BE%B9%E6%A1%86%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A2%9C%E8%89%B2%E5%B1%85%E5%8F%B3%E6%8F%90%E7%A4%BA&textAlign=right&border=true"></div></div><div mxa="_zs_galleryby:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryby:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 18;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybw:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryby:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 20;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybw:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryby:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 23;
     $art = '=viewId';
     ;

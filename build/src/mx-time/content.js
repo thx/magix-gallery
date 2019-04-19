@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -65,7 +65,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', format = $$.format, time = $$.time, types = $$.types; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryeM:_" class="clearfix pr"><div mxs="_zs_galleryeM:_" class="clearfix _zs_gallery_mx-calendar_index_-sps"><div class="_zs_gallery_mx-calendar_index_-sp _zs_gallery_mx-calendar_index_-spa">:</div><div class="_zs_gallery_mx-calendar_index_-sp _zs_gallery_mx-calendar_index_-spb">:</div></div><div mxv mxa="_zs_galleryeM:a" class="_zs_gallery_mx-calendar_index_-groups"><div mxv mxa="_zs_galleryeM:b" class="_zs_gallery_mx-calendar_index_-group"><div mxv mxa="_zs_galleryeM:c" class="mb5"><input class="input _zs_gallery_mx-calendar_index_-ipt" maxlength="2" autocomplete="off" value="';
+    $p += '<div mxv mxa="_zs_galleryeQ:_" class="clearfix pr"><div mxs="_zs_galleryeQ:_" class="clearfix _zs_gallery_mx-calendar_index_-sps"><div class="_zs_gallery_mx-calendar_index_-sp _zs_gallery_mx-calendar_index_-spa">:</div><div class="_zs_gallery_mx-calendar_index_-sp _zs_gallery_mx-calendar_index_-spb">:</div></div><div mxv mxa="_zs_galleryeQ:a" class="_zs_gallery_mx-calendar_index_-groups"><div mxv mxa="_zs_galleryeQ:b" class="_zs_gallery_mx-calendar_index_-group"><div mxv mxa="_zs_galleryeQ:c" class="mb5"><input class="input _zs_gallery_mx-calendar_index_-ipt" maxlength="2" autocomplete="off" value="';
     $line = 12;
     $art = '=format(time[\'@{hour}\'])';
     ;
@@ -133,7 +133,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '>&#xeb78;</i></div></div><div mxv mxa="_zs_galleryeM:d" class="_zs_gallery_mx-calendar_index_-group"><div mxv mxa="_zs_galleryeM:e" class="mb5"><input class="input _zs_gallery_mx-calendar_index_-ipt" maxlength="2" autocomplete="off" value="';
+    $p += '>&#xeb78;</i></div></div><div mxv mxa="_zs_galleryeQ:d" class="_zs_gallery_mx-calendar_index_-group"><div mxv mxa="_zs_galleryeQ:e" class="mb5"><input class="input _zs_gallery_mx-calendar_index_-ipt" maxlength="2" autocomplete="off" value="';
     $line = 29;
     $art = '=format(time[\'@{minute}\'])';
     ;
@@ -201,7 +201,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '>&#xeb78;</i></div></div><div mxv mxa="_zs_galleryeM:f" class="_zs_gallery_mx-calendar_index_-group"><div mxv mxa="_zs_galleryeM:g" class="mb5"><input class="input _zs_gallery_mx-calendar_index_-ipt" maxlength="2" autocomplete="off" value="';
+    $p += '>&#xeb78;</i></div></div><div mxv mxa="_zs_galleryeQ:f" class="_zs_gallery_mx-calendar_index_-group"><div mxv mxa="_zs_galleryeQ:g" class="mb5"><input class="input _zs_gallery_mx-calendar_index_-ipt" maxlength="2" autocomplete="off" value="';
     $line = 46;
     $art = '=format(time[\'@{second}\'])';
     ;

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -21,11 +21,11 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', outer = $$.outer; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryaf:_" class="mb20">当前模块标题是：';
+    $p += '<div mxa="_zs_galleryag:_" class="mb20">当前模块标题是：';
     $line = 1;
     $art = '!outer.title';
     ;
-    $p += ($expr = '<%!outer.title%>', $n(outer.title)) + '</div><div mxs="_zs_galleryaf:_" class="clearfix"><div class="_zs_gallery_mx-collapse___test___index_-demo" mx-view="mx-preview/index?format=2&url=%2F%2Fimg.alicdn.com%2Ftfscom%2FTB10l9lbgZC2uNjSZFnXXaxZpXa.png&maxWidth=100&maxHeight=100"></div><div class="_zs_gallery_mx-collapse___test___index_-demo" mx-view="mx-preview/index?format=2&url=%2F%2Fimg.alicdn.com%2Ftfscom%2FTB10l9lbgZC2uNjSZFnXXaxZpXa.png&maxWidth=100&maxHeight=100"></div></div>';
+    $p += ($expr = '<%!outer.title%>', $n(outer.title)) + '</div><div mxs="_zs_galleryag:_" class="clearfix"><div class="_zs_gallery_mx-collapse___test___index_-demo" mx-view="mx-preview/index?format=2&url=%2F%2Fimg.alicdn.com%2Ftfscom%2FTB10l9lbgZC2uNjSZFnXXaxZpXa.png&maxWidth=100&maxHeight=100"></div><div class="_zs_gallery_mx-collapse___test___index_-demo" mx-view="mx-preview/index?format=2&url=%2F%2Fimg.alicdn.com%2Ftfscom%2FTB10l9lbgZC2uNjSZFnXXaxZpXa.png&maxWidth=100&maxHeight=100"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

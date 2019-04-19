@@ -42,13 +42,11 @@
                 </tbody>
             </table>
         </mx-table>
-        <div class="table-pager-wrapper">
-            <mx-pagination 
-                total="{{=total}}" 
-                size="{{=size}}" 
-                page="{{=page}}"
-                mx-change="changePager()"/>
-        </div>
+        <mx-pagination class="table-pager-wrapper"
+            total="{{=total}}" 
+            size="{{=size}}" 
+            page="{{=page}}"
+            mx-change="changePager()"/>
     </div>
     <div class="clearfix">
         <div class="eg-desc half">
@@ -98,13 +96,11 @@
         &lt;/tbody&gt;
     &lt;/table&gt;
 &lt;/mx-table&gt;
-&lt;div class="table-pager-wrapper"&gt;
-    &lt;mx-pagination 
-        total="&#123;&#123;=total&#125;&#125;" 
-        size="&#123;&#123;=size&#125;&#125;" 
-        page="&#123;&#123;=page&#125;&#125;"
-        mx-change="changePager()"/&gt;
-&lt;/div&gt;</pre>
+&lt;mx-pagination class="table-pager-wrapper"
+    total="&#123;&#123;=total&#125;&#125;" 
+    size="&#123;&#123;=size&#125;&#125;" 
+    page="&#123;&#123;=page&#125;&#125;"
+    mx-change="changePager()"/&gt;</pre>
         </div>
         <div class="eg-desc half half-right">
             <div class="eg-title">JS Code</div>

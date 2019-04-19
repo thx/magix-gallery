@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -25,7 +25,7 @@ var Tmpl = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $line = 1;
     $art = '=id';
     ;
-    $p += ($expr = '<%=id%>', $e(id)) + '" class="_zs_gallery_mx-loading_index_-full-loading"><div mxs="_zs_gallerycC:_" class="loading _zs_gallery_mx-loading_index_-loading-overwite" style="padding: 10px 0;"><span class="loading-anim"></span></div></div>';
+    $p += ($expr = '<%=id%>', $e(id)) + '" class="_zs_gallery_mx-loading_index_-full-loading"><div mxs="_zs_gallerycF:_" class="loading _zs_gallery_mx-loading_index_-loading-overwite" style="padding: 10px 0;"><span class="loading-anim"></span></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

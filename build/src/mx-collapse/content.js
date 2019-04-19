@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -21,7 +21,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', content = $$.content; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryah:_" class="_zs_gallery_mx-collapse_index_-text">';
+    $p += '<div mxa="_zs_galleryai:_" class="_zs_gallery_mx-collapse_index_-text">';
     $line = 1;
     $art = '!content';
     ;

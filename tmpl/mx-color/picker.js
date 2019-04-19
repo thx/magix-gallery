@@ -30,6 +30,7 @@ module.exports = Magix.View.extend({
             viewId: that.id,
             align: extra.align,
             show: false,
+            dot: (extra.dot + '') === 'true',
             info: {
                 showBtns: true,
                 showAlpha: extra.showAlpha,

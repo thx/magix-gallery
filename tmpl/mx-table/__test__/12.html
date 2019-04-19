@@ -64,14 +64,11 @@
                     </tbody>
                 </table>
             </mx-table>
-            <div class="table-pager-wrapper mb20">
-                <mx-pagination 
-                    total="{{=count}}" 
-                    size="5" 
-                    page="{{=page}}"
-                    mx-change="changePager()">
-                </mx-pagination>
-            </div>
+            <mx-pagination class="table-pager-wrapper mb20"
+                total="{{=count}}" 
+                size="5" 
+                page="{{=page}}"
+                mx-change="changePager()" />
         </div>
     </div>
     <div class="eg-desc">
@@ -134,13 +131,11 @@
         &lt;/tbody&gt;
     &lt;/table&gt;
 &lt;/mx-table&gt;
-&lt;div class="table-pager-wrapper"&gt;
-    &lt;mx-pagination 
-        total="&#123;&#123;=count&#125;&#125;" 
-        size="5" 
-        page="&#123;&#123;=page&#125;&#125;"
-        mx-change="changePager()"/&gt;
-&lt;/div&gt;</pre>
+&lt;mx-pagination class="table-pager-wrapper"
+    total="&#123;&#123;=count&#125;&#125;" 
+    size="5" 
+    page="&#123;&#123;=page&#125;&#125;"
+    mx-change="changePager()"/&gt;</pre>
         </div>
     </div>
     <div class="eg-desc">

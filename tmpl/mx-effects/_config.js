@@ -80,13 +80,7 @@ module.exports = {
         // 如果用户自定义了色值以自定义色值为准
         let mode = attrsKV.mode || 'solid',
             type = attrsKV.type || 'common';
-        let classNames = [];
-        if (['solid', 'hollow'].indexOf(mode) > -1) {
-            classNames.push(`mx-icon-${mode}`);
-        }
-        if (['common', 'error', 'warn', 'highlight'].indexOf(type) > -1) {
-            classNames.push(`mx-icon-${type}`);
-        }
+        let classNames = [`mx-icon-${mode}`, `mx-icon-${type}`];
 
         // 自定义颜色
         let styles = [],
@@ -175,53 +169,6 @@ module.exports = {
                         <span class="mx-star-item" style="${!color ? '' : ('color:' + color)}">${icon}</span>
                     <% } %>
                 </div>
-            </div>
-        </div>`;
-    },
-    'mx-effects.notice'(i) {
-        let { content, attrsKV } = i;
-
-        // 如果用户自定义了色值以自定义色值为准
-        let color = attrsKV.color,
-            border = (attrsKV.border + '' === 'true'),
-            type = attrsKV.type || 'common';
-
-        let styles = [], classNames = ['mx-notice'];
-        if (border) {
-            classNames.push('mx-notice-border');
-        }
-        if (!color) {
-            if (['common', 'error', 'warn', 'highlight'].indexOf(type) > -1) {
-                classNames.push(`mx-notice-${type}`);
-            }
-        }else{
-            let result = ToRgb(color);
-            let rgba = `rgba(${result.r}, ${result.g}, ${result.b}, 0.2)`;
-            styles.push(
-                'color:' + color,
-                'background-color:' + rgba
-            )
-            if (border) {
-                styles.push(`border-color:${color}`);
-            }
-        }
-
-        // 默认左对齐
-        let textAlign = attrsKV['text-align'] || 'left';
-        styles.push(`text-align: ${textAlign}`);
-
-        let notice = attrsKV.content || content || '提示内容';
-        let icon = (attrsKV.icon + '' === 'false') ? '' : '<i class="mc-iconfont mx-notice-icon">&#xe6ad;</i>';
-
-        return `<div ${ProcessAttr(attrsKV, styles.join(';'), {
-            color: 1,
-            border: 1,
-            type: 1,
-            content: 1,
-            icon: 1
-        }, classNames.join(' '))}>
-            <div class="mx-notice-inner ${!icon ? '' : 'mx-notice-inner-with'}">
-                ${icon}${notice}
             </div>
         </div>`;
     }

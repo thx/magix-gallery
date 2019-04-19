@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -24,15 +24,15 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryy:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryy:_" class="_zs_gallery___test___layout_-eg-content"><div class="_zs_gallery___test___pro_menu_-menu"><div class="_zs_gallery___test___pro_menu_-header clearfix"><div class="_zs_gallery___test___pro_menu_-logo">LOGO</div><div class="_zs_gallery___test___pro_menu_-name">一级标题</div></div><div class="clearfix pr"><div class="_zs_gallery___test___pro_menu_-navs"><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third _zs_gallery___test___pro_menu_-third-on"><i class="mc-iconfont mr5">&#xe731;</i>三级1</a></div><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third"><i class="mc-iconfont mr5">&#xe609;</i>三级2</a></div><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third"><i class="mc-iconfont mr5">&#xe698;</i>三级3</a></div></div><div class="_zs_gallery___test___pro_menu_-inner"><div>view1：</div><div>映射到三级1这个页面</div><div>顶部和侧边导航显示与三级1完全一致</div></div></div></div></div><div mxa="_zs_galleryy:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryy:a" class="_zs_gallery___test___layout_-eg-title">配置CustomPath</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_galleryz:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryz:_" class="_zs_gallery___test___layout_-eg-content"><div class="_zs_gallery___test___pro_menu_-menu"><div class="_zs_gallery___test___pro_menu_-header clearfix"><div class="_zs_gallery___test___pro_menu_-logo">LOGO</div><div class="_zs_gallery___test___pro_menu_-name">一级标题</div></div><div class="clearfix pr"><div class="_zs_gallery___test___pro_menu_-navs"><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third _zs_gallery___test___pro_menu_-third-on"><i class="mc-iconfont mr5">&#xe731;</i>三级1</a></div><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third"><i class="mc-iconfont mr5">&#xe609;</i>三级2</a></div><div><a href="javascript:;" class="_zs_gallery___test___pro_menu_-nav-third"><i class="mc-iconfont mr5">&#xe698;</i>三级3</a></div></div><div class="_zs_gallery___test___pro_menu_-inner"><div>view1：</div><div>映射到三级1这个页面</div><div>顶部和侧边导航显示与三级1完全一致</div></div></div></div></div><div mxa="_zs_galleryz:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryz:a" class="_zs_gallery___test___layout_-eg-title">配置CustomPath</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 39;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryy:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryz:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 41;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryy:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryz:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 44;
     $art = '=viewId';
     ;

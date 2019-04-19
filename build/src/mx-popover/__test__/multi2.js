@@ -1,11 +1,11 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-popover/__test__/multi2",["magix","mx-popover/index","../index"],(require,exports,module)=>{
+define("mx-popover/__test__/multi2",["magix","mx-popover/index"],(require,exports,module)=>{
 /*Magix,Dialog*/
-require("../index");
+
 var Magix = require("magix");
 var Dialog = require("mx-popover/index");
 module.exports = Magix.View.extend({
@@ -25,11 +25,11 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, custom = $$.custom; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryc::_" class="dialog-header"><span class="fontsize-16">多个带modal的浮层</span></div><div mxv class="dialog-body" style="height: 200px; overflow-y: scroll;" id="';
+    $p += '<div mxs="_zs_galleryd_:_" class="dialog-header"><span class="fontsize-16">多个带modal的浮层</span></div><div mxv class="dialog-body" style="height: 200px; overflow-y: scroll;" id="';
     $line = 5;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_wrapper"><div mxs="_zs_galleryc::a" class="mb20">滚动区域</div><div mxv mxa="_zs_galleryc::_" style="height: 400px; padding: 20px; border: 1px solid #e6e6e6;"><span mxv="custom" class="btn" mx-view="mx-popover/index?width=420&scrollWrapper=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_wrapper"><div mxs="_zs_galleryd_:a" class="mb20">滚动区域</div><div mxv mxa="_zs_galleryd_:_" style="height: 400px; padding: 20px; border: 1px solid #e6e6e6;"><span mxv="custom" class="btn" mx-view="mx-popover/index?width=420&scrollWrapper=';
     $line = 10;
     $art = '=viewId';
     ;
@@ -37,7 +37,7 @@ module.exports = Magix.View.extend({
     $line = 12;
     $art = '@custom';
     ;
-    $p += ($expr = '<%@custom%>', $i($$ref, custom)) + '">提示内容为自定义view</span></div></div><div mxs="_zs_galleryc::b" class="dialog-footer"><a href="javascript:;" class="btn mr10" mx-click="' + $viewId + 'cancel()">取消</a></div>';
+    $p += ($expr = '<%@custom%>', $i($$ref, custom)) + '">提示内容为自定义view</span></div></div><div mxs="_zs_galleryd_:b" class="dialog-footer"><a href="javascript:;" class="btn mr10" mx-click="' + $viewId + 'cancel()">取消</a></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

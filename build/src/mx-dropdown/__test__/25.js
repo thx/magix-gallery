@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -28,7 +28,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya7:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya7:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya7:_" class="mb20"><span class="color-9">以下示例：</span>单选/多选 hover 展开选项列表</div><div mxa="_zs_gallerya7:b" class="mb10"><div class="w200" mx-view="mx-dropdown/bd?triggerType=hover&list=';
+    $p += '<div mxa="_zs_gallerya9:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya9:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya9:_" class="mb20"><span class="color-9">以下示例：</span>单选/多选 hover 展开选项列表</div><div mxa="_zs_gallerya9:b" class="mb10"><div class="w200" mx-view="mx-dropdown/bd?triggerType=hover&list=';
     $line = 10;
     $art = '@[1,2,3]';
     ;
@@ -36,15 +36,15 @@ module.exports = Base.extend({
     $line = 17;
     $art = '@[1,2,3]';
     ;
-    $p += ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div><div mxa="_zs_gallerya7:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya7:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div><div mxa="_zs_gallerya9:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya9:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya7:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya9:d" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 24;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya7:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya9:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 27;
     $art = '=viewId';
     ;

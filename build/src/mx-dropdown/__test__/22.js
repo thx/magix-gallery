@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -28,19 +28,19 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya4:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya4:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya4:_" class="mb20 clearfix lh22"><div class="fl color-9">以下示例：</div><div class="fl">要求连续选择 + 至少选择一个</div></div><div class="w280" mx-view="mx-dropdown/multiple?min=1&continuous=true&name=%E6%95%B0%E5%AD%97&list=';
+    $p += '<div mxa="_zs_gallerya6:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya6:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya6:_" class="mb20 clearfix lh22"><div class="fl color-9">以下示例：</div><div class="fl">要求连续选择 + 至少选择一个</div></div><div class="w280" mx-view="mx-dropdown/multiple?min=1&continuous=true&name=%E6%95%B0%E5%AD%97&list=';
     $line = 11;
     $art = '@[1,2,3,4,5,6]';
     ;
-    $p += ($expr = '<%@[1, 2, 3, 4, 5, 6]%>', $i($$ref, [1, 2, 3, 4, 5, 6])) + '"></div></div><div mxa="_zs_gallerya4:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya4:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[1, 2, 3, 4, 5, 6]%>', $i($$ref, [1, 2, 3, 4, 5, 6])) + '"></div></div><div mxa="_zs_gallerya6:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya6:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 15;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya4:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya6:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 17;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya4:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya6:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 20;
     $art = '=viewId';
     ;

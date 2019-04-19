@@ -33,7 +33,7 @@
     border-radius: 4px;
     color: #fff;
     text-align: center;
-    line-height: @solid-height - 2;
+    line-height: @solid-height;
     &.mx-icon-common{
         background-color: #ccc;
     }
@@ -56,7 +56,7 @@
     padding: 0 4px;
     border-radius: @hollow-height / 2;
     text-align: center;
-    line-height: @hollow-height - 4;
+    line-height: @hollow-height - 2px;
 
     &.mx-icon-common{
         border: 1px solid #ccc;
@@ -107,100 +107,6 @@
             &.mx-star-brand{
                 color: var(--color-brand);
             }
-        }
-    }
-}
-
-/*提示公告*/
-.mx-notice {
-    position: relative;
-    padding: 10px;
-    line-height: 18px;
-    border-radius: inherit;
-
-    .mx-notice-inner {
-        display: inline-block;
-        position: relative;
-        z-index: 2;
-        word-break: break-all;
-    }
-    .mx-notice-inner-with{
-        padding-left: 18px;
-
-        .mx-notice-icon {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 18px;
-            line-height: 18px;
-        }
-    }
-    &:after{
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-    }
-    &.mx-notice-border {
-        border-width: 1px;
-        border-style: solid;
-        border-radius: var(--border-radius);
-
-        &:after{
-            border-radius: var(--border-radius);
-        }
-    }
-    &.mx-notice-common {
-        color: #999;
-        &:after{
-            background-color: var(--color-bg);
-        }
-        .mx-notice-icon {
-            color: #ccc;
-        }
-        &.mx-notice-border{
-            border-color: var(--color-border);
-        }
-    }
-    &.mx-notice-error {
-        color: var(--color-red);
-        &:after{
-            opacity: .1;
-            background-color: var(--color-red);
-        }
-        .mx-notice-icon {
-            color: var(--color-red);
-        }
-        &.mx-notice-border {
-            border-color: var(--color-red);
-        }
-    }
-    &.mx-notice-warn {
-        color: var(--color-warn);
-        &:after{
-            opacity: .1;
-            background-color: var(--color-warn);
-        }
-        .mx-notice-icon {
-            color: var(--color-warn);
-        }
-        &.mx-notice-border {
-            border-color: var(--color-warn);
-        }
-    }
-    &.mx-notice-highlight {
-        color: #333;
-        &:after{
-            background-color: var(--color-bg);
-        }
-        .mx-notice-icon {
-            color: var(--color-brand);
-        }
-        &.mx-notice-border{
-            border-color: var(--color-border);
         }
     }
 }

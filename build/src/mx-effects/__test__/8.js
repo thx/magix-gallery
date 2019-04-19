@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -24,15 +24,15 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryby:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryby:_" class="_zs_gallery___test___layout_-eg-content"><div class="ml40 mt20"><div mx-view="mx-effects/progress?num=-20.3"></div></div><div class="ml40 mt20"><div mx-view="mx-effects/progress?num=20.2&textPlacement=left"></div></div><div class="ml40 mt20"><div mx-view="mx-effects/progress?num=40.23&textPlacement=right"></div></div><div class="ml40 mt20"><div mx-view="mx-effects/progress?num=60.555&textPlacement=bottom"></div></div><div class="ml40 mt20 mb40"><div mx-view="mx-effects/progress?num=101.2&textPlacement=bottom"></div></div></div><div mxa="_zs_galleryby:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryby:a" class="_zs_gallery___test___layout_-eg-title">条型进度条，精度与传入数值保持一致，最多两位</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerybA:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybA:_" class="_zs_gallery___test___layout_-eg-content"><div class="ml40 mt20"><div mx-view="mx-effects/progress?num=-20.3"></div></div><div class="ml40 mt20"><div mx-view="mx-effects/progress?num=20.2&textPlacement=left"></div></div><div class="ml40 mt20"><div mx-view="mx-effects/progress?num=40.23&textPlacement=right"></div></div><div class="ml40 mt20"><div mx-view="mx-effects/progress?num=60.555&textPlacement=bottom"></div></div><div class="ml40 mt20 mb40"><div mx-view="mx-effects/progress?num=101.2&textPlacement=bottom"></div></div></div><div mxa="_zs_gallerybA:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybA:a" class="_zs_gallery___test___layout_-eg-title">条型进度条，精度与传入数值保持一致，最多两位</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 30;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryby:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybA:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 32;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryby:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybA:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 35;
     $art = '=viewId';
     ;

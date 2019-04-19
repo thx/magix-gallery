@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -28,7 +28,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (needExpand) {%>';
     if (needExpand) {
         ;
-        $p += '<div mxa="_zs_gallerydu:_" class="_zs_gallery_mx-secradio_index_-line _zs_gallery_mx-secradio_index_-all" mx-click="' + $viewId + '@{toggleAll}()">';
+        $p += '<div mxa="_zs_gallerydx:_" class="_zs_gallery_mx-secradio_index_-line _zs_gallery_mx-secradio_index_-all" mx-click="' + $viewId + '@{toggleAll}()">';
         $line = 3;
         $art = 'if close';
         ;
@@ -101,10 +101,10 @@ module.exports = Magix.View.extend({
     $line = 7;
     $art = 'each list as item itemIndex';
     ;
-    $expr = '<%for (var itemIndex = 0, $art_cecoznxhfymc$art_c = list.length; itemIndex < $art_cecoznxhfymc$art_c; itemIndex++) {    var item = list[itemIndex]%>';
-    for (var itemIndex = 0, $art_cecoznxhfymc$art_c = list.length; itemIndex < $art_cecoznxhfymc$art_c; itemIndex++) {
+    $expr = '<%for (var itemIndex = 0, $art_cmrfqdbc$art_c = list.length; itemIndex < $art_cmrfqdbc$art_c; itemIndex++) {    var item = list[itemIndex]%>';
+    for (var itemIndex = 0, $art_cmrfqdbc$art_c = list.length; itemIndex < $art_cmrfqdbc$art_c; itemIndex++) {
         var item = list[itemIndex];
-        $p += '<div mxa="_zs_gallerydu:a" class="_zs_gallery_mx-secradio_index_-line"><label mx-click="' + $viewId + '@{toggleOne}({index:';
+        $p += '<div mxa="_zs_gallerydx:a" class="_zs_gallery_mx-secradio_index_-line"><label mx-click="' + $viewId + '@{toggleOne}({index:';
         $line = 9;
         $art = '=itemIndex';
         ;
@@ -115,7 +115,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (needExpand) {%>';
         if (needExpand) {
             ;
-            $p += '<i mxa="_zs_gallerydu:b" class="mc-iconfont _zs_gallery_mx-secradio_index_-oper">';
+            $p += '<i mxa="_zs_gallerydx:b" class="mc-iconfont _zs_gallery_mx-secradio_index_-oper">';
             $line = 12;
             $art = 'if item.close';
             ;
@@ -168,9 +168,9 @@ module.exports = Magix.View.extend({
         $line = 18;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_iroiciuh$art_i = 0, $art_objemchdyu$art_obj = item.subs, $art_czmnlhcel$art_c = $art_objemchdyu$art_obj.length; $art_iroiciuh$art_i < $art_czmnlhcel$art_c; $art_iroiciuh$art_i++) {        var sub = $art_objemchdyu$art_obj[$art_iroiciuh$art_i]%>';
-        for (var $art_iroiciuh$art_i = 0, $art_objemchdyu$art_obj = item.subs, $art_czmnlhcel$art_c = $art_objemchdyu$art_obj.length; $art_iroiciuh$art_i < $art_czmnlhcel$art_c; $art_iroiciuh$art_i++) {
-            var sub = $art_objemchdyu$art_obj[$art_iroiciuh$art_i];
+        $expr = '<%for (var $art_iybkhmsb$art_i = 0, $art_objgwkxjgdbv$art_obj = item.subs, $art_cqurwidypg$art_c = $art_objgwkxjgdbv$art_obj.length; $art_iybkhmsb$art_i < $art_cqurwidypg$art_c; $art_iybkhmsb$art_i++) {        var sub = $art_objgwkxjgdbv$art_obj[$art_iybkhmsb$art_i]%>';
+        for (var $art_iybkhmsb$art_i = 0, $art_objgwkxjgdbv$art_obj = item.subs, $art_cqurwidypg$art_c = $art_objgwkxjgdbv$art_obj.length; $art_iybkhmsb$art_i < $art_cqurwidypg$art_c; $art_iybkhmsb$art_i++) {
+            var sub = $art_objgwkxjgdbv$art_obj[$art_iybkhmsb$art_i];
             $p += '<div mxv class="_zs_gallery_mx-secradio_index_-line _zs_gallery_mx-secradio_index_-sub ';
             $line = 19;
             $art = 'if item.close';

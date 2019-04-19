@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -49,7 +49,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><i mxs="_zs_gallerydo:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+    $p += '"><i mxs="_zs_gallerydr:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
     $line = 3;
     $art = '=placeholder';
     ;
@@ -71,14 +71,14 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += ' _zs_gallery_mx-search_index_-search-menu"><ul mxa="_zs_gallerydo:_" class="mx-output-list">';
+    $p += ' _zs_gallery_mx-search_index_-search-menu"><ul mxa="_zs_gallerydr:_" class="mx-output-list">';
     $line = 14;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ickilpho$art_i = 0, $art_cvjvspw$art_c = list.length; $art_ickilpho$art_i < $art_cvjvspw$art_c; $art_ickilpho$art_i++) {    var item = list[$art_ickilpho$art_i]%>';
-    for (var $art_ickilpho$art_i = 0, $art_cvjvspw$art_c = list.length; $art_ickilpho$art_i < $art_cvjvspw$art_c; $art_ickilpho$art_i++) {
-        var item = list[$art_ickilpho$art_i];
-        $p += '<li mxa="_zs_gallerydo:a" class="mx-output-item"><span class="mx-output-link ';
+    $expr = '<%for (var $art_itlkfsmdhi$art_i = 0, $art_cgrcxohdvof$art_c = list.length; $art_itlkfsmdhi$art_i < $art_cgrcxohdvof$art_c; $art_itlkfsmdhi$art_i++) {    var item = list[$art_itlkfsmdhi$art_i]%>';
+    for (var $art_itlkfsmdhi$art_i = 0, $art_cgrcxohdvof$art_c = list.length; $art_itlkfsmdhi$art_i < $art_cgrcxohdvof$art_c; $art_itlkfsmdhi$art_i++) {
+        var item = list[$art_itlkfsmdhi$art_i];
+        $p += '<li mxa="_zs_gallerydr:a" class="mx-output-item"><span class="mx-output-link ';
         $line = 16;
         $art = 'if (searchKey == item.value)';
         ;

@@ -5,6 +5,8 @@ let $ = require('$');
 module.exports = Base.extend({
     tmpl: '@11.html',
     render() {
-        this.updater.digest();
+        this.updater.digest({
+            test: true
+        });
     }
 });

@@ -440,35 +440,17 @@
 .error-content {
     position: relative;
     padding: 10px 20px;
-
-    &::after{
-        content: ' ';
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
 }
 .error-content {
-    &::after{
-        opacity: .2;
-        background-color: var(--color-red);
-    }
-    color: var(--color-red);
+    background-color: var(--color-red);
+    color: #fff;
 }
 .notice-content {
-    &::after{
-        opacity: .3;
-        background-color: var(--color-warn);
-    }
-    color: var(--color-warn);
+    background-color: var(--color-warn);
+    color: #fff;
 }
 .tip-content {
-    &::after{
-        background-color: var(--color-bg);
-    }
+    background-color: var(--color-bg);
     color: #999;
     line-height: 18px;
     .tip-icon {
@@ -549,10 +531,10 @@
 .grid {
     background: #fff;
     border-radius: var(--border-radius);
-    box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.08) inset;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
     transition: box-shadow var(--duration) ease-out;
     
     &:hover{
-        box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1) inset;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.08);
     }
 }

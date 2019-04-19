@@ -20,7 +20,6 @@ module.exports = Base.extend({
     'select<change>'(e) {
         // e.values [array] 当前选中值
         // e.texts [array] 当前选中文案
-        debugger
         this.updater.digest({
             selected: e.values
         });

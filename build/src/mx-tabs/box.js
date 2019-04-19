@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -45,8 +45,8 @@ module.exports = Base.extend({
     $line = 2;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cjvxkawn$art_c = list.length; index < $art_cjvxkawn$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cjvxkawn$art_c = list.length; index < $art_cjvxkawn$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cqrljryfe$art_c = list.length; index < $art_cqrljryfe$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cqrljryfe$art_c = list.length; index < $art_cqrljryfe$art_c; index++) {
         var item = list[index];
         $p += '<a href="javascript:;" ';
         $line = 3;
@@ -103,7 +103,7 @@ module.exports = Base.extend({
         $expr = '<%if (item.tag) {%>';
         if (item.tag) {
             ;
-            $p += '<span mxa="_zs_galleryew:_" class="_zs_gallery_mx-tabs_index_-tag">';
+            $p += '<span mxa="_zs_galleryeA:_" class="_zs_gallery_mx-tabs_index_-tag">';
             $line = 7;
             $art = '=item.tag';
             ;

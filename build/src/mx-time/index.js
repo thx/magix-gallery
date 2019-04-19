@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -55,14 +55,14 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '><span mxa="_zs_galleryeN:_" class="mx-trigger-label">';
+    $p += '><span mxa="_zs_galleryeR:_" class="mx-trigger-label">';
     $line = 4;
     $art = 'if name';
     ;
     $expr = '<%if (name) {%>';
     if (name) {
         ;
-        $p += '<span mxa="_zs_galleryeN:a" class="color-9">';
+        $p += '<span mxa="_zs_galleryeR:a" class="color-9">';
         $line = 4;
         $art = '=name';
         ;
@@ -77,7 +77,7 @@ module.exports = Magix.View.extend({
     $line = 5;
     $art = '=time';
     ;
-    $p += ($expr = '<%=time%>', $e(time)) + '</span><span mxs="_zs_galleryeN:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div class="mx-output mx-output-bottom ';
+    $p += ($expr = '<%=time%>', $e(time)) + '</span><span mxs="_zs_galleryeR:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div class="mx-output mx-output-bottom ';
     $line = 10;
     $art = 'if expand';
     ;
@@ -110,7 +110,7 @@ module.exports = Magix.View.extend({
         $line = 13;
         $art = '=viewId';
         ;
-        $p += ($expr = '<%=viewId%>', $e(viewId)) + '_content" mx-change="' + $viewId + '@{stop}()"></div><div mxs="_zs_galleryeN:a" class="mx-output-footer clearfix"><a href="javascript:;" class="fl btn btn-small btn-brand" mx-click="' + $viewId + '@{hide}({enter:true})">确定</a><a href="javascript:;" class="fl btn btn-small ml10" mx-click="' + $viewId + '@{hide}()">取消</a></div>';
+        $p += ($expr = '<%=viewId%>', $e(viewId)) + '_content" mx-change="' + $viewId + '@{stop}()"></div><div mxs="_zs_galleryeR:a" class="mx-output-footer clearfix"><a href="javascript:;" class="fl btn btn-small btn-brand" mx-click="' + $viewId + '@{hide}({enter:true})">确定</a><a href="javascript:;" class="fl btn btn-small ml10" mx-click="' + $viewId + '@{hide}()">取消</a></div>';
         $line = 21;
         $art = '/if';
         ;

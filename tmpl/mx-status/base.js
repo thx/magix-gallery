@@ -11,7 +11,8 @@ module.exports = Magix.View.extend({
         this.update(selected);
     },
     update(selected){
-        let viewOptions = this.viewOptions;
+        let that = this;
+        let viewOptions = that.viewOptions;
         
         let opers = viewOptions.opers || [];
         // 当前项在最前面
@@ -33,8 +34,11 @@ module.exports = Magix.View.extend({
         if(!$.isEmptyObject(info)){
             showInfo = true;
         }
-        
-        this.updater.digest({
+
+        // 包装成异步渲染
+        // setTimeout(that.wrapAsync(() => {
+        // }), 0);
+        that.updater.digest({
             info,
             opers,
             cur,

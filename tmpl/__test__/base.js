@@ -45,6 +45,10 @@ module.exports = Magix.View.extend({
                     name: '相关文档链接',
                     path: '/all/links',
                     icon: '&#xe60d;'
+                }, {
+                    name: '关于兼容性',
+                    path: '/all/compatibility',
+                    icon: '&#xe9e5;'
                 }]
             }, {
                 name: '表单（mixins）',
@@ -349,6 +353,11 @@ module.exports = Magix.View.extend({
                     tip: '基于display:flex实现，简化api',
                     path: '/grid/index',
                     icon: '&#xe6b4;'
+                }, {
+                    name: 'trigger + 展开项',
+                    tip: '使用组件内置class实现一个类似于dropdown，下拉框内容自定义的模块',
+                    path: '/style/trigger',
+                    icon: '&#xeb94;'
                 }, {
                     name: 'checkbox',
                     tip: '包装indeterminate状态，只负责对样式进行控制',

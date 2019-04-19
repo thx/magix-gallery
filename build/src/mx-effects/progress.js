@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -35,7 +35,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (type == \'circle\') {%>';
     if (type == 'circle') {
         ;
-        $p += '<div mxa="_zs_gallerybI:_" class="_zs_gallery_mx-effects_progress_-circle-wrapper"><div class="_zs_gallery_mx-effects_progress_-circle-bg" style="width: ';
+        $p += '<div mxa="_zs_gallerybL:_" class="_zs_gallery_mx-effects_progress_-circle-wrapper"><div class="_zs_gallery_mx-effects_progress_-circle-bg" style="width: ';
         $line = 3;
         $art = '=width';
         ;
@@ -329,21 +329,21 @@ module.exports = Magix.View.extend({
     $expr = '<%if (type == \'degree\') {%>';
     if (type == 'degree') {
         ;
-        $p += '<div mxa="_zs_gallerybI:a" class="_zs_gallery_mx-effects_progress_-degree-wrapper"><div mxa="_zs_gallerybI:b" class="_zs_gallery_mx-effects_progress_-degree-bg">';
+        $p += '<div mxa="_zs_gallerybL:a" class="_zs_gallery_mx-effects_progress_-degree-wrapper"><div mxa="_zs_gallerybL:b" class="_zs_gallery_mx-effects_progress_-degree-bg">';
         $line = 30;
         $art = 'for (let i=0;i<10;i+=1)';
         ;
         $expr = '<%for (var i = 0; i < 10; i += 1) {%>';
         for (var i = 0; i < 10; i += 1) {
             ;
-            $p += '<span mxs="_zs_gallerybI:_" class="_zs_gallery_mx-effects_progress_-degree"></span>';
+            $p += '<span mxs="_zs_gallerybL:_" class="_zs_gallery_mx-effects_progress_-degree"></span>';
             $line = 32;
             $art = '/for';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxa="_zs_gallerybI:c" class="_zs_gallery_mx-effects_progress_-degree-on">';
+        $p += '</div><div mxa="_zs_gallerybL:c" class="_zs_gallery_mx-effects_progress_-degree-on">';
         $line = 35;
         $art = 'for (let i=0;i<degree;i+=1)';
         ;

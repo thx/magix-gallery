@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -40,7 +40,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (dateInfo.prefix) {%>';
     if (dateInfo.prefix) {
         ;
-        $p += '<span mxa="_zs_gallery(:_" class="color-9 mr5">';
+        $p += '<span mxa="_zs_gallery):_" class="color-9 mr5">';
         $line = 5;
         $art = '=dateInfo.prefix';
         ;

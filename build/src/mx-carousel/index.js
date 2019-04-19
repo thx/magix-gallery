@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -26,7 +26,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=height';
     ;
-    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_gallery?:_" class="_zs_gallery_mx-carousel_index_-inner" mx-mouseover="' + $viewId + '@{stop}()" mx-mouseout="' + $viewId + '@{start}()">';
+    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_gallery`:_" class="_zs_gallery_mx-carousel_index_-inner" mx-mouseover="' + $viewId + '@{stop}()" mx-mouseout="' + $viewId + '@{start}()">';
     $line = 5;
     $art = '!content';
     ;
@@ -66,7 +66,7 @@ module.exports = Magix.View.extend({
         $expr = '<%for (var i = 0; i < len; i += 1) {%>';
         for (var i = 0; i < len; i += 1) {
             ;
-            $p += '<li mxa="_zs_gallery?:a" class="_zs_gallery_mx-carousel_index_-dot-cnt"><i class="_zs_gallery_mx-carousel_index_-dot ';
+            $p += '<li mxa="_zs_gallery`:a" class="_zs_gallery_mx-carousel_index_-dot-cnt"><i class="_zs_gallery_mx-carousel_index_-dot ';
             $line = 12;
             $art = '=dotClass';
             ;

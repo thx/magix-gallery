@@ -6,7 +6,7 @@ module.exports = Base.extend({
     tmpl: '@13.html',
     render() {
         this.updater.digest({
-            icon: '<i class="mc-iconfont">&#xe635;</i>',
+            icon1: '<i class="mc-iconfont">&#xe635;</i>',
             icon2: '<i class="mc-iconfont">&#xe60c;</i>'
         });
     }

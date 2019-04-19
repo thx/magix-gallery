@@ -92,12 +92,12 @@ module.exports = Magix.View.extend({
 
         if (window.IntersectionObserver) {
             let observer = new IntersectionObserver(changes => {
-                changes.forEach(({ target, isIntersecting }) => {
-                    if (!isIntersecting) {
-                        return;
+                changes.forEach((t) => {
+                    let target = t.target;
+                    if (t.isIntersecting || (t.intersectionRatio > 0)) {
+                        that.thumbnail();
+                        observer.unobserve(target);
                     };
-                    that.thumbnail();
-                    observer.unobserve(target);
                 })
             }, {
                 rootMargin: '10px 0px'

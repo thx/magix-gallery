@@ -16,6 +16,11 @@ module.exports = Magix.View.extend({
             desc: '与目标的对齐方式，left，right',
             type: 'string',
             def: 'left'
+        }, {
+            key: 'dot',
+            desc: '显示选中值为色值圆点',
+            type: 'boolean',
+            def: 'false'
         }]
 
         let events = [{

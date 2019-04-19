@@ -26,7 +26,7 @@
         "gulp-concat": "2.6.1",
         "seajs": "3.0.2",
         "typescript": "2.6.2",
-        "magix-combine": "3.11.26"
+        "magix-combine": "3.11.28"
     },
     "magixCliConfig": {
         "cloudBuild": true

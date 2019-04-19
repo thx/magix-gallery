@@ -39,7 +39,7 @@ module.exports = Base.extend({
                 })
             }
         }, {
-            width: 280,
+            width: 320,
             top,
             left,
             mask: false,

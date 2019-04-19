@@ -1,12 +1,12 @@
-@status-line-height: 25px;
 .status {
     position: relative;
     .status-icon>* {
         font-size: 20px;
-        line-height: @status-line-height;
+        line-height: var(--input-small-height);
     }
     .status-info {
         display: block;
+        min-width: calc(var(--font-size) * 6 + 60px);
         top: -11px;
         left: -11px;
         
@@ -14,8 +14,8 @@
         .status-name,
         .oper-icon {
             float: left;
-            height: @status-line-height;
-            line-height: @status-line-height;
+            height: var(--input-small-height);
+            line-height: var(--input-small-height);
         }
         .status-name {
             margin-left: 8px;
@@ -27,9 +27,8 @@
             font-size: 20px;
         }
         .status-oper {
-            min-width: 140px;
-            height: @status-line-height + 20px;
-            line-height: @status-line-height;
+            height: calc(var(--input-small-height) + 20px);
+            line-height: var(--input-small-height);
             padding: 10px;
             cursor: pointer;
             .oper-icon {
@@ -47,8 +46,8 @@
         }
         .status-desc {
             min-width: 140px;
-            height: @status-line-height + 20px;
-            line-height: @status-line-height;
+            height: calc(var(--input-small-height) + 20px);
+            line-height: var(--input-small-height);
             padding: 10px;
         }
         .status-tip {
@@ -64,12 +63,11 @@
     }
     .status-handle-icon {
         position: relative;
-        width: 36px;
-        height: @status-line-height;
-        line-height: @status-line-height;
+        height: var(--input-small-height);
+        line-height: var(--input-small-height);
         .status-arrow {
             position: absolute;
-            top: (@status-line-height - 4px) / 2;
+            top: calc((var(--input-small-height) - 4px) / 2);
             right: 0;
             width: 0;
             height: 0;
@@ -86,7 +84,11 @@
         border-top: 1px solid var(--color-border);
     }
 }
-
+[mx-view*="mx-status/index"]{
+    width: 36px;
+    height: var(--input-small-height);
+    min-width: 0;
+}
 [mx-view*="mx-status/dropdown"]{
     &:hover{
         .readonly{

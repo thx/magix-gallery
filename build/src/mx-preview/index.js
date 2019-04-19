@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -70,7 +70,7 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_inner"><i mxs="_zs_gallerydh:_" class="mc-iconfont _zs_gallery_mx-preview_index_-holder">&#xe615;</i></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_inner"><i mxs="_zs_gallerydk:_" class="mc-iconfont _zs_gallery_mx-preview_index_-holder">&#xe615;</i></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -153,14 +153,13 @@ catch (ex) {
         that.updater.digest({});
         if (window.IntersectionObserver) {
             var observer_1 = new IntersectionObserver(function (changes) {
-                changes.forEach(function (_a) {
-                    var target = _a.target, isIntersecting = _a.isIntersecting;
-                    if (!isIntersecting) {
-                        return;
+                changes.forEach(function (t) {
+                    var target = t.target;
+                    if (t.isIntersecting || (t.intersectionRatio > 0)) {
+                        that.thumbnail();
+                        observer_1.unobserve(target);
                     }
                     ;
-                    that.thumbnail();
-                    observer_1.unobserve(target);
                 });
             }, {
                 rootMargin: '10px 0px'

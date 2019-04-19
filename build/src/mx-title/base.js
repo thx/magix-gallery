@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -21,7 +21,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', second = $$.second, content = $$.content, tip = $$.tip; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryeU:_" class="page-header"><span class="';
+    $p += '<div mxa="_zs_galleryeY:_" class="page-header"><span class="';
     $line = 2;
     $art = '=(second ? \'second-header\' : \'first-header\')';
     ;
@@ -36,7 +36,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (tip) {%>';
     if (tip) {
         ;
-        $p += '<span mxa="_zs_galleryeU:a" class="page-tip">';
+        $p += '<span mxa="_zs_galleryeY:a" class="page-tip">';
         $line = 4;
         $art = '!tip';
         ;

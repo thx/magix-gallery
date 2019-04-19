@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -31,7 +31,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerybC:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_gallerybE:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'实心默认\',\n            key: viewId + \'_demo14\'\n        },{\n            name: \'带提示信息\',\n            key: viewId + \'_demo17\'\n        },{\n            name: \'空心默认\',\n            key: viewId + \'_demo15\'\n        },{\n            name: \'自定义颜色\',\n            key: viewId + \'_demo16\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
@@ -39,7 +39,7 @@ module.exports = Magix.View.extend({
     $line = 23;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerybC:a" class="clearfix mb20"><div mxa="_zs_gallerybC:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/14" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerybE:a" class="clearfix mb20"><div mxa="_zs_gallerybE:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/14" id="';
     $line = 26;
     $art = '=viewId';
     ;
@@ -47,7 +47,7 @@ module.exports = Magix.View.extend({
     $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo15"></div></div><div mxa="_zs_gallerybC:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/17" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo15"></div></div><div mxa="_zs_gallerybE:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/17" id="';
     $line = 30;
     $art = '=viewId';
     ;

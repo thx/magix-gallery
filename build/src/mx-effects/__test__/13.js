@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -23,51 +23,67 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybe:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerybe:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_gallerybe:b" class="mb10"><div mxa="_zs_gallerybe:c" class="mx-star"><div mxa="_zs_gallerybe:d" class="mx-star-bg">';
+    $p += '<div mxa="_zs_gallerybg:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerybg:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_gallerybg:b" class="mb10"><div mxa="_zs_gallerybg:c" class="mx-star"><div mxa="_zs_gallerybg:d" class="mx-star-bg">';
     $expr = '<%for (var i = 0; i < 5; i++) {%>';
     for (var i = 0; i < 5; i++) {
         ;
-        $p += '<span mxs="_zs_gallerybe:_" class="mx-star-item"><i class="mc-iconfont">&#xe635;</i></span>';
+        $p += '<span mxa="_zs_gallerybg:e" class="mx-star-item">';
+        $line = 5;
+        $art = '!\'<i class=\\"mc-iconfont\\">&#xe635;</i>\'';
+        ;
+        $p += ($expr = '<%!\'<i class=\\"mc-iconfont\\">&#xe635;</i>\'%>', $n('<i class=\"mc-iconfont\">&#xe635;</i>')) + '</span>';
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxa="_zs_gallerybe:e" class="mx-star-on" style="width: 50%;"><div mxa="_zs_gallerybe:f" class="mx-star-inner">';
+    $p += '</div><div mxa="_zs_gallerybg:f" class="mx-star-on" style="width: 50%;"><div mxa="_zs_gallerybg:g" class="mx-star-inner">';
     $expr = '<%for (var i = 0; i < 5; i++) {%>';
     for (var i = 0; i < 5; i++) {
         ;
-        $p += '<span mxs="_zs_gallerybe:a" class="mx-star-item" style="color:#fc2a2a"><i class="mc-iconfont">&#xe635;</i></span>';
+        $p += '<span mxa="_zs_gallerybg:h" class="mx-star-item" style="color:#fc2a2a">';
+        $line = 5;
+        $art = '!\'<i class=\\"mc-iconfont\\">&#xe635;</i>\'';
+        ;
+        $p += ($expr = '<%!\'<i class=\\"mc-iconfont\\">&#xe635;</i>\'%>', $n('<i class=\"mc-iconfont\">&#xe635;</i>')) + '</span>';
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div></div></div><div mxa="_zs_gallerybe:g" class="mb10"><div mxa="_zs_gallerybe:h" class="mx-star"><div mxa="_zs_gallerybe:i" class="mx-star-bg">';
+    $p += '</div></div></div></div><div mxa="_zs_gallerybg:i" class="mb10"><div mxa="_zs_gallerybg:j" class="mx-star"><div mxa="_zs_gallerybg:k" class="mx-star-bg">';
     $expr = '<%for (var i = 0; i < 5; i++) {%>';
     for (var i = 0; i < 5; i++) {
         ;
-        $p += '<span mxs="_zs_gallerybe:b" class="mx-star-item"><i class="mc-iconfont">&#xe60c;</i></span>';
+        $p += '<span mxa="_zs_gallerybg:l" class="mx-star-item">';
+        $line = 10;
+        $art = '!\'<i class=\\"mc-iconfont\\">&#xe60c;</i>\'';
+        ;
+        $p += ($expr = '<%!\'<i class=\\"mc-iconfont\\">&#xe60c;</i>\'%>', $n('<i class=\"mc-iconfont\">&#xe60c;</i>')) + '</span>';
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxa="_zs_gallerybe:j" class="mx-star-on" style="width: 80%;"><div mxa="_zs_gallerybe:k" class="mx-star-inner">';
+    $p += '</div><div mxa="_zs_gallerybg:m" class="mx-star-on" style="width: 80%;"><div mxa="_zs_gallerybg:n" class="mx-star-inner">';
     $expr = '<%for (var i = 0; i < 5; i++) {%>';
     for (var i = 0; i < 5; i++) {
         ;
-        $p += '<span mxs="_zs_gallerybe:c" class="mx-star-item" style="color:rgb(81, 163, 0)"><i class="mc-iconfont">&#xe60c;</i></span>';
+        $p += '<span mxa="_zs_gallerybg:o" class="mx-star-item" style="color:rgb(81, 163, 0)">';
+        $line = 10;
+        $art = '!\'<i class=\\"mc-iconfont\\">&#xe60c;</i>\'';
+        ;
+        $p += ($expr = '<%!\'<i class=\\"mc-iconfont\\">&#xe60c;</i>\'%>', $n('<i class=\"mc-iconfont\">&#xe60c;</i>')) + '</span>';
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div></div></div></div><div mxa="_zs_gallerybe:l" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybe:d" class="_zs_gallery___test___layout_-eg-title">自定义icon + 颜色</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</div></div></div></div></div><div mxa="_zs_gallerybg:p" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybg:_" class="_zs_gallery___test___layout_-eg-title">自定义icon + 颜色</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 16;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybe:m" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybg:q" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 18;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybe:e" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybg:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 21;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.star \n    num="2.5"\n    icon="&lt;i class=\'mc-iconfont\'&gt;&#38;&#35;xe635;&lt;/i&gt;"\n    color="#fc2a2a"&gt;&lt;/mx-effects.star&gt;\n\n&lt;mx-effects.star \n    num="4"\n    icon="&lt;i class=\'mc-iconfont\'&gt;&#38;&#35;xe60c;&lt;/i&gt;"\n    color="rgb(81, 163, 0)"&gt;&lt;/mx-effects.star&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.star num="2.5"\n    icon="&#123;&#123;!\'&lt;i class=\\"mc-iconfont\\"&gt;&#38;&#35;xe635;&lt;/i&gt;\'&#125;&#125;"\n    color="#fc2a2a"&gt;&lt;/mx-effects.star&gt;\n\n&lt;mx-effects.star num="4"\n    icon="&#123;&#123;!\'&lt;i class=\\"mc-iconfont\\"&gt;&#38;&#35;xe60c;&lt;/i&gt;\'&#125;&#125;"\n    color="rgb(81, 163, 0)"&gt;&lt;/mx-effects.star&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -79,7 +95,7 @@ catch (ex) {
 } return $p; },
     render: function () {
         this.updater.digest({
-            icon: '<i class="mc-iconfont">&#xe635;</i>',
+            icon1: '<i class="mc-iconfont">&#xe635;</i>',
             icon2: '<i class="mc-iconfont">&#xe60c;</i>'
         });
     }

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -41,11 +41,11 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><span mxa="_zs_gallerya]:_" class="mx-trigger-label}">';
+    $p += '"><span mxa="_zs_gallerya\\:_" class="mx-trigger-label}">';
     $line = 3;
     $art = '=selectedText';
     ;
-    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_gallerya]:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div>';
+    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_gallerya\\:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -1,0 +1,46 @@
+.notice {
+    padding: 10px;
+    line-height: 18px;
+    border-radius: inherit;
+
+    .inner {
+        display: inline-block;
+        position: relative;
+        padding-left: 18px;
+        word-break: break-all;
+
+        .icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 18px;
+            line-height: 18px;
+        }
+    }
+    &.border {
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 4px;
+    }
+    &.common {
+        color: #999;
+        background-color: var(--color-bg);
+        .icon {
+            color: #ccc;
+        }
+        &.border{
+            border-color: var(--color-border);
+        }
+    }
+   
+    &.highlight {
+        color: #333;
+        background-color: var(--color-bg);
+        .icon {
+            color: var(--color-brand);
+        }
+        &.border{
+            border-color: var(--color-border);
+        }
+    }
+}

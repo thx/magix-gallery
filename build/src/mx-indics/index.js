@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -23,11 +23,11 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', map = $$.map, type = $$.type; var $expr, $art, $line; try {
-    $p += '<a mxs="_zs_gallerycn:_" href="javascript:;" class="mx-trigger _zs_gallery_mx-indics_index_-setting-show-btn" mx-click="' + $viewId + 'show()"><i class="mc-iconfont _zs_gallery_mx-indics_index_-setting-show-icon">&#xe731;</i></a><a mxa="_zs_gallerycn:_" href="javascript:;" class="mx-trigger _zs_gallery_mx-indics_index_-setting-switch-btn" mx-click="' + $viewId + 'toggleDefault()">';
+    $p += '<a mxs="_zs_gallerycq:_" href="javascript:;" class="mx-trigger _zs_gallery_mx-indics_index_-setting-show-btn" mx-click="' + $viewId + 'show()"><i class="mc-iconfont _zs_gallery_mx-indics_index_-setting-show-icon">&#xe731;</i></a><a mxa="_zs_gallerycq:_" href="javascript:;" class="mx-trigger _zs_gallery_mx-indics_index_-setting-switch-btn" mx-click="' + $viewId + 'toggleDefault()">';
     $line = 5;
     $art = '=map[type][\'label\']';
     ;
-    $p += ($expr = '<%=map[type][\'label\']%>', $e(map[type]['label'])) + '<i mxs="_zs_gallerycn:a" class="mc-iconfont mx-trigger-arrow _zs_gallery_mx-indics_index_-setting-switch-icon">&#xe692;</i></a>';
+    $p += ($expr = '<%=map[type][\'label\']%>', $e(map[type]['label'])) + '<i mxs="_zs_gallerycq:a" class="mc-iconfont mx-trigger-arrow _zs_gallery_mx-indics_index_-setting-switch-icon">&#xe692;</i></a>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.26: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -18,7 +18,8 @@ module.exports = Magix.View.extend({
         this.update(selected);
     },
     update: function (selected) {
-        var viewOptions = this.viewOptions;
+        var that = this;
+        var viewOptions = that.viewOptions;
         var opers = viewOptions.opers || [];
         // 当前项在最前面
         var cur = {};
@@ -38,7 +39,10 @@ module.exports = Magix.View.extend({
         if (!$.isEmptyObject(info)) {
             showInfo = true;
         }
-        this.updater.digest({
+        // 包装成异步渲染
+        // setTimeout(that.wrapAsync(() => {
+        // }), 0);
+        that.updater.digest({
             info: info,
             opers: opers,
             cur: cur,
