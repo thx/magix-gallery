@@ -20,7 +20,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryaE:_" class="dialog-header"><div class="fontsize-16">标题</div></div><div mxs="_zs_galleryaE:a" class="dialog-body">浮层内容</div>';
+    $p += '<div mxs="_zs_galleryaD:_" class="dialog-header"><div class="fontsize-16">标题</div></div><div mxs="_zs_galleryaD:a" class="dialog-body">浮层内容</div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

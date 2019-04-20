@@ -188,6 +188,9 @@ module.exports = Magix.View.extend({
         }
         me.capture('@{transport}', new Transport());
     },
+    assign: function () {
+        return true;
+    },
     render: function () {
         var me = this;
         var nodeId = 'file_' + me.id;
@@ -206,10 +209,12 @@ module.exports = Magix.View.extend({
         }
         $('#' + me.id).append(tmpl);
         node = $('#' + nodeId);
-        if (data.multiple)
+        if (data.multiple) {
             node.attr('multiple', 'multiple');
-        if (data.accept)
+        }
+        if (data.accept) {
             node.prop('accept', data.accept);
+        }
     },
     '@{upload}<change>': function (e) {
         var me = this;

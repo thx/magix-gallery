@@ -1,11 +1,21 @@
+<div class="test2"></div>
 <div class="base-header">
     <div class="header-line"></div>
-    <div class="base-logo">
+    <mx-popover class="base-logo"
+        tag="div"
+        view="@./edit/theme"
+        width="270"
+        auto="{{=theme}}"
+        placement="bottom"
+        align="left"
+        offset="{{@{
+            left: 24
+        }}}">
         <span class="logo-img">
             <img src="https://img.alicdn.com/tfs/TB1qRnywVzqK1RjSZFoXXbfcXXa-432-355.png">
         </span>
         <span class="logo-name">Magix Galleries</span>
-    </div>
+    </mx-popover>
     <div class="base-search">
         <mx-suggest class="w260"
             placeholder="搜索"
@@ -18,7 +28,7 @@
         <a {{if h.new}} mx-click="readed({id:'{{=h.id}}'})" {{/if}} {{if h.outer}} href="{{=h.outer}}" target="_blank" rel="noopener noreferrer" {{else}} href="#!{{=h.path}}" {{/if}} class="header-tab {{if h.cur}} cur {{/if}}">
             {{=h.name}}
             {{if h.new}}
-            <mx-popover class="breath-light"
+            <mx-popover class="breath-light update"
                 tag="span"
                 content="{{=h.new}}"
                 auto="true"></mx-popover>
@@ -27,7 +37,7 @@
         {{/each}}
     </div>
 </div>
-<div class="base">
+<div class="base {{if count == 1}} close {{/if}}">
     <div class="base-left {{if fixed}} fixed {{/if}}" style="height: {{=minHeight}}px;">
         {{each list as item}}
             {{if item.name}}
@@ -55,6 +65,7 @@
                 <mx-loading/>
             </mx-vframe>
         </div>
+        {{if count > 1}}
         <div class="contexts clearfix">
             {{if prev.path}}
             <a href="#!{{=prev.path}}" class="prev link-brand">
@@ -69,6 +80,7 @@
             </a>
             {{/if}}
         </div>
+        {{/if}}
     </div>
 </div>
 <div class="fixes">

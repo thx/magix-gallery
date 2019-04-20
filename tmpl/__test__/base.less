@@ -1,3 +1,24 @@
+@test: #385ACC;
+.test,
+.test1,
+.test2,
+.test3{
+    width: 100px;
+    height: 100px;
+}
+.test{
+    background-color: @test;
+}
+.test1{
+    background-color: fade(@test, 20%);
+}
+.test2{
+    background-color: fade(@test, 10%);
+}
+.test3{
+    background-color: shade(@test, 12%)
+}
+
 @search-height: 52px;
 @base-left-width: 220px;
 @base-left-nav-height: 38px;
@@ -49,9 +70,10 @@
     .header-tabs {
         position: relative;
         float: right;
-        margin-right: 140px;
+        margin-right: 120px;
         line-height: 32px;
         .header-tab {
+            position: relative;
             float: left;
             margin: 0 10px;
             padding: 0 20px 8px 20px;
@@ -67,12 +89,6 @@
     }
 }
 
-.base {
-    position: relative;
-    margin-top: 18px;
-    padding-left: @base-left-width;
-}
-
 .base-left {
     position: absolute;
     top: 0;
@@ -82,6 +98,8 @@
     padding-bottom: 10px;
     border-right: 1px solid var(--color-border);
     overflow-y: auto;
+    transition: left var(--duration);
+
     .nav,
     .title {
         display: block;
@@ -152,6 +170,22 @@
         position: fixed;
     }
 }
+
+
+.base {
+    position: relative;
+    margin-top: 18px;
+    padding-left: @base-left-width;
+    transition: padding-left var(--duration);
+
+    &.close{
+        padding-left: 0;
+        .base-left{
+            left: 0 - @base-left-width;
+        }
+    }
+}
+
 
 .base-main {
     .content {
@@ -260,7 +294,7 @@
 .breath-light {
     position: absolute;
     top: 8px;
-    right: 10px;
+    right: 0;
     width: 16px;
     height: 16px;
     &::after {

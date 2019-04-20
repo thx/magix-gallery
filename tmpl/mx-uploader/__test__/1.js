@@ -11,6 +11,9 @@ module.exports = Base.extend({
         // e.response
     },
     'uploadError<error>'(e) {
+        this.updater.digest({
+            test: true
+        })
         // e.error
     }
 });

@@ -48,7 +48,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (icon) {%>';
     if (icon) {
         ;
-        $p += '<div mxa="_zs_gallerybK:_" class="_zs_gallery_mx-effects_notice_-inner"><i mxs="_zs_gallerybK:_" class="mc-iconfont _zs_gallery_mx-effects_notice_-icon">&#xe6ad;</i>';
+        $p += '<div mxa="_zs_gallerybJ:_" class="_zs_gallery_mx-effects_notice_-inner"><i mxs="_zs_gallerybJ:_" class="mc-iconfont _zs_gallery_mx-effects_notice_-icon">&#xe6ad;</i>';
         $line = 5;
         $art = '!content';
         ;

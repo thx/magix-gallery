@@ -1,3 +1,12 @@
+<mx-uploader class="btn btn-brand mr10"
+    action="/creative/upload.action" 
+    method="POST"
+    name="images"
+    multiple="true"
+    accept="image/jpeg,image/png,image/jpg"
+    mx-error="uploadError()"
+    mx-success="uploadSuccess()">
+    {{=(test?'多个上传':'test')}}</mx-uploader>
 <div class="example">
     <div class="eg-content">
         <mx-uploader class="btn btn-brand mr10"

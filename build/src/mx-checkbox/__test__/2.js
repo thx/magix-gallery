@@ -24,14 +24,14 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', list = $$.list, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya_:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya_:a" class="_zs_gallery___test___layout_-eg-content">';
+    $p += '<div mxa="_zs_gallery+:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallery+:a" class="_zs_gallery___test___layout_-eg-content">';
     $line = 3;
     $art = 'each list as group groupIndex';
     ;
-    $expr = '<%for (var groupIndex = 0, $art_crjflocej$art_c = list.length; groupIndex < $art_crjflocej$art_c; groupIndex++) {    var group = list[groupIndex]%>';
-    for (var groupIndex = 0, $art_crjflocej$art_c = list.length; groupIndex < $art_crjflocej$art_c; groupIndex++) {
+    $expr = '<%for (var groupIndex = 0, $art_cuxaadpir$art_c = list.length; groupIndex < $art_cuxaadpir$art_c; groupIndex++) {    var group = list[groupIndex]%>';
+    for (var groupIndex = 0, $art_cuxaadpir$art_c = list.length; groupIndex < $art_cuxaadpir$art_c; groupIndex++) {
         var group = list[groupIndex];
-        $p += '<div><label mxa="_zs_gallerya_:b" class="mr20 mb20"><span mx-change="' + $viewId + 'toggle({groupIndex:';
+        $p += '<div><label mxa="_zs_gallery+:b" class="mr20 mb20"><span mx-change="' + $viewId + 'toggle({groupIndex:';
         $line = 9;
         $art = '=groupIndex';
         ;
@@ -55,10 +55,10 @@ module.exports = Base.extend({
         $line = 13;
         $art = 'each group.subs as sub subIndex';
         ;
-        $expr = '<%for (var subIndex = 0, $art_objblismnpuq$art_obj = group.subs, $art_cmuilqihsbr$art_c = $art_objblismnpuq$art_obj.length; subIndex < $art_cmuilqihsbr$art_c; subIndex++) {        var sub = $art_objblismnpuq$art_obj[subIndex]%>';
-        for (var subIndex = 0, $art_objblismnpuq$art_obj = group.subs, $art_cmuilqihsbr$art_c = $art_objblismnpuq$art_obj.length; subIndex < $art_cmuilqihsbr$art_c; subIndex++) {
-            var sub = $art_objblismnpuq$art_obj[subIndex];
-            $p += '<label mxa="_zs_gallerya_:c" class="mr20 mb20"><span mx-change="' + $viewId + 'toggle({groupIndex:';
+        $expr = '<%for (var subIndex = 0, $art_objmpbiml$art_obj = group.subs, $art_czzmrzmlab$art_c = $art_objmpbiml$art_obj.length; subIndex < $art_czzmrzmlab$art_c; subIndex++) {        var sub = $art_objmpbiml$art_obj[subIndex]%>';
+        for (var subIndex = 0, $art_objmpbiml$art_obj = group.subs, $art_czzmrzmlab$art_c = $art_objmpbiml$art_obj.length; subIndex < $art_czzmrzmlab$art_c; subIndex++) {
+            var sub = $art_objmpbiml$art_obj[subIndex];
+            $p += '<label mxa="_zs_gallery+:c" class="mr20 mb20"><span mx-change="' + $viewId + 'toggle({groupIndex:';
             $line = 17;
             $art = '=groupIndex';
             ;
@@ -92,27 +92,27 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxa="_zs_gallerya_:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya_:_" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</div><div mxa="_zs_gallery+:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery+:_" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 25;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya_:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery+:e" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 27;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya_:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery+:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 30;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&#123;&#123;each list as group groupIndex&#125;&#125;\n&lt;div&gt;\n    &lt;label class="mr20 mb20"&gt;\n        &lt;mx-checkbox value="&#123;&#123;=group.value&#125;&#125;"\n            checked="&#123;&#123;=(group.type==3)&#125;&#125;" \n            indeterminate="&#123;&#123;=(group.type==2)&#125;&#125;" \n            mx-change="toggle(&#123;groupIndex:&#123;&#123;=groupIndex&#125;&#125;,subIndex:\'all\'&#125;)"/&gt;组&#123;&#123;=group.value&#125;&#125;\n    &lt;/label&gt;\n&lt;/div&gt;\n&lt;div&gt;\n    &#123;&#123;each group.subs as sub subIndex&#125;&#125;\n    &lt;label class="mr20 mb20"&gt;\n        &lt;mx-checkbox value="&#123;&#123;=sub.value&#125;&#125;"\n            checked="&#123;&#123;=sub.checked&#125;&#125;" \n            mx-change="toggle(&#123;groupIndex:&#123;&#123;=groupIndex&#125;&#125;,subIndex:&#123;&#123;=subIndex&#125;&#125;&#125;)"/&gt;&#123;&#123;=sub.value&#125;&#125;\n    &lt;/label&gt;\n    &#123;&#123;/each&#125;&#125;\n&lt;/div&gt;\n&#123;&#123;/each&#125;&#125;\n        </pre></div><div mxa="_zs_gallerya_:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya_:b" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&#123;&#123;each list as group groupIndex&#125;&#125;\n&lt;div&gt;\n    &lt;label class="mr20 mb20"&gt;\n        &lt;mx-checkbox value="&#123;&#123;=group.value&#125;&#125;"\n            checked="&#123;&#123;=(group.type==3)&#125;&#125;" \n            indeterminate="&#123;&#123;=(group.type==2)&#125;&#125;" \n            mx-change="toggle(&#123;groupIndex:&#123;&#123;=groupIndex&#125;&#125;,subIndex:\'all\'&#125;)"/&gt;组&#123;&#123;=group.value&#125;&#125;\n    &lt;/label&gt;\n&lt;/div&gt;\n&lt;div&gt;\n    &#123;&#123;each group.subs as sub subIndex&#125;&#125;\n    &lt;label class="mr20 mb20"&gt;\n        &lt;mx-checkbox value="&#123;&#123;=sub.value&#125;&#125;"\n            checked="&#123;&#123;=sub.checked&#125;&#125;" \n            mx-change="toggle(&#123;groupIndex:&#123;&#123;=groupIndex&#125;&#125;,subIndex:&#123;&#123;=subIndex&#125;&#125;&#125;)"/&gt;&#123;&#123;=sub.value&#125;&#125;\n    &lt;/label&gt;\n    &#123;&#123;/each&#125;&#125;\n&lt;/div&gt;\n&#123;&#123;/each&#125;&#125;\n        </pre></div><div mxa="_zs_gallery+:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery+:b" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 54;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerya_:g" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery+:g" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 56;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerya_:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallery+:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 59;
     $art = '=viewId';
     ;

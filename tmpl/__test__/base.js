@@ -469,13 +469,12 @@ module.exports = Magix.View.extend({
         }, {
             id: 'edit',
             name: '在线编辑',
+            new: that.getCookie('header_edit') ? '' : '在线调整颜色，快速生成项目预览',
             path: '/all/edit/index',
             paths: [{
                 subs: [{
-                    name: '使用说明',
-                    path: '/all/edit/desc'
-                }, {
-                    name: '编辑',
+                    name: '在线编辑',
+                    tip: '在线调整颜色，快速生成项目预览',
                     path: '/all/edit/index'
                 }]
             }]
@@ -524,15 +523,16 @@ module.exports = Magix.View.extend({
 
         // 当前路径所属组展开
         let curNames = [];
+        let count = 0;
         list.forEach(item => {
             item.subs.forEach(sub => {
+                count++;
                 if (sub.path == path) {
                     item.close = false;
                     that.$map[item.subs[0].path] = false;
                     if (item.name) {
                         curNames.push(item.name);
                     }
-
                 }
             })
         })
@@ -557,14 +557,23 @@ module.exports = Magix.View.extend({
             headers,
             suggests,
             all,
+            count,
             list,
             cur,
             prev,
             next,
             path,
             view,
-            minHeight: $(window).height()
+            minHeight: $(window).height(),
+            theme: true
+            // theme: !that.getCookie('header_theme')
         });
+
+        that['readed<click>']({
+            params: {
+                id: 'theme'
+            }
+        })
 
         // 当前选中项滚动到可视范围之内
         let curNode = $('#' + that.id + ' .@base.less:nav.@base.less:cur');
