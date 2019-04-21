@@ -1,5 +1,29 @@
-<div class="cont">
-    <div class="tag tag1">智钻</div>
-    <div class="tag tag2">超级推荐</div>
-    <div class="tag tag3">直通车</div>
+<div class="cont clearfix">
+    <div class="fl w100">
+        <div class="text-center">
+            <a href="javascript:;" class="dot dot1" mx-click="changeTheme({id:'zuanshi'})"></a>
+        </div>
+        <div class="text-center mt10">智钻</div>
+    </div>
+    <div class="fl w100">
+        <div class="text-center">
+            <a href="javascript:;" class="dot dot2" mx-click="changeTheme({id:'feeds'})"></a>
+        </div>
+        <div class="text-center mt10">超级推荐</div>
+    </div>
+    <div class="fl w100 mt30">
+        <div class="text-center">
+            <a href="javascript:;" class="dot dot3" mx-click="changeTheme({id:'subway'})"></a>
+        </div>
+        <div class="text-center mt10">直通车</div>
+    </div>
+    <div class="fl w100 mt30">
+        <div class="text-center">
+            <mx-color.picker 
+                dot="true"
+                color="{{=color}}"
+                mx-change="changeColor()"/>
+        </div>
+        <div class="text-center mt10">自定义</div>
+    </div>
 </div>

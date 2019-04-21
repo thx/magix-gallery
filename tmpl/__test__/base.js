@@ -401,6 +401,10 @@ module.exports = Magix.View.extend({
                     path: '/effects/empty',
                     icon: '&#xe685;'
                 }, {
+                    name: '浏览器兼容提示',
+                    path: '/effects/ua',
+                    icon: '&#xe631;'
+                }, {
                     name: '其他常用',
                     path: '/style/index',
                     icon: '&#xe62c;'

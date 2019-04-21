@@ -1,4 +1,4 @@
-@test: #385ACC;
+@test: #ff831b;
 .test,
 .test1,
 .test2,
@@ -16,7 +16,7 @@
     background-color: fade(@test, 10%);
 }
 .test3{
-    background-color: shade(@test, 12%)
+    background-color: shade(@test, 6%)
 }
 
 @search-height: 52px;
@@ -39,7 +39,8 @@
             width: 38px;
             height: 32px;
             margin-top: -16px;
-            background-image: linear-gradient(to right, var(--btn-brand), var(--btn-brand-gradient));
+            background-color: var(--color-brand);
+            background-image: linear-gradient(to right, var(--color-brand), var(--color-brand-gradient));
             img {
                 width: 100%;
                 height: 100%;

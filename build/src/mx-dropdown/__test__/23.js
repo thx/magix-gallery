@@ -28,7 +28,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya6:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya6:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya6:_" class="mb20"><span class="color-9">以下示例：</span>分组 + 单选</div><div class="w200" mx-view="mx-dropdown/bd?parents=';
+    $p += '<div mxa="_zs_gallerya7:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya7:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya7:_" class="mb20"><span class="color-9">以下示例：</span>分组 + 单选</div><div class="w200" mx-view="mx-dropdown/bd?parents=';
     $line = 8;
     $art = '@[{\n                value:1,\n                text:\'第一组\'\n            },{\n                value:2,\n                text:\'第二组\'\n            }]';
     ;
@@ -36,15 +36,15 @@ module.exports = Base.extend({
     $line = 15;
     $art = '@[{\n                value:1,\n                text:\'test\',\n                pValue: 1\n            },{\n                value:2,\n                text:\'TestABC\',\n                pValue: 1\n            },{\n                value:3,\n                text:\'Another\',\n                pValue: 2\n            },{\n                value:4,\n                text:\'选项1\',\n                pValue: 1\n            },{\n                value:5,\n                text:\'选项2\',\n                pValue: 2\n            }]';
     ;
-    $p += ($expr = '<%@[{            value: 1,            text: \'test\',            pValue: 1        }, {            value: 2,            text: \'TestABC\',            pValue: 1        }, {            value: 3,            text: \'Another\',            pValue: 2        }, {            value: 4,            text: \'选项1\',            pValue: 1        }, {            value: 5,            text: \'选项2\',            pValue: 2        }]%>', $i($$ref, [{ value: 1, text: 'test', pValue: 1 }, { value: 2, text: 'TestABC', pValue: 1 }, { value: 3, text: 'Another', pValue: 2 }, { value: 4, text: '选项1', pValue: 1 }, { value: 5, text: '选项2', pValue: 2 }])) + '"></div></div><div mxa="_zs_gallerya6:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya6:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[{            value: 1,            text: \'test\',            pValue: 1        }, {            value: 2,            text: \'TestABC\',            pValue: 1        }, {            value: 3,            text: \'Another\',            pValue: 2        }, {            value: 4,            text: \'选项1\',            pValue: 1        }, {            value: 5,            text: \'选项2\',            pValue: 2        }]%>', $i($$ref, [{ value: 1, text: 'test', pValue: 1 }, { value: 2, text: 'TestABC', pValue: 1 }, { value: 3, text: 'Another', pValue: 2 }, { value: 4, text: '选项1', pValue: 1 }, { value: 5, text: '选项2', pValue: 2 }])) + '"></div></div><div mxa="_zs_gallerya7:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerya7:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 40;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya6:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerya7:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 42;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya6:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerya7:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 45;
     $art = '=viewId';
     ;

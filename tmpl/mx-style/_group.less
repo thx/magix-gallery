@@ -24,19 +24,19 @@
     --border-highlight-hover: #ccc;
 
     // 品牌按钮颜色，支持渐变
-    --btn-border-radius: 4px;
-    --btn-brand: #4d7fff;
-    --btn-brand-gradient: #4d7fff;
-    --btn-brand-hover: #4776ed;
-    --btn-brand-gradient-hover: #4776ed;
-    --btn-brand-text: #ffffff;
-    --btn-brand-text-hover: #ffffff;
+    --btn-border-radius: var(--border-radius);
+    --btn-brand: var(--color-brand);
+    --btn-brand-gradient: var(--color-brand);
+    --btn-brand-hover: var(--color-brand-hover);
+    --btn-brand-gradient-hover: var(--color-brand-hover);
+    --btn-brand-text: var(--color-brand-text);
+    --btn-brand-text-hover: var(--color-brand-text-hover);
     --btn-text: #333;
     --btn-text-hover: #333;
-    --btn-border: #4d7fff;
-    --btn-border-hover: #4d7fff;
-    --btn-bg: #edf2ff;
-    --btn-bg-hover: #dde6ff;
+    --btn-border: var(--color-brand);
+    --btn-border-hover: var(--color-brand);
+    --btn-bg: var(--color-brand-opacity);
+    --btn-bg-hover: var(--color-brand-light);
 
     // 提示颜色
     --color-warn: #ffb400;
@@ -54,8 +54,8 @@
     --duration: 0.25s;
 
     // 项目相关颜色
-    --app-brand: #4d7fff;
-    --app-brand-gradient: #4d7fff;
+    --app-brand: var(--color-brand);
+    --app-brand-gradient: var(--color-brand);
     --app-nav-bg: #303a58;
     --app-bg: #e8ebf2;
 }

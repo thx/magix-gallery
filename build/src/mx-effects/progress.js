@@ -35,7 +35,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (type == \'circle\') {%>';
     if (type == 'circle') {
         ;
-        $p += '<div mxa="_zs_gallerybK:_" class="_zs_gallery_mx-effects_progress_-circle-wrapper"><div class="_zs_gallery_mx-effects_progress_-circle-bg" style="width: ';
+        $p += '<div mxa="_zs_gallerybM:_" class="_zs_gallery_mx-effects_progress_-circle-wrapper"><div class="_zs_gallery_mx-effects_progress_-circle-bg" style="width: ';
         $line = 3;
         $art = '=width';
         ;
@@ -329,21 +329,21 @@ module.exports = Magix.View.extend({
     $expr = '<%if (type == \'degree\') {%>';
     if (type == 'degree') {
         ;
-        $p += '<div mxa="_zs_gallerybK:a" class="_zs_gallery_mx-effects_progress_-degree-wrapper"><div mxa="_zs_gallerybK:b" class="_zs_gallery_mx-effects_progress_-degree-bg">';
+        $p += '<div mxa="_zs_gallerybM:a" class="_zs_gallery_mx-effects_progress_-degree-wrapper"><div mxa="_zs_gallerybM:b" class="_zs_gallery_mx-effects_progress_-degree-bg">';
         $line = 30;
         $art = 'for (let i=0;i<10;i+=1)';
         ;
         $expr = '<%for (var i = 0; i < 10; i += 1) {%>';
         for (var i = 0; i < 10; i += 1) {
             ;
-            $p += '<span mxs="_zs_gallerybK:_" class="_zs_gallery_mx-effects_progress_-degree"></span>';
+            $p += '<span mxs="_zs_gallerybM:_" class="_zs_gallery_mx-effects_progress_-degree"></span>';
             $line = 32;
             $art = '/for';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxa="_zs_gallerybK:c" class="_zs_gallery_mx-effects_progress_-degree-on">';
+        $p += '</div><div mxa="_zs_gallerybM:c" class="_zs_gallery_mx-effects_progress_-degree-on">';
         $line = 35;
         $art = 'for (let i=0;i<degree;i+=1)';
         ;
@@ -425,6 +425,8 @@ catch (ex) {
         var placement = (e.textPlacement || 'top');
         var width;
         var degree = 0, border = e.border || 8, color = e.color || '', colorGradient = e.colorGradient || '', color1, color2;
+        var root = getComputedStyle(document.documentElement);
+        var brandColor = document.body.style.getPropertyValue('--color-brand').trim() || root.getPropertyValue('--color-brand').trim();
         switch (type) {
             case 'degree':
                 // 刻度型，刻度取整
@@ -433,14 +435,13 @@ catch (ex) {
             case 'circle':
                 // 圆形
                 if (!color) {
-                    color = '#4d7fff';
+                    color = brandColor;
                 }
                 width = e.width || 120;
                 break;
             case 'gradient':
                 // 渐变，未自定义颜色时适用品牌色
-                var root = getComputedStyle(document.documentElement);
-                color = color || root.getPropertyValue('--color-brand').trim();
+                color = color || brandColor;
                 if (color) {
                     var result = Util.toRgb(color);
                     color1 = "rgba(" + result.r + ", " + result.g + ", " + result.b + ", 0.4)";

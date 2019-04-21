@@ -103,7 +103,7 @@ var showMsg = function (type, ssId, checkInfo) {
         var lh = '32px';
         if (window.getComputedStyle) {
             var root = getComputedStyle(document.documentElement);
-            lh = root.getPropertyValue('--input-height').trim();
+            lh = document.body.style.getPropertyValue('--input-height').trim() || root.getPropertyValue('--input-height').trim();
         }
         switch (placement) {
             case 'right':

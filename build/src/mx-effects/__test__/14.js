@@ -23,19 +23,19 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybg:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybg:_" class="_zs_gallery___test___layout_-eg-content"><span class="mx-icon-solid mx-icon-common mr10"><span class="mx-icon-text">测试</span></span><span class="mx-icon-solid mx-icon-error mr10"><span class="mx-icon-text">测试</span></span><span class="mx-icon-solid mx-icon-warn mr10"><span class="mx-icon-text">测试</span></span><span class="mx-icon-solid mx-icon-highlight mr10"><span class="mx-icon-text">测试</span></span></div><div mxa="_zs_gallerybg:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybg:a" class="_zs_gallery___test___layout_-eg-title">实心打标</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerybh:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybh:_" class="_zs_gallery___test___layout_-eg-content"><span class="mx-icon-solid mx-icon-common mr10"><span class="mx-icon-text">测试</span></span><span class="mx-icon-solid mx-icon-error mr10"><span class="mx-icon-text">测试</span></span><span class="mx-icon-solid mx-icon-warn mr10"><span class="mx-icon-text">测试</span></span><span class="mx-icon-solid mx-icon-highlight mr10"><span class="mx-icon-text">测试</span></span></div><div mxa="_zs_gallerybh:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybh:a" class="_zs_gallery___test___layout_-eg-title">实心打标</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 10;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybg:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybh:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 12;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybg:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybh:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 15;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.icon content="测试"/&gt;\n\n&lt;mx-effects.icon type="error" content="测试"/&gt;\n\n&lt;mx-effects.icon type="warn" content="测试"/&gt;\n\n&lt;mx-effects.icon type="highlight" content="测试"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.icon content="测试"/&gt;\n\n&lt;mx-effects.icon type="error" content="测试"/&gt;\n\n&lt;mx-effects.icon type="warn" content="测试"/&gt;\n\n&lt;!-- type="highlight"表示品牌色打标 --&gt;\n&lt;mx-effects.icon type="highlight" content="测试"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

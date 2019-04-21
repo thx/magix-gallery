@@ -48,6 +48,8 @@ module.exports = Magix.View.extend({
             color = e.color || '',
             colorGradient = e.colorGradient || '',
             color1, color2;
+        let root = getComputedStyle(document.documentElement);
+        let brandColor = document.body.style.getPropertyValue('--color-brand').trim() || root.getPropertyValue('--color-brand').trim();
         switch (type) {
             case 'degree':
                 // 刻度型，刻度取整
@@ -56,14 +58,13 @@ module.exports = Magix.View.extend({
             case 'circle':
                 // 圆形
                 if (!color) {
-                    color = '#4d7fff';
+                    color = brandColor;
                 }
                 width = e.width || 120;
                 break;
             case 'gradient':
                 // 渐变，未自定义颜色时适用品牌色
-                let root = getComputedStyle(document.documentElement);
-                color = color || root.getPropertyValue('--color-brand').trim();
+                color = color || brandColor;
                 if(color){
                     let result = Util.toRgb(color);
                     color1 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.4)`;

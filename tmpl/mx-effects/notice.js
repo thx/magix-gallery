@@ -34,12 +34,11 @@ module.exports = Magix.View.extend({
             if (type == 'common' || type == 'highlight') {
                 classNames.push(ClassNames[type]);
             }
-            let root = getComputedStyle(document.documentElement);
-            if (type == 'error') {
-                color = root.getPropertyValue('--color-red').trim();
-            }
-            if(type == 'warn'){
-                color = root.getPropertyValue('--color-warn').trim();
+            if(type == 'error' || type == 'warn'){
+                let root = getComputedStyle(document.documentElement);
+                let key = (type == 'error') ? '--color-red' : '--color-warn';
+                color = document.body.style.getPropertyValue(key) || root.getPropertyValue(key);
+                color = color.trim();
             }
         }
 

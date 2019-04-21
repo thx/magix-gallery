@@ -4,6 +4,9 @@
     padding: 10px;
     background-color: #fff;
 }
+[mx-view*="mx-color/picker"]{
+    min-width: 0;
+}
 
 .shortcuts,
 .cbd,
@@ -115,7 +118,10 @@
 }
 
 .dot{
+    display: inline-block;
     width: var(--input-height);
     height: var(--input-height);
     border-radius: 50%;
+    vertical-align: middle;
 }
+
