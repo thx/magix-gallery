@@ -1,4 +1,3 @@
-/*md5:1fe3776c98de55d18ff14e66773ffcca*/
 let $ = require('$');
 let Magix = require('magix');
 let Router = Magix.Router;

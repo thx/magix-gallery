@@ -1,4 +1,3 @@
-/*md5:34c02a28c382ba730d4af48e1a450786*/
 let Magix = require('magix');
 let $ = require('$');
 let Monitor = require('../mx-util/monitor');
