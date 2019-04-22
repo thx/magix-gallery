@@ -2,6 +2,7 @@ let Magix = require('magix');
 let $ = require('$');
 let Monitor = require('../mx-util/monitor');
 let Util = require('@./util');
+let I18n = require('../mx-medusa/util');
 let GetDefaultDate = Util.getDefaultDate;
 Magix.applyStyle('@rangepicker.less');
 
@@ -15,23 +16,25 @@ module.exports = Magix.View.extend({
             Monitor['@{remove}'](that);
             Monitor['@{teardown}']();
         });
-        that['@{extra}'] = $.extend(true, {}, extra);
+
+        let dateInfo = $.extend(true, {}, extra);
+        dateInfo.placeholder = dateInfo.placeholder || I18n['choose'];
+        that.updater.set({
+            viewId: that.id,
+            dateInfo
+        })
 
         // 支持mx-disabled或者disabled
         that['@{ui.disabled}'] = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
     },
 
     render() {
+        // 没有selected默认不填充
+        // if (!dateInfo.selected) {
+        //     dateInfo.selected = GetDefaultDate(dateInfo.min, dateInfo.max, dateInfo.formatter);
+        // }
         let that = this;
-        let dateInfo = that['@{extra}'];
-        if (!dateInfo.selected) {
-            dateInfo.selected = GetDefaultDate(dateInfo.min, dateInfo.max, dateInfo.formatter);
-        }
-
-        that.updater.digest({
-            viewId: that.id,
-            dateInfo: dateInfo
-        });
+        that.updater.digest();
         that['@{owner.node}'] = $('#' + that.id);
     },
     '@{inside}'(node) {
@@ -46,10 +49,10 @@ module.exports = Magix.View.extend({
     },
 
     '@{toggle}<click>'(e) {
-        if(this['@{ui.disabled}']){
+        if (this['@{ui.disabled}']) {
             return;
         }
-        
+
         e.preventDefault();
         let show = this.updater.get('show');
         if (show) {

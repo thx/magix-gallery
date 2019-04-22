@@ -60,8 +60,8 @@ module.exports = Magix.View.extend({
         $line = 7;
         $art = 'each types as type typeIndex';
         ;
-        $expr = '<%for (var typeIndex = 0, $art_cuuewqdtk$art_c = types.length; typeIndex < $art_cuuewqdtk$art_c; typeIndex++) {        var type = types[typeIndex]%>';
-        for (var typeIndex = 0, $art_cuuewqdtk$art_c = types.length; typeIndex < $art_cuuewqdtk$art_c; typeIndex++) {
+        $expr = '<%for (var typeIndex = 0, $art_cuqugosavg$art_c = types.length; typeIndex < $art_cuqugosavg$art_c; typeIndex++) {        var type = types[typeIndex]%>';
+        for (var typeIndex = 0, $art_cuqugosavg$art_c = types.length; typeIndex < $art_cuqugosavg$art_c; typeIndex++) {
             var type = types[typeIndex];
             $p += '<div mxv class="_zs_gallery_mx-area_index_-tab ';
             $line = 8;
@@ -121,8 +121,8 @@ module.exports = Magix.View.extend({
     $line = 21;
     $art = 'each types as type typeIndex';
     ;
-    $expr = '<%for (var typeIndex = 0, $art_crvgvwuf$art_c = types.length; typeIndex < $art_crvgvwuf$art_c; typeIndex++) {    var type = types[typeIndex]%>';
-    for (var typeIndex = 0, $art_crvgvwuf$art_c = types.length; typeIndex < $art_crvgvwuf$art_c; typeIndex++) {
+    $expr = '<%for (var typeIndex = 0, $art_cbhfjoybk$art_c = types.length; typeIndex < $art_cbhfjoybk$art_c; typeIndex++) {    var type = types[typeIndex]%>';
+    for (var typeIndex = 0, $art_cbhfjoybk$art_c = types.length; typeIndex < $art_cbhfjoybk$art_c; typeIndex++) {
         var type = types[typeIndex];
         $p += '<div mxv class="';
         $line = 22;
@@ -216,9 +216,9 @@ module.exports = Magix.View.extend({
         $line = 32;
         $art = 'each type.groups as group groupIndex';
         ;
-        $expr = '<%for (var groupIndex = 0, $art_objyqkfl$art_obj = type.groups, $art_cwnadtg$art_c = $art_objyqkfl$art_obj.length; groupIndex < $art_cwnadtg$art_c; groupIndex++) {        var group = $art_objyqkfl$art_obj[groupIndex]%>';
-        for (var groupIndex = 0, $art_objyqkfl$art_obj = type.groups, $art_cwnadtg$art_c = $art_objyqkfl$art_obj.length; groupIndex < $art_cwnadtg$art_c; groupIndex++) {
-            var group = $art_objyqkfl$art_obj[groupIndex];
+        $expr = '<%for (var groupIndex = 0, $art_objtgaykowh$art_obj = type.groups, $art_cztykfweil$art_c = $art_objtgaykowh$art_obj.length; groupIndex < $art_cztykfweil$art_c; groupIndex++) {        var group = $art_objtgaykowh$art_obj[groupIndex]%>';
+        for (var groupIndex = 0, $art_objtgaykowh$art_obj = type.groups, $art_cztykfweil$art_c = $art_objtgaykowh$art_obj.length; groupIndex < $art_cztykfweil$art_c; groupIndex++) {
+            var group = $art_objtgaykowh$art_obj[groupIndex];
             $p += '<div mxv ';
             $line = 33;
             $art = 'if type.half';
@@ -237,8 +237,8 @@ module.exports = Magix.View.extend({
             $line = 34;
             $art = 'each group as area areaIndex';
             ;
-            $expr = '<%for (var areaIndex = 0, $art_ccbqkvdsqfn$art_c = group.length; areaIndex < $art_ccbqkvdsqfn$art_c; areaIndex++) {            var area = group[areaIndex]%>';
-            for (var areaIndex = 0, $art_ccbqkvdsqfn$art_c = group.length; areaIndex < $art_ccbqkvdsqfn$art_c; areaIndex++) {
+            $expr = '<%for (var areaIndex = 0, $art_cickkmpqaa$art_c = group.length; areaIndex < $art_cickkmpqaa$art_c; areaIndex++) {            var area = group[areaIndex]%>';
+            for (var areaIndex = 0, $art_cickkmpqaa$art_c = group.length; areaIndex < $art_cickkmpqaa$art_c; areaIndex++) {
                 var area = group[areaIndex];
                 $p += ' ';
                 $line = 35;
@@ -262,9 +262,9 @@ module.exports = Magix.View.extend({
                 $line = 40;
                 $art = 'each area.provinces as province';
                 ;
-                $expr = '<%for (var $art_irgtliro$art_i = 0, $art_objknxzk$art_obj = area.provinces, $art_coeqbyqjq$art_c = $art_objknxzk$art_obj.length; $art_irgtliro$art_i < $art_coeqbyqjq$art_c; $art_irgtliro$art_i++) {                var province = $art_objknxzk$art_obj[$art_irgtliro$art_i]%>';
-                for (var $art_irgtliro$art_i = 0, $art_objknxzk$art_obj = area.provinces, $art_coeqbyqjq$art_c = $art_objknxzk$art_obj.length; $art_irgtliro$art_i < $art_coeqbyqjq$art_c; $art_irgtliro$art_i++) {
-                    var province = $art_objknxzk$art_obj[$art_irgtliro$art_i];
+                $expr = '<%for (var $art_iopmvgca$art_i = 0, $art_objmvtyocodfpr$art_obj = area.provinces, $art_ctnnslwg$art_c = $art_objmvtyocodfpr$art_obj.length; $art_iopmvgca$art_i < $art_ctnnslwg$art_c; $art_iopmvgca$art_i++) {                var province = $art_objmvtyocodfpr$art_obj[$art_iopmvgca$art_i]%>';
+                for (var $art_iopmvgca$art_i = 0, $art_objmvtyocodfpr$art_obj = area.provinces, $art_ctnnslwg$art_c = $art_objmvtyocodfpr$art_obj.length; $art_iopmvgca$art_i < $art_ctnnslwg$art_c; $art_iopmvgca$art_i++) {
+                    var province = $art_objmvtyocodfpr$art_obj[$art_iopmvgca$art_i];
                     $p += '<div mxv class="_zs_gallery_mx-area_index_-province clearfix" id="';
                     $line = 41;
                     $art = '=viewId';
@@ -387,9 +387,9 @@ module.exports = Magix.View.extend({
                     $line = 53;
                     $art = 'each province.cities as city';
                     ;
-                    $expr = '<%for (var $art_insanbsyy$art_i = 0, $art_objyaiyithe$art_obj = province.cities, $art_cxbnylsdl$art_c = $art_objyaiyithe$art_obj.length; $art_insanbsyy$art_i < $art_cxbnylsdl$art_c; $art_insanbsyy$art_i++) {                    var city = $art_objyaiyithe$art_obj[$art_insanbsyy$art_i]%>';
-                    for (var $art_insanbsyy$art_i = 0, $art_objyaiyithe$art_obj = province.cities, $art_cxbnylsdl$art_c = $art_objyaiyithe$art_obj.length; $art_insanbsyy$art_i < $art_cxbnylsdl$art_c; $art_insanbsyy$art_i++) {
-                        var city = $art_objyaiyithe$art_obj[$art_insanbsyy$art_i];
+                    $expr = '<%for (var $art_iaaypnaevi$art_i = 0, $art_objdkcpjca$art_obj = province.cities, $art_cgxnklq$art_c = $art_objdkcpjca$art_obj.length; $art_iaaypnaevi$art_i < $art_cgxnklq$art_c; $art_iaaypnaevi$art_i++) {                    var city = $art_objdkcpjca$art_obj[$art_iaaypnaevi$art_i]%>';
+                    for (var $art_iaaypnaevi$art_i = 0, $art_objdkcpjca$art_obj = province.cities, $art_cgxnklq$art_c = $art_objdkcpjca$art_obj.length; $art_iaaypnaevi$art_i < $art_cgxnklq$art_c; $art_iaaypnaevi$art_i++) {
+                        var city = $art_objdkcpjca$art_obj[$art_iaaypnaevi$art_i];
                         $p += '<label mxv for="';
                         $line = 54;
                         $art = '=viewId';

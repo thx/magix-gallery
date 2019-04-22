@@ -31,7 +31,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryeQ:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_galleryeS:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'时分秒全可选\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'时分秒部分可选\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'禁用\',\n            key: viewId + \'_demo3\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
@@ -39,11 +39,11 @@ module.exports = Magix.View.extend({
     $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryeQ:a" class="clearfix mb20"><div mxa="_zs_galleryeQ:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-time/__test__/1" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryeS:a" class="clearfix mb20"><div mxa="_zs_galleryeS:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-time/__test__/1" id="';
     $line = 25;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div></div><div mxa="_zs_galleryeQ:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-time/__test__/2" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div></div><div mxa="_zs_galleryeS:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-time/__test__/2" id="';
     $line = 28;
     $art = '=viewId';
     ;

@@ -35,7 +35,7 @@ module.exports = Magix.View.extend({
         $line = 2;
         $art = '= disabled ? \'switch-disabled\' : \'\'';
         ;
-        $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-switch-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-switch-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_galleryd(:_" class="_zs_gallery_mx-switch_index_-text _zs_gallery_mx-switch_index_-close">关</span><span mxs="_zs_galleryd(:a" class="_zs_gallery_mx-switch_index_-text _zs_gallery_mx-switch_index_-open">开</span><span mxs="_zs_galleryd(:b" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
+        $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-switch-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-switch-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_galleryd{:_" class="_zs_gallery_mx-switch_index_-text _zs_gallery_mx-switch_index_-close">关</span><span mxs="_zs_galleryd{:a" class="_zs_gallery_mx-switch_index_-text _zs_gallery_mx-switch_index_-open">开</span><span mxs="_zs_galleryd{:b" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
         $line = 7;
         $art = 'else';
         ;
@@ -51,7 +51,7 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = '= disabled ? \'switch-disabled\' : \'\'';
         ;
-        $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-switch-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-switch-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_galleryd(:b" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
+        $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-switch-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-switch-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_galleryd{:b" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
         $line = 11;
         $art = '/if';
         ;

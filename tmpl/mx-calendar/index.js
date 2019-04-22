@@ -116,7 +116,7 @@ module.exports = Magix.View.extend({
         }
         let today = new Date();
         if (!ops.selected || forever) {
-            ops.selected = GetDefaultDate(ops);
+            ops.selected = GetDefaultDate(ops.min, ops.max, ops.formatter);
         }
         let selected = DateParse(ops.selected);
         let timeValue = DateFormat(selected, 'hh:mm:ss'),

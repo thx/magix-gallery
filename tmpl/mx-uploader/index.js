@@ -116,9 +116,26 @@ let XHR = Uploader.extend({
 module.exports = Magix.View.extend({
     init(extra) {
         let me = this;
+        // 默认iframe
+        let Transport,
+            type = me.updater.get('type');
+        if ((type == 'xhr') && window.FormData) {
+            Transport = XHR;
+        } else {
+            Transport = Iframe;
+        }
+        me.capture('@{transport}', new Transport());
+
+        //初始化时保存一份当前数据的快照
+        me.updater.snapshot();
+        me.assign(extra);
+    },
+    assign(extra) {
+        let me = this;
+        let altered = me.updater.altered();
+
         // 支持mx-disabled或者disabled
         let disabled = (extra.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
-
         me.updater.set({
             name: extra.name || 'file',
             action: extra.action || '',
@@ -127,17 +144,15 @@ module.exports = Magix.View.extend({
             disabled
         });
 
-        // 默认iframe
-        let Transport;
-        if ((extra.type == 'xhr') && window.FormData) {
-            Transport = XHR;
-        } else {
-            Transport = Iframe;
+        if (!altered) {
+            altered = me.updater.altered();
         }
-        me.capture('@{transport}', new Transport());
-    },
-    assign(){
-        return true;
+        if (altered) {
+            // 组件有更新，真个节点会全部需要重新初始化
+            me.updater.snapshot();
+            return true;
+        }
+        return false;
     },
     render() {
         let me = this;

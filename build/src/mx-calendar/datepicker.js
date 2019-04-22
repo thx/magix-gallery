@@ -3,13 +3,14 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-calendar/datepicker",["magix","$","../mx-util/monitor","mx-calendar/util","./index"],(require,exports,module)=>{
-/*Magix,$,Monitor,Util*/
+define("mx-calendar/datepicker",["magix","$","../mx-util/monitor","mx-calendar/util","../mx-medusa/util","./index"],(require,exports,module)=>{
+/*Magix,$,Monitor,Util,I18n*/
 require("./index");
 var Magix = require("magix");
 var $ = require("$");
 var Monitor = require("../mx-util/monitor");
 var Util = require("mx-calendar/util");
+var I18n = require("../mx-medusa/util");
 var GetDefaultDate = Util.getDefaultDate;
 Magix.applyStyle("_zs_gallery_mx-calendar_rangepicker_","._zs_gallery_mx-calendar_rangepicker_-result {\n  position: relative;\n  padding: 0 10px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-left ._zs_gallery_mx-calendar_rangepicker_-center {\n  padding: 0 5px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-center ._zs_gallery_mx-calendar_rangepicker_-center {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 40px;\n  height: 30px;\n  margin-left: -20px;\n  margin-top: -15px;\n  line-height: 30px;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-center ._zs_gallery_mx-calendar_rangepicker_-co {\n  display: inline-block;\n  width: 50%;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-center ._zs_gallery_mx-calendar_rangepicker_-co-left {\n  padding-right: 10px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-center ._zs_gallery_mx-calendar_rangepicker_-co-right {\n  padding-left: 10px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-left {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-right {\n  color: var(--color-brand-vs);\n}\n[mx-disabled] ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-left,\n[mx-disabled]:hover ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-left,\n[mx-disabled] ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-right,\n[mx-disabled]:hover ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-right {\n  color: #999;\n}\n");
 module.exports = Magix.View.extend({
@@ -53,9 +54,9 @@ module.exports = Magix.View.extend({
     ;
     $p += ' ';
     $line = 7;
-    $art = '=dateInfo.selected';
+    $art = '=(dateInfo.selected || dateInfo.placeholder)';
     ;
-    $p += ($expr = '<%=dateInfo.selected%>', $e(dateInfo.selected)) + '</div><div mxv="dateInfo" class="mx-output mx-output-bottom ';
+    $p += ($expr = '<%=(dateInfo.selected || dateInfo.placeholder)%>', $e((dateInfo.selected || dateInfo.placeholder))) + '</div><div mxv="dateInfo" class="mx-output mx-output-bottom ';
     $line = 9;
     $art = 'if show';
     ;
@@ -102,20 +103,22 @@ catch (ex) {
             Monitor['@{remove}'](that);
             Monitor['@{teardown}']();
         });
-        that['@{extra}'] = $.extend(true, {}, extra);
+        var dateInfo = $.extend(true, {}, extra);
+        dateInfo.placeholder = dateInfo.placeholder || I18n['choose'];
+        that.updater.set({
+            viewId: that.id,
+            dateInfo: dateInfo
+        });
         // 支持mx-disabled或者disabled
         that['@{ui.disabled}'] = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
     },
     render: function () {
+        // 没有selected默认不填充
+        // if (!dateInfo.selected) {
+        //     dateInfo.selected = GetDefaultDate(dateInfo.min, dateInfo.max, dateInfo.formatter);
+        // }
         var that = this;
-        var dateInfo = that['@{extra}'];
-        if (!dateInfo.selected) {
-            dateInfo.selected = GetDefaultDate(dateInfo.min, dateInfo.max, dateInfo.formatter);
-        }
-        that.updater.digest({
-            viewId: that.id,
-            dateInfo: dateInfo
-        });
+        that.updater.digest();
         that['@{owner.node}'] = $('#' + that.id);
     },
     '@{inside}': function (node) {

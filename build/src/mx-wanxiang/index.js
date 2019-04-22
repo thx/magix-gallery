@@ -117,7 +117,7 @@ module.exports = Magix.View.extend({
     },
     reloc: function () {
         var that = this;
-        if (window.AW) {
+        if (window.AW && !that.updater.get('awLoading')) {
             var bottom = that.updater.get('bottom');
             var winHeight = $(window).height();
             AW.moveTo(winHeight - bottom - 200);

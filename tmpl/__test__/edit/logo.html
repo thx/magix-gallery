@@ -1,0 +1,16 @@
+<div class="pt10 pl10 pr10">
+    <div class="mb20">预置主题：</div>
+    <div class="clearfix mb20">
+        {{each themes as t}}
+        <div class="fl" style="width: {{=(100/themes.length)}}%;">
+            <div class="text-center">
+                <a href="javascript:;" class="dot" style="{{=t.styles}}" mx-click="selectTheme({key:'{{=t.key}}'})"></a>
+            </div>
+            <div class="text-center mt10">{{=t.text}}</div>
+        </div>
+        {{/each}}
+    </div>
+    <div>自定义主题：</div>
+</div>
+<div mx-view="@../../mx-color/index?data={{@info}}"
+    mx-change="selectColor()"></div>

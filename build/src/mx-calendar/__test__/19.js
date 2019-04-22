@@ -12,6 +12,7 @@ var Magix = require("magix");
 var Base = require("__test__/example");
 var Moment = require("moment");
 var $ = require("$");
+var Formater = 'YYYY-MM-DD';
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -24,20 +25,24 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallery4:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallery4:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb10 clearfix"><span class="color-9">以下示例：</span>禁止选择</div><div class="w200" mx-disabled mx-view="mx-calendar/datepicker"></div></div><div mxa="_zs_gallery4:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery4:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 12;
+} ; var $g = '', $_temp, $p = '', today = $$.today, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallery4:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallery4:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallery4:_" class="mb10 clearfix"><span class="color-9">以下示例：</span>禁止选择</div><div class="w200" mx-disabled mx-view="mx-calendar/datepicker?selected=';
+    $line = 8;
+    $art = '=today';
+    ;
+    $p += ($expr = '<%!$eu(today)%>', $eu(today)) + '"></div></div><div mxa="_zs_gallery4:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery4:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 13;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery4:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 14;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery4:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 15;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery4:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 17;
+    $line = 18;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.datepicker class="w200"\n    mx-disabled/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.datepicker class="w200"\n    selected="&#123;&#123;=today&#125;&#125;"\n    mx-disabled/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -48,7 +53,9 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
-        this.updater.digest();
+        this.updater.digest({
+            today: Moment().format(Formater)
+        });
     }
 });
 

@@ -340,7 +340,7 @@ catch (ex) {
         }
         var today = new Date();
         if (!ops.selected || forever) {
-            ops.selected = GetDefaultDate(ops);
+            ops.selected = GetDefaultDate(ops.min, ops.max, ops.formatter);
         }
         var selected = DateParse(ops.selected);
         var timeValue = DateFormat(selected, 'hh:mm:ss'), dateValue = DateFormat(selected, formatter.slice(0, 10));

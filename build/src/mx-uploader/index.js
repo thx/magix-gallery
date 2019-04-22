@@ -169,6 +169,22 @@ var XHR = Uploader.extend({
 module.exports = Magix.View.extend({
     init: function (extra) {
         var me = this;
+        // 默认iframe
+        var Transport, type = me.updater.get('type');
+        if ((type == 'xhr') && window.FormData) {
+            Transport = XHR;
+        }
+        else {
+            Transport = Iframe;
+        }
+        me.capture('@{transport}', new Transport());
+        //初始化时保存一份当前数据的快照
+        me.updater.snapshot();
+        me.assign(extra);
+    },
+    assign: function (extra) {
+        var me = this;
+        var altered = me.updater.altered();
         // 支持mx-disabled或者disabled
         var disabled = (extra.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
         me.updater.set({
@@ -178,18 +194,15 @@ module.exports = Magix.View.extend({
             accept: extra.accept,
             disabled: disabled
         });
-        // 默认iframe
-        var Transport;
-        if ((extra.type == 'xhr') && window.FormData) {
-            Transport = XHR;
+        if (!altered) {
+            altered = me.updater.altered();
         }
-        else {
-            Transport = Iframe;
+        if (altered) {
+            // 组件有更新，真个节点会全部需要重新初始化
+            me.updater.snapshot();
+            return true;
         }
-        me.capture('@{transport}', new Transport());
-    },
-    assign: function () {
-        return true;
+        return false;
     },
     render: function () {
         var me = this;

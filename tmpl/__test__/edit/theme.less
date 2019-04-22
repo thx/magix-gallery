@@ -1,15 +1,4 @@
-.dot1{
-    background-color: #4d7fff;
-}
-.dot2{
-    background-color: #385ACC;
-    background-image: linear-gradient(to right, #385ACC, #5C55DD);
-}
-.dot3{
-    background-color: #ff831b;
-}
-
-.dot{
+.dot {
     display: inline-block;
     width: var(--input-height);
     height: var(--input-height);
@@ -17,6 +6,79 @@
     vertical-align: middle;
 }
 
-.cont{
-    padding: 16px;
+:root{
+    --edit-theme-width: 100px;
+    --edit-nav-size: 20px;
+    --edit-color-width: calc(var(--edit-theme-width) * 4);
+}
+.theme {
+    float: left;
+    width: var(--edit-theme-width);
+    text-align: center;
+}
+
+.edit {
+    position: relative;
+    padding-left: var(--edit-color-width);
+}
+
+.nav {
+    position: absolute;
+    z-index: 3;
+    top: calc(0px - var(--edit-nav-size));
+    left: 0;
+    width: var(--edit-theme-width);
+    height: var(--edit-nav-size);
+    text-align: center;
+    transition: left var(--duration);
+
+    .white-arrow,
+    .arrow {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-width: 0 var(--edit-nav-size) var(--edit-nav-size);
+        border-style: solid;
+        border-color: transparent transparent var(--color-border);
+    }
+    .white-arrow{
+        position: absolute;
+        top: 1px;
+        left: 50%;
+        margin-left: calc(0px - var(--edit-nav-size));
+        border-color: transparent transparent #fff;
+    }
+}
+
+.colors {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: var(--edit-color-width);
+    height: 100%;
+    padding-top: 20px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    .item {
+        float: left;
+        width: calc((var(--edit-color-width) - 20px) / 2 - 20px);
+        margin-bottom: 20px;
+        margin-left: 20px;
+    }
+    .icon {
+        position: relative;
+        top: 1px;
+        margin-left: 3px;
+        color: #999;
+        font-size: 14px;
+    }
+}
+
+.preview {
+    padding: 0 20px;
+    .iframe {
+        width: 100%;
+        border: 1px solid var(--color-border);
+    }
 }

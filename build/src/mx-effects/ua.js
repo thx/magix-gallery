@@ -28,15 +28,15 @@ module.exports = Magix.View.extend({
     $expr = '<%if (show) {%>';
     if (show) {
         ;
-        $p += '<div mxa="_zs_gallerye%:_" class="_zs_gallery_mx-effects_ua_-chrome-wrapper"><div mxa="_zs_gallerye%:a" class="color-f mb10"><i mxs="_zs_gallerye%:c" class="mc-iconfont _zs_gallery_mx-effects_ua_-chrome-icon">&#xe631;</i><span mxa="_zs_gallerye%:b" class="fontsize-18">';
+        $p += '<div mxa="_zs_gallerybO:_" class="_zs_gallery_mx-effects_ua_-chrome-wrapper"><div mxa="_zs_gallerybO:a" class="color-f mb10"><i mxs="_zs_gallerybO:_" class="mc-iconfont _zs_gallery_mx-effects_ua_-chrome-icon">&#xe631;</i><span mxa="_zs_gallerybO:b" class="fontsize-18">';
         $line = 5;
         $art = '=title';
         ;
-        $p += ($expr = '<%=title%>', $e(title)) + '</span></div><div mxa="_zs_gallerye%:c" class="mb20 color-f">';
+        $p += ($expr = '<%=title%>', $e(title)) + '</span></div><div mxa="_zs_gallerybO:c" class="mb20 color-f">';
         $line = 7;
         $art = '=tip';
         ;
-        $p += ($expr = '<%=tip%>', $e(tip)) + '</div><div mxs="_zs_gallerye%:a" class="clearfix"><a href="//www.google.com/chrome/browser/desktop/index.html" target="_blank" class="w80 mr10 btn btn-white btn-small">立即下载</a><a href="javascript:;" class="w80 btn btn-white btn-small" mx-click="' + $viewId + 'close()">关闭</a></div></div>';
+        $p += ($expr = '<%=tip%>', $e(tip)) + '</div><div mxs="_zs_gallerybO:a" class="clearfix"><a href="//www.google.com/chrome/browser/desktop/index.html" target="_blank" class="w80 mr10 btn btn-white btn-small">立即下载</a><a href="javascript:;" class="w80 btn btn-white btn-small" mx-click="' + $viewId + 'close()">关闭</a></div></div>';
         $line = 13;
         $art = '/if';
         ;

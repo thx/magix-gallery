@@ -168,6 +168,11 @@ catch (ex) {
                 type: 'number',
                 def: '0'
             }, {
+                key: 'placeholder',
+                desc: '空状态文案',
+                type: 'string',
+                def: '请选择'
+            }, {
                 key: 'mx-disabled',
                 desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-calendar.datepicker mx-disabled /&gt;',
                 type: '',

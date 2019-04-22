@@ -277,12 +277,13 @@ module.exports = Magix.View.extend({
         let me = this;
         if (!me['@{show.btns}'] || fromBtn) {
             let c = $('#v_' + me.id).val();
-            if (c != me['@{color}']) {
+            // 相同值也trigger
+            // if (c != me['@{color}']) {
                 $('#' + me.id).trigger({
                     type: 'change',
                     color: me['@{color}'] = c
                 });
-            }
+            // }
         }
     },
     '@{enter}<click>'() {

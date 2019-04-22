@@ -470,19 +470,20 @@ module.exports = Magix.View.extend({
                     path: '/all/pro/top'
                 }]
             }]
-        }, {
-            id: 'edit',
-            name: '在线编辑',
-            new: that.getCookie('header_edit') ? '' : '在线调整颜色，快速生成项目预览',
-            path: '/all/edit/index',
-            paths: [{
-                subs: [{
-                    name: '在线编辑',
-                    tip: '在线调整颜色，快速生成项目预览',
-                    path: '/all/edit/index'
-                }]
-            }]
-        }, {
+        }, 
+        // {
+        //     id: 'edit',
+        //     name: '在线编辑',
+        //     new: that.getCookie('header_edit') ? '' : '在线调整颜色，快速生成项目预览，定制专属配色方案',
+        //     path: '/all/edit/index',
+        //     paths: [{
+        //         subs: [{
+        //             name: '在线编辑',
+        //             path: '/all/edit/index'
+        //         }]
+        //     }]
+        // }, 
+        {
             id: 'pro',
             name: 'PRO',
             // new: that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',
@@ -557,6 +558,17 @@ module.exports = Magix.View.extend({
                 };
             }
         }
+
+        let theme = {
+            show: false,
+            update: !that.getCookie('gallery_theme'),
+            color: that.getCookie('gallery_theme_color') || '#51a300'
+        }
+
+        // 30天过期
+        let h = 24 * 30;
+        that.setCookie('gallery_theme', true, `h${h}`);
+
         updater.digest({
             headers,
             suggests,
@@ -569,15 +581,8 @@ module.exports = Magix.View.extend({
             path,
             view,
             minHeight: $(window).height(),
-            theme: true
-            // theme: !that.getCookie('header_theme')
+            theme
         });
-
-        that['readed<click>']({
-            params: {
-                id: 'theme'
-            }
-        })
 
         // 当前选中项滚动到可视范围之内
         let curNode = $('#' + that.id + ' .@base.less:nav.@base.less:cur');
@@ -589,6 +594,46 @@ module.exports = Magix.View.extend({
             }
         }
     },
+
+    'showPicker<click>'(e) {
+        let id = 'gallery_theme';
+        let theme = this.updater.get('theme');
+        theme.show = true;
+        theme.update = false;
+        this.updater.digest(theme);
+    },
+
+    'changeColors<change>'(e){
+        if(e.brand){
+            // 自定义的配色方案保留
+            // 30天过期
+            let h = 24 * 30;
+            this.setCookie('gallery_theme_color', e.brand, `h${h}`);
+        }
+        
+        let colors = e.colors;
+        for (let key in colors) {
+            document.body.style.setProperty(key, colors[key]);
+        }
+
+        let theme = this.updater.get('theme');
+        theme.show = false;
+        this.updater.digest(theme);
+    },
+
+    '$doc<click>'(event) {
+        let that = this;
+        let theme = that.updater.get('theme');
+        if(theme.show){
+            let node = $('#' + that.id + ' .@base.less:base-logo');
+            let target = event.target;
+            if (!Magix.inside(target, node[0])){
+                theme.show = false;
+                that.updater.digest(theme);
+            }
+        }
+    },
+
     'toggle<click>'(e) {
         let that = this;
         let updater = that.updater;
@@ -652,8 +697,8 @@ module.exports = Magix.View.extend({
      */
     'readed<click>'(e) {
         let id = e.params.id;
-        // 7天过期
-        let h = 24 * 7;
+        // 30天过期
+        let h = 24 * 30;
         this.setCookie(`header_${id}`, true, `h${h}`);
     },
 

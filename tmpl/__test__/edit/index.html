@@ -1,1 +1,44 @@
-test
+<div class="clearfix mb30">
+    {{each themes as t i}}
+    <div class="theme">
+        <div><a href="javascript:;" class="dot" style="{{=t.styles}}" 
+                mx-click="selectTheme({cur:{{=i}}})"></a></div>
+        <div class="mt10">{{=t.text}}</div>
+    </div>
+    {{/each}}
+
+    <div class="theme">
+        <mx-color.picker 
+            dot="true"
+            color="{{=custom}}"
+            mx-change="changeColor()"/>
+        <div class="text-center mt10">自定义</div>
+    </div>
+</div>
+<div class="edit">
+    <div class="nav" style="left:{{=(itemWidth*cur)}}px;">
+        <span class="arrow"></span>
+        <span class="white-arrow"></span>
+    </div>
+    <div class="colors clearfix">
+        {{each list as item}}
+        <div class="item">
+            <div class="mb10">{{=item.text}}<mx-popover class="mc-iconfont icon"
+                tag="i"
+                content="{{=item.tip}}"
+                width="320">&#xe629;</mx-popover></div>
+            <div><input type="text" /></div>  
+        </div>
+        {{/each}}
+    </div>
+    <div class="preview">
+        <iframe src="https://mo.m.taobao.com/page_201902152003028" class="iframe"
+            width="100%" 
+            height="770" 
+            frameborder="0"
+            scrolling="no" 
+            marginheight="0" 
+            marginwidth="0" 
+            border="0"></iframe>
+    </div>
+</div>
