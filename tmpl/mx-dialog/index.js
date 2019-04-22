@@ -117,7 +117,7 @@ module.exports = Magix.View.extend({
         node.append(`<span class="@index.less:submit-loading">
             <span class="@index.less:loading-dot"></span>
         </span>`);
-        
+
         let me = this;
         let data = me.updater.get();
         let cntId = data.cntId;
@@ -173,12 +173,11 @@ module.exports = Magix.View.extend({
             width = options.width,
             left = options.left,
             top = options.top;
-
         // 全屏右出浮层不需要圆角
         let wrapper = $(`<div class="@index.less:dialog-wrapper" id="${wrapperId}"
-    style="z-index:${wrapperZIndex}">
-    <div class="@index.less:dialog ${options.full ? '@index.less:full' : ''}" id="${id}"
-        style="top:${top}px; left:${left}px; width:${width}px;"></div>
+style="z-index:${wrapperZIndex}">
+<div class="@index.less:dialog ${options.full ? '@index.less:full' : ''}" id="${id}"
+    style="top:${top}px; left:${left}px; width:${width}px;"></div>
 </div>`);
         wrapper.css(options.posFrom);
         $(document.body).append(wrapper);
@@ -440,10 +439,9 @@ module.exports = Magix.View.extend({
             let left, top, posFrom, posTo;
             let winWidth = window.innerWidth,
                 winHeight = window.innerHeight;
-
             let target = dialogOptions.target || vDialogOptions.target;
-            if(!target){
-                switch (placement){
+            if (!target) {
+                switch (placement) {
                     case 'center':
                         left = (winWidth - width) / 2;
                         top = Math.max((winHeight - height) / 2, 0);
@@ -471,7 +469,7 @@ module.exports = Magix.View.extend({
                         }
                         break;
                 }
-            }else{
+            } else {
                 // 指定节点
                 let node;
                 if ((typeof target == 'string') && !(/^#/.test(target)) && !(/^\./.test(target))) {
@@ -483,20 +481,18 @@ module.exports = Magix.View.extend({
                 customOffset.top = +customOffset.top || 0;
                 customOffset.left = +customOffset.left || 0;
                 let offset = node.offset();
-                let top = offset.top + node.outerHeight() + 10 - $(window).scrollTop() + customOffset.top,
-                    left = offset.left - (width - node.outerWidth()) / 2 +customOffset.left;
+                top = offset.top + node.outerHeight() + 10 - $(window).scrollTop() + customOffset.top;
+                left = offset.left - (width - node.outerWidth()) / 2 + customOffset.left;
                 posFrom = {
                     opacity: 0,
-                    top: top - 50,
-                    left
+                    top: '-50px'
                 }
                 posTo = {
                     opacity: 1,
-                    top: top,
-                    left
+                    top: 0
                 }
             }
-            
+
             Magix.mix(dOptions, {
                 mask: true,
                 modal: false,

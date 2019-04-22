@@ -6,6 +6,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.1 ~ 1.3.3',
+            time: '2019-04-22',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-wanxiang：异步初始化，直接使用线上文件'
+                }, {
+                    title: 'mx-dialog：fix指定target + offset时定位错误'
+                }]
+            }]
+        }, {
             ver: '1.3.0',
             time: '2019-04-22',
             subs: [{
