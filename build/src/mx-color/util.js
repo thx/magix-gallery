@@ -1,1 +1,93 @@
-define("mx-color/util",[],(a,r,e)=>{var t=function(a){if(!a)return null;if(a.indexOf("rgb")>-1){for(var r=a.toString().match(/\d+/g),e="#",t=0;t<3;t++)e+=("0"+Number(r[t]).toString(16)).slice(-2);a=e}a=a.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i,function(a,r,e,t){return r+r+e+e+t+t});var n=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(a);return n?{r:parseInt(n[1],16),g:parseInt(n[2],16),b:parseInt(n[3],16),alpha:1}:null},n=function(a){var r,e,t=a.r/255,n=a.g/255,i=a.b/255,l=a.alpha,c=Math.max(t,n,i),f=Math.min(t,n,i),h=(c+f)/2,u=c-f;if(c===f)r=e=0;else{switch(e=h>.5?u/(2-c-f):u/(c+f),c){case t:r=(n-i)/u+(n<i?6:0);break;case n:r=(i-t)/u+2;break;case i:r=(t-n)/u+4}r/=6}return{h:360*r,s:e,l:h,a:l}},i=function(a,r,e){var t=n(a),i=n(r),l=2*e-1,c=t.a-i.a,f=((l*c==-1?l:(l+c)/(1+l*c))+1)/2,h=1-f,u=a.r*f+r.r*h,b=a.g*f+r.g*h,g=a.b*f+r.b*h,o=a.alpha*e+r.alpha*(1-e);return{r:Math.ceil(u),g:Math.ceil(b),b:Math.ceil(g),alpha:o}};e.exports={toRgb:t,toHSL:n,mix:i,shade:function(a,r){var e=t(a),n=i({r:0,g:0,b:0,alpha:1},e,r);return"rgba("+n.r+", "+n.g+", "+n.b+", "+n.alpha+")"}}});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-color/util",[],(require,exports,module)=>{
+/**/
+
+var ToRGB = function (color) {
+    if (!color) {
+        return null;
+    }
+    if (color.indexOf('rgb') > -1) {
+        // rgb() rgba()
+        // 先转成hex
+        var rgb = color.toString().match(/\d+/g); // 把 x,y,z 推送到 color 数组里
+        var hex = '#';
+        for (var i = 0; i < 3; i++) {
+            // 'Number.toString(16)' 是JS默认能实现转换成16进制数的方法.
+            // 'color[i]' 是数组，要转换成字符串.
+            // 如果结果是一位数，就在前面补零。例如： A变成0A
+            hex += ('0' + Number(rgb[i]).toString(16)).slice(-2);
+        }
+        color = hex;
+    }
+    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    color = color.replace(shorthandRegex, function (m, r, g, b) {
+        return r + r + g + g + b + b;
+    });
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16),
+        alpha: 1
+    } : null;
+};
+var ToHSL = function (result) {
+    var r = result.r / 255, g = result.g / 255, b = result.b / 255, a = result.alpha;
+    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+    var h, s, l = (max + min) / 2, d = max - min;
+    if (max === min) {
+        h = s = 0;
+    }
+    else {
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+            case r:
+                h = (g - b) / d + (g < b ? 6 : 0);
+                break;
+            case g:
+                h = (b - r) / d + 2;
+                break;
+            case b:
+                h = (r - g) / d + 4;
+                break;
+        }
+        h /= 6;
+    }
+    return { h: h * 360, s: s, l: l, a: a };
+};
+var ColorMix = function (color1, color2, p) {
+    var hsl1 = ToHSL(color1), hsl2 = ToHSL(color2);
+    var w = p * 2 - 1;
+    var a = hsl1.a - hsl2.a;
+    var w1 = (((w * a == -1) ? w : (w + a) / (1 + w * a)) + 1) / 2.0;
+    var w2 = 1 - w1;
+    var r = color1.r * w1 + color2.r * w2, g = color1.g * w1 + color2.g * w2, b = color1.b * w1 + color2.b * w2;
+    var alpha = color1.alpha * p + color2.alpha * (1 - p);
+    return {
+        r: Math.ceil(r),
+        g: Math.ceil(g),
+        b: Math.ceil(b),
+        alpha: alpha
+    };
+};
+module.exports = {
+    toRgb: ToRGB,
+    toHSL: ToHSL,
+    mix: ColorMix,
+    shade: function (color, p) {
+        var rgba = ToRGB(color);
+        var result = ColorMix({
+            r: 0,
+            g: 0,
+            b: 0,
+            alpha: 1
+        }, rgba, p);
+        return "rgba(" + result.r + ", " + result.g + ", " + result.b + ", " + result.alpha + ")";
+    }
+};
+
+});

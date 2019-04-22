@@ -1,5 +1,3 @@
-'top@./vendor/content.js';
-
 let Magix = require('magix');
 let Router = Magix.Router;
 let $ = require('$');
@@ -38,23 +36,26 @@ module.exports = Magix.View.extend({
         that.updater.set({
             sourceId
         })
-        window.awAsyncInit = () => {
-            var wxParams = {
-                isHidden: true,
-                bizCode: bizCode,
-                sourceId: sourceId,
-                logoWidth: 40, //非必传：指定象仔logo大小
-                onRendered: () => {
-                    that.updater.set({
-                        awLoading: false
-                    })
 
-                    that.reloc();
-                    AW.show();
+        seajs.use('//g.alicdn.com/crm/anywhere/0.4.5/lib/include', () => {
+            window.awAsyncInit = () => {
+                var wxParams = {
+                    isHidden: true,
+                    bizCode: bizCode,
+                    sourceId: sourceId,
+                    logoWidth: 40, //非必传：指定象仔logo大小
+                    onRendered: () => {
+                        that.updater.set({
+                            awLoading: false
+                        })
+    
+                        that.reloc();
+                        AW.show();
+                    }
                 }
+                AW.init(wxParams);
             }
-            AW.init(wxParams);
-        }
+        })
 
         that.on('destroy', () => {
             if (that.loopTimer) {

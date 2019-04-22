@@ -1,1 +1,148 @@
-define("mx-popover/base",["magix","$"],(t,e,_)=>{var o=t("magix"),l=(o.Vframe,t("$"));_.exports=o.View.extend({constants:{showDelay:100,hideDelay:200,classNames:{"bottom-left":"_zs_galleryhT","bottom-right":"_zs_galleryhU","bottom-center":"_zs_galleryhS","top-left":"_zs_galleryic","top-right":"_zs_galleryid","top-center":"_zs_galleryia","left-top":"_zs_galleryhX","left-bottom":"_zs_galleryhV","left-center":"_zs_galleryhW","right-top":"_zs_galleryi_","right-bottom":"_zs_galleryhY","right-center":"_zs_galleryhZ"}},bindScroll:function(){var t=this,e=t.__bJ;e&&("string"!=typeof e||/^#/.test(e)||/^\./.test(e)?l(e):l("#"+e)).scroll(function(){t.__cD&&t.__bQ()})},__bQ:function(){var t=this,e=t.___,_=l("#popover_"+t.id);if(_&&_.length){var o=e.outerWidth(),r=e.outerHeight(),a=e.offset(),s=_.outerWidth(),i=_.outerHeight(),c=a.top+10,f=a.left-(s-o)/2,h=+t.__cK,p=+t.__cL;if(isNaN(h)||isNaN(p))switch(t.__cz+"_"+t.__cA){case"top_left":c=a.top-i-10,f=a.left;break;case"top_center":c=a.top-i-10,f=a.left-(s-o)/2;break;case"top_right":c=a.top-i-10,f=a.left+o-s;break;case"bottom_left":c=a.top+r+10,f=a.left;break;case"bottom_center":c=a.top+r+10,f=a.left-(s-o)/2;break;case"bottom_right":c=a.top+r+10,f=a.left+o-s;break;case"left_top":c=a.top,f=a.left-s-10;break;case"left_center":c=a.top-(i-r)/2,f=a.left-s-10;break;case"left_bottom":c=a.top-(i-r),f=a.left-s-10;break;case"right_top":c=a.top,f=a.left+o+10;break;case"right_center":c=a.top-(i-r)/2,f=a.left+o+10;break;case"right_bottom":c=a.top-(i-r),f=a.left+o+10}else c=h,f=p;var g=t.__cI||{};return l.isEmptyObject(g)||(f+=g.left||0,c+=g.top||0),_.css({textAlign:t.__cG,left:f,top:c}),_}},"$win<scroll>":function(t){this.__cD&&this.__bQ()},"$doc<dialogScolll>":function(t){this.__cD&&this.__bQ()}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-popover/base",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+var Magix = require("magix");
+var Vframe = Magix.Vframe;
+var $ = require("$");
+module.exports = Magix.View.extend({
+    constants: {
+        showDelay: 100,
+        hideDelay: 200,
+        classNames: {"bottom-left":"_zs_gallery_mx-popover_index_-bottom-left","bottom-right":"_zs_gallery_mx-popover_index_-bottom-right","bottom-center":"_zs_gallery_mx-popover_index_-bottom-center","top-left":"_zs_gallery_mx-popover_index_-top-left","top-right":"_zs_gallery_mx-popover_index_-top-right","top-center":"_zs_gallery_mx-popover_index_-top-center","left-top":"_zs_gallery_mx-popover_index_-left-top","left-bottom":"_zs_gallery_mx-popover_index_-left-bottom","left-center":"_zs_gallery_mx-popover_index_-left-center","right-top":"_zs_gallery_mx-popover_index_-right-top","right-bottom":"_zs_gallery_mx-popover_index_-right-bottom","right-center":"_zs_gallery_mx-popover_index_-right-center"}
+    },
+    bindScroll: function () {
+        var me = this;
+        var scrollWrapper = me['@{scroll.wrapper}'];
+        if (!scrollWrapper) {
+            return;
+        }
+        var wrapper;
+        if ((typeof scrollWrapper == 'string') && !(/^#/.test(scrollWrapper)) && !(/^\./.test(scrollWrapper))) {
+            wrapper = $('#' + scrollWrapper);
+        }
+        else {
+            wrapper = $(scrollWrapper);
+        }
+        wrapper.scroll(function () {
+            if (me['@{pos.show}']) {
+                me['@{setPos}']();
+            }
+        });
+    },
+    '@{setPos}': function () {
+        var me = this;
+        var oNode = me['@{owner.node}'];
+        var popNode = $('#popover_' + me.id);
+        if (!popNode || !popNode.length) {
+            return;
+        }
+        var width = oNode.outerWidth();
+        var height = oNode.outerHeight();
+        var offset = oNode.offset();
+        var rWidth = popNode.outerWidth();
+        var rHeight = popNode.outerHeight();
+        // 默认下方居中
+        var top = offset.top + 10, left = offset.left - (rWidth - width) / 2;
+        var customTop = +me['@{pos.top}'], customLeft = +me['@{pos.left}'];
+        if (isNaN(customTop) || isNaN(customLeft)) {
+            // 可选组合：
+            //     下：右中左
+            //     上：右中左
+            //     右：上中下
+            //     左：上中下
+            var placement = me['@{pos.placement}'], align = me['@{pos.align}'];
+            var place = placement + '_' + align;
+            switch (place) {
+                case 'top_left':
+                    top = offset.top - rHeight - 10;
+                    left = offset.left;
+                    break;
+                case 'top_center':
+                    top = offset.top - rHeight - 10;
+                    left = offset.left - (rWidth - width) / 2;
+                    break;
+                case 'top_right':
+                    top = offset.top - rHeight - 10;
+                    left = offset.left + width - rWidth;
+                    break;
+                case 'bottom_left':
+                    top = offset.top + height + 10;
+                    left = offset.left;
+                    break;
+                case 'bottom_center':
+                    top = offset.top + height + 10;
+                    left = offset.left - (rWidth - width) / 2;
+                    break;
+                case 'bottom_right':
+                    top = offset.top + height + 10;
+                    left = offset.left + width - rWidth;
+                    break;
+                case 'left_top':
+                    top = offset.top;
+                    left = offset.left - rWidth - 10;
+                    break;
+                case 'left_center':
+                    top = offset.top - (rHeight - height) / 2;
+                    left = offset.left - rWidth - 10;
+                    break;
+                case 'left_bottom':
+                    top = offset.top - (rHeight - height);
+                    left = offset.left - rWidth - 10;
+                    break;
+                case 'right_top':
+                    top = offset.top;
+                    left = offset.left + width + 10;
+                    break;
+                case 'right_center':
+                    top = offset.top - (rHeight - height) / 2;
+                    left = offset.left + width + 10;
+                    break;
+                case 'right_bottom':
+                    top = offset.top - (rHeight - height);
+                    left = offset.left + width + 10;
+                    break;
+            }
+        }
+        else {
+            top = customTop;
+            left = customLeft;
+        }
+        var customOffset = me['@{pos.offset}'] || {};
+        if (!$.isEmptyObject(customOffset)) {
+            left += (customOffset.left || 0);
+            top += (customOffset.top || 0);
+        }
+        popNode.css({
+            textAlign: me['@{text.align}'],
+            left: left,
+            top: top
+        });
+        return popNode;
+    },
+    /**
+     * 页面滚动的时候
+     * 如果popover展开则重新定位popover
+     */
+    '$win<scroll>': function (e) {
+        var me = this;
+        if (me['@{pos.show}']) {
+            me['@{setPos}']();
+        }
+    },
+    /**
+     * 浮层中使用dialog
+     */
+    '$doc<dialogScolll>': function (e) {
+        var me = this;
+        if (me['@{pos.show}']) {
+            me['@{setPos}']();
+        }
+    }
+});
+
+});

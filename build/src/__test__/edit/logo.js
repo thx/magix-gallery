@@ -1,1 +1,113 @@
-define("__test__/edit/logo",["magix","./theme","$","mx-color/index"],(e,t,r)=>{e("mx-color/index");var a=e("magix"),i=e("./theme"),l=e("$");a.applyStyle("_zs_galleryc","._zs_galleryac{display:inline-block;width:var(--input-height);height:var(--input-height);border-radius:50%;vertical-align:middle}:root{--edit-theme-width:100px;--edit-nav-size:20px;--edit-color-width:calc(var(--edit-theme-width)*4)}._zs_galleryad{float:left;width:var(--edit-theme-width);text-align:center}._zs_galleryae{position:relative;padding-left:var(--edit-color-width)}._zs_galleryaf{position:absolute;z-index:3;top:calc(0px - var(--edit-nav-size));left:0;width:var(--edit-theme-width);height:var(--edit-nav-size);text-align:center;transition:left var(--duration)}._zs_galleryaf ._zs_galleryag,._zs_galleryaf ._zs_galleryah{display:inline-block;width:0;height:0;border-left:var(--edit-nav-size) solid transparent;border-bottom:var(--edit-nav-size) solid var(--color-border);border-right:var(--edit-nav-size) solid transparent;border-top:0 solid transparent}._zs_galleryaf ._zs_galleryah{position:absolute;top:1px;left:50%;margin-left:calc(0px - var(--edit-nav-size));border-color:transparent transparent #fff}._zs_galleryai{position:absolute;z-index:2;top:0;left:0;width:var(--edit-color-width);height:100%;padding-top:20px;border:1px solid var(--color-border);border-radius:var(--border-radius)}._zs_galleryai ._zs_galleryaj{float:left;width:calc((var(--edit-color-width) - 20px)/2 - 20px);margin-bottom:20px;margin-left:20px}._zs_galleryai ._zs_galleryak{position:relative;top:1px;margin-left:3px;color:#999;font-size:14px}._zs_galleryal{padding:0 20px}._zs_galleryal ._zs_galleryam{width:100%;border:1px solid var(--color-border)}"),r.exports=i.extend({tmpl:function(e,t,r,a,i,l,o,n){if(r||(r=e),!i){var s={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},d=/[&<>"'`]/g,c=function(e){return"&"+s[e]+";"};i=function(e){return""+(null==e?"":e)},a=function(e){return i(e).replace(d,c)}}if(!l){var _={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},g=function(e){return _[e]},v=/[!')(*]/g;l=function(e){return encodeURIComponent(i(e)).replace(v,g)}}if(!n){var h=/[\\'"]/g;n=function(e){return i(e).replace(h,"\\$&")}}o||(o=function(e,t,r,a){for(a=e[p];--a;)if(e[r=p+a]===t)return r;return e[r=p+e[p]++]=t,r});var p="",f="",x=e.themes,m=e.info;f+='<div mxa="_zs_galleryf:_" class="pt10 pl10 pr10"><div mxs="_zs_galleryf:_" class="mb20">预置主题：</div><div mxa="_zs_galleryf:a" class="clearfix mb20">';for(var y=0,z=x.length;y<z;y++){var u=x[y];f+='<div class="fl" style="width: '+a(100/x.length)+'%;"><div mxa="_zs_galleryf:b" class="text-center"><a href="javascript:;" class="_zs_galleryac" style="'+a(u.styles)+'" mx-click="'+t+"selectTheme({key:'"+a(n(u.key))+'\'})"></a></div><div mxa="_zs_galleryf:c" class="text-center mt10">'+a(u.text)+"</div></div>"}return f+='</div><div mxs="_zs_galleryf:a">自定义主题：</div></div><div mxv="info" mx-view="mx-color/index?data='+o(r,m)+'" mx-change="'+t+'selectColor()"></div>'},init:function(e){this.updater.set({info:{showBtns:!0,color:e.color}}),this.initTheme()},render:function(){this.updater.digest()},"selectTheme<click>":function(e){for(var t=e.params.key,r=this.updater.get("themes"),a={},i=0;i<r.length;i++)if(r[i].key==t){a=r[i];break}this.___.trigger(l.Event("change",{colors:a.colors}))},"selectColor<change>":function(e){e.stopPropagation();var t=e.color,r=this.__a({"--color-brand":t});this.___.trigger(l.Event("change",{brand:t,colors:r}))}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("__test__/edit/logo",["magix","./theme","$","mx-color/index"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("mx-color/index");
+var Magix = require("magix");
+var Base = require("./theme");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery___test___edit_theme_","._zs_gallery___test___edit_theme_-dot {\n  display: inline-block;\n  width: var(--input-height);\n  height: var(--input-height);\n  border-radius: 50%;\n  vertical-align: middle;\n}\n:root {\n  --edit-theme-width: 100px;\n  --edit-nav-size: 20px;\n  --edit-color-width: calc(var(--edit-theme-width) * 4);\n}\n._zs_gallery___test___edit_theme_-theme {\n  float: left;\n  width: var(--edit-theme-width);\n  text-align: center;\n}\n._zs_gallery___test___edit_theme_-edit {\n  position: relative;\n  padding-left: var(--edit-color-width);\n}\n._zs_gallery___test___edit_theme_-nav {\n  position: absolute;\n  z-index: 3;\n  top: calc(0px - var(--edit-nav-size));\n  left: 0;\n  width: var(--edit-theme-width);\n  height: var(--edit-nav-size);\n  text-align: center;\n  transition: left var(--duration);\n}\n._zs_gallery___test___edit_theme_-nav ._zs_gallery___test___edit_theme_-white-arrow,\n._zs_gallery___test___edit_theme_-nav ._zs_gallery___test___edit_theme_-arrow {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  border-width: 0 var(--edit-nav-size) var(--edit-nav-size);\n  border-style: solid;\n  border-color: transparent transparent var(--color-border);\n}\n._zs_gallery___test___edit_theme_-nav ._zs_gallery___test___edit_theme_-white-arrow {\n  position: absolute;\n  top: 1px;\n  left: 50%;\n  margin-left: calc(0px - var(--edit-nav-size));\n  border-color: transparent transparent #fff;\n}\n._zs_gallery___test___edit_theme_-colors {\n  position: absolute;\n  z-index: 2;\n  top: 0;\n  left: 0;\n  width: var(--edit-color-width);\n  height: 100%;\n  padding-top: 20px;\n  border: 1px solid var(--color-border);\n  border-radius: var(--border-radius);\n}\n._zs_gallery___test___edit_theme_-colors ._zs_gallery___test___edit_theme_-item {\n  float: left;\n  width: calc((var(--edit-color-width) - 20px) / 2 - 20px);\n  margin-bottom: 20px;\n  margin-left: 20px;\n}\n._zs_gallery___test___edit_theme_-colors ._zs_gallery___test___edit_theme_-icon {\n  position: relative;\n  top: 1px;\n  margin-left: 3px;\n  color: #999;\n  font-size: 14px;\n}\n._zs_gallery___test___edit_theme_-preview {\n  padding: 0 20px;\n}\n._zs_gallery___test___edit_theme_-preview ._zs_gallery___test___edit_theme_-iframe {\n  width: 100%;\n  border: 1px solid var(--color-border);\n}\n");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', themes = $$.themes, info = $$.info; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryf:_" class="pt10 pl10 pr10"><div mxs="_zs_galleryf:_" class="mb20">预置主题：</div><div mxa="_zs_galleryf:a" class="clearfix mb20">';
+    $line = 4;
+    $art = 'each themes as t';
+    ;
+    $expr = '<%for (var $art_ismjtfo$art_i = 0, $art_cgthgypmyls$art_c = themes.length; $art_ismjtfo$art_i < $art_cgthgypmyls$art_c; $art_ismjtfo$art_i++) {    var t = themes[$art_ismjtfo$art_i]%>';
+    for (var $art_ismjtfo$art_i = 0, $art_cgthgypmyls$art_c = themes.length; $art_ismjtfo$art_i < $art_cgthgypmyls$art_c; $art_ismjtfo$art_i++) {
+        var t = themes[$art_ismjtfo$art_i];
+        $p += '<div class="fl" style="width: ';
+        $line = 5;
+        $art = '=(100/themes.length)';
+        ;
+        $p += ($expr = '<%=(100 / themes.length)%>', $e((100 / themes.length))) + '%;"><div mxa="_zs_galleryf:b" class="text-center"><a href="javascript:;" class="_zs_gallery___test___edit_theme_-dot" style="';
+        $line = 7;
+        $art = '=t.styles';
+        ;
+        $p += ($expr = '<%=t.styles%>', $e(t.styles)) + '" mx-click="' + $viewId + 'selectTheme({key:\'';
+        $line = 7;
+        $art = '=t.key';
+        ;
+        $p += ($expr = '<%=$eq(t.key)%>', $e($eq(t.key))) + '\'})"></a></div><div mxa="_zs_galleryf:c" class="text-center mt10">';
+        $line = 9;
+        $art = '=t.text';
+        ;
+        $p += ($expr = '<%=t.text%>', $e(t.text)) + '</div></div>';
+        $line = 11;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxs="_zs_galleryf:a">自定义主题：</div></div><div mxv="info" mx-view="mx-color/index?data=';
+    $line = 15;
+    $art = '@info';
+    ;
+    $p += ($expr = '<%@info%>', $i($$ref, info)) + '" mx-change="' + $viewId + 'selectColor()"></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:__test__/edit/logo.html';
+    throw msg;
+} return $p; },
+    init: function (e) {
+        this.updater.set({
+            info: {
+                showBtns: true,
+                color: e.color
+            }
+        });
+        this.initTheme();
+    },
+    render: function () {
+        this.updater.digest();
+    },
+    'selectTheme<click>': function (event) {
+        var key = event.params.key;
+        var themes = this.updater.get('themes');
+        var cur = {};
+        for (var i = 0; i < themes.length; i++) {
+            if (themes[i].key == key) {
+                cur = themes[i];
+                break;
+            }
+        }
+        this['@{owner.node}'].trigger($.Event('change', {
+            colors: cur.colors
+        }));
+    },
+    'selectColor<change>': function (event) {
+        event.stopPropagation();
+        var brand = event.color;
+        var colors = this['@{get.base}']({
+            '--color-brand': brand
+        });
+        this['@{owner.node}'].trigger($.Event('change', {
+            brand: brand,
+            colors: colors
+        }));
+    }
+});
+
+});

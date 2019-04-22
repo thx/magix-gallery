@@ -1,1 +1,108 @@
-define("mx-hour/__test__/2",["magix","__test__/example","$","../index","mx-copy/index","__test__/hl"],(e,i,l)=>{e("../index"),e("mx-copy/index"),e("__test__/hl");var s=e("magix"),r=s.Vframe,a=e("__test__/example");e("$");s.applyStyle("_zs_galleryV","._zs_galleryfX{padding:10px;border-radius:var(--border-radius);border:1px solid var(--color-border)}._zs_galleryfY{width:760px}._zs_galleryfZ{width:800px}"),l.exports=a.extend({tmpl:function(e,i,l,s,r,a,_,t){if(l||(l=e),!r){var d={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},n=/[&<>"'`]/g,c=function(e){return"&"+d[e]+";"};r=function(e){return""+(null==e?"":e)},s=function(e){return r(e).replace(n,c)}}if(!a){var v={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},m=function(e){return v[e]},x=/[!')(*]/g;a=function(e){return encodeURIComponent(r(e)).replace(x,m)}}if(!t){var o=/[\\'"]/g;t=function(e){return r(e).replace(o,"\\$&")}}_||(_=function(e,i,l,s){for(s=e[g];--s;)if(e[l=g+s]===i)return l;return e[l=g+e[g]++]=i,l});var g="",f="",p=e.selected,u=e.viewId,y=e.text1;f+='<div mxv mxa="_zs_galleryci:_" class="_zs_galleryg"><div mxv mxa="_zs_galleryci:a" class="_zs_galleryj"><div mxs="_zs_galleryci:_" class="clearfix lh22 mb15"><div class="fl color-9">以下示例：</div><div class="fl"><div>每日单独选择</div><div>提供快捷操作</div></div></div><div mxa="_zs_galleryci:b" class="mb20 clearfix"><div mxs="_zs_galleryci:a" class="fl mr10"><a href="javascript:;" class="btn btn-brand" mx-click="'+i+'get()">获取选中值</a></div><div mxa="_zs_galleryci:c" class="fl">';for(var z=0,h=p.length;z<h;z++){var w=p[z];f+="<div>"+s(w.name)+"："+s(w.times)+"</div>"}return f+='</div></div><div mxv="selected" class="_zs_galleryfX _zs_galleryfZ" id="'+s(u)+'_hour" mx-view="mx-hour/index?simple=false&selected='+_(l,p)+'"></div></div><div mxa="_zs_galleryci:d" class="_zs_galleryk"><div mxs="_zs_galleryci:b" class="_zs_galleryi">HTML Code</div><div class="_zs_galleryl" mx-success="'+i+'done({id:1})" mx-view="mx-copy/index?copyNode='+a(u)+'_text_1"><span mxa="_zs_galleryci:e" class="_zs_galleryn">'+r(y)+'</span><i mxs="_zs_galleryci:c" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+s(u)+'_text_1">\n&lt;mx-hour style="width: 760px;"\n    simple="false"\n    selected="&#123;&#123;@[&#123;\n        week: 1,\n        times: [2,3,4,21,22,23]\n    &#125;, &#123;\n        week: 3,\n        times: [0,1,2,3,4,10,11,12]\n    &#125;]&#125;&#125;"/&gt;</pre></div></div>'},render:function(){this.updater.digest({viewId:this.id,selected:[{week:1,name:"周一",times:[2,3,4,21,22,23]},{week:3,name:"周三",times:[0,1,2,3,4,10,11,12]}]})},"get<click>":function(){var e=r.get(this.id+"_hour").invoke("val");this.updater.digest({selected:e})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-hour/__test__/2",["magix","__test__/example","$","../index","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("../index");
+require("mx-copy/index");
+require("__test__/hl");
+var Magix = require("magix");
+var Vframe = Magix.Vframe;
+var Base = require("__test__/example");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-hour___test___index_","._zs_gallery_mx-hour___test___index_-wrapper {\n  padding: 10px;\n  border-radius: var(--border-radius);\n  border: 1px solid var(--color-border);\n}\n._zs_gallery_mx-hour___test___index_-wrapper1 {\n  width: 760px;\n}\n._zs_gallery_mx-hour___test___index_-wrapper2 {\n  width: 800px;\n}\n");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', selected = $$.selected, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryci:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryci:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryci:_" class="clearfix lh22 mb15"><div class="fl color-9">以下示例：</div><div class="fl"><div>每日单独选择</div><div>提供快捷操作</div></div></div><div mxa="_zs_galleryci:b" class="mb20 clearfix"><div mxs="_zs_galleryci:a" class="fl mr10"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'get()">获取选中值</a></div><div mxa="_zs_galleryci:c" class="fl">';
+    $line = 16;
+    $art = 'each selected as s';
+    ;
+    $expr = '<%for (var $art_iqgdomo$art_i = 0, $art_cmnedxvvhlpf$art_c = selected.length; $art_iqgdomo$art_i < $art_cmnedxvvhlpf$art_c; $art_iqgdomo$art_i++) {    var s = selected[$art_iqgdomo$art_i]%>';
+    for (var $art_iqgdomo$art_i = 0, $art_cmnedxvvhlpf$art_c = selected.length; $art_iqgdomo$art_i < $art_cmnedxvvhlpf$art_c; $art_iqgdomo$art_i++) {
+        var s = selected[$art_iqgdomo$art_i];
+        $p += '<div>';
+        $line = 17;
+        $art = '=s.name';
+        ;
+        $p += ($expr = '<%=s.name%>', $e(s.name)) + '：';
+        $line = 17;
+        $art = '=s.times';
+        ;
+        $p += ($expr = '<%=s.times%>', $e(s.times)) + '</div>';
+        $line = 18;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div><div mxv="selected" class="_zs_gallery_mx-hour___test___index_-wrapper _zs_gallery_mx-hour___test___index_-wrapper2" id="';
+    $line = 21;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_hour" mx-view="mx-hour/index?simple=false&selected=';
+    $line = 23;
+    $art = '@selected';
+    ;
+    $p += ($expr = '<%@selected%>', $i($$ref, selected)) + '"></div></div><div mxa="_zs_galleryci:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryci:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 27;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryci:e" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 29;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryci:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 32;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-hour style="width: 760px;"\n    simple="false"\n    selected="&#123;&#123;@[&#123;\n        week: 1,\n        times: [2,3,4,21,22,23]\n    &#125;, &#123;\n        week: 3,\n        times: [0,1,2,3,4,10,11,12]\n    &#125;]&#125;&#125;"/&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-hour/__test__/2.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest({
+            viewId: this.id,
+            selected: [{
+                    week: 1,
+                    name: '周一',
+                    times: [2, 3, 4, 21, 22, 23]
+                }, {
+                    week: 3,
+                    name: '周三',
+                    times: [0, 1, 2, 3, 4, 10, 11, 12]
+                }]
+        });
+    },
+    'get<click>': function () {
+        var vf = Vframe.get(this.id + '_hour');
+        var selected = vf.invoke('val');
+        this.updater.digest({
+            selected: selected
+        });
+    }
+});
+
+});
