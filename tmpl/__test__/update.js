@@ -6,6 +6,36 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.0',
+            time: '2019-04-22',
+            subs: [{
+                type: 'notice',
+                title: '实现调整',
+                subs: [{
+                    title: '去除对less变量的依赖，直接使用css变量；less变量配置依然保留兼容历史项目，建议项目中也直接css变量'
+                }, {
+                    title: '提取同样样式（trigger + 展开列表）：mx-trigger，mx-output，<a href="#!/style/trigger" class="color-brand">点击查看</a>如何使用组件内置class实现一个类似于dropdown，下拉框内容自定义的模块'
+                }, {
+                    title: '提取组件内部通用方法'
+                }, {
+                    title: '统一所有禁用方式为mx-disabled，兼容所有历史配置'
+                }, {
+                    title: 'mx-effects.icon，mx-effects.star：调整为代码片段实现'
+                }]
+            }, {
+                type: 'add',
+                subs: [{
+                    title: '点击导航logo快速切换主题'
+                }, {
+                    title: 'mx-effects.ua：由于组件实现时未考虑兼容性，提供内置的浏览器切换和升级提示，<a href="#!/effects/ua" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-grid：修复子节点内容过长时，父容器宽度被撑开的bug'
+                }]
+            }]
+        }, {
             ver: '1.2.26',
             time: '2019-04-08',
             subs: [{
