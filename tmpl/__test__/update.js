@@ -6,23 +6,19 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.3.4',
-            time: '2019-04-23',
-            subs: [{
-                type: 'add',
-                subs: [{
-                    title: '在线编辑项目主题，<a href="#!/all/edit/index" class="color-brand">点击查看</a>'
-                }]
-            }]
-        }, {
-            ver: '1.3.1 ~ 1.3.3',
+            ver: '1.3.1 ~ 1.3.6',
             time: '2019-04-22',
             subs: [{
                 type: 'bug',
+                title: '修复大改版遗留问题',
                 subs: [{
                     title: 'mx-wanxiang：异步初始化，直接使用线上文件'
                 }, {
                     title: 'mx-dialog：fix指定target + offset时定位错误'
+                }, {
+                    title: 'mx-grid：样式调整'
+                }, {
+                    title: '修正textarea样式'
                 }]
             }]
         }, {
@@ -46,6 +42,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: '点击导航logo快速切换主题'
+                }, {
+                    title: '在线编辑项目主题，<a href="#!/all/edit/index" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-effects.ua：由于组件实现时未考虑兼容性，提供内置的浏览器切换和升级提示，<a href="#!/effects/ua" class="color-brand">点击查看</a>'
                 }]
