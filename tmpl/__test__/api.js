@@ -4,7 +4,7 @@ let $ = require('$');
 module.exports = Magix.View.extend({
     tmpl: '@api.html',
     init(options){
-        this.updater.digest(options);
+        this.updater.set(options);
     },
     render() {
         this.updater.digest();

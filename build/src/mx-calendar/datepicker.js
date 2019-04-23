@@ -1,1 +1,197 @@
-define("mx-calendar/datepicker",["magix","$","../mx-util/monitor","mx-calendar/util","../mx-medusa/util","./index"],(e,t,i)=>{e("./index");var l=e("magix"),r=e("$"),a=e("../mx-util/monitor"),_=e("mx-calendar/util"),n=e("../mx-medusa/util");_.getDefaultDate;l.applyStyle("_zs_galleryo","._zs_gallerybw{position:relative;padding:0 10px}._zs_gallerybw._zs_gallerybx ._zs_galleryby{padding:0 5px}._zs_gallerybw._zs_gallerybz ._zs_galleryby{position:absolute;top:50%;left:50%;width:40px;height:30px;margin-left:-20px;margin-top:-15px;line-height:30px;text-align:center}._zs_gallerybw._zs_gallerybz ._zs_gallerybA{display:inline-block;width:50%;text-align:center}._zs_gallerybw._zs_gallerybz ._zs_gallerybB{padding-right:10px}._zs_gallerybw._zs_gallerybz ._zs_gallerybC{padding-left:10px}._zs_gallerybw._zs_gallerybD ._zs_gallerybB{color:var(--color-brand)}._zs_gallerybw._zs_gallerybD ._zs_gallerybC{color:var(--color-brand-vs)}[mx-disabled] ._zs_gallerybw._zs_gallerybD ._zs_gallerybB,[mx-disabled] ._zs_gallerybw._zs_gallerybD ._zs_gallerybC,[mx-disabled]:hover ._zs_gallerybw._zs_gallerybD ._zs_gallerybB,[mx-disabled]:hover ._zs_gallerybw._zs_gallerybD ._zs_gallerybC{color:#999}"),i.exports=l.View.extend({tmpl:function(e,t,i,l,r,a,_,n){if(i||(i=e),!r){var s={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},d=/[&<>"'`]/g,o=function(e){return"&"+s[e]+";"};r=function(e){return""+(null==e?"":e)},l=function(e){return r(e).replace(d,o)}}if(!a){var g={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},p=function(e){return g[e]},u=/[!')(*]/g;a=function(e){return encodeURIComponent(r(e)).replace(u,p)}}if(!n){var c=/[\\'"]/g;n=function(e){return r(e).replace(c,"\\$&")}}_||(_=function(e,t,i,l){for(l=e[h];--l;)if(e[i=h+l]===t)return i;return e[i=h+e[h]++]=t,i});var h="",x="",b=e.viewId,y=e.dateInfo,f=e.show,m=e.left,z=e.top;return x+='<div class="mx-trigger _zs_gallerybw" id="trigger_'+l(b)+'" mx-click="'+t+'__p()" mx-change="'+t+'__m()">',y.prefix&&(x+='<span mxa="_zs_gallery):_" class="color-9 mr5">'+l(y.prefix)+"：</span>"),x+=" "+l(y.selected||y.placeholder)+'</div><div mxv="dateInfo" class="mx-output mx-output-bottom ',f&&(x+=" mx-output-open "),x+='" style="left: '+l(m)+"px; top: "+l(z)+'px;" id="dpcnt_'+l(b)+'" mx-view="mx-calendar/index?configs='+_(i,y)+'" mx-change="'+t+'__r()" mx-cancel="'+t+'__n()"></div>'},init:function(e){var t=this;a.__h(),t.on("destroy",function(){a.__i(t),a.__j()});var i=r.extend(!0,{},e);i.placeholder=i.placeholder||n.choose,t.updater.set({viewId:t.id,dateInfo:i}),t.__k=e.disabled+""=="true"||r("#"+t.id)[0].hasAttribute("mx-disabled")},render:function(){this.updater.digest(),this.___=r("#"+this.id)},__l:function(e){return l.inside(e,this.id)||l.inside(e,this.___[0])},"__m<change,focusin,focusout>":function(e){e.dates||e.stopPropagation()},"__p<click>":function(e){this.__k||(e.preventDefault(),this.updater.get("show")?this.__n():this.__o())},__o:function(){if(!this.updater.get("show")){this.updater.digest({show:!0});var e=r("#trigger_"+this.id),t=r("#dpcnt_"+this.id),i=this.updater.get("dateInfo"),l=0,_=e.outerHeight();"right"==i.align&&(l=e.outerWidth()-t.outerWidth()),this.updater.digest({top:_,left:l}),a.__q(this)}},__n:function(){this.updater.get("show")&&(this.updater.digest({show:!1}),a.__i(this))},"__r<change>":function(e){e.stopPropagation();var t=this.updater.get("dateInfo");t.selected=e.date+(e.time?" "+e.time:""),this.updater.digest({dateInfo:t}),this.__n(),this.___.val(t.selected).trigger({type:"change",date:e.date,time:e.time})},"__n<cancel>":function(){this.__n()}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-calendar/datepicker",["magix","$","../mx-util/monitor","mx-calendar/util","../mx-medusa/util","./index"],(require,exports,module)=>{
+/*Magix,$,Monitor,Util,I18n*/
+require("./index");
+var Magix = require("magix");
+var $ = require("$");
+var Monitor = require("../mx-util/monitor");
+var Util = require("mx-calendar/util");
+var I18n = require("../mx-medusa/util");
+var GetDefaultDate = Util.getDefaultDate;
+Magix.applyStyle("_zs_gallery_mx-calendar_rangepicker_","._zs_gallery_mx-calendar_rangepicker_-result {\n  position: relative;\n  padding: 0 10px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-left ._zs_gallery_mx-calendar_rangepicker_-center {\n  padding: 0 5px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-center ._zs_gallery_mx-calendar_rangepicker_-center {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 40px;\n  height: 30px;\n  margin-left: -20px;\n  margin-top: -15px;\n  line-height: 30px;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-center ._zs_gallery_mx-calendar_rangepicker_-co {\n  display: inline-block;\n  width: 50%;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-center ._zs_gallery_mx-calendar_rangepicker_-co-left {\n  padding-right: 10px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-result-center ._zs_gallery_mx-calendar_rangepicker_-co-right {\n  padding-left: 10px;\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-left {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-right {\n  color: var(--color-brand-vs);\n}\n[mx-disabled] ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-left,\n[mx-disabled]:hover ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-left,\n[mx-disabled] ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-right,\n[mx-disabled]:hover ._zs_gallery_mx-calendar_rangepicker_-result._zs_gallery_mx-calendar_rangepicker_-vs ._zs_gallery_mx-calendar_rangepicker_-co-right {\n  color: #999;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, dateInfo = $$.dateInfo, show = $$.show, left = $$.left, top = $$.top; var $expr, $art, $line; try {
+    $p += '<div class="mx-trigger _zs_gallery_mx-calendar_rangepicker_-result" id="trigger_';
+    $line = 1;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" mx-click="' + $viewId + '@{toggle}()" mx-change="' + $viewId + '@{stop}()">';
+    $line = 4;
+    $art = 'if dateInfo.prefix';
+    ;
+    $expr = '<%if (dateInfo.prefix) {%>';
+    if (dateInfo.prefix) {
+        ;
+        $p += '<span mxa="_zs_gallery{:_" class="color-9 mr5">';
+        $line = 5;
+        $art = '=dateInfo.prefix';
+        ;
+        $p += ($expr = '<%=dateInfo.prefix%>', $e(dateInfo.prefix)) + '：</span>';
+        $line = 6;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $line = 7;
+    $art = '=(dateInfo.selected || dateInfo.placeholder)';
+    ;
+    $p += ($expr = '<%=(dateInfo.selected || dateInfo.placeholder)%>', $e((dateInfo.selected || dateInfo.placeholder))) + '</div><div mxv="dateInfo" class="mx-output mx-output-bottom ';
+    $line = 9;
+    $art = 'if show';
+    ;
+    $expr = '<%if (show) {%>';
+    if (show) {
+        ;
+        $p += ' mx-output-open ';
+        $line = 9;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" style="left: ';
+    $line = 10;
+    $art = '=left';
+    ;
+    $p += ($expr = '<%=left%>', $e(left)) + 'px; top: ';
+    $line = 10;
+    $art = '=top';
+    ;
+    $p += ($expr = '<%=top%>', $e(top)) + 'px;" id="dpcnt_';
+    $line = 11;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" mx-view="mx-calendar/index?configs=';
+    $line = 12;
+    $art = '@dateInfo';
+    ;
+    $p += ($expr = '<%@dateInfo%>', $i($$ref, dateInfo)) + '" mx-change="' + $viewId + '@{date.picked}()" mx-cancel="' + $viewId + '@{hide}()"></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-calendar/datepicker.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var that = this;
+        Monitor['@{setup}']();
+        that.on('destroy', function () {
+            Monitor['@{remove}'](that);
+            Monitor['@{teardown}']();
+        });
+        var dateInfo = $.extend(true, {}, extra);
+        dateInfo.placeholder = dateInfo.placeholder || I18n['choose'];
+        that.updater.set({
+            viewId: that.id,
+            dateInfo: dateInfo
+        });
+        // 支持mx-disabled或者disabled
+        that['@{ui.disabled}'] = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
+    },
+    render: function () {
+        // 没有selected默认不填充
+        // if (!dateInfo.selected) {
+        //     dateInfo.selected = GetDefaultDate(dateInfo.min, dateInfo.max, dateInfo.formatter);
+        // }
+        var that = this;
+        that.updater.digest();
+        that['@{owner.node}'] = $('#' + that.id);
+    },
+    '@{inside}': function (node) {
+        var that = this;
+        return Magix.inside(node, that.id) || Magix.inside(node, that['@{owner.node}'][0]);
+    },
+    '@{stop}<change,focusin,focusout>': function (e) {
+        if (!e.dates) {
+            e.stopPropagation();
+        }
+    },
+    '@{toggle}<click>': function (e) {
+        if (this['@{ui.disabled}']) {
+            return;
+        }
+        e.preventDefault();
+        var show = this.updater.get('show');
+        if (show) {
+            this['@{hide}']();
+        }
+        else {
+            this['@{show}']();
+        }
+    },
+    '@{show}': function () {
+        var that = this;
+        var show = that.updater.get('show');
+        if (!show) {
+            that.updater.digest({
+                show: true
+            });
+            var inputNode = $('#trigger_' + that.id), calNode = $('#dpcnt_' + that.id);
+            var dateInfo = that.updater.get('dateInfo');
+            var left = 0, top = inputNode.outerHeight();
+            if (dateInfo.align == 'right') {
+                left = inputNode.outerWidth() - calNode.outerWidth();
+            }
+            that.updater.digest({
+                top: top,
+                left: left
+            });
+            Monitor['@{add}'](that);
+        }
+    },
+    '@{hide}': function () {
+        var that = this;
+        var show = that.updater.get('show');
+        if (show) {
+            that.updater.digest({
+                show: false
+            });
+            Monitor['@{remove}'](that);
+        }
+    },
+    '@{date.picked}<change>': function (e) {
+        var that = this;
+        e.stopPropagation();
+        var dateInfo = that.updater.get('dateInfo');
+        dateInfo.selected = e.date + (e.time ? ' ' + e.time : '');
+        that.updater.digest({
+            dateInfo: dateInfo
+        });
+        that['@{hide}']();
+        // 通知外层数据更新
+        that['@{owner.node}'].val(dateInfo.selected).trigger({
+            type: 'change',
+            date: e.date,
+            time: e.time
+        });
+    },
+    '@{hide}<cancel>': function () {
+        this['@{hide}']();
+    }
+});
+
+});

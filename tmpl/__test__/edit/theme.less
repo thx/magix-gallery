@@ -7,7 +7,7 @@
 }
 
 :root{
-    --edit-theme-width: 100px;
+    --edit-theme-width: 126px;
     --edit-nav-size: 20px;
     --edit-color-width: calc(var(--edit-theme-width) * 4);
 }
@@ -19,6 +19,7 @@
 
 .edit {
     position: relative;
+    height: 820px;
     padding-left: var(--edit-color-width);
 }
 
@@ -57,14 +58,14 @@
     left: 0;
     width: var(--edit-color-width);
     height: 100%;
-    padding-top: 20px;
+    padding-top: 15px;
+    padding-left: 15px;
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     .item {
         float: left;
-        width: calc((var(--edit-color-width) - 20px) / 2 - 20px);
-        margin-bottom: 20px;
-        margin-left: 20px;
+        width: 120px;
+        height: 90px;
     }
     .icon {
         position: relative;
@@ -73,12 +74,24 @@
         color: #999;
         font-size: 14px;
     }
+    .color-wrapper{
+        width: 100px;
+        border-radius: var(--border-radius);
+    
+        [mx-view*="mx-color/picker"]{
+            background-color: transparent;
+            [ref="@scoped.style:mx-trigger"] {
+                background-color: transparent;
+            }
+        }
+    }
 }
 
 .preview {
     padding: 0 20px;
     .iframe {
         width: 100%;
+        height: 820px;
         border: 1px solid var(--color-border);
     }
 }

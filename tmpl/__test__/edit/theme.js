@@ -70,14 +70,16 @@ module.exports = Magix.View.extend({
             borderRadius = base['--border-radius'] || '4px';
         let brand = base['--color-brand'];
         let rgb = Util.toRgb(brand);
-        let r = rgb.r,
-            g = rgb.g,
-            b = rgb.b;
-        let brandHover = base['--color-brand-hover'] || Util.shade(brand, 0.1),
+        let r = rgb.r, g = rgb.g, b = rgb.b;
+        let brandHover = base['--color-brand-hover'] || Util.toHex(Util.shade(brand, 0.1)),
             brandVs = base['--color-brand-vs'] || '#14c9ce',
-            brandLight = base['--color-brand-light'] || `rgba(${r}, ${g}, ${b}, .2)`,
-            brandOpacity = base['--color-brand-opacity'] || `rgba(${r}, ${g}, ${b}, .1)`
-        brandText = base['--color-brand-text'] || '#ffffff';
+            brandLight = base['--color-brand-light'] || Util.toHex({
+                r, g, b, alpha: 0.2
+            }),
+            brandOpacity = base['--color-brand-opacity'] || Util.toHex({
+                r, g, b, alpha: 0.1
+            }),
+            brandText = base['--color-brand-text'] || '#ffffff';
 
         return {
             //字体相关参数，输入或下拉框高度
@@ -99,7 +101,7 @@ module.exports = Magix.View.extend({
             '--color-border': '#e6e6e6',
             '--border-radius': borderRadius,
             '--border-highlight': '#e6e6e6',
-            '--border-highlight-hover': '#ccc',
+            '--border-highlight-hover': '#cccccc',
 
             // 品牌按钮颜色，支持渐变
             '--btn-border-radius': borderRadius,
@@ -109,8 +111,8 @@ module.exports = Magix.View.extend({
             '--btn-brand-gradient-hover': brandHover,
             '--btn-brand-text': brandText,
             '--btn-brand-text-hover': brandText,
-            '--btn-text': '#333',
-            '--btn-text-hover': '#333',
+            '--btn-text': '#333333',
+            '--btn-text-hover': '#333333',
             '--btn-border': brand,
             '--btn-border-hover': brand,
             '--btn-bg': brandOpacity,
@@ -122,11 +124,11 @@ module.exports = Magix.View.extend({
             '--color-orange': '#ff5500',
             '--color-green': '#51a300',
             '--color-blue': '#4d7fff',
-            '--color-disabled': '#eee',
+            '--color-disabled': '#eeeeee',
 
             //背景色
             '--color-bg': '#fafafa',
-            '--color-bg-hover': '#eee',
+            '--color-bg-hover': '#eeeeee',
 
             // 动画
             '--duration': '0.25s',

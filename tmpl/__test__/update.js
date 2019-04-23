@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.4',
+            time: '2019-04-23',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: '在线编辑项目主题，<a href="#!/all/edit/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.1 ~ 1.3.3',
             time: '2019-04-22',
             subs: [{

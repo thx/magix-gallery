@@ -1,1 +1,520 @@
-define("mx-calendar/range",["magix","$","mx-calendar/util","../mx-medusa/util","mx-switch/index","./datepicker"],(e,a,r)=>{e("mx-switch/index"),e("./datepicker");var t=e("magix"),l=e("$"),i=e("mx-calendar/util"),s=i.dateFormat,c=i.dateParse,n=i.getDefaultDate,_=i.getQuickInfos,g=i.foreverStr,d=e("../mx-medusa/util");t.applyStyle("_zs_galleryq",'._zs_gallerycf{--mx-calendar-range-input-width:calc(var(--font-size)*8);position:relative;z-index:1000;min-width:calc(var(--mx-calendar-range-input-width)*2 + 40px);width:100%;padding:10px;border-radius:var(--border-radius);background-color:#fff;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-user-select:none}._zs_gallerycf ._zs_gallerycg{color:#999}._zs_gallerycf ._zs_gallerych{position:relative;line-height:var(--input-small-height)}._zs_gallerycf ._zs_gallerych ._zs_galleryci{float:left;width:50%;min-width:var(--mx-calendar-range-input-width);text-align:center;cursor:text}._zs_gallerycf ._zs_gallerych ._zs_galleryci [mx-view*="mx-calendar/datepicker"]{width:100%}._zs_gallerycf ._zs_gallerych ._zs_galleryci ._zs_gallerycj,._zs_gallerycf ._zs_gallerych ._zs_galleryci ._zs_gallerybw{height:var(--input-small-height);padding:0;line-height:var(--input-small-height);border-radius:var(--border-radius);background-color:var(--color-bg-hover);border:0;color:#333}._zs_gallerycf ._zs_gallerych ._zs_galleryci ._zs_galleryck ._zs_gallerybw{color:var(--color-brand)}._zs_gallerycf ._zs_gallerych ._zs_galleryci ._zs_gallerycl ._zs_gallerybw{color:var(--color-brand-vs)}._zs_gallerycf ._zs_gallerych ._zs_galleryci ._zs_gallerycj{display:inline-block;width:100%;cursor:not-allowed;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-user-select:none;color:#999;vertical-align:middle}._zs_gallerycf ._zs_gallerych ._zs_gallerycm{padding-right:9px}._zs_gallerycf ._zs_gallerych ._zs_gallerycn{padding-left:9px}._zs_gallerycf ._zs_gallerych ._zs_galleryco{position:absolute;top:0;left:50%;width:18px;height:var(--input-small-height);margin-left:-9px;text-align:center}._zs_gallerycf ._zs_gallerycp{margin-top:15px}._zs_gallerycf ._zs_gallerycp ._zs_gallerycq{float:left;width:44%;height:var(--input-small-height);margin-right:6%;margin-top:10px;padding:0 10px;line-height:var(--input-small-height);border-radius:var(--border-radius);cursor:pointer;overflow:hidden;white-space:nowrap}._zs_gallerycf ._zs_gallerycp ._zs_gallerycq:hover{background-color:var(--color-bg-hover)}._zs_gallerycf ._zs_gallerycp ._zs_gallerycq._zs_gallerycr,._zs_gallerycf ._zs_gallerycp ._zs_gallerycq._zs_gallerycr:hover{color:var(--color-brand);background-color:var(--color-brand-opacity)}._zs_gallerycf ._zs_gallerycp._zs_gallerycs ._zs_gallerycq{width:32%;margin-right:1%}._zs_gallerycf._zs_galleryct{--mx-calendar-range-input-width:calc(var(--font-size)*11)}');var o=t.View.extend({tmpl:function(e,a,r,t,l,i,s,c){if(r||(r=e),!l){var n={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},_=/[&<>"'`]/g,g=function(e){return"&"+n[e]+";"};l=function(e){return""+(null==e?"":e)},t=function(e){return l(e).replace(_,g)}}if(!i){var d={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},o=function(e){return d[e]},m=/[!')(*]/g;i=function(e){return encodeURIComponent(l(e)).replace(m,o)}}if(!c){var y=/[\\'"]/g;c=function(e){return l(e).replace(y,"\\$&")}}s||(s=function(e,a,r,t){for(t=e[u];--t;)if(e[r=u+t]===a)return r;return e[r=u+e[u]++]=a,r});var u="",v="",z=e.timeType,f=e.title,x=e.vsEnable,p=e.vs,h=e.startDisabled,k=e.dates,b=e.min,w=e.endDisabled,q=e.max,S=e.formatter,T=e.disabledWeeks,D=e.dateType,I=e.vsSingle,K=e.endMinFn,M=e.align,j=e.quickInfos,W=e.quickGap,Y=e.quickTip,F=e.submitText,G=e.cancelText;if(v+='<div mxv class="_zs_gallerycf ',z&&(v+=" _zs_galleryct "),v+='" mx-contextmenu="'+a+'__J()"><div mxv mxa="_zs_gallery}:_" class="_zs_gallerych"><div mxa="_zs_gallery}:a" class="_zs_gallerycg clearfix"><span mxa="_zs_gallery}:b" class="fl">'+t(f)+"：</span>",x&&(v+='<span class="fr" mx-change="'+a+'__L()" mx-view="mx-switch/index?state='+i(p)+'"></span>'),v+='</div><div mxv mxa="_zs_gallery}:c" class="clearfix pr"><div mxv mxa="_zs_gallery}:d" class="_zs_galleryci _zs_gallerycm">',h?v+='<div mxa="_zs_gallery}:e" class="_zs_gallerycj">'+t(k.startStr)+"</div>":(v+='<div mxv="disabledWeeks" ',p&&(v+=' class="_zs_galleryck" '),v+=' mx-change="'+a+"__K({trigger:'start'})\" mx-view=\"mx-calendar/datepicker?min="+i(b)+"&max="+i(w?k.endStr:q)+"&formatter="+i(S)+"&disabledWeeks="+s(r,T)+"&timeType="+i(z)+"&dateType="+i(D)+"&selected="+i(k.startStr)+'"></div>'),v+='</div><div mxs="_zs_gallery}:_" class="_zs_galleryco">-</div><div mxv mxa="_zs_gallery}:f" class="_zs_galleryci _zs_gallerycn">',!p&&I||w?v+='<div mxa="_zs_gallery}:g" class="_zs_gallerycj">'+t(k.endStr)+"</div>":(v+='<div mxv="disabledWeeks" ',p&&(v+=' class="_zs_gallerycl" '),v+=' mx-change="'+a+"__K({trigger:'end'})\" mx-view=\"mx-calendar/datepicker?min="+i(p?b:K(k.startStr,b))+"&max="+i(q)+"&formatter="+i(S)+"&disabledWeeks="+s(r,T)+"&timeType="+i(z)+"&dateType="+i(D)+"&align="+i(M)+"&selected="+i(k.endStr)+'"></div>'),v+="</div></div></div>",j.length&&!p&&!I){v+='<div class="_zs_gallerycp ',j.length>W&&(v+="_zs_gallerycs"),v+='"><div mxa="_zs_gallery}:h" class="_zs_gallerycg">'+t(Y)+'：</div><div mxa="_zs_gallery}:i" class="clearfix">';for(var P=0,$=j.length;P<$;P++){var J=j[P];v+='<span class="_zs_gallerycq ',k.quickDateKey==J.key&&(v+="_zs_gallerycr"),v+='" mx-click="'+a+"__r({quick:true,quickInfo:'"+s(r,J)+'\'})" title="'+t(J.text)+'">'+t(J.text)+"</span>"}v+="</div></div>"}return v+='</div><div mxa="_zs_gallery}:j" class="mx-output-footer"><button mxa="_zs_gallery}:k" mx-click="'+a+'__r()" type="button" class="btn btn-small btn-brand mr10">'+t(F)+'</button><button mxa="_zs_gallery}:l" mx-click="'+a+'__M()" type="button" class="btn btn-small">'+t(G)+"</button></div>"},init:function(e){var a=l.extend(!0,{},e.configs);a.dates=a.dates||{},a.formatter=a.formatter||"YYYY-MM-dd",a.title=a.title||d["calendar.range.title"];var r=a.dates,t=a.formatter,i=(a.quickDates,r.startStr),s=r.endStr,g=a.min,o=a.max;i||(r.startStr=i=n(g,o,t),r.start=c(i)),r.start||(r.start=c(r.startStr)),s||(r.endStr=s=n(g,o,t),r.end=c(s)),r.end||(r.end=c(r.endStr));var m=_(a.quickDates,i,t);if(!r.quickDateKey)for(var y=0;y<m.length;y++){var u=m[y];if(u.start==i&&u.end==s){r.quickDateKey=u.key,r.quickDateText=u.text;break}}a.quickInfos=m,a.quickGap=a.quickGap||7,a.quickTip=d["calendar.quick"],a.submitText=d["dialog.submit"],a.cancelText=d["dialog.cancel"],a.endMinFn=function(e,a){if(!a)return e;var r=new Date(e),t=new Date(a);return r.getTime()>t.getTime()?e:a},this.updater.set(a)},render:function(){this.updater.digest(),this.___=l("#"+this.id)},"__K<change>":function(e){e.stopPropagation();var a=this.updater,r=a.get("dates"),t=a.get("vs"),l=a.get("vsSingle"),i=a.get("formatter"),c=a.get("quickDates"),n=a.get("quickInfos"),d=e.params.trigger,o=e.date+(e.time?" "+e.time:"");r[d+"Str"]=o;var m,y=r.startStr,u=r.endStr,v=new Date(s(y,i));u==g?m=g:(m=new Date(s(u,i)),!t&&!l&&m.getTime()<v.getTime()&&(u=s(m=v,i)));n=_(c,y,i);for(var z,f,x=0;x<n.length;x++){var p=n[x];if(p.start==y&&p.end==u){z=p.text,f=p.key;break}}this.updater.digest({quickInfos:n,dates:{start:v,end:m,startStr:y,endStr:u,quickDateText:z,quickDateKey:f}})},"__L<change>":function(e){e.stopPropagation(),this.updater.digest({vs:e.state})},"__r<click>":function(e){var a=this.updater,r=a.get(),l=r.dates,i=r.formatter,c=r.quickDates,n=e.params;if(n.quick){var d=n.quickInfo,o=new Date(s(d.start,i)),m=void 0;if(d.end==g)m=g;else{m=new Date(s(d.end,i));var y=void 0,u=void 0,v=void 0,z=void 0;r.min&&(v=(y=new Date(s(r.min,i))).getTime()),r.max&&(z=(u=new Date(s(r.max,i))).getTime());var f=o.getTime(),x=m.getTime();v&&f<v?o=y:z&&f>z&&(o=u),z&&x>z?m=u:v&&x<v&&(m=y),m.getTime()<o.getTime()&&(m=o)}for(var p=s(o,i),h=m==g?g:s(m,i),k=_(c,p,i),b=void 0,w=void 0,q=0;q<k.length;q++){var S=k[q];if(S.start==p&&S.end==h){b=S.text,w=S.key;break}}l={start:o,end:m,startStr:p,endStr:h,quickDateText:b,quickDateKey:w}}else{var T=r.vs,D=r.vsSingle;p=l.startStr,h=l.endStr,o=l.start,m=l.end;(h==g&&T||!T&&!D&&h!=g&&m.getTime()<o.getTime())&&(h=p,m=new Date(s(h,i))),t.mix(l,{end:m,endStr:h})}a.digest({dates:l}),this.___.trigger({type:"change",vs:r.vs,dates:l})},"__M<click>":function(){this.___.trigger("cancel")},"__J<contextmenu>":function(e){e.preventDefault()}});r.exports=o});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-calendar/range",["magix","$","mx-calendar/util","../mx-medusa/util","mx-switch/index","./datepicker"],(require,exports,module)=>{
+/*Magix,$,Util,I18n*/
+require("mx-switch/index");
+require("./datepicker");
+/**
+ * 可能会直接使用该view
+ */
+var Magix = require("magix");
+var $ = require("$");
+var Util = require("mx-calendar/util");
+var DateFormat = Util.dateFormat;
+var DateParse = Util.dateParse;
+var GetDefaultDate = Util.getDefaultDate;
+var GetQuickInfos = Util.getQuickInfos;
+var ForeverStr = Util.foreverStr;
+var I18n = require("../mx-medusa/util");
+Magix.applyStyle("_zs_gallery_mx-calendar_range_","._zs_gallery_mx-calendar_range_-wrapper {\n  --mx-calendar-range-input-width: calc(var(--font-size) * 8);\n  position: relative;\n  z-index: 1000;\n  min-width: calc(var(--mx-calendar-range-input-width) * 2 + 40px);\n  width: 100%;\n  padding: 10px;\n  border-radius: var(--border-radius);\n  background-color: #fff;\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-title {\n  color: #999;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range {\n  position: relative;\n  line-height: var(--input-small-height);\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input {\n  float: left;\n  width: 50%;\n  min-width: var(--mx-calendar-range-input-width);\n  text-align: center;\n  cursor: text;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input [mx-view*=\"mx-calendar/datepicker\"] {\n  width: 100%;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-range-disabled,\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_rangepicker_-result {\n  height: var(--input-small-height);\n  padding: 0;\n  line-height: var(--input-small-height);\n  border-radius: var(--border-radius);\n  background-color: var(--color-bg-hover);\n  border: 0;\n  color: #333;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-vs1 ._zs_gallery_mx-calendar_rangepicker_-result {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-vs2 ._zs_gallery_mx-calendar_rangepicker_-result {\n  color: var(--color-brand-vs);\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input ._zs_gallery_mx-calendar_range_-range-disabled {\n  display: inline-block;\n  width: 100%;\n  cursor: not-allowed;\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n  color: #999;\n  vertical-align: middle;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input-left {\n  padding-right: 9px;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-input-right {\n  padding-left: 9px;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-range ._zs_gallery_mx-calendar_range_-range-gap {\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 18px;\n  height: var(--input-small-height);\n  margin-left: -9px;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts {\n  margin-top: 15px;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st {\n  float: left;\n  width: 44%;\n  height: var(--input-small-height);\n  margin-right: 6%;\n  margin-top: 10px;\n  padding: 0 10px;\n  line-height: var(--input-small-height);\n  border-radius: var(--border-radius);\n  cursor: pointer;\n  overflow: hidden;\n  white-space: nowrap;\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st:hover {\n  background-color: var(--color-bg-hover);\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st._zs_gallery_mx-calendar_range_-selected,\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts ._zs_gallery_mx-calendar_range_-st._zs_gallery_mx-calendar_range_-selected:hover {\n  color: var(--color-brand);\n  background-color: var(--color-brand-opacity);\n}\n._zs_gallery_mx-calendar_range_-wrapper ._zs_gallery_mx-calendar_range_-shortcuts._zs_gallery_mx-calendar_range_-shortcuts-small ._zs_gallery_mx-calendar_range_-st {\n  width: 32%;\n  margin-right: 1%;\n}\n._zs_gallery_mx-calendar_range_-wrapper._zs_gallery_mx-calendar_range_-time {\n  --mx-calendar-range-input-width: calc(var(--font-size) * 11);\n}\n");
+var RangeDate = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', timeType = $$.timeType, title = $$.title, vsEnable = $$.vsEnable, vs = $$.vs, startDisabled = $$.startDisabled, dates = $$.dates, min = $$.min, endDisabled = $$.endDisabled, max = $$.max, formatter = $$.formatter, disabledWeeks = $$.disabledWeeks, dateType = $$.dateType, vsSingle = $$.vsSingle, endMinFn = $$.endMinFn, align = $$.align, quickInfos = $$.quickInfos, quickGap = $$.quickGap, quickTip = $$.quickTip, submitText = $$.submitText, cancelText = $$.cancelText; var $expr, $art, $line; try {
+    $p += '<div mxv class="_zs_gallery_mx-calendar_range_-wrapper ';
+    $line = 1;
+    $art = 'if timeType';
+    ;
+    $expr = '<%if (timeType) {%>';
+    if (timeType) {
+        ;
+        $p += ' _zs_gallery_mx-calendar_range_-time ';
+        $line = 1;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" mx-contextmenu="' + $viewId + '@{prevent}()"><div mxv mxa="_zs_gallery[:_" class="_zs_gallery_mx-calendar_range_-range"><div mxa="_zs_gallery[:a" class="_zs_gallery_mx-calendar_range_-title clearfix"><span mxa="_zs_gallery[:b" class="fl">';
+    $line = 4;
+    $art = '=title';
+    ;
+    $p += ($expr = '<%=title%>', $e(title)) + '：</span>';
+    $line = 5;
+    $art = 'if vsEnable';
+    ;
+    $expr = '<%if (vsEnable) {%>';
+    if (vsEnable) {
+        ;
+        $p += '<span class="fr" mx-change="' + $viewId + '@{vs.toggle}()" mx-view="mx-switch/index?state=';
+        $line = 6;
+        $art = '=vs';
+        ;
+        $p += ($expr = '<%!$eu(vs)%>', $eu(vs)) + '"></span>';
+        $line = 7;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxv mxa="_zs_gallery[:c" class="clearfix pr"><div mxv mxa="_zs_gallery[:d" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-left">';
+    $line = 11;
+    $art = 'if startDisabled';
+    ;
+    $expr = '<%if (startDisabled) {%>';
+    if (startDisabled) {
+        ;
+        $p += '<div mxa="_zs_gallery[:e" class="_zs_gallery_mx-calendar_range_-range-disabled">';
+        $line = 12;
+        $art = '=dates.startStr';
+        ;
+        $p += ($expr = '<%=dates.startStr%>', $e(dates.startStr)) + '</div>';
+        $line = 13;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '<div mxv="disabledWeeks" ';
+        $line = 15;
+        $art = 'if vs';
+        ;
+        $expr = '<%if (vs) {%>';
+        if (vs) {
+            ;
+            $p += ' class="_zs_gallery_mx-calendar_range_-vs1" ';
+            $line = 15;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' mx-change="' + $viewId + '@{sync.date}({trigger:\'start\'})" mx-view="mx-calendar/datepicker?min=';
+        $line = 16;
+        $art = '=min';
+        ;
+        $p += ($expr = '<%!$eu(min)%>', $eu(min)) + '&max=';
+        $line = 17;
+        $art = '=(endDisabled?dates.endStr:max)';
+        ;
+        $p += ($expr = '<%!$eu((endDisabled ? dates.endStr : max))%>', $eu((endDisabled ? dates.endStr : max))) + '&formatter=';
+        $line = 18;
+        $art = '=formatter';
+        ;
+        $p += ($expr = '<%!$eu(formatter)%>', $eu(formatter)) + '&disabledWeeks=';
+        $line = 19;
+        $art = '@disabledWeeks';
+        ;
+        $p += ($expr = '<%@disabledWeeks%>', $i($$ref, disabledWeeks)) + '&timeType=';
+        $line = 20;
+        $art = '=timeType';
+        ;
+        $p += ($expr = '<%!$eu(timeType)%>', $eu(timeType)) + '&dateType=';
+        $line = 21;
+        $art = '=dateType';
+        ;
+        $p += ($expr = '<%!$eu(dateType)%>', $eu(dateType)) + '&selected=';
+        $line = 22;
+        $art = '=dates.startStr';
+        ;
+        $p += ($expr = '<%!$eu(dates.startStr)%>', $eu(dates.startStr)) + '"></div>';
+        $line = 24;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxs="_zs_gallery[:_" class="_zs_gallery_mx-calendar_range_-range-gap">-</div><div mxv mxa="_zs_gallery[:f" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-right">';
+    $line = 28;
+    $art = 'if ((!vs&&vsSingle) || endDisabled)';
+    ;
+    $expr = '<%if ((!vs && vsSingle) || endDisabled) {%>';
+    if ((!vs && vsSingle) || endDisabled) {
+        ;
+        $p += '<div mxa="_zs_gallery[:g" class="_zs_gallery_mx-calendar_range_-range-disabled">';
+        $line = 29;
+        $art = '=dates.endStr';
+        ;
+        $p += ($expr = '<%=dates.endStr%>', $e(dates.endStr)) + '</div>';
+        $line = 30;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '<div mxv="disabledWeeks" ';
+        $line = 32;
+        $art = 'if vs';
+        ;
+        $expr = '<%if (vs) {%>';
+        if (vs) {
+            ;
+            $p += ' class="_zs_gallery_mx-calendar_range_-vs2" ';
+            $line = 32;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' mx-change="' + $viewId + '@{sync.date}({trigger:\'end\'})" mx-view="mx-calendar/datepicker?min=';
+        $line = 33;
+        $art = '=(!vs?endMinFn(dates.startStr,min):min)';
+        ;
+        $p += ($expr = '<%!$eu((!vs ? endMinFn(dates.startStr, min) : min))%>', $eu((!vs ? endMinFn(dates.startStr, min) : min))) + '&max=';
+        $line = 34;
+        $art = '=max';
+        ;
+        $p += ($expr = '<%!$eu(max)%>', $eu(max)) + '&formatter=';
+        $line = 35;
+        $art = '=formatter';
+        ;
+        $p += ($expr = '<%!$eu(formatter)%>', $eu(formatter)) + '&disabledWeeks=';
+        $line = 36;
+        $art = '@disabledWeeks';
+        ;
+        $p += ($expr = '<%@disabledWeeks%>', $i($$ref, disabledWeeks)) + '&timeType=';
+        $line = 37;
+        $art = '=timeType';
+        ;
+        $p += ($expr = '<%!$eu(timeType)%>', $eu(timeType)) + '&dateType=';
+        $line = 38;
+        $art = '=dateType';
+        ;
+        $p += ($expr = '<%!$eu(dateType)%>', $eu(dateType)) + '&align=';
+        $line = 39;
+        $art = '=align';
+        ;
+        $p += ($expr = '<%!$eu(align)%>', $eu(align)) + '&selected=';
+        $line = 40;
+        $art = '=dates.endStr';
+        ;
+        $p += ($expr = '<%!$eu(dates.endStr)%>', $eu(dates.endStr)) + '"></div>';
+        $line = 42;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div></div>';
+    $line = 46;
+    $art = 'if (quickInfos.length&&!vs&&!vsSingle)';
+    ;
+    $expr = '<%if (quickInfos.length && !vs && !vsSingle) {%>';
+    if (quickInfos.length && !vs && !vsSingle) {
+        ;
+        $p += '<div class="_zs_gallery_mx-calendar_range_-shortcuts ';
+        $line = 47;
+        $art = 'if quickInfos.length > quickGap';
+        ;
+        $expr = '<%if (quickInfos.length > quickGap) {%>';
+        if (quickInfos.length > quickGap) {
+            ;
+            $p += '_zs_gallery_mx-calendar_range_-shortcuts-small';
+            $line = 47;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '"><div mxa="_zs_gallery[:h" class="_zs_gallery_mx-calendar_range_-title">';
+        $line = 48;
+        $art = '=quickTip';
+        ;
+        $p += ($expr = '<%=quickTip%>', $e(quickTip)) + '：</div><div mxa="_zs_gallery[:i" class="clearfix">';
+        $line = 50;
+        $art = 'each quickInfos as info';
+        ;
+        $expr = '<%for (var $art_izmqmlkn$art_i = 0, $art_cwdxwfjvueqi$art_c = quickInfos.length; $art_izmqmlkn$art_i < $art_cwdxwfjvueqi$art_c; $art_izmqmlkn$art_i++) {        var info = quickInfos[$art_izmqmlkn$art_i]%>';
+        for (var $art_izmqmlkn$art_i = 0, $art_cwdxwfjvueqi$art_c = quickInfos.length; $art_izmqmlkn$art_i < $art_cwdxwfjvueqi$art_c; $art_izmqmlkn$art_i++) {
+            var info = quickInfos[$art_izmqmlkn$art_i];
+            $p += '<span class="_zs_gallery_mx-calendar_range_-st ';
+            $line = 51;
+            $art = 'if (dates.quickDateKey==info.key)';
+            ;
+            $expr = '<%if (dates.quickDateKey == info.key) {%>';
+            if (dates.quickDateKey == info.key) {
+                ;
+                $p += '_zs_gallery_mx-calendar_range_-selected';
+                $line = 51;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '" mx-click="' + $viewId + '@{date.picked}({quick:true,quickInfo:\'';
+            $line = 52;
+            $art = '@info';
+            ;
+            $p += ($expr = '<%@info%>', $i($$ref, info)) + '\'})" title="';
+            $line = 53;
+            $art = '=info.text';
+            ;
+            $p += ($expr = '<%=info.text%>', $e(info.text)) + '">';
+            $line = 53;
+            $art = '=info.text';
+            ;
+            $p += ($expr = '<%=info.text%>', $e(info.text)) + '</span>';
+            $line = 54;
+            $art = '/each';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div></div>';
+        $line = 57;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxa="_zs_gallery[:j" class="mx-output-footer"><button mxa="_zs_gallery[:k" mx-click="' + $viewId + '@{date.picked}()" type="button" class="btn btn-small btn-brand mr10">';
+    $line = 60;
+    $art = '=submitText';
+    ;
+    $p += ($expr = '<%=submitText%>', $e(submitText)) + '</button><button mxa="_zs_gallery[:l" mx-click="' + $viewId + '@{cancel}()" type="button" class="btn btn-small">';
+    $line = 61;
+    $art = '=cancelText';
+    ;
+    $p += ($expr = '<%=cancelText%>', $e(cancelText)) + '</button></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-calendar/range.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var ops = $.extend(true, {}, extra.configs);
+        var that = this;
+        ops.dates = ops.dates || {};
+        ops.formatter = ops.formatter || 'YYYY-MM-dd';
+        ops.title = ops.title || I18n['calendar.range.title'];
+        var dates = ops.dates, formatter = ops.formatter, quickDates = ops.quickDates || [];
+        var startStr = dates.startStr, endStr = dates.endStr;
+        var min = ops.min, max = ops.max;
+        if (!startStr) {
+            dates.startStr = startStr = GetDefaultDate(min, max, formatter);
+            dates.start = DateParse(startStr);
+        }
+        if (!dates.start) {
+            dates.start = DateParse(dates.startStr);
+        }
+        // 包含快捷方式不限的时候end可能为空，不需默认初始化
+        if (!endStr) {
+            dates.endStr = endStr = GetDefaultDate(min, max, formatter);
+            dates.end = DateParse(endStr);
+        }
+        if (!dates.end) {
+            dates.end = DateParse(dates.endStr);
+        }
+        var quickInfos = GetQuickInfos(ops.quickDates, startStr, formatter);
+        if (!dates.quickDateKey) {
+            for (var index = 0; index < quickInfos.length; index++) {
+                var q = quickInfos[index];
+                if (q.start == startStr && q.end == endStr) {
+                    dates.quickDateKey = q.key;
+                    dates.quickDateText = q.text;
+                    break;
+                }
+            }
+        }
+        ops.quickInfos = quickInfos;
+        ops.quickGap = ops.quickGap || 7;
+        ops.quickTip = I18n['calendar.quick'];
+        ops.submitText = I18n['dialog.submit'];
+        ops.cancelText = I18n['dialog.cancel'];
+        ops.endMinFn = function (curStart, curMin) {
+            if (!curMin) {
+                return curStart;
+            }
+            var s = new Date(curStart), m = new Date(curMin);
+            if (s.getTime() > m.getTime()) {
+                return curStart;
+            }
+            else {
+                return curMin;
+            }
+        };
+        that.updater.set(ops);
+    },
+    render: function () {
+        var that = this;
+        that.updater.digest();
+        that['@{owner.node}'] = $('#' + that.id);
+    },
+    '@{sync.date}<change>': function (e) {
+        e.stopPropagation();
+        var that = this;
+        var updater = that.updater;
+        var dates = updater.get('dates'), vs = updater.get('vs'), vsSingle = updater.get('vsSingle'), formatter = updater.get('formatter'), quickDates = updater.get('quickDates'), quickInfos = updater.get('quickInfos');
+        var trigger = e.params.trigger;
+        var result = e.date + (e.time ? ' ' + e.time : '');
+        dates[trigger + 'Str'] = result;
+        var startStr = dates.startStr, endStr = dates.endStr;
+        var start = new Date(DateFormat(startStr, formatter)), end;
+        if (endStr == ForeverStr) {
+            end = ForeverStr;
+        }
+        else {
+            end = new Date(DateFormat(endStr, formatter));
+            // 结束时间小于开始时间，进行修正
+            if (!vs && !vsSingle && (end.getTime() < start.getTime())) {
+                end = start;
+                endStr = DateFormat(end, formatter);
+            }
+        }
+        // 开始时间会影响快捷日期
+        var quickInfos = GetQuickInfos(quickDates, startStr, formatter);
+        var quickDateText, quickDateKey;
+        for (var index = 0; index < quickInfos.length; index++) {
+            var q = quickInfos[index];
+            if (q.start == startStr && q.end == endStr) {
+                quickDateText = q.text;
+                quickDateKey = q.key;
+                break;
+            }
+        }
+        that.updater.digest({
+            quickInfos: quickInfos,
+            dates: {
+                start: start,
+                end: end,
+                startStr: startStr,
+                endStr: endStr,
+                quickDateText: quickDateText,
+                quickDateKey: quickDateKey
+            }
+        });
+    },
+    '@{vs.toggle}<change>': function (e) {
+        e.stopPropagation();
+        this.updater.digest({
+            vs: e.state
+        });
+    },
+    '@{date.picked}<click>': function (e) {
+        var that = this;
+        var updater = that.updater;
+        var data = updater.get();
+        var dates = data.dates, formatter = data.formatter, quickDates = data.quickDates;
+        var params = e.params;
+        if (params.quick) {
+            // 选择快捷方式
+            // 快捷日期可能需要动态计算，已当前开始时间为准
+            var quickInfo = params.quickInfo;
+            var start = new Date(DateFormat(quickInfo.start, formatter));
+            var end = void 0;
+            if (quickInfo.end == ForeverStr) {
+                // 不限的情况不考虑
+                end = ForeverStr;
+            }
+            else {
+                end = new Date(DateFormat(quickInfo.end, formatter));
+                // 如果有最大最小值，选择快捷日期的时候会进行范围修正
+                var min = void 0, max = void 0, minMillions = void 0, maxMillions = void 0;
+                if (data.min) {
+                    min = new Date(DateFormat(data.min, formatter));
+                    minMillions = min.getTime();
+                }
+                if (data.max) {
+                    max = new Date(DateFormat(data.max, formatter));
+                    maxMillions = max.getTime();
+                }
+                var startMillions = start.getTime(), endMillions = end.getTime();
+                if (minMillions && (startMillions < minMillions)) {
+                    // 开始时间小于最小值
+                    start = min;
+                }
+                else if (maxMillions && (startMillions > maxMillions)) {
+                    // 开始时间大于最大值
+                    start = max;
+                }
+                if (maxMillions && (endMillions > maxMillions)) {
+                    // 结束时间大于最大值
+                    end = max;
+                }
+                else if (minMillions && (endMillions < minMillions)) {
+                    // 结束时间小于最小值
+                    end = min;
+                }
+                if (end.getTime() < start.getTime()) {
+                    end = start;
+                }
+            }
+            var startStr = DateFormat(start, formatter), endStr = (end == ForeverStr) ? ForeverStr : DateFormat(end, formatter);
+            // 开始时间会影响快捷日期
+            var quickInfos = GetQuickInfos(quickDates, startStr, formatter);
+            var quickDateText = void 0, quickDateKey = void 0;
+            for (var index = 0; index < quickInfos.length; index++) {
+                var q = quickInfos[index];
+                if (q.start == startStr && q.end == endStr) {
+                    quickDateText = q.text;
+                    quickDateKey = q.key;
+                    break;
+                }
+            }
+            dates = {
+                start: start,
+                end: end,
+                startStr: startStr,
+                endStr: endStr,
+                quickDateText: quickDateText,
+                quickDateKey: quickDateKey
+            };
+        }
+        else {
+            // 确定
+            var vs = data.vs, vsSingle = data.vsSingle;
+            var startStr = dates.startStr, endStr = dates.endStr, start = dates.start, end = dates.end;
+            // 修正结束时间：
+            //  1. 对比的情况下，可能保留了非对比情况的不限快捷方式选项，如果结束时间为不限，切换为开始时间
+            //  2. 不对比选择连续时间的时候，可能有对比切换的结果，如果结束时间小于开始时间，结束时间替换为开始时间
+            if (((endStr == ForeverStr) && vs) ||
+                (!vs && !vsSingle && (endStr != ForeverStr) && (end.getTime() < start.getTime()))) {
+                endStr = startStr;
+                end = new Date(DateFormat(endStr, formatter));
+            }
+            Magix.mix(dates, {
+                end: end,
+                endStr: endStr
+            });
+        }
+        updater.digest({
+            dates: dates
+        });
+        that['@{owner.node}'].trigger({
+            type: 'change',
+            vs: data.vs,
+            dates: dates
+        });
+    },
+    '@{cancel}<click>': function () {
+        this['@{owner.node}'].trigger('cancel');
+    },
+    '@{prevent}<contextmenu>': function (e) {
+        e.preventDefault();
+    }
+});
+module.exports = RangeDate;
+
+});

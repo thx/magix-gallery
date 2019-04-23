@@ -470,20 +470,18 @@ module.exports = Magix.View.extend({
                     path: '/all/pro/top'
                 }]
             }]
-        }, 
-        // {
-        //     id: 'edit',
-        //     name: '在线编辑',
-        //     new: that.getCookie('header_edit') ? '' : '在线调整颜色，快速生成项目预览，定制专属配色方案',
-        //     path: '/all/edit/index',
-        //     paths: [{
-        //         subs: [{
-        //             name: '在线编辑',
-        //             path: '/all/edit/index'
-        //         }]
-        //     }]
-        // }, 
-        {
+        }, {
+            id: 'edit',
+            name: '在线编辑',
+            new: that.getCookie('header_edit') ? '' : '在线调整颜色，快速生成项目预览，定制专属配色方案',
+            path: '/all/edit/index',
+            paths: [{
+                subs: [{
+                    name: '在线编辑',
+                    path: '/all/edit/index'
+                }]
+            }]
+        }, {
             id: 'pro',
             name: 'PRO',
             // new: that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',

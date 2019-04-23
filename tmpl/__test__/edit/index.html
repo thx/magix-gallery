@@ -1,3 +1,14 @@
+<div class="tip-content has-border has-highlight mb20 mr20">
+    <div class="clearfix lh24">
+        <div class="fl">说明：</div>
+        <div class="fl">
+            <div>1. 选择预置主题（钻展/直通车/超级推荐）或者自定义一个颜色作为项目品牌色；</div>
+            <div>2. 系统根据品牌色计算出默认色值，可在此基础上进行调整；</div>
+            <div>3. 右侧iframe嵌入脚手架列举常见场景，与左侧设置的变量实时联动，帮您真实复原应用场景；</div>
+        </div>
+    </div>
+    <div class="lh24">注：hover名称可查看详细说明</div>
+</div>
 <div class="clearfix mb30">
     {{each themes as t i}}
     <div class="theme">
@@ -14,6 +25,9 @@
             mx-change="changeColor()"/>
         <div class="text-center mt10">自定义</div>
     </div>
+
+    <a href="javascript:;" class="fl ml20 btn btn-brand"
+        mx-click="copy()">复制我的定制主题</a>
 </div>
 <div class="edit">
     <div class="nav" style="left:{{=(itemWidth*cur)}}px;">
@@ -22,17 +36,34 @@
     </div>
     <div class="colors clearfix">
         {{each list as item}}
-        <div class="item">
-            <div class="mb10">{{=item.text}}<mx-popover class="mc-iconfont icon"
-                tag="i"
-                content="{{=item.tip}}"
-                width="320">&#xe629;</mx-popover></div>
-            <div><input type="text" /></div>  
-        </div>
+            <div class="item">
+                <div class="nowrap mb10 color-6 cursor-help"><mx-popover 
+                    content="{{=item.tip}}"
+                    width="320"
+                    offset="{{@{left: 120}}}">{{=item.text}}</mx-popover></div>
+                {{if item.type == 'color'}}
+                <div class="color-wrapper" style="background-color: {{=item.value}};">
+                    <mx-color.picker 
+                        color="{{:item.value}}"
+                        mx-change="sync({key:'{{=item.key}}'})"/>  
+                </div>
+                {{/if}}
+                {{if item.type == 'text'}}
+                <div>
+                    <input type="text" class="w100"
+                        value="{{:item.value}}"
+                        mx-change="sync({key:'{{=item.key}}'})"/>
+                </div>
+                {{/if}}
+            </div>
+            {{if item.gap}}
+            <div class="item"></div>
+            {{/if}}
         {{/each}}
     </div>
     <div class="preview">
-        <iframe src="https://mo.m.taobao.com/page_201902152003028" class="iframe"
+        <iframe src="https://mo.m.taobao.com/page_201904221752051#!/example/second1" class="iframe"
+            id="frame_{{=viewId}}"
             width="100%" 
             height="770" 
             frameborder="0"

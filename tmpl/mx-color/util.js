@@ -32,6 +32,16 @@ let ToRGB = (color) => {
         alpha: 1
     } : null;
 }
+let ToHex = (result) => {
+    var a = parseFloat(result.alpha || 1),
+        r = Math.floor(a * parseInt(result.r) + (1 - a) * 255),
+        g = Math.floor(a * parseInt(result.g) + (1 - a) * 255),
+        b = Math.floor(a * parseInt(result.b) + (1 - a) * 255);
+    return '#' +
+        ('0' + r.toString(16)).slice(-2) +
+        ('0' + g.toString(16)).slice(-2) +
+        ('0' + b.toString(16)).slice(-2);
+}
 let ToHSL = (result) => {
     let r = result.r / 255,
         g = result.g / 255,
@@ -78,6 +88,7 @@ let ColorMix = (color1, color2, p) => {
 module.exports = {
     toRgb: ToRGB,
     toHSL: ToHSL,
+    toHex: ToHex,
     mix: ColorMix,
     shade: function(color, p) {
         let rgba = ToRGB(color);
@@ -87,6 +98,7 @@ module.exports = {
             b: 0,
             alpha: 1
         }, rgba, p);
-        return `rgba(${result.r}, ${result.g}, ${result.b}, ${result.alpha})`;
+        return result;
+        // return `rgba(${result.r}, ${result.g}, ${result.b}, ${result.alpha})`;
     },
 }
