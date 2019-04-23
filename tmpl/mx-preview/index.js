@@ -147,6 +147,7 @@ module.exports = Magix.View.extend({
                     frameHeight = height * scale;
                 thumbnail = `<div style="width: ${frameWidth}px; height: ${frameHeight}px; overflow: hidden">
                                 <iframe src="${url}" class="@index.less:iframe"
+                                    sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"
                                     style="transform:scale(${scale})"
                                     width="${width}" 
                                     height="${height}" 
@@ -266,6 +267,7 @@ module.exports = Magix.View.extend({
                     let scale = (width - 20) / originWidth;
                     inner = $(`<div class="@index.less:preview-inner">
                         <iframe src="${url}"
+                            sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"
                             style="transform: scale(${scale}); transform-origin: left top;"
                             width="${originWidth}" 
                             height="${originHeight}"
