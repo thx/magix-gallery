@@ -98,16 +98,20 @@ module.exports = Magix.View.extend({
 
     render() {
         let that = this;
-        let oldSourceId = that.updater.get('sourceId');
+        let oldSourceId = that.updater.get('sourceId'),
+            bizCode = that.updater.get('bizCode');
         let sourceId = that.getCurSourceId();
 
         // 刷新万象知识库
         let duration = 25;
         let timer = setTimeout(() => {
-            clearTimeout(timer);
+            if (that.loopTimer) {
+                clearTimeout(that.loopTimer);
+            }
             if (window.AW) {
                 if ((sourceId + '') !== (oldSourceId + '')) {
                     AW.refresh({
+                        bizCode,
                         sourceId
                     });
                     that.updater.set({

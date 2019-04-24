@@ -35,8 +35,8 @@ module.exports = Base.extend({
     $line = 13;
     $art = 'each themes as t i';
     ;
-    $expr = '<%for (var i = 0, $art_ctvkamkxb$art_c = themes.length; i < $art_ctvkamkxb$art_c; i++) {    var t = themes[i]%>';
-    for (var i = 0, $art_ctvkamkxb$art_c = themes.length; i < $art_ctvkamkxb$art_c; i++) {
+    $expr = '<%for (var i = 0, $art_cpjuqk$art_c = themes.length; i < $art_cpjuqk$art_c; i++) {    var t = themes[i]%>';
+    for (var i = 0, $art_cpjuqk$art_c = themes.length; i < $art_cpjuqk$art_c; i++) {
         var t = themes[i];
         $p += '<div mxa="_zs_galleryf:a" class="_zs_gallery___test___edit_theme_-theme"><div><a href="javascript:;" class="_zs_gallery___test___edit_theme_-dot" style="';
         $line = 15;
@@ -69,9 +69,9 @@ module.exports = Base.extend({
     $line = 38;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_izsbcgx$art_i = 0, $art_coircopb$art_c = list.length; $art_izsbcgx$art_i < $art_coircopb$art_c; $art_izsbcgx$art_i++) {    var item = list[$art_izsbcgx$art_i]%>';
-    for (var $art_izsbcgx$art_i = 0, $art_coircopb$art_c = list.length; $art_izsbcgx$art_i < $art_coircopb$art_c; $art_izsbcgx$art_i++) {
-        var item = list[$art_izsbcgx$art_i];
+    $expr = '<%for (var $art_ikdpycbm$art_i = 0, $art_crmolxxb$art_c = list.length; $art_ikdpycbm$art_i < $art_crmolxxb$art_c; $art_ikdpycbm$art_i++) {    var item = list[$art_ikdpycbm$art_i]%>';
+    for (var $art_ikdpycbm$art_i = 0, $art_crmolxxb$art_c = list.length; $art_ikdpycbm$art_i < $art_crmolxxb$art_c; $art_ikdpycbm$art_i++) {
+        var item = list[$art_ikdpycbm$art_i];
         $p += '<div mxv mxa="_zs_galleryf:f" class="_zs_gallery___test___edit_theme_-item"><div mxa="_zs_galleryf:g" class="nowrap mb10 color-6 cursor-help"><span mx-view="mx-popover/index?content=';
         $line = 41;
         $art = '=item.tip';
@@ -95,11 +95,11 @@ module.exports = Base.extend({
             $line = 45;
             $art = '=item.value';
             ;
-            $p += ($expr = '<%=item.value%>', $e(item.value)) + ';"><div mxv="list" mxe="' + $viewId + '_0_' + ($expr = '<%=$art_izsbcgx$art_i%>', $e($art_izsbcgx$art_i)) + '" mxc="[';
+            $p += ($expr = '<%=item.value%>', $e(item.value)) + ';"><div mxv="list" mxe="' + $viewId + '_0_' + ($expr = '<%=$art_ikdpycbm$art_i%>', $e($art_ikdpycbm$art_i)) + '" mxc="[';
             $line = 47;
             $art = ':item.value';
             ;
-            $p += '{p:\'list.' + ($expr = '<%=$art_izsbcgx$art_i%>', $e($art_izsbcgx$art_i)) + '.value\',a:\'color\'}]" mx-change="' + $viewId + 'sync({key:\'';
+            $p += '{p:\'list.' + ($expr = '<%=$art_ikdpycbm$art_i%>', $e($art_ikdpycbm$art_i)) + '.value\',a:\'color\'}]" mx-change="' + $viewId + 'sync({key:\'';
             $line = 48;
             $art = '=item.key';
             ;
@@ -121,11 +121,11 @@ module.exports = Base.extend({
         $expr = '<%if (item.type == \'text\') {%>';
         if (item.type == 'text') {
             ;
-            $p += '<div mxv><input mxe="' + $viewId + '_1_' + ($expr = '<%=$art_izsbcgx$art_i%>', $e($art_izsbcgx$art_i)) + '" mxc="[';
+            $p += '<div mxv><input mxe="' + $viewId + '_1_' + ($expr = '<%=$art_ikdpycbm$art_i%>', $e($art_ikdpycbm$art_i)) + '" mxc="[';
             $line = 54;
             $art = ':item.value';
             ;
-            $p += '{p:\'list.' + ($expr = '<%=$art_izsbcgx$art_i%>', $e($art_izsbcgx$art_i)) + '.value\'}]" class="w100" value="';
+            $p += '{p:\'list.' + ($expr = '<%=$art_ikdpycbm$art_i%>', $e($art_ikdpycbm$art_i)) + '.value\'}]" class="w100" value="';
             $line = 54;
             $art = ':item.value';
             ;

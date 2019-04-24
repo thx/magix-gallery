@@ -89,15 +89,18 @@ module.exports = Magix.View.extend({
     },
     render: function () {
         var that = this;
-        var oldSourceId = that.updater.get('sourceId');
+        var oldSourceId = that.updater.get('sourceId'), bizCode = that.updater.get('bizCode');
         var sourceId = that.getCurSourceId();
         // 刷新万象知识库
         var duration = 25;
         var timer = setTimeout(function () {
-            clearTimeout(timer);
+            if (that.loopTimer) {
+                clearTimeout(that.loopTimer);
+            }
             if (window.AW) {
                 if ((sourceId + '') !== (oldSourceId + '')) {
                     AW.refresh({
+                        bizCode: bizCode,
                         sourceId: sourceId
                     });
                     that.updater.set({

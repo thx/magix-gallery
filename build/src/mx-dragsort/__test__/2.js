@@ -33,9 +33,9 @@ module.exports = Base.extend({
     $line = 13;
     $art = 'each items as item';
     ;
-    $expr = '<%for (var $art_idplgqkamd$art_i = 0, $art_crlyyobvn$art_c = items.length; $art_idplgqkamd$art_i < $art_crlyyobvn$art_c; $art_idplgqkamd$art_i++) {    var item = items[$art_idplgqkamd$art_i]%>';
-    for (var $art_idplgqkamd$art_i = 0, $art_crlyyobvn$art_c = items.length; $art_idplgqkamd$art_i < $art_crlyyobvn$art_c; $art_idplgqkamd$art_i++) {
-        var item = items[$art_idplgqkamd$art_i];
+    $expr = '<%for (var $art_iuhhmary$art_i = 0, $art_cdiwuuwqin$art_c = items.length; $art_iuhhmary$art_i < $art_cdiwuuwqin$art_c; $art_iuhhmary$art_i++) {    var item = items[$art_iuhhmary$art_i]%>';
+    for (var $art_iuhhmary$art_i = 0, $art_cdiwuuwqin$art_c = items.length; $art_iuhhmary$art_i < $art_cdiwuuwqin$art_c; $art_iuhhmary$art_i++) {
+        var item = items[$art_iuhhmary$art_i];
         $p += '<li class="_zs_gallery_mx-dragsort___test___index_-item fl" data-value="';
         $line = 14;
         $art = '=item';
