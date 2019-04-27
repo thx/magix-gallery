@@ -90,7 +90,7 @@ module.exports = {
     },
     'mx-grid.col'(i) {
         let { content, attrsKV, nodesMap, pId } = i;
-        let styles = ['overflow: hidden'];
+        let styles = [];
         let pNode = nodesMap[pId];
 
         // width > flex

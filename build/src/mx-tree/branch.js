@@ -30,8 +30,8 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_crjkfjfeai$art_c = list.length; index < $art_crjkfjfeai$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_crjkfjfeai$art_c = list.length; index < $art_crjkfjfeai$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cfmloll$art_c = list.length; index < $art_cfmloll$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cfmloll$art_c = list.length; index < $art_cfmloll$art_c; index++) {
         var item = list[index];
         $p += '<div mxv mxa="_zs_gallerye9:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_gallerye9:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
         $line = 4;

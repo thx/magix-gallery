@@ -561,8 +561,7 @@ module.exports = Magix.View.extend({
 
     update(timeDiscount) {
         let that = this;
-        let timeDiscount = that.updater.get('timeDiscount'),
-            boxLength = that.updater.get('boxLength');
+        let { timeDiscount, boxLength } = that.updater.get();
         let array = that.report2Array(timeDiscount);
         for (let i = 0; i < boxLength; i++) {
             that.setBoxDiscount(i, array[i]);
@@ -590,8 +589,7 @@ module.exports = Magix.View.extend({
 
     getTimeFromNum(num) {
         let that = this;
-        let rowNum = that.updater.get('rowNum'),
-            multiple = that.updater.get('multiple');
+        let { rowNum, multiple } = that.updater.get();
         let h = Math.floor((num % rowNum) / multiple);
         if ((h + '').length == 1) {
             h = '0' + h;

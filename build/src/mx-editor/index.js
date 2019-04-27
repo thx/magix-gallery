@@ -169,18 +169,17 @@ catch (ex) {
             return;
         }
         var val = e.target.value;
-        var tmpl = that.updater.get('tmpl');
+        var _a = that.updater.get(), tmpl = _a.tmpl, content = _a.content;
         that.updater.digest({
             editing: false,
             dis: tmpl.replace(Placeholder, val),
             content: val
         });
         // 只触发一次trigger
-        var val = that.updater.get('content');
-        if (that['@{old.content}'] != val) {
+        if (that['@{old.content}'] != content) {
             $('#' + that.id).trigger({
                 type: 'edit',
-                editText: val
+                editText: content
             });
         }
     }

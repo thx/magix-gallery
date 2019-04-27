@@ -80,9 +80,9 @@ module.exports = Magix.View.extend({
             $line = 20;
             $art = 'each list as item';
             ;
-            $expr = '<%for (var $art_ijyglvcl$art_i = 0, $art_cifbjbiui$art_c = list.length; $art_ijyglvcl$art_i < $art_cifbjbiui$art_c; $art_ijyglvcl$art_i++) {            var item = list[$art_ijyglvcl$art_i]%>';
-            for (var $art_ijyglvcl$art_i = 0, $art_cifbjbiui$art_c = list.length; $art_ijyglvcl$art_i < $art_cifbjbiui$art_c; $art_ijyglvcl$art_i++) {
-                var item = list[$art_ijyglvcl$art_i];
+            $expr = '<%for (var $art_ipxybrgzb$art_i = 0, $art_csvczrveyj$art_c = list.length; $art_ipxybrgzb$art_i < $art_csvczrveyj$art_c; $art_ipxybrgzb$art_i++) {            var item = list[$art_ipxybrgzb$art_i]%>';
+            for (var $art_ipxybrgzb$art_i = 0, $art_csvczrveyj$art_c = list.length; $art_ipxybrgzb$art_i < $art_csvczrveyj$art_c; $art_ipxybrgzb$art_i++) {
+                var item = list[$art_ipxybrgzb$art_i];
                 $p += '<li mxa="_zs_galleryd^:b" class="mx-output-item"><span class="mx-output-link ';
                 $line = 22;
                 $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';
@@ -120,7 +120,7 @@ module.exports = Magix.View.extend({
         }
         else {
             ;
-            $p += '<li mxa="_zs_galleryd^:c" class="text-center color-9">';
+            $p += '<li mxa="_zs_galleryd^:c" class="text-center color-9 pt20 pb20">';
             $line = 30;
             $art = '=emptyText';
             ;
@@ -154,6 +154,9 @@ catch (ex) {
         that.updater.snapshot();
         //该处是否可以由magix自动调用
         that.assign(extra);
+        // 初始化列表为空默认为动态刷新列表
+        var list = extra.list || [];
+        that['@{dynamic.list}'] = (list.length == 0);
         Monitor['@{setup}']();
         that.on('destroy', function () {
             Monitor['@{remove}'](that);
@@ -286,11 +289,8 @@ catch (ex) {
             });
         }
         else if (e.keyCode == 13) {
-            // 未选中时，回车默认第一个，已选中的情况下还是当前选项
-            if (idx < 0) {
-                idx = 0;
-            }
-            that['@{select}'](list[idx]);
+            // 回车逻辑
+            that['@{enter}'](idx);
         }
         else {
             that['@{suggest.delay.timer}'] = setTimeout(that.wrapAsync(function () {
@@ -312,18 +312,8 @@ catch (ex) {
      * 外部更新list可选项
      */
     update: function (list) {
-        var that = this;
-        var show = that.updater.get('show');
-        if (show) {
-            that['@{list.bak}'] = that['@{wrap}'](list);
-            // 不需要再处理，直接返回什么，展示什么
-            var selectedText = $('#' + that.id + '_input').val();
-            that.updater.digest({
-                list: that['@{list.bak}'],
-                selectedText: selectedText
-            });
-            Monitor['@{add}'](that);
-        }
+        this['@{list.bak}'] = this['@{wrap}'](list);
+        this['@{show}'](true);
     },
     '@{inside}': function (node) {
         return Magix.inside(node, this.id);
@@ -333,32 +323,60 @@ catch (ex) {
     },
     '@{show}': function (ignore) {
         var that = this;
-        var source = that['@{list.bak}'];
         var selectedText = $('#' + that.id + '_input').val();
-        var lowerText = (selectedText + '').toLowerCase();
-        var list = [];
-        var types = that['@{search.type}'];
-        source.forEach(function (item) {
-            var has = false;
-            types.forEach(function (type) {
-                if ((item[type] + '').toLowerCase().indexOf(lowerText) > -1) {
-                    has = true;
+        if (that['@{dynamic.list}']) {
+            // 动态更新数据
+            if (!selectedText) {
+                // 未输入内容不响应：清空选项
+                that.updater.set({
+                    list: that['@{list.bak}'] = []
+                });
+                that['@{hide}']();
+            }
+            else {
+                that.updater.digest({
+                    list: that['@{list.bak}'],
+                    selectedText: selectedText,
+                    show: true
+                });
+                Monitor['@{add}'](that);
+                if (!ignore) {
+                    that['@{owner.node}'].trigger({
+                        type: 'show',
+                        keyword: selectedText
+                    });
+                }
+            }
+        }
+        else {
+            var source = that['@{list.bak}'];
+            var lowerText_1 = (selectedText + '').toLowerCase();
+            var list_1 = [];
+            var types_1 = that['@{search.type}'];
+            source.forEach(function (item) {
+                var has = false;
+                types_1.forEach(function (type) {
+                    if ((item[type] + '').toLowerCase().indexOf(lowerText_1) > -1) {
+                        has = true;
+                    }
+                });
+                if (has) {
+                    list_1.push(item);
                 }
             });
-            if (has) {
-                list.push(item);
+            that.updater.digest({
+                list: list_1,
+                selectedText: selectedText,
+                show: true
+            });
+            Monitor['@{add}'](that);
+            if (!ignore) {
+                that['@{owner.node}'].trigger({
+                    type: 'show',
+                    keyword: selectedText
+                });
             }
-        });
-        that.updater.digest({
-            list: list,
-            selectedText: selectedText,
-            show: true
-        });
-        Monitor['@{add}'](that);
-        that['@{owner.node}'].trigger({
-            type: 'show',
-            keyword: selectedText
-        });
+        }
     },
     '@{hide}': function () {
         var that = this;
@@ -381,6 +399,27 @@ catch (ex) {
         // 双向绑定
         that['@{owner.node}'].trigger('focusout');
     },
+    '@{enter}': function (idx) {
+        var that = this;
+        var selectedText = $('#' + that.id + '_input').val();
+        var item = {};
+        if (!selectedText && that['@{dynamic.list}']) {
+            // 动态更新数据的时候，当前输入框为空，清空选中项
+            item = {
+                value: '',
+                text: ''
+            };
+        }
+        else {
+            var list = that.updater.get().list;
+            // 未选中时，回车默认第一个，已选中的情况下还是当前选项
+            if (idx < 0) {
+                idx = 0;
+            }
+            item = list[idx];
+        }
+        this['@{select}'](item);
+    },
     '@{select}<click>': function (e) {
         e.stopPropagation();
         var item = e.params.item;
@@ -389,29 +428,21 @@ catch (ex) {
     '@{select}': function (item) {
         var that = this;
         var notice = !(item.value == that['@{value.bak}']);
-        var selectedText = item.text, selectedValue = that['@{value.bak}'] = item.value;
+        var selectedValue = that['@{value.bak}'] = item.value;
         that['@{hide}']();
         if (notice) {
+            // 双向绑定
             that['@{owner.node}'].val(selectedValue).trigger({
                 type: 'suggest',
                 selected: {
                     value: selectedValue,
-                    text: selectedText
+                    text: item.text
                 }
             });
-            // 双向绑定
+            debugger;
+            // 触发双向绑定
             that['@{owner.node}'].trigger('change');
         }
-    },
-    '@{fire}': function (selectedValue, selectedText) {
-        var that = this;
-        that['@{owner.node}'].val(selectedValue).trigger({
-            type: 'suggest',
-            selected: {
-                value: selectedValue,
-                text: selectedText
-            }
-        });
     }
 });
 

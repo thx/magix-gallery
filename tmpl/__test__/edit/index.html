@@ -1,13 +1,19 @@
 <div class="tip-content has-border has-highlight mb20 mr20">
     <div class="clearfix lh24">
-        <div class="fl">说明：</div>
+        <div class="fl">操作说明：</div>
         <div class="fl">
             <div>1. 选择预置主题（钻展/直通车/超级推荐）或者自定义一个颜色作为项目品牌色；</div>
             <div>2. 系统根据品牌色计算出默认色值，可在此基础上进行调整；</div>
-            <div>3. 右侧iframe嵌入脚手架列举常见场景，与左侧设置的变量实时联动，帮您真实复原应用场景；</div>
+            <div>3. 左侧编辑区域列举可设置的变量，支持修改</div>
+            <div>4. 右侧iframe嵌入脚手架列举常见场景，与左侧设置的变量实时联动，帮您真实复原应用场景；</div>
         </div>
     </div>
-    <div class="lh24">注：hover名称可查看详细说明</div>
+    <div class="clearfix lh24 tip">
+        <div class="tip-left">关于项目配置和组件配置的说明：</div>
+        <div>超级推荐仿照Facebook，趋于将组件颜色统一化，只通过导航颜色区分不同品牌，后续只需要配置项目色值，组件色值所有都统一。</div>
+        <div>对于老项目项目品牌色 = 组件品牌色，老项目要做成品牌色变更是比较难的，故过渡阶段兼容配置，项目品牌和组件品牌可分别设置。</div>
+        <div>单个操作项说明可hover名称查看</div>
+    </div>
 </div>
 <div class="clearfix mb30">
     {{each themes as t i}}
@@ -34,31 +40,42 @@
         <span class="arrow"></span>
         <span class="white-arrow"></span>
     </div>
-    <div class="colors clearfix">
-        {{each list as item}}
-            <div class="item">
-                <div class="nowrap mb10 color-6 cursor-help"><mx-popover 
-                    content="{{=item.tip}}"
-                    width="320"
-                    offset="{{@{left: 120}}}">{{=item.text}}</mx-popover></div>
-                {{if item.type == 'color'}}
-                <div class="color-wrapper" style="background-color: {{=item.value}};">
-                    <mx-color.picker 
-                        color="{{:item.value}}"
-                        mx-change="sync({key:'{{=item.key}}'})"/>  
-                </div>
-                {{/if}}
-                {{if item.type == 'text'}}
-                <div>
-                    <input type="text" class="w100"
-                        value="{{:item.value}}"
-                        mx-change="sync({key:'{{=item.key}}'})"/>
-                </div>
-                {{/if}}
+    <div class="colors">
+        {{each list as group}}
+            <div class="group">
+                {{=group.text}}
+                <mx-popover class="mc-iconfont color-9"
+                    content="{{=group.tip}}"
+                    width="400"
+                    offset="{{@{left:140}}}">&#xe629;</mx-popover>
             </div>
-            {{if item.gap}}
-            <div class="item"></div>
-            {{/if}}
+            <div class="clearfix">
+                {{each group.subs as item}}
+                    <div class="item">
+                        <div class="nowrap mb10 color-6 cursor-help"><mx-popover 
+                            content="{{=item.tip}}"
+                            width="320"
+                            offset="{{@{left: 120}}}">{{=item.text}}</mx-popover></div>
+                        {{if item.type == 'color'}}
+                        <div class="color-wrapper" style="background-color: {{=item.value}};">
+                            <mx-color.picker 
+                                color="{{:item.value}}"
+                                mx-change="sync({key:'{{=item.key}}'})"/>  
+                        </div>
+                        {{/if}}
+                        {{if item.type == 'text'}}
+                        <div>
+                            <input type="text" class="w100"
+                                value="{{:item.value}}"
+                                mx-change="sync({key:'{{=item.key}}'})"/>
+                        </div>
+                        {{/if}}
+                    </div>
+                    {{if item.gap}}
+                    <div class="item"></div>
+                    {{/if}}
+                {{/each}}
+            </div>
         {{/each}}
     </div>
     <div class="preview">

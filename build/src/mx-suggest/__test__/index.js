@@ -144,7 +144,7 @@ catch (ex) {
             }];
         var events = [{
                 type: 'show',
-                desc: '出现提示框的时候触发，常用于动态更新可选项',
+                desc: '输入关键词，出现提示框的时候触发，常用于动态更新可选项',
                 params: [{
                         key: 'keyword',
                         desc: '当前输入的关键词',

@@ -64,7 +64,7 @@ module.exports = Magix.View.extend({
 
     '@{show}'() {
         let that = this;
-        let show = that.updater.get('show');
+        let { show, dateInfo } = that.updater.get();
         if (!show) {
             that.updater.digest({
                 show: true
@@ -72,7 +72,6 @@ module.exports = Magix.View.extend({
 
             let inputNode = $('#trigger_' + that.id),
                 calNode = $('#dpcnt_' + that.id);
-            let dateInfo = that.updater.get('dateInfo');
             let left = 0,
                 top = inputNode.outerHeight();
             if (dateInfo.align == 'right') {

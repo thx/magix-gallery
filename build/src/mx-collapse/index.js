@@ -30,8 +30,8 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cmeczjgmbs$art_c = list.length; index < $art_cmeczjgmbs$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cmeczjgmbs$art_c = list.length; index < $art_cmeczjgmbs$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cnmslar$art_c = list.length; index < $art_cnmslar$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cnmslar$art_c = list.length; index < $art_cnmslar$art_c; index++) {
         var item = list[index];
         $p += '<div mxv class="_zs_gallery_mx-collapse_index_-item ';
         $line = 3;
@@ -268,7 +268,7 @@ catch (ex) {
     },
     'toggle<click>': function (event) {
         var cur = event.params.index;
-        var list = this.updater.get('list'), onlyOne = this.updater.get('onlyOne');
+        var _a = this.updater.get(), list = _a.list, onlyOne = _a.onlyOne;
         list.forEach(function (item, index) {
             if (index == cur) {
                 item.expand = !item.expand;

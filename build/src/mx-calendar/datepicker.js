@@ -145,13 +145,12 @@ catch (ex) {
     },
     '@{show}': function () {
         var that = this;
-        var show = that.updater.get('show');
+        var _a = that.updater.get(), show = _a.show, dateInfo = _a.dateInfo;
         if (!show) {
             that.updater.digest({
                 show: true
             });
             var inputNode = $('#trigger_' + that.id), calNode = $('#dpcnt_' + that.id);
-            var dateInfo = that.updater.get('dateInfo');
             var left = 0, top = inputNode.outerHeight();
             if (dateInfo.align == 'right') {
                 left = inputNode.outerWidth() - calNode.outerWidth();

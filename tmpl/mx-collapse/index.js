@@ -108,8 +108,7 @@ module.exports = Magix.View.extend({
 
     'toggle<click>'(event) {
         let cur = event.params.index;
-        let list = this.updater.get('list'),
-            onlyOne = this.updater.get('onlyOne');
+        let { list, onlyOne } = this.updater.get();
         list.forEach((item, index) => {
             if (index == cur) {
                 item.expand = !item.expand;

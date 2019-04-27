@@ -262,7 +262,7 @@ catch (ex) {
         }
     },
     '@{trigger}': function (offset) {
-        var active = this.updater.get('active'), len = this.updater.get('len');
+        var _a = this.updater.get(), active = _a.active, len = _a.len;
         active = +active + offset;
         if (active >= len) {
             active = 0;

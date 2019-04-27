@@ -307,8 +307,7 @@ module.exports = Magix.View.extend({
 
     val(full) {
         let that = this;
-        let types = that.updater.get('types'),
-            cityVisible = that.updater.get('cityVisible');
+        let { types, cityVisible } = that.updater.get();
         let selected = [];
         let all = [];
         types.forEach(type => {

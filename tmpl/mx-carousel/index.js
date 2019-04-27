@@ -190,8 +190,7 @@ module.exports = Magix.View.extend({
     },
 
     '@{trigger}'(offset) {
-        let active = this.updater.get('active'),
-            len = this.updater.get('len');
+        let { active, len } = this.updater.get();
         active = +active + offset;
         if(active >= len){
             active = 0;

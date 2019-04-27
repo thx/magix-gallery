@@ -100,8 +100,8 @@ module.exports = Magix.View.extend({
                     };
                 })
             }, {
-                rootMargin: '10px 0px'
-            });
+                    rootMargin: '10px 0px'
+                });
 
             observer.observe(document.querySelector('#' + that.id));
 
@@ -117,11 +117,7 @@ module.exports = Magix.View.extend({
     },
 
     thumbnail() {
-        let data = this.updater.get();
-        let type = data.type,
-            url = data.url,
-            maxWidth = data.maxWidth,
-            maxHeight = data.maxHeight;
+        let { type, url, maxWidth, maxHeight, width, height, clickUrl } = this.updater.get();
 
         let thumbnail = '';
         switch (type) {
@@ -135,13 +131,11 @@ module.exports = Magix.View.extend({
                 thumbnail = `<video src="${url}" class="@index.less:video"></video>`;
                 break;
             case 'text':
-                thumbnail = $(`<div class="@index.less:text" style="max-width: ${maxWidth}px;"></div>`);
+                thumbnail = $(`<div class="@index.less:text" style="max-width: ${maxWidth}px; max-height: ${maxHeight}px;"></div>`);
                 // 纯文案展示（包括可执行脚本）
                 thumbnail[0].innerText = url;
                 break;
             case 'iframe':
-                let width = data.width,
-                    height = data.height;
                 let scale = Math.min(maxWidth / width, maxHeight / height);
                 let frameWidth = width * scale,
                     frameHeight = height * scale;
@@ -161,7 +155,6 @@ module.exports = Magix.View.extend({
         }
 
         // 跳转外链
-        let clickUrl = data.clickUrl;
         if (clickUrl) {
             thumbnail = $(thumbnail).wrap(`<a href="${clickUrl}" target="_blank" rel="noopener noreferrer"></a>`);
         }
@@ -208,7 +201,7 @@ module.exports = Magix.View.extend({
                 winHeight = win.height(),
                 winScroll = win.scrollTop();
 
-            if(top < winScroll){
+            if (top < winScroll) {
                 top = winScroll;
             }
 
@@ -216,15 +209,15 @@ module.exports = Magix.View.extend({
             // placement: left（目标左侧）
             let placement = data.placement,
                 rangeWidth = 0; // 可见宽度范围
-            if(placement == 'left'){
+            if (placement == 'left') {
                 // 左边
                 rangeWidth = left - 10;
-            }else{
+            } else {
                 // 右边
                 left += target.outerWidth() + 10;
                 rangeWidth = winWidth - left;
             }
-                
+
             if (rangeWidth < width) {
                 height = height * (rangeWidth / width);
                 width = rangeWidth;

@@ -90,7 +90,7 @@ module.exports = Magix.View.extend({
         let me = this;
         let viewOptions = me.viewOptions;
 
-        let parents = me.updater.get('parents');
+        let { parents, keyword } = me.updater.get();
         let selectedItems = [];
         parents.forEach(parent => {
             parent.list.forEach(item => {
@@ -101,7 +101,7 @@ module.exports = Magix.View.extend({
         })
         if (viewOptions.submit) {
             viewOptions.submit({
-                keyword: me.updater.get('keyword'),
+                keyword,
                 selectedItems
             });
         }

@@ -12,6 +12,11 @@ module.exports = Magix.View.extend({
         that.updater.snapshot();
         //该处是否可以由magix自动调用
         that.assign(extra);
+
+        // 初始化列表为空默认为动态刷新列表
+        let list = extra.list || [];
+        that['@{dynamic.list}'] = (list.length == 0);
+
         Monitor['@{setup}']();
         that.on('destroy', function () {
             Monitor['@{remove}'](that);
@@ -149,11 +154,8 @@ module.exports = Magix.View.extend({
                 selectedValue: list[idx].value
             });
         } else if (e.keyCode == 13) {
-            // 未选中时，回车默认第一个，已选中的情况下还是当前选项
-            if (idx < 0) {
-                idx = 0;
-            }
-            that['@{select}'](list[idx]);
+            // 回车逻辑
+            that['@{enter}'](idx);
         } else {
             that['@{suggest.delay.timer}'] = setTimeout(that.wrapAsync(function () {
                 that['@{show}']();
@@ -174,20 +176,8 @@ module.exports = Magix.View.extend({
      * 外部更新list可选项
      */
     update: function (list) {
-        let that = this;
-        let show = that.updater.get('show');
-
-        if(show){
-            that['@{list.bak}'] = that['@{wrap}'](list);
-    
-            // 不需要再处理，直接返回什么，展示什么
-            let selectedText = $('#' + that.id + '_input').val();
-            that.updater.digest({
-                list: that['@{list.bak}'],
-                selectedText: selectedText
-            });
-            Monitor['@{add}'](that);
-        }
+        this['@{list.bak}'] = this['@{wrap}'](list);
+        this['@{show}'](true);
     },
     '@{inside}': function (node) {
         return Magix.inside(node, this.id);
@@ -197,33 +187,58 @@ module.exports = Magix.View.extend({
     },
     '@{show}': function (ignore) {
         let that = this;
-        let source = that['@{list.bak}'];
         let selectedText = $('#' + that.id + '_input').val();
-        let lowerText = (selectedText + '').toLowerCase();
-        let list = [];
-
-        let types = that['@{search.type}'];
-        source.forEach(function (item) {
-            let has = false;
-            types.forEach(type => {
-                if ((item[type] + '').toLowerCase().indexOf(lowerText) > -1) {
-                    has = true;
+        if(that['@{dynamic.list}']){
+            // 动态更新数据
+            if(!selectedText){
+                // 未输入内容不响应：清空选项
+                that.updater.set({
+                    list: that['@{list.bak}'] = []
+                });
+                that['@{hide}']();
+            }else{
+                that.updater.digest({
+                    list: that['@{list.bak}'],
+                    selectedText: selectedText,
+                    show: true
+                });
+                Monitor['@{add}'](that);
+                if(!ignore){
+                    that['@{owner.node}'].trigger({
+                        type: 'show',
+                        keyword: selectedText
+                    });
                 }
-            })
-            if (has) {
-                list.push(item);
             }
-        });
-        that.updater.digest({
-            list: list,
-            selectedText: selectedText,
-            show: true
-        });
-        Monitor['@{add}'](that);
-        that['@{owner.node}'].trigger({
-            type: 'show',
-            keyword: selectedText
-        });
+        }else{
+            let source = that['@{list.bak}'];
+            let lowerText = (selectedText + '').toLowerCase();
+            let list = [];
+            let types = that['@{search.type}'];
+            source.forEach(function (item) {
+                let has = false;
+                types.forEach(type => {
+                    if ((item[type] + '').toLowerCase().indexOf(lowerText) > -1) {
+                        has = true;
+                    }
+                })
+                if (has) {
+                    list.push(item);
+                }
+            });
+            that.updater.digest({
+                list: list,
+                selectedText: selectedText,
+                show: true
+            });
+            Monitor['@{add}'](that);
+            if(!ignore){
+                that['@{owner.node}'].trigger({
+                    type: 'show',
+                    keyword: selectedText
+                });
+            }
+        }
     },
     '@{hide}': function () {
         let that = this;
@@ -247,40 +262,48 @@ module.exports = Magix.View.extend({
         // 双向绑定
         that['@{owner.node}'].trigger('focusout');
     },
+    '@{enter}': function (idx) {
+        let that = this;
+        let selectedText = $('#' + that.id + '_input').val();
+        let item = {};
+        if(!selectedText && that['@{dynamic.list}']){
+            // 动态更新数据的时候，当前输入框为空，清空选中项
+            item = {
+                value: '',
+                text: ''
+            }
+        }else{
+            let { list } = that.updater.get();
+            // 未选中时，回车默认第一个，已选中的情况下还是当前选项
+            if (idx < 0) {
+                idx = 0;
+            }
+            item = list[idx];
+        }
+        this['@{select}'](item);
+    },
     '@{select}<click>': function (e) {
         e.stopPropagation();
         let item = e.params.item;
         this['@{select}'](item);
     },
-    '@{select}': function (item) {
+    '@{select}'(item){
         let that = this;
         let notice = !(item.value == that['@{value.bak}']);
-
-        let selectedText = item.text,
-            selectedValue = that['@{value.bak}'] = item.value;
+        let selectedValue = that['@{value.bak}'] = item.value;
         that['@{hide}']();
-
         if(notice){
+            // 双向绑定
             that['@{owner.node}'].val(selectedValue).trigger({
                 type: 'suggest',
                 selected: {
                     value: selectedValue,
-                    text: selectedText
+                    text: item.text
                 }
             });
-    
-            // 双向绑定
+            debugger
+            // 触发双向绑定
             that['@{owner.node}'].trigger('change');
         }
-    },
-    '@{fire}': function (selectedValue, selectedText) {
-        let that = this;
-        that['@{owner.node}'].val(selectedValue).trigger({
-            type: 'suggest',
-            selected: {
-                value: selectedValue,
-                text: selectedText
-            }
-        });
     }
 });

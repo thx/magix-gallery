@@ -101,9 +101,8 @@ module.exports = Magix.View.extend({
 
     '@{hide}'() {
         let that = this;
-        let show = that.updater.get('show');
+        let { show, info } = this.updater.get();
         if (show) {
-            let info = that.updater.get('info');
             let color = that['@{owner.node}'].val();
             info.color = color;
             that.updater.digest({

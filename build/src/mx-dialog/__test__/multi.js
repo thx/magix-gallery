@@ -59,9 +59,7 @@ catch (ex) {
         }
     },
     'modal<click>': function (e) {
-        var width = +this.updater.get('width');
-        var height = +this.updater.get('height');
-        var number = +this.updater.get('number');
+        var _a = this.updater.get(), width = _a.width, height = _a.height, number = _a.number;
         this.mxDialog('mx-dialog/__test__/multi', {
             number: number + 1
         }, {

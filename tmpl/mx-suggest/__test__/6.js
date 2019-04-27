@@ -13,9 +13,10 @@ module.exports = Base.extend({
         });
     },
     'update<show>'(e) {
+        // 输入框输入关键词时触发show
         // 当前输入框输入的值
         let keyword = e.keyword;
-
+        
         let instance = Vframe.get(this.id + '_test');
         instance.invoke('showLoading');
         setTimeout(() => {

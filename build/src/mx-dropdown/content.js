@@ -92,8 +92,8 @@ module.exports = Magix.View.extend({
         $line = 24;
         $art = 'each parents as parent parentIndex';
         ;
-        $expr = '<%for (var parentIndex = 0, $art_cnimxkqtvv$art_c = parents.length; parentIndex < $art_cnimxkqtvv$art_c; parentIndex++) {        var parent = parents[parentIndex]%>';
-        for (var parentIndex = 0, $art_cnimxkqtvv$art_c = parents.length; parentIndex < $art_cnimxkqtvv$art_c; parentIndex++) {
+        $expr = '<%for (var parentIndex = 0, $art_ccjqppbl$art_c = parents.length; parentIndex < $art_ccjqppbl$art_c; parentIndex++) {        var parent = parents[parentIndex]%>';
+        for (var parentIndex = 0, $art_ccjqppbl$art_c = parents.length; parentIndex < $art_ccjqppbl$art_c; parentIndex++) {
             var parent = parents[parentIndex];
             $p += ' ';
             $line = 25;
@@ -128,9 +128,9 @@ module.exports = Magix.View.extend({
                 $line = 29;
                 $art = 'each parent.list as item itemIndex';
                 ;
-                $expr = '<%for (var itemIndex = 0, $art_objbrxvpjd$art_obj = parent.list, $art_cyrsmietr$art_c = $art_objbrxvpjd$art_obj.length; itemIndex < $art_cyrsmietr$art_c; itemIndex++) {                var item = $art_objbrxvpjd$art_obj[itemIndex]%>';
-                for (var itemIndex = 0, $art_objbrxvpjd$art_obj = parent.list, $art_cyrsmietr$art_c = $art_objbrxvpjd$art_obj.length; itemIndex < $art_cyrsmietr$art_c; itemIndex++) {
-                    var item = $art_objbrxvpjd$art_obj[itemIndex];
+                $expr = '<%for (var itemIndex = 0, $art_objigazolak$art_obj = parent.list, $art_cujmvbcga$art_c = $art_objigazolak$art_obj.length; itemIndex < $art_cujmvbcga$art_c; itemIndex++) {                var item = $art_objigazolak$art_obj[itemIndex]%>';
+                for (var itemIndex = 0, $art_objigazolak$art_obj = parent.list, $art_cujmvbcga$art_c = $art_objigazolak$art_obj.length; itemIndex < $art_cujmvbcga$art_c; itemIndex++) {
+                    var item = $art_objigazolak$art_obj[itemIndex];
                     $p += ' ';
                     $line = 30;
                     $art = 'if !item.hide';
@@ -432,7 +432,7 @@ catch (ex) {
     '@{submit}<click>': function (e) {
         var me = this;
         var viewOptions = me.viewOptions;
-        var parents = me.updater.get('parents');
+        var _a = me.updater.get(), parents = _a.parents, keyword = _a.keyword;
         var selectedItems = [];
         parents.forEach(function (parent) {
             parent.list.forEach(function (item) {
@@ -443,7 +443,7 @@ catch (ex) {
         });
         if (viewOptions.submit) {
             viewOptions.submit({
-                keyword: me.updater.get('keyword'),
+                keyword: keyword,
                 selectedItems: selectedItems
             });
         }

@@ -31,7 +31,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', selected = $$.selected, viewId = $$.viewId, msg = $$.msg, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryd@:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryd@:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryd@:_" class="mb20 clearfix"><div class="fl color-9">以下示例：</div><div class="fl"><span class="color-brand">支持双向绑定</span>；动态更新提示数据；请求数据有延时，加loading</div></div><div mxa="_zs_galleryd@:b" class="mb10"><span mxs="_zs_galleryd@:a" class="color-9">当前选中：</span>';
+    $p += '<div mxv mxa="_zs_galleryd@:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryd@:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryd@:f" class="mb20 clearfix"><div class="fl color-9">以下示例：</div><div class="fl"><span class="color-brand">支持双向绑定</span>；输入关键词动态获取提示数据；请求数据有延时，加loading</div></div><div mxa="_zs_galleryd@:b" class="mb10"><span mxs="_zs_galleryd@:a" class="color-9">当前选中：</span>';
     $line = 11;
     $art = '=selected';
     ;
@@ -106,6 +106,7 @@ catch (ex) {
         });
     },
     'update<show>': function (e) {
+        // 输入框输入关键词时触发show
         // 当前输入框输入的值
         var keyword = e.keyword;
         var instance = Vframe.get(this.id + '_test');

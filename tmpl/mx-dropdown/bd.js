@@ -175,7 +175,7 @@ module.exports = Magix.View.extend({
     },
     '@{val}'(fire) {
         let me = this;
-        let selectedItems = me.updater.get('selectedItems');
+        let { selectedItems, emptyText } = me.updater.get(); 
 
         let texts = [],
             values = [];
@@ -184,7 +184,6 @@ module.exports = Magix.View.extend({
             values.push(item.value);
         })
 
-        let emptyText = me.updater.get('emptyText');
         me.updater.digest({
             selectedText: texts.join(',') || emptyText
         })

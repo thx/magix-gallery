@@ -130,10 +130,16 @@
     background-color: #fff;
 }
 
-[mx-view*="mx-color/picker"][mx-view*="dot=true"]{
-    min-width: var(--input-height);
-
+[mx-view*="mx-color/picker"]{
     .color-output{
-        max-width: none;
+        min-width: 0;
+    }
+
+    &[mx-view*="dot=true"]{
+        min-width: var(--input-height);
+
+        .color-output{
+            max-width: none;
+        }
     }
 }

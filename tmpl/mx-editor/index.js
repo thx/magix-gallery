@@ -101,7 +101,7 @@ module.exports = Magix.View.extend({
         }
 
         let val = e.target.value;
-        let tmpl = that.updater.get('tmpl');
+        let { tmpl, content } = that.updater.get();
         that.updater.digest({
             editing: false,
             dis: tmpl.replace(Placeholder, val),
@@ -109,11 +109,10 @@ module.exports = Magix.View.extend({
         })
 
         // 只触发一次trigger
-        let val = that.updater.get('content');
-        if (that['@{old.content}'] != val) {
+        if (that['@{old.content}'] != content) {
             $('#' + that.id).trigger({
                 type: 'edit',
-                editText: val
+                editText: content
             })
         }
     }

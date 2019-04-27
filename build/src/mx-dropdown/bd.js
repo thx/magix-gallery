@@ -215,13 +215,12 @@ catch (ex) {
     },
     '@{val}': function (fire) {
         var me = this;
-        var selectedItems = me.updater.get('selectedItems');
+        var _a = me.updater.get(), selectedItems = _a.selectedItems, emptyText = _a.emptyText;
         var texts = [], values = [];
         selectedItems.forEach(function (item) {
             texts.push(item.text);
             values.push(item.value);
         });
-        var emptyText = me.updater.get('emptyText');
         me.updater.digest({
             selectedText: texts.join(',') || emptyText
         });

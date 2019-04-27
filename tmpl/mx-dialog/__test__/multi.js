@@ -23,9 +23,7 @@ module.exports = Magix.View.extend({
         }
     },
     'modal<click>'(e) {
-        let width = +this.updater.get('width');
-        let height = +this.updater.get('height');
-        let number = +this.updater.get('number');
+        let { width, height, number } = this.updater.get();
         this.mxDialog('@./multi', {
             number: number + 1
         }, {
