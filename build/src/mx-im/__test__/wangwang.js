@@ -36,7 +36,7 @@ module.exports = Base.extend({
     $line = 14;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-wangwang uid="虞佳"/&gt;\n            </pre></div><div mxa="_zs_gallerycn:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycn:d" class="_zs_gallery___test___layout_-eg-title">等同于</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-im.ww uid="虞佳"/&gt;\n            </pre></div><div mxa="_zs_gallerycn:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerycn:d" class="_zs_gallery___test___layout_-eg-title">等同于</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 20;
     $art = '=viewId';
     ;

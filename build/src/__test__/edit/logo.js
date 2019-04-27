@@ -31,9 +31,9 @@ module.exports = Base.extend({
     $line = 4;
     $art = 'each themes as t';
     ;
-    $expr = '<%for (var $art_ituuorws$art_i = 0, $art_clswmt$art_c = themes.length; $art_ituuorws$art_i < $art_clswmt$art_c; $art_ituuorws$art_i++) {    var t = themes[$art_ituuorws$art_i]%>';
-    for (var $art_ituuorws$art_i = 0, $art_clswmt$art_c = themes.length; $art_ituuorws$art_i < $art_clswmt$art_c; $art_ituuorws$art_i++) {
-        var t = themes[$art_ituuorws$art_i];
+    $expr = '<%for (var $art_ibsqwrwqso$art_i = 0, $art_cxkuachexe$art_c = themes.length; $art_ibsqwrwqso$art_i < $art_cxkuachexe$art_c; $art_ibsqwrwqso$art_i++) {    var t = themes[$art_ibsqwrwqso$art_i]%>';
+    for (var $art_ibsqwrwqso$art_i = 0, $art_cxkuachexe$art_c = themes.length; $art_ibsqwrwqso$art_i < $art_cxkuachexe$art_c; $art_ibsqwrwqso$art_i++) {
+        var t = themes[$art_ibsqwrwqso$art_i];
         $p += '<div class="fl" style="width: ';
         $line = 5;
         $art = '=(100/themes.length)';
