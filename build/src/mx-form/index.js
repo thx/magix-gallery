@@ -183,7 +183,6 @@ module.exports = {
                 console.warn('can not set by path:', ctrl.p);
             }
         }
-        debugger;
         if (refresh && e.type === 'change') {
             //解决在updater已经digesting时，再次digest带来的不稳定问题
             clearTimeout(me['@{digest.timer}']);

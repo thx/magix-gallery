@@ -65,18 +65,17 @@ item: {
                 desc: '当前输入的关键词',
                 type: 'string'
             }]
-        },{
-            type: 'suggest',
-            desc: '选中某个可选项时触发',
+        }, {
+            type: 'change',
+            desc: '选中下拉框中某个选项时触发',
             params: [{
-                key: 'selected',
-                desc: `<pre>当前选中项完整对象
-{
-    value: '',
-    text: ''
-}
-</pre>`,
+                key: 'item',
+                desc: '当前选中完整对象',
                 type: 'object'
+            }, {
+                key: 'selected',
+                desc: '当前选中value，selected = item.value',
+                type: 'string'
             }]
         }]
 

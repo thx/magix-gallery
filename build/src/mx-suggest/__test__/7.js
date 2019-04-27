@@ -39,7 +39,11 @@ module.exports = Base.extend({
     $line = 13;
     $art = ':selected{required:true,refresh:true}';
     ;
-    $p += '{p:\'selected\',f:{required:true,refresh:true},a:\'selected\'}]" id="';
+    $p += '{p:\'selected\',f:{required:true,refresh:true},a:\'selected\'},';
+    $line = 14;
+    $art = ':item';
+    ;
+    $p += '{p:\'item\',a:\'item\'}]" id="';
     $line = 12;
     $art = '=viewId';
     ;
@@ -49,7 +53,7 @@ module.exports = Base.extend({
     ;
     $p += ($expr = '<%@selected%>', $i($$ref, selected)) + '&item=';
     $line = 14;
-    $art = '@item';
+    $art = ':item';
     ;
     $p += ($expr = '<%@item%>', $i($$ref, item)) + '"></div><a mxs="_zs_galleryd$:b" href="javascript:;" class="btn ml10" mx-click="' + $viewId + 'check()">校验选择项</a>';
     $line = 19;
@@ -81,7 +85,7 @@ module.exports = Base.extend({
     $line = 32;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-suggest \n    id="&#123;&#123;=viewId&#125;&#125;_test"\n    selected="&#123;&#123;:selected&#123;required:true&#125;&#125;&#125;"\n    item="&#123;&#123;@item&#125;&#125;"\n    mx-show="update()"/&gt;\n            </pre></div><div mxa="_zs_galleryd$:h" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryd$:e" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-suggest \n    id="&#123;&#123;=viewId&#125;&#125;_test"\n    selected="&#123;&#123;:selected&#123;required:true&#125;&#125;&#125;"\n    item="&#123;&#123;:item&#125;&#125;"\n    mx-show="update()"/&gt;\n            </pre></div><div mxa="_zs_galleryd$:h" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryd$:e" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 42;
     $art = '=viewId';
     ;

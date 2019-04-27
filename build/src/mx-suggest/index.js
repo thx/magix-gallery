@@ -80,9 +80,9 @@ module.exports = Magix.View.extend({
             $line = 20;
             $art = 'each list as item';
             ;
-            $expr = '<%for (var $art_ipxybrgzb$art_i = 0, $art_csvczrveyj$art_c = list.length; $art_ipxybrgzb$art_i < $art_csvczrveyj$art_c; $art_ipxybrgzb$art_i++) {            var item = list[$art_ipxybrgzb$art_i]%>';
-            for (var $art_ipxybrgzb$art_i = 0, $art_csvczrveyj$art_c = list.length; $art_ipxybrgzb$art_i < $art_csvczrveyj$art_c; $art_ipxybrgzb$art_i++) {
-                var item = list[$art_ipxybrgzb$art_i];
+            $expr = '<%for (var $art_ioerkhmxj$art_i = 0, $art_cmdvfkphd$art_c = list.length; $art_ioerkhmxj$art_i < $art_cmdvfkphd$art_c; $art_ioerkhmxj$art_i++) {            var item = list[$art_ioerkhmxj$art_i]%>';
+            for (var $art_ioerkhmxj$art_i = 0, $art_cmdvfkphd$art_c = list.length; $art_ioerkhmxj$art_i < $art_cmdvfkphd$art_c; $art_ioerkhmxj$art_i++) {
+                var item = list[$art_ioerkhmxj$art_i];
                 $p += '<li mxa="_zs_galleryd^:b" class="mx-output-item"><span class="mx-output-link ';
                 $line = 22;
                 $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';
@@ -402,13 +402,12 @@ catch (ex) {
     '@{enter}': function (idx) {
         var that = this;
         var selectedText = $('#' + that.id + '_input').val();
-        var item = {};
+        var item = {
+            value: '',
+            text: ''
+        };
         if (!selectedText && that['@{dynamic.list}']) {
             // 动态更新数据的时候，当前输入框为空，清空选中项
-            item = {
-                value: '',
-                text: ''
-            };
         }
         else {
             var list = that.updater.get().list;
@@ -433,15 +432,18 @@ catch (ex) {
         if (notice) {
             // 双向绑定
             that['@{owner.node}'].val(selectedValue).trigger({
+                type: 'change',
+                selected: selectedValue,
+                item: item
+            });
+            // 兼容老的事件处理
+            that['@{owner.node}'].trigger({
                 type: 'suggest',
                 selected: {
                     value: selectedValue,
                     text: item.text
                 }
             });
-            debugger;
-            // 触发双向绑定
-            that['@{owner.node}'].trigger('change');
         }
     }
 });

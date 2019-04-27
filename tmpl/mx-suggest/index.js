@@ -265,13 +265,13 @@ module.exports = Magix.View.extend({
     '@{enter}': function (idx) {
         let that = this;
         let selectedText = $('#' + that.id + '_input').val();
-        let item = {};
+        let item = {
+            value: '',
+            text: ''
+        };
+        
         if(!selectedText && that['@{dynamic.list}']){
             // 动态更新数据的时候，当前输入框为空，清空选中项
-            item = {
-                value: '',
-                text: ''
-            }
         }else{
             let { list } = that.updater.get();
             // 未选中时，回车默认第一个，已选中的情况下还是当前选项
@@ -295,15 +295,19 @@ module.exports = Magix.View.extend({
         if(notice){
             // 双向绑定
             that['@{owner.node}'].val(selectedValue).trigger({
+                type: 'change',
+                selected: selectedValue,
+                item: item
+            });
+
+            // 兼容老的事件处理
+            that['@{owner.node}'].trigger({
                 type: 'suggest',
                 selected: {
                     value: selectedValue,
                     text: item.text
                 }
             });
-            debugger
-            // 触发双向绑定
-            that['@{owner.node}'].trigger('change');
         }
     }
 });
