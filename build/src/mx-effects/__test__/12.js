@@ -1,1 +1,54 @@
-define("mx-effects/__test__/12",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(s,a,l)=>{s("mx-copy/index"),s("__test__/hl");s("magix");var e=s("__test__/example");s("$");l.exports=e.extend({tmpl:function(s,a,l,e,_,r,i,t){if(l||(l=s),!_){var n={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},m=/[&<>"'`]/g,c=function(s){return"&"+n[s]+";"};_=function(s){return""+(null==s?"":s)},e=function(s){return _(s).replace(m,c)}}if(!r){var g={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},x=function(s){return g[s]},d=/[!')(*]/g;r=function(s){return encodeURIComponent(_(s)).replace(d,x)}}if(!t){var o=/[\\'"]/g;t=function(s){return _(s).replace(o,"\\$&")}}var v="",f=s.viewId,y=s.text1;v+='<div mxa="_zs_gallerybg:_" class="_zs_galleryg"><div mxa="_zs_gallerybg:a" class="_zs_galleryj"><div mxa="_zs_gallerybg:b" class="mb10"><div mxa="_zs_gallerybg:c" class="mx-star"><div mxa="_zs_gallerybg:d" class="mx-star-bg">';for(var b=0;b<5;b++)v+='<span mxs="_zs_gallerybg:_" class="mx-star-item"><i class="mc-iconfont">&#xe60f;</i></span>';v+='</div><div mxa="_zs_gallerybg:e" class="mx-star-on" style="width: 50%;"><div mxa="_zs_gallerybg:f" class="mx-star-inner">';for(b=0;b<5;b++)v+='<span mxs="_zs_gallerybg:a" class="mx-star-item" style="color:#ffb400"><i class="mc-iconfont">&#xe60f;</i></span>';v+='</div></div></div></div><div mxa="_zs_gallerybg:g" class="mb10"><div mxa="_zs_gallerybg:h" class="mx-star"><div mxa="_zs_gallerybg:i" class="mx-star-bg">';for(b=0;b<5;b++)v+='<span mxs="_zs_gallerybg:_" class="mx-star-item"><i class="mc-iconfont">&#xe60f;</i></span>';v+='</div><div mxa="_zs_gallerybg:j" class="mx-star-on" style="width: 80%;"><div mxa="_zs_gallerybg:k" class="mx-star-inner">';for(b=0;b<5;b++)v+='<span mxs="_zs_gallerybg:b" class="mx-star-item" style="color:rgb(81, 163, 0)"><i class="mc-iconfont">&#xe60f;</i></span>';return v+='</div></div></div></div></div><div mxa="_zs_gallerybg:l" class="_zs_galleryk"><div mxs="_zs_gallerybg:c" class="_zs_galleryi">自定义颜色</div><div class="_zs_galleryl" mx-success="'+a+'done({id:1})" mx-view="mx-copy/index?copyNode='+r(f)+'_text_1"><span mxa="_zs_gallerybg:m" class="_zs_galleryn">'+_(y)+'</span><i mxs="_zs_gallerybg:d" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+e(f)+'_text_1">\n&lt;mx-effects.star num="2.5"\n    color="#ffb400"/&gt;\n    \n&lt;mx-effects.star num="4"\n    color="rgb(81, 163, 0)"/&gt;</pre></div></div>'},render:function(){this.updater.digest()}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-effects/__test__/12",["magix","__test__/example","$","../star","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("../star");
+require("mx-copy/index");
+require("__test__/hl");
+var Magix = require("magix");
+var Base = require("__test__/example");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerybg:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybg:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb10"><div mx-view="mx-effects/star?num=2.5&color=%23ffb400"></div></div><div class="mb10"><div mx-view="mx-effects/star?num=4&color=rgb%2881%2C%20163%2C%200%29"></div></div></div><div mxa="_zs_gallerybg:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybg:a" class="_zs_gallery___test___layout_-eg-title">自定义颜色</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 14;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybg:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 16;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybg:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 19;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.star num="2.5"\n    color="#ffb400"/&gt;\n    \n&lt;mx-effects.star num="4"\n    color="rgb(81, 163, 0)"/&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-effects/__test__/12.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest();
+    }
+});
+
+});

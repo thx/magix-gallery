@@ -1,1 +1,392 @@
-define("mx-dropdown/bd",["magix","$","../mx-util/monitor","../mx-medusa/util"],(t,e,n)=>{var i=t("magix"),a=t("$"),r=t("../mx-util/monitor"),_=t("../mx-medusa/util");n.exports=i.View.extend({tmpl:function(t,e,n,i,a,r,_,o){if(n||(n=t),!a){var u={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},s=/[&<>"'`]/g,l=function(t){return"&"+u[t]+";"};a=function(t){return""+(null==t?"":t)},i=function(t){return a(t).replace(s,l)}}if(!r){var d={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},c=function(t){return d[t]},p=/[!')(*]/g;r=function(t){return encodeURIComponent(a(t)).replace(p,c)}}if(!o){var f=/[\\'"]/g;o=function(t){return a(t).replace(f,"\\$&")}}var m="",b=t.viewId,h=t.expand,x=t.selectedText;return m+='<div id="toggle_'+i(b)+'" class="mx-trigger ',h&&(m+=" mx-trigger-open "),m+='"><span mxa="_zs_gallerya,:_" class="mx-trigger-label}">'+i(x)+'</span><span mxs="_zs_gallerya,:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div>'},init:function(t){var e=this;r.__h();var n=a("#"+e.id);e.__a=n;var o=t.selected;a.isArray(o)?e.__bI="array":o=o?(o+"").split(","):[];var u,s=t.textKey||"text",l=t.valueKey||"value",d=t.list||[],c=t.parents||[],p=t.parentKey||"pValue";if("object"==typeof d[0])if(d=d.map(function(t){return i.mix(t,{text:t[s],value:t[l],pValue:t[p]}),t}),0==c.length)u=!1,c=[{text:"组",value:"all",list:d}];else{u=!0;var f={};d.forEach(function(t){var e=t.pValue;f[e]=f[e]||[],f[e].push(t)});for(var m=0;m<c.length;m++){var b=c[m],h=b.value;b.list=f[h]||[],0==b.list.length&&b.splice(m--,1)}}else u=!1,c=[{text:"组",value:"all",list:d=d.map(function(t){return{text:t,value:t}})}];var x=t.multiple+""=="true",v=i.toMap(d,l),g=[];if(o.forEach(function(t){var e=v[o];a.isEmptyObject(e)||g.push(e)}),!x&&0==g.length){g=[d[0]];for(m=0;m<d.length;m++)if(!d[m].disabled){g=[d[m]];break}}switch(e.__k=t.disabled+""=="true"||a("#"+e.id)[0].hasAttribute("mx-disabled"),e.__bJ=t.scrollWrapper,e.__bK=!1,e.updater.set({viewId:e.id,searchbox:t.searchbox+""=="true",multiple:x,emptyText:t.emptyText||_.choose,hasGroups:u,parents:c,selectedItems:g,expand:!1,height:t.height||250,spm:e.__a.attr("data-spm-click")||""}),e.on("destroy",function(){e.__a.off("mouseenter mouseleave"),e.__bL&&clearTimeout(e.__bL),e.__bM&&clearTimeout(e.__bM),a("#dd_bd_"+e.id).remove(),r.__i(e),r.__j()}),e.__bN=t.triggerType||"click",e.__bN){case"click":n.on("click",function(){e.__bL=setTimeout(e.wrapAsync(function(){e.updater.get("expand")?e.__n():e.__k||e.__o()}),e.constants.showDelay)});break;case"hover":n.hover(function(){clearTimeout(e.__bM),e.__bL=setTimeout(e.wrapAsync(function(){e.__k||e.__o()}),e.constants.showDelay)},function(){e.__bO()})}e.bindScroll()},render:function(){this.updater.digest({}),this.__bP()},__bP:function(t){var e,n=this,i=n.updater.get(),a=i.selectedItems,r=i.emptyText,_=[],o=[];a.forEach(function(t){_.push(t.text),o.push(t.value)}),n.updater.digest({selectedText:_.join(",")||r}),e="array"==n.__bI?o:o.join(","),n.__a.val(e),t&&n.__a.trigger({type:"change",selected:e,values:o,texts:_,value:o.join(","),text:_.join(",")})},__bS:function(){var t=this,e=a("#toggle_"+t.id).outerWidth(),n=t.id,i='<div class="mx-output mx-output-bottom" id="dd_bd_'+n+'"\n                style="min-width: '+e+"px; max-width: "+2*e+'px;"></div>';a(document.body).append(i);var r=t.owner.mountVframe("dd_bd_"+n,"");r.on("created",function(){var e=t.__bQ();"hover"==t.__bN&&e.hover(function(){clearTimeout(t.__bM)},function(){t.__bO()})}),t.__bR=r},__l:function(t){return i.inside(t,this.id)||i.inside(t,"dd_bd_"+this.id)},__o:function(){var t=this;clearTimeout(t.__bL),t.__bK||(t.__bK=!0,t.__bS());var e=t.updater.get();e.expand||(t.__bR.mountView("mx-dropdown/content",{data:e,submit:function(e){t.__n(),t.updater.set(e),t.__bP(!0)},cancel:function(){t.__n()}}),t.updater.digest({expand:!0}),t.__bQ().addClass("mx-output-open"),r.__q(t))},__bO:function(){var t=this;clearTimeout(t.__bL),clearTimeout(t.__bM),t.__bM=setTimeout(t.wrapAsync(function(){t.__n()}),t.constants.hideDelay),r.__i(t)},__n:function(){var t=this;(clearTimeout(t.__bM),t.updater.get("expand"))&&(t.updater.digest({expand:!1}),a("#dd_bd_"+t.id).removeClass("mx-output-open"),r.__i(t))},bindScroll:function(){var t=this,e=t.__bJ;e&&("string"!=typeof e||/^#/.test(e)||/^\./.test(e)?a(e):a("#"+e)).scroll(function(){t.updater.get("expand")&&t.__bQ()})},__bQ:function(){var t=this.__a,e=a("#dd_bd_"+this.id);if(e&&e.length){var n=t.outerWidth(),i=t.outerHeight(),r=t.offset(),_=e.outerWidth(),o=(e.outerHeight(),r.top+i);return left=r.left-(_-n)/2,e.css({left:left,top:o}),e}},"$win<scroll>":function(t){this.updater.get("expand")&&this.__bQ()},"$doc<dialogScolll>":function(t){this.updater.get("expand")&&this.__bQ()},constants:{showDelay:100,hideDelay:200}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-dropdown/bd",["magix","$","../mx-util/monitor","../mx-medusa/util"],(require,exports,module)=>{
+/*Magix,$,Monitor,I18n*/
+
+var Magix = require("magix");
+var $ = require("$");
+var Monitor = require("../mx-util/monitor");
+var I18n = require("../mx-medusa/util");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, expand = $$.expand, selectedText = $$.selectedText; var $expr, $art, $line; try {
+    $p += '<div id="toggle_';
+    $line = 1;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" class="mx-trigger ';
+    $line = 1;
+    $art = 'if expand';
+    ;
+    $expr = '<%if (expand) {%>';
+    if (expand) {
+        ;
+        $p += ' mx-trigger-open ';
+        $line = 1;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '"><span mxa="_zs_gallerya,:_" class="mx-trigger-label}">';
+    $line = 3;
+    $art = '=selectedText';
+    ;
+    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_gallerya,:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dropdown/bd.html';
+    throw msg;
+} return $p; },
+    init: function (ops) {
+        var me = this;
+        Monitor['@{setup}']();
+        var oNode = $('#' + me.id);
+        me['@{owner.node}'] = oNode;
+        // 已选中数据
+        var selected = ops.selected;
+        if ($.isArray(selected)) {
+            // 数组，保留初始数据状态，双向绑定原样返回
+            me['@{bak.type}'] = 'array';
+        }
+        else {
+            // 字符串
+            selected = selected ? (selected + '').split(',') : [];
+        }
+        var textKey = ops.textKey || 'text';
+        var valueKey = ops.valueKey || 'value';
+        var list = ops.list || [];
+        var hasGroups, parents = ops.parents || [], parentKey = ops.parentKey || 'pValue';
+        if (typeof list[0] === 'object') {
+            // 本身是个对象
+            // 存在分组的情况
+            list = list.map(function (item) {
+                Magix.mix(item, {
+                    text: item[textKey],
+                    value: item[valueKey],
+                    pValue: item[parentKey]
+                });
+                return item;
+            });
+            if (parents.length == 0) {
+                hasGroups = false;
+                parents = [{
+                        text: '组',
+                        value: 'all',
+                        list: list
+                    }];
+            }
+            else {
+                hasGroups = true;
+                var groupMap_1 = {};
+                list.forEach(function (item) {
+                    var pValue = item.pValue;
+                    groupMap_1[pValue] = groupMap_1[pValue] || [];
+                    groupMap_1[pValue].push(item);
+                });
+                for (var i = 0; i < parents.length; i++) {
+                    var parent = parents[i];
+                    var pValue = parent.value;
+                    parent.list = groupMap_1[pValue] || [];
+                    if (parent.list.length == 0) {
+                        parent.splice(i--, 1);
+                    }
+                }
+            }
+        }
+        else {
+            // 直接value列表
+            // 无分组
+            hasGroups = false;
+            list = list.map(function (value) {
+                return {
+                    text: value,
+                    value: value
+                };
+            });
+            parents = [{
+                    text: '组',
+                    value: 'all',
+                    list: list
+                }];
+        }
+        // 多选还是单选
+        var multiple = (ops.multiple + '' === 'true');
+        var map = Magix.toMap(list, valueKey);
+        var selectedItems = [];
+        selected.forEach(function (value) {
+            var selectedItem = map[selected];
+            //未提供选项，或提供的选项不在列表里
+            if (!$.isEmptyObject(selectedItem)) {
+                selectedItems.push(selectedItem);
+            }
+        });
+        if (!multiple && (selectedItems.length == 0)) {
+            // 单选默认选中第一个
+            selectedItems = [list[0]];
+            for (var i = 0; i < list.length; i++) {
+                if (!list[i].disabled) {
+                    selectedItems = [list[i]];
+                    break;
+                }
+            }
+        }
+        // 支持mx-disabled或者disabled
+        me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
+        // 相关滚动容器不是window时，支持自定义指定滚动容器
+        me['@{scroll.wrapper}'] = ops.scrollWrapper;
+        // 初始化
+        me['@{pos.init}'] = false;
+        me.updater.set({
+            viewId: me.id,
+            searchbox: (ops.searchbox + '') === 'true',
+            multiple: multiple,
+            emptyText: ops.emptyText || I18n['choose'],
+            hasGroups: hasGroups,
+            parents: parents,
+            selectedItems: selectedItems,
+            expand: false,
+            height: (ops.height || 250),
+            spm: me['@{owner.node}'].attr('data-spm-click') || '' //埋点
+        });
+        me.on('destroy', function () {
+            me['@{owner.node}'].off('mouseenter mouseleave');
+            if (me['@{dealy.show.timer}']) {
+                clearTimeout(me['@{dealy.show.timer}']);
+            }
+            if (me['@{dealy.hide.timer}']) {
+                clearTimeout(me['@{dealy.hide.timer}']);
+            }
+            $('#dd_bd_' + me.id).remove();
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+        });
+        // trigger方式，click，hover，默认click
+        me['@{trigger.type}'] = ops.triggerType || 'click';
+        switch (me['@{trigger.type}']) {
+            case 'click':
+                oNode.on('click', function () {
+                    me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
+                        var expand = me.updater.get('expand');
+                        if (expand) {
+                            me['@{hide}']();
+                        }
+                        else if (!me['@{ui.disabled}']) {
+                            me['@{show}']();
+                        }
+                    }), me.constants.showDelay);
+                });
+                break;
+            case 'hover':
+                oNode.hover(function () {
+                    clearTimeout(me['@{dealy.hide.timer}']);
+                    me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
+                        if (!me['@{ui.disabled}']) {
+                            me['@{show}'](); //等待内容显示
+                        }
+                    }), me.constants.showDelay);
+                }, function () {
+                    me['@{delay.hide}']();
+                });
+                break;
+        }
+        me.bindScroll();
+    },
+    render: function () {
+        this.updater.digest({});
+        this['@{val}']();
+    },
+    '@{val}': function (fire) {
+        var me = this;
+        var _a = me.updater.get(), selectedItems = _a.selectedItems, emptyText = _a.emptyText;
+        var texts = [], values = [];
+        selectedItems.forEach(function (item) {
+            texts.push(item.text);
+            values.push(item.value);
+        });
+        me.updater.digest({
+            selectedText: texts.join(',') || emptyText
+        });
+        var val;
+        if (me['@{bak.type}'] == 'array') {
+            // 初始化为数组
+            val = values;
+        }
+        else {
+            // 初始化为字符串
+            val = values.join(',');
+        }
+        me['@{owner.node}'].val(val);
+        if (fire) {
+            me['@{owner.node}'].trigger({
+                type: 'change',
+                selected: val,
+                values: values,
+                texts: texts,
+                value: values.join(','),
+                text: texts.join(',')
+            });
+        }
+    },
+    '@{init}': function () {
+        var me = this;
+        var toggleNode = $('#toggle_' + me.id);
+        var posWidth = toggleNode.outerWidth(), vId = me.id;
+        var minWidth = posWidth, maxWidth = posWidth * 2;
+        var ddNode = "<div class=\"mx-output mx-output-bottom\" id=\"dd_bd_" + vId + "\"\n                style=\"min-width: " + minWidth + "px; max-width: " + maxWidth + "px;\"></div>";
+        $(document.body).append(ddNode);
+        // 先实例化，绑定事件，再加载对应的view
+        var vf = me.owner.mountVframe('dd_bd_' + vId, '');
+        vf.on('created', function () {
+            var ddNode = me['@{setPos}']();
+            var triggerType = me['@{trigger.type}'];
+            if (triggerType == 'hover') {
+                ddNode.hover(function () {
+                    clearTimeout(me['@{dealy.hide.timer}']);
+                }, function () {
+                    me['@{delay.hide}']();
+                });
+            }
+        });
+        me['@{content.vf}'] = vf;
+    },
+    '@{inside}': function (node) {
+        return Magix.inside(node, this.id) || Magix.inside(node, 'dd_bd_' + this.id);
+    },
+    '@{show}': function () {
+        var me = this;
+        clearTimeout(me['@{dealy.show.timer}']);
+        if (!me['@{pos.init}']) {
+            me['@{pos.init}'] = true;
+            me['@{init}']();
+        }
+        var data = me.updater.get();
+        if (data.expand) {
+            return;
+        }
+        me['@{content.vf}'].mountView('mx-dropdown/content', {
+            data: data,
+            submit: function (result) {
+                me['@{hide}']();
+                me.updater.set(result);
+                me['@{val}'](true);
+            },
+            cancel: function () {
+                me['@{hide}']();
+            }
+        });
+        me.updater.digest({
+            expand: true
+        });
+        // 每次show时都重新定位
+        var ddNode = me['@{setPos}']();
+        ddNode.addClass('mx-output-open');
+        Monitor['@{add}'](me);
+    },
+    '@{delay.hide}': function () {
+        var me = this;
+        clearTimeout(me['@{dealy.show.timer}']);
+        clearTimeout(me['@{dealy.hide.timer}']);
+        me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(function () {
+            me['@{hide}']();
+        }), me.constants.hideDelay);
+        Monitor['@{remove}'](me);
+    },
+    '@{hide}': function () {
+        var me = this;
+        clearTimeout(me['@{dealy.hide.timer}']);
+        var expand = me.updater.get('expand');
+        if (!expand) {
+            return;
+        }
+        me.updater.digest({
+            expand: false
+        });
+        var ddNode = $('#dd_bd_' + me.id);
+        ddNode.removeClass('mx-output-open');
+        Monitor['@{remove}'](me);
+    },
+    bindScroll: function () {
+        var me = this;
+        var scrollWrapper = me['@{scroll.wrapper}'];
+        if (!scrollWrapper) {
+            return;
+        }
+        var wrapper;
+        if ((typeof scrollWrapper == 'string') && !(/^#/.test(scrollWrapper)) && !(/^\./.test(scrollWrapper))) {
+            wrapper = $('#' + scrollWrapper);
+        }
+        else {
+            wrapper = $(scrollWrapper);
+        }
+        wrapper.scroll(function () {
+            var expand = me.updater.get('expand');
+            if (expand) {
+                me['@{setPos}']();
+            }
+        });
+    },
+    '@{setPos}': function () {
+        var me = this;
+        var oNode = me['@{owner.node}'];
+        var ddNode = $('#dd_bd_' + me.id);
+        if (!ddNode || !ddNode.length) {
+            return;
+        }
+        var width = oNode.outerWidth();
+        var height = oNode.outerHeight();
+        var offset = oNode.offset();
+        var rWidth = ddNode.outerWidth();
+        var rHeight = ddNode.outerHeight();
+        var top = offset.top + height;
+        left = offset.left - (rWidth - width) / 2;
+        ddNode.css({
+            left: left,
+            top: top
+        });
+        return ddNode;
+    },
+    /**
+     * 页面滚动的时候，重新定位
+     */
+    '$win<scroll>': function (e) {
+        var me = this;
+        var expand = me.updater.get('expand');
+        if (expand) {
+            me['@{setPos}']();
+        }
+    },
+    /**
+     * 浮层中使用dialog
+     */
+    '$doc<dialogScolll>': function (e) {
+        var me = this;
+        var expand = me.updater.get('expand');
+        if (expand) {
+            me['@{setPos}']();
+        }
+    },
+    constants: {
+        showDelay: 100,
+        hideDelay: 200
+    }
+});
+
+});
