@@ -25,16 +25,16 @@ module.exports = Magix.View.extend({
     $line = 13;
     $art = 'each options as option';
     ;
-    $expr = '<%for (var $art_isjbcewufrc$art_i = 0, $art_cgnvjhpe$art_c = options.length; $art_isjbcewufrc$art_i < $art_cgnvjhpe$art_c; $art_isjbcewufrc$art_i++) {    var option = options[$art_isjbcewufrc$art_i]%>';
-    for (var $art_isjbcewufrc$art_i = 0, $art_cgnvjhpe$art_c = options.length; $art_isjbcewufrc$art_i < $art_cgnvjhpe$art_c; $art_isjbcewufrc$art_i++) {
-        var option = options[$art_isjbcewufrc$art_i];
+    $expr = '<%for (var $art_ivbqxbjpi$art_i = 0, $art_ccrnyzdi$art_c = options.length; $art_ivbqxbjpi$art_i < $art_ccrnyzdi$art_c; $art_ivbqxbjpi$art_i++) {    var option = options[$art_ivbqxbjpi$art_i]%>';
+    for (var $art_ivbqxbjpi$art_i = 0, $art_ccrnyzdi$art_c = options.length; $art_ivbqxbjpi$art_i < $art_ccrnyzdi$art_c; $art_ivbqxbjpi$art_i++) {
+        var option = options[$art_ivbqxbjpi$art_i];
         $p += ' ';
         $line = 14;
         $art = 'each option.params as param index';
         ;
-        $expr = '<%for (var index = 0, $art_objsrtrtzcq$art_obj = option.params, $art_cqpeytof$art_c = $art_objsrtrtzcq$art_obj.length; index < $art_cqpeytof$art_c; index++) {        var param = $art_objsrtrtzcq$art_obj[index]%>';
-        for (var index = 0, $art_objsrtrtzcq$art_obj = option.params, $art_cqpeytof$art_c = $art_objsrtrtzcq$art_obj.length; index < $art_cqpeytof$art_c; index++) {
-            var param = $art_objsrtrtzcq$art_obj[index];
+        $expr = '<%for (var index = 0, $art_objlwcbqmqd$art_obj = option.params, $art_cdewyhasp$art_c = $art_objlwcbqmqd$art_obj.length; index < $art_cdewyhasp$art_c; index++) {        var param = $art_objlwcbqmqd$art_obj[index]%>';
+        for (var index = 0, $art_objlwcbqmqd$art_obj = option.params, $art_cdewyhasp$art_c = $art_objlwcbqmqd$art_obj.length; index < $art_cdewyhasp$art_c; index++) {
+            var param = $art_objlwcbqmqd$art_obj[index];
             $p += '<tr>';
             $line = 16;
             $art = 'if (index == 0)';
