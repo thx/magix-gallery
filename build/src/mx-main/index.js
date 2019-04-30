@@ -47,9 +47,9 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_iucuwmf$art_i = 0, $art_cnkxrjpk$art_c = stepInfos.length; $art_iucuwmf$art_i < $art_cnkxrjpk$art_c; $art_iucuwmf$art_i++) {    var step = stepInfos[$art_iucuwmf$art_i]%>';
-    for (var $art_iucuwmf$art_i = 0, $art_cnkxrjpk$art_c = stepInfos.length; $art_iucuwmf$art_i < $art_cnkxrjpk$art_c; $art_iucuwmf$art_i++) {
-        var step = stepInfos[$art_iucuwmf$art_i];
+    $expr = '<%for (var $art_iiyhwbbsd$art_i = 0, $art_cyvaxqcfxsc$art_c = stepInfos.length; $art_iiyhwbbsd$art_i < $art_cyvaxqcfxsc$art_c; $art_iiyhwbbsd$art_i++) {    var step = stepInfos[$art_iiyhwbbsd$art_i]%>';
+    for (var $art_iiyhwbbsd$art_i = 0, $art_cyvaxqcfxsc$art_c = stepInfos.length; $art_iiyhwbbsd$art_i < $art_cyvaxqcfxsc$art_c; $art_iiyhwbbsd$art_i++) {
+        var step = stepInfos[$art_iiyhwbbsd$art_i];
         $p += '<div class="_zs_gallery_mx-main_index_-main-step ';
         $line = 4;
         $art = 'if (step.index == curStepIndex)';
@@ -143,9 +143,9 @@ module.exports = Magix.View.extend({
             $line = 17;
             $art = 'each step.subs as sub';
             ;
-            $expr = '<%for (var $art_ixlysmyjye$art_i = 0, $art_objcebazjy$art_obj = step.subs, $art_cxymfijw$art_c = $art_objcebazjy$art_obj.length; $art_ixlysmyjye$art_i < $art_cxymfijw$art_c; $art_ixlysmyjye$art_i++) {            var sub = $art_objcebazjy$art_obj[$art_ixlysmyjye$art_i]%>';
-            for (var $art_ixlysmyjye$art_i = 0, $art_objcebazjy$art_obj = step.subs, $art_cxymfijw$art_c = $art_objcebazjy$art_obj.length; $art_ixlysmyjye$art_i < $art_cxymfijw$art_c; $art_ixlysmyjye$art_i++) {
-                var sub = $art_objcebazjy$art_obj[$art_ixlysmyjye$art_i];
+            $expr = '<%for (var $art_ilqnfvzfsb$art_i = 0, $art_objkijpoatn$art_obj = step.subs, $art_chklywcftsi$art_c = $art_objkijpoatn$art_obj.length; $art_ilqnfvzfsb$art_i < $art_chklywcftsi$art_c; $art_ilqnfvzfsb$art_i++) {            var sub = $art_objkijpoatn$art_obj[$art_ilqnfvzfsb$art_i]%>';
+            for (var $art_ilqnfvzfsb$art_i = 0, $art_objkijpoatn$art_obj = step.subs, $art_chklywcftsi$art_c = $art_objkijpoatn$art_obj.length; $art_ilqnfvzfsb$art_i < $art_chklywcftsi$art_c; $art_ilqnfvzfsb$art_i++) {
+                var sub = $art_objkijpoatn$art_obj[$art_ilqnfvzfsb$art_i];
                 $p += '<div mxa="_zs_galleryc2:c" class="_zs_gallery_mx-main_index_-step-sub"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link ';
                 $line = 19;
                 $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))';
@@ -237,9 +237,9 @@ module.exports = Magix.View.extend({
     $line = 42;
     $art = 'each curStepInfo.subs as sub';
     ;
-    $expr = '<%for (var $art_igggwpxn$art_i = 0, $art_objpjzjusprde$art_obj = curStepInfo.subs, $art_cuiffccccjs$art_c = $art_objpjzjusprde$art_obj.length; $art_igggwpxn$art_i < $art_cuiffccccjs$art_c; $art_igggwpxn$art_i++) {    var sub = $art_objpjzjusprde$art_obj[$art_igggwpxn$art_i]%>';
-    for (var $art_igggwpxn$art_i = 0, $art_objpjzjusprde$art_obj = curStepInfo.subs, $art_cuiffccccjs$art_c = $art_objpjzjusprde$art_obj.length; $art_igggwpxn$art_i < $art_cuiffccccjs$art_c; $art_igggwpxn$art_i++) {
-        var sub = $art_objpjzjusprde$art_obj[$art_igggwpxn$art_i];
+    $expr = '<%for (var $art_itdgynyxyys$art_i = 0, $art_objkcwhaxnc$art_obj = curStepInfo.subs, $art_csdfgidfyg$art_c = $art_objkcwhaxnc$art_obj.length; $art_itdgynyxyys$art_i < $art_csdfgidfyg$art_c; $art_itdgynyxyys$art_i++) {    var sub = $art_objkcwhaxnc$art_obj[$art_itdgynyxyys$art_i]%>';
+    for (var $art_itdgynyxyys$art_i = 0, $art_objkcwhaxnc$art_obj = curStepInfo.subs, $art_csdfgidfyg$art_c = $art_objkcwhaxnc$art_obj.length; $art_itdgynyxyys$art_i < $art_csdfgidfyg$art_c; $art_itdgynyxyys$art_i++) {
+        var sub = $art_objkcwhaxnc$art_obj[$art_itdgynyxyys$art_i];
         $p += '<div mxv class="_zs_gallery_mx-main_index_-content-box" style="padding-right: ';
         $line = 44;
         $art = '=(curStepInfo.rightWidth + 20)';

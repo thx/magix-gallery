@@ -23,19 +23,19 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybd:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybd:_" class="_zs_gallery___test___layout_-eg-content"><div class="empty-area"><div class="empty-inner"><div><i class="mc-iconfont no-data">&#xe685;</i></div><div>暂无内容</div></div></div></div><div mxa="_zs_gallerybd:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybd:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 7;
+    $p += '<div mxa="_zs_gallerybd:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybd:c" class="_zs_gallery___test___layout_-eg-content"><div class="empty-area mb20"><div class="empty-inner"><div><i class="mc-iconfont no-data">&#xe685;</i></div><div>暂无内容</div></div></div><div content="自定义文案" class="empty-area"><div class="empty-inner"><div><i class="mc-iconfont no-data">&#xe685;</i></div><div>自定义文案</div></div></div></div><div mxa="_zs_gallerybd:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybd:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 9;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybd:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 9;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybd:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 11;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybd:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 12;
+    $line = 14;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.empty/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.empty/&gt;\n\n&lt;mx-effects.empty content="自定义文案"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

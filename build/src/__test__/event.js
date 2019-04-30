@@ -25,16 +25,16 @@ module.exports = Magix.View.extend({
     $line = 13;
     $art = 'each options as option';
     ;
-    $expr = '<%for (var $art_ivbqxbjpi$art_i = 0, $art_ccrnyzdi$art_c = options.length; $art_ivbqxbjpi$art_i < $art_ccrnyzdi$art_c; $art_ivbqxbjpi$art_i++) {    var option = options[$art_ivbqxbjpi$art_i]%>';
-    for (var $art_ivbqxbjpi$art_i = 0, $art_ccrnyzdi$art_c = options.length; $art_ivbqxbjpi$art_i < $art_ccrnyzdi$art_c; $art_ivbqxbjpi$art_i++) {
-        var option = options[$art_ivbqxbjpi$art_i];
+    $expr = '<%for (var $art_ijovjywvdvq$art_i = 0, $art_cqes$art_c = options.length; $art_ijovjywvdvq$art_i < $art_cqes$art_c; $art_ijovjywvdvq$art_i++) {    var option = options[$art_ijovjywvdvq$art_i]%>';
+    for (var $art_ijovjywvdvq$art_i = 0, $art_cqes$art_c = options.length; $art_ijovjywvdvq$art_i < $art_cqes$art_c; $art_ijovjywvdvq$art_i++) {
+        var option = options[$art_ijovjywvdvq$art_i];
         $p += ' ';
         $line = 14;
         $art = 'each option.params as param index';
         ;
-        $expr = '<%for (var index = 0, $art_objlwcbqmqd$art_obj = option.params, $art_cdewyhasp$art_c = $art_objlwcbqmqd$art_obj.length; index < $art_cdewyhasp$art_c; index++) {        var param = $art_objlwcbqmqd$art_obj[index]%>';
-        for (var index = 0, $art_objlwcbqmqd$art_obj = option.params, $art_cdewyhasp$art_c = $art_objlwcbqmqd$art_obj.length; index < $art_cdewyhasp$art_c; index++) {
-            var param = $art_objlwcbqmqd$art_obj[index];
+        $expr = '<%for (var index = 0, $art_objfjvjhugw$art_obj = option.params, $art_cscmmjow$art_c = $art_objfjvjhugw$art_obj.length; index < $art_cscmmjow$art_c; index++) {        var param = $art_objfjvjhugw$art_obj[index]%>';
+        for (var index = 0, $art_objfjvjhugw$art_obj = option.params, $art_cscmmjow$art_c = $art_objfjvjhugw$art_obj.length; index < $art_cscmmjow$art_c; index++) {
+            var param = $art_objfjvjhugw$art_obj[index];
             $p += '<tr>';
             $line = 16;
             $art = 'if (index == 0)';
