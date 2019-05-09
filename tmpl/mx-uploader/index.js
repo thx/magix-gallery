@@ -10,7 +10,7 @@ let Uploader = Magix.Base.extend({
     }
 });
 let Iframe = Uploader.extend({
-    '@{send.request}' (input, data, callback, progress) {
+    '@{send.request}'(input, data, callback, progress) {
         let form = input.form;
         let me = this;
         let id = Magix.guid('up');
@@ -78,7 +78,7 @@ let Iframe = Uploader.extend({
     }
 });
 let XHR = Uploader.extend({
-    '@{send.request}' (input, data, callback, progress) {
+    '@{send.request}'(input, data, callback, progress) {
         let fd = new FormData();
         let me = this;
         let files = input.files;
@@ -115,10 +115,27 @@ let XHR = Uploader.extend({
 });
 module.exports = Magix.View.extend({
     init(extra) {
+        //初始化时保存一份当前数据的快照
+        this.updater.snapshot();
+        this.assign(extra);
+    },
+    assign(extra) {
         let me = this;
+
+        // 支持mx-disabled或者disabled
+        let disabled = (extra.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
+        let type = extra.type;
+        me.updater.set({
+            name: extra.name || 'file',
+            action: extra.action || '',
+            multiple: ((extra.multiple + '') === 'true'),
+            accept: extra.accept,
+            disabled,
+            type
+        });
+
         // 默认iframe
-        let Transport,
-            type = me.updater.get('type');
+        let Transport;
         if ((type == 'xhr') && window.FormData) {
             Transport = XHR;
         } else {
@@ -126,33 +143,8 @@ module.exports = Magix.View.extend({
         }
         me.capture('@{transport}', new Transport());
 
-        //初始化时保存一份当前数据的快照
-        me.updater.snapshot();
-        me.assign(extra);
-    },
-    assign(extra) {
-        let me = this;
-        let altered = me.updater.altered();
-
-        // 支持mx-disabled或者disabled
-        let disabled = (extra.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
-        me.updater.set({
-            name: extra.name || 'file',
-            action: extra.action || '',
-            multiple: ((extra.multiple + '') === 'true'),
-            accept: extra.accept,
-            disabled
-        });
-
-        if (!altered) {
-            altered = me.updater.altered();
-        }
-        if (altered) {
-            // 组件有更新，真个节点会全部需要重新初始化
-            me.updater.snapshot();
-            return true;
-        }
-        return false;
+        // 操作dom追加节点，每次都刷新
+        return true;
     },
     render() {
         let me = this;
@@ -179,7 +171,7 @@ module.exports = Magix.View.extend({
             node.prop('accept', data.accept);
         }
     },
-    '@{upload}<change>' (e) {
+    '@{upload}<change>'(e) {
         let me = this;
         let node = $('#' + me.id);
         let files = e.eventTarget.files;

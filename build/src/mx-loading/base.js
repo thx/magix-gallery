@@ -1,1 +1,43 @@
-define("mx-loading/base",["$","magix"],(i,n,a)=>{var e=i("$");i("magix");a.exports={ctor:function(){var i=this,n=i.id+"_loading";i.on("destroy",function(){i.hideLoading();var a=e("#"+n);a&&a.length&&a.remove();var o=e("#"+n+"_mask");o&&o.length&&o.remove()})},hideLoading:function(){var i=this.id+"_loading";this.__cu().css({display:"none"});var n=e("#"+i+"_mask");n.length>0&&n.css({display:"none"})}}});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-loading/base",["$","magix"],(require,exports,module)=>{
+/*$,Magix*/
+
+var $ = require("$");
+var Magix = require("magix");
+module.exports = {
+    ctor: function () {
+        var me = this;
+        var maskId = me.id + '_loading';
+        me.on('destroy', function () {
+            me.hideLoading();
+            var node = $('#' + maskId);
+            if (node && node.length) {
+                node.remove();
+            }
+            var backNode = $('#' + maskId + '_mask');
+            if (backNode && backNode.length) {
+                backNode.remove();
+            }
+        });
+    },
+    hideLoading: function () {
+        var me = this;
+        var maskId = me.id + '_loading';
+        var node = me['@{loading.build}']();
+        node.css({
+            display: 'none'
+        });
+        var backNode = $('#' + maskId + '_mask');
+        if (backNode.length > 0) {
+            backNode.css({
+                display: 'none'
+            });
+        }
+    }
+};
+
+});
