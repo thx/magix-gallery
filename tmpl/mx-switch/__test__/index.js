@@ -20,11 +20,6 @@ module.exports = Base.extend({
             desc: '禁止操作时的补充说明',
             type: 'string',
             def: ''
-        }, {
-            key: 'mode',
-            desc: '样式版本，可选带文字版（text），空心（hollow）',
-            type: 'string',
-            def: 'hollow'
         }]
 
         let events = [{

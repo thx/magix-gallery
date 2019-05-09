@@ -18,8 +18,7 @@ module.exports = Magix.View.extend({
         that.updater.set({
             on: (extra.state + '' === 'true'),
             disabled,
-            tip: extra.tip || '',
-            text: (extra.mode == 'text')
+            tip: extra.tip || ''
         });
         if (!altered) {
             altered = that.updater.altered();

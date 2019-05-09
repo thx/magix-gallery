@@ -7,7 +7,7 @@ define("mx-switch/index",["magix","mx-popover/index"],(require,exports,module)=>
 /*Magix*/
 require("mx-popover/index");
 var Magix = require("magix");
-Magix.applyStyle("_zs_gallery_mx-switch_index_","[mx-view*=\"mx-switch/index\"] {\n  position: relative;\n  display: inline-block;\n}\n[mx-view*=\"mx-switch/index\"] ._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-switch-disabled,\n[mx-view*=\"mx-switch/index\"] ._zs_gallery_mx-switch_index_-switch-text._zs_gallery_mx-switch_index_-switch-disabled {\n  cursor: not-allowed;\n  opacity: 0.5;\n}\n._zs_gallery_mx-switch_index_-switch {\n  display: inline-block;\n  position: relative;\n  width: 40px;\n  height: 18px;\n  cursor: pointer;\n  vertical-align: middle;\n}\n._zs_gallery_mx-switch_index_-switch ._zs_gallery_mx-switch_index_-switch-icon {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  z-index: 2;\n  width: 18px;\n  height: 18px;\n  margin-top: -9px;\n  border-radius: 50%;\n  transition: left var(--duration);\n  background-color: #ccc;\n}\n._zs_gallery_mx-switch_index_-switch::after {\n  content: ' ';\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  border-radius: 9px;\n  opacity: 0.4;\n  background-color: #ccc;\n}\n._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on ._zs_gallery_mx-switch_index_-switch-icon {\n  left: 22px;\n  background-color: var(--color-brand);\n}\n._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on::after {\n  opacity: 0.2;\n  background-color: var(--color-brand);\n}\n._zs_gallery_mx-switch_index_-switch-text {\n  display: inline-block;\n  position: relative;\n  height: 18px;\n  cursor: pointer;\n  line-height: 18px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  font-size: 12px;\n}\n._zs_gallery_mx-switch_index_-switch-text::after {\n  content: ' ';\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n  width: 100%;\n  height: 100%;\n  border-radius: var(--border-radius);\n  border: 1px solid var(--color-border);\n  background-color: #fff;\n}\n._zs_gallery_mx-switch_index_-switch-text ._zs_gallery_mx-switch_index_-open,\n._zs_gallery_mx-switch_index_-switch-text ._zs_gallery_mx-switch_index_-close {\n  transition: color var(--duration);\n}\n._zs_gallery_mx-switch_index_-switch-text ._zs_gallery_mx-switch_index_-open {\n  color: #999;\n}\n._zs_gallery_mx-switch_index_-switch-text ._zs_gallery_mx-switch_index_-close {\n  color: #fff;\n}\n._zs_gallery_mx-switch_index_-switch-text ._zs_gallery_mx-switch_index_-text,\n._zs_gallery_mx-switch_index_-switch-text ._zs_gallery_mx-switch_index_-switch-icon {\n  display: inline-block;\n  width: 24px;\n  height: 18px;\n  text-align: center;\n  line-height: 18px;\n  border-radius: var(--border-radius);\n}\n._zs_gallery_mx-switch_index_-switch-text ._zs_gallery_mx-switch_index_-text {\n  position: relative;\n  z-index: 3;\n}\n._zs_gallery_mx-switch_index_-switch-text ._zs_gallery_mx-switch_index_-switch-icon {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  background-image: linear-gradient(to right, #9095a1, #8b909a);\n  background-image: -moz-linear-gradient(right, #9095a1, #8b909a);\n  transition: left var(--duration);\n}\n._zs_gallery_mx-switch_index_-switch-text._zs_gallery_mx-switch_index_-on ._zs_gallery_mx-switch_index_-open {\n  color: #fff;\n}\n._zs_gallery_mx-switch_index_-switch-text._zs_gallery_mx-switch_index_-on ._zs_gallery_mx-switch_index_-close {\n  color: #999;\n}\n._zs_gallery_mx-switch_index_-switch-text._zs_gallery_mx-switch_index_-on ._zs_gallery_mx-switch_index_-switch-icon {\n  left: 50%;\n  background-image: linear-gradient(to right, var(--btn-brand), var(--btn-brand-gradient));\n  background-image: -moz-linear-gradient(right, var(--btn-brand), var(--btn-brand-gradient));\n}\n._zs_gallery_mx-switch_index_-reason {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  cursor: not-allowed;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-switch_index_","[mx-view*=\"mx-switch/index\"] {\n  position: relative;\n  display: inline-block;\n}\n[mx-view*=\"mx-switch/index\"] ._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-switch-disabled,\n[mx-view*=\"mx-switch/index\"] ._zs_gallery_mx-switch_index_-switch-text._zs_gallery_mx-switch_index_-switch-disabled {\n  cursor: not-allowed;\n  opacity: 0.5;\n}\n._zs_gallery_mx-switch_index_-switch {\n  display: inline-block;\n  position: relative;\n  width: 40px;\n  height: 18px;\n  cursor: pointer;\n  vertical-align: middle;\n}\n._zs_gallery_mx-switch_index_-switch ._zs_gallery_mx-switch_index_-switch-icon {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  z-index: 2;\n  width: 18px;\n  height: 18px;\n  margin-top: -9px;\n  border-radius: 50%;\n  transition: left var(--duration);\n  background-color: #ccc;\n}\n._zs_gallery_mx-switch_index_-switch::after {\n  content: ' ';\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  border-radius: 9px;\n  opacity: 0.4;\n  background-color: #ccc;\n}\n._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on ._zs_gallery_mx-switch_index_-switch-icon {\n  left: 22px;\n  background-color: var(--color-brand);\n}\n._zs_gallery_mx-switch_index_-switch._zs_gallery_mx-switch_index_-on::after {\n  opacity: 0.2;\n  background-color: var(--color-brand);\n}\n._zs_gallery_mx-switch_index_-reason {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  cursor: not-allowed;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -20,57 +20,28 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', text = $$.text, on = $$.on, disabled = $$.disabled, tip = $$.tip; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', on = $$.on, disabled = $$.disabled, tip = $$.tip; var $expr, $art, $line; try {
+    $p += '<span class="_zs_gallery_mx-switch_index_-switch ';
     $line = 1;
-    $art = 'if text';
+    $art = '= _zs_gallery_mx-switch_index_-on ? \'on\' : \'\'';
     ;
-    $expr = '<%if (text) {%>';
-    if (text) {
-        ;
-        $p += '<span class="_zs_gallery_mx-switch_index_-switch-text ';
-        $line = 2;
-        $art = '= _zs_gallery_mx-switch_index_-on ? \'on\' : \'\'';
-        ;
-        $p += ($expr = '<%=on ? \'_zs_gallery_mx-switch_index_-on\' : \'\'%>', $e(on ? '_zs_gallery_mx-switch_index_-on' : '')) + ' ';
-        $line = 2;
-        $art = '= disabled ? \'switch-disabled\' : \'\'';
-        ;
-        $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-switch-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-switch-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_galleryd]:_" class="_zs_gallery_mx-switch_index_-text _zs_gallery_mx-switch_index_-close">关</span><span mxs="_zs_galleryd]:a" class="_zs_gallery_mx-switch_index_-text _zs_gallery_mx-switch_index_-open">开</span><span mxs="_zs_galleryd]:b" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
-        $line = 7;
-        $art = 'else';
-        ;
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += '<span class="_zs_gallery_mx-switch_index_-switch ';
-        $line = 8;
-        $art = '= _zs_gallery_mx-switch_index_-on ? \'on\' : \'\'';
-        ;
-        $p += ($expr = '<%=on ? \'_zs_gallery_mx-switch_index_-on\' : \'\'%>', $e(on ? '_zs_gallery_mx-switch_index_-on' : '')) + ' ';
-        $line = 8;
-        $art = '= disabled ? \'switch-disabled\' : \'\'';
-        ;
-        $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-switch-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-switch-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_galleryd]:b" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
-        $line = 11;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
+    $p += ($expr = '<%=on ? \'_zs_gallery_mx-switch_index_-on\' : \'\'%>', $e(on ? '_zs_gallery_mx-switch_index_-on' : '')) + ' ';
+    $line = 1;
+    $art = '= disabled ? \'switch-disabled\' : \'\'';
     ;
-    $p += ' ';
-    $line = 13;
+    $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-switch_index_-switch-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-switch_index_-switch-disabled' : '')) + '" mx-click="' + $viewId + '@{toggle}()"><span mxs="_zs_galleryd]:b" class="_zs_gallery_mx-switch_index_-switch-icon"></span></span>';
+    $line = 4;
     $art = 'if (disabled && tip)';
     ;
     $expr = '<%if (disabled && tip) {%>';
     if (disabled && tip) {
         ;
         $p += '<span class="_zs_gallery_mx-switch_index_-reason" mx-view="mx-popover/index?content=';
-        $line = 16;
+        $line = 7;
         $art = '=tip';
         ;
         $p += ($expr = '<%!$eu(tip)%>', $eu(tip)) + '"></span>';
-        $line = 17;
+        $line = 8;
         $art = '/if';
         ;
         $expr = '<%}%>';
@@ -98,8 +69,7 @@ catch (ex) {
         that.updater.set({
             on: (extra.state + '' === 'true'),
             disabled: disabled,
-            tip: extra.tip || '',
-            text: (extra.mode == 'text')
+            tip: extra.tip || ''
         });
         if (!altered) {
             altered = that.updater.altered();

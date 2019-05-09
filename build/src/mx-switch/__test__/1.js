@@ -24,11 +24,11 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', state = $$.state, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryd(:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryd(:a" class="_zs_gallery___test___layout_-eg-content clearfix"><span class="fl mr20 mt5" mx-change="' + $viewId + 'toggle()" mx-view="mx-switch/index?state=';
+    $p += '<div mxa="_zs_galleryd(:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryd(:a" class="_zs_gallery___test___layout_-eg-content clearfix"><span class="mr20" mx-change="' + $viewId + 'toggle()" mx-view="mx-switch/index?state=';
     $line = 4;
     $art = '=state';
     ;
-    $p += ($expr = '<%!$eu(state)%>', $eu(state)) + '"></span><a mxs="_zs_galleryd(:_" href="javascript:;" class="btn btn-brand fl mr20" mx-click="' + $viewId + 'change()">切换状态</a><span mxa="_zs_galleryd(:b" class="lh32 fl">当前状态：';
+    $p += ($expr = '<%!$eu(state)%>', $eu(state)) + '"></span><a mxs="_zs_galleryd(:d" href="javascript:;" class="btn btn-brand mr20" mx-click="' + $viewId + 'change()">切换状态</a><span>当前状态：';
     $line = 7;
     $art = '=state';
     ;
