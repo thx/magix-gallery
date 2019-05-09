@@ -13,7 +13,7 @@ var $ = require("$");
 var Form = require("mx-form/index");
 var Validator = require("mx-form/validator");
 var Dialog = require("mx-dialog/index");
-Magix.applyStyle("_zs_gallery___test___edit_theme_","._zs_gallery___test___edit_theme_-dot {\n  display: inline-block;\n  width: var(--input-height);\n  height: var(--input-height);\n  border-radius: 50%;\n  vertical-align: middle;\n}\n:root {\n  --edit-theme-width: 126px;\n  --edit-nav-size: 20px;\n  --edit-color-width: calc(var(--edit-theme-width) * 4);\n  --edit-group-height: 50px;\n  --edit-wrapper-height: calc(var(--edit-group-height) * 2 + 780px);\n}\n._zs_gallery___test___edit_theme_-theme {\n  float: left;\n  width: var(--edit-theme-width);\n  text-align: center;\n}\n._zs_gallery___test___edit_theme_-edit {\n  position: relative;\n  height: var(--edit-wrapper-height);\n  padding-left: var(--edit-color-width);\n}\n._zs_gallery___test___edit_theme_-nav {\n  position: absolute;\n  z-index: 3;\n  top: calc(0px - var(--edit-nav-size));\n  left: 0;\n  width: var(--edit-theme-width);\n  height: var(--edit-nav-size);\n  text-align: center;\n  transition: left var(--duration);\n}\n._zs_gallery___test___edit_theme_-nav ._zs_gallery___test___edit_theme_-white-arrow,\n._zs_gallery___test___edit_theme_-nav ._zs_gallery___test___edit_theme_-arrow {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  border-width: 0 var(--edit-nav-size) var(--edit-nav-size);\n  border-style: solid;\n  border-color: transparent transparent var(--color-border);\n}\n._zs_gallery___test___edit_theme_-nav ._zs_gallery___test___edit_theme_-white-arrow {\n  position: absolute;\n  top: 1px;\n  left: 50%;\n  margin-left: calc(0px - var(--edit-nav-size));\n  border-color: transparent transparent #fff;\n}\n._zs_gallery___test___edit_theme_-colors {\n  position: absolute;\n  z-index: 2;\n  top: 0;\n  left: 0;\n  width: var(--edit-color-width);\n  height: 100%;\n  padding-left: 15px;\n  border: 1px solid var(--color-border);\n  border-radius: var(--border-radius);\n}\n._zs_gallery___test___edit_theme_-colors ._zs_gallery___test___edit_theme_-item {\n  float: left;\n  width: 120px;\n  height: 86px;\n}\n._zs_gallery___test___edit_theme_-colors ._zs_gallery___test___edit_theme_-icon {\n  position: relative;\n  top: 1px;\n  margin-left: 3px;\n  color: #999;\n  font-size: 14px;\n}\n._zs_gallery___test___edit_theme_-colors ._zs_gallery___test___edit_theme_-group {\n  height: var(--edit-group-height);\n  line-height: var(--edit-group-height);\n  font-size: calc(var(--font-size) + 2px);\n}\n._zs_gallery___test___edit_theme_-colors ._zs_gallery___test___edit_theme_-color-wrapper {\n  width: 100px;\n  border-radius: var(--border-radius);\n}\n._zs_gallery___test___edit_theme_-colors ._zs_gallery___test___edit_theme_-color-wrapper [mx-view*=\"mx-color/picker\"] {\n  background-color: transparent;\n}\n._zs_gallery___test___edit_theme_-colors ._zs_gallery___test___edit_theme_-color-wrapper [mx-view*=\"mx-color/picker\"] .mx-trigger {\n  background-color: transparent;\n}\n._zs_gallery___test___edit_theme_-preview {\n  padding: 0 20px;\n}\n._zs_gallery___test___edit_theme_-preview ._zs_gallery___test___edit_theme_-iframe {\n  width: 100%;\n  height: var(--edit-wrapper-height);\n  border: 1px solid var(--color-border);\n}\n._zs_gallery___test___edit_theme_-tip {\n  position: relative;\n  padding-left: calc(var(--font-size) * 15);\n}\n._zs_gallery___test___edit_theme_-tip ._zs_gallery___test___edit_theme_-tip-left {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: calc(var(--font-size) * 15);\n}\n");
+Magix.applyStyle("_zs_gallery___test___edit_theme_","._zs_gallery___test___edit_theme_-dot {\n  display: inline-block;\n  width: var(--input-height);\n  height: var(--input-height);\n  border-radius: 50%;\n  vertical-align: middle;\n}\n:root {\n  --edit-theme-width: 126px;\n  --edit-nav-size: 20px;\n  --edit-color-width: calc(var(--edit-theme-width) * 4);\n  --edit-group-height: 50px;\n  --edit-wrapper-height: calc(var(--edit-group-height) * 2 + 800px);\n}\n._zs_gallery___test___edit_theme_-theme {\n  float: left;\n  width: var(--edit-theme-width);\n  text-align: center;\n}\n._zs_gallery___test___edit_theme_-edit {\n  position: relative;\n  height: var(--edit-wrapper-height);\n  padding-left: var(--edit-color-width);\n}\n._zs_gallery___test___edit_theme_-nav {\n  position: absolute;\n  z-index: 3;\n  top: calc(0px - var(--edit-nav-size));\n  left: 0;\n  width: var(--edit-theme-width);\n  height: var(--edit-nav-size);\n  text-align: center;\n  transition: left var(--duration);\n}\n._zs_gallery___test___edit_theme_-nav ._zs_gallery___test___edit_theme_-white-arrow,\n._zs_gallery___test___edit_theme_-nav ._zs_gallery___test___edit_theme_-arrow {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  border-width: 0 var(--edit-nav-size) var(--edit-nav-size);\n  border-style: solid;\n  border-color: transparent transparent var(--color-border);\n}\n._zs_gallery___test___edit_theme_-nav ._zs_gallery___test___edit_theme_-white-arrow {\n  position: absolute;\n  top: 1px;\n  left: 50%;\n  margin-left: calc(0px - var(--edit-nav-size));\n  border-color: transparent transparent #fff;\n}\n._zs_gallery___test___edit_theme_-colors {\n  position: absolute;\n  z-index: 2;\n  top: 0;\n  left: 0;\n  width: var(--edit-color-width);\n  height: 100%;\n  padding-left: 15px;\n  border: 1px solid var(--color-border);\n  border-radius: var(--border-radius);\n}\n._zs_gallery___test___edit_theme_-colors ._zs_gallery___test___edit_theme_-item {\n  float: left;\n  width: 120px;\n  height: 90px;\n}\n._zs_gallery___test___edit_theme_-colors ._zs_gallery___test___edit_theme_-icon {\n  position: relative;\n  top: 1px;\n  margin-left: 3px;\n  color: #999;\n  font-size: 14px;\n}\n._zs_gallery___test___edit_theme_-colors ._zs_gallery___test___edit_theme_-group {\n  height: var(--edit-group-height);\n  line-height: var(--edit-group-height);\n  font-size: calc(var(--font-size) + 2px);\n}\n._zs_gallery___test___edit_theme_-colors ._zs_gallery___test___edit_theme_-color-wrapper {\n  width: 100px;\n  border-radius: var(--border-radius);\n}\n._zs_gallery___test___edit_theme_-colors ._zs_gallery___test___edit_theme_-color-wrapper [mx-view*=\"mx-color/picker\"] {\n  background-color: transparent;\n}\n._zs_gallery___test___edit_theme_-colors ._zs_gallery___test___edit_theme_-color-wrapper [mx-view*=\"mx-color/picker\"] .mx-trigger {\n  background-color: transparent;\n}\n._zs_gallery___test___edit_theme_-preview {\n  padding: 0 20px;\n}\n._zs_gallery___test___edit_theme_-preview ._zs_gallery___test___edit_theme_-iframe {\n  width: 100%;\n  height: var(--edit-wrapper-height);\n  border: 1px solid var(--color-border);\n}\n._zs_gallery___test___edit_theme_-tip {\n  position: relative;\n  padding-left: calc(var(--font-size) * 15);\n}\n._zs_gallery___test___edit_theme_-tip ._zs_gallery___test___edit_theme_-tip-left {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: calc(var(--font-size) * 15);\n}\n._zs_gallery___test___edit_theme_-name {\n  position: relative;\n  height: 36px;\n  white-space: nowrap;\n}\n._zs_gallery___test___edit_theme_-name ._zs_gallery___test___edit_theme_-name-key {\n  position: absolute;\n  top: 18px;\n  left: 0;\n  color: #999;\n}\n._zs_gallery___test___edit_theme_-name ._zs_gallery___test___edit_theme_-name-icon {\n  font-size: 12px;\n  color: #999;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -35,8 +35,8 @@ module.exports = Base.extend({
     $line = 19;
     $art = 'each themes as t i';
     ;
-    $expr = '<%for (var i = 0, $art_cwpczdioc$art_c = themes.length; i < $art_cwpczdioc$art_c; i++) {    var t = themes[i]%>';
-    for (var i = 0, $art_cwpczdioc$art_c = themes.length; i < $art_cwpczdioc$art_c; i++) {
+    $expr = '<%for (var i = 0, $art_cbifqacbu$art_c = themes.length; i < $art_cbifqacbu$art_c; i++) {    var t = themes[i]%>';
+    for (var i = 0, $art_cbifqacbu$art_c = themes.length; i < $art_cbifqacbu$art_c; i++) {
         var t = themes[i];
         $p += '<div mxa="_zs_galleryf:a" class="_zs_gallery___test___edit_theme_-theme"><div><a href="javascript:;" class="_zs_gallery___test___edit_theme_-dot" style="';
         $line = 21;
@@ -69,9 +69,9 @@ module.exports = Base.extend({
     $line = 44;
     $art = 'each list as group';
     ;
-    $expr = '<%for (var $art_ianynalq$art_i = 0, $art_caoratkv$art_c = list.length; $art_ianynalq$art_i < $art_caoratkv$art_c; $art_ianynalq$art_i++) {    var group = list[$art_ianynalq$art_i]%>';
-    for (var $art_ianynalq$art_i = 0, $art_caoratkv$art_c = list.length; $art_ianynalq$art_i < $art_caoratkv$art_c; $art_ianynalq$art_i++) {
-        var group = list[$art_ianynalq$art_i];
+    $expr = '<%for (var $art_ipewgtz$art_i = 0, $art_cpqveloawn$art_c = list.length; $art_ipewgtz$art_i < $art_cpqveloawn$art_c; $art_ipewgtz$art_i++) {    var group = list[$art_ipewgtz$art_i]%>';
+    for (var $art_ipewgtz$art_i = 0, $art_cpqveloawn$art_c = list.length; $art_ipewgtz$art_i < $art_cpqveloawn$art_c; $art_ipewgtz$art_i++) {
+        var group = list[$art_ipewgtz$art_i];
         $p += '<div mxa="_zs_galleryf:f" class="_zs_gallery___test___edit_theme_-group">';
         $line = 46;
         $art = '=group.text';
@@ -88,107 +88,111 @@ module.exports = Base.extend({
         $line = 53;
         $art = 'each group.subs as item';
         ;
-        $expr = '<%for (var $art_igphdedn$art_i = 0, $art_objdinspoq$art_obj = group.subs, $art_cgjseyolw$art_c = $art_objdinspoq$art_obj.length; $art_igphdedn$art_i < $art_cgjseyolw$art_c; $art_igphdedn$art_i++) {        var item = $art_objdinspoq$art_obj[$art_igphdedn$art_i]%>';
-        for (var $art_igphdedn$art_i = 0, $art_objdinspoq$art_obj = group.subs, $art_cgjseyolw$art_c = $art_objdinspoq$art_obj.length; $art_igphdedn$art_i < $art_cgjseyolw$art_c; $art_igphdedn$art_i++) {
-            var item = $art_objdinspoq$art_obj[$art_igphdedn$art_i];
-            $p += '<div mxv mxa="_zs_galleryf:h" class="_zs_gallery___test___edit_theme_-item"><div mxa="_zs_galleryf:i" class="nowrap mb10 color-6 cursor-help"><span mx-view="mx-popover/index?content=';
+        $expr = '<%for (var $art_iuttvwe$art_i = 0, $art_objqbpzjncq$art_obj = group.subs, $art_cmtyrzj$art_c = $art_objqbpzjncq$art_obj.length; $art_iuttvwe$art_i < $art_cmtyrzj$art_c; $art_iuttvwe$art_i++) {        var item = $art_objqbpzjncq$art_obj[$art_iuttvwe$art_i]%>';
+        for (var $art_iuttvwe$art_i = 0, $art_objqbpzjncq$art_obj = group.subs, $art_cmtyrzj$art_c = $art_objqbpzjncq$art_obj.length; $art_iuttvwe$art_i < $art_cmtyrzj$art_c; $art_iuttvwe$art_i++) {
+            var item = $art_objqbpzjncq$art_obj[$art_iuttvwe$art_i];
+            $p += '<div mxv mxa="_zs_galleryf:h" class="_zs_gallery___test___edit_theme_-item"><div mxa="_zs_galleryf:i" class="_zs_gallery___test___edit_theme_-name mb5"><div mxa="_zs_galleryf:m" class="color-6">';
             $line = 56;
+            $art = '=item.text';
+            ;
+            $p += ($expr = '<%=item.text%>', $e(item.text)) + '<span class="mc-iconfont _zs_gallery___test___edit_theme_-name-icon" mx-view="mx-popover/index?content=';
+            $line = 57;
             $art = '=item.tip';
             ;
             $p += ($expr = '<%!$eu(item.tip)%>', $eu(item.tip)) + '&width=320&offset=';
-            $line = 58;
-            $art = '@{left: 120}';
-            ;
-            $p += ($expr = '<%@{ left: 120 }%>', $i($$ref, { left: 120 })) + '">';
-            $line = 58;
-            $art = '=item.text';
-            ;
-            $p += ($expr = '<%=item.text%>', $e(item.text)) + '</span></div>';
             $line = 59;
+            $art = '@{left: 80}';
+            ;
+            $p += ($expr = '<%@{ left: 80 }%>', $i($$ref, { left: 80 })) + '">&#xe629;</span></div><div mxa="_zs_galleryf:n" class="_zs_gallery___test___edit_theme_-name-key">';
+            $line = 60;
+            $art = '=item.key';
+            ;
+            $p += ($expr = '<%=item.key%>', $e(item.key)) + '</div></div>';
+            $line = 62;
             $art = 'if item.type == \'color\'';
             ;
             $expr = '<%if (item.type == \'color\') {%>';
             if (item.type == 'color') {
                 ;
                 $p += '<div mxv class="_zs_gallery___test___edit_theme_-color-wrapper" style="background-color: ';
-                $line = 60;
+                $line = 63;
                 $art = '=item.value';
                 ;
-                $p += ($expr = '<%=item.value%>', $e(item.value)) + ';"><div mxv="list" mxe="' + $viewId + '_0_' + ($expr = '<%=$art_ianynalq$art_i%>', $e($art_ianynalq$art_i)) + '_' + ($expr = '<%=$art_igphdedn$art_i%>', $e($art_igphdedn$art_i)) + '" mxc="[';
-                $line = 62;
+                $p += ($expr = '<%=item.value%>', $e(item.value)) + ';"><div mxv="list" mxe="' + $viewId + '_0_' + ($expr = '<%=$art_ipewgtz$art_i%>', $e($art_ipewgtz$art_i)) + '_' + ($expr = '<%=$art_iuttvwe$art_i%>', $e($art_iuttvwe$art_i)) + '" mxc="[';
+                $line = 65;
                 $art = ':item.value';
                 ;
-                $p += '{p:\'list.' + ($expr = '<%=$art_ianynalq$art_i%>', $e($art_ianynalq$art_i)) + '.subs.' + ($expr = '<%=$art_igphdedn$art_i%>', $e($art_igphdedn$art_i)) + '.value\',a:\'color\'}]" mx-change="' + $viewId + 'sync({key:\'';
-                $line = 63;
+                $p += '{p:\'list.' + ($expr = '<%=$art_ipewgtz$art_i%>', $e($art_ipewgtz$art_i)) + '.subs.' + ($expr = '<%=$art_iuttvwe$art_i%>', $e($art_iuttvwe$art_i)) + '.value\',a:\'color\'}]" mx-change="' + $viewId + 'sync({key:\'';
+                $line = 66;
                 $art = '=item.key';
                 ;
                 $p += ($expr = '<%=$eq(item.key)%>', $e($eq(item.key))) + '\'})" mx-view="mx-color/picker?color=';
-                $line = 62;
+                $line = 65;
                 $art = ':item.value';
                 ;
                 $p += ($expr = '<%@item.value%>', $i($$ref, item.value)) + '"></div></div>';
-                $line = 65;
+                $line = 68;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' ';
-            $line = 66;
+            $line = 69;
             $art = 'if item.type == \'text\'';
             ;
             $expr = '<%if (item.type == \'text\') {%>';
             if (item.type == 'text') {
                 ;
-                $p += '<div mxv><input mxe="' + $viewId + '_1_' + ($expr = '<%=$art_ianynalq$art_i%>', $e($art_ianynalq$art_i)) + '_' + ($expr = '<%=$art_igphdedn$art_i%>', $e($art_igphdedn$art_i)) + '" mxc="[';
-                $line = 69;
+                $p += '<div mxv><input mxe="' + $viewId + '_1_' + ($expr = '<%=$art_ipewgtz$art_i%>', $e($art_ipewgtz$art_i)) + '_' + ($expr = '<%=$art_iuttvwe$art_i%>', $e($art_iuttvwe$art_i)) + '" mxc="[';
+                $line = 72;
                 $art = ':item.value';
                 ;
-                $p += '{p:\'list.' + ($expr = '<%=$art_ianynalq$art_i%>', $e($art_ianynalq$art_i)) + '.subs.' + ($expr = '<%=$art_igphdedn$art_i%>', $e($art_igphdedn$art_i)) + '.value\'}]" class="w100" value="';
-                $line = 69;
+                $p += '{p:\'list.' + ($expr = '<%=$art_ipewgtz$art_i%>', $e($art_ipewgtz$art_i)) + '.subs.' + ($expr = '<%=$art_iuttvwe$art_i%>', $e($art_iuttvwe$art_i)) + '.value\'}]" class="w100" value="';
+                $line = 72;
                 $art = ':item.value';
                 ;
                 $p += ($expr = '<%=item.value%>', $e(item.value)) + '" mx-change="' + $viewId + 'sync({key:\'';
-                $line = 70;
+                $line = 73;
                 $art = '=item.key';
                 ;
                 $p += ($expr = '<%=$eq(item.key)%>', $e($eq(item.key))) + '\'})"/></div>';
-                $line = 72;
+                $line = 75;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '</div>';
-            $line = 74;
+            $line = 77;
             $art = 'if item.gap';
             ;
             $expr = '<%if (item.gap) {%>';
             if (item.gap) {
                 ;
                 $p += '<div mxs="_zs_galleryf:e" class="_zs_gallery___test___edit_theme_-item"></div>';
-                $line = 76;
+                $line = 79;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' ';
-            $line = 77;
+            $line = 80;
             $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</div>';
-        $line = 79;
+        $line = 82;
         $art = '/each';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxa="_zs_galleryf:j" class="_zs_gallery___test___edit_theme_-preview"><iframe src="https://mo.m.taobao.com/page_201904221752051#!/example/second1" class="_zs_gallery___test___edit_theme_-iframe" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts" id="frame_';
-    $line = 84;
+    $p += '</div><div mxa="_zs_galleryf:o" class="_zs_gallery___test___edit_theme_-preview"><iframe src="https://mo.m.taobao.com/page_201904221752051#!/example/second1" class="_zs_gallery___test___edit_theme_-iframe" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts" id="frame_';
+    $line = 87;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '" width="100%" height="770" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" border="0"></iframe></div></div>';
@@ -240,30 +244,6 @@ catch (ex) {
                 tip: '超级推荐仿照Facebook，趋于将组件颜色统一化，只通过导航颜色区分不同品牌，后续只需要配置项目色值，组件色值所有都统一。<br/>对于老项目项目品牌色 = 组件品牌色，项目要做成品牌色变更是比较难的，故过渡阶段兼容配置，项目品牌和组件品牌可分别设置。',
                 subs: [
                     {
-                        type: 'text',
-                        key: '--font-size',
-                        text: '字体',
-                        tip: '字体大小，默认12px，组件基于此参数计算节点大小，<span class="color-brand">注：修改字体联动修改正常组件行高，小号组件行高</span>'
-                    },
-                    {
-                        type: 'text',
-                        key: '--line-height',
-                        text: '文本行高',
-                        tip: '文本行高，默认1.5'
-                    },
-                    {
-                        type: 'text',
-                        key: '--input-height',
-                        text: '正常组件行高',
-                        tip: 'input，btn，dropdown，calendar等等组件的trigger节点行高，默认 = 字体 + 20'
-                    },
-                    {
-                        type: 'text',
-                        key: '--input-small-height',
-                        text: '小号组件行高',
-                        tip: '小号input，小号btn，dropdown下拉列表单个选项，默认 = 字体 + 14'
-                    },
-                    {
                         type: 'color',
                         key: '--color-brand',
                         text: '品牌色',
@@ -308,6 +288,12 @@ catch (ex) {
                     },
                     {
                         type: 'color',
+                        key: '--btn-brand-text',
+                        text: '深底按钮文字',
+                        tip: '深底色按钮文字颜色'
+                    },
+                    {
+                        type: 'color',
                         key: '--btn-brand',
                         text: '深底按钮',
                         tip: '深底按钮色，支持渐变，默认等于品牌色'
@@ -316,14 +302,14 @@ catch (ex) {
                         type: 'color',
                         key: '--btn-brand-gradient',
                         text: '深底按钮渐变',
-                        tip: '深底按钮色，支持渐变，默认等于品牌色'
+                        tip: '深底按钮色，支持渐变，默认等于品牌色',
+                        gap: true
                     },
                     {
                         type: 'color',
-                        key: '--btn-brand-text',
-                        text: '深底按钮文字',
-                        tip: '深底色按钮文字颜色',
-                        gap: true
+                        key: '--btn-brand-text-hover',
+                        text: '深底按钮hover文字',
+                        tip: '深底色按钮hover时文字颜色'
                     },
                     {
                         type: 'color',
@@ -335,13 +321,7 @@ catch (ex) {
                         type: 'color',
                         key: '--btn-brand-gradient-hover',
                         text: '深底按钮hover渐变',
-                        tip: '深底按钮hover色值，支持渐变，默认等于品牌色hover'
-                    },
-                    {
-                        type: 'color',
-                        key: '--btn-brand-text-hover',
-                        text: '深底按钮hover文字',
-                        tip: '深底色按钮hover时文字颜色',
+                        tip: '深底按钮hover色值，支持渐变，默认等于品牌色hover',
                         gap: true
                     },
                     {
@@ -405,6 +385,30 @@ catch (ex) {
                         text: '绿色通过',
                         tip: '通过场景提示颜色',
                         gap: true
+                    },
+                    {
+                        type: 'text',
+                        key: '--font-size',
+                        text: '字体',
+                        tip: '字体大小，默认12px，组件基于此参数计算节点大小，<span class="color-brand">注：修改字体联动修改正常组件行高，小号组件行高</span>'
+                    },
+                    {
+                        type: 'text',
+                        key: '--line-height',
+                        text: '文本行高',
+                        tip: '文本行高，默认1.5'
+                    },
+                    {
+                        type: 'text',
+                        key: '--input-height',
+                        text: '正常组件行高',
+                        tip: 'input，btn，dropdown，calendar等等组件的trigger节点行高，默认 = 字体 + 20'
+                    },
+                    {
+                        type: 'text',
+                        key: '--input-small-height',
+                        text: '小号组件行高',
+                        tip: '小号input，小号btn，dropdown下拉列表单个选项，默认 = 字体 + 14'
                     }
                 ]
             }

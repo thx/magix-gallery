@@ -48,30 +48,6 @@ module.exports = Base.extend({
                 tip: '超级推荐仿照Facebook，趋于将组件颜色统一化，只通过导航颜色区分不同品牌，后续只需要配置项目色值，组件色值所有都统一。<br/>对于老项目项目品牌色 = 组件品牌色，项目要做成品牌色变更是比较难的，故过渡阶段兼容配置，项目品牌和组件品牌可分别设置。',
                 subs: [
                     {
-                        type: 'text',
-                        key: '--font-size',
-                        text: '字体',
-                        tip: '字体大小，默认12px，组件基于此参数计算节点大小，<span class="color-brand">注：修改字体联动修改正常组件行高，小号组件行高</span>'
-                    },
-                    {
-                        type: 'text',
-                        key: '--line-height',
-                        text: '文本行高',
-                        tip: '文本行高，默认1.5'
-                    },
-                    {
-                        type: 'text',
-                        key: '--input-height',
-                        text: '正常组件行高',
-                        tip: 'input，btn，dropdown，calendar等等组件的trigger节点行高，默认 = 字体 + 20'
-                    },
-                    {
-                        type: 'text',
-                        key: '--input-small-height',
-                        text: '小号组件行高',
-                        tip: '小号input，小号btn，dropdown下拉列表单个选项，默认 = 字体 + 14'
-                    },
-                    {
                         type: 'color',
                         key: '--color-brand',
                         text: '品牌色',
@@ -116,6 +92,12 @@ module.exports = Base.extend({
                     },
                     {
                         type: 'color',
+                        key: '--btn-brand-text',
+                        text: '深底按钮文字',
+                        tip: '深底色按钮文字颜色'
+                    },
+                    {
+                        type: 'color',
                         key: '--btn-brand',
                         text: '深底按钮',
                         tip: '深底按钮色，支持渐变，默认等于品牌色'
@@ -124,14 +106,14 @@ module.exports = Base.extend({
                         type: 'color',
                         key: '--btn-brand-gradient',
                         text: '深底按钮渐变',
-                        tip: '深底按钮色，支持渐变，默认等于品牌色'
+                        tip: '深底按钮色，支持渐变，默认等于品牌色',
+                        gap: true
                     },
                     {
                         type: 'color',
-                        key: '--btn-brand-text',
-                        text: '深底按钮文字',
-                        tip: '深底色按钮文字颜色',
-                        gap: true
+                        key: '--btn-brand-text-hover',
+                        text: '深底按钮hover文字',
+                        tip: '深底色按钮hover时文字颜色'
                     },
                     {
                         type: 'color',
@@ -143,13 +125,7 @@ module.exports = Base.extend({
                         type: 'color',
                         key: '--btn-brand-gradient-hover',
                         text: '深底按钮hover渐变',
-                        tip: '深底按钮hover色值，支持渐变，默认等于品牌色hover'
-                    },
-                    {
-                        type: 'color',
-                        key: '--btn-brand-text-hover',
-                        text: '深底按钮hover文字',
-                        tip: '深底色按钮hover时文字颜色',
+                        tip: '深底按钮hover色值，支持渐变，默认等于品牌色hover',
                         gap: true
                     },
                     {
@@ -213,6 +189,30 @@ module.exports = Base.extend({
                         text: '绿色通过',
                         tip: '通过场景提示颜色',
                         gap: true
+                    },
+                    {
+                        type: 'text',
+                        key: '--font-size',
+                        text: '字体',
+                        tip: '字体大小，默认12px，组件基于此参数计算节点大小，<span class="color-brand">注：修改字体联动修改正常组件行高，小号组件行高</span>'
+                    },
+                    {
+                        type: 'text',
+                        key: '--line-height',
+                        text: '文本行高',
+                        tip: '文本行高，默认1.5'
+                    },
+                    {
+                        type: 'text',
+                        key: '--input-height',
+                        text: '正常组件行高',
+                        tip: 'input，btn，dropdown，calendar等等组件的trigger节点行高，默认 = 字体 + 20'
+                    },
+                    {
+                        type: 'text',
+                        key: '--input-small-height',
+                        text: '小号组件行高',
+                        tip: '小号input，小号btn，dropdown下拉列表单个选项，默认 = 字体 + 14'
                     }
                 ]
             }

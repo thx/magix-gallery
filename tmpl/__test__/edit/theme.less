@@ -11,7 +11,7 @@
     --edit-nav-size: 20px;
     --edit-color-width: calc(var(--edit-theme-width) * 4);
     --edit-group-height: 50px;
-    --edit-wrapper-height: calc(var(--edit-group-height) * 2 + 780px);
+    --edit-wrapper-height: calc(var(--edit-group-height) * 2 + 800px);
 }
 .theme {
     float: left;
@@ -66,7 +66,7 @@
     .item {
         float: left;
         width: 120px;
-        height: 86px;
+        height: 90px;
     }
     .icon {
         position: relative;
@@ -110,5 +110,21 @@
         top: 0;
         left: 0;
         width: calc(var(--font-size) * 15);
+    }
+}
+
+.name{
+    position: relative;
+    height: 36px;
+    white-space: nowrap;
+    .name-key{
+        position: absolute;
+        top: 18px;
+        left: 0;
+        color: #999;
+    }
+    .name-icon{
+        font-size: 12px;
+        color: #999;
     }
 }

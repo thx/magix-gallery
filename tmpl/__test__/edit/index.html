@@ -52,10 +52,13 @@
             <div class="clearfix">
                 {{each group.subs as item}}
                     <div class="item">
-                        <div class="nowrap mb10 color-6 cursor-help"><mx-popover 
-                            content="{{=item.tip}}"
-                            width="320"
-                            offset="{{@{left: 120}}}">{{=item.text}}</mx-popover></div>
+                        <div class="name mb5">
+                            <div class="color-6">{{=item.text}}<mx-popover class="mc-iconfont name-icon"
+                                content="{{=item.tip}}"
+                                width="320"
+                                offset="{{@{left: 80}}}">&#xe629;</mx-popover></div>
+                            <div class="name-key">{{=item.key}}</div>
+                        </div>
                         {{if item.type == 'color'}}
                         <div class="color-wrapper" style="background-color: {{=item.value}};">
                             <mx-color.picker 
