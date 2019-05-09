@@ -29,9 +29,9 @@ module.exports = Base.extend({
     $line = 8;
     $art = 'each items as item';
     ;
-    $expr = '<%for (var $art_irbtetbydm$art_i = 0, $art_cvdqabkgdof$art_c = items.length; $art_irbtetbydm$art_i < $art_cvdqabkgdof$art_c; $art_irbtetbydm$art_i++) {    var item = items[$art_irbtetbydm$art_i]%>';
-    for (var $art_irbtetbydm$art_i = 0, $art_cvdqabkgdof$art_c = items.length; $art_irbtetbydm$art_i < $art_cvdqabkgdof$art_c; $art_irbtetbydm$art_i++) {
-        var item = items[$art_irbtetbydm$art_i];
+    $expr = '<%for (var $art_ibiscthzh$art_i = 0, $art_chpaub$art_c = items.length; $art_ibiscthzh$art_i < $art_chpaub$art_c; $art_ibiscthzh$art_i++) {    var item = items[$art_ibiscthzh$art_i]%>';
+    for (var $art_ibiscthzh$art_i = 0, $art_chpaub$art_c = items.length; $art_ibiscthzh$art_i < $art_chpaub$art_c; $art_ibiscthzh$art_i++) {
+        var item = items[$art_ibiscthzh$art_i];
         $p += '<li class="_zs_gallery_mx-dragsort___test___index_-item" data-value="';
         $line = 9;
         $art = '=item';
@@ -51,9 +51,9 @@ module.exports = Base.extend({
     $line = 14;
     $art = 'each items as item';
     ;
-    $expr = '<%for (var $art_ignfqlvyj$art_i = 0, $art_conhndcwk$art_c = items.length; $art_ignfqlvyj$art_i < $art_conhndcwk$art_c; $art_ignfqlvyj$art_i++) {    var item = items[$art_ignfqlvyj$art_i]%>';
-    for (var $art_ignfqlvyj$art_i = 0, $art_conhndcwk$art_c = items.length; $art_ignfqlvyj$art_i < $art_conhndcwk$art_c; $art_ignfqlvyj$art_i++) {
-        var item = items[$art_ignfqlvyj$art_i];
+    $expr = '<%for (var $art_icacvcvxooh$art_i = 0, $art_cyxxcwutudk$art_c = items.length; $art_icacvcvxooh$art_i < $art_cyxxcwutudk$art_c; $art_icacvcvxooh$art_i++) {    var item = items[$art_icacvcvxooh$art_i]%>';
+    for (var $art_icacvcvxooh$art_i = 0, $art_cyxxcwutudk$art_c = items.length; $art_icacvcvxooh$art_i < $art_cyxxcwutudk$art_c; $art_icacvcvxooh$art_i++) {
+        var item = items[$art_icacvcvxooh$art_i];
         $p += '<div>';
         $line = 15;
         $art = '=item';

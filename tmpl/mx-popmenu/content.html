@@ -2,7 +2,7 @@
     {{each menus as item}}
     <div class="item">
         <span class="item-link ellipsis"
-            mx-click="submit({value:{{=item.value}}})">
+            mx-click="submit({value:'{{=item.value}}'})">
             {{=item.text}}
         </span>
     </div>

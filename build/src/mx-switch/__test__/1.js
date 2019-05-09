@@ -28,15 +28,15 @@ module.exports = Base.extend({
     $line = 4;
     $art = '=state';
     ;
-    $p += ($expr = '<%!$eu(state)%>', $eu(state)) + '"></span><a mxs="_zs_galleryd(:d" href="javascript:;" class="btn btn-brand mr20" mx-click="' + $viewId + 'change()">切换状态</a><span>当前状态：';
+    $p += ($expr = '<%!$eu(state)%>', $eu(state)) + '"></span><a mxs="_zs_galleryd(:_" href="javascript:;" class="btn btn-brand mr20" mx-click="' + $viewId + 'change()">切换状态</a><span>当前状态：';
     $line = 7;
     $art = '=state';
     ;
-    $p += ($expr = '<%=state%>', $e(state)) + '</span></div><div mxa="_zs_galleryd(:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd(:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=state%>', $e(state)) + '</span></div><div mxa="_zs_galleryd(:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd(:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 11;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryd(:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryd(:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 13;
     $art = '!text1';
     ;
@@ -44,11 +44,11 @@ module.exports = Base.extend({
     $line = 16;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-switch class="mr20"\n    state="&#123;&#123;=state&#125;&#125;"\n    mx-change="toggle()"/&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand" \n    mx-click="change()"&gt;切换状态&lt;/a&gt;</pre></div><div mxa="_zs_galleryd(:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd(:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-switch class="mr20"\n    state="&#123;&#123;=state&#125;&#125;"\n    mx-change="toggle()"/&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand" \n    mx-click="change()"&gt;切换状态&lt;/a&gt;</pre></div><div mxa="_zs_galleryd(:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryd(:c" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryd(:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryd(:e" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 28;
     $art = '!text2';
     ;

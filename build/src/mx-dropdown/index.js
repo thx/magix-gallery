@@ -29,7 +29,7 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, expand = $$.expand, small = $$.small, name = $$.name, selectedText = $$.selectedText, placementClass = $$.placementClass, rList = $$.rList, searchbox = $$.searchbox, text = $$.text, keyword = $$.keyword, list = $$.list, height = $$.height, textKey = $$.textKey, valueKey = $$.valueKey, selected = $$.selected, spm = $$.spm; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, expand = $$.expand, name = $$.name, selectedText = $$.selectedText, placementClass = $$.placementClass, rList = $$.rList, searchbox = $$.searchbox, text = $$.text, keyword = $$.keyword, list = $$.list, height = $$.height, textKey = $$.textKey, valueKey = $$.valueKey, selected = $$.selected, spm = $$.spm; var $expr, $art, $line; try {
     $p += '<div id="toggle_';
     $line = 1;
     $art = '=viewId';
@@ -39,14 +39,6 @@ module.exports = Magix.View.extend({
     if (expand) {
         ;
         $p += ' mx-trigger-open ';
-        $expr = '<%}%>';
-    }
-    ;
-    $p += ' ';
-    $expr = '<%if (small) {%>';
-    if (small) {
-        ;
-        $p += ' mx-trigger-small ';
         $expr = '<%}%>';
     }
     ;
@@ -256,7 +248,6 @@ catch (ex) {
             selectedText: me['@{selected.text}'] = map[selected][textKey],
             keyword: me['@{last.search.value}'] = (ops.keyword || ''),
             expand: me['@{ui.expand}'],
-            small: (ops.small + '' === 'true'),
             height: (ops.height || 250),
             spm: me['@{owner.node}'].attr('data-spm-click') || '',
             name: ops.name || '',

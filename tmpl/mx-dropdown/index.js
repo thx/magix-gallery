@@ -106,7 +106,6 @@ module.exports = Magix.View.extend({
             selectedText: me['@{selected.text}'] = map[selected][textKey],
             keyword: me['@{last.search.value}'] = (ops.keyword || ''),  // 搜索关键词
             expand: me['@{ui.expand}'],
-            small: (ops.small + '' === 'true'), //小尺寸
             height: (ops.height || 250),
             spm: me['@{owner.node}'].attr('data-spm-click') || '', //埋点
             name: ops.name || '', // 前缀

@@ -66,6 +66,11 @@
 }
 
 .box {
+    position: relative;
+    display: inline-block;
+    height: var(--input-height);
+    vertical-align: middle;
+    
     .box-tip {
         position: relative;
         top: 1px;
@@ -108,8 +113,6 @@
 }
 
 .hollow-box {
-    position: relative;
-    display: inline-block;
     .box-item {
         position: relative;
         z-index: 2;
@@ -144,8 +147,6 @@
 }
 
 .solid-box {
-    display: inline-block;
-    height: var(--input-height);
     border: 1px solid var(--border-highlight);    
     border-radius: var(--border-radius);
     .box-item {

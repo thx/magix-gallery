@@ -12,7 +12,7 @@ require("mx-popover/index");
  */
 var Magix = require("magix");
 var Base = require("mx-tabs/base");
-Magix.applyStyle("_zs_gallery_mx-tabs_index_","[mx-view*=\"mx-tabs/box\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-tabs_index_-tag {\n  display: inline-block;\n  height: 18px;\n  padding-left: 4px;\n  padding-right: 4px;\n  line-height: 18px;\n  border-radius: var(--border-radius);\n  background-color: var(--color-brand);\n  color: #fff;\n  font-size: 12px;\n  font-weight: bold;\n  white-space: nowrap;\n}\n._zs_gallery_mx-tabs_index_-border {\n  position: relative;\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item {\n  position: relative;\n  float: left;\n  height: calc(var(--input-height) + 20px);\n  padding: 10px 24px;\n  font-size: 16px;\n  line-height: var(--input-height);\n  transition: color var(--duration) ease-out;\n  color: #666;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item._zs_gallery_mx-tabs_index_-selected {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag {\n  position: absolute;\n  top: -4px;\n  left: 100%;\n  margin-left: -26px;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag ._zs_gallery_mx-tabs_index_-tag-name {\n  display: inline-block;\n  -webkit-transform: scale(0.92);\n          transform: scale(0.92);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag ._zs_gallery_mx-tabs_index_-tag-arrow {\n  position: absolute;\n  left: 4px;\n  top: 18px;\n  width: 0;\n  height: 0;\n  border-width: 3px;\n  border-style: solid;\n  border-color: var(--color-brand) #ffffff #ffffff var(--color-brand);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-underline {\n  position: absolute;\n  width: 0;\n  height: 0;\n  bottom: -1px;\n  border-bottom: 2px solid var(--color-brand);\n  transition: width var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1), left var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-tip {\n  position: relative;\n  top: 1px;\n  font-size: 14px;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item {\n  cursor: pointer;\n  text-align: center;\n  padding: 0 12px;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:first-child {\n  border-top-left-radius: var(--border-radius);\n  border-bottom-left-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:last-child {\n  border-top-right-radius: var(--border-radius);\n  border-bottom-right-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item ._zs_gallery_mx-tabs_index_-tag {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item {\n  color: #999;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #999;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #999;\n  background-color: var(--color-disabled);\n  border-color: var(--color-border);\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item ._zs_gallery_mx-tabs_index_-tag {\n  background-color: #ccc;\n}\n._zs_gallery_mx-tabs_index_-hollow-box {\n  position: relative;\n  display: inline-block;\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item {\n  position: relative;\n  z-index: 2;\n  display: inline-block;\n  height: var(--input-height);\n  line-height: calc(var(--input-height) - 2px);\n  border-radius: var(--border-radius);\n  color: #666;\n  border: 1px solid transparent;\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #333;\n  background-color: var(--color-brand-opacity);\n  border: 1px solid var(--color-brand);\n}\n._zs_gallery_mx-tabs_index_-hollow-box::after {\n  content: ' ';\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n  width: 100%;\n  height: 100%;\n  border-radius: var(--border-radius);\n  border: 1px solid var(--border-highlight);\n}\n._zs_gallery_mx-tabs_index_-solid-box {\n  display: inline-block;\n  height: var(--input-height);\n  border: 1px solid var(--border-highlight);\n  border-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item {\n  display: inline-block;\n  height: calc(var(--input-height) - 2px);\n  line-height: calc(var(--input-height) - 2px);\n  color: #999;\n  background-color: #fff;\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: var(--color-brand);\n  background-color: var(--color-brand-opacity);\n}\n");
+Magix.applyStyle("_zs_gallery_mx-tabs_index_","[mx-view*=\"mx-tabs/box\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-tabs_index_-tag {\n  display: inline-block;\n  height: 18px;\n  padding-left: 4px;\n  padding-right: 4px;\n  line-height: 18px;\n  border-radius: var(--border-radius);\n  background-color: var(--color-brand);\n  color: #fff;\n  font-size: 12px;\n  font-weight: bold;\n  white-space: nowrap;\n}\n._zs_gallery_mx-tabs_index_-border {\n  position: relative;\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item {\n  position: relative;\n  float: left;\n  height: calc(var(--input-height) + 20px);\n  padding: 10px 24px;\n  font-size: 16px;\n  line-height: var(--input-height);\n  transition: color var(--duration) ease-out;\n  color: #666;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item._zs_gallery_mx-tabs_index_-selected {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag {\n  position: absolute;\n  top: -4px;\n  left: 100%;\n  margin-left: -26px;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag ._zs_gallery_mx-tabs_index_-tag-name {\n  display: inline-block;\n  -webkit-transform: scale(0.92);\n          transform: scale(0.92);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag ._zs_gallery_mx-tabs_index_-tag-arrow {\n  position: absolute;\n  left: 4px;\n  top: 18px;\n  width: 0;\n  height: 0;\n  border-width: 3px;\n  border-style: solid;\n  border-color: var(--color-brand) #ffffff #ffffff var(--color-brand);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-underline {\n  position: absolute;\n  width: 0;\n  height: 0;\n  bottom: -1px;\n  border-bottom: 2px solid var(--color-brand);\n  transition: width var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1), left var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1);\n}\n._zs_gallery_mx-tabs_index_-box {\n  position: relative;\n  display: inline-block;\n  height: var(--input-height);\n  vertical-align: middle;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-tip {\n  position: relative;\n  top: 1px;\n  font-size: 14px;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item {\n  cursor: pointer;\n  text-align: center;\n  padding: 0 12px;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:first-child {\n  border-top-left-radius: var(--border-radius);\n  border-bottom-left-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:last-child {\n  border-top-right-radius: var(--border-radius);\n  border-bottom-right-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item ._zs_gallery_mx-tabs_index_-tag {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item {\n  color: #999;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #999;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #999;\n  background-color: var(--color-disabled);\n  border-color: var(--color-border);\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item ._zs_gallery_mx-tabs_index_-tag {\n  background-color: #ccc;\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item {\n  position: relative;\n  z-index: 2;\n  display: inline-block;\n  height: var(--input-height);\n  line-height: calc(var(--input-height) - 2px);\n  border-radius: var(--border-radius);\n  color: #666;\n  border: 1px solid transparent;\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #333;\n  background-color: var(--color-brand-opacity);\n  border: 1px solid var(--color-brand);\n}\n._zs_gallery_mx-tabs_index_-hollow-box::after {\n  content: ' ';\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n  width: 100%;\n  height: 100%;\n  border-radius: var(--border-radius);\n  border: 1px solid var(--border-highlight);\n}\n._zs_gallery_mx-tabs_index_-solid-box {\n  border: 1px solid var(--border-highlight);\n  border-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item {\n  display: inline-block;\n  height: calc(var(--input-height) - 2px);\n  line-height: calc(var(--input-height) - 2px);\n  color: #999;\n  background-color: #fff;\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: var(--color-brand);\n  background-color: var(--color-brand-opacity);\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -36,12 +36,12 @@ module.exports = Base.extend({
     $expr = '<%if (type == \'border\') {%>';
     if (type == 'border') {
         ;
-        $p += '<div mxa="_zs_galleryeH:_" class="_zs_gallery_mx-tabs_index_-border clearfix">';
+        $p += '<div mxa="_zs_galleryeG:_" class="_zs_gallery_mx-tabs_index_-border clearfix">';
         $line = 3;
         $art = 'each list as item index';
         ;
-        $expr = '<%for (var index = 0, $art_cqbiyqezflh$art_c = list.length; index < $art_cqbiyqezflh$art_c; index++) {        var item = list[index]%>';
-        for (var index = 0, $art_cqbiyqezflh$art_c = list.length; index < $art_cqbiyqezflh$art_c; index++) {
+        $expr = '<%for (var index = 0, $art_ctwvdnya$art_c = list.length; index < $art_ctwvdnya$art_c; index++) {        var item = list[index]%>';
+        for (var index = 0, $art_ctwvdnya$art_c = list.length; index < $art_ctwvdnya$art_c; index++) {
             var item = list[index];
             $p += '<a class="_zs_gallery_mx-tabs_index_-border-item ';
             $line = 4;
@@ -96,7 +96,7 @@ module.exports = Base.extend({
             $expr = '<%if (item.tag) {%>';
             if (item.tag) {
                 ;
-                $p += '<span mxa="_zs_galleryeH:a" class="_zs_gallery_mx-tabs_index_-tag"><span mxs="_zs_galleryeH:_" class="_zs_gallery_mx-tabs_index_-tag-arrow"></span><span mxa="_zs_galleryeH:b" class="_zs_gallery_mx-tabs_index_-tag-name">';
+                $p += '<span mxa="_zs_galleryeG:a" class="_zs_gallery_mx-tabs_index_-tag"><span mxs="_zs_galleryeG:_" class="_zs_gallery_mx-tabs_index_-tag-arrow"></span><span mxa="_zs_galleryeG:b" class="_zs_gallery_mx-tabs_index_-tag-name">';
                 $line = 13;
                 $art = '=item.tag';
                 ;
@@ -114,34 +114,34 @@ module.exports = Base.extend({
             $expr = '<%if (item.tips) {%>';
             if (item.tips) {
                 ;
-                $p += '<i class="mc-iconfont color-c" mx-view="mx-popover/index?content=';
-                $line = 19;
+                $p += '<i class="mc-iconfont color-c" mx-view="mx-popover/index?width=280&content=';
+                $line = 20;
                 $art = '=item.tips';
                 ;
                 $p += ($expr = '<%!$eu(item.tips)%>', $eu(item.tips)) + '">&#xe7aa;</i>';
-                $line = 20;
+                $line = 21;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '</a>';
-            $line = 22;
+            $line = 23;
             $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '<span class="_zs_gallery_mx-tabs_index_-underline" style="left: ';
-        $line = 23;
+        $line = 24;
         $art = '=left';
         ;
         $p += ($expr = '<%=left%>', $e(left)) + 'px; width: ';
-        $line = 23;
+        $line = 24;
         $art = '=width';
         ;
         $p += ($expr = '<%=width%>', $e(width)) + 'px;"></span></div>';
-        $line = 25;
+        $line = 26;
         $art = 'else';
         ;
         $expr = '<%}else {%>';
@@ -149,91 +149,91 @@ module.exports = Base.extend({
     else {
         ;
         $p += '<div class="_zs_gallery_mx-tabs_index_-box ';
-        $line = 26;
+        $line = 27;
         $art = '= disabled ? \'box-disabled\' : \'\'';
         ;
         $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-tabs_index_-box-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-tabs_index_-box-disabled' : '')) + '">';
-        $line = 27;
+        $line = 28;
         $art = 'each list as item';
         ;
-        $expr = '<%for (var $art_ixinugdpk$art_i = 0, $art_cstite$art_c = list.length; $art_ixinugdpk$art_i < $art_cstite$art_c; $art_ixinugdpk$art_i++) {        var item = list[$art_ixinugdpk$art_i]%>';
-        for (var $art_ixinugdpk$art_i = 0, $art_cstite$art_c = list.length; $art_ixinugdpk$art_i < $art_cstite$art_c; $art_ixinugdpk$art_i++) {
-            var item = list[$art_ixinugdpk$art_i];
+        $expr = '<%for (var $art_iccvlizru$art_i = 0, $art_ctclvons$art_c = list.length; $art_iccvlizru$art_i < $art_ctclvons$art_c; $art_iccvlizru$art_i++) {        var item = list[$art_iccvlizru$art_i]%>';
+        for (var $art_iccvlizru$art_i = 0, $art_ctclvons$art_c = list.length; $art_iccvlizru$art_i < $art_ctclvons$art_c; $art_iccvlizru$art_i++) {
+            var item = list[$art_iccvlizru$art_i];
             $p += '<a href="javascript:;" ';
-            $line = 28;
+            $line = 29;
             $art = 'if !disabled';
             ;
             $expr = '<%if (!disabled) {%>';
             if (!disabled) {
                 ;
                 $p += ' mx-click="' + $viewId + '@{select}({item:\'';
-                $line = 28;
+                $line = 29;
                 $art = '@item';
                 ;
                 $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})" ';
-                $line = 28;
+                $line = 29;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' class="_zs_gallery_mx-tabs_index_-box-item ';
-            $line = 28;
+            $line = 29;
             $art = '= (item.value == selected) ? \'selected\' : \'\'';
             ;
             $p += ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '" ';
-            $line = 29;
+            $line = 30;
             $art = 'if spm';
             ;
             $expr = '<%if (spm) {%>';
             if (spm) {
                 ;
                 $p += ' data-spm-click="';
-                $line = 29;
+                $line = 30;
                 $art = '=spm';
                 ;
                 $p += ($expr = '<%=spm%>', $e(spm)) + '';
-                $line = 29;
+                $line = 30;
                 $art = '=index';
                 ;
                 $p += ($expr = '<%=index%>', $e(index)) + '" ';
-                $line = 29;
+                $line = 30;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '>';
-            $line = 30;
+            $line = 31;
             $art = '=item.text';
             ;
             $p += ($expr = '<%=item.text%>', $e(item.text)) + ' ';
-            $line = 31;
+            $line = 32;
             $art = 'if item.tag';
             ;
             $expr = '<%if (item.tag) {%>';
             if (item.tag) {
                 ;
-                $p += '<span mxa="_zs_galleryeH:c" class="_zs_gallery_mx-tabs_index_-tag">';
-                $line = 32;
+                $p += '<span mxa="_zs_galleryeG:c" class="_zs_gallery_mx-tabs_index_-tag">';
+                $line = 33;
                 $art = '=item.tag';
                 ;
                 $p += ($expr = '<%=item.tag%>', $e(item.tag)) + '</span>';
-                $line = 33;
+                $line = 34;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '</a>';
-            $line = 35;
+            $line = 36;
             $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</div>';
-        $line = 37;
+        $line = 38;
         $art = '/if';
         ;
         $expr = '<%}%>';

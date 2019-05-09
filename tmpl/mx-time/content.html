@@ -10,7 +10,7 @@
                     maxlength="2" 
                     autocomplete="off"
                     value="{{=format(time['@{hour}'])}}"
-                    {{if types['@{hour}']}} mx-change="@{set}({type:'@{hour}'})" {{else}} time-disabled {{/if}}
+                    {{if types['@{hour}']}} mx-change="@{set}({type:'@{hour}'})" {{else}} disabled {{/if}}
                     mx-keydown="@{press.check}({type:'@{hour}'})" />
             </div>
             <div class="clearfix {{if !types['@{hour}']}} time-disabled {{/if}}">
@@ -27,7 +27,7 @@
                     maxlength="2" 
                     autocomplete="off"
                     value="{{=format(time['@{minute}'])}}"
-                    {{if types['@{minute}']}} mx-change="@{set}({type:'@{minute}'})" {{else}} time-disabled {{/if}}
+                    {{if types['@{minute}']}} mx-change="@{set}({type:'@{minute}'})" {{else}} disabled {{/if}}
                     mx-keydown="@{press.check}({type:'@{minute}'})" />
             </div>
             <div class="clearfix {{if !types['@{minute}']}} time-disabled {{/if}}">
@@ -44,7 +44,7 @@
                     maxlength="2" 
                     autocomplete="off"
                     value="{{=format(time['@{second}'])}}"
-                    {{if types['@{second}']}} mx-change="@{set}({type:'@{second}'})" {{else}} time-disabled {{/if}}
+                    {{if types['@{second}']}} mx-change="@{set}({type:'@{second}'})" {{else}} disabled {{/if}}
                     mx-keydown="@{press.check}({type:'@{second}'})" />
             </div>
             <div class="clearfix {{if !types['@{second}']}} time-disabled {{/if}}">
