@@ -101,10 +101,10 @@ module.exports = Magix.View.extend({
             type: 'number',
             def: '0'
         }, {
-            key: 'mx-disabled',
-            desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-calendar.rangepicker mx-disabled /&gt;',
+            key: 'disabled',
+            desc: '是否禁用',
             type: '',
-            def: ''
+            def: 'false'
         }]
 
         let supportQuickDates = [{

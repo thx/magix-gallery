@@ -130,7 +130,7 @@ catch (ex) {
     init: function (extra) {
         var me = this;
         me['@{owner.node}'] = $('#' + me.id);
-        // 支持mx-disabled或者disabled
+        // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         var disabled = (extra.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
         Monitor['@{setup}']();
         me.on('destroy', function () {

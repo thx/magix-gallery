@@ -53,7 +53,7 @@ module.exports = Magix.View.extend({
         me['@{max}'] = +ops.max || 100;
         me['@{step}'] = +ops.step || 1;
 
-        // 支持mx-disabled或者disabled
+        // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
         me['@{vertical}'] = (ops.vertical + '') === 'true';

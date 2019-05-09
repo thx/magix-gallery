@@ -48,13 +48,20 @@
     }
 }
 
-[mx-disabled],
-[mx-disabled]:hover {
-    .result {
-        &.vs {
-            .co-left,
-            .co-right {
-                color: #999;
+[mx-view*="mx-calendar/rangepicker"], 
+[mx-view*="mx-calendar/datepicker"]{
+    min-width: 180px;
+    
+    &[mx-view*="disabled=true"],
+    &[mx-view*="disabled=true"]:hover,
+    &[mx-disabled],
+    &[mx-disabled]:hover {
+        .result {
+            &.vs {
+                .co-left,
+                .co-right {
+                    color: #999;
+                }
             }
         }
     }

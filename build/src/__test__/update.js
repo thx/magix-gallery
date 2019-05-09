@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iihskrpjn$art_i = 0, $art_cmfwqqt$art_c = list.length; $art_iihskrpjn$art_i < $art_cmfwqqt$art_c; $art_iihskrpjn$art_i++) {    var item = list[$art_iihskrpjn$art_i]%>';
-    for (var $art_iihskrpjn$art_i = 0, $art_cmfwqqt$art_c = list.length; $art_iihskrpjn$art_i < $art_cmfwqqt$art_c; $art_iihskrpjn$art_i++) {
-        var item = list[$art_iihskrpjn$art_i];
+    $expr = '<%for (var $art_idocxjumhy$art_i = 0, $art_ctpwbxl$art_c = list.length; $art_idocxjumhy$art_i < $art_ctpwbxl$art_c; $art_idocxjumhy$art_i++) {    var item = list[$art_idocxjumhy$art_i]%>';
+    for (var $art_idocxjumhy$art_i = 0, $art_ctpwbxl$art_c = list.length; $art_idocxjumhy$art_i < $art_ctpwbxl$art_c; $art_idocxjumhy$art_i++) {
+        var item = list[$art_idocxjumhy$art_i];
         $p += '<div mxa="_zs_galleryN:_" class="_zs_gallery___test___update_-update"><div mxa="_zs_galleryN:a" class="_zs_gallery___test___update_-ver pl20"><span mxa="_zs_galleryN:b" class="_zs_gallery___test___update_-vt">';
         $line = 5;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 10;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_ipkejigimc$art_i = 0, $art_objmawi$art_obj = item.subs, $art_ctehue$art_c = $art_objmawi$art_obj.length; $art_ipkejigimc$art_i < $art_ctehue$art_c; $art_ipkejigimc$art_i++) {        var s = $art_objmawi$art_obj[$art_ipkejigimc$art_i]%>';
-        for (var $art_ipkejigimc$art_i = 0, $art_objmawi$art_obj = item.subs, $art_ctehue$art_c = $art_objmawi$art_obj.length; $art_ipkejigimc$art_i < $art_ctehue$art_c; $art_ipkejigimc$art_i++) {
-            var s = $art_objmawi$art_obj[$art_ipkejigimc$art_i];
+        $expr = '<%for (var $art_icdstmgh$art_i = 0, $art_objptolgic$art_obj = item.subs, $art_cmvnxbwofr$art_c = $art_objptolgic$art_obj.length; $art_icdstmgh$art_i < $art_cmvnxbwofr$art_c; $art_icdstmgh$art_i++) {        var s = $art_objptolgic$art_obj[$art_icdstmgh$art_i]%>';
+        for (var $art_icdstmgh$art_i = 0, $art_objptolgic$art_obj = item.subs, $art_cmvnxbwofr$art_c = $art_objptolgic$art_obj.length; $art_icdstmgh$art_i < $art_cmvnxbwofr$art_c; $art_icdstmgh$art_i++) {
+            var s = $art_objptolgic$art_obj[$art_icdstmgh$art_i];
             $p += '<div mxa="_zs_galleryN:e" class="pl20">';
             $line = 12;
             $art = 'if s.type == \'notice\'';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
             $line = 33;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_idqwtqk$art_i = 0, $art_objlkypxec$art_obj = s.subs, $art_clwvbcse$art_c = $art_objlkypxec$art_obj.length; $art_idqwtqk$art_i < $art_clwvbcse$art_c; $art_idqwtqk$art_i++) {            var ss = $art_objlkypxec$art_obj[$art_idqwtqk$art_i]%>';
-            for (var $art_idqwtqk$art_i = 0, $art_objlkypxec$art_obj = s.subs, $art_clwvbcse$art_c = $art_objlkypxec$art_obj.length; $art_idqwtqk$art_i < $art_clwvbcse$art_c; $art_idqwtqk$art_i++) {
-                var ss = $art_objlkypxec$art_obj[$art_idqwtqk$art_i];
+            $expr = '<%for (var $art_iplmvsgivlg$art_i = 0, $art_objnwcpenahmh$art_obj = s.subs, $art_ctgcbfs$art_c = $art_objnwcpenahmh$art_obj.length; $art_iplmvsgivlg$art_i < $art_ctgcbfs$art_c; $art_iplmvsgivlg$art_i++) {            var ss = $art_objnwcpenahmh$art_obj[$art_iplmvsgivlg$art_i]%>';
+            for (var $art_iplmvsgivlg$art_i = 0, $art_objnwcpenahmh$art_obj = s.subs, $art_ctgcbfs$art_c = $art_objnwcpenahmh$art_obj.length; $art_iplmvsgivlg$art_i < $art_ctgcbfs$art_c; $art_iplmvsgivlg$art_i++) {
+                var ss = $art_objnwcpenahmh$art_obj[$art_iplmvsgivlg$art_i];
                 $p += '<div mxa="_zs_galleryN:l" class="pl20"><div mxa="_zs_galleryN:m" class="_zs_gallery___test___update_-line _zs_gallery___test___update_-dot">';
                 $line = 35;
                 $art = '!ss.title';
@@ -137,9 +137,9 @@ module.exports = Magix.View.extend({
                     $line = 42;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_inmvtxksa$art_i = 0, $art_objyofhpnb$art_obj = ss.subs, $art_csngedbyf$art_c = $art_objyofhpnb$art_obj.length; $art_inmvtxksa$art_i < $art_csngedbyf$art_c; $art_inmvtxksa$art_i++) {                    var sss = $art_objyofhpnb$art_obj[$art_inmvtxksa$art_i]%>';
-                    for (var $art_inmvtxksa$art_i = 0, $art_objyofhpnb$art_obj = ss.subs, $art_csngedbyf$art_c = $art_objyofhpnb$art_obj.length; $art_inmvtxksa$art_i < $art_csngedbyf$art_c; $art_inmvtxksa$art_i++) {
-                        var sss = $art_objyofhpnb$art_obj[$art_inmvtxksa$art_i];
+                    $expr = '<%for (var $art_ipfiztgrn$art_i = 0, $art_objegbrjgfbt$art_obj = ss.subs, $art_cuqdffikt$art_c = $art_objegbrjgfbt$art_obj.length; $art_ipfiztgrn$art_i < $art_cuqdffikt$art_c; $art_ipfiztgrn$art_i++) {                    var sss = $art_objegbrjgfbt$art_obj[$art_ipfiztgrn$art_i]%>';
+                    for (var $art_ipfiztgrn$art_i = 0, $art_objegbrjgfbt$art_obj = ss.subs, $art_cuqdffikt$art_c = $art_objegbrjgfbt$art_obj.length; $art_ipfiztgrn$art_i < $art_cuqdffikt$art_c; $art_ipfiztgrn$art_i++) {
+                        var sss = $art_objegbrjgfbt$art_obj[$art_ipfiztgrn$art_i];
                         $p += '<div mxa="_zs_galleryN:o" class="_zs_gallery___test___update_-line _zs_gallery___test___update_-dot">';
                         $line = 43;
                         $art = '!sss';
@@ -219,7 +219,7 @@ catch (ex) {
                             }, {
                                 title: '提取组件内部通用方法'
                             }, {
-                                title: '统一所有禁用方式为mx-disabled，兼容所有历史配置'
+                                title: '统一所有禁用方式为disabled，兼容所有历史配置'
                             }, {
                                 title: 'mx-effects.icon，mx-effects.star：调整为代码片段实现'
                             }]
@@ -259,7 +259,7 @@ catch (ex) {
                 subs: [{
                         type: 'add',
                         subs: [{
-                                title: 'mx-calendar：日历支持配置mx-disabled整体禁用，<a href="#!/calendar/index" class="color-brand">点击查看</a>'
+                                title: 'mx-calendar：日历支持配置disabled整体禁用，<a href="#!/calendar/index" class="color-brand">点击查看</a>'
                             }, {
                                 title: 'mx-dialog：mxModal支持传target指定相对定位节点，默认相对该节点下10px居中对齐，可配置offset设置微量偏移，简化计算，<a href="#!/dialog/index" class="color-brand">点击查看</a>'
                             }, {

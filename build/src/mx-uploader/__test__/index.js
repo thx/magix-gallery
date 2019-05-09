@@ -84,10 +84,10 @@ catch (ex) {
                 type: 'string',
                 def: ''
             }, {
-                key: 'mx-disabled',
-                desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-calendar.datepicker mx-disabled /&gt;',
+                key: 'disabled',
+                desc: '是否禁用',
                 type: '',
-                def: ''
+                def: 'false'
             }, {
                 key: 'type',
                 desc: '上传方式<br>iframe：返回为页面<br>xhr：直接返回json数据',

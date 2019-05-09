@@ -122,7 +122,7 @@ module.exports = Magix.View.extend({
     assign(extra) {
         let me = this;
 
-        // 支持mx-disabled或者disabled
+        // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         let disabled = (extra.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
         let type = extra.type;
         me.updater.set({

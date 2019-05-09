@@ -69,10 +69,10 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: '请选择'
         }, {
-            key: 'mx-disabled',
-            desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-calendar.datepicker mx-disabled /&gt;',
+            key: 'disabled',
+            desc: '是否禁用',
             type: '',
-            def: ''
+            def: 'false'
         }]
 
         let events = [{

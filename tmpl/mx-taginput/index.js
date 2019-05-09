@@ -41,7 +41,7 @@ module.exports = Magix.View.extend({
         me['@{data.list}'] = me['@{dynamic.list}'] ? [] : list;
         me['@{owner.node}'] = $('#' + me.id);
 
-        // 支持mx-disabled或者disabled
+        // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         let disabled = (extra.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
         me.updater.set({

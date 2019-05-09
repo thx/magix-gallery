@@ -54,10 +54,10 @@ module.exports = Magix.View.extend({
             type: 'number',
             def: '400'
         }, {
-            key: 'mx-disabled',
-            desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-dropdown mx-disabled&gt;&lt;/mx-dropdown&gt;',
+            key: 'disabled',
+            desc: '是否禁用',
             type: '',
-            def: ''
+            def: 'false'
         }, {
             key: 'name',
             desc: '全选时候的提示文案，比如“全部XX”',

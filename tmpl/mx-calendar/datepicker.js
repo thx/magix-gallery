@@ -24,7 +24,7 @@ module.exports = Magix.View.extend({
             dateInfo
         })
 
-        // 支持mx-disabled或者disabled
+        // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         that['@{ui.disabled}'] = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
     },
 

@@ -46,7 +46,7 @@ module.exports = Magix.View.extend({
         //     hollow 空心
         let mode = data.mode || 'solid';
 
-        // 支持mx-disabled或者disabled
+        // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         let disabled = (data.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
         
         that['@{owner.node}'] = $('#' + that.id);

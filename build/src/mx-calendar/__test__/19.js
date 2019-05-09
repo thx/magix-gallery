@@ -26,11 +26,11 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', today = $$.today, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallery5:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallery5:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallery5:_" class="mb10 clearfix"><span class="color-9">以下示例：</span>禁止选择</div><div class="w200" mx-disabled mx-view="mx-calendar/datepicker?selected=';
+    $p += '<div mxa="_zs_gallery5:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallery5:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallery5:_" class="mb10 clearfix"><span class="color-9">以下示例：</span>禁止选择</div><div class="w200" mx-view="mx-calendar/datepicker?selected=';
     $line = 8;
     $art = '=today';
     ;
-    $p += ($expr = '<%!$eu(today)%>', $eu(today)) + '"></div></div><div mxa="_zs_gallery5:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery5:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%!$eu(today)%>', $eu(today)) + '&disabled=true"></div></div><div mxa="_zs_gallery5:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery5:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 13;
     $art = '=viewId';
     ;
@@ -42,7 +42,7 @@ module.exports = Base.extend({
     $line = 18;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.datepicker class="w200"\n    selected="&#123;&#123;=today&#125;&#125;"\n    mx-disabled/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.datepicker class="w200"\n    selected="&#123;&#123;=today&#125;&#125;"\n    disabled="true"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

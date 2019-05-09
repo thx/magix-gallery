@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydG:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerydG:_" class="_zs_gallery___test___layout_-eg-content"><div class="pt20 pb20"><div mx-disabled mx-view="mx-slider/index?max=200&min=100&value=120&needInput=true"></div></div></div><div mxa="_zs_gallerydG:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydG:a" class="_zs_gallery___test___layout_-eg-title">禁止选择</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerydG:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerydG:c" class="_zs_gallery___test___layout_-eg-content"><div class="pt20 pb20"><div mx-view="mx-slider/index?max=200&min=100&value=120&needInput=true&disabled=true"></div></div></div><div mxa="_zs_gallerydG:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydG:a" class="_zs_gallery___test___layout_-eg-title">禁止选择</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 14;
     $art = '=viewId';
     ;
@@ -36,7 +36,7 @@ module.exports = Base.extend({
     $line = 19;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-slider\n    max="200"\n    min="100"\n    value="120"\n    need-input="true"\n    mx-disabled/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-slider\n    max="200"\n    min="100"\n    value="120"\n    need-input="true"\n    disabled="true"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

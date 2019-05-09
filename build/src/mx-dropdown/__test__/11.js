@@ -28,7 +28,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryaV:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryaV:a" class="_zs_gallery___test___layout_-eg-content"><div class="w200" mx-disabled mx-view="mx-dropdown/multiple?list=';
+    $p += '<div mxa="_zs_galleryaV:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryaV:a" class="_zs_gallery___test___layout_-eg-content"><div class="w200" mx-view="mx-dropdown/multiple?disabled=true&list=';
     $line = 5;
     $art = '@[1,2,3]';
     ;
@@ -44,7 +44,7 @@ module.exports = Base.extend({
     $line = 15;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown.multiple class="w200"\n    mx-disabled\n    list="&#123;&#123;@[1,2,3]&#125;&#125;"\n    selected="1"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown.multiple class="w200"\n    disabled="true"\n    list="&#123;&#123;@[1,2,3]&#125;&#125;"\n    selected="1"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

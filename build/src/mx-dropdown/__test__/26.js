@@ -28,11 +28,11 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya!:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya!:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya!:_" class="mb20"><span class="color-9">以下示例：</span>单选/多选整体禁用</div><div mxa="_zs_gallerya!:b" class="mb10"><div class="w200" mx-disabled mx-view="mx-dropdown/bd?list=';
+    $p += '<div mxa="_zs_gallerya!:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya!:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya!:_" class="mb20"><span class="color-9">以下示例：</span>单选/多选整体禁用</div><div mxa="_zs_gallerya!:b" class="mb10"><div class="w200" mx-view="mx-dropdown/bd?disabled=true&list=';
     $line = 10;
     $art = '@[1,2,3]';
     ;
-    $p += ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div><div class="w200" mx-disabled mx-view="mx-dropdown/bd?multiple=true&list=';
+    $p += ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div><div class="w200" mx-view="mx-dropdown/bd?multiple=true&disabled=true&list=';
     $line = 17;
     $art = '@[1,2,3]';
     ;
@@ -48,7 +48,7 @@ module.exports = Base.extend({
     $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown.bd class="w200" \n    mx-disabled\n    list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;\n&lt;/mx-dropdown.bd&gt;\n\n&lt;mx-dropdown.bd class="w200"\n    multiple="true"\n    mx-disabled\n    list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;\n&lt;/mx-dropdown.bd&gt;\n        </pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown.bd class="w200" \n    disabled="true"\n    list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;\n&lt;/mx-dropdown.bd&gt;\n\n&lt;mx-dropdown.bd class="w200"\n    multiple="true"\n    disabled="true"\n    list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;\n&lt;/mx-dropdown.bd&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

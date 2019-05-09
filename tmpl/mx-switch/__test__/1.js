@@ -6,8 +6,15 @@ module.exports = Base.extend({
     tmpl: '@1.html',
     render() {
         this.updater.digest({
-            state: true
+            state: true,
+            disabled: true
         });
+    },
+    'changeDisabled<click>'(event){
+        let disabled = this.updater.get('disabled');
+        this.updater.digest({
+            disabled: !disabled
+        })
     },
     'toggle<change>' (event) {
         // event.state 当前开还是关

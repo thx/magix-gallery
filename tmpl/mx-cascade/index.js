@@ -24,7 +24,7 @@ module.exports = Magix.View.extend({
         let textKey = ops.textKey || 'text';
         let parentKey = ops.parentKey || 'pValue';
 
-        // 支持mx-disabled或者disabled
+        // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         let disabled = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
         let info = Util.listToTree(ops.list, valueKey, parentKey);

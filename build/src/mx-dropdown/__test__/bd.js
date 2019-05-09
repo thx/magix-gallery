@@ -158,11 +158,11 @@ catch (ex) {
                 type: 'string',
                 def: ''
             }, {
-                key: 'mx-disabled',
-                desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-dropdown mx-disabled&gt;&lt;/mx-dropdown&gt;',
+                key: 'disabled',
+                desc: '是否禁用',
                 type: '',
-                def: ''
-            }];
+                def: 'false'
+            },];
         var events = [{
                 type: 'change',
                 desc: '',

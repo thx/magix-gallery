@@ -117,9 +117,9 @@ module.exports = Magix.View.extend({
     $line = 89;
     $art = 'each supportQuickDates as item';
     ;
-    $expr = '<%for (var $art_itkvgp$art_i = 0, $art_cvuplnbq$art_c = supportQuickDates.length; $art_itkvgp$art_i < $art_cvuplnbq$art_c; $art_itkvgp$art_i++) {    var item = supportQuickDates[$art_itkvgp$art_i]%>';
-    for (var $art_itkvgp$art_i = 0, $art_cvuplnbq$art_c = supportQuickDates.length; $art_itkvgp$art_i < $art_cvuplnbq$art_c; $art_itkvgp$art_i++) {
-        var item = supportQuickDates[$art_itkvgp$art_i];
+    $expr = '<%for (var $art_iraorvwd$art_i = 0, $art_chtjpelwpm$art_c = supportQuickDates.length; $art_iraorvwd$art_i < $art_chtjpelwpm$art_c; $art_iraorvwd$art_i++) {    var item = supportQuickDates[$art_iraorvwd$art_i]%>';
+    for (var $art_iraorvwd$art_i = 0, $art_chtjpelwpm$art_c = supportQuickDates.length; $art_iraorvwd$art_i < $art_chtjpelwpm$art_c; $art_iraorvwd$art_i++) {
+        var item = supportQuickDates[$art_iraorvwd$art_i];
         $p += '<tr><td>';
         $line = 91;
         $art = '=item.key';
@@ -240,10 +240,10 @@ catch (ex) {
                 type: 'number',
                 def: '0'
             }, {
-                key: 'mx-disabled',
-                desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-calendar.rangepicker mx-disabled /&gt;',
+                key: 'disabled',
+                desc: '是否禁用',
                 type: '',
-                def: ''
+                def: 'false'
             }];
         var supportQuickDates = [{
                 key: 'today',

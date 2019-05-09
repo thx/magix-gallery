@@ -148,7 +148,7 @@ catch (ex) {
                 }
             }
         }
-        // 支持mx-disabled或者disabled
+        // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
         // 相关滚动容器不是window时，支持自定义指定滚动容器
         me['@{scroll.wrapper}'] = ops.scrollWrapper;

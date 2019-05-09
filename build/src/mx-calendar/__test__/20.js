@@ -26,7 +26,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', start = $$.start, end = $$.end, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallery7:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallery7:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallery7:_" class="mb20"><span class="color-9">以下示例：</span><span>禁止选择</span></div><div mx-disabled mx-view="mx-calendar/rangepicker?shortcuts=false&start=';
+    $p += '<div mxa="_zs_gallery7:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallery7:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallery7:_" class="mb20"><span class="color-9">以下示例：</span><span>禁止选择</span></div><div mx-view="mx-calendar/rangepicker?disabled=true&shortcuts=false&start=';
     $line = 10;
     $art = '=start';
     ;
@@ -46,7 +46,7 @@ module.exports = Base.extend({
     $line = 20;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.rangepicker\n    mx-disabled\n    shortcuts="false"\n    start="&#123;&#123;=start&#125;&#125;"\n    end="&#123;&#123;=end&#125;&#125;"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-calendar.rangepicker\n    disabled="true"\n    shortcuts="false"\n    start="&#123;&#123;=start&#125;&#125;"\n    end="&#123;&#123;=end&#125;&#125;"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

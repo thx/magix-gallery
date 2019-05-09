@@ -142,10 +142,10 @@ catch (ex) {
                 type: 'boolean',
                 def: 'false'
             }, {
-                key: 'mx-disabled',
-                desc: '是否禁用，请在节点上配置mx-disabled<br/>&lt;mx-taginput mx-disabled&gt;&lt;/mx-taginput&gt;',
+                key: 'disabled',
+                desc: '是否禁用',
                 type: '',
-                def: ''
+                def: 'false'
             }, {
                 key: 'max',
                 desc: '最大可选择几个，不配置或为0为不限制',

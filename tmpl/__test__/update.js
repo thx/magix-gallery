@@ -34,7 +34,7 @@ module.exports = Magix.View.extend({
                 }, {
                     title: '提取组件内部通用方法'
                 }, {
-                    title: '统一所有禁用方式为mx-disabled，兼容所有历史配置'
+                    title: '统一所有禁用方式为disabled，兼容所有历史配置'
                 }, {
                     title: 'mx-effects.icon，mx-effects.star：调整为代码片段实现'
                 }]
@@ -74,7 +74,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-calendar：日历支持配置mx-disabled整体禁用，<a href="#!/calendar/index" class="color-brand">点击查看</a>'
+                    title: 'mx-calendar：日历支持配置disabled整体禁用，<a href="#!/calendar/index" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-dialog：mxModal支持传target指定相对定位节点，默认相对该节点下10px居中对齐，可配置offset设置微量偏移，简化计算，<a href="#!/dialog/index" class="color-brand">点击查看</a>'
                 }, {
