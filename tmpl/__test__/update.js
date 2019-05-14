@@ -6,7 +6,7 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.3.9',
+            ver: '1.3.9 ~ 1.3.10',
             time: '2019-05-14',
             subs: [{
                 type: 'notice',
@@ -15,8 +15,6 @@ module.exports = Magix.View.extend({
                     title: '所有trigger + list类型容器加上默认高度，避免异步刷新时占位改变'
                 }, {
                     title: 'mx-disabled：作为属性，动态更新的时候不会触发组件view更新，建议直接使用disabled属性'
-                }, {
-                    title: 'mx-validate：校验加延时50ms'
                 }]
             }, {
                 type: 'add',

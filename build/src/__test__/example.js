@@ -1,1 +1,43 @@
-define("__test__/example",["magix","$"],(t,e,i)=>{var x=t("magix");t("$");i.exports=x.View.extend({init:function(){this.updater.set({viewId:this.id,text1:"复制代码",text2:"复制代码",text3:"复制代码",text4:"复制代码",text5:"复制代码",text6:"复制代码",text7:"复制代码",text8:"复制代码",text9:"复制代码",text10:"复制代码",text11:"复制代码"})},"done<success>":function(t){var e=this,i=t.params.id,x={};x["text"+i]='<i class="mc-iconfont _zs_galleryo">&#xe630;</i>复制成功',e.updater.digest(x),setTimeout(function(){x["text"+i]="复制代码",e.updater.digest(x)},1e3)}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("__test__/example",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+var Magix = require("magix");
+var $ = require("$");
+var CopyText = '复制代码';
+module.exports = Magix.View.extend({
+    init: function () {
+        var that = this;
+        that.updater.set({
+            viewId: that.id,
+            text1: CopyText,
+            text2: CopyText,
+            text3: CopyText,
+            text4: CopyText,
+            text5: CopyText,
+            text6: CopyText,
+            text7: CopyText,
+            text8: CopyText,
+            text9: CopyText,
+            text10: CopyText,
+            text11: CopyText
+        });
+    },
+    'done<success>': function (e) {
+        var that = this;
+        var id = e.params.id;
+        var data = {};
+        data['text' + id] = '<i class="mc-iconfont _zs_gallery___test___layout_-desc-tip-icon">&#xe630;</i>复制成功';
+        that.updater.digest(data);
+        setTimeout(function () {
+            data['text' + id] = CopyText;
+            that.updater.digest(data);
+        }, 1000);
+    }
+});
+
+});

@@ -236,13 +236,6 @@ module.exports = {
 
     '@{check}'(node) {
         let me = this;
-        setTimeout(me.wrapAsync(() => {
-            me['@{check.delay}'](node);
-        }), 50);
-    },
-
-    '@{check.delay}'(node) {
-        let me = this;
         let updater = me.updater;
         let form = updater.$form || (updater.$form = {});
         let mxc = node.attr('mxc');
