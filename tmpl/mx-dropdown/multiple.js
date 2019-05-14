@@ -380,7 +380,7 @@ module.exports = Magix.View.extend({
                     me.updater.digest(result);
                 });
             }
-        }), 300);
+        }), 250);
     },
 
     '@{checkItem}<change>'(e) {

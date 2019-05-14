@@ -234,7 +234,7 @@ module.exports = Magix.View.extend({
                             } else {
                                 me['@{sync.sticky.pos.recover}'](inmain);
                             }
-                        }), 200);
+                        }), 250);
                     });
                 }else{
                     inmain.on('scroll.sticky', watchInmainScroll);

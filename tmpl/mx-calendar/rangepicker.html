@@ -1,4 +1,4 @@
-<div class="mx-trigger result {{=textAlign}} {{if rangeInfo.vs}} vs {{/if}}" id="trigger_{{=viewId}}"
+<div class="mx-trigger result result--{{=textAlign}} {{if rangeInfo.vs}} result--vs {{/if}}" id="trigger_{{=viewId}}"
     mx-click="@{toggle}()"
     mx-change="@{stop}()">
     {{if result.endStr}}

@@ -28,23 +28,23 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc`:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryc`:a" class="_zs_gallery___test___layout_-eg-content"><span class="btn mr20" mx-view="mx-popover/index?content=%E4%B8%8B%E4%B8%AD%E5%AF%B9%E9%BD%90%EF%BC%8C%E5%90%91%E5%B7%A640%EF%BC%8C%E5%90%91%E4%B8%8B20&offset=';
-    $line = 5;
-    $art = '@{\n                left: -40,\n                top: 20\n            }';
+    $p += '<div mxa="_zs_galleryc`:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryc`:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryc`:_" class="mb20"><span class="color-9">说明：</span>默认为节点下方 10px 显示，可配置offset设置微量偏移</div><span class="btn" mx-view="mx-popover/index?content=%E4%B8%8B%E4%B8%AD%E5%AF%B9%E9%BD%90%EF%BC%8C%E5%90%91%E5%B7%A640%EF%BC%8C%E5%90%91%E4%B8%8B20&offset=';
+    $line = 9;
+    $art = '@{\n                left: -40,\n                top: -10\n            }';
     ;
-    $p += ($expr = '<%@{        left: -40,        top: 20    }%>', $i($$ref, { left: -40, top: 20 })) + '">微量偏移</span></div><div mxa="_zs_galleryc`:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryc`:_" class="_zs_gallery___test___layout_-eg-title">微量偏移</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 12;
+    $p += ($expr = '<%@{        left: -40,        top: -10    }%>', $i($$ref, { left: -40, top: -10 })) + '">微量偏移</span></div><div mxa="_zs_galleryc`:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryc`:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 16;
     $art = '=viewId';
     ;
     $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryc`:c" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 14;
+    $line = 18;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryc`:a" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 17;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryc`:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 21;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-popover class="btn mr20"\n    content="下中对齐，向左40，向下20"\n    offset="&#123;&#123;@&#123;\n        left: -40,\n        top: 20\n    &#125;&#125;&#125;"&gt;微量偏移&lt;/mx-popover&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-popover class="btn"\n    content="下中对齐，向左40，向下20"\n    offset="&#123;&#123;@&#123;\n        left: -40,\n        top: -10\n    &#125;&#125;&#125;"&gt;微量偏移&lt;/mx-popover&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

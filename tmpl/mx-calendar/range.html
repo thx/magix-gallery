@@ -8,9 +8,6 @@
         </div>
         <div class="clearfix pr">
             <div class="range-input range-input-left">
-                {{if startDisabled}}
-                <div class="range-disabled">{{=dates.startStr}}</div>
-                {{else}}
                 <!-- 结束时间禁止操作的时候限制最大可选为直接时间endDisabled -->
                 <mx-calendar.datepicker {{if vs}} class="vs1" {{/if}} 
                     min="{{=min}}" 
@@ -20,14 +17,11 @@
                     time-type="{{=timeType}}"  
                     date-type="{{=dateType}}" 
                     selected="{{=dates.startStr}}" 
+                    disabled="{{if startDisabled}}true{{/if}}"
                     mx-change="@{sync.date}({trigger:'start'})" />
-                {{/if}}
             </div>
             <div class="range-gap">-</div>
             <div class="range-input range-input-right">
-                {{if ((!vs&&vsSingle) || endDisabled)}}
-                <div class="range-disabled">{{=dates.endStr}}</div>
-                {{else}}
                 <!-- 不对比的时候，限制结束时间最小值为(开始时间或最小日期中的较大值) -->
                 <mx-calendar.datepicker {{if vs}} class="vs2" {{/if}}
                     min="{{=(!vs?endMinFn(dates.startStr,min):min)}}"
@@ -38,8 +32,8 @@
                     date-type="{{=dateType}}" 
                     align="{{=align}}" 
                     selected="{{=dates.endStr}}" 
+                    disabled="{{if ((!vs&&vsSingle) || endDisabled)}}true{{/if}}"
                     mx-change="@{sync.date}({trigger:'end'})" />
-                {{/if}}
             </div>
         </div>
     </div>

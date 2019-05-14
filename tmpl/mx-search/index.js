@@ -147,7 +147,7 @@ module.exports = Magix.View.extend({
             that['@{search.delay.timer}'] = setTimeout(that.wrapAsync(() => {
                 that['@{search.value}'] = $.trim(e.eventTarget.value);
                 that['@{show}']();
-            }), 300);
+            }), 250);
         }
 
     },

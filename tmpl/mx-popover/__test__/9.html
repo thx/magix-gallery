@@ -1,15 +1,18 @@
 <div class="example">
     <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            提示浮层显示样式为黑底白字
+        </div>
         <mx-popover class="mc-iconfont color-9 fontsize-18"
-            tag="i"
-            width="66"
+            width="60"
             content="删除"
-            type="dark"
+            mode="dark"
             placement="top"
             align-text="center">&#xe68d;</mx-popover>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">黑底白字</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
@@ -17,10 +20,9 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-popover class="mc-iconfont color-9 fontsize-18"
-    tag="i"
-    width="66"
+    width="60"
     content="删除"
-    type="dark"
+    mode="dark"
     placement="top"
     align-text="center"&gt;&amp;#xe68d;&lt;/mx-popover&gt;</pre>
     </div>

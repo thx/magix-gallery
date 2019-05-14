@@ -1,5 +1,6 @@
+/* --mx-calendar-range-input-width: 100px; 的值同 [mx-view*="mx-calendar/datepicker"]的最小宽度默认保持一致 */
 .wrapper {
-    --mx-calendar-range-input-width: calc(var(--font-size) * 8);
+    --mx-calendar-range-input-width: 100px;
     position: relative;
     z-index: 1000;
     min-width: calc(var(--mx-calendar-range-input-width) * 2 + 40px);
@@ -11,6 +12,7 @@
     -webkit-user-select: none;
 
     .title {
+        margin-bottom: 5px;
         color: #999;
     }
     .range {
@@ -25,9 +27,9 @@
 
             [mx-view*="mx-calendar/datepicker"]{
                 width: 100%;
+                min-height: var(--input-small-height);
             }
 
-            .range-disabled,
             [ref="@./rangepicker.less:result"] {
                 height: var(--input-small-height);
                 padding: 0;
@@ -46,16 +48,6 @@
                 [ref="@./rangepicker.less:result"] {
                     color: var(--color-brand-vs);
                 }
-            }
-            .range-disabled {
-                display: inline-block;
-                width: 100%;
-                min-width: 100px;
-                cursor: not-allowed;
-                user-select: none;
-                -webkit-user-select: none;
-                color: #999;
-                vertical-align: middle;
             }
         }
         .range-input-left{

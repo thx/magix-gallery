@@ -58,15 +58,25 @@ offset: {
             type: 'object&nbsp;&nbsp;|&nbsp;&nbsp;array',
             def: ''
         }, {
-            key: 'type',
-            desc: `
-<div>展现样式，默认白底，需要黑底时配置type="dark"</div>
-<div class="color-brand">异常情况说明：tag="a"时，a标签的原生属性type与组件定义的type冲突，此时若设置type="dark"失效</div>
-<div class="color-brand">可以使用view-type与原生属性type区分来解决该问题</div>
-            `,
+            key: 'mode',
+            desc: '展现样式，默认白底，需要黑底时配置type="dark"',
             type: 'string',
             def: ''
-        }, {
+        }, 
+
+//         type参数修改为mode，尽量与原生属性避开命名，避免自定义标签时出错
+//         {
+//             key: 'type',
+//             desc: `
+// <div>展现样式，默认白底，需要黑底时配置type="dark"</div>
+// <div class="color-brand">异常情况说明：tag="a"时，a标签的原生属性type与组件定义的type冲突，此时若设置type="dark"失效</div>
+// <div class="color-brand">可以使用view-type与原生属性type区分来解决该问题</div>
+//             `,
+//             type: 'string',
+//             def: ''
+//         }, 
+        
+        {
             key: 'align-text',
             desc: '文字对齐方式，left，right，center',
             type: 'string',

@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc-:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryc-:_" class="_zs_gallery___test___layout_-eg-content"><div class="w100 ellipsis" mx-view="mx-popover/index?content=%E8%B6%85%E9%95%BF%E5%86%85%E5%AE%B9%E7%BC%A9%E7%95%A5%E6%98%BE%E7%A4%BA">内容超长部分缩略点显示</div></div><div mxa="_zs_galleryc-:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryc-:a" class="_zs_gallery___test___layout_-eg-title">超长内容缩略显示</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_galleryc-:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryc-:_" class="_zs_gallery___test___layout_-eg-content"><div class="w100 ellipsis" mx-view="mx-popover/index?content=%E8%B6%85%E9%95%BF%E5%86%85%E5%AE%B9%E7%BC%A9%E7%95%A5%E6%98%BE%E7%A4%BA">内容超长部分缩略点显示</div></div><div mxa="_zs_galleryc-:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryc-:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 9;
     $art = '=viewId';
     ;

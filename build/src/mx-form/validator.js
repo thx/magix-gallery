@@ -226,6 +226,12 @@ module.exports = {
     },
     '@{check}': function (node) {
         var me = this;
+        setTimeout(me.wrapAsync(function () {
+            me['@{check.delay}'](node);
+        }), 50);
+    },
+    '@{check.delay}': function (node) {
+        var me = this;
         var updater = me.updater;
         var form = updater.$form || (updater.$form = {});
         var mxc = node.attr('mxc');

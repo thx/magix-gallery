@@ -9,7 +9,7 @@ let GetOffsetDate = Util.getOffsetDate;
 let I18n = require('@../mx-medusa/util');
 Magix.applyStyle('@rangepicker.less');
 
-let Rangepicker = Magix.View.extend({
+module.exports = Magix.View.extend({
     tmpl: '@rangepicker.html',
     init(extra) {
         let that = this;
@@ -32,13 +32,6 @@ let Rangepicker = Magix.View.extend({
 
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         that['@{ui.disabled}'] = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
-
-        let centerClass = '@rangepicker.less:result-center';
-        let classes = {
-            left: '@rangepicker.less:result-left',
-            center: centerClass
-        }
-        let textAlign = classes[extra.textAlign || 'center'] || centerClass;
 
         // vsEnable 是否可对比，默认关闭
         // vs 对比初始状态 
@@ -138,7 +131,7 @@ let Rangepicker = Magix.View.extend({
         that.updater.set({
             viewId: that.id,
             rangeInfo: rangeInfo,
-            textAlign            
+            textAlign: extra.textAlign || 'center'
         });
 
         // 双向绑定
@@ -203,11 +196,11 @@ let Rangepicker = Magix.View.extend({
             } else {
                 // 选择连续时间
                 if (quickDateText) {
-                    if(quickDateText == Util.foreverStr){
+                    if (quickDateText == Util.foreverStr) {
                         // 不限的情况显示开始时间
                         result.startStr = startStr;
                         result.endStr = Util.foreverStr;
-                    }else{
+                    } else {
                         result.startStr = quickDateText;
                     }
                 } else {
@@ -229,7 +222,7 @@ let Rangepicker = Magix.View.extend({
     },
 
     '@{toggle}<click>'(e) {
-        if(this['@{ui.disabled}']){
+        if (this['@{ui.disabled}']) {
             return;
         }
 
@@ -333,5 +326,3 @@ let Rangepicker = Magix.View.extend({
         return inView;
     }
 });
-
-module.exports = Rangepicker;

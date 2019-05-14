@@ -207,7 +207,7 @@ module.exports = Magix.View.extend({
                         me['@{ui.update}']();
                         me['@{show}']();
                     }
-                }), 300);
+                }), 250);
             }
         }
 

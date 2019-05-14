@@ -267,7 +267,7 @@ module.exports = Magix.View.extend({
                 me['@{setColor}'](val);
                 me['@{fire.event}']();
             }
-        }), 300);
+        }), 250);
     },
 
     '@{stop}<change,focusin,focusout>'(e) {

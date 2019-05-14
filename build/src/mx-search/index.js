@@ -75,9 +75,9 @@ module.exports = Magix.View.extend({
     $line = 14;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ibkxcfwc$art_i = 0, $art_cibvmclues$art_c = list.length; $art_ibkxcfwc$art_i < $art_cibvmclues$art_c; $art_ibkxcfwc$art_i++) {    var item = list[$art_ibkxcfwc$art_i]%>';
-    for (var $art_ibkxcfwc$art_i = 0, $art_cibvmclues$art_c = list.length; $art_ibkxcfwc$art_i < $art_cibvmclues$art_c; $art_ibkxcfwc$art_i++) {
-        var item = list[$art_ibkxcfwc$art_i];
+    $expr = '<%for (var $art_ipyrumdpbc$art_i = 0, $art_cqctchrwmq$art_c = list.length; $art_ipyrumdpbc$art_i < $art_cqctchrwmq$art_c; $art_ipyrumdpbc$art_i++) {    var item = list[$art_ipyrumdpbc$art_i]%>';
+    for (var $art_ipyrumdpbc$art_i = 0, $art_cqctchrwmq$art_c = list.length; $art_ipyrumdpbc$art_i < $art_cqctchrwmq$art_c; $art_ipyrumdpbc$art_i++) {
+        var item = list[$art_ipyrumdpbc$art_i];
         $p += '<li mxa="_zs_gallerydx:a" class="mx-output-item"><span class="mx-output-link ';
         $line = 16;
         $art = 'if (searchKey == item.value)';
@@ -258,7 +258,7 @@ catch (ex) {
             that['@{search.delay.timer}'] = setTimeout(that.wrapAsync(function () {
                 that['@{search.value}'] = $.trim(e.eventTarget.value);
                 that['@{show}']();
-            }), 300);
+            }), 250);
         }
     },
     '@{hide}': function () {

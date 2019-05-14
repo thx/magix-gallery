@@ -28,7 +28,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerya&:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya&:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya&:_" class="mb20"><span class="color-9">以下示例：</span>小尺寸展示</div><div class="w100" mx-view="mx-dropdown/index?small=true&list=';
+    $p += '<div mxa="_zs_gallerya&:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerya&:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerya&:_" class="mb20"><span class="color-9">以下示例：</span>小尺寸展示</div><div mx-view="mx-dropdown/index?small=true&list=';
     $line = 9;
     $art = '@[1,2,3]';
     ;
@@ -44,7 +44,7 @@ module.exports = Base.extend({
     $line = 19;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown class="w100" \n    small="true"\n    list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;\n&lt;/mx-dropdown&gt;\n        </pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown \n    small="true"\n    list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;\n&lt;/mx-dropdown&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

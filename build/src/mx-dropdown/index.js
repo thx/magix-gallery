@@ -408,7 +408,7 @@ catch (ex) {
                     });
                 });
             }
-        }), 300);
+        }), 250);
     },
     '@{select}<click>': function (e) {
         var me = this;

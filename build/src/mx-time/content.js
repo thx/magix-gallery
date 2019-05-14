@@ -396,7 +396,7 @@ catch (ex) {
                 me['@{fast.change.start}'] = true;
                 me['@{change.time.by.type}'](params.type, params.inc);
             }), 50);
-        }), 300);
+        }), 250);
     },
     '@{press.check}<keydown>': function (e) {
         if (e.keyCode == 38 || e.keyCode == 40) {

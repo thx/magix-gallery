@@ -270,7 +270,7 @@ module.exports = Magix.View.extend({
                     });
                 });
             }
-        }), 300);
+        }), 250);
     },
     '@{select}<click>'(e) {
         let me = this;

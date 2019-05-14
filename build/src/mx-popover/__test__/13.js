@@ -8,6 +8,9 @@ define("mx-popover/__test__/13",["magix","__test__/example","$","../index","mx-c
 require("../index");
 require("mx-copy/index");
 require("__test__/hl");
+/**
+ * 修改type参数为mode，历史配置依然兼容
+ */
 var Magix = require("magix");
 var Base = require("__test__/example");
 var $ = require("$");

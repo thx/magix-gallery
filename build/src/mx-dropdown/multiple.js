@@ -286,8 +286,8 @@ module.exports = Magix.View.extend({
             $line = 46;
             $art = 'each groups as group groupIndex';
             ;
-            $expr = '<%for (var groupIndex = 0, $art_czgbxr$art_c = groups.length; groupIndex < $art_czgbxr$art_c; groupIndex++) {            var group = groups[groupIndex]%>';
-            for (var groupIndex = 0, $art_czgbxr$art_c = groups.length; groupIndex < $art_czgbxr$art_c; groupIndex++) {
+            $expr = '<%for (var groupIndex = 0, $art_ckzwvyhuh$art_c = groups.length; groupIndex < $art_ckzwvyhuh$art_c; groupIndex++) {            var group = groups[groupIndex]%>';
+            for (var groupIndex = 0, $art_ckzwvyhuh$art_c = groups.length; groupIndex < $art_ckzwvyhuh$art_c; groupIndex++) {
                 var group = groups[groupIndex];
                 $p += ' ';
                 $line = 47;
@@ -365,9 +365,9 @@ module.exports = Magix.View.extend({
                 $line = 67;
                 $art = 'each group.list as item';
                 ;
-                $expr = '<%for (var $art_iaptwtxsw$art_i = 0, $art_objwwwynqd$art_obj = group.list, $art_cmyjtshfoo$art_c = $art_objwwwynqd$art_obj.length; $art_iaptwtxsw$art_i < $art_cmyjtshfoo$art_c; $art_iaptwtxsw$art_i++) {                var item = $art_objwwwynqd$art_obj[$art_iaptwtxsw$art_i]%>';
-                for (var $art_iaptwtxsw$art_i = 0, $art_objwwwynqd$art_obj = group.list, $art_cmyjtshfoo$art_c = $art_objwwwynqd$art_obj.length; $art_iaptwtxsw$art_i < $art_cmyjtshfoo$art_c; $art_iaptwtxsw$art_i++) {
-                    var item = $art_objwwwynqd$art_obj[$art_iaptwtxsw$art_i];
+                $expr = '<%for (var $art_ipfhrlwfedwo$art_i = 0, $art_objoxwrcwi$art_obj = group.list, $art_cplajpnkf$art_c = $art_objoxwrcwi$art_obj.length; $art_ipfhrlwfedwo$art_i < $art_cplajpnkf$art_c; $art_ipfhrlwfedwo$art_i++) {                var item = $art_objoxwrcwi$art_obj[$art_ipfhrlwfedwo$art_i]%>';
+                for (var $art_ipfhrlwfedwo$art_i = 0, $art_objoxwrcwi$art_obj = group.list, $art_cplajpnkf$art_c = $art_objoxwrcwi$art_obj.length; $art_ipfhrlwfedwo$art_i < $art_cplajpnkf$art_c; $art_ipfhrlwfedwo$art_i++) {
+                    var item = $art_objoxwrcwi$art_obj[$art_ipfhrlwfedwo$art_i];
                     $p += ' ';
                     $line = 68;
                     $art = 'if !item.hide';
@@ -873,7 +873,7 @@ catch (ex) {
                     me.updater.digest(result);
                 });
             }
-        }), 300);
+        }), 250);
     },
     '@{checkItem}<change>': function (e) {
         e.stopPropagation();

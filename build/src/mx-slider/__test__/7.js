@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydK:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerydK:c" class="_zs_gallery___test___layout_-eg-content"><div class="pt20 pb20"><div mx-view="mx-slider/range?max=200&min=100&value=120%2C150&disabled=true"></div></div></div><div mxa="_zs_gallerydK:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydK:a" class="_zs_gallery___test___layout_-eg-title">禁止选择</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerydK:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerydK:_" class="_zs_gallery___test___layout_-eg-content"><div class="pt20 pb20"><div mx-view="mx-slider/range?max=200&min=100&value=120%2C150&disabled=true"></div></div></div><div mxa="_zs_gallerydK:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydK:a" class="_zs_gallery___test___layout_-eg-title">禁止选择</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 13;
     $art = '=viewId';
     ;

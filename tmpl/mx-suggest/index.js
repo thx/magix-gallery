@@ -159,7 +159,7 @@ module.exports = Magix.View.extend({
         } else {
             that['@{suggest.delay.timer}'] = setTimeout(that.wrapAsync(function () {
                 that['@{show}']();
-            }), 300);
+            }), 250);
         }
     },
     showLoading() {

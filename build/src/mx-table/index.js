@@ -221,7 +221,7 @@ module.exports = Magix.View.extend({
                             else {
                                 me['@{sync.sticky.pos.recover}'](inmain_2);
                             }
-                        }), 200);
+                        }), 250);
                     });
                 }
                 else {

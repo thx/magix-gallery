@@ -1,3 +1,6 @@
+/**
+ * 修改type参数为mode，历史配置依然兼容
+ */
 let Magix = require('magix');
 let Base = require('__test__/example');
 let $ = require('$');
