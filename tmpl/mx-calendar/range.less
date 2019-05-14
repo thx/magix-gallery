@@ -25,11 +25,6 @@
             text-align: center;
             cursor: text;
 
-            [mx-view*="mx-calendar/datepicker"]{
-                width: 100%;
-                min-height: var(--input-small-height);
-            }
-
             [ref="@./rangepicker.less:result"] {
                 height: var(--input-small-height);
                 padding: 0;
@@ -49,6 +44,23 @@
                     color: var(--color-brand-vs);
                 }
             }
+
+            [mx-view*="mx-calendar/datepicker"]{
+                width: 100%;
+                min-height: var(--input-small-height);
+
+                &[mx-view*="disabled=true"],
+                &[mx-view*="disabled=true"]:hover,
+                &[mx-disabled],
+                &[mx-disabled]:hover{
+                    [ref="@./rangepicker.less:result"],
+                    .vs1 [ref="@./rangepicker.less:result"],
+                    .vs2 [ref="@./rangepicker.less:result"]{
+                        color: #999;
+                    }
+                }
+            }
+
         }
         .range-input-left{
             padding-right: 9px;
@@ -73,7 +85,7 @@
             width: 44%;
             height: var(--input-small-height);
             margin-right: 6%;
-            margin-top: 10px;
+            margin-top: 5px;
             padding: 0 10px;
             line-height: var(--input-small-height);
             border-radius: var(--border-radius);

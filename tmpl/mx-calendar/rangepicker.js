@@ -128,10 +128,11 @@ module.exports = Magix.View.extend({
             disabledWeeks: extra.disabledWeeks || []
         }
 
+        let alignNames = 'names@rangepicker.less[result-left,result-center]';
         that.updater.set({
             viewId: that.id,
             rangeInfo: rangeInfo,
-            textAlign: extra.textAlign || 'center'
+            textAlign: alignNames[`result-${extra.textAlign || 'center'}`]
         });
 
         // 双向绑定

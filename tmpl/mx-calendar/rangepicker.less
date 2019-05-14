@@ -4,13 +4,13 @@
     padding: 0 10px;
 }
 /* 左对齐 */
-.result--left{
+.result-left{
     .center{
         padding: 0 5px;
     }
 }
 /* 居中对齐 */
-.result--center{
+.result-center{
     .center {
         position: absolute;
         top: 50%;
@@ -57,12 +57,11 @@
     &[mx-view*="disabled=true"]:hover,
     &[mx-disabled],
     &[mx-disabled]:hover {
-        .result {
-            &.vs {
-                .co-left,
-                .co-right {
-                    color: #999;
-                }
+        .result,
+        .result-vs {
+            .co-left,
+            .co-right {
+                color: #999;
             }
         }
     }

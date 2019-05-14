@@ -25,16 +25,16 @@ module.exports = Magix.View.extend({
     $line = 13;
     $art = 'each options as option';
     ;
-    $expr = '<%for (var $art_ijpzxeglc$art_i = 0, $art_ctmqbud$art_c = options.length; $art_ijpzxeglc$art_i < $art_ctmqbud$art_c; $art_ijpzxeglc$art_i++) {    var option = options[$art_ijpzxeglc$art_i]%>';
-    for (var $art_ijpzxeglc$art_i = 0, $art_ctmqbud$art_c = options.length; $art_ijpzxeglc$art_i < $art_ctmqbud$art_c; $art_ijpzxeglc$art_i++) {
-        var option = options[$art_ijpzxeglc$art_i];
+    $expr = '<%for (var $art_izyzird$art_i = 0, $art_cgvslxqec$art_c = options.length; $art_izyzird$art_i < $art_cgvslxqec$art_c; $art_izyzird$art_i++) {    var option = options[$art_izyzird$art_i]%>';
+    for (var $art_izyzird$art_i = 0, $art_cgvslxqec$art_c = options.length; $art_izyzird$art_i < $art_cgvslxqec$art_c; $art_izyzird$art_i++) {
+        var option = options[$art_izyzird$art_i];
         $p += ' ';
         $line = 14;
         $art = 'each option.params as param index';
         ;
-        $expr = '<%for (var index = 0, $art_objanluuneewn$art_obj = option.params, $art_ccldenyrq$art_c = $art_objanluuneewn$art_obj.length; index < $art_ccldenyrq$art_c; index++) {        var param = $art_objanluuneewn$art_obj[index]%>';
-        for (var index = 0, $art_objanluuneewn$art_obj = option.params, $art_ccldenyrq$art_c = $art_objanluuneewn$art_obj.length; index < $art_ccldenyrq$art_c; index++) {
-            var param = $art_objanluuneewn$art_obj[index];
+        $expr = '<%for (var index = 0, $art_objnhtctw$art_obj = option.params, $art_ckvtrkcco$art_c = $art_objnhtctw$art_obj.length; index < $art_ckvtrkcco$art_c; index++) {        var param = $art_objnhtctw$art_obj[index]%>';
+        for (var index = 0, $art_objnhtctw$art_obj = option.params, $art_ckvtrkcco$art_c = $art_objnhtctw$art_obj.length; index < $art_ckvtrkcco$art_c; index++) {
+            var param = $art_objnhtctw$art_obj[index];
             $p += '<tr>';
             $line = 16;
             $art = 'if (index == 0)';
