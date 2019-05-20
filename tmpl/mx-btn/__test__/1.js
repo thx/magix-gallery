@@ -8,5 +8,11 @@ module.exports = Base.extend({
         this.updater.digest({
             icon: '<i class="mc-iconfont">&#xe601;</i>'
         });
+    },
+    'test<click>'(event){
+        let disabled = this.updater.get('disabled');
+        this.updater.digest({
+            disabled: !disabled
+        })
     }
 });

@@ -25,15 +25,15 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydq:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerydq:_" class="_zs_gallery___test___layout_-eg-content"><div class="color-9 mb20 clearfix"><i class="mc-iconfont displacement-2 mr5 fl">&#xe6ac;</i><div class="fl"><div>缩略图展示xiaotu<span class="color-brand">预览width，height必配</span></div><div>datu按照实际比例展示</div></div></div><div class="_zs_gallery_mx-preview___test___index_-demo" mx-view="mx-preview/index?format=23&datuUrl=%2F%2Fimg.alicdn.com%2Fsimba%2Fimg%2FTB1HcdJr49YBuNjy0Ffwu0IsVXa.png&xiaotuUrl=%2F%2Fimg.alicdn.com%2Fsimba%2Fimg%2FTB1pJkOrGSWBuNjSsrbwu10mVXa.png&clickUrl=%2F%2Fa1.alicdn.com%2Fcreation%2Fhtml%2F2017%2F06%2F13%2Fcreation-2480Wzuixl78VWkc-10131895.html&width=190&height=43&maxWidth=100&maxHeight=100"></div></div><div mxa="_zs_gallerydq:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydq:a" class="_zs_gallery___test___layout_-eg-title">套图（业务场景大小图）预览</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerydr:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerydr:_" class="_zs_gallery___test___layout_-eg-content"><div class="color-9 mb20 clearfix"><i class="mc-iconfont displacement-2 mr5 fl">&#xe6ac;</i><div class="fl"><div>缩略图展示xiaotu<span class="color-brand">预览width，height必配</span></div><div>datu按照实际比例展示</div></div></div><div class="_zs_gallery_mx-preview___test___index_-demo" mx-view="mx-preview/index?format=23&datuUrl=%2F%2Fimg.alicdn.com%2Fsimba%2Fimg%2FTB1HcdJr49YBuNjy0Ffwu0IsVXa.png&xiaotuUrl=%2F%2Fimg.alicdn.com%2Fsimba%2Fimg%2FTB1pJkOrGSWBuNjSsrbwu10mVXa.png&clickUrl=%2F%2Fa1.alicdn.com%2Fcreation%2Fhtml%2F2017%2F06%2F13%2Fcreation-2480Wzuixl78VWkc-10131895.html&width=190&height=43&maxWidth=100&maxHeight=100"></div></div><div mxa="_zs_gallerydr:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydr:a" class="_zs_gallery___test___layout_-eg-title">套图（业务场景大小图）预览</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydq:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydr:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 24;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydq:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydr:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 27;
     $art = '=viewId';
     ;

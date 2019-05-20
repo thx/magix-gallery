@@ -25,15 +25,15 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydp:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerydp:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb10">1. 文字预览：支持内容包含可执行脚本，以文字展示</div><div class="_zs_gallery_mx-preview___test___index_-demo mb20 ml15" mx-view="mx-preview/index?format=5&url=%3Cscript%3Ealert%281%29%3C%2Fscript%3E&width=200&height=200&maxWidth=100&maxHeight=100"></div><div class="mb10">2. 文字预览：可配置文字上的跳转链接click-url，<span class="color-brand">可不配width和height，不配则width=600，height=auto，根据屏幕范围修正</span></div><div class="_zs_gallery_mx-preview___test___index_-demo ml15" mx-view="mx-preview/index?format=5&url=%E6%96%87%E5%AD%97%E9%93%BE%E5%86%85%E5%AE%B9%E5%B1%95%E7%A4%BA&clickUrl=%2F%2Fwww.taobao.com%2F&maxWidth=100&maxHeight=100"></div></div><div mxa="_zs_gallerydp:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydp:a" class="_zs_gallery___test___layout_-eg-title">文字预览</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerydq:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerydq:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb10">1. 文字预览：支持内容包含可执行脚本，以文字展示</div><div class="_zs_gallery_mx-preview___test___index_-demo mb20 ml15" mx-view="mx-preview/index?format=5&url=%3Cscript%3Ealert%281%29%3C%2Fscript%3E&width=200&height=200&maxWidth=100&maxHeight=100"></div><div class="mb10">2. 文字预览：可配置文字上的跳转链接click-url，<span class="color-brand">可不配width和height，不配则width=600，height=auto，根据屏幕范围修正</span></div><div class="_zs_gallery_mx-preview___test___index_-demo ml15" mx-view="mx-preview/index?format=5&url=%E6%96%87%E5%AD%97%E9%93%BE%E5%86%85%E5%AE%B9%E5%B1%95%E7%A4%BA&clickUrl=%2F%2Fwww.taobao.com%2F&maxWidth=100&maxHeight=100"></div></div><div mxa="_zs_gallerydq:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydq:a" class="_zs_gallery___test___layout_-eg-title">文字预览</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydp:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydq:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 24;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydp:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydq:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 27;
     $art = '=viewId';
     ;

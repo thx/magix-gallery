@@ -34,19 +34,19 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = '@options';
     ;
-    $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div mxa="_zs_galleryc1:_" class="pr20"><div id="';
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div mxa="_zs_galleryc2:_" class="pr20"><div id="';
     $line = 5;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_step" mx-view="mx-title/second?content=step-infos%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E"></div><div mxa="_zs_galleryc1:a" class="mb40"><div class="mb10" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_step" mx-view="mx-title/second?content=step-infos%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E"></div><div mxa="_zs_galleryc2:a" class="mb40"><div class="mb10" id="';
     $line = 7;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_step1">1. step-infos数组所有可配参数说明</div><div mxs="_zs_galleryc1:_" class="pl15 mb20"><pre class="tip-content">\n[{\n    label: \'必填，标题文案\',\n    view: \'必填，该步骤对应的view，该view必须实现check方法\',\n    icon: \'可选，自定义icon，默认为index，从1开始\',\n    prevTip: \'可选，自定义返回上一步文案，默认返回上一步\'\n    nextTip: \'可选，自定义下一步文案，默认返回下一步\',\n    nextFn: (remains, next) => {\n        // remains 当前所有子步骤保留的信息交集，便于提交接口处理等\n        // next(remainParams:object) 保存在路由上的参数\n        next({\n            example: 1\n        })\n    }\n}]\n            </pre></div><div class="mb10" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_step1">1. step-infos数组所有可配参数说明</div><div mxs="_zs_galleryc2:_" class="pl15 mb20"><pre class="tip-content">\n[{\n    label: \'必填，标题文案\',\n    view: \'必填，该步骤对应的view，该view必须实现check方法\',\n    icon: \'可选，自定义icon，默认为index，从1开始\',\n    prevTip: \'可选，自定义返回上一步文案，默认返回上一步\'\n    nextTip: \'可选，自定义下一步文案，默认返回下一步\',\n    nextFn: (remains, next) => {\n        // remains 当前所有子步骤保留的信息交集，便于提交接口处理等\n        // next(remainParams:object) 保存在路由上的参数\n        next({\n            example: 1\n        })\n    }\n}]\n            </pre></div><div class="mb10" id="';
     $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_step2">2. 子view必须实现的check方法说明，返回一个Promise</div><div mxs="_zs_galleryc1:a" class="pl15"><pre class="tip-content">\ncheck() {\n    let ok = true,\n        remain = {};\n    \n    return new Promise((resolve) => {\n        // 此处返回promise，防止有接口提交校验等\n        resolve({\n            ok,  // 是否校验通过，false的时候不提交\n            msg: \'错误信息提示\',\n            remain: {} // 当前步骤保留的参数，所有子view交集\n        })\n    })\n}\n            </pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_step2">2. 子view必须实现的check方法说明，返回一个Promise</div><div mxs="_zs_galleryc2:a" class="pl15"><pre class="tip-content">\ncheck() {\n    let ok = true,\n        remain = {};\n    \n    return new Promise((resolve) => {\n        // 此处返回promise，防止有接口提交校验等\n        resolve({\n            ok,  // 是否校验通过，false的时候不提交\n            msg: \'错误信息提示\',\n            remain: {} // 当前步骤保留的参数，所有子view交集\n        })\n    })\n}\n            </pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

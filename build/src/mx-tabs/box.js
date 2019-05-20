@@ -45,8 +45,8 @@ module.exports = Base.extend({
     $line = 2;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cutuzbqeo$art_c = list.length; index < $art_cutuzbqeo$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cutuzbqeo$art_c = list.length; index < $art_cutuzbqeo$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_chctmd$art_c = list.length; index < $art_chctmd$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_chctmd$art_c = list.length; index < $art_chctmd$art_c; index++) {
         var item = list[index];
         $p += '<a href="javascript:;" ';
         $line = 3;
@@ -115,7 +115,7 @@ module.exports = Base.extend({
             $line = 8;
             $art = '=item.color';
             ;
-            $p += ($expr = '<%=item.color%>', $e(item.color)) + ';"></span><span mxa="_zs_galleryeK:_" class="mx-tag-name">';
+            $p += ($expr = '<%=item.color%>', $e(item.color)) + ';"></span><span mxa="_zs_galleryeL:_" class="mx-tag-name">';
             $line = 9;
             $art = '!item.tag';
             ;

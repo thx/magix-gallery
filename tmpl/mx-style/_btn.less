@@ -114,4 +114,19 @@
 .mx-btn{
     display: inline-flex;
     align-items: center;
+
+    &.mx-btn-custom {
+        border-color: var(--mx-btn-custom-color);
+        background-color: var(--mx-btn-custom-color);
+        background-image: none;
+        color: var(--mx-btn-custom-color-text);
+        &:hover,
+        &.hover,
+        &:active {
+            border-color: var(--mx-btn-custom-color-hover);
+            background-color: var(--mx-btn-custom-color-hover);
+            background-image: none;
+            color: var(--mx-btn-custom-color-hover-text);
+        }
+    }
 }
