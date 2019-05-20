@@ -7,8 +7,7 @@ module.exports = Base.extend({
     render() {
         let list = [{
             value: 1,
-            text: '模块1',
-            tag: 'New'
+            text: '模块1'
         }, {
             value: 2,
             text: '模块2'

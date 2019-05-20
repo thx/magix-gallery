@@ -1,3 +1,36 @@
+.mx-tag {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    z-index: 3;
+    display: inline-block;
+    height: 18px;
+    margin-top: calc(2px - var(--input-height));
+    padding-left: 4px;
+    padding-right: 4px;
+    line-height: 18px;
+    border-radius: var(--border-radius);
+    background-color: var(--color-brand);
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    .mx-tag-name {
+        display: inline-block;
+        transform: scale(.92);
+    }
+    .mx-tag-arrow {
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: 4px;
+        top: 18px;
+        border-width: 3px;
+        border-style: solid;
+        border-color: var(--color-brand) transparent transparent var(--color-brand);
+    }
+}
+
 /*上下浮动动画*/
 @keyframes suspension {
     0% {

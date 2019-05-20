@@ -1,0 +1,38 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="cont">
+            <mx-btn disabled="true" class="mr20 mb20" content="禁用按钮"/>
+            <mx-btn disabled="true" class="mr20 mb20" small="true" content="小号禁用按钮"/>
+            <br/>
+            <mx-btn disabled="true" class="mr20 mb20">
+                <i class="mc-iconfont">&#xe731;</i>禁用按钮
+            </mx-btn>
+            <mx-btn disabled="true" class="mr20 mb20" content="禁用按钮" tag-content="New"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">按钮</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;a href="javascript:;" class="btn btn-brand"&gt;禁用按钮&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn btn-brand btn-small"&gt;小号禁用按钮&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn"&gt;普通按钮&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn btn-small"&gt;小号普通按钮&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn btn-white"&gt;白色按钮&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn btn-white btn-small"&gt;小号白色按钮&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn btn-disabled"&gt;禁用按钮&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn btn-disabled btn-small"&gt;小号禁用按钮&lt;/a&gt;
+        </pre>
+    </div>
+</div>

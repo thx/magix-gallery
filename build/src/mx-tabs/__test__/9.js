@@ -1,1 +1,79 @@
-define("mx-tabs/__test__/9",["magix","__test__/example","mx-form/index","mx-form/validator","$","../box","mx-copy/index","__test__/hl"],(e,t,l)=>{e("../box"),e("mx-copy/index"),e("__test__/hl");e("magix");var s=e("__test__/example"),a=e("mx-form/index"),r=e("mx-form/validator");e("$");l.exports=s.extend({tmpl:function(e,t,l,s,a,r,_,n){if(l||(l=e),!a){var i={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},x=/[&<>"'`]/g,m=function(e){return"&"+i[e]+";"};a=function(e){return""+(null==e?"":e)},s=function(e){return a(e).replace(x,m)}}if(!r){var c={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},d=function(e){return c[e]},o=/[!')(*]/g;r=function(e){return encodeURIComponent(a(e)).replace(o,d)}}if(!n){var v=/[\\'"]/g;n=function(e){return a(e).replace(v,"\\$&")}}_||(_=function(e,t,l,s){for(s=e[u];--s;)if(e[l=u+s]===t)return l;return e[l=u+e[u]++]=t,l});var u="",g="",f=e.selected,p=e.viewId,y=e.text1;return g+='<div mxv mxa="_zs_galleryeC:_" class="_zs_galleryg"><div mxv mxa="_zs_galleryeC:a" class="_zs_galleryj"><div mxa="_zs_galleryeC:b" class="mb20"><span mxs="_zs_galleryeC:_" class="color-9">当前选中模块：</span>模块'+s(f)+'</div><div mxv="selected" mxe="'+t+"_0\" mxc=\"[{p:'selected',f:{refresh:true},a:'selected'}]\" mx-view=\"mx-tabs/box?list="+_(l,[{value:1,text:"模块1"},{value:2,text:"模块2"}])+"&selected="+_(l,f)+'"></div></div><div mxa="_zs_galleryeC:c" class="_zs_galleryk"><div mxs="_zs_galleryeC:a" class="_zs_galleryi">双向绑定</div><div class="_zs_galleryl" mx-success="'+t+'done({id:1})" mx-view="mx-copy/index?copyNode='+r(p)+'_text_1"><span mxa="_zs_galleryeC:d" class="_zs_galleryn">'+a(y)+'</span><i mxs="_zs_galleryeC:b" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+s(p)+'_text_1">\n&lt;mx-tabs.box \n    list="&#123;&#123;@[&#123;\n        value: 1,\n        text: \'模块1\'\n    &#125;, &#123;\n        value: 2,\n        text: \'模块2\'\n    &#125;]&#125;&#125;" \n    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"&gt;&lt;/mx-tabs.box&gt;</pre></div></div>'},mixins:[a,r],render:function(){this.updater.digest({selected:2})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-tabs/__test__/9",["magix","__test__/example","mx-form/index","mx-form/validator","$","../box","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,Form,Validator,$*/
+require("../box");
+require("mx-copy/index");
+require("__test__/hl");
+var Magix = require("magix");
+var Base = require("__test__/example");
+var Form = require("mx-form/index");
+var Validator = require("mx-form/validator");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', selected = $$.selected, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryeH:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryeH:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_galleryeH:b" class="mb20"><span mxs="_zs_galleryeH:_" class="color-9">当前选中模块：</span>模块';
+    $line = 5;
+    $art = '=selected';
+    ;
+    $p += ($expr = '<%=selected%>', $e(selected)) + '</div><div mxv="selected" mxe="' + $viewId + '_0" mxc="[';
+    $line = 15;
+    $art = ':selected{refresh:true}';
+    ;
+    $p += '{p:\'selected\',f:{refresh:true},a:\'selected\'}]" mx-view="mx-tabs/box?list=';
+    $line = 8;
+    $art = '@[{\n                value: 1,\n                text: \'模块1\'\n            }, {\n                value: 2,\n                text: \'模块2\'\n            }]';
+    ;
+    $p += ($expr = '<%@[{            value: 1,            text: \'模块1\'        }, {            value: 2,            text: \'模块2\'        }]%>', $i($$ref, [{ value: 1, text: '模块1' }, { value: 2, text: '模块2' }])) + '&selected=';
+    $line = 15;
+    $art = ':selected{refresh:true}';
+    ;
+    $p += ($expr = '<%@selected%>', $i($$ref, selected)) + '"></div></div><div mxa="_zs_galleryeH:c" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryeH:a" class="_zs_gallery___test___layout_-eg-title">双向绑定</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 19;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryeH:d" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 21;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryeH:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 24;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-tabs.box \n    list="&#123;&#123;@[&#123;\n        value: 1,\n        text: \'模块1\'\n    &#125;, &#123;\n        value: 2,\n        text: \'模块2\'\n    &#125;]&#125;&#125;" \n    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"&gt;&lt;/mx-tabs.box&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-tabs/__test__/9.html';
+    throw msg;
+} return $p; },
+    mixins: [Form, Validator],
+    render: function () {
+        this.updater.digest({
+            selected: 2
+        });
+    }
+});
+
+});

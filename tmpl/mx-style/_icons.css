@@ -1,0 +1,21 @@
+/* @dependent: ./index.less */
+@font-face {
+  font-family: 'mx-iconfont';
+  /* project id 386526 */
+  src: url('//at.alicdn.com/t/font_386526_cs5zvutxxsu.eot');
+  src: url('//at.alicdn.com/t/font_386526_cs5zvutxxsu.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_386526_cs5zvutxxsu.woff2') format('woff2'), url('//at.alicdn.com/t/font_386526_cs5zvutxxsu.woff') format('woff'), url('//at.alicdn.com/t/font_386526_cs5zvutxxsu.ttf') format('truetype'), url('//at.alicdn.com/t/font_386526_cs5zvutxxsu.svg#iconfont') format('svg');
+}
+.mc-iconfont {
+  display: inline-block;
+  position: relative;
+  font-family: "mx-iconfont";
+  font-style: normal;
+  font-size: 16px;
+  font-weight: normal;
+  font-variant: normal;
+  font-display: fallback;
+  line-height: 1;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

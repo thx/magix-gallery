@@ -8,9 +8,9 @@
         {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
         {{=item.text}}
         {{if item.tag}}
-        <span class="tag">
-            <span class="tag-arrow"></span>
-            <span class="tag-name">{{=item.tag}}</span>
+        <span class="mx-tag tag" style="background-color: {{=item.color}};">
+            <span class="mx-tag-arrow" style="border-color: {{=item.color}} transparent transparent {{=item.color}};"></span>
+            <span class="mx-tag-name">{{!item.tag}}</span>
         </span>
         {{/if}}
         {{if item.tips}}

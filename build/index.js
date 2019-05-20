@@ -7,6 +7,7 @@ let p = {
     __test__: url + `__test__`
 };
 let coms = [
+    'btn',
     'title',
     'popover',
     'popconfirm',

@@ -1,0 +1,7 @@
+/* @dependent: ./index.less */
+/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */
+.mx-shadow {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
+  border: 1px solid #f5f5f6;
+}
+/*less变量覆盖，与group配置css变量一一对应*/

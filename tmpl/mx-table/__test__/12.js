@@ -38,21 +38,21 @@ module.exports = Base.extend({
             list: allList.slice(0, 5)
         });
     },
-    'change<click>' (e) {
+    'change<click>'(e) {
         let id = e.params.id;
         let list = this.updater.get('list');
         for (let index = 0; index < list.length; index++) {
-            if(list[index].id == id){
+            if (list[index].id == id) {
                 list[index].name = Magix.guid('测试数据变化');
                 break;
             }
         }
-        
+
         this.updater.digest({
             list
         })
     },
-    'changePager<change>' (e) {
+    'changePager<change>'(e) {
         // e.page 当前第几页
         // e.size 每页多少条
         let that = this;

@@ -1,5 +1,7 @@
 /* @dependent: ./index.less */
-.btn {
+.btn,
+.mx-btn {
+    position: relative;
     display: inline-block;
     height: var(--input-height);
     margin-bottom: 0;
@@ -26,6 +28,11 @@
     background-image: none;
     color: var(--btn-text);
     transition: border-color var(--duration), background-color var(--duration), color var(--duration);
+
+    .btn-tag{
+        margin-left: -12px;
+    }
+
     &:hover,
     &.hover,
     &:active {
@@ -55,6 +62,13 @@
         }
         &.btn-small {
             line-height: var(--input-small-height);
+        }
+
+        .btn-tag{
+            background-color: #ff0000;
+            .btn-tag-arrow{
+                border-color: #ff0000 transparent transparent #ff0000;
+            }
         }
     }
     &.btn-white {
@@ -88,5 +102,16 @@
         &.btn-small{
             line-height: calc(var(--input-small-height) - 2px);
         }
+
+        .btn-tag{
+            background-color: #ccc;
+            .btn-tag-arrow{
+                border-color: #ccc transparent transparent #ccc;
+            }
+        }
     }
+}
+.mx-btn{
+    display: inline-flex;
+    align-items: center;
 }

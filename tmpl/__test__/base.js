@@ -364,9 +364,9 @@ module.exports = Magix.View.extend({
                     path: '/checkbox/index',
                     icon: '&#xe63f;'
                 }, {
-                    name: '标题',
-                    path: '/title/index',
-                    icon: '&#xe786;'
+                    name: '按钮',
+                    path: '/btn/index',
+                    icon: '&#xe691;'
                 }, {
                     name: '打标',
                     path: '/effects/icon',
@@ -393,10 +393,6 @@ module.exports = Magix.View.extend({
                     path: '/effects/progress3',
                     icon: '&#xe6e4;'
                 }, {
-                    name: '各种动效',
-                    path: '/effects/anim',
-                    icon: '&#xe66b;'
-                }, {
                     name: '空状态',
                     path: '/effects/empty',
                     icon: '&#xe685;'
@@ -405,9 +401,17 @@ module.exports = Magix.View.extend({
                     path: '/effects/ua',
                     icon: '&#xe631;'
                 }, {
-                    name: '其他常用',
+                    name: 'checkbox + radio + input',
                     path: '/style/index',
                     icon: '&#xe62c;'
+                }, {
+                    name: '标题',
+                    path: '/title/index',
+                    icon: '&#xe786;'
+                }, {
+                    name: '各种动效',
+                    path: '/effects/anim',
+                    icon: '&#xe66b;'
                 }]
             }, {
                 name: '业务组件',

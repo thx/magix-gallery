@@ -12,6 +12,13 @@ module.exports = Magix.View.extend({
         let that = this;
         //赋值前先进行数据变化的检测,首次assign是在init方法中调用,后续的调用是magix自动调用,这个检测主要用于在首次调用后,magix自动调用前有没有进行数据的更新
         let altered = that.updater.altered();
+
+        // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
+        let disabled = (data.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
+
+        let root = getComputedStyle(document.documentElement);
+        let brandColor = document.body.style.getPropertyValue('--color-brand').trim() || root.getPropertyValue('--color-brand').trim();
+
         //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
         let textKey = data.textKey || 'text';
         let valueKey = data.valueKey || 'value';
@@ -25,6 +32,7 @@ module.exports = Magix.View.extend({
         list = list || [];
         list = list.map((item) => {
             return {
+                color: disabled ? '#cccccc' : (item.color || brandColor),
                 text: item[textKey],
                 value: item[valueKey],
                 tag: item.tag,
@@ -45,10 +53,7 @@ module.exports = Magix.View.extend({
         //     solid 实心
         //     hollow 空心
         let mode = data.mode || 'solid';
-
-        // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
-        let disabled = (data.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
-        
+ 
         that['@{owner.node}'] = $('#' + that.id);
         that.updater.set({
             viewId: that.id,
