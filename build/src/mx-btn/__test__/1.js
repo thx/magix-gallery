@@ -28,28 +28,28 @@ module.exports = Base.extend({
     $line = 7;
     $art = '!icon';
     ;
-    $p += ($expr = '<%!icon%>', $n(icon)) + '</span></span></a><a mxs="_zs_galleryV:e" href="javascript:;" brand="true" class="mx-btn btn-brand mb20" content="品牌色按钮">品牌色按钮<span class="mx-tag btn-tag"><span class="mx-tag-arrow btn-tag-arrow"></span><span class="mx-tag-name">New</span></span></a></div></div><div mxa="_zs_galleryV:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryV:f" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 15;
+    $p += ($expr = '<%!icon%>', $n(icon)) + '</span></span></a><a mxs="_zs_galleryV:e" href="javascript:;" brand="true" class="mx-btn btn-brand mb20" content="品牌色按钮">品牌色按钮<span class="mx-tag btn-tag"><span class="mx-tag-arrow btn-tag-arrow"></span><span class="mx-tag-name">New</span></span></a><br mxs="_zs_galleryV:b"/><a mxs="_zs_galleryV:f" href="javascript:;" brand="true" class="mx-btn btn-brand mb20" content="品牌色按钮" tag-color="#ffb400">品牌色按钮<span class="mx-tag btn-tag" style="background-color: #ffb400;"><span class="mx-tag-arrow btn-tag-arrow" style="border-color: #ffb400 transparent transparent #ffb400;"></span><span class="mx-tag-name">New</span></span></a></div></div><div mxa="_zs_galleryV:j" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryV:g" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 17;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryV:g" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 17;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryV:k" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 19;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryV:g" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 20;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryV:h" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-btn brand="true" content="品牌色按钮"/&gt;\n\n&lt;mx-btn brand="true" small="true" content="小号品牌色按钮"/&gt;\n\n&lt;mx-btn brand="true" tag-content="&#123;&#123;!icon&#125;&#125;"&gt;\n    &lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;品牌色按钮\n&lt;/mx-btn&gt;\n\n&lt;mx-btn brand="true" content="品牌色按钮" tag-content="New"/&gt;\n        </pre></div><div mxa="_zs_galleryV:h" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryV:h" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 34;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-btn brand="true" content="品牌色按钮"/&gt;\n\n&lt;mx-btn brand="true" small="true" content="小号品牌色按钮"/&gt;\n\n&lt;mx-btn brand="true" tag-content="&#123;&#123;!icon&#125;&#125;"&gt;\n    &lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;品牌色按钮\n&lt;/mx-btn&gt;\n\n&lt;mx-btn brand="true" content="品牌色按钮" tag-content="New"/&gt;\n\n&lt;mx-btn brand="true" content="品牌色按钮" tag-content="New" tag-color="#ffb400"/&gt;\n        </pre></div><div mxa="_zs_galleryV:l" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryV:i" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 38;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryV:i" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 36;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryV:m" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 40;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryV:g" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 39;
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryV:h" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 43;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\nMagix.applyStyle(\'@index.less\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe601;&lt;/i&gt;\'\n        &#125;);\n    &#125;\n&#125;);\n        </pre></div></div>';

@@ -32,9 +32,10 @@ module.exports = {
         let { content, attrsKV } = i;
         let cont = attrsKV.content || content || '按钮';
         let tagContent = attrsKV['tag-content'] || '';
+        let tagColor = attrsKV['tag-color'] || '';
 
         return `<a href="javascript:;" ${ProcessAttr(attrsKV, '', {
             'tag-content': 1
-        }, ['mx-btn', ((attrsKV.brand && !attrsKV.color) ? 'btn-brand' : ''), ((attrsKV.white && !attrsKV.color) ? 'btn-white' : ''), (attrsKV.small ? 'btn-small' : ''), (attrsKV.disabled ? 'btn-disabled' : '')].join(' '))}>${cont}${!tagContent ? '' : ('<span class="mx-tag btn-tag"><span class="mx-tag-arrow btn-tag-arrow"></span><span class="mx-tag-name">' + tagContent + '</span></span>')}</a>`;
+        }, ['mx-btn', ((attrsKV.brand && !attrsKV.color) ? 'btn-brand' : ''), ((attrsKV.white && !attrsKV.color) ? 'btn-white' : ''), (attrsKV.small ? 'btn-small' : ''), (attrsKV.disabled ? 'btn-disabled' : '')].join(' '))}>${cont}${!tagContent ? '' : ('<span class="mx-tag btn-tag" style="' + (!tagColor ? '' : ('background-color: ' + tagColor + ';')) + '"><span class="mx-tag-arrow btn-tag-arrow" style="' + (!tagColor ? '' : ('border-color: ' + tagColor + ' transparent transparent ' + tagColor + ';')) + '"></span><span class="mx-tag-name">' + tagContent + '</span></span>')}</a>`;
     }
 };

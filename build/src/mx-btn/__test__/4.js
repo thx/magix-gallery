@@ -36,7 +36,7 @@ module.exports = Base.extend({
     $line = 20;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" class="btn btn-brand"&gt;禁用按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-brand btn-small"&gt;小号禁用按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn"&gt;普通按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-small"&gt;小号普通按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-white"&gt;白色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-white btn-small"&gt;小号白色按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-disabled"&gt;禁用按钮&lt;/a&gt;\n\n&lt;a href="javascript:;" class="btn btn-disabled btn-small"&gt;小号禁用按钮&lt;/a&gt;\n        </pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-btn disabled="true" content="禁用按钮"/&gt;\n\n&lt;mx-btn disabled="true" small="true" content="小号禁用按钮"/&gt;\n\n&lt;mx-btn disabled="true"&gt;\n    &lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;禁用按钮\n&lt;/mx-btn&gt;\n\n&lt;mx-btn disabled="true" content="禁用按钮" tag-content="New"/&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
