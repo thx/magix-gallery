@@ -6,6 +6,21 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.11',
+            time: '2019-05-22',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-btn：解决不规范iconfont居中对齐，支持自定义颜色，自定义tag，<a href="#!/btn/index" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '实现调整',
+                subs: [{
+                    title: '统一组件打标逻辑，<a href="#!/tabs/index" class="color-brand">底边线分组</a>，<a href="#!/tabs/box" class="color-brand">盒状分组</a>，<a href="#!/btn/index" class="color-brand">按钮</a>，<a href="#!/effects/icon" class="color-brand">checkbox + radio</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.9 ~ 1.3.10',
             time: '2019-05-14',
             subs: [{
