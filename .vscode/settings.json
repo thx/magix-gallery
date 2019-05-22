@@ -1,0 +1,11 @@
+{
+    "settings": {
+		"less.compile": {
+			"compress":  true,  // true => remove surplus whitespace
+			"sourceMap": false,  // true => generate source maps (.css.map files)
+			"out":       false, // false => DON'T output .css files (overridable per-file, see below)
+		}
+	},
+	"htmlhint.enable": false,
+	"css.validate": false
+}
