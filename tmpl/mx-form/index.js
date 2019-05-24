@@ -25,10 +25,10 @@ module.exports = {
                         let temp = ps.shift();
                         data = data[temp];
                     }
-                    if (!ps.length) { 
+                    if (!ps.length) {
                         // find aim object
                         // 处理对应的key
-                        if(data === undefined){
+                        if (data === undefined) {
                             // fix https://aone.alibaba-inc.com/issue/18911004
                             return;
                         }
@@ -100,11 +100,11 @@ module.exports = {
                 object = object[temp];
             }
             rootKey = rootKey || key;
-            if(node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-calendar/rangepicker') > -1)){
+            if (node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-calendar/rangepicker') > -1)) {
                 // 日历时间段组件
                 let pv = JSON.parse(node.val());
                 value = pv[ctrl.a];
-            }else if (node.prop('type') == 'checkbox') {
+            } else if (node.prop('type') == 'checkbox') {
                 let src = object[key];
                 let checked = node.prop('checked');
                 if (src === true || src === false) {
@@ -154,14 +154,17 @@ module.exports = {
                         value = e[ctrl.a];
                     }
                     object[key] = value;
-                    if (actions.refresh) {
-                        refresh = true;
-                    }
-                    if (refresh || !actions.silent) { //如果刷新或未标记沉默更新
-                        if (keys) {
-                            keys[rootKey] = 1; //标记改变;
+                    //统一在change事件中标记更新
+                    if (e.type == 'change') {
+                        if (actions.refresh) {
+                            refresh = true;
                         }
-                        updater.$c = 1;
+                        if (refresh || !actions.silent) { //如果刷新或未标记沉默更新
+                            if (keys) {
+                                keys[rootKey] = 1; //标记改变;
+                            }
+                            updater.$c = 1;
+                        }
                     }
                 }
             } else {
