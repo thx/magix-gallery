@@ -35,7 +35,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (type == \'circle\') {%>';
     if (type == 'circle') {
         ;
-        $p += '<div mxa="_zs_gallerybW:_" class="_zs_gallery_mx-effects_progress_-circle-wrapper"><div class="_zs_gallery_mx-effects_progress_-circle-bg" style="width: ';
+        $p += '<div mxa="_zs_gallerybX:_" class="_zs_gallery_mx-effects_progress_-circle-wrapper"><div class="_zs_gallery_mx-effects_progress_-circle-bg" style="width: ';
         $line = 3;
         $art = '=width';
         ;
@@ -228,11 +228,11 @@ module.exports = Magix.View.extend({
             $line = 21;
             $art = '=color';
             ;
-            $p += ($expr = '<%=color%>', $e(color)) + ';"></div><div mxa="_zs_gallerybW:f" class="_zs_gallery_mx-effects_progress_-num _zs_gallery_mx-effects_progress_-num-left">';
+            $p += ($expr = '<%=color%>', $e(color)) + ';"></div><div mxa="_zs_gallerybX:a" class="_zs_gallery_mx-effects_progress_-num _zs_gallery_mx-effects_progress_-num-left">';
             $line = 22;
             $art = '=num';
             ;
-            $p += ($expr = '<%=num%>', $e(num)) + '</div><div mxa="_zs_gallerybW:a" class="_zs_gallery_mx-effects_progress_-num _zs_gallery_mx-effects_progress_-num-right">';
+            $p += ($expr = '<%=num%>', $e(num)) + '</div><div mxa="_zs_gallerybX:b" class="_zs_gallery_mx-effects_progress_-num _zs_gallery_mx-effects_progress_-num-right">';
             $line = 23;
             $art = '=numRemain';
             ;
@@ -425,21 +425,21 @@ module.exports = Magix.View.extend({
     $expr = '<%if (type == \'degree\') {%>';
     if (type == 'degree') {
         ;
-        $p += '<div mxa="_zs_gallerybW:g" class="_zs_gallery_mx-effects_progress_-degree-wrapper"><div mxa="_zs_gallerybW:h" class="_zs_gallery_mx-effects_progress_-degree-bg">';
+        $p += '<div mxa="_zs_gallerybX:c" class="_zs_gallery_mx-effects_progress_-degree-wrapper"><div mxa="_zs_gallerybX:d" class="_zs_gallery_mx-effects_progress_-degree-bg">';
         $line = 48;
         $art = 'for (let i=0;i<10;i+=1)';
         ;
         $expr = '<%for (var i = 0; i < 10; i += 1) {%>';
         for (var i = 0; i < 10; i += 1) {
             ;
-            $p += '<span mxs="_zs_gallerybW:_" class="_zs_gallery_mx-effects_progress_-degree"></span>';
+            $p += '<span mxs="_zs_gallerybX:_" class="_zs_gallery_mx-effects_progress_-degree"></span>';
             $line = 50;
             $art = '/for';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxa="_zs_gallerybW:i" class="_zs_gallery_mx-effects_progress_-degree-on">';
+        $p += '</div><div mxa="_zs_gallerybX:e" class="_zs_gallery_mx-effects_progress_-degree-on">';
         $line = 53;
         $art = 'for (let i=0;i<degree;i+=1)';
         ;

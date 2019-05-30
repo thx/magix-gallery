@@ -8,25 +8,41 @@ module.exports = Magix.View.extend({
             key: 'type',
             desc: [
                 '展示类型',
-                'error：红色错误类型提示',
-                'warn：黄色警告类型提示',
-                'highlight：品牌色图标强调提示'
+                'error：红色错误类型提示，color = #a40100',
+                'warn：黄色警告类型提示，color = #ffb400',
+                'highlight：强调提示，color = 品牌色',
+                'common：灰色提示，color = #ccc'
             ].join('<br>'),
             type: 'string',
             def: '默认灰色提示'
         }, {
+            key: 'color',
+            desc: '自定义颜色，配置了color的时候忽略type的配置，其他颜色基于此色值计算',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'color-bg',
+            desc: '背景颜色，默认为color * 0.1',
+            type: 'string',
+            def: ''
+        }, {
             key: 'border',
-            desc: '是否带边框 + 圆角',
+            desc: '是否带边框，默认情况下带边框则border-radius=4',
             type: 'boolean',
             def: 'false'
         }, {
-            key: 'text-align',
-            desc: '文字对齐方式，left，center，right',
-            type: 'string',
-            def: 'left'
+            key: 'closable',
+            desc: '是否带关闭',
+            type: 'boolean',
+            def: 'false'
         }, {
-            key: 'color',
-            desc: '自定义颜色，#4d7fff 或者 rgb(77, 127, 255)均可，背景色根据自定义颜色计算透明度<br/>配置了color的时候忽略type的配置',
+            key: 'radius',
+            desc: '是否带圆角',
+            type: 'boolean',
+            def: 'false'
+        }, {
+            key: 'color-border',
+            desc: '边框颜色，默认=color',
             type: 'string',
             def: ''
         }, {
@@ -34,6 +50,21 @@ module.exports = Magix.View.extend({
             desc: '是否有警告icon',
             type: 'boolean',
             def: 'true'
+        }, {
+            key: 'color-icon',
+            desc: 'icon颜色，默认=color',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'color-text',
+            desc: '文字颜色，默认#666',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'text-align',
+            desc: '文字对齐方式，left，center，right',
+            type: 'string',
+            def: 'left'
         }]
 
         this.updater.digest({

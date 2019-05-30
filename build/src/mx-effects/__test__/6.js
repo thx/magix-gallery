@@ -24,19 +24,19 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybH:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybH:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb20" mx-view="mx-effects/notice?color=rgb%2881%2C%20163%2C%200%29&content=%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A2%9C%E8%89%B2%E6%8F%90%E7%A4%BA"></div><div class="mb20" mx-view="mx-effects/notice?color=rgb%2881%2C%20163%2C%200%29&content=%E5%B8%A6%E8%BE%B9%E6%A1%86%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A2%9C%E8%89%B2%E6%8F%90%E7%A4%BA&border=true"></div><div class="mb20" mx-view="mx-effects/notice?color=rgb%2881%2C%20163%2C%200%29&content=%E5%B8%A6%E8%BE%B9%E6%A1%86%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A2%9C%E8%89%B2%E5%B1%85%E5%8F%B3%E6%8F%90%E7%A4%BA&textAlign=right&border=true"></div></div><div mxa="_zs_gallerybH:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybH:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 18;
+    $p += '<div mxa="_zs_gallerybI:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybI:k" class="_zs_gallery___test___layout_-eg-content"><div class="mb20" mx-view="mx-effects/notice?color=%2351a300&content=%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E8%A6%81%E9%A2%9C%E8%89%B2%EF%BC%8C%E5%85%B6%E4%BB%96%E5%9F%BA%E4%BA%8E%E6%AD%A4%E8%AE%A1%E7%AE%97"></div><div class="mb20" mx-view="mx-effects/notice?color=%2351a300&colorText=%2351a300&content=%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%87%E6%A1%88%E9%A2%9C%E8%89%B2"></div><div class="mb20" mx-view="mx-effects/notice?colorBg=%23ffb400&colorBorder=%23ffb400&colorText=%23fff&colorIcon=%23fff&border=true&content=%E6%89%80%E6%9C%89%E6%94%AF%E6%8C%81%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E9%A2%9C%E8%89%B2"></div></div><div mxa="_zs_gallerybI:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybI:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybH:b" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 20;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybI:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 24;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybH:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 23;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybI:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.notice \n    color="rgb(81, 163, 0)" \n    content="自定义颜色提示"/&gt;\n\n&lt;mx-effects.notice \n    color="rgb(81, 163, 0)" \n    content="带边框自定义颜色提示" \n    border="true"/&gt;\n\n&lt;mx-effects.notice \n    color="rgb(81, 163, 0)" \n    content="带边框自定义颜色居右提示" \n    text-align="right" \n    border="true"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.notice \n    color="#51a300" \n    content="自定义主要颜色，其他基于此计算"/&gt;\n\n&lt;mx-effects.notice \n    color="#51a300" \n    color-text="#51a300"\n    content="自定义文案颜色"/&gt;\n\n&lt;mx-effects.notice \n    color-bg="#ffb400"\n    color-border="#ffb400" \n    color-text="#fff"\n    color-icon="#fff"\n    border="true"\n    content="所有支持自定义的颜色"/&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

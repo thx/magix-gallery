@@ -1,10 +1,16 @@
-<div class="notice {{=classNames}}" style="text-align:{{=textAlign}}; {{=styles}}">
+{{if show}}
+<div class="notice" style="{{=styles}}">
     {{if icon}}
     <div class="inner">
-        <i class="mc-iconfont icon">&#xe6ad;</i>
+        <i class="mc-iconfont icon" style="color: {{=colorIcon}};">&#xe6ad;</i>
         {{!content}}
     </div>
     {{else}}
         {{!content}}
     {{/if}}
+
+    {{if closable}}
+    <i class="mc-iconfont close" mx-click="close()">&#xe603;</i>
+    {{/if}}
 </div>
+{{/if}}
