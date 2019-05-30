@@ -3,6 +3,7 @@
         <div class="mb20 clearfix lh22">
             <div class="fl color-9">说明：</div>
             <div class="fl">
+                <div>选项支持html片段</div>
                 <div>选中项传入支持传入数组或者逗号分隔</div>
                 <div>以下两个下拉框选中项保持一致</div>
             </div>
@@ -59,7 +60,7 @@ module.exports = Magix.View.extend(&#123;
         let list = [];
         for (let index = 0; index &lt; 6; index++) &#123;
             list.push(&#123;
-                text: '多选' + (index + 1),
+                text: (index == 0 ? '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe670;&lt;/i&gt;' : '') + '多选' + (index + 1),
                 value: index + 1
             &#125;)
         &#125;

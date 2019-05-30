@@ -1,5 +1,5 @@
 <div id="toggle_{{=viewId}}" class="mx-trigger {{if expand}} mx-trigger-open {{/if}}">
-    <span class="mx-trigger-label">{{=selectedText}}</span>
+    <span class="mx-trigger-label">{{!selectedText}}</span>
     <span class="mc-iconfont mx-trigger-arrow">&#xe692;</span>
 </div>
 <div id="menu_{{=viewId}}" class="mx-output {{=placementClass}} {{if expand}} mx-output-open {{/if}} {{if over}} dropdown-menu-group {{/if}}"
@@ -55,12 +55,12 @@
                                     checked="{{=(group.type==3)}}"
                                     mx-focusout="@{stop}()"
                                     mx-change="@{checkGroup}({groupIndex:'{{=groupIndex}}'})" 
-                                    data-spm-click="{{=spm}}"/>{{=group.text}}
+                                    data-spm-click="{{=spm}}"/>{{!group.text}}
                             </label>
                         </div>
                     </div>
                 {{else}}
-                    <div class="mx-output-header" title="{{=group.text}}">{{=group.text}}</div>
+                    <div class="mx-output-header" title="{{=group.text}}">{{!group.text}}</div>
                 {{/if}}
             {{/if}}
             <div class="clearfix dropdown-group-wrapper">
@@ -74,7 +74,7 @@
                                 id="{{=viewId}}_{{=item.value}}"
                                 mx-focusout="@{stop}()"
                                 mx-change="@{checkItem}({groupIndex:'{{=groupIndex}}',value:'{{=item.value}}'})" 
-                                data-spm-click="{{=spm}}"/>{{=item.text}}
+                                data-spm-click="{{=spm}}"/>{{!item.text}}
                         </label>
                     </div>
                     {{/if}}

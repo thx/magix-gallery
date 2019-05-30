@@ -50,7 +50,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += ' ' + ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_gallerya-:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
+    $p += ' ' + ($expr = '<%!selectedText%>', $n(selectedText)) + '</span><span mxs="_zs_gallerya-:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
     $line = 9;
     $art = '=viewId';
     ;
@@ -122,7 +122,7 @@ module.exports = Magix.View.extend({
                         $expr = '<%}%>';
                     }
                     ;
-                    $p += '>' + ($expr = '<%=text%>', $e(text)) + '</span></li>';
+                    $p += '>' + ($expr = '<%!text%>', $n(text)) + '</span></li>';
                     $expr = '<%}%>';
                 }
                 ;
@@ -137,9 +137,9 @@ module.exports = Magix.View.extend({
             ;
             $p += '<div mxa="_zs_gallerya-:d" class="text-center color-9 pt20 pb20">';
             $line = 48;
-            $art = '=text.empty';
+            $art = '!text.empty';
             ;
-            $p += ($expr = '<%=text.empty%>', $e(text.empty)) + '</div>';
+            $p += ($expr = '<%!text.empty%>', $n(text.empty)) + '</div>';
             $expr = '<%}%>';
         }
         ;

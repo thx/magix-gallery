@@ -1,5 +1,9 @@
 <div class="example">
     <div class="eg-content">
+        <div class="mb10">
+            <span class="color-9">说明：</span>
+            选项支持html片段
+        </div>
         <div class="mb20">
             <mx-dropdown class="w200" 
                 searchbox="true" 
@@ -10,7 +14,7 @@
         </div>
         <div>
             <span class="color-9">当前选中名：</span>
-            <span class="mr20">{{=selectedText}}</span>
+            <span class="mr20">{{!selectedText}}</span>
             <span class="color-9">当前选中值：</span>
             <span>{{=selectedValue}}</span>
         </div>
@@ -46,7 +50,7 @@ module.exports = Magix.View.extend(&#123;
     render() &#123;
         let list = [&#123;
             value: 1,
-            text: '测试Logo'
+            text: '&lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe670;&lt;/i&gt;测试Logo'
         &#125;, &#123;
             value: 2,
             text: 'logo'

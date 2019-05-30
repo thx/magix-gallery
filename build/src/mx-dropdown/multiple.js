@@ -44,9 +44,9 @@ module.exports = Magix.View.extend({
     ;
     $p += '"><span mxa="_zs_gallerya+:_" class="mx-trigger-label">';
     $line = 2;
-    $art = '=selectedText';
+    $art = '!selectedText';
     ;
-    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_gallerya+:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
+    $p += ($expr = '<%!selectedText%>', $n(selectedText)) + '</span><span mxs="_zs_gallerya+:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
     $line = 5;
     $art = '=viewId';
     ;
@@ -286,8 +286,8 @@ module.exports = Magix.View.extend({
             $line = 46;
             $art = 'each groups as group groupIndex';
             ;
-            $expr = '<%for (var groupIndex = 0, $art_cjomcfycsg$art_c = groups.length; groupIndex < $art_cjomcfycsg$art_c; groupIndex++) {            var group = groups[groupIndex]%>';
-            for (var groupIndex = 0, $art_cjomcfycsg$art_c = groups.length; groupIndex < $art_cjomcfycsg$art_c; groupIndex++) {
+            $expr = '<%for (var groupIndex = 0, $art_ctqpzp$art_c = groups.length; groupIndex < $art_ctqpzp$art_c; groupIndex++) {            var group = groups[groupIndex]%>';
+            for (var groupIndex = 0, $art_ctqpzp$art_c = groups.length; groupIndex < $art_ctqpzp$art_c; groupIndex++) {
                 var group = groups[groupIndex];
                 $p += ' ';
                 $line = 47;
@@ -329,9 +329,9 @@ module.exports = Magix.View.extend({
                         ;
                         $p += ($expr = '<%!$eu((group.type == 3))%>', $eu((group.type == 3))) + '"></span>';
                         $line = 58;
-                        $art = '=group.text';
+                        $art = '!group.text';
                         ;
-                        $p += ($expr = '<%=group.text%>', $e(group.text)) + '</label></div></div>';
+                        $p += ($expr = '<%!group.text%>', $n(group.text)) + '</label></div></div>';
                         $line = 62;
                         $art = 'else';
                         ;
@@ -345,9 +345,9 @@ module.exports = Magix.View.extend({
                         ;
                         $p += ($expr = '<%=group.text%>', $e(group.text)) + '">';
                         $line = 63;
-                        $art = '=group.text';
+                        $art = '!group.text';
                         ;
-                        $p += ($expr = '<%=group.text%>', $e(group.text)) + '</div>';
+                        $p += ($expr = '<%!group.text%>', $n(group.text)) + '</div>';
                         $line = 64;
                         $art = '/if';
                         ;
@@ -365,9 +365,9 @@ module.exports = Magix.View.extend({
                 $line = 67;
                 $art = 'each group.list as item';
                 ;
-                $expr = '<%for (var $art_izjdcvbmy$art_i = 0, $art_objhlssw$art_obj = group.list, $art_cvgalhc$art_c = $art_objhlssw$art_obj.length; $art_izjdcvbmy$art_i < $art_cvgalhc$art_c; $art_izjdcvbmy$art_i++) {                var item = $art_objhlssw$art_obj[$art_izjdcvbmy$art_i]%>';
-                for (var $art_izjdcvbmy$art_i = 0, $art_objhlssw$art_obj = group.list, $art_cvgalhc$art_c = $art_objhlssw$art_obj.length; $art_izjdcvbmy$art_i < $art_cvgalhc$art_c; $art_izjdcvbmy$art_i++) {
-                    var item = $art_objhlssw$art_obj[$art_izjdcvbmy$art_i];
+                $expr = '<%for (var $art_iucyyqor$art_i = 0, $art_objlgoijibzc$art_obj = group.list, $art_cbnkktot$art_c = $art_objlgoijibzc$art_obj.length; $art_iucyyqor$art_i < $art_cbnkktot$art_c; $art_iucyyqor$art_i++) {                var item = $art_objlgoijibzc$art_obj[$art_iucyyqor$art_i]%>';
+                for (var $art_iucyyqor$art_i = 0, $art_objlgoijibzc$art_obj = group.list, $art_cbnkktot$art_c = $art_objlgoijibzc$art_obj.length; $art_iucyyqor$art_i < $art_cbnkktot$art_c; $art_iucyyqor$art_i++) {
+                    var item = $art_objlgoijibzc$art_obj[$art_iucyyqor$art_i];
                     $p += ' ';
                     $line = 68;
                     $art = 'if !item.hide';
@@ -437,9 +437,9 @@ module.exports = Magix.View.extend({
                         ;
                         $p += ($expr = '<%=spm%>', $e(spm)) + '"/>';
                         $line = 77;
-                        $art = '=item.text';
+                        $art = '!item.text';
                         ;
-                        $p += ($expr = '<%=item.text%>', $e(item.text)) + '</label></div>';
+                        $p += ($expr = '<%!item.text%>', $n(item.text)) + '</label></div>';
                         $line = 80;
                         $art = '/if';
                         ;

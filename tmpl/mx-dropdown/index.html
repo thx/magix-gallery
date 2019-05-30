@@ -1,7 +1,7 @@
 <div id="toggle_{{=viewId}}" class="mx-trigger <%if (expand){%> mx-trigger-open <%}%>">
     <span class="mx-trigger-label">
         <%if(name){%><span class="color-9"><%=name%>：</span><%}%>
-        <%=selectedText%>
+        <%!selectedText%>
     </span>
     <span class="mc-iconfont mx-trigger-arrow">&#xe692;</span>
 </div>
@@ -38,14 +38,14 @@
                     <span class="mx-output-link <%if(equal){%> mx-output-link-active <%}%>"
                         data-active="<%=equal%>"
                         mx-click="@{select}({item:'<%@item%>'})" <%if(spm){%> data-spm-click="<%=spm%>" <%}%>>
-                        <%=text%>
+                        <%!text%>
                     </span>
                 </li>
             <%}%>
         <%}%>
     </ul>
     <%}else{%>
-    <div class="text-center color-9 pt20 pb20">{{=text.empty}}</div>
+    <div class="text-center color-9 pt20 pb20">{{!text.empty}}</div>
     <%}%>
 <%}%>
 </div>

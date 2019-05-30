@@ -7,7 +7,7 @@ module.exports = Base.extend({
     render() {
         let list = [{
             value: 1,
-            text: '测试Logo'
+            text: '<i class="mc-iconfont mr5">&#xe670;</i>测试Logo'
         }, {
             value: 2,
             text: 'logo'

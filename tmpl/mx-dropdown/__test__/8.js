@@ -8,7 +8,7 @@ module.exports = Base.extend({
         let list = [];
         for (let index = 0; index < 6; index++) {
             list.push({
-                text: '多选' + (index + 1),
+                text: (index == 0 ? '<i class="mc-iconfont">&#xe670;</i>' : '') + '多选' + (index + 1),
                 value: index + 1
             })
         }
