@@ -6,8 +6,8 @@
     display: inline-block;
 }
 
-.type--line,
-.type--gradient{
+.line,
+.gradient{
     position: relative;
     background: @progress-bg;
 
@@ -53,16 +53,24 @@
     }
 }
 
-.type--line{
+.line{
     height: (@progress-radius * 2);
     border-radius: @progress-radius;
     .on{
         border-radius: @progress-radius;
         background: var(--color-brand);
     }
+    &.line-vs{
+        .on{
+            border-top-left-radius: @progress-radius;
+            border-bottom-left-radius: @progress-radius;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
 }
 
-.type--gradient{
+.gradient{
     height: (@progress-radius * 4);
     border-radius: (@progress-radius * 2);
     .on{

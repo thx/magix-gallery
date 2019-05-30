@@ -47,6 +47,7 @@ module.exports = Magix.View.extend({
             border = e.border || 8,
             color = e.color || '',
             colorGradient = e.colorGradient || '',
+            colorVs = e.colorVs || '',
             color1, color2;
         let root = getComputedStyle(document.documentElement);
         let brandColor = document.body.style.getPropertyValue('--color-brand').trim() || root.getPropertyValue('--color-brand').trim();
@@ -80,13 +81,16 @@ module.exports = Magix.View.extend({
             placement,
             originNum: num,
             num: num.toFixed(i) + '%',
+            numRemain: (100 - num).toFixed(i) + '%',
             cName: ClassNames[placement],
             color,
             colorGradient,
+            colorVs,
             color1,
             color2,
             type,
             text: (e.text + '' !== 'false'),  //是否显示文案
+            vs: (e.vs + '' === 'true'), // 是否左右对比
             degree,
             width: +width,
             border: +border,

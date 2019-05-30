@@ -1,1 +1,198 @@
-define("mx-effects/star",["magix","$"],(e,t,r)=>{var l=e("magix");e("$");l.applyStyle("_zs_galleryP",'[mx-view*="mx-effects/star"]{position:relative;display:inline-block}[mx-view*="mx-effects/star"] ._zs_galleryfq>*{display:inline-block;width:24px;height:24px;line-height:24px;text-align:center;font-size:20px;color:inherit}[mx-view*="mx-effects/star"] ._zs_galleryfs{color:var(--color-border)}[mx-view*="mx-effects/star"] ._zs_galleryft{position:absolute;top:0;left:0;height:24px;overflow:hidden}[mx-view*="mx-effects/star"] ._zs_galleryft ._zs_galleryfu{width:120px;height:24px}[mx-view*="mx-effects/star"] ._zs_galleryft ._zs_galleryfu._zs_galleryfv{color:var(--color-brand)}'),r.exports=l.View.extend({tmpl:function(e,t,r,l,s,i,a,n){if(r||(r=e),!s){var o={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},f=/[&<>"'`]/g,c=function(e){return"&"+o[e]+";"};s=function(e){return""+(null==e?"":e)},l=function(e){return s(e).replace(f,c)}}if(!i){var _={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},g=function(e){return _[e]},p=/[!')(*]/g;i=function(e){return encodeURIComponent(s(e)).replace(p,g)}}if(!n){var x=/[\\'"]/g;n=function(e){return s(e).replace(x,"\\$&")}}var d="",u=e.icon,h=e.width,m=e.color;d+='<div mxa="_zs_gallerybX:_" class="_zs_galleryfs">';for(var v=0;v<5;v+=1)d+='<span mxa="_zs_gallerybX:a" class="_zs_galleryfq">',d+=u?" "+s(u)+" ":'<i mxs="_zs_gallerybX:_" class="mc-iconfont">&#xe60f;</i>',d+="</span>";d+='</div><div class="_zs_galleryft" style="width: '+l(h)+';"><div class="_zs_galleryfu ',m||(d+=" _zs_galleryfv "),d+='">';for(v=0;v<5;v+=1)d+='<span class="_zs_galleryfq" ',m&&(d+=' style="color: '+l(m)+';" '),d+=">",d+=u?" "+s(u)+" ":'<i mxs="_zs_gallerybX:_" class="mc-iconfont">&#xe60f;</i>',d+="</span>";return d+="</div></div>"},init:function(e){this.updater.snapshot(),this.assign(e)},assign:function(e){var t=this.updater.altered(),r=e.color||"",l=+e.num||0,s=l+"",i=s.indexOf(".");return(i=i>=0?s.slice(i+1).length:0)>0&&(l=Math.floor(l)+.5),l<0&&(l=0),l>5&&(l=5),this.updater.set({width:l/5*100+"%",color:r,icon:e.icon}),t||(t=this.updater.altered()),!!t&&(this.updater.snapshot(),!0)},render:function(){this.updater.digest()}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-effects/star",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-effects_star_","[mx-view*=\"mx-effects/star\"] {\n  position: relative;\n  display: inline-block;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star > * {\n  display: inline-block;\n  width: 24px;\n  height: 24px;\n  line-height: 24px;\n  text-align: center;\n  font-size: 20px;\n  color: inherit;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-bg {\n  color: var(--color-border);\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 24px;\n  overflow: hidden;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on ._zs_gallery_mx-effects_star_-star-inner {\n  width: 120px;\n  height: 24px;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on ._zs_gallery_mx-effects_star_-star-inner._zs_gallery_mx-effects_star_-star-brand {\n  color: var(--color-brand);\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', icon = $$.icon, width = $$.width, color = $$.color; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerybX:_" class="_zs_gallery_mx-effects_star_-star-bg">';
+    $line = 2;
+    $art = 'for (let i=0;i<5;i+=1)';
+    ;
+    $expr = '<%for (var i = 0; i < 5; i += 1) {%>';
+    for (var i = 0; i < 5; i += 1) {
+        ;
+        $p += '<span mxa="_zs_gallerybX:a" class="_zs_gallery_mx-effects_star_-star">';
+        $line = 4;
+        $art = 'if icon';
+        ;
+        $expr = '<%if (icon) {%>';
+        if (icon) {
+            ;
+            $p += ' ';
+            $line = 5;
+            $art = '!icon';
+            ;
+            $p += ($expr = '<%!icon%>', $n(icon)) + ' ';
+            $line = 6;
+            $art = 'else';
+            ;
+            $expr = '<%}    else {%>';
+        }
+        else {
+            ;
+            $p += '<i mxs="_zs_gallerybX:_" class="mc-iconfont">&#xe60f;</i>';
+            $line = 8;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</span>';
+        $line = 10;
+        $art = '/for';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div class="_zs_gallery_mx-effects_star_-star-on" style="width: ';
+    $line = 12;
+    $art = '=width';
+    ;
+    $p += ($expr = '<%=width%>', $e(width)) + ';"><div class="_zs_gallery_mx-effects_star_-star-inner ';
+    $line = 13;
+    $art = 'if !color';
+    ;
+    $expr = '<%if (!color) {%>';
+    if (!color) {
+        ;
+        $p += ' _zs_gallery_mx-effects_star_-star-brand ';
+        $line = 13;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '">';
+    $line = 14;
+    $art = 'for (let i=0;i<5;i+=1)';
+    ;
+    $expr = '<%for (var i = 0; i < 5; i += 1) {%>';
+    for (var i = 0; i < 5; i += 1) {
+        ;
+        $p += '<span class="_zs_gallery_mx-effects_star_-star" ';
+        $line = 15;
+        $art = 'if color';
+        ;
+        $expr = '<%if (color) {%>';
+        if (color) {
+            ;
+            $p += ' style="color: ';
+            $line = 15;
+            $art = '=color';
+            ;
+            $p += ($expr = '<%=color%>', $e(color)) + ';" ';
+            $line = 15;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '>';
+        $line = 16;
+        $art = 'if icon';
+        ;
+        $expr = '<%if (icon) {%>';
+        if (icon) {
+            ;
+            $p += ' ';
+            $line = 17;
+            $art = '!icon';
+            ;
+            $p += ($expr = '<%!icon%>', $n(icon)) + ' ';
+            $line = 18;
+            $art = 'else';
+            ;
+            $expr = '<%}    else {%>';
+        }
+        else {
+            ;
+            $p += '<i mxs="_zs_gallerybX:_" class="mc-iconfont">&#xe60f;</i>';
+            $line = 20;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</span>';
+        $line = 22;
+        $art = '/for';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-effects/star.html';
+    throw msg;
+} return $p; },
+    init: function (e) {
+        this.updater.snapshot();
+        this.assign(e);
+    },
+    assign: function (e) {
+        var that = this;
+        var altered = that.updater.altered();
+        // num: 0, 0.5, 1 ... 4, 4.5, 5
+        var color = e.color || '';
+        var num = +e.num || 0;
+        var s = num + '';
+        var i = s.indexOf('.');
+        if (i >= 0) {
+            i = s.slice(i + 1).length;
+        }
+        else {
+            i = 0;
+        }
+        // 取半
+        if (i > 0) {
+            num = Math.floor(num) + 0.5;
+        }
+        if (num < 0) {
+            num = 0;
+        }
+        if (num > 5) {
+            num = 5;
+        }
+        that.updater.set({
+            width: num / 5 * 100 + '%',
+            color: color,
+            icon: e.icon
+        });
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render: function () {
+        this.updater.digest();
+    }
+});
+
+});
