@@ -6,6 +6,19 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.13',
+            time: '2019-05-30',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.progress：进度条支持显示左右占比，<a href="#!/effects/progress1" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.notice：支持innerHTML写法（与父view有数据交互时可用），支持所有颜色自定义，支持可关闭操作，<a href="#!/effects/notice" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dropdown：下拉选项支持html片段，<a href="#!/dropdown/multiple" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.12',
             time: '2019-05-22',
             subs: [{
