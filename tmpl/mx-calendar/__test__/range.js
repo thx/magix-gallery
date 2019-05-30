@@ -86,8 +86,13 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: 'YYYY-MM-dd'
         }, {
+            key: 'align',
+            desc: '日历选择面板与目标的对齐方式，可选left和right',
+            type: 'string',
+            def: 'left'
+        }, {
             key: 'text-align',
-            desc: '日历与目标的对齐方式，left，center',
+            desc: '选中结果文案对齐方式，可选left，right和center，默认居中对齐',
             type: 'string',
             def: 'center'
         }, {

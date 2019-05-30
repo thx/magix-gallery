@@ -117,9 +117,9 @@ module.exports = Magix.View.extend({
     $line = 89;
     $art = 'each supportQuickDates as item';
     ;
-    $expr = '<%for (var $art_iujvqbuvr$art_i = 0, $art_caituami$art_c = supportQuickDates.length; $art_iujvqbuvr$art_i < $art_caituami$art_c; $art_iujvqbuvr$art_i++) {    var item = supportQuickDates[$art_iujvqbuvr$art_i]%>';
-    for (var $art_iujvqbuvr$art_i = 0, $art_caituami$art_c = supportQuickDates.length; $art_iujvqbuvr$art_i < $art_caituami$art_c; $art_iujvqbuvr$art_i++) {
-        var item = supportQuickDates[$art_iujvqbuvr$art_i];
+    $expr = '<%for (var $art_ioahveea$art_i = 0, $art_cllfedztm$art_c = supportQuickDates.length; $art_ioahveea$art_i < $art_cllfedztm$art_c; $art_ioahveea$art_i++) {    var item = supportQuickDates[$art_ioahveea$art_i]%>';
+    for (var $art_ioahveea$art_i = 0, $art_cllfedztm$art_c = supportQuickDates.length; $art_ioahveea$art_i < $art_cllfedztm$art_c; $art_ioahveea$art_i++) {
+        var item = supportQuickDates[$art_ioahveea$art_i];
         $p += '<tr><td>';
         $line = 91;
         $art = '=item.key';
@@ -225,8 +225,13 @@ catch (ex) {
                 type: 'string',
                 def: 'YYYY-MM-dd'
             }, {
+                key: 'align',
+                desc: '日历选择面板与目标的对齐方式，可选left和right',
+                type: 'string',
+                def: 'left'
+            }, {
                 key: 'text-align',
-                desc: '日历与目标的对齐方式，left，center',
+                desc: '选中结果文案对齐方式，可选left，right和center，默认居中对齐',
                 type: 'string',
                 def: 'center'
             }, {

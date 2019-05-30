@@ -149,7 +149,7 @@ catch (ex) {
                 def: 'YYYY-MM-dd'
             }, {
                 key: 'align',
-                desc: '日历与目标的对齐方式，可选left和right',
+                desc: '日历选择面板与目标的对齐方式，可选left和right',
                 type: 'string',
                 def: 'left'
             }, {
