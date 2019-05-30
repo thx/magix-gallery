@@ -36,7 +36,7 @@ module.exports = Base.extend({
     $line = 15;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.notice \n    type="warn"\n    content="黄色警告提示"/&gt;\n        </pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.notice \n    type="warn"\n    closable="true"\n    content="带关闭按钮"/&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
