@@ -85,7 +85,8 @@ module.exports = {
             direction: 1,
             justify: 1,
             align: 1,
-            gutter: 1
+            gutter: 1,
+            content: 1
         })}>${content}</div>`;
     },
     'mx-grid.col'(i) {
@@ -130,12 +131,13 @@ module.exports = {
         return `<div ${ProcessAttr(attrsKV, styles, {
             width: 1,
             height: 1,
+            content: 1
         })}>${content}</div>`;
     },
     'mx-grid'(i) {
-        return `<div ${ProcessAttr(i.attrsKV, null, {}, 'grid')}>
-                    ${i.content}
-                </div>`;
+        return `<div ${ProcessAttr(i.attrsKV, null, {
+            content: 1
+        }, 'grid')}>${i.content}</div>`;
     },
     'mx-grid.title'(i) {
         let { content, attrsKV } = i;
@@ -151,7 +153,8 @@ module.exports = {
         let tmpl = `<div ${ProcessAttr(attrsKV, styles, {
             icon: 1,
             tip: 1,
-            border: 1
+            border: 1,
+            content: 1
         }, 'clearfix')}>`;
 
         // 标题，提示，icon
@@ -159,7 +162,7 @@ module.exports = {
         if (attrsKV.icon) {
             tmpl += `<span style="margin-right: 4px; color: #ccc;">${attrsKV.icon}</span>`;
         }
-        tmpl += `<span style="font-size: 16px; margin-right: 16px;">${attrsKV.content}</span>`;
+        tmpl += `<span class="grid-title" style="margin-right: 16px;">${attrsKV.content}</span>`;
         if (attrsKV.tip) {
             tmpl += `<span style="margin-right: 16px; color: #999;">${attrsKV.tip}</span>`;
         }
@@ -175,6 +178,8 @@ module.exports = {
     },
     'mx-grid.body'(i) {
         let { content, attrsKV } = i;
-        return `<div ${ProcessAttr(attrsKV, 'padding: 16px 24px;', {}, 'clearfix')}>${content}</div>`;
+        return `<div ${ProcessAttr(attrsKV, 'padding: 16px 24px;', {
+            content: 1
+        }, 'clearfix')}>${content}</div>`;
     }
 };
