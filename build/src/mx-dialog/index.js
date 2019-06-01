@@ -232,6 +232,9 @@ catch (ex) {
             // 存在非手动关闭浮层的情况，比如浮层中有一个按钮从本页面跳走
             // 这时候需要关闭浮层
             $('#' + me.id).trigger('dlg_close');
+            if (me['@{search.timer}']) {
+                clearTimeout(me['@{search.timer}']);
+            }
         });
         DialogZIndex += 2;
         CacheList.push(me);
@@ -250,27 +253,9 @@ catch (ex) {
         setTimeout(me.wrapAsync(function () {
             var wrapper = $('#wrapper_' + me.id);
             wrapper.css(data.posTo);
+            // 全屏样式
+            me['@{sync.full.style}']();
             var cntId = data.cntId;
-            if (data.full) {
-                var h = window.innerHeight;
-                var fh = $('#' + cntId + '_header'), ff = $('#' + cntId + '_footer');
-                if (fh && fh.length) {
-                    h -= fh.outerHeight();
-                }
-                if (ff && ff.length) {
-                    h -= ff.outerHeight();
-                }
-                // 全屏右出浮层
-                var fcss = {
-                    height: h - 2,
-                    overflowY: 'auto'
-                };
-                if (data.card) {
-                    fcss.backgroundColor = '#e8ebf2';
-                    fcss.padding = '16px 24px';
-                }
-                $('#' + cntId).css(fcss);
-            }
             var mask = $('#mask_' + me.id);
             if (mask.length > 0) {
                 mask.addClass('_zs_gallery_mx-dialog_index_-backdrop-out');
@@ -289,6 +274,30 @@ catch (ex) {
                 $(document).trigger('dialogScolll');
             });
         }), Duration);
+    },
+    '@{sync.full.style}': function () {
+        var data = this.updater.get();
+        var cntId = data.cntId;
+        if (data.full) {
+            var h = window.innerHeight;
+            var fh = $('#' + cntId + '_header'), ff = $('#' + cntId + '_footer');
+            if (fh && fh.length) {
+                h -= fh.outerHeight();
+            }
+            if (ff && ff.length) {
+                h -= ff.outerHeight();
+            }
+            // 全屏右出浮层
+            var fcss = {
+                height: h - 2,
+                overflowY: 'auto'
+            };
+            if (data.card) {
+                fcss.backgroundColor = '#e8ebf2';
+                fcss.padding = '16px 24px';
+            }
+            $('#' + cntId).css(fcss);
+        }
     },
     '@{notify.main.view.unload}': function (e) {
         var vf = Vframe.get('cnt_' + this.id);
@@ -342,6 +351,15 @@ catch (ex) {
                 node.trigger('dlg_close');
             }
         }
+    },
+    '$win<resize>': function (e) {
+        var me = this;
+        if (me['@{search.timer}']) {
+            clearTimeout(me['@{search.timer}']);
+        }
+        me['@{search.timer}'] = setTimeout(me.wrapAsync(function () {
+            me['@{sync.full.style}']();
+        }), 200);
     }
 }, {
     '@{dialog.show}': function (view, options) {
