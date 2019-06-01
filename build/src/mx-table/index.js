@@ -52,6 +52,9 @@ module.exports = Magix.View.extend({
         var me = this;
         me['@{table.init}']();
         me['@{toggle.hover.state}'](me['@{hover.index}'], 'add');
+        if (Magix.task) {
+            Magix.task(me['@{table.init}'], [], me);
+        }
     },
     '@{wrapper.get}': function (table, id) {
         id = this.id + '_' + id;
@@ -480,14 +483,21 @@ module.exports = Magix.View.extend({
     '$doc<htmlchanged>': function (e) {
         var me = this;
         if (e.vId == me.owner.pId) {
-            me['@{rechange}']();
+            me['@{trigger.rechange}']();
         }
     },
     '$doc<navslidend,tableresize>': function (e) {
-        this['@{rechange}']();
+        this['@{trigger.rechange}']();
     },
     '$win<resize>': function (e) {
-        this['@{rechange}']();
+        this['@{trigger.rechange}']();
+    },
+    '@{trigger.rechange}': function () {
+        var me = this;
+        me['@{rechange}']();
+        if (Magix.task) {
+            Magix.task(me['@{rechange}'], [], me);
+        }
     },
     '@{rechange}': function () {
         var me = this;

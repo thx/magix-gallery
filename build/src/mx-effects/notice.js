@@ -165,11 +165,6 @@ catch (ex) {
     },
     render: function () {
         this.updater.digest();
-    },
-    'close<click>': function (event) {
-        this.updater.digest({
-            show: false
-        });
     }
 });
 

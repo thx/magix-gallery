@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', icon = $$.icon, img = $$.img, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerych:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerych:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerych:e" class="mb10">只标题部分（支持自定义内容）：</div><div mxa="_zs_gallerych:b" class="_zs_gallery_mx-grid___test___index_-container"><div mxa="_zs_gallerych:c" class="grid mb20"><div mxa="_zs_gallerych:d" class="clearfix" style="padding: 10px 24px;;"><div mxa="_zs_gallerych:e" style="float:left; height: 32px; line-height: 32px;"><span mxa="_zs_gallerych:f" style="margin-right: 4px; color: #ccc;">';
+    $p += '<div mxa="_zs_gallerych:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerych:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerych:_" class="mb10">只标题部分（支持自定义内容）：</div><div mxa="_zs_gallerych:b" class="_zs_gallery_mx-grid___test___index_-container"><div mxa="_zs_gallerych:c" class="grid mb20"><div mxa="_zs_gallerych:d" class="clearfix" style="padding: 10px 24px;;"><div mxa="_zs_gallerych:e" style="float:left; height: 32px; line-height: 32px;"><span mxa="_zs_gallerych:f" style="margin-right: 4px; color: #ccc;">';
     $line = 10;
     $art = '!icon';
     ;

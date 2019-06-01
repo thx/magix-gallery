@@ -25,16 +25,16 @@ module.exports = Magix.View.extend({
     $line = 13;
     $art = 'each options as option';
     ;
-    $expr = '<%for (var $art_inozdhk$art_i = 0, $art_crfphaln$art_c = options.length; $art_inozdhk$art_i < $art_crfphaln$art_c; $art_inozdhk$art_i++) {    var option = options[$art_inozdhk$art_i]%>';
-    for (var $art_inozdhk$art_i = 0, $art_crfphaln$art_c = options.length; $art_inozdhk$art_i < $art_crfphaln$art_c; $art_inozdhk$art_i++) {
-        var option = options[$art_inozdhk$art_i];
+    $expr = '<%for (var $art_iynderwfc$art_i = 0, $art_cwoyjhypqe$art_c = options.length; $art_iynderwfc$art_i < $art_cwoyjhypqe$art_c; $art_iynderwfc$art_i++) {    var option = options[$art_iynderwfc$art_i]%>';
+    for (var $art_iynderwfc$art_i = 0, $art_cwoyjhypqe$art_c = options.length; $art_iynderwfc$art_i < $art_cwoyjhypqe$art_c; $art_iynderwfc$art_i++) {
+        var option = options[$art_iynderwfc$art_i];
         $p += ' ';
         $line = 14;
         $art = 'each option.params as param index';
         ;
-        $expr = '<%for (var index = 0, $art_objjyhakbr$art_obj = option.params, $art_crfusxozohj$art_c = $art_objjyhakbr$art_obj.length; index < $art_crfusxozohj$art_c; index++) {        var param = $art_objjyhakbr$art_obj[index]%>';
-        for (var index = 0, $art_objjyhakbr$art_obj = option.params, $art_crfusxozohj$art_c = $art_objjyhakbr$art_obj.length; index < $art_crfusxozohj$art_c; index++) {
-            var param = $art_objjyhakbr$art_obj[index];
+        $expr = '<%for (var index = 0, $art_objiffqtnzjc$art_obj = option.params, $art_cmscrtpip$art_c = $art_objiffqtnzjc$art_obj.length; index < $art_cmscrtpip$art_c; index++) {        var param = $art_objiffqtnzjc$art_obj[index]%>';
+        for (var index = 0, $art_objiffqtnzjc$art_obj = option.params, $art_cmscrtpip$art_c = $art_objiffqtnzjc$art_obj.length; index < $art_cmscrtpip$art_c; index++) {
+            var param = $art_objiffqtnzjc$art_obj[index];
             $p += '<tr>';
             $line = 16;
             $art = 'if (index == 0)';

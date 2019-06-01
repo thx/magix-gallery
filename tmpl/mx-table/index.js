@@ -48,6 +48,10 @@ module.exports = Magix.View.extend({
         let me = this;
         me['@{table.init}']();
         me['@{toggle.hover.state}'](me['@{hover.index}'], 'add');
+
+        if (Magix.task) {
+            Magix.task(me['@{table.init}'], [], me);
+        }
     },
 
     '@{wrapper.get}'(table, id) {
@@ -195,7 +199,7 @@ module.exports = Magix.View.extend({
                 let watchInmainScroll = () => {
                     let top = inmain.scrollTop();
                     let ownerOffset = owner.offset();
-                    
+
                     let min = ownerOffset.top - interval;
                     let max = min + owner.height() - headerHeight;
                     if (top >= min && top <= max) {
@@ -208,16 +212,16 @@ module.exports = Magix.View.extend({
                     inmain.off('scroll.sticky');
                 });
 
-                if(me['@{sticky.end}']){
+                if (me['@{sticky.end}']) {
                     // 滚动时隐藏，滚动结束显示
                     inmain.on('scroll.sticky', () => {
                         me['@{sync.sticky.pos.recover}'](inmain);
-                        
+
                         clearTimeout(me['@{sticky.end.timer}']);
                         me['@{sticky.end.timer}'] = setTimeout(me.wrapAsync(() => {
                             let top = inmain.scrollTop();
                             let ownerOffset = owner.offset();
-                            
+
                             let min = ownerOffset.top - interval;
                             let max = min + owner.height() - headerHeight;
                             if (top >= min && top <= max) {
@@ -236,7 +240,7 @@ module.exports = Magix.View.extend({
                             }
                         }), 250);
                     });
-                }else{
+                } else {
                     inmain.on('scroll.sticky', watchInmainScroll);
                 }
                 watchInmainScroll();
@@ -522,16 +526,24 @@ module.exports = Magix.View.extend({
     '$doc<htmlchanged>'(e) {
         let me = this;
         if (e.vId == me.owner.pId) {
-            me['@{rechange}']();
+            me['@{trigger.rechange}']();
         }
     },
 
     '$doc<navslidend,tableresize>'(e) {
-        this['@{rechange}']();
+        this['@{trigger.rechange}']();
     },
 
     '$win<resize>'(e) {
-        this['@{rechange}']();
+        this['@{trigger.rechange}']();
+    },
+
+    '@{trigger.rechange}'() {
+        let me = this;
+        me['@{rechange}']();
+        if (Magix.task) {
+            Magix.task(me['@{rechange}'], [], me);
+        }
     },
 
     '@{rechange}'() {

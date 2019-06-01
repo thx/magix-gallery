@@ -3,16 +3,17 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/__test__/notice",["magix","$","__test__/subs","mx-title/second","./7","./3","./30","./5","./4","./6","__test__/api"],(require,exports,module)=>{
+define("mx-effects/__test__/notice",["magix","$","__test__/subs","mx-title/second","./7","./4","./3","./31","./30","./6","./5","__test__/api"],(require,exports,module)=>{
 /*Magix,$*/
 require("__test__/subs");
 require("mx-title/second");
 require("./7");
-require("./3");
-require("./30");
-require("./5");
 require("./4");
+require("./3");
+require("./31");
+require("./30");
 require("./6");
+require("./5");
 require("__test__/api");
 var Magix = require("magix");
 var $ = require("$");
@@ -35,42 +36,46 @@ module.exports = Magix.View.extend({
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_gallerybQ:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'品牌色强调\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'带关闭按钮\',\n            key: viewId + \'_demo30\'\n        },{\n            name: \'黄色警告类\',\n            key: viewId + \'_demo5\'\n        },{\n            name: \'红色错误类\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'自定义颜色\',\n            key: viewId + \'_demo6\'\n        },{\n            name: \'默认灰底\',\n            key: viewId + \'_demo3\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'品牌色强调\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'带关闭按钮\',\n            key: viewId + \'_demo30\'\n        },{\n            name: \'事件处理\',\n            key: viewId + \'_demo31\'\n        },{\n            name: \'红色错误类\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'黄色警告类\',\n            key: viewId + \'_demo5\'\n        },{\n            name: \'自定义颜色\',\n            key: viewId + \'_demo6\'\n        },{\n            name: \'默认灰底\',\n            key: viewId + \'_demo3\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'品牌色强调\',                    key: viewId + \'_demo7\'                }, {                    name: \'带关闭按钮\',                    key: viewId + \'_demo30\'                }, {                    name: \'黄色警告类\',                    key: viewId + \'_demo5\'                }, {                    name: \'红色错误类\',                    key: viewId + \'_demo4\'                }, {                    name: \'自定义颜色\',                    key: viewId + \'_demo6\'                }, {                    name: \'默认灰底\',                    key: viewId + \'_demo3\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '品牌色强调', key: viewId + '_demo7' }, { name: '带关闭按钮', key: viewId + '_demo30' }, { name: '黄色警告类', key: viewId + '_demo5' }, { name: '红色错误类', key: viewId + '_demo4' }, { name: '自定义颜色', key: viewId + '_demo6' }, { name: '默认灰底', key: viewId + '_demo3' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
-    $line = 29;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerybQ:a" class="clearfix mb20"><div mxa="_zs_gallerybQ:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/7" id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'品牌色强调\',                    key: viewId + \'_demo7\'                }, {                    name: \'带关闭按钮\',                    key: viewId + \'_demo30\'                }, {                    name: \'事件处理\',                    key: viewId + \'_demo31\'                }, {                    name: \'红色错误类\',                    key: viewId + \'_demo4\'                }, {                    name: \'黄色警告类\',                    key: viewId + \'_demo5\'                }, {                    name: \'自定义颜色\',                    key: viewId + \'_demo6\'                }, {                    name: \'默认灰底\',                    key: viewId + \'_demo3\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '品牌色强调', key: viewId + '_demo7' }, { name: '带关闭按钮', key: viewId + '_demo30' }, { name: '事件处理', key: viewId + '_demo31' }, { name: '红色错误类', key: viewId + '_demo4' }, { name: '黄色警告类', key: viewId + '_demo5' }, { name: '自定义颜色', key: viewId + '_demo6' }, { name: '默认灰底', key: viewId + '_demo3' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
     $line = 32;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div><div mx-view="mx-effects/__test__/3" id="';
-    $line = 33;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerybQ:a" class="clearfix mb20"><div mxa="_zs_gallerybQ:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/7" id="';
+    $line = 35;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div mxa="_zs_gallerybQ:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/30" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div><div mx-view="mx-effects/__test__/4" id="';
     $line = 36;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo30"></div><div mx-view="mx-effects/__test__/5" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-effects/__test__/3" id="';
     $line = 37;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div><div mx-view="mx-effects/__test__/4" id="';
-    $line = 38;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div mxa="_zs_gallerybQ:e" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/31" id="';
+    $line = 40;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-effects/__test__/6" id="';
-    $line = 39;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo31"></div><div mx-view="mx-effects/__test__/30" id="';
+    $line = 41;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div></div></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo30"></div><div mx-view="mx-effects/__test__/6" id="';
+    $line = 42;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div><div mx-view="mx-effects/__test__/5" id="';
     $line = 43;
     $art = '=viewId';
     ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div></div></div><div id="';
+    $line = 47;
+    $art = '=viewId';
+    ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 44;
+    $line = 48;
     $art = '@options';
     ;
     $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div></div>';
