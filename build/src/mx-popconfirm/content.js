@@ -21,11 +21,11 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', content = $$.content; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc\\:_" class="_zs_gallery_mx-popover_index_-popover-content">';
+    $p += '<div mxa="_zs_galleryc,:_" class="_zs_gallery_mx-popover_index_-popover-content">';
     $line = 1;
     $art = '!content';
     ;
-    $p += ($expr = '<%!content%>', $n(content)) + '</div><div mxs="_zs_galleryc\\:_" class="pl10 pt10 pb10"><a href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + 'submit()">确定</a><a href="javascript:;" class="btn btn-small" mx-click="' + $viewId + 'cancel()">取消</a></div>';
+    $p += ($expr = '<%!content%>', $n(content)) + '</div><div mxs="_zs_galleryc,:_" class="pl10 pt10 pb10"><a href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + 'submit()">确定</a><a href="javascript:;" class="btn btn-small" mx-click="' + $viewId + 'cancel()">取消</a></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
