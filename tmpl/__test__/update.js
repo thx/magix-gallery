@@ -6,6 +6,21 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.15',
+            time: '2019-06-03',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-grid.title：标题支持自定义html内容，<a href="#!/grid/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dialog（mxModal）：window resize 时更新全屏右出浮层高度，<a href="#!/dialog/modal" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-suggest：直接配置dynamic-enter（回车直接搜索关键词），<a href="#!/suggest/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-table：加入magix.task'
+                }]
+            }]
+        }, {
             ver: '1.3.13 ~ 1.3.14',
             time: '2019-05-30',
             subs: [{
