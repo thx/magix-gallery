@@ -24,31 +24,31 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', icon = $$.icon, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryV:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryV:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_galleryV:b" class="_zs_gallery_mx-btn___test___index_-cont"><a mxs="_zs_galleryV:_" href="javascript:;" class="mx-btn btn-brand mr40 mb20" style=";">品牌色按钮</a><a mxs="_zs_galleryV:a" href="javascript:;" class="mx-btn btn-small btn-brand mb20" style=";">小号品牌色按钮</a><br mxs="_zs_galleryV:b"/><a mxa="_zs_galleryV:c" href="javascript:;" class="mx-btn btn-brand mr60 mb20" style=";"><i mxs="_zs_galleryV:c" class="mc-iconfont">&#xe731;</i>品牌色按钮<span mxa="_zs_galleryV:d" class="mx-tag btn-tag"><span mxs="_zs_galleryV:d" class="mx-tag-arrow btn-tag-arrow"></span><span mxa="_zs_galleryV:e" class="mx-tag-name">';
+    $p += '<div mxa="_zs_galleryX:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryX:a" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_galleryX:b" class="_zs_gallery_mx-btn___test___index_-cont"><a mxs="_zs_galleryX:_" href="javascript:;" class="mx-btn btn-brand mr40 mb20" style=";">品牌色按钮</a><a mxs="_zs_galleryX:a" href="javascript:;" class="mx-btn btn-small btn-brand mb20" style=";">小号品牌色按钮</a><br mxs="_zs_galleryX:b"/><a mxa="_zs_galleryX:c" href="javascript:;" class="mx-btn btn-brand mr60 mb20" style=";"><i mxs="_zs_galleryX:c" class="mc-iconfont">&#xe731;</i>品牌色按钮<span mxa="_zs_galleryX:d" class="mx-tag btn-tag"><span mxs="_zs_galleryX:d" class="mx-tag-arrow btn-tag-arrow"></span><span mxa="_zs_galleryX:e" class="mx-tag-name">';
     $line = 7;
     $art = '!icon';
     ;
-    $p += ($expr = '<%!icon%>', $n(icon)) + '</span></span></a><a mxs="_zs_galleryV:e" href="javascript:;" class="mx-btn btn-brand mb20" style=";">品牌色按钮<span class="mx-tag btn-tag"><span class="mx-tag-arrow btn-tag-arrow"></span><span class="mx-tag-name">New</span></span></a><br mxs="_zs_galleryV:b"/><a mxs="_zs_galleryV:f" href="javascript:;" class="mx-btn btn-brand mb20" style=";">品牌色按钮<span class="mx-tag btn-tag" style="background-color: #ffb400;"><span class="mx-tag-arrow btn-tag-arrow" style="border-color: #ffb400 transparent transparent #ffb400;"></span><span class="mx-tag-name">New</span></span></a></div></div><div mxa="_zs_galleryV:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryV:g" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%!icon%>', $n(icon)) + '</span></span></a><a mxs="_zs_galleryX:e" href="javascript:;" class="mx-btn btn-brand mb20" style=";">品牌色按钮<span class="mx-tag btn-tag"><span class="mx-tag-arrow btn-tag-arrow"></span><span class="mx-tag-name">New</span></span></a><br mxs="_zs_galleryX:b"/><a mxs="_zs_galleryX:f" href="javascript:;" class="mx-btn btn-brand mb20" style=";">品牌色按钮<span class="mx-tag btn-tag" style="background-color: #ffb400;"><span class="mx-tag-arrow btn-tag-arrow" style="border-color: #ffb400 transparent transparent #ffb400;"></span><span class="mx-tag-name">New</span></span></a></div></div><div mxa="_zs_galleryX:f" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryX:g" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 17;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryV:g" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryX:g" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 19;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryV:h" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryX:h" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-btn brand="true" content="品牌色按钮"/&gt;\n\n&lt;mx-btn brand="true" small="true" content="小号品牌色按钮"/&gt;\n\n&lt;mx-btn brand="true" tag-content="&#123;&#123;!icon&#125;&#125;"&gt;\n    &lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;品牌色按钮\n&lt;/mx-btn&gt;\n\n&lt;mx-btn brand="true" content="品牌色按钮" tag-content="New"/&gt;\n\n&lt;mx-btn brand="true" content="品牌色按钮" tag-content="New" tag-color="#ffb400"/&gt;\n        </pre></div><div mxa="_zs_galleryV:h" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryV:i" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-btn brand="true" content="品牌色按钮"/&gt;\n\n&lt;mx-btn brand="true" small="true" content="小号品牌色按钮"/&gt;\n\n&lt;mx-btn brand="true" tag-content="&#123;&#123;!icon&#125;&#125;"&gt;\n    &lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;品牌色按钮\n&lt;/mx-btn&gt;\n\n&lt;mx-btn brand="true" content="品牌色按钮" tag-content="New"/&gt;\n\n&lt;mx-btn brand="true" content="品牌色按钮" tag-content="New" tag-color="#ffb400"/&gt;\n        </pre></div><div mxa="_zs_galleryX:h" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryX:i" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 38;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryV:i" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryX:i" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 40;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryV:h" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryX:h" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 43;
     $art = '=viewId';
     ;

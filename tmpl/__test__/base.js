@@ -37,12 +37,14 @@ module.exports = Magix.View.extend({
                     tip: '下述详细说明如何写一个支持多参数且数据双向绑定的组件',
                     path: '/all/bind',
                     icon: '&#xe6d1;'
-                }, {
-                    name: 'leaveTip和leaveConfirm',
-                    tip: '页面有变化且未保存时，用户提示 + 二次确认',
-                    path: '/all/leave',
-                    icon: '&#xe622;'
-                }, {
+                }, 
+                // {
+                //     name: 'leaveTip和leaveConfirm',
+                //     tip: '页面有变化且未保存时，用户提示 + 二次确认',
+                //     path: '/all/leave',
+                //     icon: '&#xe622;'
+                // }, 
+                {
                     name: '_config说明',
                     path: '/all/config',
                     icon: '&#xe64f;'

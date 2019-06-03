@@ -28,7 +28,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', placeholder = $$.placeholder, viewId = $$.viewId, selectedText = $$.selectedText, show = $$.show, loading = $$.loading, list = $$.list, selectedValue = $$.selectedValue, emptyText = $$.emptyText; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryd,:_" class="search-box"><i mxs="_zs_galleryd,:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+    $p += '<div mxv mxa="_zs_galleryd?:_" class="search-box"><i mxs="_zs_galleryd?:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
     $line = 4;
     $art = '=placeholder';
     ;
@@ -54,14 +54,14 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><ul mxa="_zs_galleryd,:a" class="mx-output-list">';
+    $p += '"><ul mxa="_zs_galleryd?:a" class="mx-output-list">';
     $line = 16;
     $art = 'if loading';
     ;
     $expr = '<%if (loading) {%>';
     if (loading) {
         ;
-        $p += '<li mxs="_zs_galleryd,:a"><div class="loading" style="padding: 40px 0;"><span class="loading-anim"></span></div></li>';
+        $p += '<li mxs="_zs_galleryd?:a"><div class="loading" style="padding: 40px 0;"><span class="loading-anim"></span></div></li>';
         $line = 18;
         $art = 'else';
         ;
@@ -80,10 +80,10 @@ module.exports = Magix.View.extend({
             $line = 20;
             $art = 'each list as item';
             ;
-            $expr = '<%for (var $art_ibsdkaxgob$art_i = 0, $art_cqxfwhbmw$art_c = list.length; $art_ibsdkaxgob$art_i < $art_cqxfwhbmw$art_c; $art_ibsdkaxgob$art_i++) {            var item = list[$art_ibsdkaxgob$art_i]%>';
-            for (var $art_ibsdkaxgob$art_i = 0, $art_cqxfwhbmw$art_c = list.length; $art_ibsdkaxgob$art_i < $art_cqxfwhbmw$art_c; $art_ibsdkaxgob$art_i++) {
-                var item = list[$art_ibsdkaxgob$art_i];
-                $p += '<li mxa="_zs_galleryd,:b" class="mx-output-item"><span class="mx-output-link ';
+            $expr = '<%for (var $art_ihshcwnx$art_i = 0, $art_cwnnvewyyl$art_c = list.length; $art_ihshcwnx$art_i < $art_cwnnvewyyl$art_c; $art_ihshcwnx$art_i++) {            var item = list[$art_ihshcwnx$art_i]%>';
+            for (var $art_ihshcwnx$art_i = 0, $art_cwnnvewyyl$art_c = list.length; $art_ihshcwnx$art_i < $art_cwnnvewyyl$art_c; $art_ihshcwnx$art_i++) {
+                var item = list[$art_ihshcwnx$art_i];
+                $p += '<li mxa="_zs_galleryd?:b" class="mx-output-item"><span class="mx-output-link ';
                 $line = 22;
                 $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';
                 ;
@@ -120,7 +120,7 @@ module.exports = Magix.View.extend({
         }
         else {
             ;
-            $p += '<li mxa="_zs_galleryd,:c" class="text-center color-9 pt20 pb20">';
+            $p += '<li mxa="_zs_galleryd?:c" class="text-center color-9 pt20 pb20">';
             $line = 30;
             $art = '=emptyText';
             ;
@@ -175,8 +175,10 @@ catch (ex) {
         if (!placeholder) {
             placeholder = I18n['search'];
         }
-        that['key.value'] = data.listValue || 'value';
-        that['key.text'] = data.listText || 'text';
+        //动态数据时，是否回车默认选中第一个，默认为true
+        that['@{dynamic.enter}'] = data.dynamicEnter + '' === 'true';
+        that['@{key.value}'] = data.listValue || 'value';
+        that['@{key.text}'] = data.listText || 'text';
         // 多种类型搜索的时候
         var list = that['@{wrap}']((data.list || that['@{list.bak}']));
         that['@{list.bak}'] = list;
@@ -184,7 +186,7 @@ catch (ex) {
         // item：完整selected对象
         // 优先级selectedValue > item
         var item = data.item || {};
-        var selectedValue = data.selected || item.value || '';
+        var selectedValue = item.value || data.selected || '';
         var selectedText = item.text || '';
         if (selectedValue) {
             for (var index = 0; index < list.length; index++) {
@@ -226,7 +228,7 @@ catch (ex) {
         return false;
     },
     '@{wrap}': function (origin) {
-        var listValue = this['key.value'], listText = this['key.text'];
+        var listValue = this['@{key.value}'], listText = this['@{key.text}'];
         var list = [];
         if (origin && (origin.length > 0)) {
             if (typeof origin[0] === 'object') {
@@ -289,8 +291,19 @@ catch (ex) {
             });
         }
         else if (e.keyCode == 13) {
-            // 回车逻辑
-            that['@{enter}'](idx);
+            // 回车
+            if (that['@{dynamic.enter}']) {
+                // 回车选中当前输入值
+                var selectedText = $('#' + that.id + '_input').val();
+                that['@{select}']({
+                    value: selectedText,
+                    text: selectedText
+                });
+            }
+            else {
+                // 回车默认选中第一个
+                that['@{enter}'](idx);
+            }
         }
         else {
             that['@{suggest.delay.timer}'] = setTimeout(that.wrapAsync(function () {
@@ -378,36 +391,31 @@ catch (ex) {
             }
         }
     },
-    '@{hide}': function () {
+    '@{hide}': function (item) {
         var that = this;
-        var data = that.updater.get();
-        var list = data.list, selectedValue = that['@{value.bak}'] + '', selectedText = '';
-        // 上下键切换未选择
-        for (var index = 0; index < list.length; index++) {
-            var item = list[index];
-            if ((item.value + '') === selectedValue) {
-                selectedText = item.text;
-                break;
-            }
-        }
+        item = item || {};
         that.updater.digest({
-            selectedValue: selectedValue,
-            selectedText: selectedText,
+            selectedValue: item.value || '',
+            selectedText: item.text || '',
             show: false
         });
         Monitor['@{remove}'](that);
         // 双向绑定
         that['@{owner.node}'].trigger('focusout');
     },
+    /**
+     * 回车处理
+     */
     '@{enter}': function (idx) {
         var that = this;
         var selectedText = $('#' + that.id + '_input').val();
-        var item = {
-            value: '',
-            text: ''
-        };
-        if (!selectedText && that['@{dynamic.list}']) {
-            // 动态更新数据的时候，当前输入框为空，清空选中项
+        if (!selectedText) {
+            // 输入框内容为空时
+            // 清空选项
+            that['@{select}']({
+                value: '',
+                text: ''
+            });
         }
         else {
             var list = that.updater.get().list;
@@ -415,9 +423,10 @@ catch (ex) {
             if (idx < 0) {
                 idx = 0;
             }
-            item = list[idx];
+            if (list[idx]) {
+                that['@{select}'](list[idx]);
+            }
         }
-        this['@{select}'](item);
     },
     '@{select}<click>': function (e) {
         e.stopPropagation();
@@ -428,7 +437,7 @@ catch (ex) {
         var that = this;
         var notice = !(item.value == that['@{value.bak}']);
         var selectedValue = that['@{value.bak}'] = item.value;
-        that['@{hide}']();
+        that['@{hide}'](item);
         if (notice) {
             // 双向绑定
             that['@{owner.node}'].val(selectedValue).trigger({

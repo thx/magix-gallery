@@ -3172,7 +3172,7 @@ define('magix', ['$'], function (require) {
                         fn['b'] = 1;
                     }
                 }
-                else if (DEBUG && exist && p != 'extend' && p != G_SPLITER) { //只在开发中提示
+                else if (DEBUG && exist && p != 'extend' && p != G_SPLITER&&p!='merge') { //只在开发中提示
                     Magix_Cfg.error(Error('merge duplicate:' + p));
                 }
                 temp[p] = fn;

@@ -28,11 +28,11 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', simplify = $$.simplify, mini = $$.mini, tipOffset = $$.tipOffset, tipTotal = $$.tipTotal, tipPer = $$.tipPer, sizesChange = $$.sizesChange, sizesPlacement = $$.sizesPlacement, sizes = $$.sizes, size = $$.size, tipUnit = $$.tipUnit, jump = $$.jump, tipJumpTo = $$.tipJumpTo, next = $$.next, viewId = $$.viewId, tipJumpUnit = $$.tipJumpUnit, hideTotal = $$.hideTotal, page = $$.page, pages = $$.pages, start = $$.start, end = $$.end; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryc}:_" class="clearfix _zs_gallery_mx-pagination_index_-pager">';
+    $p += '<div mxv mxa="_zs_galleryc]:_" class="clearfix _zs_gallery_mx-pagination_index_-pager">';
     $expr = '<%if (!simplify && !mini) {%>';
     if (!simplify && !mini) {
         ;
-        $p += '<div mxv mxa="_zs_galleryc}:a" class="_zs_gallery_mx-pagination_index_-infos"><span>' + ($expr = '<%!tipOffset%>', $n(tipOffset)) + '</span><span>' + ($expr = '<%!tipTotal%>', $n(tipTotal)) + '，</span><span>' + ($expr = '<%!tipPer%>', $n(tipPer)) + '</span>';
+        $p += '<div mxv mxa="_zs_galleryc]:a" class="_zs_gallery_mx-pagination_index_-infos"><span>' + ($expr = '<%!tipOffset%>', $n(tipOffset)) + '</span><span>' + ($expr = '<%!tipTotal%>', $n(tipTotal)) + '，</span><span>' + ($expr = '<%!tipPer%>', $n(tipPer)) + '</span>';
         $expr = '<%if (sizesChange) {%>';
         if (sizesChange) {
             ;
@@ -53,7 +53,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!jump) {%>';
     if (!jump) {
         ;
-        $p += '<div mxv mxa="_zs_galleryc}:b" class="_zs_gallery_mx-pagination_index_-quick"><span mxa="_zs_galleryc}:c" class="mr5">' + ($expr = '<%=tipJumpTo%>', $e(tipJumpTo)) + '</span><input class="input input-small _zs_gallery_mx-pagination_index_-quick-input mr5" value="';
+        $p += '<div mxv mxa="_zs_galleryc]:b" class="_zs_gallery_mx-pagination_index_-quick"><span mxa="_zs_galleryc]:c" class="mr5">' + ($expr = '<%=tipJumpTo%>', $e(tipJumpTo)) + '</span><input class="input input-small _zs_gallery_mx-pagination_index_-quick-input mr5" value="';
         $line = 27;
         $art = '=next';
         ;
@@ -61,7 +61,7 @@ module.exports = Magix.View.extend({
         $line = 27;
         $art = '=viewId';
         ;
-        $p += ($expr = '<%=viewId%>', $e(viewId)) + '_jump_input" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()"/><span mxa="_zs_galleryc}:d" class="mr10">' + ($expr = '<%=tipJumpUnit%>', $e(tipJumpUnit)) + '</span><a mxs="_zs_galleryc}:_" href="javascript:;" class="btn btn-small" mx-click="' + $viewId + '@{jump}()">跳转</a></div>';
+        $p += ($expr = '<%=viewId%>', $e(viewId)) + '_jump_input" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()"/><span mxa="_zs_galleryc]:d" class="mr10">' + ($expr = '<%=tipJumpUnit%>', $e(tipJumpUnit)) + '</span><a mxs="_zs_galleryc]:_" href="javascript:;" class="btn btn-small" mx-click="' + $viewId + '@{jump}()">跳转</a></div>';
         $expr = '<%}%>';
     }
     ;
@@ -73,7 +73,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '><li mxa="_zs_galleryc}:e" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon ';
+    $p += '><li mxa="_zs_galleryc]:e" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon ';
     $expr = '<%if (page == 1) {%>';
     if (page == 1) {
         ;
@@ -98,7 +98,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (mini) {%>';
     if (mini) {
         ;
-        $p += '<li mxa="_zs_galleryc}:f" class="_zs_gallery_mx-pagination_index_-num-item">' + ($expr = '<%=page%>', $e(page)) + ' / ' + ($expr = '<%=pages%>', $e(pages)) + '</li>';
+        $p += '<li mxa="_zs_galleryc]:f" class="_zs_gallery_mx-pagination_index_-num-item">' + ($expr = '<%=page%>', $e(page)) + ' / ' + ($expr = '<%=pages%>', $e(pages)) + '</li>';
         $expr = '<%}else {%>';
     }
     else {
@@ -107,7 +107,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (start > 1) {%>';
         if (start > 1) {
             ;
-            $p += '<li mxs="_zs_galleryc}:a" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner" href="#" mx-click="' + $viewId + '@{toPage}({page:1})">1</a></li>';
+            $p += '<li mxs="_zs_galleryc]:a" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner" href="#" mx-click="' + $viewId + '@{toPage}({page:1})">1</a></li>';
             $expr = '<%}%>';
         }
         ;
@@ -115,7 +115,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (start > 2) {%>';
         if (start > 2) {
             ;
-            $p += '<li mxs="_zs_galleryc}:b" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner _zs_gallery_mx-pagination_index_-notallowed" href="#" mx-click="' + $viewId + '@{prevent}()">...</a></li>';
+            $p += '<li mxs="_zs_galleryc]:b" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner _zs_gallery_mx-pagination_index_-notallowed" href="#" mx-click="' + $viewId + '@{prevent}()">...</a></li>';
             $expr = '<%}%>';
         }
         ;
@@ -123,7 +123,7 @@ module.exports = Magix.View.extend({
         $expr = '<%for (var i = start; i <= end; i++) {%>';
         for (var i = start; i <= end; i++) {
             ;
-            $p += '<li mxa="_zs_galleryc}:g" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner ';
+            $p += '<li mxa="_zs_galleryc]:g" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner ';
             $expr = '<%if (i == page) {%>';
             if (i == page) {
                 ;
@@ -139,7 +139,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (end + 2 <= pages) {%>';
         if (end + 2 <= pages) {
             ;
-            $p += '<li mxs="_zs_galleryc}:b" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner _zs_gallery_mx-pagination_index_-notallowed" href="#" mx-click="' + $viewId + '@{prevent}()">...</a></li>';
+            $p += '<li mxs="_zs_galleryc]:b" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner _zs_gallery_mx-pagination_index_-notallowed" href="#" mx-click="' + $viewId + '@{prevent}()">...</a></li>';
             $expr = '<%}%>';
         }
         ;
@@ -147,7 +147,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (end < pages) {%>';
         if (end < pages) {
             ;
-            $p += '<li mxa="_zs_galleryc}:h" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner" href="#" mx-click="' + $viewId + '@{toPage}({page:' + ($expr = '<%=pages%>', $e(pages)) + '})">' + ($expr = '<%=pages%>', $e(pages)) + '</a></li>';
+            $p += '<li mxa="_zs_galleryc]:h" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner" href="#" mx-click="' + $viewId + '@{toPage}({page:' + ($expr = '<%=pages%>', $e(pages)) + '})">' + ($expr = '<%=pages%>', $e(pages)) + '</a></li>';
             $expr = '<%}%>';
         }
         ;
@@ -155,7 +155,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<li mxa="_zs_galleryc}:i" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon rotate180 ';
+    $p += '<li mxa="_zs_galleryc]:i" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon rotate180 ';
     $expr = '<%if (page == pages) {%>';
     if (page == pages) {
         ;
@@ -180,7 +180,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!hideTotal) {%>';
     if (!hideTotal) {
         ;
-        $p += '<li mxa="_zs_galleryc}:j" class="_zs_gallery_mx-pagination_index_-num-item ml10">' + ($expr = '<%!tipTotal%>', $n(tipTotal)) + '</li>';
+        $p += '<li mxa="_zs_galleryc]:j" class="_zs_gallery_mx-pagination_index_-num-item ml10">' + ($expr = '<%!tipTotal%>', $n(tipTotal)) + '</li>';
         $expr = '<%}%>';
     }
     ;

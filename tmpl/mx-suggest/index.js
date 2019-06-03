@@ -36,8 +36,11 @@ module.exports = Magix.View.extend({
             placeholder = I18n['search'];
         }
 
-        that['key.value'] = data.listValue || 'value';
-        that['key.text'] = data.listText || 'text';
+        //动态数据时，是否回车默认选中第一个，默认为true
+        that['@{dynamic.enter}'] = data.dynamicEnter + '' === 'true';
+
+        that['@{key.value}'] = data.listValue || 'value';
+        that['@{key.text}'] = data.listText || 'text';
 
         // 多种类型搜索的时候
         let list = that['@{wrap}']((data.list || that['@{list.bak}']));
@@ -47,7 +50,7 @@ module.exports = Magix.View.extend({
         // item：完整selected对象
         // 优先级selectedValue > item
         let item = data.item || {};
-        let selectedValue = data.selected || item.value || '';
+        let selectedValue = item.value || data.selected || '';
         let selectedText = item.text || '';
         if (selectedValue) {
             for (let index = 0; index < list.length; index++) {
@@ -92,8 +95,8 @@ module.exports = Magix.View.extend({
         return false;
     },
     '@{wrap}': function (origin) {
-        let listValue = this['key.value'],
-            listText = this['key.text']
+        let listValue = this['@{key.value}'],
+            listText = this['@{key.text}']
         let list = [];
         if (origin && (origin.length > 0)) {
             if (typeof origin[0] === 'object') {
@@ -154,8 +157,19 @@ module.exports = Magix.View.extend({
                 selectedValue: list[idx].value
             });
         } else if (e.keyCode == 13) {
-            // 回车逻辑
-            that['@{enter}'](idx);
+            // 回车
+
+            if (that['@{dynamic.enter}']) {
+                // 回车选中当前输入值
+                let selectedText = $('#' + that.id + '_input').val();
+                that['@{select}']({
+                    value: selectedText,
+                    text: selectedText
+                });
+            } else {
+                // 回车默认选中第一个
+                that['@{enter}'](idx);
+            }
         } else {
             that['@{suggest.delay.timer}'] = setTimeout(that.wrapAsync(function () {
                 that['@{show}']();
@@ -188,29 +202,29 @@ module.exports = Magix.View.extend({
     '@{show}': function (ignore) {
         let that = this;
         let selectedText = $('#' + that.id + '_input').val();
-        if(that['@{dynamic.list}']){
+        if (that['@{dynamic.list}']) {
             // 动态更新数据
-            if(!selectedText){
+            if (!selectedText) {
                 // 未输入内容不响应：清空选项
                 that.updater.set({
                     list: that['@{list.bak}'] = []
                 });
                 that['@{hide}']();
-            }else{
+            } else {
                 that.updater.digest({
                     list: that['@{list.bak}'],
                     selectedText: selectedText,
                     show: true
                 });
                 Monitor['@{add}'](that);
-                if(!ignore){
+                if (!ignore) {
                     that['@{owner.node}'].trigger({
                         type: 'show',
                         keyword: selectedText
                     });
                 }
             }
-        }else{
+        } else {
             let source = that['@{list.bak}'];
             let lowerText = (selectedText + '').toLowerCase();
             let list = [];
@@ -232,7 +246,7 @@ module.exports = Magix.View.extend({
                 show: true
             });
             Monitor['@{add}'](that);
-            if(!ignore){
+            if (!ignore) {
                 that['@{owner.node}'].trigger({
                     type: 'show',
                     keyword: selectedText
@@ -240,21 +254,13 @@ module.exports = Magix.View.extend({
             }
         }
     },
-    '@{hide}': function () {
+    '@{hide}': function (item) {
         let that = this;
-        let data = that.updater.get();
-        let list = data.list, selectedValue = that['@{value.bak}'] + '', selectedText = '';
-        // 上下键切换未选择
-        for (let index = 0; index < list.length; index++) {
-            let item = list[index];
-            if ((item.value + '') === selectedValue) {
-                selectedText = item.text;
-                break;
-            }
-        }
+        item = item || {};
+
         that.updater.digest({
-            selectedValue: selectedValue,
-            selectedText: selectedText,
+            selectedValue: item.value || '',
+            selectedText: item.text || '',
             show: false
         });
         Monitor['@{remove}'](that);
@@ -262,37 +268,41 @@ module.exports = Magix.View.extend({
         // 双向绑定
         that['@{owner.node}'].trigger('focusout');
     },
+    /**
+     * 回车处理
+     */
     '@{enter}': function (idx) {
         let that = this;
         let selectedText = $('#' + that.id + '_input').val();
-        let item = {
-            value: '',
-            text: ''
-        };
-        
-        if(!selectedText && that['@{dynamic.list}']){
-            // 动态更新数据的时候，当前输入框为空，清空选中项
-        }else{
+        if (!selectedText) {
+            // 输入框内容为空时
+            // 清空选项
+            that['@{select}']({
+                value: '',
+                text: ''
+            });
+        } else {
             let { list } = that.updater.get();
             // 未选中时，回车默认第一个，已选中的情况下还是当前选项
             if (idx < 0) {
                 idx = 0;
             }
-            item = list[idx];
+            if (list[idx]) {
+                that['@{select}'](list[idx]);
+            }
         }
-        this['@{select}'](item);
     },
     '@{select}<click>': function (e) {
         e.stopPropagation();
         let item = e.params.item;
         this['@{select}'](item);
     },
-    '@{select}'(item){
+    '@{select}'(item) {
         let that = this;
         let notice = !(item.value == that['@{value.bak}']);
         let selectedValue = that['@{value.bak}'] = item.value;
-        that['@{hide}']();
-        if(notice){
+        that['@{hide}'](item);
+        if (notice) {
             // 双向绑定
             that['@{owner.node}'].val(selectedValue).trigger({
                 type: 'change',

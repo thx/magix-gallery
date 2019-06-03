@@ -71,9 +71,9 @@ module.exports = Magix.View.extend({
     $line = 36;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_iprppkmhstl$art_i = 0, $art_cjamgmjge$art_c = headers.length; $art_iprppkmhstl$art_i < $art_cjamgmjge$art_c; $art_iprppkmhstl$art_i++) {    var h = headers[$art_iprppkmhstl$art_i]%>';
-    for (var $art_iprppkmhstl$art_i = 0, $art_cjamgmjge$art_c = headers.length; $art_iprppkmhstl$art_i < $art_cjamgmjge$art_c; $art_iprppkmhstl$art_i++) {
-        var h = headers[$art_iprppkmhstl$art_i];
+    $expr = '<%for (var $art_isdtmoyafr$art_i = 0, $art_cdqwpouds$art_c = headers.length; $art_isdtmoyafr$art_i < $art_cdqwpouds$art_c; $art_isdtmoyafr$art_i++) {    var h = headers[$art_isdtmoyafr$art_i]%>';
+    for (var $art_isdtmoyafr$art_i = 0, $art_cdqwpouds$art_c = headers.length; $art_isdtmoyafr$art_i < $art_cdqwpouds$art_c; $art_isdtmoyafr$art_i++) {
+        var h = headers[$art_isdtmoyafr$art_i];
         $p += '<a ';
         $line = 37;
         $art = 'if h.new';
@@ -201,9 +201,9 @@ module.exports = Magix.View.extend({
     $line = 51;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iwoniwe$art_i = 0, $art_cqhkmq$art_c = list.length; $art_iwoniwe$art_i < $art_cqhkmq$art_c; $art_iwoniwe$art_i++) {    var item = list[$art_iwoniwe$art_i]%>';
-    for (var $art_iwoniwe$art_i = 0, $art_cqhkmq$art_c = list.length; $art_iwoniwe$art_i < $art_cqhkmq$art_c; $art_iwoniwe$art_i++) {
-        var item = list[$art_iwoniwe$art_i];
+    $expr = '<%for (var $art_ibtzskd$art_i = 0, $art_cuecyqseorgg$art_c = list.length; $art_ibtzskd$art_i < $art_cuecyqseorgg$art_c; $art_ibtzskd$art_i++) {    var item = list[$art_ibtzskd$art_i]%>';
+    for (var $art_ibtzskd$art_i = 0, $art_cuecyqseorgg$art_c = list.length; $art_ibtzskd$art_i < $art_cuecyqseorgg$art_c; $art_ibtzskd$art_i++) {
+        var item = list[$art_ibtzskd$art_i];
         $p += ' ';
         $line = 52;
         $art = 'if item.name';
@@ -244,9 +244,9 @@ module.exports = Magix.View.extend({
         $line = 59;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_ipimxegzvpgo$art_i = 0, $art_objcveuvgv$art_obj = item.subs, $art_coftwtnvl$art_c = $art_objcveuvgv$art_obj.length; $art_ipimxegzvpgo$art_i < $art_coftwtnvl$art_c; $art_ipimxegzvpgo$art_i++) {        var sub = $art_objcveuvgv$art_obj[$art_ipimxegzvpgo$art_i]%>';
-        for (var $art_ipimxegzvpgo$art_i = 0, $art_objcveuvgv$art_obj = item.subs, $art_coftwtnvl$art_c = $art_objcveuvgv$art_obj.length; $art_ipimxegzvpgo$art_i < $art_coftwtnvl$art_c; $art_ipimxegzvpgo$art_i++) {
-            var sub = $art_objcveuvgv$art_obj[$art_ipimxegzvpgo$art_i];
+        $expr = '<%for (var $art_iqzsmpswd$art_i = 0, $art_objyaylxgxk$art_obj = item.subs, $art_cozqiqbs$art_c = $art_objyaylxgxk$art_obj.length; $art_iqzsmpswd$art_i < $art_cozqiqbs$art_c; $art_iqzsmpswd$art_i++) {        var sub = $art_objyaylxgxk$art_obj[$art_iqzsmpswd$art_i]%>';
+        for (var $art_iqzsmpswd$art_i = 0, $art_objyaylxgxk$art_obj = item.subs, $art_cozqiqbs$art_c = $art_objyaylxgxk$art_obj.length; $art_iqzsmpswd$art_i < $art_cozqiqbs$art_c; $art_iqzsmpswd$art_i++) {
+            var sub = $art_objyaylxgxk$art_obj[$art_iqzsmpswd$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 60;
             $art = 'if (sub.path == path)';
@@ -438,12 +438,14 @@ catch (ex) {
                                 tip: '下述详细说明如何写一个支持多参数且数据双向绑定的组件',
                                 path: '/all/bind',
                                 icon: '&#xe6d1;'
-                            }, {
-                                name: 'leaveTip和leaveConfirm',
-                                tip: '页面有变化且未保存时，用户提示 + 二次确认',
-                                path: '/all/leave',
-                                icon: '&#xe622;'
-                            }, {
+                            },
+                            // {
+                            //     name: 'leaveTip和leaveConfirm',
+                            //     tip: '页面有变化且未保存时，用户提示 + 二次确认',
+                            //     path: '/all/leave',
+                            //     icon: '&#xe622;'
+                            // }, 
+                            {
                                 name: '_config说明',
                                 path: '/all/config',
                                 icon: '&#xe64f;'

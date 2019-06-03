@@ -30,7 +30,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerybU:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_gallerybW:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'自定义宽度\',\n            key: viewId + \'_demo25\'\n        },{\n            name: \'无文案\',\n            key: viewId + \'_demo26\'\n        },{\n            name: \'精度\',\n            key: viewId + \'_demo19\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
@@ -38,7 +38,7 @@ module.exports = Magix.View.extend({
     $line = 19;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerybU:a" class="clearfix mb20"><div mxa="_zs_gallerybU:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/25" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerybW:a" class="clearfix mb20"><div mxa="_zs_gallerybW:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/25" id="';
     $line = 22;
     $art = '=viewId';
     ;
@@ -46,7 +46,7 @@ module.exports = Magix.View.extend({
     $line = 23;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo26"></div></div><div mxa="_zs_gallerybU:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/19" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo26"></div></div><div mxa="_zs_gallerybW:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-effects/__test__/19" id="';
     $line = 26;
     $art = '=viewId';
     ;

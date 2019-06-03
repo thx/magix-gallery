@@ -24,15 +24,15 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryZ:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_galleryZ:_" class="_zs_gallery___test___layout_-eg-content"><div class="_zs_gallery_mx-btn___test___index_-cont"><a href="javascript:;" class="mx-btn mx-btn-custom mr20 mb20" color="#ffb400" color-hover="#f1ab03" style="--mx-btn-custom-color: #ffb400;--mx-btn-custom-color-text: #ffffff;--mx-btn-custom-color-hover: #f1ab03;--mx-btn-custom-color-hover-text: #ffffff;">自定义按钮</a><a href="javascript:;" class="mx-btn mx-btn-custom mr20 mb20" color="#333333" color-text="#ffb400" color-hover="#333333" color-hover-text="#f1ab03" style="--mx-btn-custom-color: #333333;--mx-btn-custom-color-text: #ffb400;--mx-btn-custom-color-hover: #333333;--mx-btn-custom-color-hover-text: #f1ab03;"><i class="mc-iconfont">&#xe731;</i>自定义按钮</a></div></div><div mxa="_zs_galleryZ:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryZ:a" class="_zs_gallery___test___layout_-eg-title">按钮</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallery1:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallery1:_" class="_zs_gallery___test___layout_-eg-content"><div class="_zs_gallery_mx-btn___test___index_-cont"><a href="javascript:;" class="mx-btn mx-btn-custom mr20 mb20" color="#ffb400" color-hover="#f1ab03" style="--mx-btn-custom-color: #ffb400;--mx-btn-custom-color-text: #ffffff;--mx-btn-custom-color-hover: #f1ab03;--mx-btn-custom-color-hover-text: #ffffff;">自定义按钮</a><a href="javascript:;" class="mx-btn mx-btn-custom mr20 mb20" color="#333333" color-text="#ffb400" color-hover="#333333" color-hover-text="#f1ab03" style="--mx-btn-custom-color: #333333;--mx-btn-custom-color-text: #ffb400;--mx-btn-custom-color-hover: #333333;--mx-btn-custom-color-hover-text: #f1ab03;"><i class="mc-iconfont">&#xe731;</i>自定义按钮</a></div></div><div mxa="_zs_gallery1:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery1:a" class="_zs_gallery___test___layout_-eg-title">按钮</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 19;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryZ:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery1:b" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 21;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryZ:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery1:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 24;
     $art = '=viewId';
     ;

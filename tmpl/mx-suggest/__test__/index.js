@@ -28,10 +28,15 @@ item: {
     text: '文案',
     value: '选中值'
 }
-同时设置selected和item时，已selected为准
+同时设置selected和item时，已item为准
 </pre>`,  
             type: 'object',
             def: ''
+        },{
+            key: 'dynamic-enter',
+            desc: '动态list时，回车搜当前关键词',
+            type: 'boolean',
+            def: 'false'
         }, {
             key: 'list-text',
             desc: '可搜索类型展示文案',

@@ -7,7 +7,7 @@ let CopyText = '复制代码';
 
 module.exports = Magix.View.extend({
     tmpl: '@leave.html',
-    mixins: [Form, Validator, Dialog],
+    mixins: [Form, Validator, Dialog, GTip],
     init() {
         let that = this;
         that.updater.set({
@@ -45,7 +45,6 @@ module.exports = Magix.View.extend({
             content: msg,
             enterCallback: (save) => {
                 if (save) {
-                    debugger
                     that.gtip('数据保存中...', 1500);
                     setTimeout(resolve, 1500);
                 } else {

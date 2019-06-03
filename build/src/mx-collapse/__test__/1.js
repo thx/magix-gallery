@@ -28,12 +28,12 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', list = $$.list, expands = $$.expands, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryaj:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryaj:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryaj:_" class="mb20 clearfix"><div class="fl color-9">以下示例：</div><div class="fl"><div>默认展开非禁止操作的第一个 + 只展示一个 + 每次只打开一个tab</div><div>完整事件处理示例</div></div></div><div mxa="_zs_galleryaj:b" class="mb20 clearfix"><div mxs="_zs_galleryaj:a" class="fl color-9">模块展开收起状态：</div><div mxa="_zs_galleryaj:c" class="fl">';
+    $p += '<div mxv mxa="_zs_galleryal:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryal:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryal:_" class="mb20 clearfix"><div class="fl color-9">以下示例：</div><div class="fl"><div>默认展开非禁止操作的第一个 + 只展示一个 + 每次只打开一个tab</div><div>完整事件处理示例</div></div></div><div mxa="_zs_galleryal:b" class="mb20 clearfix"><div mxs="_zs_galleryal:a" class="fl color-9">模块展开收起状态：</div><div mxa="_zs_galleryal:c" class="fl">';
     $line = 13;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cmcxcyafds$art_c = list.length; index < $art_cmcxcyafds$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cmcxcyafds$art_c = list.length; index < $art_cmcxcyafds$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_csosuft$art_c = list.length; index < $art_csosuft$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_csosuft$art_c = list.length; index < $art_csosuft$art_c; index++) {
         var item = list[index];
         $p += '<div>第';
         $line = 14;
@@ -72,27 +72,27 @@ module.exports = Base.extend({
     $line = 19;
     $art = '@list';
     ;
-    $p += ($expr = '<%@list%>', $i($$ref, list)) + '"></div></div><div mxa="_zs_galleryaj:d" class="clearfix"><div mxa="_zs_galleryaj:e" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_galleryaj:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@list%>', $i($$ref, list)) + '"></div></div><div mxa="_zs_galleryal:d" class="clearfix"><div mxa="_zs_galleryal:e" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_galleryal:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 25;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaj:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryal:f" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 27;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaj:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryal:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 30;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="mb20 clearfix"&gt;\n    &lt;div class="fl color-9"&gt;模块展开收起状态：&lt;/div&gt;\n    &lt;div class="fl"&gt;\n        &#123;&#123;each list as item index&#125;&#125;\n        &lt;div&gt;第&#123;&#123;=index&#125;&#125;个模块：&#123;&#123;if expands[index]&#125;&#125; 展开 &#123;&#123;else&#125;&#125; 收起 &#123;&#123;/if&#125;&#125;&lt;/div&gt;\n        &#123;&#123;/each&#125;&#125;\n    &lt;/div&gt;\n&lt;/div&gt;\n&lt;mx-collapse class="mb20"\n    list="&#123;&#123;@list&#125;&#125;"\n    mx-change="change()"/&gt;\n            </pre></div><div mxa="_zs_galleryaj:g" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryaj:d" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="mb20 clearfix"&gt;\n    &lt;div class="fl color-9"&gt;模块展开收起状态：&lt;/div&gt;\n    &lt;div class="fl"&gt;\n        &#123;&#123;each list as item index&#125;&#125;\n        &lt;div&gt;第&#123;&#123;=index&#125;&#125;个模块：&#123;&#123;if expands[index]&#125;&#125; 展开 &#123;&#123;else&#125;&#125; 收起 &#123;&#123;/if&#125;&#125;&lt;/div&gt;\n        &#123;&#123;/each&#125;&#125;\n    &lt;/div&gt;\n&lt;/div&gt;\n&lt;mx-collapse class="mb20"\n    list="&#123;&#123;@list&#125;&#125;"\n    mx-change="change()"/&gt;\n            </pre></div><div mxa="_zs_galleryal:g" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryal:d" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 46;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryaj:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryal:h" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 48;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryaj:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryal:c" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 51;
     $art = '=viewId';
     ;

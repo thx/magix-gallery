@@ -32,14 +32,14 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', checkboxes = $$.checkboxes, selected = $$.selected, radioes = $$.radioes, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerye?:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerye?:a" class="_zs_gallery___test___layout_-eg-content clearfix"><form mxv mxa="_zs_gallerye?:b" class="form mb20 fl mr20"><div mxv mxa="_zs_gallerye?:c" class="form-item"><div mxs="_zs_gallerye?:j" class="form-label">checkbox</div><div mxv mxa="_zs_gallerye?:d" class="form-content">';
+    $p += '<div mxv mxa="_zs_galleryk:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryk:a" class="_zs_gallery___test___layout_-eg-content clearfix"><form mxv mxa="_zs_galleryk:b" class="form mb20 fl mr20"><div mxv mxa="_zs_galleryk:c" class="form-item"><div mxs="_zs_galleryk:_" class="form-label">checkbox</div><div mxv mxa="_zs_galleryk:d" class="form-content">';
     $line = 7;
     $art = 'each checkboxes as c';
     ;
-    $expr = '<%for (var $art_iosdzrhbu$art_i = 0, $art_cocpscso$art_c = checkboxes.length; $art_iosdzrhbu$art_i < $art_cocpscso$art_c; $art_iosdzrhbu$art_i++) {    var c = checkboxes[$art_iosdzrhbu$art_i]%>';
-    for (var $art_iosdzrhbu$art_i = 0, $art_cocpscso$art_c = checkboxes.length; $art_iosdzrhbu$art_i < $art_cocpscso$art_c; $art_iosdzrhbu$art_i++) {
-        var c = checkboxes[$art_iosdzrhbu$art_i];
-        $p += '<label mxv mxa="_zs_gallerye?:e" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
+    $expr = '<%for (var $art_ineazqaeus$art_i = 0, $art_cgulanlfd$art_c = checkboxes.length; $art_ineazqaeus$art_i < $art_cgulanlfd$art_c; $art_ineazqaeus$art_i++) {    var c = checkboxes[$art_ineazqaeus$art_i]%>';
+    for (var $art_ineazqaeus$art_i = 0, $art_cgulanlfd$art_c = checkboxes.length; $art_ineazqaeus$art_i < $art_cgulanlfd$art_c; $art_ineazqaeus$art_i++) {
+        var c = checkboxes[$art_ineazqaeus$art_i];
+        $p += '<label mxv mxa="_zs_galleryk:e" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 12;
         $art = ':selected.checkboxes{refresh:true,required:[true,\'必选\']}';
         ;
@@ -58,14 +58,14 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div><div mxv mxa="_zs_gallerye?:f" class="form-item"><div mxs="_zs_gallerye?:k" class="form-label">radio</div><div mxv mxa="_zs_gallerye?:g" class="form-content">';
+    $p += '</div></div><div mxv mxa="_zs_galleryk:f" class="form-item"><div mxs="_zs_galleryk:a" class="form-label">radio</div><div mxv mxa="_zs_galleryk:g" class="form-content">';
     $line = 21;
     $art = 'each radioes as r';
     ;
-    $expr = '<%for (var $art_imlkpoci$art_i = 0, $art_czaiwkvbwb$art_c = radioes.length; $art_imlkpoci$art_i < $art_czaiwkvbwb$art_c; $art_imlkpoci$art_i++) {    var r = radioes[$art_imlkpoci$art_i]%>';
-    for (var $art_imlkpoci$art_i = 0, $art_czaiwkvbwb$art_c = radioes.length; $art_imlkpoci$art_i < $art_czaiwkvbwb$art_c; $art_imlkpoci$art_i++) {
-        var r = radioes[$art_imlkpoci$art_i];
-        $p += '<label mxv mxa="_zs_gallerye?:h" class="mr30"><input mxe="' + $viewId + '_1" mxc="[';
+    $expr = '<%for (var $art_imndcqju$art_i = 0, $art_cdjuoacux$art_c = radioes.length; $art_imndcqju$art_i < $art_cdjuoacux$art_c; $art_imndcqju$art_i++) {    var r = radioes[$art_imndcqju$art_i]%>';
+    for (var $art_imndcqju$art_i = 0, $art_cdjuoacux$art_c = radioes.length; $art_imndcqju$art_i < $art_cdjuoacux$art_c; $art_imndcqju$art_i++) {
+        var r = radioes[$art_imndcqju$art_i];
+        $p += '<label mxv mxa="_zs_galleryk:h" class="mr30"><input mxe="' + $viewId + '_1" mxc="[';
         $line = 26;
         $art = ':selected.radio{refresh:true}';
         ;
@@ -84,7 +84,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div><div mxv mxa="_zs_gallerye?:i" class="form-item"><div mxs="_zs_gallerye?:l" class="form-label">下拉框单选</div><div mxv mxa="_zs_gallerye?:j" class="form-content"><div mxv="selected" mxe="' + $viewId + '_2" mxc="[';
+    $p += '</div></div><div mxv mxa="_zs_galleryk:i" class="form-item"><div mxs="_zs_galleryk:b" class="form-label">下拉框单选</div><div mxv mxa="_zs_galleryk:j" class="form-content"><div mxv="selected" mxe="' + $viewId + '_2" mxc="[';
     $line = 37;
     $art = ':selected.single{refresh:true,required:[true,\'必选\']}';
     ;
@@ -96,7 +96,7 @@ module.exports = Magix.View.extend({
     $line = 38;
     $art = '@[1,2,3]';
     ;
-    $p += ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div></div><div mxv mxa="_zs_gallerye?:k" class="form-item"><div mxs="_zs_gallerye?:o" class="form-label">输入框</div><div mxv mxa="_zs_gallerye?:l" class="form-content"><input mxe="' + $viewId + '_3" mxc="[';
+    $p += ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div></div><div mxv mxa="_zs_galleryk:k" class="form-item"><div mxs="_zs_galleryk:c" class="form-label">输入框</div><div mxv mxa="_zs_galleryk:l" class="form-content"><input mxe="' + $viewId + '_3" mxc="[';
     $line = 45;
     $art = ':selected.str{refresh:true,required:true,pattern:\'^[a-zA-Z0-9_\\u4e00-\\u9fa5]+$\'}';
     ;
@@ -104,7 +104,7 @@ module.exports = Magix.View.extend({
     $line = 45;
     $art = ':selected.str{refresh:true,required:true,pattern:\'^[a-zA-Z0-9_\\u4e00-\\u9fa5]+$\'}';
     ;
-    $p += ($expr = '<%=selected.str%>', $e(selected.str)) + '"/></div></div><div mxa="_zs_gallerye?:m" class="form-item"><div mxs="_zs_gallerye?:t" class="form-label">开关</div><div mxa="_zs_gallerye?:n" class="form-content"><span mxe="' + $viewId + '_4_' + ($expr = '<%="switch"%>', $e("switch")) + '" mxc="[';
+    $p += ($expr = '<%=selected.str%>', $e(selected.str)) + '"/></div></div><div mxa="_zs_galleryk:m" class="form-item"><div mxs="_zs_galleryk:d" class="form-label">开关</div><div mxa="_zs_galleryk:n" class="form-content"><span mxe="' + $viewId + '_4_' + ($expr = '<%="switch"%>', $e("switch")) + '" mxc="[';
     $line = 52;
     $art = ':selected.switch{refresh:true}';
     ;
@@ -112,27 +112,27 @@ module.exports = Magix.View.extend({
     $line = 52;
     $art = ':selected.switch{refresh:true}';
     ;
-    $p += ($expr = '<%@selected["switch"]%>', $i($$ref, selected["switch"])) + '"></span></div></div><div mxs="_zs_gallerye?:C" class="form-item"><a href="javascript:;" class="btn w80 btn-brand mr20" mx-click="' + $viewId + 'save()">保存表单</a></div></form></div><div mxa="_zs_gallerye?:p" class="clearfix"><div mxa="_zs_gallerye?:8" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_gallerye?:y" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@selected["switch"]%>', $i($$ref, selected["switch"])) + '"></span></div></div><div mxs="_zs_galleryk:e" class="form-item"><a href="javascript:;" class="btn w80 btn-brand mr20" mx-click="' + $viewId + 'save()">保存表单</a></div></form></div><div mxa="_zs_galleryk:o" class="clearfix"><div mxa="_zs_galleryk:p" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_galleryk:f" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 64;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerye?:r" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryk:q" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 66;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerye?:z" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryk:g" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 69;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n12312\n            </pre></div><div mxa="_zs_gallerye?:!" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_gallerye?:A" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n12312\n            </pre></div><div mxa="_zs_galleryk:r" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryk:h" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 75;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerye?:u" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryk:s" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 77;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerye?:z" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryk:g" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 80;
     $art = '=viewId';
     ;
@@ -146,7 +146,7 @@ catch (ex) {
     msg += $expr + '\r\n\tat file:__test__/leave.html';
     throw msg;
 } return $p; },
-    mixins: [Form, Validator, Dialog],
+    mixins: [Form, Validator, Dialog, GTip],
     init: function () {
         var that = this;
         that.updater.set({
@@ -184,7 +184,6 @@ catch (ex) {
             content: msg,
             enterCallback: function (save) {
                 if (save) {
-                    debugger;
                     that.gtip('数据保存中...', 1500);
                     setTimeout(resolve, 1500);
                 }

@@ -20,15 +20,15 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', title = $$.title, content = $$.content; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerye`:b" class="dialog-header"><span mxa="_zs_gallerye`:c" class="fontsize-16">';
+    $p += '<div mxa="_zs_galleryj:_" class="dialog-header"><span mxa="_zs_galleryj:a" class="fontsize-16">';
     $line = 2;
     $art = '=title';
     ;
-    $p += ($expr = '<%=title%>', $e(title)) + '</span></div><div mxa="_zs_gallerye`:a" class="dialog-body"><div mxa="_zs_gallerye`:_" class="pt20 pb20">';
+    $p += ($expr = '<%=title%>', $e(title)) + '</span></div><div mxa="_zs_galleryj:b" class="dialog-body"><div mxa="_zs_galleryj:c" class="pt20 pb20">';
     $line = 6;
     $art = '=content';
     ;
-    $p += ($expr = '<%=content%>', $e(content)) + '</div></div><div mxs="_zs_gallerye`:e" class="dialog-footer"><a href="javascript:;" class="btn btn-brand btn-small mr10" mx-click="' + $viewId + 'submit({save:true})">保存并离开</a><a href="javascript:;" class="btn btn-small mr10" mx-click="' + $viewId + 'submit()">离开不保存</a><a href="javascript:;" class="btn btn-small mr10" mx-click="' + $viewId + 'cancel()">取消</a></div>';
+    $p += ($expr = '<%=content%>', $e(content)) + '</div></div><div mxs="_zs_galleryj:_" class="dialog-footer"><a href="javascript:;" class="btn btn-brand btn-small mr10" mx-click="' + $viewId + 'submit({save:true})">保存并离开</a><a href="javascript:;" class="btn btn-small mr10" mx-click="' + $viewId + 'submit()">离开不保存</a><a href="javascript:;" class="btn btn-small mr10" mx-click="' + $viewId + 'cancel()">取消</a></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
