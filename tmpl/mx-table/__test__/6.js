@@ -36,6 +36,25 @@ module.exports = Base.extend({
         // 默认展开第一个
         list[0].expand = true;
 
+        let list2 = [];
+        for (var i = 1; i < 3; i++) {
+            let item = itemFn(i);
+            item.subs = [];
+            for (let j = 1; j < 3; j++) {
+                let sub = {
+                    name: j,
+                    subs: []
+                }
+                for (let k = 0; k < 4; k++) {
+                    sub.subs.push(itemFn(i + '-' + j));
+                }
+                item.subs.push(sub);
+            }
+            list2.push(item);
+        }
+        // 默认展开第一个
+        list2[0].expand = true;
+
         let groups = [{
             name: '组1',
             fields: [1, 2]
@@ -53,17 +72,24 @@ module.exports = Base.extend({
             len += group.fields.length;
         })
 
+        let groups2 = [];
+        for (let i = 1; i < 10; i++) {
+            groups2.push(i);
+        }
+
         that.updater.digest({
             groups,
             len,
-            list
+            list,
+            list2,
+            groups2
         });
     },
 
     /**
      * 展开收起
      */
-    'toggle<click>' (e) {
+    'toggle<click>'(e) {
         let that = this;
         let index = e.params.index,
             list = that.updater.get('list');
@@ -76,7 +102,7 @@ module.exports = Base.extend({
     /**
      * 修改数据
      */
-    'change<click>' (e) {
+    'change<click>'(e) {
         let that = this;
         let index = e.params.index,
             list = that.updater.get('list');
@@ -86,7 +112,7 @@ module.exports = Base.extend({
         })
     },
 
-    'delete<click>' (e) {
+    'delete<click>'(e) {
         let that = this;
         let index = e.params.index,
             list = that.updater.get('list');

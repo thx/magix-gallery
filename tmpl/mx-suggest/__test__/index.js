@@ -82,7 +82,15 @@ item: {
                 desc: '当前选中value，selected = item.value',
                 type: 'string'
             }]
-        }]
+        }, {
+            type: 'focusout',
+            desc: '提示框隐藏时触发',
+            params: [{
+                key: 'keyword',
+                desc: '当前输入的关键词',
+                type: 'string'
+            }]
+        }, ]
 
         this.updater.digest({
             viewId: this.id,

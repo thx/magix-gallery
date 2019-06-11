@@ -1,1 +1,92 @@
-define("mx-util/fx",["magix","./runner"],(_,f,t)=>{var n=_("magix"),i=_("./runner"),e=function(_){return _},u=Date.now||function(){return(new Date).getTime()},r=n.Base.extend({ctor:function(_,f){var t=this;t.__fu&&!f||(f=f||e,t.__fu=function(_,n){return _+(n-_)*f(t.__fv/t.__fw)}),t.__fx=[],t.__fy=_},__fD:function(_,f){this.__fq||(this.__fx.push({__fz:_,__fA:f}),this.__fB||this.__fC())},__fC:function(){var _=this,f=_.__fx.shift();f?(_.__fw=f.__fz,_.__fE=f.__fA,_.__fF=u(),_.__fB||i.__bH(_.__fy,_.__fB=function(f){_.__fv=Date.now()-_.__fF,_.__fv>_.__fw&&(_.__fv=_.__fw,f=1);try{_.__fE(_.__fu)}catch(_){f=_}f&&_.__fC()})):_.__m()},__m:function(){this.__fB&&(i.__bJ(this.__fB),delete this.__fB,this.fire("stop"))},destroy:function(){this.__m(),this.__fx=[],this.__fq=1}});t.exports={__fH:function(){var _=new r;return this.capture(n.guid("__fG"),_),_}}});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-util/fx",["magix","./runner"],(require,exports,module)=>{
+/*Magix,Runner*/
+
+var Magix = require("magix");
+var Runner = require("./runner");
+var DALG = function (t) { return t; };
+var Now = Date.now || (function () {
+    return new Date().getTime();
+});
+var FX = Magix.Base.extend({
+    ctor: function (interval, alg) {
+        var me = this;
+        if (!me['@{alg.fn}'] || alg) {
+            alg = alg || DALG;
+            me['@{alg.fn}'] = function (from, to) {
+                return (from + (to - from) * alg(me['@{current.timespan}'] / me['@{item.timespan}']));
+            };
+        }
+        me['@{task.list}'] = [];
+        me['@{interval}'] = interval;
+    },
+    '@{run}': function (time, callback) {
+        var me = this;
+        if (!me['@{destroyed}']) {
+            me['@{task.list}'].push({
+                '@{timespan}': time,
+                '@{fn}': callback
+            });
+            if (!me['@{for.runner.fn}']) {
+                me['@{start.work}']();
+            }
+        }
+    },
+    '@{start.work}': function () {
+        var me = this;
+        var item = me['@{task.list}'].shift();
+        if (item) {
+            me['@{item.timespan}'] = item['@{timespan}'];
+            me['@{item.fn}'] = item['@{fn}'];
+            me['@{now.time}'] = Now();
+            if (!me['@{for.runner.fn}']) {
+                Runner['@{task.add}'](me['@{interval}'], me['@{for.runner.fn}'] = function (end) {
+                    me['@{current.timespan}'] = Date.now() - me['@{now.time}'];
+                    if (me['@{current.timespan}'] > me['@{item.timespan}']) {
+                        me['@{current.timespan}'] = me['@{item.timespan}'];
+                        end = 1;
+                    }
+                    try {
+                        me['@{item.fn}'](me['@{alg.fn}']);
+                    }
+                    catch (e) {
+                        end = e;
+                    }
+                    if (end) {
+                        me['@{start.work}']();
+                    }
+                });
+            }
+        }
+        else {
+            me['@{stop}']();
+        }
+    },
+    '@{stop}': function () {
+        var me = this;
+        if (me['@{for.runner.fn}']) {
+            Runner['@{task.remove}'](me['@{for.runner.fn}']);
+            delete me['@{for.runner.fn}'];
+            me.fire('stop');
+        }
+    },
+    destroy: function () {
+        var me = this;
+        me['@{stop}']();
+        me['@{task.list}'] = [];
+        me['@{destroyed}'] = 1;
+    }
+});
+module.exports = {
+    '@{getFX}': function () {
+        var fx = new FX();
+        this.capture(Magix.guid('@{fx}'), fx);
+        return fx;
+    }
+};
+
+});

@@ -8,9 +8,7 @@ module.exports = Magix.View.extend({
     tmpl: '@index.html',
     init: function (extra) {
         let that = this;
-        //初始化时保存一份当前数据的快照
         that.updater.snapshot();
-        //该处是否可以由magix自动调用
         that.assign(extra);
 
         // 初始化列表为空默认为动态刷新列表
@@ -28,9 +26,8 @@ module.exports = Magix.View.extend({
     },
     assign: function (data) {
         let that = this;
-        //赋值前先进行数据变化的检测,首次assign是在init方法中调用,后续的调用是magix自动调用,这个检测主要用于在首次调用后,magix自动调用前有没有进行数据的更新
         let altered = that.updater.altered();
-        //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
+
         let placeholder = data.placeholder || '';
         if (!placeholder) {
             placeholder = I18n['search'];
@@ -39,16 +36,16 @@ module.exports = Magix.View.extend({
         //动态数据时，是否回车默认选中第一个，默认为true
         that['@{dynamic.enter}'] = data.dynamicEnter + '' === 'true';
 
+        // text，value的key值
         that['@{key.value}'] = data.listValue || 'value';
         that['@{key.text}'] = data.listText || 'text';
 
-        // 多种类型搜索的时候
         let list = that['@{wrap}']((data.list || that['@{list.bak}']));
         that['@{list.bak}'] = list;
 
         // selectedValue：当前选中的value值
         // item：完整selected对象
-        // 优先级selectedValue > item
+        // 优先级item > selectedValue
         let item = data.item || {};
         let selectedValue = item.value || data.selected || '';
         let selectedText = item.text || '';
@@ -82,16 +79,13 @@ module.exports = Magix.View.extend({
         that['@{owner.node}'] = $('#' + that.id);
         that['@{owner.node}'].val(selectedValue)
 
-        //如果数据没变化,则设置新的数据后再次检测
         if (!altered) {
             altered = that.updater.altered();
         }
-        //如果有变化,则再保存当前的快照,然后返回true告诉magix当前view需要更新
         if (altered) {
             that.updater.snapshot();
             return true;
         }
-        //如果数据没变化,则告诉magix当前view不用更新
         return false;
     },
     '@{wrap}': function (origin) {
@@ -128,8 +122,7 @@ module.exports = Magix.View.extend({
         if (that['@{suggest.delay.timer}']) {
             clearTimeout(that['@{suggest.delay.timer}']);
         }
-        let data = that.updater.get();
-        let list = data.list, selectedValue = data.selectedValue;
+        let { list, selectedValue } = that.updater.get();
         let idx = -1;
         for (let index = 0; index < list.length; index++) {
             if (list[index].value == selectedValue) {
@@ -158,7 +151,6 @@ module.exports = Magix.View.extend({
             });
         } else if (e.keyCode == 13) {
             // 回车
-
             if (that['@{dynamic.enter}']) {
                 // 回车选中当前输入值
                 let selectedText = $('#' + that.id + '_input').val();
@@ -176,32 +168,32 @@ module.exports = Magix.View.extend({
             }), 250);
         }
     },
-    showLoading() {
-        this.updater.digest({
-            loading: true
-        })
+    '@{clear}<click>'() {
+        let that = this;
+
+        let { show } = that.updater.get();
+        if (show) {
+            // 展开的情况下，更新静态数据list
+            that.updater.digest({
+                list: that['@{list.bak}'],
+                selectedText: ''
+            });
+        } else {
+            // 收起状态下，清空选项
+            that.updater.digest({
+                selectedText: ''
+            });
+            that['@{select}']({
+                value: '',
+                text: ''
+            });
+        }
     },
-    hideLoading() {
-        this.updater.digest({
-            loading: false
-        })
-    },
-    /**
-     * 外部更新list可选项
-     */
-    update: function (list) {
-        this['@{list.bak}'] = this['@{wrap}'](list);
-        this['@{show}'](true);
-    },
-    '@{inside}': function (node) {
-        return Magix.inside(node, this.id);
-    },
-    '@{stop}<change,focusout>': function (e) {
-        e.stopPropagation();
-    },
-    '@{show}': function (ignore) {
+    '@{show}'(ignore) {
         let that = this;
         let selectedText = $('#' + that.id + '_input').val();
+        let source = that['@{list.bak}'];
+        let list = [];
         if (that['@{dynamic.list}']) {
             // 动态更新数据
             if (!selectedText) {
@@ -210,24 +202,16 @@ module.exports = Magix.View.extend({
                     list: that['@{list.bak}'] = []
                 });
                 that['@{hide}']();
+
+                // 不显示下拉框
+                return;
             } else {
-                that.updater.digest({
-                    list: that['@{list.bak}'],
-                    selectedText: selectedText,
-                    show: true
-                });
-                Monitor['@{add}'](that);
-                if (!ignore) {
-                    that['@{owner.node}'].trigger({
-                        type: 'show',
-                        keyword: selectedText
-                    });
-                }
+                // 动态情况下不需要过滤，直接显示动态更新的list
+                list = source;
             }
         } else {
-            let source = that['@{list.bak}'];
+            // 静态数据根据关键词过滤
             let lowerText = (selectedText + '').toLowerCase();
-            let list = [];
             let types = that['@{search.type}'];
             source.forEach(function (item) {
                 let has = false;
@@ -240,38 +224,51 @@ module.exports = Magix.View.extend({
                     list.push(item);
                 }
             });
-            that.updater.digest({
-                list: list,
-                selectedText: selectedText,
-                show: true
+        }
+       
+        that.updater.digest({
+            list,
+            selectedText: selectedText,
+            show: true
+        });
+        Monitor['@{add}'](that);
+        if (!ignore) {
+            // 是否需要通知外部展开下拉框了
+            that['@{owner.node}'].trigger({
+                type: 'show',
+                keyword: selectedText
             });
-            Monitor['@{add}'](that);
-            if (!ignore) {
-                that['@{owner.node}'].trigger({
-                    type: 'show',
-                    keyword: selectedText
-                });
-            }
         }
     },
-    '@{hide}': function (item) {
+    '@{hide}'(item) {
         let that = this;
-        item = item || {};
+        if (that['@{suggest.delay.timer}']) {
+            clearTimeout(that['@{suggest.delay.timer}']);
+        }
+        item = item || {
+            text: $('#' + that.id + '_input').val()  //保留用户输入
+        };
 
+        let selectedValue = item.value || '',
+            selectedText = item.text || '';
         that.updater.digest({
-            selectedValue: item.value || '',
-            selectedText: item.text || '',
-            show: false
+            selectedValue,
+            selectedText,
+            show: false,
+            loading: false
         });
         Monitor['@{remove}'](that);
 
         // 双向绑定
-        that['@{owner.node}'].trigger('focusout');
+        that['@{owner.node}'].trigger({
+            type: 'focusout',
+            keyword: selectedText
+        });
     },
     /**
      * 回车处理
      */
-    '@{enter}': function (idx) {
+    '@{enter}'(idx) {
         let that = this;
         let selectedText = $('#' + that.id + '_input').val();
         if (!selectedText) {
@@ -292,7 +289,7 @@ module.exports = Magix.View.extend({
             }
         }
     },
-    '@{select}<click>': function (e) {
+    '@{select}<click>'(e) {
         e.stopPropagation();
         let item = e.params.item;
         this['@{select}'](item);
@@ -319,5 +316,28 @@ module.exports = Magix.View.extend({
                 }
             });
         }
+    },
+    '@{inside}': function (node) {
+        return Magix.inside(node, this.id);
+    },
+    '@{stop}<change,focusout>': function (e) {
+        e.stopPropagation();
+    },
+    showLoading() {
+        this.updater.digest({
+            loading: true
+        })
+    },
+    hideLoading() {
+        this.updater.digest({
+            loading: false
+        })
+    },
+    /**
+     * 外部更新list可选项
+     */
+    update: function (list) {
+        this['@{list.bak}'] = this['@{wrap}'](list);
+        this['@{show}'](true);
     }
 });

@@ -1,1 +1,60 @@
-define("mx-main/__test__/hor",["magix","$","__test__/subs","mx-title/second","./hor-demo","./steps"],(e,t,i)=>{e("__test__/subs"),e("mx-title/second"),e("./hor-demo"),e("./steps");var n=e("magix");e("$");i.exports=n.View.extend({tmpl:function(e,t,i,n,s,r,_,d){if(i||(i=e),!s){var m={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},o=/[&<>"'`]/g,a=function(e){return"&"+m[e]+";"};s=function(e){return""+(null==e?"":e)},n=function(e){return s(e).replace(o,a)}}if(!r){var c={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},u=function(e){return c[e]},v=/[!')(*]/g;r=function(e){return encodeURIComponent(s(e)).replace(v,u)}}if(!d){var p=/[\\'"]/g;d=function(e){return s(e).replace(p,"\\$&")}}_||(_=function(e,t,i,n){for(n=e[l];--n;)if(e[i=l+n]===t)return i;return e[i=l+e[l]++]=t,i});var l="",f="",x=e.viewId;return f+='<div mxa="_zs_galleryc1:_" class="pr pr120"><div mx-view="__test__/subs?list='+_(i,[{name:"使用示例",key:x+"_demo"},{name:"API",key:x+"_api"},{name:"step-infos配置",key:x+"_step",subs:[{name:"可配参数",key:x+"_step1"},{name:"check",key:x+"_step2"}]}])+'"></div><div id="'+n(x)+'_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryc1:_" class="clearfix"><div mx-view="mx-main/__test__/hor-demo"></div></div><div mx-view="mx-main/__test__/steps" id="'+n(x)+'_step"></div></div>'},render:function(){this.updater.digest({viewId:this.id})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-main/__test__/hor",["magix","$","__test__/subs","mx-title/second","./hor-demo","./steps"],(require,exports,module)=>{
+/*Magix,$*/
+require("__test__/subs");
+require("mx-title/second");
+require("./hor-demo");
+require("./steps");
+var Magix = require("magix");
+var $ = require("$");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryc1:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $line = 2;
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\'\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'step-infos配置\',\n        key: viewId + \'_step\',\n        subs: [{\n            name: \'可配参数\',\n            key: viewId + \'_step1\',\n        }, {\n            name: \'check\',\n            key: viewId + \'_step2\',\n        }]\n    }]';
+    ;
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\'        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'step-infos配置\',            key: viewId + \'_step\',            subs: [{                    name: \'可配参数\',                    key: viewId + \'_step1\'                }, {                    name: \'check\',                    key: viewId + \'_step2\'                }]        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo' }, { name: 'API', key: viewId + '_api' }, { name: 'step-infos配置', key: viewId + '_step', subs: [{ name: '可配参数', key: viewId + '_step1' }, { name: 'check', key: viewId + '_step2' }] }])) + '"></div><div id="';
+    $line = 20;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryc1:_" class="clearfix"><div mx-view="mx-main/__test__/hor-demo"></div></div><div mx-view="mx-main/__test__/steps" id="';
+    $line = 25;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_step"></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-main/__test__/hor.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest({
+            viewId: this.id
+        });
+    }
+});
+
+});

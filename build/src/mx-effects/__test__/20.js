@@ -1,1 +1,54 @@
-define("mx-effects/__test__/20",["magix","__test__/example","$","../progress","mx-copy/index","__test__/hl"],(e,s,r)=>{e("../progress"),e("mx-copy/index"),e("__test__/hl");e("magix");var t=e("__test__/example");e("$");r.exports=t.extend({tmpl:function(e,s,r,t,_,n,l,i){if(r||(r=e),!_){var a={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},x=/[&<>"'`]/g,c=function(e){return"&"+a[e]+";"};_=function(e){return""+(null==e?"":e)},t=function(e){return _(e).replace(x,c)}}if(!n){var d={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},g=function(e){return d[e]},m=/[!')(*]/g;n=function(e){return encodeURIComponent(_(e)).replace(m,g)}}if(!i){var o=/[\\'"]/g;i=function(e){return _(e).replace(o,"\\$&")}}var p="",v=e.viewId,f=e.text1;return p+='<div mxa="_zs_gallerybx:_" class="_zs_galleryg"><div mxs="_zs_gallerybx:_" class="_zs_galleryj"><div class="mt20"><div class="mr20" mx-view="mx-effects/progress?type=gradient&num=20.22"></div></div><div class="mt20"><div mx-view="mx-effects/progress?type=gradient&num=80&color=rgb%2881%2C%20163%2C%200%29"></div></div></div><div mxa="_zs_gallerybx:a" class="_zs_galleryk"><div mxs="_zs_gallerybx:a" class="_zs_galleryi">渐变型，精度与传入数值保持一致</div><div class="_zs_galleryl" mx-success="'+s+'done({id:1})" mx-view="mx-copy/index?copyNode='+n(v)+'_text_1"><span mxa="_zs_gallerybx:b" class="_zs_galleryn">'+_(f)+'</span><i mxs="_zs_gallerybx:b" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+t(v)+'_text_1">\n&lt;mx-effects.progress\n    type="gradient"\n    num="20.22"/&gt;\n\n&lt;mx-effects.progress\n    type="gradient"\n    num="80" \n    color="rgb(81, 163, 0)"/&gt;</pre></div></div>'},render:function(){this.updater.digest()}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-effects/__test__/20",["magix","__test__/example","$","../progress","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("../progress");
+require("mx-copy/index");
+require("__test__/hl");
+var Magix = require("magix");
+var Base = require("__test__/example");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerybx:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybx:_" class="_zs_gallery___test___layout_-eg-content"><div class="mt20"><div class="mr20" mx-view="mx-effects/progress?type=gradient&num=20.22"></div></div><div class="mt20"><div mx-view="mx-effects/progress?type=gradient&num=80&color=rgb%2881%2C%20163%2C%200%29"></div></div></div><div mxa="_zs_gallerybx:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybx:a" class="_zs_gallery___test___layout_-eg-title">渐变型，精度与传入数值保持一致</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 17;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybx:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 19;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybx:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 22;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.progress\n    type="gradient"\n    num="20.22"/&gt;\n\n&lt;mx-effects.progress\n    type="gradient"\n    num="80" \n    color="rgb(81, 163, 0)"/&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-effects/__test__/20.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest();
+    }
+});
+
+});

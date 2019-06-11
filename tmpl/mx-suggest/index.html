@@ -10,6 +10,9 @@
         mx-focusin="@{suggest}()"
         mx-focusout="@{stop}()"
         mx-change="@{stop}()"/>
+    {{if selectedText}}
+    <i class="mc-iconfont delete-icon" mx-click="@{clear}()">&#xe6f8;</i>
+    {{/if}}
 
     <div class="mx-output mx-output-bottom {{if show}} mx-output-open {{/if}}">
         <ul class="mx-output-list">
