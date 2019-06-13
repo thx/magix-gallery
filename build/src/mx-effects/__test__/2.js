@@ -1,1 +1,53 @@
-define("mx-effects/__test__/2",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(e,t,i)=>{e("mx-copy/index"),e("__test__/hl");e("magix");var s=e("__test__/example");e("$");i.exports=s.extend({tmpl:function(e,t,i,s,l,_,n,a){if(i||(i=e),!l){var d={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},r=/[&<>"'`]/g,c=function(e){return"&"+d[e]+";"};l=function(e){return""+(null==e?"":e)},s=function(e){return l(e).replace(r,c)}}if(!_){var v={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},g=function(e){return v[e]},m=/[!')(*]/g;_=function(e){return encodeURIComponent(l(e)).replace(m,g)}}if(!a){var x=/[\\'"]/g;a=function(e){return l(e).replace(x,"\\$&")}}var o="",f=e.viewId,p=e.text1;return o+='<div mxa="_zs_gallerybA:_" class="_zs_galleryg"><div mxs="_zs_gallerybA:_" class="_zs_galleryj"><div bg="white" class="empty-white"><div class="empty-inner"><div><i class="mc-iconfont no-data">&#xe685;</i></div><div><div class="fontsize-14">暂无可选内容</div><div class="fontsize-14">您暂时没有可以添加的内容，请使用本地上传！</div></div></div></div></div><div mxa="_zs_gallerybA:a" class="_zs_galleryk"><div mxs="_zs_gallerybA:a" class="_zs_galleryi">HTML Code</div><div class="_zs_galleryl" mx-success="'+t+'done({id:1})" mx-view="mx-copy/index?copyNode='+_(f)+'_text_1"><span mxa="_zs_gallerybA:b" class="_zs_galleryn">'+l(p)+'</span><i mxs="_zs_gallerybA:b" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+s(f)+'_text_1">\n&lt;mx-effects.empty bg="white"&gt;\n    &lt;div class="fontsize-14"&gt;暂无可选内容&lt;/div&gt;\n    &lt;div class="fontsize-14"&gt;您暂时没有可以添加的内容，请使用本地上传！&lt;/div&gt;\n&lt;/mx-effects.empty&gt;\n        </pre></div></div>'},render:function(){this.updater.digest()}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-effects/__test__/2",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("mx-copy/index");
+require("__test__/hl");
+var Magix = require("magix");
+var Base = require("__test__/example");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerybA:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybA:_" class="_zs_gallery___test___layout_-eg-content"><div bg="white" class="empty-white"><div class="empty-inner"><div><i class="mc-iconfont no-data">&#xe685;</i></div><div><div class="fontsize-14">暂无可选内容</div><div class="fontsize-14">您暂时没有可以添加的内容，请使用本地上传！</div></div></div></div></div><div mxa="_zs_gallerybA:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybA:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 10;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybA:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 12;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybA:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 15;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-effects.empty bg="white"&gt;\n    &lt;div class="fontsize-14"&gt;暂无可选内容&lt;/div&gt;\n    &lt;div class="fontsize-14"&gt;您暂时没有可以添加的内容，请使用本地上传！&lt;/div&gt;\n&lt;/mx-effects.empty&gt;\n        </pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-effects/__test__/2.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest();
+    }
+});
+
+});
