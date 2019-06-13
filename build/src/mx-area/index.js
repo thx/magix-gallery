@@ -17,7 +17,7 @@ define("mx-area/index",["magix","mx-area/data"],(require,exports,module)=>{
  */
 var Magix = require("magix");
 var Data = require("mx-area/data");
-Magix.applyStyle("_zs_gallery_mx-area_index_","._zs_gallery_mx-area_index_-area-search-box,\n._zs_gallery_mx-area_index_-tab-search-box {\n  display: block;\n  width: 300px;\n  margin-bottom: 12px;\n}\n._zs_gallery_mx-area_index_-tab-search-box {\n  margin-left: 20px;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province {\n  position: relative;\n  float: left;\n  width: 16%;\n  height: 46px;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-name {\n  padding: 5px 0;\n  border-radius: var(--border-radius);\n  transition: all var(--duration);\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-name._zs_gallery_mx-area_index_-highlight {\n  background-color: var(--color-brand-opacity);\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-province-label {\n  float: left;\n  line-height: 46px;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-province-count {\n  float: left;\n  font-size: 12px;\n  font-weight: bold;\n  font-family: \"Tahoma\";\n  line-height: 44px;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-province-arrow {\n  position: absolute;\n  top: 0;\n  left: calc(var(--font-size) * 4 + 28px);\n  width: 20px;\n  height: 46px;\n  line-height: 46px;\n  text-align: center;\n  font-size: 22px;\n  color: #ccc;\n  cursor: pointer;\n  transition: all var(--duration);\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-province-arrow._zs_gallery_mx-area_index_-province-expand {\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-cities {\n  position: absolute;\n  top: 46px;\n  left: -72px;\n  z-index: 99;\n  width: 240px;\n  padding: 10px;\n  border-radius: var(--border-radius);\n  background-color: #fff;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-cities ._zs_gallery_mx-area_index_-city {\n  float: left;\n  width: 48%;\n  height: 32px;\n  margin-right: 2%;\n  line-height: 32px;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n._zs_gallery_mx-area_index_-all {\n  height: 46px;\n  line-height: 46px;\n}\n._zs_gallery_mx-area_index_-area {\n  position: relative;\n  padding-left: 25px;\n}\n._zs_gallery_mx-area_index_-area ._zs_gallery_mx-area_index_-area-name {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 25px;\n  height: 100%;\n  line-height: 46px;\n  font-size: 14px;\n  color: #999;\n  font-weight: bold;\n  font-family: \"Tahoma\";\n}\n._zs_gallery_mx-area_index_-area-half {\n  float: left;\n  width: 50%;\n}\n._zs_gallery_mx-area_index_-area-half ._zs_gallery_mx-area_index_-province {\n  width: 33%;\n  min-width: calc(var(--font-size) * 6 + 28px);\n}\n._zs_gallery_mx-area_index_-tabs {\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab {\n  float: left;\n  margin-bottom: -1px;\n  padding-left: 20px;\n  border-bottom: 1px solid transparent;\n  cursor: pointer;\n}\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab ._zs_gallery_mx-area_index_-tab-check,\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab ._zs_gallery_mx-area_index_-tab-text {\n  float: left;\n  height: 46px;\n  line-height: 46px;\n}\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab ._zs_gallery_mx-area_index_-tab-text {\n  padding-left: 5px;\n  padding-right: 25px;\n}\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab:hover {\n  color: var(--color-brand);\n  transition: color var(--duration);\n}\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab._zs_gallery_mx-area_index_-cur {\n  color: var(--color-brand);\n  border-bottom: 1px solid var(--color-brand);\n}\n");
+Magix.applyStyle("_zs_gallery_mx-area_index_","._zs_gallery_mx-area_index_-area-search-box,\n._zs_gallery_mx-area_index_-tab-search-box {\n  display: block;\n  width: 300px;\n  margin-bottom: 12px;\n}\n._zs_gallery_mx-area_index_-tab-search-box {\n  margin-left: 20px;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province {\n  position: relative;\n  float: left;\n  width: 16%;\n  height: 46px;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-name {\n  padding: 5px 0;\n  border-radius: var(--border-radius);\n  transition: all var(--duration);\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-name._zs_gallery_mx-area_index_-highlight {\n  background-color: var(--color-brand-opacity);\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-province-label {\n  float: left;\n  line-height: 46px;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-province-count {\n  float: left;\n  font-size: 12px;\n  font-weight: bold;\n  font-family: \"Tahoma\";\n  line-height: 44px;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-province-arrow {\n  position: absolute;\n  top: 0;\n  left: calc(var(--font-size) * 4 + 28px);\n  width: 20px;\n  height: 46px;\n  line-height: 46px;\n  text-align: center;\n  font-size: 22px;\n  color: #ccc;\n  cursor: pointer;\n  transition: all var(--duration);\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-province-arrow._zs_gallery_mx-area_index_-province-expand {\n  transform: rotate(180deg);\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-cities {\n  position: absolute;\n  top: 46px;\n  left: -72px;\n  z-index: 99;\n  width: 240px;\n  padding: 10px;\n  border-radius: var(--border-radius);\n  background-color: #fff;\n}\n._zs_gallery_mx-area_index_-provinces ._zs_gallery_mx-area_index_-province ._zs_gallery_mx-area_index_-cities ._zs_gallery_mx-area_index_-city {\n  float: left;\n  width: 48%;\n  height: 32px;\n  margin-right: 2%;\n  line-height: 32px;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n._zs_gallery_mx-area_index_-all {\n  height: 46px;\n  line-height: 46px;\n}\n._zs_gallery_mx-area_index_-area {\n  position: relative;\n  padding-left: 25px;\n}\n._zs_gallery_mx-area_index_-area ._zs_gallery_mx-area_index_-area-name {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 25px;\n  height: 100%;\n  line-height: 46px;\n  font-size: 14px;\n  color: #999;\n  font-weight: bold;\n  font-family: \"Tahoma\";\n}\n._zs_gallery_mx-area_index_-area-half {\n  float: left;\n  width: 50%;\n}\n._zs_gallery_mx-area_index_-area-half ._zs_gallery_mx-area_index_-province {\n  width: 33%;\n  min-width: calc(var(--font-size) * 6 + 28px);\n}\n._zs_gallery_mx-area_index_-tabs {\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab {\n  float: left;\n  margin-bottom: -1px;\n  padding-left: 20px;\n  border-bottom: 1px solid transparent;\n  cursor: pointer;\n}\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab ._zs_gallery_mx-area_index_-tab-check,\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab ._zs_gallery_mx-area_index_-tab-text {\n  float: left;\n  height: 46px;\n  line-height: 46px;\n}\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab ._zs_gallery_mx-area_index_-tab-text {\n  padding-left: 5px;\n  padding-right: 25px;\n}\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab:hover {\n  color: var(--color-brand);\n  transition: color var(--duration);\n}\n._zs_gallery_mx-area_index_-tabs ._zs_gallery_mx-area_index_-tab._zs_gallery_mx-area_index_-cur {\n  color: var(--color-brand);\n  border-bottom: 1px solid var(--color-brand);\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -60,8 +60,8 @@ module.exports = Magix.View.extend({
         $line = 7;
         $art = 'each types as type typeIndex';
         ;
-        $expr = '<%for (var typeIndex = 0, $art_ctkmvkpkdvl$art_c = types.length; typeIndex < $art_ctkmvkpkdvl$art_c; typeIndex++) {        var type = types[typeIndex]%>';
-        for (var typeIndex = 0, $art_ctkmvkpkdvl$art_c = types.length; typeIndex < $art_ctkmvkpkdvl$art_c; typeIndex++) {
+        $expr = '<%for (var typeIndex = 0, $art_coogpsecw$art_c = types.length; typeIndex < $art_coogpsecw$art_c; typeIndex++) {        var type = types[typeIndex]%>';
+        for (var typeIndex = 0, $art_coogpsecw$art_c = types.length; typeIndex < $art_coogpsecw$art_c; typeIndex++) {
             var type = types[typeIndex];
             $p += '<div mxv class="_zs_gallery_mx-area_index_-tab ';
             $line = 8;
@@ -121,8 +121,8 @@ module.exports = Magix.View.extend({
     $line = 21;
     $art = 'each types as type typeIndex';
     ;
-    $expr = '<%for (var typeIndex = 0, $art_cinsjdqy$art_c = types.length; typeIndex < $art_cinsjdqy$art_c; typeIndex++) {    var type = types[typeIndex]%>';
-    for (var typeIndex = 0, $art_cinsjdqy$art_c = types.length; typeIndex < $art_cinsjdqy$art_c; typeIndex++) {
+    $expr = '<%for (var typeIndex = 0, $art_chfcknmyw$art_c = types.length; typeIndex < $art_chfcknmyw$art_c; typeIndex++) {    var type = types[typeIndex]%>';
+    for (var typeIndex = 0, $art_chfcknmyw$art_c = types.length; typeIndex < $art_chfcknmyw$art_c; typeIndex++) {
         var type = types[typeIndex];
         $p += '<div mxv class="';
         $line = 22;
@@ -216,9 +216,9 @@ module.exports = Magix.View.extend({
         $line = 32;
         $art = 'each type.groups as group groupIndex';
         ;
-        $expr = '<%for (var groupIndex = 0, $art_objpvrvrjwue$art_obj = type.groups, $art_chyxkuixc$art_c = $art_objpvrvrjwue$art_obj.length; groupIndex < $art_chyxkuixc$art_c; groupIndex++) {        var group = $art_objpvrvrjwue$art_obj[groupIndex]%>';
-        for (var groupIndex = 0, $art_objpvrvrjwue$art_obj = type.groups, $art_chyxkuixc$art_c = $art_objpvrvrjwue$art_obj.length; groupIndex < $art_chyxkuixc$art_c; groupIndex++) {
-            var group = $art_objpvrvrjwue$art_obj[groupIndex];
+        $expr = '<%for (var groupIndex = 0, $art_objnpfxtdz$art_obj = type.groups, $art_cxoqngmoa$art_c = $art_objnpfxtdz$art_obj.length; groupIndex < $art_cxoqngmoa$art_c; groupIndex++) {        var group = $art_objnpfxtdz$art_obj[groupIndex]%>';
+        for (var groupIndex = 0, $art_objnpfxtdz$art_obj = type.groups, $art_cxoqngmoa$art_c = $art_objnpfxtdz$art_obj.length; groupIndex < $art_cxoqngmoa$art_c; groupIndex++) {
+            var group = $art_objnpfxtdz$art_obj[groupIndex];
             $p += '<div mxv ';
             $line = 33;
             $art = 'if type.half';
@@ -237,8 +237,8 @@ module.exports = Magix.View.extend({
             $line = 34;
             $art = 'each group as area areaIndex';
             ;
-            $expr = '<%for (var areaIndex = 0, $art_cyqzoaxjy$art_c = group.length; areaIndex < $art_cyqzoaxjy$art_c; areaIndex++) {            var area = group[areaIndex]%>';
-            for (var areaIndex = 0, $art_cyqzoaxjy$art_c = group.length; areaIndex < $art_cyqzoaxjy$art_c; areaIndex++) {
+            $expr = '<%for (var areaIndex = 0, $art_cvoedvxpg$art_c = group.length; areaIndex < $art_cvoedvxpg$art_c; areaIndex++) {            var area = group[areaIndex]%>';
+            for (var areaIndex = 0, $art_cvoedvxpg$art_c = group.length; areaIndex < $art_cvoedvxpg$art_c; areaIndex++) {
                 var area = group[areaIndex];
                 $p += ' ';
                 $line = 35;
@@ -262,9 +262,9 @@ module.exports = Magix.View.extend({
                 $line = 40;
                 $art = 'each area.provinces as province';
                 ;
-                $expr = '<%for (var $art_ivkphw$art_i = 0, $art_objqfasmzued$art_obj = area.provinces, $art_ccxcxbksvg$art_c = $art_objqfasmzued$art_obj.length; $art_ivkphw$art_i < $art_ccxcxbksvg$art_c; $art_ivkphw$art_i++) {                var province = $art_objqfasmzued$art_obj[$art_ivkphw$art_i]%>';
-                for (var $art_ivkphw$art_i = 0, $art_objqfasmzued$art_obj = area.provinces, $art_ccxcxbksvg$art_c = $art_objqfasmzued$art_obj.length; $art_ivkphw$art_i < $art_ccxcxbksvg$art_c; $art_ivkphw$art_i++) {
-                    var province = $art_objqfasmzued$art_obj[$art_ivkphw$art_i];
+                $expr = '<%for (var $art_immzceug$art_i = 0, $art_objshcrukirt$art_obj = area.provinces, $art_chkhyfe$art_c = $art_objshcrukirt$art_obj.length; $art_immzceug$art_i < $art_chkhyfe$art_c; $art_immzceug$art_i++) {                var province = $art_objshcrukirt$art_obj[$art_immzceug$art_i]%>';
+                for (var $art_immzceug$art_i = 0, $art_objshcrukirt$art_obj = area.provinces, $art_chkhyfe$art_c = $art_objshcrukirt$art_obj.length; $art_immzceug$art_i < $art_chkhyfe$art_c; $art_immzceug$art_i++) {
+                    var province = $art_objshcrukirt$art_obj[$art_immzceug$art_i];
                     $p += '<div mxv class="_zs_gallery_mx-area_index_-province clearfix" id="';
                     $line = 41;
                     $art = '=viewId';
@@ -387,9 +387,9 @@ module.exports = Magix.View.extend({
                     $line = 53;
                     $art = 'each province.cities as city';
                     ;
-                    $expr = '<%for (var $art_ixdrjssj$art_i = 0, $art_objvlceblg$art_obj = province.cities, $art_ckzvhrjn$art_c = $art_objvlceblg$art_obj.length; $art_ixdrjssj$art_i < $art_ckzvhrjn$art_c; $art_ixdrjssj$art_i++) {                    var city = $art_objvlceblg$art_obj[$art_ixdrjssj$art_i]%>';
-                    for (var $art_ixdrjssj$art_i = 0, $art_objvlceblg$art_obj = province.cities, $art_ckzvhrjn$art_c = $art_objvlceblg$art_obj.length; $art_ixdrjssj$art_i < $art_ckzvhrjn$art_c; $art_ixdrjssj$art_i++) {
-                        var city = $art_objvlceblg$art_obj[$art_ixdrjssj$art_i];
+                    $expr = '<%for (var $art_ikxmmpcgzdj$art_i = 0, $art_objvvnnrsla$art_obj = province.cities, $art_cumwawhj$art_c = $art_objvvnnrsla$art_obj.length; $art_ikxmmpcgzdj$art_i < $art_cumwawhj$art_c; $art_ikxmmpcgzdj$art_i++) {                    var city = $art_objvvnnrsla$art_obj[$art_ikxmmpcgzdj$art_i]%>';
+                    for (var $art_ikxmmpcgzdj$art_i = 0, $art_objvvnnrsla$art_obj = province.cities, $art_cumwawhj$art_c = $art_objvvnnrsla$art_obj.length; $art_ikxmmpcgzdj$art_i < $art_cumwawhj$art_c; $art_ikxmmpcgzdj$art_i++) {
+                        var city = $art_objvvnnrsla$art_obj[$art_ikxmmpcgzdj$art_i];
                         $p += '<label mxv for="';
                         $line = 54;
                         $art = '=viewId';

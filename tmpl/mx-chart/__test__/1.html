@@ -1,15 +1,81 @@
 <div class="example">
-    <div class="eg-content">
-        <mx-footer/>
+        <div class="eg-content">
+            <div class="lh22">图表配置来自chartpark，<a href="#!/all/pro/chartpark" style="color: var(--color-brand);" target="_blank">流程可参考</a></div>
+              
+            <mx-chart chartId="{{@chartId}}" data="{{@chartData}}" style="height: 400px;"></mx-chart>
+        </div>
+        <div class="clearfix">
+            <div class="third1">
+            <div class="eg-desc">
+                <div class="eg-title">HTML Code</div>
+                <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                    mx-success="done({id:1})">
+                    <span class="desc-tip">{{!text1}}</span>
+                    <i class="mc-iconfont desc-icon">&#xe610;</i>
+                </mx-copy>
+                <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-chart 
+    chartId="&#123;&#123;@chartId&#125;&#125;" 
+    data="&#123;&#123;@chartData&#125;&#125;" 
+    style="height: 400px;"
+&gt&lt;/mx-chart/&gt;
+        </pre>
+            </div>
+            <div class="eg-desc">
+                    <div class="eg-title">chartpark 图表配置</div>
+                    <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                        mx-success="done({id:1})">
+                        <span class="desc-tip">{{!text1}}</span>
+                        <i class="mc-iconfont desc-icon">&#xe610;</i>
+                    </mx-copy>
+                    <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+var options = {
+    coord: {
+        type: "rect",
+        xAxis: {
+            field: 'time'
+        }
+    },
+    graphs: [
+        {
+            type: "line",
+            field: ["uv", "pv" ]
+        }
+    ],
+    legend:{}
+};
+            </pre>
+                </div>
+            </div>
+            <div class="eg-desc third2 half-right">
+                    <div class="eg-title">JS Code</div>
+                    <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" mx-success="done({id:2})">
+                        <span class="desc-tip">{{!text3}}</span>
+                        <i class="mc-iconfont desc-icon">&#xe610;</i>
+                    </mx-copy>
+                    <pre mx-view="__test__/hl" id="{{=viewId}}_text_3">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    render() {
+        let chartData = [
+            {"time":"2017-03-21","pv":10,"uv":11,"click":12,"ppc":45},
+            {"time":"2017-03-22","pv":20,"uv":32,"click":14,"ppc":34},
+            {"time":"2017-03-23","pv":30,"uv":15,"click":12,"ppc":65},
+            {"time":"2017-03-24","pv":15,"uv":23,"click":21,"ppc":23},
+            {"time":"2017-03-25","pv":28,"uv":15,"click":15,"ppc":12}
+        ];
+        let chartId = 1;
+        this.updater.digest({
+            chartData,
+            chartId
+        });
+    }
+});
+                </pre>
+            </div>
+        </div>
+    
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-footer/&gt;</pre>
-    </div>
-</div>

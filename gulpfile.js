@@ -99,10 +99,15 @@ combineTool.config({
 });
 
 gulp.task('cleanSrc', () => {
-    return del('./build/src');
+    return del(['./build/src', './build/chartpark']);
 });
 
-gulp.task('combine', ['cleanSrc'], () => {
+gulp.task('chartpark',function(){
+    gulp.src('./chartpark/*')
+        .pipe(gulp.dest('./build/chartpark/'));
+});
+
+gulp.task('combine', ['cleanSrc', 'chartpark'], () => {
     return combineTool.combine().then(() => {
         console.log('complete');
     }).catch(ex => {

@@ -5,25 +5,20 @@ module.exports = Magix.View.extend({
     tmpl: '@index.html',
     render() {
         let options = [{
-            key: 'mode',
-            desc: '页脚类型，简单版（simple）还是复杂版本',
-            type: 'string',
+            key: 'chartId',
+            desc: 'chartpark中的图表id，会根据id自动查找图表的配置',
+            type: 'int',
             def: ''
         }, {
-            key: 'products',
-            desc: '是否需要妈妈产品线信息',
-            type: 'boolean',
-            def: 'false'
+            key: 'data',
+            desc: '绘制图表用到的数据',
+            type: 'Array',
+            def: '[]'
         }, {
-            key: 'width',
-            desc: '产品线信息宽度，products = true时生效',
-            type: 'number',
-            def: '1200'
-        }, {
-            key: 'dark',
-            desc: '产品线信息深底色白字',
-            type: 'boolean',
-            def: 'false'
+            key: 'variables',
+            desc: '该字段的值会覆盖在chartpark中定义的variables',
+            type: 'Object',
+            def: '{}'
         }]
 
         this.updater.digest({
