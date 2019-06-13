@@ -31,6 +31,7 @@
 4. 此时再执行提交到origin可同时提交到两个仓库
 
 ### 添加本仓库的tnpm包发布权限
-1、执行 `tnpm login` 登录tnpm
-2、执行 `tnpm owner add [域账号] @ali/zs-gallery` 即可完成发布权限添加
+1. 执行 `tnpm login` 登录tnpm
+
+2. 执行 `tnpm owner add [域账号] @ali/zs-gallery` 即可完成发布权限添加
 
