@@ -47,9 +47,9 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_itjvmfuvf$art_i = 0, $art_cgvzpdmyinjn$art_c = stepInfos.length; $art_itjvmfuvf$art_i < $art_cgvzpdmyinjn$art_c; $art_itjvmfuvf$art_i++) {    var step = stepInfos[$art_itjvmfuvf$art_i]%>';
-    for (var $art_itjvmfuvf$art_i = 0, $art_cgvzpdmyinjn$art_c = stepInfos.length; $art_itjvmfuvf$art_i < $art_cgvzpdmyinjn$art_c; $art_itjvmfuvf$art_i++) {
-        var step = stepInfos[$art_itjvmfuvf$art_i];
+    $expr = '<%for (var $art_iezmpkdya$art_i = 0, $art_cmqqzrho$art_c = stepInfos.length; $art_iezmpkdya$art_i < $art_cmqqzrho$art_c; $art_iezmpkdya$art_i++) {    var step = stepInfos[$art_iezmpkdya$art_i]%>';
+    for (var $art_iezmpkdya$art_i = 0, $art_cmqqzrho$art_c = stepInfos.length; $art_iezmpkdya$art_i < $art_cmqqzrho$art_c; $art_iezmpkdya$art_i++) {
+        var step = stepInfos[$art_iezmpkdya$art_i];
         $p += '<div class="_zs_gallery_mx-main_index_-main-step ';
         $line = 4;
         $art = 'if (step.index == curStepIndex)';
@@ -143,9 +143,9 @@ module.exports = Magix.View.extend({
             $line = 17;
             $art = 'each step.subs as sub';
             ;
-            $expr = '<%for (var $art_ibbiocaqg$art_i = 0, $art_objcepjhyb$art_obj = step.subs, $art_cfefsyhael$art_c = $art_objcepjhyb$art_obj.length; $art_ibbiocaqg$art_i < $art_cfefsyhael$art_c; $art_ibbiocaqg$art_i++) {            var sub = $art_objcepjhyb$art_obj[$art_ibbiocaqg$art_i]%>';
-            for (var $art_ibbiocaqg$art_i = 0, $art_objcepjhyb$art_obj = step.subs, $art_cfefsyhael$art_c = $art_objcepjhyb$art_obj.length; $art_ibbiocaqg$art_i < $art_cfefsyhael$art_c; $art_ibbiocaqg$art_i++) {
-                var sub = $art_objcepjhyb$art_obj[$art_ibbiocaqg$art_i];
+            $expr = '<%for (var $art_iqdtgpuqqys$art_i = 0, $art_objxdztuxwa$art_obj = step.subs, $art_cjtmisag$art_c = $art_objxdztuxwa$art_obj.length; $art_iqdtgpuqqys$art_i < $art_cjtmisag$art_c; $art_iqdtgpuqqys$art_i++) {            var sub = $art_objxdztuxwa$art_obj[$art_iqdtgpuqqys$art_i]%>';
+            for (var $art_iqdtgpuqqys$art_i = 0, $art_objxdztuxwa$art_obj = step.subs, $art_cjtmisag$art_c = $art_objxdztuxwa$art_obj.length; $art_iqdtgpuqqys$art_i < $art_cjtmisag$art_c; $art_iqdtgpuqqys$art_i++) {
+                var sub = $art_objxdztuxwa$art_obj[$art_iqdtgpuqqys$art_i];
                 $p += '<div mxa="_zs_galleryc%:c" class="_zs_gallery_mx-main_index_-step-sub"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link ';
                 $line = 19;
                 $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))';
@@ -237,9 +237,9 @@ module.exports = Magix.View.extend({
     $line = 42;
     $art = 'each curStepInfo.subs as sub';
     ;
-    $expr = '<%for (var $art_ighchphbdmc$art_i = 0, $art_objfrsjlkayl$art_obj = curStepInfo.subs, $art_cerdnpz$art_c = $art_objfrsjlkayl$art_obj.length; $art_ighchphbdmc$art_i < $art_cerdnpz$art_c; $art_ighchphbdmc$art_i++) {    var sub = $art_objfrsjlkayl$art_obj[$art_ighchphbdmc$art_i]%>';
-    for (var $art_ighchphbdmc$art_i = 0, $art_objfrsjlkayl$art_obj = curStepInfo.subs, $art_cerdnpz$art_c = $art_objfrsjlkayl$art_obj.length; $art_ighchphbdmc$art_i < $art_cerdnpz$art_c; $art_ighchphbdmc$art_i++) {
-        var sub = $art_objfrsjlkayl$art_obj[$art_ighchphbdmc$art_i];
+    $expr = '<%for (var $art_ixtau$art_i = 0, $art_objkpsfkkuj$art_obj = curStepInfo.subs, $art_cgkpaccqnwu$art_c = $art_objkpsfkkuj$art_obj.length; $art_ixtau$art_i < $art_cgkpaccqnwu$art_c; $art_ixtau$art_i++) {    var sub = $art_objkpsfkkuj$art_obj[$art_ixtau$art_i]%>';
+    for (var $art_ixtau$art_i = 0, $art_objkpsfkkuj$art_obj = curStepInfo.subs, $art_cgkpaccqnwu$art_c = $art_objkpsfkkuj$art_obj.length; $art_ixtau$art_i < $art_cgkpaccqnwu$art_c; $art_ixtau$art_i++) {
+        var sub = $art_objkpsfkkuj$art_obj[$art_ixtau$art_i];
         $p += '<div mxv class="_zs_gallery_mx-main_index_-content-box" style="padding-right: ';
         $line = 44;
         $art = '=(curStepInfo.rightWidth + 20)';

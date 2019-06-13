@@ -314,6 +314,11 @@ module.exports = Magix.View.extend({
             }, {
                 name: '数据展示',
                 subs: [{
+                    name: '图表',
+                    tip: 'chartpark图表使用示例',
+                    path: '/chart/index',
+                    icon: '&#xe670;'
+                }, {
                     name: '浮层',
                     tip: 'Magix.View上挂载mxDialog（新开浮层），alert（提醒），confirm（二次确认）',
                     path: '/dialog/index',

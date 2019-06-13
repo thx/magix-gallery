@@ -90,9 +90,9 @@ module.exports = Magix.View.extend({
     $line = 14;
     $art = 'each groups as group';
     ;
-    $expr = '<%for (var $art_ievvmjinp$art_i = 0, $art_cxosfxeqdd$art_c = groups.length; $art_ievvmjinp$art_i < $art_cxosfxeqdd$art_c; $art_ievvmjinp$art_i++) {    var group = groups[$art_ievvmjinp$art_i]%>';
-    for (var $art_ievvmjinp$art_i = 0, $art_cxosfxeqdd$art_c = groups.length; $art_ievvmjinp$art_i < $art_cxosfxeqdd$art_c; $art_ievvmjinp$art_i++) {
-        var group = groups[$art_ievvmjinp$art_i];
+    $expr = '<%for (var $art_imtucgjtn$art_i = 0, $art_cjawljgsd$art_c = groups.length; $art_imtucgjtn$art_i < $art_cjawljgsd$art_c; $art_imtucgjtn$art_i++) {    var group = groups[$art_imtucgjtn$art_i]%>';
+    for (var $art_imtucgjtn$art_i = 0, $art_cjawljgsd$art_c = groups.length; $art_imtucgjtn$art_i < $art_cjawljgsd$art_c; $art_imtucgjtn$art_i++) {
+        var group = groups[$art_imtucgjtn$art_i];
         $p += '<div mxv mxa="_zs_gallerycH:c" class="_zs_gallery_mx-indics_index_-line clearfix">';
         $line = 16;
         $art = 'if group.text';
@@ -115,9 +115,9 @@ module.exports = Magix.View.extend({
         $line = 20;
         $art = 'each group.fields as field';
         ;
-        $expr = '<%for (var $art_iaabxen$art_i = 0, $art_objjjwftmxlw$art_obj = group.fields, $art_cglespfg$art_c = $art_objjjwftmxlw$art_obj.length; $art_iaabxen$art_i < $art_cglespfg$art_c; $art_iaabxen$art_i++) {        var field = $art_objjjwftmxlw$art_obj[$art_iaabxen$art_i]%>';
-        for (var $art_iaabxen$art_i = 0, $art_objjjwftmxlw$art_obj = group.fields, $art_cglespfg$art_c = $art_objjjwftmxlw$art_obj.length; $art_iaabxen$art_i < $art_cglespfg$art_c; $art_iaabxen$art_i++) {
-            var field = $art_objjjwftmxlw$art_obj[$art_iaabxen$art_i];
+        $expr = '<%for (var $art_iqfpnzjurvwh$art_i = 0, $art_objuckqltl$art_obj = group.fields, $art_ctqlavl$art_c = $art_objuckqltl$art_obj.length; $art_iqfpnzjurvwh$art_i < $art_ctqlavl$art_c; $art_iqfpnzjurvwh$art_i++) {        var field = $art_objuckqltl$art_obj[$art_iqfpnzjurvwh$art_i]%>';
+        for (var $art_iqfpnzjurvwh$art_i = 0, $art_objuckqltl$art_obj = group.fields, $art_ctqlavl$art_c = $art_objuckqltl$art_obj.length; $art_iqfpnzjurvwh$art_i < $art_ctqlavl$art_c; $art_iqfpnzjurvwh$art_i++) {
+            var field = $art_objuckqltl$art_obj[$art_iqfpnzjurvwh$art_i];
             $p += '<div mxv class="_zs_gallery_mx-indics_index_-item" style="width: ';
             $line = 21;
             $art = '=width';
@@ -223,9 +223,9 @@ module.exports = Magix.View.extend({
         $line = 49;
         $art = 'each selectedItems as s';
         ;
-        $expr = '<%for (var $art_imhbmlflrnr$art_i = 0, $art_cnmzlgjxe$art_c = selectedItems.length; $art_imhbmlflrnr$art_i < $art_cnmzlgjxe$art_c; $art_imhbmlflrnr$art_i++) {        var s = selectedItems[$art_imhbmlflrnr$art_i]%>';
-        for (var $art_imhbmlflrnr$art_i = 0, $art_cnmzlgjxe$art_c = selectedItems.length; $art_imhbmlflrnr$art_i < $art_cnmzlgjxe$art_c; $art_imhbmlflrnr$art_i++) {
-            var s = selectedItems[$art_imhbmlflrnr$art_i];
+        $expr = '<%for (var $art_iihkoyaj$art_i = 0, $art_cckphgit$art_c = selectedItems.length; $art_iihkoyaj$art_i < $art_cckphgit$art_c; $art_iihkoyaj$art_i++) {        var s = selectedItems[$art_iihkoyaj$art_i]%>';
+        for (var $art_iihkoyaj$art_i = 0, $art_cckphgit$art_c = selectedItems.length; $art_iihkoyaj$art_i < $art_cckphgit$art_c; $art_iihkoyaj$art_i++) {
+            var s = selectedItems[$art_iihkoyaj$art_i];
             $p += '<div class="_zs_gallery_mx-indics_index_-drag" data-value="';
             $line = 50;
             $art = '=s.value';

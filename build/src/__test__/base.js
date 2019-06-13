@@ -71,9 +71,9 @@ module.exports = Magix.View.extend({
     $line = 36;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_iixfi$art_i = 0, $art_cmtqh$art_c = headers.length; $art_iixfi$art_i < $art_cmtqh$art_c; $art_iixfi$art_i++) {    var h = headers[$art_iixfi$art_i]%>';
-    for (var $art_iixfi$art_i = 0, $art_cmtqh$art_c = headers.length; $art_iixfi$art_i < $art_cmtqh$art_c; $art_iixfi$art_i++) {
-        var h = headers[$art_iixfi$art_i];
+    $expr = '<%for (var $art_ikcutagyzkz$art_i = 0, $art_cdmqqhal$art_c = headers.length; $art_ikcutagyzkz$art_i < $art_cdmqqhal$art_c; $art_ikcutagyzkz$art_i++) {    var h = headers[$art_ikcutagyzkz$art_i]%>';
+    for (var $art_ikcutagyzkz$art_i = 0, $art_cdmqqhal$art_c = headers.length; $art_ikcutagyzkz$art_i < $art_cdmqqhal$art_c; $art_ikcutagyzkz$art_i++) {
+        var h = headers[$art_ikcutagyzkz$art_i];
         $p += '<a ';
         $line = 37;
         $art = 'if h.new';
@@ -201,9 +201,9 @@ module.exports = Magix.View.extend({
     $line = 51;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_icyezafrilj$art_i = 0, $art_cwafzbosu$art_c = list.length; $art_icyezafrilj$art_i < $art_cwafzbosu$art_c; $art_icyezafrilj$art_i++) {    var item = list[$art_icyezafrilj$art_i]%>';
-    for (var $art_icyezafrilj$art_i = 0, $art_cwafzbosu$art_c = list.length; $art_icyezafrilj$art_i < $art_cwafzbosu$art_c; $art_icyezafrilj$art_i++) {
-        var item = list[$art_icyezafrilj$art_i];
+    $expr = '<%for (var $art_inyvaxbb$art_i = 0, $art_ctcjsivdzl$art_c = list.length; $art_inyvaxbb$art_i < $art_ctcjsivdzl$art_c; $art_inyvaxbb$art_i++) {    var item = list[$art_inyvaxbb$art_i]%>';
+    for (var $art_inyvaxbb$art_i = 0, $art_ctcjsivdzl$art_c = list.length; $art_inyvaxbb$art_i < $art_ctcjsivdzl$art_c; $art_inyvaxbb$art_i++) {
+        var item = list[$art_inyvaxbb$art_i];
         $p += ' ';
         $line = 52;
         $art = 'if item.name';
@@ -244,9 +244,9 @@ module.exports = Magix.View.extend({
         $line = 59;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_iztnvnxoo$art_i = 0, $art_objazjixwpg$art_obj = item.subs, $art_cadugntius$art_c = $art_objazjixwpg$art_obj.length; $art_iztnvnxoo$art_i < $art_cadugntius$art_c; $art_iztnvnxoo$art_i++) {        var sub = $art_objazjixwpg$art_obj[$art_iztnvnxoo$art_i]%>';
-        for (var $art_iztnvnxoo$art_i = 0, $art_objazjixwpg$art_obj = item.subs, $art_cadugntius$art_c = $art_objazjixwpg$art_obj.length; $art_iztnvnxoo$art_i < $art_cadugntius$art_c; $art_iztnvnxoo$art_i++) {
-            var sub = $art_objazjixwpg$art_obj[$art_iztnvnxoo$art_i];
+        $expr = '<%for (var $art_iucbzznahus$art_i = 0, $art_objrhhxuylrjd$art_obj = item.subs, $art_chqcivkz$art_c = $art_objrhhxuylrjd$art_obj.length; $art_iucbzznahus$art_i < $art_chqcivkz$art_c; $art_iucbzznahus$art_i++) {        var sub = $art_objrhhxuylrjd$art_obj[$art_iucbzznahus$art_i]%>';
+        for (var $art_iucbzznahus$art_i = 0, $art_objrhhxuylrjd$art_obj = item.subs, $art_chqcivkz$art_c = $art_objrhhxuylrjd$art_obj.length; $art_iucbzznahus$art_i < $art_chqcivkz$art_c; $art_iucbzznahus$art_i++) {
+            var sub = $art_objrhhxuylrjd$art_obj[$art_iucbzznahus$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 60;
             $art = 'if (sub.path == path)';
@@ -715,6 +715,11 @@ catch (ex) {
                     }, {
                         name: '数据展示',
                         subs: [{
+                                name: '图表',
+                                tip: 'chartpark图表使用示例',
+                                path: '/chart/index',
+                                icon: '&#xe670;'
+                            }, {
                                 name: '浮层',
                                 tip: 'Magix.View上挂载mxDialog（新开浮层），alert（提醒），confirm（二次确认）',
                                 path: '/dialog/index',

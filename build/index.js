@@ -17,6 +17,7 @@ let coms = [
     'wanxiang',
     'copy',
     'dialog',
+    'chart',
     'error',
     'dropdown',
     'dragsort',
