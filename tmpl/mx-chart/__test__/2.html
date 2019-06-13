@@ -22,6 +22,7 @@
 &lt;mx-chart 
     chartId="&#123;&#123;@chartId&#125;&#125;" 
     data="&#123;&#123;@chartData&#125;&#125;" 
+    variables="&#123;&#123;@variables&#125;&#125;"
     style="height: 400px;"
 &gt&lt;/mx-chart/&gt;
         </pre>
@@ -96,7 +97,7 @@ module.exports = Magix.View.extend({
         // 触发
         this.updater.digest({
             variables: {
-                yField: e.value
+                yField: e.value // 保持变量名称一致
             }
         });
     }
