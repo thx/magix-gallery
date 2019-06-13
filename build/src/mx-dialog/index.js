@@ -1,1 +1,708 @@
-define("mx-dialog/index",["magix","$","../mx-medusa/util","mx-popover/index"],(a,e,t)=>{a("mx-popover/index");var r=a("magix"),l=a("$"),n=r.Vframe,i=a("../mx-medusa/util");r.applyStyle("_zs_galleryC",'._zs_gallerydJ,._zs_gallerydK{position:fixed;left:0;width:100%;height:100%;transition:all var(--duration)}._zs_gallerydJ{opacity:0;top:0;background-color:rgba(0,0,0,.4)}._zs_gallerydJ._zs_gallerydL{opacity:1}._zs_gallerydM{position:absolute;border-radius:var(--border-radius);background-color:#fff;box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_gallerydM ._zs_gallerydN{position:relative;word-break:break-all}._zs_gallerydM ._zs_gallerydO{position:absolute;top:16px;right:24px;width:26px;height:26px;z-index:20;border-radius:50%;background:transparent;color:#ccc;text-align:center}._zs_gallerydM ._zs_gallerydO ._zs_gallerydP{font-size:18px;font-weight:700;line-height:26px}._zs_gallerydM ._zs_gallerydO:focus,._zs_gallerydM ._zs_gallerydO:hover{background-color:#999;color:#fff}._zs_gallerydM._zs_gallerydQ{border-radius:0}@-webkit-keyframes _zs_gallerya{0%{-webkit-transform:translate(0);transform:translate(0)}25%{-webkit-transform:translateY(2px);transform:translateY(2px)}50%{-webkit-transform:translate(0);transform:translate(0)}75%{-webkit-transform:translateY(-2px);transform:translateY(-2px)}to{-webkit-transform:translate(0);transform:translate(0)}}@keyframes _zs_gallerya{0%{-webkit-transform:translate(0);transform:translate(0)}25%{-webkit-transform:translateY(2px);transform:translateY(2px)}50%{-webkit-transform:translate(0);transform:translate(0)}75%{-webkit-transform:translateY(-2px);transform:translateY(-2px)}to{-webkit-transform:translate(0);transform:translate(0)}}@-webkit-keyframes _zs_galleryb{0%{-webkit-transform:translate(0);transform:translate(0)}25%{-webkit-transform:translateY(-2px);transform:translateY(-2px)}50%{-webkit-transform:translate(0);transform:translate(0)}75%{-webkit-transform:translateY(2px);transform:translateY(2px)}to{-webkit-transform:translate(0);transform:translate(0)}}@keyframes _zs_galleryb{0%{-webkit-transform:translate(0);transform:translate(0)}25%{-webkit-transform:translateY(-2px);transform:translateY(-2px)}50%{-webkit-transform:translate(0);transform:translate(0)}75%{-webkit-transform:translateY(2px);transform:translateY(2px)}to{-webkit-transform:translate(0);transform:translate(0)}}._zs_gallerydR,._zs_gallerydR:after,._zs_gallerydR:before{display:inline-block;width:4px;height:4px;background-color:#fff;vertical-align:middle;border-radius:50%}._zs_gallerydR{position:relative;margin:0 8px}._zs_gallerydR:after{content:" ";position:absolute;left:-8px;top:0;-webkit-animation:_zs_gallerya .6s linear 0s infinite;animation:_zs_gallerya .6s linear 0s infinite}._zs_gallerydR:before{content:" ";position:absolute;left:8px;top:0;-webkit-animation:_zs_galleryb .6s linear 0s infinite;animation:_zs_galleryb .6s linear 0s infinite}._zs_gallerydS{position:relative}._zs_gallerydS ._zs_gallerydT{opacity:1;position:relative;z-index:1}._zs_gallerydS ._zs_gallerydU{display:none;position:absolute;top:0;left:0;z-index:2;width:100%;height:100%}._zs_gallerydS._zs_gallerydV ._zs_gallerydT{opacity:0}._zs_gallerydS._zs_gallerydV ._zs_gallerydU{display:inline}');var s=500,o=[];t.exports=r.View.extend({tmpl:function(a,e,t,r,l,n,i,s){if(t||(t=a),!l){var o={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},d=/[&<>"'`]/g,c=function(a){return"&"+o[a]+";"};l=function(a){return""+(null==a?"":a)},r=function(a){return l(a).replace(d,c)}}if(!n){var _={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},f=function(a){return _[a]},g=/[!')(*]/g;n=function(a){return encodeURIComponent(l(a)).replace(g,f)}}if(!s){var p=/[\\'"]/g;s=function(a){return l(a).replace(p,"\\$&")}}var m="",u=a.closable,y=a.cntId,x=a.full,h=a.fullHeader,b=a.fullFooter;return u&&(m+='<a mxs="_zs_galleryaW:_" href="javascript:;" mx-click="'+e+'__aL()" class="_zs_gallerydO"><i class="mc-iconfont _zs_gallerydP">&#xe603;</i></a>'),m+='<div class="_zs_gallerydN" id="'+r(y)+'_content">',x?(m+=" ",h.title&&(m+='<div class="dialog-header" id="'+r(y)+'_header"><span mxa="_zs_galleryaW:_" class="header-name">'+l(h.title)+"</span>",h.iconTip&&(m+='<i class="mc-iconfont color-c displacement-2" mx-view="mx-popover/index?content='+n(h.iconTip)+'">&#xe7aa;</i>'),m+=" ",h.tip&&(m+='<span mxa="_zs_galleryaW:a" class="color-9 ml10">'+l(h.tip)+"</span>"),m+="</div>"),m+='<div id="'+r(y)+'"><div mxs="_zs_galleryaW:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>',(b.enter||b.cancel)&&(m+='<div class="dialog-footer clearfix" id="'+r(y)+'_footer">',b.enter&&(m+='<a mxa="_zs_galleryaW:b" href="javascript:;" class="fl btn btn-brand min-width-60 mr10 _zs_gallerydS" mx-click="'+e+'__aM()"><span mxa="_zs_galleryaW:c" class="_zs_gallerydT">'+l(b.enterText)+"</span></a>"),m+=" ",b.cancel&&(m+='<a mxa="_zs_galleryaW:d" href="javascript:;" class="fl btn min-width-60 mr10" mx-click="'+e+'__aL()">'+l(b.cancelText)+"</a>"),m+=" ",b.enter&&(m+='<span id="'+r(y)+'_footer_error" class="fl lh32 color-red"></span>'),m+="</div>"),m+=" "):m+='<div id="'+r(y)+'"><div mxs="_zs_galleryaW:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>',m+="</div>"},init:function(a){var e=this;e.on("destroy",function(){!function(a){for(var e=o.length-1;e>=0;e--)if(o[e].id==a.id){o.splice(e,1);break}}(e),s-=2,l("#"+e.id).trigger("dlg_close"),e.__aI&&clearTimeout(e.__aI)}),s+=2,o.push(e),r.has(a,"closable")||(a.closable=!0),e.updater.set(r.mix({cntId:"cnt_"+e.id},a))},render:function(){var a=this,e=a.updater,t=e.get();e.digest(),setTimeout(a.wrapAsync(function(){var e=l("#wrapper_"+a.id);e.css(t.posTo),a.__aJ();var n=t.cntId,i=l("#mask_"+a.id);i.length>0?i.addClass("_zs_gallerydL"):e.on("click",function(e){r.inside(e.target,n+"_content")||l("#"+a.id).trigger("dlg_close")}),a.owner.mountVframe(n,t.view,t),e.on("scroll",function(){l(document).trigger("dialogScolll")})}),250)},__aJ:function(){var a=this.updater.get(),e=a.cntId;if(a.full){var t=window.innerHeight,r=l("#"+e+"_header"),n=l("#"+e+"_footer");r&&r.length&&(t-=r.outerHeight()),n&&n.length&&(t-=n.outerHeight());var i={height:t-2,overflowY:"auto"};a.card&&(i.backgroundColor="#e8ebf2",i.padding="16px 24px"),l("#"+e).css(i)}},__aK:function(a){var e=n.get("cnt_"+this.id);e&&e.invoke("fire",["unload",a])},"__aM<click>":function(a){var e=l(a.eventTarget),t="_zs_gallerydV";if(!e.hasClass(t)){e.addClass(t),e.append('<span class="_zs_gallerydU">\n            <span class="_zs_gallerydR"></span>\n        </span>');var r=this,i=r.updater.get(),s=i.cntId;n.get(s).invoke("check").then(function(a){e.find("._zs_gallerydU").remove(),e.removeClass(t);var n=l("#"+s+"_footer_error");a.ok?(n.html(""),r["__aL<click>"](),i.callback&&i.callback(a.data||{})):a.msg?n.html('<i class="mc-iconfont displacement-2">&#xe6ad;</i>'+a.msg):n.html("")})}},"__aL<click>":function(){l("#"+this.id).trigger("dlg_close")},"$doc<keyup>":function(a){if(27==a.keyCode){var e=o[o.length-1];if(e==this&&e.updater.get("closable"))l("#"+e.id).trigger("dlg_close")}},"$win<resize>":function(a){var e=this;e.__aI&&clearTimeout(e.__aI),e.__aI=setTimeout(e.wrapAsync(function(){e.__aJ()}),200)}},{__aN:function(a,e){var t=r.guid("dlg_");if(e.mask){var n=l('<div class="_zs_gallerydJ" id="mask_'+t+'" />');n.css({zIndex:s-1}),l(document.body).append(n)}var i="wrapper_"+t,d=s,c=e.width,_=e.left,f=e.top,g=l('<div class="_zs_gallerydK" id="'+i+'"\nstyle="z-index:'+d+'">\n<div class="_zs_gallerydM '+(e.full?"_zs_gallerydQ":"")+'" id="'+t+'"\n    style="top:'+f+"px; left:"+_+"px; width:"+c+'px;"></div>\n</div>');g.css(e.posFrom),l(document.body).append(g),window.innerWidth-document.body.clientWidth>0&&(document.body.style.paddingRight=window.innerWidth-document.body.clientWidth+"px"),document.body.style.overflowY="hidden",g.css({overflowY:e.modal?"hidden":"auto"});var p,m=a.owner.mountVframe(t,"mx-dialog/index",e),u=l("#"+t);return u.on("dlg_close",function(){u.data("closed")||u.trigger({type:"beforeClose",closeFn:function(){if(!u.data("closing")&&!p){var r=function(){u.data("closing",1),l("#wrapper_"+t).css(e.posFrom),l("#mask_"+t).removeClass("_zs_gallerydL"),setTimeout(function(){u.trigger("close"),u.data("closed",1),a.owner&&a.owner.unmountVframe(t),l("#wrapper_"+t).remove(),l("#mask_"+t).remove(),0==o.length&&(document.body.style.paddingRight="",document.body.style.overflowY="")},250)},n={prevent:function(){p=1},resolve:function(){n.p=1,p=0,r()},reject:function(){n.p=1,p=0}};m.invoke("__aK",[n]),p||n.p||r()}}})})},alert:function(a,e,t,l){var n=(l=l||{}).btns+""!="false";return this.mxDialog("mx-dialog/alert",{title:a,content:e,enterCallback:t,hasBtns:n},r.mix({width:320,closable:!1,mask:!1},l))},confirm:function(a,e){return this.mxDialog("mx-dialog/confirm",a,r.mix({width:320,closable:!1,mask:!1},e||{}))},mxModal:function(a,e,t){return t=t||{},this.mxDialog(a,e,r.mix({closable:!0,mask:!0},r.mix(t,{full:!0,fullHeader:r.mix({title:"",tip:"",iconTip:""},t.header||{}),fullFooter:r.mix({enter:!0,enterText:i["dialog.submit"],cancel:!0,cancelText:i["dialog.cancel"]},t.footer||{}),modal:!1,height:window.innerHeight,placement:"right",card:t.card+""!="false"})))},mxDialog:function(a,e,t){var n,i,s,o=this,d={beforeClose:function(a){i=a},close:function(){n&&n.trigger("dlg_close")},afterClose:function(a){s=a}},c={view:a};return seajs.use(a,o.wrapAsync(function(_){var f="$dlg_"+a;if(!o[f]){o[f]=1;var g,p,m,u,y=_.dialogOptions||{},x=(t=t||{}).placement||y.placement||"center",h=t.width||y.width||400,b=t.height||y.height||260,v=window.innerWidth,w=window.innerHeight,z=t.target||y.target;if(z){var k=void 0;k="string"!=typeof z||/^#/.test(z)||/^\./.test(z)?l(z):l("#"+z);var Y=t.offset||y.offset||{};Y.top=+Y.top||0,Y.left=+Y.left||0;var T=k.offset();p=T.top+k.outerHeight()+10-l(window).scrollTop()+Y.top,g=T.left-(h-k.outerWidth())/2+Y.left,m={opacity:0,top:"-50px"},u={opacity:1,top:0}}else switch(x){case"center":g=(v-h)/2,p=Math.max((w-b)/2,0),m={opacity:0,top:"-50px"},u={opacity:1,top:0};break;case"right":g=v-h,p=0,m={opacity:0,top:0,left:v},u={opacity:1,top:0,left:0}}r.mix(c,{mask:!0,modal:!1,width:h,closable:!0,left:g,top:p,posFrom:m,posTo:u},y,t),r.mix(c,e),c.dialog=d,(n=o.__aN(o,c)).on("beforeClose",function(a){(!i||i&&i())&&a.closeFn()}),n.on("close",function(){delete o[f],s&&s()})}})),d},mxCloseAllDialogs:function(){o.forEach(function(a){var e=l("#"+a.id);e&&e.trigger("dlg_close")})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-dialog/index",["magix","$","../mx-medusa/util","mx-popover/index"],(require,exports,module)=>{
+/*Magix,$,I18n*/
+require("mx-popover/index");
+var Magix = require("magix");
+var $ = require("$");
+var Vframe = Magix.Vframe;
+var I18n = require("../mx-medusa/util");
+Magix.applyStyle("_zs_gallery_mx-dialog_index_","._zs_gallery_mx-dialog_index_-dialog-backdrop,\n._zs_gallery_mx-dialog_index_-dialog-wrapper {\n  position: fixed;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop {\n  opacity: 0;\n  top: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop._zs_gallery_mx-dialog_index_-backdrop-out {\n  opacity: 1;\n}\n._zs_gallery_mx-dialog_index_-dialog {\n  position: absolute;\n  border-radius: var(--border-radius);\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-content {\n  position: relative;\n  word-break: break-all;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  width: 26px;\n  height: 26px;\n  z-index: 20;\n  border-radius: 50%;\n  background: transparent;\n  color: #ccc;\n  text-align: center;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close ._zs_gallery_mx-dialog_index_-iconfont-ext {\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 26px;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:hover,\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:focus {\n  background-color: #999;\n  color: #fff;\n}\n._zs_gallery_mx-dialog_index_-dialog._zs_gallery_mx-dialog_index_-full {\n  border-radius: 0;\n}\n/**\n * 按钮中间的loading点动画\n */\n@-webkit-keyframes _zs_gallery_mx-dialog_index_-loading-dots {\n  0% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  25% {\n    -webkit-transform: translate(0, 2px);\n            transform: translate(0, 2px);\n  }\n  50% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  75% {\n    -webkit-transform: translate(0, -2px);\n            transform: translate(0, -2px);\n  }\n  100% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n}\n@keyframes _zs_gallery_mx-dialog_index_-loading-dots {\n  0% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  25% {\n    -webkit-transform: translate(0, 2px);\n            transform: translate(0, 2px);\n  }\n  50% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  75% {\n    -webkit-transform: translate(0, -2px);\n            transform: translate(0, -2px);\n  }\n  100% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-dialog_index_-loading-dots-rev {\n  0% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  25% {\n    -webkit-transform: translate(0, -2px);\n            transform: translate(0, -2px);\n  }\n  50% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  75% {\n    -webkit-transform: translate(0, 2px);\n            transform: translate(0, 2px);\n  }\n  100% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n}\n@keyframes _zs_gallery_mx-dialog_index_-loading-dots-rev {\n  0% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  25% {\n    -webkit-transform: translate(0, -2px);\n            transform: translate(0, -2px);\n  }\n  50% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n  75% {\n    -webkit-transform: translate(0, 2px);\n            transform: translate(0, 2px);\n  }\n  100% {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n}\n._zs_gallery_mx-dialog_index_-loading-dot,\n._zs_gallery_mx-dialog_index_-loading-dot:after,\n._zs_gallery_mx-dialog_index_-loading-dot:before {\n  display: inline-block;\n  width: 4px;\n  height: 4px;\n  background-color: white;\n  vertical-align: middle;\n  border-radius: 50%;\n}\n._zs_gallery_mx-dialog_index_-loading-dot {\n  position: relative;\n  margin: 0 8px;\n}\n._zs_gallery_mx-dialog_index_-loading-dot:after {\n  content: ' ';\n  position: absolute;\n  left: -8px;\n  top: 0;\n  -webkit-animation: _zs_gallery_mx-dialog_index_-loading-dots 0.6s linear 0s infinite;\n          animation: _zs_gallery_mx-dialog_index_-loading-dots 0.6s linear 0s infinite;\n}\n._zs_gallery_mx-dialog_index_-loading-dot:before {\n  content: ' ';\n  position: absolute;\n  left: 8px;\n  top: 0;\n  -webkit-animation: _zs_gallery_mx-dialog_index_-loading-dots-rev 0.6s linear 0s infinite;\n          animation: _zs_gallery_mx-dialog_index_-loading-dots-rev 0.6s linear 0s infinite;\n}\n._zs_gallery_mx-dialog_index_-btn-submit {\n  position: relative;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 1;\n  position: relative;\n  z-index: 1;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: none;\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: inline;\n}\n");
+var DialogZIndex = 500;
+var Duration = 250;
+var CacheList = [];
+var RemoveCache = function (view) {
+    for (var i = CacheList.length - 1, one = void 0; i >= 0; i--) {
+        one = CacheList[i];
+        if (one.id == view.id) {
+            CacheList.splice(i, 1);
+            break;
+        }
+    }
+};
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', closable = $$.closable, cntId = $$.cntId, full = $$.full, fullHeader = $$.fullHeader, fullFooter = $$.fullFooter; var $expr, $art, $line; try {
+    $line = 1;
+    $art = 'if closable';
+    ;
+    $expr = '<%if (closable) {%>';
+    if (closable) {
+        ;
+        $p += '<a mxs="_zs_galleryaW:_" href="javascript:;" mx-click="' + $viewId + '@{close}()" class="_zs_gallery_mx-dialog_index_-dialog-close"><i class="mc-iconfont _zs_gallery_mx-dialog_index_-iconfont-ext">&#xe603;</i></a>';
+        $line = 5;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '<div class="_zs_gallery_mx-dialog_index_-dialog-content" id="';
+    $line = 6;
+    $art = '=cntId';
+    ;
+    $p += ($expr = '<%=cntId%>', $e(cntId)) + '_content">';
+    $line = 7;
+    $art = 'if full';
+    ;
+    $expr = '<%if (full) {%>';
+    if (full) {
+        ;
+        $p += ' ';
+        $line = 10;
+        $art = 'if fullHeader.title';
+        ;
+        $expr = '<%if (fullHeader.title) {%>';
+        if (fullHeader.title) {
+            ;
+            $p += '<div class="dialog-header" id="';
+            $line = 11;
+            $art = '=cntId';
+            ;
+            $p += ($expr = '<%=cntId%>', $e(cntId)) + '_header"><span mxa="_zs_galleryaW:_" class="header-name">';
+            $line = 12;
+            $art = '!fullHeader.title';
+            ;
+            $p += ($expr = '<%!fullHeader.title%>', $n(fullHeader.title)) + '</span>';
+            $line = 13;
+            $art = 'if fullHeader.iconTip';
+            ;
+            $expr = '<%if (fullHeader.iconTip) {%>';
+            if (fullHeader.iconTip) {
+                ;
+                $p += '<i class="mc-iconfont color-c displacement-2" mx-view="mx-popover/index?content=';
+                $line = 17;
+                $art = '=fullHeader.iconTip';
+                ;
+                $p += ($expr = '<%!$eu(fullHeader.iconTip)%>', $eu(fullHeader.iconTip)) + '">&#xe7aa;</i>';
+                $line = 18;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 20;
+            $art = 'if fullHeader.tip';
+            ;
+            $expr = '<%if (fullHeader.tip) {%>';
+            if (fullHeader.tip) {
+                ;
+                $p += '<span mxa="_zs_galleryaW:a" class="color-9 ml10">';
+                $line = 21;
+                $art = '!fullHeader.tip';
+                ;
+                $p += ($expr = '<%!fullHeader.tip%>', $n(fullHeader.tip)) + '</span>';
+                $line = 22;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '</div>';
+            $line = 24;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '<div id="';
+        $line = 26;
+        $art = '=cntId';
+        ;
+        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryaW:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+        $line = 32;
+        $art = 'if (fullFooter.enter || fullFooter.cancel)';
+        ;
+        $expr = '<%if (fullFooter.enter || fullFooter.cancel) {%>';
+        if (fullFooter.enter || fullFooter.cancel) {
+            ;
+            $p += '<div class="dialog-footer clearfix" id="';
+            $line = 33;
+            $art = '=cntId';
+            ;
+            $p += ($expr = '<%=cntId%>', $e(cntId)) + '_footer">';
+            $line = 34;
+            $art = 'if fullFooter.enter';
+            ;
+            $expr = '<%if (fullFooter.enter) {%>';
+            if (fullFooter.enter) {
+                ;
+                $p += '<a mxa="_zs_galleryaW:b" href="javascript:;" class="fl btn btn-brand min-width-60 mr10 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_galleryaW:c" class="_zs_gallery_mx-dialog_index_-submit-text">';
+                $line = 36;
+                $art = '!fullFooter.enterText';
+                ;
+                $p += ($expr = '<%!fullFooter.enterText%>', $n(fullFooter.enterText)) + '</span></a>';
+                $line = 38;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 40;
+            $art = 'if fullFooter.cancel';
+            ;
+            $expr = '<%if (fullFooter.cancel) {%>';
+            if (fullFooter.cancel) {
+                ;
+                $p += '<a mxa="_zs_galleryaW:d" href="javascript:;" class="fl btn min-width-60 mr10" mx-click="' + $viewId + '@{close}()">';
+                $line = 41;
+                $art = '!fullFooter.cancelText';
+                ;
+                $p += ($expr = '<%!fullFooter.cancelText%>', $n(fullFooter.cancelText)) + '</a>';
+                $line = 42;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 44;
+            $art = 'if fullFooter.enter';
+            ;
+            $expr = '<%if (fullFooter.enter) {%>';
+            if (fullFooter.enter) {
+                ;
+                $p += '<span id="';
+                $line = 45;
+                $art = '=cntId';
+                ;
+                $p += ($expr = '<%=cntId%>', $e(cntId)) + '_footer_error" class="fl lh32 color-red"></span>';
+                $line = 46;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '</div>';
+            $line = 48;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 49;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '<div id="';
+        $line = 51;
+        $art = '=cntId';
+        ;
+        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_galleryaW:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+        $line = 54;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dialog/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var me = this;
+        me.on('destroy', function () {
+            RemoveCache(me);
+            // 2 dialog + mask
+            DialogZIndex -= 2;
+            // 存在非手动关闭浮层的情况，比如浮层中有一个按钮从本页面跳走
+            // 这时候需要关闭浮层
+            $('#' + me.id).trigger('dlg_close');
+            if (me['@{search.timer}']) {
+                clearTimeout(me['@{search.timer}']);
+            }
+        });
+        DialogZIndex += 2;
+        CacheList.push(me);
+        if (!Magix.has(extra, 'closable')) {
+            extra.closable = true;
+        }
+        me.updater.set(Magix.mix({
+            cntId: 'cnt_' + me.id
+        }, extra));
+    },
+    render: function () {
+        var me = this;
+        var updater = me.updater;
+        var data = updater.get();
+        updater.digest();
+        setTimeout(me.wrapAsync(function () {
+            var wrapper = $('#wrapper_' + me.id);
+            wrapper.css(data.posTo);
+            // 全屏样式
+            me['@{sync.full.style}']();
+            var cntId = data.cntId;
+            var mask = $('#mask_' + me.id);
+            if (mask.length > 0) {
+                mask.addClass('_zs_gallery_mx-dialog_index_-backdrop-out');
+            }
+            else {
+                // 没有mask的时候，点击空白处关闭浮层
+                wrapper.on('click', function (e) {
+                    if (!Magix.inside(e.target, cntId + '_content')) {
+                        $('#' + me.id).trigger('dlg_close');
+                    }
+                });
+            }
+            me.owner.mountVframe(cntId, data.view, data);
+            wrapper.on('scroll', function () {
+                // popover追加到body，滚动时通知节点改动定位
+                $(document).trigger('dialogScolll');
+            });
+        }), Duration);
+    },
+    '@{sync.full.style}': function () {
+        var data = this.updater.get();
+        var cntId = data.cntId;
+        if (data.full) {
+            var h = window.innerHeight;
+            var fh = $('#' + cntId + '_header'), ff = $('#' + cntId + '_footer');
+            if (fh && fh.length) {
+                h -= fh.outerHeight();
+            }
+            if (ff && ff.length) {
+                h -= ff.outerHeight();
+            }
+            // 全屏右出浮层
+            var fcss = {
+                height: h - 2,
+                overflowY: 'auto'
+            };
+            if (data.card) {
+                fcss.backgroundColor = '#e8ebf2';
+                fcss.padding = '16px 24px';
+            }
+            $('#' + cntId).css(fcss);
+        }
+    },
+    '@{notify.main.view.unload}': function (e) {
+        var vf = Vframe.get('cnt_' + this.id);
+        vf && vf.invoke('fire', ['unload', e]);
+    },
+    /**
+     * 全屏右出浮层提交按钮
+     */
+    '@{submit}<click>': function (e) {
+        var node = $(e.eventTarget);
+        var cc = '_zs_gallery_mx-dialog_index_-btn-submit-loading';
+        if (node.hasClass(cc)) {
+            // 防止重复提交
+            return;
+        }
+        node.addClass(cc);
+        node.append("<span class=\"_zs_gallery_mx-dialog_index_-submit-loading\">\n            <span class=\"_zs_gallery_mx-dialog_index_-loading-dot\"></span>\n        </span>");
+        var me = this;
+        var data = me.updater.get();
+        var cntId = data.cntId;
+        var vf = Vframe.get(cntId);
+        vf.invoke('check').then(function (result) {
+            node.find('._zs_gallery_mx-dialog_index_-submit-loading').remove();
+            node.removeClass(cc);
+            var errorNode = $('#' + cntId + '_footer_error');
+            if (result.ok) {
+                errorNode.html('');
+                me['@{close}<click>']();
+                if (data.callback) {
+                    data.callback(result.data || {});
+                }
+            }
+            else {
+                if (result.msg) {
+                    errorNode.html("<i class=\"mc-iconfont displacement-2\">&#xe6ad;</i>" + result.msg);
+                }
+                else {
+                    errorNode.html('');
+                }
+            }
+        });
+    },
+    '@{close}<click>': function () {
+        $('#' + this.id).trigger('dlg_close');
+    },
+    '$doc<keyup>': function (e) {
+        if (e.keyCode == 27) {
+            var dlg = CacheList[CacheList.length - 1];
+            if (dlg == this && dlg.updater.get('closable')) {
+                var node = $('#' + dlg.id);
+                node.trigger('dlg_close');
+            }
+        }
+    },
+    '$win<resize>': function (e) {
+        var me = this;
+        if (me['@{search.timer}']) {
+            clearTimeout(me['@{search.timer}']);
+        }
+        me['@{search.timer}'] = setTimeout(me.wrapAsync(function () {
+            me['@{sync.full.style}']();
+        }), 200);
+    }
+}, {
+    '@{dialog.show}': function (view, options) {
+        var id = Magix.guid('dlg_');
+        if (options.mask) {
+            var mask = $('<div class="_zs_gallery_mx-dialog_index_-dialog-backdrop" id="mask_' + id + '" />');
+            mask.css({
+                zIndex: DialogZIndex - 1
+            });
+            $(document.body).append(mask);
+        }
+        var wrapperId = 'wrapper_' + id, wrapperZIndex = DialogZIndex, width = options.width, left = options.left, top = options.top;
+        // 全屏右出浮层不需要圆角
+        var wrapper = $("<div class=\"_zs_gallery_mx-dialog_index_-dialog-wrapper\" \n            id=\"" + wrapperId + "\" \n            style=\"z-index:" + wrapperZIndex + "\">\n            <div class=\"_zs_gallery_mx-dialog_index_-dialog " + (options.full ? '_zs_gallery_mx-dialog_index_-full' : '') + "\" id=\"" + id + "\" \n                style=\"top:" + top + "px; left:" + left + "px; width:" + width + "px;\"></div>\n        </div>");
+        wrapper.css(options.posFrom);
+        $(document.body).append(wrapper);
+        // 禁止body滚动
+        // 有滚动条的时候，加上右padding，防止页面抖动
+        if (window.innerWidth - document.body.clientWidth > 0) {
+            document.body.style.paddingRight = (window.innerWidth - document.body.clientWidth) + 'px';
+        }
+        document.body.style.overflowY = 'hidden';
+        wrapper.css({
+            overflowY: options.modal ? 'hidden' : 'auto'
+        });
+        var vf = view.owner.mountVframe(id, 'mx-dialog/index', options);
+        var node = $('#' + id);
+        var suspend;
+        return node.on('dlg_close', function () {
+            if (node.data('closed')) {
+                return;
+            }
+            node.trigger({
+                type: 'beforeClose',
+                closeFn: function () {
+                    if (!node.data('closing') && !suspend) {
+                        var resume_1 = function () {
+                            node.data('closing', 1);
+                            $('#wrapper_' + id).css(options.posFrom);
+                            $('#mask_' + id).removeClass('_zs_gallery_mx-dialog_index_-backdrop-out');
+                            setTimeout(function () {
+                                node.trigger('close');
+                                // 不重复关闭
+                                node.data('closed', 1);
+                                if (view.owner) {
+                                    view.owner.unmountVframe(id);
+                                }
+                                $('#wrapper_' + id).remove();
+                                $('#mask_' + id).remove();
+                                // 有浮层展开的情况下，body都不可滚动
+                                if (CacheList.length == 0) {
+                                    document.body.style.paddingRight = '';
+                                    document.body.style.overflowY = '';
+                                }
+                            }, Duration);
+                        };
+                        var e_1 = {
+                            prevent: function () {
+                                suspend = 1;
+                            },
+                            resolve: function () {
+                                e_1.p = 1;
+                                suspend = 0;
+                                resume_1();
+                            },
+                            reject: function () {
+                                e_1.p = 1;
+                                suspend = 0;
+                            }
+                        };
+                        vf.invoke('@{notify.main.view.unload}', [e_1]);
+                        if (!suspend && !e_1.p) {
+                            resume_1();
+                        }
+                    }
+                }
+            });
+        });
+    },
+    /**
+     * 系统提示
+     * this.alert(title, content, enterCallback, dialogOptions)
+     *    title: '标题',
+     *    content: '内容',
+     *    enterCallback: '点击确认按钮的回调',
+     *    dialogOptions: { //浮层样式覆盖
+     *       width:'宽度，默认320',
+     *       height:'高度',
+     *       btns: 'true or false，是否有按钮，默认true',
+     *       modal: 'true（禁止滚动） or false（允许滚动），溢出是否允许滚动，默认false',
+     *       mask: 'true or false，是否有遮罩，默认false',
+     *       closable: 'true or false，是否有右上角关闭按钮，默认false',
+     *       left: '最终定位相对于屏幕左侧，默认居中',
+     *       top: '最终定位相对于屏幕高侧，默认居中'
+     *    }
+     */
+    alert: function (title, content, enterCallback, dialogOptions) {
+        dialogOptions = dialogOptions || {};
+        var hasBtns = ((dialogOptions.btns + '') !== 'false');
+        return this.mxDialog('mx-dialog/alert', {
+            title: title,
+            content: content,
+            enterCallback: enterCallback,
+            hasBtns: hasBtns
+        }, Magix.mix({
+            width: 320,
+            closable: false,
+            mask: false
+        }, dialogOptions));
+    },
+    /**
+     * this.confirm(viewOptions, dialogOptions);
+     *    viewOptions: {
+     *       title: '标题',
+     *       content: '内容',
+     *       enterText: '自定义确定按钮文案，默认确定',
+     *       cancelText: '自定义取消按钮文案，默认取消',
+     *       enterCallback: '确定按钮响应事件',
+     *       cancelCallback: '取消按钮响应事件'
+     *    }
+     *    dialogOptions: { //浮层样式覆盖
+     *       width:'宽度',
+     *       height:'高度',
+     *       modal: 'true（禁止滚动） or false（允许滚动），溢出是否允许滚动，默认false',
+     *       mask: 'true or false，是否有遮罩，默认false',
+     *       closable: 'true or false，是否有右上角关闭按钮，默认false',
+     *       left: '最终定位相对于屏幕左侧',
+     *       top: '最终定位相对于屏幕高侧'
+     *    }
+     */
+    confirm: function (viewOptions, dialogOptions) {
+        return this.mxDialog('mx-dialog/confirm', viewOptions, Magix.mix({
+            width: 320,
+            closable: false,
+            mask: false
+        }, (dialogOptions || {})));
+    },
+    /**
+     * 全屏右出浮层
+     * this.mxModal(viewPath[string], viewOptions[object], dialogOptions[object])
+     *      viewPath: 'dialog view路径'
+     *      viewOptions: {
+     *          传入dialog的数据，挂载当前dialog实体
+     *      }
+     *      dialogOptions: { 浮层样式覆盖
+     *          width:'宽度，默认600',
+     *          mask: 'true or false，是否有遮罩',
+     *          closable: 'true or false，是否有右上角关闭按钮'
+     *          header: {
+     *              title: '标题',
+     *              tip: '提示信息'
+     *          },
+     *          footer: {
+     *              enter: 'true or false，是否需要确定按钮',
+     *              enterText: '确定按钮文案',
+     *              cancel: 'true or false，是否需要取消按钮',
+     *              cancelText: '取消按钮文案'
+     *          }
+     *
+     *          ==========================================
+     *          无效参数：
+     *          height:'高度固定全屏',
+     *          left: '固定为doc.width - width',
+     *          top: '固定为0',
+     *          modal: '固定为false，禁止滚动',
+     *      }
+     */
+    mxModal: function (view, viewOptions, dialogOptions) {
+        dialogOptions = dialogOptions || {};
+        return this.mxDialog(view, viewOptions, Magix.mix({
+            closable: true,
+            mask: true
+        }, Magix.mix(dialogOptions, {
+            full: true,
+            fullHeader: Magix.mix({
+                title: '',
+                tip: '',
+                iconTip: ''
+            }, dialogOptions.header || {}),
+            fullFooter: Magix.mix({
+                enter: true,
+                enterText: I18n['dialog.submit'],
+                cancel: true,
+                cancelText: I18n['dialog.cancel']
+            }, dialogOptions.footer || {}),
+            modal: false,
+            height: window.innerHeight,
+            placement: 'right',
+            card: (dialogOptions.card + '' !== 'false')
+        })));
+    },
+    /**
+     * this.mxDialog(viewPath[string], viewOptions[object], dialogOptions[object])
+     *    viewPath: 'dialog view路径'
+     *    viewOptions: {
+     *        传入dialog的数据，挂载当前dialog实体
+     *    },
+     *    dialogOptions: { //浮层样式覆盖
+     *        width:'宽度',
+     *        height:'高度',
+     *        modal: 'true（禁止滚动） or false（允许滚动），溢出是否允许滚动，默认false',
+     *        mask: 'true or false，是否有遮罩，默认true',
+     *        closable: 'true or false，是否有右上角关闭按钮，默认true',
+     *        left: '最终定位相对于屏幕左侧，默认居中',
+     *        top: '最终定位相对于屏幕高侧，默认居中',
+     *        target: 指定节点，相对该节点下中对齐
+     *        offset: 指定节点时微量偏移
+     *    }
+     */
+    mxDialog: function (view, viewOptions, dialogOptions) {
+        var me = this;
+        var dlg;
+        var beforeCloseCallback, afterCloseCallback;
+        var output = {
+            beforeClose: function (fn) {
+                // 关闭浮层前调用
+                // return true 关闭
+                // return false 不关闭浮层
+                beforeCloseCallback = fn;
+            },
+            close: function () {
+                if (dlg) {
+                    dlg.trigger('dlg_close');
+                }
+            },
+            afterClose: function (fn) {
+                // 关闭浮层后调用
+                afterCloseCallback = fn;
+            }
+        };
+        var dOptions = {
+            view: view
+        };
+        seajs.use(view, me.wrapAsync(function (V) {
+            var key = '$dlg_' + view;
+            if (me[key]) {
+                return;
+            }
+            me[key] = 1;
+            // 优先级：
+            // 外部传入的（dialogOptions） > view本身配置的（vDialogOptions） > 默认（dOptions）
+            // view本身配置的
+            var vDialogOptions = V.dialogOptions || {};
+            // 外部传入的
+            dialogOptions = dialogOptions || {};
+            // 浮层出现动画位置：
+            //     center：居中（从上到下）
+            //     right：右侧（从右到左）
+            var placement = dialogOptions.placement || vDialogOptions.placement || 'center';
+            var width = dialogOptions.width || vDialogOptions.width || 400, height = dialogOptions.height || vDialogOptions.height || 260;
+            var left, top, posFrom, posTo;
+            var winWidth = window.innerWidth, winHeight = window.innerHeight;
+            var target = dialogOptions.target || vDialogOptions.target;
+            if (!target) {
+                switch (placement) {
+                    case 'center':
+                        left = (winWidth - width) / 2;
+                        top = Math.max((winHeight - height) / 2, 0);
+                        posFrom = {
+                            opacity: 0,
+                            top: '-50px'
+                        };
+                        posTo = {
+                            opacity: 1,
+                            top: 0
+                        };
+                        break;
+                    case 'right':
+                        left = winWidth - width;
+                        top = 0;
+                        posFrom = {
+                            opacity: 0,
+                            top: 0,
+                            left: winWidth
+                        };
+                        posTo = {
+                            opacity: 1,
+                            top: 0,
+                            left: 0
+                        };
+                        break;
+                }
+            }
+            else {
+                // 指定节点
+                var node = void 0;
+                if ((typeof target == 'string') && !(/^#/.test(target)) && !(/^\./.test(target))) {
+                    node = $('#' + target);
+                }
+                else {
+                    node = $(target);
+                }
+                var customOffset = dialogOptions.offset || vDialogOptions.offset || {};
+                customOffset.top = +customOffset.top || 0;
+                customOffset.left = +customOffset.left || 0;
+                var offset = node.offset();
+                top = offset.top + node.outerHeight() + 10 - $(window).scrollTop() + customOffset.top;
+                left = offset.left - (width - node.outerWidth()) / 2 + customOffset.left;
+                posFrom = {
+                    opacity: 0,
+                    top: '-50px'
+                };
+                posTo = {
+                    opacity: 1,
+                    top: 0
+                };
+            }
+            Magix.mix(dOptions, {
+                mask: true,
+                modal: false,
+                width: width,
+                closable: true,
+                left: left,
+                top: top,
+                posFrom: posFrom,
+                posTo: posTo
+            }, vDialogOptions, dialogOptions);
+            // 数据
+            Magix.mix(dOptions, viewOptions);
+            dOptions.dialog = output;
+            dlg = me['@{dialog.show}'](me, dOptions);
+            dlg.on('beforeClose', function (event) {
+                if (!beforeCloseCallback || (beforeCloseCallback && beforeCloseCallback())) {
+                    event.closeFn();
+                }
+            });
+            dlg.on('close', function () {
+                delete me[key];
+                if (afterCloseCallback) {
+                    afterCloseCallback();
+                }
+            });
+        }));
+        return output;
+    },
+    mxCloseAllDialogs: function () {
+        CacheList.forEach(function (view) {
+            var dlg = $('#' + view.id);
+            if (dlg) {
+                dlg.trigger('dlg_close');
+            }
+        });
+    }
+});
+
+});

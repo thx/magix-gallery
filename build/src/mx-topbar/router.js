@@ -1,1 +1,82 @@
-define("mx-topbar/router",["magix","$"],(t,n,a)=>{var r=t("magix"),e=t("$");r.applyStyle("_zs_galleryaH","._zs_gallerykG{position:fixed;z-index:400;height:2px;left:0;top:0;right:0;background-color:var(--color-brand);-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0);transition:all var(--duration)}");var o,i,d=r.guid("mx_topbar_"),l=r.Vframe,f=100,_={__o:function(){clearTimeout(o),e("#"+d).length||(e("body").append('<div class="_zs_gallerykG" id="'+d+'"></div>'),i=setInterval(_.__fm,300))},__fm:function(){var t=e("#"+d);t.length&&(f>15?f-=3+5*Math.random():f>4&&(f-=1+Math.random()),t.css({transform:"translate3d(-"+f+"%,0px,0px)"}))},__n:function(){setTimeout(function(){clearInterval(i);var t=e("#"+d);t.length&&(t.css({transform:"translate3d(0,0px,0px)"}),o=setTimeout(function(){f=100,t.remove()},400))},0)}};a.exports=r.View.extend({init:function(t){r.Router.on("changed",function(t){t.path&&_.__o()});var n=function(t){t.off("created",_.__n),t.on("created",_.__n)};l.on("add",function(a){a.vframe.id==t.id&&n(a.vframe)});var a=l.get(t.id);a&&n(a)},render:function(){_.__o()}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-topbar/router",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-topbar_index_","._zs_gallery_mx-topbar_index_-bar {\n  position: fixed;\n  z-index: 400;\n  height: 2px;\n  left: 0;\n  top: 0;\n  right: 0;\n  background-color: var(--color-brand);\n  -webkit-transform: translate3d(-100%, 0px, 0px);\n          transform: translate3d(-100%, 0px, 0px);\n  transition: all var(--duration);\n}\n");
+var barId = Magix.guid('mx_topbar_');
+var Vframe = Magix.Vframe;
+var timer, interval;
+var percent = 100;
+var Topbar = {
+    '@{show}': function () {
+        clearTimeout(timer);
+        var bar = $('#' + barId);
+        if (!bar.length) {
+            $('body').append("<div class=\"_zs_gallery_mx-topbar_index_-bar\" id=\"" + barId + "\"></div>");
+            interval = setInterval(Topbar['@{porgress}'], 300);
+        }
+    },
+    '@{porgress}': function () {
+        var bar = $('#' + barId);
+        if (bar.length) {
+            if (percent > 15) {
+                percent -= (3 + Math.random() * 5);
+            }
+            else if (percent > 4) {
+                percent -= (1 + Math.random());
+            }
+            bar.css({
+                transform: "translate3d(-" + percent + "%,0px,0px)"
+            });
+        }
+    },
+    '@{hide}': function () {
+        setTimeout(function () {
+            clearInterval(interval);
+            var bar = $('#' + barId);
+            if (bar.length) {
+                bar.css({
+                    transform: "translate3d(0,0px,0px)"
+                });
+                timer = setTimeout(function () {
+                    percent = 100;
+                    bar.remove();
+                }, 400);
+            }
+        }, 0);
+    }
+};
+module.exports = Magix.View.extend({
+    init: function (extra) {
+        Magix.Router.on('changed', function (e) {
+            if (e.path) {
+                Topbar['@{show}']();
+            }
+        });
+        var resume = function (vf) {
+            vf.off('created', Topbar['@{hide}']);
+            vf.on('created', Topbar['@{hide}']);
+        };
+        var watch = function (e) {
+            if (e.vframe.id == extra.id) {
+                resume(e.vframe);
+            }
+        };
+        Vframe.on('add', watch);
+        var vf = Vframe.get(extra.id);
+        if (vf) {
+            resume(vf);
+        }
+    },
+    render: function () {
+        Topbar['@{show}']();
+    }
+});
+
+});

@@ -1,1 +1,54 @@
-define("mx-btn/__test__/4",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(t,a,e)=>{t("mx-copy/index"),t("__test__/hl");var s=t("magix"),l=t("__test__/example");t("$");s.applyStyle("_zs_galleryo","._zs_gallerybE{padding:20px;background-color:var(--app-bg)}._zs_gallerybF{padding:20px 0}"),e.exports=l.extend({tmpl:function(t,a,e,s,l,n,r,_){if(e||(e=t),!l){var i={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},c=/[&<>"'`]/g,d=function(t){return"&"+i[t]+";"};l=function(t){return""+(null==t?"":t)},s=function(t){return l(t).replace(c,d)}}if(!n){var m={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},g=function(t){return m[t]},x=/[!')(*]/g;n=function(t){return encodeURIComponent(l(t)).replace(x,g)}}if(!_){var b=/[\\'"]/g;_=function(t){return l(t).replace(b,"\\$&")}}var p="",o=t.viewId,y=t.text1;return p+='<div mxa="_zs_gallery0:_" class="_zs_galleryg"><div mxs="_zs_gallery0:_" class="_zs_galleryj"><div class="_zs_gallerybF"><a href="javascript:;" class="mx-btn btn-disabled mr20 mb20" style=";">禁用按钮</a><a href="javascript:;" class="mx-btn btn-small btn-disabled mr20 mb20" style=";">小号禁用按钮</a><br/><a href="javascript:;" class="mx-btn btn-disabled mr20 mb20" style=";"><i class="mc-iconfont">&#xe731;</i>禁用按钮</a><a href="javascript:;" class="mx-btn btn-disabled mr20 mb20" style=";">禁用按钮<span class="mx-tag btn-tag"><span class="mx-tag-arrow btn-tag-arrow"></span><span class="mx-tag-name">New</span></span></a></div></div><div mxa="_zs_gallery0:a" class="_zs_galleryk"><div mxs="_zs_gallery0:a" class="_zs_galleryi">按钮</div><div class="_zs_galleryl" mx-success="'+a+'done({id:1})" mx-view="mx-copy/index?copyNode='+n(o)+'_text_1"><span mxa="_zs_gallery0:b" class="_zs_galleryn">'+l(y)+'</span><i mxs="_zs_gallery0:b" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+s(o)+'_text_1">\n&lt;mx-btn disabled="true" content="禁用按钮"/&gt;\n\n&lt;mx-btn disabled="true" small="true" content="小号禁用按钮"/&gt;\n\n&lt;mx-btn disabled="true"&gt;\n    &lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;禁用按钮\n&lt;/mx-btn&gt;\n\n&lt;mx-btn disabled="true" content="禁用按钮" tag-content="New"/&gt;\n        </pre></div></div>'},render:function(){this.updater.digest()}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-btn/__test__/4",["magix","__test__/example","$","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("mx-copy/index");
+require("__test__/hl");
+var Magix = require("magix");
+var Base = require("__test__/example");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-btn___test___index_","._zs_gallery_mx-btn___test___index_-dark {\n  padding: 20px;\n  background-color: var(--app-bg);\n}\n._zs_gallery_mx-btn___test___index_-cont {\n  padding: 20px 0;\n}\n");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallery0:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallery0:_" class="_zs_gallery___test___layout_-eg-content"><div class="_zs_gallery_mx-btn___test___index_-cont"><a href="javascript:;" class="mx-btn btn-disabled mr20 mb20" style=";">禁用按钮</a><a href="javascript:;" class="mx-btn btn-small btn-disabled mr20 mb20" style=";">小号禁用按钮</a><br/><a href="javascript:;" class="mx-btn btn-disabled mr20 mb20" style=";"><i class="mc-iconfont">&#xe731;</i>禁用按钮</a><a href="javascript:;" class="mx-btn btn-disabled mr20 mb20" style=";">禁用按钮<span class="mx-tag btn-tag"><span class="mx-tag-arrow btn-tag-arrow"></span><span class="mx-tag-name">New</span></span></a></div></div><div mxa="_zs_gallery0:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallery0:a" class="_zs_gallery___test___layout_-eg-title">按钮</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 15;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery0:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 17;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery0:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 20;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-btn disabled="true" content="禁用按钮"/&gt;\n\n&lt;mx-btn disabled="true" small="true" content="小号禁用按钮"/&gt;\n\n&lt;mx-btn disabled="true"&gt;\n    &lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;禁用按钮\n&lt;/mx-btn&gt;\n\n&lt;mx-btn disabled="true" content="禁用按钮" tag-content="New"/&gt;\n        </pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-btn/__test__/4.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest();
+    }
+});
+
+});

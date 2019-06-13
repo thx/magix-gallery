@@ -1,1 +1,87 @@
-define("mx-popover/__test__/multi2",["magix","mx-popover/index"],(e,i,r)=>{var t=e("magix"),n=e("mx-popover/index");r.exports=t.View.extend({tmpl:function(e,i,r,t,n,a,o,s){if(r||(r=e),!n){var l={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},c=/[&<>"'`]/g,d=function(e){return"&"+l[e]+";"};n=function(e){return""+(null==e?"":e)},t=function(e){return n(e).replace(c,d)}}if(!a){var p={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},v=function(e){return p[e]},m=/[!')(*]/g;a=function(e){return encodeURIComponent(n(e)).replace(m,v)}}if(!s){var u=/[\\'"]/g;s=function(e){return n(e).replace(u,"\\$&")}}o||(o=function(e,i,r,t){for(t=e[x];--t;)if(e[r=x+t]===i)return r;return e[r=x+e[x]++]=i,r});var x="",f="",g=e.viewId,_=e.custom;return f+='<div mxs="_zs_gallerydr:_" class="dialog-header"><span class="fontsize-16">多个带modal的浮层</span></div><div mxv class="dialog-body" style="height: 200px; overflow-y: scroll;" id="'+t(g)+'_wrapper"><div mxs="_zs_gallerydr:a" class="mb20">滚动区域</div><div mxv mxa="_zs_gallerydr:_" style="height: 400px; padding: 20px; border: 1px solid #e6e6e6;"><span mxv="custom" class="btn" mx-view="mx-popover/index?width=420&scrollWrapper='+a(g)+"_wrapper&view=mx-popover%2F__test__%2Fcustom&data="+o(r,_)+'">提示内容为自定义view</span></div></div><div mxs="_zs_gallerydr:b" class="dialog-footer"><a href="javascript:;" class="btn mr10" mx-click="'+i+'cancel()">取消</a></div>'},mixins:[n],init:function(e){this.viewOptions=e},render:function(){this.updater.digest({viewId:this.id,custom:{list:[{name:"消耗",key:"charge",type:"double"},{name:"展现量",key:"adPv",type:"integer"},{name:"点击量",key:"click",type:"integer"},{name:"点击率",key:"ctr",type:"percent"}]}})},"cancel<click>":function(e){e.preventDefault();var i=this.viewOptions;i.dialog&&i.dialog.close()}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-popover/__test__/multi2",["magix","mx-popover/index"],(require,exports,module)=>{
+/*Magix,Dialog*/
+
+var Magix = require("magix");
+var Dialog = require("mx-popover/index");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, custom = $$.custom; var $expr, $art, $line; try {
+    $p += '<div mxs="_zs_gallerydr:_" class="dialog-header"><span class="fontsize-16">多个带modal的浮层</span></div><div mxv class="dialog-body" style="height: 200px; overflow-y: scroll;" id="';
+    $line = 5;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_wrapper"><div mxs="_zs_gallerydr:a" class="mb20">滚动区域</div><div mxv mxa="_zs_gallerydr:_" style="height: 400px; padding: 20px; border: 1px solid #e6e6e6;"><span mxv="custom" class="btn" mx-view="mx-popover/index?width=420&scrollWrapper=';
+    $line = 10;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_wrapper&view=mx-popover%2F__test__%2Fcustom&data=';
+    $line = 12;
+    $art = '@custom';
+    ;
+    $p += ($expr = '<%@custom%>', $i($$ref, custom)) + '">提示内容为自定义view</span></div></div><div mxs="_zs_gallerydr:b" class="dialog-footer"><a href="javascript:;" class="btn mr10" mx-click="' + $viewId + 'cancel()">取消</a></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-popover/__test__/multi2.html';
+    throw msg;
+} return $p; },
+    mixins: [Dialog],
+    init: function (e) {
+        this.viewOptions = e;
+    },
+    render: function () {
+        this.updater.digest({
+            viewId: this.id,
+            custom: {
+                list: [{
+                        name: '消耗',
+                        key: 'charge',
+                        type: 'double'
+                    }, {
+                        name: '展现量',
+                        key: 'adPv',
+                        type: 'integer'
+                    }, {
+                        name: '点击量',
+                        key: 'click',
+                        type: 'integer'
+                    }, {
+                        name: '点击率',
+                        key: 'ctr',
+                        type: 'percent'
+                    }]
+            }
+        });
+    },
+    'cancel<click>': function (event) {
+        event.preventDefault();
+        var viewOptions = this.viewOptions;
+        if (viewOptions.dialog) {
+            viewOptions.dialog.close();
+        }
+    }
+});
+
+});

@@ -3,7 +3,7 @@ let I18n = require('../mx-medusa/util');
 Magix.applyStyle('@alert.less');
 
 module.exports = Magix.View.extend({
-    tmpl: '@confirm.html:updateby[]',
+    tmpl: '@confirm.html',
     init(extra) {
         var me = this;
         me['@{dialog}'] = extra.dialog;

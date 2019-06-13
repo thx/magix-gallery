@@ -1,1 +1,425 @@
-define("mx-time/content",["magix","$"],(e,a,l)=>{var r=e("magix"),_=e("$");r.applyStyle("_zs_galleryr",':root{--mx-calendar-item-gap:2px;--mx-calendar-item-size:calc(2*var(--font-size));--mx-calendar-width:calc((var(--mx-calendar-item-size) + var(--mx-calendar-item-gap)*2)*7 + 20px);--mx-calendar-height:calc((var(--mx-calendar-item-size) + var(--mx-calendar-item-gap)*2)*8 + 20px);--mx-calendar-ym-width:calc((var(--mx-calendar-width) - 60px)/3);--mx-calendar-ym-height:calc((var(--mx-calendar-height) - var(--mx-calendar-item-size) - var(--mx-calendar-item-gap)*2 - 80px)/4);--mx-calendar-time-width:calc(var(--mx-calendar-item-size)*2 + 6px)}._zs_gallerybQ{position:relative;z-index:1000;padding:0;background-color:#fff;border-radius:var(--border-radius);overflow-y:hidden;color:#333;text-align:center}._zs_gallerybQ,._zs_gallerybQ ._zs_gallerybR{width:var(--mx-calendar-width)}._zs_gallerybQ ._zs_gallerybR{padding:2px 4px}._zs_gallerybQ ._zs_gallerybR ._zs_gallerybS{float:left}._zs_gallerybQ ._zs_gallerybR ._zs_gallerybT{float:right;-webkit-transform:scaleX(-1);transform:scaleX(-1)}._zs_gallerybQ ._zs_gallerybR ._zs_gallerybS,._zs_gallerybQ ._zs_gallerybR ._zs_gallerybT{line-height:var(--mx-calendar-item-size);font-size:var(--font-size);color:#ccc;cursor:pointer}._zs_gallerybQ ._zs_gallerybR ._zs_gallerybS:hover,._zs_gallerybQ ._zs_gallerybR ._zs_gallerybT:hover{color:var(--color-brand)}._zs_gallerybQ ._zs_gallerybR ._zs_gallerybU{display:inline-block;height:var(--mx-calendar-item-size);line-height:var(--mx-calendar-item-size);padding:0 10px;cursor:pointer;border-radius:var(--border-radius);color:#666}._zs_gallerybQ ._zs_gallerybR ._zs_gallerybU:hover{background-color:var(--color-bg-hover)}._zs_gallerybQ ._zs_gallerybV{width:var(--mx-calendar-width)}._zs_gallerybQ ._zs_gallerybV ._zs_gallerybW{background-color:var(--color-bg);padding:0 10px;color:#666}._zs_gallerybQ ._zs_gallerybV ._zs_gallerybX{padding:10px}._zs_gallerybQ ._zs_gallerybV ._zs_gallerybY,._zs_gallerybQ ._zs_gallerybV ._zs_gallerybZ{float:left;width:var(--mx-calendar-item-size);height:var(--mx-calendar-item-size);margin:var(--mx-calendar-item-gap);line-height:var(--mx-calendar-item-size);border-radius:4px;cursor:pointer;color:#333}._zs_gallerybQ ._zs_gallerybV ._zs_gallerybY:hover{background-color:var(--color-bg-hover)}._zs_gallerybQ ._zs_gallerybV ._zs_galleryc_{color:#999}._zs_gallerybQ ._zs_gallerybV ._zs_galleryca,._zs_gallerybQ ._zs_gallerybV ._zs_galleryca:hover{background-color:var(--color-brand-opacity)}._zs_gallerybQ ._zs_gallerybV ._zs_gallerycb,._zs_gallerybQ ._zs_gallerybV ._zs_gallerycb:hover{color:var(--color-disabled);cursor:not-allowed;background:#fff}._zs_gallerybQ ._zs_gallerybV ._zs_gallerycc,._zs_gallerybQ ._zs_gallerybV ._zs_gallerycc:hover{color:#fff;background-color:var(--color-brand)}._zs_gallerybQ ._zs_gallerycd{border-top:1px solid var(--color-border)}._zs_galleryce,._zs_gallerycf{position:absolute;top:-100%;left:0;right:0;transition:top .15s;background-color:#fff}._zs_gallerycg{top:0}._zs_gallerych{float:left;width:var(--mx-calendar-ym-width);height:var(--mx-calendar-ym-height);margin:10px;line-height:var(--mx-calendar-ym-height);border-radius:var(--border-radius);font-size:calc(var(--font-size) + 2px);cursor:pointer}._zs_gallerych:hover{background-color:var(--color-bg-hover)}[mx-view*="mx-time/content"]{min-width:var(--mx-calendar-width);padding:10px}[mx-view*="mx-time/content"] ._zs_galleryci{display:flex;justify-content:space-between;position:relative;z-index:2}[mx-view*="mx-time/content"] ._zs_gallerycj{overflow:hidden;flex:0 0 var(--mx-calendar-time-width)}[mx-view*="mx-time/content"] ._zs_gallerycj ._zs_galleryck{width:100%;height:40px;font-size:24px;text-align:center}[mx-view*="mx-time/content"] ._zs_gallerycj ._zs_gallerycl{width:var(--mx-calendar-item-size);height:var(--mx-calendar-item-size);line-height:var(--mx-calendar-item-size);font-size:var(--font-size);text-align:center;font-weight:700;background-color:var(--color-bg-hover);border-radius:var(--border-radius);cursor:pointer;transition:all var(--duration)}[mx-view*="mx-time/content"] ._zs_gallerycj ._zs_gallerycl:hover{background-color:#ccc}[mx-view*="mx-time/content"] ._zs_gallerycj ._zs_gallerycm ._zs_gallerycl{background-color:var(--color-disabled);color:#ccc}[mx-view*="mx-time/content"] ._zs_gallerycn{position:absolute;top:0;left:0;z-index:1;width:100%;height:40px}[mx-view*="mx-time/content"] ._zs_gallerycn ._zs_galleryco{float:left;width:50%;font-size:24px;height:40px;line-height:40px;font-weight:bolder;text-align:center}[mx-view*="mx-time/content"] ._zs_gallerycn ._zs_galleryco._zs_gallerycp{padding-left:calc(var(--mx-calendar-time-width)/2)}[mx-view*="mx-time/content"] ._zs_gallerycn ._zs_galleryco._zs_gallerycq{padding-right:calc(var(--mx-calendar-time-width)/2)}');var i=function(e){if(!e){var a=new Date;e=a.getHours()+":"+a.getMinutes()+":"+a.getSeconds()}var l=e.split(":");if(3!=l.length)throw new Error("bad time:"+e);return{__fa:parseInt(l[0],10)||0,__fb:parseInt(l[1],10)||0,__fc:parseInt(l[2],10)||0}},t=function(e){return e<10?"0"+e:e};l.exports=r.View.extend({tmpl:function(e,a,l,r,_,i,t,c){if(l||(l=e),!_){var s={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},n=/[&<>"'`]/g,o=function(e){return"&"+s[e]+";"};_=function(e){return""+(null==e?"":e)},r=function(e){return _(e).replace(n,o)}}if(!i){var g={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},d=function(e){return g[e]},m=/[!')(*]/g;i=function(e){return encodeURIComponent(_(e)).replace(m,d)}}if(!c){var f=/[\\'"]/g;c=function(e){return _(e).replace(f,"\\$&")}}var y="",z=e.format,v=e.time,x=e.types;return y+='<div mxv mxa="_zs_gallerye8:_" class="clearfix pr"><div mxs="_zs_gallerye8:_" class="clearfix _zs_gallerycn"><div class="_zs_galleryco _zs_gallerycp">:</div><div class="_zs_galleryco _zs_gallerycq">:</div></div><div mxv mxa="_zs_gallerye8:a" class="_zs_galleryci"><div mxv mxa="_zs_gallerye8:b" class="_zs_gallerycj"><div mxv mxa="_zs_gallerye8:c" class="mb5"><input class="input _zs_galleryck" maxlength="2" autocomplete="off" value="'+r(z(v.__fa))+'" ',x.__fa?y+=' mx-change="'+a+"__ff({type:'__fa'})\" ":y+=' disabled="disabled" ',y+=' mx-keydown="'+a+"__fk({type:'__fa'})\"/></div><div class=\"clearfix ",x.__fa||(y+=" _zs_gallerycm "),y+='"><i class="mc-iconfont _zs_gallerycl fl" ',x.__fa&&(y+=' mx-click="'+a+"__ad({type:'__fa'})\" mx-mousedown=\""+a+"__fi({type:'__fa'})\" "),y+='>&#xeb79;</i><i class="mc-iconfont _zs_gallerycl fr" ',x.__fa&&(y+=' mx-click="'+a+"__ad({type:'__fa',inc:1})\" mx-mousedown=\""+a+"__fi({type:'__fa',inc:1})\" "),y+='>&#xeb78;</i></div></div><div mxv mxa="_zs_gallerye8:d" class="_zs_gallerycj"><div mxv mxa="_zs_gallerye8:e" class="mb5"><input class="input _zs_galleryck" maxlength="2" autocomplete="off" value="'+r(z(v.__fb))+'" ',x.__fb?y+=' mx-change="'+a+"__ff({type:'__fb'})\" ":y+=' disabled="disabled" ',y+=' mx-keydown="'+a+"__fk({type:'__fb'})\"/></div><div class=\"clearfix ",x.__fb||(y+=" _zs_gallerycm "),y+='"><i class="mc-iconfont _zs_gallerycl fl" ',x.__fb&&(y+=' mx-click="'+a+"__ad({type:'__fb'})\" mx-mousedown=\""+a+"__fi({type:'__fb'})\" "),y+='>&#xeb79;</i><i class="mc-iconfont _zs_gallerycl fr" ',x.__fb&&(y+=' mx-click="'+a+"__ad({type:'__fb',inc:1})\" mx-mousedown=\""+a+"__fi({type:'__fb',inc:1})\" "),y+='>&#xeb78;</i></div></div><div mxv mxa="_zs_gallerye8:f" class="_zs_gallerycj"><div mxv mxa="_zs_gallerye8:g" class="mb5"><input class="input _zs_galleryck" maxlength="2" autocomplete="off" value="'+r(z(v.__fc))+'" ',x.__fc?y+=' mx-change="'+a+"__ff({type:'__fc'})\" ":y+=' disabled="disabled" ',y+=' mx-keydown="'+a+"__fk({type:'__fc'})\"/></div><div class=\"clearfix ",x.__fc||(y+=" _zs_gallerycm "),y+='"><i class="mc-iconfont _zs_gallerycl fl" ',x.__fc&&(y+=' mx-click="'+a+"__ad({type:'__fc'})\" mx-mousedown=\""+a+"__fi({type:'__fc'})\" "),y+='>&#xeb79;</i><i class="mc-iconfont _zs_gallerycl fr" ',x.__fc&&(y+=' mx-click="'+a+"__ad({type:'__fc',inc:1})\" mx-mousedown=\""+a+"__fi({type:'__fc',inc:1})\" "),y+=">&#xeb78;</i></div></div></div></div>"},init:function(e){this.updater.snapshot(),this.assign(e)},assign:function(e){var a=this.updater.altered(),l=i(e.time),r=function(e){e||(e="all");var a={__fa:!0,__fb:!0,__fc:!0},l={hour:"__fa",minute:"__fb",second:"__fc"};if("all"!=e)for(var r in l)-1===e.indexOf(r)&&delete a[l[r]];return a}(e.types);return this.updater.set({format:t,time:l,types:r}),a||(a=this.updater.altered()),!!a&&(this.updater.snapshot(),!0)},render:function(){this.updater.digest()},val:function(e){var a=this.updater;e&&a.digest({time:i(e)});var l=a.get("time");return t(l.__fa)+":"+t(l.__fb)+":"+t(l.__fc)},__fd:function(e,a){var l=this.updater.get("time"),r="__fa"==e?23:59;a?l[e]++:l[e]--,l[e]>r?l[e]=0:l[e]<0&&(l[e]=r),this.updater.digest({time:l})},__A:function(){var e=_("#"+this.id),a=this.updater.get("time");e.trigger({type:"change",time:t(a.__fa)+":"+t(a.__fb)+":"+t(a.__fc)})},"__ad<click>":function(e){if(!this.__fe){var a=e.params;this.__fd(a.type,a.inc),this.__A()}},"__ff<change>":function(e){e.stopPropagation();var a=e.params.type,l="__fa"==a?23:59,r=e.eventTarget,_=r.value,i=parseInt(_,10),c=this.updater.get("time");i||0===i?(i<0?i=0:i>l&&(i=l),i!==c[a]?(c[a]=i,this.updater.digest({time:c}),this.__A()):r.value=t(i)):r.value=t(c[a])},"__fi<mousedown>":function(e){var a=this,l=e.params;a.__fg=setTimeout(a.wrapAsync(function(){a.__fh=setInterval(a.wrapAsync(function(){a.__fe=!0,a.__fd(l.type,l.inc)}),50)}),250)},"__fk<keydown>":function(e){if(38==e.keyCode||40==e.keyCode){e.preventDefault();var a=this;a.__fd(e.params.type,38==e.keyCode),clearTimeout(a.__fj),a.__fj=setTimeout(a.wrapAsync(function(){a.__A()}),100)}},"$doc<mouseup>":function(){var e=this;clearTimeout(e.__fg),clearInterval(e.__fh),setTimeout(e.wrapAsync(function(){e.__fe&&e.__A(),delete e.__fe}),0)}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-time/content",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-calendar_index_",":root {\n  --mx-calendar-item-gap: 2px;\n  --mx-calendar-item-size: calc(2 * var(--font-size));\n  --mx-calendar-width: calc((var(--mx-calendar-item-size) + var(--mx-calendar-item-gap) * 2) * 7 + 20px);\n  --mx-calendar-height: calc((var(--mx-calendar-item-size) + var(--mx-calendar-item-gap) * 2) * 8 + 20px);\n  --mx-calendar-ym-width: calc((var(--mx-calendar-width) - 60px) / 3);\n  --mx-calendar-ym-height: calc((var(--mx-calendar-height) - var(--mx-calendar-item-size) - var(--mx-calendar-item-gap) * 2 - 80px) / 4);\n  --mx-calendar-time-width: calc(var(--mx-calendar-item-size) * 2 + 6px);\n}\n._zs_gallery_mx-calendar_index_-wrapper {\n  position: relative;\n  z-index: 1000;\n  width: var(--mx-calendar-width);\n  padding: 0;\n  background-color: #fff;\n  border-radius: var(--border-radius);\n  overflow-y: hidden;\n  color: #333;\n  text-align: center;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header {\n  width: var(--mx-calendar-width);\n  padding: 2px 4px;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-minus {\n  float: left;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-plus {\n  float: right;\n  -webkit-transform: scaleX(-1);\n          transform: scaleX(-1);\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-minus,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-plus {\n  line-height: var(--mx-calendar-item-size);\n  font-size: var(--font-size);\n  color: #ccc;\n  cursor: pointer;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-minus:hover,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-plus:hover {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-title {\n  display: inline-block;\n  height: var(--mx-calendar-item-size);\n  line-height: var(--mx-calendar-item-size);\n  padding: 0 10px;\n  cursor: pointer;\n  border-radius: var(--border-radius);\n  color: #666;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-header ._zs_gallery_mx-calendar_index_-title:hover {\n  background-color: var(--color-bg-hover);\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body {\n  width: var(--mx-calendar-width);\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-weeks {\n  background-color: var(--color-bg);\n  padding: 0 10px;\n  color: #666;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-days {\n  padding: 10px;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-week,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-day {\n  float: left;\n  width: var(--mx-calendar-item-size);\n  height: var(--mx-calendar-item-size);\n  margin: var(--mx-calendar-item-gap);\n  line-height: var(--mx-calendar-item-size);\n  border-radius: 4px;\n  cursor: pointer;\n  color: #333;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-day:hover {\n  background-color: var(--color-bg-hover);\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-gray {\n  color: #999;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-today,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-today:hover {\n  background-color: var(--color-brand-opacity);\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-notallowed,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-notallowed:hover {\n  color: var(--color-disabled);\n  cursor: not-allowed;\n  background: #fff;\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-selected,\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-body ._zs_gallery_mx-calendar_index_-selected:hover {\n  color: #fff;\n  background-color: var(--color-brand);\n}\n._zs_gallery_mx-calendar_index_-wrapper ._zs_gallery_mx-calendar_index_-time {\n  border-top: 1px solid var(--color-border);\n}\n._zs_gallery_mx-calendar_index_-y-panel,\n._zs_gallery_mx-calendar_index_-m-panel {\n  position: absolute;\n  top: -100%;\n  left: 0;\n  right: 0;\n  transition: top 0.15s;\n  background-color: #fff;\n}\n._zs_gallery_mx-calendar_index_-ym-show {\n  top: 0;\n}\n._zs_gallery_mx-calendar_index_-ym {\n  float: left;\n  width: var(--mx-calendar-ym-width);\n  height: var(--mx-calendar-ym-height);\n  margin: 10px;\n  line-height: var(--mx-calendar-ym-height);\n  border-radius: var(--border-radius);\n  font-size: calc(var(--font-size) + 2px);\n  cursor: pointer;\n}\n._zs_gallery_mx-calendar_index_-ym:hover {\n  background-color: var(--color-bg-hover);\n}\n[mx-view*=\"mx-time/content\"] {\n  min-width: var(--mx-calendar-width);\n  padding: 10px;\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-groups {\n  display: flex;\n  justify-content: space-between;\n  position: relative;\n  z-index: 2;\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-group {\n  overflow: hidden;\n  flex: 0 0 var(--mx-calendar-time-width);\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-group ._zs_gallery_mx-calendar_index_-ipt {\n  width: 100%;\n  height: 40px;\n  font-size: 24px;\n  text-align: center;\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-group ._zs_gallery_mx-calendar_index_-ipb {\n  width: var(--mx-calendar-item-size);\n  height: var(--mx-calendar-item-size);\n  line-height: var(--mx-calendar-item-size);\n  font-size: var(--font-size);\n  text-align: center;\n  font-weight: bold;\n  background-color: var(--color-bg-hover);\n  border-radius: var(--border-radius);\n  cursor: pointer;\n  transition: all var(--duration);\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-group ._zs_gallery_mx-calendar_index_-ipb:hover {\n  background-color: #ccc;\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-group ._zs_gallery_mx-calendar_index_-time-disabled ._zs_gallery_mx-calendar_index_-ipb {\n  background-color: var(--color-disabled);\n  color: #ccc;\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-sps {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n  width: 100%;\n  height: 40px;\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-sps ._zs_gallery_mx-calendar_index_-sp {\n  float: left;\n  width: 50%;\n  font-size: 24px;\n  height: 40px;\n  line-height: 40px;\n  font-weight: bolder;\n  text-align: center;\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-sps ._zs_gallery_mx-calendar_index_-sp._zs_gallery_mx-calendar_index_-spa {\n  padding-left: calc(var(--mx-calendar-time-width) / 2);\n}\n[mx-view*=\"mx-time/content\"] ._zs_gallery_mx-calendar_index_-sps ._zs_gallery_mx-calendar_index_-sp._zs_gallery_mx-calendar_index_-spb {\n  padding-right: calc(var(--mx-calendar-time-width) / 2);\n}\n");
+var parseTime = function (time) {
+    if (!time) {
+        var d = new Date();
+        time = d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+    }
+    var ts = time.split(':');
+    if (ts.length != 3) {
+        throw new Error('bad time:' + time);
+    }
+    return {
+        '@{hour}': parseInt(ts[0], 10) || 0,
+        '@{minute}': parseInt(ts[1], 10) || 0,
+        '@{second}': parseInt(ts[2], 10) || 0
+    };
+};
+var parseType = function (type) {
+    if (!type) {
+        type = 'all';
+    }
+    var enables = {
+        '@{hour}': true,
+        '@{minute}': true,
+        '@{second}': true
+    };
+    var keysMap = {
+        hour: '@{hour}',
+        minute: '@{minute}',
+        second: '@{second}'
+    };
+    if (type != 'all') {
+        for (var p in keysMap) {
+            if (type.indexOf(p) === -1) {
+                delete enables[keysMap[p]];
+            }
+        }
+    }
+    return enables;
+};
+var format = function (t) {
+    if (t < 10)
+        return '0' + t;
+    return t;
+};
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', format = $$.format, time = $$.time, types = $$.types; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerye8:_" class="clearfix pr"><div mxs="_zs_gallerye8:_" class="clearfix _zs_gallery_mx-calendar_index_-sps"><div class="_zs_gallery_mx-calendar_index_-sp _zs_gallery_mx-calendar_index_-spa">:</div><div class="_zs_gallery_mx-calendar_index_-sp _zs_gallery_mx-calendar_index_-spb">:</div></div><div mxv mxa="_zs_gallerye8:a" class="_zs_gallery_mx-calendar_index_-groups"><div mxv mxa="_zs_gallerye8:b" class="_zs_gallery_mx-calendar_index_-group"><div mxv mxa="_zs_gallerye8:c" class="mb5"><input class="input _zs_gallery_mx-calendar_index_-ipt" maxlength="2" autocomplete="off" value="';
+    $line = 12;
+    $art = '=format(time[\'@{hour}\'])';
+    ;
+    $p += ($expr = '<%=format(time[\'@{hour}\'])%>', $e(format(time['@{hour}']))) + '" ';
+    $line = 13;
+    $art = 'if types[\'@{hour}\']';
+    ;
+    $expr = '<%if (types[\'@{hour}\']) {%>';
+    if (types['@{hour}']) {
+        ;
+        $p += ' mx-change="' + $viewId + '@{set}({type:\'@{hour}\'})" ';
+        $line = 13;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' disabled="disabled" ';
+        $line = 13;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' mx-keydown="' + $viewId + '@{press.check}({type:\'@{hour}\'})"/></div><div class="clearfix ';
+    $line = 16;
+    $art = 'if !types[\'@{hour}\']';
+    ;
+    $expr = '<%if (!types[\'@{hour}\']) {%>';
+    if (!types['@{hour}']) {
+        ;
+        $p += ' _zs_gallery_mx-calendar_index_-time-disabled ';
+        $line = 16;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '"><i class="mc-iconfont _zs_gallery_mx-calendar_index_-ipb fl" ';
+    $line = 18;
+    $art = 'if types[\'@{hour}\']';
+    ;
+    $expr = '<%if (types[\'@{hour}\']) {%>';
+    if (types['@{hour}']) {
+        ;
+        $p += ' mx-click="' + $viewId + '@{change}({type:\'@{hour}\'})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{hour}\'})" ';
+        $line = 18;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '>&#xeb79;</i><i class="mc-iconfont _zs_gallery_mx-calendar_index_-ipb fr" ';
+    $line = 21;
+    $art = 'if types[\'@{hour}\']';
+    ;
+    $expr = '<%if (types[\'@{hour}\']) {%>';
+    if (types['@{hour}']) {
+        ;
+        $p += ' mx-click="' + $viewId + '@{change}({type:\'@{hour}\',inc:1})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{hour}\',inc:1})" ';
+        $line = 21;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '>&#xeb78;</i></div></div><div mxv mxa="_zs_gallerye8:d" class="_zs_gallery_mx-calendar_index_-group"><div mxv mxa="_zs_gallerye8:e" class="mb5"><input class="input _zs_gallery_mx-calendar_index_-ipt" maxlength="2" autocomplete="off" value="';
+    $line = 29;
+    $art = '=format(time[\'@{minute}\'])';
+    ;
+    $p += ($expr = '<%=format(time[\'@{minute}\'])%>', $e(format(time['@{minute}']))) + '" ';
+    $line = 30;
+    $art = 'if types[\'@{minute}\']';
+    ;
+    $expr = '<%if (types[\'@{minute}\']) {%>';
+    if (types['@{minute}']) {
+        ;
+        $p += ' mx-change="' + $viewId + '@{set}({type:\'@{minute}\'})" ';
+        $line = 30;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' disabled="disabled" ';
+        $line = 30;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' mx-keydown="' + $viewId + '@{press.check}({type:\'@{minute}\'})"/></div><div class="clearfix ';
+    $line = 33;
+    $art = 'if !types[\'@{minute}\']';
+    ;
+    $expr = '<%if (!types[\'@{minute}\']) {%>';
+    if (!types['@{minute}']) {
+        ;
+        $p += ' _zs_gallery_mx-calendar_index_-time-disabled ';
+        $line = 33;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '"><i class="mc-iconfont _zs_gallery_mx-calendar_index_-ipb fl" ';
+    $line = 35;
+    $art = 'if types[\'@{minute}\']';
+    ;
+    $expr = '<%if (types[\'@{minute}\']) {%>';
+    if (types['@{minute}']) {
+        ;
+        $p += ' mx-click="' + $viewId + '@{change}({type:\'@{minute}\'})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{minute}\'})" ';
+        $line = 35;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '>&#xeb79;</i><i class="mc-iconfont _zs_gallery_mx-calendar_index_-ipb fr" ';
+    $line = 38;
+    $art = 'if types[\'@{minute}\']';
+    ;
+    $expr = '<%if (types[\'@{minute}\']) {%>';
+    if (types['@{minute}']) {
+        ;
+        $p += ' mx-click="' + $viewId + '@{change}({type:\'@{minute}\',inc:1})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{minute}\',inc:1})" ';
+        $line = 38;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '>&#xeb78;</i></div></div><div mxv mxa="_zs_gallerye8:f" class="_zs_gallery_mx-calendar_index_-group"><div mxv mxa="_zs_gallerye8:g" class="mb5"><input class="input _zs_gallery_mx-calendar_index_-ipt" maxlength="2" autocomplete="off" value="';
+    $line = 46;
+    $art = '=format(time[\'@{second}\'])';
+    ;
+    $p += ($expr = '<%=format(time[\'@{second}\'])%>', $e(format(time['@{second}']))) + '" ';
+    $line = 47;
+    $art = 'if types[\'@{second}\']';
+    ;
+    $expr = '<%if (types[\'@{second}\']) {%>';
+    if (types['@{second}']) {
+        ;
+        $p += ' mx-change="' + $viewId + '@{set}({type:\'@{second}\'})" ';
+        $line = 47;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' disabled="disabled" ';
+        $line = 47;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' mx-keydown="' + $viewId + '@{press.check}({type:\'@{second}\'})"/></div><div class="clearfix ';
+    $line = 50;
+    $art = 'if !types[\'@{second}\']';
+    ;
+    $expr = '<%if (!types[\'@{second}\']) {%>';
+    if (!types['@{second}']) {
+        ;
+        $p += ' _zs_gallery_mx-calendar_index_-time-disabled ';
+        $line = 50;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '"><i class="mc-iconfont _zs_gallery_mx-calendar_index_-ipb fl" ';
+    $line = 52;
+    $art = 'if types[\'@{second}\']';
+    ;
+    $expr = '<%if (types[\'@{second}\']) {%>';
+    if (types['@{second}']) {
+        ;
+        $p += ' mx-click="' + $viewId + '@{change}({type:\'@{second}\'})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{second}\'})" ';
+        $line = 52;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '>&#xeb79;</i><i class="mc-iconfont _zs_gallery_mx-calendar_index_-ipb fr" ';
+    $line = 55;
+    $art = 'if types[\'@{second}\']';
+    ;
+    $expr = '<%if (types[\'@{second}\']) {%>';
+    if (types['@{second}']) {
+        ;
+        $p += ' mx-click="' + $viewId + '@{change}({type:\'@{second}\',inc:1})" mx-mousedown="' + $viewId + '@{fast.start}({type:\'@{second}\',inc:1})" ';
+        $line = 55;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '>&#xeb78;</i></div></div></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-time/content.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var that = this;
+        //初始化时保存一份当前数据的快照
+        that.updater.snapshot();
+        //该处是否可以由magix自动调用
+        that.assign(extra);
+    },
+    assign: function (extra) {
+        var that = this;
+        //赋值前先进行数据变化的检测,首次assign是在init方法中调用,后续的调用是magix自动调用,这个检测主要用于在首次调用后,magix自动调用前有没有进行数据的更新
+        var altered = that.updater.altered();
+        //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
+        var time = parseTime(extra.time);
+        var types = parseType(extra.types);
+        that.updater.set({
+            format: format,
+            time: time,
+            types: types
+        });
+        //如果数据没变化,则设置新的数据后再次检测
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        //如果有变化,则再保存当前的快照,然后返回true告诉magix当前view需要更新
+        if (altered) {
+            that.updater.snapshot();
+            return true;
+        }
+        //如果数据没变化,则告诉magix当前view不用更新
+        return false;
+    },
+    render: function () {
+        this.updater.digest();
+    },
+    val: function (v) {
+        var updater = this.updater;
+        if (v) {
+            updater.digest({
+                time: parseTime(v)
+            });
+        }
+        var time = updater.get('time');
+        return format(time['@{hour}']) + ':' + format(time['@{minute}']) + ':' + format(time['@{second}']);
+    },
+    '@{change.time.by.type}': function (type, increase) {
+        var me = this;
+        var time = me.updater.get('time');
+        var max = type == '@{hour}' ? 23 : 59;
+        if (increase) {
+            time[type]++;
+        }
+        else {
+            time[type]--;
+        }
+        if (time[type] > max) {
+            time[type] = 0;
+        }
+        else if (time[type] < 0) {
+            time[type] = max;
+        }
+        me.updater.digest({
+            time: time
+        });
+    },
+    '@{fire.event}': function () {
+        var me = this;
+        var node = $('#' + me.id);
+        var time = me.updater.get('time');
+        node.trigger({
+            type: 'change',
+            time: format(time['@{hour}']) + ':' + format(time['@{minute}']) + ':' + format(time['@{second}'])
+        });
+    },
+    '@{change}<click>': function (e) {
+        var me = this;
+        if (!me['@{fast.change.start}']) {
+            var params = e.params;
+            me['@{change.time.by.type}'](params.type, params.inc);
+            me['@{fire.event}']();
+        }
+    },
+    '@{set}<change>': function (e) {
+        e.stopPropagation();
+        var type = e.params.type;
+        var max = type == '@{hour}' ? 23 : 59;
+        var target = e.eventTarget;
+        var value = target.value;
+        var v = parseInt(value, 10);
+        var time = this.updater.get('time');
+        if (v || v === 0) {
+            if (v < 0)
+                v = 0;
+            else if (v > max)
+                v = max;
+            if (v !== time[type]) {
+                time[type] = v;
+                this.updater.digest({
+                    time: time
+                });
+                this['@{fire.event}']();
+            }
+            else {
+                target.value = format(v);
+            }
+        }
+        else {
+            target.value = format(time[type]);
+        }
+    },
+    '@{fast.start}<mousedown>': function (e) {
+        var me = this;
+        var params = e.params;
+        me['@{long.tap.timer}'] = setTimeout(me.wrapAsync(function () {
+            me['@{interval.timer}'] = setInterval(me.wrapAsync(function () {
+                me['@{fast.change.start}'] = true;
+                me['@{change.time.by.type}'](params.type, params.inc);
+            }), 50);
+        }), 250);
+    },
+    '@{press.check}<keydown>': function (e) {
+        if (e.keyCode == 38 || e.keyCode == 40) {
+            e.preventDefault();
+            var me_1 = this;
+            me_1['@{change.time.by.type}'](e.params.type, e.keyCode == 38);
+            clearTimeout(me_1['@{event.dealy.timer}']);
+            me_1['@{event.dealy.timer}'] = setTimeout(me_1.wrapAsync(function () {
+                me_1['@{fire.event}']();
+            }), 100);
+        }
+    },
+    '$doc<mouseup>': function () {
+        var me = this;
+        clearTimeout(me['@{long.tap.timer}']);
+        clearInterval(me['@{interval.timer}']);
+        setTimeout(me.wrapAsync(function () {
+            if (me['@{fast.change.start}']) {
+                me['@{fire.event}']();
+            }
+            delete me['@{fast.change.start}'];
+        }), 0);
+    }
+});
+
+});

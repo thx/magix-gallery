@@ -90,5 +90,10 @@ module.exports = Magix.View.extend({
     },
     render() {
         this.updater.digest();
+    },
+    'close<click>'(event) {
+        this.updater.digest({
+            show: false
+        })
     }
 });
