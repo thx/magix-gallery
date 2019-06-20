@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 5;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_izvqoun$art_i = 0, $art_crjbfl$art_c = list.length; $art_izvqoun$art_i < $art_crjbfl$art_c; $art_izvqoun$art_i++) {    var item = list[$art_izvqoun$art_i]%>';
-    for (var $art_izvqoun$art_i = 0, $art_crjbfl$art_c = list.length; $art_izvqoun$art_i < $art_crjbfl$art_c; $art_izvqoun$art_i++) {
-        var item = list[$art_izvqoun$art_i];
+    $expr = '<%for (var $art_ivvyf$art_i = 0, $art_cgliebmf$art_c = list.length; $art_ivvyf$art_i < $art_cgliebmf$art_c; $art_ivvyf$art_i++) {    var item = list[$art_ivvyf$art_i]%>';
+    for (var $art_ivvyf$art_i = 0, $art_cgliebmf$art_c = list.length; $art_ivvyf$art_i < $art_cgliebmf$art_c; $art_ivvyf$art_i++) {
+        var item = list[$art_ivvyf$art_i];
         $p += '<div mxa="_zs_galleryds:b" class="_zs_gallery_mx-popover___test___custom_-custom-item"><div mxa="_zs_galleryds:c" class="mb5 color-9">';
         $line = 7;
         $art = '=item.name';

@@ -20,30 +20,43 @@ module.exports = {
         var ready = function () {
             var locParams = Router.parse().params;
             var context = $('#' + me.id);
-            var trigger = context.find('[sort-trigger]');
-            trigger.each(function (idx, item) {
-                item = $(item);
-                var field = item.attr('sort-trigger');
-                // 保留在地址栏的排序字段key
-                var orderFieldKey = item.attr('order-field-key') || 'orderField';
-                // 当前排序字段
-                var orderField = item.attr('sort-field') || locParams[orderFieldKey];
-                // 保留在地址栏的排序方式key
-                var orderByKey = item.attr('order-by-key') || 'orderBy';
-                // 当前排序方式
-                var orderBy = item.attr('sort-orderby') || locParams[orderByKey] || 'default';
-                var icon;
-                if (orderField == field) {
-                    icon = Map[orderBy];
+            // 按照table区分，一个view可能多个table
+            var tables = context.find('[mx-view*="mx-table/index"]');
+            tables.each(function (tIndex, t) {
+                var tId = t.id;
+                if (t.vframe.pId == me.id) {
+                    t = $(t);
+                    var tmxa_1 = t.attr('mxa').split(':')[0];
+                    // 只处理本view的table + trigger
+                    var trigger = t.find('[sort-trigger]');
+                    trigger.each(function (idx, item) {
+                        item = $(item);
+                        if (item.closest('[mxa]').attr('mxa').startsWith(tmxa_1)) {
+                            var field = item.attr('sort-trigger');
+                            // 保留在地址栏的排序字段key
+                            var orderFieldKey = item.attr('order-field-key') || 'orderField';
+                            // 当前排序字段
+                            var orderField = item.attr('sort-field') || locParams[orderFieldKey];
+                            // 保留在地址栏的排序方式key
+                            var orderByKey = item.attr('order-by-key') || 'orderBy';
+                            // 当前排序方式
+                            var orderBy = item.attr('sort-orderby') || locParams[orderByKey] || 'default';
+                            var icon = void 0;
+                            if (orderField == field) {
+                                icon = Map[orderBy];
+                            }
+                            else {
+                                icon = Map["default"];
+                            }
+                            // 同一个view可能有多个table，需要保证key唯一
+                            me["@{" + tId + ".order.field.key}"] = orderFieldKey;
+                            me["@{" + tId + ".order.field}"] = orderField;
+                            me["@{" + tId + ".order.by.key}"] = orderByKey;
+                            me["@{" + tId + ".order.by}"] = orderBy;
+                            item.html("<i class=\"mc-iconfont displacement-2 cursor-pointer\">" + icon + "</i>");
+                        }
+                    });
                 }
-                else {
-                    icon = Map["default"];
-                }
-                me['@{order.field.key}'] = orderFieldKey;
-                me['@{order.field}'] = orderField;
-                me['@{order.by.key}'] = orderByKey;
-                me['@{order.by}'] = orderBy;
-                item.html("<i class=\"mc-iconfont displacement-2 cursor-pointer\">" + icon + "</i>");
             });
         };
         me.on('rendered', ready);
@@ -123,7 +136,9 @@ module.exports = {
         var context = $('#' + me.id);
         var item = $(e.eventTarget);
         var trigger = item.attr('sort-trigger');
-        var oldOrderField = me['@{order.field}'], oldOrderBy = me['@{order.by}'];
+        var table = item.closest('[mx-view*="mx-table/index"]');
+        var tId = table[0].id;
+        var oldOrderField = me["@{" + tId + ".order.field}"], oldOrderBy = me["@{" + tId + ".order.by}"];
         var orderBy, orderField = trigger;
         if (oldOrderField == trigger) {
             if (oldOrderBy == 'asc') {
@@ -138,8 +153,8 @@ module.exports = {
             orderBy = 'desc';
         }
         Router.to((_a = {},
-            _a[me['@{order.field.key}']] = orderField,
-            _a[me['@{order.by.key}']] = orderBy,
+            _a[me["@{" + tId + ".order.field.key}"]] = orderField,
+            _a[me["@{" + tId + ".order.by.key}"]] = orderBy,
             _a));
         var _a;
     }

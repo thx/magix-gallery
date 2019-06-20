@@ -12,36 +12,51 @@ module.exports = {
         let ready = () => {
             let locParams = Router.parse().params;
             let context = $('#' + me.id);
-            let trigger = context.find('[sort-trigger]');
 
-            trigger.each((idx, item) => {
-                item = $(item)
-                let field = item.attr('sort-trigger');
+            // 按照table区分，一个view可能多个table
+            let tables = context.find('[mx-view*="mx-table/index"]');
 
-                // 保留在地址栏的排序字段key
-                let orderFieldKey = item.attr('order-field-key') || 'orderField';
-                // 当前排序字段
-                let orderField = item.attr('sort-field') || locParams[orderFieldKey];
+            tables.each((tIndex, t) => {
+                let tId = t.id;
+                if (t.vframe.pId == me.id) {
+                    t = $(t);
+                    let tmxa = t.attr('mxa').split(':')[0];
 
-                // 保留在地址栏的排序方式key
-                let orderByKey = item.attr('order-by-key') || 'orderBy';
-                // 当前排序方式
-                let orderBy = item.attr('sort-orderby') || locParams[orderByKey] || 'default';
+                    // 只处理本view的table + trigger
+                    let trigger = t.find('[sort-trigger]');
+                    trigger.each((idx, item) => {
+                        item = $(item)
+                        if (item.closest('[mxa]').attr('mxa').startsWith(tmxa)) {
+                            let field = item.attr('sort-trigger');
 
-                let icon;
-                if (orderField == field) {
-                    icon = Map[orderBy];
-                } else {
-                    icon = Map.default;
+                            // 保留在地址栏的排序字段key
+                            let orderFieldKey = item.attr('order-field-key') || 'orderField';
+                            // 当前排序字段
+                            let orderField = item.attr('sort-field') || locParams[orderFieldKey];
+
+                            // 保留在地址栏的排序方式key
+                            let orderByKey = item.attr('order-by-key') || 'orderBy';
+                            // 当前排序方式
+                            let orderBy = item.attr('sort-orderby') || locParams[orderByKey] || 'default';
+
+                            let icon;
+                            if (orderField == field) {
+                                icon = Map[orderBy];
+                            } else {
+                                icon = Map.default;
+                            }
+
+                            // 同一个view可能有多个table，需要保证key唯一
+                            me[`@{${tId}.order.field.key}`] = orderFieldKey;
+                            me[`@{${tId}.order.field}`] = orderField;
+                            me[`@{${tId}.order.by.key}`] = orderByKey;
+                            me[`@{${tId}.order.by}`] = orderBy;
+
+                            item.html(`<i class="mc-iconfont displacement-2 cursor-pointer">${icon}</i>`);
+                        }
+                    });
                 }
-
-                me['@{order.field.key}'] = orderFieldKey;
-                me['@{order.field}'] = orderField;
-                me['@{order.by.key}'] = orderByKey;
-                me['@{order.by}'] = orderBy;
-
-                item.html(`<i class="mc-iconfont displacement-2 cursor-pointer">${icon}</i>`);
-            });
+            })
         }
         me.on('rendered', ready);
         me.on('domready', ready);
@@ -51,7 +66,7 @@ module.exports = {
      * 本地排序
      */
     sort(list, orderFieldKey, orderByKey) {
-        if(DEBUG){
+        if (DEBUG) {
             console.warn('本地排序方法：如果自定义保留在地址栏的排序字段和排序方式字段，请显示的传入该值，否则默认取地址栏orderField，orderBy');
         }
         list = list || [];
@@ -79,27 +94,27 @@ module.exports = {
                 bx = b[orderField] + '';
 
             let compare;
-            if(isNaN(parseInt(ax)) || isNaN(parseInt(bx)) ){
+            if (isNaN(parseInt(ax)) || isNaN(parseInt(bx))) {
                 // 字符串排序，忽略大小写
                 switch (orderBy) {
                     case 'desc':
                         // 降序
-                        if(bx.toUpperCase() < ax.toUpperCase()){
+                        if (bx.toUpperCase() < ax.toUpperCase()) {
                             compare = -1;
-                        }else{
+                        } else {
                             compare = 1;
                         }
                         break;
                     case 'asc':
                         // 升序
-                        if(ax.toUpperCase() < bx.toUpperCase()){
+                        if (ax.toUpperCase() < bx.toUpperCase()) {
                             compare = -1;
-                        }else{
+                        } else {
                             compare = 1;
                         }
                         break;
                 }
-            }else{
+            } else {
                 // 数字排序
                 switch (orderBy) {
                     case 'desc':
@@ -126,9 +141,11 @@ module.exports = {
         let context = $('#' + me.id);
         let item = $(e.eventTarget);
         let trigger = item.attr('sort-trigger');
+        let table = item.closest('[mx-view*="mx-table/index"]');
+        let tId = table[0].id;
 
-        let oldOrderField = me['@{order.field}'],
-            oldOrderBy = me['@{order.by}'];
+        let oldOrderField = me[`@{${tId}.order.field}`],
+            oldOrderBy = me[`@{${tId}.order.by}`];
 
         let orderBy, orderField = trigger;
         if (oldOrderField == trigger) {
@@ -141,10 +158,9 @@ module.exports = {
             // 默认降序
             orderBy = 'desc';
         }
-
         Router.to({
-            [me['@{order.field.key}']]: orderField,
-            [me['@{order.by.key}']]: orderBy
+            [me[`@{${tId}.order.field.key}`]]: orderField,
+            [me[`@{${tId}.order.by.key}`]]: orderBy
         });
     }
 };

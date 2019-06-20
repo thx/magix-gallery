@@ -14,7 +14,7 @@ module.exports = Base.extend({
             text1: CopyText,
             text2: CopyText
         })
-        that.observeLocation(['customOrderField', 'customOrderBy']);
+        that.observeLocation(['customOrderField', 'customOrderBy', 'customOrderField2', 'customOrderBy2']);
     },
     render() {
         let that = this;
@@ -36,15 +36,24 @@ module.exports = Base.extend({
 
         let locParams = Router.parse().params;
         let orderFieldKey = 'customOrderField',
-            orderByKey = 'customOrderBy';
+            orderByKey = 'customOrderBy',
+            orderFieldKey2 = 'customOrderField2',
+            orderByKey2 = 'customOrderBy2';
 
         let list = that.getList();
+        let list2 = that.getList();
+
         that.updater.digest({
             list: that.sort(list, orderFieldKey, orderByKey),
             orderFieldKey,
             orderByKey,
             sortField: locParams[orderFieldKey] || 'field1',
             sortBy: locParams[orderByKey] || 'asc',
+            list2: that.sort(list2, orderFieldKey2, orderByKey2),
+            orderFieldKey2,
+            orderByKey2,
+            sortField2: locParams[orderFieldKey2] || 'field1',
+            sortBy2: locParams[orderByKey2] || 'asc',
             groups,
             len,
             format: (val) => {

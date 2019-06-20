@@ -29,7 +29,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', variables = $$.variables, fieldsList = $$.fieldsList, chartId = $$.chartId, chartData = $$.chartData, viewId = $$.viewId, text1 = $$.text1, text3 = $$.text3; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryai:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryai:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryai:i" class="mb15">图表变量的定义，<a href="https://yuque.antfin-inc.com/docs/share/5c7a5600-6989-48a6-8db4-424b3d5d6fcf" style="color: var(--color-brand);" target="_blank">流程可参考</a></div><div mxv mxa="_zs_galleryai:j" class="mb10"><span mxs="_zs_galleryai:h" class="mr10">选择y轴对应的数据维度</span><div mxv="fieldsList" class="w200" mx-change="' + $viewId + 'select()" mx-view="mx-dropdown/index?selected=';
+    $p += '<div mxv mxa="_zs_galleryai:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryai:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryai:_" class="mb15">图表变量的定义，<a href="https://yuque.antfin-inc.com/docs/share/5c7a5600-6989-48a6-8db4-424b3d5d6fcf" style="color: var(--color-brand);" target="_blank">流程可参考</a></div><div mxv mxa="_zs_galleryai:b" class="mb10"><span mxs="_zs_galleryai:a" class="mr10">选择y轴对应的数据维度</span><div mxv="fieldsList" class="w200" mx-change="' + $viewId + 'select()" mx-view="mx-dropdown/index?selected=';
     $line = 7;
     $art = '=variables.yField';
     ;
@@ -49,11 +49,11 @@ module.exports = Base.extend({
     $line = 12;
     $art = '@variables';
     ;
-    $p += ($expr = '<%@variables%>', $i($$ref, variables)) + '"></div></div><div mxa="_zs_galleryai:c" class="clearfix"><div mxa="_zs_galleryai:d" class="_zs_gallery___test___layout_-third1"><div mxa="_zs_galleryai:k" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryai:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@variables%>', $i($$ref, variables)) + '"></div></div><div mxa="_zs_galleryai:c" class="clearfix"><div mxa="_zs_galleryai:d" class="_zs_gallery___test___layout_-third1"><div mxa="_zs_galleryai:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryai:b" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 18;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryai:l" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryai:f" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 20;
     $art = '!text1';
     ;
@@ -61,11 +61,11 @@ module.exports = Base.extend({
     $line = 23;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-chart \n    chartId="&#123;&#123;@chartId&#125;&#125;" \n    data="&#123;&#123;@chartData&#125;&#125;" \n    variables="&#123;&#123;@variables&#125;&#125;"\n    style="height: 400px;"\n&gt&lt;/mx-chart/&gt;\n        </pre></div><div mxa="_zs_galleryai:m" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryai:d" class="_zs_gallery___test___layout_-eg-title">chartpark 图表配置</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-chart \n    chartId="&#123;&#123;@chartId&#125;&#125;" \n    data="&#123;&#123;@chartData&#125;&#125;" \n    variables="&#123;&#123;@variables&#125;&#125;"\n    style="height: 400px;"\n&gt&lt;/mx-chart/&gt;\n        </pre></div><div mxa="_zs_galleryai:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryai:d" class="_zs_gallery___test___layout_-eg-title">chartpark 图表配置</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 34;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryai:n" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryai:h" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 36;
     $art = '!text1';
     ;
@@ -73,11 +73,11 @@ module.exports = Base.extend({
     $line = 39;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\n// 定义变量默认值, 名称一定为 variables\nvar variables = {\n    xField:\'time\',\n    yField: "uv"\n};\n\nvar options = {\n    coord: {\n        type: "rect",\n        xAxis: {\n            field: variables.xField // 引用变量\n        }\n    },\n    graphs: [\n        {\n            type: "line",\n            field: variables.yField // 引用变量\n        }\n    ],\n    legend:{}\n};\n            </pre></div></div><div mxa="_zs_galleryai:o" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryai:e" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\n// 定义变量默认值, 名称一定为 variables\nvar variables = {\n    xField:\'time\',\n    yField: "uv"\n};\n\nvar options = {\n    coord: {\n        type: "rect",\n        xAxis: {\n            field: variables.xField // 引用变量\n        }\n    },\n    graphs: [\n        {\n            type: "line",\n            field: variables.yField // 引用变量\n        }\n    ],\n    legend:{}\n};\n            </pre></div></div><div mxa="_zs_galleryai:i" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-third2 _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryai:e" class="_zs_gallery___test___layout_-eg-title">JS Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 66;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_galleryai:p" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_galleryai:j" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 67;
     $art = '!text3';
     ;
