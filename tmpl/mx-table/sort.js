@@ -15,7 +15,6 @@ module.exports = {
 
             // 按照table区分，一个view可能多个table
             let tables = context.find('[mx-view*="mx-table/index"]');
-
             tables.each((tIndex, t) => {
                 let tId = t.id;
                 if (t.vframe.pId == me.id) {

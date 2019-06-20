@@ -3,10 +3,11 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-table/__test__/index10",["magix","$","__test__/subs","mx-title/second","./18","__test__/api"],(require,exports,module)=>{
+define("mx-table/__test__/index10",["magix","$","__test__/subs","mx-title/second","./8","./18","__test__/api"],(require,exports,module)=>{
 /*Magix,$*/
 require("__test__/subs");
 require("mx-title/second");
+require("./8");
 require("./18");
 require("__test__/api");
 var Magix = require("magix");
@@ -36,7 +37,11 @@ module.exports = Magix.View.extend({
     $line = 23;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryey:a" class="mb20 clearfix"><div mx-view="mx-table/__test__/18" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryey:a" class="mb20 clearfix"><div mx-view="mx-table/__test__/8" id="';
+    $line = 25;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-table/__test__/18" id="';
     $line = 26;
     $art = '=viewId';
     ;

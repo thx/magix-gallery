@@ -297,6 +297,14 @@ catch (ex) {
                 fcss.padding = '16px 24px';
             }
             $('#' + cntId).css(fcss);
+            // 是否需要更新宽度位置 + 左距离
+            var dlg = $("#" + data.vId);
+            var winWidth = window.innerWidth;
+            var w = Math.min(winWidth, data.width);
+            dlg.css({
+                width: w,
+                left: Math.max(0, winWidth - w)
+            });
         }
     },
     '@{notify.main.view.unload}': function (e) {
