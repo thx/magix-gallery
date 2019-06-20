@@ -1,1 +1,56 @@
-define("mx-effects/__test__/11",["magix","__test__/example","$","../star","mx-copy/index","__test__/hl"],(e,t,s)=>{e("../star"),e("mx-copy/index"),e("__test__/hl");e("magix");var i=e("__test__/example");e("$");s.exports=i.extend({tmpl:function(e,t,s,i,n,r,a,l){if(s||(s=e),!n){var _={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},m=/[&<>"'`]/g,d=function(e){return"&"+_[e]+";"};n=function(e){return""+(null==e?"":e)},i=function(e){return n(e).replace(m,d)}}if(!r){var c={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},v=function(e){return c[e]},x=/[!')(*]/g;r=function(e){return encodeURIComponent(n(e)).replace(x,v)}}if(!l){var f=/[\\'"]/g;l=function(e){return n(e).replace(f,"\\$&")}}var u="",g=e.viewId,o=e.text1;return u+='<div mxa="_zs_gallerybr:_" class="_zs_galleryg"><div mxs="_zs_gallerybr:_" class="_zs_galleryj"><div class="mb10"><div mx-view="mx-effects/star?num=-1"></div></div><div class="mb10"><div mx-view="mx-effects/star?num=1.4"></div></div><div class="mb10"><div mx-view="mx-effects/star?num=2.5"></div></div><div class="mb10"><div mx-view="mx-effects/star?num=4"></div></div><div class="mb10"><div mx-view="mx-effects/star?num=5.5"></div></div></div><div mxa="_zs_gallerybr:a" class="_zs_galleryk"><div mxs="_zs_gallerybr:a" class="_zs_galleryi">HTML Code</div><div class="_zs_galleryl" mx-success="'+t+'done({id:1})" mx-view="mx-copy/index?copyNode='+r(g)+'_text_1"><span mxa="_zs_gallerybr:b" class="_zs_galleryn">'+n(o)+'</span><i mxs="_zs_gallerybr:b" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+i(g)+'_text_1">\n&lt;!-- 默认使用品牌色高亮 --&gt;\n&lt;mx-effects.star num="-1"/&gt;\n\n&lt;mx-effects.star num="1.4"/&gt;\n\n&lt;mx-effects.star num="2.5"/&gt;\n\n&lt;mx-effects.star num="4"/&gt;\n\n&lt;mx-effects.star num="5.5"/&gt;</pre></div></div>'},render:function(){this.updater.digest({test:!0})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-effects/__test__/11",["magix","__test__/example","$","../star","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("../star");
+require("mx-copy/index");
+require("__test__/hl");
+var Magix = require("magix");
+var Base = require("__test__/example");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerybr:_" class="_zs_gallery___test___layout_-example"><div mxs="_zs_gallerybr:_" class="_zs_gallery___test___layout_-eg-content"><div class="mb10"><div mx-view="mx-effects/star?num=-1"></div></div><div class="mb10"><div mx-view="mx-effects/star?num=1.4"></div></div><div class="mb10"><div mx-view="mx-effects/star?num=2.5"></div></div><div class="mb10"><div mx-view="mx-effects/star?num=4"></div></div><div class="mb10"><div mx-view="mx-effects/star?num=5.5"></div></div></div><div mxa="_zs_gallerybr:a" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerybr:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 21;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybr:b" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 23;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybr:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 26;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;!-- 默认使用品牌色高亮 --&gt;\n&lt;mx-effects.star num="-1"/&gt;\n\n&lt;mx-effects.star num="1.4"/&gt;\n\n&lt;mx-effects.star num="2.5"/&gt;\n\n&lt;mx-effects.star num="4"/&gt;\n\n&lt;mx-effects.star num="5.5"/&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-effects/__test__/11.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest({
+            test: true
+        });
+    }
+});
+
+});
