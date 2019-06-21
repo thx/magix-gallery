@@ -98,6 +98,7 @@ module.exports = Magix.View.extend({
             if (q.start == dateStartStr && q.end == dateEndStr) {
                 quickDateText = q.text;
                 quickDateKey = q.key;
+                break;
             }
         }
 

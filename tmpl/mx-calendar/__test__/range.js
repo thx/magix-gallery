@@ -49,7 +49,7 @@ module.exports = Magix.View.extend({
             def: 'true'
         }, {
             key: 'shortkeys',
-            desc: `shortcuts=true时生效，支持以下两个形式<br/>：
+            desc: `shortcuts=true时生效，支持以下两个形式：<br/>
 1.配置备选快捷方式key值，如["today","yesterday"]，<a href="javascript:;" mx-click="to({id:'${viewId}_quick'})" class="color-brand">点击查看所有备选值</a><br/>
 2.自定义快捷方式，格式如下<pre>[{
     key: '', //唯一key
@@ -59,7 +59,16 @@ module.exports = Magix.View.extend({
     end: '2019-06-24' //对应的结束时间
 }]</pre>`,
             type: 'array',
-            def: '["today","yesterday","passed7","preWeekMon","passed15","lastestThisMonth","passed30","preMonth"]'
+            def: `<pre>[
+    "today",
+    "yesterday",
+    "passed7",
+    "preWeekMon",
+    "passed15",
+    "lastestThisMonth",
+    "passed30",
+    "preMonth"
+]</pre>`
         }, {
             key: 'max',
             desc: '最大可选的日期',
