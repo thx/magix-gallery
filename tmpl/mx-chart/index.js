@@ -65,5 +65,11 @@ module.exports = Magix.View.extend({
         return false;
     },
     render() {
+    },
+    '$doc<navslidend>' () {
+        Chartx.resize();
+    },
+    '$win<resize>' () {
+        Chartx.resize();
     }
 });
