@@ -1,1 +1,82 @@
-define("mx-popover/__test__/3",["magix","__test__/example","$","../index","mx-copy/index","__test__/hl"],(e,t,s)=>{e("../index"),e("mx-copy/index"),e("__test__/hl");e("magix");var a=e("__test__/example");e("$");s.exports=a.extend({tmpl:function(e,t,s,a,n,_,l,i){if(s||(s=e),!n){var r={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},c=/[&<>"'`]/g,p=function(e){return"&"+r[e]+";"};n=function(e){return""+(null==e?"":e)},a=function(e){return n(e).replace(c,p)}}if(!_){var d={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},m=function(e){return d[e]},o=/[!')(*]/g;_=function(e){return encodeURIComponent(n(e)).replace(o,m)}}if(!i){var x=/[\\'"]/g;i=function(e){return n(e).replace(x,"\\$&")}}l||(l=function(e,t,s,a){for(a=e[v];--a;)if(e[s=v+a]===t)return s;return e[s=v+e[v]++]=t,s});var v="",u="",g=e.custom,y=e.viewId,f=e.text1;return u+='<div mxv mxa="_zs_gallerydp:_" class="_zs_galleryg"><div mxv mxa="_zs_gallerydp:a" class="_zs_galleryj"><div mxs="_zs_gallerydp:_" class="mb20"><span class="color-9">说明：</span>view自定义页面地址，data为传入view的数据</div><span mxv="custom" class="btn" mx-view="mx-popover/index?width=420&view=mx-popover%2F__test__%2Fcustom&data='+l(s,g)+'&placement=bottom">提示内容为自定义view</span></div><div mxa="_zs_gallerydp:b" class="_zs_galleryk"><div mxs="_zs_gallerydp:a" class="_zs_galleryi">HTML Code</div><div class="_zs_galleryl" mx-success="'+t+'done({id:1})" mx-view="mx-copy/index?copyNode='+_(y)+'_text_1"><span mxa="_zs_gallerydp:c" class="_zs_galleryn">'+n(f)+'</span><i mxs="_zs_gallerydp:b" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="__test__/hl" id="'+a(y)+'_text_1">\n&lt;mx-popover class="btn"\n    width="420"\n    view="@./custom"\n    data="&#123;&#123;@custom&#125;&#125;"&gt;提示内容为自定义view&lt;/mx-popover&gt;</pre></div></div>'},render:function(){this.updater.digest({custom:{list:[{name:"消耗",key:"charge",type:"double"},{name:"展现量",key:"adPv",type:"integer"},{name:"点击量",key:"click",type:"integer"},{name:"点击率",key:"ctr",type:"percent"}]}})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-popover/__test__/3",["magix","__test__/example","$","../index","mx-copy/index","__test__/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("../index");
+require("mx-copy/index");
+require("__test__/hl");
+var Magix = require("magix");
+var Base = require("__test__/example");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', custom = $$.custom, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerydp:_" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_gallerydp:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerydp:_" class="mb20"><span class="color-9">说明：</span>view自定义页面地址，data为传入view的数据</div><span mxv="custom" class="btn" mx-view="mx-popover/index?width=420&view=mx-popover%2F__test__%2Fcustom&data=';
+    $line = 10;
+    $art = '@custom';
+    ;
+    $p += ($expr = '<%@custom%>', $i($$ref, custom)) + '&placement=bottom">提示内容为自定义view</span></div><div mxa="_zs_gallerydp:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydp:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 15;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydp:c" class="_zs_gallery___test___layout_-desc-tip">';
+    $line = 17;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydp:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $line = 20;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-popover class="btn"\n    width="420"\n    view="@./custom"\n    data="&#123;&#123;@custom&#125;&#125;"&gt;提示内容为自定义view&lt;/mx-popover&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-popover/__test__/3.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest({
+            custom: {
+                list: [{
+                        name: '消耗',
+                        key: 'charge',
+                        type: 'double'
+                    }, {
+                        name: '展现量',
+                        key: 'adPv',
+                        type: 'integer'
+                    }, {
+                        name: '点击量',
+                        key: 'click',
+                        type: 'integer'
+                    }, {
+                        name: '点击率',
+                        key: 'ctr',
+                        type: 'percent'
+                    }]
+            }
+        });
+    }
+});
+
+});

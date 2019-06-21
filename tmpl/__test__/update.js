@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.16 ~ 1.3.18',
+            time: '2019-06-13',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-chart：新增图表组件，支持chartpark图表以及新特性<a href="https://yuque.antfin-inc.com/docs/share/5c7a5600-6989-48a6-8db4-424b3d5d6fcf">图表变量</a>，<a href="#!/chart/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.15',
             time: '2019-06-03',
             subs: [{
