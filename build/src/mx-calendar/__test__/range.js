@@ -3,13 +3,13 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-calendar/__test__/range",["magix","$","mx-medusa/util","__test__/subs","mx-title/second","./6","./12","./20","./7","./8","./9","./11","./15","./22","./13","./10","./18","__test__/api","__test__/event","./implement"],(require,exports,module)=>{
+define("mx-calendar/__test__/range",["magix","$","mx-medusa/util","__test__/subs","mx-title/second","./6","./12","./23","./7","./8","./9","./11","./15","./22","./13","./10","./18","./20","__test__/api","__test__/event","./implement"],(require,exports,module)=>{
 /*Magix,$,I18n*/
 require("__test__/subs");
 require("mx-title/second");
 require("./6");
 require("./12");
-require("./20");
+require("./23");
 require("./7");
 require("./8");
 require("./9");
@@ -19,6 +19,7 @@ require("./22");
 require("./13");
 require("./10");
 require("./18");
+require("./20");
 require("__test__/api");
 require("__test__/event");
 require("./implement");
@@ -44,108 +45,112 @@ module.exports = Magix.View.extend({
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events, supportQuickDates = $$.supportQuickDates; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_gallery?:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'对比+时间段\',\n            key: viewId + \'_demo6\'\n        },{\n            name: \'对比+单天\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'选择时分秒\',\n            key: viewId + \'_demo8\'\n        },{\n            name: \'自定义trigger\',\n            key: viewId + \'_demo12\'\n        },{\n            name: \'动态快捷日期\',\n            key: viewId + \'_demo9\'\n        },{\n            name: \'禁选开始或结束\',\n            key: viewId + \'_demo11\'\n        },{\n            name: \'至少至多n天\',\n            key: viewId + \'_demo22\'\n        },{\n            name: \'部分不可选\',\n            key: viewId + \'_demo15\'\n        },{\n            name: \'历史选中修正\',\n            key: viewId + \'_demo13\'\n        },{\n            name: \'范围修正\',\n            key: viewId + \'_demo10\'\n        },{\n            name: \'自定义formatter\',\n            key: viewId + \'_demo18\'\n        },{\n            name: \'禁选\',\n            key: viewId + \'_demo20\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }, {\n        name: \'快捷日期备选项\',\n        key: viewId + \'_quick\'\n    }, {\n        name: \'关于实现方案\',\n        key: viewId + \'_implement\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'对比+时间段\',\n            key: viewId + \'_demo6\'\n        },{\n            name: \'对比+单天\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'选择时分秒\',\n            key: viewId + \'_demo8\'\n        },{\n            name: \'自定义trigger\',\n            key: viewId + \'_demo12\'\n        },{\n            name: \'动态快捷日期\',\n            key: viewId + \'_demo9\'\n        },{\n            name: \'禁选开始或结束\',\n            key: viewId + \'_demo11\'\n        },{\n            name: \'至少至多n天\',\n            key: viewId + \'_demo22\'\n        },{\n            name: \'部分不可选\',\n            key: viewId + \'_demo15\'\n        },{\n            name: \'历史选中修正\',\n            key: viewId + \'_demo13\'\n        },{\n            name: \'范围修正\',\n            key: viewId + \'_demo10\'\n        },{\n            name: \'自定义formatter\',\n            key: viewId + \'_demo18\'\n        },{\n            name: \'自定义快捷方式\',\n            key: viewId + \'_demo23\'\n        },{\n            name: \'禁选\',\n            key: viewId + \'_demo20\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }, {\n        name: \'快捷日期备选项\',\n        key: viewId + \'_quick\'\n    }, {\n        name: \'关于实现方案\',\n        key: viewId + \'_implement\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'对比+时间段\',                    key: viewId + \'_demo6\'                }, {                    name: \'对比+单天\',                    key: viewId + \'_demo7\'                }, {                    name: \'选择时分秒\',                    key: viewId + \'_demo8\'                }, {                    name: \'自定义trigger\',                    key: viewId + \'_demo12\'                }, {                    name: \'动态快捷日期\',                    key: viewId + \'_demo9\'                }, {                    name: \'禁选开始或结束\',                    key: viewId + \'_demo11\'                }, {                    name: \'至少至多n天\',                    key: viewId + \'_demo22\'                }, {                    name: \'部分不可选\',                    key: viewId + \'_demo15\'                }, {                    name: \'历史选中修正\',                    key: viewId + \'_demo13\'                }, {                    name: \'范围修正\',                    key: viewId + \'_demo10\'                }, {                    name: \'自定义formatter\',                    key: viewId + \'_demo18\'                }, {                    name: \'禁选\',                    key: viewId + \'_demo20\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }, {            name: \'快捷日期备选项\',            key: viewId + \'_quick\'        }, {            name: \'关于实现方案\',            key: viewId + \'_implement\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '对比+时间段', key: viewId + '_demo6' }, { name: '对比+单天', key: viewId + '_demo7' }, { name: '选择时分秒', key: viewId + '_demo8' }, { name: '自定义trigger', key: viewId + '_demo12' }, { name: '动态快捷日期', key: viewId + '_demo9' }, { name: '禁选开始或结束', key: viewId + '_demo11' }, { name: '至少至多n天', key: viewId + '_demo22' }, { name: '部分不可选', key: viewId + '_demo15' }, { name: '历史选中修正', key: viewId + '_demo13' }, { name: '范围修正', key: viewId + '_demo10' }, { name: '自定义formatter', key: viewId + '_demo18' }, { name: '禁选', key: viewId + '_demo20' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }, { name: '快捷日期备选项', key: viewId + '_quick' }, { name: '关于实现方案', key: viewId + '_implement' }])) + '"></div><div id="';
-    $line = 56;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallery?:a" class="clearfix mb20"><div mxa="_zs_gallery?:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/6" id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'对比+时间段\',                    key: viewId + \'_demo6\'                }, {                    name: \'对比+单天\',                    key: viewId + \'_demo7\'                }, {                    name: \'选择时分秒\',                    key: viewId + \'_demo8\'                }, {                    name: \'自定义trigger\',                    key: viewId + \'_demo12\'                }, {                    name: \'动态快捷日期\',                    key: viewId + \'_demo9\'                }, {                    name: \'禁选开始或结束\',                    key: viewId + \'_demo11\'                }, {                    name: \'至少至多n天\',                    key: viewId + \'_demo22\'                }, {                    name: \'部分不可选\',                    key: viewId + \'_demo15\'                }, {                    name: \'历史选中修正\',                    key: viewId + \'_demo13\'                }, {                    name: \'范围修正\',                    key: viewId + \'_demo10\'                }, {                    name: \'自定义formatter\',                    key: viewId + \'_demo18\'                }, {                    name: \'自定义快捷方式\',                    key: viewId + \'_demo23\'                }, {                    name: \'禁选\',                    key: viewId + \'_demo20\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }, {            name: \'快捷日期备选项\',            key: viewId + \'_quick\'        }, {            name: \'关于实现方案\',            key: viewId + \'_implement\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '对比+时间段', key: viewId + '_demo6' }, { name: '对比+单天', key: viewId + '_demo7' }, { name: '选择时分秒', key: viewId + '_demo8' }, { name: '自定义trigger', key: viewId + '_demo12' }, { name: '动态快捷日期', key: viewId + '_demo9' }, { name: '禁选开始或结束', key: viewId + '_demo11' }, { name: '至少至多n天', key: viewId + '_demo22' }, { name: '部分不可选', key: viewId + '_demo15' }, { name: '历史选中修正', key: viewId + '_demo13' }, { name: '范围修正', key: viewId + '_demo10' }, { name: '自定义formatter', key: viewId + '_demo18' }, { name: '自定义快捷方式', key: viewId + '_demo23' }, { name: '禁选', key: viewId + '_demo20' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }, { name: '快捷日期备选项', key: viewId + '_quick' }, { name: '关于实现方案', key: viewId + '_implement' }])) + '"></div><div id="';
     $line = 59;
     $art = '=viewId';
     ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallery?:a" class="clearfix mb20"><div mxa="_zs_gallery?:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/6" id="';
+    $line = 62;
+    $art = '=viewId';
+    ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div><div mx-view="mx-calendar/__test__/12" id="';
-    $line = 60;
+    $line = 63;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo12"></div><div mx-view="mx-calendar/__test__/20" id="';
-    $line = 61;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo20"></div></div><div mxa="_zs_gallery?:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/7" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo12"></div><div mx-view="mx-calendar/__test__/23" id="';
     $line = 64;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div><div mx-view="mx-calendar/__test__/8" id="';
-    $line = 65;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div><div mx-view="mx-calendar/__test__/9" id="';
-    $line = 66;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div><div mx-view="mx-calendar/__test__/11" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo23"></div></div><div mxa="_zs_gallery?:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/7" id="';
     $line = 67;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo11"></div><div mx-view="mx-calendar/__test__/15" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div><div mx-view="mx-calendar/__test__/8" id="';
     $line = 68;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo15"></div><div mx-view="mx-calendar/__test__/22" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div><div mx-view="mx-calendar/__test__/9" id="';
     $line = 69;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo22"></div><div mx-view="mx-calendar/__test__/13" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div><div mx-view="mx-calendar/__test__/11" id="';
     $line = 70;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo13"></div><div mx-view="mx-calendar/__test__/10" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo11"></div><div mx-view="mx-calendar/__test__/15" id="';
     $line = 71;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo10"></div><div mx-view="mx-calendar/__test__/18" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo15"></div><div mx-view="mx-calendar/__test__/22" id="';
     $line = 72;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo18"></div></div></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo22"></div><div mx-view="mx-calendar/__test__/13" id="';
+    $line = 73;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo13"></div><div mx-view="mx-calendar/__test__/10" id="';
+    $line = 74;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo10"></div><div mx-view="mx-calendar/__test__/18" id="';
+    $line = 75;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo18"></div><div mx-view="mx-calendar/__test__/20" id="';
     $line = 76;
     $art = '=viewId';
     ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo20"></div></div></div><div id="';
+    $line = 80;
+    $art = '=viewId';
+    ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 77;
+    $line = 81;
     $art = '@options';
     ;
     $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
-    $line = 79;
+    $line = 83;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_event" mx-view="mx-title/second?content=Event"></div><div mxv="events" mx-view="__test__/event?options=';
-    $line = 80;
+    $line = 84;
     $art = '@events';
     ;
     $p += ($expr = '<%@events%>', $i($$ref, events)) + '" class="mb40"></div><div id="';
-    $line = 82;
+    $line = 86;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_quick" mx-view="mx-title/second?content=%E5%BF%AB%E6%8D%B7%E6%97%A5%E6%9C%9F%E5%A4%87%E9%80%89%E9%A1%B9"></div><div mxa="_zs_gallery?:d" class="pr20 mb40"><table mxa="_zs_gallery?:e" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_gallery?:_"><tr><th width="100">配置key值</th><th width="100">显示文案</th><th width="200">描述</th></tr></thead><tbody>';
-    $line = 93;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_quick" mx-view="mx-title/second?content=%E5%BF%AB%E6%8D%B7%E6%97%A5%E6%9C%9F%E5%A4%87%E9%80%89%E9%A1%B9"></div><div mxa="_zs_gallery?:e" class="pr20 mb40"><table mxa="_zs_gallery?:g" class="table _zs_gallery___test___layout_-desc-table"><thead mxs="_zs_gallery?:_"><tr><th width="100">配置key值</th><th width="100">显示文案</th><th width="200">描述</th></tr></thead><tbody>';
+    $line = 97;
     $art = 'each supportQuickDates as item';
     ;
-    $expr = '<%for (var $art_ivivd$art_i = 0, $art_cjenyctfnd$art_c = supportQuickDates.length; $art_ivivd$art_i < $art_cjenyctfnd$art_c; $art_ivivd$art_i++) {    var item = supportQuickDates[$art_ivivd$art_i]%>';
-    for (var $art_ivivd$art_i = 0, $art_cjenyctfnd$art_c = supportQuickDates.length; $art_ivivd$art_i < $art_cjenyctfnd$art_c; $art_ivivd$art_i++) {
-        var item = supportQuickDates[$art_ivivd$art_i];
+    $expr = '<%for (var $art_iticuepde$art_i = 0, $art_cqpvkbieh$art_c = supportQuickDates.length; $art_iticuepde$art_i < $art_cqpvkbieh$art_c; $art_iticuepde$art_i++) {    var item = supportQuickDates[$art_iticuepde$art_i]%>';
+    for (var $art_iticuepde$art_i = 0, $art_cqpvkbieh$art_c = supportQuickDates.length; $art_iticuepde$art_i < $art_cqpvkbieh$art_c; $art_iticuepde$art_i++) {
+        var item = supportQuickDates[$art_iticuepde$art_i];
         $p += '<tr><td>';
-        $line = 95;
+        $line = 99;
         $art = '=item.key';
         ;
         $p += ($expr = '<%=item.key%>', $e(item.key)) + '</td><td>';
-        $line = 96;
+        $line = 100;
         $art = '=item.text';
         ;
         $p += ($expr = '<%=item.text%>', $e(item.text)) + '</td><td>';
-        $line = 97;
+        $line = 101;
         $art = '=item.tip';
         ;
         $p += ($expr = '<%=item.tip%>', $e(item.tip)) + '</td></tr>';
-        $line = 99;
+        $line = 103;
         $art = '/each';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += '</tbody></table></div><div mx-view="mx-calendar/__test__/implement" id="';
-    $line = 104;
+    $line = 108;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_implement"></div></div>';
@@ -203,9 +208,9 @@ catch (ex) {
                 def: 'true'
             }, {
                 key: 'shortkeys',
-                desc: "\u81EA\u5B9A\u4E49\u5FEB\u6377\u65B9\u5F0Fkey\u503C\uFF0C<a href=\"javascript:;\" mx-click=\"to({id:'" + viewId + "_quick'})\" class=\"color-brand\">\u67E5\u770B\u5907\u9009\u503C</a>",
+                desc: "shortcuts=true\u65F6\u751F\u6548\uFF0C\u652F\u6301\u4EE5\u4E0B\u4E24\u4E2A\u5F62\u5F0F<br/>\uFF1A\n1.\u914D\u7F6E\u5907\u9009\u5FEB\u6377\u65B9\u5F0Fkey\u503C\uFF0C\u5982[\"today\",\"yesterday\"]\uFF0C<a href=\"javascript:;\" mx-click=\"to({id:'" + viewId + "_quick'})\" class=\"color-brand\">\u70B9\u51FB\u67E5\u770B\u6240\u6709\u5907\u9009\u503C</a><br/>\n2.\u81EA\u5B9A\u4E49\u5FEB\u6377\u65B9\u5F0F\uFF0C\u683C\u5F0F\u5982\u4E0B<pre>[{\n    key: '', //\u552F\u4E00key\n    text: '', //\u663E\u793A\u6587\u6848\n    tip: '', //\u5FEB\u6377\u65B9\u5F0F\u8BF4\u660E\uFF0C\u6CA1\u6709\u4E3A\u7A7A\u5373\u53EF\n    start: '2019-06-21', //\u5BF9\u5E94\u7684\u5F00\u59CB\u65F6\u95F4\n    end: '2019-06-24' //\u5BF9\u5E94\u7684\u7ED3\u675F\u65F6\u95F4\n}]</pre>",
                 type: 'array',
-                def: 'shortcuts=true时，默认为["today","yesterday","passed7","preWeekMon","passed15","lastestThisMonth","passed30","preMonth"]'
+                def: '["today","yesterday","passed7","preWeekMon","passed15","lastestThisMonth","passed30","preMonth"]'
             }, {
                 key: 'max',
                 desc: '最大可选的日期',

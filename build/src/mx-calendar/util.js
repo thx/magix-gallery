@@ -244,6 +244,10 @@ module.exports = {
                     end: (end == ForeverStr) ? ForeverStr : DateFormat(end, formatter)
                 });
             }
+            else if (typeof quickKey === 'object') {
+                // 用户自定义的快捷日期
+                quickInfos.push(quickKey);
+            }
         });
         return quickInfos;
     }
