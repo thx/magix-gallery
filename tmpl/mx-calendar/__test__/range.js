@@ -61,6 +61,16 @@ module.exports = Magix.View.extend({
             desc: '最小可选的日期',
             type: 'string'
         }, {
+            key: 'max-gap',
+            desc: '可选择的最大天数间隔',
+            type: 'number',
+            def: ''
+        }, {
+            key: 'min-gap',
+            desc: '可选择的最小天数间隔',
+            type: 'number',
+            def: ''
+        }, {
             key: 'date-type',
             desc: `<pre>
 年月日选择类型：

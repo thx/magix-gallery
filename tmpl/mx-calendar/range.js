@@ -149,9 +149,7 @@ let RangeDate = Magix.View.extend({
         let that = this;
         let updater = that.updater;
         let data = updater.get();
-        let dates = data.dates,
-            formatter = data.formatter,
-            quickDates = data.quickDates;
+        let { dates, formatter, quickDates, vs, vsSingle, minGap, maxGap } = data;
 
         let params = e.params;
         if (params.quick) {
@@ -222,9 +220,6 @@ let RangeDate = Magix.View.extend({
             }
         } else {
             // 确定
-            let vs = data.vs,
-                vsSingle = data.vsSingle;
-
             let startStr = dates.startStr,
                 endStr = dates.endStr,
                 start = dates.start,
@@ -242,14 +237,31 @@ let RangeDate = Magix.View.extend({
                 endStr: endStr
             })
         }
+        let errorMsg = '';
+        if (!vs && !vsSingle && (dates.endStr != ForeverStr)) {
+            // 选择连续时间的情况下，比较天数范围
+            let formatterGap = 'YYYY/MM/dd';
+            let startGap = new Date(DateFormat(dates.startStr, formatterGap));
+            let endGap = new Date(DateFormat(dates.endStr, formatterGap));
+            let gap = (endGap.getTime() - startGap.getTime()) / (24 * 60 * 60 * 1000) + 1;
+            if (minGap > 0 && gap < minGap) {
+                errorMsg = `至少选择${minGap}天`;
+            }
+            if (maxGap > 0 && gap > maxGap) {
+                errorMsg = `至多选择${maxGap}天`;
+            }
+        }
         updater.digest({
-            dates: dates
+            dates: dates,
+            errorMsg
         });
-        that['@{owner.node}'].trigger({
-            type: 'change',
-            vs: data.vs,
-            dates: dates
-        });
+        if(!errorMsg){
+            that['@{owner.node}'].trigger({
+                type: 'change',
+                vs,
+                dates
+            });
+        }
     },
 
     '@{cancel}<click>'() {

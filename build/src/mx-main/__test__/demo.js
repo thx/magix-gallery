@@ -46,9 +46,26 @@ catch (ex) {
 } return $p; },
     render: function () {
         var stepInfos = [{
-                label: '设置单元',
+                label: '设置计划',
+                icon: '<i class="mc-iconfont">&#xe612;</i>',
                 nextTip: '下一步，设置计划',
+                sideView: 'mx-main/__test__/tip',
+                subs: [{
+                        label: '基本信息',
+                        icon: '<i class="mc-iconfont">&#xe612;</i>',
+                        view: 'mx-main/__test__/inner1'
+                    }],
+                nextFn: function (remains, next) {
+                    // remains 当前步骤保留的信息，提交处理
+                    next({
+                        campaignId: 1
+                    });
+                }
+            }, {
+                label: '设置单元',
                 icon: '<i class="mc-iconfont">&#xe7b5;</i>',
+                prevTip: '返回计划设置',
+                nextTip: '下一步，添加创意',
                 sideTip: "<div>\u8BF4\u660E\uFF1A</div>\n<div>1\u3001\u6761\u4EF61</div>\n<div>2\u3001\u6761\u4EF62</div>\n<div>3\u3001\u6761\u4EF63</div>",
                 subs: [{
                         label: '推广宝贝',
@@ -63,23 +80,6 @@ catch (ex) {
                     // remains 当前步骤保留的信息，提交处理
                     next({
                         adgroupId: 1
-                    });
-                }
-            }, {
-                label: '设置计划',
-                icon: '<i class="mc-iconfont">&#xe612;</i>',
-                prevTip: '返回单元设置',
-                nextTip: '下一步，添加创意',
-                sideView: 'mx-main/__test__/tip',
-                subs: [{
-                        label: '基本信息',
-                        icon: '<i class="mc-iconfont">&#xe612;</i>',
-                        view: 'mx-main/__test__/inner1'
-                    }],
-                nextFn: function (remains, next) {
-                    // remains 当前步骤保留的信息，提交处理
-                    next({
-                        campaignId: 1
                     });
                 }
             }, {
@@ -114,9 +114,9 @@ catch (ex) {
             }];
         var locParams = Router.parse().params;
         var alreadyStep = 1;
-        if (locParams.adgroupId) {
+        if (locParams.campaignId) {
             alreadyStep = 2;
-            if (locParams.campaignId) {
+            if (locParams.adgroupId) {
                 alreadyStep = 3;
             }
         }

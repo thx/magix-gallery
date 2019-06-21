@@ -1,0 +1,44 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10 clearfix">
+            <div class="color-9 fl lh22">以下示例：</div>
+            <div class="fl lh22">至少选择3天，至多选择10天</div>
+        </div>
+        <mx-calendar.rangepicker class="w240"
+            min-gap="3",
+            max-gap="10"
+            start="{{=start}}"
+            end="{{=end}}"
+            shortkeys="{{@[
+                'dynamicStart15',
+                'dynamicStart30',
+                'dynamicStart60',
+                'dynamicStart90',
+                'dynamicEndThisMonth',
+                'dynamicEndNextMonth'
+            ]}}"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-calendar.rangepicker class="w240"
+    min-gap="3",
+    max-gap="10"
+    start="&#123;&#123;=start&#125;&#125;"
+    end="&#123;&#123;=end&#125;&#125;"
+    shortkeys="&#123;&#123;@[
+        'dynamicStart15',
+        'dynamicStart30',
+        'dynamicStart60',
+        'dynamicStart90',
+        'dynamicEndThisMonth',
+        'dynamicEndNextMonth'
+    ]&#125;&#125;"/&gt;
+        </pre>
+    </div>
+</div>

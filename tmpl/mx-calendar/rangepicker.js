@@ -125,7 +125,9 @@ module.exports = Magix.View.extend({
             startDisabled,
             endDisabled,
             dates,
-            disabledWeeks: extra.disabledWeeks || []
+            disabledWeeks: extra.disabledWeeks || [],
+            minGap: +extra.minGap || 0,
+            maxGap: +extra.maxGap || 0
         }
 
         let alignNames = 'names@rangepicker.less[result-left,result-center]';

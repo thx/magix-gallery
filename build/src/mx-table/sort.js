@@ -26,12 +26,12 @@ module.exports = {
                 var tId = t.id;
                 if (t.vframe.pId == me.id) {
                     t = $(t);
-                    var tmxa_1 = t.attr('mxa').split(':')[0];
                     // 只处理本view的table + trigger
                     var trigger = t.find('[sort-trigger]');
                     trigger.each(function (idx, item) {
                         item = $(item);
-                        if (item.closest('[mxa]').attr('mxa').startsWith(tmxa_1)) {
+                        var closestTable = item.closest('[mx-view*="mx-table/index"]');
+                        if (tId == closestTable[0].id) {
                             var field = item.attr('sort-trigger');
                             // 保留在地址栏的排序字段key
                             var orderFieldKey = item.attr('order-field-key') || 'orderField';

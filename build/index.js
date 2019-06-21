@@ -78,6 +78,7 @@ let routes = {
     '/header/def': '__test__/empty',
     '/carousel/demo': '__test__/empty',
     '/main/demo': '__test__/empty',
+    '/main/hor-demo': '__test__/empty',
     '/wanxiang/demo1': '__test__/wanxiang',
     '/wanxiang/demo2': '__test__/wanxiang',
     '/wanxiang/demo3': '__test__/wanxiang'

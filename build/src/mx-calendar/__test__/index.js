@@ -39,7 +39,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallery\\:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_gallery,:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'事件 + 前缀\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'限制部分不可选\',\n            key: viewId + \'_demo14\'\n        },{\n            name: \'直接日历面板\',\n            key: viewId + \'_demo21\'\n        },{\n            name: \'只选择月份\',\n            key: viewId + \'_demo16\'\n        },{\n            name: \'可选择时分秒\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'可选择小时\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'可选择时分\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'范围修正\',\n            key: viewId + \'_demo5\'\n        },{\n            name: \'自定义formatter\',\n            key: viewId + \'_demo17\'\n        },{\n            name: \'禁选\',\n            key: viewId + \'_demo19\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }, {\n        name: \'关于实现方案\',\n        key: viewId + \'_implement\'\n    }]';
     ;
@@ -47,7 +47,7 @@ module.exports = Magix.View.extend({
     $line = 47;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallery\\:a" class="clearfix mb20"><div mxa="_zs_gallery\\:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/1" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallery,:a" class="clearfix mb20"><div mxa="_zs_gallery,:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/1" id="';
     $line = 50;
     $art = '=viewId';
     ;
@@ -63,7 +63,7 @@ module.exports = Magix.View.extend({
     $line = 53;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div mxa="_zs_gallery\\:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/14" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div mxa="_zs_gallery,:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-calendar/__test__/14" id="';
     $line = 56;
     $art = '=viewId';
     ;

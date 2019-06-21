@@ -3,11 +3,12 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-main/__test__/hor",["magix","$","__test__/subs","mx-title/second","./hor-demo","./steps"],(require,exports,module)=>{
+define("mx-main/__test__/hor",["magix","$","__test__/subs","mx-title/second","./hor-demo1","./hor-demo2","./steps"],(require,exports,module)=>{
 /*Magix,$*/
 require("__test__/subs");
 require("mx-title/second");
-require("./hor-demo");
+require("./hor-demo1");
+require("./hor-demo2");
 require("./steps");
 var Magix = require("magix");
 var $ = require("$");
@@ -28,16 +29,24 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc5:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxa="_zs_galleryc8:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\'\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'step-infos配置\',\n        key: viewId + \'_step\',\n        subs: [{\n            name: \'可配参数\',\n            key: viewId + \'_step1\',\n        }, {\n            name: \'check\',\n            key: viewId + \'_step2\',\n        }]\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'初态示例\',\n            key: viewId + \'_demo1\',\n        }, {\n            name: \'中间态+单步禁止\',\n            key: viewId + \'_demo2\',\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'step-infos配置\',\n        key: viewId + \'_step\',\n        subs: [{\n            name: \'可配参数\',\n            key: viewId + \'_step1\',\n        }, {\n            name: \'check\',\n            key: viewId + \'_step2\',\n        }]\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\'        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'step-infos配置\',            key: viewId + \'_step\',            subs: [{                    name: \'可配参数\',                    key: viewId + \'_step1\'                }, {                    name: \'check\',                    key: viewId + \'_step2\'                }]        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo' }, { name: 'API', key: viewId + '_api' }, { name: 'step-infos配置', key: viewId + '_step', subs: [{ name: '可配参数', key: viewId + '_step1' }, { name: 'check', key: viewId + '_step2' }] }])) + '"></div><div id="';
-    $line = 20;
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'初态示例\',                    key: viewId + \'_demo1\'                }, {                    name: \'中间态+单步禁止\',                    key: viewId + \'_demo2\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'step-infos配置\',            key: viewId + \'_step\',            subs: [{                    name: \'可配参数\',                    key: viewId + \'_step1\'                }, {                    name: \'check\',                    key: viewId + \'_step2\'                }]        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '初态示例', key: viewId + '_demo1' }, { name: '中间态+单步禁止', key: viewId + '_demo2' }] }, { name: 'API', key: viewId + '_api' }, { name: 'step-infos配置', key: viewId + '_step', subs: [{ name: '可配参数', key: viewId + '_step1' }, { name: 'check', key: viewId + '_step2' }] }])) + '"></div><div id="';
+    $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryc5:_" class="clearfix"><div mx-view="mx-main/__test__/hor-demo"></div></div><div mx-view="mx-main/__test__/steps" id="';
-    $line = 25;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryc8:a" class="clearfix"><div mx-view="mx-main/__test__/hor-demo1" id="';
+    $line = 29;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-main/__test__/hor-demo2" id="';
+    $line = 30;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div mx-view="mx-main/__test__/steps" id="';
+    $line = 33;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_step"></div></div>';

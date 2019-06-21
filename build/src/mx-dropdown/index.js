@@ -42,15 +42,15 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><span mxa="_zs_gallerybd:_" class="mx-trigger-label">';
+    $p += '"><span mxa="_zs_gallerybe:_" class="mx-trigger-label">';
     $expr = '<%if (name) {%>';
     if (name) {
         ;
-        $p += '<span mxa="_zs_gallerybd:a" class="color-9">' + ($expr = '<%=name%>', $e(name)) + '：</span>';
+        $p += '<span mxa="_zs_gallerybe:a" class="color-9">' + ($expr = '<%=name%>', $e(name)) + '：</span>';
         $expr = '<%}%>';
     }
     ;
-    $p += ' ' + ($expr = '<%!selectedText%>', $n(selectedText)) + '</span><span mxs="_zs_gallerybd:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
+    $p += ' ' + ($expr = '<%!selectedText%>', $n(selectedText)) + '</span><span mxs="_zs_gallerybe:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
     $line = 9;
     $art = '=viewId';
     ;
@@ -70,7 +70,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (searchbox) {%>';
         if (searchbox) {
             ;
-            $p += '<div mxv mxa="_zs_gallerybd:b" class="mx-output-search"><div mxv mxa="_zs_gallerybd:c" class="search-box" style="width: 100%;"><i mxs="_zs_gallerybd:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="' + ($expr = '<%=text.search%>', $e(text.search)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
+            $p += '<div mxv mxa="_zs_gallerybe:b" class="mx-output-search"><div mxv mxa="_zs_gallerybe:c" class="search-box" style="width: 100%;"><i mxs="_zs_gallerybe:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="' + ($expr = '<%=text.search%>', $e(text.search)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
             $expr = '<%}%>';
         }
         ;
@@ -135,7 +135,7 @@ module.exports = Magix.View.extend({
         }
         else {
             ;
-            $p += '<div mxa="_zs_gallerybd:d" class="text-center color-9 pt20 pb20">';
+            $p += '<div mxa="_zs_gallerybe:d" class="text-center color-9 pt20 pb20">';
             $line = 48;
             $art = '!text.empty';
             ;

@@ -62,15 +62,15 @@ module.exports = Magix.View.extend({
     $expr = '<%if (result.endStr) {%>';
     if (result.endStr) {
         ;
-        $p += '<span mxa="_zs_gallery/:_" class="_zs_gallery_mx-calendar_rangepicker_-co _zs_gallery_mx-calendar_rangepicker_-co-left">';
+        $p += '<span mxa="_zs_gallery;:_" class="_zs_gallery_mx-calendar_rangepicker_-co _zs_gallery_mx-calendar_rangepicker_-co-left">';
         $line = 5;
         $art = '=result.startStr';
         ;
-        $p += ($expr = '<%=result.startStr%>', $e(result.startStr)) + '</span><span mxa="_zs_gallery/:a" class="_zs_gallery_mx-calendar_rangepicker_-center color-9">';
+        $p += ($expr = '<%=result.startStr%>', $e(result.startStr)) + '</span><span mxa="_zs_gallery;:a" class="_zs_gallery_mx-calendar_rangepicker_-center color-9">';
         $line = 6;
         $art = '=result.centetTip';
         ;
-        $p += ($expr = '<%=result.centetTip%>', $e(result.centetTip)) + '</span><span mxa="_zs_gallery/:b" class="_zs_gallery_mx-calendar_rangepicker_-co _zs_gallery_mx-calendar_rangepicker_-co-right">';
+        $p += ($expr = '<%=result.centetTip%>', $e(result.centetTip)) + '</span><span mxa="_zs_gallery;:b" class="_zs_gallery_mx-calendar_rangepicker_-co _zs_gallery_mx-calendar_rangepicker_-co-right">';
         $line = 7;
         $art = '=result.endStr';
         ;
@@ -233,7 +233,9 @@ catch (ex) {
             startDisabled: startDisabled,
             endDisabled: endDisabled,
             dates: dates,
-            disabledWeeks: extra.disabledWeeks || []
+            disabledWeeks: extra.disabledWeeks || [],
+            minGap: +extra.minGap || 0,
+            maxGap: +extra.maxGap || 0
         };
         var alignNames = {"result-left":"_zs_gallery_mx-calendar_rangepicker_-result-left","result-center":"_zs_gallery_mx-calendar_rangepicker_-result-center"};
         that.updater.set({

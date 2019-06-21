@@ -21,7 +21,21 @@
     <div class="clearfix">
         <div class="example">
             <div class="eg-content">
-                <a href="#!/main/demo" target="_blank" rel="noopener noreferrer" class="color-brand">新页面查看示例</a>
+                <div class="mb20 lh22 clearfix">
+                    <div class="color-9 fl">以下示例：</div>
+                    <div class="fl">
+                        <div>每步跳转完成会在路由上<span class="color-brand">保留参数stepIndex（一级步骤） 和 subStepIndex（二级子步骤）</span></div>
+                        <div>当前已到达步骤取路由地址上stepIndex，1 和 用户配置的already-step的最大值</div>
+                        <div>点击左侧导航可以快速跳转；未到步骤不可点击；</div>
+                        <div>点击二级子步骤当前模块滚动到最顶部</div>
+                        <div>右侧提醒信息可有可无</div>
+                    </div>
+                </div>
+                <div class="color-9 lh22">点击以下链接新页面查看示例：</div>
+                <div class="lh22">
+                    <span class="color-9">从第一步开始：</span>
+                    <a href="#!/main/demo" target="_blank" rel="noopener noreferrer" class="color-brand">#!/main/demo</a>
+                </div>
             </div>
             <div class="clearfix">
                 <div class="eg-desc third1">
@@ -55,9 +69,26 @@ module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
         let stepInfos = [&#123;
-            label: '设置单元',
+            label: '设置计划',
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe612;&lt;/i&gt;',
             nextTip: '下一步，设置计划',
+            sideView: '@./tip',
+            subs: [&#123;
+                label: '基本信息',
+                icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe612;&lt;/i&gt;',
+                view: '@./inner1'
+            &#125;],
+            nextFn: (remains, next) =&gt; &#123;
+                // remains 当前步骤保留的信息，提交处理
+                next(&#123;
+                    campaignId: 1
+                &#125;)
+            &#125;
+        &#125;, &#123;
+            label: '设置单元',
             icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe7b5;&lt;/i&gt;',
+            prevTip: '返回计划设置',
+            nextTip: '下一步，添加创意',
             sideTip: `&lt;div&gt;说明：&lt;/div&gt;
 &lt;div&gt;1、条件1&lt;/div&gt;
 &lt;div&gt;2、条件2&lt;/div&gt;
@@ -73,26 +104,8 @@ module.exports = Magix.View.extend(&#123;
             &#125;],
             nextFn: (remains, next) =&gt; &#123;
                 // remains 当前步骤保留的信息，提交处理
-                // next(remainParams:object) 保存在路由上的参数
                 next(&#123;
                     adgroupId: 1
-                &#125;)
-            &#125;
-        &#125;, &#123;
-            label: '设置计划',
-            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe612;&lt;/i&gt;',
-            prevTip: '返回单元设置',
-            nextTip: '下一步，添加创意',
-            sideView: '@./tip',
-            subs: [&#123;
-                label: '基本信息',
-                icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe612;&lt;/i&gt;',
-                view: '@./inner1'
-            &#125;],
-            nextFn: (remains, next) =&gt; &#123;
-                // remains 当前步骤保留的信息，提交处理
-                next(&#123;
-                    campaignId: 1
                 &#125;)
             &#125;
         &#125;, &#123;
@@ -128,9 +141,9 @@ module.exports = Magix.View.extend(&#123;
 
         let locParams = Router.parse().params;
         let alreadyStep = 1;
-        if(locParams.adgroupId)&#123;
+        if (locParams.campaignId) &#123;
             alreadyStep = 2;
-            if(locParams.campaignId)&#123;
+            if (locParams.adgroupId) &#123;
                 alreadyStep = 3;
             &#125;
         &#125;

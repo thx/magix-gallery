@@ -36,7 +36,7 @@ var RangeDate = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', timeType = $$.timeType, title = $$.title, vsEnable = $$.vsEnable, vs = $$.vs, min = $$.min, endDisabled = $$.endDisabled, dates = $$.dates, max = $$.max, formatter = $$.formatter, disabledWeeks = $$.disabledWeeks, dateType = $$.dateType, startDisabled = $$.startDisabled, endMinFn = $$.endMinFn, align = $$.align, vsSingle = $$.vsSingle, quickInfos = $$.quickInfos, quickGap = $$.quickGap, quickTip = $$.quickTip, submitText = $$.submitText, cancelText = $$.cancelText; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', timeType = $$.timeType, title = $$.title, vsEnable = $$.vsEnable, vs = $$.vs, min = $$.min, endDisabled = $$.endDisabled, dates = $$.dates, max = $$.max, formatter = $$.formatter, disabledWeeks = $$.disabledWeeks, dateType = $$.dateType, startDisabled = $$.startDisabled, endMinFn = $$.endMinFn, align = $$.align, vsSingle = $$.vsSingle, quickInfos = $$.quickInfos, quickGap = $$.quickGap, quickTip = $$.quickTip, submitText = $$.submitText, cancelText = $$.cancelText, errorMsg = $$.errorMsg; var $expr, $art, $line; try {
     $p += '<div mxv class="_zs_gallery_mx-calendar_range_-wrapper ';
     $line = 1;
     $art = 'if timeType';
@@ -51,7 +51,7 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '" mx-contextmenu="' + $viewId + '@{prevent}()"><div mxv mxa="_zs_gallery~:_" class="_zs_gallery_mx-calendar_range_-range"><div mxa="_zs_gallery~:a" class="_zs_gallery_mx-calendar_range_-title clearfix"><span mxa="_zs_gallery~:b" class="fl">';
+    $p += '" mx-contextmenu="' + $viewId + '@{prevent}()"><div mxv mxa="_zs_gallery/:_" class="_zs_gallery_mx-calendar_range_-range"><div mxa="_zs_gallery/:a" class="_zs_gallery_mx-calendar_range_-title clearfix"><span mxa="_zs_gallery/:b" class="fl">';
     $line = 4;
     $art = '=title';
     ;
@@ -73,7 +73,7 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxv mxa="_zs_gallery~:c" class="clearfix pr"><div mxv mxa="_zs_gallery~:d" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-left"><div mxv="disabledWeeks" ';
+    $p += '</div><div mxv mxa="_zs_gallery/:c" class="clearfix pr"><div mxv mxa="_zs_gallery/:d" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-left"><div mxv="disabledWeeks" ';
     $line = 12;
     $art = 'if vs';
     ;
@@ -129,7 +129,7 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"></div></div><div mxs="_zs_gallery~:_" class="_zs_gallery_mx-calendar_range_-range-gap">-</div><div mxv mxa="_zs_gallery~:e" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-right"><div mxv="disabledWeeks" ';
+    $p += '"></div></div><div mxs="_zs_gallery/:_" class="_zs_gallery_mx-calendar_range_-range-gap">-</div><div mxv mxa="_zs_gallery/:e" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-right"><div mxv="disabledWeeks" ';
     $line = 26;
     $art = 'if vs';
     ;
@@ -210,17 +210,17 @@ var RangeDate = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '"><div mxa="_zs_gallery~:f" class="_zs_gallery_mx-calendar_range_-title">';
+        $p += '"><div mxa="_zs_gallery/:f" class="_zs_gallery_mx-calendar_range_-title">';
         $line = 42;
         $art = '=quickTip';
         ;
-        $p += ($expr = '<%=quickTip%>', $e(quickTip)) + '：</div><div mxa="_zs_gallery~:g" class="clearfix">';
+        $p += ($expr = '<%=quickTip%>', $e(quickTip)) + '：</div><div mxa="_zs_gallery/:g" class="clearfix">';
         $line = 44;
         $art = 'each quickInfos as info';
         ;
-        $expr = '<%for (var $art_iulqnynz$art_i = 0, $art_cqrwkwrlk$art_c = quickInfos.length; $art_iulqnynz$art_i < $art_cqrwkwrlk$art_c; $art_iulqnynz$art_i++) {        var info = quickInfos[$art_iulqnynz$art_i]%>';
-        for (var $art_iulqnynz$art_i = 0, $art_cqrwkwrlk$art_c = quickInfos.length; $art_iulqnynz$art_i < $art_cqrwkwrlk$art_c; $art_iulqnynz$art_i++) {
-            var info = quickInfos[$art_iulqnynz$art_i];
+        $expr = '<%for (var $art_itzueztxro$art_i = 0, $art_ckxehpnag$art_c = quickInfos.length; $art_itzueztxro$art_i < $art_ckxehpnag$art_c; $art_itzueztxro$art_i++) {        var info = quickInfos[$art_itzueztxro$art_i]%>';
+        for (var $art_itzueztxro$art_i = 0, $art_ckxehpnag$art_c = quickInfos.length; $art_itzueztxro$art_i < $art_ckxehpnag$art_c; $art_itzueztxro$art_i++) {
+            var info = quickInfos[$art_itzueztxro$art_i];
             $p += '<span class="_zs_gallery_mx-calendar_range_-st ';
             $line = 45;
             $art = 'if (dates.quickDateKey==info.key)';
@@ -261,15 +261,19 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxa="_zs_gallery~:h" class="mx-output-footer"><button mxa="_zs_gallery~:i" mx-click="' + $viewId + '@{date.picked}()" type="button" class="btn btn-small btn-brand mr10">';
+    $p += '</div><div mxa="_zs_gallery/:h" class="mx-output-footer"><button mxa="_zs_gallery/:i" mx-click="' + $viewId + '@{date.picked}()" type="button" class="btn btn-small btn-brand mr10">';
     $line = 54;
     $art = '=submitText';
     ;
-    $p += ($expr = '<%=submitText%>', $e(submitText)) + '</button><button mxa="_zs_gallery~:j" mx-click="' + $viewId + '@{cancel}()" type="button" class="btn btn-small">';
+    $p += ($expr = '<%=submitText%>', $e(submitText)) + '</button><button mxa="_zs_gallery/:j" mx-click="' + $viewId + '@{cancel}()" type="button" class="btn btn-small mr10">';
     $line = 55;
     $art = '=cancelText';
     ;
-    $p += ($expr = '<%=cancelText%>', $e(cancelText)) + '</button></div>';
+    $p += ($expr = '<%=cancelText%>', $e(cancelText)) + '</button><span mxa="_zs_gallery/:k" class="color-red">';
+    $line = 56;
+    $art = '=errorMsg';
+    ;
+    $p += ($expr = '<%=errorMsg%>', $e(errorMsg)) + '</span></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -392,7 +396,7 @@ catch (ex) {
         var that = this;
         var updater = that.updater;
         var data = updater.get();
-        var dates = data.dates, formatter = data.formatter, quickDates = data.quickDates;
+        var dates = data.dates, formatter = data.formatter, quickDates = data.quickDates, vs = data.vs, vsSingle = data.vsSingle, minGap = data.minGap, maxGap = data.maxGap;
         var params = e.params;
         if (params.quick) {
             // 选择快捷方式
@@ -460,7 +464,6 @@ catch (ex) {
         }
         else {
             // 确定
-            var vs = data.vs, vsSingle = data.vsSingle;
             var startStr = dates.startStr, endStr = dates.endStr, start = dates.start, end = dates.end;
             // 修正结束时间：
             //  1. 对比的情况下，可能保留了非对比情况的不限快捷方式选项，如果结束时间为不限，切换为开始时间
@@ -475,14 +478,31 @@ catch (ex) {
                 endStr: endStr
             });
         }
+        var errorMsg = '';
+        if (!vs && !vsSingle && (dates.endStr != ForeverStr)) {
+            // 选择连续时间的情况下，比较天数范围
+            var formatterGap = 'YYYY/MM/dd';
+            var startGap = new Date(DateFormat(dates.startStr, formatterGap));
+            var endGap = new Date(DateFormat(dates.endStr, formatterGap));
+            var gap = (endGap.getTime() - startGap.getTime()) / (24 * 60 * 60 * 1000) + 1;
+            if (minGap > 0 && gap < minGap) {
+                errorMsg = "\u81F3\u5C11\u9009\u62E9" + minGap + "\u5929";
+            }
+            if (maxGap > 0 && gap > maxGap) {
+                errorMsg = "\u81F3\u591A\u9009\u62E9" + maxGap + "\u5929";
+            }
+        }
         updater.digest({
-            dates: dates
+            dates: dates,
+            errorMsg: errorMsg
         });
-        that['@{owner.node}'].trigger({
-            type: 'change',
-            vs: data.vs,
-            dates: dates
-        });
+        if (!errorMsg) {
+            that['@{owner.node}'].trigger({
+                type: 'change',
+                vs: vs,
+                dates: dates
+            });
+        }
     },
     '@{cancel}<click>': function () {
         this['@{owner.node}'].trigger('cancel');

@@ -21,11 +21,11 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', src = $$.src, tip = $$.tip, btns = $$.btns; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryb9:_" class="_zs_gallery_mx-error_index_-error"><img class="_zs_gallery_mx-error_index_-bad-img" src="';
+    $p += '<div mxa="_zs_galleryb#:_" class="_zs_gallery_mx-error_index_-error"><img class="_zs_gallery_mx-error_index_-bad-img" src="';
     $line = 2;
     $art = '=src';
     ;
-    $p += ($expr = '<%=src%>', $e(src)) + '"/><div mxa="_zs_galleryb9:a" class="_zs_gallery_mx-error_index_-info mt40">';
+    $p += ($expr = '<%=src%>', $e(src)) + '"/><div mxa="_zs_galleryb#:a" class="_zs_gallery_mx-error_index_-info mt40">';
     $line = 3;
     $art = '=tip';
     ;
@@ -36,7 +36,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (btns) {%>';
     if (btns) {
         ;
-        $p += '<div mxs="_zs_galleryb9:_" class="mt20"><a href="#!" class="btn btn-brand _zs_gallery_mx-error_index_-home-btn">回到首页</a><a href="javascript:;" class="btn _zs_gallery_mx-error_index_-back-btn" mx-click="' + $viewId + 'back()">返回上一页</a></div>';
+        $p += '<div mxs="_zs_galleryb#:_" class="mt20"><a href="#!" class="btn btn-brand _zs_gallery_mx-error_index_-home-btn">回到首页</a><a href="javascript:;" class="btn _zs_gallery_mx-error_index_-back-btn" mx-click="' + $viewId + 'back()">返回上一页</a></div>';
         $line = 10;
         $art = '/if';
         ;

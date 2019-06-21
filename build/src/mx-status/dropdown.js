@@ -26,14 +26,14 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', showInfo = $$.showInfo, info = $$.info, cur = $$.cur, show = $$.show, opers = $$.opers; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryd&:_" class="_zs_gallery_mx-status_base_-status" mx-mouseout="' + $viewId + 'out()">';
+    $p += '<div mxa="_zs_galleryd):_" class="_zs_gallery_mx-status_base_-status" mx-mouseout="' + $viewId + 'out()">';
     $line = 3;
     $art = 'if showInfo';
     ;
     $expr = '<%if (showInfo) {%>';
     if (showInfo) {
         ;
-        $p += '<div mxa="_zs_galleryd&:a" class="mx-trigger _zs_gallery_mx-status_base_-readonly"><span style="color: ';
+        $p += '<div mxa="_zs_galleryd):a" class="mx-trigger _zs_gallery_mx-status_base_-readonly"><span style="color: ';
         $line = 5;
         $art = '=info.color';
         ;
@@ -49,7 +49,7 @@ module.exports = Base.extend({
     }
     else {
         ;
-        $p += '<div mxa="_zs_galleryd&:b" class="mx-trigger" mx-mouseover="' + $viewId + 'over()"><span style="color: ';
+        $p += '<div mxa="_zs_galleryd):b" class="mx-trigger" mx-mouseover="' + $viewId + 'over()"><span style="color: ';
         $line = 10;
         $art = '=cur.color';
         ;
@@ -57,20 +57,20 @@ module.exports = Base.extend({
         $line = 10;
         $art = '=cur.text';
         ;
-        $p += ($expr = '<%=cur.text%>', $e(cur.text)) + '</span><i mxs="_zs_galleryd&:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</i></div>';
+        $p += ($expr = '<%=cur.text%>', $e(cur.text)) + '</span><i mxs="_zs_galleryd):_" class="mc-iconfont mx-trigger-arrow">&#xe692;</i></div>';
         $line = 15;
         $art = 'if show && (opers.length > 0)';
         ;
         $expr = '<%if (show && (opers.length > 0)) {%>';
         if (show && (opers.length > 0)) {
             ;
-            $p += '<ul mxa="_zs_galleryd&:c" class="mx-output _zs_gallery_mx-status_base_-status-info _zs_gallery_mx-status_base_-status-info-dd">';
+            $p += '<ul mxa="_zs_galleryd):c" class="mx-output _zs_gallery_mx-status_base_-status-info _zs_gallery_mx-status_base_-status-info-dd">';
             $line = 17;
             $art = 'each opers as item';
             ;
-            $expr = '<%for (var $art_iwydrzlzq$art_i = 0, $art_cwdndqph$art_c = opers.length; $art_iwydrzlzq$art_i < $art_cwdndqph$art_c; $art_iwydrzlzq$art_i++) {            var item = opers[$art_iwydrzlzq$art_i]%>';
-            for (var $art_iwydrzlzq$art_i = 0, $art_cwdndqph$art_c = opers.length; $art_iwydrzlzq$art_i < $art_cwdndqph$art_c; $art_iwydrzlzq$art_i++) {
-                var item = opers[$art_iwydrzlzq$art_i];
+            $expr = '<%for (var $art_invarmqmb$art_i = 0, $art_cofim$art_c = opers.length; $art_invarmqmb$art_i < $art_cofim$art_c; $art_invarmqmb$art_i++) {            var item = opers[$art_invarmqmb$art_i]%>';
+            for (var $art_invarmqmb$art_i = 0, $art_cofim$art_c = opers.length; $art_invarmqmb$art_i < $art_cofim$art_c; $art_invarmqmb$art_i++) {
+                var item = opers[$art_invarmqmb$art_i];
                 $p += '<li class="_zs_gallery_mx-status_base_-status-oper clearfix ';
                 $line = 18;
                 $art = 'if (item.value == cur.value)';
@@ -97,11 +97,11 @@ module.exports = Base.extend({
                 $line = 19;
                 $art = '!item.icon';
                 ;
-                $p += ($expr = '<%!item.icon%>', $n(item.icon)) + '</span><span mxa="_zs_galleryd&:d" class="_zs_gallery_mx-status_base_-status-name">';
+                $p += ($expr = '<%!item.icon%>', $n(item.icon)) + '</span><span mxa="_zs_galleryd):d" class="_zs_gallery_mx-status_base_-status-name">';
                 $line = 20;
                 $art = '=item.text';
                 ;
-                $p += ($expr = '<%=item.text%>', $e(item.text)) + '</span><i mxs="_zs_galleryd&:a" class="mc-iconfont _zs_gallery_mx-status_base_-oper-icon">&#xe65d;</i></li>';
+                $p += ($expr = '<%=item.text%>', $e(item.text)) + '</span><i mxs="_zs_galleryd):a" class="mc-iconfont _zs_gallery_mx-status_base_-oper-icon">&#xe65d;</i></li>';
                 $line = 23;
                 $art = '/each';
                 ;

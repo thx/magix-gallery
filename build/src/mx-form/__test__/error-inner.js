@@ -26,10 +26,10 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iyltglllgh$art_i = 0, $art_chivmvmv$art_c = list.length; $art_iyltglllgh$art_i < $art_chivmvmv$art_c; $art_iyltglllgh$art_i++) {    var item = list[$art_iyltglllgh$art_i]%>';
-    for (var $art_iyltglllgh$art_i = 0, $art_chivmvmv$art_c = list.length; $art_iyltglllgh$art_i < $art_chivmvmv$art_c; $art_iyltglllgh$art_i++) {
-        var item = list[$art_iyltglllgh$art_i];
-        $p += '<label mxv mxa="_zs_galleryc_:_" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
+    $expr = '<%for (var $art_ixstkbafe$art_i = 0, $art_cpjjcrcm$art_c = list.length; $art_ixstkbafe$art_i < $art_cpjjcrcm$art_c; $art_ixstkbafe$art_i++) {    var item = list[$art_ixstkbafe$art_i]%>';
+    for (var $art_ixstkbafe$art_i = 0, $art_cpjjcrcm$art_c = list.length; $art_ixstkbafe$art_i < $art_cpjjcrcm$art_c; $art_ixstkbafe$art_i++) {
+        var item = list[$art_ixstkbafe$art_i];
+        $p += '<label mxv mxa="_zs_galleryca:_" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 6;
         $art = ':info.age{required:[true,\'必选\']}';
         ;

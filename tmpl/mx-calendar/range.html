@@ -52,5 +52,6 @@
 </div>
 <div class="mx-output-footer">
     <button mx-click="@{date.picked}()" type="button" class="btn btn-small btn-brand mr10">{{=submitText}}</button>
-    <button mx-click="@{cancel}()" type="button" class="btn btn-small">{{=cancelText}}</button>
+    <button mx-click="@{cancel}()" type="button" class="btn btn-small mr10">{{=cancelText}}</button>
+    <span class="color-red">{{=errorMsg}}</span>
 </div>
