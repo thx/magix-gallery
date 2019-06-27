@@ -6,6 +6,25 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.19',
+            time: '2019-06-21',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-dialog（mxModal）：window resize 时更新全屏右出浮层宽度+left，最大宽度不超过屏幕可视范围，<a href="#!/dialog/modal" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-calendar.rangepicker：支持配置min-gap（最少选择n天），max-gap（最多选择n天），支持自定义快捷日期，<a href="#!/calendar/range" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                title: 'bugfix',
+                subs: [{
+                    title: 'mx-table.sort：排序节点隔离子view，支持同view多个table排序'
+                }, {
+                    title: 'mx-gtip：z-index修改完100000，调整为最上层'
+                }]
+            }]
+        }, {
             ver: '1.3.16 ~ 1.3.18',
             time: '2019-06-13',
             subs: [{

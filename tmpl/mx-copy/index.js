@@ -3,14 +3,26 @@ let Magix = require('magix');
 let $ = require('$');
 module.exports = Magix.View.extend({
     init(extra) {
-        let me = this;
-        me.assign(extra);
-        let owner = $('#' + me.id);
-        let clipboard = new window.Clipboard(owner[0], {
-            target() {
-                return Magix.node(me['@{copy.node}']);
-            }
-        });
+        let that = this;
+        that.assign(extra);
+
+        let owner = $('#' + that.id);
+        let clipboard;
+        if(that['@{copy.node}']){
+            // 复制另外一个节点
+            clipboard = new window.Clipboard(owner[0], {
+                target() {
+                    return Magix.node(that['@{copy.node}']);
+                }
+            });
+        }else{
+            // 复制本节点信息
+            clipboard = new window.Clipboard(owner[0], {
+                text(trigger) {
+                    return extra.copyText;
+                }
+            });
+        }
         clipboard.on('success', (e) => {
             e.clearSelection();
             owner.trigger('success');
@@ -18,7 +30,7 @@ module.exports = Magix.View.extend({
         clipboard.on('error', () => {
             owner.trigger('error');
         });
-        me.capture('@{clipboard}', clipboard);
+        that.capture('@{clipboard}', clipboard);
     },
     assign(ops) {
         this['@{copy.node}'] = ops.copyNode;

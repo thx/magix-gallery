@@ -71,9 +71,9 @@ module.exports = Magix.View.extend({
     $line = 32;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_izgxnwiy$art_i = 0, $art_cnuehfy$art_c = headers.length; $art_izgxnwiy$art_i < $art_cnuehfy$art_c; $art_izgxnwiy$art_i++) {    var h = headers[$art_izgxnwiy$art_i]%>';
-    for (var $art_izgxnwiy$art_i = 0, $art_cnuehfy$art_c = headers.length; $art_izgxnwiy$art_i < $art_cnuehfy$art_c; $art_izgxnwiy$art_i++) {
-        var h = headers[$art_izgxnwiy$art_i];
+    $expr = '<%for (var $art_iilytgqyhwa$art_i = 0, $art_ciqixycwuk$art_c = headers.length; $art_iilytgqyhwa$art_i < $art_ciqixycwuk$art_c; $art_iilytgqyhwa$art_i++) {    var h = headers[$art_iilytgqyhwa$art_i]%>';
+    for (var $art_iilytgqyhwa$art_i = 0, $art_ciqixycwuk$art_c = headers.length; $art_iilytgqyhwa$art_i < $art_ciqixycwuk$art_c; $art_iilytgqyhwa$art_i++) {
+        var h = headers[$art_iilytgqyhwa$art_i];
         $p += '<a ';
         $line = 33;
         $art = 'if h.new';
@@ -201,9 +201,9 @@ module.exports = Magix.View.extend({
     $line = 47;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_irwqekdwsa$art_i = 0, $art_czqzheqp$art_c = list.length; $art_irwqekdwsa$art_i < $art_czqzheqp$art_c; $art_irwqekdwsa$art_i++) {    var item = list[$art_irwqekdwsa$art_i]%>';
-    for (var $art_irwqekdwsa$art_i = 0, $art_czqzheqp$art_c = list.length; $art_irwqekdwsa$art_i < $art_czqzheqp$art_c; $art_irwqekdwsa$art_i++) {
-        var item = list[$art_irwqekdwsa$art_i];
+    $expr = '<%for (var $art_ifxlaxw$art_i = 0, $art_ciryjpdvsm$art_c = list.length; $art_ifxlaxw$art_i < $art_ciryjpdvsm$art_c; $art_ifxlaxw$art_i++) {    var item = list[$art_ifxlaxw$art_i]%>';
+    for (var $art_ifxlaxw$art_i = 0, $art_ciryjpdvsm$art_c = list.length; $art_ifxlaxw$art_i < $art_ciryjpdvsm$art_c; $art_ifxlaxw$art_i++) {
+        var item = list[$art_ifxlaxw$art_i];
         $p += ' ';
         $line = 48;
         $art = 'if item.name';
@@ -244,9 +244,9 @@ module.exports = Magix.View.extend({
         $line = 55;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_iuzdhwdvs$art_i = 0, $art_objhrtfgaj$art_obj = item.subs, $art_cmvwbmtkoch$art_c = $art_objhrtfgaj$art_obj.length; $art_iuzdhwdvs$art_i < $art_cmvwbmtkoch$art_c; $art_iuzdhwdvs$art_i++) {        var sub = $art_objhrtfgaj$art_obj[$art_iuzdhwdvs$art_i]%>';
-        for (var $art_iuzdhwdvs$art_i = 0, $art_objhrtfgaj$art_obj = item.subs, $art_cmvwbmtkoch$art_c = $art_objhrtfgaj$art_obj.length; $art_iuzdhwdvs$art_i < $art_cmvwbmtkoch$art_c; $art_iuzdhwdvs$art_i++) {
-            var sub = $art_objhrtfgaj$art_obj[$art_iuzdhwdvs$art_i];
+        $expr = '<%for (var $art_inolltzshm$art_i = 0, $art_objglfvgtd$art_obj = item.subs, $art_cdmnbftzek$art_c = $art_objglfvgtd$art_obj.length; $art_inolltzshm$art_i < $art_cdmnbftzek$art_c; $art_inolltzshm$art_i++) {        var sub = $art_objglfvgtd$art_obj[$art_inolltzshm$art_i]%>';
+        for (var $art_inolltzshm$art_i = 0, $art_objglfvgtd$art_obj = item.subs, $art_cdmnbftzek$art_c = $art_objglfvgtd$art_obj.length; $art_inolltzshm$art_i < $art_cdmnbftzek$art_c; $art_inolltzshm$art_i++) {
+            var sub = $art_objglfvgtd$art_obj[$art_inolltzshm$art_i];
             $p += '<a class="_zs_gallery___test___base_-nav ';
             $line = 56;
             $art = 'if (sub.path == path)';
@@ -663,7 +663,7 @@ catch (ex) {
                                 icon: '&#xe64d;'
                             }, {
                                 name: '复制',
-                                tip: '该组件引入了第三方 <a rel="noopener noreferrer" target="_blank" href="https://zenorocha.github.io/clipboard.js" class="color-brand">https://zenorocha.github.io/clipboard.js</a> 代码',
+                                tip: '该组件引入了第三方 <a rel="noopener noreferrer" target="_blank" href="https://clipboardjs.com/" class="color-brand">https://clipboardjs.com/</a> 代码',
                                 path: '/copy/index',
                                 icon: '&#xe610;'
                             }, {

@@ -35,8 +35,8 @@ module.exports = Base.extend({
     $line = 19;
     $art = 'each themes as t i';
     ;
-    $expr = '<%for (var i = 0, $art_cuyasw$art_c = themes.length; i < $art_cuyasw$art_c; i++) {    var t = themes[i]%>';
-    for (var i = 0, $art_cuyasw$art_c = themes.length; i < $art_cuyasw$art_c; i++) {
+    $expr = '<%for (var i = 0, $art_cidcx$art_c = themes.length; i < $art_cidcx$art_c; i++) {    var t = themes[i]%>';
+    for (var i = 0, $art_cidcx$art_c = themes.length; i < $art_cidcx$art_c; i++) {
         var t = themes[i];
         $p += '<div mxa="_zs_galleryf:a" class="_zs_gallery___test___edit_theme_-theme"><div><a href="javascript:;" class="_zs_gallery___test___edit_theme_-dot" style="';
         $line = 21;
@@ -69,9 +69,9 @@ module.exports = Base.extend({
     $line = 44;
     $art = 'each list as group';
     ;
-    $expr = '<%for (var $art_ixjamaxqo$art_i = 0, $art_ckjzjdsf$art_c = list.length; $art_ixjamaxqo$art_i < $art_ckjzjdsf$art_c; $art_ixjamaxqo$art_i++) {    var group = list[$art_ixjamaxqo$art_i]%>';
-    for (var $art_ixjamaxqo$art_i = 0, $art_ckjzjdsf$art_c = list.length; $art_ixjamaxqo$art_i < $art_ckjzjdsf$art_c; $art_ixjamaxqo$art_i++) {
-        var group = list[$art_ixjamaxqo$art_i];
+    $expr = '<%for (var $art_ioqedoaixl$art_i = 0, $art_caazwkscdmi$art_c = list.length; $art_ioqedoaixl$art_i < $art_caazwkscdmi$art_c; $art_ioqedoaixl$art_i++) {    var group = list[$art_ioqedoaixl$art_i]%>';
+    for (var $art_ioqedoaixl$art_i = 0, $art_caazwkscdmi$art_c = list.length; $art_ioqedoaixl$art_i < $art_caazwkscdmi$art_c; $art_ioqedoaixl$art_i++) {
+        var group = list[$art_ioqedoaixl$art_i];
         $p += '<div mxa="_zs_galleryf:f" class="_zs_gallery___test___edit_theme_-group">';
         $line = 46;
         $art = '=group.text';
@@ -88,9 +88,9 @@ module.exports = Base.extend({
         $line = 53;
         $art = 'each group.subs as item';
         ;
-        $expr = '<%for (var $art_iyilolg$art_i = 0, $art_objjkwffdyiv$art_obj = group.subs, $art_cipvibqb$art_c = $art_objjkwffdyiv$art_obj.length; $art_iyilolg$art_i < $art_cipvibqb$art_c; $art_iyilolg$art_i++) {        var item = $art_objjkwffdyiv$art_obj[$art_iyilolg$art_i]%>';
-        for (var $art_iyilolg$art_i = 0, $art_objjkwffdyiv$art_obj = group.subs, $art_cipvibqb$art_c = $art_objjkwffdyiv$art_obj.length; $art_iyilolg$art_i < $art_cipvibqb$art_c; $art_iyilolg$art_i++) {
-            var item = $art_objjkwffdyiv$art_obj[$art_iyilolg$art_i];
+        $expr = '<%for (var $art_ikiiyitd$art_i = 0, $art_objexivywhrjh$art_obj = group.subs, $art_cksmjqnhxwlk$art_c = $art_objexivywhrjh$art_obj.length; $art_ikiiyitd$art_i < $art_cksmjqnhxwlk$art_c; $art_ikiiyitd$art_i++) {        var item = $art_objexivywhrjh$art_obj[$art_ikiiyitd$art_i]%>';
+        for (var $art_ikiiyitd$art_i = 0, $art_objexivywhrjh$art_obj = group.subs, $art_cksmjqnhxwlk$art_c = $art_objexivywhrjh$art_obj.length; $art_ikiiyitd$art_i < $art_cksmjqnhxwlk$art_c; $art_ikiiyitd$art_i++) {
+            var item = $art_objexivywhrjh$art_obj[$art_ikiiyitd$art_i];
             $p += '<div mxv mxa="_zs_galleryf:h" class="_zs_gallery___test___edit_theme_-item"><div mxa="_zs_galleryf:i" class="_zs_gallery___test___edit_theme_-name mb5"><div mxa="_zs_galleryf:j" class="color-6">';
             $line = 56;
             $art = '=item.text';
@@ -118,11 +118,11 @@ module.exports = Base.extend({
                 $line = 63;
                 $art = '=item.value';
                 ;
-                $p += ($expr = '<%=item.value%>', $e(item.value)) + ';"><div mxv="list" mxe="' + $viewId + '_0_' + ($expr = '<%=$art_ixjamaxqo$art_i%>', $e($art_ixjamaxqo$art_i)) + '_' + ($expr = '<%=$art_iyilolg$art_i%>', $e($art_iyilolg$art_i)) + '" mxc="[';
+                $p += ($expr = '<%=item.value%>', $e(item.value)) + ';"><div mxv="list" mxe="' + $viewId + '_0_' + ($expr = '<%=$art_ioqedoaixl$art_i%>', $e($art_ioqedoaixl$art_i)) + '_' + ($expr = '<%=$art_ikiiyitd$art_i%>', $e($art_ikiiyitd$art_i)) + '" mxc="[';
                 $line = 65;
                 $art = ':item.value';
                 ;
-                $p += '{p:\'list.' + ($expr = '<%=$art_ixjamaxqo$art_i%>', $e($art_ixjamaxqo$art_i)) + '.subs.' + ($expr = '<%=$art_iyilolg$art_i%>', $e($art_iyilolg$art_i)) + '.value\',a:\'color\'}]" mx-change="' + $viewId + 'sync({key:\'';
+                $p += '{p:\'list.' + ($expr = '<%=$art_ioqedoaixl$art_i%>', $e($art_ioqedoaixl$art_i)) + '.subs.' + ($expr = '<%=$art_ikiiyitd$art_i%>', $e($art_ikiiyitd$art_i)) + '.value\',a:\'color\'}]" mx-change="' + $viewId + 'sync({key:\'';
                 $line = 66;
                 $art = '=item.key';
                 ;
@@ -144,11 +144,11 @@ module.exports = Base.extend({
             $expr = '<%if (item.type == \'text\') {%>';
             if (item.type == 'text') {
                 ;
-                $p += '<div mxv><input mxe="' + $viewId + '_1_' + ($expr = '<%=$art_ixjamaxqo$art_i%>', $e($art_ixjamaxqo$art_i)) + '_' + ($expr = '<%=$art_iyilolg$art_i%>', $e($art_iyilolg$art_i)) + '" mxc="[';
+                $p += '<div mxv><input mxe="' + $viewId + '_1_' + ($expr = '<%=$art_ioqedoaixl$art_i%>', $e($art_ioqedoaixl$art_i)) + '_' + ($expr = '<%=$art_ikiiyitd$art_i%>', $e($art_ikiiyitd$art_i)) + '" mxc="[';
                 $line = 72;
                 $art = ':item.value';
                 ;
-                $p += '{p:\'list.' + ($expr = '<%=$art_ixjamaxqo$art_i%>', $e($art_ixjamaxqo$art_i)) + '.subs.' + ($expr = '<%=$art_iyilolg$art_i%>', $e($art_iyilolg$art_i)) + '.value\'}]" class="w100" value="';
+                $p += '{p:\'list.' + ($expr = '<%=$art_ioqedoaixl$art_i%>', $e($art_ioqedoaixl$art_i)) + '.subs.' + ($expr = '<%=$art_ikiiyitd$art_i%>', $e($art_ikiiyitd$art_i)) + '.value\'}]" class="w100" value="';
                 $line = 72;
                 $art = ':item.value';
                 ;

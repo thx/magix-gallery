@@ -10,6 +10,11 @@ module.exports = Base.extend({
             desc: '需要复制的节点id',
             type: 'string',
             def: ''
+        }, {
+            key: 'copy-text',
+            desc: '不需要显示复制内容时可直接在 mx-copy 上配置 copy-text',
+            type: 'string',
+            def: ''
         }]
 
         let events = [{
@@ -34,10 +39,5 @@ module.exports = Base.extend({
             options,
             events
         });
-    },
-    'done2<success>'(e) {
-        this.updater.digest({
-            success: true
-        })
     }
 });

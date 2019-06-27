@@ -262,7 +262,7 @@ module.exports = Magix.View.extend({
                     icon: '&#xe64d;'
                 }, {
                     name: '复制',
-                    tip: '该组件引入了第三方 <a rel="noopener noreferrer" target="_blank" href="https://zenorocha.github.io/clipboard.js" class="color-brand">https://zenorocha.github.io/clipboard.js</a> 代码',
+                    tip: '该组件引入了第三方 <a rel="noopener noreferrer" target="_blank" href="https://clipboardjs.com/" class="color-brand">https://clipboardjs.com/</a> 代码',
                     path: '/copy/index',
                     icon: '&#xe610;'
                 }, {

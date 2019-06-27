@@ -3,12 +3,12 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-copy/__test__/index",["magix","__test__/example","$","__test__/subs","mx-title/second","../index","__test__/hl","__test__/api","__test__/event"],(require,exports,module)=>{
+define("mx-copy/__test__/index",["magix","__test__/example","$","__test__/subs","mx-title/second","./1","./2","__test__/api","__test__/event"],(require,exports,module)=>{
 /*Magix,Base,$*/
 require("__test__/subs");
 require("mx-title/second");
-require("../index");
-require("__test__/hl");
+require("./1");
+require("./2");
 require("__test__/api");
 require("__test__/event");
 var Magix = require("magix");
@@ -30,75 +30,37 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, success = $$.success, text2 = $$.text2, text3 = $$.text3, options = $$.options, events = $$.events; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryaF:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryaH:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\'\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'显示复制\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'隐式复制\',\n            key: viewId + \'_demo2\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\'        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo' }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
-    $line = 13;
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'显示复制\',                    key: viewId + \'_demo1\'                }, {                    name: \'隐式复制\',                    key: viewId + \'_demo2\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '显示复制', key: viewId + '_demo1' }, { name: '隐式复制', key: viewId + '_demo2' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
+    $line = 20;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxv mxa="_zs_galleryaF:a" class="_zs_gallery___test___layout_-example"><div mxv mxa="_zs_galleryaF:b" class="_zs_gallery___test___layout_-eg-content"><div mxa="_zs_galleryaF:c" class="mb20"><div class="btn btn-brand" mx-success="' + $viewId + 'done2()" mx-view="mx-copy/index?copyNode=';
-    $line = 17;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1">复制</div>';
-    $line = 19;
-    $art = 'if success';
-    ;
-    $expr = '<%if (success) {%>';
-    if (success) {
-        ;
-        $p += '<span mxs="_zs_galleryaF:_" class="color-green ml20">复制成功</span>';
-        $line = 21;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</div><textarea cols="30" rows="4" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryaH:a" class="clearfix mb20"><div mxa="_zs_galleryaH:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-copy/__test__/1" id="';
     $line = 23;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">Magix棒棒的！</textarea></div><div mxa="_zs_galleryaF:d" class="clearfix"><div mxa="_zs_galleryaF:e" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half"><div mxs="_zs_galleryaF:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 28;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div></div><div mxa="_zs_galleryaH:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-copy/__test__/2" id="';
+    $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryaF:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div></div><div id="';
     $line = 30;
-    $art = '!text2';
-    ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryaF:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 33;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\n    &lt;div class="mb20"&gt;\n        &lt;mx-copy copy-node="&#123;&#123;=viewId&#125;&#125;_text_1" class="btn btn-brand"\n            mx-success="done()"&gt;复制&lt;/mx-copy&gt;\n        &#123;&#123;if success&#125;&#125;\n        &lt;span class="color-green ml20"&gt;复制成功&lt;/span&gt;\n        &#123;&#123;/if&#125;&#125;\n    &lt;/div&gt;\n    &lt;textarea cols="30" rows="4" id="&#123;&#123;=viewId&#125;&#125;_text_1"&gt;Magix棒棒的！&lt;/textarea&gt;</pre></div><div mxa="_zs_galleryaF:g" class="_zs_gallery___test___layout_-eg-desc _zs_gallery___test___layout_-half _zs_gallery___test___layout_-half-right"><div mxs="_zs_galleryaF:a" class="_zs_gallery___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:3})" mx-view="mx-copy/index?copyNode=';
-    $line = 45;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_3"><span mxa="_zs_galleryaF:h" class="_zs_gallery___test___layout_-desc-tip">';
-    $line = 47;
-    $art = '!text3';
-    ;
-    $p += ($expr = '<%!text3%>', $n(text3)) + '</span><i mxs="_zs_galleryaF:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
-    $line = 50;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_3">\n    let Magix = require(\'magix\');\n    let $ = require(\'$\');\n    \n    module.exports = Magix.View.extend(&#123;\n        tmpl: \'@index.html\',\n        render() &#123;\n            this.updater.digest(&#123;\n                viewId: this.id\n            &#125;);\n        &#125;,\n        \'done&lt;success&gt;\'(e) &#123;\n            this.updater.digest(&#123;\n                success: true\n            &#125;)\n        &#125;\n    &#125;);</pre></div></div></div><div id="';
-    $line = 71;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 72;
+    $line = 31;
     $art = '@options';
     ;
     $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
-    $line = 74;
+    $line = 33;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_event" mx-view="mx-title/second?content=Event"></div><div mxv="events" mx-view="__test__/event?options=';
-    $line = 75;
+    $line = 34;
     $art = '@events';
     ;
     $p += ($expr = '<%@events%>', $i($$ref, events)) + '"></div></div>';
@@ -115,6 +77,11 @@ catch (ex) {
         var options = [{
                 key: 'copy-node',
                 desc: '需要复制的节点id',
+                type: 'string',
+                def: ''
+            }, {
+                key: 'copy-text',
+                desc: '不需要显示复制内容时可直接在 mx-copy 上配置 copy-text',
                 type: 'string',
                 def: ''
             }];
@@ -138,11 +105,6 @@ catch (ex) {
         this.updater.digest({
             options: options,
             events: events
-        });
-    },
-    'done2<success>': function (e) {
-        this.updater.digest({
-            success: true
         });
     }
 });

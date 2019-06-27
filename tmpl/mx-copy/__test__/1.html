@@ -1,0 +1,60 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            需要复制另外一个显示节点的内容，配置 copy-node 指向需要复制的节点
+        </div>
+        <div class="mb20 clearfix">
+            <textarea class="fl" cols="30" rows="4" id="{{=viewId}}_text_1">Magix棒棒的！</textarea>
+            <div class="fl ml10">
+                <mx-copy copy-node="{{=viewId}}_text_1" class="btn btn-brand"
+                    mx-success="done2()">复制</mx-copy>
+                {{if success}}
+                <div class="color-green mt10">复制成功</div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <div class="eg-desc">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+&lt;div class="mb20"&gt;
+    &lt;mx-copy copy-node="&#123;&#123;=viewId&#125;&#125;_text_1" class="btn btn-brand"
+        mx-success="done()"&gt;复制&lt;/mx-copy&gt;
+    &#123;&#123;if success&#125;&#125;
+    &lt;span class="color-green ml20"&gt;复制成功&lt;/span&gt;
+    &#123;&#123;/if&#125;&#125;
+&lt;/div&gt;
+&lt;textarea cols="30" rows="4" id="&#123;&#123;=viewId&#125;&#125;_text_1"&gt;Magix棒棒的！&lt;/textarea&gt;</pre>
+        </div>
+        <div class="eg-desc">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_3">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            viewId: this.id
+        &#125;);
+    &#125;,
+    'done&lt;success&gt;'(e) &#123;
+        this.updater.digest(&#123;
+            success: true
+        &#125;)
+    &#125;
+&#125;);</pre>
+        </div>
+</div>

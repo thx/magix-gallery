@@ -1,7 +1,14 @@
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
         name: '使用示例',
-        key: viewId + '_demo'
+        key: viewId + '_demo',
+        subs: [{
+            name: '显示复制',
+            key: viewId + '_demo1'
+        },{
+            name: '隐式复制',
+            key: viewId + '_demo2'
+        }]
     }, {
         name: 'API',
         key: viewId + '_api'
@@ -11,60 +18,12 @@
     }]}}"></div>
     
     <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
-    <div class="example">
-        <div class="eg-content">
-            <div class="mb20">
-                <mx-copy copy-node="{{=viewId}}_text_1" class="btn btn-brand"
-                    mx-success="done2()">复制</mx-copy>
-                {{if success}}
-                <span class="color-green ml20">复制成功</span>
-                {{/if}}
-            </div>
-            <textarea cols="30" rows="4" id="{{=viewId}}_text_1">Magix棒棒的！</textarea>
+    <div class="clearfix mb20">
+        <div class="half">
+            <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
         </div>
-        <div class="clearfix">
-            <div class="eg-desc half">
-                <div class="eg-title">HTML Code</div>
-                <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-                    mx-success="done({id:2})">
-                    <span class="desc-tip">{{!text2}}</span>
-                    <i class="mc-iconfont desc-icon">&#xe610;</i>
-                </mx-copy>
-                <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
-    &lt;div class="mb20"&gt;
-        &lt;mx-copy copy-node="&#123;&#123;=viewId&#125;&#125;_text_1" class="btn btn-brand"
-            mx-success="done()"&gt;复制&lt;/mx-copy&gt;
-        &#123;&#123;if success&#125;&#125;
-        &lt;span class="color-green ml20"&gt;复制成功&lt;/span&gt;
-        &#123;&#123;/if&#125;&#125;
-    &lt;/div&gt;
-    &lt;textarea cols="30" rows="4" id="&#123;&#123;=viewId&#125;&#125;_text_1"&gt;Magix棒棒的！&lt;/textarea&gt;</pre>
-            </div>
-            <div class="eg-desc half half-right">
-                <div class="eg-title">HTML Code</div>
-                <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
-                    mx-success="done({id:3})">
-                    <span class="desc-tip">{{!text3}}</span>
-                    <i class="mc-iconfont desc-icon">&#xe610;</i>
-                </mx-copy>
-                <pre mx-view="__test__/hl" id="{{=viewId}}_text_3">
-    let Magix = require('magix');
-    let $ = require('$');
-    
-    module.exports = Magix.View.extend(&#123;
-        tmpl: '@index.html',
-        render() &#123;
-            this.updater.digest(&#123;
-                viewId: this.id
-            &#125;);
-        &#125;,
-        'done&lt;success&gt;'(e) &#123;
-            this.updater.digest(&#123;
-                success: true
-            &#125;)
-        &#125;
-    &#125;);</pre>
-            </div>
+        <div class="half">
+            <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
         </div>
     </div>
     
