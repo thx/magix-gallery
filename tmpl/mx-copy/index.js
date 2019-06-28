@@ -7,22 +7,25 @@ module.exports = Magix.View.extend({
         that.assign(extra);
 
         let owner = $('#' + that.id);
-        let clipboard;
-        if(that['@{copy.node}']){
+        let options = {};
+        if (that['@{copy.node}']) {
             // 复制另外一个节点
-            clipboard = new window.Clipboard(owner[0], {
+            options = {
                 target() {
                     return Magix.node(that['@{copy.node}']);
                 }
-            });
-        }else{
+            };
+
+        } else {
             // 复制本节点信息
-            clipboard = new window.Clipboard(owner[0], {
+            options = {
                 text(trigger) {
                     return extra.copyText;
                 }
-            });
+            };
         }
+
+        let clipboard = new window.Clipboard(owner[0], options);
         clipboard.on('success', (e) => {
             e.clearSelection();
             owner.trigger('success');

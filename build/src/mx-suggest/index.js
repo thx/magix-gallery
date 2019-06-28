@@ -94,9 +94,9 @@ module.exports = Magix.View.extend({
             $line = 23;
             $art = 'each list as item';
             ;
-            $expr = '<%for (var $art_iqnrnvyzikl$art_i = 0, $art_ckvtdxsrcq$art_c = list.length; $art_iqnrnvyzikl$art_i < $art_ckvtdxsrcq$art_c; $art_iqnrnvyzikl$art_i++) {            var item = list[$art_iqnrnvyzikl$art_i]%>';
-            for (var $art_iqnrnvyzikl$art_i = 0, $art_ckvtdxsrcq$art_c = list.length; $art_iqnrnvyzikl$art_i < $art_ckvtdxsrcq$art_c; $art_iqnrnvyzikl$art_i++) {
-                var item = list[$art_iqnrnvyzikl$art_i];
+            $expr = '<%for (var $art_iwbrzuvnpu$art_i = 0, $art_coihfcormsm$art_c = list.length; $art_iwbrzuvnpu$art_i < $art_coihfcormsm$art_c; $art_iwbrzuvnpu$art_i++) {            var item = list[$art_iwbrzuvnpu$art_i]%>';
+            for (var $art_iwbrzuvnpu$art_i = 0, $art_coihfcormsm$art_c = list.length; $art_iwbrzuvnpu$art_i < $art_coihfcormsm$art_c; $art_iwbrzuvnpu$art_i++) {
+                var item = list[$art_iwbrzuvnpu$art_i];
                 $p += '<li mxa="_zs_galleryec:b" class="mx-output-item"><span class="mx-output-link ';
                 $line = 25;
                 $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';

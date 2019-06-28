@@ -93,50 +93,48 @@ catch (ex) {
     assign: function (extra) {
         var that = this;
         var altered = that.updater.altered();
-        // 不配置默认展示为文字
-        var format = +extra.format || 5;
-        // 2：图片
-        // 4：视频
-        // 5：文字链
-        // 3：flash
-        // 9：flash
-        // 10：html，iframe展示
-        // 11：直播（封面图）也是图片
-        // 23：套图（大图+小图）
-        var map = {
-            'image': [2, 11],
-            'flash': [3, 9],
-            'taotu': [23],
-            'video': [4],
-            'text': [5],
-            'iframe': [10]
-        };
-        // 映射成语义方便处理
+        // 语义化展示类型
         var type;
-        for (var t in map) {
-            if (map[t].indexOf(format) > -1) {
-                type = t;
+        // 兼容历史api，映射成语义方便处理）
+        //      format，不配置默认展示为文字
+        //          2：图片
+        //          4：视频
+        //          5：文字链
+        //          3：flash
+        //          9：flash
+        //          10：html，iframe展示
+        //          11：直播（封面图）也是图片
+        //          23：套图（大图+小图
+        if (extra.format) {
+            var format = +extra.format || 5;
+            var map = {
+                'image': [2, 11],
+                'flash': [3, 9],
+                'video': [4],
+                'text': [5],
+                'iframe': [10]
+            };
+            for (var t in map) {
+                if (map[t].indexOf(format) > -1) {
+                    type = t;
+                }
             }
         }
-        var url = extra.url, xiaotuUrl = extra.xiaotuUrl, //套图大小图
-        datuUrl = extra.datuUrl;
-        if (type == 'taotu') {
-            // 套图，预览取小图
-            url = extra.xiaotuUrl;
+        else {
+            type = extra.type || 'text';
         }
         that.updater.set({
             viewId: that.id,
             placement: extra.placement || 'right',
             preview: (extra.preview + '' !== 'false'),
             type: type,
-            url: url,
-            xiaotuUrl: xiaotuUrl,
-            datuUrl: datuUrl,
+            url: extra.url,
             clickUrl: extra.clickUrl,
             width: +extra.width,
             height: +extra.height,
             maxWidth: +extra.maxWidth || 100,
-            maxHeight: +extra.maxHeight || 100
+            maxHeight: +extra.maxHeight || 100,
+            previewData: extra.previewData || {}
         });
         if (!altered) {
             altered = that.updater.altered();
@@ -181,7 +179,6 @@ catch (ex) {
         var thumbnail = '';
         switch (type) {
             case 'image':
-            case 'taotu':
                 thumbnail = "<img class=\"_zs_gallery_mx-preview_index_-img\" src=\"" + url + "\"/>";
                 break;
             case 'flash':
@@ -224,7 +221,21 @@ catch (ex) {
         Active = that;
         clearTimeout(that.timer);
         var data = that.updater.get();
-        var type = data.type, url = data.url;
+        var previewData = {};
+        if ($.isEmptyObject(data.previewData)) {
+            previewData = data;
+        }
+        else {
+            // 预览内容≠缩略图内容
+            // previewData: {
+            //     type,
+            //     url,
+            //     width,
+            //     height
+            // }
+            previewData = data.previewData;
+        }
+        var type = previewData.type, url = previewData.url;
         if (!url || !type || (type == 'flash')) {
             // 不预览的情况
             // 1. 没有内容
@@ -269,9 +280,6 @@ catch (ex) {
                 case 'image':
                     inner = $("<img src=\"" + url + "\" class=\"_zs_gallery_mx-preview_index_-preview-inner\"/>");
                     break;
-                case 'taotu':// 套图 
-                    inner = $("<div class=\"clearfix\">\n                        <img src=\"" + url + "\" class=\"fl\"/>    \n                        <img src=\"" + data.datuUrl + "\" class=\"fr\"/>\n                    </div>");
-                    break;
                 case 'video':
                     inner = $("<video src=\"" + url + "\" class=\"_zs_gallery_mx-preview_index_-preview-inner\"\n                        controls=\"controls\" autoplay=\"autoplay\"></video>");
                     break;
@@ -280,7 +288,7 @@ catch (ex) {
                     inner[0].innerText = url;
                     break;
                 case 'iframe':
-                    var originWidth = data.width, originHeight = data.height;
+                    var originWidth = previewData.width, originHeight = previewData.height;
                     var scale = (width - 20) / originWidth;
                     inner = $("<div class=\"_zs_gallery_mx-preview_index_-preview-inner\">\n                        <iframe src=\"" + url + "\"\n                            sandbox=\"allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts\"\n                            style=\"transform: scale(" + scale + "); transform-origin: left top;\"\n                            width=\"" + originWidth + "\" \n                            height=\"" + originHeight + "\"\n                            frameborder=\"0\" \n                            scrolling=\"no\" \n                            marginheight=\"0\" \n                            marginwidth=\"0\" \n                            border=\"0\"></iframe>\n                    </div>");
                     break;
@@ -303,36 +311,23 @@ catch (ex) {
                 display: 'block'
             });
         };
-        if (type == 'taotu') {
-            //套图的大图展示，特殊处理
-            //注意onload 放在img.src 前面用来兼容IE
-            var img = new Image();
-            img.onload = function () {
-                var width = data.width + 10 + this.width + 20;
-                var height = Math.max(data.height, this.height) + 20;
-                next(width, height);
-            };
-            img.src = data.datuUrl;
+        if (previewData.width && previewData.height) {
+            // 预留间隔
+            next(previewData.width + 20, previewData.height + 20);
         }
         else {
-            if (data.width && data.height) {
-                // 预留间隔
-                next(data.width + 20, data.height + 20);
+            // 只有图片和文案类型可不配置，其余必填
+            // 没有配置预览宽高
+            if (type == 'text') {
+                // 文案默认宽度600，高度自适应
+                next(600, 0);
             }
-            else {
-                // 只有图片和文案类型可不配置，其余必填
-                // 没有配置预览宽高
-                if (type == 'text') {
-                    // 文案默认宽度600，高度自适应
-                    next(600, 0);
-                }
-                else if (type == 'image') {
-                    var img = new Image();
-                    img.onload = function () {
-                        next(this.width + 20, this.height + 20);
-                    };
-                    img.src = url;
-                }
+            else if (type == 'image') {
+                var img = new Image();
+                img.onload = function () {
+                    next(this.width + 20, this.height + 20);
+                };
+                img.src = url;
             }
         }
     },

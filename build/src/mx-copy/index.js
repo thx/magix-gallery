@@ -805,23 +805,24 @@ module.exports = Magix.View.extend({
         var that = this;
         that.assign(extra);
         var owner = $('#' + that.id);
-        var clipboard;
+        var options = {};
         if (that['@{copy.node}']) {
             // 复制另外一个节点
-            clipboard = new window.Clipboard(owner[0], {
+            options = {
                 target: function () {
                     return Magix.node(that['@{copy.node}']);
                 }
-            });
+            };
         }
         else {
             // 复制本节点信息
-            clipboard = new window.Clipboard(owner[0], {
+            options = {
                 text: function (trigger) {
                     return extra.copyText;
                 }
-            });
+            };
         }
+        var clipboard = new window.Clipboard(owner[0], options);
         clipboard.on('success', function (e) {
             e.clearSelection();
             owner.trigger('success');

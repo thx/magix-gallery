@@ -25,39 +25,35 @@ module.exports = Magix.View.extend({
         let that = this;
         let altered = that.updater.altered();
 
-        // 不配置默认展示为文字
-        let format = +extra.format || 5;
-
-        // 2：图片
-        // 4：视频
-        // 5：文字链
-        // 3：flash
-        // 9：flash
-        // 10：html，iframe展示
-        // 11：直播（封面图）也是图片
-        // 23：套图（大图+小图）
-        let map = {
-            'image': [2, 11],
-            'flash': [3, 9],
-            'taotu': [23],
-            'video': [4],
-            'text': [5],
-            'iframe': [10]
-        }
-        // 映射成语义方便处理
+        // 语义化展示类型
         let type;
-        for (let t in map) {
-            if (map[t].indexOf(format) > -1) {
-                type = t;
-            }
-        }
 
-        let url = extra.url,
-            xiaotuUrl = extra.xiaotuUrl, //套图大小图
-            datuUrl = extra.datuUrl;
-        if (type == 'taotu') {
-            // 套图，预览取小图
-            url = extra.xiaotuUrl;
+        // 兼容历史api，映射成语义方便处理）
+        //      format，不配置默认展示为文字
+        //          2：图片
+        //          4：视频
+        //          5：文字链
+        //          3：flash
+        //          9：flash
+        //          10：html，iframe展示
+        //          11：直播（封面图）也是图片
+        //          23：套图（大图+小图
+        if (extra.format) {
+            let format = +extra.format || 5;
+            let map = {
+                'image': [2, 11],
+                'flash': [3, 9],
+                'video': [4],
+                'text': [5],
+                'iframe': [10]
+            }
+            for (let t in map) {
+                if (map[t].indexOf(format) > -1) {
+                    type = t;
+                }
+            }
+        } else {
+            type = extra.type || 'text';
         }
 
         that.updater.set({
@@ -65,14 +61,13 @@ module.exports = Magix.View.extend({
             placement: extra.placement || 'right', //展示位置，左边 or 右边
             preview: (extra.preview + '' !== 'false'), //是否需要预览
             type,
-            url,
-            xiaotuUrl,
-            datuUrl,
+            url: extra.url,
             clickUrl: extra.clickUrl, //图点击跳转外链，没有可不配
             width: +extra.width, // 预览展示尺寸，图片文案可不配置，其余必填
             height: +extra.height,
             maxWidth: +extra.maxWidth || 100, // 缩略图尺寸，默认100
-            maxHeight: +extra.maxHeight || 100
+            maxHeight: +extra.maxHeight || 100,
+            previewData: extra.previewData || {}
         })
 
         if (!altered) {
@@ -122,7 +117,6 @@ module.exports = Magix.View.extend({
         let thumbnail = '';
         switch (type) {
             case 'image':
-            case 'taotu':
                 thumbnail = `<img class="@index.less:img" src="${url}"/>`;
                 break;
             case 'flash':
@@ -184,8 +178,22 @@ module.exports = Magix.View.extend({
         clearTimeout(that.timer);
 
         let data = that.updater.get();
-        let type = data.type,
-            url = data.url;
+        let previewData = {};
+        if ($.isEmptyObject(data.previewData)) {
+            previewData = data;
+        } else {
+            // 预览内容≠缩略图内容
+            // previewData: {
+            //     type,
+            //     url,
+            //     width,
+            //     height
+            // }
+            previewData = data.previewData;
+        }
+
+        let type = previewData.type,
+            url = previewData.url;
         if (!url || !type || (type == 'flash')) {
             // 不预览的情况
             // 1. 没有内容
@@ -240,12 +248,6 @@ module.exports = Magix.View.extend({
                 case 'image':
                     inner = $(`<img src="${url}" class="@index.less:preview-inner"/>`);
                     break;
-                case 'taotu': // 套图 
-                    inner = $(`<div class="clearfix">
-                        <img src="${url}" class="fl"/>    
-                        <img src="${data.datuUrl}" class="fr"/>
-                    </div>`);
-                    break;
                 case 'video':
                     inner = $(`<video src="${url}" class="@index.less:preview-inner"
                         controls="controls" autoplay="autoplay"></video>`);
@@ -255,8 +257,8 @@ module.exports = Magix.View.extend({
                     inner[0].innerText = url;
                     break;
                 case 'iframe':
-                    let originWidth = data.width,
-                        originHeight = data.height;
+                    let originWidth = previewData.width,
+                        originHeight = previewData.height;
                     let scale = (width - 20) / originWidth;
                     inner = $(`<div class="@index.less:preview-inner">
                         <iframe src="${url}"
@@ -293,33 +295,21 @@ module.exports = Magix.View.extend({
             })
         }
 
-        if (type == 'taotu') {
-            //套图的大图展示，特殊处理
-            //注意onload 放在img.src 前面用来兼容IE
-            let img = new Image();
-            img.onload = function () {
-                let width = data.width + 10 + this.width + 20;
-                let height = Math.max(data.height, this.height) + 20;
-                next(width, height);
-            }
-            img.src = data.datuUrl;
+        if (previewData.width && previewData.height) {
+            // 预留间隔
+            next(previewData.width + 20, previewData.height + 20);
         } else {
-            if (data.width && data.height) {
-                // 预留间隔
-                next(data.width + 20, data.height + 20);
-            } else {
-                // 只有图片和文案类型可不配置，其余必填
-                // 没有配置预览宽高
-                if (type == 'text') {
-                    // 文案默认宽度600，高度自适应
-                    next(600, 0);
-                } else if (type == 'image') {
-                    let img = new Image();
-                    img.onload = function () {
-                        next(this.width + 20, this.height + 20);
-                    }
-                    img.src = url;
+            // 只有图片和文案类型可不配置，其余必填
+            // 没有配置预览宽高
+            if (type == 'text') {
+                // 文案默认宽度600，高度自适应
+                next(600, 0);
+            } else if (type == 'image') {
+                let img = new Image();
+                img.onload = function () {
+                    next(this.width + 20, this.height + 20);
                 }
+                img.src = url;
             }
         }
     },

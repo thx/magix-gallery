@@ -3,7 +3,7 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-preview/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./3","./7","./2","./4","./8","./5","__test__/api","./6"],(require,exports,module)=>{
+define("mx-preview/__test__/index",["magix","$","__test__/subs","mx-title/second","./1","./3","./7","./2","./4","./9","./8","__test__/api","./6"],(require,exports,module)=>{
 /*Magix,$*/
 require("__test__/subs");
 require("mx-title/second");
@@ -12,8 +12,8 @@ require("./3");
 require("./7");
 require("./2");
 require("./4");
+require("./9");
 require("./8");
-require("./5");
 require("__test__/api");
 require("./6");
 var Magix = require("magix");
@@ -37,9 +37,9 @@ module.exports = Magix.View.extend({
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_gallerydL:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'图片\',\n            key: viewId + \'_demo1\'\n        }, {\n            name: \'视频\',\n            key: viewId + \'_demo2\'\n        }, {\n            name: \'html(iframe展示)\',\n            key: viewId + \'_demo3\'\n        }, {\n            name: \'文字\',\n            key: viewId + \'_demo4\'\n        }, {\n            name: \'纯缩略图(无预览)\',\n            key: viewId + \'_demo7\'\n        }, {\n            name: \'左对齐\',\n            key: viewId + \'_demo8\'\n        }, {\n            name: \'套图\',\n            key: viewId + \'_demo5\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'关于懒加载\',\n        key: viewId + \'_lazyload\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'图片\',\n            key: viewId + \'_demo1\'\n        }, {\n            name: \'视频\',\n            key: viewId + \'_demo2\'\n        }, {\n            name: \'html(iframe展示)\',\n            key: viewId + \'_demo3\'\n        }, {\n            name: \'文字\',\n            key: viewId + \'_demo4\'\n        }, {\n            name: \'缩略图≠预览\',\n            key: viewId + \'_demo9\'\n        }, {\n            name: \'纯缩略图(无预览)\',\n            key: viewId + \'_demo7\'\n        }, {\n            name: \'左对齐\',\n            key: viewId + \'_demo8\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'关于懒加载\',\n        key: viewId + \'_lazyload\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'图片\',                    key: viewId + \'_demo1\'                }, {                    name: \'视频\',                    key: viewId + \'_demo2\'                }, {                    name: \'html(iframe展示)\',                    key: viewId + \'_demo3\'                }, {                    name: \'文字\',                    key: viewId + \'_demo4\'                }, {                    name: \'纯缩略图(无预览)\',                    key: viewId + \'_demo7\'                }, {                    name: \'左对齐\',                    key: viewId + \'_demo8\'                }, {                    name: \'套图\',                    key: viewId + \'_demo5\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'关于懒加载\',            key: viewId + \'_lazyload\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '图片', key: viewId + '_demo1' }, { name: '视频', key: viewId + '_demo2' }, { name: 'html(iframe展示)', key: viewId + '_demo3' }, { name: '文字', key: viewId + '_demo4' }, { name: '纯缩略图(无预览)', key: viewId + '_demo7' }, { name: '左对齐', key: viewId + '_demo8' }, { name: '套图', key: viewId + '_demo5' }] }, { name: 'API', key: viewId + '_api' }, { name: '关于懒加载', key: viewId + '_lazyload' }])) + '"></div><div id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'图片\',                    key: viewId + \'_demo1\'                }, {                    name: \'视频\',                    key: viewId + \'_demo2\'                }, {                    name: \'html(iframe展示)\',                    key: viewId + \'_demo3\'                }, {                    name: \'文字\',                    key: viewId + \'_demo4\'                }, {                    name: \'缩略图≠预览\',                    key: viewId + \'_demo9\'                }, {                    name: \'纯缩略图(无预览)\',                    key: viewId + \'_demo7\'                }, {                    name: \'左对齐\',                    key: viewId + \'_demo8\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'关于懒加载\',            key: viewId + \'_lazyload\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '图片', key: viewId + '_demo1' }, { name: '视频', key: viewId + '_demo2' }, { name: 'html(iframe展示)', key: viewId + '_demo3' }, { name: '文字', key: viewId + '_demo4' }, { name: '缩略图≠预览', key: viewId + '_demo9' }, { name: '纯缩略图(无预览)', key: viewId + '_demo7' }, { name: '左对齐', key: viewId + '_demo8' }] }, { name: 'API', key: viewId + '_api' }, { name: '关于懒加载', key: viewId + '_lazyload' }])) + '"></div><div id="';
     $line = 36;
     $art = '=viewId';
     ;
@@ -63,24 +63,24 @@ module.exports = Magix.View.extend({
     $line = 45;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-preview/__test__/8" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-preview/__test__/9" id="';
     $line = 46;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div><div mx-view="mx-preview/__test__/5" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div><div mx-view="mx-preview/__test__/8" id="';
     $line = 47;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div></div></div><div id="';
-    $line = 51;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div></div></div><div id="';
+    $line = 54;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="__test__/api?options=';
-    $line = 52;
+    $line = 55;
     $art = '@options';
     ;
     $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
-    $line = 54;
+    $line = 57;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_lazyload" mx-view="mx-title/second?content=%E5%85%B3%E4%BA%8E%E6%87%92%E5%8A%A0%E8%BD%BD"></div><div mxs="_zs_gallerydL:_" class="lh22">使用IntersectionObserver实现，滚动容器内依然支持懒加载；</div><div mxs="_zs_gallerydL:a" class="lh22 mb20">注意点：<span class="color-brand">需要提前给包裹容器设定一个高度，不然可能在素材未加载的时候，所有的元素都在可视区，会导致所有元素都被加载</span></div><div mxs="_zs_gallerydL:b" mx-view="mx-preview/__test__/6"></div></div>';
@@ -94,29 +94,56 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
+        //         {
+        //             key: 'format',
+        //             desc: `<pre>展示类型，不配置类型默认展示为纯文本
+        // 2：图片
+        // 4：视频
+        // 5：文字链
+        // 10：html
+        // 23：套图
+        // </pre>`,
+        //             type: 'number',
+        //             def: '5'
+        //         }, {
+        //             key: 'url',
+        //             desc: `<pre>展示内容
+        // 2：图片链接
+        // 4：视频链接
+        // 5：文本内容
+        // 10：html链接
+        // </pre>`,
+        //             type: 'string',
+        //             def: ''
+        //         },{
+        //     key: 'datu-url',
+        //     desc: '套图大图',
+        //     type: 'string',
+        //     def: ''
+        // }, {
+        //     key: 'xiaotu-url',
+        //     desc: '套图小图',
+        //     type: 'string',
+        //     def: ''
+        // }, 
         var options = [{
-                key: 'format',
-                desc: "<pre>\u5C55\u793A\u7C7B\u578B\uFF0C\u4E0D\u914D\u7F6E\u7C7B\u578B\u9ED8\u8BA4\u5C55\u793A\u4E3A\u7EAF\u6587\u672C\n2\uFF1A\u56FE\u7247\n4\uFF1A\u89C6\u9891\n5\uFF1A\u6587\u5B57\u94FE\n10\uFF1Ahtml\n23\uFF1A\u5957\u56FE\n</pre>",
+                key: 'type',
+                desc: "<pre>\u5C55\u793A\u7C7B\u578B\uFF0C\u4E0D\u914D\u7F6E\u7C7B\u578B\u9ED8\u8BA4\u5C55\u793A\u4E3A\u7EAF\u6587\u672C\nimage\uFF1A\u56FE\u7247\nvideo\uFF1A\u89C6\u9891\ntext\uFF1A\u6587\u5B57\u94FE\niframe\uFF1A\u76F4\u63A5iframe\u5D4C\u5165\u9875\u9762\u5C55\u793A\n</pre>",
                 type: 'number',
-                def: '5'
+                def: 'text'
             }, {
                 key: 'url',
-                desc: "<pre>\u5C55\u793A\u5185\u5BB9\n2\uFF1A\u56FE\u7247\u94FE\u63A5\n4\uFF1A\u89C6\u9891\u94FE\u63A5\n5\uFF1A\u6587\u672C\u5185\u5BB9\n10\uFF1Ahtml\u94FE\u63A5\n</pre>",
+                desc: "<pre>\u5C55\u793A\u5185\u5BB9\nimage\uFF1A\u56FE\u7247\u94FE\u63A5\nvideo\uFF1A\u89C6\u9891\u94FE\u63A5\ntext\uFF1A\u6587\u672C\u5185\u5BB9\niframe\uFF1Ahtml\u94FE\u63A5\n</pre>",
                 type: 'string',
                 def: ''
             }, {
-                key: 'preview',
-                desc: '是否需要预览，preview=false的时候只有缩略图没有预览',
-                type: 'boolean',
-                def: 'true'
-            }, {
                 key: 'width',
-                desc: "<pre>\u9884\u89C8\u5B9E\u9645\u5BBD\u5EA6\n\u4F1A\u6839\u636E\u5F53\u524D\u5C4F\u5E55\u7684\u53EF\u89C6\u8303\u56F4\u8FDB\u884C\u7B49\u6BD4\u4F8B\u4FEE\u6B63\n<div class=\"color-brand\">\u9664\u56FE\u7247\u548C\u6587\u672C\u7C7B\u578B\u5916\uFF0C\u5176\u4F59\u60C5\u51B5\u4E0B\u5FC5\u586B</div>\n</pre>",
+                desc: "<pre>\u9884\u89C8\u5B9E\u9645\u5BBD\u5EA6\n\u7F29\u7565\u56FE\u6839\u636Ewidth\u548Cheight\u7B49\u6BD4\u4F8B\u7F29\u653E\n\u9884\u89C8\u65F6\u6839\u636E\u5F53\u524D\u5C4F\u5E55\u7684\u53EF\u89C6\u8303\u56F4\u8FDB\u884C\u7B49\u6BD4\u4F8B\u4FEE\u6B63\n<div class=\"color-brand\">\u9664\u56FE\u7247\u548C\u6587\u672C\u7C7B\u578B\u5916\uFF0C\u5176\u4F59\u60C5\u51B5\u4E0B\u5FC5\u586B</div>\n</pre>",
                 type: 'number',
                 def: ''
             }, {
                 key: 'height',
-                desc: "<pre>\u9884\u89C8\u5B9E\u9645\u9AD8\u5EA6\n<div class=\"color-brand\">\u9664\u56FE\u7247\u548C\u6587\u672C\u7C7B\u578B\u5916\uFF0C\u5176\u4F59\u60C5\u51B5\u4E0B\u5FC5\u586B</div>\n</pre>",
+                desc: "<pre>\u9884\u89C8\u5B9E\u9645\u9AD8\u5EA6\n\u7F29\u7565\u56FE\u6839\u636Ewidth\u548Cheight\u7B49\u6BD4\u4F8B\u7F29\u653E\n\u9884\u89C8\u65F6\u6839\u636E\u5F53\u524D\u5C4F\u5E55\u7684\u53EF\u89C6\u8303\u56F4\u8FDB\u884C\u7B49\u6BD4\u4F8B\u4FEE\u6B63\n<div class=\"color-brand\">\u9664\u56FE\u7247\u548C\u6587\u672C\u7C7B\u578B\u5916\uFF0C\u5176\u4F59\u60C5\u51B5\u4E0B\u5FC5\u586B</div>\n</pre>",
                 type: 'number',
                 def: ''
             }, {
@@ -130,20 +157,20 @@ catch (ex) {
                 type: 'number',
                 def: '100'
             }, {
-                key: 'datu-url',
-                desc: '套图大图',
-                type: 'string',
-                def: ''
-            }, {
-                key: 'xiaotu-url',
-                desc: '套图小图',
-                type: 'string',
-                def: ''
-            }, {
                 key: 'click-url',
                 desc: '点击预览内容的跳转外链',
                 type: 'string',
                 def: ''
+            }, {
+                key: 'preview',
+                desc: '是否需要预览，preview=false的时候只有缩略图没有预览',
+                type: 'boolean',
+                def: 'true'
+            }, {
+                key: 'preview-data',
+                desc: "\u9884\u89C8\u6570\u636E\uFF0C\u5F53\u9884\u89C8\u5185\u5BB9\u662F\u7F29\u7565\u5185\u5BB9\u4E0D\u4E00\u6837\u65F6\u53EF\u914D\u7F6E\uFF0C\u53EF\u914D\u5185\u5BB9\u5982\u4E0B\uFF1A<pre>{\n    type,\n    url,\n    width,\n    height\n}</pre>",
+                type: 'object',
+                def: '{}'
             }, {
                 key: 'placement',
                 desc: '相对目标的展示位置，可选left、right',
