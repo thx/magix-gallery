@@ -30,10 +30,10 @@ module.exports = Base.extend({
     ;
     $p += ($expr = '<%=width%>', $e(width)) + '%;"><div mxa="_zs_galleryex:b" mx-view="mx-table/index?sticky=true"><div><table mxa="_zs_galleryex:c" class="table" left="true"><thead><tr>';
     $line = 19;
-    $art = 'for (let i=0;i<4;i++)';
+    $art = 'for (let i=0;i<2;i++)';
     ;
-    $expr = '<%for (var i = 0; i < 4; i++) {%>';
-    for (var i = 0; i < 4; i++) {
+    $expr = '<%for (var i = 0; i < 2; i++) {%>';
+    for (var i = 0; i < 2; i++) {
         ;
         $p += '<th mxa="_zs_galleryex:d" width="120">固定字段';
         $line = 20;
@@ -55,10 +55,10 @@ module.exports = Base.extend({
         ;
         $p += '<tr>';
         $line = 27;
-        $art = 'for (let i=0;i<4;i++)';
+        $art = 'for (let i=0;i<2;i++)';
         ;
-        $expr = '<%for (var i = 0; i < 4; i++) {%>';
-        for (var i = 0; i < 4; i++) {
+        $expr = '<%for (var i = 0; i < 2; i++) {%>';
+        for (var i = 0; i < 2; i++) {
             ;
             $p += '<td>固定内容';
             $line = 28;
@@ -80,10 +80,10 @@ module.exports = Base.extend({
     ;
     $p += '</tbody></table></div><div><table mxa="_zs_galleryex:e" class="table" center="true"><thead><tr>';
     $line = 44;
-    $art = 'for (let i=0;i<4;i++)';
+    $art = 'for (let i=0;i<2;i++)';
     ;
-    $expr = '<%for (var i = 0; i < 4; i++) {%>';
-    for (var i = 0; i < 4; i++) {
+    $expr = '<%for (var i = 0; i < 2; i++) {%>';
+    for (var i = 0; i < 2; i++) {
         ;
         $p += '<th mxa="_zs_galleryex:f" width="120">滚动';
         $line = 45;
@@ -105,10 +105,10 @@ module.exports = Base.extend({
         ;
         $p += '<tr>';
         $line = 52;
-        $art = 'for (let i=0;i<4;i++)';
+        $art = 'for (let i=0;i<2;i++)';
         ;
-        $expr = '<%for (var i = 0; i < 4; i++) {%>';
-        for (var i = 0; i < 4; i++) {
+        $expr = '<%for (var i = 0; i < 2; i++) {%>';
+        for (var i = 0; i < 2; i++) {
             ;
             $p += '<td>滚动内容';
             $line = 53;
