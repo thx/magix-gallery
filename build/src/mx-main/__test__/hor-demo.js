@@ -27,7 +27,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', alreadyStep = $$.alreadyStep, stepInfos = $$.stepInfos; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryc7:_" class="pl20 pr20 pt20"><div mxs="_zs_galleryc7:_" class="mb40"><span class="color-9">以下示例：</span>标题点击可以快速跳转；未到步骤不可点击；</div><div mxv="stepInfos" mx-view="mx-main/hor?alreadyStep=';
+    $p += '<div mxv mxa="_zs_galleryc8:_" class="pl20 pr20 pt20"><div mxs="_zs_galleryc8:_" class="mb40"><span class="color-9">以下示例：</span>标题点击可以快速跳转；未到步骤不可点击；</div><div mxv="stepInfos" mx-view="mx-main/hor?alreadyStep=';
     $line = 6;
     $art = '=alreadyStep';
     ;

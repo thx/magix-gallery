@@ -13,6 +13,7 @@ var Magix = require("magix");
 var $ = require("$");
 var Monitor = require("../mx-util/monitor");
 var I18n = require("../mx-medusa/util");
+Magix.applyStyle("_zs_gallery_mx-dropdown_index_","._zs_gallery_mx-dropdown_index_-dropdown-menu-group {\n  min-width: 600px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-dropdown-group-item {\n  float: left;\n  width: 25%;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-dropdown-group-wrapper {\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper {\n  padding-top: 10px;\n  padding-right: 10px;\n  padding-left: 18px;\n  padding-right: 18px;\n  line-height: 16px;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper ._zs_gallery_mx-dropdown_index_-oper {\n  float: left;\n  padding-right: 20px;\n  color: #999;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper ._zs_gallery_mx-dropdown_index_-oper:hover {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper._zs_gallery_mx-dropdown_index_-has-group {\n  padding-left: 12px;\n  padding-right: 12px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-output ._zs_gallery_mx-dropdown_index_-dropdown-output-link {\n  height: auto;\n}\n._zs_gallery_mx-dropdown_index_-selected-text img {\n  display: none;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -42,19 +43,19 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><span mxa="_zs_gallerybh:_" class="mx-trigger-label">';
+    $p += '"><span mxa="_zs_gallerybi:_" class="mx-trigger-label">';
     $expr = '<%if (name) {%>';
     if (name) {
         ;
-        $p += '<span mxa="_zs_gallerybh:a" class="color-9">' + ($expr = '<%=name%>', $e(name)) + '：</span>';
+        $p += '<span mxa="_zs_gallerybi:a" class="color-9">' + ($expr = '<%=name%>', $e(name)) + '：</span>';
         $expr = '<%}%>';
     }
     ;
-    $p += ' ' + ($expr = '<%!selectedText%>', $n(selectedText)) + '</span><span mxs="_zs_gallerybh:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
+    $p += '<span mxa="_zs_gallerybi:b" class="_zs_gallery_mx-dropdown_index_-selected-text">' + ($expr = '<%!selectedText%>', $n(selectedText)) + '</span></span><span mxs="_zs_gallerybi:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
     $line = 9;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" class="mx-output ' + ($expr = '<%=placementClass%>', $e(placementClass)) + ' ';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-output mx-output ' + ($expr = '<%=placementClass%>', $e(placementClass)) + ' ';
     $expr = '<%if (expand) {%>';
     if (expand) {
         ;
@@ -70,7 +71,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (searchbox) {%>';
         if (searchbox) {
             ;
-            $p += '<div mxv mxa="_zs_gallerybh:b" class="mx-output-search"><div mxv mxa="_zs_gallerybh:c" class="search-box" style="width: 100%;"><i mxs="_zs_gallerybh:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="' + ($expr = '<%=text.search%>', $e(text.search)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
+            $p += '<div mxv mxa="_zs_gallerybi:c" class="mx-output-search"><div mxv mxa="_zs_gallerybi:d" class="search-box" style="width: 100%;"><i mxs="_zs_gallerybi:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="' + ($expr = '<%=text.search%>', $e(text.search)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
             $expr = '<%}%>';
         }
         ;
@@ -106,7 +107,7 @@ module.exports = Magix.View.extend({
                     $p += '<li class="mx-output-item" title="' + ($expr = '<%=(item.tip ? item.tip : text)%>', $e((item.tip ? item.tip : text))) + '">';
                     $expr = '<%var equal = (value + \'\') === (selected + \'\')%>';
                     var equal = (value + '') === (selected + '');
-                    $p += '<span class="mx-output-link ';
+                    $p += '<span class="_zs_gallery_mx-dropdown_index_-dropdown-output-link mx-output-link ';
                     $expr = '<%if (equal) {%>';
                     if (equal) {
                         ;
@@ -135,7 +136,7 @@ module.exports = Magix.View.extend({
         }
         else {
             ;
-            $p += '<div mxa="_zs_gallerybh:d" class="text-center color-9 pt20 pb20">';
+            $p += '<div mxa="_zs_gallerybi:e" class="text-center color-9 pt20 pb20">';
             $line = 48;
             $art = '!text.empty';
             ;

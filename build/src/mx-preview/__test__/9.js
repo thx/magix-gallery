@@ -29,31 +29,31 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryfe:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_galleryfe:i" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_galleryfe:i" class="mb10"><span class="color-9">以下示例：</span>缩略图（图片）和预览图（iframe展示）不一样</div><div class="_zs_gallery_mx-preview___test___index_-demo" mx-view="mx-preview/index?type=image&url=%2F%2Fimg.alicdn.com%2Ftfscom%2FTB10l9lbgZC2uNjSZFnXXaxZpXa.png&width=400&height=125&maxWidth=100&maxHeight=100&previewData=';
+    $p += '<div mxa="_zs_gallerydM:_" class="_zs_gallery___test___layout_-example"><div mxa="_zs_gallerydM:a" class="_zs_gallery___test___layout_-eg-content"><div mxs="_zs_gallerydM:_" class="mb10"><span class="color-9">以下示例：</span>缩略图（图片）和预览图（iframe展示）不一样</div><div class="_zs_gallery_mx-preview___test___index_-demo" mx-view="mx-preview/index?type=image&url=%2F%2Fimg.alicdn.com%2Ftfscom%2FTB10l9lbgZC2uNjSZFnXXaxZpXa.png&width=400&height=125&maxWidth=100&maxHeight=100&previewData=';
     $line = 14;
     $art = '@{\n                type: \'iframe\',\n                url:\'//kb-render.alicdn.com/html/69961/2018/05/08/f1a2711e-e9057e21-14941396.html\',\n                width: 1280,\n                height: 720\n            }';
     ;
-    $p += ($expr = '<%@{        type: \'iframe\',        url: \'//kb-render.alicdn.com/html/69961/2018/05/08/f1a2711e-e9057e21-14941396.html\',        width: 1280,        height: 720    }%>', $i($$ref, { type: 'iframe', url: '//kb-render.alicdn.com/html/69961/2018/05/08/f1a2711e-e9057e21-14941396.html', width: 1280, height: 720 })) + '"></div></div><div mxa="_zs_galleryfe:e" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryfe:a" class="_zs_gallery___test___layout_-eg-title">图片预览</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@{        type: \'iframe\',        url: \'//kb-render.alicdn.com/html/69961/2018/05/08/f1a2711e-e9057e21-14941396.html\',        width: 1280,        height: 720    }%>', $i($$ref, { type: 'iframe', url: '//kb-render.alicdn.com/html/69961/2018/05/08/f1a2711e-e9057e21-14941396.html', width: 1280, height: 720 })) + '"></div></div><div mxa="_zs_gallerydM:b" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydM:a" class="_zs_gallery___test___layout_-eg-title">图片预览</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 23;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryfe:f" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerydM:c" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 25;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryfe:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerydM:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 28;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-preview class="demo"\n    type="image"\n    url="//img.alicdn.com/tfscom/TB10l9lbgZC2uNjSZFnXXaxZpXa.png"\n    width="400"\n    height="125"\n    max-width="100"\n    max-height="100"\n    preview-data="&#123;&#123;@&#123;\n        type: \'iframe\',\n        url:\'//kb-render.alicdn.com/html/69961/2018/05/08/f1a2711e-e9057e21-14941396.html\',\n        width: 1280,\n        height: 720\n    &#125;&#125;&#125;"/&gt;\n        </pre></div><div mxa="_zs_galleryfe:g" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_galleryfe:c" class="_zs_gallery___test___layout_-eg-title">CSS</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-preview class="demo"\n    type="image"\n    url="//img.alicdn.com/tfscom/TB10l9lbgZC2uNjSZFnXXaxZpXa.png"\n    width="400"\n    height="125"\n    max-width="100"\n    max-height="100"\n    preview-data="&#123;&#123;@&#123;\n        type: \'iframe\',\n        url:\'//kb-render.alicdn.com/html/69961/2018/05/08/f1a2711e-e9057e21-14941396.html\',\n        width: 1280,\n        height: 720\n    &#125;&#125;&#125;"/&gt;\n        </pre></div><div mxa="_zs_gallerydM:d" class="_zs_gallery___test___layout_-eg-desc"><div mxs="_zs_gallerydM:c" class="_zs_gallery___test___layout_-eg-title">CSS</div><div class="_zs_gallery___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 46;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryfe:h" class="_zs_gallery___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerydM:e" class="_zs_gallery___test___layout_-desc-tip">';
     $line = 48;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryfe:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerydM:b" class="mc-iconfont _zs_gallery___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="__test__/hl" id="';
     $line = 51;
     $art = '=viewId';
     ;

@@ -38,7 +38,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!timeout) {%>';
     if (!timeout) {
         ;
-        $p += '<i mxs="_zs_gallerycy:_" class="mc-iconfont _zs_gallery_mx-gtip_index_-gtip-close" mx-click="' + $viewId + '@{close}()">&#xe603;</i>';
+        $p += '<i mxs="_zs_gallerycz:_" class="mc-iconfont _zs_gallery_mx-gtip_index_-gtip-close" mx-click="' + $viewId + '@{close}()">&#xe603;</i>';
         $line = 6;
         $art = '/if';
         ;

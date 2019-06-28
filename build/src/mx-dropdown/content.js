@@ -8,7 +8,7 @@ define("mx-dropdown/content",["magix","../mx-medusa/util"],(require,exports,modu
 
 var Magix = require("magix");
 var I18n = require("../mx-medusa/util");
-Magix.applyStyle("_zs_gallery_mx-dropdown_index_","._zs_gallery_mx-dropdown_index_-dropdown-menu-group {\n  min-width: 600px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-dropdown-group-item {\n  float: left;\n  width: 25%;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-dropdown-group-wrapper {\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper {\n  padding-top: 10px;\n  padding-right: 10px;\n  padding-left: 18px;\n  padding-right: 18px;\n  line-height: 16px;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper ._zs_gallery_mx-dropdown_index_-oper {\n  float: left;\n  padding-right: 20px;\n  color: #999;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper ._zs_gallery_mx-dropdown_index_-oper:hover {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper._zs_gallery_mx-dropdown_index_-has-group {\n  padding-left: 12px;\n  padding-right: 12px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-dropdown_index_","._zs_gallery_mx-dropdown_index_-dropdown-menu-group {\n  min-width: 600px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-dropdown-group-item {\n  float: left;\n  width: 25%;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-dropdown-group-wrapper {\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper {\n  padding-top: 10px;\n  padding-right: 10px;\n  padding-left: 18px;\n  padding-right: 18px;\n  line-height: 16px;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper ._zs_gallery_mx-dropdown_index_-oper {\n  float: left;\n  padding-right: 20px;\n  color: #999;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper ._zs_gallery_mx-dropdown_index_-oper:hover {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper._zs_gallery_mx-dropdown_index_-has-group {\n  padding-left: 12px;\n  padding-right: 12px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-output ._zs_gallery_mx-dropdown_index_-dropdown-output-link {\n  height: auto;\n}\n._zs_gallery_mx-dropdown_index_-selected-text img {\n  display: none;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -32,7 +32,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (searchbox) {%>';
     if (searchbox) {
         ;
-        $p += '<div mxv mxa="_zs_gallerybg:_" class="mx-output-search"><div mxv mxa="_zs_gallerybg:a" class="search-box" style="width: 100%;"><i mxs="_zs_gallerybg:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+        $p += '<div mxv mxa="_zs_gallerybh:_" class="mx-output-search"><div mxv mxa="_zs_gallerybh:a" class="search-box" style="width: 100%;"><i mxs="_zs_gallerybh:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
         $line = 6;
         $art = '=text.search';
         ;
@@ -54,7 +54,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (multiple) {%>';
     if (multiple) {
         ;
-        $p += '<div mxa="_zs_gallerybg:b" class="_zs_gallery_mx-dropdown_index_-oper-wrapper _zs_gallery_mx-dropdown_index_-has-group clearfix"><a class="_zs_gallery_mx-dropdown_index_-oper" href="javascript:;" mx-click="' + $viewId + '@{checkAll}({checked:true})" data-spm-click="';
+        $p += '<div mxa="_zs_gallerybh:b" class="_zs_gallery_mx-dropdown_index_-oper-wrapper _zs_gallery_mx-dropdown_index_-has-group clearfix"><a class="_zs_gallery_mx-dropdown_index_-oper" href="javascript:;" mx-click="' + $viewId + '@{checkAll}({checked:true})" data-spm-click="';
         $line = 18;
         $art = '=spm';
         ;
@@ -92,8 +92,8 @@ module.exports = Magix.View.extend({
         $line = 24;
         $art = 'each parents as parent parentIndex';
         ;
-        $expr = '<%for (var parentIndex = 0, $art_cfcpjtzo$art_c = parents.length; parentIndex < $art_cfcpjtzo$art_c; parentIndex++) {        var parent = parents[parentIndex]%>';
-        for (var parentIndex = 0, $art_cfcpjtzo$art_c = parents.length; parentIndex < $art_cfcpjtzo$art_c; parentIndex++) {
+        $expr = '<%for (var parentIndex = 0, $art_csescisbcdg$art_c = parents.length; parentIndex < $art_csescisbcdg$art_c; parentIndex++) {        var parent = parents[parentIndex]%>';
+        for (var parentIndex = 0, $art_csescisbcdg$art_c = parents.length; parentIndex < $art_csescisbcdg$art_c; parentIndex++) {
             var parent = parents[parentIndex];
             $p += ' ';
             $line = 25;
@@ -128,9 +128,9 @@ module.exports = Magix.View.extend({
                 $line = 29;
                 $art = 'each parent.list as item itemIndex';
                 ;
-                $expr = '<%for (var itemIndex = 0, $art_objmxdymeqo$art_obj = parent.list, $art_cngjickgvj$art_c = $art_objmxdymeqo$art_obj.length; itemIndex < $art_cngjickgvj$art_c; itemIndex++) {                var item = $art_objmxdymeqo$art_obj[itemIndex]%>';
-                for (var itemIndex = 0, $art_objmxdymeqo$art_obj = parent.list, $art_cngjickgvj$art_c = $art_objmxdymeqo$art_obj.length; itemIndex < $art_cngjickgvj$art_c; itemIndex++) {
-                    var item = $art_objmxdymeqo$art_obj[itemIndex];
+                $expr = '<%for (var itemIndex = 0, $art_objegpevsd$art_obj = parent.list, $art_ctcydadso$art_c = $art_objegpevsd$art_obj.length; itemIndex < $art_ctcydadso$art_c; itemIndex++) {                var item = $art_objegpevsd$art_obj[itemIndex]%>';
+                for (var itemIndex = 0, $art_objegpevsd$art_obj = parent.list, $art_ctcydadso$art_c = $art_objegpevsd$art_obj.length; itemIndex < $art_ctcydadso$art_c; itemIndex++) {
+                    var item = $art_objegpevsd$art_obj[itemIndex];
                     $p += ' ';
                     $line = 30;
                     $art = 'if !item.hide';
@@ -312,7 +312,7 @@ module.exports = Magix.View.extend({
     }
     else {
         ;
-        $p += '<div mxa="_zs_gallerybg:c" class="text-center color-9 pt20 pb20">';
+        $p += '<div mxa="_zs_gallerybh:c" class="text-center color-9 pt20 pb20">';
         $line = 55;
         $art = '=text.empty';
         ;
@@ -330,11 +330,11 @@ module.exports = Magix.View.extend({
     $expr = '<%if (multiple) {%>';
     if (multiple) {
         ;
-        $p += '<div mxa="_zs_gallerybg:d" class="mx-output-footer"><a mxa="_zs_gallerybg:e" href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}()">';
+        $p += '<div mxa="_zs_gallerybh:d" class="mx-output-footer"><a mxa="_zs_gallerybh:e" href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}()">';
         $line = 59;
         $art = '=text.submit';
         ;
-        $p += ($expr = '<%=text.submit%>', $e(text.submit)) + '</a><a mxa="_zs_gallerybg:f" href="javascript:;" class="btn btn-small" mx-click="' + $viewId + '@{cancel}()">';
+        $p += ($expr = '<%=text.submit%>', $e(text.submit)) + '</a><a mxa="_zs_gallerybh:f" href="javascript:;" class="btn btn-small" mx-click="' + $viewId + '@{cancel}()">';
         $line = 60;
         $art = '=text.cancel';
         ;

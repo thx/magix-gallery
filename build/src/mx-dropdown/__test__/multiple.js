@@ -38,7 +38,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerybe:_" class="pr pr120"><div mx-view="__test__/subs?list=';
+    $p += '<div mxv mxa="_zs_gallerybf:_" class="pr pr120"><div mx-view="__test__/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'事件+双向绑定值\',\n            key: viewId + \'_demo8\'\n        },{\n            name: \'复杂分组\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'限制选择上限\',\n            key: viewId + \'_demo20\'\n        },{\n            name: \'hover展开\',\n            key: viewId + \'_demo13\'\n        },{\n            name: \'带搜索框\',\n            key: viewId + \'_demo16\'\n        },{\n            name: \'禁选\',\n            key: viewId + \'_demo11\'\n        },{\n            name: \'自定义key\',\n            key: viewId + \'_demo9\'\n        },{\n            name: \'连续选择+下限\',\n            key: viewId + \'_demo22\'\n        },{\n            name: \'向上展开\',\n            key: viewId + \'_demo18\'\n        },{\n            name: \'简单数组\',\n            key: viewId + \'_demo10\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
@@ -46,7 +46,7 @@ module.exports = Magix.View.extend({
     $line = 44;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerybe:a" class="clearfix mb20"><div mxa="_zs_gallerybe:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/8" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerybf:a" class="clearfix mb20"><div mxa="_zs_gallerybf:b" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/8" id="';
     $line = 47;
     $art = '=viewId';
     ;
@@ -70,7 +70,7 @@ module.exports = Magix.View.extend({
     $line = 52;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo18"></div></div><div mxa="_zs_gallerybe:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/7" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo18"></div></div><div mxa="_zs_gallerybf:c" class="_zs_gallery___test___layout_-half"><div mx-view="mx-dropdown/__test__/7" id="';
     $line = 55;
     $art = '=viewId';
     ;

@@ -1,12 +1,12 @@
 <div id="toggle_{{=viewId}}" class="mx-trigger <%if (expand){%> mx-trigger-open <%}%>">
     <span class="mx-trigger-label">
         <%if(name){%><span class="color-9"><%=name%>：</span><%}%>
-        <%!selectedText%>
+        <span class="selected-text"><%!selectedText%></span>
     </span>
     <span class="mc-iconfont mx-trigger-arrow">&#xe692;</span>
 </div>
 
-<div id="menu_{{=viewId}}" class="mx-output <%=placementClass%> <%if (expand){%> mx-output-open <%}%>">
+<div id="menu_{{=viewId}}" class="dropdown-output mx-output <%=placementClass%> <%if (expand){%> mx-output-open <%}%>">
 <%if(rList){%>
     <%if(searchbox){%>
     <div class="mx-output-search">
@@ -35,7 +35,7 @@
             <%}else{%>
                 <li class="mx-output-item" title="<%=(item.tip?item.tip:text)%>">
                     <%let equal=(value+'')===(selected+'')%>
-                    <span class="mx-output-link <%if(equal){%> mx-output-link-active <%}%>"
+                    <span class="dropdown-output-link mx-output-link <%if(equal){%> mx-output-link-active <%}%>"
                         data-active="<%=equal%>"
                         mx-click="@{select}({item:'<%@item%>'})" <%if(spm){%> data-spm-click="<%=spm%>" <%}%>>
                         <%!text%>
