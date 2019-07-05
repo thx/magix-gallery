@@ -1,5 +1,6 @@
 let Magix = require('magix');
 let $ = require('$');
+let Router = Magix.Router;
 Magix.applyStyle('@subs.less');
 
 module.exports = Magix.View.extend({
@@ -11,10 +12,25 @@ module.exports = Magix.View.extend({
         })
     },
     render() {
-        this.updater.digest();
+        let that = this;
+        that.updater.digest();
+
+        let locParams = Router.parse().params;
+        if(!that.$init && locParams.highlightId){
+            setTimeout(() => {
+                that.to(locParams.highlightId);
+            }, 500)
+            that.$init = 1;
+        }
     },
     'to<click>'(e) {
         let key = e.params.key;
+        Router.to({
+            highlightId: key
+        })
+        this.to(key);
+    },
+    to(key){
         let node = $('#' + key);
         let cName = '@scoped.style:example',
             hlName = '@scoped.style:example-highlight';

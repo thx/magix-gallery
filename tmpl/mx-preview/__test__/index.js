@@ -102,7 +102,8 @@ iframe：html链接
     type,
     url,
     width,
-    height
+    height,
+    scale: '缩放比例，默认1'
 }</pre>`,
             type: 'object',
             def: '{}'

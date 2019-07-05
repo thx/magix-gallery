@@ -37,7 +37,7 @@
                     <%let equal=(value+'')===(selected+'')%>
                     <span class="dropdown-output-link mx-output-link <%if(equal){%> mx-output-link-active <%}%>"
                         data-active="<%=equal%>"
-                        mx-click="@{select}({item:'<%@item%>'})" <%if(spm){%> data-spm-click="<%=spm%>" <%}%>>
+                        mx-click="@{select}({item:'<%@item%>'})" <%if(spm){%> data-spm-click="<%=spm%><%=value%>" <%}%>>
                         <%!text%>
                     </span>
                 </li>

@@ -203,6 +203,12 @@ module.exports = Magix.View.extend({
         }
 
         let next = (width, height) => {
+            if(previewData.scale){
+                // 配置了缩放比例
+                width = width * (+previewData.scale);
+                height = height * (+previewData.scale);
+            }
+
             // 对最大范围进行修正，不超过屏幕可视范围
             let win = $(window);
             let winWidth = win.width(),
@@ -297,7 +303,7 @@ module.exports = Magix.View.extend({
 
         if (previewData.width && previewData.height) {
             // 预留间隔
-            next(previewData.width + 20, previewData.height + 20);
+            next(+previewData.width + 20, +previewData.height + 20);
         } else {
             // 只有图片和文案类型可不配置，其余必填
             // 没有配置预览宽高

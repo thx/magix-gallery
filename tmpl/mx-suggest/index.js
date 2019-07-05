@@ -170,24 +170,14 @@ module.exports = Magix.View.extend({
     },
     '@{clear}<click>'() {
         let that = this;
-
-        let { show } = that.updater.get();
-        if (show) {
-            // 展开的情况下，更新静态数据list
-            that.updater.digest({
-                list: that['@{list.bak}'],
-                selectedText: ''
-            });
-        } else {
-            // 收起状态下，清空选项
-            that.updater.digest({
-                selectedText: ''
-            });
-            that['@{select}']({
-                value: '',
-                text: ''
-            });
-        }
+        // 清空选中项
+        that.updater.digest({
+            selectedText: ''
+        });
+        that['@{select}']({
+            value: '',
+            text: ''
+        });
     },
     '@{show}'(ignore) {
         let that = this;
@@ -225,7 +215,7 @@ module.exports = Magix.View.extend({
                 }
             });
         }
-       
+
         that.updater.digest({
             list,
             selectedText: selectedText,
@@ -271,8 +261,8 @@ module.exports = Magix.View.extend({
     '@{enter}'(idx) {
         let that = this;
         let selectedText = $('#' + that.id + '_input').val();
-        if (!selectedText) {
-            // 输入框内容为空时
+        if (!selectedText && that['@{dynamic.list}']) {
+            // 动态数据，输入框内容为空时
             // 清空选项
             that['@{select}']({
                 value: '',

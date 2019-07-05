@@ -6,6 +6,28 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.21',
+            time: '2019-06-28',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-dropdown：兼容选项为空时异常情况'
+                }, {
+                    title: 'mx-suggest：点击删除按钮清空选项并触发change，上下键切换选中选项<a href="#!/suggest/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
+            ver: '1.3.20',
+            time: '2019-06-28',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-preview：支持配置preview-data,预览内容和缩略图内容不一样，<a href="#!/preview/index?highlightId=mx_12_demo9" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-copy：支持直接配置copy-text，无需显示复制内容，<a href="#!/copy/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.19',
             time: '2019-06-21',
             subs: [{
@@ -13,7 +35,7 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-dialog（mxModal）：window resize 时更新全屏右出浮层宽度+left，最大宽度不超过屏幕可视范围，<a href="#!/dialog/modal" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-calendar.rangepicker：支持配置min-gap（最少选择n天），max-gap（最多选择n天），支持自定义快捷日期，<a href="#!/calendar/range" class="color-brand">点击查看</a>'
+                    title: 'mx-calendar.rangepicker：支持配置min-gap（最少选择n天），max-gap（最多选择n天），支持自定义快捷日期，<a href="#!/calendar/range?highlightId=mx_12_demo22" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',
@@ -39,11 +61,11 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-grid.title：标题支持自定义html内容，<a href="#!/grid/index" class="color-brand">点击查看</a>'
+                    title: 'mx-grid.title：标题支持自定义html内容，<a href="#!/grid/index?highlightId=mx_12_grid2" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-dialog（mxModal）：window resize 时更新全屏右出浮层高度，<a href="#!/dialog/modal" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-suggest：直接配置dynamic-enter（回车直接搜索关键词），<a href="#!/suggest/index" class="color-brand">点击查看</a>'
+                    title: 'mx-suggest：直接配置dynamic-enter（回车直接搜索关键词），<a href="#!/suggest/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-table：加入magix.task'
                 }]
@@ -54,11 +76,11 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-effects.progress：进度条支持显示左右占比，<a href="#!/effects/progress1" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.progress：进度条支持显示左右占比，<a href="#!/effects/progress1?highlightId=mx_12_demo29" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-effects.notice：支持innerHTML写法（与父view有数据交互时可用），支持所有颜色自定义，支持可关闭操作，<a href="#!/effects/notice" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.notice：支持innerHTML写法（与父view有数据交互时可用），支持所有颜色自定义，支持可关闭操作，<a href="#!/effects/notice?highlightId=mx_12_demo31" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-dropdown：下拉选项支持html片段，<a href="#!/dropdown/multiple" class="color-brand">点击查看</a>'
+                    title: 'mx-dropdown：下拉选项支持html片段，<a href="#!/dropdown/index?highlightId=mx_12_demo31" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

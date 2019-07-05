@@ -461,7 +461,8 @@ module.exports = Magix.View.extend({
                     name: '菜单配置',
                     path: '/all/pro/menu'
                 }, {
-                    name: 'magix3跨项目公用view',
+                    name: 'Magix跨项目公用view',
+                    tip: 'Magix的微前端之路',
                     path: '/all/pro/cross'
                 }, {
                     name: '关于本地组件的约定',

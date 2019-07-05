@@ -103,7 +103,7 @@ module.exports = Magix.View.extend({
             valueKey: me['@{valueKey}'],
             selected: me['@{selected}'] = selected,
             searchbox: (ops.searchbox + '') === 'true',
-            selectedText: me['@{selected.text}'] = map[selected][textKey],
+            selectedText: me['@{selected.text}'] = (map[selected] || {})[textKey],
             keyword: me['@{last.search.value}'] = (ops.keyword || ''),  // 搜索关键词
             expand: me['@{ui.expand}'],
             height: (ops.height || 250),
