@@ -10,47 +10,46 @@ let ts = require('typescript');
 let classReg = /\bclass\s*=\s*"[^"]+/;
 
 const { exec, execSync, spawn, spawnSync } = require('child_process');
-let  spawnCommand = (command, args, options) => {
+let spawnCommand = (command, args, options) => {
     //默认stdio: inherit可传入自定义options
     const _options = {
         stdio: 'inherit',
         shell: process.platform === 'win32' //win下需要设置shell为true
     }
- 
+
     Object.assign(_options, options)
- 
+
     return new Promise((resolve, reject) => {
         const sp = spawn(command, args, _options)
- 
+
         sp.on('close', code => {
             resolve()
         })
- 
+
         sp.on('error', err => {
             console.log(err)
         })
     })
- };
- 
- let execCommandReturn = (command) => {
-     return new Promise((resolve, reject) => {
-         const child = exec(command, {
-             maxBuffer: 20000 * 1024
-         })
-         child.stdout.on('data', data => {
-             resolve(data)
-         })
- 
-         child.on('close', () => {
-             resolve()
-         })
-     })
+};
+
+let execCommandReturn = (command) => {
+    return new Promise((resolve, reject) => {
+        const child = exec(command, {
+            maxBuffer: 20000 * 1024
+        })
+        child.stdout.on('data', data => {
+            resolve(data)
+        })
+
+        child.on('close', () => {
+            resolve()
+        })
+    })
 };
 
 
 combineTool.config({
     debug: true,
-    srcFolder: 'build/src',
     loaderType: 'cmd_es',
     projectName: '_',
     tmplAddViewsToDependencies: true,
@@ -99,21 +98,54 @@ combineTool.config({
 });
 
 gulp.task('cleanSrc', () => {
-    return del(['./build/src', './build/chartpark']);
+    return del(['./dist/src', './dist/chartpark']);
 });
 
-gulp.task('chartpark',function(){
+gulp.task('chartpark', function () {
     gulp.src('./chartpark/*')
-        .pipe(gulp.dest('./build/chartpark/'));
+        .pipe(gulp.dest('./dist/chartpark/'));
+});
+
+gulp.task('turnOffDebug', () => {
+    combineTool.config({
+        debug: false
+    });
 });
 
 gulp.task('combine', ['cleanSrc', 'chartpark'], () => {
+    combineTool.config({
+        srcFolder: 'dist/src'
+    })
     return combineTool.combine().then(() => {
         console.log('complete');
     }).catch(ex => {
         console.log('gulpfile:', ex);
     });
 });
+
+gulp.task('publish', () => {
+    del(['./build']).then(() => {
+        combineTool.config({
+            srcFolder: 'build'
+        })
+        combineTool.combine().then(() => {
+            gulp.src('./build/**/*.js')
+                .pipe(terser({
+                    compress: {
+                        drop_console: true,
+                        drop_debugger: true,
+                        global_defs: {
+                            DEBUG: false
+                        }
+                    }
+                }))
+                .pipe(gulp.dest('./build/'))
+        }).catch(ex => {
+            console.log('gulpfile:', ex);
+        });
+    })
+});
+
 
 gulp.task('watch', ['combine'], () => {
     watch('./tmpl/**/*', e => {
@@ -127,14 +159,8 @@ gulp.task('watch', ['combine'], () => {
     });
 });
 
-gulp.task('turnOffDebug', () => {
-    combineTool.config({
-        debug: false
-    });
-});
-
 gulp.task('compress', ['turnOffDebug', 'combine'], () => {
-    return gulp.src('./build/src/**/*.js')
+    return gulp.src('./dist/src/**/*.js')
         .pipe(terser({
             compress: {
                 drop_console: true,
@@ -144,29 +170,15 @@ gulp.task('compress', ['turnOffDebug', 'combine'], () => {
                 }
             }
         }))
-        .pipe(gulp.dest('./build/src/'))
+        .pipe(gulp.dest('./dist/src/'))
         .pipe(concat('all.js'))
-        .pipe(gulp.dest('./build'));
-});
-
-gulp.task('doc', ['compress'], async () => {
-    let index = fs.readFileSync('./index.html').toString();
-    
-    let cs = fs.readFileSync('./build/all.js').toString();
-    cs = cs.replace(/\$/g, '$$$$');
-    index = index.replace(/<script id="test">[\s\S]*?<\/script>/, '<script id="test">' + cs + '</script>');
-
-    fs.writeFileSync('./index.html', index);
-
-    await spawnCommand('git', ['add', '.']);
-    await spawnCommand('git', ['commit', '-m', '同步至magix-gallery']);
-    await spawnCommand('git', ['push', 'origin', 'master']);
+        .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('release', ['compress'], async () => {
     let index = fs.readFileSync('./index.html').toString();
-    
-    let cs = fs.readFileSync('./build/all.js').toString();
+
+    let cs = fs.readFileSync('./dist/all.js').toString();
     cs = cs.replace(/\$/g, '$$$$');
     index = index.replace(/<script id="test">[\s\S]*?<\/script>/, '<script id="test">' + cs + '</script>');
 
