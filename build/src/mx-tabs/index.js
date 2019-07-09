@@ -1,1 +1,295 @@
-define("mx-tabs/index",["magix","mx-tabs/base","mx-popover/index"],(r,l,e)=>{r("mx-popover/index");var a=r("magix"),o=r("mx-tabs/base");a.applyStyle("_zs_galleryaF",'[mx-view*="mx-tabs/box"]{display:inline-block}._zs_galleryks{position:relative;border-bottom:1px solid var(--color-border)}._zs_galleryks ._zs_gallerykt{position:relative;float:left;padding:10px 24px;font-size:16px;line-height:var(--input-height);transition:color var(--duration) ease-out;color:#666}._zs_galleryks ._zs_gallerykt:hover{color:#333}._zs_galleryks ._zs_gallerykt._zs_galleryku{color:var(--color-brand)}._zs_galleryks ._zs_gallerykt ._zs_gallerykv{margin-left:-24px}._zs_galleryks ._zs_gallerykw{position:absolute;width:0;height:0;bottom:-1px;border-bottom:2px solid var(--color-brand);transition:width var(--duration) cubic-bezier(.645,.045,.355,1),left var(--duration) cubic-bezier(.645,.045,.355,1)}._zs_gallerykx{position:relative;display:inline-block;height:var(--input-height);vertical-align:middle}._zs_gallerykx ._zs_galleryky{position:relative;top:1px;font-size:14px}._zs_gallerykx ._zs_gallerykz{position:relative;padding:0 12px;text-align:center;cursor:pointer;transition:all var(--duration)}._zs_gallerykx ._zs_gallerykz:first-child{border-top-left-radius:var(--border-radius);border-bottom-left-radius:var(--border-radius)}._zs_gallerykx ._zs_gallerykz:last-child{border-top-right-radius:var(--border-radius);border-bottom-right-radius:var(--border-radius)}._zs_gallerykx ._zs_gallerykz ._zs_gallerykv{margin-left:-14px}._zs_gallerykx._zs_gallerykA ._zs_gallerykz{color:#999;cursor:not-allowed}._zs_gallerykx._zs_gallerykA ._zs_gallerykz:hover{color:#999}._zs_gallerykx._zs_gallerykA ._zs_gallerykz._zs_galleryku{color:#999;background-color:var(--color-disabled);border-color:var(--color-border)}._zs_gallerykB ._zs_gallerykz{position:relative;z-index:2;display:inline-block;height:var(--input-height);line-height:calc(var(--input-height) - 2px);border-radius:var(--border-radius);color:#666;border:1px solid transparent}._zs_gallerykB ._zs_gallerykz:hover{color:#333}._zs_gallerykB ._zs_gallerykz._zs_galleryku{color:#333;background-color:var(--color-brand-opacity);border:1px solid var(--color-brand)}._zs_gallerykB:after{content:" ";position:absolute;top:0;left:0;z-index:1;width:100%;height:100%}._zs_gallerykB:after,._zs_gallerykC{border-radius:var(--border-radius);border:1px solid var(--border-highlight)}._zs_gallerykC ._zs_gallerykz{display:inline-block;height:calc(var(--input-height) - 2px);line-height:calc(var(--input-height) - 2px);color:#999;background-color:#fff}._zs_gallerykC ._zs_gallerykz:hover{color:#333}._zs_gallerykC ._zs_gallerykz._zs_galleryku{color:var(--color-brand);background-color:var(--color-brand-opacity)}'),e.exports=o.extend({tmpl:function(r,l,e,a,o,t,s,i){if(e||(e=r),!o){var _={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},n=/[&<>"'`]/g,g=function(r){return"&"+_[r]+";"};o=function(r){return""+(null==r?"":r)},a=function(r){return o(r).replace(n,g)}}if(!t){var c={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},d=function(r){return c[r]},z=/[!')(*]/g;t=function(r){return encodeURIComponent(o(r)).replace(z,d)}}if(!i){var p=/[\\'"]/g;i=function(r){return o(r).replace(p,"\\$&")}}s||(s=function(r,l,e,a){for(a=r[y];--a;)if(r[e=y+a]===l)return e;return r[e=y+r[y]++]=l,e});var y="",u="",k=r.type,v=r.list,x=r.selected,h=r.viewId,b=r.spm,f=r.left,m=r.width,w=r.disabled;if("border"==k){u+='<div mxa="_zs_gallerye5:_" class="_zs_galleryks clearfix">';for(var A=0,B=v.length;A<B;A++){u+='<a class="_zs_gallerykt '+a((j=v[A]).value==x?"_zs_galleryku":"")+'" href="javascript:;" id="'+a(h)+"_"+a(j.value)+'" mx-mouseover="'+l+"__eN({value:'"+a(i(j.value))+'\'})" mx-mouseout="'+l+'__cn()" mx-click="'+l+"__ac({item:'"+s(e,j)+"'})\" ",b&&(u+=' data-spm-click="'+a(b)+a(A)+'" '),u+=">"+a(j.text)+" ",j.tag&&(u+='<span class="mx-tag _zs_gallerykv" style="background-color: '+a(j.color)+';"><span class="mx-tag-arrow" style="border-color: '+a(j.color)+" transparent transparent "+a(j.color)+';"></span><span mxa="_zs_gallerye5:a" class="mx-tag-name">'+o(j.tag)+"</span></span>"),u+=" ",j.tips&&(u+='<i class="mc-iconfont color-c" mx-view="mx-popover/index?width=280&content='+t(j.tips)+'">&#xe7aa;</i>'),u+="</a>"}u+='<span class="_zs_gallerykw" style="left: '+a(f)+"px; width: "+a(m)+'px;"></span></div>'}else{u+='<div class="_zs_gallerykx '+a(w?"_zs_gallerykA":"")+'">';for(var C=0,L=v.length;C<L;C++){var j=v[C];u+='<a href="javascript:;" ',w||(u+=' mx-click="'+l+"__ac({item:'"+s(e,j)+"'})\" "),u+=' class="_zs_gallerykz '+a(j.value==x?"_zs_galleryku":"")+'" ',b&&(u+=' data-spm-click="'+a(b)+a(A)+'" '),u+=">"+a(j.text)+" ",j.tag&&(u+='<span mxa="_zs_gallerye5:b" class="_zs_gallerykv">'+a(j.tag)+"</span>"),u+="</a>"}u+="</div>"}return u},render:function(){this.updater.digest(),this.__eL(this.__eJ)},__eL:function(r){if("border"==this.__eK){this.__eM=r;var l=$("#"+this.id+"_"+r),e=l.offset().left-this.__a.offset().left,a=l.outerWidth();this.updater.digest({left:e,width:a})}},"__eN<mouseover>":function(r){var l=r.params.value;this.__eL(l)},"__cn<mouseout>":function(r){this.__eL(this.__eJ)}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-tabs/index",["magix","mx-tabs/base","mx-popover/index"],(require,exports,module)=>{
+/*Magix,Base*/
+require("mx-popover/index");
+/**
+ * 底边线tab切换
+ * 兼容老的写法，type还是可配置，建议直接使用mx-tabs.box
+ */
+var Magix = require("magix");
+var Base = require("mx-tabs/base");
+Magix.applyStyle("_zs_gallery_mx-tabs_index_","[mx-view*=\"mx-tabs/box\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-tabs_index_-border {\n  position: relative;\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item {\n  position: relative;\n  float: left;\n  padding: 10px 24px;\n  font-size: 16px;\n  line-height: var(--input-height);\n  transition: color var(--duration) ease-out;\n  color: #666;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item._zs_gallery_mx-tabs_index_-selected {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag {\n  margin-left: -24px;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-underline {\n  position: absolute;\n  width: 0;\n  height: 0;\n  bottom: -1px;\n  border-bottom: 2px solid var(--color-brand);\n  transition: width var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1), left var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1);\n}\n._zs_gallery_mx-tabs_index_-box {\n  position: relative;\n  display: inline-block;\n  height: var(--input-height);\n  vertical-align: middle;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-tip {\n  position: relative;\n  top: 1px;\n  font-size: 14px;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item {\n  position: relative;\n  padding: 0 12px;\n  text-align: center;\n  cursor: pointer;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:first-child {\n  border-top-left-radius: var(--border-radius);\n  border-bottom-left-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:last-child {\n  border-top-right-radius: var(--border-radius);\n  border-bottom-right-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item ._zs_gallery_mx-tabs_index_-tag {\n  margin-left: -14px;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item {\n  color: #999;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #999;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #999;\n  background-color: var(--color-disabled);\n  border-color: var(--color-border);\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item {\n  position: relative;\n  z-index: 2;\n  display: inline-block;\n  height: var(--input-height);\n  line-height: calc(var(--input-height) - 2px);\n  border-radius: var(--border-radius);\n  color: #666;\n  border: 1px solid transparent;\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #333;\n  background-color: var(--color-brand-opacity);\n  border: 1px solid var(--color-brand);\n}\n._zs_gallery_mx-tabs_index_-hollow-box::after {\n  content: ' ';\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n  width: 100%;\n  height: 100%;\n  border-radius: var(--border-radius);\n  border: 1px solid var(--border-highlight);\n}\n._zs_gallery_mx-tabs_index_-solid-box {\n  border: 1px solid var(--border-highlight);\n  border-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item {\n  display: inline-block;\n  height: calc(var(--input-height) - 2px);\n  line-height: calc(var(--input-height) - 2px);\n  color: #999;\n  background-color: #fff;\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: var(--color-brand);\n  background-color: var(--color-brand-opacity);\n}\n");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', type = $$.type, list = $$.list, selected = $$.selected, viewId = $$.viewId, spm = $$.spm, left = $$.left, width = $$.width, disabled = $$.disabled; var $expr, $art, $line; try {
+    $line = 1;
+    $art = 'if type == \'border\'';
+    ;
+    $expr = '<%if (type == \'border\') {%>';
+    if (type == 'border') {
+        ;
+        $p += '<div mxa="_zs_gallerye5:_" class="_zs_gallery_mx-tabs_index_-border clearfix">';
+        $line = 3;
+        $art = 'each list as item index';
+        ;
+        $expr = '<%for (var index = 0, $art_ctptyovj$art_c = list.length; index < $art_ctptyovj$art_c; index++) {        var item = list[index]%>';
+        for (var index = 0, $art_ctptyovj$art_c = list.length; index < $art_ctptyovj$art_c; index++) {
+            var item = list[index];
+            $p += '<a class="_zs_gallery_mx-tabs_index_-border-item ';
+            $line = 4;
+            $art = '= (item.value == selected) ? \'selected\' : \'\'';
+            ;
+            $p += ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '" href="javascript:;" id="';
+            $line = 4;
+            $art = '=viewId';
+            ;
+            $p += ($expr = '<%=viewId%>', $e(viewId)) + '_';
+            $line = 4;
+            $art = '=item.value';
+            ;
+            $p += ($expr = '<%=item.value%>', $e(item.value)) + '" mx-mouseover="' + $viewId + '@{over}({value:\'';
+            $line = 5;
+            $art = '=item.value';
+            ;
+            $p += ($expr = '<%=$eq(item.value)%>', $e($eq(item.value))) + '\'})" mx-mouseout="' + $viewId + '@{out}()" mx-click="' + $viewId + '@{select}({item:\'';
+            $line = 7;
+            $art = '@item';
+            ;
+            $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})" ';
+            $line = 8;
+            $art = 'if spm';
+            ;
+            $expr = '<%if (spm) {%>';
+            if (spm) {
+                ;
+                $p += ' data-spm-click="';
+                $line = 8;
+                $art = '=spm';
+                ;
+                $p += ($expr = '<%=spm%>', $e(spm)) + '';
+                $line = 8;
+                $art = '=index';
+                ;
+                $p += ($expr = '<%=index%>', $e(index)) + '" ';
+                $line = 8;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '>';
+            $line = 9;
+            $art = '=item.text';
+            ;
+            $p += ($expr = '<%=item.text%>', $e(item.text)) + ' ';
+            $line = 10;
+            $art = 'if item.tag';
+            ;
+            $expr = '<%if (item.tag) {%>';
+            if (item.tag) {
+                ;
+                $p += '<span class="mx-tag _zs_gallery_mx-tabs_index_-tag" style="background-color: ';
+                $line = 11;
+                $art = '=item.color';
+                ;
+                $p += ($expr = '<%=item.color%>', $e(item.color)) + ';"><span class="mx-tag-arrow" style="border-color: ';
+                $line = 12;
+                $art = '=item.color';
+                ;
+                $p += ($expr = '<%=item.color%>', $e(item.color)) + ' transparent transparent ';
+                $line = 12;
+                $art = '=item.color';
+                ;
+                $p += ($expr = '<%=item.color%>', $e(item.color)) + ';"></span><span mxa="_zs_gallerye5:a" class="mx-tag-name">';
+                $line = 13;
+                $art = '!item.tag';
+                ;
+                $p += ($expr = '<%!item.tag%>', $n(item.tag)) + '</span></span>';
+                $line = 15;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 16;
+            $art = 'if item.tips';
+            ;
+            $expr = '<%if (item.tips) {%>';
+            if (item.tips) {
+                ;
+                $p += '<i class="mc-iconfont color-c" mx-view="mx-popover/index?width=280&content=';
+                $line = 20;
+                $art = '=item.tips';
+                ;
+                $p += ($expr = '<%!$eu(item.tips)%>', $eu(item.tips)) + '">&#xe7aa;</i>';
+                $line = 21;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '</a>';
+            $line = 23;
+            $art = '/each';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '<span class="_zs_gallery_mx-tabs_index_-underline" style="left: ';
+        $line = 24;
+        $art = '=left';
+        ;
+        $p += ($expr = '<%=left%>', $e(left)) + 'px; width: ';
+        $line = 24;
+        $art = '=width';
+        ;
+        $p += ($expr = '<%=width%>', $e(width)) + 'px;"></span></div>';
+        $line = 26;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '<div class="_zs_gallery_mx-tabs_index_-box ';
+        $line = 27;
+        $art = '= disabled ? \'box-disabled\' : \'\'';
+        ;
+        $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-tabs_index_-box-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-tabs_index_-box-disabled' : '')) + '">';
+        $line = 28;
+        $art = 'each list as item';
+        ;
+        $expr = '<%for (var $art_iyvdfs$art_i = 0, $art_cuaeukwq$art_c = list.length; $art_iyvdfs$art_i < $art_cuaeukwq$art_c; $art_iyvdfs$art_i++) {        var item = list[$art_iyvdfs$art_i]%>';
+        for (var $art_iyvdfs$art_i = 0, $art_cuaeukwq$art_c = list.length; $art_iyvdfs$art_i < $art_cuaeukwq$art_c; $art_iyvdfs$art_i++) {
+            var item = list[$art_iyvdfs$art_i];
+            $p += '<a href="javascript:;" ';
+            $line = 29;
+            $art = 'if !disabled';
+            ;
+            $expr = '<%if (!disabled) {%>';
+            if (!disabled) {
+                ;
+                $p += ' mx-click="' + $viewId + '@{select}({item:\'';
+                $line = 29;
+                $art = '@item';
+                ;
+                $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})" ';
+                $line = 29;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' class="_zs_gallery_mx-tabs_index_-box-item ';
+            $line = 29;
+            $art = '= (item.value == selected) ? \'selected\' : \'\'';
+            ;
+            $p += ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '" ';
+            $line = 30;
+            $art = 'if spm';
+            ;
+            $expr = '<%if (spm) {%>';
+            if (spm) {
+                ;
+                $p += ' data-spm-click="';
+                $line = 30;
+                $art = '=spm';
+                ;
+                $p += ($expr = '<%=spm%>', $e(spm)) + '';
+                $line = 30;
+                $art = '=index';
+                ;
+                $p += ($expr = '<%=index%>', $e(index)) + '" ';
+                $line = 30;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '>';
+            $line = 31;
+            $art = '=item.text';
+            ;
+            $p += ($expr = '<%=item.text%>', $e(item.text)) + ' ';
+            $line = 32;
+            $art = 'if item.tag';
+            ;
+            $expr = '<%if (item.tag) {%>';
+            if (item.tag) {
+                ;
+                $p += '<span mxa="_zs_gallerye5:b" class="_zs_gallery_mx-tabs_index_-tag">';
+                $line = 33;
+                $art = '=item.tag';
+                ;
+                $p += ($expr = '<%=item.tag%>', $e(item.tag)) + '</span>';
+                $line = 34;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '</a>';
+            $line = 36;
+            $art = '/each';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div>';
+        $line = 38;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-tabs/index.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        var that = this;
+        that.updater.digest();
+        that['@{sync.line}'](that['@{data.selected}']);
+    },
+    '@{sync.line}': function (hover) {
+        var that = this;
+        var type = that['@{display.type}'];
+        if (type == 'border') {
+            that['@{data.hover}'] = hover;
+            var node = $('#' + that.id + '_' + hover);
+            var nodeOffsetLeft = node.offset().left;
+            var owner = that['@{owner.node}'];
+            var ownerOffsetLeft = owner.offset().left;
+            var left = nodeOffsetLeft - ownerOffsetLeft;
+            var width = node.outerWidth();
+            that.updater.digest({
+                left: left,
+                width: width
+            });
+        }
+    },
+    '@{over}<mouseover>': function (e) {
+        var that = this;
+        var value = e.params.value;
+        that['@{sync.line}'](value);
+    },
+    '@{out}<mouseout>': function (e) {
+        this['@{sync.line}'](this['@{data.selected}']);
+    }
+});
+
+});

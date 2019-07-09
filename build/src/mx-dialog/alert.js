@@ -1,1 +1,75 @@
-define("mx-dialog/alert",["magix","../mx-medusa/util"],(a,t,e)=>{var n=a("magix"),i=a("../mx-medusa/util");n.applyStyle("_zs_galleryD","._zs_gallerydX{font-size:16px;margin-bottom:20px}"),e.exports=n.View.extend({tmpl:function(a,t,e,n,i,l,r,_){if(e||(e=a),!i){var s={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},o=/[&<>"'`]/g,c=function(a){return"&"+s[a]+";"};i=function(a){return""+(null==a?"":a)},n=function(a){return i(a).replace(o,c)}}if(!l){var d={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},u=function(a){return d[a]},g=/[!')(*]/g;l=function(a){return encodeURIComponent(i(a)).replace(g,u)}}if(!_){var m=/[\\'"]/g;_=function(a){return i(a).replace(m,"\\$&")}}var f="",x=a.title,v=a.content,p=a.hasBtns,y=a.enterText;return f+='<div mxa="_zs_gallerya2:_" class="dialog-body"><div mxa="_zs_gallerya2:a" class="_zs_gallerydX">'+n(x)+'</div><div mxa="_zs_gallerya2:b" class="word-break">'+i(v)+"</div></div>",p&&(f+='<div mxa="_zs_gallerya2:c" class="dialog-footer"><a mxa="_zs_gallerya2:d" href="javascript:;" class="btn btn-small btn-brand min-width-60" mx-click="'+t+'__aw();">'+n(y)+"</a></div>"),f},init:function(a){var t=this;t.__aA=a.dialog,t.__aB=a.content,t.__aC=a.title||i["dialog.tip"],t.__aD=i["dialog.submit"],t.__aE=a.enterCallback,t.__aF=a.hasBtns},render:function(){var a=this;a.updater.digest({content:a.__aB,title:a.__aC,enterText:a.__aD,hasBtns:a.__aF})},"__aw<click>":function(){this.__aA.close(),this.__aE&&n.toTry(this.__aE)}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-dialog/alert",["magix","../mx-medusa/util"],(require,exports,module)=>{
+/*Magix,I18n*/
+
+var Magix = require("magix");
+var I18n = require("../mx-medusa/util");
+Magix.applyStyle("_zs_gallery_mx-dialog_alert_","._zs_gallery_mx-dialog_alert_-alert-header {\n  font-size: 16px;\n  margin-bottom: 20px;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', title = $$.title, content = $$.content, hasBtns = $$.hasBtns, enterText = $$.enterText; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerya2:_" class="dialog-body"><div mxa="_zs_gallerya2:a" class="_zs_gallery_mx-dialog_alert_-alert-header">' + ($expr = '<%=title%>', $e(title)) + '</div><div mxa="_zs_gallerya2:b" class="word-break">' + ($expr = '<%!content%>', $n(content)) + '</div></div>';
+    $line = 5;
+    $art = 'if hasBtns';
+    ;
+    $expr = '<%if (hasBtns) {%>';
+    if (hasBtns) {
+        ;
+        $p += '<div mxa="_zs_gallerya2:c" class="dialog-footer"><a mxa="_zs_gallerya2:d" href="javascript:;" class="btn btn-small btn-brand min-width-60" mx-click="' + $viewId + '@{enter}();">' + ($expr = '<%=enterText%>', $e(enterText)) + '</a></div>';
+        $line = 9;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dialog/alert.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var me = this;
+        me['@{dialog}'] = extra.dialog;
+        me['@{string.content}'] = extra.content;
+        me['@{string.title}'] = extra.title || I18n['dialog.tip'];
+        me['@{string.enter}'] = I18n['dialog.submit'];
+        me['@{fn.enter.callback}'] = extra.enterCallback;
+        me['@{ui.btns}'] = extra.hasBtns;
+    },
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            content: me['@{string.content}'],
+            title: me['@{string.title}'],
+            enterText: me['@{string.enter}'],
+            hasBtns: me['@{ui.btns}']
+        });
+    },
+    '@{enter}<click>': function () {
+        var me = this;
+        me['@{dialog}'].close();
+        if (me['@{fn.enter.callback}']) {
+            Magix.toTry(me['@{fn.enter.callback}']);
+        }
+    }
+});
+
+});
