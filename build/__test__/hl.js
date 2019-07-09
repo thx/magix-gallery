@@ -1,0 +1,1 @@
+define("__test__/hl",["magix","$"],(e,i,t)=>{var n=e("magix"),h=e("$");t.exports=n.View.extend({assign:function(e,i){return i.deep=!1,i.html&&h("#"+this.id).html(i.inner),i.html},render:function(){var e=n.node(this.id);hljs.highlightBlock(e)}})});

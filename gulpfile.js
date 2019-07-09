@@ -126,6 +126,7 @@ gulp.task('combine', ['cleanSrc', 'chartpark'], () => {
 gulp.task('publish', () => {
     del(['./build']).then(() => {
         combineTool.config({
+            log: false,
             srcFolder: 'build'
         })
         combineTool.combine().then(() => {
@@ -145,7 +146,6 @@ gulp.task('publish', () => {
         });
     })
 });
-
 
 gulp.task('watch', ['combine'], () => {
     watch('./tmpl/**/*', e => {

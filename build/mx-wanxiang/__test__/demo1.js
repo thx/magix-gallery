@@ -1,0 +1,1 @@
+define("mx-wanxiang/__test__/demo1",["mx-wanxiang/__test__/demo"],(_,e,n)=>{n.exports=_("mx-wanxiang/__test__/demo")});
