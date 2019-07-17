@@ -254,20 +254,18 @@ catch (ex) {
             var wrapper = $('#wrapper_' + me.id);
             wrapper.css(data.posTo);
             // 全屏样式
-            me['@{sync.full.style}']();
+            me['@{sync.style}']();
             var cntId = data.cntId;
             var mask = $('#mask_' + me.id);
             if (mask.length > 0) {
                 mask.addClass('_zs_gallery_mx-dialog_index_-backdrop-out');
             }
-            else {
-                // 没有mask的时候，点击空白处关闭浮层
-                wrapper.on('click', function (e) {
-                    if (!Magix.inside(e.target, cntId + '_content')) {
-                        $('#' + me.id).trigger('dlg_close');
-                    }
-                });
-            }
+            // 点击空白处关闭浮层
+            wrapper.on('click', function (e) {
+                if (!Magix.inside(e.target, cntId + '_content')) {
+                    $('#' + me.id).trigger('dlg_close');
+                }
+            });
             me.owner.mountVframe(cntId, data.view, data);
             wrapper.on('scroll', function () {
                 // popover追加到body，滚动时通知节点改动定位
@@ -275,11 +273,13 @@ catch (ex) {
             });
         }), Duration);
     },
-    '@{sync.full.style}': function () {
+    '@{sync.style}': function () {
         var data = this.updater.get();
         var cntId = data.cntId;
+        var dlg = $("#" + data.vId);
+        var winHeight = window.innerHeight, winWidth = window.innerWidth;
         if (data.full) {
-            var h = window.innerHeight;
+            var h = winHeight;
             var fh = $('#' + cntId + '_header'), ff = $('#' + cntId + '_footer');
             if (fh && fh.length) {
                 h -= fh.outerHeight();
@@ -298,8 +298,6 @@ catch (ex) {
             }
             $('#' + cntId).css(fcss);
             // 是否需要更新宽度位置 + 左距离
-            var dlg = $("#" + data.vId);
-            var winWidth = window.innerWidth;
             var w = Math.min(winWidth, data.width);
             dlg.css({
                 width: w,
@@ -366,7 +364,7 @@ catch (ex) {
             clearTimeout(me['@{search.timer}']);
         }
         me['@{search.timer}'] = setTimeout(me.wrapAsync(function () {
-            me['@{sync.full.style}']();
+            me['@{sync.style}']();
         }), 200);
     }
 }, {

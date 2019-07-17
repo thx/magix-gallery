@@ -482,7 +482,7 @@ module.exports = Magix.View.extend({
     },
     '$doc<htmlchanged>': function (e) {
         var me = this;
-        if (e.vId == me.owner.pId) {
+        if (me.owner && (me.owner.pId == e.vId)) {
             me['@{trigger.rechange}']();
         }
     },

@@ -30,9 +30,9 @@ module.exports = Base.extend({
     $line = 2;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_ivcoczp$art_i = 0, $art_cnyptpd$art_c = stepInfos.length; $art_ivcoczp$art_i < $art_cnyptpd$art_c; $art_ivcoczp$art_i++) {    var step = stepInfos[$art_ivcoczp$art_i]%>';
-    for (var $art_ivcoczp$art_i = 0, $art_cnyptpd$art_c = stepInfos.length; $art_ivcoczp$art_i < $art_cnyptpd$art_c; $art_ivcoczp$art_i++) {
-        var step = stepInfos[$art_ivcoczp$art_i];
+    $expr = '<%for (var $art_iizdpnz$art_i = 0, $art_cmlczsbot$art_c = stepInfos.length; $art_iizdpnz$art_i < $art_cmlczsbot$art_c; $art_iizdpnz$art_i++) {    var step = stepInfos[$art_iizdpnz$art_i]%>';
+    for (var $art_iizdpnz$art_i = 0, $art_cmlczsbot$art_c = stepInfos.length; $art_iizdpnz$art_i < $art_cmlczsbot$art_c; $art_iizdpnz$art_i++) {
+        var step = stepInfos[$art_iizdpnz$art_i];
         $p += '<div class="clearfix _zs_gallery_mx-main_hor_-step ';
         $line = 3;
         $art = 'if step.current';

@@ -58,20 +58,19 @@ module.exports = Magix.View.extend({
             wrapper.css(data.posTo);
 
             // 全屏样式
-            me['@{sync.full.style}']();
+            me['@{sync.style}']();
 
             let cntId = data.cntId;
             let mask = $('#mask_' + me.id);
             if (mask.length > 0) {
                 mask.addClass('@index.less:backdrop-out');
-            } else {
-                // 没有mask的时候，点击空白处关闭浮层
-                wrapper.on('click', (e) => {
-                    if (!Magix.inside(e.target, cntId + '_content')) {
-                        $('#' + me.id).trigger('dlg_close');
-                    }
-                })
-            }
+            } 
+            // 点击空白处关闭浮层
+            wrapper.on('click', (e) => {
+                if (!Magix.inside(e.target, cntId + '_content')) {
+                    $('#' + me.id).trigger('dlg_close');
+                }
+            })
             me.owner.mountVframe(cntId, data.view, data);
 
             wrapper.on('scroll', () => {
@@ -81,11 +80,14 @@ module.exports = Magix.View.extend({
         }), Duration);
     },
 
-    '@{sync.full.style}'() {
+    '@{sync.style}'() {
         let data = this.updater.get();
         let cntId = data.cntId;
+        let dlg = $(`#${data.vId}`);
+        let winHeight = window.innerHeight,
+            winWidth = window.innerWidth;
         if (data.full) {
-            let h = window.innerHeight;
+            let h = winHeight;
             let fh = $('#' + cntId + '_header'),
                 ff = $('#' + cntId + '_footer');
             if (fh && fh.length) {
@@ -107,8 +109,6 @@ module.exports = Magix.View.extend({
             $('#' + cntId).css(fcss);
 
             // 是否需要更新宽度位置 + 左距离
-            let dlg = $(`#${data.vId}`);
-            let winWidth = window.innerWidth;
             let w = Math.min(winWidth, data.width);
             dlg.css({
                 width: w,
@@ -184,7 +184,7 @@ module.exports = Magix.View.extend({
         }
 
         me['@{search.timer}'] = setTimeout(me.wrapAsync(() => {
-            me['@{sync.full.style}']();
+            me['@{sync.style}']();
         }), 200);
     }
 }, {
