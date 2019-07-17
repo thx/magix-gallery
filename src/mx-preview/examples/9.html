@@ -1,0 +1,89 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10">
+            <span class="color-9">以下示例：</span>
+            缩略图（图片）和预览图（iframe展示）不一样
+        </div>
+        <mx-preview class="demo"
+            type="image"
+            url="//img.alicdn.com/tfscom/TB10l9lbgZC2uNjSZFnXXaxZpXa.png"
+            width="400"
+            height="125"
+            max-width="100"
+            max-height="100"
+            preview-data="{{@{
+                type: 'iframe',
+                url: '//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html',
+                width: 300,
+                height: 250
+            }}}"/>
+
+        <mx-preview class="demo"
+            type="image"
+            url="//img.alicdn.com/tfscom/TB10l9lbgZC2uNjSZFnXXaxZpXa.png"
+            width="400"
+            height="125"
+            max-width="100"
+            max-height="100"
+            preview-data="{{@{
+                type: 'iframe',
+                url: '//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html',
+                width: 300,
+                height: 250,
+                scale: 0.5
+            }}}"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">图片预览</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-preview 
+    type="image"
+    url="//img.alicdn.com/tfscom/TB10l9lbgZC2uNjSZFnXXaxZpXa.png"
+    width="400"
+    height="125"
+    max-width="100"
+    max-height="100"
+    preview-data="&#123;&#123;@&#123;
+        type: 'iframe',
+        url: '//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html',
+        width: 300,
+        height: 250
+    &#125;&#125;&#125;"/&gt;
+
+
+&lt;mx-preview 
+    type="image"
+    url="//img.alicdn.com/tfscom/TB10l9lbgZC2uNjSZFnXXaxZpXa.png"
+    width="400"
+    height="125"
+    max-width="100"
+    max-height="100"
+    preview-data="&#123;&#123;@&#123;
+        type: 'iframe',
+        url: '//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html',
+        width: 300,
+        height: 250,
+        scale: 0.5
+    &#125;&#125;&#125;"/&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">CSS</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_2">
+.demo {
+    margin-right: 20px;
+    border: 1px solid #e6e6e6;
+    background-color: #fafafa;
+}</pre>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+<mx-effects.notice class="mb20 mr20"
+    type="highlight" 
+    content="借助chartpark平台来管理项目中所需图表，实现前端与设计师的完美协作；设计师来把控图表样式，而前端只需要关心数据渲染。<a class='link-brand' href='https://chartpark.alibaba-inc.com/#!/help/index?pn=start' target='_blank'>了解更多关于chartpark</a>"
+    border="true"/>
+
+<div class="pr pr120">
+    <div mx-view="examples/subs?list={{@[{
+        name: '接入流程',
+        key: viewId + '_access'
+    }, {
+        name: '本地组件lg-chart',
+        key: viewId + '_lg'
+    }, {
+        name: '直接chart-id',
+        key: viewId + '_demo_id'
+    }, {
+        name: '自定义chart-option',
+        key: viewId + '_demo_custom'
+    }]}}"></div>
+
+    <mx-title.second id="{{=viewId}}_access"
+        content="接入流程"/>
+    <div class="mb40">
+        <div class="mb20">1. 新建项目</div>
+        <div class="pr20 pl15">
+            <img class="chart-img" src="https://img.alicdn.com/tfs/TB18x7gunCWBKNjSZFtXXaC3FXa-2080-1006.jpg" />
+            <img class="chart-img" src="https://img.alicdn.com/tfs/TB1hT3btZIrBKNjSZK9XXagoVXa-2208-1006.jpg" />
+        </div>
+    </div>
+    <div class="mb40">
+        <div class="mb20">2. 从官方demo选取需要的图表加入我的项目</div>
+        <div class="pr20 pl15">
+            <img class="chart-img" src="https://img.alicdn.com/tfs/TB155spkhtnkeRjSZSgXXXAuXXa-2042-1480.jpg" />
+            <img class="chart-img" src="https://img.alicdn.com/tfs/TB1uiosumcqBKNjSZFgXXX_kXXa-2868-1290.jpg" />
+        </div>
+    </div>
+    <div class="mb40">
+        <div class="mb20">3. chartpark平台增加或修改过图表，选择cdn，es，打包推送至cdn</div>
+        <div class="pr20 pl15">
+            <img class="chart-img" src="https://img.alicdn.com/tfs/TB1kOEItWQoBKNjSZJnXXaw9VXa-2322-1554.jpg" />
+        </div>
+    </div>
+    <div class="mb40">
+        <div class="mb20">4. 项目 package.json 配置 chartParkId，目前只能从地址栏看到ID</div>
+        <div class="pr20 pl15">
+            <img class="chart-img" src="https://img.alicdn.com/tfs/TB1CrjTuiAnBKNjSZFvXXaTKXXa-2438-1144.jpg" />
+            <img class="chart-img" src="https://img.alicdn.com/tfs/TB18HUXt7ZmBKNjSZPiXXXFNVXa-2514-1660.jpg" />
+        </div>
+    </div>
+    <div class="mb40">
+        <div class="mb20">5. 执行 mx chartpark 同步图表文件到本地（内容包含图表配置）</div>
+    </div>
+
+    <mx-title.second id="{{=viewId}}_lg"
+        content="本地组件lg-chart"
+        tip="脚手架中图表作为本地组件，请使用标签 lg-chart 创建图表"/>
+    <div class="mb40" mx-view="examples/api?options={{@options}}"></div>
+    
+    <mx-title.second id="{{=viewId}}_demo_id"
+        content="直接使用chart-id"
+        tip="当chartpark的配置已经满足需求的时候，可直接使用 chart-id 渲染图表"/>
+    <div class="mb40">
+        <div class="mb20">1. 获取chart-id</div>
+        <div class="pr20 pl15">
+            <img class="chart-img" src="https://img.alicdn.com/tfs/TB13ZEFuiAnBKNjSZFvXXaTKXXa-2878-1552.jpg" />
+        </div>
+    </div>
+    <div class="clearfix mb40">
+        <div class="mb20">2. 使用</div>
+        <div class="pl15" mx-view="@./chartpark-id"></div>
+    </div>
+
+    <mx-title.second id="{{=viewId}}_demo_custom"
+        content="自定义chart-option"
+        tip="通过 chart-id 获取基础配置，再进行扩展定制"/>
+    <div class="mb40">
+        <div class="mb20">1. 获取chart-id</div>
+        <div class="pr20 pl15">
+            <img class="chart-img" src="https://img.alicdn.com/tfs/TB13ZEFuiAnBKNjSZFvXXaTKXXa-2878-1552.jpg" />
+        </div>
+    </div>
+    <div class="clearfix mb40">
+        <div class="mb20">2. 使用</div>
+        <div class="pl15" mx-view="@./chartpark-custom"></div>
+    </div>
+</div>

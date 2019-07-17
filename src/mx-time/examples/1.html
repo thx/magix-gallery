@@ -1,0 +1,68 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb15 lh22">
+            <div class="color-9">下列三种写法等价，时分秒均可选：</div>
+            <div class="pl10">types=""</div>
+            <div class="pl10">types="all"</div>
+            <div class="pl10">types="hour,minute,second"</div>
+        </div>
+        <div class="mb20">
+            <span class="color-9">当前时间：</span>
+            {{=time}}
+        </div>
+        <mx-time class="w120" 
+            id="{{=viewId}}_time"
+            time="{{=time}}"
+            mx-change="change()" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-time class="w120" 
+    id="&#123;&#123;=viewId&#125;&#125;_time"
+    time="10:10:10"
+    mx-change="change()" /&gt;
+
+&lt;!-- 等价于 --&gt;
+&lt;mx-time class="w120" 
+    id="&#123;&#123;=viewId&#125;&#125;_time"
+    time="10:10:10"
+    types="all"
+    mx-change="change()" /&gt;
+
+&lt;!-- 等价于 --&gt;
+&lt;mx-time class="w120" 
+    id="&#123;&#123;=viewId&#125;&#125;_time"
+    time="10:10:10"
+    types="hour,minute,second"
+    mx-change="change()" /&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@1.html',
+    render() &#123;
+        this.updater.digest(&#123;&#125;);
+    &#125;,
+    'change&lt;change&gt;'(e)&#123;
+        // e.time：当前时间
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

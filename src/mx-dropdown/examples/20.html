@@ -1,0 +1,47 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix lh22">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>简单分组</div>
+                <div>选中上限max=5，此时全选为选择top max</div>
+            </div>
+        </div>
+        <mx-dropdown.multiple class="w200"
+            max="5"
+            searchbox="true"
+            height="250">
+            <mx-dropdown.item group="true">第一组</mx-dropdown.item>
+            {{for(let i=0;i<4;i+=1)}}
+            <mx-dropdown.item value="{{=i}}">{{=i}}</mx-dropdown.item>
+            {{/for}}
+            <mx-dropdown.item group="true">第二组</mx-dropdown.item>
+            {{for(let i=10;i<20;i+=1)}}
+            <mx-dropdown.item value="{{=i}}">{{=i}}</mx-dropdown.item>
+            {{/for}}
+        </mx-dropdown.multiple>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-dropdown.multiple class="w200"
+    max="5"
+    searchbox="true"
+    height="250"&gt;
+    &lt;mx-dropdown.item group="true"&gt;第一组&lt;/mx-dropdown.item&gt;
+    &#123;&#123;for(let i=0;i&lt;4;i+=1)&#125;&#125;
+    &lt;mx-dropdown.item value="&#123;&#123;=i&#125;&#125;"&gt;&#123;&#123;=i&#125;&#125;&lt;/mx-dropdown.item&gt;
+    &#123;&#123;/for&#125;&#125;
+    &lt;mx-dropdown.item group="true"&gt;第二组&lt;/mx-dropdown.item&gt;
+    &#123;&#123;for(let i=10;i&lt;20;i+=1)&#125;&#125;
+    &lt;mx-dropdown.item value="&#123;&#123;=i&#125;&#125;"&gt;&#123;&#123;=i&#125;&#125;&lt;/mx-dropdown.item&gt;
+    &#123;&#123;/for&#125;&#125;
+&lt;/mx-dropdown.multiple&gt;
+        </pre>
+    </div>
+</div>

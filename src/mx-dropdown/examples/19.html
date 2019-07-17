@@ -1,0 +1,74 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            单选，支持搜索，搜索不区分大小写
+        </div>
+        <mx-dropdown.bd class="w200" 
+            searchbox="true"
+            selected="2"
+            list="{{@[{
+                value:1,
+                text:'test'
+            },{
+                value:2,
+                text:'TestABC'
+            },{
+                value:3,
+                text:'Another'
+            }]}}"
+            mx-change="change()">
+        </mx-dropdown.bd>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-dropdown.bd class="w200" 
+    searchbox="true"
+    selected="2"
+    list="&#123;&#123;@[&#123;
+        value:1,
+        text:'test'
+    &#125;,&#123;
+        value:2,
+        text:'TestABC'
+    &#125;,&#123;
+        value:3,
+        text:'Another'
+    &#125;]&#125;&#125;"
+    mx-change="change()"&gt;
+&lt;/mx-dropdown.bd&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'change&lt;change&gt;'(event)&#123;
+        // event.value：string
+        // event.text：string
+        // event.values：array
+        // event.texts：array
+        // event.selected：string|array
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

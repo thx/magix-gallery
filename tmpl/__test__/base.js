@@ -52,11 +52,12 @@ module.exports = Magix.View.extend({
                     name: '相关文档链接',
                     path: '/all/links',
                     icon: '&#xe60d;'
-                }, {
-                    name: '关于兼容性',
-                    path: '/all/compatibility',
-                    icon: '&#xe9e5;'
                 }]
+                // {
+                //     name: '关于兼容性',
+                //     path: '/all/compatibility',
+                //     icon: '&#xe9e5;'
+                // }
             }, {
                 name: '表单（mixins）',
                 subs: [{

@@ -1,0 +1,54 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9 mr20">必填项：</span>
+            <input class="input mr20" placeholder="必填项" value="{{:name{required:true}}}"/>
+            <input class="input mr20" placeholder="必填项" value="{{:name&rules}}"/>
+            <input class="input mr20" placeholder="必填项，提示在右侧" value="{{:name{placement:'right',required:true}}}"/>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;input class="input" placeholder="必填项" 
+    value="&#123;&#123;:name&#123;required:true&#125;&#125;&#125;"/&gt;
+    
+&lt;input class="input" placeholder="必填项" 
+    value="&#123;&#123;:name&rules&#125;&#125;"/&gt;
+
+&lt;input class="input" placeholder="必填项，提示在右侧" 
+    value="&#123;&#123;:name&#123;placement:'right',required:true&#125;&#125;&#125;"/&gt;</pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="examples/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Form = require('@../mx-form/index');
+let Validator = require('@../mx-form/validator');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Form, Validator],
+    render() &#123;
+        this.updater.digest(&#123;
+            rules: &#123;
+                required:true
+            &#125;
+        &#125;);
+    &#125;
+&#125;);</pre>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="example" id="{{=viewId}}_demo4">
+    <div class="eg-content">
+        <mx-title.second 
+            content="<span style='color: red;'>二级</span>标题"
+            tip="<span style='color: red;'>高亮</span>显示"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">可包含html标签</div>
+        <mx-copy copy-node="{{=viewId}}_text_6" class="desc-oper" 
+            mx-success="done({id:6})">
+            <span class="desc-tip">{{!text6}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_6">
+&lt;mx-title.second 
+    content="&lt;span style='color: red;'&gt;二级&lt;/span&gt;标题"
+    tip="&lt;span style='color: red;'&gt;高亮&lt;/span&gt;显示"/&gt;
+        </pre>
+    </div>
+</div>

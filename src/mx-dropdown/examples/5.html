@@ -1,0 +1,41 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <span class="fl w90 lh32">点击禁选：</span>
+            <mx-dropdown class="w200 fl" 
+                disabled="true"
+                list="[1,2,3]">
+            </mx-dropdown>
+        </div>
+
+        <div class="mb20 clearfix">
+            <span class="fl w90 lh32">hover禁选：</span>
+            <mx-dropdown class="w200 fl" 
+                disabled="true"
+                trigger-type="hover"
+                list="[1,2,3]">
+            </mx-dropdown>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">禁用单选框</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-dropdown class="w200" 
+    disabled="true"
+    list="[1,2,3]"&gt;
+&lt;/mx-dropdown&gt;
+
+
+&lt;mx-dropdown class="w200" 
+    disabled="true"
+    trigger-type="hover"
+    list="[1,2,3]"&gt;
+&lt;/mx-dropdown&gt;
+        </pre>
+    </div>
+</div>

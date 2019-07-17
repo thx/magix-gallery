@@ -1,0 +1,59 @@
+<mx-effects.notice class="mb20 mr20"
+    content="magix3会对给class加前缀，支持用[ref='@path:className']覆盖样式。但是强烈建议不要直接修改组件，防止版本更新的时候被覆盖，当业务逻辑比较定制的时候，建议写本地组件。<br/><a href='#!/all/pro/local' class='link-brand'>查看关于开发本地组件的约定</a>"
+    border="true"
+    type="highlight" />
+
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix">
+            <div class="fl color-9 mr40">以开关组件示例如何覆盖组件样式</div>
+            <div class="fl mr60">
+                <div class="mb10">组件本身展示为：</div>
+                <mx-switch state="true"/>
+            </div>
+            <div class="fl mr60 outer">
+                <div class="mb10">自定义开关样式：</div>
+                <mx-switch state="true"/>   
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;div class="outer"&gt;
+    &lt;mx-switch state="true"/&gt;   
+&lt;/div&gt;</pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">CSS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="examples/hl" id="{{=viewId}}_text_2">
+.outer&#123;
+    [ref="@../../mx-switch/index.less:switch"] &#123;
+        height: 8px;
+        border-radius: 4px;
+        
+        &[ref="@../../mx-switch/index.less:on"] &#123;
+            background-color: #b6eff0;
+
+            [ref="@../../mx-switch/index.less:switch-icon"] &#123;
+                background-color: #14c9ce;
+            &#125;
+    
+        &#125;
+    &#125;
+&#125;
+</pre>
+        </div>
+    </div>
+</div>

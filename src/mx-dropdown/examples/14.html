@@ -1,0 +1,21 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-dropdown class="w200" 
+            empty-text="请选择"
+            list="{{@[1,2,3]}}">
+        </mx-dropdown>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">选择为空时的提示文案定制</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-dropdown class="w200" 
+    empty-text="请选择"
+    list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;
+&lt;/mx-dropdown&gt;</pre>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-tabs 
+            list="{{@list}}" 
+            selected="{{=selected}}"
+            mx-change="changeTab()"></mx-tabs>
+        <div class="mt20">
+            <a href="javascript:;" class="btn btn-brand" mx-click="changeData()">改变数据</a>
+            <span class="ml20 color-9">当前选中：</span>
+            <span>{{=selected}}</span>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-tabs 
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;"
+    mx-change="changeTab()"&gt;&lt;/mx-tabs&gt;
+
+&lt;a href="javascript:;" class="btn btn-brand" 
+    mx-click="changeData()"&gt;改变数据&lt;/a&gt;</pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="examples/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [&#123;
+            value: 1,
+            text: '模块1',
+            tag: 'New'
+        &#125;, &#123;
+            value: 2,
+            text: '模块2'
+        &#125;, &#123;
+            value: 3,
+            text: '模块3',
+            tag: '内容上新'
+        &#125;];
+
+        this.updater.digest(&#123;
+            list,
+            selected: list[1].value
+        &#125;);
+    &#125;,
+    'changeData&lt;click&gt;' (e) &#123;
+        let list = [&#123;
+            value: 4,
+            text: '新模块1',
+            tag: 'New'
+        &#125;, &#123;
+            value: 5,
+            text: '新模块2'
+        &#125;];
+        let selected = list[0].value;
+        this.updater.digest(&#123;
+            list,
+            selected
+        &#125;)
+    &#125;,
+    'changeTab&lt;change&gt;' (e) &#123;
+        // e.value 当前选中的key值
+        // e.text 当前选中的文案
+        this.updater.digest(&#123;
+            selected: e.value
+        &#125;)
+    &#125;
+&#125;);</pre>
+        </div>
+    </div>
+</div>

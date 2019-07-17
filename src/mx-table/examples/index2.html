@@ -1,0 +1,29 @@
+
+
+<div class="pr pr120">
+    <div mx-view="examples/subs?list={{@[{
+        name: '表头实际位置计算',
+        key: viewId + '_cal'
+    }, {
+        name: '使用示例',
+        key: viewId + '_demo',
+        subs: [{
+            name: '左右分列+子表格',
+            key: viewId + '_demo6',
+        }, {
+            name: '普通table',
+            key: viewId + '_demo7',
+        }]
+    }]}}"></div>
+
+    <mx-title.second id="{{=viewId}}_cal"
+        content="表头实际位置计算"  
+        tip="获取单元格实际位置{x,y}"/>
+    <div mx-view="@./cal" class="pr20 mb40"></div>
+
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <div class="clearfix mb20">
+        <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
+        <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
+    </div>
+</div>

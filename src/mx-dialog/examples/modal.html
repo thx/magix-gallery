@@ -1,0 +1,61 @@
+<div class="pr pr120">
+    <div mx-view="examples/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo',
+        subs: [{
+            name: '头部 + 底部',
+            key: viewId + '_demo9'
+        },{
+            name: '只头部',
+            key: viewId + '_demo10'
+        },{
+            name: '只底部',
+            key: viewId + '_demo11'
+        }]
+    }, {
+        name: 'View Methods',
+        key: viewId + '_method'
+    }, {
+        name: 'dialogOptions',
+        key: viewId + '_options'
+    }]}}"></div>
+
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <div mx-view="@./9" id="{{=viewId}}_demo9"></div>
+    <div class="clearfix mb20">
+        <div class="half">
+            <div mx-view="@./10" id="{{=viewId}}_demo10"></div>
+        </div>
+        <div class="half">
+            <div mx-view="@./11" id="{{=viewId}}_demo11"></div>
+        </div>
+    </div>
+
+    <mx-title.second content="Methods" id="{{=viewId}}_method"/>
+    <div class="pr20 mb40">
+        <table class="table desc-table">
+            <thead>
+                <tr>
+                    <th width="200">方法名</th>
+                    <th width="200">说明</th>
+                    <th width="300">预览</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>mxModal(viewPath, [viewOptions], [dialogOptions])</td>
+                    <td>自定义浮层</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>mxCloseAllDialogs()</td>
+                    <td>关闭当前所有展开的浮层</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <mx-title.second content="dialogOptions配置参数" id="{{=viewId}}_options"/>
+    <div class="mb40" mx-view="@./options"></div>
+</div>

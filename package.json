@@ -24,6 +24,7 @@
     "gulp-concat": "2.6.1",
     "gulp-copy": "^4.0.1",
     "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
     "gulp-terser-scoped": "1.0.0",
     "gulp-watch": "4.3.11",
     "magix-combine": "3.11.28",

@@ -1,0 +1,73 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="demo">
+            <div class="login-wrapper">
+                <iframe src="{{=src}}" 
+                    frameborder="0" 
+                    width="100%" 
+                    height="340" 
+                    allowtransparency="true" 
+                    scrolling="no" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    border="0"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;iframe src="&#123;&#123;=src&#125;&#125;" 
+    frameborder="0" 
+    width="100%" 
+    height="400" 
+    allowtransparency="true" 
+    scrolling="no" 
+    marginheight="0" 
+    marginwidth="0" 
+    border="0"&gt;&lt;/iframe&gt;</pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="examples/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        // 登陆成功回跳页面
+        let forward = window.location.origin + '/indexbp.html';
+        let params = [
+            'redirectURL=' + encodeURIComponent(forward),
+            'style=mini',
+            'css_style=dingxiang', //css_style为主站那边给定的样式约定值
+            'full_redirect=true',
+            'newMini2=true',
+            'enup=0',
+            'qrlogin=1',
+            'keyLogin=true'
+        ]
+        let taobaoHost = !!~window.location.host.indexOf('daily') ? 'login.daily.taobao.net' : 'login.taobao.com';
+        let src = 'https://' + taobaoHost + '/member/login.jhtml?' + params.join('&');
+
+        this.updater.digest(&#123;
+            src
+        &#125;);
+
+    &#125;
+&#125;);</pre>
+        </div>
+    </div>
+</div>

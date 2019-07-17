@@ -1,0 +1,26 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10">
+            <mx-effects.star num="2.5"
+                color="#ffb400"/>
+        </div>
+        <div class="mb10">
+            <mx-effects.star num="4"
+                color="rgb(81, 163, 0)"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">自定义颜色</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-effects.star num="2.5"
+    color="#ffb400"/&gt;
+    
+&lt;mx-effects.star num="4"
+    color="rgb(81, 163, 0)"/&gt;</pre>
+    </div>
+</div>

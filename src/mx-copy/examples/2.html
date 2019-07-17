@@ -1,0 +1,56 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            复制信息不需要显示，直接配置 copy-text 即可
+        </div>
+        <div class="mb20">
+            <mx-copy class="btn btn-brand" copy-text="test"
+                mx-success="done2()">点此复制链接</mx-copy>
+            {{if success}}
+            <span class="color-green ml20">复制成功</span>
+            {{/if}}
+        </div>
+    </div>
+    <div class="eg-desc">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="examples/hl" id="{{=viewId}}_text_2">
+&lt;mx-copy class="btn btn-brand" copy-text="test"
+    mx-success="done()"&gt;点此复制链接&lt;/mx-copy&gt;
+
+&#123;&#123;if success&#125;&#125;
+&lt;span class="color-green ml20"&gt;复制成功&lt;/span&gt;
+&#123;&#123;/if&#125;&#125;
+            </pre>
+        </div>
+        <div class="eg-desc">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="examples/hl" id="{{=viewId}}_text_3">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            viewId: this.id
+        &#125;);
+    &#125;,
+    'done&lt;success&gt;'(e) &#123;
+        this.updater.digest(&#123;
+            success: true
+        &#125;)
+    &#125;
+&#125;);</pre>
+        </div>
+</div>
