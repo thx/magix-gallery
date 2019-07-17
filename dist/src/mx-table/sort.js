@@ -1,1 +1,163 @@
-define("mx-table/sort",["$","magix"],(e,r,t)=>{var a=e("$"),i=e("magix").Router,o={desc:"&#xe606;",asc:"&#xe607;",default:"&#xe608;"};t.exports={ctor:function(){var e=this,r=function(){var r=i.parse().params;a("#"+e.id).find('[mx-view*="mx-table/index"]').each(function(t,i){var s=i.id;i.vframe.pId==e.id&&(i=a(i)).find("[sort-trigger]").each(function(t,i){var d=(i=a(i)).closest('[mx-view*="mx-table/index"]');if(s==d[0].id){var c=i.attr("sort-trigger"),n=i.attr("order-field-key")||"orderField",f=i.attr("sort-field")||r[n],l=i.attr("order-by-key")||"orderBy",p=i.attr("sort-orderby")||r[l]||"default",v=void 0;v=f==c?o[p]:o.default,e["@{"+s+".order.field.key}"]=n,e["@{"+s+".order.field}"]=f,e["@{"+s+".order.by.key}"]=l,e["@{"+s+".order.by}"]=p,i.html('<i class="mc-iconfont displacement-2 cursor-pointer">'+v+"</i>")}})})};e.on("rendered",r),e.on("domready",r)},sort:function(e,r,t){e=e||[];var a=i.parse().params;t=t||"orderBy";var o=a[r=r||"orderField"],s=a[t];if(!o)return e;for(var d=[],c=0;c<e.length;c++){var n=e[c];n[o]||(d.push(n),e.splice(c--,1))}return(e=e.sort(function(e,r){var t,a=e[o]+"",i=r[o]+"";if(isNaN(parseInt(a))||isNaN(parseInt(i)))switch(s){case"desc":t=i.toUpperCase()<a.toUpperCase()?-1:1;break;case"asc":t=a.toUpperCase()<i.toUpperCase()?-1:1}else switch(s){case"desc":t=+i-+a;break;case"asc":t=+a-+i}return t})).concat(d)},"$[sort-trigger]<click>":function(e){var r,t,o=this,s=(a("#"+o.id),a(e.eventTarget)),d=s.attr("sort-trigger"),c=s.closest('[mx-view*="mx-table/index"]')[0].id,n=o["@{"+c+".order.field}"],f=o["@{"+c+".order.by}"],l=d;r=n==d?"asc"==f?"desc":"asc":"desc",i.to(((t={})[o["@{"+c+".order.field.key}"]]=l,t[o["@{"+c+".order.by.key}"]]=r,t))}}});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-table/sort",["$","magix"],(require,exports,module)=>{
+/*$,Magix*/
+
+var $ = require("$");
+var Magix = require("magix");
+var Router = Magix.Router;
+var Map = {
+    desc: '&#xe606;',
+    asc: '&#xe607;',
+    "default": '&#xe608;'
+};
+module.exports = {
+    ctor: function () {
+        var me = this;
+        var ready = function () {
+            var locParams = Router.parse().params;
+            var context = $('#' + me.id);
+            // 按照table区分，一个view可能多个table
+            var tables = context.find('[mx-view*="mx-table/index"]');
+            tables.each(function (tIndex, t) {
+                var tId = t.id;
+                if (t.vframe.pId == me.id) {
+                    t = $(t);
+                    // 只处理本view的table + trigger
+                    var trigger = t.find('[sort-trigger]');
+                    trigger.each(function (idx, item) {
+                        item = $(item);
+                        var closestTable = item.closest('[mx-view*="mx-table/index"]');
+                        if (tId == closestTable[0].id) {
+                            var field = item.attr('sort-trigger');
+                            // 保留在地址栏的排序字段key
+                            var orderFieldKey = item.attr('order-field-key') || 'orderField';
+                            // 当前排序字段
+                            var orderField = item.attr('sort-field') || locParams[orderFieldKey];
+                            // 保留在地址栏的排序方式key
+                            var orderByKey = item.attr('order-by-key') || 'orderBy';
+                            // 当前排序方式
+                            var orderBy = item.attr('sort-orderby') || locParams[orderByKey] || 'default';
+                            var icon = void 0;
+                            if (orderField == field) {
+                                icon = Map[orderBy];
+                            }
+                            else {
+                                icon = Map["default"];
+                            }
+                            // 同一个view可能有多个table，需要保证key唯一
+                            me["@{" + tId + ".order.field.key}"] = orderFieldKey;
+                            me["@{" + tId + ".order.field}"] = orderField;
+                            me["@{" + tId + ".order.by.key}"] = orderByKey;
+                            me["@{" + tId + ".order.by}"] = orderBy;
+                            item.html("<i class=\"mc-iconfont displacement-2 cursor-pointer\">" + icon + "</i>");
+                        }
+                    });
+                }
+            });
+        };
+        me.on('rendered', ready);
+        me.on('domready', ready);
+    },
+    /**
+     * 本地排序
+     */
+    sort: function (list, orderFieldKey, orderByKey) {
+        if (DEBUG) {
+            console.warn('本地排序方法：如果自定义保留在地址栏的排序字段和排序方式字段，请显示的传入该值，否则默认取地址栏orderField，orderBy');
+        }
+        list = list || [];
+        var locParams = Router.parse().params;
+        orderFieldKey = orderFieldKey || 'orderField';
+        orderByKey = orderByKey || 'orderBy';
+        var orderField = locParams[orderFieldKey], orderBy = locParams[orderByKey];
+        if (!orderField) {
+            return list;
+        }
+        var emptyList = [];
+        for (var i = 0; i < list.length; i++) {
+            var item = list[i];
+            if (!item[orderField]) {
+                emptyList.push(item);
+                list.splice(i--, 1);
+            }
+        }
+        list = list.sort(function (a, b) {
+            var ax = a[orderField] + '', bx = b[orderField] + '';
+            var compare;
+            if (isNaN(parseInt(ax)) || isNaN(parseInt(bx))) {
+                // 字符串排序，忽略大小写
+                switch (orderBy) {
+                    case 'desc':
+                        // 降序
+                        if (bx.toUpperCase() < ax.toUpperCase()) {
+                            compare = -1;
+                        }
+                        else {
+                            compare = 1;
+                        }
+                        break;
+                    case 'asc':
+                        // 升序
+                        if (ax.toUpperCase() < bx.toUpperCase()) {
+                            compare = -1;
+                        }
+                        else {
+                            compare = 1;
+                        }
+                        break;
+                }
+            }
+            else {
+                // 数字排序
+                switch (orderBy) {
+                    case 'desc':
+                        // 降序
+                        compare = (+bx) - (+ax);
+                        break;
+                    case 'asc':
+                        // 升序
+                        compare = (+ax) - (+bx);
+                        break;
+                }
+            }
+            return compare;
+        });
+        return list.concat(emptyList);
+    },
+    /**
+     * 点击排序按钮
+     */
+    '$[sort-trigger]<click>': function (e) {
+        var me = this;
+        var context = $('#' + me.id);
+        var item = $(e.eventTarget);
+        var trigger = item.attr('sort-trigger');
+        var table = item.closest('[mx-view*="mx-table/index"]');
+        var tId = table[0].id;
+        var oldOrderField = me["@{" + tId + ".order.field}"], oldOrderBy = me["@{" + tId + ".order.by}"];
+        var orderBy, orderField = trigger;
+        if (oldOrderField == trigger) {
+            if (oldOrderBy == 'asc') {
+                orderBy = 'desc';
+            }
+            else {
+                orderBy = 'asc';
+            }
+        }
+        else {
+            // 默认降序
+            orderBy = 'desc';
+        }
+        Router.to((_a = {},
+            _a[me["@{" + tId + ".order.field.key}"]] = orderField,
+            _a[me["@{" + tId + ".order.by.key}"]] = orderBy,
+            _a));
+        var _a;
+    }
+};
+
+});

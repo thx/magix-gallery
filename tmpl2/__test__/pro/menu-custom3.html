@@ -1,0 +1,53 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="menu">
+            <div class="header clearfix">
+                <div class="logo">LOGO</div>
+                <div class="name">一级标题</div>
+            </div>
+            <div class="clearfix pr">
+                <div class="navs">
+                    <div>
+                        <a href="javascript:;" class="nav-third third-on">
+                            <i class="mc-iconfont mr5">&#xe731;</i>
+                            三级1
+                        </a>
+                    </div>
+                    <div>
+                        <a href="javascript:;" class="nav-third">
+                            <i class="mc-iconfont mr5">&#xe609;</i>
+                            三级2
+                        </a>
+                    </div>
+                    <div>
+                        <a href="javascript:;" class="nav-third">
+                            <i class="mc-iconfont mr5">&#xe698;</i>
+                            三级3
+                        </a>
+                    </div>  
+                </div>
+                <div class="inner">
+                    <div>view1：</div>
+                    <div>映射到三级1这个页面</div>
+                    <div>顶部和侧边导航显示与三级1完全一致</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">配置CustomPath</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+let CustomPath = [&#123;
+    has: true,
+    name: 'view1',
+    path: '/example/outside1',
+    mapThirdPath: '/develop/example1', //需要映射的页面路径
+    view: '@./views/default'
+&#125;]</pre>
+    </div>
+</div>

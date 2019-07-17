@@ -1,0 +1,22 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-effects.empty bg="white">
+            <div class="fontsize-14">暂无可选内容</div>
+            <div class="fontsize-14">您暂时没有可以添加的内容，请使用本地上传！</div>
+        </mx-effects.empty>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-effects.empty bg="white"&gt;
+    &lt;div class="fontsize-14"&gt;暂无可选内容&lt;/div&gt;
+    &lt;div class="fontsize-14"&gt;您暂时没有可以添加的内容，请使用本地上传！&lt;/div&gt;
+&lt;/mx-effects.empty&gt;
+        </pre>
+    </div>
+</div>

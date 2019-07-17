@@ -1,0 +1,60 @@
+<div class="example">
+    <div class="eg-content clearfix">
+        <!-- <a href="javascript:;" class="btn btn-brand mr20" 
+            mx-click="changeDisabled()">toggleDisabled</a> -->
+        
+        <mx-switch class="mr20"
+            state="{{=state}}"
+            mx-change="toggle()" />
+        <a href="javascript:;" class="btn btn-brand mr20" mx-click="change()">切换状态</a>
+        <span>当前状态：{{=state}}</span>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-switch class="mr20"
+    state="&#123;&#123;=state&#125;&#125;"
+    mx-change="toggle()"/&gt;
+
+&lt;a href="javascript:;" class="btn btn-brand" 
+    mx-click="change()"&gt;切换状态&lt;/a&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            state: true
+        &#125;);
+    &#125;,
+    'toggle&lt;change&gt;' (event) &#123;
+        // event.state 当前开还是关
+        // true 开，false关
+        this.updater.digest(&#123;
+            state: event.state
+        &#125;);
+    &#125;,
+    'change&lt;click&gt;'(event)&#123;
+        let state = this.updater.get('state');
+        this.updater.digest(&#123;
+            state: !state
+        &#125;);
+&#125;
+&#125;);</pre>
+    </div>
+</div>

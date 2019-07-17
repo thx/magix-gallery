@@ -1,0 +1,220 @@
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo'
+    }, {
+        name: 'API',
+        key: viewId + '_api'
+    }, {
+        name: 'step-infos配置',
+        key: viewId + '_step',
+        subs: [{
+            name: '可配参数',
+            key: viewId + '_step1',
+        }, {
+            name: 'check',
+            key: viewId + '_step2',
+        }]
+    }]}}"></div>
+    
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <div class="clearfix">
+        <div class="example">
+            <div class="eg-content">
+                <div class="mb20 lh22 clearfix">
+                    <div class="color-9 fl">以下示例：</div>
+                    <div class="fl">
+                        <div>每步跳转完成会在路由上<span class="color-brand">保留参数stepIndex（一级步骤） 和 subStepIndex（二级子步骤）</span></div>
+                        <div>当前已到达步骤取路由地址上stepIndex，1 和 用户配置的already-step的最大值</div>
+                        <div>点击左侧导航可以快速跳转；未到步骤不可点击；</div>
+                        <div>点击二级子步骤当前模块滚动到最顶部</div>
+                        <div>右侧提醒信息可有可无</div>
+                    </div>
+                </div>
+                <div class="color-9 lh22">点击以下链接新页面查看示例：</div>
+                <div class="lh22">
+                    <span class="color-9">从第一步开始：</span>
+                    <a href="#!/main/demo" target="_blank" rel="noopener noreferrer" class="color-brand">#!/main/demo</a>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="eg-desc third1">
+                    <div class="eg-title">HTML Code</div>
+                    <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                        mx-success="done({id:1})">
+                        <span class="desc-tip">{{!text1}}</span>
+                        <i class="mc-iconfont desc-icon">&#xe610;</i>
+                    </mx-copy>
+                    <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-main 
+    right-width="220"
+    left-width="140"
+    already-step="&#123;&#123;=alreadyStep&#125;&#125;"
+    step-infos="&#123;&#123;@stepInfos&#125;&#125;" /&gt;
+                    </pre>
+                </div>
+                <div class="eg-desc third2 half-right">
+                    <div class="eg-title">JS Code</div>
+                    <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                        mx-success="done({id:2})">
+                        <span class="desc-tip">{{!text2}}</span>
+                        <i class="mc-iconfont desc-icon">&#xe610;</i>
+                    </mx-copy>
+                    <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+let Router = Magix.Router;
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let stepInfos = [&#123;
+            label: '设置计划',
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe612;&lt;/i&gt;',
+            nextTip: '下一步，设置计划',
+            sideView: '@./tip',
+            subs: [&#123;
+                label: '基本信息',
+                icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe612;&lt;/i&gt;',
+                view: '@./inner1'
+            &#125;],
+            nextFn: (remains, next) =&gt; &#123;
+                // remains 当前步骤保留的信息，提交处理
+                next(&#123;
+                    campaignId: 1
+                &#125;)
+            &#125;
+        &#125;, &#123;
+            label: '设置单元',
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe7b5;&lt;/i&gt;',
+            prevTip: '返回计划设置',
+            nextTip: '下一步，添加创意',
+            sideTip: `&lt;div&gt;说明：&lt;/div&gt;
+&lt;div&gt;1、条件1&lt;/div&gt;
+&lt;div&gt;2、条件2&lt;/div&gt;
+&lt;div&gt;3、条件3&lt;/div&gt;`,
+            subs: [&#123;
+                label: '推广宝贝',
+                icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe613;&lt;/i&gt;',
+                view: '@./inner2'
+            &#125;, &#123;
+                label: '出价方式',
+                icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;',
+                view: '@./inner'
+            &#125;],
+            nextFn: (remains, next) =&gt; &#123;
+                // remains 当前步骤保留的信息，提交处理
+                next(&#123;
+                    adgroupId: 1
+                &#125;)
+            &#125;
+        &#125;, &#123;
+            label: '添加创意',
+            nextTip: '下一步，完成',
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe613;&lt;/i&gt;',
+            subs: [&#123;
+                label: '创意内容1',
+                icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe705;&lt;/i&gt;',
+                view: '@./inner3',
+                sideView: '@./tip'
+            &#125;, &#123;
+                label: '创意内容2',
+                icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe664;&lt;/i&gt;',
+                view: '@./inner',
+                sideView: '@./tip'
+            &#125;, &#123;
+                label: '创意内容3',
+                icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe767;&lt;/i&gt;',
+                view: '@./inner',
+                sideView: '@./tip'
+            &#125;]
+        &#125;, &#123;
+            label: '完成创建',
+            nextTip: '完成',
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe64c;&lt;/i&gt;',
+            subs: [&#123;
+                label: '完成标题',
+                icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe7be;&lt;/i&gt;',
+                view: '@./inner4'
+            &#125;]
+        &#125;];
+
+        let locParams = Router.parse().params;
+        let alreadyStep = 1;
+        if (locParams.campaignId) &#123;
+            alreadyStep = 2;
+            if (locParams.adgroupId) &#123;
+                alreadyStep = 3;
+            &#125;
+        &#125;
+
+        this.updater.digest(&#123;
+            stepInfos,
+            alreadyStep
+        &#125;);
+    &#125;
+&#125;);
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pr20">
+        <mx-title.second content="API" id="{{=viewId}}_api"/>
+        <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
+    
+        <mx-title.second content="step-infos配置说明" id="{{=viewId}}_step"/>
+        <div class="mb40">
+            <div class="mb10" id="{{=viewId}}_step1">1. step-infos数组所有可配参数说明</div>
+            <div class="pl15 mb20">
+                <pre class="tip-content">
+[{
+    label: '必填，一级标题文案',
+    prevTip: '可选，自定义返回上一步文案，默认返回上一步'
+    nextTip: '可选，自定义下一步文案，默认返回下一步',
+    icon: '可选，标题icon',
+    sideTip: '可选，所有子view公用一个侧边提示，使用默认样式',
+    sideView: '可选，所有子view公用一个侧边提示，自定义view',
+    subs: [{
+        label: '必填，二级标题文案，当只有一个二级标题时，不显示二级标题',
+        icon: '可选，二级标题icon',
+        view: '必填，二级标题对应的view，该view必须实现check方法',
+        sideTip: '可选，二级view对应的自己单独的侧标提示，使用默认样式',
+        sideView: '可选，二级view对应的自己单独的侧标提示，自定义view',
+    }, {
+        label: '必填，二级标题文案',
+        icon: '可选，二级标题icon',
+        view: '必填，二级标题对应的view，该view必须实现check方法'
+    }],
+    nextFn: (remains, next) => {
+        // remains 当前所有子步骤保留的信息交集，便于提交接口处理等
+        // next(remainParams:object) 保存在路由上的参数
+        next({
+            example: 1
+        })
+    }
+}]
+                </pre>
+            </div>
+            <div class="mb10" id="{{=viewId}}_step2">2. 子view必须实现的check方法说明，返回一个Promise</div>
+            <div class="pl15">
+                <pre class="tip-content">
+check() {
+    let ok = true,
+        remain = {};
+
+    return new Promise((resolve) => {
+        // 此处返回promise，防止有接口提交校验等
+        resolve({
+            ok,  // 是否校验通过，false的时候不提交
+            msg: '错误信息提示',
+            remain: {} // 当前步骤保留的参数，所有子view交集
+        })
+    })
+}
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>

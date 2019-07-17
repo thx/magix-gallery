@@ -1,0 +1,89 @@
+<div class="wrapper">
+    <mx-carousel height="350" autoplay="true" mode="fade">
+        <mx-carousel.panel>
+            <div class="bg bg1"></div>
+        </mx-carousel.panel>
+        <mx-carousel.panel>
+            <div class="bg bg2"></div>
+        </mx-carousel.panel>
+        <mx-carousel.panel>
+            <div class="bg bg3"></div>
+        </mx-carousel.panel>
+    </mx-carousel>
+
+    <div class="login"></div>
+</div>
+
+<div class="example clearfix ml20">
+    <div class="eg-desc top-none half">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;div class="wrapper"&gt;
+    &lt;mx-carousel height="350" autoplay="true" mode="fade"&gt;
+        &lt;mx-carousel.panel&gt;
+            &lt;div class="bg bg1"&gt;&lt;/div&gt;
+        &lt;/mx-carousel.panel&gt;
+        &lt;mx-carousel.panel&gt;
+            &lt;div class="bg bg2"&gt;&lt;/div&gt;
+        &lt;/mx-carousel.panel&gt;
+        &lt;mx-carousel.panel&gt;
+            &lt;div class="bg bg3"&gt;&lt;/div&gt;
+        &lt;/mx-carousel.panel&gt;
+    &lt;/mx-carousel&gt;
+
+    &lt;div class="login"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+    </div>
+    <div class="eg-desc top-none half half-right">
+        <div class="eg-title">CSS</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+.bg &#123;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center top;
+&#125;
+
+.bg1 &#123;
+    background-color: #0f556c;
+    background-image: url(https://img.alicdn.com/tfs/TB13fOiIx9YBuNjy0FfXXXIsVXa-1920-350.jpg);
+&#125;
+
+.bg2 &#123;
+    background-color: #0f556c;
+    background-image: url(https://img.alicdn.com/tps/TB1UXxxKpXXXXbAXFXXXXXXXXXX-1920-350.png);
+&#125;
+
+.bg3 &#123;
+    background-color: #036655;
+    background-image: url(https://img.alicdn.com/tps/TB1ZmRtKpXXXXc8XFXXXXXXXXXX-1920-350.png);
+&#125;
+
+.wrapper&#123;
+    position: relative;
+    margin-bottom: 40px;
+&#125;
+
+.wrapper .login&#123;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 99;
+    width: 320px;
+    height: 280px;
+    margin-top: -140px;
+    margin-left: 200px;
+    background-color: #fafafa;
+&#125;</pre>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10 clearfix">
+            <div class="color-9 fl lh22">以下示例：</div>
+            <div class="fl lh22">
+                <div>可选时间间隔为1小时</div>
+                <div>宽度随容器自适应，最小780</div>
+                <div>清空时获取选中值，提示未选择内容不可提交</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <a href="javascript:;" mx-click="get()" class="btn btn-brand mr20">获取当前选中值</a>
+            {{if ok}}
+            <span>{{=result}}</span>
+            {{else}}
+            <span class="color-red">请至少选择一个时段</span>
+            {{/if}}
+        </div>
+        <mx-duration id="{{=viewId}}_duration"
+            width="900"
+            half="true"
+            selected="{{=result}}"/>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-duration id="&#123;&#123;=viewId&#125;&#125;_duration"
+    width="900"
+    half="true"
+    selected="&#123;&#123;=result&#125;&#125;"/&gt;</pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Vframe = Magix.Vframe;
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            viewId: this.id,
+            ok: true,
+            result: '00:00-12:00:100,12:00-24:00:220;0;0;0;0;0;00:00-24:00:100'
+        &#125;);
+    &#125;,
+    'get&lt;click&gt;'(event) &#123;
+        let vf = Vframe.get(this.id + '_duration');
+        let result = vf.invoke('submit');
+
+        // ok：
+        //      false 未选择任何时段
+        //      true 已选择时段
+        // result.val 当前选中值，ok = true时
+        this.updater.digest(&#123;
+            ok: result.ok,
+            result: result.val
+        &#125;)
+    &#125;
+&#125;);</pre>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+.steps {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+@step-circle-width: 28px;
+.step {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    white-space: nowrap;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    vertical-align: top;
+    overflow: hidden;
+    
+    .circle{
+        float: left;
+        position: relative;
+        z-index: 3;
+        width: @step-circle-width;
+        height: @step-circle-width;
+        border-radius: 50%;
+        border-width: 1px;
+        border-style: solid;
+        border-color: var(--color-brand);
+        color: var(--color-brand);
+        text-align: center;
+        line-height: @step-circle-width - 2;
+        background-color: #fff;
+        cursor: pointer;
+        transition: all var(--duration);
+
+        .circle-icon{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: @step-circle-width;
+            height: @step-circle-width;
+            text-align: center;
+            line-height: @step-circle-width - 2;
+            font-size: 26px;
+        }
+    }
+    .title{
+        float: left;
+        position: relative;
+        z-index: 3;
+        padding-right: 10px;
+        padding-left: 6px;
+        font-size: 14px;
+        background-color: #fff;
+        cursor: pointer;
+        transition: all var(--duration);
+        line-height: @step-circle-width;
+    }
+    &:after{
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        border-top: 1px solid var(--color-border);
+        transition: all var(--duration);
+    }
+
+    &:last-child {
+        -webkit-box-flex: 0;
+        -webkit-flex: none;
+        -ms-flex: none;
+        flex: none;
+
+        &:after{
+            display: none;
+        }
+    }
+
+    &.locked{
+        .circle{
+            border-color: var(--color-border);
+            background-color: var(--color-disabled);
+            color: #999;
+            cursor: not-allowed;
+        }
+        .title{
+            color: #999;
+            cursor: not-allowed;
+        }
+    }
+
+    &.line-on{
+        &:after{
+            border-top: 1px solid var(--color-brand);
+        }
+    }
+
+    &.current{
+        .circle{
+            border-color: var(--color-brand);
+            color: var(--color-brand);
+            background-color: var(--color-brand-opacity);
+        }
+        .title{
+            color: var(--color-brand);
+        }
+    }
+}

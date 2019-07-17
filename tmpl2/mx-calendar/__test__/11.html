@@ -1,0 +1,36 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <div class="mb5"> 禁止选择开始日期或者结束日期</div>
+            <div class="mb5">1. 开始日期禁止，结束日期最小可选为开始日期；快捷操作只支持根据开始日期动态计算的；</div>
+            <div>2. 结束日期禁止，开始日期最大可选为结束日期；快捷操作都禁止；</div>
+        </div>
+        <div class="mb20">
+            <mx-calendar.rangepicker class="w240"
+                shortkeys="{{@['passed10', 'dynamicStart15', 'forever']}}"
+                start-disabled="true"/>
+        </div>
+        <mx-calendar.rangepicker class="w240"
+            end-disabled="true"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;!-- 过滤了passed10 --&gt;
+&lt;mx-calendar.rangepicker class="w240"
+    shortkeys="&#123;&#123;@[
+        'passed10', 
+        'dynamicStart15', 
+        'forever'
+    ]&#125;&#125;"
+    start-disabled="true"/&gt;
+
+&lt;mx-calendar.rangepicker class="w240"
+    end-disabled="true"/&gt;</pre>
+    </div>
+</div>

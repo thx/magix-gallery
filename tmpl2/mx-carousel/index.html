@@ -1,0 +1,16 @@
+<div class="carousel" style="height: {{=height}}px;">
+    <div class="inner" 
+        mx-mouseover="@{stop}()" 
+        mx-mouseout="@{start}()">
+        {{!content}}
+    </div>
+    {{if dots}}
+    <ul class="{{if vertical}} v-dots {{else}} dots {{/if}} clearfix" 
+        mx-mouseover="@{stop}()" 
+        mx-mouseout="@{start}()">
+        {{for(let i=0;i<len;i+=1)}}
+        <li class="dot-cnt"><i class="dot {{=dotClass}}" mx-click="@{active}({idx:{{=i}}})"></i></li>
+        {{/for}}
+    </ul>
+    {{/if}}
+</div>

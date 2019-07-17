@@ -1,0 +1,38 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="cont">
+            <mx-btn class="mr20 mb20" content="自定义按钮" 
+                color="#ffb400" 
+                color-hover="#f1ab03"/>
+
+            <mx-btn class="mr20 mb20" 
+                color="#333333" 
+                color-text="#ffb400"
+                color-hover="#333333"
+                color-hover-text="#f1ab03">
+                <i class="mc-iconfont">&#xe731;</i>自定义按钮
+            </mx-btn>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">按钮</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-btn class="mr20 mb20" content="自定义按钮" 
+    color="#ffb400" 
+    color-hover="#f1ab03"/&gt;
+    
+&lt;mx-btn class="mr20 mb20" 
+    color="#333333" 
+    color-text="#ffb400"
+    color-hover="#333333"
+    color-hover-text="#f1ab03"&gt;
+    &lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;自定义按钮
+&lt;/mx-btn&gt;
+        </pre>
+    </div>
+</div>

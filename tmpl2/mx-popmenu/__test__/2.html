@@ -1,0 +1,154 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            hover显示菜单
+        </div>
+        <div class="clearfix mb20">
+            <div class="fl left">
+                <div class="mb20">
+                    <mx-popmenu class="btn"
+                        menus="{{@menus}}"
+                        width="100"
+                        place="lt"
+                        mx-change="select({text:'左上对齐（lt）'})">左上对齐（lt）</mx-popmenu>
+                </div>
+                <div class="mb20">
+                    <mx-popmenu class="btn"
+                        menus="{{@menus}}"
+                        width="100"
+                        place="lc"
+                        mx-change="select({text:'左中对齐（lc）'})">左中对齐（lc）</mx-popmenu>
+                </div>
+                <mx-popmenu class="btn"
+                    menus="{{@menus}}"
+                    width="100"
+                    place="lb"
+                    mx-change="select({text:'左下对齐（lb）'})">左下对齐（lb）</mx-popmenu>
+            </div>
+            <div class="fl center">
+                <div class="center-top">
+                    <mx-popmenu class="btn mr20"
+                        menus="{{@menus}}"
+                        width="100"
+                        place="tl"
+                        mx-change="select({text:'上左对齐（tl）'})">上左对齐（tl）</mx-popmenu>
+                    <mx-popmenu class="btn mr20"
+                        menus="{{@menus}}"
+                        width="100"
+                        place="tc"
+                        mx-change="select({text:'上中对齐（tc）'})">上中对齐（tc）</mx-popmenu>
+                    <mx-popmenu class="btn"
+                        menus="{{@menus}}"
+                        width="100"
+                        place="tr"
+                        mx-change="select({text:'上右对齐（tr）'})">上右对齐（tr）</mx-popmenu>
+                </div>
+                {{if text && selected}}
+                <div class="center-tip">{{=text}}：选择操作{{=selected}}</div>
+                {{/if}}
+                <div>
+                    <mx-popmenu class="btn mr20"
+                        menus="{{@menus}}"
+                        width="100"
+                        place="bl"
+                        mx-change="select({text:'下左对齐（bl）'})">下左对齐（bl）</mx-popmenu>
+                    <mx-popmenu class="btn mr20"
+                        menus="{{@menus}}"
+                        width="100"
+                        place="bc"
+                        mx-change="select({text:'下中对齐（bc）'})">下中对齐（bc）</mx-popmenu>
+                    <mx-popmenu class="btn"
+                        menus="{{@menus}}"
+                        width="100"
+                        place="br"
+                        mx-change="select({text:'下右对齐（br）'})">下右对齐（br）</mx-popmenu>
+                </div>
+            </div>
+            <div class="fl right">
+                <div class="mb20">
+                    <mx-popmenu class="btn"
+                        menus="{{@menus}}"
+                        width="100"
+                        place="rt"
+                        mx-change="select({text:'右上对齐（rt）'})">右上对齐（rt）</mx-popmenu>
+                </div>
+                <div class="mb20">
+                    <mx-popmenu class="btn"
+                        menus="{{@menus}}"
+                        width="100"
+                        place="rc"
+                        mx-change="select({text:'右中对齐（rc）'})">右中对齐（rc）</mx-popmenu>
+                </div>
+                <mx-popmenu class="btn"
+                    menus="{{@menus}}"
+                    width="100"
+                    place="rb"
+                    mx-change="select({text:'右下对齐（rb）'})">右下对齐（rb）</mx-popmenu>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-popmenu class="btn"
+    menus="&#123;&#123;@[&#123;
+        value: 1,
+        text: '操作1'
+    &#125;, &#123;
+        value: 2,
+        text: '操作2'
+    &#125;, &#123;
+        value: 3,
+        text: '操作3'
+    &#125;]&#125;&#125;"
+    width="100"
+    mx-change="select()"&gt;下中对齐&lt;/mx-popmenu&gt;
+
+&lt;mx-popmenu class="btn"
+    menus="&#123;&#123;@[&#123;
+        value: 1,
+        text: '操作1'
+    &#125;, &#123;
+        value: 2,
+        text: '操作2'
+    &#125;, &#123;
+        value: 3,
+        text: '操作3'
+    &#125;]&#125;&#125;"
+    width="100"
+    place="lt"
+    mx-change="select()"&gt;左上对齐（lt）&lt;/mx-popmenu&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@2.html',
+    render() &#123;
+        this.updater.digest(&#123;&#125;);
+    &#125;,
+    'select&lt;change&gt;'(e)&#123;
+        // e.selected 当前选中操作value值
+    &#125;
+&#125;);
+                
+            </pre>
+        </div>
+    </div>
+</div>

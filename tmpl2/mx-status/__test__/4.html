@@ -1,0 +1,80 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>纯操作项，hover显示操作项</div>
+                <div>当前选中项排在第一个</div>
+            </div>
+        </div>
+        <div>
+            <span class="mr40">
+                <span class="color-9">当前选中项：</span>
+                {{=cur.text}}（{{=cur.value}}）
+            </span>
+            <mx-status.dropdown 
+                opers="{{@opers}}" 
+                selected="{{=cur.value}}"
+                mx-change="change()"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-status.dropdown
+    opers="&#123;&#123;@opers&#125;&#125;" 
+    selected="&#123;&#123;=cur.value&#125;&#125;"
+    mx-change="change()"/&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let opers = [&#123;
+            value: 0,
+            text: '暂停投放',
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe67f;&lt;/i&gt;',
+            color: '#a40100'
+        &#125;, &#123;
+            value: 1,
+            text: '正在投放',
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe683;&lt;/i&gt;',
+            color: '#51a300'
+        &#125;, &#123;
+            value: 9,
+            text: '结束投放',
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe682;&lt;/i&gt;',
+            color: '#999999'
+        &#125;]
+
+        this.updater.digest(&#123;
+            opers,
+            cur: opers[1]
+        &#125;);
+    &#125;,
+    'change&lt;change&gt;'(e)&#123;
+        // e.status 完整的对象
+        //      value
+        //      text
+        this.updater.digest(&#123;
+            cur: e.status
+        &#125;);
+    &#125;
+&#125;);</pre>
+    </div>
+</div>

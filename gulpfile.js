@@ -2,6 +2,7 @@ let gulp = require('gulp');
 let combineTool = require('magix-combine');
 let watch = require('gulp-watch');
 let concat = require('gulp-concat');
+let rename = require('gulp-rename');
 let del = require('del');
 let fs = require('fs');
 let pkg = require('./package.json');
@@ -114,6 +115,7 @@ gulp.task('turnOffDebug', () => {
 
 gulp.task('combine', ['cleanSrc', 'chartpark'], () => {
     combineTool.config({
+        tmplFolder: 'tmpl',
         srcFolder: 'dist/src'
     })
     return combineTool.combine().then(() => {
@@ -126,6 +128,7 @@ gulp.task('combine', ['cleanSrc', 'chartpark'], () => {
 gulp.task('publish', () => {
     del(['./build']).then(() => {
         combineTool.config({
+            tmplFolder: 'tmpl',
             srcFolder: 'build'
         })
         combineTool.combine().then(() => {
@@ -146,6 +149,37 @@ gulp.task('publish', () => {
     })
 });
 
+gulp.task('test', () => {
+    del(['./tmpl2']).then(() => {
+        gulp.src('./tmpl/**/*')
+            .pipe(gulp.dest('./tmpl2'));
+
+        gulp.src('./tmpl2/__test__/**/*')
+            .pipe(rename(path => {
+                path.dirname = path.dirname.replace('__test__', 'examples')
+            }))
+            .pipe(gulp.dest('./tmpl2'));
+        // combineTool.config({
+        //     tmplFolder: 'tmpl2',
+        //     srcFolder: 'build'
+        // })
+        // combineTool.combine().then(() => {
+        //     gulp.src('./build/**/*.js')
+        //         .pipe(terser({
+        //             compress: {
+        //                 drop_console: true,
+        //                 drop_debugger: true,
+        //                 global_defs: {
+        //                     DEBUG: false
+        //                 }
+        //             }
+        //         }))
+        //         .pipe(gulp.dest('./build/'))
+        // }).catch(ex => {
+        //     console.log('gulpfile:', ex);
+        // });
+    })
+});
 
 gulp.task('watch', ['combine'], () => {
     watch('./tmpl/**/*', e => {

@@ -1,0 +1,37 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-effects.progress
+            type="circle"
+            num="23"/>
+        
+        <mx-effects.progress
+            type="circle"
+            num="50.4"/>
+
+        <mx-effects.progress
+            type="circle"
+            num="70.78"
+            color="#ffb400"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">圆型，精度与传入数值保持一致</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-effects.progress
+    type="circle"
+    num="23"/&gt;
+
+&lt;mx-effects.progress
+    type="circle"
+    num="50.4"/&gt;
+
+&lt;mx-effects.progress
+    type="circle"
+    num="70.78"
+    color="#ffb400"/&gt;</pre>
+    </div>
+</div>

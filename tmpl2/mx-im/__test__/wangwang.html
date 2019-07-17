@@ -1,0 +1,32 @@
+<mx-title.second content="旺旺使用示例"/>
+<div class="mb40">
+    <div class="example">
+        <div class="eg-content">
+            <mx-im.ww uid="虞佳"/>
+        </div>
+        <div class="eg-desc">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-im.ww uid="虞佳"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc">
+            <div class="eg-title">等同于</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+&lt;a target="_blank" rel="noopener noreferrer" href="//awp.taobao.com/bs/wwlight.html?ver=3&touid=虞佳&siteid=cntaobao&status=2&charset=utf-8"&gt;
+    &lt;img src="//amos.alicdn.com/online.aw?v=2&uid=虞佳&site=cntaobao&s=2&charset=utf-8"/&gt;
+&lt;/a&gt;
+            </pre>
+        </div>
+    </div>
+</div>

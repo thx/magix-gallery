@@ -568,11 +568,9 @@ module.exports = {
             max = rule[1];
         let tip = rule[2] || I18n['form.check.range'];
 
-        val = parseFloat(val);
-        if (isNaN(val)) {
-            valid = false;
-        } else {
-            valid = val && (val >= min) && (val <= max);
+        val = $.trim(val);
+        if(val){
+            valid = (+val >= +min) && (+val <= +max);
         }
 
         return {

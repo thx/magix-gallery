@@ -1,0 +1,55 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10">
+            <span class="color-9">说明：</span>
+            选项包含图片内容
+        </div>
+        <div class="mb20">
+            <mx-dropdown class="w200" 
+                list="{{@list}}"></mx-dropdown>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-dropdown class="w200" 
+    list="&#123;&#123;@list&#125;&#125;"&gt;&lt;/mx-dropdown&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [&#123;
+            value: 1,
+            text: '&lt;img style="width: 50px; height: 50px; margin: 8px 4px 8px 0;" src="https://img.alicdn.com/bao/uploaded/i2/13498885/O1CN01yAamtY2FVNaDTQjt2_!!0-saturn_solar.jpg"/&gt;2019夏装新款韩版女装宽松打底潮上衣短袖T恤OM80147婏'
+        &#125;, &#123;
+            value: 2,
+            text: '&lt;img style="width: 50px; height: 50px; margin: 8px 4px 8px 0;" src="https://img.alicdn.com/bao/uploaded/i3/13498885/O1CN01Zo87cQ2FVNaHt6Bt2_!!0-saturn_solar.jpg"/&gt;韩都衣舍2019夏装新款女装韩版显瘦打底衫圆领套头T恤IG8397僥'
+        &#125;, &#123;
+            value: 3,
+            text: '&lt;img style="width: 50px; height: 50px; margin: 8px 4px 8px 0;" src="https://img.alicdn.com/bao/uploaded/i2/13498885/TB2NE.eoA9WBuNjSspeXXaz5VXa_!!0-saturn_solar.jpg"/&gt;韩都衣舍2019夏装新款女装韩版宽松打底上衣潮短袖T恤JW12746筱'
+        &#125;];
+        this.updater.digest(&#123;
+            list: list
+        &#125;);
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

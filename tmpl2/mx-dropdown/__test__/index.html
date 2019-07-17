@@ -1,0 +1,79 @@
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo',
+        subs: [{
+            name: '搜索框+事件处理',
+            key: viewId + '_demo2'
+        },{
+            name: '带图片选项',
+            key: viewId + '_demo31'
+        },{
+            name: '分组',
+            key: viewId + '_demo1'
+        },{
+            name: 'hover展开',
+            key: viewId + '_demo12'
+        },{
+            name: '前缀',
+            key: viewId + '_demo15'
+        },{
+            name: '禁选',
+            key: viewId + '_demo5'
+        },{
+            name: '自定义key',
+            key: viewId + '_demo3'
+        },{
+            name: '向上展开',
+            key: viewId + '_demo17'
+        },{
+            name: '空文案定制',
+            key: viewId + '_demo14'
+        },{
+            name: '简单数组',
+            key: viewId + '_demo4'
+        },{
+            name: '选项提示',
+            key: viewId + '_demo21'
+        },{
+            name: 'mx-dropdown.item',
+            key: viewId + '_demo6'
+        },{
+            name: '小尺寸展示',
+            key: viewId + '_demo30'
+        }]
+    }, {
+        name: 'API',
+        key: viewId + '_api'
+    }, {
+        name: 'Event',
+        key: viewId + '_event'
+    }]}}"></div>
+    
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <div class="clearfix mb20">
+        <div class="half">
+            <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+            <div mx-view="@./14" id="{{=viewId}}_demo14"></div>
+            <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
+            <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
+            <div mx-view="@./17" id="{{=viewId}}_demo17"></div>
+            <div mx-view="@./30" id="{{=viewId}}_demo30"></div>
+            <div mx-view="@./21" id="{{=viewId}}_demo21"></div>
+            <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
+        </div>
+        <div class="half">
+            <div mx-view="@./31" id="{{=viewId}}_demo31"></div>
+            <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+            <div mx-view="@./15" id="{{=viewId}}_demo15"></div>
+            <div mx-view="@./12" id="{{=viewId}}_demo12"></div>
+            <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
+        </div>
+    </div>
+
+    <mx-title.second content="API" id="{{=viewId}}_api"/>
+    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
+
+    <mx-title.second content="Event" id="{{=viewId}}_event"/>
+    <div mx-view="__test__/event?options={{@events}}"></div>
+</div>

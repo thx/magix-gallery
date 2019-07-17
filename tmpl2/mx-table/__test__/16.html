@@ -1,0 +1,70 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix lh22">
+            <span class="color-9">以下示例：</span>
+            <span>表头吸顶，默认相对于window吸顶</span>
+        </div>
+        <mx-table class="mb20" sticky="true">
+            <table class="table">
+                <thead>
+                    <tr>
+                        {{for(let i=0;i<5;i++)}}
+                        <th>示例字段{{=i}}</th>
+                        {{/for}}
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{for(let j=0;j<3;j++)}}
+                    <tr>
+                        {{for(let i=0;i<5;i++)}}
+                        <td>示例字段{{=i}}</td>
+                        {{/for}}
+                        <td>
+                            <div class="operations">
+                                <a href="javascript:;" class="btn btn-white btn-small">操作</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/for}}
+                </tbody>
+            </table>
+        </mx-table>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-table sticky="true"&gt;
+    &lt;table class="table"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;
+            &lt;th&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/th&gt;
+            &#123;&#123;/for&#125;&#125;
+            &lt;th&gt;操作&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &#123;&#123;for(let j=0;j&lt;3;j++)&#125;&#125;
+        &lt;tr&gt;
+            &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;
+            &lt;td&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+            &#123;&#123;/for&#125;&#125;
+            &lt;td&gt;
+                &lt;div class="operations"&gt;
+                    &lt;a href="javascript:;" class="btn btn-white btn-small"&gt;操作&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &#123;&#123;/for&#125;&#125;
+    &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-table&gt;
+</pre>
+    </div>
+</div>

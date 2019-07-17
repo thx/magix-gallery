@@ -1,0 +1,83 @@
+<div class="main" style="min-height: {{=viewHeight}}px;">
+    <div class="main-nav" style="width: {{=leftWidth}}px;">
+        {{each stepInfos as step}}
+        <div class="main-step {{if (step.index == curStepIndex)}} step-current {{/if}} {{if step.locked}} step-locked {{/if}}">
+            <div class="step-over">
+                <a href="javascript:;" class="link step-over clearfix {{if ((step.index == curStepIndex) && (curSubStepIndex == -1))}} link-on {{/if}} "
+                    data-sub="-1"
+                    {{if !step.locked}} mx-click="nav({stepIndex:{{=step.index}}})" {{/if}}>
+                    {{if step.icon}}
+                    <span class="over-icon fl">{{!step.icon}}</span>
+                    {{/if}}
+                    <span class="fl">{{=step.label}}</span>
+                </a>
+            </div>
+            {{if (!step.locked && step.subs.length > 1)}}
+            <div>
+                {{each step.subs as sub}}
+                <div class="step-sub">
+                    <a href="javascript:;" class="link {{if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))}} link-on {{/if}}"
+                        data-sub="{{=sub.index}}"    
+                        mx-click="nav({stepIndex:{{=step.index}},subStepIndex:{{=sub.index}}})">
+                        {{=sub.label}}
+                    </a>
+                </div>
+                {{/each}}
+            </div>
+            {{/if}}
+            {{if (step.index == curStepIndex)}}
+            <i class="mc-iconfont arrow-icon">&#xe602;</i>
+            {{/if}}
+            {{if step.locked}}
+            <i class="mc-iconfont locked-icon">&#xe759;</i>
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
+    <div class="main-content" style="padding-left: {{=leftWidth}}px;">
+        <div class="content-title">{{=curStepInfo.label}}</div>
+
+        <div class="content-body">
+            <div>
+                {{each curStepInfo.subs as sub}}
+                    <div class="content-box"
+                        style="padding-right: {{=(curStepInfo.rightWidth + 20)}}px;">
+                        <mx-vframe src="{{=sub.view}}?info={{@sub}}" 
+                            id="sub_frame_{{=sub.index}}">
+                            <mx-loading/>
+                        </mx-vframe>
+                        {{if sub.sideWrapper}}
+                        <mx-vframe src="{{=sub.sideWrapper}}?data={{@sub.sideData}}" class="content-side"
+                            style="width: {{=curStepInfo.rightWidth}}px;">
+                            <mx-loading/>
+                        </mx-vframe>
+                        {{/if}}
+                    </div>
+                {{/each}}
+            </div>
+            {{if curStepInfo.sideWrapper}}
+            <mx-vframe src="{{=curStepInfo.sideWrapper}}?data={{@curStepInfo.sideData}}" class="content-side"
+                style="width: {{=curStepInfo.rightWidth}}px;">
+                <mx-loading/>
+            </mx-vframe>
+            {{/if}}
+        </div>
+
+        {{if !curStepInfo.customTrigger}}
+        <div class="content-footer">
+            <div>
+                {{if curStepInfo.prevTip}}
+                <a href="javascript:;" class="btn min-width-100 mr20"
+                    mx-click="prev()">{{=curStepInfo.prevTip}}</a>
+                {{/if}}
+    
+                {{if curStepInfo.nextTip}}
+                <a href="javascript:;" class="btn min-width-100 btn-brand"
+                    mx-click="next()">{{=curStepInfo.nextTip}}</a>
+                {{/if}}
+            </div>
+            <div id="{{=viewId}}_error" class="error-node"></div>
+        </div>
+        {{/if}}
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="color-9 mb20">
+            <i class="mc-iconfont displacement-2 mr5">&#xe6ac;</i>
+            会根据屏幕可视范围对预览大小进行修正，<span class="color-brand">预览width，height必配</span>
+        </div>
+
+        <!-- iframe跳转测试 -->
+        <!-- <mx-preview class="demo"
+            type="iframe"
+            url="https://huodong.m.taobao.com/act/snipcode.html?_wml_code=gpZos%2B9vvLKIqEngxxXZbe8YlLBLtbDGT%2BaYVtkPXuE%3D#__c05d508631"
+            width="1280"
+            height="720"
+            max-width="100"
+            max-height="100"/> -->
+
+        <mx-preview class="demo"
+            type="iframe"
+            url="//kb-render.alicdn.com/html/69961/2018/05/08/f1a2711e-e9057e21-14941396.html"
+            width="1280"
+            height="720"
+            max-width="100"
+            max-height="100"/>
+        <mx-preview class="demo"
+            type="iframe"
+            url="//kb-render.alicdn.com/html/10167/2018/05/08/2ae9a14d-ba8eb686-14928142.html"
+            width="586"
+            height="325"
+            max-width="100"
+            max-height="100"/>
+        <mx-preview class="demo"
+            type="iframe"
+            url="//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html"
+            width="300"
+            height="250"
+            max-width="100"
+            max-height="100"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">html 预览</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-preview class="demo"
+    type="iframe"
+    url="//kb-render.alicdn.com/html/69961/2018/05/08/f1a2711e-e9057e21-14941396.html"
+    width="1280"
+    height="720"
+    max-width="100"
+    max-height="100"/&gt;
+
+&lt;mx-preview class="demo"
+    type="iframe"
+    url="//kb-render.alicdn.com/html/10167/2018/05/08/2ae9a14d-ba8eb686-14928142.html"
+    width="586"
+    height="325"
+    max-width="100"
+    max-height="100"/&gt;
+    
+&lt;mx-preview class="demo"
+    type="iframe"
+    url="//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html"
+    width="300"
+    height="250"
+    max-width="100"
+    max-height="100"/&gt;</pre>
+    </div>
+</div>

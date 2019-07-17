@@ -1,0 +1,38 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="color-9 mb20 clearfix">
+            <i class="mc-iconfont displacement-2 mr5 fl">&#xe6ac;</i>
+            <div class="fl">
+                <div>缩略图展示xiaotu<span class="color-brand">预览width，height必配</span></div>
+                <div>datu按照实际比例展示</div>
+            </div>
+        </div>
+        <mx-preview class="demo"
+            format="23"
+            datu-url="//img.alicdn.com/simba/img/TB1HcdJr49YBuNjy0Ffwu0IsVXa.png"
+            xiaotu-url="//img.alicdn.com/simba/img/TB1pJkOrGSWBuNjSsrbwu10mVXa.png"
+            click-url="//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html"
+            width="190"
+            height="43"
+            max-width="100"
+            max-height="100"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">套图（业务场景大小图）预览</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-preview class="demo"
+    format="23"
+    datu-url="//img.alicdn.com/simba/img/TB1HcdJr49YBuNjy0Ffwu0IsVXa.png"
+    xiaotu-url="//img.alicdn.com/simba/img/TB1pJkOrGSWBuNjSsrbwu10mVXa.png"
+    click-url="//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html"
+    width="190"
+    height="43"
+    max-width="100"
+    max-height="100"/&gt;</pre>
+    </div>
+</div>

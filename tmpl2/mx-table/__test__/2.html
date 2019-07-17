@@ -1,0 +1,71 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">该示例：</span>
+            默认展开第一行下方操作项 + 选中行展示操作项
+        </div>
+        <mx-table class="mb20">
+            <table class="table">
+                <thead>
+                    <tr>
+                        {{for(let i=0;i<5;i++)}}
+                        <th width="{{=(100*(i+1))}}">示例{{=i}}</th>
+                        {{/for}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{for(let j=0;j<3;j++)}}
+                    <tr>
+                        {{for(let i=0;i<5;i++)}}
+                            <td>示例内容{{=i}}</td>
+                        {{/for}}
+                    </tr>
+                    <tr class="operation-tr">
+                        <td colspan="5">
+                            <a href="javascript:;" class="btn btn-white btn-small mr10">操作</a>
+                            <a href="javascript:;" class="btn btn-white btn-small mr10">操作</a>
+                            <a href="javascript:;" class="btn btn-white btn-small">操作</a>
+                        </td>
+                    </tr>
+                    {{/for}}
+                </tbody>
+            </table>
+        </mx-table>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-table&gt;
+    &lt;table class="table"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;
+                &lt;th width="&#123;&#123;=(100*(i+1))&#125;&#125;"&gt;示例&#123;&#123;=i&#125;&#125;&lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;3;j++)&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;
+                    &lt;td&gt;示例内容&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &lt;tr class="operation-tr"&gt;
+                &lt;td colspan="5"&gt;
+                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10"&gt;操作&lt;/a&gt;
+                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10"&gt;操作&lt;/a&gt;
+                    &lt;a href="javascript:;" class="btn btn-white btn-small"&gt;操作&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-table&gt;</pre>
+    </div>
+</div>

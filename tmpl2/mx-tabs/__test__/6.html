@@ -1,0 +1,44 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10">
+            <mx-tabs.box    
+                disabled="true"
+                list="[{
+                    text: '模块1',
+                    value: 1
+                },{
+                    text: '模块2',
+                    value: 2
+                }]"/>
+        </div>
+
+        <mx-tabs.box
+            mode="hollow"
+            disabled="true"
+            list="[{
+                text: '模块1',
+                value: 1
+            },{
+                text: '模块2',
+                value: 2
+            }]"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">可直接传数组 + 禁用</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-tabs.box
+    disabled="true"
+    list="[&#123;
+        text: '模块1',
+        value: 1
+    &#125;,&#123;
+        text: '模块2',
+        value: 2
+    &#125;]"/&gt;</pre>
+    </div>
+</div>

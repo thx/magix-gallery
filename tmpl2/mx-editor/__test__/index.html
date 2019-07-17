@@ -1,0 +1,43 @@
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo',
+        subs: [{
+            name: '自定义模板',
+            key: viewId + '_demo1'
+        },{
+            name: '表格中',
+            key: viewId + '_demo3'
+        },{
+            name: '小号输入框',
+            key: viewId + '_demo2'
+        },{
+            name: '多行缩略',
+            key: viewId + '_demo4'
+        }]
+    }, {
+        name: 'API',
+        key: viewId + '_api'
+    }, {
+        name: 'Event',
+        key: viewId + '_event'
+    }]}}"></div>
+    
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <div class="clearfix mb20">
+        <div class="half">
+            <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+            <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
+        </div>
+        <div class="half">
+            <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
+            <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+        </div>
+    </div>
+    
+    <mx-title.second content="API" id="{{=viewId}}_api"/>
+    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
+    
+    <mx-title.second content="Event" id="{{=viewId}}_event"/>
+    <div mx-view="__test__/event?options={{@events}}"></div>
+</div>

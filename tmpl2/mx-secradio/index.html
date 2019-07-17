@@ -1,0 +1,31 @@
+{{if needExpand}}
+<div class="line all" mx-click="@{toggleAll}()">
+    {{if close}}{{=text.expand}}{{else}}{{=text.collapse}}{{/if}}{{if prefix}}{{=prefix}}{{/if}}
+</div>
+{{/if}}
+<div class="scroll-y" {{if maxHeight}} style="max-height: {{=maxHeight}}px;" {{/if}}>
+{{each list as item itemIndex}}
+    <div class="line">
+        <label mx-click="@{toggleOne}({index:{{=itemIndex}}})">
+            {{if needExpand}}
+            <i class="mc-iconfont oper">
+                {{if item.close}}&#xe65b;{{else}}&#xe65a;{{/if}}
+            </i>
+            {{/if}}
+            {{if parentPrefix}}{{=parentPrefix}}：{{/if}}{{=item.text}}
+        </label>
+    </div>
+    {{each item.subs as sub}}
+    <div class="line sub {{if item.close}} close {{/if}}">
+        <label>
+            <input class="radio" type="radio"
+                value="{{=sub.value}}"
+                name="{{=viewId}}_radio" 
+                {{if (selected == sub.value)}} checked="true" {{/if}}
+                mx-change="@{check}({value:{{=sub.value}}})"/>
+            {{if prefix}}{{=prefix}}：{{/if}}{{=sub.text}}
+        </label>
+    </div>
+    {{/each}}
+{{/each}}
+</div>

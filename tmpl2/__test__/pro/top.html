@@ -1,0 +1,128 @@
+<mx-effects.notice class="mb20 mr20"
+    type="highlight"
+    border="true"
+    content="脚手架 boot.ts 中 merge 文件 lib/scroll.js，view 上挂载 scrollIfNeed，该方式监听参数变动返回容器顶部<br/>this.scrollIfNeed('相对滚定的节点，如body',['参数1', '参数2']);"/>
+
+<mx-title.second
+    content="使用示例"/>
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">翻页的时候返回顶部</div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>text</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{each list as item}}
+                <tr>
+                    <td>{{=item.name}}</td>
+                    <td>{{=item.text}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <div class="table-pager-wrapper">
+            <mx-pagination 
+                total="{{=count}}" 
+                size="{{=pageSize}}" 
+                page="{{=currentPage}}" 
+                mx-change="changePager()" />
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;table class="table"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;name&lt;/th&gt;
+            &lt;th&gt;text&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &#123;&#123;each list as item&#125;&#125;
+        &lt;tr&gt;
+            &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;
+            &lt;td&gt;&#123;&#123;=item.text&#125;&#125;&lt;/td&gt;
+        &lt;/tr&gt;
+        &#123;&#123;/each&#125;&#125;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="table-pager-wrapper"&gt;
+    &lt;mx-pagination 
+        total="&#123;&#123;=count&#125;&#125;" 
+        size="&#123;&#123;=pageSize&#125;&#125;" 
+        page="&#123;&#123;=currentPage&#125;&#125;" 
+        mx-change="changePager()" /&gt;
+&lt;/div&gt;</pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Router = Magix.Router;
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    init() &#123;
+        let that = this;
+        that.observeLocation(['currentPage', 'pageSize']);
+        that.scrollIfNeed('body', ['currentPage', 'pageSize']);
+
+        let list = [], count = 100;
+        for (let index = 0; index &lt; count; index++) &#123;
+            list.push(&#123;
+                name: 'name' + (index + 1),
+                text: 'text' + (index + 1)
+            &#125;)
+        &#125;
+
+        that.updater.set(&#123;
+            allList: list,
+            count: count
+        &#125;)
+    &#125;,
+    render() &#123;
+        let that = this;
+        let data = that.updater.get();
+        let locParams = Router.parse().params;
+        let allList = data.allList;
+        let currentPage = locParams.currentPage || 1,
+            pageSize = locParams.pageSize || 20;
+
+        let list = allList.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+        that.updater.digest(&#123;
+            list,
+            currentPage,
+            pageSize
+        &#125;);
+    &#125;,
+    'changePager&lt;change&gt;'(e) &#123;
+        // e.page 当前第几页
+        // e.size 每页多少条
+        Router.to(&#123;
+            currentPage: e.page,
+            pageSize: e.size
+        &#125;)
+    &#125;
+&#125;);</pre>
+        </div>
+    </div>
+</div>

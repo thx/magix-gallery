@@ -1,0 +1,36 @@
+
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            可选择时分秒，"all"="hour,minute,second"
+        </div>
+
+        <div class="mb20">
+            <mx-calendar.datepicker class="w200"
+                time-type="all"
+                selected="{{=today}} 18:08:20"/>
+        </div>
+
+        <mx-calendar.datepicker class="w200"
+            time-type="hour,minute,second"
+            selected="{{=today}} 18:08:20"/>
+            
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-calendar.datepicker class="w200"
+    time-type="all"
+    selected="&#123;&#123;=today&#125;&#125; 18:08:20"/&gt;
+
+&lt;mx-calendar.datepicker class="w200"
+    time-type="hour,minute,second"
+    selected="&#123;&#123;=today&#125;&#125; 18:08:20"/&gt;</pre>
+    </div>
+</div>

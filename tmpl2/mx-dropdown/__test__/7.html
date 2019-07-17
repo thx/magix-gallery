@@ -1,0 +1,108 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix lh22">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>带分组的只能用mx-dropdown.item节点实现</div>
+                <div>不需要全选功能，配置need-all="false"</div>
+                <div>组上面需要全选功能在mx-dropdown.item上配置all="true"</div>
+                <div>展开选择浮层时会修正浮层到可视范围之内</div>
+            </div>
+        </div>
+        <div class="clearfix">
+            <mx-dropdown.multiple class="w200 fl"
+                need-all="false"
+                searchbox="true"
+                name="数字"
+                empty-text="请选择数字"
+                selected="{{=selected}}">
+                <mx-dropdown.item group="true" all="true">第一组</mx-dropdown.item>
+                {{each first as i}}
+                <mx-dropdown.item value="{{=i}}">{{=i}}</mx-dropdown.item>
+                {{/each}}
+                <mx-dropdown.item group="true" all="true">第二组</mx-dropdown.item>
+                {{each second as i}}
+                <mx-dropdown.item value="{{=i}}">{{=i}}</mx-dropdown.item>
+                {{/each}}
+            </mx-dropdown.multiple>
+            <a href="javascript:;" class="btn btn-brand ml20 fl" mx-click="changeData()">修改数据</a>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;div class="clearfix"&gt;
+    &lt;mx-dropdown.multiple class="w200 mr20 fl"
+        need-all="false"
+        searchbox="true"
+        name="数字"
+        empty-text="请选择数字"
+        selected="&#123;&#123;=selected&#125;&#125;"&gt;
+        &lt;mx-dropdown.item group="true" all="true"&gt;
+            第一组
+        &lt;/mx-dropdown.item&gt;
+        &#123;&#123;each first as i&#125;&#125;
+        &lt;mx-dropdown.item value="&#123;&#123;=i&#125;&#125;"&gt;&#123;&#123;=i&#125;&#125;&lt;/mx-dropdown.item&gt;
+        &#123;&#123;/each&#125;&#125;
+        &lt;mx-dropdown.item group="true" all="true"&gt;
+            第二组
+        &lt;/mx-dropdown.item&gt;
+        &#123;&#123;each second as i&#125;&#125;
+        &lt;mx-dropdown.item value="&#123;&#123;=i&#125;&#125;"&gt;&#123;&#123;=i&#125;&#125;&lt;/mx-dropdown.item&gt;
+        &#123;&#123;/each&#125;&#125;
+    &lt;/mx-dropdown.multiple&gt;
+
+    &lt;a class="btn btn-brand fl" href="javascript:;" 
+        mx-click="changeData()"&gt;修改数据&lt;/a&gt;
+&lt;/div&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let that = this;
+
+        let first = [],
+            second = [];
+        for (var i = 0; i &lt; 20; i++) &#123;
+            first.push('1' + i);
+            second.push('2' + i);
+        &#125;
+        that.updater.digest(&#123;
+            first,
+            second,
+            selected: [11, 12]
+        &#125;);
+    &#125;,
+    'changeData&lt;click&gt;' (e) &#123;
+        let first = [],
+            second = [];
+        for (var i = 0; i &lt; 20; i++) &#123;
+            first.push('3' + i);
+            second.push('4' + i);
+        &#125;
+
+        this.updater.digest(&#123;
+            first,
+            second,
+            selected: [31]
+        &#125;);
+    &#125;
+&#125;);</pre>
+    </div>
+</div>

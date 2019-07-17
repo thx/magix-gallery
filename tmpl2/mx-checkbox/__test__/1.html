@@ -1,0 +1,87 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <label class="mr20 w120">
+                <mx-checkbox name="{{=viewId}}_test" value="1"
+                    checked="true"/>
+                选中
+            </label>
+            <label class="mr20">
+                <mx-checkbox name="{{=viewId}}_test" value="2" 
+                    checked="true" 
+                    disabled="true"/>
+                选中禁选
+            </label>
+        </div>
+        <div class="mb20">
+            <label class="mr20 w120">
+                <mx-checkbox name="{{=viewId}}_test" value="3"/>
+                非选中
+            </label>
+            <label class="mr20">
+                <mx-checkbox name="{{=viewId}}_test" value="4" 
+                    disabled="true"/>
+                非选中禁选
+            </label>
+        </div>
+        <div class="mb20">
+            <label class="mr20 w120">
+                <mx-checkbox name="{{=viewId}}_test" value="5"
+                    indeterminate="true"/>
+                indeterminate
+            </label>
+            <label class="mr20">
+                <mx-checkbox name="{{=viewId}}_test" value="6" 
+                    indeterminate="true" 
+                    disabled="true"/>
+                indeterminate禁选
+            </label>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;label class="mr20"&gt;
+    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="1"
+        checked="true"/&gt;
+    选中
+&lt;/label&gt;
+
+&lt;label class="mr20"&gt;
+    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="2" 
+        checked="true" 
+        disabled="true"/&gt;
+    选中禁选
+&lt;/label&gt;
+
+&lt;label class="mr20"&gt;
+    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="3"/&gt;
+    非选中
+&lt;/label&gt;
+
+&lt;label class="mr20"&gt;
+    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="4" 
+        disabled="true"/&gt;
+    非选中禁选
+&lt;/label&gt;
+
+&lt;label class="mr20"&gt;
+    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="5"
+        indeterminate="true"/&gt;
+    indeterminate
+&lt;/label&gt;
+
+&lt;label class="mr20"&gt;
+    &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="6" 
+        indeterminate="true" 
+        disabled="true"/&gt;
+    indeterminate禁选
+&lt;/label&gt;
+        </pre>
+    </div>
+</div>

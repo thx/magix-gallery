@@ -1,0 +1,45 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10">垂直方向1:1:1:1等分，间隔5px</div>
+        <div class="mb40">
+            <mx-grid.row direction="col" height="100px" gutter="5px">
+                <mx-grid.col class="grid1"></mx-grid.col>
+                <mx-grid.col class="grid2"></mx-grid.col>
+                <mx-grid.col class="grid3"></mx-grid.col>
+                <mx-grid.col class="grid4"></mx-grid.col>
+            </mx-grid.row>
+        </div>
+
+        <div class="mb10">垂直方向1:3:1，间隔5px</div>
+        <mx-grid.row direction="col" height="100px" gutter="10px">
+            <mx-grid.col flex="1" class="grid1"></mx-grid.col>
+            <mx-grid.col flex="3" class="grid2"></mx-grid.col>
+            <mx-grid.col flex="1" class="grid3"></mx-grid.col>
+        </mx-grid.row>
+        
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;!-- 1:1:1:1 --&gt;
+&lt;mx-grid.row direction="col" height="100px" gutter="5px"&gt;
+    &lt;mx-grid.col class="grid1"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col class="grid2"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col class="grid3"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col class="grid4"&gt;&lt;/mx-grid.col&gt;
+&lt;/mx-grid.row&gt;
+
+&lt;!-- 1:3:1 --&gt;
+&lt;mx-grid.row direction="col" height="100px" gutter="10px"&gt;
+    &lt;mx-grid.col flex="1" class="grid1"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col flex="3" class="grid2"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col flex="1" class="grid3"&gt;&lt;/mx-grid.col&gt;
+&lt;/mx-grid.row&gt;
+        </pre>
+    </div>
+</div>

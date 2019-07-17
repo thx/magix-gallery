@@ -1,0 +1,38 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20"><span class="color-9">以下示例：</span>支持水平方向的排序</div>
+        <div class="clearfix">
+            <div class="mb20">
+                <span class="color-9 mr10">当前顺序：</span> {{=items}}
+            </div>
+            <ul class="clearfix"
+                mx-view="@../../mx-dragsort/index" 
+                view-horizonal="true"
+                view-vertical="false"
+                mx-dragfinish="drag()">
+                {{each items as item}}
+                <li class="item fl" data-value="{{=item}}">{{=item}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;ul class="clearfix"
+    mx-view="@../../mx-dragsort/index" 
+    view-horizonal="true"
+    view-vertical="false"
+    mx-dragfinish="drag()"&gt;
+    &#123;&#123;each items as item&#125;&#125;
+    &lt;li class="item fl" data-value="&#123;&#123;=item&#125;&#125;"&gt;&#123;&#123;=item&#125;&#125;&lt;/li&gt;
+    &#123;&#123;/each&#125;&#125;
+&lt;/ul&gt;
+        </pre>
+    </div>
+</div>

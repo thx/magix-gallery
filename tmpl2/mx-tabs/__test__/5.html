@@ -1,0 +1,35 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-tabs.box 
+            list="{{@[{
+                name: '模块1',
+                id: 1,
+                tips: '提示信息'
+            },{
+                name: '模块2',
+                id: 2
+            }]}}"
+            value-key="id"
+            text-key="name"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">自定义&nbsp;text-key&nbsp;和&nbsp;value-key</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-tabs.box
+    list="&#123;&#123;@[&#123;
+        name: '模块1',
+        id: 1,
+        tips: '提示信息'
+    &#125;,&#123;
+        name: '模块2',
+        id: 2
+    &#125;]&#125;&#125;"
+    value-key="id"
+    text-key="name"/&gt;</pre>
+    </div>
+</div>

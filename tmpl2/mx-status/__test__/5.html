@@ -1,0 +1,31 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 lh22 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">纯提示，无操作</div>
+        </div>
+        <mx-status.dropdown 
+            info="{{@{
+                value: 1,
+                text: '正在投放',
+                icon: '<i class=\"mc-iconfont\">&#xe683;</i>',
+                color: '#51a300'
+            }}}"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-status.dropdown 
+    info="&#123;&#123;@&#123;
+        value: 1,
+        text: '正在投放',
+        icon: '&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe683;&lt;/i&gt;',
+        color: '#51a300'
+    &#125;&#125;&#125;"/&gt;</pre>
+    </div>
+</div>

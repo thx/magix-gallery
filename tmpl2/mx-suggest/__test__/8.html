@@ -1,0 +1,99 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>动态更新list，初始化list为空，需要复现历史选中值，传入item = {text: '', value: ''} 完整对象</div>
+                <div>回车直接搜索当前关键词</div>
+            </div>
+        </div>
+        <div class="mb10">
+            <span class="color-9">当前选中：</span>{{=selected}}
+        </div>
+        <div class="mb20">
+            <mx-suggest class="w200"
+                id="{{=viewId}}_test"
+                selected="{{:selected{refresh:true}}}"
+                item="{{:item}}"
+                dynamic-enter="true"
+                mx-show="show()"
+                mx-focusout="hide()"/>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-suggest class="w200"
+    id="&#123;&#123;=viewId&#125;&#125;_test"
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"
+    item="&#123;&#123;:item&#125;&#125;"
+    dynamic-enter="true"
+    mx-show="show()"
+    mx-focusout="hide()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Form = require('@../../mx-form/index');
+let Validator = require('@../../mx-form/validator');
+let $ = require('$');
+let Vframe = Magix.Vframe;
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Form, Validator],
+    render() &#123;
+        this.updater.digest(&#123;
+            selected: ''
+        &#125;);
+    &#125;,
+    /**
+     * 显示下拉框时
+     */
+    'show&lt;show&gt;'(e) &#123;
+        let that = this;
+
+        // 输入框输入关键词时触发show
+        // 当前输入框输入的值
+        let keyword = e.keyword;
+        
+        let instance = Vframe.get(this.id + '_test');
+        instance.invoke('showLoading');
+
+        that['hide&lt;focusout&gt;']();
+        that.delayTimer = setTimeout(that.wrapAsync(() =&gt; &#123;
+            let list = [1, 2, 3].map(v =&gt; &#123;
+                return &#123;
+                    text: '测试' + v,
+                    value: v
+                &#125;;
+            &#125;)
+            instance.invoke('update', [list]);
+            instance.invoke('hideLoading');
+        &#125;), 1000);
+    &#125;,
+    /**
+     * 关闭下拉框时，包括输入框失去焦点时
+     */
+    'hide&lt;focusout&gt;'(e)&#123;
+        if (this.delayTimer) &#123;
+            clearTimeout(this.delayTimer);
+        &#125;
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,63 @@
-define("mx-popover/__test__/custom",["magix"],(r,a,e)=>{var i=r("magix");i.applyStyle("_zs_galleryar","._zs_galleryiX{border-radius:var(--border-radius)}._zs_galleryiX ._zs_galleryiY{padding:10px;background-color:var(--color-bg);border-top-left-radius:var(--border-radius);border-top-right-radius:var(--border-radius)}._zs_galleryiX ._zs_galleryiZ{float:left;width:33.3%;padding:10px}"),e.exports=i.View.extend({tmpl:function(r,a,e,i,l,d,t,s){if(e||(e=r),!l){var n={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},_=/[&<>"'`]/g,o=function(r){return"&"+n[r]+";"};l=function(r){return""+(null==r?"":r)},i=function(r){return l(r).replace(_,o)}}if(!d){var g={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},u=function(r){return g[r]},c=/[!')(*]/g;d=function(r){return encodeURIComponent(l(r)).replace(c,u)}}if(!s){var v=/[\\'"]/g;s=function(r){return l(r).replace(v,"\\$&")}}var z="",p=r.list;z+='<div mxa="_zs_gallerydz:_" class="_zs_galleryiX"><div mxs="_zs_gallerydz:_" class="_zs_galleryiY">标题标题</div><div mxa="_zs_gallerydz:a" class="clearfix">';for(var f=0,y=p.length;f<y;f++){z+='<div mxa="_zs_gallerydz:b" class="_zs_galleryiZ"><div mxa="_zs_gallerydz:c" class="mb5 color-9">'+i(p[f].name)+'</div><div mxs="_zs_gallerydz:a">-</div></div>'}return z+="</div></div>"},init:function(r){this.updater.set(r.data)},render:function(){i.Router.parse();this.updater.digest({})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-popover/__test__/custom",["magix"],(require,exports,module)=>{
+/*Magix*/
+
+var Magix = require("magix");
+Magix.applyStyle("_zs_gallery_mx-popover___test___custom_","._zs_gallery_mx-popover___test___custom_-custom {\n  border-radius: var(--border-radius);\n}\n._zs_gallery_mx-popover___test___custom_-custom ._zs_gallery_mx-popover___test___custom_-custom-title {\n  padding: 10px;\n  background-color: var(--color-bg);\n  border-top-left-radius: var(--border-radius);\n  border-top-right-radius: var(--border-radius);\n}\n._zs_gallery_mx-popover___test___custom_-custom ._zs_gallery_mx-popover___test___custom_-custom-item {\n  float: left;\n  width: 33.3%;\n  padding: 10px;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', list = $$.list; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerydz:_" class="_zs_gallery_mx-popover___test___custom_-custom"><div mxs="_zs_gallerydz:_" class="_zs_gallery_mx-popover___test___custom_-custom-title">标题标题</div><div mxa="_zs_gallerydz:a" class="clearfix">';
+    $line = 5;
+    $art = 'each list as item';
+    ;
+    $expr = '<%for (var $art_ixsykrgrk$art_i = 0, $art_ctmhtuyy$art_c = list.length; $art_ixsykrgrk$art_i < $art_ctmhtuyy$art_c; $art_ixsykrgrk$art_i++) {    var item = list[$art_ixsykrgrk$art_i]%>';
+    for (var $art_ixsykrgrk$art_i = 0, $art_ctmhtuyy$art_c = list.length; $art_ixsykrgrk$art_i < $art_ctmhtuyy$art_c; $art_ixsykrgrk$art_i++) {
+        var item = list[$art_ixsykrgrk$art_i];
+        $p += '<div mxa="_zs_gallerydz:b" class="_zs_gallery_mx-popover___test___custom_-custom-item"><div mxa="_zs_gallerydz:c" class="mb5 color-9">';
+        $line = 7;
+        $art = '=item.name';
+        ;
+        $p += ($expr = '<%=item.name%>', $e(item.name)) + '</div><div mxs="_zs_gallerydz:a">-</div></div>';
+        $line = 10;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-popover/__test__/custom.html';
+    throw msg;
+} return $p; },
+    init: function (e) {
+        var that = this;
+        this.updater.set(e.data);
+    },
+    render: function () {
+        var that = this;
+        var loc = Magix.Router.parse();
+        that.updater.digest({});
+    }
+});
+
+});

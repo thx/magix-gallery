@@ -1,0 +1,39 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-taginput class="w300"
+            list="{{@[{
+                name: 'test1',
+                id: 1
+            }, {
+                name: 'test2',
+                id: 2
+            }, {
+                name: 'test3',
+                id: 3
+            }]}}"
+            text-key="name"
+            value-key="id"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">自定义&nbsp;list-text&nbsp;和&nbsp;list-value</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-taginput class="w300"
+    list="&#123;&#123;@[&#123;
+        name: 'test1',
+        id: 1
+    &#125;, &#123;
+        name: 'test2',
+        id: 2
+    &#125;, &#123;
+        name: 'test3',
+        id: 3
+    &#125;]&#125;&#125;"
+    text-key="name"
+    value-key="id"/&gt;</pre>
+    </div>
+</div>

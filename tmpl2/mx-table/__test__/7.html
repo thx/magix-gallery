@@ -1,0 +1,90 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">该示例：</span>
+            吸顶 + 表头分组
+        </div>
+        <mx-table sticky="true">
+            <table class="table">
+                <thead>
+                    <!-- 二级结构的表头 -->
+                    <tr>
+                        <th rowspan="2">单个1</th>
+                        <th rowspan="2">单个2</th>
+                        <th class="field-group" colspan="2">
+                            <div class="group-name">第一组</div>
+                        </th>
+                        <th class="field-group" colspan="3">
+                            <div class="group-name">第二组</div>
+                        </th>
+                        <th class="field-group" colspan="4">
+                            <div class="group-name">第三组</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="field-item">点击率</th>
+                        <th class="field-item">点击单价</th>
+                        <th class="field-item">进店访客量</th>
+                        <th class="field-item">千次展现成本</th>
+                        <th class="field-item">展现量</th>
+                        <th class="field-item">消耗</th>
+                        <th class="field-item">收藏加购成本</th>
+                        <th class="field-item">回搜成本</th>
+                        <th class="field-item">成交订单金额</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{for(let j=0;j<3;j++)}}
+                    <tr>
+                        {{for(let i=0;i<11;i++)}}
+                        <td>{{=(i * 5000)}}</td>
+                        {{/for}}
+                    </tr>
+                    {{/for}}
+                </tbody>
+            </table>
+        </mx-table>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-table sticky="true"&gt;
+    &lt;table class="table"&gt;
+        &lt;thead&gt;
+            &lt;!-- 二级结构的表头 --&gt;
+            &lt;tr&gt;
+                &lt;th rowspan="2"&gt;单个1&lt;/th&gt;
+                &lt;th rowspan="2"&gt;单个2&lt;/th&gt;
+                &lt;th class="field-group" colspan="2"&gt;
+                    &lt;div class="group-name"&gt;组1&lt;/div&gt;
+                &lt;/th&gt;
+                &lt;th class="field-group" colspan="3"&gt;
+                    &lt;div class="group-name"&gt;组2&lt;/div&gt;
+                &lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;th class="field-item"&gt;组1-1&lt;/th&gt;
+                &lt;th class="field-item"&gt;组1-2&lt;/th&gt;
+                &lt;th class="field-item"&gt;组2-1&lt;/th&gt;
+                &lt;th class="field-item"&gt;组2-2&lt;/th&gt;
+                &lt;th class="field-item"&gt;组2-3&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;3;j++)&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;7;i++)&#125;&#125;
+                &lt;td&gt;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-table&gt;</pre>
+    </div>
+</div>

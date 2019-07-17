@@ -1,0 +1,60 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="pt10 pb10">
+            <a rel="noopener noreferrer" href="#!/header/all" class="link-brand" target="_blank">新页面打开完整示例</a>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-header 
+    navs="&#123;&#123;@navs&#125;&#125;"
+    cur="&#123;&#123;=cur&#125;&#125;"
+    logo="//img.alicdn.com/tfs/TB1Z0ggLPTpK1RjSZKPXXa3UpXa-534-98.png"
+    mx-navchange="change()"/&gt;</pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let navs = [&#123;
+            value: 1,
+            text: '营销中台'
+        &#125;, &#123;
+            value: 2,
+            text: '创意中台'
+        &#125;]
+        // 默认不选中任何一个
+        let cur = '';
+        this.updater.digest(&#123;
+            navs,
+            cur
+        &#125;);
+    &#125;,
+    'change&lt;navchange&gt;'(event) &#123;
+        // event.nav &#123;value: , text: &#125; 当前导航
+        let nav = event.nav;
+        this.updater.digest(&#123;
+            cur: nav.value
+        &#125;)
+    &#125;
+&#125;);</pre>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,147 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">当前结果：</span>
+            {{if inlay.vs}}
+            <span class="color-brand mr5">{{=inlay.dates.startStr}}</span>
+            <span class="mr5">对比</span>
+            <span class="color-brand-vs">{{=inlay.dates.endStr}}</span>
+            {{else}}
+            <span class="mr5">{{=inlay.dates.startStr}}</span>
+            <span class="mr5">至</span>
+            <span>{{=inlay.dates.endStr}}</span>
+            {{/if}}
+        </div>
+        <div>
+            <a href="javascript:;" class="btn btn-brand" 
+                mx-click="show()">自定义trigger显示日历面板</a>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">Trigger HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;a href="javascript:;" class="btn btn-brand" 
+    mx-click="show()"&gt;自定义trigger显示日历面板&lt;/a&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">Trigger JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Dialog = require('@../../mx-dialog/index');
+let Moment = require('moment');
+let $ = require('$');
+let Formater = 'YYYY-MM-DD';
+
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    mixins: [Dialog],
+    render() {
+        this.updater.digest(&#123;
+            inlay:&#123;
+                title: '自定义标题',
+                dates: &#123;
+                    startStr: Moment().format(Formater),
+                    endStr: Moment().add(2, 'days').format(Formater)
+                &#125;,
+                vsEnable: true,
+                vs: true,
+                inlay: true,
+                quickDates: ['passed5', 'passed10']
+            &#125;
+        &#125;);
+    &#125;,
+    'show&lt;click&gt;'(event)&#123;
+        let that = this;
+        let node = $(event.target);
+
+        let offset = node.offset();
+        let winScroll = $(window).scrollTop();
+        let top = offset.top + node.outerHeight() - winScroll + 10,
+            left = offset.left;
+
+        let inlay = that.updater.get('inlay');
+        that.mxDialog('@./pannel', &#123;
+            inlay: inlay,
+            submit: (newInlay) =>&#123;
+                that.updater.digest(&#123;
+                    inlay: newInlay
+                &#125;)
+            &#125;
+        &#125;, &#123;
+            width: 280,
+            top,
+            left,
+            mask: false,
+            closable: false
+        &#125;);
+    &#125;
+&#125;);</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">Pannel HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+            mx-success="done({id:3})">
+            <span class="desc-tip">{{!text3}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_3">
+&lt;mx-calendar.range 
+    configs="&#123;&#123;@inlayConfig&#125;&#125;"
+    mx-change="submit()" 
+    mx-cancel="hide()"/&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">Pannel JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+            mx-success="done({id:4})">
+            <span class="desc-tip">{{!text4}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_4">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@pannel.html',
+    init(e) &#123;
+        this.viewOptions = e;
+        this.updater.set(&#123;
+            inlayConfig: $.extend(true, &#123;&#125;, e.inlay)
+        &#125;)
+    &#125;,
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'submit&lt;change&gt;'(e) &#123;
+        // e.dates
+        // e.vs
+        let inlayConfig = this.updater.get('inlayConfig');
+        inlayConfig.dates = e.dates;
+        inlayConfig.vs = e.vs;
+        let viewOptions = this.viewOptions;
+        if(viewOptions.submit)&#123;
+            viewOptions.submit(inlayConfig);
+        &#125;
+        if (viewOptions.dialog) &#123;
+            viewOptions.dialog.close();
+        &#125;
+    &#125;,
+    'hide&lt;cancel&gt;'(e) &#123;
+        e.stopPropagation();
+        let viewOptions = this.viewOptions;
+        if (viewOptions.dialog) &#123;
+            viewOptions.dialog.close();
+        &#125;
+    &#125;
+&#125;);</pre>
+    </div>
+</div>

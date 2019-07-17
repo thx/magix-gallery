@@ -1,0 +1,27 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="pt20 pb20">
+            <mx-slider
+                max="200"
+                min="100"
+                value="120"
+                need-input="true"
+                disabled="true"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">禁止选择</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-slider
+    max="200"
+    min="100"
+    value="120"
+    need-input="true"
+    disabled="true"/&gt;</pre>
+    </div>
+</div>
