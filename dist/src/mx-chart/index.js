@@ -6,6 +6,14 @@
 define("mx-chart/index",["magix","../../chartpark/index","$"],(require,exports,module)=>{
 /*Magix,Chartx,$*/
 
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 var Magix = require("magix");
 var Chartx = require("../../chartpark/index");
 var $ = require("$");
@@ -39,29 +47,27 @@ module.exports = Magix.View.extend({
         }
         var _a = this.updater.get(), oldChartId = _a.chartId, oldOptions = _a.options, oldData = _a.data, oldVariables = _a.variables;
         var chartId = extra.chartId, options = extra.options, data = extra.data, variables = extra.variables, force = extra.force;
-        this.updater.set({ chartId: chartId, options: options, data: data, variables: variables });
+        this.updater.set({ chartId: chartId, options: __assign({}, options), data: data.slice(), variables: __assign({}, variables) });
         var chart = this.capture('chart');
+        var newChartOptions = Chartx.getOptions(chartId, options, data, variables) || options;
         if (!chart) {
-            var newChartOptions = Chartx.getOptions(chartId, options, data, variables);
             chart = Chartx.create(this.id, data, newChartOptions);
             this.capture('chart', chart);
             return false;
         }
         if (force || oldChartId !== chartId) {
-            var newChartOptions = Chartx.getOptions(chartId, options, data, variables);
             chart.reset(newChartOptions, data);
+            return false;
         }
-        else {
-            var userOptionsChange = stringify(options) !== stringify(oldOptions)
-                || stringify(variables) !== stringify(oldVariables);
-            var dataChange = stringify(data) !== stringify(oldData);
-            if (userOptionsChange) {
-                var newChartOptions = Chartx.getOptions(chartId, options, data, variables);
-                chart.reset(newChartOptions, data);
-            }
-            else if (dataChange) {
-                chart.resetData(data);
-            }
+        var userOptionsChange = stringify(options) !== stringify(oldOptions) || stringify(variables) !== stringify(oldVariables);
+        var dataChange = stringify(data) !== stringify(oldData);
+        if (userOptionsChange) {
+            chart.reset(newChartOptions, data);
+            return false;
+        }
+        if (dataChange) {
+            chart.resetData(data);
+            return false;
         }
         return false;
     },

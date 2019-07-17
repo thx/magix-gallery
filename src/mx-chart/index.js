@@ -37,31 +37,37 @@ module.exports = Magix.View.extend({
             data: oldData,
             variables: oldVariables
         } = this.updater.get();
+
         let {chartId, options, data, variables, force} = extra;
-        this.updater.set({chartId, options, data, variables});
+        this.updater.set({chartId, options: {...options}, data: [...data], variables: {...variables}});
         let chart = this.capture('chart');
         
+        let newChartOptions = Chartx.getOptions(chartId, options, data, variables) || options;
+
         if (!chart) {
-            let newChartOptions = Chartx.getOptions(chartId, options, data, variables);
             chart = Chartx.create(this.id, data, newChartOptions);
             this.capture('chart', chart);
             return false;
         }
-        if (force || oldChartId !== chartId) {
-            let newChartOptions = Chartx.getOptions(chartId, options, data, variables);
-            chart.reset(newChartOptions, data);
-        } else {
-            let userOptionsChange = stringify(options) !== stringify(oldOptions)
-                || stringify(variables) !== stringify(oldVariables);
-            let dataChange = stringify(data) !== stringify(oldData);
 
-            if (userOptionsChange) {
-                let newChartOptions = Chartx.getOptions(chartId, options, data, variables);
-                chart.reset(newChartOptions, data);
-            } else if (dataChange) {
-                chart.resetData(data);
-            }
+        if (force || oldChartId !== chartId) {
+            chart.reset(newChartOptions, data);
+            return false;
         }
+
+        let userOptionsChange = stringify(options) !== stringify(oldOptions) || stringify(variables) !== stringify(oldVariables);
+        let dataChange = stringify(data) !== stringify(oldData);
+
+        if (userOptionsChange) {
+            chart.reset(newChartOptions, data);
+            return false;
+        }
+
+        if (dataChange) {
+            chart.resetData(data);
+            return false;
+        }
+
         return false;
     },
     render() {
