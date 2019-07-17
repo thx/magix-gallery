@@ -28,7 +28,7 @@ module.exports = Base.extend({
     $line = 5;
     $art = '=src';
     ;
-    $p += ($expr = '<%=src%>', $e(src)) + '" frameborder="0" width="100%" height="340" allowtransparency="true" scrolling="no" marginheight="0" marginwidth="0" border="0"></iframe></div></div></div><div mxa="_zs_galleryw:d" class="clearfix"><div mxa="_zs_galleryw:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-third1"><div mxs="_zs_galleryw:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=src%>', $e(src)) + '" frameborder="0" allowtransparency="true" scrolling="no" marginheight="0" marginwidth="0" border="0" width="100%" height="340"></iframe></div></div></div><div mxa="_zs_galleryw:d" class="clearfix"><div mxa="_zs_galleryw:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-third1"><div mxs="_zs_galleryw:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 20;
     $art = '=viewId';
     ;

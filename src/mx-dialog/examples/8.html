@@ -3,9 +3,8 @@
         <div class="clearfix mb10 lh22">
             <div class="color-9 fl">beforeClose：</div>
             <div class="fl">
-                <div>关闭浮层之前调用（包括右上角关闭按钮，取消按钮）</div>
-                <div>return true; 继续调用dialog.close()</div>
-                <div>return false; 中断关闭</div>
+                <div>关闭浮层之前调用</div>
+                <div>return promise；resolve：继续调用dialog.close()；reject：中断关闭</div>
             </div>
         </div>
         <div class="clearfix mb10 lh22">
