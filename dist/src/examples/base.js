@@ -71,9 +71,9 @@ module.exports = Magix.View.extend({
     $line = 32;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_imbyadaim$art_i = 0, $art_ckllpnqtxym$art_c = headers.length; $art_imbyadaim$art_i < $art_ckllpnqtxym$art_c; $art_imbyadaim$art_i++) {    var h = headers[$art_imbyadaim$art_i]%>';
-    for (var $art_imbyadaim$art_i = 0, $art_ckllpnqtxym$art_c = headers.length; $art_imbyadaim$art_i < $art_ckllpnqtxym$art_c; $art_imbyadaim$art_i++) {
-        var h = headers[$art_imbyadaim$art_i];
+    $expr = '<%for (var $art_iguftqm$art_i = 0, $art_cjvnf$art_c = headers.length; $art_iguftqm$art_i < $art_cjvnf$art_c; $art_iguftqm$art_i++) {    var h = headers[$art_iguftqm$art_i]%>';
+    for (var $art_iguftqm$art_i = 0, $art_cjvnf$art_c = headers.length; $art_iguftqm$art_i < $art_cjvnf$art_c; $art_iguftqm$art_i++) {
+        var h = headers[$art_iguftqm$art_i];
         $p += '<a ';
         $line = 33;
         $art = 'if h.new';
@@ -201,9 +201,9 @@ module.exports = Magix.View.extend({
     $line = 47;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iixpypoh$art_i = 0, $art_cmidcbjke$art_c = list.length; $art_iixpypoh$art_i < $art_cmidcbjke$art_c; $art_iixpypoh$art_i++) {    var item = list[$art_iixpypoh$art_i]%>';
-    for (var $art_iixpypoh$art_i = 0, $art_cmidcbjke$art_c = list.length; $art_iixpypoh$art_i < $art_cmidcbjke$art_c; $art_iixpypoh$art_i++) {
-        var item = list[$art_iixpypoh$art_i];
+    $expr = '<%for (var $art_ieqacqjdiju$art_i = 0, $art_crcafv$art_c = list.length; $art_ieqacqjdiju$art_i < $art_crcafv$art_c; $art_ieqacqjdiju$art_i++) {    var item = list[$art_ieqacqjdiju$art_i]%>';
+    for (var $art_ieqacqjdiju$art_i = 0, $art_crcafv$art_c = list.length; $art_ieqacqjdiju$art_i < $art_crcafv$art_c; $art_ieqacqjdiju$art_i++) {
+        var item = list[$art_ieqacqjdiju$art_i];
         $p += ' ';
         $line = 48;
         $art = 'if item.name';
@@ -244,9 +244,9 @@ module.exports = Magix.View.extend({
         $line = 55;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_iescuxqwx$art_i = 0, $art_objnvvods$art_obj = item.subs, $art_culmdqcfuh$art_c = $art_objnvvods$art_obj.length; $art_iescuxqwx$art_i < $art_culmdqcfuh$art_c; $art_iescuxqwx$art_i++) {        var sub = $art_objnvvods$art_obj[$art_iescuxqwx$art_i]%>';
-        for (var $art_iescuxqwx$art_i = 0, $art_objnvvods$art_obj = item.subs, $art_culmdqcfuh$art_c = $art_objnvvods$art_obj.length; $art_iescuxqwx$art_i < $art_culmdqcfuh$art_c; $art_iescuxqwx$art_i++) {
-            var sub = $art_objnvvods$art_obj[$art_iescuxqwx$art_i];
+        $expr = '<%for (var $art_ifvzboh$art_i = 0, $art_objvlihxogwdu$art_obj = item.subs, $art_cgulqzvzj$art_c = $art_objvlihxogwdu$art_obj.length; $art_ifvzboh$art_i < $art_cgulqzvzj$art_c; $art_ifvzboh$art_i++) {        var sub = $art_objvlihxogwdu$art_obj[$art_ifvzboh$art_i]%>';
+        for (var $art_ifvzboh$art_i = 0, $art_objvlihxogwdu$art_obj = item.subs, $art_cgulqzvzj$art_c = $art_objvlihxogwdu$art_obj.length; $art_ifvzboh$art_i < $art_cgulqzvzj$art_c; $art_ifvzboh$art_i++) {
+            var sub = $art_objvlihxogwdu$art_obj[$art_ifvzboh$art_i];
             $p += '<a class="_zs_gallery_examples_base_-nav ';
             $line = 56;
             $art = 'if (sub.path == path)';
@@ -698,6 +698,11 @@ catch (ex) {
                                 path: '/error/index',
                                 icon: '&#xe611;'
                             }, {
+                                name: 'feedback',
+                                tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/uxradar/openapi/idgcdi" target="_blank"  rel="noopener noreferrer">UX Radar接入文档</a>',
+                                path: '/feedback/index',
+                                icon: '&#xe613;'
+                            }, {
                                 name: '万象客服问答',
                                 tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/wanxiang/technology/description" target="_blank"  rel="noopener noreferrer">服务窗接入wiki文档</a>',
                                 path: '/wanxiang/index',
@@ -722,7 +727,7 @@ catch (ex) {
                                 icon: '&#xe670;'
                             }, {
                                 name: '浮层',
-                                tip: 'Magix.View上挂载mxDialog（新开浮层），alert（提醒），confirm（二次确认）',
+                                tip: 'Magix.View上挂载mxDialog（新开浮层），alert（提醒），confirm（二次确认），点击空白处自动关闭浮层',
                                 path: '/dialog/index',
                                 icon: '&#xe7ff;'
                             }, {

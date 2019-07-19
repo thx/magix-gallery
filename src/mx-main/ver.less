@@ -1,42 +1,48 @@
 @step-circle-width: 42px;
-@step-gap: 5px;
+@step-side-gap: 5px;
+@step-gap: 16px;
+[mx-view*="mx-main/ver"] {
+    padding: @step-gap;
+    background-color: #e8ebf2;
+}
 
-.step{
+.step {
     position: relative;
     margin-bottom: 20px;
-    padding-left: @step-circle-width + 10;
-
-    .line{
+    padding-left: @step-circle-width + @step-gap;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    .line {
         position: absolute;
-        top: @step-circle-width + @step-gap;
+        top: @step-circle-width + @step-side-gap;
         left: @step-circle-width / 2;
         z-index: 2;
         width: 0;
         height: 100%;
         margin-left: -1px;
-        border-left: 2px solid var(--color-border);
+        border-left: 2px solid #fff;
     }
-
-    .circle{
+    .circle {
         position: absolute;
-        top: @step-gap;
+        top: @step-side-gap;
         left: 0;
         z-index: 3;
+        border-radius: 50%;
+        background-color: #fff;
+        transition: all var(--duration);
+        overflow: hidden;
+        cursor: pointer;
+    }
+    .circle,
+    .circle>* {
+        display: block;
         width: @step-circle-width;
         height: @step-circle-width;
-        border-radius: 50%;
-        border-width: 2px;
-        border-style: solid;
-        border-color: var(--color-border);
+        line-height: @step-circle-width;
         text-align: center;
-        background-color: var(--color-bg);
-        cursor: pointer;
-        transition: all var(--duration);
-        
-        >*{
-            line-height: @step-circle-width - 4;
-            color: #ccc;
-            font-weight: bold;
-        }
+        color: #ccc;
+        font-weight: bold;
+        font-size: 18px;
     }
 }

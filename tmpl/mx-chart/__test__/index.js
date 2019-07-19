@@ -12,12 +12,12 @@ module.exports = Magix.View.extend({
         }, {
             key: 'data',
             desc: '绘制图表用到的数据',
-            type: 'Array',
+            type: 'array',
             def: '[]'
         }, {
             key: 'variables',
             desc: '该字段的值会覆盖在chartpark中定义的variables',
-            type: 'Object',
+            type: 'object',
             def: '{}'
         }]
 

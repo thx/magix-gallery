@@ -22,8 +22,7 @@ module.exports = Magix.View.extend({
             def: 'false'
         }, {
             key: 'mask',
-            desc: `打开浮层时是否有深色透明度遮罩，不需要请手动false关闭
-<div class="color-brand">注意 mask=false 情况下，点击空白处自动关闭浮层</div>`,
+            desc: '打开浮层时是否有深色透明度遮罩，不需要请手动false关闭',
             type: 'boolean',
             def: 'true'
         }, {

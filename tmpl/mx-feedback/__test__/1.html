@@ -1,0 +1,35 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">上述“投放效果预估”功能对您是否有帮助？</span>
+            <mx-feedback class="color-brand"
+                fd-id="19">填写反馈（默认样式）</mx-feedback>
+        </div>
+        <div class="mb20">
+            <span class="color-9">上述“投放效果预估”功能对您是否有帮助？</span>
+            <mx-feedback class="color-brand"
+                fd-id="21"
+                fd-style="{{@{
+                    bottom: '200px'
+                }}}">填写反馈（自定义样式）</mx-feedback>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-feedback class="color-brand"
+    fd-id="19"&gt;填写反馈（默认样式）&lt;/mx-feedback&gt;
+
+&lt;mx-feedback class="color-brand"
+    fd-id="21"
+    fd-style="&#123;&#123;@&#123;
+        bottom: '200px'
+    &#125;&#125;&#125;"&gt;填写反馈（自定义样式）&lt;/mx-feedback&gt;
+        </pre>
+    </div>
+</div>

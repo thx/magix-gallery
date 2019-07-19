@@ -297,6 +297,11 @@ module.exports = Magix.View.extend({
                     path: '/error/index',
                     icon: '&#xe611;'
                 }, {
+                    name: 'feedback',
+                    tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/uxradar/openapi/idgcdi" target="_blank"  rel="noopener noreferrer">UX Radar接入文档</a>',
+                    path: '/feedback/index',
+                    icon: '&#xe613;'
+                }, {
                     name: '万象客服问答',
                     tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/wanxiang/technology/description" target="_blank"  rel="noopener noreferrer">服务窗接入wiki文档</a>',
                     path: '/wanxiang/index',
@@ -321,7 +326,7 @@ module.exports = Magix.View.extend({
                     icon: '&#xe670;'
                 }, {
                     name: '浮层',
-                    tip: 'Magix.View上挂载mxDialog（新开浮层），alert（提醒），confirm（二次确认）',
+                    tip: 'Magix.View上挂载mxDialog（新开浮层），alert（提醒），confirm（二次确认），点击空白处自动关闭浮层',
                     path: '/dialog/index',
                     icon: '&#xe7ff;'
                 }, {

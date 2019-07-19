@@ -58,7 +58,7 @@ catch (ex) {
                 def: 'false'
             }, {
                 key: 'mask',
-                desc: "\u6253\u5F00\u6D6E\u5C42\u65F6\u662F\u5426\u6709\u6DF1\u8272\u900F\u660E\u5EA6\u906E\u7F69\uFF0C\u4E0D\u9700\u8981\u8BF7\u624B\u52A8false\u5173\u95ED\n<div class=\"color-brand\">\u6CE8\u610F mask=false \u60C5\u51B5\u4E0B\uFF0C\u70B9\u51FB\u7A7A\u767D\u5904\u81EA\u52A8\u5173\u95ED\u6D6E\u5C42</div>",
+                desc: '打开浮层时是否有深色透明度遮罩，不需要请手动false关闭',
                 type: 'boolean',
                 def: 'true'
             }, {

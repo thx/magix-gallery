@@ -2,7 +2,6 @@ let Magix = require('magix');
 let $ = require('$');
 let Router = Magix.Router;
 let Base = require('examples/example');
-Magix.applyStyle('@ver-demo.less');
 
 module.exports = Base.extend({
     tmpl: '@ver-demo.html',

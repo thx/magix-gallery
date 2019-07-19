@@ -50,14 +50,14 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><div mxa="_zs_gallerycL:_" class="_zs_gallery_mx-indics_index_-header"><span mxs="_zs_gallerycL:_" class="fontsize-16">选择数据字段</span>';
+    $p += '"><div mxa="_zs_gallerycN:_" class="_zs_gallery_mx-indics_index_-header"><span mxs="_zs_gallerycN:_" class="fontsize-16">选择数据字段</span>';
     $line = 4;
     $art = 'if (limit > 0)';
     ;
     $expr = '<%if (limit > 0) {%>';
     if (limit > 0) {
         ;
-        $p += '<span mxa="_zs_gallerycL:a" class="color-9 font-tahoma bold ml10">';
+        $p += '<span mxa="_zs_gallerycN:a" class="color-9 font-tahoma bold ml10">';
         $line = 5;
         $art = '=selectedItems.length';
         ;
@@ -79,28 +79,28 @@ module.exports = Magix.View.extend({
     $expr = '<%if (!sortable) {%>';
     if (!sortable) {
         ;
-        $p += '<a mxs="_zs_gallerycL:a" href="javascript:;" class="link-brand fr" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a>';
+        $p += '<a mxs="_zs_gallerycN:a" href="javascript:;" class="link-brand fr" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a>';
         $line = 11;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxv mxa="_zs_gallerycL:b" class="_zs_gallery_mx-indics_index_-content">';
+    $p += '</div><div mxv mxa="_zs_gallerycN:b" class="_zs_gallery_mx-indics_index_-content">';
     $line = 14;
     $art = 'each groups as group';
     ;
-    $expr = '<%for (var $art_iilgzdswd$art_i = 0, $art_cchxwozcnzmq$art_c = groups.length; $art_iilgzdswd$art_i < $art_cchxwozcnzmq$art_c; $art_iilgzdswd$art_i++) {    var group = groups[$art_iilgzdswd$art_i]%>';
-    for (var $art_iilgzdswd$art_i = 0, $art_cchxwozcnzmq$art_c = groups.length; $art_iilgzdswd$art_i < $art_cchxwozcnzmq$art_c; $art_iilgzdswd$art_i++) {
-        var group = groups[$art_iilgzdswd$art_i];
-        $p += '<div mxv mxa="_zs_gallerycL:c" class="_zs_gallery_mx-indics_index_-line clearfix">';
+    $expr = '<%for (var $art_izmyzetjav$art_i = 0, $art_cczvrmyd$art_c = groups.length; $art_izmyzetjav$art_i < $art_cczvrmyd$art_c; $art_izmyzetjav$art_i++) {    var group = groups[$art_izmyzetjav$art_i]%>';
+    for (var $art_izmyzetjav$art_i = 0, $art_cczvrmyd$art_c = groups.length; $art_izmyzetjav$art_i < $art_cczvrmyd$art_c; $art_izmyzetjav$art_i++) {
+        var group = groups[$art_izmyzetjav$art_i];
+        $p += '<div mxv mxa="_zs_gallerycN:c" class="_zs_gallery_mx-indics_index_-line clearfix">';
         $line = 16;
         $art = 'if group.text';
         ;
         $expr = '<%if (group.text) {%>';
         if (group.text) {
             ;
-            $p += '<div mxa="_zs_gallerycL:d" class="_zs_gallery_mx-indics_index_-name">';
+            $p += '<div mxa="_zs_gallerycN:d" class="_zs_gallery_mx-indics_index_-name">';
             $line = 17;
             $art = '=group.text';
             ;
@@ -111,13 +111,13 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '<div mxv mxa="_zs_gallerycL:e" class="clearfix">';
+        $p += '<div mxv mxa="_zs_gallerycN:e" class="clearfix">';
         $line = 20;
         $art = 'each group.fields as field';
         ;
-        $expr = '<%for (var $art_ilslsrbkg$art_i = 0, $art_objzsvuhlo$art_obj = group.fields, $art_cjpvalkh$art_c = $art_objzsvuhlo$art_obj.length; $art_ilslsrbkg$art_i < $art_cjpvalkh$art_c; $art_ilslsrbkg$art_i++) {        var field = $art_objzsvuhlo$art_obj[$art_ilslsrbkg$art_i]%>';
-        for (var $art_ilslsrbkg$art_i = 0, $art_objzsvuhlo$art_obj = group.fields, $art_cjpvalkh$art_c = $art_objzsvuhlo$art_obj.length; $art_ilslsrbkg$art_i < $art_cjpvalkh$art_c; $art_ilslsrbkg$art_i++) {
-            var field = $art_objzsvuhlo$art_obj[$art_ilslsrbkg$art_i];
+        $expr = '<%for (var $art_ijizpxlak$art_i = 0, $art_objuwotdidsf$art_obj = group.fields, $art_cglstqmp$art_c = $art_objuwotdidsf$art_obj.length; $art_ijizpxlak$art_i < $art_cglstqmp$art_c; $art_ijizpxlak$art_i++) {        var field = $art_objuwotdidsf$art_obj[$art_ijizpxlak$art_i]%>';
+        for (var $art_ijizpxlak$art_i = 0, $art_objuwotdidsf$art_obj = group.fields, $art_cglstqmp$art_c = $art_objuwotdidsf$art_obj.length; $art_ijizpxlak$art_i < $art_cglstqmp$art_c; $art_ijizpxlak$art_i++) {
+            var field = $art_objuwotdidsf$art_obj[$art_ijizpxlak$art_i];
             $p += '<div mxv class="_zs_gallery_mx-indics_index_-item" style="width: ';
             $line = 21;
             $art = '=width';
@@ -219,13 +219,13 @@ module.exports = Magix.View.extend({
     $expr = '<%if (sortable) {%>';
     if (sortable) {
         ;
-        $p += '<div mxs="_zs_gallerycL:b" class="_zs_gallery_mx-indics_index_-drag-header"><div class="_zs_gallery_mx-indics_index_-drag-title">自定义字段</div><div class="_zs_gallery_mx-indics_index_-drag-oper"><span class="color-9 mr10">可拖动排序</span><a href="javascript:;" class="link-brand" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a></div></div><div mxa="_zs_gallerycL:f" class="_zs_gallery_mx-indics_index_-drag-wrapper" mx-view="mx-dragsort/index" mx-dragfinish="' + $viewId + 'drag()">';
+        $p += '<div mxs="_zs_gallerycN:b" class="_zs_gallery_mx-indics_index_-drag-header"><div class="_zs_gallery_mx-indics_index_-drag-title">自定义字段</div><div class="_zs_gallery_mx-indics_index_-drag-oper"><span class="color-9 mr10">可拖动排序</span><a href="javascript:;" class="link-brand" mx-click="' + $viewId + 'clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a></div></div><div mxa="_zs_gallerycN:f" class="_zs_gallery_mx-indics_index_-drag-wrapper" mx-view="mx-dragsort/index" mx-dragfinish="' + $viewId + 'drag()">';
         $line = 49;
         $art = 'each selectedItems as s';
         ;
-        $expr = '<%for (var $art_insmeiol$art_i = 0, $art_cvpgarxkn$art_c = selectedItems.length; $art_insmeiol$art_i < $art_cvpgarxkn$art_c; $art_insmeiol$art_i++) {        var s = selectedItems[$art_insmeiol$art_i]%>';
-        for (var $art_insmeiol$art_i = 0, $art_cvpgarxkn$art_c = selectedItems.length; $art_insmeiol$art_i < $art_cvpgarxkn$art_c; $art_insmeiol$art_i++) {
-            var s = selectedItems[$art_insmeiol$art_i];
+        $expr = '<%for (var $art_isvupiputr$art_i = 0, $art_chpkytvsns$art_c = selectedItems.length; $art_isvupiputr$art_i < $art_chpkytvsns$art_c; $art_isvupiputr$art_i++) {        var s = selectedItems[$art_isvupiputr$art_i]%>';
+        for (var $art_isvupiputr$art_i = 0, $art_chpkytvsns$art_c = selectedItems.length; $art_isvupiputr$art_i < $art_chpkytvsns$art_c; $art_isvupiputr$art_i++) {
+            var s = selectedItems[$art_isvupiputr$art_i];
             $p += '<div class="_zs_gallery_mx-indics_index_-drag" data-value="';
             $line = 50;
             $art = '=s.value';
