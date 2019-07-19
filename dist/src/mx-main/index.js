@@ -17,7 +17,7 @@ define("mx-main/index",["magix"],(require,exports,module)=>{
 var Magix = require("magix");
 var Router = Magix.Router;
 var Vframe = Magix.Vframe;
-Magix.applyStyle("_zs_gallery_mx-main_index_","._zs_gallery_mx-main_index_-main {\n  position: relative;\n  background-color: var(--color-bg);\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  background-color: #fff;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step {\n  position: relative;\n  padding: 10px 0 10px 20px;\n  border-bottom: 1px solid #f5f5f5;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-link {\n  color: #666;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-link:hover {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over {\n  line-height: 30px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over ._zs_gallery_mx-main_index_-over-icon > * {\n  position: relative;\n  top: 2px;\n  margin-right: 4px;\n  font-size: 18px;\n  color: #999;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-over:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub {\n  position: relative;\n  height: 30px;\n  line-height: 30px;\n  padding-left: 26px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:before {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 9px;\n  width: 0;\n  height: 30px;\n  border-left: 1px solid #adadad;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:after {\n  content: '';\n  position: absolute;\n  top: 15px;\n  left: 10px;\n  width: 6px;\n  height: 0;\n  border-top: 1px solid #adadad;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step-sub:last-child:before {\n  height: 16px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current {\n  background-color: var(--color-brand-opacity);\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on:hover {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on ._zs_gallery_mx-main_index_-over-icon > *,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-link-on:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-arrow-icon {\n  position: absolute;\n  top: 50%;\n  right: 8px;\n  margin-top: -7px;\n  font-size: 12px;\n  font-weight: bold;\n  color: var(--color-brand);\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-link,\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-link:hover {\n  color: #666;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-step-over:hover ._zs_gallery_mx-main_index_-over-icon > * {\n  color: #999;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-locked-icon {\n  position: absolute;\n  top: 50%;\n  right: 8px;\n  height: 18px;\n  margin-top: -9px;\n  font-size: 14px;\n  line-height: 18px;\n  font-weight: bold;\n  color: #eee;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-title {\n  height: 58px;\n  line-height: 58px;\n  text-align: center;\n  font-size: 20px;\n  border-bottom: 1px solid var(--color-border);\n  background-color: var(--color-bg);\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body {\n  position: relative;\n  margin-left: 20px;\n  margin-right: 20px;\n  background-color: #fff;\n  border-bottom-left-radius: var(--border-radius);\n  border-bottom-right-radius: var(--border-radius);\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-box {\n  position: relative;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  padding-left: 20px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-box:last-child {\n  padding-bottom: 40px;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-body ._zs_gallery_mx-main_index_-content-side {\n  position: absolute;\n  top: 0;\n  right: 0;\n  height: 100%;\n  padding-top: 20px;\n  padding-left: 20px;\n  border-left: 1px solid var(--color-border);\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-footer {\n  text-align: center;\n  padding: 40px 0;\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-error-node {\n  display: inline-block;\n  position: relative;\n  margin-top: 10px;\n  color: var(--color-red);\n}\n._zs_gallery_mx-main_index_-main ._zs_gallery_mx-main_index_-error-node ._zs_gallery_mx-main_index_-error-icon {\n  position: absolute;\n  left: -20px;\n  top: 0;\n  color: var(--color-red);\n}\n");
+Magix.applyStyle("_zs_gallery_mx-main_index_","[mx-view*=\"mx-main/index\"] {\n  position: relative;\n  background-color: #e8ebf2;\n}\n._zs_gallery_mx-main_index_-main-nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  padding-top: 16px;\n  background-color: var(--app-nav-bg);\n  z-index: 3;\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step {\n  position: relative;\n  font-size: 14px;\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step::before {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 24px;\n  bottom: 0;\n  width: 0;\n  border-left: 1px solid #4D5873;\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step:first-child::before {\n  top: 23px;\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step:last-child::before {\n  bottom: 23px;\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step {\n  position: relative;\n  display: block;\n  height: 46px;\n  line-height: 46px;\n  padding-left: 36px;\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step ._zs_gallery_mx-main_index_-text {\n  color: #fff;\n  opacity: 0.5;\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step ._zs_gallery_mx-main_index_-pbg {\n  opacity: 0;\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: -1;\n  width: 100%;\n  height: 100%;\n  background-image: linear-gradient(-90deg, var(--app-brand) 0%, var(--app-brand-gradient) 100%);\n  background-color: var(--app-brand);\n  transition: all var(--duration);\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step:hover ._zs_gallery_mx-main_index_-text {\n  opacity: 1;\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step._zs_gallery_mx-main_index_-on ._zs_gallery_mx-main_index_-text {\n  opacity: 1;\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-step._zs_gallery_mx-main_index_-on ._zs_gallery_mx-main_index_-pbg {\n  opacity: 1;\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-parent ._zs_gallery_mx-main_index_-idx {\n  position: absolute;\n  top: 50%;\n  left: 16px;\n  width: 16px;\n  height: 16px;\n  margin-top: -8px;\n  border-radius: 50%;\n  background-color: #4D5873;\n  color: #fff;\n  text-align: center;\n  line-height: 16px;\n  font-size: 12px;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step ._zs_gallery_mx-main_index_-child::before {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: 24px;\n  width: 10px;\n  height: 0;\n  border-top: 1px solid #4D5873;\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-parent ._zs_gallery_mx-main_index_-text {\n  opacity: 1;\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-parent ._zs_gallery_mx-main_index_-pbg {\n  opacity: 0.2;\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-parent._zs_gallery_mx-main_index_-on ._zs_gallery_mx-main_index_-idx {\n  background-color: #fff;\n  color: var(--app-brand);\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-current ._zs_gallery_mx-main_index_-parent._zs_gallery_mx-main_index_-on ._zs_gallery_mx-main_index_-pbg {\n  opacity: 1;\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-step {\n  cursor: not-allowed;\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-step:hover ._zs_gallery_mx-main_index_-text {\n  opacity: 0.5;\n}\n._zs_gallery_mx-main_index_-main-nav ._zs_gallery_mx-main_index_-main-step._zs_gallery_mx-main_index_-step-locked ._zs_gallery_mx-main_index_-locked-icon {\n  position: absolute;\n  top: 50%;\n  right: 16px;\n  margin-top: -6px;\n  font-size: 14px;\n  font-weight: bold;\n  color: #4D5873;\n}\n._zs_gallery_mx-main_index_-main-content {\n  position: relative;\n  z-index: 2;\n}\n._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-box {\n  position: relative;\n  margin-bottom: 16px;\n  border-radius: var(--border-radius);\n  background-color: #fff;\n}\n._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-box ._zs_gallery_mx-main_index_-box-title {\n  padding: 8px 24px;\n  border-top-left-radius: var(--border-radius);\n  border-top-right-radius: var(--border-radius);\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-box ._zs_gallery_mx-main_index_-box-title ._zs_gallery_mx-main_index_-title-icon,\n._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-box ._zs_gallery_mx-main_index_-box-title ._zs_gallery_mx-main_index_-title-icon > *,\n._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-box ._zs_gallery_mx-main_index_-box-title ._zs_gallery_mx-main_index_-title-label,\n._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-box ._zs_gallery_mx-main_index_-box-title ._zs_gallery_mx-main_index_-title-tips {\n  display: inline-block;\n  height: 32px;\n  line-height: 32px;\n  vertical-align: middle;\n  overflow: hidden;\n}\n._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-box ._zs_gallery_mx-main_index_-box-title ._zs_gallery_mx-main_index_-title-icon {\n  margin-right: 5px;\n  color: #999;\n}\n._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-box ._zs_gallery_mx-main_index_-box-title ._zs_gallery_mx-main_index_-title-label {\n  font-size: 16px;\n}\n._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-box ._zs_gallery_mx-main_index_-box-title ._zs_gallery_mx-main_index_-title-tip {\n  margin-left: 20px;\n  color: #999;\n}\n._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-box ._zs_gallery_mx-main_index_-box-bd {\n  padding: 16px 24px;\n}\n._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-side {\n  position: absolute;\n  background-color: #fff;\n  border-radius: var(--border-radius);\n}\n._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-side ._zs_gallery_mx-main_index_-side-title {\n  padding: 8px 24px;\n  line-height: 32px;\n  font-size: 16px;\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-side ._zs_gallery_mx-main_index_-side-bd {\n  padding: 16px 24px;\n  color: #666;\n}\n._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-footer {\n  text-align: center;\n  padding: 40px 0;\n}\n._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-footer ._zs_gallery_mx-main_index_-footer-btn {\n  min-width: 100px;\n  margin-right: 20px;\n}\n._zs_gallery_mx-main_index_-main-content ._zs_gallery_mx-main_index_-content-footer ._zs_gallery_mx-main_index_-footer-btn:last-child {\n  margin-right: 0;\n}\n._zs_gallery_mx-main_index_-footer-error {\n  display: inline-block;\n  position: relative;\n  margin-top: 10px;\n  color: var(--color-red);\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -34,342 +34,326 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', viewHeight = $$.viewHeight, leftWidth = $$.leftWidth, stepInfos = $$.stepInfos, curStepIndex = $$.curStepIndex, curSubStepIndex = $$.curSubStepIndex, curStepInfo = $$.curStepInfo, viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div mxv class="_zs_gallery_mx-main_index_-main" style="min-height: ';
+} ; var $g = '', $_temp, $p = '', leftWidth = $$.leftWidth, stepInfos = $$.stepInfos, curStepIndex = $$.curStepIndex, curSubStepIndex = $$.curSubStepIndex, viewHeight = $$.viewHeight, gapWidth = $$.gapWidth, curStepInfo = $$.curStepInfo, rightWidth = $$.rightWidth, childInfos = $$.childInfos, viewId = $$.viewId; var $expr, $art, $line; try {
+    $p += '<div class="_zs_gallery_mx-main_index_-main-nav" style="width: ';
     $line = 1;
-    $art = '=viewHeight';
-    ;
-    $p += ($expr = '<%=viewHeight%>', $e(viewHeight)) + 'px;"><div class="_zs_gallery_mx-main_index_-main-nav" style="width: ';
-    $line = 2;
     $art = '=leftWidth';
     ;
     $p += ($expr = '<%=leftWidth%>', $e(leftWidth)) + 'px;">';
-    $line = 3;
-    $art = 'each stepInfos as step';
+    $line = 2;
+    $art = 'each stepInfos as step stepIndex';
     ;
-    $expr = '<%for (var $art_iogfvtfxei$art_i = 0, $art_cweyvadmk$art_c = stepInfos.length; $art_iogfvtfxei$art_i < $art_cweyvadmk$art_c; $art_iogfvtfxei$art_i++) {    var step = stepInfos[$art_iogfvtfxei$art_i]%>';
-    for (var $art_iogfvtfxei$art_i = 0, $art_cweyvadmk$art_c = stepInfos.length; $art_iogfvtfxei$art_i < $art_cweyvadmk$art_c; $art_iogfvtfxei$art_i++) {
-        var step = stepInfos[$art_iogfvtfxei$art_i];
+    $expr = '<%for (var stepIndex = 0, $art_cfyfjsrxr$art_c = stepInfos.length; stepIndex < $art_cfyfjsrxr$art_c; stepIndex++) {    var step = stepInfos[stepIndex]%>';
+    for (var stepIndex = 0, $art_cfyfjsrxr$art_c = stepInfos.length; stepIndex < $art_cfyfjsrxr$art_c; stepIndex++) {
+        var step = stepInfos[stepIndex];
         $p += '<div class="_zs_gallery_mx-main_index_-main-step ';
-        $line = 4;
+        $line = 3;
         $art = 'if (step.index == curStepIndex)';
         ;
         $expr = '<%if (step.index == curStepIndex) {%>';
         if (step.index == curStepIndex) {
             ;
             $p += ' _zs_gallery_mx-main_index_-step-current ';
-            $line = 4;
+            $line = 3;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += ' ';
-        $line = 4;
+        $line = 3;
         $art = 'if step.locked';
         ;
         $expr = '<%if (step.locked) {%>';
         if (step.locked) {
             ;
             $p += ' _zs_gallery_mx-main_index_-step-locked ';
+            $line = 3;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '"><a href="javascript:;" class="_zs_gallery_mx-main_index_-step _zs_gallery_mx-main_index_-parent ';
+        $line = 4;
+        $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == -1))';
+        ;
+        $expr = '<%if ((step.index == curStepIndex) && (curSubStepIndex == -1)) {%>';
+        if ((step.index == curStepIndex) && (curSubStepIndex == -1)) {
+            ;
+            $p += ' _zs_gallery_mx-main_index_-on ';
             $line = 4;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += '"><div mxa="_zs_galleryc.:_" class="_zs_gallery_mx-main_index_-step-over"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link _zs_gallery_mx-main_index_-step-over clearfix ';
-        $line = 6;
-        $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == -1))';
-        ;
-        $expr = '<%if ((step.index == curStepIndex) && (curSubStepIndex == -1)) {%>';
-        if ((step.index == curStepIndex) && (curSubStepIndex == -1)) {
-            ;
-            $p += ' _zs_gallery_mx-main_index_-link-on ';
-            $line = 6;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
         $p += '" data-sub="-1" ';
-        $line = 8;
+        $line = 6;
         $art = 'if !step.locked';
         ;
         $expr = '<%if (!step.locked) {%>';
         if (!step.locked) {
             ;
             $p += ' mx-click="' + $viewId + 'nav({stepIndex:';
-            $line = 8;
+            $line = 6;
             $art = '=step.index';
             ;
             $p += ($expr = '<%=step.index%>', $e(step.index)) + '})" ';
-            $line = 8;
+            $line = 6;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += '>';
+        $p += ' data-spm-click="gostr=/alimama.feedflow.1;locaid=df0100677"><span mxa="_zs_galleryc.:d" class="_zs_gallery_mx-main_index_-idx">';
+        $line = 7;
+        $art = '=(stepIndex + 1)';
+        ;
+        $p += ($expr = '<%=(stepIndex + 1)%>', $e((stepIndex + 1))) + '</span><span mxs="_zs_galleryc.:_" class="_zs_gallery_mx-main_index_-pbg"></span><span mxa="_zs_galleryc.:e" class="_zs_gallery_mx-main_index_-text">';
         $line = 9;
-        $art = 'if step.icon';
-        ;
-        $expr = '<%if (step.icon) {%>';
-        if (step.icon) {
-            ;
-            $p += '<span mxa="_zs_galleryc.:a" class="_zs_gallery_mx-main_index_-over-icon fl">';
-            $line = 10;
-            $art = '!step.icon';
-            ;
-            $p += ($expr = '<%!step.icon%>', $n(step.icon)) + '</span>';
-            $line = 11;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '<span mxa="_zs_galleryc.:b" class="fl">';
-        $line = 12;
         $art = '=step.label';
         ;
-        $p += ($expr = '<%=step.label%>', $e(step.label)) + '</span></a></div>';
-        $line = 15;
-        $art = 'if (!step.locked && step.subs.length > 1)';
+        $p += ($expr = '<%=step.label%>', $e(step.label)) + '</span></a>';
+        $line = 11;
+        $art = 'if !step.locked && (step.subs.length > 1)';
         ;
-        $expr = '<%if (!step.locked && step.subs.length > 1) {%>';
-        if (!step.locked && step.subs.length > 1) {
+        $expr = '<%if (!step.locked && (step.subs.length > 1)) {%>';
+        if (!step.locked && (step.subs.length > 1)) {
             ;
-            $p += '<div>';
-            $line = 17;
+            $p += ' ';
+            $line = 12;
             $art = 'each step.subs as sub';
             ;
-            $expr = '<%for (var $art_ixeeczvv$art_i = 0, $art_objfmmhtjp$art_obj = step.subs, $art_cyxjqkex$art_c = $art_objfmmhtjp$art_obj.length; $art_ixeeczvv$art_i < $art_cyxjqkex$art_c; $art_ixeeczvv$art_i++) {            var sub = $art_objfmmhtjp$art_obj[$art_ixeeczvv$art_i]%>';
-            for (var $art_ixeeczvv$art_i = 0, $art_objfmmhtjp$art_obj = step.subs, $art_cyxjqkex$art_c = $art_objfmmhtjp$art_obj.length; $art_ixeeczvv$art_i < $art_cyxjqkex$art_c; $art_ixeeczvv$art_i++) {
-                var sub = $art_objfmmhtjp$art_obj[$art_ixeeczvv$art_i];
-                $p += '<div mxa="_zs_galleryc.:c" class="_zs_gallery_mx-main_index_-step-sub"><a href="javascript:;" class="_zs_gallery_mx-main_index_-link ';
-                $line = 19;
+            $expr = '<%for (var $art_ihmqlqfdrig$art_i = 0, $art_objcfblg$art_obj = step.subs, $art_cbviyxgq$art_c = $art_objcfblg$art_obj.length; $art_ihmqlqfdrig$art_i < $art_cbviyxgq$art_c; $art_ihmqlqfdrig$art_i++) {            var sub = $art_objcfblg$art_obj[$art_ihmqlqfdrig$art_i]%>';
+            for (var $art_ihmqlqfdrig$art_i = 0, $art_objcfblg$art_obj = step.subs, $art_cbviyxgq$art_c = $art_objcfblg$art_obj.length; $art_ihmqlqfdrig$art_i < $art_cbviyxgq$art_c; $art_ihmqlqfdrig$art_i++) {
+                var sub = $art_objcfblg$art_obj[$art_ihmqlqfdrig$art_i];
+                $p += '<a href="javascript:;" class="_zs_gallery_mx-main_index_-step _zs_gallery_mx-main_index_-child ';
+                $line = 13;
                 $art = 'if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))';
                 ;
                 $expr = '<%if ((step.index == curStepIndex) && (curSubStepIndex == sub.index)) {%>';
                 if ((step.index == curStepIndex) && (curSubStepIndex == sub.index)) {
                     ;
-                    $p += ' _zs_gallery_mx-main_index_-link-on ';
-                    $line = 19;
+                    $p += ' _zs_gallery_mx-main_index_-on ';
+                    $line = 13;
                     $art = '/if';
                     ;
                     $expr = '<%}%>';
                 }
                 ;
                 $p += '" data-sub="';
-                $line = 20;
+                $line = 14;
                 $art = '=sub.index';
                 ;
                 $p += ($expr = '<%=sub.index%>', $e(sub.index)) + '" mx-click="' + $viewId + 'nav({stepIndex:';
-                $line = 21;
+                $line = 15;
                 $art = '=step.index';
                 ;
                 $p += ($expr = '<%=step.index%>', $e(step.index)) + ',subStepIndex:';
-                $line = 21;
+                $line = 15;
                 $art = '=sub.index';
                 ;
-                $p += ($expr = '<%=sub.index%>', $e(sub.index)) + '})">';
-                $line = 22;
+                $p += ($expr = '<%=sub.index%>', $e(sub.index)) + '})" data-spm-click="gostr=/alimama.feedflow.1;locaid=de313a21d"><span mxs="_zs_galleryc.:_" class="_zs_gallery_mx-main_index_-pbg"></span><span mxa="_zs_galleryc.:f" class="_zs_gallery_mx-main_index_-text">';
+                $line = 17;
                 $art = '=sub.label';
                 ;
-                $p += ($expr = '<%=sub.label%>', $e(sub.label)) + '</a></div>';
-                $line = 25;
+                $p += ($expr = '<%=sub.label%>', $e(sub.label)) + '</span></a>';
+                $line = 19;
                 $art = '/each';
                 ;
                 $expr = '<%}%>';
             }
             ;
-            $p += '</div>';
-            $line = 27;
+            $p += ' ';
+            $line = 20;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += ' ';
-        $line = 28;
-        $art = 'if (step.index == curStepIndex)';
-        ;
-        $expr = '<%if (step.index == curStepIndex) {%>';
-        if (step.index == curStepIndex) {
-            ;
-            $p += '<i mxs="_zs_galleryc.:_" class="mc-iconfont _zs_gallery_mx-main_index_-arrow-icon">&#xe602;</i>';
-            $line = 30;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += ' ';
-        $line = 31;
+        $line = 21;
         $art = 'if step.locked';
         ;
         $expr = '<%if (step.locked) {%>';
         if (step.locked) {
             ;
-            $p += '<i mxs="_zs_galleryc.:a" class="mc-iconfont _zs_gallery_mx-main_index_-locked-icon">&#xe759;</i>';
-            $line = 33;
+            $p += '<i mxs="_zs_galleryc.:c" class="mc-iconfont _zs_gallery_mx-main_index_-locked-icon">&#xe759;</i>';
+            $line = 23;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</div>';
-        $line = 35;
+        $line = 25;
         $art = '/each';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxv class="_zs_gallery_mx-main_index_-main-content" style="padding-left: ';
-    $line = 37;
-    $art = '=leftWidth';
+    $p += '</div><div mxv class="_zs_gallery_mx-main_index_-main-content clearfix" style="min-height: ';
+    $line = 27;
+    $art = '=viewHeight';
     ;
-    $p += ($expr = '<%=leftWidth%>', $e(leftWidth)) + 'px;"><div mxa="_zs_galleryc.:d" class="_zs_gallery_mx-main_index_-content-title">';
-    $line = 38;
-    $art = '=curStepInfo.label';
+    $p += ($expr = '<%=viewHeight%>', $e(viewHeight)) + 'px; padding-top: ';
+    $line = 27;
+    $art = '=gapWidth';
     ;
-    $p += ($expr = '<%=curStepInfo.label%>', $e(curStepInfo.label)) + '</div><div mxv mxa="_zs_galleryc.:e" class="_zs_gallery_mx-main_index_-content-body"><div mxv>';
-    $line = 42;
+    $p += ($expr = '<%=gapWidth%>', $e(gapWidth)) + 'px; padding-right: ';
+    $line = 27;
+    $art = '=(gapWidth + (curStepInfo.sideWrapper ? (rightWidth + gapWidth) : 0))';
+    ;
+    $p += ($expr = '<%=(gapWidth + (curStepInfo.sideWrapper ? (rightWidth + gapWidth) : 0))%>', $e((gapWidth + (curStepInfo.sideWrapper ? (rightWidth + gapWidth) : 0)))) + 'px; padding-left: ';
+    $line = 27;
+    $art = '=(leftWidth + gapWidth)';
+    ;
+    $p += ($expr = '<%=(leftWidth + gapWidth)%>', $e((leftWidth + gapWidth))) + 'px;">';
+    $line = 28;
     $art = 'each curStepInfo.subs as sub';
     ;
-    $expr = '<%for (var $art_irrioxgtxon$art_i = 0, $art_objbkacrizrcj$art_obj = curStepInfo.subs, $art_cjlexdr$art_c = $art_objbkacrizrcj$art_obj.length; $art_irrioxgtxon$art_i < $art_cjlexdr$art_c; $art_irrioxgtxon$art_i++) {    var sub = $art_objbkacrizrcj$art_obj[$art_irrioxgtxon$art_i]%>';
-    for (var $art_irrioxgtxon$art_i = 0, $art_objbkacrizrcj$art_obj = curStepInfo.subs, $art_cjlexdr$art_c = $art_objbkacrizrcj$art_obj.length; $art_irrioxgtxon$art_i < $art_cjlexdr$art_c; $art_irrioxgtxon$art_i++) {
-        var sub = $art_objbkacrizrcj$art_obj[$art_irrioxgtxon$art_i];
-        $p += '<div mxv class="_zs_gallery_mx-main_index_-content-box" style="padding-right: ';
-        $line = 44;
-        $art = '=(curStepInfo.rightWidth + 20)';
+    $expr = '<%for (var $art_ihtyibbre$art_i = 0, $art_objtaayxefpnub$art_obj = curStepInfo.subs, $art_cgsbibdcr$art_c = $art_objtaayxefpnub$art_obj.length; $art_ihtyibbre$art_i < $art_cgsbibdcr$art_c; $art_ihtyibbre$art_i++) {    var sub = $art_objtaayxefpnub$art_obj[$art_ihtyibbre$art_i]%>';
+    for (var $art_ihtyibbre$art_i = 0, $art_objtaayxefpnub$art_obj = curStepInfo.subs, $art_cgsbibdcr$art_c = $art_objtaayxefpnub$art_obj.length; $art_ihtyibbre$art_i < $art_cgsbibdcr$art_c; $art_ihtyibbre$art_i++) {
+        var sub = $art_objtaayxefpnub$art_obj[$art_ihtyibbre$art_i];
+        $p += '<div mxv mxa="_zs_galleryc.:j" class="_zs_gallery_mx-main_index_-content-box"><div mxa="_zs_galleryc.:l" class="_zs_gallery_mx-main_index_-box-title clearfix">';
+        $line = 31;
+        $art = 'if sub.icon';
         ;
-        $p += ($expr = '<%=(curStepInfo.rightWidth + 20)%>', $e((curStepInfo.rightWidth + 20))) + 'px;"><div mxv="curStepInfo" mx-view="';
-        $line = 45;
+        $expr = '<%if (sub.icon) {%>';
+        if (sub.icon) {
+            ;
+            $p += '<span mxa="_zs_galleryc.:m" class="_zs_gallery_mx-main_index_-title-icon">';
+            $line = 31;
+            $art = '!sub.icon';
+            ;
+            $p += ($expr = '<%!sub.icon%>', $n(sub.icon)) + '</span>';
+            $line = 31;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '<span mxa="_zs_galleryc.:n" class="_zs_gallery_mx-main_index_-title-label">';
+        $line = 32;
+        $art = '=sub.label';
+        ;
+        $p += ($expr = '<%=sub.label%>', $e(sub.label)) + '</span>';
+        $line = 33;
+        $art = 'if sub.tip';
+        ;
+        $expr = '<%if (sub.tip) {%>';
+        if (sub.tip) {
+            ;
+            $p += '<span mxa="_zs_galleryc.:o" class="_zs_gallery_mx-main_index_-title-tip">';
+            $line = 34;
+            $art = '!sub.tip';
+            ;
+            $p += ($expr = '<%!sub.tip%>', $n(sub.tip)) + '</span>';
+            $line = 35;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div><div mxv="curStepInfo,childInfos" class="_zs_gallery_mx-main_index_-box-bd" id="sub_frame_';
+        $line = 38;
+        $art = '=sub.index';
+        ;
+        $p += ($expr = '<%=sub.index%>', $e(sub.index)) + '" mx-view="';
+        $line = 39;
         $art = '=sub.view';
         ;
         $p += ($expr = '<%=sub.view%>', $e(sub.view)) + '?info=';
-        $line = 45;
+        $line = 39;
         $art = '@sub';
         ;
-        $p += ($expr = '<%@sub%>', $i($$ref, sub)) + '" id="sub_frame_';
-        $line = 46;
-        $art = '=sub.index';
+        $p += ($expr = '<%@sub%>', $i($$ref, sub)) + '&data=';
+        $line = 39;
+        $art = '@childInfos';
         ;
-        $p += ($expr = '<%=sub.index%>', $e(sub.index)) + '"><div mxs="_zs_galleryc.:b" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
-        $line = 49;
-        $art = 'if sub.sideWrapper';
-        ;
-        $expr = '<%if (sub.sideWrapper) {%>';
-        if (sub.sideWrapper) {
-            ;
-            $p += '<div mxv="curStepInfo" mx-view="';
-            $line = 50;
-            $art = '=sub.sideWrapper';
-            ;
-            $p += ($expr = '<%=sub.sideWrapper%>', $e(sub.sideWrapper)) + '?data=';
-            $line = 50;
-            $art = '@sub.sideData';
-            ;
-            $p += ($expr = '<%@sub.sideData%>', $i($$ref, sub.sideData)) + '" class="_zs_gallery_mx-main_index_-content-side" style="width: ';
-            $line = 51;
-            $art = '=curStepInfo.rightWidth';
-            ;
-            $p += ($expr = '<%=curStepInfo.rightWidth%>', $e(curStepInfo.rightWidth)) + 'px;"><div mxs="_zs_galleryc.:b" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
-            $line = 54;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '</div>';
-        $line = 56;
+        $p += ($expr = '<%@childInfos%>', $i($$ref, childInfos)) + '"><div mxs="_zs_galleryc.:b" class="loading" style="padding: 40px 0;"><span class="loading-anim"></span></div></div></div>';
+        $line = 43;
         $art = '/each';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</div>';
-    $line = 58;
+    $p += ' ';
+    $line = 44;
     $art = 'if curStepInfo.sideWrapper';
     ;
     $expr = '<%if (curStepInfo.sideWrapper) {%>';
     if (curStepInfo.sideWrapper) {
         ;
-        $p += '<div mxv="curStepInfo" mx-view="';
-        $line = 59;
+        $p += '<div mxv="curStepInfo" class="_zs_gallery_mx-main_index_-content-side" style="top: ';
+        $line = 45;
+        $art = '=gapWidth';
+        ;
+        $p += ($expr = '<%=gapWidth%>', $e(gapWidth)) + 'px; right: ';
+        $line = 45;
+        $art = '=gapWidth';
+        ;
+        $p += ($expr = '<%=gapWidth%>', $e(gapWidth)) + 'px; width: ';
+        $line = 45;
+        $art = '=rightWidth';
+        ;
+        $p += ($expr = '<%=rightWidth%>', $e(rightWidth)) + 'px;" mx-view="';
+        $line = 46;
         $art = '=curStepInfo.sideWrapper';
         ;
         $p += ($expr = '<%=curStepInfo.sideWrapper%>', $e(curStepInfo.sideWrapper)) + '?data=';
-        $line = 59;
+        $line = 46;
         $art = '@curStepInfo.sideData';
         ;
-        $p += ($expr = '<%@curStepInfo.sideData%>', $i($$ref, curStepInfo.sideData)) + '" class="_zs_gallery_mx-main_index_-content-side" style="width: ';
+        $p += ($expr = '<%@curStepInfo.sideData%>', $i($$ref, curStepInfo.sideData)) + '"><div mxs="_zs_galleryc.:b" class="loading" style="padding: 40px 0;"><span class="loading-anim"></span></div></div>';
+        $line = 49;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '<div mxa="_zs_galleryc.:p" class="_zs_gallery_mx-main_index_-content-footer"><div>';
+    $line = 53;
+    $art = 'if curStepInfo.prevTip';
+    ;
+    $expr = '<%if (curStepInfo.prevTip) {%>';
+    if (curStepInfo.prevTip) {
+        ;
+        $p += '<a mxa="_zs_galleryc.:q" href="javascript:;" class="btn min-width-100 mr20" mx-click="' + $viewId + 'prev()">';
+        $line = 55;
+        $art = '=curStepInfo.prevTip';
+        ;
+        $p += ($expr = '<%=curStepInfo.prevTip%>', $e(curStepInfo.prevTip)) + '</a>';
+        $line = 56;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $line = 58;
+    $art = 'if curStepInfo.nextTip';
+    ;
+    $expr = '<%if (curStepInfo.nextTip) {%>';
+    if (curStepInfo.nextTip) {
+        ;
+        $p += '<a mxa="_zs_galleryc.:r" href="javascript:;" class="btn min-width-100 btn-brand" mx-click="' + $viewId + 'next()">';
         $line = 60;
-        $art = '=curStepInfo.rightWidth';
+        $art = '=curStepInfo.nextTip';
         ;
-        $p += ($expr = '<%=curStepInfo.rightWidth%>', $e(curStepInfo.rightWidth)) + 'px;"><div mxs="_zs_galleryc.:b" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
-        $line = 63;
+        $p += ($expr = '<%=curStepInfo.nextTip%>', $e(curStepInfo.nextTip)) + '</a>';
+        $line = 61;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</div>';
-    $line = 66;
-    $art = 'if !curStepInfo.customTrigger';
+    $p += '</div><div id="';
+    $line = 63;
+    $art = '=viewId';
     ;
-    $expr = '<%if (!curStepInfo.customTrigger) {%>';
-    if (!curStepInfo.customTrigger) {
-        ;
-        $p += '<div mxa="_zs_galleryc.:f" class="_zs_gallery_mx-main_index_-content-footer"><div>';
-        $line = 69;
-        $art = 'if curStepInfo.prevTip';
-        ;
-        $expr = '<%if (curStepInfo.prevTip) {%>';
-        if (curStepInfo.prevTip) {
-            ;
-            $p += '<a mxa="_zs_galleryc.:g" href="javascript:;" class="btn min-width-100 mr20" mx-click="' + $viewId + 'prev()">';
-            $line = 71;
-            $art = '=curStepInfo.prevTip';
-            ;
-            $p += ($expr = '<%=curStepInfo.prevTip%>', $e(curStepInfo.prevTip)) + '</a>';
-            $line = 72;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += ' ';
-        $line = 74;
-        $art = 'if curStepInfo.nextTip';
-        ;
-        $expr = '<%if (curStepInfo.nextTip) {%>';
-        if (curStepInfo.nextTip) {
-            ;
-            $p += '<a mxa="_zs_galleryc.:h" href="javascript:;" class="btn min-width-100 btn-brand" mx-click="' + $viewId + 'next()">';
-            $line = 76;
-            $art = '=curStepInfo.nextTip';
-            ;
-            $p += ($expr = '<%=curStepInfo.nextTip%>', $e(curStepInfo.nextTip)) + '</a>';
-            $line = 77;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '</div><div id="';
-        $line = 79;
-        $art = '=viewId';
-        ;
-        $p += ($expr = '<%=viewId%>', $e(viewId)) + '_error" class="_zs_gallery_mx-main_index_-error-node"></div></div>';
-        $line = 81;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '</div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_error" class="_zs_gallery_mx-main_index_-footer-error"></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -382,8 +366,9 @@ catch (ex) {
     init: function (extra) {
         var that = this;
         that.updater.set({
-            leftWidth: extra.leftWidth || 160,
-            rightWidth: extra.rightWidth || 260,
+            gapWidth: 16,
+            leftWidth: +extra.leftWidth || 160,
+            rightWidth: +extra.rightWidth || 260,
             alreadyStep: extra.alreadyStep || 1,
             stepInfos: extra.stepInfos || [],
             viewId: that.id,
@@ -432,7 +417,7 @@ catch (ex) {
                 curSubStepIndex = -1;
             }
             var prevTip = '';
-            if (!step.customTrigger && (stepIndex > 1) && (!stepInfos[i - 1].locked)) {
+            if ((stepIndex > 1) && (!stepInfos[i - 1].locked)) {
                 // 1. 第一步没有返回上一步
                 // 2. 上一步被锁定的情况下没有返回上一步
                 // 3. 自定义trigger的情况
@@ -440,7 +425,7 @@ catch (ex) {
             }
             step.prevTip = prevTip;
             var nextTip = '';
-            if (!step.customTrigger && (stepIndex < stepInfos.length)) {
+            if (stepIndex < stepInfos.length) {
                 // 1. 最后一步没有下一步
                 // 2. 自定义trigger的情况
                 nextTip = step.nextTip || defNextTip;
@@ -478,13 +463,14 @@ catch (ex) {
                 that.updater.set({
                     curSubStepIndex: curSubStepIndex
                 });
-                var onClass = '_zs_gallery_mx-main_index_-link-on';
+                var onClass = '_zs_gallery_mx-main_index_-on';
                 var cur = $('#' + that.id + ' ._zs_gallery_mx-main_index_-step-current');
-                cur.find('._zs_gallery_mx-main_index_-link').removeClass(onClass);
-                cur.find('._zs_gallery_mx-main_index_-link[data-sub="' + curSubStepIndex + '"]').addClass(onClass);
+                cur.find('._zs_gallery_mx-main_index_-step').removeClass(onClass);
+                cur.find('._zs_gallery_mx-main_index_-step[data-sub="' + curSubStepIndex + '"]').addClass(onClass);
                 that.subScroll();
             }
             else {
+                // 步骤切换了重新mount子view
                 renderFn();
             }
         }
@@ -497,6 +483,7 @@ catch (ex) {
             sideWrapper = 'mx-main/tip';
             sideData = {
                 view: step.sideView || '',
+                title: step.sideTitle || '',
                 content: step.sideTip || '' // 简单提示文案
             };
             hasSide = true;
@@ -547,7 +534,6 @@ catch (ex) {
     },
     '$win<scroll>': function () {
         var that = this;
-        var that = this;
         var context = $('#' + that.id);
         var content = context.find('._zs_gallery_mx-main_index_-main-content');
         if (!content.length) {
@@ -566,6 +552,23 @@ catch (ex) {
                 position: 'absolute'
             });
         }
+        var side = context.find('._zs_gallery_mx-main_index_-content-side');
+        if (side.length) {
+            var sideTop = content.offset().top;
+            var gapWidth = that.updater.get().gapWidth;
+            if (scrollTop > (sideTop + gapWidth)) {
+                side.css({
+                    position: 'fixed',
+                    top: 0
+                });
+            }
+            else {
+                side.css({
+                    position: 'absolute',
+                    top: gapWidth + "px"
+                });
+            }
+        }
     },
     '$win<resize>': function () {
         var that = this;
@@ -574,7 +577,7 @@ catch (ex) {
             viewHeight: winHeight
         });
         var context = $('#' + that.id);
-        var content = context.find('._zs_gallery_mx-main_index_-main');
+        var content = context.find('.unfound-[main]-from-index.less');
         content.css({
             minHeight: winHeight
         });
@@ -622,7 +625,7 @@ catch (ex) {
                 }
             }
             else {
-                errorNode.html("\n                    <i class=\"mc-iconfont _zs_gallery_mx-main_index_-error-icon\">&#xe6ad;</i>\n                    " + msgs.map(function (m) { return "\n                        <div>" + m.label + "\uFF1A" + m.msg + "</div>\n                    "; }).join('') + "\n                ");
+                errorNode.html("\n                    <i class=\"mc-iconfont unfound-[error-icon]-from-index.less\">&#xe6ad;</i>\n                    " + msgs.map(function (m) { return "\n                        <div>" + m.label + "\uFF1A" + m.msg + "</div>\n                    "; }).join('') + "\n                ");
                 var subContent = $('#' + that.id + ' #sub_frame_' + msgs[0].id);
                 $(window).scrollTop(subContent.offset().top);
             }

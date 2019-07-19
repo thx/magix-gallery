@@ -47,14 +47,13 @@ catch (ex) {
     render: function () {
         var stepInfos = [{
                 label: '设置计划',
-                icon: '<i class="mc-iconfont">&#xe612;</i>',
-                nextTip: '下一步，设置计划',
                 sideView: 'mx-main/examples/tip',
                 subs: [{
                         label: '基本信息',
-                        icon: '<i class="mc-iconfont">&#xe612;</i>',
+                        icon: '<i class="mc-iconfont fontsize-22">&#xe612;</i>',
                         view: 'mx-main/examples/inner1'
                     }],
+                nextTip: '下一步，设置计划',
                 nextFn: function (remains, next) {
                     // remains 当前步骤保留的信息，提交处理
                     next({
@@ -63,19 +62,19 @@ catch (ex) {
                 }
             }, {
                 label: '设置单元',
-                icon: '<i class="mc-iconfont">&#xe7b5;</i>',
-                prevTip: '返回计划设置',
-                nextTip: '下一步，添加创意',
+                sideTitle: '单元说明',
                 sideTip: "<div>\u8BF4\u660E\uFF1A</div>\n<div>1\u3001\u6761\u4EF61</div>\n<div>2\u3001\u6761\u4EF62</div>\n<div>3\u3001\u6761\u4EF63</div>",
                 subs: [{
                         label: '推广宝贝',
-                        icon: '<i class="mc-iconfont">&#xe613;</i>',
+                        icon: '<i class="mc-iconfont fontsize-20">&#xe613;</i>',
                         view: 'mx-main/examples/inner2'
                     }, {
                         label: '出价方式',
-                        icon: '<i class="mc-iconfont">&#xe731;</i>',
+                        icon: '<i class="mc-iconfont fontsize-20">&#xe731;</i>',
                         view: 'mx-main/examples/inner'
                     }],
+                prevTip: '返回计划设置',
+                nextTip: '下一步，完成',
                 nextFn: function (remains, next) {
                     // remains 当前步骤保留的信息，提交处理
                     next({
@@ -83,33 +82,11 @@ catch (ex) {
                     });
                 }
             }, {
-                label: '添加创意',
-                nextTip: '下一步，完成',
-                icon: '<i class="mc-iconfont">&#xe613;</i>',
-                subs: [{
-                        label: '创意内容1',
-                        icon: '<i class="mc-iconfont">&#xe705;</i>',
-                        view: 'mx-main/examples/inner3',
-                        sideView: 'mx-main/examples/tip'
-                    }, {
-                        label: '创意内容2',
-                        icon: '<i class="mc-iconfont">&#xe664;</i>',
-                        view: 'mx-main/examples/inner',
-                        sideView: 'mx-main/examples/tip'
-                    }, {
-                        label: '创意内容3',
-                        icon: '<i class="mc-iconfont">&#xe767;</i>',
-                        view: 'mx-main/examples/inner',
-                        sideView: 'mx-main/examples/tip'
-                    }]
-            }, {
                 label: '完成创建',
-                nextTip: '完成',
-                icon: '<i class="mc-iconfont">&#xe64c;</i>',
                 subs: [{
                         label: '完成标题',
-                        icon: '<i class="mc-iconfont">&#xe7be;</i>',
-                        view: 'mx-main/examples/inner4'
+                        icon: '<i class="mc-iconfont fontsize-20">&#xe7be;</i>',
+                        view: 'mx-main/examples/inner3'
                     }]
             }];
         var locParams = Router.parse().params;

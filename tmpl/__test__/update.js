@@ -6,6 +6,31 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.23',
+            time: '2019-07-19',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-dialog：点击非浮层内部分时关闭浮层；beforeClose return promise，<a href="#!/dialog/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-feedback：包装新版feedback，<a href="#!/feedback/index" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-form：range范围校验bugfix，<a href="#!/form/mixins?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
+                }] 
+            }]
+        }, {
+            ver: '1.3.22',
+            time: '2019-07-09',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-chart：兼容无chartId'
+                }]
+            }]
+        }, {
             ver: '1.3.21',
             time: '2019-06-28',
             subs: [{

@@ -16,6 +16,7 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 };
 var Magix = require("magix");
 var Chartx = require("../../chartpark/index");
+Chartx = Chartx["default"] || Chartx;
 var $ = require("$");
 function stringify(obj) {
     return JSON.stringify(obj, function (key, value) {

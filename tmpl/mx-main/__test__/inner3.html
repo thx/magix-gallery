@@ -1,40 +1,22 @@
-<div class="box-title clearfix">
-    {{if info.icon}}
-    <span class="title-icon">{{!info.icon}}</span>
-    {{/if}}
-    <span class="title-label">{{=info.label}}</span>
+<div class="lh22 mb10">
+    <div>当前步骤三个子步骤，对应的页面配置信息如下：</div>
 </div>
-<div class="box-inner" style="min-height: 200px;">
-    <div class="lh22 mb10">
-        <div>页面功能说明：</div>
-    </div>
-    <div class="tip-content mb40">
-        <div>当前步骤三个子步骤，每个子步骤都有自己对应的右侧提示区域，配置subs里的sideView</div>
-    </div>
-    <div class="lh22 mb10">
-        <div>当前页面配置信息：</div>
-    </div>
-    <pre class="tip-content mb40">
+<pre class="tip-content">
 &#123;
     label: '添加创意',
-    nextTip: '下一步，完成',
-    icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe613;&lt;/i&gt;',
     subs: [&#123;
         label: '创意内容1',
-        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe705;&lt;/i&gt;',
-        view: '@./inner3',
-        sideView: '@./tip'
+        icon: '&lt;i class="mc-iconfont fontsize-20"&gt;&#38;&#35;xe705;&lt;/i&gt;',
+        view: '@./inner3'
     &#125;, &#123;
         label: '创意内容2',
-        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe664;&lt;/i&gt;',
-        view: '@./inner',
-        sideView: '@./tip'
+        icon: '&lt;i class="mc-iconfont fontsize-20"&gt;&#38;&#35;xe664;&lt;/i&gt;',
+        view: '@./inner'
     &#125;, &#123;
         label: '创意内容3',
-        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe767;&lt;/i&gt;',
-        view: '@./inner',
-        sideView: '@./tip'
-    &#125;]
+        icon: '&lt;i class="mc-iconfont fontsize-20"&gt;&#38;&#35;xe767;&lt;/i&gt;',
+        view: '@./inner'
+    &#125;],
+    nextTip: '下一步，完成'
 &#125;
-    </pre>
-</div>
+</pre>

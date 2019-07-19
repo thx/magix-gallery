@@ -8,7 +8,6 @@ define("mx-main/examples/inner4",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-main_examples_inner_","._zs_gallery_mx-main_examples_inner_-box-title {\n  position: relative;\n  height: 46px;\n  padding: 0 20px;\n  line-height: 44px;\n  background-color: var(--color-bg);\n  border: 1px solid var(--color-border);\n  border-radius: var(--border-radius);\n}\n._zs_gallery_mx-main_examples_inner_-box-title ._zs_gallery_mx-main_examples_inner_-title-icon {\n  float: left;\n  height: 44px;\n  line-height: 44px;\n}\n._zs_gallery_mx-main_examples_inner_-box-title ._zs_gallery_mx-main_examples_inner_-title-icon > * {\n  position: relative;\n  top: 2px;\n  margin-right: 4px;\n  color: #999;\n  font-size: 20px;\n}\n._zs_gallery_mx-main_examples_inner_-box-title ._zs_gallery_mx-main_examples_inner_-title-label {\n  float: left;\n  font-size: 16px;\n}\n._zs_gallery_mx-main_examples_inner_-box-inner {\n  padding: 20px 20px 0 20px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -21,30 +20,8 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', info = $$.info; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc{:_" class="_zs_gallery_mx-main_examples_inner_-box-title clearfix">';
-    $line = 2;
-    $art = 'if info.icon';
-    ;
-    $expr = '<%if (info.icon) {%>';
-    if (info.icon) {
-        ;
-        $p += '<span mxa="_zs_galleryc{:a" class="_zs_gallery_mx-main_examples_inner_-title-icon">';
-        $line = 3;
-        $art = '!info.icon';
-        ;
-        $p += ($expr = '<%!info.icon%>', $n(info.icon)) + '</span>';
-        $line = 4;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '<span mxa="_zs_galleryc{:b" class="_zs_gallery_mx-main_examples_inner_-title-label">';
-    $line = 5;
-    $art = '=info.label';
-    ;
-    $p += ($expr = '<%=info.label%>', $e(info.label)) + '</span></div><div mxs="_zs_galleryc{:_" class="_zs_gallery_mx-main_examples_inner_-box-inner" style="min-height: 200px;"><div class="lh22 mb10"><div>页面功能说明：</div></div><div class="tip-content mb40"><div>1. 当前步骤只要一个子步骤，侧边导航不显示子步骤</div><div>2. 没有侧边区域</div></div><div class="lh22 mb10"><div>当前页面配置信息：</div></div><pre class="tip-content mb40">\n&#123;\n    label: \'完成创建\',\n    nextTip: \'完成\',\n    icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe64c;&lt;/i&gt;\',\n    subs: [&#123;\n        label: \'完成标题\',\n        icon: \'&lt;i class="mc-iconfont"&gt;&#38;&#35;xe7be;&lt;/i&gt;\',\n        view: \'@./inner4\'\n    &#125;]\n&#125;\n    </pre></div>';
+} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
+    $p += '<div mxs="_zs_galleryc{:b" class="box-inner" style="min-height: 200px;"><div class="lh22 mb10"><div>页面功能说明：</div></div><div class="tip-content mb40"><div>1. 当前步骤只要一个子步骤，左侧边导航不显示子步骤</div><div>2. 没有右侧边提示区域</div><div>3. 最后一步只有返回上一步的按钮</div></div><div class="lh22 mb10"><div>当前页面配置信息：</div></div><pre class="tip-content mb40">\n&#123;\n    label: \'完成创建\',\n    subs: [&#123;\n        label: \'完成标题\',\n        icon: \'&lt;i class="mc-iconfont fontsize-20"&gt;&#xe7be;&lt;/i&gt;\',\n        view: \'@./inner4\'\n    &#125;]\n&#125;\n    </pre></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

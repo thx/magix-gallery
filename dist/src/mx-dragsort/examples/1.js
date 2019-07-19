@@ -29,9 +29,9 @@ module.exports = Base.extend({
     $line = 8;
     $art = 'each items as item';
     ;
-    $expr = '<%for (var $art_ivvzyki$art_i = 0, $art_cownbhlrqj$art_c = items.length; $art_ivvzyki$art_i < $art_cownbhlrqj$art_c; $art_ivvzyki$art_i++) {    var item = items[$art_ivvzyki$art_i]%>';
-    for (var $art_ivvzyki$art_i = 0, $art_cownbhlrqj$art_c = items.length; $art_ivvzyki$art_i < $art_cownbhlrqj$art_c; $art_ivvzyki$art_i++) {
-        var item = items[$art_ivvzyki$art_i];
+    $expr = '<%for (var $art_iprvqdbcr$art_i = 0, $art_czsnwfmuzh$art_c = items.length; $art_iprvqdbcr$art_i < $art_czsnwfmuzh$art_c; $art_iprvqdbcr$art_i++) {    var item = items[$art_iprvqdbcr$art_i]%>';
+    for (var $art_iprvqdbcr$art_i = 0, $art_czsnwfmuzh$art_c = items.length; $art_iprvqdbcr$art_i < $art_czsnwfmuzh$art_c; $art_iprvqdbcr$art_i++) {
+        var item = items[$art_iprvqdbcr$art_i];
         $p += '<li class="_zs_gallery_mx-dragsort_examples_index_-item" data-value="';
         $line = 9;
         $art = '=item';
@@ -51,9 +51,9 @@ module.exports = Base.extend({
     $line = 14;
     $art = 'each items as item';
     ;
-    $expr = '<%for (var $art_ilpemleqzs$art_i = 0, $art_cjscjq$art_c = items.length; $art_ilpemleqzs$art_i < $art_cjscjq$art_c; $art_ilpemleqzs$art_i++) {    var item = items[$art_ilpemleqzs$art_i]%>';
-    for (var $art_ilpemleqzs$art_i = 0, $art_cjscjq$art_c = items.length; $art_ilpemleqzs$art_i < $art_cjscjq$art_c; $art_ilpemleqzs$art_i++) {
-        var item = items[$art_ilpemleqzs$art_i];
+    $expr = '<%for (var $art_ikaxxylvvs$art_i = 0, $art_cimoovddl$art_c = items.length; $art_ikaxxylvvs$art_i < $art_cimoovddl$art_c; $art_ikaxxylvvs$art_i++) {    var item = items[$art_ikaxxylvvs$art_i]%>';
+    for (var $art_ikaxxylvvs$art_i = 0, $art_cimoovddl$art_c = items.length; $art_ikaxxylvvs$art_i < $art_cimoovddl$art_c; $art_ikaxxylvvs$art_i++) {
+        var item = items[$art_ikaxxylvvs$art_i];
         $p += '<div>';
         $line = 15;
         $art = '=item';

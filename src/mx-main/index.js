@@ -17,8 +17,9 @@ module.exports = Magix.View.extend({
         let that = this;
 
         that.updater.set({
-            leftWidth: extra.leftWidth || 160,
-            rightWidth: extra.rightWidth || 260,
+            gapWidth: 16,
+            leftWidth: +extra.leftWidth || 160,
+            rightWidth: +extra.rightWidth || 260,
             alreadyStep: extra.alreadyStep || 1,
             stepInfos: extra.stepInfos || [], //所有的步骤信息
             viewId: that.id,
@@ -28,8 +29,8 @@ module.exports = Magix.View.extend({
         that.observeLocation(['stepIndex', 'subStepIndex']);
 
         that.owner.oncreated = () => {
-            if(!that.$init){
-                
+            if (!that.$init) {
+
                 // 每次重新render之后
                 // 所有子view加载完成后
                 that.subScroll();
@@ -44,7 +45,7 @@ module.exports = Magix.View.extend({
     },
     render() {
         let that = this;
-        
+
         // trigger oncreated，子组件的渲染不scroll
         that.$init = null;
 
@@ -55,7 +56,7 @@ module.exports = Magix.View.extend({
         let locParams = Router.parse().params;
         // 主步骤信息从1开始
         let curStepIndex = +(locParams.stepIndex || 1);
-        if(curStepIndex > alreadyStep){
+        if (curStepIndex > alreadyStep) {
             alreadyStep = curStepIndex;
         }
 
@@ -76,12 +77,12 @@ module.exports = Magix.View.extend({
             step.locked = (stepIndex > alreadyStep);
 
             // 修正子步骤信息
-            if((stepIndex == curStepIndex) && ((curSubStepIndex > step.subs.length) || (step.subs.length == 1))){
+            if ((stepIndex == curStepIndex) && ((curSubStepIndex > step.subs.length) || (step.subs.length == 1))) {
                 curSubStepIndex = -1;
             }
 
             let prevTip = '';
-            if (!step.customTrigger && (stepIndex > 1) && (!stepInfos[i - 1].locked)) {
+            if ((stepIndex > 1) && (!stepInfos[i - 1].locked)) {
                 // 1. 第一步没有返回上一步
                 // 2. 上一步被锁定的情况下没有返回上一步
                 // 3. 自定义trigger的情况
@@ -90,7 +91,7 @@ module.exports = Magix.View.extend({
             step.prevTip = prevTip;
 
             let nextTip = '';
-            if (!step.customTrigger && (stepIndex < stepInfos.length)) {
+            if (stepIndex < stepInfos.length) {
                 // 1. 最后一步没有下一步
                 // 2. 自定义trigger的情况
                 nextTip = step.nextTip || defNextTip;
@@ -129,30 +130,31 @@ module.exports = Magix.View.extend({
                 that.updater.set({
                     curSubStepIndex,
                 });
-
-                let onClass = '@index.less:link-on';
+                let onClass = '@index.less:on';
                 let cur = $('#' + that.id + ' .@index.less:step-current');
-                cur.find('.@index.less:link').removeClass(onClass);
-                cur.find('.@index.less:link[data-sub="' + curSubStepIndex + '"]').addClass(onClass);
+                cur.find('.@index.less:step').removeClass(onClass);
+                cur.find('.@index.less:step[data-sub="' + curSubStepIndex + '"]').addClass(onClass);
 
                 that.subScroll();
             } else {
+                // 步骤切换了重新mount子view
                 renderFn();
             }
         }
     },
 
-    wrapSide(step){
+    wrapSide(step) {
         let rightWidth = +this.updater.get('rightWidth');
 
         let hasSide = false;
         let sideWrapper = null,
             sideData = {};
-        
-        if(step.sideView || step.sideTip){
+
+        if (step.sideView || step.sideTip) {
             sideWrapper = '@./tip';
             sideData = {
                 view: step.sideView || '', // 自定义侧边view
+                title: step.sideTitle || '', // 标题
                 content: step.sideTip || '' // 简单提示文案
             }
             hasSide = true;
@@ -164,12 +166,12 @@ module.exports = Magix.View.extend({
             // step上有提示的时候，忽略sub的侧边配置
             let subSideWrapper = null,
                 subSideData = {};
-            if(!hasSide){
+            if (!hasSide) {
                 let hasSubSide = false;
-                if(sub.sideView || sub.sideTip){
+                if (sub.sideView || sub.sideTip) {
                     subSideWrapper = '@./tip';
                     subSideData = {
-                        view: sub.sideView || '', 
+                        view: sub.sideView || '',
                         content: sub.sideTip || ''
                     }
                     hasSubSide = true;
@@ -192,22 +194,20 @@ module.exports = Magix.View.extend({
     /**
      * 滚动到当前子view的位置
      */
-    subScroll(){
+    subScroll() {
         let that = this;
         let curSubStepIndex = +that.updater.get('curSubStepIndex');
         let top;
-        if(curSubStepIndex > 0){
+        if (curSubStepIndex > 0) {
             let subContent = $('#' + that.id + ' #sub_frame_' + curSubStepIndex);
             top = subContent.offset().top;
-        }else{
+        } else {
             top = 0;
         }
         $(window).scrollTop(top);
     },
 
     '$win<scroll>'() {
-        let that = this;
-
         let that = this;
         let context = $('#' + that.id);
         let content = context.find('.@index.less:main-content');
@@ -225,6 +225,23 @@ module.exports = Magix.View.extend({
             nav.css({
                 position: 'absolute'
             })
+        }
+
+        let side = context.find('.@index.less:content-side');
+        if (side.length) {
+            let sideTop = content.offset().top;
+            let { gapWidth } = that.updater.get();
+            if (scrollTop > (sideTop + gapWidth)) {
+                side.css({
+                    position: 'fixed',
+                    top: 0
+                })
+            } else {
+                side.css({
+                    position: 'absolute',
+                    top: `${gapWidth}px`
+                })
+            }
         }
     },
 
@@ -245,7 +262,7 @@ module.exports = Magix.View.extend({
     'prev<click>'(e) {
         let curStepIndex = this.updater.get('curStepIndex');
         Router.to({
-            stepIndex: (+curStepIndex - 1), 
+            stepIndex: (+curStepIndex - 1),
             subStepIndex: -1
         });
     },
@@ -254,7 +271,7 @@ module.exports = Magix.View.extend({
         // 先校验能否提交
         let curStepInfo = that.updater.get('curStepInfo');
         let subs = curStepInfo.subs;
-        
+
         let models = subs.map(sub => {
             let vf = Vframe.get('sub_frame_' + sub.index);
             return vf.invoke('check');
@@ -263,11 +280,11 @@ module.exports = Magix.View.extend({
             let ok = true,
                 msgs = [],
                 remain = {};
-            
+
             let errorNode = $('#' + that.id + '_error');
             results.forEach((r, i) => {
                 ok = ok && r.ok;
-                if(!r.ok){
+                if (!r.ok) {
                     msgs.push({
                         id: (i + 1),
                         label: subs[i].label,
@@ -277,17 +294,17 @@ module.exports = Magix.View.extend({
                 Magix.mix(remain, (r.remain || {}));
             })
 
-            if(ok){
+            if (ok) {
                 errorNode.html('');
                 // 下一步
-                if(curStepInfo.nextFn){
+                if (curStepInfo.nextFn) {
                     curStepInfo.nextFn(remain, (remainParams) => {
                         that.next(remainParams);
                     });
-                }else{
+                } else {
                     that.next({});
                 }
-            }else{
+            } else {
                 errorNode.html(`
                     <i class="mc-iconfont @index.less:error-icon">&#xe6ad;</i>
                     ${msgs.map(m => `
@@ -300,12 +317,12 @@ module.exports = Magix.View.extend({
         });
 
     },
-    'nav<click>'(e){
+    'nav<click>'(e) {
         let params = e.params;
         let stepIndex = params.stepIndex,
             subStepIndex = params.subStepIndex || -1;
         Router.to({
-            stepIndex, 
+            stepIndex,
             subStepIndex
         });
     },

@@ -3,7 +3,7 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-main/examples/inner1",["magix","$"],(require,exports,module)=>{
+define("mx-main/examples/inner3的副本",["magix","$"],(require,exports,module)=>{
 /*Magix,$*/
 
 var Magix = require("magix");
@@ -21,14 +21,14 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryc*:b" class="lh22 mb10"><div>页面功能说明：</div></div><div mxs="_zs_galleryc*:c" class="tip-content mb40"><div>1. 当前步骤只要一个子步骤，侧边导航不显示子步骤</div><div>2. 右侧边是个自定义view，配置sideView</div><div>3. 自定义返回上一步按钮文案（prevTip），下一步按钮文案（nextTip）</div><div>4. 当前步骤提交的时候保留参数campaignId，初始化的时候判断是否有campaignId，有的话则表示第一步、第二步已完成，直接展开（nextFn）</div></div><div mxs="_zs_galleryc*:d" class="lh22 mb10"><div>当前页面配置信息：</div></div><pre mxs="_zs_galleryc*:g" class="tip-content">\n&#123;\n    label: \'设置计划\',\n    sideView: \'@./tip\',\n    subs: [&#123;\n        label: \'基本信息\',\n        icon: \'&lt;i class="mc-iconfont fontsize-22"&gt;&#xe612;&lt;/i&gt;\',\n        view: \'@./inner1\'\n    &#125;],\n    nextTip: \'下一步，设置计划\',\n    nextFn: (remains, next) =&gt; &#123;\n        // remains 当前步骤保留的信息，提交处理\n        next(&#123;\n            campaignId: 1\n        &#125;)\n    &#125;\n&#125;\n</pre>';
+    $p += '<div mxs="_zs_galleryc):f" class="lh22 mb10"><div>当前步骤三个子步骤，对应的页面配置信息如下：</div></div><pre mxs="_zs_galleryc):i" class="tip-content">\n&#123;\n    label: \'添加创意\',\n    subs: [&#123;\n        label: \'创意内容1\',\n        icon: \'&lt;i class="mc-iconfont fontsize-20"&gt;&#38;&#35;xe705;&lt;/i&gt;\',\n        view: \'@./inner3\'\n    &#125;, &#123;\n        label: \'创意内容2\',\n        icon: \'&lt;i class="mc-iconfont fontsize-20"&gt;&#38;&#35;xe664;&lt;/i&gt;\',\n        view: \'@./inner\'\n    &#125;, &#123;\n        label: \'创意内容3\',\n        icon: \'&lt;i class="mc-iconfont fontsize-20"&gt;&#38;&#35;xe767;&lt;/i&gt;\',\n        view: \'@./inner\'\n    &#125;],\n    nextTip: \'下一步，完成\'\n&#125;\n</pre>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
     if ($art)
         msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
     msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-main/examples/inner1.html';
+    msg += $expr + '\r\n\tat file:mx-main/examples/inner3.html';
     throw msg;
 } return $p; },
     init: function (extra) {
@@ -40,9 +40,6 @@ catch (ex) {
     render: function () {
         this.updater.digest();
     },
-    /**
-     * 子view实现该方法
-     */
     check: function () {
         var info = this.updater.get('info');
         var ok = true, remain = {};

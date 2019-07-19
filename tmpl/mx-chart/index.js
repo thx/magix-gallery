@@ -1,5 +1,6 @@
 let Magix = require('magix');
 let Chartx = require('../../chartpark/index');
+Chartx = Chartx.default || Chartx;
 let $ = require('$');
 
 function stringify(obj){

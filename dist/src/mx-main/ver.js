@@ -29,9 +29,9 @@ module.exports = Base.extend({
     $line = 1;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_iedhuvbmogi$art_i = 0, $art_cfbpgxrmm$art_c = stepInfos.length; $art_iedhuvbmogi$art_i < $art_cfbpgxrmm$art_c; $art_iedhuvbmogi$art_i++) {    var step = stepInfos[$art_iedhuvbmogi$art_i]%>';
-    for (var $art_iedhuvbmogi$art_i = 0, $art_cfbpgxrmm$art_c = stepInfos.length; $art_iedhuvbmogi$art_i < $art_cfbpgxrmm$art_c; $art_iedhuvbmogi$art_i++) {
-        var step = stepInfos[$art_iedhuvbmogi$art_i];
+    $expr = '<%for (var $art_igvowbjpn$art_i = 0, $art_cluxzohc$art_c = stepInfos.length; $art_igvowbjpn$art_i < $art_cluxzohc$art_c; $art_igvowbjpn$art_i++) {    var step = stepInfos[$art_igvowbjpn$art_i]%>';
+    for (var $art_igvowbjpn$art_i = 0, $art_cluxzohc$art_c = stepInfos.length; $art_igvowbjpn$art_i < $art_cluxzohc$art_c; $art_igvowbjpn$art_i++) {
+        var step = stepInfos[$art_igvowbjpn$art_i];
         $p += '<div mxv mxa="_zs_galleryc`:_" class="clearfix _zs_gallery_mx-main_ver_-step"><div mxa="_zs_galleryc`:a" class="_zs_gallery_mx-main_ver_-circle">';
         $line = 3;
         $art = '!step.icon';

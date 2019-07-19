@@ -8,7 +8,6 @@ define("mx-main/examples/inner",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-main_examples_inner_","._zs_gallery_mx-main_examples_inner_-box-title {\n  position: relative;\n  height: 46px;\n  padding: 0 20px;\n  line-height: 44px;\n  background-color: var(--color-bg);\n  border: 1px solid var(--color-border);\n  border-radius: var(--border-radius);\n}\n._zs_gallery_mx-main_examples_inner_-box-title ._zs_gallery_mx-main_examples_inner_-title-icon {\n  float: left;\n  height: 44px;\n  line-height: 44px;\n}\n._zs_gallery_mx-main_examples_inner_-box-title ._zs_gallery_mx-main_examples_inner_-title-icon > * {\n  position: relative;\n  top: 2px;\n  margin-right: 4px;\n  color: #999;\n  font-size: 20px;\n}\n._zs_gallery_mx-main_examples_inner_-box-title ._zs_gallery_mx-main_examples_inner_-title-label {\n  float: left;\n  font-size: 16px;\n}\n._zs_gallery_mx-main_examples_inner_-box-inner {\n  padding: 20px 20px 0 20px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -21,30 +20,8 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', info = $$.info; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc&:_" class="_zs_gallery_mx-main_examples_inner_-box-title clearfix">';
-    $line = 2;
-    $art = 'if info.icon';
-    ;
-    $expr = '<%if (info.icon) {%>';
-    if (info.icon) {
-        ;
-        $p += '<span mxa="_zs_galleryc&:a" class="_zs_gallery_mx-main_examples_inner_-title-icon">';
-        $line = 3;
-        $art = '!info.icon';
-        ;
-        $p += ($expr = '<%!info.icon%>', $n(info.icon)) + '</span>';
-        $line = 4;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '<span mxa="_zs_galleryc&:b" class="_zs_gallery_mx-main_examples_inner_-title-label">';
-    $line = 5;
-    $art = '=info.label';
-    ;
-    $p += ($expr = '<%=info.label%>', $e(info.label)) + '</span></div><div mxs="_zs_galleryc&:_" class="_zs_gallery_mx-main_examples_inner_-box-inner" style="min-height: 200px;">自定义内容</div>';
+} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
+    $p += '<div mxs="_zs_galleryc&:b" class="min-height-320">自定义内容</div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -21,7 +21,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '自定义右侧提示view';
+    $p += '<div mxs="_zs_galleryc[:a" class="min-height-200 pa20">自定义右侧提示view</div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

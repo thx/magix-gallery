@@ -1,6 +1,6 @@
 let Magix = require('magix');
 let $ = require('$');
-Magix.applyStyle('@tip.less');
+Magix.applyStyle('@index.less');
 
 module.exports = Magix.View.extend({
     tmpl: '@tip.html',
