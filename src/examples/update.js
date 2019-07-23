@@ -11,9 +11,9 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-feedback：包装新版feedback，<a href="#!/feedback/index" class="color-brand">点击查看</a>'
-                }, {
                     title: 'mx-dialog：点击非浮层内部分时关闭浮层；beforeClose return promise，<a href="#!/dialog/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-feedback：包装新版feedback，<a href="#!/feedback/index" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',

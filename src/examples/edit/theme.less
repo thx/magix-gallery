@@ -9,20 +9,17 @@
 :root{
     --edit-theme-width: 126px;
     --edit-nav-size: 20px;
-    --edit-color-width: calc(var(--edit-theme-width) * 4);
     --edit-group-height: 50px;
     --edit-wrapper-height: calc(var(--edit-group-height) * 2 + 800px);
 }
 .theme {
     float: left;
-    width: var(--edit-theme-width);
     text-align: center;
 }
 
 .edit {
     position: relative;
     height: var(--edit-wrapper-height);
-    padding-left: var(--edit-color-width);
 }
 
 .nav {
@@ -30,7 +27,6 @@
     z-index: 3;
     top: calc(0px - var(--edit-nav-size));
     left: 0;
-    width: var(--edit-theme-width);
     height: var(--edit-nav-size);
     text-align: center;
     transition: left var(--duration);
@@ -58,7 +54,6 @@
     z-index: 2;
     top: 0;
     left: 0;
-    width: var(--edit-color-width);
     height: 100%;
     padding-left: 15px;
     border: 1px solid var(--color-border);

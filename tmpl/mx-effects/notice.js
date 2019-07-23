@@ -1,13 +1,12 @@
 let Magix = require('magix');
 let $ = require('$');
-let Util = require('@../mx-color/util');
+let ColorUtil = require('@../mx-color/util');
+let CSSVarUtil = require('@../mx-util/css-var');
 Magix.applyStyle('@notice.less');
 
 module.exports = Magix.View.extend({
     tmpl: '@notice.html',
     init(extra) {
-        let root = getComputedStyle(document.documentElement);
-
         // 如果用户自定义了色值以自定义色值为准
         let color = extra.color,
             styles = [],
@@ -24,9 +23,9 @@ module.exports = Magix.View.extend({
                 'border-style: solid'
             )
         }
-        if (radius) {
-            let borderRadius = document.body.style.getPropertyValue('--border-radius') || root.getPropertyValue('--border-radius');
-            borderRadius = borderRadius.trim();
+
+        let borderRadius = CSSVarUtil.get('--border-radius', '4px');
+        if (radius && borderRadius) {
             styles.push(`border-radius: ${borderRadius}`);
         }
 
@@ -40,10 +39,8 @@ module.exports = Magix.View.extend({
             let key;
             switch (type) {
                 case 'common':
-                    colorBg = document.body.style.getPropertyValue('--color-bg') || root.getPropertyValue('--color-bg');
-                    colorBg = colorBg.trim();
-                    colorBorder = document.body.style.getPropertyValue('--color-border') || root.getPropertyValue('--color-border');
-                    colorBorder = colorBorder.trim();
+                    colorBg = CSSVarUtil.get('--color-bg', '#fafafa');
+                    colorBorder = CSSVarUtil.get('--color-border', '#e6e6e6');
                     colorIcon = '#cccccc';
                     break;
                 case 'highlight':
@@ -57,13 +54,12 @@ module.exports = Magix.View.extend({
                     break;
             }
             if (key) {
-                color = document.body.style.getPropertyValue(key) || root.getPropertyValue(key);
-                color = color.trim();
+                color = CSSVarUtil.get(key, '#4d7fff');
             }
         }
         if (color) {
             // 主体颜色
-            let result = Util.toRgb(color);
+            let result = ColorUtil.toRgb(color);
             colorBg = `rgba(${result.r}, ${result.g}, ${result.b}, 0.1)`;
             colorBorder = color;
             colorIcon = color;
@@ -88,6 +84,7 @@ module.exports = Magix.View.extend({
             closable
         })
     },
+
     render() {
         this.updater.digest();
     },

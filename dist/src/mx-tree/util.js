@@ -1,1 +1,43 @@
-define("mx-tree/util",["magix"],(e,i,r)=>{var l=e("magix");r.exports={listToTree:function(e,i,r){for(var s={},h={},n=[],t=0,a=(e=e||[]).length;t<a;t++){var u=l.mix({},e[t]);if(s[u[i]]=u,h[u[i]]&&(u.children=h[u[i]]),l.has(u,r)&&""!==u[r])if(s[u[r]])(s[u[r]].children||(s[u[r]].children=[])).push(u);else h[u[r]]?h[u[r]].push(u):h[u[r]]=[u];else n.push(u)}return{list:n,map:s}}}});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-tree/util",["magix"],(require,exports,module)=>{
+/*Magix*/
+
+var Magix = require("magix");
+module.exports = {
+    listToTree: function (list, id, pId) {
+        list = list || [];
+        var map = {}, listMap = {}, rootList = [];
+        for (var i = 0, max = list.length; i < max; i++) {
+            var one = Magix.mix({}, list[i]);
+            map[one[id]] = one;
+            if (listMap[one[id]]) {
+                one.children = listMap[one[id]];
+            }
+            if (Magix.has(one, pId) && one[pId] !== '') {
+                if (map[one[pId]]) {
+                    var c = map[one[pId]].children || (map[one[pId]].children = []);
+                    c.push(one);
+                }
+                else {
+                    if (!listMap[one[pId]])
+                        listMap[one[pId]] = [one];
+                    else
+                        listMap[one[pId]].push(one);
+                }
+            }
+            else {
+                rootList.push(one);
+            }
+        }
+        return {
+            list: rootList,
+            map: map
+        };
+    }
+};
+
+});

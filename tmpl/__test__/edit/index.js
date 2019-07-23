@@ -218,13 +218,11 @@ module.exports = Base.extend({
             }
         ]
 
-        let root = getComputedStyle(document.documentElement);
-        let itemWidth = root.getPropertyValue('--edit-theme-width').trim();
         this.updater.set({
             viewId: this.id,
             custom: '#51a300',
             cur: 2,
-            itemWidth: +itemWidth.replace('px', ''),
+            itemWidth: 126,
             list
         })
     },

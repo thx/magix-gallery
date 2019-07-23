@@ -1,6 +1,7 @@
 let Magix = require('magix');
 let $ = require('$');
-let Util = require('@../mx-util/color');
+let ColorUtil = require('@../mx-color/util');
+let CSSVarUtil = require('@../mx-util/css-var');
 Magix.applyStyle('@progress.less');
 let ClassNames = {
     left: '@progress.less:num-left',
@@ -49,8 +50,8 @@ module.exports = Magix.View.extend({
             colorGradient = e.colorGradient || '',
             colorVs = e.colorVs || '',
             color1, color2;
-        let root = getComputedStyle(document.documentElement);
-        let brandColor = document.body.style.getPropertyValue('--color-brand').trim() || root.getPropertyValue('--color-brand').trim();
+
+        let brandColor = CSSVarUtil.get('--color-brand', '#4d7fff');
         switch (type) {
             case 'degree':
                 // 刻度型，刻度取整
@@ -67,7 +68,7 @@ module.exports = Magix.View.extend({
                 // 渐变，未自定义颜色时适用品牌色
                 color = color || brandColor;
                 if(color){
-                    let result = Util.toRgb(color);
+                    let result = ColorUtil.toRgb(color);
                     color1 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.4)`;
                     color2 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.2)`;
                 }

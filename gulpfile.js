@@ -63,7 +63,8 @@ combineTool.config({
     },
     checker: {
         tmplAttrIframe: false, //检测iframe相关
-        jsLoop: false
+        jsLoop: false,
+        css: false  //样式
     },
     revisableStringSplitter: '',
     //cssSourceMap: true,

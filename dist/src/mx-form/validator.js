@@ -1,1 +1,348 @@
-define("mx-form/validator",["$","magix","mx-form/rule","./util"],(e,r,t)=>{var a=e("$"),o=e("magix"),l=e("mx-form/rule"),i=e("./util");o.applyStyle("_zs_galleryV","html ._zs_galleryfY,html ._zs_galleryfY:focus,html ._zs_galleryfY:hover{border-color:var(--color-red)}._zs_galleryfZ{display:none;position:absolute;white-space:nowrap;word-wrap:normal;pointer-events:none;color:var(--color-red);font-size:var(--font-size);line-height:18px}._zs_galleryg_,._zs_galleryg_:focus,._zs_galleryg_:hover{border-color:var(--color-warn)}._zs_galleryga{display:none;position:absolute;white-space:nowrap;word-wrap:normal;pointer-events:none;color:var(--color-warn);font-size:var(--font-size)}");var s=function(e,r,t){var a,i,s,n=!0;for(var f in r)if(o.has(r,f)){if(l[f]){var p=l[f](t,i=r[f]);n=p.valid,s=p.tip}else n=!0,s="过滤掉不在校验规则内的";if(!n){a=f;break}}return{type:e,placement:r.placement,valid:n,action:a,rule:i,val:t,tip:s}},n=function(e){var r=a('[mxe="'+e+'"]');r.removeClass("_zs_galleryg_ _zs_galleryfY"),r.each(function(e,r){var t=(r=a(r)).attr("id")+"_msg";a("#"+t).hide()})},f=function(e,r,t){var l=a('[mxe="'+r+'"]');if(l.length){switch(e){case"warn":l.addClass("_zs_galleryg_").removeClass("_zs_galleryfY");break;case"error":l.addClass("_zs_galleryfY").removeClass("_zs_galleryg_")}return"checkbox"!=l.prop("type")&&"radio"!=l.prop("type")||(l=a(l[0])),l.each(function(r,l){var i=(l=a(l)).parent(),s=l.attr("id");s||(s=o.guid(),l.attr("id",s));var n=s+"_msg",f=a("#"+n);f.length||("static"==i.css("position")&&i.css({position:"relative"}),l.after('<div id="'+n+'"/>'),f=a("#"+n));switch(e){case"warn":f[0].className="_zs_galleryga";break;case"error":f[0].className="_zs_galleryfZ"}f.html(t.tip).show();var p=t.placement||"bottom",c=l.outerWidth(),d=l.outerHeight(),m=l.offset(),v=i.offset(),h="32px";if(window.getComputedStyle){var g=getComputedStyle(document.documentElement);h=document.body.style.getPropertyValue("--input-height").trim()||g.getPropertyValue("--input-height").trim()}switch(p){case"right":f.css({lineHeight:h,top:m.top-v.top,left:m.left-v.left+c+10});break;case"bottom":f.css({lineHeight:"18px",top:m.top-v.top+d,left:m.left-v.left+10})}}),!0}};t.exports={isValid:function(e,r){e=o.mix({element:null,scrollIntoView:!0,checkSubs:!0},e||{});var t,l=this,i=!0,s=l.owner.children(),n=!1;if(r||(r=[],n=!0),e.checkSubs)for(var f=0;f<s.length;f++){!1===o.Vframe.get(s[f]).invoke("isValid",[r])&&(i=!1)}e.element?(t="string"!=typeof e.element||/^#/.test(e.element)||/^\./.test(e.element)?a(e.element):a("#"+e.element)).attr("mxe")||(t=t.find('[mxe^="'+l.id+'"]')):t=a("#"+l.id+' [mxe^="'+l.id+'"]');var p=[];t.each(function(e,r){l.__bY(a(r)),p.push(a(r).attr("mxe"))});var c=l.updater.$form;if(c)for(var d=0;d<p.length;d++){var m=p[d];if(c[m]&&"error"==c[m].type){r.push(m),i=!1;break}}if(n&&e.scrollIntoView){for(var v=1e20,h=void 0,g=r.length,u=void 0,_=void 0;g--;)(u=a('[mxe="'+r[g]+'"]')).length&&(_=u.offset()).top<v&&(h=u[0],v=_.top);h&&(h.scrollIntoViewIfNeeded?h.scrollIntoViewIfNeeded():h.scrollIntoView&&h.scrollIntoView())}return i},"$[mxc]<keyup,change,focusout>":function(e){var r=a(e.eventTarget),t=r.attr("mxe");t&&t.startsWith(this.id)&&this.__bY(r)},__bY:function(e){for(var r=this.updater,t=r.$form||(r.$form={}),l=e.attr("mxc"),p=!0,c=0,d=r.parse(l);c<d.length;c++){for(var m=d[c],v=m.f||{},h=m.p.split("."),g=h.pop(),u=void 0,_=r.get();_&&h.length;)_=_[h.shift()];if("checkbox"==e.prop("type")){var y=_[g],w=e.prop("checked");if(!0===y||!1===y)u=w;else if(u=e.val(),a.isArray(y)){var x=e.prop("name");if(x)y=[],i.addCheckbox(x,y,v);else{var b=i.indexOf(y,u);w?-1===b&&y.push(u):b>-1&&y.splice(b,1)}u=y}else a.isPlainObject(y)?(w?y[u]=u:delete y[u],u=y):u=w?u:""}else if("radio"==e.prop("type")){var z=e.prop("name");u=a("input[name="+z+"]:checked").val()}else u=e.val();if(p){var k=s("error",v,u),V=e.attr("mxe");if(k.valid){if(delete t[V],n(V),o.has(v,"warn")){var $=s("warn",v.warn,u);$.valid?(delete t[V],n(V)):(t[V]=$,f("warn",V,$))}}else t[V]=k,p=!1,f("error",V,k)}}},clearValid:function(){var e=this.updater.$form;if(e)for(var r in e)n(r);this.updater.$form={}},"$doc<htmlchanged>":function(e){var r=this.updater.$form;if(e.vId==this.id&&r)for(var t in r){var a=r[t];f(a.type,t,a)||delete r[t]}}}});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-form/validator",["$","magix","mx-form/rule","./util","mx-util/css-var"],(require,exports,module)=>{
+/*$,Magix,Rules,Util,CSSVarUtil*/
+
+var $ = require("$");
+var Magix = require("magix");
+var Rules = require("mx-form/rule");
+var Util = require("./util");
+var CSSVarUtil = require("mx-util/css-var");
+Magix.applyStyle("_zs_gallery_mx-form_index_","html ._zs_gallery_mx-form_index_-error,\nhtml ._zs_gallery_mx-form_index_-error:hover,\nhtml ._zs_gallery_mx-form_index_-error:focus {\n  border-color: var(--color-red);\n}\n._zs_gallery_mx-form_index_-error-msg {\n  display: none;\n  position: absolute;\n  white-space: nowrap;\n  word-wrap: normal;\n  pointer-events: none;\n  color: var(--color-red);\n  font-size: var(--font-size);\n  line-height: 18px;\n}\n._zs_gallery_mx-form_index_-warn,\n._zs_gallery_mx-form_index_-warn:hover,\n._zs_gallery_mx-form_index_-warn:focus {\n  border-color: var(--color-warn);\n}\n._zs_gallery_mx-form_index_-warn-msg {\n  display: none;\n  position: absolute;\n  white-space: nowrap;\n  word-wrap: normal;\n  pointer-events: none;\n  color: var(--color-warn);\n  font-size: var(--font-size);\n}\n");
+var isValid = function (type, actions, val) {
+    var valid = true, action, rule, tip;
+    for (var a in actions) {
+        if (Magix.has(actions, a)) {
+            if (Rules[a]) {
+                var check = Rules[a](val, rule = actions[a]);
+                valid = check.valid;
+                tip = check.tip;
+            }
+            else {
+                // '过滤掉不在校验规则内的'
+                valid = true;
+                tip = '过滤掉不在校验规则内的';
+            }
+            if (!valid) {
+                action = a;
+                break;
+            }
+        }
+    }
+    return {
+        type: type,
+        placement: actions.placement,
+        valid: valid,
+        action: action,
+        rule: rule,
+        val: val,
+        tip: tip //校验失败错误提示
+    };
+};
+var hideMsg = function (ssId) {
+    var node = $('[mxe="' + ssId + '"]');
+    node.removeClass('_zs_gallery_mx-form_index_-warn _zs_gallery_mx-form_index_-error');
+    node.each(function (i, n) {
+        n = $(n);
+        var msgId = n.attr('id') + '_msg';
+        $('#' + msgId).hide();
+    });
+};
+var showMsg = function (type, ssId, checkInfo) {
+    var node = $('[mxe="' + ssId + '"]');
+    if (!node.length) {
+        return;
+    }
+    switch (type) {
+        case 'warn':
+            node.addClass('_zs_gallery_mx-form_index_-warn').removeClass('_zs_gallery_mx-form_index_-error');
+            break;
+        case 'error':
+            node.addClass('_zs_gallery_mx-form_index_-error').removeClass('_zs_gallery_mx-form_index_-warn');
+            break;
+    }
+    // checkbox radio 提示的时候取第一个节点提示
+    if (node.prop('type') == 'checkbox' || node.prop('type') == 'radio') {
+        node = $(node[0]);
+    }
+    node.each(function (i, n) {
+        n = $(n);
+        var prt = n.parent();
+        var id = n.attr('id');
+        if (!id) {
+            id = Magix.guid();
+            n.attr('id', id);
+        }
+        var msgId = id + '_msg';
+        var msgNode = $('#' + msgId);
+        if (!msgNode.length) {
+            var pos = prt.css('position');
+            if (pos == 'static') {
+                prt.css({
+                    position: 'relative'
+                });
+            }
+            n.after('<div id="' + msgId + '"/>');
+            msgNode = $('#' + msgId);
+        }
+        switch (type) {
+            case 'warn':
+                msgNode[0].className = '_zs_gallery_mx-form_index_-warn-msg';
+                break;
+            case 'error':
+                msgNode[0].className = '_zs_gallery_mx-form_index_-error-msg';
+                break;
+        }
+        // 提示信息
+        msgNode.html(checkInfo.tip).show();
+        // 提示信息位置 bottom / right
+        var placement = checkInfo.placement || 'bottom';
+        var width = n.outerWidth(), height = n.outerHeight(), offset = n.offset(), pOffset = prt.offset();
+        var lh = CSSVarUtil.get('--input-height', '32px');
+        switch (placement) {
+            case 'right':
+                msgNode.css({
+                    lineHeight: lh,
+                    top: (offset.top - pOffset.top),
+                    left: (offset.left - pOffset.left) + width + 10
+                });
+                break;
+            case 'bottom':
+                msgNode.css({
+                    lineHeight: '18px',
+                    top: (offset.top - pOffset.top) + height,
+                    left: (offset.left - pOffset.left) + 10
+                });
+                break;
+        }
+    });
+    return true;
+};
+module.exports = {
+    isValid: function (config, ref) {
+        config = Magix.mix({
+            element: null,
+            scrollIntoView: true,
+            checkSubs: true //是否调用子view校验，children isValid
+        }, config || {});
+        var me = this;
+        var result = true;
+        var children = me.owner.children();
+        var topLevel = false;
+        if (!ref) {
+            ref = [];
+            topLevel = true;
+        }
+        // 递归调用子view校验
+        if (config.checkSubs) {
+            for (var i_1 = 0; i_1 < children.length; i_1++) {
+                var vf = Magix.Vframe.get(children[i_1]);
+                var r = vf.invoke('isValid', [ref]);
+                if (r === false) {
+                    result = false;
+                }
+            }
+        }
+        var elements;
+        if (config.element) {
+            if ((typeof config.element == 'string') && !(/^#/.test(config.element)) && !(/^\./.test(config.element))) {
+                elements = $('#' + config.element);
+            }
+            else {
+                elements = $(config.element);
+            }
+            var ssId = elements.attr('mxe');
+            if (!ssId) {
+                // 查找该节点下所有的校验节点
+                elements = elements.find('[mxe^="' + me.id + '"]');
+            }
+            else {
+                // 该节点本身为校验节点
+            }
+        }
+        else {
+            // 不传单个节点，遍历所有的
+            elements = $('#' + me.id + ' [mxe^="' + me.id + '"]');
+        }
+        var keys = [];
+        elements.each(function (i, e) {
+            // $(e).trigger({
+            //     type: 'change',
+            //     from: 'faker'
+            // });
+            me['@{check}']($(e));
+            keys.push($(e).attr('mxe'));
+        });
+        // 缓存所有的错误，只提取type=error类型的
+        var form = me.updater.$form;
+        if (form) {
+            for (var i = 0; i < keys.length; i++) {
+                var key = keys[i];
+                if (form[key] && (form[key].type == 'error')) {
+                    ref.push(key);
+                    result = false;
+                    break;
+                }
+            }
+        }
+        // 父view 滚动到错误位置
+        if (topLevel && config.scrollIntoView) {
+            var minTop = 1e20, node = void 0;
+            for (var i_2 = ref.length, n = void 0, f = void 0; i_2--;) {
+                n = $('[mxe="' + ref[i_2] + '"]');
+                if (n.length) {
+                    f = n.offset();
+                    if (f.top < minTop) {
+                        node = n[0];
+                        minTop = f.top;
+                    }
+                }
+            }
+            if (node) {
+                if (node.scrollIntoViewIfNeeded) {
+                    node.scrollIntoViewIfNeeded();
+                }
+                else if (node.scrollIntoView) {
+                    node.scrollIntoView();
+                }
+            }
+        }
+        return result;
+    },
+    '$[mxc]<keyup,change,focusout>': function (e) {
+        var me = this, node = $(e.eventTarget);
+        var mxe = node.attr('mxe');
+        //交给真正的处理元素
+        if (!mxe || !mxe.startsWith(me.id)) {
+            return;
+        }
+        me['@{check}'](node);
+    },
+    '@{check}': function (node) {
+        var me = this;
+        var updater = me.updater;
+        var form = updater.$form || (updater.$form = {});
+        var mxc = node.attr('mxc');
+        var exprs = updater.parse(mxc);
+        var valid = true; //校验信息
+        for (var _i = 0, exprs_1 = exprs; _i < exprs_1.length; _i++) {
+            var ctrl = exprs_1[_i];
+            var actions = ctrl.f || {};
+            var ps = ctrl.p.split('.');
+            var key = ps.pop(), temp = void 0, value = void 0;
+            var object = updater.get();
+            while (object && ps.length) {
+                temp = ps.shift();
+                object = object[temp];
+            }
+            if (node.prop('type') == 'checkbox') {
+                var src = object[key];
+                var checked = node.prop('checked');
+                if (src === true || src === false) {
+                    value = checked;
+                }
+                else {
+                    value = node.val();
+                    if ($.isArray(src)) {
+                        var checkboxName = node.prop('name');
+                        if (checkboxName) {
+                            src = [];
+                            Util.addCheckbox(checkboxName, src, actions);
+                        }
+                        else {
+                            var idx = Util.indexOf(src, value);
+                            if (checked) {
+                                if (idx === -1) {
+                                    src.push(value);
+                                }
+                            }
+                            else {
+                                if (idx > -1) {
+                                    src.splice(idx, 1);
+                                }
+                            }
+                        }
+                        value = src;
+                    }
+                    else if ($.isPlainObject(src)) {
+                        if (checked) {
+                            src[value] = value;
+                        }
+                        else {
+                            delete src[value];
+                        }
+                        value = src;
+                    }
+                    else {
+                        value = checked ? value : '';
+                    }
+                }
+            }
+            else if (node.prop('type') == 'radio') {
+                var radioName = node.prop('name');
+                value = $('input[name=' + radioName + ']:checked').val();
+            }
+            else {
+                value = node.val();
+            }
+            if (valid) {
+                var checkInfo = isValid('error', actions, value);
+                var ssId = node.attr('mxe');
+                if (checkInfo.valid) {
+                    delete form[ssId];
+                    hideMsg(ssId);
+                    //警告信息，校验成功的前提下才会有
+                    if (Magix.has(actions, 'warn')) {
+                        var warnCheckInfo = isValid('warn', actions.warn, value);
+                        if (warnCheckInfo.valid) {
+                            // 不需要警告
+                            delete form[ssId];
+                            hideMsg(ssId);
+                        }
+                        else {
+                            form[ssId] = warnCheckInfo;
+                            showMsg('warn', ssId, warnCheckInfo);
+                        }
+                    }
+                }
+                else {
+                    form[ssId] = checkInfo;
+                    valid = false;
+                    showMsg('error', ssId, checkInfo);
+                }
+            }
+        }
+    },
+    /**
+     * 清空当前所有校验
+     */
+    clearValid: function () {
+        var me = this;
+        var form = me.updater.$form;
+        if (form) {
+            for (var f in form) {
+                hideMsg(f);
+            }
+        }
+        me.updater.$form = {};
+    },
+    '$doc<htmlchanged>': function (e) {
+        var me = this;
+        var form = me.updater.$form;
+        if (e.vId == me.id) {
+            if (form) {
+                for (var f in form) {
+                    var v = form[f];
+                    if (!showMsg(v.type, f, v)) {
+                        delete form[f];
+                    }
+                }
+            }
+        }
+    }
+};
+
+});
