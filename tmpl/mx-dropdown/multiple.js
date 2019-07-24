@@ -143,12 +143,13 @@ module.exports = Magix.View.extend({
         })
 
         // 选择上限及下限
-        let min = +ops.min || 0, 
-            max = +ops.max || 0; 
+        let min = +ops.min || 0,
+            max = +ops.max || 0;
         if ((max > 0) && (min > max)) {
             min = max;
         }
         me.updater.set({
+            submitChecker: ops.submitChecker,
             hasGroups,
             viewId: me.id,
             expand,
@@ -347,7 +348,7 @@ module.exports = Magix.View.extend({
                     item.hide = false;
                 })
             })
-        }else{
+        } else {
             allHide = true;
             let lowVal = (val + '').toLocaleLowerCase();
             groups.forEach(group => {
@@ -500,43 +501,61 @@ module.exports = Magix.View.extend({
                 }
             })
         })
-        let min = me.updater.get('min');
-        if ((min > 0) && (selected.length < min)) {
-            me.updater.digest({
-                errMsg: `请至少选择${min}个`
-            })
-            return;
-        }
-        let continuous = me.updater.get('continuous');
-        if (continuous && (selected.length > 0)) {
-            let name = me.updater.get('name') || '数据';
-            if (selectedIndexes.length > 1) {
-                // 连续选择
+
+        let submitFn = () => {
+            let min = me.updater.get('min');
+            if ((min > 0) && (selected.length < min)) {
                 me.updater.digest({
-                    errMsg: `请选择连续的${name}`
+                    errMsg: `请至少选择${min}个`
                 })
                 return;
             }
+            let continuous = me.updater.get('continuous');
+            if (continuous && (selected.length > 0)) {
+                let name = me.updater.get('name') || '数据';
+                if (selectedIndexes.length > 1) {
+                    // 连续选择
+                    me.updater.digest({
+                        errMsg: `请选择连续的${name}`
+                    })
+                    return;
+                }
+            }
+
+            me.updater.set({
+                errMsg: '',
+                selected
+            })
+
+            me['@{hide}']();
+
+            let map = data.map;
+            let texts = selected.map(value => {
+                return map[value].text;
+            })
+            // 确定的时候才更新
+            me['@{owner.node}'].trigger({
+                type: 'change',
+                texts,
+                values: selected,
+                selected: $('#' + me.id).val()
+            });
         }
 
-        me.updater.set({
-            errMsg: '',
-            selected
-        })
-
-        me['@{hide}']();
-
-        let map = data.map;
-        let texts = selected.map(value => {
-            return map[value].text;
-        })
-        // 确定的时候才更新
-        me['@{owner.node}'].trigger({
-            type: 'change',
-            texts,
-            values: selected,
-            selected: $('#' + me.id).val()
-        });
+        if (data.submitChecker) {
+            // 支持自定义校验函数
+            data.submitChecker(selected).then((errMsg) => {
+                if (!errMsg) {
+                    submitFn();
+                } else {
+                    me.updater.digest({
+                        errMsg
+                    })
+                }
+            });
+        } else {
+            submitFn();
+        }
     },
     '@{hide}<click>'(e) {
         this['@{hide}']();

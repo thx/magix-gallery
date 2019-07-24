@@ -1,0 +1,51 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix lh22">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">自定义提交校验函数，最多选择两个</div>
+        </div>
+        <mx-dropdown.multiple class="w280"  
+            name="数字"
+            list="{{@[1,2,3,4,5,6]}}"
+            submit-checker="{{@checker}}"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-dropdown.multiple class="w280"  
+    name="数字"
+    list="&#123;&#123;@[1,2,3,4,5,6]&#125;&#125;"
+    submit-checker="&#123;&#123;@checker&#125;&#125;"/&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@32.html',
+    render() &#123;
+        let that = this;
+        that.updater.digest(&#123;
+            checker: (selected) =&gt; &#123;
+                return new Promise(resolve =&gt; &#123;
+                    resolve((selected.length &gt; 2) ? '最多选择两个' : '');
+                &#125;)
+            &#125;
+        &#125;);
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

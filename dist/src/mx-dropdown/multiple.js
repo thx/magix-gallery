@@ -286,8 +286,8 @@ module.exports = Magix.View.extend({
             $line = 46;
             $art = 'each groups as group groupIndex';
             ;
-            $expr = '<%for (var groupIndex = 0, $art_cdibugd$art_c = groups.length; groupIndex < $art_cdibugd$art_c; groupIndex++) {            var group = groups[groupIndex]%>';
-            for (var groupIndex = 0, $art_cdibugd$art_c = groups.length; groupIndex < $art_cdibugd$art_c; groupIndex++) {
+            $expr = '<%for (var groupIndex = 0, $art_cmsqnbi$art_c = groups.length; groupIndex < $art_cmsqnbi$art_c; groupIndex++) {            var group = groups[groupIndex]%>';
+            for (var groupIndex = 0, $art_cmsqnbi$art_c = groups.length; groupIndex < $art_cmsqnbi$art_c; groupIndex++) {
                 var group = groups[groupIndex];
                 $p += ' ';
                 $line = 47;
@@ -365,9 +365,9 @@ module.exports = Magix.View.extend({
                 $line = 67;
                 $art = 'each group.list as item';
                 ;
-                $expr = '<%for (var $art_iflyywwgo$art_i = 0, $art_objelivli$art_obj = group.list, $art_cgrzsilaw$art_c = $art_objelivli$art_obj.length; $art_iflyywwgo$art_i < $art_cgrzsilaw$art_c; $art_iflyywwgo$art_i++) {                var item = $art_objelivli$art_obj[$art_iflyywwgo$art_i]%>';
-                for (var $art_iflyywwgo$art_i = 0, $art_objelivli$art_obj = group.list, $art_cgrzsilaw$art_c = $art_objelivli$art_obj.length; $art_iflyywwgo$art_i < $art_cgrzsilaw$art_c; $art_iflyywwgo$art_i++) {
-                    var item = $art_objelivli$art_obj[$art_iflyywwgo$art_i];
+                $expr = '<%for (var $art_ijatdnb$art_i = 0, $art_objafkqbzsm$art_obj = group.list, $art_ckajzori$art_c = $art_objafkqbzsm$art_obj.length; $art_ijatdnb$art_i < $art_ckajzori$art_c; $art_ijatdnb$art_i++) {                var item = $art_objafkqbzsm$art_obj[$art_ijatdnb$art_i]%>';
+                for (var $art_ijatdnb$art_i = 0, $art_objafkqbzsm$art_obj = group.list, $art_ckajzori$art_c = $art_objafkqbzsm$art_obj.length; $art_ijatdnb$art_i < $art_ckajzori$art_c; $art_ijatdnb$art_i++) {
+                    var item = $art_objafkqbzsm$art_obj[$art_ijatdnb$art_i];
                     $p += ' ';
                     $line = 68;
                     $art = 'if !item.hide';
@@ -659,6 +659,7 @@ catch (ex) {
             min = max;
         }
         me.updater.set({
+            submitChecker: ops.submitChecker,
             hasGroups: hasGroups,
             viewId: me.id,
             expand: expand,
@@ -980,40 +981,58 @@ catch (ex) {
                 }
             });
         });
-        var min = me.updater.get('min');
-        if ((min > 0) && (selected.length < min)) {
-            me.updater.digest({
-                errMsg: "\u8BF7\u81F3\u5C11\u9009\u62E9" + min + "\u4E2A"
-            });
-            return;
-        }
-        var continuous = me.updater.get('continuous');
-        if (continuous && (selected.length > 0)) {
-            var name = me.updater.get('name') || '数据';
-            if (selectedIndexes.length > 1) {
-                // 连续选择
+        var submitFn = function () {
+            var min = me.updater.get('min');
+            if ((min > 0) && (selected.length < min)) {
                 me.updater.digest({
-                    errMsg: "\u8BF7\u9009\u62E9\u8FDE\u7EED\u7684" + name
+                    errMsg: "\u8BF7\u81F3\u5C11\u9009\u62E9" + min + "\u4E2A"
                 });
                 return;
             }
+            var continuous = me.updater.get('continuous');
+            if (continuous && (selected.length > 0)) {
+                var name = me.updater.get('name') || '数据';
+                if (selectedIndexes.length > 1) {
+                    // 连续选择
+                    me.updater.digest({
+                        errMsg: "\u8BF7\u9009\u62E9\u8FDE\u7EED\u7684" + name
+                    });
+                    return;
+                }
+            }
+            me.updater.set({
+                errMsg: '',
+                selected: selected
+            });
+            me['@{hide}']();
+            var map = data.map;
+            var texts = selected.map(function (value) {
+                return map[value].text;
+            });
+            // 确定的时候才更新
+            me['@{owner.node}'].trigger({
+                type: 'change',
+                texts: texts,
+                values: selected,
+                selected: $('#' + me.id).val()
+            });
+        };
+        if (data.submitChecker) {
+            // 支持自定义校验函数
+            data.submitChecker(selected).then(function (errMsg) {
+                if (!errMsg) {
+                    submitFn();
+                }
+                else {
+                    me.updater.digest({
+                        errMsg: errMsg
+                    });
+                }
+            });
         }
-        me.updater.set({
-            errMsg: '',
-            selected: selected
-        });
-        me['@{hide}']();
-        var map = data.map;
-        var texts = selected.map(function (value) {
-            return map[value].text;
-        });
-        // 确定的时候才更新
-        me['@{owner.node}'].trigger({
-            type: 'change',
-            texts: texts,
-            values: selected,
-            selected: $('#' + me.id).val()
-        });
+        else {
+            submitFn();
+        }
     },
     '@{hide}<click>': function (e) {
         this['@{hide}']();

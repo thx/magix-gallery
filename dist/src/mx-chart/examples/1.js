@@ -28,7 +28,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', chartId = $$.chartId, chartData = $$.chartData, viewId = $$.viewId, text1 = $$.text1, text3 = $$.text3; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryaj:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryaj:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryaj:f" class="lh22">图表配置来自chartpark，<a href="#!/all/pro/chartpark" rel="noopener noreferrer" class="color-brand" target="_blank">流程可参考</a></div><div mxv="chartId,chartData" style="height: 400px;" mx-view="mx-chart/index?chartId=';
+    $p += '<div mxv mxa="_zs_galleryaj:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryaj:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryaj:_" class="lh22">图表配置来自chartpark，<a href="#!/all/pro/chartpark" rel="noopener noreferrer" class="color-brand" target="_blank">流程可参考</a></div><div mxv="chartId,chartData" style="height: 400px;" mx-view="mx-chart/index?chartId=';
     $line = 5;
     $art = '@chartId';
     ;

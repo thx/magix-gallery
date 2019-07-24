@@ -39,6 +39,20 @@ module.exports = Magix.View.extend({
             type: 'number',
             def: ''
         }, {
+            key: 'submit-checker',
+            desc: '自定义提交校验函数',
+            type: 'function',
+            def: `<pre>
+(selected) => {
+    // selected 当前选中值
+    return new Promise(resolve => {
+        // 错误提示信息，无错误信息才继续提交
+        let errorMsg = '';
+        resolve(errorMsg);
+    })
+}
+</pre>`
+        }, {
             key: 'searchbox',
             desc: '是否开启搜索框',
             type: 'boolean',

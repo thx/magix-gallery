@@ -29,7 +29,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', variables = $$.variables, fieldsList = $$.fieldsList, chartId = $$.chartId, chartData = $$.chartData, viewId = $$.viewId, text1 = $$.text1, text3 = $$.text3; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryak:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryak:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryak:g" class="mb15">图表变量的定义，<a href="https://yuque.antfin-inc.com/docs/share/5c7a5600-6989-48a6-8db4-424b3d5d6fcf" rel="noopener noreferrer" class="color-brand" target="_blank">流程可参考</a></div><div mxv mxa="_zs_galleryak:b" class="mb10"><span mxs="_zs_galleryak:a" class="mr10">选择y轴对应的数据维度</span><div mxv="fieldsList" class="w200" mx-change="' + $viewId + 'select()" mx-view="mx-dropdown/index?selected=';
+    $p += '<div mxv mxa="_zs_galleryak:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryak:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryak:_" class="mb15">图表变量的定义，<a href="https://yuque.antfin-inc.com/docs/share/5c7a5600-6989-48a6-8db4-424b3d5d6fcf" rel="noopener noreferrer" class="color-brand" target="_blank">流程可参考</a></div><div mxv mxa="_zs_galleryak:b" class="mb10"><span mxs="_zs_galleryak:a" class="mr10">选择y轴对应的数据维度</span><div mxv="fieldsList" class="w200" mx-change="' + $viewId + 'select()" mx-view="mx-dropdown/index?selected=';
     $line = 7;
     $art = '=variables.yField';
     ;

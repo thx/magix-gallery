@@ -35,8 +35,8 @@ module.exports = Base.extend({
     $line = 19;
     $art = 'each themes as t i';
     ;
-    $expr = '<%for (var i = 0, $art_cctyakfgio$art_c = themes.length; i < $art_cctyakfgio$art_c; i++) {    var t = themes[i]%>';
-    for (var i = 0, $art_cctyakfgio$art_c = themes.length; i < $art_cctyakfgio$art_c; i++) {
+    $expr = '<%for (var i = 0, $art_cagfrnzd$art_c = themes.length; i < $art_cagfrnzd$art_c; i++) {    var t = themes[i]%>';
+    for (var i = 0, $art_cagfrnzd$art_c = themes.length; i < $art_cagfrnzd$art_c; i++) {
         var t = themes[i];
         $p += '<div class="_zs_gallery_examples_edit_theme_-theme" style="width: ';
         $line = 20;
@@ -50,7 +50,7 @@ module.exports = Base.extend({
         $line = 22;
         $art = '=i';
         ;
-        $p += ($expr = '<%=i%>', $e(i)) + '})"></a></div><div mxa="_zs_galleryf:b" class="mt10">';
+        $p += ($expr = '<%=i%>', $e(i)) + '})"></a></div><div mxa="_zs_galleryf:a" class="mt10">';
         $line = 23;
         $art = '=t.text';
         ;
@@ -89,10 +89,10 @@ module.exports = Base.extend({
     $line = 44;
     $art = 'each list as group';
     ;
-    $expr = '<%for (var $art_iaywxbd$art_i = 0, $art_cepzwkdi$art_c = list.length; $art_iaywxbd$art_i < $art_cepzwkdi$art_c; $art_iaywxbd$art_i++) {    var group = list[$art_iaywxbd$art_i]%>';
-    for (var $art_iaywxbd$art_i = 0, $art_cepzwkdi$art_c = list.length; $art_iaywxbd$art_i < $art_cepzwkdi$art_c; $art_iaywxbd$art_i++) {
-        var group = list[$art_iaywxbd$art_i];
-        $p += '<div mxa="_zs_galleryf:f" class="_zs_gallery_examples_edit_theme_-group">';
+    $expr = '<%for (var $art_indclvjxdq$art_i = 0, $art_cmulfdeyo$art_c = list.length; $art_indclvjxdq$art_i < $art_cmulfdeyo$art_c; $art_indclvjxdq$art_i++) {    var group = list[$art_indclvjxdq$art_i]%>';
+    for (var $art_indclvjxdq$art_i = 0, $art_cmulfdeyo$art_c = list.length; $art_indclvjxdq$art_i < $art_cmulfdeyo$art_c; $art_indclvjxdq$art_i++) {
+        var group = list[$art_indclvjxdq$art_i];
+        $p += '<div mxa="_zs_galleryf:b" class="_zs_gallery_examples_edit_theme_-group">';
         $line = 46;
         $art = '=group.text';
         ;
@@ -104,14 +104,14 @@ module.exports = Base.extend({
         $line = 50;
         $art = '@{left:140}';
         ;
-        $p += ($expr = '<%@{ left: 140 }%>', $i($$ref, { left: 140 })) + '">&#xe629;</span></div><div mxv mxa="_zs_galleryf:g" class="clearfix">';
+        $p += ($expr = '<%@{ left: 140 }%>', $i($$ref, { left: 140 })) + '">&#xe629;</span></div><div mxv mxa="_zs_galleryf:c" class="clearfix">';
         $line = 53;
         $art = 'each group.subs as item';
         ;
-        $expr = '<%for (var $art_ihozmvtpjxc$art_i = 0, $art_objhilgymkexu$art_obj = group.subs, $art_ckssveab$art_c = $art_objhilgymkexu$art_obj.length; $art_ihozmvtpjxc$art_i < $art_ckssveab$art_c; $art_ihozmvtpjxc$art_i++) {        var item = $art_objhilgymkexu$art_obj[$art_ihozmvtpjxc$art_i]%>';
-        for (var $art_ihozmvtpjxc$art_i = 0, $art_objhilgymkexu$art_obj = group.subs, $art_ckssveab$art_c = $art_objhilgymkexu$art_obj.length; $art_ihozmvtpjxc$art_i < $art_ckssveab$art_c; $art_ihozmvtpjxc$art_i++) {
-            var item = $art_objhilgymkexu$art_obj[$art_ihozmvtpjxc$art_i];
-            $p += '<div mxv mxa="_zs_galleryf:h" class="_zs_gallery_examples_edit_theme_-item"><div mxa="_zs_galleryf:i" class="_zs_gallery_examples_edit_theme_-name mb5"><div mxa="_zs_galleryf:j" class="color-6">';
+        $expr = '<%for (var $art_iejcdtocqism$art_i = 0, $art_objyvtnpfao$art_obj = group.subs, $art_clncvtrj$art_c = $art_objyvtnpfao$art_obj.length; $art_iejcdtocqism$art_i < $art_clncvtrj$art_c; $art_iejcdtocqism$art_i++) {        var item = $art_objyvtnpfao$art_obj[$art_iejcdtocqism$art_i]%>';
+        for (var $art_iejcdtocqism$art_i = 0, $art_objyvtnpfao$art_obj = group.subs, $art_clncvtrj$art_c = $art_objyvtnpfao$art_obj.length; $art_iejcdtocqism$art_i < $art_clncvtrj$art_c; $art_iejcdtocqism$art_i++) {
+            var item = $art_objyvtnpfao$art_obj[$art_iejcdtocqism$art_i];
+            $p += '<div mxv mxa="_zs_galleryf:d" class="_zs_gallery_examples_edit_theme_-item"><div mxa="_zs_galleryf:e" class="_zs_gallery_examples_edit_theme_-name mb5"><div mxa="_zs_galleryf:f" class="color-6">';
             $line = 56;
             $art = '=item.text';
             ;
@@ -123,7 +123,7 @@ module.exports = Base.extend({
             $line = 59;
             $art = '@{left: 80}';
             ;
-            $p += ($expr = '<%@{ left: 80 }%>', $i($$ref, { left: 80 })) + '">&#xe629;</span></div><div mxa="_zs_galleryf:k" class="_zs_gallery_examples_edit_theme_-name-key">';
+            $p += ($expr = '<%@{ left: 80 }%>', $i($$ref, { left: 80 })) + '">&#xe629;</span></div><div mxa="_zs_galleryf:g" class="_zs_gallery_examples_edit_theme_-name-key">';
             $line = 60;
             $art = '=item.key';
             ;
@@ -138,11 +138,11 @@ module.exports = Base.extend({
                 $line = 63;
                 $art = '=item.value';
                 ;
-                $p += ($expr = '<%=item.value%>', $e(item.value)) + ';"><div mxv="list" mxe="' + $viewId + '_0_' + ($expr = '<%=$art_iaywxbd$art_i%>', $e($art_iaywxbd$art_i)) + '_' + ($expr = '<%=$art_ihozmvtpjxc$art_i%>', $e($art_ihozmvtpjxc$art_i)) + '" mxc="[';
+                $p += ($expr = '<%=item.value%>', $e(item.value)) + ';"><div mxv="list" mxe="' + $viewId + '_0_' + ($expr = '<%=$art_indclvjxdq$art_i%>', $e($art_indclvjxdq$art_i)) + '_' + ($expr = '<%=$art_iejcdtocqism$art_i%>', $e($art_iejcdtocqism$art_i)) + '" mxc="[';
                 $line = 65;
                 $art = ':item.value';
                 ;
-                $p += '{p:\'list.' + ($expr = '<%=$art_iaywxbd$art_i%>', $e($art_iaywxbd$art_i)) + '.subs.' + ($expr = '<%=$art_ihozmvtpjxc$art_i%>', $e($art_ihozmvtpjxc$art_i)) + '.value\',a:\'color\'}]" mx-change="' + $viewId + 'sync({key:\'';
+                $p += '{p:\'list.' + ($expr = '<%=$art_indclvjxdq$art_i%>', $e($art_indclvjxdq$art_i)) + '.subs.' + ($expr = '<%=$art_iejcdtocqism$art_i%>', $e($art_iejcdtocqism$art_i)) + '.value\',a:\'color\'}]" mx-change="' + $viewId + 'sync({key:\'';
                 $line = 66;
                 $art = '=item.key';
                 ;
@@ -164,11 +164,11 @@ module.exports = Base.extend({
             $expr = '<%if (item.type == \'text\') {%>';
             if (item.type == 'text') {
                 ;
-                $p += '<div mxv><input mxe="' + $viewId + '_1_' + ($expr = '<%=$art_iaywxbd$art_i%>', $e($art_iaywxbd$art_i)) + '_' + ($expr = '<%=$art_ihozmvtpjxc$art_i%>', $e($art_ihozmvtpjxc$art_i)) + '" mxc="[';
+                $p += '<div mxv><input mxe="' + $viewId + '_1_' + ($expr = '<%=$art_indclvjxdq$art_i%>', $e($art_indclvjxdq$art_i)) + '_' + ($expr = '<%=$art_iejcdtocqism$art_i%>', $e($art_iejcdtocqism$art_i)) + '" mxc="[';
                 $line = 72;
                 $art = ':item.value';
                 ;
-                $p += '{p:\'list.' + ($expr = '<%=$art_iaywxbd$art_i%>', $e($art_iaywxbd$art_i)) + '.subs.' + ($expr = '<%=$art_ihozmvtpjxc$art_i%>', $e($art_ihozmvtpjxc$art_i)) + '.value\'}]" class="w100" value="';
+                $p += '{p:\'list.' + ($expr = '<%=$art_indclvjxdq$art_i%>', $e($art_indclvjxdq$art_i)) + '.subs.' + ($expr = '<%=$art_iejcdtocqism$art_i%>', $e($art_iejcdtocqism$art_i)) + '.value\'}]" class="w100" value="';
                 $line = 72;
                 $art = ':item.value';
                 ;
@@ -211,7 +211,7 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxa="_zs_galleryf:l" class="_zs_gallery_examples_edit_theme_-preview"><iframe src="https://mo.m.taobao.com/page_201904221752051#!/example/second1" class="_zs_gallery_examples_edit_theme_-iframe" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts" id="frame_';
+    $p += '</div><div mxa="_zs_galleryf:h" class="_zs_gallery_examples_edit_theme_-preview"><iframe src="https://mo.m.taobao.com/page_201904221752051#!/example/second1" class="_zs_gallery_examples_edit_theme_-iframe" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts" id="frame_';
     $line = 87;
     $art = '=viewId';
     ;
