@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.24',
+            time: '2019-07-25',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-dropdown.multiple：直接配置 submit-checker 自定义提交校验函数，<a href="#!/dropdown/multiple?highlightId=mx_12_demo32" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.23',
             time: '2019-07-19',
             subs: [{
