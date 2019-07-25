@@ -24,18 +24,18 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', width = $$.width, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryez:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_galleryez:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryez:_" class="mb20 clearfix"><div class="fl color-9 lh22">该示例：</div><div class="fl lh22"><div>分栏会根据屏幕可视范围控制是否需要显示分栏，宽段配置在th上</div><div>模拟滚动条一直在可视范围内，windows下鼠标无法左右滚动，可直接操作模拟滚动条滚动</div></div></div><div mxs="_zs_galleryez:a" class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'change()" class="btn btn-brand">切换宽度</a></div><div class="mb40" style="width: ';
+    $p += '<div mxa="_zs_galleryeA:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_galleryeA:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryeA:_" class="mb20 clearfix"><div class="fl color-9 lh22">该示例：</div><div class="fl lh22"><div>分栏会根据屏幕可视范围控制是否需要显示分栏，宽段配置在th上</div><div>模拟滚动条一直在可视范围内，windows下鼠标无法左右滚动，可直接操作模拟滚动条滚动</div></div></div><div mxs="_zs_galleryeA:a" class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'change()" class="btn btn-brand">切换宽度</a></div><div class="mb40" style="width: ';
     $line = 13;
     $art = '=width';
     ;
-    $p += ($expr = '<%=width%>', $e(width)) + '%;"><div mxa="_zs_galleryez:b" mx-view="mx-table/index?sticky=true"><div><table mxa="_zs_galleryez:c" class="table" left="true"><thead><tr>';
+    $p += ($expr = '<%=width%>', $e(width)) + '%;"><div mxa="_zs_galleryeA:b" mx-view="mx-table/index?sticky=true"><div><table mxa="_zs_galleryeA:c" class="table" left="true"><thead><tr>';
     $line = 19;
     $art = 'for (let i=0;i<2;i++)';
     ;
     $expr = '<%for (var i = 0; i < 2; i++) {%>';
     for (var i = 0; i < 2; i++) {
         ;
-        $p += '<th mxa="_zs_galleryez:d" width="120">固定字段';
+        $p += '<th mxa="_zs_galleryeA:d" width="120">固定字段';
         $line = 20;
         $art = '=i';
         ;
@@ -71,21 +71,21 @@ module.exports = Base.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '</tr><tr mxs="_zs_galleryez:b" class="operation-tr"><td colspan="4"><a href="javascript:;" class="btn btn-white btn-small btn-small mr10">操作</a><a href="javascript:;" class="btn btn-white btn-small btn-small">操作</a></td></tr>';
+        $p += '</tr><tr mxs="_zs_galleryeA:b" class="operation-tr"><td colspan="4"><a href="javascript:;" class="btn btn-white btn-small btn-small mr10">操作</a><a href="javascript:;" class="btn btn-white btn-small btn-small">操作</a></td></tr>';
         $line = 37;
         $art = '/for';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</tbody></table></div><div><table mxa="_zs_galleryez:e" class="table" center="true"><thead><tr>';
+    $p += '</tbody></table></div><div><table mxa="_zs_galleryeA:e" class="table" center="true"><thead><tr>';
     $line = 44;
     $art = 'for (let i=0;i<2;i++)';
     ;
     $expr = '<%for (var i = 0; i < 2; i++) {%>';
     for (var i = 0; i < 2; i++) {
         ;
-        $p += '<th mxa="_zs_galleryez:f" width="120">滚动';
+        $p += '<th mxa="_zs_galleryeA:f" width="120">滚动';
         $line = 45;
         $art = '=i';
         ;
@@ -121,22 +121,22 @@ module.exports = Base.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '</tr><tr mxs="_zs_galleryez:c" class="operation-tr"><td colspan="4"></td></tr>';
+        $p += '</tr><tr mxs="_zs_galleryeA:c" class="operation-tr"><td colspan="4"></td></tr>';
         $line = 60;
         $art = '/for';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</tbody></table></div></div></div></div><div mxa="_zs_galleryez:g" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryez:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</tbody></table></div></div></div></div><div mxa="_zs_galleryeA:g" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryeA:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 68;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryez:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryeA:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 70;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryez:e" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryeA:e" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 73;
     $art = '=viewId';
     ;

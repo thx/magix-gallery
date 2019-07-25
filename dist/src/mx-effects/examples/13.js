@@ -24,23 +24,23 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryby:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_galleryby:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxa="_zs_galleryby:b" class="mb10"><div mx-view="mx-effects/star?num=2.5&icon=';
+    $p += '<div mxa="_zs_gallerybz:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_gallerybz:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxa="_zs_gallerybz:b" class="mb10"><div mx-view="mx-effects/star?num=2.5&icon=';
     $line = 5;
     $art = '=\'<i class=\\"mc-iconfont\\">&#xe635;</i>\'';
     ;
-    $p += ($expr = '<%!$eu(\'<i class=\\"mc-iconfont\\">&#xe635;</i>\')%>', $eu('<i class=\"mc-iconfont\">&#xe635;</i>')) + '&color=%23fc2a2a"></div></div><div mxa="_zs_galleryby:c" class="mb10"><div mx-view="mx-effects/star?num=4&icon=';
+    $p += ($expr = '<%!$eu(\'<i class=\\"mc-iconfont\\">&#xe635;</i>\')%>', $eu('<i class=\"mc-iconfont\">&#xe635;</i>')) + '&color=%23fc2a2a"></div></div><div mxa="_zs_gallerybz:c" class="mb10"><div mx-view="mx-effects/star?num=4&icon=';
     $line = 10;
     $art = '=\'<i class=\\"mc-iconfont\\">&#xe60c;</i>\'';
     ;
-    $p += ($expr = '<%!$eu(\'<i class=\\"mc-iconfont\\">&#xe60c;</i>\')%>', $eu('<i class=\"mc-iconfont\">&#xe60c;</i>')) + '&color=rgb%2881%2C%20163%2C%200%29"></div></div></div><div mxa="_zs_galleryby:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryby:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">自定义icon + 颜色</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%!$eu(\'<i class=\\"mc-iconfont\\">&#xe60c;</i>\')%>', $eu('<i class=\"mc-iconfont\">&#xe60c;</i>')) + '&color=rgb%2881%2C%20163%2C%200%29"></div></div></div><div mxa="_zs_gallerybz:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallerybz:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">自定义icon + 颜色</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 16;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryby:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybz:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 18;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryby:a" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybz:a" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 21;
     $art = '=viewId';
     ;

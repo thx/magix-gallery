@@ -33,7 +33,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerydW:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $p += '<div mxv mxa="_zs_gallerydX:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'多类型搜索\',\n            key: viewId + \'_demo1\'\n        }, {\n            name: \'自定义搜索文案\',\n            key: viewId + \'_demo5\'\n        }, {\n            name: \'右对齐\',\n            key: viewId + \'_demo3\'\n        }, {\n            name: \'单个搜索\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
@@ -41,7 +41,7 @@ module.exports = Magix.View.extend({
     $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerydW:a" class="clearfix mb20"><div mxa="_zs_gallerydW:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-search/examples/1" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerydX:a" class="clearfix mb20"><div mxa="_zs_gallerydX:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-search/examples/1" id="';
     $line = 29;
     $art = '=viewId';
     ;
@@ -49,7 +49,7 @@ module.exports = Magix.View.extend({
     $line = 30;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div mxa="_zs_gallerydW:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-search/examples/5" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div mxa="_zs_gallerydX:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-search/examples/5" id="';
     $line = 33;
     $art = '=viewId';
     ;
@@ -57,7 +57,7 @@ module.exports = Magix.View.extend({
     $line = 34;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mxs="_zs_gallerydW:_" mx-view="mx-search/examples/2"></div></div></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mxs="_zs_gallerydX:_" mx-view="mx-search/examples/2"></div></div></div><div id="';
     $line = 39;
     $art = '=viewId';
     ;
@@ -121,7 +121,7 @@ catch (ex) {
                 def: '配置了placeholder，显示placeholder，否则<br>配置了list，默认显示list-text.join(\'/\')<br>单个类型搜索默认显示搜素'
             }];
         var events = [{
-                type: 'trigger',
+                type: 'change',
                 desc: '回车（默认搜索第一个）<br/>或者点选下拉列表某个选项时触发',
                 params: [{
                         key: 'searchKey',
@@ -130,6 +130,10 @@ catch (ex) {
                     }, {
                         key: 'searchValue',
                         desc: '输入框输入的内容',
+                        type: 'string'
+                    }, {
+                        key: 'selected',
+                        desc: '输入框输入的内容，=searchValue',
                         type: 'string'
                     }]
             }];

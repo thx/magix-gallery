@@ -33,7 +33,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerye~:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $p += '<div mxv mxa="_zs_gallerye/:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'一级\',\n            key: viewId + \'_demo5\'\n        },{\n            name: \'二级\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'一级+标签\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'二级+标签\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'实际应用场景\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
@@ -41,7 +41,7 @@ module.exports = Base.extend({
     $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerye~:a" class="clearfix"><div mxa="_zs_gallerye~:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-title/examples/2" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerye/:a" class="clearfix"><div mxa="_zs_gallerye/:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-title/examples/2" id="';
     $line = 29;
     $art = '=viewId';
     ;
@@ -49,7 +49,7 @@ module.exports = Base.extend({
     $line = 30;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div></div><div mxa="_zs_gallerye~:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-title/examples/4" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div></div><div mxa="_zs_gallerye/:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-title/examples/4" id="';
     $line = 33;
     $art = '=viewId';
     ;
@@ -57,7 +57,7 @@ module.exports = Base.extend({
     $line = 34;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div></div><div mxa="_zs_gallerye~:d" class="mb20"><div mx-view="mx-title/examples/1" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div></div><div mxa="_zs_gallerye/:d" class="mb20"><div mx-view="mx-title/examples/1" id="';
     $line = 38;
     $art = '=viewId';
     ;

@@ -195,10 +195,21 @@ module.exports = Magix.View.extend({
     },
     '@{fire}' () {
         let that = this;
+        let searchValue = that['@{search.value}'];
+
+        // 双向绑定
+        that['@{owner.node}'].trigger({
+            type: 'change',
+            searchKey: that['@{search.key}'],
+            searchValue,
+            selected: searchValue
+        });
+
+        // 兼容老的事件处理
         that['@{owner.node}'].trigger({
             type: 'search',
             searchKey: that['@{search.key}'],
-            searchValue: that['@{search.value}']
+            searchValue
         })
     }
 });

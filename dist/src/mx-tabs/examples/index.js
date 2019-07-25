@@ -32,7 +32,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerye6:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $p += '<div mxv mxa="_zs_gallerye7:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'打标 + 事件处理\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'双向绑定\',\n            key: viewId + \'_demo8\'\n        },{\n            name: \'自定义key\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'带提示\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
@@ -44,11 +44,11 @@ module.exports = Magix.View.extend({
     $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mxa="_zs_gallerye6:a" class="clearfix mb20"><div mxa="_zs_gallerye6:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-tabs/examples/8" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mxa="_zs_gallerye7:a" class="clearfix mb20"><div mxa="_zs_gallerye7:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-tabs/examples/8" id="';
     $line = 30;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div></div><div mxa="_zs_gallerye6:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-tabs/examples/2" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div></div><div mxa="_zs_gallerye7:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-tabs/examples/2" id="';
     $line = 33;
     $art = '=viewId';
     ;

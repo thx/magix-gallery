@@ -17,8 +17,9 @@ module.exports = Base.extend({
             searchValue: ''
         });
     },
-    'change<search>' (e) {
+    'search<change>' (e) {
         e.preventDefault();
+
         // e.searchKey 搜索对应的key值
         // e.searchValue input文本框输入的对应的内容
         this.updater.digest({

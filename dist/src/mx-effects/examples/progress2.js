@@ -29,7 +29,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryb4:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $p += '<div mxv mxa="_zs_galleryb5:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'展示值取整\',\n            key: viewId + \'_demo10\'\n        },{\n            name: \'自定义颜色\',\n            key: viewId + \'_demo24\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
@@ -37,11 +37,11 @@ module.exports = Magix.View.extend({
     $line = 16;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryb4:a" class="clearfix mb20"><div mxa="_zs_galleryb4:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-effects/examples/10" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryb5:a" class="clearfix mb20"><div mxa="_zs_galleryb5:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-effects/examples/10" id="';
     $line = 19;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo10"></div></div><div mxa="_zs_galleryb4:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-effects/examples/24" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo10"></div></div><div mxa="_zs_galleryb5:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-effects/examples/24" id="';
     $line = 22;
     $art = '=viewId';
     ;

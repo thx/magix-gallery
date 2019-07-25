@@ -49,7 +49,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><i mxs="_zs_gallerydX:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+    $p += '"><i mxs="_zs_gallerydY:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
     $line = 3;
     $art = '=placeholder';
     ;
@@ -71,14 +71,14 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += ' _zs_gallery_mx-search_index_-search-menu"><ul mxa="_zs_gallerydX:_" class="mx-output-list">';
+    $p += ' _zs_gallery_mx-search_index_-search-menu"><ul mxa="_zs_gallerydY:_" class="mx-output-list">';
     $line = 14;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_inwhqgkict$art_i = 0, $art_citvvnxl$art_c = list.length; $art_inwhqgkict$art_i < $art_citvvnxl$art_c; $art_inwhqgkict$art_i++) {    var item = list[$art_inwhqgkict$art_i]%>';
-    for (var $art_inwhqgkict$art_i = 0, $art_citvvnxl$art_c = list.length; $art_inwhqgkict$art_i < $art_citvvnxl$art_c; $art_inwhqgkict$art_i++) {
-        var item = list[$art_inwhqgkict$art_i];
-        $p += '<li mxa="_zs_gallerydX:a" class="mx-output-item"><span class="mx-output-link ';
+    $expr = '<%for (var $art_ioandgtnbm$art_i = 0, $art_czkfwhhz$art_c = list.length; $art_ioandgtnbm$art_i < $art_czkfwhhz$art_c; $art_ioandgtnbm$art_i++) {    var item = list[$art_ioandgtnbm$art_i]%>';
+    for (var $art_ioandgtnbm$art_i = 0, $art_czkfwhhz$art_c = list.length; $art_ioandgtnbm$art_i < $art_czkfwhhz$art_c; $art_ioandgtnbm$art_i++) {
+        var item = list[$art_ioandgtnbm$art_i];
+        $p += '<li mxa="_zs_gallerydY:a" class="mx-output-item"><span class="mx-output-link ';
         $line = 16;
         $art = 'if (searchKey == item.value)';
         ;
@@ -301,10 +301,19 @@ catch (ex) {
     },
     '@{fire}': function () {
         var that = this;
+        var searchValue = that['@{search.value}'];
+        // 双向绑定
+        that['@{owner.node}'].trigger({
+            type: 'change',
+            searchKey: that['@{search.key}'],
+            searchValue: searchValue,
+            selected: searchValue
+        });
+        // 兼容老的事件处理
         that['@{owner.node}'].trigger({
             type: 'search',
             searchKey: that['@{search.key}'],
-            searchValue: that['@{search.value}']
+            searchValue: searchValue
         });
     }
 });

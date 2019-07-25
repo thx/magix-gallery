@@ -51,7 +51,7 @@ module.exports = Magix.View.extend({
         }]
 
         let events = [{
-            type: 'trigger',
+            type: 'change',
             desc: '回车（默认搜索第一个）<br/>或者点选下拉列表某个选项时触发',
             params: [{
                 key: 'searchKey',
@@ -60,6 +60,10 @@ module.exports = Magix.View.extend({
             }, {
                 key: 'searchValue',
                 desc: '输入框输入的内容',
+                type: 'string'
+            }, {
+                key: 'selected',
+                desc: '输入框输入的内容，=searchValue',
                 type: 'string'
             }]
         }]
