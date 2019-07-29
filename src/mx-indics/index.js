@@ -75,13 +75,15 @@ module.exports = Magix.View.extend({
         }
 
         this.updater.set({
-            parents,
-            fields,
-            sortable,
-            lineNumber,
-            limit,
-            map,
-            type
+            data: {
+                parents,
+                fields,
+                sortable,
+                lineNumber,
+                limit,
+                map,
+                type
+            }
         })
 
         if (!altered) {
@@ -101,21 +103,21 @@ module.exports = Magix.View.extend({
     'toggleDefault<click>'(e) {
         let that = this;
 
-        let type = that.updater.get('type');
-        if (type == 1) {
-            type = 2;
+        let data = that.updater.get('data');
+        if (data.type == 1) {
+            data.type = 2;
         } else {
-            type = 1;
+            data.type = 1;
         }
         that.updater.digest({
-            type
+            data
         });
         that['@{fire}']('btn-switch');
     },
     '@{fire}'(triggerType) {
         let that = this;
-        let type = that.updater.get('type'),
-            map = that.updater.get('map');
+        let data = that.updater.get('data');
+        let { type, map } = data;
         $('#' + that.id).trigger({
             type: 'change',
             triggerType,
@@ -132,18 +134,16 @@ module.exports = Magix.View.extend({
         e.preventDefault();
 
         let that = this;
-        let updater = that.updater;
-        let sortable = updater.get('sortable');
+        let data = that.updater.get('data');
 
-        let viewOptions = $.extend(true, {}, updater.get());
+        let viewOptions = $.extend(true, {}, data);
         viewOptions.selected = viewOptions.map[viewOptions.type].list;
         viewOptions.callback = (d) => {
-            let map = updater.get('map');
-            let type = 2;
-            map[type]['list'] = d.selected;
+            // 自定义数据
+            data.type = 2;
+            data.map[data.type]['list'] = d.selected;
             that.updater.digest({
-                type,
-                map
+                data
             });
             that['@{fire}']('dialog-setting');
         };

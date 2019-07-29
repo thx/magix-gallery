@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.25',
+            time: '2019-07-29',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-indics：fix 传入子view当前view的vId，导致子view的vId重复'
+                }]
+            }]
+        }, {
             ver: '1.3.24',
             time: '2019-07-25',
             subs: [{
