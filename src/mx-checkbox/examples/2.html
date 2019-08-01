@@ -1,0 +1,121 @@
+<div class="example">
+    <div class="eg-content">
+        {{each list as group groupIndex}}
+        <div>
+            <label class="mr20 mb20">
+                <mx-checkbox value="{{=group.value}}"
+                    checked="{{=(group.type==3)}}" 
+                    indeterminate="{{=(group.type==2)}}" 
+                    mx-change="toggle({groupIndex:{{=groupIndex}},subIndex:'all'})"/>组{{=group.value}}
+            </label>
+        </div>
+        <div>
+            {{each group.subs as sub subIndex}}
+            <label class="mr20 mb20">
+                <mx-checkbox value="{{=sub.value}}"
+                    checked="{{=sub.checked}}" 
+                    mx-change="toggle({groupIndex:{{=groupIndex}},subIndex:{{=subIndex}}})"/>{{=sub.value}}
+            </label>
+            {{/each}}
+        </div>
+        {{/each}}
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&#123;&#123;each list as group groupIndex&#125;&#125;
+&lt;div&gt;
+    &lt;label class="mr20 mb20"&gt;
+        &lt;mx-checkbox value="&#123;&#123;=group.value&#125;&#125;"
+            checked="&#123;&#123;=(group.type==3)&#125;&#125;" 
+            indeterminate="&#123;&#123;=(group.type==2)&#125;&#125;" 
+            mx-change="toggle(&#123;groupIndex:&#123;&#123;=groupIndex&#125;&#125;,subIndex:'all'&#125;)"/&gt;组&#123;&#123;=group.value&#125;&#125;
+    &lt;/label&gt;
+&lt;/div&gt;
+&lt;div&gt;
+    &#123;&#123;each group.subs as sub subIndex&#125;&#125;
+    &lt;label class="mr20 mb20"&gt;
+        &lt;mx-checkbox value="&#123;&#123;=sub.value&#125;&#125;"
+            checked="&#123;&#123;=sub.checked&#125;&#125;" 
+            mx-change="toggle(&#123;groupIndex:&#123;&#123;=groupIndex&#125;&#125;,subIndex:&#123;&#123;=subIndex&#125;&#125;&#125;)"/&gt;&#123;&#123;=sub.value&#125;&#125;
+    &lt;/label&gt;
+    &#123;&#123;/each&#125;&#125;
+&lt;/div&gt;
+&#123;&#123;/each&#125;&#125;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [&#123;
+            value: 1,
+            subs: [&#123;
+                value: 11
+            &#125;,&#123;
+                value: 12
+            &#125;,&#123;
+                value: 13
+            &#125;]
+        &#125;,&#123;
+            value: 2,
+            subs: [&#123;
+                value: 21
+            &#125;,&#123;
+                value: 22
+            &#125;,&#123;
+                value: 23
+            &#125;]
+        &#125;]
+        this.updater.digest(&#123;
+            list
+        &#125;);
+    &#125;,
+    'toggle&lt;change&gt;'(e) &#123;
+        let checked = e.target.checked;
+        let groupIndex = e.params.groupIndex,
+            subIndex = e.params.subIndex;
+
+        let list = this.updater.get('list');
+        list.forEach((group, gi) =&gt; &#123;
+            let checkes = [];
+            group.subs.forEach((sub, si) =&gt; &#123;
+                if((groupIndex == gi) && 
+                    (subIndex == 'all' || subIndex == si))&#123;
+                    sub.checked = checked;
+                &#125;
+
+                if(sub.checked)&#123;
+                    checkes.push(sub.value);
+                &#125;
+            &#125;)
+
+            // 1：全不选
+            // 2：部分选
+            // 3：全选
+            group.type = (checkes.length &gt; 0) ? ((checkes.length == group.subs.length) ? 3 : 2) : 1;
+        &#125;)
+
+        this.updater.digest(&#123;
+            list
+        &#125;)
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

@@ -4,7 +4,7 @@ define('$', function () {
 let url = 'src/';
 
 let p = {
-    __test__: url + `__test__`
+    examples: url + `examples`
 };
 let coms = [
     'btn',
@@ -74,20 +74,20 @@ seajs.config({
 });
 
 let routes = {
-    '/header/all': '__test__/empty',
-    '/header/def': '__test__/empty',
-    '/carousel/demo': '__test__/empty',
-    '/main/demo': '__test__/empty',
-    '/main/hor-demo': '__test__/empty',
-    '/wanxiang/demo1': '__test__/wanxiang',
-    '/wanxiang/demo2': '__test__/wanxiang',
-    '/wanxiang/demo3': '__test__/wanxiang'
+    '/header/all': 'examples/empty',
+    '/header/def': 'examples/empty',
+    '/carousel/demo': 'examples/empty',
+    '/main/demo': 'examples/empty',
+    '/main/hor-demo': 'examples/empty',
+    '/wanxiang/demo1': 'examples/wanxiang',
+    '/wanxiang/demo2': 'examples/wanxiang',
+    '/wanxiang/demo3': 'examples/wanxiang'
 };
 
 seajs.use(['magix', 'scroll'], (Magix, Scroll) => {
     Magix.boot({
         rootId: 'app',
-        defaultView: '__test__/base',
+        defaultView: 'examples/base',
         defaultPath: '/form/mixins',
         routes
     });

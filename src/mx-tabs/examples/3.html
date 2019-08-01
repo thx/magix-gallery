@@ -1,0 +1,63 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-tabs.box
+            list="{{@list}}" 
+            selected="{{=selected}}"
+            mx-change="changeTab()"/>
+        <span class="color-9 ml20">当前选中：</span>
+        <span>{{=selected}}</span>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-tabs.box
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;"
+    mx-change="changeTab()" /&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [&#123;
+            value: 1,
+            text: '模块1'
+        &#125;, &#123;
+            value: 2,
+            text: '模块2'
+        &#125;, &#123;
+            value: 3,
+            text: '模块3'
+        &#125;];
+
+        this.updater.digest(&#123;
+            list,
+            selected: list[0].value
+        &#125;);
+    &#125;,
+
+    'changeTab&lt;change&gt;' (e) &#123;
+        // e.value 当前选中的key值
+        // e.text 当前选中的文案
+        this.updater.digest(&#123;
+            selected: e.value
+        &#125;)
+    &#125;
+&#125;);</pre>
+    </div>
+</div>

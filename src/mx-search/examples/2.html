@@ -1,0 +1,33 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-search class="w200"
+            list="{{@[{
+                name: '计划',
+                id: 'campaignId'
+            }, {
+                name: '单元',
+                id: 'adgroupId'
+            }]}}"
+            list-text="name"
+            list-value="id"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">自定义&nbsp;list-text&nbsp;和&nbsp;list-value</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-search class="w200"
+    list="&#123;&#123;@[&#123;
+        name: '计划',
+        id: 'campaignId'
+    &#125;, &#123;
+        name: '单元',
+        id: 'adgroupId'
+    &#125;]&#125;&#125;"
+    list-text="name"
+    list-value="id"/&gt;</pre>
+    </div>
+</div>

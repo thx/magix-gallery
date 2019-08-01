@@ -1,0 +1,139 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>标题点击可以快速跳转；未到步骤不可点击；
+        </div>
+        <mx-main.hor
+            already-step="{{=alreadyStep}}"
+            step-infos="{{@stepInfos}}" />
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-main.hor
+    already-step="&#123;&#123;=alreadyStep&#125;&#125;"
+    step-infos="&#123;&#123;@stepInfos&#125;&#125;" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="examples/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+let Router = Magix.Router;
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let stepInfos = [&#123;
+            label: '设置计划',
+            nextTip: '下一步，设置单元',
+            view: '@./hor-inner',
+            nextFn: (remains, next) =&gt; &#123;
+                // remains 当前步骤保留的信息，提交处理
+                next(&#123;
+                    campaignId: 1
+                &#125;)
+            &#125;
+        &#125;, &#123;
+            label: '设置单元',
+            prevTip: '返回计划设置',
+            nextTip: '下一步，完成',
+            view: '@./hor-inner',
+            nextFn: (remains, next) =&gt; &#123;
+                // remains 当前步骤保留的信息，提交处理
+                next(&#123;
+                    adgroupId: 1
+                &#125;)
+            &#125;
+        &#125;, &#123;
+            label: '添加创意',
+            view: '@./hor-inner'
+        &#125;, &#123;
+            label: '完成',
+            view: '@./hor-inner'
+        &#125;];
+
+        let locParams = Router.parse().params;
+        let alreadyStep = 1;
+        if(locParams.campaignId)&#123;
+            alreadyStep = 2;
+            if(locParams.adgroupId)&#123;
+                alreadyStep = 3;
+            &#125;
+        &#125;
+
+        this.updater.digest(&#123;
+            stepInfos,
+            alreadyStep
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">hor-inner： HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="examples/hl" id="{{=viewId}}_text_3">
+&lt;div class="fontsize-16"&gt;第&#123;&#123;=info.index&#125;&#125;步：&#123;&#123;=info.label&#125;&#125;&lt;/div&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">hor-inner： JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="examples/hl" id="{{=viewId}}_text_4">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@hor-inner.html',
+    init(extra)&#123;
+        this.updater.set(&#123;
+            info: extra.info || &#123;&#125;,
+            data: $.extend(true, &#123;&#125;, extra.data || &#123;&#125;)
+        &#125;)
+    &#125;,
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    check() &#123;
+        let info = this.updater.get('info');
+        let ok = true,
+            remain = &#123;&#125;;
+        remain['test_' + info.index] = info.label;
+
+        return new Promise((resolve) =&gt; &#123;
+            // 此处返回promise，防止有接口提交校验等
+            resolve(&#123;
+                ok,
+                msg: info.label,
+                remain
+            &#125;)
+        &#125;)
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

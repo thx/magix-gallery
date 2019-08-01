@@ -1,0 +1,26 @@
+<div class="clearfix grid">
+    <div class="fl half left">
+        <div class="mb10">
+            <mx-copy copy-node="{{=viewId}}_text_2" class="btn btn-brand"
+                mx-success="done({index:2})">复制</mx-copy>
+            <span class="ml10">替换group_override</span>
+            {{if success2}}
+            <span class="color-green ml10">复制成功</span>
+            {{/if}}
+        </div>
+        <div class="cont" style="height: {{=height}}px;"
+            id="{{=viewId}}_text_2">{{!tip2}}</div>
+    </div>
+    <div class="fl half right">
+        <div class="mb10">
+            <mx-copy copy-node="{{=viewId}}_text_1" class="btn btn-brand"
+                mx-success="done({index:1})">复制</mx-copy>
+            <span class="ml10">替换vars_override</span>
+            {{if success1}}
+            <span class="color-green ml10">复制成功</span>
+            {{/if}}
+        </div>
+        <div class="cont" style="height: {{=height}}px;"
+            id="{{=viewId}}_text_1">{{!tip1}}</div>
+    </div>
+</div>

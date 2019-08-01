@@ -1,0 +1,37 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <mx-effects.progress class="mr20"
+                type="degree"
+                num="60"/>
+            
+            <mx-effects.progress class="mr20"
+                type="degree"
+                num="20.22"/>
+            
+            <mx-effects.progress
+                type="degree"
+                num="100"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">刻度型展示值取整</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-effects.progress
+    type="degree"
+    num="60"/&gt;
+    
+&lt;mx-effects.progress
+    type="degree"
+    num="20.22"/&gt;
+
+&lt;mx-effects.progress
+    type="degree"
+    num="100"/&gt;</pre>
+    </div>
+</div>

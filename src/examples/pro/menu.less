@@ -1,0 +1,131 @@
+.empty{
+    height: 160px;
+    background-color: var(--color-bg);
+}
+
+.white{
+    height: 160px;
+    padding: 30px;
+}
+
+@app-nav-height: 46px;
+.menu{
+    box-shadow: 0 6px 8px rgba(51, 51, 51, 0.08);
+    
+    .header{
+        height: 50px;
+        background-color: var(--color-brand);
+        .logo,
+        .name{
+            float: left;
+            height: 50px;
+            line-height: 50px;
+            color: #fff;
+        }
+        .logo{
+            width: 210px;
+            font-size: 22px;
+            opacity: .8;
+            text-align: center;
+        }
+        .name{
+            padding-left: 30px;
+            padding-right: 10px;
+            font-size: 14px;
+            opacity: .6;
+        }
+    }
+
+    .navs{
+        float: left;
+        position: relative;
+        padding-top: 30px;
+        width: 210px;
+        padding-bottom: 80px;
+        background-color: #3d414d;
+        transition: left var(--duration) ease-out;
+        font-size: 14px;
+    
+        .nav-second {
+            display: block;
+            height: @app-nav-height;
+            padding-left: 24px;
+            padding-right: 10px;
+            line-height: @app-nav-height;
+            color: #9ea0a6;
+            cursor: pointer;
+            transition: all 0.2s ease-out;
+
+            .second-icon {
+                float: right;
+                font-size: 24px;
+                line-height: @app-nav-height;
+                cursor: pointer;
+                color: #9ea0a6;
+                transition: all 0.2s ease-out;
+            }
+
+            /*若为二级组，组展开时状态*/
+            &.second-expand {
+                .second-icon {
+                    transform: rotate(180deg);
+                }
+            }
+
+            /*选中态在该二级组内*/
+            &.second-on,
+            &:hover {
+                color: #fff;
+
+                .second-icon {
+                    color: #fff;
+                }
+            }
+        }
+
+        .nav-third {
+            display: block;
+            height: @app-nav-height;
+            padding-left: 20px;
+            line-height: @app-nav-height;
+            border-left: 4px solid transparent;
+            color: #9ea0a6;
+            overflow-y: hidden;
+            transition: all 0.2s ease-out;
+            cursor: pointer;
+
+            &:hover {
+                color: #fff;
+            }
+
+            &.third-on {
+                border-left: 4px solid var(--color-brand);
+                color: #fff;
+                background-color: #2e313a;
+            }
+        }
+
+        .nav-thirds {
+            background-color: #343842;
+            box-shadow: 0 6px 8px rgba(51, 51, 51, 0.08);
+
+            .nav-third{
+                padding-left: 40px;
+            }
+            
+            &.third-expand{
+                .nav-third{
+                    height: @app-nav-height;
+                }
+            }
+        }
+    
+    }
+
+    .inner{
+        position: absolute;
+        top: 0;
+        left: 210px;
+        padding: 30px;
+    }
+}

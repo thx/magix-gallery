@@ -1,0 +1,34 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <div class="mb5">组件会对可选范围进行修正</div>
+            <div class="mb5">1. 结束日期的最大可选范围是开始日期</div>
+            <div>2. 快捷日期会根据最大最小值范围进行修正（不限除外）</div>
+        </div>
+        <mx-calendar.rangepicker class="w220"
+            min="2018-07-27"
+            max="2018-08-03"
+            start="2018-07-29"
+            end="2018-08-02"
+            shortkeys="{{@['passed10', 'dynamicStart15', 'forever']}}"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-calendar.rangepicker class="w220"
+    min="2018-07-27"
+    max="2018-08-03"
+    start="2018-07-29"
+    end="2018-08-02"
+    shortkeys="&#123;&#123;@[
+        'passed10', 
+        'dynamicStart15', 
+        'forever'
+    ]&#125;&#125;"/&gt;</pre>
+    </div>
+</div>

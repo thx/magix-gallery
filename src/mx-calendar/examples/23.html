@@ -1,0 +1,66 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10 clearfix">
+            <div class="color-9 fl lh22">以下示例：</div>
+            <div class="fl lh22">至少选择3天，至多选择10天</div>
+        </div>
+        <mx-calendar.rangepicker class="w240"
+            start="{{=start}}"
+            end="{{=end}}"
+            shortkeys="{{@shortkeys}}"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-calendar.rangepicker class="w240"
+    start="&#123;&#123;=start&#125;&#125;"
+    end="&#123;&#123;=end&#125;&#125;"
+    shortkeys="&#123;&#123;@shortkeys&#125;&#125;"/&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Moment = require('moment');
+let $ = require('$');
+let Formater = 'YYYY-MM-DD';
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let start = Moment().format(Formater),
+            end = Moment().add(5, 'days').format(Formater);
+        let shortkeys = [&#123;
+            key: 'test1',
+            text: '自定义1',
+            tip: '自定义说明1',
+            start,
+            end
+        &#125;,&#123;
+            key: 'test2',
+            text: '自定义2',
+            tip: '自定义说明2',
+            start: start,
+            end: Moment().add(10, 'days').format(Formater)
+        &#125;]
+        this.updater.digest(&#123;
+            start,
+            end,
+            shortkeys
+        &#125;);
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

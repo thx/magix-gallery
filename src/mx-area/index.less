@@ -1,0 +1,138 @@
+@area-height: 46px;
+@expand-size: 20px;
+.area-search-box,
+.tab-search-box {
+    display: block;
+    width: 300px;
+    margin-bottom: 12px;
+}
+
+.tab-search-box {
+    margin-left: 20px;
+}
+
+.provinces {
+    .province {
+        position: relative;
+        float: left;
+        width: 16%;
+        height: @area-height;
+        .name {
+            padding: 5px 0;
+            border-radius: var(--border-radius);
+            transition: all var(--duration);
+            &.highlight {
+                background-color: var(--color-brand-opacity);
+            }
+        }
+        .province-label {
+            float: left;
+            line-height: @area-height;
+        }
+        .province-count{
+            float: left;
+            font-size: 12px;
+            font-weight: bold;
+            font-family: "Tahoma";
+            line-height: @area-height - 2;
+        }
+        .province-arrow{
+            position: absolute;
+            top: 0;
+            left: calc(var(--font-size) * 4 + 28px) ;
+            width: @expand-size;
+            height: @area-height;
+            line-height: @area-height;
+            text-align: center;
+            font-size: 22px;
+            color: #ccc;
+            cursor: pointer;
+            transition: all var(--duration);
+            user-select: none;
+            &.province-expand {
+                transform: rotate(180deg);
+            }
+        }
+        .cities {
+            position: absolute;
+            top: @area-height;
+            left: -72px;
+            z-index: 99;
+            width: 240px;
+            padding: 10px;
+            border-radius: var(--border-radius);
+            background-color: #fff;
+            .city {
+                float: left;
+                width: 48%;
+                height: 32px;
+                margin-right: 2%;
+                line-height: 32px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+.all {
+    height: @area-height;
+    line-height: @area-height;
+}
+
+.area {
+    position: relative;
+    padding-left: 25px;
+    .area-name {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 25px;
+        height: 100%;
+        line-height: @area-height;
+        font-size: 14px;
+        color: #999;
+        font-weight: bold;
+        font-family: "Tahoma";
+    }
+}
+
+.area-half {
+    float: left;
+    width: 50%;
+    .province {
+        width: 33%;
+        min-width: calc(var(--font-size) * 6 + 28px);
+    }
+}
+
+.tabs {
+    border-bottom: 1px solid var(--color-border);
+    .tab {
+        float: left;
+        margin-bottom: -1px;
+        padding-left: 20px;
+        border-bottom: 1px solid transparent;
+        cursor: pointer;
+
+        .tab-check,
+        .tab-text {
+            float: left;
+            height: @area-height;
+            line-height: @area-height;
+        }
+        .tab-text{
+            padding-left: 5px;
+            padding-right: 25px;
+        }
+        &:hover {
+            color: var(--color-brand);
+            transition: color var(--duration);
+        }
+        &.cur {
+            color: var(--color-brand);
+            border-bottom: 1px solid var(--color-brand);
+        }
+    }
+}

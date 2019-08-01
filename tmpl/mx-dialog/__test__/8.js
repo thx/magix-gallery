@@ -11,7 +11,7 @@ module.exports = Base.extend({
         this.updater.digest();
     },
     'open<click>'(e) {
-        this.mxDialog('@./demo2', null, {
+        this.mxDialog('@./demo2', {}, {
             height: 200
         });
     }

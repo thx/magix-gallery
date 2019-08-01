@@ -1,0 +1,45 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">trigger：</span>
+            <mx-popmenu class="color-brand"
+                menus="{{@[{
+                    value: 1,
+                    text: '操作1'
+                }, {
+                    value: 2,
+                    text: '操作2'
+                }, {
+                    value: 3,
+                    text: '操作3'
+                }]}}"
+                trigger-type="contextmenu"
+                mx-change="select()">右键显示菜单</mx-popmenu>
+            
+            <span class="color-9 ml40">当前选中：</span>
+            <span>{{if selected}}操作{{=selected}}{{/if}}</span>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-popmenu class="color-brand"
+    menus="&#123;&#123;@[&#123;
+        value: 1,
+        text: '操作1'
+    &#125;, &#123;
+        value: 2,
+        text: '操作2'
+    &#125;, &#123;
+        value: 3,
+        text: '操作3'
+    &#125;]&#125;&#125;"
+    trigger-type="contextmenu"&gt;右键显示菜单&lt;/mx-popmenu&gt;
+        </pre>
+    </div>
+</div>

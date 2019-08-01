@@ -1,0 +1,142 @@
+@setting-right-width: 240px;
+@setting-header-height: 60px;
+@setting-content-name-width: 90px;
+.setting {
+    position: relative;
+    height: 100%;
+    .header {
+        width: 100%;
+        height: @setting-header-height;
+        padding: 0 24px;
+        background-color: #fff;
+        line-height: @setting-header-height;
+        border-bottom: 1px solid var(--color-border);
+    }
+    .content {
+        position: absolute;
+        top: @setting-header-height;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        overflow-y: auto;
+        .line {
+            position: relative;
+            padding: 16px 24px;
+            &:nth-of-type(even) {
+                background-color: var(--color-bg);
+            }
+        }
+        .name {
+            position: absolute;
+            top: 16px;
+            left: 24px;
+            width: @setting-content-name-width;
+            padding: 8px 0;
+            color: #999;
+        }
+        .item {
+            float: left;
+            padding: 8px 0;
+            white-space: nowrap;
+            .field-tip {
+                position: relative;
+                top: 1px;
+                left: 1px;
+                font-size: 14px;
+                color: #ccc;
+            }
+        }
+    }
+    &.parent {
+        .line {
+            padding-left: 16 * 2 + @setting-content-name-width;
+        }
+    }
+    &.sortable {
+        padding-right: @setting-right-width;
+        .content {
+            right: @setting-right-width;
+            border-right: 1px solid var(--color-border);
+        }
+        .drag-header {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: @setting-right-width;
+            height: @setting-header-height + 38px;
+            .drag-title {
+                height: @setting-header-height;
+                line-height: @setting-header-height;
+                font-size: 16px;
+                padding-left: 24px;
+                border-bottom: 1px solid var(--color-border);
+            }
+            .drag-oper {
+                height: 38px;
+                padding: 0 24px;
+                line-height: 38px;
+                text-align: right;
+                background-color: var(--color-bg);
+            }
+        }
+        .drag-wrapper {
+            position: absolute;
+            top: @setting-header-height + 38px;
+            ;
+            right: 0;
+            bottom: 0;
+            width: @setting-right-width;
+            padding: 0 24px 16px 24px;
+            overflow-y: scroll;
+            background-color: var(--color-bg);
+            .drag {
+                height: 30px;
+                margin-bottom: 5px;
+                padding: 0 15px;
+                line-height: 28px;
+                background: #fff;
+                border: 1px solid var(--color-border);
+                border-radius: var(--border-radius);
+                cursor: move;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+.setting-show-btn {
+    display: inline-block;
+    width: 40px;
+    padding-right: 10px;
+    margin-right: 10px;
+    text-align: center;
+    .setting-show-icon {
+        position: relative;
+        top: 2px;
+        font-size: 18px;
+    }
+}
+.setting-switch-btn{
+    display: inline-block;
+    width: auto;
+}
+
+[mx-view*="mx-indics/index"] {
+    display: inline-block;
+    vertical-align: middle;
+    &:hover {
+        .setting-show-btn {
+            border-color: var(--border-highlight-hover);
+            color: #333;
+        }
+        .setting-switch-btn {
+            border-color: var(--border-highlight-hover);
+            color: #333;
+            .setting-switch-icon {
+                color: var(--border-highlight-hover);
+            }
+        }
+    }
+}
