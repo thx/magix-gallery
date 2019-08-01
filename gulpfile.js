@@ -182,7 +182,8 @@ gulp.task('publish', () => {
     del(['./build']).then(() => {
         combineTool.config({
             tmplFolder: 'tmpl',
-            srcFolder: 'build'
+            srcFolder: 'build',
+            log: false
         })
         combineTool.combine().then(() => {
             gulp.src('./build/**/*.js')
