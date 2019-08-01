@@ -1,1 +1,0 @@
-define("mx-tree/util",["magix"],(e,i,r)=>{var l=e("magix");r.exports={listToTree:function(e,i,r){for(var s={},h={},n=[],t=0,a=(e=e||[]).length;t<a;t++){var u=l.mix({},e[t]);if(s[u[i]]=u,h[u[i]]&&(u.children=h[u[i]]),l.has(u,r)&&""!==u[r])if(s[u[r]])(s[u[r]].children||(s[u[r]].children=[])).push(u);else h[u[r]]?h[u[r]].push(u):h[u[r]]=[u];else n.push(u)}return{list:n,map:s}}}});

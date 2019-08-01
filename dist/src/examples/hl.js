@@ -1,1 +1,0 @@
-define("examples/hl",["magix","$"],(e,i,n)=>{var t=e("magix"),h=e("$");n.exports=t.View.extend({assign:function(e,i){return i.deep=!1,i.html&&h("#"+this.id).html(i.inner),i.html},render:function(){var e=t.node(this.id);hljs.highlightBlock(e)}})});

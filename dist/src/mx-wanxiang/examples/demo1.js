@@ -1,1 +1,0 @@
-define("mx-wanxiang/examples/demo1",["mx-wanxiang/examples/demo"],(e,x,a)=>{a.exports=e("mx-wanxiang/examples/demo")});

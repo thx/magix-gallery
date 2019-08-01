@@ -1,1 +1,0 @@
-define("mx-form/util",["$"],(n,e,r)=>{var i=n("$");r.exports={addCheckbox:function(n,e,r){i('input[name="'+n+'"]:checked').each(function(n,i){var u=i.value;r.number&&(u=parseFloat(u)),-1===e.indexOf(u)&&e.push(u)})},indexOf:function(n,e){var r=n.map(function(n){return n+""}),u=e+"";return i.inArray(u,r)},fix:function(n,e){}}});
