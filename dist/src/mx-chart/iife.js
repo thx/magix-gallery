@@ -1,0 +1,1 @@
+define("mx-chart/iife",["./chart"],(r,a,t)=>{var e=window.Chartx,h=r("./chart")(e);t.exports=h});

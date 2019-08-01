@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.26',
+            time: '2019-08-01',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-chart：图表支持 iife，<a href="#!/chart/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.25',
             time: '2019-07-29',
             subs: [{
