@@ -181,6 +181,7 @@ gulp.task('release', ['compress'], async () => {
 gulp.task('publish', () => {
     del(['./build']).then(() => {
         combineTool.config({
+            log: false,
             tmplFolder: 'tmpl',
             srcFolder: 'build'
         })
