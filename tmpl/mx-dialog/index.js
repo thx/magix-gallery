@@ -4,7 +4,7 @@ let Vframe = Magix.Vframe;
 let I18n = require('../mx-medusa/util');
 Magix.applyStyle('@index.less');
 
-let DialogZIndex = 500;
+let DialogZIndex = 999999;
 let Duration = 250;
 
 let CacheList = [];
