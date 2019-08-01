@@ -107,7 +107,7 @@ gulp.task('turnOffDebug', () => {
 });
 
 gulp.task('cleanSrc', () => {
-    return del(['./dist/src', './dist/chartpark', './src']);
+    return del(['./dist/src', './dist/chartpark', './src', './build']);
 });
 
 gulp.task('chartpark', ['cleanSrc'], function () {
