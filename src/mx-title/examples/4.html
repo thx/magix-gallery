@@ -1,0 +1,34 @@
+<div class="example" id="{{=viewId}}_demo3">
+    <div class="eg-content">
+        <mx-title.second
+            content="二级标题"
+            tip="二级标题提示文案"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">使用组件</div>
+        <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+            mx-success="done({id:3})">
+            <span class="desc-tip">{{!text3}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_3">
+&lt;mx-title.second
+    content="二级标题"
+    tip="二级标题提示文案"/&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">可直接使用class</div>
+        <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+            mx-success="done({id:4})">
+            <span class="desc-tip">{{!text4}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_4">
+&lt;div class="page-header"&gt;
+    &lt;span class="second-header"&gt;二级标题&lt;/span&gt;
+    &lt;span class="page-tip"&gt;二级标题提示文案&lt;/span&gt;
+&lt;/div&gt;
+        </pre>
+    </div>
+</div>

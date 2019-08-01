@@ -1,0 +1,68 @@
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    .inner {
+        position: relative;
+        z-index: 3;
+    }
+}
+
+.dot-cnt {
+    display: inline-block;
+    vertical-align: top;
+    .dot {
+        cursor: pointer;
+        background-color: #fff;
+        opacity: 0.5;
+        display: block;
+        border-radius: 1px;
+        transition: all .5s;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.dots {
+    position: absolute;
+    left: 0;
+    bottom: 12px;
+    z-index: 4;
+    height: 5px;
+    width: 100%;
+    text-align: center;
+
+    .dot-cnt {
+        padding: 0 2px;
+        .dot {
+            width: 20px;
+            height: 5px;
+            &.active {
+                opacity: 1;
+                width: 28px;
+            }
+        }
+    }
+}
+
+.v-dots {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    z-index: 4;
+    width: 5px;
+    transform: translateY(-50%);
+
+    .dot-cnt {
+        padding: 2px 0;
+        .dot {
+            width: 5px;
+            height: 20px;
+            &.active {
+                opacity: 1;
+                height: 28px;
+            }
+        }
+    }
+}

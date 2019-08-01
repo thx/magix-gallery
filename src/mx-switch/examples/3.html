@@ -1,0 +1,25 @@
+
+
+<div class="example">
+    <div class="eg-content clearfix">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            未选中 + 禁止选择 + 禁用原因说明
+        </div>
+        <mx-switch
+            tip="禁止选择的原因说明"
+            disabled="true"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-switch
+    tip="禁止选择的原因说明"
+    disabled="true"/&gt;</pre>
+    </div>
+</div>

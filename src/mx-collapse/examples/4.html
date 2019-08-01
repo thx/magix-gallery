@@ -1,0 +1,32 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            <span>自定义icon，展开是顺时针旋转90度</span>
+        </div>
+        <mx-collapse 
+            list="{{@list}}"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-collapse 
+    list="&#123;&#123;@[&#123;
+        disabled: true, 
+        title: '标题1',
+        content: '内容1'
+    &#125;, &#123;
+        arrow: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe68f;&lt;/i&gt;',
+        title: '标题2',
+        content: '内容2'
+    &#125;, &#123;
+        title: '标题3',
+        content: '内容3'
+    &#125;]&#125;&#125;"/&gt;</pre>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+.notice {
+    position: relative;
+    padding: 8px 24px;
+    line-height: 20px;
+    border-radius: inherit;
+    .inner {
+        display: inline-block;
+        position: relative;
+        padding-left: 18px;
+        word-break: break-all;
+        .icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            line-height: 20px;
+        }
+    }
+    .close {
+        position: absolute;
+        top: 8px;
+        right: 24px;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        cursor: pointer;
+        color: #999;
+        font-weight: bold;
+        transition: all var(--duration);
+        &:hover{
+            color: #666;
+        }
+    }
+}

@@ -1,0 +1,110 @@
+.header {
+    position: relative;
+    height: 88px;
+    background-color: #09122b;
+    .text {
+        opacity: .8;
+        color: #fff;
+    }
+    .text-h-brand:hover {
+        opacity: 1;
+        color: var(--color-brand);
+    }
+    .others {
+        height: 50px;
+        margin: 0 auto;
+        padding: 0 40px;
+        line-height: 50px;
+        .item {
+            position: relative;
+            .text {
+                cursor: pointer;
+            }
+            .arrow {
+                display: inline-block;
+                position: relative;
+                top: 4px;
+                right: 0;
+                font-size: 20px;
+                color: #fff;
+                transition: transform var(--duration) ease-out;
+            }
+            .links {
+                position: absolute;
+                top: 38px;
+                left: 50%;
+                z-index: 3;
+                width: 160px;
+                height: 0;
+                margin-left: -80px;
+                overflow: hidden;
+                transition: height var(--duration) ease-out;
+                background-color: #f5f5f5;
+                border-radius: var(--border-radius);
+                dl {
+                    padding: 10px 20px;
+                    dt {
+                        height: 30px;
+                        line-height: 30px;
+                        color: #999;
+                        font-size: 14px;
+                    }
+                    dd {
+                        height: 32px;
+                        margin-left: 25px;
+                        line-height: 32px;
+                        font-size: 12px;
+                    }
+                }
+            }
+            &:hover {
+                .text {
+                    opacity: 1;
+                }
+                .arrow {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+    .front {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        top: 50px;
+        left: 0;
+        transition: background-color var(--duration) ease-out;
+        .front-inner {
+            height: 76px;
+            margin: 0 auto;
+            padding: 18px 40px;
+            background-color: #fff;
+            border-radius: 60px;
+
+            .logo{
+                float: left;
+                height: 40px;
+                margin-right: 50px;
+                img{
+                    height: 100%;
+                }
+            }
+
+            .navs{
+                float: left;
+                height: 40px;
+                line-height: 40px;
+                font-size: 14px;
+
+                .cur{
+                    color: var(--color-brand);
+                }
+            }
+        }
+        &.fixed {
+            position: fixed;
+            background-color: #fff;
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
+        }
+    }
+}

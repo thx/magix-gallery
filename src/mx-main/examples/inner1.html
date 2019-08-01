@@ -1,0 +1,30 @@
+<div class="lh22 mb10">
+    <div>页面功能说明：</div>
+</div>
+<div class="tip-content mb40">
+    <div>1. 当前步骤只要一个子步骤，侧边导航不显示子步骤</div>
+    <div>2. 右侧边是个自定义view，配置sideView</div>
+    <div>3. 自定义返回上一步按钮文案（prevTip），下一步按钮文案（nextTip）</div>
+    <div>4. 当前步骤提交的时候保留参数campaignId，初始化的时候判断是否有campaignId，有的话则表示第一步、第二步已完成，直接展开（nextFn）</div>
+</div>
+<div class="lh22 mb10">
+    <div>当前页面配置信息：</div>
+</div>
+<pre class="tip-content">
+&#123;
+    label: '设置计划',
+    sideView: '@./tip',
+    subs: [&#123;
+        label: '基本信息',
+        icon: '&lt;i class="mc-iconfont fontsize-22"&gt;&#xe612;&lt;/i&gt;',
+        view: '@./inner1'
+    &#125;],
+    nextTip: '下一步，设置计划',
+    nextFn: (remains, next) =&gt; &#123;
+        // remains 当前步骤保留的信息，提交处理
+        next(&#123;
+            campaignId: 1
+        &#125;)
+    &#125;
+&#125;
+</pre>

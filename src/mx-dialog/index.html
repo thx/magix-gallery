@@ -1,0 +1,55 @@
+{{if closable}}
+<a href="javascript:;" mx-click="@{close}()" class="dialog-close">
+    <i class="mc-iconfont iconfont-ext">&#xe603;</i>
+</a>
+{{/if}}
+<div class="dialog-content" id="{{=cntId}}_content">
+    {{if full}}
+        <!-- 样式固定 -->
+        <!-- header -->
+        {{if fullHeader.title}}
+        <div class="dialog-header" id="{{=cntId}}_header">
+            <span class="header-name">{{!fullHeader.title}}</span>
+            {{if fullHeader.iconTip}}
+            <!-- icon提示 -->
+            <mx-popover class="mc-iconfont color-c displacement-2"
+                tag="i"
+                content="{{=fullHeader.iconTip}}">&#xe7aa;</mx-popover>
+            {{/if}}
+
+            {{if fullHeader.tip}}
+            <span class="color-9 ml10">{{!fullHeader.tip}}</span>
+            {{/if}}
+        </div>
+        {{/if}}
+
+        <div id="{{=cntId}}">
+            <!-- content -->
+            <mx-loading/>
+        </div>
+
+        <!-- footer -->
+        {{if (fullFooter.enter || fullFooter.cancel)}}
+        <div class="dialog-footer clearfix" id="{{=cntId}}_footer">
+            {{if fullFooter.enter}}
+            <a href="javascript:;" class="fl btn btn-brand min-width-60 mr10 btn-submit" mx-click="@{submit}()">
+                <span class="submit-text">{{!fullFooter.enterText}}</span>
+            </a>
+            {{/if}}
+
+            {{if fullFooter.cancel}}
+            <a href="javascript:;" class="fl btn min-width-60 mr10" mx-click="@{close}()">{{!fullFooter.cancelText}}</a>
+            {{/if}}
+
+            {{if fullFooter.enter}}
+            <span id="{{=cntId}}_footer_error" class="fl lh32 color-red"></span>
+            {{/if}}
+        </div>  
+        {{/if}}  
+    {{else}}
+        <!-- 完全自行控制 -->
+        <div id="{{=cntId}}">
+            <mx-loading/>
+        </div>
+    {{/if}}
+</div>

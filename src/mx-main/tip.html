@@ -1,0 +1,11 @@
+{{if view}}
+    <!-- 自定义view优先级更高 -->
+    <mx-vframe src="{{=view}}">
+        <mx-loading/>
+    </mx-vframe>
+{{else}}
+    {{if title}}
+    <div class="side-title">{{!title}}</div>
+    {{/if}}
+    <div class="side-bd">{{!content}}</div>
+{{/if}}

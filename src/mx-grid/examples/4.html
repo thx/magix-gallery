@@ -1,0 +1,71 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10">align（交叉轴对齐方式）</div>
+
+        <div class="mb10">1. stretch（默认值）：如果项目未设置高度或者设为 auto，将占满整个容器的高度</div>
+        <mx-grid.row align="stretch" height="60px" class="mb40">
+            <mx-grid.col class="grid1"></mx-grid.col>
+            <mx-grid.col class="grid2"></mx-grid.col>
+            <mx-grid.col class="grid3"></mx-grid.col>
+        </mx-grid.row>
+
+        <div class="mb10">2. top：交叉轴的起点对齐</div>
+        <mx-grid.row align="top" height="60px" class="mb40">
+            <mx-grid.col class="grid1" height="20px"></mx-grid.col>
+            <mx-grid.col class="grid2" height="40px"></mx-grid.col>
+            <mx-grid.col class="grid3" height="60px"></mx-grid.col>
+        </mx-grid.row>
+
+        <div class="mb10">3. bottom：交叉轴的终点对齐</div>
+        <mx-grid.row align="bottom" height="60px" class="mb40">
+            <mx-grid.col class="grid1" height="20px"></mx-grid.col>
+            <mx-grid.col class="grid2" height="40px"></mx-grid.col>
+            <mx-grid.col class="grid3" height="60px"></mx-grid.col>
+        </mx-grid.row>
+
+        <div class="mb10">4. center：交叉轴的中点对齐</div>
+        <mx-grid.row align="center" height="60px">
+            <mx-grid.col class="grid1" height="20px"></mx-grid.col>
+            <mx-grid.col class="grid2" height="40px"></mx-grid.col>
+            <mx-grid.col class="grid3" height="60px"></mx-grid.col>
+        </mx-grid.row>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;!-- 1. stretch（默认值）：如果项目未设置高度或者设为 auto，将占满整个容器的高度 --&gt;
+&lt;mx-grid.row align="stretch" height="60px" class="mb40"&gt;
+    &lt;mx-grid.col class="grid1"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col class="grid2"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col class="grid3"&gt;&lt;/mx-grid.col&gt;
+&lt;/mx-grid.row&gt;
+
+&lt;!-- top：交叉轴的起点对齐 --&gt;
+&lt;mx-grid.row align="top" height="60px" class="mb40"&gt;
+    &lt;mx-grid.col class="grid1" height="20px"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col class="grid2" height="40px"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col class="grid3" height="60px"&gt;&lt;/mx-grid.col&gt;
+&lt;/mx-grid.row&gt;
+
+&lt;!-- bottom：交叉轴的终点对齐 --&gt;
+&lt;mx-grid.row align="bottom" height="60px" class="mb40"&gt;
+    &lt;mx-grid.col class="grid1" height="20px"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col class="grid2" height="40px"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col class="grid3" height="60px"&gt;&lt;/mx-grid.col&gt;
+&lt;/mx-grid.row&gt;
+
+&lt;!-- center：交叉轴的中点对齐 --&gt;
+&lt;mx-grid.row align="center" height="60px"&gt;
+    &lt;mx-grid.col class="grid1" height="20px"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col class="grid2" height="40px"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col class="grid3" height="60px"&gt;&lt;/mx-grid.col&gt;
+&lt;/mx-grid.row&gt;
+        </pre>
+    </div>
+</div>
+

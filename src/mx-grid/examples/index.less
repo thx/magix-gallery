@@ -1,0 +1,14 @@
+.grid-loop(@n, @i:1) when (@i <= @n) {
+    .grid@{i}{
+        background-color: var(--color-brand);
+        opacity: (@i * 0.1);
+    }
+
+    .grid-loop(@n, (@i + 1));
+}
+.grid-loop(4);
+
+.container{
+    padding: 16px;
+    background-color: var(--app-bg);
+}

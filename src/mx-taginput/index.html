@@ -1,0 +1,57 @@
+<div class="ipt unselectable clearfix" 
+    mx-click="@{focus}()" 
+    id="ipt_{{=viewId}}">
+
+    {{if(!items.length)}}
+    <span class="placeholder">{{=placeholder}}</span>
+    {{/if}}
+
+    {{if(items.length)}}
+        {{each items as one idx}}
+            <span class="item clearfix" mx-contextmenu="prevent()">
+                {{=one.text}}
+                <i class="mc-iconfont item-delete" mx-click="@{delete}({idx:{{=idx}}})">&#xe603;</i>
+            </span>
+        {{/each}}
+    {{/if}}
+    
+    <input class="trigger" autocomplete="off"
+        style="width: {{=inputWidth}}px;"
+        value="{{=iv}}"
+        mx-keydown="@{check}()"
+        mx-keyup="@{check}()"
+        mx-paste="@{check}()"
+        mx-focusin="@{check}()"
+        mx-focusout="@{stop}()"
+        mx-change="@{stop}()"
+        {{if disabled}} disabled="true" {{/if}} />
+        
+    {{if(!disabled)}}
+    <div id="ul_{{=viewId}}"
+        style="left: {{=suggestLeft}}px;"
+        class="mx-output mx-output-bottom {{if show}} mx-output-open {{/if}}"
+        mx-mouseout="@{out}()" 
+        mx-contextmenu="@{prevent}()">
+        <ul class="mx-output-list">
+            {{if loading}}
+                <li>
+                    <mx-loading padding="40px"/>
+                </li>
+            {{else}}
+                {{if (suggest && suggest.length)}}
+                    {{each suggest as item idx}}
+                    <li class="tag-item" 
+                        mx-click="@{add}({item:'{{@item}}'})"
+                        data-idx="{{=idx}}" 
+                        id="sg_{{=viewId}}_{{=idx}}">
+                        {{!item.text}}
+                    </li>
+                    {{/each}}
+                {{else}}
+                    <li class="text-center color-9 pt20 pb20">{{=emptyText}}</li>
+                {{/if}}
+            {{/if}}
+        </ul>
+    </div>
+    {{/if}}
+</div>

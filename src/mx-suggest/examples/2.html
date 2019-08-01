@@ -1,0 +1,90 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 lh22 clearfix">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>支持上下键切换选择项</div>
+                <div>模糊检索不区分大小写</div>
+                <div>回车默认选中第一个</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <span class="color-9">当前选中：</span>
+            {{if selectedValue}}
+            {{=selectedValue}}（{{=selectedText}}）
+            {{/if}}
+        </div>
+        <mx-suggest class="w250"
+            selected="{{=selectedValue}}"
+            placeholder="输入关键词搜索"
+            list="{{@[{
+                text: 'test1',
+                value: 1
+            }, {
+                text: 'test12',
+                value: 2
+            }, {
+                text: 'abc1',
+                value: 3
+            }, {
+                text: 'abc2',
+                value: 4
+            }]}}"
+            mx-suggest="suggest()"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-suggest class="w250"
+    selected="&#123;&#123;=selectedValue&#125;&#125;"
+    placeholder="输入关键词搜索"
+    list="&#123;&#123;@[&#123;
+        text: 'test1',
+        value: 1
+    &#125;, &#123;
+        text: 'test12',
+        value: 2
+    &#125;, &#123;
+        text: 'abc1',
+        value: 3
+    &#125;, &#123;
+        text: 'abc2',
+        value: 4
+    &#125;]&#125;&#125;"
+    mx-suggest="suggest()"/&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            selectedValue: ''
+        &#125;);
+    &#125;,
+    'suggest&lt;suggest&gt;'(e) &#123;
+        // e.selected [object]
+        //      value
+        //      text
+        let selected = e.selected;
+        this.updater.digest(&#123;
+            selectedValue: selected.value
+        &#125;)
+    &#125;
+&#125;);</pre>
+    </div>
+</div>

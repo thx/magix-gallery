@@ -1,0 +1,15 @@
+{{if dot}}
+<div class="dot" id="trigger_{{=viewId}}" style="background: {{=info.color}};"
+    mx-click="@{toggle}()"
+    mx-change="@{stop}()"></div>
+{{else}}
+<div class="mx-trigger" id="trigger_{{=viewId}}"
+    mx-click="@{toggle}()"
+    mx-change="@{stop}()">{{=info.color}}</div>
+{{/if}}
+
+<div class="color-output mx-output mx-output-bottom {{if show}} mx-output-open {{/if}}"
+    id="cpcnt_{{=viewId}}" 
+    style="left:{{=left}}px;top:{{=top}}px;"
+    mx-view="@./index?data={{@info}}"
+    mx-change="@{color.picked}()"></div>

@@ -1,0 +1,28 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10 clearfix">
+            <span class="color-9">以下示例：</span>
+            限制只可选择到月份
+        </div>
+        <mx-calendar.datepicker class="w200"
+            min="2018-02"
+            max="2018-10"
+            date-type="year,month"
+            selected="{{=selected}}"
+            mx-change="select()"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-calendar.datepicker class="w200"
+    min="2018-02"
+    max="2018-10"
+    date-type="year,month"
+    selected="2018-05"/&gt;</pre>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10 clearfix">
+            <span class="color-9">以下示例：</span>
+            自定义搜索列表文案
+        </div>
+        <div>
+            <mx-search class="w200"
+                list="{{@[{
+                    text: '优惠券id',
+                    value: 'id',
+                    tmpl: '搜索id含有“${content}”的优惠券'
+                }, {
+                    text: '优惠券名称',
+                    value: 'name',
+                    tmpl: '搜索名称含有“${content}”的优惠券'
+                }]}}" />
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-search class="w200"
+    list="&#123;&#123;@[&#123;
+        text: '优惠券id',
+        value: 'id',
+        tmpl: '搜索id含有“$&#123;content&#125;”的优惠券'
+    &#125;, &#123;
+        text: '优惠券名称',
+        value: 'name',
+        tmpl: '搜索名称含有“$&#123;content&#125;”的优惠券'
+    &#125;]&#125;&#125;" /&gt;</pre>
+    </div>
+</div>

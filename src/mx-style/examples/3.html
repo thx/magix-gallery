@@ -1,0 +1,62 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9 mr10">动效：</span>
+            <label class="mr20">
+                <input type="checkbox" class="anim-checkbox" name="cb2" value="1" checked="true" />
+                选中
+            </label>
+            <label class="mr20">
+                <input type="checkbox" class="anim-checkbox" name="cb2" value="2" checked="true" disabled="true" />
+                选中禁止选择
+            </label>
+            <label class="mr20">
+                <input type="checkbox" class="anim-checkbox" name="cb2" value="3" />
+                未选中
+            </label>
+            <label>
+                <input type="checkbox" class="anim-checkbox" name="cb2" value="4" disabled="true" />
+                未选中禁止选择
+            </label>
+        </div>
+        <div>
+            <span class="color-9 mr10">普通：</span>
+            <label class="mr20">
+                <input type="checkbox" name="cb1" value="1" checked="true" />
+                选中
+            </label>
+            <label class="mr20">
+                <input type="checkbox" name="cb1" value="2" checked="true" disabled="true" />
+                选中禁止选择
+            </label>
+            <label class="mr20">
+                <input type="checkbox" name="cb1" value="3" />
+                未选中
+            </label>
+            <label>
+                <input type="checkbox" name="cb1" value="4" disabled="true" />
+                未选中禁止选择
+            </label>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">Checkbox</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;label class="mr20"&gt;
+    &lt;input type="checkbox" class="anim-checkbox" 
+        name="cb2" value="2" checked="true" /&gt;
+    动效加className（anim-checkbox）
+&lt;/label&gt;
+
+&lt;label class="mr20"&gt;
+    &lt;input type="checkbox"
+        name="cb1" value="1" checked="true" /&gt;
+    普通无动效
+&lt;/label&gt;</pre>
+    </div>
+</div>

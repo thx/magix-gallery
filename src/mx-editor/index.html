@@ -1,0 +1,16 @@
+<div class="editor {{if editing}} editor-on {{/if}}">
+    <input type="text" 
+        class="input {{if small}} input-small {{/if}} editor-input" 
+        style="width: {{=width}}px;"
+        id="{{=viewId}}_input"
+        value="{{=content}}"
+        {{:content&rules}}
+        mx-keyup="@{out}()"
+        mx-focusout="@{out}()"/>
+    <div class="editor-content">
+        {{!dis}}
+        <!-- operations 表格hover展示样式 -->
+        <i class="mc-iconfont operations editor-oper" mx-click="@{show}()">&#xe698;</i>
+    </div>
+</div>
+    

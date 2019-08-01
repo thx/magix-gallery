@@ -1,0 +1,1 @@
+define("mx-medusa/util",["./index","magix"],(a,e,n)=>{var g=a("./index"),r=a("magix"),t={zh:"zh-cn",en:"en-us"};n.exports=function(){var a=r.config("medusa");if(!a){var e=navigator.userAgent.match(/language\/(\S+)/);a=e&&e.length>0?e[1]:navigator.browserLanguage||navigator.language||g.defaultLocale}return a=t[a.toLowerCase().substr(0,2)],g[a]||g[g.defaultLocale]}()});

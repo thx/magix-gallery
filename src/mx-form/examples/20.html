@@ -1,0 +1,61 @@
+<div class="example">
+    <div class="eg-content clearfix">
+        <div class="mb10 lh22">
+            <div>class：form-4（左文字预留4个字），支持form-4，form-6，form-8，form-10</div>
+        </div>
+        <form class="form form-4">
+            <div class="form-item">
+                <div class="form-label">请输入</div>
+                <div class="form-content">
+                    <input class="input w200"/>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">请输入</div>
+                <div class="form-content">
+                    <input class="input w200"/>
+                </div>
+            </div>
+            <div class="form-footer">
+                <a href="javascript:;" class="btn w80 btn-brand mr20"
+                    mx-click="confirm()">确定</a>
+                <a href="javascript:;" class="btn w80">取消</a>
+            </div>
+        </form>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;form class="form form-4"&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;输入框&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;input class="input w200"/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;输入框&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;input class="input w200"/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-footer"&gt;
+        &lt;a href="javascript:;" class="btn w80 btn-brand mr20"
+            mx-click="confirm()"&gt;确定&lt;/a&gt;
+        &lt;a href="javascript:;" class="btn w80"&gt;取消&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+        </pre>
+    </div>
+</div>
+
+
+
+
+
+    

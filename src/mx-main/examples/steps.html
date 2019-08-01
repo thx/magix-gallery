@@ -1,0 +1,45 @@
+<mx-title.second content="API" id="{{=viewId}}_api"/>
+<div mx-view="examples/api?options={{@options}}" class="mb40"></div>
+
+<div class="pr20">
+    <mx-title.second content="step-infos配置说明" id="{{=viewId}}_step"/>
+    <div class="mb40">
+        <div class="mb10" id="{{=viewId}}_step1">1. step-infos数组所有可配参数说明</div>
+        <div class="pl15 mb20">
+            <pre class="tip-content">
+[{
+    label: '必填，标题文案',
+    view: '必填，该步骤对应的view，该view必须实现check方法',
+    icon: '可选，自定义icon，默认为index，从1开始',
+    prevTip: '可选，自定义返回上一步文案，默认返回上一步'
+    nextTip: '可选，自定义下一步文案，默认返回下一步',
+    nextFn: (remains, next) => {
+        // remains 当前所有子步骤保留的信息交集，便于提交接口处理等
+        // next(remainParams:object) 保存在路由上的参数
+        next({
+            example: 1
+        })
+    }
+}]
+            </pre>
+        </div>
+        <div class="mb10" id="{{=viewId}}_step2">2. 子view必须实现的check方法说明，返回一个Promise</div>
+        <div class="pl15">
+            <pre class="tip-content">
+check() {
+    let ok = true,
+        remain = {};
+    
+    return new Promise((resolve) => {
+        // 此处返回promise，防止有接口提交校验等
+        resolve({
+            ok,  // 是否校验通过，false的时候不提交
+            msg: '错误信息提示',
+            remain: {} // 当前步骤保留的参数，所有子view交集
+        })
+    })
+}
+            </pre>
+        </div>
+    </div>
+</div>

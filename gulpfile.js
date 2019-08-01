@@ -3,6 +3,8 @@ let combineTool = require('magix-combine');
 let watch = require('gulp-watch');
 let concat = require('gulp-concat');
 let rename = require('gulp-rename');
+let cleanCSS = require('gulp-clean-css');
+var less = require('gulp-less');
 let replace = require('gulp-replace');
 let del = require('del');
 let fs = require('fs');
@@ -197,6 +199,16 @@ gulp.task('publish', () => {
                     }
                 }))
                 .pipe(gulp.dest('./build/'))
+                .on('end', () => {
+                    //less编译成css
+                    gulp.src('./tmpl/**/*.less')
+                        .pipe(less())
+                        .pipe(cleanCSS({compatibility: 'ie8'}))
+                        .pipe(gulp.dest('./build/'))
+                        .on('end', () => {
+                            console.log('项目构建完成');
+                        });
+                })
         }).catch(ex => {
             console.log('gulpfile:', ex);
         });

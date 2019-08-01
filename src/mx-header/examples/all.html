@@ -1,0 +1,14 @@
+<mx-header 
+    navs="{{@navs}}"
+    cur="{{=cur}}"
+    logo="//img.alicdn.com/tfs/TB1Z0ggLPTpK1RjSZKPXXa3UpXa-534-98.png"
+    mx-navchange="change()"/>
+<div class="content">
+    <div class="inner">
+        {{if !cur}}
+        点击导航切换区块内容
+        {{else}}
+        当前导航：{{=curText}}（{{=cur}}）
+        {{/if}}
+    </div>
+</div>

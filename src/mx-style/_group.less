@@ -1,0 +1,64 @@
+/* css3变量 跟 less变量 一一对应 */
+/* 说明文档：https://thx.github.io/magix-gallery/#!/all/pro/cross */
+
+:root{
+    //字体相关参数，输入或下拉框高度 
+    --line-height: 1.5;
+    --font-size: 12px;
+    --input-height: calc(var(--font-size) + 20px);
+    --input-small-height: calc(var(--font-size) + 14px);
+
+    // 品牌色
+    --color-brand: #4d7fff;
+    --color-brand-hover: #4470e0;
+    --color-brand-vs: #14c9ce;
+    --color-brand-light: #dfe8ff;
+    --color-brand-opacity: #edf2ff;
+    --color-brand-text: #ffffff;
+    --color-brand-text-hover: #ffffff;
+
+    //边框
+    --color-border: #e6e6e6;
+    --border-radius: 4px;
+    --border-highlight: #e6e6e6;
+    --border-highlight-hover: #ccc;
+
+    // 品牌按钮颜色，支持渐变
+    --btn-border-radius: var(--border-radius);
+    --btn-brand: var(--color-brand);
+    --btn-brand-gradient: var(--color-brand);
+    --btn-brand-hover: var(--color-brand-hover);
+    --btn-brand-gradient-hover: var(--color-brand-hover);
+    --btn-brand-text: var(--color-brand-text);
+    --btn-brand-text-hover: var(--color-brand-text-hover);
+    --btn-text: #333;
+    --btn-text-hover: #333;
+    --btn-border: var(--color-brand);
+    --btn-border-hover: var(--color-brand);
+    --btn-bg: var(--color-brand-opacity);
+    --btn-bg-hover: var(--color-brand-light);
+
+    // 提示颜色
+    --color-warn: #ffb400;
+    --color-red: #a40100;
+    --color-orange: #ff5500;
+    --color-green: #51a300;
+    --color-blue: #4d7fff;
+    --color-disabled: #eee;
+
+    //背景色
+    --color-bg: #fafafa;
+    --color-bg-hover: #eee;
+ 
+    // 动画
+    --duration: 0.25s;
+
+    // 项目相关颜色
+    --app-brand: var(--color-brand);
+    --app-brand-gradient: var(--color-brand);
+    --app-nav-bg: #303a58;
+    --app-bg: #e8ebf2;
+}
+
+//请保持这里的import处于代码的最下方
+@import '../../assets/group_override.less';

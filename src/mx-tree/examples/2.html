@@ -1,0 +1,49 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10 clearfix">
+            <div class="color-9 fl">使用场景：</div>
+            <div class="fl">
+                <div>双向绑定，实时反馈选中结果，每次操作都响应事件</div>
+                <div>默认选中某些选项</div>
+                <div>可展开收起子选项</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <span class="color-9">当前已选中：</span>
+            <span>{{=selected}}</span>
+        </div>
+        <div class="mb20">
+            <span class="color-9">说明：</span>
+            <span class="color-brand mr10">修改数据时保留历史选中数据+展开收起状态</span>
+            <a href="javascript:;" mx-click="changeData()" class="btn btn-brand">修改数据</a>
+        </div>
+        <div class="wrapper">
+            <div class="content">
+                <mx-tree id="{{=viewId}}_tree"
+                    need-expand="true"
+                    has-line="true"
+                    list="{{@list}}"
+                    bottom-values="{{:selected{refresh:true}}}"></mx-tree>
+            </div>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;div class="mb20"&gt;
+    &lt;span class="color-9"&gt;当前已选中：&lt;/span&gt;
+    &lt;span&gt;&#123;&#123;=selected&#125;&#125;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"
+    need-expand="true"
+    has-line="true"
+    list="&#123;&#123;@list&#125;&#125;"
+    bottom-values="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"&gt;&lt;/mx-tree&gt;</pre>
+    </div>
+</div>
