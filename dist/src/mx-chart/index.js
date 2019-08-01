@@ -1,1 +1,15 @@
-define("mx-chart/index",["magix","../../chartpark/index","$"],(t,e,r)=>{var i=this&&this.__assign||Object.assign||function(t){for(var e,r=1,i=arguments.length;r<i;r++)for(var n in e=arguments[r])Object.prototype.hasOwnProperty.call(e,n)&&(t[n]=e[n]);return t},n=t("magix"),a=t("../../chartpark/index");a=a.default||a;t("$");function s(t){return JSON.stringify(t,function(t,e){return"function"==typeof e?e.toString():e})}r.exports=n.View.extend({init:function(t){this.assign(t)},assign:function(t,e){e&&(e.deep=!1);var r=this.updater.get(),n=r.chartId,c=r.options,o=r.data,d=r.variables,u=t.chartId,f=t.options,h=t.data,p=t.variables,g=t.force;this.updater.set({chartId:u,options:i({},f),data:h.slice(),variables:i({},p)});var v=this.capture("chart"),l=a.getOptions(u,f,h,p)||f;if(!v)return v=a.create(this.id,h,l),this.capture("chart",v),!1;if(g||n!==u)return v.reset(l,h),!1;var x=s(f)!==s(c)||s(p)!==s(d),b=s(h)!==s(o);return x?(v.reset(l,h),!1):!!b&&(v.resetData(h),!1)},render:function(){},"$doc<navslidend>":function(){a.resize()},"$win<resize>":function(){a.resize()}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-chart/index",["../../chartpark/index","./chart"],(require,exports,module)=>{
+/*Chartx,ChartFactory*/
+
+var Chartx = require("../../chartpark/index");
+Chartx = Chartx["default"] || Chartx;
+var ChartFactory = require("./chart");
+var View = ChartFactory(Chartx);
+module.exports = View;
+
+});
