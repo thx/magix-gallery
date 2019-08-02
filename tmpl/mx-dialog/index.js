@@ -4,7 +4,7 @@ let Vframe = Magix.Vframe;
 let I18n = require('../mx-medusa/util');
 Magix.applyStyle('@index.less');
 
-let DialogZIndex = 999999;
+let DialogZIndex = 99999;
 let Duration = 250;
 
 let CacheList = [];
@@ -65,12 +65,16 @@ module.exports = Magix.View.extend({
             if (mask.length > 0) {
                 mask.addClass('@index.less:backdrop-out');
             } 
-            // 点击空白处关闭浮层
-            wrapper.on('click', (e) => {
-                if (!Magix.inside(e.target, cntId + '_content')) {
-                    $('#' + me.id).trigger('dlg_close');
-                }
-            })
+            // emptyClosable 明确指定可关闭
+            if(data.closable || data.emptyClosable){
+                // 浮层可关闭时
+                // 点击空白处关闭浮层
+                wrapper.on('click', (e) => {
+                    if (!Magix.inside(e.target, cntId + '_content')) {
+                        $('#' + me.id).trigger('dlg_close');
+                    }
+                })
+            }
             me.owner.mountVframe(cntId, data.view, data);
 
             wrapper.on('scroll', () => {
@@ -311,6 +315,7 @@ module.exports = Magix.View.extend({
                 hasBtns
             }, Magix.mix({
                 width: 320,
+                emptyClosable: true, //点击空白区域是否允许关闭浮层
                 closable: false,
                 mask: false
             }, dialogOptions))
@@ -339,6 +344,7 @@ module.exports = Magix.View.extend({
         confirm(viewOptions, dialogOptions) {
             return this.mxDialog('@./confirm', viewOptions, Magix.mix({
                 width: 320,
+                emptyClosable: true, //点击空白区域是否允许关闭浮层
                 closable: false,
                 mask: false
             }, (dialogOptions || {})));

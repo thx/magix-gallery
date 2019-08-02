@@ -16,7 +16,7 @@ module.exports = Base.extend({
         let drags = $('#' + this.id + ' .@index.less:item');
         for (var i = 0, len = drags.length; i < len; i++) {
             let drag = $(drags[i]);
-            items.push(drag.data('value'));
+            items.push(drag.attr('data-value'));
         }
         this.updater.digest({
             items

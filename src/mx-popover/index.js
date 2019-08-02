@@ -37,7 +37,7 @@ module.exports = Base.extend({
 
         me['@{content}'] = extra.content || '';
         me['@{width}'] = extra.width || 200;
-        me['@{zIndex}'] = extra.zIndex || 9999;
+        me['@{zIndex}'] = extra.zIndex || 999999;
         me['@{auto}'] = (/^true$/i).test(extra.auto) || false;
         me['@{custom.view}'] = extra.view || '';
         me['@{custom.view.data}'] = extra.data || {};

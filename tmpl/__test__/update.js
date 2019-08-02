@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.28',
+            time: '2019-08-02',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-dialog：closable = false的情况下，点击空白区域才允许关闭浮层 ，<a href="#!/dialog/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.27',
             time: '2019-08-02',
             subs: [{
