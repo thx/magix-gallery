@@ -39,6 +39,10 @@ module.exports = function (Chartx) {
             } = this.updater.get();
 
             let { chartId, options, data, variables, force } = extra;
+
+            if (typeof options === 'string') {
+                options = Chartx.parse.parse(options, [], data, variables);
+            }
             this.updater.set({ chartId, options: { ...options }, data: [...data], variables: { ...variables } });
             let chart = this.capture('chart');
 
