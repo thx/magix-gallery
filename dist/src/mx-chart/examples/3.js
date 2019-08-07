@@ -1,1 +1,89 @@
-define("mx-chart/examples/3",["magix","examples/example","$","../index","mx-copy/index","examples/hl"],(e,a,l)=>{e("../index"),e("mx-copy/index"),e("examples/hl");e("magix");var t=e("examples/example");e("$");l.exports=t.extend({tmpl:function(e,a,l,t,i,c,r,s){if(l||(l=e),!i){var n={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},p=/[&<>"'`]/g,x=function(e){return"&"+n[e]+";"};i=function(e){return""+(null==e?"":e)},t=function(e){return i(e).replace(p,x)}}if(!c){var m={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},_=function(e){return m[e]},d=/[!')(*]/g;c=function(e){return encodeURIComponent(i(e)).replace(d,_)}}if(!s){var v=/[\\'"]/g;s=function(e){return i(e).replace(v,"\\$&")}}r||(r=function(e,a,l,t){for(t=e[g];--t;)if(e[l=g+t]===a)return l;return e[l=g+e[g]++]=a,l});var g="",u="",y=e.chartId,o=e.chartData,h=e.viewId,z=e.text1,f=e.text2;return u+='<div mxv mxa="_zs_galleryal:_" class="_zs_galleryg"><div mxv mxa="_zs_galleryal:a" class="_zs_galleryj"><div mxv="chartId,chartData" style="height: 400px;" mx-view="mx-chart/index?chartId='+r(l,y)+"&data="+r(l,o)+'"></div></div><div mxa="_zs_galleryal:b" class="clearfix"><div mxa="_zs_galleryal:c" class="_zs_galleryk _zs_gallery_"><div mxs="_zs_galleryal:_" class="_zs_galleryi">HTML Code</div><div class="_zs_galleryl" mx-success="'+a+'done({id:1})" mx-view="mx-copy/index?copyNode='+c(h)+'_text_1"><span mxa="_zs_galleryal:d" class="_zs_galleryn">'+i(z)+'</span><i mxs="_zs_galleryal:a" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="examples/hl" id="'+t(h)+'_text_1">\n        &lt;mx-chart \n            chartId="&#123;&#123;@chartId&#125;&#125;" \n            data="&#123;&#123;@chartData&#125;&#125;" \n            style="height: 400px;"\n        &gt&lt;/mx-chart/&gt;\n        </pre></div><div mxa="_zs_galleryal:e" class="_zs_galleryk _zs_gallerya _zs_gallerye"><div mxs="_zs_galleryal:b" class="_zs_galleryi">JS Code</div><div class="_zs_galleryl" mx-success="'+a+'done({id:2})" mx-view="mx-copy/index?copyNode='+c(h)+'_text_2"><span mxa="_zs_galleryal:f" class="_zs_galleryn">'+i(f)+'</span><i mxs="_zs_galleryal:a" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="examples/hl" id="'+t(h)+'_text_2">\nlet Magix = require(\'magix\');\nlet Base = require(\'examples/example\');\nlet $ = require(\'$\');\n    \nmodule.exports = Base.extend({\n    tmpl: \'@1.html\',\n    render() {\n        let chartData = [\n            {"time":"2017-03-21","pv":10,"uv":11,"click":12,"ppc":45},\n            {"time":"2017-03-22","pv":20,"uv":32,"click":14,"ppc":34},\n            {"time":"2017-03-23","pv":30,"uv":15,"click":12,"ppc":65},\n            {"time":"2017-03-24","pv":15,"uv":23,"click":21,"ppc":23},\n            {"time":"2017-03-25","pv":28,"uv":15,"click":15,"ppc":12}\n        ];\n        let chartId = 1;\n        this.updater.digest({\n            chartData,\n            chartId\n        });\n    }\n});\n                </pre></div></div></div>'},render:function(){this.updater.digest({chartData:[{time:"2017-03-21",pv:10,uv:11,click:12,ppc:45},{time:"2017-03-22",pv:20,uv:32,click:14,ppc:34},{time:"2017-03-23",pv:30,uv:15,click:12,ppc:65},{time:"2017-03-24",pv:15,uv:23,click:21,ppc:23},{time:"2017-03-25",pv:28,uv:15,click:15,ppc:12}],chartId:1})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-chart/examples/3",["magix","examples/example","$","../index","mx-copy/index","examples/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("../index");
+require("mx-copy/index");
+require("examples/hl");
+var Magix = require("magix");
+var Base = require("examples/example");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', chartId = $$.chartId, chartData = $$.chartData, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryal:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryal:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxv="chartId,chartData" style="height: 400px;" mx-view="mx-chart/index?chartId=';
+    $line = 3;
+    $art = '@chartId';
+    ;
+    $p += ($expr = '<%@chartId%>', $i($$ref, chartId)) + '&data=';
+    $line = 3;
+    $art = '@chartData';
+    ;
+    $p += ($expr = '<%@chartData%>', $i($$ref, chartData)) + '"></div></div><div mxa="_zs_galleryal:b" class="clearfix"><div mxa="_zs_galleryal:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-third1"><div mxs="_zs_galleryal:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 8;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryal:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 10;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryal:a" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 13;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n        &lt;mx-chart \n            chartId="&#123;&#123;@chartId&#125;&#125;" \n            data="&#123;&#123;@chartData&#125;&#125;" \n            style="height: 400px;"\n        &gt&lt;/mx-chart/&gt;\n        </pre></div><div mxa="_zs_galleryal:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-third2 _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_galleryal:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 23;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryal:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 24;
+    $art = '!text2';
+    ;
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryal:a" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 27;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Base = require(\'examples/example\');\nlet $ = require(\'$\');\n    \nmodule.exports = Base.extend({\n    tmpl: \'@1.html\',\n    render() {\n        let chartData = [\n            {"time":"2017-03-21","pv":10,"uv":11,"click":12,"ppc":45},\n            {"time":"2017-03-22","pv":20,"uv":32,"click":14,"ppc":34},\n            {"time":"2017-03-23","pv":30,"uv":15,"click":12,"ppc":65},\n            {"time":"2017-03-24","pv":15,"uv":23,"click":21,"ppc":23},\n            {"time":"2017-03-25","pv":28,"uv":15,"click":15,"ppc":12}\n        ];\n        let chartId = 1;\n        this.updater.digest({\n            chartData,\n            chartId\n        });\n    }\n});\n                </pre></div></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-chart/examples/3.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        var chartData = [
+            { "time": "2017-03-21", "pv": 10, "uv": 11, "click": 12, "ppc": 45 },
+            { "time": "2017-03-22", "pv": 20, "uv": 32, "click": 14, "ppc": 34 },
+            { "time": "2017-03-23", "pv": 30, "uv": 15, "click": 12, "ppc": 65 },
+            { "time": "2017-03-24", "pv": 15, "uv": 23, "click": 21, "ppc": 23 },
+            { "time": "2017-03-25", "pv": 28, "uv": 15, "click": 15, "ppc": 12 }
+        ];
+        var chartId = 1;
+        this.updater.digest({
+            chartData: chartData,
+            chartId: chartId
+        });
+    }
+});
+
+});
