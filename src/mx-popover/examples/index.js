@@ -90,7 +90,7 @@ offset: {
             key: 'z-index',
             desc: '自定义z-index',
             type: 'number',
-            def: '9999'
+            def: '999999'
         }]
         that.updater.digest({
             viewId: that.id,

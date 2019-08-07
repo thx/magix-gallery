@@ -81,7 +81,7 @@ module.exports = Magix.View.extend(&#123;
         let drags = $('#' + this.id + ' .@index.less:item');
         for (var i = 0, len = drags.length; i &lt; len; i++) &#123;
             let drag = $(drags[i]);
-            items.push(drag.data('value'));
+            items.push(drag.attr('data-value'));
         &#125;
         this.updater.digest(&#123;
             items

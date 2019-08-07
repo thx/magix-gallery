@@ -117,8 +117,8 @@ module.exports = Magix.View.extend({
         for (var i = 0, len = drags.length; i < len; i++) {
             let drag = $(drags[i]);
             selectedItems.push({
-                value: drag.data('value'),
-                text: drag.data('text')
+                value: drag.attr('data-value'),
+                text: drag.attr('data-text')
             })
         }
         this.updater.digest({

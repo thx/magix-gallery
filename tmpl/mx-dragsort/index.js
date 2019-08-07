@@ -164,6 +164,11 @@ module.exports = Magix.View.extend({
             sort = (extra.sort + '') === 'true';
         }
         me['@{sort.ctrl}'] = sort;
+
+        me.on('destroy', () => {
+            $('#' + BarId).remove();
+            $('#' + PointerId).remove();
+        })
     },
     '@{findZone}' (node) {
         let me = this;
