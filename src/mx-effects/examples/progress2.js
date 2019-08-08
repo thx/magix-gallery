@@ -14,6 +14,11 @@ module.exports = Magix.View.extend({
             desc: '自定义颜色，#4d7fff 或者 rgb(77, 127, 255)',
             type: 'string',
             def: '品牌色'
+        }, {
+            key: 'base-opacity',
+            desc: '基础透明度，<1 的数值，<br/>表示第一个格子的透明度，后续计算为 opacity = base + i * (1 - base) / 9',
+            type: 'number',
+            def: '0.08'
         }]
 
         this.updater.digest({

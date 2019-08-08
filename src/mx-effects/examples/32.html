@@ -1,0 +1,39 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="mr10 color-9">默认的基础透明度：</span>
+            <mx-effects.progress class="mr20"
+                type="degree"
+                num="80" />
+        </div>
+        <div class="mb20">
+            <span class="mr10 color-9">自定义基础透明度：</span>
+            <mx-effects.progress
+                base-opacity="0.4"
+                type="degree"
+                num="80"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">自定义颜色</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;div class="mb20"&gt;
+    &lt;span class="mr10 color-9"&gt;默认的基础透明度：&lt;/span&gt;
+    &lt;mx-effects.progress class="mr20"
+        type="degree"
+        num="80" /&gt;
+&lt;/div&gt;
+&lt;div class="mb20"&gt;
+    &lt;span class="mr10 color-9"&gt;自定义基础透明度：&lt;/span&gt;
+    &lt;mx-effects.progress
+        base-opacity="0.4"
+        type="degree"
+        num="80"/&gt;
+&lt;/div&gt;</pre>
+    </div>
+</div>

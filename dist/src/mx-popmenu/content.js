@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = 'each menus as item';
     ;
-    $expr = '<%for (var $art_iczqdoa$art_i = 0, $art_cjpnlvhl$art_c = menus.length; $art_iczqdoa$art_i < $art_cjpnlvhl$art_c; $art_iczqdoa$art_i++) {    var item = menus[$art_iczqdoa$art_i]%>';
-    for (var $art_iczqdoa$art_i = 0, $art_cjpnlvhl$art_c = menus.length; $art_iczqdoa$art_i < $art_cjpnlvhl$art_c; $art_iczqdoa$art_i++) {
-        var item = menus[$art_iczqdoa$art_i];
+    $expr = '<%for (var $art_inlwlds$art_i = 0, $art_cdviiqetdb$art_c = menus.length; $art_inlwlds$art_i < $art_cdviiqetdb$art_c; $art_inlwlds$art_i++) {    var item = menus[$art_inlwlds$art_i]%>';
+    for (var $art_inlwlds$art_i = 0, $art_cdviiqetdb$art_c = menus.length; $art_inlwlds$art_i < $art_cdviiqetdb$art_c; $art_inlwlds$art_i++) {
+        var item = menus[$art_inlwlds$art_i];
         $p += '<div mxa="_zs_gallerydh:a" class="_zs_gallery_mx-popmenu_content_-item"><span class="_zs_gallery_mx-popmenu_content_-item-link ellipsis" mx-click="' + $viewId + 'submit({value:\'';
         $line = 5;
         $art = '=item.value';

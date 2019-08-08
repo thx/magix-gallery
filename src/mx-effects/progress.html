@@ -51,7 +51,7 @@
     </div>
     <div class="degree-on">
         {{for(let i=0;i<degree;i+=1)}}
-        <span class="degree" style="opacity: {{=(i / 10 + 0.08)}}; {{if color}} background-color: {{=color}}; {{/if}}"></span>
+        <span class="degree" style="opacity: {{=(baseOpacity + i * (1 - baseOpacity) / 9)}}; {{if color}} background-color: {{=color}}; {{/if}}"></span>
         {{/for}}
     </div>
 </div>

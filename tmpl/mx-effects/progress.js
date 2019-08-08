@@ -45,6 +45,7 @@ module.exports = Magix.View.extend({
         let placement = (e.textPlacement || 'top');
         let width;
         let degree = 0,
+            baseOpacity = e.baseOpacity || 0.08,
             border = e.border || 8,
             color = e.color || '',
             colorGradient = e.colorGradient || '',
@@ -93,6 +94,7 @@ module.exports = Magix.View.extend({
             text: (e.text + '' !== 'false'),  //是否显示文案
             vs: (e.vs + '' === 'true'), // 是否左右对比
             degree,
+            baseOpacity: +baseOpacity,
             width: +width,
             border: +border,
             gradient: (type == 'gradient')

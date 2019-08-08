@@ -29,7 +29,7 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', type = $$.type, width = $$.width, border = $$.border, viewId = $$.viewId, color = $$.color, text = $$.text, num = $$.num, vs = $$.vs, colorVs = $$.colorVs, numRemain = $$.numRemain, colorGradient = $$.colorGradient, cName = $$.cName, placement = $$.placement, color1 = $$.color1, color2 = $$.color2, degree = $$.degree; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', type = $$.type, width = $$.width, border = $$.border, viewId = $$.viewId, color = $$.color, text = $$.text, num = $$.num, vs = $$.vs, colorVs = $$.colorVs, numRemain = $$.numRemain, colorGradient = $$.colorGradient, cName = $$.cName, placement = $$.placement, color1 = $$.color1, color2 = $$.color2, degree = $$.degree, baseOpacity = $$.baseOpacity; var $expr, $art, $line; try {
     $line = 1;
     $art = 'if (type == \'circle\')';
     ;
@@ -449,9 +449,9 @@ module.exports = Magix.View.extend({
             ;
             $p += '<span class="_zs_gallery_mx-effects_progress_-degree" style="opacity: ';
             $line = 54;
-            $art = '=(i / 10 + 0.08)';
+            $art = '=(baseOpacity + i * (1 - baseOpacity) / 9)';
             ;
-            $p += ($expr = '<%=(i / 10 + 0.08)%>', $e((i / 10 + 0.08))) + '; ';
+            $p += ($expr = '<%=(baseOpacity + i * (1 - baseOpacity) / 9)%>', $e((baseOpacity + i * (1 - baseOpacity) / 9))) + '; ';
             $line = 54;
             $art = 'if color';
             ;
@@ -521,7 +521,7 @@ catch (ex) {
         var type = e.type || 'line';
         var placement = (e.textPlacement || 'top');
         var width;
-        var degree = 0, border = e.border || 8, color = e.color || '', colorGradient = e.colorGradient || '', colorVs = e.colorVs || '', color1, color2;
+        var degree = 0, baseOpacity = e.baseOpacity || 0.08, border = e.border || 8, color = e.color || '', colorGradient = e.colorGradient || '', colorVs = e.colorVs || '', color1, color2;
         var brandColor = CSSVarUtil.get('--color-brand', '#4d7fff');
         switch (type) {
             case 'degree':
@@ -563,6 +563,7 @@ catch (ex) {
             text: (e.text + '' !== 'false'),
             vs: (e.vs + '' === 'true'),
             degree: degree,
+            baseOpacity: +baseOpacity,
             width: +width,
             border: +border,
             gradient: (type == 'gradient')
