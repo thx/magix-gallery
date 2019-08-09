@@ -6,6 +6,20 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.29',
+            time: '2019-08-09',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.progress：支持自定义base-opacity，渐变 opacity = base + i * (1 - base) / 9，<a href="#!/effects/progress2?highlightId=mx_12_demo32" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-checkbox/linkage：无[linkage-parent]时bugfix'
+                }]
+            }]
+        }, {
             ver: '1.3.28',
             time: '2019-08-02',
             subs: [{
@@ -64,7 +78,7 @@ module.exports = Magix.View.extend({
                 type: 'bug',
                 subs: [{
                     title: 'mx-form：range范围校验bugfix，<a href="#!/form/mixins?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
-                }] 
+                }]
             }]
         }, {
             ver: '1.3.22',
@@ -310,7 +324,7 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-collapse：折叠面板实现assign，传入数据不改变时不刷新组件'
                 }]
-            },{
+            }, {
                 type: 'add',
                 subs: [{
                     title: 'mx-popover：支持自定义z-index'
@@ -319,7 +333,7 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-effects.progress：进度条支持配置宽度，配置文案不显示'
                 }]
-            },{
+            }, {
                 type: 'notice',
                 title: '关于脚手架（zs_scaffold）和magix-pro',
                 subs: [{
