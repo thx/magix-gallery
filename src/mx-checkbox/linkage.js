@@ -52,9 +52,7 @@ let SyncState = (node, checkbox, name) => {
     } else if (indeterminate) {
         all.prop('indeterminate', true);
     }
-    if (disabled) {
-        all.prop('disabled', true);
-    }
+    all.prop('disabled', disabled);
 };
 let ApplyTableCheckbox = (node, checkbox) => {
     node = $(node);

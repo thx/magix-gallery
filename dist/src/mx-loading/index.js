@@ -35,7 +35,7 @@ var Tmpl = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $line = 1;
     $art = '=height';
     ;
-    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxs="_zs_galleryc8:_" class="loading _zs_gallery_mx-loading_index_-loading-overwite" style="padding: 10px 0;"><span class="loading-anim"></span></div></div>';
+    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxs="_zs_galleryc9:_" class="loading _zs_gallery_mx-loading_index_-loading-overwite" style="padding: 10px 0;"><span class="loading-anim"></span></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
