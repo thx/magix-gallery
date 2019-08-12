@@ -1,1 +1,74 @@
-define("mx-status/examples/dropdown",["magix","$","examples/subs","mx-title/second","./4","./5","./options","./events"],(e,i,s)=>{e("examples/subs"),e("mx-title/second"),e("./4"),e("./5"),e("./options"),e("./events");var t=e("magix");e("$");s.exports=t.View.extend({tmpl:function(e,i,s,t,n,d,a,m){if(s||(s=e),!n){var r={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},v=/[&<>"'`]/g,l=function(e){return"&"+r[e]+";"};n=function(e){return""+(null==e?"":e)},t=function(e){return n(e).replace(v,l)}}if(!d){var o={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},x=function(e){return o[e]},u=/[!')(*]/g;d=function(e){return encodeURIComponent(n(e)).replace(u,x)}}if(!m){var c=/[\\'"]/g;m=function(e){return n(e).replace(c,"\\$&")}}a||(a=function(e,i,s,t){for(t=e[p];--t;)if(e[s=p+t]===i)return s;return e[s=p+e[p]++]=i,s});var p="",_="",f=e.viewId;return _+='<div mxa="_zs_galleryd\\:_" class="pr pr120"><div mx-view="examples/subs?list='+a(s,[{name:"使用示例",key:f+"_demo",subs:[{name:"纯操作",key:f+"_demo4"},{name:"纯提示",key:f+"_demo5"}]},{name:"API",key:f+"_api"},{name:"Event",key:f+"_event"}])+'"></div><div id="'+t(f)+'_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryd\\:a" class="clearfix mb20"><div mxa="_zs_galleryd\\:b" class="_zs_galleryd"><div mx-view="mx-status/examples/4" id="'+t(f)+'_demo4"></div></div><div mxa="_zs_galleryd\\:c" class="_zs_galleryd"><div mx-view="mx-status/examples/5" id="'+t(f)+'_demo5"></div></div></div><div mx-view="mx-status/examples/options" id="'+t(f)+'_api" class="mb40"></div><div mx-view="mx-status/examples/events" id="'+t(f)+'_event"></div></div>'},render:function(){this.updater.digest({viewId:this.id})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-status/examples/dropdown",["magix","$","examples/subs","mx-title/second","./4","./5","./options","./events"],(require,exports,module)=>{
+/*Magix,$*/
+require("examples/subs");
+require("mx-title/second");
+require("./4");
+require("./5");
+require("./options");
+require("./events");
+var Magix = require("magix");
+var $ = require("$");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryd,:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $line = 2;
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'纯操作\',\n            key: viewId + \'_demo4\'\n        }, {\n            name: \'纯提示\',\n            key: viewId + \'_demo5\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
+    ;
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'纯操作\',                    key: viewId + \'_demo4\'                }, {                    name: \'纯提示\',                    key: viewId + \'_demo5\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '纯操作', key: viewId + '_demo4' }, { name: '纯提示', key: viewId + '_demo5' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
+    $line = 20;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryd,:a" class="clearfix mb20"><div mxa="_zs_galleryd,:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-status/examples/4" id="';
+    $line = 23;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div mxa="_zs_galleryd,:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-status/examples/5" id="';
+    $line = 26;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div></div></div><div mx-view="mx-status/examples/options" id="';
+    $line = 30;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" class="mb40"></div><div mx-view="mx-status/examples/events" id="';
+    $line = 31;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_event"></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-status/examples/dropdown.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest({
+            viewId: this.id
+        });
+    }
+});
+
+});

@@ -1,3 +1,6 @@
+.white{
+    background-color: #434459;
+}
 .footer {
     padding: 30px 0;
     text-align: center;
@@ -109,16 +112,20 @@
 }
 
 .products {
-    position: relative;
-    max-width: 100%;
-    margin-bottom: 20px;
-    padding-left: 220px;
-    padding-right: 220px;
-    text-align: center;
-    .logo {
+    .products-inner{
+        position: relative;
+        padding: 20px 220px 10px 220px;
+        max-width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+    .logo,
+    .qrcode{
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 20px;
+    }
+    .logo {
+        left: 20px;
         img {
             width: 110px;
         }
@@ -131,9 +138,7 @@
         }
     }
     .qrcode {
-        position: absolute;
-        top: 0;
-        right: 0;
+        right: 20px;
         line-height: 22px;
         img {
             width: 92px;

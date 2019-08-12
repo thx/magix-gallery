@@ -79,6 +79,7 @@ let routes = {
     '/carousel/demo': 'examples/empty',
     '/main/demo': 'examples/empty',
     '/main/hor-demo': 'examples/empty',
+    '/footer/full': 'examples/empty',
     '/wanxiang/demo1': 'examples/wanxiang',
     '/wanxiang/demo2': 'examples/wanxiang',
     '/wanxiang/demo3': 'examples/wanxiang'
