@@ -22,7 +22,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', info = $$.info; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc&:_" class="fontsize-16">第';
+    $p += '<div mxa="_zs_galleryc):_" class="fontsize-16">第';
     $line = 1;
     $art = '=info.index';
     ;
@@ -30,7 +30,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=info.label';
     ;
-    $p += ($expr = '<%=info.label%>', $e(info.label)) + '</div><div mxs="_zs_galleryc&:_" class="_zs_gallery_mx-main_examples_hor-inner_-line" style="width: 200px;"></div><div mxs="_zs_galleryc&:a" class="_zs_gallery_mx-main_examples_hor-inner_-line" style="width: 400px;"></div><div mxs="_zs_galleryc&:a" class="_zs_gallery_mx-main_examples_hor-inner_-line" style="width: 400px;"></div><div mxs="_zs_galleryc&:a" class="_zs_gallery_mx-main_examples_hor-inner_-line" style="width: 400px;"></div>';
+    $p += ($expr = '<%=info.label%>', $e(info.label)) + '</div><div mxs="_zs_galleryc):_" class="_zs_gallery_mx-main_examples_hor-inner_-line" style="width: 200px;"></div><div mxs="_zs_galleryc):a" class="_zs_gallery_mx-main_examples_hor-inner_-line" style="width: 400px;"></div><div mxs="_zs_galleryc):a" class="_zs_gallery_mx-main_examples_hor-inner_-line" style="width: 400px;"></div><div mxs="_zs_galleryc):a" class="_zs_gallery_mx-main_examples_hor-inner_-line" style="width: 400px;"></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

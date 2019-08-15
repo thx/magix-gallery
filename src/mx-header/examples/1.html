@@ -1,7 +1,7 @@
 <div class="example">
     <div class="eg-content">
         <div class="pt10 pb10">
-            <a rel="noopener noreferrer" href="#!/header/all" class="link-brand" target="_blank">新页面打开完整示例</a>
+            <a rel="noopener noreferrer" href="#!/header/all" class="link-brand" target="_blank">新页面打开完整示例，支持二级菜单</a>
         </div>
     </div>
     <div class="clearfix">
@@ -35,11 +35,19 @@ module.exports = Magix.View.extend(&#123;
     render() &#123;
         let navs = [&#123;
             value: 1,
-            text: '营销中台'
+            text: '营销中台',
+            subs: [&#123;
+                value: 21,
+                text: '标准推广'
+            &#125;, &#123;
+                value: 22,
+                text: '智能推广'
+            &#125;]
         &#125;, &#123;
             value: 2,
             text: '创意中台'
         &#125;]
+        
         // 默认不选中任何一个
         let cur = '';
         this.updater.digest(&#123;

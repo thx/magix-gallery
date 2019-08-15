@@ -47,13 +47,13 @@ module.exports = Magix.View.extend({
         $line = 3;
         $art = '=width';
         ;
-        $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_galleryb\\:_" class="_zs_gallery_mx-footer_index_-logo"><img src="//img.alicdn.com/tfs/TB14rObn7PoK1RjSZKbXXX1IXXa-191-191.png"><i class="mc-iconfont _zs_gallery_mx-footer_index_-mama-icon">&#xe601;</i></div><div mxa="_zs_galleryb\\:d" class="clearfix">';
+        $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_galleryb\\:_" class="_zs_gallery_mx-footer_index_-logo"><img src="//img.alicdn.com/tfs/TB14rObn7PoK1RjSZKbXXX1IXXa-191-191.png"><i class="mc-iconfont _zs_gallery_mx-footer_index_-mama-icon">&#xe601;</i></div><div mxa="_zs_galleryb\\:_" class="clearfix">';
         $line = 9;
         $art = 'each products as p';
         ;
-        $expr = '<%for (var $art_izsvzdupmns$art_i = 0, $art_ccayodqqz$art_c = products.length; $art_izsvzdupmns$art_i < $art_ccayodqqz$art_c; $art_izsvzdupmns$art_i++) {        var p = products[$art_izsvzdupmns$art_i]%>';
-        for (var $art_izsvzdupmns$art_i = 0, $art_ccayodqqz$art_c = products.length; $art_izsvzdupmns$art_i < $art_ccayodqqz$art_c; $art_izsvzdupmns$art_i++) {
-            var p = products[$art_izsvzdupmns$art_i];
+        $expr = '<%for (var $art_ibgrvydll$art_i = 0, $art_ctabemz$art_c = products.length; $art_ibgrvydll$art_i < $art_ctabemz$art_c; $art_ibgrvydll$art_i++) {        var p = products[$art_ibgrvydll$art_i]%>';
+        for (var $art_ibgrvydll$art_i = 0, $art_ctabemz$art_c = products.length; $art_ibgrvydll$art_i < $art_ctabemz$art_c; $art_ibgrvydll$art_i++) {
+            var p = products[$art_ibgrvydll$art_i];
             $p += '<dl style="width: ';
             $line = 10;
             $art = '=(100 / len)';
@@ -66,9 +66,9 @@ module.exports = Magix.View.extend({
             $line = 12;
             $art = 'each p.thirds as t';
             ;
-            $expr = '<%for (var $art_ieohystahg$art_i = 0, $art_objutlmyswj$art_obj = p.thirds, $art_cpizuh$art_c = $art_objutlmyswj$art_obj.length; $art_ieohystahg$art_i < $art_cpizuh$art_c; $art_ieohystahg$art_i++) {            var t = $art_objutlmyswj$art_obj[$art_ieohystahg$art_i]%>';
-            for (var $art_ieohystahg$art_i = 0, $art_objutlmyswj$art_obj = p.thirds, $art_cpizuh$art_c = $art_objutlmyswj$art_obj.length; $art_ieohystahg$art_i < $art_cpizuh$art_c; $art_ieohystahg$art_i++) {
-                var t = $art_objutlmyswj$art_obj[$art_ieohystahg$art_i];
+            $expr = '<%for (var $art_igbngvhklx$art_i = 0, $art_objryqbhz$art_obj = p.thirds, $art_ckopcdua$art_c = $art_objryqbhz$art_obj.length; $art_igbngvhklx$art_i < $art_ckopcdua$art_c; $art_igbngvhklx$art_i++) {            var t = $art_objryqbhz$art_obj[$art_igbngvhklx$art_i]%>';
+            for (var $art_igbngvhklx$art_i = 0, $art_objryqbhz$art_obj = p.thirds, $art_ckopcdua$art_c = $art_objryqbhz$art_obj.length; $art_igbngvhklx$art_i < $art_ckopcdua$art_c; $art_igbngvhklx$art_i++) {
+                var t = $art_objryqbhz$art_obj[$art_igbngvhklx$art_i];
                 $p += '<dd><a href="';
                 $line = 14;
                 $art = '=t.link';
@@ -112,7 +112,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><div mxa="_zs_galleryb\\:e" class="_zs_gallery_mx-footer_index_-line"><a mxs="_zs_galleryb\\:b" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com/home/about-1.htm">联系客服</a><a mxs="_zs_galleryb\\:c" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//open.taobao.com/">开放平台</a>';
+    $p += '"><div mxa="_zs_galleryb\\:a" class="_zs_gallery_mx-footer_index_-line"><a mxs="_zs_galleryb\\:b" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com/home/about-1.htm">联系客服</a><a mxs="_zs_galleryb\\:c" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//open.taobao.com/">开放平台</a>';
     $line = 32;
     $art = 'if tanx';
     ;
@@ -175,7 +175,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (taobao) {%>';
     if (taobao) {
         ;
-        $p += '<span mxa="_zs_galleryb\\:f" class="_zs_gallery_mx-footer_index_-line-text">Taobao.com版权所有 2003-';
+        $p += '<span mxa="_zs_galleryb\\:b" class="_zs_gallery_mx-footer_index_-line-text">Taobao.com版权所有 2003-';
         $line = 48;
         $art = '=year';
         ;
@@ -193,7 +193,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (alimama) {%>';
     if (alimama) {
         ;
-        $p += '<span mxa="_zs_galleryb\\:g" class="_zs_gallery_mx-footer_index_-line-text">阿里妈妈版权所有 2007-';
+        $p += '<span mxa="_zs_galleryb\\:c" class="_zs_gallery_mx-footer_index_-line-text">阿里妈妈版权所有 2007-';
         $line = 52;
         $art = '=year';
         ;
@@ -234,8 +234,13 @@ catch (ex) {
     assign: function (ops) {
         this['@{mode.simple}'] = (ops.mode === 'simple');
         this['@{need.products}'] = (ops.products + '' === 'true');
-        this['@{products.width}'] = ops.width || 1200;
         this['@{ui.dark}'] = (ops.dark + '' === 'true');
+        var width = ops.width || 1200;
+        var maxWidth = $(window).outerWidth();
+        if (+width > maxWidth) {
+            width = maxWidth;
+        }
+        this['@{products.width}'] = width;
     },
     render: function () {
         var me = this;

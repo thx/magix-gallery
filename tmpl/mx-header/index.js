@@ -2,6 +2,7 @@ let Magix = require('magix');
 let $ = require('$');
 let Data = require('@./data');
 Magix.applyStyle('@index.less');
+Magix.applyStyle('@../mx-popover/index.less');
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -20,21 +21,45 @@ module.exports = Magix.View.extend({
         //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
         let wrapperId = ops.wrapper || '';
         let wrapper = wrapperId ? $('#' + wrapperId) : $(window);
-        let cur = ops.cur || ''; //默认不选中任何一个导航
+
         let width = ops.width || 1200;
         let navs = ops.navs || [];
         let logo = ops.logo || '//img.alicdn.com/tfs/TB1G_ozLNnaK1RjSZFBXXcW7VXa-292-98.png';
+        let dark = (ops.dark + '' !== 'false'); //默认是true
         let maxWidth = wrapper.outerWidth();
         if (+width > (maxWidth - 40)) {
             width = maxWidth - 40;
         }
+
+        //默认不选中任何一个导航，表示选中的一级导航
+        // 如果默认为某个二级导航，订正选中态为一级的
+        let cur = ops.cur || '';
+        let parent = '', child = '';
+        navs.forEach(nav => {
+            if (nav.value == cur) {
+                // 选中的是一级菜单
+                parent = nav.value;
+                child = '';
+            }
+            if (nav.subs && nav.subs.length) {
+                nav.subs.forEach(sub => {
+                    if (sub.value == cur) {
+                        // 选中的是二级菜单
+                        parent = nav.value;
+                        child = sub.value;
+                    }
+                })
+            }
+        })
 
         that.updater.set({
             wrapperId,
             width,
             navs,
             logo,
-            cur
+            parent,
+            child,
+            dark
         })
 
         that['@{wrapper}'] = wrapper;
@@ -55,27 +80,12 @@ module.exports = Magix.View.extend({
     },
     render() {
         let that = this;
-        let data = that.updater.get();
-
-        let list = Data.products;
-        list.forEach(item => {
-            let height = 10 * 2 * item.seconds.length;
-            item.seconds.forEach(second => {
-                if (second.title) {
-                    height += 30;
-                }
-                height += (second.thirds.length * 32);
-            })
-
-            item.height = height;
-            item.showHeight = 0;
-        })
-
         that.updater.digest({
-            list,
+            list: Data.products,
             fixed: false
         });
 
+        let data = that.updater.get();
         let wrapper = that['@{wrapper}'];
         let maxWidth = wrapper.outerWidth(),
             wrapperId = data.wrapperId;
@@ -120,29 +130,30 @@ module.exports = Magix.View.extend({
         }
         scrollFn();
     },
-    'toggle<mouseover,mouseout>'(event) {
-        if (Magix.inside(event.relatedTarget, event.eventTarget)) {
-            return;
-        }
-        let that = this;
-        let index = event.params.index,
-            height = event.params.height;
-        let list = that.updater.get('list');
-        list[index].showHeight = height;
-        that.updater.digest({
-            list
-        });
-    },
     'to<click>'(event) {
         let that = this;
-        let curNav = event.params.nav;
+        let nav = event.params.nav || {},
+            sub = event.params.sub || {};
+
+        // 高亮一级导航
         that.updater.digest({
-            cur: curNav.value
+            parent: nav.value || '',
+            child: sub.value || ''
         })
+
+        // 当前选中的tab
+        let selected = {};
+        if ($.isEmptyObject(sub)) {
+            // 一级导航
+            selected = nav;
+        } else {
+            // 二级导航
+            selected = sub;
+        }
 
         $('#' + that.id).trigger({
             type: 'navchange',
-            nav: curNav
+            nav: selected
         })
     }
 });

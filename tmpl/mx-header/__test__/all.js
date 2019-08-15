@@ -7,7 +7,14 @@ module.exports = Magix.View.extend({
     render() {
         let navs = [{
             value: 1,
-            text: '营销中台'
+            text: '营销中台',
+            subs: [{
+                value: 21,
+                text: '标准推广'
+            }, {
+                value: 22,
+                text: '智能推广'
+            }]
         }, {
             value: 2,
             text: '创意中台'

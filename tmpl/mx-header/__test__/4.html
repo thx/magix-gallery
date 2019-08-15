@@ -1,0 +1,40 @@
+<div class="example">
+    <div class="eg-content">
+        <div id="{{=viewId}}_test" class="wrapper">
+            <mx-header 
+                width="900" 
+                dark="false"
+                navs="{{@[{
+                    value: 1,
+                    text: '营销中台'
+                }, {
+                    value: 2,
+                    text: '创意中台'
+                }]}}" 
+                wrapper="{{=viewId}}_test"/>
+            <div class="inner"></div>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;div id="{{=viewId}}_test"&gt;
+    &lt;mx-header 
+        width="900" 
+        dark="false"
+        navs="{{@[{
+            value: 1,
+            text: '营销中台'
+        }, {
+            value: 2,
+            text: '创意中台'
+        }]}}" 
+        wrapper="{{=viewId}}_test"/&gt;
+&lt;/div&gt;</pre>
+    </div>
+</div>

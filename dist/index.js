@@ -75,7 +75,7 @@ seajs.config({
 
 let routes = {
     '/header/all': 'examples/empty',
-    '/header/def': 'examples/empty',
+    '/header/white': 'examples/empty',
     '/carousel/demo': 'examples/empty',
     '/main/demo': 'examples/empty',
     '/main/hor-demo': 'examples/empty',

@@ -1,0 +1,79 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="pt10 pb10">
+            <a rel="noopener noreferrer" href="#!/header/white" class="link-brand" target="_blank">新页面打开完整示例，支持二级菜单</a>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-header 
+    dark="false"
+    navs="&#123;&#123;@navs&#125;&#125;"
+    cur="&#123;&#123;=cur&#125;&#125;"
+    logo="//img.alicdn.com/tps/TB1GLT.LFXXXXX2aXXXXXXXXXXX-500-79.png"
+    mx-navchange="change()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="examples/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@white.html',
+    render() &#123;
+        let navs = [&#123;
+            value: 1,
+            text: '首页'
+        &#125;, &#123;
+            value: 2,
+            text: '产品介绍',
+            subs: [&#123;
+                value: 21,
+                text: '标准推广'
+            &#125;, &#123;
+                value: 22,
+                text: '智能推广'
+            &#125;]
+        &#125;, &#123;
+            value: 3,
+            text: '学习咨询'
+        &#125;]
+
+        let map = &#123;&#125;;
+        navs.forEach(nav =&gt; &#123;
+            map[nav.value] = nav.text;
+            let subs = nav.subs || [];
+            subs.forEach(sub =&gt; &#123;
+                map[sub.value] = `$&#123;nav.text&#125;_$&#123;sub.text&#125;`;
+            &#125;)
+        &#125;)
+
+        this.updater.digest(&#123;
+            navs,
+            map,
+            cur: navs[0].value
+        &#125;);
+    &#125;,
+    'change&lt;navchange&gt;'(event) &#123;
+        // event.nav &#123;value: , text: &#125; 当前导航
+        this.updater.digest(&#123;
+            cur: event.nav.value
+        &#125;)
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

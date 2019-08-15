@@ -4,22 +4,36 @@
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
-            name: '全屏',
+            name: '深底色全屏',
             key: viewId + '_demo1'
         },{
-            name: '容器内',
+            name: '白底全屏',
+            key: viewId + '_demo3'
+        },{
+            name: '深底色容器内',
             key: viewId + '_demo2'
+        },{
+            name: '白底容器内',
+            key: viewId + '_demo4'
         }]
     }, {
         name: 'API',
         key: viewId + '_api'
+    }, {
+        name: 'Event',
+        key: viewId + '_event'
     }]}}"></div>
         
     <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
     <div class="clearfix mb20">
         <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+        <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+        <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
     </div>
     <mx-title.second content="API" id="{{=viewId}}_api"/>
-    <div mx-view="__test__/api?options={{@options}}"></div>
+    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
+
+    <mx-title.second content="Event" id="{{=viewId}}_event"/>
+    <div mx-view="__test__/event?options={{@events}}"></div>
 </div>

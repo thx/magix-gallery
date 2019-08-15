@@ -12,8 +12,12 @@ module.exports = Magix.View.extend({
         }, {
             key: 'navs',
             desc: `导航数组<pre>[{
-    text:"展示文案",
-    value:"value值"
+    text:"一级菜单展示文案",
+    value:"一级菜单value值",
+    subs: [{
+        text:"二级菜单展示文案",
+        value:"二级菜单value值",
+    }]
 }]</pre>`,
             type: 'array',
             def: ''
@@ -32,11 +36,30 @@ module.exports = Magix.View.extend({
             desc: '项目logo的图片地址',
             type: 'string',
             def: '<img width="200" src="//img.alicdn.com/tfs/TB1G_ozLNnaK1RjSZFBXXcW7VXa-292-98.png">'
+        }, {
+            key: 'dark',
+            desc: '深底色版本',
+            type: 'boolean',
+            def: 'true'
+        }]
+
+        let events = [{
+            type: 'navchange',
+            desc: '菜单切换的时候触发',
+            params: [{
+                key: 'nav',
+                desc: `选中的菜单，一级 or 二级 <pre>{
+    text:"菜单展示文案",
+    value:"菜单value值"
+}</pre>`,
+                type: 'object'
+            }]
         }]
 
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events
         });
     }
 });

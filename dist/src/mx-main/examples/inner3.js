@@ -21,7 +21,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryc[:_" class="lh22 mb10"><div>当前步骤三个子步骤，对应的页面配置信息如下：</div></div><pre mxs="_zs_galleryc[:a" class="tip-content">\n&#123;\n    label: \'添加创意\',\n    subs: [&#123;\n        label: \'创意内容1\',\n        icon: \'&lt;i class="mc-iconfont fontsize-20"&gt;&#38;&#35;xe705;&lt;/i&gt;\',\n        view: \'@./inner3\'\n    &#125;, &#123;\n        label: \'创意内容2\',\n        icon: \'&lt;i class="mc-iconfont fontsize-20"&gt;&#38;&#35;xe664;&lt;/i&gt;\',\n        view: \'@./inner\'\n    &#125;, &#123;\n        label: \'创意内容3\',\n        icon: \'&lt;i class="mc-iconfont fontsize-20"&gt;&#38;&#35;xe767;&lt;/i&gt;\',\n        view: \'@./inner\'\n    &#125;],\n    nextTip: \'下一步，完成\'\n&#125;\n</pre>';
+    $p += '<div mxs="_zs_galleryc\\:_" class="lh22 mb10"><div>当前步骤三个子步骤，对应的页面配置信息如下：</div></div><pre mxs="_zs_galleryc\\:a" class="tip-content">\n&#123;\n    label: \'添加创意\',\n    subs: [&#123;\n        label: \'创意内容1\',\n        icon: \'&lt;i class="mc-iconfont fontsize-20"&gt;&#38;&#35;xe705;&lt;/i&gt;\',\n        view: \'@./inner3\'\n    &#125;, &#123;\n        label: \'创意内容2\',\n        icon: \'&lt;i class="mc-iconfont fontsize-20"&gt;&#38;&#35;xe664;&lt;/i&gt;\',\n        view: \'@./inner\'\n    &#125;, &#123;\n        label: \'创意内容3\',\n        icon: \'&lt;i class="mc-iconfont fontsize-20"&gt;&#38;&#35;xe767;&lt;/i&gt;\',\n        view: \'@./inner\'\n    &#125;],\n    nextTip: \'下一步，完成\'\n&#125;\n</pre>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

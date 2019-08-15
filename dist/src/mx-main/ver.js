@@ -29,10 +29,10 @@ module.exports = Base.extend({
     $line = 1;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_iqtwmsnnz$art_i = 0, $art_cafervgwpntv$art_c = stepInfos.length; $art_iqtwmsnnz$art_i < $art_cafervgwpntv$art_c; $art_iqtwmsnnz$art_i++) {    var step = stepInfos[$art_iqtwmsnnz$art_i]%>';
-    for (var $art_iqtwmsnnz$art_i = 0, $art_cafervgwpntv$art_c = stepInfos.length; $art_iqtwmsnnz$art_i < $art_cafervgwpntv$art_c; $art_iqtwmsnnz$art_i++) {
-        var step = stepInfos[$art_iqtwmsnnz$art_i];
-        $p += '<div mxv mxa="_zs_galleryc;:_" class="clearfix _zs_gallery_mx-main_ver_-step"><div mxa="_zs_galleryc;:a" class="_zs_gallery_mx-main_ver_-circle">';
+    $expr = '<%for (var $art_iuqiynyg$art_i = 0, $art_csdtkiba$art_c = stepInfos.length; $art_iuqiynyg$art_i < $art_csdtkiba$art_c; $art_iuqiynyg$art_i++) {    var step = stepInfos[$art_iuqiynyg$art_i]%>';
+    for (var $art_iuqiynyg$art_i = 0, $art_csdtkiba$art_c = stepInfos.length; $art_iuqiynyg$art_i < $art_csdtkiba$art_c; $art_iuqiynyg$art_i++) {
+        var step = stepInfos[$art_iuqiynyg$art_i];
+        $p += '<div mxv mxa="_zs_galleryc+:_" class="clearfix _zs_gallery_mx-main_ver_-step"><div mxa="_zs_galleryc+:a" class="_zs_gallery_mx-main_ver_-circle">';
         $line = 3;
         $art = '!step.icon';
         ;
@@ -43,14 +43,14 @@ module.exports = Base.extend({
         $expr = '<%if (step.index < stepInfos.length) {%>';
         if (step.index < stepInfos.length) {
             ;
-            $p += '<div mxs="_zs_galleryc;:_" class="_zs_gallery_mx-main_ver_-line"></div>';
+            $p += '<div mxs="_zs_galleryc+:_" class="_zs_gallery_mx-main_ver_-line"></div>';
             $line = 6;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += '<div mxv mxa="_zs_galleryc;:b" class="grid"><div mxa="_zs_galleryc;:c" class="clearfix" style="padding: 10px 24px;;"><div mxa="_zs_galleryc;:d" style="float:left; height: 32px; line-height: 32px;"><span mxa="_zs_galleryc;:e" class="grid-title" style="margin-right: 16px;">';
+        $p += '<div mxv mxa="_zs_galleryc+:b" class="grid"><div mxa="_zs_galleryc+:c" class="clearfix" style="padding: 10px 24px;;"><div mxa="_zs_galleryc+:d" style="float:left; height: 32px; line-height: 32px;"><span mxa="_zs_galleryc+:e" class="grid-title" style="margin-right: 16px;">';
         $line = 9;
         $art = '=step.label';
         ;
@@ -79,7 +79,7 @@ module.exports = Base.extend({
         $expr = '<%if (step.current) {%>';
         if (step.current) {
             ;
-            $p += '<div mxv mxa="_zs_galleryc;:f" class="clearfix bt-e6" style="padding: 16px 24px;"><div mxv="curStepInfo" mx-view="';
+            $p += '<div mxv mxa="_zs_galleryc+:f" class="clearfix bt-e6" style="padding: 16px 24px;"><div mxv="curStepInfo" mx-view="';
             $line = 18;
             $art = '=curStepInfo.view';
             ;
@@ -91,14 +91,14 @@ module.exports = Base.extend({
             $line = 19;
             $art = '=viewId';
             ;
-            $p += ($expr = '<%=viewId%>', $e(viewId)) + '_cur_content"><div mxs="_zs_galleryc;:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div><div mxa="_zs_galleryc;:g" class="pt20">';
+            $p += ($expr = '<%=viewId%>', $e(viewId)) + '_cur_content"><div mxs="_zs_galleryc+:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div><div mxa="_zs_galleryc+:g" class="pt20">';
             $line = 23;
             $art = 'if curStepInfo.prevTip';
             ;
             $expr = '<%if (curStepInfo.prevTip) {%>';
             if (curStepInfo.prevTip) {
                 ;
-                $p += '<a mxa="_zs_galleryc;:h" href="javascript:;" class="btn min-width-100 mr15" mx-click="' + $viewId + 'prev()">';
+                $p += '<a mxa="_zs_galleryc+:h" href="javascript:;" class="btn min-width-100 mr15" mx-click="' + $viewId + 'prev()">';
                 $line = 25;
                 $art = '=curStepInfo.prevTip';
                 ;
@@ -116,7 +116,7 @@ module.exports = Base.extend({
             $expr = '<%if (curStepInfo.nextTip) {%>';
             if (curStepInfo.nextTip) {
                 ;
-                $p += '<a mxa="_zs_galleryc;:i" href="javascript:;" class="btn min-width-100 btn-brand" mx-click="' + $viewId + 'next()">';
+                $p += '<a mxa="_zs_galleryc+:i" href="javascript:;" class="btn min-width-100 btn-brand" mx-click="' + $viewId + 'next()">';
                 $line = 30;
                 $art = '=curStepInfo.nextTip';
                 ;
