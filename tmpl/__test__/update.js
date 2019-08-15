@@ -6,6 +6,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.30',
+            time: '2019-08-15',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-header：支持新版导航视觉规范 + 支持二级菜单，<a href="#!/header/white" target="_blank" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-tabs：支持自定义打标内容，<a href="#!/tabs/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.29',
             time: '2019-08-09',
             subs: [{

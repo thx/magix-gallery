@@ -12,7 +12,7 @@ require("mx-popover/index");
  */
 var Magix = require("magix");
 var Base = require("mx-tabs/base");
-Magix.applyStyle("_zs_gallery_mx-tabs_index_","[mx-view*=\"mx-tabs/box\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-tabs_index_-border {\n  position: relative;\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item {\n  position: relative;\n  float: left;\n  padding: 10px 24px;\n  font-size: 16px;\n  line-height: var(--input-height);\n  transition: color var(--duration) ease-out;\n  color: #666;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item._zs_gallery_mx-tabs_index_-selected {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag {\n  margin-left: -24px;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-underline {\n  position: absolute;\n  width: 0;\n  height: 0;\n  bottom: -1px;\n  border-bottom: 2px solid var(--color-brand);\n  transition: width var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1), left var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1);\n}\n._zs_gallery_mx-tabs_index_-box {\n  position: relative;\n  display: inline-block;\n  height: var(--input-height);\n  vertical-align: middle;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-tip {\n  position: relative;\n  top: 1px;\n  font-size: 14px;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item {\n  position: relative;\n  padding: 0 12px;\n  text-align: center;\n  cursor: pointer;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:first-child {\n  border-top-left-radius: var(--border-radius);\n  border-bottom-left-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:last-child {\n  border-top-right-radius: var(--border-radius);\n  border-bottom-right-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item ._zs_gallery_mx-tabs_index_-tag {\n  margin-left: -14px;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item {\n  color: #999;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #999;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #999;\n  background-color: var(--color-disabled);\n  border-color: var(--color-border);\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item {\n  position: relative;\n  z-index: 2;\n  display: inline-block;\n  height: var(--input-height);\n  line-height: calc(var(--input-height) - 2px);\n  border-radius: var(--border-radius);\n  color: #666;\n  border: 1px solid transparent;\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #333;\n  background-color: var(--color-brand-opacity);\n  border: 1px solid var(--color-brand);\n}\n._zs_gallery_mx-tabs_index_-hollow-box::after {\n  content: ' ';\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n  width: 100%;\n  height: 100%;\n  border-radius: var(--border-radius);\n  border: 1px solid var(--border-highlight);\n}\n._zs_gallery_mx-tabs_index_-solid-box {\n  border: 1px solid var(--border-highlight);\n  border-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item {\n  display: inline-block;\n  height: calc(var(--input-height) - 2px);\n  line-height: calc(var(--input-height) - 2px);\n  color: #999;\n  background-color: #fff;\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: var(--color-brand);\n  background-color: var(--color-brand-opacity);\n}\n");
+Magix.applyStyle("_zs_gallery_mx-tabs_index_","[mx-view*=\"mx-tabs/box\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-tabs_index_-border {\n  position: relative;\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item {\n  position: relative;\n  float: left;\n  padding: 10px 24px;\n  font-size: 16px;\n  line-height: var(--input-height);\n  transition: color var(--duration) ease-out;\n  color: #666;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item._zs_gallery_mx-tabs_index_-selected {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag-content {\n  position: absolute;\n  top: 50%;\n  left: 100%;\n  z-index: 3;\n  display: inline-block;\n  margin-top: calc(4px - var(--input-height));\n  margin-left: -24px;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag-content ._zs_gallery_mx-tabs_index_-dot {\n  display: inline-block;\n  width: 8px;\n  height: 8px;\n  background-color: #ff0000;\n  border-radius: 50%;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag {\n  margin-left: -24px;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-underline {\n  position: absolute;\n  width: 0;\n  height: 0;\n  bottom: -1px;\n  border-bottom: 2px solid var(--color-brand);\n  transition: width var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1), left var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1);\n}\n._zs_gallery_mx-tabs_index_-box {\n  position: relative;\n  display: inline-block;\n  height: var(--input-height);\n  vertical-align: middle;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-tip {\n  position: relative;\n  top: 1px;\n  font-size: 14px;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item {\n  position: relative;\n  padding: 0 12px;\n  text-align: center;\n  cursor: pointer;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:first-child {\n  border-top-left-radius: var(--border-radius);\n  border-bottom-left-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:last-child {\n  border-top-right-radius: var(--border-radius);\n  border-bottom-right-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item ._zs_gallery_mx-tabs_index_-tag {\n  margin-left: -14px;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item {\n  color: #999;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #999;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #999;\n  background-color: var(--color-disabled);\n  border-color: var(--color-border);\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item {\n  position: relative;\n  z-index: 2;\n  display: inline-block;\n  height: var(--input-height);\n  line-height: calc(var(--input-height) - 2px);\n  border-radius: var(--border-radius);\n  color: #666;\n  border: 1px solid transparent;\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #333;\n  background-color: var(--color-brand-opacity);\n  border: 1px solid var(--color-brand);\n}\n._zs_gallery_mx-tabs_index_-hollow-box::after {\n  content: ' ';\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n  width: 100%;\n  height: 100%;\n  border-radius: var(--border-radius);\n  border: 1px solid var(--border-highlight);\n}\n._zs_gallery_mx-tabs_index_-solid-box {\n  border: 1px solid var(--border-highlight);\n  border-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item {\n  display: inline-block;\n  height: calc(var(--input-height) - 2px);\n  line-height: calc(var(--input-height) - 2px);\n  color: #999;\n  background-color: #fff;\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: var(--color-brand);\n  background-color: var(--color-brand-opacity);\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -40,8 +40,8 @@ module.exports = Base.extend({
         $line = 3;
         $art = 'each list as item index';
         ;
-        $expr = '<%for (var index = 0, $art_cukcvumts$art_c = list.length; index < $art_cukcvumts$art_c; index++) {        var item = list[index]%>';
-        for (var index = 0, $art_cukcvumts$art_c = list.length; index < $art_cukcvumts$art_c; index++) {
+        $expr = '<%for (var index = 0, $art_cyquyntfmn$art_c = list.length; index < $art_cyquyntfmn$art_c; index++) {        var item = list[index]%>';
+        for (var index = 0, $art_cyquyntfmn$art_c = list.length; index < $art_cyquyntfmn$art_c; index++) {
             var item = list[index];
             $p += '<a class="_zs_gallery_mx-tabs_index_-border-item ';
             $line = 4;
@@ -90,70 +90,96 @@ module.exports = Base.extend({
             $art = '=item.text';
             ;
             $p += ($expr = '<%=item.text%>', $e(item.text)) + ' ';
-            $line = 10;
-            $art = 'if item.tag';
+            $line = 12;
+            $art = 'if item.tagContent';
             ;
-            $expr = '<%if (item.tag) {%>';
-            if (item.tag) {
+            $expr = '<%if (item.tagContent) {%>';
+            if (item.tagContent) {
                 ;
-                $p += '<span class="mx-tag _zs_gallery_mx-tabs_index_-tag" style="background-color: ';
-                $line = 11;
-                $art = '=item.color';
-                ;
-                $p += ($expr = '<%=item.color%>', $e(item.color)) + ';"><span class="mx-tag-arrow" style="border-color: ';
-                $line = 12;
-                $art = '=item.color';
-                ;
-                $p += ($expr = '<%=item.color%>', $e(item.color)) + ' transparent transparent ';
-                $line = 12;
-                $art = '=item.color';
-                ;
-                $p += ($expr = '<%=item.color%>', $e(item.color)) + ';"></span><span mxa="_zs_gallerye%:a" class="mx-tag-name">';
+                $p += '<span mxa="_zs_gallerye%:g" class="_zs_gallery_mx-tabs_index_-tag-content">';
                 $line = 13;
-                $art = '!item.tag';
+                $art = '!item.tagContent';
                 ;
-                $p += ($expr = '<%!item.tag%>', $n(item.tag)) + '</span></span>';
-                $line = 15;
-                $art = '/if';
+                $p += ($expr = '<%!item.tagContent%>', $n(item.tagContent)) + '</span>';
+                $line = 14;
+                $art = 'else';
                 ;
-                $expr = '<%}%>';
+                $expr = '<%}        else {%>';
             }
-            ;
-            $p += ' ';
-            $line = 16;
-            $art = 'if item.tips';
-            ;
-            $expr = '<%if (item.tips) {%>';
-            if (item.tips) {
+            else {
                 ;
-                $p += '<i class="mc-iconfont color-c" mx-view="mx-popover/index?width=280&content=';
-                $line = 20;
-                $art = '=item.tips';
+                $p += ' ';
+                $line = 15;
+                $art = 'if item.tag';
                 ;
-                $p += ($expr = '<%!$eu(item.tips)%>', $eu(item.tips)) + '">&#xe7aa;</i>';
+                $expr = '<%if (item.tag) {%>';
+                if (item.tag) {
+                    ;
+                    $p += '<span class="mx-tag _zs_gallery_mx-tabs_index_-tag" style="background-color: ';
+                    $line = 16;
+                    $art = '=item.color';
+                    ;
+                    $p += ($expr = '<%=item.color%>', $e(item.color)) + ';"><span class="mx-tag-arrow" style="border-color: ';
+                    $line = 17;
+                    $art = '=item.color';
+                    ;
+                    $p += ($expr = '<%=item.color%>', $e(item.color)) + ' transparent transparent ';
+                    $line = 17;
+                    $art = '=item.color';
+                    ;
+                    $p += ($expr = '<%=item.color%>', $e(item.color)) + ';"></span><span mxa="_zs_gallerye%:c" class="mx-tag-name">';
+                    $line = 18;
+                    $art = '!item.tag';
+                    ;
+                    $p += ($expr = '<%!item.tag%>', $n(item.tag)) + '</span></span>';
+                    $line = 20;
+                    $art = '/if';
+                    ;
+                    $expr = '<%}%>';
+                }
+                ;
+                $p += ' ';
                 $line = 21;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
+            $p += ' ';
+            $line = 22;
+            $art = 'if item.tips';
+            ;
+            $expr = '<%if (item.tips) {%>';
+            if (item.tips) {
+                ;
+                $p += '<i class="mc-iconfont color-c" mx-view="mx-popover/index?width=280&content=';
+                $line = 26;
+                $art = '=item.tips';
+                ;
+                $p += ($expr = '<%!$eu(item.tips)%>', $eu(item.tips)) + '">&#xe7aa;</i>';
+                $line = 27;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
             $p += '</a>';
-            $line = 23;
+            $line = 29;
             $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '<span class="_zs_gallery_mx-tabs_index_-underline" style="left: ';
-        $line = 24;
+        $line = 30;
         $art = '=left';
         ;
         $p += ($expr = '<%=left%>', $e(left)) + 'px; width: ';
-        $line = 24;
+        $line = 30;
         $art = '=width';
         ;
         $p += ($expr = '<%=width%>', $e(width)) + 'px;"></span></div>';
-        $line = 26;
+        $line = 32;
         $art = 'else';
         ;
         $expr = '<%}else {%>';
@@ -161,91 +187,91 @@ module.exports = Base.extend({
     else {
         ;
         $p += '<div class="_zs_gallery_mx-tabs_index_-box ';
-        $line = 27;
+        $line = 33;
         $art = '= disabled ? \'box-disabled\' : \'\'';
         ;
         $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-tabs_index_-box-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-tabs_index_-box-disabled' : '')) + '">';
-        $line = 28;
+        $line = 34;
         $art = 'each list as item';
         ;
-        $expr = '<%for (var $art_inqejby$art_i = 0, $art_cafrdnmtfpi$art_c = list.length; $art_inqejby$art_i < $art_cafrdnmtfpi$art_c; $art_inqejby$art_i++) {        var item = list[$art_inqejby$art_i]%>';
-        for (var $art_inqejby$art_i = 0, $art_cafrdnmtfpi$art_c = list.length; $art_inqejby$art_i < $art_cafrdnmtfpi$art_c; $art_inqejby$art_i++) {
-            var item = list[$art_inqejby$art_i];
+        $expr = '<%for (var $art_izicmmhwb$art_i = 0, $art_cbamdfkjwq$art_c = list.length; $art_izicmmhwb$art_i < $art_cbamdfkjwq$art_c; $art_izicmmhwb$art_i++) {        var item = list[$art_izicmmhwb$art_i]%>';
+        for (var $art_izicmmhwb$art_i = 0, $art_cbamdfkjwq$art_c = list.length; $art_izicmmhwb$art_i < $art_cbamdfkjwq$art_c; $art_izicmmhwb$art_i++) {
+            var item = list[$art_izicmmhwb$art_i];
             $p += '<a href="javascript:;" ';
-            $line = 29;
+            $line = 35;
             $art = 'if !disabled';
             ;
             $expr = '<%if (!disabled) {%>';
             if (!disabled) {
                 ;
                 $p += ' mx-click="' + $viewId + '@{select}({item:\'';
-                $line = 29;
+                $line = 35;
                 $art = '@item';
                 ;
                 $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})" ';
-                $line = 29;
+                $line = 35;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += ' class="_zs_gallery_mx-tabs_index_-box-item ';
-            $line = 29;
+            $line = 35;
             $art = '= (item.value == selected) ? \'selected\' : \'\'';
             ;
             $p += ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '" ';
-            $line = 30;
+            $line = 36;
             $art = 'if spm';
             ;
             $expr = '<%if (spm) {%>';
             if (spm) {
                 ;
                 $p += ' data-spm-click="';
-                $line = 30;
+                $line = 36;
                 $art = '=spm';
                 ;
                 $p += ($expr = '<%=spm%>', $e(spm)) + '';
-                $line = 30;
+                $line = 36;
                 $art = '=index';
                 ;
                 $p += ($expr = '<%=index%>', $e(index)) + '" ';
-                $line = 30;
+                $line = 36;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '>';
-            $line = 31;
+            $line = 37;
             $art = '=item.text';
             ;
             $p += ($expr = '<%=item.text%>', $e(item.text)) + ' ';
-            $line = 32;
+            $line = 38;
             $art = 'if item.tag';
             ;
             $expr = '<%if (item.tag) {%>';
             if (item.tag) {
                 ;
-                $p += '<span mxa="_zs_gallerye%:b" class="_zs_gallery_mx-tabs_index_-tag">';
-                $line = 33;
+                $p += '<span mxa="_zs_gallerye%:d" class="_zs_gallery_mx-tabs_index_-tag">';
+                $line = 39;
                 $art = '=item.tag';
                 ;
                 $p += ($expr = '<%=item.tag%>', $e(item.tag)) + '</span>';
-                $line = 34;
+                $line = 40;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '</a>';
-            $line = 36;
+            $line = 42;
             $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</div>';
-        $line = 38;
+        $line = 44;
         $art = '/if';
         ;
         $expr = '<%}%>';

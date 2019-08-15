@@ -7,17 +7,20 @@ module.exports = Base.extend({
     render() {
         let list = [{
             value: 1,
-            text: '模块1',
+            text: '默认打标',
             tag: 'New'
         }, {
             value: 2,
-            text: '模块2'
+            text: '无打标'
         }, {
             value: 3,
-            text: '模块3',
-            tag: '内容上新'
+            text: '自定义打标模块',
+            tagContent: '<span style="display: inline-block; width: 8px; height: 8px; background-color: #ff0000; border-radius: 50%;"></span>'
+        }, {
+            value: 4,
+            text: '图片打标',
+            tagContent: '<img src="https://img.alicdn.com/tfs/TB1pvD4dkP2gK0jSZPxXXacQpXa-100-34.png" style="max-width: none; width: 50px;"/>'
         }];
-
 
         this.updater.digest({
             list,

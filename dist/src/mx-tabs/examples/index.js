@@ -85,7 +85,7 @@ catch (ex) {
     render: function () {
         var options = [{
                 key: 'list',
-                desc: "<pre>\n\u5BF9\u8C61\u6570\u7EC4\uFF0C\u683C\u5F0F\u5982\u4E0B\uFF1A\n[{\n    value:1,\n    text:\"\u9009\u98791\",\n    tag:\"\u6253\u6807\u6807\u7B7E\",\n    color: '\u6253\u6807\u81EA\u5B9A\u4E49\u989C\u8272\uFF0C\u9ED8\u8BA4\u54C1\u724C\u8272',\n    tips:\"\u63D0\u793A\u4FE1\u606F\"\n}]</pre>", type: 'array'
+                desc: "<pre>\n\u5BF9\u8C61\u6570\u7EC4\uFF0C\u683C\u5F0F\u5982\u4E0B\uFF1A\n[{\n    value:1,\n    text:\"\u9009\u98791\",\n    tagContent:\"\u81EA\u5B9A\u4E49\u6253\u6807\u5185\u5BB9\uFF0C\u4F18\u5148\u7EA7tagContent > tag\",\n    tag:\"\u6253\u6807\u6807\u7B7E\",\n    color: '\u6253\u6807\u81EA\u5B9A\u4E49\u989C\u8272\uFF0C\u9ED8\u8BA4\u54C1\u724C\u8272\uFF0C\u53EA\u5BF9tag\u751F\u6548',\n    tips:\"\u63D0\u793A\u4FE1\u606F\"\n}]</pre>", type: 'array'
             }, {
                 key: 'selected',
                 desc: '当前选中值',

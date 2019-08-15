@@ -30,15 +30,13 @@ module.exports = Magix.View.extend({
         } catch (e) {
             list = data.list
         }
-        list = list || [];
+        list = $.extend(true, [], list || []);
         list = list.map((item) => {
-            return {
+            return Magix.mix(item, {
                 color: disabled ? '#cccccc' : (item.color || brandColor),
                 text: item[textKey],
-                value: item[valueKey],
-                tag: item.tag,
-                tips: item.tips
-            }
+                value: item[valueKey]
+            })
         })
 
         let selected = data.selected || (list[0] || {})['value'];

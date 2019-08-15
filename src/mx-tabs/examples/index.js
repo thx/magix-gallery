@@ -11,8 +11,9 @@ module.exports = Magix.View.extend({
 [{
     value:1,
     text:"选项1",
+    tagContent:"自定义打标内容，优先级tagContent > tag",
     tag:"打标标签",
-    color: '打标自定义颜色，默认品牌色',
+    color: '打标自定义颜色，默认品牌色，只对tag生效',
     tips:"提示信息"
 }]</pre>`,type: 'array'
         }, {
