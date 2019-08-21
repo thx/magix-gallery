@@ -1,0 +1,17 @@
+<div class="example">
+    <div class="eg-content h200">
+        <div>请填写以下反馈文档，自动显示调查问卷</div>
+        <mx-feedback fd-id="19" trigger-type="auto"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-feedback fd-id="19" trigger-type="auto"/&gt;
+        </pre>
+    </div>
+</div>

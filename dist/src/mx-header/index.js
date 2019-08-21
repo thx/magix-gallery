@@ -1,1 +1,429 @@
-define("mx-header/index",["magix","$","mx-header/data"],(l,r,g)=>{var a=l("magix"),e=l("$"),_=l("mx-header/data");a.applyStyle("_zs_galleryZ","._zs_gallerygm{height:50px;margin:0 auto;line-height:50px}._zs_gallerygm ._zs_gallerygn{opacity:.5;color:#333;cursor:pointer}._zs_gallerygm ._zs_gallerygn:hover{opacity:1;color:#333}._zs_gallerygm ._zs_gallerygo{opacity:.5;display:inline-block;position:relative;top:4px;right:0;font-size:20px;transition:transform var(--duration) ease-out;color:#333}._zs_gallerygm ._zs_gallerygp{top:38px;left:50%;width:160px;margin-left:-80px}._zs_gallerygm ._zs_gallerygp dl{padding:10px 20px}._zs_gallerygm ._zs_gallerygp dl dt{height:30px;line-height:30px;color:#999;font-size:14px}._zs_gallerygm ._zs_gallerygp dl dd{height:32px;margin-left:25px;line-height:32px;font-size:12px}._zs_gallerygm ._zs_gallerygq{float:left;position:relative;margin-right:35px}._zs_gallerygm ._zs_gallerygq:hover ._zs_gallerygn{opacity:1}._zs_gallerygm ._zs_gallerygq:hover ._zs_gallerygo{opacity:1;transform:rotate(180deg)}._zs_gallerygm ._zs_gallerygq:hover ._zs_gallerygp{opacity:1;transform:scale(1)}._zs_gallerygm ._zs_gallerygq:last-child{margin-right:0}._zs_gallerygr{position:absolute;z-index:10;width:100%;top:50px;left:0}._zs_gallerygr ._zs_gallerygs{margin:0 auto;background-color:#fff}._zs_gallerygr ._zs_gallerygs ._zs_gallerygt{float:left;height:50px;line-height:50px}._zs_gallerygr ._zs_gallerygs ._zs_gallerygu{position:relative;padding:0 16px;font-size:14px;border-bottom:2px solid transparent}._zs_gallerygr ._zs_gallerygs ._zs_gallerygu ._zs_gallerygv{opacity:.5;position:absolute;top:15px;right:-2px;width:20px;height:20px;text-align:center;line-height:20px;font-size:20px;transition:transform var(--duration) ease-out;color:#666}._zs_gallerygr ._zs_gallerygs ._zs_gallerygu ._zs_gallerygw{top:40px;left:50%;width:120px;margin-left:-60px;line-height:28px;text-align:center}._zs_gallerygr ._zs_gallerygs ._zs_gallerygu:hover ._zs_gallerygv{opacity:1;transform:rotate(180deg)}._zs_gallerygr ._zs_gallerygs ._zs_gallerygu:hover ._zs_gallerygw{opacity:1;transform:scale(1)}._zs_gallerygr._zs_gallerygx{position:fixed;background-color:#fff;box-shadow:0 1px 1px 0 rgba(0,0,0,.08)}._zs_gallerygy{position:relative}._zs_gallerygz{height:88px;background-color:#09122b}._zs_gallerygz ._zs_gallerygm{padding-left:40px;padding-right:40px}._zs_gallerygz ._zs_gallerygm ._zs_gallerygA{float:left}._zs_gallerygz ._zs_gallerygm ._zs_gallerygo,._zs_gallerygz ._zs_gallerygm ._zs_gallerygn{opacity:.7;color:#fff}._zs_gallerygz ._zs_gallerygr{transition:background-color var(--duration) ease-out}._zs_gallerygz ._zs_gallerygr ._zs_gallerygs{padding:15px 40px;border-radius:60px}._zs_gallerygz ._zs_gallerygr ._zs_gallerygB{margin-right:30px}._zs_gallerygz ._zs_gallerygr ._zs_gallerygB img{display:inline-block;height:40px}._zs_gallerygz ._zs_gallerygr ._zs_gallerygu{margin:0 8px}._zs_gallerygz ._zs_gallerygr ._zs_gallerygu._zs_gallerygC ._zs_gallerygD{color:var(--color-brand)}._zs_gallerygE{height:100px;background-color:#fff}._zs_gallerygE ._zs_gallerygm ._zs_gallerygA{float:right}._zs_gallerygE ._zs_gallerygr{box-shadow:0 1px 1px 0 rgba(0,0,0,.08)}._zs_gallerygE ._zs_gallerygr ._zs_gallerygB{margin-right:40px}._zs_gallerygE ._zs_gallerygr ._zs_gallerygB img{display:inline-block;height:32px}._zs_gallerygE ._zs_gallerygr ._zs_gallerygu{margin:0 16px}._zs_gallerygE ._zs_gallerygr ._zs_gallerygu ._zs_gallerygD{opacity:.5}._zs_gallerygE ._zs_gallerygr ._zs_gallerygu:hover ._zs_gallerygD{opacity:1;color:#333}._zs_gallerygE ._zs_gallerygr ._zs_gallerygu._zs_gallerygC{border-bottom:2px solid var(--color-brand)}._zs_gallerygE ._zs_gallerygr ._zs_gallerygu._zs_gallerygC ._zs_gallerygD{opacity:1;color:#333;font-weight:700}"),a.applyStyle("_zs_gallerya_","._zs_gallerygF,._zs_gallerygG,._zs_gallerygH,._zs_gallerygI,._zs_gallerygJ,._zs_gallerygK,._zs_gallerygL,._zs_gallerygM,._zs_gallerygN,._zs_gallerygO,._zs_gallerygP,._zs_gallerygQ{opacity:0;transition:transform .15s,opacity .15s;transform:scale(0)}._zs_gallerygG,._zs_gallerygN{transform-origin:0 0}._zs_gallerygH,._zs_gallerygK{transform-origin:100% 0}._zs_gallerygF{transform-origin:50% 0}._zs_gallerygL,._zs_gallerygP{transform-origin:0 100%}._zs_gallerygI,._zs_gallerygQ{transform-origin:100% 100%}._zs_gallerygO{transform-origin:50% 100%}._zs_gallerygJ{transform-origin:100% 50%}._zs_gallerygM{transform-origin:0 50%}._zs_gallerygR{opacity:1;transform:scale(1)}._zs_gallerygS{display:none}._zs_gallerygT,._zs_gallerygU{position:absolute;z-index:999999;height:auto;border-radius:var(--border-radius);font-size:12px;line-height:22px;white-space:normal;font-weight:400;font-family:Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif}._zs_gallerygT{background-color:#fff;color:#333}._zs_gallerygT ._zs_gallerygV{padding:10px;word-break:break-all}._zs_gallerygU{background-color:rgba(33,33,33,.72);color:#fff}._zs_gallerygU ._zs_gallerygV{padding:4px 10px}"),g.exports=a.View.extend({tmpl:function(l,r,g,a,e,_,s,i){if(g||(g=l),!e){var t={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},o=/[&<>"'`]/g,y=function(l){return"&"+t[l]+";"};e=function(l){return""+(null==l?"":l)},a=function(l){return e(l).replace(o,y)}}if(!_){var n={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},z=function(l){return n[l]},p=/[!')(*]/g;_=function(l){return encodeURIComponent(e(l)).replace(p,z)}}if(!i){var d=/[\\'"]/g;i=function(l){return e(l).replace(d,"\\$&")}}s||(s=function(l,r,g,a){for(a=l[c];--a;)if(l[g=c+a]===r)return g;return l[g=c+l[c]++]=r,g});var c="",f="",h=l.dark,u=l.width,x=l.list,m=l.fixed,v=l.styles,b=l.logo,w=l.navs,k=l.parent,E=l.child;f+='<div class="_zs_gallerygy ',f+=h?" _zs_gallerygz ":" _zs_gallerygE ",f+='"><div class="_zs_gallerygm" style="width: '+a(u)+'px;"><div mxa="_zs_gallerycM:_" class="_zs_gallerygA clearfix"><div mxs="_zs_gallerycM:_" class="_zs_gallerygq"><a class="_zs_gallerygn" href="//www.alimama.com" target="_blank" rel="noopener noreferrer">阿里妈妈首页</a></div>';for(var M=0,B=x.length;M<B;M++){var q=x[M];f+='<div mxa="_zs_gallerycM:a" class="_zs_gallerygq"><span mxa="_zs_gallerycM:b" class="_zs_gallerygn">'+a(q.title)+'</span><i mxs="_zs_gallerycM:a" class="_zs_gallerygo mc-iconfont">&#xe692;</i><div mxa="_zs_gallerycM:c" class="_zs_gallerygT _zs_gallerygF mx-shadow _zs_gallerygp">';for(var H=0,T=q.seconds,C=T.length;H<C;H++){var S=T[H];f+="<dl>",S.title&&(f+="<dt>"+a(S.title)+"</dt>"),f+=" ";for(var j=0,A=S.thirds,D=A.length;j<D;j++){var F=A[j];f+='<dd><a href="'+a(F.link)+'" target="_blank" rel="noopener noreferrer">'+a(F.name)+"</a></dd>"}f+="</dl>"}f+="</div></div>"}if(f+='</div></div><div class="_zs_gallerygr ',m&&(f+=" _zs_gallerygx "),f+='" ',m&&(f+=' style="'+a(v)+'" '),f+='><div class="_zs_gallerygs clearfix" style="width: '+a(u)+'px;"><div mxa="_zs_gallerycM:d" class="_zs_gallerygt _zs_gallerygB"><img src="'+a(b)+'"/></div>',w.length>0){f+=" ";for(var I=0,V=w.length;I<V;I++){var $=w[I];if(f+='<div class="_zs_gallerygt _zs_gallerygu ',k==$.value&&(f+=" _zs_gallerygC "),f+='"><a class="_zs_gallerygD" href="javascript:;" ',$.subs&&$.subs.length||(f+=' mx-click="'+r+"to({nav:'"+s(g,$)+"'})\" "),f+=">"+a($.text)+"</a>",$.subs&&$.subs.length){f+='<i mxs="_zs_gallerycM:b" class="_zs_gallerygv mc-iconfont">&#xe692;</i><div mxa="_zs_gallerycM:e" class="_zs_gallerygT _zs_gallerygF mx-shadow _zs_gallerygw"><div mxa="_zs_gallerycM:f" class="_zs_gallerygV">';for(var G=0,U=$.subs,W=U.length;G<W;G++){var K=U[G];f+='<div><a class="',E==K.value&&(f+=" color-brand "),f+='" href="javascript:;" mx-click="'+r+"to({nav:'"+s(g,$)+"',sub:'"+s(g,K)+"'})\">"+a(K.text)+"</a></div>"}f+="</div></div>"}f+="</div>"}f+=" "}return f+="</div></div></div>"},init:function(l){this.updater.snapshot(),this.assign(l)},assign:function(l){var r=this.updater.altered(),g=l.wrapper||"",a=e(g?"#"+g:window),_=l.width||1200,s=l.navs||[],i=l.logo||"//img.alicdn.com/tfs/TB1G_ozLNnaK1RjSZFBXXcW7VXa-292-98.png",t=l.dark+""!="false",o=a.outerWidth();+_>o-40&&(_=o-40);var y=l.cur||"",n="",z="";return s.forEach(function(l){l.value==y&&(n=l.value,z=""),l.subs&&l.subs.length&&l.subs.forEach(function(r){r.value==y&&(n=l.value,z=r.value)})}),this.updater.set({wrapperId:g,width:_,navs:s,logo:i,parent:n,child:z,dark:t}),this.__cu=a,r||(r=this.updater.altered()),!!r&&(this.updater.snapshot(),!0)},render:function(){var l=this;l.updater.digest({list:_.products,fixed:!1});var r=l.updater.get(),g=l.__cu,a=g.outerWidth(),s=r.wrapperId,i=function(){e("#"+l.id+" ._zs_gallerygr");var r=e("#"+l.id+" ._zs_gallerygm"),_=g.scrollTop(),i=r.outerHeight(),t=["width:"+a+"px","left: 0"];s?t.push("position: absolute","top: "+_+"px"):t.push("position: fixed","top: 0"),_>i?l.updater.digest({fixed:!0,styles:t.join(";")}):l.updater.digest({fixed:!1})};l.$init||(l.$init=1,g.on("scroll",i),l.on("destroy",function(){g.off("scroll",i)})),i()},"to<click>":function(l){var r=l.params.nav||{},g=l.params.sub||{};this.updater.digest({parent:r.value||"",child:g.value||""});var a={};a=e.isEmptyObject(g)?r:g,e("#"+this.id).trigger({type:"navchange",nav:a})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-header/index",["magix","$","mx-header/data"],(require,exports,module)=>{
+/*Magix,$,Data*/
+
+var Magix = require("magix");
+var $ = require("$");
+var Data = require("mx-header/data");
+Magix.applyStyle("_zs_gallery_mx-header_index_","._zs_gallery_mx-header_index_-others {\n  height: 50px;\n  margin: 0 auto;\n  line-height: 50px;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-link {\n  opacity: 0.5;\n  color: #333;\n  cursor: pointer;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-link:hover {\n  opacity: 1;\n  color: #333;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-arrow {\n  opacity: 0.5;\n  display: inline-block;\n  position: relative;\n  top: 4px;\n  right: 0;\n  font-size: 20px;\n  transition: transform var(--duration) ease-out;\n  color: #333;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-subs {\n  top: 38px;\n  left: 50%;\n  width: 160px;\n  margin-left: -80px;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-subs dl {\n  padding: 10px 20px;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-subs dl dt {\n  height: 30px;\n  line-height: 30px;\n  color: #999;\n  font-size: 14px;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-subs dl dd {\n  height: 32px;\n  margin-left: 25px;\n  line-height: 32px;\n  font-size: 12px;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item {\n  float: left;\n  position: relative;\n  margin-right: 35px;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item:hover ._zs_gallery_mx-header_index_-title-link {\n  opacity: 1;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item:hover ._zs_gallery_mx-header_index_-title-arrow {\n  opacity: 1;\n  transform: rotate(180deg);\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item:hover ._zs_gallery_mx-header_index_-title-subs {\n  opacity: 1;\n  transform: scale(1);\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item:last-child {\n  margin-right: 0;\n}\n._zs_gallery_mx-header_index_-front {\n  position: absolute;\n  z-index: 10;\n  width: 100%;\n  top: 50px;\n  left: 0;\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner {\n  margin: 0 auto;\n  background-color: #fff;\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner ._zs_gallery_mx-header_index_-front-item {\n  float: left;\n  height: 50px;\n  line-height: 50px;\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner ._zs_gallery_mx-header_index_-nav {\n  position: relative;\n  padding: 0 16px;\n  font-size: 14px;\n  border-bottom: 2px solid transparent;\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner ._zs_gallery_mx-header_index_-nav ._zs_gallery_mx-header_index_-nav-arrow {\n  opacity: 0.5;\n  position: absolute;\n  top: 15px;\n  right: -2px;\n  width: 20px;\n  height: 20px;\n  text-align: center;\n  line-height: 20px;\n  font-size: 20px;\n  transition: transform var(--duration) ease-out;\n  color: #666;\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner ._zs_gallery_mx-header_index_-nav ._zs_gallery_mx-header_index_-nav-subs {\n  top: 40px;\n  left: 50%;\n  width: 120px;\n  margin-left: -60px;\n  line-height: 28px;\n  text-align: center;\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner ._zs_gallery_mx-header_index_-nav:hover ._zs_gallery_mx-header_index_-nav-arrow {\n  opacity: 1;\n  transform: rotate(180deg);\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner ._zs_gallery_mx-header_index_-nav:hover ._zs_gallery_mx-header_index_-nav-subs {\n  opacity: 1;\n  transform: scale(1);\n}\n._zs_gallery_mx-header_index_-front._zs_gallery_mx-header_index_-fixed {\n  position: fixed;\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n}\n._zs_gallery_mx-header_index_-header {\n  position: relative;\n}\n._zs_gallery_mx-header_index_-dark-header {\n  height: 88px;\n  background-color: #09122b;\n}\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-others {\n  padding-left: 40px;\n  padding-right: 40px;\n}\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-others-inner {\n  float: left;\n}\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-link,\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-arrow {\n  opacity: 0.7;\n  color: #fff;\n}\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-front {\n  transition: background-color var(--duration) ease-out;\n}\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner {\n  padding-left: 40px;\n  padding-right: 40px;\n  padding-top: 15px;\n  padding-bottom: 15px;\n  border-radius: 60px;\n}\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-logo {\n  margin-right: 30px;\n}\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-logo img {\n  display: inline-block;\n  height: 40px;\n}\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav {\n  margin: 0 8px;\n}\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav._zs_gallery_mx-header_index_-cur ._zs_gallery_mx-header_index_-nav-inner {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-header_index_-white-header {\n  height: 100px;\n  background-color: #fff;\n}\n._zs_gallery_mx-header_index_-white-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-others-inner {\n  float: right;\n}\n._zs_gallery_mx-header_index_-white-header ._zs_gallery_mx-header_index_-front {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n}\n._zs_gallery_mx-header_index_-white-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-logo {\n  margin-right: 40px;\n}\n._zs_gallery_mx-header_index_-white-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-logo img {\n  display: inline-block;\n  height: 32px;\n}\n._zs_gallery_mx-header_index_-white-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav {\n  margin: 0 16px;\n}\n._zs_gallery_mx-header_index_-white-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav ._zs_gallery_mx-header_index_-nav-inner {\n  opacity: 0.5;\n}\n._zs_gallery_mx-header_index_-white-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav:hover ._zs_gallery_mx-header_index_-nav-inner {\n  opacity: 1;\n  color: #333;\n}\n._zs_gallery_mx-header_index_-white-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav._zs_gallery_mx-header_index_-cur {\n  border-bottom: 2px solid var(--color-brand);\n}\n._zs_gallery_mx-header_index_-white-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav._zs_gallery_mx-header_index_-cur ._zs_gallery_mx-header_index_-nav-inner {\n  opacity: 1;\n  color: #333;\n  font-weight: bold;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-popover_index_","._zs_gallery_mx-popover_index_-bottom-left,\n._zs_gallery_mx-popover_index_-bottom-right,\n._zs_gallery_mx-popover_index_-bottom-center,\n._zs_gallery_mx-popover_index_-top-left,\n._zs_gallery_mx-popover_index_-top-right,\n._zs_gallery_mx-popover_index_-top-center,\n._zs_gallery_mx-popover_index_-right-top,\n._zs_gallery_mx-popover_index_-right-bottom,\n._zs_gallery_mx-popover_index_-right-center,\n._zs_gallery_mx-popover_index_-left-top,\n._zs_gallery_mx-popover_index_-left-bottom,\n._zs_gallery_mx-popover_index_-left-center {\n  opacity: 0;\n  transition: transform 0.15s, opacity 0.15s;\n  transform: scale(0);\n}\n/**\n * popover下左 初始隐藏状态\n * 注意使用opacity控制popover的显示和隐藏，不要设置display: none\n */\n._zs_gallery_mx-popover_index_-bottom-left,\n._zs_gallery_mx-popover_index_-right-top {\n  transform-origin: 0 0;\n}\n._zs_gallery_mx-popover_index_-bottom-right,\n._zs_gallery_mx-popover_index_-left-top {\n  transform-origin: 100% 0;\n}\n._zs_gallery_mx-popover_index_-bottom-center {\n  transform-origin: 50% 0;\n}\n._zs_gallery_mx-popover_index_-top-left,\n._zs_gallery_mx-popover_index_-right-bottom {\n  transform-origin: 0 100%;\n}\n._zs_gallery_mx-popover_index_-top-right,\n._zs_gallery_mx-popover_index_-left-bottom {\n  transform-origin: 100% 100%;\n}\n._zs_gallery_mx-popover_index_-top-center {\n  transform-origin: 50% 100%;\n}\n._zs_gallery_mx-popover_index_-left-center {\n  transform-origin: 100% 50%;\n}\n._zs_gallery_mx-popover_index_-right-center {\n  transform-origin: 0 50%;\n}\n._zs_gallery_mx-popover_index_-show-out {\n  opacity: 1;\n  transform: scale(1);\n}\n/**\n * popover显示\n */\n._zs_gallery_mx-popover_index_-popover-hide {\n  display: none;\n}\n._zs_gallery_mx-popover_index_-popover,\n._zs_gallery_mx-popover_index_-popover-dark {\n  position: absolute;\n  z-index: 999999;\n  height: auto;\n  border-radius: var(--border-radius);\n  font-size: 12px;\n  line-height: 22px;\n  white-space: normal;\n  font-weight: normal;\n  font-family: Helvetica, Arial, \"Microsoft Yahei\", \"Hiragino Sans GB\", \"Heiti SC\", \"WenQuanYi Micro Hei\", sans-serif;\n}\n._zs_gallery_mx-popover_index_-popover {\n  background-color: #fff;\n  color: #333;\n}\n._zs_gallery_mx-popover_index_-popover ._zs_gallery_mx-popover_index_-popover-content {\n  padding: 10px;\n  word-break: break-all;\n}\n._zs_gallery_mx-popover_index_-popover-dark {\n  background-color: rgba(33, 33, 33, 0.72);\n  color: #fff;\n}\n._zs_gallery_mx-popover_index_-popover-dark ._zs_gallery_mx-popover_index_-popover-content {\n  padding: 4px 10px;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', dark = $$.dark, width = $$.width, list = $$.list, fixed = $$.fixed, styles = $$.styles, logo = $$.logo, navs = $$.navs, parent = $$.parent, child = $$.child; var $expr, $art, $line; try {
+    $p += '<div class="_zs_gallery_mx-header_index_-header ';
+    $line = 1;
+    $art = 'if dark';
+    ;
+    $expr = '<%if (dark) {%>';
+    if (dark) {
+        ;
+        $p += ' _zs_gallery_mx-header_index_-dark-header ';
+        $line = 1;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' _zs_gallery_mx-header_index_-white-header ';
+        $line = 1;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '"><div class="_zs_gallery_mx-header_index_-others" style="width: ';
+    $line = 2;
+    $art = '=width';
+    ;
+    $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxa="_zs_gallerycM:_" class="_zs_gallery_mx-header_index_-others-inner clearfix"><div mxs="_zs_gallerycM:_" class="_zs_gallery_mx-header_index_-item"><a class="_zs_gallery_mx-header_index_-title-link" href="//www.alimama.com" target="_blank" rel="noopener noreferrer">阿里妈妈首页</a></div>';
+    $line = 7;
+    $art = 'each list as item index';
+    ;
+    $expr = '<%for (var index = 0, $art_cxcamshihlqm$art_c = list.length; index < $art_cxcamshihlqm$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cxcamshihlqm$art_c = list.length; index < $art_cxcamshihlqm$art_c; index++) {
+        var item = list[index];
+        $p += '<div mxa="_zs_gallerycM:a" class="_zs_gallery_mx-header_index_-item"><span mxa="_zs_gallerycM:b" class="_zs_gallery_mx-header_index_-title-link">';
+        $line = 9;
+        $art = '=item.title';
+        ;
+        $p += ($expr = '<%=item.title%>', $e(item.title)) + '</span><i mxs="_zs_gallerycM:a" class="_zs_gallery_mx-header_index_-title-arrow mc-iconfont">&#xe692;</i><div mxa="_zs_gallerycM:c" class="_zs_gallery_mx-popover_index_-popover _zs_gallery_mx-popover_index_-bottom-center mx-shadow _zs_gallery_mx-header_index_-title-subs">';
+        $line = 12;
+        $art = 'each item.seconds as second';
+        ;
+        $expr = '<%for (var $art_iouabpn$art_i = 0, $art_objndyocusyztr$art_obj = item.seconds, $art_cmwzetfscj$art_c = $art_objndyocusyztr$art_obj.length; $art_iouabpn$art_i < $art_cmwzetfscj$art_c; $art_iouabpn$art_i++) {        var second = $art_objndyocusyztr$art_obj[$art_iouabpn$art_i]%>';
+        for (var $art_iouabpn$art_i = 0, $art_objndyocusyztr$art_obj = item.seconds, $art_cmwzetfscj$art_c = $art_objndyocusyztr$art_obj.length; $art_iouabpn$art_i < $art_cmwzetfscj$art_c; $art_iouabpn$art_i++) {
+            var second = $art_objndyocusyztr$art_obj[$art_iouabpn$art_i];
+            $p += '<dl>';
+            $line = 14;
+            $art = 'if second.title';
+            ;
+            $expr = '<%if (second.title) {%>';
+            if (second.title) {
+                ;
+                $p += '<dt>';
+                $line = 15;
+                $art = '=second.title';
+                ;
+                $p += ($expr = '<%=second.title%>', $e(second.title)) + '</dt>';
+                $line = 16;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 17;
+            $art = 'each second.thirds as third';
+            ;
+            $expr = '<%for (var $art_irwmogcfve$art_i = 0, $art_objrozlpbxwk$art_obj = second.thirds, $art_cuigkanyo$art_c = $art_objrozlpbxwk$art_obj.length; $art_irwmogcfve$art_i < $art_cuigkanyo$art_c; $art_irwmogcfve$art_i++) {            var third = $art_objrozlpbxwk$art_obj[$art_irwmogcfve$art_i]%>';
+            for (var $art_irwmogcfve$art_i = 0, $art_objrozlpbxwk$art_obj = second.thirds, $art_cuigkanyo$art_c = $art_objrozlpbxwk$art_obj.length; $art_irwmogcfve$art_i < $art_cuigkanyo$art_c; $art_irwmogcfve$art_i++) {
+                var third = $art_objrozlpbxwk$art_obj[$art_irwmogcfve$art_i];
+                $p += '<dd><a href="';
+                $line = 18;
+                $art = '=third.link';
+                ;
+                $p += ($expr = '<%=third.link%>', $e(third.link)) + '" target="_blank" rel="noopener noreferrer">';
+                $line = 18;
+                $art = '=third.name';
+                ;
+                $p += ($expr = '<%=third.name%>', $e(third.name)) + '</a></dd>';
+                $line = 19;
+                $art = '/each';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '</dl>';
+            $line = 21;
+            $art = '/each';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div></div>';
+        $line = 24;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div><div class="_zs_gallery_mx-header_index_-front ';
+    $line = 27;
+    $art = 'if fixed';
+    ;
+    $expr = '<%if (fixed) {%>';
+    if (fixed) {
+        ;
+        $p += ' _zs_gallery_mx-header_index_-fixed ';
+        $line = 27;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" ';
+    $line = 27;
+    $art = 'if fixed';
+    ;
+    $expr = '<%if (fixed) {%>';
+    if (fixed) {
+        ;
+        $p += ' style="';
+        $line = 27;
+        $art = '=styles';
+        ;
+        $p += ($expr = '<%=styles%>', $e(styles)) + '" ';
+        $line = 27;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '><div class="_zs_gallery_mx-header_index_-front-inner clearfix" style="width: ';
+    $line = 28;
+    $art = '=width';
+    ;
+    $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxa="_zs_gallerycM:d" class="_zs_gallery_mx-header_index_-front-item _zs_gallery_mx-header_index_-logo"><img src="';
+    $line = 30;
+    $art = '=logo';
+    ;
+    $p += ($expr = '<%=logo%>', $e(logo)) + '"/></div>';
+    $line = 32;
+    $art = 'if (navs.length > 0)';
+    ;
+    $expr = '<%if (navs.length > 0) {%>';
+    if (navs.length > 0) {
+        ;
+        $p += ' ';
+        $line = 33;
+        $art = 'each navs as nav';
+        ;
+        $expr = '<%for (var $art_ihcddrokm$art_i = 0, $art_cgpmlclkiu$art_c = navs.length; $art_ihcddrokm$art_i < $art_cgpmlclkiu$art_c; $art_ihcddrokm$art_i++) {        var nav = navs[$art_ihcddrokm$art_i]%>';
+        for (var $art_ihcddrokm$art_i = 0, $art_cgpmlclkiu$art_c = navs.length; $art_ihcddrokm$art_i < $art_cgpmlclkiu$art_c; $art_ihcddrokm$art_i++) {
+            var nav = navs[$art_ihcddrokm$art_i];
+            $p += '<div class="_zs_gallery_mx-header_index_-front-item _zs_gallery_mx-header_index_-nav ';
+            $line = 34;
+            $art = 'if (parent == nav.value)';
+            ;
+            $expr = '<%if (parent == nav.value) {%>';
+            if (parent == nav.value) {
+                ;
+                $p += ' _zs_gallery_mx-header_index_-cur ';
+                $line = 34;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '"><a class="_zs_gallery_mx-header_index_-nav-inner" href="javascript:;" ';
+            $line = 35;
+            $art = 'if !nav.subs || !nav.subs.length';
+            ;
+            $expr = '<%if (!nav.subs || !nav.subs.length) {%>';
+            if (!nav.subs || !nav.subs.length) {
+                ;
+                $p += ' mx-click="' + $viewId + 'to({nav:\'';
+                $line = 35;
+                $art = '@nav';
+                ;
+                $p += ($expr = '<%@nav%>', $i($$ref, nav)) + '\'})" ';
+                $line = 35;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '>';
+            $line = 35;
+            $art = '=nav.text';
+            ;
+            $p += ($expr = '<%=nav.text%>', $e(nav.text)) + '</a>';
+            $line = 36;
+            $art = 'if nav.subs && nav.subs.length';
+            ;
+            $expr = '<%if (nav.subs && nav.subs.length) {%>';
+            if (nav.subs && nav.subs.length) {
+                ;
+                $p += '<i mxs="_zs_gallerycM:b" class="_zs_gallery_mx-header_index_-nav-arrow mc-iconfont">&#xe692;</i><div mxa="_zs_gallerycM:e" class="_zs_gallery_mx-popover_index_-popover _zs_gallery_mx-popover_index_-bottom-center mx-shadow _zs_gallery_mx-header_index_-nav-subs"><div mxa="_zs_gallerycM:f" class="_zs_gallery_mx-popover_index_-popover-content">';
+                $line = 40;
+                $art = 'each nav.subs as sub';
+                ;
+                $expr = '<%for (var $art_ixmshzyix$art_i = 0, $art_objtgybbphjwet$art_obj = nav.subs, $art_criaazmre$art_c = $art_objtgybbphjwet$art_obj.length; $art_ixmshzyix$art_i < $art_criaazmre$art_c; $art_ixmshzyix$art_i++) {                var sub = $art_objtgybbphjwet$art_obj[$art_ixmshzyix$art_i]%>';
+                for (var $art_ixmshzyix$art_i = 0, $art_objtgybbphjwet$art_obj = nav.subs, $art_criaazmre$art_c = $art_objtgybbphjwet$art_obj.length; $art_ixmshzyix$art_i < $art_criaazmre$art_c; $art_ixmshzyix$art_i++) {
+                    var sub = $art_objtgybbphjwet$art_obj[$art_ixmshzyix$art_i];
+                    $p += '<div><a class="';
+                    $line = 41;
+                    $art = 'if (child == sub.value)';
+                    ;
+                    $expr = '<%if (child == sub.value) {%>';
+                    if (child == sub.value) {
+                        ;
+                        $p += ' color-brand ';
+                        $line = 41;
+                        $art = '/if';
+                        ;
+                        $expr = '<%}%>';
+                    }
+                    ;
+                    $p += '" href="javascript:;" mx-click="' + $viewId + 'to({nav:\'';
+                    $line = 41;
+                    $art = '@nav';
+                    ;
+                    $p += ($expr = '<%@nav%>', $i($$ref, nav)) + '\',sub:\'';
+                    $line = 41;
+                    $art = '@sub';
+                    ;
+                    $p += ($expr = '<%@sub%>', $i($$ref, sub)) + '\'})">';
+                    $line = 41;
+                    $art = '=sub.text';
+                    ;
+                    $p += ($expr = '<%=sub.text%>', $e(sub.text)) + '</a></div>';
+                    $line = 42;
+                    $art = '/each';
+                    ;
+                    $expr = '<%}%>';
+                }
+                ;
+                $p += '</div></div>';
+                $line = 45;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '</div>';
+            $line = 47;
+            $art = '/each';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 48;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-header/index.html';
+    throw msg;
+} return $p; },
+    init: function (ops) {
+        //初始化时保存一份当前数据的快照
+        this.updater.snapshot();
+        //该处是否可以由magix自动调用
+        this.assign(ops);
+    },
+    assign: function (ops) {
+        var that = this;
+        //赋值前先进行数据变化的检测,首次assign是在init方法中调用,后续的调用是magix自动调用,这个检测主要用于在首次调用后,magix自动调用前有没有进行数据的更新
+        var altered = that.updater.altered();
+        //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
+        var wrapperId = ops.wrapper || '';
+        var wrapper = wrapperId ? $('#' + wrapperId) : $(window);
+        var width = ops.width || 1200;
+        var navs = ops.navs || [];
+        var logo = ops.logo || '//img.alicdn.com/tfs/TB1G_ozLNnaK1RjSZFBXXcW7VXa-292-98.png';
+        var dark = (ops.dark + '' !== 'false'); //默认是true
+        var maxWidth = wrapper.outerWidth();
+        if (+width > (maxWidth - 40)) {
+            width = maxWidth - 40;
+        }
+        //默认不选中任何一个导航，表示选中的一级导航
+        // 如果默认为某个二级导航，订正选中态为一级的
+        var cur = ops.cur || '';
+        var parent = '', child = '';
+        navs.forEach(function (nav) {
+            if (nav.value == cur) {
+                // 选中的是一级菜单
+                parent = nav.value;
+                child = '';
+            }
+            if (nav.subs && nav.subs.length) {
+                nav.subs.forEach(function (sub) {
+                    if (sub.value == cur) {
+                        // 选中的是二级菜单
+                        parent = nav.value;
+                        child = sub.value;
+                    }
+                });
+            }
+        });
+        that.updater.set({
+            wrapperId: wrapperId,
+            width: width,
+            navs: navs,
+            logo: logo,
+            parent: parent,
+            child: child,
+            dark: dark
+        });
+        that['@{wrapper}'] = wrapper;
+        //如果数据没变化,则设置新的数据后再次检测
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        //如果有变化,则再保存当前的快照,然后返回true告诉magix当前view需要更新
+        if (altered) {
+            that.updater.snapshot();
+            return true;
+        }
+        //如果数据没变化,则告诉magix当前view不用更新
+        return false;
+    },
+    render: function () {
+        var that = this;
+        that.updater.digest({
+            list: Data.products,
+            fixed: false
+        });
+        var data = that.updater.get();
+        var wrapper = that['@{wrapper}'];
+        var maxWidth = wrapper.outerWidth(), wrapperId = data.wrapperId;
+        var scrollFn = function () {
+            var front = $('#' + that.id + ' ._zs_gallery_mx-header_index_-front');
+            var others = $('#' + that.id + ' ._zs_gallery_mx-header_index_-others');
+            var scrollTop = wrapper.scrollTop(), otherHeight = others.outerHeight();
+            var styles = [
+                'width:' + maxWidth + 'px',
+                'left: 0'
+            ];
+            if (wrapperId) {
+                styles.push('position: absolute', 'top: ' + scrollTop + 'px');
+            }
+            else {
+                styles.push('position: fixed', 'top: 0');
+            }
+            if (scrollTop > otherHeight) {
+                that.updater.digest({
+                    fixed: true,
+                    styles: styles.join(';')
+                });
+            }
+            else {
+                that.updater.digest({
+                    fixed: false
+                });
+            }
+        };
+        if (!that.$init) {
+            that.$init = 1;
+            wrapper.on('scroll', scrollFn);
+            that.on('destroy', function () {
+                wrapper.off('scroll', scrollFn);
+            });
+        }
+        scrollFn();
+    },
+    'to<click>': function (event) {
+        var that = this;
+        var nav = event.params.nav || {}, sub = event.params.sub || {};
+        // 高亮一级导航
+        that.updater.digest({
+            parent: nav.value || '',
+            child: sub.value || ''
+        });
+        // 当前选中的tab
+        var selected = {};
+        if ($.isEmptyObject(sub)) {
+            // 一级导航
+            selected = nav;
+        }
+        else {
+            // 二级导航
+            selected = sub;
+        }
+        $('#' + that.id).trigger({
+            type: 'navchange',
+            nav: selected
+        });
+    }
+});
+
+});

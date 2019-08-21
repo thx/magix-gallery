@@ -1,1 +1,131 @@
-define("mx-gtip/index",["magix","$"],(t,e,i)=>{var n=t("magix"),r=t("$");n.applyStyle("_zs_galleryX","._zs_gallerygh{position:fixed;top:-50px;left:0;z-index:100000;width:100%;height:50px;padding:0 46px;line-height:50px;background-color:rgba(33,33,33,.72)}._zs_gallerygh,._zs_gallerygh ._zs_gallerygi{color:#fff;transition:all var(--duration);text-align:center}._zs_gallerygh ._zs_gallerygi{opacity:.5;position:absolute;top:50%;right:20px;width:26px;height:26px;margin-top:-13px;line-height:26px;font-size:20px;font-weight:700;border-radius:50%;cursor:pointer}._zs_gallerygh ._zs_gallerygi:hover{opacity:1}");i.exports=n.View.extend({tmpl:function(t,e,i,n,r,o,a,_){if(i||(i=t),!r){var g={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},l=/[&<>"'`]/g,u=function(t){return"&"+g[t]+";"};r=function(t){return""+(null==t?"":t)},n=function(t){return r(t).replace(l,u)}}if(!o){var s={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},c=function(t){return s[t]},p=/[!')(*]/g;o=function(t){return encodeURIComponent(r(t)).replace(p,c)}}if(!_){var m=/[\\'"]/g;_=function(t){return r(t).replace(m,"\\$&")}}var d="",f=t.top,x=t.msg,h=t.timeout;return d+='<div class="_zs_gallerygh" style="top: '+n(f)+';"><span>'+r(x)+"</span>",h||(d+='<i mxs="_zs_gallerycE:_" class="mc-iconfont _zs_gallerygi" mx-click="'+e+'__aL()">&#xe603;</i>'),d+="</div>"},init:function(t){var e=this;e.extra=t,e.__a=r("#"+e.id),e.__a.on("__q",function(t){e.extra={msg:t.msg,timeout:t.timeout},e.__o()}),e.on("destroy",function(){e.owner.unmountVframe(),e.__a.remove()})},render:function(){this.updater.digest({}),this.__o()},__o:function(t){var e=this;clearTimeout(e.__ct),clearTimeout(e.__bO),clearTimeout(e.__bN);var i=e.extra,n=i.timeout;e.__bN=setTimeout(e.wrapAsync(function(){e.updater.digest({msg:i.msg,timeout:n,top:0})}),200),n&&(e.__ct=setTimeout(e.wrapAsync(function(){e["__aL<click>"]()}),n))},"__aL<click>":function(t){var e=this;clearTimeout(e.__ct),clearTimeout(e.__bO),clearTimeout(e.__bN),e.__bO=setTimeout(e.wrapAsync(function(){e.updater.digest({top:"-50px"})}),200)}},{gtip:function(t,e){var i=this.id+"_guid",n=r("#"+i);n.length?n.trigger({type:"__q",msg:t,timeout:e}):(r("body").append('<div id="'+i+'" />'),this.owner.mountVframe(i,"mx-gtip/index",{msg:t,timeout:e}))}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-gtip/index",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-gtip_index_","._zs_gallery_mx-gtip_index_-gtip {\n  position: fixed;\n  top: -50px;\n  left: 0;\n  z-index: 100000;\n  width: 100%;\n  height: 50px;\n  padding: 0 46px;\n  line-height: 50px;\n  color: #fff;\n  background-color: rgba(33, 33, 33, 0.72);\n  transition: all var(--duration);\n  text-align: center;\n}\n._zs_gallery_mx-gtip_index_-gtip ._zs_gallery_mx-gtip_index_-gtip-close {\n  opacity: 0.5;\n  position: absolute;\n  top: 50%;\n  right: 20px;\n  width: 26px;\n  height: 26px;\n  margin-top: -13px;\n  line-height: 26px;\n  text-align: center;\n  color: #fff;\n  font-size: 20px;\n  font-weight: bold;\n  border-radius: 50%;\n  transition: all var(--duration);\n  cursor: pointer;\n}\n._zs_gallery_mx-gtip_index_-gtip ._zs_gallery_mx-gtip_index_-gtip-close:hover {\n  opacity: 1;\n}\n");
+var Duration = 200;
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', top = $$.top, msg = $$.msg, timeout = $$.timeout; var $expr, $art, $line; try {
+    $p += '<div class="_zs_gallery_mx-gtip_index_-gtip" style="top: ';
+    $line = 1;
+    $art = '=top';
+    ;
+    $p += ($expr = '<%=top%>', $e(top)) + ';"><span>';
+    $line = 2;
+    $art = '!msg';
+    ;
+    $p += ($expr = '<%!msg%>', $n(msg)) + '</span>';
+    $line = 4;
+    $art = 'if !timeout';
+    ;
+    $expr = '<%if (!timeout) {%>';
+    if (!timeout) {
+        ;
+        $p += '<i mxs="_zs_gallerycE:_" class="mc-iconfont _zs_gallery_mx-gtip_index_-gtip-close" mx-click="' + $viewId + '@{close}()">&#xe603;</i>';
+        $line = 6;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+}
+catch (ex) {
+    var msg_1 = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg_1 += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg_1 += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg_1 += $expr + '\r\n\tat file:mx-gtip/index.html';
+    throw msg_1;
+} return $p; },
+    init: function (extra) {
+        var that = this;
+        that.extra = extra;
+        that['@{owner.node}'] = $('#' + that.id);
+        that['@{owner.node}'].on('@{add}', function (e) {
+            that.extra = {
+                msg: e.msg,
+                timeout: e.timeout
+            };
+            that['@{show}']();
+        });
+        that.on('destroy', function () {
+            that.owner.unmountVframe();
+            that['@{owner.node}'].remove();
+        });
+    },
+    render: function () {
+        var that = this;
+        that.updater.digest({});
+        that['@{show}']();
+    },
+    '@{show}': function (e) {
+        var that = this;
+        clearTimeout(that['@{custom.hide.timer}']);
+        clearTimeout(that['@{dealy.hide.timer}']);
+        clearTimeout(that['@{dealy.show.timer}']);
+        var extra = that.extra;
+        var timeout = extra.timeout;
+        that['@{dealy.show.timer}'] = setTimeout(that.wrapAsync(function () {
+            that.updater.digest({
+                msg: extra.msg,
+                timeout: timeout,
+                top: 0
+            });
+        }), Duration);
+        if (timeout) {
+            that['@{custom.hide.timer}'] = setTimeout(that.wrapAsync(function () {
+                that['@{close}<click>']();
+            }), timeout);
+        }
+    },
+    '@{close}<click>': function (e) {
+        var that = this;
+        clearTimeout(that['@{custom.hide.timer}']);
+        clearTimeout(that['@{dealy.hide.timer}']);
+        clearTimeout(that['@{dealy.show.timer}']);
+        that['@{dealy.hide.timer}'] = setTimeout(that.wrapAsync(function () {
+            that.updater.digest({
+                top: '-50px'
+            });
+        }), Duration);
+    }
+}, {
+    gtip: function (msg, timeout) {
+        var id = this.id + '_guid';
+        var node = $('#' + id);
+        if (!node.length) {
+            $('body').append("<div id=\"" + id + "\" />");
+            this.owner.mountVframe(id, 'mx-gtip/index', {
+                msg: msg,
+                timeout: timeout
+            });
+        }
+        else {
+            node.trigger({
+                type: '@{add}',
+                msg: msg,
+                timeout: timeout
+            });
+        }
+    }
+});
+
+});

@@ -1,1 +1,97 @@
-define("mx-form/examples/12",["magix","examples/example","mx-form/index","mx-form/validator","$","mx-copy/index","examples/hl"],(e,l,a)=>{e("mx-copy/index"),e("examples/hl");e("magix");var r=e("examples/example"),s=e("mx-form/index"),i=e("mx-form/validator");e("$");a.exports=r.extend({tmpl:function(e,l,a,r,s,i,n,d){if(a||(a=e),!s){var m={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},x=/[&<>"'`]/g,t=function(e){return"&"+m[e]+";"};s=function(e){return""+(null==e?"":e)},r=function(e){return s(e).replace(x,t)}}if(!i){var _={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},o=function(e){return _[e]},c=/[!')(*]/g;i=function(e){return encodeURIComponent(s(e)).replace(c,o)}}if(!d){var g=/[\\'"]/g;d=function(e){return s(e).replace(g,"\\$&")}}var v="",p=e.radioes,y=(e.selected,e.viewId),u=e.text1,z=e.text2;v+='<div mxv mxa="_zs_galleryb`:_" class="_zs_galleryg"><div mxv mxa="_zs_galleryb`:a" class="_zs_galleryj"><div mxv mxa="_zs_galleryb`:b" class="mb20"><span mxs="_zs_galleryb`:_" class="color-9 mr20">radio：</span>';for(var f=0,b=p.length;f<b;f++){var h=p[f];v+='<label mxv mxa="_zs_galleryb`:c" class="mr30"><input mxe="'+l+'_0" mxc="[{p:\'selected\'}]" type="radio" value="'+r(h)+'" class="radio" name="magix"/>'+r(h)+"</label>"}return v+='</div></div><div mxa="_zs_galleryb`:d" class="clearfix"><div mxa="_zs_galleryb`:e" class="_zs_galleryk _zs_galleryd"><div mxs="_zs_galleryb`:a" class="_zs_galleryi">HTML Code</div><div class="_zs_galleryl" mx-success="'+l+'done({id:1})" mx-view="mx-copy/index?copyNode='+i(y)+'_text_1"><span mxa="_zs_galleryb`:f" class="_zs_galleryn">'+s(u)+'</span><i mxs="_zs_galleryb`:b" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="examples/hl" id="'+r(y)+'_text_1">\n&lt;div class="mb20"&gt;\n    &#123;&#123;each radioes as r&#125;&#125;\n    &lt;label class="mr30"&gt;\n        &lt;input type="radio" class="radio" \n            name="magix" \n            value="&#123;&#123;=r&#125;&#125;" \n            &#123;&#123;:selected&#125;&#125; /&gt;\n        &#123;&#123;=r&#125;&#125;\n    &lt;/label&gt;\n    &#123;&#123;/each&#125;&#125;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryb`:g" class="_zs_galleryk _zs_galleryd _zs_gallerye"><div mxs="_zs_galleryb`:c" class="_zs_galleryi">JS Code</div><div class="_zs_galleryl" mx-success="'+l+'done({id:2})" mx-view="mx-copy/index?copyNode='+i(y)+'_text_2"><span mxa="_zs_galleryb`:h" class="_zs_galleryn">'+s(z)+'</span><i mxs="_zs_galleryb`:b" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="examples/hl" id="'+r(y)+"_text_2\">\nlet Magix = require('magix');\nlet Form = require('@../mx-form/index');\nlet Validator = require('@../mx-form/validator');\nlet $ = require('$');\n\nmodule.exports = Magix.View.extend({\n    tmpl: '@index.html',\n    mixins: [Form, Validator],\n    render() {\n        this.updater.digest({\n            selected: 'radio2',\n            radioes: ['radio1', 'radio2', 'radio3']\n        });\n    }\n});</pre></div></div></div>"},mixins:[s,i],render:function(){this.updater.digest({selected:"radio2",radioes:["radio1","radio2","radio3"]})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-form/examples/12",["magix","examples/example","mx-form/index","mx-form/validator","$","mx-copy/index","examples/hl"],(require,exports,module)=>{
+/*Magix,Base,Form,Validator,$*/
+require("mx-copy/index");
+require("examples/hl");
+var Magix = require("magix");
+var Base = require("examples/example");
+var Form = require("mx-form/index");
+var Validator = require("mx-form/validator");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', radioes = $$.radioes, selected = $$.selected, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryb`:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryb`:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxv mxa="_zs_galleryb`:b" class="mb20"><span mxs="_zs_galleryb`:_" class="color-9 mr20">radio：</span>';
+    $line = 5;
+    $art = 'each radioes as r';
+    ;
+    $expr = '<%for (var $art_iclueisw$art_i = 0, $art_ctnogpsssg$art_c = radioes.length; $art_iclueisw$art_i < $art_ctnogpsssg$art_c; $art_iclueisw$art_i++) {    var r = radioes[$art_iclueisw$art_i]%>';
+    for (var $art_iclueisw$art_i = 0, $art_ctnogpsssg$art_c = radioes.length; $art_iclueisw$art_i < $art_ctnogpsssg$art_c; $art_iclueisw$art_i++) {
+        var r = radioes[$art_iclueisw$art_i];
+        $p += '<label mxv mxa="_zs_galleryb`:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
+        $line = 8;
+        $art = ':selected';
+        ;
+        $p += '{p:\'selected\'}]" type="radio" value="';
+        $line = 7;
+        $art = '=r';
+        ;
+        $p += ($expr = '<%=r%>', $e(r)) + '" class="radio" name="magix"/>';
+        $line = 9;
+        $art = '=r';
+        ;
+        $p += ($expr = '<%=r%>', $e(r)) + '</label>';
+        $line = 11;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div><div mxa="_zs_galleryb`:d" class="clearfix"><div mxa="_zs_galleryb`:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_galleryb`:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 17;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryb`:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 19;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryb`:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 22;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="mb20"&gt;\n    &#123;&#123;each radioes as r&#125;&#125;\n    &lt;label class="mr30"&gt;\n        &lt;input type="radio" class="radio" \n            name="magix" \n            value="&#123;&#123;=r&#125;&#125;" \n            &#123;&#123;:selected&#125;&#125; /&gt;\n        &#123;&#123;=r&#125;&#125;\n    &lt;/label&gt;\n    &#123;&#123;/each&#125;&#125;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryb`:g" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_galleryb`:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 37;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryb`:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 39;
+    $art = '!text2';
+    ;
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryb`:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 42;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Form = require(\'@../mx-form/index\');\nlet Validator = require(\'@../mx-form/validator\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend({\n    tmpl: \'@index.html\',\n    mixins: [Form, Validator],\n    render() {\n        this.updater.digest({\n            selected: \'radio2\',\n            radioes: [\'radio1\', \'radio2\', \'radio3\']\n        });\n    }\n});</pre></div></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-form/examples/12.html';
+    throw msg;
+} return $p; },
+    mixins: [Form, Validator],
+    render: function () {
+        this.updater.digest({
+            selected: 'radio2',
+            radioes: ['radio1', 'radio2', 'radio3']
+        });
+    }
+});
+
+});
