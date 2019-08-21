@@ -63,7 +63,8 @@ module.exports = Magix.View.extend({
         }
         this.$feedback = new FeedBack({
             id: config.fdId,
-            frequency: 'all',
+            frequency: config.fdFrequency || 'all',
+            closeBtn: true,
             style: styles
         });
     },

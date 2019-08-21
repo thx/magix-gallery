@@ -29,7 +29,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc{:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $p += '<div mxa="_zs_galleryc}:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'初态示例\',\n            key: viewId + \'_demo1\',\n        }, {\n            name: \'中间态+单步禁止\',\n            key: viewId + \'_demo2\',\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'step-infos配置\',\n        key: viewId + \'_step\',\n        subs: [{\n            name: \'可配参数\',\n            key: viewId + \'_step1\',\n        }, {\n            name: \'check\',\n            key: viewId + \'_step2\',\n        }]\n    }]';
     ;
@@ -37,7 +37,7 @@ module.exports = Magix.View.extend({
     $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryc{:a" class="clearfix"><div mx-view="mx-main/examples/hor-demo1" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryc}:a" class="clearfix"><div mx-view="mx-main/examples/hor-demo1" id="';
     $line = 29;
     $art = '=viewId';
     ;

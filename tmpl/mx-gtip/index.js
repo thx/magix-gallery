@@ -18,7 +18,7 @@ module.exports = Magix.View.extend({
             that['@{show}']();
         })
         that.on('destroy', () => {
-            that.owner.unmountVframe();
+            that.owner.unmountVframe(that.id);
             that['@{owner.node}'].remove();
         });
     },
@@ -67,6 +67,7 @@ module.exports = Magix.View.extend({
         let node = $('#' + id);
         if(!node.length){
             $('body').append(`<div id="${id}" />`);
+            debugger
             this.owner.mountVframe(id, '@moduleId', {
                 msg,
                 timeout
