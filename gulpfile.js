@@ -180,37 +180,41 @@ gulp.task('release', ['compress'], async () => {
     await spawnCommand('tnpm', ['pub']);
 });
 
-gulp.task('publish', () => {
-    del(['./build']).then(() => {
-        combineTool.config({
-            log: false,
-            tmplFolder: 'tmpl',
-            srcFolder: 'build'
-        })
-        combineTool.combine().then(() => {
-            gulp.src('./build/**/*.js')
-                .pipe(terser({
-                    compress: {
-                        drop_console: true,
-                        drop_debugger: true,
-                        global_defs: {
-                            DEBUG: false
-                        }
-                    }
-                }))
-                .pipe(gulp.dest('./build/'))
-                .on('end', () => {
-                    //less编译成css
-                    gulp.src('./tmpl/**/*.less')
-                        .pipe(less())
-                        .pipe(cleanCSS({compatibility: 'ie8'}))
-                        .pipe(gulp.dest('./build/'))
-                        .on('end', () => {
-                            console.log('项目构建完成');
-                        });
-                })
-        }).catch(ex => {
-            console.log('gulpfile:', ex);
-        });
-    })
+gulp.task('publish', ['compress'], async () => {
+    console.log('项目构建完成');
 });
+
+// gulp.task('publish', () => {
+//     del(['./build']).then(() => {
+//         combineTool.config({
+//             log: false,
+//             tmplFolder: 'tmpl',
+//             srcFolder: 'build'
+//         })
+//         combineTool.combine().then(() => {
+//             gulp.src('./build/**/*.js')
+//                 .pipe(terser({
+//                     compress: {
+//                         drop_console: true,
+//                         drop_debugger: true,
+//                         global_defs: {
+//                             DEBUG: false
+//                         }
+//                     }
+//                 }))
+//                 .pipe(gulp.dest('./build/'))
+//                 .on('end', () => {
+//                     //less编译成css
+//                     gulp.src('./tmpl/**/*.less')
+//                         .pipe(less())
+//                         .pipe(cleanCSS({compatibility: 'ie8'}))
+//                         .pipe(gulp.dest('./build/'))
+//                         .on('end', () => {
+//                             console.log('项目构建完成');
+//                         });
+//                 })
+//         }).catch(ex => {
+//             console.log('gulpfile:', ex);
+//         });
+//     })
+// });
