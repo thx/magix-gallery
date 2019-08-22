@@ -31,11 +31,6 @@ module.exports = Magix.View.extend({
             desc: '渲染value时读取的key',
             type: 'string',
             def: 'value'
-        }, {
-            key: 'tag',
-            desc: '打标内容',
-            type: 'string',
-            def: ''
         }]
 
         let events = [{

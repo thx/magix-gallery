@@ -94,9 +94,9 @@ module.exports = Magix.View.extend({
             $line = 23;
             $art = 'each list as item';
             ;
-            $expr = '<%for (var $art_izllvkpehb$art_i = 0, $art_cofrwbzi$art_c = list.length; $art_izllvkpehb$art_i < $art_cofrwbzi$art_c; $art_izllvkpehb$art_i++) {            var item = list[$art_izllvkpehb$art_i]%>';
-            for (var $art_izllvkpehb$art_i = 0, $art_cofrwbzi$art_c = list.length; $art_izllvkpehb$art_i < $art_cofrwbzi$art_c; $art_izllvkpehb$art_i++) {
-                var item = list[$art_izllvkpehb$art_i];
+            $expr = '<%for (var $art_iqpstdddja$art_i = 0, $art_crozfy$art_c = list.length; $art_iqpstdddja$art_i < $art_crozfy$art_c; $art_iqpstdddja$art_i++) {            var item = list[$art_iqpstdddja$art_i]%>';
+            for (var $art_iqpstdddja$art_i = 0, $art_crozfy$art_c = list.length; $art_iqpstdddja$art_i < $art_crozfy$art_c; $art_iqpstdddja$art_i++) {
+                var item = list[$art_iqpstdddja$art_i];
                 $p += '<li mxa="_zs_galleryen:b" class="mx-output-item"><span class="mx-output-link ';
                 $line = 25;
                 $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';

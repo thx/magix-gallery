@@ -28,7 +28,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', list = $$.list, selected = $$.selected, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerye3:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_gallerye3:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_gallerye3:_" class="mb30"><span class="color-9">以下示例：</span>配置tagContent自定义打标内容，配置tag展示默认打标样式</div><div mxv="list" mx-change="' + $viewId + 'changeTab()" mx-view="mx-tabs/index?list=';
+    $p += '<div mxv mxa="_zs_gallerye3:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_gallerye3:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_gallerye3:_" class="mb30"><span class="color-9">以下示例：</span>配置tagContent自定义打标内容，配置tag展示默认打标样式，优先级tagContent > tag</div><div mxv="list" mx-change="' + $viewId + 'changeTab()" mx-view="mx-tabs/index?list=';
     $line = 8;
     $art = '@list';
     ;
