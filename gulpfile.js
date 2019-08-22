@@ -108,6 +108,12 @@ gulp.task('turnOffDebug', () => {
     });
 });
 
+gulp.task('turnOffLog', () => {
+    combineTool.config({
+        log: false
+    });
+});
+
 gulp.task('cleanSrc', () => {
     return del(['./dist/src', './dist/chartpark', './src', './build']);
 });
@@ -180,8 +186,21 @@ gulp.task('release', ['compress'], async () => {
     await spawnCommand('tnpm', ['pub']);
 });
 
-gulp.task('publish', ['compress'], () => {
-    console.log('项目构建完成');
+gulp.task('publish', ['turnOffLog', 'turnOffDebug', 'combine'], () => {
+    return gulp.src('./dist/src/**/*.js')
+        .pipe(terser({
+            compress: {
+                drop_console: true,
+                drop_debugger: true,
+                global_defs: {
+                    DEBUG: false
+                }
+            }
+        }))
+        .pipe(gulp.dest('./dist/src/'))
+        .on('end', () => {
+            console.log('项目构建完成');
+        });
 });
 
 // gulp.task('publish', () => {
