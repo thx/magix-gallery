@@ -1,1 +1,91 @@
-define("mx-loading/index",["$","magix","./base"],(i,a,n)=>{var e=i("$"),r=i("magix");r.applyStyle("_zs_galleryad","._zs_galleryhI{display:none;position:fixed;z-index:999999;background-color:rgba(0,0,0,.5);border-radius:var(--border-radius)}._zs_galleryhJ{z-index:999998;background:transparent}._zs_galleryhK,._zs_galleryhJ{display:none;position:fixed;top:0;left:0;width:100%;height:100%}._zs_galleryhK{z-index:999999;background-color:rgba(0,0,0,.5)}._zs_galleryhK ._zs_galleryhL{position:absolute;top:50%;left:50%;width:160px;height:36px;margin-top:-18px;margin-left:-80px}");var t=function(i,a,n,e,r,t,l,d){if(n||(n=i),!r){var s={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},o=/[&<>"'`]/g,g=function(i){return"&"+s[i]+";"};r=function(i){return""+(null==i?"":i)},e=function(i){return r(i).replace(o,g)}}if(!t){var p={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},h=function(i){return p[i]},_=/[!')(*]/g;t=function(i){return encodeURIComponent(r(i)).replace(_,h)}}if(!d){var c=/[\\'"]/g;d=function(i){return r(i).replace(c,"\\$&")}}var u="",y=i.id,f=i.width,x=i.height;return u+='<div id="'+e(y)+'" class="_zs_galleryhI" style="width: '+e(f)+"px; height: "+e(x)+'px;"><div mxs="_zs_galleryc%:_" class="loading _zs_galleryhL" style="padding: 10px 0;"><span class="loading-anim"></span></div></div>'},l=i("./base");n.exports=r.mix({__cv:function(){var i=this.id+"_loading",a=e("#"+i);if(!a.length){var n=e.isFunction(t)?t({id:i,width:"150px",height:"36px"},this.id):t;e(document.body).append(n),a=e("#"+i)}return a},showLoading:function(i){var a=this.id+"_loading",n=this.__cv(),r=e(window),t=(r.width()-150)/2|0,l=(r.height()-36)/2|0;if(n.css({left:t,top:l,display:"block"}),!i){var d=e("#"+a+"_mask");d.length||(e(document.body).append('<div id="'+a+'_mask" class="_zs_galleryhJ"></div>'),d=e("#"+a+"_mask")),d.css({display:"block"})}}},l)});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-loading/index",["$","magix","./base"],(require,exports,module)=>{
+/*$,Magix,Base*/
+
+var $ = require("$");
+var Magix = require("magix");
+Magix.applyStyle("_zs_gallery_mx-loading_index_","._zs_gallery_mx-loading_index_-mask-loading {\n  display: none;\n  position: fixed;\n  z-index: 999999;\n  background-color: rgba(0, 0, 0, 0.5);\n  border-radius: var(--border-radius);\n}\n._zs_gallery_mx-loading_index_-mask-loading-backdrop {\n  display: none;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 999998;\n  width: 100%;\n  height: 100%;\n  background: transparent;\n}\n._zs_gallery_mx-loading_index_-full-loading {\n  display: none;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 999999;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n}\n._zs_gallery_mx-loading_index_-full-loading ._zs_gallery_mx-loading_index_-loading-overwite {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 160px;\n  height: 36px;\n  margin-top: -18px;\n  margin-left: -80px;\n}\n");
+var Width = 150;
+var Height = 36;
+var Tmpl = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', id = $$.id, width = $$.width, height = $$.height; var $expr, $art, $line; try {
+    $p += '<div id="';
+    $line = 1;
+    $art = '=id';
+    ;
+    $p += ($expr = '<%=id%>', $e(id)) + '" class="_zs_gallery_mx-loading_index_-mask-loading" style="width: ';
+    $line = 1;
+    $art = '=width';
+    ;
+    $p += ($expr = '<%=width%>', $e(width)) + 'px; height: ';
+    $line = 1;
+    $art = '=height';
+    ;
+    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxs="_zs_galleryc%:_" class="loading _zs_gallery_mx-loading_index_-loading-overwite" style="padding: 10px 0;"><span class="loading-anim"></span></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-loading/index.html';
+    throw msg;
+} return $p; };
+var Base = require("./base");
+module.exports = Magix.mix({
+    '@{loading.build}': function () {
+        var me = this;
+        var maskId = me.id + '_loading';
+        var node = $('#' + maskId);
+        if (!node.length) {
+            var tmpl = $.isFunction(Tmpl) ? Tmpl({
+                id: maskId,
+                width: Width + 'px',
+                height: Height + 'px'
+            }, me.id) : Tmpl;
+            $(document.body).append(tmpl);
+            node = $('#' + maskId);
+        }
+        return node;
+    },
+    showLoading: function (closeMask) {
+        var me = this;
+        var maskId = me.id + '_loading';
+        var node = me['@{loading.build}']();
+        var win = $(window);
+        var left = ((win.width() - Width) / 2) | 0;
+        var top = ((win.height() - Height) / 2) | 0;
+        node.css({
+            left: left,
+            top: top,
+            display: 'block'
+        });
+        // 是否禁止选择
+        if (!closeMask) {
+            var backNode = $('#' + maskId + '_mask');
+            if (!backNode.length) {
+                $(document.body).append('<div id="' + maskId + '_mask" class="_zs_gallery_mx-loading_index_-mask-loading-backdrop"></div>');
+                backNode = $('#' + maskId + '_mask');
+            }
+            backNode.css({
+                display: 'block'
+            });
+        }
+    }
+}, Base);
+
+});

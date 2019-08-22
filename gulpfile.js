@@ -180,7 +180,7 @@ gulp.task('release', ['compress'], async () => {
     await spawnCommand('tnpm', ['pub']);
 });
 
-gulp.task('publish', ['compress'], async () => {
+gulp.task('publish', ['compress'], () => {
     console.log('项目构建完成');
 });
 
