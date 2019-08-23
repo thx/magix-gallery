@@ -6,7 +6,9 @@
         value="{{=content}}"
         {{:content&rules}}
         mx-keyup="@{out}()"
-        mx-focusout="@{out}()"/>
+        mx-focusout="@{out}()"
+        mx-change="@{stop}()"
+        mx-focusin="@{stop}()"/>
     <div class="editor-content">
         {{!dis}}
         <!-- operations 表格hover展示样式 -->

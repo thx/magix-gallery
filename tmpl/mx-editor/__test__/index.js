@@ -32,7 +32,7 @@ module.exports = Magix.View.extend({
         }]
 
         let events = [{
-            type: 'edit',
+            type: 'change',
             desc: '回车或者失去焦点触发，只调用一次',
             params: [{
                 key: 'editText',

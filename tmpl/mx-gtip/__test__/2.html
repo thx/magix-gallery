@@ -1,0 +1,54 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <a href="javascript:;" mx-click="show1()" class="link-brand">显示提示信息，1秒后自动关闭</a>
+        </div>
+        <div>
+            <a href="javascript:;" mx-click="show2()" class="link-brand">显示提示信息，手动关闭</a>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;a href="javascript:;" class="link-brand"
+    mx-click="show1()"&gt;显示提示信息，1秒后自动关闭&lt;/a&gt;
+
+&lt;a href="javascript:;" class="link-brand"
+    mx-click="show2()"&gt;显示提示信息，手动关闭&lt;/a&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let GTip = require('@../../mx-gtip/index');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [GTip],
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'show1&lt;click&#gt;'()&#123;
+        this.gtip('显示提示信息，1秒后自动关闭', 1000);
+    &#125;,
+    'show2&lt;click&#gt;'()&#123;
+        this.gtip('显示提示信息，手动关闭');
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

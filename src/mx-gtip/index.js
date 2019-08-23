@@ -67,7 +67,6 @@ module.exports = Magix.View.extend({
         let node = $('#' + id);
         if(!node.length){
             $('body').append(`<div id="${id}" />`);
-            debugger
             this.owner.mountVframe(id, '@moduleId', {
                 msg,
                 timeout

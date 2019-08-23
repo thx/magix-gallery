@@ -1,14 +1,22 @@
 <div class="pr pr120">
     <div mx-view="examples/subs?list={{@[{
         name: '使用示例',
-        key: viewId + '_demo'
+        key: viewId + '_demo',
+        subs: [{
+            name: '顶通提示',
+            key: viewId + '_demo1'
+        }, {
+            name: '局部小提示框',
+            key: viewId + '_demo2'
+        }]
     }, {
         name: 'Methods',
         key: viewId + '_method'
     }]}}"></div>
     <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
     <div class="clearfix mb20">
-        <div mx-view="@./1"></div>
+        <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+        <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
     </div>
     
     <mx-title.second content="Methods" id="{{=viewId}}_method"/>
@@ -22,11 +30,20 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>gtip(msg, timeout)</td>
-                    <td>
-                        <div>显示通顶提示信息</div>
-                        <div>msg：信息内容</div>
-                        <div>timeout：延时自动关闭，不设置的时候显示关闭按钮手动关闭</div>
+                    <td>gtip(msg [, timeout])</td>
+                    <td class="lh22">
+                        <div>1. msg（String）：提示信息内容</div>
+                        <div>2. timeout（Number or String）：延时自动关闭，设置的时候timeout后自动关闭，不设置的时候显示关闭按钮手动关闭</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>gtip(msg [, options])</td>
+                    <td class="lh22">
+                        <div>1. msg（String）：提示信息内容</div>
+                        <div>2. options（PlainObject），可配参数如下：</div>
+                        <div class="pl10">
+                            <div>a. timeout（Number or String）：延时自动关闭，设置的时候timeout后自动关闭，不设置的时候显示关闭按钮手动关闭</div>
+                        </div>
                     </td>
                 </tr>
             </tbody>

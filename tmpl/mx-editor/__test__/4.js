@@ -9,7 +9,7 @@ module.exports = Base.extend({
         let content = '这是一条非常长非常长非常长的需要换行的数据';
         this.setContent(content);
     },
-    'change<edit>' (e) {
+    'change<change>' (e) {
         // editText编辑后的文案
         this.setContent(e.editText);
     },

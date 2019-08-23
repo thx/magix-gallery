@@ -77,7 +77,7 @@ module.exports = Magix.View.extend({
             emptyText: I18n['empty.text']
         });
         that['@{owner.node}'] = $('#' + that.id);
-        that['@{owner.node}'].val(selectedValue)
+        that['@{owner.node}'].val(selectedValue);
 
         if (!altered) {
             altered = that.updater.altered();

@@ -587,8 +587,7 @@ module.exports = Magix.View.extend({
         }
 
         // 30天过期
-        let h = 24 * 30;
-        that.setCookie('gallery_theme', true, `h${h}`);
+        that.setCookie('gallery_theme', true, `h${(24 * 30)}`);
 
         updater.digest({
             headers,

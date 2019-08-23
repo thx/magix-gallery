@@ -35,14 +35,16 @@ module.exports = Magix.View.extend({
         that['@{old.content}'] = content;
         that.updater.set({
             viewId: that.id,
-            tmpl: tmpl,
+            tmpl,
             dis: tmpl.replace(Placeholder, content),
-            content: content,
-            rules: rules,
-            small: small,
+            content,
+            rules,
+            small,
             width: extra.width || 140,
             editing: false
         });
+        that['@{owner.node}'] = $('#' + that.id);
+        that['@{owner.node}'].val(content);
 
         //如果数据没变化,则设置新的数据后再次检测
         if (!altered) {
@@ -91,6 +93,11 @@ module.exports = Magix.View.extend({
             // }
         }
     },
+
+    '@{stop}<change,focusin>'(e) {
+        e.stopPropagation();
+    },
+
     '@{out}<focusout>'(e) {
         e.stopPropagation();
         let that = this;
@@ -110,6 +117,13 @@ module.exports = Magix.View.extend({
 
         // 只触发一次trigger
         if (that['@{old.content}'] != content) {
+            // 双向绑定
+            that['@{owner.node}'].val(content).trigger({
+                type: 'change',
+                editText: content
+            });
+
+            // 兼容老的事件处理
             $('#' + that.id).trigger({
                 type: 'edit',
                 editText: content

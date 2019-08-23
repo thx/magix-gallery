@@ -1,1 +1,172 @@
-define("mx-tabs/box",["magix","mx-tabs/base","mx-popover/index"],(r,l,a)=>{r("mx-popover/index");var e=r("magix"),o=r("mx-tabs/base");e.applyStyle("_zs_galleryaD",'[mx-view*="mx-tabs/box"]{display:inline-block}._zs_gallerykx{position:relative;border-bottom:1px solid var(--color-border)}._zs_gallerykx ._zs_galleryky{position:relative;float:left;padding:10px 24px;font-size:16px;line-height:var(--input-height);transition:color var(--duration) ease-out;color:#666}._zs_gallerykx ._zs_galleryky:hover{color:#333}._zs_gallerykx ._zs_galleryky._zs_gallerykz{color:var(--color-brand)}._zs_gallerykx ._zs_galleryky ._zs_gallerykA{position:absolute;top:50%;left:100%;z-index:3;display:inline-block;margin-top:calc(4px - var(--input-height));margin-left:-24px}._zs_gallerykx ._zs_galleryky ._zs_gallerykA ._zs_gallerykB{display:inline-block;width:8px;height:8px;background-color:red;border-radius:50%}._zs_gallerykx ._zs_galleryky ._zs_gallerykC{margin-left:-24px}._zs_gallerykx ._zs_gallerykD{position:absolute;width:0;height:0;bottom:-1px;border-bottom:2px solid var(--color-brand);transition:width var(--duration) cubic-bezier(.645,.045,.355,1),left var(--duration) cubic-bezier(.645,.045,.355,1)}._zs_gallerykE{position:relative;display:inline-block;height:var(--input-height);vertical-align:middle}._zs_gallerykE ._zs_gallerykF{position:relative;top:1px;font-size:14px}._zs_gallerykE ._zs_gallerykG{position:relative;padding:0 12px;text-align:center;cursor:pointer;transition:all var(--duration)}._zs_gallerykE ._zs_gallerykG:first-child{border-top-left-radius:var(--border-radius);border-bottom-left-radius:var(--border-radius)}._zs_gallerykE ._zs_gallerykG:last-child{border-top-right-radius:var(--border-radius);border-bottom-right-radius:var(--border-radius)}._zs_gallerykE ._zs_gallerykG ._zs_gallerykC{margin-left:-14px}._zs_gallerykE._zs_gallerykH ._zs_gallerykG{color:#999;cursor:not-allowed}._zs_gallerykE._zs_gallerykH ._zs_gallerykG:hover{color:#999}._zs_gallerykE._zs_gallerykH ._zs_gallerykG._zs_gallerykz{color:#999;background-color:var(--color-disabled);border-color:var(--color-border)}._zs_gallerykI ._zs_gallerykG{position:relative;z-index:2;display:inline-block;height:var(--input-height);line-height:calc(var(--input-height) - 2px);border-radius:var(--border-radius);color:#666;border:1px solid transparent}._zs_gallerykI ._zs_gallerykG:hover{color:#333}._zs_gallerykI ._zs_gallerykG._zs_gallerykz{color:#333;background-color:var(--color-brand-opacity);border:1px solid var(--color-brand)}._zs_gallerykI:after{content:" ";position:absolute;top:0;left:0;z-index:1;width:100%;height:100%}._zs_gallerykI:after,._zs_gallerykJ{border-radius:var(--border-radius);border:1px solid var(--border-highlight)}._zs_gallerykJ ._zs_gallerykG{display:inline-block;height:calc(var(--input-height) - 2px);line-height:calc(var(--input-height) - 2px);color:#999;background-color:#fff}._zs_gallerykJ ._zs_gallerykG:hover{color:#333}._zs_gallerykJ ._zs_gallerykG._zs_gallerykz{color:var(--color-brand);background-color:var(--color-brand-opacity)}');var i={solid:"_zs_gallerykJ",hollow:"_zs_gallerykI"};a.exports=o.extend({tmpl:function(r,l,a,e,o,i,t,s){if(a||(a=r),!o){var _={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},n=/[&<>"'`]/g,g=function(r){return"&"+_[r]+";"};o=function(r){return""+(null==r?"":r)},e=function(r){return o(r).replace(n,g)}}if(!i){var d={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},c=function(r){return d[r]},y=/[!')(*]/g;i=function(r){return encodeURIComponent(o(r)).replace(y,c)}}if(!s){var p=/[\\'"]/g;s=function(r){return o(r).replace(p,"\\$&")}}t||(t=function(r,l,a,e){for(e=r[k];--e;)if(r[a=k+e]===l)return a;return r[a=k+r[k]++]=l,a});var k="",z="",b=r.boxClass,u=r.disabled,x=r.list,v=r.selected,h=r.spm;z+='<div class="_zs_gallerykE '+e(b)+" "+e(u?"_zs_gallerykH":"")+'">';for(var f=0,m=x.length;f<m;f++){var G=x[f];z+='<a href="javascript:;" ',u||(z+=' mx-click="'+l+"__ac({item:'"+t(a,G)+"'})\" "),z+=' class="_zs_gallerykG '+e(G.value==v?"_zs_gallerykz":"")+'" ',h&&(z+=' data-spm-click="'+e(h)+e(f)+'" '),z+=">"+e(G.text)+" ",G.tag&&(z+='<span class="mx-tag _zs_gallerykC" style="background-color: '+e(G.color)+';"><span class="mx-tag-arrow" style="border-color: '+e(G.color)+" transparent transparent "+e(G.color)+';"></span><span mxa="_zs_gallerye2:_" class="mx-tag-name">'+o(G.tag)+"</span></span>"),z+=" ",G.tips&&(z+='<i class="mc-iconfont color-9 _zs_gallerykF" mx-view="mx-popover/index?width=280&content='+i(G.tips)+'">&#xe7aa;</i>'),z+="</a>"}return z+="</div>"},render:function(){var r=this.updater.get("mode");this.updater.digest({boxClass:i[r]})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-tabs/box",["magix","mx-tabs/base","mx-popover/index"],(require,exports,module)=>{
+/*Magix,Base*/
+require("mx-popover/index");
+/**
+ * 盒状分组
+ */
+var Magix = require("magix");
+var Base = require("mx-tabs/base");
+Magix.applyStyle("_zs_gallery_mx-tabs_index_","[mx-view*=\"mx-tabs/box\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-tabs_index_-border {\n  position: relative;\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item {\n  position: relative;\n  float: left;\n  padding: 10px 24px;\n  font-size: 16px;\n  line-height: var(--input-height);\n  transition: color var(--duration) ease-out;\n  color: #666;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item._zs_gallery_mx-tabs_index_-selected {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag-content {\n  position: absolute;\n  top: 50%;\n  left: 100%;\n  z-index: 3;\n  display: inline-block;\n  margin-top: calc(4px - var(--input-height));\n  margin-left: -24px;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag-content ._zs_gallery_mx-tabs_index_-dot {\n  display: inline-block;\n  width: 8px;\n  height: 8px;\n  background-color: #ff0000;\n  border-radius: 50%;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-border-item ._zs_gallery_mx-tabs_index_-tag {\n  margin-left: -24px;\n}\n._zs_gallery_mx-tabs_index_-border ._zs_gallery_mx-tabs_index_-underline {\n  position: absolute;\n  width: 0;\n  height: 0;\n  bottom: -1px;\n  border-bottom: 2px solid var(--color-brand);\n  transition: width var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1), left var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1);\n}\n._zs_gallery_mx-tabs_index_-box {\n  position: relative;\n  display: inline-block;\n  height: var(--input-height);\n  vertical-align: middle;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-tip {\n  position: relative;\n  top: 1px;\n  font-size: 14px;\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item {\n  position: relative;\n  padding: 0 12px;\n  text-align: center;\n  cursor: pointer;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:first-child {\n  border-top-left-radius: var(--border-radius);\n  border-bottom-left-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item:last-child {\n  border-top-right-radius: var(--border-radius);\n  border-bottom-right-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-box ._zs_gallery_mx-tabs_index_-box-item ._zs_gallery_mx-tabs_index_-tag {\n  margin-left: -14px;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item {\n  color: #999;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #999;\n}\n._zs_gallery_mx-tabs_index_-box._zs_gallery_mx-tabs_index_-box-disabled ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #999;\n  background-color: var(--color-disabled);\n  border-color: var(--color-border);\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item {\n  position: relative;\n  z-index: 2;\n  display: inline-block;\n  height: var(--input-height);\n  line-height: calc(var(--input-height) - 2px);\n  border-radius: var(--border-radius);\n  color: #666;\n  border: 1px solid transparent;\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-hollow-box ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: #333;\n  background-color: var(--color-brand-opacity);\n  border: 1px solid var(--color-brand);\n}\n._zs_gallery_mx-tabs_index_-hollow-box::after {\n  content: ' ';\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n  width: 100%;\n  height: 100%;\n  border-radius: var(--border-radius);\n  border: 1px solid var(--border-highlight);\n}\n._zs_gallery_mx-tabs_index_-solid-box {\n  border: 1px solid var(--border-highlight);\n  border-radius: var(--border-radius);\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item {\n  display: inline-block;\n  height: calc(var(--input-height) - 2px);\n  line-height: calc(var(--input-height) - 2px);\n  color: #999;\n  background-color: #fff;\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item:hover {\n  color: #333;\n}\n._zs_gallery_mx-tabs_index_-solid-box ._zs_gallery_mx-tabs_index_-box-item._zs_gallery_mx-tabs_index_-selected {\n  color: var(--color-brand);\n  background-color: var(--color-brand-opacity);\n}\n");
+var ClassNames = {
+    solid: '_zs_gallery_mx-tabs_index_-solid-box',
+    hollow: '_zs_gallery_mx-tabs_index_-hollow-box'
+};
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', boxClass = $$.boxClass, disabled = $$.disabled, list = $$.list, selected = $$.selected, spm = $$.spm; var $expr, $art, $line; try {
+    $p += '<div class="_zs_gallery_mx-tabs_index_-box ';
+    $line = 1;
+    $art = '=boxClass';
+    ;
+    $p += ($expr = '<%=boxClass%>', $e(boxClass)) + ' ';
+    $line = 1;
+    $art = '= disabled ? \'box-disabled\' : \'\'';
+    ;
+    $p += ($expr = '<%=disabled ? \'_zs_gallery_mx-tabs_index_-box-disabled\' : \'\'%>', $e(disabled ? '_zs_gallery_mx-tabs_index_-box-disabled' : '')) + '">';
+    $line = 2;
+    $art = 'each list as item index';
+    ;
+    $expr = '<%for (var index = 0, $art_cztyscnuii$art_c = list.length; index < $art_cztyscnuii$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cztyscnuii$art_c = list.length; index < $art_cztyscnuii$art_c; index++) {
+        var item = list[index];
+        $p += '<a href="javascript:;" ';
+        $line = 3;
+        $art = 'if !disabled';
+        ;
+        $expr = '<%if (!disabled) {%>';
+        if (!disabled) {
+            ;
+            $p += ' mx-click="' + $viewId + '@{select}({item:\'';
+            $line = 3;
+            $art = '@item';
+            ;
+            $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})" ';
+            $line = 3;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' class="_zs_gallery_mx-tabs_index_-box-item ';
+        $line = 3;
+        $art = '= (item.value == selected) ? \'selected\' : \'\'';
+        ;
+        $p += ($expr = '<%=(item.value == selected) ? \'_zs_gallery_mx-tabs_index_-selected\' : \'\'%>', $e((item.value == selected) ? '_zs_gallery_mx-tabs_index_-selected' : '')) + '" ';
+        $line = 4;
+        $art = 'if spm';
+        ;
+        $expr = '<%if (spm) {%>';
+        if (spm) {
+            ;
+            $p += ' data-spm-click="';
+            $line = 4;
+            $art = '=spm';
+            ;
+            $p += ($expr = '<%=spm%>', $e(spm)) + '';
+            $line = 4;
+            $art = '=index';
+            ;
+            $p += ($expr = '<%=index%>', $e(index)) + '" ';
+            $line = 4;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '>';
+        $line = 5;
+        $art = '=item.text';
+        ;
+        $p += ($expr = '<%=item.text%>', $e(item.text)) + ' ';
+        $line = 6;
+        $art = 'if item.tag';
+        ;
+        $expr = '<%if (item.tag) {%>';
+        if (item.tag) {
+            ;
+            $p += '<span class="mx-tag _zs_gallery_mx-tabs_index_-tag" style="background-color: ';
+            $line = 7;
+            $art = '=item.color';
+            ;
+            $p += ($expr = '<%=item.color%>', $e(item.color)) + ';"><span class="mx-tag-arrow" style="border-color: ';
+            $line = 8;
+            $art = '=item.color';
+            ;
+            $p += ($expr = '<%=item.color%>', $e(item.color)) + ' transparent transparent ';
+            $line = 8;
+            $art = '=item.color';
+            ;
+            $p += ($expr = '<%=item.color%>', $e(item.color)) + ';"></span><span mxa="_zs_gallerye2:_" class="mx-tag-name">';
+            $line = 9;
+            $art = '!item.tag';
+            ;
+            $p += ($expr = '<%!item.tag%>', $n(item.tag)) + '</span></span>';
+            $line = 11;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 12;
+        $art = 'if item.tips';
+        ;
+        $expr = '<%if (item.tips) {%>';
+        if (item.tips) {
+            ;
+            $p += '<i class="mc-iconfont color-9 _zs_gallery_mx-tabs_index_-box-tip" mx-view="mx-popover/index?width=280&content=';
+            $line = 16;
+            $art = '=item.tips';
+            ;
+            $p += ($expr = '<%!$eu(item.tips)%>', $eu(item.tips)) + '">&#xe7aa;</i>';
+            $line = 17;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</a>';
+        $line = 19;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-tabs/box.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        var mode = this.updater.get('mode');
+        this.updater.digest({
+            boxClass: ClassNames[mode]
+        });
+    }
+});
+
+});
