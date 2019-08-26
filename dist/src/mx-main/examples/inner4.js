@@ -21,7 +21,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryc.:_" class="box-inner" style="min-height: 200px;"><div class="lh22 mb10"><div>页面功能说明：</div></div><div class="tip-content mb40"><div>1. 当前步骤只要一个子步骤，左侧边导航不显示子步骤</div><div>2. 没有右侧边提示区域</div><div>3. 最后一步只有返回上一步的按钮</div></div><div class="lh22 mb10"><div>当前页面配置信息：</div></div><pre class="tip-content mb40">\n&#123;\n    label: \'完成创建\',\n    subs: [&#123;\n        label: \'完成标题\',\n        icon: \'&lt;i class="mc-iconfont fontsize-20"&gt;&#xe7be;&lt;/i&gt;\',\n        view: \'@./inner4\'\n    &#125;]\n&#125;\n    </pre></div>';
+    $p += '<div mxs="_zs_galleryc~:_" class="box-inner" style="min-height: 200px;"><div class="lh22 mb10"><div>页面功能说明：</div></div><div class="tip-content mb40"><div>1. 当前步骤只要一个子步骤，左侧边导航不显示子步骤</div><div>2. 没有右侧边提示区域</div><div>3. 最后一步只有返回上一步的按钮</div></div><div class="lh22 mb10"><div>当前页面配置信息：</div></div><pre class="tip-content mb40">\n&#123;\n    label: \'完成创建\',\n    subs: [&#123;\n        label: \'完成标题\',\n        icon: \'&lt;i class="mc-iconfont fontsize-20"&gt;&#xe7be;&lt;/i&gt;\',\n        view: \'@./inner4\'\n    &#125;]\n&#125;\n    </pre></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

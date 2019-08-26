@@ -10,9 +10,29 @@ module.exports = Base.extend({
         this.updater.digest();
     },
     'show1<click>'(){
-        this.gtip('显示提示信息，1秒后自动关闭', 1000);
+        this.gtip('默认顶通，手动关闭');
     },
     'show2<click>'(){
-        this.gtip('显示提示信息，手动关闭');
+        this.gtip('error顶通（错误提示），手动关闭', {
+            type: 'error'
+        });
+    },
+    'show3<click>'(){
+        this.gtip('warn顶通（警告），1s自动关闭', {
+            type: 'warn',
+            timeout: 1000,
+            styles: {
+                width: 'auto',
+                top: '80px',
+                right: '40px',
+                left: 'auto',
+                borderRadius: '8px'
+            }
+        });
+    },
+    'show4<click>'(){
+        this.gtip('highlight顶通（品牌色强调），手动关闭', {
+            type: 'highlight'
+        });
     }
 });

@@ -23,11 +23,11 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', open = $$.open, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryed:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_galleryed:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryed:_" class="mb20">组件内所有的展开项使用通用的样式，mx-trigger，mx-trigger-open，mx-output，mx-output-bottom（向下展开），mx-output-open，可借助这些class自定义一个类似于dropdown的组件</div><a mxa="_zs_galleryed:b" href="javascript:;" mx-click="' + $viewId + 'toggle()" class="btn btn-brand mr20">';
+    $p += '<div mxa="_zs_galleryeg:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_galleryeg:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryeg:_" class="mb20">组件内所有的展开项使用通用的样式，mx-trigger，mx-trigger-open，mx-output，mx-output-bottom（向下展开），mx-output-open，可借助这些class自定义一个类似于dropdown的组件</div><a mxa="_zs_galleryeg:b" href="javascript:;" mx-click="' + $viewId + 'toggle()" class="btn btn-brand mr20">';
     $line = 4;
     $art = '=(open ? \'点击收起\' : \'点击展开\')';
     ;
-    $p += ($expr = '<%=(open ? \'点击收起\' : \'点击展开\')%>', $e((open ? '点击收起' : '点击展开'))) + '</a><div mxa="_zs_galleryed:c" style="position: relative; display: inline-block; width: 200px;"><div class="mx-trigger ';
+    $p += ($expr = '<%=(open ? \'点击收起\' : \'点击展开\')%>', $e((open ? '点击收起' : '点击展开'))) + '</a><div mxa="_zs_galleryeg:c" style="position: relative; display: inline-block; width: 200px;"><div class="mx-trigger ';
     $line = 6;
     $art = 'if open';
     ;
@@ -41,7 +41,7 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '">trigger<i mxs="_zs_galleryed:a" class="mc-iconfont mx-trigger-arrow">&#xe692;</i></div><div class="mx-output mx-output-bottom ';
+    $p += '">trigger<i mxs="_zs_galleryeg:a" class="mc-iconfont mx-trigger-arrow">&#xe692;</i></div><div class="mx-output mx-output-bottom ';
     $line = 9;
     $art = 'if open';
     ;
@@ -55,27 +55,27 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><div mxs="_zs_galleryed:b" style="padding: 20px;">自定义区域</div></div></div></div><div mxa="_zs_galleryed:d" class="clearfix"><div mxa="_zs_galleryed:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_galleryed:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '"><div mxs="_zs_galleryeg:b" style="padding: 20px;">自定义区域</div></div></div></div><div mxa="_zs_galleryeg:d" class="clearfix"><div mxa="_zs_galleryeg:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_galleryeg:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 17;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryed:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryeg:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 19;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryed:d" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryeg:d" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a class="btn btn-brand mr20" href="javascript:;" \n    mx-click="toggle()"&gt;\n    &#123;&#123;=(open ? \'点击收起\' : \'点击展开\')&#125;&#125;\n&lt;/a&gt;\n\n&lt;div style="position: relative; display: inline-block; width: 200px;"&gt;\n    &lt;div class="mx-trigger &#123;&#123;if open&#125;&#125; mx-trigger-open &#123;&#123;/if&#125;&#125;"&gt;\n        trigger\n        &lt;i class="mc-iconfont mx-trigger-arrow"&gt;&#38;&#35;xe692;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class="mx-output mx-output-bottom &#123;&#123;if open&#125;&#125; mx-output-open &#123;&#123;/if&#125;&#125;"&gt;\n        &lt;div style="padding: 20px;"&gt;自定义区域&lt;/div&gt;\n    &lt;/div&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryed:g" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_galleryed:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a class="btn btn-brand mr20" href="javascript:;" \n    mx-click="toggle()"&gt;\n    &#123;&#123;=(open ? \'点击收起\' : \'点击展开\')&#125;&#125;\n&lt;/a&gt;\n\n&lt;div style="position: relative; display: inline-block; width: 200px;"&gt;\n    &lt;div class="mx-trigger &#123;&#123;if open&#125;&#125; mx-trigger-open &#123;&#123;/if&#125;&#125;"&gt;\n        trigger\n        &lt;i class="mc-iconfont mx-trigger-arrow"&gt;&#38;&#35;xe692;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class="mx-output mx-output-bottom &#123;&#123;if open&#125;&#125; mx-output-open &#123;&#123;/if&#125;&#125;"&gt;\n        &lt;div style="padding: 20px;"&gt;自定义区域&lt;/div&gt;\n    &lt;/div&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryeg:g" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_galleryeg:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 40;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryed:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryeg:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 42;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryed:d" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryeg:d" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 45;
     $art = '=viewId';
     ;

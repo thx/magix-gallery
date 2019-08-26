@@ -36,7 +36,8 @@ var ToRGB = function (color) {
     } : null;
 };
 var ToHex = function (result) {
-    var a = parseFloat(result.alpha || 1), r = Math.floor(a * parseInt(result.r) + (1 - a) * 255), g = Math.floor(a * parseInt(result.g) + (1 - a) * 255), b = Math.floor(a * parseInt(result.b) + (1 - a) * 255);
+    var a = parseFloat(result.alpha || 1);
+    var r = Math.floor(a * parseInt(result.r) + (1 - a) * 255), g = Math.floor(a * parseInt(result.g) + (1 - a) * 255), b = Math.floor(a * parseInt(result.b) + (1 - a) * 255);
     return '#' +
         ('0' + r.toString(16)).slice(-2) +
         ('0' + g.toString(16)).slice(-2) +

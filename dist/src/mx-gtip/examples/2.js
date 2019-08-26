@@ -24,31 +24,31 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryfq:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxs="_zs_galleryfq:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'show1()" class="link-brand">显示提示信息，1秒后自动关闭</a></div><div><a href="javascript:;" mx-click="' + $viewId + 'show2()" class="link-brand">显示提示信息，手动关闭</a></div></div><div mxa="_zs_galleryfq:a" class="clearfix"><div mxa="_zs_galleryfq:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_galleryfq:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 13;
+    $p += '<div mxa="_zs_gallerycF:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxs="_zs_gallerycF:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div class="mb20"><span class="color-9">以下示例：</span>gtip(msg [, options])，singleton = false</div><div class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'show1()" class="link-brand">error提示，手动关闭</a></div><div class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'show2()" class="link-brand">warn提示，手动关闭</a></div><div class="mb20"><a href="javascript:;" mx-click="' + $viewId + 'show3()" class="link-brand">highlight提示，手动关闭</a></div></div><div mxa="_zs_gallerycF:f" class="clearfix"><div mxa="_zs_gallerycF:g" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_gallerycF:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 20;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryfq:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
-    $line = 15;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycF:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 22;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryfq:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
-    $line = 18;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycF:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 25;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" class="link-brand"\n    mx-click="show1()"&gt;显示提示信息，1秒后自动关闭&lt;/a&gt;\n\n&lt;a href="javascript:;" class="link-brand"\n    mx-click="show2()"&gt;显示提示信息，手动关闭&lt;/a&gt;\n            </pre></div><div mxa="_zs_galleryfq:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_galleryfq:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 28;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;a href="javascript:;" mx-click="show1()" class="link-brand"&gt;error提示，手动关闭&lt;/a&gt;\n\n&lt;a href="javascript:;" mx-click="show2()" class="link-brand"&gt;warn提示，手动关闭&lt;/a&gt;\n\n&lt;a href="javascript:;" mx-click="show3()" class="link-brand"&gt;highlight提示，手动关闭&lt;/a&gt;\n            </pre></div><div mxa="_zs_gallerycF:i" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_gallerycF:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 35;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryfq:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
-    $line = 30;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerycF:j" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 37;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryfq:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
-    $line = 33;
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerycF:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 40;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet GTip = require(\'@../../mx-gtip/index\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [GTip],\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    \'show1&lt;click&#gt;\'()&#123;\n        this.gtip(\'显示提示信息，1秒后自动关闭\', 1000);\n    &#125;,\n    \'show2&lt;click&#gt;\'()&#123;\n        this.gtip(\'显示提示信息，手动关闭\');\n    &#125;\n&#125;);\n            </pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet GTip = require(\'@../../mx-gtip/index\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [GTip],\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    \'show1&lt;click&gt;\'()&#123;\n        this.gtip(\'error提示，手动关闭\', &#123;\n            type: \'error\',\n            singleton: false,\n            styles: &#123;\n                width: \'auto\',\n                top: \'80px\',\n                right: \'40px\',\n                left: \'auto\',\n                borderRadius: \'8px\'\n            &#125;\n        &#125;);\n    &#125;,\n    \'show2&lt;click&gt;\'()&#123;\n        this.gtip(\'warn提示，手动关闭\', &#123;\n            type: \'warn\',\n            singleton: false,\n            styles: &#123;\n                width: \'auto\',\n                top: \'160px\',\n                right: \'40px\',\n                left: \'auto\',\n                borderRadius: \'8px\'\n            &#125;\n        &#125;);\n    &#125;,\n    \'show3&lt;click&gt;\'()&#123;\n        this.gtip(\'highlight提示，手动关闭\', &#123;\n            type: \'highlight\',\n            singleton: false,\n            styles: &#123;\n                width: \'auto\',\n                top: \'240px\',\n                right: \'40px\',\n                left: \'auto\'\n            &#125;\n        &#125;);\n    &#125;\n&#125;);\n            </pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -63,10 +63,42 @@ catch (ex) {
         this.updater.digest();
     },
     'show1<click>': function () {
-        this.gtip('显示提示信息，1秒后自动关闭', 1000);
+        this.gtip('error提示，手动关闭', {
+            type: 'error',
+            singleton: false,
+            styles: {
+                width: 'auto',
+                top: '80px',
+                right: '40px',
+                left: 'auto',
+                borderRadius: '8px'
+            }
+        });
     },
     'show2<click>': function () {
-        this.gtip('显示提示信息，手动关闭');
+        this.gtip('warn提示，手动关闭', {
+            type: 'warn',
+            singleton: false,
+            styles: {
+                width: 'auto',
+                top: '160px',
+                right: '40px',
+                left: 'auto',
+                borderRadius: '8px'
+            }
+        });
+    },
+    'show3<click>': function () {
+        this.gtip('highlight提示，手动关闭', {
+            type: 'highlight',
+            singleton: false,
+            styles: {
+                width: 'auto',
+                top: '240px',
+                right: '40px',
+                left: 'auto'
+            }
+        });
     }
 });
 

@@ -1,7 +1,7 @@
 <div class="wrapper {{if timeType}} time {{/if}}" mx-contextmenu="@{prevent}()">
     <div class="range">
         <div class="title clearfix">
-            <span class="fl">{{=title}}：</span>
+            <span class="fl">{{!title}}：</span>
             {{if vsEnable}}
             <mx-switch state="{{=vs}}" class="fr" mx-change="@{vs.toggle}()"></mx-switch>
             {{/if}}

@@ -26,7 +26,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryd::_" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="examples/api?options=';
+    $p += '<div mxs="_zs_gallerye_:_" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="examples/api?options=';
     $line = 2;
     $art = '@options';
     ;

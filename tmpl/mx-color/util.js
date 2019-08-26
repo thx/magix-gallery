@@ -33,8 +33,8 @@ let ToRGB = (color) => {
     } : null;
 }
 let ToHex = (result) => {
-    var a = parseFloat(result.alpha || 1),
-        r = Math.floor(a * parseInt(result.r) + (1 - a) * 255),
+    let a = parseFloat(result.alpha || 1);
+    let r = Math.floor(a * parseInt(result.r) + (1 - a) * 255),
         g = Math.floor(a * parseInt(result.g) + (1 - a) * 255),
         b = Math.floor(a * parseInt(result.b) + (1 - a) * 255);
     return '#' +

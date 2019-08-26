@@ -38,7 +38,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryc$:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $p += '<div mxv mxa="_zs_galleryc&:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'手动加载\',\n        key: viewId + \'_custom\',\n        subs: [{\n            name: \'非全屏自动关\',\n            key: viewId + \'_custom1\'\n        },{\n            name: \'全屏自动关\',\n            key: viewId + \'_custom2\'\n        },{\n            name: \'手动关闭\',\n            key: viewId + \'_custom3\'\n        }]\n    }, {\n        name: \'loading动画\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'circle-spinner\',\n            key: viewId + \'_demo11\'\n        },{\n            name: \'three-bounce\',\n            key: viewId + \'_demo10\'\n        },{\n            name: \'rectangle\',\n            key: viewId + \'_demo6\'\n        },{\n            name: \'double-bounce\',\n            key: viewId + \'_demo5\'\n        },{\n            name: \'square\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'cubes\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'pulse\',\n            key: viewId + \'_demo8\'\n        },{\n            name: \'dots\',\n            key: viewId + \'_demo9\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
@@ -46,7 +46,7 @@ module.exports = Magix.View.extend({
     $line = 48;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_custom" mx-view="mx-title/second?content=%E6%89%8B%E5%8A%A8%E5%8A%A0%E8%BD%BD"></div><div mxa="_zs_galleryc$:a" class="clearfix mb20"><div mxa="_zs_galleryc$:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-loading/examples/1" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_custom" mx-view="mx-title/second?content=%E6%89%8B%E5%8A%A8%E5%8A%A0%E8%BD%BD"></div><div mxa="_zs_galleryc&:a" class="clearfix mb20"><div mxa="_zs_galleryc&:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-loading/examples/1" id="';
     $line = 51;
     $art = '=viewId';
     ;
@@ -54,7 +54,7 @@ module.exports = Magix.View.extend({
     $line = 52;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_custom2"></div></div><div mxa="_zs_galleryc$:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-loading/examples/3" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_custom2"></div></div><div mxa="_zs_galleryc&:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-loading/examples/3" id="';
     $line = 55;
     $art = '=viewId';
     ;
@@ -62,7 +62,7 @@ module.exports = Magix.View.extend({
     $line = 59;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=loading%E5%8A%A8%E7%94%BB"></div><div mxa="_zs_galleryc$:d" class="clearfix mb20"><div mxa="_zs_galleryc$:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-loading/examples/11" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=loading%E5%8A%A8%E7%94%BB"></div><div mxa="_zs_galleryc&:d" class="clearfix mb20"><div mxa="_zs_galleryc&:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-loading/examples/11" id="';
     $line = 62;
     $art = '=viewId';
     ;
@@ -78,7 +78,7 @@ module.exports = Magix.View.extend({
     $line = 65;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div></div><div mxa="_zs_galleryc$:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-loading/examples/10" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div></div><div mxa="_zs_galleryc&:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-loading/examples/10" id="';
     $line = 68;
     $art = '=viewId';
     ;

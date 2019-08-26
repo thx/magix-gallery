@@ -43,9 +43,9 @@ module.exports = Magix.View.extend({
         ;
         $p += '<span mxa="_zs_gallery3:_" class="color-9 mr5">';
         $line = 5;
-        $art = '=dateInfo.prefix';
+        $art = '!dateInfo.prefix';
         ;
-        $p += ($expr = '<%=dateInfo.prefix%>', $e(dateInfo.prefix)) + '：</span>';
+        $p += ($expr = '<%!dateInfo.prefix%>', $n(dateInfo.prefix)) + '：</span>';
         $line = 6;
         $art = '/if';
         ;

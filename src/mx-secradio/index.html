@@ -1,6 +1,6 @@
 {{if needExpand}}
 <div class="line all" mx-click="@{toggleAll}()">
-    {{if close}}{{=text.expand}}{{else}}{{=text.collapse}}{{/if}}{{if prefix}}{{=prefix}}{{/if}}
+    {{if close}}{{=text.expand}}{{else}}{{=text.collapse}}{{/if}}{{if prefix}}{{!prefix}}{{/if}}
 </div>
 {{/if}}
 <div class="scroll-y" {{if maxHeight}} style="max-height: {{=maxHeight}}px;" {{/if}}>
@@ -23,7 +23,7 @@
                 name="{{=viewId}}_radio" 
                 {{if (selected == sub.value)}} checked="true" {{/if}}
                 mx-change="@{check}({value:{{=sub.value}}})"/>
-            {{if prefix}}{{=prefix}}：{{/if}}{{=sub.text}}
+            {{if prefix}}{{!prefix}}：{{/if}}{{=sub.text}}
         </label>
     </div>
     {{/each}}

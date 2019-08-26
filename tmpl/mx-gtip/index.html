@@ -1,7 +1,10 @@
-<div class="gtip" style="top: {{=top}};">
+<div class="gtip {{if show}} gtip-show {{/if}}"
+    style="{{=(show ? styleShow : styleHide)}}">
+    {{if msg}}
     <span>{{!msg}}</span>
-
+    {{/if}}
     {{if !timeout}}
-    <i class="mc-iconfont gtip-close" mx-click="@{close}()">&#xe603;</i>
+    <i style="color: {{=styles.color}};" class="mc-iconfont close" 
+        mx-click="@{close}()">&#xe603;</i>
     {{/if}}
 </div>

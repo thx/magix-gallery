@@ -29,11 +29,11 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', content = $$.content, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryfr:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryfr:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxa="_zs_galleryfr:b" class="mb20"><span mxs="_zs_galleryfr:d" class="color-9">双向绑定，当前内容：</span><span>';
+    $p += '<div mxv mxa="_zs_gallerybt:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_gallerybt:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxa="_zs_gallerybt:b" class="mb20"><span mxs="_zs_gallerybt:_" class="color-9">双向绑定，当前内容：</span><span>';
     $line = 5;
     $art = '=content';
     ;
-    $p += ($expr = '<%=content%>', $e(content)) + '（要求必填且不小于200）</span></div><div mxv mxa="_zs_galleryfr:c" class="mb20"><div mxv="content" mxe="' + $viewId + '_0" mxc="[';
+    $p += ($expr = '<%=content%>', $e(content)) + '（要求必填且不小于200）</span></div><div mxv mxa="_zs_gallerybt:c" class="mb20"><div mxv="content" mxe="' + $viewId + '_0" mxc="[';
     $line = 9;
     $art = ':content{refresh:true}';
     ;
@@ -45,15 +45,15 @@ module.exports = Base.extend({
     $line = 10;
     $art = '@{\n                        required: true,\n                        min: [200, \'不小于200\']\n                    }';
     ;
-    $p += ($expr = '<%@{        required: true,        min: [200, \'不小于200\']    }%>', $i($$ref, { required: true, min: [200, '不小于200'] })) + '"></div></div></div><div mxa="_zs_galleryfr:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryfr:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">双向绑定</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@{        required: true,        min: [200, \'不小于200\']    }%>', $i($$ref, { required: true, min: [200, '不小于200'] })) + '"></div></div></div><div mxa="_zs_gallerybt:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallerybt:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">双向绑定</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 18;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryfr:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybt:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 20;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryfr:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybt:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 23;
     $art = '=viewId';
     ;

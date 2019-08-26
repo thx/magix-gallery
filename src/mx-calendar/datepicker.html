@@ -2,7 +2,7 @@
     mx-click="@{toggle}()"
     mx-change="@{stop}()">
     {{if dateInfo.prefix}}
-    <span class="color-9 mr5">{{=dateInfo.prefix}}：</span>
+    <span class="color-9 mr5">{{!dateInfo.prefix}}：</span>
     {{/if}}
     {{=(dateInfo.selected || dateInfo.placeholder)}}
 </div>

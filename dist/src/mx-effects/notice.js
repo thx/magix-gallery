@@ -41,7 +41,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (icon) {%>';
         if (icon) {
             ;
-            $p += '<div mxa="_zs_galleryb!:_" class="_zs_gallery_mx-effects_notice_-inner"><i class="mc-iconfont _zs_gallery_mx-effects_notice_-icon" style="color: ';
+            $p += '<div mxa="_zs_galleryb@:_" class="_zs_gallery_mx-effects_notice_-inner"><i class="mc-iconfont _zs_gallery_mx-effects_notice_-icon" style="color: ';
             $line = 5;
             $art = '=colorIcon';
             ;
@@ -75,7 +75,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (closable) {%>';
         if (closable) {
             ;
-            $p += '<i mxs="_zs_galleryb!:_" class="mc-iconfont _zs_gallery_mx-effects_notice_-close" mx-click="' + $viewId + 'close()">&#xe603;</i>';
+            $p += '<i mxs="_zs_galleryb@:_" class="mc-iconfont _zs_gallery_mx-effects_notice_-close" mx-click="' + $viewId + 'close()">&#xe603;</i>';
             $line = 14;
             $art = '/if';
             ;

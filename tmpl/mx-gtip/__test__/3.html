@@ -1,0 +1,66 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            <span>直接使用gtip(msg [, timeout])显示顶通默认样式信息，注意顶通提示实例只会保留一个（singleton=true）</span>
+        </div>
+        <div class="mb20">
+            <span>顶通显示提示信息，1秒后自动关闭，不显示手动关闭按钮，</span>
+            <a href="javascript:;" mx-click="show1()" class="link-brand">点击查看</a>
+        </div>
+        <div>
+            <span>顶通显示提示信息，显示手动关闭按钮手动关闭，</span>
+            <a href="javascript:;" mx-click="show2()" class="link-brand">点击查看</a>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;div class="mb20"&gt;
+    &lt;span&gt;顶通显示提示信息，1秒后自动关闭，不显示手动关闭按钮，&lt;/span&gt;
+    &lt;a href="javascript:;" class="link-brand"
+        mx-click="show1()" &gt;点击查看&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+    &lt;span&gt;顶通显示提示信息，显示手动关闭按钮手动关闭，&lt;/span&gt;
+    &lt;a href="javascript:;" class="link-brand"
+        mx-click="show2()" &gt;点击查看&lt;/a&gt;
+&lt;/div&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let GTip = require('@../../mx-gtip/index');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [GTip],
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'show1&lt;click&gt;'()&#123;
+        this.gtip('显示提示信息，1秒后自动关闭', 1000);
+    &#125;,
+    'show2&lt;click&gt;'()&#123;
+        this.gtip('显示提示信息，手动关闭');
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

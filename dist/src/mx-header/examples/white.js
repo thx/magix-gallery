@@ -34,7 +34,7 @@ module.exports = Magix.View.extend({
     $line = 4;
     $art = '=cur';
     ;
-    $p += ($expr = '<%!$eu(cur)%>', $eu(cur)) + '&logo=%2F%2Fimg.alicdn.com%2Ftps%2FTB1GLT.LFXXXXX2aXXXXXXXXXXX-500-79.png"></div><div mxa="_zs_gallerycM:_" class="_zs_gallery_mx-header_examples_index_-content"><div mxa="_zs_gallerycM:a" class="_zs_gallery_mx-header_examples_index_-inner">当前导航：';
+    $p += ($expr = '<%!$eu(cur)%>', $eu(cur)) + '&logo=%2F%2Fimg.alicdn.com%2Ftps%2FTB1GLT.LFXXXXX2aXXXXXXXXXXX-500-79.png"></div><div mxa="_zs_gallerycP:_" class="_zs_gallery_mx-header_examples_index_-content"><div mxa="_zs_gallerycP:a" class="_zs_gallery_mx-header_examples_index_-inner">当前导航：';
     $line = 8;
     $art = '=map[cur]';
     ;
