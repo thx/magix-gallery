@@ -6,13 +6,33 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.31',
+            time: '2019-08-26',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-feedback：支持多种展开方式，<a href="#!/feedback/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-edit：支持双向绑定，<a href="#!/editor/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-gtip：支持单实例，多实例，自定义样式，<a href="#!/gtip/index" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-gtip：ondestroy unmountvframe(this.id)'
+                }, {
+                    title: 'mx-feedback：更新feedback版本解决乱码问题'
+                }]
+            }]
+        }, {
             ver: '1.3.30',
             time: '2019-08-15',
             subs: [{
                 type: 'add',
                 subs: [{
                     title: 'mx-header：支持新版导航视觉规范 + 支持二级菜单，<a href="#!/header/white" target="_blank" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-tabs：支持自定义打标内容，<a href="#!/tabs/index" class="color-brand">点击查看</a>'
                 }]
             }]
