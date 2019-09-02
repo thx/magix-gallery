@@ -38,7 +38,7 @@ let ProcessAttr = (attrs, style, ignores, className) => {
         }
     }
     if (!classAdded && className) {
-        attrStr += ' class="' + className + '"';
+        attrStr += ` class="${className}"`;
     }
     if (!styleAdded && style) {
         attrStr += ` style="${style}"`;
@@ -78,8 +78,7 @@ module.exports = {
             styles.push(`margin-bottom: calc(0px - var(--mx-grid-gutter) / 2)`);
         }
 
-        styles = styles.join(';') + ';';
-        return `<div ${ProcessAttr(attrsKV, styles, {
+        return `<div ${ProcessAttr(attrsKV, styles.join(';'), {
             width: 1,
             height: 1,
             direction: 1,
@@ -127,8 +126,7 @@ module.exports = {
             }
         }
 
-        styles = styles.join(';') + ';';
-        return `<div ${ProcessAttr(attrsKV, styles, {
+        return `<div ${ProcessAttr(attrsKV, styles.join(';'), {
             width: 1,
             height: 1,
             content: 1
@@ -149,8 +147,7 @@ module.exports = {
             styles.push('border-bottom: 1px solid #e6e6e6;');
         }
 
-        styles = styles.join(';') + ';';
-        let tmpl = `<div ${ProcessAttr(attrsKV, styles, {
+        let tmpl = `<div ${ProcessAttr(attrsKV, styles.join(';'), {
             icon: 1,
             tip: 1,
             border: 1,

@@ -88,10 +88,10 @@ module.exports = Magix.View.extend({
         let data = this.updater.get();
         let cntId = data.cntId;
         let dlg = $(`#${data.vId}`);
-        let winHeight = window.innerHeight,
-            winWidth = window.innerWidth;
+        let clientWidth = document.documentElement.clientWidth,
+            clientHeight = document.documentElement.clientHeight;
         if (data.full) {
-            let h = winHeight;
+            let h = clientHeight;
             let fh = $('#' + cntId + '_header'),
                 ff = $('#' + cntId + '_footer');
             if (fh && fh.length) {
@@ -113,10 +113,10 @@ module.exports = Magix.View.extend({
             $('#' + cntId).css(fcss);
 
             // 是否需要更新宽度位置 + 左距离
-            let w = Math.min(winWidth, data.width);
+            let w = Math.min(clientWidth, data.width);
             dlg.css({
                 width: w,
-                left: Math.max(0, winWidth - w)
+                left: Math.max(0, clientWidth - w)
             })
         }
     },
@@ -209,18 +209,18 @@ module.exports = Magix.View.extend({
                 top = options.top;
             // 全屏右出浮层不需要圆角
             let wrapper = $(`<div class="@index.less:dialog-wrapper" 
-            id="${wrapperId}" 
-            style="z-index:${wrapperZIndex}">
-            <div class="@index.less:dialog ${options.full ? '@index.less:full' : ''}" id="${id}" 
-                style="top:${top}px; left:${left}px; width:${width}px;"></div>
-        </div>`);
+                id="${wrapperId}" style="z-index:${wrapperZIndex}">
+                <div class="@index.less:dialog ${options.full ? '@index.less:full' : ''}" id="${id}" 
+                    style="top:${top}px; left:${left}px; width:${width}px;"></div>
+            </div>`);
             wrapper.css(options.posFrom);
             $(document.body).append(wrapper);
 
             // 禁止body滚动
             // 有滚动条的时候，加上右padding，防止页面抖动
-            if (window.innerWidth - document.body.clientWidth > 0) {
-                document.body.style.paddingRight = (window.innerWidth - document.body.clientWidth) + 'px';
+            let scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+            if (scrollbarWidth > 0) {
+                document.body.style.paddingRight = `${scrollbarWidth}px`;
             }
             document.body.style.overflowY = 'hidden';
 
@@ -474,14 +474,14 @@ module.exports = Magix.View.extend({
                     height = dialogOptions.height || vDialogOptions.height || 260;
 
                 let left, top, posFrom, posTo;
-                let winWidth = window.innerWidth,
-                    winHeight = window.innerHeight;
+                let clientWidth = document.documentElement.clientWidth,
+                    clientHeight = document.documentElement.clientHeight;
                 let target = dialogOptions.target || vDialogOptions.target;
                 if (!target) {
                     switch (placement) {
                         case 'center':
-                            left = (winWidth - width) / 2;
-                            top = Math.max((winHeight - height) / 2, 0);
+                            left = (clientWidth - width) / 2;
+                            top = Math.max((clientHeight - height) / 2, 0);
                             posFrom = {
                                 opacity: 0,
                                 top: '-50px'
@@ -492,12 +492,12 @@ module.exports = Magix.View.extend({
                             }
                             break;
                         case 'right':
-                            left = winWidth - width;
+                            left = clientWidth - width;
                             top = 0;
                             posFrom = {
                                 opacity: 0,
                                 top: 0,
-                                left: winWidth
+                                left: clientWidth
                             }
                             posTo = {
                                 opacity: 1,

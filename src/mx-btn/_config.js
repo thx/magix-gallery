@@ -20,7 +20,7 @@ let ProcessAttr = (attrs, style, ignores, className) => {
         }
     }
     if (!classAdded && className) {
-        attrStr += ' class="' + className + '"';
+        attrStr += ` class="${className}"`;
     }
     if (!styleAdded && style) {
         attrStr += ` style="${style}"`;
@@ -65,8 +65,7 @@ module.exports = {
             }
         }
 
-        styles = styles.join(';') + ';';
-        return `<a href="javascript:;" ${ProcessAttr(attrsKV, styles, {
+        return `<a href="javascript:;" ${ProcessAttr(attrsKV, styles.join(';'), {
             'tag-content': 1,
             'tag-color': 1,
             'content': 1,

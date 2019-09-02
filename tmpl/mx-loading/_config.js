@@ -20,14 +20,13 @@ let ProcessAttr = (attrs, style, ignores, className) => {
         }
     }
     if (!classAdded && className) {
-        attrStr += ' class="' + className + '"';
+        attrStr += ` class="${className}"`;
     }
     if (!styleAdded && style) {
         attrStr += ` style="${style}"`;
     }
     return attrStr;
 };
-
 module.exports = {
     'mx-loading'(i) {
         let { content, attrsKV } = i;

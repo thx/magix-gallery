@@ -1,3 +1,8 @@
+/**
+ * table场景
+ * 1. 一个view多个table
+ * 2. 多个table嵌套
+ */
 let $ = require('$');
 let Magix = require('magix');
 let Router = Magix.Router;
@@ -13,11 +18,18 @@ module.exports = {
             let locParams = Router.parse().params;
             let context = $('#' + me.id);
 
-            // 按照table区分，一个view可能多个table
+            // 按照table区分
+            // 1. 一个view可能多个table
+            // 2. view的子view还可能包含table
+            // =====================================
+            // 处理步骤
+            // 1. 先过滤出本view的table，不包含子view
+            // 2. 过滤出单个table的trigger
             let tables = context.find('[mx-view*="mx-table/index"]');
             tables.each((tIndex, t) => {
                 let tId = t.id;
-                if (t.vframe.pId == me.id) {
+                let pId = t.vframe ? t.vframe.pId : Magix.Vframe.get(tId).pId;
+                if (pId == me.id) {
                     t = $(t);
 
                     // 只处理本view的table + trigger
