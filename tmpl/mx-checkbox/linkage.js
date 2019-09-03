@@ -17,42 +17,38 @@ let FindNames = (node) => {
 let SyncState = (node, checkbox, name) => {
     let all = node.find('input[linkage=' + name + ']');
     let subs = node.find('input[linkage-parent=' + name + ']');
-    let indeterminate = false;
-    let noneChecked = false;
-
-    let toggle, checked;
+    let parentToggle, //是否为父节点触发变化 
+        parentChecked = all[0].checked; //父节点选中状态
     if (checkbox) {
-        toggle = (all[0] == checkbox);
-        checked = checkbox && checkbox.checked;
+        // 某个checkbox状态变化触发
+        // 判断为父节点还是子节点
+        parentToggle = (all[0] == checkbox);
     } else {
         // 默认由parent的初始化状态控制
-        toggle = all[0].checked;
-        checked = all[0].checked;
+        parentToggle = all[0].checked;
     }
-    let disabled = true;
+
+    let subLen = subs.length,
+        enabledLen= 0;
+        disabledLen = 0,
+        checkedLen = 0;
     subs.each((index, item) => {
         if (!item.disabled) {
-            if (toggle) {
-                item.checked = checked;
+            if (parentToggle) {
+                item.checked = parentChecked;
             }
             if (item.checked) {
-                indeterminate = true;
-            } else {
-                noneChecked = true;
+                checkedLen++;
             }
+            enabledLen++;
+        }else{
+            disabledLen++;
         }
-        disabled = disabled && item.disabled;
     });
 
-    all.prop('indeterminate', false);
-    if (indeterminate && !noneChecked) {
-        all.prop('checked', true);
-    } else if (noneChecked && !indeterminate) {
-        all.prop('checked', false);
-    } else if (indeterminate) {
-        all.prop('indeterminate', true);
-    }
-    all.prop('disabled', disabled);
+    all.prop('checked', (checkedLen == enabledLen) && (checkedLen > 0) && (enabledLen > 0));
+    all.prop('indeterminate', (checkedLen < enabledLen) && (checkedLen > 0) && (enabledLen > 0));
+    all.prop('disabled', (disabledLen == subLen || subs.length == 0));
 };
 let ApplyTableCheckbox = (node, checkbox) => {
     node = $(node);

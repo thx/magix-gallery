@@ -25,44 +25,37 @@ var FindNames = function (node) {
 var SyncState = function (node, checkbox, name) {
     var all = node.find('input[linkage=' + name + ']');
     var subs = node.find('input[linkage-parent=' + name + ']');
-    var indeterminate = false;
-    var noneChecked = false;
-    var toggle, checked;
+    var parentToggle, //是否为父节点触发变化 
+    parentChecked = all[0].checked; //父节点选中状态
     if (checkbox) {
-        toggle = (all[0] == checkbox);
-        checked = checkbox && checkbox.checked;
+        // 某个checkbox状态变化触发
+        // 判断为父节点还是子节点
+        parentToggle = (all[0] == checkbox);
     }
     else {
         // 默认由parent的初始化状态控制
-        toggle = all[0].checked;
-        checked = all[0].checked;
+        parentToggle = all[0].checked;
     }
-    var disabled = true;
+    var subLen = subs.length, enabledLen = 0;
+    disabledLen = 0,
+        checkedLen = 0;
     subs.each(function (index, item) {
         if (!item.disabled) {
-            if (toggle) {
-                item.checked = checked;
+            if (parentToggle) {
+                item.checked = parentChecked;
             }
             if (item.checked) {
-                indeterminate = true;
+                checkedLen++;
             }
-            else {
-                noneChecked = true;
-            }
+            enabledLen++;
         }
-        disabled = disabled && item.disabled;
+        else {
+            disabledLen++;
+        }
     });
-    all.prop('indeterminate', false);
-    if (indeterminate && !noneChecked) {
-        all.prop('checked', true);
-    }
-    else if (noneChecked && !indeterminate) {
-        all.prop('checked', false);
-    }
-    else if (indeterminate) {
-        all.prop('indeterminate', true);
-    }
-    all.prop('disabled', disabled);
+    all.prop('checked', (checkedLen == enabledLen) && (checkedLen > 0) && (enabledLen > 0));
+    all.prop('indeterminate', (checkedLen < enabledLen) && (checkedLen > 0) && (enabledLen > 0));
+    all.prop('disabled', (disabledLen == subLen || subs.length == 0));
 };
 var ApplyTableCheckbox = function (node, checkbox) {
     node = $(node);
