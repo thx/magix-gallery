@@ -250,19 +250,37 @@
                 </tr>
                 <tr>
                     <td>range</td>
-                    <td>数字范围<br/>range: [2, 8, 自定义提示文案（可选）]</td>
+                    <td>数字范围，包含边界，range: [a,b]， a &lt;= x &lt;= b <br/>range: [2, 8, 自定义提示文案（可选）]</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>rangeborder</td>
+                    <td>数字范围，不包含边界，rangeborder: [a,b]， a &lt; x &lt; b <br/>rangeborder: [2, 8, 自定义提示文案（可选）]</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>min</td>
-                    <td>不能小于某个数字<br/>min: 2<br/>min: [2, 自定义提示文案]</td>
+                    <td>大于等于某个数字，min: a，a &lt;= x<br/>min: 2<br/>min: [2, 自定义提示文案]</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>minborder</td>
+                    <td>大于某个数字，minborder: a，a &lt; x<br/>minborder: 2<br/>minborder: [2, 自定义提示文案]</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>max</td>
-                    <td>不能大于某个数字<br/>max: 8<br/>max: [8, 自定义提示文案]</td>
+                    <td>小于等于某个数字，max: b，x &lt;= b<br/>max: 8<br/>max: [8, 自定义提示文案]</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>maxborder</td>
+                    <td>小于某个数字，maxborder: b，x &lt; b<br/>maxborder: 8<br/>maxborder: [8, 自定义提示文案]</td>
                     <td></td>
                     <td></td>
                 </tr>

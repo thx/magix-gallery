@@ -531,7 +531,7 @@ module.exports = {
         };
     },
     range: function (val, rule) {
-        // 数字范围
+        // 数字范围，包括边界
         // range: [2,10,自定义提示]
         var valid = true;
         var min = rule[0], max = rule[1];
@@ -542,51 +542,114 @@ module.exports = {
         }
         return {
             valid: valid,
-            tip: tip.replace('${min}', min).replace('${max}', max)
+            tip: eval('`' + tip + '`')
+        };
+    },
+    rangeborder: function (val, rule) {
+        // 数字范围，不包括边界
+        // range: [2,10,自定义提示]
+        var valid = true;
+        var min = rule[0], max = rule[1];
+        var tip = rule[2] || I18n['form.check.range.border'];
+        val = $.trim(val);
+        if (val) {
+            valid = (+val > +min) && (+val < +max);
+        }
+        return {
+            valid: valid,
+            tip: eval('`' + tip + '`')
         };
     },
     max: function (val, rule) {
         // 数字最大值
         // max: [10,自定义]
         // max: 10
-        var valid = true, tip = I18n['form.max'] + ' ' + rule;
+        var valid = true, max, tip = I18n['form.max'];
+        if ($.isArray(rule)) {
+            max = rule[0];
+            if (rule[1]) {
+                tip = rule[1];
+            }
+        }
+        else {
+            max = rule;
+        }
         val = $.trim(val);
         if (val) {
-            if ($.isArray(rule)) {
-                valid = (+val <= +rule[0]);
-                if (rule[1]) {
-                    tip = rule[1];
-                }
-            }
-            else {
-                valid = (+val <= +rule);
-            }
+            valid = (+val <= +max);
         }
         return {
             valid: valid,
-            tip: tip
+            tip: eval('`' + tip + '`')
+        };
+    },
+    maxborder: function (val, rule) {
+        // 数字最大值，不包含边界
+        // max: [10,自定义]
+        // max: 10
+        var valid = true, max, tip = I18n['form.max.border'];
+        if ($.isArray(rule)) {
+            max = rule[0];
+            if (rule[1]) {
+                tip = rule[1];
+            }
+        }
+        else {
+            max = rule;
+        }
+        val = $.trim(val);
+        if (val) {
+            valid = (+val < +max);
+        }
+        return {
+            valid: valid,
+            tip: eval('`' + tip + '`')
         };
     },
     min: function (val, rule) {
-        // 数字最小值
+        // 数字最小值，包含边界
         // min: [10,自定义]
         // min: 10
-        var valid = true, tip = I18n['form.min'] + ' ' + rule;
+        var valid = true, min, tip = I18n['form.min'];
+        if ($.isArray(rule)) {
+            min = rule[0];
+            if (rule[1]) {
+                tip = rule[1];
+            }
+        }
+        else {
+            min = rule;
+        }
         val = $.trim(val);
         if (val) {
-            if ($.isArray(rule)) {
-                valid = (+val >= +rule[0]);
-                if (rule[1]) {
-                    tip = rule[1];
-                }
-            }
-            else {
-                valid = (+val >= +rule);
-            }
+            valid = (+val >= +min);
         }
         return {
             valid: valid,
-            tip: tip
+            tip: eval('`' + tip + '`')
+        };
+    },
+    minborder: function (val, rule) {
+        // 数字最小值，不包含边界
+        // min: [10,自定义]
+        // min: 10
+        var valid = true, min, tip = I18n['form.min.border'];
+        if ($.isArray(rule)) {
+            min = rule[0];
+            if (rule[1]) {
+                tip = rule[1];
+            }
+        }
+        else {
+            min = rule;
+        }
+        val = $.trim(val);
+        if (val) {
+            valid = (+val >= +min);
+        }
+        return {
+            valid: valid,
+            tip: eval('`' + tip + '`')
         };
     }
 };
