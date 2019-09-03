@@ -139,7 +139,7 @@ module.exports = Magix.View.extend({
         }
         node.addClass(cc);
         node.append(`<span class="@index.less:submit-loading">
-            <span class="@index.less:loading-dot"></span>
+            <span class="mx-btn-loading-dot"></span>
         </span>`);
 
         let me = this;

@@ -6,14 +6,20 @@
             name: '品牌色按钮',
             key: viewId + '_demo1'
         },{
+            name: '按钮loading',
+            key: viewId + '_demo6'
+        },{
+            name: '动态切换',
+            key: viewId + '_demo7'
+        },{
             name: '普通按钮',
             key: viewId + '_demo2'
         },{
-            name: '白色按钮',
-            key: viewId + '_demo3'
-        },{
             name: '禁用按钮',
             key: viewId + '_demo4'
+        },{
+            name: '白色按钮',
+            key: viewId + '_demo3'
         },{
             name: '自定义按钮',
             key: viewId + '_demo5'
@@ -27,12 +33,14 @@
     <div class="clearfix mb20">
         <div class="half">
             <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+            <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
             <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
+            <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+            <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
         </div>
         <div class="half">
-            <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
-            <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
-            <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
+            <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
+            <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
         </div>
     </div>
     

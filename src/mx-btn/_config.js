@@ -30,7 +30,7 @@ let ProcessAttr = (attrs, style, ignores, className) => {
 module.exports = {
     'mx-btn'(i) {
         let { content, attrsKV } = i;
-        let cont = attrsKV.content || content || '按钮';
+        let cont = attrsKV.content || content || '';
         // 自定义按钮颜色
         let color = attrsKV['color'] || '';
         let colorHover = attrsKV['color-hover'] || color;
@@ -46,17 +46,19 @@ module.exports = {
         if (attrsKV.small + '' === 'true') {
             classes.push('btn-small');
         }
-        if (attrsKV.disabled + '' === 'true') {
+
+        let disabled = (attrsKV.disabled + '' === 'true');
+        if (disabled) {
             classes.push('btn-disabled');
         } else {
             // 优先级，自定义颜色 > 预置颜色
-            if(color){
+            if (color) {
                 styles.push(`--mx-btn-custom-color: ${color}`);
                 styles.push(`--mx-btn-custom-color-text: ${colorText}`);
                 styles.push(`--mx-btn-custom-color-hover: ${colorHover}`);
                 styles.push(`--mx-btn-custom-color-hover-text: ${colorHoverText}`);
                 classes.push('mx-btn-custom');
-            }else{
+            } else {
                 if (attrsKV.brand + '' === 'true') {
                     classes.push('btn-brand');
                 } else if (attrsKV.white + '' === 'true') {
@@ -65,14 +67,26 @@ module.exports = {
             }
         }
 
-        return `<a href="javascript:;" ${ProcessAttr(attrsKV, styles.join(';'), {
+        let loading = attrsKV.loading || '';
+        let colorLoading = attrsKV['color-loading'] || '';
+        if(colorLoading){
+            styles.push(`--mx-btn-custom-color-loading: ${colorLoading}`);
+            classes.push('mx-btn-custom-loading');
+        }
+
+        return `<button type="button" ${ProcessAttr(attrsKV, styles.join(';'), {
+            'loading': 1,
+            'color': 1,
+            'color-hover': 1,
+            'color-text': 1,
+            'color-hover-text': 1,
             'tag-content': 1,
             'tag-color': 1,
             'content': 1,
             'brand': 1,
             'white': 1,
             'small': 1,
-            'disabled': 1
-        }, classes.join(' '))}>${cont}${!tagContent ? '' : ('<span class="mx-tag btn-tag" style="' + (!tagColor ? '' : ('background-color: ' + tagColor + ';')) + '"><span class="mx-tag-arrow btn-tag-arrow" style="' + (!tagColor ? '' : ('border-color: ' + tagColor + ' transparent transparent ' + tagColor + ';')) + '"></span><span class="mx-tag-name">' + tagContent + '</span></span>')}</a>`;
+            'disabled': disabled ? 0 : 1
+        }, classes.join(' '))}>${loading ? ('<span class="mx-btn-loading-' + loading + '"></span>') : ''}${cont}${!tagContent ? '' : ('<span class="mx-tag btn-tag" style="' + (!tagColor ? '' : ('background-color: ' + tagColor + ';')) + '"><span class="mx-tag-arrow btn-tag-arrow" style="' + (!tagColor ? '' : ('border-color: ' + tagColor + ' transparent transparent ' + tagColor + ';')) + '"></span><span class="mx-tag-name">' + tagContent + '</span></span>')}</button>`
     }
 };

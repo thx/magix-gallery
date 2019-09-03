@@ -7,5 +7,8 @@ module.exports = Base.extend({
     tmpl: '@4.html',
     render() {
         this.updater.digest();
+    },
+    'test<click>'(e){
+        console.log('click')
     }
 });

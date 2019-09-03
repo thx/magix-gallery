@@ -76,11 +76,11 @@ module.exports = Magix.View.extend({
     $line = 6;
     $art = '=content';
     ;
-    $p += ($expr = '<%=content%>', $e(content)) + '" mx-keyup="' + $viewId + '@{out}()" mx-focusout="' + $viewId + '@{out}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()"/><div mxa="_zs_gallerybv:_" class="_zs_gallery_mx-editor_index_-editor-content">';
+    $p += ($expr = '<%=content%>', $e(content)) + '" mx-keyup="' + $viewId + '@{out}()" mx-focusout="' + $viewId + '@{out}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()"/><div mxa="_zs_gallerybw:_" class="_zs_gallery_mx-editor_index_-editor-content">';
     $line = 13;
     $art = '!dis';
     ;
-    $p += ($expr = '<%!dis%>', $n(dis)) + '<i mxs="_zs_gallerybv:_" class="mc-iconfont operations _zs_gallery_mx-editor_index_-editor-oper" mx-click="' + $viewId + '@{show}()">&#xe698;</i></div></div>';
+    $p += ($expr = '<%!dis%>', $n(dis)) + '<i mxs="_zs_gallerybw:_" class="mc-iconfont operations _zs_gallery_mx-editor_index_-editor-oper" mx-click="' + $viewId + '@{show}()">&#xe698;</i></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

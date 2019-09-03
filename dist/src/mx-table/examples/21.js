@@ -42,7 +42,7 @@ module.exports = Base.extend({
     $line = 11;
     $art = '=selected';
     ;
-    $p += ($expr = '<%!$eu(selected)%>', $eu(selected)) + '"><div mxs="_zs_galleryeJ:_" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+    $p += ($expr = '<%!$eu(selected)%>', $eu(selected)) + '"><div mxs="_zs_galleryeK:_" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

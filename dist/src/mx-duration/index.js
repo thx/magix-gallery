@@ -50,11 +50,11 @@ module.exports = Magix.View.extend({
         $line = 4;
         $art = '=hoverInfo.left';
         ;
-        $p += ($expr = '<%=hoverInfo.left%>', $e(hoverInfo.left)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-hover mx-shadow"><div mxa="_zs_gallerybo:_" class="mb5">';
+        $p += ($expr = '<%=hoverInfo.left%>', $e(hoverInfo.left)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-hover mx-shadow"><div mxa="_zs_gallerybp:_" class="mb5">';
         $line = 6;
         $art = '=hoverInfo.week';
         ;
-        $p += ($expr = '<%=hoverInfo.week%>', $e(hoverInfo.week)) + '</div><div mxa="_zs_gallerybo:a" class="mb5"><strong>';
+        $p += ($expr = '<%=hoverInfo.week%>', $e(hoverInfo.week)) + '</div><div mxa="_zs_gallerybp:a" class="mb5"><strong>';
         $line = 7;
         $art = '=hoverInfo.time';
         ;
@@ -114,15 +114,15 @@ module.exports = Magix.View.extend({
         $line = 20;
         $art = '=settingInfo.left';
         ;
-        $p += ($expr = '<%=settingInfo.left%>', $e(settingInfo.left)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-setting mx-shadow"><div mxv mxa="_zs_gallerybo:b" class="_zs_gallery_mx-duration_index_-setting-content"><div mxa="_zs_gallerybo:c" class="mb10"><span>';
+        $p += ($expr = '<%=settingInfo.left%>', $e(settingInfo.left)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-setting mx-shadow"><div mxv mxa="_zs_gallerybp:b" class="_zs_gallery_mx-duration_index_-setting-content"><div mxa="_zs_gallerybp:c" class="mb10"><span>';
         $line = 24;
         $art = '=settingInfo.week';
         ;
-        $p += ($expr = '<%=settingInfo.week%>', $e(settingInfo.week)) + '</span>：<strong mxa="_zs_gallerybo:d" class="ml5">';
+        $p += ($expr = '<%=settingInfo.week%>', $e(settingInfo.week)) + '</span>：<strong mxa="_zs_gallerybp:d" class="ml5">';
         $line = 25;
         $art = '=settingInfo.time';
         ;
-        $p += ($expr = '<%=settingInfo.time%>', $e(settingInfo.time)) + '</strong></div><div mxv mxa="_zs_gallerybo:e" class="mb5"><label mxv><input type="radio" class="radio" name="settingType" value="1" mx-change="' + $viewId + 'changeSettingType({type:1})" ';
+        $p += ($expr = '<%=settingInfo.time%>', $e(settingInfo.time)) + '</strong></div><div mxv mxa="_zs_gallerybp:e" class="mb5"><label mxv><input type="radio" class="radio" name="settingType" value="1" mx-change="' + $viewId + 'changeSettingType({type:1})" ';
         $line = 31;
         $art = 'if settingInfo.type == 1';
         ;
@@ -170,7 +170,7 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '<span mxs="_zs_gallerybo:_" class="ml5">%</span></div><div mxv mxa="_zs_gallerybo:f" class="mb10"><label mxv><input type="radio" name="settingType" class="radio" value="2" mx-change="' + $viewId + 'changeSettingType({type:2})" ';
+        $p += '<span mxs="_zs_gallerybp:_" class="ml5">%</span></div><div mxv mxa="_zs_gallerybp:f" class="mb10"><label mxv><input type="radio" name="settingType" class="radio" value="2" mx-change="' + $viewId + 'changeSettingType({type:2})" ';
         $line = 48;
         $art = 'if settingInfo.type == 2';
         ;
@@ -184,7 +184,7 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '/>无折扣</label></div><div mxv mxa="_zs_gallerybo:g" class="mb10"><label mxv><input type="radio" name="settingType" class="radio" value="3" mx-change="' + $viewId + 'changeSettingType({type:3})" ';
+        $p += '/>无折扣</label></div><div mxv mxa="_zs_gallerybp:g" class="mb10"><label mxv><input type="radio" name="settingType" class="radio" value="3" mx-change="' + $viewId + 'changeSettingType({type:3})" ';
         $line = 55;
         $art = 'if settingInfo.type == 3';
         ;
@@ -198,7 +198,7 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '/>不投放</label></div></div><div mxs="_zs_gallerybo:a" class="_zs_gallery_mx-duration_index_-setting-footer"><a class="btn btn-small btn-brand mr10 w60" href="javascript:;" mx-click="' + $viewId + 'submitSetting()">确定</a><a class="btn btn-small w60" href="javascript:;" mx-click="' + $viewId + 'cancelSetting()">取消</a></div></div>';
+        $p += '/>不投放</label></div></div><div mxs="_zs_gallerybp:a" class="_zs_gallery_mx-duration_index_-setting-footer"><a class="btn btn-small btn-brand mr10 w60" href="javascript:;" mx-click="' + $viewId + 'submitSetting()">确定</a><a class="btn btn-small w60" href="javascript:;" mx-click="' + $viewId + 'cancelSetting()">取消</a></div></div>';
         $line = 64;
         $art = '/if';
         ;
@@ -229,9 +229,9 @@ module.exports = Magix.View.extend({
     $line = 70;
     $art = 'each weeks as week';
     ;
-    $expr = '<%for (var $art_iwjmgrgkh$art_i = 0, $art_cakjmw$art_c = weeks.length; $art_iwjmgrgkh$art_i < $art_cakjmw$art_c; $art_iwjmgrgkh$art_i++) {    var week = weeks[$art_iwjmgrgkh$art_i]%>';
-    for (var $art_iwjmgrgkh$art_i = 0, $art_cakjmw$art_c = weeks.length; $art_iwjmgrgkh$art_i < $art_cakjmw$art_c; $art_iwjmgrgkh$art_i++) {
-        var week = weeks[$art_iwjmgrgkh$art_i];
+    $expr = '<%for (var $art_ieqhqrqbk$art_i = 0, $art_cgiwwxqcmug$art_c = weeks.length; $art_ieqhqrqbk$art_i < $art_cgiwwxqcmug$art_c; $art_ieqhqrqbk$art_i++) {    var week = weeks[$art_ieqhqrqbk$art_i]%>';
+    for (var $art_ieqhqrqbk$art_i = 0, $art_cgiwwxqcmug$art_c = weeks.length; $art_ieqhqrqbk$art_i < $art_cgiwwxqcmug$art_c; $art_ieqhqrqbk$art_i++) {
+        var week = weeks[$art_ieqhqrqbk$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-week-item" style="height: ';
         $line = 71;
         $art = '=boxHeight';
@@ -255,13 +255,13 @@ module.exports = Magix.View.extend({
     $line = 74;
     $art = '=boxWidth*rowNum';
     ;
-    $p += ($expr = '<%=boxWidth * rowNum%>', $e(boxWidth * rowNum)) + 'px;"><ul mxa="_zs_gallerybo:h" class="_zs_gallery_mx-duration_index_-range clearfix">';
+    $p += ($expr = '<%=boxWidth * rowNum%>', $e(boxWidth * rowNum)) + 'px;"><ul mxa="_zs_gallerybp:h" class="_zs_gallery_mx-duration_index_-range clearfix">';
     $line = 76;
     $art = 'each ranges as range';
     ;
-    $expr = '<%for (var $art_ixcladqh$art_i = 0, $art_cqncqqfp$art_c = ranges.length; $art_ixcladqh$art_i < $art_cqncqqfp$art_c; $art_ixcladqh$art_i++) {    var range = ranges[$art_ixcladqh$art_i]%>';
-    for (var $art_ixcladqh$art_i = 0, $art_cqncqqfp$art_c = ranges.length; $art_ixcladqh$art_i < $art_cqncqqfp$art_c; $art_ixcladqh$art_i++) {
-        var range = ranges[$art_ixcladqh$art_i];
+    $expr = '<%for (var $art_isntetihlh$art_i = 0, $art_cgtztsnygj$art_c = ranges.length; $art_isntetihlh$art_i < $art_cgtztsnygj$art_c; $art_isntetihlh$art_i++) {    var range = ranges[$art_isntetihlh$art_i]%>';
+    for (var $art_isntetihlh$art_i = 0, $art_cgtztsnygj$art_c = ranges.length; $art_isntetihlh$art_i < $art_cgtztsnygj$art_c; $art_isntetihlh$art_i++) {
+        var range = ranges[$art_isntetihlh$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-range-item" style="width: ';
         $line = 77;
         $art = '=(boxWidth*(rowNum/4))';
@@ -285,7 +285,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</ul><ul mxa="_zs_gallerybo:i" class="_zs_gallery_mx-duration_index_-time clearfix">';
+    $p += '</ul><ul mxa="_zs_gallerybp:i" class="_zs_gallery_mx-duration_index_-time clearfix">';
     $line = 81;
     $art = 'for (let i=0;i<24;i+=1)';
     ;
@@ -315,13 +315,13 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</ul><ul mxa="_zs_gallerybo:j" class="_zs_gallery_mx-duration_index_-boxzone clearfix">';
+    $p += '</ul><ul mxa="_zs_gallerybp:j" class="_zs_gallery_mx-duration_index_-boxzone clearfix">';
     $line = 86;
     $art = 'each boxZones as zone';
     ;
-    $expr = '<%for (var $art_izelmjfpx$art_i = 0, $art_ctqpuxbod$art_c = boxZones.length; $art_izelmjfpx$art_i < $art_ctqpuxbod$art_c; $art_izelmjfpx$art_i++) {    var zone = boxZones[$art_izelmjfpx$art_i]%>';
-    for (var $art_izelmjfpx$art_i = 0, $art_ctqpuxbod$art_c = boxZones.length; $art_izelmjfpx$art_i < $art_ctqpuxbod$art_c; $art_izelmjfpx$art_i++) {
-        var zone = boxZones[$art_izelmjfpx$art_i];
+    $expr = '<%for (var $art_ihkxeidx$art_i = 0, $art_crmapqsbqm$art_c = boxZones.length; $art_ihkxeidx$art_i < $art_crmapqsbqm$art_c; $art_ihkxeidx$art_i++) {    var zone = boxZones[$art_ihkxeidx$art_i]%>';
+    for (var $art_ihkxeidx$art_i = 0, $art_crmapqsbqm$art_c = boxZones.length; $art_ihkxeidx$art_i < $art_crmapqsbqm$art_c; $art_ihkxeidx$art_i++) {
+        var zone = boxZones[$art_ihkxeidx$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-box fl" style="width: ';
         $line = 88;
         $art = '=boxWidth';
@@ -353,7 +353,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</ul></div></div><div mxs="_zs_gallerybo:b" class="pt10 pb10 clearfix"><a class="btn btn-small mr10 fl" href="javascript:;" mx-click="' + $viewId + 'clear()">清空</a><a class="btn btn-small mr10 fl" href="javascript:;" mx-click="' + $viewId + 'reset()">重置</a><span class="fr lh28 color-c"><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(97,199,242,0.7)"></span><span class="font-tahoma bold color-c mr15">30-100%</span><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(77,166,255,0.7)"></span><span class="font-tahoma bold color-c mr15">100-200%</span><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(134,115,230,0.7)"></span><span class="font-tahoma bold color-c mr15">200-250%</span><i class="mc-iconfont displacement-2">&#xe705;</i><span class="mr10">可以拖拽鼠标选择投放时段</span></span></div></div>';
+    $p += '</ul></div></div><div mxs="_zs_gallerybp:b" class="pt10 pb10 clearfix"><a class="btn btn-small mr10 fl" href="javascript:;" mx-click="' + $viewId + 'clear()">清空</a><a class="btn btn-small mr10 fl" href="javascript:;" mx-click="' + $viewId + 'reset()">重置</a><span class="fr lh28 color-c"><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(97,199,242,0.7)"></span><span class="font-tahoma bold color-c mr15">30-100%</span><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(77,166,255,0.7)"></span><span class="font-tahoma bold color-c mr15">100-200%</span><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(134,115,230,0.7)"></span><span class="font-tahoma bold color-c mr15">200-250%</span><i class="mc-iconfont displacement-2">&#xe705;</i><span class="mr10">可以拖拽鼠标选择投放时段</span></span></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -10,7 +10,7 @@ var Magix = require("magix");
 var $ = require("$");
 var Vframe = Magix.Vframe;
 var I18n = require("../mx-medusa/util");
-Magix.applyStyle("_zs_gallery_mx-dialog_index_","._zs_gallery_mx-dialog_index_-dialog-backdrop,\n._zs_gallery_mx-dialog_index_-dialog-wrapper {\n  position: fixed;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop {\n  opacity: 0;\n  top: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop._zs_gallery_mx-dialog_index_-backdrop-out {\n  opacity: 1;\n}\n._zs_gallery_mx-dialog_index_-dialog {\n  position: absolute;\n  border-radius: var(--border-radius);\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-content {\n  position: relative;\n  word-break: break-all;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  width: 26px;\n  height: 26px;\n  z-index: 101;\n  border-radius: 50%;\n  background: transparent;\n  color: #ccc;\n  text-align: center;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close ._zs_gallery_mx-dialog_index_-iconfont-ext {\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 26px;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:hover,\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:focus {\n  background-color: #999;\n  color: #fff;\n}\n._zs_gallery_mx-dialog_index_-dialog._zs_gallery_mx-dialog_index_-full {\n  border-radius: 0;\n}\n/**\n * 按钮中间的loading点动画\n */\n@-webkit-keyframes _zs_gallery_mx-dialog_index_-loading-dots {\n  0% {\n    transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, 2px);\n  }\n  50% {\n    transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, -2px);\n  }\n  100% {\n    transform: translate(0, 0);\n  }\n}\n@keyframes _zs_gallery_mx-dialog_index_-loading-dots {\n  0% {\n    transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, 2px);\n  }\n  50% {\n    transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, -2px);\n  }\n  100% {\n    transform: translate(0, 0);\n  }\n}\n@-webkit-keyframes _zs_gallery_mx-dialog_index_-loading-dots-rev {\n  0% {\n    transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -2px);\n  }\n  50% {\n    transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, 2px);\n  }\n  100% {\n    transform: translate(0, 0);\n  }\n}\n@keyframes _zs_gallery_mx-dialog_index_-loading-dots-rev {\n  0% {\n    transform: translate(0, 0);\n  }\n  25% {\n    transform: translate(0, -2px);\n  }\n  50% {\n    transform: translate(0, 0);\n  }\n  75% {\n    transform: translate(0, 2px);\n  }\n  100% {\n    transform: translate(0, 0);\n  }\n}\n._zs_gallery_mx-dialog_index_-loading-dot,\n._zs_gallery_mx-dialog_index_-loading-dot:after,\n._zs_gallery_mx-dialog_index_-loading-dot:before {\n  display: inline-block;\n  width: 4px;\n  height: 4px;\n  background-color: white;\n  vertical-align: middle;\n  border-radius: 50%;\n}\n._zs_gallery_mx-dialog_index_-loading-dot {\n  position: relative;\n  margin: 0 8px;\n}\n._zs_gallery_mx-dialog_index_-loading-dot:after {\n  content: ' ';\n  position: absolute;\n  left: -8px;\n  top: 0;\n  -webkit-animation: _zs_gallery_mx-dialog_index_-loading-dots 0.6s linear 0s infinite;\n          animation: _zs_gallery_mx-dialog_index_-loading-dots 0.6s linear 0s infinite;\n}\n._zs_gallery_mx-dialog_index_-loading-dot:before {\n  content: ' ';\n  position: absolute;\n  left: 8px;\n  top: 0;\n  -webkit-animation: _zs_gallery_mx-dialog_index_-loading-dots-rev 0.6s linear 0s infinite;\n          animation: _zs_gallery_mx-dialog_index_-loading-dots-rev 0.6s linear 0s infinite;\n}\n._zs_gallery_mx-dialog_index_-btn-submit {\n  position: relative;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 1;\n  position: relative;\n  z-index: 1;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: none;\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: inline;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-dialog_index_","._zs_gallery_mx-dialog_index_-dialog-backdrop,\n._zs_gallery_mx-dialog_index_-dialog-wrapper {\n  position: fixed;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop {\n  opacity: 0;\n  top: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop._zs_gallery_mx-dialog_index_-backdrop-out {\n  opacity: 1;\n}\n._zs_gallery_mx-dialog_index_-dialog {\n  position: absolute;\n  border-radius: var(--border-radius);\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-content {\n  position: relative;\n  word-break: break-all;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  width: 26px;\n  height: 26px;\n  z-index: 101;\n  border-radius: 50%;\n  background: transparent;\n  color: #ccc;\n  text-align: center;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close ._zs_gallery_mx-dialog_index_-iconfont-ext {\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 26px;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:hover,\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:focus {\n  background-color: #999;\n  color: #fff;\n}\n._zs_gallery_mx-dialog_index_-dialog._zs_gallery_mx-dialog_index_-full {\n  border-radius: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit {\n  position: relative;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 1;\n  position: relative;\n  z-index: 1;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: none;\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: inline;\n}\n");
 var DialogZIndex = 99999;
 var Duration = 250;
 var CacheList = [];
@@ -42,7 +42,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (closable) {%>';
     if (closable) {
         ;
-        $p += '<a mxs="_zs_gallerya4:_" href="javascript:;" mx-click="' + $viewId + '@{close}()" class="_zs_gallery_mx-dialog_index_-dialog-close"><i class="mc-iconfont _zs_gallery_mx-dialog_index_-iconfont-ext">&#xe603;</i></a>';
+        $p += '<a mxs="_zs_gallerya5:_" href="javascript:;" mx-click="' + $viewId + '@{close}()" class="_zs_gallery_mx-dialog_index_-dialog-close"><i class="mc-iconfont _zs_gallery_mx-dialog_index_-iconfont-ext">&#xe603;</i></a>';
         $line = 5;
         $art = '/if';
         ;
@@ -71,7 +71,7 @@ module.exports = Magix.View.extend({
             $line = 11;
             $art = '=cntId';
             ;
-            $p += ($expr = '<%=cntId%>', $e(cntId)) + '_header"><span mxa="_zs_gallerya4:_" class="header-name">';
+            $p += ($expr = '<%=cntId%>', $e(cntId)) + '_header"><span mxa="_zs_gallerya5:_" class="header-name">';
             $line = 12;
             $art = '!fullHeader.title';
             ;
@@ -100,7 +100,7 @@ module.exports = Magix.View.extend({
             $expr = '<%if (fullHeader.tip) {%>';
             if (fullHeader.tip) {
                 ;
-                $p += '<span mxa="_zs_gallerya4:a" class="color-9 ml10">';
+                $p += '<span mxa="_zs_gallerya5:a" class="color-9 ml10">';
                 $line = 21;
                 $art = '!fullHeader.tip';
                 ;
@@ -122,7 +122,7 @@ module.exports = Magix.View.extend({
         $line = 26;
         $art = '=cntId';
         ;
-        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_gallerya4:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_gallerya5:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
         $line = 32;
         $art = 'if (fullFooter.enter || fullFooter.cancel)';
         ;
@@ -140,7 +140,7 @@ module.exports = Magix.View.extend({
             $expr = '<%if (fullFooter.enter) {%>';
             if (fullFooter.enter) {
                 ;
-                $p += '<a mxa="_zs_gallerya4:b" href="javascript:;" class="fl btn btn-brand min-width-60 mr10 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_gallerya4:c" class="_zs_gallery_mx-dialog_index_-submit-text">';
+                $p += '<a mxa="_zs_gallerya5:b" href="javascript:;" class="fl btn btn-brand min-width-60 mr10 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_gallerya5:c" class="_zs_gallery_mx-dialog_index_-submit-text">';
                 $line = 36;
                 $art = '!fullFooter.enterText';
                 ;
@@ -158,7 +158,7 @@ module.exports = Magix.View.extend({
             $expr = '<%if (fullFooter.cancel) {%>';
             if (fullFooter.cancel) {
                 ;
-                $p += '<a mxa="_zs_gallerya4:d" href="javascript:;" class="fl btn min-width-60 mr10" mx-click="' + $viewId + '@{close}()">';
+                $p += '<a mxa="_zs_gallerya5:d" href="javascript:;" class="fl btn min-width-60 mr10" mx-click="' + $viewId + '@{close}()">';
                 $line = 41;
                 $art = '!fullFooter.cancelText';
                 ;
@@ -206,7 +206,7 @@ module.exports = Magix.View.extend({
         $line = 51;
         $art = '=cntId';
         ;
-        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_gallerya4:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_gallerya5:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
         $line = 54;
         $art = '/if';
         ;
@@ -324,7 +324,7 @@ catch (ex) {
             return;
         }
         node.addClass(cc);
-        node.append("<span class=\"_zs_gallery_mx-dialog_index_-submit-loading\">\n            <span class=\"_zs_gallery_mx-dialog_index_-loading-dot\"></span>\n        </span>");
+        node.append("<span class=\"_zs_gallery_mx-dialog_index_-submit-loading\">\n            <span class=\"mx-btn-loading-dot\"></span>\n        </span>");
         var me = this;
         var data = me.updater.get();
         var cntId = data.cntId;

@@ -42,11 +42,11 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><span mxa="_zs_gallerybk:_" class="mx-trigger-label">';
+    $p += '"><span mxa="_zs_gallerybl:_" class="mx-trigger-label">';
     $line = 2;
     $art = '!selectedText';
     ;
-    $p += ($expr = '<%!selectedText%>', $n(selectedText)) + '</span><span mxs="_zs_gallerybk:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
+    $p += ($expr = '<%!selectedText%>', $n(selectedText)) + '</span><span mxs="_zs_gallerybl:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
     $line = 5;
     $art = '=viewId';
     ;
@@ -114,7 +114,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (searchbox) {%>';
         if (searchbox) {
             ;
-            $p += '<div mxv mxa="_zs_gallerybk:a" class="mx-output-search"><div mxv class="search-box" style="';
+            $p += '<div mxv mxa="_zs_gallerybl:a" class="mx-output-search"><div mxv class="search-box" style="';
             $line = 10;
             $art = 'if over';
             ;
@@ -136,7 +136,7 @@ module.exports = Magix.View.extend({
                 $expr = '<%}%>';
             }
             ;
-            $p += '"><i mxs="_zs_gallerybk:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+            $p += '"><i mxs="_zs_gallerybl:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
             $line = 13;
             $art = '=text.search';
             ;
@@ -151,7 +151,7 @@ module.exports = Magix.View.extend({
             $expr = '<%if (max > 0 && over) {%>';
             if (max > 0 && over) {
                 ;
-                $p += '<span mxa="_zs_gallerybk:b" class="ml10"><span mxs="_zs_gallerybk:b" class="color-9">已选：</span><span mxa="_zs_gallerybk:c" class="font-tahoma bold">';
+                $p += '<span mxa="_zs_gallerybl:b" class="ml10"><span mxs="_zs_gallerybl:b" class="color-9">已选：</span><span mxa="_zs_gallerybl:c" class="font-tahoma bold">';
                 $line = 24;
                 $art = '=imme.length';
                 ;
@@ -245,7 +245,7 @@ module.exports = Magix.View.extend({
                     $expr = '<%}%>';
                 }
                 ;
-                $p += '><span mxs="_zs_gallerybk:b" class="color-9">已选：</span><span mxa="_zs_gallerybk:d" class="font-tahoma bold">';
+                $p += '><span mxs="_zs_gallerybl:b" class="color-9">已选：</span><span mxa="_zs_gallerybl:d" class="font-tahoma bold">';
                 $line = 39;
                 $art = '=imme.length';
                 ;
@@ -286,8 +286,8 @@ module.exports = Magix.View.extend({
             $line = 46;
             $art = 'each groups as group groupIndex';
             ;
-            $expr = '<%for (var groupIndex = 0, $art_czjflywpn$art_c = groups.length; groupIndex < $art_czjflywpn$art_c; groupIndex++) {            var group = groups[groupIndex]%>';
-            for (var groupIndex = 0, $art_czjflywpn$art_c = groups.length; groupIndex < $art_czjflywpn$art_c; groupIndex++) {
+            $expr = '<%for (var groupIndex = 0, $art_cznacezigl$art_c = groups.length; groupIndex < $art_cznacezigl$art_c; groupIndex++) {            var group = groups[groupIndex]%>';
+            for (var groupIndex = 0, $art_cznacezigl$art_c = groups.length; groupIndex < $art_cznacezigl$art_c; groupIndex++) {
                 var group = groups[groupIndex];
                 $p += ' ';
                 $line = 47;
@@ -303,11 +303,11 @@ module.exports = Magix.View.extend({
                     $expr = '<%if (group.all) {%>';
                     if (group.all) {
                         ;
-                        $p += '<div mxa="_zs_gallerybk:e" class="clearfix"><div title="';
+                        $p += '<div mxa="_zs_gallerybl:e" class="clearfix"><div title="';
                         $line = 50;
                         $art = '=group.text';
                         ;
-                        $p += ($expr = '<%=group.text%>', $e(group.text)) + '" class="mx-output-item _zs_gallery_mx-dropdown_index_-dropdown-group-item"><label mxa="_zs_gallerybk:f" class="mx-output-link"><span mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{checkGroup}({groupIndex:\'';
+                        $p += ($expr = '<%=group.text%>', $e(group.text)) + '" class="mx-output-item _zs_gallery_mx-dropdown_index_-dropdown-group-item"><label mxa="_zs_gallerybl:f" class="mx-output-link"><span mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{checkGroup}({groupIndex:\'';
                         $line = 57;
                         $art = '=groupIndex';
                         ;
@@ -361,13 +361,13 @@ module.exports = Magix.View.extend({
                     $expr = '<%}%>';
                 }
                 ;
-                $p += '<div mxv mxa="_zs_gallerybk:g" class="clearfix _zs_gallery_mx-dropdown_index_-dropdown-group-wrapper">';
+                $p += '<div mxv mxa="_zs_gallerybl:g" class="clearfix _zs_gallery_mx-dropdown_index_-dropdown-group-wrapper">';
                 $line = 67;
                 $art = 'each group.list as item';
                 ;
-                $expr = '<%for (var $art_irontcwo$art_i = 0, $art_objlxkuuj$art_obj = group.list, $art_cbefhsl$art_c = $art_objlxkuuj$art_obj.length; $art_irontcwo$art_i < $art_cbefhsl$art_c; $art_irontcwo$art_i++) {                var item = $art_objlxkuuj$art_obj[$art_irontcwo$art_i]%>';
-                for (var $art_irontcwo$art_i = 0, $art_objlxkuuj$art_obj = group.list, $art_cbefhsl$art_c = $art_objlxkuuj$art_obj.length; $art_irontcwo$art_i < $art_cbefhsl$art_c; $art_irontcwo$art_i++) {
-                    var item = $art_objlxkuuj$art_obj[$art_irontcwo$art_i];
+                $expr = '<%for (var $art_iimypjai$art_i = 0, $art_objvdrgsr$art_obj = group.list, $art_ccqgjarm$art_c = $art_objvdrgsr$art_obj.length; $art_iimypjai$art_i < $art_ccqgjarm$art_c; $art_iimypjai$art_i++) {                var item = $art_objvdrgsr$art_obj[$art_iimypjai$art_i]%>';
+                for (var $art_iimypjai$art_i = 0, $art_objvdrgsr$art_obj = group.list, $art_ccqgjarm$art_c = $art_objvdrgsr$art_obj.length; $art_iimypjai$art_i < $art_ccqgjarm$art_c; $art_iimypjai$art_i++) {
+                    var item = $art_objvdrgsr$art_obj[$art_iimypjai$art_i];
                     $p += ' ';
                     $line = 68;
                     $art = 'if !item.hide';
@@ -468,7 +468,7 @@ module.exports = Magix.View.extend({
         }
         else {
             ;
-            $p += '<div mxa="_zs_gallerybk:h" class="text-center color-9 pt20 pb20">';
+            $p += '<div mxa="_zs_gallerybl:h" class="text-center color-9 pt20 pb20">';
             $line = 86;
             $art = '=text.empty';
             ;
@@ -479,11 +479,11 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '<div mxa="_zs_gallerybk:i" class="mx-output-footer"><div><a mxa="_zs_gallerybk:j" href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}({enter:true})">';
+        $p += '<div mxa="_zs_gallerybl:i" class="mx-output-footer"><div><a mxa="_zs_gallerybl:j" href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="' + $viewId + '@{submit}({enter:true})">';
         $line = 90;
         $art = '=text.submit';
         ;
-        $p += ($expr = '<%=text.submit%>', $e(text.submit)) + '</a><a mxa="_zs_gallerybk:k" href="javascript:;" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
+        $p += ($expr = '<%=text.submit%>', $e(text.submit)) + '</a><a mxa="_zs_gallerybl:k" href="javascript:;" class="btn btn-small" mx-click="' + $viewId + '@{hide}()">';
         $line = 91;
         $art = '=text.cancel';
         ;
@@ -494,7 +494,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (errMsg) {%>';
         if (errMsg) {
             ;
-            $p += '<div mxa="_zs_gallerybk:l" class="color-red mt10"><i mxs="_zs_gallerybk:c" class="mc-iconfont displacement-2">&#xe6ad;</i>';
+            $p += '<div mxa="_zs_gallerybl:l" class="color-red mt10"><i mxs="_zs_gallerybl:c" class="mc-iconfont displacement-2">&#xe6ad;</i>';
             $line = 96;
             $art = '!errMsg';
             ;

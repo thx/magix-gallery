@@ -30,9 +30,9 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_inxitwllfs$art_i = 0, $art_ckuiowfkqrl$art_c = list.length; $art_inxitwllfs$art_i < $art_ckuiowfkqrl$art_c; $art_inxitwllfs$art_i++) {    var item = list[$art_inxitwllfs$art_i]%>';
-    for (var $art_inxitwllfs$art_i = 0, $art_ckuiowfkqrl$art_c = list.length; $art_inxitwllfs$art_i < $art_ckuiowfkqrl$art_c; $art_inxitwllfs$art_i++) {
-        var item = list[$art_inxitwllfs$art_i];
+    $expr = '<%for (var $art_izpdxkte$art_i = 0, $art_cbjokqtee$art_c = list.length; $art_izpdxkte$art_i < $art_cbjokqtee$art_c; $art_izpdxkte$art_i++) {    var item = list[$art_izpdxkte$art_i]%>';
+    for (var $art_izpdxkte$art_i = 0, $art_cbjokqtee$art_c = list.length; $art_izpdxkte$art_i < $art_cbjokqtee$art_c; $art_izpdxkte$art_i++) {
+        var item = list[$art_izpdxkte$art_i];
         $p += '<div class="_zs_gallery_mx-preview_examples_index_-demo" mx-view="mx-preview/index?type=image&url=';
         $line = 5;
         $art = '=item';

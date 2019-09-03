@@ -22,10 +22,20 @@ module.exports = Magix.View.extend({
             type: 'boolean',
             def: 'false'
         }, {
+            key: 'disabled',
+            desc: '是否禁用',
+            type: 'boolean',
+            def: 'false'
+        }, {
             key: 'small',
             desc: '是否为小号尺寸按钮',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'loading',
+            desc: 'loading状态，可选dot（三点），circle（圆形转圈）',
+            type: 'string',
+            def: ''
         }, {
             key: 'color',
             desc: '按钮背景颜色',

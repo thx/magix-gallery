@@ -43,15 +43,15 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><span mxa="_zs_gallerybj:_" class="mx-trigger-label">';
+    $p += '"><span mxa="_zs_gallerybk:_" class="mx-trigger-label">';
     $expr = '<%if (name) {%>';
     if (name) {
         ;
-        $p += '<span mxa="_zs_gallerybj:a" class="color-9">' + ($expr = '<%=name%>', $e(name)) + '：</span>';
+        $p += '<span mxa="_zs_gallerybk:a" class="color-9">' + ($expr = '<%=name%>', $e(name)) + '：</span>';
         $expr = '<%}%>';
     }
     ;
-    $p += '<span mxa="_zs_gallerybj:b" class="_zs_gallery_mx-dropdown_index_-selected-text">' + ($expr = '<%!selectedText%>', $n(selectedText)) + '</span></span><span mxs="_zs_gallerybj:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
+    $p += '<span mxa="_zs_gallerybk:b" class="_zs_gallery_mx-dropdown_index_-selected-text">' + ($expr = '<%!selectedText%>', $n(selectedText)) + '</span></span><span mxs="_zs_gallerybk:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
     $line = 9;
     $art = '=viewId';
     ;
@@ -71,7 +71,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (searchbox) {%>';
         if (searchbox) {
             ;
-            $p += '<div mxv mxa="_zs_gallerybj:c" class="mx-output-search"><div mxv mxa="_zs_gallerybj:d" class="search-box" style="width: 100%;"><i mxs="_zs_gallerybj:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="' + ($expr = '<%=text.search%>', $e(text.search)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
+            $p += '<div mxv mxa="_zs_gallerybk:c" class="mx-output-search"><div mxv mxa="_zs_gallerybk:d" class="search-box" style="width: 100%;"><i mxs="_zs_gallerybk:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="' + ($expr = '<%=text.search%>', $e(text.search)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
             $expr = '<%}%>';
         }
         ;
@@ -136,7 +136,7 @@ module.exports = Magix.View.extend({
         }
         else {
             ;
-            $p += '<div mxa="_zs_gallerybj:e" class="text-center color-9 pt20 pb20">';
+            $p += '<div mxa="_zs_gallerybk:e" class="text-center color-9 pt20 pb20">';
             $line = 48;
             $art = '!text.empty';
             ;

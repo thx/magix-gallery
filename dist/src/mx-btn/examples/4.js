@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallery0:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxs="_zs_gallery0:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div class="_zs_gallery_mx-btn_examples_index_-cont"><a href="javascript:;" class="mx-btn btn-disabled mr20 mb20">禁用按钮</a><a href="javascript:;" class="mx-btn btn-small btn-disabled mr20 mb20">小号禁用按钮</a><br/><a href="javascript:;" class="mx-btn btn-disabled mr20 mb20"><i class="mc-iconfont">&#xe731;</i>禁用按钮</a><a href="javascript:;" class="mx-btn btn-disabled mr20 mb20">禁用按钮<span class="mx-tag btn-tag"><span class="mx-tag-arrow btn-tag-arrow"></span><span class="mx-tag-name">New</span></span></a></div></div><div mxa="_zs_gallery0:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallery0:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">按钮</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallery0:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxs="_zs_gallery0:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div class="_zs_gallery_mx-btn_examples_index_-cont"><button type="button" disabled="true" class="mx-btn btn-disabled mr20 mb20">禁用按钮</button><button type="button" disabled="true" class="mx-btn btn-small btn-disabled mr20 mb20">小号禁用按钮</button><br/><button type="button" disabled="true" class="mx-btn btn-disabled mr20 mb20"><i class="mc-iconfont">&#xe731;</i>禁用按钮</button><button type="button" disabled="true" class="mx-btn btn-disabled mr20 mb20">禁用按钮<span class="mx-tag btn-tag"><span class="mx-tag-arrow btn-tag-arrow"></span><span class="mx-tag-name">New</span></span></button></div></div><div mxa="_zs_gallery0:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallery0:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">按钮</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 15;
     $art = '=viewId';
     ;
@@ -48,6 +48,9 @@ catch (ex) {
 } return $p; },
     render: function () {
         this.updater.digest();
+    },
+    'test<click>': function (e) {
+        console.log('click');
     }
 });
 
