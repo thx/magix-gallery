@@ -26,18 +26,27 @@ module.exports = {
             // 1. 先过滤出本view的table，不包含子view
             // 2. 过滤出单个table的trigger
             let tables = context.find('[mx-view*="mx-table/index"]');
-            tables.each((tIndex, t) => {
-                let tId = t.id;
-                let pId = t.vframe ? t.vframe.pId : Magix.Vframe.get(tId).pId;
-                if (pId == me.id) {
-                    t = $(t);
+            for (let i = 0; i < tables.length; i++) {
+                let t = tables[i];
 
-                    // 只处理本view的table + trigger
-                    let trigger = t.find('[sort-trigger]');
-                    trigger.each((idx, item) => {
-                        item = $(item);
+                // 是否为子table
+                let isChild = false;
+                for (let j = 0; j < i; j++) {
+                    let p = tables[j];
+                    if (Magix.inside(t, p)){
+                        isChild = true;
+                        break;
+                    }
+                }
+
+                // 只过滤出当前view的table
+                if(!isChild){
+                    // 过滤出当前table的trigger
+                    let triggers = t.querySelectorAll('[sort-trigger]');
+                    for (let k = 0; k < triggers.length; k++) {
+                        let item = $(triggers[k]);
                         let closestTable = item.closest('[mx-view*="mx-table/index"]');
-                        if (tId == closestTable[0].id) {
+                        if (closestTable[0] == t) {
                             let field = item.attr('sort-trigger');
 
                             // 保留在地址栏的排序字段key
@@ -58,6 +67,7 @@ module.exports = {
                             }
 
                             // 同一个view可能有多个table，需要保证key唯一
+                            let tId = closestTable.attr('mxa');
                             me[`@{${tId}.order.field.key}`] = orderFieldKey;
                             me[`@{${tId}.order.field}`] = orderField;
                             me[`@{${tId}.order.by.key}`] = orderByKey;
@@ -65,9 +75,9 @@ module.exports = {
 
                             item.html(`<i class="mc-iconfont displacement-2 cursor-pointer">${icon}</i>`);
                         }
-                    });
+                    }
                 }
-            })
+            }
         }
         me.on('rendered', ready);
         me.on('domready', ready);
@@ -153,8 +163,7 @@ module.exports = {
         let item = $(e.eventTarget);
         let trigger = item.attr('sort-trigger');
         let table = item.closest('[mx-view*="mx-table/index"]');
-        let tId = table[0].id;
-
+        let tId = table.attr('mxa');
         let oldOrderField = me[`@{${tId}.order.field}`],
             oldOrderBy = me[`@{${tId}.order.by}`];
 
