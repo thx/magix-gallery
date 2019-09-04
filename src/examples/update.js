@@ -6,6 +6,28 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.32',
+            time: '2019-09-04',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-header：兼容bp的导航使用情况，支持展示用户登录信息包括登陆登出操作，支持右侧自定义view，支持二级菜单，支持配置吸顶，<a href="#!/header/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-btn：支持loading btn，<a href="#!/btn/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-form：支持不包括边界的数字范围rangeborder，maxborder，minborder，<a href="#!/form/mixins?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-calendar.datepicker：双向绑定初始化值未绑定，<a href="#!/form/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-table/sort：去除依赖vframe.id，隔离子view的table，隔离不同table的trigger，<a href="#!/table/index10" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-checkbox/linkage：联动父节点状态bugfix，<a href="#!/table/index7" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.31',
             time: '2019-08-26',
             subs: [{
