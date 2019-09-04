@@ -67,7 +67,7 @@
                 <div class="form-label">选择单个时间</div>
                 <div class="form-content">
                     <mx-calendar.datepicker class="w220" 
-                        selected="{{:selected.date{refresh:true}}}"/>
+                        selected="{{:selected.date{refresh:true,required:true}}}"/>
                 </div>
             </div>
             <div class="form-item">
@@ -277,7 +277,7 @@
         &lt;div class="form-label"&gt;选择单个时间&lt;/div&gt;
         &lt;div class="form-content"&gt;
             &lt;mx-calendar.datepicker class="w220" 
-                selected="&#123;&#123;:selected.date&#125;&#125;"/&gt;
+                selected="&#123;&#123;:selected.date&#123;required:true&#125;&#125;&#125;"/&gt;
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="form-item"&gt;
@@ -444,7 +444,7 @@ module.exports = Magix.View.extend(&#123;
                 multiComma: '', //下拉框多选逗号分隔
                 multiArr: [], //下拉框多选数组
                 str: '', //汉字/字母/数字/下划线
-                date: Moment().format(Formater), //单个日期
+                date: '', //单个日期
                 vs: true,
                 start: Moment().subtract(1, 'days').format(Formater), //时间段开始时间
                 end: Moment().add(1, 'days').format(Formater), //时间段结束时间

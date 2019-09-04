@@ -120,6 +120,8 @@ catch (ex) {
         var that = this;
         that.updater.digest();
         that['@{owner.node}'] = $('#' + that.id);
+        var dateInfo = that.updater.get().dateInfo;
+        that['@{owner.node}'].val(dateInfo.selected || '');
     },
     '@{inside}': function (node) {
         var that = this;

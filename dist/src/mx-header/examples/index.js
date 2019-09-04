@@ -100,7 +100,7 @@ catch (ex) {
                 def: ''
             }, {
                 key: 'logo',
-                desc: '项目logo的图片地址',
+                desc: '项目logo的图片地址，高度40，长度图片自适应，无间距预留，留白在logo上体现',
                 type: 'string',
                 def: '<img width="200" src="//img.alicdn.com/tfs/TB1G_ozLNnaK1RjSZFBXXcW7VXa-292-98.png">'
             }, {

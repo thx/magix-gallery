@@ -36,6 +36,9 @@ module.exports = Magix.View.extend({
         let that = this;
         that.updater.digest();
         that['@{owner.node}'] = $('#' + that.id);
+
+        let { dateInfo } = that.updater.get();
+        that['@{owner.node}'].val(dateInfo.selected || '');
     },
     '@{inside}'(node) {
         let that = this;

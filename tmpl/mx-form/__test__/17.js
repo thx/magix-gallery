@@ -107,7 +107,8 @@ module.exports = Base.extend({
                 multiComma: '', //下拉框多选逗号分隔
                 multiArr: [], //下拉框多选数组
                 str: '', //汉字/字母/数字/下划线
-                date: Moment().format(Formater), //单个日期
+                // date: Moment().format(Formater), //单个日期
+                date: '',
                 start: Moment().subtract(1, 'days').format(Formater), //时间段开始时间
                 end: Moment().add(1, 'days').format(Formater), //时间段结束时间
                 type: 'custom', //默认还是自定义（自定义带输入框）
