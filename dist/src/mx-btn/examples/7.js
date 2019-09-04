@@ -24,14 +24,14 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', loading = $$.loading, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryfw:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_galleryfw:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxa="_zs_galleryfw:b" class="_zs_gallery_mx-btn_examples_index_-cont"><div mxs="_zs_galleryfw:y" class="mb20 color-brand">说明：该组件为_config代码片段，属性变化不会触发组件更新，动态切换的场景可如下使用</div><div mxa="_zs_galleryfw:q" class="mb20">';
+    $p += '<div mxa="_zs_gallery3:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_gallery3:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxa="_zs_gallery3:b" class="_zs_gallery_mx-btn_examples_index_-cont"><div mxs="_zs_gallery3:_" class="mb20 color-brand">说明：该组件为_config代码片段，属性变化不会触发组件更新，动态切换的场景可如下使用</div><div mxa="_zs_gallery3:c" class="mb20">';
     $line = 6;
     $art = 'if loading';
     ;
     $expr = '<%if (loading) {%>';
     if (loading) {
         ;
-        $p += '<button mxs="_zs_galleryfw:z" type="button" class="mx-btn btn-disabled w200" disabled="true"><span class="mx-btn-loading-circle"></span>loading禁用，2s后释放</button>';
+        $p += '<button mxs="_zs_gallery3:a" type="button" class="mx-btn btn-disabled w200" disabled="true"><span class="mx-btn-loading-circle"></span>loading禁用，2s后释放</button>';
         $line = 10;
         $art = 'else';
         ;
@@ -39,34 +39,34 @@ module.exports = Base.extend({
     }
     else {
         ;
-        $p += '<button mxs="_zs_galleryfw:w" type="button" class="mx-btn btn-brand w200" mx-click="' + $viewId + 'change()">点我切换成loading禁用状态</button>';
+        $p += '<button mxs="_zs_gallery3:b" type="button" class="mx-btn btn-brand w200" mx-click="' + $viewId + 'change()">点我切换成loading禁用状态</button>';
         $line = 14;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div></div><div mxa="_zs_galleryfw:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryfw:g" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</div></div></div><div mxa="_zs_gallery3:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallery3:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 20;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryfw:w" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery3:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 22;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryfw:h" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery3:d" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 25;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&#123;&#123;if loading&#125;&#125;\n&lt;mx-btn class="w200" content="loading禁用，2s后释放"\n    disabled="true"\n    loading="circle" /&gt;\n&#123;&#123;else&#125;&#125;\n&lt;mx-btn class="w200" content="点我切换成loading禁用状态"\n    mx-click="change()"\n    brand="true" /&gt;\n&#123;&#123;/if&#125;&#125;\n        </pre></div><div mxa="_zs_galleryfw:x" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryfw:i" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&#123;&#123;if loading&#125;&#125;\n&lt;mx-btn class="w200" content="loading禁用，2s后释放"\n    disabled="true"\n    loading="circle" /&gt;\n&#123;&#123;else&#125;&#125;\n&lt;mx-btn class="w200" content="点我切换成loading禁用状态"\n    mx-click="change()"\n    brand="true" /&gt;\n&#123;&#123;/if&#125;&#125;\n        </pre></div><div mxa="_zs_gallery3:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallery3:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 39;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryfw:u" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallery3:g" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 41;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryfw:h" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallery3:d" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 44;
     $art = '=viewId';
     ;

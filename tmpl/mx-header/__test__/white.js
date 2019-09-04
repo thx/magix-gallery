@@ -1,4 +1,5 @@
-let Magix = require('magix');
+const Magix = require('magix');
+const Router = Magix.Router;
 let $ = require('$');
 Magix.applyStyle('@index.less');
 
@@ -7,20 +8,25 @@ module.exports = Magix.View.extend({
     render() {
         let navs = [{
             value: 1,
-            text: '首页'
+            text: '本页打开1'
         }, {
             value: 2,
-            text: '产品介绍',
+            text: '支持二级',
             subs: [{
                 value: 21,
-                text: '标准推广'
+                text: '本页打开'
             }, {
                 value: 22,
-                text: '智能推广'
+                text: '外链打开',
+                link: 'https://www.taobao.com/' //直接外链打开
             }]
         }, {
             value: 3,
-            text: '学习咨询'
+            text: '本页打开2'
+        }, {
+            value: 4,
+            text: '外链打开',
+            link: 'https://www.taobao.com/'
         }]
 
         let map = {};
@@ -32,15 +38,25 @@ module.exports = Magix.View.extend({
             })
         })
 
+        let locParams = Router.parse().params;
         this.updater.digest({
             navs,
             map,
-            cur: navs[0].value
+            cur: locParams.cur || navs[0].value,
+            login: locParams.login || '',
+            user: locParams.user || '',
+            loginView: locParams.loginView || '',
+            logoutUrl: locParams.logoutUrl || '',
+            rightView: locParams.rightView || '',
+            links: locParams.links || true,
+            ceiling: locParams.ceiling || true
         });
+
+        this.observeLocation(['cur']);
     },
     'change<navchange>'(event) {
         // event.nav {value: , text: } 当前导航
-        this.updater.digest({
+        Router.to({
             cur: event.nav.value
         })
     }

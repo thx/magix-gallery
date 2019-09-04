@@ -7,8 +7,9 @@ define("mx-header/examples/white",["magix","$","../index"],(require,exports,modu
 /*Magix,$*/
 require("../index");
 var Magix = require("magix");
+var Router = Magix.Router;
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-header_examples_index_","._zs_gallery_mx-header_examples_index_-content {\n  height: 1200px;\n  background-color: var(--color-bg);\n}\n._zs_gallery_mx-header_examples_index_-content ._zs_gallery_mx-header_examples_index_-inner {\n  width: 1000px;\n  padding-top: 220px;\n  margin: auto;\n  font-size: 20px;\n  text-align: center;\n}\n._zs_gallery_mx-header_examples_index_-wrapper {\n  height: 400px;\n  overflow-y: auto;\n  background-color: var(--color-bg);\n  border: 1px solid var(--color-border);\n}\n._zs_gallery_mx-header_examples_index_-wrapper ._zs_gallery_mx-header_examples_index_-inner {\n  height: 800px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-header_examples_index_","._zs_gallery_mx-header_examples_index_-content {\n  height: 1200px;\n  background-color: var(--color-bg);\n}\n._zs_gallery_mx-header_examples_index_-content ._zs_gallery_mx-header_examples_index_-inner {\n  width: 1000px;\n  padding-top: 100px;\n  margin: auto;\n}\n._zs_gallery_mx-header_examples_index_-wrapper {\n  height: 400px;\n  overflow-y: auto;\n  background-color: var(--color-bg);\n  border: 1px solid var(--color-border);\n}\n._zs_gallery_mx-header_examples_index_-wrapper ._zs_gallery_mx-header_examples_index_-inner {\n  height: 800px;\n}\n._zs_gallery_mx-header_examples_index_-cut {\n  margin-left: 15px;\n  border: 1px solid var(--color-border);\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -25,7 +26,7 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', navs = $$.navs, cur = $$.cur, map = $$.map; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', navs = $$.navs, cur = $$.cur, login = $$.login, user = $$.user, rightView = $$.rightView, loginView = $$.loginView, logoutUrl = $$.logoutUrl, links = $$.links, ceiling = $$.ceiling, map = $$.map; var $expr, $art, $line; try {
     $p += '<div mxv="navs" mx-navchange="' + $viewId + 'change()" mx-view="mx-header/index?dark=false&navs=';
     $line = 3;
     $art = '@navs';
@@ -34,15 +35,71 @@ module.exports = Magix.View.extend({
     $line = 4;
     $art = '=cur';
     ;
-    $p += ($expr = '<%!$eu(cur)%>', $eu(cur)) + '&logo=%2F%2Fimg.alicdn.com%2Ftps%2FTB1GLT.LFXXXXX2aXXXXXXXXXXX-500-79.png"></div><div mxa="_zs_gallerycQ:_" class="_zs_gallery_mx-header_examples_index_-content"><div mxa="_zs_gallerycQ:a" class="_zs_gallery_mx-header_examples_index_-inner">当前导航：';
+    $p += ($expr = '<%!$eu(cur)%>', $eu(cur)) + '&login=';
+    $line = 5;
+    $art = '=login';
+    ;
+    $p += ($expr = '<%!$eu(login)%>', $eu(login)) + '&user=';
+    $line = 6;
+    $art = '=user';
+    ;
+    $p += ($expr = '<%!$eu(user)%>', $eu(user)) + '&rightView=';
+    $line = 7;
+    $art = '=rightView';
+    ;
+    $p += ($expr = '<%!$eu(rightView)%>', $eu(rightView)) + '&loginView=';
     $line = 8;
+    $art = '=loginView';
+    ;
+    $p += ($expr = '<%!$eu(loginView)%>', $eu(loginView)) + '&logoutUrl=';
+    $line = 9;
+    $art = '=logoutUrl';
+    ;
+    $p += ($expr = '<%!$eu(logoutUrl)%>', $eu(logoutUrl)) + '&links=';
+    $line = 10;
+    $art = '=links';
+    ;
+    $p += ($expr = '<%!$eu(links)%>', $eu(links)) + '&ceiling=';
+    $line = 11;
+    $art = '=ceiling';
+    ;
+    $p += ($expr = '<%!$eu(ceiling)%>', $eu(ceiling)) + '"></div><div mxa="_zs_gallerycR:_" class="_zs_gallery_mx-header_examples_index_-content"><div mxa="_zs_gallerycR:a" class="_zs_gallery_mx-header_examples_index_-inner"><div mxa="_zs_gallerycR:b" class="fontsize-20 mb40">当前导航：';
+    $line = 15;
     $art = '=map[cur]';
     ;
     $p += ($expr = '<%=map[cur]%>', $e(map[cur])) + '（';
-    $line = 8;
+    $line = 15;
     $art = '=cur';
     ;
-    $p += ($expr = '<%=cur%>', $e(cur)) + '）</div></div>';
+    $p += ($expr = '<%=cur%>', $e(cur)) + '）</div><pre>\n&lt;mx-header \n    dark="false"\n    navs="&#123;&#123;@navs&#125;&#125;"\n    cur="&#123;&#123;=cur&#125;&#125;"\n    right-view="';
+    $line = 21;
+    $art = '=rightView';
+    ;
+    $p += ($expr = '<%=rightView%>', $e(rightView)) + '"\n    links="';
+    $line = 22;
+    $art = '=links';
+    ;
+    $p += ($expr = '<%=links%>', $e(links)) + '"\n    ceiling="';
+    $line = 23;
+    $art = '=ceiling';
+    ;
+    $p += ($expr = '<%=ceiling%>', $e(ceiling)) + '"\n    login="';
+    $line = 24;
+    $art = '=login';
+    ;
+    $p += ($expr = '<%=login%>', $e(login)) + '"\n    user="';
+    $line = 25;
+    $art = '=user';
+    ;
+    $p += ($expr = '<%=user%>', $e(user)) + '"\n    login-view="';
+    $line = 26;
+    $art = '=loginView';
+    ;
+    $p += ($expr = '<%=loginView%>', $e(loginView)) + '"\n    logout-url="';
+    $line = 27;
+    $art = '=logoutUrl';
+    ;
+    $p += ($expr = '<%=logoutUrl%>', $e(logoutUrl)) + '"\n    mx-navchange="change()"/&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -55,20 +112,25 @@ catch (ex) {
     render: function () {
         var navs = [{
                 value: 1,
-                text: '首页'
+                text: '本页打开1'
             }, {
                 value: 2,
-                text: '产品介绍',
+                text: '支持二级',
                 subs: [{
                         value: 21,
-                        text: '标准推广'
+                        text: '本页打开'
                     }, {
                         value: 22,
-                        text: '智能推广'
+                        text: '外链打开',
+                        link: 'https://www.taobao.com/' //直接外链打开
                     }]
             }, {
                 value: 3,
-                text: '学习咨询'
+                text: '本页打开2'
+            }, {
+                value: 4,
+                text: '外链打开',
+                link: 'https://www.taobao.com/'
             }];
         var map = {};
         navs.forEach(function (nav) {
@@ -78,15 +140,24 @@ catch (ex) {
                 map[sub.value] = nav.text + "_" + sub.text;
             });
         });
+        var locParams = Router.parse().params;
         this.updater.digest({
             navs: navs,
             map: map,
-            cur: navs[0].value
+            cur: locParams.cur || navs[0].value,
+            login: locParams.login || '',
+            user: locParams.user || '',
+            loginView: locParams.loginView || '',
+            logoutUrl: locParams.logoutUrl || '',
+            rightView: locParams.rightView || '',
+            links: locParams.links || true,
+            ceiling: locParams.ceiling || true
         });
+        this.observeLocation(['cur']);
     },
     'change<navchange>': function (event) {
         // event.nav {value: , text: } 当前导航
-        this.updater.digest({
+        Router.to({
             cur: event.nav.value
         });
     }

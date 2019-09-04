@@ -28,7 +28,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryc0:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_galleryc0:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxa="_zs_galleryc0:b" class="clearfix mb20"><div mxa="_zs_galleryc0:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_galleryc0:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl">不限制可选择个数 + 指标可排序 + 无分组</div></div><div mx-view="mx-indics/index?fields=';
+    $p += '<div mxa="_zs_galleryc1:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_galleryc1:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxa="_zs_galleryc1:b" class="clearfix mb20"><div mxa="_zs_galleryc1:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_galleryc1:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl">不限制可选择个数 + 指标可排序 + 无分组</div></div><div mx-view="mx-indics/index?fields=';
     $line = 10;
     $art = '@[{\n                        value: 1, text: \'消耗\', tip: \'消耗提示文案\'\n                    }, {\n                        value: 2, text: \'展现量\'\n                    }, {\n                        value: 3, text: \'点击量\'\n                    }, {\n                        value: 4, text: \'点击率\'\n                    }, {\n                        value: 5, text: \'平均点击单价\', tip: \'平均点击单价提示文案\'\n                    }, {\n                        value: 6, text: \'点击转化率\'\n                    }, {\n                        value: 7, text: \'成交笔数\'\n                    }, {\n                        value: 8, text: \'千次展现成本\'\n                    }, {\n                        value: 9, text: \'投资回报率\'\n                    }, {\n                        value: 10, text: \'访问页面数\'\n                    }]';
     ;
@@ -40,7 +40,7 @@ module.exports = Base.extend({
     $line = 33;
     $art = '@[2,3,4,5,6]';
     ;
-    $p += ($expr = '<%@[2, 3, 4, 5, 6]%>', $i($$ref, [2, 3, 4, 5, 6])) + '&sortable=true"></div></div><div mxa="_zs_galleryc0:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_galleryc0:a" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl">不限制可选择个数 + 指标可排序 + 有分组</div></div><div mx-view="mx-indics/index?parents=';
+    $p += ($expr = '<%@[2, 3, 4, 5, 6]%>', $i($$ref, [2, 3, 4, 5, 6])) + '&sortable=true"></div></div><div mxa="_zs_galleryc1:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_galleryc1:a" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl">不限制可选择个数 + 指标可排序 + 有分组</div></div><div mx-view="mx-indics/index?parents=';
     $line = 43;
     $art = '@[{\n                        value: 1, text: \'组1\'\n                    }, {\n                        value: 2, text: \'组2\'\n                    }]';
     ;
@@ -56,27 +56,27 @@ module.exports = Base.extend({
     $line = 71;
     $art = '@[2,3,4,5,6]';
     ;
-    $p += ($expr = '<%@[2, 3, 4, 5, 6]%>', $i($$ref, [2, 3, 4, 5, 6])) + '&sortable=true"></div></div></div></div><div mxa="_zs_galleryc0:e" class="clearfix"><div mxa="_zs_galleryc0:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_galleryc0:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[2, 3, 4, 5, 6]%>', $i($$ref, [2, 3, 4, 5, 6])) + '&sortable=true"></div></div></div></div><div mxa="_zs_galleryc1:e" class="clearfix"><div mxa="_zs_galleryc1:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_galleryc1:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 79;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryc0:g" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryc1:g" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 81;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryc0:c" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryc1:c" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 84;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-indics \n    fields="&#123;&#123;@[&#123;\n        value: 1, text: \'消耗\', tip: \'消耗提示文案\'\n    &#125;, &#123;\n        value: 2, text: \'展现量\'\n    &#125;, &#123;\n        value: 3, text: \'点击量\'\n    &#125;, &#123;\n        value: 4, text: \'点击率\'\n    &#125;, &#123;\n        value: 5, text: \'平均点击单价\', tip: \'平均点击单价提示文案\'\n    &#125;, &#123;\n        value: 6, text: \'点击转化率\'\n    &#125;, &#123;\n        value: 7, text: \'成交笔数\'\n    &#125;, &#123;\n        value: 8, text: \'千次展现成本\'\n    &#125;, &#123;\n        value: 9, text: \'投资回报率\'\n    &#125;, &#123;\n        value: 10, text: \'访问页面数\'\n    &#125;]&#125;&#125;" \n    defaults="&#123;&#123;@[1,2,3]&#125;&#125;"\n    custom="true"\n    customs="&#123;&#123;@[2,3,4,5,6]&#125;&#125;"\n    sortable="true"/&gt;\n            </pre></div><div mxa="_zs_galleryc0:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_galleryc0:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-indics \n    fields="&#123;&#123;@[&#123;\n        value: 1, text: \'消耗\', tip: \'消耗提示文案\'\n    &#125;, &#123;\n        value: 2, text: \'展现量\'\n    &#125;, &#123;\n        value: 3, text: \'点击量\'\n    &#125;, &#123;\n        value: 4, text: \'点击率\'\n    &#125;, &#123;\n        value: 5, text: \'平均点击单价\', tip: \'平均点击单价提示文案\'\n    &#125;, &#123;\n        value: 6, text: \'点击转化率\'\n    &#125;, &#123;\n        value: 7, text: \'成交笔数\'\n    &#125;, &#123;\n        value: 8, text: \'千次展现成本\'\n    &#125;, &#123;\n        value: 9, text: \'投资回报率\'\n    &#125;, &#123;\n        value: 10, text: \'访问页面数\'\n    &#125;]&#125;&#125;" \n    defaults="&#123;&#123;@[1,2,3]&#125;&#125;"\n    custom="true"\n    customs="&#123;&#123;@[2,3,4,5,6]&#125;&#125;"\n    sortable="true"/&gt;\n            </pre></div><div mxa="_zs_galleryc1:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_galleryc1:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 115;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryc0:i" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryc1:i" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 117;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryc0:c" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryc1:c" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 120;
     $art = '=viewId';
     ;

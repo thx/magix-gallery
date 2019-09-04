@@ -34,7 +34,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryb6:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $p += '<div mxv mxa="_zs_galleryb7:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'品牌色强调\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'带关闭按钮\',\n            key: viewId + \'_demo30\'\n        },{\n            name: \'事件处理\',\n            key: viewId + \'_demo31\'\n        },{\n            name: \'红色错误类\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'黄色警告类\',\n            key: viewId + \'_demo5\'\n        },{\n            name: \'自定义颜色\',\n            key: viewId + \'_demo6\'\n        },{\n            name: \'默认灰底\',\n            key: viewId + \'_demo3\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
@@ -42,7 +42,7 @@ module.exports = Magix.View.extend({
     $line = 32;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryb6:a" class="clearfix mb20"><div mxa="_zs_galleryb6:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-effects/examples/7" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryb7:a" class="clearfix mb20"><div mxa="_zs_galleryb7:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-effects/examples/7" id="';
     $line = 35;
     $art = '=viewId';
     ;
@@ -54,7 +54,7 @@ module.exports = Magix.View.extend({
     $line = 37;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div mxa="_zs_galleryb6:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-effects/examples/31" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div mxa="_zs_galleryb7:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-effects/examples/31" id="';
     $line = 40;
     $art = '=viewId';
     ;

@@ -8,7 +8,7 @@ define("mx-header/examples/all",["magix","$","../index"],(require,exports,module
 require("../index");
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-header_examples_index_","._zs_gallery_mx-header_examples_index_-content {\n  height: 1200px;\n  background-color: var(--color-bg);\n}\n._zs_gallery_mx-header_examples_index_-content ._zs_gallery_mx-header_examples_index_-inner {\n  width: 1000px;\n  padding-top: 220px;\n  margin: auto;\n  font-size: 20px;\n  text-align: center;\n}\n._zs_gallery_mx-header_examples_index_-wrapper {\n  height: 400px;\n  overflow-y: auto;\n  background-color: var(--color-bg);\n  border: 1px solid var(--color-border);\n}\n._zs_gallery_mx-header_examples_index_-wrapper ._zs_gallery_mx-header_examples_index_-inner {\n  height: 800px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-header_examples_index_","._zs_gallery_mx-header_examples_index_-content {\n  height: 1200px;\n  background-color: var(--color-bg);\n}\n._zs_gallery_mx-header_examples_index_-content ._zs_gallery_mx-header_examples_index_-inner {\n  width: 1000px;\n  padding-top: 100px;\n  margin: auto;\n}\n._zs_gallery_mx-header_examples_index_-wrapper {\n  height: 400px;\n  overflow-y: auto;\n  background-color: var(--color-bg);\n  border: 1px solid var(--color-border);\n}\n._zs_gallery_mx-header_examples_index_-wrapper ._zs_gallery_mx-header_examples_index_-inner {\n  height: 800px;\n}\n._zs_gallery_mx-header_examples_index_-cut {\n  margin-left: 15px;\n  border: 1px solid var(--color-border);\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -34,7 +34,7 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = '=cur';
     ;
-    $p += ($expr = '<%!$eu(cur)%>', $eu(cur)) + '&logo=%2F%2Fimg.alicdn.com%2Ftfs%2FTB1Z0ggLPTpK1RjSZKPXXa3UpXa-534-98.png"></div><div mxa="_zs_gallerycO:_" class="_zs_gallery_mx-header_examples_index_-content"><div mxa="_zs_gallerycO:a" class="_zs_gallery_mx-header_examples_index_-inner">';
+    $p += ($expr = '<%!$eu(cur)%>', $eu(cur)) + '&logo=%2F%2Fimg.alicdn.com%2Ftfs%2FTB1Z0ggLPTpK1RjSZKPXXa3UpXa-534-98.png"></div><div mxa="_zs_gallerycP:_" class="_zs_gallery_mx-header_examples_index_-content"><div mxa="_zs_gallerycP:a" class="_zs_gallery_mx-header_examples_index_-inner">';
     $line = 8;
     $art = 'if !cur';
     ;

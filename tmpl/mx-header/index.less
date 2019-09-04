@@ -2,14 +2,15 @@
     height: 50px;
     margin: 0 auto;
     line-height: 50px;
+    .title-text,
     .title-link {
         opacity: .5;
         color: #333;
         cursor: pointer;
-        &:hover {
-            opacity: 1;
-            color: #333;
-        }
+    }
+    .title-link:hover {
+        opacity: 1;
+        color: #333;
     }
     .title-arrow {
         opacity: .5;
@@ -71,6 +72,12 @@
     width: 100%;
     top: 50px;
     left: 0;
+    .logo {
+        img {
+            display: inline-block;
+            height: 40px
+        }
+    }
     .front-inner {
         margin: 0 auto;
         background-color: #fff;
@@ -78,6 +85,15 @@
             float: left;
             height: 50px;
             line-height: 50px;
+        }
+        .front-right{
+            display: table;
+            float: right;
+            height: 50px;
+            .right-inner{
+                display: table-cell;
+                vertical-align: middle;
+            }
         }
         .nav {
             position: relative;
@@ -100,11 +116,26 @@
             .nav-subs {
                 top: 40px;
                 left: 50%;
-                width: 120px;
-                margin-left: -60px;
-                line-height: 28px;
+                width: 100px;
+                margin-left: -50px;
                 text-align: center;
             }
+
+            .nav-sub{
+                display: block;
+                padding: 8px 0;
+                color: #999;
+
+                &:hover{
+                    color: #333;
+                }
+                &.nav-sub-cur{
+                    color: #333;
+                    background-color: var(--color-brand-opacity);
+                    color: var(--color-brand);
+                }
+            }
+
             &:hover {
                 .nav-arrow {
                     opacity: 1;
@@ -129,7 +160,6 @@
 }
 
 .dark-header {
-    height: 88px;
     background-color: #09122b;
     .others {
         padding-left: 40px;
@@ -137,6 +167,7 @@
         .others-inner {
             float: left;
         }
+        .title-text,
         .title-link,
         .title-arrow {
             opacity: .7;
@@ -152,13 +183,6 @@
             padding-bottom: 15px;
             border-radius: 60px;
         }
-        .logo {
-            margin-right: 30px;
-            img {
-                display: inline-block;
-                height: 40px
-            }
-        }
         .nav {
             margin: 0 8px;
             &.cur {
@@ -171,7 +195,6 @@
 }
 
 .white-header {
-    height: 100px;
     background-color: #fff;
     .others {
         .others-inner {
@@ -180,15 +203,8 @@
     }
     .front {
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .08);
-        .logo {
-            margin-right: 40px;
-            img {
-                display: inline-block;
-                height: 32px;
-            }
-        }
         .nav {
-            margin: 0 16px;
+            margin: 0 10px;
             .nav-inner {
                 opacity: .5;
             }

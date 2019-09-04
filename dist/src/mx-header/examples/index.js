@@ -3,14 +3,13 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-header/examples/index",["magix","$","examples/subs","mx-title/second","./1","./3","./2","./4","examples/api","examples/event"],(require,exports,module)=>{
+define("mx-header/examples/index",["magix","$","examples/subs","mx-title/second","./3","./4","./2","examples/api","examples/event"],(require,exports,module)=>{
 /*Magix,$*/
 require("examples/subs");
 require("mx-title/second");
-require("./1");
 require("./3");
-require("./2");
 require("./4");
+require("./2");
 require("examples/api");
 require("examples/event");
 var Magix = require("magix");
@@ -32,44 +31,40 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerycP:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $p += '<div mxv mxa="_zs_gallerycQ:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 3;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'深底色全屏\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'白底全屏\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'深底色容器内\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'白底容器内\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'全屏使用\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'容器内使用\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'深底色版本\',\n            key: viewId + \'_demo2\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'深底色全屏\',                    key: viewId + \'_demo1\'                }, {                    name: \'白底全屏\',                    key: viewId + \'_demo3\'                }, {                    name: \'深底色容器内\',                    key: viewId + \'_demo2\'                }, {                    name: \'白底容器内\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '深底色全屏', key: viewId + '_demo1' }, { name: '白底全屏', key: viewId + '_demo3' }, { name: '深底色容器内', key: viewId + '_demo2' }, { name: '白底容器内', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'全屏使用\',                    key: viewId + \'_demo3\'                }, {                    name: \'容器内使用\',                    key: viewId + \'_demo4\'                }, {                    name: \'深底色版本\',                    key: viewId + \'_demo2\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '全屏使用', key: viewId + '_demo3' }, { name: '容器内使用', key: viewId + '_demo4' }, { name: '深底色版本', key: viewId + '_demo2' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
+    $line = 24;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerycQ:a" class="clearfix mb20"><div mx-view="mx-header/examples/3" id="';
+    $line = 26;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-header/examples/4" id="';
     $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerycP:a" class="clearfix mb20"><div mx-view="mx-header/examples/1" id="';
-    $line = 29;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-header/examples/2" id="';
+    $line = 33;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-header/examples/3" id="';
-    $line = 30;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-header/examples/2" id="';
-    $line = 31;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-header/examples/4" id="';
-    $line = 32;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div id="';
-    $line = 34;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div id="';
+    $line = 35;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="examples/api?options=';
-    $line = 35;
+    $line = 36;
     $art = '@options';
     ;
     $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
-    $line = 37;
+    $line = 38;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_event" mx-view="mx-title/second?content=Event"></div><div mxv="events" mx-view="examples/event?options=';
-    $line = 38;
+    $line = 39;
     $art = '@events';
     ;
     $p += ($expr = '<%@events%>', $i($$ref, events)) + '"></div></div>';
@@ -90,7 +85,7 @@ catch (ex) {
                 def: 1200
             }, {
                 key: 'navs',
-                desc: "\u5BFC\u822A\u6570\u7EC4<pre>[{\n    text:\"\u4E00\u7EA7\u83DC\u5355\u5C55\u793A\u6587\u6848\",\n    value:\"\u4E00\u7EA7\u83DC\u5355value\u503C\",\n    subs: [{\n        text:\"\u4E8C\u7EA7\u83DC\u5355\u5C55\u793A\u6587\u6848\",\n        value:\"\u4E8C\u7EA7\u83DC\u5355value\u503C\",\n    }]\n}]</pre>",
+                desc: "\u5BFC\u822A\u6570\u7EC4<pre>[{\n    text:\"\u4E00\u7EA7\u83DC\u5355\u5C55\u793A\u6587\u6848\",\n    value:\"\u4E00\u7EA7\u83DC\u5355value\u503C\",\n    link: \"\u914D\u7F6E\u4E86\u8BE5\u5B57\u6BB5\u65F6\u5916\u94FE\u6253\u5F00\",\n    subs: [{\n        text:\"\u4E8C\u7EA7\u83DC\u5355\u5C55\u793A\u6587\u6848\",\n        value:\"\u4E8C\u7EA7\u83DC\u5355value\u503C\",\n        link: \"\u914D\u7F6E\u4E86\u8BE5\u5B57\u6BB5\u65F6\u5916\u94FE\u6253\u5F00\"\n    }]\n}]</pre>",
                 type: 'array',
                 def: ''
             }, {
@@ -109,6 +104,41 @@ catch (ex) {
                 type: 'string',
                 def: '<img width="200" src="//img.alicdn.com/tfs/TB1G_ozLNnaK1RjSZFBXXcW7VXa-292-98.png">'
             }, {
+                key: 'links',
+                desc: '顶部妈妈相关产品线信息是否需要',
+                type: 'boolean',
+                def: 'true'
+            }, {
+                key: 'ceiling',
+                desc: '是否需要滚定吸顶功能',
+                type: 'boolean',
+                def: 'true'
+            }, {
+                key: 'login',
+                desc: '<div>是否需要显示用户登录信息，links=true时才生效</div><img width="600" src="https://img.alicdn.com/tfs/TB17_QneYj1gK0jSZFOXXc7GpXa-1652-200.png">',
+                type: 'boolean',
+                def: 'true'
+            }, {
+                key: 'user',
+                desc: '登陆的用户名称，有该值认为已登录，否则未登录，login=true时必有',
+                type: 'string',
+                def: ''
+            }, {
+                key: 'login-view',
+                desc: '未登录时点击登陆弹出的淘宝登陆框view，350*340，login=true时必有',
+                type: 'string',
+                def: ''
+            }, {
+                key: 'logout-url',
+                desc: '登出接口，login=true时必有',
+                type: 'string',
+                def: ''
+            }, {
+                key: 'right-view',
+                desc: '<div>右侧预留自定义view</div><img width="600" src="https://img.alicdn.com/tfs/TB1y0Ame1L2gK0jSZFmXXc7iXXa-1652-200.png">',
+                type: 'string',
+                def: ''
+            }, {
                 key: 'dark',
                 desc: '深底色版本',
                 type: 'boolean',
@@ -119,7 +149,7 @@ catch (ex) {
                 desc: '菜单切换的时候触发',
                 params: [{
                         key: 'nav',
-                        desc: "\u9009\u4E2D\u7684\u83DC\u5355\uFF0C\u4E00\u7EA7 or \u4E8C\u7EA7 <pre>{\n    text:\"\u83DC\u5355\u5C55\u793A\u6587\u6848\",\n    value:\"\u83DC\u5355value\u503C\"\n}</pre>",
+                        desc: "\u9009\u4E2D\u7684\u83DC\u5355\u5B8C\u6574\u4FE1\u606F\uFF0C\u4E00\u7EA7 or \u4E8C\u7EA7\uFF0C\u4F20\u5165\u7684\u6570\u636E\u539F\u6837\u8FD4\u56DE",
                         type: 'object'
                     }]
             }];

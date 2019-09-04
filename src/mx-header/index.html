@@ -1,6 +1,18 @@
-<div class="header {{if dark}} dark-header {{else}} white-header {{/if}}">
+<div class="header {{if dark}} dark-header {{else}} white-header {{/if}}" style="height: {{=height}}px;">
+    {{if links}}
     <div class="others" style="width: {{=width}}px;">
         <div class="others-inner clearfix">
+            {{if login}}
+            <div class="item">
+                {{if user}}
+                <span class="title-text">你好，{{=user}}，</span>
+                <a class="color-brand" href="{{=logoutUrl}}">退出</a>
+                {{else}}
+                <span class="title-text">亲，请</span>
+                <a class="color-brand" href="javascript:;" mx-click="showLogin()">登陆</a>
+                {{/if}}
+            </div>
+            {{/if}}
             <div class="item">
                 <a class="title-link" href="//www.alimama.com" target="_blank" rel="noopener noreferrer">阿里妈妈首页</a>
             </div>
@@ -24,7 +36,8 @@
             {{/each}}
         </div>
     </div>
-    <div class="front {{if fixed}} fixed {{/if}}" {{if fixed}} style="{{=styles}}" {{/if}}>
+    {{/if}}
+    <div class="front {{if fixed}} fixed {{/if}}" style="{{=styles}}">
         <div class="front-inner clearfix" style="width: {{=width}}px;">
             <div class="front-item logo">
                 <img src="{{=logo}}"/>
@@ -32,19 +45,31 @@
             {{if (navs.length > 0)}}
                 {{each navs as nav}}
                 <div class="front-item nav {{if (parent == nav.value)}} cur {{/if}}">
+                    {{if nav.link}}
+                    <a class="nav-inner" href="{{=nav.link}}" target="_blank">{{=nav.text}}</a>
+                    {{else}}
                     <a class="nav-inner" href="javascript:;" {{if !nav.subs || !nav.subs.length}} mx-click="to({nav:'{{@nav}}'})" {{/if}}>{{=nav.text}}</a>
+                    {{/if}}
+
                     {{if nav.subs && nav.subs.length}}
                     <i class="nav-arrow mc-iconfont">&#xe692;</i>
                     <div class="popover bottom-center mx-shadow nav-subs">
-                        <div class="popover-content">
-                            {{each nav.subs as sub}}
-                            <div><a class="{{if (child == sub.value)}} color-brand {{/if}}" href="javascript:;" mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})">{{=sub.text}}</a></div>
-                            {{/each}}
-                        </div>
+                        {{each nav.subs as sub}}
+                            {{if sub.link}}
+                            <a class="nav-sub" href="{{=sub.link}}" target="_blank">{{=sub.text}}</a>
+                            {{else}}
+                            <a class="nav-sub {{if (child == sub.value)}} nav-sub-cur {{/if}}" href="javascript:;" mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})">{{=sub.text}}</a>
+                            {{/if}}
+                        {{/each}}
                     </div>
                     {{/if}}
                 </div>
                 {{/each}}
+            {{/if}}
+            {{if rightView}}
+            <div class="front-right">
+                <div class="right-inner" mx-view="{{=rightView}}"></div>
+            </div>
             {{/if}}
         </div>
     </div>

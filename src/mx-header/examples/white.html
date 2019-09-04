@@ -2,8 +2,30 @@
     dark="false"
     navs="{{@navs}}"
     cur="{{=cur}}"
-    logo="//img.alicdn.com/tps/TB1GLT.LFXXXXX2aXXXXXXXXXXX-500-79.png"
+    login="{{=login}}"
+    user="{{=user}}"
+    right-view="{{=rightView}}"
+    login-view="{{=loginView}}"
+    logout-url="{{=logoutUrl}}"
+    links="{{=links}}"
+    ceiling="{{=ceiling}}"
     mx-navchange="change()"/>
 <div class="content">
-    <div class="inner">当前导航：{{=map[cur]}}（{{=cur}}）</div>
+    <div class="inner">
+        <div class="fontsize-20 mb40">当前导航：{{=map[cur]}}（{{=cur}}）</div>
+        <pre>
+&lt;mx-header 
+    dark="false"
+    navs="&#123;&#123;@navs&#125;&#125;"
+    cur="&#123;&#123;=cur&#125;&#125;"
+    right-view="{{=rightView}}"
+    links="{{=links}}"
+    ceiling="{{=ceiling}}"
+    login="{{=login}}"
+    user="{{=user}}"
+    login-view="{{=loginView}}"
+    logout-url="{{=logoutUrl}}"
+    mx-navchange="change()"/&gt;
+        </pre>
+    </div>
 </div>

@@ -1,11 +1,13 @@
 let Magix = require('magix');
 let $ = require('$');
 let Data = require('@./data');
+let Dialog = require('@../mx-dialog/index');
 Magix.applyStyle('@index.less');
 Magix.applyStyle('@../mx-popover/index.less');
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
+    mixins: [Dialog],
     init(ops) {
         //初始化时保存一份当前数据的快照
         this.updater.snapshot();
@@ -24,8 +26,24 @@ module.exports = Magix.View.extend({
 
         let width = ops.width || 1200;
         let navs = ops.navs || [];
-        let logo = ops.logo || '//img.alicdn.com/tfs/TB1G_ozLNnaK1RjSZFBXXcW7VXa-292-98.png';
         let dark = (ops.dark + '' !== 'false'); //默认是true
+        let links = (ops.links + '' !== 'false'); //是否需要顶部外链信息，默认是true
+        let login = (ops.login + '' !== 'false'); //是否需要显示登陆信息，默认是true
+        let height;
+        if (dark) {
+            // 历史使用方式兼容
+            // 黑底色版必有外链，外链处不显示用户信息
+            links = true;
+            login = false;
+            height = 88
+        } else {
+            // 白底版本
+            height = 100;
+        }
+        if (!links) {
+            height -= 50;
+        }
+
         let maxWidth = wrapper.outerWidth();
         if (+width > (maxWidth - 40)) {
             width = maxWidth - 40;
@@ -51,15 +69,23 @@ module.exports = Magix.View.extend({
                 })
             }
         })
-
         that.updater.set({
             wrapperId,
             width,
+            height,
             navs,
-            logo,
             parent,
             child,
-            dark
+            dark,
+            login,
+            loginView: ops.loginView || '',  //登陆页面
+            user: ops.user || '',
+            logoutUrl: ops.logoutUrl || '',  //退出接口
+            links,
+            styles: `top: ${(links ? 50 : 0)}px;`,
+            logo: ops.logo || '//img.alicdn.com/tfs/TB12M.meYH1gK0jSZFwXXc7aXXa-392-100.png',
+            ceiling: (ops.ceiling + '' !== 'false'), //是否需要吸顶功能，默认是true,
+            rightView: ops.rightView || ''  //右侧自定义view
         })
 
         that['@{wrapper}'] = wrapper;
@@ -85,16 +111,16 @@ module.exports = Magix.View.extend({
             fixed: false
         });
 
-        let data = that.updater.get();
+        let { wrapperId, links, ceiling } = that.updater.get();
         let wrapper = that['@{wrapper}'];
-        let maxWidth = wrapper.outerWidth(),
-            wrapperId = data.wrapperId;
+        let maxWidth = wrapper.outerWidth();
         let scrollFn = () => {
-            let front = $('#' + that.id + ' .@index.less:front');
             let others = $('#' + that.id + ' .@index.less:others');
-            let scrollTop = wrapper.scrollTop(),
-                otherHeight = others.outerHeight();
-
+            let otherHeight = 0;
+            if (others.length > 0) {
+                otherHeight = others.outerHeight()
+            }
+            let scrollTop = wrapper.scrollTop();
             let styles = [
                 'width:' + maxWidth + 'px',
                 'left: 0'
@@ -117,11 +143,12 @@ module.exports = Magix.View.extend({
                 })
             } else {
                 that.updater.digest({
-                    fixed: false
+                    fixed: false,
+                    styles: `top: ${(links ? 50 : 0)}px;`
                 })
             }
         }
-        if (!that.$init) {
+        if (!that.$init && ceiling) {
             that.$init = 1;
             wrapper.on('scroll', scrollFn);
             that.on('destroy', () => {
@@ -155,5 +182,14 @@ module.exports = Magix.View.extend({
             type: 'navchange',
             nav: selected
         })
+    },
+    'showLogin<click>'(e) {
+        let { loginView } = this.updater.get();
+        this.mxDialog(loginView, {
+        }, {
+                width: 350,
+                height: 340,
+                closable: false
+            });
     }
 });
