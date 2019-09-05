@@ -35,6 +35,9 @@ catch (ex) {
     msg += $expr + '\r\n\tat file:mx-header/examples/login.html';
     throw msg;
 } return $p; },
+    init: function (extra) {
+        // extra.data
+    },
     render: function () {
         // 登陆成功回跳页面
         var forward = window.location.origin + '/indexbp.html';

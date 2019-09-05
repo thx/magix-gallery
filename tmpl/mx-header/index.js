@@ -185,11 +185,6 @@ module.exports = Magix.View.extend({
     },
     'showLogin<click>'(e) {
         let { loginView } = this.updater.get();
-        this.mxDialog(loginView, {
-        }, {
-                width: 350,
-                height: 340,
-                closable: false
-            });
+        this.mxLoginView(loginView);
     }
 });

@@ -511,6 +511,20 @@ catch (ex) {
         }, (dialogOptions || {})));
     },
     /**
+     * 弹出登陆框，规范登陆框的弹出样式
+     * 宽度350，高度368（淘宝登陆框312，要求至少340，对称368）
+     */
+    mxLoginView: function (viewPath, viewOptions) {
+        return this.mxDialog('mx-dialog/login', {
+            loginViewPath: viewPath,
+            loginViewData: viewOptions = viewOptions || {}
+        }, {
+            width: 350,
+            height: 368,
+            closable: true
+        });
+    },
+    /**
      * 全屏右出浮层
      * this.mxModal(viewPath[string], viewOptions[object], dialogOptions[object])
      *      viewPath: 'dialog view路径'

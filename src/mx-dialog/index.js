@@ -64,9 +64,9 @@ module.exports = Magix.View.extend({
             let mask = $('#mask_' + me.id);
             if (mask.length > 0) {
                 mask.addClass('@index.less:backdrop-out');
-            } 
+            }
             // emptyClosable 明确指定可关闭
-            if(data.closable || data.emptyClosable){
+            if (data.closable || data.emptyClosable) {
                 // 浮层可关闭时
                 // 点击空白处关闭浮层
                 wrapper.on('click', (e) => {
@@ -350,6 +350,20 @@ module.exports = Magix.View.extend({
             }, (dialogOptions || {})));
         },
         /**
+         * 弹出登陆框，规范登陆框的弹出样式
+         * 宽度350，高度368（淘宝登陆框312，要求至少340，对称368）
+         */
+        mxLoginView(viewPath, viewOptions) {
+            return this.mxDialog('@./login', {
+                loginViewPath: viewPath,
+                loginViewData: viewOptions = viewOptions || {}
+            }, {
+                    width: 350,
+                    height: 368,
+                    closable: true
+                });
+        },
+        /**
          * 全屏右出浮层
          * this.mxModal(viewPath[string], viewOptions[object], dialogOptions[object])
          *      viewPath: 'dialog view路径'
@@ -549,7 +563,7 @@ module.exports = Magix.View.extend({
                 dlg.on('beforeClose', (event) => {
                     if (!beforeCloseCallback) {
                         event.closeFn();
-                    }else{
+                    } else {
                         beforeCloseCallback().then(() => {
                             event.closeFn();
                         })

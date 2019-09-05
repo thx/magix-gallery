@@ -3,6 +3,9 @@ let $ = require('$');
 
 module.exports = Magix.View.extend({
     tmpl: '@login.html',
+    init(extra){
+        // extra.data
+    },
     render() {
         // 登陆成功回跳页面
         let forward = window.location.origin + '/indexbp.html';
