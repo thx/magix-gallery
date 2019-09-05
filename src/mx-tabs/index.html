@@ -6,7 +6,7 @@
         mx-mouseout="@{out}()"  
         mx-click="@{select}({item:'{{@item}}'})" 
         {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
-        {{=item.text}}
+        {{!item.text}}
 
         <!-- 打标优先级tagContent > tag -->
         {{if item.tagContent}}

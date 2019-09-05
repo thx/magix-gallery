@@ -1,0 +1,41 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-tabs list="{{@list}}" ></mx-tabs>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-tabs list="&#123;&#123;@list&#125;&#125;" &gt;&lt;/mx-tabs&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            list: [&#123;
+                value: 1,
+                text: '&lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe60e;&lt;/i&gt;模块1'
+            &#125;, &#123;
+                value: 2,
+                text: '&lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe604;&lt;/i&gt;模块2'
+            &#125;]
+        &#125;);
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

@@ -40,8 +40,8 @@ module.exports = Base.extend({
         $line = 3;
         $art = 'each list as item index';
         ;
-        $expr = '<%for (var index = 0, $art_cgyrnqpg$art_c = list.length; index < $art_cgyrnqpg$art_c; index++) {        var item = list[index]%>';
-        for (var index = 0, $art_cgyrnqpg$art_c = list.length; index < $art_cgyrnqpg$art_c; index++) {
+        $expr = '<%for (var index = 0, $art_cxfbqgfy$art_c = list.length; index < $art_cxfbqgfy$art_c; index++) {        var item = list[index]%>';
+        for (var index = 0, $art_cxfbqgfy$art_c = list.length; index < $art_cxfbqgfy$art_c; index++) {
             var item = list[index];
             $p += '<a class="_zs_gallery_mx-tabs_index_-border-item ';
             $line = 4;
@@ -87,9 +87,9 @@ module.exports = Base.extend({
             ;
             $p += '>';
             $line = 9;
-            $art = '=item.text';
+            $art = '!item.text';
             ;
-            $p += ($expr = '<%=item.text%>', $e(item.text)) + ' ';
+            $p += ($expr = '<%!item.text%>', $n(item.text)) + ' ';
             $line = 12;
             $art = 'if item.tagContent';
             ;
@@ -194,9 +194,9 @@ module.exports = Base.extend({
         $line = 34;
         $art = 'each list as item';
         ;
-        $expr = '<%for (var $art_inlnksmvog$art_i = 0, $art_cksniipgx$art_c = list.length; $art_inlnksmvog$art_i < $art_cksniipgx$art_c; $art_inlnksmvog$art_i++) {        var item = list[$art_inlnksmvog$art_i]%>';
-        for (var $art_inlnksmvog$art_i = 0, $art_cksniipgx$art_c = list.length; $art_inlnksmvog$art_i < $art_cksniipgx$art_c; $art_inlnksmvog$art_i++) {
-            var item = list[$art_inlnksmvog$art_i];
+        $expr = '<%for (var $art_igapueonhsf$art_i = 0, $art_cmsuhxkffa$art_c = list.length; $art_igapueonhsf$art_i < $art_cmsuhxkffa$art_c; $art_igapueonhsf$art_i++) {        var item = list[$art_igapueonhsf$art_i]%>';
+        for (var $art_igapueonhsf$art_i = 0, $art_cmsuhxkffa$art_c = list.length; $art_igapueonhsf$art_i < $art_cmsuhxkffa$art_c; $art_igapueonhsf$art_i++) {
+            var item = list[$art_igapueonhsf$art_i];
             $p += '<a href="javascript:;" ';
             $line = 35;
             $art = 'if !disabled';
