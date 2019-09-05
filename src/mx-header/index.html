@@ -46,9 +46,9 @@
                 {{each navs as nav}}
                 <div class="front-item nav {{if (parent == nav.value)}} cur {{/if}}">
                     {{if nav.link}}
-                    <a class="nav-inner" href="{{=nav.link}}" target="_blank">{{=nav.text}}</a>
+                    <a data-nav="{{=nav.value}}" class="nav-inner" href="{{=nav.link}}" target="_blank">{{=nav.text}}</a>
                     {{else}}
-                    <a class="nav-inner" href="javascript:;" {{if !nav.subs || !nav.subs.length}} mx-click="to({nav:'{{@nav}}'})" {{/if}}>{{=nav.text}}</a>
+                    <a data-nav="{{=nav.value}}" class="nav-inner" href="javascript:;" {{if !nav.subs || !nav.subs.length}} mx-click="to({nav:'{{@nav}}'})" {{/if}}>{{=nav.text}}</a>
                     {{/if}}
 
                     {{if nav.subs && nav.subs.length}}
@@ -56,9 +56,9 @@
                     <div class="popover bottom-center mx-shadow nav-subs">
                         {{each nav.subs as sub}}
                             {{if sub.link}}
-                            <a class="nav-sub" href="{{=sub.link}}" target="_blank">{{=sub.text}}</a>
+                            <a data-nav="{{=sub.value}}" class="nav-sub" href="{{=sub.link}}" target="_blank">{{=sub.text}}</a>
                             {{else}}
-                            <a class="nav-sub {{if (child == sub.value)}} nav-sub-cur {{/if}}" href="javascript:;" mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})">{{=sub.text}}</a>
+                            <a data-nav="{{=sub.value}}" class="nav-sub {{if (child == sub.value)}} nav-sub-cur {{/if}}" href="javascript:;" mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})">{{=sub.text}}</a>
                             {{/if}}
                         {{/each}}
                     </div>

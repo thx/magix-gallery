@@ -4,7 +4,7 @@
         mx-mouseout="@{start}()">
         {{!content}}
     </div>
-    {{if dots}}
+    {{if (dots && len > 1)}}
     <ul class="{{if vertical}} v-dots {{else}} dots {{/if}} clearfix" 
         mx-mouseover="@{stop}()" 
         mx-mouseout="@{start}()">

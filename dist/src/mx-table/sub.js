@@ -1,1 +1,68 @@
-define("mx-table/sub",["$","magix"],(e,t,a)=>{var l=e("$");e("magix").applyStyle("_zs_galleryaC","._zs_gallerykA{position:relative;display:inline-block;width:1px;height:1px}._zs_gallerykA ._zs_gallerykB,._zs_gallerykA ._zs_gallerykC{position:absolute;top:-10px;left:0;width:16px;height:16px;text-align:center;line-height:16px}._zs_gallerykC{cursor:pointer;color:var(--color-brand)}._zs_gallerykB{cursor:pointer;color:#999}._zs_gallerykB:hover{color:#333}"),a.exports={ctor:function(){var e=this;e.__eK={};var t=function(t){var a=e.__eK;l("#"+(t.id||e.id)).find("[sub-toggle]").each(function(t,r){var i=l(r).attr("sub-toggle");/^true$/i.test(l(r).attr("data-expand"))&&!a[i]&&(a[i]={expand:!0});var s=a[i];e.sync(s&&s.expand,r,i)})};e.on("rendered",t),e.on("domready",t)},sync:function(e,t,a){var r=l("#"+this.id);l(t).addClass("_zs_gallerykA"),e?(l(t).html('<i class="mc-iconfont _zs_gallerykC">&#xe653;</i>'),r.find("[sub-toggle-parent="+a+"]").removeClass("hide")):(l(t).html('<i class="mc-iconfont _zs_gallerykB">&#xe652;</i>'),r.find("[sub-toggle-parent="+a+"]").addClass("hide"))},"$[sub-toggle]<click>":function(e){l("#"+this.id);var t=l(e.eventTarget),a=t.attr("sub-toggle"),r=this.__eK[a];r||(r=this.__eK[a]={}),r.expand=!r.expand,this.sync(r.expand,t,a),l(document).trigger("tableresize")}}});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-table/sub",["$","magix"],(require,exports,module)=>{
+/*$,Magix*/
+
+var $ = require("$");
+var Magix = require("magix");
+Magix.applyStyle("_zs_gallery_mx-table_sub_","._zs_gallery_mx-table_sub_-sub-wrapper {\n  position: relative;\n  display: inline-block;\n  width: 1px;\n  height: 1px;\n}\n._zs_gallery_mx-table_sub_-sub-wrapper ._zs_gallery_mx-table_sub_-sub-expand,\n._zs_gallery_mx-table_sub_-sub-wrapper ._zs_gallery_mx-table_sub_-sub-close {\n  position: absolute;\n  top: -10px;\n  left: 0;\n  width: 16px;\n  height: 16px;\n  text-align: center;\n  line-height: 16px;\n}\n._zs_gallery_mx-table_sub_-sub-expand {\n  cursor: pointer;\n  color: var(--color-brand);\n}\n._zs_gallery_mx-table_sub_-sub-close {\n  cursor: pointer;\n  color: #999;\n}\n._zs_gallery_mx-table_sub_-sub-close:hover {\n  color: #333;\n}\n");
+module.exports = {
+    ctor: function () {
+        // &#xe653; 收起
+        // &#xe652; 展开
+        var me = this;
+        me['@{sub.toggle.store}'] = {};
+        var ready = function (e) {
+            var state = me['@{sub.toggle.store}'];
+            var context = $('#' + (e.id || me.id));
+            var trigger = context.find('[sub-toggle]');
+            trigger.each(function (idx, item) {
+                var toggleName = $(item).attr('sub-toggle');
+                // 默认状态
+                var expand = (/^true$/i).test($(item).attr('data-expand'));
+                if (expand && !state[toggleName]) {
+                    state[toggleName] = {
+                        expand: true
+                    };
+                }
+                var object = state[toggleName];
+                me.sync((object && object.expand), item, toggleName);
+            });
+        };
+        me.on('rendered', ready);
+        me.on('domready', ready);
+    },
+    sync: function (expand, item, toggleName) {
+        var me = this;
+        var context = $('#' + me.id);
+        $(item).addClass('_zs_gallery_mx-table_sub_-sub-wrapper');
+        if (expand) {
+            // 收起
+            $(item).html('<i class="mc-iconfont _zs_gallery_mx-table_sub_-sub-expand">&#xe653;</i>');
+            context.find('[sub-toggle-parent=' + toggleName + ']').removeClass('hide');
+        }
+        else {
+            // 展开
+            $(item).html('<i class="mc-iconfont _zs_gallery_mx-table_sub_-sub-close">&#xe652;</i>');
+            context.find('[sub-toggle-parent=' + toggleName + ']').addClass('hide');
+        }
+    },
+    '$[sub-toggle]<click>': function (e) {
+        var me = this;
+        var context = $('#' + me.id);
+        var item = $(e.eventTarget);
+        var toggleName = item.attr('sub-toggle');
+        var object = me['@{sub.toggle.store}'][toggleName];
+        if (!object) {
+            object = me['@{sub.toggle.store}'][toggleName] = {};
+        }
+        object.expand = !object.expand;
+        me.sync(object.expand, item, toggleName);
+        $(document).trigger('tableresize');
+    }
+};
+
+});

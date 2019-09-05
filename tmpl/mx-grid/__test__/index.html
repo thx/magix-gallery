@@ -43,6 +43,9 @@
     }, {
         name: 'mx-grid.col',
         key: viewId + '_col',
+    }, {
+        name: '问题小计',
+        key: viewId + '_err',
     }]}}"></div>
 
     <mx-title.second content="组合示例"/>
@@ -79,5 +82,9 @@
     <mx-title.second id="{{=viewId}}_col"
         content="mx-grid.col"
         tip="flex项目"/>
-    <div mx-view="__test__/api?options={{@cols}}" class="mb20"></div>
+    <div mx-view="__test__/api?options={{@cols}}" class="mb40"></div>
+
+    <mx-title.second id="{{=viewId}}_err"
+        content="问题小计"  />
+    <div mx-view="@./err" class="mb20"></div>
 </div>

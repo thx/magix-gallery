@@ -1,1 +1,129 @@
-define("mx-tree/examples/4",["magix","examples/example","$","../index","mx-copy/index","examples/hl"],(e,l,t)=>{e("../index"),e("mx-copy/index"),e("examples/hl");e("magix");var a=e("examples/example");e("$");t.exports=a.extend({tmpl:function(e,l,t,a,x,r,i,n){if(t||(t=e),!x){var u={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},s=/[&<>"'`]/g,p=function(e){return"&"+u[e]+";"};x=function(e){return""+(null==e?"":e)},a=function(e){return x(e).replace(s,p)}}if(!r){var v={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},d=function(e){return v[e]},m=/[!')(*]/g;r=function(e){return encodeURIComponent(x(e)).replace(m,d)}}if(!n){var _=/[\\'"]/g;n=function(e){return x(e).replace(_,"\\$&")}}i||(i=function(e,l,t,a){for(a=e[c];--a;)if(e[t=c+a]===l)return t;return e[t=c+e[c]++]=l,t});var c="",o="",g=e.viewId,f=e.list,y=e.text1;return o+='<div mxv mxa="_zs_galleryfp:_" class="_zs_galleryg"><div mxv mxa="_zs_galleryfp:a" class="_zs_galleryj"><div mxv="list" id="'+a(g)+'_tree" mx-view="mx-tree/index?needExpand=true&hasLine=true&close=true&list='+i(t,f)+'"></div></div><div mxa="_zs_galleryfp:b" class="_zs_galleryk"><div mxs="_zs_galleryfp:_" class="_zs_galleryi">可展开收起 + 默认收起</div><div class="_zs_galleryl" mx-success="'+l+'done({id:1})" mx-view="mx-copy/index?copyNode='+r(g)+'_text_1"><span mxa="_zs_galleryfp:c" class="_zs_galleryn">'+x(y)+'</span><i mxs="_zs_galleryfp:a" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="examples/hl" id="'+a(g)+'_text_1">\n&lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"\n    need-expand="true"\n    has-line="true"\n    close="true"\n    list="&#123;&#123;@list&#125;&#125;"&gt;&lt;/mx-tree&gt;</pre></div></div>'},render:function(){this.updater.digest({list:[{value:1,pValue:"",text:"1"},{value:2,pValue:"",text:"2"},{value:11,pValue:1,text:"1-1"},{value:111,pValue:11,text:"1-1-1"},{value:1111,pValue:111,text:"1-1-1-1"},{value:1112,pValue:111,text:"1-1-1-2"},{value:12,pValue:1,text:"1-2"},{value:121,pValue:12,text:"1-2-1"},{value:122,pValue:12,text:"1-2-2"},{value:21,pValue:2,text:"2-1"},{value:211,pValue:21,text:"2-1-1"},{value:212,pValue:21,text:"2-1-2"},{value:22,pValue:2,text:"2-2"},{value:221,pValue:22,text:"2-2-1"},{value:222,pValue:22,text:"2-2-2"}]})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-tree/examples/4",["magix","examples/example","$","../index","mx-copy/index","examples/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("../index");
+require("mx-copy/index");
+require("examples/hl");
+var Magix = require("magix");
+var Base = require("examples/example");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, list = $$.list, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryfq:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryfq:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxv="list" id="';
+    $line = 3;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_tree" mx-view="mx-tree/index?needExpand=true&hasLine=true&close=true&list=';
+    $line = 7;
+    $art = '@list';
+    ;
+    $p += ($expr = '<%@list%>', $i($$ref, list)) + '"></div></div><div mxa="_zs_galleryfq:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryfq:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">可展开收起 + 默认收起</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 11;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryfq:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 13;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryfq:a" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 16;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"\n    need-expand="true"\n    has-line="true"\n    close="true"\n    list="&#123;&#123;@list&#125;&#125;"&gt;&lt;/mx-tree&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-tree/examples/4.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        var list = [{
+                value: 1,
+                pValue: '',
+                text: '1'
+            }, {
+                value: 2,
+                pValue: '',
+                text: '2'
+            }, {
+                value: 11,
+                pValue: 1,
+                text: '1-1'
+            }, {
+                value: 111,
+                pValue: 11,
+                text: '1-1-1'
+            }, {
+                value: 1111,
+                pValue: 111,
+                text: '1-1-1-1'
+            }, {
+                value: 1112,
+                pValue: 111,
+                text: '1-1-1-2'
+            }, {
+                value: 12,
+                pValue: 1,
+                text: '1-2'
+            }, {
+                value: 121,
+                pValue: 12,
+                text: '1-2-1'
+            }, {
+                value: 122,
+                pValue: 12,
+                text: '1-2-2'
+            }, {
+                value: 21,
+                pValue: 2,
+                text: '2-1'
+            }, {
+                value: 211,
+                pValue: 21,
+                text: '2-1-1'
+            }, {
+                value: 212,
+                pValue: 21,
+                text: '2-1-2'
+            }, {
+                value: 22,
+                pValue: 2,
+                text: '2-2'
+            }, {
+                value: 221,
+                pValue: 22,
+                text: '2-2-1'
+            }, {
+                value: 222,
+                pValue: 22,
+                text: '2-2-2'
+            }];
+        this.updater.digest({
+            list: list
+        });
+    }
+});
+
+});
