@@ -6,6 +6,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.33',
+            time: '2019-09-05',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-tabs：支持带icon，<a href="#!/tabs/index?highlightId=mx_12_demo11" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dialog：增加 mxLoginView 规范登陆框的弹出样式，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.32',
             time: '2019-09-04',
             subs: [{
