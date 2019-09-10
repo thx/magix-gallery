@@ -1,5 +1,6 @@
+<!--md5:ee2c7fc557856e036304fc53052db4ab-->
 <div class="star-bg">
-    {{for(let i=0;i<5;i+=1)}}
+    {{for(let i=0;i<count;i+=1)}}
     <span class="star">
         {{if icon}}
             {{!icon}}
@@ -10,8 +11,8 @@
     {{/for}}
 </div>
 <div class="star-on" style="width: {{=width}};">
-    <div class="star-inner {{if !color}} star-brand {{/if}}">
-        {{for(let i=0;i<5;i+=1)}}
+    <div class="star-inner {{if !color}} star-brand {{/if}}" style="width:{{=innerWidth}}px">
+        {{for(let i=0;i<count;i+=1)}}
         <span class="star" {{if color}} style="color: {{=color}};" {{/if}}>
             {{if icon}}
                 {{!icon}}
