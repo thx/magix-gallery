@@ -3,6 +3,13 @@ let ByteLen = (str) => {
     return str.replace(/[^\x00-\xff]/g, 'xl').length;
 };
 let I18n = require('../mx-medusa/util');
+let useTip = tip => {
+    try {
+        return eval('`' + tip + '`');
+    } catch{
+    }
+    return String(tip);
+};
 let isMobile = (str) => {
     let regex = {
         //中国移动
@@ -574,7 +581,7 @@ module.exports = {
         }
         return {
             valid,
-            tip: eval('`' + tip + '`')
+            tip: useTip(tip)
         };
     },
 
@@ -592,7 +599,7 @@ module.exports = {
         }
         return {
             valid,
-            tip: eval('`' + tip + '`')
+            tip: useTip(tip)
         };
     },
 
@@ -620,7 +627,7 @@ module.exports = {
 
         return {
             valid,
-            tip: eval('`' + tip + '`')
+            tip: useTip(tip)
         };
     },
 
@@ -648,7 +655,7 @@ module.exports = {
 
         return {
             valid,
-            tip: eval('`' + tip + '`')
+            tip: useTip(tip)
         };
     },
 
@@ -676,7 +683,7 @@ module.exports = {
 
         return {
             valid,
-            tip: eval('`' + tip + '`')
+            tip: useTip(tip)
         };
     },
 
@@ -704,7 +711,7 @@ module.exports = {
 
         return {
             valid,
-            tip: eval('`' + tip + '`')
+            tip: useTip(tip)
         };
     }
 };
