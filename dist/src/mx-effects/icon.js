@@ -1,1 +1,138 @@
-define("mx-effects/icon",["magix","$","mx-popover/index"],(e,r,l)=>{e("mx-popover/index");var a=e("magix");e("$");a.applyStyle("_zs_galleryO","._zs_galleryeO{box-shadow:0 1px 1px 0 rgba(0,0,0,.08);border:1px solid #f5f5f6}._zs_galleryeP{font-size:12px;font-weight:700;transform:scale(.9)}._zs_galleryeQ,._zs_galleryeP{display:inline-block}._zs_galleryeQ{height:16px;padding:0 4px;border-radius:4px;color:#fff;text-align:center;line-height:16px;font-size:0}._zs_galleryeQ._zs_galleryeR{background-color:#ccc}._zs_galleryeQ._zs_galleryeS{background-color:var(--color-red)}._zs_galleryeQ._zs_galleryeT{background-color:var(--color-warn)}._zs_galleryeQ._zs_galleryeU{background-color:var(--color-brand)}._zs_galleryeV{display:inline-block;height:16px;padding:0 4px;border-radius:8px;text-align:center;line-height:14px;font-size:0}._zs_galleryeV._zs_galleryeR{border:1px solid #ccc;color:#999}._zs_galleryeV._zs_galleryeS{border:1px solid var(--color-red);color:var(--color-red)}._zs_galleryeV._zs_galleryeT{border:1px solid var(--color-warn);color:var(--color-warn)}._zs_galleryeV._zs_galleryeU{border:1px solid var(--color-brand);color:var(--color-brand)}");var o={solid:"_zs_galleryeQ",hollow:"_zs_galleryeV",common:"_zs_galleryeR",error:"_zs_galleryeS",warn:"_zs_galleryeT",highlight:"_zs_galleryeU"};l.exports=a.View.extend({tmpl:function(e,r,l,a,o,s,n,t){if(l||(l=e),!o){var i={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},c=/[&<>"'`]/g,_=function(e){return"&"+i[e]+";"};o=function(e){return""+(null==e?"":e)},a=function(e){return o(e).replace(c,_)}}if(!s){var p={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},g=function(e){return p[e]},d=/[!')(*]/g;s=function(e){return encodeURIComponent(o(e)).replace(d,g)}}if(!t){var y=/[\\'"]/g;t=function(e){return o(e).replace(y,"\\$&")}}var u="",z=e.tip,x=e.classNames,h=e.styles,f=e.content;return u+=z?'<span class="'+a(x)+'" style="'+a(h)+'" mx-view="mx-popover/index?content='+s(z)+'"><span mxa="_zs_galleryb^:_" class="_zs_galleryeP">'+o(f)+"</span></span>":'<span class="'+a(x)+'" style="'+a(h)+'"><span mxa="_zs_galleryb^:a" class="_zs_galleryeP">'+o(f)+"</span></span>"},init:function(e){this.updater.snapshot(),this.assign(e)},assign:function(e){var r=this.updater.altered(),l=e.color,a=[],s=e.mode||"solid",n=e.type||"common",t=[];if(o[s]&&t.push(o[s]),o[n]&&t.push(o[n]),l)switch(s){case"solid":a.push("background-color:"+l);break;case"hollow":a.push("color:"+l,"border: 1px solid "+l)}return this.updater.set({content:e.content||"icon",classNames:t.join(" "),styles:a.join(";"),tip:e.tip||""}),r||(r=this.updater.altered()),!!r&&(this.updater.snapshot(),!0)},render:function(){this.updater.digest()}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-effects/icon",["magix","$","mx-popover/index"],(require,exports,module)=>{
+/*Magix,$*/
+require("mx-popover/index");
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-effects_icon_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-effects_icon_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*less变量覆盖，与group配置css变量一一对应*/\n._zs_gallery_mx-effects_icon_-text {\n  display: inline-block;\n  font-size: 12px;\n  font-weight: bold;\n  transform: scale(0.9);\n}\n/*实心打标icon*/\n._zs_gallery_mx-effects_icon_-solid-icon {\n  display: inline-block;\n  height: 16px;\n  padding: 0 4px;\n  border-radius: 4px;\n  color: #fff;\n  text-align: center;\n  line-height: 16px;\n  font-size: 0;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-common {\n  background-color: #ccc;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-error {\n  background-color: var(--color-red);\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-warn {\n  background-color: var(--color-warn);\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-highlight {\n  background-color: var(--color-brand);\n}\n/*空心打标*/\n._zs_gallery_mx-effects_icon_-hollow-icon {\n  display: inline-block;\n  height: 16px;\n  padding: 0 4px;\n  border-radius: 8px;\n  text-align: center;\n  line-height: 14px;\n  font-size: 0;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-common {\n  border: 1px solid #ccc;\n  color: #999;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-error {\n  border: 1px solid var(--color-red);\n  color: var(--color-red);\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-warn {\n  border: 1px solid var(--color-warn);\n  color: var(--color-warn);\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-highlight {\n  border: 1px solid var(--color-brand);\n  color: var(--color-brand);\n}\n");
+var ClassNames = {
+    solid: '_zs_gallery_mx-effects_icon_-solid-icon',
+    hollow: '_zs_gallery_mx-effects_icon_-hollow-icon',
+    common: '_zs_gallery_mx-effects_icon_-common',
+    error: '_zs_gallery_mx-effects_icon_-error',
+    warn: '_zs_gallery_mx-effects_icon_-warn',
+    highlight: '_zs_gallery_mx-effects_icon_-highlight'
+};
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', tip = $$.tip, classNames = $$.classNames, styles = $$.styles, content = $$.content; var $expr, $art, $line; try {
+    $line = 1;
+    $art = 'if tip';
+    ;
+    $expr = '<%if (tip) {%>';
+    if (tip) {
+        ;
+        $p += '<span class="';
+        $line = 2;
+        $art = '=classNames';
+        ;
+        $p += ($expr = '<%=classNames%>', $e(classNames)) + '" style="';
+        $line = 2;
+        $art = '=styles';
+        ;
+        $p += ($expr = '<%=styles%>', $e(styles)) + '" mx-view="mx-popover/index?content=';
+        $line = 3;
+        $art = '=tip';
+        ;
+        $p += ($expr = '<%!$eu(tip)%>', $eu(tip)) + '"><span mxa="_zs_galleryb^:_" class="_zs_gallery_mx-effects_icon_-text">';
+        $line = 4;
+        $art = '!content';
+        ;
+        $p += ($expr = '<%!content%>', $n(content)) + '</span></span>';
+        $line = 6;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += '<span class="';
+        $line = 7;
+        $art = '=classNames';
+        ;
+        $p += ($expr = '<%=classNames%>', $e(classNames)) + '" style="';
+        $line = 7;
+        $art = '=styles';
+        ;
+        $p += ($expr = '<%=styles%>', $e(styles)) + '"><span mxa="_zs_galleryb^:a" class="_zs_gallery_mx-effects_icon_-text">';
+        $line = 8;
+        $art = '!content';
+        ;
+        $p += ($expr = '<%!content%>', $n(content)) + '</span></span>';
+        $line = 10;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-effects/icon.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        this.updater.snapshot();
+        this.assign(extra);
+    },
+    assign: function (extra) {
+        var that = this;
+        var altered = that.updater.altered();
+        // 如果用户自定义了色值以自定义色值为准
+        var color = extra.color, styles = [], mode = extra.mode || 'solid', type = extra.type || 'common';
+        var classNames = [];
+        if (ClassNames[mode]) {
+            classNames.push(ClassNames[mode]);
+        }
+        if (ClassNames[type]) {
+            classNames.push(ClassNames[type]);
+        }
+        // 自定义颜色
+        if (color) {
+            switch (mode) {
+                case 'solid':
+                    styles.push('background-color:' + color);
+                    break;
+                case 'hollow':
+                    styles.push('color:' + color, 'border: 1px solid ' + color);
+                    break;
+            }
+        }
+        this.updater.set({
+            content: extra.content || 'icon',
+            classNames: classNames.join(' '),
+            styles: styles.join(';'),
+            tip: extra.tip || ''
+        });
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render: function () {
+        this.updater.digest();
+    }
+});
+
+});

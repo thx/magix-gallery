@@ -1,1 +1,73 @@
-define("mx-gtip/examples/3",["magix","examples/example","mx-gtip/index","$","mx-copy/index","examples/hl"],(e,l,s)=>{e("mx-copy/index"),e("examples/hl");e("magix");var i=e("examples/example"),a=e("mx-gtip/index");e("$");s.exports=i.extend({tmpl:function(e,l,s,i,a,n,t,c){if(s||(s=e),!a){var r={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},x=/[&<>"'`]/g,d=function(e){return"&"+r[e]+";"};a=function(e){return""+(null==e?"":e)},i=function(e){return a(e).replace(x,d)}}if(!n){var g={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},_=function(e){return g[e]},p=/[!')(*]/g;n=function(e){return encodeURIComponent(a(e)).replace(p,_)}}if(!c){var m=/[\\'"]/g;c=function(e){return a(e).replace(m,"\\$&")}}var o="",v=e.viewId,y=e.text1,u=e.text2;return o+='<div mxa="_zs_gallerycL:_" class="_zs_galleryg"><div mxs="_zs_gallerycL:_" class="_zs_galleryj"><div class="mb20"><span class="color-9">以下示例：</span><span>直接使用gtip(msg [, timeout])显示顶通默认样式信息，注意顶通提示实例只会保留一个（singleton=true）</span></div><div class="mb20"><span>顶通显示提示信息，1秒后自动关闭，不显示手动关闭按钮，</span><a href="javascript:;" mx-click="'+l+'show1()" class="link-brand">点击查看</a></div><div><span>顶通显示提示信息，显示手动关闭按钮手动关闭，</span><a href="javascript:;" mx-click="'+l+'show2()" class="link-brand">点击查看</a></div></div><div mxa="_zs_gallerycL:a" class="clearfix"><div mxa="_zs_gallerycL:b" class="_zs_galleryk _zs_galleryd"><div mxs="_zs_gallerycL:a" class="_zs_galleryi">HTML Code</div><div class="_zs_galleryl" mx-success="'+l+'done({id:1})" mx-view="mx-copy/index?copyNode='+n(v)+'_text_1"><span mxa="_zs_gallerycL:c" class="_zs_galleryn">'+a(y)+'</span><i mxs="_zs_gallerycL:b" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="examples/hl" id="'+i(v)+'_text_1">\n&lt;div class="mb20"&gt;\n    &lt;span&gt;顶通显示提示信息，1秒后自动关闭，不显示手动关闭按钮，&lt;/span&gt;\n    &lt;a href="javascript:;" class="link-brand"\n        mx-click="show1()" &gt;点击查看&lt;/a&gt;\n&lt;/div&gt;\n\n&lt;div&gt;\n    &lt;span&gt;顶通显示提示信息，显示手动关闭按钮手动关闭，&lt;/span&gt;\n    &lt;a href="javascript:;" class="link-brand"\n        mx-click="show2()" &gt;点击查看&lt;/a&gt;\n&lt;/div&gt;\n            </pre></div><div mxa="_zs_gallerycL:d" class="_zs_galleryk _zs_galleryd _zs_gallerye"><div mxs="_zs_gallerycL:c" class="_zs_galleryi">JS Code</div><div class="_zs_galleryl" mx-success="'+l+'done({id:2})" mx-view="mx-copy/index?copyNode='+n(v)+'_text_2"><span mxa="_zs_gallerycL:e" class="_zs_galleryn">'+a(u)+'</span><i mxs="_zs_gallerycL:b" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="examples/hl" id="'+i(v)+"_text_2\">\nlet Magix = require('magix');\nlet GTip = require('@../../mx-gtip/index');\nlet $ = require('$');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: '@index.html',\n    mixins: [GTip],\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    'show1&lt;click&gt;'()&#123;\n        this.gtip('显示提示信息，1秒后自动关闭', 1000);\n    &#125;,\n    'show2&lt;click&gt;'()&#123;\n        this.gtip('显示提示信息，手动关闭');\n    &#125;\n&#125;);\n            </pre></div></div></div>"},mixins:[a],render:function(){this.updater.digest()},"show1<click>":function(){this.gtip("显示提示信息，1秒后自动关闭",1e3)},"show2<click>":function(){this.gtip("显示提示信息，手动关闭")}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-gtip/examples/3",["magix","examples/example","mx-gtip/index","$","mx-copy/index","examples/hl"],(require,exports,module)=>{
+/*Magix,Base,GTip,$*/
+require("mx-copy/index");
+require("examples/hl");
+var Magix = require("magix");
+var Base = require("examples/example");
+var GTip = require("mx-gtip/index");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerycL:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxs="_zs_gallerycL:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div class="mb20"><span class="color-9">以下示例：</span><span>直接使用gtip(msg [, timeout])显示顶通默认样式信息，注意顶通提示实例只会保留一个（singleton=true）</span></div><div class="mb20"><span>顶通显示提示信息，1秒后自动关闭，不显示手动关闭按钮，</span><a href="javascript:;" mx-click="' + $viewId + 'show1()" class="link-brand">点击查看</a></div><div><span>顶通显示提示信息，显示手动关闭按钮手动关闭，</span><a href="javascript:;" mx-click="' + $viewId + 'show2()" class="link-brand">点击查看</a></div></div><div mxa="_zs_gallerycL:a" class="clearfix"><div mxa="_zs_gallerycL:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_gallerycL:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 19;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycL:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 21;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycL:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 24;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div class="mb20"&gt;\n    &lt;span&gt;顶通显示提示信息，1秒后自动关闭，不显示手动关闭按钮，&lt;/span&gt;\n    &lt;a href="javascript:;" class="link-brand"\n        mx-click="show1()" &gt;点击查看&lt;/a&gt;\n&lt;/div&gt;\n\n&lt;div&gt;\n    &lt;span&gt;顶通显示提示信息，显示手动关闭按钮手动关闭，&lt;/span&gt;\n    &lt;a href="javascript:;" class="link-brand"\n        mx-click="show2()" &gt;点击查看&lt;/a&gt;\n&lt;/div&gt;\n            </pre></div><div mxa="_zs_gallerycL:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_gallerycL:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 40;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerycL:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 42;
+    $art = '!text2';
+    ;
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerycL:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 45;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet GTip = require(\'@../../mx-gtip/index\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    mixins: [GTip],\n    render() &#123;\n        this.updater.digest();\n    &#125;,\n    \'show1&lt;click&gt;\'()&#123;\n        this.gtip(\'显示提示信息，1秒后自动关闭\', 1000);\n    &#125;,\n    \'show2&lt;click&gt;\'()&#123;\n        this.gtip(\'显示提示信息，手动关闭\');\n    &#125;\n&#125;);\n            </pre></div></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-gtip/examples/3.html';
+    throw msg;
+} return $p; },
+    mixins: [GTip],
+    render: function () {
+        this.updater.digest();
+    },
+    'show1<click>': function () {
+        this.gtip('显示提示信息，1秒后自动关闭', 1000);
+    },
+    'show2<click>': function () {
+        this.gtip('显示提示信息，手动关闭');
+    }
+});
+
+});

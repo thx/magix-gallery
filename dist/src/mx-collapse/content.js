@@ -1,1 +1,50 @@
-define("mx-collapse/content",["magix"],(r,l,e)=>{var a=r("magix");a.applyStyle("_zs_galleryA","._zs_gallerydj{border-radius:var(--border-radius);border:1px solid var(--color-border);overflow:hidden}._zs_gallerydj ._zs_gallerydk{border-bottom:1px solid var(--color-border)}._zs_gallerydj ._zs_gallerydk ._zs_gallerydl{cursor:pointer;position:relative;padding:10px 24px;background-color:var(--color-bg)}._zs_gallerydj ._zs_gallerydk ._zs_gallerydl ._zs_gallerydm>*{position:absolute;top:50%;left:20px;width:20px;height:20px;text-align:center;line-height:20px;margin-top:-10px;transition:all var(--duration);color:#999}._zs_gallerydj ._zs_gallerydk ._zs_gallerydl ._zs_gallerydn{margin-left:20px}._zs_gallerydj ._zs_gallerydk ._zs_gallerydo{display:none;border-top:1px solid var(--color-border);overflow:hidden;transition:height var(--duration),opacity var(--duration)}._zs_gallerydj ._zs_gallerydk ._zs_gallerydo ._zs_gallerydp{padding:10px 24px}._zs_gallerydj ._zs_gallerydk ._zs_gallerydo ._zs_gallerydn{line-height:22px}._zs_gallerydj ._zs_gallerydk:last-child{border-bottom:0}._zs_gallerydj ._zs_gallerydk._zs_gallerydq ._zs_gallerydl{opacity:.5;cursor:not-allowed}._zs_gallerydj ._zs_gallerydk._zs_gallerydr ._zs_gallerydl ._zs_gallerydm>*{transform:rotate(90deg)}"),e.exports=a.View.extend({tmpl:function(r,l,e,a,_,d,o,t){if(e||(e=r),!_){var n={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},s=/[&<>"'`]/g,i=function(r){return"&"+n[r]+";"};_=function(r){return""+(null==r?"":r)},function(r){return _(r).replace(s,i)}}if(!d){var g={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},y=function(r){return g[r]},z=/[!')(*]/g;d=function(r){return encodeURIComponent(_(r)).replace(z,y)}}if(!t){var p=/[\\'"]/g;t=function(r){return _(r).replace(p,"\\$&")}}var c="",u=r.content;return c+='<div mxa="_zs_galleryat:_" class="_zs_gallerydn">'+_(u)+"</div>"},init:function(r){var l=r.data||{};this.updater.set({content:l.content||""})},render:function(){this.updater.digest({})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-collapse/content",["magix"],(require,exports,module)=>{
+/*Magix*/
+
+var Magix = require("magix");
+Magix.applyStyle("_zs_gallery_mx-collapse_index_","._zs_gallery_mx-collapse_index_-collapse {\n  border-radius: var(--border-radius);\n  border: 1px solid var(--color-border);\n  overflow: hidden;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item {\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-title {\n  cursor: pointer;\n  position: relative;\n  padding: 10px 24px;\n  background-color: var(--color-bg);\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-title ._zs_gallery_mx-collapse_index_-arrow > * {\n  position: absolute;\n  top: 50%;\n  left: 20px;\n  width: 20px;\n  height: 20px;\n  text-align: center;\n  line-height: 20px;\n  margin-top: -10px;\n  transition: all var(--duration);\n  color: #999;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-title ._zs_gallery_mx-collapse_index_-text {\n  margin-left: 20px;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-content {\n  display: none;\n  border-top: 1px solid var(--color-border);\n  overflow: hidden;\n  transition: height var(--duration), opacity var(--duration);\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-content ._zs_gallery_mx-collapse_index_-inner {\n  padding: 10px 24px;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item ._zs_gallery_mx-collapse_index_-content ._zs_gallery_mx-collapse_index_-text {\n  line-height: 22px;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item:last-child {\n  border-bottom: 0 none;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item._zs_gallery_mx-collapse_index_-item-disabled ._zs_gallery_mx-collapse_index_-title {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n._zs_gallery_mx-collapse_index_-collapse ._zs_gallery_mx-collapse_index_-item._zs_gallery_mx-collapse_index_-item-expand ._zs_gallery_mx-collapse_index_-title ._zs_gallery_mx-collapse_index_-arrow > * {\n  transform: rotate(90deg);\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', content = $$.content; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryat:_" class="_zs_gallery_mx-collapse_index_-text">';
+    $line = 1;
+    $art = '!content';
+    ;
+    $p += ($expr = '<%!content%>', $n(content)) + '</div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-collapse/content.html';
+    throw msg;
+} return $p; },
+    init: function (e) {
+        var that = this;
+        var data = e.data || {};
+        this.updater.set({
+            content: data.content || ''
+        });
+    },
+    render: function () {
+        this.updater.digest({});
+    }
+});
+
+});

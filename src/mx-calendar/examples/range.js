@@ -189,8 +189,8 @@ module.exports = Magix.View.extend({
             tip: I18n['calendar.lastest'] + ' n ' + I18n['calendar.unit.today'] + '，' + I18n['calendar.n.arbitrary'] + '，lastest1，lastest15...'
         }, {
             key: 'dynamicStart{n}',
-            text: I18n['calendar.dynamic.end'].replace('${day}', 'n'),
-            tip: I18n['calendar.dynamic.end.tip'].replace('${day}', 'n') + '，' + I18n['calendar.n.arbitrary'] + '，dynamicStart1，dynamicStart15...'
+            text: I18n['calendar.dynamic.end'].replace('{day}', 'n'),
+            tip: I18n['calendar.dynamic.end.tip'].replace('{day}', 'n') + '，' + I18n['calendar.n.arbitrary'] + '，dynamicStart1，dynamicStart15...'
         }, {
             key: 'dynamicEndThisMonth',
             text: I18n['calendar.natural.month'],

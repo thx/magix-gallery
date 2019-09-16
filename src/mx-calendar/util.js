@@ -195,8 +195,8 @@ module.exports = {
                 end = GetOffsetDate(0);
             } else if ((/^dynamicStart\d+$/i).test(quickKey)) {
                 let n = +quickKey.replace('dynamicStart', '');
-                text = I18n['calendar.dynamic.end'].replace('${day}', n);
-                tip = I18n['calendar.dynamic.end.tip'].replace('${day}', n);
+                text = I18n['calendar.dynamic.end'].replace('{day}', n);
+                tip = I18n['calendar.dynamic.end.tip'].replace('{day}', n);
                 start = DateParse(startStr);
                 end = GetOffsetDate(n - 1, start);
             } else if (quickKey == 'dynamicEndThisMonth') {

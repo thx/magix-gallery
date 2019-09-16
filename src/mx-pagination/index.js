@@ -118,8 +118,8 @@ module.exports = Magix.View.extend({
             offsetStart = offsetEnd = 0;
         }
 
-        let tipOffset = I18n['pager.offset'].replace('${min}', `${offsetStart}`).replace('${max}', `${offsetEnd}`),
-            tipTotal = I18n['pager.total'].replace('${total}', `${total}`),
+        let tipOffset = I18n['pager.offset'].replace('{min}', `${offsetStart}`).replace('{max}', `${offsetEnd}`),
+            tipTotal = I18n['pager.total'].replace('{total}', `${total}`),
             tipPer = I18n['pager.per.page'],
             tipUnit = I18n['pager.unit'],
             tipJumpTo = I18n['pager.jump.to'],

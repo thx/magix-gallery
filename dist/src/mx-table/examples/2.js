@@ -1,1 +1,108 @@
-define("mx-table/examples/2",["magix","examples/example","$","../index","mx-copy/index","examples/hl"],(t,l,e)=>{t("../index"),t("mx-copy/index"),t("examples/hl");t("magix");var a=t("examples/example");t("$");e.exports=a.extend({tmpl:function(t,l,e,a,n,s,r,i){if(e||(e=t),!n){var d={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},c=/[&<>"'`]/g,g=function(t){return"&"+d[t]+";"};n=function(t){return""+(null==t?"":t)},a=function(t){return n(t).replace(c,g)}}if(!s){var m={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},x=function(t){return m[t]},o=/[!')(*]/g;s=function(t){return encodeURIComponent(n(t)).replace(o,x)}}if(!i){var _=/[\\'"]/g;i=function(t){return n(t).replace(_,"\\$&")}}var b="",p=t.viewId,v=t.text1;b+='<div mxa="_zs_galleryeO:_" class="_zs_galleryg"><div mxa="_zs_galleryeO:a" class="_zs_galleryj"><div mxs="_zs_galleryeO:_" class="mb20"><span class="color-9">该示例：</span>默认展开第一行下方操作项 + 选中行展示操作项</div><div mxa="_zs_galleryeO:b" mx-view="mx-table/index" class="mb20"><div><table mxa="_zs_galleryeO:c" class="table"><thead><tr>';for(var f=0;f<5;f++)b+='<th width="'+a(100*(f+1))+'">示例'+a(f)+"</th>";b+="</tr></thead><tbody>";for(var h=0;h<3;h++){b+="<tr>";for(f=0;f<5;f++)b+="<td>示例内容"+a(f)+"</td>";b+='</tr><tr mxs="_zs_galleryeO:a" class="operation-tr"><td colspan="5"><a href="javascript:;" class="btn btn-white btn-small mr10">操作</a><a href="javascript:;" class="btn btn-white btn-small mr10">操作</a><a href="javascript:;" class="btn btn-white btn-small">操作</a></td></tr>'}return b+='</tbody></table></div></div></div><div mxa="_zs_galleryeO:d" class="_zs_galleryk"><div mxs="_zs_galleryeO:b" class="_zs_galleryi">HTML Code</div><div class="_zs_galleryl" mx-success="'+l+'done({id:1})" mx-view="mx-copy/index?copyNode='+s(p)+'_text_1"><span mxa="_zs_galleryeO:e" class="_zs_galleryn">'+n(v)+'</span><i mxs="_zs_galleryeO:c" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="examples/hl" id="'+a(p)+'_text_1">\n&lt;mx-table&gt;\n    &lt;table class="table"&gt;\n        &lt;thead&gt;\n            &lt;tr&gt;\n                &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;\n                &lt;th width="&#123;&#123;=(100*(i+1))&#125;&#125;"&gt;示例&#123;&#123;=i&#125;&#125;&lt;/th&gt;\n                &#123;&#123;/for&#125;&#125;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;for(let j=0;j&lt;3;j++)&#125;&#125;\n            &lt;tr&gt;\n                &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;\n                    &lt;td&gt;示例内容&#123;&#123;=i&#125;&#125;&lt;/td&gt;\n                &#123;&#123;/for&#125;&#125;\n            &lt;/tr&gt;\n            &lt;tr class="operation-tr"&gt;\n                &lt;td colspan="5"&gt;\n                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10"&gt;操作&lt;/a&gt;\n                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10"&gt;操作&lt;/a&gt;\n                    &lt;a href="javascript:;" class="btn btn-white btn-small"&gt;操作&lt;/a&gt;\n                &lt;/td&gt;\n            &lt;/tr&gt;\n            &#123;&#123;/for&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n&lt;/mx-table&gt;</pre></div></div>'},render:function(){this.updater.digest()}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-table/examples/2",["magix","examples/example","$","../index","mx-copy/index","examples/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("../index");
+require("mx-copy/index");
+require("examples/hl");
+var Magix = require("magix");
+var Base = require("examples/example");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryeO:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_galleryeO:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryeO:_" class="mb20"><span class="color-9">该示例：</span>默认展开第一行下方操作项 + 选中行展示操作项</div><div mxa="_zs_galleryeO:b" mx-view="mx-table/index" class="mb20"><div><table mxa="_zs_galleryeO:c" class="table"><thead><tr>';
+    $line = 11;
+    $art = 'for (let i=0;i<5;i++)';
+    ;
+    $expr = '<%for (var i = 0; i < 5; i++) {%>';
+    for (var i = 0; i < 5; i++) {
+        ;
+        $p += '<th width="';
+        $line = 12;
+        $art = '=(100*(i+1))';
+        ;
+        $p += ($expr = '<%=(100 * (i + 1))%>', $e((100 * (i + 1)))) + '">示例';
+        $line = 12;
+        $art = '=i';
+        ;
+        $p += ($expr = '<%=i%>', $e(i)) + '</th>';
+        $line = 13;
+        $art = '/for';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</tr></thead><tbody>';
+    $line = 17;
+    $art = 'for (let j=0;j<3;j++)';
+    ;
+    $expr = '<%for (var j = 0; j < 3; j++) {%>';
+    for (var j = 0; j < 3; j++) {
+        ;
+        $p += '<tr>';
+        $line = 19;
+        $art = 'for (let i=0;i<5;i++)';
+        ;
+        $expr = '<%for (var i = 0; i < 5; i++) {%>';
+        for (var i = 0; i < 5; i++) {
+            ;
+            $p += '<td>示例内容';
+            $line = 20;
+            $art = '=i';
+            ;
+            $p += ($expr = '<%=i%>', $e(i)) + '</td>';
+            $line = 21;
+            $art = '/for';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</tr><tr mxs="_zs_galleryeO:a" class="operation-tr"><td colspan="5"><a href="javascript:;" class="btn btn-white btn-small mr10">操作</a><a href="javascript:;" class="btn btn-white btn-small mr10">操作</a><a href="javascript:;" class="btn btn-white btn-small">操作</a></td></tr>';
+        $line = 30;
+        $art = '/for';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</tbody></table></div></div></div><div mxa="_zs_galleryeO:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryeO:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 37;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryeO:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 39;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryeO:c" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 42;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-table&gt;\n    &lt;table class="table"&gt;\n        &lt;thead&gt;\n            &lt;tr&gt;\n                &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;\n                &lt;th width="&#123;&#123;=(100*(i+1))&#125;&#125;"&gt;示例&#123;&#123;=i&#125;&#125;&lt;/th&gt;\n                &#123;&#123;/for&#125;&#125;\n            &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n            &#123;&#123;for(let j=0;j&lt;3;j++)&#125;&#125;\n            &lt;tr&gt;\n                &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;\n                    &lt;td&gt;示例内容&#123;&#123;=i&#125;&#125;&lt;/td&gt;\n                &#123;&#123;/for&#125;&#125;\n            &lt;/tr&gt;\n            &lt;tr class="operation-tr"&gt;\n                &lt;td colspan="5"&gt;\n                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10"&gt;操作&lt;/a&gt;\n                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10"&gt;操作&lt;/a&gt;\n                    &lt;a href="javascript:;" class="btn btn-white btn-small"&gt;操作&lt;/a&gt;\n                &lt;/td&gt;\n            &lt;/tr&gt;\n            &#123;&#123;/for&#125;&#125;\n        &lt;/tbody&gt;\n    &lt;/table&gt;\n&lt;/mx-table&gt;</pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-table/examples/2.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest();
+    }
+});
+
+});

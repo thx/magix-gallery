@@ -1,3 +1,4 @@
+/*md5:15df7ba31b0836e9565bacc5efc0f392*/
 let Magix = require('magix');
 let $ = require('$');
 Magix.applyStyle('@star.less');
@@ -14,6 +15,7 @@ module.exports = Magix.View.extend({
 
         // num: 0, 0.5, 1 ... 4, 4.5, 5
         let color = e.color || '';
+        let count = +e.count || 5
         let num = +e.num || 0;
         let s = num + '';
         let i = s.indexOf('.');
@@ -31,11 +33,13 @@ module.exports = Magix.View.extend({
             num = 0;
         }
 
-        if (num > 5) {
-            num = 5;
+        if (num > count) {
+            num = count;
         }
         that.updater.set({
-            width: num / 5 * 100 + '%',
+            width: num / count * 100 + '%',
+            innerWidth:24*count,
+            count,
             color,
             icon: e.icon 
         });

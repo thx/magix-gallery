@@ -3,13 +3,6 @@ let ByteLen = (str) => {
     return str.replace(/[^\x00-\xff]/g, 'xl').length;
 };
 let I18n = require('../mx-medusa/util');
-let useTip = tip => {
-    try {
-        return eval('`' + tip + '`');
-    } catch{
-    }
-    return String(tip);
-};
 let isMobile = (str) => {
     let regex = {
         //中国移动
@@ -358,7 +351,7 @@ module.exports = {
                 max = rule[1],
                 current = val.length;
             valid = (current >= min) && (current <= max);
-            tip = tip.replace('${min}', min).replace('${max}', max).replace('${current}', current);
+            tip = tip.replace(/{min}/g, min).replace(/{max}/g, max).replace(/{current}/g, current);
         }
 
         return {
@@ -426,7 +419,7 @@ module.exports = {
                 max = rule[1],
                 current = ByteLen(val);
             valid = (current >= min) && (current <= max);
-            tip = tip.replace('${min}', min).replace('${max}', max).replace('${current}', current);
+            tip = tip.replace(/{min}/g, min).replace(/{max}/g, max).replace(/{current}/g, current);
         }
 
         return {
@@ -495,11 +488,11 @@ module.exports = {
             if (rule[1]) {
                 tip = rule[1];
             } else {
-                tip = tip.replace('${rule}', rule[0]);
+                tip = tip.replace(/{rule}/g, rule[0]);
             }
         } else {
             id = rule;
-            tip = tip.replace('${rule}', rule);
+            tip = tip.replace(/{rule}/g, rule);
         }
 
         let to = $('#' + id).val();
@@ -532,7 +525,7 @@ module.exports = {
             }
         })
 
-        tip = tip.replace('${rule}', equalIds.join(','));
+        tip = tip.replace(/{rule}/g, equalIds.join(','));
         return {
             valid: (equalIds.length == 0),
             tip
@@ -581,7 +574,7 @@ module.exports = {
         }
         return {
             valid,
-            tip: useTip(tip)
+            tip: tip.replace(/{min}/g, min).replace(/{max}/g, max)
         };
     },
 
@@ -599,7 +592,7 @@ module.exports = {
         }
         return {
             valid,
-            tip: useTip(tip)
+            tip: tip.replace(/{min}/g, min).replace(/{max}/g, max)
         };
     },
 
@@ -627,7 +620,7 @@ module.exports = {
 
         return {
             valid,
-            tip: useTip(tip)
+            tip: tip.replace(/{max}/g, max)
         };
     },
 
@@ -655,7 +648,7 @@ module.exports = {
 
         return {
             valid,
-            tip: useTip(tip)
+            tip: tip.replace(/{max}/g, max)
         };
     },
 
@@ -683,7 +676,7 @@ module.exports = {
 
         return {
             valid,
-            tip: useTip(tip)
+            tip: tip.replace(/{min}/g, min)
         };
     },
 
@@ -711,7 +704,7 @@ module.exports = {
 
         return {
             valid,
-            tip: useTip(tip)
+            tip: tip.replace(/{min}/g, min)
         };
     }
 };

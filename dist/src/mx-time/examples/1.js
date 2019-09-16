@@ -1,1 +1,86 @@
-define("mx-time/examples/1",["magix","examples/example","$","../index","mx-copy/index","examples/hl"],(e,l,s)=>{e("../index"),e("mx-copy/index"),e("examples/hl");e("magix");var i=e("examples/example");e("$");s.exports=i.extend({tmpl:function(e,l,s,i,a,n,t,d){if(s||(s=e),!a){var m={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},c=/[&<>"'`]/g,r=function(e){return"&"+m[e]+";"};a=function(e){return""+(null==e?"":e)},i=function(e){return a(e).replace(c,r)}}if(!n){var x={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},_=function(e){return x[e]},g=/[!')(*]/g;n=function(e){return encodeURIComponent(a(e)).replace(g,_)}}if(!d){var p=/[\\'"]/g;d=function(e){return a(e).replace(p,"\\$&")}}var v="",o=e.time,y=e.viewId,f=e.text1,u=e.text2;return v+='<div mxa="_zs_galleryfd:_" class="_zs_galleryg"><div mxa="_zs_galleryfd:a" class="_zs_galleryj"><div mxs="_zs_galleryfd:_" class="mb15 lh22"><div class="color-9">下列三种写法等价，时分秒均可选：</div><div class="pl10">types=""</div><div class="pl10">types="all"</div><div class="pl10">types="hour,minute,second"</div></div><div mxa="_zs_galleryfd:b" class="mb20"><span mxs="_zs_galleryfd:a" class="color-9">当前时间：</span>'+i(o)+'</div><div class="w120" id="'+i(y)+'_time" mx-change="'+l+'change()" mx-view="mx-time/index?time='+n(o)+'"></div></div><div mxa="_zs_galleryfd:c" class="_zs_galleryk"><div mxs="_zs_galleryfd:b" class="_zs_galleryi">HTML Code</div><div class="_zs_galleryl" mx-success="'+l+'done({id:1})" mx-view="mx-copy/index?copyNode='+n(y)+'_text_1"><span mxa="_zs_galleryfd:d" class="_zs_galleryn">'+a(f)+'</span><i mxs="_zs_galleryfd:c" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="examples/hl" id="'+i(y)+'_text_1">\n&lt;mx-time class="w120" \n    id="&#123;&#123;=viewId&#125;&#125;_time"\n    time="10:10:10"\n    mx-change="change()" /&gt;\n\n&lt;!-- 等价于 --&gt;\n&lt;mx-time class="w120" \n    id="&#123;&#123;=viewId&#125;&#125;_time"\n    time="10:10:10"\n    types="all"\n    mx-change="change()" /&gt;\n\n&lt;!-- 等价于 --&gt;\n&lt;mx-time class="w120" \n    id="&#123;&#123;=viewId&#125;&#125;_time"\n    time="10:10:10"\n    types="hour,minute,second"\n    mx-change="change()" /&gt;\n        </pre></div><div mxa="_zs_galleryfd:e" class="_zs_galleryk"><div mxs="_zs_galleryfd:d" class="_zs_galleryi">JS Code</div><div class="_zs_galleryl" mx-success="'+l+'done({id:2})" mx-view="mx-copy/index?copyNode='+n(y)+'_text_2"><span mxa="_zs_galleryfd:f" class="_zs_galleryn">'+a(u)+'</span><i mxs="_zs_galleryfd:c" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="examples/hl" id="'+i(y)+"_text_2\">\nlet Magix = require('magix');\nlet $ = require('$');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: '@1.html',\n    render() &#123;\n        this.updater.digest(&#123;&#125;);\n    &#125;,\n    'change&lt;change&gt;'(e)&#123;\n        // e.time：当前时间\n    &#125;\n&#125;);\n        </pre></div></div>"},render:function(){this.updater.digest({time:"10:10:10"})},"change<change>":function(e){this.updater.digest({time:e.time})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-time/examples/1",["magix","examples/example","$","../index","mx-copy/index","examples/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("../index");
+require("mx-copy/index");
+require("examples/hl");
+var Magix = require("magix");
+var Base = require("examples/example");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', time = $$.time, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryfd:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_galleryfd:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryfd:_" class="mb15 lh22"><div class="color-9">下列三种写法等价，时分秒均可选：</div><div class="pl10">types=""</div><div class="pl10">types="all"</div><div class="pl10">types="hour,minute,second"</div></div><div mxa="_zs_galleryfd:b" class="mb20"><span mxs="_zs_galleryfd:a" class="color-9">当前时间：</span>';
+    $line = 11;
+    $art = '=time';
+    ;
+    $p += ($expr = '<%=time%>', $e(time)) + '</div><div class="w120" id="';
+    $line = 14;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_time" mx-change="' + $viewId + 'change()" mx-view="mx-time/index?time=';
+    $line = 15;
+    $art = '=time';
+    ;
+    $p += ($expr = '<%!$eu(time)%>', $eu(time)) + '"></div></div><div mxa="_zs_galleryfd:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryfd:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 20;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryfd:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 22;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryfd:c" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 25;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-time class="w120" \n    id="&#123;&#123;=viewId&#125;&#125;_time"\n    time="10:10:10"\n    mx-change="change()" /&gt;\n\n&lt;!-- 等价于 --&gt;\n&lt;mx-time class="w120" \n    id="&#123;&#123;=viewId&#125;&#125;_time"\n    time="10:10:10"\n    types="all"\n    mx-change="change()" /&gt;\n\n&lt;!-- 等价于 --&gt;\n&lt;mx-time class="w120" \n    id="&#123;&#123;=viewId&#125;&#125;_time"\n    time="10:10:10"\n    types="hour,minute,second"\n    mx-change="change()" /&gt;\n        </pre></div><div mxa="_zs_galleryfd:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryfd:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 48;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryfd:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 50;
+    $art = '!text2';
+    ;
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryfd:c" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 53;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@1.html\',\n    render() &#123;\n        this.updater.digest(&#123;&#125;);\n    &#125;,\n    \'change&lt;change&gt;\'(e)&#123;\n        // e.time：当前时间\n    &#125;\n&#125;);\n        </pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-time/examples/1.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest({
+            time: '10:10:10'
+        });
+    },
+    'change<change>': function (e) {
+        // e.time：当前时间
+        this.updater.digest({
+            time: e.time
+        });
+    }
+});
+
+});

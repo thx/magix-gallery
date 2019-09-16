@@ -1,1 +1,256 @@
-define("mx-calendar/util",["../mx-medusa/util"],(e,t,a)=>{var n=e("../mx-medusa/util"),r=new Date,l=n["calendar.forever"],s=function(e){return("0"+e).slice(-2)},i={y:{reg:/y+/gi,fn:function(e,t){return String(t.getFullYear()).slice(-e.length)}},M:{reg:/M+/g,fn:function(e,t,a){return a=t.getMonth()+1,s(a).slice(-e.length)}},d:{reg:/d+/gi,fn:function(e,t,a){return a=t.getDate(),s(a).slice(-e.length)}},h:{reg:/h+/gi,fn:function(e,t,a){return a=t.getHours(),s(a).slice(-e.length)}},m:{reg:/m+/g,fn:function(e,t,a){return a=t.getMinutes(),s(a).slice(-e.length)}},s:{reg:/s+/g,fn:function(e,t,a){return a=t.getSeconds(),s(a).slice(-e.length)}},S:{reg:/S+/g,fn:function(e,t,a){return a=t.getMilliseconds(),String(a).substring(0,e.length)}}},d=function(e){return e instanceof Date?e:(e=new Date(Date.parse(String(e).replace(/-/g,"/"))))instanceof Date&&"Invalid Date"!=e&&!isNaN(e)?e:null},c=function(e,t){var a;e=d(e),t=t||"YYYY-MM-dd";var n=function(t){return i[a].fn(t,e)};for(a in i)t=t.replace(i[a].reg,n);return t},f=function(e,t){t||(t=new Date),e=e||0;var a=new Date(t.getTime()+864e5*e);return a=a.getFullYear()+"/"+(a.getMonth()+1)+"/"+a.getDate(),new Date(a)};a.exports={foreverStr:l,getOffsetDate:f,dateParse:d,dateFormat:c,padZero:s,getDefaultDate:function(e,t,a){e=d(e),t=d(t);var n,l=r;return n=e&&e.getTime()>l.getTime()?e:t&&t.getTime()<l.getTime()?t:l,c(n,a)},getQuickInfos:function(e,t,a){var s=[];return(e=e||[]).forEach(function(e){var i,o,g,u;if("today"==e)i=n["calendar.today"],u=n["calendar.today"],o=f(0),g=f(0);else if("yesterday"==e)i=n["calendar.yesterday"],u=n["calendar.yesterday"],o=f(-1),g=f(-1);else if("beforeYesterday"==e)i=n["calendar.before.yesterday"],u=n["calendar.before.yesterday"],o=f(-2),g=f(-2);else if("preMonth"==e){i=n["calendar.last.month"],u=n["calendar.last.month"];var h=(o=new Date(r.getFullYear(),r.getMonth()-1,1)).getFullYear(),y=o.getMonth(),m=32-new Date(h,y,32).getDate();g=new Date(h,y,m)}else if("preWeekSun"==e){i=n["calendar.last.week"],u=n["calendar.last.week.sunday"];var D=f(-7);offset=0-D.getDay(),o=f(offset,D),g=f(offset+6,D)}else if("preWeekMon"==e){i=n["calendar.last.week"],u=n["calendar.last.week.monday"];D=f(-7);offset=1-D.getDay(),o=f(offset,D),g=f(offset+6,D)}else if("lastestWeekSun"==e)i=n["calendar.this.week"],u=n["calendar.this.week.sunday"],offset=0-r.getDay(),o=f(offset),g=f(0);else if("lastestWeekMon"==e)i=n["calendar.this.week"],u=n["calendar.this.week.monday"],offset=1-r.getDay(),o=f(offset),g=f(0);else if("passedThisMonth"==e)i=n["calendar.this.month"],u=n["calendar.this.month.yestarday"],o=f(1-r.getDate()),g=f(-1);else if("lastestThisMonth"==e)i=n["calendar.this.month"],u=n["calendar.this.month.today"],o=f(1-r.getDate()),g=f(0);else if(/^passed\d+$/i.test(e)){var p=+e.replace("passed","");i=n["calendar.passed"]+" "+p+" "+n["calendar.unit"],u=n["calendar.passed"]+" "+p+" "+n["calendar.unit.yesterday"],o=f(0-p),g=f(-1)}else if(/^lastest\d+$/i.test(e)){p=+e.replace("lastest","");i=n["calendar.lastest"]+" "+p+" "+n["calendar.unit"],u=n["calendar.lastest"]+" "+p+" "+n["calendar.unit.today"],o=f(1-p),g=f(0)}else if(/^dynamicStart\d+$/i.test(e)){p=+e.replace("dynamicStart","");i=n["calendar.dynamic.end"].replace("${day}",p),u=n["calendar.dynamic.end.tip"].replace("${day}",p),o=d(t),g=f(p-1,o)}else if("dynamicEndThisMonth"==e){i=n["calendar.natural.month"],u=n["calendar.natural.month.tip"];h=(o=d(t)).getFullYear(),y=o.getMonth(),m=32-new Date(h,y,32).getDate();g=new Date(h,y,m)}else if("dynamicEndNextMonth"==e){i=n["calendar.next.month"],u=n["calendar.next.month.tip"];h=(o=d(t)).getFullYear();var w=o.getMonth()+1;m=32-new Date(h,w,32).getDate();g=new Date(h,w,m)}else"forever"==e&&(i=l,u=n["calendar.forever.tip"],o=d(t),g=l);i&&u&&o?s.push({key:e,text:i,tip:u,start:c(o,a),end:g==l?l:c(g,a)}):"object"==typeof e&&s.push(e)}),s}}});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-calendar/util",["../mx-medusa/util"],(require,exports,module)=>{
+/*I18n*/
+
+var I18n = require("../mx-medusa/util");
+var Today = new Date();
+var Formatter = 'YYYY-MM-dd';
+var ForeverStr = I18n['calendar.forever'];
+var DayMillisecond = 24 * 60 * 60 * 1000;
+var PadZero = function (str) {
+    return ('0' + str).slice(-2);
+};
+var DateReg = {
+    y: {
+        reg: /y+/gi,
+        fn: function (m, d) {
+            return String(d.getFullYear()).slice(-m.length);
+        }
+    },
+    M: {
+        reg: /M+/g,
+        fn: function (m, d, t) {
+            t = d.getMonth() + 1;
+            return PadZero(t).slice(-m.length);
+        }
+    },
+    d: {
+        reg: /d+/gi,
+        fn: function (m, d, t) {
+            t = d.getDate();
+            return PadZero(t).slice(-m.length);
+        }
+    },
+    h: {
+        reg: /h+/gi,
+        fn: function (m, d, t) {
+            t = d.getHours();
+            return PadZero(t).slice(-m.length);
+        }
+    },
+    m: {
+        reg: /m+/g,
+        fn: function (m, d, t) {
+            t = d.getMinutes();
+            return PadZero(t).slice(-m.length);
+        }
+    },
+    s: {
+        reg: /s+/g,
+        fn: function (m, d, t) {
+            t = d.getSeconds();
+            return PadZero(t).slice(-m.length);
+        }
+    },
+    S: {
+        reg: /S+/g,
+        fn: function (m, d, t) {
+            t = d.getMilliseconds();
+            return String(t).substring(0, m.length);
+        }
+    }
+};
+var DateParse = function (date) {
+    if (date instanceof Date) {
+        return date;
+    }
+    else {
+        date = new Date(Date.parse(String(date).replace(/-/g, '/')));
+    }
+    if (date instanceof Date && (date != 'Invalid Date') && !isNaN(date)) {
+        return date;
+    }
+    return null;
+};
+var DateFormat = function (date, formatter) {
+    date = DateParse(date);
+    formatter = formatter || Formatter;
+    var key;
+    var replacement = function (match) {
+        return DateReg[key].fn(match, date);
+    };
+    for (key in DateReg) {
+        formatter = formatter.replace(DateReg[key].reg, replacement);
+    }
+    return formatter;
+};
+var GetOffsetDate = function (offset, date) {
+    if (!date) {
+        date = new Date();
+    }
+    offset = offset || 0;
+    var uom = new Date(date.getTime() + offset * DayMillisecond);
+    uom = uom.getFullYear() + '/' + (uom.getMonth() + 1) + '/' + uom.getDate();
+    return new Date(uom);
+};
+module.exports = {
+    foreverStr: ForeverStr,
+    getOffsetDate: GetOffsetDate,
+    dateParse: DateParse,
+    dateFormat: DateFormat,
+    padZero: PadZero,
+    getDefaultDate: function (min, max, formatter) {
+        min = DateParse(min);
+        max = DateParse(max);
+        var today = Today;
+        var init;
+        if (min && (min.getTime() > today.getTime())) {
+            init = min;
+        }
+        else if (max && (max.getTime() < today.getTime())) {
+            init = max;
+        }
+        else {
+            init = today;
+        }
+        return DateFormat(init, formatter);
+    },
+    /**
+     * 包含dynamic的动态快捷日期，跟开始时间有关
+     */
+    getQuickInfos: function (quickDates, startStr, formatter) {
+        var quickInfos = [];
+        quickDates = quickDates || [];
+        quickDates.forEach(function (quickKey) {
+            var text, start, end, tip;
+            if (quickKey == 'today') {
+                text = I18n['calendar.today'];
+                tip = I18n['calendar.today'];
+                start = GetOffsetDate(0);
+                end = GetOffsetDate(0);
+            }
+            else if (quickKey == 'yesterday') {
+                text = I18n['calendar.yesterday'];
+                tip = I18n['calendar.yesterday'];
+                start = GetOffsetDate(-1);
+                end = GetOffsetDate(-1);
+            }
+            else if (quickKey == 'beforeYesterday') {
+                text = I18n['calendar.before.yesterday'];
+                tip = I18n['calendar.before.yesterday'];
+                start = GetOffsetDate(-2);
+                end = GetOffsetDate(-2);
+            }
+            else if (quickKey == 'preMonth') {
+                text = I18n['calendar.last.month'];
+                tip = I18n['calendar.last.month'];
+                start = new Date(Today.getFullYear(), Today.getMonth() - 1, 1);
+                var startYear = start.getFullYear(), startMonth = start.getMonth(), lastDay = 32 - new Date(startYear, startMonth, 32).getDate();
+                end = new Date(startYear, startMonth, lastDay);
+            }
+            else if (quickKey == 'preWeekSun') {
+                text = I18n['calendar.last.week'];
+                tip = I18n['calendar.last.week.sunday'];
+                var temp = GetOffsetDate(-7);
+                offset = 0 - temp.getDay();
+                start = GetOffsetDate(offset, temp);
+                end = GetOffsetDate(offset + 6, temp);
+            }
+            else if (quickKey == 'preWeekMon') {
+                text = I18n['calendar.last.week'];
+                tip = I18n['calendar.last.week.monday'];
+                var temp = GetOffsetDate(-7);
+                offset = 1 - temp.getDay();
+                start = GetOffsetDate(offset, temp);
+                end = GetOffsetDate(offset + 6, temp);
+            }
+            else if (quickKey == 'lastestWeekSun') {
+                text = I18n['calendar.this.week'];
+                tip = I18n['calendar.this.week.sunday'];
+                offset = 0 - Today.getDay();
+                start = GetOffsetDate(offset);
+                end = GetOffsetDate(0);
+            }
+            else if (quickKey == 'lastestWeekMon') {
+                text = I18n['calendar.this.week'];
+                tip = I18n['calendar.this.week.monday'];
+                offset = 1 - Today.getDay();
+                start = GetOffsetDate(offset);
+                end = GetOffsetDate(0);
+            }
+            else if (quickKey == 'passedThisMonth') {
+                text = I18n['calendar.this.month'];
+                tip = I18n['calendar.this.month.yestarday'];
+                start = GetOffsetDate(-Today.getDate() + 1);
+                end = GetOffsetDate(-1);
+            }
+            else if (quickKey == 'lastestThisMonth') {
+                text = I18n['calendar.this.month'];
+                tip = I18n['calendar.this.month.today'];
+                start = GetOffsetDate(-Today.getDate() + 1);
+                end = GetOffsetDate(0);
+            }
+            else if ((/^passed\d+$/i).test(quickKey)) {
+                var n = +quickKey.replace('passed', '');
+                text = I18n['calendar.passed'] + ' ' + n + ' ' + I18n['calendar.unit'];
+                tip = I18n['calendar.passed'] + ' ' + n + ' ' + I18n['calendar.unit.yesterday'];
+                start = GetOffsetDate(0 - n);
+                end = GetOffsetDate(-1);
+            }
+            else if ((/^lastest\d+$/i).test(quickKey)) {
+                var n = +quickKey.replace('lastest', '');
+                text = I18n['calendar.lastest'] + ' ' + n + ' ' + I18n['calendar.unit'];
+                tip = I18n['calendar.lastest'] + ' ' + n + ' ' + I18n['calendar.unit.today'];
+                start = GetOffsetDate(1 - n);
+                end = GetOffsetDate(0);
+            }
+            else if ((/^dynamicStart\d+$/i).test(quickKey)) {
+                var n = +quickKey.replace('dynamicStart', '');
+                text = I18n['calendar.dynamic.end'].replace('{day}', n);
+                tip = I18n['calendar.dynamic.end.tip'].replace('{day}', n);
+                start = DateParse(startStr);
+                end = GetOffsetDate(n - 1, start);
+            }
+            else if (quickKey == 'dynamicEndThisMonth') {
+                text = I18n['calendar.natural.month'];
+                tip = I18n['calendar.natural.month.tip'];
+                start = DateParse(startStr);
+                var startYear = start.getFullYear(), startMonth = start.getMonth(), lastDay = 32 - new Date(startYear, startMonth, 32).getDate();
+                end = new Date(startYear, startMonth, lastDay);
+            }
+            else if (quickKey == 'dynamicEndNextMonth') {
+                text = I18n['calendar.next.month'];
+                tip = I18n['calendar.next.month.tip'];
+                start = DateParse(startStr);
+                var startYear = start.getFullYear(), nextMonth = start.getMonth() + 1, lastDay = 32 - new Date(startYear, nextMonth, 32).getDate();
+                end = new Date(startYear, nextMonth, lastDay);
+            }
+            else if (quickKey == 'forever') {
+                text = ForeverStr;
+                tip = I18n['calendar.forever.tip'];
+                start = DateParse(startStr);
+                end = ForeverStr;
+            }
+            if (text && tip && start) {
+                quickInfos.push({
+                    key: quickKey,
+                    text: text,
+                    tip: tip,
+                    start: DateFormat(start, formatter),
+                    end: (end == ForeverStr) ? ForeverStr : DateFormat(end, formatter)
+                });
+            }
+            else if (typeof quickKey === 'object') {
+                // 用户自定义的快捷日期
+                quickInfos.push(quickKey);
+            }
+        });
+        return quickInfos;
+    }
+};
+
+});
