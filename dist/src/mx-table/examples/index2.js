@@ -29,7 +29,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerye5:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $p += '<div mxa="_zs_gallerye6:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 4;
     $art = '@[{\n        name: \'表头实际位置计算\',\n        key: viewId + \'_cal\'\n    }, {\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'左右分列+子表格\',\n            key: viewId + \'_demo6\',\n        }, {\n            name: \'普通table\',\n            key: viewId + \'_demo7\',\n        }]\n    }]';
     ;
@@ -37,11 +37,11 @@ module.exports = Magix.View.extend({
     $line = 19;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_cal" mx-view="mx-title/second?content=%E8%A1%A8%E5%A4%B4%E5%AE%9E%E9%99%85%E4%BD%8D%E7%BD%AE%E8%AE%A1%E7%AE%97&tip=%E8%8E%B7%E5%8F%96%E5%8D%95%E5%85%83%E6%A0%BC%E5%AE%9E%E9%99%85%E4%BD%8D%E7%BD%AE%7Bx%2Cy%7D"></div><div mxs="_zs_gallerye5:_" mx-view="mx-table/examples/cal" class="pr20 mb40"></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_cal" mx-view="mx-title/second?content=%E8%A1%A8%E5%A4%B4%E5%AE%9E%E9%99%85%E4%BD%8D%E7%BD%AE%E8%AE%A1%E7%AE%97&tip=%E8%8E%B7%E5%8F%96%E5%8D%95%E5%85%83%E6%A0%BC%E5%AE%9E%E9%99%85%E4%BD%8D%E7%BD%AE%7Bx%2Cy%7D"></div><div mxs="_zs_gallerye6:_" mx-view="mx-table/examples/cal" class="pr20 mb40"></div><div id="';
     $line = 24;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerye5:a" class="clearfix mb20"><div mx-view="mx-table/examples/6" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerye6:a" class="clearfix mb20"><div mx-view="mx-table/examples/6" id="';
     $line = 26;
     $art = '=viewId';
     ;

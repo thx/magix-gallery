@@ -24,14 +24,14 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', count = $$.count, icon = $$.icon, outerWidth = $$.outerWidth, innerWidth = $$.innerWidth, color = $$.color; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryb(:_" class="_zs_gallery_mx-effects_star_-star-bg clearfix">';
+    $p += '<div mxa="_zs_galleryb):_" class="_zs_gallery_mx-effects_star_-star-bg clearfix">';
     $line = 3;
     $art = 'for (let i=0;i<count;i+=1)';
     ;
     $expr = '<%for (var i = 0; i < count; i += 1) {%>';
     for (var i = 0; i < count; i += 1) {
         ;
-        $p += '<span mxa="_zs_galleryb(:a" class="_zs_gallery_mx-effects_star_-star">';
+        $p += '<span mxa="_zs_galleryb):a" class="_zs_gallery_mx-effects_star_-star">';
         $line = 4;
         $art = '!icon';
         ;

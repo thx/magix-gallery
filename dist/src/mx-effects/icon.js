@@ -3,20 +3,12 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/icon",["magix","$","mx-popover/index"],(require,exports,module)=>{
-/*Magix,$*/
+define("mx-effects/icon",["magix","$","mx-util/css-var","mx-popover/index"],(require,exports,module)=>{
+/*Magix,$,CSSVarUtil*/
 require("mx-popover/index");
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-effects_icon_","/* @dependent: ./index.less */\n/* 说明文档： https://thx.github.io/magix-gallery/#!/all/pro/theme */\n._zs_gallery_mx-effects_icon_-mx-shadow {\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n/*less变量覆盖，与group配置css变量一一对应*/\n._zs_gallery_mx-effects_icon_-text {\n  display: inline-block;\n  font-size: 12px;\n  font-weight: bold;\n  transform: scale(0.9);\n}\n._zs_gallery_mx-effects_icon_-solid-icon,\n._zs_gallery_mx-effects_icon_-hollow-icon {\n  display: inline-block;\n  height: 16px;\n  padding: 0 4px;\n  border-radius: 8px;\n  text-align: center;\n  line-height: 14px;\n  font-size: 0;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-common {\n  border: 1px solid #ccc;\n  color: #999;\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-error {\n  border: 1px solid var(--color-red);\n  color: var(--color-red);\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-warn {\n  border: 1px solid var(--color-warn);\n  color: var(--color-warn);\n}\n._zs_gallery_mx-effects_icon_-hollow-icon._zs_gallery_mx-effects_icon_-highlight {\n  border: 1px solid var(--color-brand);\n  color: var(--color-brand);\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-common {\n  border: 1px solid #ccc;\n  background-color: #ccc;\n  color: #fff;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-error {\n  border: 1px solid var(--color-red);\n  background-color: var(--color-red);\n  color: #fff;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-warn {\n  border: 1px solid var(--color-warn);\n  background-color: var(--color-warn);\n  color: #fff;\n}\n._zs_gallery_mx-effects_icon_-solid-icon._zs_gallery_mx-effects_icon_-highlight {\n  border: 1px solid var(--color-brand);\n  background-color: var(--color-brand);\n  color: #fff;\n}\n");
-var ClassNames = {
-    solid: '_zs_gallery_mx-effects_icon_-solid-icon',
-    hollow: '_zs_gallery_mx-effects_icon_-hollow-icon',
-    common: '_zs_gallery_mx-effects_icon_-common',
-    error: '_zs_gallery_mx-effects_icon_-error',
-    warn: '_zs_gallery_mx-effects_icon_-warn',
-    highlight: '_zs_gallery_mx-effects_icon_-highlight'
-};
+var CSSVarUtil = require("mx-util/css-var");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -29,18 +21,14 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', tip = $$.tip, classNames = $$.classNames, styles = $$.styles, content = $$.content; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', tip = $$.tip, styles = $$.styles, content = $$.content; var $expr, $art, $line; try {
     $line = 1;
     $art = 'if tip';
     ;
     $expr = '<%if (tip) {%>';
     if (tip) {
         ;
-        $p += '<span class="';
-        $line = 2;
-        $art = '=classNames';
-        ;
-        $p += ($expr = '<%=classNames%>', $e(classNames)) + '" style="';
+        $p += '<span class="mx-tag" style="';
         $line = 2;
         $art = '=styles';
         ;
@@ -48,7 +36,7 @@ module.exports = Magix.View.extend({
         $line = 3;
         $art = '=tip';
         ;
-        $p += ($expr = '<%!$eu(tip)%>', $eu(tip)) + '"><span mxa="_zs_galleryb^:_" class="_zs_gallery_mx-effects_icon_-text">';
+        $p += ($expr = '<%!$eu(tip)%>', $eu(tip)) + '"><span mxa="_zs_galleryb&:_" class="mx-tag-name">';
         $line = 4;
         $art = '!content';
         ;
@@ -60,15 +48,11 @@ module.exports = Magix.View.extend({
     }
     else {
         ;
-        $p += '<span class="';
-        $line = 7;
-        $art = '=classNames';
-        ;
-        $p += ($expr = '<%=classNames%>', $e(classNames)) + '" style="';
+        $p += '<span class="mx-tag" style="';
         $line = 7;
         $art = '=styles';
         ;
-        $p += ($expr = '<%=styles%>', $e(styles)) + '"><span mxa="_zs_galleryb^:a" class="_zs_gallery_mx-effects_icon_-text">';
+        $p += ($expr = '<%=styles%>', $e(styles)) + '"><span mxa="_zs_galleryb&:a" class="mx-tag-name">';
         $line = 8;
         $art = '!content';
         ;
@@ -96,28 +80,48 @@ catch (ex) {
         var that = this;
         var altered = that.updater.altered();
         // 如果用户自定义了色值以自定义色值为准
-        var color = extra.color, styles = [], mode = extra.mode || 'solid', type = extra.type || 'common';
-        var classNames = [];
-        if (ClassNames[mode]) {
-            classNames.push(ClassNames[mode]);
-        }
-        if (ClassNames[type]) {
-            classNames.push(ClassNames[type]);
-        }
-        // 自定义颜色
-        if (color) {
-            switch (mode) {
-                case 'solid':
-                    styles.push('background-color:' + color);
+        var color = extra.color, colorText, mode = extra.mode || 'solid', type = extra.type || 'common';
+        if (!color) {
+            // 未自定义颜色的时候
+            var key = void 0;
+            switch (type) {
+                case 'common':
+                    switch (mode) {
+                        case 'solid':// 实心
+                            color = '#cccccc';
+                            colorText = '#ffffff';
+                            break;
+                        case 'hollow':// 空心
+                            color = '#cccccc';
+                            colorText = '#999999';
+                            break;
+                    }
                     break;
-                case 'hollow':
-                    styles.push('color:' + color, 'border: 1px solid ' + color);
+                case 'highlight':
+                    key = '--color-brand';
+                    break;
+                case 'error':
+                    key = '--color-red';
+                    break;
+                case 'warn':
+                    key = '--color-warn';
                     break;
             }
+            if (key) {
+                color = CSSVarUtil.get(key, '#4d7fff');
+            }
+        }
+        var styles = [];
+        switch (mode) {
+            case 'solid':// 实心
+                styles.push("background-color: " + color, "border: 1px solid " + color, "color: " + (colorText || extra.colorText || '#ffffff'));
+                break;
+            case 'hollow':// 空心
+                styles.push("background-color: transparent", "border: 1px solid " + color, "color: " + (colorText || extra.colorText || color));
+                break;
         }
         this.updater.set({
-            content: extra.content || 'icon',
-            classNames: classNames.join(' '),
+            content: extra.content || '打标',
             styles: styles.join(';'),
             tip: extra.tip || ''
         });

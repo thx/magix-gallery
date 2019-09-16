@@ -13,15 +13,16 @@ module.exports = Magix.View.extend({
             key: 'type',
             desc: [
                 '展示类型',
+                'common：灰色类型提示',
                 'error：红色错误类型提示',
                 'warn：黄色警告类型提示',
                 'highlight：品牌色图标强调提示'
             ].join('<br>'),
             type: 'string',
-            def: '默认灰色提示'
+            def: 'common'
         }, {
             key: 'color',
-            desc: '自定义颜色',
+            desc: '自定义颜色，设置了color的时候忽略type',
             type: 'hex格式色号',
             def: ''
         }, {

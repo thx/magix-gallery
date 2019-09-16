@@ -87,6 +87,6 @@ module.exports = {
             'white': 1,
             'small': 1,
             'disabled': disabled ? 0 : 1
-        }, classes.join(' '))}>${loading ? ('<span class="mx-btn-loading-' + loading + '"></span>') : ''}${cont}${!tagContent ? '' : ('<span class="mx-tag btn-tag" style="' + (!tagColor ? '' : ('background-color: ' + tagColor + ';')) + '"><span class="mx-tag-arrow btn-tag-arrow" style="' + (!tagColor ? '' : ('border-color: ' + tagColor + ' transparent transparent ' + tagColor + ';')) + '"></span><span class="mx-tag-name">' + tagContent + '</span></span>')}</button>`
+        }, classes.join(' '))}>${loading ? ('<span class="mx-btn-loading-' + loading + '"></span>') : ''}${cont}${!tagContent ? '' : ('<span class="mx-tag btn-tag" style="' + (!tagColor ? '' : ('background-color: ' + tagColor + ';' + 'border: 1px solid ' + tagColor + ';')) + '"><span class="mx-tag-arrow btn-tag-arrow" style="' + (!tagColor ? '' : ('border-color: ' + tagColor + ' transparent transparent ' + tagColor + ';')) + '"></span><span class="mx-tag-name">' + tagContent + '</span></span>')}</button>`
     }
 };

@@ -1,15 +1,6 @@
 let Magix = require('magix');
 let $ = require('$');
-Magix.applyStyle('@icon.less');
-
-let ClassNames = {
-    solid: '@icon.less:solid-icon',
-    hollow: '@icon.less:hollow-icon',
-    common: '@icon.less:common',
-    error: '@icon.less:error',
-    warn: '@icon.less:warn',
-    highlight: '@icon.less:highlight',
-}
+let CSSVarUtil = require('@../mx-util/css-var');
 
 module.exports = Magix.View.extend({
     tmpl: '@icon.html',
@@ -23,36 +14,60 @@ module.exports = Magix.View.extend({
 
         // 如果用户自定义了色值以自定义色值为准
         let color = extra.color,
-            styles = [],
+            colorText,
             mode = extra.mode || 'solid',
             type = extra.type || 'common';
-        let classNames = [];
-        if(ClassNames[mode]){
-            classNames.push(ClassNames[mode]);
-        }
-        if(ClassNames[type]){
-            classNames.push(ClassNames[type]);
-        }
-        
-        // 自定义颜色
-        if (color) {
-            switch (mode) {
-                case 'solid':
-                    styles.push(
-                        'background-color:' + color
-                    )
+
+        if (!color) {
+            // 未自定义颜色的时候
+            let key;
+            switch (type) {
+                case 'common':
+                    switch (mode) {
+                        case 'solid': // 实心
+                            color = '#cccccc';
+                            colorText = '#ffffff';
+                            break;
+                        case 'hollow': // 空心
+                            color = '#cccccc';
+                            colorText = '#999999';
+                            break;
+                    }
                     break;
-                case 'hollow':
-                    styles.push(
-                        'color:' + color,
-                        'border: 1px solid ' + color
-                    )
+                case 'highlight':
+                    key = '--color-brand';
+                    break;
+                case 'error':
+                    key = '--color-red';
+                    break;
+                case 'warn':
+                    key = '--color-warn';
                     break;
             }
+            if (key) {
+                color = CSSVarUtil.get(key, '#4d7fff');
+            }
+        }
+
+        let styles = [];
+        switch (mode) {
+            case 'solid': // 实心
+                styles.push(
+                    `background-color: ${color}`,
+                    `border: 1px solid ${color}`,
+                    `color: ${(colorText || extra.colorText || '#ffffff')}`
+                )
+                break;
+            case 'hollow': // 空心
+                styles.push(
+                    `background-color: transparent`,
+                    `border: 1px solid ${color}`,
+                    `color: ${(colorText || extra.colorText || color)}`
+                )
+                break;
         }
         this.updater.set({
-            content: extra.content || 'icon',
-            classNames: classNames.join(' '),
+            content: extra.content || '打标',
             styles: styles.join(';'),
             tip: extra.tip || ''
         })

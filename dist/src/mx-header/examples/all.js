@@ -34,7 +34,7 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = '=cur';
     ;
-    $p += ($expr = '<%!$eu(cur)%>', $eu(cur)) + '"></div><div mxa="_zs_gallerycS:_" class="_zs_gallery_mx-header_examples_index_-content"><div mxa="_zs_gallerycS:a" class="_zs_gallery_mx-header_examples_index_-inner">';
+    $p += ($expr = '<%!$eu(cur)%>', $eu(cur)) + '"></div><div mxa="_zs_gallerycT:_" class="_zs_gallery_mx-header_examples_index_-content"><div mxa="_zs_gallerycT:a" class="_zs_gallery_mx-header_examples_index_-inner">';
     $line = 7;
     $art = 'if !cur';
     ;

@@ -30,7 +30,9 @@
     color: var(--btn-text);
     transition: border-color var(--duration), background-color var(--duration), color var(--duration);
     .btn-tag {
-        margin-left: -12px;
+        position: absolute;
+        top: -10px;
+        right: -10px;
     }
     &:hover,
     &.hover,
@@ -63,10 +65,8 @@
             line-height: var(--input-small-height);
         }
         .btn-tag {
+            border: 1px solid #ff0000;
             background-color: #ff0000;
-            .btn-tag-arrow {
-                border-color: #ff0000 transparent transparent #ff0000;
-            }
         }
     }
     &.btn-white {
@@ -100,10 +100,8 @@
             line-height: calc(var(--input-small-height) - 2px);
         }
         .btn-tag {
+            border: 1px solid #ccc;
             background-color: #ccc;
-            .btn-tag-arrow {
-                border-color: #ccc transparent transparent #ccc;
-            }
         }
     }
 }
@@ -264,9 +262,8 @@
     }
 }
 
-
 .btn-white {
-    .mx-btn-loading-dot{
+    .mx-btn-loading-dot {
         opacity: .6;
     }
     .mx-btn-loading-dot,
@@ -280,7 +277,7 @@
     }
 }
 
-.mx-btn-custom-loading{
+.mx-btn-custom-loading {
     .mx-btn-loading-dot,
     .mx-btn-loading-dot:after,
     .mx-btn-loading-dot:before {

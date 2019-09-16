@@ -25,7 +25,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', number = $$.number, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerycm:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_gallerycm:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxv mxa="_zs_gallerycm:b" class="clearfix"><input mxe="' + $viewId + '_0" mxc="[';
+    $p += '<div mxv mxa="_zs_gallerycn:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_gallerycn:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxv mxa="_zs_gallerycn:b" class="clearfix"><input mxe="' + $viewId + '_0" mxc="[';
     $line = 4;
     $art = ':number{range:[4, 8]}';
     ;
@@ -57,7 +57,7 @@ module.exports = Base.extend({
     $line = 7;
     $art = ':number{rangeborder:[4, 8, \'自定义提示：4~8中间的数字，不包含4和8\']}';
     ;
-    $p += ($expr = '<%=number%>', $e(number)) + '"/></div><div mxv mxa="_zs_gallerycm:c" class="clearfix"><input mxe="' + $viewId + '_4" mxc="[';
+    $p += ($expr = '<%=number%>', $e(number)) + '"/></div><div mxv mxa="_zs_gallerycn:c" class="clearfix"><input mxe="' + $viewId + '_4" mxc="[';
     $line = 10;
     $art = ':number{min:20}';
     ;
@@ -89,7 +89,7 @@ module.exports = Base.extend({
     $line = 13;
     $art = ':number{minborder:[20, \'自定义提示：大于20\']}';
     ;
-    $p += ($expr = '<%=number%>', $e(number)) + '"/></div><div mxv mxa="_zs_gallerycm:d" class="clearfix"><input mxe="' + $viewId + '_8" mxc="[';
+    $p += ($expr = '<%=number%>', $e(number)) + '"/></div><div mxv mxa="_zs_gallerycn:d" class="clearfix"><input mxe="' + $viewId + '_8" mxc="[';
     $line = 16;
     $art = ':number{max:30}';
     ;
@@ -121,15 +121,15 @@ module.exports = Base.extend({
     $line = 19;
     $art = ':number{maxborder:[30, \'自定义提示：小于30\']}';
     ;
-    $p += ($expr = '<%=number%>', $e(number)) + '"/></div></div><div mxa="_zs_gallerycm:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallerycm:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">数字范围</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=number%>', $e(number)) + '"/></div></div><div mxa="_zs_gallerycn:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallerycn:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">数字范围</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 24;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycm:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycn:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 26;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycm:a" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycn:a" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 29;
     $art = '=viewId';
     ;

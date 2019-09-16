@@ -21,14 +21,14 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', menus = $$.menus; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerydx:_" class="_zs_gallery_mx-popmenu_content_-menu">';
+    $p += '<div mxa="_zs_gallerydy:_" class="_zs_gallery_mx-popmenu_content_-menu">';
     $line = 2;
     $art = 'each menus as item';
     ;
-    $expr = '<%for (var $art_iugcgdtwfq$art_i = 0, $art_cbneukhozyk$art_c = menus.length; $art_iugcgdtwfq$art_i < $art_cbneukhozyk$art_c; $art_iugcgdtwfq$art_i++) {    var item = menus[$art_iugcgdtwfq$art_i]%>';
-    for (var $art_iugcgdtwfq$art_i = 0, $art_cbneukhozyk$art_c = menus.length; $art_iugcgdtwfq$art_i < $art_cbneukhozyk$art_c; $art_iugcgdtwfq$art_i++) {
-        var item = menus[$art_iugcgdtwfq$art_i];
-        $p += '<div mxa="_zs_gallerydx:a" class="_zs_gallery_mx-popmenu_content_-item"><span class="_zs_gallery_mx-popmenu_content_-item-link ellipsis" mx-click="' + $viewId + 'submit({value:\'';
+    $expr = '<%for (var $art_immiasz$art_i = 0, $art_caclhwui$art_c = menus.length; $art_immiasz$art_i < $art_caclhwui$art_c; $art_immiasz$art_i++) {    var item = menus[$art_immiasz$art_i]%>';
+    for (var $art_immiasz$art_i = 0, $art_caclhwui$art_c = menus.length; $art_immiasz$art_i < $art_caclhwui$art_c; $art_immiasz$art_i++) {
+        var item = menus[$art_immiasz$art_i];
+        $p += '<div mxa="_zs_gallerydy:a" class="_zs_gallery_mx-popmenu_content_-item"><span class="_zs_gallery_mx-popmenu_content_-item-link ellipsis" mx-click="' + $viewId + 'submit({value:\'';
         $line = 5;
         $art = '=item.value';
         ;
