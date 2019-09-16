@@ -4,6 +4,7 @@
     display: inline-block;
 
     .star > *{
+        float: left;
         display: inline-block;
         width: @star-size;
         height: @star-size;
@@ -25,11 +26,6 @@
         .star-inner{
             width: @star-size * 5;
             height: @star-size;
-            &.star-brand{
-                color: var(--color-brand);
-            }
         }
-
-
     }
 }

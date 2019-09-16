@@ -3,13 +3,14 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/examples/star",["magix","$","examples/subs","mx-title/second","./11","./12","./13","examples/api"],(require,exports,module)=>{
+define("mx-effects/examples/star",["magix","$","examples/subs","mx-title/second","./11","./13","./12","./33","examples/api"],(require,exports,module)=>{
 /*Magix,$*/
 require("examples/subs");
 require("mx-title/second");
 require("./11");
-require("./12");
 require("./13");
+require("./12");
+require("./33");
 require("examples/api");
 var Magix = require("magix");
 var $ = require("$");
@@ -32,18 +33,34 @@ module.exports = Magix.View.extend({
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_galleryb$:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\'\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'数值范围修正\',\n            key: viewId + \'_demo11\'\n        },{\n            name: \'自定义颜色+个数\',\n            key: viewId + \'_demo12\'\n        },{\n            name: \'自定义icon+个数\',\n            key: viewId + \'_demo13\'\n        },{\n            name: \'自定义基数count\',\n            key: viewId + \'_demo33\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\'        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo' }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
-    $line = 10;
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'数值范围修正\',                    key: viewId + \'_demo11\'                }, {                    name: \'自定义颜色+个数\',                    key: viewId + \'_demo12\'                }, {                    name: \'自定义icon+个数\',                    key: viewId + \'_demo13\'                }, {                    name: \'自定义基数count\',                    key: viewId + \'_demo33\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '数值范围修正', key: viewId + '_demo11' }, { name: '自定义颜色+个数', key: viewId + '_demo12' }, { name: '自定义icon+个数', key: viewId + '_demo13' }, { name: '自定义基数count', key: viewId + '_demo33' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
+    $line = 23;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryb$:_" class="clearfix mb20"><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-effects/examples/11"></div></div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-effects/examples/12"></div><div mx-view="mx-effects/examples/13"></div></div></div><div id="';
-    $line = 21;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryb$:a" class="clearfix mb20"><div mxa="_zs_galleryb$:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-effects/examples/11" id="';
+    $line = 26;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo11"></div><div mx-view="mx-effects/examples/13" id="';
+    $line = 27;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo13"></div></div><div mxa="_zs_galleryb$:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-effects/examples/12" id="';
+    $line = 30;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo12"></div><div mx-view="mx-effects/examples/33" id="';
+    $line = 31;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo33"></div></div></div><div id="';
+    $line = 35;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="examples/api?options=';
-    $line = 22;
+    $line = 36;
     $art = '@options';
     ;
     $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div></div>';
@@ -58,10 +75,15 @@ catch (ex) {
 } return $p; },
     render: function () {
         var options = [{
-                key: 'num',
-                desc: '当前评分，0， 0.5， 1， 1.5 ... 4， 4.5， 5，超出范围会进行修正',
+                key: 'count',
+                desc: 'icon个数',
                 type: 'number',
-                def: ''
+                def: 5
+            }, {
+                key: 'num',
+                desc: '当前评分，由于是icon打分，只支持全个和半个<br/>因此打分只支持0， 0.5， 1， 1.5， 2， 2.5， 3， 3.5， 4， 4.5， 5，最大值不超过count',
+                type: 'number',
+                def: 0
             }, {
                 key: 'color',
                 desc: '自定义颜色，#4d7fff 或者 rgb(77, 127, 255)',

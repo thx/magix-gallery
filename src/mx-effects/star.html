@@ -1,25 +1,13 @@
 <!--md5:ee2c7fc557856e036304fc53052db4ab-->
-<div class="star-bg">
+<div class="star-bg clearfix">
     {{for(let i=0;i<count;i+=1)}}
-    <span class="star">
-        {{if icon}}
-            {{!icon}}
-        {{else}}
-            <i class="mc-iconfont">&#xe60f;</i>
-        {{/if}}
-    </span>
+    <span class="star">{{!icon}}</span>
     {{/for}}
 </div>
-<div class="star-on" style="width: {{=width}};">
-    <div class="star-inner {{if !color}} star-brand {{/if}}" style="width:{{=innerWidth}}px">
+<div class="star-on" style="width: {{=outerWidth}}px;">
+    <div class="star-inner clearfix" style="width:{{=innerWidth}}px;">
         {{for(let i=0;i<count;i+=1)}}
-        <span class="star" {{if color}} style="color: {{=color}};" {{/if}}>
-            {{if icon}}
-                {{!icon}}
-            {{else}}
-                <i class="mc-iconfont">&#xe60f;</i>
-            {{/if}}
-        </span>
+        <span class="star" style="color: {{=color}};">{{!icon}}</span>
         {{/for}}
     </div>
 </div>

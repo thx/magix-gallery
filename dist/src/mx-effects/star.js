@@ -3,13 +3,14 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/star",["magix","$"],(require,exports,module)=>{
-/*Magix,$*/
+define("mx-effects/star",["magix","$","mx-util/css-var"],(require,exports,module)=>{
+/*Magix,$,CSSVarUtil*/
 
 /*md5:15df7ba31b0836e9565bacc5efc0f392*/
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-effects_star_","[mx-view*=\"mx-effects/star\"] {\n  position: relative;\n  display: inline-block;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star > * {\n  display: inline-block;\n  width: 24px;\n  height: 24px;\n  line-height: 24px;\n  text-align: center;\n  font-size: 20px;\n  color: inherit;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-bg {\n  color: var(--color-border);\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 24px;\n  overflow: hidden;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on ._zs_gallery_mx-effects_star_-star-inner {\n  width: 120px;\n  height: 24px;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on ._zs_gallery_mx-effects_star_-star-inner._zs_gallery_mx-effects_star_-star-brand {\n  color: var(--color-brand);\n}\n");
+var CSSVarUtil = require("mx-util/css-var");
+Magix.applyStyle("_zs_gallery_mx-effects_star_","[mx-view*=\"mx-effects/star\"] {\n  position: relative;\n  display: inline-block;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star > * {\n  float: left;\n  display: inline-block;\n  width: 24px;\n  height: 24px;\n  line-height: 24px;\n  text-align: center;\n  font-size: 20px;\n  color: inherit;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-bg {\n  color: var(--color-border);\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 24px;\n  overflow: hidden;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on ._zs_gallery_mx-effects_star_-star-inner {\n  width: 120px;\n  height: 24px;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -22,8 +23,8 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', count = $$.count, icon = $$.icon, width = $$.width, color = $$.color, innerWidth = $$.innerWidth; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryb(:_" class="_zs_gallery_mx-effects_star_-star-bg">';
+} ; var $g = '', $_temp, $p = '', count = $$.count, icon = $$.icon, outerWidth = $$.outerWidth, innerWidth = $$.innerWidth, color = $$.color; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryb(:_" class="_zs_gallery_mx-effects_star_-star-bg clearfix">';
     $line = 3;
     $art = 'for (let i=0;i<count;i+=1)';
     ;
@@ -31,113 +32,41 @@ module.exports = Magix.View.extend({
     for (var i = 0; i < count; i += 1) {
         ;
         $p += '<span mxa="_zs_galleryb(:a" class="_zs_gallery_mx-effects_star_-star">';
+        $line = 4;
+        $art = '!icon';
+        ;
+        $p += ($expr = '<%!icon%>', $n(icon)) + '</span>';
         $line = 5;
-        $art = 'if icon';
-        ;
-        $expr = '<%if (icon) {%>';
-        if (icon) {
-            ;
-            $p += ' ';
-            $line = 6;
-            $art = '!icon';
-            ;
-            $p += ($expr = '<%!icon%>', $n(icon)) + ' ';
-            $line = 7;
-            $art = 'else';
-            ;
-            $expr = '<%}    else {%>';
-        }
-        else {
-            ;
-            $p += '<i mxs="_zs_galleryb(:_" class="mc-iconfont">&#xe60f;</i>';
-            $line = 9;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '</span>';
-        $line = 11;
         $art = '/for';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += '</div><div class="_zs_gallery_mx-effects_star_-star-on" style="width: ';
-    $line = 13;
-    $art = '=width';
+    $line = 7;
+    $art = '=outerWidth';
     ;
-    $p += ($expr = '<%=width%>', $e(width)) + ';"><div class="_zs_gallery_mx-effects_star_-star-inner ';
-    $line = 14;
-    $art = 'if !color';
-    ;
-    $expr = '<%if (!color) {%>';
-    if (!color) {
-        ;
-        $p += ' _zs_gallery_mx-effects_star_-star-brand ';
-        $line = 14;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '" style="width:';
-    $line = 14;
+    $p += ($expr = '<%=outerWidth%>', $e(outerWidth)) + 'px;"><div class="_zs_gallery_mx-effects_star_-star-inner clearfix" style="width:';
+    $line = 8;
     $art = '=innerWidth';
     ;
-    $p += ($expr = '<%=innerWidth%>', $e(innerWidth)) + 'px">';
-    $line = 15;
+    $p += ($expr = '<%=innerWidth%>', $e(innerWidth)) + 'px;">';
+    $line = 9;
     $art = 'for (let i=0;i<count;i+=1)';
     ;
     $expr = '<%for (var i = 0; i < count; i += 1) {%>';
     for (var i = 0; i < count; i += 1) {
         ;
-        $p += '<span class="_zs_gallery_mx-effects_star_-star" ';
-        $line = 16;
-        $art = 'if color';
+        $p += '<span class="_zs_gallery_mx-effects_star_-star" style="color: ';
+        $line = 10;
+        $art = '=color';
         ;
-        $expr = '<%if (color) {%>';
-        if (color) {
-            ;
-            $p += ' style="color: ';
-            $line = 16;
-            $art = '=color';
-            ;
-            $p += ($expr = '<%=color%>', $e(color)) + ';" ';
-            $line = 16;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
-        }
+        $p += ($expr = '<%=color%>', $e(color)) + ';">';
+        $line = 10;
+        $art = '!icon';
         ;
-        $p += '>';
-        $line = 17;
-        $art = 'if icon';
-        ;
-        $expr = '<%if (icon) {%>';
-        if (icon) {
-            ;
-            $p += ' ';
-            $line = 18;
-            $art = '!icon';
-            ;
-            $p += ($expr = '<%!icon%>', $n(icon)) + ' ';
-            $line = 19;
-            $art = 'else';
-            ;
-            $expr = '<%}    else {%>';
-        }
-        else {
-            ;
-            $p += '<i mxs="_zs_galleryb(:_" class="mc-iconfont">&#xe60f;</i>';
-            $line = 21;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '</span>';
-        $line = 23;
+        $p += ($expr = '<%!icon%>', $n(icon)) + '</span>';
+        $line = 11;
         $art = '/for';
         ;
         $expr = '<%}%>';
@@ -160,10 +89,9 @@ catch (ex) {
     assign: function (e) {
         var that = this;
         var altered = that.updater.altered();
-        // num: 0, 0.5, 1 ... 4, 4.5, 5
-        var color = e.color || '';
-        var count = +e.count || 5;
-        var num = +e.num || 0;
+        // num: 0, 0.5, 1 ... 4, 4.5, 5，
+        // 最大值不超过count
+        var num = +e.num || 0, count = +e.count || 5; // icon个数
         var s = num + '';
         var i = s.indexOf('.');
         if (i >= 0) {
@@ -183,11 +111,11 @@ catch (ex) {
             num = count;
         }
         that.updater.set({
-            width: num / count * 100 + '%',
+            outerWidth: 24 * num,
             innerWidth: 24 * count,
             count: count,
-            color: color,
-            icon: e.icon
+            color: e.color || CSSVarUtil.get('--color-brand', '#4d7fff'),
+            icon: e.icon || '<i class="mc-iconfont">&#xe60f;</i>'
         });
         if (!altered) {
             altered = that.updater.altered();
