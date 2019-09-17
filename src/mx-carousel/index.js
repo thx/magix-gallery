@@ -54,10 +54,6 @@ module.exports = Magix.View.extend({
 
         that.on('destroy', () => {
             that['@{stop.auto.play}']();
-
-            if (that['@{over.timer}']) {
-                clearTimeout(that['@{over.timer}']);
-            }
         });
     },
     render() {
@@ -98,9 +94,14 @@ module.exports = Magix.View.extend({
         // 初始化位置
         that['@{to.panel}'](active, true);
 
-        // 自动播放
-        if (autoplay) {
+        // 大于一帧时可自动播放
+        if (autoplay && (len > 1)) {
             that['@{start.auto.play}']();
+            that['@{owner.node}'].hover(() => {
+                that['@{stop.auto.play}']();
+            }, () => {
+                that['@{over.timer}'] = setTimeout(that.wrapAsync(that['@{start.auto.play}'], that), 50);
+            });
         }
     },
 
@@ -251,6 +252,9 @@ module.exports = Magix.View.extend({
 
     '@{stop.auto.play}'() {
         let that = this;
+        if (that['@{over.timer}']) {
+            clearTimeout(that['@{over.timer}']);
+        }
         if (that['@{play.task}']) {
             clearInterval(that['@{play.task}']);
         }
@@ -266,23 +270,6 @@ module.exports = Magix.View.extend({
 
     '@{active}<click>'(e) {
         this['@{to.panel}'](e.params.idx);
-    },
-
-    '@{start}<mouseout>'(e) {
-        let that = this;
-        if (!Magix.inside(e.relatedTarget, that.id)) {
-            that['@{over.timer}'] = setTimeout(that.wrapAsync(that['@{start.auto.play}'], that), 50);
-        }
-    },
-
-    '@{stop}<mouseover>'(e) {
-        let that = this;
-        if (!Magix.inside(e.relatedTarget, that.id)) {
-            if (that['@{over.timer}']) {
-                clearTimeout(that['@{over.timer}']);
-            }
-            that['@{stop.auto.play}']();
-        }
     },
 
     '$win<resize>'() {

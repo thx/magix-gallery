@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.35',
+            time: '2019-09-17',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-carousel：autoplay时hover暂停播放，移除恢复自动播放，单帧不自动播放，<a href="#!/carousel/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.34',
             time: '2019-09-17',
             subs: [{

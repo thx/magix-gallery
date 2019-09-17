@@ -1,5 +1,5 @@
 <div class="carousel" style="height: {{=height}}px;">
-    <div class="inner" mx-mouseover="@{stop}()" mx-mouseout="@{start}()">
+    <div class="inner">
         {{!content}}
     </div>
 
@@ -10,9 +10,7 @@
 </div>
 
 {{if dots && (len > 1)}}
-<div class="type--{{=dotPrefix}}--{{=dotType}}"
-    mx-mouseover="@{stop}()" 
-    mx-mouseout="@{start}()">
+<div class="type--{{=dotPrefix}}--{{=dotType}}">
     {{for(let i=0;i<len;i+=1)}}
     <span class="dot {{=dotClass}}" mx-click="@{active}({idx:{{=i}}})"></span>
     {{/for}}
