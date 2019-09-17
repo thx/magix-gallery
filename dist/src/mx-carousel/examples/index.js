@@ -3,11 +3,15 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-carousel/examples/index",["magix","examples/subs","mx-title/second","./2","examples/api"],(require,exports,module)=>{
+define("mx-carousel/examples/index",["magix","examples/subs","mx-title/second","./2","./4","./3","./5","./1","examples/api"],(require,exports,module)=>{
 /*Magix*/
 require("examples/subs");
 require("mx-title/second");
 require("./2");
+require("./4");
+require("./3");
+require("./5");
+require("./1");
 require("examples/api");
 var Magix = require("magix");
 module.exports = Magix.View.extend({
@@ -29,9 +33,9 @@ module.exports = Magix.View.extend({
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_galleryae:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'跑马灯水平滚动\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'轮播点样式\',\n            key: viewId + \'_demo5\'\n        },{\n            name: \'渐显渐隐\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'垂直滚动\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'自定义trigger样式\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'跑马灯水平滚动\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'垂直滚动\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'轮播点样式\',\n            key: viewId + \'_demo5\'\n        },{\n            name: \'渐显渐隐\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'自定义样式\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'跑马灯水平滚动\',                    key: viewId + \'_demo2\'                }, {                    name: \'轮播点样式\',                    key: viewId + \'_demo5\'                }, {                    name: \'渐显渐隐\',                    key: viewId + \'_demo1\'                }, {                    name: \'垂直滚动\',                    key: viewId + \'_demo3\'                }, {                    name: \'自定义trigger样式\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '跑马灯水平滚动', key: viewId + '_demo2' }, { name: '轮播点样式', key: viewId + '_demo5' }, { name: '渐显渐隐', key: viewId + '_demo1' }, { name: '垂直滚动', key: viewId + '_demo3' }, { name: '自定义trigger样式', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'跑马灯水平滚动\',                    key: viewId + \'_demo2\'                }, {                    name: \'垂直滚动\',                    key: viewId + \'_demo3\'                }, {                    name: \'轮播点样式\',                    key: viewId + \'_demo5\'                }, {                    name: \'渐显渐隐\',                    key: viewId + \'_demo1\'                }, {                    name: \'自定义样式\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '跑马灯水平滚动', key: viewId + '_demo2' }, { name: '垂直滚动', key: viewId + '_demo3' }, { name: '轮播点样式', key: viewId + '_demo5' }, { name: '渐显渐隐', key: viewId + '_demo1' }, { name: '自定义样式', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
     $line = 26;
     $art = '=viewId';
     ;
@@ -39,7 +43,23 @@ module.exports = Magix.View.extend({
     $line = 29;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-carousel/examples/4" id="';
+    $line = 30;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div mxa="_zs_galleryae:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-carousel/examples/3" id="';
+    $line = 33;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-carousel/examples/5" id="';
+    $line = 34;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div><div mx-view="mx-carousel/examples/1" id="';
+    $line = 35;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div></div></div><div id="';
     $line = 39;
     $art = '=viewId';
     ;
@@ -89,7 +109,7 @@ catch (ex) {
                 def: 'true'
             }, {
                 key: 'dot-type',
-                desc: "<pre>\u5185\u7F6E\u8F6E\u64AD\u70B9\u6837\u5F0F\n1. line-in-center\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u7EBF\u578B\u70B9\u5C45\u4E2D\u663E\u793A\n2. line-in-left\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u7EBF\u578B\u70B9\u5C45\u5DE6\u663E\u793A\n3. line-in-right\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u7EBF\u578B\u70B9\u5C45\u53F3\u663E\u793A\n4. line-out-center\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5916\u90E8\u7EBF\u578B\u70B9\u5C45\u4E2D\u663E\u793A\n5. dot-in-center\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u5706\u5F62\u70B9\u5C45\u4E2D\u663E\u793A\n6. dot-in-left\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u5706\u5F62\u70B9\u5C45\u5DE6\u663E\u793A\n7. dot-in-right\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u5706\u5F62\u70B9\u5C45\u53F3\u663E\u793A\n8. dot-ount-center\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5916\u90E8\u5706\u5F62\u70B9\u5C45\u4E2D\u663E\u793A\n</pre>",
+                desc: "<pre>\u5185\u7F6E\u8F6E\u64AD\u70B9\u6837\u5F0F\n1. line-in-center\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u7EBF\u578B\u70B9\u5C45\u4E2D\u663E\u793A\n2. line-in-left\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u7EBF\u578B\u70B9\u5C45\u5DE6\u663E\u793A\n3. line-in-right\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u7EBF\u578B\u70B9\u5C45\u53F3\u663E\u793A\n4. line-out-center\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5916\u90E8\u7EBF\u578B\u70B9\u5C45\u4E2D\u663E\u793A\n5. dot-in-center\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u5706\u5F62\u70B9\u5C45\u4E2D\u663E\u793A\n6. dot-in-left\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u5706\u5F62\u70B9\u5C45\u5DE6\u663E\u793A\n7. dot-in-right\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u5706\u5F62\u70B9\u5C45\u53F3\u663E\u793A\n8. dot-out-center\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5916\u90E8\u5706\u5F62\u70B9\u5C45\u4E2D\u663E\u793A\n</pre>",
                 type: 'string',
                 def: 'line-in-center'
             }, {

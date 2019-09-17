@@ -10,6 +10,9 @@ module.exports = Magix.View.extend({
         that['@{owner.node}'] = node;
 
         that['@{extra.info}'] = extra;
+
+        // 是否是垂直方向   
+        let vertical = (extra.vertical + '') === 'true';
         that.updater.set({
             mode: extra.mode || 'carousel', //carousel跑马灯，fade渐显渐隐
             width: extra.width || $(node).width() || 400,
@@ -17,14 +20,19 @@ module.exports = Magix.View.extend({
             active: extra.active || 0, // 当前第几帧动画
             interval: (extra.interval | 0) || 3000, // 播放暂停间隔，单位毫秒
             autoplay: (extra.autoplay + '') === 'true',  // 是否自动播放
-            dots: (extra.dots + '') !== 'false', // 是否显示轮播点
-            vertical: (extra.vertical + '') === 'true', // 是否是垂直方向
+            dots: (extra.dots + '') !== 'false', // 是否显示轮播点，默认显示
+            dotPrefix: vertical ? 'v' : 'h',
+            dotType: extra.dotType || 'line-in-center', // 内置轮播点样式
+            dotClass: extra.dotClass || '', //自定义轮播点样式
+            triggers: (extra.triggers + '') == 'true', // 是否显示轮播点，默认不显示
+            triggerClass: extra.triggerClass || '', // 自定义trigger样式
+            vertical,
             timing: extra.timing || 'ease-in-out', // transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n);
-            duration: extra.duration || '.5s', // 动画持续时间
-            dotClass: extra.dotClass || ''
+            duration: extra.duration || '.5s' // 动画持续时间
         })
 
         if (extra.prevTrigger) {
+            // 自定义上一页trigger
             $('#' + extra.prevTrigger).on('click', () => {
                 that['@{trigger}<click>']({
                     params: {
@@ -34,6 +42,7 @@ module.exports = Magix.View.extend({
             })
         }
         if (extra.nextTrigger) {
+            // 自定义下一页trigger
             $('#' + extra.nextTrigger).on('click', () => {
                 that['@{trigger}<click>']({
                     params: {

@@ -24,32 +24,116 @@ module.exports = Base.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryfE:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxs="_zs_galleryfE:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div class="mb20 clearfix"><div class="color-9 fl">以下示例：</div><div class="fl"><div>跑马灯类型，左右切换</div><div>自动播放，hover时停止自动播放，移出恢复自动播放</div><div>默认第二帧（active="1"，从0开始）</div><div>显示面板指示点</div></div></div><div class="clearfix mb10"><div mx-view="mx-carousel/index?height=100&autoplay=true&active=1"><div data-carousel="true"><div class="_zs_gallery_mx-carousel_examples_1_-bg">1</div></div><div data-carousel="true"><div class="_zs_gallery_mx-carousel_examples_1_-bg">2</div></div><div data-carousel="true"><div class="_zs_gallery_mx-carousel_examples_1_-bg">3</div></div></div></div></div><div mxa="_zs_galleryfE:a" class="clearfix"><div mxa="_zs_galleryfE:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_galleryfE:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', verticals = $$.verticals, curVer = $$.curVer, list = $$.list, cur = $$.cur, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryfE:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryfE:l" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryfE:k" class="mb10">轮播方向：</div><div mxv mxa="_zs_galleryfE:m" class="clearfix mb20">';
+    $line = 5;
+    $art = 'each verticals as item';
+    ;
+    $expr = '<%for (var $art_istrffrhtro$art_i = 0, $art_cikazdgyap$art_c = verticals.length; $art_istrffrhtro$art_i < $art_cikazdgyap$art_c; $art_istrffrhtro$art_i++) {    var item = verticals[$art_istrffrhtro$art_i]%>';
+    for (var $art_istrffrhtro$art_i = 0, $art_cikazdgyap$art_c = verticals.length; $art_istrffrhtro$art_i < $art_cikazdgyap$art_c; $art_istrffrhtro$art_i++) {
+        var item = verticals[$art_istrffrhtro$art_i];
+        $p += '<label mxv mxa="_zs_galleryfE:n" class="w150 mb5"><input type="radio" value="';
+        $line = 7;
+        $art = '=item.value';
+        ;
+        $p += ($expr = '<%=item.value%>', $e(item.value)) + '" name="dot-vertical" ';
+        $line = 8;
+        $art = 'if curVer.value == item.value';
+        ;
+        $expr = '<%if (curVer.value == item.value) {%>';
+        if (curVer.value == item.value) {
+            ;
+            $p += ' checked="true" ';
+            $line = 8;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' mx-change="' + $viewId + 'changeVer({item:\'';
+        $line = 9;
+        $art = '@item';
+        ;
+        $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})"/>';
+        $line = 10;
+        $art = '=item.text';
+        ;
+        $p += ($expr = '<%=item.text%>', $e(item.text)) + '</label>';
+        $line = 12;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxs="_zs_galleryfE:f" class="mb10">dot-type可选项：</div><div mxv mxa="_zs_galleryfE:q" class="clearfix mb10">';
+    $line = 17;
+    $art = 'each list as item';
+    ;
+    $expr = '<%for (var $art_iocxcfwumbo$art_i = 0, $art_csmqsidk$art_c = list.length; $art_iocxcfwumbo$art_i < $art_csmqsidk$art_c; $art_iocxcfwumbo$art_i++) {    var item = list[$art_iocxcfwumbo$art_i]%>';
+    for (var $art_iocxcfwumbo$art_i = 0, $art_csmqsidk$art_c = list.length; $art_iocxcfwumbo$art_i < $art_csmqsidk$art_c; $art_iocxcfwumbo$art_i++) {
+        var item = list[$art_iocxcfwumbo$art_i];
+        $p += '<label mxv mxa="_zs_galleryfE:r" class="w150 mb5"><input type="radio" value="';
+        $line = 19;
+        $art = '=item.value';
+        ;
+        $p += ($expr = '<%=item.value%>', $e(item.value)) + '" name="dot-types" ';
+        $line = 20;
+        $art = 'if cur.value == item.value';
+        ;
+        $expr = '<%if (cur.value == item.value) {%>';
+        if (cur.value == item.value) {
+            ;
+            $p += ' checked="true" ';
+            $line = 20;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' mx-change="' + $viewId + 'change({item:\'';
+        $line = 21;
+        $art = '@item';
+        ;
+        $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})"/>';
+        $line = 22;
+        $art = '=item.text';
+        ;
+        $p += ($expr = '<%=item.text%>', $e(item.text)) + '</label>';
+        $line = 24;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxa="_zs_galleryfE:s" class="clearfix mb10"><div mx-view="mx-carousel/index?height=100&vertical=';
+    $line = 28;
+    $art = '=curVer.value';
+    ;
+    $p += ($expr = '<%!$eu(curVer.value)%>', $eu(curVer.value)) + '&dotType=';
     $line = 29;
+    $art = '=cur.value';
+    ;
+    $p += ($expr = '<%!$eu(cur.value)%>', $eu(cur.value)) + '"><div mxs="_zs_galleryfE:h" data-carousel="true"><div class="_zs_gallery_mx-carousel_examples_1_-bg _zs_gallery_mx-carousel_examples_1_-bg1">1</div></div><div mxs="_zs_galleryfE:i" data-carousel="true"><div class="_zs_gallery_mx-carousel_examples_1_-bg _zs_gallery_mx-carousel_examples_1_-bg2">2</div></div><div mxs="_zs_galleryfE:j" data-carousel="true"><div class="_zs_gallery_mx-carousel_examples_1_-bg _zs_gallery_mx-carousel_examples_1_-bg3">3</div></div></div></div></div><div mxa="_zs_galleryfE:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryfE:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 44;
     $art = '=viewId';
     ;
     $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryfE:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
-    $line = 31;
+    $line = 46;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryfE:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
-    $line = 34;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-carousel height="100" autoplay="true" active="1"&gt;\n    &lt;mx-carousel.panel&gt;\n        &lt;div class="bg"&gt;1&lt;/div&gt;\n    &lt;/mx-carousel.panel&gt;\n    &lt;mx-carousel.panel&gt;\n        &lt;div class="bg"&gt;2&lt;/div&gt;\n    &lt;/mx-carousel.panel&gt;\n    &lt;mx-carousel.panel&gt;\n        &lt;div class="bg"&gt;3&lt;/div&gt;\n    &lt;/mx-carousel.panel&gt;\n&lt;/mx-carousel&gt;</pre></div><div mxa="_zs_galleryfE:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_galleryfE:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">CSS</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 49;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryfE:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
-    $line = 51;
-    $art = '!text2';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-carousel height="100" dot-type="';
+    $line = 50;
+    $art = '=cur.value';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryfE:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
-    $line = 54;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\n.bg &#123;\n    width: 100%;\n    height: 100%;\n    background-repeat: no-repeat;\n    background-position: center top;\n    line-height: 100px;\n    background-color: #4d7fff;\n    color: #fff;\n    text-align: center;\n    font-size: 20px;\n    font-weight: bold;\n&#125;</pre></div></div></div>';
+    $p += ($expr = '<%=cur.value%>', $e(cur.value)) + '"&gt;\n    &lt;mx-carousel.panel&gt;\n        &lt;div class="bg bg1"&gt;1&lt;/div&gt;\n    &lt;/mx-carousel.panel&gt;\n    &lt;mx-carousel.panel&gt;\n        &lt;div class="bg bg2"&gt;2&lt;/div&gt;\n    &lt;/mx-carousel.panel&gt;\n    &lt;mx-carousel.panel&gt;\n        &lt;div class="bg bg3"&gt;3&lt;/div&gt;\n    &lt;/mx-carousel.panel&gt;\n&lt;/mx-carousel&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -60,7 +144,54 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
-        this.updater.digest({});
+        var list = [{
+                value: 'line-in-center',
+                text: 'line-in-center(默认)'
+            }, {
+                value: 'line-in-left',
+                text: 'line-in-left'
+            }, {
+                value: 'line-in-right',
+                text: 'line-in-right'
+            }, {
+                value: 'line-out-center',
+                text: 'line-out-center'
+            }, {
+                value: 'dot-in-center',
+                text: 'dot-in-center'
+            }, {
+                value: 'dot-in-left',
+                text: 'dot-in-left'
+            }, {
+                value: 'dot-in-right',
+                text: 'dot-in-right'
+            }, {
+                value: 'dot-out-center',
+                text: 'dot-out-center'
+            }];
+        var verticals = [{
+                value: 'false',
+                text: '水平'
+            }, {
+                value: 'true',
+                text: '垂直'
+            }];
+        this.updater.digest({
+            cur: list[0],
+            list: list,
+            curVer: verticals[0],
+            verticals: verticals
+        });
+    },
+    'change<change>': function (e) {
+        this.updater.digest({
+            cur: e.params.item
+        });
+    },
+    'changeVer<change>': function (e) {
+        this.updater.digest({
+            curVer: e.params.item
+        });
     }
 });
 

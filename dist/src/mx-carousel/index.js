@@ -8,7 +8,7 @@ define("mx-carousel/index",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-carousel_index_","._zs_gallery_mx-carousel_index_-triggers {\n  opacity: 0;\n  position: absolute;\n  top: 50%;\n  z-index: 4;\n  background: rgba(0, 0, 0, 0.5);\n  width: 30px;\n  height: 60px;\n  margin-top: -30px;\n  text-align: center;\n  line-height: 60px;\n  font-size: 22px;\n  color: #999;\n  transition: all var(--duration);\n  cursor: pointer;\n  border-radius: 0 4px 4px 0;\n}\n._zs_gallery_mx-carousel_index_-triggers:hover {\n  color: #fff;\n}\n._zs_gallery_mx-carousel_index_-triggers-left {\n  left: -2px;\n}\n._zs_gallery_mx-carousel_index_-triggers-right {\n  right: -2px;\n  transform: rotate(180deg);\n}\n._zs_gallery_mx-carousel_index_-dots,\n._zs_gallery_mx-carousel_index_-v-dots {\n  position: absolute;\n  z-index: 4;\n  text-align: center;\n  vertical-align: middle;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot {\n  display: inline-block;\n  background-color: #fff;\n  opacity: 0.5;\n  border-radius: 1px;\n  transition: all 0.5s;\n  cursor: pointer;\n  vertical-align: middle;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot:hover,\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot:hover {\n  opacity: 0.8;\n}\n._zs_gallery_mx-carousel_index_-dots {\n  left: 0;\n  bottom: 16px;\n  width: 100%;\n  height: 5px;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot {\n  width: 20px;\n  height: 5px;\n  margin: 0 2px;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  opacity: 1;\n  width: 28px;\n}\n._zs_gallery_mx-carousel_index_-v-dots {\n  top: 50%;\n  right: 12px;\n  width: 5px;\n  transform: translateY(-50%);\n}\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot {\n  width: 5px;\n  height: 20px;\n  margin: 2px 0;\n}\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  opacity: 1;\n  height: 28px;\n}\n._zs_gallery_mx-carousel_index_-carousel {\n  position: relative;\n  width: 100%;\n  overflow: hidden;\n}\n._zs_gallery_mx-carousel_index_-carousel ._zs_gallery_mx-carousel_index_-inner {\n  position: relative;\n  z-index: 3;\n}\n._zs_gallery_mx-carousel_index_-carousel:hover ._zs_gallery_mx-carousel_index_-triggers {\n  opacity: 1;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-carousel_index_","._zs_gallery_mx-carousel_index_-triggers {\n  opacity: 0;\n  position: absolute;\n  top: 50%;\n  z-index: 4;\n  background: rgba(0, 0, 0, 0.5);\n  width: 30px;\n  height: 60px;\n  margin-top: -30px;\n  text-align: center;\n  line-height: 60px;\n  font-size: 22px;\n  color: rgba(255, 255, 255, 0.5);\n  transition: all var(--duration);\n  cursor: pointer;\n  border-radius: 0 4px 4px 0;\n}\n._zs_gallery_mx-carousel_index_-triggers:hover {\n  color: #fff;\n}\n._zs_gallery_mx-carousel_index_-triggers-left {\n  left: -2px;\n}\n._zs_gallery_mx-carousel_index_-triggers-right {\n  right: -2px;\n  transform: rotate(180deg);\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-center,\n._zs_gallery_mx-carousel_index_-type--h--line-in-left,\n._zs_gallery_mx-carousel_index_-type--h--line-in-right,\n._zs_gallery_mx-carousel_index_-type--h--line-out-center,\n._zs_gallery_mx-carousel_index_-type--v--line-in-center,\n._zs_gallery_mx-carousel_index_-type--v--line-in-left,\n._zs_gallery_mx-carousel_index_-type--v--line-in-right,\n._zs_gallery_mx-carousel_index_-type--v--line-out-center {\n  position: absolute;\n  z-index: 4;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--line-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--line-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--line-out-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--line-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--line-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--line-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--line-out-center ._zs_gallery_mx-carousel_index_-dot {\n  display: inline-block;\n  opacity: 0.5;\n  border-radius: 1px;\n  transition: all 0.5s;\n  cursor: pointer;\n  vertical-align: top;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-center ._zs_gallery_mx-carousel_index_-dot:hover,\n._zs_gallery_mx-carousel_index_-type--h--line-in-left ._zs_gallery_mx-carousel_index_-dot:hover,\n._zs_gallery_mx-carousel_index_-type--h--line-in-right ._zs_gallery_mx-carousel_index_-dot:hover,\n._zs_gallery_mx-carousel_index_-type--h--line-out-center ._zs_gallery_mx-carousel_index_-dot:hover,\n._zs_gallery_mx-carousel_index_-type--v--line-in-center ._zs_gallery_mx-carousel_index_-dot:hover,\n._zs_gallery_mx-carousel_index_-type--v--line-in-left ._zs_gallery_mx-carousel_index_-dot:hover,\n._zs_gallery_mx-carousel_index_-type--v--line-in-right ._zs_gallery_mx-carousel_index_-dot:hover,\n._zs_gallery_mx-carousel_index_-type--v--line-out-center ._zs_gallery_mx-carousel_index_-dot:hover {\n  opacity: 0.8;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-center,\n._zs_gallery_mx-carousel_index_-type--h--line-in-left,\n._zs_gallery_mx-carousel_index_-type--h--line-in-right,\n._zs_gallery_mx-carousel_index_-type--h--line-out-center {\n  left: 0;\n  width: 100%;\n  height: 5px;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--line-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--line-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--line-out-center ._zs_gallery_mx-carousel_index_-dot {\n  width: 20px;\n  height: 5px;\n  margin: 0 2px;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-center ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--h--line-in-left ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--h--line-in-right ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--h--line-out-center ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  opacity: 1;\n  width: 28px;\n}\n._zs_gallery_mx-carousel_index_-type--v--line-in-center,\n._zs_gallery_mx-carousel_index_-type--v--line-in-left,\n._zs_gallery_mx-carousel_index_-type--v--line-in-right,\n._zs_gallery_mx-carousel_index_-type--v--line-out-center {\n  top: 50%;\n  width: 5px;\n  transform: translateY(-50%);\n  text-align: center;\n}\n._zs_gallery_mx-carousel_index_-type--v--line-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--line-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--line-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--line-out-center ._zs_gallery_mx-carousel_index_-dot {\n  width: 5px;\n  height: 20px;\n  margin: 2px 0;\n}\n._zs_gallery_mx-carousel_index_-type--v--line-in-center ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--v--line-in-left ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--v--line-in-right ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--v--line-out-center ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  opacity: 1;\n  height: 28px;\n}\n._zs_gallery_mx-carousel_index_-type--h--dot-in-center,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-left,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-right,\n._zs_gallery_mx-carousel_index_-type--h--dot-out-center,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-center,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-left,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-right,\n._zs_gallery_mx-carousel_index_-type--v--dot-out-center {\n  position: absolute;\n  z-index: 4;\n}\n._zs_gallery_mx-carousel_index_-type--h--dot-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--dot-out-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-out-center ._zs_gallery_mx-carousel_index_-dot {\n  display: inline-block;\n  opacity: 0.4;\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  transition: all 0.5s;\n  cursor: pointer;\n  vertical-align: top;\n}\n._zs_gallery_mx-carousel_index_-type--h--dot-in-center ._zs_gallery_mx-carousel_index_-dot:hover,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-left ._zs_gallery_mx-carousel_index_-dot:hover,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-right ._zs_gallery_mx-carousel_index_-dot:hover,\n._zs_gallery_mx-carousel_index_-type--h--dot-out-center ._zs_gallery_mx-carousel_index_-dot:hover,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-center ._zs_gallery_mx-carousel_index_-dot:hover,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-left ._zs_gallery_mx-carousel_index_-dot:hover,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-right ._zs_gallery_mx-carousel_index_-dot:hover,\n._zs_gallery_mx-carousel_index_-type--v--dot-out-center ._zs_gallery_mx-carousel_index_-dot:hover {\n  opacity: 0.8;\n}\n._zs_gallery_mx-carousel_index_-type--h--dot-in-center,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-left,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-right,\n._zs_gallery_mx-carousel_index_-type--h--dot-out-center {\n  left: 0;\n  width: 100%;\n  height: 8px;\n}\n._zs_gallery_mx-carousel_index_-type--h--dot-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--dot-out-center ._zs_gallery_mx-carousel_index_-dot {\n  margin: 0 4px;\n}\n._zs_gallery_mx-carousel_index_-type--h--dot-in-center ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-left ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-right ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--h--dot-out-center ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  opacity: 1;\n}\n._zs_gallery_mx-carousel_index_-type--v--dot-in-center,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-left,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-right,\n._zs_gallery_mx-carousel_index_-type--v--dot-out-center {\n  top: 50%;\n  width: 8px;\n  transform: translateY(-50%);\n  text-align: center;\n}\n._zs_gallery_mx-carousel_index_-type--v--dot-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-out-center ._zs_gallery_mx-carousel_index_-dot {\n  margin: 4px 0;\n}\n._zs_gallery_mx-carousel_index_-type--v--dot-in-center ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-left ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-right ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--v--dot-out-center ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  opacity: 1;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-center,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-center {\n  bottom: 12px;\n  text-align: center;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-center ._zs_gallery_mx-carousel_index_-dot {\n  background-color: #fff;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-left,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-left {\n  padding-left: 24px;\n  bottom: 12px;\n  text-align: left;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-left ._zs_gallery_mx-carousel_index_-dot {\n  background-color: #fff;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-right,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-right {\n  bottom: 12px;\n  padding-right: 24px;\n  text-align: right;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-right ._zs_gallery_mx-carousel_index_-dot {\n  background-color: #fff;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-out-center,\n._zs_gallery_mx-carousel_index_-type--h--dot-out-center {\n  bottom: -12px;\n  text-align: center;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-out-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--dot-out-center ._zs_gallery_mx-carousel_index_-dot {\n  background-color: var(--color-brand);\n}\n._zs_gallery_mx-carousel_index_-type--v--line-in-center,\n._zs_gallery_mx-carousel_index_-type--v--line-in-right,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-center,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-right {\n  right: 12px;\n}\n._zs_gallery_mx-carousel_index_-type--v--line-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--line-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-right ._zs_gallery_mx-carousel_index_-dot {\n  background-color: #fff;\n}\n._zs_gallery_mx-carousel_index_-type--v--line-in-left,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-left {\n  left: 12px;\n}\n._zs_gallery_mx-carousel_index_-type--v--line-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-left ._zs_gallery_mx-carousel_index_-dot {\n  background-color: #fff;\n}\n._zs_gallery_mx-carousel_index_-type--v--line-out-center,\n._zs_gallery_mx-carousel_index_-type--v--dot-out-center {\n  right: -12px;\n}\n._zs_gallery_mx-carousel_index_-type--v--line-out-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-out-center ._zs_gallery_mx-carousel_index_-dot {\n  background-color: var(--color-brand);\n}\n._zs_gallery_mx-carousel_index_-carousel {\n  position: relative;\n  width: 100%;\n  overflow: hidden;\n}\n._zs_gallery_mx-carousel_index_-carousel ._zs_gallery_mx-carousel_index_-inner {\n  position: relative;\n  z-index: 3;\n}\n._zs_gallery_mx-carousel_index_-carousel:hover ._zs_gallery_mx-carousel_index_-triggers {\n  opacity: 1;\n}\n[mx-view*=\"mx-carousel\"] {\n  position: relative;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -21,7 +21,7 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', height = $$.height, content = $$.content, len = $$.len, dots = $$.dots, vertical = $$.vertical, dotClass = $$.dotClass; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', height = $$.height, content = $$.content, triggers = $$.triggers, len = $$.len, dots = $$.dots, dotPrefix = $$.dotPrefix, dotType = $$.dotType, dotClass = $$.dotClass; var $expr, $art, $line; try {
     $p += '<div class="_zs_gallery_mx-carousel_index_-carousel" style="height: ';
     $line = 1;
     $art = '=height';
@@ -31,78 +31,63 @@ module.exports = Magix.View.extend({
     $art = '!content';
     ;
     $p += ($expr = '<%!content%>', $n(content)) + '</div>';
-    $line = 5;
-    $art = 'if len > 1';
+    $line = 6;
+    $art = 'if triggers && (len > 1)';
     ;
-    $expr = '<%if (len > 1) {%>';
-    if (len > 1) {
-        ;
-        $p += ' ';
-        $line = 6;
-        $art = 'if dots';
-        ;
-        $expr = '<%if (dots) {%>';
-        if (dots) {
-            ;
-            $p += '<div class="';
-            $line = 7;
-            $art = 'if vertical';
-            ;
-            $expr = '<%if (vertical) {%>';
-            if (vertical) {
-                ;
-                $p += ' _zs_gallery_mx-carousel_index_-v-dots ';
-                $line = 7;
-                $art = 'else';
-                ;
-                $expr = '<%}        else {%>';
-            }
-            else {
-                ;
-                $p += ' _zs_gallery_mx-carousel_index_-dots ';
-                $line = 7;
-                $art = '/if';
-                ;
-                $expr = '<%}%>';
-            }
-            ;
-            $p += ' clearfix" mx-mouseover="' + $viewId + '@{stop}()" mx-mouseout="' + $viewId + '@{start}()">';
-            $line = 10;
-            $art = 'for (let i=0;i<len;i+=1)';
-            ;
-            $expr = '<%for (var i = 0; i < len; i += 1) {%>';
-            for (var i = 0; i < len; i += 1) {
-                ;
-                $p += '<span class="_zs_gallery_mx-carousel_index_-dot ';
-                $line = 11;
-                $art = '=dotClass';
-                ;
-                $p += ($expr = '<%=dotClass%>', $e(dotClass)) + '" mx-click="' + $viewId + '@{active}({idx:';
-                $line = 11;
-                $art = '=i';
-                ;
-                $p += ($expr = '<%=i%>', $e(i)) + '})"></span>';
-                $line = 12;
-                $art = '/for';
-                ;
-                $expr = '<%}%>';
-            }
-            ;
-            $p += '</div>';
-            $line = 14;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
-        }
+    $expr = '<%if (triggers && (len > 1)) {%>';
+    if (triggers && (len > 1)) {
         ;
         $p += '<i mxs="_zs_galleryaf:j" class="_zs_gallery_mx-carousel_index_-triggers _zs_gallery_mx-carousel_index_-triggers-left mc-iconfont" mx-click="' + $viewId + '@{trigger}({offset: -1})">&#xe61e;</i><i mxs="_zs_galleryaf:k" class="_zs_gallery_mx-carousel_index_-triggers _zs_gallery_mx-carousel_index_-triggers-right mc-iconfont" mx-click="' + $viewId + '@{trigger}({offset: 1})">&#xe61e;</i>';
-        $line = 18;
+        $line = 9;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += '</div>';
+    $line = 12;
+    $art = 'if dots && (len > 1)';
+    ;
+    $expr = '<%if (dots && (len > 1)) {%>';
+    if (dots && (len > 1)) {
+        ;
+        $p += '<div class="_zs_gallery_mx-carousel_index_-type--';
+        $line = 13;
+        $art = '=dotPrefix';
+        ;
+        $p += ($expr = '<%=dotPrefix%>', $e(dotPrefix)) + '--';
+        $line = 13;
+        $art = '=dotType';
+        ;
+        $p += ($expr = '<%=dotType%>', $e(dotType)) + '" mx-mouseover="' + $viewId + '@{stop}()" mx-mouseout="' + $viewId + '@{start}()">';
+        $line = 16;
+        $art = 'for (let i=0;i<len;i+=1)';
+        ;
+        $expr = '<%for (var i = 0; i < len; i += 1) {%>';
+        for (var i = 0; i < len; i += 1) {
+            ;
+            $p += '<span class="_zs_gallery_mx-carousel_index_-dot ';
+            $line = 17;
+            $art = '=dotClass';
+            ;
+            $p += ($expr = '<%=dotClass%>', $e(dotClass)) + '" mx-click="' + $viewId + '@{active}({idx:';
+            $line = 17;
+            $art = '=i';
+            ;
+            $p += ($expr = '<%=i%>', $e(i)) + '})"></span>';
+            $line = 18;
+            $art = '/for';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div>';
+        $line = 20;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -117,6 +102,8 @@ catch (ex) {
         var node = $('#' + that.id);
         that['@{owner.node}'] = node;
         that['@{extra.info}'] = extra;
+        // 是否是垂直方向   
+        var vertical = (extra.vertical + '') === 'true';
         that.updater.set({
             mode: extra.mode || 'carousel',
             width: extra.width || $(node).width() || 400,
@@ -125,12 +112,17 @@ catch (ex) {
             interval: (extra.interval | 0) || 3000,
             autoplay: (extra.autoplay + '') === 'true',
             dots: (extra.dots + '') !== 'false',
-            vertical: (extra.vertical + '') === 'true',
+            dotPrefix: vertical ? 'v' : 'h',
+            dotType: extra.dotType || 'line-in-center',
+            dotClass: extra.dotClass || '',
+            triggers: (extra.triggers + '') == 'true',
+            triggerClass: extra.triggerClass || '',
+            vertical: vertical,
             timing: extra.timing || 'ease-in-out',
-            duration: extra.duration || '.5s',
-            dotClass: extra.dotClass || ''
+            duration: extra.duration || '.5s' // 动画持续时间
         });
         if (extra.prevTrigger) {
+            // 自定义上一页trigger
             $('#' + extra.prevTrigger).on('click', function () {
                 that['@{trigger}<click>']({
                     params: {
@@ -140,6 +132,7 @@ catch (ex) {
             });
         }
         if (extra.nextTrigger) {
+            // 自定义下一页trigger
             $('#' + extra.nextTrigger).on('click', function () {
                 that['@{trigger}<click>']({
                     params: {

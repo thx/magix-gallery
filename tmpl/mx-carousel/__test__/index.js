@@ -41,7 +41,7 @@ module.exports = Magix.View.extend({
 5. dot-in-center：轮播内容内部圆形点居中显示
 6. dot-in-left：轮播内容内部圆形点居左显示
 7. dot-in-right：轮播内容内部圆形点居右显示
-8. dot-ount-center：轮播内容外部圆形点居中显示
+8. dot-out-center：轮播内容外部圆形点居中显示
 </pre>`,
             type: 'string',
             def: 'line-in-center'

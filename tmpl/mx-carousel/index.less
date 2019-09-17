@@ -1,9 +1,10 @@
+@carousel-index: 3;
 @triggers-size: 30px;
 .triggers {
     opacity: 0;
     position: absolute;
     top: 50%;
-    z-index: 4;
+    z-index: @carousel-index + 1;
     background: rgba(0, 0, 0, .5);
     width: @triggers-size;
     height: @triggers-size * 2;
@@ -11,7 +12,7 @@
     text-align: center;
     line-height: @triggers-size * 2;
     font-size: 22px;
-    color: #999;
+    color: rgba(255, 255, 255, .5);
     transition: all var(--duration);
     cursor: pointer;
     border-radius: 0 4px 4px 0;
@@ -29,29 +30,35 @@
     transform: rotate(180deg);
 }
 
-.dots,
-.v-dots {
+@type-gap: 12px;
+.type--h--line-in-center,
+.type--h--line-in-left,
+.type--h--line-in-right,
+.type--h--line-out-center,
+.type--v--line-in-center,
+.type--v--line-in-left,
+.type--v--line-in-right,
+.type--v--line-out-center {
     position: absolute;
-    z-index: 4;
-    text-align: center;
-    vertical-align: middle;
+    z-index: @carousel-index + 1;
     .dot {
         display: inline-block;
-        background-color: #fff;
         opacity: 0.5;
         border-radius: 1px;
         transition: all .5s;
         cursor: pointer;
-        vertical-align: middle;
+        vertical-align: top;
         &:hover {
             opacity: 0.8;
         }
     }
 }
 
-.dots {
+.type--h--line-in-center,
+.type--h--line-in-left,
+.type--h--line-in-right,
+.type--h--line-out-center {
     left: 0;
-    bottom: 16px;
     width: 100%;
     height: 5px;
     .dot {
@@ -65,11 +72,14 @@
     }
 }
 
-.v-dots {
+.type--v--line-in-center,
+.type--v--line-in-left,
+.type--v--line-in-right,
+.type--v--line-out-center {
     top: 50%;
-    right: 12px;
     width: 5px;
     transform: translateY(-50%);
+    text-align: center;
     .dot {
         width: 5px;
         height: 20px;
@@ -81,17 +91,142 @@
     }
 }
 
+@dot-size: 8px;
+.type--h--dot-in-center,
+.type--h--dot-in-left,
+.type--h--dot-in-right,
+.type--h--dot-out-center,
+.type--v--dot-in-center,
+.type--v--dot-in-left,
+.type--v--dot-in-right,
+.type--v--dot-out-center {
+    position: absolute;
+    z-index: @carousel-index + 1;
+    .dot {
+        display: inline-block;
+        opacity: 0.4;
+        width: @dot-size;
+        height: @dot-size;
+        border-radius: 50%;
+        transition: all .5s;
+        cursor: pointer;
+        vertical-align: top;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.type--h--dot-in-center,
+.type--h--dot-in-left,
+.type--h--dot-in-right,
+.type--h--dot-out-center {
+    left: 0;
+    width: 100%;
+    height: @dot-size;
+    .dot {
+        margin: 0 (@dot-size / 2);
+        &.active {
+            opacity: 1;
+        }
+    }
+}
+
+.type--v--dot-in-center,
+.type--v--dot-in-left,
+.type--v--dot-in-right,
+.type--v--dot-out-center {
+    top: 50%;
+    width: @dot-size;
+    transform: translateY(-50%);
+    text-align: center;
+    .dot {
+        margin: (@dot-size / 2) 0;
+        &.active {
+            opacity: 1;
+        }
+    }
+}
+
+.type--h--line-in-center,
+.type--h--dot-in-center {
+    bottom: @type-gap;
+    text-align: center;
+    .dot {
+        background-color: #fff;
+    }
+}
+
+.type--h--line-in-left,
+.type--h--dot-in-left {
+    padding-left: 24px;
+    bottom: @type-gap;
+    text-align: left;
+    .dot {
+        background-color: #fff;
+    }
+}
+
+.type--h--line-in-right,
+.type--h--dot-in-right {
+    bottom: @type-gap;
+    padding-right: 24px;
+    text-align: right;
+    .dot {
+        background-color: #fff;
+    }
+}
+
+.type--h--line-out-center,
+.type--h--dot-out-center {
+    bottom: 0 - @type-gap;
+    text-align: center;
+    .dot {
+        background-color: var(--color-brand);
+    }
+}
+
+.type--v--line-in-center,
+.type--v--line-in-right,
+.type--v--dot-in-center,
+.type--v--dot-in-right {
+    right: @type-gap;
+    .dot {
+        background-color: #fff;
+    }
+}
+
+.type--v--line-in-left,
+.type--v--dot-in-left {
+    left: @type-gap;
+    .dot {
+        background-color: #fff;
+    }
+}
+
+.type--v--line-out-center,
+.type--v--dot-out-center {
+    right: 0 - @type-gap;
+    .dot {
+        background-color: var(--color-brand);
+    }
+}
+
 .carousel {
     position: relative;
     width: 100%;
     overflow: hidden;
     .inner {
         position: relative;
-        z-index: 3;
+        z-index: @carousel-index;
     }
     &:hover {
         .triggers {
             opacity: 1;
         }
     }
+}
+
+[mx-view*="mx-carousel"] {
+    position: relative;
 }

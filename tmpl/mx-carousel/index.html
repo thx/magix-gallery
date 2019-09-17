@@ -2,18 +2,19 @@
     <div class="inner" mx-mouseover="@{stop}()" mx-mouseout="@{start}()">
         {{!content}}
     </div>
-    {{if len > 1}}
-        {{if dots}}
-        <div class="{{if vertical}} v-dots {{else}} dots {{/if}} clearfix"
-            mx-mouseover="@{stop}()" 
-            mx-mouseout="@{start}()">
-            {{for(let i=0;i<len;i+=1)}}
-            <span class="dot {{=dotClass}}" mx-click="@{active}({idx:{{=i}}})"></span>
-            {{/for}}
-        </div>
-        {{/if}}
 
+    {{if triggers && (len > 1)}}
         <i class="triggers triggers-left mc-iconfont" mx-click="@{trigger}({offset: -1})">&#xe61e;</i>
         <i class="triggers triggers-right mc-iconfont" mx-click="@{trigger}({offset: 1})">&#xe61e;</i>
     {{/if}}
 </div>
+
+{{if dots && (len > 1)}}
+<div class="type--{{=dotPrefix}}--{{=dotType}}"
+    mx-mouseover="@{stop}()" 
+    mx-mouseout="@{start}()">
+    {{for(let i=0;i<len;i+=1)}}
+    <span class="dot {{=dotClass}}" mx-click="@{active}({idx:{{=i}}})"></span>
+    {{/for}}
+</div>
+{{/if}}

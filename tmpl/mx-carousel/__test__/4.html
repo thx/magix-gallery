@@ -3,8 +3,8 @@
         <div class="mb20 clearfix">
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>自定义切换trigger</div>
-                <div>自定义轮播点样式</div>
+                <div>自定义切换trigger（prev-trigger，next-trigger）</div>
+                <div>自定义轮播点dot-class</div>
             </div>
         </div>
         <div class="clearfix mb40">
@@ -12,6 +12,7 @@
                 <mx-carousel height="100" 
                     prev-trigger="{{=viewId}}_prev"
                     next-trigger="{{=viewId}}_next"
+                    dot-type="dot-out-center"
                     dot-class="{{=dotClass}}">
                     <mx-carousel.panel class="clearfix">
                         <div class="bg">1</div>
@@ -31,19 +32,19 @@
             </div>
         </div>
     </div>
-    <div class="clearfix">
-        <div class="eg-desc half">
-            <div class="eg-title">HTML Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-                mx-success="done({id:1})">
-                <span class="desc-tip">{{!text1}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;div class="wrapper"&gt;
     &lt;mx-carousel height="100" 
         prev-trigger="&#123;&#123;=viewId&#125;&#125;_prev"
         next-trigger="&#123;&#123;=viewId&#125;&#125;_next"
+        dot-type="dot-out-center"
         dot-class="&#123;&#123;=dotClass&#125;&#125;"&gt;
         &lt;mx-carousel.panel class="clearfix"&gt;
             &lt;div class="bg"&gt;1&lt;/div&gt;
@@ -65,68 +66,21 @@
         &#38;&#35;xe61e;
     &lt;/i&gt;
 &lt;/div&gt;</pre>
-        </div>
-        <div class="eg-desc half half-right">
-            <div class="eg-title">CSS Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-                mx-success="done({id:2})">
-                <span class="desc-tip">{{!text2}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
-.wrapper&#123;
-    position: relative;
-    padding-left: 10%;
-    padding-right: 10%;
-
-    .arrow&#123;
-        position: absolute;
-        top: 20px;
-        width: 40px;
-        height: 40px;
-        text-align: center;
-        line-height: 40px;
-        font-size: 32px;
-        color: @color-brand;
-        opacity: .5;
-        transition: all @duration;
-        cursor: pointer;
-
-        &:hover&#123;
-            opacity: .8;
-        &#125;
-
-        &.prev&#123;
-            left: 0;
-        &#125;
-
-        &.next&#123;
-            right: 0;
-            transform: rotate(180deg);
-        &#125;
-    &#125;
-    .bg &#123;
-        float: left;
-        width: 40%;
-        height: 80px;
-        margin-right: 5%;
-        margin-left: 5%;
-        line-height: 80px;
-        background-repeat: no-repeat;
-        background-position: center top;
-        background-color: @color-brand;
-        color: #fff;
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-        border-radius: 6px;
-    &#125;
-
-    .dot&#123;
-        margin-top: 8px;
-        background-color: @color-brand;
-    &#125;
-&#125;</pre>
-        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">CSS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+.dot&#123;
+    width: 12px;
+    height: 12px;
+    margin-top: 4px;
+    background-color: red;
+&#125;
+        </pre>
     </div>
 </div>
