@@ -3,14 +3,11 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-carousel/examples/index",["magix","examples/subs","mx-title/second","./2","./4","./1","./3","examples/api"],(require,exports,module)=>{
+define("mx-carousel/examples/index",["magix","examples/subs","mx-title/second","./2","examples/api"],(require,exports,module)=>{
 /*Magix*/
 require("examples/subs");
 require("mx-title/second");
 require("./2");
-require("./4");
-require("./1");
-require("./3");
 require("examples/api");
 var Magix = require("magix");
 module.exports = Magix.View.extend({
@@ -32,34 +29,22 @@ module.exports = Magix.View.extend({
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_galleryae:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'水平滚动\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'自定义trigger样式\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'渐显渐隐\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'垂直滚动\',\n            key: viewId + \'_demo3\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'跑马灯水平滚动\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'轮播点样式\',\n            key: viewId + \'_demo5\'\n        },{\n            name: \'渐显渐隐\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'垂直滚动\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'自定义trigger样式\',\n            key: viewId + \'_demo4\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'水平滚动\',                    key: viewId + \'_demo2\'                }, {                    name: \'自定义trigger样式\',                    key: viewId + \'_demo4\'                }, {                    name: \'渐显渐隐\',                    key: viewId + \'_demo1\'                }, {                    name: \'垂直滚动\',                    key: viewId + \'_demo3\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '水平滚动', key: viewId + '_demo2' }, { name: '自定义trigger样式', key: viewId + '_demo4' }, { name: '渐显渐隐', key: viewId + '_demo1' }, { name: '垂直滚动', key: viewId + '_demo3' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
-    $line = 23;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryae:a" class="clearfix mb20"><div mx-view="mx-carousel/examples/2" id="';
-    $line = 25;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-carousel/examples/4" id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'跑马灯水平滚动\',                    key: viewId + \'_demo2\'                }, {                    name: \'轮播点样式\',                    key: viewId + \'_demo5\'                }, {                    name: \'渐显渐隐\',                    key: viewId + \'_demo1\'                }, {                    name: \'垂直滚动\',                    key: viewId + \'_demo3\'                }, {                    name: \'自定义trigger样式\',                    key: viewId + \'_demo4\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '跑马灯水平滚动', key: viewId + '_demo2' }, { name: '轮播点样式', key: viewId + '_demo5' }, { name: '渐显渐隐', key: viewId + '_demo1' }, { name: '垂直滚动', key: viewId + '_demo3' }, { name: '自定义trigger样式', key: viewId + '_demo4' }] }, { name: 'API', key: viewId + '_api' }])) + '"></div><div id="';
     $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-carousel/examples/1" id="';
-    $line = 27;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryae:a" class="clearfix mb20"><div mxa="_zs_galleryae:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-carousel/examples/2" id="';
+    $line = 29;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-carousel/examples/3" id="';
-    $line = 28;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div id="';
-    $line = 31;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div></div><div id="';
+    $line = 39;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="examples/api?options=';
-    $line = 32;
+    $line = 40;
     $art = '@options';
     ;
     $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div></div>';
@@ -94,7 +79,7 @@ catch (ex) {
                 def: 0
             }, {
                 key: 'autoplay',
-                desc: '是否自动播放',
+                desc: '是否自动播放，自动播放时鼠标hover暂停播放，移出恢复播放',
                 type: 'boolean',
                 def: 'false'
             }, {
@@ -103,15 +88,40 @@ catch (ex) {
                 type: 'boolean',
                 def: 'true'
             }, {
+                key: 'dot-type',
+                desc: "<pre>\u5185\u7F6E\u8F6E\u64AD\u70B9\u6837\u5F0F\n1. line-in-center\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u7EBF\u578B\u70B9\u5C45\u4E2D\u663E\u793A\n2. line-in-left\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u7EBF\u578B\u70B9\u5C45\u5DE6\u663E\u793A\n3. line-in-right\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u7EBF\u578B\u70B9\u5C45\u53F3\u663E\u793A\n4. line-out-center\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5916\u90E8\u7EBF\u578B\u70B9\u5C45\u4E2D\u663E\u793A\n5. dot-in-center\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u5706\u5F62\u70B9\u5C45\u4E2D\u663E\u793A\n6. dot-in-left\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u5706\u5F62\u70B9\u5C45\u5DE6\u663E\u793A\n7. dot-in-right\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5185\u90E8\u5706\u5F62\u70B9\u5C45\u53F3\u663E\u793A\n8. dot-ount-center\uFF1A\u8F6E\u64AD\u5185\u5BB9\u5916\u90E8\u5706\u5F62\u70B9\u5C45\u4E2D\u663E\u793A\n</pre>",
+                type: 'string',
+                def: 'line-in-center'
+            }, {
+                key: 'dot-class',
+                desc: '自定义轮播点样式',
+                type: 'string',
+                def: ''
+            }, {
+                key: 'triggers',
+                desc: '是否显示左右切换箭头，默认不显示，配置显示时hover出现切换箭头',
+                type: 'boolean',
+                def: 'false'
+            }, {
+                key: 'trigger-class',
+                desc: '自定义切换箭头样式',
+                type: 'string',
+                def: ''
+            }, {
+                key: 'prev-trigger',
+                desc: '自定义上一帧trigger的id',
+                type: 'string',
+                def: ''
+            }, {
+                key: 'next-trigger',
+                desc: '自定义下一帧trigger的id',
+                type: 'string',
+                def: ''
+            }, {
                 key: 'interval',
                 desc: '播放暂停间隔，单位毫秒',
                 type: 'number',
                 def: '3000'
-            }, {
-                key: 'vertical',
-                desc: '是否垂直方向播放',
-                type: 'boolean',
-                def: 'false'
             }, {
                 key: 'timing',
                 desc: [
@@ -131,20 +141,10 @@ catch (ex) {
                 type: 'string',
                 def: '0.5s'
             }, {
-                key: 'prev-trigger',
-                desc: '自定义上一帧trigger的id',
-                type: 'string',
-                def: ''
-            }, {
-                key: 'next-trigger',
-                desc: '自定义下一帧trigger的id',
-                type: 'string',
-                def: ''
-            }, {
-                key: 'dot-class',
-                desc: '自定义轮播点样式',
-                type: 'string',
-                def: ''
+                key: 'vertical',
+                desc: '是否垂直方向播放',
+                type: 'boolean',
+                def: 'false'
             }];
         this.updater.digest({
             viewId: this.id,

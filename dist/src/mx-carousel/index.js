@@ -8,7 +8,7 @@ define("mx-carousel/index",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-carousel_index_","._zs_gallery_mx-carousel_index_-carousel {\n  position: relative;\n  width: 100%;\n  overflow: hidden;\n}\n._zs_gallery_mx-carousel_index_-carousel ._zs_gallery_mx-carousel_index_-inner {\n  position: relative;\n  z-index: 3;\n}\n._zs_gallery_mx-carousel_index_-dot-cnt {\n  display: inline-block;\n  vertical-align: top;\n}\n._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot {\n  cursor: pointer;\n  background-color: #fff;\n  opacity: 0.5;\n  display: block;\n  border-radius: 1px;\n  transition: all 0.5s;\n}\n._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot:hover {\n  opacity: 0.8;\n}\n._zs_gallery_mx-carousel_index_-dots {\n  position: absolute;\n  left: 0;\n  bottom: 12px;\n  z-index: 4;\n  height: 5px;\n  width: 100%;\n  text-align: center;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot-cnt {\n  padding: 0 2px;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot {\n  width: 20px;\n  height: 5px;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  opacity: 1;\n  width: 28px;\n}\n._zs_gallery_mx-carousel_index_-v-dots {\n  position: absolute;\n  top: 50%;\n  right: 12px;\n  z-index: 4;\n  width: 5px;\n  transform: translateY(-50%);\n}\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot-cnt {\n  padding: 2px 0;\n}\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot {\n  width: 5px;\n  height: 20px;\n}\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot-cnt ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  opacity: 1;\n  height: 28px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-carousel_index_","._zs_gallery_mx-carousel_index_-triggers {\n  opacity: 0;\n  position: absolute;\n  top: 50%;\n  z-index: 4;\n  background: rgba(0, 0, 0, 0.5);\n  width: 30px;\n  height: 60px;\n  margin-top: -30px;\n  text-align: center;\n  line-height: 60px;\n  font-size: 22px;\n  color: #999;\n  transition: all var(--duration);\n  cursor: pointer;\n  border-radius: 0 4px 4px 0;\n}\n._zs_gallery_mx-carousel_index_-triggers:hover {\n  color: #fff;\n}\n._zs_gallery_mx-carousel_index_-triggers-left {\n  left: -2px;\n}\n._zs_gallery_mx-carousel_index_-triggers-right {\n  right: -2px;\n  transform: rotate(180deg);\n}\n._zs_gallery_mx-carousel_index_-dots,\n._zs_gallery_mx-carousel_index_-v-dots {\n  position: absolute;\n  z-index: 4;\n  text-align: center;\n  vertical-align: middle;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot {\n  display: inline-block;\n  background-color: #fff;\n  opacity: 0.5;\n  border-radius: 1px;\n  transition: all 0.5s;\n  cursor: pointer;\n  vertical-align: middle;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot:hover,\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot:hover {\n  opacity: 0.8;\n}\n._zs_gallery_mx-carousel_index_-dots {\n  left: 0;\n  bottom: 16px;\n  width: 100%;\n  height: 5px;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot {\n  width: 20px;\n  height: 5px;\n  margin: 0 2px;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  opacity: 1;\n  width: 28px;\n}\n._zs_gallery_mx-carousel_index_-v-dots {\n  top: 50%;\n  right: 12px;\n  width: 5px;\n  transform: translateY(-50%);\n}\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot {\n  width: 5px;\n  height: 20px;\n  margin: 2px 0;\n}\n._zs_gallery_mx-carousel_index_-v-dots ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  opacity: 1;\n  height: 28px;\n}\n._zs_gallery_mx-carousel_index_-carousel {\n  position: relative;\n  width: 100%;\n  overflow: hidden;\n}\n._zs_gallery_mx-carousel_index_-carousel ._zs_gallery_mx-carousel_index_-inner {\n  position: relative;\n  z-index: 3;\n}\n._zs_gallery_mx-carousel_index_-carousel:hover ._zs_gallery_mx-carousel_index_-triggers {\n  opacity: 1;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -21,68 +21,82 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', height = $$.height, content = $$.content, dots = $$.dots, len = $$.len, vertical = $$.vertical, dotClass = $$.dotClass; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', height = $$.height, content = $$.content, len = $$.len, dots = $$.dots, vertical = $$.vertical, dotClass = $$.dotClass; var $expr, $art, $line; try {
     $p += '<div class="_zs_gallery_mx-carousel_index_-carousel" style="height: ';
     $line = 1;
     $art = '=height';
     ;
     $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_galleryaf:_" class="_zs_gallery_mx-carousel_index_-inner" mx-mouseover="' + $viewId + '@{stop}()" mx-mouseout="' + $viewId + '@{start}()">';
-    $line = 5;
+    $line = 3;
     $art = '!content';
     ;
     $p += ($expr = '<%!content%>', $n(content)) + '</div>';
-    $line = 7;
-    $art = 'if (dots && len > 1)';
+    $line = 5;
+    $art = 'if len > 1';
     ;
-    $expr = '<%if (dots && len > 1) {%>';
-    if (dots && len > 1) {
+    $expr = '<%if (len > 1) {%>';
+    if (len > 1) {
         ;
-        $p += '<ul class="';
-        $line = 8;
-        $art = 'if vertical';
+        $p += ' ';
+        $line = 6;
+        $art = 'if dots';
         ;
-        $expr = '<%if (vertical) {%>';
-        if (vertical) {
+        $expr = '<%if (dots) {%>';
+        if (dots) {
             ;
-            $p += ' _zs_gallery_mx-carousel_index_-v-dots ';
-            $line = 8;
-            $art = 'else';
+            $p += '<div class="';
+            $line = 7;
+            $art = 'if vertical';
             ;
-            $expr = '<%}    else {%>';
-        }
-        else {
+            $expr = '<%if (vertical) {%>';
+            if (vertical) {
+                ;
+                $p += ' _zs_gallery_mx-carousel_index_-v-dots ';
+                $line = 7;
+                $art = 'else';
+                ;
+                $expr = '<%}        else {%>';
+            }
+            else {
+                ;
+                $p += ' _zs_gallery_mx-carousel_index_-dots ';
+                $line = 7;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
             ;
-            $p += ' _zs_gallery_mx-carousel_index_-dots ';
-            $line = 8;
+            $p += ' clearfix" mx-mouseover="' + $viewId + '@{stop}()" mx-mouseout="' + $viewId + '@{start}()">';
+            $line = 10;
+            $art = 'for (let i=0;i<len;i+=1)';
+            ;
+            $expr = '<%for (var i = 0; i < len; i += 1) {%>';
+            for (var i = 0; i < len; i += 1) {
+                ;
+                $p += '<span class="_zs_gallery_mx-carousel_index_-dot ';
+                $line = 11;
+                $art = '=dotClass';
+                ;
+                $p += ($expr = '<%=dotClass%>', $e(dotClass)) + '" mx-click="' + $viewId + '@{active}({idx:';
+                $line = 11;
+                $art = '=i';
+                ;
+                $p += ($expr = '<%=i%>', $e(i)) + '})"></span>';
+                $line = 12;
+                $art = '/for';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '</div>';
+            $line = 14;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += ' clearfix" mx-mouseover="' + $viewId + '@{stop}()" mx-mouseout="' + $viewId + '@{start}()">';
-        $line = 11;
-        $art = 'for (let i=0;i<len;i+=1)';
-        ;
-        $expr = '<%for (var i = 0; i < len; i += 1) {%>';
-        for (var i = 0; i < len; i += 1) {
-            ;
-            $p += '<li mxa="_zs_galleryaf:a" class="_zs_gallery_mx-carousel_index_-dot-cnt"><i class="_zs_gallery_mx-carousel_index_-dot ';
-            $line = 12;
-            $art = '=dotClass';
-            ;
-            $p += ($expr = '<%=dotClass%>', $e(dotClass)) + '" mx-click="' + $viewId + '@{active}({idx:';
-            $line = 12;
-            $art = '=i';
-            ;
-            $p += ($expr = '<%=i%>', $e(i)) + '})"></i></li>';
-            $line = 13;
-            $art = '/for';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '</ul>';
-        $line = 15;
+        $p += '<i mxs="_zs_galleryaf:j" class="_zs_gallery_mx-carousel_index_-triggers _zs_gallery_mx-carousel_index_-triggers-left mc-iconfont" mx-click="' + $viewId + '@{trigger}({offset: -1})">&#xe61e;</i><i mxs="_zs_galleryaf:k" class="_zs_gallery_mx-carousel_index_-triggers _zs_gallery_mx-carousel_index_-triggers-right mc-iconfont" mx-click="' + $viewId + '@{trigger}({offset: 1})">&#xe61e;</i>';
+        $line = 18;
         $art = '/if';
         ;
         $expr = '<%}%>';
@@ -118,12 +132,20 @@ catch (ex) {
         });
         if (extra.prevTrigger) {
             $('#' + extra.prevTrigger).on('click', function () {
-                that['@{trigger}'](-1);
+                that['@{trigger}<click>']({
+                    params: {
+                        offset: -1
+                    }
+                });
             });
         }
         if (extra.nextTrigger) {
             $('#' + extra.nextTrigger).on('click', function () {
-                that['@{trigger}'](1);
+                that['@{trigger}<click>']({
+                    params: {
+                        offset: 1
+                    }
+                });
             });
         }
         that.on('destroy', function () {
@@ -135,93 +157,141 @@ catch (ex) {
     },
     render: function () {
         var that = this;
-        var data = that.updater.get();
+        var _a = that.updater.get(), autoplay = _a.autoplay, active = _a.active;
         var node = that['@{owner.node}'];
         var children = node.children();
+        var len = children.length;
+        // 跑马灯平滑轮播
+        // 复制第一个节点和最后一个节点
+        // panel1, panel2, panel3 转成 panel3, panel1, panel2, panel3, panel1
+        var firstClone = $(children[0]).clone().attr('data-carousel-clone', true), lastClone = $(children[len - 1]).clone().attr('data-carousel-clone', true);
+        node.prepend(lastClone).append(firstClone);
+        // 修正active
+        var len = children.length;
+        if (active < 0) {
+            active = 0;
+        }
+        else if (active > len - 1) {
+            active = len - 1;
+        }
         that.updater.digest({
-            len: children.length,
+            active: active,
+            len: len,
             content: node.html()
         });
         that['@{dots.node}'] = node.find('._zs_gallery_mx-carousel_index_-dot');
         var panelsCnt = node.find('._zs_gallery_mx-carousel_index_-inner');
         that['@{panels.cnt}'] = panelsCnt;
         that['@{panels.node}'] = panelsCnt.find('[data-carousel="true"]');
+        // 初始化单帧样式
         that['@{update.stage.size}']();
-        that['@{to.panel}'](data.active, 1);
-        if (data.autoplay) {
+        // 初始化位置
+        that['@{to.panel}'](active, true);
+        // 自动播放
+        if (autoplay) {
             that['@{start.auto.play}']();
         }
     },
     '@{update.stage.size}': function () {
         var that = this;
         var node = that['@{owner.node}'];
-        var data = that.updater.get();
-        var w = data.width, h = data.height, mode = data.mode;
+        var _a = that.updater.get(), width = _a.width, height = _a.height, mode = _a.mode, vertical = _a.vertical;
         var panelNodes = that['@{panels.node}'];
-        switch (mode) {
-            case 'carousel':
-                for (var index = 0; index < panelNodes.length; index++) {
-                    var panelNode = $(panelNodes[index]);
-                    if (data.vertical) {
-                        panelNode.css({
+        for (var index = 0; index < panelNodes.length; index++) {
+            var panelNode = $(panelNodes[index]);
+            var style = void 0;
+            switch (mode) {
+                case 'carousel':
+                    // 跑马灯
+                    if (vertical) {
+                        // 垂直方向
+                        style = {
                             position: 'absolute',
-                            top: h * index,
+                            top: height * index,
                             left: 0,
-                            width: w,
-                            height: h
-                        });
+                            width: width,
+                            height: height
+                        };
                     }
                     else {
-                        panelNode.css({
+                        // 水平方向
+                        style = {
                             position: 'absolute',
                             top: 0,
-                            left: w * index,
-                            width: w,
-                            height: h
-                        });
+                            left: width * index,
+                            width: width,
+                            height: height
+                        };
                     }
-                }
-                break;
-            case 'fade':
-                for (var index = 0; index < panelNodes.length; index++) {
-                    var panelNode = $(panelNodes[index]);
-                    panelNode.css({
+                    break;
+                case 'fade':
+                    // 渐显渐隐
+                    style = {
                         position: 'absolute',
                         opacity: 0,
                         top: 0,
                         left: 0,
-                        width: w,
-                        height: h
-                    });
-                }
-                break;
+                        width: width,
+                        height: height
+                    };
+                    break;
+            }
+            panelNode.css(style);
         }
-        if (data.vertical) {
-            that['@{panels.cnt}'].height(panelNodes.length * h).width(w);
+        if (vertical) {
+            that['@{panels.cnt}'].height(panelNodes.length * height).width(width);
         }
         else {
-            that['@{panels.cnt}'].width(panelNodes.length * w).height(h);
+            that['@{panels.cnt}'].width(panelNodes.length * width).height(height);
         }
     },
-    '@{to.panel}': function (active, immediate) {
+    /**
+     * 假设有3个panel，
+     * 真是节点有
+     *      panel3（targetIndex=0, active = 2）
+     *      panel1（targetIndex=1, active = 0）
+     *      panel2（targetIndex=2, active = 1）
+     *      panel3（targetIndex=3, active = 2）
+     *      panel1（targetIndex=4, active = 0）
+     * 入参index可存在的值:
+     *      -1：对应panel3
+     *      0：对应panel1
+     *      1：对应panel2
+     *      2：对应panel3
+     *      3：对应panel1
+     */
+    '@{to.panel}': function (index, immediate) {
+        index = +index;
         var that = this;
         var updater = that.updater;
-        var data = updater.get();
-        var mode = data.mode, duration = data.duration, timing = data.timing;
+        var _a = updater.get(), mode = _a.mode, duration = _a.duration, timing = _a.timing, width = _a.width, height = _a.height, vertical = _a.vertical, len = _a.len;
+        var targetIndex = index + 1;
         switch (mode) {
             case 'carousel':
-                updater.set({
-                    active: active
-                });
-                var width = data.width, height = data.height, vertical = data.vertical;
                 var style = {
-                    transform: "translate3d(" + (vertical ? "0,-" + active * height + "px" : "-" + active * width + "px,0") + ",0)",
+                    transform: "translate3d(" + (vertical ? "0,-" + targetIndex * height + "px" : "-" + targetIndex * width + "px,0") + ",0)",
                     transition: "transform " + duration + " " + timing
                 };
                 if (immediate) {
                     delete style.transition;
                 }
-                that['@{panels.cnt}'].css(style);
+                var cnt_1 = that['@{panels.cnt}'];
+                cnt_1.css(style);
+                cnt_1.off('transitionend').on('transitionend', function () {
+                    cnt_1.css('transition', '');
+                    if (targetIndex == len + 1) {
+                        // 回到panel1
+                        cnt_1.css({
+                            transform: "translate3d(" + (vertical ? "0,-" + height + "px" : "-" + width + "px,0") + ",0)"
+                        });
+                    }
+                    else if (targetIndex == 0) {
+                        // 回到panel3
+                        cnt_1.css({
+                            transform: "translate3d(" + (vertical ? "0,-" + len * height + "px" : "-" + len * width + "px,0") + ",0)"
+                        });
+                    }
+                });
                 break;
             case 'fade':
                 var panelNodes = that['@{panels.node}'];
@@ -232,27 +302,34 @@ catch (ex) {
                     opacity: 1,
                     transition: "opacity " + duration + " " + timing
                 };
-                panelNodes.eq(active).css(style);
-                updater.set({
-                    active: active
-                });
+                panelNodes.eq(targetIndex).css(style);
                 break;
         }
+        // 高亮对应的节点
+        var active;
+        if (index < 0) {
+            active = len - 1;
+        }
+        else if (index > len - 1) {
+            active = 0;
+        }
+        else {
+            active = index;
+        }
+        updater.set({
+            active: active
+        });
         var cName = '_zs_gallery_mx-carousel_index_-active';
         that['@{dots.node}'].removeClass(cName).eq(active).addClass(cName);
     },
     '@{start.auto.play}': function () {
         var that = this;
-        var data = that.updater.get();
-        if (data.autoplay) {
-            var active_1 = data.active;
+        var _a = that.updater.get(), autoplay = _a.autoplay, interval = _a.interval;
+        if (autoplay) {
             that['@{play.task}'] = setInterval(function () {
-                var n = ++active_1;
-                if (n >= that['@{panels.node}'].length) {
-                    active_1 = n = 0;
-                }
-                that['@{to.panel}'](n);
-            }, data.interval);
+                var active = that.updater.get().active;
+                that['@{to.panel}'](++active);
+            }, interval);
         }
     },
     '@{stop.auto.play}': function () {
@@ -261,15 +338,11 @@ catch (ex) {
             clearInterval(that['@{play.task}']);
         }
     },
-    '@{trigger}': function (offset) {
-        var _a = this.updater.get(), active = _a.active, len = _a.len;
+    '@{trigger}<click>': function (e) {
+        e.preventDefault();
+        var offset = +e.params.offset;
+        var active = this.updater.get().active;
         active = +active + offset;
-        if (active >= len) {
-            active = 0;
-        }
-        if (active < 0) {
-            active = (len - 1);
-        }
         this['@{to.panel}'](active);
     },
     '@{active}<click>': function (e) {
@@ -299,7 +372,7 @@ catch (ex) {
             width: extra.width || $(node).width() || 400
         });
         that['@{update.stage.size}']();
-        that['@{to.panel}'](data.active, 1);
+        that['@{to.panel}'](data.active, true);
     }
 });
 

@@ -27,8 +27,8 @@ module.exports = Magix.View.extend({
     $line = 14;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_czpmr$art_c = list.length; index < $art_czpmr$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_czpmr$art_c = list.length; index < $art_czpmr$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_chckpqqb$art_c = list.length; index < $art_chckpqqb$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_chckpqqb$art_c = list.length; index < $art_chckpqqb$art_c; index++) {
         var item = list[index];
         $p += ' ';
         $line = 15;
@@ -67,8 +67,8 @@ module.exports = Magix.View.extend({
     $line = 25;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_ciykcedp$art_c = list.length; index < $art_ciykcedp$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_ciykcedp$art_c = list.length; index < $art_ciykcedp$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cvxzhpr$art_c = list.length; index < $art_cvxzhpr$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cvxzhpr$art_c = list.length; index < $art_cvxzhpr$art_c; index++) {
         var item = list[index];
         $p += '<div mxa="_zs_galleryfC:e" class="mb20">';
         $line = 26;

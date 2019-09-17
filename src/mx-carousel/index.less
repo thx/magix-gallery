@@ -1,3 +1,86 @@
+@triggers-size: 30px;
+.triggers {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    z-index: 4;
+    background: rgba(0, 0, 0, .5);
+    width: @triggers-size;
+    height: @triggers-size * 2;
+    margin-top: 0 - @triggers-size;
+    text-align: center;
+    line-height: @triggers-size * 2;
+    font-size: 22px;
+    color: #999;
+    transition: all var(--duration);
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    &:hover {
+        color: #fff;
+    }
+}
+
+.triggers-left {
+    left: -2px;
+}
+
+.triggers-right {
+    right: -2px;
+    transform: rotate(180deg);
+}
+
+.dots,
+.v-dots {
+    position: absolute;
+    z-index: 4;
+    text-align: center;
+    vertical-align: middle;
+    .dot {
+        display: inline-block;
+        background-color: #fff;
+        opacity: 0.5;
+        border-radius: 1px;
+        transition: all .5s;
+        cursor: pointer;
+        vertical-align: middle;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.dots {
+    left: 0;
+    bottom: 16px;
+    width: 100%;
+    height: 5px;
+    .dot {
+        width: 20px;
+        height: 5px;
+        margin: 0 2px;
+        &.active {
+            opacity: 1;
+            width: 28px;
+        }
+    }
+}
+
+.v-dots {
+    top: 50%;
+    right: 12px;
+    width: 5px;
+    transform: translateY(-50%);
+    .dot {
+        width: 5px;
+        height: 20px;
+        margin: 2px 0;
+        &.active {
+            opacity: 1;
+            height: 28px;
+        }
+    }
+}
+
 .carousel {
     position: relative;
     width: 100%;
@@ -6,63 +89,9 @@
         position: relative;
         z-index: 3;
     }
-}
-
-.dot-cnt {
-    display: inline-block;
-    vertical-align: top;
-    .dot {
-        cursor: pointer;
-        background-color: #fff;
-        opacity: 0.5;
-        display: block;
-        border-radius: 1px;
-        transition: all .5s;
-        &:hover {
-            opacity: 0.8;
-        }
-    }
-}
-
-.dots {
-    position: absolute;
-    left: 0;
-    bottom: 12px;
-    z-index: 4;
-    height: 5px;
-    width: 100%;
-    text-align: center;
-
-    .dot-cnt {
-        padding: 0 2px;
-        .dot {
-            width: 20px;
-            height: 5px;
-            &.active {
-                opacity: 1;
-                width: 28px;
-            }
-        }
-    }
-}
-
-.v-dots {
-    position: absolute;
-    top: 50%;
-    right: 12px;
-    z-index: 4;
-    width: 5px;
-    transform: translateY(-50%);
-
-    .dot-cnt {
-        padding: 2px 0;
-        .dot {
-            width: 5px;
-            height: 20px;
-            &.active {
-                opacity: 1;
-                height: 28px;
-            }
+    &:hover {
+        .triggers {
+            opacity: 1;
         }
     }
 }

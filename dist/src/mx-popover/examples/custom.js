@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 5;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_irxdfjwp$art_i = 0, $art_cybgupxfh$art_c = list.length; $art_irxdfjwp$art_i < $art_cybgupxfh$art_c; $art_irxdfjwp$art_i++) {    var item = list[$art_irxdfjwp$art_i]%>';
-    for (var $art_irxdfjwp$art_i = 0, $art_cybgupxfh$art_c = list.length; $art_irxdfjwp$art_i < $art_cybgupxfh$art_c; $art_irxdfjwp$art_i++) {
-        var item = list[$art_irxdfjwp$art_i];
+    $expr = '<%for (var $art_icthjorh$art_i = 0, $art_ctyzehsrs$art_c = list.length; $art_icthjorh$art_i < $art_ctyzehsrs$art_c; $art_icthjorh$art_i++) {    var item = list[$art_icthjorh$art_i]%>';
+    for (var $art_icthjorh$art_i = 0, $art_ctyzehsrs$art_c = list.length; $art_icthjorh$art_i < $art_ctyzehsrs$art_c; $art_icthjorh$art_i++) {
+        var item = list[$art_icthjorh$art_i];
         $p += '<div mxa="_zs_gallerydU:b" class="_zs_gallery_mx-popover_examples_custom_-custom-item"><div mxa="_zs_gallerydU:c" class="mb5 color-9">';
         $line = 7;
         $art = '=item.name';

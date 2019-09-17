@@ -4,7 +4,7 @@ let $ = require('$');
 Magix.applyStyle('@1.less');
 
 module.exports = Base.extend({
-    tmpl: '@2.html',
+    tmpl: '@5.html',
     render() {
         this.updater.digest({});
     }

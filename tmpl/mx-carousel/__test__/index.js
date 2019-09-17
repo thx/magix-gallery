@@ -23,7 +23,7 @@ module.exports = Magix.View.extend({
             def: 0
         }, {
             key: 'autoplay',
-            desc: '是否自动播放',
+            desc: '是否自动播放，自动播放时鼠标hover暂停播放，移出恢复播放',
             type: 'boolean',
             def: 'false'
         }, {
@@ -32,15 +32,49 @@ module.exports = Magix.View.extend({
             type: 'boolean',
             def: 'true'
         }, {
+            key: 'dot-type',
+            desc: `<pre>内置轮播点样式
+1. line-in-center：轮播内容内部线型点居中显示
+2. line-in-left：轮播内容内部线型点居左显示
+3. line-in-right：轮播内容内部线型点居右显示
+4. line-out-center：轮播内容外部线型点居中显示
+5. dot-in-center：轮播内容内部圆形点居中显示
+6. dot-in-left：轮播内容内部圆形点居左显示
+7. dot-in-right：轮播内容内部圆形点居右显示
+8. dot-ount-center：轮播内容外部圆形点居中显示
+</pre>`,
+            type: 'string',
+            def: 'line-in-center'
+        }, {
+            key: 'dot-class',
+            desc: '自定义轮播点样式',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'triggers',
+            desc: '是否显示左右切换箭头，默认不显示，配置显示时hover出现切换箭头',
+            type: 'boolean',
+            def: 'false'
+        }, {
+            key: 'trigger-class',
+            desc: '自定义切换箭头样式',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'prev-trigger',
+            desc: '自定义上一帧trigger的id',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'next-trigger',
+            desc: '自定义下一帧trigger的id',
+            type: 'string',
+            def: ''
+        }, {
             key: 'interval',
             desc: '播放暂停间隔，单位毫秒',
             type: 'number',
             def: '3000'
-        }, {
-            key: 'vertical',
-            desc: '是否垂直方向播放',
-            type: 'boolean',
-            def: 'false'
         }, {
             key: 'timing',
             desc: [
@@ -60,20 +94,10 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: '0.5s'
         }, {
-            key: 'prev-trigger',
-            desc: '自定义上一帧trigger的id',
-            type: 'string',
-            def: ''
-        }, {
-            key: 'next-trigger',
-            desc: '自定义下一帧trigger的id',
-            type: 'string',
-            def: ''
-        }, {
-            key: 'dot-class',
-            desc: '自定义轮播点样式',
-            type: 'string',
-            def: ''
+            key: 'vertical',
+            desc: '是否垂直方向播放',
+            type: 'boolean',
+            def: 'false'
         }]
         this.updater.digest({
             viewId: this.id,
