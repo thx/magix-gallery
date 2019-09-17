@@ -6,6 +6,21 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.34',
+            time: '2019-09-17',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.star：支持自定义基数count，支持动态操作，<a href="#!/effects/star" class="color-brand">点击查看</a>'
+                }, {
+                    title: '统一打标样式，<a href="#!/effects/icon" class="color-brand">mx-effects.icon</a>，<a href="#!/btn/index" class="color-brand">mx-btn</a>，<a href="#!/tabs/index" class="color-brand">mx-tabs</a>，<a href="#!/tabs/box" class="color-brand">mx-tabs.box</a>'
+                }, {
+                    title: 'mx-carousel：多帧跑马灯平滑滚动，支持左右切换trigger，支持多种轮播点样式，<a href="#!/carousel/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-header：支持自定义key，<a href="#!/header/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.33',
             time: '2019-09-05',
             subs: [{

@@ -64,6 +64,7 @@ module.exports = Magix.View.extend({
         that.updater.digest({
             num
         })
+
         that['@{owner.node}'].val(num).trigger({
             type: 'change',
             num
