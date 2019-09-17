@@ -4,16 +4,14 @@
             <mx-header 
                 width="900" 
                 dark="false"
-                navs="{{@[{
-                    value: 1,
-                    text: '营销中台'
-                }, {
-                    value: 2,
-                    text: '创意中台'
-                }]}}" 
+                cur="{{=cur.value}}"
+                navs="{{@navs}}" 
                 login="false"
-                wrapper="{{=viewId}}_test"/>
-            <div class="inner"></div>
+                wrapper="{{=viewId}}_test"
+                mx-navchange="change()"/>
+            <div class="inner">
+                {{=cur.text}}（{{=cur.value}}）
+            </div>
         </div>
     </div>
     <div class="eg-desc">

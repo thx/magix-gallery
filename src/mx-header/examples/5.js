@@ -1,17 +1,21 @@
 let Magix = require('magix');
-let Base = require('__test__/example');
+let Base = require('examples/example');
 let $ = require('$');
 Magix.applyStyle('@index.less');
 
 module.exports = Base.extend({
-    tmpl: '@4.html',
+    tmpl: '@5.html',
     render() {
         let navs = [{
-            value: 1,
-            text: '营销中台'
+            id: 1,
+            name: '营销中台'
         }, {
-            value: 2,
-            text: '创意中台'
+            id: 2,
+            name: '创意中台'
+        }, {
+            id: 3,
+            name: '外链打开',
+            target: 'https://www.taobao.com/'
         }]
         this.updater.digest({
             viewId: this.id,

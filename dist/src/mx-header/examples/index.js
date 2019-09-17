@@ -3,12 +3,13 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-header/examples/index",["magix","$","examples/subs","mx-title/second","./3","./4","./2","examples/api","examples/event"],(require,exports,module)=>{
+define("mx-header/examples/index",["magix","$","examples/subs","mx-title/second","./3","./4","./5","./2","examples/api","examples/event"],(require,exports,module)=>{
 /*Magix,$*/
 require("examples/subs");
 require("mx-title/second");
 require("./3");
 require("./4");
+require("./5");
 require("./2");
 require("examples/api");
 require("examples/event");
@@ -33,38 +34,42 @@ module.exports = Magix.View.extend({
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
     $p += '<div mxv mxa="_zs_gallerycU:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 3;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'全屏使用\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'容器内使用\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'深底色版本\',\n            key: viewId + \'_demo2\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'全屏使用\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'容器内使用\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'自定义key\',\n            key: viewId + \'_demo5\'\n        },{\n            name: \'深底色版本\',\n            key: viewId + \'_demo2\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'全屏使用\',                    key: viewId + \'_demo3\'                }, {                    name: \'容器内使用\',                    key: viewId + \'_demo4\'                }, {                    name: \'深底色版本\',                    key: viewId + \'_demo2\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '全屏使用', key: viewId + '_demo3' }, { name: '容器内使用', key: viewId + '_demo4' }, { name: '深底色版本', key: viewId + '_demo2' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
-    $line = 24;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerycU:a" class="clearfix mb20"><div mx-view="mx-header/examples/3" id="';
-    $line = 26;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-header/examples/4" id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'全屏使用\',                    key: viewId + \'_demo3\'                }, {                    name: \'容器内使用\',                    key: viewId + \'_demo4\'                }, {                    name: \'自定义key\',                    key: viewId + \'_demo5\'                }, {                    name: \'深底色版本\',                    key: viewId + \'_demo2\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '全屏使用', key: viewId + '_demo3' }, { name: '容器内使用', key: viewId + '_demo4' }, { name: '自定义key', key: viewId + '_demo5' }, { name: '深底色版本', key: viewId + '_demo2' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
     $line = 27;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-header/examples/2" id="';
-    $line = 33;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerycU:a" class="clearfix mb20"><div mx-view="mx-header/examples/3" id="';
+    $line = 29;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-header/examples/4" id="';
+    $line = 30;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-header/examples/5" id="';
+    $line = 31;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div><div mx-view="mx-header/examples/2" id="';
+    $line = 37;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div id="';
-    $line = 35;
+    $line = 39;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="examples/api?options=';
-    $line = 36;
+    $line = 40;
     $art = '@options';
     ;
     $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
-    $line = 38;
+    $line = 42;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_event" mx-view="mx-title/second?content=Event"></div><div mxv="events" mx-view="examples/event?options=';
-    $line = 39;
+    $line = 43;
     $art = '@events';
     ;
     $p += ($expr = '<%@events%>', $i($$ref, events)) + '"></div></div>';
@@ -85,9 +90,24 @@ catch (ex) {
                 def: 1200
             }, {
                 key: 'navs',
-                desc: "\u5BFC\u822A\u6570\u7EC4<pre>[{\n    text:\"\u4E00\u7EA7\u83DC\u5355\u5C55\u793A\u6587\u6848\",\n    value:\"\u4E00\u7EA7\u83DC\u5355value\u503C\",\n    link: \"\u914D\u7F6E\u4E86\u8BE5\u5B57\u6BB5\u65F6\u5916\u94FE\u6253\u5F00\",\n    subs: [{\n        text:\"\u4E8C\u7EA7\u83DC\u5355\u5C55\u793A\u6587\u6848\",\n        value:\"\u4E8C\u7EA7\u83DC\u5355value\u503C\",\n        link: \"\u914D\u7F6E\u4E86\u8BE5\u5B57\u6BB5\u65F6\u5916\u94FE\u6253\u5F00\"\n    }]\n}]</pre>",
+                desc: "\u5BFC\u822A\u6570\u7EC4<pre>[{\n    text:\"\u4E00\u7EA7\u83DC\u5355\u5C55\u793A\u6587\u6848\",\n    value:\"\u4E00\u7EA7\u83DC\u5355value\u503C\",\n    link: \"\u914D\u7F6E\u4E86\u8BE5\u5B57\u6BB5\u65F6\u76F4\u63A5\u5916\u94FE\u6253\u5F00link\",\n    subs: [{\n        text:\"\u4E8C\u7EA7\u83DC\u5355\u5C55\u793A\u6587\u6848\",\n        value:\"\u4E8C\u7EA7\u83DC\u5355value\u503C\",\n        link: \"\u914D\u7F6E\u4E86\u8BE5\u5B57\u6BB5\u65F6\u76F4\u63A5\u5916\u94FE\u6253\u5F00link\"\n    }]\n}]</pre>",
                 type: 'array',
                 def: ''
+            }, {
+                key: 'value-key',
+                desc: 'navs里value取值字段',
+                type: 'string',
+                def: 'value'
+            }, {
+                key: 'text-key',
+                desc: 'navs里text取值字段',
+                type: 'string',
+                def: 'text'
+            }, {
+                key: 'link-key',
+                desc: 'navs里link取值字段',
+                type: 'string',
+                def: 'link'
             }, {
                 key: 'cur',
                 desc: '当前哪个导航，对应navs的value，默认不选中任何一个导航',

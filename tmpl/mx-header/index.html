@@ -44,22 +44,16 @@
             </div>
             {{if (navs.length > 0)}}
                 {{each navs as nav}}
-                <div class="front-item nav {{if (parent == nav.value)}} cur {{/if}}">
-                    {{if nav.link}}
-                    <a data-nav="{{=nav.value}}" class="nav-inner" href="{{=nav.link}}" target="_blank">{{=nav.text}}</a>
-                    {{else}}
-                    <a data-nav="{{=nav.value}}" class="nav-inner" href="javascript:;" {{if !nav.subs || !nav.subs.length}} mx-click="to({nav:'{{@nav}}'})" {{/if}}>{{=nav.text}}</a>
-                    {{/if}}
-
+                <div class="front-item nav {{if (parent == nav[valueKey])}} cur {{/if}}">
+                    <a data-nav="{{=nav[valueKey]}}" class="nav-inner" 
+                        {{if nav[linkKey]}} href="{{=nav[linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} href="javascript:;" {{if !nav.subs || !nav.subs.length}} mx-click="to({nav:'{{@nav}}'})" {{/if}} {{/if}} >{{=nav[textKey]}}</a>
+                    
                     {{if nav.subs && nav.subs.length}}
                     <i class="nav-arrow mc-iconfont">&#xe692;</i>
                     <div class="popover bottom-center mx-shadow nav-subs">
                         {{each nav.subs as sub}}
-                            {{if sub.link}}
-                            <a data-nav="{{=sub.value}}" class="nav-sub" href="{{=sub.link}}" target="_blank">{{=sub.text}}</a>
-                            {{else}}
-                            <a data-nav="{{=sub.value}}" class="nav-sub {{if (child == sub.value)}} nav-sub-cur {{/if}}" href="javascript:;" mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})">{{=sub.text}}</a>
-                            {{/if}}
+                            <a data-nav="{{=sub[valueKey]}}" class="nav-sub {{if (child == sub[valueKey])}} nav-sub-cur {{/if}}" 
+                                {{if sub[linkKey]}} href="{{=sub[linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})" href="javascript:;" {{/if}}>{{=sub[textKey]}}</a>
                         {{/each}}
                     </div>
                     {{/if}}

@@ -14,15 +14,30 @@ module.exports = Magix.View.extend({
             desc: `导航数组<pre>[{
     text:"一级菜单展示文案",
     value:"一级菜单value值",
-    link: "配置了该字段时外链打开",
+    link: "配置了该字段时直接外链打开link",
     subs: [{
         text:"二级菜单展示文案",
         value:"二级菜单value值",
-        link: "配置了该字段时外链打开"
+        link: "配置了该字段时直接外链打开link"
     }]
 }]</pre>`,
             type: 'array',
             def: ''
+        }, {
+            key: 'value-key',
+            desc: 'navs里value取值字段',
+            type: 'string',
+            def: 'value'
+        }, {
+            key: 'text-key',
+            desc: 'navs里text取值字段',
+            type: 'string',
+            def: 'text'
+        }, {
+            key: 'link-key',
+            desc: 'navs里link取值字段',
+            type: 'string',
+            def: 'link'
         }, {
             key: 'cur',
             desc: '当前哪个导航，对应navs的value，默认不选中任何一个导航',

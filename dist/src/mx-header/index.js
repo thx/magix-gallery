@@ -28,7 +28,7 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', dark = $$.dark, height = $$.height, links = $$.links, width = $$.width, login = $$.login, user = $$.user, logoutUrl = $$.logoutUrl, list = $$.list, fixed = $$.fixed, styles = $$.styles, logo = $$.logo, navs = $$.navs, parent = $$.parent, child = $$.child, rightView = $$.rightView; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', dark = $$.dark, height = $$.height, links = $$.links, width = $$.width, login = $$.login, user = $$.user, logoutUrl = $$.logoutUrl, list = $$.list, fixed = $$.fixed, styles = $$.styles, logo = $$.logo, navs = $$.navs, parent = $$.parent, valueKey = $$.valueKey, linkKey = $$.linkKey, textKey = $$.textKey, child = $$.child, rightView = $$.rightView; var $expr, $art, $line; try {
     $p += '<div class="_zs_gallery_mx-header_index_-header ';
     $line = 1;
     $art = 'if dark';
@@ -114,8 +114,8 @@ module.exports = Magix.View.extend({
         $line = 19;
         $art = 'each list as item index';
         ;
-        $expr = '<%for (var index = 0, $art_ckwhtsnd$art_c = list.length; index < $art_ckwhtsnd$art_c; index++) {        var item = list[index]%>';
-        for (var index = 0, $art_ckwhtsnd$art_c = list.length; index < $art_ckwhtsnd$art_c; index++) {
+        $expr = '<%for (var index = 0, $art_cteewdpo$art_c = list.length; index < $art_cteewdpo$art_c; index++) {        var item = list[index]%>';
+        for (var index = 0, $art_cteewdpo$art_c = list.length; index < $art_cteewdpo$art_c; index++) {
             var item = list[index];
             $p += '<div mxa="_zs_gallerycY:c" class="_zs_gallery_mx-header_index_-item"><span mxa="_zs_gallerycY:d" class="_zs_gallery_mx-header_index_-title-link">';
             $line = 21;
@@ -125,9 +125,9 @@ module.exports = Magix.View.extend({
             $line = 24;
             $art = 'each item.seconds as second';
             ;
-            $expr = '<%for (var $art_ihzbfukqz$art_i = 0, $art_objvscwisc$art_obj = item.seconds, $art_csjfpz$art_c = $art_objvscwisc$art_obj.length; $art_ihzbfukqz$art_i < $art_csjfpz$art_c; $art_ihzbfukqz$art_i++) {            var second = $art_objvscwisc$art_obj[$art_ihzbfukqz$art_i]%>';
-            for (var $art_ihzbfukqz$art_i = 0, $art_objvscwisc$art_obj = item.seconds, $art_csjfpz$art_c = $art_objvscwisc$art_obj.length; $art_ihzbfukqz$art_i < $art_csjfpz$art_c; $art_ihzbfukqz$art_i++) {
-                var second = $art_objvscwisc$art_obj[$art_ihzbfukqz$art_i];
+            $expr = '<%for (var $art_ishyglxyer$art_i = 0, $art_objzwmenmjv$art_obj = item.seconds, $art_cipcfhdv$art_c = $art_objzwmenmjv$art_obj.length; $art_ishyglxyer$art_i < $art_cipcfhdv$art_c; $art_ishyglxyer$art_i++) {            var second = $art_objzwmenmjv$art_obj[$art_ishyglxyer$art_i]%>';
+            for (var $art_ishyglxyer$art_i = 0, $art_objzwmenmjv$art_obj = item.seconds, $art_cipcfhdv$art_c = $art_objzwmenmjv$art_obj.length; $art_ishyglxyer$art_i < $art_cipcfhdv$art_c; $art_ishyglxyer$art_i++) {
+                var second = $art_objzwmenmjv$art_obj[$art_ishyglxyer$art_i];
                 $p += '<dl>';
                 $line = 26;
                 $art = 'if second.title';
@@ -150,9 +150,9 @@ module.exports = Magix.View.extend({
                 $line = 29;
                 $art = 'each second.thirds as third';
                 ;
-                $expr = '<%for (var $art_igrvsgbron$art_i = 0, $art_objqvwvwri$art_obj = second.thirds, $art_ckpwrckyp$art_c = $art_objqvwvwri$art_obj.length; $art_igrvsgbron$art_i < $art_ckpwrckyp$art_c; $art_igrvsgbron$art_i++) {                var third = $art_objqvwvwri$art_obj[$art_igrvsgbron$art_i]%>';
-                for (var $art_igrvsgbron$art_i = 0, $art_objqvwvwri$art_obj = second.thirds, $art_ckpwrckyp$art_c = $art_objqvwvwri$art_obj.length; $art_igrvsgbron$art_i < $art_ckpwrckyp$art_c; $art_igrvsgbron$art_i++) {
-                    var third = $art_objqvwvwri$art_obj[$art_igrvsgbron$art_i];
+                $expr = '<%for (var $art_ijadzbjtfmr$art_i = 0, $art_objxjetabbpv$art_obj = second.thirds, $art_clehllzj$art_c = $art_objxjetabbpv$art_obj.length; $art_ijadzbjtfmr$art_i < $art_clehllzj$art_c; $art_ijadzbjtfmr$art_i++) {                var third = $art_objxjetabbpv$art_obj[$art_ijadzbjtfmr$art_i]%>';
+                for (var $art_ijadzbjtfmr$art_i = 0, $art_objxjetabbpv$art_obj = second.thirds, $art_clehllzj$art_c = $art_objxjetabbpv$art_obj.length; $art_ijadzbjtfmr$art_i < $art_clehllzj$art_c; $art_ijadzbjtfmr$art_i++) {
+                    var third = $art_objxjetabbpv$art_obj[$art_ijadzbjtfmr$art_i];
                     $p += '<dd><a href="';
                     $line = 30;
                     $art = '=third.link';
@@ -226,15 +226,15 @@ module.exports = Magix.View.extend({
         $line = 46;
         $art = 'each navs as nav';
         ;
-        $expr = '<%for (var $art_ijxjyv$art_i = 0, $art_cczztueycn$art_c = navs.length; $art_ijxjyv$art_i < $art_cczztueycn$art_c; $art_ijxjyv$art_i++) {        var nav = navs[$art_ijxjyv$art_i]%>';
-        for (var $art_ijxjyv$art_i = 0, $art_cczztueycn$art_c = navs.length; $art_ijxjyv$art_i < $art_cczztueycn$art_c; $art_ijxjyv$art_i++) {
-            var nav = navs[$art_ijxjyv$art_i];
+        $expr = '<%for (var $art_iqtggamkwrb$art_i = 0, $art_cnneashtha$art_c = navs.length; $art_iqtggamkwrb$art_i < $art_cnneashtha$art_c; $art_iqtggamkwrb$art_i++) {        var nav = navs[$art_iqtggamkwrb$art_i]%>';
+        for (var $art_iqtggamkwrb$art_i = 0, $art_cnneashtha$art_c = navs.length; $art_iqtggamkwrb$art_i < $art_cnneashtha$art_c; $art_iqtggamkwrb$art_i++) {
+            var nav = navs[$art_iqtggamkwrb$art_i];
             $p += '<div class="_zs_gallery_mx-header_index_-front-item _zs_gallery_mx-header_index_-nav ';
             $line = 47;
-            $art = 'if (parent == nav.value)';
+            $art = 'if (parent == nav[valueKey])';
             ;
-            $expr = '<%if (parent == nav.value) {%>';
-            if (parent == nav.value) {
+            $expr = '<%if (parent == nav[valueKey]) {%>';
+            if (parent == nav[valueKey]) {
                 ;
                 $p += ' _zs_gallery_mx-header_index_-cur ';
                 $line = 47;
@@ -243,185 +243,169 @@ module.exports = Magix.View.extend({
                 $expr = '<%}%>';
             }
             ;
-            $p += '">';
+            $p += '"><a data-nav="';
             $line = 48;
-            $art = 'if nav.link';
+            $art = '=nav[valueKey]';
             ;
-            $expr = '<%if (nav.link) {%>';
-            if (nav.link) {
+            $p += ($expr = '<%=nav[valueKey]%>', $e(nav[valueKey])) + '" class="_zs_gallery_mx-header_index_-nav-inner" ';
+            $line = 49;
+            $art = 'if nav[linkKey]';
+            ;
+            $expr = '<%if (nav[linkKey]) {%>';
+            if (nav[linkKey]) {
                 ;
-                $p += '<a data-nav="';
+                $p += ' href="';
                 $line = 49;
-                $art = '=nav.value';
+                $art = '=nav[linkKey]';
                 ;
-                $p += ($expr = '<%=nav.value%>', $e(nav.value)) + '" class="_zs_gallery_mx-header_index_-nav-inner" href="';
+                $p += ($expr = '<%=nav[linkKey]%>', $e(nav[linkKey])) + '" target="_blank" rel="noopener noreferrer" ';
                 $line = 49;
-                $art = '=nav.link';
-                ;
-                $p += ($expr = '<%=nav.link%>', $e(nav.link)) + '" target="_blank">';
-                $line = 49;
-                $art = '=nav.text';
-                ;
-                $p += ($expr = '<%=nav.text%>', $e(nav.text)) + '</a>';
-                $line = 50;
                 $art = 'else';
                 ;
                 $expr = '<%}        else {%>';
             }
             else {
                 ;
-                $p += '<a data-nav="';
-                $line = 51;
-                $art = '=nav.value';
-                ;
-                $p += ($expr = '<%=nav.value%>', $e(nav.value)) + '" class="_zs_gallery_mx-header_index_-nav-inner" href="javascript:;" ';
-                $line = 51;
+                $p += ' href="javascript:;" ';
+                $line = 49;
                 $art = 'if !nav.subs || !nav.subs.length';
                 ;
                 $expr = '<%if (!nav.subs || !nav.subs.length) {%>';
                 if (!nav.subs || !nav.subs.length) {
                     ;
                     $p += ' mx-click="' + $viewId + 'to({nav:\'';
-                    $line = 51;
+                    $line = 49;
                     $art = '@nav';
                     ;
                     $p += ($expr = '<%@nav%>', $i($$ref, nav)) + '\'})" ';
-                    $line = 51;
+                    $line = 49;
                     $art = '/if';
                     ;
                     $expr = '<%}%>';
                 }
                 ;
-                $p += '>';
-                $line = 51;
-                $art = '=nav.text';
-                ;
-                $p += ($expr = '<%=nav.text%>', $e(nav.text)) + '</a>';
-                $line = 52;
+                $p += ' ';
+                $line = 49;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
-            $p += ' ';
-            $line = 54;
+            $p += '>';
+            $line = 49;
+            $art = '=nav[textKey]';
+            ;
+            $p += ($expr = '<%=nav[textKey]%>', $e(nav[textKey])) + '</a>';
+            $line = 51;
             $art = 'if nav.subs && nav.subs.length';
             ;
             $expr = '<%if (nav.subs && nav.subs.length) {%>';
             if (nav.subs && nav.subs.length) {
                 ;
-                $p += '<i mxs="_zs_gallerycY:d" class="_zs_gallery_mx-header_index_-nav-arrow mc-iconfont">&#xe692;</i><div mxa="_zs_gallerycY:g" class="_zs_gallery_mx-popover_index_-popover _zs_gallery_mx-popover_index_-bottom-center mx-shadow _zs_gallery_mx-header_index_-nav-subs">';
-                $line = 57;
+                $p += '<i mxs="_zs_gallerycY:d" class="_zs_gallery_mx-header_index_-nav-arrow mc-iconfont">&#xe692;</i><div mxa="_zs_gallerycY:i" class="_zs_gallery_mx-popover_index_-popover _zs_gallery_mx-popover_index_-bottom-center mx-shadow _zs_gallery_mx-header_index_-nav-subs">';
+                $line = 54;
                 $art = 'each nav.subs as sub';
                 ;
-                $expr = '<%for (var $art_iwfqldh$art_i = 0, $art_objqpifwbho$art_obj = nav.subs, $art_cbkweirm$art_c = $art_objqpifwbho$art_obj.length; $art_iwfqldh$art_i < $art_cbkweirm$art_c; $art_iwfqldh$art_i++) {                var sub = $art_objqpifwbho$art_obj[$art_iwfqldh$art_i]%>';
-                for (var $art_iwfqldh$art_i = 0, $art_objqpifwbho$art_obj = nav.subs, $art_cbkweirm$art_c = $art_objqpifwbho$art_obj.length; $art_iwfqldh$art_i < $art_cbkweirm$art_c; $art_iwfqldh$art_i++) {
-                    var sub = $art_objqpifwbho$art_obj[$art_iwfqldh$art_i];
-                    $p += ' ';
-                    $line = 58;
-                    $art = 'if sub.link';
+                $expr = '<%for (var $art_iwvfkmyx$art_i = 0, $art_objsczosxvo$art_obj = nav.subs, $art_cjxxccsm$art_c = $art_objsczosxvo$art_obj.length; $art_iwvfkmyx$art_i < $art_cjxxccsm$art_c; $art_iwvfkmyx$art_i++) {                var sub = $art_objsczosxvo$art_obj[$art_iwvfkmyx$art_i]%>';
+                for (var $art_iwvfkmyx$art_i = 0, $art_objsczosxvo$art_obj = nav.subs, $art_cjxxccsm$art_c = $art_objsczosxvo$art_obj.length; $art_iwvfkmyx$art_i < $art_cjxxccsm$art_c; $art_iwvfkmyx$art_i++) {
+                    var sub = $art_objsczosxvo$art_obj[$art_iwvfkmyx$art_i];
+                    $p += '<a data-nav="';
+                    $line = 55;
+                    $art = '=sub[valueKey]';
                     ;
-                    $expr = '<%if (sub.link) {%>';
-                    if (sub.link) {
+                    $p += ($expr = '<%=sub[valueKey]%>', $e(sub[valueKey])) + '" class="_zs_gallery_mx-header_index_-nav-sub ';
+                    $line = 55;
+                    $art = 'if (child == sub[valueKey])';
+                    ;
+                    $expr = '<%if (child == sub[valueKey]) {%>';
+                    if (child == sub[valueKey]) {
                         ;
-                        $p += '<a data-nav="';
-                        $line = 59;
-                        $art = '=sub.value';
+                        $p += ' _zs_gallery_mx-header_index_-nav-sub-cur ';
+                        $line = 55;
+                        $art = '/if';
                         ;
-                        $p += ($expr = '<%=sub.value%>', $e(sub.value)) + '" class="_zs_gallery_mx-header_index_-nav-sub" href="';
-                        $line = 59;
-                        $art = '=sub.link';
+                        $expr = '<%}%>';
+                    }
+                    ;
+                    $p += '" ';
+                    $line = 56;
+                    $art = 'if sub[linkKey]';
+                    ;
+                    $expr = '<%if (sub[linkKey]) {%>';
+                    if (sub[linkKey]) {
                         ;
-                        $p += ($expr = '<%=sub.link%>', $e(sub.link)) + '" target="_blank">';
-                        $line = 59;
-                        $art = '=sub.text';
+                        $p += ' href="';
+                        $line = 56;
+                        $art = '=sub[linkKey]';
                         ;
-                        $p += ($expr = '<%=sub.text%>', $e(sub.text)) + '</a>';
-                        $line = 60;
+                        $p += ($expr = '<%=sub[linkKey]%>', $e(sub[linkKey])) + '" target="_blank" rel="noopener noreferrer" ';
+                        $line = 56;
                         $art = 'else';
                         ;
                         $expr = '<%}                else {%>';
                     }
                     else {
                         ;
-                        $p += '<a data-nav="';
-                        $line = 61;
-                        $art = '=sub.value';
-                        ;
-                        $p += ($expr = '<%=sub.value%>', $e(sub.value)) + '" class="_zs_gallery_mx-header_index_-nav-sub ';
-                        $line = 61;
-                        $art = 'if (child == sub.value)';
-                        ;
-                        $expr = '<%if (child == sub.value) {%>';
-                        if (child == sub.value) {
-                            ;
-                            $p += ' _zs_gallery_mx-header_index_-nav-sub-cur ';
-                            $line = 61;
-                            $art = '/if';
-                            ;
-                            $expr = '<%}%>';
-                        }
-                        ;
-                        $p += '" href="javascript:;" mx-click="' + $viewId + 'to({nav:\'';
-                        $line = 61;
+                        $p += ' mx-click="' + $viewId + 'to({nav:\'';
+                        $line = 56;
                         $art = '@nav';
                         ;
                         $p += ($expr = '<%@nav%>', $i($$ref, nav)) + '\',sub:\'';
-                        $line = 61;
+                        $line = 56;
                         $art = '@sub';
                         ;
-                        $p += ($expr = '<%@sub%>', $i($$ref, sub)) + '\'})">';
-                        $line = 61;
-                        $art = '=sub.text';
-                        ;
-                        $p += ($expr = '<%=sub.text%>', $e(sub.text)) + '</a>';
-                        $line = 62;
+                        $p += ($expr = '<%@sub%>', $i($$ref, sub)) + '\'})" href="javascript:;" ';
+                        $line = 56;
                         $art = '/if';
                         ;
                         $expr = '<%}%>';
                     }
                     ;
-                    $p += ' ';
-                    $line = 63;
+                    $p += '>';
+                    $line = 56;
+                    $art = '=sub[textKey]';
+                    ;
+                    $p += ($expr = '<%=sub[textKey]%>', $e(sub[textKey])) + '</a>';
+                    $line = 57;
                     $art = '/each';
                     ;
                     $expr = '<%}%>';
                 }
                 ;
                 $p += '</div>';
-                $line = 65;
+                $line = 59;
                 $art = '/if';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '</div>';
-            $line = 67;
+            $line = 61;
             $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += ' ';
-        $line = 68;
+        $line = 62;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += ' ';
-    $line = 69;
+    $line = 63;
     $art = 'if rightView';
     ;
     $expr = '<%if (rightView) {%>';
     if (rightView) {
         ;
-        $p += '<div mxa="_zs_gallerycY:h" class="_zs_gallery_mx-header_index_-front-right"><div class="_zs_gallery_mx-header_index_-right-inner" mx-view="';
-        $line = 71;
+        $p += '<div mxa="_zs_gallerycY:k" class="_zs_gallery_mx-header_index_-front-right"><div class="_zs_gallery_mx-header_index_-right-inner" mx-view="';
+        $line = 65;
         $art = '=rightView';
         ;
         $p += ($expr = '<%=rightView%>', $e(rightView)) + '"></div></div>';
-        $line = 73;
+        $line = 67;
         $art = '/if';
         ;
         $expr = '<%}%>';
@@ -477,20 +461,21 @@ catch (ex) {
         }
         //默认不选中任何一个导航，表示选中的一级导航
         // 如果默认为某个二级导航，订正选中态为一级的
+        var valueKey = ops.valueKey || 'value', textKey = ops.textKey || 'text', linkKey = ops.linkKey || 'link';
         var cur = ops.cur || '';
         var parent = '', child = '';
         navs.forEach(function (nav) {
-            if (nav.value == cur) {
+            if (nav[valueKey] == cur) {
                 // 选中的是一级菜单
-                parent = nav.value;
+                parent = nav[valueKey];
                 child = '';
             }
             if (nav.subs && nav.subs.length) {
                 nav.subs.forEach(function (sub) {
-                    if (sub.value == cur) {
+                    if (sub[valueKey] == cur) {
                         // 选中的是二级菜单
-                        parent = nav.value;
-                        child = sub.value;
+                        parent = nav[valueKey];
+                        child = sub[valueKey];
                     }
                 });
             }
@@ -500,6 +485,9 @@ catch (ex) {
             width: width,
             height: height,
             navs: navs,
+            valueKey: valueKey,
+            textKey: textKey,
+            linkKey: linkKey,
             parent: parent,
             child: child,
             dark: dark,
@@ -577,10 +565,11 @@ catch (ex) {
     'to<click>': function (event) {
         var that = this;
         var nav = event.params.nav || {}, sub = event.params.sub || {};
+        var valueKey = that.updater.get().valueKey;
         // 高亮一级导航
         that.updater.digest({
-            parent: nav.value || '',
-            child: sub.value || ''
+            parent: nav[valueKey] || '',
+            child: sub[valueKey] || ''
         });
         // 当前选中的tab
         var selected = {};

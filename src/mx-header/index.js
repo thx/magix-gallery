@@ -51,20 +51,24 @@ module.exports = Magix.View.extend({
 
         //默认不选中任何一个导航，表示选中的一级导航
         // 如果默认为某个二级导航，订正选中态为一级的
+        let valueKey = ops.valueKey || 'value',
+            textKey = ops.textKey || 'text',
+            linkKey = ops.linkKey || 'link'
+
         let cur = ops.cur || '';
         let parent = '', child = '';
         navs.forEach(nav => {
-            if (nav.value == cur) {
+            if (nav[valueKey] == cur) {
                 // 选中的是一级菜单
-                parent = nav.value;
+                parent = nav[valueKey];
                 child = '';
             }
             if (nav.subs && nav.subs.length) {
                 nav.subs.forEach(sub => {
-                    if (sub.value == cur) {
+                    if (sub[valueKey] == cur) {
                         // 选中的是二级菜单
-                        parent = nav.value;
-                        child = sub.value;
+                        parent = nav[valueKey];
+                        child = sub[valueKey];
                     }
                 })
             }
@@ -74,6 +78,9 @@ module.exports = Magix.View.extend({
             width,
             height,
             navs,
+            valueKey,
+            textKey,
+            linkKey,
             parent,
             child,
             dark,
@@ -161,11 +168,12 @@ module.exports = Magix.View.extend({
         let that = this;
         let nav = event.params.nav || {},
             sub = event.params.sub || {};
+        let { valueKey } = that.updater.get();
 
         // 高亮一级导航
         that.updater.digest({
-            parent: nav.value || '',
-            child: sub.value || ''
+            parent: nav[valueKey] || '',
+            child: sub[valueKey] || ''
         })
 
         // 当前选中的tab

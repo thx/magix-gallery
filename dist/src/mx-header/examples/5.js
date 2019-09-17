@@ -3,7 +3,7 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-header/examples/4",["magix","examples/example","$","../index","mx-copy/index","examples/hl"],(require,exports,module)=>{
+define("mx-header/examples/5",["magix","examples/example","$","../index","mx-copy/index","examples/hl"],(require,exports,module)=>{
 /*Magix,Base,$*/
 require("../index");
 require("mx-copy/index");
@@ -29,59 +29,63 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, cur = $$.cur, navs = $$.navs, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerycS:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_gallerycS:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxv id="';
-    $line = 3;
+    $p += '<div mxv mxa="_zs_galleryfG:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryfG:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryfG:b" class="mb10"><span class="color-9">以下示例：</span>支持自定义value-key，text-key，link-key</div><div mxv id="';
+    $line = 7;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test" class="_zs_gallery_mx-header_examples_index_-wrapper"><div mxv="navs" mx-navchange="' + $viewId + 'change()" mx-view="mx-header/index?width=900&dark=false&cur=';
-    $line = 7;
-    $art = '=cur.value';
+    $line = 11;
+    $art = '=cur.id';
     ;
-    $p += ($expr = '<%!$eu(cur.value)%>', $eu(cur.value)) + '&navs=';
-    $line = 8;
+    $p += ($expr = '<%!$eu(cur.id)%>', $eu(cur.id)) + '&navs=';
+    $line = 12;
     $art = '@navs';
     ;
-    $p += ($expr = '<%@navs%>', $i($$ref, navs)) + '&login=false&wrapper=';
-    $line = 10;
+    $p += ($expr = '<%@navs%>', $i($$ref, navs)) + '&valueKey=id&textKey=name&linkKey=target&login=false&wrapper=';
+    $line = 17;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_test"></div><div mxa="_zs_gallerycS:d" class="_zs_gallery_mx-header_examples_index_-inner">';
-    $line = 13;
-    $art = '=cur.text';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_test"></div><div mxa="_zs_galleryfG:e" class="_zs_gallery_mx-header_examples_index_-inner">';
+    $line = 20;
+    $art = '=cur.name';
     ;
-    $p += ($expr = '<%=cur.text%>', $e(cur.text)) + '（';
-    $line = 13;
-    $art = '=cur.value';
+    $p += ($expr = '<%=cur.name%>', $e(cur.name)) + '（';
+    $line = 20;
+    $art = '=cur.id';
     ;
-    $p += ($expr = '<%=cur.value%>', $e(cur.value)) + '）</div></div></div><div mxa="_zs_gallerycS:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallerycS:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 19;
+    $p += ($expr = '<%=cur.id%>', $e(cur.id)) + '）</div></div></div><div mxa="_zs_galleryfG:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryfG:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycS:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
-    $line = 21;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryfG:g" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 28;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycS:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
-    $line = 24;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryfG:a" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 31;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div id="&#123;&#123;=viewId&#125;&#125;_test"&gt;\n    &lt;mx-header \n        width="900" \n        dark="false"\n        navs="&#123;&#123;@[&#123;\n            value: 1,\n            text: \'营销中台\'\n        &#125;, &#123;\n            value: 2,\n            text: \'创意中台\'\n        &#125;]&#125;&#125;" \n        login="false"\n        wrapper="&#123;&#123;=viewId&#125;&#125;_test"/&gt;\n&lt;/div&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-header \n    dark="false"\n    navs="&#123;&#123;@[&#123;\n        id: 1,\n        name: \'营销中台\'\n    &#125;, &#123;\n        id: 2,\n        name: \'创意中台\'\n    &#125;, &#123;\n        id: 3,\n        name: \'外链打开\',\n        target: \'https://www.taobao.com/\'\n    &#125;]&#125;&#125;"\n    value-key="id" \n    text-key="name" \n    link-key="target" \n    login="false"/&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
     if ($art)
         msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
     msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-header/examples/4.html';
+    msg += $expr + '\r\n\tat file:mx-header/examples/5.html';
     throw msg;
 } return $p; },
     render: function () {
         var navs = [{
-                value: 1,
-                text: '营销中台'
+                id: 1,
+                name: '营销中台'
             }, {
-                value: 2,
-                text: '创意中台'
+                id: 2,
+                name: '创意中台'
+            }, {
+                id: 3,
+                name: '外链打开',
+                target: 'https://www.taobao.com/'
             }];
         this.updater.digest({
             viewId: this.id,
