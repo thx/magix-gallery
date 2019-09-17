@@ -11,19 +11,35 @@ module.exports = Magix.View.extend({
             def: 5
         }, {
             key: 'num',
-            desc: '当前评分，由于是icon打分，只支持全个和半个<br/>因此打分只支持0， 0.5， 1， 1.5， 2， 2.5， 3， 3.5， 4， 4.5， 5，最大值不超过count',
+            desc: '当前评分，相对于count，范围为 0 ~ count',
             type: 'number',
             def: 0
         }, {
             key: 'color',
-            desc: '自定义颜色，#4d7fff 或者 rgb(77, 127, 255)',
+            desc: '自定义颜色，如 #4d7fff 或者 rgb(77, 127, 255)',
             type: 'string',
             def: '品牌色'
+        }, {
+            key: 'operational',
+            desc: '是否可操作',
+            type: 'boolean',
+            def: 'false'
+        }]
+
+        let events = [{
+            type: 'change',
+            desc: 'operational=true时，切换评分时触发',
+            params: [{
+                key: 'num',
+                desc: '当前评分',
+                type: 'number'
+            }]
         }]
 
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events
         });
     }
 });

@@ -6,6 +6,9 @@
             name: '数值范围修正',
             key: viewId + '_demo11'
         },{
+            name: '可操作',
+            key: viewId + '_demo34'
+        },{
             name: '自定义颜色+个数',
             key: viewId + '_demo12'
         },{
@@ -18,6 +21,9 @@
     }, {
         name: 'API',
         key: viewId + '_api'
+    }, {
+        name: 'Event',
+        key: viewId + '_event'
     }]}}"></div>
     
     <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
@@ -27,11 +33,15 @@
             <div mx-view="@./13" id="{{=viewId}}_demo13"></div>
         </div>
         <div class="half">
+            <div mx-view="@./34" id="{{=viewId}}_demo34"></div>
             <div mx-view="@./12" id="{{=viewId}}_demo12"></div>
             <div mx-view="@./33" id="{{=viewId}}_demo33"></div>
         </div>
     </div>
     
     <mx-title.second content="API" id="{{=viewId}}_api"/>
-    <div mx-view="examples/api?options={{@options}}"></div>
+    <div mx-view="examples/api?options={{@options}}" class="mb40"></div>
+
+    <mx-title.second content="Event" id="{{=viewId}}_event" />
+    <div mx-view="examples/event?options={{@events}}"></div>
 </div>

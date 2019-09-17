@@ -3,8 +3,8 @@
     position: relative;
     display: inline-block;
 
+    .star,
     .star > *{
-        float: left;
         display: inline-block;
         width: @star-size;
         height: @star-size;
@@ -13,6 +13,9 @@
         font-size: 20px;
         color: inherit;
     }   
+    .star{
+        float: left;
+    }
     .star-bg{
         color: var(--color-border);
     }
@@ -24,8 +27,18 @@
         height: @star-size;
         overflow: hidden;
         .star-inner{
-            width: @star-size * 5;
             height: @star-size;
+        }
+    }
+
+    &[mx-view*="operational=true"]{
+        .star{
+            cursor: pointer;
+            transition: all var(--duration);
+
+            &.star-hover{
+                transform: scale(1.2);
+            }
         }
     }
 }

@@ -1,4 +1,3 @@
-/*md5:15df7ba31b0836e9565bacc5efc0f392*/
 let Magix = require('magix');
 let $ = require('$');
 let CSSVarUtil = require('@../mx-util/css-var');
@@ -18,17 +17,6 @@ module.exports = Magix.View.extend({
         // 最大值不超过count
         let num = +e.num || 0,
             count = +e.count || 5;  // icon个数
-        let s = num + '';
-        let i = s.indexOf('.');
-        if (i >= 0) {
-            i = s.slice(i + 1).length;
-        } else {
-            i = 0;
-        }
-        // 取半
-        if (i > 0) {
-            num = Math.floor(num) + 0.5;
-        }
         if (num < 0) {
             num = 0;
         }
@@ -37,9 +25,10 @@ module.exports = Magix.View.extend({
         }
 
         that.updater.set({
-            outerWidth: 24 * num,
-            innerWidth: 24 * count,
+            starWidth: 24,
+            num,
             count,
+            operational: (e.operational + '' === 'true'), //是否可操作
             color: e.color || CSSVarUtil.get('--color-brand', '#4d7fff'),
             icon: e.icon || '<i class="mc-iconfont">&#xe60f;</i>'
         });
@@ -54,6 +43,52 @@ module.exports = Magix.View.extend({
         return false;
     },
     render() {
-        this.updater.digest();
-    }
+        this.updater.digest({
+            hoverIndex: -1
+        });
+
+        let that = this;
+        that.updater.digest();
+        that['@{owner.node}'] = $('#' + that.id);
+
+        // 双向绑定
+        let { num } = that.updater.get();
+        that['@{owner.node}'].val(num);
+    },
+
+    '@{select}<click>'(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        let that = this;
+        let num = +event.params.index + 1;
+        that.updater.digest({
+            num
+        })
+        that['@{owner.node}'].val(num).trigger({
+            type: 'change',
+            num
+        });
+    },
+
+    '@{out}<mouseout>'(e) {
+        let that = this;
+        if (Magix.inside(event.relatedTarget, event.eventTarget)) {
+            return;
+        }
+
+        that.updater.digest({
+            hoverIndex: -1
+        })
+    },
+
+    '@{over}<mouseover>'(e) {
+        let that = this;
+        if (Magix.inside(event.relatedTarget, event.eventTarget)) {
+            return;
+        }
+
+        that.updater.digest({
+            hoverIndex: e.params.index
+        })
+    },
 });

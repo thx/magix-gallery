@@ -1,13 +1,15 @@
-<!--md5:ee2c7fc557856e036304fc53052db4ab-->
 <div class="star-bg clearfix">
     {{for(let i=0;i<count;i+=1)}}
-    <span class="star">{{!icon}}</span>
+    <span class="star {{if (hoverIndex == i)}} star-hover {{/if}} " 
+        {{if operational}} mx-click="@{select}({index:{{=i}}})" mx-mouseover="@{over}({index:{{=i}}})" mx-mouseout="@{out}()" {{/if}}>{{!icon}}</span>
     {{/for}}
 </div>
-<div class="star-on" style="width: {{=outerWidth}}px;">
-    <div class="star-inner clearfix" style="width:{{=innerWidth}}px;">
+<div class="star-on" style="width: {{=(num * starWidth)}}px;">
+    <div class="star-inner clearfix" style="width:{{=(count * starWidth)}}px;">
         {{for(let i=0;i<count;i+=1)}}
-        <span class="star" style="color: {{=color}};">{{!icon}}</span>
+        <span class="star {{if (hoverIndex == i)}} star-hover {{/if}}" 
+            style="color: {{=color}};"
+            {{if operational}} mx-click="@{select}({index:{{=i}}})" mx-mouseover="@{over}({index:{{=i}}})" mx-mouseout="@{out}()" {{/if}}>{{!icon}}</span>
         {{/for}}
     </div>
 </div>
