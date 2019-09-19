@@ -75,9 +75,9 @@ module.exports = Magix.View.extend({
     $line = 14;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_icvkijv$art_i = 0, $art_cdvlrysk$art_c = list.length; $art_icvkijv$art_i < $art_cdvlrysk$art_c; $art_icvkijv$art_i++) {    var item = list[$art_icvkijv$art_i]%>';
-    for (var $art_icvkijv$art_i = 0, $art_cdvlrysk$art_c = list.length; $art_icvkijv$art_i < $art_cdvlrysk$art_c; $art_icvkijv$art_i++) {
-        var item = list[$art_icvkijv$art_i];
+    $expr = '<%for (var $art_idrsecrgp$art_i = 0, $art_clbgiwwakbxj$art_c = list.length; $art_idrsecrgp$art_i < $art_clbgiwwakbxj$art_c; $art_idrsecrgp$art_i++) {    var item = list[$art_idrsecrgp$art_i]%>';
+    for (var $art_idrsecrgp$art_i = 0, $art_clbgiwwakbxj$art_c = list.length; $art_idrsecrgp$art_i < $art_clbgiwwakbxj$art_c; $art_idrsecrgp$art_i++) {
+        var item = list[$art_idrsecrgp$art_i];
         $p += '<li mxa="_zs_galleryd(:a" class="mx-output-item"><span class="mx-output-link ';
         $line = 16;
         $art = 'if (searchKey == item.value)';

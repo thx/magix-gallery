@@ -10,7 +10,7 @@ var Magix = require("magix");
 var $ = require("$");
 var Vframe = Magix.Vframe;
 var I18n = require("../mx-medusa/util");
-Magix.applyStyle("_zs_gallery_mx-dialog_index_","._zs_gallery_mx-dialog_index_-dialog-backdrop,\n._zs_gallery_mx-dialog_index_-dialog-wrapper {\n  position: fixed;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop {\n  opacity: 0;\n  top: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop._zs_gallery_mx-dialog_index_-backdrop-out {\n  opacity: 1;\n}\n._zs_gallery_mx-dialog_index_-dialog {\n  position: absolute;\n  border-radius: var(--border-radius);\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-content {\n  position: relative;\n  word-break: break-all;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  width: 26px;\n  height: 26px;\n  z-index: 101;\n  border-radius: 50%;\n  background: transparent;\n  color: #ccc;\n  text-align: center;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close ._zs_gallery_mx-dialog_index_-iconfont-ext {\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 26px;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:hover,\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:focus {\n  background-color: #999;\n  color: #fff;\n}\n._zs_gallery_mx-dialog_index_-dialog._zs_gallery_mx-dialog_index_-full {\n  border-radius: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit {\n  position: relative;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 1;\n  position: relative;\n  z-index: 1;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: none;\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: inline;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-dialog_index_","._zs_gallery_mx-dialog_index_-dialog-backdrop,\n._zs_gallery_mx-dialog_index_-dialog-wrapper {\n  position: fixed;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop {\n  opacity: 0;\n  top: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n._zs_gallery_mx-dialog_index_-dialog-backdrop._zs_gallery_mx-dialog_index_-backdrop-out {\n  opacity: 1;\n}\n._zs_gallery_mx-dialog_index_-dialog {\n  position: absolute;\n  border-radius: var(--border-radius);\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n  border: 1px solid #f5f5f6;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-content {\n  position: relative;\n  word-break: break-all;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  width: 26px;\n  height: 26px;\n  z-index: 101;\n  border-radius: 50%;\n  background: transparent;\n  color: #ccc;\n  text-align: center;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close ._zs_gallery_mx-dialog_index_-iconfont-ext {\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 26px;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:hover,\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close:focus {\n  background-color: #999;\n  color: #fff;\n}\n._zs_gallery_mx-dialog_index_-dialog._zs_gallery_mx-dialog_index_-full {\n  border-radius: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit {\n  position: relative;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 1;\n  position: relative;\n  z-index: 1;\n}\n._zs_gallery_mx-dialog_index_-btn-submit ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: none;\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-text {\n  opacity: 0;\n}\n._zs_gallery_mx-dialog_index_-btn-submit._zs_gallery_mx-dialog_index_-btn-submit-loading ._zs_gallery_mx-dialog_index_-submit-loading {\n  display: inline;\n}\n._zs_gallery_mx-dialog_index_-load {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  margin-left: -30px;\n}\n");
 var DialogZIndex = 99999;
 var Duration = 250;
 var CacheList = [];
@@ -122,7 +122,7 @@ module.exports = Magix.View.extend({
         $line = 26;
         $art = '=cntId';
         ;
-        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_gallerya8:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_gallerya8:l" class="pr _zs_gallery_mx-dialog_index_-load"><div style="position:relative; left: 50%; width: 60px; height:60px; margin-left: -30px;"><div class="mx-loading-three-bounce mx-loading-three-bounce1" style="background-color:#ffffff"></div><div class="mx-loading-three-bounce mx-loading-three-bounce2" style="background-color:#ffffff"></div><div class="mx-loading-three-bounce" style="background-color:#ffffff"></div></div></div></div>';
         $line = 32;
         $art = 'if (fullFooter.enter || fullFooter.cancel)';
         ;
@@ -140,7 +140,7 @@ module.exports = Magix.View.extend({
             $expr = '<%if (fullFooter.enter) {%>';
             if (fullFooter.enter) {
                 ;
-                $p += '<a mxa="_zs_gallerya8:b" href="javascript:;" class="fl btn btn-brand min-width-60 mr10 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_gallerya8:c" class="_zs_gallery_mx-dialog_index_-submit-text">';
+                $p += '<a mxa="_zs_gallerya8:e" href="javascript:;" class="fl btn btn-brand min-width-60 mr10 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_gallerya8:f" class="_zs_gallery_mx-dialog_index_-submit-text">';
                 $line = 36;
                 $art = '!fullFooter.enterText';
                 ;
@@ -158,7 +158,7 @@ module.exports = Magix.View.extend({
             $expr = '<%if (fullFooter.cancel) {%>';
             if (fullFooter.cancel) {
                 ;
-                $p += '<a mxa="_zs_gallerya8:d" href="javascript:;" class="fl btn min-width-60 mr10" mx-click="' + $viewId + '@{close}()">';
+                $p += '<a mxa="_zs_gallerya8:g" href="javascript:;" class="fl btn min-width-60 mr10" mx-click="' + $viewId + '@{close}()">';
                 $line = 41;
                 $art = '!fullFooter.cancelText';
                 ;
@@ -206,7 +206,7 @@ module.exports = Magix.View.extend({
         $line = 51;
         $art = '=cntId';
         ;
-        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_gallerya8:a" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_gallerya8:o" class="pr pt80 pb80"><div style="position:relative; left: 50%; width: 60px; height:60px; margin-left: -30px;"><div class="mx-loading-three-bounce mx-loading-three-bounce1 mx-loading-bg-grey"></div><div class="mx-loading-three-bounce mx-loading-three-bounce2 mx-loading-bg-grey"></div><div class="mx-loading-three-bounce mx-loading-bg-grey"></div></div></div></div>';
         $line = 54;
         $art = '/if';
         ;
