@@ -54,5 +54,12 @@ module.exports = Base.extend({
         this.updater.digest({
             selected: ''
         })
+    },
+    'clearOne<click>' (e) {
+        this.clearStoreState('example', 1);
+        let selected = this.getStoreState('example');
+        this.updater.digest({
+            selected
+        })
     }
 });

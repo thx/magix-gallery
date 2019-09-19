@@ -33,27 +33,39 @@ module.exports = {
         };
         me.on('domready', ready);
     },
-    clearStoreState: function (key) {
+    clearStoreState: function (parent, child) {
         var me = this;
         var store = this['@{state.store}'];
-        if (!key) {
+        if (!parent) {
             // 全部清空
             this['@{state.store}'] = {};
             $('#' + me.id).find('input[linkage]').prop('checked', false);
             $('#' + me.id).find('input[linkage-parent]').prop('checked', false);
         }
         else {
-            delete this['@{state.store}'][key];
-            $('#' + me.id).find('input[linkage="' + key + '"]').prop('checked', false);
-            $('#' + me.id).find('input[linkage-parent="' + key + '"]').prop('checked', false);
+            if (!child) {
+                // 清空某一个父节点
+                delete this['@{state.store}'][parent];
+                $('#' + me.id).find("input[linkage=\"" + parent + "\"]").prop('checked', false);
+                $('#' + me.id).find("input[linkage-parent=\"" + parent + "\"]").prop('checked', false);
+            }
+            else {
+                // 清空某一个子节点
+                delete this['@{state.store}'][parent][child];
+                var childNode = $('#' + me.id).find("input[linkage-parent=\"" + parent + "\"][value=\"" + child + "\"]");
+                if (childNode[0].checked) {
+                    childNode.prop('checked', false);
+                    childNode.trigger('change');
+                }
+            }
         }
     },
-    getStoreState: function (key) {
+    getStoreState: function (parent) {
         var store = this['@{state.store}'];
         var keys = [];
         var value;
-        if (key) {
-            value = store[key];
+        if (parent) {
+            value = store[parent];
             if (value) {
                 keys = Magix.keys(value);
             }
