@@ -10,7 +10,7 @@ require("examples/hl");
 var Magix = require("magix");
 var Base = require("examples/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-btn_examples_index_","._zs_gallery_mx-btn_examples_index_-dark {\n  padding: 20px;\n  background-color: var(--app-bg);\n}\n._zs_gallery_mx-btn_examples_index_-cont {\n  padding: 20px 0;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-btn_examples_index_","._zs_gallery_mx-btn_examples_index_-dark {\n  padding: 10px;\n  background-color: var(--app-bg);\n}\n._zs_gallery_mx-btn_examples_index_-cont {\n  padding: 10px 0;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallery1:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxs="_zs_gallery1:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div class="_zs_gallery_mx-btn_examples_index_-cont"><button type="button" class="mx-btn mx-btn-custom mr20 mb20" style="--mx-btn-custom-color: #ffb400;--mx-btn-custom-color-text: #ffffff;--mx-btn-custom-color-hover: #f1ab03;--mx-btn-custom-color-hover-text: #ffffff">自定义按钮</button><button type="button" class="mx-btn mx-btn-custom mr20 mb20" style="--mx-btn-custom-color: #333333;--mx-btn-custom-color-text: #ffb400;--mx-btn-custom-color-hover: #333333;--mx-btn-custom-color-hover-text: #f1ab03"><i class="mc-iconfont">&#xe731;</i>自定义按钮</button></div></div><div mxa="_zs_gallery1:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallery1:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">按钮</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallery1:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxs="_zs_gallery1:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div class="_zs_gallery_mx-btn_examples_index_-cont"><button type="button" class="mx-btn mx-btn-custom mr20" style="--mx-btn-custom-color: #ffb400;--mx-btn-custom-color-text: #ffffff;--mx-btn-custom-color-hover: #f1ab03;--mx-btn-custom-color-hover-text: #ffffff">自定义按钮</button><button type="button" class="mx-btn mx-btn-custom mr20" style="--mx-btn-custom-color: #333333;--mx-btn-custom-color-text: #ffb400;--mx-btn-custom-color-hover: #333333;--mx-btn-custom-color-hover-text: #f1ab03"><i class="mc-iconfont">&#xe731;</i>自定义按钮</button></div></div><div mxa="_zs_gallery1:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallery1:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">按钮</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 19;
     $art = '=viewId';
     ;
@@ -36,7 +36,7 @@ module.exports = Base.extend({
     $line = 24;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-btn class="mr20 mb20" content="自定义按钮" \n    color="#ffb400" \n    color-hover="#f1ab03"/&gt;\n    \n&lt;mx-btn class="mr20 mb20" \n    color="#333333" \n    color-text="#ffb400"\n    color-hover="#333333"\n    color-hover-text="#f1ab03"&gt;\n    &lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;自定义按钮\n&lt;/mx-btn&gt;\n        </pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-btn class="mr20" content="自定义按钮" \n    color="#ffb400" \n    color-hover="#f1ab03"/&gt;\n    \n&lt;mx-btn class="mr20" \n    color="#333333" \n    color-text="#ffb400"\n    color-hover="#333333"\n    color-hover-text="#f1ab03"&gt;\n    &lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;自定义按钮\n&lt;/mx-btn&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

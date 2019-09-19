@@ -24,7 +24,7 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', time = $$.time, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryfh:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_galleryfh:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryfh:_" class="mb15 lh22"><div class="color-9">下列三种写法等价，时分秒均可选：</div><div class="pl10">types=""</div><div class="pl10">types="all"</div><div class="pl10">types="hour,minute,second"</div></div><div mxa="_zs_galleryfh:b" class="mb20"><span mxs="_zs_galleryfh:a" class="color-9">当前时间：</span>';
+    $p += '<div mxa="_zs_galleryfi:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_galleryfi:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryfi:_" class="mb15 lh22"><div class="color-9">下列三种写法等价，时分秒均可选：</div><div class="pl10">types=""</div><div class="pl10">types="all"</div><div class="pl10">types="hour,minute,second"</div></div><div mxa="_zs_galleryfi:b" class="mb20"><span mxs="_zs_galleryfi:a" class="color-9">当前时间：</span>';
     $line = 11;
     $art = '=time';
     ;
@@ -36,27 +36,27 @@ module.exports = Base.extend({
     $line = 15;
     $art = '=time';
     ;
-    $p += ($expr = '<%!$eu(time)%>', $eu(time)) + '"></div></div><div mxa="_zs_galleryfh:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryfh:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%!$eu(time)%>', $eu(time)) + '"></div></div><div mxa="_zs_galleryfi:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryfi:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 20;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryfh:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryfi:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 22;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryfh:c" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryfi:c" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 25;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-time class="w120" \n    id="&#123;&#123;=viewId&#125;&#125;_time"\n    time="10:10:10"\n    mx-change="change()" /&gt;\n\n&lt;!-- 等价于 --&gt;\n&lt;mx-time class="w120" \n    id="&#123;&#123;=viewId&#125;&#125;_time"\n    time="10:10:10"\n    types="all"\n    mx-change="change()" /&gt;\n\n&lt;!-- 等价于 --&gt;\n&lt;mx-time class="w120" \n    id="&#123;&#123;=viewId&#125;&#125;_time"\n    time="10:10:10"\n    types="hour,minute,second"\n    mx-change="change()" /&gt;\n        </pre></div><div mxa="_zs_galleryfh:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryfh:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-time class="w120" \n    id="&#123;&#123;=viewId&#125;&#125;_time"\n    time="10:10:10"\n    mx-change="change()" /&gt;\n\n&lt;!-- 等价于 --&gt;\n&lt;mx-time class="w120" \n    id="&#123;&#123;=viewId&#125;&#125;_time"\n    time="10:10:10"\n    types="all"\n    mx-change="change()" /&gt;\n\n&lt;!-- 等价于 --&gt;\n&lt;mx-time class="w120" \n    id="&#123;&#123;=viewId&#125;&#125;_time"\n    time="10:10:10"\n    types="hour,minute,second"\n    mx-change="change()" /&gt;\n        </pre></div><div mxa="_zs_galleryfi:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryfi:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 48;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryfh:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryfi:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 50;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryfh:c" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryfi:c" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 53;
     $art = '=viewId';
     ;

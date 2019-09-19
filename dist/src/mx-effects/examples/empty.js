@@ -28,7 +28,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', options = $$.options; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryb#:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryb#:a" class="clearfix mb20"><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-effects/examples/1"></div></div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-effects/examples/2"></div></div></div><div mxs="_zs_galleryb#:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="examples/api?options=';
+    $p += '<div mxs="_zs_galleryb!:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxs="_zs_galleryb!:a" class="clearfix mb20"><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-effects/examples/1"></div></div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-effects/examples/2"></div></div></div><div mxs="_zs_galleryb!:b" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="examples/api?options=';
     $line = 12;
     $art = '@options';
     ;

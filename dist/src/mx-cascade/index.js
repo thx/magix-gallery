@@ -53,7 +53,7 @@ module.exports = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '><span mxa="_zs_galleryal:_" class="mx-trigger-label">';
+    $p += '><span mxa="_zs_galleryam:_" class="mx-trigger-label">';
     $line = 3;
     $art = 'if name';
     ;
@@ -73,7 +73,7 @@ module.exports = Magix.View.extend({
     $line = 3;
     $art = '=selectedText';
     ;
-    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryal:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div>';
+    $p += ($expr = '<%=selectedText%>', $e(selectedText)) + '</span><span mxs="_zs_galleryam:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div>';
     $line = 6;
     $art = 'if !disabled';
     ;
@@ -98,8 +98,8 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each groups as list gIndex';
         ;
-        $expr = '<%for (var gIndex = 0, $art_coyjywrje$art_c = groups.length; gIndex < $art_coyjywrje$art_c; gIndex++) {        var list = groups[gIndex]%>';
-        for (var gIndex = 0, $art_coyjywrje$art_c = groups.length; gIndex < $art_coyjywrje$art_c; gIndex++) {
+        $expr = '<%for (var gIndex = 0, $art_cksicuzg$art_c = groups.length; gIndex < $art_cksicuzg$art_c; gIndex++) {        var list = groups[gIndex]%>';
+        for (var gIndex = 0, $art_cksicuzg$art_c = groups.length; gIndex < $art_cksicuzg$art_c; gIndex++) {
             var list = groups[gIndex];
             $p += '<div class="_zs_gallery_mx-cascade_index_-group" id="';
             $line = 9;
@@ -113,8 +113,8 @@ module.exports = Magix.View.extend({
             $line = 10;
             $art = 'each list as item iIndex';
             ;
-            $expr = '<%for (var iIndex = 0, $art_cjbkibs$art_c = list.length; iIndex < $art_cjbkibs$art_c; iIndex++) {            var item = list[iIndex]%>';
-            for (var iIndex = 0, $art_cjbkibs$art_c = list.length; iIndex < $art_cjbkibs$art_c; iIndex++) {
+            $expr = '<%for (var iIndex = 0, $art_cjtbxvosme$art_c = list.length; iIndex < $art_cjtbxvosme$art_c; iIndex++) {            var item = list[iIndex]%>';
+            for (var iIndex = 0, $art_cjtbxvosme$art_c = list.length; iIndex < $art_cjtbxvosme$art_c; iIndex++) {
                 var item = list[iIndex];
                 $p += '<div class="_zs_gallery_mx-cascade_index_-line ';
                 $line = 11;
@@ -138,7 +138,7 @@ module.exports = Magix.View.extend({
                 $line = 11;
                 $art = '=iIndex';
                 ;
-                $p += ($expr = '<%=iIndex%>', $e(iIndex)) + '})"><span mxa="_zs_galleryal:a" class="_zs_gallery_mx-cascade_index_-line-text">';
+                $p += ($expr = '<%=iIndex%>', $e(iIndex)) + '})"><span mxa="_zs_galleryam:a" class="_zs_gallery_mx-cascade_index_-line-text">';
                 $line = 12;
                 $art = '=item[textKey]';
                 ;
@@ -149,7 +149,7 @@ module.exports = Magix.View.extend({
                 $expr = '<%if (item.children && item.children.length) {%>';
                 if (item.children && item.children.length) {
                     ;
-                    $p += '<span mxs="_zs_galleryal:a" class="mc-iconfont _zs_gallery_mx-cascade_index_-line-arrow">&#xe692;</span>';
+                    $p += '<span mxs="_zs_galleryam:a" class="mc-iconfont _zs_gallery_mx-cascade_index_-line-arrow">&#xe692;</span>';
                     $line = 15;
                     $art = '/if';
                     ;

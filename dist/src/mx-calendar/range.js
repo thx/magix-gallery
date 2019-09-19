@@ -51,7 +51,7 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '" mx-contextmenu="' + $viewId + '@{prevent}()"><div mxv mxa="_zs_gallery-:_" class="_zs_gallery_mx-calendar_range_-range"><div mxa="_zs_gallery-:a" class="_zs_gallery_mx-calendar_range_-title clearfix"><span mxa="_zs_gallery-:b" class="fl">';
+    $p += '" mx-contextmenu="' + $viewId + '@{prevent}()"><div mxv mxa="_zs_gallery+:_" class="_zs_gallery_mx-calendar_range_-range"><div mxa="_zs_gallery+:a" class="_zs_gallery_mx-calendar_range_-title clearfix"><span mxa="_zs_gallery+:b" class="fl">';
     $line = 4;
     $art = '!title';
     ;
@@ -73,7 +73,7 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxv mxa="_zs_gallery-:c" class="clearfix pr"><div mxv mxa="_zs_gallery-:d" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-left"><div mxv="disabledWeeks" ';
+    $p += '</div><div mxv mxa="_zs_gallery+:c" class="clearfix pr"><div mxv mxa="_zs_gallery+:d" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-left"><div mxv="disabledWeeks" ';
     $line = 12;
     $art = 'if vs';
     ;
@@ -129,7 +129,7 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"></div></div><div mxs="_zs_gallery-:_" class="_zs_gallery_mx-calendar_range_-range-gap">-</div><div mxv mxa="_zs_gallery-:e" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-right"><div mxv="disabledWeeks" ';
+    $p += '"></div></div><div mxs="_zs_gallery+:_" class="_zs_gallery_mx-calendar_range_-range-gap">-</div><div mxv mxa="_zs_gallery+:e" class="_zs_gallery_mx-calendar_range_-range-input _zs_gallery_mx-calendar_range_-range-input-right"><div mxv="disabledWeeks" ';
     $line = 26;
     $art = 'if vs';
     ;
@@ -210,17 +210,17 @@ var RangeDate = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '"><div mxa="_zs_gallery-:f" class="_zs_gallery_mx-calendar_range_-title">';
+        $p += '"><div mxa="_zs_gallery+:f" class="_zs_gallery_mx-calendar_range_-title">';
         $line = 42;
         $art = '=quickTip';
         ;
-        $p += ($expr = '<%=quickTip%>', $e(quickTip)) + '：</div><div mxa="_zs_gallery-:g" class="clearfix">';
+        $p += ($expr = '<%=quickTip%>', $e(quickTip)) + '：</div><div mxa="_zs_gallery+:g" class="clearfix">';
         $line = 44;
         $art = 'each quickInfos as info';
         ;
-        $expr = '<%for (var $art_iszrrdwuwg$art_i = 0, $art_cspszwrdo$art_c = quickInfos.length; $art_iszrrdwuwg$art_i < $art_cspszwrdo$art_c; $art_iszrrdwuwg$art_i++) {        var info = quickInfos[$art_iszrrdwuwg$art_i]%>';
-        for (var $art_iszrrdwuwg$art_i = 0, $art_cspszwrdo$art_c = quickInfos.length; $art_iszrrdwuwg$art_i < $art_cspszwrdo$art_c; $art_iszrrdwuwg$art_i++) {
-            var info = quickInfos[$art_iszrrdwuwg$art_i];
+        $expr = '<%for (var $art_ihcexjyftf$art_i = 0, $art_cygpauf$art_c = quickInfos.length; $art_ihcexjyftf$art_i < $art_cygpauf$art_c; $art_ihcexjyftf$art_i++) {        var info = quickInfos[$art_ihcexjyftf$art_i]%>';
+        for (var $art_ihcexjyftf$art_i = 0, $art_cygpauf$art_c = quickInfos.length; $art_ihcexjyftf$art_i < $art_cygpauf$art_c; $art_ihcexjyftf$art_i++) {
+            var info = quickInfos[$art_ihcexjyftf$art_i];
             $p += '<span class="_zs_gallery_mx-calendar_range_-st ';
             $line = 45;
             $art = 'if (dates.quickDateKey==info.key)';
@@ -261,15 +261,15 @@ var RangeDate = Magix.View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxa="_zs_gallery-:h" class="mx-output-footer"><button mxa="_zs_gallery-:i" mx-click="' + $viewId + '@{date.picked}()" type="button" class="btn btn-small btn-brand mr10">';
+    $p += '</div><div mxa="_zs_gallery+:h" class="mx-output-footer"><button mxa="_zs_gallery+:i" mx-click="' + $viewId + '@{date.picked}()" type="button" class="btn btn-small btn-brand mr10">';
     $line = 54;
     $art = '=submitText';
     ;
-    $p += ($expr = '<%=submitText%>', $e(submitText)) + '</button><button mxa="_zs_gallery-:j" mx-click="' + $viewId + '@{cancel}()" type="button" class="btn btn-small mr10">';
+    $p += ($expr = '<%=submitText%>', $e(submitText)) + '</button><button mxa="_zs_gallery+:j" mx-click="' + $viewId + '@{cancel}()" type="button" class="btn btn-small mr10">';
     $line = 55;
     $art = '=cancelText';
     ;
-    $p += ($expr = '<%=cancelText%>', $e(cancelText)) + '</button><span mxa="_zs_gallery-:k" class="color-red">';
+    $p += ($expr = '<%=cancelText%>', $e(cancelText)) + '</button><span mxa="_zs_gallery+:k" class="color-red">';
     $line = 56;
     $art = '=errorMsg';
     ;

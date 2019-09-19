@@ -22,6 +22,11 @@ module.exports = Magix.View.extend({
             type: 'boolean',
             def: 'false'
         }, {
+            key: 'hollow',
+            desc: '是否为默认普通按钮，hover品牌色按钮',
+            type: 'boolean',
+            def: 'false'
+        }, {
             key: 'disabled',
             desc: '是否禁用',
             type: 'boolean',

@@ -1,5 +1,5 @@
 /* @dependent: ./index.less */
-
+@btn-red: #ff0000;
 .btn,
 .mx-btn {
     position: relative;
@@ -65,8 +65,22 @@
             line-height: var(--input-small-height);
         }
         .btn-tag {
-            border: 1px solid #ff0000;
-            background-color: #ff0000;
+            border: 1px solid @btn-red;
+            background-color: @btn-red;
+        }
+    }
+    &.btn-hollow {
+        &:hover,
+        &.hover,
+        &:active {
+            border-color: var(--color-brand);
+            background-color: var(--btn-brand);
+            background-image: linear-gradient(to right, transparent, var(--btn-brand-gradient));
+            color: var(--btn-brand-text);
+        }
+        .btn-tag {
+            border: 1px solid @btn-red;
+            background-color: @btn-red;
         }
     }
     &.btn-white {
@@ -209,8 +223,8 @@
 
 .mx-btn-loading-circle {
     display: block;
-    width: 16px;
-    height: 16px;
+    width: calc(var(--input-height) / 2);
+    height: calc(var(--input-height) / 2);
     margin-right: 6px;
     border-radius: 50%;
     animation: loading-circle 1.2s linear infinite;
@@ -220,8 +234,8 @@
 
 .btn-small {
     .mx-btn-loading-circle {
-        width: 12px;
-        height: 12px;
+        width: calc(var(--input-small-height) / 2);
+        height: calc(var(--input-small-height) / 2);
     }
 }
 

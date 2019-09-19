@@ -36,7 +36,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerybl:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $p += '<div mxv mxa="_zs_gallerybm:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'单选搜索\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'单选分组\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'单选选项禁用\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'多选搜索\',\n            key: viewId + \'_demo6\'\n        },{\n            name: \'多选分组\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'多选选项禁用\',\n            key: viewId + \'_demo8\'\n        },{\n            name: \'hover展开\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'整体禁用\',\n            key: viewId + \'_demo5\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
@@ -44,7 +44,7 @@ module.exports = Magix.View.extend({
     $line = 38;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_bd" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerybl:a" class="clearfix mb20"><div mxa="_zs_gallerybl:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-dropdown/examples/19" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_bd" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerybm:a" class="clearfix mb20"><div mxa="_zs_gallerybm:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-dropdown/examples/19" id="';
     $line = 41;
     $art = '=viewId';
     ;
@@ -60,7 +60,7 @@ module.exports = Magix.View.extend({
     $line = 44;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div mxa="_zs_gallerybl:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-dropdown/examples/27" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div mxa="_zs_gallerybm:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-dropdown/examples/27" id="';
     $line = 47;
     $art = '=viewId';
     ;

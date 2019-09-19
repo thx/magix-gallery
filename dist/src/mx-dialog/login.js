@@ -25,7 +25,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', path = $$.path, data = $$.data; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerya9:_" class="_zs_gallery_mx-dialog_login_-login"><div mxv="data" class="_zs_gallery_mx-dialog_login_-inner" mx-view="';
+    $p += '<div mxv mxa="_zs_gallerya#:_" class="_zs_gallery_mx-dialog_login_-login"><div mxv="data" class="_zs_gallery_mx-dialog_login_-inner" mx-view="';
     $line = 2;
     $art = '=path';
     ;

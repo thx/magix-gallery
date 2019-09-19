@@ -141,10 +141,10 @@ module.exports = {
         let { content, attrsKV } = i;
 
         let styles = [
-            'padding: 10px 24px;'
+            'padding: 10px 24px'
         ];
         if ((attrsKV.border + '') !== 'none') {
-            styles.push('border-bottom: 1px solid #e6e6e6;');
+            styles.push('border-bottom: 1px solid var(--color-border)');
         }
 
         let tmpl = `<div ${ProcessAttr(attrsKV, styles.join(';'), {

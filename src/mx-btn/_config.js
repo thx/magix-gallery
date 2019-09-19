@@ -63,6 +63,8 @@ module.exports = {
                     classes.push('btn-brand');
                 } else if (attrsKV.white + '' === 'true') {
                     classes.push('btn-white');
+                } else if (attrsKV.hollow + '' === 'true') {
+                    classes.push('btn-hollow');
                 }
             }
         }
