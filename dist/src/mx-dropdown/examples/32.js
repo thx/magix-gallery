@@ -1,1 +1,85 @@
-define("mx-dropdown/examples/32",["magix","examples/example","$","../multiple","mx-copy/index","examples/hl"],(e,l,s)=>{e("../multiple"),e("mx-copy/index"),e("examples/hl");e("magix");var n=e("examples/example");e("$");s.exports=n.extend({tmpl:function(e,l,s,n,i,r,a,t){if(s||(s=e),!i){var c={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},m=/[&<>"'`]/g,d=function(e){return"&"+c[e]+";"};i=function(e){return""+(null==e?"":e)},n=function(e){return i(e).replace(m,d)}}if(!r){var x={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},_=function(e){return x[e]},o=/[!')(*]/g;r=function(e){return encodeURIComponent(i(e)).replace(o,_)}}if(!t){var g=/[\\'"]/g;t=function(e){return i(e).replace(g,"\\$&")}}a||(a=function(e,l,s,n){for(n=e[p];--n;)if(e[s=p+n]===l)return s;return e[s=p+e[p]++]=l,s});var p="",v="",u=e.checker,y=e.viewId,z=e.text1,f=e.text2;return v+='<div mxv mxa="_zs_gallerybe:_" class="_zs_galleryg"><div mxv mxa="_zs_gallerybe:a" class="_zs_galleryj"><div mxs="_zs_gallerybe:_" class="mb20 clearfix lh22"><div class="fl color-9">以下示例：</div><div class="fl">自定义提交校验函数，最多选择两个</div></div><div mxv="checker" class="w280" mx-view="mx-dropdown/multiple?name=%E6%95%B0%E5%AD%97&list='+a(s,[1,2,3,4,5,6])+"&submitChecker="+a(s,u)+'"></div></div><div mxa="_zs_gallerybe:b" class="_zs_galleryk"><div mxs="_zs_gallerybe:a" class="_zs_galleryi">HTML Code</div><div class="_zs_galleryl" mx-success="'+l+'done({id:1})" mx-view="mx-copy/index?copyNode='+r(y)+'_text_1"><span mxa="_zs_gallerybe:c" class="_zs_galleryn">'+i(z)+'</span><i mxs="_zs_gallerybe:b" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="examples/hl" id="'+n(y)+'_text_1">\n&lt;mx-dropdown.multiple class="w280"  \n    name="数字"\n    list="&#123;&#123;@[1,2,3,4,5,6]&#125;&#125;"\n    submit-checker="&#123;&#123;@checker&#125;&#125;"/&gt;\n        </pre></div><div mxa="_zs_gallerybe:d" class="_zs_galleryk"><div mxs="_zs_gallerybe:c" class="_zs_galleryi">JS Code</div><div class="_zs_galleryl" mx-success="'+l+'done({id:2})" mx-view="mx-copy/index?copyNode='+r(y)+'_text_2"><span mxa="_zs_gallerybe:e" class="_zs_galleryn">'+i(f)+'</span><i mxs="_zs_gallerybe:b" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="examples/hl" id="'+n(y)+"_text_2\">\nlet Magix = require('magix');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: '@32.html',\n    render() &#123;\n        let that = this;\n        that.updater.digest(&#123;\n            checker: (selected) =&gt; &#123;\n                return new Promise(resolve =&gt; &#123;\n                    resolve((selected.length &gt; 2) ? '最多选择两个' : '');\n                &#125;)\n            &#125;\n        &#125;);\n    &#125;\n&#125;);\n        </pre></div></div>"},render:function(){this.updater.digest({checker:function(e){return new Promise(function(l){l(e.length>2?"最多选择两个":"")})}})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-dropdown/examples/32",["magix","examples/example","$","../multiple","mx-copy/index","examples/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("../multiple");
+require("mx-copy/index");
+require("examples/hl");
+var Magix = require("magix");
+var Base = require("examples/example");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', checker = $$.checker, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerybe:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_gallerybe:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_gallerybe:_" class="mb20 clearfix lh22"><div class="fl color-9">以下示例：</div><div class="fl">自定义提交校验函数，最多选择两个</div></div><div mxv="checker" class="w280" mx-view="mx-dropdown/multiple?name=%E6%95%B0%E5%AD%97&list=';
+    $line = 9;
+    $art = '@[1,2,3,4,5,6]';
+    ;
+    $p += ($expr = '<%@[1, 2, 3, 4, 5, 6]%>', $i($$ref, [1, 2, 3, 4, 5, 6])) + '&submitChecker=';
+    $line = 10;
+    $art = '@checker';
+    ;
+    $p += ($expr = '<%@checker%>', $i($$ref, checker)) + '"></div></div><div mxa="_zs_gallerybe:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallerybe:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 14;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybe:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 16;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybe:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 19;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-dropdown.multiple class="w280"  \n    name="数字"\n    list="&#123;&#123;@[1,2,3,4,5,6]&#125;&#125;"\n    submit-checker="&#123;&#123;@checker&#125;&#125;"/&gt;\n        </pre></div><div mxa="_zs_gallerybe:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallerybe:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 28;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerybe:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 30;
+    $art = '!text2';
+    ;
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerybe:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 33;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@32.html\',\n    render() &#123;\n        let that = this;\n        that.updater.digest(&#123;\n            checker: (selected) =&gt; &#123;\n                return new Promise(resolve =&gt; &#123;\n                    resolve((selected.length &gt; 2) ? \'最多选择两个\' : \'\');\n                &#125;)\n            &#125;\n        &#125;);\n    &#125;\n&#125;);\n        </pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dropdown/examples/32.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        var that = this;
+        that.updater.digest({
+            checker: function (selected) {
+                return new Promise(function (resolve) {
+                    resolve((selected.length > 2) ? '最多选择两个' : '');
+                });
+            }
+        });
+    }
+});
+
+});

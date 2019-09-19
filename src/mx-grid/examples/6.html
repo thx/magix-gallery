@@ -2,12 +2,20 @@
     <div class="eg-content">
         <div class="mb10">嵌套：右侧固定200px，左侧自适应，间隔20px</div>
         <mx-grid.row gutter="20px">
-            <mx-grid.col flex="1" class="grid1"></mx-grid.col>
+            <mx-grid.col>
+                <div style="height: 100%; background-color: var(--color-brand); opacity: .2;"></div>
+            </mx-grid.col>
             <mx-grid.col width="200px">
                 <mx-grid.row direction="col" gutter="20px">
-                    <mx-grid.col class="grid2" height="20px"></mx-grid.col>
-                    <mx-grid.col class="grid3" height="40px"></mx-grid.col>
-                    <mx-grid.col class="grid4" height="60px"></mx-grid.col>
+                    <mx-grid.col>
+                        <div style="height: 20px; background-color: var(--color-brand); opacity: .2;"></div>
+                    </mx-grid.col>
+                    <mx-grid.col>
+                        <div style="height: 40px; background-color: var(--color-brand); opacity: .2;"></div>
+                    </mx-grid.col>
+                    <mx-grid.col>
+                        <div style="height: 60px; background-color: var(--color-brand); opacity: .2;"></div>
+                    </mx-grid.col>
                 </mx-grid.row>
             </mx-grid.col>
         </mx-grid.row>
@@ -21,12 +29,20 @@
         </mx-copy>
         <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
 &lt;mx-grid.row gutter="20px"&gt;
-    &lt;mx-grid.col flex="1" class="grid1"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col&gt;
+        &lt;div style="height: 100%; background-color: var(--color-brand); opacity: .2;"&gt;&lt;/div&gt;
+    &lt;/mx-grid.col&gt;
     &lt;mx-grid.col width="200px"&gt;
         &lt;mx-grid.row direction="col" gutter="20px"&gt;
-            &lt;mx-grid.col class="grid2" height="20px"&gt;&lt;/mx-grid.col&gt;
-            &lt;mx-grid.col class="grid3" height="40px"&gt;&lt;/mx-grid.col&gt;
-            &lt;mx-grid.col class="grid4" height="60px"&gt;&lt;/mx-grid.col&gt;
+            &lt;mx-grid.col&gt;
+                &lt;div style="height: 20px; background-color: var(--color-brand); opacity: .2;"&gt;&lt;/div&gt;
+            &lt;/mx-grid.col&gt;
+            &lt;mx-grid.col&gt;
+                &lt;div style="height: 40px; background-color: var(--color-brand); opacity: .2;"&gt;&lt;/div&gt;
+            &lt;/mx-grid.col&gt;
+            &lt;mx-grid.col&gt;
+                &lt;div style="height: 60px; background-color: var(--color-brand); opacity: .2;"&gt;&lt;/div&gt;
+            &lt;/mx-grid.col&gt;
         &lt;/mx-grid.row&gt;
     &lt;/mx-grid.col&gt;
 &lt;/mx-grid.row&gt;
