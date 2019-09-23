@@ -1,1 +1,916 @@
-define("mx-duration/index",["magix","mx-form/index","mx-form/validator","mx-duration/data"],(e,t,r)=>{var a=e("magix"),o=e("mx-form/index"),s=e("mx-form/validator"),l=e("mx-duration/data");a.applyStyle("_zs_galleryI","._zs_galleryem{display:inline-block;width:10px;height:10px;margin-right:3px;border-radius:50%}._zs_galleryen{box-sizing:border-box;border-radius:var(--border-radius);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;background-color:var(--color-bg)}._zs_galleryen ._zs_galleryeo{border-top:1px solid var(--color-border);border-right:1px solid var(--color-border);border-left:1px solid var(--color-border);border-top-left-radius:var(--border-radius);border-bottom-left-radius:var(--border-radius)}._zs_galleryen ._zs_galleryeo ._zs_galleryep{font-size:12px;color:#999;text-align:center;border-bottom:1px solid var(--color-border)}._zs_galleryen ._zs_galleryeo ._zs_galleryep:first-child{border-top-left-radius:var(--border-radius)}._zs_galleryen ._zs_galleryeo ._zs_galleryep:last-child{border-bottom-left-radius:var(--border-radius)}._zs_galleryen ._zs_galleryeq ._zs_galleryer{background-color:var(--color-bg);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);border-top-right-radius:var(--border-radius);text-align:center;color:#999}._zs_galleryen ._zs_galleryeq ._zs_galleryer ._zs_galleryes{float:left;font-size:12px;border-right:1px solid var(--color-border)}._zs_galleryen ._zs_galleryeq ._zs_galleryer ._zs_galleryes:last-child{border-top-right-radius:var(--border-radius)}._zs_galleryen ._zs_galleryeq ._zs_galleryet{background-color:var(--color-bg);text-align:center;color:#999}._zs_galleryen ._zs_galleryeq ._zs_galleryet ._zs_galleryeu{float:left;font-size:12px}._zs_galleryen ._zs_galleryeq ._zs_galleryev ._zs_galleryew,._zs_galleryen ._zs_galleryeq ._zs_galleryet ._zs_galleryeu{border-right:1px solid var(--color-border);border-bottom:1px solid var(--color-border)}._zs_galleryen ._zs_galleryeq ._zs_galleryev ._zs_galleryew{background:#fff}._zs_galleryen ._zs_galleryeq ._zs_galleryev ._zs_galleryew:last-child{border-bottom-right-radius:var(--border-radius)}._zs_galleryex{position:relative}._zs_galleryex ._zs_galleryey{position:absolute;z-index:100;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;border:1px solid var(--color-brand);background:rgba(75,138,251,.2)}._zs_galleryex ._zs_galleryez{width:140px;padding:20px;filter:alpha(opacity=80);opacity:.8}._zs_galleryex ._zs_galleryez,._zs_galleryex ._zs_galleryeA{position:absolute;z-index:100;border-radius:var(--border-radius);background:#fff}._zs_galleryex ._zs_galleryeA{width:calc(var(--font-size)*16 + 40px)}._zs_galleryex ._zs_galleryeA ._zs_galleryeB{padding:10px 10px 0;border-bottom:1px solid var(--color-border)}._zs_galleryex ._zs_galleryeA ._zs_galleryeC{padding:10px}"),r.exports=a.View.extend({tmpl:function(e,t,r,a,o,s,l,i){if(r||(r=e),!o){var n={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},d=/[&<>"'`]/g,g=function(e){return"&"+n[e]+";"};o=function(e){return""+(null==e?"":e)},a=function(e){return o(e).replace(d,g)}}if(!s){var u={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},c=function(e){return u[e]},p=/[!')(*]/g;s=function(e){return encodeURIComponent(o(e)).replace(p,c)}}if(!i){var h=/[\\'"]/g;i=function(e){return o(e).replace(h,"\\$&")}}var m="",f=e.maxWidth,_=e.hoverInfo,b=e.maskInfo,x=e.settingInfo,v=e.viewId,y=e.boxWidth,z=e.multiple,w=e.headerHeight,k=e.weeks,I=e.boxHeight,T=e.rowNum,D=e.ranges,M=e.boxZones;m+='<div mxv style="width: '+a(f)+'px;" class="_zs_galleryex">',_.show&&(m+='<div style="top: '+a(_.top)+"px; left: "+a(_.left)+'px;" class="_zs_galleryez mx-shadow"><div mxa="_zs_gallerybu:_" class="mb5">'+a(_.week)+'</div><div mxa="_zs_gallerybu:a" class="mb5"><strong>'+a(_.time)+"</strong></div><div><strong>"+a(_.discount)+"</strong>%折扣</div></div>"),m+=" ",b.show&&(m+='<div style="top: '+a(b.top)+"px; left: "+a(b.left)+"px; height: "+a(b.height)+"px; width: "+a(b.width)+'px;" class="_zs_galleryey"></div>'),m+=" ",x.show&&(m+='<div mxv style="top: '+a(x.top)+"px; left: "+a(x.left)+'px;" class="_zs_galleryeA mx-shadow"><div mxv mxa="_zs_gallerybu:b" class="_zs_galleryeB"><div mxa="_zs_gallerybu:c" class="mb10"><span>'+a(x.week)+'</span>：<strong mxa="_zs_gallerybu:d" class="ml5">'+a(x.time)+'</strong></div><div mxv mxa="_zs_gallerybu:e" class="mb5"><label mxv><input type="radio" class="radio" name="settingType" value="1" mx-change="'+t+'changeSettingType({type:1})" ',1==x.type&&(m+=' checked="true" '),m+="/>自定义：</label>",1==x.type?m+='<input mxe="'+t+"_0\" mxc=\"[{p:'settingInfo.discount',f:{required:true,posint:[true,'范围:30-250的整数'],min:[30,'范围:30-250的整数'],max:[250,'范围:30-250的整数']}}]\" class=\"input w100\" value=\""+a(x.discount)+'"/>':m+='<input class="input w100" disabled="true" value="'+a(x.discount)+'"/>',m+='<span mxs="_zs_gallerybu:_" class="ml5">%</span></div><div mxv mxa="_zs_gallerybu:f" class="mb10"><label mxv><input type="radio" name="settingType" class="radio" value="2" mx-change="'+t+'changeSettingType({type:2})" ',2==x.type&&(m+=' checked="true" '),m+='/>无折扣</label></div><div mxv mxa="_zs_gallerybu:g" class="mb10"><label mxv><input type="radio" name="settingType" class="radio" value="3" mx-change="'+t+'changeSettingType({type:3})" ',3==x.type&&(m+=' checked="true" '),m+='/>不投放</label></div></div><div mxs="_zs_gallerybu:a" class="_zs_galleryeC"><a class="btn btn-small btn-brand mr10 w60" href="javascript:;" mx-click="'+t+'submitSetting()">确定</a><a class="btn btn-small w60" href="javascript:;" mx-click="'+t+'cancelSetting()">取消</a></div></div>'),m+='<div class="_zs_galleryen clearfix" id="'+a(v)+'_duration" style="width: '+a(f)+'px;"><ul class="_zs_galleryeo fl" style="width: '+a(y*z)+'px;"><li class="_zs_galleryep" style="height: '+a(w+1)+"px; line-height: "+a(w)+'px;">星期</li>';for(var N=0,Z=k.length;N<Z;N++){var C=k[N];m+='<li class="_zs_galleryep" style="height: '+a(I)+"px; line-height: "+a(I)+'px;">'+a(C)+"</li>"}m+='</ul><div class="_zs_galleryeq fl" style="width: '+a(y*T)+'px;"><ul mxa="_zs_gallerybu:h" class="_zs_galleryer clearfix">';for(var S=0,$=D.length;S<$;S++){var q=D[S];m+='<li class="_zs_galleryes" style="width: '+a(y*(T/4))+"px; height: "+a(w/2)+"px; line-height: "+a(w/2)+'px;">'+a(q)+"</li>"}m+='</ul><ul mxa="_zs_gallerybu:i" class="_zs_galleryet clearfix">';for(var H=0;H<24;H+=1)m+='<li class="_zs_galleryeu" style="width: '+a(y*z)+"px; height: "+a(w/2)+"px; line-height: "+a(w/2)+'px;">'+a(H)+"</li>";m+='</ul><ul mxa="_zs_gallerybu:j" class="_zs_galleryev clearfix">';for(var B=0,A=M.length;B<A;B++){var R=M[B];m+='<li class="_zs_galleryew fl" style="width: '+a(y)+"px; height: "+a(I)+"px; background-color: "+a(R.bg)+'" mx-click="'+t+"clickOutside({index:"+a(R.index)+'})" mx-mousedown="'+t+'select()" mx-mouseover="'+t+"showTip({index:"+a(R.index)+'})" mx-mouseout="'+t+"hideTip({index:"+a(R.index)+'})"></li>'}return m+='</ul></div></div><div mxs="_zs_gallerybu:b" class="pt10 pb10 clearfix"><a class="btn btn-small mr10 fl" href="javascript:;" mx-click="'+t+'clear()">清空</a><a class="btn btn-small mr10 fl" href="javascript:;" mx-click="'+t+'reset()">重置</a><span class="fr lh28 color-c"><span class="_zs_galleryem" style="background-color: rgba(97,199,242,0.7)"></span><span class="font-tahoma bold color-c mr15">30-100%</span><span class="_zs_galleryem" style="background-color: rgba(77,166,255,0.7)"></span><span class="font-tahoma bold color-c mr15">100-200%</span><span class="_zs_galleryem" style="background-color: rgba(134,115,230,0.7)"></span><span class="font-tahoma bold color-c mr15">200-250%</span><i class="mc-iconfont displacement-2">&#xe705;</i><span class="mr10">可以拖拽鼠标选择投放时段</span></span></div></div>'},mixins:[o,s],init:function(e){var t=this,r=/^true$/i.test(e.half),a=e.width||780,o=e.selected||l.none,s=r?2:1;a&&+a<780&&(a=780);var i=24*s,n=a/(25*s),d=7*i;t.updater.set({viewId:t.id,timeDiscount:o,weeks:["一","二","三","四","五","六","日"],ranges:["00:00 - 06:00","06:00 - 12:00","12:00 - 18:00","18:00 - 24:00"],multiple:s,maxWidth:a,rowNum:i,columnNum:7,headerHeight:60,boxWidth:n,boxHeight:40,boxLength:d,boxZones:t.getBoxzone(d),valid:"",maskInfo:{show:!1,left:0,top:0,width:0,height:0,startRow:0,endRow:0,startColumn:0,endColumn:0,selectedZones:[]},settingInfo:{show:!1,week:"",time:"",discount:"",type:1},hoverInfo:{show:!1,left:0,top:0,week:"",time:"",discount:""}}),t.discountColorMap=t.getColorMap(),t.on("destroy",function(){$(document.body).off("mousemove.duration"),$(document.body).off("mouseup.duration"),clearTimeout(t.hoverTimeout),clearTimeout(t.hideTimeout)})},render:function(){for(var e=this.updater,t=e.get("timeDiscount"),r=e.get("boxLength"),a=this.report2Array(t),o=0;o<r;o++)this.setBoxDiscount(o,a[o]);this.updater.digest(),this.wrapper=$("#"+this.id+"_duration")},report2Array:function(e){for(var t=[],r=this.updater,a=r.get("rowNum"),o=r.get("multiple"),s=e.split(";"),l=0,i=s.length;l<i;l++)for(var n=s[l].split(","),d=0,g=n.length;d<g;d++)if("0"!=n[d]){var u=n[d].match(/(\d{2}):(\d{2})-(\d{2}):(\d{2}):(\d+)/),c=parseInt(u[1])*o+a*l;"30"==u[2]&&c++;var p=parseInt(u[3])*o+a*l;"30"==u[4]&&p++;for(var h=parseInt(u[5]),m=c;m<=p-1;m++)t[m]=h}return t},setBoxDiscount:function(e,t){t=parseInt(t)||0;var r=this.discountColorMap[t],a=this.updater.get("boxZones");a[e].bg=r,a[e].discount=t,this.updater.set({boxZones:a})},"select<mousedown>":function(e){e.preventDefault();var t=this,r=t.updater,a=r.get("hoverInfo"),o=r.get("settingInfo"),s=r.get("maskInfo"),l=r.get("boxWidth"),i=r.get("multiple"),n=r.get("headerHeight");a.show=!1,o.show=!1;var d=t.wrapper,g=d.offset().left,u=d.offset().top,c=e.pageX-g,p=e.pageY-u;$(document.body).off("mousemove.duration").on("mousemove.duration",function(e){e.preventDefault();var r=e.pageX-g,h=e.pageY-u,m=Math.min(r,d.outerWidth()),f=Math.min(h,d.outerHeight()),_=Math.max(l*i,Math.min(c,m)),b=Math.max(n,Math.min(p,f));s.left=_,s.top=b+1,s.width=Math.max(c,m)-_,s.height=Math.max(p,f)-b,s.show=!0,t.updater.digest({hoverInfo:a,settingInfo:o,maskInfo:s})}),$(document.body).off("mouseup.duration").on("mouseup.duration",function(e){s.show&&(e.preventDefault(),$(document.body).off("mousemove.duration"),t.selectEnd(),$(document.body).off("mouseup.duration"))})},selectEnd:function(e){for(var t=this.updater,r=t.get("maskInfo"),a=t.get("headerHeight"),o=t.get("boxHeight"),s=t.get("boxWidth"),l=t.get("multiple"),i=t.get("columnNum"),n=t.get("rowNum"),d=parseInt((r.top-a)/o),g=parseInt((r.height+r.top-a)/o),u=parseInt((r.left-s*l)/s),c=parseInt((r.width+r.left-s*l)/s),p=Math.max(0,d),h=Math.min(i-1,g),m=Math.max(0,u),f=Math.min(n-1,c),_=[],b=p;b<=h;b++)for(var x=m;x<=f;x++)_.push(b*n+x);r.selectedZones=_,r.startRow=p,r.endRow=h,r.startColumn=m,r.endColumn=f,r.left=s*l+m*s,r.top=a+p*o+1,r.width=(f-m+1)*s,r.height=(h-p+1)*o,r.show=!0,this.showSetting()},"clickOutside<click>":function(e){var t=+e.params.index,r=this.updater.get("maskInfo");!r.show||r.show&&r.selectedZones.indexOf(t)>-1||(e.preventDefault(),$(document.body).off("mousemove.duration"),$(document.body).off("mouseup.duration"),$(document.body).off("click.duration"),this["cancelSetting<click>"]())},"changeSettingType<change>":function(e){var t=this.updater,r=t.get("settingInfo");r.type=e.params.type,t.digest({settingInfo:r})},"submitSetting<click>":function(){var e=this.updater.get(),t=e.settingInfo,r=e.maskInfo,a=0,o=!0;switch(+t.type){case 1:o=this.isValid(),a=this.fromKeys(e,"settingInfo").settingInfo.discount;break;case 2:a=100;break;case 3:a=0}if(o){t.show=!1,t.type=1,r.show=!1;for(var s=0;s<r.selectedZones.length;s++)this.setBoxDiscount(r.selectedZones[s],a);this.updater.digest({settingInfo:t,maskInfo:r})}},"cancelSetting<click>":function(){var e=this.updater,t=e.get("settingInfo"),r=e.get("maskInfo");r.show=!1,t.show=!1,t.type=1,this.updater.digest({settingInfo:t,maskInfo:r})},showSetting:function(){var e,t=this.updater,r=t.get("settingInfo"),a=t.get("maskInfo"),o=t.get("boxZones"),s=a.startRow+1,l=a.endRow+1;e=s!=l?this.formatweek(s)+" - "+this.formatweek(l):this.formatweek(s),r.week=e,r.time=this.getDuration(a.startColumn,a.endColumn+1,"%s - %s");for(var i,n=a.selectedZones,d=!0,g=0;g<n.length;g++){var u=o[n[g]].discount;if(!u||i&&u!=i){d=!1;break}i=u}r.discount=d?i:"";var c=this.wrapper.outerWidth(),p=this.wrapper.outerHeight(),h=a.left+a.width/2;h+260>c&&(h-=260);var m=a.top+a.height/2;m+238>p+100&&(m-=238),r.left=h,r.top=m,r.show=!0,this.updater.digest({boxZones:o,settingInfo:r,maskInfo:a})},"showTip<mouseover>":function(e){if(!a.inside(e.relatedTarget,e.eventTarget)){var t=this;clearTimeout(t.hoverTimeout),clearTimeout(t.hideTimeout);var r=t.updater,o=r.get("settingInfo");if(!r.get("maskInfo").show&&!o.show){var s=r.get("boxWidth"),l=r.get("boxHeight"),i=r.get("headerHeight"),n=r.get("rowNum"),d=r.get("hoverInfo"),g=r.get("boxZones");t.hoverTimeout=setTimeout(function(){var a=parseInt(e.params.index),o=s+(a%n+1)*s,u=i+(parseInt(a/n)+1)*l,c=t.formatweek(parseInt(a/n)+1),p=t.getDuration(a,a+1,"%s - %s"),h=g[a].discount;d.left=o,d.top=u,d.week=c,d.time=p,d.discount=h,d.show=!0,r.digest({hoverInfo:d})},200)}}},"hideTip<mouseout>":function(e){if(!a.inside(e.relatedTarget,e.eventTarget)){var t=this;clearTimeout(t.hoverTimeout),clearTimeout(t.hideTimeout);var r=t.updater;t.hideTimeout=setTimeout(function(){var e=r.get("hoverInfo");e.show=!1,t.updater.digest({hoverInfo:e})},200)}},"reset<click>":function(e){for(var t=this.updater.get("boxLength"),r=0;r<t;r++)this.setBoxDiscount(r,100);this.updater.digest()},"clear<click>":function(e){for(var t=this.updater.get("boxLength"),r=0;r<t;r++)this.setBoxDiscount(r,0);this.updater.digest()},array2Report:function(e){for(var t=this,r=t.updater,a=r.get("columnNum"),o=r.get("rowNum"),s=(r.get("multiple"),[]),l=0;l<a;l++){s[l]=0;for(var i=[],n=0;n<o;n++){var d=e[l*o+n];if(d){var g=i[i.length-1];g&&g.discount==d&&g.end==n?g.end=n+1:i.push({start:n,end:n+1,discount:d})}}var u=i.map(function(e){return t.getDuration(e.start,e.end)+":"+e.discount});u&&u.length>0&&(s[l]=u.join(","))}return s.join(";")},submit:function(){var e=this.updater.get("boxZones").map(function(e){return e.discount}),t=this.array2Report(e);return t==l.none?{ok:!1}:{ok:!0,val:t}},update:function(e){for(var t=this.updater.get(),r=(e=t.timeDiscount,t.boxLength),a=this.report2Array(e),o=0;o<r;o++)this.setBoxDiscount(o,a[o])},formatweek:function(e){return"星期"+["日","一","二","三","四","五","六"][e%7]},getDuration:function(e,t,r){var a=this.updater.get("rowNum"),o=this.getTimeFromNum(e),s="",l=o+"-"+(s=t%a==0?"24:00":this.getTimeFromNum(t));return r&&(l=r.replace("%s",o).replace("%s",s)),l},getTimeFromNum:function(e){var t=this.updater.get(),r=t.rowNum,a=t.multiple,o=Math.floor(e%r/a);return 1==(o+"").length&&(o="0"+o),o+":"+(e%r%a==1?"30":"00")},getBoxzone:function(e){for(var t=[],r=0;r<e;r++)t.push({index:r,bg:"#ffffff",discount:0});return t},getColorMap:function(e){for(var t={"[0,1)":"#ffffff","[30,40)":"rgba(97,199,242,0.05)","[40,50)":"rgba(97,199,242,0.1)","[50,60)":"rgba(97,199,242,0.15)","[60,70)":"rgba(97,199,242,0.2)","[70,80)":"rgba(97,199,242,0.25)","[80,90)":"rgba(97,199,242,0.3)","[90,100)":"rgba(97,199,242,0.35)","[100,101)":"rgba(97,199,242,0.4)","[101,110)":"rgba(77,166,255,0.15)","[110,120)":"rgba(77,166,255,0.2)","[120,130)":"rgba(77,166,255,0.25)","[130,140)":"rgba(77,166,255,0.3)","[140,150)":"rgba(77,166,255,0.35)","[150,160)":"rgba(77,166,255,0.4)","[160,170)":"rgba(77,166,255,0.45)","[170,180)":"rgba(77,166,255,0.5)","[180,190)":"rgba(77,166,255,0.55)","[190,200)":"rgba(77,166,255,0.6)","[200,210)":"rgba(134,115,230,0.3)","[210,220)":"rgba(134,115,230,0.35)","[220,230)":"rgba(134,115,230,0.4)","[230,240)":"rgba(134,115,230,0.45)","[240,250)":"rgba(134,115,230,0.5)","[250,251)":"rgba(134,115,230,0.55)"},r={},a=0;a<=250;a++)for(var o in r[a]="#ffffff",t){var s=o.substring(1,o.length-1).split(","),l=s[0],i=s[1];if(a>=l&&a<i){r[a]=t[o];break}}return r}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-duration/index",["magix","mx-form/index","mx-form/validator","mx-duration/data"],(require,exports,module)=>{
+/*Magix,Form,Validator,Data*/
+
+/**
+ * 时段溢价
+ * discount：已选数据 '00:00-12:00:100,12:00-24:00:250;00:00-24:00:100;00:00-24:00:100;00:00-24:00:100;00:00-24:00:100;00:00-24:00:100;00:00-24:00:100',
+ * width：容器宽度，最小
+ * type：half 半小时，hour一小时，默认half
+ */
+var Magix = require("magix");
+var Form = require("mx-form/index");
+var Validator = require("mx-form/validator");
+var Data = require("mx-duration/data");
+var WidthLimit = 780;
+Magix.applyStyle("_zs_gallery_mx-duration_index_","._zs_gallery_mx-duration_index_-circle {\n  display: inline-block;\n  width: 10px;\n  height: 10px;\n  margin-right: 3px;\n  border-radius: 50%;\n}\n._zs_gallery_mx-duration_index_-duration {\n  box-sizing: border-box;\n  border-radius: var(--border-radius);\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  cursor: default;\n  background-color: var(--color-bg);\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-week {\n  border-top: 1px solid var(--color-border);\n  border-right: 1px solid var(--color-border);\n  border-left: 1px solid var(--color-border);\n  border-top-left-radius: var(--border-radius);\n  border-bottom-left-radius: var(--border-radius);\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-week ._zs_gallery_mx-duration_index_-week-item {\n  font-size: 12px;\n  color: #999;\n  text-align: center;\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-week ._zs_gallery_mx-duration_index_-week-item:first-child {\n  border-top-left-radius: var(--border-radius);\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-week ._zs_gallery_mx-duration_index_-week-item:last-child {\n  border-bottom-left-radius: var(--border-radius);\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-range {\n  background-color: var(--color-bg);\n  border-top: 1px solid var(--color-border);\n  border-bottom: 1px solid var(--color-border);\n  border-top-right-radius: var(--border-radius);\n  text-align: center;\n  color: #999;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-range ._zs_gallery_mx-duration_index_-range-item {\n  float: left;\n  font-size: 12px;\n  border-right: 1px solid var(--color-border);\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-range ._zs_gallery_mx-duration_index_-range-item:last-child {\n  border-top-right-radius: var(--border-radius);\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-time {\n  background-color: var(--color-bg);\n  text-align: center;\n  color: #999;\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-time ._zs_gallery_mx-duration_index_-time-item {\n  float: left;\n  font-size: 12px;\n  border-right: 1px solid var(--color-border);\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-boxzone ._zs_gallery_mx-duration_index_-box {\n  background: #fff;\n  border-right: 1px solid var(--color-border);\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-duration_index_-duration ._zs_gallery_mx-duration_index_-content ._zs_gallery_mx-duration_index_-boxzone ._zs_gallery_mx-duration_index_-box:last-child {\n  border-bottom-right-radius: var(--border-radius);\n}\n._zs_gallery_mx-duration_index_-duration-wrapper {\n  position: relative;\n}\n._zs_gallery_mx-duration_index_-duration-wrapper ._zs_gallery_mx-duration_index_-discount-mask {\n  position: absolute;\n  z-index: 100;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  cursor: default;\n  border: 1px solid var(--color-brand);\n  background: rgba(75, 138, 251, 0.2);\n}\n._zs_gallery_mx-duration_index_-duration-wrapper ._zs_gallery_mx-duration_index_-discount-hover {\n  position: absolute;\n  z-index: 100;\n  width: 140px;\n  padding: 20px;\n  border-radius: var(--border-radius);\n  background: #fff;\n  filter: alpha(opacity=80);\n  opacity: 0.8;\n}\n._zs_gallery_mx-duration_index_-duration-wrapper ._zs_gallery_mx-duration_index_-discount-setting {\n  position: absolute;\n  z-index: 100;\n  width: calc(var(--font-size) * 16 + 40px);\n  border-radius: var(--border-radius);\n  background: #fff;\n}\n._zs_gallery_mx-duration_index_-duration-wrapper ._zs_gallery_mx-duration_index_-discount-setting ._zs_gallery_mx-duration_index_-setting-content {\n  padding: 10px 10px 0 10px;\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-duration_index_-duration-wrapper ._zs_gallery_mx-duration_index_-discount-setting ._zs_gallery_mx-duration_index_-setting-footer {\n  padding: 10px;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', maxWidth = $$.maxWidth, hoverInfo = $$.hoverInfo, maskInfo = $$.maskInfo, settingInfo = $$.settingInfo, viewId = $$.viewId, boxWidth = $$.boxWidth, multiple = $$.multiple, headerHeight = $$.headerHeight, weeks = $$.weeks, boxHeight = $$.boxHeight, rowNum = $$.rowNum, ranges = $$.ranges, boxZones = $$.boxZones; var $expr, $art, $line; try {
+    $p += '<div mxv style="width: ';
+    $line = 1;
+    $art = '=maxWidth';
+    ;
+    $p += ($expr = '<%=maxWidth%>', $e(maxWidth)) + 'px;" class="_zs_gallery_mx-duration_index_-duration-wrapper">';
+    $line = 3;
+    $art = 'if hoverInfo.show';
+    ;
+    $expr = '<%if (hoverInfo.show) {%>';
+    if (hoverInfo.show) {
+        ;
+        $p += '<div style="top: ';
+        $line = 4;
+        $art = '=hoverInfo.top';
+        ;
+        $p += ($expr = '<%=hoverInfo.top%>', $e(hoverInfo.top)) + 'px; left: ';
+        $line = 4;
+        $art = '=hoverInfo.left';
+        ;
+        $p += ($expr = '<%=hoverInfo.left%>', $e(hoverInfo.left)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-hover mx-shadow"><div mxa="_zs_gallerybu:_" class="mb5">';
+        $line = 6;
+        $art = '=hoverInfo.week';
+        ;
+        $p += ($expr = '<%=hoverInfo.week%>', $e(hoverInfo.week)) + '</div><div mxa="_zs_gallerybu:a" class="mb5"><strong>';
+        $line = 7;
+        $art = '=hoverInfo.time';
+        ;
+        $p += ($expr = '<%=hoverInfo.time%>', $e(hoverInfo.time)) + '</strong></div><div><strong>';
+        $line = 8;
+        $art = '=hoverInfo.discount';
+        ;
+        $p += ($expr = '<%=hoverInfo.discount%>', $e(hoverInfo.discount)) + '</strong>%折扣</div></div>';
+        $line = 10;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $line = 13;
+    $art = 'if maskInfo.show';
+    ;
+    $expr = '<%if (maskInfo.show) {%>';
+    if (maskInfo.show) {
+        ;
+        $p += '<div style="top: ';
+        $line = 14;
+        $art = '=maskInfo.top';
+        ;
+        $p += ($expr = '<%=maskInfo.top%>', $e(maskInfo.top)) + 'px; left: ';
+        $line = 14;
+        $art = '=maskInfo.left';
+        ;
+        $p += ($expr = '<%=maskInfo.left%>', $e(maskInfo.left)) + 'px; height: ';
+        $line = 14;
+        $art = '=maskInfo.height';
+        ;
+        $p += ($expr = '<%=maskInfo.height%>', $e(maskInfo.height)) + 'px; width: ';
+        $line = 14;
+        $art = '=maskInfo.width';
+        ;
+        $p += ($expr = '<%=maskInfo.width%>', $e(maskInfo.width)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-mask"></div>';
+        $line = 16;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $line = 19;
+    $art = 'if settingInfo.show';
+    ;
+    $expr = '<%if (settingInfo.show) {%>';
+    if (settingInfo.show) {
+        ;
+        $p += '<div mxv style="top: ';
+        $line = 20;
+        $art = '=settingInfo.top';
+        ;
+        $p += ($expr = '<%=settingInfo.top%>', $e(settingInfo.top)) + 'px; left: ';
+        $line = 20;
+        $art = '=settingInfo.left';
+        ;
+        $p += ($expr = '<%=settingInfo.left%>', $e(settingInfo.left)) + 'px;" class="_zs_gallery_mx-duration_index_-discount-setting mx-shadow"><div mxv mxa="_zs_gallerybu:b" class="_zs_gallery_mx-duration_index_-setting-content"><div mxa="_zs_gallerybu:c" class="mb10"><span>';
+        $line = 24;
+        $art = '=settingInfo.week';
+        ;
+        $p += ($expr = '<%=settingInfo.week%>', $e(settingInfo.week)) + '</span>：<strong mxa="_zs_gallerybu:d" class="ml5">';
+        $line = 25;
+        $art = '=settingInfo.time';
+        ;
+        $p += ($expr = '<%=settingInfo.time%>', $e(settingInfo.time)) + '</strong></div><div mxv mxa="_zs_gallerybu:e" class="mb5"><label mxv><input type="radio" class="radio" name="settingType" value="1" mx-change="' + $viewId + 'changeSettingType({type:1})" ';
+        $line = 31;
+        $art = 'if settingInfo.type == 1';
+        ;
+        $expr = '<%if (settingInfo.type == 1) {%>';
+        if (settingInfo.type == 1) {
+            ;
+            $p += ' checked="true" ';
+            $line = 31;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '/>自定义：</label>';
+        $line = 33;
+        $art = 'if settingInfo.type == 1';
+        ;
+        $expr = '<%if (settingInfo.type == 1) {%>';
+        if (settingInfo.type == 1) {
+            ;
+            $p += '<input mxe="' + $viewId + '_0" mxc="[';
+            $line = 36;
+            $art = ':settingInfo.discount{required:true,posint:[true,\'范围:30-250的整数\'],min:[30,\'范围:30-250的整数\'],max:[250,\'范围:30-250的整数\']}';
+            ;
+            $p += '{p:\'settingInfo.discount\',f:{required:true,posint:[true,\'范围:30-250的整数\'],min:[30,\'范围:30-250的整数\'],max:[250,\'范围:30-250的整数\']}}]" class="input w100" value="';
+            $line = 35;
+            $art = '=settingInfo.discount';
+            ;
+            $p += ($expr = '<%=settingInfo.discount%>', $e(settingInfo.discount)) + '"/>';
+            $line = 37;
+            $art = 'else';
+            ;
+            $expr = '<%}    else {%>';
+        }
+        else {
+            ;
+            $p += '<input class="input w100" disabled="true" value="';
+            $line = 40;
+            $art = '=settingInfo.discount';
+            ;
+            $p += ($expr = '<%=settingInfo.discount%>', $e(settingInfo.discount)) + '"/>';
+            $line = 41;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '<span mxs="_zs_gallerybu:_" class="ml5">%</span></div><div mxv mxa="_zs_gallerybu:f" class="mb10"><label mxv><input type="radio" name="settingType" class="radio" value="2" mx-change="' + $viewId + 'changeSettingType({type:2})" ';
+        $line = 48;
+        $art = 'if settingInfo.type == 2';
+        ;
+        $expr = '<%if (settingInfo.type == 2) {%>';
+        if (settingInfo.type == 2) {
+            ;
+            $p += ' checked="true" ';
+            $line = 48;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '/>无折扣</label></div><div mxv mxa="_zs_gallerybu:g" class="mb10"><label mxv><input type="radio" name="settingType" class="radio" value="3" mx-change="' + $viewId + 'changeSettingType({type:3})" ';
+        $line = 55;
+        $art = 'if settingInfo.type == 3';
+        ;
+        $expr = '<%if (settingInfo.type == 3) {%>';
+        if (settingInfo.type == 3) {
+            ;
+            $p += ' checked="true" ';
+            $line = 55;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '/>不投放</label></div></div><div mxs="_zs_gallerybu:a" class="_zs_gallery_mx-duration_index_-setting-footer"><a class="btn btn-small btn-brand mr10 w60" href="javascript:;" mx-click="' + $viewId + 'submitSetting()">确定</a><a class="btn btn-small w60" href="javascript:;" mx-click="' + $viewId + 'cancelSetting()">取消</a></div></div>';
+        $line = 64;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '<div class="_zs_gallery_mx-duration_index_-duration clearfix" id="';
+    $line = 66;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_duration" style="width: ';
+    $line = 67;
+    $art = '=(maxWidth)';
+    ;
+    $p += ($expr = '<%=(maxWidth)%>', $e((maxWidth))) + 'px;"><ul class="_zs_gallery_mx-duration_index_-week fl" style="width: ';
+    $line = 68;
+    $art = '=(boxWidth*multiple)';
+    ;
+    $p += ($expr = '<%=(boxWidth * multiple)%>', $e((boxWidth * multiple))) + 'px;"><li class="_zs_gallery_mx-duration_index_-week-item" style="height: ';
+    $line = 69;
+    $art = '=headerHeight+1';
+    ;
+    $p += ($expr = '<%=headerHeight + 1%>', $e(headerHeight + 1)) + 'px; line-height: ';
+    $line = 69;
+    $art = '=headerHeight';
+    ;
+    $p += ($expr = '<%=headerHeight%>', $e(headerHeight)) + 'px;">星期</li>';
+    $line = 70;
+    $art = 'each weeks as week';
+    ;
+    $expr = '<%for (var $art_iazhmvaeng$art_i = 0, $art_cgelskg$art_c = weeks.length; $art_iazhmvaeng$art_i < $art_cgelskg$art_c; $art_iazhmvaeng$art_i++) {    var week = weeks[$art_iazhmvaeng$art_i]%>';
+    for (var $art_iazhmvaeng$art_i = 0, $art_cgelskg$art_c = weeks.length; $art_iazhmvaeng$art_i < $art_cgelskg$art_c; $art_iazhmvaeng$art_i++) {
+        var week = weeks[$art_iazhmvaeng$art_i];
+        $p += '<li class="_zs_gallery_mx-duration_index_-week-item" style="height: ';
+        $line = 71;
+        $art = '=boxHeight';
+        ;
+        $p += ($expr = '<%=boxHeight%>', $e(boxHeight)) + 'px; line-height: ';
+        $line = 71;
+        $art = '=boxHeight';
+        ;
+        $p += ($expr = '<%=boxHeight%>', $e(boxHeight)) + 'px;">';
+        $line = 71;
+        $art = '=week';
+        ;
+        $p += ($expr = '<%=week%>', $e(week)) + '</li>';
+        $line = 72;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</ul><div class="_zs_gallery_mx-duration_index_-content fl" style="width: ';
+    $line = 74;
+    $art = '=boxWidth*rowNum';
+    ;
+    $p += ($expr = '<%=boxWidth * rowNum%>', $e(boxWidth * rowNum)) + 'px;"><ul mxa="_zs_gallerybu:h" class="_zs_gallery_mx-duration_index_-range clearfix">';
+    $line = 76;
+    $art = 'each ranges as range';
+    ;
+    $expr = '<%for (var $art_izbymanzk$art_i = 0, $art_ccuxeild$art_c = ranges.length; $art_izbymanzk$art_i < $art_ccuxeild$art_c; $art_izbymanzk$art_i++) {    var range = ranges[$art_izbymanzk$art_i]%>';
+    for (var $art_izbymanzk$art_i = 0, $art_ccuxeild$art_c = ranges.length; $art_izbymanzk$art_i < $art_ccuxeild$art_c; $art_izbymanzk$art_i++) {
+        var range = ranges[$art_izbymanzk$art_i];
+        $p += '<li class="_zs_gallery_mx-duration_index_-range-item" style="width: ';
+        $line = 77;
+        $art = '=(boxWidth*(rowNum/4))';
+        ;
+        $p += ($expr = '<%=(boxWidth * (rowNum / 4))%>', $e((boxWidth * (rowNum / 4)))) + 'px; height: ';
+        $line = 77;
+        $art = '=headerHeight/2';
+        ;
+        $p += ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px; line-height: ';
+        $line = 77;
+        $art = '=headerHeight/2';
+        ;
+        $p += ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px;">';
+        $line = 77;
+        $art = '=range';
+        ;
+        $p += ($expr = '<%=range%>', $e(range)) + '</li>';
+        $line = 78;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</ul><ul mxa="_zs_gallerybu:i" class="_zs_gallery_mx-duration_index_-time clearfix">';
+    $line = 81;
+    $art = 'for (let i=0;i<24;i+=1)';
+    ;
+    $expr = '<%for (var i = 0; i < 24; i += 1) {%>';
+    for (var i = 0; i < 24; i += 1) {
+        ;
+        $p += '<li class="_zs_gallery_mx-duration_index_-time-item" style="width: ';
+        $line = 82;
+        $art = '=(boxWidth*multiple)';
+        ;
+        $p += ($expr = '<%=(boxWidth * multiple)%>', $e((boxWidth * multiple))) + 'px; height: ';
+        $line = 82;
+        $art = '=headerHeight/2';
+        ;
+        $p += ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px; line-height: ';
+        $line = 82;
+        $art = '=headerHeight/2';
+        ;
+        $p += ($expr = '<%=headerHeight / 2%>', $e(headerHeight / 2)) + 'px;">';
+        $line = 82;
+        $art = '=i';
+        ;
+        $p += ($expr = '<%=i%>', $e(i)) + '</li>';
+        $line = 83;
+        $art = '/for';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</ul><ul mxa="_zs_gallerybu:j" class="_zs_gallery_mx-duration_index_-boxzone clearfix">';
+    $line = 86;
+    $art = 'each boxZones as zone';
+    ;
+    $expr = '<%for (var $art_ivcpedrwi$art_i = 0, $art_ctasmjtil$art_c = boxZones.length; $art_ivcpedrwi$art_i < $art_ctasmjtil$art_c; $art_ivcpedrwi$art_i++) {    var zone = boxZones[$art_ivcpedrwi$art_i]%>';
+    for (var $art_ivcpedrwi$art_i = 0, $art_ctasmjtil$art_c = boxZones.length; $art_ivcpedrwi$art_i < $art_ctasmjtil$art_c; $art_ivcpedrwi$art_i++) {
+        var zone = boxZones[$art_ivcpedrwi$art_i];
+        $p += '<li class="_zs_gallery_mx-duration_index_-box fl" style="width: ';
+        $line = 88;
+        $art = '=boxWidth';
+        ;
+        $p += ($expr = '<%=boxWidth%>', $e(boxWidth)) + 'px; height: ';
+        $line = 88;
+        $art = '=boxHeight';
+        ;
+        $p += ($expr = '<%=boxHeight%>', $e(boxHeight)) + 'px; background-color: ';
+        $line = 88;
+        $art = '=zone.bg';
+        ;
+        $p += ($expr = '<%=zone.bg%>', $e(zone.bg)) + '" mx-click="' + $viewId + 'clickOutside({index:';
+        $line = 89;
+        $art = '=zone.index';
+        ;
+        $p += ($expr = '<%=zone.index%>', $e(zone.index)) + '})" mx-mousedown="' + $viewId + 'select()" mx-mouseover="' + $viewId + 'showTip({index:';
+        $line = 91;
+        $art = '=zone.index';
+        ;
+        $p += ($expr = '<%=zone.index%>', $e(zone.index)) + '})" mx-mouseout="' + $viewId + 'hideTip({index:';
+        $line = 92;
+        $art = '=zone.index';
+        ;
+        $p += ($expr = '<%=zone.index%>', $e(zone.index)) + '})"></li>';
+        $line = 93;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</ul></div></div><div mxs="_zs_gallerybu:b" class="pt10 pb10 clearfix"><a class="btn btn-small mr10 fl" href="javascript:;" mx-click="' + $viewId + 'clear()">清空</a><a class="btn btn-small mr10 fl" href="javascript:;" mx-click="' + $viewId + 'reset()">重置</a><span class="fr lh28 color-c"><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(97,199,242,0.7)"></span><span class="font-tahoma bold color-c mr15">30-100%</span><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(77,166,255,0.7)"></span><span class="font-tahoma bold color-c mr15">100-200%</span><span class="_zs_gallery_mx-duration_index_-circle" style="background-color: rgba(134,115,230,0.7)"></span><span class="font-tahoma bold color-c mr15">200-250%</span><i class="mc-iconfont displacement-2">&#xe705;</i><span class="mr10">可以拖拽鼠标选择投放时段</span></span></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-duration/index.html';
+    throw msg;
+} return $p; },
+    mixins: [Form, Validator],
+    init: function (viewOptions) {
+        var that = this;
+        var half = (/^true$/i).test(viewOptions.half), maxWidth = viewOptions.width || WidthLimit, timeDiscount = viewOptions.selected || Data.none;
+        var gap = 24, columnNum = 7, //一列有多少个格子
+        multiple = half ? 2 : 1; //倍数
+        if (maxWidth && +maxWidth < WidthLimit) {
+            maxWidth = WidthLimit;
+        }
+        var rowNum = gap * multiple, boxWidth = maxWidth / (25 * multiple);
+        var boxLength = rowNum * columnNum;
+        that.updater.set({
+            viewId: that.id,
+            timeDiscount: timeDiscount,
+            weeks: ['一', '二', '三', '四', '五', '六', '日'],
+            ranges: ['00:00 - 06:00', '06:00 - 12:00', '12:00 - 18:00', '18:00 - 24:00'],
+            multiple: multiple,
+            maxWidth: maxWidth,
+            rowNum: rowNum,
+            columnNum: columnNum,
+            headerHeight: 60,
+            boxWidth: boxWidth,
+            boxHeight: 40,
+            boxLength: boxLength,
+            boxZones: that.getBoxzone(boxLength),
+            valid: '',
+            maskInfo: {
+                show: false,
+                left: 0,
+                top: 0,
+                width: 0,
+                height: 0,
+                startRow: 0,
+                endRow: 0,
+                startColumn: 0,
+                endColumn: 0,
+                selectedZones: []
+            },
+            settingInfo: {
+                show: false,
+                week: '',
+                time: '',
+                discount: '',
+                type: 1 //1自定义 2无折扣 3不投放
+            },
+            hoverInfo: {
+                show: false,
+                left: 0,
+                top: 0,
+                week: '',
+                time: '',
+                discount: ''
+            }
+        });
+        that.discountColorMap = that.getColorMap();
+        that.on('destroy', function () {
+            $(document.body).off('mousemove.duration');
+            $(document.body).off('mouseup.duration');
+            clearTimeout(that.hoverTimeout);
+            clearTimeout(that.hideTimeout);
+        });
+    },
+    render: function () {
+        var that = this;
+        var updater = that.updater;
+        var timeDiscount = updater.get('timeDiscount'), boxLength = updater.get('boxLength');
+        var array = that.report2Array(timeDiscount);
+        for (var i = 0; i < boxLength; i++) {
+            that.setBoxDiscount(i, array[i]);
+        }
+        that.updater.digest();
+        that.wrapper = $('#' + that.id + '_duration');
+    },
+    /**
+     * 提交格式转化为数组，半小时一格
+     * 00:00-24:00:100;
+     * 00:00-01:00:100,01:00-14:00:120,14:00-21:00:70,21:00-24:00:200;
+     * 00:00-24:00:100......
+     */
+    report2Array: function (report) {
+        var array = [];
+        var that = this;
+        var updater = that.updater;
+        var rowNum = updater.get('rowNum'), multiple = updater.get('multiple');
+        var arr = report.split(';'); // ;分隔天的内容
+        for (var i = 0, aLen = arr.length; i < aLen; i++) {
+            var list = arr[i].split(','); // ,分隔一天内时段的内容
+            for (var j = 0, lLen = list.length; j < lLen; j++) {
+                if (list[j] == '0') {
+                    continue;
+                }
+                var darray = list[j].match(/(\d{2}):(\d{2})-(\d{2}):(\d{2}):(\d+)/);
+                // for (let t = 1; t <= 5; t++) {
+                //     darray[t] = parseInt(darray[t]);
+                // }
+                // 00:00-24:00:100
+                // 分解成['00:00-24:00:100', '00', '00', '24', '00', '100']
+                //i表示星期几，第几行
+                var start = parseInt(darray[1]) * multiple + rowNum * i;
+                if (darray[2] == '30') {
+                    start++;
+                }
+                var end = parseInt(darray[3]) * multiple + rowNum * i;
+                if (darray[4] == '30') {
+                    end++;
+                }
+                var discount = parseInt(darray[5]);
+                for (var index = start; index <= end - 1; index++) {
+                    array[index] = discount;
+                }
+            }
+        }
+        return array;
+    },
+    /**
+     * 将时段设置成对应的折扣值及颜色
+     */
+    setBoxDiscount: function (index, discount) {
+        var that = this;
+        discount = parseInt(discount) || 0;
+        var background = this.discountColorMap[discount];
+        var boxZones = that.updater.get('boxZones');
+        boxZones[index].bg = background;
+        boxZones[index].discount = discount;
+        that.updater.set({
+            boxZones: boxZones
+        });
+    },
+    /**
+     * 时段选择
+     */
+    'select<mousedown>': function (downEvent) {
+        downEvent.preventDefault();
+        var that = this;
+        var updater = that.updater;
+        var hoverInfo = updater.get('hoverInfo'), settingInfo = updater.get('settingInfo'), maskInfo = updater.get('maskInfo'), boxWidth = updater.get('boxWidth'), multiple = updater.get('multiple'), headerHeight = updater.get('headerHeight');
+        hoverInfo.show = false;
+        settingInfo.show = false;
+        var wrapper = that.wrapper;
+        var wrapperLeft = wrapper.offset().left, wrapperTop = wrapper.offset().top;
+        var startX = downEvent.pageX - wrapperLeft;
+        var startY = downEvent.pageY - wrapperTop;
+        $(document.body).off('mousemove.duration')
+            .on('mousemove.duration', function (moveEvent) {
+            moveEvent.preventDefault();
+            var diffX = moveEvent.pageX - wrapperLeft;
+            var diffY = moveEvent.pageY - wrapperTop;
+            var endX = Math.min(diffX, wrapper.outerWidth());
+            var endY = Math.min(diffY, wrapper.outerHeight());
+            var left = Math.max(boxWidth * multiple, Math.min(startX, endX)), top = Math.max(headerHeight, Math.min(startY, endY));
+            maskInfo.left = left;
+            maskInfo.top = top + 1;
+            maskInfo.width = Math.max(startX, endX) - left;
+            maskInfo.height = Math.max(startY, endY) - top;
+            maskInfo.show = true;
+            that.updater.digest({
+                hoverInfo: hoverInfo,
+                settingInfo: settingInfo,
+                maskInfo: maskInfo
+            });
+        });
+        $(document.body).off('mouseup.duration')
+            .on('mouseup.duration', function (upEvent) {
+            if (!maskInfo.show) {
+                return;
+            }
+            upEvent.preventDefault();
+            $(document.body).off('mousemove.duration');
+            that.selectEnd();
+            $(document.body).off('mouseup.duration');
+        });
+    },
+    selectEnd: function (indexStart) {
+        var that = this;
+        var updater = that.updater;
+        var maskInfo = updater.get('maskInfo'), headerHeight = updater.get('headerHeight'), boxHeight = updater.get('boxHeight'), boxWidth = updater.get('boxWidth'), multiple = updater.get('multiple'), columnNum = updater.get('columnNum'), rowNum = updater.get('rowNum');
+        // 从0开始
+        var row1 = parseInt((maskInfo.top - headerHeight) / boxHeight);
+        var row2 = parseInt((maskInfo.height + maskInfo.top - headerHeight) / boxHeight);
+        var column1 = parseInt((maskInfo.left - boxWidth * multiple) / boxWidth);
+        var column2 = parseInt((maskInfo.width + maskInfo.left - boxWidth * multiple) / boxWidth);
+        var startRow = Math.max(0, row1);
+        var endRow = Math.min(columnNum - 1, row2);
+        var startColumn = Math.max(0, column1);
+        var endColumn = Math.min(rowNum - 1, column2);
+        var selected = [];
+        for (var i = startRow; i <= endRow; i++) {
+            for (var j = startColumn; j <= endColumn; j++) {
+                selected.push(i * rowNum + j);
+            }
+        }
+        maskInfo.selectedZones = selected;
+        maskInfo.startRow = startRow;
+        maskInfo.endRow = endRow;
+        maskInfo.startColumn = startColumn;
+        maskInfo.endColumn = endColumn;
+        maskInfo.left = boxWidth * multiple + startColumn * boxWidth;
+        maskInfo.top = headerHeight + startRow * boxHeight + 1;
+        maskInfo.width = (endColumn - startColumn + 1) * boxWidth;
+        maskInfo.height = (endRow - startRow + 1) * boxHeight;
+        maskInfo.show = true;
+        that.showSetting();
+    },
+    /**
+     * 选中情况下点击其他区域隐藏选中区域
+     * @param  {[type]} event [description]
+     * @return {[type]}       [description]
+     */
+    'clickOutside<click>': function (event) {
+        var that = this;
+        var index = +event.params.index;
+        var maskInfo = that.updater.get('maskInfo');
+        if (!maskInfo.show ||
+            (maskInfo.show && maskInfo.selectedZones.indexOf(index) > -1)) {
+            return;
+        }
+        event.preventDefault();
+        $(document.body).off('mousemove.duration');
+        $(document.body).off('mouseup.duration');
+        $(document.body).off('click.duration');
+        that['cancelSetting<click>']();
+    },
+    'changeSettingType<change>': function (event) {
+        var that = this;
+        var updater = that.updater;
+        var settingInfo = updater.get('settingInfo');
+        settingInfo.type = event.params.type;
+        updater.digest({
+            settingInfo: settingInfo
+        });
+    },
+    'submitSetting<click>': function () {
+        var that = this;
+        var updater = that.updater;
+        var src = updater.get();
+        var settingInfo = src.settingInfo, maskInfo = src.maskInfo;
+        var discount = 0;
+        var valid = true;
+        switch (+settingInfo.type) {
+            case 1://自定义
+                valid = that.isValid();
+                var result = that.fromKeys(src, 'settingInfo');
+                discount = result.settingInfo.discount;
+                break;
+            case 2://无折扣
+                discount = 100;
+                break;
+            case 3://不投放
+                discount = 0;
+                break;
+        }
+        if (!valid) {
+            return;
+        }
+        settingInfo.show = false;
+        settingInfo.type = 1;
+        maskInfo.show = false;
+        for (var i = 0; i < maskInfo.selectedZones.length; i++) {
+            that.setBoxDiscount(maskInfo.selectedZones[i], discount);
+        }
+        that.updater.digest({
+            settingInfo: settingInfo,
+            maskInfo: maskInfo
+        });
+    },
+    'cancelSetting<click>': function () {
+        var that = this;
+        var updater = that.updater;
+        var settingInfo = updater.get('settingInfo'), maskInfo = updater.get('maskInfo');
+        maskInfo.show = false;
+        settingInfo.show = false;
+        settingInfo.type = 1;
+        that.updater.digest({
+            settingInfo: settingInfo,
+            maskInfo: maskInfo
+        });
+    },
+    showSetting: function () {
+        var that = this;
+        var updater = that.updater;
+        var settingInfo = updater.get('settingInfo'), maskInfo = updater.get('maskInfo'), boxZones = updater.get('boxZones');
+        var startweek = maskInfo.startRow + 1;
+        var endweek = maskInfo.endRow + 1;
+        var week;
+        if (startweek != endweek) {
+            week = that.formatweek(startweek) + ' - ' + that.formatweek(endweek);
+        }
+        else {
+            week = that.formatweek(startweek);
+        }
+        settingInfo.week = week;
+        settingInfo.time = that.getDuration(maskInfo.startColumn, maskInfo.endColumn + 1, '%s - %s');
+        var selectedZones = maskInfo.selectedZones;
+        var lastDiscount;
+        var isSame = true;
+        for (var i = 0; i < selectedZones.length; i++) {
+            var index = selectedZones[i];
+            var tempDiscount = boxZones[index].discount;
+            if (!tempDiscount || (lastDiscount && tempDiscount != lastDiscount)) {
+                isSame = false;
+                break;
+            }
+            lastDiscount = tempDiscount;
+        }
+        settingInfo.discount = isSame ? lastDiscount : '';
+        var settingInfoWidth = 260;
+        var settingInfoHeight = 238;
+        var wrapperWdith = that.wrapper.outerWidth();
+        var wrapperHeight = that.wrapper.outerHeight();
+        var left = (maskInfo.left + maskInfo.width / 2);
+        if (left + settingInfoWidth > wrapperWdith) {
+            left -= settingInfoWidth;
+        }
+        var top = (maskInfo.top + maskInfo.height / 2);
+        if (top + settingInfoHeight > wrapperHeight + 100) {
+            top -= settingInfoHeight;
+        }
+        settingInfo.left = left;
+        settingInfo.top = top;
+        settingInfo.show = true;
+        that.updater.digest({
+            boxZones: boxZones,
+            settingInfo: settingInfo,
+            maskInfo: maskInfo
+        });
+    },
+    /**
+     * 鼠标hover时段tip
+     */
+    'showTip<mouseover>': function (event) {
+        if (Magix.inside(event.relatedTarget, event.eventTarget)) {
+            return;
+        }
+        var that = this;
+        clearTimeout(that.hoverTimeout);
+        clearTimeout(that.hideTimeout);
+        var updater = that.updater;
+        var settingInfo = updater.get('settingInfo'), maskInfo = updater.get('maskInfo');
+        if (maskInfo.show || settingInfo.show) {
+            return;
+        }
+        var boxWidth = updater.get('boxWidth'), boxHeight = updater.get('boxHeight'), headerHeight = updater.get('headerHeight'), rowNum = updater.get('rowNum'), hoverInfo = updater.get('hoverInfo'), boxZones = updater.get('boxZones');
+        that.hoverTimeout = setTimeout(function () {
+            var index = parseInt(event.params.index);
+            var left = boxWidth + (index % rowNum + 1) * boxWidth;
+            var top = headerHeight + (parseInt(index / rowNum) + 1) * boxHeight;
+            var week = that.formatweek(parseInt(index / rowNum) + 1);
+            var time = that.getDuration(index, index + 1, '%s - %s');
+            var discount = boxZones[index].discount;
+            hoverInfo.left = left;
+            hoverInfo.top = top;
+            hoverInfo.week = week;
+            hoverInfo.time = time;
+            hoverInfo.discount = discount;
+            hoverInfo.show = true;
+            updater.digest({
+                hoverInfo: hoverInfo
+            });
+        }, 200);
+    },
+    'hideTip<mouseout>': function (event) {
+        if (Magix.inside(event.relatedTarget, event.eventTarget)) {
+            return;
+        }
+        var that = this;
+        clearTimeout(that.hoverTimeout);
+        clearTimeout(that.hideTimeout);
+        var updater = that.updater;
+        that.hideTimeout = setTimeout(function () {
+            var hoverInfo = updater.get('hoverInfo');
+            hoverInfo.show = false;
+            that.updater.digest({
+                hoverInfo: hoverInfo
+            });
+        }, 200);
+    },
+    /**
+     * 重置
+     */
+    'reset<click>': function (event) {
+        var that = this;
+        var updater = that.updater;
+        var boxLength = updater.get('boxLength');
+        for (var i = 0; i < boxLength; i++) {
+            that.setBoxDiscount(i, 100);
+        }
+        that.updater.digest();
+    },
+    /**
+     * 清空
+     */
+    'clear<click>': function (event) {
+        var that = this;
+        var updater = that.updater;
+        var boxLength = updater.get('boxLength');
+        for (var i = 0; i < boxLength; i++) {
+            that.setBoxDiscount(i, 0);
+        }
+        that.updater.digest();
+    },
+    array2Report: function (array) {
+        var that = this;
+        var updater = that.updater;
+        var columnNum = updater.get('columnNum'), rowNum = updater.get('rowNum'), multiple = updater.get('multiple');
+        var result = [];
+        for (var row = 0; row < columnNum; row++) {
+            result[row] = 0;
+            var rowDatas = [];
+            for (var column = 0; column < rowNum; column++) {
+                var index = row * rowNum + column;
+                var discount = array[index];
+                if (!discount) {
+                    continue;
+                }
+                var last = rowDatas[rowDatas.length - 1];
+                if (last && last.discount == discount && last.end == column) {
+                    last.end = column + 1;
+                }
+                else {
+                    rowDatas.push({
+                        start: column,
+                        end: column + 1,
+                        discount: discount
+                    });
+                }
+            }
+            var rowStrs = rowDatas.map(function (r) {
+                return that.getDuration(r.start, r.end) + ':' + r.discount;
+            });
+            if (rowStrs && rowStrs.length > 0) {
+                result[row] = rowStrs.join(',');
+            }
+        }
+        return result.join(';');
+    },
+    submit: function () {
+        var that = this;
+        var boxZones = that.updater.get('boxZones');
+        var discounts = boxZones.map(function (zone) {
+            return zone.discount;
+        });
+        var timeDiscount = that.array2Report(discounts);
+        if (timeDiscount == Data.none) {
+            return {
+                ok: false
+            };
+        }
+        else {
+            return {
+                ok: true,
+                val: timeDiscount
+            };
+        }
+    },
+    update: function (timeDiscount) {
+        var that = this;
+        var _a = that.updater.get(), timeDiscount = _a.timeDiscount, boxLength = _a.boxLength;
+        var array = that.report2Array(timeDiscount);
+        for (var i = 0; i < boxLength; i++) {
+            that.setBoxDiscount(i, array[i]);
+        }
+    },
+    formatweek: function (week) {
+        return '星期' + ['日', '一', '二', '三', '四', '五', '六'][week % 7];
+    },
+    getDuration: function (start, end, format) {
+        var rowNum = this.updater.get('rowNum');
+        var startStr = this.getTimeFromNum(start);
+        var endStr = '';
+        if (end % rowNum == 0) {
+            endStr = '24:00';
+        }
+        else {
+            endStr = this.getTimeFromNum(end);
+        }
+        var str = startStr + '-' + endStr;
+        if (format) {
+            str = format.replace('%s', startStr).replace('%s', endStr);
+        }
+        return str;
+    },
+    getTimeFromNum: function (num) {
+        var that = this;
+        var _a = that.updater.get(), rowNum = _a.rowNum, multiple = _a.multiple;
+        var h = Math.floor((num % rowNum) / multiple);
+        if ((h + '').length == 1) {
+            h = '0' + h;
+        }
+        var m = ((num % rowNum) % multiple == 1) ? '30' : '00';
+        return h + ':' + m;
+    },
+    getBoxzone: function (boxLength) {
+        var boxzone = []; //可选择范围
+        for (var i = 0; i < boxLength; i++) {
+            boxzone.push({
+                index: i,
+                bg: '#ffffff',
+                discount: 0
+            });
+        }
+        ;
+        return boxzone;
+    },
+    getColorMap: function (discount) {
+        var min = 0;
+        var max = 250;
+        var map = {
+            '[0,1)': '#ffffff',
+            '[30,40)': 'rgba(97,199,242,0.05)',
+            '[40,50)': 'rgba(97,199,242,0.1)',
+            '[50,60)': 'rgba(97,199,242,0.15)',
+            '[60,70)': 'rgba(97,199,242,0.2)',
+            '[70,80)': 'rgba(97,199,242,0.25)',
+            '[80,90)': 'rgba(97,199,242,0.3)',
+            '[90,100)': 'rgba(97,199,242,0.35)',
+            '[100,101)': 'rgba(97,199,242,0.4)',
+            '[101,110)': 'rgba(77,166,255,0.15)',
+            '[110,120)': 'rgba(77,166,255,0.2)',
+            '[120,130)': 'rgba(77,166,255,0.25)',
+            '[130,140)': 'rgba(77,166,255,0.3)',
+            '[140,150)': 'rgba(77,166,255,0.35)',
+            '[150,160)': 'rgba(77,166,255,0.4)',
+            '[160,170)': 'rgba(77,166,255,0.45)',
+            '[170,180)': 'rgba(77,166,255,0.5)',
+            '[180,190)': 'rgba(77,166,255,0.55)',
+            '[190,200)': 'rgba(77,166,255,0.6)',
+            '[200,210)': 'rgba(134,115,230,0.3)',
+            '[210,220)': 'rgba(134,115,230,0.35)',
+            '[220,230)': 'rgba(134,115,230,0.4)',
+            '[230,240)': 'rgba(134,115,230,0.45)',
+            '[240,250)': 'rgba(134,115,230,0.5)',
+            '[250,251)': 'rgba(134,115,230,0.55)'
+        };
+        var discountColorMap = {};
+        for (var i = min; i <= max; i++) {
+            discountColorMap[i] = '#ffffff';
+            for (var k in map) {
+                var range = k.substring(1, k.length - 1).split(',');
+                var rangeMin = range[0];
+                var rangeMax = range[1];
+                if (i >= rangeMin && i < rangeMax) {
+                    discountColorMap[i] = map[k];
+                    break;
+                }
+            }
+        }
+        return discountColorMap;
+    }
+});
+
+});

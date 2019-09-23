@@ -66,8 +66,9 @@ module.exports = Magix.View.extend({
         // 跑马灯平滑轮播
         // 复制第一个节点和最后一个节点
         // panel1, panel2, panel3 转成 panel3, panel1, panel2, panel3, panel1
-        let firstClone = $(children[0]).clone().attr('data-carousel-clone', true),
-            lastClone = $(children[len - 1]).clone().attr('data-carousel-clone', true);
+        let firstClone = that['@{clone}'](children[0]),
+            lastClone = that['@{clone}'](children[len - 1]);
+
         node.prepend(lastClone).append(firstClone);
 
         // 修正active
@@ -103,6 +104,21 @@ module.exports = Magix.View.extend({
                 that['@{over.timer}'] = setTimeout(that.wrapAsync(that['@{start.auto.play}'], that), 50);
             });
         }
+    },
+
+    /**
+     * 避免id重复
+     */
+    '@{clone}'(node) {
+        let cloneNode = $(node).clone(true).attr('data-carousel-clone', true)
+        let children = cloneNode.find('*');
+        for (let i = 0; i < children.length; i++) {
+            let child = children[i];
+            if (child.id) {
+                child.id = child.id + '_clone';
+            }
+        }
+        return cloneNode;
     },
 
     '@{update.stage.size}'() {
