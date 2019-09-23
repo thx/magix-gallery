@@ -37,7 +37,7 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-tabs：支持带icon，<a href="#!/tabs/index?highlightId=mx_12_demo11" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-dialog：增加 mxLoginView 规范登陆框的弹出样式，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
+                    title: 'mx-dialog：增加 mxLoginView 规范登录框的弹出样式，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
@@ -46,7 +46,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-header：兼容bp的导航使用情况，支持展示用户登录信息包括登陆登出操作，支持右侧自定义view，支持二级菜单，支持配置吸顶，<a href="#!/header/index" class="color-brand">点击查看</a>'
+                    title: 'mx-header：兼容bp的导航使用情况，支持展示用户登录信息包括登录登出操作，支持右侧自定义view，支持二级菜单，支持配置吸顶，<a href="#!/header/index" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-btn：支持loading btn，<a href="#!/btn/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
                 }, {

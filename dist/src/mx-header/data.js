@@ -12,24 +12,26 @@ module.exports = {
             "seconds": [{
                     "title": "营销平台",
                     "thirds": [{
-                            "name": "Uni Desk",
-                            "link": "https://unidesk.taobao.com/"
-                        }, {
                             "name": "淘宝直通车",
                             "link": "https://zhitongche.taobao.com/"
                         }, {
                             "name": "智钻",
                             "link": "https://zuanshi.taobao.com/"
                         }, {
+                            "name": "超级推荐",
+                            "link": "https://tuijian.taobao.com/"
+                        }, {
                             "name": "淘宝客",
                             "link": "https://ad.alimama.com/"
                         }, {
                             "name": "品销宝",
                             "link": "https://branding.taobao.com/"
-                        },
-                        {
+                        }, {
                             "name": "达摩盘",
                             "link": "https://dmp.taobao.com/"
+                        }, {
+                            "name": "Uni Desk",
+                            "link": "https://unidesk.taobao.com/"
                         }]
                 }, {
                     "title": "媒体合作",
@@ -51,6 +53,9 @@ module.exports = {
                         }, {
                             "name": "规则中心",
                             "link": "https://rule.alimama.com/"
+                        }, {
+                            "name": "营销拍档",
+                            "link": "https://newamp.taobao.com/"
                         }]
                 }]
         }]

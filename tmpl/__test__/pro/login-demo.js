@@ -6,7 +6,7 @@ Magix.applyStyle('@login-demo.less');
 module.exports = Base.extend({
     tmpl: '@login-demo.html',
     render() {
-        // 登陆成功回跳页面
+        // 登录成功回跳页面
         let forward = window.location.origin + '/indexbp.html';
         let params = [
             'redirectURL=' + encodeURIComponent(forward),

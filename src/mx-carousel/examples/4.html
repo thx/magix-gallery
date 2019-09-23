@@ -7,13 +7,17 @@
                 <div>自定义轮播点dot-class</div>
             </div>
         </div>
+        <div class="mb20 clearfix">
+            <div class="color-9 fl">注意：</div>
+            <div class="fl">Magix支持@$(className)直接使用一个样式</div>
+        </div>
         <div class="clearfix mb40">
             <div class="wrapper">
                 <mx-carousel height="100" 
                     prev-trigger="{{=viewId}}_prev"
                     next-trigger="{{=viewId}}_next"
                     dot-type="dot-out-center"
-                    dot-class="{{=dotClass}}">
+                    dot-class="@$(dot)">
                     <mx-carousel.panel class="clearfix">
                         <div class="bg">1</div>
                         <div class="bg">2</div>
@@ -45,7 +49,7 @@
         prev-trigger="&#123;&#123;=viewId&#125;&#125;_prev"
         next-trigger="&#123;&#123;=viewId&#125;&#125;_next"
         dot-type="dot-out-center"
-        dot-class="&#123;&#123;=dotClass&#125;&#125;"&gt;
+        dot-class="@$(dot)"&gt;
         &lt;mx-carousel.panel class="clearfix"&gt;
             &lt;div class="bg"&gt;1&lt;/div&gt;
             &lt;div class="bg"&gt;2&lt;/div&gt;

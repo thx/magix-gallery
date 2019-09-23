@@ -232,8 +232,8 @@ catch (ex) {
             // 存在非手动关闭浮层的情况，比如浮层中有一个按钮从本页面跳走
             // 这时候需要关闭浮层
             $('#' + me.id).trigger('dlg_close');
-            if (me['@{search.timer}']) {
-                clearTimeout(me['@{search.timer}']);
+            if (me['@{resize.timer}']) {
+                clearTimeout(me['@{resize.timer}']);
             }
         });
         DialogZIndex += 2;
@@ -364,10 +364,10 @@ catch (ex) {
     },
     '$win<resize>': function (e) {
         var me = this;
-        if (me['@{search.timer}']) {
-            clearTimeout(me['@{search.timer}']);
+        if (me['@{resize.timer}']) {
+            clearTimeout(me['@{resize.timer}']);
         }
-        me['@{search.timer}'] = setTimeout(me.wrapAsync(function () {
+        me['@{resize.timer}'] = setTimeout(me.wrapAsync(function () {
             me['@{sync.style}']();
         }), 200);
     }
@@ -511,8 +511,8 @@ catch (ex) {
         }, (dialogOptions || {})));
     },
     /**
-     * 弹出登陆框，规范登陆框的弹出样式
-     * 宽度350，高度368（淘宝登陆框312，要求至少340，对称368）
+     * 弹出登录框，规范登录框的弹出样式
+     * 宽度350，高度368（淘宝登录框312，要求至少340，对称368）
      */
     mxLoginView: function (viewPath, viewOptions) {
         return this.mxDialog('mx-dialog/login', {

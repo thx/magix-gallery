@@ -11,7 +11,7 @@ module.exports = Base.extend({
     },
     'show<click>'(e) {
         // this.mxLoginView(viewPath[, viewOptions])
-        // viewPath：登陆框view
+        // viewPath：登录框view
         // viewOptions：object，带入viewPath的参数
         this.mxLoginView('@../../mx-header/examples/login')
     }

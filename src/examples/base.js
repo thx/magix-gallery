@@ -485,7 +485,7 @@ module.exports = Magix.View.extend({
                     tip: '<a href="http://data.alimama.net/" target="_blank" rel="noopener noreferrer" class="color-brand">http://data.alimama.net/</a>，接口人<a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=y8e7um3" class="ml5"><i class="mc-iconfont color-brand fontsize-18 displacement-2">&#xe677;</i>浩添</a>',
                     path: '/all/pro/data'
                 }, {
-                    name: '淘宝登陆框接入',
+                    name: '淘宝登录框接入',
                     tip: '接入文档<a rel="noopener noreferrer" href="https://lark.alipay.com/up/login-doc/xvgy82" target="_blank" class="link-brand">https://lark.alipay.com/up/login-doc/xvgy82</a>',
                     path: '/all/pro/login'
                 }, {

@@ -140,12 +140,12 @@ catch (ex) {
                 def: 'true'
             }, {
                 key: 'user',
-                desc: '登陆的用户名称，有该值认为已登录，否则未登录，login=true时必有',
+                desc: '登录的用户名称，有该值认为已登录，否则未登录，login=true时必有',
                 type: 'string',
                 def: ''
             }, {
                 key: 'login-view',
-                desc: '未登录时点击登陆弹出的淘宝登陆框view，350*340，login=true时必有',
+                desc: '未登录时点击登录弹出的淘宝登录框view，350*340，login=true时必有',
                 type: 'string',
                 def: ''
             }, {

@@ -24,29 +24,27 @@ module.exports = Magix.View.extend({
         let wrapperId = ops.wrapper || '';
         let wrapper = wrapperId ? $('#' + wrapperId) : $(window);
 
-        let width = ops.width || 1200;
         let navs = ops.navs || [];
         let dark = (ops.dark + '' !== 'false'); //默认是true
         let links = (ops.links + '' !== 'false'); //是否需要顶部外链信息，默认是true
-        let login = (ops.login + '' !== 'false'); //是否需要显示登陆信息，默认是true
-        let height;
+        let login = (ops.login + '' !== 'false'); //是否需要显示登录信息，默认是true
+        let height,
+            width = +ops.width;
         if (dark) {
             // 历史使用方式兼容
             // 黑底色版必有外链，外链处不显示用户信息
             links = true;
             login = false;
-            height = 88
+            height = 88;
+            if(!width){
+                width = wrapper.outerWidth() - 120;
+            }
         } else {
             // 白底版本
             height = 100;
         }
         if (!links) {
             height -= 50;
-        }
-
-        let maxWidth = wrapper.outerWidth();
-        if (+width > (maxWidth - 40)) {
-            width = maxWidth - 40;
         }
 
         //默认不选中任何一个导航，表示选中的一级导航
@@ -85,7 +83,7 @@ module.exports = Magix.View.extend({
             child,
             dark,
             login,
-            loginView: ops.loginView || '',  //登陆页面
+            loginView: ops.loginView || '',  //登录页面
             user: ops.user || '',
             logoutUrl: ops.logoutUrl || '',  //退出接口
             links,
@@ -120,13 +118,13 @@ module.exports = Magix.View.extend({
 
         let { wrapperId, links, ceiling } = that.updater.get();
         let wrapper = that['@{wrapper}'];
-        let maxWidth = wrapper.outerWidth();
         let scrollFn = () => {
             let others = $('#' + that.id + ' .@index.less:others');
             let otherHeight = 0;
             if (others.length > 0) {
                 otherHeight = others.outerHeight()
             }
+            let maxWidth = wrapper.outerWidth();
             let scrollTop = wrapper.scrollTop();
             let styles = [
                 'width:' + maxWidth + 'px',

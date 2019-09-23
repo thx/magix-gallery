@@ -52,7 +52,7 @@ module.exports = Base.extend({
     $line = 43;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        // 登陆成功回跳页面\n        let forward = window.location.origin + \'/indexbp.html\';\n        let params = [\n            \'redirectURL=\' + encodeURIComponent(forward),\n            \'style=mini\',\n            \'css_style=dingxiang\', //css_style为主站那边给定的样式约定值\n            \'full_redirect=true\',\n            \'newMini2=true\',\n            \'enup=0\',\n            \'qrlogin=1\',\n            \'keyLogin=true\'\n        ]\n        let taobaoHost = !!~window.location.host.indexOf(\'daily\') ? \'login.daily.taobao.net\' : \'login.taobao.com\';\n        let src = \'https://\' + taobaoHost + \'/member/login.jhtml?\' + params.join(\'&\');\n\n        this.updater.digest(&#123;\n            src\n        &#125;);\n\n    &#125;\n&#125;);</pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        // 登录成功回跳页面\n        let forward = window.location.origin + \'/indexbp.html\';\n        let params = [\n            \'redirectURL=\' + encodeURIComponent(forward),\n            \'style=mini\',\n            \'css_style=dingxiang\', //css_style为主站那边给定的样式约定值\n            \'full_redirect=true\',\n            \'newMini2=true\',\n            \'enup=0\',\n            \'qrlogin=1\',\n            \'keyLogin=true\'\n        ]\n        let taobaoHost = !!~window.location.host.indexOf(\'daily\') ? \'login.daily.taobao.net\' : \'login.taobao.com\';\n        let src = \'https://\' + taobaoHost + \'/member/login.jhtml?\' + params.join(\'&\');\n\n        this.updater.digest(&#123;\n            src\n        &#125;);\n\n    &#125;\n&#125;);</pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -63,7 +63,7 @@ catch (ex) {
     throw msg;
 } return $p; },
     render: function () {
-        // 登陆成功回跳页面
+        // 登录成功回跳页面
         var forward = window.location.origin + '/indexbp.html';
         var params = [
             'redirectURL=' + encodeURIComponent(forward),

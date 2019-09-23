@@ -39,7 +39,7 @@ catch (ex) {
         // extra.data
     },
     render: function () {
-        // 登陆成功回跳页面
+        // 登录成功回跳页面
         var forward = window.location.origin + '/indexbp.html';
         var params = [
             'redirectURL=' + encodeURIComponent(forward),

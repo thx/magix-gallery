@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_imrvmgiwo$art_i = 0, $art_czarbxdrh$art_c = list.length; $art_imrvmgiwo$art_i < $art_czarbxdrh$art_c; $art_imrvmgiwo$art_i++) {    var item = list[$art_imrvmgiwo$art_i]%>';
-    for (var $art_imrvmgiwo$art_i = 0, $art_czarbxdrh$art_c = list.length; $art_imrvmgiwo$art_i < $art_czarbxdrh$art_c; $art_imrvmgiwo$art_i++) {
-        var item = list[$art_imrvmgiwo$art_i];
+    $expr = '<%for (var $art_iuqrjscoplk$art_i = 0, $art_cnbmbltpm$art_c = list.length; $art_iuqrjscoplk$art_i < $art_cnbmbltpm$art_c; $art_iuqrjscoplk$art_i++) {    var item = list[$art_iuqrjscoplk$art_i]%>';
+    for (var $art_iuqrjscoplk$art_i = 0, $art_cnbmbltpm$art_c = list.length; $art_iuqrjscoplk$art_i < $art_cnbmbltpm$art_c; $art_iuqrjscoplk$art_i++) {
+        var item = list[$art_iuqrjscoplk$art_i];
         $p += '<div mxa="_zs_galleryP:_" class="_zs_gallery_examples_update_-update"><div mxa="_zs_galleryP:a" class="_zs_gallery_examples_update_-ver pl20"><span mxa="_zs_galleryP:b" class="_zs_gallery_examples_update_-vt">';
         $line = 5;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 10;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_ihcrqtdfsmn$art_i = 0, $art_objmehrjho$art_obj = item.subs, $art_cstybqxtghf$art_c = $art_objmehrjho$art_obj.length; $art_ihcrqtdfsmn$art_i < $art_cstybqxtghf$art_c; $art_ihcrqtdfsmn$art_i++) {        var s = $art_objmehrjho$art_obj[$art_ihcrqtdfsmn$art_i]%>';
-        for (var $art_ihcrqtdfsmn$art_i = 0, $art_objmehrjho$art_obj = item.subs, $art_cstybqxtghf$art_c = $art_objmehrjho$art_obj.length; $art_ihcrqtdfsmn$art_i < $art_cstybqxtghf$art_c; $art_ihcrqtdfsmn$art_i++) {
-            var s = $art_objmehrjho$art_obj[$art_ihcrqtdfsmn$art_i];
+        $expr = '<%for (var $art_irunlwxrk$art_i = 0, $art_objnukkmfrzp$art_obj = item.subs, $art_cffeuti$art_c = $art_objnukkmfrzp$art_obj.length; $art_irunlwxrk$art_i < $art_cffeuti$art_c; $art_irunlwxrk$art_i++) {        var s = $art_objnukkmfrzp$art_obj[$art_irunlwxrk$art_i]%>';
+        for (var $art_irunlwxrk$art_i = 0, $art_objnukkmfrzp$art_obj = item.subs, $art_cffeuti$art_c = $art_objnukkmfrzp$art_obj.length; $art_irunlwxrk$art_i < $art_cffeuti$art_c; $art_irunlwxrk$art_i++) {
+            var s = $art_objnukkmfrzp$art_obj[$art_irunlwxrk$art_i];
             $p += '<div mxa="_zs_galleryP:e" class="pl20">';
             $line = 12;
             $art = 'if s.type == \'notice\'';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
             $line = 33;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_iqrcjgxb$art_i = 0, $art_objpqutnaofjre$art_obj = s.subs, $art_cujzhuih$art_c = $art_objpqutnaofjre$art_obj.length; $art_iqrcjgxb$art_i < $art_cujzhuih$art_c; $art_iqrcjgxb$art_i++) {            var ss = $art_objpqutnaofjre$art_obj[$art_iqrcjgxb$art_i]%>';
-            for (var $art_iqrcjgxb$art_i = 0, $art_objpqutnaofjre$art_obj = s.subs, $art_cujzhuih$art_c = $art_objpqutnaofjre$art_obj.length; $art_iqrcjgxb$art_i < $art_cujzhuih$art_c; $art_iqrcjgxb$art_i++) {
-                var ss = $art_objpqutnaofjre$art_obj[$art_iqrcjgxb$art_i];
+            $expr = '<%for (var $art_ispnbzkafe$art_i = 0, $art_objzxybyh$art_obj = s.subs, $art_cpiomlybf$art_c = $art_objzxybyh$art_obj.length; $art_ispnbzkafe$art_i < $art_cpiomlybf$art_c; $art_ispnbzkafe$art_i++) {            var ss = $art_objzxybyh$art_obj[$art_ispnbzkafe$art_i]%>';
+            for (var $art_ispnbzkafe$art_i = 0, $art_objzxybyh$art_obj = s.subs, $art_cpiomlybf$art_c = $art_objzxybyh$art_obj.length; $art_ispnbzkafe$art_i < $art_cpiomlybf$art_c; $art_ispnbzkafe$art_i++) {
+                var ss = $art_objzxybyh$art_obj[$art_ispnbzkafe$art_i];
                 $p += '<div mxa="_zs_galleryP:l" class="pl20"><div mxa="_zs_galleryP:m" class="_zs_gallery_examples_update_-line _zs_gallery_examples_update_-dot">';
                 $line = 35;
                 $art = '!ss.title';
@@ -137,9 +137,9 @@ module.exports = Magix.View.extend({
                     $line = 42;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_ixncglmk$art_i = 0, $art_objuvuslqzok$art_obj = ss.subs, $art_cmsjimxcspi$art_c = $art_objuvuslqzok$art_obj.length; $art_ixncglmk$art_i < $art_cmsjimxcspi$art_c; $art_ixncglmk$art_i++) {                    var sss = $art_objuvuslqzok$art_obj[$art_ixncglmk$art_i]%>';
-                    for (var $art_ixncglmk$art_i = 0, $art_objuvuslqzok$art_obj = ss.subs, $art_cmsjimxcspi$art_c = $art_objuvuslqzok$art_obj.length; $art_ixncglmk$art_i < $art_cmsjimxcspi$art_c; $art_ixncglmk$art_i++) {
-                        var sss = $art_objuvuslqzok$art_obj[$art_ixncglmk$art_i];
+                    $expr = '<%for (var $art_inhlbyzny$art_i = 0, $art_objqrltrgg$art_obj = ss.subs, $art_clqrjgcne$art_c = $art_objqrltrgg$art_obj.length; $art_inhlbyzny$art_i < $art_clqrjgcne$art_c; $art_inhlbyzny$art_i++) {                    var sss = $art_objqrltrgg$art_obj[$art_inhlbyzny$art_i]%>';
+                    for (var $art_inhlbyzny$art_i = 0, $art_objqrltrgg$art_obj = ss.subs, $art_clqrjgcne$art_c = $art_objqrltrgg$art_obj.length; $art_inhlbyzny$art_i < $art_clqrjgcne$art_c; $art_inhlbyzny$art_i++) {
+                        var sss = $art_objqrltrgg$art_obj[$art_inhlbyzny$art_i];
                         $p += '<div mxa="_zs_galleryP:o" class="_zs_gallery_examples_update_-line _zs_gallery_examples_update_-dot">';
                         $line = 43;
                         $art = '!sss';
@@ -222,7 +222,7 @@ catch (ex) {
                         subs: [{
                                 title: 'mx-tabs：支持带icon，<a href="#!/tabs/index?highlightId=mx_12_demo11" class="color-brand">点击查看</a>'
                             }, {
-                                title: 'mx-dialog：增加 mxLoginView 规范登陆框的弹出样式，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
+                                title: 'mx-dialog：增加 mxLoginView 规范登录框的弹出样式，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
                             }]
                     }]
             }, {
@@ -231,7 +231,7 @@ catch (ex) {
                 subs: [{
                         type: 'add',
                         subs: [{
-                                title: 'mx-header：兼容bp的导航使用情况，支持展示用户登录信息包括登陆登出操作，支持右侧自定义view，支持二级菜单，支持配置吸顶，<a href="#!/header/index" class="color-brand">点击查看</a>'
+                                title: 'mx-header：兼容bp的导航使用情况，支持展示用户登录信息包括登录登出操作，支持右侧自定义view，支持二级菜单，支持配置吸顶，<a href="#!/header/index" class="color-brand">点击查看</a>'
                             }, {
                                 title: 'mx-btn：支持loading btn，<a href="#!/btn/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
                             }, {

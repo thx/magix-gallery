@@ -1,6 +1,6 @@
 <div class="header {{if dark}} dark-header {{else}} white-header {{/if}}" style="height: {{=height}}px;">
     {{if links}}
-    <div class="others" style="width: {{=width}}px;">
+    <div class="others"  {{if width}} style="width: {{=width}}px;" {{/if}}>
         <div class="others-inner clearfix">
             {{if login}}
             <div class="item">
@@ -9,7 +9,7 @@
                 <a class="color-brand" href="{{=logoutUrl}}">退出</a>
                 {{else}}
                 <span class="title-text">亲，请</span>
-                <a class="color-brand" href="javascript:;" mx-click="showLogin()">登陆</a>
+                <a class="color-brand" href="javascript:;" mx-click="showLogin()">登录</a>
                 {{/if}}
             </div>
             {{/if}}
@@ -38,7 +38,7 @@
     </div>
     {{/if}}
     <div class="front {{if fixed}} fixed {{/if}}" style="{{=styles}}">
-        <div class="front-inner clearfix" style="width: {{=width}}px;">
+        <div class="front-inner clearfix" {{if width}} style="width: {{=width}}px;" {{/if}}>
             <div class="front-item logo">
                 <img src="{{=logo}}"/>
             </div>

@@ -71,9 +71,9 @@ module.exports = Magix.View.extend({
     $line = 32;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_ifqdyryu$art_i = 0, $art_cirrjrvlla$art_c = headers.length; $art_ifqdyryu$art_i < $art_cirrjrvlla$art_c; $art_ifqdyryu$art_i++) {    var h = headers[$art_ifqdyryu$art_i]%>';
-    for (var $art_ifqdyryu$art_i = 0, $art_cirrjrvlla$art_c = headers.length; $art_ifqdyryu$art_i < $art_cirrjrvlla$art_c; $art_ifqdyryu$art_i++) {
-        var h = headers[$art_ifqdyryu$art_i];
+    $expr = '<%for (var $art_iikotjbm$art_i = 0, $art_cdcucqdbvby$art_c = headers.length; $art_iikotjbm$art_i < $art_cdcucqdbvby$art_c; $art_iikotjbm$art_i++) {    var h = headers[$art_iikotjbm$art_i]%>';
+    for (var $art_iikotjbm$art_i = 0, $art_cdcucqdbvby$art_c = headers.length; $art_iikotjbm$art_i < $art_cdcucqdbvby$art_c; $art_iikotjbm$art_i++) {
+        var h = headers[$art_iikotjbm$art_i];
         $p += '<a ';
         $line = 33;
         $art = 'if h.new';
@@ -201,9 +201,9 @@ module.exports = Magix.View.extend({
     $line = 47;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_itvuqevd$art_i = 0, $art_cmnwsdctf$art_c = list.length; $art_itvuqevd$art_i < $art_cmnwsdctf$art_c; $art_itvuqevd$art_i++) {    var item = list[$art_itvuqevd$art_i]%>';
-    for (var $art_itvuqevd$art_i = 0, $art_cmnwsdctf$art_c = list.length; $art_itvuqevd$art_i < $art_cmnwsdctf$art_c; $art_itvuqevd$art_i++) {
-        var item = list[$art_itvuqevd$art_i];
+    $expr = '<%for (var $art_iibapbxtuu$art_i = 0, $art_crvigvbhj$art_c = list.length; $art_iibapbxtuu$art_i < $art_crvigvbhj$art_c; $art_iibapbxtuu$art_i++) {    var item = list[$art_iibapbxtuu$art_i]%>';
+    for (var $art_iibapbxtuu$art_i = 0, $art_crvigvbhj$art_c = list.length; $art_iibapbxtuu$art_i < $art_crvigvbhj$art_c; $art_iibapbxtuu$art_i++) {
+        var item = list[$art_iibapbxtuu$art_i];
         $p += ' ';
         $line = 48;
         $art = 'if item.name';
@@ -244,9 +244,9 @@ module.exports = Magix.View.extend({
         $line = 55;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_ikxxygdajm$art_i = 0, $art_objpiuuobd$art_obj = item.subs, $art_cljhvpqcj$art_c = $art_objpiuuobd$art_obj.length; $art_ikxxygdajm$art_i < $art_cljhvpqcj$art_c; $art_ikxxygdajm$art_i++) {        var sub = $art_objpiuuobd$art_obj[$art_ikxxygdajm$art_i]%>';
-        for (var $art_ikxxygdajm$art_i = 0, $art_objpiuuobd$art_obj = item.subs, $art_cljhvpqcj$art_c = $art_objpiuuobd$art_obj.length; $art_ikxxygdajm$art_i < $art_cljhvpqcj$art_c; $art_ikxxygdajm$art_i++) {
-            var sub = $art_objpiuuobd$art_obj[$art_ikxxygdajm$art_i];
+        $expr = '<%for (var $art_insiteg$art_i = 0, $art_objtregzbrex$art_obj = item.subs, $art_chngpporg$art_c = $art_objtregzbrex$art_obj.length; $art_insiteg$art_i < $art_chngpporg$art_c; $art_insiteg$art_i++) {        var sub = $art_objtregzbrex$art_obj[$art_insiteg$art_i]%>';
+        for (var $art_insiteg$art_i = 0, $art_objtregzbrex$art_obj = item.subs, $art_chngpporg$art_c = $art_objtregzbrex$art_obj.length; $art_insiteg$art_i < $art_chngpporg$art_c; $art_insiteg$art_i++) {
+            var sub = $art_objtregzbrex$art_obj[$art_insiteg$art_i];
             $p += '<a class="_zs_gallery_examples_base_-nav ';
             $line = 56;
             $art = 'if (sub.path == path)';
@@ -886,7 +886,7 @@ catch (ex) {
                                 tip: '<a href="http://data.alimama.net/" target="_blank" rel="noopener noreferrer" class="color-brand">http://data.alimama.net/</a>，接口人<a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=y8e7um3" class="ml5"><i class="mc-iconfont color-brand fontsize-18 displacement-2">&#xe677;</i>浩添</a>',
                                 path: '/all/pro/data'
                             }, {
-                                name: '淘宝登陆框接入',
+                                name: '淘宝登录框接入',
                                 tip: '接入文档<a rel="noopener noreferrer" href="https://lark.alipay.com/up/login-doc/xvgy82" target="_blank" class="link-brand">https://lark.alipay.com/up/login-doc/xvgy82</a>',
                                 path: '/all/pro/login'
                             }, {

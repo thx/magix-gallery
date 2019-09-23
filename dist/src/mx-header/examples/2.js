@@ -33,27 +33,27 @@ module.exports = Base.extend({
     $line = 3;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test" class="_zs_gallery_mx-header_examples_index_-wrapper"><div mx-view="mx-header/index?width=900&navs=';
-    $line = 6;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test" class="_zs_gallery_mx-header_examples_index_-wrapper"><div mx-view="mx-header/index?navs=';
+    $line = 5;
     $art = '@[{\n                    value: 1,\n                    text: \'营销中台\'\n                }, {\n                    value: 2,\n                    text: \'创意中台\'\n                }]';
     ;
     $p += ($expr = '<%@[{            value: 1,            text: \'营销中台\'        }, {            value: 2,            text: \'创意中台\'        }]%>', $i($$ref, [{ value: 1, text: '营销中台' }, { value: 2, text: '创意中台' }])) + '&wrapper=';
-    $line = 13;
+    $line = 12;
     $art = '=viewId';
     ;
     $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_test"></div><div mxs="_zs_gallerycT:_" class="_zs_gallery_mx-header_examples_index_-inner"></div></div></div><div mxa="_zs_gallerycT:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallerycT:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 19;
+    $line = 18;
     $art = '=viewId';
     ;
     $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycT:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
-    $line = 21;
+    $line = 20;
     $art = '!text1';
     ;
     $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycT:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
-    $line = 24;
+    $line = 23;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div id="&#123;&#123;=viewId&#125;&#125;_test"&gt;\n    &lt;mx-header \n        width="900" \n        navs="&#123;&#123;@[&#123;\n            value: 1,\n            text: \'营销中台\'\n        &#125;, &#123;\n            value: 2,\n            text: \'创意中台\'\n        &#125;]&#125;&#125;" \n        wrapper="&#123;&#123;=viewId&#125;&#125;_test"/&gt;\n&lt;/div&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;div id="&#123;&#123;=viewId&#125;&#125;_test"&gt;\n    &lt;mx-header \n        navs="&#123;&#123;@[&#123;\n            value: 1,\n            text: \'营销中台\'\n        &#125;, &#123;\n            value: 2,\n            text: \'创意中台\'\n        &#125;]&#125;&#125;" \n        wrapper="&#123;&#123;=viewId&#125;&#125;_test"/&gt;\n&lt;/div&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
