@@ -120,6 +120,13 @@ module.exports = Magix.View.extend({
         //初始化时保存一份当前数据的快照
         this.updater.snapshot();
         this.assign(extra);
+        this.on('destroy', () => {
+            let nodeId = 'file_' + this.id;
+            let node = $('#' + nodeId);
+            if (node.length) {
+                node.remove();
+            }
+        });
     },
     assign(extra) {
         let me = this;
