@@ -19,6 +19,8 @@ module.exports = Magix.View.extend({
                 type: 'notice',
                 subs: [{
                     title: 'mx-dialog：mxLoginView登陆框点击空白处不可关闭，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dialog：去掉一个页面对于同一个弹出浮层只能一个的限制，例如同时弹出多个alert'
                 }]
             }]
         }, {
