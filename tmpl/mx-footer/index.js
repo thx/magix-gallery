@@ -11,7 +11,6 @@ module.exports = Magix.View.extend({
     assign(ops) {
         this['@{mode.simple}'] = (ops.mode === 'simple');
         this['@{need.products}'] = (ops.products + '' === 'true');
-        this['@{ui.dark}'] = (ops.dark + '' === 'true');
 
         let width = ops.width || 1200;
         let maxWidth = $(window).outerWidth();
@@ -61,7 +60,6 @@ module.exports = Magix.View.extend({
             products,
             len: products.length,
             width: me['@{products.width}'],
-            dark: me['@{ui.dark}'],
             year: '现在'
         }
 

@@ -1,24 +1,35 @@
 // 340 - 312
-.login{
+.login {
+    position: relative;
     padding-top: 28px;
 }
-.inner{
+
+.inner {
     height: 340px;
 }
 
-[ref="@index.less:dialog"] {
-    [ref="@index.less:dialog-close"]{
-        top: -16px;
-        right: -16px;
-        width: 26px;
-        height: 26px;
-        border-radius: 50%;
-        border: 2px solid #fff;
-        background-color: #999;
-       
-        [ref="@index.less:iconfont-ext"] {
-            line-height: 22px;
-        }
+.close {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 26px;
+    height: 26px;
+    z-index: 101;
+    border-radius: 50%;
+    background: transparent;
+    color: #ccc;
+    text-align: center;
+    border: 2px solid #fff;
+    background-color: #999;
 
+    .icon {
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 22px;
+    }
+    &:hover,
+    &:focus {
+        background-color: #999;
+        color: #fff;
     }
 }

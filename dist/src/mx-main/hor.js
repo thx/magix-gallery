@@ -30,9 +30,9 @@ module.exports = Base.extend({
     $line = 2;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_igifefzgtm$art_i = 0, $art_cebgxwnob$art_c = stepInfos.length; $art_igifefzgtm$art_i < $art_cebgxwnob$art_c; $art_igifefzgtm$art_i++) {    var step = stepInfos[$art_igifefzgtm$art_i]%>';
-    for (var $art_igifefzgtm$art_i = 0, $art_cebgxwnob$art_c = stepInfos.length; $art_igifefzgtm$art_i < $art_cebgxwnob$art_c; $art_igifefzgtm$art_i++) {
-        var step = stepInfos[$art_igifefzgtm$art_i];
+    $expr = '<%for (var $art_infcjzf$art_i = 0, $art_cufkuqkpx$art_c = stepInfos.length; $art_infcjzf$art_i < $art_cufkuqkpx$art_c; $art_infcjzf$art_i++) {    var step = stepInfos[$art_infcjzf$art_i]%>';
+    for (var $art_infcjzf$art_i = 0, $art_cufkuqkpx$art_c = stepInfos.length; $art_infcjzf$art_i < $art_cufkuqkpx$art_c; $art_infcjzf$art_i++) {
+        var step = stepInfos[$art_infcjzf$art_i];
         $p += '<div class="clearfix _zs_gallery_mx-main_hor_-step ';
         $line = 3;
         $art = 'if step.current';

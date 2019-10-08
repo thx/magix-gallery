@@ -196,7 +196,7 @@ catch (ex) {
         for (var i = 0; i < children.length; i++) {
             var child = children[i];
             if (child.id) {
-                child.id = child.id + '_clone';
+                child.id = child.id + Magix.guid('_clone');
             }
         }
         return cloneNode;
@@ -333,13 +333,11 @@ catch (ex) {
     },
     '@{start.auto.play}': function () {
         var that = this;
-        var _a = that.updater.get(), autoplay = _a.autoplay, interval = _a.interval;
-        if (autoplay) {
-            that['@{play.task}'] = setInterval(function () {
-                var active = that.updater.get().active;
-                that['@{to.panel}'](++active);
-            }, interval);
-        }
+        var interval = that.updater.get().interval;
+        that['@{play.task}'] = setInterval(function () {
+            var active = that.updater.get().active;
+            that['@{to.panel}'](++active);
+        }, interval);
     },
     '@{stop.auto.play}': function () {
         var that = this;
@@ -351,11 +349,16 @@ catch (ex) {
         }
     },
     '@{trigger}<click>': function (e) {
-        e.preventDefault();
-        var offset = +e.params.offset;
-        var active = this.updater.get().active;
-        active = +active + offset;
-        this['@{to.panel}'](active);
+        if (e.preventDefault) {
+            e.preventDefault();
+        }
+        var _a = this.updater.get(), active = _a.active, len = _a.len;
+        // 大于一帧才可轮播
+        if (len > 1) {
+            var offset = +e.params.offset;
+            active = +active + offset;
+            this['@{to.panel}'](active);
+        }
     },
     '@{active}<click>': function (e) {
         this['@{to.panel}'](e.params.idx);

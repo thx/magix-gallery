@@ -9,7 +9,7 @@ define("mx-footer/index",["magix","$","mx-header/data"],(require,exports,module)
 var Magix = require("magix");
 var $ = require("$");
 var Data = require("mx-header/data");
-Magix.applyStyle("_zs_gallery_mx-footer_index_","._zs_gallery_mx-footer_index_-white {\n  background-color: #434459;\n}\n._zs_gallery_mx-footer_index_-footer {\n  padding: 30px 0;\n  text-align: center;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line {\n  line-height: 28px;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link,\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-text {\n  padding: 0 10px;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link,\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:visited,\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:focus,\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:active {\n  color: #999;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:hover {\n  color: #333;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-text {\n  color: #999;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line._zs_gallery_mx-footer_index_-gap-line ._zs_gallery_mx-footer_index_-line-link {\n  position: relative;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line._zs_gallery_mx-footer_index_-gap-line ._zs_gallery_mx-footer_index_-line-link:after {\n  content: '';\n  position: absolute;\n  top: 1px;\n  right: 0;\n  width: 0;\n  height: 12px;\n  border-left: 1px solid #eee;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line._zs_gallery_mx-footer_index_-gap-line ._zs_gallery_mx-footer_index_-line-link:last-child:after {\n  content: none;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-img-line {\n  padding-top: 10px;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-img-line ._zs_gallery_mx-footer_index_-line-link-img {\n  padding: 0 10px;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-img-line ._zs_gallery_mx-footer_index_-line-link-img ._zs_gallery_mx-footer_index_-line-img {\n  transition: opacity var(--duration);\n  opacity: 0.5;\n  border: none;\n  -webkit-filter: grayscale(100%);\n  -moz-filter: grayscale(100%);\n  -ms-filter: grayscale(100%);\n  -o-filter: grayscale(100%);\n  filter: grayscale(100%);\n  -webkit-filter: gray;\n          filter: gray;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-img-line ._zs_gallery_mx-footer_index_-line-link-img:hover ._zs_gallery_mx-footer_index_-line-img {\n  opacity: 1;\n  -webkit-filter: grayscale(0%);\n  -moz-filter: grayscale(0%);\n  -ms-filter: grayscale(0%);\n  -o-filter: grayscale(0%);\n  filter: grayscale(0%);\n  -webkit-filter: none;\n          filter: none;\n}\n._zs_gallery_mx-footer_index_-footer._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link,\n._zs_gallery_mx-footer_index_-footer._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:visited,\n._zs_gallery_mx-footer_index_-footer._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:focus,\n._zs_gallery_mx-footer_index_-footer._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:active {\n  color: #fff;\n  opacity: 0.5;\n}\n._zs_gallery_mx-footer_index_-footer._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:hover {\n  color: #fff;\n  opacity: 1;\n}\n._zs_gallery_mx-footer_index_-footer._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-text {\n  color: #fff;\n  opacity: 0.5;\n}\n._zs_gallery_mx-footer_index_-footer._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-line._zs_gallery_mx-footer_index_-gap-line ._zs_gallery_mx-footer_index_-line-link:after {\n  border-left: 1px solid #fff;\n  opacity: 0.3;\n}\n@media screen and (max-width: 767px) {\n  ._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link,\n  ._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-text {\n    padding: 0 5px;\n  }\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-products-inner {\n  position: relative;\n  padding: 20px 220px 10px 220px;\n  max-width: 100%;\n  margin: auto;\n  text-align: center;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo,\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-qrcode {\n  position: absolute;\n  top: 20px;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo {\n  left: 20px;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo img {\n  width: 110px;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo ._zs_gallery_mx-footer_index_-mama-icon {\n  display: block;\n  width: 110px;\n  margin-top: 5px;\n  font-size: 36px;\n  color: #666;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-qrcode {\n  right: 20px;\n  line-height: 22px;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-qrcode img {\n  width: 92px;\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-footer_index_-products dl {\n  float: left;\n  font-size: 16px;\n  line-height: 32px;\n}\n._zs_gallery_mx-footer_index_-products dl dt {\n  margin-bottom: 16px;\n  opacity: 0.5;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-logo ._zs_gallery_mx-footer_index_-mama-icon {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dt {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dd a {\n  color: #fff;\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white dl dd a:hover {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-footer_index_-products._zs_gallery_mx-footer_index_-white ._zs_gallery_mx-footer_index_-qrcode {\n  color: #fff;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-footer_index_","._zs_gallery_mx-footer_index_-footer {\n  padding: 30px 0;\n  text-align: center;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line {\n  line-height: 28px;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link,\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-text {\n  padding: 0 10px;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link,\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:visited,\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:focus,\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:active {\n  color: #999;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:hover {\n  color: #333;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-text {\n  color: #999;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line._zs_gallery_mx-footer_index_-gap-line ._zs_gallery_mx-footer_index_-line-link {\n  position: relative;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line._zs_gallery_mx-footer_index_-gap-line ._zs_gallery_mx-footer_index_-line-link:after {\n  content: '';\n  position: absolute;\n  top: 1px;\n  right: 0;\n  width: 0;\n  height: 12px;\n  border-left: 1px solid #eee;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line._zs_gallery_mx-footer_index_-gap-line ._zs_gallery_mx-footer_index_-line-link:last-child:after {\n  content: none;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-img-line {\n  padding-top: 10px;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-img-line ._zs_gallery_mx-footer_index_-line-link-img {\n  padding: 0 10px;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-img-line ._zs_gallery_mx-footer_index_-line-link-img ._zs_gallery_mx-footer_index_-line-img {\n  transition: opacity var(--duration);\n  opacity: 0.5;\n  border: none;\n  -webkit-filter: grayscale(100%);\n  -moz-filter: grayscale(100%);\n  -ms-filter: grayscale(100%);\n  -o-filter: grayscale(100%);\n  filter: grayscale(100%);\n  -webkit-filter: gray;\n          filter: gray;\n}\n._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-img-line ._zs_gallery_mx-footer_index_-line-link-img:hover ._zs_gallery_mx-footer_index_-line-img {\n  opacity: 1;\n  -webkit-filter: grayscale(0%);\n  -moz-filter: grayscale(0%);\n  -ms-filter: grayscale(0%);\n  -o-filter: grayscale(0%);\n  filter: grayscale(0%);\n  -webkit-filter: none;\n          filter: none;\n}\n@media screen and (max-width: 767px) {\n  ._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link,\n  ._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-text {\n    padding: 0 5px;\n  }\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-products-inner {\n  position: relative;\n  padding: 20px 180px 0 180px;\n  max-width: 100%;\n  margin: auto;\n  text-align: center;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo,\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-qrcode {\n  position: absolute;\n  top: 20px;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo {\n  left: 20px;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo ._zs_gallery_mx-footer_index_-logo-icon {\n  position: relative;\n  width: 100px;\n  height: 160px;\n  overflow: hidden;\n  background-image: url(//img.alicdn.com/tfs/TB14rObn7PoK1RjSZKbXXX1IXXa-191-191.png);\n  background-size: 100%;\n  background-repeat: no-repeat;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo ._zs_gallery_mx-footer_index_-mama-icon {\n  position: absolute;\n  top: 100px;\n  left: -50px;\n  font-size: 50px;\n  color: #666;\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-qrcode {\n  right: 20px;\n  line-height: 22px;\n  color: rgba(33, 33, 33, 0.5);\n}\n._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-qrcode img {\n  width: 92px;\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-footer_index_-products dl {\n  float: left;\n  line-height: 28px;\n}\n._zs_gallery_mx-footer_index_-products dl dt {\n  margin-bottom: 10px;\n  opacity: 0.5;\n}\n[mx-view*=\"mx-footer/index\"][mx-view*=\"dark=true\"] {\n  background-color: #434459;\n}\n[mx-view*=\"mx-footer/index\"][mx-view*=\"dark=true\"] ._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link,\n[mx-view*=\"mx-footer/index\"][mx-view*=\"dark=true\"] ._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:visited,\n[mx-view*=\"mx-footer/index\"][mx-view*=\"dark=true\"] ._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:focus,\n[mx-view*=\"mx-footer/index\"][mx-view*=\"dark=true\"] ._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:active {\n  color: #fff;\n  opacity: 0.5;\n}\n[mx-view*=\"mx-footer/index\"][mx-view*=\"dark=true\"] ._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-link:hover {\n  color: #fff;\n  opacity: 1;\n}\n[mx-view*=\"mx-footer/index\"][mx-view*=\"dark=true\"] ._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line ._zs_gallery_mx-footer_index_-line-text {\n  color: #fff;\n  opacity: 0.5;\n}\n[mx-view*=\"mx-footer/index\"][mx-view*=\"dark=true\"] ._zs_gallery_mx-footer_index_-footer ._zs_gallery_mx-footer_index_-line._zs_gallery_mx-footer_index_-gap-line ._zs_gallery_mx-footer_index_-line-link:after {\n  border-left: 1px solid #fff;\n  opacity: 0.3;\n}\n[mx-view*=\"mx-footer/index\"][mx-view*=\"dark=true\"] ._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-logo ._zs_gallery_mx-footer_index_-mama-icon {\n  color: #fff;\n}\n[mx-view*=\"mx-footer/index\"][mx-view*=\"dark=true\"] ._zs_gallery_mx-footer_index_-products dl dt {\n  color: #fff;\n}\n[mx-view*=\"mx-footer/index\"][mx-view*=\"dark=true\"] ._zs_gallery_mx-footer_index_-products dl dd a {\n  color: #fff;\n}\n[mx-view*=\"mx-footer/index\"][mx-view*=\"dark=true\"] ._zs_gallery_mx-footer_index_-products dl dd a:hover {\n  color: var(--color-brand);\n}\n[mx-view*=\"mx-footer/index\"][mx-view*=\"dark=true\"] ._zs_gallery_mx-footer_index_-products ._zs_gallery_mx-footer_index_-qrcode {\n  color: rgba(255, 255, 255, 0.5);\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -22,197 +22,169 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', len = $$.len, dark = $$.dark, width = $$.width, products = $$.products, tanx = $$.tanx, taobao = $$.taobao, alimama = $$.alimama, year = $$.year, simple = $$.simple; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', len = $$.len, width = $$.width, products = $$.products, tanx = $$.tanx, taobao = $$.taobao, alimama = $$.alimama, year = $$.year, simple = $$.simple; var $expr, $art, $line; try {
     $line = 1;
     $art = 'if len > 0';
     ;
     $expr = '<%if (len > 0) {%>';
     if (len > 0) {
         ;
-        $p += '<div class="_zs_gallery_mx-footer_index_-products ';
-        $line = 2;
-        $art = 'if dark';
-        ;
-        $expr = '<%if (dark) {%>';
-        if (dark) {
-            ;
-            $p += ' _zs_gallery_mx-footer_index_-white ';
-            $line = 2;
-            $art = '/if';
-            ;
-            $expr = '<%}%>';
-        }
-        ;
-        $p += '"><div class="_zs_gallery_mx-footer_index_-products-inner" style="width: ';
+        $p += '<div mxa="_zs_galleryb+:d" class="_zs_gallery_mx-footer_index_-products"><div class="_zs_gallery_mx-footer_index_-products-inner" style="width: ';
         $line = 3;
         $art = '=width';
         ;
-        $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_galleryb+:_" class="_zs_gallery_mx-footer_index_-logo"><img src="//img.alicdn.com/tfs/TB14rObn7PoK1RjSZKbXXX1IXXa-191-191.png"><i class="mc-iconfont _zs_gallery_mx-footer_index_-mama-icon">&#xe601;</i></div><div mxa="_zs_galleryb+:_" class="clearfix">';
-        $line = 9;
+        $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_galleryb+:q" class="_zs_gallery_mx-footer_index_-logo"><div class="_zs_gallery_mx-footer_index_-logo-icon"><i class="mc-iconfont _zs_gallery_mx-footer_index_-mama-icon">&#xe61f;</i></div></div><div mxa="_zs_galleryb+:_" class="clearfix">';
+        $line = 10;
         $art = 'each products as p';
         ;
-        $expr = '<%for (var $art_idjxjoqu$art_i = 0, $art_czbishbl$art_c = products.length; $art_idjxjoqu$art_i < $art_czbishbl$art_c; $art_idjxjoqu$art_i++) {        var p = products[$art_idjxjoqu$art_i]%>';
-        for (var $art_idjxjoqu$art_i = 0, $art_czbishbl$art_c = products.length; $art_idjxjoqu$art_i < $art_czbishbl$art_c; $art_idjxjoqu$art_i++) {
-            var p = products[$art_idjxjoqu$art_i];
+        $expr = '<%for (var $art_itekdxxspm$art_i = 0, $art_cagwrwicg$art_c = products.length; $art_itekdxxspm$art_i < $art_cagwrwicg$art_c; $art_itekdxxspm$art_i++) {        var p = products[$art_itekdxxspm$art_i]%>';
+        for (var $art_itekdxxspm$art_i = 0, $art_cagwrwicg$art_c = products.length; $art_itekdxxspm$art_i < $art_cagwrwicg$art_c; $art_itekdxxspm$art_i++) {
+            var p = products[$art_itekdxxspm$art_i];
             $p += '<dl style="width: ';
-            $line = 10;
+            $line = 11;
             $art = '=(100 / len)';
             ;
             $p += ($expr = '<%=(100 / len)%>', $e((100 / len))) + '%;"><dt>';
-            $line = 11;
+            $line = 12;
             $art = '=p.title';
             ;
             $p += ($expr = '<%=p.title%>', $e(p.title)) + '</dt>';
-            $line = 12;
+            $line = 13;
             $art = 'each p.thirds as t';
             ;
-            $expr = '<%for (var $art_imemxgmy$art_i = 0, $art_objaiocykgtv$art_obj = p.thirds, $art_cieyrnmyud$art_c = $art_objaiocykgtv$art_obj.length; $art_imemxgmy$art_i < $art_cieyrnmyud$art_c; $art_imemxgmy$art_i++) {            var t = $art_objaiocykgtv$art_obj[$art_imemxgmy$art_i]%>';
-            for (var $art_imemxgmy$art_i = 0, $art_objaiocykgtv$art_obj = p.thirds, $art_cieyrnmyud$art_c = $art_objaiocykgtv$art_obj.length; $art_imemxgmy$art_i < $art_cieyrnmyud$art_c; $art_imemxgmy$art_i++) {
-                var t = $art_objaiocykgtv$art_obj[$art_imemxgmy$art_i];
+            $expr = '<%for (var $art_iabxtdzezppd$art_i = 0, $art_objsmmvwmtg$art_obj = p.thirds, $art_cvgefmfwdj$art_c = $art_objsmmvwmtg$art_obj.length; $art_iabxtdzezppd$art_i < $art_cvgefmfwdj$art_c; $art_iabxtdzezppd$art_i++) {            var t = $art_objsmmvwmtg$art_obj[$art_iabxtdzezppd$art_i]%>';
+            for (var $art_iabxtdzezppd$art_i = 0, $art_objsmmvwmtg$art_obj = p.thirds, $art_cvgefmfwdj$art_c = $art_objsmmvwmtg$art_obj.length; $art_iabxtdzezppd$art_i < $art_cvgefmfwdj$art_c; $art_iabxtdzezppd$art_i++) {
+                var t = $art_objsmmvwmtg$art_obj[$art_iabxtdzezppd$art_i];
                 $p += '<dd><a href="';
-                $line = 14;
+                $line = 15;
                 $art = '=t.link';
                 ;
                 $p += ($expr = '<%=t.link%>', $e(t.link)) + '" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer">';
-                $line = 14;
+                $line = 15;
                 $art = '=t.name';
                 ;
                 $p += ($expr = '<%=t.name%>', $e(t.name)) + '</a></dd>';
-                $line = 16;
+                $line = 17;
                 $art = '/each';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '</dl>';
-            $line = 18;
+            $line = 19;
             $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</div><div mxs="_zs_galleryb+:a" class="_zs_gallery_mx-footer_index_-qrcode"><img src="//gw.alicdn.com/tfs/TB1C2cNrv1TBuNjy0FjXXajyXXa-300-300.png"><div>打开淘宝扫一扫</div><div>下载阿里妈妈APP</div></div></div></div>';
-        $line = 27;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '<div class="_zs_gallery_mx-footer_index_-footer ';
-    $line = 28;
-    $art = 'if dark';
-    ;
-    $expr = '<%if (dark) {%>';
-    if (dark) {
-        ;
-        $p += ' _zs_gallery_mx-footer_index_-white ';
         $line = 28;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '"><div mxa="_zs_galleryb+:a" class="_zs_gallery_mx-footer_index_-line"><a mxs="_zs_galleryb+:b" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com/home/about-1.htm">联系客服</a><a mxs="_zs_galleryb+:c" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//open.taobao.com/">开放平台</a>';
-    $line = 32;
+    $p += '<div mxa="_zs_galleryb+:e" class="_zs_gallery_mx-footer_index_-footer"><div mxa="_zs_galleryb+:a" class="_zs_gallery_mx-footer_index_-line"><a mxs="_zs_galleryb+:b" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com/home/about-1.htm">联系客服</a><a mxs="_zs_galleryb+:c" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//open.taobao.com/">开放平台</a>';
+    $line = 33;
     $art = 'if tanx';
     ;
     $expr = '<%if (tanx) {%>';
     if (tanx) {
         ;
         $p += '<a mxs="_zs_galleryb+:d" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//tanx.com/web/opt.html">隐私权保护</a>';
-        $line = 34;
+        $line = 35;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += ' ';
-    $line = 35;
+    $line = 36;
     $art = 'if taobao';
     ;
     $expr = '<%if (taobao) {%>';
     if (taobao) {
         ;
         $p += '<a mxs="_zs_galleryb+:e" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="https://terms.alicdn.com/legal-agreement/terms/suit_bu1_ali_mama_division/suit_bu1_ali_mama_division201709111812_13128.html">法律声明</a>';
-        $line = 37;
+        $line = 38;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += ' ';
-    $line = 38;
+    $line = 39;
     $art = 'if alimama';
     ;
     $expr = '<%if (alimama) {%>';
     if (alimama) {
         ;
         $p += '<a mxs="_zs_galleryb+:e" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="https://terms.alicdn.com/legal-agreement/terms/suit_bu1_ali_mama_division/suit_bu1_ali_mama_division201709111812_13128.html">法律声明</a>';
-        $line = 40;
+        $line = 41;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += '<a mxs="_zs_galleryb+:f" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com/home/about-4.htm">意见反馈</a><a mxs="_zs_galleryb+:g" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//jubao.alibaba.com">廉正举报</a>';
-    $line = 43;
+    $line = 44;
     $art = 'if tanx';
     ;
     $expr = '<%if (tanx) {%>';
     if (tanx) {
         ;
         $p += '<span mxs="_zs_galleryb+:h" class="_zs_gallery_mx-footer_index_-line-text">Tanx.com版权所有</span><a mxs="_zs_galleryb+:i" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.miibeian.gov.cn">浙ICP备09109183号-10</a>';
-        $line = 46;
+        $line = 47;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += ' ';
-    $line = 47;
+    $line = 48;
     $art = 'if taobao';
     ;
     $expr = '<%if (taobao) {%>';
     if (taobao) {
         ;
         $p += '<span mxa="_zs_galleryb+:b" class="_zs_gallery_mx-footer_index_-line-text">Taobao.com版权所有 2003-';
-        $line = 48;
+        $line = 49;
         $art = '=year';
         ;
         $p += ($expr = '<%=year%>', $e(year)) + '</span><a mxs="_zs_galleryb+:j" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.miibeian.gov.cn">ICP证：浙B2-20080224-1</a>';
-        $line = 50;
+        $line = 51;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += ' ';
-    $line = 51;
+    $line = 52;
     $art = 'if alimama';
     ;
     $expr = '<%if (alimama) {%>';
     if (alimama) {
         ;
         $p += '<span mxa="_zs_galleryb+:c" class="_zs_gallery_mx-footer_index_-line-text">阿里妈妈版权所有 2007-';
-        $line = 52;
+        $line = 53;
         $art = '=year';
         ;
         $p += ($expr = '<%=year%>', $e(year)) + '</span><a mxs="_zs_galleryb+:k" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.miibeian.gov.cn">ICP证：浙B2-20070195</a>';
-        $line = 54;
+        $line = 55;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += '</div>';
-    $line = 56;
+    $line = 57;
     $art = 'if !simple';
     ;
     $expr = '<%if (!simple) {%>';
     if (!simple) {
         ;
         $p += '<div mxs="_zs_galleryb+:l" class="_zs_gallery_mx-footer_index_-line _zs_gallery_mx-footer_index_-gap-line"><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.alibabagroup.com/cn/global/home">阿里巴巴集团</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.taobao.com">淘宝网</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.tmall.com">天猫</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//ju.taobao.com">聚划算</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.aliexpress.com">全球速卖通</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alibaba.com">阿里巴巴国际交易市场</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.1688.com">1688</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com">阿里妈妈</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.fliggy.com">飞猪</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.aliyun.com">阿里云计算</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.alios.cn">AliOS</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//aliqin.tmall.com">阿里通信</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.autonavi.com/">高德</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.uc.cn/">UC</a></div><div mxs="_zs_galleryb+:m" class="_zs_gallery_mx-footer_index_-line _zs_gallery_mx-footer_index_-gap-line"><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.umeng.com/">友盟</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.xiami.com">虾米</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alibabaplanet.com">阿里星球</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.dingtalk.com/?lwfrom=20150130163937547">钉钉</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alipay.com">支付宝</a></div><div mxs="_zs_galleryb+:n" class="_zs_gallery_mx-footer_index_-img-line"><a class="_zs_gallery_mx-footer_index_-line-link-img" target="_blank" rel="noopener noreferrer" href="http://www.pingpinganan.gov.cn/"><img class="_zs_gallery_mx-footer_index_-line-img" align="absmiddle" src="//img.alicdn.com/tps/i2/T1C3z7FudfXXcsE9Te-40-42.png" alt="网监局"></a><a class="_zs_gallery_mx-footer_index_-line-link-img" target="_blank" rel="noopener noreferrer" href="http://122.224.75.236/wzba/login.do?method=hdurl&doamin=http://www.alimama.com.cn&id=330108000003117&SHID=1223.0AFF_NAME=com.rouger.gs.main.UserInfoAff&AFF_ACTION=qyhzdetail&PAGE_URL=ShowDetail"><img class="_zs_gallery_mx-footer_index_-line-img" align="absmiddle" src="//img.alicdn.com/tps/i1/T1KRgkFxdXXXaqJHTe-35-42.png"></a><a class="_zs_gallery_mx-footer_index_-line-link-img" target="_blank" rel="noopener noreferrer" href="http://www.pingpinganan.gov.cn/"><img class="_zs_gallery_mx-footer_index_-line-img" align="absmiddle" alt="网监局" src="//img.alicdn.com/tps/i4/T1VVv9FABeXXbtCInf-38-42.png"></a></div>';
-        $line = 91;
+        $line = 92;
         $art = '/if';
         ;
         $expr = '<%}%>';
@@ -234,7 +206,6 @@ catch (ex) {
     assign: function (ops) {
         this['@{mode.simple}'] = (ops.mode === 'simple');
         this['@{need.products}'] = (ops.products + '' === 'true');
-        this['@{ui.dark}'] = (ops.dark + '' === 'true');
         var width = ops.width || 1200;
         var maxWidth = $(window).outerWidth();
         if (+width > maxWidth) {
@@ -282,7 +253,6 @@ catch (ex) {
             products: products,
             len: products.length,
             width: me['@{products.width}'],
-            dark: me['@{ui.dark}'],
             year: '现在'
         };
         me.updater.digest(info);

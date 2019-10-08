@@ -352,6 +352,7 @@ module.exports = Magix.View.extend({
         /**
          * 弹出登录框，规范登录框的弹出样式
          * 宽度350，高度368（淘宝登录框312，要求至少340，对称368）
+         * 登陆框点击空白处不可关闭，所有closable: false，自定义一个关闭按钮
          */
         mxLoginView(viewPath, viewOptions) {
             return this.mxDialog('@./login', {
@@ -360,7 +361,7 @@ module.exports = Magix.View.extend({
             }, {
                     width: 350,
                     height: 368,
-                    closable: true
+                    closable: false
                 });
         },
         /**

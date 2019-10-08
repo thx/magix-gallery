@@ -115,7 +115,7 @@ module.exports = Magix.View.extend({
         for (let i = 0; i < children.length; i++) {
             let child = children[i];
             if (child.id) {
-                child.id = child.id + '_clone';
+                child.id = child.id + Magix.guid('_clone');
             }
         }
         return cloneNode;
@@ -256,14 +256,11 @@ module.exports = Magix.View.extend({
 
     '@{start.auto.play}'() {
         let that = this;
-        let { autoplay, interval } = that.updater.get();
-
-        if (autoplay) {
-            that['@{play.task}'] = setInterval(() => {
-                let { active } = that.updater.get();
-                that['@{to.panel}'](++active);
-            }, interval);
-        }
+        let { interval } = that.updater.get();
+        that['@{play.task}'] = setInterval(() => {
+            let { active } = that.updater.get();
+            that['@{to.panel}'](++active);
+        }, interval);
     },
 
     '@{stop.auto.play}'() {
@@ -277,11 +274,16 @@ module.exports = Magix.View.extend({
     },
 
     '@{trigger}<click>'(e) {
-        e.preventDefault();
-        let offset = +e.params.offset;
-        let { active } = this.updater.get();
-        active = +active + offset;
-        this['@{to.panel}'](active);
+        if (e.preventDefault) {
+            e.preventDefault();
+        }
+        let { active, len } = this.updater.get();
+        // 大于一帧才可轮播
+        if(len > 1){
+            let offset = +e.params.offset;
+            active = +active + offset;
+            this['@{to.panel}'](active);
+        }
     },
 
     '@{active}<click>'(e) {

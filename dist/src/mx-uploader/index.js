@@ -170,9 +170,17 @@ var XHR = Uploader.extend({
 });
 module.exports = Magix.View.extend({
     init: function (extra) {
+        var _this = this;
         //初始化时保存一份当前数据的快照
         this.updater.snapshot();
         this.assign(extra);
+        this.on('destroy', function () {
+            var nodeId = 'file_' + _this.id;
+            var node = $('#' + nodeId);
+            if (node.length) {
+                node.remove();
+            }
+        });
     },
     assign: function (extra) {
         var me = this;

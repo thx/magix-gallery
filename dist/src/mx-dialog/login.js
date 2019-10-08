@@ -7,7 +7,7 @@ define("mx-dialog/login",["magix"],(require,exports,module)=>{
 /*Magix*/
 
 var Magix = require("magix");
-Magix.applyStyle("_zs_gallery_mx-dialog_login_","._zs_gallery_mx-dialog_login_-login {\n  padding-top: 28px;\n}\n._zs_gallery_mx-dialog_login_-inner {\n  height: 340px;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close {\n  top: -16px;\n  right: -16px;\n  width: 26px;\n  height: 26px;\n  border-radius: 50%;\n  border: 2px solid #fff;\n  background-color: #999;\n}\n._zs_gallery_mx-dialog_index_-dialog ._zs_gallery_mx-dialog_index_-dialog-close ._zs_gallery_mx-dialog_index_-iconfont-ext {\n  line-height: 22px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-dialog_login_","._zs_gallery_mx-dialog_login_-login {\n  position: relative;\n  padding-top: 28px;\n}\n._zs_gallery_mx-dialog_login_-inner {\n  height: 340px;\n}\n._zs_gallery_mx-dialog_login_-close {\n  position: absolute;\n  top: -12px;\n  right: -12px;\n  width: 26px;\n  height: 26px;\n  z-index: 101;\n  border-radius: 50%;\n  background: transparent;\n  color: #ccc;\n  text-align: center;\n  border: 2px solid #fff;\n  background-color: #999;\n}\n._zs_gallery_mx-dialog_login_-close ._zs_gallery_mx-dialog_login_-icon {\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 22px;\n}\n._zs_gallery_mx-dialog_login_-close:hover,\n._zs_gallery_mx-dialog_login_-close:focus {\n  background-color: #999;\n  color: #fff;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -33,7 +33,7 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = '@data';
     ;
-    $p += ($expr = '<%@data%>', $i($$ref, data)) + '"></div></div>';
+    $p += ($expr = '<%@data%>', $i($$ref, data)) + '"></div><a mxs="_zs_gallerya#:_" href="javascript:;" mx-click="' + $viewId + '@{cancel}()" class="_zs_gallery_mx-dialog_login_-close"><i class="mc-iconfont _zs_gallery_mx-dialog_login_-icon">&#xe603;</i></a></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -48,9 +48,18 @@ catch (ex) {
             path: extra.loginViewPath,
             data: extra.loginViewData
         });
+        this['@{dialog}'] = extra.dialog;
+        this['@{fn.calcel.callback}'] = extra.cancelCallback;
     },
     render: function () {
         this.updater.digest();
+    },
+    '@{cancel}<click>': function () {
+        var me = this;
+        me['@{dialog}'].close();
+        if (me['@{fn.calcel.callback}']) {
+            Magix.toTry(me['@{fn.calcel.callback}']);
+        }
     }
 });
 

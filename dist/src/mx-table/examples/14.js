@@ -35,8 +35,8 @@ module.exports = Base.extend({
     $line = 29;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_ctgidqvim$art_c = list.length; index < $art_ctgidqvim$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_ctgidqvim$art_c = list.length; index < $art_ctgidqvim$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cgegfealpyp$art_c = list.length; index < $art_cgegfealpyp$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cgegfealpyp$art_c = list.length; index < $art_cgegfealpyp$art_c; index++) {
         var item = list[index];
         $p += '<tr mxv><td mxv><input type="checkbox" class="checkbox" linkage-parent="example" value="';
         $line = 34;

@@ -25,16 +25,16 @@ module.exports = Magix.View.extend({
     $line = 13;
     $art = 'each options as option';
     ;
-    $expr = '<%for (var $art_iqceqccb$art_i = 0, $art_cxlwckii$art_c = options.length; $art_iqceqccb$art_i < $art_cxlwckii$art_c; $art_iqceqccb$art_i++) {    var option = options[$art_iqceqccb$art_i]%>';
-    for (var $art_iqceqccb$art_i = 0, $art_cxlwckii$art_c = options.length; $art_iqceqccb$art_i < $art_cxlwckii$art_c; $art_iqceqccb$art_i++) {
-        var option = options[$art_iqceqccb$art_i];
+    $expr = '<%for (var $art_ipkapumeik$art_i = 0, $art_cbhbikybs$art_c = options.length; $art_ipkapumeik$art_i < $art_cbhbikybs$art_c; $art_ipkapumeik$art_i++) {    var option = options[$art_ipkapumeik$art_i]%>';
+    for (var $art_ipkapumeik$art_i = 0, $art_cbhbikybs$art_c = options.length; $art_ipkapumeik$art_i < $art_cbhbikybs$art_c; $art_ipkapumeik$art_i++) {
+        var option = options[$art_ipkapumeik$art_i];
         $p += ' ';
         $line = 14;
         $art = 'each option.params as param index';
         ;
-        $expr = '<%for (var index = 0, $art_objgmnfjn$art_obj = option.params, $art_cwilexir$art_c = $art_objgmnfjn$art_obj.length; index < $art_cwilexir$art_c; index++) {        var param = $art_objgmnfjn$art_obj[index]%>';
-        for (var index = 0, $art_objgmnfjn$art_obj = option.params, $art_cwilexir$art_c = $art_objgmnfjn$art_obj.length; index < $art_cwilexir$art_c; index++) {
-            var param = $art_objgmnfjn$art_obj[index];
+        $expr = '<%for (var index = 0, $art_objcblbgbnuiyf$art_obj = option.params, $art_cynglzkykf$art_c = $art_objcblbgbnuiyf$art_obj.length; index < $art_cynglzkykf$art_c; index++) {        var param = $art_objcblbgbnuiyf$art_obj[index]%>';
+        for (var index = 0, $art_objcblbgbnuiyf$art_obj = option.params, $art_cynglzkykf$art_c = $art_objcblbgbnuiyf$art_obj.length; index < $art_cynglzkykf$art_c; index++) {
+            var param = $art_objcblbgbnuiyf$art_obj[index];
             $p += '<tr>';
             $line = 16;
             $art = 'if (index == 0)';

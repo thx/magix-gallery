@@ -6,6 +6,42 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.37',
+            time: '2019-10-08',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-carousel：复制节点时避免id重复，<a href="#!/carousel/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-uploader：销毁时移除添加节点，<a href="#!/uploader/index" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                subs: [{
+                    title: 'mx-dialog：mxLoginView登陆框点击空白处不可关闭，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
+            ver: '1.3.36',
+            time: '2019-09-23',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-checkbox/storestate：支持清空某一个子input，<a href="#!/table/index7" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-btn：新增hollow="true"，默认普通按钮，hover品牌色按钮，<a href="#!/btn/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-im.ww：旺旺点灯支持多种形式的展现形式，<a href="#!/im/wangwang" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                subs: [{
+                    title: 'mx-header：样式调整，<a href="#!/header/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-footer：样式调整，<a href="#!/footer/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.35',
             time: '2019-09-17',
             subs: [{
