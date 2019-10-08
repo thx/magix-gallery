@@ -61,6 +61,8 @@ catch (ex) {
     mixins: [Dialog],
     render: function () {
         this.updater.digest();
+        // this.alert('系统提示', '提示1')
+        // this.alert('系统提示', '提示2')
     },
     'open<click>': function (e) {
         // this.mxDialog(viewPath[string], viewOptions[object], dialogOptions[object])

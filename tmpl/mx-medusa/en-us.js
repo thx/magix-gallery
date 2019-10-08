@@ -41,7 +41,6 @@ module.exports = {
     "calendar.yesterday": "Yesterday",
     "calendar.tomorrow": "Tomorrow",
     "dropdown.all.custom": "All",
-    "dropdown.all.default": "All",
     "dropdown.search": "Search",
     "form.char": "characters",
     "form.char.between": "Between {min} to {max} characters, current: {current} characters",

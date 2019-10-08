@@ -8,6 +8,9 @@ module.exports = Base.extend({
     mixins: [Dialog],
     render() {
         this.updater.digest();
+
+        // this.alert('系统提示', '提示1')
+        // this.alert('系统提示', '提示2')
     },
     'open<click>'(e) {
         // this.mxDialog(viewPath[string], viewOptions[object], dialogOptions[object])

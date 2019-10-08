@@ -323,12 +323,8 @@ module.exports = Magix.View.extend({
         }
 
         let name = data.name;
-        if (text.length == Object.keys(map).length) {
-            if (name) {
-                return I18n['dropdown.all.custom'] + name;
-            } else {
-                return I18n['dropdown.all.default'];
-            }
+        if ((text.length == Object.keys(map).length) && name) {
+            return I18n['dropdown.all.custom'] + name;
         } else {
             return text.join(',');
         }

@@ -622,11 +622,13 @@ catch (ex) {
             view: view
         };
         seajs.use(view, me.wrapAsync(function (V) {
-            var key = '$dlg_' + view;
-            if (me[key]) {
-                return;
-            }
-            me[key] = 1;
+            // ！！去掉这个限制，例如同一个view可能同时弹出多个alert
+            // 同一个view只保留一个
+            // let key = '$dlg_' + view;
+            // if (me[key]) {
+            //     return;
+            // }
+            // me[key] = 1;
             // 优先级：
             // 外部传入的（dialogOptions） > view本身配置的（vDialogOptions） > 默认（dOptions）
             // view本身配置的
@@ -720,7 +722,7 @@ catch (ex) {
                 }
             });
             dlg.on('close', function () {
-                delete me[key];
+                // delete me[key];
                 if (afterCloseCallback) {
                     afterCloseCallback();
                 }
