@@ -1,1 +1,25 @@
-define("examples/hl",["magix","$"],(e,i,n)=>{var t=e("magix"),h=e("$");n.exports=t.View.extend({assign:function(e,i){return i.deep=!1,i.html&&h("#"+this.id).html(i.inner),i.html},render:function(){var e=t.node(this.id);hljs.highlightBlock(e)}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("examples/hl",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+var Magix = require("magix");
+var $ = require("$");
+module.exports = Magix.View.extend({
+    assign: function (data, ops) {
+        ops.deep = false;
+        if (ops.html) {
+            $('#' + this.id).html(ops.inner);
+        }
+        return ops.html;
+    },
+    render: function () {
+        var node = Magix.node(this.id);
+        hljs.highlightBlock(node);
+    }
+});
+
+});

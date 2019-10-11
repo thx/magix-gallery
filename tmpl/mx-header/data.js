@@ -47,7 +47,7 @@ module.exports = {
                 "link": "https://rule.alimama.com/"
             }, {
                 "name": "营销拍档",
-                "link": "https://newamp.taobao.com/"
+                "link": "https://amp.taobao.com/"
             }]
         }]
     }]
