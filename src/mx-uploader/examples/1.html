@@ -1,6 +1,9 @@
 <div class="example">
     <div class="eg-content">
-        <!-- <a href="javascript:;" mx-click="test()">test</a> -->
+        <!-- JS更新input的value属性，为什么不触发"change"事件呢？ -->
+        <!-- <a href="javascript:;" mx-click="click()">点击</a>
+        <input  value="{{=val}}" mx-change="test()"/> -->
+
         <mx-uploader class="btn btn-brand mr10"
             action="/creative/upload.action" 
             method="POST"

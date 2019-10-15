@@ -3,7 +3,7 @@
  * 同时触发keyup和fucosout的时候，一个执行了可能导致input节点没有，而另一个获取到undefined
  */
 let Magix = require('magix');
-let Form = require('@..//mx-form/index');
+let Form = require('@../mx-form/index');
 let Validator = require('@../mx-form/validator');
 Magix.applyStyle('@index.less');
 let Placeholder = '${content}';

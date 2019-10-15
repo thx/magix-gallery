@@ -117,16 +117,16 @@ let XHR = Uploader.extend({
 });
 module.exports = Magix.View.extend({
     init(extra) {
-        //初始化时保存一份当前数据的快照
         this.updater.snapshot();
         this.assign(extra);
         this.on('destroy', () => {
-            let nodeId = 'file_' + this.id;
-            let node = $('#' + nodeId);
+            let node = $('#file_' + this.id);
             if (node.length) {
                 node.remove();
             }
         });
+
+        this['@{owner.node}'] = $('#' + this.id);
     },
     assign(extra) {
         let me = this;
@@ -163,6 +163,13 @@ module.exports = Magix.View.extend({
             node.remove();
         }
         let data = me.updater.get();
+        if (data.multiple) {
+            node.attr('multiple', 'multiple');
+        }
+        if (data.accept) {
+            node.prop('accept', data.accept);
+        }
+
         let tmpl = $.isFunction(html) ? html({
             disabled: data.disabled,
             name: data.name,
@@ -171,16 +178,11 @@ module.exports = Magix.View.extend({
         if (me.wrapEvent) {
             tmpl = me.wrapEvent(tmpl);
         }
-        $('#' + me.id).append(tmpl);
-        node = $('#' + nodeId);
-        if (data.multiple) {
-            node.attr('multiple', 'multiple');
-        }
-        if (data.accept) {
-            node.prop('accept', data.accept);
-        }
+        me['@{owner.node}'].append(tmpl);
     },
     '@{upload}<change>'(e) {
+        // e.stopPropagation();
+
         let me = this;
         let node = $('#' + me.id);
         let files = e.eventTarget.files;

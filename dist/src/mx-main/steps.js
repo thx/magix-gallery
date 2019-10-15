@@ -1,1 +1,121 @@
-define("mx-main/steps",["magix"],(e,t,n)=>{var i=e("magix"),r=i.Router,a=i.Vframe;i.applyStyle("_zs_galleryag","._zs_galleryiy{position:relative;padding-top:10px;padding-left:20px;color:var(--color-red)}._zs_galleryiy ._zs_galleryiz{position:absolute;left:0;top:10px;color:var(--color-red)}"),n.exports=i.View.extend({init:function(e){this.updater.set({alreadyStep:e.alreadyStep||1,stepInfos:e.stepInfos||[],viewId:this.id,viewHeight:$(window).height()}),this.observeLocation(["stepIndex"])},render:function(){var e=this.updater,t=+e.get("alreadyStep"),n=e.get("stepInfos"),i=r.parse().params,a=+(i.stepIndex||1);a>t&&(t=a);n.forEach(function(e,i){var r=i+1;e.index=r,e.locked=r>t,e.lineOn=r<t,e.current=r==a,e.icon=e.icon||'<span class="fontsize-16">'+e.index+"</span>";var o="";r>1&&!n[i-1].locked&&(o=e.prevTip||"返回上一步"),e.prevTip=o;var p="";r<n.length&&(p=e.nextTip||"下一步"),e.nextTip=p}),i.stepIndex+""==a+""?this.updater.digest({alreadyStep:t,stepInfos:n,curStepInfo:n[a-1],curStepIndex:a}):r.to({stepIndex:a})},"prev<click>":function(e){var t=this.updater.get("curStepIndex");r.to({stepIndex:+t-1})},"nav<click>":function(e){var t=e.params.stepIndex;r.to({stepIndex:t})},next:function(e){var t=this.updater.get("curStepIndex");e.stepIndex=+t+1,r.to(e)},"next<click>":function(e){var t=this,n=t.updater.get("curStepInfo");a.get(t.id+"_cur_content").invoke("check").then(function(e){var i=$("#"+t.id+"_error");e.ok?(i.html(""),n.nextFn?n.nextFn(e.remain,function(e){t.next(e)}):t.next({})):i.html('<div class="_zs_galleryiy"><i class="mc-iconfont _zs_galleryiz">&#xe6ad;</i>'+e.msg+"</div>")})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-main/steps",["magix"],(require,exports,module)=>{
+/*Magix*/
+
+/**
+ *  流程步骤组件：
+ *  stepIndex定义：当前步骤，从1开始
+ */
+var Magix = require("magix");
+var Router = Magix.Router;
+var Vframe = Magix.Vframe;
+Magix.applyStyle("_zs_gallery_mx-main_step_","._zs_gallery_mx-main_step_-step-error {\n  position: relative;\n  padding-top: 10px;\n  padding-left: 20px;\n  color: var(--color-red);\n}\n._zs_gallery_mx-main_step_-step-error ._zs_gallery_mx-main_step_-error-icon {\n  position: absolute;\n  left: 0;\n  top: 10px;\n  color: var(--color-red);\n}\n");
+module.exports = Magix.View.extend({
+    init: function (extra) {
+        var that = this;
+        that.updater.set({
+            alreadyStep: extra.alreadyStep || 1,
+            stepInfos: extra.stepInfos || [],
+            viewId: that.id,
+            viewHeight: $(window).height()
+        });
+        that.observeLocation(['stepIndex']);
+    },
+    render: function () {
+        var that = this;
+        var updater = that.updater;
+        var alreadyStep = +updater.get('alreadyStep'), stepInfos = updater.get('stepInfos');
+        var locParams = Router.parse().params;
+        // 主步骤信息从1开始
+        var curStepIndex = +(locParams.stepIndex || 1);
+        if (curStepIndex > alreadyStep) {
+            alreadyStep = curStepIndex;
+        }
+        var defPrevTip = '返回上一步', defNextTip = '下一步';
+        stepInfos.forEach(function (step, i) {
+            var stepIndex = i + 1;
+            step.index = stepIndex;
+            // <= 当前步骤 展开子列表
+            step.locked = (stepIndex > alreadyStep);
+            step.lineOn = (stepIndex < alreadyStep);
+            step.current = (stepIndex == curStepIndex);
+            // 默认用序号
+            step.icon = step.icon || "<span class=\"fontsize-16\">" + step.index + "</span>";
+            var prevTip = '';
+            if ((stepIndex > 1) && (!stepInfos[i - 1].locked)) {
+                // 1. 第一步没有返回上一步
+                // 2. 上一步被锁定的情况下没有返回上一步
+                prevTip = step.prevTip || defPrevTip;
+            }
+            step.prevTip = prevTip;
+            var nextTip = '';
+            if (stepIndex < stepInfos.length) {
+                // 1. 最后一步没有下一步
+                nextTip = step.nextTip || defNextTip;
+            }
+            step.nextTip = nextTip;
+        });
+        if ((locParams.stepIndex + '') !== (curStepIndex + '')) {
+            // 确保路由地址参数和当前参数保持完全一致
+            Router.to({
+                stepIndex: curStepIndex
+            });
+            return;
+        }
+        that.updater.digest({
+            alreadyStep: alreadyStep,
+            stepInfos: stepInfos,
+            curStepInfo: stepInfos[curStepIndex - 1],
+            curStepIndex: curStepIndex
+        });
+    },
+    'prev<click>': function (e) {
+        var curStepIndex = this.updater.get('curStepIndex');
+        Router.to({
+            stepIndex: (+curStepIndex - 1)
+        });
+    },
+    'nav<click>': function (e) {
+        var params = e.params;
+        var stepIndex = params.stepIndex;
+        Router.to({
+            stepIndex: stepIndex
+        });
+    },
+    next: function (remainParams) {
+        var that = this;
+        var curStepIndex = that.updater.get('curStepIndex');
+        remainParams.stepIndex = +curStepIndex + 1;
+        Router.to(remainParams);
+    },
+    'next<click>': function (e) {
+        var that = this;
+        // 先校验能否提交
+        var curStepInfo = that.updater.get('curStepInfo');
+        var vf = Vframe.get(that.id + '_cur_content');
+        vf.invoke('check').then(function (result) {
+            var errorNode = $('#' + that.id + '_error');
+            if (result.ok) {
+                errorNode.html('');
+                // 下一步
+                if (curStepInfo.nextFn) {
+                    curStepInfo.nextFn(result.remain, function (remainParams) {
+                        that.next(remainParams);
+                    });
+                }
+                else {
+                    that.next({});
+                }
+            }
+            else {
+                errorNode.html("<div class=\"_zs_gallery_mx-main_step_-step-error\"><i class=\"mc-iconfont _zs_gallery_mx-main_step_-error-icon\">&#xe6ad;</i>" + result.msg + "</div>");
+            }
+        });
+    }
+});
+
+});
