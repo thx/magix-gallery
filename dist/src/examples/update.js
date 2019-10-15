@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ioimaohowk$art_i = 0, $art_clbsbfea$art_c = list.length; $art_ioimaohowk$art_i < $art_clbsbfea$art_c; $art_ioimaohowk$art_i++) {    var item = list[$art_ioimaohowk$art_i]%>';
-    for (var $art_ioimaohowk$art_i = 0, $art_clbsbfea$art_c = list.length; $art_ioimaohowk$art_i < $art_clbsbfea$art_c; $art_ioimaohowk$art_i++) {
-        var item = list[$art_ioimaohowk$art_i];
+    $expr = '<%for (var $art_ihmmno$art_i = 0, $art_cmrkcnbq$art_c = list.length; $art_ihmmno$art_i < $art_cmrkcnbq$art_c; $art_ihmmno$art_i++) {    var item = list[$art_ihmmno$art_i]%>';
+    for (var $art_ihmmno$art_i = 0, $art_cmrkcnbq$art_c = list.length; $art_ihmmno$art_i < $art_cmrkcnbq$art_c; $art_ihmmno$art_i++) {
+        var item = list[$art_ihmmno$art_i];
         $p += '<div mxa="_zs_galleryP:_" class="_zs_gallery_examples_update_-update"><div mxa="_zs_galleryP:a" class="_zs_gallery_examples_update_-ver pl20"><span mxa="_zs_galleryP:b" class="_zs_gallery_examples_update_-vt">';
         $line = 5;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 10;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_ipmudykid$art_i = 0, $art_objimjgyoj$art_obj = item.subs, $art_cpitobdle$art_c = $art_objimjgyoj$art_obj.length; $art_ipmudykid$art_i < $art_cpitobdle$art_c; $art_ipmudykid$art_i++) {        var s = $art_objimjgyoj$art_obj[$art_ipmudykid$art_i]%>';
-        for (var $art_ipmudykid$art_i = 0, $art_objimjgyoj$art_obj = item.subs, $art_cpitobdle$art_c = $art_objimjgyoj$art_obj.length; $art_ipmudykid$art_i < $art_cpitobdle$art_c; $art_ipmudykid$art_i++) {
-            var s = $art_objimjgyoj$art_obj[$art_ipmudykid$art_i];
+        $expr = '<%for (var $art_ihmxlmzi$art_i = 0, $art_objlwsznsfj$art_obj = item.subs, $art_cstpuymeaqp$art_c = $art_objlwsznsfj$art_obj.length; $art_ihmxlmzi$art_i < $art_cstpuymeaqp$art_c; $art_ihmxlmzi$art_i++) {        var s = $art_objlwsznsfj$art_obj[$art_ihmxlmzi$art_i]%>';
+        for (var $art_ihmxlmzi$art_i = 0, $art_objlwsznsfj$art_obj = item.subs, $art_cstpuymeaqp$art_c = $art_objlwsznsfj$art_obj.length; $art_ihmxlmzi$art_i < $art_cstpuymeaqp$art_c; $art_ihmxlmzi$art_i++) {
+            var s = $art_objlwsznsfj$art_obj[$art_ihmxlmzi$art_i];
             $p += '<div mxa="_zs_galleryP:e" class="pl20">';
             $line = 12;
             $art = 'if s.type == \'notice\'';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
             $line = 33;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_ihacwln$art_i = 0, $art_objbrcwwwziout$art_obj = s.subs, $art_crqxrqtpsqri$art_c = $art_objbrcwwwziout$art_obj.length; $art_ihacwln$art_i < $art_crqxrqtpsqri$art_c; $art_ihacwln$art_i++) {            var ss = $art_objbrcwwwziout$art_obj[$art_ihacwln$art_i]%>';
-            for (var $art_ihacwln$art_i = 0, $art_objbrcwwwziout$art_obj = s.subs, $art_crqxrqtpsqri$art_c = $art_objbrcwwwziout$art_obj.length; $art_ihacwln$art_i < $art_crqxrqtpsqri$art_c; $art_ihacwln$art_i++) {
-                var ss = $art_objbrcwwwziout$art_obj[$art_ihacwln$art_i];
+            $expr = '<%for (var $art_iimdijr$art_i = 0, $art_objojjksnx$art_obj = s.subs, $art_cuoxbjzih$art_c = $art_objojjksnx$art_obj.length; $art_iimdijr$art_i < $art_cuoxbjzih$art_c; $art_iimdijr$art_i++) {            var ss = $art_objojjksnx$art_obj[$art_iimdijr$art_i]%>';
+            for (var $art_iimdijr$art_i = 0, $art_objojjksnx$art_obj = s.subs, $art_cuoxbjzih$art_c = $art_objojjksnx$art_obj.length; $art_iimdijr$art_i < $art_cuoxbjzih$art_c; $art_iimdijr$art_i++) {
+                var ss = $art_objojjksnx$art_obj[$art_iimdijr$art_i];
                 $p += '<div mxa="_zs_galleryP:l" class="pl20"><div mxa="_zs_galleryP:m" class="_zs_gallery_examples_update_-line _zs_gallery_examples_update_-dot">';
                 $line = 35;
                 $art = '!ss.title';
@@ -137,9 +137,9 @@ module.exports = Magix.View.extend({
                     $line = 42;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_irhglouq$art_i = 0, $art_objuxklxej$art_obj = ss.subs, $art_ctbxxdoorg$art_c = $art_objuxklxej$art_obj.length; $art_irhglouq$art_i < $art_ctbxxdoorg$art_c; $art_irhglouq$art_i++) {                    var sss = $art_objuxklxej$art_obj[$art_irhglouq$art_i]%>';
-                    for (var $art_irhglouq$art_i = 0, $art_objuxklxej$art_obj = ss.subs, $art_ctbxxdoorg$art_c = $art_objuxklxej$art_obj.length; $art_irhglouq$art_i < $art_ctbxxdoorg$art_c; $art_irhglouq$art_i++) {
-                        var sss = $art_objuxklxej$art_obj[$art_irhglouq$art_i];
+                    $expr = '<%for (var $art_irdpbiuog$art_i = 0, $art_objqyqofueet$art_obj = ss.subs, $art_cfmykhcwtnyp$art_c = $art_objqyqofueet$art_obj.length; $art_irdpbiuog$art_i < $art_cfmykhcwtnyp$art_c; $art_irdpbiuog$art_i++) {                    var sss = $art_objqyqofueet$art_obj[$art_irdpbiuog$art_i]%>';
+                    for (var $art_irdpbiuog$art_i = 0, $art_objqyqofueet$art_obj = ss.subs, $art_cfmykhcwtnyp$art_c = $art_objqyqofueet$art_obj.length; $art_irdpbiuog$art_i < $art_cfmykhcwtnyp$art_c; $art_irdpbiuog$art_i++) {
+                        var sss = $art_objqyqofueet$art_obj[$art_irdpbiuog$art_i];
                         $p += '<div mxa="_zs_galleryP:o" class="_zs_gallery_examples_update_-line _zs_gallery_examples_update_-dot">';
                         $line = 43;
                         $art = '!sss';
@@ -191,6 +191,17 @@ catch (ex) {
 } return $p; },
     render: function () {
         var list = [{
+                ver: '1.3.38',
+                time: '2019-10-11',
+                subs: [{
+                        type: 'notice',
+                        subs: [{
+                                title: 'mx-header：替换吊头平台连接，<a href="#!/header/index" class="color-brand">点击查看</a>'
+                            }, {
+                                title: 'mx-footer：替换吊尾平台连接'
+                            }]
+                    }]
+            }, {
                 ver: '1.3.37',
                 time: '2019-10-08',
                 subs: [{

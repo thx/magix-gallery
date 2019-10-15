@@ -30,19 +30,19 @@ module.exports = Magix.View.extend({
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
     $p += '<div mxa="_zs_gallerye8:_" class="pr pr120"><div mx-view="examples/subs?list=';
-    $line = 2;
+    $line = 52;
     $art = '@[{\n        name: \'自定义吸顶容器\',\n        key: viewId + \'_1\'\n    }, {\n        name: \'相对于window吸顶\',\n        key: viewId + \'_2\'\n    }, {\n        name: \'滚动时隐藏吸顶\',\n        key: viewId + \'_3\'\n    }]';
     ;
     $p += ($expr = '<%@[{            name: \'自定义吸顶容器\',            key: viewId + \'_1\'        }, {            name: \'相对于window吸顶\',            key: viewId + \'_2\'        }, {            name: \'滚动时隐藏吸顶\',            key: viewId + \'_3\'        }]%>', $i($$ref, [{ name: '自定义吸顶容器', key: viewId + '_1' }, { name: '相对于window吸顶', key: viewId + '_2' }, { name: '滚动时隐藏吸顶', key: viewId + '_3' }])) + '"></div><div mxs="_zs_gallerye8:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mx-view="mx-table/examples/13" id="';
-    $line = 14;
+    $line = 64;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_1"></div><div mx-view="mx-table/examples/16" id="';
-    $line = 15;
+    $line = 65;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_2"></div><div mx-view="mx-table/examples/19" id="';
-    $line = 16;
+    $line = 66;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_3"></div></div>';
@@ -57,7 +57,18 @@ catch (ex) {
 } return $p; },
     render: function () {
         this.updater.digest({
+            index: 1,
+            count: 10,
             viewId: this.id
+        });
+    },
+    'test<click>': function (e) {
+        var _a = this.updater.get(), index = _a.index, count = _a.count;
+        if (+index < count) {
+            index = +index + 1;
+        }
+        this.updater.digest({
+            index: index
         });
     }
 });

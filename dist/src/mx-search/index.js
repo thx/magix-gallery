@@ -75,9 +75,9 @@ module.exports = Magix.View.extend({
     $line = 14;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iiyreqzs$art_i = 0, $art_ctlftrnez$art_c = list.length; $art_iiyreqzs$art_i < $art_ctlftrnez$art_c; $art_iiyreqzs$art_i++) {    var item = list[$art_iiyreqzs$art_i]%>';
-    for (var $art_iiyreqzs$art_i = 0, $art_ctlftrnez$art_c = list.length; $art_iiyreqzs$art_i < $art_ctlftrnez$art_c; $art_iiyreqzs$art_i++) {
-        var item = list[$art_iiyreqzs$art_i];
+    $expr = '<%for (var $art_incfavbdvv$art_i = 0, $art_chipnimi$art_c = list.length; $art_incfavbdvv$art_i < $art_chipnimi$art_c; $art_incfavbdvv$art_i++) {    var item = list[$art_incfavbdvv$art_i]%>';
+    for (var $art_incfavbdvv$art_i = 0, $art_chipnimi$art_c = list.length; $art_incfavbdvv$art_i < $art_chipnimi$art_c; $art_incfavbdvv$art_i++) {
+        var item = list[$art_incfavbdvv$art_i];
         $p += '<li mxa="_zs_galleryd):a" class="mx-output-item"><span class="mx-output-link ';
         $line = 16;
         $art = 'if (searchKey == item.value)';

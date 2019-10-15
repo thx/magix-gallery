@@ -13,7 +13,7 @@ require("examples/hl");
 var Magix = require("magix");
 var Base = require("examples/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-table_examples_17_","._zs_gallery_mx-table_examples_17_-filters {\n  height: 50px;\n}\n._zs_gallery_mx-table_examples_17_-filters-inner {\n  height: 50px;\n  padding-top: 8px;\n  background-color: #fff;\n}\n._zs_gallery_mx-table_examples_17_-filters-fixed {\n  position: fixed;\n  z-index: 100;\n  top: 0;\n  left: 280px;\n  right: 40px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-table_examples_17_","._zs_gallery_mx-table_examples_17_-filters {\n  height: 50px;\n}\n._zs_gallery_mx-table_examples_17_-filters-inner {\n  height: 50px;\n  padding-top: 8px;\n  background-color: #fff;\n}\n._zs_gallery_mx-table_examples_17_-filters-fixed {\n  position: fixed;\n  z-index: 100;\n  top: 0;\n  left: 260px;\n  right: 40px;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

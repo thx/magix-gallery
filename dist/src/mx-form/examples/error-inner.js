@@ -26,9 +26,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ikdatgsqi$art_i = 0, $art_cberveqp$art_c = list.length; $art_ikdatgsqi$art_i < $art_cberveqp$art_c; $art_ikdatgsqi$art_i++) {    var item = list[$art_ikdatgsqi$art_i]%>';
-    for (var $art_ikdatgsqi$art_i = 0, $art_cberveqp$art_c = list.length; $art_ikdatgsqi$art_i < $art_cberveqp$art_c; $art_ikdatgsqi$art_i++) {
-        var item = list[$art_ikdatgsqi$art_i];
+    $expr = '<%for (var $art_iksthljn$art_i = 0, $art_chhsglabs$art_c = list.length; $art_iksthljn$art_i < $art_chhsglabs$art_c; $art_iksthljn$art_i++) {    var item = list[$art_iksthljn$art_i]%>';
+    for (var $art_iksthljn$art_i = 0, $art_chhsglabs$art_c = list.length; $art_iksthljn$art_i < $art_chhsglabs$art_c; $art_iksthljn$art_i++) {
+        var item = list[$art_iksthljn$art_i];
         $p += '<label mxv mxa="_zs_galleryct:_" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 6;
         $art = ':info.age{required:[true,\'必选\']}';

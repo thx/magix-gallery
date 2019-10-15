@@ -6,6 +6,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.38',
+            time: '2019-10-11',
+            subs: [{
+                type: 'notice',
+                subs: [{
+                    title: 'mx-header：替换吊头平台连接，<a href="#!/header/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-footer：替换吊尾平台连接'
+                }]
+            }]
+        }, {
             ver: '1.3.37',
             time: '2019-10-08',
             subs: [{

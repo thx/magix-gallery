@@ -33,9 +33,9 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'each verticals as item';
     ;
-    $expr = '<%for (var $art_iquhfhvy$art_i = 0, $art_cdksllmwpwg$art_c = verticals.length; $art_iquhfhvy$art_i < $art_cdksllmwpwg$art_c; $art_iquhfhvy$art_i++) {    var item = verticals[$art_iquhfhvy$art_i]%>';
-    for (var $art_iquhfhvy$art_i = 0, $art_cdksllmwpwg$art_c = verticals.length; $art_iquhfhvy$art_i < $art_cdksllmwpwg$art_c; $art_iquhfhvy$art_i++) {
-        var item = verticals[$art_iquhfhvy$art_i];
+    $expr = '<%for (var $art_iyosejatzkj$art_i = 0, $art_coxnnnbcls$art_c = verticals.length; $art_iyosejatzkj$art_i < $art_coxnnnbcls$art_c; $art_iyosejatzkj$art_i++) {    var item = verticals[$art_iyosejatzkj$art_i]%>';
+    for (var $art_iyosejatzkj$art_i = 0, $art_coxnnnbcls$art_c = verticals.length; $art_iyosejatzkj$art_i < $art_coxnnnbcls$art_c; $art_iyosejatzkj$art_i++) {
+        var item = verticals[$art_iyosejatzkj$art_i];
         $p += '<label mxv mxa="_zs_galleryae:c" class="w150 mb5"><input type="radio" value="';
         $line = 7;
         $art = '=item.value';
@@ -73,9 +73,9 @@ module.exports = Base.extend({
     $line = 17;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_igjgsve$art_i = 0, $art_ctkgnlsdua$art_c = list.length; $art_igjgsve$art_i < $art_ctkgnlsdua$art_c; $art_igjgsve$art_i++) {    var item = list[$art_igjgsve$art_i]%>';
-    for (var $art_igjgsve$art_i = 0, $art_ctkgnlsdua$art_c = list.length; $art_igjgsve$art_i < $art_ctkgnlsdua$art_c; $art_igjgsve$art_i++) {
-        var item = list[$art_igjgsve$art_i];
+    $expr = '<%for (var $art_ickapihos$art_i = 0, $art_cgqpdhohaon$art_c = list.length; $art_ickapihos$art_i < $art_cgqpdhohaon$art_c; $art_ickapihos$art_i++) {    var item = list[$art_ickapihos$art_i]%>';
+    for (var $art_ickapihos$art_i = 0, $art_cgqpdhohaon$art_c = list.length; $art_ickapihos$art_i < $art_cgqpdhohaon$art_c; $art_ickapihos$art_i++) {
+        var item = list[$art_ickapihos$art_i];
         $p += '<label mxv mxa="_zs_galleryae:e" class="w150 mb5"><input type="radio" value="';
         $line = 19;
         $art = '=item.value';

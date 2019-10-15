@@ -289,21 +289,20 @@ module.exports = Magix.View.extend({
         var me = this;
         var wrapFn = function (table) {
             var trs = table.find('tbody>tr');
-            var len = trs.length;
             var headTrs = table.find('thead>tr');
+            // 宽度设置在th上
             var widthArr = [];
-            if (len > 0) {
-                // 有tbody的时候
-                // 根据table的宽度计算
-                var firstTds = table.find('tbody>tr:first-child>td');
-                for (var i = 0; i < firstTds.length; i++) {
-                    var td = firstTds.eq(i);
-                    var colspan = +td.attr('colspan') || 1;
-                    var width = td.outerWidth();
-                    for (var j = 0; j < colspan; j++) {
-                        widthArr.push(width / colspan);
-                    }
+            var firstThs = table.find('thead>tr:first-child>th');
+            for (var i = 0; i < firstThs.length; i++) {
+                var th = firstThs.eq(i);
+                var colspan = +th.attr('colspan') || 1;
+                var width = th.outerWidth();
+                for (var j = 0; j < colspan; j++) {
+                    widthArr.push(width / colspan);
                 }
+            }
+            var len = trs.length;
+            if (len > 0) {
                 for (var i = 0; i < len; i++) {
                     var tds = $(trs[i]).find('td');
                     var gap = 0;
@@ -316,18 +315,6 @@ module.exports = Magix.View.extend({
                         }
                         td.css('width', width);
                         gap = gap + colspan;
-                    }
-                }
-            }
-            else {
-                // 没有tbody的时候，设置自己本身的宽度
-                var firstThs = table.find('thead>tr:first-child>th');
-                for (var i = 0; i < firstThs.length; i++) {
-                    var th = firstThs.eq(i);
-                    var colspan = +th.attr('colspan') || 1;
-                    var width = th.outerWidth();
-                    for (var j = 0; j < colspan; j++) {
-                        widthArr.push(width / colspan);
                     }
                 }
             }

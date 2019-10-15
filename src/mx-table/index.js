@@ -82,7 +82,6 @@ module.exports = Magix.View.extend({
             // 表格分栏时同步两边表格的内容的高度
             me['@{table.sync.height}']();
         }
-
         // 根据内容宽度计算头部th的宽度
         me['@{table.sync.th.width}']();
 
@@ -312,21 +311,22 @@ module.exports = Magix.View.extend({
         let me = this;
         let wrapFn = (table) => {
             let trs = table.find('tbody>tr');
-            let len = trs.length;
             let headTrs = table.find('thead>tr');
+
+            // 宽度设置在th上
             let widthArr = [];
-            if (len > 0) {
-                // 有tbody的时候
-                // 根据table的宽度计算
-                let firstTds = table.find('tbody>tr:first-child>td');
-                for (let i = 0; i < firstTds.length; i++) {
-                    let td = firstTds.eq(i);
-                    let colspan = +td.attr('colspan') || 1;
-                    let width = td.outerWidth();
-                    for (let j = 0; j < colspan; j++) {
-                        widthArr.push(width / colspan);
-                    }
+            let firstThs = table.find('thead>tr:first-child>th');
+            for (let i = 0; i < firstThs.length; i++) {
+                let th = firstThs.eq(i);
+                let colspan = +th.attr('colspan') || 1;
+                let width = th.outerWidth();
+                for (let j = 0; j < colspan; j++) {
+                    widthArr.push(width / colspan);
                 }
+            }
+
+            let len = trs.length;
+            if (len > 0) {
                 for (let i = 0; i < len; i++) {
                     let tds = $(trs[i]).find('td');
                     let gap = 0;
@@ -339,17 +339,6 @@ module.exports = Magix.View.extend({
                         }
                         td.css('width', width);
                         gap = gap + colspan;
-                    }
-                }
-            } else {
-                // 没有tbody的时候，设置自己本身的宽度
-                let firstThs = table.find('thead>tr:first-child>th');
-                for (let i = 0; i < firstThs.length; i++) {
-                    let th = firstThs.eq(i);
-                    let colspan = +th.attr('colspan') || 1;
-                    let width = th.outerWidth();
-                    for (let j = 0; j < colspan; j++) {
-                        widthArr.push(width / colspan);
                     }
                 }
             }
