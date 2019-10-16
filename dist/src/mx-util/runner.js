@@ -7,10 +7,10 @@ define("mx-util/runner",["magix"],(require,exports,module)=>{
 /*Magix*/
 
 var Magix = require("magix");
-var setRAF = window.requestAnimationFrame || (function (fn) {
+var SetRAF = window.requestAnimationFrame || (function (fn) {
     return setTimeout(fn, 16);
 });
-var cancelRAF = window.cancelAnimationFrame || clearTimeout;
+var CancelRAF = window.cancelAnimationFrame || clearTimeout;
 var Now = Date.now || (function () {
     return new Date().getTime();
 });
@@ -55,14 +55,14 @@ module.exports = {
                     }
                 }
                 if (!q.length) {
-                    cancelRAF(me['@{timer.id}']);
+                    CancelRAF(me['@{timer.id}']);
                     delete me['@{timer.id}'];
                 }
                 else {
-                    me['@{timer.id}'] = setRAF(run_1);
+                    me['@{timer.id}'] = SetRAF(run_1);
                 }
             };
-            me['@{timer.id}'] = setRAF(run_1);
+            me['@{timer.id}'] = SetRAF(run_1);
         }
     }
 };

@@ -1,3 +1,6 @@
+/**
+ * 包装万象组件
+ */
 let Magix = require('magix');
 let Router = Magix.Router;
 let $ = require('$');
@@ -47,7 +50,7 @@ module.exports = Magix.View.extend({
                         that.updater.set({
                             awLoading: false
                         })
-    
+
                         that.reloc();
                         AW.show();
                     }
@@ -64,6 +67,7 @@ module.exports = Magix.View.extend({
     },
 
     assign() {
+        // 固定刷新
         return true;
     },
 
@@ -129,8 +133,8 @@ module.exports = Magix.View.extend({
 
     reloc: function () {
         let that = this;
-        if (window.AW && !that.updater.get('awLoading')) {
-            let bottom = that.updater.get('bottom');
+        let { awLoading, bottom } = that.updater.get();
+        if (window.AW && !awLoading) {
             let winHeight = $(window).height();
             AW.moveTo(winHeight - bottom - 200);
         }

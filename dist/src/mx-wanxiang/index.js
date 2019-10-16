@@ -6,6 +6,9 @@
 define("mx-wanxiang/index",["magix","$"],(require,exports,module)=>{
 /*Magix,$*/
 
+/**
+ * 包装万象组件
+ */
 var Magix = require("magix");
 var Router = Magix.Router;
 var $ = require("$");
@@ -62,6 +65,7 @@ module.exports = Magix.View.extend({
         });
     },
     assign: function () {
+        // 固定刷新
         return true;
     },
     getCurSourceId: function () {
@@ -118,8 +122,8 @@ module.exports = Magix.View.extend({
     },
     reloc: function () {
         var that = this;
-        if (window.AW && !that.updater.get('awLoading')) {
-            var bottom = that.updater.get('bottom');
+        var _a = that.updater.get(), awLoading = _a.awLoading, bottom = _a.bottom;
+        if (window.AW && !awLoading) {
             var winHeight = $(window).height();
             AW.moveTo(winHeight - bottom - 200);
         }

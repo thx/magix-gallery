@@ -5,8 +5,7 @@ Magix.applyStyle('@index.less');
 let html = '@index.html';
 let Uploader = Magix.Base.extend({
     destroy() {
-        let me = this;
-        me['@{destroyed}'] = 1;
+        this['@{destroyed}'] = 1;
     }
 });
 let Iframe = Uploader.extend({

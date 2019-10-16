@@ -56,8 +56,7 @@ catch (ex) {
 } return $p; };
 var Uploader = Magix.Base.extend({
     destroy: function () {
-        var me = this;
-        me['@{destroyed}'] = 1;
+        this['@{destroyed}'] = 1;
     }
 });
 var Iframe = Uploader.extend({

@@ -1,8 +1,8 @@
 let Magix = require('magix');
-let setRAF = window.requestAnimationFrame || ((fn) => {
+let SetRAF = window.requestAnimationFrame || ((fn) => {
     return setTimeout(fn, 16);
 });
-let cancelRAF = window.cancelAnimationFrame || clearTimeout;
+let CancelRAF = window.cancelAnimationFrame || clearTimeout;
 let Now = Date.now || (() => {
     return new Date().getTime();
 });
@@ -46,13 +46,13 @@ module.exports = {
                     }
                 }
                 if (!q.length) {
-                    cancelRAF(me['@{timer.id}']);
+                    CancelRAF(me['@{timer.id}']);
                     delete me['@{timer.id}'];
                 } else {
-                    me['@{timer.id}'] = setRAF(run);
+                    me['@{timer.id}'] = SetRAF(run);
                 }
             };
-            me['@{timer.id}'] = setRAF(run);
+            me['@{timer.id}'] = SetRAF(run);
         }
     }
 };

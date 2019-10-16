@@ -6,6 +6,10 @@
 define("mx-util/css-var",[],(require,exports,module)=>{
 /**/
 
+/**
+ * 获取css变量
+ * 优先级：style设置 > root配置，在线预览配置 #!/all/edit/index
+ */
 module.exports = {
     get: function (key, def) {
         var root = window.getComputedStyle(document.documentElement);
