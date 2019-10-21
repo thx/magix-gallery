@@ -1,8 +1,7 @@
-let Magix = require('magix');
-let $ = require('$');
-let Util = require('../../mx-color/util');
+import Magix from 'magix';
+import * as View from '../../mx-util/view';
 
-module.exports = Magix.View.extend({
+export = View.extend({
     initTheme() {
         let that = this;
         let themes = [{
@@ -46,8 +45,6 @@ module.exports = Magix.View.extend({
                 '--btn-border-hover': '#637ba5',
                 '--btn-bg': '#f3f5fc',
                 '--btn-bg-hover': '#e7eaf4',
-                '--color-red': '#d52112',
-                '--color-green': '#30ab66',
                 '--color-bg': '#f5f5f5',
                 '--app-brand': '#385ACC',
                 '--app-brand-gradient': '#5C55DD'
@@ -69,14 +66,14 @@ module.exports = Magix.View.extend({
         let fontSize = base['--font-size'] || 12,
             borderRadius = base['--border-radius'] || '4px';
         let brand = base['--color-brand'];
-        let rgb = Util.toRgb(brand);
+        let rgb = this['@{color.to.rgb}'](brand);
         let r = rgb.r, g = rgb.g, b = rgb.b;
-        let brandHover = base['--color-brand-hover'] || Util.toHex(Util.shade(brand, 0.1)),
+        let brandHover = base['--color-brand-hover'] || this['@{color.to.hex}'](this['@{color.shade}'](brand, 0.1)),
             brandVs = base['--color-brand-vs'] || '#14c9ce',
-            brandLight = base['--color-brand-light'] || Util.toHex({
+            brandLight = base['--color-brand-light'] || this['@{color.to.hex}']({
                 r, g, b, alpha: 0.2
             }),
-            brandOpacity = base['--color-brand-opacity'] || Util.toHex({
+            brandOpacity = base['--color-brand-opacity'] || this['@{color.to.hex}']({
                 r, g, b, alpha: 0.1
             }),
             brandText = base['--color-brand-text'] || '#ffffff';
@@ -120,9 +117,9 @@ module.exports = Magix.View.extend({
 
             // 提示颜色
             '--color-warn': '#ffb400',
-            '--color-red': '#a40100',
+            '--color-red': '#d52112',
             '--color-orange': '#ff5500',
-            '--color-green': '#51a300',
+            '--color-green': '#30ab66',
             '--color-blue': '#4d7fff',
             '--color-disabled': '#eeeeee',
 

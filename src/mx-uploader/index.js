@@ -162,13 +162,6 @@ module.exports = Magix.View.extend({
             node.remove();
         }
         let data = me.updater.get();
-        if (data.multiple) {
-            node.attr('multiple', 'multiple');
-        }
-        if (data.accept) {
-            node.prop('accept', data.accept);
-        }
-
         let tmpl = $.isFunction(html) ? html({
             disabled: data.disabled,
             name: data.name,
@@ -177,7 +170,14 @@ module.exports = Magix.View.extend({
         if (me.wrapEvent) {
             tmpl = me.wrapEvent(tmpl);
         }
-        me['@{owner.node}'].append(tmpl);
+        $('#' + me.id).append(tmpl);
+        node = $('#' + nodeId);
+        if (data.multiple) {
+            node.attr('multiple', 'multiple');
+        }
+        if (data.accept) {
+            node.prop('accept', data.accept);
+        }
     },
     '@{upload}<change>'(e) {
         // e.stopPropagation();

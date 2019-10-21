@@ -15,6 +15,7 @@ module.exports = Magix.View.extend({
     text:"一级菜单展示文案",
     value:"一级菜单value值",
     link: "配置了该字段时直接外链打开link",
+    tag: "打标",
     subs: [{
         text:"二级菜单展示文案",
         value:"二级菜单value值",

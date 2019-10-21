@@ -1,16 +1,8 @@
-let Magix = require('magix');
-let $ = require('$');
-let ColorUtil = require('@../mx-color/util');
-let CSSVarUtil = require('@../mx-util/css-var');
+import Magix from 'magix';
+import * as View from '../mx-util/view';
 Magix.applyStyle('@progress.less');
-let ClassNames = {
-    left: '@progress.less:num-left',
-    right: '@progress.less:num-right',
-    top: '@progress.less:num-top',
-    bottom: '@progress.less:num-bottom'
-}
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@progress.html',
     init(e) {
         this.updater.snapshot();
@@ -52,7 +44,7 @@ module.exports = Magix.View.extend({
             colorVs = e.colorVs || '',
             color1, color2;
 
-        let brandColor = CSSVarUtil.get('--color-brand', '#4d7fff');
+        let brandColor = that['@{get.css.var}']('--color-brand', '#4d7fff');
         switch (type) {
             case 'degree':
                 // 刻度型，刻度取整
@@ -69,7 +61,7 @@ module.exports = Magix.View.extend({
                 // 渐变，未自定义颜色时适用品牌色
                 color = color || brandColor;
                 if(color){
-                    let result = ColorUtil.toRgb(color);
+                    let result = that['@{color.to.rgb}'](color);
                     color1 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.4)`;
                     color2 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.2)`;
                 }
@@ -84,7 +76,6 @@ module.exports = Magix.View.extend({
             originNum: num,
             num: num.toFixed(i) + '%',
             numRemain: (100 - num).toFixed(i) + '%',
-            cName: ClassNames[placement],
             color,
             colorGradient,
             colorVs,
@@ -160,5 +151,5 @@ module.exports = Magix.View.extend({
                 }
             }, easing);
         }
-    }
+    } 
 });

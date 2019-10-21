@@ -13,17 +13,13 @@ module.exports = Base.extend({
             value: 2,
             text: '自定义标颜色',
             tag: 'NEW',
-            color: '#ff0000'
+            color: '#30ab66'
         }, {
             value: 3,
             text: '无打标'
         }, {
             value: 4,
             text: '自定义打标模块',
-            tagContent: '<span style="display: inline-block; width: 8px; height: 8px; background-color: #ff0000; border-radius: 50%;"></span>'
-        }, {
-            value: 5,
-            text: '图片打标',
             tagContent: '<img src="https://img.alicdn.com/tfs/TB1pvD4dkP2gK0jSZPxXXacQpXa-100-34.png" style="max-width: none; width: 50px;"/>'
         }];
 

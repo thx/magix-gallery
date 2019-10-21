@@ -1,9 +1,9 @@
-let Magix = require('magix');
-let $ = require('$');
-let CSSVarUtil = require('@../mx-util/css-var');
+import Magix from 'magix';
+import * as View from '../mx-util/view';
+import * as $ from '$';
 Magix.applyStyle('@star.less');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@star.html',
     init(e) {
         this.updater.snapshot();
@@ -29,7 +29,7 @@ module.exports = Magix.View.extend({
             num,
             count,
             operational: (e.operational + '' === 'true'), //是否可操作
-            color: e.color || CSSVarUtil.get('--color-brand', '#4d7fff'),
+            color: e.color || 'var(--color-brand)',
             icon: e.icon || '<i class="mc-iconfont">&#xe60f;</i>'
         });
 
@@ -44,16 +44,13 @@ module.exports = Magix.View.extend({
     },
     render() {
         this.updater.digest({
-            hoverIndex: -1
+            hoverIndex: -1  //hover高亮动画
         });
-
-        let that = this;
-        that.updater.digest();
-        that['@{owner.node}'] = $('#' + that.id);
+        this['@{owner.node}'] = $(`#${this.id}`);
 
         // 双向绑定
-        let { num } = that.updater.get();
-        that['@{owner.node}'].val(num);
+        let { num } = this.updater.get();
+        this['@{owner.node}'].val(num);
     },
 
     '@{select}<click>'(event) {
@@ -91,5 +88,5 @@ module.exports = Magix.View.extend({
         that.updater.digest({
             hoverIndex: e.params.index
         })
-    },
+    }
 });

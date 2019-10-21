@@ -2,11 +2,12 @@
  * 为了保证dropdown.item每次更新，不实现assign
  */
 let Magix = require('magix');
+let View = require('../mx-util/view');
 let $ = require('$');
 let Monitor = require('../mx-util/monitor');
 let I18n = require('../mx-medusa/util');
 Magix.applyStyle('@index.less');
-module.exports = Magix.View.extend({
+module.exports = View.extend({
     tmpl: '@index.html',
     init(ops) {
         let me = this;
@@ -98,7 +99,6 @@ module.exports = Magix.View.extend({
         }
 
         me.updater.set({
-            viewId: me.id,
             textKey: me['@{textKey}'],
             valueKey: me['@{valueKey}'],
             selected: me['@{selected}'] = selected,
@@ -107,7 +107,6 @@ module.exports = Magix.View.extend({
             keyword: me['@{last.search.value}'] = (ops.keyword || ''),  // 搜索关键词
             expand: me['@{ui.expand}'],
             height: (ops.height || 250),
-            spm: me['@{owner.node}'].attr('data-spm-click') || '', //埋点
             name: ops.name || '', // 前缀
             placementClass,
             text: {

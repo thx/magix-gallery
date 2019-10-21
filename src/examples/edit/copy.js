@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let $ = require('$');
 Magix.applyStyle('@copy.less');
 
 module.exports = Magix.View.extend({
@@ -17,7 +16,7 @@ module.exports = Magix.View.extend({
         }
         this.updater.set({
             viewId: this.id,
-            height: $(window).height() - 220,
+            height: window.innerHeight - 220,
             tip1: list1.join('<br />'),
             tip2: list2.join('<br />')
         })

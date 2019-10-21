@@ -1,46 +1,43 @@
-let Magix = require('magix');
-let $ = require('$');
-let ColorUtil = require('@../mx-color/util');
-let CSSVarUtil = require('@../mx-util/css-var');
+/**
+ * 提示公告组件
+ */
+import Magix from 'magix';
+import * as View from '../mx-util/view';
 Magix.applyStyle('@notice.less');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@notice.html',
     init(extra) {
-        // 如果用户自定义了色值以自定义色值为准
         let color = extra.color,
-            styles = [],
-            border = (extra.border + '' === 'true'),  // 默认false
-            radius = (extra.radius + '' === 'true'),  // 默认false
-            icon = !(extra.icon + '' === 'false'),  // 默认true
-            closable = (extra.closable + '' === 'true'),// 默认false
-            type = extra.type || 'common';
+            border = (extra.border + '' === 'true'),  // 默认无边框 false
+            radius = (extra.radius + '' === 'true'),  // 默认无圆角 false
+            icon = !(extra.icon + '' === 'false'),  // 默认有提示icon true
+            closable = (extra.closable + '' === 'true'),// 默认无关闭按钮 false
+            type = extra.type || 'common',
+            textAlign = extra.textAlign || 'left';  // 默认左对齐
 
+        let styles = [];
         if (border) {
+            // 有边框的情况下一定有圆角
             radius = true;
             styles.push(
                 'border-width: 1px',
                 'border-style: solid'
             )
         }
-
-        let borderRadius = CSSVarUtil.get('--border-radius', '4px');
-        if (radius && borderRadius) {
-            styles.push(`border-radius: ${borderRadius}`);
+        if (radius) {
+            styles.push('border-radius: var(--border-radius)');
         }
 
-        let textAlign = extra.textAlign || 'left',  // 默认左对齐
-            colorBg,
-            colorBorder,
-            colorIcon,
-            colorText;
+        // 优先级自定义色值color > 预置类型type
+        let colorBg, colorBorder, colorIcon, colorText;
         if (!color) {
             // 未自定义颜色的时候
             let key;
             switch (type) {
                 case 'common':
-                    colorBg = CSSVarUtil.get('--color-bg', '#fafafa');
-                    colorBorder = CSSVarUtil.get('--color-border', '#e6e6e6');
+                    colorBg = this['@{get.css.var}']('--color-bg', '#fafafa');
+                    colorBorder = this['@{get.css.var}']('--color-border', '#e6e6e6');
                     colorIcon = '#cccccc';
                     break;
                 case 'highlight':
@@ -54,12 +51,12 @@ module.exports = Magix.View.extend({
                     break;
             }
             if (key) {
-                color = CSSVarUtil.get(key, '#4d7fff');
+                color = this['@{get.css.var}'](key, '#4d7fff');
             }
         }
         if (color) {
-            // 主体颜色
-            let result = ColorUtil.toRgb(color);
+            // 主体颜色，背景加透明度
+            let result = this['@{color.to.rgb}'](color);
             colorBg = `rgba(${result.r}, ${result.g}, ${result.b}, 0.1)`;
             colorBorder = color;
             colorIcon = color;
@@ -74,10 +71,9 @@ module.exports = Magix.View.extend({
             'color:' + colorText,
             'text-align:' + textAlign
         )
-
         this.updater.set({
             show: true,
-            content: extra.content || $('#' + this.id).html() || '提示内容',
+            content: extra.content || document.getElementById(this.id).innerHTML || '提示内容',
             styles: styles.join(';'),
             colorIcon,
             icon,

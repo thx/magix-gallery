@@ -1,7 +1,7 @@
 <div class="star-bg clearfix">
     {{for(let i=0;i<count;i+=1)}}
     <span class="star {{if (hoverIndex == i)}} star-hover {{/if}} " 
-        {{if operational}} mx-click="@{select}({index:{{=i}}})" mx-mouseover="@{over}({index:{{=i}}})" mx-mouseout="@{out}()" {{/if}}>{{!icon}}</span>
+        {{if operational}} mx-click="@{select}({index:{{=i}}})" mx-mouseover="@{over}({index:{{=i}}})" mx-mouseout="@{out}()" {{if spm}} data-spm-click="{{=spm}}{{=i}}" {{/if}}  {{/if}}>{{!icon}}</span>
     {{/for}}
 </div>
 <div class="star-on" style="width: {{=(num * starWidth)}}px;">
@@ -9,7 +9,7 @@
         {{for(let i=0;i<count;i+=1)}}
         <span class="star {{if (hoverIndex == i)}} star-hover {{/if}}" 
             style="color: {{=color}};"
-            {{if operational}} mx-click="@{select}({index:{{=i}}})" mx-mouseover="@{over}({index:{{=i}}})" mx-mouseout="@{out}()" {{/if}}>{{!icon}}</span>
+            {{if operational}} mx-click="@{select}({index:{{=i}}})" mx-mouseover="@{over}({index:{{=i}}})" mx-mouseout="@{out}()" {{if spm}} data-spm-click="{{=spm}}{{=i}}" {{/if}} {{/if}}>{{!icon}}</span>
         {{/for}}
     </div>
 </div>

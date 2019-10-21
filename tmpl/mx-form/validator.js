@@ -2,7 +2,6 @@ let $ = require('$');
 let Magix = require('magix');
 let Rules = require('@./rule');
 let Util = require('./util');
-let CSSVarUtil = require('@../mx-util/css-var');
 Magix.applyStyle('@index.less');
 
 let isValid = (type, actions, val) => {
@@ -105,11 +104,10 @@ let showMsg = (type, ssId, checkInfo) => {
             offset = n.offset(),
             pOffset = prt.offset();
 
-        let lh = CSSVarUtil.get('--input-height', '32px');
         switch (placement) {
             case 'right':
                 msgNode.css({
-                    lineHeight: lh,
+                    lineHeight: 'var(--input-height)',
                     top: (offset.top - pOffset.top),
                     left: (offset.left - pOffset.left) + width + 10
                 });

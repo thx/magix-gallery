@@ -9,8 +9,6 @@
         {{!content}}
     {{/if}}
 
-    {{if closable}}
-    <i class="mc-iconfont close" mx-click="close()">&#xe603;</i>
-    {{/if}}
+    {{if closable}}<i class="mc-iconfont close" mx-click="close()" {{if spm}} data-spm-click="{{=spm}}" {{/if}}>&#xe603;</i>{{/if}}
 </div>
 {{/if}}

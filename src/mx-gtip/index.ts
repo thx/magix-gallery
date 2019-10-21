@@ -1,11 +1,13 @@
-let Magix = require('magix');
-let $ = require('$');
-Magix.applyStyle('@index.less');
-let ColorUtil = require('@../mx-color/util');
-let CSSVarUtil = require('@../mx-util/css-var');
+/**
+ * 全局提示组件
+ */
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
 let Duration = 200;
+Magix.applyStyle('@index.less');
 
-module.exports = Magix.View.extend({
+export = View.extend({
     tmpl: '@index.html',
     init(extra) {
         let that = this;
@@ -40,14 +42,14 @@ module.exports = Magix.View.extend({
         // type: 'error：红色错误类型提示；warn：黄色警告类型提示；highlight：品牌色图标强调提示',
         // singleton: 单实例，多实例，默认true
         // styles: {} //驼峰，直接覆盖样式
-        let viewOptions = that.viewOptions;
-        let displayType = viewOptions.displayType || 'common';
+        let { displayType = 'common', styles = {}, msg, timeout } = that.viewOptions;
 
-        let colorKey, colorBg, colorText;
+        let colorKey, colorBg, colorText, colorIcon;
         switch (displayType) {
             case 'common':
                 colorBg = 'rgba(33, 33, 33, .72)';
                 colorText = '#ffffff';
+                colorIcon = colorIcon || '#ffffff';
                 break;
             case 'highlight':
                 colorKey = '--color-brand';
@@ -63,25 +65,23 @@ module.exports = Magix.View.extend({
                 break;
         }
         if (colorKey) {
-            let color = CSSVarUtil.get(colorKey, '#4d7fff');
-            let result = ColorUtil.toRgb(color);
-            colorBg = ColorUtil.toHex({
+            let color = that['@{get.css.var}'](colorKey, '#4d7fff');
+            let result = that['@{color.to.rgb}'](color);
+            colorBg = that['@{color.to.hex}']({
                 r: result.r,
                 g: result.g,
                 b: result.b,
                 alpha: 0.1
             })
+            colorIcon = colorIcon || color;
         }
-
-        let styles = viewOptions.styles || {};
         styles.backgroundColor = styles.backgroundColor || colorBg;
         styles.color = styles.color || colorText;
         styles.top = styles.top || '0px';
 
-        let msg = viewOptions.msg,
-            timeout = viewOptions.timeout;
         that.updater.digest(Magix.mix({
             msg,
+            colorIcon,
             timeout,
             displayType,
             styles
@@ -156,6 +156,7 @@ module.exports = Magix.View.extend({
                 cfg.displayType = options.type;
                 delete options.type;
                 Magix.mix(cfg, options);
+                // 默认单例
                 cfg.singleton = (cfg.singleton + '' !== 'false');
             } else {
                 // gtip(msg, timeout)
@@ -183,3 +184,6 @@ module.exports = Magix.View.extend({
             }
         }
     });
+
+
+

@@ -26,7 +26,8 @@ module.exports = Base.extend({
                 }]
             }, {
                 value: 3,
-                text: '本页打开2'
+                text: '本页打开2',
+                tag: 'NEW'
             }, {
                 value: 4,
                 text: '外链打开',

@@ -245,7 +245,7 @@ module.exports = Magix.View.extend({
                     path: '/taginput/index',
                     icon: '&#xe794;'
                 }, {
-                    name: 'popmenu更多菜单',
+                    name: '更多菜单选择',
                     prefix: 'mx-popmenu',
                     path: '/popmenu/index',
                     icon: '&#xe62c;'
@@ -276,7 +276,7 @@ module.exports = Magix.View.extend({
                     path: '/status/index',
                     icon: '&#xe61a;'
                 }, {
-                    name: 'dropdown状态切换与显示',
+                    name: '下拉框状态切换与显示',
                     prefix: 'mx-status.dropdown',
                     tip: '结合iconfont使用，展现样式同dropdown',
                     path: '/status/dropdown',
@@ -301,13 +301,13 @@ module.exports = Magix.View.extend({
             }, {
                 name: '提示反馈',
                 subs: [{
-                    name: 'popover气泡提示',
+                    name: '气泡提示',
                     prefix: 'mx-popover',
                     tip: '默认使用span标签生成，可自定义tag',
                     path: '/popover/index',
                     icon: '&#xe654;'
                 }, {
-                    name: 'popconfirm气泡确认框',
+                    name: '气泡确认框',
                     prefix: 'mx-popconfirm',
                     tip: '点击出确认浮层',
                     path: '/popconfirm/index',

@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let CSSVarUtil = require('@../mx-util/css-var');
 
 module.exports = Magix.View.extend({
     init(extra) {
@@ -17,9 +16,6 @@ module.exports = Magix.View.extend({
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         let disabled = (data.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
 
-        // 打标默认颜色
-        let brandColor = CSSVarUtil.get('--color-brand', '#4d7fff');
-
         //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
         let textKey = data.textKey || 'text';
         let valueKey = data.valueKey || 'value';
@@ -33,7 +29,7 @@ module.exports = Magix.View.extend({
         list = $.extend(true, [], list || []);
         list = list.map((item) => {
             return Magix.mix(item, {
-                color: disabled ? '#cccccc' : (item.color || brandColor),
+                color: disabled ? '#cccccc' : (item.color || ''),
                 text: item[textKey],
                 value: item[valueKey]
             })

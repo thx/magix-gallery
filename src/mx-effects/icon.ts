@@ -1,8 +1,10 @@
-let Magix = require('magix');
-let $ = require('$');
-let CSSVarUtil = require('@../mx-util/css-var');
+/**
+ * 打标组件
+ */
+import Magix from 'magix';
+import * as View from '../mx-util/view';
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@icon.html',
     init(extra) {
         this.updater.snapshot();
@@ -12,7 +14,7 @@ module.exports = Magix.View.extend({
         let that = this;
         let altered = that.updater.altered();
 
-        // 如果用户自定义了色值以自定义色值为准
+        // 优先级自定义色值color > 预置类型type
         let color = extra.color,
             colorText,
             mode = extra.mode || 'solid',
@@ -20,7 +22,6 @@ module.exports = Magix.View.extend({
 
         if (!color) {
             // 未自定义颜色的时候
-            let key;
             switch (type) {
                 case 'common':
                     switch (mode) {
@@ -35,17 +36,14 @@ module.exports = Magix.View.extend({
                     }
                     break;
                 case 'highlight':
-                    key = '--color-brand';
+                    color = 'var(--color-brand)';
                     break;
                 case 'error':
-                    key = '--color-red';
+                    color = 'var(--color-red)';
                     break;
                 case 'warn':
-                    key = '--color-warn';
+                    color = 'var(--color-warn)';
                     break;
-            }
-            if (key) {
-                color = CSSVarUtil.get(key, '#4d7fff');
             }
         }
 

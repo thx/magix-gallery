@@ -3,11 +3,7 @@
     <a href="javascript:;" {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} class="box-item {{= (item.value == selected) ? 'selected' : ''}}"
         {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
         {{=item.text}}
-        {{if item.tag}}
-        <span class="mx-tag" style="background-color: {{=item.color}}; border: 1px solid {{=item.color}};">
-            <span class="mx-tag-name">{{!item.tag}}</span>
-        </span>
-        {{/if}}
+        {{if item.tag}}<mx-effects.icon type="error" color="{{=item.color}}" content="{{=item.tag}}"/>{{/if}}
         {{if item.tips}}
         <mx-popover class="mc-iconfont color-9 box-tip"
             tag="i"
