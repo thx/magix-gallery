@@ -5,7 +5,7 @@ module.exports = Magix.View.extend({
     tmpl: '@index.html',
     render() {
         let options = [{
-            key: 'chartId',
+            key: 'chart-id',
             desc: 'chartpark中的图表id，会根据id自动查找图表的配置',
             type: 'int',
             def: ''

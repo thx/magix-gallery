@@ -3,14 +3,17 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-search/index",["magix","$","../mx-util/monitor"],(require,exports,module)=>{
-/*Magix,$,Monitor*/
+define("mx-search/index",["magix","$","../mx-util/view","../mx-util/monitor"],(require,exports,module)=>{
+/*magix_1,$,View,Monitor*/
 
-var Magix = require("magix");
+"use strict";
+exports.__esModule = true;
+var magix_1 = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-search_index_","._zs_gallery_mx-search_index_-search-box-right,\n._zs_gallery_mx-search_index_-search-box-left {\n  position: relative;\n  height: 32px;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu {\n  left: auto;\n  right: 0;\n}\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu {\n  left: 0;\n  right: auto;\n}\n");
+var View = require("../mx-util/view");
 var Monitor = require("../mx-util/monitor");
-module.exports = Magix.View.extend({
+magix_1["default"].applyStyle("_zs_gallery_mx-search_index_","._zs_gallery_mx-search_index_-search-box-right,\n._zs_gallery_mx-search_index_-search-box-left {\n  position: relative;\n  height: 32px;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu {\n  left: auto;\n  right: 0;\n}\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu {\n  left: 0;\n  right: auto;\n}\n");
+exports["default"] = View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
     var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
@@ -26,7 +29,7 @@ module.exports = Magix.View.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', align = $$.align, placeholder = $$.placeholder, searchValue = $$.searchValue, list = $$.list, show = $$.show, searchKey = $$.searchKey; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', align = $$.align, placeholder = $$.placeholder, searchValue = $$.searchValue, spm = $$.spm, list = $$.list, show = $$.show, searchKey = $$.searchKey; var $expr, $art, $line; try {
     $p += '<div mxv class="search-box ';
     $line = 1;
     $art = 'if (align==\'right\')';
@@ -57,59 +60,99 @@ module.exports = Magix.View.extend({
     $line = 5;
     $art = '=searchValue';
     ;
-    $p += ($expr = '<%=searchValue%>', $e(searchValue)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-focusin="' + $viewId + '@{search}()" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{stop}()"/><div class="mx-output mx-output-bottom ';
-    $line = 12;
+    $p += ($expr = '<%=searchValue%>', $e(searchValue)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-focusin="' + $viewId + '@{search}()" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{stop}()" ';
+    $line = 11;
+    $art = 'if spm';
+    ;
+    $expr = '<%if (spm) {%>';
+    if (spm) {
+        ;
+        $p += ' data-spm-click="';
+        $line = 11;
+        $art = '=spm';
+        ;
+        $p += ($expr = '<%=spm%>', $e(spm)) + 'i" ';
+        $line = 11;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '/><div class="mx-output mx-output-bottom ';
+    $line = 13;
     $art = 'if ((list.length > 1) && searchValue && show)';
     ;
     $expr = '<%if ((list.length > 1) && searchValue && show) {%>';
     if ((list.length > 1) && searchValue && show) {
         ;
         $p += ' mx-output-open ';
-        $line = 12;
+        $line = 13;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
     $p += ' _zs_gallery_mx-search_index_-search-menu"><ul mxa="_zs_galleryd):_" class="mx-output-list">';
-    $line = 14;
+    $line = 15;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ipvkodtmt$art_i = 0, $art_cqprhaqjg$art_c = list.length; $art_ipvkodtmt$art_i < $art_cqprhaqjg$art_c; $art_ipvkodtmt$art_i++) {    var item = list[$art_ipvkodtmt$art_i]%>';
-    for (var $art_ipvkodtmt$art_i = 0, $art_cqprhaqjg$art_c = list.length; $art_ipvkodtmt$art_i < $art_cqprhaqjg$art_c; $art_ipvkodtmt$art_i++) {
-        var item = list[$art_ipvkodtmt$art_i];
+    $expr = '<%for (var $art_itkaypeft$art_i = 0, $art_cjxagyu$art_c = list.length; $art_itkaypeft$art_i < $art_cjxagyu$art_c; $art_itkaypeft$art_i++) {    var item = list[$art_itkaypeft$art_i]%>';
+    for (var $art_itkaypeft$art_i = 0, $art_cjxagyu$art_c = list.length; $art_itkaypeft$art_i < $art_cjxagyu$art_c; $art_itkaypeft$art_i++) {
+        var item = list[$art_itkaypeft$art_i];
         $p += '<li mxa="_zs_galleryd):a" class="mx-output-item"><span class="mx-output-link ';
-        $line = 16;
+        $line = 17;
         $art = 'if (searchKey == item.value)';
         ;
         $expr = '<%if (searchKey == item.value) {%>';
         if (searchKey == item.value) {
             ;
             $p += ' mx-output-link-active ';
-            $line = 16;
+            $line = 17;
             $art = '/if';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '" mx-click="' + $viewId + '@{select}({item:\'';
-        $line = 17;
+        $line = 18;
         $art = '@item';
         ;
-        $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})">';
+        $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})" ';
         $line = 18;
+        $art = 'if spm';
+        ;
+        $expr = '<%if (spm) {%>';
+        if (spm) {
+            ;
+            $p += ' data-spm-click="';
+            $line = 18;
+            $art = '=spm';
+            ;
+            $p += ($expr = '<%=spm%>', $e(spm)) + '';
+            $line = 18;
+            $art = '=item.value';
+            ;
+            $p += ($expr = '<%=item.value%>', $e(item.value)) + '" ';
+            $line = 18;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '>';
+        $line = 19;
         $art = '=item.prefix';
         ;
         $p += ($expr = '<%=item.prefix%>', $e(item.prefix)) + '';
-        $line = 18;
+        $line = 19;
         $art = '=searchValue';
         ;
         $p += ($expr = '<%=searchValue%>', $e(searchValue)) + '';
-        $line = 18;
+        $line = 19;
         $art = '=item.suffix';
         ;
         $p += ($expr = '<%=item.suffix%>', $e(item.suffix)) + '</span></li>';
-        $line = 21;
+        $line = 22;
         $art = '/each';
         ;
         $expr = '<%}%>';
@@ -127,9 +170,7 @@ catch (ex) {
 } return $p; },
     init: function (extra) {
         var that = this;
-        //初始化时保存一份当前数据的快照
         that.updater.snapshot();
-        //该处是否可以由magix自动调用
         that.assign(extra);
         Monitor['@{setup}']();
         that.on('destroy', function () {
@@ -142,13 +183,13 @@ catch (ex) {
     },
     assign: function (data) {
         var that = this;
-        //赋值前先进行数据变化的检测,首次assign是在init方法中调用,后续的调用是magix自动调用,这个检测主要用于在首次调用后,magix自动调用前有没有进行数据的更新
         var altered = that.updater.altered();
-        //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
-        that['@{search.key}'] = data.searchKey || ''; //当前选中的key值
+        //当前选中的key值
+        that['@{search.key}'] = data.searchKey || '';
         // 上下键切换缓存
         that['@{search.key.bak}'] = that['@{search.key}'];
-        that['@{search.value}'] = data.searchValue || ''; //当前填入的搜索内容
+        //当前填入的搜索内容
+        that['@{search.value}'] = data.searchValue || '';
         that['@{dis.placeholder}'] = data.placeholder || '';
         that['@{dis.align}'] = data.align || 'left';
         // 多种类型搜索的时候
@@ -186,23 +227,19 @@ catch (ex) {
         that['@{data.list}'] = list;
         that['@{owner.node}'] = $('#' + that.id);
         that.updater.set({
-            viewId: that.id,
             list: that['@{data.list}'],
             searchValue: that['@{search.value}'],
             searchKey: that['@{search.key}'],
             placeholder: that['@{dis.placeholder}'],
             align: that['@{dis.align}']
         });
-        //如果数据没变化,则设置新的数据后再次检测
         if (!altered) {
             altered = that.updater.altered();
         }
-        //如果有变化,则再保存当前的快照,然后返回true告诉magix当前view需要更新
         if (altered) {
             that.updater.snapshot();
             return true;
         }
-        //如果数据没变化,则告诉magix当前view不用更新
         return false;
     },
     render: function () {
@@ -284,7 +321,7 @@ catch (ex) {
         Monitor['@{add}'](that);
     },
     '@{inside}': function (node) {
-        return Magix.inside(node, this.id);
+        return magix_1["default"].inside(node, this.id);
     },
     '@{stop}<change,focusout>': function (e) {
         e.stopPropagation();

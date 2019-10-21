@@ -65,7 +65,7 @@ catch (ex) {
 } return $p; },
     render: function () {
         var options = [{
-                key: 'chartId',
+                key: 'chart-id',
                 desc: 'chartpark中的图表id，会根据id自动查找图表的配置',
                 type: 'int',
                 def: ''

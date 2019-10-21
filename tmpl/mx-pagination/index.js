@@ -1,19 +1,21 @@
-let Magix = require('magix');
-let $ = require('$');
-let DefaultSizes = [10, 20, 30, 40];
-let I18n = require('../mx-medusa/util');
+/**
+ * 分页组件
+ */
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+import * as I18n from '../mx-medusa/util';
+const DefaultSizes = [10, 20, 30, 40];
 Magix.applyStyle('@index.less');
-module.exports = Magix.View.extend({
+
+export default View.extend({
     tmpl: '@index.html',
     init(extra) {
-        //初始化时保存一份当前数据的快照
         this.updater.snapshot();
-        //该处是否可以由magix自动调用
         this.assign(extra);
     },
     assign(ops) {
         let me = this;
-        //赋值前先进行数据变化的检测,首次assign是在init方法中调用,后续的调用是magix自动调用,这个检测主要用于在首次调用后,magix自动调用前有没有进行数据的更新
         let altered = me.updater.altered();
 
         let sizes = [];
@@ -32,51 +34,44 @@ module.exports = Magix.View.extend({
             sizesChange = false;
         }
 
-        //当前第几页
+        // 当前第几页
         // 优先级page > offset
         let page,
             size = ops.size || 40;
-        if(ops.page){
+        if (ops.page) {
             page = ops.page;
-        }else if(ops.offset){
+        } else if (ops.offset) {
             page = parseInt(ops.offset / size) + 1;
-        }else{
+        } else {
             page = 1;
         }
 
         me.updater.set({
-            viewId: me.id,
             step: ops.step || 5, //页码过多时，中间显示多少条页码
             simplify: (ops.simplify + '') === 'true',
             mini: (ops.mini + '') === 'true',
             hideTotal: (ops.hideTotal + '') === 'true', //是否隐藏总计
             jump: (ops.jump + '') === 'false', //是否有快捷跳转
             total: (ops.total | 0) || 0, //总数
-            page, 
+            page,
             size, //当前分页数
             sizesChange: sizesChange, //是否可切换分页数
             sizesPlacement: ops.sizesPlacement || 'bottom',
             sizes: sizes //可选分页数
         });
 
-        //如果数据没变化,则设置新的数据后再次检测
         if (!altered) {
             altered = me.updater.altered();
         }
-
-        //如果有变化,则再保存当前的快照,然后返回true告诉magix当前view需要更新
         if (altered) {
             me.updater.snapshot();
             return true;
         }
-
-        //如果数据没变化,则告诉magix当前view不用更新
         return false;
     },
     render() {
-        let me = this;
-        let info = me['@{cal.page.info}']();
-        me.updater.digest(info);
+        let info = this['@{cal.page.info}']();
+        this.updater.digest(info);
     },
     '@{cal.page.info}'() {
         let me = this;
@@ -114,7 +109,7 @@ module.exports = Magix.View.extend({
         let offsetStart = (page - 1) * data.size + 1;
         let offsetEnd = Math.min(data.total, page * data.size);
 
-        if(total == 0){
+        if (total == 0) {
             offsetStart = offsetEnd = 0;
         }
 
@@ -127,7 +122,7 @@ module.exports = Magix.View.extend({
 
         // 跳转，下一页
         let next = page + 1;
-        if(next > pages){
+        if (next > pages) {
             next = pages;
         }
         return {
@@ -161,40 +156,36 @@ module.exports = Magix.View.extend({
     },
     '@{toPage}<click>'(e) {
         e.preventDefault();
-        let me = this;
-        me.updater.set(e.params);
-        me.render();
-        me['@{fire.event}']();
+        this.updater.set(e.params);
+        this.render();
+        this['@{fire.event}']();
     },
     '@{changeSize}<change>'(e) {
         e.stopPropagation();
-        let me = this;
-        me.updater.set({
-            // page: 1,
+        this.updater.set({
             size: e.value
         });
-        me.render();
-        me['@{fire.event}']();
+        this.render();
+        this['@{fire.event}']();
     },
-    '@{stop}<change,focusin,focusout>' (e) {
+    '@{stop}<change,focusin,focusout>'(e) {
         e.stopPropagation();
     },
-    '@{jump}<click>'(e){
+    '@{jump}<click>'(e) {
         e.stopPropagation();
-        let me = this;
-        var i = $('#' + me.id + '_jump_input');
+        var i = $(`#${this.id}_jump_input`);
         let page = +(i.val());
-        if(!Number.isInteger(page)){
+        if (!Number.isInteger(page)) {
             return;
         }
-        me.updater.set({
+        this.updater.set({
             page: page
         });
-        me.render();
-        me['@{fire.event}']();
-
+        this.render();
+        this['@{fire.event}']();
     },
     '@{prevent}<click>'(e) {
         e.preventDefault();
     }
 });
+

@@ -6,15 +6,15 @@
             <div class="item">
                 {{if user}}
                 <span class="title-text">你好，{{=user}}，</span>
-                <a class="color-brand" href="{{=logoutUrl}}">退出</a>
+                <a class="color-brand" href="{{=logoutUrl}}" {{if spm}} data-spm-click="{{=spm}}lgo" {{/if}}>退出</a>
                 {{else}}
                 <span class="title-text">亲，请</span>
-                <a class="color-brand" href="javascript:;" mx-click="showLogin()">登录</a>
+                <a class="color-brand" href="javascript:;" mx-click="showLogin()" {{if spm}} data-spm-click="{{=spm}}lgi" {{/if}}>登录</a>
                 {{/if}}
             </div>
             {{/if}}
             <div class="item">
-                <a class="title-link" href="//www.alimama.com" target="_blank" rel="noopener noreferrer">阿里妈妈首页</a>
+                <a class="title-link" href="//www.alimama.com" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}mmh" {{/if}}>阿里妈妈首页</a>
             </div>
             {{each list as item index}}
             <div class="item">
@@ -27,7 +27,7 @@
                         <dt>{{=second.title}}</dt>
                         {{/if}}
                         {{each second.thirds as third}}
-                        <dd><a href="{{=third.link}}" target="_blank" rel="noopener noreferrer">{{=third.name}}</a></dd>
+                        <dd><a href="{{=third.link}}" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}{{=third.name}}" {{/if}}>{{=third.name}}</a></dd>
                         {{/each}}
                     </dl>
                     {{/each}}
@@ -46,14 +46,16 @@
                 {{each navs as nav}}
                 <div class="front-item nav {{if (parent == nav[valueKey])}} cur {{/if}}">
                     <a data-nav="{{=nav[valueKey]}}" class="nav-inner" 
-                        {{if nav[linkKey]}} href="{{=nav[linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} href="javascript:;" {{if !nav.subs || !nav.subs.length}} mx-click="to({nav:'{{@nav}}'})" {{/if}} {{/if}}>{{=nav[textKey]}}</a>
+                        {{if nav[linkKey]}} href="{{=nav[linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} href="javascript:;" {{if !nav.subs || !nav.subs.length}} mx-click="to({nav:'{{@nav}}'})" {{/if}} {{/if}}
+                        {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>{{=nav[textKey]}}</a>
                     {{if nav.tag}}<mx-effects.icon class="ml5" type="error" content="{{=nav.tag}}"/>{{/if}}
                     {{if nav.subs && nav.subs.length}}
                     <i class="nav-arrow mc-iconfont">&#xe692;</i>
                     <div class="popover bottom-center mx-shadow nav-subs">
                         {{each nav.subs as sub}}
                             <a data-nav="{{=sub[valueKey]}}" class="nav-sub {{if (child == sub[valueKey])}} nav-sub-cur {{/if}}" 
-                                {{if sub[linkKey]}} href="{{=sub[linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})" href="javascript:;" {{/if}}>{{=sub[textKey]}}</a>
+                                {{if sub[linkKey]}} href="{{=sub[linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})" href="javascript:;" {{/if}}
+                                {{if spm}} data-spm-click="{{=spm}}{{=sub[valueKey]}}" {{/if}}>{{=sub[textKey]}}</a>
                         {{/each}}
                     </div>
                     {{/if}}

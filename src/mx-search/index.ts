@@ -1,15 +1,14 @@
-let Magix = require('magix');
-let $ = require('$');
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+import * as Monitor from '../mx-util/monitor';
 Magix.applyStyle('@index.less');
-let Monitor = require('../mx-util/monitor');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@index.html',
     init(extra) {
         let that = this;
-        //初始化时保存一份当前数据的快照
         that.updater.snapshot();
-        //该处是否可以由magix自动调用
         that.assign(extra);
 
         Monitor['@{setup}']();
@@ -25,15 +24,17 @@ module.exports = Magix.View.extend({
     },
     assign(data) {
         let that = this;
-        //赋值前先进行数据变化的检测,首次assign是在init方法中调用,后续的调用是magix自动调用,这个检测主要用于在首次调用后,magix自动调用前有没有进行数据的更新
         let altered = that.updater.altered();
 
-        //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
-        that['@{search.key}'] = data.searchKey || ''; //当前选中的key值
+        //当前选中的key值
+        that['@{search.key}'] = data.searchKey || ''; 
+
         // 上下键切换缓存
         that['@{search.key.bak}'] = that['@{search.key}'];
 
-        that['@{search.value}'] = data.searchValue || ''; //当前填入的搜索内容
+        //当前填入的搜索内容
+        that['@{search.value}'] = data.searchValue || ''; 
+
         that['@{dis.placeholder}'] = data.placeholder || '';
         that['@{dis.align}'] = data.align || 'left';
 
@@ -71,7 +72,6 @@ module.exports = Magix.View.extend({
 
         that['@{owner.node}'] = $('#' + that.id);
         that.updater.set({
-            viewId: that.id,
             list: that['@{data.list}'],
             searchValue: that['@{search.value}'],
             searchKey: that['@{search.key}'],
@@ -79,18 +79,13 @@ module.exports = Magix.View.extend({
             align: that['@{dis.align}']
         });
 
-        //如果数据没变化,则设置新的数据后再次检测
         if (!altered) {
             altered = that.updater.altered();
         }
-
-        //如果有变化,则再保存当前的快照,然后返回true告诉magix当前view需要更新
         if (altered) {
             that.updater.snapshot();
             return true;
         }
-
-        //如果数据没变化,则告诉magix当前view不用更新
         return false;
     },
     render() {
@@ -211,5 +206,6 @@ module.exports = Magix.View.extend({
             searchKey: that['@{search.key}'],
             searchValue
         })
-    }
+    }    
 });
+
