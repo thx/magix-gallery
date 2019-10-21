@@ -1,34 +1,32 @@
 import Magix from 'magix';
 import * as View from '../mx-util/view';
 import * as Data from '../mx-header/data';
-debugger
 Magix.applyStyle('@index.less');
 
 export default View.extend({
     tmpl: '@index.html',
     init(extra) {
+        this.updater.snapshot();
         this.assign(extra);
     },
     assign(ops) {
-        this['@{mode.simple}'] = (ops.mode === 'simple');
-        this['@{need.products}'] = (ops.products + '' === 'true');
+        let that = this;
+        let altered = that.updater.altered();
 
+        // 宽度范围修正
         let width = ops.width || 1200;
         let maxWidth = window.innerWidth;
         if (+width > maxWidth) {
             width = maxWidth;
         }
-        this['@{products.width}'] = width;
-    },
-    render() {
-        let me = this;
-        let needProducts = me['@{need.products}'];
 
-        let products = [];
-        if(needProducts){
+        // 是否需要产品线信息
+        let needProducts = (ops.products + '' === 'true'),
+            products = [];
+        if (needProducts) {
             Data.products.forEach(item => {
                 item.seconds.forEach(sec => {
-                    if(!sec.title){
+                    if (!sec.title) {
                         sec.title = item.title;
                     }
                 })
@@ -36,11 +34,10 @@ export default View.extend({
             })
         }
 
-        let simple = me['@{mode.simple}'];
         let alimamaReg = /alimama\.(com|net)/i;
         let tanxReg = /tanx\.(com|net)/i;
         let taobaoReg = /taobao\.(com|net)/i;
-        let alimama, taobao, tanx;
+        let alimama = false, taobao = false, tanx = false;
         if (alimamaReg.test(window.location.href)) {
             alimama = true;
         } else if (taobaoReg.test(window.location.href)) {
@@ -52,18 +49,28 @@ export default View.extend({
         }
 
         let year = (new Date()).getFullYear();
-
-        let info = {
-            simple: simple,
-            alimama: alimama,
-            taobao: taobao,
-            tanx: tanx,
+        this.updater.set({
+            simple: (ops.mode === 'simple'), // 简易模式
+            alimama,
+            taobao,
+            tanx,
             products,
             len: products.length,
-            width: me['@{products.width}'],
+            width,
+            textAlign: ops.textAlign || 'center',
             year: '现在'
-        }
+        });
 
-        me.updater.digest(info);
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render() {
+        this.updater.digest();
     }
 });

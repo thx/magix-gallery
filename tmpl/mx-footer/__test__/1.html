@@ -1,6 +1,17 @@
 <div class="example">
     <div class="eg-content">
-        <mx-footer/>
+        <div class="mb40">
+            <span class="color-9 mr10">对齐方式：</span>
+            {{each list as item}}
+            <label class="mr20">
+                <input type="radio" value="{{=item.value}}" name="align" 
+                    {{if item.value == current}}checked="true"{{/if}}
+                    mx-change="change({value:'{{=item.value}}'})"/>
+                {{=item.text}}
+            </label>
+            {{/each}}
+        </div>
+        <mx-footer text-align="{{=current}}"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -10,6 +21,6 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-footer/&gt;</pre>
+&lt;mx-footer text-align="{{=current}}"/&gt;</pre>
     </div>
 </div>

@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iqtsaaf$art_i = 0, $art_cmqqeqjuv$art_c = list.length; $art_iqtsaaf$art_i < $art_cmqqeqjuv$art_c; $art_iqtsaaf$art_i++) {    var item = list[$art_iqtsaaf$art_i]%>';
-    for (var $art_iqtsaaf$art_i = 0, $art_cmqqeqjuv$art_c = list.length; $art_iqtsaaf$art_i < $art_cmqqeqjuv$art_c; $art_iqtsaaf$art_i++) {
-        var item = list[$art_iqtsaaf$art_i];
+    $expr = '<%for (var $art_isiyobip$art_i = 0, $art_cofbstjqx$art_c = list.length; $art_isiyobip$art_i < $art_cofbstjqx$art_c; $art_isiyobip$art_i++) {    var item = list[$art_isiyobip$art_i]%>';
+    for (var $art_isiyobip$art_i = 0, $art_cofbstjqx$art_c = list.length; $art_isiyobip$art_i < $art_cofbstjqx$art_c; $art_isiyobip$art_i++) {
+        var item = list[$art_isiyobip$art_i];
         $p += '<div mxa="_zs_galleryP:_" class="_zs_gallery_examples_update_-update"><div mxa="_zs_galleryP:a" class="_zs_gallery_examples_update_-ver pl20"><span mxa="_zs_galleryP:b" class="_zs_gallery_examples_update_-vt">';
         $line = 5;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 10;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_itdomeghjd$art_i = 0, $art_objcbww$art_obj = item.subs, $art_cyhzvdmpqr$art_c = $art_objcbww$art_obj.length; $art_itdomeghjd$art_i < $art_cyhzvdmpqr$art_c; $art_itdomeghjd$art_i++) {        var s = $art_objcbww$art_obj[$art_itdomeghjd$art_i]%>';
-        for (var $art_itdomeghjd$art_i = 0, $art_objcbww$art_obj = item.subs, $art_cyhzvdmpqr$art_c = $art_objcbww$art_obj.length; $art_itdomeghjd$art_i < $art_cyhzvdmpqr$art_c; $art_itdomeghjd$art_i++) {
-            var s = $art_objcbww$art_obj[$art_itdomeghjd$art_i];
+        $expr = '<%for (var $art_iuwnsrcd$art_i = 0, $art_objnkcegafla$art_obj = item.subs, $art_cljhrhe$art_c = $art_objnkcegafla$art_obj.length; $art_iuwnsrcd$art_i < $art_cljhrhe$art_c; $art_iuwnsrcd$art_i++) {        var s = $art_objnkcegafla$art_obj[$art_iuwnsrcd$art_i]%>';
+        for (var $art_iuwnsrcd$art_i = 0, $art_objnkcegafla$art_obj = item.subs, $art_cljhrhe$art_c = $art_objnkcegafla$art_obj.length; $art_iuwnsrcd$art_i < $art_cljhrhe$art_c; $art_iuwnsrcd$art_i++) {
+            var s = $art_objnkcegafla$art_obj[$art_iuwnsrcd$art_i];
             $p += '<div mxa="_zs_galleryP:e" class="pl20">';
             $line = 12;
             $art = 'if s.type == \'notice\'';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
             $line = 33;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_irajrcwj$art_i = 0, $art_objjpjuasmj$art_obj = s.subs, $art_caoohflj$art_c = $art_objjpjuasmj$art_obj.length; $art_irajrcwj$art_i < $art_caoohflj$art_c; $art_irajrcwj$art_i++) {            var ss = $art_objjpjuasmj$art_obj[$art_irajrcwj$art_i]%>';
-            for (var $art_irajrcwj$art_i = 0, $art_objjpjuasmj$art_obj = s.subs, $art_caoohflj$art_c = $art_objjpjuasmj$art_obj.length; $art_irajrcwj$art_i < $art_caoohflj$art_c; $art_irajrcwj$art_i++) {
-                var ss = $art_objjpjuasmj$art_obj[$art_irajrcwj$art_i];
+            $expr = '<%for (var $art_itltyodaqg$art_i = 0, $art_objubvjbgnp$art_obj = s.subs, $art_codaobrbeua$art_c = $art_objubvjbgnp$art_obj.length; $art_itltyodaqg$art_i < $art_codaobrbeua$art_c; $art_itltyodaqg$art_i++) {            var ss = $art_objubvjbgnp$art_obj[$art_itltyodaqg$art_i]%>';
+            for (var $art_itltyodaqg$art_i = 0, $art_objubvjbgnp$art_obj = s.subs, $art_codaobrbeua$art_c = $art_objubvjbgnp$art_obj.length; $art_itltyodaqg$art_i < $art_codaobrbeua$art_c; $art_itltyodaqg$art_i++) {
+                var ss = $art_objubvjbgnp$art_obj[$art_itltyodaqg$art_i];
                 $p += '<div mxa="_zs_galleryP:l" class="pl20"><div mxa="_zs_galleryP:m" class="_zs_gallery_examples_update_-line _zs_gallery_examples_update_-dot">';
                 $line = 35;
                 $art = '!ss.title';
@@ -137,9 +137,9 @@ module.exports = Magix.View.extend({
                     $line = 42;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_ianjaxdf$art_i = 0, $art_objdnaxrkx$art_obj = ss.subs, $art_chdbnkeg$art_c = $art_objdnaxrkx$art_obj.length; $art_ianjaxdf$art_i < $art_chdbnkeg$art_c; $art_ianjaxdf$art_i++) {                    var sss = $art_objdnaxrkx$art_obj[$art_ianjaxdf$art_i]%>';
-                    for (var $art_ianjaxdf$art_i = 0, $art_objdnaxrkx$art_obj = ss.subs, $art_chdbnkeg$art_c = $art_objdnaxrkx$art_obj.length; $art_ianjaxdf$art_i < $art_chdbnkeg$art_c; $art_ianjaxdf$art_i++) {
-                        var sss = $art_objdnaxrkx$art_obj[$art_ianjaxdf$art_i];
+                    $expr = '<%for (var $art_ipmcbjireb$art_i = 0, $art_objeacwrhljwit$art_obj = ss.subs, $art_cvxuurzf$art_c = $art_objeacwrhljwit$art_obj.length; $art_ipmcbjireb$art_i < $art_cvxuurzf$art_c; $art_ipmcbjireb$art_i++) {                    var sss = $art_objeacwrhljwit$art_obj[$art_ipmcbjireb$art_i]%>';
+                    for (var $art_ipmcbjireb$art_i = 0, $art_objeacwrhljwit$art_obj = ss.subs, $art_cvxuurzf$art_c = $art_objeacwrhljwit$art_obj.length; $art_ipmcbjireb$art_i < $art_cvxuurzf$art_c; $art_ipmcbjireb$art_i++) {
+                        var sss = $art_objeacwrhljwit$art_obj[$art_ipmcbjireb$art_i];
                         $p += '<div mxa="_zs_galleryP:o" class="_zs_gallery_examples_update_-line _zs_gallery_examples_update_-dot">';
                         $line = 43;
                         $art = '!sss';
@@ -191,6 +191,24 @@ catch (ex) {
 } return $p; },
     render: function () {
         var list = [{
+                ver: '1.3.40',
+                time: '2019-10-22',
+                subs: [{
+                        type: 'bug',
+                        subs: [{
+                                title: 'mx-table：调整td计算规则，<a href="#!/header/index" class="color-brand">点击查看</a>'
+                            }]
+                    }]
+            }, {
+                ver: '1.3.39',
+                time: '2019-10-19',
+                subs: [{
+                        type: 'bug',
+                        subs: [{
+                                title: 'mx-table：调整td计算规则'
+                            }]
+                    }]
+            }, {
                 ver: '1.3.38',
                 time: '2019-10-11',
                 subs: [{

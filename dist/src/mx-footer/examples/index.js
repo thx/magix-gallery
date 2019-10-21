@@ -94,6 +94,11 @@ catch (ex) {
                 desc: '产品线信息深底色白字',
                 type: 'boolean',
                 def: 'false'
+            }, {
+                key: 'text-align',
+                desc: '对齐方式，可选center | left | right',
+                type: 'string',
+                def: 'center'
             }];
         this.updater.digest({
             viewId: this.id,

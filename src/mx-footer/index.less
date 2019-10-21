@@ -80,6 +80,15 @@
 }
 
 .products {
+    position: relative;
+    .products-line {
+        position: absolute;
+        left: 0;
+        bottom: -14px;
+        width: 100%;
+        height: 0;
+        border-bottom: 1px solid var(--color-border);
+    }
     .products-inner{
         position: relative;
         padding: 20px 180px 0 180px;
@@ -93,7 +102,7 @@
         top: 20px;
     }
     .logo {
-        left: 20px;
+        left: 10px;
 
         .logo-icon{
             position: relative;
@@ -114,7 +123,7 @@
         }
     }
     .qrcode {
-        right: 20px;
+        right: 10px;
         line-height: 22px;
         color: rgba(33, 33, 33, .5);
         img {
@@ -165,6 +174,9 @@
         }
     }
     .products {
+        .products-line{
+            display: none;
+        }
         .logo {
             .mama-icon {
                 color: #fff;

@@ -6,6 +6,24 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.40',
+            time: '2019-10-22',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-table：调整td计算规则，<a href="#!/header/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
+            ver: '1.3.39',
+            time: '2019-10-19',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-table：调整td计算规则'
+                }]
+            }]
+        }, {
             ver: '1.3.38',
             time: '2019-10-11',
             subs: [{
