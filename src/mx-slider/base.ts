@@ -1,16 +1,12 @@
-let Magix = require('magix');
-let $ = require('$');
-let DD = require('../mx-dragdrop/index');
-Magix.applyStyle('@index.less');
-let DefaultSize = 280;
-module.exports = Magix.View.extend({
-    tmpl: '@index.html',
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+import * as DD from '../mx-dragdrop/index';
+const DefaultSize = 280;
+
+export default View.extend({
     mixins: [DD],
-    init(extra) {
-        let me = this;
-        me.assign(extra);
-        me['@{owner.node}'] = $('#' + me.id);
-    },
+    
     assign(ops) {
         let me = this;
         me['@{width}'] = +ops.width || DefaultSize;
@@ -23,6 +19,7 @@ module.exports = Magix.View.extend({
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
+        me['@{show.dot}'] = (ops.showDot + '') === 'true';
         me['@{vertical}'] = (ops.vertical + '') === 'true';
         me['@{needInput}'] = ((ops.needInput + '') === 'true') && !me['@{vertical}'];
         let s = me['@{step}'] + '';
@@ -46,16 +43,47 @@ module.exports = Magix.View.extend({
     },
     render() {
         let me = this;
+        let min = me['@{min}'],
+            max = me['@{max}'],
+            tail = me['@{tail.length}'];
+
+        // 显示刻度点
+        let dots = [];
+        if (me['@{show.dot}']) {
+            let step = me['@{step}'];
+            let diff = max - min;
+            let gap = Math.floor((max - min - 1) / step);
+            for (let i = 1; i <= gap; i++) {
+                dots.push({
+                    value: (min + step * i).toFixed(tail),
+                    percent: step * i / diff * 100
+                });
+            }
+        }
+
         me.updater.digest({
-            viewId: me.id,
-            min: me['@{min}'].toFixed(me['@{tail.length}']),
-            max: me['@{max}'].toFixed(me['@{tail.length}']),
+            dots,
+            min: min.toFixed(tail),
+            max: max.toFixed(tail),
             width: me['@{width}'],
             height: me['@{height}'],
             vertical: me['@{vertical}'],
             needInput: me['@{needInput}'],
             disabled: me['@{ui.disabled}']
         });
+        if (dots.length > 0) {
+            let dotNodes = $(`#${me.id} .@index.less:dot-text`);
+            if (me['@{vertical}']) {
+                dotNodes.css({
+                    marginTop: 0 - dotNodes.outerHeight() / 2
+                })
+            } else {
+                dotNodes.css({
+                    marginLeft: 0 - dotNodes.outerWidth() / 2
+                })
+
+            }
+        }
         me.val(me['@{value}']);
 
         let railWrapper = me['@{owner.node}'].find('.@index.less:rail-wrapper');
@@ -100,7 +128,7 @@ module.exports = Magix.View.extend({
             railWrapper.off('keydown', keydown);
         });
     },
-    '@{get.ui.vars}' () {
+    '@{get.ui.vars}'() {
         let me = this;
         var rail = me['@{owner.node}'].find('.@index.less:rail');
         let tracker = me['@{owner.node}'].find('.@index.less:tracker');
@@ -129,9 +157,18 @@ module.exports = Magix.View.extend({
             me['@{owner.node}'].prop('value', nv);
             let max = me['@{max}'],
                 min = me['@{min}'];
-            if (nv > max) nv = max;
-            else if (nv < min) nv = min;
+            if (nv > max) {
+                nv = max;
+            } else if (nv < min) {
+                nv = min;
+            }
             let p = (nv - min) / (max - min);
+
+            // 修正后的值
+            v = me['@{get.fixed.value}'](p);
+            // 更正
+            p = (v - min) / (max - min);
+
             let vars = me['@{get.ui.vars}']();
             let pos = p * vars.max;
             if (me['@{vertical}']) {
@@ -143,7 +180,6 @@ module.exports = Magix.View.extend({
                     left: pos
                 });
             }
-            v = me['@{get.fixed.value}'](p);
             let node = vars.pLabel;
             node.html(v + (me['@{tip}'] ? ('<span class="@index.less:unit">' + me['@{tip}'] + '</span>') : ''));
             if (vars.inputArea && vars.inputArea.length) {
@@ -189,28 +225,29 @@ module.exports = Magix.View.extend({
         }
         return +me['@{value}'];
     },
-    '@{get.fixed.value}' (p) {
+    '@{get.fixed.value}'(p) {
         let me = this;
         let max = me['@{max}'],
             min = me['@{min}'],
             step = me['@{step}'],
             v;
-        if (p === 0) v = min;
-        else if (p === 1) v = max;
-        else {
-            v = min + (max - min) * p;
-            v = Math.round(v / step) * step;
+        if (p === 0) {
+            v = min;
+        } else if (p === 1) {
+            v = max;
+        } else {
+            v = Math.round((max - min) * p / step) * step + min;
         }
         v = v.toFixed(me['@{tail.length}']);
         return v;
     },
-    '@{fire.event}' (p) {
+    '@{fire.event}'(p) {
         this['@{owner.node}'].prop('value', +p).trigger({
             type: 'change',
             value: +p
         });
     },
-    '@{drag}<mousedown>' (e) {
+    '@{drag}<mousedown>'(e) {
         let me = this;
         if (me['@{ui.disabled}']) {
             return;
@@ -254,7 +291,7 @@ module.exports = Magix.View.extend({
             delete me['@{dragging}'];
         });
     },
-    '@{enter}<keyup>' (e) {
+    '@{enter}<keyup>'(e) {
         let me = this;
         e.stopPropagation();
         clearTimeout(me['@{enter.delay.timer}']);
@@ -265,7 +302,7 @@ module.exports = Magix.View.extend({
             }
         }), 400);
     },
-    '@{out}<focusout>' (e) {
+    '@{out}<focusout>'(e) {
         let me = this;
         e.stopPropagation();
         let val = $.trim(e.eventTarget.value);
@@ -273,7 +310,7 @@ module.exports = Magix.View.extend({
             me.val(val);
         }
     },
-    '@{prevent}<contextmenu>' (e) {
+    '@{prevent}<contextmenu>'(e) {
         e.preventDefault();
     }
 });

@@ -3,15 +3,18 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-slider/range",["magix","$","../mx-dragdrop/index"],(require,exports,module)=>{
-/*Magix,$,DD*/
+define("mx-slider/range",["magix","$","../mx-util/view","../mx-dragdrop/index"],(require,exports,module)=>{
+/*magix_1,$,View,DD*/
 
-var Magix = require("magix");
+"use strict";
+exports.__esModule = true;
+var magix_1 = require("magix");
 var $ = require("$");
+var View = require("../mx-util/view");
 var DD = require("../mx-dragdrop/index");
-Magix.applyStyle("_zs_gallery_mx-slider_index_","[mx-view*=\"mx-slider/index\"],\n[mx-view*=\"mx-slider/range\"] {\n  position: relative;\n  display: inline-block;\n  outline: 0;\n  cursor: pointer;\n}\n[mx-view*=\"mx-slider/index\"] ._zs_gallery_mx-slider_index_-rail-input,\n[mx-view*=\"mx-slider/range\"] ._zs_gallery_mx-slider_index_-rail-input {\n  position: absolute;\n  top: 0;\n  right: -74px;\n  width: 64px;\n}\n[mx-view*=\"mx-slider/index\"][mx-view*=\"disabled=true\"],\n[mx-view*=\"mx-slider/range\"][mx-view*=\"disabled=true\"],\n[mx-view*=\"mx-slider/index\"][mx-disabled],\n[mx-view*=\"mx-slider/range\"][mx-disabled] {\n  cursor: not-allowed;\n}\n[mx-view*=\"mx-slider/index\"][mx-view*=\"disabled=true\"] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-tracker,\n[mx-view*=\"mx-slider/range\"][mx-view*=\"disabled=true\"] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-tracker,\n[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-tracker,\n[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-tracker {\n  background-color: #ccc;\n}\n[mx-view*=\"mx-slider/index\"][mx-view*=\"disabled=true\"] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator,\n[mx-view*=\"mx-slider/range\"][mx-view*=\"disabled=true\"] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator,\n[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator,\n[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator {\n  background-color: #ccc;\n}\n[mx-view*=\"mx-slider/index\"][mx-view*=\"disabled=true\"] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator:before,\n[mx-view*=\"mx-slider/range\"][mx-view*=\"disabled=true\"] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator:before,\n[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator:before,\n[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator:before {\n  background-color: #ccc;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper {\n  line-height: 28px;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail {\n  display: inline-block;\n  position: relative;\n  border-radius: 2px;\n  background: #f0f0f0;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-tracker {\n  position: absolute;\n  border-radius: 2px;\n  left: 0;\n  background-color: var(--color-brand-light);\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-tracker._zs_gallery_mx-slider_index_-hor-tracker {\n  height: 4px;\n  top: 0;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-tracker._zs_gallery_mx-slider_index_-ver-tracker {\n  width: 4px;\n  bottom: 0;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator {\n  position: absolute;\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background-color: var(--color-brand);\n  outline: 0;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator:before {\n  content: ' ';\n  position: absolute;\n  top: -4px;\n  left: -4px;\n  width: 16px;\n  height: 16px;\n  border-radius: 50%;\n  background-color: var(--color-brand);\n  opacity: 0.3;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator._zs_gallery_mx-slider_index_-hor-idctor {\n  top: -2px;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator._zs_gallery_mx-slider_index_-ver-idctor {\n  left: -2px;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-pointer-label {\n  position: absolute;\n  font-size: var(--font-size);\n  pointer-events: none;\n  line-height: normal;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-pointer-label._zs_gallery_mx-slider_index_-hor-pl {\n  top: -23px;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-pointer-label._zs_gallery_mx-slider_index_-ver-pl {\n  right: 12px;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-scale-left,\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-scale-right,\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-ver-scale-top,\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-ver-scale-bottom {\n  position: absolute;\n  font-size: var(--font-size);\n  pointer-events: none;\n  line-height: normal;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-scale-left {\n  left: 0;\n  top: 9px;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-scale-right {\n  right: 0;\n  top: 9px;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-ver-scale-bottom {\n  bottom: 0;\n  left: 12px;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-ver-scale-top {\n  top: 0;\n  left: 12px;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail._zs_gallery_mx-slider_index_-hor {\n  height: 4px;\n  top: -2px;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail._zs_gallery_mx-slider_index_-ver {\n  width: 4px;\n  left: 8px;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-unit {\n  margin-left: 3px;\n  color: #999;\n}\n");
+magix_1["default"].applyStyle("_zs_gallery_mx-slider_index_","[mx-view*=\"mx-slider/index\"],\n[mx-view*=\"mx-slider/range\"] {\n  position: relative;\n  display: inline-block;\n  outline: 0;\n  cursor: pointer;\n}\n[mx-view*=\"mx-slider/index\"] ._zs_gallery_mx-slider_index_-rail-input,\n[mx-view*=\"mx-slider/range\"] ._zs_gallery_mx-slider_index_-rail-input {\n  position: absolute;\n  top: 0;\n  right: -74px;\n  width: 64px;\n}\n[mx-view*=\"mx-slider/index\"][mx-view*=\"disabled=true\"],\n[mx-view*=\"mx-slider/range\"][mx-view*=\"disabled=true\"],\n[mx-view*=\"mx-slider/index\"][mx-disabled],\n[mx-view*=\"mx-slider/range\"][mx-disabled] {\n  cursor: not-allowed;\n}\n[mx-view*=\"mx-slider/index\"][mx-view*=\"disabled=true\"] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-tracker,\n[mx-view*=\"mx-slider/range\"][mx-view*=\"disabled=true\"] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-tracker,\n[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-tracker,\n[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-tracker {\n  background-color: #ccc;\n  opacity: 0.8;\n}\n[mx-view*=\"mx-slider/index\"][mx-view*=\"disabled=true\"] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator,\n[mx-view*=\"mx-slider/range\"][mx-view*=\"disabled=true\"] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator,\n[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator,\n[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator {\n  background-color: #ccc;\n}\n[mx-view*=\"mx-slider/index\"][mx-view*=\"disabled=true\"] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator:before,\n[mx-view*=\"mx-slider/range\"][mx-view*=\"disabled=true\"] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator:before,\n[mx-view*=\"mx-slider/index\"][mx-disabled] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator:before,\n[mx-view*=\"mx-slider/range\"][mx-disabled] ._zs_gallery_mx-slider_index_-rail-wrapper ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator:before {\n  background-color: #ccc;\n}\n._zs_gallery_mx-slider_index_-rail-wrapper {\n  line-height: var(--input-small-height);\n}\n._zs_gallery_mx-slider_index_-rail {\n  display: inline-block;\n  height: 6px;\n  position: relative;\n  border-radius: 3px;\n  background: #f0f0f0;\n  top: -3px;\n}\n._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-dot {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 6px;\n  height: 6px;\n  border-radius: 50%;\n  background-color: #ccc;\n  margin-left: -3px;\n}\n._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-tracker {\n  position: absolute;\n  left: 0;\n  top: 0;\n  height: 6px;\n  background-color: var(--color-brand);\n  opacity: 0.3;\n  border-radius: 3px;\n}\n._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator {\n  position: absolute;\n  top: -1px;\n  width: 8px;\n  height: 8px;\n  margin-left: -4px;\n  border-radius: 50%;\n  background-color: var(--color-brand);\n  outline: 0;\n}\n._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator:before {\n  content: ' ';\n  position: absolute;\n  top: -4px;\n  left: -4px;\n  width: 16px;\n  height: 16px;\n  border-radius: 50%;\n  background-color: var(--color-brand);\n  opacity: 0.3;\n}\n._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-pointer-label,\n._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-dot-text,\n._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-scale-start,\n._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-scale-end {\n  position: absolute;\n  font-size: var(--font-size);\n  pointer-events: none;\n  line-height: 16px;\n  white-space: nowrap;\n}\n._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-pointer-label {\n  top: -22px;\n}\n._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-dot-text,\n._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-scale-start {\n  top: 12px;\n  left: 0;\n}\n._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-scale-end {\n  top: 12px;\n  right: 0;\n}\n._zs_gallery_mx-slider_index_-unit {\n  margin-left: 3px;\n  color: #999;\n}\n[mx-view*=\"mx-slider/index\"][mx-view*=\"vertical=true\"] ._zs_gallery_mx-slider_index_-rail,\n[mx-view*=\"mx-slider/range\"][mx-view*=\"vertical=true\"] ._zs_gallery_mx-slider_index_-rail {\n  width: 6px;\n  left: 12px;\n}\n[mx-view*=\"mx-slider/index\"][mx-view*=\"vertical=true\"] ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-dot,\n[mx-view*=\"mx-slider/range\"][mx-view*=\"vertical=true\"] ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-dot {\n  top: auto;\n  margin-left: 0;\n  margin-top: -3px;\n}\n[mx-view*=\"mx-slider/index\"][mx-view*=\"vertical=true\"] ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-tracker,\n[mx-view*=\"mx-slider/range\"][mx-view*=\"vertical=true\"] ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-tracker {\n  top: auto;\n  width: 6px;\n  height: auto;\n  bottom: 0;\n}\n[mx-view*=\"mx-slider/index\"][mx-view*=\"vertical=true\"] ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator,\n[mx-view*=\"mx-slider/range\"][mx-view*=\"vertical=true\"] ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-indicator {\n  top: auto;\n  left: -1px;\n  margin-left: 0;\n  margin-bottom: -4px;\n}\n[mx-view*=\"mx-slider/index\"][mx-view*=\"vertical=true\"] ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-pointer-label,\n[mx-view*=\"mx-slider/range\"][mx-view*=\"vertical=true\"] ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-pointer-label {\n  top: auto;\n  right: 17px;\n}\n[mx-view*=\"mx-slider/index\"][mx-view*=\"vertical=true\"] ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-dot-text,\n[mx-view*=\"mx-slider/range\"][mx-view*=\"vertical=true\"] ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-dot-text {\n  top: auto;\n  left: 17px;\n  margin-top: -8px;\n}\n[mx-view*=\"mx-slider/index\"][mx-view*=\"vertical=true\"] ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-scale-start,\n[mx-view*=\"mx-slider/range\"][mx-view*=\"vertical=true\"] ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-scale-start {\n  top: auto;\n  right: auto;\n  bottom: 0;\n  left: 17px;\n  margin-bottom: -3px;\n}\n[mx-view*=\"mx-slider/index\"][mx-view*=\"vertical=true\"] ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-scale-end,\n[mx-view*=\"mx-slider/range\"][mx-view*=\"vertical=true\"] ._zs_gallery_mx-slider_index_-rail ._zs_gallery_mx-slider_index_-scale-end {\n  top: 0;\n  right: auto;\n  bottom: auto;\n  left: 17px;\n  margin-top: -3px;\n}\n");
 var DefaultSize = 280;
-module.exports = Magix.View.extend({
+exports["default"] = View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
     var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
@@ -23,125 +26,140 @@ module.exports = Magix.View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', vertical = $$.vertical, height = $$.height, width = $$.width, viewId = $$.viewId, min = $$.min, max = $$.max; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryeb:_" class="_zs_gallery_mx-slider_index_-rail-wrapper"><span class="_zs_gallery_mx-slider_index_-rail';
+} ; var $g = '', $_temp, $p = '', vertical = $$.vertical, height = $$.height, width = $$.width, dots = $$.dots, viewId = $$.viewId, min = $$.min, max = $$.max; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryed:_" class="_zs_gallery_mx-slider_index_-rail-wrapper"><span class="_zs_gallery_mx-slider_index_-rail" mx-contextmenu="' + $viewId + '@{prevent}()" style="';
+    $line = 3;
+    $art = 'if vertical';
+    ;
     $expr = '<%if (vertical) {%>';
     if (vertical) {
         ;
-        $p += ' _zs_gallery_mx-slider_index_-ver';
+        $p += ' height: ';
+        $line = 3;
+        $art = '=height';
+        ;
+        $p += ($expr = '<%=height%>', $e(height)) + 'px; ';
+        $line = 3;
+        $art = 'else';
+        ;
         $expr = '<%}else {%>';
     }
     else {
         ;
-        $p += ' _zs_gallery_mx-slider_index_-hor';
+        $p += ' width: ';
+        $line = 3;
+        $art = '=width';
+        ;
+        $p += ($expr = '<%=width%>', $e(width)) + 'px; ';
+        $line = 3;
+        $art = '/if';
+        ;
         $expr = '<%}%>';
     }
     ;
-    $p += '" mx-contextmenu="' + $viewId + '@{prevent}()" style="';
-    $expr = '<%if (vertical) {%>';
-    if (vertical) {
+    $p += '">';
+    $line = 4;
+    $art = 'each dots as d';
+    ;
+    $expr = '<%for (var $art_itwdjxmmpe$art_i = 0, $art_cqdqzfm$art_c = dots.length; $art_itwdjxmmpe$art_i < $art_cqdqzfm$art_c; $art_itwdjxmmpe$art_i++) {    var d = dots[$art_itwdjxmmpe$art_i]%>';
+    for (var $art_itwdjxmmpe$art_i = 0, $art_cqdqzfm$art_c = dots.length; $art_itwdjxmmpe$art_i < $art_cqdqzfm$art_c; $art_itwdjxmmpe$art_i++) {
+        var d = dots[$art_itwdjxmmpe$art_i];
+        $p += '<span class="_zs_gallery_mx-slider_index_-dot" style="';
+        $line = 5;
+        $art = 'if vertical';
         ;
-        $p += 'height:' + ($expr = '<%=height%>', $e(height));
-        $expr = '<%}else {%>';
-    }
-    else {
+        $expr = '<%if (vertical) {%>';
+        if (vertical) {
+            ;
+            $p += ' top: ';
+            $line = 5;
+            $art = '=(100 - d.percent)';
+            ;
+            $p += ($expr = '<%=(100 - d.percent)%>', $e((100 - d.percent))) + '%;   ';
+            $line = 5;
+            $art = 'else';
+            ;
+            $expr = '<%}    else {%>';
+        }
+        else {
+            ;
+            $p += ' left: ';
+            $line = 5;
+            $art = '=d.percent';
+            ;
+            $p += ($expr = '<%=d.percent%>', $e(d.percent)) + '%; ';
+            $line = 5;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
         ;
-        $p += 'width:' + ($expr = '<%=width%>', $e(width));
+        $p += '"></span><span class="_zs_gallery_mx-slider_index_-dot-text" style="';
+        $line = 6;
+        $art = 'if vertical';
+        ;
+        $expr = '<%if (vertical) {%>';
+        if (vertical) {
+            ;
+            $p += ' top: ';
+            $line = 6;
+            $art = '=(100 - d.percent)';
+            ;
+            $p += ($expr = '<%=(100 - d.percent)%>', $e((100 - d.percent))) + '%;   ';
+            $line = 6;
+            $art = 'else';
+            ;
+            $expr = '<%}    else {%>';
+        }
+        else {
+            ;
+            $p += ' left: ';
+            $line = 6;
+            $art = '=d.percent';
+            ;
+            $p += ($expr = '<%=d.percent%>', $e(d.percent)) + '%; ';
+            $line = 6;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '">';
+        $line = 6;
+        $art = '=d.value';
+        ;
+        $p += ($expr = '<%=d.value%>', $e(d.value)) + '</span>';
+        $line = 7;
+        $art = '/each';
+        ;
         $expr = '<%}%>';
     }
     ;
-    $p += 'px"><span class="_zs_gallery_mx-slider_index_-tracker';
-    $expr = '<%if (vertical) {%>';
-    if (vertical) {
-        ;
-        $p += ' _zs_gallery_mx-slider_index_-ver-tracker';
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += ' _zs_gallery_mx-slider_index_-hor-tracker';
-        $expr = '<%}%>';
-    }
+    $p += '<span mxs="_zs_galleryed:_" class="_zs_gallery_mx-slider_index_-tracker"></span><span tabindex="0" mx-keydown="' + $viewId + '@{move.by.keyboard}({start:true})" class="_zs_gallery_mx-slider_index_-indicator" mx-mousedown="' + $viewId + '@{drag}({start:true})" id="left_';
+    $line = 10;
+    $art = '=viewId';
     ;
-    $p += '"></span><span tabindex="0" mx-keydown="' + $viewId + '@{move.by.keyboard}({start:true})" class="_zs_gallery_mx-slider_index_-indicator';
-    $expr = '<%if (vertical) {%>';
-    if (vertical) {
-        ;
-        $p += ' _zs_gallery_mx-slider_index_-ver-idctor';
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += ' _zs_gallery_mx-slider_index_-hor-idctor';
-        $expr = '<%}%>';
-    }
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '"></span><span class="_zs_gallery_mx-slider_index_-pointer-label" id="leftl_';
+    $line = 11;
+    $art = '=viewId';
     ;
-    $p += '" mx-mousedown="' + $viewId + '@{drag}({start:true})" id="left_' + ($expr = '<%=viewId%>', $e(viewId)) + '"></span><span class="_zs_gallery_mx-slider_index_-pointer-label';
-    $expr = '<%if (vertical) {%>';
-    if (vertical) {
-        ;
-        $p += ' _zs_gallery_mx-slider_index_-ver-pl';
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += ' _zs_gallery_mx-slider_index_-hor-pl';
-        $expr = '<%}%>';
-    }
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '"></span><span tabindex="0" mx-keydown="' + $viewId + '@{move.by.keyboard}()" class="_zs_gallery_mx-slider_index_-indicator" mx-mousedown="' + $viewId + '@{drag}({end:true})" id="right_';
+    $line = 13;
+    $art = '=viewId';
     ;
-    $p += '" id="leftl_' + ($expr = '<%=viewId%>', $e(viewId)) + '"></span><span tabindex="0" mx-keydown="' + $viewId + '@{move.by.keyboard}()" class="_zs_gallery_mx-slider_index_-indicator';
-    $expr = '<%if (vertical) {%>';
-    if (vertical) {
-        ;
-        $p += ' _zs_gallery_mx-slider_index_-ver-idctor';
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += ' _zs_gallery_mx-slider_index_-hor-idctor';
-        $expr = '<%}%>';
-    }
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '"></span><span class="_zs_gallery_mx-slider_index_-pointer-label" id="rightl_';
+    $line = 14;
+    $art = '=viewId';
     ;
-    $p += '" mx-mousedown="' + $viewId + '@{drag}({end:true})" id="right_' + ($expr = '<%=viewId%>', $e(viewId)) + '"></span><span class="_zs_gallery_mx-slider_index_-pointer-label';
-    $expr = '<%if (vertical) {%>';
-    if (vertical) {
-        ;
-        $p += ' _zs_gallery_mx-slider_index_-ver-pl';
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += ' _zs_gallery_mx-slider_index_-hor-pl';
-        $expr = '<%}%>';
-    }
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '"></span><span mxa="_zs_galleryed:a" class="_zs_gallery_mx-slider_index_-scale-start">';
+    $line = 15;
+    $art = '=min';
     ;
-    $p += '" id="rightl_' + ($expr = '<%=viewId%>', $e(viewId)) + '"></span><span class="';
-    $expr = '<%if (vertical) {%>';
-    if (vertical) {
-        ;
-        $p += '_zs_gallery_mx-slider_index_-ver-scale-bottom';
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += '_zs_gallery_mx-slider_index_-scale-left';
-        $expr = '<%}%>';
-    }
+    $p += ($expr = '<%=min%>', $e(min)) + '</span><span mxa="_zs_galleryed:b" class="_zs_gallery_mx-slider_index_-scale-end">';
+    $line = 16;
+    $art = '=max';
     ;
-    $p += '">' + ($expr = '<%=min%>', $e(min)) + '</span><span class="';
-    $expr = '<%if (vertical) {%>';
-    if (vertical) {
-        ;
-        $p += '_zs_gallery_mx-slider_index_-ver-scale-top';
-        $expr = '<%}else {%>';
-    }
-    else {
-        ;
-        $p += '_zs_gallery_mx-slider_index_-scale-right';
-        $expr = '<%}%>';
-    }
-    ;
-    $p += '">' + ($expr = '<%=max%>', $e(max)) + '</span></span></div>';
+    $p += ($expr = '<%=max%>', $e(max)) + '</span></span></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -178,13 +196,13 @@ catch (ex) {
                 me['@{sync.left}'](v);
                 me['@{start}'] = v;
                 me['@{fire.event}']();
-                Magix.node('left_' + me.id).focus();
+                magix_1["default"].node('left_' + me.id).focus();
             }
             else {
                 me['@{sync.right}'](v);
                 me['@{end}'] = v;
                 me['@{fire.event}']();
-                Magix.node('right_' + me.id).focus();
+                magix_1["default"].node('right_' + me.id).focus();
             }
         };
         oNode.on('click', click);
@@ -202,6 +220,8 @@ catch (ex) {
         me['@{step}'] = +ops.step || 1;
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
+        // 是否显示刻度点
+        me['@{show.dot}'] = (ops.showDot + '') === 'true';
         me['@{vertical}'] = (ops.vertical + '') === 'true';
         var s = me['@{step}'] + '';
         var i = s.indexOf('.');
@@ -219,6 +239,7 @@ catch (ex) {
             me['@{end}'] = +value[1] || 0;
         }
         else {
+            // 默认0到中间值
             me['@{start}'] = me['@{min}'];
             me['@{end}'] = (me['@{min}'] + me['@{max}']) / 2;
         }
@@ -226,14 +247,36 @@ catch (ex) {
     },
     render: function () {
         var me = this;
+        var min = me['@{min}'], max = me['@{max}'], tail = me['@{tail.length}'];
+        // 显示刻度点
+        var dots = [];
+        if (me['@{show.dot}']) {
+            var step = me['@{step}'];
+            var diff = max - min;
+            var gap = Math.floor((max - min - 1) / step);
+            for (var i = 1; i <= gap; i++) {
+                dots.push({
+                    value: (min + step * i).toFixed(tail),
+                    percent: step * i / diff * 100
+                });
+            }
+        }
         me.updater.digest({
-            min: me['@{min}'].toFixed(me['@{tail.length}']),
-            max: me['@{max}'].toFixed(me['@{tail.length}']),
-            viewId: me.id,
+            dots: dots,
+            min: min.toFixed(tail),
+            max: max.toFixed(tail),
             height: me['@{height}'],
             width: me['@{width}'],
             vertical: me['@{vertical}']
         });
+        if (dots.length > 0) {
+            var dotNodes = $("#" + me.id + " ._zs_gallery_mx-slider_index_-dot-text");
+            if (!me['@{vertical}']) {
+                dotNodes.css({
+                    marginLeft: 0 - dotNodes.outerWidth() / 2
+                });
+            }
+        }
         me.val([me['@{start}'], me['@{end}']]);
     },
     '@{get.ui.vars}': function () {
@@ -263,44 +306,36 @@ catch (ex) {
         var me = this;
         v = +v;
         var max = me['@{max}'], min = me['@{min}'];
-        if (v > max)
+        if (v > max) {
             v = max;
-        else if (v < min)
+        }
+        else if (v < min) {
             v = min;
+        }
         var leftPercent = (v - min) / (max - min);
-        var vars = me['@{get.ui.vars}']();
-        var pos = leftPercent * vars.max;
-        if (me['@{vertical}']) {
-            vars.iLeft.css({
-                bottom: pos
-            });
-        }
-        else {
-            vars.iLeft.css({
-                left: pos
-            });
-        }
+        // 修正后的值
         v = me['@{get.fixed.value}'](leftPercent);
+        // 更正
+        leftPercent = (v - min) / (max - min);
+        var vars = me['@{get.ui.vars}']();
         var node = vars.iLeftL;
         node.html(v);
+        var pos = leftPercent * vars.max;
         var l = pos + vars.half;
         if (me['@{vertical}']) {
-            var pHalf = node.height() / 2;
+            var pHalf = node.height() / 2, dotSize = 6; //端点位移
             if (l - pHalf < 0) {
-                l = 0;
+                l = 0 - dotSize / 2;
             }
             else if (l + pHalf > vars.rMax) {
-                l = vars.rMax - 2 * pHalf;
+                l = vars.rMax - 2 * pHalf + dotSize / 2;
             }
             else {
                 l -= pHalf;
             }
-            node.css({
-                bottom: l
-            });
-            vars.tracker.css({
-                bottom: pos + vars.half
-            }).height(vars.right - pos);
+            node.css('bottom', l + "px");
+            vars.iLeft.css('bottom', leftPercent * 100 + "%");
+            vars.tracker.css('bottom', leftPercent * 100 + "%");
         }
         else {
             var pHalf = node.width() / 2;
@@ -313,12 +348,9 @@ catch (ex) {
             else {
                 l -= pHalf;
             }
-            node.css({
-                left: l
-            });
-            vars.tracker.css({
-                left: pos + vars.half
-            }).width(vars.right - pos);
+            node.css('left', l + "px");
+            vars.iLeft.css('left', leftPercent * 100 + "%");
+            vars.tracker.css('left', leftPercent * 100 + "%");
         }
         return v;
     },
@@ -326,42 +358,36 @@ catch (ex) {
         var me = this;
         v = +v;
         var max = me['@{max}'], min = me['@{min}'];
-        if (v > max)
+        if (v > max) {
             v = max;
-        else if (v < min)
+        }
+        else if (v < min) {
             v = min;
+        }
         var rightPercent = (v - min) / (max - min);
-        var vars = me['@{get.ui.vars}']();
-        var pos = rightPercent * vars.max;
-        if (me['@{vertical}']) {
-            vars.iRight.css({
-                bottom: pos
-            });
-        }
-        else {
-            vars.iRight.css({
-                left: pos
-            });
-        }
+        // 修正后的值
         v = me['@{get.fixed.value}'](rightPercent);
+        // 更正
+        rightPercent = (v - min) / (max - min);
+        var vars = me['@{get.ui.vars}']();
         var node = vars.iRightL;
         node.html(v);
+        var pos = rightPercent * vars.max;
         var l = pos + vars.half;
         if (me['@{vertical}']) {
-            var pHalf = node.height() / 2;
+            var pHalf = node.height() / 2, dotSize = 6; //端点位移
             if (l - pHalf < 0) {
-                l = 0;
+                l = 0 - dotSize / 2;
             }
             else if (l + pHalf > vars.rMax) {
-                l = vars.rMax - 2 * pHalf;
+                l = vars.rMax - 2 * pHalf + dotSize / 2;
             }
             else {
                 l -= pHalf;
             }
-            node.css({
-                bottom: l
-            });
-            vars.tracker.height(pos - vars.left);
+            node.css('bottom', l + "px");
+            vars.iRight.css('bottom', rightPercent * 100 + "%");
+            vars.tracker.css('top', (100 - rightPercent * 100) + "%");
         }
         else {
             var pHalf = node.width() / 2;
@@ -374,10 +400,9 @@ catch (ex) {
             else {
                 l -= pHalf;
             }
-            node.css({
-                left: l
-            });
-            vars.tracker.width(pos - vars.left);
+            node.css('left', l + "px");
+            vars.iRight.css('left', rightPercent * 100 + "%");
+            vars.tracker.css('right', (100 - rightPercent * 100) + "%");
         }
         return v;
     },
@@ -405,25 +430,26 @@ catch (ex) {
     '@{get.fixed.value}': function (p) {
         var me = this;
         var max = me['@{max}'], min = me['@{min}'], step = me['@{step}'], v;
-        if (p === 0)
+        if (p === 0) {
             v = min;
-        else if (p === 1)
-            v = max;
-        else {
-            v = min + (max - min) * p;
-            v = Math.round(v / step) * step;
         }
-        v = v.toFixed(me['@{tail.length}']);
-        return v;
+        else if (p === 1) {
+            v = max;
+        }
+        else {
+            v = Math.round((max - min) * p / step) * step + min;
+        }
+        return v.toFixed(me['@{tail.length}']);
     },
     '@{fire.event}': function () {
         var me = this;
-        var value = [+me['@{start}'], +me['@{end}']];
+        var start = (+me['@{start}']).toFixed(me['@{tail.length}']), end = (+me['@{end}']).toFixed(me['@{tail.length}']);
+        var value = [start, end];
         this['@{owner.node}'].prop('value', value).trigger({
             type: 'change',
             value: value,
-            start: +me['@{start}'],
-            end: +me['@{end}']
+            start: start,
+            end: end
         });
     },
     '@{check.and.fire}': function (start, end) {
@@ -477,14 +503,14 @@ catch (ex) {
                         dragStartValue = me['@{sync.left}'](start);
                     }
                     dragEndValue = me['@{sync.right}'](v);
-                    Magix.node('right_' + me.id).focus();
+                    magix_1["default"].node('right_' + me.id).focus();
                 }
                 else {
                     if (me['@{start}'] != dragEndValue) {
                         dragEndValue = me['@{sync.right}'](start);
                     }
                     dragStartValue = me['@{sync.left}'](v);
-                    Magix.node('left_' + me.id).focus();
+                    magix_1["default"].node('left_' + me.id).focus();
                 }
             }
             else {
@@ -494,14 +520,14 @@ catch (ex) {
                         dragEndValue = me['@{sync.right}'](end);
                     }
                     dragStartValue = me['@{sync.left}'](v);
-                    Magix.node('left_' + me.id).focus();
+                    magix_1["default"].node('left_' + me.id).focus();
                 }
                 else {
                     if (me['@{end}'] != dragStartValue) {
                         dragStartValue = me['@{sync.left}'](end);
                     }
                     dragEndValue = me['@{sync.right}'](v);
-                    Magix.node('right_' + me.id).focus();
+                    magix_1["default"].node('right_' + me.id).focus();
                 }
             }
         }, function () {
@@ -540,10 +566,10 @@ catch (ex) {
             }
             if (startValue > endValue) {
                 if (start) {
-                    Magix.node('right_' + me.id).focus();
+                    magix_1["default"].node('right_' + me.id).focus();
                 }
                 else {
-                    Magix.node('left_' + me.id).focus();
+                    magix_1["default"].node('left_' + me.id).focus();
                 }
                 if (endValue != +srcStartValue) {
                     srcStartValue = me['@{sync.left}'](endValue);

@@ -3,13 +3,14 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-slider/examples/range",["magix","$","examples/subs","mx-title/second","./8","./7","./6","./9","examples/api","examples/event"],(require,exports,module)=>{
+define("mx-slider/examples/range",["magix","$","examples/subs","mx-title/second","./8","./7","./6","./11","./9","examples/api","examples/event"],(require,exports,module)=>{
 /*Magix,$*/
 require("examples/subs");
 require("mx-title/second");
 require("./8");
 require("./7");
 require("./6");
+require("./11");
 require("./9");
 require("examples/api");
 require("examples/event");
@@ -32,44 +33,48 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerye_:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $p += '<div mxv mxa="_zs_galleryeb:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'事件处理\',\n            key: viewId + \'_demo8\'\n        },{\n            name: \'刻度\',\n            key: viewId + \'_demo6\'\n        },{\n            name: \'禁用\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'垂直方向\',\n            key: viewId + \'_demo9\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'事件处理\',\n            key: viewId + \'_demo8\'\n        },{\n            name: \'刻度(保留位数)\',\n            key: viewId + \'_demo6\'\n        },{\n            name: \'显示刻度点\',\n            key: viewId + \'_demo11\'\n        },{\n            name: \'禁用\',\n            key: viewId + \'_demo7\'\n        },{\n            name: \'垂直方向\',\n            key: viewId + \'_demo9\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'事件处理\',                    key: viewId + \'_demo8\'                }, {                    name: \'刻度\',                    key: viewId + \'_demo6\'                }, {                    name: \'禁用\',                    key: viewId + \'_demo7\'                }, {                    name: \'垂直方向\',                    key: viewId + \'_demo9\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '事件处理', key: viewId + '_demo8' }, { name: '刻度', key: viewId + '_demo6' }, { name: '禁用', key: viewId + '_demo7' }, { name: '垂直方向', key: viewId + '_demo9' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
-    $line = 26;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerye_:a" class="clearfix mb20"><div mxa="_zs_gallerye_:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-slider/examples/8" id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'事件处理\',                    key: viewId + \'_demo8\'                }, {                    name: \'刻度(保留位数)\',                    key: viewId + \'_demo6\'                }, {                    name: \'显示刻度点\',                    key: viewId + \'_demo11\'                }, {                    name: \'禁用\',                    key: viewId + \'_demo7\'                }, {                    name: \'垂直方向\',                    key: viewId + \'_demo9\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '事件处理', key: viewId + '_demo8' }, { name: '刻度(保留位数)', key: viewId + '_demo6' }, { name: '显示刻度点', key: viewId + '_demo11' }, { name: '禁用', key: viewId + '_demo7' }, { name: '垂直方向', key: viewId + '_demo9' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
     $line = 29;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div><div mx-view="mx-slider/examples/7" id="';
-    $line = 30;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryeb:a" class="clearfix mb20"><div mxa="_zs_galleryeb:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-slider/examples/8" id="';
+    $line = 32;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div></div><div mxa="_zs_gallerye_:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-slider/examples/6" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo8"></div><div mx-view="mx-slider/examples/7" id="';
     $line = 33;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div><div mx-view="mx-slider/examples/9" id="';
-    $line = 34;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo7"></div></div><div mxa="_zs_galleryeb:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-slider/examples/6" id="';
+    $line = 36;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div></div></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo6"></div><div mx-view="mx-slider/examples/11" id="';
+    $line = 37;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo11"></div><div mx-view="mx-slider/examples/9" id="';
     $line = 38;
     $art = '=viewId';
     ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo9"></div></div></div><div id="';
+    $line = 42;
+    $art = '=viewId';
+    ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="examples/api?options=';
-    $line = 39;
+    $line = 43;
     $art = '@options';
     ;
     $p += ($expr = '<%@options%>', $i($$ref, options)) + '"></div><div id="';
-    $line = 41;
+    $line = 45;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_event" mx-view="mx-title/second?content=Event"></div><div mxv="events" mx-view="examples/event?options=';
-    $line = 42;
+    $line = 46;
     $art = '@events';
     ;
     $p += ($expr = '<%@events%>', $i($$ref, events)) + '"></div></div>';
@@ -127,6 +132,11 @@ catch (ex) {
                 key: 'disabled',
                 desc: '是否禁用',
                 type: '',
+                def: 'false'
+            }, {
+                key: 'show-dot',
+                desc: '是否显示刻度点',
+                type: 'boolean',
                 def: 'false'
             }];
         var events = [{

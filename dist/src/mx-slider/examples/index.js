@@ -3,14 +3,15 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-slider/examples/index",["magix","$","examples/subs","mx-title/second","./1","./5","./2","./3","./4","examples/api","examples/event"],(require,exports,module)=>{
+define("mx-slider/examples/index",["magix","$","examples/subs","mx-title/second","./1","./5","./3","./2","./10","./4","examples/api","examples/event"],(require,exports,module)=>{
 /*Magix,$*/
 require("examples/subs");
 require("mx-title/second");
 require("./1");
 require("./5");
-require("./2");
 require("./3");
+require("./2");
+require("./10");
 require("./4");
 require("examples/api");
 require("examples/event");
@@ -33,48 +34,52 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryd+:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $p += '<div mxv mxa="_zs_galleryea:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'输入框+单位\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'刻度\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'禁用\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'垂直\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'范围修正\',\n            key: viewId + \'_demo5\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'输入框+单位\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'刻度(保留位数)\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'显示刻度点\',\n            key: viewId + \'_demo10\'\n        },{\n            name: \'纵向刻度轴\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'范围修正\',\n            key: viewId + \'_demo5\'\n        },{\n            name: \'禁用\',\n            key: viewId + \'_demo3\'\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'输入框+单位\',                    key: viewId + \'_demo1\'                }, {                    name: \'刻度\',                    key: viewId + \'_demo2\'                }, {                    name: \'禁用\',                    key: viewId + \'_demo3\'                }, {                    name: \'垂直\',                    key: viewId + \'_demo4\'                }, {                    name: \'范围修正\',                    key: viewId + \'_demo5\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '输入框+单位', key: viewId + '_demo1' }, { name: '刻度', key: viewId + '_demo2' }, { name: '禁用', key: viewId + '_demo3' }, { name: '垂直', key: viewId + '_demo4' }, { name: '范围修正', key: viewId + '_demo5' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
-    $line = 29;
-    $art = '=viewId';
-    ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryd+:a" class="clearfix mb20"><div mxa="_zs_galleryd+:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-slider/examples/1" id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'输入框+单位\',                    key: viewId + \'_demo1\'                }, {                    name: \'刻度(保留位数)\',                    key: viewId + \'_demo2\'                }, {                    name: \'显示刻度点\',                    key: viewId + \'_demo10\'                }, {                    name: \'纵向刻度轴\',                    key: viewId + \'_demo4\'                }, {                    name: \'范围修正\',                    key: viewId + \'_demo5\'                }, {                    name: \'禁用\',                    key: viewId + \'_demo3\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '输入框+单位', key: viewId + '_demo1' }, { name: '刻度(保留位数)', key: viewId + '_demo2' }, { name: '显示刻度点', key: viewId + '_demo10' }, { name: '纵向刻度轴', key: viewId + '_demo4' }, { name: '范围修正', key: viewId + '_demo5' }, { name: '禁用', key: viewId + '_demo3' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
     $line = 32;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-slider/examples/5" id="';
-    $line = 33;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryea:a" class="clearfix mb20"><div mxa="_zs_galleryea:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-slider/examples/1" id="';
+    $line = 35;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div></div><div mxa="_zs_galleryd+:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-slider/examples/2" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-slider/examples/5" id="';
     $line = 36;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-slider/examples/3" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div><div mx-view="mx-slider/examples/3" id="';
     $line = 37;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div><div mx-view="mx-slider/examples/4" id="';
-    $line = 38;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div mxa="_zs_galleryea:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-slider/examples/2" id="';
+    $line = 40;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div></div><div id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-slider/examples/10" id="';
+    $line = 41;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo10"></div><div mx-view="mx-slider/examples/4" id="';
     $line = 42;
     $art = '=viewId';
     ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div></div><div id="';
+    $line = 46;
+    $art = '=viewId';
+    ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="examples/api?options=';
-    $line = 43;
+    $line = 47;
     $art = '@options';
     ;
     $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
-    $line = 45;
+    $line = 49;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_event" mx-view="mx-title/second?content=Event"></div><div mxv="events" mx-view="examples/event?options=';
-    $line = 46;
+    $line = 50;
     $art = '@events';
     ;
     $p += ($expr = '<%@events%>', $i($$ref, events)) + '"></div></div>';
@@ -138,6 +143,11 @@ catch (ex) {
                 desc: '提示文案',
                 type: '',
                 def: ''
+            }, {
+                key: 'show-dot',
+                desc: '是否显示刻度点',
+                type: 'boolean',
+                def: 'false'
             }];
         var events = [{
                 type: 'change',

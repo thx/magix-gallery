@@ -49,6 +49,11 @@ module.exports = Magix.View.extend({
             desc: '是否禁用',
             type: '',
             def: 'false'
+        }, {
+            key: 'show-dot',
+            desc: '是否显示刻度点',
+            type: 'boolean',
+            def: 'false'
         }]
 
         let events = [{

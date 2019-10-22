@@ -1,15 +1,16 @@
-let Magix = require('magix');
-let $ = require('$');
-let DD = require('../mx-dragdrop/index');
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+import * as DD from '../mx-dragdrop/index';
 Magix.applyStyle('@index.less');
-let DefaultSize = 280;
-module.exports = Magix.View.extend({
+const DefaultSize = 280;
+
+export default View.extend({
     tmpl: '@index.html',
     mixins: [DD],
     init(extra) {
-        let me = this;
-        me.assign(extra);
-        me['@{owner.node}'] = $('#' + me.id);
+        this.assign(extra);
+        this['@{owner.node}'] = $(`#${this.id}`);
     },
     assign(ops) {
         let me = this;
@@ -23,6 +24,7 @@ module.exports = Magix.View.extend({
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
+        me['@{show.dot}'] = (ops.showDot + '') === 'true';
         me['@{vertical}'] = (ops.vertical + '') === 'true';
         me['@{needInput}'] = ((ops.needInput + '') === 'true') && !me['@{vertical}'];
         let s = me['@{step}'] + '';
@@ -42,20 +44,47 @@ module.exports = Magix.View.extend({
             value = ((me['@{max}'] + me['@{min}']) / 2);
         }
         me['@{value}'] = value;
+
         return true;
     },
     render() {
         let me = this;
+        let min = me['@{min}'],
+            max = me['@{max}'],
+            tail = me['@{tail.length}'];
+
+        // 显示刻度点
+        let dots = [];
+        if (me['@{show.dot}']) {
+            let step = me['@{step}'];
+            let diff = max - min;
+            let gap = Math.floor((max - min - 1) / step);
+            for (let i = 1; i <= gap; i++) {
+                dots.push({
+                    value: (min + step * i).toFixed(tail),
+                    percent: step * i / diff * 100
+                });
+            }
+        }
+
         me.updater.digest({
-            viewId: me.id,
-            min: me['@{min}'].toFixed(me['@{tail.length}']),
-            max: me['@{max}'].toFixed(me['@{tail.length}']),
+            dots,
+            min: min.toFixed(tail),
+            max: max.toFixed(tail),
             width: me['@{width}'],
             height: me['@{height}'],
             vertical: me['@{vertical}'],
             needInput: me['@{needInput}'],
             disabled: me['@{ui.disabled}']
         });
+        if (dots.length > 0) {
+            let dotNodes = $(`#${me.id} .@index.less:dot-text`);
+            if (!me['@{vertical}']) {
+                dotNodes.css({
+                    marginLeft: 0 - dotNodes.outerWidth() / 2
+                })
+            }
+        }
         me.val(me['@{value}']);
 
         let railWrapper = me['@{owner.node}'].find('.@index.less:rail-wrapper');
@@ -100,7 +129,7 @@ module.exports = Magix.View.extend({
             railWrapper.off('keydown', keydown);
         });
     },
-    '@{get.ui.vars}' () {
+    '@{get.ui.vars}'() {
         let me = this;
         var rail = me['@{owner.node}'].find('.@index.less:rail');
         let tracker = me['@{owner.node}'].find('.@index.less:tracker');
@@ -110,6 +139,7 @@ module.exports = Magix.View.extend({
         let half = indicator.outerWidth() / 2;
         let rMax = me['@{vertical}'] ? rail.height() : rail.width();
         let max = rMax - half * 2;
+
         return {
             rail,
             pLabel,
@@ -126,42 +156,42 @@ module.exports = Magix.View.extend({
         let nv = +v;
 
         if (nv || nv === 0) {
-            me['@{owner.node}'].prop('value', nv);
             let max = me['@{max}'],
                 min = me['@{min}'];
-            if (nv > max) nv = max;
-            else if (nv < min) nv = min;
-            let p = (nv - min) / (max - min);
-            let vars = me['@{get.ui.vars}']();
-            let pos = p * vars.max;
-            if (me['@{vertical}']) {
-                vars.indicator.css({
-                    bottom: pos
-                });
-            } else {
-                vars.indicator.css({
-                    left: pos
-                });
+            if (nv > max) {
+                nv = max;
+            } else if (nv < min) {
+                nv = min;
             }
+            let p = (nv - min) / (max - min);
+
+            // 修正后的值
             v = me['@{get.fixed.value}'](p);
+            // 更正
+            p = (v - min) / (max - min);
+
+            let vars = me['@{get.ui.vars}']();
+
             let node = vars.pLabel;
             node.html(v + (me['@{tip}'] ? ('<span class="@index.less:unit">' + me['@{tip}'] + '</span>') : ''));
             if (vars.inputArea && vars.inputArea.length) {
                 vars.inputArea.val(v);
             }
-            let l = pos + vars.half;
+
+            let l = vars.rMax * p;
             if (me['@{vertical}']) {
-                let pHalf = node.height() / 2;
+                let pHalf = node.height() / 2,
+                    dotSize = 6; //端点位移
                 if (l - pHalf < 0) {
-                    l = 0;
+                    l = 0 - dotSize / 2;
                 } else if (l + pHalf > vars.rMax) {
-                    l = vars.rMax - 2 * pHalf;
+                    l = vars.rMax - 2 * pHalf + dotSize / 2;
                 } else {
                     l -= pHalf;
                 }
-                node.css({
-                    bottom: l
-                });
+                node.css('bottom', `${l}px`);
+                vars.indicator.css('bottom', `${p * 100}%`);
+                vars.tracker.css('height', `${p * 100}%`);
             } else {
                 let pHalf = node.width() / 2;
                 if (l < pHalf) {
@@ -171,15 +201,11 @@ module.exports = Magix.View.extend({
                 } else {
                     l -= pHalf;
                 }
-                node.css({
-                    left: l
-                });
+                node.css('left', `${l}px`);
+                vars.indicator.css('left', `${p * 100}%`);
+                vars.tracker.css('width', `${p * 100}%`);
             }
-            if (me['@{vertical}']) {
-                vars.tracker.height(pos + vars.half);
-            } else {
-                vars.tracker.width(pos + vars.half);
-            }
+
             if (!ignoreSyncValue) {
                 if (me['@{value}'] != v) {
                     me['@{fire.event}'](v);
@@ -187,30 +213,33 @@ module.exports = Magix.View.extend({
                 me['@{value}'] = v;
             }
         }
+        me['@{owner.node}'].prop('value', +me['@{value}']);
         return +me['@{value}'];
     },
-    '@{get.fixed.value}' (p) {
+    '@{get.fixed.value}'(p) {
         let me = this;
         let max = me['@{max}'],
             min = me['@{min}'],
             step = me['@{step}'],
             v;
-        if (p === 0) v = min;
-        else if (p === 1) v = max;
-        else {
-            v = min + (max - min) * p;
-            v = Math.round(v / step) * step;
+        if (p === 0) {
+            v = min;
+        } else if (p === 1) {
+            v = max;
+        } else {
+            v = Math.round((max - min) * p / step) * step + min;
         }
         v = v.toFixed(me['@{tail.length}']);
         return v;
     },
-    '@{fire.event}' (p) {
-        this['@{owner.node}'].prop('value', +p).trigger({
+    '@{fire.event}'(p) {
+        let v = (+p).toFixed(this['@{tail.length}']);
+        this['@{owner.node}'].prop('value', v).trigger({
             type: 'change',
-            value: +p
+            value: v
         });
     },
-    '@{drag}<mousedown>' (e) {
+    '@{drag}<mousedown>'(e) {
         let me = this;
         if (me['@{ui.disabled}']) {
             return;
@@ -254,7 +283,7 @@ module.exports = Magix.View.extend({
             delete me['@{dragging}'];
         });
     },
-    '@{enter}<keyup>' (e) {
+    '@{enter}<keyup>'(e) {
         let me = this;
         e.stopPropagation();
         clearTimeout(me['@{enter.delay.timer}']);
@@ -265,7 +294,7 @@ module.exports = Magix.View.extend({
             }
         }), 400);
     },
-    '@{out}<focusout>' (e) {
+    '@{out}<focusout>'(e) {
         let me = this;
         e.stopPropagation();
         let val = $.trim(e.eventTarget.value);
@@ -273,7 +302,7 @@ module.exports = Magix.View.extend({
             me.val(val);
         }
     },
-    '@{prevent}<contextmenu>' (e) {
+    '@{prevent}<contextmenu>'(e) {
         e.preventDefault();
     }
 });

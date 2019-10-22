@@ -33,9 +33,9 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'each verticals as item';
     ;
-    $expr = '<%for (var $art_ijoxb$art_i = 0, $art_cyucmmqisk$art_c = verticals.length; $art_ijoxb$art_i < $art_cyucmmqisk$art_c; $art_ijoxb$art_i++) {    var item = verticals[$art_ijoxb$art_i]%>';
-    for (var $art_ijoxb$art_i = 0, $art_cyucmmqisk$art_c = verticals.length; $art_ijoxb$art_i < $art_cyucmmqisk$art_c; $art_ijoxb$art_i++) {
-        var item = verticals[$art_ijoxb$art_i];
+    $expr = '<%for (var $art_iomuvqqk$art_i = 0, $art_cbymymvxa$art_c = verticals.length; $art_iomuvqqk$art_i < $art_cbymymvxa$art_c; $art_iomuvqqk$art_i++) {    var item = verticals[$art_iomuvqqk$art_i]%>';
+    for (var $art_iomuvqqk$art_i = 0, $art_cbymymvxa$art_c = verticals.length; $art_iomuvqqk$art_i < $art_cbymymvxa$art_c; $art_iomuvqqk$art_i++) {
+        var item = verticals[$art_iomuvqqk$art_i];
         $p += '<label mxv mxa="_zs_galleryae:c" class="w150 mb5"><input type="radio" value="';
         $line = 7;
         $art = '=item.value';
@@ -73,9 +73,9 @@ module.exports = Base.extend({
     $line = 17;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iqjhdzic$art_i = 0, $art_cutcwjgxk$art_c = list.length; $art_iqjhdzic$art_i < $art_cutcwjgxk$art_c; $art_iqjhdzic$art_i++) {    var item = list[$art_iqjhdzic$art_i]%>';
-    for (var $art_iqjhdzic$art_i = 0, $art_cutcwjgxk$art_c = list.length; $art_iqjhdzic$art_i < $art_cutcwjgxk$art_c; $art_iqjhdzic$art_i++) {
-        var item = list[$art_iqjhdzic$art_i];
+    $expr = '<%for (var $art_iiocsmle$art_i = 0, $art_cfxhwpoa$art_c = list.length; $art_iiocsmle$art_i < $art_cfxhwpoa$art_c; $art_iiocsmle$art_i++) {    var item = list[$art_iiocsmle$art_i]%>';
+    for (var $art_iiocsmle$art_i = 0, $art_cfxhwpoa$art_c = list.length; $art_iiocsmle$art_i < $art_cfxhwpoa$art_c; $art_iiocsmle$art_i++) {
+        var item = list[$art_iiocsmle$art_i];
         $p += '<label mxv mxa="_zs_galleryae:e" class="w150 mb5"><input type="radio" value="';
         $line = 19;
         $art = '=item.value';

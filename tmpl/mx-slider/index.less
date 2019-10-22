@@ -1,161 +1,162 @@
-@size: 4px;
+@size: 6px;
 @rail-input-width: 64px;
-
+@rail-line-height: 16px;
 [mx-view*="mx-slider/index"],
 [mx-view*="mx-slider/range"] {
     position: relative;
     display: inline-block;
     outline: 0;
     cursor: pointer;
-
     .rail-input {
         position: absolute;
         top: 0;
         right: -(@rail-input-width + 10px);
         width: @rail-input-width;
     }
-
     &[mx-view*="disabled=true"],
     &[mx-disabled] {
         cursor: not-allowed;
-
         .rail-wrapper {
             .rail {
                 .tracker {
                     background-color: #ccc;
+                    opacity: .8;
                 }
-
                 .indicator {
                     background-color: #ccc;
-
                     &:before {
                         background-color: #ccc;
                     }
-
                 }
-
             }
-
         }
-
     }
-
 }
 
 .rail-wrapper {
-    line-height: 28px;
+    line-height: var(--input-small-height);
+}
 
-    .rail {
-        display: inline-block;
-        position: relative;
-        border-radius: 2px;
-        background: #f0f0f0;
-
-        .tracker {
+.rail {
+    display: inline-block;
+    height: @size;
+    position: relative;
+    border-radius: @size / 2;
+    background: #f0f0f0;
+    top: -(@size / 2);
+    .dot {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: @size;
+        height: @size;
+        border-radius: 50%;
+        background-color: #ccc;
+        margin-left: -(@size / 2);
+    }
+    .tracker {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: @size;
+        background-color: var(--color-brand);
+        opacity: .3;
+        border-radius: @size / 2;
+    }
+    .indicator {
+        position: absolute;
+        top: -1px;
+        width: @size + 2px;
+        height: @size + 2px;
+        margin-left: 0 - (@size + 2px) / 2;
+        border-radius: 50%;
+        background-color: var(--color-brand);
+        outline: 0;
+        &:before {
+            content: ' ';
             position: absolute;
-            border-radius: 2px;
-            left: 0;
-            background-color: var(--color-brand-light);
-
-            &.hor-tracker {
-                height: @size;
-                top: 0;
-            }
-
-            &.ver-tracker {
-                width: @size;
-                bottom: 0;
-            }
-
-        }
-
-        .indicator {
-            position: absolute;
-            width: @size * 2;
-            height: @size * 2;
+            top: -4px;
+            left: -4px;
+            width: @size + 10px;
+            height: @size + 10px;
             border-radius: 50%;
             background-color: var(--color-brand);
-            outline: 0;
-
-            &:before {
-                content: ' ';
-                position: absolute;
-                top: -@size;
-                left: -@size;
-                width: @size * 4;
-                height: @size * 4;
-                border-radius: 50%;
-                background-color: var(--color-brand);
-                opacity: .3;
-            }
-
-            &.hor-idctor {
-                top: -(@size / 2);
-            }
-
-            &.ver-idctor {
-                left: -(@size / 2);
-            }
-
+            opacity: .3;
         }
+    }
+    .pointer-label,
+    .dot-text,
+    .scale-start,
+    .scale-end {
+        position: absolute;
+        font-size: var(--font-size);
+        pointer-events: none;
+        line-height: @rail-line-height;
+        white-space: nowrap;
+    }
+    .pointer-label {
+        top: 0 - @rail-line-height - 6px;
+    }
+    .dot-text,
+    .scale-start {
+        top: @size + 6px;
+        left: 0;
+    }
+    .scale-end {
+        top: @size + 6px;
+        right: 0;
+    }
+}
 
+.unit {
+    margin-left: 3px;
+    color: #999;
+}
+
+[mx-view*="mx-slider/index"][mx-view*="vertical=true"],
+[mx-view*="mx-slider/range"][mx-view*="vertical=true"] {
+    .rail {
+        width: @size;
+        left: @size * 2;
+        .dot {
+            top: auto;
+            margin-left: 0;
+            margin-top: -(@size / 2);
+        }
+        .tracker {
+            top: auto;
+            width: @size;
+            height: auto;
+            bottom: 0;
+        }
+        .indicator {
+            top: auto;
+            left: -1px;
+            margin-left: 0;
+            margin-bottom: 0 - (@size + 2px) / 2;
+        }
         .pointer-label {
-            position: absolute;
-            font-size: var(--font-size);
-            pointer-events: none;
-            line-height: normal;
-
-            &.hor-pl {
-                top: -((@size * 4) - (@size / 2) + @size + 5px);
-            }
-
-            &.ver-pl {
-                right: 2 * @size + @size / 2 + 2;
-            }
-
+            top: auto;
+            right: 2 * @size + @size / 2 + 2;
         }
-
-        .scale-left, .scale-right, .ver-scale-top, .ver-scale-bottom {
-            position: absolute;
-            font-size: var(--font-size);
-            pointer-events: none;
-            line-height: normal;
+        .dot-text {
+            top: auto;
+            left: 2 * @size + @size / 2 + 2;
+            margin-top: 0 - @rail-line-height/ 2;
         }
-
-        .scale-left {
-            left: 0;
-            top: @size + 5px;
-        }
-
-        .scale-right {
-            right: 0;
-            top: @size + 5px;
-        }
-
-        .ver-scale-bottom {
+        .scale-start {
+            top: auto;
+            right: auto;
             bottom: 0;
             left: 2 * @size + @size / 2 + 2;
+            margin-bottom: -(@size / 2);
         }
-
-        .ver-scale-top {
+        .scale-end {
             top: 0;
+            right: auto;
+            bottom: auto;
             left: 2 * @size + @size / 2 + 2;
+            margin-top: -(@size / 2);
         }
-
-        &.hor {
-            height: @size;
-            top: -(@size / 2);
-        }
-
-        &.ver {
-            width: @size;
-            left: @size * 2;
-        }
-
-    }
-
-    .unit{
-        margin-left: 3px;
-        color: #999;
     }
 }

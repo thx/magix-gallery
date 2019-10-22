@@ -1,6 +1,6 @@
 <div class="example">
-    <div class="eg-content">
-        <div class="pl40">
+    <div class="eg-content clearfix">
+        <div class="pl40 pr80 fl">
             <mx-slider
                 max="200"
                 min="100"
@@ -9,6 +9,18 @@
                 vertical="true"
                 tip="元"
                 height="200"/>
+        </div>
+
+        <div class="pl40 fl">
+            <mx-slider
+                max="200"
+                min="100"
+                value="140"
+                step="20"
+                vertical="true"
+                tip="元"
+                height="200"
+                show-dot="true"/>
         </div>
     </div>
     <div class="eg-desc">
@@ -27,5 +39,23 @@
     vertical="true"
     tip="元"
     height="200"/&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">纵向显示刻度点</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_2">
+&lt;mx-slider
+    max="200"
+    min="100"
+    value="140"
+    step="20"
+    vertical="true"
+    tip="元"
+    height="200"
+    show-dot="true"/&gt;</pre>
     </div>
 </div>

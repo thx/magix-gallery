@@ -50,5 +50,14 @@ module.exports = {
                 "link": "https://amp.taobao.com/"
             }]
         }]
+    }, {
+        "title": "频道",
+        "seconds": [{
+            "title": "",
+            "thirds": [{
+                "name": "医疗健康",
+                "link": "https://shop.alimama.com/union/pub-search?channel=jtbj"
+            }]
+        }]
     }]
 }
