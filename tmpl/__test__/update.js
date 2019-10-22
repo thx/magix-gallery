@@ -17,6 +17,8 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-footer：支持多种对齐方式，<a href="#!/footer/index" class="color-brand">点击查看</a>'
                 }, {
+                    title: 'mx-im.wx：新版，<a href="#!/im/wanxiang" class="color-brand">点击查看</a>'
+                }, {
                     title: '增加组件埋点：mx-header，mx-search，mx-pagination'
                 }]
             }, {
