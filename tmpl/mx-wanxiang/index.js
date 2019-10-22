@@ -1,5 +1,6 @@
 /**
- * 包装万象组件
+ * 包装老版万象组件
+ * https://yuque.antfin-inc.com/wanxiang/technology/description
  */
 let Magix = require('magix');
 let Router = Magix.Router;
@@ -72,10 +73,7 @@ module.exports = Magix.View.extend({
     },
 
     getCurSourceId() {
-        let data = this.updater.get();
-        let sourceList = data.sourceList,
-            defaultSourceId = data.defaultSourceId;
-
+        let { sourceList, defaultSourceId } = this.updater.get();
         let loc = Router.parse();
         let path = loc.path;
         let params = loc.params;
@@ -101,8 +99,7 @@ module.exports = Magix.View.extend({
 
     render() {
         let that = this;
-        let oldSourceId = that.updater.get('sourceId'),
-            bizCode = that.updater.get('bizCode');
+        let { oldSourceId, bizCode } = that.updater.get();
         let sourceId = that.getCurSourceId();
 
         // 刷新万象知识库

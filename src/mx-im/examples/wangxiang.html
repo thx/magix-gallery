@@ -1,0 +1,72 @@
+<div class="pr pr120">
+    <div mx-view="examples/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo'
+    }, {
+        name: 'API',
+        key: viewId + '_api'
+    }]}}"></div>
+
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <div class="mb40">
+        <div class="example">
+            <div class="eg-content">
+                <div class="mb10">
+                    <span class="inline-block w120">默认（抖动图标）：</span>
+                    <mx-im.ww uid="虞佳"/>
+                </div>
+                <div class="mb10">
+                    <span class="inline-block w120">静态图：</span>
+                    <mx-im.ww icon="static" uid="虞佳"/>
+                </div>
+                <div class="mb10">
+                    <span class="inline-block w120">抖动图标：</span>
+                    <mx-im.ww icon="small" uid="虞佳"/>
+                </div>
+                <div class="mb10">
+                    <span class="inline-block w120">和我联系图标：</span>
+                    <mx-im.ww icon="large" uid="虞佳"/>
+                </div>
+                <div class="mb10">
+                    <span class="inline-block w120">无图标+文案：</span>
+                    <mx-im.ww icon="none" uid="虞佳" content="联系我"/>
+                </div>
+                <div class="mb10">
+                    <span class="inline-block w120">抖动+文案：</span>
+                    <mx-im.ww icon="small" uid="虞佳">联系我</mx-im.ww>
+                </div>
+            </div>
+            <div class="eg-desc">
+                <div class="eg-title">HTML Code</div>
+                <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                    mx-success="done({id:1})">
+                    <span class="desc-tip">{{!text1}}</span>
+                    <i class="mc-iconfont desc-icon">&#xe610;</i>
+                </mx-copy>
+                <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;!-- 默认（抖动图标）：--&gt;
+&lt;mx-im.ww uid="虞佳"/&gt;
+
+&lt;!-- 静态图：--&gt;
+&lt;mx-im.ww icon="static" uid="虞佳"/&gt;
+
+&lt;!-- 抖动图标：--&gt;
+&lt;mx-im.ww icon="small" uid="虞佳"/&gt;
+
+&lt;!-- 和我联系图标：--&gt;
+&lt;mx-im.ww icon="large" uid="虞佳"/&gt;
+
+&lt;!-- 无图标+文案：--&gt;
+&lt;mx-im.ww icon="none" uid="虞佳" content="联系我"/&gt;
+
+&lt;!-- 抖动+文案：--&gt;
+&lt;mx-im.ww icon="small" uid="虞佳"&gt;联系我&lt;/mx-im.ww&gt;
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <mx-title.second content="API" id="{{=viewId}}_api"/>
+    <div mx-view="examples/api?options={{@options}}" class="mb40"></div>
+</div>
+    

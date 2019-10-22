@@ -3,12 +3,12 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-wanxiang/index",["magix","$"],(require,exports,module)=>{
+define("mx-im/wx",["magix","$"],(require,exports,module)=>{
 /*Magix,$*/
 
 /**
- * 包装老版万象组件
- * https://yuque.antfin-inc.com/wanxiang/technology/description
+ * 包装新版万象组件
+ * https://yuque.antfin-inc.com/nue/everywhere/gdb60g
  */
 var Magix = require("magix");
 var Router = Magix.Router;
@@ -19,8 +19,6 @@ module.exports = Magix.View.extend({
         that.observeLocation({
             path: true
         });
-        var bizCode = extra.bizCode;
-        var bottom = extra.bottom || 0;
         var defaultSourceId = +extra.defaultSourceId;
         var sourceMap = extra.sourceMap || {}, sourceList = [];
         for (var path in sourceMap) {
@@ -30,8 +28,6 @@ module.exports = Magix.View.extend({
             });
         }
         that.updater.set({
-            bizCode: bizCode,
-            bottom: +bottom,
             defaultSourceId: defaultSourceId,
             sourceMap: sourceMap,
             sourceList: sourceList,
@@ -41,23 +37,15 @@ module.exports = Magix.View.extend({
         that.updater.set({
             sourceId: sourceId
         });
-        seajs.use('//g.alicdn.com/crm/anywhere/0.4.5/lib/include', function () {
-            window.awAsyncInit = function () {
-                var wxParams = {
-                    isHidden: true,
-                    bizCode: bizCode,
-                    sourceId: sourceId,
-                    logoWidth: 40,
-                    onRendered: function () {
-                        that.updater.set({
-                            awLoading: false
-                        });
-                        that.reloc();
-                        AW.show();
-                    }
-                };
-                AW.init(wxParams);
-            };
+        seajs.use('//g.alicdn.com/everywhere/everywhere-entry/index.js', function () {
+            EVERYWHERE_ENTRY.init().then(function (EW) {
+                that.updater.set({
+                    awLoading: false
+                });
+                EW.init({
+                    instanceId: sourceId
+                });
+            });
         });
         that.on('destroy', function () {
             if (that.loopTimer) {
@@ -70,7 +58,8 @@ module.exports = Magix.View.extend({
         return true;
     },
     getCurSourceId: function () {
-        var _a = this.updater.get(), sourceList = _a.sourceList, defaultSourceId = _a.defaultSourceId;
+        var data = this.updater.get();
+        var sourceList = data.sourceList, defaultSourceId = data.defaultSourceId;
         var loc = Router.parse();
         var path = loc.path;
         var params = loc.params;
@@ -92,7 +81,7 @@ module.exports = Magix.View.extend({
     },
     render: function () {
         var that = this;
-        var _a = that.updater.get(), oldSourceId = _a.oldSourceId, bizCode = _a.bizCode;
+        var oldSourceId = that.updater.get().oldSourceId;
         var sourceId = that.getCurSourceId();
         // 刷新万象知识库
         var duration = 25;
@@ -100,11 +89,10 @@ module.exports = Magix.View.extend({
             if (that.loopTimer) {
                 clearTimeout(that.loopTimer);
             }
-            if (window.AW) {
+            if (window.EW) {
                 if ((sourceId + '') !== (oldSourceId + '')) {
-                    AW.refresh({
-                        bizCode: bizCode,
-                        sourceId: sourceId
+                    EW.refresh({
+                        instanceId: sourceId
                     });
                     that.updater.set({
                         sourceId: sourceId
@@ -119,17 +107,6 @@ module.exports = Magix.View.extend({
             }
         }, duration);
         that.loopTimer = timer;
-    },
-    reloc: function () {
-        var that = this;
-        var _a = that.updater.get(), awLoading = _a.awLoading, bottom = _a.bottom;
-        if (window.AW && !awLoading) {
-            var winHeight = $(window).height();
-            AW.moveTo(winHeight - bottom - 200);
-        }
-    },
-    '$win<resize>': function () {
-        this.reloc();
     }
 });
 

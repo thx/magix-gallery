@@ -9,9 +9,21 @@ module.exports = Magix.View.extend({
             ver: '1.3.40',
             time: '2019-10-22',
             subs: [{
-                type: 'bug',
+                type: 'add',
                 subs: [{
-                    title: 'mx-table：调整td计算规则，<a href="#!/header/index" class="color-brand">点击查看</a>'
+                    title: 'mx-slide：单个滑块支持展示刻度点，<a href="#!/slider/index?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-slider.range：滑块选择范围支持展示刻度点，<a href="#!/slider/range?highlightId=mx_12_demo11" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-footer：支持多种对齐方式，<a href="#!/footer/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: '增加组件埋点：mx-header，mx-search，mx-pagination'
+                }]
+            }, {
+                type: 'notice',
+                title: '实现调整',
+                subs: [{
+                    title: 'mx-util/view：提取通用base view，挂载spm处理等通用方法'
                 }]
             }]
         }, {

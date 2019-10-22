@@ -71,9 +71,9 @@ module.exports = Magix.View.extend({
     $line = 32;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_iairulrgc$art_i = 0, $art_cwwlkbaou$art_c = headers.length; $art_iairulrgc$art_i < $art_cwwlkbaou$art_c; $art_iairulrgc$art_i++) {    var h = headers[$art_iairulrgc$art_i]%>';
-    for (var $art_iairulrgc$art_i = 0, $art_cwwlkbaou$art_c = headers.length; $art_iairulrgc$art_i < $art_cwwlkbaou$art_c; $art_iairulrgc$art_i++) {
-        var h = headers[$art_iairulrgc$art_i];
+    $expr = '<%for (var $art_ivbxfiroa$art_i = 0, $art_cgkoxete$art_c = headers.length; $art_ivbxfiroa$art_i < $art_cgkoxete$art_c; $art_ivbxfiroa$art_i++) {    var h = headers[$art_ivbxfiroa$art_i]%>';
+    for (var $art_ivbxfiroa$art_i = 0, $art_cgkoxete$art_c = headers.length; $art_ivbxfiroa$art_i < $art_cgkoxete$art_c; $art_ivbxfiroa$art_i++) {
+        var h = headers[$art_ivbxfiroa$art_i];
         $p += '<a ';
         $line = 33;
         $art = 'if h.new';
@@ -201,9 +201,9 @@ module.exports = Magix.View.extend({
     $line = 47;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iwehbvcv$art_i = 0, $art_cvxxyuiq$art_c = list.length; $art_iwehbvcv$art_i < $art_cvxxyuiq$art_c; $art_iwehbvcv$art_i++) {    var item = list[$art_iwehbvcv$art_i]%>';
-    for (var $art_iwehbvcv$art_i = 0, $art_cvxxyuiq$art_c = list.length; $art_iwehbvcv$art_i < $art_cvxxyuiq$art_c; $art_iwehbvcv$art_i++) {
-        var item = list[$art_iwehbvcv$art_i];
+    $expr = '<%for (var $art_ixvvpfbaj$art_i = 0, $art_ccrmyswb$art_c = list.length; $art_ixvvpfbaj$art_i < $art_ccrmyswb$art_c; $art_ixvvpfbaj$art_i++) {    var item = list[$art_ixvvpfbaj$art_i]%>';
+    for (var $art_ixvvpfbaj$art_i = 0, $art_ccrmyswb$art_c = list.length; $art_ixvvpfbaj$art_i < $art_ccrmyswb$art_c; $art_ixvvpfbaj$art_i++) {
+        var item = list[$art_ixvvpfbaj$art_i];
         $p += ' ';
         $line = 48;
         $art = 'if item.name';
@@ -244,9 +244,9 @@ module.exports = Magix.View.extend({
         $line = 55;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_iieruwvsyr$art_i = 0, $art_objrqcqucja$art_obj = item.subs, $art_cbdzqdqvjcn$art_c = $art_objrqcqucja$art_obj.length; $art_iieruwvsyr$art_i < $art_cbdzqdqvjcn$art_c; $art_iieruwvsyr$art_i++) {        var sub = $art_objrqcqucja$art_obj[$art_iieruwvsyr$art_i]%>';
-        for (var $art_iieruwvsyr$art_i = 0, $art_objrqcqucja$art_obj = item.subs, $art_cbdzqdqvjcn$art_c = $art_objrqcqucja$art_obj.length; $art_iieruwvsyr$art_i < $art_cbdzqdqvjcn$art_c; $art_iieruwvsyr$art_i++) {
-            var sub = $art_objrqcqucja$art_obj[$art_iieruwvsyr$art_i];
+        $expr = '<%for (var $art_ijyvkrk$art_i = 0, $art_objdqnbltut$art_obj = item.subs, $art_cwxrmbhh$art_c = $art_objdqnbltut$art_obj.length; $art_ijyvkrk$art_i < $art_cwxrmbhh$art_c; $art_ijyvkrk$art_i++) {        var sub = $art_objdqnbltut$art_obj[$art_ijyvkrk$art_i]%>';
+        for (var $art_ijyvkrk$art_i = 0, $art_objdqnbltut$art_obj = item.subs, $art_cwxrmbhh$art_c = $art_objdqnbltut$art_obj.length; $art_ijyvkrk$art_i < $art_cwxrmbhh$art_c; $art_ijyvkrk$art_i++) {
+            var sub = $art_objdqnbltut$art_obj[$art_ijyvkrk$art_i];
             $p += '<a class="_zs_gallery_examples_base_-nav ';
             $line = 56;
             $art = 'if (sub.path == path)';
@@ -736,10 +736,16 @@ catch (ex) {
                                 path: '/feedback/index',
                                 icon: '&#xe613;'
                             }, {
-                                name: '万象客服问答',
+                                name: '老版万象客服问答',
                                 prefix: 'mx-wanxiang',
                                 tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/wanxiang/technology/description" target="_blank"  rel="noopener noreferrer">服务窗接入wiki文档</a>',
                                 path: '/wanxiang/index',
+                                icon: '&#xe767;'
+                            }, {
+                                name: '新版万象客服问答',
+                                prefix: 'mx-im.wx',
+                                tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/nue/everywhere/gdb60g" target="_blank"  rel="noopener noreferrer">服务窗接入wiki文档</a>',
+                                path: '/im/wanxiang',
                                 icon: '&#xe767;'
                             }, {
                                 name: '钉钉唤起',

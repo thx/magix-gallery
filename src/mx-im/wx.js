@@ -1,6 +1,6 @@
 /**
- * 包装老版万象组件
- * https://yuque.antfin-inc.com/wanxiang/technology/description
+ * 包装新版万象组件
+ * https://yuque.antfin-inc.com/nue/everywhere/gdb60g
  */
 let Magix = require('magix');
 let Router = Magix.Router;
@@ -13,8 +13,6 @@ module.exports = Magix.View.extend({
             path: true
         });
 
-        let bizCode = extra.bizCode;
-        let bottom = extra.bottom || 0;
         let defaultSourceId = +extra.defaultSourceId;
 
         let sourceMap = extra.sourceMap || {},
@@ -27,8 +25,6 @@ module.exports = Magix.View.extend({
         }
 
         that.updater.set({
-            bizCode,
-            bottom: +bottom,
             defaultSourceId, // 默认sourceId
             sourceMap,
             sourceList,
@@ -40,24 +36,15 @@ module.exports = Magix.View.extend({
             sourceId
         })
 
-        seajs.use('//g.alicdn.com/crm/anywhere/0.4.5/lib/include', () => {
-            window.awAsyncInit = () => {
-                var wxParams = {
-                    isHidden: true,
-                    bizCode: bizCode,
-                    sourceId: sourceId,
-                    logoWidth: 40, //非必传：指定象仔logo大小
-                    onRendered: () => {
-                        that.updater.set({
-                            awLoading: false
-                        })
-
-                        that.reloc();
-                        AW.show();
-                    }
-                }
-                AW.init(wxParams);
-            }
+        seajs.use('//g.alicdn.com/everywhere/everywhere-entry/index.js', () => {
+            EVERYWHERE_ENTRY.init().then(EW => {
+                that.updater.set({
+                    awLoading: false
+                })
+                EW.init({
+                    instanceId: sourceId
+                });
+            });
         })
 
         that.on('destroy', () => {
@@ -73,7 +60,10 @@ module.exports = Magix.View.extend({
     },
 
     getCurSourceId() {
-        let { sourceList, defaultSourceId } = this.updater.get();
+        let data = this.updater.get();
+        let sourceList = data.sourceList,
+            defaultSourceId = data.defaultSourceId;
+
         let loc = Router.parse();
         let path = loc.path;
         let params = loc.params;
@@ -99,7 +89,7 @@ module.exports = Magix.View.extend({
 
     render() {
         let that = this;
-        let { oldSourceId, bizCode } = that.updater.get();
+        let { oldSourceId } = that.updater.get();
         let sourceId = that.getCurSourceId();
 
         // 刷新万象知识库
@@ -108,11 +98,10 @@ module.exports = Magix.View.extend({
             if (that.loopTimer) {
                 clearTimeout(that.loopTimer);
             }
-            if (window.AW) {
+            if (window.EW) {
                 if ((sourceId + '') !== (oldSourceId + '')) {
-                    AW.refresh({
-                        bizCode,
-                        sourceId
+                    EW.refresh({
+                        instanceId: sourceId
                     });
                     that.updater.set({
                         sourceId
@@ -126,18 +115,5 @@ module.exports = Magix.View.extend({
             }
         }, duration);
         that.loopTimer = timer;
-    },
-
-    reloc: function () {
-        let that = this;
-        let { awLoading, bottom } = that.updater.get();
-        if (window.AW && !awLoading) {
-            let winHeight = $(window).height();
-            AW.moveTo(winHeight - bottom - 200);
-        }
-    },
-
-    '$win<resize>'() {
-        this.reloc();
     }
 });

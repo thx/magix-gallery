@@ -335,10 +335,16 @@ module.exports = Magix.View.extend({
                     path: '/feedback/index',
                     icon: '&#xe613;'
                 }, {
-                    name: '万象客服问答',
+                    name: '老版万象客服问答',
                     prefix: 'mx-wanxiang',
                     tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/wanxiang/technology/description" target="_blank"  rel="noopener noreferrer">服务窗接入wiki文档</a>',
                     path: '/wanxiang/index',
+                    icon: '&#xe767;'
+                }, {
+                    name: '新版万象客服问答',
+                    prefix: 'mx-im.wx',
+                    tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/nue/everywhere/gdb60g" target="_blank"  rel="noopener noreferrer">服务窗接入wiki文档</a>',
+                    path: '/im/wanxiang',
                     icon: '&#xe767;'
                 }, {
                     name: '钉钉唤起',

@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ivkcacjsfde$art_i = 0, $art_cxvtkqctzp$art_c = list.length; $art_ivkcacjsfde$art_i < $art_cxvtkqctzp$art_c; $art_ivkcacjsfde$art_i++) {    var item = list[$art_ivkcacjsfde$art_i]%>';
-    for (var $art_ivkcacjsfde$art_i = 0, $art_cxvtkqctzp$art_c = list.length; $art_ivkcacjsfde$art_i < $art_cxvtkqctzp$art_c; $art_ivkcacjsfde$art_i++) {
-        var item = list[$art_ivkcacjsfde$art_i];
+    $expr = '<%for (var $art_iaajejxjeq$art_i = 0, $art_cqkmerscn$art_c = list.length; $art_iaajejxjeq$art_i < $art_cqkmerscn$art_c; $art_iaajejxjeq$art_i++) {    var item = list[$art_iaajejxjeq$art_i]%>';
+    for (var $art_iaajejxjeq$art_i = 0, $art_cqkmerscn$art_c = list.length; $art_iaajejxjeq$art_i < $art_cqkmerscn$art_c; $art_iaajejxjeq$art_i++) {
+        var item = list[$art_iaajejxjeq$art_i];
         $p += '<div mxa="_zs_galleryP:_" class="_zs_gallery_examples_update_-update"><div mxa="_zs_galleryP:a" class="_zs_gallery_examples_update_-ver pl20"><span mxa="_zs_galleryP:b" class="_zs_gallery_examples_update_-vt">';
         $line = 5;
         $art = '=item.ver';
@@ -40,9 +40,9 @@ module.exports = Magix.View.extend({
         $line = 10;
         $art = 'each item.subs as s';
         ;
-        $expr = '<%for (var $art_irrkmozcf$art_i = 0, $art_objoxklcejryl$art_obj = item.subs, $art_ctcygh$art_c = $art_objoxklcejryl$art_obj.length; $art_irrkmozcf$art_i < $art_ctcygh$art_c; $art_irrkmozcf$art_i++) {        var s = $art_objoxklcejryl$art_obj[$art_irrkmozcf$art_i]%>';
-        for (var $art_irrkmozcf$art_i = 0, $art_objoxklcejryl$art_obj = item.subs, $art_ctcygh$art_c = $art_objoxklcejryl$art_obj.length; $art_irrkmozcf$art_i < $art_ctcygh$art_c; $art_irrkmozcf$art_i++) {
-            var s = $art_objoxklcejryl$art_obj[$art_irrkmozcf$art_i];
+        $expr = '<%for (var $art_isygfaego$art_i = 0, $art_objgzdyabzi$art_obj = item.subs, $art_cpsfwtltcth$art_c = $art_objgzdyabzi$art_obj.length; $art_isygfaego$art_i < $art_cpsfwtltcth$art_c; $art_isygfaego$art_i++) {        var s = $art_objgzdyabzi$art_obj[$art_isygfaego$art_i]%>';
+        for (var $art_isygfaego$art_i = 0, $art_objgzdyabzi$art_obj = item.subs, $art_cpsfwtltcth$art_c = $art_objgzdyabzi$art_obj.length; $art_isygfaego$art_i < $art_cpsfwtltcth$art_c; $art_isygfaego$art_i++) {
+            var s = $art_objgzdyabzi$art_obj[$art_isygfaego$art_i];
             $p += '<div mxa="_zs_galleryP:e" class="pl20">';
             $line = 12;
             $art = 'if s.type == \'notice\'';
@@ -101,9 +101,9 @@ module.exports = Magix.View.extend({
             $line = 33;
             $art = 'each s.subs as ss';
             ;
-            $expr = '<%for (var $art_imciscwd$art_i = 0, $art_objlibhiwamvg$art_obj = s.subs, $art_cncctvopaho$art_c = $art_objlibhiwamvg$art_obj.length; $art_imciscwd$art_i < $art_cncctvopaho$art_c; $art_imciscwd$art_i++) {            var ss = $art_objlibhiwamvg$art_obj[$art_imciscwd$art_i]%>';
-            for (var $art_imciscwd$art_i = 0, $art_objlibhiwamvg$art_obj = s.subs, $art_cncctvopaho$art_c = $art_objlibhiwamvg$art_obj.length; $art_imciscwd$art_i < $art_cncctvopaho$art_c; $art_imciscwd$art_i++) {
-                var ss = $art_objlibhiwamvg$art_obj[$art_imciscwd$art_i];
+            $expr = '<%for (var $art_inficozkzok$art_i = 0, $art_objtgsmz$art_obj = s.subs, $art_cgyjsc$art_c = $art_objtgsmz$art_obj.length; $art_inficozkzok$art_i < $art_cgyjsc$art_c; $art_inficozkzok$art_i++) {            var ss = $art_objtgsmz$art_obj[$art_inficozkzok$art_i]%>';
+            for (var $art_inficozkzok$art_i = 0, $art_objtgsmz$art_obj = s.subs, $art_cgyjsc$art_c = $art_objtgsmz$art_obj.length; $art_inficozkzok$art_i < $art_cgyjsc$art_c; $art_inficozkzok$art_i++) {
+                var ss = $art_objtgsmz$art_obj[$art_inficozkzok$art_i];
                 $p += '<div mxa="_zs_galleryP:l" class="pl20"><div mxa="_zs_galleryP:m" class="_zs_gallery_examples_update_-line _zs_gallery_examples_update_-dot">';
                 $line = 35;
                 $art = '!ss.title';
@@ -137,9 +137,9 @@ module.exports = Magix.View.extend({
                     $line = 42;
                     $art = 'each ss.subs as sss';
                     ;
-                    $expr = '<%for (var $art_ilphckx$art_i = 0, $art_objwvsnvyfe$art_obj = ss.subs, $art_cvjygyi$art_c = $art_objwvsnvyfe$art_obj.length; $art_ilphckx$art_i < $art_cvjygyi$art_c; $art_ilphckx$art_i++) {                    var sss = $art_objwvsnvyfe$art_obj[$art_ilphckx$art_i]%>';
-                    for (var $art_ilphckx$art_i = 0, $art_objwvsnvyfe$art_obj = ss.subs, $art_cvjygyi$art_c = $art_objwvsnvyfe$art_obj.length; $art_ilphckx$art_i < $art_cvjygyi$art_c; $art_ilphckx$art_i++) {
-                        var sss = $art_objwvsnvyfe$art_obj[$art_ilphckx$art_i];
+                    $expr = '<%for (var $art_ibnzdxojm$art_i = 0, $art_objmssb$art_obj = ss.subs, $art_ccocryfvbyu$art_c = $art_objmssb$art_obj.length; $art_ibnzdxojm$art_i < $art_ccocryfvbyu$art_c; $art_ibnzdxojm$art_i++) {                    var sss = $art_objmssb$art_obj[$art_ibnzdxojm$art_i]%>';
+                    for (var $art_ibnzdxojm$art_i = 0, $art_objmssb$art_obj = ss.subs, $art_ccocryfvbyu$art_c = $art_objmssb$art_obj.length; $art_ibnzdxojm$art_i < $art_ccocryfvbyu$art_c; $art_ibnzdxojm$art_i++) {
+                        var sss = $art_objmssb$art_obj[$art_ibnzdxojm$art_i];
                         $p += '<div mxa="_zs_galleryP:o" class="_zs_gallery_examples_update_-line _zs_gallery_examples_update_-dot">';
                         $line = 43;
                         $art = '!sss';
@@ -194,9 +194,21 @@ catch (ex) {
                 ver: '1.3.40',
                 time: '2019-10-22',
                 subs: [{
-                        type: 'bug',
+                        type: 'add',
                         subs: [{
-                                title: 'mx-table：调整td计算规则，<a href="#!/header/index" class="color-brand">点击查看</a>'
+                                title: 'mx-slide：单个滑块支持展示刻度点，<a href="#!/slider/index?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
+                            }, {
+                                title: 'mx-slider.range：滑块选择范围支持展示刻度点，<a href="#!/slider/range?highlightId=mx_12_demo11" class="color-brand">点击查看</a>'
+                            }, {
+                                title: 'mx-footer：支持多种对齐方式，<a href="#!/footer/index" class="color-brand">点击查看</a>'
+                            }, {
+                                title: '增加组件埋点：mx-header，mx-search，mx-pagination'
+                            }]
+                    }, {
+                        type: 'notice',
+                        title: '实现调整',
+                        subs: [{
+                                title: 'mx-util/view：提取通用base view，挂载spm处理等通用方法'
                             }]
                     }]
             }, {
