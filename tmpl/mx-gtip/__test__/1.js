@@ -34,5 +34,10 @@ module.exports = Base.extend({
         this.gtip('highlight顶通（品牌色强调），手动关闭', {
             type: 'highlight'
         });
+    },
+    'show5<click>'(){
+        this.gtip('pass顶通（绿色提示），手动关闭', {
+            type: 'pass'
+        });
     }
 });

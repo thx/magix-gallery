@@ -1,1 +1,196 @@
-define("mx-effects/notice",["magix","../mx-util/view"],(e,r,l)=>{"use strict";r.__esModule=!0;var o=e("magix"),t=e("../mx-util/view");o.default.applyStyle("_zs_galleryN","._zs_galleryeR{position:relative;padding:8px 24px;line-height:20px;border-radius:inherit}._zs_galleryeR ._zs_galleryeS{display:inline-block;position:relative;padding-left:18px;word-break:break-all}._zs_galleryeR ._zs_galleryeS ._zs_galleryeT{top:0;left:0}._zs_galleryeR ._zs_galleryeU,._zs_galleryeR ._zs_galleryeS ._zs_galleryeT{position:absolute;height:20px;line-height:20px}._zs_galleryeR ._zs_galleryeU{top:8px;right:10px;width:20px;text-align:center;cursor:pointer;color:#999;font-weight:700;transition:all var(--duration)}._zs_galleryeR ._zs_galleryeU:hover{color:#666}"),r.default=t.extend({tmpl:function(e,r,l,o,t,i,a,s){if(l||(l=e),!t){var c={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},n=/[&<>"'`]/g,_=function(e){return"&"+c[e]+";"};t=function(e){return""+(null==e?"":e)},o=function(e){return t(e).replace(n,_)}}if(!i){var d={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},g=function(e){return d[e]},u=/[!')(*]/g;i=function(e){return encodeURIComponent(t(e)).replace(u,g)}}if(!s){var p=/[\\'"]/g;s=function(e){return t(e).replace(p,"\\$&")}}var f="",y=e.show,h=e.styles,b=e.icon,x=e.colorIcon,z=e.content,m=e.closable,v=e.spm;return y&&(f+='<div class="_zs_galleryeR" style="'+o(h)+'">',f+=b?'<div mxa="_zs_galleryb}:_" class="_zs_galleryeS"><i class="mc-iconfont _zs_galleryeT" style="color: '+o(x)+';">&#xe6ad;</i>'+t(z)+"</div>":" "+t(z)+" ",f+=" ",m&&(f+='<i class="mc-iconfont _zs_galleryeU" mx-click="'+r+'close()" ',v&&(f+=' data-spm-click="'+o(v)+'" '),f+=">&#xe603;</i>"),f+="</div>"),f},init:function(e){var r,l,o,t,i=e.color,a=e.border+""=="true",s=e.radius+""=="true",c=!(e.icon+""=="false"),n=e.closable+""=="true",_=e.type||"common",d=e.textAlign||"left",g=[];if(a&&(s=!0,g.push("border-width: 1px","border-style: solid")),s&&g.push("border-radius: var(--border-radius)"),!i){var u=void 0;switch(_){case"common":r=this.__cs("--color-bg","#fafafa"),l=this.__cs("--color-border","#e6e6e6"),o="#cccccc";break;case"highlight":u="--color-brand";break;case"error":u="--color-red";break;case"warn":u="--color-warn"}u&&(i=this.__cs(u,"#4d7fff"))}if(i){var p=this.__b(i);r="rgba("+p.r+", "+p.g+", "+p.b+", 0.1)",l=i,o=i}r=e.colorBg||r,l=e.colorBorder||l,o=e.colorIcon||o,t=e.colorText||"#666",g.push("background-color:"+r,"border-color:"+l,"color:"+t,"text-align:"+d),this.updater.set({show:!0,content:e.content||document.getElementById(this.id).innerHTML||"提示内容",styles:g.join(";"),colorIcon:o,icon:c,closable:n})},render:function(){this.updater.digest()},"close<click>":function(e){this.updater.digest({show:!1})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-effects/notice",["magix","../mx-util/view"],(require,exports,module)=>{
+/*magix_1,View*/
+
+"use strict";
+exports.__esModule = true;
+/**
+ * 提示公告组件
+ */
+var magix_1 = require("magix");
+var View = require("../mx-util/view");
+magix_1["default"].applyStyle("_zs_gallery_mx-effects_notice_","._zs_gallery_mx-effects_notice_-notice {\n  position: relative;\n  padding: 8px 24px;\n  line-height: 20px;\n  border-radius: inherit;\n}\n._zs_gallery_mx-effects_notice_-notice ._zs_gallery_mx-effects_notice_-inner {\n  display: inline-block;\n  position: relative;\n  padding-left: 18px;\n  word-break: break-all;\n}\n._zs_gallery_mx-effects_notice_-notice ._zs_gallery_mx-effects_notice_-inner ._zs_gallery_mx-effects_notice_-icon {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 20px;\n  line-height: 20px;\n}\n._zs_gallery_mx-effects_notice_-notice ._zs_gallery_mx-effects_notice_-close {\n  position: absolute;\n  top: 8px;\n  right: 10px;\n  width: 20px;\n  height: 20px;\n  text-align: center;\n  line-height: 20px;\n  cursor: pointer;\n  color: #999;\n  font-weight: bold;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-effects_notice_-notice ._zs_gallery_mx-effects_notice_-close:hover {\n  color: #666;\n}\n");
+exports["default"] = View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', show = $$.show, styles = $$.styles, icon = $$.icon, colorIcon = $$.colorIcon, content = $$.content, closable = $$.closable, spm = $$.spm; var $expr, $art, $line; try {
+    $line = 1;
+    $art = 'if show';
+    ;
+    $expr = '<%if (show) {%>';
+    if (show) {
+        ;
+        $p += '<div class="_zs_gallery_mx-effects_notice_-notice" style="';
+        $line = 2;
+        $art = '=styles';
+        ;
+        $p += ($expr = '<%=styles%>', $e(styles)) + '">';
+        $line = 3;
+        $art = 'if icon';
+        ;
+        $expr = '<%if (icon) {%>';
+        if (icon) {
+            ;
+            $p += '<div mxa="_zs_galleryb):_" class="_zs_gallery_mx-effects_notice_-inner"><i class="mc-iconfont _zs_gallery_mx-effects_notice_-icon" style="color: ';
+            $line = 5;
+            $art = '=colorIcon';
+            ;
+            $p += ($expr = '<%=colorIcon%>', $e(colorIcon)) + ';">&#xe6ad;</i>';
+            $line = 6;
+            $art = '!content';
+            ;
+            $p += ($expr = '<%!content%>', $n(content)) + '</div>';
+            $line = 8;
+            $art = 'else';
+            ;
+            $expr = '<%}    else {%>';
+        }
+        else {
+            ;
+            $p += ' ';
+            $line = 9;
+            $art = '!content';
+            ;
+            $p += ($expr = '<%!content%>', $n(content)) + ' ';
+            $line = 10;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 12;
+        $art = 'if closable';
+        ;
+        $expr = '<%if (closable) {%>';
+        if (closable) {
+            ;
+            $p += '<i class="mc-iconfont _zs_gallery_mx-effects_notice_-close" mx-click="' + $viewId + 'close()" ';
+            $line = 12;
+            $art = 'if spm';
+            ;
+            $expr = '<%if (spm) {%>';
+            if (spm) {
+                ;
+                $p += ' data-spm-click="';
+                $line = 12;
+                $art = '=spm';
+                ;
+                $p += ($expr = '<%=spm%>', $e(spm)) + '" ';
+                $line = 12;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '>&#xe603;</i>';
+            $line = 12;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div>';
+        $line = 14;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-effects/notice.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var color = extra.color, border = (extra.border + '' === 'true'), // 默认无边框 false
+        radius = (extra.radius + '' === 'true'), // 默认无圆角 false
+        icon = !(extra.icon + '' === 'false'), // 默认有提示icon true
+        closable = (extra.closable + '' === 'true'), // 默认无关闭按钮 false
+        type = extra.type || 'common', textAlign = extra.textAlign || 'left'; // 默认左对齐
+        var styles = [];
+        if (border) {
+            // 有边框的情况下一定有圆角
+            radius = true;
+            styles.push('border-width: 1px', 'border-style: solid');
+        }
+        if (radius) {
+            styles.push('border-radius: var(--border-radius)');
+        }
+        // 优先级自定义色值color > 预置类型type
+        var colorBg, colorBorder, colorIcon, colorText;
+        if (!color) {
+            // 未自定义颜色的时候
+            var key = void 0;
+            switch (type) {
+                case 'common':
+                    colorBg = this['@{get.css.var}']('--color-bg', '#fafafa');
+                    colorBorder = this['@{get.css.var}']('--color-border', '#e6e6e6');
+                    colorIcon = '#cccccc';
+                    break;
+                case 'highlight':
+                    key = '--color-brand';
+                    break;
+                case 'error':
+                    key = '--color-red';
+                    break;
+                case 'warn':
+                    key = '--color-warn';
+                    break;
+                case 'pass':
+                    key = '--color-green';
+                    break;
+            }
+            if (key) {
+                color = this['@{get.css.var}'](key, '#4d7fff');
+            }
+        }
+        if (color) {
+            // 主体颜色，背景加透明度
+            var result = this['@{color.to.rgb}'](color);
+            colorBg = "rgba(" + result.r + ", " + result.g + ", " + result.b + ", 0.1)";
+            colorBorder = color;
+            colorIcon = color;
+        }
+        colorBg = extra.colorBg || colorBg;
+        colorBorder = extra.colorBorder || colorBorder;
+        colorIcon = extra.colorIcon || colorIcon;
+        colorText = extra.colorText || '#666';
+        styles.push('background-color:' + colorBg, 'border-color:' + colorBorder, 'color:' + colorText, 'text-align:' + textAlign);
+        this.updater.set({
+            show: true,
+            content: extra.content || document.getElementById(this.id).innerHTML || '提示内容',
+            styles: styles.join(';'),
+            colorIcon: colorIcon,
+            icon: icon,
+            closable: closable
+        });
+    },
+    render: function () {
+        this.updater.digest();
+    },
+    'close<click>': function (event) {
+        this.updater.digest({
+            show: false
+        });
+    }
+});
+
+});

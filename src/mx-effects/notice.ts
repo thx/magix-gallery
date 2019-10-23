@@ -49,6 +49,9 @@ export default View.extend({
                 case 'warn':
                     key = '--color-warn';
                     break;
+                case 'pass':
+                    key = '--color-green';
+                    break;
             }
             if (key) {
                 color = this['@{get.css.var}'](key, '#4d7fff');

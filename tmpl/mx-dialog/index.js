@@ -193,7 +193,8 @@ module.exports = Magix.View.extend({
     }
 }, {
         '@{dialog.show}'(view, options) {
-            let id = Magix.guid('dlg_');
+            // vfDialogId自定义当前dialog id
+            let id = options.vfDialogId || Magix.guid('dlg_');
             if (options.mask) {
                 let mask = $('<div class="@index.less:dialog-backdrop" id="mask_' + id + '" />');
                 mask.css({

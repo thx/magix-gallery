@@ -1,1 +1,58 @@
-define("mx-main/examples/inner",["magix","$"],(e,n,t)=>{var i=e("magix"),r=e("$");t.exports=i.View.extend({tmpl:function(e,n,t,i,r,a,u,o){if(t||(t=e),!r){var c={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},d=/[&<>"'`]/g,f=function(e){return"&"+c[e]+";"};r=function(e){return""+(null==e?"":e)},function(e){return r(e).replace(d,f)}}if(!a){var l={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},s=function(e){return l[e]},m=/[!')(*]/g;a=function(e){return encodeURIComponent(r(e)).replace(m,s)}}if(!o){var g=/[\\'"]/g;o=function(e){return r(e).replace(g,"\\$&")}}return'<div mxs="_zs_galleryde:_" class="min-height-320">自定义内容</div>','<div mxs="_zs_galleryde:_" class="min-height-320">自定义内容</div>'},init:function(e){this.updater.set({info:e.info||{},data:r.extend(!0,{},e.data||{})})},render:function(){this.updater.digest()},check:function(){var e=this.updater.get("info"),n={};return n["test_"+e.index]=e.label,new Promise(function(t){t({ok:!0,msg:e.label,remain:n})})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-main/examples/inner",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+var Magix = require("magix");
+var $ = require("$");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
+    $p += '<div mxs="_zs_gallerydc:_" class="min-height-320">自定义内容</div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-main/examples/inner.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        this.updater.set({
+            info: extra.info || {},
+            data: $.extend(true, {}, extra.data || {})
+        });
+    },
+    render: function () {
+        this.updater.digest();
+    },
+    check: function () {
+        var info = this.updater.get('info');
+        var ok = true, remain = {};
+        remain['test_' + info.index] = info.label;
+        return new Promise(function (resolve) {
+            // 此处返回promise，防止有接口提交校验等
+            resolve({
+                ok: ok,
+                msg: info.label,
+                remain: remain
+            });
+        });
+    }
+});
+
+});

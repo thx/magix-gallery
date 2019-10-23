@@ -16,6 +16,7 @@ module.exports = Magix.View.extend({
                 'common：灰色类型提示',
                 'error：红色错误类型提示',
                 'warn：黄色警告类型提示',
+                'pass：绿色通过类型提示',
                 'highlight：品牌色图标强调提示'
             ].join('<br>'),
             type: 'string',

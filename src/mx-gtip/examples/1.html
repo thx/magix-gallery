@@ -31,6 +31,9 @@
         <div class="mb20">
             <a href="javascript:;" mx-click="show4()" class="link-brand">highlight顶通（品牌色强调），手动关闭</a>
         </div>
+        <div class="mb20">
+            <a href="javascript:;" mx-click="show5()" class="link-brand">pass顶通（绿色提示），手动关闭</a>
+        </div>
     </div>
     <div class="clearfix">
         <div class="eg-desc third1">
@@ -48,6 +51,8 @@
 &lt;a href="javascript:;" mx-click="show3()" class="link-brand"&gt;warn顶通（警告），1s自动关闭&lt;/a&gt;
 
 &lt;a href="javascript:;" mx-click="show4()" class="link-brand"&gt;highlight顶通（品牌色强调），手动关闭&lt;/a&gt;
+
+&lt;a href="javascript:;" mx-click="show5()" class="link-brand"&gt;pass顶通（绿色提示），手动关闭&lt;/a&gt;
             </pre>
         </div>
         <div class="eg-desc half-right third2">
@@ -92,6 +97,11 @@ module.exports = Magix.View.extend(&#123;
     'show4&lt;click&gt;'()&#123;
         this.gtip('highlight顶通（品牌色强调），手动关闭', &#123;
             type: 'highlight'
+        &#125;);
+    &#125;
+    'show5&lt;click&gt;'()&#123;
+        this.gtip('pass顶通（绿色提示），手动关闭', &#123;
+            type: 'pass'
         &#125;);
     &#125;
 &#125;);

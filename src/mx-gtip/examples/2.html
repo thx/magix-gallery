@@ -13,6 +13,9 @@
         <div class="mb20">
             <a href="javascript:;" mx-click="show3()" class="link-brand">highlight提示，手动关闭</a>
         </div>
+        <div class="mb20">
+            <a href="javascript:;" mx-click="show4()" class="link-brand">pass提示，手动关闭</a>
+        </div>
     </div>
     <div class="clearfix">
         <div class="eg-desc half">
@@ -28,6 +31,8 @@
 &lt;a href="javascript:;" mx-click="show2()" class="link-brand"&gt;warn提示，手动关闭&lt;/a&gt;
 
 &lt;a href="javascript:;" mx-click="show3()" class="link-brand"&gt;highlight提示，手动关闭&lt;/a&gt;
+
+&lt;a href="javascript:;" mx-click="show4()" class="link-brand"&gt;pass提示，手动关闭&lt;/a&gt;
             </pre>
         </div>
         <div class="eg-desc half half-right">
@@ -77,6 +82,18 @@ module.exports = Magix.View.extend(&#123;
     'show3&lt;click&gt;'()&#123;
         this.gtip('highlight提示，手动关闭', &#123;
             type: 'highlight',
+            singleton: false,
+            styles: &#123;
+                width: 'auto',
+                top: '240px',
+                right: '40px',
+                left: 'auto'
+            &#125;
+        &#125;);
+    &#125;,
+    'show4&lt;click&gt;'()&#123;
+        this.gtip('pass提示，手动关闭', &#123;
+            type: 'pass',
             singleton: false,
             styles: &#123;
                 width: 'auto',

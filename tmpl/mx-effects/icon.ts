@@ -44,6 +44,9 @@ export default View.extend({
                 case 'warn':
                     color = 'var(--color-warn)';
                     break;
+                case 'pass':
+                    color = 'var(--color-green)';
+                    break;
             }
         }
 

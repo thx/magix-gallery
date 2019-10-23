@@ -1,1 +1,130 @@
-define("mx-util/view",["magix"],(t,e,a)=>{"use strict";var r=t("magix"),n=function(t){if(!t)return null;if(t.indexOf("rgb")>-1){for(var e=t.toString().match(/\d+/g),a="#",r=0;r<3;r++)a+=("0"+Number(e[r]).toString(16)).slice(-2);t=a}t=t.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i,function(t,e,a,r){return e+e+a+a+r+r});var n=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(t);return n?{r:parseInt(n[1],16),g:parseInt(n[2],16),b:parseInt(n[3],16),alpha:1}:null},i=function(t){var e,a,r=t.r/255,n=t.g/255,i=t.b/255,l=t.alpha,c=Math.max(r,n,i),o=Math.min(r,n,i),u=(c+o)/2,s=c-o;if(c===o)e=a=0;else{switch(a=u>.5?s/(2-c-o):s/(c+o),c){case r:e=(n-i)/s+(n<i?6:0);break;case n:e=(i-r)/s+2;break;case i:e=(r-n)/s+4}e/=6}return{h:360*e,s:a,l:u,a:l}};a.exports=r.default.View.extend({__cs:function(t,e){var a=window.getComputedStyle(document.documentElement),r=document.body.style.getPropertyValue(t)||a.getPropertyValue(t);return r?r.trim():e||""},__b:n,__c:function(t){var e=parseFloat(t.alpha||1),a=Math.floor(e*parseInt(t.r)+255*(1-e)),r=Math.floor(e*parseInt(t.g)+255*(1-e)),n=Math.floor(e*parseInt(t.b)+255*(1-e));return"#"+("0"+a.toString(16)).slice(-2)+("0"+r.toString(16)).slice(-2)+("0"+n.toString(16)).slice(-2)},__fA:i,__d:function(t,e){return function(t,e,a){var r=i(t),n=i(e),l=2*a-1,c=r.a-n.a,o=((l*c==-1?l:(l+c)/(1+l*c))+1)/2,u=1-o,s=t.r*o+e.r*u,d=t.g*o+e.g*u,f=t.b*o+e.b*u,p=t.alpha*a+e.alpha*(1-a);return{r:Math.ceil(s),g:Math.ceil(d),b:Math.ceil(f),alpha:p}}({r:0,g:0,b:0,alpha:1},n(t),e)}}).merge({ctor:function(){var t=(document.getElementById(this.id).attributes["data-spm-click"]||{}).value||"";this.updater.set({viewId:this.id,spm:t})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-util/view",["magix"],(require,exports,module)=>{
+/*magix_1*/
+
+"use strict";
+/**
+ * 通用方法定义
+ * 具体页面继承该View
+ */
+var magix_1 = require("magix");
+var ToRGB = function (color) {
+    if (!color) {
+        return null;
+    }
+    if (color.indexOf('rgb') > -1) {
+        // rgb() rgba()
+        // 先转成hex
+        var rgb = color.toString().match(/\d+/g); // 把 x,y,z 推送到 color 数组里
+        var hex = '#';
+        for (var i = 0; i < 3; i++) {
+            // 'Number.toString(16)' 是JS默认能实现转换成16进制数的方法.
+            // 'color[i]' 是数组，要转换成字符串.
+            // 如果结果是一位数，就在前面补零。例如： A变成0A
+            hex += ('0' + Number(rgb[i]).toString(16)).slice(-2);
+        }
+        color = hex;
+    }
+    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    color = color.replace(shorthandRegex, function (m, r, g, b) {
+        return r + r + g + g + b + b;
+    });
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16),
+        alpha: 1
+    } : null;
+};
+var ToHex = function (result) {
+    var a = parseFloat(result.alpha || 1);
+    var r = Math.floor(a * parseInt(result.r) + (1 - a) * 255), g = Math.floor(a * parseInt(result.g) + (1 - a) * 255), b = Math.floor(a * parseInt(result.b) + (1 - a) * 255);
+    return '#' +
+        ('0' + r.toString(16)).slice(-2) +
+        ('0' + g.toString(16)).slice(-2) +
+        ('0' + b.toString(16)).slice(-2);
+};
+var ToHSL = function (result) {
+    var r = result.r / 255, g = result.g / 255, b = result.b / 255, a = result.alpha;
+    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+    var h, s, l = (max + min) / 2, d = max - min;
+    if (max === min) {
+        h = s = 0;
+    }
+    else {
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+            case r:
+                h = (g - b) / d + (g < b ? 6 : 0);
+                break;
+            case g:
+                h = (b - r) / d + 2;
+                break;
+            case b:
+                h = (r - g) / d + 4;
+                break;
+        }
+        h /= 6;
+    }
+    return { h: h * 360, s: s, l: l, a: a };
+};
+var ColorMix = function (color1, color2, p) {
+    var hsl1 = ToHSL(color1), hsl2 = ToHSL(color2);
+    var w = p * 2 - 1;
+    var a = hsl1.a - hsl2.a;
+    var w1 = (((w * a == -1) ? w : (w + a) / (1 + w * a)) + 1) / 2.0;
+    var w2 = 1 - w1;
+    var r = color1.r * w1 + color2.r * w2, g = color1.g * w1 + color2.g * w2, b = color1.b * w1 + color2.b * w2;
+    var alpha = color1.alpha * p + color2.alpha * (1 - p);
+    return {
+        r: Math.ceil(r),
+        g: Math.ceil(g),
+        b: Math.ceil(b),
+        alpha: alpha
+    };
+};
+module.exports = magix_1["default"].View.extend({
+    /**
+     * 获取css变量值
+     * 优先级：style设置 > root配置，在线预览配置 #!/all/edit/index
+     */
+    '@{get.css.var}': function (key, def) {
+        var root = window.getComputedStyle(document.documentElement);
+        var v = document.body.style.getPropertyValue(key) || root.getPropertyValue(key);
+        if (!v) {
+            return def || '';
+        }
+        else {
+            return v.trim();
+        }
+    },
+    '@{color.to.rgb}': ToRGB,
+    '@{color.to.hex}': ToHex,
+    '@{color.to.hsl}': ToHSL,
+    '@{color.shade}': function (color, p) {
+        var rgba = ToRGB(color);
+        var result = ColorMix({
+            r: 0,
+            g: 0,
+            b: 0,
+            alpha: 1
+        }, rgba, p);
+        return result;
+    }
+}).merge({
+    ctor: function () {
+        var attrs = document.getElementById(this.id).attributes;
+        var spm = (attrs['data-spm-click'] || {})['value'] || '';
+        this.updater.set({
+            viewId: this.id,
+            spm: spm
+        });
+    }
+});
+
+});

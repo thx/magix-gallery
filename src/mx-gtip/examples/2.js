@@ -46,5 +46,17 @@ module.exports = Base.extend({
                 left: 'auto'
             }
         });
+    },
+    'show4<click>'(){
+        this.gtip('pass提示，手动关闭', {
+            type: 'pass',
+            singleton: false,
+            styles: {
+                width: 'auto',
+                top: '240px',
+                right: '40px',
+                left: 'auto'
+            }
+        });
     }
 });

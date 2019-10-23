@@ -62,6 +62,9 @@ export = View.extend({
             case 'warn':
                 colorKey = '--color-warn';
                 colorText = '#666666';
+            case 'pass':
+                colorKey = '--color-green';
+                colorText = '#666666';
                 break;
         }
         if (colorKey) {
